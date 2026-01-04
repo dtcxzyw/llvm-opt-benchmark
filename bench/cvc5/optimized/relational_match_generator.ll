@@ -243,7 +243,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %65, %61, %55
   %74 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
-  br label %346
+  br label %320
 
 75:                                               ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit, %293
   %76 = phi i1 [ true, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit ], [ false, %293 ]
@@ -802,9 +802,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit242: ; preds = %_ZSt
 .body:                                            ; preds = %342, %336, %.body49, %53
   %.pn42.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn42.pn, %.body49 ], [ %.pn42.pn, %336 ], [ %.pn42.pn, %342 ]
   call void @_ZN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) #20
-  br label %346
+  br label %320
 
-346:                                              ; preds = %.body, %73
+320:                                              ; preds = %.body, %73
   %.pn42.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn, %.body ], [ %74, %73 ]
   resume { ptr, i32 } %.pn42.pn.pn.pn
 }

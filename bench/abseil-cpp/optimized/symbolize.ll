@@ -2521,7 +2521,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ReadAd
 14:                                               ; preds = %13
   %15 = landingpad { ptr, i32 }
           cleanup
-  br label %168
+  br label %170
 
 .critedge:                                        ; preds = %6, %.critedge.backedge
   %.sroa.19.0 = phi ptr [ %38, %.critedge.backedge ], [ %1, %6 ]
@@ -2587,7 +2587,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.
 41:                                               ; preds = %28, %17
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %168
+  br label %170
 
 43:                                               ; preds = %34
   store i8 0, ptr %38, align 1, !tbaa !9
@@ -2669,7 +2669,7 @@ _ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit: ; preds = %switch.early.te
 64:                                               ; preds = %63
   %65 = landingpad { ptr, i32 }
           cleanup
-  br label %168
+  br label %170
 
 66:                                               ; preds = %61
   %67 = getelementptr inbounds nuw i8, ptr %.026.lcssa.i.i, i64 1
@@ -2753,7 +2753,7 @@ _ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit74: ; preds = %switch.early.
 89:                                               ; preds = %88
   %90 = landingpad { ptr, i32 }
           cleanup
-  br label %168
+  br label %170
 
 91:                                               ; preds = %86
   %.ptr77 = getelementptr inbounds nuw i8, ptr %.026.lcssa.i.i59, i64 1
@@ -2793,7 +2793,7 @@ _ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit74: ; preds = %switch.early.
 98:                                               ; preds = %.critedge2.thread
   %99 = landingpad { ptr, i32 }
           cleanup
-  br label %168
+  br label %170
 
 100:                                              ; preds = %.critedge2
   %101 = load i8, ptr %.ptr77, align 1, !tbaa !9
@@ -2981,7 +2981,7 @@ _ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread: ; pr
 161:                                              ; preds = %163, %156
   %162 = landingpad { ptr, i32 }
           cleanup
-  br label %168
+  br label %170
 
 163:                                              ; preds = %158, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit
   %.161 = phi i64 [ %.160, %158 ], [ %.029, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ]
@@ -2991,19 +2991,19 @@ _ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread: ; pr
   invoke fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer15RegisterObjFileEPKcPKvS6_mPv(ptr noundef %.354, ptr noundef %.13457, ptr noundef %.13259, i64 noundef %.161, ptr noundef nonnull %0)
           to label %.critedge.backedge unwind label %161
 
-.critedge.backedge:                               ; preds = %163, %100, %158, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread, %_ZN4absl18debugging_internalL16ShouldUseMappingEPKc.exit
+165:                                              ; preds = %163, %100, %158, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread, %_ZN4absl18debugging_internalL16ShouldUseMappingEPKc.exit
   br label %.critedge, !llvm.loop !111
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread: ; preds = %.noexc, %34, %.noexc57, %63, %88, %.critedge2.thread
   %.0 = phi i1 [ false, %63 ], [ false, %88 ], [ false, %.critedge2.thread ], [ true, %.noexc57 ], [ true, %34 ], [ true, %.noexc ]
-  %164 = invoke i32 @close(i32 noundef %7)
-          to label %_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev.exit unwind label %165
+  %166 = invoke i32 @close(i32 noundef %7)
+          to label %_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev.exit unwind label %167
 
-165:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread
-  %166 = landingpad { ptr, i32 }
+167:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread
+  %168 = landingpad { ptr, i32 }
           catch ptr null
-  %167 = extractvalue { ptr, i32 } %166, 0
-  tail call void @__clang_call_terminate(ptr %167) #29
+  %169 = extractvalue { ptr, i32 } %168, 0
+  tail call void @__clang_call_terminate(ptr %169) #29
   unreachable
 
 _ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev.exit: ; preds = %13, %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread
@@ -3011,7 +3011,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev.exit: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.076
 
-168:                                              ; preds = %41, %89, %161, %98, %64, %14
+170:                                              ; preds = %41, %89, %161, %98, %64, %14
   %.pn51 = phi { ptr, i32 } [ %15, %14 ], [ %42, %41 ], [ %65, %64 ], [ %162, %161 ], [ %90, %89 ], [ %99, %98 ]
   call fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev(i32 %7) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
