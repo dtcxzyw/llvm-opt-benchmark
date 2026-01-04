@@ -2014,7 +2014,7 @@ jxl_enum.exit256:                                 ; preds = %998, %1022
   %.not225 = icmp eq i32 %1145, 0
   br i1 %.not225, label %.thread324, label %1146
 
-1146:                                             ; preds = %1143
+1146:; preds = %1143
   %1147 = lshr i32 %.val257, 3
   %1148 = zext nneg i32 %1147 to i64
   %1149 = getelementptr inbounds nuw i8, ptr %1064, i64 %1148
@@ -2032,8 +2032,8 @@ jxl_enum.exit256:                                 ; preds = %998, %1022
 .thread324:                                       ; preds = %1146, %1143, %1142
   %.val265 = phi i32 [ %1157, %1146 ], [ %.val257, %1143 ], [ %.val257, %1142 ]
   %.val266 = load i32, ptr %42, align 4, !tbaa !11
-  %1158 = icmp slt i32 %.val266, %.val265
-  %spec.select = select i1 %1158, i32 -1397118274, i32 %.val265
+  %1159 = icmp slt i32 %.val266, %.val265
+  %spec.select = select i1 %1159, i32 -1397118274, i32 %.val265
   br label %jpegxl_read_extra_channel_info.exit.thread320
 
 jpegxl_read_extra_channel_info.exit.thread320:    ; preds = %765, %jxl_enum.exit.i, %721, %jxl_u32.exit244, %.thread324, %1146, %1046, %jxl_enum.exit256, %jxl_enum.exit253, %jxl_enum.exit250, %jxl_enum.exit247, %jxl_enum.exit, %jxl_u32.exit235, %521, %518, %55, %49, %4
