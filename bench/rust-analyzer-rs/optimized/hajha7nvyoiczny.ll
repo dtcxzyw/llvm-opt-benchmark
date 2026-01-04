@@ -2104,7 +2104,7 @@ _ZN4core3ops8function6FnOnce9call_once17h167a1c1bdefa33d1E.exit.i9.i: ; preds = 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN118_$LT$chalk_solve..clauses..env_elaborator..EnvElaborator$LT$I$GT$$u20$as$u20$chalk_ir..visit..TypeVisitor$LT$I$GT$$GT$17visit_domain_goal17h8d28d31bfee662a3E.llvm.15095859440380444305"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 0, -1) i1 @"_ZN118_$LT$chalk_solve..clauses..env_elaborator..EnvElaborator$LT$I$GT$$u20$as$u20$chalk_ir..visit..TypeVisitor$LT$I$GT$$GT$17visit_domain_goal17h8d28d31bfee662a3E.llvm.15095859440380444305"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2472,7 +2472,7 @@ define hidden void @"_ZN118_$LT$chalk_solve..clauses..env_elaborator..EnvElabora
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN118_$LT$chalk_solve..clauses..env_elaborator..EnvElaborator$LT$I$GT$$u20$as$u20$chalk_ir..visit..TypeVisitor$LT$I$GT$$GT$8visit_ty17hdf567930292527e5E.llvm.15095859440380444305"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i32 %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 0, -1) i1 @"_ZN118_$LT$chalk_solve..clauses..env_elaborator..EnvElaborator$LT$I$GT$$u20$as$u20$chalk_ir..visit..TypeVisitor$LT$I$GT$$GT$8visit_ty17hdf567930292527e5E.llvm.15095859440380444305"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i32 %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca ptr, align 8
   %6 = alloca { { i64, [3 x i64] }, ptr }, align 8
@@ -4576,7 +4576,7 @@ define hidden void @"_ZN129_$LT$chalk_solve..rust_ir..OpaqueTyDatum$LT$I$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_id17h183c88c01ea0c0f0E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 {
+define internal noundef range(i128 3426443349915538793607707548065177458, 3426443349915538793607707548065177459) i128 @_ZN12tracing_core8callsite8Callsite15private_type_id17h183c88c01ea0c0f0E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 {
   ret i128 3426443349915538793607707548065177458
 }
 
@@ -6873,7 +6873,7 @@ define internal noundef zeroext i1 @"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$$RP$$GT$2eq17h4dc364d0a0121893E.llvm.15095859440380444305"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1) unnamed_addr #7 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$$RP$$GT$2eq17h4dc364d0a0121893E.llvm.15095859440380444305"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1) unnamed_addr #7 {
   ret i1 true
 }
 
@@ -18117,12 +18117,12 @@ define hidden void @"_ZN55_$LT$hir_def..VariantId$u20$as$u20$core..hash..Hash$GT
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN58_$LT$$u5b$T$u3b$$u20$N$u5d$$u20$as$u20$smallvec..Array$GT$4size17h07218c061ece22b7E.llvm.15095859440380444305"() unnamed_addr #7 {
+define hidden noundef range(i64 1, 2) i64 @"_ZN58_$LT$$u5b$T$u3b$$u20$N$u5d$$u20$as$u20$smallvec..Array$GT$4size17h07218c061ece22b7E.llvm.15095859440380444305"() unnamed_addr #7 {
   ret i64 1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN58_$LT$$u5b$T$u3b$$u20$N$u5d$$u20$as$u20$smallvec..Array$GT$4size17h7e5e8742a15d9ed9E.llvm.15095859440380444305"() unnamed_addr #7 {
+define hidden noundef range(i64 2, 3) i64 @"_ZN58_$LT$$u5b$T$u3b$$u20$N$u5d$$u20$as$u20$smallvec..Array$GT$4size17h7e5e8742a15d9ed9E.llvm.15095859440380444305"() unnamed_addr #7 {
   ret i64 2
 }
 
@@ -22123,7 +22123,7 @@ define internal void @_ZN8chalk_ir4fold18FallibleTypeFolder13try_fold_goal17haa3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN8chalk_ir4fold18FallibleTypeFolder16forbid_free_vars17hfc4e4123a01be70aE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir4fold18FallibleTypeFolder16forbid_free_vars17hfc4e4123a01be70aE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
   ret i1 false
 }
 
@@ -22177,7 +22177,7 @@ define internal void @_ZN8chalk_ir4fold18FallibleTypeFolder20try_fold_free_var_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN8chalk_ir4fold18FallibleTypeFolder21forbid_inference_vars17h0606eec480a6ade2E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir4fold18FallibleTypeFolder21forbid_inference_vars17h0606eec480a6ade2E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
   ret i1 false
 }
 
@@ -22285,7 +22285,7 @@ define internal void @_ZN8chalk_ir4fold18FallibleTypeFolder23try_fold_program_cl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN8chalk_ir4fold18FallibleTypeFolder24forbid_free_placeholders17h3b0f0d7b078b9475E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir4fold18FallibleTypeFolder24forbid_free_placeholders17h3b0f0d7b078b9475E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
   ret i1 false
 }
 
@@ -22413,7 +22413,7 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor10visit_goal17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor11visit_const17h942c7c7cbb37666eE(ptr noalias readnone align 8 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) unnamed_addr #3 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor11visit_const17h942c7c7cbb37666eE(ptr noalias readnone align 8 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5831)
   %5 = load ptr, ptr %1, align 8, !alias.scope !5834, !noalias !5837, !nonnull !9, !noundef !9
@@ -22437,7 +22437,7 @@ define internal noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor11visit_const
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor11visit_const17hfbd2b8afd568c0fcE.llvm.15095859440380444305(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) unnamed_addr #3 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor11visit_const17hfbd2b8afd568c0fcE.llvm.15095859440380444305(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5840)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5843)
@@ -22468,17 +22468,17 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor11visit_const17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor14visit_free_var17hf5236b941e3d35c1E(ptr noalias readnone align 8 captures(none) %0, i64 %1, i32 %2, i32 %3) unnamed_addr #4 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor14visit_free_var17hf5236b941e3d35c1E(ptr noalias readnone align 8 captures(none) %0, i64 %1, i32 %2, i32 %3) unnamed_addr #4 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor14visit_free_var17hf8b8acda7157559fE.llvm.15095859440380444305(ptr noalias readnone align 8 captures(none) %0, i64 %1, i32 %2, i32 %3) unnamed_addr #4 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor14visit_free_var17hf8b8acda7157559fE.llvm.15095859440380444305(ptr noalias readnone align 8 captures(none) %0, i64 %1, i32 %2, i32 %3) unnamed_addr #4 {
   ret i1 false
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor14visit_lifetime17h37af3a9c0b2b2f8aE(ptr noalias readnone align 8 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) unnamed_addr #3 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor14visit_lifetime17h37af3a9c0b2b2f8aE(ptr noalias readnone align 8 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5853)
   %5 = load ptr, ptr %1, align 8, !alias.scope !5856, !noalias !5859, !nonnull !9, !noundef !9
@@ -22502,7 +22502,7 @@ define internal noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor14visit_lifet
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor14visit_lifetime17h3d178f35b9aca5faE.llvm.15095859440380444305(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) unnamed_addr #3 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor14visit_lifetime17h3d178f35b9aca5faE.llvm.15095859440380444305(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5863)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5866)
@@ -22533,17 +22533,17 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor14visit_lifetim
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor16forbid_free_vars17h80661ff225b78d56E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor16forbid_free_vars17h80661ff225b78d56E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor16forbid_free_vars17h9295ad43463ad2edE.llvm.15095859440380444305(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor16forbid_free_vars17h9295ad43463ad2edE.llvm.15095859440380444305(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor16forbid_free_vars17hd45a6d03e3e72555E.llvm.15095859440380444305(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor16forbid_free_vars17hd45a6d03e3e72555E.llvm.15095859440380444305(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
   ret i1 false
 }
 
@@ -22566,12 +22566,12 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor18visit_where_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor19visit_inference_var17h22cc7ea0b3a5dbdaE(ptr noalias readnone align 8 captures(none) %0, i32 %1, i32 %2) unnamed_addr #4 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor19visit_inference_var17h22cc7ea0b3a5dbdaE(ptr noalias readnone align 8 captures(none) %0, i32 %1, i32 %2) unnamed_addr #4 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor19visit_inference_var17h6665168376ec1508E.llvm.15095859440380444305(ptr noalias readnone align 8 captures(none) %0, i32 %1, i32 %2) unnamed_addr #4 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor19visit_inference_var17h6665168376ec1508E.llvm.15095859440380444305(ptr noalias readnone align 8 captures(none) %0, i32 %1, i32 %2) unnamed_addr #4 {
   ret i1 false
 }
 
@@ -22620,78 +22620,75 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor20visit_program
   %9 = add i32 %2, 1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = tail call noundef zeroext i1 @"_ZN118_$LT$chalk_solve..clauses..env_elaborator..EnvElaborator$LT$I$GT$$u20$as$u20$chalk_ir..visit..TypeVisitor$LT$I$GT$$GT$17visit_domain_goal17h8d28d31bfee662a3E.llvm.15095859440380444305"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10, i32 noundef %9), !noalias !5895
-  br i1 %11, label %"_ZN8chalk_ir5visit12boring_impls107_$LT$impl$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$16super_visit_with17h7b89c25e0d584a87E.exit", label %12
-
-12:                                               ; preds = %3
   tail call void %8(ptr noundef nonnull align 1 %4), !noalias !5898
-  %13 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$10goals_data17ha93cba72b34a8460E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %1), !noalias !5904
-  %14 = extractvalue { ptr, i64 } %13, 0
-  %15 = extractvalue { ptr, i64 } %13, 1
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
-  %17 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17h683c0bda8badd470E.llvm.6150282900714191917(ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4c1c81faaf4119674ab18ffb6752df2c.9.llvm.15095859440380444305, i32 noundef %9)
-  br i1 %18, label %"_ZN8chalk_ir5visit12boring_impls107_$LT$impl$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$16super_visit_with17h7b89c25e0d584a87E.exit", label %19
+  %12 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$10goals_data17ha93cba72b34a8460E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %1), !noalias !5904
+  %13 = extractvalue { ptr, i64 } %12, 0
+  %14 = extractvalue { ptr, i64 } %12, 1
+  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %16 = icmp ne ptr %13, null
+  tail call void @llvm.assume(i1 %16)
+  %17 = tail call noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17h683c0bda8badd470E.llvm.6150282900714191917(ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4c1c81faaf4119674ab18ffb6752df2c.9.llvm.15095859440380444305, i32 noundef %9)
+  br i1 %17, label %"_ZN8chalk_ir5visit12boring_impls107_$LT$impl$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$16super_visit_with17h7b89c25e0d584a87E.exit", label %18
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
+18:                                               ; preds = %3
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5905)
-  %21 = load ptr, ptr %0, align 8, !alias.scope !5905, !noalias !5908, !nonnull !9, !align !748, !noundef !9
-  %22 = load ptr, ptr %5, align 8, !alias.scope !5905, !noalias !5908, !nonnull !9, !align !30, !noundef !9
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 176
-  %24 = load ptr, ptr %23, align 8, !invariant.load !9, !noalias !5912, !nonnull !9
-  tail call void %24(ptr noundef nonnull align 1 %21), !noalias !5912
-  %25 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16constraints_data17h0931322a62f4ad89E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20), !noalias !5913
-  %26 = extractvalue { ptr, i64 } %25, 0
-  %27 = extractvalue { ptr, i64 } %25, 1
-  %28 = getelementptr inbounds { { i64, [2 x i64] }, ptr }, ptr %26, i64 %27
-  %29 = icmp ne ptr %26, null
-  tail call void @llvm.assume(i1 %29)
-  %30 = tail call noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17ha7a59ed1f89cf770E.llvm.6150282900714191917(ptr noundef nonnull %26, ptr noundef nonnull %28, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4c1c81faaf4119674ab18ffb6752df2c.9.llvm.15095859440380444305, i32 noundef %9)
+  %20 = load ptr, ptr %0, align 8, !alias.scope !5905, !noalias !5908, !nonnull !9, !align !748, !noundef !9
+  %21 = load ptr, ptr %5, align 8, !alias.scope !5905, !noalias !5908, !nonnull !9, !align !30, !noundef !9
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 176
+  %23 = load ptr, ptr %22, align 8, !invariant.load !9, !noalias !5912, !nonnull !9
+  tail call void %23(ptr noundef nonnull align 1 %20), !noalias !5912
+  %24 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16constraints_data17h0931322a62f4ad89E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19), !noalias !5913
+  %25 = extractvalue { ptr, i64 } %24, 0
+  %26 = extractvalue { ptr, i64 } %24, 1
+  %27 = getelementptr inbounds { { i64, [2 x i64] }, ptr }, ptr %25, i64 %26
+  %28 = icmp ne ptr %25, null
+  tail call void @llvm.assume(i1 %28)
+  %29 = tail call noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17ha7a59ed1f89cf770E.llvm.6150282900714191917(ptr noundef nonnull %25, ptr noundef nonnull %27, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4c1c81faaf4119674ab18ffb6752df2c.9.llvm.15095859440380444305, i32 noundef %9)
   br label %"_ZN8chalk_ir5visit12boring_impls107_$LT$impl$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$16super_visit_with17h7b89c25e0d584a87E.exit"
 
-"_ZN8chalk_ir5visit12boring_impls107_$LT$impl$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$16super_visit_with17h7b89c25e0d584a87E.exit": ; preds = %3, %12, %19
-  %.0.i.i = phi i1 [ true, %12 ], [ true, %3 ], [ %30, %19 ]
+"_ZN8chalk_ir5visit12boring_impls107_$LT$impl$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$16super_visit_with17h7b89c25e0d584a87E.exit": ; preds = %3, %18
+  %.0.i.i = phi i1 [ true, %3 ], [ %29, %18 ]
   ret i1 %.0.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor21forbid_inference_vars17h268b0a3dcad392eeE.llvm.15095859440380444305(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor21forbid_inference_vars17h268b0a3dcad392eeE.llvm.15095859440380444305(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor21forbid_inference_vars17h8bb2d0583ad41f98E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor21forbid_inference_vars17h8bb2d0583ad41f98E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor21forbid_inference_vars17hf5d46db7d20f1d37E.llvm.15095859440380444305(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor21forbid_inference_vars17hf5d46db7d20f1d37E.llvm.15095859440380444305(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor22visit_free_placeholder17h4e3dd544bea102e0E.llvm.15095859440380444305(ptr noalias readnone align 8 captures(none) %0, i64 %1, i64 %2, i32 %3) unnamed_addr #4 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor22visit_free_placeholder17h4e3dd544bea102e0E.llvm.15095859440380444305(ptr noalias readnone align 8 captures(none) %0, i64 %1, i64 %2, i32 %3) unnamed_addr #4 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor22visit_free_placeholder17hcb8e087dc404180aE(ptr noalias readnone align 8 captures(none) %0, i64 %1, i64 %2, i32 %3) unnamed_addr #4 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor22visit_free_placeholder17hcb8e087dc404180aE(ptr noalias readnone align 8 captures(none) %0, i64 %1, i64 %2, i32 %3) unnamed_addr #4 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor24forbid_free_placeholders17h2b0393d480eb7bf5E.llvm.15095859440380444305(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor24forbid_free_placeholders17h2b0393d480eb7bf5E.llvm.15095859440380444305(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor24forbid_free_placeholders17h767e8ef7c8264c98E.llvm.15095859440380444305(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
+define hidden noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor24forbid_free_placeholders17h767e8ef7c8264c98E.llvm.15095859440380444305(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor24forbid_free_placeholders17hedf37546662d0401E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN8chalk_ir5visit11TypeVisitor24forbid_free_placeholders17hedf37546662d0401E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #4 {
   ret i1 false
 }
 
@@ -97009,12 +97006,12 @@ _ZN8chalk_ir3zip6Zipper10zip_substs17hf0bbe86a042c5e7eE.exit: ; preds = %"_ZN4co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN106_$LT$hir_ty..infer..UnknownMismatch$u20$as$u20$chalk_ir..zip..Zipper$LT$hir_ty..interner..Interner$GT$$GT$13zip_lifetimes17h6b5d4c6ab8a289fdE"(ptr noalias noundef readnone align 8 captures(none) dereferenceable(16) %0, i8 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #4 {
+define noundef zeroext range(i1 0, -1) i1 @"_ZN106_$LT$hir_ty..infer..UnknownMismatch$u20$as$u20$chalk_ir..zip..Zipper$LT$hir_ty..interner..Interner$GT$$GT$13zip_lifetimes17h6b5d4c6ab8a289fdE"(ptr noalias noundef readnone align 8 captures(none) dereferenceable(16) %0, i8 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #4 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN106_$LT$hir_ty..infer..UnknownMismatch$u20$as$u20$chalk_ir..zip..Zipper$LT$hir_ty..interner..Interner$GT$$GT$10zip_consts17h539f6f40ca70acb0E"(ptr noalias noundef readnone align 8 captures(none) dereferenceable(16) %0, i8 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #4 {
+define noundef zeroext range(i1 0, -1) i1 @"_ZN106_$LT$hir_ty..infer..UnknownMismatch$u20$as$u20$chalk_ir..zip..Zipper$LT$hir_ty..interner..Interner$GT$$GT$10zip_consts17h539f6f40ca70acb0E"(ptr noalias noundef readnone align 8 captures(none) dereferenceable(16) %0, i8 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #4 {
   ret i1 false
 }
 
@@ -123099,7 +123096,7 @@ define void @"_ZN6hir_ty3mir6pretty38_$LT$impl$u20$hir_ty..mir..MirBody$GT$3dbg1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN6hir_ty3mir11return_slot17h782db574e5417c7bE() unnamed_addr #4 {
+define hidden noundef range(i32 0, 1) i32 @_ZN6hir_ty3mir11return_slot17h782db574e5417c7bE() unnamed_addr #4 {
   ret i32 0
 }
 

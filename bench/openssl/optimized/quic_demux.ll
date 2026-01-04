@@ -518,18 +518,16 @@ demux_recv.exit:                                  ; preds = %ossl_list_urxe_inse
   br label %117
 
 117:                                              ; preds = %demux_recv.exit, %1
-  %118 = call fastcc i32 @demux_process_pending_urxl(ptr noundef nonnull %0)
-  %119 = icmp slt i32 %118, 1
-  %. = select i1 %119, i32 -2, i32 1
+  call fastcc void @demux_process_pending_urxl(ptr noundef nonnull %0)
   br label %demux_ensure_free_urxe.exit.thread
 
 demux_ensure_free_urxe.exit.thread:               ; preds = %15, %12, %demux_recv.exit.thread, %117
-  %.0 = phi i32 [ %.0.i11.ph, %demux_recv.exit.thread ], [ %., %117 ], [ -2, %12 ], [ -2, %15 ]
+  %.0 = phi i32 [ %.0.i11.ph, %demux_recv.exit.thread ], [ 1, %117 ], [ -2, %12 ], [ -2, %15 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 -2147483648, 2) i32 @demux_process_pending_urxl(ptr noundef captures(none) %0) unnamed_addr #0 {
+define internal fastcc void @demux_process_pending_urxl(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.quic_conn_id_st, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.val7 = load ptr, ptr %3, align 8, !tbaa !17
@@ -647,7 +645,7 @@ demux_process_pending_urxe.exit:                  ; preds = %34, %ossl_list_urxe
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %demux_process_pending_urxe.exit, %1
-  ret i32 1
+  ret void
 }
 
 ; Function Attrs: nounwind uwtable
@@ -845,13 +843,11 @@ ossl_list_urxe_insert_tail.exit:                  ; preds = %78, %81
   store i64 %84, ptr %82, align 8, !tbaa !24
   %85 = getelementptr inbounds nuw i8, ptr %32, i64 289
   store i8 1, ptr %85, align 1, !tbaa !31
-  %86 = tail call fastcc i32 @demux_process_pending_urxl(ptr noundef nonnull %0)
-  %87 = icmp sgt i32 %86, 0
-  %88 = zext i1 %87 to i32
+  tail call fastcc void @demux_process_pending_urxl(ptr noundef nonnull %0)
   br label %demux_ensure_free_urxe.exit.thread
 
 demux_ensure_free_urxe.exit.thread:               ; preds = %14, %11, %demux_ensure_free_urxe.exit, %ossl_list_urxe_insert_tail.exit
-  %.0 = phi i32 [ %88, %ossl_list_urxe_insert_tail.exit ], [ 0, %demux_ensure_free_urxe.exit ], [ 0, %11 ], [ 0, %14 ]
+  %.0 = phi i32 [ 1, %ossl_list_urxe_insert_tail.exit ], [ 0, %demux_ensure_free_urxe.exit ], [ 0, %11 ], [ 0, %14 ]
   ret i32 %.0
 }
 

@@ -22162,7 +22162,7 @@ define void @rlLoadExtensions(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @rlGetVersion() local_unnamed_addr #12 {
+define noundef range(i32 3, 4) i32 @rlGetVersion() local_unnamed_addr #12 {
   ret i32 3
 }
 
@@ -24052,7 +24052,7 @@ define void @rlSetShader(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @rlLoadComputeShaderProgram(i32 noundef %0) local_unnamed_addr #0 {
+define noundef range(i32 0, 1) i32 @rlLoadComputeShaderProgram(i32 noundef %0) local_unnamed_addr #0 {
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.68) #63
   ret i32 0
 }
@@ -24063,7 +24063,7 @@ define void @rlComputeShaderDispatch(i32 noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @rlLoadShaderBuffer(i32 noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef range(i32 0, 1) i32 @rlLoadShaderBuffer(i32 noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.87) #63
   ret i32 0
 }
@@ -24080,7 +24080,7 @@ define void @rlUpdateShaderBuffer(i32 noundef %0, ptr noundef readnone captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @rlGetShaderBufferSize(i32 noundef %0) local_unnamed_addr #12 {
+define noundef range(i32 0, 1) i32 @rlGetShaderBufferSize(i32 noundef %0) local_unnamed_addr #12 {
   ret i32 0
 }
 

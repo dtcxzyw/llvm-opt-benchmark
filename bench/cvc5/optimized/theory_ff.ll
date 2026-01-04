@@ -32,8 +32,6 @@ $_ZN4cvc58internal6theory11TheoryStateD2Ev = comdat any
 
 $_ZN4cvc58internal6theory14TheoryRewriterD2Ev = comdat any
 
-$_ZN4cvc58internal9TrustNodeD2Ev = comdat any
-
 $_ZN4cvc58internal6theory6Theory22getCandidateModelValueENS0_12NodeTemplateILb0EEE = comdat any
 
 $_ZN4cvc58internal6theory6Theory9propagateENS2_6EffortE = comdat any
@@ -793,7 +791,7 @@ define hidden noalias noundef ptr @_ZN4cvc58internal6theory2ff18TheoryFiniteFiel
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2ff18TheoryFiniteFields19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(768) %0, ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 8)) %1) unnamed_addr #4 align 2 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4cvc58internal6theory2ff18TheoryFiniteFields19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(768) %0, ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 8)) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 744
   store ptr %3, ptr %1, align 8, !tbaa !265
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -840,7 +838,7 @@ define hidden void @_ZN4cvc58internal6theory2ff18TheoryFiniteFields10notifyFactE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2ff18TheoryFiniteFields18collectModelValuesEPNS1_11TheoryModelERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS8_ESaIS8_EE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #10 align 2 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4cvc58internal6theory2ff18TheoryFiniteFields18collectModelValuesEPNS1_11TheoryModelERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS8_ESaIS8_EE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #10 align 2 {
   ret i1 true
 }
 
@@ -981,7 +979,34 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %_ZStl
 
 23:                                               ; preds = %19, %17
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ]
-  call void @_ZN4cvc58internal9TrustNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !273
+  %26 = load i64, ptr %25, align 8
+  %27 = and i64 %26, 1152920405095219200
+  %.not.i.i.i = icmp eq i64 %27, 1152920405095219200
+  br i1 %.not.i.i.i, label %_ZN4cvc58internal9TrustNodeD2Ev.exit, label %28, !prof !275
+
+28:                                               ; preds = %23
+  %29 = add i64 %26, 1152920405095219200
+  %30 = and i64 %29, 1152920405095219200
+  %31 = and i64 %26, -1152920405095219201
+  %32 = or disjoint i64 %30, %31
+  store i64 %32, ptr %25, align 8
+  %33 = icmp eq i64 %30, 0
+  br i1 %33, label %34, label %_ZN4cvc58internal9TrustNodeD2Ev.exit, !prof !275
+
+34:                                               ; preds = %28
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %25)
+          to label %_ZN4cvc58internal9TrustNodeD2Ev.exit unwind label %35
+
+35:                                               ; preds = %34
+  %36 = landingpad { ptr, i32 }
+          catch ptr null
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #27
+  unreachable
+
+_ZN4cvc58internal9TrustNodeD2Ev.exit:             ; preds = %23, %28, %34
   resume { ptr, i32 } %.pn
 }
 
@@ -998,39 +1023,6 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal11Fatal
 
 ; Function Attrs: noreturn nounwind
 declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #11
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal9TrustNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !273
-  %4 = load i64, ptr %3, align 8
-  %5 = and i64 %4, 1152920405095219200
-  %.not.i.i = icmp eq i64 %5, 1152920405095219200
-  br i1 %.not.i.i, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %6, !prof !275
-
-6:                                                ; preds = %1
-  %7 = add i64 %4, 1152920405095219200
-  %8 = and i64 %7, 1152920405095219200
-  %9 = and i64 %4, -1152920405095219201
-  %10 = or disjoint i64 %8, %9
-  store i64 %10, ptr %3, align 8
-  %11 = icmp eq i64 %8, 0
-  br i1 %11, label %12, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, !prof !275
-
-12:                                               ; preds = %6
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit unwind label %13
-
-13:                                               ; preds = %12
-  %14 = landingpad { ptr, i32 }
-          catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #27
-  unreachable
-
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %1, %6, %12
-  ret void
-}
 
 declare void @_ZN4cvc58internal6theory6Theory19processCarePairArgsENS0_12NodeTemplateILb0EEES4_(ptr noundef nonnull align 8 dereferenceable(280), ptr noundef, ptr noundef) unnamed_addr #0
 

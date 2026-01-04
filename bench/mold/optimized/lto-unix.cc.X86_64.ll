@@ -6033,7 +6033,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(408) ptr @
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL7messageINS_6X86_64EEENS_12PluginStatusENS_11PluginLevelEPKcz(i32 noundef %0, ptr noundef readonly captures(none) %1, ...) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL7messageINS_6X86_64EEENS_12PluginStatusENS_11PluginLevelEPKcz(i32 noundef %0, ptr noundef readonly captures(none) %1, ...) #4 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca [1000 x i8], align 16
   %5 = alloca [1 x %struct.__va_list_tag], align 16
@@ -6515,7 +6515,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL24register_claim_file_hookINS_6X86_64EEENS_12PluginStatusEPFS2_PKNS_15PluginInputFileEPiE(ptr noundef %0) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL24register_claim_file_hookINS_6X86_64EEENS_12PluginStatusEPFS2_PKNS_15PluginInputFileEPiE(ptr noundef %0) #4 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -6592,7 +6592,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL30register_all_symbols_read_hookINS_6X86_64EEENS_12PluginStatusEPFS2_vE(ptr noundef %0) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL30register_all_symbols_read_hookINS_6X86_64EEENS_12PluginStatusEPFS2_vE(ptr noundef %0) #4 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -6669,7 +6669,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL21register_cleanup_hookINS_6X86_64EEENS_12PluginStatusEPFS2_vE(ptr noundef %0) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL21register_cleanup_hookINS_6X86_64EEENS_12PluginStatusEPFS2_vE(ptr noundef %0) #4 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -6746,7 +6746,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL11add_symbolsEPviPKNS_12PluginSymbolE(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL11add_symbolsEPviPKNS_12PluginSymbolE(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -6871,7 +6871,7 @@ define internal noundef i32 @_ZN4moldL14get_symbols_v1EPKviPNS_12PluginSymbolE(p
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL14add_input_fileINS_6X86_64EEENS_12PluginStatusEPKc(ptr noundef %0) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL14add_input_fileINS_6X86_64EEENS_12PluginStatusEPKc(ptr noundef %0) #4 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7145,7 +7145,7 @@ _ZNSt6vectorIPN4mold10ObjectFileINS0_6X86_64EEESaIS4_EE9push_backERKS4_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL14get_input_fileEPKvPNS_15PluginInputFileE(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL14get_input_fileEPKvPNS_15PluginInputFileE(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -7221,7 +7221,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL18release_input_fileINS_6X86_64EEENS_12PluginStatusEPKv(ptr noundef readonly captures(none) %0) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL18release_input_fileINS_6X86_64EEENS_12PluginStatusEPKv(ptr noundef readonly captures(none) %0) #4 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -7300,7 +7300,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL17add_input_libraryEPKc(ptr readnone captures(none) %0) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL17add_input_libraryEPKc(ptr readnone captures(none) %0) #4 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -7376,7 +7376,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL22set_extra_library_pathEPKc(ptr readnone captures(none) %0) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL22set_extra_library_pathEPKc(ptr readnone captures(none) %0) #4 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -7452,7 +7452,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL8get_viewINS_6X86_64EEENS_12PluginStatusEPKvPS4_(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL8get_viewINS_6X86_64EEENS_12PluginStatusEPKvPS4_(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #4 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -7533,7 +7533,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL23get_input_section_countEPKvPi(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL23get_input_section_countEPKvPi(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -7609,7 +7609,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL22get_input_section_typeENS_13PluginSectionEPi(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL22get_input_section_typeENS_13PluginSectionEPi(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #4 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -7685,7 +7685,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL22get_input_section_nameENS_13PluginSectionEPPc(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL22get_input_section_nameENS_13PluginSectionEPPc(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #4 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -7761,7 +7761,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL26get_input_section_contentsENS_13PluginSectionEPPKcPm(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL26get_input_section_contentsENS_13PluginSectionEPPKcPm(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #4 {
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
@@ -7837,7 +7837,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL20update_section_orderEPKNS_13PluginSectionEi(ptr readnone captures(none) %0, i32 %1) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL20update_section_orderEPKNS_13PluginSectionEi(ptr readnone captures(none) %0, i32 %1) #4 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -7913,7 +7913,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL22allow_section_orderingEv() #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL22allow_section_orderingEv() #4 {
   %1 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -8162,7 +8162,7 @@ _ZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.e
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL33allow_unique_segment_for_sectionsEv() #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL33allow_unique_segment_for_sectionsEv() #4 {
   %1 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -8238,7 +8238,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL27unique_segment_for_sectionsEPKcmmPKNS_13PluginSectionEi(ptr readnone captures(none) %0, i64 %1, i64 %2, ptr readnone captures(none) %3, i32 %4) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL27unique_segment_for_sectionsEPKcmmPKNS_13PluginSectionEi(ptr readnone captures(none) %0, i64 %1, i64 %2, ptr readnone captures(none) %3, i32 %4) #4 {
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -8487,7 +8487,7 @@ _ZN4moldL11get_symbolsINS_6X86_64EEENS_12PluginStatusEPKviPNS_12PluginSymbolEb.e
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL27get_input_section_alignmentENS_13PluginSectionEPi(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL27get_input_section_alignmentENS_13PluginSectionEPi(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #4 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -8563,7 +8563,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL22get_input_section_sizeENS_13PluginSectionEPm(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL22get_input_section_sizeENS_13PluginSectionEPm(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #4 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -8639,7 +8639,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL23register_new_input_hookINS_6X86_64EEENS_12PluginStatusEPFS2_PKNS_15PluginInputFileEE(ptr readnone captures(none) %0) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL23register_new_input_hookINS_6X86_64EEENS_12PluginStatusEPFS2_PKNS_15PluginInputFileEE(ptr readnone captures(none) %0) #4 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -8715,7 +8715,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4moldL16get_wrap_symbolsEPmPPPKc(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
+define internal noundef range(i32 0, 1) i32 @_ZN4moldL16get_wrap_symbolsEPmPPPKc(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112

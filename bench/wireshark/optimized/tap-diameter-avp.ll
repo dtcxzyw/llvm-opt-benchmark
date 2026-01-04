@@ -152,7 +152,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 %4) #0 {
+define internal noundef range(i32 0, 1) i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.nstime_t, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -268,7 +268,7 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, %.05068.us
-  br i1 %69, label %70, label %88
+  br i1 %69, label %70, label %87
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 12
@@ -287,90 +287,90 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %74, double noundef %75, ptr noundef %77, i32 noundef %78, ptr noundef %80, i32 noundef %81, i32 noundef %84, i32 noundef %52, i32 noundef %29, i32 noundef %31, i32 noundef %33, double noundef %.051)
-  %86 = call fastcc zeroext i1 @tree_traverse_pre_order(ptr noundef %.04969.us, ptr noundef nonnull %6)
-  %87 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.9)
-  br label %88
+  call fastcc void @tree_traverse_pre_order(ptr noundef %.04969.us, ptr noundef nonnull %6)
+  %86 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.9)
+  br label %87
 
-88:                                               ; preds = %70, %65
-  %89 = add i32 %.05068.us, 1
+87:                                               ; preds = %70, %65
+  %88 = add i32 %.05068.us, 1
   br label %.thread.us
 
-.thread.us:                                       ; preds = %88, %62, %59, %57, %.lr.ph.split.us
-  %.1.us = phi i32 [ %89, %88 ], [ %.05068.us, %62 ], [ %.05068.us, %59 ], [ %.05068.us, %57 ], [ %.05068.us, %.lr.ph.split.us ]
+.thread.us:                                       ; preds = %87, %62, %59, %57, %.lr.ph.split.us
+  %.1.us = phi i32 [ %88, %87 ], [ %.05068.us, %62 ], [ %.05068.us, %59 ], [ %.05068.us, %57 ], [ %.05068.us, %.lr.ph.split.us ]
   %.not60.us = icmp eq ptr %54, null
   br i1 %.not60.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
-  %.04969 = phi ptr [ %91, %.thread ], [ %45, %.lr.ph ]
+  %.04969 = phi ptr [ %90, %.thread ], [ %45, %.lr.ph ]
   %.05068 = phi i32 [ %.1, %.thread ], [ 0, %.lr.ph ]
-  %90 = getelementptr inbounds nuw i8, ptr %.04969, i64 16
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %.04969, i64 40
-  %93 = load ptr, ptr %92, align 8
-  %.not61 = icmp eq ptr %93, null
-  br i1 %.not61, label %.thread, label %94
+  %89 = getelementptr inbounds nuw i8, ptr %.04969, i64 16
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %.04969, i64 40
+  %92 = load ptr, ptr %91, align 8
+  %.not61 = icmp eq ptr %92, null
+  br i1 %.not61, label %.thread, label %93
 
-94:                                               ; preds = %.lr.ph.split
-  %95 = load ptr, ptr %93, align 8
-  %.not62 = icmp eq ptr %95, null
-  br i1 %.not62, label %.thread, label %96
+93:                                               ; preds = %.lr.ph.split
+  %94 = load ptr, ptr %92, align 8
+  %.not62 = icmp eq ptr %94, null
+  br i1 %.not62, label %.thread, label %95
 
-96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %98 = load ptr, ptr %97, align 8
-  %.not63 = icmp eq ptr %98, null
-  br i1 %.not63, label %.thread, label %99
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %97 = load ptr, ptr %96, align 8
+  %.not63 = icmp eq ptr %97, null
+  br i1 %.not63, label %.thread, label %98
 
-99:                                               ; preds = %96
-  %100 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(9) @.str.2) #9
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %.thread
+98:                                               ; preds = %95
+  %99 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(9) @.str.2) #9
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %.thread
 
-102:                                              ; preds = %99
-  %103 = load ptr, ptr %6, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
-  %105 = load i32, ptr %104, align 4
-  %106 = icmp eq i32 %105, %.05068
-  br i1 %106, label %107, label %130
+101:                                              ; preds = %98
+  %102 = load ptr, ptr %6, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
+  %104 = load i32, ptr %103, align 4
+  %105 = icmp eq i32 %104, %.05068
+  br i1 %105, label %106, label %128
 
-107:                                              ; preds = %102
-  %108 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  %109 = load i32, ptr %108, align 8
-  %110 = add i32 %109, 1
-  store i32 %110, ptr %108, align 8
-  br i1 %.not64, label %115, label %111
+106:                                              ; preds = %101
+  %107 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %108 = load i32, ptr %107, align 8
+  %109 = add i32 %108, 1
+  store i32 %109, ptr %107, align 8
+  br i1 %.not64, label %114, label %110
 
-111:                                              ; preds = %107
-  %112 = getelementptr inbounds nuw i8, ptr %103, i64 20
-  %113 = load i32, ptr %112, align 4
-  %114 = add i32 %113, 1
-  store i32 %114, ptr %112, align 4
-  br label %115
+110:                                              ; preds = %106
+  %111 = getelementptr inbounds nuw i8, ptr %102, i64 20
+  %112 = load i32, ptr %111, align 4
+  %113 = add i32 %112, 1
+  store i32 %113, ptr %111, align 4
+  br label %114
 
-115:                                              ; preds = %107, %111
-  %116 = load i32, ptr %14, align 4
-  %117 = call double @nstime_to_sec(ptr noundef nonnull %46)
-  %118 = load ptr, ptr %47, align 8
-  %119 = call ptr @address_to_str(ptr noundef %118, ptr noundef nonnull %48)
-  %120 = load i32, ptr %49, align 4
-  %121 = load ptr, ptr %47, align 8
-  %122 = call ptr @address_to_str(ptr noundef %121, ptr noundef nonnull %50)
-  %123 = load i32, ptr %51, align 8
-  %124 = load ptr, ptr %6, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  %126 = load i32, ptr %125, align 4
-  %127 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %116, double noundef %117, ptr noundef %119, i32 noundef %120, ptr noundef %122, i32 noundef %123, i32 noundef %126, i32 noundef %52, i32 noundef %29, i32 noundef %31, i32 noundef %33, double noundef %.051)
-  %128 = call fastcc zeroext i1 @tree_traverse_pre_order(ptr noundef %.04969, ptr noundef nonnull %6)
-  %129 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.9)
-  br label %130
+114:                                              ; preds = %106, %110
+  %115 = load i32, ptr %14, align 4
+  %116 = call double @nstime_to_sec(ptr noundef nonnull %46)
+  %117 = load ptr, ptr %47, align 8
+  %118 = call ptr @address_to_str(ptr noundef %117, ptr noundef nonnull %48)
+  %119 = load i32, ptr %49, align 4
+  %120 = load ptr, ptr %47, align 8
+  %121 = call ptr @address_to_str(ptr noundef %120, ptr noundef nonnull %50)
+  %122 = load i32, ptr %51, align 8
+  %123 = load ptr, ptr %6, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
+  %125 = load i32, ptr %124, align 4
+  %126 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %115, double noundef %116, ptr noundef %118, i32 noundef %119, ptr noundef %121, i32 noundef %122, i32 noundef %125, i32 noundef %52, i32 noundef %29, i32 noundef %31, i32 noundef %33, double noundef %.051)
+  call fastcc void @tree_traverse_pre_order(ptr noundef %.04969, ptr noundef nonnull %6)
+  %127 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.9)
+  br label %128
 
-130:                                              ; preds = %115, %102
-  %131 = add i32 %.05068, 1
+128:                                              ; preds = %114, %101
+  %129 = add i32 %.05068, 1
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph.split, %130, %99, %96, %94
-  %.1 = phi i32 [ %131, %130 ], [ %.05068, %99 ], [ %.05068, %96 ], [ %.05068, %94 ], [ %.05068, %.lr.ph.split ]
-  %.not60 = icmp eq ptr %91, null
+.thread:                                          ; preds = %.lr.ph.split, %128, %98, %95, %93
+  %.1 = phi i32 [ %129, %128 ], [ %.05068, %98 ], [ %.05068, %95 ], [ %.05068, %93 ], [ %.05068, %.lr.ph.split ]
+  %.not60 = icmp eq ptr %90, null
   br i1 %.not60, label %.loopexit, label %.lr.ph.split, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.thread, %.thread.us, %43, %40, %5, %10
@@ -412,32 +412,26 @@ declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @address_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @tree_traverse_pre_order(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call fastcc zeroext i1 @diam_tree_to_csv(ptr noundef nonnull %0, ptr noundef %1)
-  br i1 %3, label %.loopexit, label %4
+define internal fastcc void @tree_traverse_pre_order(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+  tail call fastcc void @diam_tree_to_csv(ptr noundef nonnull %0, ptr noundef %1)
+  %3 = load ptr, ptr %0, align 8
+  %.not1 = icmp eq ptr %3, null
+  br i1 %.not1, label %.loopexit, label %.lr.ph
 
-4:                                                ; preds = %2
-  %5 = load ptr, ptr %0, align 8
-  br label %6
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.0122 = phi ptr [ %5, %.lr.ph ], [ %3, %2 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.0122, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @tree_traverse_pre_order(ptr noundef %.0122, ptr noundef %1)
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
-6:                                                ; preds = %7, %4
-  %.012 = phi ptr [ %5, %4 ], [ %9, %7 ]
-  %.not.not.not = icmp ne ptr %.012, null
-  br i1 %.not.not.not, label %7, label %.loopexit
-
-7:                                                ; preds = %6
-  %8 = getelementptr inbounds nuw i8, ptr %.012, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call fastcc zeroext i1 @tree_traverse_pre_order(ptr noundef %.012, ptr noundef %1)
-  br i1 %10, label %.loopexit, label %6, !llvm.loop !13
-
-.loopexit:                                        ; preds = %6, %7, %2
-  %.0 = phi i1 [ true, %2 ], [ %.not.not.not, %7 ], [ %.not.not.not, %6 ]
-  ret i1 %.0
+.loopexit:                                        ; preds = %.lr.ph, %2
+  ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @diam_tree_to_csv(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @diam_tree_to_csv(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %6
 
@@ -495,7 +489,7 @@ define internal fastcc noundef zeroext i1 @diam_tree_to_csv(ptr noundef %0, ptr 
   br label %30
 
 30:                                               ; preds = %13, %27, %.thread, %3
-  ret i1 false
+  ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -551,4 +545,3 @@ attributes #9 = { nounwind willreturn memory(read) }
 !10 = !{i8 0, i8 2}
 !11 = !{}
 !12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}

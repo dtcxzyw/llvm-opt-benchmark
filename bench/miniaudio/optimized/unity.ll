@@ -8582,7 +8582,7 @@ ma_context_open_client__jack.exit:                ; preds = %159
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @ma_context_init__null(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 88)) %2) #0 {
+define internal noundef range(i32 0, 1) i32 @ma_context_init__null(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 88)) %2) #0 {
   store ptr @ma_context_init__null, ptr %2, align 8, !tbaa !222
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @ma_context_uninit__null, ptr %4, align 8, !tbaa !223
@@ -8677,7 +8677,7 @@ ma_free.exit:                                     ; preds = %8, %17, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @ma_context_sizeof() local_unnamed_addr #1 {
+define noundef range(i64 1016, 1017) i64 @ma_context_sizeof() local_unnamed_addr #1 {
   ret i64 1016
 }
 
@@ -12207,7 +12207,7 @@ ma_channel_map_get_channel.exit:                  ; preds = %.lr.ph.split, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ma_duplex_rb_uninit(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define noundef range(i32 0, 1) i32 @ma_duplex_rb_uninit(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ma_pcm_rb_uninit.exit, label %3
 
@@ -30684,7 +30684,7 @@ ma_free.exit:                                     ; preds = %30, %28, %25, %20, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef range(i32 -2, 1) i32 @ma_spatializer_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address) %3, i64 noundef %4) local_unnamed_addr #41 {
+define noundef range(i32 0, 1) i32 @ma_spatializer_process_pcm_frames(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address) %3, i64 noundef %4) local_unnamed_addr #41 {
   %6 = alloca %struct.ma_vec3f, align 8
   %7 = alloca %struct.ma_vec3f, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -66430,7 +66430,7 @@ ma_free.exit:                                     ; preds = %1, %7, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_encoder__on_write_pcm_frames_wav(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_encoder__on_write_pcm_frames_wav(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #6 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !1454
   %7 = icmp eq ptr %6, null
@@ -106088,7 +106088,7 @@ define internal i64 @ma_dr_mp3__on_read_memory(ptr noundef captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_dr_mp3__on_seek_memory(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #12 {
+define internal noundef range(i32 1, 2) i32 @ma_dr_mp3__on_seek_memory(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #12 {
   %4 = icmp eq i32 %2, 1
   br i1 %4, label %5, label %29
 
@@ -107862,7 +107862,7 @@ declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #62
 declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ma_job_process__quit(ptr readnone captures(none) %0) #1 {
+define internal noundef range(i32 0, 1) i32 @ma_job_process__quit(ptr readnone captures(none) %0) #1 {
   ret i32 0
 }
 
@@ -109496,7 +109496,7 @@ ma_resource_manager_post_job.exit:                ; preds = %12, %10, %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ma_job_process__device__aaudio_reroute(ptr readnone captures(none) %0) #1 {
+define internal noundef range(i32 0, 1) i32 @ma_job_process__device__aaudio_reroute(ptr readnone captures(none) %0) #1 {
   ret i32 0
 }
 
@@ -110876,7 +110876,7 @@ ma_wait_for_pa_context_to_connect__pulse.exit:    ; preds = %44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_context_uninit__pulse(ptr noundef readonly captures(none) %0) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_context_uninit__pulse(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 928
@@ -112544,7 +112544,7 @@ ma_log_post.exit:                                 ; preds = %354, %613, %93, %ma
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_uninit__pulse(ptr noundef readonly captures(none) %0) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_device_uninit__pulse(ptr noundef readonly captures(none) %0) #6 {
   %2 = load ptr, ptr %0, align 8, !tbaa !130
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !182
@@ -112708,7 +112708,7 @@ thread-pre-split:                                 ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_data_loop__pulse(ptr noundef readonly captures(address_is_null) %0) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_device_data_loop__pulse(ptr noundef readonly captures(address_is_null) %0) #6 {
   %.old = icmp eq ptr %0, null
   br i1 %.old, label %ma_device_get_state.exit.thread, label %ma_device_get_state.exit.preheader
 
@@ -112736,7 +112736,7 @@ ma_device_get_state.exit.thread:                  ; preds = %6, %ma_device_get_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_data_loop_wakeup__pulse(ptr noundef readonly captures(none) %0) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_device_data_loop_wakeup__pulse(ptr noundef readonly captures(none) %0) #6 {
   %2 = load ptr, ptr %0, align 8, !tbaa !130
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 472
   %4 = load ptr, ptr %3, align 8, !tbaa !7
@@ -113996,7 +113996,7 @@ define internal void @ma_pulse_operation_complete_callback(ptr readnone captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_context_uninit__alsa(ptr noundef %0) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_context_uninit__alsa(ptr noundef %0) #6 {
 ma_context_get_log.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 952
@@ -114727,7 +114727,7 @@ thread-pre-split:                                 ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_uninit__alsa(ptr noundef readonly captures(none) %0) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_device_uninit__alsa(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3424
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3432
   %4 = load ptr, ptr %3, align 8, !tbaa !7
@@ -114869,7 +114869,7 @@ ma_log_post.exit:                                 ; preds = %ma_device_get_conte
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_stop__alsa(ptr noundef readonly captures(none) %0) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_device_stop__alsa(ptr noundef readonly captures(none) %0) #6 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -117754,7 +117754,7 @@ ma_device_get_log.exit59:                         ; preds = %ma_device_get_conte
 declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #64
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_context_uninit__jack(ptr noundef captures(none) %0) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_context_uninit__jack(ptr noundef captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -117781,7 +117781,7 @@ ma_context_get_log.exit:                          ; preds = %1, %6, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_context_enumerate_devices__jack(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_context_enumerate_devices__jack(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #6 {
   %4 = alloca %struct.ma_device_info, align 8
   %5 = alloca %struct.ma_device_info, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -118752,7 +118752,7 @@ ma_log_post.exit:                                 ; preds = %352, %349, %343, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_uninit__jack(ptr noundef readonly captures(none) %0) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_device_uninit__jack(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3424
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %.not = icmp eq ptr %3, null
@@ -119332,7 +119332,7 @@ ma_log_post.exit:                                 ; preds = %ma_device_get_conte
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device__jack_process_callback(i32 noundef %0, ptr noundef %1) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_device__jack_process_callback(i32 noundef %0, ptr noundef %1) #6 {
   %3 = load ptr, ptr %1, align 8, !tbaa !130
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !182
@@ -119632,12 +119632,12 @@ define internal void @ma_device__jack_shutdown_callback(ptr noundef %0) #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ma_context_uninit__null(ptr readnone captures(none) %0) #1 {
+define internal noundef range(i32 0, 1) i32 @ma_context_uninit__null(ptr readnone captures(none) %0) #1 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_context_enumerate_devices__null(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_context_enumerate_devices__null(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #6 {
   %4 = alloca %struct.ma_device_info, align 8
   %5 = alloca %struct.ma_device_info, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -119965,7 +119965,7 @@ ma_semaphore_init.exit.thread:                    ; preds = %113, %ma_semaphore_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_uninit__null(ptr noundef %0) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_device_uninit__null(ptr noundef %0) #6 {
   tail call fastcc void @ma_device_do_operation__null(ptr noundef %0, i32 noundef 3)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3424
   %.val.i = load i64, ptr %2, align 8, !tbaa !52
@@ -119986,7 +119986,7 @@ define internal noundef i32 @ma_device_uninit__null(ptr noundef %0) #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_start__null(ptr noundef %0) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_device_start__null(ptr noundef %0) #6 {
   tail call fastcc void @ma_device_do_operation__null(ptr noundef %0, i32 noundef 1)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3768
   store atomic i32 1, ptr %2 seq_cst, align 4
@@ -119994,7 +119994,7 @@ define internal noundef i32 @ma_device_start__null(ptr noundef %0) #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_stop__null(ptr noundef %0) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_device_stop__null(ptr noundef %0) #6 {
   tail call fastcc void @ma_device_do_operation__null(ptr noundef %0, i32 noundef 2)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3768
   store atomic i32 0, ptr %2 seq_cst, align 4
@@ -120002,7 +120002,7 @@ define internal noundef i32 @ma_device_stop__null(ptr noundef %0) #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_read__null(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_device_read__null(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #6 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %.not = icmp eq ptr %3, null
@@ -120142,7 +120142,7 @@ define internal noundef i32 @ma_device_read__null(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_device_write__null(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_device_write__null(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #6 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %.not = icmp eq ptr %3, null
@@ -121747,7 +121747,7 @@ ma_channel_map_apply_shuffle_table_u8.exit:       ; preds = %124, %106, %87, %45
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal noundef i32 @ma_pcm_rb_data_source__on_read(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) #24 {
+define internal noundef range(i32 0, 1) i32 @ma_pcm_rb_data_source__on_read(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) #24 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq i64 %2, 0
   %or.cond44 = or i1 %5, %6
@@ -121894,7 +121894,7 @@ ma_rb_pointer_distance.exit.i.i:                  ; preds = %82, %80
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_pcm_rb_data_source__on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) #22 {
+define internal noundef range(i32 0, 1) i32 @ma_pcm_rb_data_source__on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) #22 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %7
 
@@ -122087,7 +122087,7 @@ ma_audio_buffer_ref_seek_to_pcm_frame.exit:       ; preds = %2, %4, %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) #22 {
+define internal noundef range(i32 0, 1) i32 @ma_audio_buffer_ref__data_source_on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) #22 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8, !tbaa !1062
   store i32 %8, ptr %1, align 4, !tbaa !3
@@ -122124,7 +122124,7 @@ ma_channel_map_init_standard.exit:                ; preds = %.preheader.i, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_cursor(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
+define internal noundef range(i32 0, 1) i32 @ma_audio_buffer_ref__data_source_on_get_cursor(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8, !tbaa !1065
   store i64 %4, ptr %1, align 8, !tbaa !63
@@ -122132,7 +122132,7 @@ define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_cursor(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_length(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
+define internal noundef range(i32 0, 1) i32 @ma_audio_buffer_ref__data_source_on_get_length(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i64, ptr %3, align 8, !tbaa !1066
   store i64 %4, ptr %1, align 8, !tbaa !63
@@ -122346,7 +122346,7 @@ ma_paged_audio_buffer_seek_to_pcm_frame.exit:     ; preds = %44, %2, %4, %17, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal noundef i32 @ma_paged_audio_buffer__data_source_on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) #19 {
+define internal noundef range(i32 0, 1) i32 @ma_paged_audio_buffer__data_source_on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) #19 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !1089
   %9 = load i32, ptr %8, align 8, !tbaa !1078
@@ -124229,7 +124229,7 @@ ma_free.exit:                                     ; preds = %3, %.thread, %36, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_decoder__on_tell_memory(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
+define internal noundef range(i32 0, 1) i32 @ma_decoder__on_tell_memory(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %4 = load i64, ptr %3, align 8, !tbaa !7
   store i64 %4, ptr %1, align 8, !tbaa !63
@@ -124369,7 +124369,7 @@ ma_waveform_seek_to_pcm_frame.exit:               ; preds = %2, %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_waveform__data_source_on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) #22 {
+define internal noundef range(i32 0, 1) i32 @ma_waveform__data_source_on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) #22 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8, !tbaa !1470
   store i32 %8, ptr %1, align 4, !tbaa !3
@@ -124406,7 +124406,7 @@ ma_channel_map_init_standard.exit:                ; preds = %.preheader.i, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_waveform__data_source_on_get_cursor(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
+define internal noundef range(i32 0, 1) i32 @ma_waveform__data_source_on_get_cursor(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load double, ptr %3, align 8, !tbaa !1467
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -124424,12 +124424,12 @@ define internal range(i32 -3, 1) i32 @ma_noise__data_source_on_read(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ma_noise__data_source_on_seek(ptr readnone captures(none) %0, i64 %1) #1 {
+define internal noundef range(i32 0, 1) i32 @ma_noise__data_source_on_seek(ptr readnone captures(none) %0, i64 %1) #1 {
   ret i32 0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_noise__data_source_on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) #22 {
+define internal noundef range(i32 0, 1) i32 @ma_noise__data_source_on_get_data_format(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(address_is_null) %4, i64 noundef %5) #22 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8, !tbaa !1521
   store i32 %8, ptr %1, align 4, !tbaa !3
@@ -124957,7 +124957,7 @@ ma_resource_manager_data_buffer_get_length_in_pcm_frames.exit: ; preds = %2, %5,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_resource_manager_data_buffer_cb__set_looping(ptr noundef %0, i32 noundef %1) #6 {
+define internal noundef range(i32 0, 1) i32 @ma_resource_manager_data_buffer_cb__set_looping(ptr noundef %0, i32 noundef %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = atomicrmw xchg ptr %3, i32 %1 seq_cst, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -125290,7 +125290,7 @@ ma_resource_manager_data_stream_get_length_in_pcm_frames.exit: ; preds = %2, %4,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_resource_manager_data_stream_cb__set_looping(ptr noundef captures(none) %0, i32 noundef %1) #25 {
+define internal noundef range(i32 0, 1) i32 @ma_resource_manager_data_stream_cb__set_looping(ptr noundef captures(none) %0, i32 noundef %1) #25 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 684
   %4 = atomicrmw xchg ptr %3, i32 %1 seq_cst, align 4
   ret i32 0
@@ -126770,7 +126770,7 @@ ma_engine_node_update_pitch_if_required.exit:     ; preds = %12, %ma_engine_get_
 }
 
 ; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
-define internal noundef i32 @ma_engine_node_get_required_input_frame_count__group(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #37 {
+define internal noundef range(i32 0, 1) i32 @ma_engine_node_get_required_input_frame_count__group(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #37 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 828
   %5 = load atomic volatile i32, ptr %4 acquire, align 4
   %6 = bitcast i32 %5 to float
@@ -130742,7 +130742,7 @@ ma_dr_wav__realloc_from_callbacks.exit.thread44:  ; preds = %33, %32, %ma_dr_wav
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_dr_wav__on_seek_memory_write(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #12 {
+define internal noundef range(i32 1, 2) i32 @ma_dr_wav__on_seek_memory_write(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #12 {
   %4 = icmp eq i32 %2, 1
   br i1 %4, label %5, label %29
 

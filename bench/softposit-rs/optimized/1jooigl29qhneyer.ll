@@ -2221,7 +2221,7 @@ define noundef i32 @"_ZN9softposit5p32e23ops75_$LT$impl$u20$core..ops..arith..Re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN72_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..identities..Zero$GT$4zero17hae5c2f5686b18518E"() unnamed_addr #0 {
+define noundef range(i32 0, 1) i32 @"_ZN72_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..identities..Zero$GT$4zero17hae5c2f5686b18518E"() unnamed_addr #0 {
   ret i32 0
 }
 
@@ -2712,37 +2712,37 @@ define noundef zeroext i1 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$3nan17h6584ba84eb7c3bdeE"() unnamed_addr #0 {
+define noundef range(i32 -2147483648, -2147483647) i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$3nan17h6584ba84eb7c3bdeE"() unnamed_addr #0 {
   ret i32 -2147483648
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$8infinity17h333ea2d215a281acE"() unnamed_addr #0 {
+define noundef range(i32 -2147483648, -2147483647) i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$8infinity17h333ea2d215a281acE"() unnamed_addr #0 {
   ret i32 -2147483648
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$12neg_infinity17h4baff7a39d11a33fE"() unnamed_addr #0 {
+define noundef range(i32 -2147483648, -2147483647) i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$12neg_infinity17h4baff7a39d11a33fE"() unnamed_addr #0 {
   ret i32 -2147483648
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$8neg_zero17h62bd7f912bbc9572E"() unnamed_addr #0 {
+define noundef range(i32 0, 1) i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$8neg_zero17h62bd7f912bbc9572E"() unnamed_addr #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$9min_value17h21e32060858f41fcE"() unnamed_addr #0 {
+define noundef range(i32 -2147483647, -2147483646) i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$9min_value17h21e32060858f41fcE"() unnamed_addr #0 {
   ret i32 -2147483647
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$18min_positive_value17hbe8747f4ea360091E"() unnamed_addr #0 {
+define noundef range(i32 1, 2) i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$18min_positive_value17hbe8747f4ea360091E"() unnamed_addr #0 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$9max_value17hdfdf98abb3306b12E"() unnamed_addr #0 {
+define noundef range(i32 2147483647, -2147483648) i32 @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Float$GT$9max_value17hdfdf98abb3306b12E"() unnamed_addr #0 {
   ret i32 2147483647
 }
 
@@ -3570,92 +3570,92 @@ define void @"_ZN68_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..Fl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$1E17h6343a6ea3039cb19E"() unnamed_addr #0 {
+define noundef range(i32 1256162630, 1256162631) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$1E17h6343a6ea3039cb19E"() unnamed_addr #0 {
   ret i32 1256162630
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$9FRAC_1_PI17h60c6f378ce97fd11E"() unnamed_addr #0 {
+define noundef range(i32 841979959, 841979960) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$9FRAC_1_PI17h60c6f378ce97fd11E"() unnamed_addr #0 {
   ret i32 841979959
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$13FRAC_1_SQRT_217hb4765e414f66ddedE"() unnamed_addr #0 {
+define noundef range(i32 995118899, 995118900) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$13FRAC_1_SQRT_217hb4765e414f66ddedE"() unnamed_addr #0 {
   ret i32 995118899
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$9FRAC_2_PI17h14bbdeadd8855d1aE"() unnamed_addr #0 {
+define noundef range(i32 976197687, 976197688) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$9FRAC_2_PI17h14bbdeadd8855d1aE"() unnamed_addr #0 {
   ret i32 976197687
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$14FRAC_2_SQRT_PI17h09dfc08ce70bbb89E"() unnamed_addr #0 {
+define noundef range(i32 1090972584, 1090972585) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$14FRAC_2_SQRT_PI17h09dfc08ce70bbb89E"() unnamed_addr #0 {
   ret i32 1090972584
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$9FRAC_PI_217h4dce6f640d874b6eE"() unnamed_addr #0 {
+define noundef range(i32 1150352810, 1150352811) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$9FRAC_PI_217h4dce6f640d874b6eE"() unnamed_addr #0 {
   ret i32 1150352810
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$9FRAC_PI_317h2502a2ce93ef8daaE"() unnamed_addr #0 {
+define noundef range(i32 1080076572, 1080076573) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$9FRAC_PI_317h2502a2ce93ef8daaE"() unnamed_addr #0 {
   ret i32 1080076572
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$9FRAC_PI_417hd19c403a8990543cE"() unnamed_addr #0 {
+define noundef range(i32 1016135082, 1016135083) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$9FRAC_PI_417hd19c403a8990543cE"() unnamed_addr #0 {
   ret i32 1016135082
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$9FRAC_PI_617h2fba28a7b62495adE"() unnamed_addr #0 {
+define noundef range(i32 945858844, 945858845) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$9FRAC_PI_617h2fba28a7b62495adE"() unnamed_addr #0 {
   ret i32 945858844
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$9FRAC_PI_817h048060b9cd8d8822E"() unnamed_addr #0 {
+define noundef range(i32 881917354, 881917355) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$9FRAC_PI_817h048060b9cd8d8822E"() unnamed_addr #0 {
   ret i32 881917354
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$5LN_1017ha9f9bc012abcab90E"() unnamed_addr #0 {
+define noundef range(i32 1228265694, 1228265695) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$5LN_1017ha9f9bc012abcab90E"() unnamed_addr #0 {
   ret i32 1228265694
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$4LN_217h3b75a7dc8d4fd497E"() unnamed_addr #0 {
+define noundef range(i32 991371647, 991371648) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$4LN_217h3b75a7dc8d4fd497E"() unnamed_addr #0 {
   ret i32 991371647
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$7LOG10_E17h8e1ea0d85c84bc91E"() unnamed_addr #0 {
+define noundef range(i32 904248715, 904248716) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$7LOG10_E17h8e1ea0d85c84bc91E"() unnamed_addr #0 {
   ret i32 904248715
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$6LOG2_E17h79f0a0c1f7d2326eE"() unnamed_addr #0 {
+define noundef range(i32 1133159347, 1133159348) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$6LOG2_E17h79f0a0c1f7d2326eE"() unnamed_addr #0 {
   ret i32 1133159347
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$2PI17hc26a9b39da121b02E"() unnamed_addr #0 {
+define noundef range(i32 1284570538, 1284570539) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$2PI17hc26a9b39da121b02E"() unnamed_addr #0 {
   ret i32 1284570538
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$6SQRT_217h85523bee8e7f7385E"() unnamed_addr #0 {
+define noundef range(i32 1129336627, 1129336628) i32 @"_ZN73_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..float..FloatConst$GT$6SQRT_217h85523bee8e7f7385E"() unnamed_addr #0 {
   ret i32 1129336627
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN71_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..bounds..Bounded$GT$9min_value17h33a35e3ac2f0a8e8E"() unnamed_addr #0 {
+define noundef range(i32 -2147483647, -2147483646) i32 @"_ZN71_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..bounds..Bounded$GT$9min_value17h33a35e3ac2f0a8e8E"() unnamed_addr #0 {
   ret i32 -2147483647
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN71_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..bounds..Bounded$GT$9max_value17hef41cbd44b14ffbdE"() unnamed_addr #0 {
+define noundef range(i32 2147483647, -2147483648) i32 @"_ZN71_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..bounds..Bounded$GT$9max_value17hef41cbd44b14ffbdE"() unnamed_addr #0 {
   ret i32 2147483647
 }
 

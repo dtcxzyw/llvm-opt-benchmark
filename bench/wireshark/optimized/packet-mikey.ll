@@ -622,7 +622,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @dissect_payload_hdr(ptr noundef captures(none) initializes((0, 1)) %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3) #0 {
+define internal range(i32 9, 0) i32 @dissect_payload_hdr(ptr noundef captures(none) initializes((0, 1)) %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3) #0 {
   tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef 0, i32 noundef 10)
   %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 1)
   store i8 %5, ptr %0, align 1
@@ -657,38 +657,34 @@ define internal noundef i32 @dissect_payload_hdr(ptr noundef captures(none) init
 
 29:                                               ; preds = %8, %4
   %30 = zext i8 %6 to i32
-  %.not66 = icmp eq i8 %6, 0
-  br i1 %.not66, label %._crit_edge, label %.lr.ph
+  %.not61 = icmp eq i8 %6, 0
+  br i1 %.not61, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
-  %.fr67 = freeze i8 %7
-  %31 = icmp eq i8 %.fr67, 0
-  br i1 %31, label %dissect_payload_cs_id.exit.us, label %dissect_payload_cs_id.exit.thread
+  %.fr62 = freeze i8 %7
+  %31 = icmp eq i8 %.fr62, 0
+  br i1 %31, label %mikey_dissector_lookup.exit.i.us, label %.lr.ph.split
 
-dissect_payload_cs_id.exit.us:                    ; preds = %.lr.ph, %dissect_payload_cs_id.exit.thread.us
-  %.05463.us = phi i32 [ %35, %dissect_payload_cs_id.exit.thread.us ], [ 10, %.lr.ph ]
-  %.05662.us = phi i32 [ %36, %dissect_payload_cs_id.exit.thread.us ], [ 0, %.lr.ph ]
-  %32 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %.05463.us)
+mikey_dissector_lookup.exit.i.us:                 ; preds = %.lr.ph, %mikey_dissector_lookup.exit.i.us
+  %.05460.us = phi i32 [ %34, %mikey_dissector_lookup.exit.i.us ], [ 10, %.lr.ph ]
+  %.05659.us = phi i32 [ %35, %mikey_dissector_lookup.exit.i.us ], [ 0, %.lr.ph ]
+  %32 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %.05460.us)
   %33 = tail call fastcc i32 @dissect_payload_cs_id_srtp(ptr readnone poison, ptr noundef %32, ptr readnone poison, ptr noundef %3)
-  %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %dissect_payload_cs_id.exit.thread.us, label %._crit_edge
+  %34 = add nuw nsw i32 %.05460.us, 9
+  %35 = add nuw nsw i32 %.05659.us, 1
+  %exitcond64.not = icmp eq i32 %35, %30
+  br i1 %exitcond64.not, label %._crit_edge, label %mikey_dissector_lookup.exit.i.us, !llvm.loop !8
 
-dissect_payload_cs_id.exit.thread.us:             ; preds = %dissect_payload_cs_id.exit.us
-  %35 = add i32 %33, %.05463.us
-  %36 = add nuw nsw i32 %.05662.us, 1
-  %exitcond69.not = icmp eq i32 %36, %30
-  br i1 %exitcond69.not, label %._crit_edge, label %dissect_payload_cs_id.exit.us, !llvm.loop !8
+.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
+  %.05659 = phi i32 [ %37, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %36 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef 10)
+  %37 = add nuw nsw i32 %.05659, 1
+  %exitcond.not = icmp eq i32 %37, %30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
-dissect_payload_cs_id.exit.thread:                ; preds = %.lr.ph, %dissect_payload_cs_id.exit.thread
-  %.05662 = phi i32 [ %38, %dissect_payload_cs_id.exit.thread ], [ 0, %.lr.ph ]
-  %37 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef 10)
-  %38 = add nuw nsw i32 %.05662, 1
-  %exitcond.not = icmp eq i32 %38, %30
-  br i1 %exitcond.not, label %._crit_edge, label %dissect_payload_cs_id.exit.thread, !llvm.loop !8
-
-._crit_edge:                                      ; preds = %dissect_payload_cs_id.exit.thread, %dissect_payload_cs_id.exit.us, %dissect_payload_cs_id.exit.thread.us, %29
-  %.2 = phi i32 [ %35, %dissect_payload_cs_id.exit.thread.us ], [ 10, %29 ], [ 0, %dissect_payload_cs_id.exit.us ], [ 10, %dissect_payload_cs_id.exit.thread ]
-  ret i32 %.2
+._crit_edge:                                      ; preds = %.lr.ph.split, %mikey_dissector_lookup.exit.i.us, %29
+  %.054.lcssa = phi i32 [ 10, %29 ], [ %34, %mikey_dissector_lookup.exit.i.us ], [ 10, %.lr.ph.split ]
+  ret i32 %.054.lcssa
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1071,7 +1067,7 @@ define internal range(i32 2, 258) i32 @dissect_payload_rand(ptr readnone capture
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @dissect_payload_err(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
+define internal noundef range(i32 4, 5) i32 @dissect_payload_err(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %5
 
@@ -1312,7 +1308,7 @@ define internal range(i32 5, 65541) i32 @dissect_payload_sakke(ptr readnone capt
 declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @dissect_payload_cs_id_srtp(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef range(i32 9, 10) i32 @dissect_payload_cs_id_srtp(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %20, label %5
 

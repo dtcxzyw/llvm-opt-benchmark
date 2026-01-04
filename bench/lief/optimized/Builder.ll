@@ -1571,7 +1571,7 @@ _ZN4LIEF5MachO12DylibCommand7classofEPKNS0_11LoadCommandE.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN4LIEF5MachO7Builder9build_fatEv(ptr noundef nonnull align 8 dereferenceable(201) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 4294967296, 4294967297) i64 @_ZN4LIEF5MachO7Builder9build_fatEv(ptr noundef nonnull align 8 dereferenceable(201) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -1847,7 +1847,7 @@ _ZNSt6vectorIhSaIhEEC2ERKS1_.exit:                ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN4LIEF5MachO7Builder16build_fat_headerEv(ptr noundef nonnull align 8 dereferenceable(201) initializes((56, 72)) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 4294967296, 4294967297) i64 @_ZN4LIEF5MachO7Builder16build_fat_headerEv(ptr noundef nonnull align 8 dereferenceable(201) initializes((56, 72)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -2329,14 +2329,13 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4LIEF5MachO7Bu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i64 0, 1099511627776) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define noundef range(i64 4294967296, 4294967297) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 1)
-  %.sroa.02.0.insert.ext = and i64 %3, 1099511627775
-  ret i64 %.sroa.02.0.insert.ext
+  ret i64 4294967296
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 %2) local_unnamed_addr #0 align 2 {
+define noundef range(i64 4294967296, 4294967297) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.LIEF::MachO::Builder", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(201) %4, i8 0, i64 24, i1 false)
@@ -2484,14 +2483,13 @@ _ZNK4LIEF5MachO7Builder5writeERSo.exit:           ; preds = %26, %15, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i64 0, 1099511627776) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERSo(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef range(i64 4294967296, 4294967297) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERSo(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERSoNS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 1)
-  %.sroa.02.0.insert.ext = and i64 %3, 1099511627775
-  ret i64 %.sroa.02.0.insert.ext
+  ret i64 4294967296
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERSoNS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 %2) local_unnamed_addr #0 align 2 {
+define noundef range(i64 4294967296, 4294967297) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERSoNS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.LIEF::MachO::Builder", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(201) %4, i8 0, i64 24, i1 false)
@@ -2589,7 +2587,7 @@ _ZNK4LIEF5MachO7Builder5writeERSo.exit:           ; preds = %_ZN4LIEF5MachO7Buil
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK4LIEF5MachO7Builder5writeERSo(ptr noundef nonnull align 8 captures(none) dereferenceable(201) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 4294967296, 4294967297) i64 @_ZNK4LIEF5MachO7Builder5writeERSo(ptr noundef nonnull align 8 captures(none) dereferenceable(201) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
 _ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !3
@@ -2616,7 +2614,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZN4LIEF15vector_io
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i64 0, 1099511627776) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((8, 16)) %1) local_unnamed_addr #0 align 2 {
+define noundef range(i64 4294967296, 4294967297) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((8, 16)) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::vector.49", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4LIEF5MachO7Builder9build_rawERNS0_6BinaryENS1_8config_tE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.49") align 8 %3, ptr noundef nonnull align 8 dereferenceable(488) %0, i8 1)
@@ -2648,7 +2646,7 @@ _ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERSt6vectorIhSaIhEENS1_8config_tE.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERSt6vectorIhSaIhEENS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((8, 16)) %1, i8 %2) local_unnamed_addr #0 align 2 {
+define noundef range(i64 4294967296, 4294967297) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_6BinaryERSt6vectorIhSaIhEENS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((8, 16)) %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::vector.49", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4LIEF5MachO7Builder9build_rawERNS0_6BinaryENS1_8config_tE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.49") align 8 %4, ptr noundef nonnull align 8 dereferenceable(488) %0, i8 %2)
@@ -2680,14 +2678,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %14, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i64 0, 1099511627776) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define noundef range(i64 4294967296, 4294967297) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 1)
-  %.sroa.02.0.insert.ext = and i64 %3, 1099511627775
-  ret i64 %.sroa.02.0.insert.ext
+  ret i64 4294967296
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8config_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 %2) local_unnamed_addr #0 align 2 {
+define noundef range(i64 4294967296, 4294967297) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8config_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.LIEF::MachO::Builder", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2813,14 +2810,13 @@ _ZNSt6vectorIPN4LIEF5MachO6BinaryESaIS3_EED2Ev.exit12: ; preds = %_ZNSt20back_in
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i64 0, 1099511627776) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERSt6vectorIhSaIhEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define noundef range(i64 4294967296, 4294967297) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERSt6vectorIhSaIhEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERSt6vectorIhSaIhEENS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i8 1)
-  %.sroa.02.0.insert.ext = and i64 %3, 1099511627775
-  ret i64 %.sroa.02.0.insert.ext
+  ret i64 4294967296
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERSt6vectorIhSaIhEENS1_8config_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i8 %2) local_unnamed_addr #0 align 2 {
+define noundef range(i64 4294967296, 4294967297) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERSt6vectorIhSaIhEENS1_8config_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.LIEF::MachO::Builder", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3057,14 +3053,13 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i64 0, 1099511627776) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef range(i64 4294967296, 4294967297) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERSoNS1_8config_tE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 1)
-  %.sroa.02.0.insert.ext = and i64 %3, 1099511627775
-  ret i64 %.sroa.02.0.insert.ext
+  ret i64 4294967296
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERSoNS1_8config_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 %2) local_unnamed_addr #0 align 2 {
+define noundef range(i64 4294967296, 4294967297) i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERSoNS1_8config_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.LIEF::MachO::Builder", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16

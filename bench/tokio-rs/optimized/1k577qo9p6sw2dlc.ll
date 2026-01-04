@@ -4335,7 +4335,7 @@ define void @"_ZN85_$LT$tokio..net..unix..pipe..Sender$u20$as$u20$tokio..io..asy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN85_$LT$tokio..net..unix..pipe..Sender$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$17is_write_vectored17h617e09b8e7788c56E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #7 {
+define noundef zeroext range(i1 -1, 0) i1 @"_ZN85_$LT$tokio..net..unix..pipe..Sender$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$17is_write_vectored17h617e09b8e7788c56E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #7 {
   ret i1 true
 }
 
@@ -6258,21 +6258,15 @@ common.resume:                                    ; preds = %38, %33
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17hb4a3580faa1e57a2E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 0, -1) i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll17hb4a3580faa1e57a2E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = tail call noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h32426ce9b6876882E.llvm.7584301903634598921"(ptr noundef nonnull align 8 %0, ptr noalias nonnull align 8 poison, ptr noundef nonnull %4)
-  br i1 %5, label %7, label %6
-
-6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 4, ptr %3, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h927a968696d1da75E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %7
-
-7:                                                ; preds = %2, %6
-  ret i1 %5
+  ret i1 false
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6909,7 +6903,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h32426ce9b6876882E.llvm.7584301903634598921"(ptr noundef nonnull readonly align 8 captures(none) %0, ptr noalias readnone align 8 captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 0, -1) i1 @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h32426ce9b6876882E.llvm.7584301903634598921"(ptr noundef nonnull readonly align 8 captures(none) %0, ptr noalias readnone align 8 captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [0 x { ptr, ptr }], align 8
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { i64, i64 }, align 8

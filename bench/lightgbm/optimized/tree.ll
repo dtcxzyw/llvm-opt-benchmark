@@ -7391,7 +7391,7 @@ _ZNK8LightGBM4Tree13DecisionInnerEjijj.exit.i.i.i: ; preds = %_ZNK8LightGBM4Tree
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -7944,7 +7944,7 @@ _ZNK8LightGBM4Tree13DecisionInnerEjijj.exit.i.i.i: ; preds = %_ZNK8LightGBM4Tree
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -8420,7 +8420,7 @@ _ZNK8LightGBM4Tree22NumericalDecisionInnerEjijj.exit.i.i.i: ; preds = %190, %188
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -8884,7 +8884,7 @@ _ZNK8LightGBM4Tree22NumericalDecisionInnerEjijj.exit.i.i.i: ; preds = %177, %175
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -9248,7 +9248,7 @@ _ZNK8LightGBM4Tree13DecisionInnerEjijj.exit.i.i.i: ; preds = %_ZNK8LightGBM4Tree
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_4E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -9614,7 +9614,7 @@ _ZNK8LightGBM4Tree13DecisionInnerEjijj.exit.i.i.i: ; preds = %_ZNK8LightGBM4Tree
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_5E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -9936,7 +9936,7 @@ _ZNK8LightGBM4Tree22NumericalDecisionInnerEjijj.exit.i.i.i: ; preds = %131, %129
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_6E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -10260,7 +10260,7 @@ _ZNK8LightGBM4Tree22NumericalDecisionInnerEjijj.exit.i.i.i: ; preds = %132, %130
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEiPdE3$_7E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -10882,7 +10882,7 @@ _ZNK8LightGBM4Tree13DecisionInnerEjijj.exit.i.i.i: ; preds = %_ZNK8LightGBM4Tree
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -11411,7 +11411,7 @@ _ZNK8LightGBM4Tree13DecisionInnerEjijj.exit.i.i.i: ; preds = %_ZNK8LightGBM4Tree
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -11910,7 +11910,7 @@ _ZNK8LightGBM4Tree22NumericalDecisionInnerEjijj.exit.i.i.i: ; preds = %201, %199
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -12397,7 +12397,7 @@ _ZNK8LightGBM4Tree22NumericalDecisionInnerEjijj.exit.i.i.i: ; preds = %189, %187
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -12773,7 +12773,7 @@ _ZNK8LightGBM4Tree13DecisionInnerEjijj.exit.i.i.i: ; preds = %_ZNK8LightGBM4Tree
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -13151,7 +13151,7 @@ _ZNK8LightGBM4Tree13DecisionInnerEjijj.exit.i.i.i: ; preds = %_ZNK8LightGBM4Tree
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_5E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -13485,7 +13485,7 @@ _ZNK8LightGBM4Tree22NumericalDecisionInnerEjijj.exit.i.i.i: ; preds = %139, %137
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_6E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -13821,7 +13821,7 @@ _ZNK8LightGBM4Tree22NumericalDecisionInnerEjijj.exit.i.i.i: ; preds = %141, %139
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFviiiEZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM4Tree20AddPredictionToScoreEPKNS1_7DatasetEPKiiPdE3$_7E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5

@@ -3830,12 +3830,12 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @GC_get_version() local_unnamed_addr #10 {
+define noundef range(i32 525056, 525057) i32 @GC_get_version() local_unnamed_addr #10 {
   ret i32 525056
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @GC_get_dont_add_byte_at_end() local_unnamed_addr #10 {
+define noundef range(i32 0, 1) i32 @GC_get_dont_add_byte_at_end() local_unnamed_addr #10 {
   ret i32 0
 }
 
@@ -5375,7 +5375,7 @@ define void @GC_gcollect_and_unmap() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @GC_never_stop_func() #10 {
+define internal noundef range(i32 0, 1) i32 @GC_never_stop_func() #10 {
   ret i32 0
 }
 
@@ -5851,7 +5851,7 @@ define void @GC_register_describe_type_fn(i32 noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @GC_get_debug_header_size() local_unnamed_addr #10 {
+define noundef range(i64 32, 33) i64 @GC_get_debug_header_size() local_unnamed_addr #10 {
   ret i64 32
 }
 
@@ -12105,7 +12105,7 @@ GC_register_disclaim_proc_inner.exit:             ; preds = %GC_new_kind_inner.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @GC_finalized_disclaim(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 1) i32 @GC_finalized_disclaim(ptr noundef %0) #1 {
   %2 = load atomic volatile i64, ptr %0 monotonic, align 8
   %3 = and i64 %2, 1
   %.not = icmp eq i64 %3, 0
@@ -15189,7 +15189,7 @@ define void @GC_set_pointer_mask(i64 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @GC_get_pointer_mask() local_unnamed_addr #10 {
+define noundef range(i64 -1, 0) i64 @GC_get_pointer_mask() local_unnamed_addr #10 {
   ret i64 -1
 }
 
@@ -15209,7 +15209,7 @@ define void @GC_set_pointer_shift(i32 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @GC_get_pointer_shift() local_unnamed_addr #10 {
+define noundef range(i32 0, 1) i32 @GC_get_pointer_shift() local_unnamed_addr #10 {
   ret i32 0
 }
 
@@ -19292,7 +19292,7 @@ define range(i32 -128, 128) i32 @GC_get_manual_vdb_allowed() local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @GC_get_supported_vdbs() local_unnamed_addr #10 {
+define noundef range(i32 67, 68) i32 @GC_get_supported_vdbs() local_unnamed_addr #10 {
   ret i32 67
 }
 
@@ -24450,7 +24450,7 @@ define void @GC_abort_on_oom() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @GC_get_hblk_size() local_unnamed_addr #10 {
+define noundef range(i64 4096, 4097) i64 @GC_get_hblk_size() local_unnamed_addr #10 {
   ret i64 4096
 }
 
@@ -27447,7 +27447,7 @@ define internal fastcc void @GC_suspend_self_inner(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_unregister_my_thread() local_unnamed_addr #1 {
+define noundef range(i32 0, 1) i32 @GC_unregister_my_thread() local_unnamed_addr #1 {
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %.b1 = load i1, ptr @GC_need_to_lock, align 1

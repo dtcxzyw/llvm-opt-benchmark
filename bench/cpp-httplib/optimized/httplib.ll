@@ -10822,7 +10822,7 @@ define void @_ZN7httplib6detail24skip_content_with_lengthERNS_6StreamEm(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7httplib6detail27read_content_without_lengthERNS_6StreamESt8functionIFbPKcmmmEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #5 {
+define noundef zeroext range(i1 0, -1) i1 @_ZN7httplib6detail27read_content_without_lengthERNS_6StreamESt8functionIFbPKcmmmEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -28939,12 +28939,12 @@ define noundef i32 @_ZNK7httplib6detail12SocketStream6socketEv(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK7httplib6detail12BufferStream11is_readableEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
+define noundef zeroext range(i1 -1, 0) i1 @_ZNK7httplib6detail12BufferStream11is_readableEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK7httplib6detail12BufferStream11is_writableEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
+define noundef zeroext range(i1 -1, 0) i1 @_ZNK7httplib6detail12BufferStream11is_writableEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   ret i1 true
 }
 
@@ -28991,12 +28991,12 @@ define void @_ZNK7httplib6detail12BufferStream21get_local_ip_and_portERNSt7__cxx
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK7httplib6detail12BufferStream6socketEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
+define noundef range(i32 0, 1) i32 @_ZNK7httplib6detail12BufferStream6socketEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZNK7httplib6detail12BufferStream8durationEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
+define noundef range(i64 0, 1) i64 @_ZNK7httplib6detail12BufferStream8durationEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   ret i64 0
 }
 
@@ -46091,7 +46091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK7httplib6Server8is_validEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
+define noundef zeroext range(i1 -1, 0) i1 @_ZNK7httplib6Server8is_validEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   ret i1 true
 }
 
@@ -47644,7 +47644,7 @@ define void @_ZN7httplib10ClientImplD0Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK7httplib10ClientImpl8is_validEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
+define noundef zeroext range(i1 -1, 0) i1 @_ZNK7httplib10ClientImpl8is_validEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   ret i1 true
 }
 
@@ -61294,7 +61294,7 @@ _ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK7httplib10ClientImpl6is_sslEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
+define noundef zeroext range(i1 0, -1) i1 @_ZNK7httplib10ClientImpl6is_sslEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   ret i1 false
 }
 
@@ -77009,7 +77009,7 @@ _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %.body, %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK7httplib9SSLClient6is_sslEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
+define noundef zeroext range(i1 -1, 0) i1 @_ZNK7httplib9SSLClient6is_sslEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   ret i1 true
 }
 
@@ -117342,7 +117342,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail5if2ipEiRKN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail5if2ipEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail5if2ipEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail5if2ipEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -117591,7 +117591,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail13create_so
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail13create_socketIZNS2_20create_client_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_iibbSt8functionIFviEEllllllSB_RNS1_5ErrorEE3$_0EEiSB_SB_iiibbSE_T_EUlvE_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail13create_socketIZNS2_20create_client_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_iibbSt8functionIFviEEllllllSB_RNS1_5ErrorEE3$_0EEiSB_SB_iiibbSE_T_EUlvE_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail13create_socketIZNS2_20create_client_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_iibbSt8functionIFviEEllllllSB_RNS1_5ErrorEE3$_0EEiSB_SB_iiibbSE_T_EUlvE_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -118862,7 +118862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49.i.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZN7httplib6detail16parse_query_textES1_mRSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZN7httplib6detail16parse_query_textES1_mRSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail16parse_query_textEPKcmRSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -119004,7 +119004,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcmS1_mEZZN7httplib6detail16p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcmS1_mEZZN7httplib6detail16parse_query_textES1_mRSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEENK3$_0clES1_S1_EUlS1_mS1_mE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvPKcmS1_mEZZN7httplib6detail16parse_query_textES1_mRSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEENK3$_0clES1_S1_EUlS1_mS1_mE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN7httplib6detail16parse_query_textEPKcmRSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEENK3$_0clES4_S4_EUlS4_mS4_mE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -119629,7 +119629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47.i.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZN7httplib6detail24parse_disposition_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapISA_SA_St4lessISA_ESaISt4pairISB_SA_EEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZN7httplib6detail24parse_disposition_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapISA_SA_St4lessISA_ESaISt4pairISB_SA_EEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail24parse_disposition_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapIS8_S8_St4lessIS8_ESaISt4pairIS9_S8_EEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -119827,7 +119827,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcS1_EZZN7httplib6detail24par
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZZN7httplib6detail24parse_disposition_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapISA_SA_St4lessISA_ESaISt4pairISB_SA_EEEENK3$_0clES1_S1_EUlS1_S1_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZZN7httplib6detail24parse_disposition_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapISA_SA_St4lessISA_ESaISt4pairISB_SA_EEEENK3$_0clES1_S1_EUlS1_S1_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN7httplib6detail24parse_disposition_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8multimapIS8_S8_St4lessIS8_ESaISt4pairIS9_S8_EEEENK3$_0clEPKcSL_EUlSL_SL_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -120563,7 +120563,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72.i.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZN7httplib6detail18parse_range_headerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt4pairIllESaISF_EEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZN7httplib6detail18parse_range_headerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt4pairIllESaISF_EEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail18parse_range_headerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt4pairIllESaISD_EEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -120796,7 +120796,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail27is_ssl_pe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail27is_ssl_peer_could_be_closedEP6ssl_stiE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail27is_ssl_peer_could_be_closedEP6ssl_stiE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail27is_ssl_peer_could_be_closedEP6ssl_stiE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -121453,7 +121453,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7httplib9hosted_atERKNSt7_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib9hosted_atERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIS7_SaIS7_EEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib9hosted_atERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIS7_SaIS7_EEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib9hosted_atERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIS7_SaIS7_EEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -123768,7 +123768,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7httplib9TaskQ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFPN7httplib9TaskQueueEvEZNS0_6ServerC1EvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFPN7httplib9TaskQueueEvEZNS0_6ServerC1EvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6ServerC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6ServerC1EvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -125775,7 +125775,7 @@ _ZNSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @"_ZNSt17_Function_handlerIFN7httplib6Server15HandlerResponseERKNS0_7RequestERNS0_8ResponseEEZNS1_22set_error_handler_coreESt8functionIFvS5_S7_EESt17integral_constantIbLb0EEE3$_0E9_M_invokeERKSt9_Any_dataS5_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(712) %1, ptr noundef nonnull align 8 dereferenceable(336) %2) #5 align 2 {
+define internal noundef range(i32 0, 1) i32 @"_ZNSt17_Function_handlerIFN7httplib6Server15HandlerResponseERKNS0_7RequestERNS0_8ResponseEEZNS1_22set_error_handler_coreESt8functionIFvS5_S7_EESt17integral_constantIbLb0EEE3$_0E9_M_invokeERKSt9_Any_dataS5_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(712) %1, ptr noundef nonnull align 8 dereferenceable(336) %2) #5 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !267
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !114
@@ -125794,7 +125794,7 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFN7httplib6Server15Handle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN7httplib6Server15HandlerResponseERKNS0_7RequestERNS0_8ResponseEEZNS1_22set_error_handler_coreESt8functionIFvS5_S7_EESt17integral_constantIbLb0EEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFN7httplib6Server15HandlerResponseERKNS0_7RequestERNS0_8ResponseEEZNS1_22set_error_handler_coreESt8functionIFvS5_S7_EESt17integral_constantIbLb0EEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %6 [
     i32 0, label %4
     i32 1, label %5
@@ -126339,7 +126339,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41.i.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZNK7httplib6Server18parse_request_lineES1_RNS3_7RequestEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZNK7httplib6Server18parse_request_lineES1_RNS3_7RequestEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK7httplib6Server18parse_request_lineEPKcRNS1_7RequestEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -126822,7 +126822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14.i.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcmS1_mEZNK7httplib6Server18parse_request_lineES1_RNS3_7RequestEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvPKcmS1_mEZNK7httplib6Server18parse_request_lineES1_RNS3_7RequestEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK7httplib6Server18parse_request_lineEPKcRNS1_7RequestEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -126907,7 +126907,7 @@ _ZN7httplib6detail10write_dataERNS_6StreamEPKcm.exit.i.i.i: ; preds = %17, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6detail13write_contentIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEEmmT_RNS3_5ErrorEEUlS1_mE_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6detail13write_contentIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEEmmT_RNS3_5ErrorEEUlS1_mE_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail13write_contentIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEEmmT_RNS1_5ErrorEEUlPKcmE_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -126955,7 +126955,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6det
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6detail13write_contentIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEEmmT_RNS1_5ErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6detail13write_contentIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEEmmT_RNS1_5ErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail13write_contentIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEEmmT_RNS1_5ErrorEEUlvE_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -127459,7 +127459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60.i.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlS1_mE_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEEUlS1_mE_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail21write_content_chunkedIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_RNS1_5ErrorEEUlPKcmE_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -127497,7 +127497,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEENKUlS1_mE_clES1_mEUlS1_mE_E9_M_invokeERKSt9_Any_dataOS1_Om"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEENKUlS1_mE_clES1_mEUlS1_mE_E9_M_invokeERKSt9_Any_dataOS1_Om"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !2004
   %.val4 = load i64, ptr %2, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -127517,7 +127517,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEENKUlS1_mE_clES1_mEUlS1_mE_E10_M_managerERSt9_Any_dataRKS15_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEENKUlS1_mE_clES1_mEUlS1_mE_E10_M_managerERSt9_Any_dataRKS15_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN7httplib6detail21write_content_chunkedIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_RNS1_5ErrorEENKUlPKcmE_clES11_mEUlS11_mE_E10_M_managerERSt9_Any_dataRKS15_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -127552,7 +127552,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6det
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6detail21write_content_chunkedIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_RNS1_5ErrorEEUlvE_E10_M_managerERSt9_Any_dataRKS12_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6detail21write_content_chunkedIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_RNS1_5ErrorEEUlvE_E10_M_managerERSt9_Any_dataRKS12_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail21write_content_chunkedIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_RNS1_5ErrorEEUlvE_E10_M_managerERSt9_Any_dataRKS12_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -127584,7 +127584,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail21write_con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail21write_content_chunkedIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_RNS1_5ErrorEEUlvE0_E10_M_managerERSt9_Any_dataRKS12_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail21write_content_chunkedIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_RNS1_5ErrorEEUlvE0_E10_M_managerERSt9_Any_dataRKS12_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail21write_content_chunkedIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_RNS1_5ErrorEEUlvE0_E10_M_managerERSt9_Any_dataRKS12_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -128567,7 +128567,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEENKUlPKSt18unordered_multimapISJ_SJ_NS4_11case_ignore4hashENS13_8equal_toESaISt4pairISK_SJ_EEEE_clES1B_EUlS1_mE_E9_M_invokeERKSt9_Any_dataOS1_Om"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEENKUlPKSt18unordered_multimapISJ_SJ_NS4_11case_ignore4hashENS13_8equal_toESaISt4pairISK_SJ_EEEE_clES1B_EUlS1_mE_E9_M_invokeERKSt9_Any_dataOS1_Om"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !2033
   %.val4 = load i64, ptr %2, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -128587,7 +128587,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEENKUlPKSt18unordered_multimapISJ_SJ_NS4_11case_ignore4hashENS13_8equal_toESaISt4pairISK_SJ_EEEE_clES1B_EUlS1_mE_E10_M_managerERSt9_Any_dataRKS1F_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_RNS3_5ErrorEENKUlPKSt18unordered_multimapISJ_SJ_NS4_11case_ignore4hashENS13_8equal_toESaISt4pairISK_SJ_EEEE_clES1B_EUlS1_mE_E10_M_managerERSt9_Any_dataRKS1F_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN7httplib6detail21write_content_chunkedIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_RNS1_5ErrorEENKUlPKSt18unordered_multimapISH_SH_NS2_11case_ignore4hashENS11_8equal_toESaISt4pairISI_SH_EEEE_clES19_EUlPKcmE_E10_M_managerERSt9_Any_dataRKS1F_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -128619,7 +128619,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKSt18unordered_multimapINSt7_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail11case_ignore4hashENS9_8equal_toESaISt4pairIKS6_S6_EEEEZNS8_21write_content_chunkedIZNS7_6Server27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_8ResponseERSD_ST_E3$_0NS8_10compressorEEEbSN_RKSt8functionIFbmmRNS7_8DataSinkEEERKT_RT0_RNS7_5ErrorEEUlSI_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvRKSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail11case_ignore4hashENS9_8equal_toESaISt4pairIKS6_S6_EEEEZNS8_21write_content_chunkedIZNS7_6Server27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_8ResponseERSD_ST_E3$_0NS8_10compressorEEEbSN_RKSt8functionIFbmmRNS7_8DataSinkEEERKT_RT0_RNS7_5ErrorEEUlSI_E_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail21write_content_chunkedIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_RNS1_5ErrorEEUlRKSt18unordered_multimapISH_SH_NS2_11case_ignore4hashENS11_8equal_toESaISt4pairISI_SH_EEEE_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -128704,7 +128704,7 @@ _ZN7httplib6detail10write_dataERNS_6StreamEPKcm.exit.thread.loopexit.i.i.i: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_EUlS1_mE_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6detail28write_content_without_lengthIZNS3_6Server27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_E3$_0EEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_EUlS1_mE_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail28write_content_without_lengthIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_EUlPKcmE_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -128752,7 +128752,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6det
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6detail28write_content_without_lengthIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_EUlvE_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6detail28write_content_without_lengthIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_EUlvE_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail28write_content_without_lengthIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_EUlvE_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -128784,7 +128784,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail28write_con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail28write_content_without_lengthIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_EUlvE0_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail28write_content_without_lengthIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_EUlvE0_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail28write_content_without_lengthIZNS1_6Server27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_8ResponseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_E3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_EUlvE0_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -128838,7 +128838,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i.i: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6Server12read_contentERNS3_6StreamERNS3_7RequestERNS3_8ResponseEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6Server12read_contentERNS3_6StreamERNS3_7RequestERNS3_8ResponseEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server12read_contentERNS1_6StreamERNS1_7RequestERNS1_8ResponseEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -128887,7 +128887,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7httplib17Mul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7httplib17MultipartFormDataEEZNS0_6Server12read_contentERNS0_6StreamERNS0_7RequestERNS0_8ResponseEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbRKN7httplib17MultipartFormDataEEZNS0_6Server12read_contentERNS0_6StreamERNS0_7RequestERNS0_8ResponseEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server12read_contentERNS1_6StreamERNS1_7RequestERNS1_8ResponseEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -129148,7 +129148,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i.i: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6Server12read_contentERNS3_6StreamERNS3_7RequestERNS3_8ResponseEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6Server12read_contentERNS3_6StreamERNS3_7RequestERNS3_8ResponseEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server12read_contentERNS1_6StreamERNS1_7RequestERNS1_8ResponseEE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -129187,7 +129187,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZNK7httpl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZNK7httplib6Server17read_content_coreERNS3_6StreamERNS3_7RequestERNS3_8ResponseESt8functionIFbS1_mEESB_IFbRKNS3_17MultipartFormDataEEESD_E3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZNK7httplib6Server17read_content_coreERNS3_6StreamERNS3_7RequestERNS3_8ResponseESt8functionIFbS1_mEESB_IFbRKNS3_17MultipartFormDataEEESD_E3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK7httplib6Server17read_content_coreERNS1_6StreamERNS1_7RequestERNS1_8ResponseESt8functionIFbPKcmEES9_IFbRKNS1_17MultipartFormDataEEESD_E3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -131543,7 +131543,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZNK7httpl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZNK7httplib6Server17read_content_coreERNS3_6StreamERNS3_7RequestERNS3_8ResponseESt8functionIFbS1_mEESB_IFbRKNS3_17MultipartFormDataEEESD_E3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZNK7httplib6Server17read_content_coreERNS3_6StreamERNS3_7RequestERNS3_8ResponseESt8functionIFbS1_mEESB_IFbRKNS3_17MultipartFormDataEEESD_E3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %6 [
     i32 0, label %4
     i32 1, label %5
@@ -133834,7 +133834,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbmmRN7httplib8DataSinkEEZNS0_6Server19handle_file_requestERKNS0_7RequestERNS0_8ResponseEbE3$_0E9_M_invokeERKSt9_Any_dataOmSF_S2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(472) %3) #5 align 2 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZNSt17_Function_handlerIFbmmRN7httplib8DataSinkEEZNS0_6Server19handle_file_requestERKNS0_7RequestERNS0_8ResponseEbE3$_0E9_M_invokeERKSt9_Any_dataOmSF_S2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(472) %3) #5 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %.val = load ptr, ptr %0, align 8, !tbaa !267
@@ -133871,7 +133871,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbmmRN7httplib8Dat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbmmRN7httplib8DataSinkEEZNS0_6Server19handle_file_requestERKNS0_7RequestERNS0_8ResponseEbE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbmmRN7httplib8DataSinkEEZNS0_6Server19handle_file_requestERKNS0_7RequestERNS0_8ResponseEbE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server19handle_file_requestERKNS1_7RequestERNS1_8ResponseEbE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -133995,7 +133995,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail13create_so
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail13create_socketIZNKS1_6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEE3$_0EEiSC_SC_iiibbSF_T_EUlvE_E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail13create_socketIZNKS1_6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEE3$_0EEiSC_SC_iiibbSF_T_EUlvE_E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail13create_socketIZNKS1_6Server20create_server_socketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiSt8functionIFviEEE3$_0EEiSC_SC_iiibbSF_T_EUlvE_E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -134028,7 +134028,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7httplib6Server15listen_in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6Server15listen_internalEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6Server15listen_internalEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server15listen_internalEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -134065,7 +134065,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7httplib6Server15listen_in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6Server15listen_internalEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6Server15listen_internalEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server15listen_internalEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -134291,7 +134291,7 @@ _ZNSt14_Function_baseD2Ev.exit4.i.i:              ; preds = %79, %.body.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbSt8functionIFbPKcmEEEZN7httplib6Server7routingERNS6_7RequestERNS6_8ResponseERNS6_6StreamEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbSt8functionIFbPKcmEEEZN7httplib6Server7routingERNS6_7RequestERNS6_8ResponseERNS6_6StreamEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server7routingERNS1_7RequestERNS1_8ResponseERNS1_6StreamEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -134597,7 +134597,7 @@ _ZNSt14_Function_baseD2Ev.exit10.i.i:             ; preds = %104, %_ZNSt14_Funct
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbSt8functionIFbRKN7httplib17MultipartFormDataEEES0_IFbPKcmEEEZNS1_6Server7routingERNS1_7RequestERNS1_8ResponseERNS1_6StreamEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbSt8functionIFbRKN7httplib17MultipartFormDataEEES0_IFbPKcmEEEZNS1_6Server7routingERNS1_7RequestERNS1_8ResponseERNS1_6StreamEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server7routingERNS1_7RequestERNS1_8ResponseERNS1_6StreamEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -134729,7 +134729,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZNK7httplib6Server12apply_rangesERKNS3_7RequestERNS3_8ResponseERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_E3$_0E9_M_invokeERKSt9_Any_dataOS1_Om"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZNSt17_Function_handlerIFbPKcmEZNK7httplib6Server12apply_rangesERKNS3_7RequestERNS3_8ResponseERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_E3$_0E9_M_invokeERKSt9_Any_dataOS1_Om"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !2148
   %.val4 = load i64, ptr %2, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -134749,7 +134749,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZNK7httplib
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZNK7httplib6Server12apply_rangesERKNS3_7RequestERNS3_8ResponseERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmEZNK7httplib6Server12apply_rangesERKNS3_7RequestERNS3_8ResponseERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK7httplib6Server12apply_rangesERKNS1_7RequestERNS1_8ResponseERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -134786,7 +134786,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6Ser
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6Server15process_requestERNS1_6StreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSC_ibRbRKSt8functionIFvRNS1_7RequestEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6Server15process_requestERNS1_6StreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSC_ibRbRKSt8functionIFvRNS1_7RequestEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server15process_requestERNS1_6StreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSC_ibRbRKSt8functionIFvRNS1_7RequestEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -134811,7 +134811,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6Ser
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbmmRN7httplib8DataSinkEEZNS0_6Server15process_requestERNS0_6StreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSE_ibRbRKSt8functionIFvRNS0_7RequestEEEE3$_1E9_M_invokeERKSt9_Any_dataOmSS_S2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(472) %3) #5 align 2 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZNSt17_Function_handlerIFbmmRN7httplib8DataSinkEEZNS0_6Server15process_requestERNS0_6StreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSE_ibRbRKSt8functionIFvRNS0_7RequestEEEE3$_1E9_M_invokeERKSt9_Any_dataOmSS_S2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(472) %3) #5 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %.val = load ptr, ptr %0, align 8, !tbaa !267
@@ -134848,7 +134848,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbmmRN7httplib8Dat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbmmRN7httplib8DataSinkEEZNS0_6Server15process_requestERNS0_6StreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSE_ibRbRKSt8functionIFvRNS0_7RequestEEEE3$_1E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbmmRN7httplib8DataSinkEEZNS0_6Server15process_requestERNS0_6StreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSE_ibRbRKSt8functionIFvRNS0_7RequestEEEE3$_1E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6Server15process_requestERNS1_6StreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSC_ibRbRKSt8functionIFvRNS1_7RequestEEEE3$_1E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -139077,7 +139077,7 @@ _ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit.i.i.i: ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib10ClientImpl5send_ERNS1_7RequestERNS1_8ResponseERNS1_5ErrorEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib10ClientImpl5send_ERNS1_7RequestERNS1_8ResponseERNS1_5ErrorEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib10ClientImpl5send_ERNS1_7RequestERNS1_8ResponseERNS1_5ErrorEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -139133,7 +139133,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN7httplib6Strea
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN7httplib6StreamEEZNS0_10ClientImpl5send_ERNS0_7RequestERNS0_8ResponseERNS0_5ErrorEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbRN7httplib6StreamEEZNS0_10ClientImpl5send_ERNS0_7RequestERNS0_8ResponseERNS0_5ErrorEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib10ClientImpl5send_ERNS1_7RequestERNS1_8ResponseERNS1_5ErrorEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -140123,7 +140123,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60.i.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlS1_mE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_SD_EUlS1_mE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail21write_content_chunkedIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_SB_EUlPKcmE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -140161,7 +140161,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_SD_ENKUlS1_mE_clES1_mEUlS1_mE_E9_M_invokeERKSt9_Any_dataOS1_Om"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_SD_ENKUlS1_mE_clES1_mEUlS1_mE_E9_M_invokeERKSt9_Any_dataOS1_Om"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !2267
   %.val4 = load i64, ptr %2, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -140181,7 +140181,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_SD_ENKUlS1_mE_clES1_mEUlS1_mE_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_SD_ENKUlS1_mE_clES1_mEUlS1_mE_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN7httplib6detail21write_content_chunkedIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_SB_ENKUlPKcmE_clESR_mEUlSR_mE_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -140216,7 +140216,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6det
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6detail21write_content_chunkedIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_SB_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6detail21write_content_chunkedIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_SB_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail21write_content_chunkedIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_SB_EUlvE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -140248,7 +140248,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail21write_con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail21write_content_chunkedIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_SB_EUlvE0_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvvEZN7httplib6detail21write_content_chunkedIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_SB_EUlvE0_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail21write_content_chunkedIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_SB_EUlvE0_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -141231,7 +141231,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_SD_ENKUlPKSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESY_NS4_11case_ignore4hashENSZ_8equal_toESaISt4pairIKSY_SY_EEEE_clES18_EUlS1_mE_E9_M_invokeERKSt9_Any_dataOS1_Om"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_SD_ENKUlPKSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESY_NS4_11case_ignore4hashENSZ_8equal_toESaISt4pairIKSY_SY_EEEE_clES18_EUlS1_mE_E9_M_invokeERKSt9_Any_dataOS1_Om"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !2296
   %.val4 = load i64, ptr %2, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -141251,7 +141251,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_SD_ENKUlPKSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESY_NS4_11case_ignore4hashENSZ_8equal_toESaISt4pairIKSY_SY_EEEE_clES18_EUlS1_mE_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib6detail21write_content_chunkedIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0NS4_10compressorEEEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEERKT_RT0_SD_ENKUlPKSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESY_NS4_11case_ignore4hashENSZ_8equal_toESaISt4pairIKSY_SY_EEEE_clES18_EUlS1_mE_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN7httplib6detail21write_content_chunkedIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_SB_ENKUlPKSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESW_NS2_11case_ignore4hashENSX_8equal_toESaISt4pairIKSW_SW_EEEE_clES16_EUlPKcmE_E10_M_managerERSt9_Any_dataRKS1C_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -141283,7 +141283,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKSt18unordered_multimapINSt7_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail11case_ignore4hashENS9_8equal_toESaISt4pairIKS6_S6_EEEEZNS8_21write_content_chunkedIZNKS7_10ClientImpl27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_5ErrorEE3$_0NS8_10compressorEEEbSN_RKSt8functionIFbmmRNS7_8DataSinkEEERKT_RT0_SS_EUlSI_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvRKSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_N7httplib6detail11case_ignore4hashENS9_8equal_toESaISt4pairIKS6_S6_EEEEZNS8_21write_content_chunkedIZNKS7_10ClientImpl27write_content_with_providerERNS7_6StreamERKNS7_7RequestERNS7_5ErrorEE3$_0NS8_10compressorEEEbSN_RKSt8functionIFbmmRNS7_8DataSinkEEERKT_RT0_SS_EUlSI_E_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail21write_content_chunkedIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0NS2_10compressorEEEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEERKT_RT0_SB_EUlRKSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESW_NS2_11case_ignore4hashENSX_8equal_toESaISt4pairIKSW_SW_EEEE_E10_M_managerERSt9_Any_dataRKS19_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -141368,7 +141368,7 @@ _ZN7httplib6detail10write_dataERNS_6StreamEPKcm.exit.i.i.i: ; preds = %17, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6detail13write_contentIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0EEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEEmmT_SD_EUlS1_mE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib6detail13write_contentIZNKS3_10ClientImpl27write_content_with_providerERNS3_6StreamERKNS3_7RequestERNS3_5ErrorEE3$_0EEbS8_RKSt8functionIFbmmRNS3_8DataSinkEEEmmT_SD_EUlS1_mE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail13write_contentIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEEmmT_SB_EUlPKcmE_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -141416,7 +141416,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6det
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6detail13write_contentIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEEmmT_SB_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbvEZN7httplib6detail13write_contentIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEEmmT_SB_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib6detail13write_contentIZNKS1_10ClientImpl27write_content_with_providerERNS1_6StreamERKNS1_7RequestERNS1_5ErrorEE3$_0EEbS6_RKSt8functionIFbmmRNS1_8DataSinkEEEmmT_SB_EUlvE_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -141538,7 +141538,7 @@ _ZNSt14_Function_baseD2Ev.exit9.i.i.i:            ; preds = %41, %38
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib10ClientImpl26send_with_content_providerERNS3_7RequestES1_mSt8functionIFbmmRNS3_8DataSinkEEES7_IFbmS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS3_5ErrorEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib10ClientImpl26send_with_content_providerERNS3_7RequestES1_mSt8functionIFbmmRNS3_8DataSinkEEES7_IFbmS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS3_5ErrorEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib10ClientImpl26send_with_content_providerERNS1_7RequestEPKcmSt8functionIFbmmRNS1_8DataSinkEEES7_IFbmS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_5ErrorEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -141576,7 +141576,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib10ClientImpl26send_with_content_providerERNS3_7RequestES1_mSt8functionIFbmmRNS3_8DataSinkEEES7_IFbmS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS3_5ErrorEENK3$_0clES1_mEUlS1_mE_E9_M_invokeERKSt9_Any_dataOS1_Om"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib10ClientImpl26send_with_content_providerERNS3_7RequestES1_mSt8functionIFbmmRNS3_8DataSinkEEES7_IFbmS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS3_5ErrorEENK3$_0clES1_mEUlS1_mE_E9_M_invokeERKSt9_Any_dataOS1_Om"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !2313
   %.val4 = load i64, ptr %2, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 176
@@ -141597,7 +141597,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib10ClientImpl26send_with_content_providerERNS3_7RequestES1_mSt8functionIFbmmRNS3_8DataSinkEEES7_IFbmS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS3_5ErrorEENK3$_0clES1_mEUlS1_mE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib10ClientImpl26send_with_content_providerERNS3_7RequestES1_mSt8functionIFbmmRNS3_8DataSinkEEES7_IFbmS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS3_5ErrorEENK3$_0clES1_mEUlS1_mE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN7httplib10ClientImpl26send_with_content_providerERNS1_7RequestEPKcmSt8functionIFbmmRNS1_8DataSinkEEES7_IFbmS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_5ErrorEENK3$_0clES6_mEUlS6_mE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -141622,7 +141622,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZZN7httplib
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib10ClientImpl26send_with_content_providerERNS3_7RequestES1_mSt8functionIFbmmRNS3_8DataSinkEEES7_IFbmS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS3_5ErrorEE3$_1E9_M_invokeERKSt9_Any_dataOS1_Om"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib10ClientImpl26send_with_content_providerERNS3_7RequestES1_mSt8functionIFbmmRNS3_8DataSinkEEES7_IFbmS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS3_5ErrorEE3$_1E9_M_invokeERKSt9_Any_dataOS1_Om"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !2315
   %.val4 = load i64, ptr %2, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 176
@@ -141643,7 +141643,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib10ClientImpl26send_with_content_providerERNS3_7RequestES1_mSt8functionIFbmmRNS3_8DataSinkEEES7_IFbmS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS3_5ErrorEE3$_1E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmEZN7httplib10ClientImpl26send_with_content_providerERNS3_7RequestES1_mSt8functionIFbmmRNS3_8DataSinkEEES7_IFbmS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS3_5ErrorEE3$_1E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib10ClientImpl26send_with_content_providerERNS1_7RequestEPKcmSt8functionIFbmmRNS1_8DataSinkEEES7_IFbmS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_5ErrorEE3$_1E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -141726,7 +141726,7 @@ _ZNKSt8functionIFbPKcmmmEEclES1_mmm.exit.i.i.i:   ; preds = %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl15process_requestERNS3_6StreamERNS3_7RequestERNS3_8ResponseEbRNS3_5ErrorEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl15process_requestERNS3_6StreamERNS3_7RequestERNS3_8ResponseEbRNS3_5ErrorEE3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib10ClientImpl15process_requestERNS1_6StreamERNS1_7RequestERNS1_8ResponseEbRNS1_5ErrorEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -141764,7 +141764,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httpli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl15process_requestERNS3_6StreamERNS3_7RequestERNS3_8ResponseEbRNS3_5ErrorEE3$_1E9_M_invokeERKSt9_Any_dataOS1_OmSJ_SJ_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr nonnull readonly align 8 captures(none) %3, ptr nonnull readonly align 8 captures(none) %4) #5 align 2 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl15process_requestERNS3_6StreamERNS3_7RequestERNS3_8ResponseEbRNS3_5ErrorEE3$_1E9_M_invokeERKSt9_Any_dataOS1_OmSJ_SJ_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr nonnull readonly align 8 captures(none) %3, ptr nonnull readonly align 8 captures(none) %4) #5 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !2322
   %.val6 = load i64, ptr %2, align 8, !tbaa !83
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 136
@@ -141785,7 +141785,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httpli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl15process_requestERNS3_6StreamERNS3_7RequestERNS3_8ResponseEbRNS3_5ErrorEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl15process_requestERNS3_6StreamERNS3_7RequestERNS3_8ResponseEbRNS3_5ErrorEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib10ClientImpl15process_requestERNS1_6StreamERNS1_7RequestERNS1_8ResponseEbRNS1_5ErrorEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -143985,7 +143985,7 @@ _ZNKSt8functionIFbmmEEclEmm.exit.i.i.i:           ; preds = %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbmmEZN7httplib10ClientImpl15process_requestERNS1_6StreamERNS1_7RequestERNS1_8ResponseEbRNS1_5ErrorEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbmmEZN7httplib10ClientImpl15process_requestERNS1_6StreamERNS1_7RequestERNS1_8ResponseEbRNS1_5ErrorEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib10ClientImpl15process_requestERNS1_6StreamERNS1_7RequestERNS1_8ResponseEbRNS1_5ErrorEE3$_2E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -144448,7 +144448,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57.i.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbmRN7httplib8DataSinkEEZNKS0_10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_17MultipartFormDataESaISE_EERKSD_INS0_25MultipartFormDataProviderESaISJ_EEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbmRN7httplib8DataSinkEEZNKS0_10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_17MultipartFormDataESaISE_EERKSD_INS0_25MultipartFormDataProviderESaISJ_EEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS1_17MultipartFormDataESaISC_EERKSB_INS1_25MultipartFormDataProviderESaISH_EEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -145083,7 +145083,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZZNK7httplib10ClientImpl30ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS1_17MultipartFormDataESaISC_EERKSB_INS1_25MultipartFormDataProviderESaISH_EEEN3$_0clEmRNS1_8DataSinkEEUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvvEZZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS1_17MultipartFormDataESaISC_EERKSB_INS1_25MultipartFormDataProviderESaISH_EEEN3$_0clEmRNS1_8DataSinkEEUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZNK7httplib10ClientImpl30get_multipart_content_providerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS1_17MultipartFormDataESaISC_EERKSB_INS1_25MultipartFormDataProviderESaISH_EEEN3$_0clEmRNS1_8DataSinkEEUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -145137,7 +145137,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httpli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt18unordered_multimapISA_SA_NS3_6detail11case_ignore4hashENSF_8equal_toESaISt4pairISB_SA_EEESt8functionIFbRKNS3_8ResponseEEESO_IFbS1_mEESO_IFbmmEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbPKcmmmEZN7httplib10ClientImpl3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt18unordered_multimapISA_SA_NS3_6detail11case_ignore4hashENSF_8equal_toESaISt4pairISB_SA_EEESt8functionIFbRKNS3_8ResponseEEESO_IFbS1_mEESO_IFbmmEEE3$_0E10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %6 [
     i32 0, label %4
     i32 1, label %5
@@ -145246,7 +145246,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZNK7httplib10ClientImpl20cre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZNK7httplib10ClientImpl20create_ca_cert_storeEPKcmE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvvEZNK7httplib10ClientImpl20create_ca_cert_storeEPKcmE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK7httplib10ClientImpl20create_ca_cert_storeEPKcmE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -145292,7 +145292,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN7httplib7RequestEEZZNS0_9SSL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN7httplib7RequestEEZZNS0_9SSLServer24process_and_close_socketEiENK3$_0clERNS0_6StreamEbRbEUlS2_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvRN7httplib7RequestEEZZNS0_9SSLServer24process_and_close_socketEiENK3$_0clERNS0_6StreamEbRbEUlS2_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN7httplib9SSLServer24process_and_close_socketEiENK3$_0clERNS1_6StreamEbRbEUlRNS1_7RequestEE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -145395,7 +145395,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSC_SC_SC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSC_SC_SC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSA_SA_SA_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -145724,7 +145724,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiP7x509_stP11evp_pkey_stSC_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiP7x509_stP11evp_pkey_stSC_E3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib9SSLClientC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiP7x509_stP11evp_pkey_stSA_E3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -145896,7 +145896,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i.i.i: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN7httplib6StreamEEZNS0_9SSLClient18connect_with_proxyERNS0_10ClientImpl6SocketENSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEERNS0_8ResponseERbRNS0_5ErrorEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbRN7httplib6StreamEEZNS0_9SSLClient18connect_with_proxyERNS0_10ClientImpl6SocketENSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEERNS0_8ResponseERbRNS0_5ErrorEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib9SSLClient18connect_with_proxyERNS1_10ClientImpl6SocketENSt6chrono10time_pointINS6_3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEERNS1_8ResponseERbRNS1_5ErrorEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -146361,7 +146361,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN7httplib6StreamEEZNS0_9SSLClient18connect_with_proxyERNS0_10ClientImpl6SocketENSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEERNS0_8ResponseERbRNS0_5ErrorEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbRN7httplib6StreamEEZNS0_9SSLClient18connect_with_proxyERNS0_10ClientImpl6SocketENSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEERNS0_8ResponseERbRNS0_5ErrorEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN7httplib9SSLClient18connect_with_proxyERNS1_10ClientImpl6SocketENSt6chrono10time_pointINS6_3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEERNS1_8ResponseERbRNS1_5ErrorEE3$_1E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -146507,7 +146507,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZZN7httplib9SSLClient14initi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN7httplib9SSLClient14initialize_sslERNS1_10ClientImpl6SocketERNS1_5ErrorEENK3$_0clEP6ssl_stEUlvE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvvEZZN7httplib9SSLClient14initialize_sslERNS1_10ClientImpl6SocketERNS1_5ErrorEENK3$_0clEP6ssl_stEUlvE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN7httplib9SSLClient14initialize_sslERNS1_10ClientImpl6SocketERNS1_5ErrorEENK3$_0clEP6ssl_stEUlvE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -146611,7 +146611,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZNK7httplib9SSLClient15check_host_nameES1_mE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvPKcS1_EZNK7httplib9SSLClient15check_host_nameES1_mE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #30 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK7httplib9SSLClient15check_host_nameEPKcmE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5

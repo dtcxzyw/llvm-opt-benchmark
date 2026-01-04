@@ -188,7 +188,7 @@ if.end:                                           ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN7msdfgenL8ftMoveToEPK10FT_Vector_Pv(ptr noundef readonly captures(none) %to, ptr noundef captures(none) initializes((0, 16)) %user) #2 {
+define internal noundef range(i32 0, 1) i32 @_ZN7msdfgenL8ftMoveToEPK10FT_Vector_Pv(ptr noundef readonly captures(none) %to, ptr noundef captures(none) initializes((0, 16)) %user) #2 {
 entry:
   %contour = getelementptr inbounds nuw i8, ptr %user, i64 24
   %0 = load ptr, ptr %contour, align 8
@@ -224,7 +224,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN7msdfgenL8ftLineToEPK10FT_Vector_Pv(ptr noundef readonly captures(none) %to, ptr noundef captures(none) %user) #2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 1) i32 @_ZN7msdfgenL8ftLineToEPK10FT_Vector_Pv(ptr noundef readonly captures(none) %to, ptr noundef captures(none) %user) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.msdfgen::EdgeHolder", align 8
   %to.val = load i64, ptr %to, align 8
@@ -267,7 +267,7 @@ if.end:                                           ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN7msdfgenL9ftConicToEPK10FT_Vector_S2_Pv(ptr noundef readonly captures(none) %control, ptr noundef readonly captures(none) %to, ptr noundef captures(none) %user) #2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 1) i32 @_ZN7msdfgenL9ftConicToEPK10FT_Vector_S2_Pv(ptr noundef readonly captures(none) %control, ptr noundef readonly captures(none) %to, ptr noundef captures(none) %user) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.msdfgen::EdgeHolder", align 8
   %to.val = load i64, ptr %to, align 8
@@ -317,7 +317,7 @@ if.end:                                           ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN7msdfgenL9ftCubicToEPK10FT_Vector_S2_S2_Pv(ptr noundef readonly captures(none) %control1, ptr noundef readonly captures(none) %control2, ptr noundef readonly captures(none) %to, ptr noundef captures(none) %user) #2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 1) i32 @_ZN7msdfgenL9ftCubicToEPK10FT_Vector_S2_S2_Pv(ptr noundef readonly captures(none) %control1, ptr noundef readonly captures(none) %control2, ptr noundef readonly captures(none) %to, ptr noundef captures(none) %user) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.msdfgen::EdgeHolder", align 8
   %to.val = load i64, ptr %to, align 8
@@ -484,7 +484,7 @@ delete.end:                                       ; preds = %if.then, %entry
 declare i32 @FT_Done_Face(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen14getFontMetricsERNS_11FontMetricsEPNS_10FontHandleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %metrics, ptr noundef readonly captures(none) %font) local_unnamed_addr #6 {
+define dso_local noundef zeroext range(i1 -1, 0) i1 @_ZN7msdfgen14getFontMetricsERNS_11FontMetricsEPNS_10FontHandleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %metrics, ptr noundef readonly captures(none) %font) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %font, align 8
   %units_per_EM = getelementptr inbounds nuw i8, ptr %0, i64 136

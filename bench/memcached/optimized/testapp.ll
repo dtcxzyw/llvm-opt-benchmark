@@ -389,7 +389,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [24 x i8] c"/tmp/test_file.XXXXXXX\00\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cache_create_test() #0 {
+define internal noundef range(i32 1, 2) i32 @cache_create_test() #0 {
   %1 = tail call ptr @cache_create(ptr noundef nonnull @.str.60, i64 noundef 4, i64 noundef 8) #21
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %3
@@ -495,7 +495,7 @@ define internal range(i32 1, 3) i32 @cache_redzone_test() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cache_limit_revised_downward_test() #0 {
+define internal noundef range(i32 1, 2) i32 @cache_limit_revised_downward_test() #0 {
   %1 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 11, i64 noundef 8) #23
   %2 = tail call ptr @cache_create(ptr noundef nonnull @.str.60, i64 noundef 4, i64 noundef 8) #21
   %.not = icmp eq ptr %2, null
@@ -551,7 +551,7 @@ define internal noundef i32 @cache_limit_revised_downward_test() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_stats_prefix_find() #0 {
+define internal noundef range(i32 1, 2) i32 @test_stats_prefix_find() #0 {
   tail call void @stats_prefix_clear() #21
   %1 = tail call ptr @stats_prefix_find(ptr noundef nonnull @.str.69, i64 noundef 3) #21
   %2 = icmp eq ptr %1, null
@@ -855,7 +855,7 @@ define internal range(i32 1, 3) i32 @test_stats_prefix_record_set() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_stats_prefix_dump() #0 {
+define internal noundef range(i32 1, 2) i32 @test_stats_prefix_dump() #0 {
   %1 = alloca [500 x i8], align 16
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @hash, align 8, !tbaa !27
@@ -1156,7 +1156,7 @@ cache_bulkalloc.exit:                             ; preds = %22, %13, %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_safe_strtol() #0 {
+define internal noundef range(i32 1, 2) i32 @test_safe_strtol() #0 {
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call zeroext i1 @safe_strtol(ptr noundef nonnull @.str.113, ptr noundef nonnull %1) #21
@@ -1281,7 +1281,7 @@ define internal noundef i32 @test_safe_strtol() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_safe_strtoll() #0 {
+define internal noundef range(i32 1, 2) i32 @test_safe_strtoll() #0 {
   %1 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call zeroext i1 @safe_strtoll(ptr noundef nonnull @.str.113, ptr noundef nonnull %1) #21
@@ -1422,7 +1422,7 @@ define internal noundef i32 @test_safe_strtoll() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_safe_strtoul() #0 {
+define internal noundef range(i32 1, 2) i32 @test_safe_strtoul() #0 {
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call zeroext i1 @safe_strtoul(ptr noundef nonnull @.str.113, ptr noundef nonnull %1) #21
@@ -1521,7 +1521,7 @@ define internal noundef i32 @test_safe_strtoul() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_safe_strtoull() #0 {
+define internal noundef range(i32 1, 2) i32 @test_safe_strtoull() #0 {
   %1 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call zeroext i1 @safe_strtoull(ptr noundef nonnull @.str.113, ptr noundef nonnull %1) #21
@@ -1636,7 +1636,7 @@ define internal noundef i32 @test_safe_strtoull() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_issue_44() #0 {
+define internal noundef range(i32 1, 2) i32 @test_issue_44() #0 {
   %1 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call fastcc i32 @start_server(ptr noundef nonnull %1, i1 noundef zeroext true, i32 noundef 600)
@@ -1933,7 +1933,7 @@ define internal range(i32 0, 3) i32 @test_issue_101() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_crc32c() #0 {
+define internal noundef range(i32 1, 2) i32 @test_crc32c() #0 {
   %1 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   br label %7
@@ -2011,7 +2011,7 @@ define internal noundef i32 @test_crc32c() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @start_memcached_server() #0 {
+define internal noundef range(i32 1, 2) i32 @start_memcached_server() #0 {
   %1 = tail call fastcc i32 @start_server(ptr noundef nonnull @port, i1 noundef zeroext false, i32 noundef 600)
   store i32 %1, ptr @server_pid, align 4, !tbaa !9
   %2 = load ptr, ptr @con, align 8, !tbaa !35
@@ -2050,7 +2050,7 @@ close_conn.exit:                                  ; preds = %0, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_issue_92() #0 {
+define internal noundef range(i32 1, 2) i32 @test_issue_92() #0 {
   %1 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @con, align 8, !tbaa !35
@@ -2208,7 +2208,7 @@ close_conn.exit8:                                 ; preds = %54, %62
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_issue_102() #0 {
+define internal noundef range(i32 1, 2) i32 @test_issue_102() #0 {
   %1 = alloca [4096 x i8], align 16
   %2 = alloca [80 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -2607,7 +2607,7 @@ close_conn.exit32:                                ; preds = %181, %189
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_noop() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_noop() #0 {
   %1 = alloca %union.anon.0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
@@ -2681,139 +2681,139 @@ safe_recv_packet.exit:                            ; preds = %safe_send.exit, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_quit() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_quit() #0 {
   tail call fastcc void @test_binary_quit_impl(i8 noundef zeroext 7)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_quitq() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_quitq() #0 {
   tail call fastcc void @test_binary_quit_impl(i8 noundef zeroext 23)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_set() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_set() #0 {
   tail call fastcc void @test_binary_set_impl(ptr noundef nonnull @.str.267, i8 noundef zeroext 1)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_setq() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_setq() #0 {
   tail call fastcc void @test_binary_set_impl(ptr noundef nonnull @.str.270, i8 noundef zeroext 17)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_add() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_add() #0 {
   tail call fastcc void @test_binary_add_impl(ptr noundef nonnull @.str.271, i8 noundef zeroext 2)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_addq() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_addq() #0 {
   tail call fastcc void @test_binary_add_impl(ptr noundef nonnull @.str.272, i8 noundef zeroext 18)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_replace() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_replace() #0 {
   tail call fastcc void @test_binary_replace_impl(ptr noundef nonnull @.str.273, i8 noundef zeroext 3)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_replaceq() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_replaceq() #0 {
   tail call fastcc void @test_binary_replace_impl(ptr noundef nonnull @.str.274, i8 noundef zeroext 19)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_delete() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_delete() #0 {
   tail call fastcc void @test_binary_delete_impl(ptr noundef nonnull @.str.275, i8 noundef zeroext 4)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_deleteq() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_deleteq() #0 {
   tail call fastcc void @test_binary_delete_impl(ptr noundef nonnull @.str.276, i8 noundef zeroext 20)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_get() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_get() #0 {
   tail call fastcc void @test_binary_get_impl(ptr noundef nonnull @.str.277, i8 noundef zeroext 0)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_getq() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_getq() #0 {
   tail call fastcc void @test_binary_getq_impl(ptr noundef nonnull @.str.278, i8 noundef zeroext 9)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_getk() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_getk() #0 {
   tail call fastcc void @test_binary_get_impl(ptr noundef nonnull @.str.280, i8 noundef zeroext 12)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_getkq() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_getkq() #0 {
   tail call fastcc void @test_binary_getq_impl(ptr noundef nonnull @.str.281, i8 noundef zeroext 13)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_gat() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_gat() #0 {
   tail call fastcc void @test_binary_get_impl(ptr noundef nonnull @.str.282, i8 noundef zeroext 29)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_gatq() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_gatq() #0 {
   tail call fastcc void @test_binary_getq_impl(ptr noundef nonnull @.str.283, i8 noundef zeroext 30)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_gatk() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_gatk() #0 {
   tail call fastcc void @test_binary_get_impl(ptr noundef nonnull @.str.284, i8 noundef zeroext 35)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_gatkq() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_gatkq() #0 {
   tail call fastcc void @test_binary_getq_impl(ptr noundef nonnull @.str.285, i8 noundef zeroext 36)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_incr() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_incr() #0 {
   tail call fastcc void @test_binary_incr_impl(ptr noundef nonnull @.str.286, i8 noundef zeroext 5)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_incrq() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_incrq() #0 {
   tail call fastcc void @test_binary_incr_impl(ptr noundef nonnull @.str.289, i8 noundef zeroext 21)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_decr() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_decr() #0 {
   tail call fastcc void @test_binary_decr_impl(ptr noundef nonnull @.str.290, i8 noundef zeroext 6)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_decrq() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_decrq() #0 {
   tail call fastcc void @test_binary_decr_impl(ptr noundef nonnull @.str.292, i8 noundef zeroext 22)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_version() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_version() #0 {
   %1 = alloca %union.anon.20, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
@@ -2887,43 +2887,43 @@ safe_recv_packet.exit:                            ; preds = %safe_send.exit, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_flush() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_flush() #0 {
   tail call fastcc void @test_binary_flush_impl(ptr noundef nonnull @.str.293, i8 noundef zeroext 8)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_flushq() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_flushq() #0 {
   tail call fastcc void @test_binary_flush_impl(ptr noundef nonnull @.str.295, i8 noundef zeroext 24)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_append() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_append() #0 {
   tail call fastcc void @test_binary_concat_impl(ptr noundef nonnull @.str.296, i8 noundef zeroext 14)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_appendq() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_appendq() #0 {
   tail call fastcc void @test_binary_concat_impl(ptr noundef nonnull @.str.302, i8 noundef zeroext 25)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_prepend() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_prepend() #0 {
   tail call fastcc void @test_binary_concat_impl(ptr noundef nonnull @.str.303, i8 noundef zeroext 15)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_prependq() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_prependq() #0 {
   tail call fastcc void @test_binary_concat_impl(ptr noundef nonnull @.str.304, i8 noundef zeroext 26)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_stat() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_stat() #0 {
   %1 = alloca %union.anon.25, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
@@ -3005,7 +3005,7 @@ safe_recv_packet.exit:                            ; preds = %safe_send.exit, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_illegal() #0 {
+define internal noundef range(i32 1, 2) i32 @test_binary_illegal() #0 {
   %1 = alloca %union.anon.26, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -3446,7 +3446,7 @@ safe_send.exit:                                   ; preds = %110
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @shutdown_memcached_server() #0 {
+define internal noundef range(i32 1, 2) i32 @shutdown_memcached_server() #0 {
   %1 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @con, align 8, !tbaa !35
@@ -3562,7 +3562,7 @@ close_conn.exit2:                                 ; preds = %38, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stop_memcached_server() #0 {
+define internal noundef range(i32 1, 2) i32 @stop_memcached_server() #0 {
   %1 = load ptr, ptr @con, align 8, !tbaa !35
   %2 = icmp eq ptr %1, null
   br i1 %2, label %close_conn.exit, label %3
