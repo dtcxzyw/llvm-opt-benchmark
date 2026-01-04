@@ -1522,9 +1522,8 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5F__create_api_
 
 73:                                               ; preds = %66
   %74 = icmp eq i32 %28, 0
-  %75 = or disjoint i32 %1, 4
-  %spec.select = select i1 %74, i32 %75, i32 %1
-  %76 = or disjoint i32 %spec.select, 17
+  %75 = select i1 %74, i32 21, i32 17
+  %76 = or i32 %75, %1
   %77 = load ptr, ptr %7, align 8, !tbaa !33
   %78 = load i64, ptr %6, align 8, !tbaa !11
   %79 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !11

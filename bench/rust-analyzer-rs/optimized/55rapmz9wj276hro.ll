@@ -39971,9 +39971,8 @@ switch.early.test.i:                              ; preds = %567
   %spec.select245.i = select i1 %.not110.i, i32 0, i32 8192
   %604 = or disjoint i32 %spec.select245.i, 131072
   %spec.select246.i = select i1 %.not.i153.not.i, i32 %spec.select245.i, i32 %604
-  %605 = or disjoint i32 %spec.select246.i, 256
-  %spec.select247.i = select i1 %602, i32 %605, i32 %spec.select246.i
-  %606 = or disjoint i32 %spec.select247.i, 128
+  %605 = select i1 %602, i32 384, i32 128
+  %606 = or disjoint i32 %605, %spec.select246.i
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !10150
   br label %595
 

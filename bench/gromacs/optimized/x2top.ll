@@ -4533,9 +4533,8 @@ define internal fastcc void @_ZL18lo_set_force_constP18InteractionsOfTypePfibbb(
   %39 = fptosi float %38 to i32
   %40 = srem i32 %39, 360
   %41 = icmp sgt i32 %40, 180
-  %42 = add nuw nsw i32 %40, -360
-  %spec.select = select i1 %41, i32 %42, i32 %40
-  %43 = add nsw i32 %spec.select, 180
+  %42 = select i1 %41, i32 -180, i32 180
+  %43 = add nsw i32 %42, %40
   %44 = sitofp i32 %43 to float
   store float %44, ptr %0, align 4, !tbaa !44
   br label %.loopexit

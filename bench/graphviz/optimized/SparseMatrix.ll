@@ -1348,9 +1348,8 @@ gv_calloc.exit:                                   ; preds = %14
 
 .loopexit238:                                     ; preds = %.loopexit252, %.loopexit248, %.loopexit241, %.loopexit, %.preheader254, %150, %.preheader244, %.preheader237
   %.pre424 = load i8, ptr %4, align 4
-  %213 = or i8 %.pre424, 2
-  %spec.select = select i1 %1, i8 %.pre424, i8 %213
-  %214 = or i8 %spec.select, 1
+  %213 = select i1 %1, i8 1, i8 3
+  %214 = or i8 %213, %.pre424
   store i8 %214, ptr %4, align 4
   br label %SparseMatrix_delete.exit
 

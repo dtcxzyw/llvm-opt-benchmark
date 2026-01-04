@@ -270,15 +270,14 @@ define internal range(i32 -2147483648, 1) i32 @qdm2_decode_init(ptr noundef %0) 
   %spec.select12.i97 = select i1 %.not.i95, i32 0, i32 16
   %.not11.i98 = icmp samesign ult i32 %spec.select.i96, 256
   %87 = lshr i32 %spec.select.i96, 8
-  %88 = or disjoint i32 %spec.select12.i97, 8
   %.110.i99 = select i1 %.not11.i98, i32 %spec.select.i96, i32 %87
-  %.1.i100 = select i1 %.not11.i98, i32 %spec.select12.i97, i32 %88
-  %89 = zext nneg i32 %.110.i99 to i64
-  %90 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %89
-  %91 = load i8, ptr %90, align 1, !tbaa !30
-  %92 = zext i8 %91 to i32
-  %93 = or disjoint i32 %.1.i100, 1
-  %94 = add nuw nsw i32 %93, %92
+  %88 = zext nneg i32 %.110.i99 to i64
+  %89 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %88
+  %90 = load i8, ptr %89, align 1, !tbaa !30
+  %91 = zext i8 %90 to i32
+  %92 = select i1 %.not11.i98, i32 1, i32 9
+  %93 = or disjoint i32 %92, %spec.select12.i97
+  %94 = add nuw nsw i32 %93, %91
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %94, ptr %95, align 4, !tbaa !45
   %96 = sdiv i32 %61, 16

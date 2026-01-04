@@ -2857,9 +2857,9 @@ define dso_local i32 @__mm_populate(i64 noundef %0, i64 noundef %1, i32 noundef 
   %13 = icmp eq i32 %2, 0
   br label %14
 
-14:                                               ; preds = %65, %11
-  %15 = phi i64 [ %0, %11 ], [ %66, %65 ]
-  %16 = phi ptr [ null, %11 ], [ %31, %65 ]
+14:                                               ; preds = %64, %11
+  %15 = phi i64 [ %0, %11 ], [ %65, %64 ]
+  %16 = phi ptr [ null, %11 ], [ %31, %64 ]
   %17 = load i32, ptr %4, align 4
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %23
@@ -2896,7 +2896,7 @@ define dso_local i32 @__mm_populate(i64 noundef %0, i64 noundef %1, i32 noundef 
 30:                                               ; preds = %27, %23
   %31 = phi ptr [ %16, %23 ], [ %29, %27 ]
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %68, label %33
+  br i1 %32, label %67, label %33
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -2906,7 +2906,7 @@ define dso_local i32 @__mm_populate(i64 noundef %0, i64 noundef %1, i32 noundef 
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %38, 17408
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %65
+  br i1 %40, label %41, label %64
 
 41:                                               ; preds = %33
   %42 = load i64, ptr %31, align 8
@@ -2925,51 +2925,50 @@ define dso_local i32 @__mm_populate(i64 noundef %0, i64 noundef %1, i32 noundef 
   %53 = select i1 %52, i32 65537, i32 65536
   %54 = and i64 %38, 7
   %55 = icmp eq i64 %54, 0
-  %56 = or disjoint i32 %53, 8
-  %57 = select i1 %55, i32 %53, i32 %56
-  %58 = or disjoint i32 %57, 2097152
-  %59 = call fastcc i64 @__get_user_pages(ptr noundef %50, i64 noundef %43, i64 noundef %45, i32 noundef %58, ptr noundef null, ptr noundef nonnull %4)
+  %56 = select i1 %55, i32 2097152, i32 2097160
+  %57 = or disjoint i32 %56, %53
+  %58 = call fastcc i64 @__get_user_pages(ptr noundef %50, i64 noundef %43, i64 noundef %45, i32 noundef %57, ptr noundef null, ptr noundef nonnull %4)
   tail call void @lru_add_drain() #9
-  %60 = icmp slt i64 %59, 0
-  br i1 %60, label %61, label %.thread
+  %59 = icmp slt i64 %58, 0
+  br i1 %59, label %60, label %.thread
 
-61:                                               ; preds = %48
-  br i1 %13, label %68, label %65
+60:                                               ; preds = %48
+  br i1 %13, label %67, label %64
 
 .thread:                                          ; preds = %41, %48
-  %62 = phi i64 [ %59, %48 ], [ %45, %41 ]
-  %63 = shl i64 %62, 12
-  %64 = add i64 %63, %43
-  br label %65
+  %61 = phi i64 [ %58, %48 ], [ %45, %41 ]
+  %62 = shl i64 %61, 12
+  %63 = add i64 %62, %43
+  br label %64
 
-65:                                               ; preds = %.thread, %61, %33
-  %66 = phi i64 [ %36, %33 ], [ %64, %.thread ], [ %36, %61 ]
-  %67 = icmp ult i64 %66, %9
-  br i1 %67, label %14, label %68, !llvm.loop !70
+64:                                               ; preds = %.thread, %60, %33
+  %65 = phi i64 [ %36, %33 ], [ %63, %.thread ], [ %36, %60 ]
+  %66 = icmp ult i64 %65, %9
+  br i1 %66, label %14, label %67, !llvm.loop !70
 
-68:                                               ; preds = %30, %61, %65
-  %69 = phi i64 [ 0, %65 ], [ 0, %30 ], [ %59, %61 ]
-  %70 = trunc i64 %69 to i32
+67:                                               ; preds = %30, %60, %64
+  %68 = phi i64 [ 0, %64 ], [ 0, %30 ], [ %58, %60 ]
+  %69 = trunc i64 %68 to i32
   %.pr = load i32, ptr %4, align 4
-  %71 = icmp eq i32 %.pr, 0
-  br i1 %71, label %.thread6, label %72
+  %70 = icmp eq i32 %.pr, 0
+  br i1 %70, label %.thread6, label %71
 
-72:                                               ; preds = %68
+71:                                               ; preds = %67
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #9
-          to label %74 [label %73], !srcloc !10
+          to label %73 [label %72], !srcloc !10
 
-73:                                               ; preds = %72
+72:                                               ; preds = %71
   tail call void @__mmap_lock_do_trace_released(ptr noundef %8, i1 noundef zeroext false) #9
-  br label %74
+  br label %73
 
-74:                                               ; preds = %73, %72
+73:                                               ; preds = %72, %71
   tail call void @up_read(ptr noundef nonnull %12) #9
   br label %.thread6
 
-.thread6:                                         ; preds = %3, %74, %68
-  %75 = phi i32 [ %70, %68 ], [ %70, %74 ], [ 0, %3 ]
+.thread6:                                         ; preds = %3, %73, %67
+  %74 = phi i32 [ %69, %67 ], [ %69, %73 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %75
+  ret i32 %74
 }
 
 ; Function Attrs: null_pointer_is_valid

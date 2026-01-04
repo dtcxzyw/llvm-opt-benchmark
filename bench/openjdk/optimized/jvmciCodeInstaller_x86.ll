@@ -131,9 +131,8 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %9, %.thread6.i, %sw
   %.025 = getelementptr inbounds nuw i8, ptr %25, i64 %.025.idx
   %29 = load i8, ptr %.025, align 1
   %30 = icmp eq i8 %29, -43
-  %31 = add nsw i32 %.026, 2
-  %.1 = select i1 %30, i32 %31, i32 %.026
-  %32 = add nsw i32 %.1, 2
+  %31 = select i1 %30, i32 4, i32 2
+  %32 = add i32 %.026, %31
   br label %53
 
 _ZN17NativeInstruction16is_mov_literal64Ev.exit.thread: ; preds = %_ZN17NativeInstruction16is_mov_literal64Ev.exit

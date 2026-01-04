@@ -3523,12 +3523,11 @@ _ZNSt6vectorIN4llvm3pdb11SecMapEntryESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cx
   %82 = lshr i32 %.0.copyload.i.i.i, 27
   %83 = trunc nuw nsw i32 %82 to i16
   %84 = and i16 %83, 4
-  %.2.i = or disjoint i16 %.1.i, %84
   %85 = and i32 %.0.copyload.i.i.i, 131072
   %.not12.i = icmp eq i32 %85, 0
-  %86 = or disjoint i16 %.2.i, 8
-  %.3.i = select i1 %.not12.i, i16 %86, i16 %.2.i
-  %87 = or i16 %.3.i, 256
+  %86 = select i1 %.not12.i, i16 264, i16 256
+  %.2.i = or disjoint i16 %86, %84
+  %87 = or disjoint i16 %.2.i, %.1.i
   store i16 %87, ptr %72, align 1
   %88 = getelementptr inbounds nuw i8, ptr %.032, i64 8
   %89 = getelementptr inbounds i8, ptr %71, i64 -4

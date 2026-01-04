@@ -13225,13 +13225,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_early(pt
   %319 = load i8, ptr %318, align 2, !range !6, !noundef !7
   %320 = icmp eq i8 %319, 0
   %.pre14 = load i32, ptr %317, align 8
-  %321 = or i32 %.pre14, 65536
-  %spec.select = select i1 %320, i32 %.pre14, i32 %321
-  %322 = getelementptr inbounds nuw i8, ptr %308, i64 80
-  %323 = load i32, ptr %322, align 8
-  %324 = or i32 %323, 1
-  store i32 %324, ptr %322, align 8
-  %325 = or i32 %spec.select, 536870912
+  %321 = getelementptr inbounds nuw i8, ptr %308, i64 80
+  %322 = load i32, ptr %321, align 8
+  %323 = or i32 %322, 1
+  store i32 %323, ptr %321, align 8
+  %324 = select i1 %320, i32 536870912, i32 536936448
+  %325 = or i32 %324, %.pre14
   store i32 %325, ptr %317, align 8
   br label %326
 

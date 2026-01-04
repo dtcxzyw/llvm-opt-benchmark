@@ -919,9 +919,8 @@ define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef
   %136 = and i8 %135, -33
   %or.cond5 = icmp eq i8 %136, 77
   %.pre = load i64, ptr %8, align 8, !tbaa !9
-  %137 = mul nsw i64 %.pre, 1000
-  %spec.select = select i1 %or.cond5, i64 %137, i64 %.pre
-  %138 = mul nsw i64 %spec.select, 1000
+  %137 = select i1 %or.cond5, i64 1000000, i64 1000
+  %138 = mul i64 %137, %.pre
   %139 = load ptr, ptr %19, align 8, !tbaa !66
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 88
   store i64 %138, ptr %140, align 8, !tbaa !67

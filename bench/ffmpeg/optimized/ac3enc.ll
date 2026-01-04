@@ -1523,9 +1523,8 @@ count_frame_bits.exit.thread.i:                   ; preds = %.preheader192.i.i, 
   %530 = getelementptr inbounds nuw i8, ptr %526, i64 %indvars.iv236.i.i
   %531 = load i8, ptr %530, align 1, !tbaa !26
   %.not158.i.i = icmp eq i8 %531, 0
-  %532 = add nsw i32 %.28207.i.i, 6
-  %spec.select172.i.i = select i1 %.not158.i.i, i32 %532, i32 %.28207.i.i
-  %533 = add nsw i32 %spec.select172.i.i, 2
+  %532 = select i1 %.not158.i.i, i32 8, i32 2
+  %533 = add i32 %532, %.28207.i.i
   br label %534
 
 534:                                              ; preds = %529, %527

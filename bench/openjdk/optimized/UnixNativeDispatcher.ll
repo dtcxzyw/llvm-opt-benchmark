@@ -399,9 +399,8 @@ define range(i32 0, 65600) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr no
   %197 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str.39) #11
   store ptr %197, ptr @my_statx_func, align 8
   %.not106 = icmp eq ptr %197, null
-  %198 = or i32 %.3, 65536
-  %.4 = select i1 %.not106, i32 %.3, i32 %198
-  %199 = or i32 %.4, 32
+  %198 = select i1 %.not106, i32 32, i32 65568
+  %199 = or i32 %.3, %198
   br label %200
 
 200:                                              ; preds = %164, %158, %152, %146, %140, %134, %128, %122, %116, %110, %104, %98, %92, %86, %80, %74, %68, %62, %56, %50, %44, %38, %32, %26, %20, %14, %8, %2, %182

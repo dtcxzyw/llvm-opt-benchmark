@@ -3466,15 +3466,14 @@ get_interleaved_ue_golomb.exit:                   ; preds = %95, %.loopexit.i
   %spec.select12.i = select i1 %.not.i, i32 0, i32 16
   %.not11.i = icmp samesign ult i32 %spec.select.i, 256
   %153 = lshr i32 %spec.select.i, 8
-  %154 = or disjoint i32 %spec.select12.i, 8
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %153
-  %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %154
-  %155 = zext nneg i32 %.110.i to i64
-  %156 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %155
-  %157 = load i8, ptr %156, align 1, !tbaa !54
-  %158 = zext i8 %157 to i32
-  %159 = or disjoint i32 %.1.i, 1
-  %160 = add nuw nsw i32 %159, %158
+  %154 = zext nneg i32 %.110.i to i64
+  %155 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %154
+  %156 = load i8, ptr %155, align 1, !tbaa !54
+  %157 = zext i8 %156 to i32
+  %158 = select i1 %.not11.i, i32 1, i32 9
+  %159 = or disjoint i32 %158, %spec.select12.i
+  %160 = add nuw nsw i32 %159, %157
   br label %161
 
 161:                                              ; preds = %146, %150

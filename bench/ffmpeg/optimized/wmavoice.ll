@@ -110,15 +110,14 @@ define internal range(i32 -2147483648, 1) i32 @wmavoice_decode_init(ptr noundef 
   %spec.select11.i150 = select i1 %21, i32 16, i32 0
   %.not.i151 = icmp samesign ult i32 %spec.select.i149, 256
   %23 = lshr i32 %spec.select.i149, 8
-  %24 = or disjoint i32 %spec.select11.i150, 8
   %.110.i152 = select i1 %.not.i151, i32 %spec.select.i149, i32 %23
-  %.1.i153 = select i1 %.not.i151, i32 %spec.select11.i150, i32 %24
-  %25 = zext nneg i32 %.110.i152 to i64
-  %26 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !30
-  %28 = zext i8 %27 to i32
-  %29 = or disjoint i32 %.1.i153, 3
-  %30 = add nuw nsw i32 %29, %28
+  %24 = zext nneg i32 %.110.i152 to i64
+  %25 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %24
+  %26 = load i8, ptr %25, align 1, !tbaa !30
+  %27 = zext i8 %26 to i32
+  %28 = select i1 %.not.i151, i32 3, i32 11
+  %29 = or disjoint i32 %28, %spec.select11.i150
+  %30 = add nuw nsw i32 %29, %27
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store i32 %30, ptr %31, align 4, !tbaa !31
   %32 = and i32 %18, 1

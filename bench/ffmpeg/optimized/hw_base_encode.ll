@@ -1453,15 +1453,14 @@ define range(i32 -22, 1) i32 @ff_hw_base_init_gop_structure(ptr noundef captures
   %spec.select12.i = select i1 %.not.i, i32 0, i32 16
   %.not11.i = icmp samesign ult i32 %spec.select.i, 256
   %50 = lshr i32 %spec.select.i, 8
-  %51 = or disjoint i32 %spec.select12.i, 8
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %50
-  %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %51
-  %52 = zext nneg i32 %.110.i to i64
-  %53 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !139
-  %55 = zext i8 %54 to i32
-  %56 = or disjoint i32 %.1.i, 1
-  %57 = add nuw nsw i32 %56, %55
+  %51 = zext nneg i32 %.110.i to i64
+  %52 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %51
+  %53 = load i8, ptr %52, align 1, !tbaa !139
+  %54 = zext i8 %53 to i32
+  %55 = select i1 %.not11.i, i32 1, i32 9
+  %56 = or disjoint i32 %55, %spec.select12.i
+  %57 = add nuw nsw i32 %56, %54
   %. = tail call i32 @llvm.smin.i32(i32 %48, i32 %57)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   store i32 %., ptr %58, align 8, !tbaa !140

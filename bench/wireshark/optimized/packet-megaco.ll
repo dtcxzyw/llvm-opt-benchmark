@@ -1853,9 +1853,8 @@ proto_item_set_hidden.exit:                       ; preds = %565, %562, %560, %5
   %575 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %574)
   %576 = add i8 %575, -97
   %or.cond32 = icmp ult i8 %576, 26
-  %577 = add nsw i8 %575, -32
-  %spec.select982 = select i1 %or.cond32, i8 %577, i8 %575
-  %578 = add i8 %spec.select982, -79
+  %577 = select i1 %or.cond32, i8 -111, i8 -79
+  %578 = add i8 %577, %575
   %or.cond35 = icmp ult i8 %578, 2
   br i1 %or.cond35, label %579, label %612
 

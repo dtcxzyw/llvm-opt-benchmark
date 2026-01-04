@@ -151,15 +151,14 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   %spec.select11.i = select i1 %70, i32 16, i32 0
   %.not.i = icmp samesign ult i32 %spec.select.i, 256
   %72 = lshr i32 %spec.select.i, 8
-  %73 = or disjoint i32 %spec.select11.i, 8
   %.110.i = select i1 %.not.i, i32 %spec.select.i, i32 %72
-  %.1.i = select i1 %.not.i, i32 %spec.select11.i, i32 %73
-  %74 = zext nneg i32 %.110.i to i64
-  %75 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %74
-  %76 = load i8, ptr %75, align 1, !tbaa !37
-  %77 = zext i8 %76 to i32
-  %78 = or disjoint i32 %.1.i, 1
-  %79 = add nuw nsw i32 %78, %77
+  %73 = zext nneg i32 %.110.i to i64
+  %74 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %73
+  %75 = load i8, ptr %74, align 1, !tbaa !37
+  %76 = zext i8 %75 to i32
+  %77 = select i1 %.not.i, i32 1, i32 9
+  %78 = or disjoint i32 %77, %spec.select11.i
+  %79 = add nuw nsw i32 %78, %76
   br label %90
 
 80:                                               ; preds = %55

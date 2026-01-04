@@ -31,11 +31,11 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 16 {
   %6 = icmp ne ptr %1, null
-  br i1 %4, label %83, label %7
+  br i1 %4, label %82, label %7
 
 7:                                                ; preds = %5
   %8 = icmp eq i32 %2, 0
-  br i1 %8, label %120, label %9
+  br i1 %8, label %119, label %9
 
 9:                                                ; preds = %7
   %10 = icmp eq ptr %3, null
@@ -96,9 +96,9 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
 .split:                                           ; preds = %9
   br i1 %6, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %79
-  %49 = phi i64 [ %81, %79 ], [ 0, %.split ]
-  %50 = phi i32 [ %80, %79 ], [ 0, %.split ]
+.split.split.us:                                  ; preds = %.split, %78
+  %49 = phi i64 [ %80, %78 ], [ 0, %.split ]
+  %50 = phi i32 [ %79, %78 ], [ 0, %.split ]
   %51 = getelementptr [32 x i8], ptr %3, i64 %49
   %52 = lshr i64 %49, 5
   %53 = and i64 %52, 134217727
@@ -109,7 +109,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
   %58 = shl nuw i32 1, %57
   %59 = and i32 %58, %55
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %79, label %61
+  br i1 %60, label %78, label %61
 
 61:                                               ; preds = %.split.split.us
   %62 = icmp eq ptr %51, null
@@ -128,79 +128,78 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, %58
   %73 = icmp eq i32 %72, 0
-  %74 = add i32 %69, 4
-  %75 = select i1 %73, i32 %69, i32 %74
-  %76 = add i32 %75, 7
-  %77 = and i32 %76, -4
-  %78 = add i32 %77, %50
-  br label %79
+  %74 = select i1 %73, i32 7, i32 11
+  %75 = add i32 %74, %69
+  %76 = and i32 %75, -4
+  %77 = add i32 %76, %50
+  br label %78
 
-79:                                               ; preds = %68, %.split.split.us
-  %80 = phi i32 [ %78, %68 ], [ %50, %.split.split.us ]
-  %81 = add nuw nsw i64 %49, 1
-  %82 = icmp eq i64 %81, %12
-  br i1 %82, label %.split4.us, label %.split.split.us, !llvm.loop !5
+78:                                               ; preds = %68, %.split.split.us
+  %79 = phi i32 [ %77, %68 ], [ %50, %.split.split.us ]
+  %80 = add nuw nsw i64 %49, 1
+  %81 = icmp eq i64 %80, %12
+  br i1 %81, label %.split4.us, label %.split.split.us, !llvm.loop !5
 
-83:                                               ; preds = %5
-  %84 = add i32 %2, 31
-  %85 = lshr i32 %84, 3
-  %86 = and i32 %85, 536870908
-  %87 = add nuw nsw i32 %86, 7
-  %88 = and i32 %87, 1073741820
-  %89 = zext i1 %6 to i32
-  %90 = shl nuw nsw i32 %88, %89
-  br label %120
+82:                                               ; preds = %5
+  %83 = add i32 %2, 31
+  %84 = lshr i32 %83, 3
+  %85 = and i32 %84, 536870908
+  %86 = add nuw nsw i32 %85, 7
+  %87 = and i32 %86, 1073741820
+  %88 = zext i1 %6 to i32
+  %89 = shl nuw nsw i32 %87, %88
+  br label %119
 
-.split.split:                                     ; preds = %.split, %114
-  %91 = phi i64 [ %116, %114 ], [ 0, %.split ]
-  %92 = phi i32 [ %115, %114 ], [ 0, %.split ]
-  %93 = getelementptr [32 x i8], ptr %3, i64 %91
-  %94 = lshr i64 %91, 5
-  %95 = and i64 %94, 134217727
-  %96 = getelementptr i32, ptr %11, i64 %95
-  %97 = load i32, ptr %96, align 4
-  %98 = trunc i64 %91 to i32
-  %99 = and i32 %98, 31
-  %100 = shl nuw i32 1, %99
-  %101 = and i32 %100, %97
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %114, label %103
+.split.split:                                     ; preds = %.split, %113
+  %90 = phi i64 [ %115, %113 ], [ 0, %.split ]
+  %91 = phi i32 [ %114, %113 ], [ 0, %.split ]
+  %92 = getelementptr [32 x i8], ptr %3, i64 %90
+  %93 = lshr i64 %90, 5
+  %94 = and i64 %93, 134217727
+  %95 = getelementptr i32, ptr %11, i64 %94
+  %96 = load i32, ptr %95, align 4
+  %97 = trunc i64 %90 to i32
+  %98 = and i32 %97, 31
+  %99 = shl nuw i32 1, %98
+  %100 = and i32 %99, %96
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %113, label %102
 
-103:                                              ; preds = %.split.split
-  %104 = icmp eq ptr %93, null
-  br i1 %104, label %111, label %105
+102:                                              ; preds = %.split.split
+  %103 = icmp eq ptr %92, null
+  br i1 %103, label %110, label %104
 
-105:                                              ; preds = %103
-  %106 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %93, i64 noundef 32)
-  %107 = trunc i64 %106 to i32
-  %108 = and i32 %107, -4
-  %109 = add i32 %108, 23
-  %110 = and i32 %109, -4
-  br label %111
+104:                                              ; preds = %102
+  %105 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %92, i64 noundef 32)
+  %106 = trunc i64 %105 to i32
+  %107 = and i32 %106, -4
+  %108 = add i32 %107, 23
+  %109 = and i32 %108, -4
+  br label %110
 
-111:                                              ; preds = %105, %103
-  %112 = phi i32 [ %110, %105 ], [ 12, %103 ]
-  %113 = add i32 %112, %92
-  br label %114
+110:                                              ; preds = %104, %102
+  %111 = phi i32 [ %109, %104 ], [ 12, %102 ]
+  %112 = add i32 %111, %91
+  br label %113
 
-114:                                              ; preds = %111, %.split.split
-  %115 = phi i32 [ %113, %111 ], [ %92, %.split.split ]
-  %116 = add nuw nsw i64 %91, 1
-  %117 = icmp eq i64 %116, %12
-  br i1 %117, label %.split4.us, label %.split.split, !llvm.loop !5
+113:                                              ; preds = %110, %.split.split
+  %114 = phi i32 [ %112, %110 ], [ %91, %.split.split ]
+  %115 = add nuw nsw i64 %90, 1
+  %116 = icmp eq i64 %115, %12
+  br i1 %116, label %.split4.us, label %.split.split, !llvm.loop !5
 
-.split4.us:                                       ; preds = %114, %79, %.split.us.split, %31
-  %.us-phi = phi i32 [ %80, %79 ], [ %spec.select, %.split.us.split ], [ %32, %31 ], [ %115, %114 ]
-  %118 = add i32 %.us-phi, 7
-  %119 = and i32 %118, -4
-  br label %120
+.split4.us:                                       ; preds = %113, %78, %.split.us.split, %31
+  %.us-phi = phi i32 [ %79, %78 ], [ %spec.select, %.split.us.split ], [ %32, %31 ], [ %114, %113 ]
+  %117 = add i32 %.us-phi, 7
+  %118 = and i32 %117, -4
+  br label %119
 
-120:                                              ; preds = %.split4.us, %83, %7
-  %121 = phi i32 [ %90, %83 ], [ 4, %7 ], [ %119, %.split4.us ]
-  %122 = select i1 %6, i32 15, i32 23
-  %123 = add i32 %121, %122
-  %124 = and i32 %123, -4
-  ret i32 %124
+119:                                              ; preds = %.split4.us, %82, %7
+  %120 = phi i32 [ %89, %82 ], [ 4, %7 ], [ %118, %.split4.us ]
+  %121 = select i1 %6, i32 15, i32 23
+  %122 = add i32 %120, %121
+  %123 = and i32 %122, -4
+  ret i32 %123
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1636,11 +1635,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ethnl_parse_bit(ptr nounde
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 16 {
   %6 = icmp ne ptr %1, null
-  br i1 %4, label %83, label %7
+  br i1 %4, label %82, label %7
 
 7:                                                ; preds = %5
   %8 = icmp eq i32 %2, 0
-  br i1 %8, label %120, label %9
+  br i1 %8, label %119, label %9
 
 9:                                                ; preds = %7
   %10 = icmp eq ptr %3, null
@@ -1701,9 +1700,9 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
 .split:                                           ; preds = %9
   br i1 %6, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %79
-  %49 = phi i64 [ %81, %79 ], [ 0, %.split ]
-  %50 = phi i32 [ %80, %79 ], [ 0, %.split ]
+.split.split.us:                                  ; preds = %.split, %78
+  %49 = phi i64 [ %80, %78 ], [ 0, %.split ]
+  %50 = phi i32 [ %79, %78 ], [ 0, %.split ]
   %51 = getelementptr [32 x i8], ptr %3, i64 %49
   %52 = lshr i64 %49, 5
   %53 = and i64 %52, 134217727
@@ -1714,7 +1713,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   %58 = shl nuw i32 1, %57
   %59 = and i32 %58, %55
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %79, label %61
+  br i1 %60, label %78, label %61
 
 61:                                               ; preds = %.split.split.us
   %62 = icmp eq ptr %51, null
@@ -1733,79 +1732,78 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, %58
   %73 = icmp eq i32 %72, 0
-  %74 = add i32 %69, 4
-  %75 = select i1 %73, i32 %69, i32 %74
-  %76 = add i32 %75, 7
-  %77 = and i32 %76, -4
-  %78 = add i32 %77, %50
-  br label %79
+  %74 = select i1 %73, i32 7, i32 11
+  %75 = add i32 %74, %69
+  %76 = and i32 %75, -4
+  %77 = add i32 %76, %50
+  br label %78
 
-79:                                               ; preds = %68, %.split.split.us
-  %80 = phi i32 [ %78, %68 ], [ %50, %.split.split.us ]
-  %81 = add nuw nsw i64 %49, 1
-  %82 = icmp eq i64 %81, %12
-  br i1 %82, label %.split4.us, label %.split.split.us, !llvm.loop !5
+78:                                               ; preds = %68, %.split.split.us
+  %79 = phi i32 [ %77, %68 ], [ %50, %.split.split.us ]
+  %80 = add nuw nsw i64 %49, 1
+  %81 = icmp eq i64 %80, %12
+  br i1 %81, label %.split4.us, label %.split.split.us, !llvm.loop !5
 
-83:                                               ; preds = %5
-  %84 = add i32 %2, 31
-  %85 = lshr i32 %84, 3
-  %86 = and i32 %85, 536870908
-  %87 = add nuw nsw i32 %86, 7
-  %88 = and i32 %87, 1073741820
-  %89 = zext i1 %6 to i32
-  %90 = shl nuw nsw i32 %88, %89
-  br label %120
+82:                                               ; preds = %5
+  %83 = add i32 %2, 31
+  %84 = lshr i32 %83, 3
+  %85 = and i32 %84, 536870908
+  %86 = add nuw nsw i32 %85, 7
+  %87 = and i32 %86, 1073741820
+  %88 = zext i1 %6 to i32
+  %89 = shl nuw nsw i32 %87, %88
+  br label %119
 
-.split.split:                                     ; preds = %.split, %114
-  %91 = phi i64 [ %116, %114 ], [ 0, %.split ]
-  %92 = phi i32 [ %115, %114 ], [ 0, %.split ]
-  %93 = getelementptr [32 x i8], ptr %3, i64 %91
-  %94 = lshr i64 %91, 5
-  %95 = and i64 %94, 134217727
-  %96 = getelementptr i32, ptr %11, i64 %95
-  %97 = load i32, ptr %96, align 4
-  %98 = trunc i64 %91 to i32
-  %99 = and i32 %98, 31
-  %100 = shl nuw i32 1, %99
-  %101 = and i32 %100, %97
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %114, label %103
+.split.split:                                     ; preds = %.split, %113
+  %90 = phi i64 [ %115, %113 ], [ 0, %.split ]
+  %91 = phi i32 [ %114, %113 ], [ 0, %.split ]
+  %92 = getelementptr [32 x i8], ptr %3, i64 %90
+  %93 = lshr i64 %90, 5
+  %94 = and i64 %93, 134217727
+  %95 = getelementptr i32, ptr %11, i64 %94
+  %96 = load i32, ptr %95, align 4
+  %97 = trunc i64 %90 to i32
+  %98 = and i32 %97, 31
+  %99 = shl nuw i32 1, %98
+  %100 = and i32 %99, %96
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %113, label %102
 
-103:                                              ; preds = %.split.split
-  %104 = icmp eq ptr %93, null
-  br i1 %104, label %111, label %105
+102:                                              ; preds = %.split.split
+  %103 = icmp eq ptr %92, null
+  br i1 %103, label %110, label %104
 
-105:                                              ; preds = %103
-  %106 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %93, i64 noundef 32)
-  %107 = trunc i64 %106 to i32
-  %108 = and i32 %107, -4
-  %109 = add i32 %108, 23
-  %110 = and i32 %109, -4
-  br label %111
+104:                                              ; preds = %102
+  %105 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %92, i64 noundef 32)
+  %106 = trunc i64 %105 to i32
+  %107 = and i32 %106, -4
+  %108 = add i32 %107, 23
+  %109 = and i32 %108, -4
+  br label %110
 
-111:                                              ; preds = %105, %103
-  %112 = phi i32 [ %110, %105 ], [ 12, %103 ]
-  %113 = add i32 %112, %92
-  br label %114
+110:                                              ; preds = %104, %102
+  %111 = phi i32 [ %109, %104 ], [ 12, %102 ]
+  %112 = add i32 %111, %91
+  br label %113
 
-114:                                              ; preds = %111, %.split.split
-  %115 = phi i32 [ %113, %111 ], [ %92, %.split.split ]
-  %116 = add nuw nsw i64 %91, 1
-  %117 = icmp eq i64 %116, %12
-  br i1 %117, label %.split4.us, label %.split.split, !llvm.loop !5
+113:                                              ; preds = %110, %.split.split
+  %114 = phi i32 [ %112, %110 ], [ %91, %.split.split ]
+  %115 = add nuw nsw i64 %90, 1
+  %116 = icmp eq i64 %115, %12
+  br i1 %116, label %.split4.us, label %.split.split, !llvm.loop !5
 
-.split4.us:                                       ; preds = %114, %79, %.split.us.split, %31
-  %.us-phi = phi i32 [ %80, %79 ], [ %spec.select, %.split.us.split ], [ %32, %31 ], [ %115, %114 ]
-  %118 = add i32 %.us-phi, 7
-  %119 = and i32 %118, -4
-  br label %120
+.split4.us:                                       ; preds = %113, %78, %.split.us.split, %31
+  %.us-phi = phi i32 [ %79, %78 ], [ %spec.select, %.split.us.split ], [ %32, %31 ], [ %114, %113 ]
+  %117 = add i32 %.us-phi, 7
+  %118 = and i32 %117, -4
+  br label %119
 
-120:                                              ; preds = %.split4.us, %83, %7
-  %121 = phi i32 [ %90, %83 ], [ 4, %7 ], [ %119, %.split4.us ]
-  %122 = select i1 %6, i32 15, i32 23
-  %123 = add i32 %121, %122
-  %124 = and i32 %123, -4
-  ret i32 %124
+119:                                              ; preds = %.split4.us, %82, %7
+  %120 = phi i32 [ %89, %82 ], [ 4, %7 ], [ %118, %.split4.us ]
+  %121 = select i1 %6, i32 15, i32 23
+  %122 = add i32 %120, %121
+  %123 = and i32 %122, -4
+  ret i32 %123
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -4384,9 +4384,8 @@ define internal fastcc void @_swap_last_secondlast_item_visibility(ptr noundef r
   %29 = load i32, ptr %28, align 4, !tbaa !109
   %30 = and i32 %29, 248
   %31 = icmp eq i32 %30, 0
-  %32 = or disjoint i32 %29, 8
-  %spec.select = select i1 %31, i32 %32, i32 %29
-  %33 = or i32 %spec.select, 2
+  %32 = select i1 %31, i32 10, i32 2
+  %33 = or i32 %32, %29
   store i32 %33, ptr %28, align 4, !tbaa !109
   br label %.critedge
 

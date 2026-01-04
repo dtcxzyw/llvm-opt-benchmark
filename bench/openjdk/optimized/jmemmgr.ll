@@ -80,9 +80,8 @@ define hidden void @jIMemMgr(ptr noundef initializes((8, 16)) %0) local_unnamed_
   %37 = load i8, ptr %2, align 1
   %38 = and i8 %37, -33
   %or.cond = icmp eq i8 %38, 77
-  %39 = mul nuw nsw i64 %36, 1000
-  %spec.select = select i1 %or.cond, i64 %39, i64 %36
-  %40 = mul nuw nsw i64 %spec.select, 1000
+  %39 = select i1 %or.cond, i64 1000000, i64 1000
+  %40 = mul nuw nsw i64 %39, %36
   store i64 %40, ptr %27, align 8
   br label %41
 

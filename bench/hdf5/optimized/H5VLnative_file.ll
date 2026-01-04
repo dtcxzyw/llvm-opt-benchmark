@@ -91,9 +91,8 @@ define ptr @H5VL__native_file_create(ptr noundef %0, i32 noundef %1, i64 noundef
   store ptr null, ptr %7, align 8, !tbaa !3
   %8 = and i32 %1, 6
   %9 = icmp eq i32 %8, 0
-  %10 = or disjoint i32 %1, 4
-  %spec.select = select i1 %9, i32 %10, i32 %1
-  %11 = or i32 %spec.select, 17
+  %10 = select i1 %9, i32 21, i32 17
+  %11 = or i32 %10, %1
   %12 = call i32 @H5F_open(i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef %0, i32 noundef %11, i64 noundef %2, i64 noundef %3) #6
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %16, label %.thread

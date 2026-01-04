@@ -919,9 +919,8 @@ select_transform.exit:                            ; preds = %95, %95
   %172 = and i8 %171, -33
   %or.cond6 = icmp eq i8 %172, 77
   %.pre = load i64, ptr %5, align 8, !tbaa !76
-  %173 = mul nsw i64 %.pre, 1000
-  %spec.select = select i1 %or.cond6, i64 %173, i64 %.pre
-  %174 = mul nsw i64 %spec.select, 1000
+  %173 = select i1 %or.cond6, i64 1000000, i64 1000
+  %174 = mul i64 %173, %.pre
   %175 = load ptr, ptr %13, align 8, !tbaa !48
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 88
   store i64 %174, ptr %176, align 8, !tbaa !49

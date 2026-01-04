@@ -94,9 +94,8 @@ GETENV_S.exit:                                    ; preds = %31
   %42 = and i8 %41, -33
   %or.cond = icmp eq i8 %42, 77
   %.pre = load i64, ptr %2, align 8, !tbaa !12
-  %43 = mul nsw i64 %.pre, 1000
-  %spec.select = select i1 %or.cond, i64 %43, i64 %.pre
-  %44 = mul nsw i64 %spec.select, 1000
+  %43 = select i1 %or.cond, i64 1000000, i64 1000
+  %44 = mul i64 %43, %.pre
   store i64 %44, ptr %27, align 8, !tbaa !36
   br label %45
 

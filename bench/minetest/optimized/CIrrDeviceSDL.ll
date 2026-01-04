@@ -13546,9 +13546,8 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load i8, ptr %WindowMaximized, align 1, !tbaa !819, !range !817, !noundef !818
   %tobool8.not = icmp eq i8 %3, 0
   %SDL_Flags13.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 256
-  %or11 = or i32 %.pre, 128
-  %4 = select i1 %tobool8.not, i32 %.pre, i32 %or11
-  %or14 = or i32 %4, 2
+  %4 = select i1 %tobool8.not, i32 2, i32 130
+  %or14 = or i32 %4, %.pre
   store i32 %or14, ptr %SDL_Flags13.phi.trans.insert, align 8, !tbaa !49
   %Close = getelementptr inbounds nuw i8, ptr %this, i64 232
   %5 = load i8, ptr %Close, align 8, !tbaa !56, !range !817, !noundef !818

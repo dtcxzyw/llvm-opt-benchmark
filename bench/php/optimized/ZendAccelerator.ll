@@ -9217,9 +9217,8 @@ define internal fastcc i32 @accel_preload(ptr noundef %0, i1 noundef zeroext %1)
   store ptr %10, ptr @preload_scripts, align 8, !tbaa !230
   call void @_zend_hash_init(ptr noundef %10, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #26
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4, !tbaa !201
-  %12 = or i32 %11, 131072
-  %spec.select = select i1 %1, i32 %12, i32 %11
-  %13 = or i32 %spec.select, 41060
+  %12 = select i1 %1, i32 172132, i32 41060
+  %13 = or i32 %12, %11
   store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4, !tbaa !201
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 152), align 8, !tbaa !385
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !117

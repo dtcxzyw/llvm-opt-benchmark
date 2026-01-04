@@ -58770,9 +58770,8 @@ _ZNK5clang10Declarator18isPrototypeContextEv.exit: ; preds = %4441, %4441, %4441
   %.val.i677 = load ptr, ptr %0, align 8, !tbaa !1322
   %4454 = call fastcc noundef zeroext i1 @_ZL29CheckNullabilityTypeSpecifierRN5clang4SemaEPN12_GLOBAL__N_119TypeProcessingStateEPNS_10ParsedAttrERNS_8QualTypeENS_15NullabilityKindENS_14SourceLocationEbbb(ptr noundef nonnull align 8 dereferenceable(17504) %.val.i677, ptr noundef nonnull align 8 dereferenceable(266) %0, ptr noundef nonnull align 8 dereferenceable(72) %342, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef zeroext %switch.masked, i32 %.sroa.0.0.copyload.i.i.i676, i1 noundef zeroext %4453, i1 noundef zeroext %4445, i1 noundef zeroext false)
   %.pre978 = load i32, ptr %343, align 8
-  %4455 = or i32 %.pre978, 65536
-  %spec.select = select i1 %4454, i32 %4455, i32 %.pre978
-  %4456 = or i32 %spec.select, 131072
+  %4455 = select i1 %4454, i32 196608, i32 131072
+  %4456 = or i32 %4455, %.pre978
   store i32 %4456, ptr %343, align 8
   br label %_ZL23HandleLifetimeBoundAttrRN12_GLOBAL__N_119TypeProcessingStateERN5clang8QualTypeERNS2_10ParsedAttrE.exit
 

@@ -260,14 +260,13 @@ define internal noundef i32 @vaapi_encode_vp9_init_picture_params(ptr noundef %0
   %spec.select11.i = select i1 %22, i8 16, i8 0
   %.not.i = icmp samesign ult i32 %spec.select.i, 256
   %24 = lshr i32 %spec.select.i, 8
-  %25 = or disjoint i8 %spec.select11.i, 8
   %.110.i = select i1 %.not.i, i32 %spec.select.i, i32 %24
-  %.1.i = select i1 %.not.i, i8 %spec.select11.i, i8 %25
-  %26 = zext nneg i32 %.110.i to i64
-  %27 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !94
-  %29 = or disjoint i8 %.1.i, 1
-  %30 = add i8 %29, %28
+  %25 = zext nneg i32 %.110.i to i64
+  %26 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !94
+  %28 = select i1 %.not.i, i8 1, i8 9
+  %29 = or disjoint i8 %28, %spec.select11.i
+  %30 = add i8 %29, %27
   br label %31
 
 31:                                               ; preds = %2, %20

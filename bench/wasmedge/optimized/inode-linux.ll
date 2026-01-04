@@ -5172,9 +5172,8 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   store ptr %37, ptr %102, align 8
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.025.0.i.i, i64 8
   %117 = icmp eq i32 %2, 1
-  %118 = or disjoint i32 %115, -2147483648
-  %spec.select = select i1 %117, i32 %118, i32 %115
-  %119 = or disjoint i32 %spec.select, 8192
+  %118 = select i1 %117, i32 -2147475456, i32 8192
+  %119 = or disjoint i32 %118, %115
   store i32 %119, ptr %5, align 4
   %120 = load i32, ptr %1, align 8
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -5561,9 +5560,8 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   store ptr %37, ptr %102, align 8
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.025.0.i.i, i64 8
   %117 = icmp eq i32 %2, 1
-  %118 = or disjoint i32 %115, -2147483648
-  %spec.select = select i1 %117, i32 %118, i32 %115
-  %119 = or disjoint i32 %spec.select, 8192
+  %118 = select i1 %117, i32 -2147475456, i32 8192
+  %119 = or disjoint i32 %118, %115
   store i32 %119, ptr %5, align 4
   %120 = load i32, ptr %1, align 8
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 4

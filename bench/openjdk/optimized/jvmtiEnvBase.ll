@@ -2430,9 +2430,8 @@ _ZN12JvmtiEnvBase26is_thread_carrying_vthreadEP10JavaThreadP7oopDesc.exit: ; pre
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1138
   %13 = load volatile i8, ptr %12, align 2
   %14 = trunc i8 %13 to i1
-  %15 = or disjoint i32 %11, 1048576
-  %spec.select = select i1 %14, i32 %15, i32 %11
-  %16 = or disjoint i32 %spec.select, 144
+  %15 = select i1 %14, i32 1048720, i32 144
+  %16 = or disjoint i32 %15, %11
   br label %_ZN12JvmtiEnvBase21get_thread_state_baseEP7oopDescP10JavaThread.exit
 
 _ZN12JvmtiEnvBase26is_thread_carrying_vthreadEP10JavaThreadP7oopDesc.exit.thread: ; preds = %2, %3, %5, %_ZN12JvmtiEnvBase26is_thread_carrying_vthreadEP10JavaThreadP7oopDesc.exit

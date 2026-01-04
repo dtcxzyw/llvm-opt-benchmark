@@ -16325,9 +16325,8 @@ _ZN4llvm15SmallVectorImplI8ImmCheckE12emplace_backIJjjEEERS1_DpOT_.exit66.i: ; p
 
 448:                                              ; preds = %.lr.ph.i67.i
   %449 = icmp eq i8 %447, 46
-  %450 = add i32 %.0151.i.i, 2
-  %spec.select.i.i = select i1 %449, i32 %450, i32 %.0151.i.i
-  %451 = add i32 %spec.select.i.i, 1
+  %450 = select i1 %449, i32 3, i32 1
+  %451 = add i32 %450, %.0151.i.i
   %452 = add i32 %.02.i.i, 1
   %453 = zext i32 %451 to i64
   %454 = icmp ugt i64 %.val30.i, %453

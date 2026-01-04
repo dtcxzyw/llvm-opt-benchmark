@@ -778,15 +778,14 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %spec.select12.i = select i1 %.not.i, i32 0, i32 16
   %.not11.i = icmp samesign ult i32 %spec.select.i, 256
   %62 = lshr i32 %spec.select.i, 8
-  %63 = or disjoint i32 %spec.select12.i, 8
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %62
-  %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %63
-  %64 = zext nneg i32 %.110.i to i64
-  %65 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !13
-  %67 = zext i8 %66 to i32
-  %68 = or disjoint i32 %.1.i, 1
-  %69 = add nuw nsw i32 %68, %67
+  %63 = zext nneg i32 %.110.i to i64
+  %64 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %63
+  %65 = load i8, ptr %64, align 1, !tbaa !13
+  %66 = zext i8 %65 to i32
+  %67 = select i1 %.not11.i, i32 1, i32 9
+  %68 = or disjoint i32 %67, %spec.select12.i
+  %69 = add nuw nsw i32 %68, %66
   br label %70
 
 70:                                               ; preds = %54, %59
@@ -831,15 +830,14 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %spec.select12.i90 = select i1 %.not.i88, i32 0, i32 16
   %.not11.i91 = icmp samesign ult i32 %spec.select.i89, 256
   %90 = lshr i32 %spec.select.i89, 8
-  %91 = or disjoint i32 %spec.select12.i90, 8
   %.110.i92 = select i1 %.not11.i91, i32 %spec.select.i89, i32 %90
-  %.1.i93 = select i1 %.not11.i91, i32 %spec.select12.i90, i32 %91
-  %92 = zext nneg i32 %.110.i92 to i64
-  %93 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %92
-  %94 = load i8, ptr %93, align 1, !tbaa !13
-  %95 = zext i8 %94 to i32
-  %96 = or disjoint i32 %.1.i93, 1
-  %97 = add nuw nsw i32 %96, %95
+  %91 = zext nneg i32 %.110.i92 to i64
+  %92 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %91
+  %93 = load i8, ptr %92, align 1, !tbaa !13
+  %94 = zext i8 %93 to i32
+  %95 = select i1 %.not11.i91, i32 1, i32 9
+  %96 = or disjoint i32 %95, %spec.select12.i90
+  %97 = add nuw nsw i32 %96, %94
   %98 = icmp eq i32 %4, %97
   br i1 %98, label %._crit_edge, label %.lr.ph.preheader
 
@@ -865,15 +863,14 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %spec.select12.i96 = select i1 %.not.i94, i32 0, i32 16
   %.not11.i97 = icmp samesign ult i32 %spec.select.i95, 256
   %105 = lshr i32 %spec.select.i95, 8
-  %106 = or disjoint i32 %spec.select12.i96, 8
   %.110.i98 = select i1 %.not11.i97, i32 %spec.select.i95, i32 %105
-  %.1.i99 = select i1 %.not11.i97, i32 %spec.select12.i96, i32 %106
-  %107 = zext nneg i32 %.110.i98 to i64
-  %108 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %107
-  %109 = load i8, ptr %108, align 1, !tbaa !13
-  %110 = zext i8 %109 to i32
-  %111 = or disjoint i32 %.1.i99, 1
-  %112 = add nuw nsw i32 %111, %110
+  %106 = zext nneg i32 %.110.i98 to i64
+  %107 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %106
+  %108 = load i8, ptr %107, align 1, !tbaa !13
+  %109 = zext i8 %108 to i32
+  %110 = select i1 %.not11.i97, i32 1, i32 9
+  %111 = or disjoint i32 %110, %spec.select12.i96
+  %112 = add nuw nsw i32 %111, %109
   %113 = icmp eq i32 %4, %112
   br i1 %113, label %._crit_edge, label %.lr.ph.backedge
 

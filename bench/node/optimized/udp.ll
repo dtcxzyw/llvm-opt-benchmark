@@ -356,10 +356,9 @@ if.end56:                                         ; preds = %if.end45
   %cmp59 = icmp eq i16 %8, 10
   %flags62 = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %9 = load i32, ptr %flags62, align 8
-  %or = or i32 %9, 4194304
-  %10 = select i1 %cmp59, i32 %or, i32 %9
   %flags64 = getelementptr inbounds nuw i8, ptr %handle, i64 88
-  %or65 = or i32 %10, 8192
+  %10 = select i1 %cmp59, i32 4202496, i32 8192
+  %or65 = or i32 %10, %9
   store i32 %or65, ptr %flags64, align 8
   br label %return
 
@@ -436,9 +435,8 @@ if.end56.i:                                       ; preds = %if.end18.i
   %cmp59.i = icmp eq i16 %3, 10
   %flags62.i = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %4 = load i32, ptr %flags62.i, align 8
-  %or.i = or i32 %4, 4194304
-  %5 = select i1 %cmp59.i, i32 %or.i, i32 %4
-  %or65.i = or i32 %5, 8192
+  %5 = select i1 %cmp59.i, i32 4202496, i32 8192
+  %or65.i = or i32 %5, %4
   store i32 %or65.i, ptr %flags62.i, align 8
   br label %uv__udp_maybe_deferred_bind.exit.thread12
 
@@ -599,9 +597,8 @@ if.end56.i:                                       ; preds = %if.end18.i
   %cmp59.i = icmp eq i16 %3, 10
   %flags62.i = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %4 = load i32, ptr %flags62.i, align 8
-  %or.i = or i32 %4, 4194304
-  %5 = select i1 %cmp59.i, i32 %or.i, i32 %4
-  %or65.i = or i32 %5, 8192
+  %5 = select i1 %cmp59.i, i32 4202496, i32 8192
+  %or65.i = or i32 %5, %4
   store i32 %or65.i, ptr %flags62.i, align 8
   br label %uv__udp_maybe_deferred_bind.exit.thread
 
@@ -1015,9 +1012,8 @@ if.end56.i:                                       ; preds = %if.end18.i
   %cmp59.i = icmp eq i16 %4, 10
   %flags62.i = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %5 = load i32, ptr %flags62.i, align 8
-  %or.i = or i32 %5, 4194304
-  %6 = select i1 %cmp59.i, i32 %or.i, i32 %5
-  %or65.i = or i32 %6, 8192
+  %6 = select i1 %cmp59.i, i32 4202496, i32 8192
+  %or65.i = or i32 %6, %5
   store i32 %or65.i, ptr %flags62.i, align 8
   br label %uv__udp_maybe_deferred_bind.exit.thread
 
@@ -2127,9 +2123,8 @@ if.end56.i:                                       ; preds = %if.end18.i
   %cmp59.i = icmp eq i16 %2, 10
   %flags62.i = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %3 = load i32, ptr %flags62.i, align 8
-  %or.i = or i32 %3, 4194304
-  %4 = select i1 %cmp59.i, i32 %or.i, i32 %3
-  %or65.i = or i32 %4, 8192
+  %4 = select i1 %cmp59.i, i32 4202496, i32 8192
+  %or65.i = or i32 %4, %3
   store i32 %or65.i, ptr %flags62.i, align 8
   br label %uv__udp_maybe_deferred_bind.exit.thread
 
