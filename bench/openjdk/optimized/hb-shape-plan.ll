@@ -323,7 +323,7 @@ _ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj
   br i1 %87, label %86, label %.loopexit92, !llvm.loop !13
 
 .loopexit92:                                      ; preds = %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73, %.preheader, %11
-  %.1 = phi ptr [ null, %11 ], [ %.04584, %.preheader ], [ %.04584, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73 ], [ %.04584, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit ]
+  %.1 = phi ptr [ %.04584, %.preheader ], [ null, %11 ], [ %.04584, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73 ], [ %.04584, %_ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit ]
   tail call void @free(ptr noundef %.1) #19
   br label %120
 
@@ -426,7 +426,7 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t19user_features_matchE
   br i1 %.not19, label %11, label %.loopexit
 
 .loopexit:                                        ; preds = %41, %17, %12, %11, %.preheader, %2
-  %.016 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %41 ], [ false, %17 ], [ false, %12 ], [ true, %11 ]
+  %.016 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %12 ], [ false, %41 ], [ false, %17 ], [ true, %11 ]
   ret i1 %.016
 }
 
@@ -525,8 +525,8 @@ _ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit: ; preds = %13, %.prehea
   %53 = icmp eq ptr %50, %52
   br label %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit.thread
 
-_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit.thread: ; preds = %14, %19, %43, %4, %48, %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit, %2
-  %54 = phi i1 [ false, %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit ], [ false, %2 ], [ %53, %48 ], [ false, %4 ], [ false, %43 ], [ false, %19 ], [ false, %14 ]
+_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit.thread: ; preds = %19, %43, %14, %4, %48, %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit, %2
+  %54 = phi i1 [ false, %_ZN19hb_shape_plan_key_t19user_features_matchEPKS_.exit ], [ %53, %48 ], [ false, %2 ], [ false, %4 ], [ false, %14 ], [ false, %43 ], [ false, %19 ]
   ret i1 %54
 }
 
@@ -664,7 +664,7 @@ define hidden void @hb_shape_plan_destroy(ptr noundef %0) local_unnamed_addr #0 
   tail call void @free(ptr noundef nonnull %0) #19
   br label %_ZL17hb_object_destroyI15hb_shape_plan_tEbPT_.exit.thread
 
-_ZL17hb_object_destroyI15hb_shape_plan_tEbPT_.exit.thread: ; preds = %1, %5, %2, %14
+_ZL17hb_object_destroyI15hb_shape_plan_tEbPT_.exit.thread: ; preds = %1, %2, %5, %14
   ret void
 }
 
@@ -718,7 +718,7 @@ define hidden range(i32 0, 2) i32 @hb_shape_plan_set_user_data(ptr noundef captu
   br label %_ZL23hb_object_set_user_dataI15hb_shape_plan_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit
 
 _ZL23hb_object_set_user_dataI15hb_shape_plan_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit: ; preds = %.lr.ph.i, %5, %6, %.split.loop.exit.i
-  %.015.i = phi i32 [ %22, %.split.loop.exit.i ], [ 0, %6 ], [ 0, %5 ], [ 0, %.lr.ph.i ]
+  %.015.i = phi i32 [ 0, %5 ], [ %22, %.split.loop.exit.i ], [ 0, %6 ], [ 0, %.lr.ph.i ]
   ret i32 %.015.i
 }
 
@@ -774,7 +774,7 @@ _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %17, %18, 
   br label %_ZL23hb_object_get_user_dataIK15hb_shape_plan_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK15hb_shape_plan_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
-  %.0.i = phi ptr [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %2 ], [ null, %5 ]
+  %.0.i = phi ptr [ null, %2 ], [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %5 ]
   ret ptr %.0.i
 }
 
@@ -801,14 +801,14 @@ define hidden range(i32 0, 2) i32 @hb_shape_plan_execute(ptr noundef %0, ptr nou
 12:                                               ; preds = %9
   %13 = load ptr, ptr %6, align 8
   %14 = icmp eq ptr %13, @_hb_ot_shape
-  br i1 %14, label %15, label %31
+  br i1 %14, label %15, label %30
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %18 = load atomic i64, ptr %16 acquire, align 8
   %.not23.i.i.i = icmp eq i64 %18, 0
-  br i1 %.not23.i.i.i, label %.lr.ph.i.i.i, label %.loopexit.i
+  br i1 %.not23.i.i.i, label %.lr.ph.i.i.i, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit
 
 .lr.ph.i.i.i:                                     ; preds = %15, %_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i.i
   %19 = load ptr, ptr %17, align 8
@@ -824,7 +824,7 @@ define hidden range(i32 0, 2) i32 @hb_shape_plan_execute(ptr noundef %0, ptr nou
   %23 = ptrtoint ptr %21 to i64
   %24 = cmpxchg weak ptr %16, i64 0, i64 %23 acq_rel monotonic, align 8
   %25 = extractvalue { i64, i1 } %24, 1
-  br i1 %25, label %.loopexit.i, label %28
+  br i1 %25, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit, label %28
 
 .thread.i.i.i:                                    ; preds = %20
   %26 = cmpxchg weak ptr %16, i64 0, i64 0 acq_rel monotonic, align 8
@@ -838,60 +838,60 @@ define hidden range(i32 0, 2) i32 @hb_shape_plan_execute(ptr noundef %0, ptr nou
 _ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i.i: ; preds = %28, %.thread.i.i.i
   %29 = load atomic i64, ptr %16 acquire, align 8
   %.not.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %.loopexit.i
+  br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit
 
-.loopexit.i:                                      ; preds = %_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i.i, %22, %15
-  %30 = tail call i32 @_hb_ot_shape(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
-  %.not13 = icmp eq i32 %30, 0
-  br i1 %.not13, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10
+30:                                               ; preds = %12
+  %31 = icmp eq ptr %13, @_hb_fallback_shape
+  br i1 %31, label %32, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread
 
-31:                                               ; preds = %12
-  %32 = icmp eq ptr %13, @_hb_fallback_shape
-  br i1 %32, label %33, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %35 = load atomic i64, ptr %33 acquire, align 8
+  %.not23.i.i22.i = icmp eq i64 %35, 0
+  br i1 %.not23.i.i22.i, label %.lr.ph.i.i24.i, label %.loopexit32.i
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %36 = load atomic i64, ptr %34 acquire, align 8
-  %.not23.i.i22.i = icmp eq i64 %36, 0
-  br i1 %.not23.i.i22.i, label %.lr.ph.i.i24.i, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit
+.lr.ph.i.i24.i:                                   ; preds = %32, %_ZN16hb_lazy_loader_tI23hb_fallback_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i.i
+  %36 = load ptr, ptr %34, align 8
+  %.not.i.i.i25.i = icmp eq ptr %36, null
+  br i1 %.not.i.i.i25.i, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread, label %37
 
-.lr.ph.i.i24.i:                                   ; preds = %33, %_ZN16hb_lazy_loader_tI23hb_fallback_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i.i
-  %37 = load ptr, ptr %35, align 8
-  %.not.i.i.i25.i = icmp eq ptr %37, null
-  br i1 %.not.i.i.i25.i, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread, label %38
+37:                                               ; preds = %.lr.ph.i.i24.i
+  %38 = tail call noundef ptr @_hb_fallback_shaper_font_data_create(ptr noundef nonnull %36)
+  %.not10.i.i26.i = icmp eq ptr %38, null
+  br i1 %.not10.i.i26.i, label %.thread.i.i28.i, label %39
 
-38:                                               ; preds = %.lr.ph.i.i24.i
-  %39 = tail call noundef ptr @_hb_fallback_shaper_font_data_create(ptr noundef nonnull %37)
-  %.not10.i.i26.i = icmp eq ptr %39, null
-  br i1 %.not10.i.i26.i, label %.thread.i.i28.i, label %40
+39:                                               ; preds = %37
+  %40 = ptrtoint ptr %38 to i64
+  %41 = cmpxchg weak ptr %33, i64 0, i64 %40 acq_rel monotonic, align 8
+  %42 = extractvalue { i64, i1 } %41, 1
+  br i1 %42, label %.loopexit32.i, label %45
 
-40:                                               ; preds = %38
-  %41 = ptrtoint ptr %39 to i64
-  %42 = cmpxchg weak ptr %34, i64 0, i64 %41 acq_rel monotonic, align 8
-  %43 = extractvalue { i64, i1 } %42, 1
-  br i1 %43, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit, label %46
+.thread.i.i28.i:                                  ; preds = %37
+  %43 = cmpxchg weak ptr %33, i64 0, i64 0 acq_rel monotonic, align 8
+  %44 = extractvalue { i64, i1 } %43, 1
+  br i1 %44, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread, label %_ZN16hb_lazy_loader_tI23hb_fallback_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i.i
 
-.thread.i.i28.i:                                  ; preds = %38
-  %44 = cmpxchg weak ptr %34, i64 0, i64 0 acq_rel monotonic, align 8
-  %45 = extractvalue { i64, i1 } %44, 1
-  br i1 %45, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread, label %_ZN16hb_lazy_loader_tI23hb_fallback_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i.i
-
-46:                                               ; preds = %40
-  tail call void @_hb_fallback_shaper_font_data_destroy(ptr noundef nonnull %39)
+45:                                               ; preds = %39
+  tail call void @_hb_fallback_shaper_font_data_destroy(ptr noundef nonnull %38)
   br label %_ZN16hb_lazy_loader_tI23hb_fallback_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i.i
 
-_ZN16hb_lazy_loader_tI23hb_fallback_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i.i: ; preds = %46, %.thread.i.i28.i
-  %47 = load atomic i64, ptr %34 acquire, align 8
-  %.not.i.i27.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i27.i, label %.lr.ph.i.i24.i, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit
+_ZN16hb_lazy_loader_tI23hb_fallback_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i.i: ; preds = %45, %.thread.i.i28.i
+  %46 = load atomic i64, ptr %33 acquire, align 8
+  %.not.i.i27.i = icmp eq i64 %46, 0
+  br i1 %.not.i.i27.i, label %.lr.ph.i.i24.i, label %.loopexit32.i
 
-_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit: ; preds = %40, %_ZN16hb_lazy_loader_tI23hb_fallback_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i.i, %33
-  %48 = tail call i32 @_hb_fallback_shape(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
-  %.not = icmp eq i32 %48, 0
+.loopexit32.i:                                    ; preds = %_ZN16hb_lazy_loader_tI23hb_fallback_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i.i, %39, %32
+  %47 = tail call i32 @_hb_fallback_shape(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  %.not = icmp eq i32 %47, 0
   br i1 %.not, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10
 
-_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10: ; preds = %5, %.loopexit.i, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit
+_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit: ; preds = %22, %_ZN16hb_lazy_loader_tI17hb_ot_font_data_t23hb_shaper_lazy_loader_tI9hb_font_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i.i, %15
+  %48 = tail call i32 @_hb_ot_shape(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
+  %.not13 = icmp eq i32 %48, 0
+  br i1 %.not13, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread, label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10
+
+_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10: ; preds = %5, %.loopexit32.i, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 1
@@ -901,8 +901,8 @@ _ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tP
   store i32 2, ptr %49, align 4
   br label %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread
 
-_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread: ; preds = %.thread.i.i28.i, %.lr.ph.i.i24.i, %.thread.i.i.i, %.lr.ph.i.i.i, %31, %9, %.loopexit.i, %52, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit
-  %.0.i9 = phi i32 [ 1, %52 ], [ 1, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10 ], [ 0, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit ], [ 0, %.loopexit.i ], [ 0, %9 ], [ 0, %31 ], [ 0, %.lr.ph.i.i.i ], [ 0, %.thread.i.i.i ], [ 0, %.lr.ph.i.i24.i ], [ 0, %.thread.i.i28.i ]
+_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread: ; preds = %.thread.i.i28.i, %.lr.ph.i.i24.i, %.lr.ph.i.i.i, %.thread.i.i.i, %30, %9, %.loopexit32.i, %52, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit
+  %.0.i9 = phi i32 [ 0, %.loopexit32.i ], [ 1, %52 ], [ 1, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit.thread10 ], [ 0, %_ZL31_hb_shape_plan_execute_internalP15hb_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj.exit ], [ 0, %9 ], [ 0, %30 ], [ 0, %.lr.ph.i.i.i ], [ 0, %.thread.i.i.i ], [ 0, %.lr.ph.i.i24.i ], [ 0, %.thread.i.i28.i ]
   ret i32 %.0.i9
 }
 
@@ -997,7 +997,7 @@ define hidden ptr @hb_shape_plan_create_cached2(ptr noundef %0, ptr noundef read
   br label %hb_shape_plan_reference.exit
 
 hb_shape_plan_reference.exit:                     ; preds = %.lr.ph51, %._crit_edge, %44, %41, %.thread, %25, %22, %20
-  %.0 = phi ptr [ null, %20 ], [ %21, %22 ], [ %21, %25 ], [ %13, %.thread ], [ %30, %41 ], [ %30, %44 ], [ @_hb_NullPool, %.lr.ph51 ], [ %30, %._crit_edge ]
+  %.0 = phi ptr [ %21, %25 ], [ %13, %.thread ], [ %30, %44 ], [ %30, %41 ], [ null, %20 ], [ %21, %22 ], [ @_hb_NullPool, %.lr.ph51 ], [ %30, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -1416,7 +1416,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EE
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %19, %17, %20, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
-  %.0 = phi ptr [ null, %20 ], [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ %16, %17 ], [ %16, %19 ]
+  %.0 = phi ptr [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ null, %20 ], [ %16, %17 ], [ %16, %19 ]
   %43 = load i32, ptr %0, align 8
   %44 = icmp slt i32 %43, 0
   %45 = select i1 %44, ptr null, ptr %.0

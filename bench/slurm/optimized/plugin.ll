@@ -463,7 +463,7 @@ define internal fastcc range(i32 0, 8011) i32 @_verify_syms(ptr noundef nonnull 
   br label %46
 
 46:                                               ; preds = %33, %37, %40, %25, %27, %14, %17, %7, %10
-  %.0 = phi i32 [ 8009, %10 ], [ 8009, %7 ], [ 8009, %17 ], [ 8009, %14 ], [ 8009, %27 ], [ 8009, %25 ], [ 8010, %40 ], [ 8010, %37 ], [ 0, %33 ]
+  %.0 = phi i32 [ 8009, %25 ], [ 8010, %37 ], [ 8009, %14 ], [ 8009, %7 ], [ 8009, %10 ], [ 8009, %17 ], [ 8009, %27 ], [ 8010, %40 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -706,7 +706,7 @@ plugin_context_destroy.exit:                      ; preds = %60, %62, %67
   br label %69
 
 69:                                               ; preds = %52, %22, %12, %15, %7, %10, %plugin_context_destroy.exit, %20, %17
-  %.0 = phi ptr [ null, %plugin_context_destroy.exit ], [ null, %20 ], [ null, %17 ], [ null, %10 ], [ null, %7 ], [ null, %15 ], [ null, %12 ], [ %23, %22 ], [ %23, %52 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %plugin_context_destroy.exit ], [ %23, %22 ], [ null, %20 ], [ null, %17 ], [ null, %7 ], [ null, %10 ], [ null, %15 ], [ %23, %52 ]
   ret ptr %.0
 }
 
@@ -859,7 +859,7 @@ define dso_local ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_a
   br label %42
 
 42:                                               ; preds = %38, %40, %24, %.lr.ph
-  %.3 = phi ptr [ %.236, %.lr.ph ], [ %.236, %24 ], [ %.4, %40 ], [ %.4, %38 ]
+  %.3 = phi ptr [ %.4, %38 ], [ %.236, %.lr.ph ], [ %.236, %24 ], [ %.4, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %43 = call ptr @readdir(ptr noundef nonnull %15) #10

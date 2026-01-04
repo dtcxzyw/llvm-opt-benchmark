@@ -232,7 +232,7 @@ default.unreachable25:                            ; preds = %_ZN3std4sync6poison
   br label %47
 
 .thread:                                          ; preds = %25, %28, %16, %20, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17ha7b5bae48f590b25E.exit19", %49
-  %.pn1224 = phi { ptr, i32 } [ %50, %49 ], [ %.pn10, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17ha7b5bae48f590b25E.exit19" ], [ %17, %20 ], [ %17, %16 ], [ %.pn, %28 ], [ %.pn, %25 ]
+  %.pn1224 = phi { ptr, i32 } [ %50, %49 ], [ %17, %16 ], [ %.pn10, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17ha7b5bae48f590b25E.exit19" ], [ %17, %20 ], [ %.pn, %28 ], [ %.pn, %25 ]
   resume { ptr, i32 } %.pn1224
 
 49:                                               ; preds = %13

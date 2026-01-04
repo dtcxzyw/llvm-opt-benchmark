@@ -311,7 +311,7 @@ IsKeyFrame.exit:                                  ; preds = %45
   %.not = icmp eq i32 %57, 0
   br i1 %.not, label %IsKeyFrame.exit.thread128, label %IsKeyFrame.exit.thread
 
-IsKeyFrame.exit.thread:                           ; preds = %38, %21, %IsKeyFrame.exit
+IsKeyFrame.exit.thread:                           ; preds = %21, %38, %IsKeyFrame.exit
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %59 = load ptr, ptr %58, align 8, !tbaa !34
   %60 = zext i32 %14 to i64
@@ -475,8 +475,8 @@ FindBlendRangeAtRow.exit:                         ; preds = %149, %136
   br label %FindBlendRangeAtRow.exit.thread
 
 FindBlendRangeAtRow.exit.thread:                  ; preds = %149, %155, %FindBlendRangeAtRow.exit
-  %.0119161 = phi i32 [ %.0119, %155 ], [ %.0119, %FindBlendRangeAtRow.exit ], [ %spec.select138, %149 ]
-  %.0120160 = phi i32 [ %.0120, %155 ], [ %.0120, %FindBlendRangeAtRow.exit ], [ %spec.select137, %149 ]
+  %.0119161 = phi i32 [ %.0119, %FindBlendRangeAtRow.exit ], [ %.0119, %155 ], [ %spec.select138, %149 ]
+  %.0120160 = phi i32 [ %.0120, %FindBlendRangeAtRow.exit ], [ %.0120, %155 ], [ %spec.select137, %149 ]
   %163 = icmp sgt i32 %.0119161, 0
   br i1 %163, label %164, label %172
 
@@ -562,7 +562,7 @@ ZeroFillFrameRect.exit:                           ; preds = %205, %186, %.loopex
   br label %212
 
 212:                                              ; preds = %12, %WebPAnimDecoderHasMoreFrames.exit, %3, %211, %ZeroFillFrameRect.exit
-  %.0 = phi i32 [ 1, %ZeroFillFrameRect.exit ], [ 0, %211 ], [ 0, %3 ], [ 0, %WebPAnimDecoderHasMoreFrames.exit ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %12 ], [ 1, %ZeroFillFrameRect.exit ], [ 0, %211 ], [ 0, %WebPAnimDecoderHasMoreFrames.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

@@ -305,7 +305,7 @@ common.resume:                                    ; preds = %83, %37
   br label %65
 
 65:                                               ; preds = %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17ha589b5dbec499b9aE.exit50", %97, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17ha589b5dbec499b9aE.exit", %51, %1
-  %.1 = phi i64 [ %17, %1 ], [ %.0.i, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17ha589b5dbec499b9aE.exit" ], [ %42, %51 ], [ %.0.i49, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17ha589b5dbec499b9aE.exit50" ], [ %88, %97 ]
+  %.1 = phi i64 [ %42, %51 ], [ %17, %1 ], [ %.0.i, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17ha589b5dbec499b9aE.exit" ], [ %.0.i49, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17ha589b5dbec499b9aE.exit50" ], [ %88, %97 ]
   ret i64 %.1
 
 "_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h4c241ac4d019177cE.exit40.thread": ; preds = %.thread54, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h5b4255825a08b3adE.exit.i.i37"
@@ -515,7 +515,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17h5
   unreachable
 
 common.resume:                                    ; preds = %40, %44, %22, %26
-  %common.resume.op = phi { ptr, i32 } [ %23, %26 ], [ %23, %22 ], [ %41, %44 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %23, %26 ], [ %41, %44 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$C$A$GT$8downcast17h562d28eecafa1dd5E.llvm.338919531005034474.exit": ; preds = %2
@@ -667,7 +667,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17h7
   unreachable
 
 common.resume:                                    ; preds = %40, %44, %22, %26
-  %common.resume.op = phi { ptr, i32 } [ %23, %26 ], [ %23, %22 ], [ %41, %44 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %23, %26 ], [ %41, %44 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$C$A$GT$8downcast17hcc90365cdcb62897E.llvm.338919531005034474.exit": ; preds = %2
@@ -819,7 +819,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17ha
   unreachable
 
 common.resume:                                    ; preds = %40, %44, %22, %26
-  %common.resume.op = phi { ptr, i32 } [ %23, %26 ], [ %23, %22 ], [ %41, %44 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %23, %26 ], [ %41, %44 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$C$A$GT$8downcast17h2b0f3942aeb4b644E.llvm.338919531005034474.exit": ; preds = %2
@@ -971,7 +971,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17he
   unreachable
 
 common.resume:                                    ; preds = %40, %44, %22, %26
-  %common.resume.op = phi { ptr, i32 } [ %23, %26 ], [ %23, %22 ], [ %41, %44 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %23, %26 ], [ %41, %44 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$C$A$GT$8downcast17hba9fcba227fa7ea7E.llvm.338919531005034474.exit": ; preds = %2
@@ -1123,7 +1123,7 @@ define hidden void @_ZN12clap_builder4util9any_value8AnyValue13downcast_into17hf
   unreachable
 
 common.resume:                                    ; preds = %40, %44, %22, %26
-  %common.resume.op = phi { ptr, i32 } [ %23, %26 ], [ %23, %22 ], [ %41, %44 ], [ %41, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %23, %26 ], [ %41, %44 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync83Arc$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$u2b$core..marker..Sync$C$A$GT$8downcast17h5e00a1c4bb55c3e2E.llvm.338919531005034474.exit": ; preds = %2
@@ -1883,7 +1883,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT
   br i1 %.sroa.18.0.in.i, label %14, label %_ZN12sharded_slab4page4slot19exponential_backoff17hff9c5f1ff440ee2cE.exit
 
 "_ZN107_$LT$sharded_slab..page..stack..TransferStack$LT$C$GT$$u20$as$u20$sharded_slab..page..FreeList$LT$C$GT$$GT$4push17hb11ae54150d614bfE.exit": ; preds = %_ZN12sharded_slab4page4slot19exponential_backoff17hff9c5f1ff440ee2cE.exit, %.lr.ph.i.i, %4, %17
-  %or.cond22 = phi i1 [ true, %17 ], [ false, %4 ], [ true, %.lr.ph.i.i ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17hff9c5f1ff440ee2cE.exit ]
+  %or.cond22 = phi i1 [ true, %.lr.ph.i.i ], [ true, %17 ], [ false, %4 ], [ false, %_ZN12sharded_slab4page4slot19exponential_backoff17hff9c5f1ff440ee2cE.exit ]
   ret i1 %or.cond22
 
 14:                                               ; preds = %10

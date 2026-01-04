@@ -868,7 +868,7 @@ split:                                            ; preds = %.critedge90
           to label %_ZN4cvc58internal8DenseSet5purgeEv.exit unwind label %65
 
 _ZN4cvc58internal8DenseSet5purgeEv.exit:          ; preds = %123, %102, %240, %._crit_edge.i.i265, %._crit_edge.i.i, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit172, %263, %split
-  %.0 = phi i32 [ 2, %split ], [ 3, %263 ], [ 1, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit172 ], [ 1, %._crit_edge.i.i ], [ 1, %._crit_edge.i.i265 ], [ 1, %240 ], [ 2, %102 ], [ 2, %123 ]
+  %.0 = phi i32 [ 1, %._crit_edge.i.i265 ], [ 1, %._crit_edge.i.i ], [ 3, %263 ], [ 2, %split ], [ 1, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit172 ], [ 1, %240 ], [ 2, %102 ], [ 2, %123 ]
   %264 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %265 = load ptr, ptr %264, align 8, !tbaa !93
   %.not.i.i.i.i = icmp eq ptr %265, null
@@ -928,7 +928,7 @@ _ZN4cvc58internal8DenseSetD2Ev.exit:              ; preds = %_ZNSt6vectorIjSaIjE
   ret i32 %.0
 
 290:                                              ; preds = %.loopexit, %.loopexit.split-lp, %65, %69, %67, %189, %191, %31
-  %.pn83.pn.pn = phi { ptr, i32 } [ %32, %31 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %190, %189 ], [ %192, %191 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn83.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %70, %69 ], [ %32, %31 ], [ %190, %189 ], [ %66, %65 ], [ %192, %191 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN4cvc58internal8DenseSetD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn83.pn.pn

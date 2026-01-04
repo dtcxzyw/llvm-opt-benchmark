@@ -865,7 +865,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume
 
 common.resume:                                    ; preds = %54, %62, %97, %95
-  %common.resume.op = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 63:                                               ; preds = %1
@@ -1185,7 +1185,7 @@ default.unreachable:                              ; preds = %_ZN5tokio7runtime4t
   br label %common.resume
 
 common.resume:                                    ; preds = %54, %62, %97, %95
-  %common.resume.op = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %55, %62 ], [ %55, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %55, %62 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 63:                                               ; preds = %1
@@ -1452,7 +1452,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %86, %94, %38, %46, %97
-  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %46 ], [ %39, %38 ], [ %87, %94 ], [ %87, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %38 ], [ %39, %46 ], [ %87, %94 ], [ %87, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h8a2024f1785ea23cE.exit": ; preds = %.noexc14, %9, %.noexc, %15, %22, %30, %37
@@ -1677,7 +1677,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %common.resume
 
 common.resume:                                    ; preds = %86, %94, %38, %46, %97
-  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %46 ], [ %39, %38 ], [ %87, %94 ], [ %87, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %98, %97 ], [ %39, %38 ], [ %39, %46 ], [ %87, %94 ], [ %87, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h8a2024f1785ea23cE.exit": ; preds = %.noexc14, %9, %.noexc, %15, %22, %30, %37

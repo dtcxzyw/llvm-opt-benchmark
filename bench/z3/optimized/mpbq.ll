@@ -768,7 +768,7 @@ define hidden noundef i32 @_ZN12mpbq_manager12magnitude_lbERK4mpbq(ptr noundef n
   br label %18
 
 18:                                               ; preds = %2, %13, %9
-  %.0 = phi i32 [ %12, %9 ], [ %17, %13 ], [ 0, %2 ]
+  %.0 = phi i32 [ %17, %13 ], [ %12, %9 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -802,7 +802,7 @@ define hidden noundef i32 @_ZN12mpbq_manager12magnitude_ubERK4mpbq(ptr noundef n
   br label %18
 
 18:                                               ; preds = %2, %14, %9
-  %.0 = phi i32 [ %13, %9 ], [ %17, %14 ], [ 0, %2 ]
+  %.0 = phi i32 [ %17, %14 ], [ %13, %9 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1378,7 +1378,7 @@ define hidden noundef zeroext i1 @_ZN12mpbq_manager10root_lowerER4mpbqj(ptr noun
   br i1 %32, label %_ZN12mpbq_manager9normalizeER4mpbq.exit.sink.split, label %_ZN12mpbq_manager9normalizeER4mpbq.exit.sink.split.sink.split
 
 _ZN12mpbq_manager9normalizeER4mpbq.exit.sink.split.sink.split: ; preds = %31, %26, %20
-  %.0.ph.ph = phi i1 [ %6, %20 ], [ false, %26 ], [ false, %31 ]
+  %.0.ph.ph = phi i1 [ false, %26 ], [ %6, %20 ], [ false, %31 ]
   %33 = load ptr, ptr %0, align 8, !tbaa !26
   %34 = call noundef i32 @_ZN11mpz_managerILb0EE21power_of_two_multipleERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %33, ptr noundef nonnull align 8 dereferenceable(20) %1)
   %35 = load i32, ptr %12, align 8, !tbaa !13
@@ -1396,7 +1396,7 @@ _ZN12mpbq_manager9normalizeER4mpbq.exit.sink.split: ; preds = %_ZN12mpbq_manager
   br label %_ZN12mpbq_manager9normalizeER4mpbq.exit
 
 _ZN12mpbq_manager9normalizeER4mpbq.exit:          ; preds = %_ZN12mpbq_manager9normalizeER4mpbq.exit.sink.split, %28, %26, %17
-  %.0 = phi i1 [ %6, %17 ], [ false, %26 ], [ false, %28 ], [ %.0.ph, %_ZN12mpbq_manager9normalizeER4mpbq.exit.sink.split ]
+  %.0 = phi i1 [ false, %26 ], [ false, %28 ], [ %6, %17 ], [ %.0.ph, %_ZN12mpbq_manager9normalizeER4mpbq.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -1445,7 +1445,7 @@ define hidden noundef zeroext i1 @_ZN12mpbq_manager10root_upperER4mpbqj(ptr noun
   br i1 %26, label %_ZN12mpbq_manager9normalizeER4mpbq.exit.sink.split, label %_ZN12mpbq_manager9normalizeER4mpbq.exit.sink.split.sink.split
 
 _ZN12mpbq_manager9normalizeER4mpbq.exit.sink.split.sink.split: ; preds = %25, %20, %14
-  %.0.ph.ph = phi i1 [ %5, %14 ], [ false, %20 ], [ false, %25 ]
+  %.0.ph.ph = phi i1 [ false, %20 ], [ %5, %14 ], [ false, %25 ]
   %27 = load ptr, ptr %0, align 8, !tbaa !26
   %28 = tail call noundef i32 @_ZN11mpz_managerILb0EE21power_of_two_multipleERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %27, ptr noundef nonnull align 8 dereferenceable(20) %1)
   %29 = load i32, ptr %6, align 8, !tbaa !13
@@ -1463,7 +1463,7 @@ _ZN12mpbq_manager9normalizeER4mpbq.exit.sink.split: ; preds = %_ZN12mpbq_manager
   br label %_ZN12mpbq_manager9normalizeER4mpbq.exit
 
 _ZN12mpbq_manager9normalizeER4mpbq.exit:          ; preds = %_ZN12mpbq_manager9normalizeER4mpbq.exit.sink.split, %23, %20, %11
-  %.0 = phi i1 [ %5, %11 ], [ false, %20 ], [ false, %23 ], [ %.0.ph, %_ZN12mpbq_manager9normalizeER4mpbq.exit.sink.split ]
+  %.0 = phi i1 [ false, %20 ], [ false, %23 ], [ %5, %11 ], [ %.0.ph, %_ZN12mpbq_manager9normalizeER4mpbq.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -1605,7 +1605,7 @@ _ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit20:  ; preds = %66, %71
   br label %_ZN11mpz_managerILb0EE2ltERK3mpzS3_.exit
 
 _ZN11mpz_managerILb0EE2ltERK3mpzS3_.exit:         ; preds = %86, %82, %57, %53, %24, %20
-  %.0 = phi i1 [ %23, %20 ], [ %26, %24 ], [ %56, %53 ], [ %59, %57 ], [ %85, %82 ], [ %88, %86 ]
+  %.0 = phi i1 [ %59, %57 ], [ %26, %24 ], [ %23, %20 ], [ %56, %53 ], [ %85, %82 ], [ %88, %86 ]
   ret i1 %.0
 }
 
@@ -1656,7 +1656,7 @@ _ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit:    ; preds = %6
   br label %_ZN11mpz_managerILb0EE2ltERK3mpzS3_.exit
 
 _ZN11mpz_managerILb0EE2ltERK3mpzS3_.exit:         ; preds = %28, %24, %6, %3
-  %.0 = phi i1 [ true, %3 ], [ false, %6 ], [ %27, %24 ], [ %30, %28 ]
+  %.0 = phi i1 [ false, %6 ], [ true, %3 ], [ %27, %24 ], [ %30, %28 ]
   ret i1 %.0
 }
 
@@ -1758,7 +1758,7 @@ _ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit:    ; preds = %41, %46
   br label %_ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit
 
 _ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit:         ; preds = %64, %60, %31, %27
-  %.0 = phi i1 [ %30, %27 ], [ %33, %31 ], [ %63, %60 ], [ %66, %64 ]
+  %.0 = phi i1 [ %33, %31 ], [ %30, %27 ], [ %63, %60 ], [ %66, %64 ]
   ret i1 %.0
 }
 
@@ -1861,7 +1861,7 @@ _ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit:    ; preds = %45, %50
   br label %_ZN11mpz_managerILb0EE2ltERK3mpzS3_.exit
 
 _ZN11mpz_managerILb0EE2ltERK3mpzS3_.exit:         ; preds = %65, %61, %31, %27
-  %.0 = phi i1 [ %30, %27 ], [ %33, %31 ], [ %64, %61 ], [ %67, %65 ]
+  %.0 = phi i1 [ %33, %31 ], [ %30, %27 ], [ %64, %61 ], [ %67, %65 ]
   ret i1 %.0
 }
 
@@ -1964,7 +1964,7 @@ _ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit:    ; preds = %45, %50
   br label %_ZN11mpz_managerILb0EE2leERK3mpzS3_.exit
 
 _ZN11mpz_managerILb0EE2leERK3mpzS3_.exit:         ; preds = %65, %61, %31, %27
-  %.0.in = phi i1 [ %30, %27 ], [ %33, %31 ], [ %64, %61 ], [ %67, %65 ]
+  %.0.in = phi i1 [ %33, %31 ], [ %30, %27 ], [ %64, %61 ], [ %67, %65 ]
   %.0 = xor i1 %.0.in, true
   ret i1 %.0
 }
@@ -2051,7 +2051,7 @@ _ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit:    ; preds = %31, %36
   br label %_ZN11mpz_managerILb0EE2ltERK3mpzS3_.exit
 
 _ZN11mpz_managerILb0EE2ltERK3mpzS3_.exit:         ; preds = %51, %47, %22, %18
-  %.0 = phi i1 [ %21, %18 ], [ %24, %22 ], [ %50, %47 ], [ %53, %51 ]
+  %.0 = phi i1 [ %24, %22 ], [ %21, %18 ], [ %50, %47 ], [ %53, %51 ]
   ret i1 %.0
 }
 
@@ -2137,7 +2137,7 @@ _ZN11mpz_managerILb0EE5mul2kERK3mpzjRS1_.exit:    ; preds = %31, %36
   br label %_ZN11mpz_managerILb0EE2leERK3mpzS3_.exit
 
 _ZN11mpz_managerILb0EE2leERK3mpzS3_.exit:         ; preds = %51, %47, %22, %18
-  %.0.in = phi i1 [ %21, %18 ], [ %24, %22 ], [ %50, %47 ], [ %53, %51 ]
+  %.0.in = phi i1 [ %24, %22 ], [ %21, %18 ], [ %50, %47 ], [ %53, %51 ]
   %.0 = xor i1 %.0.in, true
   ret i1 %.0
 }
@@ -3272,7 +3272,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i14:   ; preds = %67, %62
   br label %_ZN12mpbq_manager3setER4mpbqRK3mpzj.exit
 
 _ZN12mpbq_manager3setER4mpbqRK3mpzj.exit:         ; preds = %.sink.split.i.i16, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i14, %.sink.split.i.i, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i, %_ZN12mpbq_manager3setER4mpbqRK3mpz.exit
-  %.0 = phi i1 [ true, %_ZN12mpbq_manager3setER4mpbqRK3mpz.exit ], [ true, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i ], [ true, %.sink.split.i.i ], [ false, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i14 ], [ false, %.sink.split.i.i16 ]
+  %.0 = phi i1 [ true, %_ZN12mpbq_manager3setER4mpbqRK3mpz.exit ], [ true, %.sink.split.i.i ], [ true, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i ], [ false, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i14 ], [ false, %.sink.split.i.i16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -3598,7 +3598,7 @@ _ZN11mpz_managerILb0EE2leERK3mpzS3_.exit:         ; preds = %36, %46
   br label %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit
 
 _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %51, %67, %62, %34, %29, %18, %13, %_ZN11mpz_managerILb0EE2leERK3mpzS3_.exit
-  %.0 = phi i1 [ false, %_ZN11mpz_managerILb0EE2leERK3mpzS3_.exit ], [ true, %13 ], [ true, %18 ], [ true, %29 ], [ true, %34 ], [ true, %62 ], [ true, %67 ], [ false, %51 ]
+  %.0 = phi i1 [ true, %34 ], [ true, %18 ], [ false, %_ZN11mpz_managerILb0EE2leERK3mpzS3_.exit ], [ true, %13 ], [ true, %29 ], [ true, %62 ], [ true, %67 ], [ false, %51 ]
   ret i1 %.0
 }
 
@@ -3919,7 +3919,7 @@ _ZN11mpz_managerILb0EE2leERK3mpzS3_.exit:         ; preds = %70, %77
   br label %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit
 
 _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %82, %98, %93, %21, %16, %_ZN11mpz_managerILb0EE2leERK3mpzS3_.exit
-  %.0 = phi i1 [ false, %_ZN11mpz_managerILb0EE2leERK3mpzS3_.exit ], [ true, %16 ], [ true, %21 ], [ true, %93 ], [ true, %98 ], [ false, %82 ]
+  %.0 = phi i1 [ true, %21 ], [ false, %_ZN11mpz_managerILb0EE2leERK3mpzS3_.exit ], [ true, %16 ], [ true, %93 ], [ true, %98 ], [ false, %82 ]
   ret i1 %.0
 }
 
@@ -4124,7 +4124,7 @@ _ZN11mpz_managerILb0EE2leERK3mpzS3_.exit:         ; preds = %71, %77
   br label %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit
 
 _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %82, %98, %93, %21, %16, %_ZN11mpz_managerILb0EE2leERK3mpzS3_.exit
-  %.0 = phi i1 [ false, %_ZN11mpz_managerILb0EE2leERK3mpzS3_.exit ], [ true, %16 ], [ true, %21 ], [ true, %93 ], [ true, %98 ], [ false, %82 ]
+  %.0 = phi i1 [ true, %21 ], [ false, %_ZN11mpz_managerILb0EE2leERK3mpzS3_.exit ], [ true, %16 ], [ true, %93 ], [ true, %98 ], [ false, %82 ]
   ret i1 %.0
 }
 
@@ -4865,7 +4865,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i88:   ; preds = %219, %214
   store i32 %.sink.i.i91, ptr %221, align 8, !tbaa !13
   br label %_ZN12mpbq_manager3setER4mpbqRK3mpzj.exit
 
-_ZN12mpbq_manager3setER4mpbqRK3mpzj.exit:         ; preds = %.sink.split.i.i90, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i88, %.sink.split.i.i75, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i73, %.sink.split.i.i, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i, %_ZN12mpbq_manager3setER4mpbqRK3mpz.exit
+_ZN12mpbq_manager3setER4mpbqRK3mpzj.exit:         ; preds = %.sink.split.i.i90, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i88, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i73, %.sink.split.i.i75, %.sink.split.i.i, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i, %_ZN12mpbq_manager3setER4mpbqRK3mpz.exit
   ret void
 }
 

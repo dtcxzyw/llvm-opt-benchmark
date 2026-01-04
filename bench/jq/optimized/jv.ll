@@ -400,7 +400,7 @@ define dso_local ptr @jv_number_get_literal(i64 %0, ptr %1) local_unnamed_addr #
   br label %jvp_literal_number_literal.exit
 
 jvp_literal_number_literal.exit:                  ; preds = %17, %13, %11, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ @.str.1, %5 ], [ null, %11 ], [ %.pre.i, %17 ], [ %15, %13 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ @.str.1, %5 ], [ %.pre.i, %17 ], [ %15, %13 ]
   ret ptr %.0
 }
 
@@ -1153,8 +1153,8 @@ jv_copy.exit28.preheader:                         ; preds = %.preheader
   br label %30
 
 .split.us:                                        ; preds = %jv_array_append.exit, %jv_array_append.exit.us.us, %.preheader, %.preheader.us
-  %.us-phi49 = phi i64 [ %0, %.preheader.us ], [ %0, %.preheader ], [ %23, %jv_array_append.exit.us.us ], [ %46, %jv_array_append.exit ]
-  %.us-phi50 = phi ptr [ %1, %.preheader.us ], [ %1, %.preheader ], [ %24, %jv_array_append.exit.us.us ], [ %47, %jv_array_append.exit ]
+  %.us-phi49 = phi i64 [ %23, %jv_array_append.exit.us.us ], [ %0, %.preheader.us ], [ %0, %.preheader ], [ %46, %jv_array_append.exit ]
+  %.us-phi50 = phi ptr [ %24, %jv_array_append.exit.us.us ], [ %1, %.preheader.us ], [ %1, %.preheader ], [ %47, %jv_array_append.exit ]
   tail call void @jv_free(i64 %2, ptr %3)
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.us-phi49, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.us-phi50, 1
@@ -1789,7 +1789,7 @@ jvp_object_equal.exit:                            ; preds = %95, %70, %jv_copy.e
   br label %jvp_array_equal.exit
 
 jvp_array_equal.exit:                             ; preds = %jv_copy.exit, %21, %52, %47, %20, %16, %10, %4, %jvp_object_equal.exit, %17
-  %.0.shrunk = phi i1 [ %19, %17 ], [ %narrow, %jvp_object_equal.exit ], [ false, %4 ], [ true, %10 ], [ true, %16 ], [ false, %20 ], [ %56, %52 ], [ false, %47 ], [ true, %21 ], [ %.not26.i.not, %jv_copy.exit ]
+  %.0.shrunk = phi i1 [ %narrow, %jvp_object_equal.exit ], [ false, %4 ], [ true, %10 ], [ %19, %17 ], [ true, %16 ], [ %56, %52 ], [ true, %21 ], [ false, %20 ], [ false, %47 ], [ %.not26.i.not, %jv_copy.exit ]
   %.0 = zext i1 %.0.shrunk to i32
   tail call void @jv_free(i64 %0, ptr %1)
   tail call void @jv_free(i64 %2, ptr %3)
@@ -3152,8 +3152,8 @@ common.ret53.sink.split.i:                        ; preds = %jv_string_concat.ex
   br label %jv_free.exit
 
 jv_free.exit:                                     ; preds = %41, %24, %15, %common.ret53.sink.split.i, %jv_string_concat.exit
-  %.sroa.033.0.insert.insert.i.pn = phi i64 [ %.sroa.033.0.insert.insert.i.i, %jv_string_concat.exit ], [ %.sroa.033.0.insert.insert.i.i, %common.ret53.sink.split.i ], [ %0, %15 ], [ 133, %24 ], [ 133, %41 ]
-  %.sroa.6.0.i.pn = phi ptr [ %.sroa.6.0.i.i, %jv_string_concat.exit ], [ %.sroa.6.0.i.i, %common.ret53.sink.split.i ], [ %1, %15 ], [ %29, %24 ], [ %29, %41 ]
+  %.sroa.033.0.insert.insert.i.pn = phi i64 [ %.sroa.033.0.insert.insert.i.i, %common.ret53.sink.split.i ], [ %.sroa.033.0.insert.insert.i.i, %jv_string_concat.exit ], [ %0, %15 ], [ 133, %24 ], [ 133, %41 ]
+  %.sroa.6.0.i.pn = phi ptr [ %.sroa.6.0.i.i, %common.ret53.sink.split.i ], [ %.sroa.6.0.i.i, %jv_string_concat.exit ], [ %1, %15 ], [ %29, %24 ], [ %29, %41 ]
   %.fca.0.insert.i.pn = insertvalue { i64, ptr } poison, i64 %.sroa.033.0.insert.insert.i.pn, 0
   %.pn = insertvalue { i64, ptr } %.fca.0.insert.i.pn, ptr %.sroa.6.0.i.pn, 1
   ret { i64, ptr } %.pn
@@ -4122,8 +4122,8 @@ jvp_object_find_slot.exit:                        ; preds = %jvp_string_equal.ex
   br label %jv_object_get.exit
 
 jv_object_get.exit:                               ; preds = %jvp_string_equal.exit.thread.i, %jvp_string_hash.exit.i, %jvp_object_find_slot.exit, %125
-  %.sroa.011.0.i = phi i64 [ %121, %jvp_object_find_slot.exit ], [ %121, %125 ], [ 0, %jvp_string_hash.exit.i ], [ 0, %jvp_string_equal.exit.thread.i ]
-  %.sroa.312.0.i = phi ptr [ %123, %jvp_object_find_slot.exit ], [ %123, %125 ], [ null, %jvp_string_hash.exit.i ], [ null, %jvp_string_equal.exit.thread.i ]
+  %.sroa.011.0.i = phi i64 [ %121, %125 ], [ %121, %jvp_object_find_slot.exit ], [ 0, %jvp_string_hash.exit.i ], [ 0, %jvp_string_equal.exit.thread.i ]
+  %.sroa.312.0.i = phi ptr [ %123, %125 ], [ %123, %jvp_object_find_slot.exit ], [ null, %jvp_string_hash.exit.i ], [ null, %jvp_string_equal.exit.thread.i ]
   tail call void @jv_free(i64 %.sroa.044.1115, ptr nonnull %.sroa.747.1116)
   tail call void @jv_free(i64 %.sroa.0.0.copyload.i, ptr %.sroa.4.0.copyload.i)
   %128 = and i64 %.sroa.011.0.i, 15
@@ -4460,8 +4460,8 @@ jvp_object_find_slot.exit:                        ; preds = %jvp_string_equal.ex
   br label %jv_object_get.exit
 
 jv_object_get.exit:                               ; preds = %jvp_string_equal.exit.thread.i, %jvp_string_hash.exit.i, %jvp_object_find_slot.exit, %127
-  %.sroa.011.0.i = phi i64 [ %123, %jvp_object_find_slot.exit ], [ %123, %127 ], [ 0, %jvp_string_hash.exit.i ], [ 0, %jvp_string_equal.exit.thread.i ]
-  %.sroa.312.0.i = phi ptr [ %125, %jvp_object_find_slot.exit ], [ %125, %127 ], [ null, %jvp_string_hash.exit.i ], [ null, %jvp_string_equal.exit.thread.i ]
+  %.sroa.011.0.i = phi i64 [ %123, %127 ], [ %123, %jvp_object_find_slot.exit ], [ 0, %jvp_string_hash.exit.i ], [ 0, %jvp_string_equal.exit.thread.i ]
+  %.sroa.312.0.i = phi ptr [ %125, %127 ], [ %125, %jvp_object_find_slot.exit ], [ null, %jvp_string_hash.exit.i ], [ null, %jvp_string_equal.exit.thread.i ]
   tail call void @jv_free(i64 %.fr, ptr nonnull %1)
   tail call void @jv_free(i64 %.sroa.0.0.copyload.i, ptr %.sroa.4.0.copyload.i)
   %130 = tail call i32 @jv_contains(i64 %.sroa.011.0.i, ptr %.sroa.312.0.i, i64 %34, ptr %36)
@@ -4598,7 +4598,7 @@ jv_copy.exit130.us.us.us.us:                      ; preds = %165, %jv_copy.exit1
 jv_copy.exit141.split.us.split.us244.us:          ; preds = %jv_copy.exit141.us.us
   br i1 %.not50.i214.us.us238.us, label %jv_copy.exit137.us.us.us.us.preheader, label %.split.us.us.us.thread
 
-.split.us.us.us.thread:                           ; preds = %jv_copy.exit141.split.us.split.us244.us, %.preheader204.us.us.us.us, %171, %180
+.split.us.us.us.thread:                           ; preds = %.preheader204.us.us.us.us, %jv_copy.exit141.split.us.split.us244.us, %171, %180
   tail call void @jv_free(i64 %.sroa.07.0.i146.us.us.fr, ptr %155)
   br label %jvp_object_contains.exit
 
@@ -4798,7 +4798,7 @@ jv_copy.exit114:                                  ; preds = %jv_copy.exit110, %2
   br label %jvp_object_contains.exit
 
 jvp_object_contains.exit:                         ; preds = %211, %.loopexit, %jv_object_iter_next.exit, %jv_object_get.exit, %.preheader, %.split.thread, %.split.us.us.us.thread, %.preheader205, %jv_object_iter.exit, %.preheader205.us, %jv_copy.exit105, %jv_copy.exit, %4, %jv_copy.exit114
-  %.0 = phi i32 [ %242, %jv_copy.exit114 ], [ 0, %4 ], [ %232, %jv_copy.exit105 ], [ 1, %jv_copy.exit ], [ 1, %.preheader205.us ], [ 1, %jv_object_iter.exit ], [ 1, %.preheader205 ], [ 0, %.split.us.us.us.thread ], [ 0, %.split.thread ], [ 1, %.preheader ], [ 1, %jv_object_iter_next.exit ], [ 0, %jv_object_get.exit ], [ 1, %.loopexit ], [ 1, %211 ]
+  %.0 = phi i32 [ %242, %jv_copy.exit114 ], [ 1, %jv_copy.exit ], [ 1, %jv_object_iter.exit ], [ 0, %4 ], [ %232, %jv_copy.exit105 ], [ 1, %.preheader205 ], [ 0, %.split.us.us.us.thread ], [ 1, %.preheader205.us ], [ 1, %.preheader ], [ 0, %.split.thread ], [ 1, %jv_object_iter_next.exit ], [ 1, %.loopexit ], [ 0, %jv_object_get.exit ], [ 1, %211 ]
   tail call void @jv_free(i64 %.fr, ptr %1)
   tail call void @jv_free(i64 %2, ptr %3)
   ret i32 %.0
@@ -5269,8 +5269,8 @@ jv_copy.exit50:                                   ; preds = %jv_copy.exit, %76
   br i1 %exitcond.not, label %._crit_edge, label %56, !llvm.loop !71
 
 jvp_object_free.exit:                             ; preds = %2, %._crit_edge.i39, %._crit_edge
-  %.pn53 = phi i64 [ %.sroa.0.0.insert.insert.i58, %._crit_edge ], [ %.sroa.0.0.insert.insert.i58, %._crit_edge.i39 ], [ %0, %2 ]
-  %.pn51 = phi ptr [ %11, %._crit_edge ], [ %11, %._crit_edge.i39 ], [ %1, %2 ]
+  %.pn53 = phi i64 [ %.sroa.0.0.insert.insert.i58, %._crit_edge.i39 ], [ %.sroa.0.0.insert.insert.i58, %._crit_edge ], [ %0, %2 ]
+  %.pn51 = phi ptr [ %11, %._crit_edge.i39 ], [ %11, %._crit_edge ], [ %1, %2 ]
   %.pn = insertvalue { i64, ptr } poison, i64 %.pn53, 0
   %.fca.1.insert.merged = insertvalue { i64, ptr } %.pn, ptr %.pn51, 1
   ret { i64, ptr } %.fca.1.insert.merged

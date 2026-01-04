@@ -1313,7 +1313,7 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread.i: ; preds = %17
   br i1 %exitcond.not.i, label %.critedge39.thread99.i, label %17, !llvm.loop !107
 
 .critedge39.thread99.i:                           ; preds = %.critedge39.thread.i, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread.i, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.i, %56, %52
-  %.134.i = phi i1 [ false, %56 ], [ false, %52 ], [ %.033118.i, %.critedge39.thread.i ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread.i ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.i ]
+  %.134.i = phi i1 [ false, %56 ], [ false, %52 ], [ %.033118.i, %.critedge39.thread.i ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.i ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread.i ]
   %indvars.iv.next126.i = add nuw nsw i64 %indvars.iv125.i, 1
   %60 = load ptr, ptr %10, align 8, !tbaa !28
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 20
@@ -1601,7 +1601,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit102:     ; preds = %_ZN5Ipopt8SmartPtrI
   br i1 %.not.i.i.i76164169, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit106, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit102.thread
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit102.thread: ; preds = %177, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit102
-  %.pn65.pn.pn181 = phi { ptr, i32 } [ %.pn65.pn.pn, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit102 ], [ %.pn65175, %177 ]
+  %.pn65.pn.pn181 = phi { ptr, i32 } [ %.pn65175, %177 ], [ %.pn65.pn.pn, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit102 ]
   %190 = getelementptr inbounds nuw i8, ptr %.0.i4.i161170, i64 8
   %191 = load i32, ptr %190, align 8, !tbaa !3
   %192 = add nsw i32 %191, -1
@@ -1787,7 +1787,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit106.sink.split: ; preds = %_ZN5Ipopt8Sm
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit106
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit106:     ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit106.sink.split, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit131, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit131.thread, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit102.thread, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit102, %177
-  %.pn65.pn.pn.pn = phi { ptr, i32 } [ %.pn65.pn.pn, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit102 ], [ %.pn65.pn.pn181, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit102.thread ], [ %.pn65175, %177 ], [ %264, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit131 ], [ %.pn58188, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit131.thread ], [ %.pn65.pn.pn.pn.ph, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit106.sink.split ]
+  %.pn65.pn.pn.pn = phi { ptr, i32 } [ %.pn58188, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit131.thread ], [ %264, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit131 ], [ %.pn65175, %177 ], [ %.pn65.pn.pn181, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit102.thread ], [ %.pn65.pn.pn, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit102 ], [ %.pn65.pn.pn.pn.ph, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit106.sink.split ]
   br i1 %.not.i.i.i, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit135, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit106.thread194
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit106.thread194: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit106
@@ -1910,7 +1910,7 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread: ; preds = %9
   br i1 %exitcond.not, label %.critedge39.thread99, label %9, !llvm.loop !107
 
 .critedge39.thread99:                             ; preds = %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread, %.critedge39.thread, %44, %48
-  %.134 = phi i1 [ false, %48 ], [ false, %44 ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread ], [ %.033118, %.critedge39.thread ]
+  %.134 = phi i1 [ false, %48 ], [ false, %44 ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread ], [ %.033118, %.critedge39.thread ]
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %52 = load ptr, ptr %2, align 8, !tbaa !28
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 20
@@ -2026,7 +2026,7 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread.i: ; preds = %11
   br i1 %exitcond.not.i, label %.critedge39.thread99.i, label %11, !llvm.loop !107
 
 .critedge39.thread99.i:                           ; preds = %.critedge39.thread.i, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread.i, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.i, %50, %46
-  %.134.i = phi i1 [ false, %50 ], [ false, %46 ], [ %.033118.i, %.critedge39.thread.i ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread.i ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.i ]
+  %.134.i = phi i1 [ false, %50 ], [ false, %46 ], [ %.033118.i, %.critedge39.thread.i ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.i ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread.i ]
   %indvars.iv.next126.i = add nuw nsw i64 %indvars.iv125.i, 1
   %54 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !28
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 20
@@ -2104,7 +2104,7 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit19: ; preds = %_ZNK5Ipopt17Compou
   br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !158
 
 .loopexit:                                        ; preds = %81, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit19, %._crit_edge
-  %86 = phi i1 [ true, %._crit_edge ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit19 ], [ true, %81 ]
+  %86 = phi i1 [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit19 ], [ true, %._crit_edge ], [ true, %81 ]
   ret i1 %86
 }
 
@@ -2213,7 +2213,7 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread.i: ; preds = %13
   br i1 %exitcond.not.i, label %.critedge39.thread99.i, label %13, !llvm.loop !107
 
 .critedge39.thread99.i:                           ; preds = %.critedge39.thread.i, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread.i, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.i, %52, %48
-  %.134.i = phi i1 [ false, %52 ], [ false, %48 ], [ %.033118.i, %.critedge39.thread.i ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread.i ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.i ]
+  %.134.i = phi i1 [ false, %52 ], [ false, %48 ], [ %.033118.i, %.critedge39.thread.i ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.i ], [ false, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit44.thread.thread.i ]
   %indvars.iv.next126.i = add nuw nsw i64 %indvars.iv125.i, 1
   %56 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !28
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 20
@@ -2304,7 +2304,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit:      ; preds = %.lr.ph
   br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit:         ; preds = %.noexc, %83, %78, %_ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit
-  %.sroa.058.0 = phi ptr [ %1, %_ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit ], [ %77, %78 ], [ %77, %83 ], [ null, %.noexc ]
+  %.sroa.058.0 = phi ptr [ %1, %_ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit ], [ %77, %83 ], [ %77, %78 ], [ null, %.noexc ]
   %.not29 = icmp samesign ugt i64 %indvars.iv84, %indvars.iv
   %89 = load ptr, ptr %71, align 8, !tbaa !91
   br i1 %.not29, label %100, label %90
@@ -2344,7 +2344,7 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit46: ; preds = %100
   br i1 %.not31, label %_ZNK5Ipopt6Matrix14ComputeRowAMaxERNS_6VectorEb.exit, label %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit49.invoke
 
 _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit49.invoke: ; preds = %100, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit46, %90, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit
-  %.0.i41.sink = phi ptr [ %94, %90 ], [ %99, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit ], [ %104, %100 ], [ %109, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit46 ]
+  %.0.i41.sink = phi ptr [ %99, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit ], [ %94, %90 ], [ %104, %100 ], [ %109, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit46 ]
   %110 = load ptr, ptr %.0.i41.sink, align 8, !tbaa !8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 72
   %112 = load ptr, ptr %111, align 8
@@ -2541,7 +2541,7 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit.thread: ; preds = %41, %_ZNK5Ipo
   br label %82
 
 82:                                               ; preds = %67, %76
-  %.0.i48 = phi ptr [ %75, %67 ], [ %81, %76 ]
+  %.0.i48 = phi ptr [ %81, %76 ], [ %75, %67 ]
   %83 = load i32, ptr %32, align 8, !tbaa !3
   %84 = add nsw i32 %83, 1
   store i32 %84, ptr %32, align 8, !tbaa !3
@@ -2935,7 +2935,7 @@ _ZNSt6vectorIN5Ipopt8SmartPtrIKNS0_11MatrixSpaceEEESaIS4_EED2Ev.exit: ; preds = 
   br label %.body
 
 .body:                                            ; preds = %113, %110, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit37
-  %.pn = phi { ptr, i32 } [ %44, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit37 ], [ %111, %110 ], [ %111, %113 ]
+  %.pn = phi { ptr, i32 } [ %44, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit37 ], [ %111, %113 ], [ %111, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt6vectorIN5Ipopt8SmartPtrIKNS0_11MatrixSpaceEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
   br label %121
@@ -3982,7 +3982,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_E
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.i
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.i: ; preds = %24, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.i.loopexit.split.loop.exit26, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.i.loopexit.split.loop.exit28, %._crit_edge._crit_edge57.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %44, %._crit_edge.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %44 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %17, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %55, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.i.loopexit.split.loop.exit ], [ %56, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.i.loopexit.split.loop.exit26 ], [ %57, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.i.loopexit.split.loop.exit28 ], [ %.sroa.032.051.i.i.i.i, %24 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %17, %._crit_edge.i.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i.i, %44 ], [ %57, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.i.loopexit.split.loop.exit28 ], [ %55, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.i.loopexit.split.loop.exit ], [ %56, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.i.loopexit.split.loop.exit26 ], [ %.sroa.032.051.i.i.i.i, %24 ]
   %58 = load ptr, ptr %13, align 8, !tbaa !8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8

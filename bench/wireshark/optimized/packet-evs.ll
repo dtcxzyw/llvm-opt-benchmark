@@ -433,20 +433,20 @@ define internal i32 @dissect_evs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.0212.in = phi i32 [ %39, %35 ], [ %23, %34 ]
   %.0212 = shl i32 %.0212.in, 3
   %41 = icmp eq i32 %.0212, 56
-  br i1 %41, label %42, label %45
+  br i1 %41, label %44, label %42
 
 42:                                               ; preds = %40
-  %43 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 0, i32 noundef 1)
-  %44 = icmp eq i8 %43, 0
-  br i1 %44, label %47, label %.critedge
-
-45:                                               ; preds = %40
-  %46 = call ptr @try_val_to_str_idx(i32 noundef %.0212, ptr noundef nonnull @evs_protected_payload_sizes_value, ptr noundef nonnull %7)
-  %.not221.not = icmp eq ptr %46, null
+  %43 = call ptr @try_val_to_str_idx(i32 noundef %.0212, ptr noundef nonnull @evs_protected_payload_sizes_value, ptr noundef nonnull %7)
+  %.not221.not = icmp eq ptr %43, null
   br i1 %.not221.not, label %.critedge, label %47
 
-47:                                               ; preds = %42, %45
-  %.0213228 = phi ptr [ @.str.229, %42 ], [ %46, %45 ]
+44:                                               ; preds = %40
+  %45 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 0, i32 noundef 1)
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %47, label %.critedge
+
+47:                                               ; preds = %42, %44
+  %.0213228 = phi ptr [ %43, %42 ], [ @.str.229, %44 ]
   %48 = load i32, ptr @ett_evs_header, align 4
   %49 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %48, ptr noundef nonnull %6, ptr noundef nonnull @.str.231)
   %50 = load ptr, ptr %6, align 8
@@ -650,7 +650,7 @@ proto_item_set_generated.exit:                    ; preds = %47, %51, %54
   %165 = call ptr @proto_tree_add_bits_item(ptr noundef %69, i32 noundef %164, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-.critedge:                                        ; preds = %42, %31, %45
+.critedge:                                        ; preds = %42, %31, %44
   %166 = load i32, ptr @ett_evs_header, align 4
   %167 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %166, ptr noundef nonnull %6, ptr noundef nonnull @.str.238)
   %168 = load ptr, ptr %6, align 8

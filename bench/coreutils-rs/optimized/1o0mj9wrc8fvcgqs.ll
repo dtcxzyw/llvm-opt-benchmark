@@ -864,7 +864,7 @@ define void @_ZN7uu_fold6uu_app17h6eca0a5752fc37d3E(ptr noalias noundef writeonl
   ret void
 
 .body:                                            ; preds = %185, %177, %125, %91, %54, %197, %196, %195, %194, %190
-  %.pn = phi { ptr, i32 } [ %191, %190 ], [ %eh.lpad-body69.ph, %194 ], [ %eh.lpad-body52.ph, %195 ], [ %eh.lpad-body37.ph, %196 ], [ %198, %197 ], [ %55, %54 ], [ %92, %91 ], [ %126, %125 ], [ %178, %177 ], [ %186, %185 ]
+  %.pn = phi { ptr, i32 } [ %191, %190 ], [ %178, %177 ], [ %eh.lpad-body69.ph, %194 ], [ %126, %125 ], [ %eh.lpad-body52.ph, %195 ], [ %92, %91 ], [ %eh.lpad-body37.ph, %196 ], [ %55, %54 ], [ %198, %197 ], [ %186, %185 ]
   resume { ptr, i32 } %.pn
 
 190:                                              ; preds = %181
@@ -965,7 +965,7 @@ define void @_ZN7uu_fold15handle_obsolete17h1ea1f1c1184b4e6aE(ptr noalias nounde
           to label %common.resume unwind label %29, !noalias !282
 
 common.resume:                                    ; preds = %134, %122, %98, %31
-  %common.resume.op = phi { ptr, i32 } [ %lpad.loopexit.i, %31 ], [ %lpad.loopexit.i39, %98 ], [ %135, %134 ], [ %123, %122 ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.loopexit.i39, %98 ], [ %lpad.loopexit.i, %31 ], [ %135, %134 ], [ %123, %122 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17haad141fcf5cf710cE.exit": ; preds = %.lr.ph.i, %24, %._crit_edge
@@ -1060,7 +1060,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he8ac9c3c5d217007E.exit.thread: ; pr
   br label %_ZN4core4iter6traits8iterator8Iterator3nth17he8ac9c3c5d217007E.exit
 
 _ZN4core4iter6traits8iterator8Iterator3nth17he8ac9c3c5d217007E.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5c75ec86ca3f23eE.exit13.i.i.i", %58, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5c75ec86ca3f23eE.exit15.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5c75ec86ca3f23eE.exit17.i.i.i"
-  %.0.i33 = phi i32 [ %56, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5c75ec86ca3f23eE.exit13.i.i.i" ], [ %68, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5c75ec86ca3f23eE.exit15.i.i.i" ], [ %79, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5c75ec86ca3f23eE.exit17.i.i.i" ], [ %59, %58 ]
+  %.0.i33 = phi i32 [ %59, %58 ], [ %56, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5c75ec86ca3f23eE.exit13.i.i.i" ], [ %68, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5c75ec86ca3f23eE.exit15.i.i.i" ], [ %79, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc5c75ec86ca3f23eE.exit17.i.i.i" ]
   %80 = add nsw i32 %.0.i33, -48
   %.0.i34 = icmp ult i32 %80, 10
   br i1 %.0.i34, label %81, label %_ZN4core4iter6traits8iterator8Iterator3nth17he8ac9c3c5d217007E.exit.thread

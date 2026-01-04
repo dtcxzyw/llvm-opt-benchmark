@@ -130,8 +130,8 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   br label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %14
-  %.0122.lcssa = phi ptr [ %1, %14 ], [ %20, %..critedge.loopexit_crit_edge ], [ %1, %.lr.ph.preheader ], [ %20, %.lr.ph ]
-  %.0121.lcssa = phi i32 [ %0, %14 ], [ %24, %..critedge.loopexit_crit_edge ], [ %0, %.lr.ph.preheader ], [ %24, %.lr.ph ]
+  %.0122.lcssa = phi ptr [ %1, %14 ], [ %1, %.lr.ph.preheader ], [ %20, %..critedge.loopexit_crit_edge ], [ %20, %.lr.ph ]
+  %.0121.lcssa = phi i32 [ %0, %14 ], [ %0, %.lr.ph.preheader ], [ %24, %..critedge.loopexit_crit_edge ], [ %24, %.lr.ph ]
   store ptr %15, ptr %.0122.lcssa, align 8, !tbaa !4
   %27 = tail call ptr @opt_init(i32 noundef %.0121.lcssa, ptr noundef nonnull %.0122.lcssa, ptr noundef nonnull @engine_options) #7
   br label %.outer
@@ -482,7 +482,7 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %158
 
-.thread:                                          ; preds = %96, %100, %104, %108, %112, %.lr.ph252, %.lr.ph255, %.lr.ph258
+.thread:                                          ; preds = %112, %108, %104, %100, %96, %.lr.ph252, %.lr.ph255, %.lr.ph258
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -709,7 +709,7 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   br label %258
 
 258:                                              ; preds = %.thread21.i.i, %251
-  %.220.i.i = phi i32 [ %.21925.i.i, %.thread21.i.i ], [ %.2.i.i, %251 ]
+  %.220.i.i = phi i32 [ %.2.i.i, %251 ], [ %.21925.i.i, %.thread21.i.i ]
   %.not39.i.i = icmp eq i32 %.220.i.i, 0
   br i1 %.not39.i.i, label %util_flags.exit.i, label %259
 
@@ -753,7 +753,7 @@ util_verbose.exit:                                ; preds = %265, %267
   %spec.store.select = add nsw i32 %270, 1
   br label %272
 
-util_verbose.exit.thread:                         ; preds = %util_verbose.exit, %171, %173, %170
+util_verbose.exit.thread:                         ; preds = %util_verbose.exit, %173, %171, %170
   %271 = call i32 @ENGINE_free(ptr noundef nonnull %83) #7
   br label %272
 
@@ -765,15 +765,15 @@ util_verbose.exit.thread:                         ; preds = %util_verbose.exit, 
   br i1 %275, label %81, label %.thread198, !llvm.loop !34
 
 .thread198.critedge:                              ; preds = %176, %198, %194, %188, %185, %.preheader.i
-  %.064.i.ph = phi ptr [ null, %.preheader.i ], [ null, %185 ], [ %191, %188 ], [ %191, %194 ], [ %191, %198 ], [ null, %176 ]
-  %.059.i.ph = phi ptr [ null, %.preheader.i ], [ null, %185 ], [ null, %188 ], [ null, %194 ], [ %201, %198 ], [ null, %176 ]
+  %.064.i.ph = phi ptr [ %191, %198 ], [ null, %.preheader.i ], [ null, %185 ], [ %191, %188 ], [ %191, %194 ], [ null, %176 ]
+  %.059.i.ph = phi ptr [ %201, %198 ], [ null, %.preheader.i ], [ null, %185 ], [ null, %188 ], [ null, %194 ], [ null, %176 ]
   call void @OPENSSL_sk_free(ptr noundef %177) #7
   call void @CRYPTO_free(ptr noundef %.064.i.ph, ptr noundef nonnull @.str.38, i32 noundef 234) #7
   call void @CRYPTO_free(ptr noundef %.059.i.ph, ptr noundef nonnull @.str.38, i32 noundef 235) #7
   br label %.thread198
 
 .thread198:                                       ; preds = %.lr.ph392, %43, %39, %62, %.lr.ph249, %272, %.loopexit207, %.thread198.critedge, %157, %.thread, %2, %57, %33, %30
-  %.0127 = phi i32 [ 1, %2 ], [ 1, %30 ], [ 0, %33 ], [ 1, %57 ], [ %.1128260, %157 ], [ %.1128260, %.thread ], [ %.1128260, %.thread198.critedge ], [ 0, %.loopexit207 ], [ %.2129196, %272 ], [ 1, %.lr.ph249 ], [ 1, %62 ], [ 1, %39 ], [ 1, %43 ], [ 1, %.lr.ph392 ]
+  %.0127 = phi i32 [ 1, %2 ], [ 1, %62 ], [ 1, %30 ], [ 0, %33 ], [ %.1128260, %.thread198.critedge ], [ 1, %.lr.ph249 ], [ 1, %57 ], [ %.2129196, %272 ], [ 1, %43 ], [ %.1128260, %.thread ], [ %.1128260, %157 ], [ 0, %.loopexit207 ], [ 1, %39 ], [ 1, %.lr.ph392 ]
   %276 = load ptr, ptr @bio_err, align 8, !tbaa !13
   call void @ERR_print_errors(ptr noundef %276) #7
   call void @OPENSSL_sk_free(ptr noundef %7) #7
@@ -838,42 +838,42 @@ define internal fastcc void @util_do_cmds(ptr noundef nonnull %0, ptr noundef no
   %9 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %1, i32 noundef %.01) #7
   %10 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 58) #8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %14
+  br i1 %11, label %24, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef null, i32 noundef 0) #7
-  %.not33 = icmp eq i32 %13, 0
-  br i1 %.not33, label %28, label %26
+  %13 = ptrtoint ptr %10 to i64
+  %14 = ptrtoint ptr %9 to i64
+  %15 = sub i64 %13, %14
+  %16 = trunc i64 %15 to i32
+  %17 = icmp sgt i32 %16, 254
+  br i1 %17, label %.critedge, label %19
 
-14:                                               ; preds = %.lr.ph
-  %15 = ptrtoint ptr %10 to i64
-  %16 = ptrtoint ptr %9 to i64
-  %17 = sub i64 %15, %16
-  %18 = trunc i64 %17 to i32
-  %19 = icmp sgt i32 %18, 254
-  br i1 %19, label %.critedge, label %21
-
-.critedge:                                        ; preds = %14
-  %20 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.43) #7
+.critedge:                                        ; preds = %12
+  %18 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.43) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-21:                                               ; preds = %14
-  %sext = shl i64 %17, 32
-  %22 = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %9, i64 %22, i1 false)
-  %23 = getelementptr inbounds i8, ptr %4, i64 %17
-  store i8 0, ptr %23, align 1, !tbaa !9
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %25 = call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %24, i32 noundef 0) #7
-  %.not = icmp eq i32 %25, 0
+19:                                               ; preds = %12
+  %sext = shl i64 %15, 32
+  %20 = ashr exact i64 %sext, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %9, i64 %20, i1 false)
+  %21 = getelementptr inbounds i8, ptr %4, i64 %15
+  store i8 0, ptr %21, align 1, !tbaa !9
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %23 = call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %22, i32 noundef 0) #7
+  %.not = icmp eq i32 %23, 0
   br i1 %.not, label %28, label %26
 
-26:                                               ; preds = %12, %21
+24:                                               ; preds = %.lr.ph
+  %25 = call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef null, i32 noundef 0) #7
+  %.not33 = icmp eq i32 %25, 0
+  br i1 %.not33, label %28, label %26
+
+26:                                               ; preds = %19, %24
   %27 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.44, ptr noundef nonnull %9) #7
   br label %30
 
-28:                                               ; preds = %12, %21
+28:                                               ; preds = %19, %24
   %29 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.45, ptr noundef nonnull %9) #7
   call void @ERR_print_errors(ptr noundef %2) #7
   br label %30
@@ -957,7 +957,7 @@ define internal fastcc range(i32 0, 2) i32 @append_buf(ptr noundef captures(none
   br label %38
 
 38:                                               ; preds = %33, %32, %8
-  %.031 = phi ptr [ %13, %8 ], [ %37, %33 ], [ %.132, %32 ]
+  %.031 = phi ptr [ %13, %8 ], [ %.132, %32 ], [ %37, %33 ]
   %39 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.031, ptr noundef nonnull dereferenceable(1) %2) #7
   br label %40
 

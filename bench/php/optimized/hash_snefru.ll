@@ -552,7 +552,7 @@ define internal i32 @php_snefru_unserialize(ptr noundef %0, i64 noundef %1, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %10, %3, %7
-  %.07 = phi i32 [ -1, %3 ], [ %8, %7 ], [ %spec.select, %10 ]
+  %.07 = phi i32 [ %spec.select, %10 ], [ %8, %7 ], [ -1, %3 ]
   ret i32 %.07
 }
 

@@ -211,7 +211,7 @@ define hidden noundef range(i32 0, 4) i32 @_Z10solve_deg3ddddRdS_S_(double nound
   br label %_Z10solve_deg2dddRdS_.exit
 
 _Z10solve_deg2dddRdS_.exit:                       ; preds = %35, %16, %58, %60, %66, %98, %11, %13
-  %.0 = phi i32 [ 1, %13 ], [ 0, %11 ], [ 3, %58 ], [ 1, %60 ], [ 3, %66 ], [ 1, %98 ], [ %.1.i, %35 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %11 ], [ 1, %13 ], [ 1, %98 ], [ 3, %58 ], [ 1, %60 ], [ 3, %66 ], [ %.1.i, %35 ], [ 0, %16 ]
   ret i32 %.0
 }
 

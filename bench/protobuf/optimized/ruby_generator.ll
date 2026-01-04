@@ -729,8 +729,8 @@ return:                                           ; preds = %entry, %for.end40
   ret void
 
 eh.resume:                                        ; preds = %lpad19.loopexit, %lpad19.loopexit.split-lp, %lpad14, %lpad
-  %nested_prefix.sink = phi ptr [ %ref.tmp10, %lpad14 ], [ %ref.tmp, %lpad ], [ %nested_prefix, %lpad19.loopexit.split-lp ], [ %nested_prefix, %lpad19.loopexit ]
-  %.pn = phi { ptr, i32 } [ %22, %lpad14 ], [ %21, %lpad ], [ %lpad.loopexit.split-lp, %lpad19.loopexit.split-lp ], [ %lpad.loopexit, %lpad19.loopexit ]
+  %nested_prefix.sink = phi ptr [ %ref.tmp, %lpad ], [ %ref.tmp10, %lpad14 ], [ %nested_prefix, %lpad19.loopexit.split-lp ], [ %nested_prefix, %lpad19.loopexit ]
+  %.pn = phi { ptr, i32 } [ %21, %lpad ], [ %22, %lpad14 ], [ %lpad.loopexit.split-lp, %lpad19.loopexit.split-lp ], [ %lpad.loopexit, %lpad19.loopexit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nested_prefix.sink) #25
   resume { ptr, i32 } %.pn
 }
@@ -1050,9 +1050,9 @@ if.else25:                                        ; preds = %invoke.cont1
   %call29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %package_name, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %if.end30 unwind label %lpad
 
-if.end30:                                         ; preds = %if.else25, %if.else, %invoke.cont21, %invoke.cont7
-  %need_change_to_module.018 = phi i1 [ false, %invoke.cont7 ], [ true, %invoke.cont21 ], [ true, %if.else ], [ true, %if.else25 ]
-  %8 = phi ptr [ @.str.8, %invoke.cont7 ], [ @.str.13, %invoke.cont21 ], [ @.str.13, %if.else ], [ @.str.13, %if.else25 ]
+if.end30:                                         ; preds = %if.else, %invoke.cont21, %if.else25, %invoke.cont7
+  %need_change_to_module.018 = phi i1 [ false, %invoke.cont7 ], [ true, %if.else25 ], [ true, %invoke.cont21 ], [ true, %if.else ]
+  %8 = phi ptr [ @.str.8, %invoke.cont7 ], [ @.str.13, %if.else25 ], [ @.str.13, %invoke.cont21 ], [ @.str.13, %if.else ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31) #25
   %call.i13 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %delimiter)
           to label %call.i.noexc unwind label %lpad32
@@ -1759,7 +1759,7 @@ invoke.cont13.i.i.i.i:                            ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i.i, %invoke.cont13.i.i.i.i.i, %lpad.i34, %invoke.cont13.i.i.i.i37, %lpad.i, %invoke.cont13.i.i.i.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %14, %lpad ], [ %1, %invoke.cont13.i.i.i.i ], [ %1, %lpad.i ], [ %15, %invoke.cont13.i.i.i.i37 ], [ %15, %lpad.i34 ], [ %28, %invoke.cont13.i.i.i.i.i ], [ %28, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %lpad.i34 ], [ %14, %lpad ], [ %1, %lpad.i ], [ %1, %invoke.cont13.i.i.i.i ], [ %15, %invoke.cont13.i.i.i.i37 ], [ %28, %invoke.cont13.i.i.i.i.i ], [ %28, %lpad.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont5.i:                                   ; preds = %entry
@@ -2664,8 +2664,8 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   br label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
-  %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
-  %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
+  %7 = phi ptr [ %1, %land.lhs.true ], [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ]
+  %target.sroa.0.0 = phi i64 [ %0, %land.lhs.true ], [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ]
   %compressed_tuple_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1
@@ -3411,8 +3411,8 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
-  %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
-  %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
+  %7 = phi ptr [ %1, %land.lhs.true ], [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ]
+  %target.sroa.0.0 = phi i64 [ %0, %land.lhs.true ], [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ]
   %compressed_tuple_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1

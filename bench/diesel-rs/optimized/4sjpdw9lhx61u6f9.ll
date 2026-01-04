@@ -378,7 +378,7 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Err
   br label %"_ZN4core3ptr140drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$diesel..result..DatabaseErrorInformation$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h0b68be95f5eb21e8E.exit"
 
 common.resume:                                    ; preds = %.body, %82, %90, %61, %69, %40, %48, %19, %27, %107
-  %common.resume.op = phi { ptr, i32 } [ %108, %107 ], [ %20, %27 ], [ %20, %19 ], [ %41, %48 ], [ %41, %40 ], [ %62, %69 ], [ %62, %61 ], [ %83, %90 ], [ %83, %82 ], [ %102, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %20, %19 ], [ %41, %40 ], [ %62, %61 ], [ %108, %107 ], [ %20, %27 ], [ %41, %48 ], [ %62, %69 ], [ %83, %90 ], [ %102, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 36:                                               ; preds = %1
@@ -680,7 +680,7 @@ define internal void @"_ZN67_$LT$T$u20$as$u20$diesel..pg..metadata_lookup..PgMet
   unreachable
 
 .thread:                                          ; preds = %36, %43
-  %.pn22 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %37, %36 ]
+  %.pn22 = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm, %43 ]
   resume { ptr, i32 } %.pn22
 
 43:                                               ; preds = %28, %24, %19, %6
@@ -927,7 +927,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   br label %.body.i
 
 .body.i:                                          ; preds = %116, %94, %90
-  %eh.lpad-body.i = phi { ptr, i32 } [ %91, %90 ], [ %95, %94 ], [ %117, %116 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %95, %94 ], [ %91, %90 ], [ %117, %116 ]
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hef951bc3b805545eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #12
           to label %135 unwind label %170, !noalias !120
 
@@ -1277,7 +1277,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   br label %.body
 
 .body:                                            ; preds = %135, %143, %159, %185
-  %eh.lpad-body = phi { ptr, i32 } [ %186, %185 ], [ %144, %143 ], [ %160, %159 ], [ %.pn.i, %135 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %186, %185 ], [ %160, %159 ], [ %144, %143 ], [ %.pn.i, %135 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$diesel..pg..backend..PgTypeMetadata$GT$$GT$17h4c3dcf4c5809f10fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #12
           to label %.critedge unwind label %74
 
@@ -1362,7 +1362,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
           to label %.critedge unwind label %74
 
 .critedge:                                        ; preds = %190, %.body, %203, %206, %.thread75
-  %.pn42 = phi { ptr, i32 } [ %eh.lpad-body5677, %.thread75 ], [ %205, %206 ], [ %.pn, %203 ], [ %eh.lpad-body, %.body ], [ %191, %190 ]
+  %.pn42 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body5677, %.thread75 ], [ %191, %190 ], [ %205, %206 ], [ %.pn, %203 ]
   resume { ptr, i32 } %.pn42
 }
 
@@ -1583,7 +1583,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   br label %.body.i
 
 .body.i:                                          ; preds = %105, %86, %82
-  %eh.lpad-body.i = phi { ptr, i32 } [ %83, %82 ], [ %87, %86 ], [ %106, %105 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %87, %86 ], [ %83, %82 ], [ %106, %105 ]
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hef951bc3b805545eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #12
           to label %124 unwind label %159, !noalias !271
 
@@ -1929,7 +1929,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   br label %.body
 
 .body:                                            ; preds = %124, %132, %148, %174
-  %eh.lpad-body = phi { ptr, i32 } [ %175, %174 ], [ %133, %132 ], [ %149, %148 ], [ %.pn.i, %124 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %175, %174 ], [ %149, %148 ], [ %133, %132 ], [ %.pn.i, %124 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$diesel..pg..backend..PgTypeMetadata$GT$$GT$17h4c3dcf4c5809f10fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #12
           to label %.critedge unwind label %70
 
@@ -2013,7 +2013,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
           to label %.critedge unwind label %70
 
 .critedge:                                        ; preds = %179, %.body, %192, %195, %.thread75
-  %.pn42 = phi { ptr, i32 } [ %eh.lpad-body5677, %.thread75 ], [ %194, %195 ], [ %.pn, %192 ], [ %eh.lpad-body, %.body ], [ %180, %179 ]
+  %.pn42 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body5677, %.thread75 ], [ %180, %179 ], [ %194, %195 ], [ %.pn, %192 ]
   resume { ptr, i32 } %.pn42
 }
 
@@ -2502,7 +2502,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   br label %185
 
 .body.thread43.i:                                 ; preds = %.body.thread.i, %150, %.body.i.i, %.body.i
-  %.pn.i = phi { ptr, i32 } [ %151, %150 ], [ %84, %.body.i ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body42.i, %.body.thread.i ]
+  %.pn.i = phi { ptr, i32 } [ %151, %150 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %84, %.body.i ], [ %eh.lpad-body42.i, %.body.thread.i ]
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hef951bc3b805545eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #12
           to label %131 unwind label %168, !noalias !476
 
@@ -2624,7 +2624,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   br label %.body
 
 .body:                                            ; preds = %131, %139, %157, %183
-  %eh.lpad-body = phi { ptr, i32 } [ %184, %183 ], [ %140, %139 ], [ %158, %157 ], [ %.pn19.i, %131 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %184, %183 ], [ %158, %157 ], [ %140, %139 ], [ %.pn19.i, %131 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$diesel..pg..backend..PgTypeMetadata$GT$$GT$17h4c3dcf4c5809f10fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #12
           to label %.critedge unwind label %72
 
@@ -2666,7 +2666,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
 
-.thread91:                                        ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfbd26026f769ae5E.llvm.12685190674109232616.exit.i", %177
+.thread91:                                        ; preds = %177, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfbd26026f769ae5E.llvm.12685190674109232616.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread83
@@ -2716,7 +2716,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
           to label %207 unwind label %72
 
 .critedge:                                        ; preds = %188, %.body, %207
-  %.pn4596 = phi { ptr, i32 } [ %.pn45.ph, %207 ], [ %eh.lpad-body, %.body ], [ %189, %188 ]
+  %.pn4596 = phi { ptr, i32 } [ %189, %188 ], [ %.pn45.ph, %207 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn4596
 
 207:                                              ; preds = %37, %.thread83, %206, %202

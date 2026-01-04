@@ -204,7 +204,7 @@ lv_fs_get_drv.exit.thread.sink.split:             ; preds = %47, %40
   br label %lv_fs_get_drv.exit.thread
 
 lv_fs_get_drv.exit.thread:                        ; preds = %16, %lv_fs_get_drv.exit.thread.sink.split, %lv_fs_resolve_path.exit, %31, %20, %22, %33, %3
-  %.0 = phi i32 [ 11, %3 ], [ 1, %20 ], [ 9, %22 ], [ 0, %33 ], [ 12, %31 ], [ 3, %lv_fs_resolve_path.exit ], [ 0, %lv_fs_get_drv.exit.thread.sink.split ], [ 3, %16 ]
+  %.0 = phi i32 [ 11, %3 ], [ 0, %33 ], [ 12, %31 ], [ 1, %20 ], [ 3, %lv_fs_resolve_path.exit ], [ 9, %22 ], [ 0, %lv_fs_get_drv.exit.thread.sink.split ], [ 3, %16 ]
   ret i32 %.0
 }
 
@@ -466,7 +466,7 @@ define i32 @lv_fs_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i
   br label %115
 
 115:                                              ; preds = %101, %88, %80
-  %.2.i = phi i32 [ %93, %88 ], [ %106, %101 ], [ %.1.i, %80 ]
+  %.2.i = phi i32 [ %106, %101 ], [ %93, %88 ], [ %.1.i, %80 ]
   %116 = icmp eq i32 %.2.i, 0
   br i1 %116, label %._crit_edge.i, label %lv_fs_read_cached.exit
 
@@ -504,7 +504,7 @@ lv_fs_read_cached.exit:                           ; preds = %117, %115, %123
   br label %129
 
 129:                                              ; preds = %24, %19, %20, %9, %128
-  %.019 = phi i32 [ %.0, %128 ], [ 11, %9 ], [ 9, %20 ], [ 9, %19 ], [ 9, %24 ]
+  %.019 = phi i32 [ 9, %19 ], [ 11, %9 ], [ %.0, %128 ], [ 9, %20 ], [ 9, %24 ]
   ret i32 %.019
 }
 
@@ -670,7 +670,7 @@ lv_fs_write_cached.exit:                          ; preds = %81, %30, %23, %87
   br label %93
 
 93:                                               ; preds = %22, %17, %18, %7, %92
-  %.019 = phi i32 [ %.0, %92 ], [ 11, %7 ], [ 9, %18 ], [ 9, %17 ], [ 9, %22 ]
+  %.019 = phi i32 [ 9, %17 ], [ 11, %7 ], [ %.0, %92 ], [ 9, %18 ], [ 9, %22 ]
   ret i32 %.019
 }
 
@@ -760,7 +760,7 @@ define i32 @lv_fs_seek(ptr noundef readonly captures(none) %0, i32 noundef %1, i
   br label %lv_fs_seek_cached.exit
 
 lv_fs_seek_cached.exit:                           ; preds = %47, %31, %25, %21, %20, %48, %19, %14, %15, %3
-  %.015 = phi i32 [ 11, %3 ], [ 9, %15 ], [ 9, %14 ], [ 9, %19 ], [ %50, %48 ], [ 0, %20 ], [ 0, %21 ], [ 0, %25 ], [ %40, %47 ], [ %33, %31 ]
+  %.015 = phi i32 [ 9, %14 ], [ 11, %3 ], [ 9, %19 ], [ 9, %15 ], [ %50, %48 ], [ 0, %20 ], [ 0, %21 ], [ 0, %25 ], [ %40, %47 ], [ %33, %31 ]
   ret i32 %.015
 }
 
@@ -875,7 +875,7 @@ lv_fs_get_drv.exit:                               ; preds = %.lr.ph.i
   br label %lv_fs_get_drv.exit.thread
 
 lv_fs_get_drv.exit.thread:                        ; preds = %15, %lv_fs_resolve_path.exit, %25, %19, %21, %27, %2
-  %.0 = phi i32 [ 11, %2 ], [ 1, %19 ], [ 9, %21 ], [ 0, %27 ], [ 12, %25 ], [ 3, %lv_fs_resolve_path.exit ], [ 3, %15 ]
+  %.0 = phi i32 [ 11, %2 ], [ 9, %21 ], [ 12, %25 ], [ 1, %19 ], [ 0, %27 ], [ 3, %lv_fs_resolve_path.exit ], [ 3, %15 ]
   ret i32 %.0
 }
 
@@ -914,7 +914,7 @@ define i32 @lv_fs_dir_read(ptr noundef readonly captures(none) %0, ptr noundef %
   br label %20
 
 20:                                               ; preds = %3, %18, %17, %12
-  %.0 = phi i32 [ 11, %12 ], [ 9, %17 ], [ %19, %18 ], [ 11, %3 ]
+  %.0 = phi i32 [ %19, %18 ], [ 11, %12 ], [ 9, %17 ], [ 11, %3 ]
   ret i32 %.0
 }
 
@@ -942,7 +942,7 @@ define i32 @lv_fs_dir_close(ptr noundef captures(none) %0) local_unnamed_addr #0
   br label %14
 
 14:                                               ; preds = %8, %1, %5, %12
-  %.0 = phi i32 [ %13, %12 ], [ 11, %5 ], [ 11, %1 ], [ 9, %8 ]
+  %.0 = phi i32 [ %13, %12 ], [ 11, %1 ], [ 11, %5 ], [ 9, %8 ]
   ret i32 %.0
 }
 
@@ -1126,7 +1126,7 @@ define ptr @lv_fs_get_last(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %8, %.preheader, %10, %1
-  %.023 = phi ptr [ %0, %1 ], [ %12, %10 ], [ %0, %.preheader ], [ %0, %8 ], [ %0, %.critedge ]
+  %.023 = phi ptr [ %0, %.preheader ], [ %0, %1 ], [ %12, %10 ], [ %0, %8 ], [ %0, %.critedge ]
   ret ptr %.023
 }
 

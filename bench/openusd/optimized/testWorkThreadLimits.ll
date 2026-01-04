@@ -2029,7 +2029,7 @@ select.unfold.i.i:                                ; preds = %56, %._crit_edge.th
   br label %_ZNSt8_Rb_treeINSt6thread2idES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeINSt6thread2idES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %59, %select.unfold.i.i
-  %62 = phi i1 [ true, %select.unfold.i.i ], [ %61, %59 ]
+  %62 = phi i1 [ %61, %59 ], [ true, %select.unfold.i.i ]
   %63 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
           to label %.noexc7 unwind label %70
 
@@ -2598,8 +2598,8 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   br i1 %exitcond.not.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.thread, label %35, !llvm.loop !16
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit: ; preds = %35, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %.lr.ph.i, %28
-  %66 = phi i8 [ %30, %28 ], [ %30, %.lr.ph.i ], [ %65, %35 ], [ %38, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
-  %67 = phi i8 [ %31, %28 ], [ %31, %.lr.ph.i ], [ %51, %35 ], [ %37, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %66 = phi i8 [ %30, %28 ], [ %30, %.lr.ph.i ], [ %38, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %65, %35 ]
+  %67 = phi i8 [ %31, %28 ], [ %31, %.lr.ph.i ], [ %37, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %51, %35 ]
   %68 = load ptr, ptr %24, align 32
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load atomic i8, ptr %69 monotonic, align 1
@@ -3716,8 +3716,8 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   br i1 %exitcond.not.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.thread, label %31, !llvm.loop !16
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit: ; preds = %31, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %.lr.ph.i, %24
-  %62 = phi i8 [ %26, %24 ], [ %26, %.lr.ph.i ], [ %61, %31 ], [ %34, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
-  %63 = phi i8 [ %27, %24 ], [ %27, %.lr.ph.i ], [ %47, %31 ], [ %33, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %62 = phi i8 [ %26, %24 ], [ %26, %.lr.ph.i ], [ %34, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %61, %31 ]
+  %63 = phi i8 [ %27, %24 ], [ %27, %.lr.ph.i ], [ %33, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %47, %31 ]
   %64 = load ptr, ptr %21, align 32
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load atomic i8, ptr %65 monotonic, align 1

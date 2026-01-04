@@ -114,7 +114,7 @@ define internal range(i32 -30, 1) i32 @archive_write_odc_options(ptr noundef %0,
   br label %19
 
 19:                                               ; preds = %3, %13, %16
-  %.011 = phi i32 [ -25, %13 ], [ %., %16 ], [ -20, %3 ]
+  %.011 = phi i32 [ %., %16 ], [ -25, %13 ], [ -20, %3 ]
   ret i32 %.011
 }
 
@@ -451,7 +451,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br label %synthesize_ino_value.exit
 
 synthesize_ino_value.exit:                        ; preds = %42, %53, %70
-  %.0.i65 = phi i32 [ %46, %42 ], [ %55, %53 ], [ %59, %70 ]
+  %.0.i65 = phi i32 [ %59, %70 ], [ %46, %42 ], [ %55, %53 ]
   %76 = icmp slt i32 %.0.i65, 0
   br i1 %76, label %synthesize_ino_value.exit.thread, label %77
 
@@ -616,7 +616,7 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
   br label %158
 
 158:                                              ; preds = %155, %147, %145, %150, %153, %144, %126, %80, %synthesize_ino_value.exit.thread, %23
-  %.1 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %80 ], [ -30, %126 ], [ -25, %144 ], [ %.2, %153 ], [ %.2, %150 ], [ -30, %145 ], [ -30, %147 ], [ %spec.select, %155 ]
+  %.1 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %80 ], [ -30, %126 ], [ -25, %144 ], [ %.2, %150 ], [ -30, %145 ], [ -30, %147 ], [ %spec.select, %155 ], [ %.2, %153 ]
   call void @archive_entry_free(ptr noundef null) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

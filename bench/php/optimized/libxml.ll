@@ -1487,9 +1487,9 @@ define internal fastcc void @php_libxml_internal_error_handler_ex(i32 noundef %0
   br label %smart_str_alloc.exit
 
 smart_str_alloc.exit:                             ; preds = %24, %29
-  %30 = phi i64 [ %.pre29, %29 ], [ %26, %24 ]
-  %31 = phi ptr [ %.pre, %29 ], [ %23, %24 ]
-  %.1.i = phi i64 [ %.0.i, %29 ], [ %27, %24 ]
+  %30 = phi i64 [ %26, %24 ], [ %.pre29, %29 ]
+  %31 = phi ptr [ %23, %24 ], [ %.pre, %29 ]
+  %.1.i = phi i64 [ %27, %24 ], [ %.0.i, %29 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %22, i64 %9, i1 false)
@@ -2287,8 +2287,8 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %9
   br label %38
 
 22:                                               ; preds = %.critedge, %.critedge.thread78
-  %23 = phi i8 [ %.pre, %.critedge ], [ %storemerge, %.critedge.thread78 ]
-  %.in.in = phi ptr [ %17, %.critedge ], [ %16, %.critedge.thread78 ]
+  %23 = phi i8 [ %storemerge, %.critedge.thread78 ], [ %.pre, %.critedge ]
+  %.in.in = phi ptr [ %16, %.critedge.thread78 ], [ %17, %.critedge ]
   %.in = load ptr, ptr %.in.in, align 8, !tbaa !4
   %24 = icmp eq ptr %.in, @php_libxml_structured_error_handler
   %25 = icmp eq i8 %23, 0
@@ -2582,7 +2582,7 @@ zend_parse_arg_bool_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_bool
   br label %21
 
 .critedge:                                        ; preds = %9, %zend_parse_arg_bool_ex.exit..critedge_crit_edge, %12, %7
-  %16 = phi i8 [ %.pre, %zend_parse_arg_bool_ex.exit..critedge_crit_edge ], [ 0, %12 ], [ 1, %7 ], [ 1, %9 ]
+  %16 = phi i8 [ %.pre, %zend_parse_arg_bool_ex.exit..critedge_crit_edge ], [ 1, %7 ], [ 0, %12 ], [ 1, %9 ]
   %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 80), align 8, !tbaa !66, !range !195, !noundef !34
   %18 = trunc nuw i8 %17 to i1
   store i8 %16, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 80), align 8, !tbaa !66
@@ -2879,7 +2879,7 @@ define dso_local range(i32 0, 2) i32 @php_libxml_xmlCheckUTF8(ptr noundef readon
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %11, %21, %18, %34, %31, %28, %25, %38, %1
-  %.0 = phi i32 [ 1, %1 ], [ 1, %38 ], [ 0, %25 ], [ 0, %28 ], [ 0, %31 ], [ 0, %34 ], [ 0, %18 ], [ 0, %21 ], [ 0, %11 ]
+  %.0 = phi i32 [ 1, %1 ], [ 1, %38 ], [ 0, %21 ], [ 0, %34 ], [ 0, %25 ], [ 0, %18 ], [ 0, %31 ], [ 0, %28 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -3053,7 +3053,7 @@ php_libxml_decrement_node_ptr.exit:               ; preds = %22, %13, %6
   br label %36
 
 36:                                               ; preds = %8, %3, %24, %31, %32
-  %.024 = phi i32 [ %27, %31 ], [ %27, %24 ], [ 1, %32 ], [ 0, %3 ], [ %12, %8 ]
+  %.024 = phi i32 [ 0, %3 ], [ %27, %31 ], [ %27, %24 ], [ 1, %32 ], [ %12, %8 ]
   ret i32 %.024
 }
 
@@ -3099,7 +3099,7 @@ define dso_local i32 @php_libxml_decrement_node_ptr(ptr noundef readonly capture
   br label %php_libxml_decrement_node_ptr_ref.exit
 
 php_libxml_decrement_node_ptr_ref.exit:           ; preds = %16, %4, %1, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %1 ], [ %7, %4 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %2 ], [ %7, %4 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -3819,7 +3819,7 @@ zend_string_release_ex.exit:                      ; preds = %24, %19, %13, %11, 
   br label %31
 
 31:                                               ; preds = %26, %29, %6, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ null, %29 ], [ %25, %26 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %2 ], [ %25, %26 ], [ null, %29 ]
   ret ptr %.0
 }
 
@@ -3953,8 +3953,8 @@ define internal fastcc ptr @php_libxml_streams_IO_open_wrapper(ptr noundef nonnu
   br i1 %18, label %53, label %.thread43
 
 .thread43:                                        ; preds = %8, %.thread48, %16
-  %.0274047 = phi i1 [ true, %16 ], [ false, %.thread48 ], [ false, %8 ]
-  %.0264246 = phi ptr [ %17, %16 ], [ %0, %.thread48 ], [ %0, %8 ]
+  %.0274047 = phi i1 [ false, %.thread48 ], [ true, %16 ], [ false, %8 ]
+  %.0264246 = phi ptr [ %0, %.thread48 ], [ %17, %16 ], [ %0, %8 ]
   %19 = call ptr @php_stream_locate_url_wrapper(ptr noundef nonnull %.0264246, ptr noundef nonnull %5, i32 noundef 0) #18
   %20 = icmp ne ptr %19, null
   %21 = icmp ne i32 %2, 0
@@ -4025,7 +4025,7 @@ php_libxml_get_stream_context.exit:               ; preds = %36, %39, %41
   br label %53
 
 53:                                               ; preds = %16, %50, %51, %30, %31, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %16 ], [ null, %31 ], [ null, %30 ], [ %45, %51 ], [ %45, %50 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %16 ], [ null, %30 ], [ null, %31 ], [ %45, %51 ], [ %45, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -4359,7 +4359,7 @@ zend_string_alloc.exit.i:                         ; preds = %34, %38
   br label %smart_str_extract_ex.exit
 
 smart_str_extract_ex.exit:                        ; preds = %28, %smart_str_0.exit, %41, %zend_string_alloc.exit.i, %62, %11, %12, %16, %21, %66, %3
-  %.0 = phi ptr [ null, %3 ], [ %67, %66 ], [ null, %21 ], [ null, %16 ], [ null, %12 ], [ null, %11 ], [ null, %smart_str_0.exit ], [ %27, %28 ], [ %44, %41 ], [ %52, %62 ], [ %52, %zend_string_alloc.exit.i ]
+  %.0 = phi ptr [ null, %3 ], [ %67, %66 ], [ null, %11 ], [ null, %21 ], [ null, %16 ], [ null, %12 ], [ null, %smart_str_0.exit ], [ %27, %28 ], [ %44, %41 ], [ %52, %62 ], [ %52, %zend_string_alloc.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -4417,9 +4417,9 @@ define internal noundef i32 @php_libxml_write_smart_str(ptr noundef %0, ptr noun
   br label %smart_str_alloc.exit
 
 smart_str_alloc.exit:                             ; preds = %6, %12
-  %13 = phi i64 [ %.pre4, %12 ], [ %8, %6 ]
-  %14 = phi ptr [ %.pre, %12 ], [ %5, %6 ]
-  %.1.i = phi i64 [ %.0.i, %12 ], [ %9, %6 ]
+  %13 = phi i64 [ %8, %6 ], [ %.pre4, %12 ]
+  %14 = phi ptr [ %5, %6 ], [ %.pre, %12 ]
+  %.1.i = phi i64 [ %9, %6 ], [ %.0.i, %12 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %1, i64 %4, i1 false)

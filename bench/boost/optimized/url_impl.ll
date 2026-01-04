@@ -489,7 +489,7 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %12
   br label %_ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit
 
 _ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit: ; preds = %_ZN5boost4urls6detail8url_impl8set_sizeEim.exit, %19, %22, %24, %29, %31, %35, %40
-  %.0.i = phi i64 [ %5, %_ZN5boost4urls6detail8url_impl8set_sizeEim.exit ], [ %..i, %19 ], [ %2, %31 ], [ %spec.select.i, %24 ], [ %spec.select8.i, %35 ], [ %spec.select9.i, %40 ], [ %2, %22 ], [ %2, %29 ]
+  %.0.i = phi i64 [ %spec.select8.i, %35 ], [ %spec.select.i, %24 ], [ %2, %29 ], [ %2, %31 ], [ %2, %22 ], [ %..i, %19 ], [ %5, %_ZN5boost4urls6detail8url_impl8set_sizeEim.exit ], [ %spec.select9.i, %40 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 %.0.i, ptr %45, align 8, !tbaa !29
   ret void

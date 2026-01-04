@@ -77,7 +77,7 @@ define internal i32 @query_formats(ptr noundef readonly captures(none) %0, ptr n
   br label %27
 
 27:                                               ; preds = %17, %3, %13, %23
-  %.012 = phi i32 [ %26, %23 ], [ %11, %3 ], [ %15, %13 ], [ %21, %17 ]
+  %.012 = phi i32 [ %26, %23 ], [ %15, %13 ], [ %11, %3 ], [ %21, %17 ]
   ret i32 %.012
 }
 
@@ -213,8 +213,8 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %99 = icmp eq i8 %22, 1
   %or.cond = select i1 %98, i1 true, i1 %99
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  %remap_planar8_nearest_slice.remap_packed8_nearest_slice = select i1 %or.cond, ptr @remap_planar8_nearest_slice, ptr @remap_packed8_nearest_slice
   %remap_planar16_nearest_slice.remap_packed16_nearest_slice = select i1 %or.cond, ptr @remap_planar16_nearest_slice, ptr @remap_packed16_nearest_slice
+  %remap_planar8_nearest_slice.remap_packed8_nearest_slice = select i1 %or.cond, ptr @remap_planar8_nearest_slice, ptr @remap_packed8_nearest_slice
   %remap_planar16_nearest_slice.sink = select i1 %97, ptr %remap_planar8_nearest_slice.remap_packed8_nearest_slice, ptr %remap_planar16_nearest_slice.remap_packed16_nearest_slice
   store ptr %remap_planar16_nearest_slice.sink, ptr %100, align 8, !tbaa !46
   %101 = call i32 @av_get_padded_bits_per_pixel(ptr noundef nonnull %9) #8
@@ -1020,7 +1020,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
   br label %60
 
 60:                                               ; preds = %.critedge, %1, %16, %19, %28
-  %.030 = phi i32 [ %59, %28 ], [ %14, %1 ], [ %17, %16 ], [ %20, %19 ], [ -12, %.critedge ]
+  %.030 = phi i32 [ -12, %.critedge ], [ %59, %28 ], [ %14, %1 ], [ %17, %16 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

@@ -639,7 +639,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %87, %.loopexit, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
-  %.pn25 = phi { ptr, i32 } [ %88, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %88, %87 ]
+  %.pn25 = phi { ptr, i32 } [ %88, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %88, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %254
 
@@ -1963,7 +1963,7 @@ _ZN7rocksdb13PinnableSliceD2Ev.exit:              ; preds = %109, %_ZNKSt7__cxx1
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit273
 
 115:                                              ; preds = %85, %65, %107, %105, %51
-  %.pn108 = phi { ptr, i32 } [ %106, %105 ], [ %108, %107 ], [ %52, %51 ], [ %86, %85 ], [ %66, %65 ]
+  %.pn108 = phi { ptr, i32 } [ %106, %105 ], [ %108, %107 ], [ %52, %51 ], [ %66, %65 ], [ %86, %85 ]
   call void @_ZN7rocksdb13PinnableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %15) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit275
@@ -2505,15 +2505,15 @@ _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188: ; preds = %_ZN7rocks
   br label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158
 
 _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit158:    ; preds = %246, %244, %.lr.ph443, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168
-  %.2359 = phi i32 [ %.1358433, %.lr.ph443 ], [ %.1358433, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.1358433, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.1358433, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.0.copyload.i.i157, %246 ], [ %.1358433, %244 ]
-  %.sroa.7332.2 = phi i64 [ %.sroa.7332.1434, %.lr.ph443 ], [ %.sroa.7332.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.7332.1434, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.7332.1434, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.7332.1434, %246 ], [ %.sroa.7332.1434, %244 ]
-  %.sroa.0331.2 = phi ptr [ %.sroa.0331.1435, %.lr.ph443 ], [ %.sroa.0331.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0331.1435, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.0331.1435, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.0331.1435, %246 ], [ %.sroa.0331.1435, %244 ]
-  %.sroa.6330.2 = phi i64 [ %.sroa.6330.1436, %.lr.ph443 ], [ %.sroa.6330.1436, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.6330.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.6330.1436, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.6330.1436, %246 ], [ %.sroa.6330.1436, %244 ]
-  %.sroa.0329.2 = phi ptr [ %.sroa.0329.1437, %.lr.ph443 ], [ %.sroa.0329.1437, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0329.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.0329.1437, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.0329.1437, %246 ], [ %.sroa.0329.1437, %244 ]
-  %.sroa.6328.2 = phi i64 [ %.sroa.6328.1438, %.lr.ph443 ], [ %.sroa.6328.1438, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.6328.1438, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.6328.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.6328.1438, %246 ], [ %.sroa.6328.1438, %244 ]
-  %.sroa.0327.2 = phi ptr [ %.sroa.0327.1439, %.lr.ph443 ], [ %.sroa.0327.1439, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0327.1439, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.0327.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.0327.1439, %246 ], [ %.sroa.0327.1439, %244 ]
-  %.sroa.19.1 = phi i64 [ %.sroa.19.0440, %.lr.ph443 ], [ %.sroa.19.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.19.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.19.6, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %248, %246 ], [ %.sroa.19.0440, %244 ]
-  %.sroa.0311.1 = phi ptr [ %.sroa.0311.0441, %.lr.ph443 ], [ %.sroa.0311.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0311.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.0311.6, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %247, %246 ], [ %.sroa.0311.0441, %244 ]
+  %.2359 = phi i32 [ %.1358433, %.lr.ph443 ], [ %.1358433, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.1358433, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.1358433, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.0.copyload.i.i157, %246 ], [ %.1358433, %244 ]
+  %.sroa.7332.2 = phi i64 [ %.sroa.7332.1434, %.lr.ph443 ], [ %.sroa.7332.1434, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.7332.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.7332.1434, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.7332.1434, %246 ], [ %.sroa.7332.1434, %244 ]
+  %.sroa.0331.2 = phi ptr [ %.sroa.0331.1435, %.lr.ph443 ], [ %.sroa.0331.1435, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.0331.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0331.1435, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.0331.1435, %246 ], [ %.sroa.0331.1435, %244 ]
+  %.sroa.6330.2 = phi i64 [ %.sroa.6330.1436, %.lr.ph443 ], [ %.sroa.6330.1436, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.6330.1436, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.6330.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.6330.1436, %246 ], [ %.sroa.6330.1436, %244 ]
+  %.sroa.0329.2 = phi ptr [ %.sroa.0329.1437, %.lr.ph443 ], [ %.sroa.0329.1437, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.0329.1437, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0329.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.0329.1437, %246 ], [ %.sroa.0329.1437, %244 ]
+  %.sroa.6328.2 = phi i64 [ %.sroa.6328.1438, %.lr.ph443 ], [ %.sroa.6328.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.6328.1438, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.6328.1438, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.6328.1438, %246 ], [ %.sroa.6328.1438, %244 ]
+  %.sroa.0327.2 = phi ptr [ %.sroa.0327.1439, %.lr.ph443 ], [ %.sroa.0327.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.0327.1439, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0327.1439, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %.sroa.0327.1439, %246 ], [ %.sroa.0327.1439, %244 ]
+  %.sroa.19.1 = phi i64 [ %.sroa.19.0440, %.lr.ph443 ], [ %.sroa.19.6, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.19.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.19.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %248, %246 ], [ %.sroa.19.0440, %244 ]
+  %.sroa.0311.1 = phi ptr [ %.sroa.0311.0441, %.lr.ph443 ], [ %.sroa.0311.6, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit188 ], [ %.sroa.0311.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit168 ], [ %.sroa.0311.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit178 ], [ %247, %246 ], [ %.sroa.0311.0441, %244 ]
   %303 = add nsw i64 %.079442, -1
   %304 = and i64 %303, %.079442
   %.not94 = icmp eq i64 %304, 0
@@ -2929,13 +2929,13 @@ _ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235: ; preds = %.noexc234
   br label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213
 
 _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit213:    ; preds = %411, %409, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224, %.lr.ph
-  %.1 = phi i32 [ %.0356412, %.lr.ph ], [ %.0356412, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.0356412, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.0.copyload.i.i212, %411 ], [ %.0356412, %409 ]
-  %.sroa.7.1 = phi i64 [ %.sroa.7.0413, %.lr.ph ], [ %.sroa.7.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.7.0413, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.7.0413, %411 ], [ %.sroa.7.0413, %409 ]
-  %.sroa.0293.1 = phi ptr [ %.sroa.0293.0414, %.lr.ph ], [ %.sroa.0293.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.0293.0414, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.0293.0414, %411 ], [ %.sroa.0293.0414, %409 ]
-  %.sroa.9.1 = phi i64 [ %.sroa.9.0415, %.lr.ph ], [ %.sroa.9.0415, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.9.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.9.0415, %411 ], [ %.sroa.9.0415, %409 ]
-  %.sroa.0290.1 = phi ptr [ %.sroa.0290.0416, %.lr.ph ], [ %.sroa.0290.0416, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.0290.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.0290.0416, %411 ], [ %.sroa.0290.0416, %409 ]
-  %.sroa.16.1 = phi i64 [ %.sroa.16.0417, %.lr.ph ], [ %.sroa.16.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.16.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %413, %411 ], [ %.sroa.16.0417, %409 ]
-  %.sroa.0278.1 = phi ptr [ %.sroa.0278.0418, %.lr.ph ], [ %.sroa.0278.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.0278.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %412, %411 ], [ %.sroa.0278.0418, %409 ]
+  %.1 = phi i32 [ %.0356412, %.lr.ph ], [ %.0356412, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.0356412, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.0.copyload.i.i212, %411 ], [ %.0356412, %409 ]
+  %.sroa.7.1 = phi i64 [ %.sroa.7.0413, %.lr.ph ], [ %.sroa.7.0413, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.7.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.7.0413, %411 ], [ %.sroa.7.0413, %409 ]
+  %.sroa.0293.1 = phi ptr [ %.sroa.0293.0414, %.lr.ph ], [ %.sroa.0293.0414, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.0293.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.0293.0414, %411 ], [ %.sroa.0293.0414, %409 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.0415, %.lr.ph ], [ %.sroa.9.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.9.0415, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.9.0415, %411 ], [ %.sroa.9.0415, %409 ]
+  %.sroa.0290.1 = phi ptr [ %.sroa.0290.0416, %.lr.ph ], [ %.sroa.0290.3, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.0290.0416, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %.sroa.0290.0416, %411 ], [ %.sroa.0290.0416, %409 ]
+  %.sroa.16.1 = phi i64 [ %.sroa.16.0417, %.lr.ph ], [ %.sroa.16.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.16.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %413, %411 ], [ %.sroa.16.0417, %409 ]
+  %.sroa.0278.1 = phi ptr [ %.sroa.0278.0418, %.lr.ph ], [ %.sroa.0278.5, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit235 ], [ %.sroa.0278.4, %_ZN7rocksdb22GetLengthPrefixedSliceEPNS_5SliceES1_.exit224 ], [ %412, %411 ], [ %.sroa.0278.0418, %409 ]
   %452 = add nsw i64 %.064419, -1
   %453 = and i64 %452, %.064419
   %.not88 = icmp eq i64 %453, 0
@@ -3346,9 +3346,9 @@ _ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destro
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit275
 
 589:                                              ; preds = %.loopexit385, %.loopexit.split-lp, %539, %474
-  %.sroa.0294.0 = phi ptr [ %.sroa.0294.2, %474 ], [ %.sroa.0294.7, %539 ], [ %.sroa.0294.3424, %.loopexit385 ], [ %.sroa.0294.3424, %.loopexit.split-lp ]
-  %.sroa.18.0 = phi ptr [ %.sroa.18.2, %474 ], [ %.sroa.18.7, %539 ], [ %.sroa.18.3426, %.loopexit385 ], [ %.sroa.18.3426, %.loopexit.split-lp ]
-  %.pn91.pn = phi { ptr, i32 } [ %475, %474 ], [ %.pn, %539 ], [ %lpad.loopexit, %.loopexit385 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.0294.0 = phi ptr [ %.sroa.0294.7, %539 ], [ %.sroa.0294.2, %474 ], [ %.sroa.0294.3424, %.loopexit385 ], [ %.sroa.0294.3424, %.loopexit.split-lp ]
+  %.sroa.18.0 = phi ptr [ %.sroa.18.7, %539 ], [ %.sroa.18.2, %474 ], [ %.sroa.18.3426, %.loopexit385 ], [ %.sroa.18.3426, %.loopexit.split-lp ]
+  %.pn91.pn = phi { ptr, i32 } [ %.pn, %539 ], [ %475, %474 ], [ %lpad.loopexit, %.loopexit385 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %.not.i.i.i274 = icmp eq ptr %.sroa.0294.0, null
@@ -4108,7 +4108,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %25
 
 25:                                               ; preds = %.critedge, %switch.lookup, %2
-  %.04 = phi i1 [ true, %2 ], [ true, %switch.lookup ], [ %24, %.critedge ]
+  %.04 = phi i1 [ true, %2 ], [ %24, %.critedge ], [ true, %switch.lookup ]
   ret i1 %.04
 }
 
@@ -5590,7 +5590,7 @@ _ZN7rocksdb5TraceD2Ev.exit:                       ; preds = %_ZNSt7__cxx1112basi
   br label %174
 
 174:                                              ; preds = %.loopexit, %.loopexit.split-lp, %172, %170, %168
-  %.pn = phi { ptr, i32 } [ %169, %168 ], [ %173, %172 ], [ %171, %170 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %171, %170 ], [ %169, %168 ], [ %173, %172 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %175 = load ptr, ptr %15, align 8, !tbaa !11
   %176 = icmp eq ptr %175, %77
   br i1 %176, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52
@@ -6634,12 +6634,12 @@ define internal void @_GLOBAL__sub_I_trace_replay.cc() #18 section ".text.startu
   br label %26
 
 26:                                               ; preds = %24, %22
-  %.015.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 280), %22 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 320), %24 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %23, %22 ], [ %25, %24 ]
+  %.015.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 320), %24 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 280), %22 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %25, %24 ], [ %23, %22 ]
   br label %27
 
 27:                                               ; preds = %_ZN7rocksdb13OperationInfoD2Ev.exit.i, %26
-  %28 = phi ptr [ %29, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ], [ %.015.i, %26 ]
+  %28 = phi ptr [ %.015.i, %26 ], [ %29, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
   %29 = getelementptr inbounds i8, ptr %28, i64 -40
   %30 = getelementptr inbounds i8, ptr %28, i64 -32
   %31 = load ptr, ptr %30, align 8, !tbaa !11
@@ -6658,7 +6658,7 @@ _ZN7rocksdb13OperationInfoD2Ev.exit.i:            ; preds = %27, %_ZNKSt7__cxx11
   br i1 %36, label %common.resume, label %27
 
 common.resume:                                    ; preds = %_ZN7rocksdb13OperationInfoD2Ev.exit.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.2.exit:                     ; preds = %.noexc63.i
@@ -6885,12 +6885,12 @@ __cxx_global_var_init.2.exit:                     ; preds = %.noexc63.i
   br label %92
 
 92:                                               ; preds = %90, %88, %86, %84, %82, %80, %78, %76, %74
-  %.014.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 80), %74 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 120), %76 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 160), %78 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 200), %80 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 240), %82 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 280), %84 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 320), %86 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 400), %90 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 360), %88 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %91, %90 ], [ %89, %88 ]
+  %.014.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 360), %88 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 400), %90 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 80), %74 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 120), %76 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 160), %78 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 200), %80 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 240), %82 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 280), %84 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 320), %86 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %89, %88 ], [ %91, %90 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ]
   br label %93
 
 93:                                               ; preds = %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i, %92
-  %94 = phi ptr [ %95, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.014.i, %92 ]
+  %94 = phi ptr [ %.014.i, %92 ], [ %95, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ]
   %95 = getelementptr inbounds i8, ptr %94, i64 -40
   %96 = getelementptr inbounds i8, ptr %94, i64 -32
   %97 = load ptr, ptr %96, align 8, !tbaa !11
@@ -6969,12 +6969,12 @@ __cxx_global_var_init.14.exit:                    ; preds = %.noexc68.i
   br label %117
 
 117:                                              ; preds = %115, %113
-  %.09.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 40), %113 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 80), %115 ]
-  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %114, %113 ], [ %116, %115 ]
+  %.09.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 80), %115 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 40), %113 ]
+  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %116, %115 ], [ %114, %113 ]
   br label %118
 
 118:                                              ; preds = %_ZN7rocksdb17OperationPropertyD2Ev.exit.i, %117
-  %119 = phi ptr [ %120, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.09.i, %117 ]
+  %119 = phi ptr [ %.09.i, %117 ], [ %120, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ]
   %120 = getelementptr inbounds i8, ptr %119, i64 -40
   %121 = getelementptr inbounds i8, ptr %119, i64 -32
   %122 = load ptr, ptr %121, align 8, !tbaa !11

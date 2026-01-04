@@ -700,7 +700,7 @@ define internal range(i32 0, 2) i32 @test_bio_callback_ex() #0 {
   br label %315
 
 315:                                              ; preds = %309, %288, %291, %294, %297, %300, %303, %306, %313
-  %.0 = phi i32 [ 0, %313 ], [ 0, %306 ], [ 0, %303 ], [ 0, %300 ], [ 0, %297 ], [ 0, %294 ], [ 0, %291 ], [ 0, %288 ], [ %spec.select, %309 ]
+  %.0 = phi i32 [ 0, %313 ], [ 0, %288 ], [ %spec.select, %309 ], [ 0, %306 ], [ 0, %303 ], [ 0, %300 ], [ 0, %297 ], [ 0, %294 ], [ 0, %291 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @my_param_b, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @my_param_argp, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1207,7 +1207,7 @@ define internal range(i32 0, 2) i32 @test_bio_callback() #0 {
   br label %245
 
 245:                                              ; preds = %240, %219, %222, %225, %228, %231, %234, %237, %243
-  %.0 = phi i32 [ 0, %243 ], [ 0, %237 ], [ 0, %234 ], [ 0, %231 ], [ 0, %228 ], [ 0, %225 ], [ 0, %222 ], [ 0, %219 ], [ %spec.select, %240 ]
+  %.0 = phi i32 [ 0, %243 ], [ 0, %219 ], [ %spec.select, %240 ], [ 0, %237 ], [ 0, %234 ], [ 0, %231 ], [ 0, %228 ], [ 0, %225 ], [ 0, %222 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @my_param_b, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @my_param_argp, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

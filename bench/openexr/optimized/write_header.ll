@@ -133,13 +133,13 @@ define hidden noundef i32 @internal_exr_calc_header_version_flags(ptr noundef re
 ._crit_edge:                                      ; preds = %.loopexit
   br i1 %20, label %._crit_edge.thread, label %.thread51
 
-.thread51:                                        ; preds = %._crit_edge, %.loopexit.thread, %21, %27
+.thread51:                                        ; preds = %._crit_edge, %.loopexit.thread, %27, %21
   %47 = or disjoint i32 %spec.store.select, 1024
   store i32 %47, ptr %1, align 4, !tbaa !43
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge.thread, %.preheader, %.thread51, %2
-  %48 = phi i32 [ %spec.store.select, %.preheader ], [ %47, %.thread51 ], [ %spec.store.select, %2 ], [ %spec.store.select, %._crit_edge.thread ]
+  %48 = phi i32 [ %spec.store.select, %2 ], [ %spec.store.select, %.preheader ], [ %47, %.thread51 ], [ %spec.store.select, %._crit_edge.thread ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %50 = load i8, ptr %49, align 4, !tbaa !44
   %.not45 = icmp eq i8 %50, 0
@@ -282,7 +282,7 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %._crit_edge.thread.i, %.thread51.i, %.preheader.i, %1
-  %.060 = phi i32 [ %48, %.thread51.i ], [ %spec.store.select.i, %.preheader.i ], [ %spec.store.select.i, %1 ], [ %spec.store.select.i, %._crit_edge.thread.i ]
+  %.060 = phi i32 [ %48, %.thread51.i ], [ %spec.store.select.i, %1 ], [ %spec.store.select.i, %.preheader.i ], [ %spec.store.select.i, %._crit_edge.thread.i ]
   %.060.fr = freeze i32 %.060
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %50 = load i8, ptr %49, align 4, !tbaa !44
@@ -491,7 +491,7 @@ select.unfold:                                    ; preds = %122
   br label %.critedge57
 
 .critedge57:                                      ; preds = %.thread66, %122, %134, %.thread66.us, %103, %80, %.critedge, %143, %.critedge.i
-  %.042 = phi i32 [ %59, %.critedge.i ], [ %145, %143 ], [ 0, %.critedge ], [ %84, %80 ], [ %104, %103 ], [ %86, %.thread66.us ], [ %138, %134 ], [ %126, %122 ], [ %140, %.thread66 ]
+  %.042 = phi i32 [ %59, %.critedge.i ], [ %145, %143 ], [ 0, %.critedge ], [ %104, %103 ], [ %126, %122 ], [ %86, %.thread66.us ], [ %84, %80 ], [ %138, %134 ], [ %140, %.thread66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.042
@@ -766,7 +766,7 @@ define internal fastcc i32 @save_attr(ptr noundef %0, ptr noundef %1) unnamed_ad
   br label %save_attr_uint8.exit
 
 save_attr_uint8.exit:                             ; preds = %72, %68, %53, %49, %42, %38, %27, %30, %33, %35, %46, %57, %60, %62, %65, %76, %79, %82, %85, %88, %90, %93, %96, %98, %100, %103, %106, %109, %112, %115, %118, %121, %124, %15, %2
-  %.076 = phi i32 [ %14, %2 ], [ %23, %15 ], [ %127, %124 ], [ %29, %27 ], [ %32, %30 ], [ %34, %33 ], [ %37, %35 ], [ %48, %46 ], [ %59, %57 ], [ %61, %60 ], [ %64, %62 ], [ %67, %65 ], [ %78, %76 ], [ %81, %79 ], [ %84, %82 ], [ %87, %85 ], [ %89, %88 ], [ %92, %90 ], [ %95, %93 ], [ %97, %96 ], [ %99, %98 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %111, %109 ], [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %123, %121 ], [ %45, %42 ], [ %40, %38 ], [ %56, %53 ], [ %51, %49 ], [ %75, %72 ], [ %70, %68 ]
+  %.076 = phi i32 [ %23, %15 ], [ %14, %2 ], [ %127, %124 ], [ %29, %27 ], [ %32, %30 ], [ %34, %33 ], [ %37, %35 ], [ %123, %121 ], [ %48, %46 ], [ %40, %38 ], [ %59, %57 ], [ %61, %60 ], [ %64, %62 ], [ %67, %65 ], [ %51, %49 ], [ %78, %76 ], [ %81, %79 ], [ %84, %82 ], [ %87, %85 ], [ %89, %88 ], [ %92, %90 ], [ %95, %93 ], [ %97, %96 ], [ %99, %98 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %111, %109 ], [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %45, %42 ], [ %56, %53 ], [ %75, %72 ], [ %70, %68 ]
   ret i32 %.076
 }
 
@@ -1146,7 +1146,7 @@ save_attr_sz.exit:                                ; preds = %10, %14
   br label %65
 
 65:                                               ; preds = %44, %48, %save_attr_sz.exit, %21, %29
-  %.1 = phi i32 [ %37, %29 ], [ 0, %21 ], [ %.0.i, %save_attr_sz.exit ], [ %47, %44 ], [ %62, %48 ]
+  %.1 = phi i32 [ %.0.i, %save_attr_sz.exit ], [ %37, %29 ], [ 0, %21 ], [ %47, %44 ], [ %62, %48 ]
   ret i32 %.1
 }
 

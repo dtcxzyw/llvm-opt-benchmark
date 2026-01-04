@@ -982,7 +982,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb14NativeTypeEnum14getBuiltinTypeEv(pt
   br label %28
 
 28:                                               ; preds = %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %9, %16, %16, %16, %16, %16, %4
-  %.0 = phi i32 [ %8, %4 ], [ 0, %27 ], [ 2, %17 ], [ 3, %18 ], [ 32, %19 ], [ 33, %20 ], [ 34, %21 ], [ 6, %22 ], [ 7, %23 ], [ 31, %24 ], [ 28, %25 ], [ 8, %26 ], [ 0, %9 ], [ 10, %16 ], [ 10, %16 ], [ 10, %16 ], [ 10, %16 ], [ 10, %16 ]
+  %.0 = phi i32 [ %8, %4 ], [ 8, %26 ], [ 0, %27 ], [ 0, %9 ], [ 2, %17 ], [ 3, %18 ], [ 32, %19 ], [ 33, %20 ], [ 34, %21 ], [ 6, %22 ], [ 7, %23 ], [ 31, %24 ], [ 28, %25 ], [ 10, %16 ], [ 10, %16 ], [ 10, %16 ], [ 10, %16 ], [ 10, %16 ]
   ret i32 %.0
 }
 
@@ -1186,7 +1186,7 @@ _ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i.i: ; preds = %_ZN4ll
   call void %27(ptr noundef nonnull align 8 dereferenceable(32) %24) #22, !noalias !88
   br label %_ZNK4llvm3pdb11IPDBSession21getConcreteSymbolByIdINS0_20PDBSymbolTypeBuiltinEEESt10unique_ptrIT_St14default_deleteIS5_EEj.exit.thread
 
-_ZNK4llvm3pdb11IPDBSession21getConcreteSymbolByIdINS0_20PDBSymbolTypeBuiltinEEESt10unique_ptrIT_St14default_deleteIS5_EEj.exit.thread: ; preds = %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb20PDBSymbolTypeBuiltinENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.i, %_ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i.i, %10
+_ZNK4llvm3pdb11IPDBSession21getConcreteSymbolByIdINS0_20PDBSymbolTypeBuiltinEEESt10unique_ptrIT_St14default_deleteIS5_EEj.exit.thread: ; preds = %_ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i.i, %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb20PDBSymbolTypeBuiltinENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.i, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !88
   br label %_ZNSt10unique_ptrIN4llvm3pdb20PDBSymbolTypeBuiltinESt14default_deleteIS2_EED2Ev.exit
 

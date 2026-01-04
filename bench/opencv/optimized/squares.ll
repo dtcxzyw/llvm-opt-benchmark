@@ -1937,7 +1937,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %161, %._crit_edge, 
   br label %198
 
 198:                                              ; preds = %196, %194
-  %.pn100.pn.pn = phi { ptr, i32 } [ %197, %196 ], [ %195, %194 ]
+  %.pn100.pn.pn = phi { ptr, i32 } [ %195, %194 ], [ %197, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %256
 
@@ -2072,7 +2072,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit: ; preds = 
   br i1 %255, label %.lr.ph, label %._crit_edge, !llvm.loop !99
 
 256:                                              ; preds = %.loopexit, %.loopexit.split-lp, %198, %192
-  %.pn104 = phi { ptr, i32 } [ %.pn100.pn.pn, %198 ], [ %193, %192 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn104 = phi { ptr, i32 } [ %193, %192 ], [ %.pn100.pn.pn, %198 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %257 = load ptr, ptr %28, align 8, !tbaa !72
   %.not.i.i.i120 = icmp eq ptr %257, null
   br i1 %.not.i.i.i120, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit121, label %258

@@ -419,7 +419,7 @@ ptrace_continue.exit.i.backedge:                  ; preds = %.thread.i, %36
   call void (ptr, ...) @print_error(ptr noundef nonnull @.str.10, i32 noundef %44) #16
   br label %ptrace_waitpid.exit.thread
 
-ptrace_waitpid.exit.thread:                       ; preds = %32, %39, %47, %46
+ptrace_waitpid.exit.thread:                       ; preds = %32, %46, %39, %47
   %.08.i.ph = phi i32 [ 1, %46 ], [ 1, %47 ], [ 1, %39 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
@@ -668,7 +668,7 @@ define internal range(i32 0, 2) i32 @process_read_data(ptr noundef readonly capt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph86, %.loopexit.sink.split, %._crit_edge
-  %.045 = phi i32 [ 1, %._crit_edge ], [ 0, %.loopexit.sink.split ], [ 1, %.lr.ph86 ]
+  %.045 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge ], [ 1, %.lr.ph86 ]
   ret i32 %.045
 }
 

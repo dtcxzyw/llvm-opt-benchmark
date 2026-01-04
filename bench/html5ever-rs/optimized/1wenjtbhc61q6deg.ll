@@ -768,8 +768,8 @@ define internal noundef zeroext i1 @"_ZN75_$LT$tendril..tendril..Tendril$LT$F$C$
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hd6f071674dc38beeE.exit"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hd6f071674dc38beeE.exit": ; preds = %26, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i", %44
-  %.sroa.4.0.i = phi i64 [ %27, %44 ], [ %42, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i" ], [ 0, %26 ]
-  %.sroa.0.0.i = phi ptr [ %45, %44 ], [ %43, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i" ], [ @anon.ca33c84f5f46cddb79da9f4933f043aa.4, %26 ]
+  %.sroa.4.0.i = phi i64 [ %42, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i" ], [ %27, %44 ], [ 0, %26 ]
+  %.sroa.0.0.i = phi ptr [ %43, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i" ], [ %45, %44 ], [ @anon.ca33c84f5f46cddb79da9f4933f043aa.4, %26 ]
   %46 = call noundef zeroext i1 @"_ZN40_$LT$str$u20$as$u20$core..fmt..Debug$GT$3fmt17he47ad4e4aac91ec0E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.4.0.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %46, label %53, label %47
 
@@ -1192,7 +1192,7 @@ define internal fastcc noundef zeroext i1 @_ZN17markup5ever_rcdom23append_to_exi
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i": ; preds = %22, %19, %13
-  %.0.i.i = phi i32 [ %23, %22 ], [ %21, %19 ], [ 0, %13 ]
+  %.0.i.i = phi i32 [ %21, %19 ], [ %23, %22 ], [ 0, %13 ]
   %24 = trunc nuw i64 %1 to i32
   %25 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %.0.i.i, i32 %24)
   %26 = extractvalue { i32, i1 } %25, 0
@@ -1244,8 +1244,8 @@ define internal fastcc noundef zeroext i1 @_ZN17markup5ever_rcdom23append_to_exi
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hd6f071674dc38beeE.exit.i.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hd6f071674dc38beeE.exit.i.i.i": ; preds = %49, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i.i.i.i", %36
-  %.sroa.4.0.i.i.i.i = phi i64 [ %15, %49 ], [ %47, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i.i.i.i" ], [ 0, %36 ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %50, %49 ], [ %48, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i.i.i.i" ], [ @anon.ca33c84f5f46cddb79da9f4933f043aa.4, %36 ]
+  %.sroa.4.0.i.i.i.i = phi i64 [ %47, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i.i.i.i" ], [ %15, %49 ], [ 0, %36 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %48, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i.i.i.i" ], [ %50, %49 ], [ @anon.ca33c84f5f46cddb79da9f4933f043aa.4, %36 ]
   %51 = trunc nuw i64 %.sroa.4.0.i.i.i.i to i32
   %spec.store.select.i.i.i.i.i = tail call i32 @llvm.umax.i32(i32 %51, i32 16)
   %52 = zext i32 %spec.store.select.i.i.i.i.i to i64
@@ -1298,10 +1298,10 @@ common.resume.sink.split.i:                       ; preds = %142, %61
   br label %68
 
 68:                                               ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.i.i", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.thread.i.i"
-  %69 = phi ptr [ %35, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.thread.i.i" ], [ %67, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.i.i" ]
-  %70 = phi ptr [ %34, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.thread.i.i" ], [ %65, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.i.i" ]
-  %71 = phi i64 [ %15, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.thread.i.i" ], [ %64, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.i.i" ]
-  %72 = phi ptr [ %35, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.thread.i.i" ], [ %spec.select.i.i, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.i.i" ]
+  %69 = phi ptr [ %67, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.i.i" ], [ %35, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.thread.i.i" ]
+  %70 = phi ptr [ %65, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.i.i" ], [ %34, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.thread.i.i" ]
+  %71 = phi i64 [ %64, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.i.i" ], [ %15, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.thread.i.i" ]
+  %72 = phi ptr [ %spec.select.i.i, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.i.i" ], [ %35, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10make_owned17hbd6ee3fd664edef2E.exit.thread.i.i" ]
   %.03.i.i.i = load i32, ptr %72, align 4, !noalias !195, !noundef !4
   %.not.i2.i.i = icmp ugt i32 %26, %.03.i.i.i
   br i1 %.not.i2.i.i, label %73, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$24make_owned_with_capacity17h7d44eff04c20425bE.exit.i"
@@ -1418,7 +1418,7 @@ common.resume.sink.split.i:                       ; preds = %142, %61
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h38ee87d667558e4aE.exit.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h38ee87d667558e4aE.exit.i": ; preds = %116, %113, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$24make_owned_with_capacity17h7d44eff04c20425bE.exit.i"
-  %.0.i.i.i = phi i32 [ %117, %116 ], [ %115, %113 ], [ 0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$24make_owned_with_capacity17h7d44eff04c20425bE.exit.i" ]
+  %.0.i.i.i = phi i32 [ %115, %113 ], [ %117, %116 ], [ 0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$24make_owned_with_capacity17h7d44eff04c20425bE.exit.i" ]
   %118 = add i32 %.0.i.i.i, %.0.i38.i
   %119 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %120 = zext i32 %118 to i64
@@ -1458,8 +1458,8 @@ common.resume.sink.split.i:                       ; preds = %142, %61
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hd6f071674dc38beeE.exit45.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hd6f071674dc38beeE.exit45.i": ; preds = %137, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i41.i", %123
-  %.sroa.4.0.i43.i = phi i64 [ %15, %137 ], [ %135, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i41.i" ], [ 0, %123 ]
-  %.sroa.0.0.i44.i = phi ptr [ %138, %137 ], [ %136, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i41.i" ], [ @anon.ca33c84f5f46cddb79da9f4933f043aa.4, %123 ]
+  %.sroa.4.0.i43.i = phi i64 [ %135, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i41.i" ], [ %15, %137 ], [ 0, %123 ]
+  %.sroa.0.0.i44.i = phi ptr [ %136, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i41.i" ], [ %138, %137 ], [ @anon.ca33c84f5f46cddb79da9f4933f043aa.4, %123 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 1 %.sroa.0.0.i44.i, i64 %.sroa.4.0.i43.i, i1 false), !noalias !179
   %139 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.4.0.i43.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %139, ptr nonnull readonly align 1 %0, i64 range(i64 0, 4294967296) %1, i1 false), !noalias !176
@@ -2200,8 +2200,8 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
   br label %.body
 
 47:                                               ; preds = %41, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i", %24
-  %.sroa.4.0.i = phi i64 [ %26, %41 ], [ %39, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i" ], [ 0, %24 ]
-  %.sroa.0.0.i18 = phi ptr [ %42, %41 ], [ %40, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i" ], [ @anon.ca33c84f5f46cddb79da9f4933f043aa.4, %24 ]
+  %.sroa.4.0.i = phi i64 [ %39, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i" ], [ %26, %41 ], [ 0, %24 ]
+  %.sroa.0.0.i18 = phi ptr [ %40, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i" ], [ %42, %41 ], [ @anon.ca33c84f5f46cddb79da9f4933f043aa.4, %24 ]
   %.0.val = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
   %48 = invoke fastcc noundef zeroext i1 @_ZN17markup5ever_rcdom23append_to_existing_text17h58e0abfc8a4f61ecE(ptr nonnull %.0.val, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18, i64 noundef %.sroa.4.0.i)
           to label %49 unwind label %43
@@ -2293,7 +2293,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
   br label %72
 
 .body.thread:                                     ; preds = %68, %74, %.body
-  %.pn33 = phi { ptr, i32 } [ %.pn, %74 ], [ %.pn, %.body ], [ %69, %68 ]
+  %.pn33 = phi { ptr, i32 } [ %.pn, %.body ], [ %.pn, %74 ], [ %69, %68 ]
   resume { ptr, i32 } %.pn33
 
 74:                                               ; preds = %.body
@@ -2414,7 +2414,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
   br i1 %37, label %47, label %53
 
 .body:                                            ; preds = %85, %43, %40, %30, %155, %140
-  %.pn34.pn = phi { ptr, i32 } [ %141, %140 ], [ %114, %85 ], [ %.pn84, %155 ], [ %79, %43 ], [ %41, %40 ], [ %31, %30 ]
+  %.pn34.pn = phi { ptr, i32 } [ %141, %140 ], [ %114, %85 ], [ %79, %43 ], [ %.pn84, %155 ], [ %41, %40 ], [ %31, %30 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h38e6e968ed04c345E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10) #23
           to label %.thread unwind label %138
 
@@ -2731,7 +2731,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
           to label %.body unwind label %138
 
 .thread:                                          ; preds = %.body, %156
-  %.pn3776 = phi { ptr, i32 } [ %lpad.thr_comm, %156 ], [ %.pn34.pn, %.body ]
+  %.pn3776 = phi { ptr, i32 } [ %.pn34.pn, %.body ], [ %lpad.thr_comm, %156 ]
   resume { ptr, i32 } %.pn3776
 
 156:                                              ; preds = %14, %3
@@ -2859,7 +2859,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
   invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca33c84f5f46cddb79da9f4933f043aa.80) #25
           to label %63 unwind label %.thread
 
-.thread36:                                        ; preds = %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i, %36
+.thread36:                                        ; preds = %36, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %22 = load i64, ptr %14, align 8, !noalias !400, !noundef !4
@@ -3013,7 +3013,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   resume { ptr, i32 } %.pn1428
 
 67:                                               ; preds = %.thread36, %.thread33, %.thread
-  %.pn1429 = phi { ptr, i32 } [ %25, %.thread ], [ %42, %.thread33 ], [ %lpad.thr_comm, %.thread36 ]
+  %.pn1429 = phi { ptr, i32 } [ %25, %.thread ], [ %lpad.thr_comm, %.thread36 ], [ %42, %.thread33 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$markup5ever..interface..Attribute$GT$$GT$17hfc401f1ffd5a6434E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #23
           to label %66 unwind label %61
 }

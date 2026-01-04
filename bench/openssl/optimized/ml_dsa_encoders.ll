@@ -127,7 +127,7 @@ poly_encode_10_bits.exit.thread:                  ; preds = %.lr.ph
   %62 = call i32 @WPACKET_finish(ptr noundef nonnull %4) #9
   br label %65
 
-63:                                               ; preds = %._crit_edge, %17, %15, %poly_encode_10_bits.exit.thread
+63:                                               ; preds = %poly_encode_10_bits.exit.thread, %15, %._crit_edge, %17
   %64 = call i32 @WPACKET_finish(ptr noundef nonnull %4) #9
   call void @CRYPTO_free(ptr noundef nonnull %13, ptr noundef nonnull @.str, i32 noundef 648) #9
   br label %65
@@ -261,12 +261,12 @@ poly_decode_10_bits.exit:                         ; preds = %33
   br label %PACKET_buf_init.exit.thread
 
 PACKET_buf_init.exit.thread:                      ; preds = %30, %._crit_edge, %16, %54
-  %.026 = phi i32 [ 0, %16 ], [ %57, %54 ], [ 0, %._crit_edge ], [ 0, %30 ]
+  %.026 = phi i32 [ 0, %16 ], [ 0, %._crit_edge ], [ %57, %54 ], [ 0, %30 ]
   tail call void @EVP_MD_CTX_free(ptr noundef %17) #9
   br label %58
 
 58:                                               ; preds = %14, %9, %3, %6, %PACKET_buf_init.exit.thread
-  %.0 = phi i32 [ %.026, %PACKET_buf_init.exit.thread ], [ 0, %6 ], [ 0, %3 ], [ 0, %9 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %3 ], [ %.026, %PACKET_buf_init.exit.thread ], [ 0, %6 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -571,7 +571,7 @@ poly_encode_signed_two_to_power_12.exit:          ; preds = %47
   %180 = call i32 @WPACKET_finish(ptr noundef nonnull %4) #9
   br label %182
 
-.loopexit:                                        ; preds = %35, %41, %._crit_edge, %28, %25, %22, %17, %poly_encode_signed_two_to_power_12.exit.thread
+.loopexit:                                        ; preds = %35, %41, %poly_encode_signed_two_to_power_12.exit.thread, %17, %._crit_edge, %28, %25, %22
   %181 = call i32 @WPACKET_finish(ptr noundef nonnull %4) #9
   call void @CRYPTO_clear_free(ptr noundef nonnull %15, i64 noundef %12, ptr noundef nonnull @.str, i32 noundef 748) #9
   br label %182
@@ -1080,7 +1080,7 @@ poly_decode_signed_two_to_power_12.exit.thread:   ; preds = %47, %55, %62, %173,
   br label %PACKET_buf_init.exit.thread
 
 PACKET_buf_init.exit.thread:                      ; preds = %36, %33, %30, %25, %175, %23, %19, %16, %3, %poly_decode_signed_two_to_power_12.exit.thread
-  %.0 = phi i32 [ 0, %poly_decode_signed_two_to_power_12.exit.thread ], [ 0, %3 ], [ 0, %16 ], [ 0, %19 ], [ 0, %23 ], [ 1, %175 ], [ 0, %25 ], [ 0, %30 ], [ 0, %33 ], [ 0, %36 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %16 ], [ 0, %poly_decode_signed_two_to_power_12.exit.thread ], [ 1, %175 ], [ 0, %23 ], [ 0, %3 ], [ 0, %33 ], [ 0, %30 ], [ 0, %25 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1499,7 +1499,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sig_encode(ptr noundef readonly captures
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %7, %14
-  %.016 = phi i32 [ 0, %14 ], [ 0, %7 ], [ %.016.ph, %.loopexit.sink.split ], [ 0, %.lr.ph ]
+  %.016 = phi i32 [ %.016.ph, %.loopexit.sink.split ], [ 0, %7 ], [ 0, %14 ], [ 0, %.lr.ph ]
   %57 = call i32 @WPACKET_finish(ptr noundef nonnull %5) #9
   br label %58
 
@@ -1846,8 +1846,8 @@ hint_bits_decode.exit:                            ; preds = %63, %.preheader.i
   %spec.select = zext i1 %.not17 to i32
   br label %PACKET_buf_init.exit.thread
 
-PACKET_buf_init.exit.thread:                      ; preds = %.lr.ph, %vector_zero.exit.i, %.lr.ph.i, %.lr.ph18.i, %35, %._crit_edge, %10, %4, %hint_bits_decode.exit
-  %.014 = phi i32 [ %spec.select, %hint_bits_decode.exit ], [ 0, %4 ], [ 0, %10 ], [ 0, %._crit_edge ], [ 0, %35 ], [ 0, %.lr.ph18.i ], [ 0, %.lr.ph.i ], [ 0, %vector_zero.exit.i ], [ 0, %.lr.ph ]
+PACKET_buf_init.exit.thread:                      ; preds = %.lr.ph, %vector_zero.exit.i, %.lr.ph.i, %.lr.ph18.i, %._crit_edge, %35, %10, %4, %hint_bits_decode.exit
+  %.014 = phi i32 [ 0, %vector_zero.exit.i ], [ %spec.select, %hint_bits_decode.exit ], [ 0, %4 ], [ 0, %10 ], [ 0, %.lr.ph18.i ], [ 0, %35 ], [ 0, %._crit_edge ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.014
 }

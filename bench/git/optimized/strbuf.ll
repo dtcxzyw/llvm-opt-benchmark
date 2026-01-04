@@ -145,7 +145,7 @@ define dso_local range(i32 0, 2) i32 @starts_with_mem(ptr noundef readonly captu
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %10, %8, %.lr.ph, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %.lr.ph ], [ 0, %8 ], [ 1, %10 ]
+  %.0 = phi i32 [ 1, %3 ], [ 0, %8 ], [ 0, %.lr.ph ], [ 1, %10 ]
   ret i32 %.0
 }
 
@@ -715,14 +715,14 @@ strbuf_release.exit.i:                            ; preds = %15, %12
   br label %strbuf_attach.exit
 
 strbuf_attach.exit:                               ; preds = %21, %28
-  %29 = phi ptr [ %27, %21 ], [ %.pre.i, %28 ]
+  %29 = phi ptr [ %.pre.i, %28 ], [ %27, %21 ]
   %30 = load i64, ptr %9, align 8, !tbaa !16
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
   store i8 0, ptr %31, align 1, !tbaa !4
   br label %32
 
 32:                                               ; preds = %6, %3, %strbuf_attach.exit
-  %.0 = phi i32 [ 0, %strbuf_attach.exit ], [ 0, %3 ], [ -1, %6 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %strbuf_attach.exit ], [ -1, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2409,7 +2409,7 @@ strbuf_addch.exit15:                              ; preds = %strbuf_avail.exit.i
   br label %78
 
 78:                                               ; preds = %2, %hex2chr.exit, %strbuf_addch.exit15, %strbuf_addch.exit
-  %.0 = phi i64 [ 1, %strbuf_addch.exit ], [ 3, %strbuf_addch.exit15 ], [ 0, %hex2chr.exit ], [ 0, %2 ]
+  %.0 = phi i64 [ 0, %hex2chr.exit ], [ 1, %strbuf_addch.exit ], [ 3, %strbuf_addch.exit15 ], [ 0, %2 ]
   ret i64 %.0
 }
 
@@ -2996,8 +2996,8 @@ strbuf_release.exit:                              ; preds = %61, %69, %64
   %82 = sub i64 %81, %5
   br label %strbuf_release.exit.thread
 
-strbuf_release.exit.thread:                       ; preds = %48, %46, %41, %40, %78
-  %.2 = phi i64 [ %82, %78 ], [ -1, %40 ], [ -1, %41 ], [ -1, %46 ], [ -1, %48 ]
+strbuf_release.exit.thread:                       ; preds = %46, %40, %41, %48, %78
+  %.2 = phi i64 [ %82, %78 ], [ -1, %48 ], [ -1, %41 ], [ -1, %40 ], [ -1, %46 ]
   ret i64 %.2
 }
 
@@ -3262,7 +3262,7 @@ strbuf_setlen.exit.thread24:                      ; preds = %strbuf_setlen.exit,
   br label %strbuf_release.exit
 
 strbuf_release.exit:                              ; preds = %40, %38, %48, %46, %strbuf_setlen.exit.thread24
-  %.2 = phi i32 [ -1, %strbuf_setlen.exit.thread24 ], [ -1, %46 ], [ -1, %48 ], [ 0, %38 ], [ 0, %40 ]
+  %.2 = phi i32 [ -1, %48 ], [ -1, %strbuf_setlen.exit.thread24 ], [ -1, %46 ], [ 0, %38 ], [ 0, %40 ]
   ret i32 %.2
 }
 
@@ -3402,7 +3402,7 @@ strbuf_grow.exit:                                 ; preds = %20, %21
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %52, %50, %48, %46, %32, %31
-  %.013 = phi i32 [ 0, %31 ], [ 0, %32 ], [ -1, %46 ], [ -1, %48 ], [ -1, %50 ], [ -1, %52 ]
+  %.013 = phi i32 [ 0, %32 ], [ -1, %48 ], [ 0, %31 ], [ -1, %46 ], [ -1, %50 ], [ -1, %52 ]
   ret i32 %.013
 }
 
@@ -3475,7 +3475,7 @@ strbuf_setlen.exit:                               ; preds = %5, %9
   br label %strbuf_setlen.exit19
 
 strbuf_setlen.exit19:                             ; preds = %25, %24, %23, %3, %16
-  %.0 = phi i32 [ 0, %16 ], [ -1, %3 ], [ -1, %23 ], [ -1, %24 ], [ -1, %25 ]
+  %.0 = phi i32 [ -1, %3 ], [ 0, %16 ], [ -1, %23 ], [ -1, %24 ], [ -1, %25 ]
   ret i32 %.0
 }
 
@@ -3558,7 +3558,7 @@ strbuf_release.exit.sink.split:                   ; preds = %23, %28
   br label %strbuf_release.exit
 
 strbuf_release.exit:                              ; preds = %strbuf_release.exit.sink.split, %26, %21
-  %.0 = phi i32 [ -1, %21 ], [ 0, %26 ], [ %.0.ph, %strbuf_release.exit.sink.split ]
+  %.0 = phi i32 [ 0, %26 ], [ -1, %21 ], [ %.0.ph, %strbuf_release.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -3690,7 +3690,7 @@ strbuf_setlen.exit:                               ; preds = %37, %38
   br label %strbuf_setlen.exit17
 
 strbuf_setlen.exit17:                             ; preds = %24, %23, %22, %3, %51, %50, %25, %27, %40, %strbuf_setlen.exit
-  %.0 = phi i32 [ 0, %strbuf_setlen.exit ], [ 0, %40 ], [ 0, %27 ], [ 0, %25 ], [ 0, %50 ], [ 0, %51 ], [ -1, %3 ], [ -1, %22 ], [ -1, %23 ], [ -1, %24 ]
+  %.0 = phi i32 [ 0, %51 ], [ 0, %strbuf_setlen.exit ], [ 0, %40 ], [ 0, %25 ], [ 0, %27 ], [ 0, %50 ], [ -1, %3 ], [ -1, %22 ], [ -1, %23 ], [ -1, %24 ]
   ret i32 %.0
 }
 
@@ -3797,7 +3797,7 @@ strbuf_setlen.exit.i:                             ; preds = %9, %5
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %24, %23, %22, %3, %37, %36, %25
-  %.0 = phi i32 [ 0, %25 ], [ 0, %36 ], [ 0, %37 ], [ -1, %3 ], [ -1, %22 ], [ -1, %23 ], [ -1, %24 ]
+  %.0 = phi i32 [ 0, %37 ], [ 0, %25 ], [ 0, %36 ], [ -1, %3 ], [ -1, %22 ], [ -1, %23 ], [ -1, %24 ]
   ret i32 %.0
 }
 
@@ -3926,7 +3926,7 @@ define dso_local range(i64 -1, -9223372036854775808) i64 @strbuf_read_file(ptr n
   br label %13
 
 13:                                               ; preds = %6, %3, %12
-  %.0 = phi i64 [ -1, %12 ], [ -1, %3 ], [ %7, %6 ]
+  %.0 = phi i64 [ -1, %3 ], [ -1, %12 ], [ %7, %6 ]
   ret i64 %.0
 }
 
@@ -4158,7 +4158,7 @@ _.exit.sink.split:                                ; preds = %5
   br label %_.exit
 
 _.exit:                                           ; preds = %5, %_.exit.sink.split
-  %9 = phi ptr [ %8, %_.exit.sink.split ], [ %.str.31..str.32, %5 ]
+  %9 = phi ptr [ %.str.31..str.32, %5 ], [ %8, %_.exit.sink.split ]
   %10 = lshr i64 %1, 30
   %11 = trunc i64 %10 to i32
   %12 = trunc i64 %1 to i32
@@ -4185,7 +4185,7 @@ _.exit26.sink.split:                              ; preds = %17
   br label %_.exit26
 
 _.exit26:                                         ; preds = %17, %_.exit26.sink.split
-  %23 = phi ptr [ %22, %_.exit26.sink.split ], [ %.str.33..str.34, %17 ]
+  %23 = phi ptr [ %.str.33..str.34, %17 ], [ %22, %_.exit26.sink.split ]
   %24 = lshr i32 %19, 20
   %25 = and i32 %19, 1048575
   %26 = mul nuw nsw i32 %25, 100
@@ -4211,7 +4211,7 @@ _.exit32.sink.split:                              ; preds = %30
   br label %_.exit32
 
 _.exit32:                                         ; preds = %30, %_.exit32.sink.split
-  %36 = phi ptr [ %35, %_.exit32.sink.split ], [ %.str.35..str.36, %30 ]
+  %36 = phi ptr [ %.str.35..str.36, %30 ], [ %35, %_.exit32.sink.split ]
   %37 = lshr i32 %32, 10
   %38 = and i32 %32, 1023
   %39 = mul nuw nsw i32 %38, 100
@@ -4250,7 +4250,7 @@ _.exit32:                                         ; preds = %30, %_.exit32.sink.
   br label %Q_.exit
 
 Q_.exit:                                          ; preds = %54, %51, %48, %45
-  %56 = phi ptr [ %49, %48 ], [ %47, %45 ], [ %55, %54 ], [ %53, %51 ]
+  %56 = phi ptr [ %47, %45 ], [ %49, %48 ], [ %55, %54 ], [ %53, %51 ]
   %57 = trunc i64 %1 to i32
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %0, ptr noundef %56, i32 noundef %57)
   br label %58
@@ -4794,7 +4794,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br label %strbuf_add.exit67
 
 strbuf_add.exit67:                                ; preds = %.preheader, %78, %77, %85, %strbuf_addch.exit, %93
-  %.174 = phi ptr [ %scevgep, %85 ], [ %scevgep, %93 ], [ %49, %strbuf_addch.exit ], [ %scevgep, %77 ], [ %scevgep, %78 ], [ %scevgep, %.preheader ]
+  %.174 = phi ptr [ %scevgep, %78 ], [ %scevgep, %85 ], [ %scevgep, %93 ], [ %49, %strbuf_addch.exit ], [ %scevgep, %77 ], [ %scevgep, %.preheader ]
   %116 = tail call ptr @strchrnul(ptr noundef %.174, i32 noundef 37) #27
   %117 = ptrtoint ptr %116 to i64
   %118 = ptrtoint ptr %.174 to i64
@@ -5136,9 +5136,9 @@ cleanup.exit.us:                                  ; preds = %34
   br label %starts_with.exit.thread.us
 
 starts_with.exit.thread.us:                       ; preds = %56, %48
-  %58 = phi i64 [ %.pre74, %48 ], [ %24, %56 ]
-  %.146.us = phi i64 [ %53, %48 ], [ %.04561.us, %56 ]
-  %.1.us = phi i64 [ 0, %48 ], [ %57, %56 ]
+  %58 = phi i64 [ %24, %56 ], [ %.pre74, %48 ]
+  %.146.us = phi i64 [ %.04561.us, %56 ], [ %53, %48 ]
+  %.1.us = phi i64 [ %57, %56 ], [ 0, %48 ]
   %59 = add i64 %32, %.04462.us
   %60 = add i64 %.06.i55.us, %.146.us
   %61 = icmp ult i64 %59, %58
@@ -5234,10 +5234,10 @@ cleanup.exit:                                     ; preds = %79
   br label %starts_with.exit.thread
 
 starts_with.exit.thread:                          ; preds = %75, %71, %93, %101
-  %103 = phi i64 [ %.pre72, %93 ], [ %62, %101 ], [ %62, %71 ], [ %62, %75 ]
-  %.146 = phi i64 [ %98, %93 ], [ %.04561, %101 ], [ %.04561, %71 ], [ %.04561, %75 ]
-  %.043 = phi i64 [ %.06.i55, %93 ], [ 0, %101 ], [ 0, %71 ], [ 0, %75 ]
-  %.1 = phi i64 [ 0, %93 ], [ %102, %101 ], [ %.063, %71 ], [ %.063, %75 ]
+  %103 = phi i64 [ %62, %101 ], [ %.pre72, %93 ], [ %62, %71 ], [ %62, %75 ]
+  %.146 = phi i64 [ %.04561, %101 ], [ %98, %93 ], [ %.04561, %71 ], [ %.04561, %75 ]
+  %.043 = phi i64 [ 0, %101 ], [ %.06.i55, %93 ], [ 0, %71 ], [ 0, %75 ]
+  %.1 = phi i64 [ %102, %101 ], [ 0, %93 ], [ %.063, %71 ], [ %.063, %75 ]
   %104 = add i64 %70, %.04462
   %105 = add i64 %.043, %.146
   %106 = icmp ult i64 %104, %103

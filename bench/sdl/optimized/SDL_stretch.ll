@@ -156,7 +156,7 @@ define hidden zeroext i1 @SDL_StretchSurface_REAL(ptr noundef %0, ptr noundef %1
   br label %switch.edge
 
 switch.edge:                                      ; preds = %67, %68, %67, %67, %67, %69
-  %71 = phi i32 [ %70, %69 ], [ 2, %67 ], [ 1, %68 ], [ 2, %67 ], [ 2, %67 ], [ 2, %67 ]
+  %71 = phi i32 [ %70, %69 ], [ 2, %67 ], [ 2, %67 ], [ 2, %67 ], [ 1, %68 ], [ 2, %67 ]
   %72 = mul i32 %71, %65
   %73 = zext i32 %72 to i64
   %74 = getelementptr inbounds nuw i8, ptr %64, i64 %73
@@ -192,7 +192,7 @@ switch.edge:                                      ; preds = %67, %68, %67, %67, 
   br label %180
 
 .thread:                                          ; preds = %80, %77, %77
-  %85 = phi i1 [ true, %77 ], [ true, %77 ], [ false, %80 ]
+  %85 = phi i1 [ true, %77 ], [ false, %80 ], [ true, %77 ]
   %.not176 = icmp eq ptr %1, null
   br i1 %.not176, label %107, label %86
 
@@ -381,7 +381,7 @@ thread-pre-split:                                 ; preds = %128, %136
   br label %180
 
 180:                                              ; preds = %178, %179, %thread-pre-split, %26, %18, %167, %158, %151, %134, %105, %.critedge, %78, %76, %11, %8
-  %.0 = phi i1 [ %.0119.shrunk, %76 ], [ %79, %78 ], [ %84, %.critedge ], [ %106, %105 ], [ %135, %134 ], [ %152, %151 ], [ %168, %167 ], [ %159, %158 ], [ %12, %11 ], [ %9, %8 ], [ %27, %26 ], [ false, %18 ], [ true, %thread-pre-split ], [ true, %179 ], [ true, %178 ]
+  %.0 = phi i1 [ %9, %8 ], [ %.0119.shrunk, %76 ], [ %79, %78 ], [ %84, %.critedge ], [ %106, %105 ], [ %135, %134 ], [ false, %18 ], [ %152, %151 ], [ true, %thread-pre-split ], [ %168, %167 ], [ %159, %158 ], [ %12, %11 ], [ %27, %26 ], [ true, %178 ], [ true, %179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
@@ -443,7 +443,7 @@ define internal fastcc void @SDL_StretchSurfaceUncheckedNearest(ptr noundef nonn
   br label %switch.edge
 
 switch.edge:                                      ; preds = %19, %20, %19, %19, %19, %21
-  %23 = phi i32 [ %22, %21 ], [ 2, %19 ], [ 1, %20 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ]
+  %23 = phi i32 [ %22, %21 ], [ 2, %19 ], [ 2, %19 ], [ 2, %19 ], [ 1, %20 ], [ 2, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %1, align 4

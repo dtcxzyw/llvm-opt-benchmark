@@ -86,7 +86,7 @@ define dso_local i32 @lzma_block_header_size(ptr noundef captures(none) %0) loca
   br label %.critedge
 
 .critedge:                                        ; preds = %29, %.lr.ph, %._crit_edge, %17, %24, %20, %8, %1
-  %.0 = phi i32 [ 8, %1 ], [ 0, %._crit_edge ], [ 11, %17 ], [ 11, %24 ], [ 11, %20 ], [ 11, %8 ], [ %30, %29 ], [ 11, %.lr.ph ]
+  %.0 = phi i32 [ 8, %1 ], [ 11, %20 ], [ 0, %._crit_edge ], [ 11, %8 ], [ 11, %17 ], [ 11, %24 ], [ %30, %29 ], [ 11, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -199,7 +199,7 @@ define dso_local i32 @lzma_block_header_encode(ptr noundef readonly %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %.preheader, %48, %31, %35, %19, %26
-  %.3 = phi i32 [ %27, %26 ], [ %20, %19 ], [ 11, %35 ], [ 11, %31 ], [ 0, %48 ], [ 11, %.preheader ], [ %42, %40 ]
+  %.3 = phi i32 [ %20, %19 ], [ 11, %31 ], [ %27, %26 ], [ 11, %35 ], [ 0, %48 ], [ 11, %.preheader ], [ %42, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %57
 

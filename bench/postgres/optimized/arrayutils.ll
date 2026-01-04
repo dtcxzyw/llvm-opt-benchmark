@@ -101,14 +101,14 @@ define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItemsSafe(i32 noundef %0
   br i1 %22, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %21, %16, %9
-  %.sink = phi i32 [ 84, %9 ], [ 93, %16 ], [ 100, %21 ]
+  %.sink = phi i32 [ 93, %16 ], [ 84, %9 ], [ 100, %21 ]
   %23 = tail call i32 @errcode(i32 noundef 261) #7
   %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef 134217727) #7
   tail call void @errsave_finish(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.ArrayGetNItemsSafe) #7
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %9, %16, %18, %21, %3
-  %.0 = phi i32 [ 0, %3 ], [ -1, %21 ], [ %19, %18 ], [ -1, %16 ], [ -1, %9 ], [ -1, %.critedge.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %16, %9, %18, %21, %3
+  %.0 = phi i32 [ -1, %21 ], [ %19, %18 ], [ 0, %3 ], [ -1, %16 ], [ -1, %9 ], [ -1, %.critedge.sink.split ]
   ret i32 %.0
 }
 
@@ -197,7 +197,7 @@ define dso_local noundef zeroext i1 @ArrayCheckBoundsSafe(i32 noundef %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %4, %15, %13
-  %20 = phi i1 [ false, %15 ], [ false, %13 ], [ true, %4 ], [ true, %6 ]
+  %20 = phi i1 [ false, %13 ], [ false, %15 ], [ true, %4 ], [ true, %6 ]
   ret i1 %20
 }
 
@@ -363,7 +363,7 @@ define dso_local range(i32 -1, 2147483647) i32 @mda_next_tuple(i32 noundef %0, p
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge24, %3
-  %.021 = phi i32 [ -1, %3 ], [ %., %.critedge24 ], [ %.027, %.lr.ph ]
+  %.021 = phi i32 [ %., %.critedge24 ], [ -1, %3 ], [ %.027, %.lr.ph ]
   ret i32 %.021
 }
 

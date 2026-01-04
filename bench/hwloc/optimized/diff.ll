@@ -614,7 +614,7 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   %exitcond367.not = icmp eq i32 %285, %234
   br i1 %exitcond367.not, label %.critedge252, label %241, !llvm.loop !96
 
-.thread282:                                       ; preds = %.lr.ph312, %79, %84, %87, %90, %95, %100, %.lr.ph320, %113, %135, %142, %147, %.lr.ph325.split, %186, %173, %166, %.lr.ph325.split.us, %221, %216, %210, %199, %206, %241, %248, %253, %258, %263, %279, %273, %.critedge250, %._crit_edge321, %43, %._crit_edge, %32, %34, %41
+.thread282:                                       ; preds = %.lr.ph312, %79, %84, %87, %90, %95, %100, %.lr.ph320, %113, %142, %147, %135, %186, %.lr.ph325.split, %173, %166, %.lr.ph325.split.us, %221, %206, %210, %199, %216, %248, %253, %258, %263, %241, %279, %273, %.critedge250, %._crit_edge321, %43, %._crit_edge, %32, %34, %41
   %286 = call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #17
   %287 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #18
   %.not.i = icmp eq ptr %287, null
@@ -650,7 +650,7 @@ hwloc_append_diff.exit.i:                         ; preds = %299, %296
   br label %.critedge252
 
 .critedge252:                                     ; preds = %.lr.ph, %64, %.thread290, %.preheader292, %18, %hwloc_append_diff.exit.i, %.thread282, %16, %13
-  %.0 = phi i32 [ -1, %16 ], [ -1, %13 ], [ 1, %.thread282 ], [ 1, %hwloc_append_diff.exit.i ], [ -1, %18 ], [ 0, %.preheader292 ], [ 0, %.thread290 ], [ -1, %64 ], [ 1, %.lr.ph ]
+  %.0 = phi i32 [ -1, %16 ], [ -1, %13 ], [ 0, %.preheader292 ], [ -1, %18 ], [ -1, %64 ], [ 1, %hwloc_append_diff.exit.i ], [ 1, %.thread282 ], [ 0, %.thread290 ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1095,7 +1095,7 @@ hwloc_append_diff.exit.i:                         ; preds = %206, %203
   br label %hwloc_append_diff_too_complex.exit
 
 hwloc_append_diff_too_complex.exit:               ; preds = %133, %.lr.ph36, %.lr.ph44, %.lr.ph53, %.lr.ph62, %hwloc_append_diff.exit.i, %.loopexit, %._crit_edge63, %84, %72
-  %.0 = phi i32 [ -1, %72 ], [ -1, %84 ], [ 0, %._crit_edge63 ], [ 0, %.loopexit ], [ 0, %hwloc_append_diff.exit.i ], [ -1, %.lr.ph62 ], [ -1, %.lr.ph53 ], [ -1, %.lr.ph44 ], [ -1, %.lr.ph36 ], [ -1, %133 ]
+  %.0 = phi i32 [ 0, %._crit_edge63 ], [ -1, %72 ], [ 0, %hwloc_append_diff.exit.i ], [ -1, %84 ], [ -1, %.lr.ph53 ], [ -1, %.lr.ph62 ], [ -1, %.lr.ph36 ], [ -1, %.lr.ph44 ], [ 0, %.loopexit ], [ -1, %133 ]
   ret i32 %.0
 }
 
@@ -1311,7 +1311,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
   switch i32 %22, label %.critedge [
     i32 0, label %23
     i32 1, label %42
-    i32 2, label %53
+    i32 2, label %54
   ]
 
 23:                                               ; preds = %20
@@ -1369,62 +1369,62 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
 50:                                               ; preds = %47
   %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %45) #17
   %.not93 = icmp eq i32 %51, 0
-  br i1 %.not93, label %.critedge100, label %.critedge
+  br i1 %.not93, label %52, label %.critedge
 
-.critedge100:                                     ; preds = %50
+52:                                               ; preds = %50
   tail call void @free(ptr noundef nonnull %49) #15
-  %52 = tail call noalias ptr @strdup(ptr noundef %46) #15
-  store ptr %52, ptr %48, align 8, !tbaa !105
+  %53 = tail call noalias ptr @strdup(ptr noundef %46) #15
+  store ptr %53, ptr %48, align 8, !tbaa !105
   br label %.critedge
 
-53:                                               ; preds = %20
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %55 = load ptr, ptr %54, align 8, !tbaa !3
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.in = select i1 %.not, ptr %57, ptr %56
-  %58 = load ptr, ptr %.in, align 8, !tbaa !3
-  %.in86 = select i1 %.not, ptr %56, ptr %57
-  %59 = load ptr, ptr %.in86, align 8, !tbaa !3
-  %60 = getelementptr inbounds nuw i8, ptr %.077, i64 8
-  %61 = load i32, ptr %60, align 8, !tbaa !124
-  %.not113 = icmp eq i32 %61, 0
+54:                                               ; preds = %20
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %56 = load ptr, ptr %55, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.in = select i1 %.not, ptr %58, ptr %57
+  %59 = load ptr, ptr %.in, align 8, !tbaa !3
+  %.in86 = select i1 %.not, ptr %57, ptr %58
+  %60 = load ptr, ptr %.in86, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw i8, ptr %.077, i64 8
+  %62 = load i32, ptr %61, align 8, !tbaa !124
+  %.not113 = icmp eq i32 %62, 0
   br i1 %.not113, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %53
-  %62 = load ptr, ptr %.077, align 8, !tbaa !125
-  %wide.trip.count = zext i32 %61 to i64
-  br label %63
+.lr.ph:                                           ; preds = %54
+  %63 = load ptr, ptr %.077, align 8, !tbaa !125
+  %wide.trip.count = zext i32 %62 to i64
+  br label %64
 
-63:                                               ; preds = %.lr.ph, %71
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
-  %64 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %62, i64 %indvars.iv
-  %65 = load ptr, ptr %64, align 8, !tbaa !42
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %55) #17
-  %.not87 = icmp eq i32 %66, 0
-  br i1 %.not87, label %67, label %71
+64:                                               ; preds = %.lr.ph, %72
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
+  %65 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %63, i64 %indvars.iv
+  %66 = load ptr, ptr %65, align 8, !tbaa !42
+  %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(1) %56) #17
+  %.not87 = icmp eq i32 %67, 0
+  br i1 %.not87, label %68, label %72
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !45
-  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %58) #17
-  %.not88 = icmp eq i32 %70, 0
-  br i1 %.not88, label %72, label %71
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !45
+  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %59) #17
+  %.not88 = icmp eq i32 %71, 0
+  br i1 %.not88, label %73, label %72
 
-71:                                               ; preds = %67, %63
+72:                                               ; preds = %68, %64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %63, !llvm.loop !126
+  br i1 %exitcond.not, label %.critedge, label %64, !llvm.loop !126
 
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  tail call void @free(ptr noundef nonnull %69) #15
-  %74 = tail call noalias ptr @strdup(ptr noundef %59) #15
-  store ptr %74, ptr %73, align 8, !tbaa !45
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  tail call void @free(ptr noundef nonnull %70) #15
+  %75 = tail call noalias ptr @strdup(ptr noundef %60) #15
+  store ptr %75, ptr %74, align 8, !tbaa !45
   br label %.critedge
 
-.critedge:                                        ; preds = %71, %36, %53, %23, %29, %31, %20, %42, %50, %47, %14, %72, %.critedge100, %3
-  %.5 = phi i32 [ -1, %3 ], [ 0, %72 ], [ 0, %.critedge100 ], [ -1, %14 ], [ -1, %47 ], [ -1, %50 ], [ -1, %42 ], [ -1, %20 ], [ -1, %31 ], [ -1, %29 ], [ -1, %23 ], [ -1, %53 ], [ 0, %36 ], [ -1, %71 ]
+.critedge:                                        ; preds = %72, %36, %54, %50, %47, %29, %31, %23, %20, %42, %14, %73, %52, %3
+  %.5 = phi i32 [ -1, %3 ], [ -1, %54 ], [ 0, %73 ], [ 0, %52 ], [ -1, %14 ], [ -1, %42 ], [ -1, %20 ], [ -1, %23 ], [ -1, %31 ], [ -1, %29 ], [ -1, %47 ], [ -1, %50 ], [ 0, %36 ], [ -1, %72 ]
   ret i32 %.5
 }
 

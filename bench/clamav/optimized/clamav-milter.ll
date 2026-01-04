@@ -192,7 +192,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not121, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %23
-  %34 = phi ptr [ %24, %.preheader ], [ %24, %23 ], [ %29, %.lr.ph ]
+  %34 = phi ptr [ %24, %23 ], [ %24, %.preheader ], [ %29, %.lr.ph ]
   %35 = tail call ptr @optget(ptr noundef nonnull %34, ptr noundef nonnull @.str.13) #14
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load i32, ptr %36, align 8, !tbaa !23
@@ -539,7 +539,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %214
 
 214:                                              ; preds = %.thread188, %212
-  %.0108 = phi i32 [ %213, %212 ], [ %204, %.thread188 ]
+  %.0108 = phi i32 [ %204, %.thread188 ], [ %213, %212 ]
   %215 = and i32 %.0108, 438
   %216 = call i32 @chmod(ptr noundef nonnull %.2107, i32 noundef %215) #14
   %.not144 = icmp eq i32 %216, 0
@@ -902,7 +902,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %421 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.76, ptr noundef %417, ptr noundef %420) #14
   br label %422
 
-422:                                              ; preds = %416, %.critedge, %399
+422:                                              ; preds = %416, %399, %.critedge
   call void @localnets_free() #14
   call void @allow_list_free() #14
   call void @logg_close() #14
@@ -934,8 +934,8 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %432 = call i32 @smfi_main() #14
   br label %.thread191
 
-.thread191:                                       ; preds = %187, %180, %.thread181, %205, %217, %422, %.thread194, %431, %426, %378, %344, %329, %318, %302, %284, %260, %140, %129, %123, %117, %78, %74, %54, %49, %38, %17, %12
-  %.0 = phi i32 [ 0, %17 ], [ 0, %38 ], [ 1, %49 ], [ 1, %54 ], [ 1, %74 ], [ 1, %78 ], [ 1, %123 ], [ 1, %129 ], [ 1, %140 ], [ 1, %284 ], [ 1, %302 ], [ 1, %318 ], [ 1, %329 ], [ %425, %426 ], [ %432, %431 ], [ 2, %422 ], [ 1, %378 ], [ 1, %344 ], [ 1, %260 ], [ 1, %117 ], [ 1, %12 ], [ 1, %.thread194 ], [ 1, %217 ], [ 1, %205 ], [ 1, %.thread181 ], [ 1, %180 ], [ 1, %187 ]
+.thread191:                                       ; preds = %187, %180, %205, %.thread181, %217, %422, %.thread194, %431, %426, %378, %344, %329, %318, %302, %284, %260, %140, %129, %123, %117, %78, %74, %54, %49, %38, %17, %12
+  %.0 = phi i32 [ 0, %17 ], [ 0, %38 ], [ 1, %49 ], [ 1, %54 ], [ 1, %74 ], [ 1, %78 ], [ 1, %123 ], [ 1, %129 ], [ 1, %140 ], [ 1, %284 ], [ 1, %302 ], [ 1, %318 ], [ 1, %329 ], [ %425, %426 ], [ %432, %431 ], [ 2, %422 ], [ 1, %378 ], [ 1, %344 ], [ 1, %.thread194 ], [ 1, %260 ], [ 1, %12 ], [ 1, %117 ], [ 1, %217 ], [ 1, %.thread181 ], [ 1, %205 ], [ 1, %180 ], [ 1, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

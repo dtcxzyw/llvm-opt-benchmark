@@ -575,7 +575,7 @@ define weak_odr dso_local void @_ZN3igl15project_to_lineIN5Eigen5BlockIKNS1_6Mat
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE11squaredNormEv.exit
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE11squaredNormEv.exit: ; preds = %.lr.ph85.i.i.i.i, %59, %51, %5
-  %.0.i.i = phi double [ 0.000000e+00, %5 ], [ %61, %59 ], [ %52, %51 ], [ %57, %.lr.ph85.i.i.i.i ]
+  %.0.i.i = phi double [ 0.000000e+00, %5 ], [ %52, %51 ], [ %61, %59 ], [ %57, %.lr.ph85.i.i.i.i ]
   store double %.0.i.i, ptr %10, align 8, !tbaa !8
   %sext = shl i64 %13, 32
   %62 = ashr exact i64 %sext, 32
@@ -1099,7 +1099,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal20sca
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit: ; preds = %.lr.ph85.i.i.i.i, %88, %80, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKS1_S7_EEEERKNS_9EigenBaseIT_EE.exit
-  %.0.i.i = phi double [ 0.000000e+00, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKS1_S7_EEEERKNS_9EigenBaseIT_EE.exit ], [ %90, %88 ], [ %81, %80 ], [ %86, %.lr.ph85.i.i.i.i ]
+  %.0.i.i = phi double [ 0.000000e+00, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKS1_S7_EEEERKNS_9EigenBaseIT_EE.exit ], [ %81, %80 ], [ %90, %88 ], [ %86, %.lr.ph85.i.i.i.i ]
   store double %.0.i.i, ptr %9, align 8, !tbaa !8
   %sext = shl i64 %12, 32
   %91 = ashr exact i64 %sext, 32
@@ -4638,7 +4638,7 @@ common.resume:                                    ; preds = %.body, %36
   br label %.loopexit54
 
 .loopexit54:                                      ; preds = %.lr.ph85.i.i.i, %92, %82, %.loopexit55
-  %.0.i = phi double [ 0.000000e+00, %.loopexit55 ], [ %95, %92 ], [ %83, %82 ], [ %90, %.lr.ph85.i.i.i ]
+  %.0.i = phi double [ 0.000000e+00, %.loopexit55 ], [ %83, %82 ], [ %95, %92 ], [ %90, %.lr.ph85.i.i.i ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %97 = load ptr, ptr %96, align 8, !tbaa !235
   %98 = load double, ptr %97, align 8, !tbaa !8

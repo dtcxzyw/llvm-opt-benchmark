@@ -1927,7 +1927,7 @@ define void @_ZN11uu_realpath6uu_app17h93fd05e1ad55e15aE(ptr noalias noundef wri
   ret void
 
 .body:                                            ; preds = %482, %456, %393, %330, %298, %266, %228, %196, %164, %131, %97, %499, %498, %497, %496, %495, %494, %493, %492, %491, %490, %487
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body222.ph, %487 ], [ %eh.lpad-body187.ph, %490 ], [ %eh.lpad-body154.ph, %491 ], [ %eh.lpad-body146.ph, %492 ], [ %eh.lpad-body129.ph, %493 ], [ %eh.lpad-body99.ph, %494 ], [ %eh.lpad-body92.ph, %495 ], [ %eh.lpad-body75.ph, %496 ], [ %eh.lpad-body58.ph, %497 ], [ %eh.lpad-body43.ph, %498 ], [ %500, %499 ], [ %98, %97 ], [ %132, %131 ], [ %165, %164 ], [ %197, %196 ], [ %229, %228 ], [ %267, %266 ], [ %299, %298 ], [ %331, %330 ], [ %394, %393 ], [ %457, %456 ], [ %483, %482 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body222.ph, %487 ], [ %457, %456 ], [ %eh.lpad-body187.ph, %490 ], [ %394, %393 ], [ %eh.lpad-body154.ph, %491 ], [ %331, %330 ], [ %eh.lpad-body146.ph, %492 ], [ %299, %298 ], [ %eh.lpad-body129.ph, %493 ], [ %267, %266 ], [ %eh.lpad-body99.ph, %494 ], [ %229, %228 ], [ %eh.lpad-body92.ph, %495 ], [ %197, %196 ], [ %eh.lpad-body75.ph, %496 ], [ %165, %164 ], [ %eh.lpad-body58.ph, %497 ], [ %132, %131 ], [ %eh.lpad-body43.ph, %498 ], [ %98, %97 ], [ %500, %499 ], [ %483, %482 ]
   resume { ptr, i32 } %.pn
 
 487:                                              ; preds = %461, %467
@@ -1942,12 +1942,12 @@ define void @_ZN11uu_realpath6uu_app17h93fd05e1ad55e15aE(ptr noalias noundef wri
   unreachable
 
 490:                                              ; preds = %398, %403, %420, %433
-  %eh.lpad-body187.ph = phi { ptr, i32 } [ %399, %398 ], [ %.pn.i.i181, %403 ], [ %.pn.i189, %420 ], [ %.pn.i200, %433 ]
+  %eh.lpad-body187.ph = phi { ptr, i32 } [ %399, %398 ], [ %.pn.i189, %420 ], [ %.pn.i.i181, %403 ], [ %.pn.i200, %433 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h4ae08ad55e0c4414E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %75) #10
           to label %.body unwind label %488
 
 491:                                              ; preds = %335, %340, %357, %370
-  %eh.lpad-body154.ph = phi { ptr, i32 } [ %336, %335 ], [ %.pn.i.i, %340 ], [ %.pn.i155, %357 ], [ %.pn.i162, %370 ]
+  %eh.lpad-body154.ph = phi { ptr, i32 } [ %336, %335 ], [ %.pn.i155, %357 ], [ %.pn.i.i, %340 ], [ %.pn.i162, %370 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h4ae08ad55e0c4414E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %74) #10
           to label %.body unwind label %488
 
@@ -2413,10 +2413,10 @@ _ZN3std4path4Path11starts_with17h5491bb8ddbc81f59E.exit: ; preds = %125
           to label %.thread unwind label %142
 
 .thread:                                          ; preds = %105, %156, %157
-  %.pn59112 = phi { ptr, i32 } [ %lpad.thr_comm, %157 ], [ %lpad.thr_comm.split-lp132, %156 ], [ %.pn, %105 ]
+  %.pn59112 = phi { ptr, i32 } [ %.pn, %105 ], [ %lpad.thr_comm, %157 ], [ %lpad.thr_comm.split-lp132, %156 ]
   resume { ptr, i32 } %.pn59112
 
-157:                                              ; preds = %58, %61, %64, %67, %81, %82, %91
+157:                                              ; preds = %91, %82, %81, %58, %61, %64, %67
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7fbdfdef2aca020bE"(ptr noalias noundef align 8 dereferenceable(24) %23) #10
@@ -2748,7 +2748,7 @@ _ZN11uu_realpath16process_relative17hb5196aa4c505ecefE.exit: ; preds = %25, %26,
   br label %40
 
 40:                                               ; preds = %36, %_ZN11uu_realpath16process_relative17hb5196aa4c505ecefE.exit, %9
-  %.0 = phi ptr [ %20, %9 ], [ %34, %_ZN11uu_realpath16process_relative17hb5196aa4c505ecefE.exit ], [ %39, %36 ]
+  %.0 = phi ptr [ %20, %9 ], [ %39, %36 ], [ %34, %_ZN11uu_realpath16process_relative17hb5196aa4c505ecefE.exit ]
   ret ptr %.0
 }
 

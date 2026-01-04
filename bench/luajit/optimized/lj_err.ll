@@ -462,8 +462,8 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   br label %262
 
 .split202.us.i:                                   ; preds = %235, %.lr.ph224.split.i, %175, %.lr.ph224.split.us243.i, %147, %139
-  %.lcssa151.i = phi i64 [ %140, %139 ], [ %140, %147 ], [ %169, %.lr.ph224.split.us243.i ], [ %169, %175 ], [ %197, %.lr.ph224.split.i ], [ %197, %235 ]
-  %.087.lcssa131.i = phi ptr [ %.087155.us191266.i, %139 ], [ %.087155.us191266.i, %147 ], [ %.087155223.us244.i, %.lr.ph224.split.us243.i ], [ %.087155223.us244.i, %175 ], [ %.087155223.i, %.lr.ph224.split.i ], [ %.087155223.i, %235 ]
+  %.lcssa151.i = phi i64 [ %140, %147 ], [ %169, %175 ], [ %140, %139 ], [ %169, %.lr.ph224.split.us243.i ], [ %197, %.lr.ph224.split.i ], [ %197, %235 ]
+  %.087.lcssa131.i = phi ptr [ %.087155.us191266.i, %147 ], [ %.087155223.us244.i, %175 ], [ %.087155.us191266.i, %139 ], [ %.087155223.us244.i, %.lr.ph224.split.us243.i ], [ %.087155223.i, %.lr.ph224.split.i ], [ %.087155223.i, %235 ]
   %209 = and i64 %.lcssa151.i, -8
   %210 = sub i64 0, %209
   %211 = getelementptr inbounds i8, ptr %.087.lcssa131.i, i64 %210
@@ -477,10 +477,10 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   br label %err_unwind.exit62
 
 .split160.us.i45:                                 ; preds = %.lr.ph224.split.i, %.lr.ph224.split.us243.i, %139, %97
-  %.us-phi161.i = phi i64 [ %98, %97 ], [ %140, %139 ], [ %169, %.lr.ph224.split.us243.i ], [ %197, %.lr.ph224.split.i ]
-  %.us-phi162.i = phi i64 [ %88, %97 ], [ %126, %139 ], [ %126, %.lr.ph224.split.us243.i ], [ %126, %.lr.ph224.split.i ]
-  %.us-phi163.i = phi ptr [ %.092154.us.i52, %97 ], [ %85, %139 ], [ %85, %.lr.ph224.split.us243.i ], [ %85, %.lr.ph224.split.i ]
-  %.us-phi164.i = phi ptr [ %.087155.us.i51, %97 ], [ %.087155.us191266.i, %139 ], [ %.087155223.us244.i, %.lr.ph224.split.us243.i ], [ %.087155223.i, %.lr.ph224.split.i ]
+  %.us-phi161.i = phi i64 [ %169, %.lr.ph224.split.us243.i ], [ %140, %139 ], [ %98, %97 ], [ %197, %.lr.ph224.split.i ]
+  %.us-phi162.i = phi i64 [ %126, %.lr.ph224.split.us243.i ], [ %126, %139 ], [ %88, %97 ], [ %126, %.lr.ph224.split.i ]
+  %.us-phi163.i = phi ptr [ %85, %.lr.ph224.split.us243.i ], [ %85, %139 ], [ %.092154.us.i52, %97 ], [ %85, %.lr.ph224.split.i ]
+  %.us-phi164.i = phi ptr [ %.087155223.us244.i, %.lr.ph224.split.us243.i ], [ %.087155.us191266.i, %139 ], [ %.087155.us.i51, %97 ], [ %.087155223.i, %.lr.ph224.split.i ]
   %216 = and i64 %.us-phi162.i, 1
   %.not104.i46 = icmp eq i64 %216, 0
   br i1 %.not104.i46, label %226, label %217
@@ -603,7 +603,7 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   unreachable
 
 err_unwind.exit62:                                ; preds = %108, %.split.us.i47, %.split.us.thread.i, %.split202.us.i, %217, %218, %226, %227, %.loopexit.i42, %.thread121.i44
-  %.4.i43 = phi ptr [ %11, %.thread121.i44 ], [ %.us-phi163.i, %226 ], [ %.us-phi163.i, %227 ], [ %.us-phi163.i, %217 ], [ %.us-phi163.i, %218 ], [ null, %.split202.us.i ], [ %261, %.loopexit.i42 ], [ %.us-phi.i, %.split.us.i47 ], [ %.us-phi361.i, %.split.us.thread.i ], [ null, %108 ]
+  %.4.i43 = phi ptr [ %11, %.thread121.i44 ], [ %.us-phi163.i, %227 ], [ %.us-phi163.i, %218 ], [ %.us-phi361.i, %.split.us.thread.i ], [ %261, %.loopexit.i42 ], [ %.us-phi163.i, %217 ], [ null, %.split202.us.i ], [ %.us-phi163.i, %226 ], [ %.us-phi.i, %.split.us.i47 ], [ null, %108 ]
   %272 = and i32 %1, 8
   %.not36 = icmp eq i32 %272, 0
   br i1 %.not36, label %273, label %err_unwind.exit.thread64
@@ -633,8 +633,8 @@ err_unwind.exit62:                                ; preds = %108, %.split.us.i47
   tail call void @_Unwind_SetIP(ptr noundef %4, i64 noundef ptrtoint (ptr @lj_vm_unwind_rethrow to i64)) #15
   br label %err_unwind.exit.thread64
 
-err_unwind.exit.thread64:                         ; preds = %41, %err_unwind.exit62, %281, %274, %69, %279, %err_unwind.exit.thread, %62, %err_unwind.exit, %5
-  %.0 = phi i32 [ 3, %5 ], [ 8, %err_unwind.exit ], [ 6, %62 ], [ 6, %err_unwind.exit.thread ], [ 8, %279 ], [ 8, %69 ], [ 8, %err_unwind.exit62 ], [ 7, %281 ], [ 7, %274 ], [ 8, %41 ]
+err_unwind.exit.thread64:                         ; preds = %41, %281, %274, %err_unwind.exit62, %69, %279, %err_unwind.exit.thread, %62, %err_unwind.exit, %5
+  %.0 = phi i32 [ 8, %err_unwind.exit62 ], [ 3, %5 ], [ 8, %err_unwind.exit ], [ 8, %69 ], [ 6, %62 ], [ 6, %err_unwind.exit.thread ], [ 8, %279 ], [ 7, %281 ], [ 7, %274 ], [ 8, %41 ]
   ret i32 %.0
 }
 
@@ -724,7 +724,7 @@ define internal range(i32 2, 8) i32 @err_unwind_jit(i32 noundef %0, i32 noundef 
   br label %25
 
 25:                                               ; preds = %11, %9, %5, %24
-  %.0 = phi i32 [ %.1, %24 ], [ 3, %5 ], [ 6, %9 ], [ 3, %11 ]
+  %.0 = phi i32 [ 6, %9 ], [ 3, %5 ], [ %.1, %24 ], [ 3, %11 ]
   ret i32 %.0
 }
 
@@ -1042,7 +1042,7 @@ default.unreachable:                              ; preds = %43
   br i1 %106, label %.preheader.i, label %finderrfunc.exit.thread, !llvm.loop !66
 
 finderrfunc.exit:                                 ; preds = %99, %80, %37
-  %107 = phi i64 [ %81, %80 ], [ %102, %99 ], [ %38, %37 ]
+  %107 = phi i64 [ %102, %99 ], [ %38, %37 ], [ %81, %80 ]
   %.not26 = icmp eq i64 %107, 0
   br i1 %.not26, label %finderrfunc.exit.thread, label %108
 
@@ -1435,8 +1435,8 @@ define hidden void @lj_err_callermsg(ptr noundef %0, ptr noundef %1) local_unnam
   br label %54
 
 54:                                               ; preds = %28, %15, %43, %32, %25, %2
-  %.023 = phi ptr [ null, %2 ], [ %11, %15 ], [ %11, %43 ], [ %11, %32 ], [ %11, %25 ], [ null, %28 ]
-  %.0 = phi ptr [ null, %2 ], [ %24, %15 ], [ %35, %43 ], [ %35, %32 ], [ null, %25 ], [ %11, %28 ]
+  %.023 = phi ptr [ null, %2 ], [ %11, %15 ], [ %11, %25 ], [ %11, %43 ], [ null, %28 ], [ %11, %32 ]
+  %.0 = phi ptr [ null, %2 ], [ %24, %15 ], [ null, %25 ], [ %35, %43 ], [ %11, %28 ], [ %35, %32 ]
   tail call void @lj_debug_addloc(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0, ptr noundef %.023) #15
   tail call void @lj_err_run(ptr noundef nonnull %0) #19
   unreachable
@@ -1623,7 +1623,7 @@ define hidden void @lj_err_argtype(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %44
 
 44:                                               ; preds = %.sink.split, %36, %7, %5
-  %.1.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @lj_obj_itypename, i64 88), %5 ], [ @lj_obj_typename, %7 ], [ @lj_obj_typename, %36 ], [ %43, %.sink.split ]
+  %.1.in = phi ptr [ @lj_obj_typename, %7 ], [ getelementptr inbounds nuw (i8, ptr @lj_obj_itypename, i64 88), %5 ], [ @lj_obj_typename, %36 ], [ %43, %.sink.split ]
   %.1 = load ptr, ptr %.1.in, align 8, !tbaa !36
   %45 = load ptr, ptr @lj_err_allmsg, align 8, !tbaa !36
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 517

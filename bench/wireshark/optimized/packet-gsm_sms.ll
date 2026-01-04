@@ -1575,7 +1575,7 @@ define internal range(i32 0, 2) i32 @sm_fragment_params_equal(ptr noundef readon
   br label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %60, %53, %51, %32, %24, %18, %14, %8, %2
-  %61 = phi i32 [ 0, %14 ], [ 0, %8 ], [ 0, %2 ], [ 0, %18 ], [ 0, %24 ], [ 0, %32 ], [ 0, %60 ], [ 1, %53 ], [ 1, %51 ]
+  %61 = phi i32 [ 0, %32 ], [ 0, %14 ], [ 0, %8 ], [ 0, %2 ], [ 0, %18 ], [ 0, %24 ], [ 0, %60 ], [ 1, %53 ], [ 1, %51 ]
   ret i32 %61
 }
 
@@ -2567,7 +2567,7 @@ default.unreachable:                              ; preds = %.preheader
   br label %.preheader
 
 .sink.split.i:                                    ; preds = %55, %140, %138, %132, %129, %118, %113, %108, %69, %63, %51, %43
-  %.sink234.sink.i = phi i32 [ %136, %138 ], [ 7, %51 ], [ %41, %43 ], [ 1, %118 ], [ 1, %132 ], [ 1, %129 ], [ 1, %108 ], [ 1, %113 ], [ 7, %140 ], [ 7, %69 ], [ 7, %63 ], [ 7, %55 ]
+  %.sink234.sink.i = phi i32 [ %41, %43 ], [ %136, %138 ], [ 7, %51 ], [ 1, %113 ], [ 1, %118 ], [ 1, %132 ], [ 1, %129 ], [ 1, %108 ], [ 7, %140 ], [ 7, %69 ], [ 7, %63 ], [ 7, %55 ]
   %189 = add i32 %38, %.sink234.sink.i
   br label %dis_field_vp.exit
 
@@ -3034,7 +3034,7 @@ default.unreachable35:                            ; preds = %4
   unreachable
 
 26:                                               ; preds = %11, %23, %20, %17
-  %hf_gsm_sms_tp_pid_device_type.sink = phi ptr [ @hf_gsm_sms_tp_pid_sc_specific, %23 ], [ @hf_gsm_sms_tp_pid_undefined, %20 ], [ @hf_gsm_sms_tp_pid_message_type, %17 ], [ %hf_gsm_sms_tp_pid_sm_al_proto.hf_gsm_sms_tp_pid_device_type, %11 ]
+  %hf_gsm_sms_tp_pid_device_type.sink = phi ptr [ %hf_gsm_sms_tp_pid_sm_al_proto.hf_gsm_sms_tp_pid_device_type, %11 ], [ @hf_gsm_sms_tp_pid_message_type, %17 ], [ @hf_gsm_sms_tp_pid_sc_specific, %23 ], [ @hf_gsm_sms_tp_pid_undefined, %20 ]
   %27 = load i32, ptr %hf_gsm_sms_tp_pid_device_type.sink, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %27, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
   ret void
@@ -3130,7 +3130,7 @@ default.unreachable72:                            ; preds = %.critedge, %23, %21
   br label %56
 
 .critedge71:                                      ; preds = %23, %23, %26
-  %.sink73 = phi i32 [ 4, %26 ], [ 1, %23 ], [ 1, %23 ]
+  %.sink73 = phi i32 [ 1, %23 ], [ 4, %26 ], [ 1, %23 ]
   store i32 %.sink73, ptr %4, align 4
   %41 = load i32, ptr @hf_gsm_sms_dcs_indication_sense, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %41, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
@@ -4296,7 +4296,7 @@ define internal range(i32 0, 2) i32 @sm_fragment_equal(ptr noundef readonly capt
   br label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %63, %56, %54, %35, %27, %21, %5, %11, %17, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %17 ], [ 0, %11 ], [ 0, %5 ], [ 0, %21 ], [ 0, %27 ], [ 0, %35 ], [ 0, %63 ], [ 1, %56 ], [ 1, %54 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %35 ], [ 0, %17 ], [ 0, %11 ], [ 0, %5 ], [ 0, %21 ], [ 0, %27 ], [ 0, %63 ], [ 1, %56 ], [ 1, %54 ]
   ret i32 %.0
 }
 

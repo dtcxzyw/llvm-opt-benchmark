@@ -708,7 +708,7 @@ define internal range(i32 0, 65536) i32 @dissect_ptpIP(ptr noundef %0, ptr nound
   unreachable
 
 98:                                               ; preds = %96, %95, %94, %93, %92, %87
-  %.0.i = phi ptr [ @ptp_opcode_canon_names_ext, %92 ], [ @ptp_opcode_nikon_names_ext, %93 ], [ @ptp_opcode_casio_names_ext, %94 ], [ @ptp_opcode_mtp_names_ext, %95 ], [ @ptp_opcode_olympus_names_ext, %96 ], [ @ptp_opcode_ek_names_ext, %87 ]
+  %.0.i = phi ptr [ @ptp_opcode_olympus_names_ext, %96 ], [ @ptp_opcode_canon_names_ext, %92 ], [ @ptp_opcode_nikon_names_ext, %93 ], [ @ptp_opcode_casio_names_ext, %94 ], [ @ptp_opcode_mtp_names_ext, %95 ], [ @ptp_opcode_ek_names_ext, %87 ]
   %99 = load i32, ptr @hf_ptp_vendor_opCode, align 4
   %100 = tail call ptr @val_to_str_ext_const(i32 noundef %86, ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.138)
   %101 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %18, i32 noundef %99, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef %86, ptr noundef nonnull @.str.137, ptr noundef %100, i32 noundef %86)
@@ -850,7 +850,7 @@ dissect_ptpIP_operation_response.exit:            ; preds = %128, %132
   br label %dissect_ptpIP_start_data.exit
 
 dissect_ptpIP_start_data.exit:                    ; preds = %157, %147, %11, %165, %159, %139, %dissect_ptpIP_operation_response.exit, %dissect_ptpIP_operation_request.exit, %80, %74, %47, %24
-  %.0100 = phi i32 [ 8, %11 ], [ %46, %24 ], [ %73, %47 ], [ 12, %74 ], [ 8, %80 ], [ %.1, %dissect_ptpIP_operation_request.exit ], [ 14, %dissect_ptpIP_operation_response.exit ], [ 14, %139 ], [ 12, %159 ], [ 12, %165 ], [ 20, %147 ], [ 20, %157 ]
+  %.0100 = phi i32 [ 8, %11 ], [ %46, %24 ], [ %73, %47 ], [ 12, %74 ], [ 8, %80 ], [ %.1, %dissect_ptpIP_operation_request.exit ], [ 14, %dissect_ptpIP_operation_response.exit ], [ 14, %139 ], [ 12, %165 ], [ 12, %159 ], [ 20, %147 ], [ 20, %157 ]
   %171 = and i32 %.0100, 65535
   br label %172
 

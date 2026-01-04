@@ -183,7 +183,7 @@ define dso_local i32 @zend_ssa_rename_op(ptr noundef readonly captures(none) %0,
   br i1 %74, label %75, label %410
 
 75:                                               ; preds = %298, %271, %312, %306, %303, %269, %99, %73, %56
-  %.1.i = phi i32 [ %.0.i, %73 ], [ %.3.i, %99 ], [ %4, %269 ], [ %4, %303 ], [ %4, %306 ], [ %4, %56 ], [ %4, %312 ], [ %4, %271 ], [ %4, %298 ]
+  %.1.i = phi i32 [ %.0.i, %73 ], [ %.3.i, %99 ], [ %4, %269 ], [ %4, %271 ], [ %4, %303 ], [ %4, %306 ], [ %4, %312 ], [ %4, %56 ], [ %4, %298 ]
   %76 = zext i32 %2 to i64
   %77 = getelementptr inbounds nuw %struct._zend_ssa_op, ptr %5, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 12
@@ -260,7 +260,7 @@ define dso_local i32 @zend_ssa_rename_op(ptr noundef readonly captures(none) %0,
   br label %126
 
 126:                                              ; preds = %118, %105, %101
-  %.4.i = phi i32 [ %125, %118 ], [ %4, %105 ], [ %4, %101 ]
+  %.4.i = phi i32 [ %125, %118 ], [ %4, %101 ], [ %4, %105 ]
   %127 = icmp eq i8 %9, 8
   br i1 %127, label %128, label %410
 
@@ -696,7 +696,7 @@ define dso_local i32 @zend_ssa_rename_op(ptr noundef readonly captures(none) %0,
   br label %410
 
 410:                                              ; preds = %402, %390, %386, %384, %345, %343, %332, %326, %._crit_edge, %312, %306, %304, %303, %298, %274, %271, %269, %258, %254, %230, %226, %218, %206, %202, %194, %181, %177, %169, %157, %153, %128, %126, %99, %75, %73, %56
-  %.2.i = phi i32 [ %4, %56 ], [ %85, %75 ], [ %.0.i, %73 ], [ %.3.i, %99 ], [ %138, %128 ], [ %.4.i, %126 ], [ %176, %169 ], [ %.5.i, %157 ], [ %.5.i, %153 ], [ %201, %194 ], [ %4, %181 ], [ %4, %177 ], [ %225, %218 ], [ %4, %206 ], [ %4, %202 ], [ %4, %230 ], [ %4, %226 ], [ %.6.i, %258 ], [ %.6.i, %254 ], [ %4, %269 ], [ %4, %271 ], [ %4, %274 ], [ %4, %303 ], [ %4, %298 ], [ %4, %304 ], [ %4, %312 ], [ %325, %._crit_edge ], [ %342, %332 ], [ %355, %345 ], [ %4, %343 ], [ %409, %402 ], [ %.8.i, %390 ], [ %.8.i, %386 ], [ %.8.i, %384 ], [ %4, %306 ], [ %4, %326 ]
+  %.2.i = phi i32 [ %4, %56 ], [ %85, %75 ], [ %.0.i, %73 ], [ %.3.i, %99 ], [ %138, %128 ], [ %.4.i, %126 ], [ %176, %169 ], [ %.5.i, %157 ], [ %.5.i, %153 ], [ %201, %194 ], [ %.8.i, %384 ], [ %4, %181 ], [ %4, %177 ], [ %225, %218 ], [ %4, %206 ], [ %4, %202 ], [ %4, %230 ], [ %4, %226 ], [ %.6.i, %258 ], [ %.6.i, %254 ], [ %4, %269 ], [ %.8.i, %386 ], [ %4, %271 ], [ %4, %274 ], [ %4, %303 ], [ %4, %298 ], [ %4, %306 ], [ %4, %304 ], [ %4, %312 ], [ %325, %._crit_edge ], [ %342, %332 ], [ %4, %326 ], [ %355, %345 ], [ %4, %343 ], [ %409, %402 ], [ %.8.i, %390 ]
   %411 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %412 = load i8, ptr %411, align 1, !tbaa !16
   %413 = and i8 %412, 14
@@ -1483,8 +1483,8 @@ default.unreachable.i:                            ; preds = %290
   unreachable
 
 .thread609.i:                                     ; preds = %394, %392, %391, %366, %._crit_edge641.i, %337, %335, %308, %306, %288, %285
-  %.1444613.i = phi i32 [ %.1444618.i, %308 ], [ %.1444618.i, %306 ], [ %.1444618.i, %366 ], [ %.1444618.i, %._crit_edge641.i ], [ %.1444618.i, %391 ], [ %.1444618.i, %394 ], [ %.1444618.i, %392 ], [ %.1444618.i, %335 ], [ %.1444618.i, %337 ], [ %.1444.i, %288 ], [ %.0443.i, %285 ]
-  %.1446612.i = phi i32 [ %.1446617.i, %308 ], [ %.1446617.i, %306 ], [ %.1446617.i, %366 ], [ %.1446617.i, %._crit_edge641.i ], [ %.1446617.i, %391 ], [ %.1446617.i, %394 ], [ %.1446617.i, %392 ], [ %.1446617.i, %335 ], [ %.1446617.i, %337 ], [ %.0445574.i, %288 ], [ %.3448599606.i, %285 ]
+  %.1444613.i = phi i32 [ %.1444.i, %288 ], [ %.0443.i, %285 ], [ %.1444618.i, %308 ], [ %.1444618.i, %306 ], [ %.1444618.i, %366 ], [ %.1444618.i, %._crit_edge641.i ], [ %.1444618.i, %391 ], [ %.1444618.i, %394 ], [ %.1444618.i, %392 ], [ %.1444618.i, %335 ], [ %.1444618.i, %337 ]
+  %.1446612.i = phi i32 [ %.0445574.i, %288 ], [ %.3448599606.i, %285 ], [ %.1446617.i, %308 ], [ %.1446617.i, %306 ], [ %.1446617.i, %366 ], [ %.1446617.i, %._crit_edge641.i ], [ %.1446617.i, %391 ], [ %.1446617.i, %394 ], [ %.1446617.i, %392 ], [ %.1446617.i, %335 ], [ %.1446617.i, %337 ]
   %406 = icmp sgt i32 %.1446612.i, -1
   br i1 %406, label %407, label %.thread609.thread.i
 
@@ -1659,12 +1659,12 @@ default.unreachable.i:                            ; preds = %290
   br label %.thread609.thread.sink.split.i
 
 .thread609.thread.sink.split.i:                   ; preds = %481, %._crit_edge642.i, %445, %426
-  %.sink712.i = phi ptr [ %425, %426 ], [ %480, %481 ], [ %444, %445 ], [ %463, %._crit_edge642.i ]
-  %.1444613.sink.i = phi i32 [ %.1444613.i, %426 ], [ -1, %481 ], [ %.1444613.i, %445 ], [ -1, %._crit_edge642.i ]
-  %.sink702.i = phi i64 [ %427, %426 ], [ -9223372036854775808, %481 ], [ %446, %445 ], [ -9223372036854775808, %._crit_edge642.i ]
-  %.sink699.i = phi i64 [ %427, %426 ], [ %482, %481 ], [ %446, %445 ], [ %448, %._crit_edge642.i ]
-  %.sink696.i = phi i8 [ 0, %426 ], [ 1, %481 ], [ 0, %445 ], [ 1, %._crit_edge642.i ]
-  %.sink.i = phi i32 [ 1, %426 ], [ 0, %481 ], [ 1, %445 ], [ 0, %._crit_edge642.i ]
+  %.sink712.i = phi ptr [ %425, %426 ], [ %444, %445 ], [ %480, %481 ], [ %463, %._crit_edge642.i ]
+  %.1444613.sink.i = phi i32 [ %.1444613.i, %426 ], [ %.1444613.i, %445 ], [ -1, %481 ], [ -1, %._crit_edge642.i ]
+  %.sink702.i = phi i64 [ %427, %426 ], [ %446, %445 ], [ -9223372036854775808, %481 ], [ -9223372036854775808, %._crit_edge642.i ]
+  %.sink699.i = phi i64 [ %427, %426 ], [ %446, %445 ], [ %482, %481 ], [ %448, %._crit_edge642.i ]
+  %.sink696.i = phi i8 [ 0, %426 ], [ 0, %445 ], [ 1, %481 ], [ 1, %._crit_edge642.i ]
+  %.sink.i = phi i32 [ 1, %426 ], [ 1, %445 ], [ 0, %481 ], [ 0, %._crit_edge642.i ]
   %483 = getelementptr inbounds nuw i8, ptr %.sink712.i, i64 16
   %484 = getelementptr inbounds nuw i8, ptr %.sink712.i, i64 40
   store i32 %.1444613.sink.i, ptr %484, align 8, !tbaa !83
@@ -2009,8 +2009,8 @@ default.unreachable.i:                            ; preds = %290
   br label %668
 
 668:                                              ; preds = %662, %657, %642, %637
-  %.0441.in.in.i = phi i32 [ %634, %642 ], [ %634, %637 ], [ %654, %662 ], [ %654, %657 ]
-  %.0440.i = phi ptr [ %647, %642 ], [ %641, %637 ], [ %667, %662 ], [ %661, %657 ]
+  %.0441.in.in.i = phi i32 [ %634, %637 ], [ %634, %642 ], [ %654, %662 ], [ %654, %657 ]
+  %.0440.i = phi ptr [ %641, %637 ], [ %647, %642 ], [ %667, %662 ], [ %661, %657 ]
   %.0441.in.i = lshr i32 %.0441.in.in.i, 4
   %.0441.i = add nsw i32 %.0441.in.i, -5
   %669 = getelementptr inbounds nuw i8, ptr %.0440.i, i64 8
@@ -2302,7 +2302,7 @@ zend_bitset_union.exit.us:                        ; preds = %.critedge.us416, %8
   br i1 %exitcond.not, label %zend_bitset_union.exit.us, label %.lr.ph409.split.us419
 
 zend_bitset_union.exit386.us:                     ; preds = %787, %.lr.ph.i382.us, %.lr.ph409.split.us.us.preheader, %zend_bitset_union.exit.us, %769, %763, %.lr.ph412.us
-  %.1321.us = phi i32 [ %.0320410.us, %.lr.ph412.us ], [ %.0320410.us, %763 ], [ %.0320410.us, %zend_bitset_union.exit.us ], [ %.0320410.us, %769 ], [ %.0320410.us, %.lr.ph409.split.us.us.preheader ], [ 1, %.lr.ph.i382.us ], [ %.0320410.us, %787 ]
+  %.1321.us = phi i32 [ %.0320410.us, %.lr.ph412.us ], [ %.0320410.us, %.lr.ph409.split.us.us.preheader ], [ %.0320410.us, %763 ], [ %.0320410.us, %769 ], [ %.0320410.us, %zend_bitset_union.exit.us ], [ 1, %.lr.ph.i382.us ], [ %.0320410.us, %787 ]
   %indvars.iv.next438 = add nuw nsw i64 %indvars.iv437, 1
   %exitcond441.not = icmp eq i64 %indvars.iv.next438, %wide.trip.count440
   br i1 %exitcond441.not, label %._crit_edge.us, label %.lr.ph412.us.backedge
@@ -2669,7 +2669,7 @@ zend_arena_alloc.exit:                            ; preds = %930, %932
   br label %959
 
 959:                                              ; preds = %.sink.split, %957, %826, %5
-  %.0313 = phi i32 [ -1, %5 ], [ -1, %826 ], [ 0, %957 ], [ %.0313.ph, %.sink.split ]
+  %.0313 = phi i32 [ -1, %826 ], [ -1, %5 ], [ 0, %957 ], [ %.0313.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0313
 }
@@ -2966,7 +2966,7 @@ define internal fastcc void @zend_ssa_rename(ptr noundef readonly captures(none)
   br i1 %139, label %140, label %.thread
 
 140:                                              ; preds = %358, %333, %370, %366, %363, %331, %164, %138, %124
-  %.1.i = phi i32 [ %.0.i, %138 ], [ %.3.i, %164 ], [ %.3288, %331 ], [ %.3288, %363 ], [ %.3288, %366 ], [ %.3288, %124 ], [ %.3288, %370 ], [ %.3288, %333 ], [ %.3288, %358 ]
+  %.1.i = phi i32 [ %.0.i, %138 ], [ %.3.i, %164 ], [ %.3288, %331 ], [ %.3288, %333 ], [ %.3288, %363 ], [ %.3288, %366 ], [ %.3288, %370 ], [ %.3288, %124 ], [ %.3288, %358 ]
   %141 = and i64 %78, 4294967295
   %142 = getelementptr inbounds nuw %struct._zend_ssa_op, ptr %11, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 12
@@ -3041,7 +3041,7 @@ define internal fastcc void @zend_ssa_rename(ptr noundef readonly captures(none)
   br label %190
 
 190:                                              ; preds = %182, %170, %166
-  %.4.i = phi i32 [ %189, %182 ], [ %.3288, %170 ], [ %.3288, %166 ]
+  %.4.i = phi i32 [ %189, %182 ], [ %.3288, %166 ], [ %.3288, %170 ]
   %191 = icmp eq i8 %80, 8
   br i1 %191, label %192, label %.thread
 
@@ -3462,7 +3462,7 @@ define internal fastcc void @zend_ssa_rename(ptr noundef readonly captures(none)
   br label %.thread
 
 .thread:                                          ; preds = %112, %457, %445, %441, %439, %401, %400, %389, %384, %._crit_edge352, %370, %366, %364, %363, %358, %335, %333, %331, %320, %316, %292, %288, %280, %268, %264, %256, %244, %240, %232, %220, %216, %192, %190, %164, %140, %138, %124
-  %.2.i = phi i32 [ %.3288, %124 ], [ %150, %140 ], [ %.0.i, %138 ], [ %.3.i, %164 ], [ %202, %192 ], [ %.4.i, %190 ], [ %239, %232 ], [ %.5.i, %220 ], [ %.5.i, %216 ], [ %263, %256 ], [ %.3288, %244 ], [ %.3288, %240 ], [ %287, %280 ], [ %.3288, %268 ], [ %.3288, %264 ], [ %.3288, %292 ], [ %.3288, %288 ], [ %.6.i, %320 ], [ %.6.i, %316 ], [ %.3288, %331 ], [ %.3288, %333 ], [ %.3288, %335 ], [ %.3288, %363 ], [ %.3288, %358 ], [ %.3288, %364 ], [ %.3288, %370 ], [ %383, %._crit_edge352 ], [ %399, %389 ], [ %411, %401 ], [ %.3288, %400 ], [ %464, %457 ], [ %.8.i, %445 ], [ %.8.i, %441 ], [ %.8.i, %439 ], [ %.3288, %366 ], [ %.3288, %384 ], [ %.3288, %112 ]
+  %.2.i = phi i32 [ %.3288, %124 ], [ %150, %140 ], [ %.0.i, %138 ], [ %.3.i, %164 ], [ %202, %192 ], [ %.4.i, %190 ], [ %239, %232 ], [ %.5.i, %220 ], [ %.5.i, %216 ], [ %263, %256 ], [ %.3288, %112 ], [ %.3288, %244 ], [ %.3288, %240 ], [ %287, %280 ], [ %.3288, %268 ], [ %.3288, %264 ], [ %.3288, %292 ], [ %.3288, %288 ], [ %.6.i, %320 ], [ %.6.i, %316 ], [ %.3288, %331 ], [ %.8.i, %439 ], [ %.3288, %333 ], [ %.3288, %335 ], [ %.3288, %363 ], [ %.3288, %358 ], [ %.3288, %366 ], [ %.3288, %364 ], [ %.3288, %370 ], [ %383, %._crit_edge352 ], [ %399, %389 ], [ %.3288, %384 ], [ %411, %401 ], [ %.3288, %400 ], [ %464, %457 ], [ %.8.i, %441 ], [ %.8.i, %445 ]
   %465 = getelementptr inbounds nuw i8, ptr %.0242284, i64 31
   %466 = load i8, ptr %465, align 1, !tbaa !16
   %467 = and i8 %466, 14
@@ -3518,8 +3518,8 @@ _zend_ssa_rename_op.exit:                         ; preds = %468, %.thread, %72
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.loopexit282, %481, %._crit_edge, %484, %488
-  %.3.lcssa371 = phi i32 [ %.4, %488 ], [ %.4, %484 ], [ %.4, %._crit_edge ], [ %.4, %481 ], [ %.0236, %.loopexit282 ]
-  %494 = phi ptr [ %493, %488 ], [ null, %484 ], [ null, %._crit_edge ], [ null, %481 ], [ null, %.loopexit282 ]
+  %.3.lcssa371 = phi i32 [ %.4, %488 ], [ %.4, %484 ], [ %.4, %481 ], [ %.4, %._crit_edge ], [ %.0236, %.loopexit282 ]
+  %494 = phi ptr [ %493, %488 ], [ null, %484 ], [ null, %481 ], [ null, %._crit_edge ], [ null, %.loopexit282 ]
   %495 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %496 = load i32, ptr %495, align 4, !tbaa !111
   %497 = icmp sgt i32 %496, 0
@@ -3784,7 +3784,7 @@ _zend_ssa_rename_op.exit:                         ; preds = %468, %.thread, %72
   br i1 %.not264, label %.critedge, label %588
 
 .critedge:                                        ; preds = %.preheader278, %588, %.loopexit, %502, %.preheader280
-  %.6.lcssa375 = phi i32 [ %.7, %.preheader280 ], [ %.5326, %502 ], [ %.7, %.loopexit ], [ %.7, %588 ], [ %.7, %.preheader278 ]
+  %.6.lcssa375 = phi i32 [ %.5326, %502 ], [ %.7, %.preheader280 ], [ %.7, %.loopexit ], [ %.7, %588 ], [ %.7, %.preheader278 ]
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %621 = load i32, ptr %495, align 4, !tbaa !111
   %622 = sext i32 %621 to i64
@@ -4543,7 +4543,7 @@ zend_ssa_next_use.exit62:                         ; preds = %56, %50
   br i1 %67, label %68, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %61, %46, %28
-  %.0.be = phi i32 [ %30, %28 ], [ %48, %46 ], [ %66, %61 ]
+  %.0.be = phi i32 [ %66, %61 ], [ %48, %46 ], [ %30, %28 ]
   br label %.preheader
 
 68:                                               ; preds = %61
@@ -4650,7 +4650,7 @@ define hidden void @zend_ssa_replace_use_chain(ptr noundef readonly captures(non
   br label %.loopexit
 
 47:                                               ; preds = %41, %31, %22
-  %.1 = phi i32 [ %24, %22 ], [ %33, %31 ], [ %43, %41 ]
+  %.1 = phi i32 [ %33, %31 ], [ %24, %22 ], [ %43, %41 ]
   %48 = icmp sgt i32 %.1, -1
   br i1 %48, label %16, label %.loopexit
 
@@ -5202,7 +5202,7 @@ zend_ssa_remove_use_of_phi_source.exit.us45.i:    ; preds = %102, %.critedge.i.u
   br i1 %exitcond65.not.i, label %zend_ssa_remove_uses_of_phi_sources.exit, label %.preheader.us.i
 
 zend_ssa_remove_uses_of_phi_sources.exit:         ; preds = %zend_ssa_remove_use_of_phi_source.exit.us45.i, %zend_ssa_remove_use_of_phi_source.exit.us.i, %11
-  %.pre-phi = phi i64 [ %.pre19, %zend_ssa_remove_use_of_phi_source.exit.us.i ], [ %16, %11 ], [ %16, %zend_ssa_remove_use_of_phi_source.exit.us45.i ]
+  %.pre-phi = phi i64 [ %16, %11 ], [ %.pre19, %zend_ssa_remove_use_of_phi_source.exit.us.i ], [ %16, %zend_ssa_remove_use_of_phi_source.exit.us45.i ]
   %103 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %103, align 8, !tbaa !59
   %104 = getelementptr inbounds %struct._zend_ssa_block, ptr %.val, i64 %.pre-phi
@@ -5757,7 +5757,7 @@ zend_ssa_next_use_phi.exit:                       ; preds = %103, %108, %99
   br label %146
 
 146:                                              ; preds = %141, %143, %131, %145, %135
-  %.1 = phi i1 [ true, %145 ], [ %.0127153, %135 ], [ true, %131 ], [ true, %143 ], [ true, %141 ]
+  %.1 = phi i1 [ %.0127153, %135 ], [ true, %145 ], [ true, %131 ], [ true, %143 ], [ true, %141 ]
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %147 = load i32, ptr %115, align 8, !tbaa !124
   %148 = sext i32 %147 to i64
@@ -5769,7 +5769,7 @@ zend_ssa_next_use_phi.exit:                       ; preds = %103, %108, %99
   br i1 %153, label %131, label %._crit_edge156
 
 ._crit_edge156:                                   ; preds = %146, %.preheader, %zend_ssa_next_use_phi.exit
-  %.013.i192198 = phi ptr [ %.013.i, %zend_ssa_next_use_phi.exit ], [ null, %.preheader ], [ %.013.i, %146 ]
+  %.013.i192198 = phi ptr [ null, %.preheader ], [ %.013.i, %zend_ssa_next_use_phi.exit ], [ %.013.i, %146 ]
   br i1 %3, label %154, label %167
 
 154:                                              ; preds = %._crit_edge156
@@ -6409,7 +6409,7 @@ zend_arena_alloc.exit:                            ; preds = %98, %100
   br label %needs_pi.exit
 
 needs_pi.exit:                                    ; preds = %dominates.exit.i.i, %21, %6, %zend_arena_alloc.exit, %150
-  %.0 = phi ptr [ %.0.i, %150 ], [ %.0.i, %zend_arena_alloc.exit ], [ null, %6 ], [ null, %21 ], [ null, %dominates.exit.i.i ]
+  %.0 = phi ptr [ %.0.i, %zend_arena_alloc.exit ], [ %.0.i, %150 ], [ null, %6 ], [ null, %21 ], [ null, %dominates.exit.i.i ]
   ret ptr %.0
 }
 
@@ -6634,7 +6634,7 @@ define internal fastcc range(i32 -5, 268435451) i32 @find_adjusted_tmp_var(ptr n
   br label %.thread63
 
 .thread63:                                        ; preds = %13, %4, %41, %26, %128, %108, %104, %64, %59, %91, %96, %72, %17, %14, %133, %98, %66, %30, %21
-  %.052 = phi i32 [ %25, %21 ], [ %34, %30 ], [ %71, %66 ], [ %103, %98 ], [ %138, %133 ], [ -1, %14 ], [ -1, %17 ], [ -1, %72 ], [ -1, %96 ], [ -1, %91 ], [ -1, %59 ], [ -1, %64 ], [ -1, %104 ], [ -1, %108 ], [ -1, %128 ], [ -1, %26 ], [ -1, %41 ], [ -1, %4 ], [ -1, %13 ]
+  %.052 = phi i32 [ %25, %21 ], [ %138, %133 ], [ %34, %30 ], [ %71, %66 ], [ %103, %98 ], [ -1, %14 ], [ -1, %17 ], [ -1, %72 ], [ -1, %41 ], [ -1, %96 ], [ -1, %91 ], [ -1, %59 ], [ -1, %64 ], [ -1, %104 ], [ -1, %108 ], [ -1, %128 ], [ -1, %26 ], [ -1, %4 ], [ -1, %13 ]
   ret i32 %.052
 }
 

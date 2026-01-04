@@ -253,7 +253,7 @@ define void @dlasd4_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br label %.sink.split
 
 .sink.split:                                      ; preds = %169, %177, %137, %145
-  %.0.sink2045 = phi double [ %144, %137 ], [ %152, %145 ], [ %176, %169 ], [ %184, %177 ]
+  %.0.sink2045 = phi double [ %152, %145 ], [ %144, %137 ], [ %176, %169 ], [ %184, %177 ]
   %185 = load i32, ptr %0, align 4, !tbaa !3
   %186 = sext i32 %185 to i64
   %187 = getelementptr inbounds double, ptr %20, i64 %186

@@ -187,11 +187,11 @@ isTestSkipped.exit.thread:                        ; preds = %38, %isTestSkipped.
   br label %160
 
 .thread114:                                       ; preds = %sub_0, %sub_1121, %.thread, %.tail119
-  %.071174 = phi i32 [ %0, %.tail119 ], [ %17, %.thread ], [ %0, %sub_1121 ], [ %0, %sub_0 ]
-  %.073170 = phi ptr [ %1, %.tail119 ], [ %18, %.thread ], [ %1, %sub_1121 ], [ %1, %sub_0 ]
-  %84 = phi i32 [ 0, %.tail119 ], [ -1, %.thread ], [ 0, %sub_1121 ], [ 0, %sub_0 ]
-  %85 = phi i1 [ %32, %.tail119 ], [ false, %.thread ], [ %32, %sub_1121 ], [ false, %sub_0 ]
-  %.079107111117 = phi i32 [ %31, %.tail119 ], [ 0, %.thread ], [ %31, %sub_1121 ], [ 0, %sub_0 ]
+  %.071174 = phi i32 [ %0, %sub_0 ], [ %0, %.tail119 ], [ %17, %.thread ], [ %0, %sub_1121 ]
+  %.073170 = phi ptr [ %1, %sub_0 ], [ %1, %.tail119 ], [ %18, %.thread ], [ %1, %sub_1121 ]
+  %84 = phi i32 [ 0, %sub_0 ], [ 0, %.tail119 ], [ -1, %.thread ], [ 0, %sub_1121 ]
+  %85 = phi i1 [ false, %sub_0 ], [ %32, %.tail119 ], [ false, %.thread ], [ %32, %sub_1121 ]
+  %.079107111117 = phi i32 [ 0, %sub_0 ], [ %31, %.tail119 ], [ 0, %.thread ], [ %31, %sub_1121 ]
   %86 = zext nneg i32 %.079107111117 to i64
   %87 = getelementptr inbounds nuw ptr, ptr %.073170, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8

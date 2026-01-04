@@ -183,7 +183,7 @@ _get_config.exit:                                 ; preds = %15, %12, %3
   br i1 %56, label %.lr.ph.i, label %_reset_counters.exit, !llvm.loop !8
 
 _reset_counters.exit:                             ; preds = %53, %26, %27
-  %57 = phi i32 [ %.pre, %26 ], [ %.pre39, %27 ], [ %54, %53 ]
+  %57 = phi i32 [ %.pre39, %27 ], [ %.pre, %26 ], [ %54, %53 ]
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph, label %._crit_edge
 
@@ -248,7 +248,7 @@ _reset_counters.exit:                             ; preds = %53, %26, %27
   unreachable
 
 ._crit_edge:                                      ; preds = %62, %32, %_reset_counters.exit
-  %84 = phi i32 [ %57, %_reset_counters.exit ], [ %.pre39, %32 ], [ %57, %62 ]
+  %84 = phi i32 [ %.pre39, %32 ], [ %57, %_reset_counters.exit ], [ %57, %62 ]
   %85 = add nsw i32 %84, 1
   store i32 %85, ptr @thru_put_size, align 4
   %86 = sext i32 %85 to i64
@@ -277,7 +277,7 @@ _reset_counters.exit:                             ; preds = %53, %26, %27
   unreachable
 
 101:                                              ; preds = %._crit_edge, %80, %72, %_get_config.exit
-  %.0 = phi i32 [ 0, %_get_config.exit ], [ 0, %72 ], [ 2050, %80 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 2050, %80 ], [ 0, %_get_config.exit ], [ 0, %72 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

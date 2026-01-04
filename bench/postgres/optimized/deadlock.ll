@@ -689,7 +689,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   br label %103
 
 103:                                              ; preds = %101, %98, %94
-  %.1132.i.us.i = phi i32 [ %.0131174.i.us.i, %101 ], [ %.0131174.i.us.i, %94 ], [ %100, %98 ]
+  %.1132.i.us.i = phi i32 [ %.0131174.i.us.i, %94 ], [ %.0131174.i.us.i, %101 ], [ %100, %98 ]
   %indvars.iv.next.i.us.i = add nsw i64 %indvars.iv.i.us.i, -1
   %104 = icmp sgt i64 %indvars.iv.i.us.i, 0
   br i1 %104, label %.lr.ph176.i.us.i, label %._crit_edge177.i.us.i, !llvm.loop !13
@@ -728,7 +728,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   br label %121
 
 121:                                              ; preds = %119, %116, %112
-  %.1136.i.us.i = phi i32 [ %.0135178.i.us.i, %119 ], [ %.0135178.i.us.i, %112 ], [ %118, %116 ]
+  %.1136.i.us.i = phi i32 [ %.0135178.i.us.i, %112 ], [ %.0135178.i.us.i, %119 ], [ %118, %116 ]
   %indvars.iv.next213.i.us.i = add nsw i64 %indvars.iv212.i.us.i, -1
   %122 = icmp sgt i64 %indvars.iv212.i.us.i, 0
   br i1 %122, label %.lr.ph180.i.us.i, label %._crit_edge181.i.us.i, !llvm.loop !14
@@ -880,8 +880,8 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   br label %TopoSort.exit.i
 
 TopoSort.exit.i:                                  ; preds = %.loopexit.i, %47
-  %187 = phi i32 [ %186, %.loopexit.i ], [ %34, %47 ]
-  %.121.i = phi i32 [ %56, %.loopexit.i ], [ %.02035.i, %47 ]
+  %187 = phi i32 [ %34, %47 ], [ %186, %.loopexit.i ]
+  %.121.i = phi i32 [ %.02035.i, %47 ], [ %56, %.loopexit.i ]
   %indvars.iv.next44.i = add nsw i64 %indvars.iv43.i, -1
   %188 = icmp slt i64 %indvars.iv43.i, 1
   %indvars.iv.next46.i = add nsw i64 %indvars.iv45.i, -1
@@ -948,7 +948,7 @@ ExpandConstraints.exit:                           ; preds = %TopoSort.exit.i
   br label %ExpandConstraints.exit.thread
 
 ExpandConstraints.exit.thread:                    ; preds = %.preheader.i.i, %152, %203, %194, %211, %._crit_edge, %1
-  %.09 = phi i32 [ -1, %1 ], [ %.010.lcssa, %._crit_edge ], [ %spec.select, %211 ], [ -1, %194 ], [ -1, %203 ], [ -1, %152 ], [ -1, %.preheader.i.i ]
+  %.09 = phi i32 [ -1, %1 ], [ %.010.lcssa, %._crit_edge ], [ -1, %203 ], [ -1, %152 ], [ %spec.select, %211 ], [ -1, %194 ], [ -1, %.preheader.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.09
 }
@@ -1045,7 +1045,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, 
   br i1 %.not42, label %.loopexit, label %.lr.ph52, !llvm.loop !23
 
 .loopexit:                                        ; preds = %38, %.critedge, %28, %26, %13, %15
-  %.0 = phi i1 [ true, %15 ], [ false, %13 ], [ true, %26 ], [ false, %28 ], [ true, %38 ], [ false, %.critedge ]
+  %.0 = phi i1 [ true, %15 ], [ true, %26 ], [ false, %13 ], [ false, %28 ], [ true, %38 ], [ false, %.critedge ]
   ret i1 %.0
 }
 
@@ -1277,7 +1277,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   br i1 %.not160, label %.loopexit, label %.lr.ph207, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph207, %._crit_edge, %116
-  %.2147 = phi ptr [ null, %116 ], [ %0, %._crit_edge ], [ %spec.select, %.lr.ph207 ]
+  %.2147 = phi ptr [ %0, %._crit_edge ], [ null, %116 ], [ %spec.select, %.lr.ph207 ]
   %.not161 = icmp eq ptr %.pre, null
   %.not162208218 = icmp eq ptr %.pre, %112
   %.not162208 = select i1 %.not161, i1 true, i1 %.not162208218
@@ -1348,7 +1348,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   br label %.thread181
 
 .thread181:                                       ; preds = %123, %135, %75, %89, %.loopexit, %66, %138, %90, %.critedge, %5
-  %.0 = phi i1 [ true, %90 ], [ true, %138 ], [ false, %5 ], [ true, %.critedge ], [ false, %66 ], [ false, %.loopexit ], [ false, %89 ], [ false, %75 ], [ false, %135 ], [ false, %123 ]
+  %.0 = phi i1 [ true, %138 ], [ true, %.critedge ], [ false, %5 ], [ true, %90 ], [ false, %66 ], [ false, %75 ], [ false, %.loopexit ], [ false, %89 ], [ false, %135 ], [ false, %123 ]
   ret i1 %.0
 }
 

@@ -429,12 +429,12 @@ _ZL10hb_bsearchIKmmEPT_RKT0_S2_mmPFiPKvS7_E.exit: ; preds = %64
   br i1 %.not20, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread, label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread.sink.split
 
 _ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread.sink.split: ; preds = %70, %18, %11
-  %.sink.i.sink = phi i32 [ %22, %18 ], [ %13, %11 ], [ %.016, %70 ]
+  %.sink.i.sink = phi i32 [ %13, %11 ], [ %22, %18 ], [ %.016, %70 ]
   store i32 %.sink.i.sink, ptr %3, align 4
   br label %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread
 
 _ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread: ; preds = %46, %67, %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread.sink.split, %70
-  %.0 = phi i32 [ 0, %70 ], [ 1, %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread.sink.split ], [ 0, %67 ], [ 0, %46 ]
+  %.0 = phi i32 [ 0, %70 ], [ 0, %67 ], [ 1, %_ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread.sink.split ], [ 0, %46 ]
   ret i32 %.0
 }
 

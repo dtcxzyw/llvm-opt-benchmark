@@ -121,7 +121,7 @@ define noundef nonnull ptr @l_MessageType_toCtorIdx(i8 noundef zeroext %0) local
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %1 ]
+  %.0 = phi ptr [ inttoptr (i64 7 to ptr), %4 ], [ inttoptr (i64 5 to ptr), %3 ], [ inttoptr (i64 3 to ptr), %2 ], [ inttoptr (i64 1 to ptr), %1 ]
   ret ptr %.0
 }
 
@@ -169,7 +169,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   br label %l_MessageType_toCtorIdx.exit
 
 l_MessageType_toCtorIdx.exit:                     ; preds = %lean_dec.exit, %13, %14, %15
-  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 7 to ptr), %15 ], [ inttoptr (i64 5 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
   ret ptr %.0.i
 }
 
@@ -505,7 +505,7 @@ lean_nat_eq.exit64.thread:                        ; preds = %lean_nat_eq.exit
 lean_dec.exit49:                                  ; preds = %63
   br i1 %58, label %65, label %104
 
-65:                                               ; preds = %64, %61, %lean_nat_eq.exit64.thread, %lean_dec.exit49
+65:                                               ; preds = %61, %64, %lean_nat_eq.exit64.thread, %lean_dec.exit49
   %66 = ptrtoint ptr %17 to i64
   %67 = and i64 %66, 1
   %.not102 = icmp eq i64 %67, 0
@@ -635,8 +635,8 @@ lean_nat_eq.exit76:                               ; preds = %101, %.critedge.i74
   %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__7 = select i1 %.0.i75, ptr @l_instFromJsonMessageType___closed__7, ptr @l_instFromJsonMessageType___closed__2
   br label %104
 
-104:                                              ; preds = %64, %61, %lean_nat_eq.exit64.thread, %lean_int_dec_lt.exit.thread93, %lean_int_dec_lt.exit.thread, %lean_obj_tag.exit, %lean_nat_eq.exit73, %lean_nat_eq.exit67, %lean_dec.exit49, %lean_nat_eq.exit70, %lean_nat_eq.exit76, %lean_int_dec_lt.exit
-  %.9.in = phi ptr [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__7, %lean_nat_eq.exit76 ], [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__6, %lean_nat_eq.exit73 ], [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__5, %lean_nat_eq.exit70 ], [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__4, %lean_nat_eq.exit67 ], [ @l_instFromJsonMessageType___closed__2, %lean_dec.exit49 ], [ @l_instFromJsonMessageType___closed__2, %lean_int_dec_lt.exit ], [ @l_instFromJsonMessageType___closed__2, %lean_obj_tag.exit ], [ @l_instFromJsonMessageType___closed__2, %lean_int_dec_lt.exit.thread ], [ @l_instFromJsonMessageType___closed__2, %lean_int_dec_lt.exit.thread93 ], [ @l_instFromJsonMessageType___closed__2, %lean_nat_eq.exit64.thread ], [ @l_instFromJsonMessageType___closed__2, %61 ], [ @l_instFromJsonMessageType___closed__2, %64 ]
+104:                                              ; preds = %61, %64, %lean_nat_eq.exit64.thread, %lean_int_dec_lt.exit.thread93, %lean_int_dec_lt.exit.thread, %lean_obj_tag.exit, %lean_nat_eq.exit73, %lean_nat_eq.exit67, %lean_dec.exit49, %lean_nat_eq.exit70, %lean_nat_eq.exit76, %lean_int_dec_lt.exit
+  %.9.in = phi ptr [ @l_instFromJsonMessageType___closed__2, %lean_int_dec_lt.exit ], [ @l_instFromJsonMessageType___closed__2, %lean_dec.exit49 ], [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__7, %lean_nat_eq.exit76 ], [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__6, %lean_nat_eq.exit73 ], [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__5, %lean_nat_eq.exit70 ], [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__4, %lean_nat_eq.exit67 ], [ @l_instFromJsonMessageType___closed__2, %lean_obj_tag.exit ], [ @l_instFromJsonMessageType___closed__2, %lean_int_dec_lt.exit.thread ], [ @l_instFromJsonMessageType___closed__2, %lean_int_dec_lt.exit.thread93 ], [ @l_instFromJsonMessageType___closed__2, %lean_nat_eq.exit64.thread ], [ @l_instFromJsonMessageType___closed__2, %64 ], [ @l_instFromJsonMessageType___closed__2, %61 ]
   %.9 = load ptr, ptr %.9.in, align 8, !tbaa !10
   ret ptr %.9
 }
@@ -980,7 +980,7 @@ lean_nat_abs.exit:                                ; preds = %lean_int_neg.exit.i
   br label %lean_dec.exit74
 
 lean_dec.exit74:                                  ; preds = %.thread, %94, %93, %91, %lean_nat_abs.exit
-  %.0.i140143 = phi ptr [ %.0.i140, %lean_nat_abs.exit ], [ %.0.i140, %91 ], [ %.0.i140, %93 ], [ %.0.i140, %94 ], [ %29, %.thread ]
+  %.0.i140143 = phi ptr [ %.0.i140, %94 ], [ %.0.i140, %lean_nat_abs.exit ], [ %.0.i140, %91 ], [ %.0.i140, %93 ], [ %29, %.thread ]
   %95 = ptrtoint ptr %.0.i140143 to i64
   %96 = and i64 %95, 1
   %.not166 = icmp eq i64 %96, 0
@@ -1029,7 +1029,7 @@ lean_nat_eq.exit112.thread:                       ; preds = %lean_nat_eq.exit109
 lean_dec.exit73:                                  ; preds = %105
   br i1 %100, label %115, label %107
 
-107:                                              ; preds = %lean_nat_eq.exit, %106, %103, %lean_dec.exit73
+107:                                              ; preds = %lean_nat_eq.exit, %103, %106, %lean_dec.exit73
   br i1 %.not164, label %108, label %lean_dec.exit72
 
 108:                                              ; preds = %107
@@ -1050,7 +1050,7 @@ lean_dec.exit73:                                  ; preds = %105
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %39) #6
   br label %lean_dec.exit72
 
-115:                                              ; preds = %lean_nat_eq.exit, %106, %103, %lean_dec.exit73
+115:                                              ; preds = %lean_nat_eq.exit, %103, %106, %lean_dec.exit73
   br i1 %.not164, label %117, label %lean_nat_eq.exit118.thread, !prof !15
 
 lean_nat_eq.exit118.thread:                       ; preds = %115
@@ -1289,7 +1289,7 @@ lean_dec.exit64:                                  ; preds = %177, %176, %174, %1
   br label %lean_dec.exit72
 
 lean_dec.exit72:                                  ; preds = %lean_obj_tag.exit, %187, %189, %190, %lean_dec.exit64, %181, %183, %184, %107, %111, %113, %114, %lean_dec.exit67, %lean_dec.exit71, %lean_dec.exit69, %lean_dec.exit65
-  %.9.in = phi ptr [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__7, %lean_dec.exit65 ], [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__6, %lean_dec.exit67 ], [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__5, %lean_dec.exit69 ], [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__4, %lean_dec.exit71 ], [ @l_instFromJsonMessageType___closed__2, %114 ], [ @l_instFromJsonMessageType___closed__2, %113 ], [ @l_instFromJsonMessageType___closed__2, %111 ], [ @l_instFromJsonMessageType___closed__2, %107 ], [ @l_instFromJsonMessageType___closed__2, %184 ], [ @l_instFromJsonMessageType___closed__2, %183 ], [ @l_instFromJsonMessageType___closed__2, %181 ], [ @l_instFromJsonMessageType___closed__2, %lean_dec.exit64 ], [ @l_instFromJsonMessageType___closed__2, %190 ], [ @l_instFromJsonMessageType___closed__2, %189 ], [ @l_instFromJsonMessageType___closed__2, %187 ], [ @l_instFromJsonMessageType___closed__2, %lean_obj_tag.exit ]
+  %.9.in = phi ptr [ @l_instFromJsonMessageType___closed__2, %lean_dec.exit64 ], [ @l_instFromJsonMessageType___closed__2, %107 ], [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__7, %lean_dec.exit65 ], [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__6, %lean_dec.exit67 ], [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__5, %lean_dec.exit69 ], [ %l_instFromJsonMessageType___closed__2.l_instFromJsonMessageType___closed__4, %lean_dec.exit71 ], [ @l_instFromJsonMessageType___closed__2, %114 ], [ @l_instFromJsonMessageType___closed__2, %113 ], [ @l_instFromJsonMessageType___closed__2, %111 ], [ @l_instFromJsonMessageType___closed__2, %184 ], [ @l_instFromJsonMessageType___closed__2, %183 ], [ @l_instFromJsonMessageType___closed__2, %181 ], [ @l_instFromJsonMessageType___closed__2, %190 ], [ @l_instFromJsonMessageType___closed__2, %189 ], [ @l_instFromJsonMessageType___closed__2, %187 ], [ @l_instFromJsonMessageType___closed__2, %lean_obj_tag.exit ]
   %.9 = load ptr, ptr %.9.in, align 8, !tbaa !10
   ret ptr %.9
 }
@@ -1876,7 +1876,7 @@ lean_alloc_ctor.exit134:                          ; preds = %lean_dec.exit
   br label %213
 
 213:                                              ; preds = %lean_alloc_ctor.exit127, %lean_dec.exit76, %lean_alloc_ctor.exit134, %lean_dec.exit73, %lean_dec.exit81, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %11, %lean_dec.exit81 ], [ %69, %lean_alloc_ctor.exit ], [ %94, %lean_dec.exit76 ], [ %152, %lean_alloc_ctor.exit127 ], [ %94, %lean_dec.exit73 ], [ %208, %lean_alloc_ctor.exit134 ]
+  %.1 = phi ptr [ %69, %lean_alloc_ctor.exit ], [ %11, %lean_dec.exit81 ], [ %152, %lean_alloc_ctor.exit127 ], [ %94, %lean_dec.exit76 ], [ %94, %lean_dec.exit73 ], [ %208, %lean_alloc_ctor.exit134 ]
   ret ptr %.1
 }
 
@@ -2234,8 +2234,8 @@ lean_alloc_ctor.exit52:                           ; preds = %lean_alloc_ctor.exi
   unreachable
 
 lean_alloc_ctor.exit53:                           ; preds = %53, %48, %43, %38
-  %.sink72 = phi ptr [ %40, %38 ], [ %45, %43 ], [ %50, %48 ], [ %55, %53 ]
-  %.sink = phi ptr [ %39, %38 ], [ %44, %43 ], [ %49, %48 ], [ %54, %53 ]
+  %.sink72 = phi ptr [ %50, %48 ], [ %45, %43 ], [ %40, %38 ], [ %55, %53 ]
+  %.sink = phi ptr [ %49, %48 ], [ %44, %43 ], [ %39, %38 ], [ %54, %53 ]
   %58 = getelementptr inbounds nuw i8, ptr %.sink72, i64 4
   store i32 1, ptr %.sink72, align 4, !tbaa !4
   store i32 16908312, ptr %58, align 4
@@ -2499,7 +2499,7 @@ lean_alloc_ctor.exit47:                           ; preds = %lean_dec.exit
   br label %84
 
 84:                                               ; preds = %lean_alloc_ctor.exit47, %60, %lean_dec.exit32, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %4, %lean_dec.exit32 ], [ %55, %lean_alloc_ctor.exit ], [ %79, %lean_alloc_ctor.exit47 ], [ %4, %60 ]
+  %.1 = phi ptr [ %55, %lean_alloc_ctor.exit ], [ %4, %lean_dec.exit32 ], [ %79, %lean_alloc_ctor.exit47 ], [ %4, %60 ]
   ret ptr %.1
 }
 
@@ -3163,7 +3163,7 @@ lean_dec.exit55:                                  ; preds = %104, %103, %101, %l
   br label %lean_dec.exit54
 
 lean_dec.exit54:                                  ; preds = %lean_inc.exit.thread, %115, %114, %112
-  %116 = phi ptr [ %77, %112 ], [ %77, %114 ], [ %77, %115 ], [ %79, %lean_inc.exit.thread ]
+  %116 = phi ptr [ %77, %115 ], [ %79, %lean_inc.exit.thread ], [ %77, %112 ], [ %77, %114 ]
   %117 = load ptr, ptr @l_Array_fromJson_x3f___at___private_Lean_Data_Lsp_Window_0__fromJsonShowMessageRequestParams____x40_Lean_Data_Lsp_Window___hyg_446____spec__3___closed__1, align 8, !tbaa !10
   %118 = tail call ptr @lean_string_append(ptr noundef %117, ptr noundef %116) #6
   %119 = ptrtoint ptr %116 to i64
@@ -3210,7 +3210,7 @@ lean_alloc_ctor.exit81:                           ; preds = %lean_dec.exit
   br label %135
 
 135:                                              ; preds = %lean_dec.exit55, %lean_alloc_ctor.exit81, %lean_dec.exit57, %lean_alloc_ctor.exit75, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %69, %lean_dec.exit57 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
+  %.0 = phi ptr [ %69, %lean_dec.exit57 ], [ %25, %lean_alloc_ctor.exit ], [ %45, %lean_alloc_ctor.exit75 ], [ %0, %lean_dec.exit55 ], [ %130, %lean_alloc_ctor.exit81 ]
   ret ptr %.0
 }
 
@@ -3697,7 +3697,7 @@ lean_alloc_ctor.exit152:                          ; preds = %lean_dec.exit94
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_inc.exit102.thread, %180, %179, %177
-  %181 = phi ptr [ %90, %177 ], [ %90, %179 ], [ %90, %180 ], [ %92, %lean_inc.exit102.thread ]
+  %181 = phi ptr [ %90, %180 ], [ %92, %lean_inc.exit102.thread ], [ %90, %177 ], [ %90, %179 ]
   %182 = ptrtoint ptr %181 to i64
   %183 = and i64 %182, 1
   %.not.i153 = icmp eq i64 %183, 0
@@ -3942,7 +3942,7 @@ lean_alloc_ctor.exit169:                          ; preds = %261
   br label %268
 
 268:                                              ; preds = %227, %266, %145, %lean_alloc_ctor.exit152, %lean_alloc_ctor.exit148, %116, %24, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit137, %lean_alloc_ctor.exit132, %10
-  %.090 = phi ptr [ %11, %10 ], [ %43, %lean_alloc_ctor.exit ], [ %13, %24 ], [ %13, %lean_alloc_ctor.exit132 ], [ %78, %lean_alloc_ctor.exit137 ], [ %.092, %227 ], [ %.0, %266 ], [ %136, %lean_alloc_ctor.exit148 ], [ %95, %116 ], [ %95, %145 ], [ %170, %lean_alloc_ctor.exit152 ]
+  %.090 = phi ptr [ %78, %lean_alloc_ctor.exit137 ], [ %11, %10 ], [ %13, %24 ], [ %43, %lean_alloc_ctor.exit ], [ %13, %lean_alloc_ctor.exit132 ], [ %.0, %266 ], [ %.092, %227 ], [ %95, %116 ], [ %136, %lean_alloc_ctor.exit148 ], [ %95, %145 ], [ %170, %lean_alloc_ctor.exit152 ]
   ret ptr %.090
 }
 
@@ -4804,7 +4804,7 @@ lean_alloc_ctor.exit205:                          ; preds = %lean_dec.exit
   br label %318
 
 318:                                              ; preds = %lean_alloc_ctor.exit187, %lean_dec.exit114, %lean_dec.exit105, %lean_alloc_ctor.exit205, %lean_dec.exit108, %lean_alloc_ctor.exit198, %lean_dec.exit120, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %11, %lean_dec.exit120 ], [ %69, %lean_alloc_ctor.exit ], [ %100, %lean_dec.exit114 ], [ %165, %lean_alloc_ctor.exit187 ], [ %190, %lean_dec.exit108 ], [ %255, %lean_alloc_ctor.exit198 ], [ %190, %lean_dec.exit105 ], [ %313, %lean_alloc_ctor.exit205 ]
+  %.1 = phi ptr [ %69, %lean_alloc_ctor.exit ], [ %11, %lean_dec.exit120 ], [ %165, %lean_alloc_ctor.exit187 ], [ %100, %lean_dec.exit114 ], [ %255, %lean_alloc_ctor.exit198 ], [ %190, %lean_dec.exit108 ], [ %190, %lean_dec.exit105 ], [ %313, %lean_alloc_ctor.exit205 ]
   ret ptr %.1
 }
 
@@ -5400,8 +5400,8 @@ lean_alloc_ctor.exit67:                           ; preds = %lean_alloc_ctor.exi
   unreachable
 
 lean_alloc_ctor.exit68:                           ; preds = %80, %75, %70, %65
-  %.sink91 = phi ptr [ %67, %65 ], [ %72, %70 ], [ %77, %75 ], [ %82, %80 ]
-  %.sink = phi ptr [ %66, %65 ], [ %71, %70 ], [ %76, %75 ], [ %81, %80 ]
+  %.sink91 = phi ptr [ %77, %75 ], [ %72, %70 ], [ %67, %65 ], [ %82, %80 ]
+  %.sink = phi ptr [ %76, %75 ], [ %71, %70 ], [ %66, %65 ], [ %81, %80 ]
   %85 = getelementptr inbounds nuw i8, ptr %.sink91, i64 4
   store i32 1, ptr %.sink91, align 4, !tbaa !4
   store i32 16908312, ptr %85, align 4

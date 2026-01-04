@@ -869,7 +869,7 @@ define linkonce_odr noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_impl
   br label %_ZN5Eigen6numext5hypotIfEENS_8internal12hypot_retvalINS2_36global_math_functions_filtering_baseIT_vE4typeEE4typeERKS5_SB_.exit.i
 
 _ZN5Eigen6numext5hypotIfEENS_8internal12hypot_retvalINS2_36global_math_functions_filtering_baseIT_vE4typeEE4typeERKS5_SB_.exit.i: ; preds = %41, %40, %34
-  %.0.i.i.i.i = phi float [ %47, %41 ], [ 0x7FF0000000000000, %34 ], [ 0x7FF8000000000000, %40 ]
+  %.0.i.i.i.i = phi float [ 0x7FF8000000000000, %40 ], [ 0x7FF0000000000000, %34 ], [ %47, %41 ]
   %48 = fcmp oeq float %35, 0.000000e+00
   %49 = fcmp ogt float %30, 0.000000e+00
   %50 = fneg float %.0.i.i.i.i
@@ -932,8 +932,8 @@ _ZN5Eigen6numext5hypotIfEENS_8internal12hypot_retvalINS2_36global_math_functions
   br label %88
 
 88:                                               ; preds = %79, %70, %63
-  %.sroa.077.0.i = phi float [ 0.000000e+00, %63 ], [ %76, %70 ], [ %87, %79 ]
-  %.sroa.16.0.i = phi float [ %65, %63 ], [ %78, %70 ], [ %85, %79 ]
+  %.sroa.077.0.i = phi float [ %87, %79 ], [ 0.000000e+00, %63 ], [ %76, %70 ]
+  %.sroa.16.0.i = phi float [ %85, %79 ], [ %65, %63 ], [ %78, %70 ]
   %89 = load float, ptr %0, align 4, !tbaa !6
   %90 = load float, ptr %1, align 4, !tbaa !6
   %91 = fmul float %.sroa.077.0.i, %90
@@ -1330,7 +1330,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi
   br label %64
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE11squaredNormEv.exit: ; preds = %.lr.ph85.i.i.i.i, %.lr.ph90.i.i.i.i, %51, %41
-  %61 = phi float [ %53, %51 ], [ %44, %41 ], [ %58, %.lr.ph90.i.i.i.i ], [ %49, %.lr.ph85.i.i.i.i ]
+  %61 = phi float [ %44, %41 ], [ %58, %.lr.ph90.i.i.i.i ], [ %53, %51 ], [ %49, %.lr.ph85.i.i.i.i ]
   %62 = load float, ptr %8, align 4, !tbaa !6
   %63 = fcmp ugt float %61, 0x3810000000000000
   br i1 %63, label %.critedge, label %64
@@ -1537,8 +1537,8 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit: ; preds = %4
   unreachable
 
 _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %22, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit, %19
-  %27 = phi ptr [ %21, %19 ], [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %23, %22 ]
-  %28 = phi ptr [ %21, %19 ], [ %15, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %23, %22 ]
+  %27 = phi ptr [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %21, %19 ], [ %23, %22 ]
+  %28 = phi ptr [ %15, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %21, %19 ], [ %23, %22 ]
   %29 = icmp samesign ugt i64 %11, 32768
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %31 = load i64, ptr %30, align 8, !tbaa !93
@@ -1584,8 +1584,8 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit39: ; preds = %_ZN5Eigen8i
   unreachable
 
 47:                                               ; preds = %39, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit39, %42
-  %48 = phi ptr [ %41, %39 ], [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit39 ], [ %43, %42 ]
-  %49 = phi ptr [ %41, %39 ], [ %35, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit39 ], [ %43, %42 ]
+  %48 = phi ptr [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit39 ], [ %41, %39 ], [ %43, %42 ]
+  %49 = phi ptr [ %35, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit39 ], [ %41, %39 ], [ %43, %42 ]
   %50 = icmp samesign ugt i64 %31, 32768
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load i64, ptr %51, align 8, !tbaa !93
@@ -1630,7 +1630,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit45: ; preds = %_ZN5E
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit46
 
 _ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit46: ; preds = %61, %63, %59, %57
-  %.pn.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %62, %63 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %60, %59 ], [ %62, %63 ], [ %62, %61 ]
   br i1 %29, label %64, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit47
 
 64:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit46
@@ -3621,7 +3621,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6M
   br label %77
 
 77:                                               ; preds = %71, %._crit_edge.i.i.i.i.i.us
-  %.072.i.i.i.i.i.us = phi <4 x float> [ %76, %71 ], [ %70, %._crit_edge.i.i.i.i.i.us ]
+  %.072.i.i.i.i.i.us = phi <4 x float> [ %70, %._crit_edge.i.i.i.i.i.us ], [ %76, %71 ]
   %78 = shufflevector <4 x float> %.072.i.i.i.i.i.us, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %79 = fadd <4 x float> %.072.i.i.i.i.i.us, %78
   %shift = shufflevector <4 x float> %79, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
@@ -4085,7 +4085,7 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIfLin1ELin1ELi0ELi2ELi2EEENS2_If
   br label %.body
 
 .body:                                            ; preds = %71, %134, %120, %94
-  %.pn.pn = phi { ptr, i32 } [ %135, %134 ], [ %121, %120 ], [ %95, %94 ], [ %72, %71 ]
+  %.pn.pn = phi { ptr, i32 } [ %135, %134 ], [ %95, %94 ], [ %121, %120 ], [ %72, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %136
 
@@ -4772,8 +4772,8 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit: ; preds = %4
   unreachable
 
 25:                                               ; preds = %17, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit, %20
-  %26 = phi ptr [ %19, %17 ], [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %21, %20 ]
-  %27 = phi ptr [ %19, %17 ], [ %.sroa.055.0.copyload, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %21, %20 ]
+  %26 = phi ptr [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %19, %17 ], [ %21, %20 ]
+  %27 = phi ptr [ %.sroa.055.0.copyload, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %19, %17 ], [ %21, %20 ]
   %28 = icmp samesign ugt i64 %.sroa.758.0.copyload, 32768
   %29 = load ptr, ptr %2, align 8, !tbaa !388
   invoke void @_ZN5Eigen8internal32triangular_matrix_vector_productIlLi6EfLb0EfLb0ELi1ELi0EE3runEllPKflS4_lPflRS3_(i64 noundef %.sroa.667.0.copyload, i64 noundef %.sroa.566.0.copyload, ptr noundef %.sroa.065.0.copyload, i64 noundef 2, ptr noundef nonnull %27, i64 noundef 1, ptr noundef %29, i64 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %5)
@@ -4958,7 +4958,7 @@ define linkonce_odr void @_ZN5Eigen8internal32triangular_matrix_vector_productIl
   br i1 %exitcond96.not.i.i.i, label %_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIffEEKNS_5BlockIKNS5_IKNS_3MapIKNS_6MatrixIfLin1ELin1ELi1ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb1EEELi1ELin1ELb0EEEKNS_9TransposeIKNS5_IKNS6_IKNS7_IfLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELin1ELi1ELb0EEEEEEEE3sumEv.exit, label %.lr.ph90.i.i.i, !llvm.loop !392
 
 _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIffEEKNS_5BlockIKNS5_IKNS_3MapIKNS_6MatrixIfLin1ELin1ELi1ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELi1ELin1ELb1EEELi1ELin1ELb0EEEKNS_9TransposeIKNS5_IKNS6_IKNS7_IfLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEELin1ELi1ELb0EEEEEEEE3sumEv.exit: ; preds = %.lr.ph85.i.i.i, %.lr.ph90.i.i.i, %71, %82
-  %.0.i = phi float [ %85, %82 ], [ %74, %71 ], [ %91, %.lr.ph90.i.i.i ], [ %80, %.lr.ph85.i.i.i ]
+  %.0.i = phi float [ %91, %.lr.ph90.i.i.i ], [ %74, %71 ], [ %85, %82 ], [ %80, %.lr.ph85.i.i.i ]
   %93 = mul nsw i64 %23, %7
   %94 = getelementptr inbounds float, ptr %6, i64 %93
   %95 = load float, ptr %94, align 4, !tbaa !6
@@ -5703,8 +5703,8 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit147: ; preds = %12
   unreachable
 
 _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %41, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit147, %38
-  %46 = phi ptr [ %40, %38 ], [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit147 ], [ %42, %41 ]
-  %47 = phi ptr [ %40, %38 ], [ %34, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit147 ], [ %42, %41 ]
+  %46 = phi ptr [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit147 ], [ %40, %38 ], [ %42, %41 ]
+  %47 = phi ptr [ %34, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit147 ], [ %40, %38 ], [ %42, %41 ]
   %48 = icmp samesign ugt i64 %29, 32768
   %49 = icmp ugt i64 %30, 4611686018427387903
   br i1 %49, label %50, label %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit
@@ -5749,8 +5749,8 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit: ; preds = %_ZN5Eigen8int
   unreachable
 
 65:                                               ; preds = %57, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit, %60
-  %66 = phi ptr [ %59, %57 ], [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %61, %60 ]
-  %67 = phi ptr [ %59, %57 ], [ %53, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %61, %60 ]
+  %66 = phi ptr [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %59, %57 ], [ %61, %60 ]
+  %67 = phi ptr [ %53, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %59, %57 ], [ %61, %60 ]
   %68 = icmp samesign ugt i64 %30, 32768
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %13, i8 0, i64 1024, i1 false), !tbaa !6
@@ -6046,7 +6046,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit181: ; preds = %_ZN5
   br label %165
 
 165:                                              ; preds = %161, %163, %136, %138, %142, %140, %110
-  %.pn139.pn = phi { ptr, i32 } [ %111, %110 ], [ %139, %138 ], [ %137, %136 ], [ %143, %142 ], [ %141, %140 ], [ %164, %163 ], [ %162, %161 ]
+  %.pn139.pn = phi { ptr, i32 } [ %111, %110 ], [ %141, %140 ], [ %162, %161 ], [ %137, %136 ], [ %139, %138 ], [ %143, %142 ], [ %164, %163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -6058,7 +6058,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit181: ; preds = %_ZN5
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit186
 
 _ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit186: ; preds = %165, %166, %97, %95
-  %.pn139.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %.pn139.pn, %165 ], [ %.pn139.pn, %166 ]
+  %.pn139.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %.pn139.pn, %166 ], [ %.pn139.pn, %165 ]
   br i1 %48, label %167, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit187
 
 167:                                              ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit186
@@ -6223,7 +6223,7 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_rhsIflNS0_22const_blas_d
   br i1 %100, label %.preheader83.us96, label %.preheader, !llvm.loop !419
 
 .preheader:                                       ; preds = %._crit_edge.us103, %._crit_edge.us, %.lr.ph94.split, %7
-  %.061.lcssa = phi i64 [ 0, %7 ], [ 0, %.lr.ph94.split ], [ %.2.lcssa.us, %._crit_edge.us ], [ %97, %._crit_edge.us103 ]
+  %.061.lcssa = phi i64 [ 0, %7 ], [ %.2.lcssa.us, %._crit_edge.us ], [ 0, %.lr.ph94.split ], [ %97, %._crit_edge.us103 ]
   %101 = icmp slt i64 %9, %4
   br i1 %101, label %.lr.ph111, label %._crit_edge112
 
@@ -8179,8 +8179,8 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit155: ; preds = %12
   unreachable
 
 _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %41, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit155, %38
-  %46 = phi ptr [ %40, %38 ], [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit155 ], [ %42, %41 ]
-  %47 = phi ptr [ %40, %38 ], [ %34, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit155 ], [ %42, %41 ]
+  %46 = phi ptr [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit155 ], [ %40, %38 ], [ %42, %41 ]
+  %47 = phi ptr [ %34, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit155 ], [ %40, %38 ], [ %42, %41 ]
   %48 = icmp samesign ugt i64 %29, 32768
   %49 = icmp ugt i64 %30, 4611686018427387903
   br i1 %49, label %50, label %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit
@@ -8225,8 +8225,8 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit: ; preds = %_ZN5Eigen8int
   unreachable
 
 65:                                               ; preds = %57, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit, %60
-  %66 = phi ptr [ %59, %57 ], [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %61, %60 ]
-  %67 = phi ptr [ %59, %57 ], [ %53, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %61, %60 ]
+  %66 = phi ptr [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %59, %57 ], [ %61, %60 ]
+  %67 = phi ptr [ %53, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %59, %57 ], [ %61, %60 ]
   %68 = icmp samesign ugt i64 %30, 32768
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %13, i8 0, i64 1024, i1 false), !tbaa !6
@@ -8522,7 +8522,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit189: ; preds = %_ZN5
   br label %168
 
 168:                                              ; preds = %164, %166, %139, %141, %145, %143, %110
-  %.pn146.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %142, %141 ], [ %140, %139 ], [ %146, %145 ], [ %144, %143 ], [ %167, %166 ], [ %165, %164 ]
+  %.pn146.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %144, %143 ], [ %140, %139 ], [ %165, %164 ], [ %142, %141 ], [ %167, %166 ], [ %146, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -8534,7 +8534,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit189: ; preds = %_ZN5
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit195
 
 _ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit195: ; preds = %168, %169, %97, %95
-  %.pn146.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %.pn146.pn.pn, %168 ], [ %.pn146.pn.pn, %169 ]
+  %.pn146.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %.pn146.pn.pn, %169 ], [ %.pn146.pn.pn, %168 ]
   br i1 %48, label %170, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit196
 
 170:                                              ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit195
@@ -8758,8 +8758,8 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   br label %128
 
 128:                                              ; preds = %120, %124, %127
-  %.0182 = phi i64 [ %.sroa.speculated128, %127 ], [ %88, %124 ], [ %88, %120 ]
-  %.093 = phi i64 [ %14, %127 ], [ 1572864, %124 ], [ %13, %120 ]
+  %.0182 = phi i64 [ %88, %124 ], [ %.sroa.speculated128, %127 ], [ %88, %120 ]
+  %.093 = phi i64 [ 1572864, %124 ], [ %14, %127 ], [ %13, %120 ]
   %129 = mul i64 %65, 12
   %130 = udiv i64 %.093, %129
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %.0182, i64 %130)
@@ -8908,7 +8908,7 @@ define linkonce_odr void @_ZN5Eigen8internal15queryCacheSizesERiS1_S1_(ptr nound
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %37, %36, %20
-  %.sink.i.i = phi ptr [ %1, %36 ], [ %2, %37 ], [ %0, %20 ]
+  %.sink.i.i = phi ptr [ %2, %37 ], [ %1, %36 ], [ %0, %20 ]
   store i32 %35, ptr %.sink.i.i, align 4, !tbaa !52
   br label %38
 
@@ -9022,7 +9022,7 @@ _ZN5Eigen8internal15cpuid_is_vendorEPiPKi.exit11.thread: ; preds = %3, %9, %47, 
   br label %.sink.split.i.i14
 
 .sink.split.i.i14:                                ; preds = %94, %93, %77
-  %.sink.i.i15 = phi ptr [ %1, %93 ], [ %2, %94 ], [ %0, %77 ]
+  %.sink.i.i15 = phi ptr [ %2, %94 ], [ %1, %93 ], [ %0, %77 ]
   store i32 %92, ptr %.sink.i.i15, align 4, !tbaa !52
   br label %95
 
@@ -9470,7 +9470,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELi2EEEE11setConstantERKf.exit
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELi2EEEE12_set_noaliasINS_7ProductINS_14TriangularViewIKNS_9TransposeIKNS1_IfLin1ELin1ELi1ELin1ELin1EEEEELj1EEENS1_IfLin1ELin1ELi0ELi2ELi2EEELi0EEEEERS2_RKNS_9DenseBaseIT_EE.exit.i
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELi2EEEE12_set_noaliasINS_7ProductINS_14TriangularViewIKNS_9TransposeIKNS1_IfLin1ELin1ELi1ELin1ELin1EEEEELj1EEENS1_IfLin1ELin1ELi0ELi2ELi2EEELi0EEEEERS2_RKNS_9DenseBaseIT_EE.exit.i: ; preds = %2, %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELi2EEEE11setConstantERKf.exit.loopexit.i.i.i.i.i.i, %20
-  %24 = phi ptr [ %.pre.i.i.i.i, %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELi2EEEE11setConstantERKf.exit.loopexit.i.i.i.i.i.i ], [ %.pre.i.i.i.i, %20 ], [ %8, %2 ]
+  %24 = phi ptr [ %.pre.i.i.i.i, %20 ], [ %.pre.i.i.i.i, %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELi2EEEE11setConstantERKf.exit.loopexit.i.i.i.i.i.i ], [ %8, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 1.000000e+00, ptr %3, align 4, !tbaa !6
   invoke void @_ZN5Eigen8internal23triangular_product_implILi1ELb1EKNS_9TransposeIKNS_6MatrixIfLin1ELin1ELi1ELin1ELin1EEEEELb0ENS3_IfLin1ELin1ELi0ELi2ELi2EEELb0EE3runINS3_IfLin1ELin1ELi0ELin1ELi2EEEEEvRT_RS7_RKS8_RKNSC_6ScalarE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(32) %24, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -9618,8 +9618,8 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit158: ; preds = %12
   unreachable
 
 _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %41, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit158, %38
-  %46 = phi ptr [ %40, %38 ], [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit158 ], [ %42, %41 ]
-  %47 = phi ptr [ %40, %38 ], [ %34, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit158 ], [ %42, %41 ]
+  %46 = phi ptr [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit158 ], [ %40, %38 ], [ %42, %41 ]
+  %47 = phi ptr [ %34, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit158 ], [ %40, %38 ], [ %42, %41 ]
   %48 = icmp samesign ugt i64 %29, 32768
   %49 = icmp ugt i64 %30, 4611686018427387903
   br i1 %49, label %50, label %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit
@@ -9664,8 +9664,8 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit: ; preds = %_ZN5Eigen8int
   unreachable
 
 65:                                               ; preds = %57, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit, %60
-  %66 = phi ptr [ %59, %57 ], [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %61, %60 ]
-  %67 = phi ptr [ %59, %57 ], [ %53, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %61, %60 ]
+  %66 = phi ptr [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %59, %57 ], [ %61, %60 ]
+  %67 = phi ptr [ %53, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %59, %57 ], [ %61, %60 ]
   %68 = icmp samesign ugt i64 %30, 32768
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %13, i8 0, i64 1024, i1 false), !tbaa !6
@@ -9978,7 +9978,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit192: ; preds = %_ZN5
   br label %184
 
 184:                                              ; preds = %180, %182, %159, %161, %165, %163, %118
-  %.pn150.pn.pn = phi { ptr, i32 } [ %119, %118 ], [ %162, %161 ], [ %160, %159 ], [ %166, %165 ], [ %164, %163 ], [ %183, %182 ], [ %181, %180 ]
+  %.pn150.pn.pn = phi { ptr, i32 } [ %119, %118 ], [ %164, %163 ], [ %160, %159 ], [ %181, %180 ], [ %162, %161 ], [ %183, %182 ], [ %166, %165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -9990,7 +9990,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit192: ; preds = %_ZN5
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit197
 
 _ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit197: ; preds = %184, %185, %103, %101
-  %.pn150.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %102, %101 ], [ %104, %103 ], [ %.pn150.pn.pn, %184 ], [ %.pn150.pn.pn, %185 ]
+  %.pn150.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %102, %101 ], [ %104, %103 ], [ %.pn150.pn.pn, %185 ], [ %.pn150.pn.pn, %184 ]
   br i1 %48, label %186, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit198
 
 186:                                              ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit197
@@ -10202,8 +10202,8 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit150: ; preds = %12
   unreachable
 
 _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %41, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit150, %38
-  %46 = phi ptr [ %40, %38 ], [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit150 ], [ %42, %41 ]
-  %47 = phi ptr [ %40, %38 ], [ %34, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit150 ], [ %42, %41 ]
+  %46 = phi ptr [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit150 ], [ %40, %38 ], [ %42, %41 ]
+  %47 = phi ptr [ %34, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit150 ], [ %40, %38 ], [ %42, %41 ]
   %48 = icmp samesign ugt i64 %29, 32768
   %49 = icmp ugt i64 %30, 4611686018427387903
   br i1 %49, label %50, label %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit
@@ -10248,8 +10248,8 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit: ; preds = %_ZN5Eigen8int
   unreachable
 
 65:                                               ; preds = %57, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit, %60
-  %66 = phi ptr [ %59, %57 ], [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %61, %60 ]
-  %67 = phi ptr [ %59, %57 ], [ %53, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %61, %60 ]
+  %66 = phi ptr [ null, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %59, %57 ], [ %61, %60 ]
+  %67 = phi ptr [ %53, %_ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit ], [ %59, %57 ], [ %61, %60 ]
   %68 = icmp samesign ugt i64 %30, 32768
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %13, i8 0, i64 1024, i1 false), !tbaa !6
@@ -10553,7 +10553,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit184: ; preds = %_ZN5
   br label %177
 
 177:                                              ; preds = %173, %175, %152, %154, %158, %156, %118
-  %.pn143.pn = phi { ptr, i32 } [ %119, %118 ], [ %155, %154 ], [ %153, %152 ], [ %159, %158 ], [ %157, %156 ], [ %176, %175 ], [ %174, %173 ]
+  %.pn143.pn = phi { ptr, i32 } [ %119, %118 ], [ %157, %156 ], [ %174, %173 ], [ %153, %152 ], [ %155, %154 ], [ %159, %158 ], [ %176, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -10565,7 +10565,7 @@ _ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit184: ; preds = %_ZN5
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit188
 
 _ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit188: ; preds = %177, %178, %103, %101
-  %.pn143.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %102, %101 ], [ %104, %103 ], [ %.pn143.pn, %177 ], [ %.pn143.pn, %178 ]
+  %.pn143.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %102, %101 ], [ %104, %103 ], [ %.pn143.pn, %178 ], [ %.pn143.pn, %177 ]
   br i1 %48, label %179, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit189
 
 179:                                              ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIfED2Ev.exit188

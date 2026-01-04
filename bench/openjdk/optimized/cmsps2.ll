@@ -726,7 +726,7 @@ WriteInputLUT.exit.i:                             ; preds = %EmitCIEBasedDEF.exi
   br label %GenerateCSA.exit
 
 GenerateCSA.exit:                                 ; preds = %WriteNamedColorCSA.exit.thread.i, %.thread.i, %74, %75, %288, %291
-  %.0.i = phi i32 [ %290, %288 ], [ 0, %291 ], [ %71, %.thread.i ], [ 0, %74 ], [ 0, %75 ], [ 0, %WriteNamedColorCSA.exit.thread.i ]
+  %.0.i = phi i32 [ 0, %75 ], [ %290, %288 ], [ 0, %291 ], [ %71, %.thread.i ], [ 0, %WriteNamedColorCSA.exit.thread.i ], [ 0, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %GenerateCRD.exit

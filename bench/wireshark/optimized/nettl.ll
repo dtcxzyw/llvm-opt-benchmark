@@ -147,7 +147,7 @@ define hidden range(i32 -1, 2) i32 @nettl_open(ptr noundef captures(none) %0, pt
   br label %51
 
 51:                                               ; preds = %45, %32, %12, %11, %8, %49
-  %.0 = phi i32 [ 1, %49 ], [ %., %8 ], [ 0, %11 ], [ -1, %12 ], [ %.50, %32 ], [ -1, %45 ]
+  %.0 = phi i32 [ %., %8 ], [ 0, %11 ], [ 1, %49 ], [ %.50, %32 ], [ -1, %12 ], [ -1, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -212,7 +212,7 @@ define internal noundef zeroext i1 @nettl_seek_read(ptr noundef captures(none) %
   br label %17
 
 17:                                               ; preds = %10, %13, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %13 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %13 ], [ false, %16 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -386,7 +386,7 @@ define internal fastcc noundef zeroext i1 @nettl_read_rec(ptr noundef captures(n
   br label %58
 
 58:                                               ; preds = %52, %50, %50, %50, %50, %50, %50, %54, %56, %57, %55, %53
-  %.sink222 = phi i32 [ 94, %54 ], [ 72, %56 ], [ 71, %57 ], [ 73, %55 ], [ 65, %53 ], [ 70, %50 ], [ 70, %50 ], [ 70, %50 ], [ 70, %50 ], [ 70, %50 ], [ 70, %50 ], [ 64, %52 ]
+  %.sink222 = phi i32 [ 70, %50 ], [ 94, %54 ], [ 72, %56 ], [ 71, %57 ], [ 73, %55 ], [ 65, %53 ], [ 70, %50 ], [ 70, %50 ], [ 70, %50 ], [ 70, %50 ], [ 70, %50 ], [ 64, %52 ]
   store i32 %.sink222, ptr %51, align 8
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %60 = load i8, ptr %59, align 4
@@ -543,9 +543,9 @@ define internal fastcc noundef zeroext i1 @nettl_read_rec(ptr noundef captures(n
   br label %.thread.sink.split
 
 173:                                              ; preds = %110, %108, %106, %104, %132
-  %.0175 = phi i32 [ %76, %104 ], [ %151, %132 ], [ %76, %106 ], [ %76, %108 ], [ %76, %110 ]
-  %.0174 = phi i32 [ %94, %104 ], [ %169, %132 ], [ %94, %106 ], [ %94, %108 ], [ %94, %110 ]
-  %.0172 = phi i32 [ %105, %104 ], [ 24, %132 ], [ 3, %106 ], [ 26, %108 ], [ 8, %110 ]
+  %.0175 = phi i32 [ %76, %106 ], [ %76, %108 ], [ %151, %132 ], [ %76, %104 ], [ %76, %110 ]
+  %.0174 = phi i32 [ %94, %106 ], [ %94, %108 ], [ %169, %132 ], [ %94, %104 ], [ %94, %110 ]
+  %.0172 = phi i32 [ 3, %106 ], [ 26, %108 ], [ 24, %132 ], [ %105, %104 ], [ 8, %110 ]
   %174 = icmp ult i32 %.0175, %.0172
   br i1 %174, label %175, label %.thread
 
@@ -597,11 +597,11 @@ define internal fastcc noundef zeroext i1 @nettl_read_rec(ptr noundef captures(n
   %213 = or disjoint i32 %209, %212
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %58, %115, %130, %95, %173
-  %.0172197 = phi i32 [ %.0172, %173 ], [ 0, %95 ], [ 0, %130 ], [ 0, %115 ], [ 0, %58 ], [ 0, %.thread.sink.split ]
-  %.0173196 = phi i1 [ false, %173 ], [ true, %95 ], [ false, %130 ], [ false, %115 ], [ false, %58 ], [ false, %.thread.sink.split ]
-  %.0174195 = phi i32 [ %.0174, %173 ], [ %94, %95 ], [ %127, %130 ], [ %127, %115 ], [ %94, %58 ], [ %213, %.thread.sink.split ]
-  %.0175194 = phi i32 [ %.0175, %173 ], [ %76, %95 ], [ %121, %130 ], [ %121, %115 ], [ %76, %58 ], [ %195, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %115, %130, %58, %95, %173
+  %.0172197 = phi i32 [ %.0172, %173 ], [ 0, %130 ], [ 0, %115 ], [ 0, %95 ], [ 0, %58 ], [ 0, %.thread.sink.split ]
+  %.0173196 = phi i1 [ false, %173 ], [ false, %130 ], [ false, %115 ], [ true, %95 ], [ false, %58 ], [ false, %.thread.sink.split ]
+  %.0174195 = phi i32 [ %.0174, %173 ], [ %127, %130 ], [ %127, %115 ], [ %94, %95 ], [ %94, %58 ], [ %213, %.thread.sink.split ]
+  %.0175194 = phi i32 [ %.0175, %173 ], [ %121, %130 ], [ %121, %115 ], [ %76, %95 ], [ %76, %58 ], [ %195, %.thread.sink.split ]
   store i32 0, ptr %2, align 8
   %214 = call ptr @wtap_block_create(i32 noundef 5)
   %215 = getelementptr inbounds nuw i8, ptr %2, i64 232
@@ -801,7 +801,7 @@ define internal fastcc noundef zeroext i1 @nettl_read_rec(ptr noundef captures(n
   br label %364
 
 364:                                              ; preds = %361, %358, %355, %353, %346, %344, %132, %130, %112, %110, %108, %106, %99, %97, %23, %20, %5, %363, %336, %220, %175, %17
-  %.0 = phi i1 [ false, %17 ], [ false, %175 ], [ false, %220 ], [ false, %336 ], [ true, %363 ], [ false, %5 ], [ false, %20 ], [ false, %23 ], [ false, %97 ], [ false, %99 ], [ false, %106 ], [ false, %108 ], [ false, %110 ], [ false, %112 ], [ false, %130 ], [ false, %132 ], [ false, %344 ], [ true, %346 ], [ false, %353 ], [ true, %355 ], [ false, %358 ], [ false, %361 ]
+  %.0 = phi i1 [ false, %17 ], [ false, %175 ], [ false, %220 ], [ false, %336 ], [ false, %344 ], [ false, %353 ], [ true, %363 ], [ true, %355 ], [ true, %346 ], [ false, %132 ], [ false, %358 ], [ false, %97 ], [ false, %23 ], [ false, %99 ], [ false, %106 ], [ false, %108 ], [ false, %112 ], [ false, %110 ], [ false, %130 ], [ false, %20 ], [ false, %5 ], [ false, %361 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1043,7 +1043,7 @@ define internal zeroext i1 @nettl_dump(ptr noundef %0, ptr noundef readonly capt
   br label %86
 
 86:                                               ; preds = %82, %80, %76, %74, %73, %20, %15, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %15 ], [ false, %20 ], [ false, %73 ], [ false, %74 ], [ false, %76 ], [ false, %80 ], [ %85, %82 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %15 ], [ false, %20 ], [ false, %73 ], [ false, %80 ], [ %85, %82 ], [ false, %76 ], [ false, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0

@@ -1691,8 +1691,8 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h29ddc6
   %.not24 = icmp eq i64 %10, %27
   br i1 %.not24, label %.thread, label %31
 
-.thread:                                          ; preds = %33, %35, %36, %26, %25
-  %.sroa.01.0 = phi ptr [ %7, %26 ], [ %7, %25 ], [ %37, %36 ], [ inttoptr (i64 8 to ptr), %35 ], [ inttoptr (i64 8 to ptr), %33 ]
+.thread:                                          ; preds = %35, %33, %36, %26, %25
+  %.sroa.01.0 = phi ptr [ %7, %25 ], [ %7, %26 ], [ %37, %36 ], [ inttoptr (i64 8 to ptr), %33 ], [ inttoptr (i64 8 to ptr), %35 ]
   %28 = lshr i64 %10, 4
   store i64 %28, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2223,8 +2223,8 @@ define void @_ZN4jiff5civil4time4Time32overflowing_add_duration_general17h77ea31
   %28 = mul i128 %27, %26
   %.decomposed = sub i128 %.frozen, %28
   %29 = icmp slt i128 %.decomposed, 0
-  %extract.t68 = trunc i128 %27 to i32
-  %extract.t72 = trunc i128 %27 to i64
+  %extract.t66 = trunc i128 %27 to i32
+  %extract.t70 = trunc i128 %27 to i64
   br i1 %29, label %30, label %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit"
 
 30:                                               ; preds = %25
@@ -2233,19 +2233,19 @@ define void @_ZN4jiff5civil4time4Time32overflowing_add_duration_general17h77ea31
 
 32:                                               ; preds = %30
   %33 = add nsw i128 %27, 1
-  %extract.t67 = trunc i128 %33 to i32
-  %extract.t71 = trunc i128 %33 to i64
+  %extract.t68 = trunc i128 %33 to i32
+  %extract.t72 = trunc i128 %33 to i64
   br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit"
 
 34:                                               ; preds = %30
   %35 = add nsw i128 %27, -1
-  %extract.t66 = trunc i128 %35 to i32
-  %extract.t70 = trunc i128 %35 to i64
+  %extract.t67 = trunc i128 %35 to i32
+  %extract.t71 = trunc i128 %35 to i64
   br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit"
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit": ; preds = %34, %32, %25
-  %.sroa.027.0.off0 = phi i32 [ %extract.t66, %34 ], [ %extract.t67, %32 ], [ %extract.t68, %25 ]
-  %.sroa.027.0.off069 = phi i64 [ %extract.t70, %34 ], [ %extract.t71, %32 ], [ %extract.t72, %25 ]
+  %.sroa.027.0.off0 = phi i32 [ %extract.t66, %25 ], [ %extract.t67, %34 ], [ %extract.t68, %32 ]
+  %.sroa.027.0.off069 = phi i64 [ %extract.t70, %25 ], [ %extract.t71, %34 ], [ %extract.t72, %32 ]
   %36 = add i64 %.sroa.027.0.off069, -2147483648
   %or.cond.i = icmp ult i64 %36, -4294967296
   br i1 %or.cond.i, label %37, label %39, !prof !241
@@ -2602,8 +2602,8 @@ define noundef ptr @_ZN4jiff5error5Error12context_impl17hbda6a31ae441b165E(ptr n
           to label %16 unwind label %14
 
 "_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$jiff..error..Error$GT$$GT$17h059b4129435b71f4E.exit10": ; preds = %52, %56, %35, %17, %14
-  %.sroa.03.0 = phi i1 [ false, %35 ], [ true, %14 ], [ true, %17 ], [ false, %56 ], [ false, %52 ]
-  %.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %15, %14 ], [ %18, %17 ], [ %53, %56 ], [ %53, %52 ]
+  %.sroa.03.0 = phi i1 [ true, %17 ], [ false, %35 ], [ true, %14 ], [ false, %56 ], [ false, %52 ]
+  %.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %36, %35 ], [ %15, %14 ], [ %53, %56 ], [ %53, %52 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #23
           to label %59 unwind label %57
 
@@ -3087,7 +3087,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit.i: ; preds = %14
   br label %"_ZN57_$LT$jiff..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17hd687c60c4c84160cE.exit"
 
 "_ZN57_$LT$jiff..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17hd687c60c4c84160cE.exit": ; preds = %26, %21, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit.i, %18, %32, %38
-  %.sroa.0.0.in = phi i1 [ %37, %32 ], [ %40, %38 ], [ %20, %18 ], [ false, %21 ], [ true, %26 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit.i ]
+  %.sroa.0.0.in = phi i1 [ %40, %38 ], [ %37, %32 ], [ %20, %18 ], [ false, %21 ], [ true, %26 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit.i ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -4159,7 +4159,7 @@ define noundef zeroext i1 @_ZN4jiff3fmt8friendly7printer17FractionalPrinter9is_p
   br label %16
 
 16:                                               ; preds = %4, %1, %8
-  %.sroa.0.0 = phi i1 [ %15, %8 ], [ true, %1 ], [ false, %4 ]
+  %.sroa.0.0 = phi i1 [ true, %1 ], [ %15, %8 ], [ false, %4 ]
   ret i1 %.sroa.0.0
 }
 
@@ -4523,9 +4523,9 @@ define { i64, i32 } @_ZN4jiff15signed_duration14SignedDuration14datetime_until17
   %43 = add nsw i32 %25, -1000000000
   br label %44
 
-44:                                               ; preds = %41, %38, %33, %31, %29
-  %.sroa.4.0.ph = phi i64 [ %27, %33 ], [ %39, %38 ], [ %42, %41 ], [ 0, %31 ], [ %27, %29 ]
-  %.sroa.6.0.ph = phi i32 [ %25, %33 ], [ %40, %38 ], [ %43, %41 ], [ %25, %31 ], [ 0, %29 ]
+44:                                               ; preds = %31, %29, %41, %38, %33
+  %.sroa.4.0.ph = phi i64 [ %42, %41 ], [ 0, %31 ], [ %27, %29 ], [ %27, %33 ], [ %39, %38 ]
+  %.sroa.6.0.ph = phi i32 [ %43, %41 ], [ %25, %31 ], [ 0, %29 ], [ %25, %33 ], [ %40, %38 ]
   %45 = insertvalue { i64, i32 } poison, i64 %.sroa.4.0.ph, 0
   %46 = insertvalue { i64, i32 } %45, i32 %.sroa.6.0.ph, 1
   ret { i64, i32 } %46
@@ -4683,7 +4683,7 @@ define internal noundef zeroext i1 @"_ZN76_$LT$jiff..signed_duration..SignedDura
   br label %19
 
 19:                                               ; preds = %20, %13, %17, %9
-  %.sroa.0.1 = phi i1 [ false, %9 ], [ true, %17 ], [ false, %13 ], [ true, %20 ]
+  %.sroa.0.1 = phi i1 [ true, %17 ], [ false, %9 ], [ false, %13 ], [ true, %20 ]
   ret i1 %.sroa.0.1
 
 20:                                               ; preds = %13
@@ -4854,7 +4854,7 @@ define void @_ZN4jiff15signed_duration19SignedDurationRound5round17h9b8375263a23
   br label %"_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit"
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$10div_euclid17h24c2424823b6c63eE.exit": ; preds = %53, %51, %44
-  %.sroa.010.0 = phi i128 [ %54, %53 ], [ %52, %51 ], [ %46, %44 ]
+  %.sroa.010.0 = phi i128 [ %46, %44 ], [ %54, %53 ], [ %52, %51 ]
   store i128 %.sroa.010.0, ptr %7, align 16
   %55 = add i128 %.sroa.010.0, -9223372036854775808
   %or.cond.i = icmp ult i128 %55, -18446744073709551616
@@ -5422,7 +5422,7 @@ default.unreachable35:                            ; preds = %16
   br label %37
 
 37:                                               ; preds = %48, %46, %30, %25, %74, %65, %66, %61, %58, %59, %54, %51, %52, %35, %16
-  %.sroa.013.0 = phi i128 [ %36, %35 ], [ %.sink3.i33, %16 ], [ %53, %52 ], [ %.sink3.i33, %54 ], [ %.sink3.i33, %51 ], [ %60, %59 ], [ %.sink3.i33, %61 ], [ %.sink3.i33, %58 ], [ %67, %66 ], [ %.sink3.i33, %74 ], [ %.sink3.i33, %65 ], [ %spec.select, %25 ], [ %spec.select28, %30 ], [ %spec.select29, %46 ], [ %spec.select30, %48 ]
+  %.sroa.013.0 = phi i128 [ %.sink3.i33, %65 ], [ %spec.select30, %48 ], [ %spec.select, %25 ], [ %.sink3.i33, %74 ], [ %36, %35 ], [ %.sink3.i33, %16 ], [ %53, %52 ], [ %.sink3.i33, %54 ], [ %.sink3.i33, %51 ], [ %60, %59 ], [ %.sink3.i33, %61 ], [ %.sink3.i33, %58 ], [ %spec.select28, %30 ], [ %67, %66 ], [ %spec.select29, %46 ]
   %38 = tail call { i128, i1 } @llvm.smul.with.overflow.i128(i128 %.sroa.013.0, i128 %2)
   %39 = extractvalue { i128, i1 } %38, 0
   %40 = extractvalue { i128, i1 } %38, 1

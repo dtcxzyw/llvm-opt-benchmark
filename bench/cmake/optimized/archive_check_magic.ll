@@ -54,8 +54,8 @@ archive_handle_type_name.exit:                    ; preds = %4
   tail call fastcc void @diediedie() #9
   unreachable
 
-12:                                               ; preds = %8, %9, %10, %11, %4
-  %.0.i.ph = phi ptr [ @.str.4, %4 ], [ @.str.8, %11 ], [ @.str.7, %10 ], [ @.str.6, %9 ], [ @.str.5, %8 ]
+12:                                               ; preds = %11, %8, %9, %10, %4
+  %.0.i.ph = phi ptr [ @.str.4, %4 ], [ @.str.7, %10 ], [ @.str.6, %9 ], [ @.str.5, %8 ], [ @.str.8, %11 ]
   %.not19 = icmp eq i32 %7, %1
   br i1 %.not19, label %15, label %13
 
@@ -115,7 +115,7 @@ archive_handle_type_name.exit:                    ; preds = %4
   br label %state_name.exit.i
 
 state_name.exit.i:                                ; preds = %31, %30, %29, %28, %27, %26, %.lr.ph.i
-  %.0.i.i = phi ptr [ @.str.16, %31 ], [ @.str.11, %26 ], [ @.str.12, %27 ], [ @.str.13, %28 ], [ @.str.14, %29 ], [ @.str.15, %30 ], [ @.str.10, %.lr.ph.i ]
+  %.0.i.i = phi ptr [ @.str.16, %31 ], [ @.str.15, %30 ], [ @.str.11, %26 ], [ @.str.12, %27 ], [ @.str.13, %28 ], [ @.str.14, %29 ], [ @.str.10, %.lr.ph.i ]
   %32 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %.0.i.i) #10
   %.not9.i = icmp eq i32 %24, %.011.i
   br i1 %.not9.i, label %34, label %33
@@ -171,7 +171,7 @@ write_all_states.exit:                            ; preds = %34, %21
   br label %state_name.exit.i24
 
 state_name.exit.i24:                              ; preds = %46, %45, %44, %43, %42, %41, %.lr.ph.i22
-  %.0.i.i25 = phi ptr [ @.str.16, %46 ], [ @.str.11, %41 ], [ @.str.12, %42 ], [ @.str.13, %43 ], [ @.str.14, %44 ], [ @.str.15, %45 ], [ @.str.10, %.lr.ph.i22 ]
+  %.0.i.i25 = phi ptr [ @.str.16, %46 ], [ @.str.15, %45 ], [ @.str.11, %41 ], [ @.str.12, %42 ], [ @.str.13, %43 ], [ @.str.14, %44 ], [ @.str.10, %.lr.ph.i22 ]
   %47 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %.0.i.i25) #10
   %.not9.i26 = icmp eq i32 %39, %.011.i23
   br i1 %.not9.i26, label %49, label %48

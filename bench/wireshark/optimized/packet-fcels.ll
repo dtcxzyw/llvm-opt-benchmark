@@ -1025,8 +1025,8 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %196
 
 31:                                               ; preds = %.thread, %20
-  %.2289 = phi i32 [ 131072, %20 ], [ %., %.thread ]
-  %.2286 = phi i32 [ 2, %20 ], [ %.325, %.thread ]
+  %.2289 = phi i32 [ %., %.thread ], [ 131072, %20 ]
+  %.2286 = phi i32 [ %.325, %.thread ], [ 2, %20 ]
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -1160,8 +1160,8 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %196
 
 .thread333:                                       ; preds = %69, %88, %106
-  %.not314.not336.ph = phi i1 [ true, %106 ], [ false, %88 ], [ false, %69 ]
-  %.3294.ph = phi ptr [ %114, %106 ], [ %105, %88 ], [ %83, %69 ]
+  %.not314.not336.ph = phi i1 [ false, %88 ], [ true, %106 ], [ false, %69 ]
+  %.3294.ph = phi ptr [ %105, %88 ], [ %114, %106 ], [ %83, %69 ]
   %121 = getelementptr inbounds nuw i8, ptr %.3294.ph, i64 24
   %122 = load i32, ptr %121, align 8
   store i32 %122, ptr %5, align 4
@@ -1235,8 +1235,8 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %156
 
 156:                                              ; preds = %152, %145
-  %.0290351 = phi i8 [ 0, %152 ], [ 1, %145 ]
-  %.0298349 = phi i8 [ %.0298.ph, %152 ], [ %12, %145 ]
+  %.0290351 = phi i8 [ 1, %145 ], [ 0, %152 ]
+  %.0298349 = phi i8 [ %12, %145 ], [ %.0298.ph, %152 ]
   switch i8 %.0298349, label %193 [
     i8 -28, label %192
     i8 3, label %157
@@ -1413,7 +1413,7 @@ dissect_fcels_prli.exit:                          ; preds = %156, %169, %168, %1
   br label %196
 
 196:                                              ; preds = %86, %29, %4, %dissect_fcels_prli.exit, %141, %130, %117
-  %.0 = phi i32 [ %195, %dissect_fcels_prli.exit ], [ 0, %29 ], [ 0, %130 ], [ 0, %141 ], [ 0, %117 ], [ 0, %86 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %86 ], [ %195, %dissect_fcels_prli.exit ], [ 0, %29 ], [ 0, %130 ], [ 0, %141 ], [ 0, %117 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

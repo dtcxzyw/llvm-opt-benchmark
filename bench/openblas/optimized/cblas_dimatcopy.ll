@@ -84,7 +84,7 @@ define void @cblas_dimatcopy(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32
   br label %.thread258
 
 .thread258:                                       ; preds = %.thread258.sink.split, %19, %17, %13, %21, %25, %27, %20
-  %.pr251 = phi i32 [ -1, %21 ], [ %.pr252, %25 ], [ -1, %27 ], [ -1, %20 ], [ -1, %19 ], [ %.pr254, %17 ], [ -1, %13 ], [ 8, %.thread258.sink.split ]
+  %.pr251 = phi i32 [ -1, %21 ], [ %.pr252, %25 ], [ -1, %27 ], [ %.pr254, %17 ], [ -1, %20 ], [ -1, %13 ], [ -1, %19 ], [ 8, %.thread258.sink.split ]
   %spec.select232 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   %28 = icmp slt i32 %6, %spec.select232
   %or.cond244 = and i1 %.not239, %28

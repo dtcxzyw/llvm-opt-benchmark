@@ -354,7 +354,7 @@ _ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_O
   br i1 %96, label %.preheader181.us, label %._crit_edge189, !llvm.loop !112
 
 ._crit_edge189:                                   ; preds = %._crit_edge.us, %._crit_edge.us193, %.preheader183, %78
-  %.pn179 = phi i32 [ %26, %.preheader183 ], [ %32, %78 ], [ %32, %._crit_edge.us193 ], [ %26, %._crit_edge.us ]
+  %.pn179 = phi i32 [ %26, %.preheader183 ], [ %32, %._crit_edge.us193 ], [ %32, %78 ], [ %26, %._crit_edge.us ]
   %.pn = mul i32 %.pn179, %52
   %.2 = add i32 %.pn, %.0195
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0194, i64 12

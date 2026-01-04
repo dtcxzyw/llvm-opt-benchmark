@@ -149,7 +149,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
 .critedge152:                                     ; preds = %29, %41
   br i1 %27, label %26, label %50, !llvm.loop !45
 
-50:                                               ; preds = %.critedge152, %26
+50:                                               ; preds = %26, %.critedge152
   %51 = load ptr, ptr %18, align 8, !tbaa !20
   %52 = call i32 @av_audio_fifo_size(ptr noundef %51) #7
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -234,7 +234,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %99 = load ptr, ptr %98, align 8, !tbaa !47
-  %100 = call i32 %99(ptr noundef %0, ptr noundef nonnull %96, i32 noundef %57) #7
+  %100 = call i32 %99(ptr noundef nonnull %0, ptr noundef nonnull %96, i32 noundef %57) #7
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i32 %100, ptr %101, align 8, !tbaa !48
   %102 = load i64, ptr %17, align 8, !tbaa !34
@@ -343,7 +343,7 @@ split.thread:                                     ; preds = %.preheader162, %spl
   br i1 %.not143, label %159, label %158
 
 158:                                              ; preds = %156, %151
-  call void @ff_filter_set_ready(ptr noundef %0, i32 noundef 10) #7
+  call void @ff_filter_set_ready(ptr noundef nonnull %0, i32 noundef 10) #7
   br label %.critedge
 
 159:                                              ; preds = %156
@@ -377,7 +377,7 @@ split.thread:                                     ; preds = %.preheader162, %spl
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %41, %163, %.preheader164, %159, %161, %169, %.critedge6, %97, %69, %79, %81, %88, %95, %158, %144
-  %.1 = phi i32 [ 0, %144 ], [ 0, %158 ], [ 0, %169 ], [ -12, %.critedge6 ], [ %110, %97 ], [ -12, %69 ], [ -12, %79 ], [ %86, %81 ], [ %93, %88 ], [ -12, %95 ], [ -1497649742, %161 ], [ -1497649742, %159 ], [ 0, %.preheader164 ], [ -1497649742, %163 ], [ %48, %41 ], [ 0, %19 ]
+  %.1 = phi i32 [ 0, %.preheader164 ], [ 0, %144 ], [ 0, %158 ], [ %48, %41 ], [ 0, %169 ], [ -12, %.critedge6 ], [ -12, %95 ], [ -12, %79 ], [ %86, %81 ], [ %110, %97 ], [ %93, %88 ], [ -12, %69 ], [ -1497649742, %159 ], [ -1497649742, %161 ], [ -1497649742, %163 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -479,7 +479,7 @@ switch.lookup45:                                  ; preds = %44
   br label %50
 
 50:                                               ; preds = %switch.lookup45, %44, %20, %32, %34, %36, %1
-  %.0 = phi i32 [ -12, %1 ], [ -12, %36 ], [ -12, %34 ], [ -12, %32 ], [ -12, %20 ], [ 0, %44 ], [ 0, %switch.lookup45 ]
+  %.0 = phi i32 [ -12, %20 ], [ -12, %1 ], [ -12, %36 ], [ -12, %34 ], [ -12, %32 ], [ 0, %switch.lookup45 ], [ 0, %44 ]
   ret i32 %.0
 }
 
@@ -728,7 +728,7 @@ mean_sum_f.exit.us78:                             ; preds = %.lr.ph75.split.spli
   br label %._crit_edge76
 
 ._crit_edge76:                                    ; preds = %mean_sum_f.exit.us78, %mean_sum_f.exit60.loopexit.us95.us, %.lr.ph75.split, %._crit_edge76.loopexit, %3
-  %.0.lcssa = phi i32 [ undef, %3 ], [ %umax, %._crit_edge76.loopexit ], [ %30, %.lr.ph75.split ], [ 1, %mean_sum_f.exit60.loopexit.us95.us ], [ 1, %mean_sum_f.exit.us78 ]
+  %.0.lcssa = phi i32 [ undef, %3 ], [ 1, %mean_sum_f.exit60.loopexit.us95.us ], [ %30, %.lr.ph75.split ], [ %umax, %._crit_edge76.loopexit ], [ 1, %mean_sum_f.exit.us78 ]
   ret i32 %.0.lcssa
 }
 
@@ -1016,7 +1016,7 @@ square_sum_f.exit97.us117:                        ; preds = %.lr.ph114.split.spl
   br label %._crit_edge115
 
 ._crit_edge115:                                   ; preds = %square_sum_f.exit97.us117, %square_sum_f.exit106.loopexit.us141.us, %.lr.ph114.split, %._crit_edge115.loopexit, %3
-  %.0.lcssa = phi i32 [ undef, %3 ], [ %umax, %._crit_edge115.loopexit ], [ %34, %.lr.ph114.split ], [ 1, %square_sum_f.exit106.loopexit.us141.us ], [ 1, %square_sum_f.exit97.us117 ]
+  %.0.lcssa = phi i32 [ undef, %3 ], [ 1, %square_sum_f.exit106.loopexit.us141.us ], [ %34, %.lr.ph114.split ], [ %umax, %._crit_edge115.loopexit ], [ 1, %square_sum_f.exit97.us117 ]
   ret i32 %.0.lcssa
 }
 
@@ -1527,7 +1527,7 @@ mean_sum_d.exit.us78:                             ; preds = %.lr.ph75.split.spli
   br label %._crit_edge76
 
 ._crit_edge76:                                    ; preds = %mean_sum_d.exit.us78, %mean_sum_d.exit60.loopexit.us95.us, %.lr.ph75.split, %._crit_edge76.loopexit, %3
-  %.0.lcssa = phi i32 [ undef, %3 ], [ %umax, %._crit_edge76.loopexit ], [ %30, %.lr.ph75.split ], [ 1, %mean_sum_d.exit60.loopexit.us95.us ], [ 1, %mean_sum_d.exit.us78 ]
+  %.0.lcssa = phi i32 [ undef, %3 ], [ 1, %mean_sum_d.exit60.loopexit.us95.us ], [ %30, %.lr.ph75.split ], [ %umax, %._crit_edge76.loopexit ], [ 1, %mean_sum_d.exit.us78 ]
   ret i32 %.0.lcssa
 }
 
@@ -1815,7 +1815,7 @@ square_sum_d.exit97.us117:                        ; preds = %.lr.ph114.split.spl
   br label %._crit_edge115
 
 ._crit_edge115:                                   ; preds = %square_sum_d.exit97.us117, %square_sum_d.exit106.loopexit.us141.us, %.lr.ph114.split, %._crit_edge115.loopexit, %3
-  %.0.lcssa = phi i32 [ undef, %3 ], [ %umax, %._crit_edge115.loopexit ], [ %34, %.lr.ph114.split ], [ 1, %square_sum_d.exit106.loopexit.us141.us ], [ 1, %square_sum_d.exit97.us117 ]
+  %.0.lcssa = phi i32 [ undef, %3 ], [ 1, %square_sum_d.exit106.loopexit.us141.us ], [ %34, %.lr.ph114.split ], [ %umax, %._crit_edge115.loopexit ], [ 1, %square_sum_d.exit97.us117 ]
   ret i32 %.0.lcssa
 }
 

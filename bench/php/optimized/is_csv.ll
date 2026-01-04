@@ -94,16 +94,16 @@ select.unfold.i.i:                                ; preds = %22, %21
   br i1 %.not.i, label %eatquote.exit.i, label %csv_parse.exit.thread
 
 eatquote.exit.i:                                  ; preds = %21, %36, %34, %23, %.lr.ph.i
-  %.124.i = phi ptr [ %15, %.lr.ph.i ], [ %15, %23 ], [ %15, %34 ], [ %15, %36 ], [ %.01225.i.i, %21 ]
-  %.121.i = phi i64 [ %.02034.i, %.lr.ph.i ], [ %24, %23 ], [ 0, %34 ], [ 0, %36 ], [ %.02034.i, %21 ]
-  %.119.i = phi i64 [ %.01835.i, %.lr.ph.i ], [ %.01835.i, %23 ], [ %.02034.i, %34 ], [ %.01835.i, %36 ], [ %.01835.i, %21 ]
-  %.1.i = phi i64 [ %.036.i, %.lr.ph.i ], [ %.036.i, %23 ], [ %26, %34 ], [ %26, %36 ], [ %.036.i, %21 ]
+  %.124.i = phi ptr [ %15, %.lr.ph.i ], [ %15, %36 ], [ %15, %23 ], [ %15, %34 ], [ %.01225.i.i, %21 ]
+  %.121.i = phi i64 [ %.02034.i, %.lr.ph.i ], [ 0, %36 ], [ %24, %23 ], [ 0, %34 ], [ %.02034.i, %21 ]
+  %.119.i = phi i64 [ %.01835.i, %.lr.ph.i ], [ %.01835.i, %36 ], [ %.01835.i, %23 ], [ %.02034.i, %34 ], [ %.01835.i, %21 ]
+  %.1.i = phi i64 [ %.036.i, %.lr.ph.i ], [ %26, %36 ], [ %.036.i, %23 ], [ %26, %34 ], [ %.036.i, %21 ]
   %37 = icmp ult ptr %.124.i, %9
   br i1 %37, label %.lr.ph.i, label %csv_parse.exit
 
 csv_parse.exit:                                   ; preds = %17, %eatquote.exit.i, %select.unfold.i.i
-  %.151.i = phi i64 [ %.036.i, %select.unfold.i.i ], [ %.1.i, %eatquote.exit.i ], [ %.036.i, %17 ]
-  %.11950.i = phi i64 [ %.01835.i, %select.unfold.i.i ], [ %.119.i, %eatquote.exit.i ], [ %.01835.i, %17 ]
+  %.151.i = phi i64 [ %.036.i, %select.unfold.i.i ], [ %.036.i, %17 ], [ %.1.i, %eatquote.exit.i ]
+  %.11950.i = phi i64 [ %.01835.i, %select.unfold.i.i ], [ %.01835.i, %17 ], [ %.119.i, %eatquote.exit.i ]
   %38 = icmp ugt i64 %.11950.i, 1
   %39 = icmp ugt i64 %.151.i, 1
   %40 = select i1 %38, i1 %39, i1 false
@@ -131,7 +131,7 @@ csv_parse.exit:                                   ; preds = %17, %eatquote.exit.
   br label %csv_parse.exit.thread
 
 csv_parse.exit.thread:                            ; preds = %36, %34, %28, %45, %42, %41, %csv_parse.exit, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %csv_parse.exit ], [ 1, %41 ], [ %., %42 ], [ %.20, %45 ], [ 0, %28 ], [ 0, %34 ], [ 0, %36 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %csv_parse.exit ], [ %., %42 ], [ 1, %41 ], [ %.20, %45 ], [ 0, %28 ], [ 0, %34 ], [ 0, %36 ]
   ret i32 %.0
 }
 

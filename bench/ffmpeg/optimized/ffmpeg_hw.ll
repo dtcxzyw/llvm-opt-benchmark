@@ -324,12 +324,12 @@ hw_device_add.exit.thread95:                      ; preds = %86
   ret i32 %.1
 
 hw_device_get_by_name.exit:                       ; preds = %26, %68, %63, %35, %78, %50, %11
-  %.055 = phi ptr [ @.str.1, %11 ], [ @.str.6, %50 ], [ @.str.6, %78 ], [ @.str.8, %35 ], [ @.str.7, %63 ], [ @.str.7, %68 ], [ @.str.3, %26 ]
+  %.055 = phi ptr [ @.str.6, %78 ], [ @.str.1, %11 ], [ @.str.8, %35 ], [ @.str.6, %50 ], [ @.str.7, %68 ], [ @.str.7, %63 ], [ @.str.3, %26 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef %0, ptr noundef nonnull %.055) #8
   br label %105
 
 hw_device_add.exit.thread:                        ; preds = %91, %hw_device_add.exit.thread95, %48, %33, %17, %2, %82, %hw_device_get_by_name.exit87, %58, %37
-  %.0 = phi i32 [ %61, %58 ], [ %76, %hw_device_get_by_name.exit87 ], [ %84, %82 ], [ %38, %37 ], [ -12, %2 ], [ -12, %17 ], [ -12, %33 ], [ -12, %48 ], [ -12, %hw_device_add.exit.thread95 ], [ -12, %91 ]
+  %.0 = phi i32 [ %61, %58 ], [ -12, %48 ], [ -12, %33 ], [ %76, %hw_device_get_by_name.exit87 ], [ %84, %82 ], [ %38, %37 ], [ -12, %2 ], [ -12, %17 ], [ -12, %hw_device_add.exit.thread95 ], [ -12, %91 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %.0) #8
   call void @av_buffer_unref(ptr noundef nonnull %7) #8
   br label %105

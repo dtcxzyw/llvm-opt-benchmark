@@ -199,7 +199,7 @@ define range(i32 -1, 1) i32 @H5SM__message_compare(ptr noundef %0, ptr noundef %
   br label %101
 
 101:                                              ; preds = %3, %57, %60, %51, %26, %100
-  %.037 = phi i32 [ 0, %26 ], [ 0, %57 ], [ 0, %60 ], [ %.138, %100 ], [ 0, %51 ], [ 0, %3 ]
+  %.037 = phi i32 [ 0, %26 ], [ 0, %57 ], [ 0, %60 ], [ 0, %3 ], [ %.138, %100 ], [ 0, %51 ]
   ret i32 %.037
 }
 
@@ -233,7 +233,7 @@ define internal noundef i32 @H5SM__compare_cb(ptr noundef readonly captures(none
   br label %.sink.split
 
 .sink.split:                                      ; preds = %15, %10, %17
-  %.sink = phi i32 [ %20, %17 ], [ 1, %10 ], [ -1, %15 ]
+  %.sink = phi i32 [ 1, %10 ], [ %20, %17 ], [ -1, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %.sink, ptr %21, align 4, !tbaa !36
   br label %22
@@ -327,7 +327,7 @@ define internal range(i32 -1, 2) i32 @H5SM__compare_iter_op(ptr noundef %0, ptr 
   br label %57
 
 57:                                               ; preds = %5, %12, %29, %47, %33, %43
-  %.024 = phi i32 [ 0, %12 ], [ 0, %5 ], [ -1, %43 ], [ 1, %33 ], [ 1, %47 ], [ 1, %29 ]
+  %.024 = phi i32 [ 0, %5 ], [ 0, %12 ], [ -1, %43 ], [ 1, %33 ], [ 1, %47 ], [ 1, %29 ]
   ret i32 %.024
 }
 

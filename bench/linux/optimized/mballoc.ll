@@ -666,9 +666,9 @@ define internal fastcc i32 @ext4_mb_init_group(ptr noundef %0, i32 noundef %1, i
   %98 = select i1 %97, i32 -5, i32 0
   br label %99
 
-99:                                               ; preds = %58, %92, %54, %90, %95, %85, %43
-  %.ph9 = phi ptr [ null, %43 ], [ %.ph, %85 ], [ %.ph, %95 ], [ null, %90 ], [ %.ph, %54 ], [ %.ph, %92 ], [ %.ph, %58 ]
-  %.ph10 = phi i32 [ -12, %43 ], [ -5, %85 ], [ %98, %95 ], [ 0, %90 ], [ 0, %54 ], [ %93, %92 ], [ %59, %58 ]
+99:                                               ; preds = %85, %58, %92, %54, %90, %95, %43
+  %.ph9 = phi ptr [ null, %43 ], [ %.ph, %95 ], [ null, %90 ], [ %.ph, %54 ], [ %.ph, %92 ], [ %.ph, %58 ], [ %.ph, %85 ]
+  %.ph10 = phi i32 [ -12, %43 ], [ %98, %95 ], [ 0, %90 ], [ 0, %54 ], [ %93, %92 ], [ %59, %58 ], [ -5, %85 ]
   tail call void @unlock_page(ptr noundef nonnull %22) #17
   %100 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %101 = load volatile i64, ptr %100, align 8
@@ -2130,7 +2130,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4_mb_init(ptr noundef %0) loc
   br label %.thread19
 
 .thread19:                                        ; preds = %24, %47, %325, %171, %114, %108, %87, %81, %12, %1
-  %328 = phi i32 [ %326, %325 ], [ -12, %1 ], [ -12, %12 ], [ -12, %81 ], [ -12, %87 ], [ -12, %108 ], [ -12, %114 ], [ -12, %171 ], [ -22, %24 ], [ -12, %47 ]
+  %328 = phi i32 [ -12, %171 ], [ %326, %325 ], [ -12, %1 ], [ -12, %12 ], [ -12, %81 ], [ -12, %87 ], [ -12, %108 ], [ -12, %114 ], [ -22, %24 ], [ -12, %47 ]
   %329 = getelementptr inbounds nuw i8, ptr %3, i64 832
   %330 = load ptr, ptr %329, align 64
   tail call void @kfree(ptr noundef %330) #17
@@ -4370,9 +4370,9 @@ define internal fastcc i32 @ext4_mb_load_buddy_gfp(ptr noundef %0, i32 noundef %
   tail call void @unlock_page(ptr noundef nonnull %352) #17
   br label %354
 
-354:                                              ; preds = %174, %334, %351
-  %.ph16 = phi i32 [ %353, %351 ], [ -5, %334 ], [ -5, %174 ]
-  %.ph17 = phi ptr [ %352, %351 ], [ %.ph13, %334 ], [ %.ph, %174 ]
+354:                                              ; preds = %351, %174, %334
+  %.ph16 = phi i32 [ -5, %334 ], [ -5, %174 ], [ %353, %351 ]
+  %.ph17 = phi ptr [ %.ph13, %334 ], [ %.ph, %174 ], [ %352, %351 ]
   %355 = getelementptr inbounds nuw i8, ptr %.ph17, i64 8
   %356 = load volatile i64, ptr %355, align 8
   %357 = and i64 %356, 1
@@ -4426,7 +4426,7 @@ define internal fastcc i32 @ext4_mb_load_buddy_gfp(ptr noundef %0, i32 noundef %
   br label %386
 
 386:                                              ; preds = %101, %260, %385, %379
-  %387 = phi i32 [ %.ph16, %385 ], [ %.ph16, %379 ], [ -12, %101 ], [ -12, %260 ]
+  %387 = phi i32 [ %.ph16, %385 ], [ %.ph16, %379 ], [ -12, %260 ], [ -12, %101 ]
   %388 = load ptr, ptr %24, align 8
   %389 = icmp eq ptr %388, null
   br i1 %389, label %422, label %390
@@ -6014,7 +6014,7 @@ ext4_mb_initialize_context.exit:                  ; preds = %294, %359, %366
   br i1 %755, label %.loopexit34.i, label %.preheader33.i, !llvm.loop !153
 
 .loopexit34.i:                                    ; preds = %753, %.preheader33.i
-  %756 = phi ptr [ null, %753 ], [ %748, %.preheader33.i ]
+  %756 = phi ptr [ %748, %.preheader33.i ], [ null, %753 ]
   %757 = icmp eq ptr %747, null
   br i1 %757, label %.loopexit32.i, label %.preheader.preheader.i
 
@@ -6478,7 +6478,7 @@ ext4_mb_normalize_request.exit:                   ; preds = %574, %591, %892, %8
   br label %ext4_mb_mark_diskspace_used.exit
 
 ext4_mb_mark_diskspace_used.exit.thread:          ; preds = %1006, %971, %1014
-  %.ph40 = phi i32 [ %1018, %1014 ], [ -5, %971 ], [ %spec.select, %1006 ]
+  %.ph40 = phi i32 [ %spec.select, %1006 ], [ %1018, %1014 ], [ -5, %971 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 %.ph40, ptr %2, align 4
   br label %1038
@@ -7407,7 +7407,7 @@ ext4_mb_discard_lg_preallocations.exit:           ; preds = %1263, %.loopexit12.
   br label %1566
 
 1566:                                             ; preds = %1564, %253
-  %1567 = phi i64 [ %1070, %1564 ], [ 0, %253 ]
+  %1567 = phi i64 [ 0, %253 ], [ %1070, %1564 ]
   %1568 = icmp eq i32 %249, 0
   br i1 %1568, label %1584, label %1569
 
@@ -7795,7 +7795,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   br label %184
 
 .thread77.thread:                                 ; preds = %45, %28
-  %183 = phi i32 [ -117, %28 ], [ %47, %45 ]
+  %183 = phi i32 [ %47, %45 ], [ -117, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread77.thread437
 
@@ -8236,7 +8236,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef nonnull %0) un
   br label %467
 
 467:                                              ; preds = %460, %458, %420
-  %468 = phi i32 [ %421, %420 ], [ %459, %460 ], [ %459, %458 ]
+  %468 = phi i32 [ %421, %420 ], [ %459, %458 ], [ %459, %460 ]
   %469 = icmp slt i32 %468, 1
   br i1 %469, label %.thread57, label %473
 
@@ -8907,7 +8907,7 @@ ext4_mb_simple_scan_group.exit:                   ; preds = %611, %609, %603, %5
   br i1 %868, label %select.unfold, label %.thread67.loopexit
 
 select.unfold:                                    ; preds = %ext4_mb_simple_scan_group.exit, %.thread57, %509
-  %.ph62 = phi i32 [ %291, %509 ], [ %472, %.thread57 ], [ %291, %ext4_mb_simple_scan_group.exit ]
+  %.ph62 = phi i32 [ %472, %.thread57 ], [ %291, %509 ], [ %291, %ext4_mb_simple_scan_group.exit ]
   %869 = add nuw i32 %290, 1
   %870 = load i8, ptr %237, align 1
   %871 = zext i8 %870 to i32
@@ -9393,8 +9393,8 @@ default.unreachable427:                           ; preds = %901
   unreachable
 
 .loopexit78:                                      ; preds = %965, %.loopexit81, %1163, %.loopexit80, %1042, %956, %915, %902, %.critedge44, %893
-  %1169 = phi i32 [ %294, %.loopexit81 ], [ %1165, %1163 ], [ %294, %.loopexit80 ], [ %1044, %1042 ], [ %294, %902 ], [ %958, %956 ], [ %900, %.critedge44 ], [ %294, %893 ], [ %294, %915 ], [ %294, %965 ]
-  %1170 = phi i32 [ 3, %.loopexit81 ], [ %871, %1163 ], [ %1050, %.loopexit80 ], [ %871, %1042 ], [ 0, %902 ], [ %871, %956 ], [ %871, %.critedge44 ], [ %871, %893 ], [ 1, %915 ], [ 1, %965 ]
+  %1169 = phi i32 [ %294, %915 ], [ %294, %.loopexit81 ], [ %1165, %1163 ], [ %294, %.loopexit80 ], [ %1044, %1042 ], [ %294, %902 ], [ %958, %956 ], [ %900, %.critedge44 ], [ %294, %893 ], [ %294, %965 ]
+  %1170 = phi i32 [ 1, %915 ], [ 3, %.loopexit81 ], [ %871, %1163 ], [ %1050, %.loopexit80 ], [ %871, %1042 ], [ 0, %902 ], [ %871, %956 ], [ %871, %.critedge44 ], [ %871, %893 ], [ 1, %965 ]
   %1171 = icmp eq i32 %869, %23
   br i1 %1171, label %.thread67.loopexit, label %288, !llvm.loop !247
 
@@ -9609,16 +9609,16 @@ ext4_mb_try_best_found.exit:                      ; preds = %1206, %1253
   br label %.thread71
 
 .thread71:                                        ; preds = %1266, %1271
-  %1276 = phi i8 [ %.pre344, %1271 ], [ %.pre345, %1266 ]
+  %1276 = phi i8 [ %.pre345, %1266 ], [ %.pre344, %1271 ]
   %.fr561 = freeze i8 %1276
   %1277 = icmp eq i8 %.fr561, 2
   %spec.select = select i1 %1277, i32 0, i32 %1191
   br label %.thread77
 
 .thread77:                                        ; preds = %473, %.thread71, %1269
-  %1278 = phi i32 [ %1192, %1269 ], [ %1192, %.thread71 ], [ %326, %473 ]
-  %1279 = phi i32 [ %1190, %1269 ], [ %1190, %.thread71 ], [ %325, %473 ]
-  %1280 = phi i32 [ %1191, %1269 ], [ %spec.select, %.thread71 ], [ %474, %473 ]
+  %1278 = phi i32 [ %1192, %.thread71 ], [ %1192, %1269 ], [ %326, %473 ]
+  %1279 = phi i32 [ %1190, %.thread71 ], [ %1190, %1269 ], [ %325, %473 ]
+  %1280 = phi i32 [ %spec.select, %.thread71 ], [ %1191, %1269 ], [ %474, %473 ]
   %1281 = icmp eq i32 %1279, 0
   br i1 %1281, label %.thread77.thread437, label %1282
 
@@ -11217,7 +11217,7 @@ ext4_mb_free_metadata.exit:                       ; preds = %445, %406, %.thread
   br i1 %588, label %.loopexit, label %.thread29
 
 .thread29:                                        ; preds = %252, %.thread31, %587
-  %589 = phi i32 [ %553, %587 ], [ %266, %.thread31 ], [ %254, %252 ]
+  %589 = phi i32 [ %266, %.thread31 ], [ %553, %587 ], [ %254, %252 ]
   call void @__ext4_std_error(ptr noundef %168, ptr noundef nonnull @__func__.ext4_mb_clear_bb, i32 noundef 6529, i32 noundef %589) #17
   br label %.loopexit
 
@@ -11399,7 +11399,7 @@ define dso_local noundef i32 @ext4_group_add_blocks(ptr noundef %0, ptr noundef 
   br i1 %96, label %98, label %.thread
 
 .thread:                                          ; preds = %31, %30, %.thread10, %.loopexit
-  %97 = phi i32 [ %43, %.loopexit ], [ %.ph9, %.thread10 ], [ %32, %31 ], [ -22, %30 ]
+  %97 = phi i32 [ %.ph9, %.thread10 ], [ %43, %.loopexit ], [ %32, %31 ], [ -22, %30 ]
   call void @__ext4_std_error(ptr noundef %1, ptr noundef nonnull @__func__.ext4_group_add_blocks, i32 noundef 6703, i32 noundef %97) #17
   br label %98
 

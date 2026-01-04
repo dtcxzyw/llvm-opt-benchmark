@@ -162,8 +162,8 @@ define hidden void @_ZN3ue221ComponentWordBoundary13notePositionsERNS_18Glushkov
   %18 = load ptr, ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load ptr, ptr %19, align 8
-  %. = select i1 %17, i32 6144, i32 1536
   %.7 = select i1 %17, i32 96, i32 24
+  %. = select i1 %17, i32 6144, i32 1536
   %.sink = select i1 %14, i32 %., i32 %.7
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %10, i32 noundef %.sink)
   %21 = load i32, ptr %11, align 4

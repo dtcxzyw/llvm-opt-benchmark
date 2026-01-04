@@ -48,9 +48,9 @@ define range(i32 -128, 128) i32 @my_getopt(i32 noundef %0, ptr noundef %1, ptr n
   br label %16
 
 16:                                               ; preds = %12, %5, %3, %11
-  %.079 = phi i8 [ 58, %11 ], [ %6, %5 ], [ 43, %3 ], [ %14, %12 ]
-  %.077 = phi i64 [ 2, %11 ], [ %spec.select, %5 ], [ 0, %3 ], [ %spec.select104, %12 ]
-  %.073 = phi i8 [ %10, %11 ], [ %10, %5 ], [ 43, %3 ], [ %10, %12 ]
+  %.079 = phi i8 [ %6, %5 ], [ 43, %3 ], [ %14, %12 ], [ 58, %11 ]
+  %.077 = phi i64 [ %spec.select, %5 ], [ 0, %3 ], [ %spec.select104, %12 ], [ 2, %11 ]
+  %.073 = phi i8 [ %10, %5 ], [ 43, %3 ], [ %10, %12 ], [ %10, %11 ]
   store ptr null, ptr @optarg, align 8, !tbaa !6
   %17 = load i32, ptr @my_getopt.charind, align 4, !tbaa !9
   %.not92 = icmp eq i32 %17, 0
@@ -327,9 +327,9 @@ thread-pre-split:                                 ; preds = %36, %45, %56, %71
   br label %.loopexit
 
 .loopexit:                                        ; preds = %133, %118, %..loopexit_crit_edge
-  %136 = phi i32 [ %134, %..loopexit_crit_edge ], [ %optind.promoted, %118 ], [ %18, %133 ]
-  %.3 = phi i32 [ %120, %..loopexit_crit_edge ], [ %120, %118 ], [ -1, %133 ]
-  %.1 = phi i32 [ %135, %..loopexit_crit_edge ], [ %119, %118 ], [ %0, %133 ]
+  %136 = phi i32 [ %optind.promoted, %118 ], [ %134, %..loopexit_crit_edge ], [ %18, %133 ]
+  %.3 = phi i32 [ %120, %118 ], [ %120, %..loopexit_crit_edge ], [ -1, %133 ]
+  %.1 = phi i32 [ %119, %118 ], [ %135, %..loopexit_crit_edge ], [ %0, %133 ]
   %137 = icmp eq i32 %.1, %0
   %spec.select106 = select i1 %137, i32 -1, i32 %.3
   br label %.thread
@@ -341,8 +341,8 @@ thread-pre-split:                                 ; preds = %36, %45, %56, %71
   br label %.thread
 
 .thread:                                          ; preds = %thread-pre-split.thread, %80, %43, %.loopexit, %109, %108, %106, %.thread171, %thread-pre-split, %83, %90
-  %139 = phi i32 [ %.pre153, %83 ], [ %91, %90 ], [ %.pre153, %thread-pre-split ], [ %107, %106 ], [ %.pre152, %.thread171 ], [ %110, %109 ], [ %18, %108 ], [ %136, %.loopexit ], [ %44, %43 ], [ %81, %80 ], [ %59, %thread-pre-split.thread ]
-  %.175 = phi i32 [ %.074, %83 ], [ %.074, %90 ], [ %.074, %thread-pre-split ], [ -1, %106 ], [ %138, %.thread171 ], [ 1, %109 ], [ -1, %108 ], [ %spec.select106, %.loopexit ], [ %26, %43 ], [ 63, %80 ], [ %26, %thread-pre-split.thread ]
+  %139 = phi i32 [ %.pre153, %83 ], [ %91, %90 ], [ %.pre153, %thread-pre-split ], [ %107, %106 ], [ %.pre152, %.thread171 ], [ %136, %.loopexit ], [ %110, %109 ], [ %18, %108 ], [ %81, %80 ], [ %44, %43 ], [ %59, %thread-pre-split.thread ]
+  %.175 = phi i32 [ %.074, %83 ], [ %.074, %90 ], [ %.074, %thread-pre-split ], [ -1, %106 ], [ %138, %.thread171 ], [ %spec.select106, %.loopexit ], [ 1, %109 ], [ -1, %108 ], [ 63, %80 ], [ %26, %43 ], [ %26, %thread-pre-split.thread ]
   %140 = icmp sgt i32 %139, %0
   br i1 %140, label %141, label %142
 
@@ -395,9 +395,9 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   br label %19
 
 19:                                               ; preds = %15, %8, %6, %14
-  %.0175 = phi i32 [ 2, %14 ], [ %spec.select, %8 ], [ 0, %6 ], [ %spec.select221, %15 ]
-  %.0172 = phi i8 [ 58, %14 ], [ %9, %8 ], [ 43, %6 ], [ %17, %15 ]
-  %.0166 = phi i8 [ %13, %14 ], [ %13, %8 ], [ 43, %6 ], [ %13, %15 ]
+  %.0175 = phi i32 [ %spec.select, %8 ], [ 0, %6 ], [ %spec.select221, %15 ], [ 2, %14 ]
+  %.0172 = phi i8 [ %9, %8 ], [ 43, %6 ], [ %17, %15 ], [ 58, %14 ]
+  %.0166 = phi i8 [ %13, %8 ], [ 43, %6 ], [ %13, %15 ], [ %13, %14 ]
   store ptr null, ptr @optarg, align 8, !tbaa !6
   %20 = load i32, ptr @optind, align 4, !tbaa !9
   %.not199 = icmp slt i32 %20, %0
@@ -743,7 +743,7 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   br label %.thread241
 
 .thread241:                                       ; preds = %163, %148, %152, %135, %137, %170
-  %.5 = phi i32 [ 0, %170 ], [ %150, %148 ], [ %150, %152 ], [ 63, %135 ], [ 63, %137 ], [ %169, %163 ]
+  %.5 = phi i32 [ 63, %137 ], [ 0, %170 ], [ %150, %148 ], [ %150, %152 ], [ 63, %135 ], [ %169, %163 ]
   %171 = load i32, ptr @optind, align 4, !tbaa !9
   %172 = add nsw i32 %171, 1
   store i32 %172, ptr @optind, align 4, !tbaa !9
@@ -792,7 +792,7 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   br label %.thread230
 
 .thread230:                                       ; preds = %62, %47, %..thread230.loopexit_crit_edge, %.thread241, %182, %184, %173, %177, %175, %64, %35
-  %.0177 = phi i32 [ -1, %35 ], [ %65, %64 ], [ 63, %175 ], [ 63, %177 ], [ %174, %173 ], [ 63, %182 ], [ 63, %184 ], [ %.5, %.thread241 ], [ %49, %..thread230.loopexit_crit_edge ], [ %49, %47 ], [ -1, %62 ]
+  %.0177 = phi i32 [ -1, %35 ], [ %65, %64 ], [ %.5, %.thread241 ], [ %49, %47 ], [ 63, %175 ], [ 63, %177 ], [ %174, %173 ], [ 63, %182 ], [ 63, %184 ], [ %49, %..thread230.loopexit_crit_edge ], [ -1, %62 ]
   %192 = load i32, ptr @optind, align 4, !tbaa !9
   %193 = icmp sgt i32 %192, %0
   br i1 %193, label %194, label %195
@@ -802,7 +802,7 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
   br label %195
 
 195:                                              ; preds = %189, %38, %37, %.thread230, %194
-  %.1 = phi i32 [ %190, %189 ], [ %.0177, %194 ], [ %.0177, %.thread230 ], [ 1, %38 ], [ -1, %37 ]
+  %.1 = phi i32 [ %190, %189 ], [ %.0177, %.thread230 ], [ %.0177, %194 ], [ -1, %37 ], [ 1, %38 ]
   ret i32 %.1
 }
 

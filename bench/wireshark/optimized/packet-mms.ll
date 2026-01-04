@@ -3837,7 +3837,7 @@ define internal noundef zeroext i1 @dissect_mms_heur(ptr noundef %0, ptr noundef
   br label %29
 
 29:                                               ; preds = %23, %19, %14, %11, %4, %27
-  %.0 = phi i1 [ true, %27 ], [ false, %4 ], [ false, %11 ], [ false, %14 ], [ false, %19 ], [ false, %23 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %11 ], [ false, %14 ], [ true, %27 ], [ false, %19 ], [ false, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -5734,7 +5734,7 @@ define internal i32 @dissect_mms_T_structure_01(i1 noundef zeroext %0, ptr nound
   br label %23
 
 23:                                               ; preds = %16, %12, %21, %19, %9, %6
-  %.0 = phi i32 [ %20, %19 ], [ %22, %21 ], [ %5, %12 ], [ %5, %9 ], [ %5, %6 ], [ %5, %16 ]
+  %.0 = phi i32 [ %20, %19 ], [ %22, %21 ], [ %5, %16 ], [ %5, %12 ], [ %5, %9 ], [ %5, %6 ]
   %24 = load i32, ptr @ett_mms_T_structure_01, align 4
   %25 = tail call i32 @dissect_ber_sequence_of(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @T_structure_01_sequence_of, i32 noundef %.0, i32 noundef %24)
   ret i32 %25
@@ -5790,7 +5790,7 @@ define internal i32 @dissect_mms_T_boolean(i1 noundef zeroext %0, ptr noundef %1
   br label %32
 
 32:                                               ; preds = %16, %25, %28, %30, %21, %9, %6
-  %.0 = phi i32 [ %29, %28 ], [ %31, %30 ], [ %5, %21 ], [ %5, %9 ], [ %5, %6 ], [ %spec.select, %16 ], [ %5, %25 ]
+  %.0 = phi i32 [ %5, %6 ], [ %spec.select, %16 ], [ %29, %28 ], [ %31, %30 ], [ %5, %25 ], [ %5, %21 ], [ %5, %9 ]
   %33 = tail call i32 @dissect_ber_boolean(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %.0, ptr noundef null)
   ret i32 %33
 }
@@ -5884,7 +5884,7 @@ dissect_mms_ReportedOptFlds.exit:                 ; preds = %22, %30
   br label %51
 
 51:                                               ; preds = %46, %19, %33, %40, %42, %38, %12, %6
-  %.036 = phi i32 [ %34, %33 ], [ %39, %38 ], [ %41, %40 ], [ %5, %42 ], [ %5, %12 ], [ %5, %6 ], [ %5, %19 ], [ %spec.select, %46 ]
+  %.036 = phi i32 [ %34, %33 ], [ %5, %19 ], [ %39, %38 ], [ %41, %40 ], [ %5, %6 ], [ %spec.select, %46 ], [ %5, %42 ], [ %5, %12 ]
   %52 = call i32 @dissect_ber_bitstring(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef null, i32 noundef 0, i32 noundef %.036, i32 noundef -1, ptr noundef nonnull %8)
   %53 = load ptr, ptr %8, align 8
   %54 = icmp ne ptr %53, null
@@ -6011,7 +6011,7 @@ define internal i32 @dissect_mms_T_integer(i1 noundef zeroext %0, ptr noundef %1
   br label %34
 
 34:                                               ; preds = %29, %15, %19, %23, %25, %21, %17, %9, %6
-  %.0 = phi i32 [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %5, %25 ], [ %5, %9 ], [ %5, %6 ], [ %spec.select, %29 ]
+  %.0 = phi i32 [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %5, %6 ], [ %spec.select, %29 ], [ %5, %25 ], [ %5, %9 ]
   %35 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %.0, ptr noundef null)
   ret i32 %35
 }
@@ -6052,7 +6052,7 @@ define internal i32 @dissect_mms_T_unsigned(i1 noundef zeroext %0, ptr noundef %
   br label %23
 
 23:                                               ; preds = %16, %19, %21, %12
-  %.1 = phi i32 [ %20, %19 ], [ %22, %21 ], [ %5, %12 ], [ %5, %16 ]
+  %.1 = phi i32 [ %20, %19 ], [ %22, %21 ], [ %5, %16 ], [ %5, %12 ]
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 5
@@ -6067,7 +6067,7 @@ define internal i32 @dissect_mms_T_unsigned(i1 noundef zeroext %0, ptr noundef %
   br label %32
 
 32:                                               ; preds = %27, %23, %9, %6
-  %.0 = phi i32 [ %.1, %23 ], [ %5, %9 ], [ %5, %6 ], [ %spec.select, %27 ]
+  %.0 = phi i32 [ %5, %6 ], [ %spec.select, %27 ], [ %.1, %23 ], [ %5, %9 ]
   %33 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %.0, ptr noundef null)
   ret i32 %33
 }
@@ -6134,7 +6134,7 @@ define internal i32 @dissect_mms_T_data_octet_string(i1 noundef zeroext %0, ptr 
   br label %21
 
 21:                                               ; preds = %16, %12, %9, %6
-  %.0 = phi i32 [ %5, %12 ], [ %5, %9 ], [ %5, %6 ], [ %spec.select, %16 ]
+  %.0 = phi i32 [ %5, %6 ], [ %spec.select, %16 ], [ %5, %12 ], [ %5, %9 ]
   %22 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %.0, ptr noundef null)
   ret i32 %22
 }
@@ -6169,7 +6169,7 @@ define internal i32 @dissect_mms_T_data_visible_string(i1 noundef zeroext %0, pt
   br label %20
 
 20:                                               ; preds = %13, %9, %18, %16, %6
-  %.0 = phi i32 [ %17, %16 ], [ %19, %18 ], [ %5, %9 ], [ %5, %6 ], [ %5, %13 ]
+  %.0 = phi i32 [ %17, %16 ], [ %19, %18 ], [ %5, %13 ], [ %5, %9 ], [ %5, %6 ]
   %21 = tail call i32 @dissect_ber_restricted_string(i1 noundef zeroext %0, i32 noundef 26, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %.0, ptr noundef null)
   ret i32 %21
 }
@@ -6196,7 +6196,7 @@ define internal noundef i32 @dissect_mms_T_data_binary_time(i1 noundef zeroext %
   br label %18
 
 18:                                               ; preds = %13, %9, %6
-  %.0 = phi i32 [ %5, %9 ], [ %5, %6 ], [ %spec.select, %13 ]
+  %.0 = phi i32 [ %5, %6 ], [ %spec.select, %13 ], [ %5, %9 ]
   %19 = tail call i32 @dissect_mms_TimeOfDay(i1 zeroext poison, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %.0)
   ret i32 %2
 }
@@ -6292,7 +6292,7 @@ define internal noundef i32 @dissect_mms_UtcTime(i1 zeroext %0, ptr noundef %1, 
   br label %48
 
 48:                                               ; preds = %43, %39, %36, %33
-  %.039 = phi i32 [ %5, %39 ], [ %5, %36 ], [ %5, %33 ], [ %spec.select, %43 ]
+  %.039 = phi i32 [ %5, %33 ], [ %spec.select, %43 ], [ %5, %39 ], [ %5, %36 ]
   %49 = call ptr @proto_tree_add_string(ptr noundef %4, i32 noundef %.039, ptr noundef %1, i32 noundef %2, i32 noundef 8, ptr noundef %31)
   %50 = add i32 %2, 7
   call void @proto_tree_add_bitmask_list(ptr noundef %4, ptr noundef %1, i32 noundef %50, i32 noundef 1, ptr noundef nonnull @dissect_mms_UtcTime.TimeQuality_bits, i32 noundef 0)
@@ -7540,16 +7540,16 @@ define internal i32 @dissect_mms_AccessResult(i1 zeroext %0, ptr noundef %1, i32
   %14 = phi i32 [ %.promoted, %.preheader ], [ %15, %.backedge.backedge ]
   %15 = add i32 %14, 1
   switch i32 %14, label %.critedge [
-    i32 13, label %43
-    i32 11, label %40
+    i32 13, label %40
+    i32 11, label %37
     i32 2, label %16
     i32 3, label %19
-    i32 4, label %22
-    i32 5, label %25
-    i32 6, label %28
-    i32 7, label %31
-    i32 8, label %34
-    i32 9, label %37
+    i32 4, label %43
+    i32 5, label %22
+    i32 6, label %25
+    i32 7, label %28
+    i32 8, label %31
+    i32 9, label %34
   ]
 
 16:                                               ; preds = %.backedge
@@ -7566,56 +7566,56 @@ define internal i32 @dissect_mms_AccessResult(i1 zeroext %0, ptr noundef %1, i32
 
 22:                                               ; preds = %.backedge
   %23 = load i16, ptr %10, align 4
-  %24 = and i16 %23, 2048
-  %.not28.not = icmp eq i16 %24, 0
-  br i1 %.not28.not, label %.backedge.backedge, label %.critedge
+  %24 = and i16 %23, 512
+  %.not27.not = icmp eq i16 %24, 0
+  br i1 %.not27.not, label %.backedge.backedge, label %.critedge
 
 25:                                               ; preds = %.backedge
   %26 = load i16, ptr %10, align 4
-  %27 = and i16 %26, 512
-  %.not27.not = icmp eq i16 %27, 0
-  br i1 %.not27.not, label %.backedge.backedge, label %.critedge
+  %27 = and i16 %26, 256
+  %.not26.not = icmp eq i16 %27, 0
+  br i1 %.not26.not, label %.backedge.backedge, label %.critedge
 
 28:                                               ; preds = %.backedge
   %29 = load i16, ptr %10, align 4
-  %30 = and i16 %29, 256
-  %.not26.not = icmp eq i16 %30, 0
-  br i1 %.not26.not, label %.backedge.backedge, label %.critedge
+  %30 = and i16 %29, 128
+  %.not25.not = icmp eq i16 %30, 0
+  br i1 %.not25.not, label %.backedge.backedge, label %.critedge
 
 31:                                               ; preds = %.backedge
   %32 = load i16, ptr %10, align 4
-  %33 = and i16 %32, 128
-  %.not25.not = icmp eq i16 %33, 0
-  br i1 %.not25.not, label %.backedge.backedge, label %.critedge
+  %33 = and i16 %32, 64
+  %.not24.not = icmp eq i16 %33, 0
+  br i1 %.not24.not, label %.backedge.backedge, label %.critedge
 
 34:                                               ; preds = %.backedge
   %35 = load i16, ptr %10, align 4
   %36 = and i16 %35, 64
-  %.not24.not = icmp eq i16 %36, 0
-  br i1 %.not24.not, label %.backedge.backedge, label %.critedge
+  %.not23.not = icmp eq i16 %36, 0
+  br i1 %.not23.not, label %.backedge.backedge, label %.critedge
 
 37:                                               ; preds = %.backedge
   %38 = load i16, ptr %10, align 4
-  %39 = and i16 %38, 64
-  %.not23.not = icmp eq i16 %39, 0
-  br i1 %.not23.not, label %.backedge.backedge, label %.critedge
+  %39 = and i16 %38, 1024
+  %.not31.not = icmp eq i16 %39, 0
+  br i1 %.not31.not, label %.backedge.backedge, label %.critedge
 
 40:                                               ; preds = %.backedge
   %41 = load i16, ptr %10, align 4
-  %42 = and i16 %41, 1024
-  %.not31.not = icmp eq i16 %42, 0
-  br i1 %.not31.not, label %.backedge.backedge, label %.critedge
+  %42 = and i16 %41, 4096
+  %.not32.not = icmp eq i16 %42, 0
+  br i1 %.not32.not, label %.backedge.backedge, label %.critedge
 
 43:                                               ; preds = %.backedge
   %44 = load i16, ptr %10, align 4
-  %45 = and i16 %44, 4096
-  %.not32.not = icmp eq i16 %45, 0
-  br i1 %.not32.not, label %.backedge.backedge, label %.critedge
+  %45 = and i16 %44, 2048
+  %.not28.not = icmp eq i16 %45, 0
+  br i1 %.not28.not, label %.backedge.backedge, label %.critedge
 
-.backedge.backedge:                               ; preds = %43, %16, %19, %22, %25, %28, %31, %34, %37, %40
+.backedge.backedge:                               ; preds = %43, %25, %19, %31, %16, %22, %34, %37, %28, %40
   br label %.backedge, !llvm.loop !10
 
-.critedge:                                        ; preds = %40, %37, %34, %31, %28, %25, %22, %19, %16, %.backedge, %43
+.critedge:                                        ; preds = %40, %28, %37, %34, %22, %16, %31, %19, %25, %.backedge, %43
   store i32 %15, ptr %11, align 4
   %46 = load i32, ptr @ett_mms_AccessResult, align 4
   %47 = call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @AccessResult_choice, i32 noundef %5, i32 noundef %46, ptr noundef nonnull %7)

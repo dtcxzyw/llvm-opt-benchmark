@@ -638,8 +638,8 @@ gv_calloc.exit206:                                ; preds = %.thread.i205, %130
   br label %163
 
 163:                                              ; preds = %159, %161, %.lr.ph34
-  %.2149 = phi double [ %162, %161 ], [ %.114831, %.lr.ph34 ], [ %156, %159 ]
-  %.2 = phi i8 [ 0, %161 ], [ %.132, %.lr.ph34 ], [ 0, %159 ]
+  %.2149 = phi double [ %.114831, %.lr.ph34 ], [ %162, %161 ], [ %156, %159 ]
+  %.2 = phi i8 [ %.132, %.lr.ph34 ], [ 0, %161 ], [ 0, %159 ]
   %164 = call double @llvm.maxnum.f64(double %156, double %.115430)
   %indvars.iv.next76 = add nsw i64 %indvars.iv75, 1
   %165 = load i32, ptr %149, align 4, !tbaa !11
@@ -686,17 +686,17 @@ gv_calloc.exit206:                                ; preds = %.thread.i205, %130
   br label %183
 
 183:                                              ; preds = %179, %181, %174
-  %.4151 = phi double [ %182, %181 ], [ %.315039, %174 ], [ %175, %179 ]
-  %.4 = phi i8 [ 0, %181 ], [ %.340, %174 ], [ 0, %179 ]
+  %.4151 = phi double [ %.315039, %174 ], [ %182, %181 ], [ %175, %179 ]
+  %.4 = phi i8 [ %.340, %174 ], [ 0, %181 ], [ 0, %179 ]
   %184 = call double @llvm.maxnum.f64(double %175, double %.215538)
   %indvars.iv.next78 = add nsw i64 %indvars.iv77, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit26, label %.lr.ph42, !llvm.loop !44
 
 .loopexit26:                                      ; preds = %163, %183, %152, %168
-  %.3156 = phi double [ %.015348, %168 ], [ %.015348, %152 ], [ %184, %183 ], [ %164, %163 ]
-  %.5152 = phi double [ %.014749, %168 ], [ %.014749, %152 ], [ %.4151, %183 ], [ %.2149, %163 ]
-  %.5 = phi i8 [ %.050, %168 ], [ %.050, %152 ], [ %.4, %183 ], [ %.2, %163 ]
+  %.3156 = phi double [ %184, %183 ], [ %.015348, %168 ], [ %.015348, %152 ], [ %164, %163 ]
+  %.5152 = phi double [ %.4151, %183 ], [ %.014749, %168 ], [ %.014749, %152 ], [ %.2149, %163 ]
+  %.5 = phi i8 [ %.4, %183 ], [ %.050, %168 ], [ %.050, %152 ], [ %.2, %163 ]
   %185 = call ptr @agnxtnode(ptr noundef %47, ptr noundef nonnull %.016047) #20
   %.not179 = icmp eq ptr %185, null
   br i1 %.not179, label %._crit_edge52, label %140, !llvm.loop !45
@@ -956,7 +956,7 @@ agxbuse.exit221:                                  ; preds = %agxbclear.exit.thre
   br label %Hue2RGB.exit.i
 
 Hue2RGB.exit.i:                                   ; preds = %293, %290, %287, %285
-  %.018.i.i = phi double [ %286, %285 ], [ %295, %293 ], [ 1.000000e+00, %287 ], [ 0.000000e+00, %290 ]
+  %.018.i.i = phi double [ %286, %285 ], [ 1.000000e+00, %287 ], [ %295, %293 ], [ 0.000000e+00, %290 ]
   %296 = call double @llvm.fmuladd.f64(double %.018.i.i, double 2.550000e+02, double 5.000000e-01)
   %297 = fptosi double %296 to i32
   %298 = fcmp olt double %277, 0.000000e+00
@@ -989,7 +989,7 @@ Hue2RGB.exit.i:                                   ; preds = %293, %290, %287, %2
   br label %Hue2RGB.exit22.i
 
 Hue2RGB.exit22.i:                                 ; preds = %312, %309, %306, %304
-  %.018.i21.i = phi double [ %305, %304 ], [ %314, %312 ], [ 1.000000e+00, %306 ], [ 0.000000e+00, %309 ]
+  %.018.i21.i = phi double [ %305, %304 ], [ 1.000000e+00, %306 ], [ %314, %312 ], [ 0.000000e+00, %309 ]
   %315 = call double @llvm.fmuladd.f64(double %.018.i21.i, double 2.550000e+02, double 5.000000e-01)
   %316 = fptosi double %315 to i32
   %317 = fadd double %277, 0xBFD5555555555555
@@ -1023,7 +1023,7 @@ Hue2RGB.exit22.i:                                 ; preds = %312, %309, %306, %3
   br label %Hue2RGB.exit26.i
 
 Hue2RGB.exit26.i:                                 ; preds = %332, %329, %326, %324
-  %.018.i25.i = phi double [ %325, %324 ], [ %334, %332 ], [ 1.000000e+00, %326 ], [ 0.000000e+00, %329 ]
+  %.018.i25.i = phi double [ %325, %324 ], [ 1.000000e+00, %326 ], [ %334, %332 ], [ 0.000000e+00, %329 ]
   %335 = call double @llvm.fmuladd.f64(double %.018.i25.i, double 2.550000e+02, double 5.000000e-01)
   %336 = fptosi double %335 to i32
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr noundef nonnull @.str.31, i32 noundef %297, i32 noundef %316, i32 noundef %336)

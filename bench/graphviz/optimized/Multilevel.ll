@@ -400,9 +400,9 @@ gv_calloc.exit137.i.i.i:                          ; preds = %33
   br label %128
 
 128:                                              ; preds = %127, %125, %121, %117, %.lr.ph158.i.i.i
-  %.3120.i.i.i = phi double [ %.2119154.i.i.i, %.lr.ph158.i.i.i ], [ %124, %127 ], [ %.2119154.i.i.i, %125 ], [ %.2119154.i.i.i, %117 ], [ %124, %121 ]
-  %.3116.i.i.i = phi i32 [ %.2115155.i.i.i, %.lr.ph158.i.i.i ], [ %115, %127 ], [ %.2115155.i.i.i, %125 ], [ %.2115155.i.i.i, %117 ], [ %115, %121 ]
-  %.1.i.i.i = phi i8 [ %.0156.i.i.i, %.lr.ph158.i.i.i ], [ 0, %127 ], [ 0, %125 ], [ %.0156.i.i.i, %117 ], [ 0, %121 ]
+  %.3120.i.i.i = phi double [ %.2119154.i.i.i, %.lr.ph158.i.i.i ], [ %.2119154.i.i.i, %117 ], [ %124, %127 ], [ %.2119154.i.i.i, %125 ], [ %124, %121 ]
+  %.3116.i.i.i = phi i32 [ %.2115155.i.i.i, %.lr.ph158.i.i.i ], [ %.2115155.i.i.i, %117 ], [ %115, %127 ], [ %.2115155.i.i.i, %125 ], [ %115, %121 ]
+  %.1.i.i.i = phi i8 [ %.0156.i.i.i, %.lr.ph158.i.i.i ], [ %.0156.i.i.i, %117 ], [ 0, %127 ], [ 0, %125 ], [ 0, %121 ]
   %indvars.iv.next187.i.i.i = add nsw i64 %indvars.iv186.i.i.i, 1
   %exitcond189.not.i.i.i = icmp eq i64 %indvars.iv.next187.i.i.i, %wide.trip.count188.i.i.i
   br i1 %exitcond189.not.i.i.i, label %._crit_edge159.i.i.i, label %.lr.ph158.i.i.i, !llvm.loop !40

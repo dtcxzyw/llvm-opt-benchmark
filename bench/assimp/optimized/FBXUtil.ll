@@ -737,9 +737,9 @@ _ZN6Assimp3FBX4Util12DecodeBase64Ec.exit:         ; preds = %.lr.ph
   br label %37
 
 37:                                               ; preds = %30, %24
-  %.241 = phi i64 [ %33, %30 ], [ %.03959, %24 ]
-  %.137 = phi i32 [ %36, %30 ], [ %27, %24 ]
-  %.134 = phi i32 [ %35, %30 ], [ %28, %24 ]
+  %.241 = phi i64 [ %.03959, %24 ], [ %33, %30 ]
+  %.137 = phi i32 [ %27, %24 ], [ %36, %30 ]
+  %.134 = phi i32 [ %28, %24 ], [ %35, %30 ]
   %38 = add nuw i64 %.03262, 1
   %39 = icmp uge i64 %38, %16
   %40 = icmp uge i64 %.241, %3
@@ -747,7 +747,7 @@ _ZN6Assimp3FBX4Util12DecodeBase64Ec.exit:         ; preds = %.lr.ph
   br i1 %.not51, label %.thread, label %.lr.ph, !llvm.loop !43
 
 .thread:                                          ; preds = %.lr.ph, %_ZN6Assimp3FBX4Util12DecodeBase64Ec.exit, %37, %7, %4
-  %.0 = phi i64 [ 0, %4 ], [ 0, %7 ], [ 0, %.lr.ph ], [ 0, %_ZN6Assimp3FBX4Util12DecodeBase64Ec.exit ], [ %.241, %37 ]
+  %.0 = phi i64 [ 0, %4 ], [ 0, %7 ], [ 0, %_ZN6Assimp3FBX4Util12DecodeBase64Ec.exit ], [ 0, %.lr.ph ], [ %.241, %37 ]
   ret i64 %.0
 }
 

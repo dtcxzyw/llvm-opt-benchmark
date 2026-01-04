@@ -41,7 +41,7 @@ define internal range(i32 0, 51) i32 @vc1t_probe(ptr noundef readonly captures(n
   br label %21
 
 21:                                               ; preds = %16, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ %spec.select, %16 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %spec.select, %16 ]
   ret i32 %.0
 }
 
@@ -107,7 +107,7 @@ define internal range(i32 -2147483648, 1) i32 @vc1t_read_header(ptr noundef %0) 
   br label %33
 
 33:                                               ; preds = %28, %32
-  %.029 = phi i32 [ 1, %32 ], [ %30, %28 ]
+  %.029 = phi i32 [ %30, %28 ], [ 1, %32 ]
   tail call void @avpriv_set_pts_info(ptr noundef nonnull %10, i32 noundef 24, i32 noundef 1, i32 noundef %.029) #3
   %34 = sext i32 %4 to i64
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -115,7 +115,7 @@ define internal range(i32 -2147483648, 1) i32 @vc1t_read_header(ptr noundef %0) 
   br label %36
 
 36:                                               ; preds = %31, %33, %17, %11, %9, %1, %6
-  %.0 = phi i32 [ -1094995529, %6 ], [ -1094995529, %1 ], [ -12, %9 ], [ %15, %11 ], [ -1094995529, %17 ], [ 0, %33 ], [ 0, %31 ]
+  %.0 = phi i32 [ -1094995529, %1 ], [ -12, %9 ], [ %15, %11 ], [ -1094995529, %17 ], [ -1094995529, %6 ], [ 0, %33 ], [ 0, %31 ]
   ret i32 %.0
 }
 

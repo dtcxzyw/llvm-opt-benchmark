@@ -54,9 +54,9 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17Ts_SolveQuadra
   br i1 %30, label %.sink.split, label %31
 
 .sink.split:                                      ; preds = %19, %23, %15, %17
-  %storemerge.sink = phi double [ %18, %17 ], [ 0.000000e+00, %15 ], [ %storemerge, %23 ], [ 0.000000e+00, %19 ]
-  %.sink = phi double [ %18, %17 ], [ 0.000000e+00, %15 ], [ %29, %23 ], [ 0.000000e+00, %19 ]
-  %.0.ph = phi i1 [ true, %17 ], [ false, %15 ], [ true, %23 ], [ false, %19 ]
+  %storemerge.sink = phi double [ 0.000000e+00, %15 ], [ %storemerge, %23 ], [ %18, %17 ], [ 0.000000e+00, %19 ]
+  %.sink = phi double [ 0.000000e+00, %15 ], [ %29, %23 ], [ %18, %17 ], [ 0.000000e+00, %19 ]
+  %.0.ph = phi i1 [ false, %15 ], [ true, %23 ], [ true, %17 ], [ false, %19 ]
   store double %storemerge.sink, ptr %1, align 8
   store double %.sink, ptr %2, align 8
   br label %31
@@ -235,7 +235,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21: ; p
   br i1 %or.cond53, label %.split.split, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !4
 
 _ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21, %92, %.preheader.i, %78, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
-  %.0 = phi double [ %5, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread ], [ %7, %75 ], [ -1.000000e+00, %78 ], [ %85, %.preheader.i ], [ %85, %92 ], [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21 ], [ %51, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38 ], [ %35, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us ]
+  %.0 = phi double [ %7, %75 ], [ %85, %92 ], [ -1.000000e+00, %78 ], [ %5, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread ], [ %51, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38 ], [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21 ], [ %85, %.preheader.i ], [ %35, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us ]
   ret double %.0
 }
 

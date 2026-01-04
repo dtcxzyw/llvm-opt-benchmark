@@ -147,7 +147,7 @@ _ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit.i: ; pre
   br label %_ZNK5clang7CanQualINS_4TypeEE19getNonReferenceTypeEv.exit
 
 _ZNK5clang7CanQualINS_4TypeEE19getNonReferenceTypeEv.exit: ; preds = %10, %11, %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit.i
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i.i.i, %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit.i ], [ %0, %10 ], [ %0, %11 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i.i.i, %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit.i ], [ %0, %11 ], [ %0, %10 ]
   %.0.copyload.i.i.i.i.i.i19 = load i64, ptr %6, align 8
   %.not.i.i.i.i20 = icmp ult i64 %.0.copyload.i.i.i.i.i.i19, 16
   br i1 %.not.i.i.i.i20, label %_ZNK5clang7CanQualINS_4TypeEE19getNonReferenceTypeEv.exit35, label %33
@@ -200,7 +200,7 @@ _ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit.i32: ; p
   br label %_ZNK5clang7CanQualINS_4TypeEE19getNonReferenceTypeEv.exit35
 
 _ZNK5clang7CanQualINS_4TypeEE19getNonReferenceTypeEv.exit35: ; preds = %_ZNK5clang7CanQualINS_4TypeEE19getNonReferenceTypeEv.exit, %33, %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit.i32
-  %.sroa.0.0.i22 = phi i64 [ %.sroa.0.0.copyload.i.i.i34, %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit.i32 ], [ %.0.copyload.i.i.i.i.i.i19, %_ZNK5clang7CanQualINS_4TypeEE19getNonReferenceTypeEv.exit ], [ %.0.copyload.i.i.i.i.i.i19, %33 ]
+  %.sroa.0.0.i22 = phi i64 [ %.sroa.0.0.copyload.i.i.i34, %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit.i32 ], [ %.0.copyload.i.i.i.i.i.i19, %33 ], [ %.0.copyload.i.i.i.i.i.i19, %_ZNK5clang7CanQualINS_4TypeEE19getNonReferenceTypeEv.exit ]
   store i64 %.sroa.0.0.i22, ptr %6, align 8, !tbaa !681
   %55 = and i64 %.sroa.0.0.i, -16
   %56 = inttoptr i64 %55 to ptr
@@ -361,7 +361,7 @@ switch.lookup:                                    ; preds = %switch.early.test20
   br label %39
 
 39:                                               ; preds = %14, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %34, %switch.lookup, %switch.early.test208
-  %.079 = phi i1 [ true, %switch.early.test208 ], [ %switch.masked, %switch.lookup ], [ false, %34 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %14 ]
+  %.079 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %switch.early.test208 ], [ false, %34 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %14 ]
   %40 = and i64 %19, -16
   %41 = inttoptr i64 %40 to ptr
   %42 = load ptr, ptr %41, align 16, !tbaa !676
@@ -706,8 +706,8 @@ _ZN5clang9FixItHintD2Ev.exit133:                  ; preds = %176, %_ZNKSt7__cxx1
   store i32 %.085.sink, ptr %188, align 4, !tbaa !709
   br label %.thread183
 
-.thread183:                                       ; preds = %.thread183.sink.split, %183, %137, %129, %118, %57, %139, %.thread, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %.thread ], [ false, %139 ], [ true, %118 ], [ false, %57 ], [ true, %183 ], [ false, %137 ], [ false, %129 ], [ true, %.thread183.sink.split ]
+.thread183:                                       ; preds = %.thread183.sink.split, %137, %129, %183, %118, %57, %139, %.thread, %5
+  %.0 = phi i1 [ false, %5 ], [ false, %139 ], [ true, %118 ], [ false, %.thread ], [ false, %137 ], [ false, %57 ], [ false, %129 ], [ true, %183 ], [ true, %.thread183.sink.split ]
   ret i1 %.0
 }
 
@@ -955,27 +955,22 @@ define dso_local void @_ZNK5clang4Sema30getFixItZeroInitializerForTypeB5cxx11ENS
   %15 = icmp ne i8 %14, 13
   %.not.not24.i = icmp eq ptr %12, null
   %.not.not.i = or i1 %.not.not24.i, %15
-  br i1 %.not.not.i, label %16, label %_ZNK5clang4Type12isScalarTypeEv.exit
+  br i1 %.not.not.i, label %21, label %16
 
 16:                                               ; preds = %4
-  %17 = icmp ne i8 %14, 46
-  %.not12.not.i = or i1 %.not.not24.i, %17
-  br i1 %.not12.not.i, label %26, label %18
+  %17 = load i32, ptr %13, align 16
+  %18 = lshr i32 %17, 19
+  %19 = and i32 %18, 511
+  %20 = add nsw i32 %19, -435
+  %spec.select.i = icmp ult i32 %20, 53
+  br i1 %spec.select.i, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread18
 
-18:                                               ; preds = %16
-  %19 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %12) #16
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 74
-  %21 = load i8, ptr %20, align 2
-  %22 = and i8 %21, 1
-  %23 = icmp ne i8 %22, 0
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %24, align 8
-  %.not.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i, 7
-  %25 = select i1 %23, i1 true, i1 %.not.i.i.i.i.i
-  %.pre23 = load ptr, ptr %7, align 16, !tbaa !676
-  br i1 %25, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread18
+21:                                               ; preds = %4
+  %22 = icmp ne i8 %14, 46
+  %.not12.not.i = or i1 %.not.not24.i, %22
+  br i1 %.not12.not.i, label %23, label %_ZNK5clang4Type12isScalarTypeEv.exit
 
-26:                                               ; preds = %16
+23:                                               ; preds = %21
   switch i8 %14, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread18 [
     i8 41, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread
     i8 11, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread
@@ -985,16 +980,21 @@ define dso_local void @_ZNK5clang4Sema30getFixItZeroInitializerForTypeB5cxx11ENS
     i8 10, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread
   ]
 
-_ZNK5clang4Type12isScalarTypeEv.exit:             ; preds = %4
-  %27 = load i32, ptr %13, align 16
-  %28 = lshr i32 %27, 19
-  %29 = and i32 %28, 511
-  %30 = add nsw i32 %29, -435
-  %spec.select.i = icmp ult i32 %30, 53
-  br i1 %spec.select.i, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread18
+_ZNK5clang4Type12isScalarTypeEv.exit:             ; preds = %21
+  %24 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %12) #16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 74
+  %26 = load i8, ptr %25, align 2
+  %27 = and i8 %26, 1
+  %28 = icmp ne i8 %27, 0
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %29, align 8
+  %.not.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i, 7
+  %30 = select i1 %28, i1 true, i1 %.not.i.i.i.i.i
+  %.pre23 = load ptr, ptr %7, align 16, !tbaa !676
+  br i1 %30, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread18
 
-_ZNK5clang4Type12isScalarTypeEv.exit.thread:      ; preds = %18, %26, %26, %26, %26, %26, %26, %_ZNK5clang4Type12isScalarTypeEv.exit
-  %31 = phi ptr [ %8, %26 ], [ %8, %26 ], [ %8, %26 ], [ %8, %26 ], [ %8, %26 ], [ %8, %26 ], [ %8, %_ZNK5clang4Type12isScalarTypeEv.exit ], [ %.pre23, %18 ]
+_ZNK5clang4Type12isScalarTypeEv.exit.thread:      ; preds = %_ZNK5clang4Type12isScalarTypeEv.exit, %23, %23, %23, %23, %23, %23, %16
+  %31 = phi ptr [ %8, %16 ], [ %8, %23 ], [ %8, %23 ], [ %8, %23 ], [ %8, %23 ], [ %8, %23 ], [ %8, %23 ], [ %.pre23, %_ZNK5clang4Type12isScalarTypeEv.exit ]
   tail call fastcc void @_ZL30getScalarZeroExpressionForTypeB5cxx11RKN5clang4TypeENS_14SourceLocationERKNS_4SemaE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 16 dereferenceable(24) %31, i32 %3, ptr noundef nonnull align 8 dereferenceable(17504) %1)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !694
@@ -1099,8 +1099,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %111
 
-_ZNK5clang4Type12isScalarTypeEv.exit.thread18:    ; preds = %26, %18, %_ZNK5clang4Type12isScalarTypeEv.exit
-  %69 = phi ptr [ %8, %26 ], [ %.pre23, %18 ], [ %8, %_ZNK5clang4Type12isScalarTypeEv.exit ]
+_ZNK5clang4Type12isScalarTypeEv.exit.thread18:    ; preds = %23, %16, %_ZNK5clang4Type12isScalarTypeEv.exit
+  %69 = phi ptr [ %8, %23 ], [ %8, %16 ], [ %.pre23, %_ZNK5clang4Type12isScalarTypeEv.exit ]
   %70 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %69) #16
   %.not = icmp eq ptr %70, null
   br i1 %.not, label %79, label %71
@@ -2264,7 +2264,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   br label %58
 
 58:                                               ; preds = %10, %53, %57, %7, %16
-  %.018 = phi ptr [ null, %16 ], [ null, %7 ], [ %.0, %57 ], [ %.0, %53 ], [ null, %10 ]
+  %.018 = phi ptr [ null, %7 ], [ null, %16 ], [ null, %10 ], [ %.0, %57 ], [ %.0, %53 ]
   ret ptr %.018
 }
 
@@ -2730,7 +2730,7 @@ _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thre
   br label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
 
 _ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit: ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i, %64, %69, %71
-  %74 = phi i1 [ false, %64 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i ], [ true, %69 ], [ %73, %71 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i ]
+  %74 = phi i1 [ false, %64 ], [ true, %69 ], [ %73, %71 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i ]
   ret i1 %74
 }
 

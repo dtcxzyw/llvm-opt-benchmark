@@ -482,7 +482,7 @@ define hidden void @_ZN21JfrDeprecationManager7on_linkEPK6MethodPS0_ihP10JavaThr
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.15)
   br label %43
 
-43:                                               ; preds = %32, %40, %42
+43:                                               ; preds = %42, %32, %40
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 1092
   %45 = load volatile i32, ptr %44, align 4
   %.not.i = icmp eq i32 %45, 6
@@ -1050,7 +1050,7 @@ _ZL13is_jdk_modulePKc.exit.i:                     ; preds = %18, %6
   br label %_ZL13is_jdk_modulePK11ModuleEntryP10JavaThread.exit
 
 _ZL13is_jdk_modulePK11ModuleEntryP10JavaThread.exit: ; preds = %2, %_ZL17is_unnamed_modulePK11ModuleEntry.exit.i, %22, %24
-  %.0.i = phi i1 [ false, %_ZL17is_unnamed_modulePK11ModuleEntry.exit.i ], [ %19, %22 ], [ %19, %24 ], [ false, %2 ]
+  %.0.i = phi i1 [ %19, %24 ], [ false, %_ZL17is_unnamed_modulePK11ModuleEntry.exit.i ], [ %19, %22 ], [ false, %2 ]
   %25 = xor i1 %.0.i, true
   ret i1 %25
 }

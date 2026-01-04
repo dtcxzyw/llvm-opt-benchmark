@@ -297,8 +297,8 @@ _ZN10__cxxabiv1L11readSLEB128EPPKh.exit.i:        ; preds = %111
 
 switch.lookup:                                    ; preds = %131
   %switch.load = load i64, ptr %switch.gep, align 8
-  %.neg14.i.i = mul i64 %switch.load, %.1.i.i
-  %138 = getelementptr inbounds i8, ptr %.0137.i, i64 %.neg14.i.i
+  %.neg.i.i = mul i64 %switch.load, %.1.i.i
+  %138 = getelementptr inbounds i8, ptr %.0137.i, i64 %.neg.i.i
   store ptr %138, ptr %6, align 8, !tbaa !16
   %139 = call fastcc noundef i64 @_ZN10__cxxabiv1L18readEncodedPointerEPPKhhm(ptr noundef %6, i8 noundef zeroext %52, i64 noundef 0)
   %140 = inttoptr i64 %139 to ptr
@@ -422,7 +422,7 @@ _ZN10__cxxabiv1L21get_thrown_object_ptrEP17_Unwind_Exception.exit188.i: ; preds 
   br i1 %172, label %select.unfold82.sink.split, label %select.unfold82
 
 .critedge168.i:                                   ; preds = %183, %169, %.critedge.i, %148
-  %.2140.i = phi i1 [ %.mux.i, %169 ], [ %.0138.i, %183 ], [ %.0138.i, %.critedge.i ], [ %.0138.i, %148 ]
+  %.2140.i = phi i1 [ %.0138.i, %183 ], [ %.0138.i, %.critedge.i ], [ %.0138.i, %148 ], [ %.mux.i, %169 ]
   br label %188
 
 188:                                              ; preds = %188, %.critedge168.i
@@ -506,9 +506,9 @@ select.unfold82.sink.split:                       ; preds = %187, %145
   br label %select.unfold82
 
 select.unfold82:                                  ; preds = %select.unfold82.sink.split, %.critedge166.thread.i, %145, %187
-  %.sroa.13.0.ph = phi ptr [ %.0.i, %187 ], [ %.0.i, %145 ], [ null, %.critedge166.thread.i ], [ %.0.i, %select.unfold82.sink.split ]
-  %.sroa.0.0.ph = phi i64 [ %.1.i.i, %187 ], [ %.1.i.i, %145 ], [ 0, %.critedge166.thread.i ], [ %.1.i.i, %select.unfold82.sink.split ]
-  %.sroa.27.0.ph = phi ptr [ %103, %187 ], [ %103, %145 ], [ null, %.critedge166.thread.i ], [ %218, %select.unfold82.sink.split ]
+  %.sroa.13.0.ph = phi ptr [ null, %.critedge166.thread.i ], [ %.0.i, %145 ], [ %.0.i, %187 ], [ %.0.i, %select.unfold82.sink.split ]
+  %.sroa.0.0.ph = phi i64 [ 0, %.critedge166.thread.i ], [ %.1.i.i, %145 ], [ %.1.i.i, %187 ], [ %.1.i.i, %select.unfold82.sink.split ]
+  %.sroa.27.0.ph = phi ptr [ null, %.critedge166.thread.i ], [ %103, %145 ], [ %103, %187 ], [ %218, %select.unfold82.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not.i, label %228, label %220
@@ -542,7 +542,7 @@ select.unfold82:                                  ; preds = %select.unfold82.sin
   br label %_ZN10__cxxabiv1L11scan_eh_tabERNS_12_GLOBAL__N_112scan_resultsE14_Unwind_ActionbP17_Unwind_ExceptionP15_Unwind_Context.exit.thread
 
 228:                                              ; preds = %.thread117, %.thread99, %select.unfold82
-  %.sroa.0.27297 = phi i64 [ %.sroa.0.0.ph, %select.unfold82 ], [ 0, %.thread99 ], [ %.1.i.i, %.thread117 ]
+  %.sroa.0.27297 = phi i64 [ %.1.i.i, %.thread117 ], [ %.sroa.0.0.ph, %select.unfold82 ], [ 0, %.thread99 ]
   %229 = and i32 %1, 2
   %.not43 = icmp eq i32 %229, 0
   br i1 %.not43, label %230, label %231
@@ -569,7 +569,7 @@ select.unfold82:                                  ; preds = %select.unfold82.sin
   br label %_ZN10__cxxabiv1L11scan_eh_tabERNS_12_GLOBAL__N_112scan_resultsE14_Unwind_ActionbP17_Unwind_ExceptionP15_Unwind_Context.exit.thread
 
 _ZN10__cxxabiv1L11scan_eh_tabERNS_12_GLOBAL__N_112scan_resultsE14_Unwind_ActionbP17_Unwind_ExceptionP15_Unwind_Context.exit.thread: ; preds = %29, %31, %26, %17, %.thread121, %220, %234, %231, %_ZN10__cxxabiv1L11scan_eh_tabERNS_12_GLOBAL__N_112scan_resultsE14_Unwind_ActionbP17_Unwind_ExceptionP15_Unwind_Context.exit.thread75, %_ZN10__cxxabiv1L11scan_eh_tabERNS_12_GLOBAL__N_112scan_resultsE14_Unwind_ActionbP17_Unwind_ExceptionP15_Unwind_Context.exit, %5
-  %.0 = phi i32 [ 3, %5 ], [ 7, %26 ], [ 7, %17 ], [ 8, %_ZN10__cxxabiv1L11scan_eh_tabERNS_12_GLOBAL__N_112scan_resultsE14_Unwind_ActionbP17_Unwind_ExceptionP15_Unwind_Context.exit ], [ 6, %.thread121 ], [ 6, %220 ], [ 7, %234 ], [ 7, %231 ], [ 8, %_ZN10__cxxabiv1L11scan_eh_tabERNS_12_GLOBAL__N_112scan_resultsE14_Unwind_ActionbP17_Unwind_ExceptionP15_Unwind_Context.exit.thread75 ], [ 3, %31 ], [ 3, %29 ]
+  %.0 = phi i32 [ 3, %5 ], [ 6, %220 ], [ 7, %17 ], [ 8, %_ZN10__cxxabiv1L11scan_eh_tabERNS_12_GLOBAL__N_112scan_resultsE14_Unwind_ActionbP17_Unwind_ExceptionP15_Unwind_Context.exit.thread75 ], [ 7, %26 ], [ 8, %_ZN10__cxxabiv1L11scan_eh_tabERNS_12_GLOBAL__N_112scan_resultsE14_Unwind_ActionbP17_Unwind_ExceptionP15_Unwind_Context.exit ], [ 6, %.thread121 ], [ 7, %234 ], [ 7, %231 ], [ 3, %31 ], [ 3, %29 ]
   ret i32 %.0
 }
 
@@ -787,7 +787,7 @@ _ZN10__cxxabiv1L11readULEB128EPPKh.exit:          ; preds = %.preheader
   br label %101
 
 100:                                              ; preds = %56, %89, %97, %87
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %88, %87 ], [ %98, %97 ], [ %90, %89 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %90, %89 ], [ %57, %56 ], [ %88, %87 ], [ %98, %97 ]
   invoke void @__cxa_end_catch()
           to label %102 unwind label %103
 
@@ -927,8 +927,8 @@ _ZN10__cxxabiv1L11readSLEB128EPPKh.exit:          ; preds = %.preheader44
   unreachable
 
 _ZN10__cxxabiv1L11readULEB128EPPKh.exit:          ; preds = %.preheader, %43, %40, %37, %35, %32, %29, %_ZN10__cxxabiv1L11readSLEB128EPPKh.exit, %9
-  %.041 = phi ptr [ %10, %9 ], [ %18, %_ZN10__cxxabiv1L11readSLEB128EPPKh.exit ], [ %30, %29 ], [ %33, %32 ], [ %36, %35 ], [ %38, %37 ], [ %41, %40 ], [ %44, %43 ], [ %11, %.preheader ]
-  %.0 = phi i64 [ %.0.copyload.i, %9 ], [ %.1.i, %_ZN10__cxxabiv1L11readSLEB128EPPKh.exit ], [ %31, %29 ], [ %34, %32 ], [ %.0.copyload.i28, %35 ], [ %39, %37 ], [ %42, %40 ], [ %.0.copyload.i31, %43 ], [ %16, %.preheader ]
+  %.041 = phi ptr [ %10, %9 ], [ %44, %43 ], [ %18, %_ZN10__cxxabiv1L11readSLEB128EPPKh.exit ], [ %30, %29 ], [ %33, %32 ], [ %36, %35 ], [ %38, %37 ], [ %41, %40 ], [ %11, %.preheader ]
+  %.0 = phi i64 [ %.0.copyload.i, %9 ], [ %.0.copyload.i31, %43 ], [ %.1.i, %_ZN10__cxxabiv1L11readSLEB128EPPKh.exit ], [ %31, %29 ], [ %34, %32 ], [ %.0.copyload.i28, %35 ], [ %39, %37 ], [ %42, %40 ], [ %16, %.preheader ]
   %46 = lshr i32 %4, 4
   %47 = and i32 %46, 7
   switch i32 %47, label %56 [
@@ -1057,8 +1057,8 @@ _ZN10__cxxabiv1L11readULEB128EPPKh.exit:          ; preds = %19
 
 switch.lookup:                                    ; preds = %28
   %switch.load = load i64, ptr %switch.gep, align 8
-  %.neg14.i = mul i64 %switch.load, %25
-  %33 = getelementptr inbounds i8, ptr %1, i64 %.neg14.i
+  %.neg.i = mul i64 %switch.load, %25
+  %33 = getelementptr inbounds i8, ptr %1, i64 %.neg.i
   store ptr %33, ptr %8, align 8, !tbaa !16
   %34 = call fastcc noundef i64 @_ZN10__cxxabiv1L18readEncodedPointerEPPKhhm(ptr noundef %8, i8 noundef zeroext %2, i64 noundef %6)
   %35 = inttoptr i64 %34 to ptr

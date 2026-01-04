@@ -507,7 +507,7 @@ _gres_per_job_reduce_res_cores.exit:              ; preds = %.critedge.i, %.sink
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_gres_per_job_reduce_res_cores.exit, %152, %.outer._crit_edge, %159, %162, %.outer._crit_edge.thread
-  %.0.ph = phi i1 [ true, %.outer._crit_edge.thread ], [ true, %162 ], [ true, %159 ], [ true, %.outer._crit_edge ], [ false, %152 ], [ false, %_gres_per_job_reduce_res_cores.exit ]
+  %.0.ph = phi i1 [ true, %159 ], [ true, %.outer._crit_edge ], [ true, %.outer._crit_edge.thread ], [ true, %162 ], [ false, %152 ], [ false, %_gres_per_job_reduce_res_cores.exit ]
   call void @slurm_xfree(ptr noundef nonnull %14) #4
   br label %163
 

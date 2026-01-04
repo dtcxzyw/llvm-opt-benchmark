@@ -54021,8 +54021,8 @@ define internal i32 @dissect_lte_rrc_T_sr_ConfigIndex(ptr noundef %0, i32 nounde
   br label %sr_lookup_configindex.exit
 
 sr_lookup_configindex.exit:                       ; preds = %26, %5, %12, %16, %20, %24
-  %.0 = phi i32 [ 10, %12 ], [ 20, %16 ], [ 40, %20 ], [ 80, %24 ], [ 5, %5 ], [ %spec.select, %26 ]
-  %.sink.i = phi i32 [ %13, %12 ], [ %17, %16 ], [ %21, %20 ], [ %25, %24 ], [ %8, %5 ], [ %spec.select19, %26 ]
+  %.0 = phi i32 [ %spec.select, %26 ], [ 10, %12 ], [ 20, %16 ], [ 40, %20 ], [ 80, %24 ], [ 5, %5 ]
+  %.sink.i = phi i32 [ %spec.select19, %26 ], [ %13, %12 ], [ %17, %16 ], [ %21, %20 ], [ %25, %24 ], [ %8, %5 ]
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @ett_lte_rrc_sr_ConfigIndex, align 4
@@ -63576,8 +63576,8 @@ define internal i32 @dissect_lte_rrc_T_sr_ConfigIndex_r13(ptr noundef %0, i32 no
   br label %sr_lookup_configindex.exit
 
 sr_lookup_configindex.exit:                       ; preds = %26, %5, %12, %16, %20, %24
-  %.0 = phi i32 [ 10, %12 ], [ 20, %16 ], [ 40, %20 ], [ 80, %24 ], [ 5, %5 ], [ %spec.select, %26 ]
-  %.sink.i = phi i32 [ %13, %12 ], [ %17, %16 ], [ %21, %20 ], [ %25, %24 ], [ %8, %5 ], [ %spec.select19, %26 ]
+  %.0 = phi i32 [ %spec.select, %26 ], [ 10, %12 ], [ 20, %16 ], [ 40, %20 ], [ 80, %24 ], [ 5, %5 ]
+  %.sink.i = phi i32 [ %spec.select19, %26 ], [ %13, %12 ], [ %17, %16 ], [ %21, %20 ], [ %25, %24 ], [ %8, %5 ]
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @ett_lte_rrc_sr_ConfigIndex, align 4
@@ -73552,7 +73552,7 @@ define internal i32 @dissect_lte_rrc_DLDedicatedMessageSegment_r16_IEs(ptr nound
   br label %39
 
 39:                                               ; preds = %31, %28, %36, %20
-  %.sink.shrunk = phi i16 [ %30, %28 ], [ %38, %36 ], [ %22, %20 ], [ 0, %31 ]
+  %.sink.shrunk = phi i16 [ %30, %28 ], [ %22, %20 ], [ %38, %36 ], [ 0, %31 ]
   %.sink = zext i16 %.sink.shrunk to i32
   store i32 %.sink, ptr %7, align 4
   store i32 1, ptr %8, align 16
@@ -77411,7 +77411,7 @@ define internal i32 @dissect_lte_rrc_ULDedicatedMessageSegment_r16_IEs(ptr nound
   br label %39
 
 39:                                               ; preds = %31, %28, %36, %20
-  %.sink.shrunk = phi i16 [ %30, %28 ], [ %38, %36 ], [ %22, %20 ], [ 0, %31 ]
+  %.sink.shrunk = phi i16 [ %30, %28 ], [ %22, %20 ], [ %38, %36 ], [ 0, %31 ]
   %.sink = zext i16 %.sink.shrunk to i32
   store i32 %.sink, ptr %7, align 4
   store i32 1, ptr %8, align 16

@@ -527,7 +527,7 @@ define hidden i32 @get_md4pass_list(ptr noundef %0, ptr noundef writeonly captur
   br label %18
 
 18:                                               ; preds = %13, %.lr.ph, %9
-  %.136 = phi i32 [ %.03546, %9 ], [ %.03546, %.lr.ph ], [ %spec.select, %13 ]
+  %.136 = phi i32 [ %.03546, %.lr.ph ], [ %spec.select, %13 ], [ %.03546, %9 ]
   %.038 = load ptr, ptr %.03847, align 8
   %.not = icmp eq ptr %.038, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -1427,7 +1427,7 @@ ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %9
   br i1 %exitcond.not, label %._crit_edge, label %62, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %66, %76, %75, %51
-  %.178.not = phi i1 [ true, %51 ], [ false, %75 ], [ true, %76 ], [ true, %66 ]
+  %.178.not = phi i1 [ true, %51 ], [ true, %76 ], [ false, %75 ], [ true, %66 ]
   %.2 = phi ptr [ null, %51 ], [ %63, %75 ], [ %63, %76 ], [ %63, %66 ]
   call void @gcry_md_hash_buffer(i32 noundef 301, ptr noundef nonnull %17, ptr noundef nonnull %14, i64 noundef 16)
   %77 = load i64, ptr %0, align 1
@@ -1807,8 +1807,8 @@ define internal fastcc noundef i32 @dissect_ntlmssp_target_info_list(ptr noundef
   br i1 %71, label %16, label %.loopexit
 
 .loopexit:                                        ; preds = %67, %6, %.thread
-  %.077.pn = phi i32 [ %9, %.thread ], [ 0, %6 ], [ %68, %67 ]
-  %.2 = add i32 %.077.pn, %3
+  %.pn = phi i32 [ %9, %.thread ], [ 0, %6 ], [ %68, %67 ]
+  %.2 = add i32 %.pn, %3
   ret i32 %.2
 }
 
@@ -2437,8 +2437,8 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %200, %203, %167
   br label %255
 
 255:                                              ; preds = %252, %248, %247, %.thread.i
-  %256 = phi i1 [ true, %248 ], [ false, %247 ], [ true, %252 ], [ %246, %.thread.i ]
-  %.1171.i = phi i1 [ false, %248 ], [ false, %247 ], [ %.not182.i, %252 ], [ %.not181.i, %.thread.i ]
+  %256 = phi i1 [ false, %247 ], [ true, %252 ], [ true, %248 ], [ %246, %.thread.i ]
+  %.1171.i = phi i1 [ false, %247 ], [ %.not182.i, %252 ], [ false, %248 ], [ %.not181.i, %.thread.i ]
   %257 = add i32 %.0..0..0..0.51, 4
   %258 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %257)
   %259 = load i32, ptr @hf_ntlmssp_auth_lmresponse, align 4
@@ -3902,24 +3902,24 @@ define internal fastcc noundef ptr @decrypt_data_payload(ptr noundef %0, i32 nou
   %16 = getelementptr inbounds nuw i8, ptr %.068, i64 25
   %17 = load i8, ptr %16, align 1, !range !38, !noundef !39
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %.critedge81, label %19
+  br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %15
   %20 = tail call ptr @find_conversation_pinfo(ptr noundef %3, i32 noundef 0)
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.critedge, label %22
+  br i1 %21, label %.critedge81, label %22
 
 22:                                               ; preds = %19
   %23 = load i32, ptr @proto_ntlmssp, align 4
   %24 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %20, i32 noundef %23)
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.critedge, label %26
+  br i1 %25, label %.critedge81, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 68
   %28 = load i8, ptr %27, align 4, !range !38, !noundef !39
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %.critedge
+  br i1 %29, label %30, label %.critedge81
 
 30:                                               ; preds = %26
   %.not = icmp eq ptr %4, null
@@ -3939,7 +3939,7 @@ define internal fastcc noundef ptr @decrypt_data_payload(ptr noundef %0, i32 nou
 
 38:                                               ; preds = %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(40) %.068, ptr noundef nonnull align 1 dereferenceable(40) %33, i64 noundef 40, i1 noundef false) #17
-  br label %.critedge81
+  br label %.critedge
 
 .thread:                                          ; preds = %30, %34, %31
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 56
@@ -3966,7 +3966,7 @@ define internal fastcc noundef ptr @decrypt_data_payload(ptr noundef %0, i32 nou
   br label %get_encrypted_state.exit
 
 get_encrypted_state.exit:                         ; preds = %46, %47, %.sink.split.i
-  %.0.i = phi ptr [ null, %46 ], [ null, %47 ], [ %52, %.sink.split.i ]
+  %.0.i = phi ptr [ null, %47 ], [ null, %46 ], [ %52, %.sink.split.i ]
   %53 = tail call ptr @find_conversation_pinfo(ptr noundef %3, i32 noundef 0)
   %54 = icmp eq ptr %53, null
   br i1 %54, label %get_encrypted_state.exit84, label %55
@@ -3997,7 +3997,7 @@ get_encrypted_state.exit:                         ; preds = %46, %47, %.sink.spl
   br label %get_encrypted_state.exit87
 
 get_encrypted_state.exit87:                       ; preds = %61, %62, %.sink.split.i85
-  %.0.i86 = phi ptr [ null, %61 ], [ null, %62 ], [ %67, %.sink.split.i85 ]
+  %.0.i86 = phi ptr [ null, %62 ], [ null, %61 ], [ %67, %.sink.split.i85 ]
   %68 = tail call ptr @find_conversation_pinfo(ptr noundef %3, i32 noundef 0)
   %69 = icmp eq ptr %68, null
   br i1 %69, label %get_encrypted_state.exit84, label %70
@@ -4014,10 +4014,10 @@ get_encrypted_state.exit87:                       ; preds = %61, %62, %.sink.spl
   br label %get_encrypted_state.exit84
 
 get_encrypted_state.exit84:                       ; preds = %.sink.split.i88, %70, %get_encrypted_state.exit87, %.sink.split.i82, %55, %get_encrypted_state.exit
-  %.074 = phi ptr [ null, %get_encrypted_state.exit ], [ null, %55 ], [ %60, %.sink.split.i82 ], [ null, %get_encrypted_state.exit87 ], [ null, %70 ], [ %75, %.sink.split.i88 ]
-  %.073 = phi ptr [ %.0.i, %get_encrypted_state.exit ], [ %.0.i, %55 ], [ %.0.i, %.sink.split.i82 ], [ %.0.i86, %get_encrypted_state.exit87 ], [ %.0.i86, %70 ], [ %.0.i86, %.sink.split.i88 ]
+  %.074 = phi ptr [ %60, %.sink.split.i82 ], [ null, %55 ], [ null, %get_encrypted_state.exit ], [ null, %70 ], [ null, %get_encrypted_state.exit87 ], [ %75, %.sink.split.i88 ]
+  %.073 = phi ptr [ %.0.i, %.sink.split.i82 ], [ %.0.i, %55 ], [ %.0.i, %get_encrypted_state.exit ], [ %.0.i86, %70 ], [ %.0.i86, %get_encrypted_state.exit87 ], [ %.0.i86, %.sink.split.i88 ]
   %.not80 = icmp eq ptr %.073, null
-  br i1 %.not80, label %.critedge, label %76
+  br i1 %.not80, label %.critedge81, label %76
 
 76:                                               ; preds = %get_encrypted_state.exit84
   %77 = tail call ptr @wmem_file_scope()
@@ -4057,16 +4057,16 @@ get_encrypted_state.exit84:                       ; preds = %.sink.split.i88, %7
 
 99:                                               ; preds = %93, %88
   store i8 1, ptr %16, align 1
-  br label %.critedge81
+  br label %.critedge
 
-.critedge81:                                      ; preds = %99, %38, %15
+.critedge:                                        ; preds = %99, %38, %15
   %100 = load ptr, ptr %.068, align 8
   %101 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %100, i32 noundef %2, i32 noundef %2)
   tail call void @add_new_data_source(ptr noundef %3, ptr noundef %101, ptr noundef nonnull @.str.305)
-  br label %.critedge
+  br label %.critedge81
 
-.critedge:                                        ; preds = %19, %22, %26, %get_encrypted_state.exit84, %.critedge81
-  %.3 = phi ptr [ %101, %.critedge81 ], [ null, %get_encrypted_state.exit84 ], [ null, %26 ], [ null, %22 ], [ null, %19 ]
+.critedge81:                                      ; preds = %22, %19, %26, %get_encrypted_state.exit84, %.critedge
+  %.3 = phi ptr [ %101, %.critedge ], [ null, %get_encrypted_state.exit84 ], [ null, %26 ], [ null, %22 ], [ null, %19 ]
   ret ptr %.3
 }
 
@@ -4169,7 +4169,7 @@ define internal fastcc void @decrypt_verifier(ptr noundef %0, ptr noundef %1) un
   br label %get_encrypted_state.exit
 
 get_encrypted_state.exit:                         ; preds = %32, %33, %.sink.split.i
-  %.0.i = phi ptr [ null, %32 ], [ null, %33 ], [ %38, %.sink.split.i ]
+  %.0.i = phi ptr [ null, %33 ], [ null, %32 ], [ %38, %.sink.split.i ]
   %39 = tail call ptr @find_conversation_pinfo(ptr noundef %1, i32 noundef 0)
   %40 = icmp eq ptr %39, null
   br i1 %40, label %get_sign_key.exit, label %41
@@ -4183,7 +4183,7 @@ get_encrypted_state.exit:                         ; preds = %32, %33, %.sink.spl
   br label %get_sign_key.exit
 
 get_sign_key.exit:                                ; preds = %41, %get_encrypted_state.exit
-  %.0.i89 = phi ptr [ null, %get_encrypted_state.exit ], [ %spec.select, %41 ]
+  %.0.i89 = phi ptr [ %spec.select, %41 ], [ null, %get_encrypted_state.exit ]
   %46 = tail call ptr @find_conversation_pinfo(ptr noundef %1, i32 noundef 0)
   %47 = icmp eq ptr %46, null
   br i1 %47, label %get_encrypted_state.exit92.thread, label %48
@@ -4213,7 +4213,7 @@ get_sign_key.exit:                                ; preds = %41, %get_encrypted_
   br label %get_encrypted_state.exit95
 
 get_encrypted_state.exit95:                       ; preds = %53, %54, %.sink.split.i93
-  %.0.i94 = phi ptr [ null, %53 ], [ null, %54 ], [ %59, %.sink.split.i93 ]
+  %.0.i94 = phi ptr [ null, %54 ], [ null, %53 ], [ %59, %.sink.split.i93 ]
   %60 = tail call ptr @find_conversation_pinfo(ptr noundef %1, i32 noundef 0)
   %61 = icmp eq ptr %60, null
   br i1 %61, label %get_sign_key.exit97, label %62
@@ -4227,7 +4227,7 @@ get_encrypted_state.exit95:                       ; preds = %53, %54, %.sink.spl
   br label %get_sign_key.exit97
 
 get_sign_key.exit97:                              ; preds = %62, %get_encrypted_state.exit95
-  %.0.i96 = phi ptr [ null, %get_encrypted_state.exit95 ], [ %spec.select105, %62 ]
+  %.0.i96 = phi ptr [ %spec.select105, %62 ], [ null, %get_encrypted_state.exit95 ]
   %67 = tail call ptr @find_conversation_pinfo(ptr noundef %1, i32 noundef 0)
   %68 = icmp eq ptr %67, null
   br i1 %68, label %get_encrypted_state.exit92.thread, label %69
@@ -4362,7 +4362,7 @@ get_encrypted_state.exit92.thread.sink.split:     ; preds = %141, %138
   %147 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %146, ptr noundef %130, i32 noundef 8, i32 noundef 4, i32 noundef 0)
   br label %get_encrypted_state.exit92.thread
 
-get_encrypted_state.exit92.thread:                ; preds = %get_encrypted_state.exit92.thread.sink.split, %69, %get_sign_key.exit97, %48, %get_sign_key.exit, %114, %105, %85, %81, %get_encrypted_state.exit92, %20, %12, %9, %2
+get_encrypted_state.exit92.thread:                ; preds = %get_encrypted_state.exit92.thread.sink.split, %get_sign_key.exit97, %69, %get_sign_key.exit, %48, %114, %105, %85, %81, %get_encrypted_state.exit92, %20, %12, %9, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

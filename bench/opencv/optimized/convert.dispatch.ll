@@ -5590,7 +5590,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %155, %158
   br label %163
 
 163:                                              ; preds = %102, %162, %82
-  %.pn93.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %.pn93, %162 ], [ %103, %102 ]
+  %.pn93.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %103, %102 ], [ %.pn93, %162 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #17
   br label %164
 

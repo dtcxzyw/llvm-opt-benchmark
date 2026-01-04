@@ -175,7 +175,7 @@ define noalias noundef ptr @SptfqmrMalloc(i32 noundef %0, ptr noundef %1) local_
   br label %59
 
 59:                                               ; preds = %5, %2, %48, %47, %43, %39, %35, %31, %27, %23, %19, %15, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %15 ], [ null, %19 ], [ null, %23 ], [ null, %27 ], [ null, %31 ], [ null, %35 ], [ null, %39 ], [ null, %43 ], [ null, %47 ], [ %45, %48 ], [ null, %2 ], [ null, %5 ]
+  %.0 = phi ptr [ %45, %48 ], [ null, %2 ], [ null, %11 ], [ null, %15 ], [ null, %19 ], [ null, %23 ], [ null, %27 ], [ null, %31 ], [ null, %35 ], [ null, %39 ], [ null, %43 ], [ null, %47 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -825,8 +825,8 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   %353 = fcmp olt double %.1355, %55
   br i1 %353, label %.thread.thread, label %.loopexit
 
-.thread.thread:                                   ; preds = %206, %281, %.thread
-  %not. = phi i32 [ 1, %.thread ], [ 0, %281 ], [ 0, %206 ]
+.thread.thread:                                   ; preds = %281, %206, %.thread
+  %not. = phi i32 [ 1, %.thread ], [ 0, %206 ], [ 0, %281 ]
   br i1 %.not397, label %355, label %354
 
 354:                                              ; preds = %.thread.thread
@@ -851,7 +851,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %235, %355, %361, %.thread, %356, %51, %14, %336, %326, %319, %274, %258, %248, %174, %162, %153, %93, %83, %74, %40, %26
-  %.0343 = phi i32 [ %42, %40 ], [ %76, %74 ], [ %85, %83 ], [ %95, %93 ], [ %155, %153 ], [ %164, %162 ], [ %176, %174 ], [ %321, %319 ], [ %328, %326 ], [ %338, %336 ], [ %250, %248 ], [ %260, %258 ], [ %276, %274 ], [ %28, %26 ], [ -1, %14 ], [ 0, %51 ], [ -3, %356 ], [ 2, %.thread ], [ %not., %361 ], [ %not., %355 ], [ -3, %235 ]
+  %.0343 = phi i32 [ %28, %26 ], [ %42, %40 ], [ -1, %14 ], [ %76, %74 ], [ %85, %83 ], [ %95, %93 ], [ %155, %153 ], [ %164, %162 ], [ %176, %174 ], [ 2, %.thread ], [ %not., %355 ], [ -3, %356 ], [ %276, %274 ], [ %321, %319 ], [ %328, %326 ], [ %338, %336 ], [ 0, %51 ], [ %250, %248 ], [ %260, %258 ], [ %not., %361 ], [ -3, %235 ]
   ret i32 %.0343
 }
 

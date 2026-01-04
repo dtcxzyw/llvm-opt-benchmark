@@ -168,7 +168,7 @@ _ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit: ; preds = %for.inc.i
   br i1 %tobool11.not, label %return, label %tailrecurse
 
 return:                                           ; preds = %if.then8, %if.end5, %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit, %tailrecurse, %if.end.i, %if.then3
-  %retval.0 = phi ptr [ %6, %if.then3 ], [ null, %if.end.i ], [ null, %if.then8 ], [ null, %if.end5 ], [ null, %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit ], [ %sub.ptr.i.i.i, %tailrecurse ]
+  %retval.0 = phi ptr [ null, %if.end.i ], [ %6, %if.then3 ], [ null, %if.end5 ], [ null, %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit ], [ null, %if.then8 ], [ %sub.ptr.i.i.i, %tailrecurse ]
   ret ptr %retval.0
 }
 
@@ -201,7 +201,7 @@ for.body:                                         ; preds = %if.end4, %for.body
   br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !4
 
 return:                                           ; preds = %for.body, %if.end4, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %if.end4 ], [ %cmp8.not, %for.body ]
+  %retval.0 = phi i1 [ false, %if.end ], [ false, %entry ], [ true, %if.end4 ], [ %cmp8.not, %for.body ]
   ret i1 %retval.0
 }
 
@@ -301,7 +301,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes8CallInstELb1EE9push_backERKS3_.exit:
   store i32 %add.i, ptr %Size.i.i, align 8
   br label %for.inc57
 
-if.end:                                           ; preds = %for.body.i, %if.end.i, %land.lhs.true, %for.body10
+if.end:                                           ; preds = %for.body.i, %land.lhs.true, %if.end.i, %for.body10
   %15 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i8 %15, 51
   %tobool15.not = or i1 %tobool.not77, %cmp.i.i.i.i.i.i.i.i
@@ -451,8 +451,8 @@ for.inc60:                                        ; preds = %for.inc57, %for.bod
   %cmp.not = icmp eq ptr %incdec.ptr61, %add.ptr.i80
   br i1 %cmp.not, label %return, label %for.body
 
-return:                                           ; preds = %for.inc60, %if.end17, %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit, %if.end, %if.end.i32, %if.end.i46, %land.lhs.true47, %if.end35, %if.then31, %for.body.i53, %entry
-  %cmp.not88 = phi i1 [ true, %entry ], [ false, %for.body.i53 ], [ false, %if.then31 ], [ false, %if.end35 ], [ false, %land.lhs.true47 ], [ false, %if.end.i46 ], [ false, %if.end.i32 ], [ false, %if.end ], [ false, %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit ], [ false, %if.end17 ], [ true, %for.inc60 ]
+return:                                           ; preds = %for.inc60, %if.end17, %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit, %if.end, %if.end.i32, %land.lhs.true47, %if.end.i46, %if.end35, %if.then31, %for.body.i53, %entry
+  %cmp.not88 = phi i1 [ true, %entry ], [ false, %if.end.i32 ], [ false, %land.lhs.true47 ], [ false, %for.body.i53 ], [ false, %if.end17 ], [ false, %if.then31 ], [ false, %if.end35 ], [ false, %if.end.i46 ], [ false, %if.end ], [ false, %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit ], [ true, %for.inc60 ]
   ret i1 %cmp.not88
 }
 
@@ -674,7 +674,7 @@ sw.default:                                       ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %entry, %sw.default
-  %retval.0 = phi i1 [ false, %sw.default ], [ false, %entry ], [ true, %if.end ], [ true, %if.end ], [ true, %if.end ], [ true, %if.end ], [ true, %if.end ], [ true, %if.end ]
+  %retval.0 = phi i1 [ false, %entry ], [ false, %sw.default ], [ true, %if.end ], [ true, %if.end ], [ true, %if.end ], [ true, %if.end ], [ true, %if.end ], [ true, %if.end ]
   ret i1 %retval.0
 }
 

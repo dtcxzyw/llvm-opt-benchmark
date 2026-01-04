@@ -576,7 +576,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit78.i.i: ; preds = %202, %201, %199
   br label %_ZNK4llvm12MachineInstr17getPreInstrSymbolEv.exit.i.i.i
 
 _ZNK4llvm12MachineInstr17getPreInstrSymbolEv.exit.i.i.i: ; preds = %229, %221
-  %.0.i.i83.i.i = phi ptr [ %224, %221 ], [ %234, %229 ]
+  %.0.i.i83.i.i = phi ptr [ %234, %229 ], [ %224, %221 ]
   %.not.i84.i.i = icmp eq ptr %.0.i.i83.i.i, null
   br i1 %.not.i84.i.i, label %.thread.i.i.i, label %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.thread.i.i
 
@@ -605,7 +605,7 @@ _ZNK4llvm12MachineInstr17getPreInstrSymbolEv.exit.i.i.i: ; preds = %229, %221
   br label %_ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit.i.i.i
 
 _ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit.i.i.i: ; preds = %238, %.thread.i.i.i, %221
-  %.0.i3.i.i.i = phi ptr [ %224, %.thread.i.i.i ], [ %247, %238 ], [ %224, %221 ]
+  %.0.i3.i.i.i = phi ptr [ %247, %238 ], [ %224, %.thread.i.i.i ], [ %224, %221 ]
   %.not2.i.i.i = icmp eq ptr %.0.i3.i.i.i, null
   br i1 %.not2.i.i.i, label %_ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit.thread.i.i.i, label %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.thread.i.i
 
@@ -1628,7 +1628,7 @@ _ZN4llvm17MachineBasicBlock9addLiveInERKNS0_16RegisterMaskPairE.exit.i: ; preds 
   br i1 %.not133.i, label %.loopexit.i, label %720
 
 .loopexit.i:                                      ; preds = %_ZN4llvm17MachineBasicBlock9addLiveInERKNS0_16RegisterMaskPairE.exit.i, %_ZN12_GLOBAL__N_122CloneMachineBasicBlockERN4llvm17MachineBasicBlockEj.exit.i, %_ZN4llvm8DebugLocD2Ev.exit.i, %589
-  %.155.i = phi ptr [ %587, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ %587, %589 ], [ %680, %_ZN12_GLOBAL__N_122CloneMachineBasicBlockERN4llvm17MachineBasicBlockEj.exit.i ], [ %680, %_ZN4llvm17MachineBasicBlock9addLiveInERKNS0_16RegisterMaskPairE.exit.i ]
+  %.155.i = phi ptr [ %587, %589 ], [ %587, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ %680, %_ZN12_GLOBAL__N_122CloneMachineBasicBlockERN4llvm17MachineBasicBlockEj.exit.i ], [ %680, %_ZN4llvm17MachineBasicBlock9addLiveInERKNS0_16RegisterMaskPairE.exit.i ]
   %748 = getelementptr inbounds nuw i8, ptr %.056184.i, i64 4
   %.not59.i = icmp eq ptr %748, %563
   br i1 %.not59.i, label %.loopexit135.i, label %.lr.ph186.i

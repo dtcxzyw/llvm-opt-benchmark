@@ -92,7 +92,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %13
 
 13:                                               ; preds = %9, %6, %3, %12, %2
-  %.0 = phi i32 [ 1, %12 ], [ 0, %2 ], [ 0, %3 ], [ 0, %6 ], [ 0, %9 ]
+  %.0 = phi i32 [ 1, %12 ], [ 0, %6 ], [ 0, %3 ], [ 0, %2 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -134,7 +134,7 @@ define internal range(i32 0, 2) i32 @test_recursive_config() #1 {
   br label %14
 
 14:                                               ; preds = %9, %3, %0
-  %.0 = phi i32 [ 0, %3 ], [ 0, %0 ], [ %spec.select, %9 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %9 ], [ 0, %3 ]
   tail call void @OSSL_LIB_CTX_free(ptr noundef %1) #9
   ret i32 %.0
 }
@@ -172,8 +172,8 @@ define internal range(i32 0, 2) i32 @test_double_config() #1 {
   br label %18
 
 18:                                               ; preds = %15, %9, %3
-  %.08 = phi i32 [ 0, %9 ], [ 0, %3 ], [ %spec.select, %15 ]
-  %.0 = phi ptr [ null, %9 ], [ null, %3 ], [ %16, %15 ]
+  %.08 = phi i32 [ 0, %3 ], [ %spec.select, %15 ], [ 0, %9 ]
+  %.0 = phi ptr [ null, %3 ], [ %16, %15 ], [ null, %9 ]
   tail call void @EVP_MD_free(ptr noundef %.0) #9
   tail call void @OSSL_LIB_CTX_free(ptr noundef %1) #9
   br label %19
@@ -252,7 +252,7 @@ define internal i32 @test_path_config() #1 {
   br label %33
 
 33:                                               ; preds = %18, %15, %4, %0, %32, %13
-  %.0 = phi i32 [ %14, %13 ], [ %.016, %32 ], [ 0, %0 ], [ 0, %4 ], [ 0, %15 ], [ 0, %18 ]
+  %.0 = phi i32 [ %14, %13 ], [ %.016, %32 ], [ 0, %15 ], [ 0, %4 ], [ 0, %0 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }

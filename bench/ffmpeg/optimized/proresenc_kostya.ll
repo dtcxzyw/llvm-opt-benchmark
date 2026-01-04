@@ -568,7 +568,7 @@ define internal range(i32 -1094995529, 1) i32 @encode_init(ptr noundef initializ
   br label %.loopexit227
 
 .loopexit227:                                     ; preds = %182, %.thread221, %171, %._crit_edge, %263, %142, %120, %47, %15
-  %.0180 = phi i32 [ -22, %15 ], [ -22, %47 ], [ -1094995529, %120 ], [ 0, %263 ], [ -1094995529, %142 ], [ -12, %._crit_edge ], [ -12, %171 ], [ -1094995529, %.thread221 ], [ -12, %182 ]
+  %.0180 = phi i32 [ -22, %15 ], [ -22, %47 ], [ -1094995529, %120 ], [ 0, %263 ], [ -1094995529, %.thread221 ], [ -1094995529, %142 ], [ -12, %171 ], [ -12, %._crit_edge ], [ -12, %182 ]
   ret i32 %.0180
 }
 
@@ -1447,8 +1447,8 @@ get_slice_data.exit:                              ; preds = %387, %319, %334
   br i1 %exitcond56.not.i, label %.preheader.i, label %.preheader2.us26.i, !llvm.loop !119
 
 .preheader.i:                                     ; preds = %.preheader2.i, %._crit_edge.us32.i, %..loopexit3_crit_edge.us.i, %._crit_edge.us21.us.i, %._crit_edge.us.i
-  %.054.lcssa.i = phi i32 [ %smax82.i, %._crit_edge.us.i ], [ %smax71.i, %._crit_edge.us21.us.i ], [ %smax61.i, %..loopexit3_crit_edge.us.i ], [ %smax55.i, %._crit_edge.us32.i ], [ %smax55.i, %.preheader2.i ]
-  %.051.lcssa.i = phi ptr [ %403, %._crit_edge.us.i ], [ %426, %._crit_edge.us21.us.i ], [ %435, %..loopexit3_crit_edge.us.i ], [ %442, %._crit_edge.us32.i ], [ %446, %.preheader2.i ]
+  %.054.lcssa.i = phi i32 [ %smax82.i, %._crit_edge.us.i ], [ %smax61.i, %..loopexit3_crit_edge.us.i ], [ %smax71.i, %._crit_edge.us21.us.i ], [ %smax55.i, %._crit_edge.us32.i ], [ %smax55.i, %.preheader2.i ]
+  %.051.lcssa.i = phi ptr [ %403, %._crit_edge.us.i ], [ %435, %..loopexit3_crit_edge.us.i ], [ %426, %._crit_edge.us21.us.i ], [ %442, %._crit_edge.us32.i ], [ %446, %.preheader2.i ]
   %445 = icmp samesign ult i32 %.054.lcssa.i, 16
   br i1 %445, label %.lr.ph.i186.preheader, label %get_alpha_data.exit
 
@@ -1999,7 +1999,7 @@ encode_slice.exit.thread:                         ; preds = %.loopexit.i, %encod
   br label %.loopexit
 
 .loopexit:                                        ; preds = %145, %encode_slice.exit, %201, %4, %._crit_edge450
-  %.0 = phi i32 [ 0, %._crit_edge450 ], [ %25, %4 ], [ %202, %201 ], [ %651, %encode_slice.exit ], [ %148, %145 ]
+  %.0 = phi i32 [ 0, %._crit_edge450 ], [ %651, %encode_slice.exit ], [ %25, %4 ], [ %202, %201 ], [ %148, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -2622,8 +2622,8 @@ define internal noundef i32 @find_quant_thread(ptr noundef readonly captures(non
   br i1 %exitcond56.not.i, label %.preheader.i38, label %.preheader2.us26.i, !llvm.loop !119
 
 .preheader.i38:                                   ; preds = %.preheader2.i, %._crit_edge.us32.i, %..loopexit3_crit_edge.us.i, %._crit_edge.us21.us.i, %._crit_edge.us.i
-  %.054.lcssa.i = phi i32 [ %smax82.i, %._crit_edge.us.i ], [ %smax71.i, %._crit_edge.us21.us.i ], [ %smax61.i, %..loopexit3_crit_edge.us.i ], [ %smax55.i, %._crit_edge.us32.i ], [ %smax55.i, %.preheader2.i ]
-  %.051.lcssa.i = phi ptr [ %197, %._crit_edge.us.i ], [ %220, %._crit_edge.us21.us.i ], [ %229, %..loopexit3_crit_edge.us.i ], [ %236, %._crit_edge.us32.i ], [ %240, %.preheader2.i ]
+  %.054.lcssa.i = phi i32 [ %smax82.i, %._crit_edge.us.i ], [ %smax61.i, %..loopexit3_crit_edge.us.i ], [ %smax71.i, %._crit_edge.us21.us.i ], [ %smax55.i, %._crit_edge.us32.i ], [ %smax55.i, %.preheader2.i ]
+  %.051.lcssa.i = phi ptr [ %197, %._crit_edge.us.i ], [ %229, %..loopexit3_crit_edge.us.i ], [ %220, %._crit_edge.us21.us.i ], [ %236, %._crit_edge.us32.i ], [ %240, %.preheader2.i ]
   %239 = icmp samesign ult i32 %.054.lcssa.i, 16
   br i1 %239, label %.lr.ph.i35.preheader, label %get_slice_data.exit
 

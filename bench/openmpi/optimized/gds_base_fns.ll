@@ -361,13 +361,13 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %77
   br i1 %.not.i121, label %pmix_obj_run_destructors.exit126, label %.lr.ph.i119, !llvm.loop !95
 
 .thread:                                          ; preds = %98, %.thread368
-  %.4178 = phi i32 [ %109, %.thread368 ], [ -20, %98 ]
-  %118 = call ptr @PMIx_Error_string(i32 noundef %.4178) #8
+  %.4179 = phi i32 [ %109, %.thread368 ], [ -20, %98 ]
+  %118 = call ptr @PMIx_Error_string(i32 noundef %.4179) #8
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %118, ptr noundef nonnull @.str.1, i32 noundef 135) #8
   br label %.loopexit207
 
 .loopexit207:                                     ; preds = %.thread368, %.thread
-  %.4179 = phi i32 [ %.4178, %.thread ], [ %109, %.thread368 ]
+  %.4178 = phi i32 [ %.4179, %.thread ], [ %109, %.thread368 ]
   %119 = load ptr, ptr %50, align 8, !tbaa !81
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 48
   %121 = load ptr, ptr %120, align 8, !tbaa !94
@@ -551,13 +551,13 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %77
   ]
 
 .thread184:                                       ; preds = %205, %213
-  %.6186 = phi i32 [ %218, %213 ], [ -20, %205 ]
-  %219 = call ptr @PMIx_Error_string(i32 noundef %.6186) #8
+  %.6187 = phi i32 [ %218, %213 ], [ -20, %205 ]
+  %219 = call ptr @PMIx_Error_string(i32 noundef %.6187) #8
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %219, ptr noundef nonnull @.str.1, i32 noundef 176) #8
   br label %.loopexit209
 
 .loopexit209:                                     ; preds = %213, %.thread184
-  %.6187 = phi i32 [ %.6186, %.thread184 ], [ %218, %213 ]
+  %.6186 = phi i32 [ %.6187, %.thread184 ], [ %218, %213 ]
   %220 = load ptr, ptr %50, align 8, !tbaa !81
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 48
   %222 = load ptr, ptr %221, align 8, !tbaa !94
@@ -910,7 +910,7 @@ pmix_obj_run_destructors.exit171:                 ; preds = %.lr.ph.i168, %350
   br i1 %387, label %.lr.ph283, label %pmix_obj_run_destructors.exit156, !llvm.loop !102
 
 pmix_obj_run_destructors.exit156:                 ; preds = %373, %381, %.lr.ph.i158, %.lr.ph.i163, %.lr.ph.i153, %255, %263, %.loopexit205, %.critedge, %.loopexit204
-  %.11 = phi i32 [ %.9190, %.loopexit204 ], [ -46, %.critedge ], [ %340, %.loopexit205 ], [ %268, %263 ], [ -20, %255 ], [ %.9190, %.lr.ph.i153 ], [ %340, %.lr.ph.i163 ], [ -46, %.lr.ph.i158 ], [ -20, %373 ], [ %386, %381 ]
+  %.11 = phi i32 [ -20, %255 ], [ %.9190, %.lr.ph.i153 ], [ %340, %.lr.ph.i163 ], [ %.9190, %.loopexit204 ], [ -46, %.critedge ], [ %340, %.loopexit205 ], [ %268, %263 ], [ -46, %.lr.ph.i158 ], [ -20, %373 ], [ %386, %381 ]
   %388 = load ptr, ptr %50, align 8, !tbaa !81
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 48
   %390 = load ptr, ptr %389, align 8, !tbaa !94
@@ -983,8 +983,8 @@ pmix_obj_run_destructors.exit176:                 ; preds = %.lr.ph.i173, %pmix_
   br i1 %427, label %73, label %pmix_obj_run_destructors.exit, !llvm.loop !103
 
 pmix_obj_run_destructors.exit:                    ; preds = %421, %.lr.ph.i133, %.preheader, %.loopexit208
-  %.183259 = phi ptr [ %.183285, %.loopexit208 ], [ null, %.preheader ], [ %.183285, %.lr.ph.i133 ], [ %.284, %421 ]
-  %.3 = phi i32 [ %.5183, %.loopexit208 ], [ %44, %.preheader ], [ %.5183, %.lr.ph.i133 ], [ %426, %421 ]
+  %.183259 = phi ptr [ %.183285, %.lr.ph.i133 ], [ %.183285, %.loopexit208 ], [ null, %.preheader ], [ %.284, %421 ]
+  %.3 = phi i32 [ %.5183, %.lr.ph.i133 ], [ %.5183, %.loopexit208 ], [ %44, %.preheader ], [ %426, %421 ]
   switch i32 %.3, label %pmix_obj_run_destructors.exit.thread [
     i32 -50, label %pmix_obj_run_destructors.exit126
     i32 -2, label %.fold.split
@@ -1002,8 +1002,8 @@ pmix_obj_run_destructors.exit.thread:             ; preds = %413, %30, %pmix_obj
   br label %pmix_obj_run_destructors.exit126
 
 pmix_obj_run_destructors.exit126:                 ; preds = %pmix_obj_run_destructors.exit176, %.lr.ph.i143, %.lr.ph.i138, %.lr.ph.i128, %.lr.ph.i119, %.lr.ph.i123, %165, %110, %230, %.loopexit209, %.loopexit207, %pmix_obj_run_destructors.exit, %.fold.split, %pmix_obj_run_destructors.exit.thread, %395, %187, %131, %39
-  %.082 = phi ptr [ null, %39 ], [ %.183259381, %pmix_obj_run_destructors.exit.thread ], [ %.183285, %131 ], [ null, %187 ], [ %.284, %395 ], [ %.183259, %pmix_obj_run_destructors.exit ], [ %.183285, %.loopexit207 ], [ %185, %.loopexit209 ], [ %185, %230 ], [ %.183259, %.fold.split ], [ %.183285, %110 ], [ %.183285, %165 ], [ %.183285, %.lr.ph.i123 ], [ %.183285, %.lr.ph.i119 ], [ %.183285, %.lr.ph.i128 ], [ %185, %.lr.ph.i138 ], [ %185, %.lr.ph.i143 ], [ %.284, %pmix_obj_run_destructors.exit176 ]
-  %.1 = phi i32 [ -50, %39 ], [ %.3382, %pmix_obj_run_destructors.exit.thread ], [ -33, %131 ], [ -29, %187 ], [ %.11, %395 ], [ 0, %pmix_obj_run_destructors.exit ], [ %.4179, %.loopexit207 ], [ %.6187, %.loopexit209 ], [ -20, %230 ], [ %.3, %.fold.split ], [ 0, %110 ], [ 0, %165 ], [ %.4179, %.lr.ph.i123 ], [ 0, %.lr.ph.i119 ], [ 0, %.lr.ph.i128 ], [ %.6187, %.lr.ph.i138 ], [ -20, %.lr.ph.i143 ], [ %.11, %pmix_obj_run_destructors.exit176 ]
+  %.082 = phi ptr [ null, %39 ], [ %185, %.lr.ph.i138 ], [ %.183259381, %pmix_obj_run_destructors.exit.thread ], [ %.183259, %pmix_obj_run_destructors.exit ], [ %.183259, %.fold.split ], [ %.183285, %131 ], [ %.183285, %.lr.ph.i123 ], [ null, %187 ], [ %.284, %395 ], [ %.183285, %165 ], [ %.183285, %.loopexit207 ], [ %185, %.loopexit209 ], [ %185, %230 ], [ %185, %.lr.ph.i143 ], [ %.183285, %110 ], [ %.183285, %.lr.ph.i119 ], [ %.183285, %.lr.ph.i128 ], [ %.284, %pmix_obj_run_destructors.exit176 ]
+  %.1 = phi i32 [ -50, %39 ], [ %.6186, %.lr.ph.i138 ], [ %.3382, %pmix_obj_run_destructors.exit.thread ], [ 0, %pmix_obj_run_destructors.exit ], [ %.3, %.fold.split ], [ -33, %131 ], [ %.4178, %.lr.ph.i123 ], [ -29, %187 ], [ %.11, %395 ], [ 0, %165 ], [ %.4178, %.loopexit207 ], [ %.6186, %.loopexit209 ], [ -20, %230 ], [ -20, %.lr.ph.i143 ], [ 0, %110 ], [ 0, %.lr.ph.i119 ], [ 0, %.lr.ph.i128 ], [ %.11, %pmix_obj_run_destructors.exit176 ]
   call void @PMIx_Argv_free(ptr noundef %.082) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1249,7 +1249,7 @@ define noundef i32 @pmix_gds_base_modex_pack_kval(i32 noundef %0, ptr noundef %1
   br label %121
 
 121:                                              ; preds = %.thread68, %111, %.thread65, %74, %.thread, %40, %10, %6, %120, %118
-  %.047 = phi i32 [ 0, %120 ], [ -27, %118 ], [ %9, %6 ], [ %9, %10 ], [ %45, %40 ], [ %.064, %.thread ], [ %81, %74 ], [ %.167, %.thread65 ], [ %116, %111 ], [ %.270, %.thread68 ]
+  %.047 = phi i32 [ -27, %118 ], [ %9, %10 ], [ %.064, %.thread ], [ 0, %120 ], [ %.167, %.thread65 ], [ %9, %6 ], [ %45, %40 ], [ %81, %74 ], [ %116, %111 ], [ %.270, %.thread68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.047
 }
@@ -1445,7 +1445,7 @@ define i32 @pmix_gds_base_modex_unpack_kval(i32 noundef %0, ptr noundef %1, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %101, %23, %110, %.thread47, %83, %32, %118, %116, %44
-  %.036 = phi i32 [ -27, %44 ], [ 0, %118 ], [ -27, %116 ], [ %37, %32 ], [ %.150, %83 ], [ -2, %.thread47 ], [ %115, %110 ], [ -20, %23 ], [ -20, %101 ]
+  %.036 = phi i32 [ -27, %116 ], [ -27, %44 ], [ %37, %32 ], [ 0, %118 ], [ -2, %.thread47 ], [ %.150, %83 ], [ %115, %110 ], [ -20, %23 ], [ -20, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.036

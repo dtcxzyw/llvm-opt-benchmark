@@ -106,7 +106,7 @@ define range(i32 -2147483648, 1) i32 @ff_framehash_write_header(ptr noundef read
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-64:                                               ; preds = %50, %16, %43
+64:                                               ; preds = %16, %50, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = load i32, ptr %3, align 4, !tbaa !4

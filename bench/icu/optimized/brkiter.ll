@@ -223,7 +223,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -789,7 +789,7 @@ define noundef ptr @_ZN6icu_7713BreakIterator13buildInstanceERKNS_6LocaleEPKcR10
   br label %113
 
 113:                                              ; preds = %102, %71, %109, %112, %106, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %102 ], [ null, %71 ], [ null, %109 ], [ null, %112 ], [ %75, %106 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %71 ], [ null, %102 ], [ null, %109 ], [ null, %112 ], [ %75, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -800,7 +800,7 @@ define noundef ptr @_ZN6icu_7713BreakIterator13buildInstanceERKNS_6LocaleEPKcR10
   ret ptr %.0
 
 114:                                              ; preds = %38, %60, %58, %95, %97, %72, %15
-  %.pn86.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %39, %38 ], [ %61, %60 ], [ %59, %58 ], [ %73, %72 ], [ %98, %97 ], [ %96, %95 ]
+  %.pn86.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %59, %58 ], [ %39, %38 ], [ %61, %60 ], [ %73, %72 ], [ %98, %97 ], [ %96, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -974,7 +974,7 @@ _ZN6icu_77L10hasServiceEv.exit.thread:            ; preds = %8, %_ZN6icu_77L10ha
   br label %45
 
 45:                                               ; preds = %3, %_ZN6icu_77L10hasServiceEv.exit.thread, %42
-  %.017 = phi ptr [ %24, %42 ], [ %44, %_ZN6icu_77L10hasServiceEv.exit.thread ], [ null, %3 ]
+  %.017 = phi ptr [ %44, %_ZN6icu_77L10hasServiceEv.exit.thread ], [ %24, %42 ], [ null, %3 ]
   ret ptr %.017
 }
 
@@ -1701,7 +1701,7 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit48.thread52: ; preds = %103, %_Z
   br label %139
 
 139:                                              ; preds = %127, %131, %125, %119
-  %.131 = phi ptr [ %120, %125 ], [ %120, %119 ], [ %135, %131 ], [ %120, %127 ]
+  %.131 = phi ptr [ %120, %119 ], [ %120, %125 ], [ %120, %127 ], [ %135, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %142
@@ -1711,7 +1711,7 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit48.thread52: ; preds = %103, %_Z
   br label %142
 
 142:                                              ; preds = %140, %139, %117, %23, %21
-  %.030 = phi ptr [ %22, %21 ], [ %24, %23 ], [ %116, %117 ], [ %.131, %139 ], [ %141, %140 ]
+  %.030 = phi ptr [ %141, %140 ], [ %22, %21 ], [ %24, %23 ], [ %116, %117 ], [ %.131, %139 ]
   %143 = load i32, ptr %2, align 4, !tbaa !13
   %144 = icmp slt i32 %143, 1
   br i1 %144, label %.thread56, label %145
@@ -1732,7 +1732,7 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit48.thread52: ; preds = %103, %_Z
   br label %.thread56
 
 .thread56:                                        ; preds = %.thread, %147, %145, %142, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %147 ], [ null, %145 ], [ %.030, %142 ], [ null, %.thread ]
+  %.0 = phi ptr [ null, %3 ], [ null, %145 ], [ null, %147 ], [ %.030, %142 ], [ null, %.thread ]
   ret ptr %.0
 }
 
@@ -1856,7 +1856,7 @@ define noundef range(i32 0, 2) i32 @_ZN6icu_7713BreakIterator16getRuleStatusVecE
   br label %11
 
 11:                                               ; preds = %4, %10, %9
-  %.0 = phi i32 [ 1, %9 ], [ 1, %10 ], [ 0, %4 ]
+  %.0 = phi i32 [ 1, %10 ], [ 1, %9 ], [ 0, %4 ]
   ret i32 %.0
 }
 

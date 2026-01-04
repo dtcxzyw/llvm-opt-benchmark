@@ -600,7 +600,7 @@ delete.notnull.i:                                 ; preds = %cleanup
   br label %return
 
 ehcleanup78:                                      ; preds = %lpad.i20, %lpad.i42, %lpad5, %lpad74, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.phi, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ %22, %lpad74 ], [ %5, %lpad.i20 ], [ %3, %lpad5 ], [ %18, %lpad.i42 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %22, %lpad74 ], [ %lpad.phi, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ %5, %lpad.i20 ], [ %3, %lpad5 ], [ %18, %lpad.i42 ]
   call void @_ZN3re212RegexpStatusD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %status) #19
   br label %common.resume
 
@@ -1278,13 +1278,13 @@ if.end99:                                         ; preds = %invoke.cont93, %if.
   br i1 %cmp100.not, label %cleanup, label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %if.end99, %if.then67, %if.end59
-  %.sink = phi i32 [ 2, %if.end59 ], [ 0, %if.then67 ], [ 0, %if.end99 ]
-  %retval.1.ph = phi i1 [ false, %if.end59 ], [ false, %if.then67 ], [ true, %if.end99 ]
+  %.sink = phi i32 [ 0, %if.then67 ], [ 2, %if.end59 ], [ 0, %if.end99 ]
+  %retval.1.ph = phi i1 [ false, %if.then67 ], [ false, %if.end59 ], [ true, %if.end99 ]
   store i32 %.sink, ptr %error_info, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end99, %if.then67, %if.end59
-  %retval.1 = phi i1 [ false, %if.end59 ], [ false, %if.then67 ], [ true, %if.end99 ], [ %retval.1.ph, %cleanup.sink.split ]
+  %retval.1 = phi i1 [ false, %if.then67 ], [ false, %if.end59 ], [ true, %if.end99 ], [ %retval.1.ph, %cleanup.sink.split ]
   %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %return, label %delete.notnull.i.i
 
@@ -1315,7 +1315,7 @@ _ZNKSt14default_deleteIN3re210SparseSetTIvEEEclEPS2_.exit.i: ; preds = %if.then.
   br label %return
 
 ehcleanup:                                        ; preds = %lpad.i21, %lpad.i34, %lpad8, %lpad86, %lpad26, %lpad11.body
-  %.pn = phi { ptr, i32 } [ %24, %lpad26 ], [ %27, %lpad86 ], [ %eh.lpad-body, %lpad11.body ], [ %17, %lpad.i21 ], [ %11, %lpad8 ], [ %26, %lpad.i34 ]
+  %.pn = phi { ptr, i32 } [ %24, %lpad26 ], [ %eh.lpad-body, %lpad11.body ], [ %27, %lpad86 ], [ %17, %lpad.i21 ], [ %11, %lpad8 ], [ %26, %lpad.i34 ]
   call void @_ZNSt10unique_ptrIN3re210SparseSetTIvEESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %matches) #19
   br label %common.resume
 

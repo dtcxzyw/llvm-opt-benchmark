@@ -399,7 +399,7 @@ define dso_local i32 @io_prep_rw_fixed(ptr noundef captures(none) initializes((8
   br label %87
 
 87:                                               ; preds = %14, %81, %66, %48
-  %88 = phi i32 [ -14, %48 ], [ 0, %66 ], [ 0, %81 ], [ %16, %14 ]
+  %88 = phi i32 [ 0, %81 ], [ -14, %48 ], [ 0, %66 ], [ %16, %14 ]
   ret i32 %88
 }
 
@@ -1336,7 +1336,7 @@ define internal fastcc noundef range(i32 -529, 1) i32 @kiocb_done(ptr noundef %0
   br label %58
 
 58:                                               ; preds = %56, %29, %57
-  %59 = phi i64 [ -4, %57 ], [ %1, %29 ], [ %1, %56 ]
+  %59 = phi i64 [ %1, %56 ], [ -4, %57 ], [ %1, %29 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, @io_complete_rw_iopoll
@@ -2269,7 +2269,7 @@ define internal fastcc noundef range(i32 -95, 1) i32 @io_rw_init_file(ptr nounde
   br label %83
 
 83:                                               ; preds = %28, %33, %81, %78, %73, %67, %64, %7, %2
-  %84 = phi i32 [ -9, %7 ], [ -95, %67 ], [ -95, %64 ], [ -22, %78 ], [ 0, %81 ], [ 0, %73 ], [ -9, %2 ], [ -95, %28 ], [ -95, %33 ]
+  %84 = phi i32 [ -9, %7 ], [ -9, %2 ], [ -95, %67 ], [ -95, %64 ], [ -22, %78 ], [ 0, %81 ], [ 0, %73 ], [ -95, %28 ], [ -95, %33 ]
   ret i32 %84
 }
 
@@ -2510,7 +2510,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @io_setup_async_rw(ptr noun
   br label %67
 
 67:                                               ; preds = %12, %56, %.thread, %._crit_edge, %5
-  %68 = phi i32 [ 0, %5 ], [ 0, %._crit_edge ], [ -12, %.thread ], [ 0, %56 ], [ 0, %12 ]
+  %68 = phi i32 [ 0, %._crit_edge ], [ -12, %.thread ], [ 0, %5 ], [ 0, %56 ], [ 0, %12 ]
   ret i32 %68
 }
 
@@ -2697,7 +2697,7 @@ define dso_local i32 @io_do_iopoll(ptr noundef %0, i1 noundef zeroext %1) local_
   br label %.thread12
 
 .thread12:                                        ; preds = %13, %25, %.preheader, %2, %86, %85, %.thread17
-  %87 = phi i32 [ %55, %86 ], [ 0, %.thread17 ], [ 0, %85 ], [ 0, %2 ], [ 0, %.preheader ], [ 0, %13 ], [ %34, %25 ]
+  %87 = phi i32 [ %55, %86 ], [ 0, %2 ], [ 0, %.thread17 ], [ 0, %85 ], [ 0, %.preheader ], [ 0, %13 ], [ %34, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %87
 }

@@ -260,8 +260,8 @@ set_vc_field.exit:                                ; preds = %64, %90, %91
   br label %94
 
 93:                                               ; preds = %87, %88, %82, %83, %72, %60, %56, %.thread.i, %48, %36, %33, %69, %53
-  %.str.13.sink = phi ptr [ @.str.12, %69 ], [ @.str.9, %53 ], [ @.str.4, %33 ], [ @.str.5, %36 ], [ @.str.8, %48 ], [ @.str.8, %.thread.i ], [ @.str.10, %56 ], [ @.str.11, %60 ], [ @.str.13, %72 ], [ @.str.14, %83 ], [ @.str.14, %82 ], [ @.str.12, %88 ], [ @.str.12, %87 ]
-  store ptr %.str.13.sink, ptr %4, align 8, !tbaa !9
+  %.str.14.sink = phi ptr [ @.str.13, %72 ], [ @.str.14, %82 ], [ @.str.11, %60 ], [ @.str.10, %56 ], [ @.str.12, %69 ], [ @.str.9, %53 ], [ @.str.5, %36 ], [ @.str.4, %33 ], [ @.str.8, %.thread.i ], [ @.str.8, %48 ], [ @.str.14, %83 ], [ @.str.12, %88 ], [ @.str.12, %87 ]
+  store ptr %.str.14.sink, ptr %4, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @free(ptr noundef nonnull %8) #11
@@ -276,7 +276,7 @@ set_vc_field.exit:                                ; preds = %64, %90, %91
   br label %free_field.exit
 
 free_field.exit:                                  ; preds = %.loopexit, %94, %93
-  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %93 ], [ 1, %94 ]
+  %.0 = phi i32 [ 0, %93 ], [ 1, %94 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 

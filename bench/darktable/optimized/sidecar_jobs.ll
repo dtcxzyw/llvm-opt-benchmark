@@ -260,8 +260,8 @@ _unlock_pending_queue.exit:                       ; preds = %_lock_pending_queue
   br i1 %51, label %.lr.ph, label %._crit_edge
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %39
-  %.sink = phi i64 [ 1000000, %39 ], [ %spec.select, %._crit_edge ]
-  %.2.lcssa59 = phi ptr [ null, %39 ], [ %47, %._crit_edge ]
+  %.sink = phi i64 [ %spec.select, %._crit_edge ], [ 1000000, %39 ]
+  %.2.lcssa59 = phi ptr [ %47, %._crit_edge ], [ null, %39 ]
   tail call void @g_usleep(i64 noundef %.sink) #6
   br label %5
 

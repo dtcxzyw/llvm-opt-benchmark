@@ -355,8 +355,8 @@ _ZN5drjit7divisorImiEC2Em.exit:                   ; preds = %75, %73
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %.preheader
-  %116 = phi i64 [ 6, %.preheader ], [ %115, %._crit_edge ]
-  %117 = phi i64 [ 6, %.preheader ], [ %spec.select301, %._crit_edge ]
+  %116 = phi i64 [ %115, %._crit_edge ], [ 6, %.preheader ]
+  %117 = phi i64 [ %spec.select301, %._crit_edge ], [ 6, %.preheader ]
   %118 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %117) #23
           to label %119 unwind label %101
 
@@ -961,7 +961,7 @@ _ZNSt3__16vectorImNS_9allocatorImEEED2B8ne190000Ev.exit: ; preds = %_ZN7mitsuba1
   br label %393
 
 393:                                              ; preds = %101, %272, %391, %257, %166, %105
-  %.pn = phi { ptr, i32 } [ %392, %391 ], [ %258, %257 ], [ %167, %166 ], [ %106, %105 ], [ %102, %101 ], [ %273, %272 ]
+  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %392, %391 ], [ %258, %257 ], [ %167, %166 ], [ %102, %101 ], [ %273, %272 ]
   %394 = load ptr, ptr %10, align 8
   %.not.i.i181 = icmp eq ptr %394, null
   br i1 %.not.i.i181, label %_ZNSt3__16vectorImNS_9allocatorImEEED2B8ne190000Ev.exit182, label %395
@@ -2841,7 +2841,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -2916,7 +2916,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
   ret ptr %.069
 }
 
@@ -3141,7 +3141,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 

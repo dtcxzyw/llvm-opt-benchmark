@@ -243,8 +243,8 @@ _ZNK7RegMask7overlapERKS_.exit55.thread:          ; preds = %_ZNK7RegMask7overla
   br label %117
 
 117:                                              ; preds = %91, %93, %_ZNK7RegMask7overlapERKS_.exit55, %_ZNK7RegMask7overlapERKS_.exit55.thread, %114
-  %.035 = phi ptr [ %53, %_ZNK7RegMask7overlapERKS_.exit55 ], [ %53, %114 ], [ %53, %_ZNK7RegMask7overlapERKS_.exit55.thread ], [ %46, %93 ], [ %46, %91 ]
-  %.034 = phi ptr [ %72, %_ZNK7RegMask7overlapERKS_.exit55 ], [ %116, %114 ], [ %72, %_ZNK7RegMask7overlapERKS_.exit55.thread ], [ %72, %93 ], [ %72, %91 ]
+  %.035 = phi ptr [ %53, %_ZNK7RegMask7overlapERKS_.exit55.thread ], [ %53, %_ZNK7RegMask7overlapERKS_.exit55 ], [ %53, %114 ], [ %46, %93 ], [ %46, %91 ]
+  %.034 = phi ptr [ %72, %_ZNK7RegMask7overlapERKS_.exit55.thread ], [ %72, %_ZNK7RegMask7overlapERKS_.exit55 ], [ %116, %114 ], [ %72, %93 ], [ %72, %91 ]
   %118 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 1808
@@ -310,7 +310,7 @@ _ZN4NodenwEm.exit:                                ; preds = %133, %135
   br label %_ZN7Compile16check_node_countEjPKc.exit.thread
 
 _ZN7Compile16check_node_countEjPKc.exit.thread:   ; preds = %33, %19, %_ZN4NodenwEm.exit, %138, %12
-  %.0 = phi ptr [ null, %12 ], [ %.0.i.i.i, %138 ], [ null, %_ZN4NodenwEm.exit ], [ null, %19 ], [ null, %33 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i, %138 ], [ null, %19 ], [ null, %33 ]
   ret ptr %.0
 }
 
@@ -1111,7 +1111,7 @@ _ZN4Node7set_reqEjPS_.exit.sink.split:            ; preds = %62, %112, %160, %24
   br label %_ZN4Node7set_reqEjPS_.exit
 
 _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7set_reqEjPS_.exit.sink.split, %234, %149, %_ZN4Node7del_outEPS_.exit.i82, %101, %51, %209, %66
-  %.0 = phi i32 [ -1, %66 ], [ -1, %209 ], [ 0, %51 ], [ 1, %101 ], [ 0, %_ZN4Node7del_outEPS_.exit.i82 ], [ 0, %149 ], [ 1, %234 ], [ %.0.ph, %_ZN4Node7set_reqEjPS_.exit.sink.split ]
+  %.0 = phi i32 [ -1, %209 ], [ 0, %_ZN4Node7del_outEPS_.exit.i82 ], [ -1, %66 ], [ 0, %149 ], [ 1, %234 ], [ 0, %51 ], [ 1, %101 ], [ %.0.ph, %_ZN4Node7set_reqEjPS_.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -1507,7 +1507,7 @@ _ZN7Compile16check_node_countEjPKc.exit:          ; preds = %135
   br label %195
 
 195:                                              ; preds = %186, %.critedge, %158
-  %.083 = phi i32 [ %.184.lcssa, %.critedge ], [ %167, %158 ], [ %spec.select113, %186 ]
+  %.083 = phi i32 [ %167, %158 ], [ %spec.select113, %186 ], [ %.184.lcssa, %.critedge ]
   %196 = icmp ult i32 %.083, %.pre
   br i1 %196, label %197, label %_ZN4Node7set_reqEjPS_.exit107
 
@@ -1657,7 +1657,7 @@ _ZNK9VectorSet4testEj.exit.thread:                ; preds = %.loopexit, %262, %_
   br label %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit.thread
 
 _ZL10clone_nodeP4NodeP5BlockP7Compile.exit.thread: ; preds = %53, %148, %134, %125, %._crit_edge.i, %_ZNK9VectorSet4testEj.exit.thread, %276, %273, %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit, %100
-  %.0 = phi ptr [ null, %100 ], [ null, %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit ], [ %127, %273 ], [ %127, %276 ], [ %127, %_ZNK9VectorSet4testEj.exit.thread ], [ null, %._crit_edge.i ], [ null, %125 ], [ null, %134 ], [ null, %148 ], [ null, %53 ]
+  %.0 = phi ptr [ null, %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit ], [ null, %100 ], [ null, %148 ], [ null, %125 ], [ %127, %273 ], [ %127, %276 ], [ %127, %_ZNK9VectorSet4testEj.exit.thread ], [ null, %._crit_edge.i ], [ null, %134 ], [ null, %53 ]
   ret ptr %.0
 }
 
@@ -1864,7 +1864,7 @@ _ZNK7RegMask11is_NotEmptyEv.exit.thread:          ; preds = %._crit_edge, %_ZNK7
   br i1 %.not17, label %.loopexit, label %33, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_ZNK7RegMask11is_NotEmptyEv.exit, %_ZNK7RegMask11is_NotEmptyEv.exit.thread, %53, %.preheader20, %3
-  %.015 = phi i1 [ false, %3 ], [ false, %.preheader20 ], [ true, %53 ], [ false, %_ZNK7RegMask11is_NotEmptyEv.exit.thread ], [ false, %_ZNK7RegMask11is_NotEmptyEv.exit ]
+  %.015 = phi i1 [ false, %.preheader20 ], [ false, %3 ], [ true, %53 ], [ false, %_ZNK7RegMask11is_NotEmptyEv.exit.thread ], [ false, %_ZNK7RegMask11is_NotEmptyEv.exit ]
   ret i1 %.015
 }
 
@@ -1997,7 +1997,7 @@ _ZN12ResourceArea14allocate_bytesEmN17AllocFailStrategy13AllocFailEnumE.exit: ; 
   br label %_ZN13GrowableArrayIjE8allocateEv.exit.i
 
 _ZN13GrowableArrayIjE8allocateEv.exit.i:          ; preds = %77, %75
-  %.0.i.i1006 = phi ptr [ %76, %75 ], [ %78, %77 ]
+  %.0.i.i1006 = phi ptr [ %78, %77 ], [ %76, %75 ]
   %79 = icmp sgt i32 %.sroa.8.01472, 0
   br i1 %79, label %.lr.ph.i1008.preheader, label %.preheader16.i
 
@@ -3247,7 +3247,7 @@ _ZNK5Block8get_nodeEj.exit866:                    ; preds = %705, %707
   br label %.thread1375
 
 .thread1375:                                      ; preds = %.loopexit, %.thread1375.loopexit1914.split.loop.exit, %.thread1375.loopexit1914.split.loop.exit1953, %.thread1375.loopexit, %.preheader1420
-  %.07311440 = phi i32 [ %.07311514, %.preheader1420 ], [ %738, %.thread1375.loopexit ], [ %739, %.thread1375.loopexit1914.split.loop.exit ], [ %740, %.thread1375.loopexit1914.split.loop.exit1953 ], [ 0, %.loopexit ]
+  %.07311440 = phi i32 [ %738, %.thread1375.loopexit ], [ %.07311514, %.preheader1420 ], [ %740, %.thread1375.loopexit1914.split.loop.exit1953 ], [ %739, %.thread1375.loopexit1914.split.loop.exit ], [ 0, %.loopexit ]
   %741 = load i32, ptr %549, align 8
   %742 = add i32 %741, -1
   %743 = icmp ult i32 %742, %.pre1752
@@ -4608,8 +4608,8 @@ _ZN13GrowableArrayIjED2Ev.exit956:                ; preds = %_ZN12PhaseChaitin16
   br label %_ZN4Node7set_reqEjPS_.exit881
 
 _ZN4Node7set_reqEjPS_.exit881:                    ; preds = %1416, %1405, %1279, %1268, %1161, %1150, %1004, %993, %855, %867, %1432, %1429, %1425, %1475, %1468, %1342, %1289, %1383, %_ZN4Node7set_reqEjPS_.exit893, %._crit_edge1528, %1114, %1096, %1088, %850, %1222, %1207
-  %.1727 = phi i32 [ %.07261532, %850 ], [ %1119, %1114 ], [ %.07261532, %._crit_edge1528 ], [ %.07261532, %1096 ], [ %.07261532, %1088 ], [ %.07261532, %_ZN4Node7set_reqEjPS_.exit893 ], [ %.07261532, %1289 ], [ %.07261532, %1342 ], [ %.07261532, %1383 ], [ %.07261532, %1432 ], [ %.07261532, %1429 ], [ %.07261532, %1425 ], [ %.07261532, %1468 ], [ %.07261532, %1475 ], [ %.07261532, %1222 ], [ %.07261532, %1207 ], [ %.07261532, %867 ], [ %.07261532, %855 ], [ %.07261532, %993 ], [ %.07261532, %1004 ], [ %.07261532, %1150 ], [ %.07261532, %1161 ], [ %.07261532, %1268 ], [ %.07261532, %1279 ], [ %.07261532, %1405 ], [ %.07261532, %1416 ]
-  %.10 = phi i32 [ %.91534, %850 ], [ %.12, %1114 ], [ %.12, %._crit_edge1528 ], [ %.12, %1096 ], [ %.12, %1088 ], [ %.12, %_ZN4Node7set_reqEjPS_.exit893 ], [ %1292, %1289 ], [ %1346, %1342 ], [ %.11, %1383 ], [ %1428, %1432 ], [ %1428, %1429 ], [ %1428, %1425 ], [ %1471, %1468 ], [ %1484, %1475 ], [ %1225, %1222 ], [ %1210, %1207 ], [ %.91534, %867 ], [ %.91534, %855 ], [ %.91534, %993 ], [ %.91534, %1004 ], [ %.11, %1150 ], [ %.11, %1161 ], [ %.11, %1268 ], [ %.11, %1279 ], [ %.11, %1405 ], [ %.11, %1416 ]
+  %.1727 = phi i32 [ %.07261532, %850 ], [ %.07261532, %1207 ], [ %1119, %1114 ], [ %.07261532, %._crit_edge1528 ], [ %.07261532, %855 ], [ %.07261532, %1096 ], [ %.07261532, %1088 ], [ %.07261532, %_ZN4Node7set_reqEjPS_.exit893 ], [ %.07261532, %1004 ], [ %.07261532, %1161 ], [ %.07261532, %1289 ], [ %.07261532, %1342 ], [ %.07261532, %1279 ], [ %.07261532, %1383 ], [ %.07261532, %1432 ], [ %.07261532, %867 ], [ %.07261532, %1429 ], [ %.07261532, %1425 ], [ %.07261532, %1468 ], [ %.07261532, %1475 ], [ %.07261532, %1222 ], [ %.07261532, %993 ], [ %.07261532, %1150 ], [ %.07261532, %1268 ], [ %.07261532, %1405 ], [ %.07261532, %1416 ]
+  %.10 = phi i32 [ %.91534, %850 ], [ %1210, %1207 ], [ %.12, %1114 ], [ %.12, %._crit_edge1528 ], [ %.91534, %855 ], [ %.12, %1096 ], [ %.12, %1088 ], [ %.12, %_ZN4Node7set_reqEjPS_.exit893 ], [ %.91534, %1004 ], [ %.11, %1161 ], [ %1292, %1289 ], [ %1346, %1342 ], [ %.11, %1279 ], [ %.11, %1383 ], [ %1428, %1432 ], [ %.91534, %867 ], [ %1428, %1429 ], [ %1428, %1425 ], [ %1471, %1468 ], [ %1484, %1475 ], [ %1225, %1222 ], [ %.91534, %993 ], [ %.11, %1150 ], [ %.11, %1268 ], [ %.11, %1405 ], [ %.11, %1416 ]
   %indvars.iv.next1711 = add nuw nsw i64 %indvars.iv1710, 1
   %1485 = zext i32 %.1727 to i64
   %1486 = icmp samesign ult i64 %indvars.iv.next1711, %1485
@@ -4889,7 +4889,7 @@ _ZNK7RegMask7overlapERKS_.exit977:                ; preds = %.lr.ph.i970
   br label %.thread1371
 
 .thread1371:                                      ; preds = %638, %1590, %1564, %1581, %1639, %1626, %_ZNK7RegMask7overlapERKS_.exit977, %1578, %1565, %.loopexit1425, %620, %._crit_edge1541, %623, %_ZN4Node7set_reqEjPS_.exit
-  %.3693 = phi i32 [ %643, %._crit_edge1541 ], [ %.26921544, %623 ], [ %.26921544, %620 ], [ %.4694, %.loopexit1425 ], [ %823, %_ZN4Node7set_reqEjPS_.exit ], [ %1641, %1639 ], [ %.8, %1626 ], [ %.8, %_ZNK7RegMask7overlapERKS_.exit977 ], [ %.8, %1581 ], [ %.8, %1578 ], [ %.8, %1565 ], [ %.8, %1564 ], [ %.8, %1590 ], [ %.26921544, %638 ]
+  %.3693 = phi i32 [ %643, %._crit_edge1541 ], [ %.8, %1578 ], [ %.26921544, %623 ], [ %.26921544, %620 ], [ %.4694, %.loopexit1425 ], [ %823, %_ZN4Node7set_reqEjPS_.exit ], [ %1641, %1639 ], [ %.8, %1626 ], [ %.8, %_ZNK7RegMask7overlapERKS_.exit977 ], [ %.8, %1565 ], [ %.8, %1564 ], [ %.8, %1581 ], [ %.8, %1590 ], [ %.26921544, %638 ]
   %1644 = add i32 %.3693, 1
   %1645 = load i32, ptr %549, align 8
   %1646 = add i32 %1645, -1
@@ -5542,8 +5542,8 @@ _ZN12LiveRangeMap4findEPK4Node.exit999:           ; preds = %_ZN12LiveRangeMap4f
   br label %_ZN7Compile16check_node_countEjPKc.exit.thread
 
 _ZN7Compile16check_node_countEjPKc.exit.thread:   ; preds = %1630, %_ZN13GrowableArrayIjED2Ev.exit968, %_ZN13GrowableArrayIjED2Ev.exit, %_ZN13GrowableArrayIjED2Ev.exit956, %_ZN13GrowableArrayIjED2Ev.exit954, %_ZN13GrowableArrayIjED2Ev.exit944, %_ZN13GrowableArrayIjED2Ev.exit922, %_ZN13GrowableArrayIjED2Ev.exit917, %_ZN13GrowableArrayIjED2Ev.exit905, %_ZN13GrowableArrayIjED2Ev.exit903, %_ZN13GrowableArrayIjED2Ev.exit885, %_ZN13GrowableArrayIjED2Ev.exit883, %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit, %_ZN13GrowableArrayIjED2Ev.exit995, %_ZN13GrowableArrayIjED2Ev.exit985, %937, %923, %914, %._crit_edge.i, %247, %235, %._crit_edge1609
-  %.pre-phi1771 = phi i64 [ %221, %937 ], [ %221, %923 ], [ %221, %914 ], [ %221, %._crit_edge.i ], [ %221, %247 ], [ %221, %235 ], [ %.pre1770, %._crit_edge1609 ], [ %1710, %_ZN13GrowableArrayIjED2Ev.exit985 ], [ %1710, %_ZN13GrowableArrayIjED2Ev.exit995 ], [ %221, %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit883 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit885 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit903 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit905 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit917 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit922 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit944 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit954 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit956 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit968 ], [ %221, %1630 ]
-  %.0 = phi i32 [ 0, %937 ], [ 0, %923 ], [ 0, %914 ], [ 0, %._crit_edge.i ], [ 0, %247 ], [ 0, %235 ], [ %2047, %._crit_edge1609 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit985 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit995 ], [ 0, %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit883 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit885 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit903 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit905 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit917 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit922 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit944 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit954 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit956 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit968 ], [ 0, %1630 ]
+  %.pre-phi1771 = phi i64 [ %221, %_ZN13GrowableArrayIjED2Ev.exit956 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit ], [ %.pre1770, %._crit_edge1609 ], [ %1710, %_ZN13GrowableArrayIjED2Ev.exit995 ], [ %221, %937 ], [ %221, %923 ], [ %221, %914 ], [ %221, %._crit_edge.i ], [ %221, %247 ], [ %221, %235 ], [ %1710, %_ZN13GrowableArrayIjED2Ev.exit985 ], [ %221, %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit883 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit885 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit903 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit905 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit917 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit922 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit944 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit954 ], [ %221, %_ZN13GrowableArrayIjED2Ev.exit968 ], [ %221, %1630 ]
+  %.0 = phi i32 [ 0, %_ZN13GrowableArrayIjED2Ev.exit956 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit ], [ %2047, %._crit_edge1609 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit995 ], [ 0, %937 ], [ 0, %923 ], [ 0, %914 ], [ 0, %._crit_edge.i ], [ 0, %247 ], [ 0, %235 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit985 ], [ 0, %_ZL10clone_nodeP4NodeP5BlockP7Compile.exit ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit883 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit885 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit903 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit905 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit917 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit922 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit944 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit954 ], [ 0, %_ZN13GrowableArrayIjED2Ev.exit968 ], [ 0, %1630 ]
   %.not.i1000 = icmp eq i64 %.pre-phi1771, 0
   br i1 %.not.i1000, label %_ZN13GrowableArrayIjED2Ev.exit1003, label %2048
 

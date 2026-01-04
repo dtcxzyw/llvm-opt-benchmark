@@ -263,7 +263,7 @@ define internal range(i32 -1, 2) i32 @cvDenseSetup(ptr noundef %0, i32 noundef %
   br label %68
 
 68:                                               ; preds = %54, %52, %49
-  %.0 = phi i32 [ -1, %49 ], [ 1, %52 ], [ %., %54 ]
+  %.0 = phi i32 [ %., %54 ], [ 1, %52 ], [ -1, %49 ]
   ret i32 %.0
 }
 

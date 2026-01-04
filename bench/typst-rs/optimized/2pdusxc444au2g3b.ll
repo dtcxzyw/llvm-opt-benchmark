@@ -321,7 +321,7 @@ define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread
   ]
 
 "_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$flate2..crc..Crc$GT$$GT$$GT$17h54c18410b312d8f5E.llvm.7454132670541690561.exit.sink.split.i.i": ; preds = %30, %26, %22, %18, %14
-  %.sink.i.i = phi ptr [ %15, %14 ], [ %19, %18 ], [ %23, %22 ], [ %27, %26 ], [ %31, %30 ]
+  %.sink.i.i = phi ptr [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %31, %30 ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h463ccfbaa2e97ee9E.llvm.7454132670541690561"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sink.i.i)
           to label %"_ZN4core3ptr47drop_in_place$LT$flate2..gz..GzHeaderParser$GT$17h6b40a9106573efecE.exit" unwind label %34
 
@@ -571,7 +571,7 @@ default.unreachable:                              ; preds = %20
   br label %39
 
 _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit: ; preds = %31, %28, %24
-  %.0.i = phi i8 [ %spec.select.i.i.i, %24 ], [ %30, %28 ], [ %33, %31 ]
+  %.0.i = phi i8 [ %33, %31 ], [ %spec.select.i.i.i, %24 ], [ %30, %28 ]
   %37 = icmp eq i8 %.0.i, 13
   br i1 %37, label %44, label %.thread56
 
@@ -639,7 +639,7 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit: ; preds = %31, %28, %24
   br label %39
 
 .body:                                            ; preds = %50, %40, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.7454132670541690561.exit.i.i.i.i"
-  %eh.lpad-body = phi { ptr, i32 } [ %41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.7454132670541690561.exit.i.i.i.i" ], [ %41, %40 ], [ %51, %50 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %41, %40 ], [ %41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.7454132670541690561.exit.i.i.i.i" ], [ %51, %50 ]
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h65d2da256324d973E"(ptr noalias noundef align 8 dereferenceable(104) %7) #16
           to label %15 unwind label %84
 
@@ -724,7 +724,7 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit: ; preds = %31, %28, %24
   ]
 
 "_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$flate2..crc..Crc$GT$$GT$$GT$17h54c18410b312d8f5E.llvm.7454132670541690561.exit.sink.split.i.i": ; preds = %75, %71, %67, %63, %59
-  %.sink.i.i = phi ptr [ %60, %59 ], [ %64, %63 ], [ %68, %67 ], [ %72, %71 ], [ %76, %75 ]
+  %.sink.i.i = phi ptr [ %72, %71 ], [ %68, %67 ], [ %64, %63 ], [ %60, %59 ], [ %76, %75 ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h463ccfbaa2e97ee9E.llvm.7454132670541690561"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sink.i.i)
           to label %"_ZN4core3ptr46drop_in_place$LT$flate2..gz..GzHeaderState$GT$17h9a3436f374607da8E.llvm.7454132670541690561.exit.i" unwind label %79
 
@@ -796,7 +796,7 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit: ; preds = %31, %28, %24
           to label %83 unwind label %84
 
 .thread79:                                        ; preds = %15, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.7454132670541690561.exit.i.i.i", %.thread74, %79, %83
-  %.pn2277 = phi { ptr, i32 } [ %.pn.pn55, %83 ], [ %80, %79 ], [ %.pn2278, %.thread74 ], [ %.pn2278, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.7454132670541690561.exit.i.i.i" ], [ %eh.lpad-body, %15 ]
+  %.pn2277 = phi { ptr, i32 } [ %80, %79 ], [ %.pn.pn55, %83 ], [ %.pn2278, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.7454132670541690561.exit.i.i.i" ], [ %.pn2278, %.thread74 ], [ %eh.lpad-body, %15 ]
   resume { ptr, i32 } %.pn2277
 
 .thread74:                                        ; preds = %86, %34, %83

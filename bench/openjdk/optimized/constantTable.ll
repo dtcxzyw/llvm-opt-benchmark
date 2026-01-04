@@ -87,7 +87,7 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nounde
   %33 = load ptr, ptr %32, align 8
   %.off = add i8 %3, -4
   %switch = icmp ult i8 %.off, 8
-  br i1 %switch, label %.lr.ph.split.preheader, label %58
+  br i1 %switch, label %.lr.ph.split.preheader, label %60
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count = zext nneg i32 %25 to i64
@@ -99,14 +99,14 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nounde
   %35 = load i32, ptr %34, align 8
   %36 = getelementptr inbounds nuw %union.jvalue, ptr %33, i64 %indvars.iv
   %37 = load i32, ptr %36, align 8
-  switch i8 %3, label %60 [
+  switch i8 %3, label %56 [
     i8 4, label %38
-    i8 8, label %42
-    i8 5, label %44
-    i8 9, label %48
-    i8 10, label %52
-    i8 11, label %54
-    i8 6, label %56
+    i8 8, label %62
+    i8 5, label %42
+    i8 9, label %46
+    i8 10, label %50
+    i8 11, label %52
+    i8 6, label %54
   ]
 
 38:                                               ; preds = %.lr.ph.split
@@ -116,50 +116,50 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nounde
   br i1 %41, label %64, label %.loopexit
 
 42:                                               ; preds = %.lr.ph.split
-  %.unshifted = xor i32 %37, %35
-  %.mask = and i32 %.unshifted, 255
-  %43 = icmp eq i32 %.mask, 0
-  br i1 %43, label %64, label %.loopexit
+  %43 = xor i32 %37, %35
+  %44 = and i32 %43, 65535
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %64, label %.loopexit
 
-44:                                               ; preds = %.lr.ph.split
-  %45 = xor i32 %37, %35
-  %46 = and i32 %45, 65535
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %64, label %.loopexit
+46:                                               ; preds = %.lr.ph.split
+  %47 = trunc i32 %35 to i16
+  %48 = trunc i32 %37 to i16
+  %49 = icmp eq i16 %47, %48
+  br i1 %49, label %64, label %.loopexit
 
-48:                                               ; preds = %.lr.ph.split
-  %49 = trunc i32 %35 to i16
-  %50 = trunc i32 %37 to i16
-  %51 = icmp eq i16 %49, %50
+50:                                               ; preds = %.lr.ph.split
+  %51 = icmp eq i32 %35, %37
   br i1 %51, label %64, label %.loopexit
 
 52:                                               ; preds = %.lr.ph.split
-  %53 = icmp eq i32 %35, %37
+  %.sroa.0.0.copyload8 = load i64, ptr %36, align 8
+  %.sroa.0.0.copyload80 = load i64, ptr %34, align 8
+  %53 = icmp eq i64 %.sroa.0.0.copyload80, %.sroa.0.0.copyload8
   br i1 %53, label %64, label %.loopexit
 
 54:                                               ; preds = %.lr.ph.split
-  %.sroa.0.0.copyload8 = load i64, ptr %36, align 8
-  %.sroa.0.0.copyload80 = load i64, ptr %34, align 8
-  %55 = icmp eq i64 %.sroa.0.0.copyload80, %.sroa.0.0.copyload8
+  %55 = icmp eq i32 %35, %37
   br i1 %55, label %64, label %.loopexit
 
 56:                                               ; preds = %.lr.ph.split
-  %57 = icmp eq i32 %35, %37
-  br i1 %57, label %64, label %.loopexit
+  %57 = load i64, ptr %36, align 8
+  %58 = load i64, ptr %34, align 8
+  %59 = icmp eq i64 %58, %57
+  br i1 %59, label %64, label %.loopexit
 
-58:                                               ; preds = %.lr.ph
-  %59 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %59, align 1
+60:                                               ; preds = %.lr.ph
+  %61 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %61, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 56) #9
   unreachable
 
-60:                                               ; preds = %.lr.ph.split
-  %61 = load i64, ptr %36, align 8
-  %62 = load i64, ptr %34, align 8
-  %63 = icmp eq i64 %62, %61
+62:                                               ; preds = %.lr.ph.split
+  %.unshifted = xor i32 %37, %35
+  %.mask = and i32 %.unshifted, 255
+  %63 = icmp eq i32 %.mask, 0
   br i1 %63, label %64, label %.loopexit
 
-64:                                               ; preds = %56, %54, %52, %48, %44, %42, %38, %60
+64:                                               ; preds = %42, %46, %50, %52, %54, %56, %38, %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
@@ -238,8 +238,8 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nounde
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 74) #9
   unreachable
 
-.loopexit:                                        ; preds = %60, %64, %38, %42, %44, %48, %52, %54, %56, %.preheader, %19, %22, %5, %2, %102, %96, %90, %84, %78, %72, %66
-  %.0175 = phi i1 [ %71, %66 ], [ %77, %72 ], [ %83, %78 ], [ %89, %84 ], [ %95, %90 ], [ %101, %96 ], [ %107, %102 ], [ false, %2 ], [ false, %5 ], [ false, %22 ], [ false, %19 ], [ true, %.preheader ], [ false, %60 ], [ true, %64 ], [ false, %38 ], [ false, %42 ], [ false, %44 ], [ false, %48 ], [ false, %52 ], [ false, %54 ], [ false, %56 ]
+.loopexit:                                        ; preds = %62, %64, %38, %56, %54, %52, %50, %46, %42, %.preheader, %19, %22, %5, %2, %102, %96, %90, %84, %78, %72, %66
+  %.0175 = phi i1 [ %107, %102 ], [ false, %2 ], [ false, %5 ], [ false, %19 ], [ false, %22 ], [ %71, %66 ], [ %77, %72 ], [ %83, %78 ], [ %89, %84 ], [ %95, %90 ], [ %101, %96 ], [ true, %.preheader ], [ false, %46 ], [ false, %50 ], [ false, %52 ], [ false, %54 ], [ false, %56 ], [ false, %38 ], [ true, %64 ], [ false, %62 ], [ false, %42 ]
   ret i1 %.0175
 }
 
@@ -641,8 +641,8 @@ _ZN17AbstractAssembler12int_constantEi.exit:      ; preds = %16
   %141 = icmp eq ptr %140, null
   br i1 %141, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %_ZN17AbstractAssembler12int_constantEi.exit.thread100
 
-_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split: ; preds = %27, %36, %45, %54, %75, %87, %128
-  %.sink = phi ptr [ %126, %128 ], [ %85, %87 ], [ %73, %75 ], [ %52, %54 ], [ %43, %45 ], [ %34, %36 ], [ %25, %27 ]
+_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split: ; preds = %87, %27, %36, %45, %54, %75, %128
+  %.sink = phi ptr [ %126, %128 ], [ %73, %75 ], [ %52, %54 ], [ %43, %45 ], [ %34, %36 ], [ %25, %27 ], [ %85, %87 ]
   call void @_ZN17AbstractAssembler11end_a_constEP11CodeSection(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %.sink) #10
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100
 
@@ -654,7 +654,7 @@ _ZN17AbstractAssembler12int_constantEi.exit.thread100: ; preds = %108, %_ZN17Abs
   br i1 %.not, label %16, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, !llvm.loop !20
 
 _ZN17AbstractAssembler16address_constantEPh.exit43.thread: ; preds = %_ZN17AbstractAssembler12int_constantEi.exit, %_ZN17AbstractAssembler12int_constantEi.exit.thread100, %94, %24, %33, %42, %51, %_ZN11OopRecorder10find_indexEP8_jobject.exit, %84, %_ZN11OopRecorder10find_indexEP8Metadata.exit, %.lr.ph, %2
-  %144 = phi i1 [ true, %2 ], [ false, %.lr.ph ], [ false, %_ZN17AbstractAssembler12int_constantEi.exit ], [ true, %_ZN17AbstractAssembler12int_constantEi.exit.thread100 ], [ false, %94 ], [ false, %24 ], [ false, %33 ], [ false, %42 ], [ false, %51 ], [ false, %_ZN11OopRecorder10find_indexEP8_jobject.exit ], [ false, %84 ], [ false, %_ZN11OopRecorder10find_indexEP8Metadata.exit ]
+  %144 = phi i1 [ false, %.lr.ph ], [ true, %2 ], [ false, %_ZN17AbstractAssembler12int_constantEi.exit ], [ true, %_ZN17AbstractAssembler12int_constantEi.exit.thread100 ], [ false, %94 ], [ false, %24 ], [ false, %33 ], [ false, %42 ], [ false, %51 ], [ false, %_ZN11OopRecorder10find_indexEP8_jobject.exit ], [ false, %84 ], [ false, %_ZN11OopRecorder10find_indexEP8Metadata.exit ]
   ret i1 %144
 }
 

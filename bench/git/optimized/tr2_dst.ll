@@ -570,7 +570,7 @@ tr2_dst_trace_disable.exit:                       ; preds = %139, %143
   br label %155
 
 155:                                              ; preds = %tr2_dst_want_warning.exit, %105, %149, %tr2_dst_trace_disable.exit
-  %.025 = phi i32 [ 0, %tr2_dst_trace_disable.exit ], [ %154, %149 ], [ 0, %105 ], [ 0, %tr2_dst_want_warning.exit ]
+  %.025 = phi i32 [ %154, %149 ], [ 0, %tr2_dst_trace_disable.exit ], [ 0, %105 ], [ 0, %tr2_dst_want_warning.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.025
 }
@@ -722,8 +722,8 @@ skip_prefix.exit35:                               ; preds = %skip_prefix.exit35.
   br i1 %20, label %skip_prefix.exit35, label %.thread77, !llvm.loop !22
 
 .thread:                                          ; preds = %5, %skip_prefix.exit, %skip_prefix.exit35
-  %.not2476 = phi i1 [ false, %skip_prefix.exit35 ], [ true, %skip_prefix.exit ], [ false, %5 ]
-  %.072 = phi ptr [ %scevgep102, %skip_prefix.exit35 ], [ %scevgep100, %skip_prefix.exit ], [ %scevgep, %5 ]
+  %.not2476 = phi i1 [ true, %skip_prefix.exit ], [ false, %skip_prefix.exit35 ], [ false, %5 ]
+  %.072 = phi ptr [ %scevgep100, %skip_prefix.exit ], [ %scevgep102, %skip_prefix.exit35 ], [ %scevgep, %5 ]
   %21 = load i8, ptr %.072, align 1, !tbaa !10
   switch i8 %21, label %53 [
     i8 0, label %.thread77
@@ -921,7 +921,7 @@ tr2_dst_try_uds_connect.exit:                     ; preds = %86
   store i32 %108, ptr %107, align 4, !tbaa !18
   br label %tr2_dst_try_uds_connect.exit50.thread
 
-tr2_dst_try_uds_connect.exit50.thread:            ; preds = %106, %98
+tr2_dst_try_uds_connect.exit50.thread:            ; preds = %98, %106
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %110
 

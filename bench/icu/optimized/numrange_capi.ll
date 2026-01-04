@@ -200,7 +200,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1039,7 +1039,7 @@ _ZN6icu_7713IcuCApiHelperI21UFormattedNumberRangeNS_6number4impl25UFormattedNumb
   tail call void @_ZNK6icu_776number29LocalizedNumberRangeFormatter10formatImplERNS0_4impl25UFormattedNumberRangeDataEbR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1216) %21, ptr noundef nonnull align 8 dereferenceable(452) %16, i1 noundef zeroext %22, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZN6icu_7713IcuCApiHelperI21UFormattedNumberRangeNS_6number4impl25UFormattedNumberRangeImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread
 
-_ZN6icu_7713IcuCApiHelperI21UFormattedNumberRangeNS_6number4impl25UFormattedNumberRangeImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %.sink.split.i, %5, %.sink.split.i.i, %_ZN6icu_7713IcuCApiHelperI21UFormattedNumberRangeNS_6number4impl25UFormattedNumberRangeImplELi1178881536EE8validateEPS1_R10UErrorCode.exit
+_ZN6icu_7713IcuCApiHelperI21UFormattedNumberRangeNS_6number4impl25UFormattedNumberRangeImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %5, %.sink.split.i.i, %.sink.split.i, %_ZN6icu_7713IcuCApiHelperI21UFormattedNumberRangeNS_6number4impl25UFormattedNumberRangeImplELi1178881536EE8validateEPS1_R10UErrorCode.exit
   ret void
 }
 
@@ -1100,7 +1100,7 @@ _ZN6icu_7713IcuCApiHelperI21UFormattedNumberRangeNS_6number4impl25UFormattedNumb
   tail call void @_ZNK6icu_776number29LocalizedNumberRangeFormatter10formatImplERNS0_4impl25UFormattedNumberRangeDataEbR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1216) %23, ptr noundef nonnull align 8 dereferenceable(452) %18, i1 noundef zeroext %24, ptr noundef nonnull align 4 dereferenceable(4) %6)
   br label %_ZN6icu_7713IcuCApiHelperI21UFormattedNumberRangeNS_6number4impl25UFormattedNumberRangeImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread
 
-_ZN6icu_7713IcuCApiHelperI21UFormattedNumberRangeNS_6number4impl25UFormattedNumberRangeImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %.sink.split.i, %7, %.sink.split.i.i, %_ZN6icu_7713IcuCApiHelperI21UFormattedNumberRangeNS_6number4impl25UFormattedNumberRangeImplELi1178881536EE8validateEPS1_R10UErrorCode.exit
+_ZN6icu_7713IcuCApiHelperI21UFormattedNumberRangeNS_6number4impl25UFormattedNumberRangeImplELi1178881536EE8validateEPS1_R10UErrorCode.exit.thread: ; preds = %7, %.sink.split.i.i, %.sink.split.i, %_ZN6icu_7713IcuCApiHelperI21UFormattedNumberRangeNS_6number4impl25UFormattedNumberRangeImplELi1178881536EE8validateEPS1_R10UErrorCode.exit
   ret void
 }
 

@@ -265,7 +265,7 @@ define range(i32 0, 2) i32 @Bmc_LoadAddCnf(ptr noundef captures(none) %0, i32 no
   br label %104
 
 104:                                              ; preds = %23, %25, %2, %98
-  %.0 = phi i32 [ 1, %98 ], [ 0, %2 ], [ 0, %25 ], [ 0, %23 ]
+  %.0 = phi i32 [ 1, %98 ], [ 0, %2 ], [ 0, %23 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

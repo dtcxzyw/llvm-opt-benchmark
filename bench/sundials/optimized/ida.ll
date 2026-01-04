@@ -344,7 +344,7 @@ IDACheckNvector.exit:                             ; preds = %56
   %.not85 = icmp eq ptr %61, null
   br i1 %.not85, label %IDACheckNvector.exit.thread, label %62
 
-IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, %36, %40, %44, %48, %52, %56, %IDACheckNvector.exit
+IDACheckNvector.exit.thread:                      ; preds = %24, %28, %32, %36, %40, %44, %48, %52, %56, %19, %IDACheckNvector.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 425, ptr noundef nonnull @__func__.IDAInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7)
   br label %200
 
@@ -983,7 +983,7 @@ define range(i32 -1, 1) i32 @IDAEwtSet(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %34, label %IDAEwtSetSS.exit.sink.split, label %IDAEwtSetSS.exit
 
 IDAEwtSetSS.exit.sink.split:                      ; preds = %21, %31, %6, %17
-  %.sink.in = phi ptr [ %7, %17 ], [ %7, %6 ], [ %22, %31 ], [ %22, %21 ]
+  %.sink.in = phi ptr [ %7, %6 ], [ %7, %17 ], [ %22, %31 ], [ %22, %21 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !75
   tail call void @N_VInv(ptr noundef %.sink, ptr noundef %1) #13
   br label %IDAEwtSetSS.exit
@@ -1386,7 +1386,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
   br label %115
 
 115:                                              ; preds = %40, %._crit_edge, %103, %98, %93, %87, %82, %77, %69, %66, %45, %36, %5
-  %.0 = phi i32 [ -20, %5 ], [ 0, %36 ], [ -22, %45 ], [ 0, %66 ], [ -22, %69 ], [ -21, %77 ], [ -21, %82 ], [ -21, %87 ], [ -21, %93 ], [ -21, %98 ], [ -21, %103 ], [ 0, %._crit_edge ], [ 0, %40 ]
+  %.0 = phi i32 [ -20, %5 ], [ 0, %36 ], [ -22, %45 ], [ 0, %66 ], [ 0, %._crit_edge ], [ -22, %69 ], [ -21, %77 ], [ -21, %82 ], [ -21, %87 ], [ -21, %93 ], [ -21, %98 ], [ -21, %103 ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -2326,7 +2326,7 @@ IDAPredict.exit.i:                                ; preds = %417, %415
   br label %IDANls.exit.thread.i
 
 IDANls.exit.thread.i:                             ; preds = %506, %500, %457, %456, %452
-  %.0.i.ph.i = phi i32 [ -11, %500 ], [ %463, %457 ], [ 6, %456 ], [ -16, %452 ], [ 5, %506 ]
+  %.0.i.ph.i = phi i32 [ 5, %506 ], [ %463, %457 ], [ 6, %456 ], [ -16, %452 ], [ -11, %500 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre147.i = load i32, ptr %223, align 8, !tbaa !125
@@ -2754,30 +2754,30 @@ IDAWrmsNorm.exit.i70.i:                           ; preds = %737, %734
   %745 = fmul double %533, %744
   %746 = fmul double %742, %741
   %747 = icmp eq i32 %739, 1
-  br i1 %747, label %748, label %751
+  br i1 %747, label %756, label %748
 
 748:                                              ; preds = %IDAWrmsNorm.exit.i70.i
-  %749 = fmul double %745, 5.000000e-01
-  %750 = fcmp ult double %746, %749
-  br i1 %750, label %759, label %.thread153.i.i
+  %749 = sitofp i32 %739 to double
+  %750 = fmul double %.2.i, %749
+  %751 = fcmp olt double %745, %746
+  %752 = select i1 %751, double %745, double %746
+  %753 = fcmp ugt double %750, %752
+  br i1 %753, label %754, label %._crit_edge167.i.i
 
-751:                                              ; preds = %IDAWrmsNorm.exit.i70.i
-  %752 = sitofp i32 %739 to double
-  %753 = fmul double %.2.i, %752
-  %754 = fcmp olt double %745, %746
-  %755 = select i1 %754, double %745, double %746
-  %756 = fcmp ugt double %753, %755
-  br i1 %756, label %757, label %._crit_edge167.i.i
-
-._crit_edge167.i.i:                               ; preds = %751
+._crit_edge167.i.i:                               ; preds = %748
   %.pre168.i.i = add nsw i32 %739, -1
   br label %760
 
-757:                                              ; preds = %751
-  %758 = fcmp ult double %746, %745
+754:                                              ; preds = %748
+  %755 = fcmp ult double %746, %745
+  br i1 %755, label %759, label %.thread153.i.i
+
+756:                                              ; preds = %IDAWrmsNorm.exit.i70.i
+  %757 = fmul double %745, 5.000000e-01
+  %758 = fcmp ult double %746, %757
   br i1 %758, label %759, label %.thread153.i.i
 
-759:                                              ; preds = %757, %748
+759:                                              ; preds = %756, %754
   store i32 %743, ptr %223, align 8, !tbaa !125
   br label %.thread153.i.i
 
@@ -2786,9 +2786,9 @@ IDAWrmsNorm.exit.i70.i:                           ; preds = %737, %734
   store i32 %.pre-phi.i72.i, ptr %223, align 8, !tbaa !125
   br label %.thread153.i.i
 
-.thread153.i.i:                                   ; preds = %760, %759, %757, %748, %.thread148.i.i, %.thread148.thread.i.i
-  %761 = phi i32 [ %743, %759 ], [ %.pre-phi.i72.i, %760 ], [ %593, %.thread148.i.i ], [ %739, %757 ], [ 1, %748 ], [ %593, %.thread148.thread.i.i ]
-  %.0129.i.i = phi double [ %742, %759 ], [ %.2.i, %760 ], [ %533, %.thread148.i.i ], [ %533, %757 ], [ %533, %748 ], [ %533, %.thread148.thread.i.i ]
+.thread153.i.i:                                   ; preds = %760, %759, %756, %754, %.thread148.i.i, %.thread148.thread.i.i
+  %761 = phi i32 [ %743, %759 ], [ %.pre-phi.i72.i, %760 ], [ %593, %.thread148.i.i ], [ %593, %.thread148.thread.i.i ], [ 1, %756 ], [ %739, %754 ]
+  %.0129.i.i = phi double [ %742, %759 ], [ %.2.i, %760 ], [ %533, %.thread148.i.i ], [ %533, %.thread148.thread.i.i ], [ %533, %756 ], [ %533, %754 ]
   store double 1.000000e+00, ptr %258, align 8, !tbaa !149
   %762 = call double @llvm.fmuladd.f64(double %.0129.i.i, double 2.000000e+00, double 1.000000e-04)
   %763 = add nsw i32 %761, 1
@@ -2903,7 +2903,7 @@ switch.lookup:                                    ; preds = %622
   br label %.loopexit300
 
 .loopexit300:                                     ; preds = %680, %622, %switch.lookup, %633
-  %.039.i.ph = phi i32 [ %switch.select103.i.i, %633 ], [ %switch.load, %switch.lookup ], [ -17, %622 ], [ -3, %680 ]
+  %.039.i.ph = phi i32 [ %switch.select103.i.i, %633 ], [ -17, %622 ], [ %switch.load, %switch.lookup ], [ -3, %680 ]
   %823 = call fastcc i32 @IDAHandleFailure(ptr noundef %0, i32 noundef %.039.i.ph)
   %824 = load double, ptr %222, align 8, !tbaa !80
   %825 = getelementptr inbounds nuw i8, ptr %0, i64 688
@@ -3085,7 +3085,7 @@ switch.lookup:                                    ; preds = %622
   br label %IDAStopTest2.exit.thread
 
 IDAStopTest2.exit.thread:                         ; preds = %905, %915, %912, %892, %281, %305, %.loopexit300, %850, %855, %329, %322, %210, %43, %207, %204, %201, %175, %172, %169, %142, %121, %70, %62, %52, %29, %26, %22, %18, %15, %10
-  %.0253 = phi i32 [ -20, %10 ], [ -23, %15 ], [ -22, %18 ], [ -22, %22 ], [ -22, %26 ], [ -22, %29 ], [ -22, %52 ], [ -22, %62 ], [ -22, %70 ], [ -22, %121 ], [ -10, %142 ], [ -22, %169 ], [ -10, %172 ], [ 2, %175 ], [ 0, %201 ], [ 2, %204 ], [ -10, %207 ], [ %44, %43 ], [ %211, %210 ], [ -1, %281 ], [ -22, %305 ], [ -2, %329 ], [ -2, %322 ], [ %823, %.loopexit300 ], [ 2, %850 ], [ -10, %855 ], [ 0, %915 ], [ 0, %912 ], [ 1, %892 ], [ -22, %905 ]
+  %.0253 = phi i32 [ -20, %10 ], [ -23, %15 ], [ -22, %18 ], [ -22, %22 ], [ -22, %26 ], [ -22, %29 ], [ -10, %207 ], [ -22, %52 ], [ -22, %62 ], [ -22, %70 ], [ -22, %121 ], [ -10, %142 ], [ -22, %169 ], [ -10, %172 ], [ 2, %175 ], [ 0, %201 ], [ %44, %43 ], [ %211, %210 ], [ 2, %204 ], [ -1, %281 ], [ -22, %305 ], [ -2, %329 ], [ -2, %322 ], [ %823, %.loopexit300 ], [ 2, %850 ], [ -10, %855 ], [ 1, %892 ], [ 0, %915 ], [ 0, %912 ], [ -22, %905 ]
   ret i32 %.0253
 }
 
@@ -3213,7 +3213,7 @@ define range(i32 -22, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %62
 
 62:                                               ; preds = %59, %40, %41, %61, %58, %52, %21, %17, %12
-  %.0 = phi i32 [ -22, %12 ], [ -22, %17 ], [ -22, %21 ], [ -5, %58 ], [ -15, %61 ], [ -22, %52 ], [ -22, %41 ], [ -22, %40 ], [ 0, %59 ]
+  %.0 = phi i32 [ -22, %12 ], [ -22, %17 ], [ -22, %21 ], [ -22, %52 ], [ -5, %58 ], [ -15, %61 ], [ -22, %40 ], [ -22, %41 ], [ 0, %59 ]
   ret i32 %.0
 }
 
@@ -3623,7 +3623,7 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0)
   br i1 %122, label %100, label %.loopexit
 
 .loopexit:                                        ; preds = %113, %119, %.preheader86, %.preheader85, %.preheader, %85, %._crit_edge, %5, %1
-  %.076 = phi i32 [ 0, %1 ], [ -10, %5 ], [ 0, %._crit_edge ], [ -10, %85 ], [ 0, %.preheader ], [ 0, %.preheader85 ], [ 0, %.preheader86 ], [ 3, %113 ], [ %.3, %119 ]
+  %.076 = phi i32 [ -10, %5 ], [ 0, %1 ], [ 0, %._crit_edge ], [ -10, %85 ], [ 0, %.preheader85 ], [ 0, %.preheader86 ], [ 0, %.preheader ], [ %.3, %119 ], [ 3, %113 ]
   ret i32 %.076
 }
 
@@ -3793,7 +3793,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   br i1 %102, label %.thread.i, label %103
 
 103:                                              ; preds = %98, %91, %88, %81, %71, %63
-  %.1224.i = phi i32 [ 1, %81 ], [ %.0223281.i, %71 ], [ %.0223281.i, %98 ], [ %.0223281.i, %91 ], [ %.0223281.i, %88 ], [ %.0223281.i, %63 ]
+  %.1224.i = phi i32 [ 1, %81 ], [ %.0223281.i, %71 ], [ %.0223281.i, %88 ], [ %.0223281.i, %98 ], [ %.0223281.i, %91 ], [ %.0223281.i, %63 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %63
@@ -4045,7 +4045,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   br i1 %243, label %.thread419.i, label %244
 
 244:                                              ; preds = %239, %232, %229, %222, %212, %204
-  %.3226.i = phi i32 [ 1, %222 ], [ %.2225289.i, %212 ], [ %.2225289.i, %239 ], [ %.2225289.i, %232 ], [ %.2225289.i, %229 ], [ %.2225289.i, %204 ]
+  %.3226.i = phi i32 [ 1, %222 ], [ %.2225289.i, %212 ], [ %.2225289.i, %229 ], [ %.2225289.i, %239 ], [ %.2225289.i, %232 ], [ %.2225289.i, %204 ]
   %indvars.iv.next336.i = add nuw nsw i64 %indvars.iv335.i, 1
   %exitcond339.not.i = icmp eq i64 %indvars.iv.next336.i, %wide.trip.count338.i
   br i1 %exitcond339.not.i, label %._crit_edge292.i, label %204
@@ -4592,7 +4592,7 @@ define internal fastcc range(i32 -22, 100) i32 @IDAStopTest1(ptr noundef nonnull
   br label %83
 
 83:                                               ; preds = %52, %70, %58, %80, %69, %68, %57, %41, %39, %19
-  %.0 = phi i32 [ -22, %19 ], [ -22, %39 ], [ 1, %41 ], [ 0, %57 ], [ -22, %68 ], [ 0, %69 ], [ 0, %80 ], [ 99, %58 ], [ 99, %70 ], [ -22, %52 ]
+  %.0 = phi i32 [ -22, %19 ], [ -22, %39 ], [ 1, %41 ], [ 99, %70 ], [ 0, %57 ], [ -22, %68 ], [ 0, %69 ], [ 99, %58 ], [ 0, %80 ], [ -22, %52 ]
   ret i32 %.0
 }
 

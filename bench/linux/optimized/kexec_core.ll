@@ -224,8 +224,8 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
   br i1 %59, label %60, label %45
 
 60:                                               ; preds = %55, %45
-  %61 = phi i1 [ %47, %45 ], [ %49, %55 ]
-  %62 = phi i32 [ %36, %45 ], [ -22, %55 ]
+  %61 = phi i1 [ %49, %55 ], [ %47, %45 ]
+  %62 = phi i32 [ -22, %55 ], [ %36, %45 ]
   br i1 %61, label %.thread17, label %.thread15
 
 63:                                               ; preds = %.preheader51
@@ -309,7 +309,7 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
   br i1 %.not20, label %.thread17, label %101
 
 .thread17:                                        ; preds = %28, %22, %12, %60, %.preheader51, %77, %105, %112, %101, %1, %94, %92
-  %117 = phi i32 [ -22, %92 ], [ 0, %94 ], [ 0, %1 ], [ -99, %105 ], [ -99, %112 ], [ 0, %101 ], [ -22, %77 ], [ -22, %.preheader51 ], [ %62, %60 ], [ -99, %12 ], [ -99, %22 ], [ -99, %28 ]
+  %117 = phi i32 [ -22, %92 ], [ 0, %94 ], [ -22, %.preheader51 ], [ 0, %1 ], [ %62, %60 ], [ 0, %101 ], [ -22, %77 ], [ -99, %105 ], [ -99, %112 ], [ -99, %12 ], [ -99, %22 ], [ -99, %28 ]
   ret i32 %117
 }
 
@@ -694,8 +694,8 @@ define dso_local ptr @kimage_alloc_control_pages(ptr noundef %0, i32 noundef %1)
   br i1 %159, label %.thread20, label %127
 
 .thread20:                                        ; preds = %138, %155, %152
-  %160 = phi i64 [ %129, %152 ], [ %129, %138 ], [ %157, %155 ]
-  %161 = phi i64 [ %128, %152 ], [ %128, %138 ], [ %158, %155 ]
+  %160 = phi i64 [ %129, %152 ], [ %157, %155 ], [ %129, %138 ]
+  %161 = phi i64 [ %128, %152 ], [ %158, %155 ], [ %128, %138 ]
   %162 = load i64, ptr @vmemmap_base, align 8
   %163 = inttoptr i64 %162 to ptr
   %164 = lshr i64 %160, 12
@@ -1385,7 +1385,7 @@ define dso_local noundef range(i32 -14, 1) i32 @kimage_load_segment(ptr noundef 
   br i1 %202, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %190, %.lr.ph, %180, %79, %120, %.preheader, %124, %.preheader14, %33, %53
-  %203 = phi i32 [ 0, %53 ], [ -12, %33 ], [ 0, %.preheader14 ], [ -12, %79 ], [ -12, %.preheader ], [ -14, %120 ], [ 0, %124 ], [ 0, %190 ], [ -12, %.lr.ph ], [ -14, %180 ]
+  %203 = phi i32 [ 0, %53 ], [ 0, %.preheader14 ], [ -12, %33 ], [ 0, %124 ], [ -12, %.preheader ], [ -14, %120 ], [ -12, %79 ], [ -12, %.lr.ph ], [ -14, %180 ], [ 0, %190 ]
   ret i32 %203
 }
 
@@ -2235,7 +2235,7 @@ define internal fastcc ptr @kimage_alloc_page(ptr noundef %0, i32 noundef range(
   br label %31, !llvm.loop !64
 
 .loopexit:                                        ; preds = %82, %77, %39, %35, %97, %139, %26
-  %158 = phi ptr [ %21, %26 ], [ %142, %139 ], [ %40, %97 ], [ %40, %77 ], [ %40, %82 ], [ null, %39 ], [ null, %35 ]
+  %158 = phi ptr [ %21, %26 ], [ %142, %139 ], [ %40, %97 ], [ %40, %82 ], [ %40, %77 ], [ null, %35 ], [ null, %39 ]
   ret ptr %158
 }
 

@@ -138,7 +138,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   br label %_ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEcET_SD_SD_RKT0_.exit
 
 _ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEcET_SD_SD_RKT0_.exit: ; preds = %.lr.ph.i.i.i, %32, %38, %44, %._crit_edge.i.i.i, %53, %._crit_edge.i._crit_edge.i.i, %._crit_edge.i._crit_edge36.i.i
-  %.sink.i.i.i = phi i64 [ %.cast18.i.i.i, %44 ], [ %.cast17.i.i.i, %38 ], [ %.cast.i.i.i, %32 ], [ %50, %53 ], [ %62, %._crit_edge.i._crit_edge.i.i ], [ %16, %._crit_edge.i.i.i ], [ %spec.select.i.i, %._crit_edge.i._crit_edge36.i.i ], [ %23, %.lr.ph.i.i.i ]
+  %.sink.i.i.i = phi i64 [ %spec.select.i.i, %._crit_edge.i._crit_edge36.i.i ], [ %62, %._crit_edge.i._crit_edge.i.i ], [ %50, %53 ], [ %16, %._crit_edge.i.i.i ], [ %.cast18.i.i.i, %44 ], [ %.cast17.i.i.i, %38 ], [ %.cast.i.i.i, %32 ], [ %23, %.lr.ph.i.i.i ]
   %75 = inttoptr i64 %.sink.i.i.i to ptr
   %76 = icmp eq ptr %13, %75
   br i1 %76, label %77, label %90

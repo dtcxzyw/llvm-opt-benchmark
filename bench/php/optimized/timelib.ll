@@ -109,7 +109,7 @@ define hidden range(i32 -1, 2) i32 @timelib_time_compare(ptr noundef readonly ca
   br label %20
 
 20:                                               ; preds = %8, %17, %14
-  %.0 = phi i32 [ %16, %14 ], [ %19, %17 ], [ 0, %8 ]
+  %.0 = phi i32 [ %19, %17 ], [ %16, %14 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -482,7 +482,7 @@ define hidden i32 @timelib_strcasecmp(ptr noundef readonly captures(address) %0,
   br label %28
 
 28:                                               ; preds = %2, %25, %21
-  %.0 = phi i32 [ %24, %21 ], [ %27, %25 ], [ 0, %2 ]
+  %.0 = phi i32 [ %27, %25 ], [ %24, %21 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -534,7 +534,7 @@ define hidden i32 @timelib_strncasecmp(ptr noundef readonly captures(address) %0
   br label %31
 
 31:                                               ; preds = %3, %26, %22
-  %.0 = phi i32 [ %25, %22 ], [ %30, %26 ], [ 0, %3 ]
+  %.0 = phi i32 [ %30, %26 ], [ %25, %22 ], [ 0, %3 ]
   ret i32 %.0
 }
 

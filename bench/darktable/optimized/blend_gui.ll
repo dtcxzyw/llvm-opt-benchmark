@@ -373,7 +373,7 @@ switch.lookup:                                    ; preds = %53
   br label %_blendif_colorpicker_cst.exit
 
 _blendif_colorpicker_cst.exit:                    ; preds = %switch.lookup, %53, %.loopexit
-  %.0.i = phi i32 [ %51, %.loopexit ], [ -1, %53 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi i32 [ -1, %53 ], [ %switch.load, %switch.lookup ], [ %51, %.loopexit ]
   %57 = icmp eq i32 %48, 4
   br i1 %57, label %58, label %60
 
@@ -724,7 +724,7 @@ _blendif_colorpicker_cst.exit:                    ; preds = %switch.lookup, %53,
   br label %260
 
 260:                                              ; preds = %251, %255, %15, %259, %249
-  %.0140 = phi i32 [ 1, %249 ], [ 1, %259 ], [ 1, %15 ], [ 1, %255 ], [ 0, %251 ]
+  %.0140 = phi i32 [ 1, %255 ], [ 1, %249 ], [ 1, %15 ], [ 1, %259 ], [ 0, %251 ]
   ret i32 %.0140
 }
 
@@ -894,7 +894,7 @@ define internal fastcc void @_blendif_scale(ptr noundef readonly captures(none) 
   br label %120
 
 120:                                              ; preds = %110, %92, %83
-  %121 = phi reassoc nsz arcp contract afn float [ %109, %92 ], [ %119, %110 ], [ %89, %83 ]
+  %121 = phi reassoc nsz arcp contract afn float [ %119, %110 ], [ %109, %92 ], [ %89, %83 ]
   %122 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i
   store float %121, ptr %122, align 4, !tbaa !74
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1171,7 +1171,7 @@ define internal void @_update_gradient_slider_pickers(ptr readnone captures(none
   br label %_blendop_blendif_get_picker_colorspace.exit
 
 _blendop_blendif_get_picker_colorspace.exit:      ; preds = %2, %12, %16, %20
-  %.0.i = phi i32 [ %..i, %12 ], [ %.7.i, %16 ], [ -1, %2 ], [ %.8.i, %20 ]
+  %.0.i = phi i32 [ %..i, %12 ], [ -1, %2 ], [ %.7.i, %16 ], [ %.8.i, %20 ]
   tail call void @dt_iop_color_picker_set_cst(ptr noundef nonnull %1, i32 noundef %.0.i) #18
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
@@ -1255,7 +1255,7 @@ switch.lookup:                                    ; preds = %65
   br label %_blendif_colorpicker_cst.exit
 
 _blendif_colorpicker_cst.exit:                    ; preds = %switch.lookup, %65, %60
-  %.0.i68 = phi i32 [ %63, %60 ], [ -1, %65 ], [ %switch.load, %switch.lookup ]
+  %.0.i68 = phi i32 [ -1, %65 ], [ %switch.load, %switch.lookup ], [ %63, %60 ]
   %69 = icmp eq i32 %61, 4
   %70 = load ptr, ptr %32, align 8, !tbaa !80
   br i1 %69, label %71, label %75
@@ -1388,7 +1388,7 @@ _blendif_colorpicker_cst.exit:                    ; preds = %switch.lookup, %65,
   br label %150
 
 150:                                              ; preds = %140, %122, %113
-  %151 = phi reassoc nsz arcp contract afn float [ %139, %122 ], [ %149, %140 ], [ %119, %113 ]
+  %151 = phi reassoc nsz arcp contract afn float [ %149, %140 ], [ %139, %122 ], [ %119, %113 ]
   %152 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i.i
   store float %151, ptr %152, align 4, !tbaa !74
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1813,7 +1813,7 @@ define internal void @_blendif_scale_print_default(float noundef %0, float nound
   br label %_blendif_print_digits_default.exit
 
 _blendif_print_digits_default.exit:               ; preds = %4, %7, %9
-  %.0.i = phi i32 [ 0, %4 ], [ 2, %7 ], [ %..i, %9 ]
+  %.0.i = phi i32 [ 2, %7 ], [ 0, %4 ], [ %..i, %9 ]
   %11 = sext i32 %3 to i64
   %12 = fmul reassoc nsz arcp contract afn float %5, 1.000000e+02
   %13 = fpext reassoc nsz arcp contract afn float %12 to double
@@ -2934,7 +2934,7 @@ define internal range(i32 0, 2) i32 @_blendop_blendif_key_press(ptr noundef %0, 
   tail call fastcc void @_blendop_blendif_channel_mask_view_toggle(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 1)
   br label %37
 
-37:                                               ; preds = %34, %35, %36, %26, %19
+37:                                               ; preds = %36, %34, %35, %26, %19
   tail call void @dt_iop_request_focus(ptr noundef nonnull %2) #18
   br label %38
 
@@ -3111,7 +3111,7 @@ define internal void @_blendop_blendif_boost_factor_callback(ptr noundef %0, ptr
   br label %60
 
 60:                                               ; preds = %52, %59, %57
-  %61 = phi reassoc nsz arcp contract afn float [ %55, %59 ], [ 1.000000e+00, %57 ], [ 0.000000e+00, %52 ]
+  %61 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %57 ], [ %55, %59 ], [ 0.000000e+00, %52 ]
   store float %61, ptr %49, align 4, !tbaa !74
   br label %62
 
@@ -3136,7 +3136,7 @@ define internal void @_blendop_blendif_boost_factor_callback(ptr noundef %0, ptr
   br label %74
 
 74:                                               ; preds = %66, %73, %71
-  %75 = phi reassoc nsz arcp contract afn float [ %69, %73 ], [ 1.000000e+00, %71 ], [ 0.000000e+00, %66 ]
+  %75 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %71 ], [ %69, %73 ], [ 0.000000e+00, %66 ]
   store float %75, ptr %63, align 4, !tbaa !74
   br label %76
 
@@ -3162,7 +3162,7 @@ define internal void @_blendop_blendif_boost_factor_callback(ptr noundef %0, ptr
   br label %89
 
 89:                                               ; preds = %81, %88, %86
-  %90 = phi reassoc nsz arcp contract afn float [ %84, %88 ], [ 1.000000e+00, %86 ], [ 0.000000e+00, %81 ]
+  %90 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %86 ], [ %84, %88 ], [ 0.000000e+00, %81 ]
   store float %90, ptr %78, align 4, !tbaa !74
   br label %91
 
@@ -3188,7 +3188,7 @@ define internal void @_blendop_blendif_boost_factor_callback(ptr noundef %0, ptr
   br label %104
 
 104:                                              ; preds = %96, %103, %101
-  %105 = phi reassoc nsz arcp contract afn float [ %99, %103 ], [ 1.000000e+00, %101 ], [ 0.000000e+00, %96 ]
+  %105 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %101 ], [ %99, %103 ], [ 0.000000e+00, %96 ]
   store float %105, ptr %93, align 4, !tbaa !74
   br label %106
 
@@ -3263,7 +3263,7 @@ define internal void @_blendop_blendif_tab_switch(ptr readnone captures(none) %0
   br label %_blendop_blendif_get_picker_colorspace.exit
 
 _blendop_blendif_get_picker_colorspace.exit:      ; preds = %13, %16, %20, %24
-  %.0.i = phi i32 [ %..i, %16 ], [ %.7.i, %20 ], [ -1, %13 ], [ %.8.i, %24 ]
+  %.0.i = phi i32 [ %..i, %16 ], [ -1, %13 ], [ %.7.i, %20 ], [ %.8.i, %24 ]
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !79
   tail call void @dt_iop_color_picker_reset(ptr noundef %29, i32 noundef 0) #18
@@ -3292,7 +3292,7 @@ _blendop_blendif_get_picker_colorspace.exit:      ; preds = %13, %16, %20, %24
   br label %_blendop_blendif_get_picker_colorspace.exit22
 
 _blendop_blendif_get_picker_colorspace.exit22:    ; preds = %_blendop_blendif_get_picker_colorspace.exit, %32, %34, %36
-  %.0.i19 = phi i32 [ %..i21, %32 ], [ %.7.i20, %34 ], [ -1, %_blendop_blendif_get_picker_colorspace.exit ], [ %.8.i18, %36 ]
+  %.0.i19 = phi i32 [ %..i21, %32 ], [ -1, %_blendop_blendif_get_picker_colorspace.exit ], [ %.7.i20, %34 ], [ %.8.i18, %36 ]
   %.not15 = icmp eq i32 %.0.i, %.0.i19
   br i1 %.not15, label %64, label %38
 
@@ -3341,7 +3341,7 @@ _blendop_blendif_get_picker_colorspace.exit22:    ; preds = %_blendop_blendif_ge
   br label %_blendop_blendif_get_picker_colorspace.exit27
 
 _blendop_blendif_get_picker_colorspace.exit27:    ; preds = %49, %52, %55, %58
-  %.0.i24 = phi i32 [ %..i26, %52 ], [ %.7.i25, %55 ], [ -1, %49 ], [ %.8.i23, %58 ]
+  %.0.i24 = phi i32 [ %..i26, %52 ], [ -1, %49 ], [ %.7.i25, %55 ], [ %.8.i23, %58 ]
   tail call void @dt_iop_color_picker_set_cst(ptr noundef %50, i32 noundef %.0.i24) #18
   %61 = load ptr, ptr %28, align 8, !tbaa !79
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 664
@@ -3900,7 +3900,7 @@ define internal range(i32 0, 2) i32 @_blendop_masks_add_shape(ptr noundef %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %24, %50, %3, %7
-  %.0 = phi i32 [ 1, %7 ], [ 1, %3 ], [ 1, %50 ], [ 0, %24 ]
+  %.0 = phi i32 [ 1, %3 ], [ 1, %7 ], [ 1, %50 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -6520,7 +6520,7 @@ define internal float @log10_scale_callback(ptr readnone captures(none) %0, floa
   br label %25
 
 25:                                               ; preds = %3, %14, %24, %4
-  %.0 = phi nsz float [ %13, %4 ], [ 1.000000e+00, %24 ], [ %.1, %14 ], [ %1, %3 ]
+  %.0 = phi nsz float [ %.1, %14 ], [ %13, %4 ], [ 1.000000e+00, %24 ], [ %1, %3 ]
   ret float %.0
 }
 
@@ -6587,7 +6587,7 @@ define internal float @magnifier_scale_callback(ptr readnone captures(none) %0, 
   br label %40
 
 40:                                               ; preds = %3, %24, %39, %6, %23
-  %.1 = phi nsz float [ 1.000000e+00, %23 ], [ %.0, %6 ], [ 1.000000e+00, %39 ], [ %.2, %24 ], [ %1, %3 ]
+  %.1 = phi nsz float [ %.2, %24 ], [ 1.000000e+00, %23 ], [ %.0, %6 ], [ 1.000000e+00, %39 ], [ %1, %3 ]
   ret float %.1
 }
 
@@ -6999,8 +6999,8 @@ define internal fastcc void @_blendop_masks_mode_callback(i32 noundef %0, ptr no
   br label %91
 
 91:                                               ; preds = %23, %._crit_edge96, %50, %84
-  %.sink100 = phi i32 [ 1, %84 ], [ 1, %50 ], [ 0, %._crit_edge96 ], [ 0, %23 ]
-  %.pre-phi = phi i32 [ %20, %84 ], [ %20, %50 ], [ %.pre97, %._crit_edge96 ], [ %20, %23 ]
+  %.sink100 = phi i32 [ 1, %50 ], [ 1, %84 ], [ 0, %._crit_edge96 ], [ 0, %23 ]
+  %.pre-phi = phi i32 [ %20, %50 ], [ %20, %84 ], [ %.pre97, %._crit_edge96 ], [ %20, %23 ]
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %93 = load ptr, ptr %92, align 8, !tbaa !247
   %94 = tail call ptr @g_type_check_instance_cast(ptr noundef %93, i64 noundef %10) #18
@@ -7293,7 +7293,7 @@ define internal void @_blendif_select_colorspace(ptr noundef %0, ptr noundef %1)
   br label %_blendop_blendif_get_picker_colorspace.exit.i
 
 _blendop_blendif_get_picker_colorspace.exit.i:    ; preds = %57, %53, %49, %.loopexit.i
-  %.0.i.i = phi i32 [ %..i.i, %49 ], [ %.7.i.i, %53 ], [ -1, %.loopexit.i ], [ %.8.i.i, %57 ]
+  %.0.i.i = phi i32 [ %..i.i, %49 ], [ -1, %.loopexit.i ], [ %.7.i.i, %53 ], [ %.8.i.i, %57 ]
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !119
   tail call void @dt_dev_add_new_history_item(ptr noundef %61, ptr noundef nonnull %1, i32 noundef 0) #18
   tail call void @dt_iop_gui_update(ptr noundef nonnull %1) #18
@@ -7326,7 +7326,7 @@ _blendop_blendif_get_picker_colorspace.exit.i:    ; preds = %57, %53, %49, %.loo
   br label %_blendop_blendif_get_picker_colorspace.exit49.i
 
 _blendop_blendif_get_picker_colorspace.exit49.i:  ; preds = %71, %67, %63, %_blendop_blendif_get_picker_colorspace.exit.i
-  %.0.i46.i = phi i32 [ %..i48.i, %63 ], [ %.7.i47.i, %67 ], [ -1, %_blendop_blendif_get_picker_colorspace.exit.i ], [ %.8.i45.i, %71 ]
+  %.0.i46.i = phi i32 [ %..i48.i, %63 ], [ -1, %_blendop_blendif_get_picker_colorspace.exit.i ], [ %.7.i47.i, %67 ], [ %.8.i45.i, %71 ]
   %.not42.i = icmp eq i32 %.0.i.i, %.0.i46.i
   br i1 %.not42.i, label %105, label %75
 
@@ -7379,7 +7379,7 @@ _blendop_blendif_get_picker_colorspace.exit49.i:  ; preds = %71, %67, %63, %_ble
   br label %_blendop_blendif_get_picker_colorspace.exit54.i
 
 _blendop_blendif_get_picker_colorspace.exit54.i:  ; preds = %98, %94, %90, %86
-  %.0.i51.i = phi i32 [ %..i53.i, %90 ], [ %.7.i52.i, %94 ], [ -1, %86 ], [ %.8.i50.i, %98 ]
+  %.0.i51.i = phi i32 [ %..i53.i, %90 ], [ -1, %86 ], [ %.7.i52.i, %94 ], [ %.8.i50.i, %98 ]
   tail call void @dt_iop_color_picker_set_cst(ptr noundef %88, i32 noundef %.0.i51.i) #18
   %102 = load ptr, ptr %87, align 8, !tbaa !79
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 664
@@ -7388,7 +7388,7 @@ _blendop_blendif_get_picker_colorspace.exit54.i:  ; preds = %98, %94, %90, %86
   tail call void (...) @dt_control_queue_redraw() #18
   br label %105
 
-105:                                              ; preds = %_blendop_blendif_get_picker_colorspace.exit54.i, %81, %_blendop_blendif_get_picker_colorspace.exit49.i
+105:                                              ; preds = %_blendop_blendif_get_picker_colorspace.exit49.i, %_blendop_blendif_get_picker_colorspace.exit54.i, %81
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %107 = load ptr, ptr %106, align 16, !tbaa !269
   tail call void @gtk_widget_queue_draw(ptr noundef %107) #18

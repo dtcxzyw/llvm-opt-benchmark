@@ -2152,7 +2152,7 @@ mbedtls_des3_set3key_enc.exit106:                 ; preds = %291
   br label %.loopexit
 
 .loopexit:                                        ; preds = %338, %336, %337, %168, %169, %341
-  %.not84 = phi i32 [ 0, %341 ], [ 1, %169 ], [ 1, %168 ], [ 1, %337 ], [ 1, %336 ], [ 0, %338 ]
+  %.not84 = phi i32 [ 1, %169 ], [ 0, %341 ], [ 1, %168 ], [ 1, %337 ], [ 1, %336 ], [ 0, %338 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 128) #13
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %11, i64 noundef 384) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

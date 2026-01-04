@@ -491,7 +491,7 @@ define internal range(i32 -2147483648, 1) i32 @hls_write_header(ptr noundef %0) 
   br i1 %98, label %.lr.ph78, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %95, %._crit_edge..loopexit_crit_edge, %.preheader, %75
-  %99 = phi i32 [ %.pre, %._crit_edge..loopexit_crit_edge ], [ 0, %.preheader ], [ %.pre94, %75 ], [ %96, %95 ]
+  %99 = phi i32 [ %.pre, %._crit_edge..loopexit_crit_edge ], [ %.pre94, %75 ], [ 0, %.preheader ], [ %96, %95 ]
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %100 = zext i32 %99 to i64
   %101 = icmp samesign ult i64 %indvars.iv.next92, %100
@@ -1387,8 +1387,8 @@ hls_rename_temp_file.exit:                        ; preds = %347, %351
   %spec.select365 = select i1 %.not361, i32 %459, i32 0
   br label %.thread403
 
-.thread403:                                       ; preds = %.thread392, %flush_dynbuf.exit.thread, %.thread397, %358, %flush_dynbuf.exit, %210, %403, %393, %381, %481, %452, %448, %._crit_edge
-  %.0 = phi i32 [ %.9, %448 ], [ -12, %._crit_edge ], [ %.0280, %452 ], [ %spec.select365, %481 ], [ %.4.ph, %.thread392 ], [ -22, %flush_dynbuf.exit.thread ], [ -12, %.thread397 ], [ %.3283, %358 ], [ %253, %flush_dynbuf.exit ], [ -22, %210 ], [ %401, %403 ], [ %391, %393 ], [ %377, %381 ]
+.thread403:                                       ; preds = %flush_dynbuf.exit.thread, %.thread392, %358, %.thread397, %403, %393, %381, %flush_dynbuf.exit, %210, %481, %452, %448, %._crit_edge
+  %.0 = phi i32 [ -12, %._crit_edge ], [ %.9, %448 ], [ %.0280, %452 ], [ %spec.select365, %481 ], [ -22, %flush_dynbuf.exit.thread ], [ %.4.ph, %.thread392 ], [ %.3283, %358 ], [ -12, %.thread397 ], [ %401, %403 ], [ %391, %393 ], [ %377, %381 ], [ %253, %flush_dynbuf.exit ], [ -22, %210 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -2073,7 +2073,7 @@ get_default_pattern_localtime_fmt.exit:           ; preds = %53, %57
   br i1 %.not45.i.i, label %parse_cc_stream_mapstring.exit.i, label %.lr.ph62.i.i, !llvm.loop !129
 
 parse_cc_stream_mapstring.exit.thread.i:          ; preds = %.lr.ph62.i.i, %144, %139, %126, %118, %111, %79, %75
-  %.0.i.ph.i = phi i32 [ -12, %79 ], [ -12, %75 ], [ -22, %118 ], [ -22, %144 ], [ -22, %139 ], [ -22, %126 ], [ -22, %111 ], [ -22, %.lr.ph62.i.i ]
+  %.0.i.ph.i = phi i32 [ -22, %111 ], [ -12, %75 ], [ -12, %79 ], [ -22, %118 ], [ -22, %144 ], [ -22, %139 ], [ -22, %126 ], [ -22, %.lr.ph62.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -2525,8 +2525,8 @@ parse_cc_stream_mapstring.exit.i:                 ; preds = %146, %84
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %update_variant_stream_info.exit.thread329, label %332, !llvm.loop !145
 
-update_variant_stream_info.exit.thread332:        ; preds = %173, %196, %152, %159, %.thread.i.i
-  %.0.i33.i.ph = phi i32 [ -22, %.thread.i.i ], [ -12, %159 ], [ -12, %152 ], [ -22, %173 ], [ -12, %196 ]
+update_variant_stream_info.exit.thread332:        ; preds = %173, %196, %.thread.i.i, %152, %159
+  %.0.i33.i.ph = phi i32 [ -12, %152 ], [ -22, %.thread.i.i ], [ -12, %159 ], [ -22, %173 ], [ -12, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -2542,8 +2542,8 @@ update_variant_stream_info.exit:                  ; preds = %.loopexit.i.i, %164
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %update_variant_stream_info.exit.thread329
 
-update_variant_stream_info.exit.thread:           ; preds = %parse_cc_stream_mapstring.exit.thread.i, %310, %307, %update_variant_stream_info.exit.thread332
-  %.026.i327 = phi i32 [ %.0.i33.i.ph, %update_variant_stream_info.exit.thread332 ], [ %.0.i.ph.i, %parse_cc_stream_mapstring.exit.thread.i ], [ -12, %310 ], [ -12, %307 ]
+update_variant_stream_info.exit.thread:           ; preds = %307, %310, %parse_cc_stream_mapstring.exit.thread.i, %update_variant_stream_info.exit.thread332
+  %.026.i327 = phi i32 [ %.0.i33.i.ph, %update_variant_stream_info.exit.thread332 ], [ -12, %307 ], [ -12, %310 ], [ %.0.i.ph.i, %parse_cc_stream_mapstring.exit.thread.i ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.217, i32 noundef %.026.i327) #17
   br label %sls_flag_check_duration_size.exit.thread
 
@@ -2681,7 +2681,7 @@ sub_0.i:                                          ; preds = %382, %377
   br label %update_master_pl_info.exit
 
 update_master_pl_info.exit:                       ; preds = %394, %380
-  %.0.i302 = phi i32 [ -12, %380 ], [ %spec.select597, %394 ]
+  %.0.i302 = phi i32 [ %spec.select597, %394 ], [ -12, %380 ]
   call void @av_freep(ptr noundef nonnull %17) #17
   call void @av_freep(ptr noundef nonnull %18) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -3180,7 +3180,7 @@ strftime_expand.exit:                             ; preds = %565
   br label %sls_flag_check_duration_size.exit.thread
 
 sls_flag_check_duration_size.exit:                ; preds = %615, %602
-  %619 = phi i32 [ %.0.i306, %602 ], [ %.1.i311, %615 ]
+  %619 = phi i32 [ %.1.i311, %615 ], [ %.0.i306, %602 ]
   %620 = icmp slt i32 %619, 0
   br i1 %620, label %sls_flag_check_duration_size.exit.thread, label %621
 
@@ -3546,8 +3546,8 @@ sls_flag_check_duration_size.exit:                ; preds = %615, %602
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.277) #17
   br label %hls_mux_init.exit.thread
 
-hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %800, %828, %697, %706, %.thread143.i, %813, %834
-  %.0102.i.ph = phi i32 [ -22, %834 ], [ %811, %813 ], [ -1163346256, %.thread143.i ], [ -12, %697 ], [ %714, %706 ], [ %661, %658 ], [ -12, %663 ], [ %686, %684 ], [ %802, %800 ], [ %829, %828 ]
+hls_mux_init.exit.thread:                         ; preds = %658, %663, %828, %684, %800, %697, %706, %.thread143.i, %813, %834
+  %.0102.i.ph = phi i32 [ %811, %813 ], [ %714, %706 ], [ -22, %834 ], [ -1163346256, %.thread143.i ], [ -12, %697 ], [ %829, %828 ], [ %686, %684 ], [ %802, %800 ], [ %661, %658 ], [ -12, %663 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %sls_flag_check_duration_size.exit.thread
 
@@ -3830,8 +3830,8 @@ hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %8
   br label %.outer.i.backedge
 
 .outer.i.backedge:                                ; preds = %964, %927, %.thread.i323, %904, %899, %893, %879, %876, %873, %871
-  %.069.ph.i.be = phi double [ %.069.ph.i, %876 ], [ %.069.ph.i, %879 ], [ %.069.ph.i, %899 ], [ %.069.ph.i, %904 ], [ %.069.ph.i, %893 ], [ %.473.i, %964 ], [ %.069.ph.i, %927 ], [ %.069.ph.i, %873 ], [ %.069.ph.i, %871 ], [ %923, %.thread.i323 ]
-  %.066.ph.i.be = phi i32 [ 1, %876 ], [ 1, %879 ], [ %.066.ph.i, %899 ], [ %.066.ph.i, %904 ], [ %.066.ph.i, %893 ], [ 0, %964 ], [ %.066.ph.i, %927 ], [ %.066.ph.i, %873 ], [ %.066.ph.i, %871 ], [ %.066.ph.i, %.thread.i323 ]
+  %.069.ph.i.be = phi double [ %.069.ph.i, %927 ], [ %.069.ph.i, %876 ], [ %.069.ph.i, %879 ], [ %.069.ph.i, %899 ], [ %.069.ph.i, %904 ], [ %.069.ph.i, %893 ], [ %923, %.thread.i323 ], [ %.473.i, %964 ], [ %.069.ph.i, %873 ], [ %.069.ph.i, %871 ]
+  %.066.ph.i.be = phi i32 [ %.066.ph.i, %927 ], [ 1, %876 ], [ 1, %879 ], [ %.066.ph.i, %899 ], [ %.066.ph.i, %904 ], [ %.066.ph.i, %893 ], [ %.066.ph.i, %.thread.i323 ], [ 0, %964 ], [ %.066.ph.i, %873 ], [ %.066.ph.i, %871 ]
   br label %.outer.i, !llvm.loop !189
 
 .thread114.i:                                     ; preds = %962, %936, %931, %859, %924, %846
@@ -3873,7 +3873,7 @@ parse_playlist.exit:                              ; preds = %839, %.thread114.i
   br i1 %981, label %460, label %sls_flag_check_duration_size.exit.thread, !llvm.loop !193
 
 sls_flag_check_duration_size.exit.thread:         ; preds = %460, %507, %514, %522, %537, %542, %555, %587, %sls_flag_check_duration_size.exit, %624, %631, %637, %642, %972, %975, %.thread, %439, %618, %606, %hls_mux_init.exit.thread, %.loopexit, %421, %366, %358, %351, %342, %397, %update_variant_stream_info.exit.thread
-  %.0 = phi i32 [ %.026.i327, %update_variant_stream_info.exit.thread ], [ %.015.i335, %397 ], [ %.0.i304345, %.loopexit ], [ %.3.ph, %421 ], [ %346, %342 ], [ %353, %351 ], [ %361, %358 ], [ %368, %366 ], [ %.0102.i.ph, %hls_mux_init.exit.thread ], [ -22, %606 ], [ -22, %618 ], [ 0, %439 ], [ -12, %.thread ], [ %468, %460 ], [ -1481985528, %507 ], [ %517, %514 ], [ -12, %522 ], [ -12, %537 ], [ -12, %542 ], [ %558, %555 ], [ -12, %587 ], [ %619, %sls_flag_check_duration_size.exit ], [ -1481985528, %624 ], [ -12, %631 ], [ %640, %637 ], [ -12, %642 ], [ %973, %972 ], [ %973, %975 ]
+  %.0 = phi i32 [ %.026.i327, %update_variant_stream_info.exit.thread ], [ %.3.ph, %421 ], [ %346, %342 ], [ %353, %351 ], [ %361, %358 ], [ %.015.i335, %397 ], [ %368, %366 ], [ %.0102.i.ph, %hls_mux_init.exit.thread ], [ %.0.i304345, %.loopexit ], [ -22, %618 ], [ -22, %606 ], [ 0, %439 ], [ -12, %.thread ], [ %973, %972 ], [ -12, %642 ], [ -1481985528, %507 ], [ -12, %522 ], [ -12, %542 ], [ -12, %537 ], [ %517, %514 ], [ -12, %587 ], [ %619, %sls_flag_check_duration_size.exit ], [ -12, %631 ], [ %640, %637 ], [ -1481985528, %624 ], [ %558, %555 ], [ %468, %460 ], [ %973, %975 ]
   ret i32 %.0
 }
 
@@ -4781,7 +4781,7 @@ sls_flags_filename_process.exit:                  ; preds = %91, %74, %58
   call void @av_freep(ptr noundef nonnull %14) #17
   br label %299
 
-94:                                               ; preds = %.thread1.i, %77, %56, %52
+94:                                               ; preds = %52, %.thread1.i, %77, %56
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %96 = load ptr, ptr %95, align 8, !tbaa !29
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 88
@@ -5202,7 +5202,7 @@ find_segment_by_filename.exit105.thread:          ; preds = %116, %.loopexit, %1
   br i1 %.not67.i, label %hls_delete_old_segments.exit, label %260, !llvm.loop !231
 
 hls_delete_old_segments.exit:                     ; preds = %263, %264, %272, %278, %281, %226, %245, %251, %.thread80.loopexit.i
-  %.045.i = phi i32 [ -22, %245 ], [ -22, %251 ], [ 0, %.thread80.loopexit.i ], [ 0, %226 ], [ -12, %272 ], [ -12, %263 ], [ 0, %281 ], [ %280, %278 ], [ %268, %264 ]
+  %.045.i = phi i32 [ -22, %245 ], [ -22, %251 ], [ 0, %226 ], [ 0, %.thread80.loopexit.i ], [ -12, %272 ], [ %268, %264 ], [ 0, %281 ], [ %280, %278 ], [ -12, %263 ]
   %284 = call i32 @av_bprint_finalize(ptr noundef nonnull %8, ptr noundef null) #17
   call void @av_freep(ptr noundef nonnull %9) #17
   call void @av_freep(ptr noundef nonnull %10) #17
@@ -5239,7 +5239,7 @@ hls_delete_old_segments.exit:                     ; preds = %263, %264, %272, %2
   br label %299
 
 299:                                              ; preds = %291, %hls_delete_old_segments.exit, %23, %295, %sls_flags_filename_process.exit
-  %.0 = phi i32 [ %.5.i, %sls_flags_filename_process.exit ], [ 0, %295 ], [ -12, %23 ], [ %.045.i, %hls_delete_old_segments.exit ], [ 0, %291 ]
+  %.0 = phi i32 [ %.5.i, %sls_flags_filename_process.exit ], [ %.045.i, %hls_delete_old_segments.exit ], [ 0, %295 ], [ -12, %23 ], [ 0, %291 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0
 }
@@ -5321,9 +5321,9 @@ define internal fastcc i32 @hls_window(ptr noundef %0, i32 noundef range(i32 0, 
   br label %.thread251
 
 .thread251:                                       ; preds = %.thread, %45, %41
-  %47 = phi i32 [ 4, %41 ], [ %spec.store.select, %45 ], [ 4, %.thread ]
-  %.shrunk = phi i1 [ true, %41 ], [ false, %45 ], [ true, %.thread ]
-  %48 = phi i64 [ 0, %41 ], [ %.231, %45 ], [ 0, %.thread ]
+  %47 = phi i32 [ %spec.store.select, %45 ], [ 4, %41 ], [ 4, %.thread ]
+  %.shrunk = phi i1 [ false, %45 ], [ true, %41 ], [ true, %.thread ]
+  %48 = phi i64 [ %.231, %45 ], [ 0, %41 ], [ 0, %.thread ]
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 8528
   %50 = zext i1 %.shrunk to i32
   %51 = and i32 %38, 16384
@@ -6073,8 +6073,8 @@ get_relative_url.exit262.i:                       ; preds = %396
   br label %415
 
 415:                                              ; preds = %.fold.split.i, %414, %408
-  %.1204.i = phi ptr [ %410, %414 ], [ %.0203318.i, %408 ], [ %.0203318.i, %.fold.split.i ]
-  %.1192.i = phi ptr [ %.0191319.i, %414 ], [ %410, %408 ], [ %.0191319.i, %.fold.split.i ]
+  %.1204.i = phi ptr [ %.0203318.i, %408 ], [ %410, %414 ], [ %.0203318.i, %.fold.split.i ]
+  %.1192.i = phi ptr [ %410, %408 ], [ %.0191319.i, %414 ], [ %.0191319.i, %.fold.split.i ]
   %indvars.iv.next358.i = add nuw nsw i64 %indvars.iv357.i, 1
   %exitcond361.not.i = icmp eq i64 %indvars.iv.next358.i, %wide.trip.count360.i
   br i1 %exitcond361.not.i, label %._crit_edge321.i, label %408, !llvm.loop !249
@@ -6196,7 +6196,7 @@ get_relative_url.exit262.i:                       ; preds = %396
   br label %get_stream_bit_rate.exit.i
 
 get_stream_bit_rate.exit.i:                       ; preds = %473, %472, %461
-  %.0.i.i = phi i64 [ %475, %473 ], [ %471, %461 ], [ 0, %472 ]
+  %.0.i.i = phi i64 [ %471, %461 ], [ %475, %473 ], [ 0, %472 ]
   %476 = trunc i64 %.0.i.i to i32
   br label %477
 
@@ -6229,7 +6229,7 @@ get_stream_bit_rate.exit.i:                       ; preds = %473, %472, %461
   br label %get_stream_bit_rate.exit267.i
 
 get_stream_bit_rate.exit267.i:                    ; preds = %490, %489, %478
-  %.0.i265.i = phi i64 [ %492, %490 ], [ %488, %478 ], [ 0, %489 ]
+  %.0.i265.i = phi i64 [ %488, %478 ], [ %492, %490 ], [ 0, %489 ]
   %493 = trunc i64 %.0.i265.i to i32
   %494 = add i32 %.1201.i, %493
   br label %495
@@ -6429,7 +6429,7 @@ get_relative_url.exit274.i:                       ; preds = %522
   %569 = call i32 @ff_rename(ptr noundef nonnull %5, ptr noundef %568, ptr noundef nonnull %0) #17
   br label %create_master_playlist.exit
 
-create_master_playlist.exit.thread:               ; preds = %273, %283, %289
+create_master_playlist.exit.thread:               ; preds = %273, %289, %283
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %571
@@ -6602,8 +6602,8 @@ define internal fastcc i32 @hls_start(ptr noundef %0, ptr noundef %1) unnamed_ad
   call void @av_free(ptr noundef nonnull %61) #17
   br label %strftime_expand.exit.thread
 
-strftime_expand.exit.thread:                      ; preds = %67, %58
-  %.0.i.ph = phi i32 [ -12, %58 ], [ -22, %67 ]
+strftime_expand.exit.thread:                      ; preds = %58, %67
+  %.0.i.ph = phi i32 [ -22, %67 ], [ -12, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %69
@@ -6984,7 +6984,7 @@ sls_flag_use_localtime_filename.exit:             ; preds = %.thread31.i, %100, 
   br label %hls_encryption_start.exit.thread
 
 hls_encryption_start.exit.thread:                 ; preds = %227, %194, %222, %217, %214
-  %.0.i196.ph = phi i32 [ -22, %214 ], [ -22, %217 ], [ %220, %222 ], [ %192, %194 ], [ %spec.select223, %227 ]
+  %.0.i196.ph = phi i32 [ %192, %194 ], [ -22, %214 ], [ -22, %217 ], [ %spec.select223, %227 ], [ %220, %222 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -7162,8 +7162,8 @@ hls_encryption_start.exit:                        ; preds = %223
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %312
 
-do_encrypt.exit.thread:                           ; preds = %287, %284, %242, %.thread.i199
-  %.045.i.ph = phi i32 [ %.1.ph.i, %.thread.i199 ], [ -12, %242 ], [ -22, %284 ], [ -22, %287 ]
+do_encrypt.exit.thread:                           ; preds = %242, %.thread.i199, %287, %284
+  %.045.i.ph = phi i32 [ -22, %284 ], [ -22, %287 ], [ %.1.ph.i, %.thread.i199 ], [ -12, %242 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %408
@@ -7346,12 +7346,12 @@ do_encrypt.exit.thread:                           ; preds = %287, %284, %242, %.
   br label %.critedge
 
 408:                                              ; preds = %do_encrypt.exit.thread, %hls_encryption_start.exit.thread, %399, %386, %377
-  %.0142 = phi i32 [ %spec.select, %377 ], [ %spec.select190, %386 ], [ %spec.select191, %399 ], [ %.0.i196.ph, %hls_encryption_start.exit.thread ], [ %.045.i.ph, %do_encrypt.exit.thread ]
+  %.0142 = phi i32 [ %.0.i196.ph, %hls_encryption_start.exit.thread ], [ %.045.i.ph, %do_encrypt.exit.thread ], [ %spec.select, %377 ], [ %spec.select190, %386 ], [ %spec.select191, %399 ]
   call void @av_dict_free(ptr noundef nonnull %16) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %156, %81, %98, %108, %69, %145, %135, %.thread211, %53, %31, %38, %404, %408, %407, %172
-  %.1 = phi i32 [ -1163346256, %172 ], [ %.0142, %408 ], [ 0, %407 ], [ -22, %53 ], [ -22, %145 ], [ -22, %135 ], [ %405, %404 ], [ -12, %38 ], [ -12, %31 ], [ %.6.ph, %.thread211 ], [ %.0.i202, %69 ], [ -12, %108 ], [ -12, %98 ], [ -12, %81 ], [ -12, %156 ]
+.critedge:                                        ; preds = %156, %98, %108, %81, %69, %145, %135, %.thread211, %53, %38, %31, %404, %408, %407, %172
+  %.1 = phi i32 [ -1163346256, %172 ], [ %.0142, %408 ], [ -22, %135 ], [ 0, %407 ], [ -12, %98 ], [ %405, %404 ], [ -22, %53 ], [ -22, %145 ], [ %.6.ph, %.thread211 ], [ -12, %31 ], [ -12, %38 ], [ %.0.i202, %69 ], [ -12, %81 ], [ -12, %108 ], [ -12, %156 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %.1
@@ -7490,9 +7490,9 @@ define internal fastcc i32 @replace_int_data_in_filename(ptr noundef %0, ptr nou
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %8, %12, %30, %._crit_edge
-  %.137 = phi ptr [ %32, %30 ], [ %.036, %._crit_edge ], [ %.036, %8 ], [ %.036, %12 ], [ %.036, %6 ]
-  %.033 = phi i32 [ 0, %30 ], [ %.134.lcssa, %._crit_edge ], [ 2, %8 ], [ 1, %12 ], [ 1, %6 ]
-  %.1 = phi i32 [ %33, %30 ], [ %.032, %._crit_edge ], [ %.032, %8 ], [ %.032, %12 ], [ %.032, %6 ]
+  %.137 = phi ptr [ %.036, %8 ], [ %32, %30 ], [ %.036, %._crit_edge ], [ %.036, %6 ], [ %.036, %12 ]
+  %.033 = phi i32 [ 2, %8 ], [ 0, %30 ], [ %.134.lcssa, %._crit_edge ], [ 1, %6 ], [ 1, %12 ]
+  %.1 = phi i32 [ %.032, %8 ], [ %33, %30 ], [ %.032, %._crit_edge ], [ %.032, %6 ], [ %.032, %12 ]
   call void @av_bprint_append_data(ptr noundef nonnull %5, ptr noundef nonnull %.137, i32 noundef %.033) #17
   %34 = zext nneg i32 %.033 to i64
   %35 = getelementptr inbounds nuw i8, ptr %.137, i64 %34
@@ -7517,7 +7517,7 @@ define internal fastcc i32 @replace_int_data_in_filename(ptr noundef %0, ptr nou
   br label %44
 
 44:                                               ; preds = %41, %39
-  %.0 = phi i32 [ -12, %39 ], [ %..032, %41 ]
+  %.0 = phi i32 [ %..032, %41 ], [ -12, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -7598,7 +7598,7 @@ define internal fastcc i32 @replace_str_data_in_filename(ptr noundef %0, ptr nou
   br label %23
 
 23:                                               ; preds = %20, %18
-  %.0 = phi i32 [ -12, %18 ], [ %..019, %20 ]
+  %.0 = phi i32 [ %..019, %20 ], [ -12, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -7782,7 +7782,7 @@ define internal fastcc range(i32 -22, 1) i32 @validate_name(i32 noundef %0, ptr 
   br label %18
 
 18:                                               ; preds = %.sink.split, %14, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %14 ], [ -22, %.sink.split ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %16 ], [ -22, %.sink.split ]
   call void @av_freep(ptr noundef nonnull %3) #17
   br label %19
 
@@ -7863,7 +7863,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @format_name(ptr 
   br label %37
 
 37:                                               ; preds = %33, %16, %12, %19, %25, %27
-  %.0 = phi i32 [ 0, %25 ], [ 0, %27 ], [ 0, %19 ], [ -22, %12 ], [ -22, %16 ], [ %spec.select, %33 ]
+  %.0 = phi i32 [ -22, %12 ], [ 0, %25 ], [ -22, %16 ], [ %spec.select, %33 ], [ 0, %27 ], [ 0, %19 ]
   call void @av_freep(ptr noundef nonnull %5) #17
   call void @av_freep(ptr noundef nonnull %6) #17
   br label %38

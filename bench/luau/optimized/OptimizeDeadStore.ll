@@ -256,7 +256,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreStateC2ERNS0_10IrFunctionE.exit.i: ; preds = %6
   br i1 %98, label %.invoke149, label %_ZNKSt6bitsetILm256EE4testEm.exit43.i.i
 
 .invoke149:                                       ; preds = %439, %361, %281, %248, %213, %95
-  %99 = phi i64 [ %97, %95 ], [ %215, %213 ], [ %250, %248 ], [ %283, %281 ], [ %363, %361 ], [ %441, %439 ]
+  %99 = phi i64 [ %363, %361 ], [ %97, %95 ], [ %215, %213 ], [ %250, %248 ], [ %283, %281 ], [ %441, %439 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i64 noundef %99, i64 noundef 256) #7
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -1038,7 +1038,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   br label %430
 
 430:                                              ; preds = %.sink.split.i.i.i, %417, %415, %_ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exit.i.i.i
-  %431 = phi i8 [ 1, %415 ], [ 1, %417 ], [ 1, %_ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exit.i.i.i ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
+  %431 = phi i8 [ 1, %415 ], [ 1, %_ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exit.i.i.i ], [ 1, %417 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
   %432 = load i8, ptr %18, align 4, !tbaa !27, !range !123, !noundef !124
   %433 = or i8 %432, %431
   store i8 %433, ptr %18, align 4, !tbaa !27
@@ -1224,7 +1224,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   br label %.invoke
 
 .invoke:                                          ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %536, %535, %533
-  %.sink150 = phi i64 [ 16, %536 ], [ 4, %535 ], [ 8, %533 ], [ 12, %.lr.ph.i.i ], [ 12, %.lr.ph.i.i ], [ 12, %.lr.ph.i.i ], [ 12, %.lr.ph.i.i ], [ 12, %.lr.ph.i.i ]
+  %.sink150 = phi i64 [ 12, %.lr.ph.i.i ], [ 16, %536 ], [ 8, %533 ], [ 12, %.lr.ph.i.i ], [ 12, %.lr.ph.i.i ], [ 12, %.lr.ph.i.i ], [ 4, %535 ], [ 12, %.lr.ph.i.i ]
   %534 = getelementptr inbounds nuw i8, ptr %88, i64 %.sink150
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %534, align 4, !tbaa !17
   invoke void @_ZN4Luau7CodeGen20RemoveDeadStoreState12checkLiveInsENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(4109) %6, i32 %.sroa.0.0.copyload.i.i.i)
@@ -1513,7 +1513,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exit62, %_ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exit, %43, %46, %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
-  %.0 = phi i1 [ true, %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit ], [ false, %46 ], [ false, %43 ], [ true, %_ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exit ], [ true, %_ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exit62 ]
+  %.0 = phi i1 [ true, %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit ], [ false, %43 ], [ false, %46 ], [ true, %_ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exit ], [ true, %_ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exit62 ]
   ret i1 %.0
 }
 
@@ -2570,7 +2570,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit280: ; preds = %4
   br i1 %exitcond.not.i, label %_ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit281, label %471, !llvm.loop !136
 
 _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit281: ; preds = %471, %428, %.thread, %464, %456, %452, %425, %_ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit280
-  %479 = phi ptr [ %414, %428 ], [ %414, %.thread ], [ %414, %464 ], [ %414, %456 ], [ %414, %452 ], [ %.pre, %425 ], [ %414, %_ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit280 ], [ %414, %471 ]
+  %479 = phi ptr [ %414, %_ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit280 ], [ %414, %428 ], [ %414, %.thread ], [ %414, %464 ], [ %414, %456 ], [ %414, %452 ], [ %.pre, %425 ], [ %414, %471 ]
   %480 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %.sroa.027.0.copyload = load i32, ptr %480, align 4, !tbaa !17
   %481 = lshr i32 %.sroa.027.0.copyload, 4

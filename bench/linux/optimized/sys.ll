@@ -465,7 +465,7 @@ set_one_prio.exit10:                              ; preds = %95, %104, %107, %11
   br label %set_one_prio.exit11
 
 set_one_prio.exit11:                              ; preds = %194, %191, %188, %179, %164, %.preheader14
-  %197 = phi i32 [ %157, %164 ], [ %157, %.preheader14 ], [ %196, %194 ], [ -1, %179 ], [ -13, %188 ], [ %192, %191 ]
+  %197 = phi i32 [ %157, %.preheader14 ], [ %157, %164 ], [ %196, %194 ], [ -1, %179 ], [ -13, %188 ], [ %192, %191 ]
   %198 = load volatile ptr, ptr %156, align 8
   %199 = load ptr, ptr %151, align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
@@ -1150,7 +1150,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_setreuid(i32 noun
   br label %103
 
 .thread:                                          ; preds = %49, %70, %64, %39, %21
-  %101 = phi i32 [ %68, %64 ], [ %71, %70 ], [ -1, %39 ], [ -1, %21 ], [ -11, %49 ]
+  %101 = phi i32 [ %68, %64 ], [ %71, %70 ], [ -1, %21 ], [ -1, %39 ], [ -11, %49 ]
   tail call void @abort_creds(ptr noundef nonnull %5) #13
   %102 = sext i32 %101 to i64
   br label %103
@@ -3733,7 +3733,7 @@ define dso_local noundef range(i64 -22, 1) i64 @__ia32_compat_sys_getrlimit(ptr 
   br label %36
 
 36:                                               ; preds = %8, %1
-  %37 = phi i64 [ -22, %1 ], [ %spec.select, %8 ]
+  %37 = phi i64 [ %spec.select, %8 ], [ -22, %1 ]
   ret i64 %37
 }
 
@@ -6167,7 +6167,7 @@ define internal fastcc i32 @prctl_set_mm(i32 noundef %0, i64 noundef %1, i64 nou
   br label %.thread
 
 .thread:                                          ; preds = %158, %186, %168, %194, %192, %83
-  %195 = phi i32 [ -22, %83 ], [ 0, %194 ], [ -14, %192 ], [ -22, %186 ], [ %178, %168 ], [ -22, %158 ]
+  %195 = phi i32 [ -22, %83 ], [ -14, %192 ], [ 0, %194 ], [ %178, %168 ], [ -22, %186 ], [ -22, %158 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %85) #13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #13
           to label %197 [label %196], !srcloc !57

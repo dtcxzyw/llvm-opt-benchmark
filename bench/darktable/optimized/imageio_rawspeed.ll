@@ -1617,7 +1617,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %302, %308, %311
   br i1 %exitcond369.not.i, label %.loopexit.i, label %.preheader304.lr.ph.us.i, !llvm.loop !250
 
 .loopexit.i:                                      ; preds = %._crit_edge.us.i, %._crit_edge.us321.i, %._crit_edge.us329.i, %._crit_edge.us337.i, %.lr.ph318.i, %.preheader305.i, %.lr.ph.i, %.preheader308.i, %.lr.ph334.i, %.preheader.i, %.lr.ph326.i, %.preheader302.i
-  %495 = phi ptr [ %409, %.preheader308.i ], [ %409, %.preheader305.i ], [ %335, %.preheader302.i ], [ %335, %.preheader.i ], [ %335, %.lr.ph326.i ], [ %335, %.lr.ph334.i ], [ %409, %.lr.ph.i ], [ %409, %.lr.ph318.i ], [ %335, %._crit_edge.us337.i ], [ %335, %._crit_edge.us329.i ], [ %409, %._crit_edge.us321.i ], [ %409, %._crit_edge.us.i ]
+  %495 = phi ptr [ %335, %.lr.ph334.i ], [ %409, %._crit_edge.us321.i ], [ %409, %.lr.ph.i ], [ %335, %._crit_edge.us329.i ], [ %335, %.preheader.i ], [ %335, %._crit_edge.us337.i ], [ %335, %.lr.ph326.i ], [ %409, %.lr.ph318.i ], [ %409, %.preheader308.i ], [ %409, %.preheader305.i ], [ %335, %.preheader302.i ], [ %409, %._crit_edge.us.i ]
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   store i32 2, ptr %496, align 16, !tbaa !222
   %497 = getelementptr inbounds nuw i8, ptr %0, i64 1472
@@ -1968,7 +1968,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184.i: ; preds = %
   br label %.body
 
 _ZL29dt_imageio_open_rawspeed_srawP10dt_image_tN8rawspeed8RawImageEP18dt_mipmap_buffer_t.exit: ; preds = %579, %575, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175.i, %.noexc256, %.noexc, %325, %321, %_ZN8rawspeed8RawImageC2ERKS0_.exit255
-  %.0102.i = phi i32 [ 0, %325 ], [ 6, %321 ], [ 8, %.noexc ], [ 0, %579 ], [ 0, %575 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175.i ], [ 8, %.noexc256 ], [ 5, %_ZN8rawspeed8RawImageC2ERKS0_.exit255 ]
+  %.0102.i = phi i32 [ 5, %_ZN8rawspeed8RawImageC2ERKS0_.exit255 ], [ 0, %325 ], [ 6, %321 ], [ 8, %.noexc ], [ 0, %579 ], [ 0, %575 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175.i ], [ 8, %.noexc256 ]
   %599 = load ptr, ptr %303, align 8, !tbaa !106
   %.not.i.i.i261 = icmp eq ptr %599, null
   br i1 %.not.i.i.i261, label %_ZN8rawspeed8RawImageD2Ev.exit265, label %600
@@ -2440,8 +2440,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283: ; preds = %_Z
   br label %815
 
 _ZN8rawspeed8RawImageD2Ev.exit265:                ; preds = %623, %620, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i263, %605, %_ZL29dt_imageio_open_rawspeed_srawP10dt_image_tN8rawspeed8RawImageEP18dt_mipmap_buffer_t.exit, %666, %631, %634, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274, %735, %739, %671, %630, %629, %625
-  %.1183 = phi i1 [ false, %625 ], [ false, %629 ], [ false, %630 ], [ false, %666 ], [ false, %631 ], [ false, %634 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274 ], [ true, %735 ], [ true, %739 ], [ false, %671 ], [ false, %_ZL29dt_imageio_open_rawspeed_srawP10dt_image_tN8rawspeed8RawImageEP18dt_mipmap_buffer_t.exit ], [ false, %605 ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i263 ], [ false, %620 ], [ false, %623 ]
-  %.2 = phi i32 [ 5, %625 ], [ 5, %629 ], [ 5, %630 ], [ 0, %666 ], [ 2, %631 ], [ 5, %634 ], [ 8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274 ], [ 8, %735 ], [ 8, %739 ], [ 8, %671 ], [ %.0102.i, %_ZL29dt_imageio_open_rawspeed_srawP10dt_image_tN8rawspeed8RawImageEP18dt_mipmap_buffer_t.exit ], [ %.0102.i, %605 ], [ %.0102.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i263 ], [ %.0102.i, %620 ], [ 5, %623 ]
+  %.1183 = phi i1 [ false, %671 ], [ false, %623 ], [ false, %625 ], [ false, %629 ], [ false, %630 ], [ false, %666 ], [ false, %631 ], [ false, %634 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274 ], [ true, %735 ], [ true, %739 ], [ false, %_ZL29dt_imageio_open_rawspeed_srawP10dt_image_tN8rawspeed8RawImageEP18dt_mipmap_buffer_t.exit ], [ false, %605 ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i263 ], [ false, %620 ]
+  %.2 = phi i32 [ 8, %671 ], [ 5, %623 ], [ 5, %625 ], [ 5, %629 ], [ 5, %630 ], [ 0, %666 ], [ 2, %631 ], [ 5, %634 ], [ 8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274 ], [ 8, %735 ], [ 8, %739 ], [ %.0102.i, %_ZL29dt_imageio_open_rawspeed_srawP10dt_image_tN8rawspeed8RawImageEP18dt_mipmap_buffer_t.exit ], [ %.0102.i, %605 ], [ %.0102.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i263 ], [ %.0102.i, %620 ]
   %764 = load ptr, ptr %14, align 8, !tbaa !111
   %765 = load ptr, ptr %110, align 8, !tbaa !114
   %.not4.i.i.i.i = icmp eq ptr %764, %765
@@ -2546,8 +2546,8 @@ _ZNKSt14default_deleteIN8rawspeed10RawDecoderEEclEPS1_.exit.i: ; preds = %800
   br label %_ZNSt10unique_ptrIN8rawspeed10RawDecoderESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8rawspeed10RawDecoderESt14default_deleteIS1_EED2Ev.exit: ; preds = %51, %800, %_ZNKSt14default_deleteIN8rawspeed10RawDecoderEEclEPS1_.exit.i
-  %.1356 = phi i32 [ %.2, %800 ], [ %.2, %_ZNKSt14default_deleteIN8rawspeed10RawDecoderEEclEPS1_.exit.i ], [ 3, %51 ]
-  %.0182355 = phi i1 [ %.1183, %800 ], [ %.1183, %_ZNKSt14default_deleteIN8rawspeed10RawDecoderEEclEPS1_.exit.i ], [ false, %51 ]
+  %.1356 = phi i32 [ %.2, %_ZNKSt14default_deleteIN8rawspeed10RawDecoderEEclEPS1_.exit.i ], [ %.2, %800 ], [ 3, %51 ]
+  %.0182355 = phi i1 [ %.1183, %_ZNKSt14default_deleteIN8rawspeed10RawDecoderEEclEPS1_.exit.i ], [ %.1183, %800 ], [ false, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %804 = load ptr, ptr %9, align 8, !tbaa !193
@@ -2581,7 +2581,7 @@ _ZNSt4pairISt10unique_ptrISt6vectorIhN8rawspeed27DefaultInitAllocatorAdaptorIhNS
   br i1 %.0182355, label %910, label %913
 
 815:                                              ; preds = %267, %647, %664, %702, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283, %672, %.body, %167, %131
-  %.pn229 = phi { ptr, i32 } [ %132, %131 ], [ %168, %167 ], [ %268, %267 ], [ %eh.lpad-body, %.body ], [ %665, %664 ], [ %648, %647 ], [ %673, %672 ], [ %.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283 ], [ %703, %702 ]
+  %.pn229 = phi { ptr, i32 } [ %132, %131 ], [ %703, %702 ], [ %168, %167 ], [ %648, %647 ], [ %268, %267 ], [ %.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283 ], [ %673, %672 ], [ %eh.lpad-body, %.body ], [ %665, %664 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #24
   br label %816
 
@@ -2785,7 +2785,7 @@ _ZNSt10unique_ptrIN8rawspeed10RawDecoderESt14default_deleteIS1_EED2Ev.exit297: ;
           to label %903 unwind label %892
 
 903:                                              ; preds = %.critedge, %896, %850
-  %.6 = phi i32 [ 4, %850 ], [ 5, %896 ], [ 6, %.critedge ]
+  %.6 = phi i32 [ 5, %896 ], [ 4, %850 ], [ 6, %.critedge ]
   call void @__cxa_end_catch()
   br label %913
 
@@ -2823,7 +2823,7 @@ _ZNSt10unique_ptrIN8rawspeed10RawDecoderESt14default_deleteIS1_EED2Ev.exit297: ;
   br label %915
 
 914:                                              ; preds = %907, %904, %892, %889, %886, %883, %880
-  %.pn240 = phi { ptr, i32 } [ %881, %880 ], [ %884, %883 ], [ %887, %886 ], [ %890, %889 ], [ %893, %892 ], [ %905, %904 ], [ %908, %907 ]
+  %.pn240 = phi { ptr, i32 } [ %905, %904 ], [ %893, %892 ], [ %890, %889 ], [ %887, %886 ], [ %884, %883 ], [ %881, %880 ], [ %908, %907 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn240

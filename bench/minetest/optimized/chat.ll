@@ -3333,7 +3333,7 @@ invoke.cont269:                                   ; preds = %if.then268
   br label %cleanup
 
 ehcleanup272:                                     ; preds = %lpad.i817, %lpad.i753, %lpad.i, %lpad.i.i.i.i649, %if.then.i.i9.i819, %lpad240, %ehcleanup232, %lpad211, %lpad169, %lpad127, %lpad118, %if.then.i.i.i.i.i.i.i494, %lpad10.i.i.i.i.i.body, %lpad98, %lpad84, %lpad.i.i.i.i431, %if.then.i.i9.i755, %lpad58.loopexit.split-lp, %lpad58.loopexit, %lpad.i.i.i.i, %if.then.i.i9.i, %lpad45
-  %.pn366.pn = phi { ptr, i32 } [ %27, %lpad45 ], [ %178, %lpad98 ], [ %177, %lpad84 ], [ %249, %lpad118 ], [ %61, %lpad.i.i.i.i ], [ %156, %lpad.i.i.i.i431 ], [ %lpad.phi947, %if.then.i.i9.i ], [ %lpad.phi950, %if.then.i.i9.i755 ], [ %229, %if.then.i.i.i.i.i.i.i494 ], [ %229, %lpad10.i.i.i.i.i.body ], [ %309, %lpad240 ], [ %.pn, %ehcleanup232 ], [ %306, %lpad211 ], [ %261, %lpad169 ], [ %345, %lpad.i.i.i.i649 ], [ %250, %lpad127 ], [ %lpad.phi941, %if.then.i.i9.i819 ], [ %lpad.loopexit942, %lpad58.loopexit ], [ %lpad.loopexit.split-lp943, %lpad58.loopexit.split-lp ], [ %lpad.phi947, %lpad.i ], [ %lpad.phi950, %lpad.i753 ], [ %lpad.phi941, %lpad.i817 ]
+  %.pn366.pn = phi { ptr, i32 } [ %27, %lpad45 ], [ %178, %lpad98 ], [ %177, %lpad84 ], [ %249, %lpad118 ], [ %61, %lpad.i.i.i.i ], [ %156, %lpad.i.i.i.i431 ], [ %lpad.phi947, %if.then.i.i9.i ], [ %lpad.loopexit.split-lp943, %lpad58.loopexit.split-lp ], [ %lpad.phi950, %if.then.i.i9.i755 ], [ %lpad.phi947, %lpad.i ], [ %229, %if.then.i.i.i.i.i.i.i494 ], [ %229, %lpad10.i.i.i.i.i.body ], [ %309, %lpad240 ], [ %.pn, %ehcleanup232 ], [ %306, %lpad211 ], [ %261, %lpad169 ], [ %345, %lpad.i.i.i.i649 ], [ %250, %lpad127 ], [ %lpad.phi941, %if.then.i.i9.i819 ], [ %lpad.phi950, %lpad.i753 ], [ %lpad.loopexit942, %lpad58.loopexit ], [ %lpad.phi941, %lpad.i817 ]
   %351 = load ptr, ptr %name_sanitized, align 8, !tbaa !43
   %cmp.i.i.i659 = icmp eq ptr %351, %4
   br i1 %cmp.i.i.i659, label %ehcleanup275, label %if.then.i.i660
@@ -7673,7 +7673,7 @@ sw.epilog.loopexit.split.loop.exit292:            ; preds = %land.rhs23
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %land.rhs44, %while.cond42, %while.body, %while.body18, %while.body29, %sw.epilog.loopexit.split.loop.exit292, %sw.bb55, %while.end20, %sw.bb, %entry
-  %new_cursor.5 = phi i32 [ %0, %entry ], [ %add56, %sw.bb55 ], [ %add, %sw.bb ], [ %new_cursor.1.lcssa, %while.end20 ], [ %26, %sw.epilog.loopexit.split.loop.exit292 ], [ %conv, %while.body29 ], [ %conv, %while.body18 ], [ %conv, %while.body ], [ %22, %land.rhs44 ], [ %smin263, %while.cond42 ]
+  %new_cursor.5 = phi i32 [ %0, %entry ], [ %add56, %sw.bb55 ], [ %add, %sw.bb ], [ %new_cursor.1.lcssa, %while.end20 ], [ %26, %sw.epilog.loopexit.split.loop.exit292 ], [ %conv, %while.body ], [ %conv, %while.body29 ], [ %conv, %while.body18 ], [ %smin263, %while.cond42 ], [ %22, %land.rhs44 ]
   %cond58 = tail call i32 @llvm.smin.i32(i32 %new_cursor.5, i32 %conv)
   %spec.select = tail call i32 @llvm.smax.i32(i32 %cond58, i32 0)
   switch i32 %op, label %sw.epilog124 [
@@ -9752,8 +9752,8 @@ middle.block:                                     ; preds = %vector.body
   br i1 %cmp.n, label %if.end69, label %for.body.i.i.i.i.preheader7
 
 for.body.i.i.i.i.preheader7:                      ; preds = %middle.block, %for.body.i.i.i.i.preheader
-  %__cur.013.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %11, %for.body.i.i.i.i.preheader ]
-  %__first.addr.012.i.i.i.i.ph = phi ptr [ %ind.end123, %middle.block ], [ %add.ptr62, %for.body.i.i.i.i.preheader ]
+  %__cur.013.i.i.i.i.ph = phi ptr [ %11, %for.body.i.i.i.i.preheader ], [ %ind.end, %middle.block ]
+  %__first.addr.012.i.i.i.i.ph = phi ptr [ %add.ptr62, %for.body.i.i.i.i.preheader ], [ %ind.end123, %middle.block ]
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader7, %for.body.i.i.i.i

@@ -868,7 +868,7 @@ _ZNK5QListI8QVariantE5valueEx.exit67:             ; preds = %129
   store i64 2, ptr %134, align 8
   br label %.thread
 
-.thread:                                          ; preds = %_ZN7QStringD2Ev.exit62, %_ZN7QStringD2Ev.exit50, %_ZN7QStringD2Ev.exit42, %_ZN7QStringD2Ev.exit30, %_ZN7QStringD2Ev.exit, %41, %133, %_ZNK5QListI8QVariantE5valueEx.exit67, %_ZNK11QModelIndex7isValidEv.exit.thread
+.thread:                                          ; preds = %_ZN7QStringD2Ev.exit50, %_ZN7QStringD2Ev.exit42, %_ZN7QStringD2Ev.exit30, %_ZN7QStringD2Ev.exit, %_ZN7QStringD2Ev.exit62, %41, %133, %_ZNK5QListI8QVariantE5valueEx.exit67, %_ZNK11QModelIndex7isValidEv.exit.thread
   ret void
 }
 
@@ -1424,7 +1424,7 @@ _ZN10QByteArrayD2Ev.exit16:                       ; preds = %53, %_ZN17QArrayDat
   br label %common.resume
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %3, %34, %_ZN10QByteArrayD2Ev.exit, %37, %15
-  %.09 = phi i1 [ false, %15 ], [ true, %37 ], [ true, %_ZN10QByteArrayD2Ev.exit ], [ false, %34 ], [ false, %3 ]
+  %.09 = phi i1 [ false, %3 ], [ false, %15 ], [ true, %37 ], [ true, %_ZN10QByteArrayD2Ev.exit ], [ false, %34 ]
   ret i1 %.09
 }
 

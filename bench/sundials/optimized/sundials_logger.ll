@@ -136,7 +136,7 @@ define range(i32 -9999, 1) i32 @SUNLogger_Create(i32 noundef %0, i32 noundef %1,
   br label %19
 
 19:                                               ; preds = %3, %8, %7
-  %.0 = phi i32 [ -9999, %7 ], [ 0, %8 ], [ -9988, %3 ]
+  %.0 = phi i32 [ 0, %8 ], [ -9999, %7 ], [ -9988, %3 ]
   ret i32 %.0
 }
 
@@ -203,7 +203,7 @@ define range(i32 -9999, 1) i32 @SUNLogger_CreateFromEnv(i32 noundef %0, ptr noun
   br i1 %.not22, label %38, label %.thread
 
 .thread:                                          ; preds = %18, %30
-  %.01533 = phi i32 [ %31, %30 ], [ %29, %18 ]
+  %.01533 = phi i32 [ %29, %18 ], [ %31, %30 ]
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %33 = load ptr, ptr %32, align 8, !tbaa !22
   %.not16.i = icmp eq ptr %33, null
@@ -223,7 +223,7 @@ define range(i32 -9999, 1) i32 @SUNLogger_CreateFromEnv(i32 noundef %0, ptr noun
   br label %SUNLogger_Destroy.exit
 
 SUNLogger_Destroy.exit:                           ; preds = %8, %17, %36, %34, %38
-  %.0 = phi i32 [ 0, %38 ], [ %.01533, %34 ], [ %.01533, %36 ], [ -9993, %17 ], [ -9993, %8 ]
+  %.0 = phi i32 [ %.01533, %36 ], [ 0, %38 ], [ -9993, %8 ], [ %.01533, %34 ], [ -9993, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -296,7 +296,7 @@ sunOpenLogFile.exit:                              ; preds = %15, %19, %21
   br label %.sink.split
 
 .sink.split:                                      ; preds = %sunOpenLogFile.exit, %10, %24
-  %.014.ph = phi i32 [ 0, %24 ], [ 0, %10 ], [ -9991, %sunOpenLogFile.exit ]
+  %.014.ph = phi i32 [ 0, %10 ], [ 0, %24 ], [ -9991, %sunOpenLogFile.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
 
@@ -370,7 +370,7 @@ sunOpenLogFile.exit:                              ; preds = %15, %19, %21
   br label %.sink.split
 
 .sink.split:                                      ; preds = %sunOpenLogFile.exit, %10, %24
-  %.014.ph = phi i32 [ 0, %24 ], [ 0, %10 ], [ -9991, %sunOpenLogFile.exit ]
+  %.014.ph = phi i32 [ 0, %10 ], [ 0, %24 ], [ -9991, %sunOpenLogFile.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
 
@@ -516,8 +516,8 @@ define i32 @SUNLogger_QueueMsg(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %32
 
 32:                                               ; preds = %._crit_edge, %28, %31, %24, %27, %20, %23, %16, %19
-  %33 = phi ptr [ %.pre41, %19 ], [ %.pre41, %16 ], [ %.pre40, %23 ], [ %.pre40, %20 ], [ %.pre39, %27 ], [ %.pre39, %24 ], [ %.pre38, %31 ], [ %.pre38, %28 ], [ %.pre, %._crit_edge ]
-  %.2 = phi i32 [ 0, %19 ], [ 0, %16 ], [ 0, %23 ], [ 0, %20 ], [ 0, %27 ], [ 0, %24 ], [ 0, %31 ], [ 0, %28 ], [ -9976, %._crit_edge ]
+  %33 = phi ptr [ %.pre38, %28 ], [ %.pre41, %19 ], [ %.pre41, %16 ], [ %.pre40, %23 ], [ %.pre40, %20 ], [ %.pre39, %27 ], [ %.pre39, %24 ], [ %.pre38, %31 ], [ %.pre, %._crit_edge ]
+  %.2 = phi i32 [ 0, %28 ], [ 0, %19 ], [ 0, %16 ], [ 0, %23 ], [ 0, %20 ], [ 0, %27 ], [ 0, %24 ], [ 0, %31 ], [ -9976, %._crit_edge ]
   call void @free(ptr noundef %33) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -639,7 +639,7 @@ define i32 @SUNLogger_Flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %49
 
 49:                                               ; preds = %6, %12, %9, %17, %14, %22, %19, %27, %24, %47, %44, %8, %2
-  %.025 = phi i32 [ -9999, %2 ], [ %7, %6 ], [ 0, %12 ], [ 0, %9 ], [ 0, %17 ], [ 0, %14 ], [ 0, %22 ], [ 0, %19 ], [ 0, %27 ], [ 0, %24 ], [ 0, %47 ], [ 0, %44 ], [ -9976, %8 ]
+  %.025 = phi i32 [ -9999, %2 ], [ %7, %6 ], [ 0, %44 ], [ 0, %12 ], [ 0, %9 ], [ 0, %17 ], [ 0, %14 ], [ 0, %22 ], [ 0, %19 ], [ 0, %27 ], [ 0, %24 ], [ 0, %47 ], [ -9976, %8 ]
   ret i32 %.025
 }
 

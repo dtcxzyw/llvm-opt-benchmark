@@ -1694,8 +1694,8 @@ interpolate_bilinear.exit158.i:                   ; preds = %._crit_edge.us.i156
   br i1 %exitcond.not.i162.i, label %_prefilter_chromaticity.exit.sink.split.sink.split, label %.lr.ph.i160.i
 
 _prefilter_chromaticity.exit.sink.split.sink.split: ; preds = %.lr.ph.i160.i, %607, %465, %459
-  %.sink539 = phi ptr [ %398, %459 ], [ %398, %465 ], [ %.0105.i, %607 ], [ %.0105.i, %.lr.ph.i160.i ]
-  %.0.i.sink.ph = phi ptr [ %400, %459 ], [ %400, %465 ], [ %.0.i, %607 ], [ %.0.i, %.lr.ph.i160.i ]
+  %.sink539 = phi ptr [ %398, %465 ], [ %398, %459 ], [ %.0105.i, %607 ], [ %.0105.i, %.lr.ph.i160.i ]
+  %.0.i.sink.ph = phi ptr [ %400, %465 ], [ %400, %459 ], [ %.0.i, %607 ], [ %.0.i, %.lr.ph.i160.i ]
   call void @free(ptr noundef %.sink539) #31, !noalias !99
   br label %_prefilter_chromaticity.exit.sink.split
 
@@ -2282,9 +2282,9 @@ interpolate_bilinear.exit353.i:                   ; preds = %865
   br i1 %exitcond96.not.i365.i, label %interpolate_bilinear.exit366.i, label %.preheader.us.i358.i
 
 interpolate_bilinear.exit366.i:                   ; preds = %._crit_edge.us.i364.i, %interpolate_bilinear.exit353.i, %.preheader.lr.ph.i.i308, %_mean_gaussian.exit290
-  %.0323.i = phi ptr [ %831, %_mean_gaussian.exit290 ], [ %861, %interpolate_bilinear.exit353.i ], [ %861, %.preheader.lr.ph.i.i308 ], [ %861, %._crit_edge.us.i364.i ]
-  %.0322.i = phi ptr [ %829, %_mean_gaussian.exit290 ], [ %859, %interpolate_bilinear.exit353.i ], [ %859, %.preheader.lr.ph.i.i308 ], [ %859, %._crit_edge.us.i364.i ]
-  %.0.i291 = phi ptr [ %828, %_mean_gaussian.exit290 ], [ %858, %interpolate_bilinear.exit353.i ], [ %858, %.preheader.lr.ph.i.i308 ], [ %858, %._crit_edge.us.i364.i ]
+  %.0323.i = phi ptr [ %831, %_mean_gaussian.exit290 ], [ %861, %.preheader.lr.ph.i.i308 ], [ %861, %interpolate_bilinear.exit353.i ], [ %861, %._crit_edge.us.i364.i ]
+  %.0322.i = phi ptr [ %829, %_mean_gaussian.exit290 ], [ %859, %.preheader.lr.ph.i.i308 ], [ %859, %interpolate_bilinear.exit353.i ], [ %859, %._crit_edge.us.i364.i ]
+  %.0.i291 = phi ptr [ %828, %_mean_gaussian.exit290 ], [ %858, %.preheader.lr.ph.i.i308 ], [ %858, %interpolate_bilinear.exit353.i ], [ %858, %._crit_edge.us.i364.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !204)
   %1046 = shl i64 %852, 4
   %1047 = call ptr @dt_alloc_aligned(i64 noundef %1046) #31, !noalias !207
@@ -3025,7 +3025,7 @@ _mean_gaussian.exit415.i:                         ; preds = %1386, %_mean_gaussi
   br label %1444
 
 1444:                                             ; preds = %1443, %1441, %.lr.ph489.i
-  %1445 = phi reassoc nsz arcp contract afn float [ %1439, %1443 ], [ 1.000000e+00, %1441 ], [ 0.000000e+00, %.lr.ph489.i ]
+  %1445 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %1441 ], [ %1439, %1443 ], [ 0.000000e+00, %.lr.ph489.i ]
   %1446 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %1445
   %1447 = fsub reassoc nsz arcp contract afn float %1413, %139
   %1448 = fcmp reassoc nsz arcp contract afn ogt float %1447, 0x3FEFFE0000000000
@@ -3061,8 +3061,8 @@ _guide_with_chromaticity.exit.sink.split.sink.split: ; preds = %1155, %856, %106
   br label %_guide_with_chromaticity.exit.sink.split
 
 _guide_with_chromaticity.exit.sink.split:         ; preds = %1444, %_guide_with_chromaticity.exit.sink.split.sink.split, %1387, %_mean_gaussian.exit385.i, %1063
-  %.0327.i.sink = phi ptr [ %1047, %1063 ], [ %1119, %_mean_gaussian.exit385.i ], [ %.0327.i, %1387 ], [ %.0327.i.sink.ph, %_guide_with_chromaticity.exit.sink.split.sink.split ], [ %.0327.i, %1444 ]
-  %.0326.i.sink = phi ptr [ %1061, %1063 ], [ %1121, %_mean_gaussian.exit385.i ], [ %.0326.i, %1387 ], [ %.0326.i.sink.ph, %_guide_with_chromaticity.exit.sink.split.sink.split ], [ %.0326.i, %1444 ]
+  %.0327.i.sink = phi ptr [ %1119, %_mean_gaussian.exit385.i ], [ %1047, %1063 ], [ %.0327.i, %1387 ], [ %.0327.i.sink.ph, %_guide_with_chromaticity.exit.sink.split.sink.split ], [ %.0327.i, %1444 ]
+  %.0326.i.sink = phi ptr [ %1121, %_mean_gaussian.exit385.i ], [ %1061, %1063 ], [ %.0326.i, %1387 ], [ %.0326.i.sink.ph, %_guide_with_chromaticity.exit.sink.split.sink.split ], [ %.0326.i, %1444 ]
   call void @free(ptr noundef %.0327.i.sink) #31, !noalias !179
   call void @free(ptr noundef %.0326.i.sink) #31, !noalias !179
   br label %_guide_with_chromaticity.exit
@@ -4954,7 +4954,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   br label %68
 
 68:                                               ; preds = %58, %40, %31
-  %69 = phi reassoc nsz arcp contract afn float [ %57, %40 ], [ %67, %58 ], [ %37, %31 ]
+  %69 = phi reassoc nsz arcp contract afn float [ %67, %58 ], [ %57, %40 ], [ %37, %31 ]
   %70 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i.i
   store float %69, ptr %70, align 4, !tbaa !6
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -6728,7 +6728,7 @@ define internal noundef i32 @_iop_colorequalizer_draw(ptr noundef %0, ptr nounde
   br label %169
 
 169:                                              ; preds = %165, %163, %159
-  %170 = phi i8 [ %168, %165 ], [ -1, %163 ], [ 0, %159 ]
+  %170 = phi i8 [ -1, %163 ], [ %168, %165 ], [ 0, %159 ]
   %171 = load ptr, ptr %157, align 8, !tbaa !416, !noalias !483
   %172 = getelementptr i8, ptr %171, i64 %.078.us.i
   %173 = getelementptr i8, ptr %172, i64 %141
@@ -7477,7 +7477,7 @@ _area_set_value.exit24.i:                         ; preds = %57, %52
   br label %_area_reset_nodes.exit
 
 _area_reset_nodes.exit:                           ; preds = %51, %45, %38, %15, %61, %.thread
-  %.0 = phi i32 [ %70, %.thread ], [ 0, %61 ], [ 0, %15 ], [ 1, %38 ], [ 1, %45 ], [ 1, %51 ]
+  %.0 = phi i32 [ %70, %.thread ], [ 0, %15 ], [ 0, %61 ], [ 1, %38 ], [ 1, %45 ], [ 1, %51 ]
   ret i32 %.0
 }
 
@@ -8127,7 +8127,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %127
 
 127:                                              ; preds = %124, %2, %122, %118, %114, %110, %106, %102, %98, %94, %90, %86, %82, %78, %74, %70, %66, %62, %58, %54, %50, %46, %42, %38, %34, %30, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %123, %122 ], [ %119, %118 ], [ %115, %114 ], [ %111, %110 ], [ %107, %106 ], [ %103, %102 ], [ %99, %98 ], [ %95, %94 ], [ %91, %90 ], [ %87, %86 ], [ %83, %82 ], [ %79, %78 ], [ %75, %74 ], [ %71, %70 ], [ %67, %66 ], [ %63, %62 ], [ %59, %58 ], [ %55, %54 ], [ %51, %50 ], [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %124 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %124 ], [ %123, %122 ], [ %119, %118 ], [ %115, %114 ], [ %111, %110 ], [ %107, %106 ], [ %103, %102 ], [ %99, %98 ], [ %95, %94 ], [ %91, %90 ], [ %87, %86 ], [ %83, %82 ], [ %79, %78 ], [ %75, %74 ], [ %71, %70 ], [ %67, %66 ], [ %63, %62 ], [ %59, %58 ], [ %55, %54 ], [ %51, %50 ], [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -8297,7 +8297,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #3 {
   br label %65
 
 65:                                               ; preds = %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1408), %33 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1496), %35 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1584), %37 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1672), %39 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1760), %41 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1848), %43 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1936), %45 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2024), %47 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2112), %49 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2200), %51 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2288), %53 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2376), %55 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2464), %57 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2552), %59 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2640), %61 ], [ %., %63 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2640), %61 ], [ %., %63 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2552), %59 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2464), %57 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2376), %55 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2288), %53 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2200), %51 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2112), %49 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2024), %47 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1936), %45 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1848), %43 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1760), %41 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1672), %39 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1584), %37 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1496), %35 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1408), %33 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 
@@ -8531,7 +8531,7 @@ dt_apply_transposed_color_matrix.exit.i:          ; preds = %91
   br label %146
 
 146:                                              ; preds = %136, %118, %109
-  %147 = phi reassoc nsz arcp contract afn float [ %135, %118 ], [ %145, %136 ], [ %115, %109 ]
+  %147 = phi reassoc nsz arcp contract afn float [ %145, %136 ], [ %135, %118 ], [ %115, %109 ]
   %148 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i.i
   store float %147, ptr %148, align 4, !tbaa !6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

@@ -189,9 +189,9 @@ define range(i32 -1094995529, 64) i32 @ff_mpeg1_decode_block_intra(ptr noundef c
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %31, %23
-  %.051.i.i = phi i32 [ %46, %31 ], [ %26, %23 ]
-  %.050.i.i = phi i32 [ %32, %31 ], [ %12, %23 ]
-  %.0.i.i = phi i32 [ %49, %31 ], [ %29, %23 ]
+  %.051.i.i = phi i32 [ %26, %23 ], [ %46, %31 ]
+  %.050.i.i = phi i32 [ %12, %23 ], [ %32, %31 ]
+  %.0.i.i = phi i32 [ %29, %23 ], [ %49, %31 ]
   %50 = add i32 %.0.i.i, %.050.i.i
   br label %79
 
@@ -227,9 +227,9 @@ get_vlc2.exit.i:                                  ; preds = %31, %23
   br label %get_vlc2.exit10.i
 
 get_vlc2.exit10.i:                                ; preds = %59, %51
-  %.051.i7.i = phi i32 [ %74, %59 ], [ %54, %51 ]
-  %.050.i8.i = phi i32 [ %60, %59 ], [ %12, %51 ]
-  %.0.i9.i = phi i32 [ %77, %59 ], [ %57, %51 ]
+  %.051.i7.i = phi i32 [ %54, %51 ], [ %74, %59 ]
+  %.050.i8.i = phi i32 [ %12, %51 ], [ %60, %59 ]
+  %.0.i9.i = phi i32 [ %57, %51 ], [ %77, %59 ]
   %78 = add i32 %.0.i9.i, %.050.i8.i
   br label %79
 

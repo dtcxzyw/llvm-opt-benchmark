@@ -1080,8 +1080,8 @@ define hidden void @"_ZN152_$LT$$LT$uv_configuration..config_settings..ConfigSet
   br i1 %52, label %63, label %54
 
 53:                                               ; preds = %32, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i"
-  %.sroa.11.0 = phi i64 [ %.sroa.11.0.copyload30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i" ], [ %.sroa.11.0.copyload, %32 ]
-  %.sroa.0.0 = phi i64 [ %37, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i" ], [ %28, %32 ]
+  %.sroa.11.0 = phi i64 [ %.sroa.11.0.copyload, %32 ], [ %.sroa.11.0.copyload30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i" ]
+  %.sroa.0.0 = phi i64 [ %28, %32 ], [ %37, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !199
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.sroa.9, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12, i64 24, i1 false)
@@ -1228,7 +1228,7 @@ define hidden void @"_ZN152_$LT$$LT$uv_configuration..config_settings..ConfigSet
   unreachable
 
 common.resume:                                    ; preds = %82, %87, %76
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %88, %87 ], [ %.pn, %82 ]
+  %common.resume.op = phi { ptr, i32 } [ %88, %87 ], [ %77, %76 ], [ %.pn, %82 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..table..TableMapAccess$GT$17hdd0337c85a0449d9E.exit26": ; preds = %73, %85
@@ -1435,7 +1435,7 @@ define hidden void @"_ZN156_$LT$$LT$uv_configuration..config_settings..ConfigSet
   unreachable
 
 common.resume:                                    ; preds = %53, %59, %47
-  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %60, %59 ], [ %.pn, %53 ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %48, %47 ], [ %.pn, %53 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17hf9ca491b0089f768E.exit": ; preds = %49
@@ -1587,7 +1587,7 @@ define hidden void @"_ZN188_$LT$uv_distribution_types..index.._..$LT$impl$u20$se
   br label %12
 
 12:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit28", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit24", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit20", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit16", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit12", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit8", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit4", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit28.thread"
-  %.sink = phi i8 [ 8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit28.thread" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit4" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit8" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit12" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit16" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit20" ], [ 6, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit24" ], [ 7, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit28" ]
+  %.sink = phi i8 [ 6, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit24" ], [ 8, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit28.thread" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit20" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit16" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit12" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit8" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit4" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit" ], [ 7, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit28" ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink, ptr %13, align 8
   store i64 2, ptr %0, align 8
@@ -3126,7 +3126,7 @@ thread-pre-split:                                 ; preds = %374, %346, %393
   unreachable
 
 common.resume:                                    ; preds = %.noexc710, %2839, %2833, %2836, %.noexc.i, %2764, %2767, %2770, %.noexc692, %2580, %2574, %2577, %.noexc686, %2500, %2494, %2497, %.noexc680, %2435, %2429, %2432, %.noexc674, %2369, %2363, %2366, %.noexc652, %2238, %2232, %2235, %.noexc644, %2155, %2149, %2152, %.noexc633, %2087, %2081, %2084, %.noexc611, %1949, %1943, %1946, %.noexc598, %1864, %1858, %1861, %.noexc587, %1784, %1778, %1781, %.noexc561, %1629, %1623, %1626, %.noexc540, %1525, %1519, %1522, %.noexc532, %1437, %1431, %1434, %.noexc521, %1371, %1365, %1368, %.noexc495, %1234, %1228, %1231, %.noexc479, %1124, %1118, %1121, %.noexc466, %1039, %1033, %1036, %.noexc455, %959, %953, %956, %.noexc411, %815, %809, %812, %.noexc398, %730, %724, %727, %.noexc375, %636, %630, %633, %.noexc360, %497, %491, %494, %.noexc, %403, %397, %400
-  %common.resume.op = phi { ptr, i32 } [ %.pn7.i153, %.noexc ], [ %.pn7.pn.i149885, %403 ], [ %.pn7.pn.i149885, %397 ], [ %.pn7.pn.i149885, %400 ], [ %.pn7.i281, %.noexc360 ], [ %.pn7.pn.i277907, %497 ], [ %.pn7.pn.i277907, %491 ], [ %.pn7.pn.i277907, %494 ], [ %.pn7.i209, %.noexc375 ], [ %.pn7.pn.i205961, %636 ], [ %.pn7.pn.i205961, %630 ], [ %.pn7.pn.i205961, %633 ], [ %.pn7.i290, %.noexc398 ], [ %.pn7.pn.i286985, %730 ], [ %.pn7.pn.i286985, %724 ], [ %.pn7.pn.i286985, %727 ], [ %.pn7.i265, %.noexc411 ], [ %.pn7.pn.i2611006, %815 ], [ %.pn7.pn.i2611006, %809 ], [ %.pn7.pn.i2611006, %812 ], [ %.pn7.i, %.noexc455 ], [ %.pn7.pn.i1094, %959 ], [ %.pn7.pn.i1094, %953 ], [ %.pn7.pn.i1094, %956 ], [ %.pn7.i308, %.noexc466 ], [ %.pn7.pn.i3041107, %1039 ], [ %.pn7.pn.i3041107, %1033 ], [ %.pn7.pn.i3041107, %1036 ], [ %.pn7.i161, %.noexc479 ], [ %.pn7.pn.i1571131, %1124 ], [ %.pn7.pn.i1571131, %1118 ], [ %.pn7.pn.i1571131, %1121 ], [ %.pn7.i317, %.noexc495 ], [ %.pn7.pn.i3131154, %1234 ], [ %.pn7.pn.i3131154, %1228 ], [ %.pn7.pn.i3131154, %1231 ], [ %.pn7.i185, %.noexc521 ], [ %.pn7.pn.i1811202, %1371 ], [ %.pn7.pn.i1811202, %1365 ], [ %.pn7.pn.i1811202, %1368 ], [ %.pn7.i273, %.noexc532 ], [ %.pn7.pn.i2691215, %1437 ], [ %.pn7.pn.i2691215, %1431 ], [ %.pn7.pn.i2691215, %1434 ], [ %.pn7.i249, %.noexc540 ], [ %.pn7.pn.i2451235, %1525 ], [ %.pn7.pn.i2451235, %1519 ], [ %.pn7.pn.i2451235, %1522 ], [ %.pn7.i177, %.noexc561 ], [ %.pn7.pn.i1731259, %1629 ], [ %.pn7.pn.i1731259, %1623 ], [ %.pn7.pn.i1731259, %1626 ], [ %.pn7.i217, %.noexc587 ], [ %.pn7.pn.i2131308, %1784 ], [ %.pn7.pn.i2131308, %1778 ], [ %.pn7.pn.i2131308, %1781 ], [ %.pn7.i326, %.noexc598 ], [ %.pn7.pn.i3221321, %1864 ], [ %.pn7.pn.i3221321, %1858 ], [ %.pn7.pn.i3221321, %1861 ], [ %.pn7.i169, %.noexc611 ], [ %.pn7.pn.i1651342, %1949 ], [ %.pn7.pn.i1651342, %1943 ], [ %.pn7.pn.i1651342, %1946 ], [ %.pn7.i225, %.noexc633 ], [ %.pn7.pn.i2211389, %2087 ], [ %.pn7.pn.i2211389, %2081 ], [ %.pn7.pn.i2211389, %2084 ], [ %.pn7.i335, %.noexc644 ], [ %.pn7.pn.i3311402, %2155 ], [ %.pn7.pn.i3311402, %2149 ], [ %.pn7.pn.i3311402, %2152 ], [ %.pn7.i241, %.noexc652 ], [ %.pn7.pn.i2371422, %2238 ], [ %.pn7.pn.i2371422, %2232 ], [ %.pn7.pn.i2371422, %2235 ], [ %.pn7.i193, %.noexc674 ], [ %.pn7.pn.i1891463, %2369 ], [ %.pn7.pn.i1891463, %2363 ], [ %.pn7.pn.i1891463, %2366 ], [ %.pn7.i344, %.noexc680 ], [ %.pn7.pn.i3401475, %2435 ], [ %.pn7.pn.i3401475, %2429 ], [ %.pn7.pn.i3401475, %2432 ], [ %.pn7.i233, %.noexc686 ], [ %.pn7.pn.i2291495, %2500 ], [ %.pn7.pn.i2291495, %2494 ], [ %.pn7.pn.i2291495, %2497 ], [ %.pn7.i201, %.noexc692 ], [ %.pn7.pn.i1971513, %2580 ], [ %.pn7.pn.i1971513, %2574 ], [ %.pn7.pn.i1971513, %2577 ], [ %.pn7.i.i, %.noexc.i ], [ %.pn7.pn.i41.i, %2770 ], [ %.pn7.pn.i41.i, %2764 ], [ %.pn7.pn.i41.i, %2767 ], [ %.pn7.i257, %.noexc710 ], [ %.pn7.pn.i2531659, %2839 ], [ %.pn7.pn.i2531659, %2833 ], [ %.pn7.pn.i2531659, %2836 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn7.pn.i41.i, %2767 ], [ %.pn7.pn.i149885, %400 ], [ %.pn7.pn.i277907, %494 ], [ %.pn7.pn.i205961, %633 ], [ %.pn7.pn.i286985, %727 ], [ %.pn7.pn.i2611006, %812 ], [ %.pn7.pn.i2531659, %2839 ], [ %.pn7.pn.i1094, %956 ], [ %.pn7.pn.i3041107, %1036 ], [ %.pn7.pn.i1571131, %1121 ], [ %.pn7.pn.i3131154, %1231 ], [ %.pn7.pn.i1811202, %1368 ], [ %.pn7.pn.i2691215, %1434 ], [ %.pn7.pn.i2451235, %1522 ], [ %.pn7.pn.i1731259, %1626 ], [ %.pn7.pn.i2131308, %1781 ], [ %.pn7.pn.i3221321, %1861 ], [ %.pn7.pn.i1651342, %1946 ], [ %.pn7.pn.i2211389, %2084 ], [ %.pn7.pn.i3311402, %2152 ], [ %.pn7.pn.i2371422, %2235 ], [ %.pn7.pn.i1891463, %2366 ], [ %.pn7.pn.i3401475, %2432 ], [ %.pn7.pn.i2291495, %2497 ], [ %.pn7.pn.i1971513, %2577 ], [ %.pn7.i153, %.noexc ], [ %.pn7.pn.i149885, %403 ], [ %.pn7.pn.i149885, %397 ], [ %.pn7.i281, %.noexc360 ], [ %.pn7.pn.i277907, %497 ], [ %.pn7.pn.i277907, %491 ], [ %.pn7.i209, %.noexc375 ], [ %.pn7.pn.i205961, %636 ], [ %.pn7.pn.i205961, %630 ], [ %.pn7.i290, %.noexc398 ], [ %.pn7.pn.i286985, %730 ], [ %.pn7.pn.i286985, %724 ], [ %.pn7.i265, %.noexc411 ], [ %.pn7.pn.i2611006, %815 ], [ %.pn7.pn.i2611006, %809 ], [ %.pn7.pn.i2531659, %2836 ], [ %.pn7.i257, %.noexc710 ], [ %.pn7.pn.i2531659, %2833 ], [ %.pn7.i, %.noexc455 ], [ %.pn7.pn.i1094, %959 ], [ %.pn7.pn.i1094, %953 ], [ %.pn7.i308, %.noexc466 ], [ %.pn7.pn.i3041107, %1039 ], [ %.pn7.pn.i3041107, %1033 ], [ %.pn7.i161, %.noexc479 ], [ %.pn7.pn.i1571131, %1124 ], [ %.pn7.pn.i1571131, %1118 ], [ %.pn7.i317, %.noexc495 ], [ %.pn7.pn.i3131154, %1234 ], [ %.pn7.pn.i3131154, %1228 ], [ %.pn7.i185, %.noexc521 ], [ %.pn7.pn.i1811202, %1371 ], [ %.pn7.pn.i1811202, %1365 ], [ %.pn7.i273, %.noexc532 ], [ %.pn7.pn.i2691215, %1437 ], [ %.pn7.pn.i2691215, %1431 ], [ %.pn7.i249, %.noexc540 ], [ %.pn7.pn.i2451235, %1525 ], [ %.pn7.pn.i2451235, %1519 ], [ %.pn7.i177, %.noexc561 ], [ %.pn7.pn.i1731259, %1629 ], [ %.pn7.pn.i1731259, %1623 ], [ %.pn7.i217, %.noexc587 ], [ %.pn7.pn.i2131308, %1784 ], [ %.pn7.pn.i2131308, %1778 ], [ %.pn7.i326, %.noexc598 ], [ %.pn7.pn.i3221321, %1864 ], [ %.pn7.pn.i3221321, %1858 ], [ %.pn7.i169, %.noexc611 ], [ %.pn7.pn.i1651342, %1949 ], [ %.pn7.pn.i1651342, %1943 ], [ %.pn7.i225, %.noexc633 ], [ %.pn7.pn.i2211389, %2087 ], [ %.pn7.pn.i2211389, %2081 ], [ %.pn7.i335, %.noexc644 ], [ %.pn7.pn.i3311402, %2155 ], [ %.pn7.pn.i3311402, %2149 ], [ %.pn7.i241, %.noexc652 ], [ %.pn7.pn.i2371422, %2238 ], [ %.pn7.pn.i2371422, %2232 ], [ %.pn7.i193, %.noexc674 ], [ %.pn7.pn.i1891463, %2369 ], [ %.pn7.pn.i1891463, %2363 ], [ %.pn7.i344, %.noexc680 ], [ %.pn7.pn.i3401475, %2435 ], [ %.pn7.pn.i3401475, %2429 ], [ %.pn7.i233, %.noexc686 ], [ %.pn7.pn.i2291495, %2500 ], [ %.pn7.pn.i2291495, %2494 ], [ %.pn7.i201, %.noexc692 ], [ %.pn7.pn.i1971513, %2580 ], [ %.pn7.pn.i1971513, %2574 ], [ %.pn7.i.i, %.noexc.i ], [ %.pn7.pn.i41.i, %2770 ], [ %.pn7.pn.i41.i, %2764 ]
   resume { ptr, i32 } %common.resume.op
 
 397:                                              ; preds = %.noexc._crit_edge, %.thread881
@@ -5552,7 +5552,7 @@ thread-pre-split1156:                             ; preds = %1205, %1177, %1224
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h44547842c049e014E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %77)
           to label %common.resume unwind label %1226
 
-1235:                                             ; preds = %1151, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h229fd1b2aa402868E.exit494"
+1235:                                             ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h229fd1b2aa402868E.exit494", %1151
   %.sroa.634.0.i.i.ph = phi i64 [ %832, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h229fd1b2aa402868E.exit494" ], [ %1152, %1151 ]
   %.sroa.032.0.i.i.ph = phi ptr [ %831, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h229fd1b2aa402868E.exit494" ], [ %1153, %1151 ]
   %1236 = icmp ult i64 %.sroa.634.0.i.i.ph, 2
@@ -6741,7 +6741,7 @@ thread-pre-split1261:                             ; preds = %1600, %1572, %1619
   br i1 %1642, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h25a009deda8a79a0E.exit128.i", label %1644
 
 1643:                                             ; preds = %820, %1154, %1441, %1541, %1635
-  %.sroa.11.0.in = phi ptr [ %824, %820 ], [ %1158, %1154 ], [ %1445, %1441 ], [ %1545, %1541 ], [ %1639, %1635 ]
+  %.sroa.11.0.in = phi ptr [ %824, %820 ], [ %1639, %1635 ], [ %1158, %1154 ], [ %1445, %1441 ], [ %1545, %1541 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %265), !noalias !554
   br label %2617
 
@@ -11411,7 +11411,7 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #44
   unreachable
 
-42:                                               ; preds = %14, %19
+42:                                               ; preds = %19, %14
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %43 = load i64, ptr %2, align 8, !range !472, !alias.scope !2097, !noundef !6
@@ -13868,7 +13868,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h01e4b6f1c44d
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -14061,7 +14061,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h030902e733a8
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -14254,7 +14254,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h057f12aabf59
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -14447,7 +14447,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h08539c695c4b
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -14640,7 +14640,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h0ac400940b1f
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -14833,7 +14833,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h0acf24f46c1a
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -15026,7 +15026,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h0f939039d285
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -15219,7 +15219,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h243d35c3a5b6
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -15412,7 +15412,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h28a844b8d769
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -15605,7 +15605,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h2bace5492b1a
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -15798,7 +15798,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h334a6d3dd701
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -15991,7 +15991,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h49eb3ba337d1
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -16184,7 +16184,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h4a811687dc9b
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -16377,7 +16377,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h4f9faa02df2f
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -16570,7 +16570,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h56f4cea07442
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -16763,7 +16763,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h5f9a3a26f321
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -16956,7 +16956,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h64fbfb8f7a14
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -17149,7 +17149,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h678bc5a4c343
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -17342,7 +17342,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h6cd967a8380c
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -17535,7 +17535,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h79e5d81c3531
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -17728,7 +17728,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h7bdeb7ff079a
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -17921,7 +17921,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h8b73da6a415a
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -18114,7 +18114,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h96f12b4eb5cf
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -18307,7 +18307,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17ha825e99112cc
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -18500,7 +18500,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17ha9ff8ed54a96
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -18693,7 +18693,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hb3cef8c7bf02
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -18886,7 +18886,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hc55aab6fe407
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -19079,7 +19079,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hc86e1b374f6c
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -19272,7 +19272,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hc9379ac043d8
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -19465,7 +19465,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hcad3807f9625
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -19658,7 +19658,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hd669c5947a38
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -19851,7 +19851,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17he09833d9048d
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -20044,7 +20044,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17he11b59704631
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -20237,7 +20237,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17he52658402476
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -20430,7 +20430,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17hf99858d4965b
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -20513,7 +20513,7 @@ define hidden void @_ZN8schemars8_private8metadata15add_description17h014c502601
 21:                                               ; preds = %39
   br i1 %.sroa.02.3, label %72, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.llvm.7848078455255467010.exit"
 
-.thread:                                          ; preds = %4, %19
+.thread:                                          ; preds = %19, %4
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %72
@@ -20575,7 +20575,7 @@ define hidden void @_ZN8schemars8_private8metadata15add_description17h014c502601
           to label %.noexc21 unwind label %39
 
 39:                                               ; preds = %35, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h942076bc467b69aeE.exit", %28, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h942076bc467b69aeE.exit.thread", %41
-  %.sroa.02.3 = phi i1 [ false, %41 ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h942076bc467b69aeE.exit.thread" ], [ true, %28 ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h942076bc467b69aeE.exit" ], [ true, %35 ]
+  %.sroa.02.3 = phi i1 [ true, %35 ], [ false, %41 ], [ true, %28 ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h942076bc467b69aeE.exit.thread" ], [ true, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h942076bc467b69aeE.exit" ]
   %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #43
@@ -20684,11 +20684,11 @@ define hidden void @_ZN8schemars8_private8metadata15add_description17h014c502601
   br label %59
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.llvm.7848078455255467010.exit": ; preds = %60, %72, %75, %21
-  %.pn825 = phi { ptr, i32 } [ %40, %21 ], [ %.pn826, %75 ], [ %.pn826, %72 ], [ %.pn40, %60 ]
+  %.pn825 = phi { ptr, i32 } [ %.pn40, %60 ], [ %40, %21 ], [ %.pn826, %75 ], [ %.pn826, %72 ]
   resume { ptr, i32 } %.pn825
 
 72:                                               ; preds = %.thread, %21
-  %.pn826 = phi { ptr, i32 } [ %40, %21 ], [ %lpad.thr_comm, %.thread ]
+  %.pn826 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %40, %21 ]
   %73 = load i64, ptr %1, align 8, !range !472, !alias.scope !3768, !noundef !6
   %74 = icmp eq i64 %73, -9223372036854775807
   br i1 %74, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.llvm.7848078455255467010.exit", label %75

@@ -697,7 +697,7 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %.thread994
 
 .thread994:                                       ; preds = %.thread, %.thread994.sink.split, %257, %._crit_edge1108
-  %.sroa.075.6 = phi i64 [ %259, %257 ], [ %.sroa.075.3.lcssa, %._crit_edge1108 ], [ %.sroa.075.6.ph, %.thread994.sink.split ], [ 1, %.thread ]
+  %.sroa.075.6 = phi i64 [ %.sroa.075.6.ph, %.thread994.sink.split ], [ %259, %257 ], [ %.sroa.075.3.lcssa, %._crit_edge1108 ], [ 1, %.thread ]
   %263 = inttoptr i64 %.sroa.075.6 to ptr
   br label %.critedge985
 
@@ -831,7 +831,7 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %exitcond.not, label %.loopexit998, label %329, !llvm.loop !59
 
 .loopexit998:                                     ; preds = %342, %340, %338, %306, %304, %302, %268, %314
-  %.sroa.0164.4 = phi i64 [ 0, %314 ], [ 0, %268 ], [ %283, %306 ], [ 0, %304 ], [ 0, %302 ], [ %324, %342 ], [ 0, %340 ], [ 0, %338 ]
+  %.sroa.0164.4 = phi i64 [ 0, %302 ], [ 0, %314 ], [ 0, %268 ], [ %283, %306 ], [ 0, %304 ], [ %324, %342 ], [ 0, %340 ], [ 0, %338 ]
   %344 = inttoptr i64 %.sroa.0164.4 to ptr
   br label %.critedge985
 
@@ -966,7 +966,7 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %424, label %410, label %.loopexit1001, !llvm.loop !61
 
 .loopexit1001:                                    ; preds = %423, %421, %419, %387, %385, %383, %349, %395
-  %.sroa.0164.7 = phi i64 [ %.sroa.0164.81051, %395 ], [ 0, %349 ], [ %364, %387 ], [ 0, %385 ], [ 0, %383 ], [ %.sroa.0164.8, %423 ], [ 0, %421 ], [ 0, %419 ]
+  %.sroa.0164.7 = phi i64 [ 0, %383 ], [ %.sroa.0164.81051, %395 ], [ 0, %349 ], [ %364, %387 ], [ 0, %385 ], [ %.sroa.0164.8, %423 ], [ 0, %421 ], [ 0, %419 ]
   %425 = inttoptr i64 %.sroa.0164.7 to ptr
   br label %.critedge985
 
@@ -1111,7 +1111,7 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %.lcssa1013, label %.thread1217.sink.split, label %.thread1217
 
 .thread1217.sink.split:                           ; preds = %._crit_edge1044, %._crit_edge1044.thread
-  %.str.4.sink = phi ptr [ @.str.3, %._crit_edge1044.thread ], [ %.str.3.mux, %._crit_edge1044 ]
+  %.str.4.sink = phi ptr [ %.str.3.mux, %._crit_edge1044 ], [ @.str.3, %._crit_edge1044.thread ]
   tail call void (ptr, ...) @exerror(ptr noundef nonnull %.str.4.sink) #25
   br label %.thread1217
 
@@ -2648,7 +2648,7 @@ thread-pre-split:                                 ; preds = %1052, %861
   br label %.critedge985, !llvm.loop !68
 
 .critedge985:                                     ; preds = %802, %.lr.ph1050, %208, %202, %200, %1223, %1228, %._crit_edge1157, %1222, %1209, %1203, %._crit_edge1159, %1090, %1102, %._crit_edge1163, %874, %885, %._crit_edge1161, %798, %.critedge3..critedge985.loopexit1005_crit_edge, %.thread1217, %187, %1155, %1156, %1149, %1150, %977, %978, %967, %968, %833, %831, %827, %825, %817, %821, %.critedge, %439, %443, %179, %183, %13, %3, %10, %1321, %1296, %1292, %1288, %1285, %1278, %1275, %1272, %1269, %1266, %1262, %1254, %1244, %1191, %1185, %1181, %1177, %1173, %1170, %1167, %1163, %1159, %1144, %1141, %1138, %1135, %1132, %1128, %1125, %1122, %1121, %1079, %1073, %1069, %1065, %1061, %1058, %1046, %1043, %1041, %1039, %1037, %1028, %1021, %1015, %1009, %1003, %997, %991, %985, %958, %949, %940, %931, %925, %923, %908, %902, %901, %866, %860, %625, %597, %592, %588, %586, %576, %._crit_edge, %._crit_edge1028, %432, %426, %.loopexit1001, %.loopexit998, %.thread994, %159, %157, %145, %143, %141, %139, %137, %135, %130, %18
-  %.sroa.0842.0 = phi ptr [ %1323, %1321 ], [ %1084, %1079 ], [ %.sroa.0842.0.copyload854, %1121 ], [ %1124, %1122 ], [ %1127, %1125 ], [ %1131, %1128 ], [ %1134, %1132 ], [ %1137, %1135 ], [ %1140, %1138 ], [ %1143, %1141 ], [ %1146, %1144 ], [ %1162, %1159 ], [ %1166, %1163 ], [ %1169, %1167 ], [ %1172, %1170 ], [ %1176, %1173 ], [ %1180, %1177 ], [ %1184, %1181 ], [ %1188, %1185 ], [ %.sroa.0842.0.copyload852, %1058 ], [ %.sroa.0842.0.copyload847, %1037 ], [ %.sroa.0842.0.copyload848, %1039 ], [ %.sroa.0842.0.copyload849, %1041 ], [ %.sroa.0842.0.copyload850, %1043 ], [ %.sroa.0842.0.copyload851, %1046 ], [ %869, %866 ], [ %.sroa.0842.0.copyload846, %901 ], [ %907, %902 ], [ %914, %908 ], [ %924, %923 ], [ %930, %925 ], [ %939, %931 ], [ %948, %940 ], [ %957, %949 ], [ %963, %958 ], [ %990, %985 ], [ %996, %991 ], [ %1002, %997 ], [ %1008, %1003 ], [ %1014, %1009 ], [ %1020, %1015 ], [ %1027, %1021 ], [ %1034, %1028 ], [ %1064, %1061 ], [ %1068, %1065 ], [ %1072, %1069 ], [ %1076, %1073 ], [ %1287, %1285 ], [ %1291, %1288 ], [ %1295, %1292 ], [ %1299, %1296 ], [ %1195, %1191 ], [ %.sroa.0842.0.copyload857, %1244 ], [ %1261, %1254 ], [ %1265, %1262 ], [ %1268, %1266 ], [ %1271, %1269 ], [ %1274, %1272 ], [ %1277, %1275 ], [ %1281, %1278 ], [ %.sroa.0842.0.copyload844, %860 ], [ %19, %18 ], [ %134, %130 ], [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %158, %157 ], [ %162, %159 ], [ %263, %.thread994 ], [ %344, %.loopexit998 ], [ %425, %.loopexit1001 ], [ %431, %426 ], [ %435, %432 ], [ %540, %._crit_edge1028 ], [ %559, %._crit_edge ], [ %584, %576 ], [ null, %586 ], [ %591, %588 ], [ %594, %592 ], [ %600, %597 ], [ %.sroa.0164.10.in, %625 ], [ inttoptr (i64 1 to ptr), %10 ], [ inttoptr (i64 1 to ptr), %3 ], [ %15, %13 ], [ inttoptr (i64 1 to ptr), %183 ], [ inttoptr (i64 1 to ptr), %179 ], [ %442, %439 ], [ null, %443 ], [ %812, %.critedge ], [ %820, %817 ], [ %824, %821 ], [ %830, %827 ], [ null, %825 ], [ %836, %833 ], [ %832, %831 ], [ %838, %967 ], [ %972, %968 ], [ %838, %977 ], [ %984, %978 ], [ %838, %1149 ], [ %1152, %1150 ], [ %838, %1155 ], [ %1158, %1156 ], [ inttoptr (i64 1 to ptr), %187 ], [ %506, %.thread1217 ], [ %810, %.critedge3..critedge985.loopexit1005_crit_edge ], [ %799, %798 ], [ %.sroa.0842.0.copyload845.pre, %._crit_edge1161 ], [ %889, %885 ], [ %878, %874 ], [ %.sroa.0842.0.copyload853.pre, %._crit_edge1163 ], [ %1108, %1102 ], [ %1095, %1090 ], [ %.sroa.0842.0.copyload855.pre, %._crit_edge1159 ], [ %1208, %1203 ], [ %1214, %1209 ], [ %.sroa.0842.0.copyload856.pre, %._crit_edge1157 ], [ %1232, %1228 ], [ %1227, %1223 ], [ null, %1222 ], [ inttoptr (i64 1 to ptr), %208 ], [ null, %202 ], [ null, %200 ], [ %506, %.lr.ph1050 ], [ %810, %802 ]
+  %.sroa.0842.0 = phi ptr [ null, %825 ], [ %1323, %1321 ], [ %1084, %1079 ], [ %878, %874 ], [ %.sroa.0842.0.copyload854, %1121 ], [ %1124, %1122 ], [ %1127, %1125 ], [ %1131, %1128 ], [ %1134, %1132 ], [ %1137, %1135 ], [ %1140, %1138 ], [ %1143, %1141 ], [ %1146, %1144 ], [ %984, %978 ], [ %1152, %1150 ], [ %1162, %1159 ], [ %1166, %1163 ], [ %1169, %1167 ], [ %1172, %1170 ], [ %1176, %1173 ], [ %1180, %1177 ], [ %1184, %1181 ], [ %1188, %1185 ], [ %.sroa.0842.0.copyload852, %1058 ], [ %.sroa.0842.0.copyload847, %1037 ], [ %.sroa.0842.0.copyload848, %1039 ], [ %.sroa.0842.0.copyload849, %1041 ], [ %.sroa.0842.0.copyload850, %1043 ], [ %.sroa.0842.0.copyload851, %1046 ], [ %869, %866 ], [ %506, %.lr.ph1050 ], [ %.sroa.0842.0.copyload846, %901 ], [ %907, %902 ], [ %914, %908 ], [ %924, %923 ], [ %930, %925 ], [ %939, %931 ], [ %948, %940 ], [ %957, %949 ], [ %963, %958 ], [ %832, %831 ], [ %972, %968 ], [ %990, %985 ], [ %996, %991 ], [ %1002, %997 ], [ %1008, %1003 ], [ %1014, %1009 ], [ %1020, %1015 ], [ %1027, %1021 ], [ %1034, %1028 ], [ %1064, %1061 ], [ %1068, %1065 ], [ %1072, %1069 ], [ %1076, %1073 ], [ %1287, %1285 ], [ %1291, %1288 ], [ %1295, %1292 ], [ %1299, %1296 ], [ %1195, %1191 ], [ %1095, %1090 ], [ %1214, %1209 ], [ %.sroa.0842.0.copyload857, %1244 ], [ %1261, %1254 ], [ %1265, %1262 ], [ %1268, %1266 ], [ %1271, %1269 ], [ %1274, %1272 ], [ %1277, %1275 ], [ %1281, %1278 ], [ %.sroa.0842.0.copyload844, %860 ], [ %19, %18 ], [ inttoptr (i64 1 to ptr), %3 ], [ %134, %130 ], [ %136, %135 ], [ %138, %137 ], [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ], [ %158, %157 ], [ %162, %159 ], [ %15, %13 ], [ %838, %977 ], [ inttoptr (i64 1 to ptr), %179 ], [ %263, %.thread994 ], [ %344, %.loopexit998 ], [ %425, %.loopexit1001 ], [ %431, %426 ], [ %435, %432 ], [ %838, %1149 ], [ null, %443 ], [ %540, %._crit_edge1028 ], [ %559, %._crit_edge ], [ %584, %576 ], [ null, %586 ], [ %591, %588 ], [ %594, %592 ], [ %600, %597 ], [ %.sroa.0164.10.in, %625 ], [ %506, %.thread1217 ], [ %838, %967 ], [ %1158, %1156 ], [ %824, %821 ], [ inttoptr (i64 1 to ptr), %10 ], [ inttoptr (i64 1 to ptr), %183 ], [ %838, %1155 ], [ %442, %439 ], [ %812, %.critedge ], [ %799, %798 ], [ %820, %817 ], [ %830, %827 ], [ %836, %833 ], [ %810, %.critedge3..critedge985.loopexit1005_crit_edge ], [ null, %200 ], [ inttoptr (i64 1 to ptr), %187 ], [ null, %1222 ], [ %.sroa.0842.0.copyload845.pre, %._crit_edge1161 ], [ %889, %885 ], [ %.sroa.0842.0.copyload853.pre, %._crit_edge1163 ], [ %1108, %1102 ], [ %.sroa.0842.0.copyload855.pre, %._crit_edge1159 ], [ %1208, %1203 ], [ %.sroa.0842.0.copyload856.pre, %._crit_edge1157 ], [ %1227, %1223 ], [ %1232, %1228 ], [ inttoptr (i64 1 to ptr), %208 ], [ null, %202 ], [ %810, %802 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3768,7 +3768,7 @@ define internal fastcc range(i32 0, 2) i32 @evaldyn(ptr noundef %0, ptr noundef 
   br label %46
 
 46:                                               ; preds = %39, %40, %15, %33
-  %.0 = phi i32 [ 0, %33 ], [ 0, %15 ], [ 1, %40 ], [ 1, %39 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %33 ], [ 1, %40 ], [ 1, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -3947,8 +3947,8 @@ define internal fastcc i32 @scan(ptr noundef %0, ptr noundef nonnull readonly ca
   br label %56
 
 23:                                               ; preds = %20, %16, %7
-  %.sroa.04.0 = phi ptr [ %8, %7 ], [ %.sroa.04.1, %16 ], [ %.sroa.04.1, %20 ]
-  %.030 = phi ptr [ null, %7 ], [ %19, %16 ], [ %21, %20 ]
+  %.sroa.04.0 = phi ptr [ %.sroa.04.1, %20 ], [ %8, %7 ], [ %.sroa.04.1, %16 ]
+  %.030 = phi ptr [ %21, %20 ], [ null, %7 ], [ %19, %16 ]
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %24, i8 0, i64 80, i1 false)
   store ptr @scformat, ptr %4, align 8, !tbaa !82
@@ -5016,7 +5016,7 @@ agxbsizeof.exit.i29:                              ; preds = %71, %agxblen.exit.i
   br label %agxbputc.exit.backedge
 
 agxbputc.exit.backedge:                           ; preds = %81, %76, %63, %58, %agxbput_n.exit
-  %.0.be = phi ptr [ %50, %agxbput_n.exit ], [ %9, %58 ], [ %9, %63 ], [ %9, %76 ], [ %9, %81 ]
+  %.0.be = phi ptr [ %50, %agxbput_n.exit ], [ %9, %63 ], [ %9, %58 ], [ %9, %76 ], [ %9, %81 ]
   br label %agxbputc.exit, !llvm.loop !110
 
 87:                                               ; preds = %agxbputc.exit
@@ -5265,7 +5265,7 @@ exeval.exit:                                      ; preds = %54, %56
   br label %77
 
 77:                                               ; preds = %76, %69, %69, %75
-  %.1135 = phi i64 [ 263, %75 ], [ 262, %69 ], [ 262, %69 ], [ %., %76 ]
+  %.1135 = phi i64 [ 262, %69 ], [ %., %76 ], [ 263, %75 ], [ 262, %69 ]
   %78 = icmp eq i64 %.1135, %72
   br i1 %78, label %79, label %114
 
@@ -5437,7 +5437,7 @@ exeval.exit166:                                   ; preds = %148, %150
   br label %.thread180
 
 170:                                              ; preds = %exeval.exit161, %exeval.exit166, %59
-  %.0134 = phi i64 [ %63, %59 ], [ %.1135, %exeval.exit166 ], [ %72, %exeval.exit161 ]
+  %.0134 = phi i64 [ %63, %59 ], [ %72, %exeval.exit161 ], [ %.1135, %exeval.exit166 ]
   switch i64 %.0134, label %183 [
     i64 263, label %..thread180_crit_edge
     i64 262, label %178
@@ -5458,7 +5458,7 @@ exeval.exit166:                                   ; preds = %148, %150
   br label %.thread180
 
 .thread180:                                       ; preds = %.thread180.critedge, %..thread180_crit_edge, %.thread
-  %175 = phi ptr [ %.pre202, %..thread180_crit_edge ], [ @.str.22, %.thread ], [ %163, %.thread180.critedge ]
+  %175 = phi ptr [ %.pre202, %..thread180_crit_edge ], [ %163, %.thread180.critedge ], [ @.str.22, %.thread ]
   store ptr %175, ptr %0, align 8, !tbaa !74
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 -1, ptr %176, align 8, !tbaa !115

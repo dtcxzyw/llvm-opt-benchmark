@@ -247,7 +247,7 @@ define ptr @cuddSolveEqnRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %118
 
 118:                                              ; preds = %13, %7, %._crit_edge, %116, %99, %89, %80, %65, %49
-  %.0116 = phi ptr [ null, %116 ], [ %36, %._crit_edge ], [ null, %99 ], [ null, %89 ], [ null, %80 ], [ null, %65 ], [ null, %49 ], [ %1, %7 ], [ null, %13 ]
+  %.0116 = phi ptr [ %1, %7 ], [ null, %116 ], [ %36, %._crit_edge ], [ null, %99 ], [ null, %89 ], [ null, %80 ], [ null, %65 ], [ null, %49 ], [ null, %13 ]
   ret ptr %.0116
 }
 

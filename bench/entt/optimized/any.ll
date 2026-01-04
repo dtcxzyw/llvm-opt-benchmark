@@ -3654,7 +3654,7 @@ _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit.thread: ; preds = %180
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit:        ; preds = %182, %185
-  %190 = phi ptr [ %186, %185 ], [ %184, %182 ]
+  %190 = phi ptr [ %184, %182 ], [ %186, %185 ]
   store ptr %190, ptr %15, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8, !tbaa !55
@@ -5360,8 +5360,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %191
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %2, %191 ], [ %196, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %191 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %196, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %191 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %191 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %193 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !83
   %194 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !83
@@ -5567,8 +5567,8 @@ define linkonce_odr hidden void @_ZN7testing8internal8EqHelper7CompareI3fatS3_Tn
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %5
-  %.011.i.i.i.i.i.i.i = phi ptr [ %4, %5 ], [ %9, %.lr.ph.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i = phi i64 [ 0, %5 ], [ %.0810.i.i.i.i.add.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i.i.i.i.i ], [ %4, %5 ]
+  %.0810.i.i.i.i.idx.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %5 ]
   %.0810.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0810.i.i.i.i.idx.i.i.i
   %6 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i, align 8, !tbaa !72, !noalias !90
   %7 = load double, ptr %.011.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !90
@@ -11006,7 +11006,7 @@ _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit.thread: ; preds = %563
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit:        ; preds = %565, %568
-  %573 = phi ptr [ %569, %568 ], [ %567, %565 ]
+  %573 = phi ptr [ %567, %565 ], [ %569, %568 ]
   store ptr %573, ptr %45, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store ptr %2, ptr %46, align 8, !tbaa !153
@@ -12531,7 +12531,7 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %1026, %1029
   br label %1037
 
 1037:                                             ; preds = %1036, %821, %788, %756, %_ZN7testing7MessageD2Ev.exit558, %678, %677, %638, %579, %521, %471, %421, %372, %323, %274, %225, %176
-  %.pn237.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn237.pn.pn.pn, %1036 ], [ %.pn213.pn.pn, %821 ], [ %.pn209.pn.pn, %788 ], [ %.pn205.pn.pn, %756 ], [ %.pn201.pn.pn, %_ZN7testing7MessageD2Ev.exit558 ], [ %679, %678 ], [ %.pn193.pn.pn, %677 ], [ %.pn189.pn.pn, %638 ], [ %.pn185.pn.pn, %579 ], [ %.pn181.pn.pn, %521 ], [ %.pn177.pn.pn, %471 ], [ %.pn173.pn.pn, %421 ], [ %.pn169.pn.pn, %372 ], [ %.pn165.pn.pn, %323 ], [ %.pn161.pn.pn, %274 ], [ %.pn157.pn.pn, %225 ], [ %.pn153.pn.pn, %176 ]
+  %.pn237.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn237.pn.pn.pn, %1036 ], [ %.pn213.pn.pn, %821 ], [ %.pn209.pn.pn, %788 ], [ %.pn205.pn.pn, %756 ], [ %.pn201.pn.pn, %_ZN7testing7MessageD2Ev.exit558 ], [ %.pn153.pn.pn, %176 ], [ %679, %678 ], [ %.pn193.pn.pn, %677 ], [ %.pn189.pn.pn, %638 ], [ %.pn185.pn.pn, %579 ], [ %.pn181.pn.pn, %521 ], [ %.pn177.pn.pn, %471 ], [ %.pn173.pn.pn, %421 ], [ %.pn169.pn.pn, %372 ], [ %.pn165.pn.pn, %323 ], [ %.pn161.pn.pn, %274 ], [ %.pn157.pn.pn, %225 ]
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -14422,7 +14422,7 @@ _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit.thread: ; preds = %563
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit:        ; preds = %565, %568
-  %573 = phi ptr [ %569, %568 ], [ %567, %565 ]
+  %573 = phi ptr [ %567, %565 ], [ %569, %568 ]
   store ptr %573, ptr %45, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store ptr null, ptr %46, align 8, !tbaa !55
@@ -15947,7 +15947,7 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %1026, %1029
   br label %1037
 
 1037:                                             ; preds = %1036, %821, %788, %756, %_ZN7testing7MessageD2Ev.exit558, %678, %677, %638, %579, %521, %471, %421, %372, %323, %274, %225, %176
-  %.pn237.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn237.pn.pn.pn, %1036 ], [ %.pn213.pn.pn, %821 ], [ %.pn209.pn.pn, %788 ], [ %.pn205.pn.pn, %756 ], [ %.pn201.pn.pn, %_ZN7testing7MessageD2Ev.exit558 ], [ %679, %678 ], [ %.pn193.pn.pn, %677 ], [ %.pn189.pn.pn, %638 ], [ %.pn185.pn.pn, %579 ], [ %.pn181.pn.pn, %521 ], [ %.pn177.pn.pn, %471 ], [ %.pn173.pn.pn, %421 ], [ %.pn169.pn.pn, %372 ], [ %.pn165.pn.pn, %323 ], [ %.pn161.pn.pn, %274 ], [ %.pn157.pn.pn, %225 ], [ %.pn153.pn.pn, %176 ]
+  %.pn237.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn237.pn.pn.pn, %1036 ], [ %.pn213.pn.pn, %821 ], [ %.pn209.pn.pn, %788 ], [ %.pn205.pn.pn, %756 ], [ %.pn201.pn.pn, %_ZN7testing7MessageD2Ev.exit558 ], [ %.pn153.pn.pn, %176 ], [ %679, %678 ], [ %.pn193.pn.pn, %677 ], [ %.pn189.pn.pn, %638 ], [ %.pn185.pn.pn, %579 ], [ %.pn181.pn.pn, %521 ], [ %.pn177.pn.pn, %471 ], [ %.pn173.pn.pn, %421 ], [ %.pn169.pn.pn, %372 ], [ %.pn165.pn.pn, %323 ], [ %.pn161.pn.pn, %274 ], [ %.pn157.pn.pn, %225 ]
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -16890,7 +16890,7 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit215:        ; preds = %_ZN4entt9basic_anyI
   br label %.body
 
 .body:                                            ; preds = %_ZN7testing7MessageD2Ev.exit89, %157, %206, %256, %309
-  %.pn67.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn67.pn.pn, %309 ], [ %.pn63.pn.pn, %256 ], [ %.pn59.pn.pn, %206 ], [ %.pn55.pn.pn, %157 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit89 ]
+  %.pn67.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit89 ], [ %.pn67.pn.pn, %309 ], [ %.pn63.pn.pn, %256 ], [ %.pn59.pn.pn, %206 ], [ %.pn55.pn.pn, %157 ]
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #24
@@ -21213,7 +21213,7 @@ _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit.thread: ; preds = %133
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit:        ; preds = %135, %138
-  %143 = phi ptr [ %139, %138 ], [ %137, %135 ]
+  %143 = phi ptr [ %137, %135 ], [ %139, %138 ]
   store ptr %143, ptr %10, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !55
@@ -26234,7 +26234,7 @@ _ZNK4entt9basic_anyILm16ELm8EE4typeEv.exit:       ; preds = %7, %13, %16, %18
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit:        ; preds = %30, %34
-  %39 = phi ptr [ %35, %34 ], [ %33, %30 ]
+  %39 = phi ptr [ %33, %30 ], [ %35, %34 ]
   %.not10.not = icmp eq ptr %39, null
   br i1 %.not10.not, label %44, label %40
 
@@ -29473,8 +29473,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %214
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %16, %214 ], [ %222, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %214 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %222, %.lr.ph.i.i.i.i.i.i.i.i ], [ %16, %214 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %214 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %219 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !266
   %220 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !266
@@ -30181,8 +30181,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i350
 
 .lr.ph.i.i.i.i.i.i.i.i350:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i350, %444
-  %.011.i.i.i.i.i.i.i.i351 = phi ptr [ %34, %444 ], [ %452, %.lr.ph.i.i.i.i.i.i.i.i350 ]
-  %.0810.i.i.i.i.idx.i.i.i.i352 = phi i64 [ 0, %444 ], [ %.0810.i.i.i.i.add.i.i.i.i354, %.lr.ph.i.i.i.i.i.i.i.i350 ]
+  %.011.i.i.i.i.i.i.i.i351 = phi ptr [ %452, %.lr.ph.i.i.i.i.i.i.i.i350 ], [ %34, %444 ]
+  %.0810.i.i.i.i.idx.i.i.i.i352 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i354, %.lr.ph.i.i.i.i.i.i.i.i350 ], [ 0, %444 ]
   %.0810.i.i.i.i.ptr.i.i.i.i353 = getelementptr inbounds nuw i8, ptr %33, i64 %.0810.i.i.i.i.idx.i.i.i.i352
   %449 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i353, align 8, !tbaa !72, !noalias !282
   %450 = load double, ptr %.011.i.i.i.i.i.i.i.i351, align 8, !tbaa !72, !noalias !282
@@ -31542,8 +31542,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %214
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %2, %214 ], [ %219, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %214 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %219, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %214 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %214 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %216 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !305
   %217 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !305
@@ -32248,8 +32248,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i347
 
 .lr.ph.i.i.i.i.i.i.i.i347:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i347, %441
-  %.011.i.i.i.i.i.i.i.i348 = phi ptr [ %34, %441 ], [ %449, %.lr.ph.i.i.i.i.i.i.i.i347 ]
-  %.0810.i.i.i.i.idx.i.i.i.i349 = phi i64 [ 0, %441 ], [ %.0810.i.i.i.i.add.i.i.i.i351, %.lr.ph.i.i.i.i.i.i.i.i347 ]
+  %.011.i.i.i.i.i.i.i.i348 = phi ptr [ %449, %.lr.ph.i.i.i.i.i.i.i.i347 ], [ %34, %441 ]
+  %.0810.i.i.i.i.idx.i.i.i.i349 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i351, %.lr.ph.i.i.i.i.i.i.i.i347 ], [ 0, %441 ]
   %.0810.i.i.i.i.ptr.i.i.i.i350 = getelementptr inbounds nuw i8, ptr %33, i64 %.0810.i.i.i.i.idx.i.i.i.i349
   %446 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i350, align 8, !tbaa !72, !noalias !321
   %447 = load double, ptr %.011.i.i.i.i.i.i.i.i348, align 8, !tbaa !72, !noalias !321
@@ -33946,8 +33946,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %464
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %2, %464 ], [ %469, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %464 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %469, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %464 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %464 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %465, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %466 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !341
   %467 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !341
@@ -34116,8 +34116,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i482
 
 .lr.ph.i.i.i.i.i.i.i.i482:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i482, %516
-  %.011.i.i.i.i.i.i.i.i483 = phi ptr [ %2, %516 ], [ %521, %.lr.ph.i.i.i.i.i.i.i.i482 ]
-  %.0810.i.i.i.i.idx.i.i.i.i484 = phi i64 [ 0, %516 ], [ %.0810.i.i.i.i.add.i.i.i.i486, %.lr.ph.i.i.i.i.i.i.i.i482 ]
+  %.011.i.i.i.i.i.i.i.i483 = phi ptr [ %521, %.lr.ph.i.i.i.i.i.i.i.i482 ], [ %2, %516 ]
+  %.0810.i.i.i.i.idx.i.i.i.i484 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i486, %.lr.ph.i.i.i.i.i.i.i.i482 ], [ 0, %516 ]
   %.0810.i.i.i.i.ptr.i.i.i.i485 = getelementptr inbounds nuw i8, ptr %39, i64 %.0810.i.i.i.i.idx.i.i.i.i484
   %518 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i485, align 8, !tbaa !72, !noalias !349
   %519 = load double, ptr %.011.i.i.i.i.i.i.i.i483, align 8, !tbaa !72, !noalias !349
@@ -34312,7 +34312,7 @@ _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit.thread: ; preds = %568
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit:        ; preds = %570, %573
-  %578 = phi ptr [ %574, %573 ], [ %572, %570 ]
+  %578 = phi ptr [ %572, %570 ], [ %574, %573 ]
   store ptr %578, ptr %43, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store ptr %2, ptr %44, align 8, !tbaa !339
@@ -35842,7 +35842,7 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %1033, %1036
   br label %1044
 
 1044:                                             ; preds = %1043, %826, %793, %761, %_ZN7testing7MessageD2Ev.exit566, %683, %682, %643, %584, %526, %474, %422, %373, %324, %275, %226, %177
-  %.pn237.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn237.pn.pn.pn, %1043 ], [ %.pn213.pn.pn, %826 ], [ %.pn209.pn.pn, %793 ], [ %.pn205.pn.pn, %761 ], [ %.pn201.pn.pn, %_ZN7testing7MessageD2Ev.exit566 ], [ %684, %683 ], [ %.pn193.pn.pn, %682 ], [ %.pn189.pn.pn, %643 ], [ %.pn185.pn.pn, %584 ], [ %.pn181.pn.pn, %526 ], [ %.pn177.pn.pn, %474 ], [ %.pn173.pn.pn, %422 ], [ %.pn169.pn.pn, %373 ], [ %.pn165.pn.pn, %324 ], [ %.pn161.pn.pn, %275 ], [ %.pn157.pn.pn, %226 ], [ %.pn153.pn.pn, %177 ]
+  %.pn237.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn237.pn.pn.pn, %1043 ], [ %.pn213.pn.pn, %826 ], [ %.pn209.pn.pn, %793 ], [ %.pn205.pn.pn, %761 ], [ %.pn201.pn.pn, %_ZN7testing7MessageD2Ev.exit566 ], [ %.pn153.pn.pn, %177 ], [ %684, %683 ], [ %.pn193.pn.pn, %682 ], [ %.pn189.pn.pn, %643 ], [ %.pn185.pn.pn, %584 ], [ %.pn181.pn.pn, %526 ], [ %.pn177.pn.pn, %474 ], [ %.pn173.pn.pn, %422 ], [ %.pn169.pn.pn, %373 ], [ %.pn165.pn.pn, %324 ], [ %.pn161.pn.pn, %275 ], [ %.pn157.pn.pn, %226 ]
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -37372,8 +37372,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %464
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %2, %464 ], [ %469, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %464 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %469, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %464 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %464 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %465, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %466 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !368
   %467 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !368
@@ -37542,8 +37542,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i482
 
 .lr.ph.i.i.i.i.i.i.i.i482:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i482, %516
-  %.011.i.i.i.i.i.i.i.i483 = phi ptr [ %2, %516 ], [ %521, %.lr.ph.i.i.i.i.i.i.i.i482 ]
-  %.0810.i.i.i.i.idx.i.i.i.i484 = phi i64 [ 0, %516 ], [ %.0810.i.i.i.i.add.i.i.i.i486, %.lr.ph.i.i.i.i.i.i.i.i482 ]
+  %.011.i.i.i.i.i.i.i.i483 = phi ptr [ %521, %.lr.ph.i.i.i.i.i.i.i.i482 ], [ %2, %516 ]
+  %.0810.i.i.i.i.idx.i.i.i.i484 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i486, %.lr.ph.i.i.i.i.i.i.i.i482 ], [ 0, %516 ]
   %.0810.i.i.i.i.ptr.i.i.i.i485 = getelementptr inbounds nuw i8, ptr %39, i64 %.0810.i.i.i.i.idx.i.i.i.i484
   %518 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i485, align 8, !tbaa !72, !noalias !376
   %519 = load double, ptr %.011.i.i.i.i.i.i.i.i483, align 8, !tbaa !72, !noalias !376
@@ -37738,7 +37738,7 @@ _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit.thread: ; preds = %568
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit:        ; preds = %570, %573
-  %578 = phi ptr [ %574, %573 ], [ %572, %570 ]
+  %578 = phi ptr [ %572, %570 ], [ %574, %573 ]
   store ptr %578, ptr %43, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store ptr null, ptr %44, align 8, !tbaa !55
@@ -39268,7 +39268,7 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %1033, %1036
   br label %1044
 
 1044:                                             ; preds = %1043, %826, %793, %761, %_ZN7testing7MessageD2Ev.exit566, %683, %682, %643, %584, %526, %474, %422, %373, %324, %275, %226, %177
-  %.pn237.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn237.pn.pn.pn, %1043 ], [ %.pn213.pn.pn, %826 ], [ %.pn209.pn.pn, %793 ], [ %.pn205.pn.pn, %761 ], [ %.pn201.pn.pn, %_ZN7testing7MessageD2Ev.exit566 ], [ %684, %683 ], [ %.pn193.pn.pn, %682 ], [ %.pn189.pn.pn, %643 ], [ %.pn185.pn.pn, %584 ], [ %.pn181.pn.pn, %526 ], [ %.pn177.pn.pn, %474 ], [ %.pn173.pn.pn, %422 ], [ %.pn169.pn.pn, %373 ], [ %.pn165.pn.pn, %324 ], [ %.pn161.pn.pn, %275 ], [ %.pn157.pn.pn, %226 ], [ %.pn153.pn.pn, %177 ]
+  %.pn237.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn237.pn.pn.pn, %1043 ], [ %.pn213.pn.pn, %826 ], [ %.pn209.pn.pn, %793 ], [ %.pn205.pn.pn, %761 ], [ %.pn201.pn.pn, %_ZN7testing7MessageD2Ev.exit566 ], [ %.pn153.pn.pn, %177 ], [ %684, %683 ], [ %.pn193.pn.pn, %682 ], [ %.pn189.pn.pn, %643 ], [ %.pn185.pn.pn, %584 ], [ %.pn181.pn.pn, %526 ], [ %.pn177.pn.pn, %474 ], [ %.pn173.pn.pn, %422 ], [ %.pn169.pn.pn, %373 ], [ %.pn165.pn.pn, %324 ], [ %.pn161.pn.pn, %275 ], [ %.pn157.pn.pn, %226 ]
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -40030,8 +40030,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %254
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %2, %254 ], [ %259, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %254 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %259, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %254 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %254 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %256 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !395
   %257 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !395
@@ -41286,8 +41286,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %359
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %2, %359 ], [ %364, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %359 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %364, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %359 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %359 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %361 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !408
   %362 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !408
@@ -42043,8 +42043,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %191
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %2, %191 ], [ %196, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %191 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %196, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %191 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %191 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %193 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !421
   %194 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !421
@@ -42788,8 +42788,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %195
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %2, %195 ], [ %200, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %195 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %200, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %195 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %195 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %197 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !434
   %198 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !434
@@ -43910,8 +43910,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %315
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %2, %315 ], [ %320, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %315 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %320, %.lr.ph.i.i.i.i.i.i.i.i ], [ %2, %315 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %315 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %317 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !447
   %318 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !447
@@ -44511,7 +44511,7 @@ _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit.thread: ; preds = %133
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit:        ; preds = %135, %138
-  %143 = phi ptr [ %139, %138 ], [ %137, %135 ]
+  %143 = phi ptr [ %137, %135 ], [ %139, %138 ]
   store ptr %143, ptr %10, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !55
@@ -45248,8 +45248,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %192
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %1, %192 ], [ %197, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %192 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %197, %.lr.ph.i.i.i.i.i.i.i.i ], [ %1, %192 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %192 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %194 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !465
   %195 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !465
@@ -45738,8 +45738,8 @@ _ZN7testing7MessageD2Ev.exit86:                   ; preds = %_ZNKSt14default_del
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %118
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %11, %118 ], [ %126, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %118 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %126, %.lr.ph.i.i.i.i.i.i.i.i ], [ %11, %118 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %118 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %119, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %123 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !470
   %124 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !470
@@ -46214,8 +46214,8 @@ _ZN7testing7MessageD2Ev.exit148:                  ; preds = %_ZNKSt14default_del
   br label %.lr.ph.i.i.i.i.i.i.i.i154
 
 .lr.ph.i.i.i.i.i.i.i.i154:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i154, %269
-  %.011.i.i.i.i.i.i.i.i155 = phi ptr [ %23, %269 ], [ %277, %.lr.ph.i.i.i.i.i.i.i.i154 ]
-  %.0810.i.i.i.i.idx.i.i.i.i156 = phi i64 [ 0, %269 ], [ %.0810.i.i.i.i.add.i.i.i.i158, %.lr.ph.i.i.i.i.i.i.i.i154 ]
+  %.011.i.i.i.i.i.i.i.i155 = phi ptr [ %277, %.lr.ph.i.i.i.i.i.i.i.i154 ], [ %23, %269 ]
+  %.0810.i.i.i.i.idx.i.i.i.i156 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i158, %.lr.ph.i.i.i.i.i.i.i.i154 ], [ 0, %269 ]
   %.0810.i.i.i.i.ptr.i.i.i.i157 = getelementptr inbounds nuw i8, ptr %270, i64 %.0810.i.i.i.i.idx.i.i.i.i156
   %274 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i157, align 8, !tbaa !72, !noalias !475
   %275 = load double, ptr %.011.i.i.i.i.i.i.i.i155, align 8, !tbaa !72, !noalias !475
@@ -46906,8 +46906,8 @@ _ZN7testing7MessageD2Ev.exit85:                   ; preds = %_ZNKSt14default_del
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %109
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %11, %109 ], [ %117, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %109 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %117, %.lr.ph.i.i.i.i.i.i.i.i ], [ %11, %109 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %109 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %110, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %114 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !488
   %115 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !488
@@ -47382,8 +47382,8 @@ _ZN7testing7MessageD2Ev.exit147:                  ; preds = %_ZNKSt14default_del
   br label %.lr.ph.i.i.i.i.i.i.i.i153
 
 .lr.ph.i.i.i.i.i.i.i.i153:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i153, %260
-  %.011.i.i.i.i.i.i.i.i154 = phi ptr [ %23, %260 ], [ %268, %.lr.ph.i.i.i.i.i.i.i.i153 ]
-  %.0810.i.i.i.i.idx.i.i.i.i155 = phi i64 [ 0, %260 ], [ %.0810.i.i.i.i.add.i.i.i.i157, %.lr.ph.i.i.i.i.i.i.i.i153 ]
+  %.011.i.i.i.i.i.i.i.i154 = phi ptr [ %268, %.lr.ph.i.i.i.i.i.i.i.i153 ], [ %23, %260 ]
+  %.0810.i.i.i.i.idx.i.i.i.i155 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i157, %.lr.ph.i.i.i.i.i.i.i.i153 ], [ 0, %260 ]
   %.0810.i.i.i.i.ptr.i.i.i.i156 = getelementptr inbounds nuw i8, ptr %261, i64 %.0810.i.i.i.i.idx.i.i.i.i155
   %265 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i156, align 8, !tbaa !72, !noalias !493
   %266 = load double, ptr %.011.i.i.i.i.i.i.i.i154, align 8, !tbaa !72, !noalias !493
@@ -47559,8 +47559,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i182
 
 .lr.ph.i.i.i.i.i.i.i.i182:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i182, %315
-  %.011.i.i.i.i.i.i.i.i183 = phi ptr [ %27, %315 ], [ %322, %.lr.ph.i.i.i.i.i.i.i.i182 ]
-  %.0810.i.i.i.i.idx.i.i.i.i184 = phi i64 [ 0, %315 ], [ %.0810.i.i.i.i.add.i.i.i.i186, %.lr.ph.i.i.i.i.i.i.i.i182 ]
+  %.011.i.i.i.i.i.i.i.i183 = phi ptr [ %322, %.lr.ph.i.i.i.i.i.i.i.i182 ], [ %27, %315 ]
+  %.0810.i.i.i.i.idx.i.i.i.i184 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i186, %.lr.ph.i.i.i.i.i.i.i.i182 ], [ 0, %315 ]
   %.0810.i.i.i.i.ptr.i.i.i.i185 = getelementptr inbounds nuw i8, ptr %2, i64 %.0810.i.i.i.i.idx.i.i.i.i184
   %319 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i185, align 8, !tbaa !72, !noalias !498
   %320 = load double, ptr %.011.i.i.i.i.i.i.i.i183, align 8, !tbaa !72, !noalias !498
@@ -48072,8 +48072,8 @@ _ZN7testing7MessageD2Ev.exit85:                   ; preds = %_ZNKSt14default_del
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %109
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %11, %109 ], [ %117, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %109 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %117, %.lr.ph.i.i.i.i.i.i.i.i ], [ %11, %109 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %109 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %110, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %114 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !506
   %115 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !506
@@ -48549,8 +48549,8 @@ _ZN7testing7MessageD2Ev.exit147:                  ; preds = %_ZNKSt14default_del
   br label %.lr.ph.i.i.i.i.i.i.i.i153
 
 .lr.ph.i.i.i.i.i.i.i.i153:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i153, %261
-  %.011.i.i.i.i.i.i.i.i154 = phi ptr [ %23, %261 ], [ %269, %.lr.ph.i.i.i.i.i.i.i.i153 ]
-  %.0810.i.i.i.i.idx.i.i.i.i155 = phi i64 [ 0, %261 ], [ %.0810.i.i.i.i.add.i.i.i.i157, %.lr.ph.i.i.i.i.i.i.i.i153 ]
+  %.011.i.i.i.i.i.i.i.i154 = phi ptr [ %269, %.lr.ph.i.i.i.i.i.i.i.i153 ], [ %23, %261 ]
+  %.0810.i.i.i.i.idx.i.i.i.i155 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i157, %.lr.ph.i.i.i.i.i.i.i.i153 ], [ 0, %261 ]
   %.0810.i.i.i.i.ptr.i.i.i.i156 = getelementptr inbounds nuw i8, ptr %262, i64 %.0810.i.i.i.i.idx.i.i.i.i155
   %266 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i156, align 8, !tbaa !72, !noalias !511
   %267 = load double, ptr %.011.i.i.i.i.i.i.i.i154, align 8, !tbaa !72, !noalias !511
@@ -48726,8 +48726,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i182
 
 .lr.ph.i.i.i.i.i.i.i.i182:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i182, %316
-  %.011.i.i.i.i.i.i.i.i183 = phi ptr [ %27, %316 ], [ %323, %.lr.ph.i.i.i.i.i.i.i.i182 ]
-  %.0810.i.i.i.i.idx.i.i.i.i184 = phi i64 [ 0, %316 ], [ %.0810.i.i.i.i.add.i.i.i.i186, %.lr.ph.i.i.i.i.i.i.i.i182 ]
+  %.011.i.i.i.i.i.i.i.i183 = phi ptr [ %323, %.lr.ph.i.i.i.i.i.i.i.i182 ], [ %27, %316 ]
+  %.0810.i.i.i.i.idx.i.i.i.i184 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i186, %.lr.ph.i.i.i.i.i.i.i.i182 ], [ 0, %316 ]
   %.0810.i.i.i.i.ptr.i.i.i.i185 = getelementptr inbounds nuw i8, ptr %2, i64 %.0810.i.i.i.i.idx.i.i.i.i184
   %320 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i185, align 8, !tbaa !72, !noalias !516
   %321 = load double, ptr %.011.i.i.i.i.i.i.i.i183, align 8, !tbaa !72, !noalias !516
@@ -49028,8 +49028,8 @@ define hidden void @_ZN27Any_NoSBOTransferValue_Test8TestBodyEv(ptr nonnull read
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %33
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %5, %33 ], [ %44, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %33 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i.i.i.i ], [ %5, %33 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %33 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %41 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !521
   %42 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !521
@@ -49672,8 +49672,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i159
 
 .lr.ph.i.i.i.i.i.i.i.i159:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i159, %243
-  %.011.i.i.i.i.i.i.i.i160 = phi ptr [ %19, %243 ], [ %251, %.lr.ph.i.i.i.i.i.i.i.i159 ]
-  %.0810.i.i.i.i.idx.i.i.i.i161 = phi i64 [ 0, %243 ], [ %.0810.i.i.i.i.add.i.i.i.i163, %.lr.ph.i.i.i.i.i.i.i.i159 ]
+  %.011.i.i.i.i.i.i.i.i160 = phi ptr [ %251, %.lr.ph.i.i.i.i.i.i.i.i159 ], [ %19, %243 ]
+  %.0810.i.i.i.i.idx.i.i.i.i161 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i163, %.lr.ph.i.i.i.i.i.i.i.i159 ], [ 0, %243 ]
   %.0810.i.i.i.i.ptr.i.i.i.i162 = getelementptr inbounds nuw i8, ptr %244, i64 %.0810.i.i.i.i.idx.i.i.i.i161
   %248 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i162, align 8, !tbaa !72, !noalias !526
   %249 = load double, ptr %.011.i.i.i.i.i.i.i.i160, align 8, !tbaa !72, !noalias !526
@@ -50111,8 +50111,8 @@ define hidden void @_ZN32Any_NoSBOTransferConstValue_Test8TestBodyEv(ptr nonnull
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %32
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %6, %32 ], [ %43, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %32 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i.i.i.i.i ], [ %6, %32 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %32 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %36, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %40 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !536
   %41 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !536
@@ -50510,8 +50510,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i115
 
 .lr.ph.i.i.i.i.i.i.i.i115:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i115, %163
-  %.011.i.i.i.i.i.i.i.i116 = phi ptr [ %15, %163 ], [ %171, %.lr.ph.i.i.i.i.i.i.i.i115 ]
-  %.0810.i.i.i.i.idx.i.i.i.i117 = phi i64 [ 0, %163 ], [ %.0810.i.i.i.i.add.i.i.i.i119, %.lr.ph.i.i.i.i.i.i.i.i115 ]
+  %.011.i.i.i.i.i.i.i.i116 = phi ptr [ %171, %.lr.ph.i.i.i.i.i.i.i.i115 ], [ %15, %163 ]
+  %.0810.i.i.i.i.idx.i.i.i.i117 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i119, %.lr.ph.i.i.i.i.i.i.i.i115 ], [ 0, %163 ]
   %.0810.i.i.i.i.ptr.i.i.i.i118 = getelementptr inbounds nuw i8, ptr %164, i64 %.0810.i.i.i.i.idx.i.i.i.i117
   %168 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i118, align 8, !tbaa !72, !noalias !544
   %169 = load double, ptr %.011.i.i.i.i.i.i.i.i116, align 8, !tbaa !72, !noalias !544
@@ -50953,8 +50953,8 @@ _ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit:       ; preds = %1, %37, %39
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %6, %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit ], [ %50, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i.i.i.i ], [ %6, %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %47 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !557
   %48 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !557
@@ -51597,8 +51597,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i170
 
 .lr.ph.i.i.i.i.i.i.i.i170:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i170, %249
-  %.011.i.i.i.i.i.i.i.i171 = phi ptr [ %20, %249 ], [ %257, %.lr.ph.i.i.i.i.i.i.i.i170 ]
-  %.0810.i.i.i.i.idx.i.i.i.i172 = phi i64 [ 0, %249 ], [ %.0810.i.i.i.i.add.i.i.i.i174, %.lr.ph.i.i.i.i.i.i.i.i170 ]
+  %.011.i.i.i.i.i.i.i.i171 = phi ptr [ %257, %.lr.ph.i.i.i.i.i.i.i.i170 ], [ %20, %249 ]
+  %.0810.i.i.i.i.idx.i.i.i.i172 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i174, %.lr.ph.i.i.i.i.i.i.i.i170 ], [ 0, %249 ]
   %.0810.i.i.i.i.ptr.i.i.i.i173 = getelementptr inbounds nuw i8, ptr %250, i64 %.0810.i.i.i.i.idx.i.i.i.i172
   %254 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i173, align 8, !tbaa !72, !noalias !562
   %255 = load double, ptr %.011.i.i.i.i.i.i.i.i171, align 8, !tbaa !72, !noalias !562
@@ -51774,8 +51774,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i199
 
 .lr.ph.i.i.i.i.i.i.i.i199:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i199, %304
-  %.011.i.i.i.i.i.i.i.i200 = phi ptr [ %24, %304 ], [ %311, %.lr.ph.i.i.i.i.i.i.i.i199 ]
-  %.0810.i.i.i.i.idx.i.i.i.i201 = phi i64 [ 0, %304 ], [ %.0810.i.i.i.i.add.i.i.i.i203, %.lr.ph.i.i.i.i.i.i.i.i199 ]
+  %.011.i.i.i.i.i.i.i.i200 = phi ptr [ %311, %.lr.ph.i.i.i.i.i.i.i.i199 ], [ %24, %304 ]
+  %.0810.i.i.i.i.idx.i.i.i.i201 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i203, %.lr.ph.i.i.i.i.i.i.i.i199 ], [ 0, %304 ]
   %.0810.i.i.i.i.ptr.i.i.i.i202 = getelementptr inbounds nuw i8, ptr %2, i64 %.0810.i.i.i.i.idx.i.i.i.i201
   %308 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i202, align 8, !tbaa !72, !noalias !567
   %309 = load double, ptr %.011.i.i.i.i.i.i.i.i200, align 8, !tbaa !72, !noalias !567
@@ -52217,8 +52217,8 @@ _ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit:       ; preds = %1, %37, %39
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %6, %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit ], [ %50, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i.i.i.i ], [ %6, %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %47 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !580
   %48 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !580
@@ -52862,8 +52862,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i170
 
 .lr.ph.i.i.i.i.i.i.i.i170:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i170, %250
-  %.011.i.i.i.i.i.i.i.i171 = phi ptr [ %20, %250 ], [ %258, %.lr.ph.i.i.i.i.i.i.i.i170 ]
-  %.0810.i.i.i.i.idx.i.i.i.i172 = phi i64 [ 0, %250 ], [ %.0810.i.i.i.i.add.i.i.i.i174, %.lr.ph.i.i.i.i.i.i.i.i170 ]
+  %.011.i.i.i.i.i.i.i.i171 = phi ptr [ %258, %.lr.ph.i.i.i.i.i.i.i.i170 ], [ %20, %250 ]
+  %.0810.i.i.i.i.idx.i.i.i.i172 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i174, %.lr.ph.i.i.i.i.i.i.i.i170 ], [ 0, %250 ]
   %.0810.i.i.i.i.ptr.i.i.i.i173 = getelementptr inbounds nuw i8, ptr %251, i64 %.0810.i.i.i.i.idx.i.i.i.i172
   %255 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i173, align 8, !tbaa !72, !noalias !585
   %256 = load double, ptr %.011.i.i.i.i.i.i.i.i171, align 8, !tbaa !72, !noalias !585
@@ -53039,8 +53039,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i199
 
 .lr.ph.i.i.i.i.i.i.i.i199:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i199, %305
-  %.011.i.i.i.i.i.i.i.i200 = phi ptr [ %24, %305 ], [ %312, %.lr.ph.i.i.i.i.i.i.i.i199 ]
-  %.0810.i.i.i.i.idx.i.i.i.i201 = phi i64 [ 0, %305 ], [ %.0810.i.i.i.i.add.i.i.i.i203, %.lr.ph.i.i.i.i.i.i.i.i199 ]
+  %.011.i.i.i.i.i.i.i.i200 = phi ptr [ %312, %.lr.ph.i.i.i.i.i.i.i.i199 ], [ %24, %305 ]
+  %.0810.i.i.i.i.idx.i.i.i.i201 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i203, %.lr.ph.i.i.i.i.i.i.i.i199 ], [ 0, %305 ]
   %.0810.i.i.i.i.ptr.i.i.i.i202 = getelementptr inbounds nuw i8, ptr %2, i64 %.0810.i.i.i.i.idx.i.i.i.i201
   %309 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i202, align 8, !tbaa !72, !noalias !590
   %310 = load double, ptr %.011.i.i.i.i.i.i.i.i200, align 8, !tbaa !72, !noalias !590
@@ -58400,7 +58400,7 @@ _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit.thread: ; preds = %126
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit:        ; preds = %128, %131
-  %136 = phi ptr [ %132, %131 ], [ %130, %128 ]
+  %136 = phi ptr [ %130, %128 ], [ %132, %131 ]
   store ptr %136, ptr %10, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !55
@@ -62518,12 +62518,12 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %510, %513
   br label %520
 
 520:                                              ; preds = %519, %481, %_ZN7testing7MessageD2Ev.exit474, %410, %356, %286
-  %.pn157.pn.pn.pn = phi { ptr, i32 } [ %.pn157.pn.pn, %519 ], [ %.pn153.pn.pn, %481 ], [ %.pn149.pn.pn, %_ZN7testing7MessageD2Ev.exit474 ], [ %287, %286 ], [ %.pn141.pn.pn, %410 ], [ %.pn137.pn.pn, %356 ]
+  %.pn157.pn.pn.pn = phi { ptr, i32 } [ %.pn157.pn.pn, %519 ], [ %.pn153.pn.pn, %481 ], [ %.pn149.pn.pn, %_ZN7testing7MessageD2Ev.exit474 ], [ %.pn137.pn.pn, %356 ], [ %287, %286 ], [ %.pn141.pn.pn, %410 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %521
 
 521:                                              ; preds = %520, %285, %231, %161, %160, %112
-  %.pn157.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn157.pn.pn.pn, %520 ], [ %.pn125.pn.pn, %285 ], [ %.pn121.pn.pn, %231 ], [ %162, %161 ], [ %.pn109.pn.pn, %160 ], [ %.pn105.pn.pn, %112 ]
+  %.pn157.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn157.pn.pn.pn, %520 ], [ %.pn125.pn.pn, %285 ], [ %.pn121.pn.pn, %231 ], [ %.pn109.pn.pn, %160 ], [ %.pn105.pn.pn, %112 ], [ %162, %161 ]
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn157.pn.pn.pn.pn
@@ -65255,8 +65255,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %240
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %24, %240 ], [ %248, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %240 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %248, %.lr.ph.i.i.i.i.i.i.i.i ], [ %24, %240 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %240 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %245 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !674
   %246 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !674
@@ -65437,8 +65437,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i167
 
 .lr.ph.i.i.i.i.i.i.i.i167:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i167, %295
-  %.011.i.i.i.i.i.i.i.i168 = phi ptr [ %29, %295 ], [ %303, %.lr.ph.i.i.i.i.i.i.i.i167 ]
-  %.0810.i.i.i.i.idx.i.i.i.i169 = phi i64 [ 0, %295 ], [ %.0810.i.i.i.i.add.i.i.i.i171, %.lr.ph.i.i.i.i.i.i.i.i167 ]
+  %.011.i.i.i.i.i.i.i.i168 = phi ptr [ %303, %.lr.ph.i.i.i.i.i.i.i.i167 ], [ %29, %295 ]
+  %.0810.i.i.i.i.idx.i.i.i.i169 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i171, %.lr.ph.i.i.i.i.i.i.i.i167 ], [ 0, %295 ]
   %.0810.i.i.i.i.ptr.i.i.i.i170 = getelementptr inbounds nuw i8, ptr %28, i64 %.0810.i.i.i.i.idx.i.i.i.i169
   %300 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i170, align 8, !tbaa !72, !noalias !682
   %301 = load double, ptr %.011.i.i.i.i.i.i.i.i168, align 8, !tbaa !72, !noalias !682
@@ -68096,8 +68096,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %535
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %45, %535 ], [ %543, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %535 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %543, %.lr.ph.i.i.i.i.i.i.i.i ], [ %45, %535 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %535 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %540 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !705
   %541 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !705
@@ -70069,7 +70069,7 @@ _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit.thread: ; preds = %590
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit:        ; preds = %592, %595
-  %600 = phi ptr [ %596, %595 ], [ %594, %592 ]
+  %600 = phi ptr [ %594, %592 ], [ %596, %595 ]
   store ptr %600, ptr %50, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store ptr %2, ptr %51, align 8, !tbaa !153
@@ -72041,7 +72041,7 @@ _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit.thread: ; preds = %595
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit:        ; preds = %597, %600
-  %605 = phi ptr [ %601, %600 ], [ %599, %597 ]
+  %605 = phi ptr [ %599, %597 ], [ %601, %600 ]
   store ptr %605, ptr %50, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store ptr null, ptr %51, align 8, !tbaa !55
@@ -78518,8 +78518,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %493
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %41, %493 ], [ %501, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %493 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %501, %.lr.ph.i.i.i.i.i.i.i.i ], [ %41, %493 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %493 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %498 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !772
   %499 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !772
@@ -78878,7 +78878,7 @@ _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit.thread: ; preds = %598
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit:        ; preds = %600, %603
-  %608 = phi ptr [ %604, %603 ], [ %602, %600 ]
+  %608 = phi ptr [ %602, %600 ], [ %604, %603 ]
   store ptr %608, ptr %50, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store ptr %2, ptr %51, align 8, !tbaa !153
@@ -80530,8 +80530,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %498
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %41, %498 ], [ %506, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %498 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %506, %.lr.ph.i.i.i.i.i.i.i.i ], [ %41, %498 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %498 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %503 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !793
   %504 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !793
@@ -80890,7 +80890,7 @@ _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit.thread: ; preds = %603
   unreachable
 
 _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit:        ; preds = %605, %608
-  %613 = phi ptr [ %609, %608 ], [ %607, %605 ]
+  %613 = phi ptr [ %607, %605 ], [ %609, %608 ]
   store ptr %613, ptr %50, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store ptr null, ptr %51, align 8, !tbaa !55
@@ -82343,8 +82343,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %377
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %32, %377 ], [ %385, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %377 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %385, %.lr.ph.i.i.i.i.i.i.i.i ], [ %32, %377 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %377 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %382 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !806
   %383 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !806
@@ -83442,8 +83442,8 @@ _ZN7testing7MessageD2Ev.exit420:                  ; preds = %_ZNKSt14default_del
   br label %.lr.ph.i.i.i.i.i.i.i.i421
 
 .lr.ph.i.i.i.i.i.i.i.i421:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i421, %720
-  %.011.i.i.i.i.i.i.i.i422 = phi ptr [ %63, %720 ], [ %728, %.lr.ph.i.i.i.i.i.i.i.i421 ]
-  %.0810.i.i.i.i.idx.i.i.i.i423 = phi i64 [ 0, %720 ], [ %.0810.i.i.i.i.add.i.i.i.i425, %.lr.ph.i.i.i.i.i.i.i.i421 ]
+  %.011.i.i.i.i.i.i.i.i422 = phi ptr [ %728, %.lr.ph.i.i.i.i.i.i.i.i421 ], [ %63, %720 ]
+  %.0810.i.i.i.i.idx.i.i.i.i423 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i425, %.lr.ph.i.i.i.i.i.i.i.i421 ], [ 0, %720 ]
   %.0810.i.i.i.i.ptr.i.i.i.i424 = getelementptr inbounds nuw i8, ptr %62, i64 %.0810.i.i.i.i.idx.i.i.i.i423
   %725 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i424, align 8, !tbaa !72, !noalias !819
   %726 = load double, ptr %.011.i.i.i.i.i.i.i.i422, align 8, !tbaa !72, !noalias !819
@@ -84717,8 +84717,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %378
-  %.011.i.i.i.i.i.i.i.i = phi ptr [ %32, %378 ], [ %386, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %378 ], [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i = phi ptr [ %386, %.lr.ph.i.i.i.i.i.i.i.i ], [ %32, %378 ]
+  %.0810.i.i.i.i.idx.i.i.i.i = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %378 ]
   %.0810.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 %.0810.i.i.i.i.idx.i.i.i.i
   %383 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !72, !noalias !832
   %384 = load double, ptr %.011.i.i.i.i.i.i.i.i, align 8, !tbaa !72, !noalias !832
@@ -85816,8 +85816,8 @@ _ZN7testing7MessageD2Ev.exit422:                  ; preds = %_ZNKSt14default_del
   br label %.lr.ph.i.i.i.i.i.i.i.i423
 
 .lr.ph.i.i.i.i.i.i.i.i423:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i423, %721
-  %.011.i.i.i.i.i.i.i.i424 = phi ptr [ %63, %721 ], [ %729, %.lr.ph.i.i.i.i.i.i.i.i423 ]
-  %.0810.i.i.i.i.idx.i.i.i.i425 = phi i64 [ 0, %721 ], [ %.0810.i.i.i.i.add.i.i.i.i427, %.lr.ph.i.i.i.i.i.i.i.i423 ]
+  %.011.i.i.i.i.i.i.i.i424 = phi ptr [ %729, %.lr.ph.i.i.i.i.i.i.i.i423 ], [ %63, %721 ]
+  %.0810.i.i.i.i.idx.i.i.i.i425 = phi i64 [ %.0810.i.i.i.i.add.i.i.i.i427, %.lr.ph.i.i.i.i.i.i.i.i423 ], [ 0, %721 ]
   %.0810.i.i.i.i.ptr.i.i.i.i426 = getelementptr inbounds nuw i8, ptr %62, i64 %.0810.i.i.i.i.idx.i.i.i.i425
   %726 = load double, ptr %.0810.i.i.i.i.ptr.i.i.i.i426, align 8, !tbaa !72, !noalias !845
   %727 = load double, ptr %.011.i.i.i.i.i.i.i.i424, align 8, !tbaa !72, !noalias !845
@@ -110443,7 +110443,7 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit517:        ; preds = %_ZN4entt9basic_anyI
   br label %792
 
 792:                                              ; preds = %791, %738, %706, %674, %642, %611, %581, %536, %486, %436, %386, %337, %_ZN7testing7MessageD2Ev.exit314, %_ZN7testing7MessageD2Ev.exit291, %_ZN7testing7MessageD2Ev.exit247, %_ZN7testing7MessageD2Ev.exit225
-  %.pn178.pn.pn.pn = phi { ptr, i32 } [ %.pn178.pn.pn, %791 ], [ %.pn174.pn.pn, %738 ], [ %.pn170.pn.pn, %706 ], [ %.pn166.pn.pn, %674 ], [ %.pn162.pn.pn, %642 ], [ %.pn158.pn.pn, %611 ], [ %.pn154.pn.pn, %581 ], [ %.pn150.pn.pn, %536 ], [ %.pn146.pn.pn, %486 ], [ %.pn142.pn.pn, %436 ], [ %.pn138.pn.pn, %386 ], [ %.pn134.pn.pn, %337 ], [ %.pn126.pn.pn, %_ZN7testing7MessageD2Ev.exit314 ], [ %.pn122.pn.pn, %_ZN7testing7MessageD2Ev.exit291 ], [ %.pn114.pn.pn, %_ZN7testing7MessageD2Ev.exit247 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit225 ]
+  %.pn178.pn.pn.pn = phi { ptr, i32 } [ %.pn178.pn.pn, %791 ], [ %.pn174.pn.pn, %738 ], [ %.pn170.pn.pn, %706 ], [ %.pn166.pn.pn, %674 ], [ %.pn162.pn.pn, %642 ], [ %.pn158.pn.pn, %611 ], [ %.pn154.pn.pn, %581 ], [ %.pn150.pn.pn, %536 ], [ %.pn146.pn.pn, %486 ], [ %.pn142.pn.pn, %436 ], [ %.pn138.pn.pn, %386 ], [ %.pn134.pn.pn, %337 ], [ %.pn114.pn.pn, %_ZN7testing7MessageD2Ev.exit247 ], [ %.pn126.pn.pn, %_ZN7testing7MessageD2Ev.exit314 ], [ %.pn122.pn.pn, %_ZN7testing7MessageD2Ev.exit291 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit225 ]
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4entt9basic_anyILm4ELm4EED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #24
@@ -112843,7 +112843,7 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit501:        ; preds = %_ZN4entt9basic_anyI
   br label %760
 
 760:                                              ; preds = %759, %706, %674, %642, %610, %575, %525, %476, %428, %380, %331, %_ZN7testing7MessageD2Ev.exit325, %_ZN7testing7MessageD2Ev.exit302, %_ZN7testing7MessageD2Ev.exit257, %_ZN7testing7MessageD2Ev.exit235
-  %.pn168.pn.pn.pn = phi { ptr, i32 } [ %.pn168.pn.pn, %759 ], [ %.pn164.pn.pn, %706 ], [ %.pn160.pn.pn, %674 ], [ %.pn156.pn.pn, %642 ], [ %.pn152.pn.pn, %610 ], [ %.pn148.pn.pn, %575 ], [ %.pn144.pn.pn, %525 ], [ %.pn140.pn.pn, %476 ], [ %.pn136.pn.pn, %428 ], [ %.pn132.pn.pn, %380 ], [ %.pn128.pn.pn, %331 ], [ %.pn124.pn.pn, %_ZN7testing7MessageD2Ev.exit325 ], [ %.pn120.pn.pn, %_ZN7testing7MessageD2Ev.exit302 ], [ %.pn112.pn.pn, %_ZN7testing7MessageD2Ev.exit257 ], [ %.pn108.pn.pn, %_ZN7testing7MessageD2Ev.exit235 ]
+  %.pn168.pn.pn.pn = phi { ptr, i32 } [ %.pn168.pn.pn, %759 ], [ %.pn164.pn.pn, %706 ], [ %.pn160.pn.pn, %674 ], [ %.pn156.pn.pn, %642 ], [ %.pn152.pn.pn, %610 ], [ %.pn148.pn.pn, %575 ], [ %.pn144.pn.pn, %525 ], [ %.pn140.pn.pn, %476 ], [ %.pn136.pn.pn, %428 ], [ %.pn132.pn.pn, %380 ], [ %.pn128.pn.pn, %331 ], [ %.pn124.pn.pn, %_ZN7testing7MessageD2Ev.exit325 ], [ %.pn120.pn.pn, %_ZN7testing7MessageD2Ev.exit302 ], [ %.pn108.pn.pn, %_ZN7testing7MessageD2Ev.exit235 ], [ %.pn112.pn.pn, %_ZN7testing7MessageD2Ev.exit257 ]
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #24
@@ -115707,7 +115707,7 @@ _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit: ; preds = %_ZN4entt9basic_an
   br label %959
 
 959:                                              ; preds = %.body, %473, %419, %370, %322, %250, %_ZN7testing7MessageD2Ev.exit311, %_ZN7testing7MessageD2Ev.exit267
-  %.pn214.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn214.pn.pn.pn.pn, %.body ], [ %.pn165.pn.pn.pn, %473 ], [ %.pn160.pn.pn.pn, %419 ], [ %.pn156.pn.pn, %370 ], [ %.pn152.pn.pn, %322 ], [ %.pn148.pn.pn, %250 ], [ %.pn140.pn.pn, %_ZN7testing7MessageD2Ev.exit311 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit267 ]
+  %.pn214.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn214.pn.pn.pn.pn, %.body ], [ %.pn165.pn.pn.pn, %473 ], [ %.pn160.pn.pn.pn, %419 ], [ %.pn156.pn.pn, %370 ], [ %.pn152.pn.pn, %322 ], [ %.pn148.pn.pn, %250 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit267 ], [ %.pn140.pn.pn, %_ZN7testing7MessageD2Ev.exit311 ]
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #24
@@ -119710,7 +119710,7 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit614:        ; preds = %_ZN4entt9basic_anyI
   br label %960
 
 960:                                              ; preds = %.body, %473, %419, %371, %324, %252, %_ZN7testing7MessageD2Ev.exit311, %_ZN7testing7MessageD2Ev.exit267
-  %.pn213.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn213.pn.pn.pn.pn, %.body ], [ %.pn164.pn.pn.pn, %473 ], [ %.pn159.pn.pn.pn, %419 ], [ %.pn155.pn.pn, %371 ], [ %.pn151.pn.pn, %324 ], [ %.pn147.pn.pn, %252 ], [ %.pn139.pn.pn, %_ZN7testing7MessageD2Ev.exit311 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit267 ]
+  %.pn213.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn213.pn.pn.pn.pn, %.body ], [ %.pn164.pn.pn.pn, %473 ], [ %.pn159.pn.pn.pn, %419 ], [ %.pn155.pn.pn, %371 ], [ %.pn151.pn.pn, %324 ], [ %.pn147.pn.pn, %252 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit267 ], [ %.pn139.pn.pn, %_ZN7testing7MessageD2Ev.exit311 ]
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #24
   br label %961
 
@@ -123044,7 +123044,7 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit461:        ; preds = %_ZN4entt9basic_anyI
   br label %.body
 
 .body:                                            ; preds = %_ZN7testing7MessageD2Ev.exit185, %_ZN7testing7MessageD2Ev.exit207, %_ZN7testing7MessageD2Ev.exit251, %272, %339, %406, %465, %523, %573, %623, %658, %690, %743
-  %.pn147.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn147.pn.pn, %743 ], [ %.pn143.pn.pn, %690 ], [ %.pn139.pn.pn, %658 ], [ %.pn135.pn.pn, %623 ], [ %.pn131.pn.pn, %573 ], [ %.pn127.pn.pn, %523 ], [ %.pn123.pn.pn, %465 ], [ %.pn119.pn.pn, %406 ], [ %.pn115.pn.pn, %339 ], [ %.pn111.pn.pn, %272 ], [ %.pn103.pn.pn, %_ZN7testing7MessageD2Ev.exit251 ], [ %.pn95.pn.pn, %_ZN7testing7MessageD2Ev.exit207 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit185 ]
+  %.pn147.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit185 ], [ %.pn147.pn.pn, %743 ], [ %.pn143.pn.pn, %690 ], [ %.pn139.pn.pn, %658 ], [ %.pn135.pn.pn, %623 ], [ %.pn131.pn.pn, %573 ], [ %.pn127.pn.pn, %523 ], [ %.pn123.pn.pn, %465 ], [ %.pn119.pn.pn, %406 ], [ %.pn115.pn.pn, %339 ], [ %.pn111.pn.pn, %272 ], [ %.pn95.pn.pn, %_ZN7testing7MessageD2Ev.exit207 ], [ %.pn103.pn.pn, %_ZN7testing7MessageD2Ev.exit251 ]
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #24
@@ -125244,7 +125244,7 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit461:        ; preds = %_ZN4entt9basic_anyI
   br label %.body
 
 .body:                                            ; preds = %_ZN7testing7MessageD2Ev.exit185, %_ZN7testing7MessageD2Ev.exit207, %_ZN7testing7MessageD2Ev.exit251, %272, %339, %406, %465, %523, %573, %623, %658, %690, %743
-  %.pn147.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn147.pn.pn, %743 ], [ %.pn143.pn.pn, %690 ], [ %.pn139.pn.pn, %658 ], [ %.pn135.pn.pn, %623 ], [ %.pn131.pn.pn, %573 ], [ %.pn127.pn.pn, %523 ], [ %.pn123.pn.pn, %465 ], [ %.pn119.pn.pn, %406 ], [ %.pn115.pn.pn, %339 ], [ %.pn111.pn.pn, %272 ], [ %.pn103.pn.pn, %_ZN7testing7MessageD2Ev.exit251 ], [ %.pn95.pn.pn, %_ZN7testing7MessageD2Ev.exit207 ], [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit185 ]
+  %.pn147.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN7testing7MessageD2Ev.exit185 ], [ %.pn147.pn.pn, %743 ], [ %.pn143.pn.pn, %690 ], [ %.pn139.pn.pn, %658 ], [ %.pn135.pn.pn, %623 ], [ %.pn131.pn.pn, %573 ], [ %.pn127.pn.pn, %523 ], [ %.pn123.pn.pn, %465 ], [ %.pn119.pn.pn, %406 ], [ %.pn115.pn.pn, %339 ], [ %.pn111.pn.pn, %272 ], [ %.pn95.pn.pn, %_ZN7testing7MessageD2Ev.exit207 ], [ %.pn103.pn.pn, %_ZN7testing7MessageD2Ev.exit251 ]
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #24
@@ -128879,7 +128879,7 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %237, %240
   br label %247
 
 247:                                              ; preds = %246, %201, %141, %140, %86
-  %.pn56.pn.pn.pn = phi { ptr, i32 } [ %.pn56.pn.pn, %246 ], [ %.pn52.pn.pn, %201 ], [ %142, %141 ], [ %.pn44.pn.pn, %140 ], [ %.pn40.pn.pn, %86 ]
+  %.pn56.pn.pn.pn = phi { ptr, i32 } [ %.pn56.pn.pn, %246 ], [ %.pn52.pn.pn, %201 ], [ %.pn40.pn.pn, %86 ], [ %142, %141 ], [ %.pn44.pn.pn, %140 ]
   call void @_ZN4entt9basic_anyILm16ELm8EED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn56.pn.pn.pn
@@ -132004,45 +132004,45 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN7t
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread: ; preds = %9, %.noexc.i
   %68 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
 
 .body:                                            ; preds = %19
   %69 = landingpad { ptr, i32 }
           cleanup
   %70 = load ptr, ptr %4, align 8, !tbaa !33
   %71 = icmp eq ptr %70, %7
-  br i1 %71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25
+  br i1 %71, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25: ; preds = %.body
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread: ; preds = %.body
   %72 = load i64, ptr %7, align 8, !tbaa !20
   %73 = add i64 %72, 1
   call void @_ZdlPvm(ptr noundef %70, i64 noundef %73) #25
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
 
 .body.thread:                                     ; preds = %30
   %74 = load ptr, ptr %4, align 8, !tbaa !33
   %75 = icmp eq ptr %74, %7
-  br i1 %75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
+  br i1 %75, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread: ; preds = %.body.thread
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23: ; preds = %.body.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %.body.thread
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9: ; preds = %.body.thread
   %76 = load i64, ptr %7, align 8, !tbaa !20
   %77 = add i64 %76, 1
   call void @_ZdlPvm(ptr noundef %74, i64 noundef %77) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10: ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread
-  %.pn16 = phi { ptr, i32 } [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread ], [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread25 ], [ %69, %.body ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread
+  %.pn16 = phi { ptr, i32 } [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.thread ], [ %69, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 144) #25
   br label %78
 
-78:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10
-  %.pn15 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11 ], [ %.pn16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.thread ]
+78:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11
+  %.pn15 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.thread23 ], [ %.pn16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9 ]
   resume { ptr, i32 } %.pn15
 }
 
@@ -134531,7 +134531,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeI3fatJRKS3_EEEvDpOT0_.exit: ; preds = %
   br label %26
 
 26:                                               ; preds = %3, %_ZN4entt9basic_anyILm16ELm8EE10initializeI3fatJRKS3_EEEvDpOT0_.exit, %9, %7, %_ZNK3fateqERKS_.exit, %6, %5
-  %.0 = phi ptr [ %2, %5 ], [ %2, %6 ], [ %14, %_ZNK3fateqERKS_.exit ], [ null, %7 ], [ null, %9 ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeI3fatJRKS3_EEEvDpOT0_.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %14, %_ZNK3fateqERKS_.exit ], [ %2, %5 ], [ %2, %6 ], [ null, %7 ], [ null, %9 ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeI3fatJRKS3_EEEvDpOT0_.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -139701,7 +139701,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIN4test14non_comparableEJRKS4_EEEvDpOT0
   br label %27
 
 27:                                               ; preds = %3, %3, %3, %26, %25, %12
-  %.0 = phi ptr [ null, %26 ], [ %14, %12 ], [ %8, %25 ], [ %2, %3 ], [ %2, %3 ], [ %2, %3 ]
+  %.0 = phi ptr [ null, %26 ], [ %8, %25 ], [ %2, %3 ], [ %14, %12 ], [ %2, %3 ], [ %2, %3 ]
   ret ptr %.0
 }
 
@@ -139884,7 +139884,7 @@ _ZNSt13unordered_mapIiN4test14non_comparableESt4hashIiESt8equal_toIiESaISt4pairI
   br label %_ZNSt13unordered_mapIiN4test14non_comparableESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEEaSEOSA_.exit
 
 _ZNSt13unordered_mapIiN4test14non_comparableESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEEaSEOSA_.exit: ; preds = %44, %42, %_ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_update_bbeginEv.exit.i.i.i, %5, %3, %64, %_ZNSt13unordered_mapIiN4test14non_comparableESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEED2Ev.exit, %45, %61
-  %.0 = phi ptr [ %63, %61 ], [ null, %45 ], [ null, %_ZNSt13unordered_mapIiN4test14non_comparableESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEED2Ev.exit ], [ null, %64 ], [ null, %3 ], [ %2, %5 ], [ %2, %_ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_update_bbeginEv.exit.i.i.i ], [ %2, %42 ], [ %2, %44 ]
+  %.0 = phi ptr [ %63, %61 ], [ null, %3 ], [ %2, %_ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_update_bbeginEv.exit.i.i.i ], [ null, %45 ], [ null, %_ZNSt13unordered_mapIiN4test14non_comparableESt4hashIiESt8equal_toIiESaISt4pairIKiS1_EEED2Ev.exit ], [ null, %64 ], [ %2, %5 ], [ %2, %42 ], [ %2, %44 ]
   ret ptr %.0
 }
 
@@ -140575,7 +140575,7 @@ _ZNSt6vectorIN4test14non_comparableESaIS1_EED2Ev.exit: ; preds = %23, %25
   br label %_ZNSt6vectorIN4test14non_comparableESaIS1_EEaSEOS3_.exit
 
 _ZNSt6vectorIN4test14non_comparableESaIS1_EEaSEOS3_.exit: ; preds = %15, %5, %3, %34, %_ZNSt6vectorIN4test14non_comparableESaIS1_EED2Ev.exit, %21, %31, %19
-  %.0 = phi ptr [ %2, %19 ], [ %33, %31 ], [ null, %21 ], [ null, %_ZNSt6vectorIN4test14non_comparableESaIS1_EED2Ev.exit ], [ null, %34 ], [ null, %3 ], [ %2, %5 ], [ %2, %15 ]
+  %.0 = phi ptr [ %33, %31 ], [ null, %3 ], [ %2, %19 ], [ null, %21 ], [ null, %_ZNSt6vectorIN4test14non_comparableESaIS1_EED2Ev.exit ], [ null, %34 ], [ %2, %5 ], [ %2, %15 ]
   ret ptr %.0
 }
 
@@ -140967,7 +140967,7 @@ _ZNSt10unique_ptrIdSt14default_deleteIdEED2Ev.exit19: ; preds = %15, %_ZNKSt14de
   br label %_ZNSt10unique_ptrIdSt14default_deleteIdEEaSEOS2_.exit
 
 _ZNSt10unique_ptrIdSt14default_deleteIdEEaSEOS2_.exit: ; preds = %_ZNKSt14default_deleteIdEclEPd.exit.i.i.i.i, %9, %3, %24, %22, %17
-  %.0 = phi ptr [ null, %24 ], [ %21, %17 ], [ %2, %22 ], [ %8, %3 ], [ %2, %9 ], [ %2, %_ZNKSt14default_deleteIdEclEPd.exit.i.i.i.i ]
+  %.0 = phi ptr [ null, %24 ], [ %8, %3 ], [ %2, %22 ], [ %21, %17 ], [ %2, %9 ], [ %2, %_ZNKSt14default_deleteIdEclEPd.exit.i.i.i.i ]
   ret ptr %.0
 }
 
@@ -142506,7 +142506,7 @@ _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit19: ; preds = %15, %_ZNKSt14de
   br label %_ZNSt10unique_ptrIiSt14default_deleteIiEEaSEOS2_.exit
 
 _ZNSt10unique_ptrIiSt14default_deleteIiEEaSEOS2_.exit: ; preds = %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i, %9, %3, %24, %22, %17
-  %.0 = phi ptr [ null, %24 ], [ %21, %17 ], [ %2, %22 ], [ %8, %3 ], [ %2, %9 ], [ %2, %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i ]
+  %.0 = phi ptr [ null, %24 ], [ %8, %3 ], [ %2, %22 ], [ %21, %17 ], [ %2, %9 ], [ %2, %_ZNKSt14default_deleteIiEclEPi.exit.i.i.i.i ]
   ret ptr %.0
 }
 
@@ -143222,7 +143222,7 @@ _ZN4entt9basic_anyILm16ELm8EE10initializeIN4test11non_movableEJRKS4_EEEvDpOT0_.e
   br label %25
 
 25:                                               ; preds = %3, %_ZN4entt9basic_anyILm16ELm8EE10initializeIN4test11non_movableEJRKS4_EEEvDpOT0_.exit, %9, %7, %10, %5
-  %.0 = phi ptr [ %2, %5 ], [ %12, %10 ], [ null, %7 ], [ null, %9 ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeIN4test11non_movableEJRKS4_EEEvDpOT0_.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %12, %10 ], [ %2, %5 ], [ null, %7 ], [ null, %9 ], [ null, %_ZN4entt9basic_anyILm16ELm8EE10initializeIN4test11non_movableEJRKS4_EEEvDpOT0_.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -145981,7 +145981,7 @@ _ZN4entt9basic_anyILm0ELm8EE10initializeIiJRKiEEEvDpOT0_.exit: ; preds = %17, %2
   br label %29
 
 29:                                               ; preds = %3, %_ZN4entt9basic_anyILm0ELm8EE10initializeIiJRKiEEEvDpOT0_.exit, %11, %9, %12, %7, %5
-  %.0 = phi ptr [ %2, %5 ], [ %2, %7 ], [ %16, %12 ], [ null, %9 ], [ null, %11 ], [ null, %_ZN4entt9basic_anyILm0ELm8EE10initializeIiJRKiEEEvDpOT0_.exit ], [ null, %3 ]
+  %.0 = phi ptr [ %16, %12 ], [ %2, %5 ], [ %2, %7 ], [ null, %9 ], [ null, %11 ], [ null, %_ZN4entt9basic_anyILm0ELm8EE10initializeIiJRKiEEEvDpOT0_.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -146048,7 +146048,7 @@ _ZN4entt9basic_anyILm64ELm64EE10initializeI12over_alignedJRKS3_EEEvDpOT0_.exit: 
   br label %27
 
 27:                                               ; preds = %3, %3, %3, %26, %25, %12
-  %.0 = phi ptr [ null, %26 ], [ %14, %12 ], [ %8, %25 ], [ %2, %3 ], [ %2, %3 ], [ %2, %3 ]
+  %.0 = phi ptr [ null, %26 ], [ %8, %25 ], [ %2, %3 ], [ %14, %12 ], [ %2, %3 ], [ %2, %3 ]
   ret ptr %.0
 }
 

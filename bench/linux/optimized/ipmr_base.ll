@@ -348,7 +348,7 @@ define internal fastcc ptr @rhltable_lookup(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %116, label %.loopexit, label %.split11, !prof !9
 
 .loopexit:                                        ; preds = %.split9, %.preheader, %.split9.us.us, %55
-  %117 = phi ptr [ %56, %55 ], [ null, %.split9.us.us ], [ %100, %.preheader ], [ null, %.split9 ]
+  %117 = phi ptr [ %56, %55 ], [ %100, %.preheader ], [ null, %.split9.us.us ], [ null, %.split9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %117
 }
@@ -475,7 +475,7 @@ define dso_local ptr @mr_mfc_find_any(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %60, label %.loopexit, label %51, !llvm.loop !14
 
 .loopexit:                                        ; preds = %37, %12, %57, %51, %.loopexit8
-  %61 = phi ptr [ null, %.loopexit8 ], [ null, %57 ], [ %52, %51 ], [ %13, %12 ], [ %13, %37 ]
+  %61 = phi ptr [ null, %.loopexit8 ], [ %52, %51 ], [ null, %57 ], [ %13, %12 ], [ %13, %37 ]
   ret ptr %61
 }
 
@@ -585,7 +585,7 @@ define dso_local noundef ptr @mr_vif_seq_next(ptr noundef readonly captures(none
   br i1 %42, label %33, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %38, %33, %27, %22, %15
-  %43 = phi ptr [ null, %15 ], [ %24, %22 ], [ null, %27 ], [ %40, %38 ], [ null, %33 ]
+  %43 = phi ptr [ null, %15 ], [ null, %27 ], [ %24, %22 ], [ %40, %38 ], [ null, %33 ]
   ret ptr %43
 }
 
@@ -1038,7 +1038,7 @@ define dso_local range(i32 -2147483648, 1) i32 @mr_table_dump(ptr noundef %0, pt
   br i1 %54, label %55, label %39, !llvm.loop !28
 
 55:                                               ; preds = %51, %45
-  %56 = phi i1 [ %41, %45 ], [ %53, %51 ]
+  %56 = phi i1 [ %53, %51 ], [ %41, %45 ]
   br i1 %56, label %57, label %.critedge
 
 57:                                               ; preds = %55, %26
@@ -1121,7 +1121,7 @@ define dso_local range(i32 -2147483648, 1) i32 @mr_table_dump(ptr noundef %0, pt
   br i1 %110, label %111, label %95, !llvm.loop !28
 
 111:                                              ; preds = %107, %101
-  %112 = phi i1 [ %97, %101 ], [ %109, %107 ]
+  %112 = phi i1 [ %109, %107 ], [ %97, %101 ]
   br i1 %112, label %113, label %.critedge23
 
 113:                                              ; preds = %111, %82
@@ -1348,7 +1348,7 @@ define dso_local i32 @mr_dump(ptr noundef %0, ptr noundef %1, i16 noundef zeroex
   br i1 %63, label %.thread11, label %24, !llvm.loop !35
 
 .thread11:                                        ; preds = %61, %56, %.thread, %11, %6
-  %64 = phi i32 [ %9, %6 ], [ 0, %11 ], [ %43, %.thread ], [ %59, %56 ], [ 0, %61 ]
+  %64 = phi i32 [ %9, %6 ], [ 0, %11 ], [ %59, %56 ], [ %43, %.thread ], [ 0, %61 ]
   ret i32 %64
 }
 

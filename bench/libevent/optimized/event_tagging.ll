@@ -232,7 +232,7 @@ define range(i32 -1, -2147483648) i32 @evtag_decode_tag(ptr noundef writeonly ca
   br label %decode_tag_internal.exit
 
 decode_tag_internal.exit:                         ; preds = %.preheader.i, %11, %2, %21
-  %.0.i = phi i32 [ %23, %21 ], [ -1, %2 ], [ -1, %11 ], [ -1, %.preheader.i ]
+  %.0.i = phi i32 [ -1, %2 ], [ %23, %21 ], [ -1, %11 ], [ -1, %.preheader.i ]
   ret i32 %.0.i
 }
 
@@ -910,8 +910,8 @@ define range(i32 -1, 1) i32 @evtag_decode_int(ptr noundef writeonly captures(non
   %30 = tail call i32 @evbuffer_drain(ptr noundef %1, i64 noundef %15) #7
   br label %decode_int_internal.exit.thread
 
-decode_int_internal.exit.thread:                  ; preds = %17, %7, %12, %5, %2, %29
-  %.not7 = phi i32 [ 0, %29 ], [ -1, %2 ], [ -1, %5 ], [ -1, %12 ], [ -1, %7 ], [ -1, %17 ]
+decode_int_internal.exit.thread:                  ; preds = %17, %12, %7, %5, %2, %29
+  %.not7 = phi i32 [ 0, %29 ], [ -1, %2 ], [ -1, %5 ], [ -1, %7 ], [ -1, %12 ], [ -1, %17 ]
   ret i32 %.not7
 }
 
@@ -1026,7 +1026,7 @@ define range(i32 -1, -2147483648) i32 @evtag_peek(ptr noundef %0, ptr noundef wr
   br label %decode_tag_internal.exit
 
 decode_tag_internal.exit:                         ; preds = %.preheader.i, %11, %2, %20
-  %.0.i = phi i32 [ %22, %20 ], [ -1, %2 ], [ -1, %11 ], [ -1, %.preheader.i ]
+  %.0.i = phi i32 [ -1, %2 ], [ %22, %20 ], [ -1, %11 ], [ -1, %.preheader.i ]
   ret i32 %.0.i
 }
 
@@ -1126,8 +1126,8 @@ decode_tag_internal.exit:                         ; preds = %13
   store i32 %50, ptr %1, align 4
   br label %decode_tag_internal.exit.thread
 
-decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %11, %34, %23, %29, %20, %decode_tag_internal.exit, %2, %48
-  %.0 = phi i32 [ 0, %48 ], [ -1, %2 ], [ -1, %decode_tag_internal.exit ], [ -1, %20 ], [ -1, %29 ], [ -1, %23 ], [ -1, %34 ], [ -1, %11 ], [ -1, %.preheader.i ]
+decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %11, %34, %29, %23, %20, %decode_tag_internal.exit, %2, %48
+  %.0 = phi i32 [ 0, %48 ], [ -1, %34 ], [ -1, %23 ], [ -1, %2 ], [ -1, %29 ], [ -1, %decode_tag_internal.exit ], [ -1, %20 ], [ -1, %11 ], [ -1, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -1224,8 +1224,8 @@ decode_int_internal.exit:                         ; preds = %.preheader.i8
   store i32 %.1.i, ptr %1, align 4
   br label %decode_tag_internal.exit.thread
 
-decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %11, %2, %decode_int_internal.exit, %decode_tag_internal.exit, %19, %28, %22, %33
-  %.0 = phi i32 [ 0, %decode_int_internal.exit ], [ -1, %decode_tag_internal.exit ], [ -1, %19 ], [ -1, %28 ], [ -1, %22 ], [ -1, %33 ], [ -1, %2 ], [ -1, %11 ], [ -1, %.preheader.i ]
+decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %11, %2, %decode_int_internal.exit, %decode_tag_internal.exit, %19, %22, %28, %33
+  %.0 = phi i32 [ -1, %2 ], [ -1, %33 ], [ 0, %decode_int_internal.exit ], [ -1, %decode_tag_internal.exit ], [ -1, %19 ], [ -1, %22 ], [ -1, %28 ], [ -1, %11 ], [ -1, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -1293,7 +1293,7 @@ decode_tag_internal.exit:                         ; preds = %.thread49.i, %21
   br label %decode_tag_internal.exit.thread
 
 decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %12, %2, %24, %decode_tag_internal.exit
-  %.0 = phi i32 [ -1, %decode_tag_internal.exit ], [ %., %24 ], [ -1, %2 ], [ -1, %12 ], [ -1, %.preheader.i ]
+  %.0 = phi i32 [ -1, %decode_tag_internal.exit ], [ -1, %2 ], [ %., %24 ], [ -1, %12 ], [ -1, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1450,7 +1450,7 @@ decode_tag_internal.exit:                         ; preds = %15
   br label %decode_int_internal.exit
 
 decode_int_internal.exit:                         ; preds = %30, %33, %35, %40, %45, %57
-  %.031.i = phi i32 [ %42, %57 ], [ -1, %30 ], [ -1, %33 ], [ -1, %40 ], [ -1, %35 ], [ -1, %45 ]
+  %.031.i = phi i32 [ -1, %30 ], [ -1, %33 ], [ %42, %57 ], [ -1, %35 ], [ -1, %40 ], [ -1, %45 ]
   %58 = tail call i32 @evbuffer_drain(ptr noundef %0, i64 noundef %28) #7
   %59 = icmp slt i32 %.031.i, 0
   %60 = icmp ugt i32 %.031.i, %27
@@ -1459,7 +1459,7 @@ decode_int_internal.exit:                         ; preds = %30, %33, %35, %40, 
   br label %decode_tag_internal.exit.thread
 
 decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %13, %3, %decode_int_internal.exit, %25, %22, %decode_tag_internal.exit
-  %.0 = phi i32 [ -1, %decode_tag_internal.exit ], [ -1, %22 ], [ -1, %25 ], [ %spec.select, %decode_int_internal.exit ], [ -1, %3 ], [ -1, %13 ], [ -1, %.preheader.i ]
+  %.0 = phi i32 [ -1, %25 ], [ -1, %decode_tag_internal.exit ], [ %spec.select, %decode_int_internal.exit ], [ -1, %22 ], [ -1, %3 ], [ -1, %13 ], [ -1, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1572,7 +1572,7 @@ decode_tag_internal.exit:                         ; preds = %15
   br label %decode_int64_internal.exit
 
 decode_int64_internal.exit:                       ; preds = %30, %33, %35, %43, %55
-  %.031.i = phi i32 [ %40, %55 ], [ -1, %30 ], [ -1, %33 ], [ -1, %35 ], [ -1, %43 ]
+  %.031.i = phi i32 [ -1, %30 ], [ -1, %33 ], [ %40, %55 ], [ -1, %35 ], [ -1, %43 ]
   %56 = tail call i32 @evbuffer_drain(ptr noundef %0, i64 noundef %28) #7
   %57 = icmp slt i32 %.031.i, 0
   %58 = icmp ugt i32 %.031.i, %27
@@ -1581,7 +1581,7 @@ decode_int64_internal.exit:                       ; preds = %30, %33, %35, %43, 
   br label %decode_tag_internal.exit.thread
 
 decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %13, %3, %decode_int64_internal.exit, %25, %22, %decode_tag_internal.exit
-  %.0 = phi i32 [ -1, %decode_tag_internal.exit ], [ -1, %22 ], [ -1, %25 ], [ %spec.select, %decode_int64_internal.exit ], [ -1, %3 ], [ -1, %13 ], [ -1, %.preheader.i ]
+  %.0 = phi i32 [ -1, %25 ], [ -1, %decode_tag_internal.exit ], [ %spec.select, %decode_int64_internal.exit ], [ -1, %22 ], [ -1, %3 ], [ -1, %13 ], [ -1, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1644,7 +1644,7 @@ define range(i32 -1, 1) i32 @evtag_unmarshal_string(ptr noundef %0, i32 noundef 
   br label %19
 
 19:                                               ; preds = %3, %14, %13
-  %.0 = phi i32 [ -1, %13 ], [ 0, %14 ], [ -1, %3 ]
+  %.0 = phi i32 [ 0, %14 ], [ -1, %13 ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1781,8 +1781,8 @@ decode_int_internal.exit28:                       ; preds = %.preheader.i20
   %spec.select = sext i1 %72 to i32
   br label %decode_int_internal.exit.thread
 
-decode_int_internal.exit.thread:                  ; preds = %55, %44, %50, %40, %decode_int_internal.exit, %24, %14, %19, %12, %9, %decode_int_internal.exit28, %7
-  %.0 = phi i32 [ -1, %7 ], [ %spec.select, %decode_int_internal.exit28 ], [ -1, %9 ], [ -1, %12 ], [ -1, %19 ], [ -1, %14 ], [ -1, %24 ], [ -1, %decode_int_internal.exit ], [ -1, %40 ], [ -1, %50 ], [ -1, %44 ], [ -1, %55 ]
+decode_int_internal.exit.thread:                  ; preds = %50, %44, %55, %40, %decode_int_internal.exit, %19, %14, %24, %12, %9, %decode_int_internal.exit28, %7
+  %.0 = phi i32 [ -1, %7 ], [ %spec.select, %decode_int_internal.exit28 ], [ -1, %19 ], [ -1, %9 ], [ -1, %12 ], [ -1, %24 ], [ -1, %14 ], [ -1, %decode_int_internal.exit ], [ -1, %40 ], [ -1, %55 ], [ -1, %44 ], [ -1, %50 ]
   %73 = sext i32 %5 to i64
   %74 = call i32 @evbuffer_drain(ptr noundef %0, i64 noundef %73) #7
   br label %75

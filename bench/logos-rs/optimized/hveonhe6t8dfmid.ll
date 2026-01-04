@@ -62,7 +62,7 @@ define hidden void @_ZN13logos_codegen6parser10definition10Definition10named_att
           to label %24 unwind label %206
 
 .thread52:                                        ; preds = %.invoke, %89, %185
-  %.sroa.015.0.ph = phi i8 [ 1, %185 ], [ %.sroa.015.4, %89 ], [ 0, %.invoke ]
+  %.sroa.015.0.ph = phi i8 [ %.sroa.015.4, %89 ], [ 0, %.invoke ], [ 1, %185 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -93,8 +93,8 @@ define hidden void @_ZN13logos_codegen6parser10definition10Definition10named_att
   ]
 
 35:                                               ; preds = %.invoke73, %183, %177, %77, %72, %54, %46, %38, %24
-  %.sroa.012.0 = phi i1 [ false, %177 ], [ false, %183 ], [ true, %77 ], [ true, %72 ], [ true, %54 ], [ true, %46 ], [ true, %38 ], [ true, %24 ], [ true, %.invoke73 ]
-  %.sroa.010.0 = phi i8 [ 1, %177 ], [ 1, %183 ], [ 0, %77 ], [ 1, %72 ], [ 1, %54 ], [ 1, %46 ], [ 1, %38 ], [ 1, %24 ], [ 1, %.invoke73 ]
+  %.sroa.012.0 = phi i1 [ false, %177 ], [ false, %183 ], [ true, %.invoke73 ], [ true, %24 ], [ true, %77 ], [ true, %38 ], [ true, %72 ], [ true, %54 ], [ true, %46 ]
+  %.sroa.010.0 = phi i8 [ 1, %177 ], [ 1, %183 ], [ 1, %.invoke73 ], [ 1, %24 ], [ 0, %77 ], [ 1, %38 ], [ 1, %72 ], [ 1, %54 ], [ 1, %46 ]
   %36 = landingpad { ptr, i32 }
           cleanup
   br label %.thread56
@@ -173,7 +173,7 @@ define hidden void @_ZN13logos_codegen6parser10definition10Definition10named_att
           to label %.thread66 unwind label %35
 
 .thread66:                                        ; preds = %.invoke73, %110, %139, %72, %177
-  %.sroa.012.2 = phi i1 [ false, %177 ], [ true, %72 ], [ false, %139 ], [ false, %110 ], [ true, %.invoke73 ]
+  %.sroa.012.2 = phi i1 [ false, %177 ], [ true, %.invoke73 ], [ false, %139 ], [ true, %72 ], [ false, %110 ]
   %74 = load i64, ptr %29, align 8
   %75 = add i64 %74, 9223372036854775807
   %76 = call i64 @llvm.umin.i64(i64 %75, i64 3)
@@ -210,7 +210,7 @@ define hidden void @_ZN13logos_codegen6parser10definition10Definition10named_att
           to label %.invoke unwind label %92
 
 89:                                               ; preds = %.invoke74, %193, %192, %84
-  %.sroa.015.4 = phi i8 [ 1, %192 ], [ 1, %193 ], [ 0, %84 ], [ 1, %.invoke74 ]
+  %.sroa.015.4 = phi i8 [ 1, %192 ], [ 0, %84 ], [ 1, %193 ], [ 1, %.invoke74 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr nonnull align 8 %22)
           to label %195 unwind label %.thread52
 
@@ -225,7 +225,7 @@ define hidden void @_ZN13logos_codegen6parser10definition10Definition10named_att
           to label %.thread unwind label %140
 
 92:                                               ; preds = %.invoke74, %192, %184, %90, %88
-  %.sroa.015.5 = phi i8 [ 1, %192 ], [ 1, %184 ], [ 0, %88 ], [ 0, %90 ], [ 1, %.invoke74 ]
+  %.sroa.015.5 = phi i8 [ 1, %192 ], [ 0, %90 ], [ 1, %.invoke74 ], [ 1, %184 ], [ 0, %88 ]
   %93 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -464,16 +464,16 @@ define hidden void @_ZN13logos_codegen6parser10definition10Definition10named_att
           to label %.sink.split unwind label %.thread52
 
 .invoke73.sink.split:                             ; preds = %145, %97, %80
-  %.ph = phi ptr [ @anon.d59d2d7d722f715afc7086b35f63c822.7, %80 ], [ @anon.d59d2d7d722f715afc7086b35f63c822.13, %97 ], [ @anon.d59d2d7d722f715afc7086b35f63c822.16, %145 ]
-  %.ph75 = phi i64 [ 29, %80 ], [ 24, %97 ], [ 30, %145 ]
+  %.ph = phi ptr [ @anon.d59d2d7d722f715afc7086b35f63c822.13, %97 ], [ @anon.d59d2d7d722f715afc7086b35f63c822.7, %80 ], [ @anon.d59d2d7d722f715afc7086b35f63c822.16, %145 ]
+  %.ph75 = phi i64 [ 24, %97 ], [ 29, %80 ], [ 30, %145 ]
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %187 = load i32, ptr %186, align 4
   br label %.invoke73
 
 .invoke73:                                        ; preds = %.invoke73.sink.split, %145, %97, %80
-  %188 = phi ptr [ @anon.d59d2d7d722f715afc7086b35f63c822.7, %80 ], [ @anon.d59d2d7d722f715afc7086b35f63c822.13, %97 ], [ @anon.d59d2d7d722f715afc7086b35f63c822.16, %145 ], [ %.ph, %.invoke73.sink.split ]
-  %189 = phi i64 [ 29, %80 ], [ 24, %97 ], [ 30, %145 ], [ %.ph75, %.invoke73.sink.split ]
-  %190 = phi i32 [ 0, %80 ], [ 0, %97 ], [ 0, %145 ], [ %187, %.invoke73.sink.split ]
+  %188 = phi ptr [ @anon.d59d2d7d722f715afc7086b35f63c822.13, %97 ], [ @anon.d59d2d7d722f715afc7086b35f63c822.16, %145 ], [ @anon.d59d2d7d722f715afc7086b35f63c822.7, %80 ], [ %.ph, %.invoke73.sink.split ]
+  %189 = phi i64 [ 24, %97 ], [ 30, %145 ], [ 29, %80 ], [ %.ph75, %.invoke73.sink.split ]
+  %190 = phi i32 [ 0, %97 ], [ 0, %145 ], [ 0, %80 ], [ %187, %.invoke73.sink.split ]
   %191 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hfe641ffc7d3ca420E(ptr align 8 %3, ptr nonnull align 1 %188, i64 %189, i32 %190)
           to label %.thread66 unwind label %35
 
@@ -620,7 +620,7 @@ define hidden { i64, ptr } @_ZN13logos_codegen6parser10definition7Literal12escap
           to label %20 unwind label %40
 
 _ZN13logos_codegen6parser10definition7Literal4span17h35d684fb5a0cd4deE.exit: ; preds = %.sink.split.i, %23
-  %.sroa.0.0.i = phi i32 [ %32, %.sink.split.i ], [ 0, %23 ]
+  %.sroa.0.0.i = phi i32 [ 0, %23 ], [ %32, %.sink.split.i ]
   %35 = invoke align 8 ptr @_ZN3syn3lit6LitStr3new17h1ba1748772e6b099E(ptr align 1 %25, i64 %27, i32 %.sroa.0.0.i)
           to label %36 unwind label %33
 
@@ -679,7 +679,7 @@ _ZN13logos_codegen6parser10definition7Literal4span17h35d684fb5a0cd4deE.exit: ; p
           to label %43 unwind label %40
 
 _ZN13logos_codegen6parser10definition7Literal4span17h35d684fb5a0cd4deE.exit8: ; preds = %.sink.split.i7, %46
-  %.sroa.0.0.i6 = phi i32 [ %55, %.sink.split.i7 ], [ 0, %46 ]
+  %.sroa.0.0.i6 = phi i32 [ 0, %46 ], [ %55, %.sink.split.i7 ]
   %58 = invoke align 8 ptr @_ZN3syn3lit10LitByteStr3new17h2a1cefcc26645f7eE(ptr align 1 %48, i64 %50, i32 %.sroa.0.0.i6)
           to label %59 unwind label %56
 
@@ -807,7 +807,7 @@ define hidden i32 @_ZN13logos_codegen6parser10definition7Literal4span17h35d684fb
   br label %8
 
 8:                                                ; preds = %1, %.sink.split
-  %.sroa.0.0 = phi i32 [ %7, %.sink.split ], [ 0, %1 ]
+  %.sroa.0.0 = phi i32 [ 0, %1 ], [ %7, %.sink.split ]
   ret i32 %.sroa.0.0
 }
 

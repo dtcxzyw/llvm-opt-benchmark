@@ -1743,7 +1743,7 @@ switch.early.test:                                ; preds = %342
   br label %358
 
 358:                                              ; preds = %355, %352, %.thread648
-  %.2481 = phi i32 [ %.0479, %.thread648 ], [ %spec.select632, %355 ], [ 0, %352 ]
+  %.2481 = phi i32 [ %.0479, %.thread648 ], [ 0, %352 ], [ %spec.select632, %355 ]
   %359 = icmp eq i8 %311, 1
   br i1 %359, label %360, label %366
 
@@ -1948,8 +1948,8 @@ switch.early.test:                                ; preds = %342
   store i32 %.sink700, ptr %445, align 8
   br label %.thread663
 
-.thread663:                                       ; preds = %342, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %336, %350, %303, %346, %.thread663.sink.split, %9, %291, %288, %286, %280, %282, %284, %278, %275, %273, %261, %263, %265, %267, %269, %271, %259, %255, %253, %251, %249, %245, %247, %243, %241, %239, %235, %237, %231, %228, %226, %223, %219, %216, %214, %208, %210, %212, %206, %204, %202, %194, %196, %198, %200, %192, %190, %188, %186, %176, %178, %180, %182, %184, %174, %170, %168, %166, %164, %162, %160, %158, %156, %150, %152, %154, %148, %145, %142, %140, %136, %132, %130, %116, %118, %120, %122, %124, %126, %128, %114, %110, %108, %106, %92, %94, %96, %98, %100, %102, %104, %90, %87, %85, %83, %81, %79, %75, %73, %71, %69, %63, %65, %67, %62, %56, %54, %52, %51, %45, %43, %40, %32, %34, %36, %38, %28, %30, %24, %26, %22, %20, %16, %18, %14, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %14 ], [ 0, %18 ], [ 0, %16 ], [ 0, %20 ], [ 0, %22 ], [ 0, %26 ], [ 0, %24 ], [ 0, %30 ], [ 0, %28 ], [ 0, %38 ], [ 0, %36 ], [ 0, %34 ], [ 0, %32 ], [ 0, %40 ], [ 0, %43 ], [ 0, %45 ], [ 0, %51 ], [ 0, %52 ], [ 0, %54 ], [ 0, %56 ], [ 0, %62 ], [ 0, %67 ], [ 0, %65 ], [ 0, %63 ], [ 0, %69 ], [ 0, %71 ], [ 0, %73 ], [ 0, %75 ], [ 0, %79 ], [ 0, %81 ], [ 0, %83 ], [ 0, %85 ], [ 0, %87 ], [ 0, %90 ], [ 0, %104 ], [ 0, %102 ], [ 0, %100 ], [ 0, %98 ], [ 0, %96 ], [ 0, %94 ], [ 0, %92 ], [ 0, %106 ], [ 0, %108 ], [ 0, %110 ], [ 0, %114 ], [ 0, %128 ], [ 0, %126 ], [ 0, %124 ], [ 0, %122 ], [ 0, %120 ], [ 0, %118 ], [ 0, %116 ], [ 0, %130 ], [ 0, %132 ], [ 0, %136 ], [ 0, %140 ], [ 0, %142 ], [ 0, %145 ], [ 0, %148 ], [ 0, %154 ], [ 0, %152 ], [ 0, %150 ], [ 0, %156 ], [ 0, %158 ], [ 0, %160 ], [ 0, %162 ], [ 0, %164 ], [ 0, %166 ], [ 0, %168 ], [ 0, %170 ], [ 0, %174 ], [ 0, %184 ], [ 0, %182 ], [ 0, %180 ], [ 0, %178 ], [ 0, %176 ], [ 0, %186 ], [ 0, %188 ], [ 0, %190 ], [ 0, %192 ], [ 0, %200 ], [ 0, %198 ], [ 0, %196 ], [ 0, %194 ], [ 0, %202 ], [ 0, %204 ], [ 0, %206 ], [ 0, %212 ], [ 0, %210 ], [ 0, %208 ], [ 0, %214 ], [ 0, %216 ], [ 0, %219 ], [ 0, %223 ], [ 0, %226 ], [ 0, %228 ], [ 0, %231 ], [ 0, %237 ], [ 0, %235 ], [ 0, %239 ], [ 0, %241 ], [ 0, %243 ], [ 0, %247 ], [ 0, %245 ], [ 0, %249 ], [ 0, %251 ], [ 0, %253 ], [ 0, %255 ], [ 0, %259 ], [ 0, %271 ], [ 0, %269 ], [ 0, %267 ], [ 0, %265 ], [ 0, %263 ], [ 0, %261 ], [ 0, %273 ], [ 0, %275 ], [ 0, %278 ], [ 0, %284 ], [ 0, %282 ], [ 0, %280 ], [ 0, %286 ], [ 0, %288 ], [ 0, %291 ], [ 0, %9 ], [ -1, %.thread663.sink.split ], [ %.0462, %346 ], [ %.0462, %303 ], [ %.0462, %350 ], [ %.0462, %336 ], [ %.0462, %switch.early.test ], [ %.0462, %switch.early.test ], [ %.0462, %switch.early.test ], [ %.0462, %switch.early.test ], [ %.0462, %switch.early.test ], [ %.0462, %switch.early.test ], [ %.0462, %switch.early.test ], [ %.0462, %switch.early.test ], [ %.0462, %342 ]
+.thread663:                                       ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %336, %342, %350, %303, %346, %.thread663.sink.split, %9, %291, %288, %286, %280, %282, %284, %278, %275, %273, %261, %263, %265, %267, %269, %271, %259, %255, %253, %251, %249, %245, %247, %243, %241, %239, %235, %237, %231, %228, %226, %223, %219, %216, %214, %208, %210, %212, %206, %204, %202, %194, %196, %198, %200, %192, %190, %188, %186, %176, %178, %180, %182, %184, %174, %170, %168, %166, %164, %162, %160, %158, %156, %150, %152, %154, %148, %145, %142, %140, %136, %132, %130, %116, %118, %120, %122, %124, %126, %128, %114, %110, %108, %106, %92, %94, %96, %98, %100, %102, %104, %90, %87, %85, %83, %81, %79, %75, %73, %71, %69, %63, %65, %67, %62, %56, %54, %52, %51, %45, %43, %40, %32, %34, %36, %38, %28, %30, %24, %26, %22, %20, %16, %18, %14, %12
+  %.0 = phi i32 [ 0, %284 ], [ 0, %291 ], [ 0, %288 ], [ 0, %12 ], [ 0, %14 ], [ 0, %282 ], [ 0, %9 ], [ 0, %16 ], [ 0, %20 ], [ 0, %22 ], [ 0, %28 ], [ 0, %24 ], [ 0, %32 ], [ 0, %40 ], [ 0, %43 ], [ 0, %45 ], [ 0, %51 ], [ 0, %52 ], [ 0, %54 ], [ 0, %62 ], [ 0, %63 ], [ 0, %56 ], [ 0, %69 ], [ 0, %75 ], [ 0, %79 ], [ 0, %73 ], [ 0, %71 ], [ 0, %81 ], [ 0, %83 ], [ 0, %85 ], [ 0, %87 ], [ 0, %90 ], [ 0, %92 ], [ 0, %110 ], [ 0, %114 ], [ 0, %108 ], [ 0, %106 ], [ 0, %116 ], [ 0, %130 ], [ 0, %145 ], [ 0, %148 ], [ 0, %136 ], [ 0, %140 ], [ 0, %142 ], [ 0, %132 ], [ 0, %150 ], [ 0, %156 ], [ 0, %158 ], [ 0, %160 ], [ 0, %162 ], [ 0, %164 ], [ 0, %166 ], [ 0, %170 ], [ 0, %174 ], [ 0, %176 ], [ 0, %168 ], [ 0, %186 ], [ 0, %188 ], [ 0, %190 ], [ 0, %192 ], [ 0, %194 ], [ 0, %202 ], [ 0, %204 ], [ 0, %206 ], [ 0, %208 ], [ 0, %214 ], [ 0, %216 ], [ 0, %219 ], [ 0, %223 ], [ 0, %228 ], [ 0, %231 ], [ -1, %.thread663.sink.split ], [ 0, %226 ], [ 0, %235 ], [ 0, %239 ], [ 0, %241 ], [ 0, %243 ], [ 0, %245 ], [ 0, %249 ], [ 0, %251 ], [ 0, %255 ], [ 0, %259 ], [ 0, %253 ], [ 0, %261 ], [ 0, %273 ], [ 0, %275 ], [ 0, %278 ], [ 0, %280 ], [ 0, %286 ], [ 0, %18 ], [ 0, %26 ], [ 0, %30 ], [ 0, %38 ], [ 0, %36 ], [ 0, %34 ], [ 0, %67 ], [ 0, %65 ], [ 0, %104 ], [ 0, %102 ], [ 0, %100 ], [ 0, %98 ], [ 0, %96 ], [ 0, %94 ], [ 0, %128 ], [ 0, %126 ], [ 0, %124 ], [ 0, %122 ], [ 0, %120 ], [ 0, %118 ], [ 0, %154 ], [ 0, %152 ], [ 0, %184 ], [ 0, %182 ], [ 0, %180 ], [ 0, %178 ], [ 0, %200 ], [ 0, %198 ], [ 0, %196 ], [ 0, %212 ], [ 0, %210 ], [ 0, %237 ], [ 0, %247 ], [ 0, %271 ], [ 0, %269 ], [ 0, %267 ], [ 0, %265 ], [ 0, %263 ], [ %.0462, %346 ], [ %.0462, %303 ], [ %.0462, %350 ], [ %.0462, %342 ], [ %.0462, %336 ], [ %.0462, %switch.early.test ], [ %.0462, %switch.early.test ], [ %.0462, %switch.early.test ], [ %.0462, %switch.early.test ], [ %.0462, %switch.early.test ], [ %.0462, %switch.early.test ], [ %.0462, %switch.early.test ], [ %.0462, %switch.early.test ]
   ret i32 %.0
 }
 
@@ -2138,7 +2138,7 @@ define internal fastcc void @dissect_iscsi_pdu(ptr noundef %0, ptr noundef %1, p
   %.not1532 = icmp eq ptr %56, null
   br i1 %.not1532, label %.thread, label %.thread1674
 
-.thread:                                          ; preds = %50, %42, %38, %46, %54
+.thread:                                          ; preds = %38, %46, %50, %42, %54
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %77 = load ptr, ptr %76, align 8
   %78 = call noalias dereferenceable_or_null(88) ptr @wmem_alloc(ptr noundef %77, i64 noundef 88) #11
@@ -2238,7 +2238,7 @@ define internal fastcc void @dissect_iscsi_pdu(ptr noundef %0, ptr noundef %1, p
 .thread1674:                                      ; preds = %54, %100
   %118 = phi i1 [ %101, %100 ], [ false, %54 ]
   %.014501679 = phi i8 [ %.01450, %100 ], [ 0, %54 ]
-  %.1145816731678 = phi ptr [ %.11458, %100 ], [ %56, %54 ]
+  %.1145816731677 = phi ptr [ %.11458, %100 ], [ %56, %54 ]
   %119 = phi i1 [ %95, %100 ], [ false, %54 ]
   %120 = phi i1 [ %96, %100 ], [ false, %54 ]
   %121 = add i32 %3, 8
@@ -2266,8 +2266,8 @@ define internal fastcc void @dissect_iscsi_pdu(ptr noundef %0, ptr noundef %1, p
 
 137:                                              ; preds = %133, %124
   %.01460 = phi i16 [ %132, %124 ], [ %136, %133 ]
-  %138 = getelementptr inbounds nuw i8, ptr %.1145816731678, i64 16
-  %139 = getelementptr inbounds nuw i8, ptr %.1145816731678, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %.1145816731677, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %.1145816731677, i64 24
   store i16 %.01460, ptr %139, align 8
   %140 = load i32, ptr %27, align 4
   store i32 %140, ptr %138, align 8
@@ -2290,15 +2290,15 @@ define internal fastcc void @dissect_iscsi_pdu(ptr noundef %0, ptr noundef %1, p
   %.not1536 = icmp eq ptr %148, null
   br i1 %.not1536, label %.thread1683, label %.thread1698
 
-.thread1683:                                      ; preds = %100, %115, %114, %105, %102, %146
-  %152 = phi i1 [ %120, %146 ], [ false, %102 ], [ false, %105 ], [ true, %114 ], [ false, %115 ], [ %96, %100 ]
-  %153 = phi i1 [ %119, %146 ], [ true, %102 ], [ false, %105 ], [ false, %114 ], [ false, %115 ], [ %95, %100 ]
-  %.11458167316771691 = phi ptr [ %.1145816731678, %146 ], [ %.11458, %102 ], [ %.11458, %105 ], [ %.11458, %114 ], [ %.11458, %115 ], [ %.11458, %100 ]
-  %.0145016801689 = phi i8 [ %.014501679, %146 ], [ %.01450, %102 ], [ %.01450, %105 ], [ %.01450, %114 ], [ %.01450, %115 ], [ %.01450, %100 ]
-  %154 = phi i1 [ %118, %146 ], [ false, %102 ], [ false, %105 ], [ false, %114 ], [ true, %115 ], [ %101, %100 ]
+.thread1683:                                      ; preds = %115, %114, %105, %102, %100, %146
+  %152 = phi i1 [ %120, %146 ], [ %96, %100 ], [ false, %102 ], [ false, %105 ], [ true, %114 ], [ false, %115 ]
+  %153 = phi i1 [ %119, %146 ], [ %95, %100 ], [ true, %102 ], [ false, %105 ], [ false, %114 ], [ false, %115 ]
+  %.11458167316781691 = phi ptr [ %.1145816731677, %146 ], [ %.11458, %100 ], [ %.11458, %102 ], [ %.11458, %105 ], [ %.11458, %114 ], [ %.11458, %115 ]
+  %.0145016801689 = phi i8 [ %.014501679, %146 ], [ %.01450, %100 ], [ %.01450, %102 ], [ %.01450, %105 ], [ %.01450, %114 ], [ %.01450, %115 ]
+  %154 = phi i1 [ %118, %146 ], [ %101, %100 ], [ false, %102 ], [ false, %105 ], [ false, %114 ], [ true, %115 ]
   %155 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %.11458167316771691, i64 24
+  %157 = getelementptr inbounds nuw i8, ptr %.11458167316781691, i64 24
   %158 = load i16, ptr %157, align 8
   %159 = zext i16 %158 to i64
   %160 = inttoptr i64 %159 to ptr
@@ -2421,7 +2421,7 @@ define internal fastcc void @dissect_iscsi_pdu(ptr noundef %0, ptr noundef %1, p
   %.not15371705 = phi i1 [ false, %173 ], [ false, %169 ], [ false, %195 ], [ false, %206 ], [ false, %218 ], [ false, %212 ], [ false, %199 ], [ false, %174 ], [ true, %.thread1683 ], [ true, %146 ], [ true, %137 ]
   %.114641704 = phi ptr [ %161, %173 ], [ %161, %169 ], [ %161, %195 ], [ %161, %206 ], [ %161, %218 ], [ %161, %212 ], [ %161, %199 ], [ %161, %174 ], [ %161, %.thread1683 ], [ %148, %146 ], [ %145, %137 ]
   %224 = phi i1 [ %154, %173 ], [ %154, %169 ], [ %154, %195 ], [ %154, %206 ], [ %154, %218 ], [ %154, %212 ], [ %154, %199 ], [ %154, %174 ], [ %154, %.thread1683 ], [ %118, %146 ], [ %118, %137 ]
-  %.114581673167716901703 = phi ptr [ %.11458167316771691, %173 ], [ %.11458167316771691, %169 ], [ %.11458167316771691, %195 ], [ %.11458167316771691, %206 ], [ %.11458167316771691, %218 ], [ %.11458167316771691, %212 ], [ %.11458167316771691, %199 ], [ %.11458167316771691, %174 ], [ %.11458167316771691, %.thread1683 ], [ %.1145816731678, %146 ], [ %.1145816731678, %137 ]
+  %.114581673167816901703 = phi ptr [ %.11458167316781691, %173 ], [ %.11458167316781691, %169 ], [ %.11458167316781691, %195 ], [ %.11458167316781691, %206 ], [ %.11458167316781691, %218 ], [ %.11458167316781691, %212 ], [ %.11458167316781691, %199 ], [ %.11458167316781691, %174 ], [ %.11458167316781691, %.thread1683 ], [ %.1145816731677, %146 ], [ %.1145816731677, %137 ]
   %225 = phi i1 [ false, %173 ], [ %153, %169 ], [ false, %195 ], [ false, %206 ], [ false, %218 ], [ false, %212 ], [ false, %199 ], [ false, %174 ], [ %153, %.thread1683 ], [ %119, %146 ], [ %119, %137 ]
   %226 = phi i1 [ %152, %173 ], [ %152, %169 ], [ %152, %195 ], [ %152, %206 ], [ %152, %218 ], [ %152, %212 ], [ %152, %199 ], [ %152, %174 ], [ %152, %.thread1683 ], [ %120, %146 ], [ %120, %137 ]
   %.014501681 = phi i8 [ %.0145016801689, %173 ], [ %.0145016801689, %169 ], [ %.0145016801689, %195 ], [ %.0145016801689, %206 ], [ %.0145016801689, %218 ], [ %.0145016801689, %212 ], [ %.0145016801689, %199 ], [ %.0145016801689, %174 ], [ %.0145016801689, %.thread1683 ], [ %.014501679, %146 ], [ %.014501679, %137 ]
@@ -2654,7 +2654,7 @@ define internal fastcc void @dissect_iscsi_pdu(ptr noundef %0, ptr noundef %1, p
   br i1 %.not1552, label %365, label %361
 
 361:                                              ; preds = %349
-  %362 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 30
+  %362 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 30
   %363 = load i16, ptr %362, align 2
   %364 = or i16 %363, 1
   store i16 %364, ptr %362, align 2
@@ -2666,7 +2666,7 @@ define internal fastcc void @dissect_iscsi_pdu(ptr noundef %0, ptr noundef %1, p
   br i1 %.not1553, label %371, label %367
 
 367:                                              ; preds = %365
-  %368 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 30
+  %368 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 30
   %369 = load i16, ptr %368, align 2
   %370 = or i16 %369, 2
   store i16 %370, ptr %368, align 2
@@ -2697,7 +2697,7 @@ define internal fastcc void @dissect_iscsi_pdu(ptr noundef %0, ptr noundef %1, p
   %388 = add i32 %3, 20
   %389 = call ptr @proto_tree_add_item(ptr noundef %.01447, i32 noundef %387, ptr noundef %0, i32 noundef %388, i32 noundef 4, i32 noundef 0)
   %390 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %388)
-  %391 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 32
+  %391 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 32
   store i32 %390, ptr %391, align 8
   %392 = load i32, ptr @hf_iscsi_CmdSN, align 4
   %393 = add i32 %3, 24
@@ -2715,7 +2715,7 @@ define internal fastcc void @dissect_iscsi_pdu(ptr noundef %0, ptr noundef %1, p
   br i1 %401, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %398
-  %402 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 36
+  %402 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 36
   br label %403
 
 403:                                              ; preds = %.lr.ph, %430
@@ -3466,7 +3466,7 @@ handleDataSegment.exit1602:                       ; preds = %.loopexit, %451, %4
   %912 = add i32 %3, 5
   %913 = call ptr @proto_tree_add_item(ptr noundef %.01447, i32 noundef %911, ptr noundef %0, i32 noundef %912, i32 noundef 3, i32 noundef 0)
   %914 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %912)
-  %915 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 32
+  %915 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 32
   store i32 %914, ptr %915, align 8
   %916 = load i32, ptr @iscsi_protocol_version, align 4
   %917 = icmp sgt i32 %916, 2
@@ -3794,7 +3794,7 @@ handleDataSegment.exit.thread1723:                ; preds = %1067, %1070
   %1144 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1140)
   %.01455 = call i32 @llvm.smin.i32(i32 %1144, i32 %1142)
   %1145 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1140, i32 noundef %spec.select1580, i32 noundef %.01455)
-  %1146 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 16
+  %1146 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 16
   call void @dissect_scsi_snsinfo(ptr noundef %1145, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %spec.select1580, ptr noundef nonnull %1146, ptr noundef %.114641704)
   %1147 = add i32 %1140, %1142
   br label %1148
@@ -3878,13 +3878,13 @@ handleDataSegment.exit.thread1723:                ; preds = %1067, %1070
   br label %handleDataSegment.exit
 
 handleDataSegment.exit:                           ; preds = %506, %950, %1183, %1195, %865, %handleDataSegment.exit1602
-  %.01473 = phi i32 [ 0, %handleDataSegment.exit1602 ], [ 0, %506 ], [ %884, %865 ], [ %943, %950 ], [ 0, %1195 ], [ 0, %1183 ]
-  %.01469 = phi i32 [ %.11470, %handleDataSegment.exit1602 ], [ 0, %506 ], [ 0, %865 ], [ 0, %950 ], [ 0, %1195 ], [ 0, %1183 ]
-  %.01465 = phi i32 [ %.11466, %handleDataSegment.exit1602 ], [ 0, %506 ], [ 0, %865 ], [ 0, %950 ], [ 0, %1195 ], [ 0, %1183 ]
-  %.01462 = phi i32 [ %433, %handleDataSegment.exit1602 ], [ 0, %506 ], [ 0, %865 ], [ 0, %950 ], [ 0, %1195 ], [ 0, %1183 ]
-  %.01461 = phi i32 [ %456, %handleDataSegment.exit1602 ], [ 0, %506 ], [ 0, %865 ], [ 0, %950 ], [ 0, %1195 ], [ 0, %1183 ]
-  %.01452 = phi i1 [ false, %handleDataSegment.exit1602 ], [ false, %506 ], [ false, %865 ], [ %.not1544, %950 ], [ false, %1195 ], [ false, %1183 ]
-  %.01444 = phi i32 [ %.0.i1595, %handleDataSegment.exit1602 ], [ %509, %506 ], [ %885, %865 ], [ %951, %950 ], [ %1201, %1195 ], [ %3, %1183 ]
+  %.01473 = phi i32 [ %943, %950 ], [ 0, %1195 ], [ 0, %handleDataSegment.exit1602 ], [ 0, %506 ], [ 0, %1183 ], [ %884, %865 ]
+  %.01469 = phi i32 [ 0, %950 ], [ 0, %1195 ], [ %.11470, %handleDataSegment.exit1602 ], [ 0, %506 ], [ 0, %1183 ], [ 0, %865 ]
+  %.01465 = phi i32 [ 0, %950 ], [ 0, %1195 ], [ %.11466, %handleDataSegment.exit1602 ], [ 0, %506 ], [ 0, %1183 ], [ 0, %865 ]
+  %.01462 = phi i32 [ 0, %950 ], [ 0, %1195 ], [ %433, %handleDataSegment.exit1602 ], [ 0, %506 ], [ 0, %1183 ], [ 0, %865 ]
+  %.01461 = phi i32 [ 0, %950 ], [ 0, %1195 ], [ %456, %handleDataSegment.exit1602 ], [ 0, %506 ], [ 0, %1183 ], [ 0, %865 ]
+  %.01452 = phi i1 [ %.not1544, %950 ], [ false, %1195 ], [ false, %handleDataSegment.exit1602 ], [ false, %506 ], [ false, %1183 ], [ false, %865 ]
+  %.01444 = phi i32 [ %951, %950 ], [ %1201, %1195 ], [ %.0.i1595, %handleDataSegment.exit1602 ], [ %509, %506 ], [ %3, %1183 ], [ %885, %865 ]
   switch i8 %4, label %proto_item_set_generated.exit1615 [
     i8 33, label %1202
     i8 49, label %1262
@@ -3894,7 +3894,7 @@ handleDataSegment.exit:                           ; preds = %506, %950, %1183, %
   ]
 
 1202:                                             ; preds = %handleDataSegment.exit
-  %1203 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 16
+  %1203 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 16
   %1204 = load i32, ptr %1203, align 8
   %.not1571 = icmp eq i32 %1204, 0
   br i1 %.not1571, label %1226, label %1205
@@ -3921,7 +3921,7 @@ handleDataSegment.exit:                           ; preds = %506, %950, %1183, %
 
 proto_item_set_generated.exit:                    ; preds = %1205, %1208, %1211
   %1215 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %1216 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 48
+  %1216 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 48
   call void @nstime_delta(ptr noundef nonnull %11, ptr noundef nonnull %1215, ptr noundef nonnull %1216)
   %1217 = load i32, ptr @hf_iscsi_time, align 4
   %1218 = call ptr @proto_tree_add_time(ptr noundef %.01447, i32 noundef %1217, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11)
@@ -3946,7 +3946,7 @@ proto_item_set_generated.exit1606:                ; preds = %proto_item_set_gene
   br label %1226
 
 1226:                                             ; preds = %proto_item_set_generated.exit1606, %1202
-  %1227 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 8
+  %1227 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 8
   %1228 = load i32, ptr %1227, align 8
   %.not1572 = icmp eq i32 %1228, 0
   br i1 %.not1572, label %proto_item_set_generated.exit1609, label %1229
@@ -3971,7 +3971,7 @@ proto_item_set_generated.exit1606:                ; preds = %proto_item_set_gene
   br label %proto_item_set_generated.exit1609
 
 proto_item_set_generated.exit1609:                ; preds = %1235, %1232, %1229, %1226
-  %1239 = load i32, ptr %.114581673167716901703, align 8
+  %1239 = load i32, ptr %.114581673167816901703, align 8
   %.not1573 = icmp eq i32 %1239, 0
   br i1 %.not1573, label %proto_item_set_generated.exit1612, label %1240
 
@@ -3995,7 +3995,7 @@ proto_item_set_generated.exit1609:                ; preds = %1235, %1232, %1229,
   br label %proto_item_set_generated.exit1612
 
 proto_item_set_generated.exit1612:                ; preds = %1246, %1243, %1240, %proto_item_set_generated.exit1609
-  %1250 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 4
+  %1250 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 4
   %1251 = load i32, ptr %1250, align 4
   %.not1574 = icmp eq i32 %1251, 0
   br i1 %.not1574, label %proto_item_set_generated.exit1615, label %1252
@@ -4027,7 +4027,7 @@ proto_item_set_generated.exit1612:                ; preds = %1246, %1243, %1240,
   %.014651733 = phi i32 [ 0, %handleDataSegment.exit.thread1723 ], [ %.01465, %handleDataSegment.exit ]
   %.014691732 = phi i32 [ 0, %handleDataSegment.exit.thread1723 ], [ %.01469, %handleDataSegment.exit ]
   %.014731731 = phi i32 [ 0, %handleDataSegment.exit.thread1723 ], [ %.01473, %handleDataSegment.exit ]
-  %1263 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 16
+  %1263 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 16
   %1264 = load i32, ptr %1263, align 8
   %.not1567 = icmp eq i32 %1264, 0
   br i1 %.not1567, label %proto_item_set_generated.exit1618.thread, label %1265
@@ -4064,7 +4064,7 @@ proto_item_set_generated.exit1618:                ; preds = %1271, %1268, %1265
 1278:                                             ; preds = %1275
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1279 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %1280 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 64
+  %1280 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 64
   call void @nstime_delta(ptr noundef nonnull %12, ptr noundef nonnull %1279, ptr noundef nonnull %1280)
   %1281 = load i32, ptr @hf_iscsi_r2t_time, align 4
   %1282 = call ptr @proto_tree_add_time(ptr noundef %.01447, i32 noundef %1281, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12)
@@ -4089,7 +4089,7 @@ proto_item_set_generated.exit1621:                ; preds = %1278, %1283, %1286
   br label %proto_item_set_generated.exit1618.thread
 
 proto_item_set_generated.exit1618.thread:         ; preds = %1262, %proto_item_set_generated.exit1621, %1275, %proto_item_set_generated.exit1618
-  %1290 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 4
+  %1290 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 4
   %1291 = load i32, ptr %1290, align 4
   %.not1569 = icmp eq i32 %1291, 0
   br i1 %.not1569, label %proto_item_set_generated.exit1624, label %1292
@@ -4114,7 +4114,7 @@ proto_item_set_generated.exit1618.thread:         ; preds = %1262, %proto_item_s
   br label %proto_item_set_generated.exit1624
 
 proto_item_set_generated.exit1624:                ; preds = %1298, %1295, %1292, %proto_item_set_generated.exit1618.thread
-  %1302 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 20
+  %1302 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 20
   %1303 = load i32, ptr %1302, align 4
   %.not1570 = icmp eq i32 %1303, 0
   br i1 %.not1570, label %proto_item_set_generated.exit1627, label %1304
@@ -4139,7 +4139,7 @@ proto_item_set_generated.exit1624:                ; preds = %1298, %1295, %1292,
   br label %proto_item_set_generated.exit1627
 
 proto_item_set_generated.exit1627:                ; preds = %1310, %1307, %1304, %proto_item_set_generated.exit1624
-  %1314 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 24
+  %1314 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 24
   %1315 = load i16, ptr %1314, align 8
   %1316 = icmp eq i16 %1315, -1
   br i1 %1316, label %1317, label %1319
@@ -4152,14 +4152,14 @@ proto_item_set_generated.exit1627:                ; preds = %1310, %1307, %1304,
 1319:                                             ; preds = %proto_item_set_generated.exit1627
   %1320 = zext i16 %1315 to i32
   %1321 = load ptr, ptr %21, align 8
-  %1322 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 32
+  %1322 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 32
   %1323 = load i32, ptr %1322, align 8
   %1324 = lshr i32 %1323, 9
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1321, i32 noundef 25, ptr noundef nonnull @.str.530, i32 noundef %1320, i32 noundef %1323, i32 noundef %1324)
   br label %proto_item_set_generated.exit1615
 
 1325:                                             ; preds = %handleDataSegment.exit
-  %1326 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 16
+  %1326 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 16
   %1327 = load i32, ptr %1326, align 8
   %.not1565 = icmp eq i32 %1327, 0
   br i1 %.01452, label %1341, label %1328
@@ -4169,7 +4169,7 @@ proto_item_set_generated.exit1627:                ; preds = %1310, %1307, %1304,
 
 1329:                                             ; preds = %1328
   %1330 = load i32, ptr @hf_iscsi_response_frame, align 4
-  %1331 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 20
+  %1331 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 20
   %1332 = load i32, ptr %1331, align 4
   %1333 = call ptr @proto_tree_add_uint(ptr noundef %.01447, i32 noundef %1330, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %1332)
   %.not.i1628 = icmp eq ptr %1333, null
@@ -4213,7 +4213,7 @@ proto_item_set_generated.exit1627:                ; preds = %1310, %1307, %1304,
 
 proto_item_set_generated.exit1633:                ; preds = %1342, %1345, %1348
   %1352 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %1353 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 48
+  %1353 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 48
   call void @nstime_delta(ptr noundef nonnull %13, ptr noundef nonnull %1352, ptr noundef nonnull %1353)
   %1354 = load i32, ptr @hf_iscsi_time, align 4
   %1355 = call ptr @proto_tree_add_time(ptr noundef %.01447, i32 noundef %1354, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %13)
@@ -4238,7 +4238,7 @@ proto_item_set_generated.exit1636:                ; preds = %proto_item_set_gene
   br label %proto_item_set_generated.exit1630
 
 proto_item_set_generated.exit1630:                ; preds = %1337, %1334, %1329, %1341, %proto_item_set_generated.exit1636, %1328
-  %1363 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 4
+  %1363 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 4
   %1364 = load i32, ptr %1363, align 4
   %.not1566 = icmp eq i32 %1364, 0
   br i1 %.not1566, label %proto_item_set_generated.exit1639, label %1365
@@ -4266,7 +4266,7 @@ proto_item_set_generated.exit1639:                ; preds = %1371, %1368, %1365,
   %1375 = load ptr, ptr %21, align 8
   call void @col_set_fence(ptr noundef %1375, i32 noundef 25)
   %1376 = load ptr, ptr %21, align 8
-  %1377 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 24
+  %1377 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 24
   %1378 = load i16, ptr %1377, align 8
   %1379 = zext i16 %1378 to i32
   %1380 = lshr i32 %5, 9
@@ -4274,7 +4274,7 @@ proto_item_set_generated.exit1639:                ; preds = %1371, %1368, %1365,
   br label %proto_item_set_generated.exit1615
 
 1381:                                             ; preds = %handleDataSegment.exit
-  %1382 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 16
+  %1382 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 16
   %1383 = load i32, ptr %1382, align 8
   %.not1560 = icmp eq i32 %1383, 0
   br i1 %.not1560, label %proto_item_set_generated.exit1642, label %1384
@@ -4299,7 +4299,7 @@ proto_item_set_generated.exit1639:                ; preds = %1371, %1368, %1365,
   br label %proto_item_set_generated.exit1642
 
 proto_item_set_generated.exit1642:                ; preds = %1390, %1387, %1384, %1381
-  %1394 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 8
+  %1394 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 8
   %1395 = load i32, ptr %1394, align 8
   %.not1561 = icmp eq i32 %1395, 0
   br i1 %.not1561, label %proto_item_set_generated.exit1645, label %1396
@@ -4324,7 +4324,7 @@ proto_item_set_generated.exit1642:                ; preds = %1390, %1387, %1384,
   br label %proto_item_set_generated.exit1645
 
 proto_item_set_generated.exit1645:                ; preds = %1402, %1399, %1396, %proto_item_set_generated.exit1642
-  %1406 = load i32, ptr %.114581673167716901703, align 8
+  %1406 = load i32, ptr %.114581673167816901703, align 8
   %.not1562 = icmp eq i32 %1406, 0
   br i1 %.not1562, label %proto_item_set_generated.exit1648, label %1407
 
@@ -4348,7 +4348,7 @@ proto_item_set_generated.exit1645:                ; preds = %1402, %1399, %1396,
   br label %proto_item_set_generated.exit1648
 
 proto_item_set_generated.exit1648:                ; preds = %1413, %1410, %1407, %proto_item_set_generated.exit1645
-  %1417 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 20
+  %1417 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 20
   %1418 = load i32, ptr %1417, align 4
   %.not1563 = icmp eq i32 %1418, 0
   br i1 %.not1563, label %proto_item_set_generated.exit1651, label %1419
@@ -4376,7 +4376,7 @@ proto_item_set_generated.exit1651:                ; preds = %1425, %1422, %1419,
   %1429 = load ptr, ptr %21, align 8
   call void @col_set_fence(ptr noundef %1429, i32 noundef 25)
   %1430 = load ptr, ptr %21, align 8
-  %1431 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 24
+  %1431 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 24
   %1432 = load i16, ptr %1431, align 8
   %1433 = zext i16 %1432 to i32
   %1434 = lshr i32 %5, 9
@@ -4384,7 +4384,7 @@ proto_item_set_generated.exit1651:                ; preds = %1425, %1422, %1419,
   br label %proto_item_set_generated.exit1615
 
 1435:                                             ; preds = %handleDataSegment.exit
-  %1436 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 8
+  %1436 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 8
   %1437 = load i32, ptr %1436, align 8
   %.not1556 = icmp eq i32 %1437, 0
   br i1 %.not1556, label %proto_item_set_generated.exit1654, label %1438
@@ -4409,7 +4409,7 @@ proto_item_set_generated.exit1651:                ; preds = %1425, %1422, %1419,
   br label %proto_item_set_generated.exit1654
 
 proto_item_set_generated.exit1654:                ; preds = %1444, %1441, %1438, %1435
-  %1448 = load i32, ptr %.114581673167716901703, align 8
+  %1448 = load i32, ptr %.114581673167816901703, align 8
   %.not1557 = icmp eq i32 %1448, 0
   br i1 %.not1557, label %proto_item_set_generated.exit1657, label %1449
 
@@ -4433,7 +4433,7 @@ proto_item_set_generated.exit1654:                ; preds = %1444, %1441, %1438,
   br label %proto_item_set_generated.exit1657
 
 proto_item_set_generated.exit1657:                ; preds = %1455, %1452, %1449, %proto_item_set_generated.exit1654
-  %1459 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 4
+  %1459 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 4
   %1460 = load i32, ptr %1459, align 4
   %.not1558 = icmp eq i32 %1460, 0
   br i1 %.not1558, label %proto_item_set_generated.exit1660, label %1461
@@ -4458,7 +4458,7 @@ proto_item_set_generated.exit1657:                ; preds = %1455, %1452, %1449,
   br label %proto_item_set_generated.exit1660
 
 proto_item_set_generated.exit1660:                ; preds = %1467, %1464, %1461, %proto_item_set_generated.exit1657
-  %1471 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 20
+  %1471 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 20
   %1472 = load i32, ptr %1471, align 4
   %.not1559 = icmp eq i32 %1472, 0
   br i1 %.not1559, label %proto_item_set_generated.exit1615, label %1473
@@ -4483,13 +4483,13 @@ proto_item_set_generated.exit1660:                ; preds = %1467, %1464, %1461,
   br label %proto_item_set_generated.exit1615
 
 proto_item_set_generated.exit1615:                ; preds = %525, %792, %996, %1049, %1163, %1017, %837, %563, %.split1481, %.split, %.split1485, %.split1483, %1148, %1149, %1108, %262, %296, %298, %308, %344, %346, %1479, %1476, %1473, %1258, %1255, %1252, %proto_item_set_generated.exit1660, %1317, %1319, %proto_item_set_generated.exit1612, %proto_item_set_generated.exit1651, %proto_item_set_generated.exit1639, %handleDataSegment.exit
-  %.014441722 = phi i32 [ %.01444, %proto_item_set_generated.exit1660 ], [ %.014441737, %1317 ], [ %.014441737, %1319 ], [ %.01444, %proto_item_set_generated.exit1612 ], [ %.01444, %proto_item_set_generated.exit1651 ], [ %.01444, %proto_item_set_generated.exit1639 ], [ %.01444, %handleDataSegment.exit ], [ %.01444, %1252 ], [ %.01444, %1255 ], [ %.01444, %1258 ], [ %.01444, %1473 ], [ %.01444, %1476 ], [ %.01444, %1479 ], [ %.2.i1590, %344 ], [ %348, %346 ], [ %326, %308 ], [ %.2.i, %296 ], [ %300, %298 ], [ %278, %262 ], [ %16, %1108 ], [ %16, %1149 ], [ %16, %1148 ], [ %760, %.split1485 ], [ %758, %.split1483 ], [ %673, %.split1481 ], [ %671, %.split ], [ %1178, %1163 ], [ %1066, %1049 ], [ %1034, %1017 ], [ %1003, %996 ], [ %852, %837 ], [ %805, %792 ], [ %572, %563 ], [ %540, %525 ]
-  %.014521721 = phi i1 [ %.01452, %proto_item_set_generated.exit1660 ], [ %.014521736, %1317 ], [ %.014521736, %1319 ], [ %.01452, %proto_item_set_generated.exit1612 ], [ %.01452, %proto_item_set_generated.exit1651 ], [ %.01452, %proto_item_set_generated.exit1639 ], [ %.01452, %handleDataSegment.exit ], [ %.01452, %1252 ], [ %.01452, %1255 ], [ %.01452, %1258 ], [ %.01452, %1473 ], [ %.01452, %1476 ], [ %.01452, %1479 ], [ false, %344 ], [ false, %346 ], [ false, %308 ], [ false, %296 ], [ false, %298 ], [ false, %262 ], [ false, %1108 ], [ false, %1149 ], [ false, %1148 ], [ false, %.split1485 ], [ false, %.split1483 ], [ false, %.split1481 ], [ false, %.split ], [ false, %1163 ], [ false, %1049 ], [ false, %1017 ], [ false, %996 ], [ false, %837 ], [ false, %792 ], [ false, %563 ], [ false, %525 ]
-  %.014611720 = phi i32 [ %.01461, %proto_item_set_generated.exit1660 ], [ %.014611735, %1317 ], [ %.014611735, %1319 ], [ %.01461, %proto_item_set_generated.exit1612 ], [ %.01461, %proto_item_set_generated.exit1651 ], [ %.01461, %proto_item_set_generated.exit1639 ], [ %.01461, %handleDataSegment.exit ], [ %.01461, %1252 ], [ %.01461, %1255 ], [ %.01461, %1258 ], [ %.01461, %1473 ], [ %.01461, %1476 ], [ %.01461, %1479 ], [ 0, %344 ], [ 0, %346 ], [ 0, %308 ], [ 0, %296 ], [ 0, %298 ], [ 0, %262 ], [ 0, %1108 ], [ 0, %1149 ], [ 0, %1148 ], [ 0, %.split1485 ], [ 0, %.split1483 ], [ 0, %.split1481 ], [ 0, %.split ], [ 0, %1163 ], [ 0, %1049 ], [ 0, %1017 ], [ 0, %996 ], [ 0, %837 ], [ 0, %792 ], [ 0, %563 ], [ 0, %525 ]
-  %.014621719 = phi i32 [ %.01462, %proto_item_set_generated.exit1660 ], [ %.014621734, %1317 ], [ %.014621734, %1319 ], [ %.01462, %proto_item_set_generated.exit1612 ], [ %.01462, %proto_item_set_generated.exit1651 ], [ %.01462, %proto_item_set_generated.exit1639 ], [ %.01462, %handleDataSegment.exit ], [ %.01462, %1252 ], [ %.01462, %1255 ], [ %.01462, %1258 ], [ %.01462, %1473 ], [ %.01462, %1476 ], [ %.01462, %1479 ], [ 0, %344 ], [ 0, %346 ], [ 0, %308 ], [ 0, %296 ], [ 0, %298 ], [ 0, %262 ], [ 0, %1108 ], [ 0, %1149 ], [ 0, %1148 ], [ 0, %.split1485 ], [ 0, %.split1483 ], [ 0, %.split1481 ], [ 0, %.split ], [ 0, %1163 ], [ 0, %1049 ], [ 0, %1017 ], [ 0, %996 ], [ 0, %837 ], [ 0, %792 ], [ 0, %563 ], [ 0, %525 ]
-  %.014651718 = phi i32 [ %.01465, %proto_item_set_generated.exit1660 ], [ %.014651733, %1317 ], [ %.014651733, %1319 ], [ %.01465, %proto_item_set_generated.exit1612 ], [ %.01465, %proto_item_set_generated.exit1651 ], [ %.01465, %proto_item_set_generated.exit1639 ], [ %.01465, %handleDataSegment.exit ], [ %.01465, %1252 ], [ %.01465, %1255 ], [ %.01465, %1258 ], [ %.01465, %1473 ], [ %.01465, %1476 ], [ %.01465, %1479 ], [ 0, %344 ], [ 0, %346 ], [ 0, %308 ], [ 0, %296 ], [ 0, %298 ], [ 0, %262 ], [ 0, %1108 ], [ 0, %1149 ], [ 0, %1148 ], [ 0, %.split1485 ], [ 0, %.split1483 ], [ 0, %.split1481 ], [ 0, %.split ], [ 0, %1163 ], [ 0, %1049 ], [ 0, %1017 ], [ 0, %996 ], [ 0, %837 ], [ 0, %792 ], [ 0, %563 ], [ 0, %525 ]
-  %.014691717 = phi i32 [ %.01469, %proto_item_set_generated.exit1660 ], [ %.014691732, %1317 ], [ %.014691732, %1319 ], [ %.01469, %proto_item_set_generated.exit1612 ], [ %.01469, %proto_item_set_generated.exit1651 ], [ %.01469, %proto_item_set_generated.exit1639 ], [ %.01469, %handleDataSegment.exit ], [ %.01469, %1252 ], [ %.01469, %1255 ], [ %.01469, %1258 ], [ %.01469, %1473 ], [ %.01469, %1476 ], [ %.01469, %1479 ], [ 0, %344 ], [ 0, %346 ], [ 0, %308 ], [ 0, %296 ], [ 0, %298 ], [ 0, %262 ], [ 0, %1108 ], [ 0, %1149 ], [ 0, %1148 ], [ 0, %.split1485 ], [ 0, %.split1483 ], [ 0, %.split1481 ], [ 0, %.split ], [ 0, %1163 ], [ 0, %1049 ], [ 0, %1017 ], [ 0, %996 ], [ 0, %837 ], [ 0, %792 ], [ 0, %563 ], [ 0, %525 ]
-  %.014731716 = phi i32 [ %.01473, %proto_item_set_generated.exit1660 ], [ %.014731731, %1317 ], [ %.014731731, %1319 ], [ %.01473, %proto_item_set_generated.exit1612 ], [ %.01473, %proto_item_set_generated.exit1651 ], [ %.01473, %proto_item_set_generated.exit1639 ], [ %.01473, %handleDataSegment.exit ], [ %.01473, %1252 ], [ %.01473, %1255 ], [ %.01473, %1258 ], [ %.01473, %1473 ], [ %.01473, %1476 ], [ %.01473, %1479 ], [ 0, %344 ], [ 0, %346 ], [ 0, %308 ], [ 0, %296 ], [ 0, %298 ], [ 0, %262 ], [ 0, %1108 ], [ 0, %1149 ], [ 0, %1148 ], [ 0, %.split1485 ], [ 0, %.split1483 ], [ 0, %.split1481 ], [ 0, %.split ], [ 0, %1163 ], [ 0, %1049 ], [ 0, %1017 ], [ 0, %996 ], [ 0, %837 ], [ 0, %792 ], [ 0, %563 ], [ 0, %525 ]
+  %.014441722 = phi i32 [ %.01444, %1479 ], [ %.01444, %proto_item_set_generated.exit1660 ], [ %.01444, %1258 ], [ %.014441737, %1317 ], [ %.014441737, %1319 ], [ %.01444, %proto_item_set_generated.exit1612 ], [ %.01444, %handleDataSegment.exit ], [ %.01444, %proto_item_set_generated.exit1651 ], [ %.01444, %proto_item_set_generated.exit1639 ], [ %.01444, %1252 ], [ %.01444, %1255 ], [ %.01444, %1473 ], [ %.01444, %1476 ], [ %.2.i1590, %344 ], [ %348, %346 ], [ %326, %308 ], [ %300, %298 ], [ %278, %262 ], [ %16, %1149 ], [ %16, %1148 ], [ %758, %.split1483 ], [ %671, %.split ], [ %1178, %1163 ], [ %760, %.split1485 ], [ %1066, %1049 ], [ %1034, %1017 ], [ %1003, %996 ], [ %852, %837 ], [ %805, %792 ], [ %673, %.split1481 ], [ %572, %563 ], [ %540, %525 ], [ %.2.i, %296 ], [ %16, %1108 ]
+  %.014521721 = phi i1 [ %.01452, %1479 ], [ %.01452, %proto_item_set_generated.exit1660 ], [ %.01452, %1258 ], [ %.014521736, %1317 ], [ %.014521736, %1319 ], [ %.01452, %proto_item_set_generated.exit1612 ], [ %.01452, %handleDataSegment.exit ], [ %.01452, %proto_item_set_generated.exit1651 ], [ %.01452, %proto_item_set_generated.exit1639 ], [ %.01452, %1252 ], [ %.01452, %1255 ], [ %.01452, %1473 ], [ %.01452, %1476 ], [ false, %344 ], [ false, %346 ], [ false, %308 ], [ false, %298 ], [ false, %262 ], [ false, %1149 ], [ false, %1148 ], [ false, %.split1483 ], [ false, %.split ], [ false, %1163 ], [ false, %.split1485 ], [ false, %1049 ], [ false, %1017 ], [ false, %996 ], [ false, %837 ], [ false, %792 ], [ false, %.split1481 ], [ false, %563 ], [ false, %525 ], [ false, %296 ], [ false, %1108 ]
+  %.014611720 = phi i32 [ %.01461, %1479 ], [ %.01461, %proto_item_set_generated.exit1660 ], [ %.01461, %1258 ], [ %.014611735, %1317 ], [ %.014611735, %1319 ], [ %.01461, %proto_item_set_generated.exit1612 ], [ %.01461, %handleDataSegment.exit ], [ %.01461, %proto_item_set_generated.exit1651 ], [ %.01461, %proto_item_set_generated.exit1639 ], [ %.01461, %1252 ], [ %.01461, %1255 ], [ %.01461, %1473 ], [ %.01461, %1476 ], [ 0, %344 ], [ 0, %346 ], [ 0, %308 ], [ 0, %298 ], [ 0, %262 ], [ 0, %1149 ], [ 0, %1148 ], [ 0, %.split1483 ], [ 0, %.split ], [ 0, %1163 ], [ 0, %.split1485 ], [ 0, %1049 ], [ 0, %1017 ], [ 0, %996 ], [ 0, %837 ], [ 0, %792 ], [ 0, %.split1481 ], [ 0, %563 ], [ 0, %525 ], [ 0, %296 ], [ 0, %1108 ]
+  %.014621719 = phi i32 [ %.01462, %1479 ], [ %.01462, %proto_item_set_generated.exit1660 ], [ %.01462, %1258 ], [ %.014621734, %1317 ], [ %.014621734, %1319 ], [ %.01462, %proto_item_set_generated.exit1612 ], [ %.01462, %handleDataSegment.exit ], [ %.01462, %proto_item_set_generated.exit1651 ], [ %.01462, %proto_item_set_generated.exit1639 ], [ %.01462, %1252 ], [ %.01462, %1255 ], [ %.01462, %1473 ], [ %.01462, %1476 ], [ 0, %344 ], [ 0, %346 ], [ 0, %308 ], [ 0, %298 ], [ 0, %262 ], [ 0, %1149 ], [ 0, %1148 ], [ 0, %.split1483 ], [ 0, %.split ], [ 0, %1163 ], [ 0, %.split1485 ], [ 0, %1049 ], [ 0, %1017 ], [ 0, %996 ], [ 0, %837 ], [ 0, %792 ], [ 0, %.split1481 ], [ 0, %563 ], [ 0, %525 ], [ 0, %296 ], [ 0, %1108 ]
+  %.014651718 = phi i32 [ %.01465, %1479 ], [ %.01465, %proto_item_set_generated.exit1660 ], [ %.01465, %1258 ], [ %.014651733, %1317 ], [ %.014651733, %1319 ], [ %.01465, %proto_item_set_generated.exit1612 ], [ %.01465, %handleDataSegment.exit ], [ %.01465, %proto_item_set_generated.exit1651 ], [ %.01465, %proto_item_set_generated.exit1639 ], [ %.01465, %1252 ], [ %.01465, %1255 ], [ %.01465, %1473 ], [ %.01465, %1476 ], [ 0, %344 ], [ 0, %346 ], [ 0, %308 ], [ 0, %298 ], [ 0, %262 ], [ 0, %1149 ], [ 0, %1148 ], [ 0, %.split1483 ], [ 0, %.split ], [ 0, %1163 ], [ 0, %.split1485 ], [ 0, %1049 ], [ 0, %1017 ], [ 0, %996 ], [ 0, %837 ], [ 0, %792 ], [ 0, %.split1481 ], [ 0, %563 ], [ 0, %525 ], [ 0, %296 ], [ 0, %1108 ]
+  %.014691717 = phi i32 [ %.01469, %1479 ], [ %.01469, %proto_item_set_generated.exit1660 ], [ %.01469, %1258 ], [ %.014691732, %1317 ], [ %.014691732, %1319 ], [ %.01469, %proto_item_set_generated.exit1612 ], [ %.01469, %handleDataSegment.exit ], [ %.01469, %proto_item_set_generated.exit1651 ], [ %.01469, %proto_item_set_generated.exit1639 ], [ %.01469, %1252 ], [ %.01469, %1255 ], [ %.01469, %1473 ], [ %.01469, %1476 ], [ 0, %344 ], [ 0, %346 ], [ 0, %308 ], [ 0, %298 ], [ 0, %262 ], [ 0, %1149 ], [ 0, %1148 ], [ 0, %.split1483 ], [ 0, %.split ], [ 0, %1163 ], [ 0, %.split1485 ], [ 0, %1049 ], [ 0, %1017 ], [ 0, %996 ], [ 0, %837 ], [ 0, %792 ], [ 0, %.split1481 ], [ 0, %563 ], [ 0, %525 ], [ 0, %296 ], [ 0, %1108 ]
+  %.014731716 = phi i32 [ %.01473, %1479 ], [ %.01473, %proto_item_set_generated.exit1660 ], [ %.01473, %1258 ], [ %.014731731, %1317 ], [ %.014731731, %1319 ], [ %.01473, %proto_item_set_generated.exit1612 ], [ %.01473, %handleDataSegment.exit ], [ %.01473, %proto_item_set_generated.exit1651 ], [ %.01473, %proto_item_set_generated.exit1639 ], [ %.01473, %1252 ], [ %.01473, %1255 ], [ %.01473, %1473 ], [ %.01473, %1476 ], [ 0, %344 ], [ 0, %346 ], [ 0, %308 ], [ 0, %298 ], [ 0, %262 ], [ 0, %1149 ], [ 0, %1148 ], [ 0, %.split1483 ], [ 0, %.split ], [ 0, %1163 ], [ 0, %.split1485 ], [ 0, %1049 ], [ 0, %1017 ], [ 0, %996 ], [ 0, %837 ], [ 0, %792 ], [ 0, %.split1481 ], [ 0, %563 ], [ 0, %525 ], [ 0, %296 ], [ 0, %1108 ]
   %1483 = sub i32 %.014441722, %3
   call void @proto_item_set_len(ptr noundef %.01447, i32 noundef %1483)
   br i1 %.not15371705, label %1484, label %1508
@@ -4523,7 +4523,7 @@ proto_item_set_generated.exit1615:                ; preds = %525, %792, %996, %1
 
 1501:                                             ; preds = %1499, %1488
   %.01451 = phi ptr [ %1498, %1488 ], [ %1500, %1499 ]
-  %1502 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 16
+  %1502 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 16
   call void @dissect_scsi_cdb(ptr noundef %.01451, ptr noundef %1, ptr noundef %2, i32 noundef -1, ptr noundef nonnull %1502, ptr noundef %.114641704)
   %1503 = load ptr, ptr %21, align 8
   call void @col_set_fence(ptr noundef %1503, i32 noundef 25)
@@ -4573,12 +4573,12 @@ proto_item_set_generated.exit1615:                ; preds = %525, %792, %996, %1
   %1524 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1522)
   %.01445 = call i32 @llvm.smin.i32(i32 %1524, i32 %1516)
   %1525 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1522, i32 noundef %spec.select1583, i32 noundef %.01445)
-  %1526 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 16
+  %1526 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 16
   call void @dissect_scsi_snsinfo(ptr noundef %1525, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %spec.select1583, ptr noundef nonnull %1526, ptr noundef %.114641704)
   br label %1535
 
 1527:                                             ; preds = %1509
-  %1528 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 16
+  %1528 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 16
   call void @dissect_scsi_rsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %1528, ptr noundef %.114641704, i8 noundef zeroext %.014501681)
   br label %1535
 
@@ -4594,7 +4594,7 @@ proto_item_set_generated.exit1615:                ; preds = %525, %792, %996, %1
   %1532 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.014441722)
   %.0 = call i32 @llvm.smin.i32(i32 %1532, i32 %5)
   %1533 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.014441722, i32 noundef %spec.select1584, i32 noundef %.0)
-  %1534 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 16
+  %1534 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 16
   call void @dissect_scsi_payload(ptr noundef %1533, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %224, ptr noundef nonnull %1534, ptr noundef %.114641704, i32 noundef %.014731716)
   br label %1535
 
@@ -4602,7 +4602,7 @@ proto_item_set_generated.exit1615:                ; preds = %525, %792, %996, %1
   br i1 %.014521721, label %1536, label %1538
 
 1536:                                             ; preds = %1535
-  %1537 = getelementptr inbounds nuw i8, ptr %.114581673167716901703, i64 16
+  %1537 = getelementptr inbounds nuw i8, ptr %.114581673167816901703, i64 16
   call void @dissect_scsi_rsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %1537, ptr noundef %.114641704, i8 noundef zeroext %.014501681)
   br label %1538
 

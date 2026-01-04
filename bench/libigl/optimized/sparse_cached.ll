@@ -543,7 +543,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br label %_ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit
 
 _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; preds = %.lr.ph89.i.i.i.i, %.lr.ph94.i.i.i.i, %.preheader.i.i.i.i, %170, %176
-  %.in = phi i32 [ %178, %176 ], [ %171, %170 ], [ %.075.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %174, %.lr.ph94.i.i.i.i ], [ %167, %.lr.ph89.i.i.i.i ]
+  %.in = phi i32 [ %178, %176 ], [ %174, %.lr.ph94.i.i.i.i ], [ %171, %170 ], [ %.075.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %167, %.lr.ph89.i.i.i.i ]
   %179 = icmp ult i32 %132, %.in
   br i1 %179, label %.lr.ph107.preheader, label %.loopexit
 
@@ -881,7 +881,7 @@ _ZN5Eigen12SparseMatrixIdLi1EiE7reserveINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvR
   br label %77
 
 75:                                               ; preds = %54, %36
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %55, %54 ]
+  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %37, %36 ]
   %76 = load ptr, ptr %6, align 8, !tbaa !14
   call void @free(ptr noundef %76) #21
   br label %.body
@@ -2149,7 +2149,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %24, %20
-  %.01924.i.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %20 ], [ %.01924.i.i.i.i.i.add.i.i.i.i, %24 ]
+  %.01924.i.i.i.i.i.idx.i.i.i.i = phi i64 [ %.01924.i.i.i.i.i.add.i.i.i.i, %24 ], [ 0, %20 ]
   %.01924.i.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.01924.i.i.i.i.i.idx.i.i.i.i
   %.02023.i.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.018.1.i.i, i64 %.01924.i.i.i.i.i.idx.i.i.i.i
   %21 = load i32, ptr %.02023.i.i.i.i.i.ptr.i.i.i.i, align 4, !tbaa !19
@@ -2174,7 +2174,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5arrayIiLm3EES
   br label %.lr.ph.i.i.i.i.i.i.i8.i.i
 
 .lr.ph.i.i.i.i.i.i.i8.i.i:                        ; preds = %31, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i.i
-  %.01924.i.i.i.i.i.idx.i.i9.i.i = phi i64 [ 0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i.i ], [ %.01924.i.i.i.i.i.add.i.i12.i.i, %31 ]
+  %.01924.i.i.i.i.i.idx.i.i9.i.i = phi i64 [ %.01924.i.i.i.i.i.add.i.i12.i.i, %31 ], [ 0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.i.i ]
   %.01924.i.i.i.i.i.ptr.i.i10.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 %.01924.i.i.i.i.i.idx.i.i9.i.i
   %.02023.i.i.i.i.i.ptr.i.i11.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.01924.i.i.i.i.i.idx.i.i9.i.i
   %28 = load i32, ptr %.02023.i.i.i.i.i.ptr.i.i11.i.i, align 4, !tbaa !19
@@ -2296,7 +2296,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5arrayIiLm3EES
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %26, %22
-  %.01924.i.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %22 ], [ %.01924.i.i.i.i.i.add.i.i.i.i, %26 ]
+  %.01924.i.i.i.i.i.idx.i.i.i.i = phi i64 [ %.01924.i.i.i.i.i.add.i.i.i.i, %26 ], [ 0, %22 ]
   %.01924.i.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %.01924.i.i.i.i.i.idx.i.i.i.i
   %.02023.i.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.01924.i.i.i.i.i.idx.i.i.i.i
   %23 = load i32, ptr %.02023.i.i.i.i.i.ptr.i.i.i.i, align 4, !tbaa !19
@@ -2342,7 +2342,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   br label %.lr.ph.i.i.i.i.i.i.i.i.i8
 
 .lr.ph.i.i.i.i.i.i.i.i.i8:                        ; preds = %35, %31
-  %.01924.i.i.i.i.i.idx.i.i.i.i9 = phi i64 [ 0, %31 ], [ %.01924.i.i.i.i.i.add.i.i.i.i12, %35 ]
+  %.01924.i.i.i.i.i.idx.i.i.i.i9 = phi i64 [ %.01924.i.i.i.i.i.add.i.i.i.i12, %35 ], [ 0, %31 ]
   %.01924.i.i.i.i.i.ptr.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i7, i64 %.01924.i.i.i.i.i.idx.i.i.i.i9
   %.02023.i.i.i.i.i.ptr.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %4, i64 %.01924.i.i.i.i.i.idx.i.i.i.i9
   %32 = load i32, ptr %.02023.i.i.i.i.i.ptr.i.i.i.i11, align 4, !tbaa !19
@@ -2437,7 +2437,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5arrayIiLm3EES
   br label %.lr.ph.i.i.i.i.i.i.i.i.i35
 
 .lr.ph.i.i.i.i.i.i.i.i.i35:                       ; preds = %61, %57
-  %.01924.i.i.i.i.i.idx.i.i.i.i36 = phi i64 [ 0, %57 ], [ %.01924.i.i.i.i.i.add.i.i.i.i39, %61 ]
+  %.01924.i.i.i.i.i.idx.i.i.i.i36 = phi i64 [ %.01924.i.i.i.i.i.add.i.i.i.i39, %61 ], [ 0, %57 ]
   %.01924.i.i.i.i.i.ptr.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i34, i64 %.01924.i.i.i.i.i.idx.i.i.i.i36
   %.02023.i.i.i.i.i.ptr.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %3, i64 %.01924.i.i.i.i.i.idx.i.i.i.i36
   %58 = load i32, ptr %.02023.i.i.i.i.i.ptr.i.i.i.i38, align 4, !tbaa !19
@@ -2508,7 +2508,7 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iter
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %25, %.lr.ph.i.i
-  %.01924.i.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %.01924.i.i.i.i.i.add.i.i.i.i, %25 ]
+  %.01924.i.i.i.i.i.idx.i.i.i.i = phi i64 [ %.01924.i.i.i.i.i.add.i.i.i.i, %25 ], [ 0, %.lr.ph.i.i ]
   %.01924.i.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 %.01924.i.i.i.i.i.idx.i.i.i.i
   %.02023.i.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 %.01924.i.i.i.i.i.idx.i.i.i.i
   %22 = load i32, ptr %.02023.i.i.i.i.i.ptr.i.i.i.i, align 4, !tbaa !19
@@ -2567,7 +2567,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5arrayIiLm3EES
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %47, %.lr.ph.i.i.i
-  %.01924.i.i.i.i.i.idx.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %.01924.i.i.i.i.i.add.i.i.i.i.i, %47 ]
+  %.01924.i.i.i.i.i.idx.i.i.i.i.i = phi i64 [ %.01924.i.i.i.i.i.add.i.i.i.i.i, %47 ], [ 0, %.lr.ph.i.i.i ]
   %.01924.i.i.i.i.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.01924.i.i.i.i.i.idx.i.i.i.i.i
   %.02023.i.i.i.i.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 %.01924.i.i.i.i.i.idx.i.i.i.i.i
   %44 = load i32, ptr %.02023.i.i.i.i.i.ptr.i.i.i.i.i, align 4, !tbaa !19
@@ -2589,7 +2589,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5arrayIiLm3EES
   br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !91
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %49, %47, %41
-  %.019.i.i.i = phi i64 [ %.1.i.i, %41 ], [ %.022.i.i.i, %47 ], [ 0, %49 ]
+  %.019.i.i.i = phi i64 [ %.022.i.i.i, %47 ], [ %.1.i.i, %41 ], [ 0, %49 ]
   %51 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.019.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %51, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false), !tbaa.struct !27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2643,7 +2643,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %32, %.lr.ph.i
-  %.01924.i.i.i.i.i.idx.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %.01924.i.i.i.i.i.add.i.i.i, %32 ]
+  %.01924.i.i.i.i.i.idx.i.i.i = phi i64 [ %.01924.i.i.i.i.i.add.i.i.i, %32 ], [ 0, %.lr.ph.i ]
   %.01924.i.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 %.01924.i.i.i.i.i.idx.i.i.i
   %.02023.i.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 %.01924.i.i.i.i.i.idx.i.i.i
   %29 = load i32, ptr %.02023.i.i.i.i.i.ptr.i.i.i, align 4, !tbaa !19
@@ -2692,7 +2692,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5arrayIiLm3EES
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %45, %.lr.ph.i.i
-  %.01924.i.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %.01924.i.i.i.i.i.add.i.i.i.i, %45 ]
+  %.01924.i.i.i.i.i.idx.i.i.i.i = phi i64 [ %.01924.i.i.i.i.i.add.i.i.i.i, %45 ], [ 0, %.lr.ph.i.i ]
   %.01924.i.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.01924.i.i.i.i.i.idx.i.i.i.i
   %.02023.i.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 %.01924.i.i.i.i.i.idx.i.i.i.i
   %42 = load i32, ptr %.02023.i.i.i.i.i.ptr.i.i.i.i, align 4, !tbaa !19
@@ -2714,7 +2714,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5arrayIiLm3EES
   br i1 %49, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, !llvm.loop !91
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %47, %45, %39
-  %.019.i.i = phi i64 [ %.1.i, %39 ], [ %.022.i.i, %45 ], [ %.01023.i.i, %47 ]
+  %.019.i.i = phi i64 [ %.022.i.i, %45 ], [ %.1.i, %39 ], [ %.01023.i.i, %47 ]
   %50 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.019.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %50, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false), !tbaa.struct !27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2731,7 +2731,7 @@ define linkonce_odr dso_local void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %8, %4
-  %.01924.i.i.i.i.i.idx.i.i = phi i64 [ 0, %4 ], [ %.01924.i.i.i.i.i.add.i.i, %8 ]
+  %.01924.i.i.i.i.i.idx.i.i = phi i64 [ %.01924.i.i.i.i.i.add.i.i, %8 ], [ 0, %4 ]
   %.01924.i.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.01924.i.i.i.i.i.idx.i.i
   %.02023.i.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.01924.i.i.i.i.i.idx.i.i
   %5 = load i32, ptr %.02023.i.i.i.i.i.ptr.i.i, align 4, !tbaa !19

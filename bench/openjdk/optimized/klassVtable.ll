@@ -209,7 +209,7 @@ define hidden noundef zeroext i1 @_ZN11klassVtable24is_preinitialized_vtableEv(p
   br label %12
 
 12:                                               ; preds = %9, %1
-  %13 = phi i1 [ false, %1 ], [ %11, %9 ]
+  %13 = phi i1 [ %11, %9 ], [ false, %1 ]
   ret i1 %13
 }
 
@@ -284,7 +284,7 @@ define hidden void @_ZN11klassVtable36compute_vtable_size_and_num_mirandasEPiS0_
   br label %41
 
 41:                                               ; preds = %39, %40, %._crit_edge
-  %.4 = phi i32 [ %.3, %40 ], [ %38, %39 ], [ %.3, %._crit_edge ]
+  %.4 = phi i32 [ %.3, %40 ], [ %.3, %._crit_edge ], [ %38, %39 ]
   store i32 %.4, ptr %0, align 4
   %42 = load i64, ptr %30, align 8
   %43 = and i64 %42, 1
@@ -499,7 +499,7 @@ _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit: ; preds = %104, %105
   br label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread
 
 .split58.us:                                      ; preds = %85, %.split.us.split, %64, %.split.us.split.us
-  %.us-phi = phi i1 [ %.03355.us.us, %.split.us.split.us ], [ %.2.us.us, %64 ], [ %.03355.us, %.split.us.split ], [ %.2.us, %85 ]
+  %.us-phi = phi i1 [ %.2.us.us, %64 ], [ %.03355.us.us, %.split.us.split.us ], [ %.2.us, %85 ], [ %.03355.us, %.split.us.split ]
   br i1 %.us-phi, label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %.split, %93, %.split58.us
@@ -518,7 +518,7 @@ _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit: ; preds = %104, %105
   br label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread
 
 _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread: ; preds = %81, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us, %61, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us.us, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit, %102, %28, %112, %.split58.us, %35, %8, %10, %13, %6, %114
-  %.0 = phi i1 [ true, %114 ], [ false, %6 ], [ false, %13 ], [ false, %10 ], [ false, %8 ], [ true, %35 ], [ true, %.split58.us ], [ false, %112 ], [ false, %28 ], [ false, %102 ], [ %not., %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit ], [ false, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us.us ], [ false, %61 ], [ false, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us ], [ false, %81 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %6 ], [ false, %28 ], [ true, %35 ], [ false, %10 ], [ true, %.split58.us ], [ true, %114 ], [ false, %112 ], [ false, %13 ], [ false, %61 ], [ false, %102 ], [ %not., %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit ], [ false, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us.us ], [ false, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us ], [ false, %81 ]
   ret i1 %.0
 }
 
@@ -1089,7 +1089,7 @@ _ZN11klassVtable24is_preinitialized_vtableEv.exit.thread: ; preds = %4
   br label %_ZN11klassVtable14copy_vtable_toEP11vtableEntry.exit
 
 _ZN11klassVtable14copy_vtable_toEP11vtableEntry.exit: ; preds = %4, %49, %47, %_ZN11klassVtable24is_preinitialized_vtableEv.exit.thread, %2
-  %.0 = phi i32 [ 0, %2 ], [ %13, %_ZN11klassVtable24is_preinitialized_vtableEv.exit.thread ], [ %13, %47 ], [ %13, %49 ], [ %13, %4 ]
+  %.0 = phi i32 [ 0, %2 ], [ %13, %49 ], [ %13, %_ZN11klassVtable24is_preinitialized_vtableEv.exit.thread ], [ %13, %47 ], [ %13, %4 ]
   ret i32 %.0
 }
 
@@ -1348,7 +1348,7 @@ _ZN11klassVtable24is_preinitialized_vtableEv.exit.thread.i: ; preds = %48
   br label %_ZN11klassVtable21initialize_from_superEP5Klass.exit
 
 _ZN11klassVtable21initialize_from_superEP5Klass.exit: ; preds = %46, %48, %_ZN11klassVtable24is_preinitialized_vtableEv.exit.thread.i, %91, %93
-  %.0.i = phi i32 [ 0, %46 ], [ %57, %_ZN11klassVtable24is_preinitialized_vtableEv.exit.thread.i ], [ %57, %91 ], [ %57, %93 ], [ %57, %48 ]
+  %.0.i = phi i32 [ 0, %46 ], [ %57, %93 ], [ %57, %_ZN11klassVtable24is_preinitialized_vtableEv.exit.thread.i ], [ %57, %91 ], [ %57, %48 ]
   %96 = load ptr, ptr %0, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 12
   %98 = load i32, ptr %97, align 4
@@ -1693,7 +1693,7 @@ define hidden noundef zeroext i1 @_ZN11klassVtable23update_inherited_vtableEP6Th
   br label %43
 
 43:                                               ; preds = %31, %34, %42, %38
-  %.056 = phi i8 [ 0, %38 ], [ 0, %42 ], [ 1, %34 ], [ 0, %31 ]
+  %.056 = phi i8 [ 1, %34 ], [ 0, %38 ], [ 0, %42 ], [ 0, %31 ]
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
@@ -1944,7 +1944,7 @@ _ZN11klassVtable24is_preinitialized_vtableEv.exit73.thread: ; preds = %178
   br label %187
 
 187:                                              ; preds = %178, %177, %_ZN11klassVtable24is_preinitialized_vtableEv.exit73.thread, %174, %152, %149, %136, %102, %124, %134
-  %.4 = phi i8 [ %.1100, %134 ], [ %.1100, %124 ], [ %.1100, %102 ], [ %spec.select67, %_ZN11klassVtable24is_preinitialized_vtableEv.exit73.thread ], [ %spec.select67, %177 ], [ %spec.select67, %174 ], [ %.1100, %152 ], [ %.1100, %149 ], [ %.1100, %136 ], [ %spec.select67, %178 ]
+  %.4 = phi i8 [ %.1100, %134 ], [ %.1100, %102 ], [ %.1100, %124 ], [ %spec.select67, %174 ], [ %spec.select67, %178 ], [ %spec.select67, %_ZN11klassVtable24is_preinitialized_vtableEv.exit73.thread ], [ %spec.select67, %177 ], [ %.1100, %152 ], [ %.1100, %149 ], [ %.1100, %136 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %102, !llvm.loop !20
@@ -1956,7 +1956,7 @@ _ZN11klassVtable24is_preinitialized_vtableEv.exit73.thread: ; preds = %178
   br label %189
 
 189:                                              ; preds = %15, %19, %._crit_edge, %47
-  %.0 = phi i1 [ %48, %47 ], [ %188, %._crit_edge ], [ false, %19 ], [ false, %15 ]
+  %.0 = phi i1 [ %188, %._crit_edge ], [ %48, %47 ], [ false, %19 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -2220,7 +2220,7 @@ _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit: ; preds = %36
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !22
 
 .critedge:                                        ; preds = %.lr.ph.split, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit, %50, %32, %36, %.lr.ph.split.us, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us, %28, %11, %15, %6
-  %.1 = phi ptr [ null, %6 ], [ %.015.us, %15 ], [ null, %11 ], [ null, %28 ], [ %.015.us, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us ], [ %.015.us, %.lr.ph.split.us ], [ %.015, %36 ], [ null, %32 ], [ null, %50 ], [ %.015, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit ], [ %.015, %.lr.ph.split ]
+  %.1 = phi ptr [ null, %6 ], [ %.015.us, %15 ], [ null, %11 ], [ null, %28 ], [ %.015.us, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us ], [ %.015.us, %.lr.ph.split.us ], [ null, %50 ], [ null, %32 ], [ %.015, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit ], [ %.015, %36 ], [ %.015, %.lr.ph.split ]
   ret ptr %.1
 }
 
@@ -2402,8 +2402,8 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit39:            ; preds = %100, %102
   br label %_ZNK6HandleclEv.exit
 
 _ZNK6HandleclEv.exit:                             ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %_ZNK5Klass12class_loaderEv.exit34, %_ZN6HandleC2EP6ThreadP7oopDesc.exit39
-  %storemerge.i3859 = phi ptr [ %.0.i.i.i.i37, %_ZN6HandleC2EP6ThreadP7oopDesc.exit39 ], [ null, %_ZNK5Klass12class_loaderEv.exit34 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
-  %104 = phi ptr [ %89, %_ZN6HandleC2EP6ThreadP7oopDesc.exit39 ], [ null, %_ZNK5Klass12class_loaderEv.exit34 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  %storemerge.i3859 = phi ptr [ %.0.i.i.i.i37, %_ZN6HandleC2EP6ThreadP7oopDesc.exit39 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZNK5Klass12class_loaderEv.exit34 ]
+  %104 = phi ptr [ %89, %_ZN6HandleC2EP6ThreadP7oopDesc.exit39 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZNK5Klass12class_loaderEv.exit34 ]
   %105 = icmp eq ptr %storemerge.i, null
   br i1 %105, label %_ZNK6HandleclEv.exit40, label %106
 
@@ -3321,7 +3321,7 @@ define hidden noundef zeroext i1 @_ZN11klassVtable32check_no_old_or_obsolete_ent
   br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !27
 
 .loopexit:                                        ; preds = %38, %1, %31, %29
-  %39 = phi i1 [ false, %31 ], [ false, %29 ], [ true, %1 ], [ true, %38 ]
+  %39 = phi i1 [ false, %29 ], [ false, %31 ], [ true, %1 ], [ true, %38 ]
   %40 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.i.i, label %42, label %41
@@ -3554,7 +3554,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i: ; preds = %18
   br label %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i
 
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %25, %21, %_Z35interface_method_needs_itable_indexP6Method.exit.i, %18, %13
-  %.1.i = phi i32 [ %.015.i, %21 ], [ %26, %25 ], [ %.015.i, %_Z35interface_method_needs_itable_indexP6Method.exit.i ], [ %.015.i, %13 ], [ %.015.i, %18 ]
+  %.1.i = phi i32 [ %.015.i, %21 ], [ %26, %25 ], [ %.015.i, %_Z35interface_method_needs_itable_indexP6Method.exit.i ], [ %.015.i, %18 ], [ %.015.i, %13 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN11klassItable35assign_itable_indices_for_interfaceEP13InstanceKlass.exit, label %13, !llvm.loop !29
@@ -3699,8 +3699,8 @@ _Z35interface_method_needs_itable_indexP6Method.exit: ; preds = %12
   %20 = add nsw i32 %.015, 1
   br label %_Z35interface_method_needs_itable_indexP6Method.exit.thread
 
-_Z35interface_method_needs_itable_indexP6Method.exit.thread: ; preds = %12, %7, %_Z35interface_method_needs_itable_indexP6Method.exit, %19, %15
-  %.1 = phi i32 [ %.015, %15 ], [ %20, %19 ], [ %.015, %_Z35interface_method_needs_itable_indexP6Method.exit ], [ %.015, %7 ], [ %.015, %12 ]
+_Z35interface_method_needs_itable_indexP6Method.exit.thread: ; preds = %7, %12, %_Z35interface_method_needs_itable_indexP6Method.exit, %19, %15
+  %.1 = phi i32 [ %.015, %15 ], [ %20, %19 ], [ %.015, %_Z35interface_method_needs_itable_indexP6Method.exit ], [ %.015, %12 ], [ %.015, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !29
@@ -4402,7 +4402,7 @@ define hidden noundef zeroext i1 @_ZN11klassItable32check_no_old_or_obsolete_ent
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
 .loopexit:                                        ; preds = %41, %1, %34, %32
-  %44 = phi i1 [ false, %34 ], [ false, %32 ], [ true, %1 ], [ true, %41 ]
+  %44 = phi i1 [ false, %32 ], [ false, %34 ], [ true, %1 ], [ true, %41 ]
   %45 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i, label %47, label %46
@@ -4551,7 +4551,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i: ; preds = %21
   br label %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i
 
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.i, %21, %16
-  %26 = phi i32 [ %.124.i, %16 ], [ %.124.i, %21 ], [ %spec.select.i, %_Z35interface_method_needs_itable_indexP6Method.exit.i ]
+  %26 = phi i32 [ %.124.i, %16 ], [ %spec.select.i, %_Z35interface_method_needs_itable_indexP6Method.exit.i ], [ %.124.i, %21 ]
   %27 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %27, label %16, label %28, !llvm.loop !37
 
@@ -4659,7 +4659,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i: ; preds = %28
   br label %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i
 
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.i, %28, %23
-  %33 = phi i32 [ %.124.i, %23 ], [ %.124.i, %28 ], [ %spec.select.i, %_Z35interface_method_needs_itable_indexP6Method.exit.i ]
+  %33 = phi i32 [ %.124.i, %23 ], [ %spec.select.i, %_Z35interface_method_needs_itable_indexP6Method.exit.i ], [ %.124.i, %28 ]
   %34 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %34, label %23, label %35, !llvm.loop !37
 
@@ -4755,7 +4755,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i23: ; preds = %74
   br label %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i22
 
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i22: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.i23, %74, %69
-  %79 = phi i32 [ %.124.i18, %69 ], [ %.124.i18, %74 ], [ %spec.select.i26, %_Z35interface_method_needs_itable_indexP6Method.exit.i23 ]
+  %79 = phi i32 [ %.124.i18, %69 ], [ %spec.select.i26, %_Z35interface_method_needs_itable_indexP6Method.exit.i23 ], [ %.124.i18, %74 ]
   %80 = icmp samesign ugt i64 %indvars.iv.i17, 1
   br i1 %80, label %69, label %81, !llvm.loop !37
 
@@ -5474,7 +5474,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -5629,7 +5629,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -5807,7 +5807,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 

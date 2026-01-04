@@ -59,7 +59,7 @@ define noundef range(i32 0, 10) i32 @_Z36alts_tsi_utils_convert_to_tsi_result16g
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi i32 [ 1, %5 ], [ 2, %2 ], [ 9, %3 ], [ 7, %4 ], [ %0, %1 ]
+  %.0 = phi i32 [ 1, %5 ], [ 7, %4 ], [ %0, %1 ], [ 2, %2 ], [ 9, %3 ]
   ret i32 %.0
 }
 

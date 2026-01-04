@@ -7018,8 +7018,8 @@ test_dcm.exit:                                    ; preds = %10
   %20 = icmp ne i32 %19, 0
   br label %test_dcm.exit.thread
 
-test_dcm.exit.thread:                             ; preds = %10, %7, %4, %18, %test_dcm.exit
-  %.0 = phi i1 [ false, %test_dcm.exit ], [ %20, %18 ], [ false, %4 ], [ false, %7 ], [ false, %10 ]
+test_dcm.exit.thread:                             ; preds = %10, %4, %7, %18, %test_dcm.exit
+  %.0 = phi i1 [ %20, %18 ], [ false, %test_dcm.exit ], [ false, %7 ], [ false, %4 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -7692,7 +7692,7 @@ dissect_dcm_pdv_fragmented.exit.i.i:              ; preds = %dissect_dcm_pdv_fra
   br i1 %331, label %95, label %dissect_dcm_pdu_data.exit.i, !llvm.loop !16
 
 dissect_dcm_pdu_data.exit.thread.i.sink.split:    ; preds = %107, %105, %95
-  %.str.222.sink = phi ptr [ @.str.220, %95 ], [ @.str.221, %105 ], [ @.str.222, %107 ]
+  %.str.222.sink = phi ptr [ @.str.221, %105 ], [ @.str.220, %95 ], [ @.str.222, %107 ]
   %332 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %101, ptr noundef nonnull @ei_dcm_pdv_len, ptr noundef nonnull %.str.222.sink)
   br label %dissect_dcm_pdu_data.exit.thread.i
 
@@ -7862,8 +7862,8 @@ switch.lookup:                                    ; preds = %410
   br label %419
 
 419:                                              ; preds = %switch.lookup, %410, %417, %416, %415, %414, %413, %412, %401
-  %.0132.i.i = phi ptr [ @.str.260, %401 ], [ @.str.260, %410 ], [ @.str.260, %412 ], [ @.str.369, %413 ], [ @.str.374, %414 ], [ @.str.260, %415 ], [ @.str.376, %416 ], [ @.str.377, %417 ], [ %switch.load, %switch.lookup ]
-  %.0131.i.i = phi ptr [ @.str.260, %401 ], [ @.str.368, %410 ], [ @.str.373, %412 ], [ @.str.373, %413 ], [ @.str.373, %414 ], [ @.str.375, %415 ], [ @.str.375, %416 ], [ @.str.375, %417 ], [ @.str.368, %switch.lookup ]
+  %.0132.i.i = phi ptr [ @.str.260, %401 ], [ @.str.260, %410 ], [ %switch.load, %switch.lookup ], [ @.str.377, %417 ], [ @.str.376, %416 ], [ @.str.260, %415 ], [ @.str.260, %412 ], [ @.str.369, %413 ], [ @.str.374, %414 ]
+  %.0131.i.i = phi ptr [ @.str.260, %401 ], [ @.str.368, %410 ], [ @.str.368, %switch.lookup ], [ @.str.375, %417 ], [ @.str.375, %416 ], [ @.str.375, %415 ], [ @.str.373, %412 ], [ @.str.373, %413 ], [ @.str.373, %414 ]
   %420 = load i32, ptr @hf_dcm_assoc_reject_result, align 4
   %421 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %342, i32 noundef %420, ptr noundef %0, i32 noundef %402, i32 noundef 1, i32 noundef %408, ptr noundef nonnull @.str.306, ptr noundef nonnull %switch.select136.i.i)
   %422 = load i32, ptr @hf_dcm_assoc_reject_source, align 4
@@ -7946,8 +7946,8 @@ switch.lookup231:                                 ; preds = %447
   br label %470
 
 470:                                              ; preds = %467, %419, %372, %343
-  %.0129.i.i = phi ptr [ %369, %343 ], [ %398, %372 ], [ %433, %419 ], [ %.1.i51.i, %467 ]
-  %.0.i52.i = phi i32 [ %371, %343 ], [ %400, %372 ], [ %427, %419 ], [ %456, %467 ]
+  %.0129.i.i = phi ptr [ %.1.i51.i, %467 ], [ %369, %343 ], [ %398, %372 ], [ %433, %419 ]
+  %.0.i52.i = phi i32 [ %456, %467 ], [ %371, %343 ], [ %400, %372 ], [ %427, %419 ]
   %.not.i53.i = icmp eq ptr %.0129.i.i, null
   br i1 %.not.i53.i, label %dissect_dcm_assoc_header.exit.i, label %.thread.i.i
 
@@ -7971,7 +7971,7 @@ dissect_dcm_assoc_header.exit.i:                  ; preds = %.thread.i.i, %470, 
   br label %dissect_dcm_pdu.exit
 
 dissect_dcm_pdu.exit:                             ; preds = %dcm_state_get.exit.i, %dcm_state_assoc_get.exit.i, %dissect_dcm_pdu_data.exit.thread.i, %dissect_dcm_pdu_data.exit.i, %337, %339, %dissect_dcm_assoc_header.exit.i
-  %.041.i = phi i32 [ %.053101, %dcm_state_get.exit.i ], [ %60, %dcm_state_assoc_get.exit.i ], [ %.0.i.i.i, %dissect_dcm_pdu_data.exit.i ], [ %.0142.i.i, %dissect_dcm_assoc_header.exit.i ], [ %.044.i.ph.i, %dissect_dcm_pdu_data.exit.thread.i ], [ %.0.i.i.i, %337 ], [ %.0.i.i.i, %339 ]
+  %.041.i = phi i32 [ %60, %dcm_state_assoc_get.exit.i ], [ %.053101, %dcm_state_get.exit.i ], [ %.044.i.ph.i, %dissect_dcm_pdu_data.exit.thread.i ], [ %.0.i.i.i, %dissect_dcm_pdu_data.exit.i ], [ %.0142.i.i, %dissect_dcm_assoc_header.exit.i ], [ %.0.i.i.i, %337 ], [ %.0.i.i.i, %339 ]
   %473 = add i32 %.050105, %.053101
   %474 = add i32 %473, 6
   %.not = icmp ugt i32 %474, %.053101
@@ -7987,7 +7987,7 @@ dissect_dcm_pdu.exit:                             ; preds = %dcm_state_get.exit.
   br label %480
 
 480:                                              ; preds = %477, %475
-  %.151 = phi i32 [ %479, %477 ], [ 0, %475 ]
+  %.151 = phi i32 [ 0, %475 ], [ %479, %477 ]
   %481 = icmp ult i32 %474, %12
   br i1 %481, label %31, label %.loopexit
 
@@ -7996,7 +7996,7 @@ dissect_dcm_pdu.exit:                             ; preds = %dcm_state_get.exit.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %480, %24, %.thread, %21, %4, %482, %17
-  %.0 = phi i32 [ %20, %17 ], [ 0, %4 ], [ 0, %21 ], [ %.041.i, %482 ], [ %38, %.thread ], [ 0, %24 ], [ %.041.i, %480 ]
+  %.0 = phi i32 [ 0, %21 ], [ %20, %17 ], [ 0, %4 ], [ %38, %.thread ], [ %.041.i, %482 ], [ 0, %24 ], [ %.041.i, %480 ]
   ret i32 %.0
 }
 
@@ -8437,9 +8437,9 @@ dissect_dcm_tag_open.exit:                        ; preds = %64, %26, %29
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %.critedge2.loopexit.i, %180
-  %.088.lcssa158.i = phi i32 [ %.088.lcssa.i, %.critedge2.loopexit.i ], [ %181, %180 ]
-  %.092.lcssa156.i = phi ptr [ %.092.lcssa.i, %.critedge2.loopexit.i ], [ %4, %180 ]
-  %.087.lcssa.i = phi i32 [ %204, %.critedge2.loopexit.i ], [ 1, %180 ]
+  %.088.lcssa158.i = phi i32 [ %181, %180 ], [ %.088.lcssa.i, %.critedge2.loopexit.i ]
+  %.092.lcssa156.i = phi ptr [ %4, %180 ], [ %.092.lcssa.i, %.critedge2.loopexit.i ]
+  %.087.lcssa.i = phi i32 [ 1, %180 ], [ %204, %.critedge2.loopexit.i ]
   %205 = getelementptr inbounds nuw i8, ptr %.092.lcssa156.i, i64 32
   %206 = load i8, ptr %205, align 8
   %207 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -8658,7 +8658,7 @@ dcm_export_create_tag_str.exit.i:                 ; preds = %291, %280, %.sink.s
   br label %dcm_export_create_tag_str.exit30.i
 
 dcm_export_create_tag_str.exit30.i:               ; preds = %314, %308, %300, %295, %dcm_export_create_tag_str.exit.i
-  %.013.i29.i = phi i32 [ %.013.i.i, %dcm_export_create_tag_str.exit.i ], [ %312, %314 ], [ 512, %295 ], [ 512, %300 ], [ 512, %308 ]
+  %.013.i29.i = phi i32 [ %.013.i.i, %dcm_export_create_tag_str.exit.i ], [ 512, %295 ], [ 512, %308 ], [ 512, %300 ], [ %312, %314 ]
   %.not.i31.i = icmp eq ptr %.sink.i, null
   br i1 %.not.i31.i, label %dcm_export_create_tag_str.exit34.i, label %320
 
@@ -8756,7 +8756,7 @@ dcm_export_create_tag_str.exit37.i:               ; preds = %354
   br label %dcm_export_create_header.exit
 
 dcm_export_create_header.exit:                    ; preds = %320, %325, %333, %dcm_export_create_tag_str.exit34.i, %346, %354, %dcm_export_create_tag_str.exit37.i, %361, %370, %373
-  %.013.i39.i = phi i32 [ %374, %373 ], [ 512, %dcm_export_create_tag_str.exit37.i ], [ 512, %361 ], [ 512, %370 ], [ 512, %dcm_export_create_tag_str.exit34.i ], [ 512, %346 ], [ 512, %354 ], [ 512, %320 ], [ 512, %325 ], [ 512, %333 ]
+  %.013.i39.i = phi i32 [ %374, %373 ], [ 512, %dcm_export_create_tag_str.exit37.i ], [ 512, %370 ], [ 512, %361 ], [ 512, %dcm_export_create_tag_str.exit34.i ], [ 512, %354 ], [ 512, %346 ], [ 512, %320 ], [ 512, %333 ], [ 512, %325 ]
   %378 = add nsw i32 %.013.i39.i, -144
   %379 = getelementptr i8, ptr %272, i64 132
   store i16 2, ptr %379, align 1
@@ -8982,9 +8982,9 @@ dcm_tag_is_open.exit342:                          ; preds = %42
   %63 = icmp eq i16 %.0321, 0
   %or.cond.i = and i1 %63, %62
   %dcm_tag_lookup.tag_private_grp_len.mux.i = select i1 %or.cond.i, ptr @dcm_tag_lookup.tag_private_grp_len, ptr @dcm_tag_lookup.tag_private
-  %brmerge41.i = or i1 %63, %62
+  %brmerge42.i = or i1 %63, %62
   %dcm_tag_lookup.tag_private_grp_len.mux.mux.i = select i1 %62, ptr %dcm_tag_lookup.tag_private_grp_len.mux.i, ptr @dcm_tag_lookup.tag_grp_length
-  br i1 %brmerge41.i, label %.thread.sink.split.i, label %64
+  br i1 %brmerge42.i, label %.thread.sink.split.i, label %64
 
 64:                                               ; preds = %60
   %65 = and i32 %52, 65280
@@ -9074,12 +9074,12 @@ thread-pre-split.i:                               ; preds = %107, %100, %92, %83
   br i1 %112, label %.thread.sink.split.i, label %dcm_tag_lookup.exit
 
 .thread.sink.split.i:                             ; preds = %thread-pre-split.i, %99, %60
-  %dcm_tag_lookup.tag_private_grp_len.sink.i = phi ptr [ %dcm_tag_lookup.tag_private_grp_len.mux.mux.i, %60 ], [ @dcm_tag_lookup.tag_unknown, %99 ], [ @dcm_tag_lookup.tag_unknown, %thread-pre-split.i ]
+  %dcm_tag_lookup.tag_private_grp_len.sink.i = phi ptr [ @dcm_tag_lookup.tag_unknown, %99 ], [ @dcm_tag_lookup.tag_unknown, %thread-pre-split.i ], [ %dcm_tag_lookup.tag_private_grp_len.mux.mux.i, %60 ]
   store ptr %dcm_tag_lookup.tag_private_grp_len.sink.i, ptr @dcm_tag_lookup.tag_def, align 8
   br label %dcm_tag_lookup.exit
 
 dcm_tag_lookup.exit:                              ; preds = %50, %thread-pre-split.i, %.thread.sink.split.i
-  %113 = phi ptr [ %.sink.i, %thread-pre-split.i ], [ %58, %50 ], [ %dcm_tag_lookup.tag_private_grp_len.sink.i, %.thread.sink.split.i ]
+  %113 = phi ptr [ %58, %50 ], [ %.sink.i, %thread-pre-split.i ], [ %dcm_tag_lookup.tag_private_grp_len.sink.i, %.thread.sink.split.i ]
   %114 = icmp eq i16 %.0322357, -2
   br i1 %114, label %115, label %116
 
@@ -9298,9 +9298,9 @@ dcm_tag_is_open.exit344.thread:                   ; preds = %202
   br label %215
 
 209:                                              ; preds = %115, %115, %115, %117, %200
-  %.0328 = phi ptr [ %122, %117 ], [ %.1329, %200 ], [ @.str.261, %115 ], [ @.str.261, %115 ], [ @.str.261, %115 ]
-  %.3318 = phi i32 [ %.2317, %117 ], [ %201, %200 ], [ %.2317, %115 ], [ %.2317, %115 ], [ %.2317, %115 ]
-  %.2311 = phi i32 [ %.1310, %117 ], [ %.3312, %200 ], [ %.1310, %115 ], [ %.1310, %115 ], [ %.1310, %115 ]
+  %.0328 = phi ptr [ @.str.261, %115 ], [ %122, %117 ], [ %.1329, %200 ], [ @.str.261, %115 ], [ @.str.261, %115 ]
+  %.3318 = phi i32 [ %.2317, %115 ], [ %.2317, %117 ], [ %201, %200 ], [ %.2317, %115 ], [ %.2317, %115 ]
+  %.2311 = phi i32 [ %.1310, %115 ], [ %.1310, %117 ], [ %.3312, %200 ], [ %.1310, %115 ], [ %.1310, %115 ]
   %210 = icmp ugt i32 %.3318, 1
   br i1 %210, label %224, label %215
 
@@ -9396,10 +9396,10 @@ dcm_tag_is_open.exit346:                          ; preds = %.thread387
   br label %253
 
 251:                                              ; preds = %.thread412, %221
-  %.4386 = phi i32 [ %216, %221 ], [ %.3312, %.thread412 ]
-  %.0325383 = phi i16 [ %222, %221 ], [ %214, %.thread412 ]
-  %.0328366380 = phi ptr [ %.0328367, %221 ], [ %.1329, %.thread412 ]
-  %.2311369377 = phi i32 [ %.2311370, %221 ], [ %.3312, %.thread412 ]
+  %.4386 = phi i32 [ %.3312, %.thread412 ], [ %216, %221 ]
+  %.0325383 = phi i16 [ %214, %.thread412 ], [ %222, %221 ]
+  %.0328366380 = phi ptr [ %.1329, %.thread412 ], [ %.0328367, %221 ]
+  %.2311369377 = phi i32 [ %.3312, %.thread412 ], [ %.2311370, %221 ]
   %252 = zext i16 %.0325383 to i32
   br label %253
 
@@ -9519,8 +9519,8 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0464, %sub_1465
   br label %312
 
 312:                                              ; preds = %304, %309
-  %.0327 = phi ptr [ null, %309 ], [ %.0313., %304 ]
-  %.1314 = phi ptr [ %spec.select339, %309 ], [ %spec.select, %304 ]
+  %.0327 = phi ptr [ %.0313., %304 ], [ null, %309 ]
+  %.1314 = phi ptr [ %spec.select, %304 ], [ %spec.select339, %309 ]
   %313 = load i32, ptr @hf_dcm_tag, align 4
   %314 = load ptr, ptr %254, align 8
   %315 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.1314, i32 noundef %313, ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef %55, ptr noundef nonnull @.str.272, i32 noundef %52, i32 noundef %54, ptr noundef %314)
@@ -9616,7 +9616,7 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0464, %sub_1465
   br i1 %356, label %.lr.ph, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %355, %328, %341, %344
-  %.8 = phi i32 [ %.6, %344 ], [ %333, %341 ], [ %.7470, %328 ], [ %347, %355 ]
+  %.8 = phi i32 [ %.6, %344 ], [ %.7470, %328 ], [ %333, %341 ], [ %347, %355 ]
   call void @decrement_dissection_depth(ptr noundef %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -9760,7 +9760,7 @@ dcm_state_pdv_get_obj_start.exit350:              ; preds = %412, %415
   br label %428
 
 428:                                              ; preds = %370, %383, %359, %365, %dcm_state_pdv_get_obj_start.exit, %420, %423, %dcm_state_pdv_get_obj_start.exit350, %362, %.critedge
-  %.10 = phi i32 [ %.8, %.critedge ], [ %.6, %359 ], [ %.6, %362 ], [ %.6, %365 ], [ %391, %dcm_state_pdv_get_obj_start.exit ], [ %391, %dcm_state_pdv_get_obj_start.exit350 ], [ %391, %423 ], [ %391, %420 ], [ %375, %383 ], [ %375, %370 ]
+  %.10 = phi i32 [ %.8, %.critedge ], [ %.6, %359 ], [ %.6, %362 ], [ %.6, %365 ], [ %391, %420 ], [ %391, %dcm_state_pdv_get_obj_start.exit ], [ %391, %dcm_state_pdv_get_obj_start.exit350 ], [ %391, %423 ], [ %375, %383 ], [ %375, %370 ]
   %429 = load ptr, ptr %10, align 8
   %430 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %429, ptr noundef nonnull @.str.273, ptr noundef %430)
@@ -9778,7 +9778,7 @@ dcm_state_pdv_get_obj_start.exit350:              ; preds = %412, %415
   br label %439
 
 439:                                              ; preds = %dcm_tag_is_open.exit346.thread, %dcm_tag_is_open.exit345.thread, %dcm_tag_is_open.exit344.thread, %dcm_tag_is_open.exit343.thread, %dcm_tag_is_open.exit342.thread, %dcm_tag_is_open.exit.thread, %428, %434
-  %.0 = phi i32 [ %.10, %434 ], [ %.10, %428 ], [ %5, %dcm_tag_is_open.exit.thread ], [ %5, %dcm_tag_is_open.exit342.thread ], [ %5, %dcm_tag_is_open.exit343.thread ], [ %5, %dcm_tag_is_open.exit344.thread ], [ %5, %dcm_tag_is_open.exit345.thread ], [ %5, %dcm_tag_is_open.exit346.thread ]
+  %.0 = phi i32 [ %5, %dcm_tag_is_open.exit346.thread ], [ %5, %dcm_tag_is_open.exit345.thread ], [ %5, %dcm_tag_is_open.exit344.thread ], [ %5, %dcm_tag_is_open.exit343.thread ], [ %5, %dcm_tag_is_open.exit342.thread ], [ %5, %dcm_tag_is_open.exit.thread ], [ %.10, %434 ], [ %.10, %428 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -10031,7 +10031,7 @@ sub_0335:                                         ; preds = %64, %74
   br label %100
 
 100:                                              ; preds = %.tail334.thread, %84, %95, %87
-  %.sink664 = phi ptr [ %99, %95 ], [ %92, %87 ], [ %71, %84 ], [ %71, %.tail334.thread ]
+  %.sink664 = phi ptr [ %99, %95 ], [ %71, %84 ], [ %92, %87 ], [ %71, %.tail334.thread ]
   store ptr %.sink664, ptr %10, align 8
   %101 = load i32, ptr @hf_dcm_tag_value_str, align 4
   %102 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %101, ptr noundef %0, i32 noundef %4, i32 noundef %8, ptr noundef %.sink664)
@@ -10106,8 +10106,8 @@ sub_0335:                                         ; preds = %64, %74
   br label %133
 
 133:                                              ; preds = %130, %125, %125, %125, %128
-  %.1267 = phi i8 [ %.0266388, %125 ], [ %.0266388, %128 ], [ %.0266388, %125 ], [ %.0266388, %125 ], [ %..0266, %130 ]
-  %.1 = phi i1 [ %.0265389, %125 ], [ %.0265389, %128 ], [ %.0265389, %125 ], [ %.0265389, %125 ], [ %.0265., %130 ]
+  %.1267 = phi i8 [ %.0266388, %125 ], [ %.0266388, %128 ], [ %..0266, %130 ], [ %.0266388, %125 ], [ %.0266388, %125 ]
+  %.1 = phi i1 [ %.0265389, %125 ], [ %.0265389, %128 ], [ %.0265., %130 ], [ %.0265389, %125 ], [ %.0265389, %125 ]
   %134 = add nuw i32 %.0263390, 1
   %exitcond420.not = icmp eq i32 %134, %8
   br i1 %exitcond420.not, label %135, label %125, !llvm.loop !23
@@ -10386,7 +10386,7 @@ sub_0335:                                         ; preds = %64, %74
   %279 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %274, ptr noundef nonnull @ei_dcm_status_msg)
   br label %287
 
-.tail382.thread:                                  ; preds = %.tail374, %sub_0, %.tail282, %.tail294, %.tail298, %.tail306, %.tail310, %.tail358, %.tail322, %.tail350, %.tail366, %.tail382
+.tail382.thread:                                  ; preds = %.tail374, %sub_0, %.tail282, %.tail294, %.tail298, %.tail306, %.tail310, %.tail358, %.tail350, %.tail322, %.tail366, %.tail382
   %280 = load i32, ptr @hf_dcm_tag_value_byte, align 4
   %281 = icmp ugt i32 %7, %8
   %282 = select i1 %281, ptr @.str.260, ptr @.str.321
@@ -10475,7 +10475,7 @@ define internal fastcc ptr @dcm_rsp2str(i16 noundef zeroext %0) unnamed_addr #0 
   br label %14
 
 14:                                               ; preds = %11, %9, %10, %6
-  %.0 = phi ptr [ %8, %6 ], [ @.str.347, %10 ], [ @.str.346, %9 ], [ %.str.348..str.82, %11 ]
+  %.0 = phi ptr [ %8, %6 ], [ @.str.346, %9 ], [ @.str.347, %10 ], [ %.str.348..str.82, %11 ]
   ret ptr %.0
 }
 
@@ -10937,7 +10937,7 @@ dissect_dcm_assoc_role_selection.exit.i:          ; preds = %122, %96
   br label %dissect_dcm_assoc_async_negotiation.exit.i
 
 dissect_dcm_assoc_async_negotiation.exit.i:       ; preds = %265, %254, %225, %221, %216, %210, %209, %205, %192, %dissect_dcm_assoc_role_selection.exit.i, %95, %92, %68, %62, %56
-  %.184.i = phi i8 [ %.0831.i, %265 ], [ 0, %56 ], [ 0, %62 ], [ 0, %68 ], [ %.0831.i, %dissect_dcm_assoc_role_selection.exit.i ], [ %.0831.i, %92 ], [ %.0831.i, %95 ], [ %.0831.i, %192 ], [ %.0831.i, %205 ], [ %.0831.i, %209 ], [ %.0831.i, %210 ], [ %.0831.i, %216 ], [ %.0831.i, %221 ], [ %.0831.i, %225 ], [ %.0831.i, %254 ]
+  %.184.i = phi i8 [ %.0831.i, %265 ], [ 0, %56 ], [ 0, %62 ], [ 0, %68 ], [ %.0831.i, %221 ], [ %.0831.i, %dissect_dcm_assoc_role_selection.exit.i ], [ %.0831.i, %95 ], [ %.0831.i, %92 ], [ %.0831.i, %192 ], [ %.0831.i, %205 ], [ %.0831.i, %209 ], [ %.0831.i, %210 ], [ %.0831.i, %216 ], [ %.0831.i, %225 ], [ %.0831.i, %254 ]
   %.pn.i = zext i16 %50 to i32
   %.1.i = add i32 %51, %.pn.i
   %279 = icmp ult i32 %.1.i, %33
@@ -11200,8 +11200,8 @@ dcm_set_syntax.exit.us:                           ; preds = %.lr.ph.split.us
   br label %76
 
 76:                                               ; preds = %73, %dcm_set_syntax.exit.us, %.lr.ph.split.us
-  %.198.us = phi i32 [ %75, %73 ], [ %.0975.us, %dcm_set_syntax.exit.us ], [ %.0975.us, %.lr.ph.split.us ]
-  %.1.us = phi i32 [ %.06.us, %73 ], [ %72, %dcm_set_syntax.exit.us ], [ %.06.us, %.lr.ph.split.us ]
+  %.198.us = phi i32 [ %.0975.us, %dcm_set_syntax.exit.us ], [ %75, %73 ], [ %.0975.us, %.lr.ph.split.us ]
+  %.1.us = phi i32 [ %72, %dcm_set_syntax.exit.us ], [ %.06.us, %73 ], [ %.06.us, %.lr.ph.split.us ]
   %.pn.us = zext i16 %69 to i32
   %.1103.us = add i32 %70, %.pn.us
   %77 = icmp ult i32 %.1103.us, %13
@@ -11285,7 +11285,7 @@ dcm_set_syntax.exit.us:                           ; preds = %.lr.ph.split.us
   br i1 %119, label %.sink.split.i, label %dcm_set_syntax.exit
 
 .sink.split.i:                                    ; preds = %117, %114, %111, %108, %105, %102, %91
-  %.sink.i = phi i8 [ 1, %91 ], [ 3, %102 ], [ 2, %105 ], [ 1, %108 ], [ 3, %111 ], [ 3, %114 ], [ 3, %117 ]
+  %.sink.i = phi i8 [ 1, %91 ], [ 2, %105 ], [ 3, %111 ], [ 3, %114 ], [ 1, %108 ], [ 3, %102 ], [ 3, %117 ]
   store i8 %.sink.i, ptr %66, align 8
   br label %dcm_set_syntax.exit
 
@@ -11294,8 +11294,8 @@ dcm_set_syntax.exit:                              ; preds = %.sink.split.i, %117
   br label %121
 
 121:                                              ; preds = %.lr.ph.split, %dcm_set_syntax.exit, %82
-  %.198 = phi i32 [ %84, %82 ], [ %.0975, %dcm_set_syntax.exit ], [ %.0975, %.lr.ph.split ]
-  %.1 = phi i32 [ %.06, %82 ], [ %120, %dcm_set_syntax.exit ], [ %.06, %.lr.ph.split ]
+  %.198 = phi i32 [ %.0975, %dcm_set_syntax.exit ], [ %84, %82 ], [ %.0975, %.lr.ph.split ]
+  %.1 = phi i32 [ %120, %dcm_set_syntax.exit ], [ %.06, %82 ], [ %.06, %.lr.ph.split ]
   %.pn = zext i16 %80 to i32
   %.1103 = add i32 %81, %.pn
   %122 = icmp ult i32 %.1103, %13
@@ -11353,7 +11353,7 @@ dcm_set_syntax.exit:                              ; preds = %.sink.split.i, %117
   br label %201
 
 .thread24:                                        ; preds = %.thread26, %142, %136
-  %.010028 = phi ptr [ %.010030, %142 ], [ %.010030, %136 ], [ %.1101, %.thread26 ]
+  %.010028 = phi ptr [ %.010030, %136 ], [ %.010030, %142 ], [ %.1101, %.thread26 ]
   %147 = getelementptr inbounds nuw i8, ptr %.1.i2, i64 24
   %148 = load ptr, ptr %147, align 8
   %149 = icmp eq ptr %148, null

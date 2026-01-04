@@ -171,7 +171,7 @@ define internal range(i32 0, 2) i32 @pkey_rsa_copy(ptr noundef captures(none) %0
   br label %pkey_rsa_init.exit.thread
 
 pkey_rsa_init.exit.thread:                        ; preds = %2, %27, %49, %42, %24
-  %.0 = phi i32 [ 0, %24 ], [ 0, %42 ], [ 1, %49 ], [ 1, %27 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %42 ], [ 0, %24 ], [ 1, %27 ], [ 1, %49 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -307,7 +307,7 @@ rsa_set_pss_param.exit.thread:                    ; preds = %rsa_set_pss_param.e
   br label %52
 
 52:                                               ; preds = %rsa_set_pss_param.exit.thread, %.critedge, %13, %8, %11, %49, %22
-  %.0 = phi i32 [ 0, %22 ], [ 0, %49 ], [ 0, %11 ], [ 0, %8 ], [ 0, %13 ], [ %29, %.critedge ], [ %29, %rsa_set_pss_param.exit.thread ]
+  %.0 = phi i32 [ 0, %49 ], [ 0, %8 ], [ 0, %22 ], [ 0, %13 ], [ 0, %11 ], [ %29, %.critedge ], [ %29, %rsa_set_pss_param.exit.thread ]
   ret i32 %.0
 }
 
@@ -487,7 +487,7 @@ setup_tbuf.exit.thread:                           ; preds = %65, %setup_tbuf.exi
   br label %93
 
 93:                                               ; preds = %.thread, %89, %35, %setup_tbuf.exit.thread, %setup_tbuf.exit, %58, %91, %44, %41, %21, %18
-  %.063 = phi i32 [ -1, %18 ], [ -1, %21 ], [ 1, %91 ], [ -1, %41 ], [ -1, %44 ], [ %62, %58 ], [ -1, %setup_tbuf.exit ], [ -1, %setup_tbuf.exit.thread ], [ -1, %35 ], [ %.267, %89 ], [ %.164.ph, %.thread ]
+  %.063 = phi i32 [ -1, %18 ], [ -1, %21 ], [ -1, %35 ], [ 1, %91 ], [ %.164.ph, %.thread ], [ -1, %41 ], [ -1, %44 ], [ %62, %58 ], [ -1, %setup_tbuf.exit ], [ -1, %setup_tbuf.exit.thread ], [ %.267, %89 ]
   ret i32 %.063
 }
 
@@ -631,7 +631,7 @@ setup_tbuf.exit55.thread:                         ; preds = %56, %setup_tbuf.exi
   br label %76
 
 76:                                               ; preds = %73, %71, %setup_tbuf.exit55.thread, %setup_tbuf.exit55, %30, %setup_tbuf.exit, %setup_tbuf.exit.thread, %47, %32, %29, %26, %18
-  %.0 = phi i32 [ %22, %18 ], [ -1, %26 ], [ -1, %29 ], [ 0, %32 ], [ -1, %setup_tbuf.exit ], [ 0, %setup_tbuf.exit.thread ], [ %., %47 ], [ -1, %30 ], [ -1, %setup_tbuf.exit55 ], [ 0, %setup_tbuf.exit55.thread ], [ 0, %71 ], [ %spec.select, %73 ]
+  %.0 = phi i32 [ %22, %18 ], [ -1, %26 ], [ -1, %29 ], [ -1, %30 ], [ 0, %setup_tbuf.exit55.thread ], [ 0, %71 ], [ 0, %32 ], [ 0, %setup_tbuf.exit.thread ], [ -1, %setup_tbuf.exit55 ], [ -1, %setup_tbuf.exit ], [ %., %47 ], [ %spec.select, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -752,7 +752,7 @@ setup_tbuf.exit.thread:                           ; preds = %17, %setup_tbuf.exi
   br label %60
 
 60:                                               ; preds = %58, %14, %setup_tbuf.exit.thread, %setup_tbuf.exit, %47, %.thread, %43, %39
-  %.038 = phi i32 [ 0, %39 ], [ 0, %43 ], [ 1, %.thread ], [ 0, %47 ], [ -1, %setup_tbuf.exit ], [ 0, %setup_tbuf.exit.thread ], [ -1, %14 ], [ %.140, %58 ]
+  %.038 = phi i32 [ -1, %setup_tbuf.exit ], [ 0, %39 ], [ 0, %43 ], [ -1, %14 ], [ 1, %.thread ], [ 0, %setup_tbuf.exit.thread ], [ 0, %47 ], [ %.140, %58 ]
   ret i32 %.038
 }
 
@@ -822,7 +822,7 @@ setup_tbuf.exit.thread:                           ; preds = %14, %setup_tbuf.exi
   br label %.critedge
 
 .critedge:                                        ; preds = %setup_tbuf.exit, %setup_tbuf.exit.thread, %41, %43
-  %.1 = phi i32 [ 1, %43 ], [ %.130, %41 ], [ -1, %setup_tbuf.exit.thread ], [ -1, %setup_tbuf.exit ]
+  %.1 = phi i32 [ %.130, %41 ], [ 1, %43 ], [ -1, %setup_tbuf.exit.thread ], [ -1, %setup_tbuf.exit ]
   ret i32 %.1
 }
 
@@ -914,7 +914,7 @@ setup_tbuf.exit.thread:                           ; preds = %13, %setup_tbuf.exi
   br label %60
 
 60:                                               ; preds = %setup_tbuf.exit.thread, %setup_tbuf.exit, %45
-  %.0 = phi i32 [ %59, %45 ], [ -1, %setup_tbuf.exit ], [ %23, %setup_tbuf.exit.thread ]
+  %.0 = phi i32 [ -1, %setup_tbuf.exit ], [ %59, %45 ], [ %23, %setup_tbuf.exit.thread ]
   ret i32 %.0
 }
 
@@ -1384,7 +1384,7 @@ define internal i32 @pkey_rsa_ctrl(ptr noundef readonly captures(none) %0, i32 n
   br label %186
 
 186:                                              ; preds = %179, %4, %4, %4, %156, %159, %146, %133, %132, %140, %113, %105, %102, %104, %44, %.thread126, %47, %9, %185, %184, %177, %176, %167, %166, %163, %150, %145, %126, %120, %119, %118, %98, %93, %92, %87, %86, %79, %78, %74, %63, %57, %41, %35, %34, %.thread
-  %.0 = phi i32 [ -2, %185 ], [ 1, %.thread ], [ -2, %34 ], [ 1, %35 ], [ -2, %41 ], [ -2, %57 ], [ -2, %63 ], [ 0, %74 ], [ -2, %78 ], [ 1, %79 ], [ -2, %86 ], [ 1, %87 ], [ -2, %92 ], [ 1, %93 ], [ -2, %98 ], [ 0, %118 ], [ 1, %119 ], [ 1, %120 ], [ -2, %126 ], [ 0, %145 ], [ -2, %150 ], [ -2, %163 ], [ 0, %166 ], [ %172, %167 ], [ -2, %176 ], [ 1, %177 ], [ -2, %184 ], [ 0, %9 ], [ -2, %47 ], [ 1, %.thread126 ], [ 1, %44 ], [ 1, %104 ], [ 1, %102 ], [ 0, %105 ], [ 1, %113 ], [ 1, %140 ], [ 1, %132 ], [ 1, %133 ], [ 1, %146 ], [ 1, %159 ], [ 1, %156 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %179 ]
+  %.0 = phi i32 [ -2, %185 ], [ 1, %.thread ], [ -2, %34 ], [ 1, %4 ], [ 1, %35 ], [ -2, %41 ], [ -2, %47 ], [ 0, %9 ], [ -2, %57 ], [ -2, %63 ], [ 0, %74 ], [ -2, %78 ], [ 1, %79 ], [ -2, %86 ], [ 1, %87 ], [ -2, %92 ], [ 1, %93 ], [ -2, %98 ], [ 1, %44 ], [ 0, %105 ], [ 0, %118 ], [ 1, %119 ], [ 1, %102 ], [ 1, %120 ], [ -2, %126 ], [ 1, %140 ], [ 1, %113 ], [ 0, %145 ], [ -2, %150 ], [ 1, %146 ], [ -2, %163 ], [ 0, %166 ], [ %172, %167 ], [ -2, %176 ], [ 1, %177 ], [ 1, %156 ], [ -2, %184 ], [ 1, %.thread126 ], [ 1, %104 ], [ 1, %132 ], [ 1, %133 ], [ 1, %159 ], [ 1, %4 ], [ 1, %4 ], [ 1, %179 ]
   ret i32 %.0
 }
 
@@ -1443,7 +1443,7 @@ define internal i32 @pkey_rsa_ctrl_str(ptr noundef %0, ptr noundef readonly capt
   br label %114
 
 30:                                               ; preds = %26, %23, %20, %17, %14, %11
-  %.054 = phi i32 [ 1, %11 ], [ 3, %14 ], [ 4, %17 ], [ 4, %20 ], [ 5, %23 ], [ 6, %26 ]
+  %.054 = phi i32 [ 5, %23 ], [ 1, %11 ], [ 3, %14 ], [ 4, %17 ], [ 4, %20 ], [ 6, %26 ]
   %31 = tail call i32 @EVP_PKEY_CTX_set_rsa_padding(ptr noundef %0, i32 noundef %.054) #9
   br label %114
 
@@ -1473,7 +1473,7 @@ define internal i32 @pkey_rsa_ctrl_str(ptr noundef %0, ptr noundef readonly capt
   br label %44
 
 44:                                               ; preds = %39, %37, %35, %41
-  %.055 = phi i32 [ %43, %41 ], [ -1, %35 ], [ -3, %37 ], [ -2, %39 ]
+  %.055 = phi i32 [ %43, %41 ], [ -3, %37 ], [ -1, %35 ], [ -2, %39 ]
   %45 = tail call i32 @EVP_PKEY_CTX_set_rsa_pss_saltlen(ptr noundef %0, i32 noundef %.055) #9
   br label %114
 
@@ -1605,7 +1605,7 @@ define internal i32 @pkey_rsa_ctrl_str(ptr noundef %0, ptr noundef readonly capt
   br label %114
 
 114:                                              ; preds = %102, %29, %30, %113, %100, %93, %88, %83, %73, %66, %62, %49, %44, %7
-  %.0 = phi i32 [ 0, %7 ], [ %45, %44 ], [ %52, %49 ], [ %.2, %62 ], [ %69, %66 ], [ %74, %73 ], [ %84, %83 ], [ %89, %88 ], [ %96, %93 ], [ %101, %100 ], [ %.3, %113 ], [ %31, %30 ], [ -2, %29 ], [ -2, %102 ]
+  %.0 = phi i32 [ 0, %7 ], [ -2, %29 ], [ %45, %44 ], [ %52, %49 ], [ %.2, %62 ], [ %69, %66 ], [ %74, %73 ], [ %84, %83 ], [ %89, %88 ], [ %96, %93 ], [ %101, %100 ], [ %.3, %113 ], [ %31, %30 ], [ -2, %102 ]
   ret i32 %.0
 }
 
@@ -1747,15 +1747,15 @@ define internal fastcc range(i32 0, 2) i32 @check_padding_md(ptr noundef %0, i32
   ]
 
 .sink.split:                                      ; preds = %8, %5, %3
-  %.sink9 = phi i32 [ 408, %3 ], [ 414, %5 ], [ 440, %8 ]
-  %.sink = phi i32 [ 141, %3 ], [ 142, %5 ], [ 157, %8 ]
+  %.sink9 = phi i32 [ 414, %5 ], [ 408, %3 ], [ 440, %8 ]
+  %.sink = phi i32 [ 142, %5 ], [ 141, %3 ], [ 157, %8 ]
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink9, ptr noundef nonnull @__func__.check_padding_md) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef %.sink, ptr noundef null) #9
   br label %9
 
 9:                                                ; preds = %.sink.split, %5, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %5 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %5 ], [ 1, %2 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1865,7 +1865,7 @@ define internal range(i32 0, 2) i32 @pkey_pss_init(ptr noundef readonly captures
   br label %42
 
 42:                                               ; preds = %18, %11, %1, %35, %34, %24
-  %.0 = phi i32 [ 0, %24 ], [ 0, %34 ], [ 1, %35 ], [ 0, %1 ], [ 1, %11 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %24 ], [ 0, %34 ], [ 1, %35 ], [ 1, %11 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

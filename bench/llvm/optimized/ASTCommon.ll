@@ -221,7 +221,7 @@ _ZNK5clang16ObjCProtocolDecl13getDefinitionEv.exit: ; preds = %_ZNK5clang16ObjCP
   unreachable
 
 25:                                               ; preds = %_ZNK5clang16ObjCProtocolDecl13getDefinitionEv.exit, %5, %1, %1, %1, %1, %1, %1, %1, %1, %1, %9
-  %.0 = phi ptr [ %0, %9 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ %spec.select, %5 ], [ %spec.select17, %_ZNK5clang16ObjCProtocolDecl13getDefinitionEv.exit ]
+  %.0 = phi ptr [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ %0, %9 ], [ %spec.select, %5 ], [ %spec.select17, %_ZNK5clang16ObjCProtocolDecl13getDefinitionEv.exit ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -326,7 +326,7 @@ define dso_local noundef zeroext i1 @_ZN5clang13serialization22isRedeclarableDec
   unreachable
 
 4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
+  %.0 = phi i1 [ true, %1 ], [ true, %1 ], [ false, %2 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
   ret i1 %.0
 }
 
@@ -535,7 +535,7 @@ _ZNK5clang4Decl21getLexicalDeclContextEv.exit31:  ; preds = %84, %85
   br label %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread
 
 _ZNK5clang7VarDecl13isStaticLocalEv.exit.thread:  ; preds = %49, %53, %56, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i, %66, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i.i, %24, %31, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit31, %82, %95, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
-  %.1 = phi i1 [ %spec.select.i28, %_ZNK5clang7VarDecl13isStaticLocalEv.exit ], [ %102, %95 ], [ %.not16, %24 ], [ %spec.select, %31 ], [ false, %82 ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit31 ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i ], [ %spec.select.i.i.i.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i.i ], [ true, %66 ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i ], [ true, %56 ], [ false, %49 ], [ false, %53 ]
+  %.1 = phi i1 [ %spec.select.i28, %_ZNK5clang7VarDecl13isStaticLocalEv.exit ], [ %spec.select, %31 ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit31 ], [ false, %82 ], [ %102, %95 ], [ %.not16, %24 ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i ], [ %spec.select.i.i.i.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i.i ], [ true, %66 ], [ true, %56 ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i ], [ false, %49 ], [ false, %53 ]
   ret i1 %.1
 }
 

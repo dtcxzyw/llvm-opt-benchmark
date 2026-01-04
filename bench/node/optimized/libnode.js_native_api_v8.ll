@@ -1243,7 +1243,7 @@ if.end.i.i:                                       ; preds = %if.then5
   br label %return
 
 return:                                           ; preds = %if.end, %if.end.i.i, %if.then.i, %_ZN6v8impl7RefBase5UnrefEv.exit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %dec.i, %_ZN6v8impl7RefBase5UnrefEv.exit ], [ 0, %if.then.i ], [ 0, %if.end.i.i ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end.i.i ], [ %dec.i, %_ZN6v8impl7RefBase5UnrefEv.exit ], [ 0, %if.then.i ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -1540,7 +1540,7 @@ if.end23:                                         ; preds = %if.then21, %do.end1
   br label %return
 
 return:                                           ; preds = %entry, %if.end23, %if.then3
-  %retval.0 = phi i32 [ 0, %if.end23 ], [ 1, %if.then3 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then3 ], [ 0, %if.end23 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -1674,7 +1674,7 @@ if.end85:                                         ; preds = %_ZN2v810MaybeLocalI
   br i1 %call95, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %if.end85, %do.end59, %if.then43
-  %.sink = phi i32 [ 1, %if.then43 ], [ 9, %do.end59 ], [ 10, %if.end85 ]
+  %.sink = phi i32 [ 9, %do.end59 ], [ 1, %if.then43 ], [ 10, %if.end85 ]
   %error_code1.i42 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i42, align 4
   %engine_error_code3.i43 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -1723,7 +1723,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup98, %_ZN2v81
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -2121,7 +2121,7 @@ if.end294:                                        ; preds = %_ZNSt6vectorI24napi
   br i1 %call295, label %cleanup298.sink.split, label %cleanup298
 
 cleanup298.sink.split:                            ; preds = %if.end294, %do.end64, %do.end48
-  %.sink = phi i32 [ 1, %do.end48 ], [ 9, %do.end64 ], [ 10, %if.end294 ]
+  %.sink = phi i32 [ 9, %do.end64 ], [ 10, %if.end294 ], [ 1, %do.end48 ]
   %error_code1.i91 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i91, align 4
   %engine_error_code3.i92 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -2131,7 +2131,7 @@ cleanup298.sink.split:                            ; preds = %if.end294, %do.end6
   br label %cleanup298
 
 cleanup298:                                       ; preds = %if.then162, %do.body127, %do.body110, %if.end92, %cleanup298.sink.split, %if.end294, %if.end38, %_ZNSt6vectorI24napi_property_descriptorSaIS0_EED2Ev.exit
-  %retval.2 = phi i32 [ %call288, %_ZNSt6vectorI24napi_property_descriptorSaIS0_EED2Ev.exit ], [ %call43, %if.end38 ], [ 0, %if.end294 ], [ %.sink, %cleanup298.sink.split ], [ %call179, %if.then162 ], [ %call135, %do.body127 ], [ %call117, %do.body110 ], [ %call95, %if.end92 ]
+  %retval.2 = phi i32 [ 0, %if.end294 ], [ %.sink, %cleanup298.sink.split ], [ %call43, %if.end38 ], [ %call288, %_ZNSt6vectorI24napi_property_descriptorSaIS0_EED2Ev.exit ], [ %call179, %if.then162 ], [ %call135, %do.body127 ], [ %call117, %do.body110 ], [ %call95, %if.end92 ]
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #24
   br label %cleanup299
 
@@ -2170,7 +2170,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup299, %_ZN2v8
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -2305,7 +2305,7 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %land.lhs.true2, %land.lhs.true, %entry
-  %attribute_flags.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %entry ], [ %spec.select, %land.lhs.true2 ]
+  %attribute_flags.0 = phi i32 [ 0, %entry ], [ %spec.select, %land.lhs.true2 ], [ 0, %land.lhs.true ]
   %attributes4 = getelementptr inbounds nuw i8, ptr %descriptor, i64 48
   %3 = load i32, ptr %attributes4, align 8
   %and5 = and i32 %3, 2
@@ -2793,7 +2793,7 @@ cond.false:                                       ; preds = %for.end
   br label %cleanup274
 
 cleanup274:                                       ; preds = %if.then142, %do.body90, %do.body77, %cleanup194.thread, %cleanup.thread, %if.then33.i, %if.then14.i, %cond.false, %for.end, %if.then262, %if.then51, %if.then31, %if.then20
-  %retval.1 = phi i32 [ 2, %if.then51 ], [ %cond264, %if.then262 ], [ 1, %if.then31 ], [ 1, %if.then20 ], [ 10, %cond.false ], [ 0, %for.end ], [ 9, %if.then14.i ], [ 4, %if.then33.i ], [ %cond136, %cleanup.thread ], [ %cond189, %cleanup194.thread ], [ %call148, %if.then142 ], [ %call94, %do.body90 ], [ %call80, %do.body77 ]
+  %retval.1 = phi i32 [ 2, %if.then51 ], [ 1, %if.then20 ], [ 0, %for.end ], [ 10, %cond.false ], [ %cond136, %cleanup.thread ], [ 9, %if.then14.i ], [ %cond189, %cleanup194.thread ], [ %cond264, %if.then262 ], [ 4, %if.then33.i ], [ 1, %if.then31 ], [ %call148, %if.then142 ], [ %call94, %do.body90 ], [ %call80, %do.body77 ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i96, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -2827,7 +2827,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup274, %_ZN2v8
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -2951,7 +2951,7 @@ _ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit: ; preds = %sw.epilog88
   br i1 %call121, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit, %sw.epilog, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end32, %do.end21, %do.end14, %if.then101
-  %.sink = phi i32 [ %cond103, %if.then101 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end32 ], [ 1, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 1, %sw.epilog ], [ 10, %_ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit ]
+  %.sink = phi i32 [ 1, %sw.epilog ], [ %cond103, %if.then101 ], [ 1, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 2, %do.end32 ], [ 1, %do.end21 ], [ 1, %do.end14 ], [ 10, %_ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit ]
   %error_code1.i52 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i52, align 4
   %engine_error_code3.i53 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -2995,7 +2995,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -3096,7 +3096,7 @@ do.end98:                                         ; preds = %_ZN2v810MaybeLocalI
   br i1 %call99, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %do.end98, %do.end39, %do.end28, %do.end14, %if.then92
-  %.sink = phi i32 [ %cond94, %if.then92 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 2, %do.end39 ], [ 10, %do.end98 ]
+  %.sink = phi i32 [ 2, %do.end39 ], [ %cond94, %if.then92 ], [ 1, %do.end28 ], [ 10, %do.end98 ], [ 1, %do.end14 ]
   %error_code1.i40 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i40, align 4
   %engine_error_code3.i41 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -3140,7 +3140,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -3243,7 +3243,7 @@ cond.true.i:                                      ; preds = %_ZN2v810MaybeLocalI
   br i1 %call92, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %cond.true.i, %do.end39, %do.end28, %do.end14, %if.then83
-  %.sink = phi i32 [ %cond85, %if.then83 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 2, %do.end39 ], [ 10, %cond.true.i ]
+  %.sink = phi i32 [ 2, %do.end39 ], [ %cond85, %if.then83 ], [ 1, %do.end28 ], [ 10, %cond.true.i ], [ 1, %do.end14 ]
   %error_code1.i40 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i40, align 4
   %engine_error_code3.i41 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -3287,7 +3287,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -3387,7 +3387,7 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %_ZN2v810MaybeL
   br i1 %call103, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %do.end43, %do.end28, %do.end14, %if.then87
-  %.sink = phi i32 [ %cond89, %if.then87 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 2, %do.end43 ], [ 10, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
+  %.sink = phi i32 [ 2, %do.end43 ], [ %cond89, %if.then87 ], [ 1, %do.end28 ], [ 10, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ 1, %do.end14 ]
   %error_code1.i40 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i40, align 4
   %engine_error_code3.i41 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -3431,7 +3431,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -3539,7 +3539,7 @@ if.end87:                                         ; preds = %cond.true.i, %do.en
   br i1 %call88, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %if.end87, %do.end36, %do.end21, %do.end14, %if.then76
-  %.sink = phi i32 [ %cond78, %if.then76 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end36 ], [ 10, %if.end87 ]
+  %.sink = phi i32 [ 2, %do.end36 ], [ %cond78, %if.then76 ], [ 1, %do.end21 ], [ 1, %do.end14 ], [ 10, %if.end87 ]
   %error_code1.i36 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i36, align 4
   %engine_error_code3.i37 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -3583,7 +3583,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -3690,7 +3690,7 @@ cond.true.i:                                      ; preds = %do.end78
   br i1 %call104, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %cond.true.i, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end39, %do.end28, %do.end14, %if.then95
-  %.sink = phi i32 [ %cond97, %if.then95 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 2, %do.end39 ], [ 4, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 10, %cond.true.i ]
+  %.sink = phi i32 [ 4, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ %cond97, %if.then95 ], [ 2, %do.end39 ], [ 1, %do.end28 ], [ 10, %cond.true.i ], [ 1, %do.end14 ]
   %error_code1.i44 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i44, align 4
   %engine_error_code3.i45 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -3734,7 +3734,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -3843,7 +3843,7 @@ do.end125:                                        ; preds = %_ZN2v810MaybeLocalI
   br i1 %call126, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %do.end125, %do.end70, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end32, %do.end21, %do.end14, %if.then119
-  %.sink = phi i32 [ %cond121, %if.then119 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end32 ], [ 1, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 9, %do.end70 ], [ 10, %do.end125 ]
+  %.sink = phi i32 [ 9, %do.end70 ], [ %cond121, %if.then119 ], [ 1, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 2, %do.end32 ], [ 1, %do.end21 ], [ 1, %do.end14 ], [ 10, %do.end125 ]
   %error_code1.i46 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i46, align 4
   %engine_error_code3.i47 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -3887,7 +3887,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -3996,7 +3996,7 @@ cond.true.i:                                      ; preds = %_ZN2v810MaybeLocalI
   br i1 %call119, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %cond.true.i, %do.end70, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end32, %do.end21, %do.end14, %if.then110
-  %.sink = phi i32 [ %cond112, %if.then110 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end32 ], [ 1, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 9, %do.end70 ], [ 10, %cond.true.i ]
+  %.sink = phi i32 [ 9, %do.end70 ], [ %cond112, %if.then110 ], [ 1, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 2, %do.end32 ], [ 1, %do.end21 ], [ 1, %do.end14 ], [ 10, %cond.true.i ]
   %error_code1.i46 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i46, align 4
   %engine_error_code3.i47 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -4040,7 +4040,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -4146,7 +4146,7 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %_ZN2v810MaybeL
   br i1 %call130, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %do.end64, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %do.end35, %do.end21, %do.end14, %if.then114
-  %.sink = phi i32 [ %cond116, %if.then114 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 9, %do.end35 ], [ 1, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ], [ 2, %do.end64 ], [ 10, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
+  %.sink = phi i32 [ 2, %do.end64 ], [ %cond116, %if.then114 ], [ 1, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ], [ 9, %do.end35 ], [ 1, %do.end21 ], [ 1, %do.end14 ], [ 10, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
   %error_code1.i46 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i46, align 4
   %engine_error_code3.i47 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -4190,7 +4190,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -4285,7 +4285,7 @@ do.end83:                                         ; preds = %_ZN2v810MaybeLocalI
   br i1 %call84, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %do.end83, %do.end32, %do.end21, %do.end14, %if.then77
-  %.sink = phi i32 [ %cond79, %if.then77 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end32 ], [ 10, %do.end83 ]
+  %.sink = phi i32 [ 2, %do.end32 ], [ %cond79, %if.then77 ], [ 1, %do.end21 ], [ 1, %do.end14 ], [ 10, %do.end83 ]
   %error_code1.i35 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i35, align 4
   %engine_error_code3.i36 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -4329,7 +4329,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -4430,7 +4430,7 @@ cond.true.i:                                      ; preds = %_ZN2v810MaybeLocalI
   br i1 %call77, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %cond.true.i, %do.end32, %do.end21, %do.end14, %if.then68
-  %.sink = phi i32 [ %cond70, %if.then68 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end32 ], [ 10, %cond.true.i ]
+  %.sink = phi i32 [ 2, %do.end32 ], [ %cond70, %if.then68 ], [ 1, %do.end21 ], [ 1, %do.end14 ], [ 10, %cond.true.i ]
   %error_code1.i35 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i35, align 4
   %engine_error_code3.i36 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -4474,7 +4474,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -4572,7 +4572,7 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %_ZN2v810MaybeL
   br i1 %call88, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %do.end32, %do.end21, %do.end14, %if.then72
-  %.sink = phi i32 [ %cond74, %if.then72 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end32 ], [ 10, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
+  %.sink = phi i32 [ 2, %do.end32 ], [ %cond74, %if.then72 ], [ 1, %do.end21 ], [ 1, %do.end14 ], [ 10, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
   %error_code1.i35 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i35, align 4
   %engine_error_code3.i36 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -4616,7 +4616,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -4720,7 +4720,7 @@ if.end72:                                         ; preds = %cond.true.i, %do.en
   br i1 %call73, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %if.end72, %do.end25, %do.end14, %if.then61
-  %.sink = phi i32 [ %cond63, %if.then61 ], [ 1, %do.end14 ], [ 2, %do.end25 ], [ 10, %if.end72 ]
+  %.sink = phi i32 [ 2, %do.end25 ], [ %cond63, %if.then61 ], [ 1, %do.end14 ], [ 10, %if.end72 ]
   %error_code1.i31 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i31, align 4
   %engine_error_code3.i32 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -4764,7 +4764,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -4872,7 +4872,7 @@ do.end68:                                         ; preds = %_ZN2v810MaybeLocalI
   br i1 %call69, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %do.end68, %do.end25, %do.end14, %if.then62
-  %.sink = phi i32 [ %cond64, %if.then62 ], [ 1, %do.end14 ], [ 2, %do.end25 ], [ 10, %do.end68 ]
+  %.sink = phi i32 [ 2, %do.end25 ], [ %cond64, %if.then62 ], [ 1, %do.end14 ], [ 10, %do.end68 ]
   %error_code1.i30 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i30, align 4
   %engine_error_code3.i31 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -4916,7 +4916,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -5009,7 +5009,7 @@ do.end68:                                         ; preds = %_ZN2v810MaybeLocalI
   br i1 %call69, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %do.end68, %do.end25, %do.end14, %if.then62
-  %.sink = phi i32 [ %cond64, %if.then62 ], [ 1, %do.end14 ], [ 2, %do.end25 ], [ 10, %do.end68 ]
+  %.sink = phi i32 [ 2, %do.end25 ], [ %cond64, %if.then62 ], [ 1, %do.end14 ], [ 10, %do.end68 ]
   %error_code1.i30 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i30, align 4
   %engine_error_code3.i31 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -5053,7 +5053,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -5112,7 +5112,7 @@ do.end13:                                         ; preds = %do.body8
   br label %return
 
 return:                                           ; preds = %entry, %do.end13, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -5196,7 +5196,7 @@ do.end39:                                         ; preds = %do.end28
   br i1 %call46, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %do.end39, %do.end28, %do.end14
-  %.sink = phi i32 [ 1, %do.end14 ], [ 8, %do.end28 ], [ 10, %do.end39 ]
+  %.sink = phi i32 [ 8, %do.end28 ], [ 10, %do.end39 ], [ 1, %do.end14 ]
   %error_code1.i28 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i28, align 4
   %engine_error_code3.i29 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -5240,7 +5240,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -5367,7 +5367,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -5454,7 +5454,7 @@ _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end32
   br i1 %call70, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end32, %do.end14
-  %.sink = phi i32 [ 1, %do.end14 ], [ 2, %do.end32 ], [ 10, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ]
+  %.sink = phi i32 [ 2, %do.end32 ], [ 10, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 1, %do.end14 ]
   %error_code1.i30 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i30, align 4
   %engine_error_code3.i31 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -5498,7 +5498,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -5547,7 +5547,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -5596,7 +5596,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -5646,7 +5646,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -5736,7 +5736,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %do.end25.i
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ25napi_create_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
 "_ZN6v8impl12_GLOBAL__N_19NewStringIcZ25napi_create_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit": ; preds = %entry, %if.then8.i, %if.then14.i, %if.then21.i, %if.then33.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
-  %retval.0.i = phi i32 [ 9, %if.then33.i ], [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ], [ 1, %if.then21.i ], [ 1, %if.then14.i ], [ 1, %if.then8.i ], [ 1, %entry ]
+  %retval.0.i = phi i32 [ 1, %if.then8.i ], [ 9, %if.then33.i ], [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ], [ 1, %if.then21.i ], [ 1, %if.then14.i ], [ 1, %entry ]
   ret i32 %retval.0.i
 }
 
@@ -5826,7 +5826,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %do.end25.i
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ23napi_create_string_utf8E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
 "_ZN6v8impl12_GLOBAL__N_19NewStringIcZ23napi_create_string_utf8E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit": ; preds = %entry, %if.then8.i, %if.then14.i, %if.then21.i, %if.then33.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
-  %retval.0.i = phi i32 [ 9, %if.then33.i ], [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ], [ 1, %if.then21.i ], [ 1, %if.then14.i ], [ 1, %if.then8.i ], [ 1, %entry ]
+  %retval.0.i = phi i32 [ 1, %if.then8.i ], [ 9, %if.then33.i ], [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ], [ 1, %if.then21.i ], [ 1, %if.then14.i ], [ 1, %entry ]
   ret i32 %retval.0.i
 }
 
@@ -5916,7 +5916,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %do.end25.i
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ24napi_create_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
 "_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ24napi_create_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit": ; preds = %entry, %if.then8.i, %if.then14.i, %if.then21.i, %if.then33.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
-  %retval.0.i = phi i32 [ 9, %if.then33.i ], [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ], [ 1, %if.then21.i ], [ 1, %if.then14.i ], [ 1, %if.then8.i ], [ 1, %entry ]
+  %retval.0.i = phi i32 [ 1, %if.then8.i ], [ 9, %if.then33.i ], [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ], [ 1, %if.then21.i ], [ 1, %if.then14.i ], [ 1, %entry ]
   ret i32 %retval.0.i
 }
 
@@ -6058,7 +6058,7 @@ if.then29.i:                                      ; preds = %"_ZN6v8impl12_GLOBA
   br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
 "_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit": ; preds = %entry, %if.then8.i, %if.then14.i, %if.then21.i, %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i", %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i", %if.then29.i
-  %retval.0.i = phi i32 [ 1, %if.then21.i ], [ 1, %if.then14.i ], [ 1, %if.then8.i ], [ 1, %entry ], [ 0, %if.then29.i ], [ 0, %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i" ], [ 9, %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i" ]
+  %retval.0.i = phi i32 [ 1, %if.then8.i ], [ 1, %entry ], [ 1, %if.then21.i ], [ 1, %if.then14.i ], [ 0, %if.then29.i ], [ 0, %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i" ], [ 9, %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i" ]
   ret i32 %retval.0.i
 }
 
@@ -6204,7 +6204,7 @@ if.then29.i:                                      ; preds = %"_ZN6v8impl12_GLOBA
   br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
 "_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit": ; preds = %entry, %if.then8.i, %if.then14.i, %if.then21.i, %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i", %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i", %if.then29.i
-  %retval.0.i = phi i32 [ 1, %if.then21.i ], [ 1, %if.then14.i ], [ 1, %if.then8.i ], [ 1, %entry ], [ 0, %if.then29.i ], [ 0, %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i" ], [ 9, %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i" ]
+  %retval.0.i = phi i32 [ 1, %if.then8.i ], [ 1, %entry ], [ 1, %if.then21.i ], [ 1, %if.then14.i ], [ 0, %if.then29.i ], [ 0, %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i" ], [ 9, %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i" ]
   ret i32 %retval.0.i
 }
 
@@ -6251,7 +6251,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -6300,7 +6300,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -6349,7 +6349,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -6399,7 +6399,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -6446,7 +6446,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -6495,7 +6495,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -6589,7 +6589,7 @@ _ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit: ; preds = %do.end38
   br i1 %call69, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit, %do.end14, %if.then49
-  %.sink = phi i32 [ %cond51, %if.then49 ], [ 1, %do.end14 ], [ 10, %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit ]
+  %.sink = phi i32 [ 1, %do.end14 ], [ %cond51, %if.then49 ], [ 10, %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit ]
   %error_code1.i35 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i35, align 4
   %engine_error_code3.i36 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -6633,7 +6633,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -6685,7 +6685,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -6762,7 +6762,7 @@ if.end58:                                         ; preds = %if.end.i, %do.end7
   br label %return
 
 return:                                           ; preds = %entry, %if.end58, %if.then33, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end58 ], [ 3, %if.then33 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end58 ], [ 3, %if.then33 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -6856,8 +6856,8 @@ do.end13:                                         ; preds = %do.end25.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i.i, i8 0, i64 24, i1 false)
   br label %return
 
-return:                                           ; preds = %if.then8.i.i, %if.then21.i.i, %if.then33.i.i, %entry, %do.end13, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end13 ], [ 1, %if.then5 ], [ 1, %entry ], [ 1, %if.then8.i.i ], [ 1, %if.then21.i.i ], [ 9, %if.then33.i.i ]
+return:                                           ; preds = %if.then21.i.i, %if.then33.i.i, %if.then8.i.i, %entry, %do.end13, %if.then5
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 1, %entry ], [ 0, %do.end13 ], [ 1, %if.then21.i.i ], [ 9, %if.then33.i.i ], [ 1, %if.then8.i.i ]
   ret i32 %retval.0
 }
 
@@ -6971,7 +6971,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
-  %.sink.i = phi i32 [ 3, %if.then16.i ], [ 3, %if.end.i.i ], [ 9, %if.end54.i ], [ 9, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ]
+  %.sink.i = phi i32 [ 9, %if.end54.i ], [ 9, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ], [ 3, %if.then16.i ], [ 3, %if.end.i.i ]
   %error_code1.i25.i = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink.i, ptr %error_code1.i25.i, align 4
   %engine_error_code3.i26.i = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -6980,14 +6980,14 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %return
 
-do.end44:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %do.end23
+do.end44:                                         ; preds = %do.end23, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
   store ptr %call31, ptr %result, align 8
   %last_error.i = getelementptr inbounds nuw i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %entry, %do.end44, %if.then20, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end44 ], [ 3, %if.then20 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ], [ %.sink.i, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 1, %entry ], [ 0, %do.end44 ], [ 3, %if.then20 ], [ 1, %if.then10 ], [ %.sink.i, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
   ret i32 %retval.0
 }
 
@@ -7101,7 +7101,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
-  %.sink.i = phi i32 [ 3, %if.then16.i ], [ 3, %if.end.i.i ], [ 9, %if.end54.i ], [ 9, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ]
+  %.sink.i = phi i32 [ 9, %if.end54.i ], [ 9, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ], [ 3, %if.then16.i ], [ 3, %if.end.i.i ]
   %error_code1.i25.i = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink.i, ptr %error_code1.i25.i, align 4
   %engine_error_code3.i26.i = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -7110,14 +7110,14 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %return
 
-do.end44:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %do.end23
+do.end44:                                         ; preds = %do.end23, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
   store ptr %call31, ptr %result, align 8
   %last_error.i = getelementptr inbounds nuw i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %entry, %do.end44, %if.then20, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end44 ], [ 3, %if.then20 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ], [ %.sink.i, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 1, %entry ], [ 0, %do.end44 ], [ 3, %if.then20 ], [ 1, %if.then10 ], [ %.sink.i, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
   ret i32 %retval.0
 }
 
@@ -7231,7 +7231,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
-  %.sink.i = phi i32 [ 3, %if.then16.i ], [ 3, %if.end.i.i ], [ 9, %if.end54.i ], [ 9, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ]
+  %.sink.i = phi i32 [ 9, %if.end54.i ], [ 9, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ], [ 3, %if.then16.i ], [ 3, %if.end.i.i ]
   %error_code1.i25.i = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink.i, ptr %error_code1.i25.i, align 4
   %engine_error_code3.i26.i = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -7240,14 +7240,14 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %return
 
-do.end44:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %do.end23
+do.end44:                                         ; preds = %do.end23, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
   store ptr %call31, ptr %result, align 8
   %last_error.i = getelementptr inbounds nuw i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %entry, %do.end44, %if.then20, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end44 ], [ 3, %if.then20 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ], [ %.sink.i, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 1, %entry ], [ 0, %do.end44 ], [ 3, %if.then20 ], [ 1, %if.then10 ], [ %.sink.i, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
   ret i32 %retval.0
 }
 
@@ -7361,7 +7361,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   br i1 %cond.i.not.i, label %do.end44, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
-  %.sink.i = phi i32 [ 3, %if.then16.i ], [ 3, %if.end.i.i ], [ 9, %if.end54.i ], [ 9, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ]
+  %.sink.i = phi i32 [ 9, %if.end54.i ], [ 9, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ], [ 3, %if.then16.i ], [ 3, %if.end.i.i ]
   %error_code1.i25.i = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink.i, ptr %error_code1.i25.i, align 4
   %engine_error_code3.i26.i = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -7370,14 +7370,14 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %return
 
-do.end44:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %do.end23
+do.end44:                                         ; preds = %do.end23, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
   store ptr %call31, ptr %result, align 8
   %last_error.i = getelementptr inbounds nuw i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %entry, %do.end44, %if.then20, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end44 ], [ 3, %if.then20 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ], [ %.sink.i, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 1, %entry ], [ 0, %do.end44 ], [ 3, %if.then20 ], [ 1, %if.then10 ], [ %.sink.i, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
   ret i32 %retval.0
 }
 
@@ -7531,14 +7531,14 @@ if.else55:                                        ; preds = %if.else51, %if.end.
   br label %return
 
 if.end66:                                         ; preds = %if.end5.i168, %if.else47, %if.end5.i, %if.else39, %if.else35, %if.else31, %if.else27, %if.end.i, %if.else, %do.end13
-  %.sink = phi i32 [ 3, %do.end13 ], [ 9, %if.else ], [ 4, %if.end.i ], [ 7, %if.else27 ], [ 8, %if.else31 ], [ 6, %if.else35 ], [ 2, %if.else39 ], [ 0, %if.end5.i ], [ 5, %if.else47 ], [ 1, %if.end5.i168 ]
+  %.sink = phi i32 [ 3, %do.end13 ], [ 4, %if.end.i ], [ 8, %if.else31 ], [ 2, %if.else39 ], [ 5, %if.else47 ], [ 0, %if.end5.i ], [ 6, %if.else35 ], [ 7, %if.else27 ], [ 9, %if.else ], [ 1, %if.end5.i168 ]
   store i32 %.sink, ptr %result, align 4
   %last_error.i = getelementptr inbounds nuw i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %entry, %if.end66, %if.else55, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end66 ], [ 1, %if.else55 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end66 ], [ 1, %if.else55 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -7601,7 +7601,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -7650,7 +7650,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -7733,7 +7733,7 @@ if.end26:                                         ; preds = %if.then24, %if.end2
   br label %return
 
 return:                                           ; preds = %entry, %if.end26, %if.then10, %if.then3
-  %retval.0 = phi i32 [ 0, %if.end26 ], [ 1, %if.then10 ], [ 1, %if.then3 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then3 ], [ 0, %if.end26 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -7793,7 +7793,7 @@ do.end13:                                         ; preds = %do.body8
   br label %return
 
 return:                                           ; preds = %entry, %do.end13, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -7978,7 +7978,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -8027,7 +8027,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -8148,7 +8148,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -8277,13 +8277,13 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %cleanup
 
-do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
+do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
   %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr %call48) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
-  %retval.1 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
+  %retval.1 = phi i32 [ 9, %if.then34 ], [ 1, %if.then22 ], [ 0, %do.end62 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i32, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -8317,7 +8317,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -8444,13 +8444,13 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %cleanup
 
-do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
+do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
   %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr %call48) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
-  %retval.1 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
+  %retval.1 = phi i32 [ 9, %if.then34 ], [ 1, %if.then22 ], [ 0, %do.end62 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i32, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -8484,7 +8484,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -8611,13 +8611,13 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %cleanup
 
-do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
+do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
   %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr %call48) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
-  %retval.1 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
+  %retval.1 = phi i32 [ 9, %if.then34 ], [ 1, %if.then22 ], [ 0, %do.end62 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i32, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -8651,7 +8651,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -8778,13 +8778,13 @@ _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit:
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %cleanup
 
-do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
+do.end62:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
   %call67 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr %call48) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit, %do.end62, %if.then34, %if.then22
-  %retval.1 = phi i32 [ 9, %if.then34 ], [ 0, %do.end62 ], [ 1, %if.then22 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
+  %retval.1 = phi i32 [ 9, %if.then34 ], [ 1, %if.then22 ], [ 0, %do.end62 ], [ 9, %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(56) %try_catch) #24
   br i1 %call.i, label %if.then.i32, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -8818,7 +8818,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -8877,7 +8877,7 @@ do.end13:                                         ; preds = %do.body8
   br label %return
 
 return:                                           ; preds = %entry, %do.end13, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -8950,7 +8950,7 @@ do.end23:                                         ; preds = %do.end13
   br label %return
 
 return:                                           ; preds = %entry, %do.end23, %if.then20, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end23 ], [ 6, %if.then20 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end23 ], [ 6, %if.then20 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -9042,7 +9042,7 @@ if.end40:                                         ; preds = %do.end32, %if.then.
   br label %return
 
 return:                                           ; preds = %entry, %if.end40, %if.then29, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end40 ], [ 6, %if.then29 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end40 ], [ 6, %if.then29 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -9138,7 +9138,7 @@ if.end40:                                         ; preds = %do.end32, %if.then.
   br label %return
 
 return:                                           ; preds = %entry, %if.end40, %if.then29, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end40 ], [ 6, %if.then29 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end40 ], [ 6, %if.then29 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -9237,14 +9237,14 @@ if.then.i:                                        ; preds = %if.then43
   br label %if.end51
 
 if.end51:                                         ; preds = %do.end34, %if.then43, %if.then.i
-  %storemerge = phi i64 [ %5, %if.then.i ], [ %5, %if.then43 ], [ 0, %do.end34 ]
+  %storemerge = phi i64 [ %5, %if.then43 ], [ %5, %if.then.i ], [ 0, %do.end34 ]
   store i64 %storemerge, ptr %result, align 8
   %last_error.i21 = getelementptr inbounds nuw i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i21, i8 0, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %entry, %if.end51, %if.then31, %if.then19, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %if.then19 ], [ 0, %if.end51 ], [ 6, %if.then31 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.then19 ], [ 0, %if.end51 ], [ 6, %if.then31 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -9330,7 +9330,7 @@ do.end29:                                         ; preds = %do.end19
   br label %return
 
 return:                                           ; preds = %entry, %do.end29, %if.then26, %if.then16, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end29 ], [ 17, %if.then26 ], [ 1, %if.then16 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end29 ], [ 17, %if.then26 ], [ 1, %if.then16 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -9416,7 +9416,7 @@ do.end29:                                         ; preds = %do.end19
   br label %return
 
 return:                                           ; preds = %entry, %do.end29, %if.then26, %if.then16, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end29 ], [ 17, %if.then26 ], [ 1, %if.then16 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end29 ], [ 17, %if.then26 ], [ 1, %if.then16 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -9533,7 +9533,7 @@ if.end46:                                         ; preds = %do.end44, %if.then3
   br label %return
 
 return:                                           ; preds = %entry, %if.end46, %if.then41, %if.then35, %if.then20, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end46 ], [ 1, %if.then41 ], [ 1, %if.then35 ], [ 17, %if.then20 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end46 ], [ 1, %if.then41 ], [ 1, %if.then35 ], [ 17, %if.then20 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -9609,7 +9609,7 @@ do.end23:                                         ; preds = %do.end13
   br label %return
 
 return:                                           ; preds = %entry, %do.end23, %if.then20, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end23 ], [ 7, %if.then20 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end23 ], [ 7, %if.then20 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -9726,7 +9726,7 @@ if.end50:                                         ; preds = %if.end50.sink.split
   br label %return
 
 return:                                           ; preds = %entry, %if.end50, %if.then21, %if.then14, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end50 ], [ 1, %if.then21 ], [ 3, %if.then14 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end50 ], [ 1, %if.then21 ], [ 3, %if.then14 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -9847,7 +9847,7 @@ if.end51:                                         ; preds = %if.end51.sink.split
   br label %return
 
 return:                                           ; preds = %entry, %if.end51, %if.then21, %if.then14, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end51 ], [ 1, %if.then21 ], [ 3, %if.then14 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end51 ], [ 1, %if.then21 ], [ 3, %if.then14 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -9966,7 +9966,7 @@ if.end50:                                         ; preds = %if.end50.sink.split
   br label %return
 
 return:                                           ; preds = %entry, %if.end50, %if.then21, %if.then14, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end50 ], [ 1, %if.then21 ], [ 3, %if.then14 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end50 ], [ 1, %if.then21 ], [ 3, %if.then14 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -10047,7 +10047,7 @@ do.end28:                                         ; preds = %do.end14
   br i1 %call46, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %do.end28, %do.end14
-  %.sink = phi i32 [ 1, %do.end14 ], [ 10, %do.end28 ]
+  %.sink = phi i32 [ 10, %do.end28 ], [ 1, %do.end14 ]
   %error_code1.i25 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i25, align 4
   %engine_error_code3.i26 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -10091,7 +10091,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -10177,7 +10177,7 @@ _ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit: ; preds = %do.end28
   br i1 %call76, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit, %do.end28, %do.end14
-  %.sink = phi i32 [ 1, %do.end14 ], [ 6, %do.end28 ], [ 10, %_ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit ]
+  %.sink = phi i32 [ 6, %do.end28 ], [ 10, %_ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit ], [ 1, %do.end14 ]
   %error_code1.i32 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i32, align 4
   %engine_error_code3.i33 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -10221,7 +10221,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -10307,7 +10307,7 @@ _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end28
   br i1 %call76, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end28, %do.end14
-  %.sink = phi i32 [ 1, %do.end14 ], [ 2, %do.end28 ], [ 10, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ]
+  %.sink = phi i32 [ 2, %do.end28 ], [ 10, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 1, %do.end14 ]
   %error_code1.i32 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i32, align 4
   %engine_error_code3.i33 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -10351,7 +10351,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -10435,7 +10435,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end28
   br i1 %call76, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %do.end28, %do.end14
-  %.sink = phi i32 [ 1, %do.end14 ], [ 3, %do.end28 ], [ 10, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ]
+  %.sink = phi i32 [ 3, %do.end28 ], [ 10, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ], [ 1, %do.end14 ]
   %error_code1.i32 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i32, align 4
   %engine_error_code3.i33 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -10479,7 +10479,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -10636,7 +10636,7 @@ do.end140.i:                                      ; preds = %_ZNO2v85MaybeIbE8Fr
   br i1 %call141.i, label %cleanup.sink.split.i, label %cleanup.i
 
 cleanup.sink.split.i:                             ; preds = %do.end140.i, %do.body69.i, %_ZNO2v85MaybeIbE8FromJustEv.exit180.i, %do.end21.i, %do.end14.i
-  %.sink.i = phi i32 [ 1, %do.end14.i ], [ 1, %do.end21.i ], [ 1, %_ZNO2v85MaybeIbE8FromJustEv.exit180.i ], [ 1, %do.body69.i ], [ 10, %do.end140.i ]
+  %.sink.i = phi i32 [ 1, %do.body69.i ], [ 1, %_ZNO2v85MaybeIbE8FromJustEv.exit180.i ], [ 1, %do.end21.i ], [ 1, %do.end14.i ], [ 10, %do.end140.i ]
   %error_code1.i46.i = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink.i, ptr %error_code1.i46.i, align 4
   %engine_error_code3.i47.i = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -10680,7 +10680,7 @@ _ZN6v8impl8TryCatchD2Ev.exit.i:                   ; preds = %if.end.i7.i.i, %_ZN
   br label %_ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10napi_ref__.exit
 
 _ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10napi_ref__.exit: ; preds = %entry, %if.then4.i, %if.then10.i, %_ZN6v8impl8TryCatchD2Ev.exit.i
-  %retval.0.i = phi i32 [ %retval.1.i, %_ZN6v8impl8TryCatchD2Ev.exit.i ], [ %cond.i, %if.then10.i ], [ 10, %if.then4.i ], [ 1, %entry ]
+  %retval.0.i = phi i32 [ 10, %if.then4.i ], [ %retval.1.i, %_ZN6v8impl8TryCatchD2Ev.exit.i ], [ %cond.i, %if.then10.i ], [ 1, %entry ]
   call void @llvm.lifetime.end.p0(ptr nonnull %try_catch.i)
   ret i32 %retval.0.i
 }
@@ -10848,7 +10848,7 @@ if.end134:                                        ; preds = %if.then130, %delete
   br i1 %call135, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %if.end134, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %if.end31, %do.end21, %do.end14
-  %.sink = phi i32 [ 1, %do.end14 ], [ 1, %do.end21 ], [ 1, %if.end31 ], [ 1, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ 10, %if.end134 ]
+  %.sink = phi i32 [ 1, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ 1, %if.end31 ], [ 1, %do.end21 ], [ 1, %do.end14 ], [ 10, %if.end134 ]
   %error_code1.i42 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i42, align 4
   %engine_error_code3.i43 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -10892,7 +10892,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -11048,7 +11048,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -11214,7 +11214,7 @@ do.end160:                                        ; preds = %_ZNKR2v85MaybeIbE8F
   br i1 %call155, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %do.end160, %if.then22, %if.then43, %if.then59, %if.then87, %if.then96, %if.then114, %if.then145, %if.then154
-  %.sink = phi i32 [ %cond156, %if.then154 ], [ %cond147, %if.then145 ], [ %cond116, %if.then114 ], [ %cond98, %if.then96 ], [ %cond89, %if.then87 ], [ %cond61, %if.then59 ], [ %cond45, %if.then43 ], [ %cond24, %if.then22 ], [ 10, %do.end160 ]
+  %.sink = phi i32 [ %cond24, %if.then22 ], [ %cond156, %if.then154 ], [ %cond147, %if.then145 ], [ %cond116, %if.then114 ], [ %cond98, %if.then96 ], [ %cond89, %if.then87 ], [ %cond61, %if.then59 ], [ %cond45, %if.then43 ], [ 10, %do.end160 ]
   %error_code1.i56 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i56, align 4
   %engine_error_code3.i57 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -11258,7 +11258,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -11293,8 +11293,8 @@ if.end:                                           ; preds = %_ZN4node18ContextEm
   %9 = inttoptr i64 %8 to ptr
   br label %return
 
-return:                                           ; preds = %if.end.i, %entry, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit, %if.end
-  %retval.0 = phi ptr [ %9, %if.end ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit ], [ null, %entry ], [ null, %if.end.i ]
+return:                                           ; preds = %entry, %if.end.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit, %if.end
+  %retval.0 = phi ptr [ %9, %if.end ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit ], [ null, %if.end.i ], [ null, %entry ]
   ret ptr %retval.0
 }
 
@@ -11451,7 +11451,7 @@ land.rhs143:                                      ; preds = %if.then140
   br label %if.end152.sink.split
 
 if.end152.sink.split:                             ; preds = %if.then140, %land.rhs143, %if.then129, %land.rhs133, %if.then123, %land.rhs
-  %frombool137.sink.shrunk = phi i1 [ false, %if.then123 ], [ %cmp127, %land.rhs ], [ false, %if.then129 ], [ %cmp135, %land.rhs133 ], [ false, %if.then140 ], [ %cmp145, %land.rhs143 ]
+  %frombool137.sink.shrunk = phi i1 [ %cmp127, %land.rhs ], [ %cmp135, %land.rhs133 ], [ false, %if.then123 ], [ false, %if.then129 ], [ false, %if.then140 ], [ %cmp145, %land.rhs143 ]
   %frombool137.sink = zext i1 %frombool137.sink.shrunk to i8
   store i8 %frombool137.sink, ptr %result, align 1
   br label %if.end152
@@ -11461,7 +11461,7 @@ if.end152:                                        ; preds = %if.end152.sink.spli
   br i1 %call153, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split.sink.split:                    ; preds = %do.end74, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end27, %do.end14
-  %.sink54 = phi i32 [ 1, %do.end14 ], [ 2, %do.end27 ], [ 1, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 9, %do.end74 ]
+  %.sink54 = phi i32 [ 9, %do.end74 ], [ 1, %do.end14 ], [ 2, %do.end27 ], [ 1, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ]
   %call23 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %cond24 = select i1 %call23, i32 10, i32 %.sink54
   br label %cleanup.sink.split
@@ -11511,7 +11511,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -11584,7 +11584,7 @@ do.end23:                                         ; preds = %do.end13
   br label %return
 
 return:                                           ; preds = %entry, %do.end23, %if.then20, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end23 ], [ 1, %if.then20 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end23 ], [ 1, %if.then20 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -11689,7 +11689,7 @@ if.end29:                                         ; preds = %if.then18, %lor.lhs
   br label %return
 
 return:                                           ; preds = %entry, %if.end29, %if.then26, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end29 ], [ 1, %if.then26 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end29 ], [ 1, %if.then26 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -11736,7 +11736,7 @@ delete.notnull:                                   ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %delete.notnull, %if.then5
-  %retval.0 = phi i32 [ 0, %delete.notnull ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %delete.notnull ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -11810,7 +11810,7 @@ if.end11:                                         ; preds = %if.then10, %_ZN6v8i
   br label %return
 
 return:                                           ; preds = %entry, %if.end11, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end11 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end11 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -11890,7 +11890,7 @@ if.end.i.i.i:                                     ; preds = %if.then5.i
   br label %_ZN6v8impl9Reference5UnrefEv.exit
 
 _ZN6v8impl9Reference5UnrefEv.exit:                ; preds = %if.end12, %_ZN6v8impl7RefBase5UnrefEv.exit.i, %if.then.i.i, %if.end.i.i.i
-  %retval.0.i = phi i32 [ 0, %if.end12 ], [ %dec.i.i, %_ZN6v8impl7RefBase5UnrefEv.exit.i ], [ 0, %if.then.i.i ], [ 0, %if.end.i.i.i ]
+  %retval.0.i = phi i32 [ 0, %if.end12 ], [ 0, %if.end.i.i.i ], [ %dec.i.i, %_ZN6v8impl7RefBase5UnrefEv.exit.i ], [ 0, %if.then.i.i ]
   %cmp14.not = icmp eq ptr %result, null
   br i1 %cmp14.not, label %if.end16, label %if.then15
 
@@ -11904,7 +11904,7 @@ if.end16:                                         ; preds = %if.then15, %_ZN6v8i
   br label %return
 
 return:                                           ; preds = %entry, %if.end16, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 9, %if.then10 ], [ 0, %if.end16 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 9, %if.then10 ], [ 0, %if.end16 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -11977,7 +11977,7 @@ _ZN6v8impl9Reference3GetEv.exit:                  ; preds = %do.end13, %if.end.i
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl9Reference3GetEv.exit, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %_ZN6v8impl9Reference3GetEv.exit ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %_ZN6v8impl9Reference3GetEv.exit ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -12029,7 +12029,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -12082,7 +12082,7 @@ if.end10:                                         ; preds = %do.end7
   br label %return
 
 return:                                           ; preds = %do.end7, %entry, %if.end10, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end10 ], [ 1, %if.then5 ], [ 1, %entry ], [ 13, %do.end7 ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 1, %entry ], [ 0, %if.end10 ], [ 13, %do.end7 ]
   ret i32 %retval.0
 }
 
@@ -12136,7 +12136,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -12190,7 +12190,7 @@ if.end10:                                         ; preds = %do.end7
   br label %return
 
 return:                                           ; preds = %do.end7, %entry, %if.end10, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end10 ], [ 1, %if.then5 ], [ 1, %entry ], [ 13, %do.end7 ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 1, %entry ], [ 0, %if.end10 ], [ 13, %do.end7 ]
   ret i32 %retval.0
 }
 
@@ -12277,7 +12277,7 @@ if.end39:                                         ; preds = %do.end19
   br label %return
 
 return:                                           ; preds = %entry, %if.end39, %if.then22, %if.then16, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 12, %if.end39 ], [ 0, %if.then22 ], [ 1, %if.then16 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 12, %if.end39 ], [ 0, %if.then22 ], [ 1, %if.then16 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -12372,7 +12372,7 @@ _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end61
   br i1 %call97, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end61, %do.end38, %do.end21, %do.end14
-  %.sink = phi i32 [ 1, %do.end14 ], [ 1, %do.end21 ], [ 1, %do.end38 ], [ 10, %do.end61 ], [ 10, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ]
+  %.sink = phi i32 [ 10, %do.end61 ], [ 1, %do.end38 ], [ 10, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 1, %do.end21 ], [ 1, %do.end14 ]
   %error_code1.i42 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i42, align 4
   %engine_error_code3.i43 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -12416,7 +12416,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -12523,7 +12523,7 @@ _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %if.end72
   br i1 %call95, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit, %if.end72, %do.end39, %do.end28, %do.end14, %if.then69
-  %.sink = phi i32 [ 5, %if.then69 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 2, %do.end39 ], [ 9, %if.end72 ], [ 10, %_ZNKR2v85MaybeIbE8FromJustEv.exit ]
+  %.sink = phi i32 [ 9, %if.end72 ], [ 2, %do.end39 ], [ 5, %if.then69 ], [ 1, %do.end28 ], [ 10, %_ZNKR2v85MaybeIbE8FromJustEv.exit ], [ 1, %do.end14 ]
   %error_code1.i47 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i47, align 4
   %engine_error_code3.i48 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -12567,7 +12567,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -12617,7 +12617,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br label %return
 
 return:                                           ; preds = %entry, %do.end7, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end7 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end7 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -12690,7 +12690,7 @@ if.end20:                                         ; preds = %if.end.i, %if.end.i
   br label %return
 
 return:                                           ; preds = %entry, %if.end20, %napi_get_undefined.exit, %if.then5
-  %retval.0 = phi i32 [ 0, %napi_get_undefined.exit ], [ 0, %if.end20 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %napi_get_undefined.exit ], [ 0, %if.end20 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -12749,7 +12749,7 @@ do.end13:                                         ; preds = %do.body8
   br label %return
 
 return:                                           ; preds = %entry, %do.end13, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -12881,7 +12881,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -12957,7 +12957,7 @@ if.end109.i:                                      ; preds = %if.then100.i, %do.e
   br label %return
 
 return:                                           ; preds = %if.end109.i, %if.then14.i, %if.then5.i, %do.end, %entry
-  %retval.0 = phi i32 [ %call, %entry ], [ 0, %if.end109.i ], [ 1, %if.then14.i ], [ 1, %if.then5.i ], [ 1, %do.end ]
+  %retval.0 = phi i32 [ %call, %entry ], [ 1, %if.then5.i ], [ 0, %if.end109.i ], [ 1, %if.then14.i ], [ 1, %do.end ]
   ret i32 %retval.0
 }
 
@@ -13058,7 +13058,7 @@ if.else62:                                        ; preds = %if.else58
   br i1 %call64, label %if.end77.sink.split, label %if.end77
 
 if.end77.sink.split:                              ; preds = %if.else62, %if.else58, %if.else54, %if.else50, %if.else46, %if.else42, %if.else38, %if.else34, %if.else30, %if.else, %if.then23
-  %.sink = phi i32 [ 0, %if.then23 ], [ 1, %if.else ], [ 2, %if.else30 ], [ 3, %if.else34 ], [ 4, %if.else38 ], [ 5, %if.else42 ], [ 6, %if.else46 ], [ 7, %if.else50 ], [ 8, %if.else54 ], [ 9, %if.else58 ], [ 10, %if.else62 ]
+  %.sink = phi i32 [ 0, %if.then23 ], [ 1, %if.else ], [ 3, %if.else34 ], [ 5, %if.else42 ], [ 7, %if.else50 ], [ 9, %if.else58 ], [ 8, %if.else54 ], [ 6, %if.else46 ], [ 4, %if.else38 ], [ 2, %if.else30 ], [ 10, %if.else62 ]
   store i32 %.sink, ptr %type, align 4
   br label %if.end77
 
@@ -13110,7 +13110,7 @@ if.end114:                                        ; preds = %if.then111, %if.end
   br label %return
 
 return:                                           ; preds = %entry, %if.end114, %if.then14, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end114 ], [ 1, %if.then14 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end114 ], [ 1, %if.then14 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -13184,7 +13184,7 @@ if.end31:                                         ; preds = %if.then28, %if.end2
   br label %return
 
 return:                                           ; preds = %entry, %if.end31, %if.then14, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end31 ], [ 1, %if.then14 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end31 ], [ 1, %if.then14 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -13245,7 +13245,7 @@ do.end13:                                         ; preds = %do.body8
   br label %return
 
 return:                                           ; preds = %entry, %do.end13, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -13578,7 +13578,7 @@ sw.epilog:                                        ; preds = %do.end413, %do.end3
   br i1 %call439, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %sw.epilog, %do.end39, %do.end28, %do.end14, %if.then49, %if.then76, %if.then105, %if.then130, %if.then142, %if.then168, %if.then180, %if.then206, %if.then218, %if.then244, %if.then256, %if.then282, %if.then294, %if.then320, %if.then332, %if.then358, %if.then370, %if.then396, %if.then408
-  %.sink = phi i32 [ 9, %if.then408 ], [ 9, %if.then396 ], [ 9, %if.then370 ], [ 9, %if.then358 ], [ 9, %if.then332 ], [ 9, %if.then320 ], [ 9, %if.then294 ], [ 9, %if.then282 ], [ 9, %if.then256 ], [ 9, %if.then244 ], [ 9, %if.then218 ], [ 9, %if.then206 ], [ 9, %if.then180 ], [ 9, %if.then168 ], [ 9, %if.then142 ], [ 9, %if.then130 ], [ 9, %if.then105 ], [ 9, %if.then76 ], [ 9, %if.then49 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 1, %do.end39 ], [ 10, %sw.epilog ]
+  %.sink = phi i32 [ 1, %do.end39 ], [ 1, %do.end28 ], [ 9, %if.then408 ], [ 9, %if.then396 ], [ 9, %if.then370 ], [ 9, %if.then358 ], [ 9, %if.then332 ], [ 9, %if.then320 ], [ 9, %if.then294 ], [ 9, %if.then282 ], [ 9, %if.then256 ], [ 9, %if.then244 ], [ 9, %if.then218 ], [ 9, %if.then206 ], [ 9, %if.then180 ], [ 9, %if.then168 ], [ 9, %if.then142 ], [ 9, %if.then130 ], [ 9, %if.then105 ], [ 9, %if.then76 ], [ 9, %if.then49 ], [ 10, %sw.epilog ], [ 1, %do.end14 ]
   %error_code1.i187 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i187, align 4
   %engine_error_code3.i188 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -13622,7 +13622,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -13764,7 +13764,7 @@ if.end50:                                         ; preds = %do.end39
   br i1 %call67, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %if.end50, %do.end28, %do.end14, %if.then47
-  %.sink = phi i32 [ 10, %if.then47 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 10, %if.end50 ]
+  %.sink = phi i32 [ 1, %do.end28 ], [ 10, %if.then47 ], [ 10, %if.end50 ], [ 1, %do.end14 ]
   %error_code1.i35 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i35, align 4
   %engine_error_code3.i36 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -13808,7 +13808,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -13869,7 +13869,7 @@ do.end13:                                         ; preds = %do.body8
   br label %return
 
 return:                                           ; preds = %entry, %do.end13, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -13969,7 +13969,7 @@ if.end58:                                         ; preds = %if.then55, %if.end5
   br label %return
 
 return:                                           ; preds = %entry, %if.end58, %if.then14, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end58 ], [ 1, %if.then14 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end58 ], [ 1, %if.then14 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -14001,7 +14001,7 @@ do.end5:                                          ; preds = %do.body1
   br label %return
 
 return:                                           ; preds = %entry, %do.end5, %if.then3
-  %retval.0 = phi i32 [ 0, %do.end5 ], [ 1, %if.then3 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then3 ], [ 0, %do.end5 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -14092,7 +14092,7 @@ _ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit: ; preds = %do.
   br i1 %call67, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit, %do.end28, %do.end14
-  %.sink = phi i32 [ 1, %do.end14 ], [ 9, %do.end28 ], [ 10, %_ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit ]
+  %.sink = phi i32 [ 9, %do.end28 ], [ 10, %_ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit ], [ 1, %do.end14 ]
   %error_code1.i36 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i36, align 4
   %engine_error_code3.i37 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -14136,7 +14136,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -14262,7 +14262,7 @@ do.end67:                                         ; preds = %_ZN2v86GlobalINS_5V
   br i1 %call68, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %do.end67, %_ZN2v86GlobalINS_5ValueEED2Ev.exit, %do.end14
-  %.sink = phi i32 [ 1, %do.end14 ], [ 9, %_ZN2v86GlobalINS_5ValueEED2Ev.exit ], [ 10, %do.end67 ]
+  %.sink = phi i32 [ 9, %_ZN2v86GlobalINS_5ValueEED2Ev.exit ], [ 1, %do.end14 ], [ 10, %do.end67 ]
   %error_code1.i34 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i34, align 4
   %engine_error_code3.i35 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -14306,7 +14306,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -14372,7 +14372,7 @@ do.end13:                                         ; preds = %do.body8
   br label %return
 
 return:                                           ; preds = %entry, %do.end13, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -14456,7 +14456,7 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %do.end21
   br i1 %call49, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %do.end21, %do.end14
-  %.sink = phi i32 [ 1, %do.end14 ], [ 9, %do.end21 ], [ 10, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
+  %.sink = phi i32 [ 9, %do.end21 ], [ 1, %do.end14 ], [ 10, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
   %error_code1.i25 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i25, align 4
   %engine_error_code3.i26 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -14500,7 +14500,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -14561,7 +14561,7 @@ do.end13:                                         ; preds = %do.body8
   br label %return
 
 return:                                           ; preds = %entry, %do.end13, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %do.end13 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -14645,7 +14645,7 @@ do.end39:                                         ; preds = %do.end28
   br i1 %call46, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %do.end39, %do.end28, %do.end14
-  %.sink = phi i32 [ 1, %do.end14 ], [ 18, %do.end28 ], [ 10, %do.end39 ]
+  %.sink = phi i32 [ 18, %do.end28 ], [ 10, %do.end39 ], [ 1, %do.end14 ]
   %error_code1.i28 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i28, align 4
   %engine_error_code3.i29 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -14689,7 +14689,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -14796,7 +14796,7 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %_ZN2v810MaybeL
   br i1 %call94, label %cleanup.sink.split, label %cleanup
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %_ZN2v810MaybeLocalINS_6ScriptEE14ToLocalCheckedEv.exit, %if.end36, %if.end.i, %do.end28, %do.end14
-  %.sink = phi i32 [ 1, %do.end14 ], [ 3, %do.end28 ], [ 3, %if.end.i ], [ 9, %if.end36 ], [ 9, %_ZN2v810MaybeLocalINS_6ScriptEE14ToLocalCheckedEv.exit ], [ 10, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
+  %.sink = phi i32 [ 9, %_ZN2v810MaybeLocalINS_6ScriptEE14ToLocalCheckedEv.exit ], [ 9, %if.end36 ], [ 3, %if.end.i ], [ 10, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ 1, %do.end14 ], [ 3, %do.end28 ]
   %error_code1.i41 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i41, align 4
   %engine_error_code3.i42 = getelementptr inbounds nuw i8, ptr %env, i64 152
@@ -14840,7 +14840,7 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 10, %if.then4 ], [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -14945,7 +14945,7 @@ if.end31:                                         ; preds = %if.then30, %do.end2
   br label %return
 
 return:                                           ; preds = %entry, %if.end31, %if.then20, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %if.end31 ], [ 1, %if.then20 ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end31 ], [ 1, %if.then20 ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -15029,7 +15029,7 @@ do.end5:                                          ; preds = %do.body1
   br label %return
 
 return:                                           ; preds = %entry, %do.end5, %if.then3
-  %retval.0 = phi i32 [ 0, %do.end5 ], [ 1, %if.then3 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then3 ], [ 0, %do.end5 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -15138,7 +15138,7 @@ cond.end:                                         ; preds = %do.end5, %cond.fals
   br label %return
 
 return:                                           ; preds = %entry, %cond.end, %if.then3
-  %retval.0 = phi i32 [ 0, %cond.end ], [ 1, %if.then3 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then3 ], [ 0, %cond.end ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -15216,7 +15216,7 @@ _ZNK2v85MaybeIbE5CheckEv.exit:                    ; preds = %if.then.i, %do.end2
   br label %return
 
 return:                                           ; preds = %entry, %_ZNK2v85MaybeIbE5CheckEv.exit, %if.then25, %if.then14, %if.then5
-  %retval.0 = phi i32 [ 0, %_ZNK2v85MaybeIbE5CheckEv.exit ], [ 20, %if.then25 ], [ 19, %if.then14 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %_ZNK2v85MaybeIbE5CheckEv.exit ], [ 20, %if.then25 ], [ 19, %if.then14 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -15287,7 +15287,7 @@ land.end:                                         ; preds = %land.rhs, %do.end13
   br label %return
 
 return:                                           ; preds = %entry, %land.end, %if.then10, %if.then5
-  %retval.0 = phi i32 [ 0, %land.end ], [ 1, %if.then10 ], [ 1, %if.then5 ], [ 1, %entry ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 0, %land.end ], [ 1, %if.then10 ], [ 1, %entry ]
   ret i32 %retval.0
 }
 

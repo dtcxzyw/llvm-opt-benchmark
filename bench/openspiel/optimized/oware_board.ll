@@ -435,7 +435,7 @@ _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %22, %_ZSteqIiSaIiEE
   br label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit7
 
 _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit7:       ; preds = %6, %39, %38, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit, %2
-  %40 = phi i1 [ false, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ], [ false, %2 ], [ false, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ %.not7.i.i.i.i.i6, %39 ], [ true, %38 ], [ false, %6 ]
+  %40 = phi i1 [ false, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ], [ false, %2 ], [ true, %38 ], [ false, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread ], [ %.not7.i.i.i.i.i6, %39 ], [ false, %6 ]
   ret i1 %40
 }
 
@@ -501,7 +501,7 @@ _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread.i: ; preds = %_ZSteqIiSaIiEEbRK
   br label %_ZNK10open_spiel5oware10OwareBoardeqERKS1_.exit
 
 _ZNK10open_spiel5oware10OwareBoardeqERKS1_.exit:  ; preds = %2, %6, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.i, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread.i, %38, %39
-  %40 = phi i1 [ true, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.i ], [ true, %2 ], [ true, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread.i ], [ %.not7.i.i.i.i.i6.i, %39 ], [ false, %38 ], [ true, %6 ]
+  %40 = phi i1 [ true, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.i ], [ true, %2 ], [ false, %38 ], [ true, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread.i ], [ %.not7.i.i.i.i.i6.i, %39 ], [ true, %6 ]
   ret i1 %40
 }
 

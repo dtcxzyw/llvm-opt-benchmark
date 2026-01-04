@@ -662,7 +662,7 @@ define dso_local i32 @bdev_thaw(ptr noundef %0) #1 align 16 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %1, %.thread, %30, %27, %.critedge
-  %31 = phi i32 [ 0, %.critedge ], [ %28, %30 ], [ 0, %27 ], [ 0, %.thread ], [ -22, %1 ], [ -22, %13 ]
+  %31 = phi i32 [ 0, %.thread ], [ 0, %.critedge ], [ %28, %30 ], [ 0, %27 ], [ -22, %1 ], [ -22, %13 ]
   tail call void @mutex_unlock(ptr noundef nonnull %2) #12
   ret i32 %31
 }

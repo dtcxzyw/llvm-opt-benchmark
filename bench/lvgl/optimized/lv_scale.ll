@@ -335,7 +335,7 @@ define void @lv_scale_set_line_needle_value(ptr noundef %0, ptr noundef %1, i32 
   br label %19
 
 19:                                               ; preds = %17, %15, %13
-  %.063 = phi i32 [ %14, %13 ], [ %2, %15 ], [ %., %17 ]
+  %.063 = phi i32 [ %2, %15 ], [ %14, %13 ], [ %., %17 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %21 = load i32, ptr %20, align 4, !tbaa !21
   %22 = icmp slt i32 %3, %21
@@ -1364,8 +1364,8 @@ define internal fastcc void @scale_draw_main(ptr noundef %0, ptr noundef %1) unn
   br label %102
 
 .thread141:                                       ; preds = %22, %55, %66
-  %.1145 = phi i32 [ %69, %66 ], [ %58, %55 ], [ 0, %22 ]
-  %.1125144 = phi i32 [ %76, %66 ], [ %65, %55 ], [ 0, %22 ]
+  %.1145 = phi i32 [ %58, %55 ], [ %69, %66 ], [ 0, %22 ]
+  %.1125144 = phi i32 [ %65, %55 ], [ %76, %66 ], [ 0, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -2151,7 +2151,7 @@ scale_build_custom_label_text.exit.i:             ; preds = %153, %152, %151, %1
   br label %229
 
 229:                                              ; preds = %226, %221, %215
-  %.1.i = phi i32 [ %222, %221 ], [ %spec.select.i, %226 ], [ %220, %215 ]
+  %.1.i = phi i32 [ %spec.select.i, %226 ], [ %222, %221 ], [ %220, %215 ]
   call void @lv_point_transform(ptr noundef nonnull %8, i32 noundef %202, i32 noundef 256, i32 noundef 256, ptr noundef nonnull %7, i1 noundef zeroext false) #9
   call fastcc void @scale_get_label_coords(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef %8, ptr noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2530,7 +2530,7 @@ define internal fastcc void @scale_get_tick_points(ptr noundef %0, i32 noundef r
   br label %128
 
 128:                                              ; preds = %110, %119, %118
-  %.0150 = phi i32 [ %127, %119 ], [ %116, %118 ], [ %.0149173192, %110 ]
+  %.0150 = phi i32 [ %116, %118 ], [ %127, %119 ], [ %.0149173192, %110 ]
   %129 = add nsw i32 %.0148174191, -1
   store i32 %129, ptr %3, align 4, !tbaa !63
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 4

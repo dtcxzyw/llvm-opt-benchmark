@@ -528,7 +528,7 @@ filter_frame.exit:                                ; preds = %77, %80, %157, %163
   br label %171
 
 171:                                              ; preds = %166, %17, %.critedge38, %.critedge, %170, %filter_frame.exit, %50, %._crit_edge
-  %.130 = phi i32 [ %45, %._crit_edge ], [ %52, %50 ], [ %.0112.i, %filter_frame.exit ], [ 0, %170 ], [ 0, %166 ], [ 0, %17 ], [ %18, %.critedge ], [ -1497649742, %.critedge38 ]
+  %.130 = phi i32 [ 0, %17 ], [ %45, %._crit_edge ], [ %52, %50 ], [ %.0112.i, %filter_frame.exit ], [ 0, %170 ], [ %18, %.critedge ], [ 0, %166 ], [ -1497649742, %.critedge38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.130
 }
@@ -735,7 +735,7 @@ switch.lookup:                                    ; preds = %80
   br label %87
 
 87:                                               ; preds = %80, %switch.lookup, %58, %76, %78, %44, %13, %40, %42
-  %.0 = phi i32 [ -12, %42 ], [ -12, %40 ], [ -12, %13 ], [ -12, %44 ], [ -12, %78 ], [ -12, %76 ], [ -12, %58 ], [ 0, %80 ], [ 0, %switch.lookup ]
+  %.0 = phi i32 [ -12, %58 ], [ -12, %44 ], [ -12, %13 ], [ -12, %42 ], [ -12, %40 ], [ -12, %78 ], [ -12, %76 ], [ 0, %80 ], [ 0, %switch.lookup ]
   ret i32 %.0
 }
 
@@ -942,8 +942,8 @@ define internal float @compute_ptp_flt(ptr noundef captures(none) %0, float noun
   br label %.critedge73
 
 .critedge73:                                      ; preds = %.lr.ph, %.lr.ph91, %6, %.preheader, %15, %.critedge
-  %.2108 = phi i32 [ %.081, %.critedge ], [ %8, %.preheader ], [ %8, %15 ], [ %7, %6 ], [ %.081, %.lr.ph91 ], [ %8, %.lr.ph ]
-  %.159 = phi i32 [ %spec.select74, %.critedge ], [ %8, %.preheader ], [ %8, %15 ], [ %8, %6 ], [ %.081, %.lr.ph91 ], [ %8, %.lr.ph ]
+  %.2108 = phi i32 [ %.081, %.critedge ], [ %8, %15 ], [ %.081, %.lr.ph91 ], [ %8, %.preheader ], [ %7, %6 ], [ %8, %.lr.ph ]
+  %.159 = phi i32 [ %spec.select74, %.critedge ], [ %8, %15 ], [ %.081, %.lr.ph91 ], [ %8, %.preheader ], [ %8, %6 ], [ %8, %.lr.ph ]
   %40 = sext i32 %.159 to i64
   %41 = getelementptr inbounds float, ptr %0, i64 %40
   store float %1, ptr %41, align 4, !tbaa !99
@@ -1047,8 +1047,8 @@ define internal double @compute_ptp_dbl(ptr noundef captures(none) %0, double no
   br label %.critedge73
 
 .critedge73:                                      ; preds = %.lr.ph, %.lr.ph91, %6, %.preheader, %15, %.critedge
-  %.2108 = phi i32 [ %.081, %.critedge ], [ %8, %.preheader ], [ %8, %15 ], [ %7, %6 ], [ %.081, %.lr.ph91 ], [ %8, %.lr.ph ]
-  %.159 = phi i32 [ %spec.select74, %.critedge ], [ %8, %.preheader ], [ %8, %15 ], [ %8, %6 ], [ %.081, %.lr.ph91 ], [ %8, %.lr.ph ]
+  %.2108 = phi i32 [ %.081, %.critedge ], [ %8, %15 ], [ %.081, %.lr.ph91 ], [ %8, %.preheader ], [ %7, %6 ], [ %8, %.lr.ph ]
+  %.159 = phi i32 [ %spec.select74, %.critedge ], [ %8, %15 ], [ %.081, %.lr.ph91 ], [ %8, %.preheader ], [ %8, %6 ], [ %8, %.lr.ph ]
   %40 = sext i32 %.159 to i64
   %41 = getelementptr inbounds double, ptr %0, i64 %40
   store double %1, ptr %41, align 8, !tbaa !101
@@ -1147,8 +1147,8 @@ define internal float @compute_median_flt(ptr noundef captures(none) %0, float n
   br i1 %40, label %.lr.ph108, label %.critedge89
 
 .critedge89.thread:                               ; preds = %.lr.ph108, %.lr.ph, %6, %17, %.preheader
-  %.273123.ph = phi i32 [ %9, %.preheader ], [ %9, %17 ], [ %8, %6 ], [ %9, %.lr.ph ], [ %.07198, %.lr.ph108 ]
-  %.170.ph = phi i32 [ %9, %.preheader ], [ %9, %17 ], [ %9, %6 ], [ %9, %.lr.ph ], [ %.07198, %.lr.ph108 ]
+  %.273123.ph = phi i32 [ %9, %.lr.ph ], [ %9, %17 ], [ %9, %.preheader ], [ %8, %6 ], [ %.07198, %.lr.ph108 ]
+  %.170.ph = phi i32 [ %9, %.lr.ph ], [ %9, %17 ], [ %9, %.preheader ], [ %9, %6 ], [ %.07198, %.lr.ph108 ]
   %41 = sext i32 %.170.ph to i64
   %42 = getelementptr inbounds float, ptr %0, i64 %41
   store float %7, ptr %42, align 4, !tbaa !99
@@ -1279,8 +1279,8 @@ define internal double @compute_median_dbl(ptr noundef captures(none) %0, double
   br i1 %40, label %.lr.ph108, label %.critedge89
 
 .critedge89.thread:                               ; preds = %.lr.ph108, %.lr.ph, %6, %17, %.preheader
-  %.273123.ph = phi i32 [ %9, %.preheader ], [ %9, %17 ], [ %8, %6 ], [ %9, %.lr.ph ], [ %.07198, %.lr.ph108 ]
-  %.170.ph = phi i32 [ %9, %.preheader ], [ %9, %17 ], [ %9, %6 ], [ %9, %.lr.ph ], [ %.07198, %.lr.ph108 ]
+  %.273123.ph = phi i32 [ %9, %.lr.ph ], [ %9, %17 ], [ %9, %.preheader ], [ %8, %6 ], [ %.07198, %.lr.ph108 ]
+  %.170.ph = phi i32 [ %9, %.lr.ph ], [ %9, %17 ], [ %9, %.preheader ], [ %9, %6 ], [ %.07198, %.lr.ph108 ]
   %41 = sext i32 %.170.ph to i64
   %42 = getelementptr inbounds double, ptr %0, i64 %41
   store double %7, ptr %42, align 8, !tbaa !101
@@ -1418,8 +1418,8 @@ define internal float @compute_peak_flt(ptr noundef captures(none) %0, float nou
   br label %.critedge70
 
 .critedge70:                                      ; preds = %.lr.ph, %.lr.ph88, %6, %.preheader, %17, %.critedge
-  %.259103 = phi i32 [ %.05778, %.critedge ], [ %9, %.preheader ], [ %9, %17 ], [ %8, %6 ], [ %.05778, %.lr.ph88 ], [ %9, %.lr.ph ]
-  %.156 = phi i32 [ %spec.select71, %.critedge ], [ %9, %.preheader ], [ %9, %17 ], [ %9, %6 ], [ %.05778, %.lr.ph88 ], [ %9, %.lr.ph ]
+  %.259103 = phi i32 [ %.05778, %.critedge ], [ %9, %17 ], [ %.05778, %.lr.ph88 ], [ %9, %.preheader ], [ %8, %6 ], [ %9, %.lr.ph ]
+  %.156 = phi i32 [ %spec.select71, %.critedge ], [ %9, %17 ], [ %.05778, %.lr.ph88 ], [ %9, %.preheader ], [ %9, %6 ], [ %9, %.lr.ph ]
   %42 = sext i32 %.156 to i64
   %43 = getelementptr inbounds float, ptr %0, i64 %42
   store float %7, ptr %43, align 4, !tbaa !99
@@ -1521,8 +1521,8 @@ define internal double @compute_peak_dbl(ptr noundef captures(none) %0, double n
   br label %.critedge70
 
 .critedge70:                                      ; preds = %.lr.ph, %.lr.ph88, %6, %.preheader, %17, %.critedge
-  %.259103 = phi i32 [ %.05778, %.critedge ], [ %9, %.preheader ], [ %9, %17 ], [ %8, %6 ], [ %.05778, %.lr.ph88 ], [ %9, %.lr.ph ]
-  %.156 = phi i32 [ %spec.select71, %.critedge ], [ %9, %.preheader ], [ %9, %17 ], [ %9, %6 ], [ %.05778, %.lr.ph88 ], [ %9, %.lr.ph ]
+  %.259103 = phi i32 [ %.05778, %.critedge ], [ %9, %17 ], [ %.05778, %.lr.ph88 ], [ %9, %.preheader ], [ %8, %6 ], [ %9, %.lr.ph ]
+  %.156 = phi i32 [ %spec.select71, %.critedge ], [ %9, %17 ], [ %.05778, %.lr.ph88 ], [ %9, %.preheader ], [ %9, %6 ], [ %9, %.lr.ph ]
   %42 = sext i32 %.156 to i64
   %43 = getelementptr inbounds double, ptr %0, i64 %42
   store double %7, ptr %43, align 8, !tbaa !101
@@ -1891,7 +1891,7 @@ flush_flt.exit:                                   ; preds = %._crit_edge.us.i, %
   br i1 %.not114, label %147, label %.thread
 
 .thread:                                          ; preds = %queue_sample_flt.exit, %139, %137
-  %.0124127 = phi i32 [ %.0124.ph, %139 ], [ %.0124.ph, %137 ], [ %10, %queue_sample_flt.exit ]
+  %.0124127 = phi i32 [ %.0124.ph, %137 ], [ %.0124.ph, %139 ], [ %10, %queue_sample_flt.exit ]
   br i1 %50, label %.lr.ph131.preheader, label %._crit_edge132
 
 .lr.ph131.preheader:                              ; preds = %.thread
@@ -2504,7 +2504,7 @@ flush_dbl.exit:                                   ; preds = %._crit_edge.us.i, %
   br i1 %.not114, label %146, label %.thread
 
 .thread:                                          ; preds = %queue_sample_dbl.exit, %138, %136
-  %.0124127 = phi i32 [ %.0124.ph, %138 ], [ %.0124.ph, %136 ], [ %10, %queue_sample_dbl.exit ]
+  %.0124127 = phi i32 [ %.0124.ph, %136 ], [ %.0124.ph, %138 ], [ %10, %queue_sample_dbl.exit ]
   br i1 %49, label %.lr.ph131.preheader, label %._crit_edge132
 
 .lr.ph131.preheader:                              ; preds = %.thread

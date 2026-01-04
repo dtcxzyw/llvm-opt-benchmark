@@ -216,19 +216,19 @@ _ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.thread: ; preds = %1, %_ZN4ht
 
 14:                                               ; preds = %11
   %.not.i.i.i = icmp ugt i64 %3, %12
-  br i1 %.not.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", label %15
+  br i1 %.not.i.i.i, label %15, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i"
 
 15:                                               ; preds = %14
-  %16 = icmp ne i64 %3, %12
-  %17 = icmp eq ptr %10, null
-  %or.cond.i = or i1 %17, %16
-  br i1 %or.cond.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i", label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread5
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 %12
+  %17 = load i8, ptr %16, align 1, !alias.scope !35, !noundef !13
+  %18 = icmp sgt i8 %17, -65
+  br i1 %18, label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread5, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i": ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 %12
-  %19 = load i8, ptr %18, align 1, !alias.scope !35, !noundef !13
-  %20 = icmp sgt i8 %19, -65
-  br i1 %20, label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread5, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i"
+  %19 = icmp ne i64 %3, %12
+  %20 = icmp eq ptr %10, null
+  %or.cond.i = or i1 %20, %19
+  br i1 %or.cond.i, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i", label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread5
 
 "_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i": ; preds = %11
   %.old.i = icmp eq ptr %10, null
@@ -244,8 +244,8 @@ _ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit: ; preds = %_ZN4ht
   br label %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread5
 
 _ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.thread5: ; preds = %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %15, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit
-  %.sroa.3.0 = phi i64 [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit ], [ 1, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i" ], [ %3, %15 ], [ %12, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ %spec.select.i, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit ]
-  %.sroa.0.0 = phi ptr [ @anon.c366ccdbebbb42cdbcc7f5de976c8b4e.9, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit ], [ @anon.c366ccdbebbb42cdbcc7f5de976c8b4e.8, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i" ], [ %10, %15 ], [ %10, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ %spec.select, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit ]
+  %.sroa.3.0 = phi i64 [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit ], [ 1, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i" ], [ %spec.select.i, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit ], [ %3, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ %12, %15 ]
+  %.sroa.0.0 = phi ptr [ @anon.c366ccdbebbb42cdbcc7f5de976c8b4e.9, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit ], [ @anon.c366ccdbebbb42cdbcc7f5de976c8b4e.8, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i" ], [ %spec.select, %_ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit ], [ %10, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ %10, %15 ]
   %21 = icmp ne ptr %.sroa.0.0, null
   tail call void @llvm.assume(i1 %21)
   %22 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0

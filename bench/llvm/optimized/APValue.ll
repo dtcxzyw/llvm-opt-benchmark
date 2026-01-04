@@ -2256,7 +2256,7 @@ _ZN5clang7APValue2LV10resizePathEj.exit.i:        ; preds = %8
   br label %_ZN5clang7APValue15setLValueUninitENS0_10LValueBaseERKNS_9CharUnitsEjbb.exit
 
 _ZN5clang7APValue15setLValueUninitENS0_10LValueBaseERKNS_9CharUnitsEjbb.exit: ; preds = %_ZN5clang7APValue2LV10resizePathEj.exit.thread16.i, %_ZN5clang7APValue2LV10resizePathEj.exit.thread.i, %_ZN5clang7APValue2LV10resizePathEj.exit.i
-  %43 = phi ptr [ %35, %_ZN5clang7APValue2LV10resizePathEj.exit.thread16.i ], [ %38, %_ZN5clang7APValue2LV10resizePathEj.exit.thread.i ], [ %spec.select.i, %_ZN5clang7APValue2LV10resizePathEj.exit.i ]
+  %43 = phi ptr [ %35, %_ZN5clang7APValue2LV10resizePathEj.exit.thread16.i ], [ %spec.select.i, %_ZN5clang7APValue2LV10resizePathEj.exit.i ], [ %38, %_ZN5clang7APValue2LV10resizePathEj.exit.thread.i ]
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %46, label %44
 
@@ -3045,7 +3045,7 @@ _ZNK4llvm12APFixedPoint8getValueEv.exit:          ; preds = %20
   unreachable
 
 _ZNK4llvm7APFloat12needsCleanupEv.exit:           ; preds = %38, %35, %29, %27, %_ZNK4llvm12APFixedPoint8getValueEv.exit, %_ZNK4llvm12APFixedPoint8getValueEv.exit.thread, %16, %13, %1, %1, %1, %51, %46, %42, %5, %4
-  %.0 = phi i1 [ true, %4 ], [ %8, %5 ], [ %45, %42 ], [ %50, %46 ], [ %54, %51 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ %15, %13 ], [ %19, %16 ], [ false, %_ZNK4llvm12APFixedPoint8getValueEv.exit.thread ], [ false, %_ZNK4llvm12APFixedPoint8getValueEv.exit ], [ true, %27 ], [ true, %29 ], [ %37, %35 ], [ %41, %38 ]
+  %.0 = phi i1 [ %54, %51 ], [ true, %4 ], [ %8, %5 ], [ false, %1 ], [ %19, %16 ], [ true, %29 ], [ %45, %42 ], [ %50, %46 ], [ false, %1 ], [ false, %1 ], [ %15, %13 ], [ false, %_ZNK4llvm12APFixedPoint8getValueEv.exit.thread ], [ false, %_ZNK4llvm12APFixedPoint8getValueEv.exit ], [ true, %27 ], [ %37, %35 ], [ %41, %38 ]
   ret i1 %.0
 }
 
@@ -4906,7 +4906,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit232:              ; preds = %217, %219
   br label %_ZN4llvm11raw_ostreamlsEc.exit242
 
 _ZN4llvm11raw_ostreamlsEc.exit242:                ; preds = %320, %318, %310, %308, %312
-  %.sroa.0419.1 = phi i64 [ %storemerge196, %312 ], [ %.sroa.0419.0, %308 ], [ %.sroa.0419.0, %310 ], [ %storemerge196, %318 ], [ %storemerge196, %320 ]
+  %.sroa.0419.1 = phi i64 [ %storemerge196, %312 ], [ %.sroa.0419.0, %310 ], [ %.sroa.0419.0, %308 ], [ %storemerge196, %318 ], [ %storemerge196, %320 ]
   %322 = and i64 %.sroa.0.0.copyload.i239, 3
   %.not563 = icmp eq i64 %322, 0
   %323 = and i64 %.sroa.0.0.copyload.i239, -4
@@ -5670,7 +5670,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %671, %669, %661, %6
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZNK4llvm6APSInt11getExtValueEv.exit.i, %.lr.ph.i, %_ZN4llvm11raw_ostreamlsEc.exit.i, %.critedge.critedge.i
-  %.not3287.i = phi i1 [ false, %.critedge.critedge.i ], [ true, %_ZN4llvm11raw_ostreamlsEc.exit.i ], [ false, %.lr.ph.i ], [ false, %_ZNK4llvm6APSInt11getExtValueEv.exit.i ]
+  %.not3287.i = phi i1 [ true, %_ZN4llvm11raw_ostreamlsEc.exit.i ], [ false, %.critedge.critedge.i ], [ false, %.lr.ph.i ], [ false, %_ZNK4llvm6APSInt11getExtValueEv.exit.i ]
   %676 = load ptr, ptr %6, align 8, !tbaa !158
   %677 = icmp eq ptr %676, %550
   br i1 %677, label %_ZL23TryPrintAsStringLiteralRN4llvm11raw_ostreamERKN5clang14PrintingPolicyEPKNS2_9ArrayTypeENS_8ArrayRefINS2_7APValueEEE.exit, label %678
@@ -5683,7 +5683,7 @@ _ZL23TryPrintAsStringLiteralRN4llvm11raw_ostreamERKN5clang14PrintingPolicyEPKNS2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not3287.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %_ZL23TryPrintAsStringLiteralRN4llvm11raw_ostreamERKN5clang14PrintingPolicyEPKNS2_9ArrayTypeENS_8ArrayRefINS2_7APValueEEE.exit.thread
 
-_ZL23TryPrintAsStringLiteralRN4llvm11raw_ostreamERKN5clang14PrintingPolicyEPKNS2_9ArrayTypeENS_8ArrayRefINS2_7APValueEEE.exit.thread: ; preds = %544, %534, %_ZNK4llvm5APInt6isZeroEv.exit.i, %525, %_ZL23TryPrintAsStringLiteralRN4llvm11raw_ostreamERKN5clang14PrintingPolicyEPKNS2_9ArrayTypeENS_8ArrayRefINS2_7APValueEEE.exit, %_ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit300
+_ZL23TryPrintAsStringLiteralRN4llvm11raw_ostreamERKN5clang14PrintingPolicyEPKNS2_9ArrayTypeENS_8ArrayRefINS2_7APValueEEE.exit.thread: ; preds = %534, %_ZNK4llvm5APInt6isZeroEv.exit.i, %525, %544, %_ZL23TryPrintAsStringLiteralRN4llvm11raw_ostreamERKN5clang14PrintingPolicyEPKNS2_9ArrayTypeENS_8ArrayRefINS2_7APValueEEE.exit, %_ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit300
   %679 = getelementptr inbounds nuw i8, ptr %.1.i299, i64 32
   %.sroa.0.0.copyload.i304 = load i64, ptr %679, align 16, !tbaa !3
   %680 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -6830,7 +6830,7 @@ _ZN5clang7APValue2LV10resizePathEj.exit:          ; preds = %7
   br label %41
 
 41:                                               ; preds = %_ZN5clang7APValue2LV10resizePathEj.exit, %_ZN5clang7APValue2LV10resizePathEj.exit.thread, %_ZN5clang7APValue2LV10resizePathEj.exit.thread16
-  %42 = phi ptr [ %33, %_ZN5clang7APValue2LV10resizePathEj.exit.thread16 ], [ %36, %_ZN5clang7APValue2LV10resizePathEj.exit.thread ], [ %spec.select, %_ZN5clang7APValue2LV10resizePathEj.exit ]
+  %42 = phi ptr [ %33, %_ZN5clang7APValue2LV10resizePathEj.exit.thread16 ], [ %spec.select, %_ZN5clang7APValue2LV10resizePathEj.exit ], [ %36, %_ZN5clang7APValue2LV10resizePathEj.exit.thread ]
   %43 = zext i32 %4 to i64
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %42, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %43, 1
@@ -7406,8 +7406,8 @@ _ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit: ; preds = %217, %
 .unreachabledefault:                              ; preds = %175
   unreachable
 
-.thread190:                                       ; preds = %175, %209, %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit, %206, %3, %.thread186
-  %.sroa.051.0 = phi i8 [ %.sroa.051.0.copyload, %.thread186 ], [ 18, %3 ], [ 18, %206 ], [ 18, %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit ], [ 18, %209 ], [ 18, %175 ]
+.thread190:                                       ; preds = %175, %209, %206, %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit, %3, %.thread186
+  %.sroa.051.0 = phi i8 [ %.sroa.051.0.copyload, %.thread186 ], [ 18, %3 ], [ 18, %175 ], [ 18, %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit ], [ 18, %206 ], [ 18, %209 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.sroa.051.0
@@ -7776,8 +7776,8 @@ define linkonce_odr hidden { ptr, i64 } @_ZN5clang12escapeCStyleILNS_10EscapeCha
   br label %12
 
 12:                                               ; preds = %1, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi ptr [ @.str.34, %2 ], [ @.str.35, %3 ], [ @.str.36, %4 ], [ @.str.37, %5 ], [ @.str.38, %6 ], [ @.str.39, %7 ], [ @.str.40, %8 ], [ @.str.41, %9 ], [ @.str.42, %10 ], [ @.str.43, %11 ], [ null, %1 ]
-  %.sroa.13.0 = phi i64 [ 2, %2 ], [ 2, %3 ], [ 2, %4 ], [ 2, %5 ], [ 2, %6 ], [ 2, %7 ], [ 2, %8 ], [ 2, %9 ], [ 2, %10 ], [ 2, %11 ], [ 0, %1 ]
+  %.sroa.0.0 = phi ptr [ @.str.43, %11 ], [ @.str.34, %2 ], [ @.str.35, %3 ], [ @.str.36, %4 ], [ @.str.37, %5 ], [ @.str.38, %6 ], [ @.str.39, %7 ], [ @.str.40, %8 ], [ @.str.41, %9 ], [ @.str.42, %10 ], [ null, %1 ]
+  %.sroa.13.0 = phi i64 [ 2, %11 ], [ 2, %2 ], [ 2, %3 ], [ 2, %4 ], [ 2, %5 ], [ 2, %6 ], [ 2, %7 ], [ 2, %8 ], [ 2, %9 ], [ 2, %10 ], [ 0, %1 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.13.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -8269,7 +8269,7 @@ _ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit11: ; preds = %13
   br label %139
 
 139:                                              ; preds = %_ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit.thread, %_ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit11
-  %.0 = phi ptr [ %.2, %_ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit11 ], [ %7, %_ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit.thread ]
+  %.0 = phi ptr [ %7, %_ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit.thread ], [ %.2, %_ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit11 ]
   ret ptr %.0
 }
 
@@ -8754,7 +8754,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !271
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 

@@ -449,7 +449,7 @@ Vec_IntFree.exit163:                              ; preds = %184, %187
   br label %188
 
 188:                                              ; preds = %143, %160, %163, %Vec_IntFree.exit159, %Vec_IntFree.exit163, %58, %62, %65, %Vec_IntFree.exit, %Vec_IntFree.exit151
-  %.1 = phi i32 [ 1, %58 ], [ 1, %Vec_IntFree.exit ], [ %switch.select134, %Vec_IntFree.exit151 ], [ 1, %62 ], [ 1, %65 ], [ 1, %143 ], [ 1, %Vec_IntFree.exit159 ], [ %switch.select138, %Vec_IntFree.exit163 ], [ 1, %160 ], [ 1, %163 ]
+  %.1 = phi i32 [ 1, %65 ], [ 1, %58 ], [ 1, %Vec_IntFree.exit ], [ %switch.select134, %Vec_IntFree.exit151 ], [ 1, %62 ], [ 1, %143 ], [ 1, %Vec_IntFree.exit159 ], [ %switch.select138, %Vec_IntFree.exit163 ], [ 1, %160 ], [ 1, %163 ]
   ret i32 %.1
 }
 
@@ -578,7 +578,7 @@ define i32 @Aig_ManCountXors(ptr noundef readonly captures(none) %0) local_unnam
   br label %23
 
 23:                                               ; preds = %20, %13, %.lr.ph, %18
-  %.1 = phi i32 [ %.018, %.lr.ph ], [ %.018, %18 ], [ %.018, %13 ], [ %spec.select, %20 ]
+  %.1 = phi i32 [ %.018, %.lr.ph ], [ %.018, %13 ], [ %spec.select, %20 ], [ %.018, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load ptr, ptr %4, align 8, !tbaa !60
   %25 = getelementptr i8, ptr %24, i64 4
@@ -816,7 +816,7 @@ Abc_Clock.exit99:                                 ; preds = %68, %75
   br label %116
 
 116:                                              ; preds = %113, %111, %106, %.lr.ph.i
-  %.1.i = phi i32 [ %.018.i, %.lr.ph.i ], [ %.018.i, %111 ], [ %.018.i, %106 ], [ %spec.select.i, %113 ]
+  %.1.i = phi i32 [ %.018.i, %.lr.ph.i ], [ %.018.i, %106 ], [ %spec.select.i, %113 ], [ %.018.i, %111 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %117 = load ptr, ptr %97, align 8, !tbaa !60
   %118 = getelementptr i8, ptr %117, i64 4
@@ -1192,8 +1192,8 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %45, label %.lr.ph.split, label %.critedge, !llvm.loop !74
 
 .critedge:                                        ; preds = %38, %43, %.lr.ph.split, %16, %21, %.lr.ph.split.us, %6
-  %.132 = phi i32 [ 1, %6 ], [ %15, %.lr.ph.split.us ], [ 1, %21 ], [ %17, %16 ], [ %37, %.lr.ph.split ], [ 1, %43 ], [ %39, %38 ]
-  %.1 = phi i32 [ -1, %6 ], [ %14, %.lr.ph.split.us ], [ %14, %21 ], [ %14, %16 ], [ %26, %.lr.ph.split ], [ %26, %43 ], [ %26, %38 ]
+  %.132 = phi i32 [ 1, %6 ], [ %15, %.lr.ph.split.us ], [ 1, %21 ], [ %17, %16 ], [ 1, %43 ], [ %37, %.lr.ph.split ], [ %39, %38 ]
+  %.1 = phi i32 [ -1, %6 ], [ %14, %16 ], [ %14, %.lr.ph.split.us ], [ %14, %21 ], [ %26, %.lr.ph.split ], [ %26, %43 ], [ %26, %38 ]
   %.not39 = icmp eq i32 %5, 0
   br i1 %.not39, label %50, label %46
 

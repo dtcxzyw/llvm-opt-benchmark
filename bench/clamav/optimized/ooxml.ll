@@ -207,7 +207,7 @@ switch.lookup:                                    ; preds = %14
   br label %19
 
 19:                                               ; preds = %14, %switch.lookup, %11, %9, %7, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %7 ], [ 0, %9 ], [ 0, %11 ], [ %switch.load, %switch.lookup ], [ 0, %14 ]
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ], [ 0, %5 ], [ 0, %7 ], [ 0, %11 ], [ 0, %9 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -296,7 +296,7 @@ define i32 @cli_process_ooxml(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %38
 
 38:                                               ; preds = %33, %23, %12, %27, %17, %6, %2, %29, %19, %8
-  %.019 = phi i32 [ 26, %8 ], [ 26, %19 ], [ 26, %29 ], [ 2, %2 ], [ %7, %6 ], [ %18, %17 ], [ %28, %27 ], [ %26, %23 ], [ %15, %12 ], [ %37, %33 ]
+  %.019 = phi i32 [ 2, %2 ], [ 26, %8 ], [ %7, %6 ], [ 26, %19 ], [ %28, %27 ], [ %18, %17 ], [ 26, %29 ], [ %26, %23 ], [ %15, %12 ], [ %37, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.019
 }
@@ -358,7 +358,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br label %21
 
 21:                                               ; preds = %ooxml_updatelimits.exit.thread, %ooxml_updatelimits.exit, %19, %15
-  %.0 = phi i32 [ 0, %15 ], [ %17, %19 ], [ %11, %ooxml_updatelimits.exit ], [ 11, %ooxml_updatelimits.exit.thread ]
+  %.0 = phi i32 [ %17, %19 ], [ 0, %15 ], [ %11, %ooxml_updatelimits.exit ], [ 11, %ooxml_updatelimits.exit.thread ]
   ret i32 %.0
 }
 
@@ -462,8 +462,8 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br label %47
 
 47:                                               ; preds = %45, %43
-  %.1129 = phi ptr [ %40, %43 ], [ %.0128.ph, %45 ]
-  %.1127 = phi ptr [ %.0126.ph, %43 ], [ %spec.select, %45 ]
+  %.1129 = phi ptr [ %.0128.ph, %45 ], [ %40, %43 ]
+  %.1127 = phi ptr [ %spec.select, %45 ], [ %.0126.ph, %43 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.40, ptr noundef nonnull %39, ptr noundef nonnull %40) #6
   br label %.outer
 
@@ -590,14 +590,14 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br label %105
 
 105:                                              ; preds = %102, %78, %87, %99, %97, %68, %59
-  %.2150 = phi i32 [ %.0148.ph, %97 ], [ %.0148.ph, %99 ], [ %.0148.ph, %78 ], [ %.0148.ph, %87 ], [ %.0148.ph, %59 ], [ %69, %68 ], [ %.0148.ph, %102 ]
-  %.2147 = phi i32 [ %.0145.ph, %97 ], [ %.0145.ph, %99 ], [ %.0145.ph, %78 ], [ %88, %87 ], [ %.0145.ph, %59 ], [ %.0145.ph, %68 ], [ %.0145.ph, %102 ]
-  %.2144 = phi i32 [ %.0142.ph, %97 ], [ %101, %99 ], [ %.0142.ph, %78 ], [ %.0142.ph, %87 ], [ %.0142.ph, %59 ], [ %.0142.ph, %68 ], [ %.0142.ph, %102 ]
-  %.2141 = phi i32 [ %.0139.ph, %97 ], [ %.0139.ph, %99 ], [ %.0139.ph, %78 ], [ %.0139.ph, %87 ], [ %.0139.ph, %59 ], [ %.0139.ph, %68 ], [ %spec.select189, %102 ]
-  %.2138 = phi i32 [ %.0136.ph, %97 ], [ %.0136.ph, %99 ], [ %.0136.ph, %78 ], [ %.0136.ph, %87 ], [ %60, %59 ], [ %.0136.ph, %68 ], [ %.0136.ph, %102 ]
-  %.2135 = phi i32 [ %.0133.ph, %97 ], [ %.0133.ph, %99 ], [ %79, %78 ], [ %.0133.ph, %87 ], [ %.0133.ph, %59 ], [ %.0133.ph, %68 ], [ %.0133.ph, %102 ]
-  %.2132 = phi i32 [ %98, %97 ], [ %.0130.ph, %99 ], [ %.0130.ph, %78 ], [ %.0130.ph, %87 ], [ %.0130.ph, %59 ], [ %.0130.ph, %68 ], [ %.0130.ph, %102 ]
-  %.3 = phi i32 [ 0, %97 ], [ 0, %99 ], [ 0, %78 ], [ %.4, %87 ], [ 0, %59 ], [ %.2, %68 ], [ 0, %102 ]
+  %.2150 = phi i32 [ %.0148.ph, %102 ], [ %.0148.ph, %87 ], [ %69, %68 ], [ %.0148.ph, %97 ], [ %.0148.ph, %99 ], [ %.0148.ph, %59 ], [ %.0148.ph, %78 ]
+  %.2147 = phi i32 [ %.0145.ph, %102 ], [ %88, %87 ], [ %.0145.ph, %68 ], [ %.0145.ph, %97 ], [ %.0145.ph, %99 ], [ %.0145.ph, %59 ], [ %.0145.ph, %78 ]
+  %.2144 = phi i32 [ %.0142.ph, %102 ], [ %.0142.ph, %87 ], [ %.0142.ph, %68 ], [ %.0142.ph, %97 ], [ %101, %99 ], [ %.0142.ph, %59 ], [ %.0142.ph, %78 ]
+  %.2141 = phi i32 [ %spec.select189, %102 ], [ %.0139.ph, %87 ], [ %.0139.ph, %68 ], [ %.0139.ph, %97 ], [ %.0139.ph, %99 ], [ %.0139.ph, %59 ], [ %.0139.ph, %78 ]
+  %.2138 = phi i32 [ %.0136.ph, %102 ], [ %.0136.ph, %87 ], [ %.0136.ph, %68 ], [ %.0136.ph, %97 ], [ %.0136.ph, %99 ], [ %60, %59 ], [ %.0136.ph, %78 ]
+  %.2135 = phi i32 [ %.0133.ph, %102 ], [ %.0133.ph, %87 ], [ %.0133.ph, %68 ], [ %.0133.ph, %97 ], [ %.0133.ph, %99 ], [ %.0133.ph, %59 ], [ %79, %78 ]
+  %.2132 = phi i32 [ %.0130.ph, %102 ], [ %.0130.ph, %87 ], [ %.0130.ph, %68 ], [ %98, %97 ], [ %.0130.ph, %99 ], [ %.0130.ph, %59 ], [ %.0130.ph, %78 ]
+  %.3 = phi i32 [ 0, %102 ], [ %.4, %87 ], [ %.2, %68 ], [ 0, %97 ], [ 0, %99 ], [ 0, %59 ], [ 0, %78 ]
   %.not174 = icmp eq i32 %.3, 0
   br i1 %.not174, label %.outer210, label %.thread
 
@@ -613,15 +613,15 @@ ooxml_updatelimits.exit:                          ; preds = %5
   %107 = icmp eq i32 %106, 1
   br i1 %107, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %91, %72, %53, %105, %.outer210, %.backedge, %.lr.ph
-  %.1149 = phi i32 [ %.0148.ph, %.lr.ph ], [ %.0148.ph, %.backedge ], [ %.0148.ph, %.outer210 ], [ %.0148.ph, %91 ], [ %.0148.ph, %72 ], [ %.0148.ph, %53 ], [ %.2150, %105 ]
-  %.1146 = phi i32 [ %.0145.ph, %.lr.ph ], [ %.0145.ph, %.backedge ], [ %.0145.ph, %.outer210 ], [ %.0145.ph, %91 ], [ %.0145.ph, %72 ], [ %.0145.ph, %53 ], [ %.2147, %105 ]
-  %.1143 = phi i32 [ %.0142.ph, %.lr.ph ], [ %.0142.ph, %.backedge ], [ %.0142.ph, %.outer210 ], [ %.0142.ph, %91 ], [ %.0142.ph, %72 ], [ %.0142.ph, %53 ], [ %.2144, %105 ]
-  %.1140 = phi i32 [ %.0139.ph, %.lr.ph ], [ %.0139.ph, %.backedge ], [ %.0139.ph, %.outer210 ], [ %.0139.ph, %91 ], [ %.0139.ph, %72 ], [ %.0139.ph, %53 ], [ %.2141, %105 ]
-  %.1137 = phi i32 [ %.0136.ph, %.lr.ph ], [ %.0136.ph, %.backedge ], [ %.0136.ph, %.outer210 ], [ %.0136.ph, %91 ], [ %.0136.ph, %72 ], [ %.0136.ph, %53 ], [ %.2138, %105 ]
-  %.1134 = phi i32 [ %.0133.ph, %.lr.ph ], [ %.0133.ph, %.backedge ], [ %.0133.ph, %.outer210 ], [ %.0133.ph, %91 ], [ %.0133.ph, %72 ], [ %.0133.ph, %53 ], [ %.2135, %105 ]
-  %.1131 = phi i32 [ %.0130.ph, %.lr.ph ], [ %.0130.ph, %.backedge ], [ %.0130.ph, %.outer210 ], [ %.0130.ph, %91 ], [ %.0130.ph, %72 ], [ %.0130.ph, %53 ], [ %.2132, %105 ]
-  %.1 = phi i32 [ 0, %.backedge ], [ 21, %.lr.ph ], [ 0, %.outer210 ], [ %96, %91 ], [ %77, %72 ], [ %58, %53 ], [ %.3, %105 ]
+.thread:                                          ; preds = %53, %72, %91, %105, %.outer210, %.backedge, %.lr.ph
+  %.1149 = phi i32 [ %.0148.ph, %.backedge ], [ %.0148.ph, %.lr.ph ], [ %.0148.ph, %72 ], [ %.0148.ph, %91 ], [ %.0148.ph, %53 ], [ %.2150, %105 ], [ %.0148.ph, %.outer210 ]
+  %.1146 = phi i32 [ %.0145.ph, %.backedge ], [ %.0145.ph, %.lr.ph ], [ %.0145.ph, %72 ], [ %.0145.ph, %91 ], [ %.0145.ph, %53 ], [ %.2147, %105 ], [ %.0145.ph, %.outer210 ]
+  %.1143 = phi i32 [ %.0142.ph, %.backedge ], [ %.0142.ph, %.lr.ph ], [ %.0142.ph, %72 ], [ %.0142.ph, %91 ], [ %.0142.ph, %53 ], [ %.2144, %105 ], [ %.0142.ph, %.outer210 ]
+  %.1140 = phi i32 [ %.0139.ph, %.backedge ], [ %.0139.ph, %.lr.ph ], [ %.0139.ph, %72 ], [ %.0139.ph, %91 ], [ %.0139.ph, %53 ], [ %.2141, %105 ], [ %.0139.ph, %.outer210 ]
+  %.1137 = phi i32 [ %.0136.ph, %.backedge ], [ %.0136.ph, %.lr.ph ], [ %.0136.ph, %72 ], [ %.0136.ph, %91 ], [ %.0136.ph, %53 ], [ %.2138, %105 ], [ %.0136.ph, %.outer210 ]
+  %.1134 = phi i32 [ %.0133.ph, %.backedge ], [ %.0133.ph, %.lr.ph ], [ %.0133.ph, %72 ], [ %.0133.ph, %91 ], [ %.0133.ph, %53 ], [ %.2135, %105 ], [ %.0133.ph, %.outer210 ]
+  %.1131 = phi i32 [ %.0130.ph, %.backedge ], [ %.0130.ph, %.lr.ph ], [ %.0130.ph, %72 ], [ %.0130.ph, %91 ], [ %.0130.ph, %53 ], [ %.2132, %105 ], [ %.0130.ph, %.outer210 ]
+  %.1 = phi i32 [ 0, %.backedge ], [ 21, %.lr.ph ], [ %77, %72 ], [ %96, %91 ], [ %58, %53 ], [ %.3, %105 ], [ 0, %.outer210 ]
   %.not177 = icmp eq i32 %.1149, 0
   br i1 %.not177, label %116, label %108
 
@@ -747,7 +747,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br label %165
 
 165:                                              ; preds = %ooxml_updatelimits.exit.thread, %ooxml_updatelimits.exit, %163, %21
-  %.0 = phi i32 [ 0, %21 ], [ %.1, %163 ], [ %17, %ooxml_updatelimits.exit ], [ 11, %ooxml_updatelimits.exit.thread ]
+  %.0 = phi i32 [ %.1, %163 ], [ 0, %21 ], [ %17, %ooxml_updatelimits.exit ], [ 11, %ooxml_updatelimits.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -886,7 +886,7 @@ ooxml_updatelimits.exit:                          ; preds = %2
   br label %18
 
 18:                                               ; preds = %ooxml_updatelimits.exit.thread, %ooxml_updatelimits.exit, %16, %12
-  %.0 = phi i32 [ 0, %12 ], [ %14, %16 ], [ %8, %ooxml_updatelimits.exit ], [ 11, %ooxml_updatelimits.exit.thread ]
+  %.0 = phi i32 [ %14, %16 ], [ 0, %12 ], [ %8, %ooxml_updatelimits.exit ], [ 11, %ooxml_updatelimits.exit.thread ]
   ret i32 %.0
 }
 

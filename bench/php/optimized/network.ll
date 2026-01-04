@@ -95,7 +95,7 @@ define dso_local i32 @php_network_getaddresses(ptr noundef %0, i32 noundef %1, p
   br label %18
 
 18:                                               ; preds = %16, %8
-  %19 = phi i32 [ %.pre, %16 ], [ %11, %8 ]
+  %19 = phi i32 [ %11, %8 ], [ %.pre, %16 ]
   %.fr = freeze i32 %19
   %.not = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not, i32 0, i32 2
@@ -238,7 +238,7 @@ zend_string_release_ex.exit94:                    ; preds = %55, %50, %46, %44
   br label %82
 
 82:                                               ; preds = %zend_string_release_ex.exit94, %60, %zend_string_release_ex.exit, %39, %4, %80
-  %.0 = phi i32 [ %.072, %80 ], [ 0, %4 ], [ 0, %39 ], [ 0, %zend_string_release_ex.exit ], [ 0, %60 ], [ 0, %zend_string_release_ex.exit94 ]
+  %.0 = phi i32 [ %.072, %80 ], [ 0, %4 ], [ 0, %zend_string_release_ex.exit ], [ 0, %39 ], [ 0, %60 ], [ 0, %zend_string_release_ex.exit94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -468,7 +468,7 @@ sub_times.exit:                                   ; preds = %php_network_set_lim
   br label %.loopexit
 
 .split.us:                                        ; preds = %php_pollfd_for.exit.us, %php_pollfd_for.exit, %php_network_set_limit_time.exit.split
-  %.us-phi = phi i32 [ %.0.i62, %php_network_set_limit_time.exit.split ], [ %.0.i, %php_pollfd_for.exit ], [ %.0.i.us, %php_pollfd_for.exit.us ]
+  %.us-phi = phi i32 [ %.0.i, %php_pollfd_for.exit ], [ %.0.i62, %php_network_set_limit_time.exit.split ], [ %.0.i.us, %php_pollfd_for.exit.us ]
   %89 = icmp eq i32 %.us-phi, 0
   br i1 %89, label %90, label %91
 
@@ -484,7 +484,7 @@ sub_times.exit:                                   ; preds = %php_network_set_lim
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %sub_times.exit, %91, %7, %.split61.us, %90
-  %.030 = phi i32 [ 0, %.split61.us ], [ 0, %90 ], [ 0, %7 ], [ %spec.select, %91 ], [ -1, %sub_times.exit ], [ -1, %56 ]
+  %.030 = phi i32 [ %spec.select, %91 ], [ 0, %.split61.us ], [ 0, %7 ], [ 0, %90 ], [ -1, %sub_times.exit ], [ -1, %56 ]
   %.not46 = icmp eq i32 %3, 0
   br i1 %.not46, label %93, label %95
 
@@ -534,7 +534,7 @@ php_socket_error_str.exit51:                      ; preds = %97
   br label %108
 
 108:                                              ; preds = %.sink.split, %thread-pre-split, %97, %33, %22
-  %.0 = phi i32 [ -1, %22 ], [ 0, %33 ], [ -1, %97 ], [ %.030, %thread-pre-split ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %33 ], [ -1, %22 ], [ -1, %97 ], [ %.030, %thread-pre-split ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
@@ -713,7 +713,7 @@ php_socket_error_str.exit:                        ; preds = %55
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %45, %php_socket_error_str.exit, %55
-  %.040 = phi i32 [ -1, %php_socket_error_str.exit ], [ -1, %55 ], [ %30, %45 ]
+  %.040 = phi i32 [ -1, %55 ], [ -1, %php_socket_error_str.exit ], [ %30, %45 ]
   %66 = load ptr, ptr %13, align 8, !tbaa !4
   %.not8.i = icmp eq ptr %66, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i
@@ -898,12 +898,12 @@ php_network_freeaddresses.exit:                   ; preds = %.lr.ph.i, %.prehead
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %54, %49, %44, %42, %php_network_freeaddresses.exit, %37, %31
-  %.045 = phi i32 [ 0, %31 ], [ 0, %37 ], [ -1, %42 ], [ %.163, %php_network_freeaddresses.exit ], [ -1, %44 ], [ -1, %49 ], [ -1, %54 ]
+  %.045 = phi i32 [ 0, %31 ], [ 0, %37 ], [ %.163, %php_network_freeaddresses.exit ], [ -1, %42 ], [ -1, %44 ], [ -1, %49 ], [ -1, %54 ]
   call void @_efree(ptr noundef %27) #19
   br label %66
 
 66:                                               ; preds = %18, %9, %13, %zend_string_release_ex.exit
-  %.0 = phi i32 [ %.045, %zend_string_release_ex.exit ], [ -1, %13 ], [ -1, %9 ], [ -1, %18 ]
+  %.0 = phi i32 [ -1, %9 ], [ %.045, %zend_string_release_ex.exit ], [ -1, %13 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1154,8 +1154,8 @@ php_pollfd_for.exit:                              ; preds = %8, %15, %17
   br label %41
 
 41:                                               ; preds = %php_pollfd_for.exit, %28, %33, %36, %38
-  %.016 = phi i32 [ %30, %28 ], [ 0, %36 ], [ 0, %33 ], [ %40, %38 ], [ 110, %php_pollfd_for.exit ]
-  %.0 = phi i32 [ -1, %28 ], [ %32, %36 ], [ %32, %33 ], [ -1, %38 ], [ -1, %php_pollfd_for.exit ]
+  %.016 = phi i32 [ %40, %38 ], [ %30, %28 ], [ 0, %36 ], [ 0, %33 ], [ 110, %php_pollfd_for.exit ]
+  %.0 = phi i32 [ -1, %38 ], [ -1, %28 ], [ %32, %36 ], [ %32, %33 ], [ -1, %php_pollfd_for.exit ]
   %.not22 = icmp eq ptr %6, null
   br i1 %.not22, label %43, label %42
 
@@ -1475,7 +1475,7 @@ zend_string_release_ex.exit:                      ; preds = %88, %92, %97
   store i64 %128, ptr %45, align 8, !tbaa !33
   br label %sub_times.exit
 
-sub_times.exit.thread:                            ; preds = %116, %112
+sub_times.exit.thread:                            ; preds = %112, %116
   %129 = call i32 @close(i32 noundef %64) #19
   br label %.critedge
 
@@ -1576,7 +1576,7 @@ define dso_local range(i32 0, 111) i32 @php_sockaddr_size(ptr noundef readonly c
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3
-  %.0 = phi i32 [ 0, %5 ], [ 28, %3 ], [ 110, %4 ], [ 16, %1 ]
+  %.0 = phi i32 [ 0, %5 ], [ 110, %4 ], [ 28, %3 ], [ 16, %1 ]
   ret i32 %.0
 }
 

@@ -1033,7 +1033,7 @@ _make_timestamp.exit32:                           ; preds = %66, %69
   br label %_fix_tz.exit
 
 _fix_tz.exit:                                     ; preds = %48, %_make_timestamp.exit23, %_make_timestamp.exit23.thread, %33, %_make_timestamp.exit19, %_make_timestamp.exit19.thread, %_make_timestamp.exit32, %_make_timestamp.exit29, %_make_timestamp.exit
-  %.0 = phi i64 [ %.0.i31, %_make_timestamp.exit32 ], [ %.0.i28, %_make_timestamp.exit29 ], [ %.0.i, %_make_timestamp.exit ], [ 25, %33 ], [ %30, %_make_timestamp.exit19 ], [ 0, %_make_timestamp.exit19.thread ], [ 25, %48 ], [ %45, %_make_timestamp.exit23 ], [ 0, %_make_timestamp.exit23.thread ]
+  %.0 = phi i64 [ %.0.i31, %_make_timestamp.exit32 ], [ %.0.i, %_make_timestamp.exit ], [ 0, %_make_timestamp.exit19.thread ], [ %.0.i28, %_make_timestamp.exit29 ], [ 25, %33 ], [ %30, %_make_timestamp.exit19 ], [ 25, %48 ], [ %45, %_make_timestamp.exit23 ], [ 0, %_make_timestamp.exit23.thread ]
   ret i64 %.0
 }
 
@@ -2326,7 +2326,7 @@ _stepid2fmt.exit.critedge:                        ; preds = %183, %._crit_edge
   br label %_stepid2fmt.exit
 
 _stepid2fmt.exit:                                 ; preds = %_stepid2fmt.exit.critedge, %207, %210
-  %.0.i146 = phi ptr [ %12, %210 ], [ @.str.52, %207 ], [ @.str.51, %_stepid2fmt.exit.critedge ]
+  %.0.i146 = phi ptr [ %12, %210 ], [ @.str.51, %_stepid2fmt.exit.critedge ], [ @.str.52, %207 ]
   call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %.0.i146, i64 noundef -1) #20
   call void @llvm.va_end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -2650,7 +2650,7 @@ define internal fastcc noundef nonnull ptr @_jobid2fmt(ptr noundef readonly capt
   br label %34
 
 34:                                               ; preds = %9, %25, %.thread, %20, %4, %2
-  %.0 = phi ptr [ @.str.45, %2 ], [ @.str.46, %4 ], [ %1, %20 ], [ %1, %.thread ], [ %1, %25 ], [ %1, %9 ]
+  %.0 = phi ptr [ @.str.46, %4 ], [ @.str.45, %2 ], [ %1, %20 ], [ %1, %.thread ], [ %1, %25 ], [ %1, %9 ]
   ret ptr %.0
 }
 
@@ -3001,8 +3001,8 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   br label %83
 
 83:                                               ; preds = %66, %67, %70, %74, %76, %78, %80, %81, %82, %62
-  %.047 = phi i32 [ 3, %82 ], [ 3, %67 ], [ %71, %70 ], [ 7, %74 ], [ 7, %76 ], [ 7, %78 ], [ 7, %80 ], [ 7, %81 ], [ 6, %62 ], [ 2, %66 ]
-  %.0 = phi ptr [ @.str.72, %82 ], [ %69, %67 ], [ %73, %70 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ @.str.70, %80 ], [ @.str.71, %81 ], [ @.str.9, %62 ], [ @.str.59, %66 ]
+  %.047 = phi i32 [ 3, %82 ], [ 6, %62 ], [ 3, %67 ], [ %71, %70 ], [ 7, %74 ], [ 7, %76 ], [ 7, %78 ], [ 7, %80 ], [ 7, %81 ], [ 2, %66 ]
+  %.0 = phi ptr [ @.str.72, %82 ], [ @.str.9, %62 ], [ %69, %67 ], [ %73, %70 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ @.str.70, %80 ], [ @.str.71, %81 ], [ @.str.59, %66 ]
   %84 = getelementptr inbounds nuw i8, ptr %58, i64 44
   %85 = load i32, ptr %84, align 4
   %.not59 = icmp ugt i32 %0, %85
@@ -3627,7 +3627,7 @@ define internal void @_log_printf(ptr noundef readonly captures(none) %0, ptr no
   %.not.i = icmp eq i16 %26, 0
   br i1 %.not.i, label %_fd_writeable.exit, label %_fd_writeable.exit.thread
 
-_fd_writeable.exit.thread:                        ; preds = %17, %._crit_edge.i, %23
+_fd_writeable.exit.thread:                        ; preds = %17, %23, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 

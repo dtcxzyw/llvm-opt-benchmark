@@ -482,10 +482,10 @@ _ZN8nanobind18gil_scoped_acquireC2Ev.exit:        ; preds = %8
   br label %_ZNK8nanobind12python_error9tracebackEv.exit
 
 _ZNK8nanobind12python_error9tracebackEv.exit:     ; preds = %21, %32, %29
-  %.not.i.i.i.i108 = phi i1 [ true, %29 ], [ false, %32 ], [ true, %21 ]
-  %35 = phi ptr [ %31, %29 ], [ %31, %32 ], [ %23, %21 ]
-  %36 = phi ptr [ %30, %29 ], [ %30, %32 ], [ %19, %21 ]
-  %37 = phi ptr [ null, %29 ], [ %.pr, %32 ], [ null, %21 ]
+  %.not.i.i.i.i108 = phi i1 [ false, %32 ], [ true, %29 ], [ true, %21 ]
+  %35 = phi ptr [ %31, %32 ], [ %31, %29 ], [ %23, %21 ]
+  %36 = phi ptr [ %30, %32 ], [ %30, %29 ], [ %19, %21 ]
+  %37 = phi ptr [ %.pr, %32 ], [ null, %29 ], [ null, %21 ]
   %38 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
   store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
@@ -1304,7 +1304,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %8
   br label %52
 
 _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit, %3
-  %.str.7.sink = phi ptr [ @.str.4, %3 ], [ %spec.select, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
+  %.str.7.sink = phi ptr [ %spec.select, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ], [ @.str.4, %3 ]
   %12 = tail call noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKcS2_(ptr noundef nonnull %0, ptr noundef nonnull %.str.7.sink, ptr noundef null) #26, !noalias !24
   store ptr %12, ptr %4, align 8
   %.not = icmp eq ptr %12, null

@@ -1069,11 +1069,11 @@ dt_get_debug_wtime.exit:                          ; preds = %20, %22
   br label %89
 
 89:                                               ; preds = %80, %77
-  %.174.ph.i.i = phi i32 [ %.07388.i.i, %80 ], [ %79, %77 ]
-  %.270.ph.i.i = phi float [ %88, %80 ], [ %.06889.i.i, %77 ]
-  %.266.ph.i.i = phi float [ %86, %80 ], [ %.06490.i.i, %77 ]
-  %.261.ph.i.i = phi float [ %84, %80 ], [ %.05991.i.i, %77 ]
-  %.2.ph.i.i = phi float [ %82, %80 ], [ %.092.i.i, %77 ]
+  %.174.ph.i.i = phi i32 [ %79, %77 ], [ %.07388.i.i, %80 ]
+  %.270.ph.i.i = phi float [ %.06889.i.i, %77 ], [ %88, %80 ]
+  %.266.ph.i.i = phi float [ %.06490.i.i, %77 ], [ %86, %80 ]
+  %.261.ph.i.i = phi float [ %.05991.i.i, %77 ], [ %84, %80 ]
+  %.2.ph.i.i = phi float [ %.092.i.i, %77 ], [ %82, %80 ]
   %90 = add nsw i32 %.174.ph.i.i, 1
   %91 = icmp slt i32 %90, %65
   br i1 %91, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -1883,8 +1883,8 @@ dt_get_debug_wtime.exit:                          ; preds = %17, %19
   store float %94, ptr %82, align 4, !tbaa !6
   br label %95
 
-95:                                               ; preds = %87, %90
-  %.1277.ph = phi i32 [ %.0276414, %90 ], [ %89, %87 ]
+95:                                               ; preds = %90, %87
+  %.1277.ph = phi i32 [ %89, %87 ], [ %.0276414, %90 ]
   %96 = add nsw i32 %.1277.ph, 1
   %97 = icmp slt i32 %96, %72
   br i1 %97, label %77, label %._crit_edge
@@ -1964,7 +1964,7 @@ dt_get_debug_wtime.exit:                          ; preds = %17, %19
   br label %._crit_edge432
 
 ._crit_edge432:                                   ; preds = %._crit_edge, %._crit_edge432.loopexit
-  %.0280.lcssa = phi i32 [ %132, %._crit_edge432.loopexit ], [ 0, %._crit_edge ]
+  %.0280.lcssa = phi i32 [ 0, %._crit_edge ], [ %132, %._crit_edge432.loopexit ]
   %.not314 = icmp ne i32 %.0280.lcssa, 0
   br label %145
 
@@ -2099,11 +2099,11 @@ dt_get_debug_wtime.exit:                          ; preds = %17, %19
   br label %194
 
 194:                                              ; preds = %185, %182
-  %.174.ph.i = phi i32 [ %.07388.i, %185 ], [ %184, %182 ]
-  %.270.ph.i = phi float [ %193, %185 ], [ %.06889.i, %182 ]
-  %.266.ph.i = phi float [ %191, %185 ], [ %.06490.i, %182 ]
-  %.261.ph.i = phi float [ %189, %185 ], [ %.05991.i, %182 ]
-  %.2.ph.i = phi float [ %187, %185 ], [ %.092.i, %182 ]
+  %.174.ph.i = phi i32 [ %184, %182 ], [ %.07388.i, %185 ]
+  %.270.ph.i = phi float [ %.06889.i, %182 ], [ %193, %185 ]
+  %.266.ph.i = phi float [ %.06490.i, %182 ], [ %191, %185 ]
+  %.261.ph.i = phi float [ %.05991.i, %182 ], [ %189, %185 ]
+  %.2.ph.i = phi float [ %.092.i, %182 ], [ %187, %185 ]
   %195 = add nsw i32 %.174.ph.i, 1
   %196 = icmp slt i32 %195, %72
   br i1 %196, label %.lr.ph.i, label %._crit_edge.i
@@ -2616,7 +2616,7 @@ _path_bounding_box_raw.exit:                      ; preds = %.lr.ph107.i, %._cri
   br i1 %exitcond351.not.i, label %_path_crop_to_roi.exit, label %.preheader.i
 
 _path_crop_to_roi.exit:                           ; preds = %266, %.thread295.i, %246
-  %.not320 = phi i1 [ true, %246 ], [ false, %.thread295.i ], [ true, %266 ]
+  %.not320 = phi i1 [ false, %.thread295.i ], [ true, %246 ], [ true, %266 ]
   %465 = icmp ne i32 %.0263, 0
   %466 = or i1 %465, %.not320
   %467 = zext i1 %466 to i32
@@ -3143,7 +3143,7 @@ _path_falloff_roi.exit:                           ; preds = %706, %632
   br label %727
 
 727:                                              ; preds = %715, %712, %.thread390, %.thread392, %171, %50
-  %.1251 = phi i32 [ 0, %50 ], [ 1, %171 ], [ 1, %715 ], [ 1, %712 ], [ 0, %.thread390 ], [ 0, %.thread392 ]
+  %.1251 = phi i32 [ 0, %50 ], [ 1, %171 ], [ 0, %.thread390 ], [ 0, %.thread392 ], [ 1, %715 ], [ 1, %712 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -3928,7 +3928,7 @@ g_list_next_wraparound.exit:                      ; preds = %128, %131
   br label %480
 
 480:                                              ; preds = %477, %474
-  %.7 = phi i32 [ 0, %474 ], [ %., %477 ]
+  %.7 = phi i32 [ %., %477 ], [ 0, %474 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -3937,7 +3937,7 @@ g_list_next_wraparound.exit:                      ; preds = %128, %131
   br label %.critedge
 
 .critedge:                                        ; preds = %102, %173, %212, %238, %.loopexit, %395, %405, %418, %480, %452, %437, %28, %10
-  %.0328 = phi i32 [ 0, %10 ], [ 0, %28 ], [ 1, %102 ], [ 1, %173 ], [ 1, %212 ], [ 1, %238 ], [ 1, %.loopexit ], [ %.7, %480 ], [ 1, %418 ], [ 1, %405 ], [ 1, %395 ], [ 1, %452 ], [ 1, %437 ]
+  %.0328 = phi i32 [ 0, %10 ], [ 0, %28 ], [ 1, %102 ], [ 1, %173 ], [ 1, %212 ], [ 1, %238 ], [ 1, %.loopexit ], [ %.7, %480 ], [ 1, %395 ], [ 1, %418 ], [ 1, %405 ], [ 1, %452 ], [ 1, %437 ]
   ret i32 %.0328
 }
 
@@ -4075,7 +4075,7 @@ define internal range(i32 0, 2) i32 @_path_events_mouse_scrolled(ptr noundef %0,
   br label %.critedge162._crit_edge
 
 .critedge162._crit_edge:                          ; preds = %.preheader, %.critedge162._crit_edge.loopexit
-  %.0139.lcssa = phi float [ %71, %.critedge162._crit_edge.loopexit ], [ 0.000000e+00, %.preheader ]
+  %.0139.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %71, %.critedge162._crit_edge.loopexit ]
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !152
   %74 = and i32 %73, 136
@@ -4223,7 +4223,7 @@ g_list_next_wraparound.exit:                      ; preds = %.preheader170, %g_l
   br label %.thread
 
 .thread:                                          ; preds = %55, %.lr.ph186.split, %117, %._crit_edge, %24, %42, %158, %86
-  %.3 = phi i32 [ 0, %86 ], [ 1, %158 ], [ 1, %42 ], [ 0, %24 ], [ 1, %._crit_edge ], [ 1, %117 ], [ 1, %.lr.ph186.split ], [ 1, %55 ]
+  %.3 = phi i32 [ 0, %86 ], [ 1, %117 ], [ 1, %._crit_edge ], [ 1, %42 ], [ 1, %158 ], [ 0, %24 ], [ 1, %.lr.ph186.split ], [ 1, %55 ]
   ret i32 %.3
 }
 
@@ -5364,8 +5364,8 @@ g_list_shorter_than.exit484:                      ; preds = %.preheader534
   tail call void @dt_masks_form_remove(ptr noundef %0, ptr noundef %619, ptr noundef %7) #22
   br label %.critedge
 
-.critedge:                                        ; preds = %181, %435, %.thread582, %.preheader535, %518, %g_list_shorter_than.exit, %251, %259, %283, %346, %372, %432, %559, %614, %68, %65, %._crit_edge, %173, %169, %330, %317, %499, %g_list_next_wraparound.exit, %g_list_shorter_than.exit472, %564, %563, %580, %577, %574, %.critedge454, %.critedge458, %585, %16, %15, %11
-  %.0 = phi i32 [ 1, %11 ], [ 0, %15 ], [ 0, %16 ], [ 1, %g_list_shorter_than.exit ], [ 1, %251 ], [ 1, %259 ], [ 1, %283 ], [ 1, %346 ], [ 1, %372 ], [ 1, %432 ], [ 1, %559 ], [ 1, %614 ], [ 1, %68 ], [ 1, %65 ], [ 1, %._crit_edge ], [ 1, %173 ], [ 1, %169 ], [ 1, %330 ], [ 1, %317 ], [ 1, %499 ], [ 1, %g_list_next_wraparound.exit ], [ 1, %g_list_shorter_than.exit472 ], [ 1, %564 ], [ 1, %563 ], [ 1, %580 ], [ 1, %577 ], [ 1, %574 ], [ 0, %.critedge454 ], [ 0, %.critedge458 ], [ 0, %585 ], [ 0, %518 ], [ 1, %.preheader535 ], [ 0, %.thread582 ], [ 0, %435 ], [ 1, %181 ]
+.critedge:                                        ; preds = %181, %435, %.thread582, %.preheader535, %518, %g_list_shorter_than.exit, %251, %259, %283, %346, %372, %432, %559, %614, %68, %65, %._crit_edge, %169, %173, %330, %317, %499, %g_list_next_wraparound.exit, %g_list_shorter_than.exit472, %564, %563, %580, %577, %574, %.critedge454, %.critedge458, %585, %16, %15, %11
+  %.0 = phi i32 [ 1, %11 ], [ 0, %15 ], [ 0, %16 ], [ 1, %563 ], [ 1, %g_list_shorter_than.exit ], [ 1, %574 ], [ 1, %65 ], [ 1, %251 ], [ 1, %259 ], [ 1, %614 ], [ 1, %283 ], [ 0, %435 ], [ 1, %346 ], [ 1, %372 ], [ 1, %432 ], [ 1, %317 ], [ 1, %559 ], [ 1, %g_list_next_wraparound.exit ], [ 1, %g_list_shorter_than.exit472 ], [ 1, %68 ], [ 1, %._crit_edge ], [ 1, %169 ], [ 1, %173 ], [ 0, %.thread582 ], [ 1, %330 ], [ 1, %499 ], [ 1, %564 ], [ 1, %580 ], [ 1, %577 ], [ 0, %.critedge454 ], [ 0, %.critedge458 ], [ 0, %585 ], [ 0, %518 ], [ 1, %.preheader535 ], [ 1, %181 ]
   ret i32 %.0
 }
 
@@ -5660,7 +5660,7 @@ define internal range(i32 0, 2) i32 @_path_events_button_released(ptr noundef %0
   br label %188
 
 188:                                              ; preds = %._crit_edge, %83, %105, %158, %187, %124, %122, %183, %17, %14, %9
-  %.0 = phi i32 [ 0, %9 ], [ 1, %14 ], [ 0, %17 ], [ 1, %._crit_edge ], [ 1, %83 ], [ 1, %105 ], [ 1, %158 ], [ 1, %187 ], [ 1, %124 ], [ 1, %122 ], [ 0, %183 ]
+  %.0 = phi i32 [ 0, %9 ], [ 1, %14 ], [ 0, %17 ], [ 1, %._crit_edge ], [ 1, %83 ], [ 1, %105 ], [ 1, %122 ], [ 1, %158 ], [ 1, %187 ], [ 1, %124 ], [ 0, %183 ]
   ret i32 %.0
 }
 
@@ -5794,7 +5794,7 @@ define internal void @_path_events_post_expose(ptr noundef %0, float noundef %1,
   br i1 %91, label %40, label %.loopexit260
 
 .loopexit260:                                     ; preds = %88, %23, %17
-  %92 = phi i32 [ %33, %23 ], [ %19, %17 ], [ %89, %88 ]
+  %92 = phi i32 [ %19, %17 ], [ %33, %23 ], [ %89, %88 ]
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %94 = load i32, ptr %93, align 8, !tbaa !169
   %95 = icmp eq i32 %94, %3
@@ -7554,7 +7554,7 @@ g_list_next_wraparound.exit.i526:                 ; preds = %g_list_shorter_than
   br i1 %.not6.i19.i529, label %g_list_shorter_than.exit._crit_edge.loopexit.i531, label %g_list_next_wraparound.exit.i526
 
 _path_is_clockwise.exit533:                       ; preds = %543, %g_list_shorter_than.exit.preheader.i524, %g_list_shorter_than.exit._crit_edge.loopexit.i531
-  %.0.i532 = phi i1 [ false, %g_list_shorter_than.exit.preheader.i524 ], [ %548, %g_list_shorter_than.exit._crit_edge.loopexit.i531 ], [ true, %543 ]
+  %.0.i532 = phi i1 [ %548, %g_list_shorter_than.exit._crit_edge.loopexit.i531 ], [ false, %g_list_shorter_than.exit.preheader.i524 ], [ true, %543 ]
   %563 = fsub reassoc nsz arcp contract afn float %452, %400
   %564 = fpext reassoc nsz arcp contract afn float %563 to double
   %565 = fsub reassoc nsz arcp contract afn float %453, %399
@@ -7690,7 +7690,7 @@ dt_masks_intbuf_add2.exit.i:                      ; preds = %624, %620, %618
   br label %dt_masks_dynbuf_reserve_n.exit.i
 
 dt_masks_dynbuf_reserve_n.exit.i:                 ; preds = %640, %638, %635
-  %.0.i.i = phi ptr [ %643, %640 ], [ null, %638 ], [ null, %635 ]
+  %.0.i.i = phi ptr [ null, %638 ], [ %643, %640 ], [ null, %635 ]
   %644 = load i64, ptr %262, align 8, !tbaa !201
   %645 = add i64 %644, %632
   %646 = load i64, ptr %282, align 8, !tbaa !202
@@ -7726,7 +7726,7 @@ dt_masks_dynbuf_reserve_n.exit.i:                 ; preds = %640, %638, %635
   br label %dt_masks_dynbuf_reserve_n.exit114.i
 
 dt_masks_dynbuf_reserve_n.exit114.i:              ; preds = %652, %650, %647
-  %.0.i113.i = phi ptr [ %655, %652 ], [ null, %650 ], [ null, %647 ]
+  %.0.i113.i = phi ptr [ null, %650 ], [ %655, %652 ], [ null, %647 ]
   %.not.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.not.i, label %.critedge427, label %.lr.ph.i
 
@@ -8589,7 +8589,7 @@ dt_masks_dynbuf_free.exit.i:                      ; preds = %1029, %.thread362.i
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %889, %877, %dt_masks_dynbuf_free.exit.i, %764
-  %.1217.ph.i = phi i32 [ %.0227.lcssa.i, %dt_masks_dynbuf_free.exit.i ], [ 0, %764 ], [ 0, %877 ], [ 0, %889 ]
+  %.1217.ph.i = phi i32 [ 0, %764 ], [ %.0227.lcssa.i, %dt_masks_dynbuf_free.exit.i ], [ 0, %877 ], [ 0, %889 ]
   call void @free(ptr noundef %762) #22
   br label %1032
 
@@ -9021,7 +9021,7 @@ dt_masks_intbuf_free.exit564:                     ; preds = %dt_masks_dynbuf_fre
   br label %.critedge439
 
 .critedge439:                                     ; preds = %.critedge.thread, %dt_masks_intbuf_free.exit556, %dt_masks_intbuf_free.exit560, %dt_masks_intbuf_free.exit564, %.critedge438, %131, %dt_masks_intbuf_free.exit, %.critedge, %dt_masks_dynbuf_free.exit
-  %.0 = phi i32 [ 0, %dt_masks_dynbuf_free.exit ], [ 0, %.critedge ], [ 0, %dt_masks_intbuf_free.exit ], [ 0, %131 ], [ 1, %dt_masks_intbuf_free.exit556 ], [ 1, %dt_masks_intbuf_free.exit560 ], [ 0, %dt_masks_intbuf_free.exit564 ], [ 0, %.critedge438 ], [ 0, %.critedge.thread ]
+  %.0 = phi i32 [ 0, %131 ], [ 0, %dt_masks_dynbuf_free.exit ], [ 0, %.critedge ], [ 0, %dt_masks_intbuf_free.exit ], [ 1, %dt_masks_intbuf_free.exit560 ], [ 1, %dt_masks_intbuf_free.exit556 ], [ 0, %dt_masks_intbuf_free.exit564 ], [ 0, %.critedge438 ], [ 0, %.critedge.thread ]
   ret i32 %.0
 }
 
@@ -9148,7 +9148,7 @@ g_list_next_wraparound.exit:                      ; preds = %g_list_shorter_than
   br i1 %.not6.i19, label %g_list_shorter_than.exit._crit_edge.loopexit, label %g_list_next_wraparound.exit
 
 g_list_shorter_than.exit.thread:                  ; preds = %3, %g_list_shorter_than.exit.preheader, %g_list_shorter_than.exit._crit_edge.loopexit
-  %.0 = phi i32 [ 0, %g_list_shorter_than.exit.preheader ], [ %9, %g_list_shorter_than.exit._crit_edge.loopexit ], [ 1, %3 ]
+  %.0 = phi i32 [ %9, %g_list_shorter_than.exit._crit_edge.loopexit ], [ 0, %g_list_shorter_than.exit.preheader ], [ 1, %3 ]
   ret i32 %.0
 }
 
@@ -9921,11 +9921,11 @@ define internal fastcc range(i32 0, 2) i32 @_get_area(ptr noundef readonly captu
   br label %55
 
 55:                                               ; preds = %46, %43
-  %.174.ph.i.i = phi i32 [ %.07388.i.i, %46 ], [ %45, %43 ]
-  %.270.ph.i.i = phi float [ %54, %46 ], [ %.06889.i.i, %43 ]
-  %.266.ph.i.i = phi float [ %52, %46 ], [ %.06490.i.i, %43 ]
-  %.261.ph.i.i = phi float [ %50, %46 ], [ %.05991.i.i, %43 ]
-  %.2.ph.i.i = phi float [ %48, %46 ], [ %.092.i.i, %43 ]
+  %.174.ph.i.i = phi i32 [ %45, %43 ], [ %.07388.i.i, %46 ]
+  %.270.ph.i.i = phi float [ %.06889.i.i, %43 ], [ %54, %46 ]
+  %.266.ph.i.i = phi float [ %.06490.i.i, %43 ], [ %52, %46 ]
+  %.261.ph.i.i = phi float [ %.05991.i.i, %43 ], [ %50, %46 ]
+  %.2.ph.i.i = phi float [ %.092.i.i, %43 ], [ %48, %46 ]
   %56 = add nsw i32 %.174.ph.i.i, 1
   %57 = icmp slt i32 %56, %31
   br i1 %57, label %.lr.ph.i.i, label %._crit_edge.i.i

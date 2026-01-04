@@ -82,7 +82,7 @@ define dso_local range(i64 0, 4294967296) i64 @enum_in(ptr noundef readonly capt
   br label %35
 
 35:                                               ; preds = %21, %23, %12, %14, %27
-  %.0 = phi i64 [ %34, %27 ], [ 0, %14 ], [ 0, %12 ], [ 0, %23 ], [ 0, %21 ]
+  %.0 = phi i64 [ 0, %12 ], [ %34, %27 ], [ 0, %14 ], [ 0, %23 ], [ 0, %21 ]
   ret i64 %.0
 }
 
@@ -365,7 +365,7 @@ define internal fastcc i32 @enum_cmp_internal(i32 noundef %0, i32 noundef %1, pt
   br label %35
 
 35:                                               ; preds = %8, %3, %33
-  %.0 = phi i32 [ %34, %33 ], [ 0, %3 ], [ %., %8 ]
+  %.0 = phi i32 [ %34, %33 ], [ %., %8 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -750,8 +750,8 @@ define internal fastcc ptr @enum_range_internal(i32 noundef range(i32 1, 0) %0, 
   br i1 %58, label %.split50.us, label %.split
 
 .split50.us:                                      ; preds = %.split, %57, %33, %.split.us
-  %.us-phi = phi i32 [ 0, %.split.us ], [ %.236.us, %33 ], [ %.236, %57 ], [ %.034, %.split ]
-  %.us-phi51 = phi ptr [ %9, %.split.us ], [ %.2.us, %33 ], [ %.2, %57 ], [ %.031, %.split ]
+  %.us-phi = phi i32 [ %.236.us, %33 ], [ 0, %.split.us ], [ %.236, %57 ], [ %.034, %.split ]
+  %.us-phi51 = phi ptr [ %.2.us, %33 ], [ %9, %.split.us ], [ %.2, %57 ], [ %.031, %.split ]
   call void @systable_endscan_ordered(ptr noundef %8) #7
   call void @index_close(ptr noundef %7, i32 noundef 1) #7
   call void @table_close(ptr noundef %6, i32 noundef 1) #7

@@ -1538,8 +1538,8 @@ _ZN4llvm5ErrorD2Ev.exit2:                         ; preds = %_ZNK4llvm12DenseMap
   store i8 %59, ptr %57, align 8
   br label %_ZNK4llvm6object12MinidumpFile12getRawStreamENS_8minidump10StreamTypeE.exit.thread13
 
-_ZNK4llvm6object12MinidumpFile12getRawStreamENS_8minidump10StreamTypeE.exit.thread13: ; preds = %39, %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit2
-  %.sink = phi ptr [ %43, %39 ], [ %47, %_ZN4llvm5ErrorD2Ev.exit ], [ %53, %_ZN4llvm5ErrorD2Ev.exit2 ]
+_ZNK4llvm6object12MinidumpFile12getRawStreamENS_8minidump10StreamTypeE.exit.thread13: ; preds = %_ZN4llvm5ErrorD2Ev.exit, %39, %_ZN4llvm5ErrorD2Ev.exit2
+  %.sink = phi ptr [ %47, %_ZN4llvm5ErrorD2Ev.exit ], [ %43, %39 ], [ %53, %_ZN4llvm5ErrorD2Ev.exit2 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !146
   ret void
 }

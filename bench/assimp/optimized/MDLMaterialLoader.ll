@@ -727,7 +727,7 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
   br label %.loopexit195
 
 .loopexit195:                                     ; preds = %23, %.loopexit195.loopexit, %.preheader194
-  %.1 = phi i32 [ 0, %.preheader194 ], [ %58, %.loopexit195.loopexit ], [ %33, %23 ]
+  %.1 = phi i32 [ %58, %.loopexit195.loopexit ], [ 0, %.preheader194 ], [ %33, %23 ]
   %59 = shl i32 %.1, 1
   store i32 %59, ptr %3, align 4
   br i1 %22, label %60, label %262
@@ -812,7 +812,7 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
   br label %.loopexit193
 
 .loopexit193:                                     ; preds = %72, %.loopexit193.loopexit, %.preheader192
-  %.1180 = phi i32 [ 0, %.preheader192 ], [ %108, %.loopexit193.loopexit ], [ %82, %72 ]
+  %.1180 = phi i32 [ %108, %.loopexit193.loopexit ], [ 0, %.preheader192 ], [ %82, %72 ]
   %109 = shl i32 %.1180, 1
   store i32 %109, ptr %3, align 4
   br i1 %71, label %110, label %262
@@ -894,7 +894,7 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
   br label %.loopexit191
 
 .loopexit191:                                     ; preds = %122, %.loopexit191.loopexit, %.preheader190
-  %.1184 = phi i32 [ 0, %.preheader190 ], [ %157, %.loopexit191.loopexit ], [ %132, %122 ]
+  %.1184 = phi i32 [ %157, %.loopexit191.loopexit ], [ 0, %.preheader190 ], [ %132, %122 ]
   %158 = mul i32 %.1184, 3
   store i32 %158, ptr %3, align 4
   br i1 %121, label %159, label %262
@@ -979,7 +979,7 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %171, %.loopexit.loopexit, %.preheader
-  %.1186 = phi i32 [ 0, %.preheader ], [ %208, %.loopexit.loopexit ], [ %181, %171 ]
+  %.1186 = phi i32 [ %208, %.loopexit.loopexit ], [ 0, %.preheader ], [ %181, %171 ]
   br i1 %170, label %209, label %216
 
 209:                                              ; preds = %.loopexit
@@ -1484,8 +1484,8 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit142: ; preds
   br label %349
 
 .loopexit212:                                     ; preds = %86, %100, %50
-  %106 = phi ptr [ %37, %50 ], [ %75, %100 ], [ %75, %86 ]
-  %.0107 = phi ptr [ %45, %50 ], [ %103, %100 ], [ %1, %86 ]
+  %106 = phi ptr [ %75, %100 ], [ %37, %50 ], [ %75, %86 ]
+  %.0107 = phi ptr [ %103, %100 ], [ %45, %50 ], [ %1, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
@@ -1829,7 +1829,7 @@ _ZNKSt14default_deleteI9aiTextureEclEPS0_.exit.i.i151: ; preds = %265, %261
   br label %_ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152
 
 _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152: ; preds = %.thread, %_ZNKSt14default_deleteI9aiTextureEclEPS0_.exit.i.i151, %259, %256
-  %.1208 = phi ptr [ %.1, %_ZNKSt14default_deleteI9aiTextureEclEPS0_.exit.i.i151 ], [ %.1, %259 ], [ %.1, %256 ], [ %.0107.ph, %.thread ]
+  %.1208 = phi ptr [ %.1, %256 ], [ %.1, %_ZNKSt14default_deleteI9aiTextureEclEPS0_.exit.i.i151 ], [ %.1, %259 ], [ %.0107.ph, %.thread ]
   %266 = and i32 %4, 32
   %.not132 = icmp eq i32 %266, 0
   br i1 %.not132, label %275, label %267
@@ -2012,7 +2012,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EED2Ev.exit: ; preds = %35, %7
   ret void
 
 348:                                              ; preds = %175, %249, %340, %273, %150
-  %.pn136 = phi { ptr, i32 } [ %151, %150 ], [ %.pn134, %340 ], [ %274, %273 ], [ %.pn.pn, %249 ], [ %176, %175 ]
+  %.pn136 = phi { ptr, i32 } [ %151, %150 ], [ %.pn134, %340 ], [ %274, %273 ], [ %176, %175 ], [ %.pn.pn, %249 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %349
 

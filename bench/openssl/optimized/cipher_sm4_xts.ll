@@ -162,7 +162,7 @@ define internal range(i32 0, 2) i32 @sm4_xts_cipher(ptr noundef %0, ptr noundef 
   br label %45
 
 45:                                               ; preds = %42, %37, %6, %8, %12, %16, %44, %26
-  %.0 = phi i32 [ 0, %26 ], [ 1, %44 ], [ 0, %16 ], [ 0, %12 ], [ 0, %8 ], [ 0, %6 ], [ 0, %37 ], [ 0, %42 ]
+  %.0 = phi i32 [ 0, %37 ], [ 0, %26 ], [ 1, %44 ], [ 0, %6 ], [ 0, %16 ], [ 0, %12 ], [ 0, %8 ], [ 0, %42 ]
   ret i32 %.0
 }
 
@@ -211,7 +211,7 @@ define internal ptr @sm4_xts_dupctx(ptr noundef %0) #0 {
   br label %19
 
 19:                                               ; preds = %11, %7, %3, %1, %14
-  %.0 = phi ptr [ %12, %14 ], [ null, %1 ], [ null, %3 ], [ null, %7 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ null, %7 ], [ %12, %14 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -288,7 +288,7 @@ ossl_param_is_empty.exit.thread.sink.split:       ; preds = %8, %.critedge.sink.
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %ossl_param_is_empty.exit.thread.sink.split, %2, %6, %ossl_param_is_empty.exit
-  %.09 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 1, %6 ], [ 1, %2 ], [ %.09.ph, %ossl_param_is_empty.exit.thread.sink.split ]
+  %.09 = phi i32 [ 1, %6 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %2 ], [ %.09.ph, %ossl_param_is_empty.exit.thread.sink.split ]
   ret i32 %.09
 }
 
@@ -354,7 +354,7 @@ define internal fastcc range(i32 0, 2) i32 @sm4_xts_init(ptr noundef %0, ptr nou
   br label %30
 
 30:                                               ; preds = %23, %16, %7, %28, %22
-  %.0 = phi i32 [ 0, %22 ], [ %29, %28 ], [ 0, %7 ], [ 0, %16 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %22 ], [ %29, %28 ], [ 0, %16 ], [ 0, %7 ], [ 0, %23 ]
   ret i32 %.0
 }
 

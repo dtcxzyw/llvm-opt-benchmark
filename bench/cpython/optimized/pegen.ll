@@ -81,7 +81,7 @@ define hidden i64 @_PyPegen_byte_offset_to_character_offset_line(ptr noundef %0,
   br label %.loopexit
 
 20:                                               ; preds = %16, %13, %10, %.lr.ph
-  %.sink = phi i64 [ 1, %.lr.ph ], [ 2, %10 ], [ 3, %13 ], [ 4, %16 ]
+  %.sink = phi i64 [ 1, %.lr.ph ], [ 3, %13 ], [ 2, %10 ], [ 4, %16 ]
   %21 = add i64 %.01924, %.sink
   %22 = add i64 %.01725, 1
   %23 = icmp slt i64 %21, %2
@@ -504,7 +504,7 @@ _resize_tokens_array.exit:                        ; preds = %88, %76
   br i1 %126, label %_get_keyword_or_name_type.exit.i, label %118
 
 _get_keyword_or_name_type.exit.i:                 ; preds = %123, %120, %118, %112, %106, %97, %90
-  %127 = phi i32 [ %.2, %90 ], [ 1, %112 ], [ 1, %106 ], [ 1, %97 ], [ 1, %120 ], [ 1, %118 ], [ %122, %123 ]
+  %127 = phi i32 [ %.2, %90 ], [ 1, %106 ], [ 1, %97 ], [ 1, %112 ], [ 1, %118 ], [ 1, %120 ], [ %122, %123 ]
   store i32 %127, ptr %95, align 8, !tbaa !71
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %129 = load ptr, ptr %128, align 8, !tbaa !47
@@ -649,7 +649,7 @@ _get_keyword_or_name_type.exit.i:                 ; preds = %123, %120, %118, %1
   br label %initialize_token.exit
 
 initialize_token.exit:                            ; preds = %207, %205, %193, %164, %161, %158, %149, %146, %143, %_get_keyword_or_name_type.exit.i, %.thread
-  %.0 = phi i32 [ -1, %.thread ], [ %206, %205 ], [ -1, %_get_keyword_or_name_type.exit.i ], [ %208, %207 ], [ 0, %193 ], [ -1, %143 ], [ -1, %146 ], [ -1, %149 ], [ -1, %158 ], [ -1, %161 ], [ -1, %164 ]
+  %.0 = phi i32 [ -1, %.thread ], [ -1, %_get_keyword_or_name_type.exit.i ], [ 0, %193 ], [ -1, %149 ], [ %206, %205 ], [ %208, %207 ], [ -1, %164 ], [ -1, %143 ], [ -1, %146 ], [ -1, %158 ], [ -1, %161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -841,7 +841,7 @@ define hidden noundef ptr @_PyPegen_expect_forced_result(ptr noundef %0, ptr nou
   br label %12
 
 12:                                               ; preds = %7, %3, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %3 ], [ %1, %7 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %9 ], [ %1, %7 ]
   ret ptr %.0
 }
 
@@ -909,7 +909,7 @@ define hidden noundef ptr @_PyPegen_expect_forced_token(ptr noundef %0, i32 noun
   br label %41
 
 41:                                               ; preds = %25, %39, %3, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %3 ], [ null, %25 ], [ %23, %39 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %16 ], [ null, %25 ], [ %23, %39 ]
   ret ptr %.0
 }
 
@@ -986,7 +986,7 @@ define hidden ptr @_PyPegen_expect_soft_keyword(ptr noundef %0, ptr noundef read
   br label %31
 
 31:                                               ; preds = %13, %27, %29, %25, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %13 ], [ %30, %29 ], [ null, %25 ], [ null, %27 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %13 ], [ null, %25 ], [ %30, %29 ], [ null, %27 ]
   ret ptr %.0
 }
 
@@ -1068,7 +1068,7 @@ define hidden ptr @_PyPegen_name_token(ptr noundef %0) local_unnamed_addr #1 {
   br label %_PyPegen_name_from_token.exit
 
 _PyPegen_name_from_token.exit:                    ; preds = %12, %10, %25, %30, %32
-  %.0.i4 = phi ptr [ null, %25 ], [ null, %30 ], [ %43, %32 ], [ null, %10 ], [ null, %12 ]
+  %.0.i4 = phi ptr [ %43, %32 ], [ null, %25 ], [ null, %30 ], [ null, %10 ], [ null, %12 ]
   ret ptr %.0.i4
 }
 
@@ -1449,7 +1449,7 @@ define hidden ptr @_PyPegen_soft_keyword_token(ptr noundef %0) local_unnamed_add
   br label %_PyPegen_name_from_token.exit
 
 _PyPegen_name_from_token.exit:                    ; preds = %32, %22, %49, %47, %42
-  %spec.select = phi ptr [ null, %42 ], [ null, %47 ], [ %60, %49 ], [ null, %22 ], [ null, %32 ]
+  %spec.select = phi ptr [ null, %47 ], [ %60, %49 ], [ null, %42 ], [ null, %22 ], [ null, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_PyPegen_expect_token.exit.thread
@@ -1662,7 +1662,7 @@ Py_DECREF.exit:                                   ; preds = %87, %89, %92
   br label %Py_DECREF.exit36
 
 Py_DECREF.exit36:                                 ; preds = %12, %10, %81, %78, %68, %26, %34, %58, %64, %94, %Py_DECREF.exit
-  %.0 = phi ptr [ null, %26 ], [ %37, %34 ], [ null, %Py_DECREF.exit ], [ %104, %94 ], [ null, %64 ], [ null, %58 ], [ null, %68 ], [ null, %78 ], [ null, %81 ], [ null, %10 ], [ null, %12 ]
+  %.0 = phi ptr [ null, %81 ], [ null, %26 ], [ %37, %34 ], [ %104, %94 ], [ null, %Py_DECREF.exit ], [ null, %58 ], [ null, %64 ], [ null, %68 ], [ null, %78 ], [ null, %10 ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -1984,7 +1984,7 @@ bad_single_statement.exit:                        ; preds = %.loopexit.i
   br label %bad_single_statement.exit.thread
 
 bad_single_statement.exit.thread:                 ; preds = %.loopexit.i, %35, %13, %bad_single_statement.exit, %reset_parser_state_for_error_pass.exit, %_is_end_of_source.exit.thread
-  %.0 = phi ptr [ %10, %_is_end_of_source.exit.thread ], [ null, %reset_parser_state_for_error_pass.exit ], [ %49, %bad_single_statement.exit ], [ null, %13 ], [ %2, %35 ], [ %2, %.loopexit.i ]
+  %.0 = phi ptr [ %10, %_is_end_of_source.exit.thread ], [ null, %reset_parser_state_for_error_pass.exit ], [ null, %13 ], [ %49, %bad_single_statement.exit ], [ %2, %35 ], [ %2, %.loopexit.i ]
   ret ptr %.0
 }
 
@@ -2111,7 +2111,7 @@ compute_parser_flags.exit:                        ; preds = %_Py_NewRef.exit, %3
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %63, %60, %58, %44, %48, %54, %compute_parser_flags.exit
-  %.041 = phi ptr [ null, %compute_parser_flags.exit ], [ %45, %54 ], [ %45, %48 ], [ %45, %44 ], [ null, %58 ], [ null, %60 ], [ null, %63 ]
+  %.041 = phi ptr [ null, %compute_parser_flags.exit ], [ %45, %44 ], [ %45, %54 ], [ %45, %48 ], [ null, %58 ], [ null, %60 ], [ null, %63 ]
   tail call void @_PyTokenizer_Free(ptr noundef nonnull %11) #13
   br label %64
 
@@ -2338,7 +2338,7 @@ define internal fastcc ptr @parsenumber_raw(ptr noundef nonnull %0) unnamed_addr
   br label %45
 
 45:                                               ; preds = %41, %34, %43, %36, %28, %26, %16
-  %.0 = phi ptr [ %17, %16 ], [ %27, %26 ], [ %29, %28 ], [ %37, %36 ], [ %44, %43 ], [ null, %34 ], [ null, %41 ]
+  %.0 = phi ptr [ %17, %16 ], [ %27, %26 ], [ %29, %28 ], [ %44, %43 ], [ %37, %36 ], [ null, %34 ], [ null, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }

@@ -359,7 +359,7 @@ define internal range(i32 -1, 2) i32 @aes_xts_ctrl(ptr noundef readonly captures
   br label %25
 
 25:                                               ; preds = %4, %12, %18, %20, %15, %23
-  %.1 = phi i32 [ 1, %23 ], [ 0, %12 ], [ 0, %18 ], [ 1, %20 ], [ 1, %15 ], [ -1, %4 ]
+  %.1 = phi i32 [ 1, %23 ], [ 1, %15 ], [ 0, %18 ], [ 0, %12 ], [ 1, %20 ], [ -1, %4 ]
   ret i32 %.1
 }
 

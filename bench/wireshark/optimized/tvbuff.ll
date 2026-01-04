@@ -314,8 +314,8 @@ define ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %_tvb_captured_length_remaining.exit
 
 _tvb_captured_length_remaining.exit:              ; preds = %18, %20, %23
-  %.071 = phi i32 [ %25, %23 ], [ %21, %20 ], [ %19, %18 ]
-  %.068 = phi i8 [ %24, %23 ], [ 0, %20 ], [ 0, %18 ]
+  %.071 = phi i32 [ %21, %20 ], [ %25, %23 ], [ %19, %18 ]
+  %.068 = phi i8 [ 0, %20 ], [ %24, %23 ], [ 0, %18 ]
   %26 = icmp eq i32 %11, 0
   %27 = icmp eq i8 %.068, 0
   %or.cond = select i1 %26, i1 %27, i1 false
@@ -568,8 +568,8 @@ check_offset_length_no_exception.exit.i:          ; preds = %43
   unreachable
 
 ensure_contiguous_no_exception.exit:              ; preds = %8, %11, %15, %24, %27, %31, %34, %38, %44, %47, %51, %58, %66
-  %.0 = phi i32 [ 0, %66 ], [ 0, %58 ], [ 1, %8 ], [ 4, %11 ], [ %..i.i.i, %15 ], [ 1, %24 ], [ 4, %27 ], [ %.37.i.i.i, %31 ], [ %..i29.i.i, %51 ], [ 4, %47 ], [ 1, %44 ], [ 1, %38 ], [ 1, %34 ]
-  %.0.i = phi ptr [ %67, %66 ], [ %60, %58 ], [ null, %8 ], [ null, %11 ], [ null, %15 ], [ null, %24 ], [ null, %27 ], [ null, %31 ], [ null, %51 ], [ null, %47 ], [ null, %44 ], [ null, %38 ], [ null, %34 ]
+  %.0 = phi i32 [ 0, %58 ], [ 1, %38 ], [ 0, %66 ], [ 4, %27 ], [ 1, %8 ], [ %..i.i.i, %15 ], [ 4, %11 ], [ %.37.i.i.i, %31 ], [ 1, %24 ], [ 1, %44 ], [ 4, %47 ], [ 1, %34 ], [ %..i29.i.i, %51 ]
+  %.0.i = phi ptr [ %60, %58 ], [ null, %38 ], [ %67, %66 ], [ null, %27 ], [ null, %8 ], [ null, %15 ], [ null, %11 ], [ null, %31 ], [ null, %24 ], [ null, %44 ], [ null, %47 ], [ null, %34 ], [ null, %51 ]
   %69 = icmp eq ptr %.0.i, null
   %70 = icmp ne i32 %2, 0
   %or.cond = and i1 %70, %69
@@ -650,8 +650,8 @@ define ptr @tvb_new_octet_right_aligned(ptr noundef %0, i32 noundef %1, i32 noun
   br label %_tvb_captured_length_remaining.exit
 
 _tvb_captured_length_remaining.exit:              ; preds = %18, %20, %23
-  %.065 = phi i32 [ %25, %23 ], [ %21, %20 ], [ %19, %18 ]
-  %.063 = phi i8 [ %24, %23 ], [ 0, %20 ], [ 0, %18 ]
+  %.065 = phi i32 [ %21, %20 ], [ %25, %23 ], [ %19, %18 ]
+  %.063 = phi i8 [ 0, %20 ], [ %24, %23 ], [ 0, %18 ]
   %26 = icmp eq i32 %11, 0
   %27 = zext nneg i8 %.063 to i32
   %28 = icmp eq i8 %.063, 0
@@ -996,8 +996,8 @@ define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef rea
   %.37.i.i = select i1 %.not31.i.i.sink, i64 3, i64 2
   br label %39
 
-39:                                               ; preds = %.sink.split, %32, %29, %16, %13
-  %.0.i9.i.ph = phi i64 [ 1, %13 ], [ 4, %16 ], [ 1, %29 ], [ 4, %32 ], [ %.37.i.i, %.sink.split ]
+39:                                               ; preds = %.sink.split, %29, %16, %13, %32
+  %.0.i9.i.ph = phi i64 [ 4, %32 ], [ 1, %13 ], [ 1, %29 ], [ 4, %16 ], [ %.37.i.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #19
   unreachable
 
@@ -1105,7 +1105,7 @@ define noundef zeroext i1 @tvb_bytes_exist(ptr noundef readonly captures(address
   br label %check_offset_length_no_exception.exit
 
 check_offset_length_no_exception.exit:            ; preds = %28, %16, %13, %27, %22, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %22 ], [ true, %27 ], [ false, %28 ], [ false, %13 ], [ false, %16 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %22 ], [ false, %16 ], [ false, %13 ], [ false, %28 ], [ true, %27 ]
   ret i1 %.0
 }
 
@@ -1237,8 +1237,8 @@ define internal fastcc range(i32 0, 5) i32 @check_offset_length_no_exception(ptr
   %..i29 = select i1 %.not14.i, i32 3, i32 2
   br label %validate_offset.exit
 
-validate_offset.exit:                             ; preds = %37, %33, %30, %21, %17, %14, %63, %59, %56, %53, %49, %40
-  %.0 = phi i32 [ 1, %40 ], [ 1, %49 ], [ 0, %53 ], [ 1, %56 ], [ 4, %59 ], [ %..i29, %63 ], [ %.37.i, %37 ], [ 4, %33 ], [ 1, %30 ], [ %..i, %21 ], [ 4, %17 ], [ 1, %14 ]
+validate_offset.exit:                             ; preds = %30, %37, %17, %21, %14, %33, %63, %59, %56, %53, %49, %40
+  %.0 = phi i32 [ 1, %49 ], [ %..i29, %63 ], [ 1, %40 ], [ 4, %59 ], [ 0, %53 ], [ 1, %56 ], [ 1, %30 ], [ %.37.i, %37 ], [ 4, %17 ], [ %..i, %21 ], [ 1, %14 ], [ 4, %33 ]
   ret i32 %.0
 }
 
@@ -1620,8 +1620,8 @@ define i32 @tvb_ensure_reported_length_remaining(ptr noundef readonly captures(a
   %..i = select i1 %.not36.i.sink, i64 3, i64 2
   br label %39
 
-39:                                               ; preds = %.sink.split, %13, %16, %29, %32
-  %.0.i.ph = phi i64 [ 4, %32 ], [ 1, %29 ], [ 4, %16 ], [ 1, %13 ], [ %..i, %.sink.split ]
+39:                                               ; preds = %.sink.split, %29, %32, %13, %16
+  %.0.i.ph = phi i64 [ 4, %32 ], [ 4, %16 ], [ 1, %29 ], [ 1, %13 ], [ %..i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #19
   unreachable
 
@@ -1887,8 +1887,8 @@ define ptr @tvb_memcpy(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
   %..i29.i = select i1 %.not14.i.i.sink, i64 3, i64 2
   br label %61
 
-61:                                               ; preds = %.sink.split, %45, %51, %54, %38, %35, %22, %19
-  %.0.i.ph = phi i64 [ 1, %19 ], [ 4, %22 ], [ 1, %35 ], [ 4, %38 ], [ 4, %54 ], [ 1, %51 ], [ 1, %45 ], [ %..i29.i, %.sink.split ]
+61:                                               ; preds = %.sink.split, %45, %38, %54, %51, %35, %22, %19
+  %.0.i.ph = phi i64 [ 1, %19 ], [ 4, %38 ], [ 4, %22 ], [ 1, %45 ], [ 1, %35 ], [ 1, %51 ], [ 4, %54 ], [ %..i29.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #19
   unreachable
 
@@ -2050,8 +2050,8 @@ define ptr @tvb_memdup(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
   %..i29.i = select i1 %.not14.i.i.sink, i64 3, i64 2
   br label %62
 
-62:                                               ; preds = %.sink.split, %42, %46, %52, %55, %35, %32, %19, %16
-  %.0.i.ph = phi i64 [ 1, %16 ], [ 4, %19 ], [ 1, %32 ], [ 4, %35 ], [ 4, %55 ], [ 1, %52 ], [ 1, %46 ], [ 1, %42 ], [ %..i29.i, %.sink.split ]
+62:                                               ; preds = %.sink.split, %46, %42, %55, %52, %32, %19, %16, %35
+  %.0.i.ph = phi i64 [ 4, %35 ], [ 1, %16 ], [ 1, %42 ], [ 4, %19 ], [ 1, %46 ], [ 1, %32 ], [ 1, %52 ], [ 4, %55 ], [ %..i29.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #19
   unreachable
 
@@ -3695,7 +3695,7 @@ define i64 @tvb_get_uint64_with_length(ptr noundef %0, i32 noundef %1, i32 nound
   br label %281
 
 281:                                              ; preds = %22, %30, %241, %243, %4, %199, %201, %146, %164, %103, %116, %70, %78, %65, %18, %5
-  %.0 = phi i64 [ %8, %5 ], [ %19, %18 ], [ %67, %65 ], [ %77, %70 ], [ %100, %78 ], [ %115, %103 ], [ %143, %116 ], [ %163, %146 ], [ %196, %164 ], [ %200, %199 ], [ %238, %201 ], [ 0, %4 ], [ %242, %241 ], [ %280, %243 ], [ %29, %22 ], [ %42, %30 ]
+  %.0 = phi i64 [ %238, %201 ], [ 0, %4 ], [ %8, %5 ], [ %19, %18 ], [ %280, %243 ], [ %67, %65 ], [ %196, %164 ], [ %100, %78 ], [ %143, %116 ], [ %77, %70 ], [ %115, %103 ], [ %163, %146 ], [ %200, %199 ], [ %242, %241 ], [ %29, %22 ], [ %42, %30 ]
   ret i64 %.0
 }
 
@@ -4048,7 +4048,7 @@ tvb_get_raw_string.exit:                          ; preds = %16, %18
   br label %48
 
 48:                                               ; preds = %38, %41, %36, %33
-  %.0 = phi ptr [ %.mux, %38 ], [ null, %36 ], [ null, %33 ], [ %4, %41 ]
+  %.0 = phi ptr [ null, %33 ], [ %.mux, %38 ], [ null, %36 ], [ %4, %41 ]
   call void @wmem_free(ptr noundef null, ptr noundef %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
@@ -4289,7 +4289,7 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   br label %123
 
 123:                                              ; preds = %119, %112, %105, %99
-  %.193 = phi ptr [ %.092, %112 ], [ %.092, %105 ], [ %.092, %99 ], [ %spec.select, %119 ]
+  %.193 = phi ptr [ %.092, %99 ], [ %spec.select, %119 ], [ %.092, %112 ], [ %.092, %105 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -4476,14 +4476,14 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   %198 = sext i32 %194 to i64
   br label %parse_month_name.exit
 
-parse_month_name.exit.thread150:                  ; preds = %140, %142, %145, %160, %188
+parse_month_name.exit.thread150:                  ; preds = %142, %145, %160, %140, %188
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread156.sink.split
 
 parse_month_name.exit:                            ; preds = %180, %175, %189
-  %.390 = phi ptr [ %176, %175 ], [ %181, %180 ], [ %197, %189 ]
-  %.285 = phi i64 [ 0, %175 ], [ 0, %180 ], [ %198, %189 ]
+  %.390 = phi ptr [ %181, %180 ], [ %197, %189 ], [ %176, %175 ]
+  %.285 = phi i64 [ 0, %180 ], [ %198, %189 ], [ 0, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -4507,7 +4507,7 @@ parse_month_name.exit:                            ; preds = %180, %175, %189
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread156
 
-.thread156:                                       ; preds = %.thread156.sink.split, %54, %72, %202
+.thread156:                                       ; preds = %.thread156.sink.split, %72, %54, %202
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
@@ -4532,7 +4532,7 @@ parse_month_name.exit:                            ; preds = %180, %175, %189
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %44, %48, %.thread156, %207, %208
-  %.082 = phi ptr [ %4, %208 ], [ %4, %207 ], [ null, %.thread156 ], [ null, %48 ], [ null, %44 ], [ null, %38 ]
+  %.082 = phi ptr [ %4, %207 ], [ %4, %208 ], [ null, %44 ], [ null, %.thread156 ], [ null, %48 ], [ null, %38 ]
   call void @wmem_free(ptr noundef null, ptr noundef %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.082
@@ -5113,7 +5113,7 @@ define i64 @tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br label %_tvb_get_bits64_le.exit
 
 _tvb_get_bits64_le.exit:                          ; preds = %47, %.thread71.i, %21, %8, %53
-  %.0 = phi i64 [ %54, %53 ], [ %.0.i, %21 ], [ %.376.i, %.thread71.i ], [ %.1.i, %8 ], [ %.3.i, %47 ]
+  %.0 = phi i64 [ %54, %53 ], [ %.0.i, %21 ], [ %.1.i, %8 ], [ %.376.i, %.thread71.i ], [ %.3.i, %47 ]
   ret i64 %.0
 }
 
@@ -5210,8 +5210,8 @@ define i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 no
   %.37.i.i = select i1 %.not31.i.i.sink, i64 3, i64 2
   br label %41
 
-41:                                               ; preds = %.sink.split, %34, %31, %18, %15
-  %.0.i9.i.ph = phi i64 [ 1, %15 ], [ 4, %18 ], [ 1, %31 ], [ 4, %34 ], [ %.37.i.i, %.sink.split ]
+41:                                               ; preds = %.sink.split, %31, %18, %15, %34
+  %.0.i9.i.ph = phi i64 [ 4, %34 ], [ 1, %15 ], [ 1, %31 ], [ 4, %18 ], [ %.37.i.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #19
   unreachable
 
@@ -5276,7 +5276,7 @@ define i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 no
   br label %tvb_find_uint8_generic.exit
 
 tvb_find_uint8_generic.exit:                      ; preds = %74, %70, %68, %49, %66, %56
-  %.0 = phi i32 [ %60, %56 ], [ %67, %66 ], [ -1, %49 ], [ %79, %74 ], [ -1, %68 ], [ -1, %70 ]
+  %.0 = phi i32 [ -1, %49 ], [ %60, %56 ], [ %67, %66 ], [ %79, %74 ], [ -1, %68 ], [ -1, %70 ]
   ret i32 %.0
 }
 
@@ -5348,8 +5348,8 @@ define i32 @tvb_find_uint16(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 
   %.37.i.i = select i1 %.not31.i.i.sink, i64 3, i64 2
   br label %35
 
-35:                                               ; preds = %.sink.split, %28, %25, %12, %9
-  %.0.i9.i.ph = phi i64 [ 1, %9 ], [ 4, %12 ], [ 1, %25 ], [ 4, %28 ], [ %.37.i.i, %.sink.split ]
+35:                                               ; preds = %.sink.split, %25, %12, %9, %28
+  %.0.i9.i.ph = phi i64 [ 4, %28 ], [ 1, %9 ], [ 1, %25 ], [ 4, %12 ], [ %.37.i.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #19
   unreachable
 
@@ -5395,8 +5395,8 @@ define i32 @tvb_find_uint16(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 
   %58 = icmp ult i32 %54, %spec.select
   br i1 %58, label %44, label %.thread, !llvm.loop !24
 
-.thread:                                          ; preds = %48, %44, %57, %55
-  %.2 = phi i32 [ %., %55 ], [ -1, %57 ], [ -1, %44 ], [ -1, %48 ]
+.thread:                                          ; preds = %44, %48, %57, %55
+  %.2 = phi i32 [ %., %55 ], [ -1, %57 ], [ -1, %48 ], [ -1, %44 ]
   ret i32 %.2
 }
 
@@ -5479,8 +5479,8 @@ define i32 @tvb_ws_mempbrk_pattern_uint8(ptr noundef %0, i32 noundef %1, i32 nou
   %.37.i.i = select i1 %.not31.i.i.sink, i64 3, i64 2
   br label %42
 
-42:                                               ; preds = %.sink.split, %35, %32, %19, %16
-  %.0.i9.i.ph = phi i64 [ 1, %16 ], [ 4, %19 ], [ 1, %32 ], [ 4, %35 ], [ %.37.i.i, %.sink.split ]
+42:                                               ; preds = %.sink.split, %32, %19, %16, %35
+  %.0.i9.i.ph = phi i64 [ 4, %35 ], [ 1, %16 ], [ 1, %32 ], [ 4, %19 ], [ %.37.i.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i9.i.ph, ptr noundef null) #19
   unreachable
 
@@ -5542,7 +5542,7 @@ define i32 @tvb_ws_mempbrk_pattern_uint8(ptr noundef %0, i32 noundef %1, i32 nou
   br label %tvb_ws_mempbrk_uint8_generic.exit
 
 tvb_ws_mempbrk_uint8_generic.exit:                ; preds = %72, %69, %67, %48, %65, %54
-  %.0 = phi i32 [ %59, %54 ], [ %66, %65 ], [ -1, %48 ], [ %77, %72 ], [ -1, %67 ], [ -1, %69 ]
+  %.0 = phi i32 [ -1, %48 ], [ %59, %54 ], [ %66, %65 ], [ %77, %72 ], [ -1, %67 ], [ -1, %69 ]
   ret i32 %.0
 }
 
@@ -5648,8 +5648,8 @@ define i32 @tvb_strsize(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %..i29.i = select i1 %.not14.i.i.sink, i64 3, i64 2
   br label %50
 
-50:                                               ; preds = %.sink.split, %40, %43, %30, %27, %16, %13
-  %.0.i.ph = phi i64 [ 1, %13 ], [ 4, %16 ], [ 1, %27 ], [ 4, %30 ], [ 4, %43 ], [ 1, %40 ], [ %..i29.i, %.sink.split ]
+50:                                               ; preds = %.sink.split, %13, %30, %43, %40, %27, %16
+  %.0.i.ph = phi i64 [ 4, %30 ], [ 4, %16 ], [ 1, %13 ], [ 1, %27 ], [ 1, %40 ], [ 4, %43 ], [ %..i29.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #19
   unreachable
 
@@ -5832,8 +5832,8 @@ define i32 @tvb_strnlen(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_un
   %..i29.i = select i1 %.not14.i.i.sink, i64 3, i64 2
   br label %51
 
-51:                                               ; preds = %.sink.split, %41, %44, %31, %28, %17, %14
-  %.0.i.ph = phi i64 [ 1, %14 ], [ 4, %17 ], [ 1, %28 ], [ 4, %31 ], [ 4, %44 ], [ 1, %41 ], [ %..i29.i, %.sink.split ]
+51:                                               ; preds = %.sink.split, %14, %31, %44, %41, %28, %17
+  %.0.i.ph = phi i64 [ 4, %31 ], [ 4, %17 ], [ 1, %14 ], [ 1, %28 ], [ 1, %41 ], [ 4, %44 ], [ %..i29.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #19
   unreachable
 
@@ -5917,7 +5917,7 @@ define range(i32 -1, 1) i32 @tvb_strneql(ptr noundef %0, i32 noundef %1, ptr nou
   unreachable
 
 ensure_contiguous_no_exception.exit:              ; preds = %30, %38
-  %.0.i = phi ptr [ %32, %30 ], [ %39, %38 ]
+  %.0.i = phi ptr [ %39, %38 ], [ %32, %30 ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %ensure_contiguous_no_exception.exit.thread, label %41
 
@@ -5928,7 +5928,7 @@ ensure_contiguous_no_exception.exit:              ; preds = %30, %38
   br label %ensure_contiguous_no_exception.exit.thread
 
 ensure_contiguous_no_exception.exit.thread:       ; preds = %25, %10, %7, %16, %20, %ensure_contiguous_no_exception.exit, %41
-  %.0 = phi i32 [ %44, %41 ], [ -1, %ensure_contiguous_no_exception.exit ], [ -1, %20 ], [ -1, %16 ], [ -1, %7 ], [ -1, %10 ], [ -1, %25 ]
+  %.0 = phi i32 [ %44, %41 ], [ -1, %ensure_contiguous_no_exception.exit ], [ -1, %25 ], [ -1, %10 ], [ -1, %7 ], [ -1, %16 ], [ -1, %20 ]
   ret i32 %.0
 }
 
@@ -6006,7 +6006,7 @@ define range(i32 -1, 1) i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %1, ptr
   unreachable
 
 ensure_contiguous_no_exception.exit:              ; preds = %30, %38
-  %.0.i = phi ptr [ %32, %30 ], [ %39, %38 ]
+  %.0.i = phi ptr [ %39, %38 ], [ %32, %30 ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %ensure_contiguous_no_exception.exit.thread, label %41
 
@@ -6017,7 +6017,7 @@ ensure_contiguous_no_exception.exit:              ; preds = %30, %38
   br label %ensure_contiguous_no_exception.exit.thread
 
 ensure_contiguous_no_exception.exit.thread:       ; preds = %25, %10, %7, %16, %20, %ensure_contiguous_no_exception.exit, %41
-  %.0 = phi i32 [ %44, %41 ], [ -1, %ensure_contiguous_no_exception.exit ], [ -1, %20 ], [ -1, %16 ], [ -1, %7 ], [ -1, %10 ], [ -1, %25 ]
+  %.0 = phi i32 [ %44, %41 ], [ -1, %ensure_contiguous_no_exception.exit ], [ -1, %25 ], [ -1, %10 ], [ -1, %7 ], [ -1, %16 ], [ -1, %20 ]
   ret i32 %.0
 }
 
@@ -6092,7 +6092,7 @@ define range(i32 -1, 1) i32 @tvb_memeql(ptr noundef %0, i32 noundef %1, ptr noun
   unreachable
 
 ensure_contiguous_no_exception.exit:              ; preds = %30, %38
-  %.0.i = phi ptr [ %32, %30 ], [ %39, %38 ]
+  %.0.i = phi ptr [ %39, %38 ], [ %32, %30 ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %ensure_contiguous_no_exception.exit.thread, label %41
 
@@ -6103,7 +6103,7 @@ ensure_contiguous_no_exception.exit:              ; preds = %30, %38
   br label %ensure_contiguous_no_exception.exit.thread
 
 ensure_contiguous_no_exception.exit.thread:       ; preds = %25, %10, %7, %16, %20, %ensure_contiguous_no_exception.exit, %41
-  %.0 = phi i32 [ %43, %41 ], [ -1, %ensure_contiguous_no_exception.exit ], [ -1, %20 ], [ -1, %16 ], [ -1, %7 ], [ -1, %10 ], [ -1, %25 ]
+  %.0 = phi i32 [ %43, %41 ], [ -1, %ensure_contiguous_no_exception.exit ], [ -1, %25 ], [ -1, %10 ], [ -1, %7 ], [ -1, %16 ], [ -1, %20 ]
   ret i32 %.0
 }
 
@@ -6821,7 +6821,7 @@ define ptr @tvb_get_bcd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %78, label %.lr.ph.split, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %69, %55, %65, %44, %30, %40, %22
-  %.145 = phi i32 [ 0, %22 ], [ %.2.us, %40 ], [ %.04457.us, %30 ], [ %50, %44 ], [ %.2, %65 ], [ %.04457, %55 ], [ %75, %69 ]
+  %.145 = phi i32 [ 0, %22 ], [ %.2.us, %40 ], [ %.04457.us, %30 ], [ %50, %44 ], [ %.04457, %55 ], [ %.2, %65 ], [ %75, %69 ]
   %79 = sext i32 %.145 to i64
   %80 = getelementptr i8, ptr %27, i64 %79
   store i8 0, ptr %80, align 1
@@ -7539,12 +7539,12 @@ define range(i32 0, -1) i32 @tvb_get_raw_bytes_as_stringz(ptr noundef %0, i32 no
   br i1 %45, label %46, label %check_offset_length.exit.i
 
 .sink.split.i:                                    ; preds = %38, %22
-  %.not31.i.i.sink.i = phi i1 [ %.not31.i.i.i, %38 ], [ %.not36.i.i.i, %22 ]
-  %.37.i.i.i = select i1 %.not31.i.i.sink.i, i64 3, i64 2
+  %.not36.i.i.sink.i = phi i1 [ %.not36.i.i.i, %22 ], [ %.not31.i.i.i, %38 ]
+  %..i.i.i = select i1 %.not36.i.i.sink.i, i64 3, i64 2
   br label %46
 
 46:                                               ; preds = %.sink.split.i, %41, %34, %31, %18, %15
-  %.0.i.ph.i = phi i64 [ 1, %15 ], [ 4, %18 ], [ 1, %31 ], [ 4, %34 ], [ 1, %41 ], [ %.37.i.i.i, %.sink.split.i ]
+  %.0.i.ph.i = phi i64 [ 4, %18 ], [ 1, %31 ], [ 1, %15 ], [ 1, %41 ], [ 4, %34 ], [ %..i.i.i, %.sink.split.i ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph.i, ptr noundef null) #19
   unreachable
 
@@ -7799,7 +7799,7 @@ define zeroext i1 @tvb_utf_8_isprint(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %compute_offset_and_remaining.exit
 
 compute_offset_and_remaining.exit:                ; preds = %11, %8, %17, %3
-  %.0 = phi i32 [ %2, %3 ], [ %19, %17 ], [ -1, %8 ], [ -1, %11 ]
+  %.0 = phi i32 [ %2, %3 ], [ -1, %8 ], [ %19, %17 ], [ -1, %11 ]
   %20 = tail call zeroext i1 @isprint_utf8_string(ptr noundef %4, i32 noundef %.0)
   ret i1 %20
 }
@@ -7979,7 +7979,7 @@ _tvb_captured_length_remaining.exit:              ; preds = %25, %19, %16, %12
   br label %49
 
 49:                                               ; preds = %.sink.split, %34, %46, %41, %33
-  %.030 = phi i32 [ -1, %33 ], [ -1, %41 ], [ %.031, %34 ], [ %36, %46 ], [ %.030.ph, %.sink.split ]
+  %.030 = phi i32 [ -1, %33 ], [ -1, %41 ], [ %36, %46 ], [ %.031, %34 ], [ %.030.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.030
 }
@@ -8092,7 +8092,7 @@ _tvb_captured_length_remaining.exit:              ; preds = %24, %18, %15, %11
   br label %49
 
 49:                                               ; preds = %45, %42, %39
-  %.143 = phi i32 [ %34, %42 ], [ %34, %39 ], [ %spec.select, %45 ]
+  %.143 = phi i32 [ %34, %39 ], [ %spec.select, %45 ], [ %34, %42 ]
   %.not53 = icmp eq ptr %3, null
   br i1 %.not53, label %55, label %50
 
@@ -8112,13 +8112,13 @@ _tvb_captured_length_remaining.exit:              ; preds = %24, %18, %15, %11
   br i1 %.not55, label %55, label %.sink.split
 
 .sink.split:                                      ; preds = %54, %36, %50
-  %.sink = phi i32 [ %51, %50 ], [ %29, %36 ], [ %29, %54 ]
-  %.0.ph = phi i32 [ %40, %50 ], [ %.040, %36 ], [ %.040, %54 ]
+  %.sink = phi i32 [ %29, %36 ], [ %51, %50 ], [ %29, %54 ]
+  %.0.ph = phi i32 [ %.040, %36 ], [ %40, %50 ], [ %.040, %54 ]
   store i32 %.sink, ptr %3, align 4
   br label %55
 
 55:                                               ; preds = %.sink.split, %54, %49, %36
-  %.0 = phi i32 [ %.040, %36 ], [ %.040, %54 ], [ %40, %49 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ %.040, %54 ], [ %.040, %36 ], [ %40, %49 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -8336,7 +8336,7 @@ _tvb_captured_length_remaining.exit:              ; preds = %25, %19, %16, %12
   br label %39
 
 39:                                               ; preds = %.sink.split, %34, %35, %33
-  %.023 = phi i32 [ -1, %33 ], [ %.024, %34 ], [ %36, %35 ], [ %.023.ph, %.sink.split ]
+  %.023 = phi i32 [ -1, %33 ], [ %36, %35 ], [ %.024, %34 ], [ %.023.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.023
 }
@@ -8544,13 +8544,13 @@ ensure_contiguous.exit24:                         ; preds = %ensure_contiguous.e
   %71 = icmp ult i32 %69, %70
   br i1 %71, label %72, label %check_offset_length.exit
 
-.sink.split:                                      ; preds = %50, %65
-  %.not31.i.i.sink = phi i1 [ %.not31.i.i, %65 ], [ %.not36.i.i, %50 ]
-  %.37.i.i = select i1 %.not31.i.i.sink, i64 3, i64 2
+.sink.split:                                      ; preds = %65, %50
+  %.not36.i.i.sink = phi i1 [ %.not36.i.i, %50 ], [ %.not31.i.i, %65 ]
+  %..i.i = select i1 %.not36.i.i.sink, i64 3, i64 2
   br label %72
 
-72:                                               ; preds = %.sink.split, %68, %61, %58, %46, %43
-  %.0.i.ph = phi i64 [ 1, %43 ], [ 4, %46 ], [ 1, %58 ], [ 4, %61 ], [ 1, %68 ], [ %.37.i.i, %.sink.split ]
+72:                                               ; preds = %.sink.split, %68, %46, %61, %43, %58
+  %.0.i.ph = phi i64 [ 4, %46 ], [ 1, %58 ], [ 1, %43 ], [ 1, %68 ], [ 4, %61 ], [ %..i.i, %.sink.split ]
   tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i.ph, ptr noundef null) #19
   unreachable
 
@@ -8572,7 +8572,7 @@ check_offset_length.exit:                         ; preds = %68
   br label %84
 
 84:                                               ; preds = %check_offset_length.exit, %11, %79
-  %.0 = phi i32 [ %83, %79 ], [ -1, %11 ], [ -1, %check_offset_length.exit ]
+  %.0 = phi i32 [ -1, %11 ], [ %83, %79 ], [ -1, %check_offset_length.exit ]
   ret i32 %.0
 }
 
@@ -8852,7 +8852,7 @@ default.unreachable76:                            ; preds = %.split
   unreachable
 
 .thread73:                                        ; preds = %52, %.lr.ph, %44, %38, %21, %.preheader89, %.preheader87, %.preheader, %.thread70, %.thread, %84, %67, %60, %58
-  %.1 = phi i32 [ 1, %58 ], [ 2, %60 ], [ 4, %67 ], [ 8, %84 ], [ %20, %.thread ], [ %37, %.thread70 ], [ 0, %.preheader ], [ 0, %.preheader87 ], [ 0, %.preheader89 ], [ 0, %21 ], [ 0, %38 ], [ 0, %52 ], [ 0, %.lr.ph ], [ %51, %44 ]
+  %.1 = phi i32 [ %20, %.thread ], [ 8, %84 ], [ %37, %.thread70 ], [ 0, %38 ], [ 1, %58 ], [ 2, %60 ], [ 4, %67 ], [ 0, %.preheader ], [ 0, %.preheader87 ], [ 0, %.preheader89 ], [ 0, %21 ], [ 0, %.lr.ph ], [ 0, %52 ], [ %51, %44 ]
   ret i32 %.1
 
 default.unreachable120:                           ; preds = %53

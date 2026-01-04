@@ -122,7 +122,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(136) ptr @"_ZN5al
   unreachable
 
 "_ZN4core3ptr77drop_in_place$LT$alloc..sync..Weak$LT$uv_pep440..version..VersionFull$GT$$GT$17ha13fd67172a144d9E.exit": ; preds = %.thread, %26, %23, %20, %.thread33
-  %.pn6.pn = phi { ptr, i32 } [ %eh.lpad-body36, %.thread33 ], [ %21, %20 ], [ %21, %23 ], [ %21, %26 ], [ %96, %.thread ]
+  %.pn6.pn = phi { ptr, i32 } [ %eh.lpad-body36, %.thread33 ], [ %96, %.thread ], [ %21, %20 ], [ %21, %23 ], [ %21, %26 ]
   resume { ptr, i32 } %.pn6.pn
 
 43:                                               ; preds = %14
@@ -566,7 +566,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit: ; pr
   unreachable
 
 .thread:                                          ; preds = %29, %58, %.thread23, %110
-  %.pn419 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %110 ], [ %lpad.thr_comm, %.thread23 ], [ %59, %58 ], [ %30, %29 ]
+  %.pn419 = phi { ptr, i32 } [ %59, %58 ], [ %lpad.thr_comm.split-lp, %110 ], [ %lpad.thr_comm, %.thread23 ], [ %30, %29 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
   call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %104 = load i8, ptr %11, align 1, !alias.scope !106, !noundef !3
@@ -635,7 +635,7 @@ define internal fastcc void @_ZN9uv_pep4407version7Version10with_local17h7a3c1b3
   br i1 %21, label %38, label %30
 
 "_ZN4core3ptr53drop_in_place$LT$uv_pep440..version..LocalVersion$GT$17hb2f52f7a33604d06E.exit12.i.i": ; preds = %46, %40, %28
-  %.pn.pn.i.i = phi { ptr, i32 } [ %41, %40 ], [ %29, %28 ], [ %47, %46 ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %29, %28 ], [ %41, %40 ], [ %47, %46 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !129)
   call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %22 = load i8, ptr %19, align 1, !alias.scope !135, !noalias !128, !noundef !3
@@ -795,7 +795,7 @@ _ZN9uv_pep4407version7Version13without_local17heb1720d5cea04adbE.exit.i: ; preds
           to label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h79159ee6bbe11941E.exit" unwind label %62, !noalias !121
 
 .thread.i:                                        ; preds = %61, %58, %52
-  %.pn7.ph.i = phi { ptr, i32 } [ %53, %52 ], [ %59, %61 ], [ %59, %58 ]
+  %.pn7.ph.i = phi { ptr, i32 } [ %59, %58 ], [ %53, %52 ], [ %59, %61 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !171)
   call void @llvm.experimental.noalias.scope.decl(metadata !174)
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 9
@@ -890,11 +890,11 @@ _ZN9uv_pep4407version12VersionSmall9set_local17hfb17c43712b09fd0E.exit: ; preds 
   unreachable
 
 "_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h79159ee6bbe11941E.exit": ; preds = %.thread16.i, %.thread.i, %66, %70, %97, %.thread, %101
-  %.pn.pn18 = phi { ptr, i32 } [ %.pn.pn19, %101 ], [ %.pn.pn19, %.thread ], [ %.pn.pn19, %97 ], [ %.pn7.ph.i, %66 ], [ %.pn7.ph.i, %.thread.i ], [ %.pn7.ph.i, %70 ], [ %.pn.pn.i.i, %.thread16.i ]
+  %.pn.pn18 = phi { ptr, i32 } [ %.pn.pn19, %97 ], [ %.pn.pn.i.i, %.thread16.i ], [ %.pn.pn19, %101 ], [ %.pn.pn19, %.thread ], [ %.pn7.ph.i, %.thread.i ], [ %.pn7.ph.i, %70 ], [ %.pn7.ph.i, %66 ]
   resume { ptr, i32 } %.pn.pn18
 
 .thread:                                          ; preds = %90, %93, %84
-  %.pn.pn19 = phi { ptr, i32 } [ %85, %84 ], [ %91, %93 ], [ %91, %90 ]
+  %.pn.pn19 = phi { ptr, i32 } [ %91, %90 ], [ %85, %84 ], [ %91, %93 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !197)
   call void @llvm.experimental.noalias.scope.decl(metadata !200)
   %96 = load i8, ptr %72, align 1, !alias.scope !203, !noundef !3
@@ -1655,8 +1655,8 @@ _ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread.i: 
 247:                                              ; preds = %243
   br label %.thread404
 
-.thread398:                                       ; preds = %286, %318, %323
-  %.sroa.573.0..sroa_idx74342349366422434 = phi ptr [ %.sroa.573.0..sroa_idx74342349366422432446, %323 ], [ %.sroa.573.0..sroa_idx74342349366422432446, %318 ], [ %.sroa.573.0..sroa_idx74, %286 ]
+.thread398:                                       ; preds = %286, %323, %318
+  %.sroa.573.0..sroa_idx74342349366422434 = phi ptr [ %.sroa.573.0..sroa_idx74342349366422432446, %318 ], [ %.sroa.573.0..sroa_idx74342349366422432446, %323 ], [ %.sroa.573.0..sroa_idx74, %286 ]
   %lpad.thr_comm396 = landingpad { ptr, i32 }
           cleanup
   br label %.thread368
@@ -1685,9 +1685,9 @@ _ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread.i: 
   %256 = icmp eq i8 %255, 3
   br i1 %256, label %312, label %.thread404
 
-.thread404:                                       ; preds = %243, %247, %246, %251
-  %.sroa.0.0.i137414 = phi i64 [ %253, %251 ], [ %214, %246 ], [ %214, %247 ], [ %214, %243 ]
-  %.sroa.6.0.i136413 = phi i8 [ %255, %251 ], [ 1, %246 ], [ 2, %247 ], [ 0, %243 ]
+.thread404:                                       ; preds = %243, %246, %247, %251
+  %.sroa.0.0.i137414 = phi i64 [ %253, %251 ], [ %214, %247 ], [ %214, %246 ], [ %214, %243 ]
+  %.sroa.6.0.i136413 = phi i8 [ %255, %251 ], [ 2, %247 ], [ 1, %246 ], [ 0, %243 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
   %257 = add i64 %.sroa.0.0.i137414, 1
@@ -1866,9 +1866,9 @@ _ZN9uv_pep4407version12VersionSmall7set_pre17h59801bf34769d7f2E.exit.i: ; preds 
   br label %318
 
 318:                                              ; preds = %312, %304, %298, %294, %292, %.thread435
-  %.sroa.573.0..sroa_idx74342349366422432446 = phi ptr [ %.sroa.573.0..sroa_idx74, %292 ], [ %.sroa.573.0..sroa_idx74, %294 ], [ %.sroa.573.0..sroa_idx74, %298 ], [ %.sroa.573.0..sroa_idx74, %304 ], [ %.sroa.573.0..sroa_idx74335, %312 ], [ %.sroa.573.0..sroa_idx74, %.thread435 ]
-  %.sroa.7.0.i157 = phi i64 [ 1, %292 ], [ 2, %294 ], [ 3, %298 ], [ 4, %304 ], [ %316, %312 ], [ 0, %.thread435 ]
-  %.sroa.0.0.i158 = phi ptr [ %.sroa.7.0..sroa_idx.i150454, %292 ], [ %.sroa.7.0..sroa_idx.i150467, %294 ], [ %.sroa.7.0..sroa_idx.i150480, %298 ], [ %.sroa.7.0..sroa_idx.i150493, %304 ], [ %314, %312 ], [ %.sroa.7.0..sroa_idx.i150442, %.thread435 ]
+  %.sroa.573.0..sroa_idx74342349366422432446 = phi ptr [ %.sroa.573.0..sroa_idx74335, %312 ], [ %.sroa.573.0..sroa_idx74, %292 ], [ %.sroa.573.0..sroa_idx74, %294 ], [ %.sroa.573.0..sroa_idx74, %298 ], [ %.sroa.573.0..sroa_idx74, %304 ], [ %.sroa.573.0..sroa_idx74, %.thread435 ]
+  %.sroa.7.0.i157 = phi i64 [ %316, %312 ], [ 1, %292 ], [ 2, %294 ], [ 3, %298 ], [ 4, %304 ], [ 0, %.thread435 ]
+  %.sroa.0.0.i158 = phi ptr [ %314, %312 ], [ %.sroa.7.0..sroa_idx.i150454, %292 ], [ %.sroa.7.0..sroa_idx.i150467, %294 ], [ %.sroa.7.0..sroa_idx.i150480, %298 ], [ %.sroa.7.0..sroa_idx.i150493, %304 ], [ %.sroa.7.0..sroa_idx.i150442, %.thread435 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !345)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !348
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17ha233c44d314d47fcE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, i64 noundef %.sroa.7.0.i157, i1 noundef zeroext false, i64 noundef 8, i64 noundef 8)
@@ -1968,7 +1968,7 @@ _ZN9uv_pep4407version12VersionSmall7set_pre17h59801bf34769d7f2E.exit.i: ; preds 
           to label %.thread384 unwind label %188
 
 .thread384:                                       ; preds = %227, %230, %234, %.thread378, %268, %271, %275, %346, %.thread368, %342
-  %.pn109376.ph = phi { ptr, i32 } [ %269, %275 ], [ %269, %271 ], [ %269, %268 ], [ %337, %.thread378 ], [ %.pn109377, %346 ], [ %.pn109377, %.thread368 ], [ %.pn109377, %342 ], [ %228, %234 ], [ %228, %230 ], [ %228, %227 ]
+  %.pn109376.ph = phi { ptr, i32 } [ %269, %275 ], [ %269, %271 ], [ %269, %268 ], [ %.pn109377, %342 ], [ %337, %.thread378 ], [ %.pn109377, %346 ], [ %.pn109377, %.thread368 ], [ %228, %234 ], [ %228, %230 ], [ %228, %227 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !365)
   call void @llvm.experimental.noalias.scope.decl(metadata !368)
   %347 = load i8, ptr %193, align 1, !alias.scope !371, !noundef !3
@@ -2127,8 +2127,8 @@ _ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread.i17
 410:                                              ; preds = %406
   br label %.thread579
 
-.thread573:                                       ; preds = %449, %481, %486
-  %.sroa.587.0..sroa_idx88516523540597609 = phi ptr [ %.sroa.587.0..sroa_idx88516523540597607621, %486 ], [ %.sroa.587.0..sroa_idx88516523540597607621, %481 ], [ %.sroa.587.0..sroa_idx88, %449 ]
+.thread573:                                       ; preds = %449, %486, %481
+  %.sroa.587.0..sroa_idx88516523540597609 = phi ptr [ %.sroa.587.0..sroa_idx88516523540597607621, %481 ], [ %.sroa.587.0..sroa_idx88516523540597607621, %486 ], [ %.sroa.587.0..sroa_idx88, %449 ]
   %lpad.thr_comm571 = landingpad { ptr, i32 }
           cleanup
   br label %.thread550
@@ -2157,9 +2157,9 @@ _ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread.i17
   %419 = icmp eq i8 %418, 3
   br i1 %419, label %475, label %.thread579
 
-.thread579:                                       ; preds = %406, %410, %409, %414
-  %.sroa.0.0.i177589 = phi i64 [ %416, %414 ], [ %377, %409 ], [ %377, %410 ], [ %377, %406 ]
-  %.sroa.6.0.i176588 = phi i8 [ %418, %414 ], [ 1, %409 ], [ 2, %410 ], [ 0, %406 ]
+.thread579:                                       ; preds = %406, %409, %410, %414
+  %.sroa.0.0.i177589 = phi i64 [ %416, %414 ], [ %377, %410 ], [ %377, %409 ], [ %377, %406 ]
+  %.sroa.6.0.i176588 = phi i8 [ %418, %414 ], [ 2, %410 ], [ 1, %409 ], [ 0, %406 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
   %420 = add i64 %.sroa.0.0.i177589, 1
@@ -2338,9 +2338,9 @@ _ZN9uv_pep4407version12VersionSmall7set_pre17h59801bf34769d7f2E.exit.i181: ; pre
   br label %481
 
 481:                                              ; preds = %475, %467, %461, %457, %455, %.thread610
-  %.sroa.587.0..sroa_idx88516523540597607621 = phi ptr [ %.sroa.587.0..sroa_idx88, %455 ], [ %.sroa.587.0..sroa_idx88, %457 ], [ %.sroa.587.0..sroa_idx88, %461 ], [ %.sroa.587.0..sroa_idx88, %467 ], [ %.sroa.587.0..sroa_idx88509, %475 ], [ %.sroa.587.0..sroa_idx88, %.thread610 ]
-  %.sroa.7.0.i204 = phi i64 [ 1, %455 ], [ 2, %457 ], [ 3, %461 ], [ 4, %467 ], [ %479, %475 ], [ 0, %.thread610 ]
-  %.sroa.0.0.i205 = phi ptr [ %.sroa.7.0..sroa_idx.i197629, %455 ], [ %.sroa.7.0..sroa_idx.i197642, %457 ], [ %.sroa.7.0..sroa_idx.i197655, %461 ], [ %.sroa.7.0..sroa_idx.i197668, %467 ], [ %477, %475 ], [ %.sroa.7.0..sroa_idx.i197617, %.thread610 ]
+  %.sroa.587.0..sroa_idx88516523540597607621 = phi ptr [ %.sroa.587.0..sroa_idx88509, %475 ], [ %.sroa.587.0..sroa_idx88, %455 ], [ %.sroa.587.0..sroa_idx88, %457 ], [ %.sroa.587.0..sroa_idx88, %461 ], [ %.sroa.587.0..sroa_idx88, %467 ], [ %.sroa.587.0..sroa_idx88, %.thread610 ]
+  %.sroa.7.0.i204 = phi i64 [ %479, %475 ], [ 1, %455 ], [ 2, %457 ], [ 3, %461 ], [ 4, %467 ], [ 0, %.thread610 ]
+  %.sroa.0.0.i205 = phi ptr [ %477, %475 ], [ %.sroa.7.0..sroa_idx.i197629, %455 ], [ %.sroa.7.0..sroa_idx.i197642, %457 ], [ %.sroa.7.0..sroa_idx.i197655, %461 ], [ %.sroa.7.0..sroa_idx.i197668, %467 ], [ %.sroa.7.0..sroa_idx.i197617, %.thread610 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !435)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !438
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17ha233c44d314d47fcE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i64 noundef %.sroa.7.0.i204, i1 noundef zeroext false, i64 noundef 8, i64 noundef 8)
@@ -2453,7 +2453,7 @@ _ZN9uv_pep4407version12VersionSmall7set_pre17h59801bf34769d7f2E.exit.i181: ; pre
           to label %.thread564.thread unwind label %188
 
 .thread564.thread:                                ; preds = %390, %393, %397, %507, %.thread550, %511, %438, %434, %431, %.thread564.thread682
-  %.pn549678 = phi { ptr, i32 } [ %500, %.thread564.thread682 ], [ %432, %438 ], [ %432, %434 ], [ %432, %431 ], [ %.pn557, %511 ], [ %.pn557, %.thread550 ], [ %.pn557, %507 ], [ %391, %397 ], [ %391, %393 ], [ %391, %390 ]
+  %.pn549678 = phi { ptr, i32 } [ %500, %.thread564.thread682 ], [ %432, %438 ], [ %432, %434 ], [ %432, %431 ], [ %.pn557, %507 ], [ %.pn557, %511 ], [ %.pn557, %.thread550 ], [ %391, %397 ], [ %391, %393 ], [ %391, %390 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !455)
   call void @llvm.experimental.noalias.scope.decl(metadata !458)
   %512 = load i8, ptr %356, align 1, !alias.scope !461, !noundef !3
@@ -3227,11 +3227,11 @@ _ZN9uv_pep4407version12VersionSmall7set_max17he60626b19fb196f4E.exit.i: ; preds 
   br label %190
 
 .thread304:                                       ; preds = %123, %126, %130, %95, %98, %102, %513, %.thread564.thread, %517, %502, %353, %348, %.thread384, %352, %184, %182, %187, %798, %.thread294, %802, %785, %781, %778, %760, %756, %753, %724, %720, %717, %685, %681, %678
-  %.pn111285 = phi { ptr, i32 } [ %679, %678 ], [ %679, %681 ], [ %679, %685 ], [ %718, %717 ], [ %718, %720 ], [ %718, %724 ], [ %754, %753 ], [ %754, %756 ], [ %754, %760 ], [ %779, %778 ], [ %779, %781 ], [ %779, %785 ], [ %eh.lpad-body233297, %802 ], [ %eh.lpad-body233297, %.thread294 ], [ %eh.lpad-body233297, %798 ], [ %183, %187 ], [ %183, %182 ], [ %183, %184 ], [ %.pn109376.ph, %352 ], [ %.pn109376.ph, %.thread384 ], [ %.pn109376.ph, %348 ], [ %354, %353 ], [ %503, %502 ], [ %.pn549678, %517 ], [ %.pn549678, %.thread564.thread ], [ %.pn549678, %513 ], [ %96, %102 ], [ %96, %98 ], [ %96, %95 ], [ %124, %130 ], [ %124, %126 ], [ %124, %123 ]
+  %.pn111285 = phi { ptr, i32 } [ %eh.lpad-body233297, %798 ], [ %779, %785 ], [ %124, %123 ], [ %.pn549678, %513 ], [ %96, %95 ], [ %754, %760 ], [ %679, %685 ], [ %718, %724 ], [ %679, %678 ], [ %679, %681 ], [ %718, %717 ], [ %718, %720 ], [ %754, %753 ], [ %754, %756 ], [ %779, %778 ], [ %779, %781 ], [ %eh.lpad-body233297, %802 ], [ %eh.lpad-body233297, %.thread294 ], [ %124, %126 ], [ %503, %502 ], [ %.pn109376.ph, %348 ], [ %124, %130 ], [ %183, %184 ], [ %96, %98 ], [ %183, %187 ], [ %183, %182 ], [ %.pn109376.ph, %352 ], [ %.pn109376.ph, %.thread384 ], [ %354, %353 ], [ %.pn549678, %517 ], [ %.pn549678, %.thread564.thread ], [ %96, %102 ]
   resume { ptr, i32 } %.pn111285
 
 .thread294:                                       ; preds = %653, %649, %646, %629, %625, %622, %607, %603, %.thread.i, %159
-  %eh.lpad-body233297 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %159 ], [ %.pn525.i, %.thread.i ], [ %.pn525.i, %603 ], [ %.pn525.i, %607 ], [ %623, %622 ], [ %623, %625 ], [ %623, %629 ], [ %647, %646 ], [ %647, %649 ], [ %647, %653 ]
+  %eh.lpad-body233297 = phi { ptr, i32 } [ %623, %629 ], [ %lpad.thr_comm.split-lp, %159 ], [ %.pn525.i, %607 ], [ %.pn525.i, %.thread.i ], [ %.pn525.i, %603 ], [ %623, %622 ], [ %623, %625 ], [ %647, %646 ], [ %647, %649 ], [ %647, %653 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !649)
   call void @llvm.experimental.noalias.scope.decl(metadata !652)
   %796 = getelementptr inbounds nuw i8, ptr %67, i64 9

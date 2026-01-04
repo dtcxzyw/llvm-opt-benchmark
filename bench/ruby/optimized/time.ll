@@ -917,7 +917,7 @@ maybe_tzobj_p.exit.thread:                        ; preds = %rb_integer_type_p.e
   br label %find_timezone.exit
 
 find_timezone.exit:                               ; preds = %68, %70, %71, %72, %73, %75
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %71 ], [ @rb_cTrueClass, %72 ], [ %69, %68 ], [ @rb_cFalseClass, %70 ], [ @rb_cInteger, %73 ], [ %spec.select.i.i, %75 ]
+  %.0.in.i.i = phi ptr [ %69, %68 ], [ @rb_cNilClass, %71 ], [ @rb_cTrueClass, %72 ], [ @rb_cFalseClass, %70 ], [ @rb_cInteger, %73 ], [ %spec.select.i.i, %75 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !11
   %78 = load i64, ptr @id_find_timezone, align 8, !tbaa !11
   %79 = call i64 @rb_check_funcall_default(i64 noundef %.0.i.i, i64 noundef %78, i32 noundef 1, ptr noundef nonnull %3, i64 noundef 4) #22
@@ -1302,7 +1302,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i3.i16:            ; preds = %rbimpl_RB_TYPE_P_fa
   br label %extract_time.exit
 
 extract_time.exit:                                ; preds = %rb_time_unmagnify.exit.i, %89, %rbimpl_RB_TYPE_P_fastpath.exit.i.i18, %101, %104, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %rbimpl_RB_TYPE_P_fastpath.exit.i3.i16, %117, %120
-  %.0.i = phi i64 [ %.06.i.i.i, %rb_time_unmagnify.exit.i ], [ %92, %101 ], [ %106, %104 ], [ %92, %rbimpl_RB_TYPE_P_fastpath.exit.i.i18 ], [ %92, %89 ], [ %108, %117 ], [ %122, %120 ], [ %108, %rbimpl_RB_TYPE_P_fastpath.exit.i3.i16 ], [ %108, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
+  %.0.i = phi i64 [ %.06.i.i.i, %rb_time_unmagnify.exit.i ], [ %92, %89 ], [ %92, %101 ], [ %106, %104 ], [ %92, %rbimpl_RB_TYPE_P_fastpath.exit.i.i18 ], [ %108, %117 ], [ %122, %120 ], [ %108, %rbimpl_RB_TYPE_P_fastpath.exit.i3.i16 ], [ %108, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %123 = call fastcc i64 @wsub(i64 noundef %.06.i.i, i64 noundef %.0.i)
   %124 = call i64 @validate_utc_offset(i64 noundef %123)
@@ -1519,8 +1519,8 @@ rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
   br i1 %.not65, label %48, label %rb_enc_str_asciicompat_p.exit.thread
 
 48:                                               ; preds = %45, %13, %38
-  %.sink = phi i64 [ 3, %38 ], [ 3, %13 ], [ 4, %45 ]
-  %.2 = phi ptr [ %39, %38 ], [ null, %13 ], [ %.1, %45 ]
+  %.sink = phi i64 [ 3, %13 ], [ 3, %38 ], [ 4, %45 ]
+  %.2 = phi ptr [ null, %13 ], [ %39, %38 ], [ %.1, %45 ]
   %49 = getelementptr i8, ptr %.sroa.2.0.i, i64 %.sink
   %.not66 = icmp eq ptr %.2, null
   br i1 %.not66, label %67, label %50
@@ -1632,8 +1632,8 @@ rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
   %114 = tail call fastcc i64 @num_exact(i64 noundef %0)
   br label %rb_enc_str_asciicompat_p.exit.thread
 
-rb_enc_str_asciicompat_p.exit.thread:             ; preds = %RSTRING_PTR.exit, %105, %35, %16, %109, %32, %rb_enc_str_asciicompat_p.exit, %28, %40, %45, %13, %55, %50, %73, %68, %.thread88, %93, %87, %113
-  %.154 = phi i64 [ %114, %113 ], [ %34, %32 ], [ %112, %109 ], [ 36, %16 ], [ 36, %35 ], [ 36, %105 ], [ 4, %rb_enc_str_asciicompat_p.exit ], [ 4, %28 ], [ 4, %40 ], [ 4, %45 ], [ 4, %13 ], [ 4, %55 ], [ 4, %50 ], [ 4, %73 ], [ 4, %68 ], [ 4, %.thread88 ], [ 4, %93 ], [ 4, %87 ], [ 4, %RSTRING_PTR.exit ]
+rb_enc_str_asciicompat_p.exit.thread:             ; preds = %RSTRING_PTR.exit, %105, %35, %16, %109, %32, %45, %rb_enc_str_asciicompat_p.exit, %28, %50, %68, %93, %87, %.thread88, %13, %40, %55, %73, %113
+  %.154 = phi i64 [ %114, %113 ], [ 36, %35 ], [ 36, %105 ], [ %112, %109 ], [ %34, %32 ], [ 36, %16 ], [ 4, %45 ], [ 4, %rb_enc_str_asciicompat_p.exit ], [ 4, %28 ], [ 4, %50 ], [ 4, %68 ], [ 4, %93 ], [ 4, %87 ], [ 4, %.thread88 ], [ 4, %13 ], [ 4, %40 ], [ 4, %55 ], [ 4, %73 ], [ 4, %RSTRING_PTR.exit ]
   ret i64 %.154
 }
 
@@ -1709,7 +1709,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i7:         ; preds = %rbimpl_RB_TYPE_P_fa
   br label %cmp.exit8
 
 cmp.exit8:                                        ; preds = %28, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i7
-  %.0.i5 = phi i32 [ %31, %28 ], [ %33, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i7 ]
+  %.0.i5 = phi i32 [ %33, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i7 ], [ %31, %28 ]
   %34 = icmp sgt i32 %.0.i5, -1
   br i1 %34, label %cmp.exit.thread, label %cmp.exit8.thread13
 
@@ -2191,8 +2191,8 @@ rb_num2long_inline.exit54:                        ; preds = %79, %81
   unreachable
 
 rb_num2long_inline.exit57:                        ; preds = %91, %89, %rb_num2long_inline.exit51, %rb_num2long_inline.exit, %61
-  %.sroa.0.0 = phi i64 [ %56, %61 ], [ %7, %rb_num2long_inline.exit ], [ %66, %rb_num2long_inline.exit51 ], [ %.0.i53, %89 ], [ %.0.i53, %91 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.9.1, %61 ], [ 0, %rb_num2long_inline.exit ], [ 0, %rb_num2long_inline.exit51 ], [ %90, %89 ], [ %92, %91 ]
+  %.sroa.0.0 = phi i64 [ %66, %rb_num2long_inline.exit51 ], [ %56, %61 ], [ %7, %rb_num2long_inline.exit ], [ %.0.i53, %89 ], [ %.0.i53, %91 ]
+  %.sroa.9.0 = phi i64 [ 0, %rb_num2long_inline.exit51 ], [ %.sroa.9.1, %61 ], [ 0, %rb_num2long_inline.exit ], [ %90, %89 ], [ %92, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
@@ -2959,7 +2959,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %divv.exit.i
 
 divv.exit.i:                                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %26, %11
-  %.0.i.i = phi i64 [ %27, %26 ], [ %28, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %16, %11 ]
+  %.0.i.i = phi i64 [ %28, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %27, %26 ], [ %16, %11 ]
   %29 = icmp eq i64 %.0.i.i, 0
   %30 = and i64 %.0.i.i, 7
   %31 = icmp ne i64 %30, 0
@@ -3149,7 +3149,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %wcmp.exit
 
 wcmp.exit:                                        ; preds = %25, %36, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i
-  %.0.i.i = phi i32 [ %39, %36 ], [ %41, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %..i.i, %25 ]
+  %.0.i.i = phi i32 [ %41, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %..i.i, %25 ], [ %39, %36 ]
   %.0.i.i.fr = freeze i32 %.0.i.i
   %42 = icmp eq i32 %.0.i.i.fr, 0
   br i1 %42, label %.thread, label %45
@@ -3423,7 +3423,7 @@ maybe_tzobj_p.exit.thread:                        ; preds = %rb_integer_type_p.e
   br label %find_timezone.exit
 
 find_timezone.exit:                               ; preds = %42, %45, %46, %47, %48, %50
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %46 ], [ @rb_cTrueClass, %47 ], [ %44, %42 ], [ @rb_cFalseClass, %45 ], [ @rb_cInteger, %48 ], [ %spec.select.i.i, %50 ]
+  %.0.in.i.i = phi ptr [ %44, %42 ], [ @rb_cNilClass, %46 ], [ @rb_cTrueClass, %47 ], [ @rb_cFalseClass, %45 ], [ @rb_cInteger, %48 ], [ %spec.select.i.i, %50 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !11
   %53 = load i64, ptr @id_find_timezone, align 8, !tbaa !11
   %54 = call i64 @rb_check_funcall_default(i64 noundef %.0.i.i, i64 noundef %53, i32 noundef 1, ptr noundef nonnull %4, i64 noundef 4) #22
@@ -3559,7 +3559,7 @@ time_dup.exit41:                                  ; preds = %114, %122
   br label %132
 
 132:                                              ; preds = %time_dup.exit37, %time_dup.exit39, %time_dup.exit, %time_dup.exit35, %time_dup.exit41
-  %.2 = phi i64 [ %116, %time_dup.exit41 ], [ %78, %time_dup.exit37 ], [ %97, %time_dup.exit39 ], [ %20, %time_dup.exit ], [ %59, %time_dup.exit35 ]
+  %.2 = phi i64 [ %116, %time_dup.exit41 ], [ %20, %time_dup.exit ], [ %78, %time_dup.exit37 ], [ %97, %time_dup.exit39 ], [ %59, %time_dup.exit35 ]
   ret i64 %.2
 }
 
@@ -3689,7 +3689,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %modv.exit.i
 
 modv.exit.i:                                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %30, %13
-  %.0.i.i = phi i64 [ %31, %30 ], [ %32, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %20, %13 ]
+  %.0.i.i = phi i64 [ %32, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %31, %30 ], [ %20, %13 ]
   %33 = icmp eq i64 %.0.i.i, 0
   %34 = and i64 %.0.i.i, 7
   %35 = icmp ne i64 %34, 0
@@ -4194,7 +4194,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %modv.exit.i
 
 modv.exit.i:                                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %113, %96
-  %.0.i.i = phi i64 [ %114, %113 ], [ %115, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %103, %96 ]
+  %.0.i.i = phi i64 [ %115, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %114, %113 ], [ %103, %96 ]
   %116 = icmp eq i64 %.0.i.i, 0
   %117 = and i64 %.0.i.i, 7
   %118 = icmp ne i64 %117, 0
@@ -4493,7 +4493,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i104:     ; preds = %rbimpl_RB_TYPE_P_fa
   br label %modv.exit.i98
 
 modv.exit.i98:                                    ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i104, %290, %273
-  %.0.i.i99 = phi i64 [ %291, %290 ], [ %292, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i104 ], [ %280, %273 ]
+  %.0.i.i99 = phi i64 [ %292, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i104 ], [ %291, %290 ], [ %280, %273 ]
   %293 = icmp eq i64 %.0.i.i99, 0
   %294 = and i64 %.0.i.i99, 7
   %295 = icmp ne i64 %294, 0
@@ -4737,7 +4737,7 @@ rb_num2long_inline.exit.i:                        ; preds = %12, %10
   br label %ndigits_denominator.exit
 
 ndigits_denominator.exit:                         ; preds = %19, %17, %rb_check_arity.exit, %5
-  %.016 = phi i64 [ 3, %5 ], [ 3, %rb_check_arity.exit ], [ %21, %19 ], [ 3, %17 ]
+  %.016 = phi i64 [ 3, %rb_check_arity.exit ], [ 3, %5 ], [ %21, %19 ], [ 3, %17 ]
   %22 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @time_data_type) #22
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i64, ptr %23, align 8
@@ -4872,7 +4872,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %modv.exit
 
 modv.exit:                                        ; preds = %87, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.0.i19 = phi i64 [ %88, %87 ], [ %89, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
+  %.0.i19 = phi i64 [ %89, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %88, %87 ]
   br i1 %.not.i18, label %modv.exit.thread.thread, label %modv.exit.modv.exit.thread_crit_edge
 
 modv.exit.modv.exit.thread_crit_edge:             ; preds = %modv.exit
@@ -4960,7 +4960,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i25:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %cmp.exit
 
 cmp.exit:                                         ; preds = %124, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i25
-  %.0.i23 = phi i32 [ %127, %124 ], [ %129, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i25 ]
+  %.0.i23 = phi i32 [ %129, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i25 ], [ %127, %124 ]
   %130 = icmp slt i32 %.0.i23, 0
   br i1 %130, label %cmp.exit.thread, label %cmp.exit.thread35
 
@@ -5014,7 +5014,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i29:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %subv.exit
 
 subv.exit:                                        ; preds = %139, %142, %153, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i29
-  %.0.i27 = phi i64 [ %154, %153 ], [ %155, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i29 ], [ %141, %139 ], [ %143, %142 ]
+  %.0.i27 = phi i64 [ %155, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i29 ], [ %154, %153 ], [ %141, %139 ], [ %143, %142 ]
   %156 = load i64, ptr @rb_cTime, align 8, !tbaa !11
   %157 = tail call fastcc noundef i64 @time_add0(i64 noundef %156, ptr noundef nonnull readonly %22, i64 noundef %.0.i27, i32 noundef 1)
   br label %158
@@ -5075,7 +5075,7 @@ rb_num2long_inline.exit.i:                        ; preds = %12, %10
   br label %ndigits_denominator.exit
 
 ndigits_denominator.exit:                         ; preds = %19, %17, %rb_check_arity.exit, %5
-  %.0 = phi i64 [ 3, %5 ], [ 3, %rb_check_arity.exit ], [ %21, %19 ], [ 3, %17 ]
+  %.0 = phi i64 [ 3, %rb_check_arity.exit ], [ 3, %5 ], [ %21, %19 ], [ 3, %17 ]
   %22 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @time_data_type) #22
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i64, ptr %23, align 8
@@ -5210,7 +5210,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %modv.exit
 
 modv.exit:                                        ; preds = %62, %75, %87, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.0.i11 = phi i64 [ %88, %87 ], [ %89, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %77, %75 ], [ 1, %62 ]
+  %.0.i11 = phi i64 [ %89, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %88, %87 ], [ %77, %75 ], [ 1, %62 ]
   %90 = load i64, ptr @rb_cTime, align 8, !tbaa !11
   %91 = tail call fastcc noundef i64 @time_add0(i64 noundef %90, ptr noundef nonnull readonly %22, i64 noundef %.0.i11, i32 noundef -1)
   ret i64 %91
@@ -5267,7 +5267,7 @@ rb_num2long_inline.exit.i:                        ; preds = %12, %10
   br label %ndigits_denominator.exit
 
 ndigits_denominator.exit:                         ; preds = %19, %17, %rb_check_arity.exit, %5
-  %.012 = phi i64 [ 3, %5 ], [ 3, %rb_check_arity.exit ], [ %21, %19 ], [ 3, %17 ]
+  %.012 = phi i64 [ 3, %rb_check_arity.exit ], [ 3, %5 ], [ %21, %19 ], [ 3, %17 ]
   %22 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @time_data_type) #22
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i64, ptr %23, align 8
@@ -5402,7 +5402,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %modv.exit
 
 modv.exit:                                        ; preds = %62, %75, %87, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.0.i16 = phi i64 [ %88, %87 ], [ %89, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %77, %75 ], [ 1, %62 ]
+  %.0.i16 = phi i64 [ %89, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %88, %87 ], [ %77, %75 ], [ 1, %62 ]
   %90 = tail call i64 @rb_equal(i64 noundef %.0.i16, i64 noundef 1) #22
   %.not13 = icmp eq i64 %90, 0
   br i1 %.not13, label %91, label %subv.exit
@@ -5452,7 +5452,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i19:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %subv.exit
 
 subv.exit:                                        ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i19, %112, %101, %98, %modv.exit
-  %.0 = phi i64 [ %.0.i16, %modv.exit ], [ %113, %112 ], [ %114, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i19 ], [ %100, %98 ], [ %102, %101 ]
+  %.0 = phi i64 [ %.0.i16, %modv.exit ], [ %114, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i19 ], [ %113, %112 ], [ %100, %98 ], [ %102, %101 ]
   %115 = load i64, ptr @rb_cTime, align 8, !tbaa !11
   %116 = tail call fastcc noundef i64 @time_add0(i64 noundef %115, ptr noundef nonnull readonly %22, i64 noundef %.0, i32 noundef 1)
   ret i64 %116
@@ -6223,7 +6223,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %modv.exit.i
 
 modv.exit.i:                                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %30, %13
-  %.0.i.i = phi i64 [ %31, %30 ], [ %32, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %20, %13 ]
+  %.0.i.i = phi i64 [ %32, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %31, %30 ], [ %20, %13 ]
   %33 = icmp eq i64 %.0.i.i, 0
   %34 = and i64 %.0.i.i, 7
   %35 = icmp ne i64 %34, 0
@@ -6341,7 +6341,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %modv.exit.i
 
 modv.exit.i:                                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %28, %11
-  %.0.i.i = phi i64 [ %29, %28 ], [ %30, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %18, %11 ]
+  %.0.i.i = phi i64 [ %30, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %29, %28 ], [ %18, %11 ]
   %31 = icmp eq i64 %.0.i.i, 0
   %32 = and i64 %.0.i.i, 7
   %33 = icmp ne i64 %32, 0
@@ -6426,7 +6426,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %modv.exit.i
 
 modv.exit.i:                                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %28, %11
-  %.0.i.i = phi i64 [ %29, %28 ], [ %30, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %18, %11 ]
+  %.0.i.i = phi i64 [ %30, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %29, %28 ], [ %18, %11 ]
   %31 = icmp eq i64 %.0.i.i, 0
   %32 = and i64 %.0.i.i, 7
   %33 = icmp ne i64 %32, 0
@@ -6970,7 +6970,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %mulv.exit
 
 mulv.exit:                                        ; preds = %158, %161, %172, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.0.i144 = phi i64 [ %173, %172 ], [ %174, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %160, %158 ], [ %162, %161 ]
+  %.0.i144 = phi i64 [ %174, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %173, %172 ], [ %160, %158 ], [ %162, %161 ]
   %175 = and i64 %.0.i144, 1
   %.not.i145 = icmp eq i64 %175, 0
   br i1 %.not.i145, label %176, label %rb_integer_type_p.exit.thread
@@ -7080,7 +7080,7 @@ RSTRING_PTR.exit153:                              ; preds = %215, %222
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %ruby_nonempty_memcpy.exit.loopexit, %223, %RSTRING_PTR.exit153, %68
-  %.2 = phi ptr [ %136, %68 ], [ %216, %RSTRING_PTR.exit153 ], [ %216, %223 ], [ %206, %ruby_nonempty_memcpy.exit.loopexit ]
+  %.2 = phi ptr [ %136, %68 ], [ %216, %223 ], [ %216, %RSTRING_PTR.exit153 ], [ %206, %ruby_nonempty_memcpy.exit.loopexit ]
   %224 = load i64, ptr %15, align 8
   %225 = and i64 %224, 61572651155456
   %226 = icmp eq i64 %225, 8796093022208
@@ -7240,8 +7240,8 @@ get_timeval.exit.i:                               ; preds = %rb_check_arity.exit
   br label %rb_long2num_inline.exit.i
 
 rb_long2num_inline.exit.i:                        ; preds = %37, %35, %31, %28, %24, %22
-  %.079.i = phi i64 [ 67435, %22 ], [ %20, %24 ], [ 67435, %35 ], [ 1900, %37 ], [ 1900, %28 ], [ 1900, %31 ]
-  %.077.i = phi i64 [ %23, %22 ], [ 4, %24 ], [ %36, %35 ], [ %38, %37 ], [ %30, %28 ], [ %32, %31 ]
+  %.079.i = phi i64 [ 67435, %22 ], [ 1900, %37 ], [ %20, %24 ], [ 67435, %35 ], [ 1900, %28 ], [ 1900, %31 ]
+  %.077.i = phi i64 [ %23, %22 ], [ %38, %37 ], [ 4, %24 ], [ %36, %35 ], [ %30, %28 ], [ %32, %31 ]
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !82
   %41 = and i64 %40, 1
@@ -7302,9 +7302,9 @@ divmodv.exit.i:                                   ; preds = %45
   br label %addv.exit.i
 
 addv.exit.i:                                      ; preds = %69, %67, %64
-  %73 = phi i64 [ %56, %69 ], [ %59, %64 ], [ %59, %67 ]
-  %74 = phi i64 [ %55, %69 ], [ %60, %64 ], [ %60, %67 ]
-  %.0.i91.i = phi i64 [ %72, %69 ], [ %66, %64 ], [ %68, %67 ]
+  %73 = phi i64 [ %56, %69 ], [ %59, %67 ], [ %59, %64 ]
+  %74 = phi i64 [ %55, %69 ], [ %60, %67 ], [ %60, %64 ]
+  %.0.i91.i = phi i64 [ %72, %69 ], [ %68, %67 ], [ %66, %64 ]
   %75 = load i64, ptr %9, align 8
   %76 = and i64 %75, 61572651155456
   %77 = icmp eq i64 %76, 8796093022208
@@ -7881,7 +7881,7 @@ wquo.exit.i:                                      ; preds = %141, %138, %rbimpl_
   br label %352
 
 169:                                              ; preds = %.thread.i, %145
-  %.1.i = phi i64 [ %.0102.i, %145 ], [ %.2.ph.i, %.thread.i ]
+  %.1.i = phi i64 [ %.2.ph.i, %.thread.i ], [ %.0102.i, %145 ]
   %170 = trunc i64 %68 to i32
   %171 = lshr i32 %170, 10
   %172 = and i32 %171, 15
@@ -7932,8 +7932,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %197
 
 197:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %194, %183, %180, %169
-  %.4.i = phi i64 [ %.1.i, %169 ], [ %195, %194 ], [ %196, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %182, %180 ], [ %184, %183 ]
-  %.099.i = phi i32 [ %172, %169 ], [ %175, %194 ], [ %175, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %175, %180 ], [ %175, %183 ]
+  %.4.i = phi i64 [ %.1.i, %169 ], [ %196, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %195, %194 ], [ %182, %180 ], [ %184, %183 ]
+  %.099.i = phi i32 [ %172, %169 ], [ %175, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %175, %194 ], [ %175, %180 ], [ %175, %183 ]
   store i64 %.4.i, ptr %5, align 8, !tbaa !81
   %198 = add nuw nsw i32 %.099.i, 1
   %199 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -8115,7 +8115,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i172.i:     ; preds = %260
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.thread203.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i172.i, %270, %267
-  %.sink.i = phi i64 [ %303, %.thread203.i ], [ %272, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i172.i ], [ %269, %267 ], [ %271, %270 ]
+  %.sink.i = phi i64 [ %303, %.thread203.i ], [ %272, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i172.i ], [ %271, %270 ], [ %269, %267 ]
   store i64 %.sink.i, ptr %220, align 8, !tbaa !82
   br label %304
 
@@ -8317,8 +8317,8 @@ define internal i64 @time_s_at(ptr readnone captures(none) %0, i64 noundef %1, i
   unreachable
 
 get_scale.exit:                                   ; preds = %7, %11, %15, %19, %23
-  %29 = phi i1 [ true, %11 ], [ true, %7 ], [ false, %19 ], [ false, %15 ], [ false, %23 ]
-  %.0.i = phi i64 [ 2000000001, %11 ], [ 2000000001, %7 ], [ 2000001, %19 ], [ 2000001, %15 ], [ 2001, %23 ]
+  %29 = phi i1 [ false, %15 ], [ true, %7 ], [ true, %11 ], [ false, %19 ], [ false, %23 ]
+  %.0.i = phi i64 [ 2000001, %15 ], [ 2000000001, %7 ], [ 2000000001, %11 ], [ 2000001, %19 ], [ 2001, %23 ]
   %30 = tail call fastcc i64 @num_exact(i64 noundef %2)
   %31 = tail call fastcc i64 @num_exact(i64 noundef %3)
   %32 = icmp eq i64 %30, 0
@@ -8469,7 +8469,7 @@ v2w.exit34.sink.split:                            ; preds = %106, %56
   br label %v2w.exit34
 
 v2w.exit34:                                       ; preds = %v2w.exit34.sink.split, %106, %rbimpl_RB_TYPE_P_fastpath.exit.i2.i, %quov.exit.i, %56, %rbimpl_RB_TYPE_P_fastpath.exit.i31, %51
-  %111 = phi i64 [ %31, %56 ], [ %31, %rbimpl_RB_TYPE_P_fastpath.exit.i31 ], [ %31, %51 ], [ %.0.i.i, %106 ], [ %.0.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i2.i ], [ %.0.i.i, %quov.exit.i ], [ %110, %v2w.exit34.sink.split ]
+  %111 = phi i64 [ %31, %51 ], [ %31, %56 ], [ %.0.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i2.i ], [ %31, %rbimpl_RB_TYPE_P_fastpath.exit.i31 ], [ %.0.i.i, %106 ], [ %.0.i.i, %quov.exit.i ], [ %110, %v2w.exit34.sink.split ]
   %112 = tail call fastcc i64 @wadd(i64 noundef %46, i64 noundef %111)
   %113 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %1, i64 noundef 48, ptr noundef nonnull @time_data_type) #22
   %114 = inttoptr i64 %113 to ptr
@@ -8714,7 +8714,7 @@ RTYPEDDATA_GET_DATA.exit.i58:                     ; preds = %232, %time_s_alloc.
   br label %time_new_timew.exit
 
 time_new_timew.exit:                              ; preds = %244, %239, %RTYPEDDATA_GET_DATA.exit.i58, %141, %136, %RTYPEDDATA_GET_DATA.exit.i, %get_timeval.exit50
-  %.0 = phi i64 [ %153, %get_timeval.exit50 ], [ %113, %RTYPEDDATA_GET_DATA.exit.i ], [ %113, %136 ], [ %113, %141 ], [ %216, %RTYPEDDATA_GET_DATA.exit.i58 ], [ %216, %239 ], [ %216, %244 ]
+  %.0 = phi i64 [ %113, %141 ], [ %153, %get_timeval.exit50 ], [ %113, %RTYPEDDATA_GET_DATA.exit.i ], [ %113, %136 ], [ %216, %RTYPEDDATA_GET_DATA.exit.i58 ], [ %216, %239 ], [ %216, %244 ]
   %245 = icmp eq i64 %5, 4
   br i1 %245, label %248, label %246
 
@@ -9260,13 +9260,13 @@ rb_num2ull_inline.exit:                           ; preds = %29, %27, %RSTRING_E
   br i1 %207, label %.lr.ph199, label %.critedge2, !llvm.loop !101
 
 .critedge2:                                       ; preds = %205, %.lr.ph199, %99, %.preheader, %101, %94, %103, %.critedge.thread247, %171, %166, %80, %85, %67, %71
-  %.promoted201 = phi ptr [ %81, %85 ], [ %81, %80 ], [ %65, %71 ], [ %65, %67 ], [ %95, %103 ], [ %.promoted201.pre, %.critedge.thread247 ], [ %167, %171 ], [ %167, %166 ], [ %95, %94 ], [ %95, %101 ], [ %.promoted201.pre, %.preheader ], [ %95, %99 ], [ %206, %205 ], [ %200, %.lr.ph199 ]
-  %.1104 = phi i32 [ -1, %85 ], [ -1, %80 ], [ -1, %71 ], [ -1, %67 ], [ -1, %103 ], [ %135, %.critedge.thread247 ], [ %135, %171 ], [ %135, %166 ], [ -1, %94 ], [ -1, %101 ], [ %135, %.preheader ], [ -1, %99 ], [ %135, %.lr.ph199 ], [ %135, %205 ]
-  %.1101 = phi i32 [ -1, %85 ], [ -1, %80 ], [ -1, %71 ], [ -1, %67 ], [ -1, %103 ], [ %162, %.critedge.thread247 ], [ %162, %171 ], [ %162, %166 ], [ -1, %94 ], [ -1, %101 ], [ %162, %.preheader ], [ -1, %99 ], [ %162, %.lr.ph199 ], [ %162, %205 ]
-  %.198 = phi i32 [ -1, %85 ], [ -1, %80 ], [ -1, %71 ], [ -1, %67 ], [ -1, %103 ], [ %108, %.critedge.thread247 ], [ %108, %171 ], [ %108, %166 ], [ -1, %94 ], [ -1, %101 ], [ %108, %.preheader ], [ -1, %99 ], [ %108, %.lr.ph199 ], [ %108, %205 ]
-  %.196 = phi i32 [ -1, %85 ], [ -1, %80 ], [ -1, %71 ], [ -1, %67 ], [ %90, %103 ], [ %90, %.critedge.thread247 ], [ %90, %171 ], [ %90, %166 ], [ %90, %94 ], [ %90, %101 ], [ %90, %.preheader ], [ %90, %99 ], [ %90, %.lr.ph199 ], [ %90, %205 ]
-  %.194 = phi i32 [ %76, %85 ], [ %76, %80 ], [ -1, %71 ], [ -1, %67 ], [ %76, %103 ], [ %76, %.critedge.thread247 ], [ %76, %171 ], [ %76, %166 ], [ %76, %94 ], [ %76, %101 ], [ %76, %.preheader ], [ %76, %99 ], [ %76, %.lr.ph199 ], [ %76, %205 ]
-  %.192 = phi i64 [ 4, %85 ], [ 4, %80 ], [ 4, %71 ], [ 4, %67 ], [ 4, %103 ], [ 4, %.critedge.thread247 ], [ 4, %171 ], [ 4, %166 ], [ 4, %94 ], [ 4, %101 ], [ %197, %.preheader ], [ 4, %99 ], [ %197, %.lr.ph199 ], [ %197, %205 ]
+  %.promoted201 = phi ptr [ %65, %67 ], [ %95, %99 ], [ %167, %166 ], [ %81, %85 ], [ %81, %80 ], [ %65, %71 ], [ %95, %103 ], [ %.promoted201.pre, %.critedge.thread247 ], [ %95, %94 ], [ %95, %101 ], [ %167, %171 ], [ %.promoted201.pre, %.preheader ], [ %206, %205 ], [ %200, %.lr.ph199 ]
+  %.1104 = phi i32 [ -1, %67 ], [ -1, %99 ], [ %135, %166 ], [ -1, %85 ], [ -1, %80 ], [ -1, %71 ], [ -1, %103 ], [ %135, %.critedge.thread247 ], [ -1, %94 ], [ -1, %101 ], [ %135, %171 ], [ %135, %.preheader ], [ %135, %.lr.ph199 ], [ %135, %205 ]
+  %.1101 = phi i32 [ -1, %67 ], [ -1, %99 ], [ %162, %166 ], [ -1, %85 ], [ -1, %80 ], [ -1, %71 ], [ -1, %103 ], [ %162, %.critedge.thread247 ], [ -1, %94 ], [ -1, %101 ], [ %162, %171 ], [ %162, %.preheader ], [ %162, %.lr.ph199 ], [ %162, %205 ]
+  %.198 = phi i32 [ -1, %67 ], [ -1, %99 ], [ %108, %166 ], [ -1, %85 ], [ -1, %80 ], [ -1, %71 ], [ -1, %103 ], [ %108, %.critedge.thread247 ], [ -1, %94 ], [ -1, %101 ], [ %108, %171 ], [ %108, %.preheader ], [ %108, %.lr.ph199 ], [ %108, %205 ]
+  %.196 = phi i32 [ -1, %67 ], [ %90, %99 ], [ %90, %166 ], [ -1, %85 ], [ -1, %80 ], [ -1, %71 ], [ %90, %103 ], [ %90, %.critedge.thread247 ], [ %90, %94 ], [ %90, %101 ], [ %90, %171 ], [ %90, %.preheader ], [ %90, %.lr.ph199 ], [ %90, %205 ]
+  %.194 = phi i32 [ -1, %67 ], [ %76, %99 ], [ %76, %166 ], [ %76, %85 ], [ %76, %80 ], [ -1, %71 ], [ %76, %103 ], [ %76, %.critedge.thread247 ], [ %76, %94 ], [ %76, %101 ], [ %76, %171 ], [ %76, %.preheader ], [ %76, %.lr.ph199 ], [ %76, %205 ]
+  %.192 = phi i64 [ 4, %67 ], [ 4, %99 ], [ 4, %166 ], [ 4, %85 ], [ 4, %80 ], [ 4, %71 ], [ 4, %103 ], [ 4, %.critedge.thread247 ], [ 4, %94 ], [ 4, %101 ], [ 4, %171 ], [ %197, %.preheader ], [ %197, %.lr.ph199 ], [ %197, %205 ]
   %208 = icmp ult ptr %.promoted201, %23
   br i1 %208, label %.lr.ph202, label %.critedge4
 
@@ -9403,7 +9403,7 @@ rb_num2ull_inline.exit:                           ; preds = %29, %27, %RSTRING_E
   br label %276
 
 273:                                              ; preds = %268, %262
-  %.091 = phi i64 [ %265, %262 ], [ %271, %268 ]
+  %.091 = phi i64 [ %271, %268 ], [ %265, %262 ]
   %.091.fr = freeze i64 %.091
   store i64 %51, ptr %8, align 8, !tbaa !81
   %274 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -9412,14 +9412,14 @@ rb_num2ull_inline.exit:                           ; preds = %29, %27, %RSTRING_E
   br label %276
 
 276:                                              ; preds = %273, %.thread152, %.thread173
-  %277 = phi ptr [ %267, %.thread173 ], [ %272, %.thread152 ], [ %274, %273 ]
-  %.090171 = phi i64 [ %.1, %.thread173 ], [ %.090.ph, %.thread152 ], [ %.1, %273 ]
-  %.093169 = phi i32 [ %.194, %.thread173 ], [ %.093.ph, %.thread152 ], [ %.194, %273 ]
-  %.095167 = phi i32 [ %.196, %.thread173 ], [ %.095.ph, %.thread152 ], [ %.196, %273 ]
-  %.097165 = phi i32 [ %.198, %.thread173 ], [ %.097.ph, %.thread152 ], [ %.198, %273 ]
-  %.0100163 = phi i32 [ %.1101, %.thread173 ], [ %.0100.ph, %.thread152 ], [ %.1101, %273 ]
-  %.0103161 = phi i32 [ %.1104, %.thread173 ], [ %.0103.ph, %.thread152 ], [ %.1104, %273 ]
-  %278 = phi i64 [ %.192, %.thread173 ], [ 1, %.thread152 ], [ %spec.select, %273 ]
+  %277 = phi ptr [ %267, %.thread173 ], [ %274, %273 ], [ %272, %.thread152 ]
+  %.090171 = phi i64 [ %.1, %.thread173 ], [ %.1, %273 ], [ %.090.ph, %.thread152 ]
+  %.093169 = phi i32 [ %.194, %.thread173 ], [ %.194, %273 ], [ %.093.ph, %.thread152 ]
+  %.095167 = phi i32 [ %.196, %.thread173 ], [ %.196, %273 ], [ %.095.ph, %.thread152 ]
+  %.097165 = phi i32 [ %.198, %.thread173 ], [ %.198, %273 ], [ %.097.ph, %.thread152 ]
+  %.0100163 = phi i32 [ %.1101, %.thread173 ], [ %.1101, %273 ], [ %.0100.ph, %.thread152 ]
+  %.0103161 = phi i32 [ %.1104, %.thread173 ], [ %.1104, %273 ], [ %.0103.ph, %.thread152 ]
+  %278 = phi i64 [ %.192, %.thread173 ], [ %spec.select, %273 ], [ 1, %.thread152 ]
   %.095167.fr = freeze i32 %.095167
   %.093169.fr = freeze i32 %.093169
   store i64 %278, ptr %277, align 8, !tbaa !82
@@ -9755,7 +9755,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %addv.exit
 
 addv.exit:                                        ; preds = %10, %13, %24, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.0.i = phi i64 [ %25, %24 ], [ %26, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %12, %10 ], [ %14, %13 ]
+  %.0.i = phi i64 [ %26, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %25, %24 ], [ %12, %10 ], [ %14, %13 ]
   %27 = icmp eq i64 %.0.i, 0
   %28 = and i64 %.0.i, 7
   %29 = icmp ne i64 %28, 0
@@ -9850,7 +9850,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %mulv.exit
 
 mulv.exit:                                        ; preds = %13, %16, %27, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.0.i = phi i64 [ %28, %27 ], [ %29, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %15, %13 ], [ %17, %16 ]
+  %.0.i = phi i64 [ %29, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %28, %27 ], [ %15, %13 ], [ %17, %16 ]
   %30 = icmp eq i64 %.0.i, 0
   %31 = and i64 %.0.i, 7
   %32 = icmp ne i64 %31, 0
@@ -10032,7 +10032,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %subv.exit
 
 subv.exit:                                        ; preds = %10, %13, %24, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.0.i = phi i64 [ %25, %24 ], [ %26, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %12, %10 ], [ %14, %13 ]
+  %.0.i = phi i64 [ %26, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %25, %24 ], [ %12, %10 ], [ %14, %13 ]
   %27 = icmp eq i64 %.0.i, 0
   %28 = and i64 %.0.i, 7
   %29 = icmp ne i64 %28, 0
@@ -10144,7 +10144,7 @@ rb_type.exit.thread18.sink.split.i:               ; preds = %rb_integer_type_p.e
   br label %rb_type.exit.thread18.i
 
 rb_type.exit.thread18.i:                          ; preds = %rb_integer_type_p.exit.i, %rb_type.exit.thread18.sink.split.i, %18, %rb_type.exit.i, %rb_type.exit.i, %8
-  %.0.i = phi i64 [ %14, %rb_integer_type_p.exit.i ], [ %0, %rb_type.exit.i ], [ %0, %rb_type.exit.i ], [ %0, %8 ], [ %14, %18 ], [ %31, %rb_type.exit.thread18.sink.split.i ]
+  %.0.i = phi i64 [ %14, %rb_integer_type_p.exit.i ], [ %0, %8 ], [ %14, %18 ], [ %0, %rb_type.exit.i ], [ %0, %rb_type.exit.i ], [ %31, %rb_type.exit.thread18.sink.split.i ]
   %32 = icmp ne i64 %.0.i, 4
   tail call void @llvm.assume(i1 %32)
   br label %33
@@ -10248,7 +10248,7 @@ define internal fastcc range(i32 0, 2) i32 @timew_out_of_timet_range(i64 noundef
   br label %mulv.exit
 
 mulv.exit:                                        ; preds = %12, %15, %17
-  %.0.i = phi i64 [ %18, %17 ], [ %14, %12 ], [ %16, %15 ]
+  %.0.i = phi i64 [ %18, %17 ], [ %16, %15 ], [ %14, %12 ]
   %19 = icmp eq i64 %0, 0
   %20 = and i64 %0, 6
   %21 = icmp ne i64 %20, 0
@@ -10274,7 +10274,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %cmp.exit
 
 cmp.exit:                                         ; preds = %27, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.0.i7 = phi i32 [ %30, %27 ], [ %32, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
+  %.0.i7 = phi i32 [ %32, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %30, %27 ]
   %33 = icmp slt i32 %.0.i7, 0
   br i1 %33, label %cmp.exit.thread, label %cmp.exit.thread28
 
@@ -10322,7 +10322,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i13:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %addv.exit
 
 addv.exit:                                        ; preds = %39, %42, %53, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i13
-  %.0.i11 = phi i64 [ %54, %53 ], [ %55, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i13 ], [ %41, %39 ], [ %43, %42 ]
+  %.0.i11 = phi i64 [ %55, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i13 ], [ %54, %53 ], [ %41, %39 ], [ %43, %42 ]
   %56 = and i64 %.0.i11, 1
   %or.cond.not.i14 = icmp eq i64 %56, 0
   br i1 %or.cond.not.i14, label %68, label %57
@@ -10352,7 +10352,7 @@ addv.exit:                                        ; preds = %39, %42, %53, %rbim
   br label %mulv.exit20
 
 mulv.exit20:                                      ; preds = %68, %66, %63
-  %.0.i18 = phi i64 [ %69, %68 ], [ %65, %63 ], [ %67, %66 ]
+  %.0.i18 = phi i64 [ %69, %68 ], [ %67, %66 ], [ %65, %63 ]
   %70 = icmp eq i64 %.0.i18, 0
   %71 = and i64 %.0.i18, 7
   %72 = icmp ne i64 %71, 0
@@ -10378,14 +10378,14 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i25:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %cmp.exit26
 
 cmp.exit26:                                       ; preds = %78, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i25
-  %.0.i23 = phi i32 [ %81, %78 ], [ %83, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i25 ]
+  %.0.i23 = phi i32 [ %83, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i25 ], [ %81, %78 ]
   %.0.i23.fr = freeze i32 %.0.i23
   %84 = icmp slt i32 %.0.i23.fr, 1
   %spec.select = zext i1 %84 to i32
   br label %cmp.exit.thread
 
 cmp.exit.thread:                                  ; preds = %cmp.exit26, %cmp.exit, %1
-  %.0 = phi i32 [ 0, %1 ], [ 1, %cmp.exit ], [ %spec.select, %cmp.exit26 ]
+  %.0 = phi i32 [ 1, %cmp.exit ], [ 0, %1 ], [ %spec.select, %cmp.exit26 ]
   ret i32 %.0
 }
 
@@ -10431,7 +10431,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %9, %rbimpl_RB_TYPE_
   br label %24
 
 24:                                               ; preds = %7, %5, %rbimpl_RB_TYPE_P_fastpath.exit.thread, %18
-  %.0 = phi i32 [ %21, %18 ], [ %23, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ -1, %5 ], [ %., %7 ]
+  %.0 = phi i32 [ %23, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %., %7 ], [ -1, %5 ], [ %21, %18 ]
   ret i32 %.0
 }
 
@@ -10491,7 +10491,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %wcmp.exit
 
 wcmp.exit:                                        ; preds = %19, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i
-  %.0.i.i = phi i32 [ %22, %19 ], [ %24, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ]
+  %.0.i.i = phi i32 [ %24, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %22, %19 ]
   %25 = icmp slt i32 %.0.i.i, 0
   br i1 %25, label %wcmp.exit.thread, label %wcmp.exit.thread40
 
@@ -10587,7 +10587,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i31:      ; preds = %rbimpl_RB_TYPE_P_fa
   br label %wcmp.exit32
 
 wcmp.exit32:                                      ; preds = %64, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i31
-  %.0.i.i29 = phi i32 [ %67, %64 ], [ %69, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i31 ]
+  %.0.i.i29 = phi i32 [ %69, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i31 ], [ %67, %64 ]
   %70 = icmp slt i32 %.0.i.i29, 0
   br i1 %70, label %wcmp.exit32.thread, label %wcmp.exit32.thread43
 
@@ -10925,7 +10925,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %modv.exit
 
 modv.exit:                                        ; preds = %74, %91, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.0.i = phi i64 [ %92, %91 ], [ %93, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %81, %74 ]
+  %.0.i = phi i64 [ %93, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %92, %91 ], [ %81, %74 ]
   %94 = and i64 %.0.i, 1
   %.not.i = icmp eq i64 %94, 0
   br i1 %.not.i, label %97, label %95
@@ -11033,7 +11033,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i69:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %mulv.exit
 
 mulv.exit:                                        ; preds = %140, %143, %154, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i69
-  %.0.i67 = phi i64 [ %155, %154 ], [ %156, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i69 ], [ %142, %140 ], [ %144, %143 ]
+  %.0.i67 = phi i64 [ %156, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i69 ], [ %155, %154 ], [ %142, %140 ], [ %144, %143 ]
   store i64 %.0.i67, ptr %1, align 8, !tbaa !81
   %157 = load i64, ptr %7, align 8, !tbaa !11
   %158 = and i64 %157, 1
@@ -11177,7 +11177,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i77:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %addv.exit
 
 addv.exit:                                        ; preds = %217, %220, %231, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i77
-  %.0.i75 = phi i64 [ %232, %231 ], [ %233, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i77 ], [ %219, %217 ], [ %221, %220 ]
+  %.0.i75 = phi i64 [ %233, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i77 ], [ %232, %231 ], [ %219, %217 ], [ %221, %220 ]
   store i64 %.0.i75, ptr %1, align 8, !tbaa !81
   %234 = icmp sgt i32 %.056, -1
   br i1 %234, label %237, label %235, !prof !13
@@ -11485,7 +11485,7 @@ rb_localtime_r.exit:                              ; preds = %2, %5
   br label %30
 
 30:                                               ; preds = %.sink.split, %26, %8
-  %.087 = phi i32 [ %18, %26 ], [ %18, %8 ], [ %29, %.sink.split ]
+  %.087 = phi i32 [ %18, %8 ], [ %18, %26 ], [ %29, %.sink.split ]
   %.not101 = icmp eq i32 %.087, 0
   br i1 %.not101, label %40, label %31
 
@@ -11510,7 +11510,7 @@ rb_localtime_r.exit:                              ; preds = %2, %5
   br label %40
 
 40:                                               ; preds = %.sink.split168, %36, %30
-  %.085 = phi i32 [ %19, %36 ], [ %19, %30 ], [ %39, %.sink.split168 ]
+  %.085 = phi i32 [ %19, %30 ], [ %19, %36 ], [ %39, %.sink.split168 ]
   %.not102 = icmp eq i32 %.085, 0
   br i1 %.not102, label %.thread119, label %41
 
@@ -11806,7 +11806,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %subv.exit
 
 subv.exit:                                        ; preds = %9, %12, %23, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.0.i = phi i64 [ %24, %23 ], [ %25, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %11, %9 ], [ %13, %12 ]
+  %.0.i = phi i64 [ %25, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %24, %23 ], [ %11, %9 ], [ %13, %12 ]
   call fastcc void @divmodv(i64 noundef %.0.i, i64 noundef 801, ptr noundef %2, ptr noundef %3)
   %26 = load i64, ptr %3, align 8, !tbaa !11
   %27 = and i64 %26, 1
@@ -11881,7 +11881,7 @@ leap_year_p.exit.i:                               ; preds = %50
   br label %calc_tm_yday.exit
 
 calc_tm_yday.exit:                                ; preds = %leap_year_p.exit.thread.i, %leap_year_p.exit.thread14.i, %leap_year_p.exit.i
-  %57 = phi ptr [ %54, %leap_year_p.exit.thread14.i ], [ %49, %leap_year_p.exit.thread.i ], [ %spec.select.i, %leap_year_p.exit.i ]
+  %57 = phi ptr [ %54, %leap_year_p.exit.thread14.i ], [ %spec.select.i, %leap_year_p.exit.i ], [ %49, %leap_year_p.exit.thread.i ]
   %.pn.in.i = load i16, ptr %57, align 2, !tbaa !119
   %.pn.i = sext i16 %.pn.in.i to i32
   %58 = lshr i64 %34, 32
@@ -11977,7 +11977,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i37:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %mulv.exit
 
 mulv.exit:                                        ; preds = %102, %105, %116, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i37
-  %.0.i35 = phi i64 [ %117, %116 ], [ %118, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i37 ], [ %104, %102 ], [ %106, %105 ]
+  %.0.i35 = phi i64 [ %118, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i37 ], [ %117, %116 ], [ %104, %102 ], [ %106, %105 ]
   %119 = and i64 %.0.i35, 1
   %or.cond.not.i38 = icmp eq i64 %119, 0
   br i1 %or.cond.not.i38, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i42, label %120
@@ -12003,7 +12003,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i42:        ; preds = %mulv.exit
   br label %addv.exit
 
 addv.exit:                                        ; preds = %124, %127, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i42
-  %.0.i40 = phi i64 [ %129, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i42 ], [ %126, %124 ], [ %128, %127 ]
+  %.0.i40 = phi i64 [ %129, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i42 ], [ %128, %127 ], [ %126, %124 ]
   %130 = and i64 %.0.i, 1
   %or.cond.not.i43 = icmp eq i64 %130, 0
   br i1 %or.cond.not.i43, label %142, label %131
@@ -12051,7 +12051,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i49:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %mulv.exit50
 
 mulv.exit50:                                      ; preds = %137, %140, %151, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i49
-  %.0.i47 = phi i64 [ %152, %151 ], [ %153, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i49 ], [ %139, %137 ], [ %141, %140 ]
+  %.0.i47 = phi i64 [ %153, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i49 ], [ %152, %151 ], [ %139, %137 ], [ %141, %140 ]
   %154 = and i64 %.0.i40, 1
   %155 = and i64 %154, %.0.i47
   %or.cond.not.i51 = icmp eq i64 %155, 0
@@ -12097,7 +12097,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i55:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %v2w.exit
 
 v2w.exit:                                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i55, %175, %164, %161
-  %.0.i53 = phi i64 [ %176, %175 ], [ %177, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i55 ], [ %163, %161 ], [ %165, %164 ]
+  %.0.i53 = phi i64 [ %177, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i55 ], [ %176, %175 ], [ %163, %161 ], [ %165, %164 ]
   %178 = tail call fastcc i64 @wmul(i64 noundef %69, i64 noundef 2000000001)
   %179 = icmp eq i64 %.0.i53, 0
   %180 = and i64 %.0.i53, 7
@@ -12213,7 +12213,7 @@ leap_year_p.exit:                                 ; preds = %15
   br label %22
 
 22:                                               ; preds = %leap_year_p.exit, %leap_year_p.exit.thread, %leap_year_p.exit.thread14
-  %23 = phi ptr [ %19, %leap_year_p.exit.thread14 ], [ %14, %leap_year_p.exit.thread ], [ %spec.select, %leap_year_p.exit ]
+  %23 = phi ptr [ %19, %leap_year_p.exit.thread14 ], [ %spec.select, %leap_year_p.exit ], [ %14, %leap_year_p.exit.thread ]
   %.pn.in = load i16, ptr %23, align 2, !tbaa !119
   %.pn = sext i16 %.pn.in to i32
   %.0 = add i32 %2, %.pn
@@ -12607,7 +12607,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %cmp.exit
 
 cmp.exit:                                         ; preds = %18, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.0.i = phi i32 [ %21, %18 ], [ %23, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
+  %.0.i = phi i32 [ %23, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %21, %18 ]
   %24 = icmp slt i32 %.0.i, 0
   br i1 %24, label %33, label %cmp.exit.thread123
 
@@ -12631,7 +12631,7 @@ cmp.exit:                                         ; preds = %18, %rbimpl_RB_TYPE
   br label %subv.exit
 
 subv.exit:                                        ; preds = %28, %31, %33
-  %.0.i73 = phi i64 [ %34, %33 ], [ %30, %28 ], [ %32, %31 ]
+  %.0.i73 = phi i64 [ %34, %33 ], [ %32, %31 ], [ %30, %28 ]
   %35 = sub nsw i32 0, %2
   br label %cmp.exit.thread123
 
@@ -12748,7 +12748,7 @@ rb_num2int_inline.exit82:                         ; preds = %68, %70
   br label %subv.exit87
 
 subv.exit87:                                      ; preds = %79, %82, %84
-  %.0.i85 = phi i64 [ %85, %84 ], [ %81, %79 ], [ %83, %82 ]
+  %.0.i85 = phi i64 [ %85, %84 ], [ %83, %82 ], [ %81, %79 ]
   %86 = sub i32 0, %56
   %87 = sub i32 0, %64
   %88 = sub i32 0, %72
@@ -12838,7 +12838,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i95:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %addv.exit
 
 addv.exit:                                        ; preds = %116, %119, %130, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i95
-  %.0.i93 = phi i64 [ %131, %130 ], [ %132, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i95 ], [ %118, %116 ], [ %120, %119 ]
+  %.0.i93 = phi i64 [ %132, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i95 ], [ %131, %130 ], [ %118, %116 ], [ %120, %119 ]
   store i64 %.0.i93, ptr %92, align 8, !tbaa !82
   %133 = and i64 %.0.i93, 1
   %or.cond.not.i96 = icmp eq i64 %133, 0
@@ -12874,7 +12874,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i100:       ; preds = %rbimpl_RB_TYPE_P_fa
   br label %cmp.exit101
 
 cmp.exit101:                                      ; preds = %145, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i100
-  %.0.i98 = phi i32 [ %148, %145 ], [ %150, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i100 ]
+  %.0.i98 = phi i32 [ %150, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i100 ], [ %148, %145 ]
   %151 = icmp slt i32 %.0.i98, 0
   %.pre132 = load i64, ptr %92, align 8, !tbaa !82
   br i1 %151, label %cmp.exit101.thread, label %cmp.exit101.thread126
@@ -12924,7 +12924,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i106:       ; preds = %rbimpl_RB_TYPE_P_fa
   br label %addv.exit107
 
 addv.exit107:                                     ; preds = %158, %161, %172, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i106
-  %.0.i104 = phi i64 [ %173, %172 ], [ %174, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i106 ], [ %160, %158 ], [ %162, %161 ]
+  %.0.i104 = phi i64 [ %174, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i106 ], [ %173, %172 ], [ %160, %158 ], [ %162, %161 ]
   store i64 %.0.i104, ptr %92, align 8, !tbaa !82
   %175 = add i32 %.056, -1
   br label %cmp.exit101.thread126
@@ -13003,7 +13003,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i117:       ; preds = %rbimpl_RB_TYPE_P_fa
   br label %subv.exit118
 
 subv.exit118:                                     ; preds = %191, %194, %205, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i117
-  %.0.i115 = phi i64 [ %206, %205 ], [ %207, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i117 ], [ %193, %191 ], [ %195, %194 ]
+  %.0.i115 = phi i64 [ %207, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i117 ], [ %206, %205 ], [ %193, %191 ], [ %195, %194 ]
   store i64 %.0.i115, ptr %92, align 8, !tbaa !82
   %208 = add i32 %.258, 1
   br label %209
@@ -13168,7 +13168,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %subv.exit
 
 subv.exit:                                        ; preds = %17, %20, %31, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.0.i = phi i64 [ %32, %31 ], [ %33, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %19, %17 ], [ %21, %20 ]
+  %.0.i = phi i64 [ %33, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %32, %31 ], [ %19, %17 ], [ %21, %20 ]
   store i64 %.0.i, ptr %0, align 8, !tbaa !81
   %34 = load i64, ptr %6, align 8
   %35 = and i64 %34, 511
@@ -13213,7 +13213,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i68:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %modv.exit
 
 modv.exit:                                        ; preds = %38, %55, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i68
-  %.0.i66 = phi i64 [ %56, %55 ], [ %57, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i68 ], [ %45, %38 ]
+  %.0.i66 = phi i64 [ %57, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i68 ], [ %56, %55 ], [ %45, %38 ]
   %58 = and i64 %.0.i66, 1
   %.not.i = icmp eq i64 %58, 0
   br i1 %.not.i, label %61, label %59
@@ -13308,7 +13308,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i76:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %modv.exit77
 
 modv.exit77:                                      ; preds = %84, %101, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i76
-  %.0.i74 = phi i64 [ %102, %101 ], [ %103, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i76 ], [ %91, %84 ]
+  %.0.i74 = phi i64 [ %103, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i76 ], [ %102, %101 ], [ %91, %84 ]
   %104 = and i64 %.0.i74, 1
   %.not.i78 = icmp eq i64 %104, 0
   br i1 %.not.i78, label %107, label %105
@@ -13458,7 +13458,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i89:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %modv.exit90
 
 modv.exit90:                                      ; preds = %165, %182, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i89
-  %.0.i87 = phi i64 [ %183, %182 ], [ %184, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i89 ], [ %172, %165 ]
+  %.0.i87 = phi i64 [ %184, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i89 ], [ %183, %182 ], [ %172, %165 ]
   %185 = and i64 %.0.i87, 1
   %.not.i91 = icmp eq i64 %185, 0
   br i1 %.not.i91, label %188, label %186
@@ -13550,7 +13550,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i102:       ; preds = %rbimpl_RB_TYPE_P_fa
   br label %addv.exit
 
 addv.exit:                                        ; preds = %211, %214, %225, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i102
-  %.0.i100 = phi i64 [ %226, %225 ], [ %227, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i102 ], [ %213, %211 ], [ %215, %214 ]
+  %.0.i100 = phi i64 [ %227, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i102 ], [ %226, %225 ], [ %213, %211 ], [ %215, %214 ]
   store i64 %.0.i100, ptr %0, align 8, !tbaa !81
   %228 = load i64, ptr %202, align 8
   %229 = and i64 %228, -262144
@@ -13611,7 +13611,7 @@ addv.exit:                                        ; preds = %211, %214, %225, %r
   br label %265
 
 265:                                              ; preds = %.sink.split137, %242, %254
-  %266 = phi i64 [ %247, %242 ], [ %258, %254 ], [ %.sink, %.sink.split137 ]
+  %266 = phi i64 [ %258, %254 ], [ %247, %242 ], [ %.sink, %.sink.split137 ]
   %.fr = freeze i64 %266
   %267 = lshr i64 %.fr, 38
   %268 = trunc nuw nsw i64 %267 to i32
@@ -14851,7 +14851,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %cmp.exit.i
 
 cmp.exit.i:                                       ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %132
-  %.0.i.i39 = phi i32 [ %135, %132 ], [ %137, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ]
+  %.0.i.i39 = phi i32 [ %137, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %135, %132 ]
   %138 = icmp slt i32 %.0.i.i39, 0
   br i1 %138, label %cmp.exit.thread.i, label %cmp.exit.cmp.exit.thread43_crit_edge.i
 
@@ -14935,7 +14935,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i36.i:      ; preds = %rbimpl_RB_TYPE_P_fa
   br label %modv.exit.i
 
 modv.exit.i:                                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i36.i, %176, %159
-  %.0.i34.i = phi i64 [ %177, %176 ], [ %178, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i36.i ], [ %166, %159 ]
+  %.0.i34.i = phi i64 [ %178, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i36.i ], [ %177, %176 ], [ %166, %159 ]
   %179 = and i64 %.0.i34.i, 1
   %.not.i.i34 = icmp eq i64 %179, 0
   br i1 %.not.i.i34, label %182, label %180
@@ -15195,7 +15195,7 @@ v2w.exit:                                         ; preds = %guess_local_offset.
   br label %310
 
 310:                                              ; preds = %rb_long2num_inline.exit33, %v2w.exit, %116, %300
-  %.1 = phi ptr [ %1, %300 ], [ %1, %rb_long2num_inline.exit33 ], [ null, %116 ], [ null, %v2w.exit ]
+  %.1 = phi ptr [ %1, %300 ], [ null, %116 ], [ %1, %rb_long2num_inline.exit33 ], [ null, %v2w.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %.1
 }
@@ -15275,7 +15275,7 @@ RSTRING_PTR.exit.us:                              ; preds = %26, %.preheader.spl
   br label %obj2ubits.exit
 
 .loopexit:                                        ; preds = %26, %22, %.preheader, %7, %10
-  %.018.ph = phi i64 [ %0, %10 ], [ %0, %7 ], [ %8, %.preheader ], [ %8, %22 ], [ %8, %26 ]
+  %.018.ph = phi i64 [ %0, %10 ], [ %0, %7 ], [ %8, %22 ], [ %8, %.preheader ], [ %8, %26 ]
   %28 = icmp eq i64 %.018.ph, 0
   %29 = and i64 %.018.ph, 7
   %30 = icmp ne i64 %29, 0
@@ -15543,7 +15543,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %cmp.exit
 
 cmp.exit:                                         ; preds = %52, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.0.i = phi i32 [ %55, %52 ], [ %57, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
+  %.0.i = phi i32 [ %57, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %55, %52 ]
   %58 = icmp slt i32 %.0.i, 0
   br i1 %58, label %cmp.exit.thread, label %cmp.exit.thread25thread-pre-split
 
@@ -15587,7 +15587,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i22:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %cmp.exit23
 
 cmp.exit23:                                       ; preds = %72, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i22
-  %.0.i20 = phi i32 [ %75, %72 ], [ %77, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i22 ]
+  %.0.i20 = phi i32 [ %77, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i22 ], [ %75, %72 ]
   %78 = icmp sgt i32 %.0.i20, -1
   br i1 %78, label %cmp.exit.thread, label %cmp.exit23.thread28
 
@@ -15823,7 +15823,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %wcmp.exit
 
 wcmp.exit:                                        ; preds = %52, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i
-  %.0.i.i16 = phi i32 [ %55, %52 ], [ %57, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ]
+  %.0.i.i16 = phi i32 [ %57, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %55, %52 ]
   %58 = icmp slt i32 %.0.i.i16, 0
   br i1 %58, label %wcmp.exit.thread, label %wcmp.exit.thread31
 
@@ -15976,7 +15976,7 @@ v2w.exit:                                         ; preds = %timet2wv.exit27, %r
   br label %139
 
 139:                                              ; preds = %cmp.exit.thread, %v2w.exit, %wcmp.exit.thread, %11
-  %.0 = phi i64 [ %12, %11 ], [ %64, %wcmp.exit.thread ], [ %138, %v2w.exit ], [ %13, %cmp.exit.thread ]
+  %.0 = phi i64 [ %12, %11 ], [ %138, %v2w.exit ], [ %64, %wcmp.exit.thread ], [ %13, %cmp.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
@@ -16160,7 +16160,7 @@ leap_year_p.exit.thread233:                       ; preds = %49, %leap_year_p.ex
   br i1 %84, label %.sink.split, label %85
 
 .sink.split:                                      ; preds = %83, %80, %21, %35, %66, %76, %79, %70, %59, %27
-  %.sink = phi i32 [ 60, %27 ], [ 60, %59 ], [ 60, %70 ], [ 60, %79 ], [ 0, %76 ], [ 0, %66 ], [ 0, %35 ], [ 0, %21 ], [ 0, %80 ], [ 60, %83 ]
+  %.sink = phi i32 [ 60, %27 ], [ 60, %59 ], [ 60, %70 ], [ 60, %79 ], [ 0, %80 ], [ 0, %21 ], [ 0, %76 ], [ 0, %66 ], [ 0, %35 ], [ 60, %83 ]
   store i32 %.sink, ptr %7, align 8, !tbaa !111
   br label %85
 
@@ -16661,7 +16661,7 @@ select.unfold267:                                 ; preds = %294, %289, %282, %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %326, %.loopexit.sink.split, %313
-  %.2 = phi i32 [ 1, %313 ], [ 1, %.loopexit.sink.split ], [ %.3, %326 ]
+  %.2 = phi i32 [ 1, %.loopexit.sink.split ], [ 1, %313 ], [ %.3, %326 ]
   br i1 %.not147, label %329, label %327
 
 327:                                              ; preds = %.loopexit
@@ -17143,7 +17143,7 @@ rb_localtime_r.exit229:                           ; preds = %533, %537
   br label %tmcmp.exit208
 
 tmcmp.exit208:                                    ; preds = %334, %245, %240, %233, %226, %219, %212, %261, %268, %275, %282, %289, %294, %205, %255, %.critedge, %585, %440
-  %.0105 = phi ptr [ null, %585 ], [ null, %440 ], [ null, %.critedge ], [ @.str.114, %255 ], [ @.str.114, %205 ], [ @.str.113, %294 ], [ @.str.113, %289 ], [ @.str.113, %282 ], [ @.str.113, %275 ], [ @.str.113, %268 ], [ @.str.113, %261 ], [ @.str.113, %212 ], [ @.str.113, %219 ], [ @.str.113, %226 ], [ @.str.113, %233 ], [ @.str.113, %240 ], [ @.str.113, %245 ], [ @.str.114, %334 ]
+  %.0105 = phi ptr [ null, %585 ], [ null, %.critedge ], [ null, %440 ], [ @.str.114, %205 ], [ @.str.113, %240 ], [ @.str.113, %245 ], [ @.str.114, %255 ], [ @.str.113, %261 ], [ @.str.113, %212 ], [ @.str.113, %219 ], [ @.str.113, %226 ], [ @.str.113, %233 ], [ @.str.113, %294 ], [ @.str.113, %289 ], [ @.str.113, %282 ], [ @.str.113, %275 ], [ @.str.113, %268 ], [ @.str.114, %334 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -17214,7 +17214,7 @@ leap_year_p.exit.i:                               ; preds = %19
   br label %calc_tm_yday.exit
 
 calc_tm_yday.exit:                                ; preds = %leap_year_p.exit.thread.i, %leap_year_p.exit.thread14.i, %leap_year_p.exit.i
-  %26 = phi ptr [ %23, %leap_year_p.exit.thread14.i ], [ %18, %leap_year_p.exit.thread.i ], [ %spec.select.i, %leap_year_p.exit.i ]
+  %26 = phi ptr [ %23, %leap_year_p.exit.thread14.i ], [ %spec.select.i, %leap_year_p.exit.i ], [ %18, %leap_year_p.exit.thread.i ]
   %.pn.in.i = load i16, ptr %26, align 2, !tbaa !119
   %27 = load i32, ptr %0, align 8, !tbaa !111
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -17669,7 +17669,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i58:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %modv.exit
 
 modv.exit:                                        ; preds = %133, %150, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i58
-  %.0.i56 = phi i64 [ %151, %150 ], [ %152, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i58 ], [ %140, %133 ]
+  %.0.i56 = phi i64 [ %152, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i58 ], [ %151, %150 ], [ %140, %133 ]
   %153 = and i64 %.0.i56, 1
   %.not.i59 = icmp eq i64 %153, 0
   br i1 %.not.i59, label %156, label %154
@@ -17750,7 +17750,7 @@ leap_year_p.exit.thread95:                        ; preds = %164, %leap_year_p.e
   br label %191
 
 191:                                              ; preds = %.sink.split, %leap_year_p.exit.thread95, %184, %124
-  %192 = phi i64 [ %169, %leap_year_p.exit.thread95 ], [ %126, %184 ], [ %126, %124 ], [ %.sink, %.sink.split ]
+  %192 = phi i64 [ %169, %leap_year_p.exit.thread95 ], [ %126, %124 ], [ %126, %184 ], [ %.sink, %.sink.split ]
   %193 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %194 = load i64, ptr %193, align 8, !tbaa !11
   %195 = icmp eq i64 %194, 4
@@ -18007,7 +18007,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i91:      ; preds = %rbimpl_RB_TYPE_P_fa
   br label %mulv.exit.i
 
 mulv.exit.i:                                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i91, %317, %306, %303
-  %.0.i3.i = phi i64 [ %318, %317 ], [ %319, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i91 ], [ %305, %303 ], [ %307, %306 ]
+  %.0.i3.i = phi i64 [ %319, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i91 ], [ %318, %317 ], [ %305, %303 ], [ %307, %306 ]
   %320 = and i64 %.0.i3.i, 1
   %or.cond25.not.i.i.i = icmp eq i64 %320, 0
   br i1 %or.cond25.not.i.i.i, label %329, label %321
@@ -18145,7 +18145,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %subv.exit
 
 subv.exit:                                        ; preds = %22, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.0.i = phi i64 [ %23, %22 ], [ %24, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
+  %.0.i = phi i64 [ %24, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %23, %22 ]
   %25 = and i64 %.0.i, 1
   %or.cond.not.i78 = icmp eq i64 %25, 0
   br i1 %or.cond.not.i78, label %28, label %26
@@ -18181,7 +18181,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i81:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %cmp.exit
 
 cmp.exit:                                         ; preds = %37, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i81
-  %.0.i79 = phi i32 [ %40, %37 ], [ %42, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i81 ]
+  %.0.i79 = phi i32 [ %42, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i81 ], [ %40, %37 ]
   %43 = icmp slt i32 %.0.i79, 0
   br i1 %43, label %cmp.exit.thread, label %cmp.exit86
 
@@ -18387,7 +18387,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rbimpl_RB_TYPE_P_fa
   br label %cmp.exit.i
 
 cmp.exit.i:                                       ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, %146
-  %.0.i46.i = phi i32 [ %149, %146 ], [ %151, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ]
+  %.0.i46.i = phi i32 [ %151, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i ], [ %149, %146 ]
   %.0.i46.fr.i = freeze i32 %.0.i46.i
   %.inv.i = icmp sgt i32 %.0.i46.fr.i, -1
   br i1 %.inv.i, label %cmp.exit.thread.i, label %select.unfold131
@@ -18499,7 +18499,7 @@ select.unfold131:                                 ; preds = %163, %170, %177, %1
   unreachable
 
 cmp.exit.thread.i:                                ; preds = %201, %vtmcmp.exit, %135, %cmp.exit.i, %193, %184, %177, %170, %163
-  %.056130 = phi i64 [ %119, %163 ], [ %119, %170 ], [ %119, %177 ], [ %119, %184 ], [ %119, %193 ], [ %119, %cmp.exit.i ], [ %119, %135 ], [ %204, %vtmcmp.exit ], [ %119, %201 ]
+  %.056130 = phi i64 [ %119, %135 ], [ %119, %163 ], [ %119, %170 ], [ %119, %177 ], [ %119, %184 ], [ %119, %193 ], [ %204, %vtmcmp.exit ], [ %119, %cmp.exit.i ], [ %119, %201 ]
   %212 = call fastcc i64 @wadd(i64 noundef %.056130, i64 noundef 172800000000001)
   %213 = call fastcc ptr @localtimew(i64 noundef %212, ptr noundef %5)
   %.not62 = icmp eq ptr %213, null
@@ -18645,7 +18645,7 @@ weq.exit:                                         ; preds = %v2w.exit104
   br label %284
 
 284:                                              ; preds = %249, %267, %257, %weq.exit, %282, %280, %v2w.exit
-  %.053 = phi i64 [ %281, %280 ], [ %283, %282 ], [ %118, %v2w.exit ], [ %231, %weq.exit ], [ %246, %257 ], [ %231, %267 ], [ %231, %249 ]
+  %.053 = phi i64 [ %118, %v2w.exit ], [ %283, %282 ], [ %231, %weq.exit ], [ %246, %257 ], [ %281, %280 ], [ %231, %267 ], [ %231, %249 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -18732,7 +18732,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %cmp.exit
 
 cmp.exit:                                         ; preds = %48, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.0.i30 = phi i32 [ %51, %48 ], [ %53, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
+  %.0.i30 = phi i32 [ %53, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %51, %48 ]
   %.0.i30.fr = freeze i32 %.0.i30
   %54 = icmp slt i32 %.0.i30.fr, 0
   br i1 %54, label %cmp.exit.thread, label %cmp.exit.thread3
@@ -18948,7 +18948,7 @@ define internal fastcc noundef i64 @time_zonelocal(i64 noundef returned %0, i64 
   br label %find_timezone.exit
 
 find_timezone.exit:                               ; preds = %12, %15, %16, %17, %18, %20
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %16 ], [ @rb_cTrueClass, %17 ], [ %14, %12 ], [ @rb_cFalseClass, %15 ], [ @rb_cInteger, %18 ], [ %spec.select.i.i, %20 ]
+  %.0.in.i.i = phi ptr [ %14, %12 ], [ @rb_cNilClass, %16 ], [ @rb_cTrueClass, %17 ], [ @rb_cFalseClass, %15 ], [ @rb_cInteger, %18 ], [ %spec.select.i.i, %20 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !11
   %23 = load i64, ptr @id_find_timezone, align 8, !tbaa !11
   %24 = call i64 @rb_check_funcall_default(i64 noundef %.0.i.i, i64 noundef %23, i32 noundef 1, ptr noundef nonnull %3, i64 noundef 4) #22
@@ -19189,7 +19189,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %rb_time_unmagnify_t
   br label %rb_time_unmagnify.exit
 
 rb_time_unmagnify.exit:                           ; preds = %74, %71, %rbimpl_RB_TYPE_P_fastpath.exit.i.i, %rb_time_unmagnify_to_rational.exit.i
-  %.0 = phi i64 [ %.1.i.i.i, %71 ], [ %76, %74 ], [ %.1.i.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ], [ %.1.i.i.i, %rb_time_unmagnify_to_rational.exit.i ]
+  %.0 = phi i64 [ %.1.i.i.i, %rb_time_unmagnify_to_rational.exit.i ], [ %.1.i.i.i, %71 ], [ %76, %74 ], [ %.1.i.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i.i ]
   %77 = icmp eq i64 %.0, 4
   br i1 %77, label %78, label %80
 
@@ -19395,7 +19395,7 @@ RTYPEDDATA_GET_DATA.exit.i22:                     ; preds = %83, %time_s_alloc.e
   br label %time_new_timew.exit
 
 time_new_timew.exit:                              ; preds = %95, %90, %RTYPEDDATA_GET_DATA.exit.i22, %53, %48, %RTYPEDDATA_GET_DATA.exit.i
-  %.0 = phi i64 [ %25, %RTYPEDDATA_GET_DATA.exit.i ], [ %25, %48 ], [ %25, %53 ], [ %67, %RTYPEDDATA_GET_DATA.exit.i22 ], [ %67, %90 ], [ %67, %95 ]
+  %.0 = phi i64 [ %25, %53 ], [ %25, %RTYPEDDATA_GET_DATA.exit.i ], [ %25, %48 ], [ %67, %RTYPEDDATA_GET_DATA.exit.i22 ], [ %67, %90 ], [ %67, %95 ]
   %96 = tail call ptr @rb_check_typeddata(i64 noundef %.0, ptr noundef nonnull @time_data_type) #22
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %98 = load i64, ptr %97, align 8
@@ -19538,7 +19538,7 @@ define internal i64 @mload_findzone(i64 noundef %0) #1 {
   br label %find_timezone.exit
 
 find_timezone.exit:                               ; preds = %11, %14, %15, %16, %17, %19
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %15 ], [ @rb_cTrueClass, %16 ], [ %13, %11 ], [ @rb_cFalseClass, %14 ], [ @rb_cInteger, %17 ], [ %spec.select.i.i, %19 ]
+  %.0.in.i.i = phi ptr [ %13, %11 ], [ @rb_cNilClass, %15 ], [ @rb_cTrueClass, %16 ], [ @rb_cFalseClass, %14 ], [ @rb_cInteger, %17 ], [ %spec.select.i.i, %19 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !11
   %22 = load i64, ptr @id_find_timezone, align 8, !tbaa !11
   %23 = call i64 @rb_check_funcall_default(i64 noundef %.0.i.i, i64 noundef %22, i32 noundef 1, ptr noundef nonnull %2, i64 noundef 4) #22
@@ -19973,7 +19973,7 @@ maybe_tzobj_p.exit.thread:                        ; preds = %rb_integer_type_p.e
   br label %find_timezone.exit
 
 find_timezone.exit:                               ; preds = %44, %47, %48, %49, %50, %52
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %48 ], [ @rb_cTrueClass, %49 ], [ %46, %44 ], [ @rb_cFalseClass, %47 ], [ @rb_cInteger, %50 ], [ %spec.select.i.i, %52 ]
+  %.0.in.i.i = phi ptr [ %46, %44 ], [ @rb_cNilClass, %48 ], [ @rb_cTrueClass, %49 ], [ @rb_cFalseClass, %47 ], [ @rb_cInteger, %50 ], [ %spec.select.i.i, %52 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !11
   %55 = load i64, ptr @id_find_timezone, align 8, !tbaa !11
   %56 = call i64 @rb_check_funcall_default(i64 noundef %.0.i.i, i64 noundef %55, i32 noundef 1, ptr noundef nonnull %5, i64 noundef 4) #22
@@ -19986,10 +19986,10 @@ find_timezone.exit:                               ; preds = %44, %47, %48, %49, 
   unreachable
 
 maybe_tzobj_p.exit.thread88:                      ; preds = %rb_integer_type_p.exit.i, %26, %15, %find_timezone.exit, %36, %22, %3
-  %59 = phi i64 [ 4, %3 ], [ 4, %15 ], [ 4, %22 ], [ 4, %find_timezone.exit ], [ %38, %36 ], [ 4, %26 ], [ 4, %rb_integer_type_p.exit.i ]
-  %60 = phi i64 [ %8, %3 ], [ %17, %15 ], [ %23, %22 ], [ %8, %find_timezone.exit ], [ %8, %36 ], [ %8, %26 ], [ %8, %rb_integer_type_p.exit.i ]
-  %.051 = phi i1 [ false, %3 ], [ false, %15 ], [ false, %22 ], [ false, %find_timezone.exit ], [ %37, %36 ], [ false, %26 ], [ false, %rb_integer_type_p.exit.i ]
-  %.050 = phi i64 [ 4, %3 ], [ 4, %15 ], [ 4, %22 ], [ %56, %find_timezone.exit ], [ 4, %36 ], [ %2, %26 ], [ %2, %rb_integer_type_p.exit.i ]
+  %59 = phi i64 [ 4, %3 ], [ 4, %15 ], [ 4, %22 ], [ %38, %36 ], [ 4, %find_timezone.exit ], [ 4, %rb_integer_type_p.exit.i ], [ 4, %26 ]
+  %60 = phi i64 [ %8, %3 ], [ %17, %15 ], [ %23, %22 ], [ %8, %36 ], [ %8, %find_timezone.exit ], [ %8, %rb_integer_type_p.exit.i ], [ %8, %26 ]
+  %.051 = phi i1 [ false, %3 ], [ false, %15 ], [ false, %22 ], [ %37, %36 ], [ false, %find_timezone.exit ], [ false, %rb_integer_type_p.exit.i ], [ false, %26 ]
+  %.050 = phi i64 [ 4, %3 ], [ 4, %15 ], [ 4, %22 ], [ 4, %36 ], [ %56, %find_timezone.exit ], [ %2, %rb_integer_type_p.exit.i ], [ %2, %26 ]
   call fastcc void @validate_vtm(ptr noundef nonnull %1)
   %61 = icmp eq i64 %0, 0
   %62 = and i64 %0, 7
@@ -20158,7 +20158,7 @@ find_timezone.exit70:                             ; preds = %125
   unreachable
 
 135:                                              ; preds = %125, %get_new_timeval.exit
-  %136 = phi i64 [ %126, %125 ], [ %59, %get_new_timeval.exit ]
+  %136 = phi i64 [ %59, %get_new_timeval.exit ], [ %126, %125 ]
   br i1 %.051, label %139, label %184
 
 .thread:                                          ; preds = %132

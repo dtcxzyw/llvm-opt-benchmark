@@ -425,8 +425,8 @@ submit_packet.exit:                               ; preds = %141
   store i32 0, ptr %19, align 8, !tbaa !40
   br label %.thread
 
-.thread:                                          ; preds = %submit_packet.exit, %38, %submit_packet.exit.thread, %.critedge, %227
-  %.1 = phi i32 [ 0, %.critedge ], [ %37, %227 ], [ %108, %submit_packet.exit.thread ], [ %41, %38 ], [ %144, %submit_packet.exit ]
+.thread:                                          ; preds = %38, %submit_packet.exit, %submit_packet.exit.thread, %.critedge, %227
+  %.1 = phi i32 [ 0, %.critedge ], [ %37, %227 ], [ %108, %submit_packet.exit.thread ], [ %144, %submit_packet.exit ], [ %41, %38 ]
   %228 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #11
   %229 = load i32, ptr %10, align 8, !tbaa !34
   %.not6.i = icmp eq i32 %229, 0
@@ -818,7 +818,7 @@ define internal fastcc i32 @update_context_from_thread(ptr noundef %0, ptr nound
   br label %.thread164
 
 .thread164:                                       ; preds = %174, %192, %134, %.thread163, %193, %124, %121, %107, %18
-  %.0 = phi i32 [ %90, %18 ], [ -12, %107 ], [ %125, %124 ], [ %.0118, %121 ], [ %.3121, %.thread163 ], [ %.6, %193 ], [ -12, %174 ], [ %190, %192 ], [ %135, %134 ]
+  %.0 = phi i32 [ %90, %18 ], [ -12, %107 ], [ %.0118, %121 ], [ %125, %124 ], [ %.6, %193 ], [ %.3121, %.thread163 ], [ -12, %174 ], [ %190, %192 ], [ %135, %134 ]
   ret i32 %.0
 }
 
@@ -1451,7 +1451,7 @@ define range(i32 -2147483648, 1) i32 @ff_frame_thread_init(ptr noundef %0) local
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %27, %16, %.loopexit49, %24, %14
-  %.0 = phi i32 [ 0, %14 ], [ %22, %24 ], [ %.039, %.loopexit49 ], [ -12, %16 ], [ -12, %27 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ 0, %14 ], [ %22, %24 ], [ -12, %16 ], [ %.039, %.loopexit49 ], [ -12, %27 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1670,7 +1670,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_thread(ptr noundef in
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %79, %83, %69, %65, %58, %55, %50, %44, %22, %19, %109, %107
-  %.079 = phi i32 [ %108, %107 ], [ 0, %109 ], [ -12, %19 ], [ -12, %22 ], [ -12, %44 ], [ %53, %50 ], [ %56, %55 ], [ -12, %58 ], [ -12, %65 ], [ -12, %69 ], [ %77, %83 ], [ %77, %79 ], [ %98, %.lr.ph ]
+  %.079 = phi i32 [ -12, %44 ], [ %53, %50 ], [ -12, %69 ], [ %108, %107 ], [ 0, %109 ], [ %77, %79 ], [ -12, %65 ], [ -12, %58 ], [ %56, %55 ], [ -12, %22 ], [ -12, %19 ], [ %77, %83 ], [ %98, %.lr.ph ]
   ret i32 %.079
 }
 
@@ -1844,7 +1844,7 @@ thread_get_buffer_internal.exit.thread:           ; preds = %16
   br label %thread_get_buffer_internal.exit
 
 thread_get_buffer_internal.exit:                  ; preds = %7, %21
-  %.0.i = phi i32 [ %25, %21 ], [ %8, %7 ]
+  %.0.i = phi i32 [ %8, %7 ], [ %25, %21 ]
   %29 = icmp slt i32 %.0.i, 0
   br i1 %29, label %30, label %31
 
@@ -1897,7 +1897,7 @@ define i32 @ff_thread_get_ext_buffer(ptr noundef %0, ptr noundef initializes((8,
   br label %21
 
 21:                                               ; preds = %15, %20, %12, %9
-  %.0 = phi i32 [ %11, %9 ], [ -12, %12 ], [ %19, %20 ], [ 0, %15 ]
+  %.0 = phi i32 [ -12, %12 ], [ %11, %9 ], [ %19, %20 ], [ 0, %15 ]
   ret i32 %.0
 }
 

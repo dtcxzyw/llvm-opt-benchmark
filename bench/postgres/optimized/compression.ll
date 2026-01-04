@@ -253,8 +253,8 @@ define void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr no
   br i1 %.not.i, label %expect_integer_value.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.thread106, %75, %71
-  %.0105109 = phi ptr [ %64, %75 ], [ %64, %71 ], [ null, %.thread106 ]
-  %.str.18.sink.i = phi ptr [ @.str.18, %75 ], [ @.str.18, %71 ], [ @.str.17, %.thread106 ]
+  %.0105109 = phi ptr [ null, %.thread106 ], [ %64, %75 ], [ %64, %71 ]
+  %.str.18.sink.i = phi ptr [ @.str.17, %.thread106 ], [ @.str.18, %75 ], [ @.str.18, %71 ]
   %78 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull %.str.18.sink.i, ptr noundef nonnull %58) #9
   store ptr %78, ptr %8, align 8
   br label %expect_integer_value.exit
@@ -294,8 +294,8 @@ expect_integer_value.exit:                        ; preds = %75, %.sink.split.i
   br i1 %.not.i96, label %expect_integer_value.exit100, label %.sink.split.i97
 
 .sink.split.i97:                                  ; preds = %.thread114, %88, %84
-  %.0104112117 = phi ptr [ %64, %88 ], [ %64, %84 ], [ null, %.thread114 ]
-  %.str.18.sink.i98 = phi ptr [ @.str.18, %88 ], [ @.str.18, %84 ], [ @.str.17, %.thread114 ]
+  %.0104112117 = phi ptr [ null, %.thread114 ], [ %64, %88 ], [ %64, %84 ]
+  %.str.18.sink.i98 = phi ptr [ @.str.17, %.thread114 ], [ @.str.18, %88 ], [ @.str.18, %84 ]
   %91 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull %.str.18.sink.i98, ptr noundef nonnull %58) #9
   store ptr %91, ptr %8, align 8
   br label %expect_integer_value.exit100
@@ -356,8 +356,8 @@ expect_integer_value.exit100:                     ; preds = %88, %.sink.split.i9
   br label %expect_boolean_value.exit
 
 expect_boolean_value.exit:                        ; preds = %.thread118, %99, %102, %105, %108, %111, %114, %117
-  %.0104113121124 = phi ptr [ %64, %117 ], [ %64, %99 ], [ %64, %102 ], [ %64, %105 ], [ %64, %108 ], [ %64, %111 ], [ %64, %114 ], [ null, %.thread118 ]
-  %.0.i101 = phi i8 [ 0, %117 ], [ 1, %99 ], [ 1, %102 ], [ 1, %105 ], [ 0, %108 ], [ 0, %111 ], [ 0, %114 ], [ 1, %.thread118 ]
+  %.0104113121124 = phi ptr [ %64, %117 ], [ %64, %114 ], [ %64, %99 ], [ %64, %102 ], [ %64, %105 ], [ %64, %108 ], [ %64, %111 ], [ null, %.thread118 ]
+  %.0.i101 = phi i8 [ 0, %117 ], [ 0, %114 ], [ 1, %99 ], [ 1, %102 ], [ 1, %105 ], [ 0, %108 ], [ 0, %111 ], [ 1, %.thread118 ]
   store i8 %.0.i101, ptr %29, align 8
   %119 = load i32, ptr %7, align 4
   %120 = or i32 %119, 2
@@ -506,7 +506,7 @@ get_compress_algorithm_name.exit:                 ; preds = %18, %switch.lookup
   br label %get_compress_algorithm_name.exit35
 
 get_compress_algorithm_name.exit35:               ; preds = %26, %27, %28, %29
-  %.0.i34 = phi ptr [ @.str.4, %29 ], [ @.str.1, %27 ], [ @.str.2, %28 ], [ @.str, %26 ]
+  %.0.i34 = phi ptr [ @.str.4, %29 ], [ @.str, %26 ], [ @.str.1, %27 ], [ @.str.2, %28 ]
   %30 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.15, ptr noundef nonnull %.0.i34) #9
   br label %.thread39
 
@@ -533,7 +533,7 @@ get_compress_algorithm_name.exit37:               ; preds = %33, %switch.lookup4
   br label %.thread39
 
 .thread39:                                        ; preds = %26, %31, %1, %get_compress_algorithm_name.exit37, %get_compress_algorithm_name.exit35, %get_compress_algorithm_name.exit, %11
-  %.022 = phi ptr [ %21, %get_compress_algorithm_name.exit ], [ %30, %get_compress_algorithm_name.exit35 ], [ %36, %get_compress_algorithm_name.exit37 ], [ %12, %11 ], [ %3, %1 ], [ null, %31 ], [ null, %26 ]
+  %.022 = phi ptr [ %12, %11 ], [ %21, %get_compress_algorithm_name.exit ], [ %30, %get_compress_algorithm_name.exit35 ], [ %36, %get_compress_algorithm_name.exit37 ], [ %3, %1 ], [ null, %26 ], [ null, %31 ]
   ret ptr %.022
 }
 
@@ -587,7 +587,7 @@ define void @parse_compress_options(ptr noundef %0, ptr noundef writeonly captur
   br label %30
 
 30:                                               ; preds = %19, %21, %11, %13
-  %storemerge25 = phi ptr [ %15, %13 ], [ null, %11 ], [ %29, %21 ], [ null, %19 ]
+  %storemerge25 = phi ptr [ null, %11 ], [ %15, %13 ], [ %29, %21 ], [ null, %19 ]
   store ptr %storemerge25, ptr %2, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

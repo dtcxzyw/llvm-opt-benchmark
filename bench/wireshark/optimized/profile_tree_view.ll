@@ -531,7 +531,7 @@ _ZN5QListI11QModelIndexED2Ev.exit27:              ; preds = %.critedge15.thread,
   br i1 %77, label %.sink.split, label %82
 
 .sink.split:                                      ; preds = %_ZN5QListI11QModelIndexED2Ev.exit27, %57, %65
-  %.sroa.0.0.sink = phi i32 [ %.sroa.0.0.copyload, %57 ], [ %.sroa.0.0.copyload30, %65 ], [ 0, %_ZN5QListI11QModelIndexED2Ev.exit27 ]
+  %.sroa.0.0.sink = phi i32 [ %.sroa.0.0.copyload30, %65 ], [ %.sroa.0.0.copyload, %57 ], [ 0, %_ZN5QListI11QModelIndexED2Ev.exit27 ]
   call void @_ZN15ProfileTreeView9selectRowEi(ptr noundef align 8 dereferenceable_or_null(48) %0, i32 noundef %.sroa.0.0.sink)
   br label %82
 

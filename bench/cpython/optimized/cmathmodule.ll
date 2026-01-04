@@ -150,7 +150,7 @@ define internal ptr @cmath_acos(ptr readnone captures(none) %0, ptr noundef %1) 
   br label %special_type.exit.i
 
 special_type.exit.i:                              ; preds = %22, %20, %19, %18
-  %.0.i.i = phi i64 [ %..i.i, %18 ], [ %.7.i.i, %19 ], [ 6, %20 ], [ %.8.i.i, %22 ]
+  %.0.i.i = phi i64 [ %..i.i, %18 ], [ 6, %20 ], [ %.7.i.i, %19 ], [ %.8.i.i, %22 ]
   %25 = getelementptr [7 x %struct.Py_complex], ptr @acos_special_values, i64 %.0.i.i
   br i1 %12, label %32, label %26
 
@@ -220,7 +220,7 @@ cmath_acos_impl.exit.thread:                      ; preds = %40, %49
   br label %66
 
 cmath_acos_impl.exit:                             ; preds = %30, %31, %32, %34
-  %.0.i33.i = phi i64 [ %..i34.i, %30 ], [ %.7.i32.i, %31 ], [ 6, %32 ], [ %.8.i35.i, %34 ]
+  %.0.i33.i = phi i64 [ %..i34.i, %30 ], [ 6, %32 ], [ %.7.i32.i, %31 ], [ %.8.i35.i, %34 ]
   %65 = getelementptr %struct.Py_complex, ptr %25, i64 %.0.i33.i
   %.sroa.028.0.copyload.i = load double, ptr %65, align 16, !tbaa !7
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -285,7 +285,7 @@ define internal ptr @cmath_acosh(ptr readnone captures(none) %0, ptr noundef %1)
   br label %special_type.exit.i
 
 special_type.exit.i:                              ; preds = %22, %20, %19, %18
-  %.0.i.i = phi i64 [ %..i.i, %18 ], [ %.7.i.i, %19 ], [ 6, %20 ], [ %.8.i.i, %22 ]
+  %.0.i.i = phi i64 [ %..i.i, %18 ], [ 6, %20 ], [ %.7.i.i, %19 ], [ %.8.i.i, %22 ]
   %25 = getelementptr [7 x %struct.Py_complex], ptr @acosh_special_values, i64 %.0.i.i
   br i1 %12, label %32, label %26
 
@@ -351,7 +351,7 @@ cmath_acosh_impl.exit.thread:                     ; preds = %40, %47
   br label %62
 
 cmath_acosh_impl.exit:                            ; preds = %30, %31, %32, %34
-  %.0.i31.i = phi i64 [ %..i32.i, %30 ], [ %.7.i30.i, %31 ], [ 6, %32 ], [ %.8.i33.i, %34 ]
+  %.0.i31.i = phi i64 [ %..i32.i, %30 ], [ 6, %32 ], [ %.7.i30.i, %31 ], [ %.8.i33.i, %34 ]
   %61 = getelementptr %struct.Py_complex, ptr %25, i64 %.0.i31.i
   %.sroa.026.0.copyload.i = load double, ptr %61, align 16, !tbaa !7
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -685,7 +685,7 @@ define internal ptr @cmath_exp(ptr readnone captures(none) %0, ptr noundef %1) #
   br label %special_type.exit.i
 
 special_type.exit.i:                              ; preds = %36, %34, %33, %32
-  %.0.i.i = phi i64 [ %..i.i, %32 ], [ %.7.i.i, %33 ], [ 6, %34 ], [ %.8.i.i, %36 ]
+  %.0.i.i = phi i64 [ %..i.i, %32 ], [ 6, %34 ], [ %.7.i.i, %33 ], [ %.8.i.i, %36 ]
   %39 = getelementptr [7 x %struct.Py_complex], ptr @exp_special_values, i64 %.0.i.i
   br i1 %12, label %40, label %46
 
@@ -714,7 +714,7 @@ special_type.exit.i:                              ; preds = %36, %34, %33, %32
   br label %special_type.exit41.i
 
 special_type.exit41.i:                            ; preds = %48, %46, %45, %44
-  %.0.i38.i = phi i64 [ %..i39.i, %44 ], [ %.7.i37.i, %45 ], [ 6, %46 ], [ %.8.i40.i, %48 ]
+  %.0.i38.i = phi i64 [ %..i39.i, %44 ], [ 6, %46 ], [ %.7.i37.i, %45 ], [ %.8.i40.i, %48 ]
   %51 = getelementptr %struct.Py_complex, ptr %39, i64 %.0.i38.i
   %.sroa.030.0.copyload.i = load double, ptr %51, align 16, !tbaa !7
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -779,8 +779,8 @@ special_type.exit41.i:                            ; preds = %48, %46, %45, %44
   br label %84
 
 82:                                               ; preds = %73, %52, %54
-  %.sroa.030.1.i.ph = phi double [ %.sroa.030.0.i, %54 ], [ %.sroa.030.0.i, %52 ], [ %.sroa.030.2.i, %73 ]
-  %.sroa.7.1.i.ph = phi double [ %.sroa.7.0.i, %54 ], [ %.sroa.7.0.i, %52 ], [ %.sroa.7.2.i, %73 ]
+  %.sroa.030.1.i.ph = phi double [ %.sroa.030.0.i, %52 ], [ %.sroa.030.0.i, %54 ], [ %.sroa.030.2.i, %73 ]
+  %.sroa.7.1.i.ph = phi double [ %.sroa.7.0.i, %52 ], [ %.sroa.7.0.i, %54 ], [ %.sroa.7.2.i, %73 ]
   store i32 0, ptr %8, align 4, !tbaa !3
   %83 = tail call ptr @PyComplex_FromCComplex(double %.sroa.030.1.i.ph, double %.sroa.7.1.i.ph) #10
   br label %84
@@ -898,8 +898,8 @@ define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %
   br i1 %.not61, label %.thread83, label %86
 
 53:                                               ; preds = %46, %48, %41, %28
-  %.042 = phi double [ %.val65, %46 ], [ %49, %48 ], [ 0.000000e+00, %41 ], [ 0.000000e+00, %28 ]
-  %.041 = phi double [ %.1, %46 ], [ %.1, %48 ], [ %.2, %41 ], [ 1.000000e-09, %28 ]
+  %.042 = phi double [ %.val65, %46 ], [ 0.000000e+00, %28 ], [ %49, %48 ], [ 0.000000e+00, %41 ]
+  %.041 = phi double [ %.1, %46 ], [ 1.000000e-09, %28 ], [ %.1, %48 ], [ %.2, %41 ]
   %54 = fcmp olt double %.041, 0.000000e+00
   %55 = fcmp olt double %.042, 0.000000e+00
   %or.cond.i = or i1 %55, %54
@@ -953,8 +953,8 @@ define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %
   %.not62 = icmp eq ptr %84, null
   br i1 %.not62, label %cmath_isclose_impl.exit.thread, label %86
 
-cmath_isclose_impl.exit.thread:                   ; preds = %80, %68, %76, %59, %56, %.thread83
-  %.0.i72 = phi i64 [ -1, %.thread83 ], [ %82, %80 ], [ 1, %68 ], [ 1, %76 ], [ 0, %59 ], [ 1, %56 ]
+cmath_isclose_impl.exit.thread:                   ; preds = %80, %68, %76, %56, %59, %.thread83
+  %.0.i72 = phi i64 [ -1, %.thread83 ], [ %82, %80 ], [ 1, %68 ], [ 1, %76 ], [ 1, %56 ], [ 0, %59 ]
   %85 = call ptr @PyBool_FromLong(i64 noundef %.0.i72) #10
   br label %86
 
@@ -1376,7 +1376,7 @@ define internal ptr @cmath_rect(ptr readnone captures(none) %0, ptr noundef read
   br label %special_type.exit.i
 
 special_type.exit.i:                              ; preds = %58, %56, %55, %54
-  %.0.i.i = phi i64 [ %..i.i, %54 ], [ %.7.i.i, %55 ], [ 6, %56 ], [ %.8.i.i, %58 ]
+  %.0.i.i = phi i64 [ %..i.i, %54 ], [ 6, %56 ], [ %.7.i.i, %55 ], [ %.8.i.i, %58 ]
   %61 = getelementptr [7 x %struct.Py_complex], ptr @rect_special_values, i64 %.0.i.i
   br i1 %32, label %68, label %62
 
@@ -1405,7 +1405,7 @@ special_type.exit.i:                              ; preds = %58, %56, %55, %54
   br label %special_type.exit36.i
 
 special_type.exit36.i:                            ; preds = %70, %68, %67, %66
-  %.0.i33.i = phi i64 [ %..i34.i, %66 ], [ %.7.i32.i, %67 ], [ 6, %68 ], [ %.8.i35.i, %70 ]
+  %.0.i33.i = phi i64 [ %..i34.i, %66 ], [ 6, %68 ], [ %.7.i32.i, %67 ], [ %.8.i35.i, %70 ]
   %73 = getelementptr %struct.Py_complex, ptr %61, i64 %.0.i33.i
   %.sroa.0.0.copyload.i = load double, ptr %73, align 16, !tbaa !7
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -1442,14 +1442,14 @@ math_error.exit.i:                                ; preds = %74
   br label %cmath_rect_impl.exit
 
 86:                                               ; preds = %80, %78, %74
-  %.sroa.8.1.ph.i = phi double [ %84, %80 ], [ %79, %78 ], [ %.sroa.8.0.i, %74 ]
-  %.sroa.0.1.ph.i = phi double [ %82, %80 ], [ %.015, %78 ], [ %.sroa.0.0.i, %74 ]
+  %.sroa.8.1.ph.i = phi double [ %79, %78 ], [ %84, %80 ], [ %.sroa.8.0.i, %74 ]
+  %.sroa.0.1.ph.i = phi double [ %.015, %78 ], [ %82, %80 ], [ %.sroa.0.0.i, %74 ]
   store i32 0, ptr %28, align 4, !tbaa !3
   %87 = tail call ptr @PyComplex_FromCComplex(double %.sroa.0.1.ph.i, double %.sroa.8.1.ph.i) #10
   br label %cmath_rect_impl.exit
 
 cmath_rect_impl.exit:                             ; preds = %86, %math_error.exit.i, %25, %14, %4
-  %.016 = phi ptr [ null, %25 ], [ null, %14 ], [ null, %4 ], [ null, %math_error.exit.i ], [ %87, %86 ]
+  %.016 = phi ptr [ null, %4 ], [ null, %25 ], [ null, %14 ], [ null, %math_error.exit.i ], [ %87, %86 ]
   ret ptr %.016
 }
 
@@ -1725,7 +1725,7 @@ define internal fastcc { double, double } @cmath_sqrt_impl(double %0, double %1)
   br label %special_type.exit
 
 special_type.exit:                                ; preds = %13, %14, %15, %17
-  %.0.i = phi i64 [ %..i, %13 ], [ %.7.i, %14 ], [ 6, %15 ], [ %.8.i, %17 ]
+  %.0.i = phi i64 [ %..i, %13 ], [ 6, %15 ], [ %.7.i, %14 ], [ %.8.i, %17 ]
   %20 = getelementptr [7 x %struct.Py_complex], ptr @sqrt_special_values, i64 %.0.i
   br i1 %6, label %27, label %21
 
@@ -1754,7 +1754,7 @@ special_type.exit:                                ; preds = %13, %14, %15, %17
   br label %special_type.exit44
 
 special_type.exit44:                              ; preds = %25, %26, %27, %29
-  %.0.i41 = phi i64 [ %..i42, %25 ], [ %.7.i40, %26 ], [ 6, %27 ], [ %.8.i43, %29 ]
+  %.0.i41 = phi i64 [ %..i42, %25 ], [ 6, %27 ], [ %.7.i40, %26 ], [ %.8.i43, %29 ]
   %32 = getelementptr %struct.Py_complex, ptr %20, i64 %.0.i41
   %.sroa.034.0.copyload = load double, ptr %32, align 16, !tbaa !7
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1805,8 +1805,8 @@ special_type.exit44:                              ; preds = %25, %26, %27, %29
   br label %60
 
 60:                                               ; preds = %33, %53, %special_type.exit44
-  %.sroa.034.0 = phi double [ %.sroa.0.0, %53 ], [ %.sroa.034.0.copyload, %special_type.exit44 ], [ 0.000000e+00, %33 ]
-  %.sroa.4.0 = phi double [ %.sroa.7.0, %53 ], [ %.sroa.4.0.copyload, %special_type.exit44 ], [ %1, %33 ]
+  %.sroa.034.0 = phi double [ %.sroa.034.0.copyload, %special_type.exit44 ], [ %.sroa.0.0, %53 ], [ 0.000000e+00, %33 ]
+  %.sroa.4.0 = phi double [ %.sroa.4.0.copyload, %special_type.exit44 ], [ %.sroa.7.0, %53 ], [ %1, %33 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.034.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
@@ -1863,7 +1863,7 @@ define internal fastcc { double, double } @cmath_asinh_impl(double %0, double %1
   br label %special_type.exit
 
 special_type.exit:                                ; preds = %13, %14, %15, %17
-  %.0.i = phi i64 [ %..i, %13 ], [ %.7.i, %14 ], [ 6, %15 ], [ %.8.i, %17 ]
+  %.0.i = phi i64 [ %..i, %13 ], [ 6, %15 ], [ %.7.i, %14 ], [ %.8.i, %17 ]
   %20 = getelementptr [7 x %struct.Py_complex], ptr @asinh_special_values, i64 %.0.i
   br i1 %6, label %27, label %21
 
@@ -1892,7 +1892,7 @@ special_type.exit:                                ; preds = %13, %14, %15, %17
   br label %special_type.exit43
 
 special_type.exit43:                              ; preds = %25, %26, %27, %29
-  %.0.i40 = phi i64 [ %..i41, %25 ], [ %.7.i39, %26 ], [ 6, %27 ], [ %.8.i42, %29 ]
+  %.0.i40 = phi i64 [ %..i41, %25 ], [ 6, %27 ], [ %.7.i39, %26 ], [ %.8.i42, %29 ]
   %32 = getelementptr %struct.Py_complex, ptr %20, i64 %.0.i40
   %.sroa.035.0.copyload = load double, ptr %32, align 16, !tbaa !7
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1988,7 +1988,7 @@ define internal fastcc { double, double } @cmath_atanh_impl(double %0, double %1
   br label %special_type.exit
 
 special_type.exit:                                ; preds = %13, %14, %15, %17
-  %.0.i = phi i64 [ %..i, %13 ], [ %.7.i, %14 ], [ 6, %15 ], [ %.8.i, %17 ]
+  %.0.i = phi i64 [ %..i, %13 ], [ 6, %15 ], [ %.7.i, %14 ], [ %.8.i, %17 ]
   %20 = getelementptr [7 x %struct.Py_complex], ptr @atanh_special_values, i64 %.0.i
   br i1 %6, label %27, label %21
 
@@ -2017,7 +2017,7 @@ special_type.exit:                                ; preds = %13, %14, %15, %17
   br label %special_type.exit46
 
 special_type.exit46:                              ; preds = %25, %26, %27, %29
-  %.0.i43 = phi i64 [ %..i44, %25 ], [ %.7.i42, %26 ], [ 6, %27 ], [ %.8.i45, %29 ]
+  %.0.i43 = phi i64 [ %..i44, %25 ], [ 6, %27 ], [ %.7.i42, %26 ], [ %.8.i45, %29 ]
   %32 = getelementptr %struct.Py_complex, ptr %20, i64 %.0.i43
   %.sroa.037.0.copyload = load double, ptr %32, align 16, !tbaa !7
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -2184,7 +2184,7 @@ define internal fastcc { double, double } @cmath_cosh_impl(double %0, double %1)
   br label %special_type.exit
 
 special_type.exit:                                ; preds = %25, %26, %27, %29
-  %.0.i = phi i64 [ %..i, %25 ], [ %.7.i, %26 ], [ 6, %27 ], [ %.8.i, %29 ]
+  %.0.i = phi i64 [ %..i, %25 ], [ 6, %27 ], [ %.7.i, %26 ], [ %.8.i, %29 ]
   %32 = getelementptr [7 x %struct.Py_complex], ptr @cosh_special_values, i64 %.0.i
   br i1 %6, label %39, label %33
 
@@ -2213,7 +2213,7 @@ special_type.exit:                                ; preds = %25, %26, %27, %29
   br label %special_type.exit35
 
 special_type.exit35:                              ; preds = %37, %38, %39, %41
-  %.0.i32 = phi i64 [ %..i33, %37 ], [ %.7.i31, %38 ], [ 6, %39 ], [ %.8.i34, %41 ]
+  %.0.i32 = phi i64 [ %..i33, %37 ], [ 6, %39 ], [ %.7.i31, %38 ], [ %.8.i34, %41 ]
   %44 = getelementptr %struct.Py_complex, ptr %32, i64 %.0.i32
   %.sroa.025.0.copyload = load double, ptr %44, align 16, !tbaa !7
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -2283,8 +2283,8 @@ special_type.exit35:                              ; preds = %37, %38, %39, %41
   br label %79
 
 79:                                               ; preds = %77, %78, %49, %50
-  %.sroa.025.1 = phi double [ %.sroa.025.0, %50 ], [ %.sroa.025.0, %49 ], [ %.sroa.025.2, %78 ], [ %.sroa.025.2, %77 ]
-  %.sroa.7.1 = phi double [ %.sroa.7.0, %50 ], [ %.sroa.7.0, %49 ], [ %.sroa.7.2, %78 ], [ %.sroa.7.2, %77 ]
+  %.sroa.025.1 = phi double [ %.sroa.025.0, %49 ], [ %.sroa.025.0, %50 ], [ %.sroa.025.2, %78 ], [ %.sroa.025.2, %77 ]
+  %.sroa.7.1 = phi double [ %.sroa.7.0, %49 ], [ %.sroa.7.0, %50 ], [ %.sroa.7.2, %78 ], [ %.sroa.7.2, %77 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.025.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.1, 1
   ret { double, double } %.fca.1.insert
@@ -2356,7 +2356,7 @@ define internal fastcc { double, double } @c_log(double %0, double %1) unnamed_a
   br label %special_type.exit
 
 special_type.exit:                                ; preds = %13, %14, %15, %17
-  %.0.i = phi i64 [ %..i, %13 ], [ %.7.i, %14 ], [ 6, %15 ], [ %.8.i, %17 ]
+  %.0.i = phi i64 [ %..i, %13 ], [ 6, %15 ], [ %.7.i, %14 ], [ %.8.i, %17 ]
   %20 = getelementptr [7 x %struct.Py_complex], ptr @log_special_values, i64 %.0.i
   br i1 %6, label %27, label %21
 
@@ -2385,7 +2385,7 @@ special_type.exit:                                ; preds = %13, %14, %15, %17
   br label %special_type.exit54
 
 special_type.exit54:                              ; preds = %25, %26, %27, %29
-  %.0.i51 = phi i64 [ %..i52, %25 ], [ %.7.i50, %26 ], [ 6, %27 ], [ %.8.i53, %29 ]
+  %.0.i51 = phi i64 [ %..i52, %25 ], [ 6, %27 ], [ %.7.i50, %26 ], [ %.8.i53, %29 ]
   %32 = getelementptr %struct.Py_complex, ptr %20, i64 %.0.i51
   %.sroa.046.0.copyload = load double, ptr %32, align 16, !tbaa !7
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -2549,7 +2549,7 @@ define internal fastcc { double, double } @cmath_sinh_impl(double %0, double %1)
   br label %special_type.exit
 
 special_type.exit:                                ; preds = %27, %28, %29, %31
-  %.0.i = phi i64 [ %..i, %27 ], [ %.7.i, %28 ], [ 6, %29 ], [ %.8.i, %31 ]
+  %.0.i = phi i64 [ %..i, %27 ], [ 6, %29 ], [ %.7.i, %28 ], [ %.8.i, %31 ]
   %34 = getelementptr [7 x %struct.Py_complex], ptr @sinh_special_values, i64 %.0.i
   br i1 %6, label %41, label %35
 
@@ -2578,7 +2578,7 @@ special_type.exit:                                ; preds = %27, %28, %29, %31
   br label %special_type.exit35
 
 special_type.exit35:                              ; preds = %39, %40, %41, %43
-  %.0.i32 = phi i64 [ %..i33, %39 ], [ %.7.i31, %40 ], [ 6, %41 ], [ %.8.i34, %43 ]
+  %.0.i32 = phi i64 [ %..i33, %39 ], [ 6, %41 ], [ %.7.i31, %40 ], [ %.8.i34, %43 ]
   %46 = getelementptr %struct.Py_complex, ptr %34, i64 %.0.i32
   %.sroa.025.0.copyload = load double, ptr %46, align 16, !tbaa !7
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -2648,8 +2648,8 @@ special_type.exit35:                              ; preds = %39, %40, %41, %43
   br label %81
 
 81:                                               ; preds = %79, %80, %51, %52
-  %.sroa.025.1 = phi double [ %.sroa.025.0, %52 ], [ %.sroa.025.0, %51 ], [ %.sroa.025.2, %80 ], [ %.sroa.025.2, %79 ]
-  %.sroa.7.1 = phi double [ %.sroa.7.0, %52 ], [ %.sroa.7.0, %51 ], [ %.sroa.7.2, %80 ], [ %.sroa.7.2, %79 ]
+  %.sroa.025.1 = phi double [ %.sroa.025.0, %51 ], [ %.sroa.025.0, %52 ], [ %.sroa.025.2, %80 ], [ %.sroa.025.2, %79 ]
+  %.sroa.7.1 = phi double [ %.sroa.7.0, %51 ], [ %.sroa.7.0, %52 ], [ %.sroa.7.2, %80 ], [ %.sroa.7.2, %79 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.025.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.1, 1
   ret { double, double } %.fca.1.insert
@@ -2710,7 +2710,7 @@ define internal fastcc { double, double } @cmath_tanh_impl(double %0, double %1)
   br label %special_type.exit
 
 special_type.exit:                                ; preds = %22, %23, %24, %26
-  %.0.i = phi i64 [ %..i, %22 ], [ %.7.i, %23 ], [ 6, %24 ], [ %.8.i, %26 ]
+  %.0.i = phi i64 [ %..i, %22 ], [ 6, %24 ], [ %.7.i, %23 ], [ %.8.i, %26 ]
   %29 = getelementptr [7 x %struct.Py_complex], ptr @tanh_special_values, i64 %.0.i
   br i1 %6, label %36, label %30
 
@@ -2739,7 +2739,7 @@ special_type.exit:                                ; preds = %22, %23, %24, %26
   br label %special_type.exit44
 
 special_type.exit44:                              ; preds = %34, %35, %36, %38
-  %.0.i41 = phi i64 [ %..i42, %34 ], [ %.7.i40, %35 ], [ 6, %36 ], [ %.8.i43, %38 ]
+  %.0.i41 = phi i64 [ %..i42, %34 ], [ 6, %36 ], [ %.7.i40, %35 ], [ %.8.i43, %38 ]
   %41 = getelementptr %struct.Py_complex, ptr %29, i64 %.0.i41
   %.sroa.034.0.copyload = load double, ptr %41, align 16, !tbaa !7
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -2747,8 +2747,8 @@ special_type.exit44:                              ; preds = %34, %35, %36, %38
   br label %42
 
 42:                                               ; preds = %10, %special_type.exit44
-  %.sroa.034.0 = phi double [ %.sroa.034.0.copyload, %special_type.exit44 ], [ %., %10 ]
-  %.sroa.6.0 = phi double [ %.sroa.6.0.copyload, %special_type.exit44 ], [ %16, %10 ]
+  %.sroa.034.0 = phi double [ %., %10 ], [ %.sroa.034.0.copyload, %special_type.exit44 ]
+  %.sroa.6.0 = phi double [ %16, %10 ], [ %.sroa.6.0.copyload, %special_type.exit44 ]
   %43 = fcmp une double %5, 0x7FF0000000000000
   %brmerge = or i1 %4, %43
   %44 = tail call ptr @__errno_location() #11
@@ -3917,7 +3917,7 @@ define internal range(i32 -1, 1) i32 @cmath_exec(ptr noundef %0) #0 {
   br label %30
 
 30:                                               ; preds = %17, %21, %25, %29, %13, %9, %5, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %5 ], [ -1, %9 ], [ -1, %13 ], [ -1, %17 ], [ -1, %21 ], [ 0, %29 ], [ -1, %25 ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %1 ], [ -1, %5 ], [ -1, %9 ], [ -1, %21 ], [ -1, %17 ], [ 0, %29 ], [ -1, %25 ]
   ret i32 %.0
 }
 

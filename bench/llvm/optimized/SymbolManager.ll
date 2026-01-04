@@ -1393,9 +1393,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento7SymExprELb1EE9push_backES5_.exi
   unreachable
 
 .sink.split:                                      ; preds = %44, %39, %35, %30, %26, %21, %17, %12, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento7SymExprELb1EE9push_backES5_.exit23
-  %.sink34 = phi i32 [ %71, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento7SymExprELb1EE9push_backES5_.exit23 ], [ %9, %12 ], [ %.pre.i, %17 ], [ %9, %21 ], [ %.pre.i10, %26 ], [ %9, %30 ], [ %.pre.i13, %35 ], [ %9, %39 ], [ %.pre.i16, %44 ]
-  %.sink = phi ptr [ %72, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento7SymExprELb1EE9push_backES5_.exit23 ], [ %2, %12 ], [ %.pre27, %17 ], [ %2, %21 ], [ %.pre26, %26 ], [ %2, %30 ], [ %.pre25, %35 ], [ %2, %39 ], [ %.pre24, %44 ]
-  %.sink32 = phi ptr [ %65, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento7SymExprELb1EE9push_backES5_.exit23 ], [ %14, %12 ], [ %14, %17 ], [ %23, %21 ], [ %23, %26 ], [ %32, %30 ], [ %32, %35 ], [ %41, %39 ], [ %41, %44 ]
+  %.sink34 = phi i32 [ %71, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento7SymExprELb1EE9push_backES5_.exit23 ], [ %.pre.i13, %35 ], [ %.pre.i10, %26 ], [ %.pre.i, %17 ], [ %9, %12 ], [ %9, %21 ], [ %9, %30 ], [ %9, %39 ], [ %.pre.i16, %44 ]
+  %.sink = phi ptr [ %72, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento7SymExprELb1EE9push_backES5_.exit23 ], [ %.pre25, %35 ], [ %.pre26, %26 ], [ %.pre27, %17 ], [ %2, %12 ], [ %2, %21 ], [ %2, %30 ], [ %2, %39 ], [ %.pre24, %44 ]
+  %.sink32 = phi ptr [ %65, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento7SymExprELb1EE9push_backES5_.exit23 ], [ %32, %35 ], [ %23, %26 ], [ %14, %17 ], [ %14, %12 ], [ %23, %21 ], [ %32, %30 ], [ %41, %39 ], [ %41, %44 ]
   %74 = zext i32 %.sink34 to i64
   %75 = getelementptr inbounds nuw ptr, ptr %.sink, i64 %74
   %76 = ptrtoint ptr %.sink32 to i64
@@ -1488,14 +1488,14 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento13SymbolManager14canSymbolica
   %12 = load ptr, ptr %11, align 16, !tbaa !149
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i8, ptr %13, align 16
-  switch i8 %14, label %29 [
+  switch i8 %14, label %28 [
     i8 43, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
     i8 42, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
     i8 41, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
     i8 33, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
     i8 11, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
     i8 13, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit
-    i8 46, label %18
+    i8 46, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
     i8 10, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
   ]
 
@@ -1503,53 +1503,53 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit:  ; preds = %1
   %15 = load i32, ptr %13, align 16
   %16 = and i32 %15, 267911168
   %17 = icmp eq i32 %16, 255328256
-  br i1 %17, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
+  br i1 %17, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8
 
-18:                                               ; preds = %1
-  %19 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %12) #21
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 74
-  %21 = load i8, ptr %20, align 2
-  %22 = and i8 %21, 1
-  %23 = icmp ne i8 %22, 0
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %24, align 8
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8: ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit
+  %18 = lshr i32 %15, 19
+  %19 = and i32 %18, 511
+  %20 = add nsw i32 %19, -435
+  %spec.select.i = icmp ult i32 %20, 20
+  br i1 %spec.select.i, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %28
+
+_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %1
+  %21 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %12) #21
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 74
+  %23 = load i8, ptr %22, align 2
+  %24 = and i8 %23, 1
+  %25 = icmp ne i8 %24, 0
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %26, align 8
   %.not.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i, 7
-  %25 = select i1 %23, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %25, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %._crit_edge
+  %27 = select i1 %25, i1 true, i1 %.not.i.i.i.i.i
+  br i1 %27, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge
 
-._crit_edge:                                      ; preds = %18
+_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge: ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %.pre = load ptr, ptr %7, align 16, !tbaa !149
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.sroa.0.0.copyload.i.i.i.i3.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !15
   %.pre11 = and i64 %.sroa.0.0.copyload.i.i.i.i3.pre, -16
   %.pre12 = inttoptr i64 %.pre11 to ptr
-  br label %29
+  br label %28
 
-_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit
-  %26 = lshr i32 %15, 19
-  %27 = and i32 %26, 511
-  %28 = add nsw i32 %27, -435
-  %spec.select.i = icmp ult i32 %28, 20
-  br i1 %spec.select.i, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %29
+28:                                               ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge, %1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8
+  %.pre-phi13 = phi ptr [ %.pre12, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge ], [ %11, %1 ], [ %11, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8 ]
+  %29 = phi ptr [ %.pre, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge ], [ %8, %1 ], [ %8, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8 ]
+  %30 = load ptr, ptr %.pre-phi13, align 8, !tbaa !149
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load i8, ptr %31, align 16
+  %33 = icmp eq i8 %32, 47
+  br i1 %33, label %34, label %36
 
-29:                                               ; preds = %._crit_edge, %1, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
-  %.pre-phi13 = phi ptr [ %.pre12, %._crit_edge ], [ %11, %1 ], [ %11, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ]
-  %30 = phi ptr [ %.pre, %._crit_edge ], [ %8, %1 ], [ %8, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ]
-  %31 = load ptr, ptr %.pre-phi13, align 8, !tbaa !149
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load i8, ptr %32, align 16
-  %34 = icmp eq i8 %33, 47
-  br i1 %34, label %35, label %37
+34:                                               ; preds = %28
+  %35 = tail call noundef zeroext i1 @_ZNK5clang4Type11isUnionTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %29) #21
+  br i1 %35, label %36, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
 
-35:                                               ; preds = %29
-  %36 = tail call noundef zeroext i1 @_ZNK5clang4Type11isUnionTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %30) #21
-  br i1 %36, label %37, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
-
-37:                                               ; preds = %35, %29
+36:                                               ; preds = %34, %28
   br label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %1, %1, %1, %1, %1, %1, %18, %35, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %37
-  %.0 = phi i1 [ false, %37 ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ], [ true, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ true, %35 ], [ true, %18 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %1, %1, %1, %1, %1, %1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8, %34, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %36
+  %.0 = phi i1 [ true, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ], [ false, %36 ], [ true, %34 ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
   ret i1 %.0
 }
 
@@ -2700,7 +2700,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento12SymbolReaper12isLiveRegionE
   br label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento9MemRegionENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5countES6_.exit
 
 _ZNK4llvm6detail12DenseSetImplIPKN5clang4ento9MemRegionENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5countES6_.exit: ; preds = %22, %42, %41, %41, %39, %32, %9
-  %.0 = phi i1 [ %40, %39 ], [ %35, %32 ], [ true, %9 ], [ true, %41 ], [ %45, %42 ], [ true, %41 ], [ true, %22 ]
+  %.0 = phi i1 [ %35, %32 ], [ %45, %42 ], [ %40, %39 ], [ true, %9 ], [ true, %41 ], [ true, %41 ], [ true, %22 ]
   ret i1 %.0
 }
 
@@ -2755,126 +2755,126 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_12SymbolReaper12
   %29 = load i32, ptr %28, align 8, !tbaa !38
   switch i32 %29, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread [
     i32 9, label %30
-    i32 0, label %93
-    i32 6, label %34
-    i32 7, label %38
-    i32 8, label %42
-    i32 2, label %73
-    i32 1, label %77
-    i32 3, label %81
-    i32 4, label %89
+    i32 0, label %91
+    i32 6, label %36
+    i32 7, label %40
+    i32 8, label %44
+    i32 2, label %75
+    i32 1, label %79
+    i32 3, label %83
+    i32 4, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit
   ]
 
 30:                                               ; preds = %.loopexit16
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !113
   %33 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper12isLiveRegionEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %32)
-  br i1 %33, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit
+  br i1 %33, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %34
 
-34:                                               ; preds = %.loopexit16
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !103
-  %37 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper6isLiveEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %36)
-  br i1 %37, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
+34:                                               ; preds = %30
+  %35 = tail call noundef zeroext i1 @_ZNK5clang4ento12SymbolReaper20isLazilyCopiedRegionEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %32)
+  br i1 %35, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
 
-38:                                               ; preds = %.loopexit16
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !107
-  %41 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper12isLiveRegionEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %40)
-  br i1 %41, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
+36:                                               ; preds = %.loopexit16
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %38 = load ptr, ptr %37, align 8, !tbaa !103
+  %39 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper6isLiveEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %38)
+  br i1 %39, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
 
-42:                                               ; preds = %.loopexit16
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !237
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %46 = load i32, ptr %45, align 8, !tbaa !238
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread, label %48
+40:                                               ; preds = %.loopexit16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %42 = load ptr, ptr %41, align 8, !tbaa !107
+  %43 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper12isLiveRegionEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %42)
+  br i1 %43, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
 
-48:                                               ; preds = %42
-  %49 = ptrtoint ptr %1 to i64
-  %50 = trunc i64 %49 to i32
-  %51 = lshr i32 %50, 4
-  %52 = lshr i32 %50, 9
-  %53 = xor i32 %51, %52
-  %54 = add i32 %46, -1
-  %.01828.i.i.i.i.i = and i32 %54, %53
-  %55 = zext nneg i32 %.01828.i.i.i.i.i to i64
-  %56 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.479", ptr %44, i64 %55
-  %57 = load ptr, ptr %56, align 8, !tbaa !37
-  %58 = icmp eq ptr %1, %57
-  br i1 %58, label %.loopexit, label %.lr.ph.i.i.i.i.i, !prof !162
+44:                                               ; preds = %.loopexit16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %46 = load ptr, ptr %45, align 8, !tbaa !237
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %48 = load i32, ptr %47, align 8, !tbaa !238
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread, label %50
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %48, %61
-  %59 = phi ptr [ %66, %61 ], [ %57, %48 ]
-  %.01830.i.i.i.i.i = phi i32 [ %.018.i.i.i.i.i, %61 ], [ %.01828.i.i.i.i.i, %48 ]
-  %.01629.i.i.i.i.i = phi i32 [ %62, %61 ], [ 1, %48 ]
-  %60 = icmp eq ptr %59, inttoptr (i64 -4096 to ptr)
-  br i1 %60, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread, label %61, !prof !118
+50:                                               ; preds = %44
+  %51 = ptrtoint ptr %1 to i64
+  %52 = trunc i64 %51 to i32
+  %53 = lshr i32 %52, 4
+  %54 = lshr i32 %52, 9
+  %55 = xor i32 %53, %54
+  %56 = add i32 %48, -1
+  %.01828.i.i.i.i.i = and i32 %56, %55
+  %57 = zext nneg i32 %.01828.i.i.i.i.i to i64
+  %58 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.479", ptr %46, i64 %57
+  %59 = load ptr, ptr %58, align 8, !tbaa !37
+  %60 = icmp eq ptr %1, %59
+  br i1 %60, label %.loopexit, label %.lr.ph.i.i.i.i.i, !prof !162
 
-61:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %62 = add i32 %.01629.i.i.i.i.i, 1
-  %63 = add i32 %.01629.i.i.i.i.i, %.01830.i.i.i.i.i
-  %.018.i.i.i.i.i = and i32 %63, %54
-  %64 = zext i32 %.018.i.i.i.i.i to i64
-  %65 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.479", ptr %44, i64 %64
-  %66 = load ptr, ptr %65, align 8, !tbaa !37
-  %67 = icmp eq ptr %1, %66
-  br i1 %67, label %.loopexit, label %.lr.ph.i.i.i.i.i, !prof !163, !llvm.loop !239
+.lr.ph.i.i.i.i.i:                                 ; preds = %50, %63
+  %61 = phi ptr [ %68, %63 ], [ %59, %50 ]
+  %.01830.i.i.i.i.i = phi i32 [ %.018.i.i.i.i.i, %63 ], [ %.01828.i.i.i.i.i, %50 ]
+  %.01629.i.i.i.i.i = phi i32 [ %64, %63 ], [ 1, %50 ]
+  %62 = icmp eq ptr %61, inttoptr (i64 -4096 to ptr)
+  br i1 %62, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread, label %63, !prof !118
 
-.loopexit:                                        ; preds = %61, %48
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %69 = load ptr, ptr %68, align 8, !tbaa !110
-  %70 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper12isLiveRegionEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %69)
-  br i1 %70, label %71, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
+63:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %64 = add i32 %.01629.i.i.i.i.i, 1
+  %65 = add i32 %.01629.i.i.i.i.i, %.01830.i.i.i.i.i
+  %.018.i.i.i.i.i = and i32 %65, %56
+  %66 = zext i32 %.018.i.i.i.i.i to i64
+  %67 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.479", ptr %46, i64 %66
+  %68 = load ptr, ptr %67, align 8, !tbaa !37
+  %69 = icmp eq ptr %1, %68
+  br i1 %69, label %.loopexit, label %.lr.ph.i.i.i.i.i, !prof !163, !llvm.loop !239
 
-71:                                               ; preds = %.loopexit
-  %72 = call noundef zeroext i1 @_ZN4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5eraseERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(8) %4)
+.loopexit:                                        ; preds = %63, %50
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %71 = load ptr, ptr %70, align 8, !tbaa !110
+  %72 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper12isLiveRegionEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %71)
+  br i1 %72, label %73, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
+
+73:                                               ; preds = %.loopexit
+  %74 = call noundef zeroext i1 @_ZN4llvm6detail12DenseSetImplIPKN5clang4ento7SymExprENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5eraseERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pre = load ptr, ptr %4, align 8, !tbaa !37
   br label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13
 
-73:                                               ; preds = %.loopexit16
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %75 = load ptr, ptr %74, align 8, !tbaa !119
-  %76 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper6isLiveEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %75)
-  br i1 %76, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
+75:                                               ; preds = %.loopexit16
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %77 = load ptr, ptr %76, align 8, !tbaa !119
+  %78 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper6isLiveEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %77)
+  br i1 %78, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
 
-77:                                               ; preds = %.loopexit16
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %79 = load ptr, ptr %78, align 8, !tbaa !125
-  %80 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper6isLiveEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %79)
-  br i1 %80, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
+79:                                               ; preds = %.loopexit16
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %81 = load ptr, ptr %80, align 8, !tbaa !125
+  %82 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper6isLiveEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %81)
+  br i1 %82, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
 
-81:                                               ; preds = %.loopexit16
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %83 = load ptr, ptr %82, align 8, !tbaa !127
-  %84 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper6isLiveEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %83)
-  br i1 %84, label %85, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
+83:                                               ; preds = %.loopexit16
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %85 = load ptr, ptr %84, align 8, !tbaa !127
+  %86 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper6isLiveEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %85)
+  br i1 %86, label %87, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %87 = load ptr, ptr %86, align 8, !tbaa !129
-  %88 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper6isLiveEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %87)
-  br i1 %88, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %89 = load ptr, ptr %88, align 8, !tbaa !129
+  %90 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper6isLiveEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %89)
+  br i1 %90, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
 
-89:                                               ; preds = %.loopexit16
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %91 = load ptr, ptr %90, align 8, !tbaa !25
-  %92 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper6isLiveEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %91)
-  br i1 %92, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
+91:                                               ; preds = %.loopexit16
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %93 = load ptr, ptr %92, align 8, !tbaa !39
+  %94 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper6isLiveEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %93)
+  br i1 %94, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
 
-93:                                               ; preds = %.loopexit16
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %95 = load ptr, ptr %94, align 8, !tbaa !39
-  %96 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper6isLiveEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %95)
-  br i1 %96, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
-
-_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit: ; preds = %30
-  %97 = tail call noundef zeroext i1 @_ZNK5clang4ento12SymbolReaper20isLazilyCopiedRegionEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %32)
+_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit: ; preds = %.loopexit16
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %96 = load ptr, ptr %95, align 8, !tbaa !25
+  %97 = tail call noundef zeroext i1 @_ZN5clang4ento12SymbolReaper6isLiveEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %96)
   br i1 %97, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
 
-_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13: ; preds = %30, %71, %85, %93, %89, %77, %73, %38, %34, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit
-  %98 = phi ptr [ %1, %30 ], [ %.pre, %71 ], [ %1, %85 ], [ %1, %93 ], [ %1, %89 ], [ %1, %77 ], [ %1, %73 ], [ %1, %38 ], [ %1, %34 ], [ %1, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit ]
+_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13: ; preds = %30, %73, %91, %36, %40, %79, %34, %75, %87, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit
+  %98 = phi ptr [ %1, %30 ], [ %.pre, %73 ], [ %1, %91 ], [ %1, %36 ], [ %1, %40 ], [ %1, %79 ], [ %1, %34 ], [ %1, %75 ], [ %1, %87 ], [ %1, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %98, ptr %3, align 8, !tbaa !37
   %99 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_12SymbolReaper12SymbolStatusENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_EixERKS6_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -2884,8 +2884,8 @@ _ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13: 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread
 
-_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %42, %81, %.loopexit16, %.loopexit, %85, %93, %89, %77, %73, %38, %34, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_12SymbolReaper12SymbolStatusENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5countES6_.exit
-  %.04 = phi i1 [ true, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_12SymbolReaper12SymbolStatusENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5countES6_.exit ], [ true, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13 ], [ false, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit ], [ false, %34 ], [ false, %38 ], [ false, %73 ], [ false, %77 ], [ false, %89 ], [ false, %93 ], [ false, %85 ], [ false, %81 ], [ false, %.loopexit16 ], [ false, %.loopexit ], [ false, %42 ], [ false, %.lr.ph.i.i.i.i.i ]
+_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %44, %.loopexit16, %.loopexit, %83, %91, %36, %40, %79, %34, %75, %87, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_12SymbolReaper12SymbolStatusENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5countES6_.exit
+  %.04 = phi i1 [ true, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_12SymbolReaper12SymbolStatusENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5countES6_.exit ], [ true, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread13 ], [ false, %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit ], [ false, %91 ], [ false, %87 ], [ false, %75 ], [ false, %34 ], [ false, %79 ], [ false, %40 ], [ false, %36 ], [ false, %83 ], [ false, %.loopexit16 ], [ false, %.loopexit ], [ false, %44 ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %.04
 }
 
@@ -3014,7 +3014,7 @@ _ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit: 
   br label %63
 
 63:                                               ; preds = %60, %_ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit, %61, %13, %16, %47, %7, %3
-  %.0 = phi i1 [ true, %3 ], [ false, %7 ], [ %62, %61 ], [ true, %13 ], [ true, %16 ], [ %42, %_ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit ], [ %48, %47 ], [ %spec.select, %60 ]
+  %.0 = phi i1 [ false, %7 ], [ true, %3 ], [ true, %13 ], [ true, %16 ], [ %spec.select, %60 ], [ %42, %_ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit ], [ %62, %61 ], [ %48, %47 ]
   ret i1 %.0
 }
 
@@ -3243,7 +3243,7 @@ _ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit: 
   br label %32
 
 32:                                               ; preds = %11, %9, %3, %_ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit
-  %.0 = phi i1 [ %31, %_ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit ], [ false, %3 ], [ %not., %9 ], [ true, %11 ]
+  %.0 = phi i1 [ %31, %_ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit ], [ %not., %9 ], [ false, %3 ], [ true, %11 ]
   ret i1 %.0
 }
 

@@ -195,7 +195,7 @@ default.unreachable:                              ; preds = %0
   br label %_ZN3std3sys3pal4unix17decode_error_kind17hc61899be20d8e934E.exit
 
 _ZN3std3sys3pal4unix17decode_error_kind17hc61899be20d8e934E.exit: ; preds = %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %4, %50, %47, %43
-  %.0 = phi i8 [ %spec.select.i.i, %43 ], [ %49, %47 ], [ %52, %50 ], [ 13, %42 ], [ 40, %41 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 1, %40 ], [ 34, %4 ]
+  %.0 = phi i8 [ %52, %50 ], [ %spec.select.i.i, %43 ], [ %49, %47 ], [ 13, %42 ], [ 40, %41 ], [ 1, %40 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 34, %4 ]
   ret i8 %.0
 }
 
@@ -745,8 +745,8 @@ _ZN7uu_head12read_n_bytes17h9c3988130e973429E.exit: ; preds = %22, %31, %35
   br i1 %87, label %.invoke, label %128
 
 .invoke:                                          ; preds = %103, %92, %85
-  %88 = phi i64 [ %86, %85 ], [ %95, %92 ], [ %50, %103 ]
-  %89 = phi ptr [ @anon.ef442a2b55f7186bdeeec1f57aaf30bb.10, %85 ], [ @anon.ef442a2b55f7186bdeeec1f57aaf30bb.8, %92 ], [ @anon.ef442a2b55f7186bdeeec1f57aaf30bb.9, %103 ]
+  %88 = phi i64 [ %95, %92 ], [ %86, %85 ], [ %50, %103 ]
+  %89 = phi ptr [ @anon.ef442a2b55f7186bdeeec1f57aaf30bb.8, %92 ], [ @anon.ef442a2b55f7186bdeeec1f57aaf30bb.10, %85 ], [ @anon.ef442a2b55f7186bdeeec1f57aaf30bb.9, %103 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %88, i64 noundef 65536, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %89) #16
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -1101,8 +1101,8 @@ define hidden noundef ptr @_ZN7uu_head21read_but_last_n_bytes17h9da0d1357b1e4985
   br i1 %63, label %.invoke, label %104
 
 .invoke:                                          ; preds = %79, %68, %61
-  %64 = phi i64 [ %62, %61 ], [ %71, %68 ], [ %26, %79 ]
-  %65 = phi ptr [ @anon.ef442a2b55f7186bdeeec1f57aaf30bb.10, %61 ], [ @anon.ef442a2b55f7186bdeeec1f57aaf30bb.8, %68 ], [ @anon.ef442a2b55f7186bdeeec1f57aaf30bb.9, %79 ]
+  %64 = phi i64 [ %71, %68 ], [ %62, %61 ], [ %26, %79 ]
+  %65 = phi ptr [ @anon.ef442a2b55f7186bdeeec1f57aaf30bb.8, %68 ], [ @anon.ef442a2b55f7186bdeeec1f57aaf30bb.10, %61 ], [ @anon.ef442a2b55f7186bdeeec1f57aaf30bb.9, %79 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %64, i64 noundef 65536, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %65) #16
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -1315,7 +1315,7 @@ define hidden noundef ptr @_ZN7uu_head21read_but_last_n_lines17h40f8489aed322f24
           to label %18 unwind label %16
 
 .body:                                            ; preds = %75, %27, %16, %22
-  %.pn37 = phi { ptr, i32 } [ %.pn, %22 ], [ %17, %16 ], [ %28, %27 ], [ %76, %75 ]
+  %.pn37 = phi { ptr, i32 } [ %.pn, %22 ], [ %28, %27 ], [ %17, %16 ], [ %76, %75 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9622e809613d5f6bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12) #13
           to label %100 unwind label %88
 
@@ -1571,7 +1571,7 @@ define hidden noundef ptr @_ZN7uu_head21read_but_last_n_lines17h40f8489aed322f24
   br label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9622e809613d5f6bE.exit"
 
 "_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9622e809613d5f6bE.exit": ; preds = %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9622e809613d5f6bE.exit.sink.split", %96, %90, %48, %42
-  %.0 = phi ptr [ null, %42 ], [ null, %48 ], [ %.1, %90 ], [ %.1, %96 ], [ %.0.ph, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9622e809613d5f6bE.exit.sink.split" ]
+  %.0 = phi ptr [ %.1, %96 ], [ null, %42 ], [ null, %48 ], [ %.1, %90 ], [ %.0.ph, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9622e809613d5f6bE.exit.sink.split" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %.0
@@ -1602,7 +1602,7 @@ define hidden noundef ptr @_ZN7uu_head21read_but_last_n_lines17hfb2a34ddebf56cf3
           to label %18 unwind label %16
 
 .body:                                            ; preds = %75, %27, %16, %22
-  %.pn37 = phi { ptr, i32 } [ %.pn, %22 ], [ %17, %16 ], [ %28, %27 ], [ %76, %75 ]
+  %.pn37 = phi { ptr, i32 } [ %.pn, %22 ], [ %28, %27 ], [ %17, %16 ], [ %76, %75 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9622e809613d5f6bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12) #13
           to label %100 unwind label %88
 
@@ -1858,7 +1858,7 @@ define hidden noundef ptr @_ZN7uu_head21read_but_last_n_lines17hfb2a34ddebf56cf3
   br label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9622e809613d5f6bE.exit"
 
 "_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9622e809613d5f6bE.exit": ; preds = %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9622e809613d5f6bE.exit.sink.split", %96, %90, %48, %42
-  %.0 = phi ptr [ null, %42 ], [ null, %48 ], [ %.1, %90 ], [ %.1, %96 ], [ %.0.ph, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9622e809613d5f6bE.exit.sink.split" ]
+  %.0 = phi ptr [ %.1, %96 ], [ null, %42 ], [ null, %48 ], [ %.1, %90 ], [ %.0.ph, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9622e809613d5f6bE.exit.sink.split" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %.0

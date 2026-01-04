@@ -170,7 +170,7 @@ parse_rule.exit:                                  ; preds = %.loopexit.i, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %init_pattern_from_file.exit.thread
 
-47:                                               ; preds = %.loopexit.i, %.thread.i
+47:                                               ; preds = %.thread.i, %.loopexit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 108
   %49 = load i32, ptr %48, align 4, !tbaa !35
@@ -369,8 +369,8 @@ parse_rule.exit:                                  ; preds = %.loopexit.i, %39
   br label %150
 
 150:                                              ; preds = %149, %146
-  %151 = phi i32 [ %.0.lcssa.i, %149 ], [ %144, %146 ]
-  %152 = phi i32 [ %.068.lcssa.i, %149 ], [ %.pre.i, %146 ]
+  %151 = phi i32 [ %144, %146 ], [ %.0.lcssa.i, %149 ]
+  %152 = phi i32 [ %.pre.i, %146 ], [ %.068.lcssa.i, %149 ]
   %153 = mul nsw i32 %152, %151
   %154 = sext i32 %153 to i64
   %155 = tail call noalias ptr @av_calloc(i64 noundef %154, i64 noundef 1) #9
@@ -479,7 +479,7 @@ parse_rule.exit:                                  ; preds = %.loopexit.i, %39
   br label %204
 
 204:                                              ; preds = %202, %.critedge, %200
-  %fill_picture_monoblack.sink = phi ptr [ @fill_picture_rgb, %200 ], [ @fill_picture_rgb, %.critedge ], [ %spec.select, %202 ]
+  %fill_picture_monoblack.sink = phi ptr [ @fill_picture_rgb, %.critedge ], [ %spec.select, %202 ], [ @fill_picture_rgb, %200 ]
   %205 = getelementptr inbounds nuw i8, ptr %4, i64 384
   store ptr %fill_picture_monoblack.sink, ptr %205, align 8, !tbaa !47
   %206 = load i32, ptr %5, align 8, !tbaa !20
@@ -501,8 +501,8 @@ parse_rule.exit:                                  ; preds = %.loopexit.i, %39
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.40, i32 noundef %206, i32 noundef %208, i32 noundef %210, i32 noundef %212, ptr noundef %213, i32 noundef %215, i32 noundef %217, i32 noundef %219, i64 noundef %221) #9
   br label %init_pattern_from_file.exit.thread
 
-init_pattern_from_file.exit.thread:               ; preds = %122, %164, %._crit_edge107.i, %parse_rule.exit, %71, %204
-  %.0 = phi i32 [ 0, %204 ], [ -12, %71 ], [ -22, %parse_rule.exit ], [ %128, %122 ], [ -12, %164 ], [ -22, %._crit_edge107.i ]
+init_pattern_from_file.exit.thread:               ; preds = %122, %._crit_edge107.i, %164, %parse_rule.exit, %71, %204
+  %.0 = phi i32 [ -12, %71 ], [ -22, %parse_rule.exit ], [ 0, %204 ], [ %128, %122 ], [ -22, %._crit_edge107.i ], [ -12, %164 ]
   ret i32 %.0
 }
 
@@ -818,7 +818,7 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   br label %evolve.exit
 
 evolve.exit:                                      ; preds = %10, %.preheader.lr.ph.i, %._crit_edge7.loopexit.i
-  %163 = phi i8 [ %.pre10.i, %._crit_edge7.loopexit.i ], [ %24, %10 ], [ %24, %.preheader.lr.ph.i ]
+  %163 = phi i8 [ %24, %10 ], [ %.pre10.i, %._crit_edge7.loopexit.i ], [ %24, %.preheader.lr.ph.i ]
   %.not174.i = icmp eq i8 %163, 0
   %164 = zext i1 %.not174.i to i8
   store i8 %164, ptr %23, align 8, !tbaa !46

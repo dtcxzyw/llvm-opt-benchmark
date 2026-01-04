@@ -586,7 +586,7 @@ _ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %_ZN9grpc_core4Fork1
   ret i32 %.0
 
 .body:                                            ; preds = %91, %81, %55, %50, %44
-  %.pn25.pn = phi { ptr, i32 } [ %.pn22, %55 ], [ %45, %44 ], [ %.pn, %50 ], [ %92, %91 ], [ %82, %81 ]
+  %.pn25.pn = phi { ptr, i32 } [ %.pn, %50 ], [ %.pn22, %55 ], [ %45, %44 ], [ %82, %81 ], [ %92, %91 ]
   call void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
@@ -895,7 +895,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; pr
   br label %30
 
 30:                                               ; preds = %.sink.split, %25, %21, %.critedge16
-  %.0 = phi ptr [ null, %.critedge16 ], [ null, %21 ], [ null, %25 ], [ %.sink, %.sink.split ]
+  %.0 = phi ptr [ null, %21 ], [ null, %.critedge16 ], [ null, %25 ], [ %.sink, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1592,7 +1592,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi37EEERS2_RAT__Kc.exit: ; pr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %49, %.critedge17, %12, %57, %37
-  %.012 = phi ptr [ %40, %37 ], [ %58, %57 ], [ null, %12 ], [ null, %.critedge17 ], [ %47, %49 ], [ null, %.lr.ph ]
+  %.012 = phi ptr [ %58, %57 ], [ null, %.critedge17 ], [ %40, %37 ], [ %47, %49 ], [ null, %12 ], [ null, %.lr.ph ]
   ret ptr %.012
 }
 
@@ -2332,7 +2332,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit: ; pr
   br label %16
 
 16:                                               ; preds = %1, %13, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit
-  %.0 = phi ptr [ null, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit ], [ %15, %13 ], [ null, %1 ]
+  %.0 = phi ptr [ %15, %13 ], [ null, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit ], [ null, %1 ]
   ret ptr %.0
 }
 

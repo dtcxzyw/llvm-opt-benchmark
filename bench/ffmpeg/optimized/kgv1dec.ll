@@ -256,8 +256,8 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %144 = select i1 %142, i1 %143, i1 false
   br i1 %144, label %.lr.ph, label %.thread.thread
 
-.thread.thread:                                   ; preds = %.thread, %90, %101, %123, %130, %.preheader, %110
-  %.0121194 = phi i32 [ %.0121195, %110 ], [ 0, %.preheader ], [ %.0121195, %130 ], [ %.0121195, %123 ], [ %.0121195, %101 ], [ %.0121195, %90 ], [ %.4125, %.thread ]
+.thread.thread:                                   ; preds = %.thread, %101, %90, %123, %130, %.preheader, %110
+  %.0121194 = phi i32 [ %.0121195, %110 ], [ 0, %.preheader ], [ %.0121195, %130 ], [ %.0121195, %123 ], [ %.0121195, %90 ], [ %.0121195, %101 ], [ %.4125, %.thread ]
   %.not159 = icmp eq i32 %.0121194, %26
   br i1 %.not159, label %147, label %145
 
@@ -285,7 +285,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %159
 
 159:                                              ; preds = %61, %36, %15, %4, %147, %58
-  %.0 = phi i32 [ %158, %147 ], [ -12, %58 ], [ -1094995529, %4 ], [ -1094995529, %15 ], [ %38, %36 ], [ %62, %61 ]
+  %.0 = phi i32 [ -12, %58 ], [ -1094995529, %4 ], [ -1094995529, %15 ], [ %38, %36 ], [ %158, %147 ], [ %62, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

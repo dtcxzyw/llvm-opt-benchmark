@@ -118,7 +118,7 @@ CopyLiteralsToByteArray.exit:                     ; preds = %36
   br i1 %.not, label %.thread467, label %48
 
 .thread467:                                       ; preds = %CopyLiteralsToByteArray.exit, %10
-  %47 = phi ptr [ null, %10 ], [ %.ph, %CopyLiteralsToByteArray.exit ]
+  %47 = phi ptr [ %.ph, %CopyLiteralsToByteArray.exit ], [ null, %10 ]
   store i64 1, ptr %7, align 8, !tbaa !20
   br label %SplitByteVectorLiteral.exit
 

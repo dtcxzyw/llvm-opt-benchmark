@@ -2361,8 +2361,8 @@ _ZN12clap_builder6parser7matches11matched_arg10MatchedArg9get_index17h165756516a
   br label %"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h337f81c16ac6ce05E.exit.thread"
 
 "_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h337f81c16ac6ce05E.exit.thread": ; preds = %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h256a3fdda6844c00E.exit.backedge.i", %3, %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg9get_index17h165756516a2885fbE.exit, %20
-  %.sroa.4.0 = phi i64 [ %27, %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg9get_index17h165756516a2885fbE.exit ], [ undef, %20 ], [ undef, %3 ], [ undef, %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h256a3fdda6844c00E.exit.backedge.i" ]
-  %.sroa.0.0 = phi i64 [ 1, %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg9get_index17h165756516a2885fbE.exit ], [ 0, %20 ], [ 0, %3 ], [ 0, %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h256a3fdda6844c00E.exit.backedge.i" ]
+  %.sroa.4.0 = phi i64 [ undef, %20 ], [ %27, %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg9get_index17h165756516a2885fbE.exit ], [ undef, %3 ], [ undef, %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h256a3fdda6844c00E.exit.backedge.i" ]
+  %.sroa.0.0 = phi i64 [ 0, %20 ], [ 1, %_ZN12clap_builder6parser7matches11matched_arg10MatchedArg9get_index17h165756516a2885fbE.exit ], [ 0, %3 ], [ 0, %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h256a3fdda6844c00E.exit.backedge.i" ]
   %28 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %29 = insertvalue { i64, i64 } %28, i64 %.sroa.4.0, 1
   ret { i64, i64 } %29
@@ -3763,7 +3763,7 @@ default.unreachable:                              ; preds = %9
   br label %"_ZN71_$LT$clap_builder..mkeymap..KeyType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd78906f986e02551E.llvm.7008872586094235178.exit"
 
 "_ZN71_$LT$clap_builder..mkeymap..KeyType$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd78906f986e02551E.llvm.7008872586094235178.exit": ; preds = %2, %10, %16, %21, %27
-  %.0.shrunk.i = phi i1 [ %15, %10 ], [ %32, %27 ], [ false, %2 ], [ %26, %21 ], [ false, %16 ]
+  %.0.shrunk.i = phi i1 [ %15, %10 ], [ false, %2 ], [ %32, %27 ], [ %26, %21 ], [ false, %16 ]
   ret i1 %.0.shrunk.i
 }
 
@@ -5550,10 +5550,10 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN12clap_build
   br label %50
 
 .body.thread:                                     ; preds = %34, %54
-  %eh.lpad-body16 = phi { ptr, i32 } [ %lpad.thr_comm, %54 ], [ %35, %34 ]
+  %eh.lpad-body16 = phi { ptr, i32 } [ %35, %34 ], [ %lpad.thr_comm, %54 ]
   resume { ptr, i32 } %eh.lpad-body16
 
-54:                                               ; preds = %15, %19
+54:                                               ; preds = %19, %15
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr75drop_in_place$LT$clap_builder..parser..matches..matched_arg..MatchedArg$GT$17hed15162c7a11d4dcE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1) #42
@@ -6286,7 +6286,7 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$clap_builder..mkeymap..KeyType$u20$
   ]
 
 "_ZN12clap_builder7builder6os_str94_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$clap_builder..builder..os_str..inner..Inner$GT$2eq17h1b5017c1f8c46521E.exit": ; preds = %18, %13, %2, %24, %7
-  %.0.shrunk = phi i1 [ %12, %7 ], [ %29, %24 ], [ false, %2 ], [ %23, %18 ], [ false, %13 ]
+  %.0.shrunk = phi i1 [ %12, %7 ], [ false, %2 ], [ %29, %24 ], [ %23, %18 ], [ false, %13 ]
   ret i1 %.0.shrunk
 
 default.unreachable4:                             ; preds = %6

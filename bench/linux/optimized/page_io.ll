@@ -96,7 +96,7 @@ define dso_local i32 @generic_swapfile_activate(ptr noundef %0, ptr noundef read
   %27 = phi i64 [ %54, %53 ], [ 0, %.lr.ph ]
   %28 = load i32, ptr %16, align 4
   %29 = zext i32 %28 to i64
-  %30 = icmp ult i64 %27, %29
+  %30 = icmp samesign ult i64 %27, %29
   br i1 %30, label %31, label %._crit_edge
 
 31:                                               ; preds = %.lr.ph.split.us

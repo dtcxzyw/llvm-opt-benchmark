@@ -276,7 +276,7 @@ __redisAsyncCopyError.exit:                       ; preds = %20
   br label %122
 
 122:                                              ; preds = %1, %__redisAsyncCopyError.exit, %105
-  %.0 = phi ptr [ null, %105 ], [ %25, %__redisAsyncCopyError.exit ], [ null, %1 ]
+  %.0 = phi ptr [ %25, %__redisAsyncCopyError.exit ], [ null, %105 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -450,7 +450,7 @@ refreshTimeout.exit.i:                            ; preds = %._crit_edge24.i.i, 
   br label %redisAsyncSetConnectCallbackImpl.exit
 
 redisAsyncSetConnectCallbackImpl.exit:            ; preds = %2, %5, %refreshTimeout.exit.i, %37
-  %.0.i = phi i32 [ -1, %5 ], [ -1, %2 ], [ 0, %refreshTimeout.exit.i ], [ 0, %37 ]
+  %.0.i = phi i32 [ -1, %2 ], [ -1, %5 ], [ 0, %refreshTimeout.exit.i ], [ 0, %37 ]
   ret i32 %.0.i
 }
 
@@ -544,7 +544,7 @@ refreshTimeout.exit.i:                            ; preds = %._crit_edge24.i.i, 
   br label %redisAsyncSetConnectCallbackImpl.exit
 
 redisAsyncSetConnectCallbackImpl.exit:            ; preds = %2, %5, %refreshTimeout.exit.i, %37
-  %.0.i = phi i32 [ -1, %5 ], [ -1, %2 ], [ 0, %refreshTimeout.exit.i ], [ 0, %37 ]
+  %.0.i = phi i32 [ -1, %2 ], [ -1, %5 ], [ 0, %refreshTimeout.exit.i ], [ 0, %37 ]
   ret i32 %.0.i
 }
 
@@ -1275,7 +1275,7 @@ define void @redisProcessCallbacks(ptr noundef %0) local_unnamed_addr #0 {
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %32, %35, %39, %43, %47
-  %.0.i = phi i64 [ %34, %32 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %49, %47 ]
+  %.0.i = phi i64 [ %49, %47 ], [ %34, %32 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ]
   %50 = icmp eq i64 %.0.i, 0
   br i1 %50, label %hi_sdslen.exit.thread, label %__redisAsyncDisconnect.exit
 
@@ -1370,7 +1370,7 @@ redisIsSubscribeReply.exit:                       ; preds = %96
   %.not19.i.not = icmp eq i32 %98, 0
   br i1 %.not19.i.not, label %redisIsSubscribeReply.exit.thread90, label %redisIsSubscribeReply.exit.thread
 
-redisIsSubscribeReply.exit.thread:                ; preds = %67, %73, %78, %redisIsSubscribeReply.exit
+redisIsSubscribeReply.exit.thread:                ; preds = %73, %78, %67, %redisIsSubscribeReply.exit
   %99 = load ptr, ptr %18, align 8, !tbaa !57
   %.not.i37 = icmp eq ptr %99, null
   br i1 %.not.i37, label %__redisRunPushCallback.exit, label %100
@@ -2463,7 +2463,7 @@ __redisAsyncCopyError.exit.i.i:                   ; preds = %49
   br label %redisAsyncDisconnect.exit
 
 redisAsyncDisconnect.exit:                        ; preds = %69, %67, %.thread.i17, %60, %49, %46, %14, %65, %24, %__redisAsyncCopyError.exit
-  %.0 = phi i32 [ -1, %__redisAsyncCopyError.exit ], [ -1, %24 ], [ 0, %65 ], [ 0, %14 ], [ -1, %46 ], [ -1, %49 ], [ -1, %60 ], [ -1, %.thread.i17 ], [ -1, %67 ], [ -1, %69 ]
+  %.0 = phi i32 [ -1, %__redisAsyncCopyError.exit ], [ -1, %24 ], [ 0, %14 ], [ -1, %.thread.i17 ], [ 0, %65 ], [ -1, %46 ], [ -1, %49 ], [ -1, %60 ], [ -1, %67 ], [ -1, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -3504,8 +3504,8 @@ _dictKeyIndex.exit.i.i:                           ; preds = %218, %206, %_dictEx
   br i1 %.not.i22.i, label %.loopexit, label %.lr.ph.split.i.i, !llvm.loop !111
 
 dictFind.exit.i:                                  ; preds = %274, %.lr.ph.split.us.i.i, %.dictFind.exit.loopexit32_crit_edge.i
-  %279 = phi ptr [ %.pre.pre.i, %.dictFind.exit.loopexit32_crit_edge.i ], [ %259, %.lr.ph.split.us.i.i ], [ %267, %274 ]
-  %.0.i21.i = phi ptr [ %.01622.i.i, %.dictFind.exit.loopexit32_crit_edge.i ], [ %.01622.us.i.i, %.lr.ph.split.us.i.i ], [ %.01622.i.i, %274 ]
+  %279 = phi ptr [ %259, %.lr.ph.split.us.i.i ], [ %.pre.pre.i, %.dictFind.exit.loopexit32_crit_edge.i ], [ %267, %274 ]
+  %.0.i21.i = phi ptr [ %.01622.us.i.i, %.lr.ph.split.us.i.i ], [ %.01622.i.i, %.dictFind.exit.loopexit32_crit_edge.i ], [ %.01622.i.i, %274 ]
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.i21.i, i64 8
   %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !13
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 16
@@ -3545,7 +3545,7 @@ dictReplace.exit:                                 ; preds = %237, %241
 .backedge:                                        ; preds = %dictReplace.exit, %.loopexit
   br label %43
 
-.loopexit:                                        ; preds = %277, %265, %289, %285, %.loopexit.i, %246
+.loopexit:                                        ; preds = %277, %265, %285, %289, %.loopexit.i, %246
   call void @hi_sdsfree(ptr noundef nonnull %56) #16
   br label %.backedge
 
@@ -3950,7 +3950,7 @@ __redisPushCallback.exit:                         ; preds = %311, %48
   br label %__redisAsyncCopyError.exit
 
 __redisAsyncCopyError.exit:                       ; preds = %462, %__redisPushCallback.exit, %refreshTimeout.exit, %460, %297, %5
-  %.062 = phi i32 [ -1, %5 ], [ -1, %297 ], [ 0, %460 ], [ 0, %refreshTimeout.exit ], [ -1, %__redisPushCallback.exit ], [ -1, %462 ]
+  %.062 = phi i32 [ -1, %5 ], [ 0, %refreshTimeout.exit ], [ -1, %297 ], [ 0, %460 ], [ -1, %__redisPushCallback.exit ], [ -1, %462 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.062
 }
@@ -4111,7 +4111,7 @@ define internal i32 @callbackHash(ptr noundef readonly captures(none) %0) #7 {
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %6, %9, %13, %17, %21
-  %.0.i = phi i64 [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ], [ %23, %21 ]
+  %.0.i = phi i64 [ %23, %21 ], [ %8, %6 ], [ %12, %9 ], [ %16, %13 ], [ %20, %17 ]
   %24 = trunc i64 %.0.i to i32
   %.not6.i = icmp eq i32 %24, 0
   br i1 %.not6.i, label %dictGenHashFunction.exit, label %.lr.ph.i
@@ -4192,7 +4192,7 @@ define internal range(i32 0, 2) i32 @callbackKeyCompare(ptr readnone captures(no
   br label %hi_sdslen.exit
 
 hi_sdslen.exit:                                   ; preds = %3, %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %25, %23 ], [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ 0, %3 ]
   %26 = trunc i64 %.0.i to i32
   %27 = getelementptr inbounds i8, ptr %2, i64 -1
   %28 = load i8, ptr %27, align 1, !tbaa !12
@@ -4235,7 +4235,7 @@ hi_sdslen.exit:                                   ; preds = %3, %8, %11, %15, %1
   br label %hi_sdslen.exit9
 
 hi_sdslen.exit9:                                  ; preds = %hi_sdslen.exit, %31, %34, %38, %42, %46
-  %.0.i8 = phi i64 [ %33, %31 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %48, %46 ], [ 0, %hi_sdslen.exit ]
+  %.0.i8 = phi i64 [ %48, %46 ], [ %33, %31 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ 0, %hi_sdslen.exit ]
   %49 = trunc i64 %.0.i8 to i32
   %.not = icmp eq i32 %26, %49
   br i1 %.not, label %50, label %54

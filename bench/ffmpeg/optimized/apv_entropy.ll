@@ -1027,10 +1027,10 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   br i1 %.not370, label %.preheader488.preheader, label %.preheader
 
 209:                                              ; preds = %.thread418, %.thread424
-  %.val405 = phi i32 [ %202, %.thread424 ], [ %135, %.thread418 ]
-  %.0309 = phi i32 [ %206, %.thread424 ], [ %99, %.thread418 ]
-  %.1305 = phi i32 [ %204, %.thread424 ], [ %140, %.thread418 ]
-  %.1295 = phi i32 [ %.5299, %.thread424 ], [ %136, %.thread418 ]
+  %.val405 = phi i32 [ %135, %.thread418 ], [ %202, %.thread424 ]
+  %.0309 = phi i32 [ %99, %.thread418 ], [ %206, %.thread424 ]
+  %.1305 = phi i32 [ %140, %.thread418 ], [ %204, %.thread424 ]
+  %.1295 = phi i32 [ %136, %.thread418 ], [ %.5299, %.thread424 ]
   %210 = lshr i32 %.val405, 3
   %211 = zext nneg i32 %210 to i64
   %212 = getelementptr inbounds nuw i8, ptr %.val400, i64 %211
@@ -1221,10 +1221,10 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   br i1 %.not372, label %.preheader, label %.preheader488.preheader
 
 .preheader488.preheader:                          ; preds = %.thread464, %207, %.thread437, %269, %517
-  %.ph = phi i32 [ %337, %.thread437 ], [ %202, %207 ], [ %265, %269 ], [ %513, %517 ], [ %580, %.thread464 ]
-  %.2311.ph = phi i32 [ %341, %.thread437 ], [ %206, %207 ], [ %278, %269 ], [ %526, %517 ], [ %586, %.thread464 ]
-  %.3307.ph = phi i32 [ %339, %.thread437 ], [ %204, %207 ], [ %.1305, %269 ], [ %.2306, %517 ], [ %584, %.thread464 ]
-  %.7301.ph = phi i32 [ %.11, %.thread437 ], [ %.5299, %207 ], [ %276, %269 ], [ %524, %517 ], [ %.19, %.thread464 ]
+  %.ph = phi i32 [ %202, %207 ], [ %265, %269 ], [ %513, %517 ], [ %337, %.thread437 ], [ %580, %.thread464 ]
+  %.2311.ph = phi i32 [ %206, %207 ], [ %278, %269 ], [ %526, %517 ], [ %341, %.thread437 ], [ %586, %.thread464 ]
+  %.3307.ph = phi i32 [ %204, %207 ], [ %.1305, %269 ], [ %.2306, %517 ], [ %339, %.thread437 ], [ %584, %.thread464 ]
+  %.7301.ph = phi i32 [ %.5299, %207 ], [ %276, %269 ], [ %524, %517 ], [ %.11, %.thread437 ], [ %.19, %.thread464 ]
   br label %.preheader488
 
 .preheader488:                                    ; preds = %.preheader488.preheader, %.thread450
@@ -1607,7 +1607,7 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   br label %.thread430
 
 .thread430:                                       ; preds = %.thread430.sink.split, %517, %372, %269, %127
-  %.2296 = phi i32 [ %136, %127 ], [ %276, %269 ], [ %387, %372 ], [ %524, %517 ], [ %.2296.ph, %.thread430.sink.split ]
+  %.2296 = phi i32 [ %387, %372 ], [ %524, %517 ], [ %276, %269 ], [ %136, %127 ], [ %.2296.ph, %.thread430.sink.split ]
   %591 = icmp samesign ugt i32 %.2296, 64
   br i1 %591, label %592, label %.thread467
 
@@ -1616,8 +1616,8 @@ apv_read_vlc.exit.thread:                         ; preds = %apv_read_vlc.exit.a
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %593, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %.2296) #8
   br label %.thread467
 
-.thread467:                                       ; preds = %191, %164, %318, %438, %411, %561, %.thread453, %.thread439, %.thread426, %.thread414, %89, %.thread430, %592
-  %.1 = phi i32 [ -1094995529, %592 ], [ -1094995529, %89 ], [ 0, %.thread430 ], [ -1094995529, %.thread414 ], [ -1094995529, %.thread426 ], [ -1094995529, %.thread439 ], [ -1094995529, %.thread453 ], [ 0, %561 ], [ 0, %411 ], [ 0, %438 ], [ 0, %318 ], [ 0, %164 ], [ 0, %191 ]
+.thread467:                                       ; preds = %164, %191, %318, %438, %411, %561, %.thread453, %.thread439, %.thread426, %.thread414, %89, %.thread430, %592
+  %.1 = phi i32 [ -1094995529, %.thread414 ], [ -1094995529, %.thread426 ], [ -1094995529, %.thread439 ], [ -1094995529, %.thread453 ], [ -1094995529, %592 ], [ -1094995529, %89 ], [ 0, %.thread430 ], [ 0, %561 ], [ 0, %411 ], [ 0, %438 ], [ 0, %318 ], [ 0, %191 ], [ 0, %164 ]
   ret i32 %.1
 }
 

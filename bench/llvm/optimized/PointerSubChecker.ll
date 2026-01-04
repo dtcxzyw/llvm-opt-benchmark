@@ -1020,8 +1020,8 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_14BinaryOperatorEE10_check
   br label %.thread.i
 
 .thread.i:                                        ; preds = %117, %114, %94, %89
-  %.047.i = phi ptr [ null, %94 ], [ %121, %117 ], [ null, %114 ], [ null, %89 ]
-  %.046.i = phi ptr [ null, %94 ], [ %.2.i, %117 ], [ %.2.i, %114 ], [ null, %89 ]
+  %.047.i = phi ptr [ %121, %117 ], [ null, %94 ], [ null, %114 ], [ null, %89 ]
+  %.046.i = phi ptr [ %.2.i, %117 ], [ null, %94 ], [ %.2.i, %114 ], [ null, %89 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %10, align 8, !tbaa !72
   %122 = call noundef ptr @_ZN5clang4ento14CheckerContext25generateNonFatalErrorNodeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull %10, ptr noundef null)

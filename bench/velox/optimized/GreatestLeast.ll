@@ -1377,8 +1377,8 @@ arraydestroy.body42.i:                            ; preds = %arraydestroy.body42
   br i1 %arraydestroy.done45.i, label %ehcleanup.i, label %arraydestroy.body42.i
 
 ehcleanup.i:                                      ; preds = %arraydestroy.body42.i, %lpad35.i, %lpad.i95
-  %.pn.i = phi { ptr, i32 } [ %69, %lpad35.i ], [ %29, %lpad.i95 ], [ %eh.lpad-body216239.i, %arraydestroy.body42.i ]
-  %70 = phi i1 [ false, %lpad35.i ], [ false, %lpad.i95 ], [ true, %arraydestroy.body42.i ]
+  %.pn.i = phi { ptr, i32 } [ %29, %lpad.i95 ], [ %69, %lpad35.i ], [ %eh.lpad-body216239.i, %arraydestroy.body42.i ]
+  %70 = phi i1 [ false, %lpad.i95 ], [ false, %lpad35.i ], [ true, %arraydestroy.body42.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34.i) #24
   br label %ehcleanup47.i
 
@@ -3111,8 +3111,8 @@ arraydestroy.body42.i:                            ; preds = %arraydestroy.body42
   br i1 %arraydestroy.done45.i, label %ehcleanup.i, label %arraydestroy.body42.i
 
 ehcleanup.i:                                      ; preds = %arraydestroy.body42.i, %lpad35.i, %lpad.i95
-  %.pn.i = phi { ptr, i32 } [ %69, %lpad35.i ], [ %29, %lpad.i95 ], [ %eh.lpad-body216239.i, %arraydestroy.body42.i ]
-  %70 = phi i1 [ false, %lpad35.i ], [ false, %lpad.i95 ], [ true, %arraydestroy.body42.i ]
+  %.pn.i = phi { ptr, i32 } [ %29, %lpad.i95 ], [ %69, %lpad35.i ], [ %eh.lpad-body216239.i, %arraydestroy.body42.i ]
+  %70 = phi i1 [ false, %lpad.i95 ], [ false, %lpad35.i ], [ true, %arraydestroy.body42.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34.i) #24
   br label %ehcleanup47.i
 
@@ -4828,7 +4828,7 @@ lpad5.i:                                          ; preds = %if.then.i.i.i.i.i.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad.i.loopexit, %lpad.i.loopexit.split-lp, %if.then.i.i.i, %lpad10.i, %lpad5.i
-  %.pn.i = phi { ptr, i32 } [ %7, %lpad5.i ], [ %4, %if.then.i.i.i ], [ %4, %lpad10.i ], [ %lpad.loopexit, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad.i.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %7, %lpad5.i ], [ %4, %lpad10.i ], [ %4, %if.then.i.i.i ], [ %lpad.loopexit, %lpad.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad.i.loopexit.split-lp ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__cur.015) #24
   br label %lpad.body
 
@@ -5678,7 +5678,7 @@ if.then.i:                                        ; preds = %_ZNKSt8__detail15_H
   br label %return
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox4exec17SignatureVariableEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISD_Lb1EEE.exit, %for.inc, %land.rhs.i.i.i, %if.then, %if.then.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox4exec17SignatureVariableEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit
-  %retval.sroa.0.1 = phi ptr [ %5, %if.then.i ], [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox4exec17SignatureVariableEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox4exec17SignatureVariableEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISD_Lb1EEE.exit ], [ null, %for.inc ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox4exec17SignatureVariableEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ %5, %if.then.i ], [ null, %if.then ], [ null, %for.inc ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox4exec17SignatureVariableEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISD_Lb1EEE.exit ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -6440,7 +6440,7 @@ if.then26.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i
 
 land.end.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i.i, %if.then26.i.i.i.i.i.i, %for.end.i.i.i.i.i.i, %land.rhs.i.i.i.i, %land.lhs.true.i.i.i.i, %if.end.i7.i.i.i
-  %frombool.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i ], [ 256, %if.end.i7.i.i.i ], [ 257, %land.rhs.i.i.i.i ], [ %24, %if.then26.i.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i ]
+  %frombool.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i ], [ 256, %if.end.i7.i.i.i ], [ 257, %land.rhs.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i ], [ %24, %if.then26.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i ]
   store i16 %frombool.i.i.i.i, ptr %allSelected_.i.i.i.i, align 4
   %25 = trunc i16 %frombool.i.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i
@@ -6548,7 +6548,7 @@ if.then.i19.i.i.i:                                ; preds = %lpad12.i.i.i.i
   br label %ehcleanup.i.i.i.i
 
 ehcleanup.i.i.i.i:                                ; preds = %if.then.i19.i.i.i, %lpad12.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i, %lpad9.i.loopexit.i.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %39, %lpad12.i.i.i.i ], [ %39, %if.then.i19.i.i.i ], [ %lpad.loopexit.i.i.i, %lpad9.i.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %39, %if.then.i19.i.i.i ], [ %39, %lpad12.i.i.i.i ], [ %lpad.loopexit.i.i.i, %lpad9.i.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i unwind label %terminate.lpad.i.i.i.i
 
@@ -6767,7 +6767,7 @@ if.then.i32.i.i.i.i.i.i.i:                        ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i
 
 ehcleanup.i29.i.i.i.i.i.i.i:                      ; preds = %if.then.i32.i.i.i.i.i.i.i, %lpad14.i.i.i.i.i.i.i.i, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i, %lpad10.i.loopexit.i.i.i.i.i.i.i
-  %.pn19.i.i.i.i.i.i.i = phi { ptr, i32 } [ %63, %lpad14.i.i.i.i.i.i.i.i ], [ %63, %if.then.i32.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i, %lpad10.i.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i ]
+  %.pn19.i.i.i.i.i.i.i = phi { ptr, i32 } [ %63, %if.then.i32.i.i.i.i.i.i.i ], [ %63, %lpad14.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i, %lpad10.i.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i unwind label %terminate.lpad.i26.i.i.i.i.i.i.i
 
@@ -6889,7 +6889,7 @@ if.then.i48.i.i.i.i.i.i.i:                        ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i48.i.i.i.i.i.i.i, %lpad12.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i
-  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %79, %lpad12.i.i.i.i.i.i.i.i ], [ %79, %if.then.i48.i.i.i.i.i.i.i ], [ %lpad.loopexit53.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i ]
+  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %79, %if.then.i48.i.i.i.i.i.i.i ], [ %79, %lpad12.i.i.i.i.i.i.i.i ], [ %lpad.loopexit53.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
@@ -7020,14 +7020,14 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %if.the
   br label %lpad8.body.i
 
 lpad8.body.i:                                     ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad8.loopexit.split-lp.loopexit.i, %lpad8.loopexit.i, %ehcleanup.i.i.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i, %ehcleanup.i29.i.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i, %ehcleanup.i.i.i.i ], [ %36, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i ], [ %.pn19.i.i.i.i.i.i.i, %ehcleanup.i29.i.i.i.i.i.i.i ], [ %60, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i ], [ %76, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i ], [ %lpad.loopexit.i, %lpad8.loopexit.i ], [ %lpad.loopexit23.i, %lpad8.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit27.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %28, %catch.fallthrough.i.i.i.i ], [ %68, %catch.fallthrough.i.i.i.i.i.i.i.i ], [ %52, %catch.fallthrough.i20.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %68, %catch.fallthrough.i.i.i.i.i.i.i.i ], [ %28, %catch.fallthrough.i.i.i.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i.i ], [ %36, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i ], [ %lpad.loopexit.split-lp.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %.pn19.i.i.i.i.i.i.i, %ehcleanup.i29.i.i.i.i.i.i.i ], [ %60, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i ], [ %76, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i ], [ %lpad.loopexit.i, %lpad8.loopexit.i ], [ %lpad.loopexit23.i, %lpad8.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit27.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %52, %catch.fallthrough.i20.i.i.i.i.i.i.i ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i2947, %lpad8.body.i3013, %lpad.i2682, %lpad8.body.i2713, %lpad.i2407, %lpad8.body.i2473, %lpad.i1952, %lpad8.body.i2018, %lpad.i1675, %lpad8.body.i1741, %lpad.i1211, %lpad8.body.i1277, %lpad.i801, %lpad8.body.i867, %lpad.i337, %lpad8.body.i403, %lpad.i65, %lpad8.body.i130, %lpad.i, %lpad8.body.i
-  %resultValues.i2936.sink = phi ptr [ %resultValues.i, %lpad8.body.i ], [ %resultValues.i, %lpad.i ], [ %resultValues.i55, %lpad8.body.i130 ], [ %resultValues.i55, %lpad.i65 ], [ %resultValues.i326, %lpad8.body.i403 ], [ %resultValues.i326, %lpad.i337 ], [ %resultValues.i790, %lpad8.body.i867 ], [ %resultValues.i790, %lpad.i801 ], [ %resultValues.i1200, %lpad8.body.i1277 ], [ %resultValues.i1200, %lpad.i1211 ], [ %resultValues.i1664, %lpad8.body.i1741 ], [ %resultValues.i1664, %lpad.i1675 ], [ %resultValues.i1941, %lpad8.body.i2018 ], [ %resultValues.i1941, %lpad.i1952 ], [ %resultValues.i2396, %lpad8.body.i2473 ], [ %resultValues.i2396, %lpad.i2407 ], [ %resultValues.i2672, %lpad8.body.i2713 ], [ %resultValues.i2672, %lpad.i2682 ], [ %resultValues.i2936, %lpad8.body.i3013 ], [ %resultValues.i2936, %lpad.i2947 ]
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad8.body.i ], [ %93, %lpad.i ], [ %eh.lpad-body.i131, %lpad8.body.i130 ], [ %244, %lpad.i65 ], [ %eh.lpad-body.i404, %lpad8.body.i403 ], [ %395, %lpad.i337 ], [ %eh.lpad-body.i868, %lpad8.body.i867 ], [ %546, %lpad.i801 ], [ %eh.lpad-body.i1278, %lpad8.body.i1277 ], [ %697, %lpad.i1211 ], [ %eh.lpad-body.i1742, %lpad8.body.i1741 ], [ %790, %lpad.i1675 ], [ %eh.lpad-body.i2019, %lpad8.body.i2018 ], [ %941, %lpad.i1952 ], [ %eh.lpad-body.i2474, %lpad8.body.i2473 ], [ %1034, %lpad.i2407 ], [ %eh.lpad-body.i2714, %lpad8.body.i2713 ], [ %1121, %lpad.i2682 ], [ %eh.lpad-body.i3014, %lpad8.body.i3013 ], [ %1224, %lpad.i2947 ]
+  %resultValues.i2936.sink = phi ptr [ %resultValues.i2672, %lpad.i2682 ], [ %resultValues.i2396, %lpad.i2407 ], [ %resultValues.i1941, %lpad.i1952 ], [ %resultValues.i1664, %lpad.i1675 ], [ %resultValues.i1200, %lpad.i1211 ], [ %resultValues.i790, %lpad.i801 ], [ %resultValues.i326, %lpad.i337 ], [ %resultValues.i55, %lpad.i65 ], [ %resultValues.i, %lpad.i ], [ %resultValues.i, %lpad8.body.i ], [ %resultValues.i55, %lpad8.body.i130 ], [ %resultValues.i326, %lpad8.body.i403 ], [ %resultValues.i790, %lpad8.body.i867 ], [ %resultValues.i1200, %lpad8.body.i1277 ], [ %resultValues.i1664, %lpad8.body.i1741 ], [ %resultValues.i1941, %lpad8.body.i2018 ], [ %resultValues.i2396, %lpad8.body.i2473 ], [ %resultValues.i2672, %lpad8.body.i2713 ], [ %resultValues.i2936, %lpad8.body.i3013 ], [ %resultValues.i2936, %lpad.i2947 ]
+  %common.resume.op = phi { ptr, i32 } [ %1121, %lpad.i2682 ], [ %1034, %lpad.i2407 ], [ %941, %lpad.i1952 ], [ %790, %lpad.i1675 ], [ %697, %lpad.i1211 ], [ %546, %lpad.i801 ], [ %395, %lpad.i337 ], [ %244, %lpad.i65 ], [ %93, %lpad.i ], [ %eh.lpad-body.i, %lpad8.body.i ], [ %eh.lpad-body.i131, %lpad8.body.i130 ], [ %eh.lpad-body.i404, %lpad8.body.i403 ], [ %eh.lpad-body.i868, %lpad8.body.i867 ], [ %eh.lpad-body.i1278, %lpad8.body.i1277 ], [ %eh.lpad-body.i1742, %lpad8.body.i1741 ], [ %eh.lpad-body.i2019, %lpad8.body.i2018 ], [ %eh.lpad-body.i2474, %lpad8.body.i2473 ], [ %eh.lpad-body.i2714, %lpad8.body.i2713 ], [ %eh.lpad-body.i3014, %lpad8.body.i3013 ], [ %1224, %lpad.i2947 ]
   call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %resultValues.i2936.sink) #24
   resume { ptr, i32 } %common.resume.op
 
@@ -7167,7 +7167,7 @@ if.then26.i.i.i.i.i.i302:                         ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i85
 
 land.end.i.i.i.i85:                               ; preds = %for.body.i.i.i.i.i.i311, %if.then26.i.i.i.i.i.i302, %for.end.i.i.i.i.i.i300, %land.rhs.i.i.i.i294, %land.lhs.true.i.i.i.i291, %if.end.i7.i.i.i82
-  %frombool.i.i.i.i86 = phi i16 [ 256, %land.lhs.true.i.i.i.i291 ], [ 256, %if.end.i7.i.i.i82 ], [ 257, %land.rhs.i.i.i.i294 ], [ %117, %if.then26.i.i.i.i.i.i302 ], [ 257, %for.end.i.i.i.i.i.i300 ], [ 256, %for.body.i.i.i.i.i.i311 ]
+  %frombool.i.i.i.i86 = phi i16 [ 256, %land.lhs.true.i.i.i.i291 ], [ 256, %if.end.i7.i.i.i82 ], [ 257, %land.rhs.i.i.i.i294 ], [ 257, %for.end.i.i.i.i.i.i300 ], [ %117, %if.then26.i.i.i.i.i.i302 ], [ 256, %for.body.i.i.i.i.i.i311 ]
   store i16 %frombool.i.i.i.i86, ptr %allSelected_.i.i.i.i79, align 4
   %118 = trunc i16 %frombool.i.i.i.i86 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i87
@@ -7275,7 +7275,7 @@ if.then.i19.i.i.i288:                             ; preds = %lpad12.i.i.i.i286
   br label %ehcleanup.i.i.i.i278
 
 ehcleanup.i.i.i.i278:                             ; preds = %if.then.i19.i.i.i288, %lpad12.i.i.i.i286, %lpad9.i.loopexit.split-lp.i.i.i282, %lpad9.i.loopexit.i.i.i276
-  %.pn.i.i.i279 = phi { ptr, i32 } [ %132, %lpad12.i.i.i.i286 ], [ %132, %if.then.i19.i.i.i288 ], [ %lpad.loopexit.i.i.i277, %lpad9.i.loopexit.i.i.i276 ], [ %lpad.loopexit.split-lp.i.i.i283, %lpad9.i.loopexit.split-lp.i.i.i282 ]
+  %.pn.i.i.i279 = phi { ptr, i32 } [ %132, %if.then.i19.i.i.i288 ], [ %132, %lpad12.i.i.i.i286 ], [ %lpad.loopexit.i.i.i277, %lpad9.i.loopexit.i.i.i276 ], [ %lpad.loopexit.split-lp.i.i.i283, %lpad9.i.loopexit.split-lp.i.i.i282 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i130 unwind label %terminate.lpad.i.i.i.i263
 
@@ -7494,7 +7494,7 @@ if.then.i32.i.i.i.i.i.i.i192:                     ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i182
 
 ehcleanup.i29.i.i.i.i.i.i.i182:                   ; preds = %if.then.i32.i.i.i.i.i.i.i192, %lpad14.i.i.i.i.i.i.i.i190, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i186, %lpad10.i.loopexit.i.i.i.i.i.i.i180
-  %.pn19.i.i.i.i.i.i.i183 = phi { ptr, i32 } [ %156, %lpad14.i.i.i.i.i.i.i.i190 ], [ %156, %if.then.i32.i.i.i.i.i.i.i192 ], [ %lpad.loopexit.i.i.i.i.i.i.i181, %lpad10.i.loopexit.i.i.i.i.i.i.i180 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i187, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i186 ]
+  %.pn19.i.i.i.i.i.i.i183 = phi { ptr, i32 } [ %156, %if.then.i32.i.i.i.i.i.i.i192 ], [ %156, %lpad14.i.i.i.i.i.i.i.i190 ], [ %lpad.loopexit.i.i.i.i.i.i.i181, %lpad10.i.loopexit.i.i.i.i.i.i.i180 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i187, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i186 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i130 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i167
 
@@ -7668,7 +7668,7 @@ if.end4.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i, %call2.i.i.noexc.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i.i.i = phi i32 [ %179, %if.then3.i.i.i.i.i.i.i.i.i ], [ %181, %if.end4.i.i.i.i.i.i.i.i.i ], [ %add9.i.i.i.i.i.i.i200, %call2.i.i.noexc.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i.i.i.i = phi i32 [ %181, %if.end4.i.i.i.i.i.i.i.i.i ], [ %179, %if.then3.i.i.i.i.i.i.i.i.i ], [ %add9.i.i.i.i.i.i.i200, %call2.i.i.noexc.i.i.i.i.i.i ]
   %idxprom.i.i.i.i.i.i.i.i = sext i32 %retval.0.i.i.i.i.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %176, i64 %idxprom.i.i.i.i.i.i.i.i
   %182 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
@@ -7831,7 +7831,7 @@ if.end4.i.i13.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i10.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit22.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit22.i.i.i.i.i.i.i: ; preds = %if.end4.i.i13.i.i.i.i.i.i.i, %if.then3.i.i20.i.i.i.i.i.i.i, %call2.i6.i.noexc.i.i.i.i.i.i
-  %retval.0.i.i17.i.i.i.i.i.i.i = phi i32 [ %204, %if.then3.i.i20.i.i.i.i.i.i.i ], [ %206, %if.end4.i.i13.i.i.i.i.i.i.i ], [ %add9.i.i.i.i.i.i.i200, %call2.i6.i.noexc.i.i.i.i.i.i ]
+  %retval.0.i.i17.i.i.i.i.i.i.i = phi i32 [ %206, %if.end4.i.i13.i.i.i.i.i.i.i ], [ %204, %if.then3.i.i20.i.i.i.i.i.i.i ], [ %add9.i.i.i.i.i.i.i200, %call2.i6.i.noexc.i.i.i.i.i.i ]
   %idxprom.i18.i.i.i.i.i.i.i = sext i32 %retval.0.i.i17.i.i.i.i.i.i.i to i64
   %arrayidx.i19.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %201, i64 %idxprom.i18.i.i.i.i.i.i.i
   %207 = load i8, ptr %arrayidx.i19.i.i.i.i.i.i.i, align 1
@@ -7905,7 +7905,7 @@ lor.rhs.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
-  %216 = phi i1 [ true, %if.then.i.i.i.i.i.i.i.i.i ], [ %cmp.i.i7.i.i.i.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i.i.i.i ]
+  %216 = phi i1 [ %cmp.i.i7.i.i.i.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i.i.i.i ], [ true, %if.then.i.i.i.i.i.i.i.i.i ]
   %call5.i.i.i.i.i.i.i.i.i42.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
           to label %call5.i.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i unwind label %lpad.i.i.loopexit.split-lp.i.i.i.i.i.i
 
@@ -8024,7 +8024,7 @@ if.then.i48.i.i.i.i.i.i.i233:                     ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i223
 
 ehcleanup.i.i.i.i.i.i.i.i223:                     ; preds = %if.then.i48.i.i.i.i.i.i.i233, %lpad12.i.i.i.i.i.i.i.i231, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i227, %lpad9.i.loopexit.i.i.i.i.i.i.i221
-  %.pn.i.i.i.i.i.i.i224 = phi { ptr, i32 } [ %230, %lpad12.i.i.i.i.i.i.i.i231 ], [ %230, %if.then.i48.i.i.i.i.i.i.i233 ], [ %lpad.loopexit53.i.i.i.i.i.i.i222, %lpad9.i.loopexit.i.i.i.i.i.i.i221 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i228, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i227 ]
+  %.pn.i.i.i.i.i.i.i224 = phi { ptr, i32 } [ %230, %if.then.i48.i.i.i.i.i.i.i233 ], [ %230, %lpad12.i.i.i.i.i.i.i.i231 ], [ %lpad.loopexit53.i.i.i.i.i.i.i222, %lpad9.i.loopexit.i.i.i.i.i.i.i221 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i228, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i227 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i130 unwind label %terminate.lpad.i.i.i.i.i.i.i.i213
 
@@ -8155,7 +8155,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i128: ; preds = %if.
   br label %lpad8.body.i130
 
 lpad8.body.i130:                                  ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i160, %catch.fallthrough.i.i.i.i.i.i.i.i206, %catch.fallthrough.i.i.i.i256, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i128, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i173, %lpad8.loopexit.split-lp.loopexit.i217, %lpad8.loopexit.i269, %ehcleanup.i.i.i.i.i.i.i.i223, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i212, %ehcleanup.i29.i.i.i.i.i.i.i182, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i166, %ehcleanup.i.i.i.i278, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i262
-  %eh.lpad-body.i131 = phi { ptr, i32 } [ %.pn.i.i.i279, %ehcleanup.i.i.i.i278 ], [ %129, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i262 ], [ %.pn19.i.i.i.i.i.i.i183, %ehcleanup.i29.i.i.i.i.i.i.i182 ], [ %153, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i166 ], [ %.pn.i.i.i.i.i.i.i224, %ehcleanup.i.i.i.i.i.i.i.i223 ], [ %227, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i212 ], [ %lpad.loopexit.i270, %lpad8.loopexit.i269 ], [ %lpad.loopexit23.i218, %lpad8.loopexit.split-lp.loopexit.i217 ], [ %lpad.loopexit27.i174, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i173 ], [ %lpad.loopexit.split-lp.i129, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i128 ], [ %121, %catch.fallthrough.i.i.i.i256 ], [ %lpad.phi.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i.i206 ], [ %145, %catch.fallthrough.i20.i.i.i.i.i.i.i160 ]
+  %eh.lpad-body.i131 = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i.i206 ], [ %121, %catch.fallthrough.i.i.i.i256 ], [ %.pn.i.i.i279, %ehcleanup.i.i.i.i278 ], [ %129, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i262 ], [ %lpad.loopexit.split-lp.i129, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i128 ], [ %.pn19.i.i.i.i.i.i.i183, %ehcleanup.i29.i.i.i.i.i.i.i182 ], [ %153, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i166 ], [ %.pn.i.i.i.i.i.i.i224, %ehcleanup.i.i.i.i.i.i.i.i223 ], [ %227, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i212 ], [ %lpad.loopexit.i270, %lpad8.loopexit.i269 ], [ %lpad.loopexit23.i218, %lpad8.loopexit.split-lp.loopexit.i217 ], [ %lpad.loopexit27.i174, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i173 ], [ %145, %catch.fallthrough.i20.i.i.i.i.i.i.i160 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i57) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i56) #24
   br label %common.resume
@@ -8296,7 +8296,7 @@ if.then26.i.i.i.i.i.i766:                         ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i358
 
 land.end.i.i.i.i358:                              ; preds = %for.body.i.i.i.i.i.i775, %if.then26.i.i.i.i.i.i766, %for.end.i.i.i.i.i.i764, %land.rhs.i.i.i.i758, %land.lhs.true.i.i.i.i755, %if.end.i7.i.i.i355
-  %frombool.i.i.i.i359 = phi i16 [ 256, %land.lhs.true.i.i.i.i755 ], [ 256, %if.end.i7.i.i.i355 ], [ 257, %land.rhs.i.i.i.i758 ], [ %268, %if.then26.i.i.i.i.i.i766 ], [ 257, %for.end.i.i.i.i.i.i764 ], [ 256, %for.body.i.i.i.i.i.i775 ]
+  %frombool.i.i.i.i359 = phi i16 [ 256, %land.lhs.true.i.i.i.i755 ], [ 256, %if.end.i7.i.i.i355 ], [ 257, %land.rhs.i.i.i.i758 ], [ 257, %for.end.i.i.i.i.i.i764 ], [ %268, %if.then26.i.i.i.i.i.i766 ], [ 256, %for.body.i.i.i.i.i.i775 ]
   store i16 %frombool.i.i.i.i359, ptr %allSelected_.i.i.i.i352, align 4
   %269 = trunc i16 %frombool.i.i.i.i359 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i360
@@ -8404,7 +8404,7 @@ if.then.i19.i.i.i752:                             ; preds = %lpad12.i.i.i.i750
   br label %ehcleanup.i.i.i.i742
 
 ehcleanup.i.i.i.i742:                             ; preds = %if.then.i19.i.i.i752, %lpad12.i.i.i.i750, %lpad9.i.loopexit.split-lp.i.i.i746, %lpad9.i.loopexit.i.i.i740
-  %.pn.i.i.i743 = phi { ptr, i32 } [ %283, %lpad12.i.i.i.i750 ], [ %283, %if.then.i19.i.i.i752 ], [ %lpad.loopexit.i.i.i741, %lpad9.i.loopexit.i.i.i740 ], [ %lpad.loopexit.split-lp.i.i.i747, %lpad9.i.loopexit.split-lp.i.i.i746 ]
+  %.pn.i.i.i743 = phi { ptr, i32 } [ %283, %if.then.i19.i.i.i752 ], [ %283, %lpad12.i.i.i.i750 ], [ %lpad.loopexit.i.i.i741, %lpad9.i.loopexit.i.i.i740 ], [ %lpad.loopexit.split-lp.i.i.i747, %lpad9.i.loopexit.split-lp.i.i.i746 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i403 unwind label %terminate.lpad.i.i.i.i727
 
@@ -8623,7 +8623,7 @@ if.then.i32.i.i.i.i.i.i.i469:                     ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i459
 
 ehcleanup.i29.i.i.i.i.i.i.i459:                   ; preds = %if.then.i32.i.i.i.i.i.i.i469, %lpad14.i.i.i.i.i.i.i.i467, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i463, %lpad10.i.loopexit.i.i.i.i.i.i.i457
-  %.pn19.i.i.i.i.i.i.i460 = phi { ptr, i32 } [ %307, %lpad14.i.i.i.i.i.i.i.i467 ], [ %307, %if.then.i32.i.i.i.i.i.i.i469 ], [ %lpad.loopexit.i.i.i.i.i.i.i458, %lpad10.i.loopexit.i.i.i.i.i.i.i457 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i464, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i463 ]
+  %.pn19.i.i.i.i.i.i.i460 = phi { ptr, i32 } [ %307, %if.then.i32.i.i.i.i.i.i.i469 ], [ %307, %lpad14.i.i.i.i.i.i.i.i467 ], [ %lpad.loopexit.i.i.i.i.i.i.i458, %lpad10.i.loopexit.i.i.i.i.i.i.i457 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i464, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i463 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i403 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i444
 
@@ -8797,7 +8797,7 @@ if.end4.i.i.i.i.i.i.i.i.i487:                     ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i487, %if.then3.i.i.i.i.i.i.i.i.i656, %call2.i.i.noexc.i.i.i.i.i.i480
-  %retval.0.i.i.i.i.i.i.i.i.i491 = phi i32 [ %330, %if.then3.i.i.i.i.i.i.i.i.i656 ], [ %332, %if.end4.i.i.i.i.i.i.i.i.i487 ], [ %add9.i.i.i.i.i.i.i477, %call2.i.i.noexc.i.i.i.i.i.i480 ]
+  %retval.0.i.i.i.i.i.i.i.i.i491 = phi i32 [ %332, %if.end4.i.i.i.i.i.i.i.i.i487 ], [ %330, %if.then3.i.i.i.i.i.i.i.i.i656 ], [ %add9.i.i.i.i.i.i.i477, %call2.i.i.noexc.i.i.i.i.i.i480 ]
   %idxprom.i.i.i.i.i.i.i.i492 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i491 to i64
   %arrayidx.i.i.i.i.i.i.i.i493 = getelementptr inbounds i16, ptr %327, i64 %idxprom.i.i.i.i.i.i.i.i492
   %333 = load i16, ptr %arrayidx.i.i.i.i.i.i.i.i493, align 2
@@ -8960,7 +8960,7 @@ if.end4.i.i13.i.i.i.i.i.i.i594:                   ; preds = %if.end.i.i10.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit22.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit22.i.i.i.i.i.i.i: ; preds = %if.end4.i.i13.i.i.i.i.i.i.i594, %if.then3.i.i20.i.i.i.i.i.i.i610, %call2.i6.i.noexc.i.i.i.i.i.i587
-  %retval.0.i.i17.i.i.i.i.i.i.i597 = phi i32 [ %355, %if.then3.i.i20.i.i.i.i.i.i.i610 ], [ %357, %if.end4.i.i13.i.i.i.i.i.i.i594 ], [ %add9.i.i.i.i.i.i.i477, %call2.i6.i.noexc.i.i.i.i.i.i587 ]
+  %retval.0.i.i17.i.i.i.i.i.i.i597 = phi i32 [ %357, %if.end4.i.i13.i.i.i.i.i.i.i594 ], [ %355, %if.then3.i.i20.i.i.i.i.i.i.i610 ], [ %add9.i.i.i.i.i.i.i477, %call2.i6.i.noexc.i.i.i.i.i.i587 ]
   %idxprom.i18.i.i.i.i.i.i.i598 = sext i32 %retval.0.i.i17.i.i.i.i.i.i.i597 to i64
   %arrayidx.i19.i.i.i.i.i.i.i599 = getelementptr inbounds i16, ptr %352, i64 %idxprom.i18.i.i.i.i.i.i.i598
   %358 = load i16, ptr %arrayidx.i19.i.i.i.i.i.i.i599, align 2
@@ -9034,7 +9034,7 @@ lor.rhs.i.i.i.i.i.i.i.i.i.i526:                   ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i529
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i529: ; preds = %lor.rhs.i.i.i.i.i.i.i.i.i.i526, %if.then.i.i.i.i.i.i.i.i.i523
-  %367 = phi i1 [ true, %if.then.i.i.i.i.i.i.i.i.i523 ], [ %cmp.i.i7.i.i.i.i.i.i.i.i.i528, %lor.rhs.i.i.i.i.i.i.i.i.i.i526 ]
+  %367 = phi i1 [ %cmp.i.i7.i.i.i.i.i.i.i.i.i528, %lor.rhs.i.i.i.i.i.i.i.i.i.i526 ], [ true, %if.then.i.i.i.i.i.i.i.i.i523 ]
   %call5.i.i.i.i.i.i.i.i.i42.i.i.i.i.i.i530 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
           to label %call5.i.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i566 unwind label %lpad.i.i.loopexit.split-lp.i.i.i.i.i.i531
 
@@ -9153,7 +9153,7 @@ if.then.i48.i.i.i.i.i.i.i563:                     ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i553
 
 ehcleanup.i.i.i.i.i.i.i.i553:                     ; preds = %if.then.i48.i.i.i.i.i.i.i563, %lpad12.i.i.i.i.i.i.i.i561, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i557, %lpad9.i.loopexit.i.i.i.i.i.i.i551
-  %.pn.i.i.i.i.i.i.i554 = phi { ptr, i32 } [ %381, %lpad12.i.i.i.i.i.i.i.i561 ], [ %381, %if.then.i48.i.i.i.i.i.i.i563 ], [ %lpad.loopexit53.i.i.i.i.i.i.i552, %lpad9.i.loopexit.i.i.i.i.i.i.i551 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i558, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i557 ]
+  %.pn.i.i.i.i.i.i.i554 = phi { ptr, i32 } [ %381, %if.then.i48.i.i.i.i.i.i.i563 ], [ %381, %lpad12.i.i.i.i.i.i.i.i561 ], [ %lpad.loopexit53.i.i.i.i.i.i.i552, %lpad9.i.loopexit.i.i.i.i.i.i.i551 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i558, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i557 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i403 unwind label %terminate.lpad.i.i.i.i.i.i.i.i543
 
@@ -9284,7 +9284,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i401: ; preds = %if.
   br label %lpad8.body.i403
 
 lpad8.body.i403:                                  ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i437, %catch.fallthrough.i.i.i.i.i.i.i.i536, %catch.fallthrough.i.i.i.i720, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i401, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i450, %lpad8.loopexit.split-lp.loopexit.i547, %lpad8.loopexit.i733, %ehcleanup.i.i.i.i.i.i.i.i553, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i542, %ehcleanup.i29.i.i.i.i.i.i.i459, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i443, %ehcleanup.i.i.i.i742, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i726
-  %eh.lpad-body.i404 = phi { ptr, i32 } [ %.pn.i.i.i743, %ehcleanup.i.i.i.i742 ], [ %280, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i726 ], [ %.pn19.i.i.i.i.i.i.i460, %ehcleanup.i29.i.i.i.i.i.i.i459 ], [ %304, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i443 ], [ %.pn.i.i.i.i.i.i.i554, %ehcleanup.i.i.i.i.i.i.i.i553 ], [ %378, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i542 ], [ %lpad.loopexit.i734, %lpad8.loopexit.i733 ], [ %lpad.loopexit23.i548, %lpad8.loopexit.split-lp.loopexit.i547 ], [ %lpad.loopexit27.i451, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i450 ], [ %lpad.loopexit.split-lp.i402, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i401 ], [ %272, %catch.fallthrough.i.i.i.i720 ], [ %lpad.phi.i.i.i.i.i.i534, %catch.fallthrough.i.i.i.i.i.i.i.i536 ], [ %296, %catch.fallthrough.i20.i.i.i.i.i.i.i437 ]
+  %eh.lpad-body.i404 = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i.i534, %catch.fallthrough.i.i.i.i.i.i.i.i536 ], [ %272, %catch.fallthrough.i.i.i.i720 ], [ %.pn.i.i.i743, %ehcleanup.i.i.i.i742 ], [ %280, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i726 ], [ %lpad.loopexit.split-lp.i402, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i401 ], [ %.pn19.i.i.i.i.i.i.i460, %ehcleanup.i29.i.i.i.i.i.i.i459 ], [ %304, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i443 ], [ %.pn.i.i.i.i.i.i.i554, %ehcleanup.i.i.i.i.i.i.i.i553 ], [ %378, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i542 ], [ %lpad.loopexit.i734, %lpad8.loopexit.i733 ], [ %lpad.loopexit23.i548, %lpad8.loopexit.split-lp.loopexit.i547 ], [ %lpad.loopexit27.i451, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i450 ], [ %296, %catch.fallthrough.i20.i.i.i.i.i.i.i437 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i329) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i328) #24
   br label %common.resume
@@ -9425,7 +9425,7 @@ if.then26.i.i.i.i.i.i1176:                        ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i822
 
 land.end.i.i.i.i822:                              ; preds = %for.body.i.i.i.i.i.i1185, %if.then26.i.i.i.i.i.i1176, %for.end.i.i.i.i.i.i1174, %land.rhs.i.i.i.i1168, %land.lhs.true.i.i.i.i1165, %if.end.i7.i.i.i819
-  %frombool.i.i.i.i823 = phi i16 [ 256, %land.lhs.true.i.i.i.i1165 ], [ 256, %if.end.i7.i.i.i819 ], [ 257, %land.rhs.i.i.i.i1168 ], [ %419, %if.then26.i.i.i.i.i.i1176 ], [ 257, %for.end.i.i.i.i.i.i1174 ], [ 256, %for.body.i.i.i.i.i.i1185 ]
+  %frombool.i.i.i.i823 = phi i16 [ 256, %land.lhs.true.i.i.i.i1165 ], [ 256, %if.end.i7.i.i.i819 ], [ 257, %land.rhs.i.i.i.i1168 ], [ 257, %for.end.i.i.i.i.i.i1174 ], [ %419, %if.then26.i.i.i.i.i.i1176 ], [ 256, %for.body.i.i.i.i.i.i1185 ]
   store i16 %frombool.i.i.i.i823, ptr %allSelected_.i.i.i.i816, align 4
   %420 = trunc i16 %frombool.i.i.i.i823 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i824
@@ -9533,7 +9533,7 @@ if.then.i19.i.i.i1162:                            ; preds = %lpad12.i.i.i.i1160
   br label %ehcleanup.i.i.i.i1152
 
 ehcleanup.i.i.i.i1152:                            ; preds = %if.then.i19.i.i.i1162, %lpad12.i.i.i.i1160, %lpad9.i.loopexit.split-lp.i.i.i1156, %lpad9.i.loopexit.i.i.i1150
-  %.pn.i.i.i1153 = phi { ptr, i32 } [ %434, %lpad12.i.i.i.i1160 ], [ %434, %if.then.i19.i.i.i1162 ], [ %lpad.loopexit.i.i.i1151, %lpad9.i.loopexit.i.i.i1150 ], [ %lpad.loopexit.split-lp.i.i.i1157, %lpad9.i.loopexit.split-lp.i.i.i1156 ]
+  %.pn.i.i.i1153 = phi { ptr, i32 } [ %434, %if.then.i19.i.i.i1162 ], [ %434, %lpad12.i.i.i.i1160 ], [ %lpad.loopexit.i.i.i1151, %lpad9.i.loopexit.i.i.i1150 ], [ %lpad.loopexit.split-lp.i.i.i1157, %lpad9.i.loopexit.split-lp.i.i.i1156 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i867 unwind label %terminate.lpad.i.i.i.i1137
 
@@ -9752,7 +9752,7 @@ if.then.i32.i.i.i.i.i.i.i929:                     ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i919
 
 ehcleanup.i29.i.i.i.i.i.i.i919:                   ; preds = %if.then.i32.i.i.i.i.i.i.i929, %lpad14.i.i.i.i.i.i.i.i927, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i923, %lpad10.i.loopexit.i.i.i.i.i.i.i917
-  %.pn19.i.i.i.i.i.i.i920 = phi { ptr, i32 } [ %458, %lpad14.i.i.i.i.i.i.i.i927 ], [ %458, %if.then.i32.i.i.i.i.i.i.i929 ], [ %lpad.loopexit.i.i.i.i.i.i.i918, %lpad10.i.loopexit.i.i.i.i.i.i.i917 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i924, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i923 ]
+  %.pn19.i.i.i.i.i.i.i920 = phi { ptr, i32 } [ %458, %if.then.i32.i.i.i.i.i.i.i929 ], [ %458, %lpad14.i.i.i.i.i.i.i.i927 ], [ %lpad.loopexit.i.i.i.i.i.i.i918, %lpad10.i.loopexit.i.i.i.i.i.i.i917 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i924, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i923 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i867 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i904
 
@@ -9926,7 +9926,7 @@ if.end4.i.i.i.i.i.i.i.i.i945:                     ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i945, %if.then3.i.i.i.i.i.i.i.i.i1108, %call2.i.i.noexc.i.i.i.i.i.i938
-  %retval.0.i.i.i.i.i.i.i.i.i949 = phi i32 [ %481, %if.then3.i.i.i.i.i.i.i.i.i1108 ], [ %483, %if.end4.i.i.i.i.i.i.i.i.i945 ], [ %add9.i.i.i.i.i.i.i937, %call2.i.i.noexc.i.i.i.i.i.i938 ]
+  %retval.0.i.i.i.i.i.i.i.i.i949 = phi i32 [ %483, %if.end4.i.i.i.i.i.i.i.i.i945 ], [ %481, %if.then3.i.i.i.i.i.i.i.i.i1108 ], [ %add9.i.i.i.i.i.i.i937, %call2.i.i.noexc.i.i.i.i.i.i938 ]
   %idxprom.i.i.i.i.i.i.i.i950 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i949 to i64
   %arrayidx.i.i.i.i.i.i.i.i951 = getelementptr inbounds i32, ptr %478, i64 %idxprom.i.i.i.i.i.i.i.i950
   %484 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i951, align 4
@@ -10089,7 +10089,7 @@ if.end4.i.i13.i.i.i.i.i.i.i1051:                  ; preds = %if.end.i.i10.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit22.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit22.i.i.i.i.i.i.i: ; preds = %if.end4.i.i13.i.i.i.i.i.i.i1051, %if.then3.i.i20.i.i.i.i.i.i.i1066, %call2.i6.i.noexc.i.i.i.i.i.i1044
-  %retval.0.i.i17.i.i.i.i.i.i.i1054 = phi i32 [ %506, %if.then3.i.i20.i.i.i.i.i.i.i1066 ], [ %508, %if.end4.i.i13.i.i.i.i.i.i.i1051 ], [ %add9.i.i.i.i.i.i.i937, %call2.i6.i.noexc.i.i.i.i.i.i1044 ]
+  %retval.0.i.i17.i.i.i.i.i.i.i1054 = phi i32 [ %508, %if.end4.i.i13.i.i.i.i.i.i.i1051 ], [ %506, %if.then3.i.i20.i.i.i.i.i.i.i1066 ], [ %add9.i.i.i.i.i.i.i937, %call2.i6.i.noexc.i.i.i.i.i.i1044 ]
   %idxprom.i18.i.i.i.i.i.i.i1055 = sext i32 %retval.0.i.i17.i.i.i.i.i.i.i1054 to i64
   %arrayidx.i19.i.i.i.i.i.i.i1056 = getelementptr inbounds i32, ptr %503, i64 %idxprom.i18.i.i.i.i.i.i.i1055
   %509 = load i32, ptr %arrayidx.i19.i.i.i.i.i.i.i1056, align 4
@@ -10163,7 +10163,7 @@ lor.rhs.i.i.i.i.i.i.i.i.i.i984:                   ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i987
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i987: ; preds = %lor.rhs.i.i.i.i.i.i.i.i.i.i984, %if.then.i.i.i.i.i.i.i.i.i981
-  %518 = phi i1 [ true, %if.then.i.i.i.i.i.i.i.i.i981 ], [ %cmp.i.i7.i.i.i.i.i.i.i.i.i986, %lor.rhs.i.i.i.i.i.i.i.i.i.i984 ]
+  %518 = phi i1 [ %cmp.i.i7.i.i.i.i.i.i.i.i.i986, %lor.rhs.i.i.i.i.i.i.i.i.i.i984 ], [ true, %if.then.i.i.i.i.i.i.i.i.i981 ]
   %call5.i.i.i.i.i.i.i.i.i43.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
           to label %call5.i.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i1023 unwind label %lpad.i.i.loopexit.split-lp.i.i.i.i.i.i988
 
@@ -10282,7 +10282,7 @@ if.then.i48.i.i.i.i.i.i.i1020:                    ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i1010
 
 ehcleanup.i.i.i.i.i.i.i.i1010:                    ; preds = %if.then.i48.i.i.i.i.i.i.i1020, %lpad12.i.i.i.i.i.i.i.i1018, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1014, %lpad9.i.loopexit.i.i.i.i.i.i.i1008
-  %.pn.i.i.i.i.i.i.i1011 = phi { ptr, i32 } [ %532, %lpad12.i.i.i.i.i.i.i.i1018 ], [ %532, %if.then.i48.i.i.i.i.i.i.i1020 ], [ %lpad.loopexit53.i.i.i.i.i.i.i1009, %lpad9.i.loopexit.i.i.i.i.i.i.i1008 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i1015, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1014 ]
+  %.pn.i.i.i.i.i.i.i1011 = phi { ptr, i32 } [ %532, %if.then.i48.i.i.i.i.i.i.i1020 ], [ %532, %lpad12.i.i.i.i.i.i.i.i1018 ], [ %lpad.loopexit53.i.i.i.i.i.i.i1009, %lpad9.i.loopexit.i.i.i.i.i.i.i1008 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i1015, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1014 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i867 unwind label %terminate.lpad.i.i.i.i.i.i.i.i1000
 
@@ -10413,7 +10413,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i865: ; preds = %if.
   br label %lpad8.body.i867
 
 lpad8.body.i867:                                  ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i897, %catch.fallthrough.i.i.i.i.i.i.i.i993, %catch.fallthrough.i.i.i.i1130, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i865, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i910, %lpad8.loopexit.split-lp.loopexit.i1004, %lpad8.loopexit.i1143, %ehcleanup.i.i.i.i.i.i.i.i1010, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i999, %ehcleanup.i29.i.i.i.i.i.i.i919, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i903, %ehcleanup.i.i.i.i1152, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1136
-  %eh.lpad-body.i868 = phi { ptr, i32 } [ %.pn.i.i.i1153, %ehcleanup.i.i.i.i1152 ], [ %431, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1136 ], [ %.pn19.i.i.i.i.i.i.i920, %ehcleanup.i29.i.i.i.i.i.i.i919 ], [ %455, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i903 ], [ %.pn.i.i.i.i.i.i.i1011, %ehcleanup.i.i.i.i.i.i.i.i1010 ], [ %529, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i999 ], [ %lpad.loopexit.i1144, %lpad8.loopexit.i1143 ], [ %lpad.loopexit23.i1005, %lpad8.loopexit.split-lp.loopexit.i1004 ], [ %lpad.loopexit27.i911, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i910 ], [ %lpad.loopexit.split-lp.i866, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i865 ], [ %423, %catch.fallthrough.i.i.i.i1130 ], [ %lpad.phi.i.i.i.i.i.i991, %catch.fallthrough.i.i.i.i.i.i.i.i993 ], [ %447, %catch.fallthrough.i20.i.i.i.i.i.i.i897 ]
+  %eh.lpad-body.i868 = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i.i991, %catch.fallthrough.i.i.i.i.i.i.i.i993 ], [ %423, %catch.fallthrough.i.i.i.i1130 ], [ %.pn.i.i.i1153, %ehcleanup.i.i.i.i1152 ], [ %431, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1136 ], [ %lpad.loopexit.split-lp.i866, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i865 ], [ %.pn19.i.i.i.i.i.i.i920, %ehcleanup.i29.i.i.i.i.i.i.i919 ], [ %455, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i903 ], [ %.pn.i.i.i.i.i.i.i1011, %ehcleanup.i.i.i.i.i.i.i.i1010 ], [ %529, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i999 ], [ %lpad.loopexit.i1144, %lpad8.loopexit.i1143 ], [ %lpad.loopexit23.i1005, %lpad8.loopexit.split-lp.loopexit.i1004 ], [ %lpad.loopexit27.i911, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i910 ], [ %447, %catch.fallthrough.i20.i.i.i.i.i.i.i897 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i793) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i792) #24
   br label %common.resume
@@ -10554,7 +10554,7 @@ if.then26.i.i.i.i.i.i1640:                        ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i1232
 
 land.end.i.i.i.i1232:                             ; preds = %for.body.i.i.i.i.i.i1649, %if.then26.i.i.i.i.i.i1640, %for.end.i.i.i.i.i.i1638, %land.rhs.i.i.i.i1632, %land.lhs.true.i.i.i.i1629, %if.end.i7.i.i.i1229
-  %frombool.i.i.i.i1233 = phi i16 [ 256, %land.lhs.true.i.i.i.i1629 ], [ 256, %if.end.i7.i.i.i1229 ], [ 257, %land.rhs.i.i.i.i1632 ], [ %570, %if.then26.i.i.i.i.i.i1640 ], [ 257, %for.end.i.i.i.i.i.i1638 ], [ 256, %for.body.i.i.i.i.i.i1649 ]
+  %frombool.i.i.i.i1233 = phi i16 [ 256, %land.lhs.true.i.i.i.i1629 ], [ 256, %if.end.i7.i.i.i1229 ], [ 257, %land.rhs.i.i.i.i1632 ], [ 257, %for.end.i.i.i.i.i.i1638 ], [ %570, %if.then26.i.i.i.i.i.i1640 ], [ 256, %for.body.i.i.i.i.i.i1649 ]
   store i16 %frombool.i.i.i.i1233, ptr %allSelected_.i.i.i.i1226, align 4
   %571 = trunc i16 %frombool.i.i.i.i1233 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i1234
@@ -10662,7 +10662,7 @@ if.then.i19.i.i.i1626:                            ; preds = %lpad12.i.i.i.i1624
   br label %ehcleanup.i.i.i.i1616
 
 ehcleanup.i.i.i.i1616:                            ; preds = %if.then.i19.i.i.i1626, %lpad12.i.i.i.i1624, %lpad9.i.loopexit.split-lp.i.i.i1620, %lpad9.i.loopexit.i.i.i1614
-  %.pn.i.i.i1617 = phi { ptr, i32 } [ %585, %lpad12.i.i.i.i1624 ], [ %585, %if.then.i19.i.i.i1626 ], [ %lpad.loopexit.i.i.i1615, %lpad9.i.loopexit.i.i.i1614 ], [ %lpad.loopexit.split-lp.i.i.i1621, %lpad9.i.loopexit.split-lp.i.i.i1620 ]
+  %.pn.i.i.i1617 = phi { ptr, i32 } [ %585, %if.then.i19.i.i.i1626 ], [ %585, %lpad12.i.i.i.i1624 ], [ %lpad.loopexit.i.i.i1615, %lpad9.i.loopexit.i.i.i1614 ], [ %lpad.loopexit.split-lp.i.i.i1621, %lpad9.i.loopexit.split-lp.i.i.i1620 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i1277 unwind label %terminate.lpad.i.i.i.i1601
 
@@ -10881,7 +10881,7 @@ if.then.i32.i.i.i.i.i.i.i1343:                    ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i1333
 
 ehcleanup.i29.i.i.i.i.i.i.i1333:                  ; preds = %if.then.i32.i.i.i.i.i.i.i1343, %lpad14.i.i.i.i.i.i.i.i1341, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i1337, %lpad10.i.loopexit.i.i.i.i.i.i.i1331
-  %.pn19.i.i.i.i.i.i.i1334 = phi { ptr, i32 } [ %609, %lpad14.i.i.i.i.i.i.i.i1341 ], [ %609, %if.then.i32.i.i.i.i.i.i.i1343 ], [ %lpad.loopexit.i.i.i.i.i.i.i1332, %lpad10.i.loopexit.i.i.i.i.i.i.i1331 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i1338, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i1337 ]
+  %.pn19.i.i.i.i.i.i.i1334 = phi { ptr, i32 } [ %609, %if.then.i32.i.i.i.i.i.i.i1343 ], [ %609, %lpad14.i.i.i.i.i.i.i.i1341 ], [ %lpad.loopexit.i.i.i.i.i.i.i1332, %lpad10.i.loopexit.i.i.i.i.i.i.i1331 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i1338, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i1337 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i1277 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i1318
 
@@ -11055,7 +11055,7 @@ if.end4.i.i.i.i.i.i.i.i.i1361:                    ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i1361, %if.then3.i.i.i.i.i.i.i.i.i1530, %call2.i.i.noexc.i.i.i.i.i.i1354
-  %retval.0.i.i.i.i.i.i.i.i.i1365 = phi i32 [ %632, %if.then3.i.i.i.i.i.i.i.i.i1530 ], [ %634, %if.end4.i.i.i.i.i.i.i.i.i1361 ], [ %add9.i.i.i.i.i.i.i1351, %call2.i.i.noexc.i.i.i.i.i.i1354 ]
+  %retval.0.i.i.i.i.i.i.i.i.i1365 = phi i32 [ %634, %if.end4.i.i.i.i.i.i.i.i.i1361 ], [ %632, %if.then3.i.i.i.i.i.i.i.i.i1530 ], [ %add9.i.i.i.i.i.i.i1351, %call2.i.i.noexc.i.i.i.i.i.i1354 ]
   %idxprom.i.i.i.i.i.i.i.i1366 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i1365 to i64
   %arrayidx.i.i.i.i.i.i.i.i1367 = getelementptr inbounds i64, ptr %629, i64 %idxprom.i.i.i.i.i.i.i.i1366
   %635 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i1367, align 8
@@ -11218,7 +11218,7 @@ if.end4.i.i13.i.i.i.i.i.i.i1468:                  ; preds = %if.end.i.i10.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit22.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit22.i.i.i.i.i.i.i: ; preds = %if.end4.i.i13.i.i.i.i.i.i.i1468, %if.then3.i.i20.i.i.i.i.i.i.i1484, %call2.i6.i.noexc.i.i.i.i.i.i1461
-  %retval.0.i.i17.i.i.i.i.i.i.i1471 = phi i32 [ %657, %if.then3.i.i20.i.i.i.i.i.i.i1484 ], [ %659, %if.end4.i.i13.i.i.i.i.i.i.i1468 ], [ %add9.i.i.i.i.i.i.i1351, %call2.i6.i.noexc.i.i.i.i.i.i1461 ]
+  %retval.0.i.i17.i.i.i.i.i.i.i1471 = phi i32 [ %659, %if.end4.i.i13.i.i.i.i.i.i.i1468 ], [ %657, %if.then3.i.i20.i.i.i.i.i.i.i1484 ], [ %add9.i.i.i.i.i.i.i1351, %call2.i6.i.noexc.i.i.i.i.i.i1461 ]
   %idxprom.i18.i.i.i.i.i.i.i1472 = sext i32 %retval.0.i.i17.i.i.i.i.i.i.i1471 to i64
   %arrayidx.i19.i.i.i.i.i.i.i1473 = getelementptr inbounds i64, ptr %654, i64 %idxprom.i18.i.i.i.i.i.i.i1472
   %660 = load i64, ptr %arrayidx.i19.i.i.i.i.i.i.i1473, align 8
@@ -11292,7 +11292,7 @@ lor.rhs.i.i.i.i.i.i.i.i.i.i1400:                  ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i1403
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i1403: ; preds = %lor.rhs.i.i.i.i.i.i.i.i.i.i1400, %if.then.i.i.i.i.i.i.i.i.i1397
-  %669 = phi i1 [ true, %if.then.i.i.i.i.i.i.i.i.i1397 ], [ %cmp.i.i7.i.i.i.i.i.i.i.i.i1402, %lor.rhs.i.i.i.i.i.i.i.i.i.i1400 ]
+  %669 = phi i1 [ %cmp.i.i7.i.i.i.i.i.i.i.i.i1402, %lor.rhs.i.i.i.i.i.i.i.i.i.i1400 ], [ true, %if.then.i.i.i.i.i.i.i.i.i1397 ]
   %call5.i.i.i.i.i.i.i.i.i43.i.i.i.i.i.i1404 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
           to label %call5.i.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i1440 unwind label %lpad.i.i.loopexit.split-lp.i.i.i.i.i.i1405
 
@@ -11411,7 +11411,7 @@ if.then.i48.i.i.i.i.i.i.i1437:                    ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i1427
 
 ehcleanup.i.i.i.i.i.i.i.i1427:                    ; preds = %if.then.i48.i.i.i.i.i.i.i1437, %lpad12.i.i.i.i.i.i.i.i1435, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1431, %lpad9.i.loopexit.i.i.i.i.i.i.i1425
-  %.pn.i.i.i.i.i.i.i1428 = phi { ptr, i32 } [ %683, %lpad12.i.i.i.i.i.i.i.i1435 ], [ %683, %if.then.i48.i.i.i.i.i.i.i1437 ], [ %lpad.loopexit53.i.i.i.i.i.i.i1426, %lpad9.i.loopexit.i.i.i.i.i.i.i1425 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i1432, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1431 ]
+  %.pn.i.i.i.i.i.i.i1428 = phi { ptr, i32 } [ %683, %if.then.i48.i.i.i.i.i.i.i1437 ], [ %683, %lpad12.i.i.i.i.i.i.i.i1435 ], [ %lpad.loopexit53.i.i.i.i.i.i.i1426, %lpad9.i.loopexit.i.i.i.i.i.i.i1425 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i1432, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1431 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i1277 unwind label %terminate.lpad.i.i.i.i.i.i.i.i1417
 
@@ -11542,7 +11542,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1275: ; preds = %if
   br label %lpad8.body.i1277
 
 lpad8.body.i1277:                                 ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i1311, %catch.fallthrough.i.i.i.i.i.i.i.i1410, %catch.fallthrough.i.i.i.i1594, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1275, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i1324, %lpad8.loopexit.split-lp.loopexit.i1421, %lpad8.loopexit.i1607, %ehcleanup.i.i.i.i.i.i.i.i1427, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i1416, %ehcleanup.i29.i.i.i.i.i.i.i1333, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i1317, %ehcleanup.i.i.i.i1616, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1600
-  %eh.lpad-body.i1278 = phi { ptr, i32 } [ %.pn.i.i.i1617, %ehcleanup.i.i.i.i1616 ], [ %582, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1600 ], [ %.pn19.i.i.i.i.i.i.i1334, %ehcleanup.i29.i.i.i.i.i.i.i1333 ], [ %606, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i1317 ], [ %.pn.i.i.i.i.i.i.i1428, %ehcleanup.i.i.i.i.i.i.i.i1427 ], [ %680, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i1416 ], [ %lpad.loopexit.i1608, %lpad8.loopexit.i1607 ], [ %lpad.loopexit23.i1422, %lpad8.loopexit.split-lp.loopexit.i1421 ], [ %lpad.loopexit27.i1325, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i1324 ], [ %lpad.loopexit.split-lp.i1276, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1275 ], [ %574, %catch.fallthrough.i.i.i.i1594 ], [ %lpad.phi.i.i.i.i.i.i1408, %catch.fallthrough.i.i.i.i.i.i.i.i1410 ], [ %598, %catch.fallthrough.i20.i.i.i.i.i.i.i1311 ]
+  %eh.lpad-body.i1278 = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i.i1408, %catch.fallthrough.i.i.i.i.i.i.i.i1410 ], [ %574, %catch.fallthrough.i.i.i.i1594 ], [ %.pn.i.i.i1617, %ehcleanup.i.i.i.i1616 ], [ %582, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1600 ], [ %lpad.loopexit.split-lp.i1276, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1275 ], [ %.pn19.i.i.i.i.i.i.i1334, %ehcleanup.i29.i.i.i.i.i.i.i1333 ], [ %606, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i1317 ], [ %.pn.i.i.i.i.i.i.i1428, %ehcleanup.i.i.i.i.i.i.i.i1427 ], [ %680, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i1416 ], [ %lpad.loopexit.i1608, %lpad8.loopexit.i1607 ], [ %lpad.loopexit23.i1422, %lpad8.loopexit.split-lp.loopexit.i1421 ], [ %lpad.loopexit27.i1325, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i1324 ], [ %598, %catch.fallthrough.i20.i.i.i.i.i.i.i1311 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i1203) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i1202) #24
   br label %common.resume
@@ -11683,7 +11683,7 @@ if.then26.i.i.i.i.i.i1917:                        ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i1696
 
 land.end.i.i.i.i1696:                             ; preds = %for.body.i.i.i.i.i.i1926, %if.then26.i.i.i.i.i.i1917, %for.end.i.i.i.i.i.i1915, %land.rhs.i.i.i.i1909, %land.lhs.true.i.i.i.i1906, %if.end.i7.i.i.i1693
-  %frombool.i.i.i.i1697 = phi i16 [ 256, %land.lhs.true.i.i.i.i1906 ], [ 256, %if.end.i7.i.i.i1693 ], [ 257, %land.rhs.i.i.i.i1909 ], [ %721, %if.then26.i.i.i.i.i.i1917 ], [ 257, %for.end.i.i.i.i.i.i1915 ], [ 256, %for.body.i.i.i.i.i.i1926 ]
+  %frombool.i.i.i.i1697 = phi i16 [ 256, %land.lhs.true.i.i.i.i1906 ], [ 256, %if.end.i7.i.i.i1693 ], [ 257, %land.rhs.i.i.i.i1909 ], [ 257, %for.end.i.i.i.i.i.i1915 ], [ %721, %if.then26.i.i.i.i.i.i1917 ], [ 256, %for.body.i.i.i.i.i.i1926 ]
   store i16 %frombool.i.i.i.i1697, ptr %allSelected_.i.i.i.i1690, align 4
   %722 = trunc i16 %frombool.i.i.i.i1697 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i1698
@@ -11791,7 +11791,7 @@ if.then.i19.i.i.i1903:                            ; preds = %lpad12.i.i.i.i1901
   br label %ehcleanup.i.i.i.i1893
 
 ehcleanup.i.i.i.i1893:                            ; preds = %if.then.i19.i.i.i1903, %lpad12.i.i.i.i1901, %lpad9.i.loopexit.split-lp.i.i.i1897, %lpad9.i.loopexit.i.i.i1891
-  %.pn.i.i.i1894 = phi { ptr, i32 } [ %736, %lpad12.i.i.i.i1901 ], [ %736, %if.then.i19.i.i.i1903 ], [ %lpad.loopexit.i.i.i1892, %lpad9.i.loopexit.i.i.i1891 ], [ %lpad.loopexit.split-lp.i.i.i1898, %lpad9.i.loopexit.split-lp.i.i.i1897 ]
+  %.pn.i.i.i1894 = phi { ptr, i32 } [ %736, %if.then.i19.i.i.i1903 ], [ %736, %lpad12.i.i.i.i1901 ], [ %lpad.loopexit.i.i.i1892, %lpad9.i.loopexit.i.i.i1891 ], [ %lpad.loopexit.split-lp.i.i.i1898, %lpad9.i.loopexit.split-lp.i.i.i1897 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i1741 unwind label %terminate.lpad.i.i.i.i1878
 
@@ -12010,7 +12010,7 @@ if.then.i32.i.i.i.i.i.i.i1807:                    ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i1797
 
 ehcleanup.i29.i.i.i.i.i.i.i1797:                  ; preds = %if.then.i32.i.i.i.i.i.i.i1807, %lpad14.i.i.i.i.i.i.i.i1805, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i1801, %lpad10.i.loopexit.i.i.i.i.i.i.i1795
-  %.pn19.i.i.i.i.i.i.i1798 = phi { ptr, i32 } [ %760, %lpad14.i.i.i.i.i.i.i.i1805 ], [ %760, %if.then.i32.i.i.i.i.i.i.i1807 ], [ %lpad.loopexit.i.i.i.i.i.i.i1796, %lpad10.i.loopexit.i.i.i.i.i.i.i1795 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i1802, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i1801 ]
+  %.pn19.i.i.i.i.i.i.i1798 = phi { ptr, i32 } [ %760, %if.then.i32.i.i.i.i.i.i.i1807 ], [ %760, %lpad14.i.i.i.i.i.i.i.i1805 ], [ %lpad.loopexit.i.i.i.i.i.i.i1796, %lpad10.i.loopexit.i.i.i.i.i.i.i1795 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i1802, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i1801 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i1741 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i1782
 
@@ -12132,7 +12132,7 @@ if.then.i48.i.i.i.i.i.i.i1848:                    ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i1838
 
 ehcleanup.i.i.i.i.i.i.i.i1838:                    ; preds = %if.then.i48.i.i.i.i.i.i.i1848, %lpad12.i.i.i.i.i.i.i.i1846, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1842, %lpad9.i.loopexit.i.i.i.i.i.i.i1836
-  %.pn.i.i.i.i.i.i.i1839 = phi { ptr, i32 } [ %776, %lpad12.i.i.i.i.i.i.i.i1846 ], [ %776, %if.then.i48.i.i.i.i.i.i.i1848 ], [ %lpad.loopexit53.i.i.i.i.i.i.i1837, %lpad9.i.loopexit.i.i.i.i.i.i.i1836 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i1843, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1842 ]
+  %.pn.i.i.i.i.i.i.i1839 = phi { ptr, i32 } [ %776, %if.then.i48.i.i.i.i.i.i.i1848 ], [ %776, %lpad12.i.i.i.i.i.i.i.i1846 ], [ %lpad.loopexit53.i.i.i.i.i.i.i1837, %lpad9.i.loopexit.i.i.i.i.i.i.i1836 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i1843, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1842 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i1741 unwind label %terminate.lpad.i.i.i.i.i.i.i.i1825
 
@@ -12263,7 +12263,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1739: ; preds = %if
   br label %lpad8.body.i1741
 
 lpad8.body.i1741:                                 ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i1775, %catch.fallthrough.i.i.i.i.i.i.i.i1818, %catch.fallthrough.i.i.i.i1871, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1739, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i1788, %lpad8.loopexit.split-lp.loopexit.i1829, %lpad8.loopexit.i1884, %ehcleanup.i.i.i.i.i.i.i.i1838, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i1824, %ehcleanup.i29.i.i.i.i.i.i.i1797, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i1781, %ehcleanup.i.i.i.i1893, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1877
-  %eh.lpad-body.i1742 = phi { ptr, i32 } [ %.pn.i.i.i1894, %ehcleanup.i.i.i.i1893 ], [ %733, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1877 ], [ %.pn19.i.i.i.i.i.i.i1798, %ehcleanup.i29.i.i.i.i.i.i.i1797 ], [ %757, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i1781 ], [ %.pn.i.i.i.i.i.i.i1839, %ehcleanup.i.i.i.i.i.i.i.i1838 ], [ %773, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i1824 ], [ %lpad.loopexit.i1885, %lpad8.loopexit.i1884 ], [ %lpad.loopexit23.i1830, %lpad8.loopexit.split-lp.loopexit.i1829 ], [ %lpad.loopexit27.i1789, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i1788 ], [ %lpad.loopexit.split-lp.i1740, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1739 ], [ %725, %catch.fallthrough.i.i.i.i1871 ], [ %765, %catch.fallthrough.i.i.i.i.i.i.i.i1818 ], [ %749, %catch.fallthrough.i20.i.i.i.i.i.i.i1775 ]
+  %eh.lpad-body.i1742 = phi { ptr, i32 } [ %765, %catch.fallthrough.i.i.i.i.i.i.i.i1818 ], [ %725, %catch.fallthrough.i.i.i.i1871 ], [ %.pn.i.i.i1894, %ehcleanup.i.i.i.i1893 ], [ %733, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1877 ], [ %lpad.loopexit.split-lp.i1740, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1739 ], [ %.pn19.i.i.i.i.i.i.i1798, %ehcleanup.i29.i.i.i.i.i.i.i1797 ], [ %757, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i1781 ], [ %.pn.i.i.i.i.i.i.i1839, %ehcleanup.i.i.i.i.i.i.i.i1838 ], [ %773, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i1824 ], [ %lpad.loopexit.i1885, %lpad8.loopexit.i1884 ], [ %lpad.loopexit23.i1830, %lpad8.loopexit.split-lp.loopexit.i1829 ], [ %lpad.loopexit27.i1789, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i1788 ], [ %749, %catch.fallthrough.i20.i.i.i.i.i.i.i1775 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i1667) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i1666) #24
   br label %common.resume
@@ -12404,7 +12404,7 @@ if.then26.i.i.i.i.i.i2372:                        ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i1973
 
 land.end.i.i.i.i1973:                             ; preds = %for.body.i.i.i.i.i.i2381, %if.then26.i.i.i.i.i.i2372, %for.end.i.i.i.i.i.i2370, %land.rhs.i.i.i.i2364, %land.lhs.true.i.i.i.i2361, %if.end.i7.i.i.i1970
-  %frombool.i.i.i.i1974 = phi i16 [ 256, %land.lhs.true.i.i.i.i2361 ], [ 256, %if.end.i7.i.i.i1970 ], [ 257, %land.rhs.i.i.i.i2364 ], [ %814, %if.then26.i.i.i.i.i.i2372 ], [ 257, %for.end.i.i.i.i.i.i2370 ], [ 256, %for.body.i.i.i.i.i.i2381 ]
+  %frombool.i.i.i.i1974 = phi i16 [ 256, %land.lhs.true.i.i.i.i2361 ], [ 256, %if.end.i7.i.i.i1970 ], [ 257, %land.rhs.i.i.i.i2364 ], [ 257, %for.end.i.i.i.i.i.i2370 ], [ %814, %if.then26.i.i.i.i.i.i2372 ], [ 256, %for.body.i.i.i.i.i.i2381 ]
   store i16 %frombool.i.i.i.i1974, ptr %allSelected_.i.i.i.i1967, align 4
   %815 = trunc i16 %frombool.i.i.i.i1974 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i1975
@@ -12512,7 +12512,7 @@ if.then.i19.i.i.i2358:                            ; preds = %lpad12.i.i.i.i2356
   br label %ehcleanup.i.i.i.i2348
 
 ehcleanup.i.i.i.i2348:                            ; preds = %if.then.i19.i.i.i2358, %lpad12.i.i.i.i2356, %lpad9.i.loopexit.split-lp.i.i.i2352, %lpad9.i.loopexit.i.i.i2346
-  %.pn.i.i.i2349 = phi { ptr, i32 } [ %829, %lpad12.i.i.i.i2356 ], [ %829, %if.then.i19.i.i.i2358 ], [ %lpad.loopexit.i.i.i2347, %lpad9.i.loopexit.i.i.i2346 ], [ %lpad.loopexit.split-lp.i.i.i2353, %lpad9.i.loopexit.split-lp.i.i.i2352 ]
+  %.pn.i.i.i2349 = phi { ptr, i32 } [ %829, %if.then.i19.i.i.i2358 ], [ %829, %lpad12.i.i.i.i2356 ], [ %lpad.loopexit.i.i.i2347, %lpad9.i.loopexit.i.i.i2346 ], [ %lpad.loopexit.split-lp.i.i.i2353, %lpad9.i.loopexit.split-lp.i.i.i2352 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2018 unwind label %terminate.lpad.i.i.i.i2333
 
@@ -12731,7 +12731,7 @@ if.then.i32.i.i.i.i.i.i.i2084:                    ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i2074
 
 ehcleanup.i29.i.i.i.i.i.i.i2074:                  ; preds = %if.then.i32.i.i.i.i.i.i.i2084, %lpad14.i.i.i.i.i.i.i.i2082, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2078, %lpad10.i.loopexit.i.i.i.i.i.i.i2072
-  %.pn19.i.i.i.i.i.i.i2075 = phi { ptr, i32 } [ %853, %lpad14.i.i.i.i.i.i.i.i2082 ], [ %853, %if.then.i32.i.i.i.i.i.i.i2084 ], [ %lpad.loopexit.i.i.i.i.i.i.i2073, %lpad10.i.loopexit.i.i.i.i.i.i.i2072 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i2079, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2078 ]
+  %.pn19.i.i.i.i.i.i.i2075 = phi { ptr, i32 } [ %853, %if.then.i32.i.i.i.i.i.i.i2084 ], [ %853, %lpad14.i.i.i.i.i.i.i.i2082 ], [ %lpad.loopexit.i.i.i.i.i.i.i2073, %lpad10.i.loopexit.i.i.i.i.i.i.i2072 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i2079, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2078 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2018 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i2059
 
@@ -12905,7 +12905,7 @@ if.end4.i.i.i.i.i.i.i.i.i2102:                    ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i2102, %if.then3.i.i.i.i.i.i.i.i.i2262, %call2.i.i.noexc.i.i.i.i.i.i2095
-  %retval.0.i.i.i.i.i.i.i.i.i2106 = phi i32 [ %876, %if.then3.i.i.i.i.i.i.i.i.i2262 ], [ %878, %if.end4.i.i.i.i.i.i.i.i.i2102 ], [ %add9.i.i.i.i.i.i.i2092, %call2.i.i.noexc.i.i.i.i.i.i2095 ]
+  %retval.0.i.i.i.i.i.i.i.i.i2106 = phi i32 [ %878, %if.end4.i.i.i.i.i.i.i.i.i2102 ], [ %876, %if.then3.i.i.i.i.i.i.i.i.i2262 ], [ %add9.i.i.i.i.i.i.i2092, %call2.i.i.noexc.i.i.i.i.i.i2095 ]
   %idxprom.i.i.i.i.i.i.i.i2107 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i2106 to i64
   %arrayidx.i.i.i.i.i.i.i.i2108 = getelementptr inbounds float, ptr %873, i64 %idxprom.i.i.i.i.i.i.i.i2107
   %879 = load float, ptr %arrayidx.i.i.i.i.i.i.i.i2108, align 4
@@ -13068,7 +13068,7 @@ if.end4.i.i13.i.i.i.i.i.i.i2202:                  ; preds = %if.end.i.i10.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit22.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit22.i.i.i.i.i.i.i: ; preds = %if.end4.i.i13.i.i.i.i.i.i.i2202, %if.then3.i.i20.i.i.i.i.i.i.i2216, %call2.i6.i.noexc.i.i.i.i.i.i2195
-  %retval.0.i.i17.i.i.i.i.i.i.i2205 = phi i32 [ %901, %if.then3.i.i20.i.i.i.i.i.i.i2216 ], [ %903, %if.end4.i.i13.i.i.i.i.i.i.i2202 ], [ %add9.i.i.i.i.i.i.i2092, %call2.i6.i.noexc.i.i.i.i.i.i2195 ]
+  %retval.0.i.i17.i.i.i.i.i.i.i2205 = phi i32 [ %903, %if.end4.i.i13.i.i.i.i.i.i.i2202 ], [ %901, %if.then3.i.i20.i.i.i.i.i.i.i2216 ], [ %add9.i.i.i.i.i.i.i2092, %call2.i6.i.noexc.i.i.i.i.i.i2195 ]
   %idxprom.i18.i.i.i.i.i.i.i2206 = sext i32 %retval.0.i.i17.i.i.i.i.i.i.i2205 to i64
   %arrayidx.i19.i.i.i.i.i.i.i2207 = getelementptr inbounds float, ptr %898, i64 %idxprom.i18.i.i.i.i.i.i.i2206
   %904 = load float, ptr %arrayidx.i19.i.i.i.i.i.i.i2207, align 4
@@ -13142,7 +13142,7 @@ lor.rhs.i.i.i.i.i.i.i.i.i.i2136:                  ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i2139
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i2139: ; preds = %lor.rhs.i.i.i.i.i.i.i.i.i.i2136, %if.then.i.i.i.i.i.i.i.i.i2133
-  %913 = phi i1 [ true, %if.then.i.i.i.i.i.i.i.i.i2133 ], [ %cmp.i.i7.i.i.i.i.i.i.i.i.i2138, %lor.rhs.i.i.i.i.i.i.i.i.i.i2136 ]
+  %913 = phi i1 [ %cmp.i.i7.i.i.i.i.i.i.i.i.i2138, %lor.rhs.i.i.i.i.i.i.i.i.i.i2136 ], [ true, %if.then.i.i.i.i.i.i.i.i.i2133 ]
   %call5.i.i.i.i.i.i.i.i.i43.i.i.i.i.i.i2140 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
           to label %call5.i.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i2176 unwind label %lpad.i.i.loopexit.split-lp.i.i.i.i.i.i2141
 
@@ -13261,7 +13261,7 @@ if.then.i48.i.i.i.i.i.i.i2173:                    ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i2163
 
 ehcleanup.i.i.i.i.i.i.i.i2163:                    ; preds = %if.then.i48.i.i.i.i.i.i.i2173, %lpad12.i.i.i.i.i.i.i.i2171, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2167, %lpad9.i.loopexit.i.i.i.i.i.i.i2161
-  %.pn.i.i.i.i.i.i.i2164 = phi { ptr, i32 } [ %927, %lpad12.i.i.i.i.i.i.i.i2171 ], [ %927, %if.then.i48.i.i.i.i.i.i.i2173 ], [ %lpad.loopexit53.i.i.i.i.i.i.i2162, %lpad9.i.loopexit.i.i.i.i.i.i.i2161 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i2168, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2167 ]
+  %.pn.i.i.i.i.i.i.i2164 = phi { ptr, i32 } [ %927, %if.then.i48.i.i.i.i.i.i.i2173 ], [ %927, %lpad12.i.i.i.i.i.i.i.i2171 ], [ %lpad.loopexit53.i.i.i.i.i.i.i2162, %lpad9.i.loopexit.i.i.i.i.i.i.i2161 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i2168, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2167 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2018 unwind label %terminate.lpad.i.i.i.i.i.i.i.i2153
 
@@ -13392,7 +13392,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2016: ; preds = %if
   br label %lpad8.body.i2018
 
 lpad8.body.i2018:                                 ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i2052, %catch.fallthrough.i.i.i.i.i.i.i.i2146, %catch.fallthrough.i.i.i.i2326, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2016, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2065, %lpad8.loopexit.split-lp.loopexit.i2157, %lpad8.loopexit.i2339, %ehcleanup.i.i.i.i.i.i.i.i2163, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2152, %ehcleanup.i29.i.i.i.i.i.i.i2074, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2058, %ehcleanup.i.i.i.i2348, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2332
-  %eh.lpad-body.i2019 = phi { ptr, i32 } [ %.pn.i.i.i2349, %ehcleanup.i.i.i.i2348 ], [ %826, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2332 ], [ %.pn19.i.i.i.i.i.i.i2075, %ehcleanup.i29.i.i.i.i.i.i.i2074 ], [ %850, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2058 ], [ %.pn.i.i.i.i.i.i.i2164, %ehcleanup.i.i.i.i.i.i.i.i2163 ], [ %924, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2152 ], [ %lpad.loopexit.i2340, %lpad8.loopexit.i2339 ], [ %lpad.loopexit23.i2158, %lpad8.loopexit.split-lp.loopexit.i2157 ], [ %lpad.loopexit27.i2066, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2065 ], [ %lpad.loopexit.split-lp.i2017, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2016 ], [ %818, %catch.fallthrough.i.i.i.i2326 ], [ %lpad.phi.i.i.i.i.i.i2144, %catch.fallthrough.i.i.i.i.i.i.i.i2146 ], [ %842, %catch.fallthrough.i20.i.i.i.i.i.i.i2052 ]
+  %eh.lpad-body.i2019 = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i.i2144, %catch.fallthrough.i.i.i.i.i.i.i.i2146 ], [ %818, %catch.fallthrough.i.i.i.i2326 ], [ %.pn.i.i.i2349, %ehcleanup.i.i.i.i2348 ], [ %826, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2332 ], [ %lpad.loopexit.split-lp.i2017, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2016 ], [ %.pn19.i.i.i.i.i.i.i2075, %ehcleanup.i29.i.i.i.i.i.i.i2074 ], [ %850, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2058 ], [ %.pn.i.i.i.i.i.i.i2164, %ehcleanup.i.i.i.i.i.i.i.i2163 ], [ %924, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2152 ], [ %lpad.loopexit.i2340, %lpad8.loopexit.i2339 ], [ %lpad.loopexit23.i2158, %lpad8.loopexit.split-lp.loopexit.i2157 ], [ %lpad.loopexit27.i2066, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2065 ], [ %842, %catch.fallthrough.i20.i.i.i.i.i.i.i2052 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i1944) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i1943) #24
   br label %common.resume
@@ -13533,7 +13533,7 @@ if.then26.i.i.i.i.i.i2649:                        ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i2428
 
 land.end.i.i.i.i2428:                             ; preds = %for.body.i.i.i.i.i.i2658, %if.then26.i.i.i.i.i.i2649, %for.end.i.i.i.i.i.i2647, %land.rhs.i.i.i.i2641, %land.lhs.true.i.i.i.i2638, %if.end.i7.i.i.i2425
-  %frombool.i.i.i.i2429 = phi i16 [ 256, %land.lhs.true.i.i.i.i2638 ], [ 256, %if.end.i7.i.i.i2425 ], [ 257, %land.rhs.i.i.i.i2641 ], [ %965, %if.then26.i.i.i.i.i.i2649 ], [ 257, %for.end.i.i.i.i.i.i2647 ], [ 256, %for.body.i.i.i.i.i.i2658 ]
+  %frombool.i.i.i.i2429 = phi i16 [ 256, %land.lhs.true.i.i.i.i2638 ], [ 256, %if.end.i7.i.i.i2425 ], [ 257, %land.rhs.i.i.i.i2641 ], [ 257, %for.end.i.i.i.i.i.i2647 ], [ %965, %if.then26.i.i.i.i.i.i2649 ], [ 256, %for.body.i.i.i.i.i.i2658 ]
   store i16 %frombool.i.i.i.i2429, ptr %allSelected_.i.i.i.i2422, align 4
   %966 = trunc i16 %frombool.i.i.i.i2429 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i2430
@@ -13641,7 +13641,7 @@ if.then.i19.i.i.i2635:                            ; preds = %lpad12.i.i.i.i2633
   br label %ehcleanup.i.i.i.i2625
 
 ehcleanup.i.i.i.i2625:                            ; preds = %if.then.i19.i.i.i2635, %lpad12.i.i.i.i2633, %lpad9.i.loopexit.split-lp.i.i.i2629, %lpad9.i.loopexit.i.i.i2623
-  %.pn.i.i.i2626 = phi { ptr, i32 } [ %980, %lpad12.i.i.i.i2633 ], [ %980, %if.then.i19.i.i.i2635 ], [ %lpad.loopexit.i.i.i2624, %lpad9.i.loopexit.i.i.i2623 ], [ %lpad.loopexit.split-lp.i.i.i2630, %lpad9.i.loopexit.split-lp.i.i.i2629 ]
+  %.pn.i.i.i2626 = phi { ptr, i32 } [ %980, %if.then.i19.i.i.i2635 ], [ %980, %lpad12.i.i.i.i2633 ], [ %lpad.loopexit.i.i.i2624, %lpad9.i.loopexit.i.i.i2623 ], [ %lpad.loopexit.split-lp.i.i.i2630, %lpad9.i.loopexit.split-lp.i.i.i2629 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2473 unwind label %terminate.lpad.i.i.i.i2610
 
@@ -13860,7 +13860,7 @@ if.then.i32.i.i.i.i.i.i.i2539:                    ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i2529
 
 ehcleanup.i29.i.i.i.i.i.i.i2529:                  ; preds = %if.then.i32.i.i.i.i.i.i.i2539, %lpad14.i.i.i.i.i.i.i.i2537, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2533, %lpad10.i.loopexit.i.i.i.i.i.i.i2527
-  %.pn19.i.i.i.i.i.i.i2530 = phi { ptr, i32 } [ %1004, %lpad14.i.i.i.i.i.i.i.i2537 ], [ %1004, %if.then.i32.i.i.i.i.i.i.i2539 ], [ %lpad.loopexit.i.i.i.i.i.i.i2528, %lpad10.i.loopexit.i.i.i.i.i.i.i2527 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i2534, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2533 ]
+  %.pn19.i.i.i.i.i.i.i2530 = phi { ptr, i32 } [ %1004, %if.then.i32.i.i.i.i.i.i.i2539 ], [ %1004, %lpad14.i.i.i.i.i.i.i.i2537 ], [ %lpad.loopexit.i.i.i.i.i.i.i2528, %lpad10.i.loopexit.i.i.i.i.i.i.i2527 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i2534, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2533 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2473 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i2514
 
@@ -13982,7 +13982,7 @@ if.then.i48.i.i.i.i.i.i.i2580:                    ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i2570
 
 ehcleanup.i.i.i.i.i.i.i.i2570:                    ; preds = %if.then.i48.i.i.i.i.i.i.i2580, %lpad12.i.i.i.i.i.i.i.i2578, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2574, %lpad9.i.loopexit.i.i.i.i.i.i.i2568
-  %.pn.i.i.i.i.i.i.i2571 = phi { ptr, i32 } [ %1020, %lpad12.i.i.i.i.i.i.i.i2578 ], [ %1020, %if.then.i48.i.i.i.i.i.i.i2580 ], [ %lpad.loopexit53.i.i.i.i.i.i.i2569, %lpad9.i.loopexit.i.i.i.i.i.i.i2568 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i2575, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2574 ]
+  %.pn.i.i.i.i.i.i.i2571 = phi { ptr, i32 } [ %1020, %if.then.i48.i.i.i.i.i.i.i2580 ], [ %1020, %lpad12.i.i.i.i.i.i.i.i2578 ], [ %lpad.loopexit53.i.i.i.i.i.i.i2569, %lpad9.i.loopexit.i.i.i.i.i.i.i2568 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i2575, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2574 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2473 unwind label %terminate.lpad.i.i.i.i.i.i.i.i2557
 
@@ -14113,7 +14113,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2471: ; preds = %if
   br label %lpad8.body.i2473
 
 lpad8.body.i2473:                                 ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i2507, %catch.fallthrough.i.i.i.i.i.i.i.i2550, %catch.fallthrough.i.i.i.i2603, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2471, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2520, %lpad8.loopexit.split-lp.loopexit.i2561, %lpad8.loopexit.i2616, %ehcleanup.i.i.i.i.i.i.i.i2570, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2556, %ehcleanup.i29.i.i.i.i.i.i.i2529, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2513, %ehcleanup.i.i.i.i2625, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2609
-  %eh.lpad-body.i2474 = phi { ptr, i32 } [ %.pn.i.i.i2626, %ehcleanup.i.i.i.i2625 ], [ %977, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2609 ], [ %.pn19.i.i.i.i.i.i.i2530, %ehcleanup.i29.i.i.i.i.i.i.i2529 ], [ %1001, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2513 ], [ %.pn.i.i.i.i.i.i.i2571, %ehcleanup.i.i.i.i.i.i.i.i2570 ], [ %1017, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2556 ], [ %lpad.loopexit.i2617, %lpad8.loopexit.i2616 ], [ %lpad.loopexit23.i2562, %lpad8.loopexit.split-lp.loopexit.i2561 ], [ %lpad.loopexit27.i2521, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2520 ], [ %lpad.loopexit.split-lp.i2472, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2471 ], [ %969, %catch.fallthrough.i.i.i.i2603 ], [ %1009, %catch.fallthrough.i.i.i.i.i.i.i.i2550 ], [ %993, %catch.fallthrough.i20.i.i.i.i.i.i.i2507 ]
+  %eh.lpad-body.i2474 = phi { ptr, i32 } [ %1009, %catch.fallthrough.i.i.i.i.i.i.i.i2550 ], [ %969, %catch.fallthrough.i.i.i.i2603 ], [ %.pn.i.i.i2626, %ehcleanup.i.i.i.i2625 ], [ %977, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2609 ], [ %lpad.loopexit.split-lp.i2472, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2471 ], [ %.pn19.i.i.i.i.i.i.i2530, %ehcleanup.i29.i.i.i.i.i.i.i2529 ], [ %1001, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2513 ], [ %.pn.i.i.i.i.i.i.i2571, %ehcleanup.i.i.i.i.i.i.i.i2570 ], [ %1017, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2556 ], [ %lpad.loopexit.i2617, %lpad8.loopexit.i2616 ], [ %lpad.loopexit23.i2562, %lpad8.loopexit.split-lp.loopexit.i2561 ], [ %lpad.loopexit27.i2521, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2520 ], [ %993, %catch.fallthrough.i20.i.i.i.i.i.i.i2507 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i2399) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i2398) #24
   br label %common.resume
@@ -14254,7 +14254,7 @@ if.then26.i.i.i.i.i.i2912:                        ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i2699
 
 land.end.i.i.i.i2699:                             ; preds = %for.body.i.i.i.i.i.i2921, %if.then26.i.i.i.i.i.i2912, %for.end.i.i.i.i.i.i2910, %land.rhs.i.i.i.i2904, %land.lhs.true.i.i.i.i2901, %if.end.i7.i.i.i2696
-  %frombool.i.i.i.i2700 = phi i16 [ 256, %land.lhs.true.i.i.i.i2901 ], [ 256, %if.end.i7.i.i.i2696 ], [ 257, %land.rhs.i.i.i.i2904 ], [ %1058, %if.then26.i.i.i.i.i.i2912 ], [ 257, %for.end.i.i.i.i.i.i2910 ], [ 256, %for.body.i.i.i.i.i.i2921 ]
+  %frombool.i.i.i.i2700 = phi i16 [ 256, %land.lhs.true.i.i.i.i2901 ], [ 256, %if.end.i7.i.i.i2696 ], [ 257, %land.rhs.i.i.i.i2904 ], [ 257, %for.end.i.i.i.i.i.i2910 ], [ %1058, %if.then26.i.i.i.i.i.i2912 ], [ 256, %for.body.i.i.i.i.i.i2921 ]
   store i16 %frombool.i.i.i.i2700, ptr %allSelected_.i.i.i.i2693, align 4
   %1059 = trunc i16 %frombool.i.i.i.i2700 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i2701
@@ -14362,7 +14362,7 @@ if.then.i19.i.i.i2898:                            ; preds = %lpad12.i.i.i.i2896
   br label %ehcleanup.i.i.i.i2888
 
 ehcleanup.i.i.i.i2888:                            ; preds = %if.then.i19.i.i.i2898, %lpad12.i.i.i.i2896, %lpad9.i.loopexit.split-lp.i.i.i2892, %lpad9.i.loopexit.i.i.i2886
-  %.pn.i.i.i2889 = phi { ptr, i32 } [ %1073, %lpad12.i.i.i.i2896 ], [ %1073, %if.then.i19.i.i.i2898 ], [ %lpad.loopexit.i.i.i2887, %lpad9.i.loopexit.i.i.i2886 ], [ %lpad.loopexit.split-lp.i.i.i2893, %lpad9.i.loopexit.split-lp.i.i.i2892 ]
+  %.pn.i.i.i2889 = phi { ptr, i32 } [ %1073, %if.then.i19.i.i.i2898 ], [ %1073, %lpad12.i.i.i.i2896 ], [ %lpad.loopexit.i.i.i2887, %lpad9.i.loopexit.i.i.i2886 ], [ %lpad.loopexit.split-lp.i.i.i2893, %lpad9.i.loopexit.split-lp.i.i.i2892 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2713 unwind label %terminate.lpad.i.i.i.i2873
 
@@ -14575,7 +14575,7 @@ if.then.i32.i.i.i.i.i.i.i2803:                    ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i2793
 
 ehcleanup.i29.i.i.i.i.i.i.i2793:                  ; preds = %if.then.i32.i.i.i.i.i.i.i2803, %lpad14.i.i.i.i.i.i.i.i2801, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2797, %lpad10.i.loopexit.i.i.i.i.i.i.i2791
-  %.pn19.i.i.i.i.i.i.i2794 = phi { ptr, i32 } [ %1095, %lpad14.i.i.i.i.i.i.i.i2801 ], [ %1095, %if.then.i32.i.i.i.i.i.i.i2803 ], [ %lpad.loopexit.i.i.i.i.i.i.i2792, %lpad10.i.loopexit.i.i.i.i.i.i.i2791 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i2798, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2797 ]
+  %.pn19.i.i.i.i.i.i.i2794 = phi { ptr, i32 } [ %1095, %if.then.i32.i.i.i.i.i.i.i2803 ], [ %1095, %lpad14.i.i.i.i.i.i.i.i2801 ], [ %lpad.loopexit.i.i.i.i.i.i.i2792, %lpad10.i.loopexit.i.i.i.i.i.i.i2791 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i2798, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2797 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2713 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i2780
 
@@ -14697,7 +14697,7 @@ if.then.i48.i.i.i.i.i.i.i2843:                    ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i2833
 
 ehcleanup.i.i.i.i.i.i.i.i2833:                    ; preds = %if.then.i48.i.i.i.i.i.i.i2843, %lpad12.i.i.i.i.i.i.i.i2841, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2837, %lpad9.i.loopexit.i.i.i.i.i.i.i2831
-  %.pn.i.i.i.i.i.i.i2834 = phi { ptr, i32 } [ %1111, %lpad12.i.i.i.i.i.i.i.i2841 ], [ %1111, %if.then.i48.i.i.i.i.i.i.i2843 ], [ %lpad.loopexit53.i.i.i.i.i.i.i2832, %lpad9.i.loopexit.i.i.i.i.i.i.i2831 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i2838, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2837 ]
+  %.pn.i.i.i.i.i.i.i2834 = phi { ptr, i32 } [ %1111, %if.then.i48.i.i.i.i.i.i.i2843 ], [ %1111, %lpad12.i.i.i.i.i.i.i.i2841 ], [ %lpad.loopexit53.i.i.i.i.i.i.i2832, %lpad9.i.loopexit.i.i.i.i.i.i.i2831 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i2838, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2837 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2713 unwind label %terminate.lpad.i.i.i.i.i.i.i.i2821
 
@@ -14810,7 +14810,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i:
   br label %lpad8.body.i2713
 
 lpad8.body.i2713:                                 ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i2773, %catch.fallthrough.i.i.i.i.i.i.i.i2814, %catch.fallthrough.i.i.i.i2866, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2825, %lpad8.loopexit.split-lp.loopexit.i2879, %lpad8.loopexit.i2711, %ehcleanup.i.i.i.i.i.i.i.i2833, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2820, %ehcleanup.i29.i.i.i.i.i.i.i2793, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2779, %ehcleanup.i.i.i.i2888, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2872
-  %eh.lpad-body.i2714 = phi { ptr, i32 } [ %.pn.i.i.i2889, %ehcleanup.i.i.i.i2888 ], [ %1070, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2872 ], [ %.pn19.i.i.i.i.i.i.i2794, %ehcleanup.i29.i.i.i.i.i.i.i2793 ], [ %1092, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2779 ], [ %.pn.i.i.i.i.i.i.i2834, %ehcleanup.i.i.i.i.i.i.i.i2833 ], [ %1108, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2820 ], [ %lpad.loopexit.i2712, %lpad8.loopexit.i2711 ], [ %lpad.loopexit27.i2880, %lpad8.loopexit.split-lp.loopexit.i2879 ], [ %lpad.loopexit31.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2825 ], [ %lpad.loopexit34.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp35.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %1062, %catch.fallthrough.i.i.i.i2866 ], [ %1100, %catch.fallthrough.i.i.i.i.i.i.i.i2814 ], [ %1084, %catch.fallthrough.i20.i.i.i.i.i.i.i2773 ]
+  %eh.lpad-body.i2714 = phi { ptr, i32 } [ %1100, %catch.fallthrough.i.i.i.i.i.i.i.i2814 ], [ %1062, %catch.fallthrough.i.i.i.i2866 ], [ %.pn.i.i.i2889, %ehcleanup.i.i.i.i2888 ], [ %1070, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2872 ], [ %lpad.loopexit.split-lp35.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %.pn19.i.i.i.i.i.i.i2794, %ehcleanup.i29.i.i.i.i.i.i.i2793 ], [ %1092, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2779 ], [ %.pn.i.i.i.i.i.i.i2834, %ehcleanup.i.i.i.i.i.i.i.i2833 ], [ %1108, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2820 ], [ %lpad.loopexit.i2712, %lpad8.loopexit.i2711 ], [ %lpad.loopexit27.i2880, %lpad8.loopexit.split-lp.loopexit.i2879 ], [ %lpad.loopexit31.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2825 ], [ %lpad.loopexit34.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %1084, %catch.fallthrough.i20.i.i.i.i.i.i.i2773 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i2675) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i2674) #24
   br label %common.resume
@@ -15000,7 +15000,7 @@ if.then26.i.i.i.i.i.i3189:                        ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i2968
 
 land.end.i.i.i.i2968:                             ; preds = %for.body.i.i.i.i.i.i3198, %if.then26.i.i.i.i.i.i3189, %for.end.i.i.i.i.i.i3187, %land.rhs.i.i.i.i3181, %land.lhs.true.i.i.i.i3178, %if.end.i7.i.i.i2965
-  %frombool.i.i.i.i2969 = phi i16 [ 256, %land.lhs.true.i.i.i.i3178 ], [ 256, %if.end.i7.i.i.i2965 ], [ 257, %land.rhs.i.i.i.i3181 ], [ %1155, %if.then26.i.i.i.i.i.i3189 ], [ 257, %for.end.i.i.i.i.i.i3187 ], [ 256, %for.body.i.i.i.i.i.i3198 ]
+  %frombool.i.i.i.i2969 = phi i16 [ 256, %land.lhs.true.i.i.i.i3178 ], [ 256, %if.end.i7.i.i.i2965 ], [ 257, %land.rhs.i.i.i.i3181 ], [ 257, %for.end.i.i.i.i.i.i3187 ], [ %1155, %if.then26.i.i.i.i.i.i3189 ], [ 256, %for.body.i.i.i.i.i.i3198 ]
   store i16 %frombool.i.i.i.i2969, ptr %allSelected_.i.i.i.i2962, align 4
   %1156 = trunc i16 %frombool.i.i.i.i2969 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i2970
@@ -15108,7 +15108,7 @@ if.then.i19.i.i.i3175:                            ; preds = %lpad12.i.i.i.i3173
   br label %ehcleanup.i.i.i.i3165
 
 ehcleanup.i.i.i.i3165:                            ; preds = %if.then.i19.i.i.i3175, %lpad12.i.i.i.i3173, %lpad9.i.loopexit.split-lp.i.i.i3169, %lpad9.i.loopexit.i.i.i3163
-  %.pn.i.i.i3166 = phi { ptr, i32 } [ %1170, %lpad12.i.i.i.i3173 ], [ %1170, %if.then.i19.i.i.i3175 ], [ %lpad.loopexit.i.i.i3164, %lpad9.i.loopexit.i.i.i3163 ], [ %lpad.loopexit.split-lp.i.i.i3170, %lpad9.i.loopexit.split-lp.i.i.i3169 ]
+  %.pn.i.i.i3166 = phi { ptr, i32 } [ %1170, %if.then.i19.i.i.i3175 ], [ %1170, %lpad12.i.i.i.i3173 ], [ %lpad.loopexit.i.i.i3164, %lpad9.i.loopexit.i.i.i3163 ], [ %lpad.loopexit.split-lp.i.i.i3170, %lpad9.i.loopexit.split-lp.i.i.i3169 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i3013 unwind label %terminate.lpad.i.i.i.i3150
 
@@ -15327,7 +15327,7 @@ if.then.i32.i.i.i.i.i.i.i3079:                    ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i3069
 
 ehcleanup.i29.i.i.i.i.i.i.i3069:                  ; preds = %if.then.i32.i.i.i.i.i.i.i3079, %lpad14.i.i.i.i.i.i.i.i3077, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i3073, %lpad10.i.loopexit.i.i.i.i.i.i.i3067
-  %.pn19.i.i.i.i.i.i.i3070 = phi { ptr, i32 } [ %1194, %lpad14.i.i.i.i.i.i.i.i3077 ], [ %1194, %if.then.i32.i.i.i.i.i.i.i3079 ], [ %lpad.loopexit.i.i.i.i.i.i.i3068, %lpad10.i.loopexit.i.i.i.i.i.i.i3067 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i3074, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i3073 ]
+  %.pn19.i.i.i.i.i.i.i3070 = phi { ptr, i32 } [ %1194, %if.then.i32.i.i.i.i.i.i.i3079 ], [ %1194, %lpad14.i.i.i.i.i.i.i.i3077 ], [ %lpad.loopexit.i.i.i.i.i.i.i3068, %lpad10.i.loopexit.i.i.i.i.i.i.i3067 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i3074, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i3073 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i3013 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i3054
 
@@ -15449,7 +15449,7 @@ if.then.i48.i.i.i.i.i.i.i3120:                    ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i3110
 
 ehcleanup.i.i.i.i.i.i.i.i3110:                    ; preds = %if.then.i48.i.i.i.i.i.i.i3120, %lpad12.i.i.i.i.i.i.i.i3118, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i3114, %lpad9.i.loopexit.i.i.i.i.i.i.i3108
-  %.pn.i.i.i.i.i.i.i3111 = phi { ptr, i32 } [ %1210, %lpad12.i.i.i.i.i.i.i.i3118 ], [ %1210, %if.then.i48.i.i.i.i.i.i.i3120 ], [ %lpad.loopexit53.i.i.i.i.i.i.i3109, %lpad9.i.loopexit.i.i.i.i.i.i.i3108 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i3115, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i3114 ]
+  %.pn.i.i.i.i.i.i.i3111 = phi { ptr, i32 } [ %1210, %if.then.i48.i.i.i.i.i.i.i3120 ], [ %1210, %lpad12.i.i.i.i.i.i.i.i3118 ], [ %lpad.loopexit53.i.i.i.i.i.i.i3109, %lpad9.i.loopexit.i.i.i.i.i.i.i3108 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i3115, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i3114 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i3013 unwind label %terminate.lpad.i.i.i.i.i.i.i.i3097
 
@@ -15580,7 +15580,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3011: ; preds = %if
   br label %lpad8.body.i3013
 
 lpad8.body.i3013:                                 ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i3047, %catch.fallthrough.i.i.i.i.i.i.i.i3090, %catch.fallthrough.i.i.i.i3143, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3011, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i3060, %lpad8.loopexit.split-lp.loopexit.i3101, %lpad8.loopexit.i3156, %ehcleanup.i.i.i.i.i.i.i.i3110, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i3096, %ehcleanup.i29.i.i.i.i.i.i.i3069, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i3053, %ehcleanup.i.i.i.i3165, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3149
-  %eh.lpad-body.i3014 = phi { ptr, i32 } [ %.pn.i.i.i3166, %ehcleanup.i.i.i.i3165 ], [ %1167, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3149 ], [ %.pn19.i.i.i.i.i.i.i3070, %ehcleanup.i29.i.i.i.i.i.i.i3069 ], [ %1191, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i3053 ], [ %.pn.i.i.i.i.i.i.i3111, %ehcleanup.i.i.i.i.i.i.i.i3110 ], [ %1207, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i3096 ], [ %lpad.loopexit.i3157, %lpad8.loopexit.i3156 ], [ %lpad.loopexit23.i3102, %lpad8.loopexit.split-lp.loopexit.i3101 ], [ %lpad.loopexit27.i3061, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i3060 ], [ %lpad.loopexit.split-lp.i3012, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3011 ], [ %1159, %catch.fallthrough.i.i.i.i3143 ], [ %1199, %catch.fallthrough.i.i.i.i.i.i.i.i3090 ], [ %1183, %catch.fallthrough.i20.i.i.i.i.i.i.i3047 ]
+  %eh.lpad-body.i3014 = phi { ptr, i32 } [ %1199, %catch.fallthrough.i.i.i.i.i.i.i.i3090 ], [ %1159, %catch.fallthrough.i.i.i.i3143 ], [ %.pn.i.i.i3166, %ehcleanup.i.i.i.i3165 ], [ %1167, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3149 ], [ %lpad.loopexit.split-lp.i3012, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3011 ], [ %.pn19.i.i.i.i.i.i.i3070, %ehcleanup.i29.i.i.i.i.i.i.i3069 ], [ %1191, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i3053 ], [ %.pn.i.i.i.i.i.i.i3111, %ehcleanup.i.i.i.i.i.i.i.i3110 ], [ %1207, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i3096 ], [ %lpad.loopexit.i3157, %lpad8.loopexit.i3156 ], [ %lpad.loopexit23.i3102, %lpad8.loopexit.split-lp.loopexit.i3101 ], [ %lpad.loopexit27.i3061, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i3060 ], [ %1183, %catch.fallthrough.i20.i.i.i.i.i.i.i3047 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i2939) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i2938) #24
   br label %common.resume
@@ -17278,7 +17278,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %conv.i.i = sext i32 %retval.0.i.i to i64
   %div2.i.i = lshr i64 %conv.i.i, 6
   %arrayidx.i1.i = getelementptr inbounds nuw i64, ptr %2, i64 %div2.i.i
@@ -17336,7 +17336,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit27
 
 _ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit27: ; preds = %for.body, %if.then3.i.i25, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %20, %if.then3.i.i25 ], [ %22, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %22, %if.end4.i.i13 ], [ %20, %if.then3.i.i25 ], [ %row, %for.body ]
   %conv.i.i18 = sext i32 %retval.0.i.i17 to i64
   %div2.i.i19 = lshr i64 %conv.i.i18, 6
   %arrayidx.i1.i20 = getelementptr inbounds nuw i64, ptr %17, i64 %div2.i.i19
@@ -17416,7 +17416,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %35 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %35 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -17603,7 +17603,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -18484,7 +18484,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 %idxprom.i
   %8 = load i8, ptr %arrayidx.i, align 1
@@ -18537,7 +18537,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit22
 
 _ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit22: ; preds = %for.body, %if.then3.i.i20, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %18, %if.then3.i.i20 ], [ %20, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %20, %if.end4.i.i13 ], [ %18, %if.then3.i.i20 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds i8, ptr %15, i64 %idxprom.i18
   %21 = load i8, ptr %arrayidx.i19, align 1
@@ -18612,7 +18612,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %31 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %31 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -18754,7 +18754,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -19665,7 +19665,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %2, i64 %idxprom.i
   %8 = load i16, ptr %arrayidx.i, align 2
@@ -19718,7 +19718,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit22
 
 _ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit22: ; preds = %for.body, %if.then3.i.i20, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %18, %if.then3.i.i20 ], [ %20, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %20, %if.end4.i.i13 ], [ %18, %if.then3.i.i20 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds i16, ptr %15, i64 %idxprom.i18
   %21 = load i16, ptr %arrayidx.i19, align 2
@@ -19793,7 +19793,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %31 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %31 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -19935,7 +19935,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -20846,7 +20846,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %2, i64 %idxprom.i
   %8 = load i32, ptr %arrayidx.i, align 4
@@ -20899,7 +20899,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit22
 
 _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit22: ; preds = %for.body, %if.then3.i.i20, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %18, %if.then3.i.i20 ], [ %20, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %20, %if.end4.i.i13 ], [ %18, %if.then3.i.i20 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds i32, ptr %15, i64 %idxprom.i18
   %21 = load i32, ptr %arrayidx.i19, align 4
@@ -20974,7 +20974,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %31 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %31 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -21116,7 +21116,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -22027,7 +22027,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %2, i64 %idxprom.i
   %8 = load i64, ptr %arrayidx.i, align 8
@@ -22080,7 +22080,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit22
 
 _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit22: ; preds = %for.body, %if.then3.i.i20, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %18, %if.then3.i.i20 ], [ %20, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %20, %if.end4.i.i13 ], [ %18, %if.then3.i.i20 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds i64, ptr %15, i64 %idxprom.i18
   %21 = load i64, ptr %arrayidx.i19, align 8
@@ -22155,7 +22155,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %31 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %31 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -22297,7 +22297,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -23208,7 +23208,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %conv.i = sext i32 %retval.0.i.i to i64
   %mul.i = shl nsw i64 %conv.i, 4
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %mul.i
@@ -23262,7 +23262,7 @@ if.end4.i.i14:                                    ; preds = %if.end.i.i11
   br label %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30
 
 _ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30: ; preds = %for.body, %if.then3.i.i28, %if.end4.i.i14
-  %retval.0.i.i18 = phi i32 [ %17, %if.then3.i.i28 ], [ %19, %if.end4.i.i14 ], [ %row, %for.body ]
+  %retval.0.i.i18 = phi i32 [ %19, %if.end4.i.i14 ], [ %17, %if.then3.i.i28 ], [ %row, %for.body ]
   %conv.i19 = sext i32 %retval.0.i.i18 to i64
   %mul.i20 = shl nsw i64 %conv.i19, 4
   %add.ptr.i21 = getelementptr inbounds i8, ptr %14, i64 %mul.i20
@@ -23338,7 +23338,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %29 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %29 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -23480,7 +23480,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -24391,7 +24391,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds float, ptr %2, i64 %idxprom.i
   %8 = load float, ptr %arrayidx.i, align 4
@@ -24444,7 +24444,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit22
 
 _ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit22: ; preds = %for.body, %if.then3.i.i20, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %18, %if.then3.i.i20 ], [ %20, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %20, %if.end4.i.i13 ], [ %18, %if.then3.i.i20 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds float, ptr %15, i64 %idxprom.i18
   %21 = load float, ptr %arrayidx.i19, align 4
@@ -24519,7 +24519,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %31 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %31 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -24661,7 +24661,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -25572,7 +25572,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds double, ptr %2, i64 %idxprom.i
   %8 = load double, ptr %arrayidx.i, align 8
@@ -25633,7 +25633,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit22
 
 _ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit22: ; preds = %for.body, %if.then3.i.i20, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %19, %if.then3.i.i20 ], [ %21, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %21, %if.end4.i.i13 ], [ %19, %if.then3.i.i20 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds double, ptr %16, i64 %idxprom.i18
   %22 = load double, ptr %arrayidx.i19, align 8
@@ -25716,7 +25716,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %33 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %33 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -25858,7 +25858,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -26778,7 +26778,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %2, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i, align 8
@@ -26838,7 +26838,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit27
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit27: ; preds = %for.body, %if.then3.i.i25, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %19, %if.then3.i.i25 ], [ %21, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %21, %if.end4.i.i13 ], [ %19, %if.then3.i.i25 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %16, i64 %idxprom.i18
   %retval.sroa.0.0.copyload.i20 = load i64, ptr %arrayidx.i19, align 8
@@ -26974,7 +26974,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i33
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i33
-  %38 = phi i1 [ true, %if.then.i.i33 ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %38 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i33 ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -27116,7 +27116,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -28035,7 +28035,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %2, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i, align 8
@@ -28091,7 +28091,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit27
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit27: ; preds = %for.body, %if.then3.i.i25, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %17, %if.then3.i.i25 ], [ %19, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %19, %if.end4.i.i13 ], [ %17, %if.then3.i.i25 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %14, i64 %idxprom.i18
   %retval.sroa.0.0.copyload.i20 = load i64, ptr %arrayidx.i19, align 8
@@ -28182,7 +28182,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %29 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %29 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -28326,7 +28326,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -28642,7 +28642,7 @@ if.then26.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i
 
 land.end.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i.i, %if.then26.i.i.i.i.i.i, %for.end.i.i.i.i.i.i, %land.rhs.i.i.i.i, %land.lhs.true.i.i.i.i, %if.end.i7.i.i.i
-  %frombool.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i ], [ 256, %if.end.i7.i.i.i ], [ 257, %land.rhs.i.i.i.i ], [ %24, %if.then26.i.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i ]
+  %frombool.i.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i.i ], [ 256, %if.end.i7.i.i.i ], [ 257, %land.rhs.i.i.i.i ], [ 257, %for.end.i.i.i.i.i.i ], [ %24, %if.then26.i.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i.i ]
   store i16 %frombool.i.i.i.i, ptr %allSelected_.i.i.i.i, align 4
   %25 = trunc i16 %frombool.i.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i
@@ -28750,7 +28750,7 @@ if.then.i19.i.i.i:                                ; preds = %lpad12.i.i.i.i
   br label %ehcleanup.i.i.i.i
 
 ehcleanup.i.i.i.i:                                ; preds = %if.then.i19.i.i.i, %lpad12.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i, %lpad9.i.loopexit.i.i.i
-  %.pn.i.i.i = phi { ptr, i32 } [ %39, %lpad12.i.i.i.i ], [ %39, %if.then.i19.i.i.i ], [ %lpad.loopexit.i.i.i, %lpad9.i.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %39, %if.then.i19.i.i.i ], [ %39, %lpad12.i.i.i.i ], [ %lpad.loopexit.i.i.i, %lpad9.i.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i unwind label %terminate.lpad.i.i.i.i
 
@@ -28969,7 +28969,7 @@ if.then.i32.i.i.i.i.i.i.i:                        ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i
 
 ehcleanup.i29.i.i.i.i.i.i.i:                      ; preds = %if.then.i32.i.i.i.i.i.i.i, %lpad14.i.i.i.i.i.i.i.i, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i, %lpad10.i.loopexit.i.i.i.i.i.i.i
-  %.pn19.i.i.i.i.i.i.i = phi { ptr, i32 } [ %63, %lpad14.i.i.i.i.i.i.i.i ], [ %63, %if.then.i32.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i, %lpad10.i.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i ]
+  %.pn19.i.i.i.i.i.i.i = phi { ptr, i32 } [ %63, %if.then.i32.i.i.i.i.i.i.i ], [ %63, %lpad14.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i, %lpad10.i.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i unwind label %terminate.lpad.i26.i.i.i.i.i.i.i
 
@@ -29091,7 +29091,7 @@ if.then.i48.i.i.i.i.i.i.i:                        ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i
 
 ehcleanup.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i48.i.i.i.i.i.i.i, %lpad12.i.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i
-  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %79, %lpad12.i.i.i.i.i.i.i.i ], [ %79, %if.then.i48.i.i.i.i.i.i.i ], [ %lpad.loopexit53.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i ]
+  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %79, %if.then.i48.i.i.i.i.i.i.i ], [ %79, %lpad12.i.i.i.i.i.i.i.i ], [ %lpad.loopexit53.i.i.i.i.i.i.i, %lpad9.i.loopexit.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
@@ -29222,14 +29222,14 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %if.the
   br label %lpad8.body.i
 
 lpad8.body.i:                                     ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad8.loopexit.split-lp.loopexit.i, %lpad8.loopexit.i, %ehcleanup.i.i.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i, %ehcleanup.i29.i.i.i.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i.i, %ehcleanup.i.i.i.i ], [ %36, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i ], [ %.pn19.i.i.i.i.i.i.i, %ehcleanup.i29.i.i.i.i.i.i.i ], [ %60, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i ], [ %76, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i ], [ %lpad.loopexit.i, %lpad8.loopexit.i ], [ %lpad.loopexit23.i, %lpad8.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit27.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %28, %catch.fallthrough.i.i.i.i ], [ %68, %catch.fallthrough.i.i.i.i.i.i.i.i ], [ %52, %catch.fallthrough.i20.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %68, %catch.fallthrough.i.i.i.i.i.i.i.i ], [ %28, %catch.fallthrough.i.i.i.i ], [ %.pn.i.i.i, %ehcleanup.i.i.i.i ], [ %36, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i ], [ %lpad.loopexit.split-lp.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %.pn19.i.i.i.i.i.i.i, %ehcleanup.i29.i.i.i.i.i.i.i ], [ %60, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i.i.i, %ehcleanup.i.i.i.i.i.i.i.i ], [ %76, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i ], [ %lpad.loopexit.i, %lpad8.loopexit.i ], [ %lpad.loopexit23.i, %lpad8.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit27.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %52, %catch.fallthrough.i20.i.i.i.i.i.i.i ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i2947, %lpad8.body.i3013, %lpad.i2682, %lpad8.body.i2713, %lpad.i2407, %lpad8.body.i2473, %lpad.i1952, %lpad8.body.i2018, %lpad.i1675, %lpad8.body.i1741, %lpad.i1211, %lpad8.body.i1277, %lpad.i801, %lpad8.body.i867, %lpad.i337, %lpad8.body.i403, %lpad.i65, %lpad8.body.i130, %lpad.i, %lpad8.body.i
-  %resultValues.i2936.sink = phi ptr [ %resultValues.i, %lpad8.body.i ], [ %resultValues.i, %lpad.i ], [ %resultValues.i55, %lpad8.body.i130 ], [ %resultValues.i55, %lpad.i65 ], [ %resultValues.i326, %lpad8.body.i403 ], [ %resultValues.i326, %lpad.i337 ], [ %resultValues.i790, %lpad8.body.i867 ], [ %resultValues.i790, %lpad.i801 ], [ %resultValues.i1200, %lpad8.body.i1277 ], [ %resultValues.i1200, %lpad.i1211 ], [ %resultValues.i1664, %lpad8.body.i1741 ], [ %resultValues.i1664, %lpad.i1675 ], [ %resultValues.i1941, %lpad8.body.i2018 ], [ %resultValues.i1941, %lpad.i1952 ], [ %resultValues.i2396, %lpad8.body.i2473 ], [ %resultValues.i2396, %lpad.i2407 ], [ %resultValues.i2672, %lpad8.body.i2713 ], [ %resultValues.i2672, %lpad.i2682 ], [ %resultValues.i2936, %lpad8.body.i3013 ], [ %resultValues.i2936, %lpad.i2947 ]
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad8.body.i ], [ %93, %lpad.i ], [ %eh.lpad-body.i131, %lpad8.body.i130 ], [ %244, %lpad.i65 ], [ %eh.lpad-body.i404, %lpad8.body.i403 ], [ %395, %lpad.i337 ], [ %eh.lpad-body.i868, %lpad8.body.i867 ], [ %546, %lpad.i801 ], [ %eh.lpad-body.i1278, %lpad8.body.i1277 ], [ %697, %lpad.i1211 ], [ %eh.lpad-body.i1742, %lpad8.body.i1741 ], [ %790, %lpad.i1675 ], [ %eh.lpad-body.i2019, %lpad8.body.i2018 ], [ %941, %lpad.i1952 ], [ %eh.lpad-body.i2474, %lpad8.body.i2473 ], [ %1034, %lpad.i2407 ], [ %eh.lpad-body.i2714, %lpad8.body.i2713 ], [ %1121, %lpad.i2682 ], [ %eh.lpad-body.i3014, %lpad8.body.i3013 ], [ %1224, %lpad.i2947 ]
+  %resultValues.i2936.sink = phi ptr [ %resultValues.i2672, %lpad.i2682 ], [ %resultValues.i2396, %lpad.i2407 ], [ %resultValues.i1941, %lpad.i1952 ], [ %resultValues.i1664, %lpad.i1675 ], [ %resultValues.i1200, %lpad.i1211 ], [ %resultValues.i790, %lpad.i801 ], [ %resultValues.i326, %lpad.i337 ], [ %resultValues.i55, %lpad.i65 ], [ %resultValues.i, %lpad.i ], [ %resultValues.i, %lpad8.body.i ], [ %resultValues.i55, %lpad8.body.i130 ], [ %resultValues.i326, %lpad8.body.i403 ], [ %resultValues.i790, %lpad8.body.i867 ], [ %resultValues.i1200, %lpad8.body.i1277 ], [ %resultValues.i1664, %lpad8.body.i1741 ], [ %resultValues.i1941, %lpad8.body.i2018 ], [ %resultValues.i2396, %lpad8.body.i2473 ], [ %resultValues.i2672, %lpad8.body.i2713 ], [ %resultValues.i2936, %lpad8.body.i3013 ], [ %resultValues.i2936, %lpad.i2947 ]
+  %common.resume.op = phi { ptr, i32 } [ %1121, %lpad.i2682 ], [ %1034, %lpad.i2407 ], [ %941, %lpad.i1952 ], [ %790, %lpad.i1675 ], [ %697, %lpad.i1211 ], [ %546, %lpad.i801 ], [ %395, %lpad.i337 ], [ %244, %lpad.i65 ], [ %93, %lpad.i ], [ %eh.lpad-body.i, %lpad8.body.i ], [ %eh.lpad-body.i131, %lpad8.body.i130 ], [ %eh.lpad-body.i404, %lpad8.body.i403 ], [ %eh.lpad-body.i868, %lpad8.body.i867 ], [ %eh.lpad-body.i1278, %lpad8.body.i1277 ], [ %eh.lpad-body.i1742, %lpad8.body.i1741 ], [ %eh.lpad-body.i2019, %lpad8.body.i2018 ], [ %eh.lpad-body.i2474, %lpad8.body.i2473 ], [ %eh.lpad-body.i2714, %lpad8.body.i2713 ], [ %eh.lpad-body.i3014, %lpad8.body.i3013 ], [ %1224, %lpad.i2947 ]
   call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %resultValues.i2936.sink) #24
   resume { ptr, i32 } %common.resume.op
 
@@ -29369,7 +29369,7 @@ if.then26.i.i.i.i.i.i302:                         ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i85
 
 land.end.i.i.i.i85:                               ; preds = %for.body.i.i.i.i.i.i311, %if.then26.i.i.i.i.i.i302, %for.end.i.i.i.i.i.i300, %land.rhs.i.i.i.i294, %land.lhs.true.i.i.i.i291, %if.end.i7.i.i.i82
-  %frombool.i.i.i.i86 = phi i16 [ 256, %land.lhs.true.i.i.i.i291 ], [ 256, %if.end.i7.i.i.i82 ], [ 257, %land.rhs.i.i.i.i294 ], [ %117, %if.then26.i.i.i.i.i.i302 ], [ 257, %for.end.i.i.i.i.i.i300 ], [ 256, %for.body.i.i.i.i.i.i311 ]
+  %frombool.i.i.i.i86 = phi i16 [ 256, %land.lhs.true.i.i.i.i291 ], [ 256, %if.end.i7.i.i.i82 ], [ 257, %land.rhs.i.i.i.i294 ], [ 257, %for.end.i.i.i.i.i.i300 ], [ %117, %if.then26.i.i.i.i.i.i302 ], [ 256, %for.body.i.i.i.i.i.i311 ]
   store i16 %frombool.i.i.i.i86, ptr %allSelected_.i.i.i.i79, align 4
   %118 = trunc i16 %frombool.i.i.i.i86 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i87
@@ -29477,7 +29477,7 @@ if.then.i19.i.i.i288:                             ; preds = %lpad12.i.i.i.i286
   br label %ehcleanup.i.i.i.i278
 
 ehcleanup.i.i.i.i278:                             ; preds = %if.then.i19.i.i.i288, %lpad12.i.i.i.i286, %lpad9.i.loopexit.split-lp.i.i.i282, %lpad9.i.loopexit.i.i.i276
-  %.pn.i.i.i279 = phi { ptr, i32 } [ %132, %lpad12.i.i.i.i286 ], [ %132, %if.then.i19.i.i.i288 ], [ %lpad.loopexit.i.i.i277, %lpad9.i.loopexit.i.i.i276 ], [ %lpad.loopexit.split-lp.i.i.i283, %lpad9.i.loopexit.split-lp.i.i.i282 ]
+  %.pn.i.i.i279 = phi { ptr, i32 } [ %132, %if.then.i19.i.i.i288 ], [ %132, %lpad12.i.i.i.i286 ], [ %lpad.loopexit.i.i.i277, %lpad9.i.loopexit.i.i.i276 ], [ %lpad.loopexit.split-lp.i.i.i283, %lpad9.i.loopexit.split-lp.i.i.i282 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i130 unwind label %terminate.lpad.i.i.i.i263
 
@@ -29696,7 +29696,7 @@ if.then.i32.i.i.i.i.i.i.i192:                     ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i182
 
 ehcleanup.i29.i.i.i.i.i.i.i182:                   ; preds = %if.then.i32.i.i.i.i.i.i.i192, %lpad14.i.i.i.i.i.i.i.i190, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i186, %lpad10.i.loopexit.i.i.i.i.i.i.i180
-  %.pn19.i.i.i.i.i.i.i183 = phi { ptr, i32 } [ %156, %lpad14.i.i.i.i.i.i.i.i190 ], [ %156, %if.then.i32.i.i.i.i.i.i.i192 ], [ %lpad.loopexit.i.i.i.i.i.i.i181, %lpad10.i.loopexit.i.i.i.i.i.i.i180 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i187, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i186 ]
+  %.pn19.i.i.i.i.i.i.i183 = phi { ptr, i32 } [ %156, %if.then.i32.i.i.i.i.i.i.i192 ], [ %156, %lpad14.i.i.i.i.i.i.i.i190 ], [ %lpad.loopexit.i.i.i.i.i.i.i181, %lpad10.i.loopexit.i.i.i.i.i.i.i180 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i187, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i186 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i130 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i167
 
@@ -29870,7 +29870,7 @@ if.end4.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i.i.i, %call2.i.i.noexc.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i.i.i = phi i32 [ %179, %if.then3.i.i.i.i.i.i.i.i.i ], [ %181, %if.end4.i.i.i.i.i.i.i.i.i ], [ %add9.i.i.i.i.i.i.i200, %call2.i.i.noexc.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i.i.i.i = phi i32 [ %181, %if.end4.i.i.i.i.i.i.i.i.i ], [ %179, %if.then3.i.i.i.i.i.i.i.i.i ], [ %add9.i.i.i.i.i.i.i200, %call2.i.i.noexc.i.i.i.i.i.i ]
   %idxprom.i.i.i.i.i.i.i.i = sext i32 %retval.0.i.i.i.i.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %176, i64 %idxprom.i.i.i.i.i.i.i.i
   %182 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
@@ -30033,7 +30033,7 @@ if.end4.i.i13.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i10.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit22.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit22.i.i.i.i.i.i.i: ; preds = %if.end4.i.i13.i.i.i.i.i.i.i, %if.then3.i.i20.i.i.i.i.i.i.i, %call2.i6.i.noexc.i.i.i.i.i.i
-  %retval.0.i.i17.i.i.i.i.i.i.i = phi i32 [ %204, %if.then3.i.i20.i.i.i.i.i.i.i ], [ %206, %if.end4.i.i13.i.i.i.i.i.i.i ], [ %add9.i.i.i.i.i.i.i200, %call2.i6.i.noexc.i.i.i.i.i.i ]
+  %retval.0.i.i17.i.i.i.i.i.i.i = phi i32 [ %206, %if.end4.i.i13.i.i.i.i.i.i.i ], [ %204, %if.then3.i.i20.i.i.i.i.i.i.i ], [ %add9.i.i.i.i.i.i.i200, %call2.i6.i.noexc.i.i.i.i.i.i ]
   %idxprom.i18.i.i.i.i.i.i.i = sext i32 %retval.0.i.i17.i.i.i.i.i.i.i to i64
   %arrayidx.i19.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %201, i64 %idxprom.i18.i.i.i.i.i.i.i
   %207 = load i8, ptr %arrayidx.i19.i.i.i.i.i.i.i, align 1
@@ -30107,7 +30107,7 @@ lor.rhs.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
-  %216 = phi i1 [ true, %if.then.i.i.i.i.i.i.i.i.i ], [ %cmp.i.i7.i.i.i.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i.i.i.i ]
+  %216 = phi i1 [ %cmp.i.i7.i.i.i.i.i.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i.i.i.i ], [ true, %if.then.i.i.i.i.i.i.i.i.i ]
   %call5.i.i.i.i.i.i.i.i.i42.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
           to label %call5.i.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i unwind label %lpad.i.i.loopexit.split-lp.i.i.i.i.i.i
 
@@ -30226,7 +30226,7 @@ if.then.i48.i.i.i.i.i.i.i233:                     ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i223
 
 ehcleanup.i.i.i.i.i.i.i.i223:                     ; preds = %if.then.i48.i.i.i.i.i.i.i233, %lpad12.i.i.i.i.i.i.i.i231, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i227, %lpad9.i.loopexit.i.i.i.i.i.i.i221
-  %.pn.i.i.i.i.i.i.i224 = phi { ptr, i32 } [ %230, %lpad12.i.i.i.i.i.i.i.i231 ], [ %230, %if.then.i48.i.i.i.i.i.i.i233 ], [ %lpad.loopexit53.i.i.i.i.i.i.i222, %lpad9.i.loopexit.i.i.i.i.i.i.i221 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i228, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i227 ]
+  %.pn.i.i.i.i.i.i.i224 = phi { ptr, i32 } [ %230, %if.then.i48.i.i.i.i.i.i.i233 ], [ %230, %lpad12.i.i.i.i.i.i.i.i231 ], [ %lpad.loopexit53.i.i.i.i.i.i.i222, %lpad9.i.loopexit.i.i.i.i.i.i.i221 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i228, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i227 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i130 unwind label %terminate.lpad.i.i.i.i.i.i.i.i213
 
@@ -30357,7 +30357,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i128: ; preds = %if.
   br label %lpad8.body.i130
 
 lpad8.body.i130:                                  ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i160, %catch.fallthrough.i.i.i.i.i.i.i.i206, %catch.fallthrough.i.i.i.i256, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i128, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i173, %lpad8.loopexit.split-lp.loopexit.i217, %lpad8.loopexit.i269, %ehcleanup.i.i.i.i.i.i.i.i223, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i212, %ehcleanup.i29.i.i.i.i.i.i.i182, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i166, %ehcleanup.i.i.i.i278, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i262
-  %eh.lpad-body.i131 = phi { ptr, i32 } [ %.pn.i.i.i279, %ehcleanup.i.i.i.i278 ], [ %129, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i262 ], [ %.pn19.i.i.i.i.i.i.i183, %ehcleanup.i29.i.i.i.i.i.i.i182 ], [ %153, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i166 ], [ %.pn.i.i.i.i.i.i.i224, %ehcleanup.i.i.i.i.i.i.i.i223 ], [ %227, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i212 ], [ %lpad.loopexit.i270, %lpad8.loopexit.i269 ], [ %lpad.loopexit23.i218, %lpad8.loopexit.split-lp.loopexit.i217 ], [ %lpad.loopexit27.i174, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i173 ], [ %lpad.loopexit.split-lp.i129, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i128 ], [ %121, %catch.fallthrough.i.i.i.i256 ], [ %lpad.phi.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i.i206 ], [ %145, %catch.fallthrough.i20.i.i.i.i.i.i.i160 ]
+  %eh.lpad-body.i131 = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i.i, %catch.fallthrough.i.i.i.i.i.i.i.i206 ], [ %121, %catch.fallthrough.i.i.i.i256 ], [ %.pn.i.i.i279, %ehcleanup.i.i.i.i278 ], [ %129, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i262 ], [ %lpad.loopexit.split-lp.i129, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i128 ], [ %.pn19.i.i.i.i.i.i.i183, %ehcleanup.i29.i.i.i.i.i.i.i182 ], [ %153, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i166 ], [ %.pn.i.i.i.i.i.i.i224, %ehcleanup.i.i.i.i.i.i.i.i223 ], [ %227, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i212 ], [ %lpad.loopexit.i270, %lpad8.loopexit.i269 ], [ %lpad.loopexit23.i218, %lpad8.loopexit.split-lp.loopexit.i217 ], [ %lpad.loopexit27.i174, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i173 ], [ %145, %catch.fallthrough.i20.i.i.i.i.i.i.i160 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i57) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i56) #24
   br label %common.resume
@@ -30498,7 +30498,7 @@ if.then26.i.i.i.i.i.i766:                         ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i358
 
 land.end.i.i.i.i358:                              ; preds = %for.body.i.i.i.i.i.i775, %if.then26.i.i.i.i.i.i766, %for.end.i.i.i.i.i.i764, %land.rhs.i.i.i.i758, %land.lhs.true.i.i.i.i755, %if.end.i7.i.i.i355
-  %frombool.i.i.i.i359 = phi i16 [ 256, %land.lhs.true.i.i.i.i755 ], [ 256, %if.end.i7.i.i.i355 ], [ 257, %land.rhs.i.i.i.i758 ], [ %268, %if.then26.i.i.i.i.i.i766 ], [ 257, %for.end.i.i.i.i.i.i764 ], [ 256, %for.body.i.i.i.i.i.i775 ]
+  %frombool.i.i.i.i359 = phi i16 [ 256, %land.lhs.true.i.i.i.i755 ], [ 256, %if.end.i7.i.i.i355 ], [ 257, %land.rhs.i.i.i.i758 ], [ 257, %for.end.i.i.i.i.i.i764 ], [ %268, %if.then26.i.i.i.i.i.i766 ], [ 256, %for.body.i.i.i.i.i.i775 ]
   store i16 %frombool.i.i.i.i359, ptr %allSelected_.i.i.i.i352, align 4
   %269 = trunc i16 %frombool.i.i.i.i359 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i360
@@ -30606,7 +30606,7 @@ if.then.i19.i.i.i752:                             ; preds = %lpad12.i.i.i.i750
   br label %ehcleanup.i.i.i.i742
 
 ehcleanup.i.i.i.i742:                             ; preds = %if.then.i19.i.i.i752, %lpad12.i.i.i.i750, %lpad9.i.loopexit.split-lp.i.i.i746, %lpad9.i.loopexit.i.i.i740
-  %.pn.i.i.i743 = phi { ptr, i32 } [ %283, %lpad12.i.i.i.i750 ], [ %283, %if.then.i19.i.i.i752 ], [ %lpad.loopexit.i.i.i741, %lpad9.i.loopexit.i.i.i740 ], [ %lpad.loopexit.split-lp.i.i.i747, %lpad9.i.loopexit.split-lp.i.i.i746 ]
+  %.pn.i.i.i743 = phi { ptr, i32 } [ %283, %if.then.i19.i.i.i752 ], [ %283, %lpad12.i.i.i.i750 ], [ %lpad.loopexit.i.i.i741, %lpad9.i.loopexit.i.i.i740 ], [ %lpad.loopexit.split-lp.i.i.i747, %lpad9.i.loopexit.split-lp.i.i.i746 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i403 unwind label %terminate.lpad.i.i.i.i727
 
@@ -30825,7 +30825,7 @@ if.then.i32.i.i.i.i.i.i.i469:                     ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i459
 
 ehcleanup.i29.i.i.i.i.i.i.i459:                   ; preds = %if.then.i32.i.i.i.i.i.i.i469, %lpad14.i.i.i.i.i.i.i.i467, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i463, %lpad10.i.loopexit.i.i.i.i.i.i.i457
-  %.pn19.i.i.i.i.i.i.i460 = phi { ptr, i32 } [ %307, %lpad14.i.i.i.i.i.i.i.i467 ], [ %307, %if.then.i32.i.i.i.i.i.i.i469 ], [ %lpad.loopexit.i.i.i.i.i.i.i458, %lpad10.i.loopexit.i.i.i.i.i.i.i457 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i464, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i463 ]
+  %.pn19.i.i.i.i.i.i.i460 = phi { ptr, i32 } [ %307, %if.then.i32.i.i.i.i.i.i.i469 ], [ %307, %lpad14.i.i.i.i.i.i.i.i467 ], [ %lpad.loopexit.i.i.i.i.i.i.i458, %lpad10.i.loopexit.i.i.i.i.i.i.i457 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i464, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i463 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i403 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i444
 
@@ -30999,7 +30999,7 @@ if.end4.i.i.i.i.i.i.i.i.i487:                     ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i487, %if.then3.i.i.i.i.i.i.i.i.i656, %call2.i.i.noexc.i.i.i.i.i.i480
-  %retval.0.i.i.i.i.i.i.i.i.i491 = phi i32 [ %330, %if.then3.i.i.i.i.i.i.i.i.i656 ], [ %332, %if.end4.i.i.i.i.i.i.i.i.i487 ], [ %add9.i.i.i.i.i.i.i477, %call2.i.i.noexc.i.i.i.i.i.i480 ]
+  %retval.0.i.i.i.i.i.i.i.i.i491 = phi i32 [ %332, %if.end4.i.i.i.i.i.i.i.i.i487 ], [ %330, %if.then3.i.i.i.i.i.i.i.i.i656 ], [ %add9.i.i.i.i.i.i.i477, %call2.i.i.noexc.i.i.i.i.i.i480 ]
   %idxprom.i.i.i.i.i.i.i.i492 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i491 to i64
   %arrayidx.i.i.i.i.i.i.i.i493 = getelementptr inbounds i16, ptr %327, i64 %idxprom.i.i.i.i.i.i.i.i492
   %333 = load i16, ptr %arrayidx.i.i.i.i.i.i.i.i493, align 2
@@ -31162,7 +31162,7 @@ if.end4.i.i13.i.i.i.i.i.i.i594:                   ; preds = %if.end.i.i10.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit22.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit22.i.i.i.i.i.i.i: ; preds = %if.end4.i.i13.i.i.i.i.i.i.i594, %if.then3.i.i20.i.i.i.i.i.i.i610, %call2.i6.i.noexc.i.i.i.i.i.i587
-  %retval.0.i.i17.i.i.i.i.i.i.i597 = phi i32 [ %355, %if.then3.i.i20.i.i.i.i.i.i.i610 ], [ %357, %if.end4.i.i13.i.i.i.i.i.i.i594 ], [ %add9.i.i.i.i.i.i.i477, %call2.i6.i.noexc.i.i.i.i.i.i587 ]
+  %retval.0.i.i17.i.i.i.i.i.i.i597 = phi i32 [ %357, %if.end4.i.i13.i.i.i.i.i.i.i594 ], [ %355, %if.then3.i.i20.i.i.i.i.i.i.i610 ], [ %add9.i.i.i.i.i.i.i477, %call2.i6.i.noexc.i.i.i.i.i.i587 ]
   %idxprom.i18.i.i.i.i.i.i.i598 = sext i32 %retval.0.i.i17.i.i.i.i.i.i.i597 to i64
   %arrayidx.i19.i.i.i.i.i.i.i599 = getelementptr inbounds i16, ptr %352, i64 %idxprom.i18.i.i.i.i.i.i.i598
   %358 = load i16, ptr %arrayidx.i19.i.i.i.i.i.i.i599, align 2
@@ -31236,7 +31236,7 @@ lor.rhs.i.i.i.i.i.i.i.i.i.i526:                   ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i529
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i529: ; preds = %lor.rhs.i.i.i.i.i.i.i.i.i.i526, %if.then.i.i.i.i.i.i.i.i.i523
-  %367 = phi i1 [ true, %if.then.i.i.i.i.i.i.i.i.i523 ], [ %cmp.i.i7.i.i.i.i.i.i.i.i.i528, %lor.rhs.i.i.i.i.i.i.i.i.i.i526 ]
+  %367 = phi i1 [ %cmp.i.i7.i.i.i.i.i.i.i.i.i528, %lor.rhs.i.i.i.i.i.i.i.i.i.i526 ], [ true, %if.then.i.i.i.i.i.i.i.i.i523 ]
   %call5.i.i.i.i.i.i.i.i.i42.i.i.i.i.i.i530 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
           to label %call5.i.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i566 unwind label %lpad.i.i.loopexit.split-lp.i.i.i.i.i.i531
 
@@ -31355,7 +31355,7 @@ if.then.i48.i.i.i.i.i.i.i563:                     ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i553
 
 ehcleanup.i.i.i.i.i.i.i.i553:                     ; preds = %if.then.i48.i.i.i.i.i.i.i563, %lpad12.i.i.i.i.i.i.i.i561, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i557, %lpad9.i.loopexit.i.i.i.i.i.i.i551
-  %.pn.i.i.i.i.i.i.i554 = phi { ptr, i32 } [ %381, %lpad12.i.i.i.i.i.i.i.i561 ], [ %381, %if.then.i48.i.i.i.i.i.i.i563 ], [ %lpad.loopexit53.i.i.i.i.i.i.i552, %lpad9.i.loopexit.i.i.i.i.i.i.i551 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i558, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i557 ]
+  %.pn.i.i.i.i.i.i.i554 = phi { ptr, i32 } [ %381, %if.then.i48.i.i.i.i.i.i.i563 ], [ %381, %lpad12.i.i.i.i.i.i.i.i561 ], [ %lpad.loopexit53.i.i.i.i.i.i.i552, %lpad9.i.loopexit.i.i.i.i.i.i.i551 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i558, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i557 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i403 unwind label %terminate.lpad.i.i.i.i.i.i.i.i543
 
@@ -31486,7 +31486,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i401: ; preds = %if.
   br label %lpad8.body.i403
 
 lpad8.body.i403:                                  ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i437, %catch.fallthrough.i.i.i.i.i.i.i.i536, %catch.fallthrough.i.i.i.i720, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i401, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i450, %lpad8.loopexit.split-lp.loopexit.i547, %lpad8.loopexit.i733, %ehcleanup.i.i.i.i.i.i.i.i553, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i542, %ehcleanup.i29.i.i.i.i.i.i.i459, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i443, %ehcleanup.i.i.i.i742, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i726
-  %eh.lpad-body.i404 = phi { ptr, i32 } [ %.pn.i.i.i743, %ehcleanup.i.i.i.i742 ], [ %280, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i726 ], [ %.pn19.i.i.i.i.i.i.i460, %ehcleanup.i29.i.i.i.i.i.i.i459 ], [ %304, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i443 ], [ %.pn.i.i.i.i.i.i.i554, %ehcleanup.i.i.i.i.i.i.i.i553 ], [ %378, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i542 ], [ %lpad.loopexit.i734, %lpad8.loopexit.i733 ], [ %lpad.loopexit23.i548, %lpad8.loopexit.split-lp.loopexit.i547 ], [ %lpad.loopexit27.i451, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i450 ], [ %lpad.loopexit.split-lp.i402, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i401 ], [ %272, %catch.fallthrough.i.i.i.i720 ], [ %lpad.phi.i.i.i.i.i.i534, %catch.fallthrough.i.i.i.i.i.i.i.i536 ], [ %296, %catch.fallthrough.i20.i.i.i.i.i.i.i437 ]
+  %eh.lpad-body.i404 = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i.i534, %catch.fallthrough.i.i.i.i.i.i.i.i536 ], [ %272, %catch.fallthrough.i.i.i.i720 ], [ %.pn.i.i.i743, %ehcleanup.i.i.i.i742 ], [ %280, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i726 ], [ %lpad.loopexit.split-lp.i402, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i401 ], [ %.pn19.i.i.i.i.i.i.i460, %ehcleanup.i29.i.i.i.i.i.i.i459 ], [ %304, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i443 ], [ %.pn.i.i.i.i.i.i.i554, %ehcleanup.i.i.i.i.i.i.i.i553 ], [ %378, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i542 ], [ %lpad.loopexit.i734, %lpad8.loopexit.i733 ], [ %lpad.loopexit23.i548, %lpad8.loopexit.split-lp.loopexit.i547 ], [ %lpad.loopexit27.i451, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i450 ], [ %296, %catch.fallthrough.i20.i.i.i.i.i.i.i437 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i329) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i328) #24
   br label %common.resume
@@ -31627,7 +31627,7 @@ if.then26.i.i.i.i.i.i1176:                        ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i822
 
 land.end.i.i.i.i822:                              ; preds = %for.body.i.i.i.i.i.i1185, %if.then26.i.i.i.i.i.i1176, %for.end.i.i.i.i.i.i1174, %land.rhs.i.i.i.i1168, %land.lhs.true.i.i.i.i1165, %if.end.i7.i.i.i819
-  %frombool.i.i.i.i823 = phi i16 [ 256, %land.lhs.true.i.i.i.i1165 ], [ 256, %if.end.i7.i.i.i819 ], [ 257, %land.rhs.i.i.i.i1168 ], [ %419, %if.then26.i.i.i.i.i.i1176 ], [ 257, %for.end.i.i.i.i.i.i1174 ], [ 256, %for.body.i.i.i.i.i.i1185 ]
+  %frombool.i.i.i.i823 = phi i16 [ 256, %land.lhs.true.i.i.i.i1165 ], [ 256, %if.end.i7.i.i.i819 ], [ 257, %land.rhs.i.i.i.i1168 ], [ 257, %for.end.i.i.i.i.i.i1174 ], [ %419, %if.then26.i.i.i.i.i.i1176 ], [ 256, %for.body.i.i.i.i.i.i1185 ]
   store i16 %frombool.i.i.i.i823, ptr %allSelected_.i.i.i.i816, align 4
   %420 = trunc i16 %frombool.i.i.i.i823 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i824
@@ -31735,7 +31735,7 @@ if.then.i19.i.i.i1162:                            ; preds = %lpad12.i.i.i.i1160
   br label %ehcleanup.i.i.i.i1152
 
 ehcleanup.i.i.i.i1152:                            ; preds = %if.then.i19.i.i.i1162, %lpad12.i.i.i.i1160, %lpad9.i.loopexit.split-lp.i.i.i1156, %lpad9.i.loopexit.i.i.i1150
-  %.pn.i.i.i1153 = phi { ptr, i32 } [ %434, %lpad12.i.i.i.i1160 ], [ %434, %if.then.i19.i.i.i1162 ], [ %lpad.loopexit.i.i.i1151, %lpad9.i.loopexit.i.i.i1150 ], [ %lpad.loopexit.split-lp.i.i.i1157, %lpad9.i.loopexit.split-lp.i.i.i1156 ]
+  %.pn.i.i.i1153 = phi { ptr, i32 } [ %434, %if.then.i19.i.i.i1162 ], [ %434, %lpad12.i.i.i.i1160 ], [ %lpad.loopexit.i.i.i1151, %lpad9.i.loopexit.i.i.i1150 ], [ %lpad.loopexit.split-lp.i.i.i1157, %lpad9.i.loopexit.split-lp.i.i.i1156 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i867 unwind label %terminate.lpad.i.i.i.i1137
 
@@ -31954,7 +31954,7 @@ if.then.i32.i.i.i.i.i.i.i929:                     ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i919
 
 ehcleanup.i29.i.i.i.i.i.i.i919:                   ; preds = %if.then.i32.i.i.i.i.i.i.i929, %lpad14.i.i.i.i.i.i.i.i927, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i923, %lpad10.i.loopexit.i.i.i.i.i.i.i917
-  %.pn19.i.i.i.i.i.i.i920 = phi { ptr, i32 } [ %458, %lpad14.i.i.i.i.i.i.i.i927 ], [ %458, %if.then.i32.i.i.i.i.i.i.i929 ], [ %lpad.loopexit.i.i.i.i.i.i.i918, %lpad10.i.loopexit.i.i.i.i.i.i.i917 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i924, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i923 ]
+  %.pn19.i.i.i.i.i.i.i920 = phi { ptr, i32 } [ %458, %if.then.i32.i.i.i.i.i.i.i929 ], [ %458, %lpad14.i.i.i.i.i.i.i.i927 ], [ %lpad.loopexit.i.i.i.i.i.i.i918, %lpad10.i.loopexit.i.i.i.i.i.i.i917 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i924, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i923 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i867 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i904
 
@@ -32128,7 +32128,7 @@ if.end4.i.i.i.i.i.i.i.i.i945:                     ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i945, %if.then3.i.i.i.i.i.i.i.i.i1108, %call2.i.i.noexc.i.i.i.i.i.i938
-  %retval.0.i.i.i.i.i.i.i.i.i949 = phi i32 [ %481, %if.then3.i.i.i.i.i.i.i.i.i1108 ], [ %483, %if.end4.i.i.i.i.i.i.i.i.i945 ], [ %add9.i.i.i.i.i.i.i937, %call2.i.i.noexc.i.i.i.i.i.i938 ]
+  %retval.0.i.i.i.i.i.i.i.i.i949 = phi i32 [ %483, %if.end4.i.i.i.i.i.i.i.i.i945 ], [ %481, %if.then3.i.i.i.i.i.i.i.i.i1108 ], [ %add9.i.i.i.i.i.i.i937, %call2.i.i.noexc.i.i.i.i.i.i938 ]
   %idxprom.i.i.i.i.i.i.i.i950 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i949 to i64
   %arrayidx.i.i.i.i.i.i.i.i951 = getelementptr inbounds i32, ptr %478, i64 %idxprom.i.i.i.i.i.i.i.i950
   %484 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i951, align 4
@@ -32291,7 +32291,7 @@ if.end4.i.i13.i.i.i.i.i.i.i1051:                  ; preds = %if.end.i.i10.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit22.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit22.i.i.i.i.i.i.i: ; preds = %if.end4.i.i13.i.i.i.i.i.i.i1051, %if.then3.i.i20.i.i.i.i.i.i.i1066, %call2.i6.i.noexc.i.i.i.i.i.i1044
-  %retval.0.i.i17.i.i.i.i.i.i.i1054 = phi i32 [ %506, %if.then3.i.i20.i.i.i.i.i.i.i1066 ], [ %508, %if.end4.i.i13.i.i.i.i.i.i.i1051 ], [ %add9.i.i.i.i.i.i.i937, %call2.i6.i.noexc.i.i.i.i.i.i1044 ]
+  %retval.0.i.i17.i.i.i.i.i.i.i1054 = phi i32 [ %508, %if.end4.i.i13.i.i.i.i.i.i.i1051 ], [ %506, %if.then3.i.i20.i.i.i.i.i.i.i1066 ], [ %add9.i.i.i.i.i.i.i937, %call2.i6.i.noexc.i.i.i.i.i.i1044 ]
   %idxprom.i18.i.i.i.i.i.i.i1055 = sext i32 %retval.0.i.i17.i.i.i.i.i.i.i1054 to i64
   %arrayidx.i19.i.i.i.i.i.i.i1056 = getelementptr inbounds i32, ptr %503, i64 %idxprom.i18.i.i.i.i.i.i.i1055
   %509 = load i32, ptr %arrayidx.i19.i.i.i.i.i.i.i1056, align 4
@@ -32365,7 +32365,7 @@ lor.rhs.i.i.i.i.i.i.i.i.i.i984:                   ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i987
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i987: ; preds = %lor.rhs.i.i.i.i.i.i.i.i.i.i984, %if.then.i.i.i.i.i.i.i.i.i981
-  %518 = phi i1 [ true, %if.then.i.i.i.i.i.i.i.i.i981 ], [ %cmp.i.i7.i.i.i.i.i.i.i.i.i986, %lor.rhs.i.i.i.i.i.i.i.i.i.i984 ]
+  %518 = phi i1 [ %cmp.i.i7.i.i.i.i.i.i.i.i.i986, %lor.rhs.i.i.i.i.i.i.i.i.i.i984 ], [ true, %if.then.i.i.i.i.i.i.i.i.i981 ]
   %call5.i.i.i.i.i.i.i.i.i43.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
           to label %call5.i.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i1023 unwind label %lpad.i.i.loopexit.split-lp.i.i.i.i.i.i988
 
@@ -32484,7 +32484,7 @@ if.then.i48.i.i.i.i.i.i.i1020:                    ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i1010
 
 ehcleanup.i.i.i.i.i.i.i.i1010:                    ; preds = %if.then.i48.i.i.i.i.i.i.i1020, %lpad12.i.i.i.i.i.i.i.i1018, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1014, %lpad9.i.loopexit.i.i.i.i.i.i.i1008
-  %.pn.i.i.i.i.i.i.i1011 = phi { ptr, i32 } [ %532, %lpad12.i.i.i.i.i.i.i.i1018 ], [ %532, %if.then.i48.i.i.i.i.i.i.i1020 ], [ %lpad.loopexit53.i.i.i.i.i.i.i1009, %lpad9.i.loopexit.i.i.i.i.i.i.i1008 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i1015, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1014 ]
+  %.pn.i.i.i.i.i.i.i1011 = phi { ptr, i32 } [ %532, %if.then.i48.i.i.i.i.i.i.i1020 ], [ %532, %lpad12.i.i.i.i.i.i.i.i1018 ], [ %lpad.loopexit53.i.i.i.i.i.i.i1009, %lpad9.i.loopexit.i.i.i.i.i.i.i1008 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i1015, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1014 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i867 unwind label %terminate.lpad.i.i.i.i.i.i.i.i1000
 
@@ -32615,7 +32615,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i865: ; preds = %if.
   br label %lpad8.body.i867
 
 lpad8.body.i867:                                  ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i897, %catch.fallthrough.i.i.i.i.i.i.i.i993, %catch.fallthrough.i.i.i.i1130, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i865, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i910, %lpad8.loopexit.split-lp.loopexit.i1004, %lpad8.loopexit.i1143, %ehcleanup.i.i.i.i.i.i.i.i1010, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i999, %ehcleanup.i29.i.i.i.i.i.i.i919, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i903, %ehcleanup.i.i.i.i1152, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1136
-  %eh.lpad-body.i868 = phi { ptr, i32 } [ %.pn.i.i.i1153, %ehcleanup.i.i.i.i1152 ], [ %431, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1136 ], [ %.pn19.i.i.i.i.i.i.i920, %ehcleanup.i29.i.i.i.i.i.i.i919 ], [ %455, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i903 ], [ %.pn.i.i.i.i.i.i.i1011, %ehcleanup.i.i.i.i.i.i.i.i1010 ], [ %529, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i999 ], [ %lpad.loopexit.i1144, %lpad8.loopexit.i1143 ], [ %lpad.loopexit23.i1005, %lpad8.loopexit.split-lp.loopexit.i1004 ], [ %lpad.loopexit27.i911, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i910 ], [ %lpad.loopexit.split-lp.i866, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i865 ], [ %423, %catch.fallthrough.i.i.i.i1130 ], [ %lpad.phi.i.i.i.i.i.i991, %catch.fallthrough.i.i.i.i.i.i.i.i993 ], [ %447, %catch.fallthrough.i20.i.i.i.i.i.i.i897 ]
+  %eh.lpad-body.i868 = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i.i991, %catch.fallthrough.i.i.i.i.i.i.i.i993 ], [ %423, %catch.fallthrough.i.i.i.i1130 ], [ %.pn.i.i.i1153, %ehcleanup.i.i.i.i1152 ], [ %431, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1136 ], [ %lpad.loopexit.split-lp.i866, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i865 ], [ %.pn19.i.i.i.i.i.i.i920, %ehcleanup.i29.i.i.i.i.i.i.i919 ], [ %455, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i903 ], [ %.pn.i.i.i.i.i.i.i1011, %ehcleanup.i.i.i.i.i.i.i.i1010 ], [ %529, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i999 ], [ %lpad.loopexit.i1144, %lpad8.loopexit.i1143 ], [ %lpad.loopexit23.i1005, %lpad8.loopexit.split-lp.loopexit.i1004 ], [ %lpad.loopexit27.i911, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i910 ], [ %447, %catch.fallthrough.i20.i.i.i.i.i.i.i897 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i793) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i792) #24
   br label %common.resume
@@ -32756,7 +32756,7 @@ if.then26.i.i.i.i.i.i1640:                        ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i1232
 
 land.end.i.i.i.i1232:                             ; preds = %for.body.i.i.i.i.i.i1649, %if.then26.i.i.i.i.i.i1640, %for.end.i.i.i.i.i.i1638, %land.rhs.i.i.i.i1632, %land.lhs.true.i.i.i.i1629, %if.end.i7.i.i.i1229
-  %frombool.i.i.i.i1233 = phi i16 [ 256, %land.lhs.true.i.i.i.i1629 ], [ 256, %if.end.i7.i.i.i1229 ], [ 257, %land.rhs.i.i.i.i1632 ], [ %570, %if.then26.i.i.i.i.i.i1640 ], [ 257, %for.end.i.i.i.i.i.i1638 ], [ 256, %for.body.i.i.i.i.i.i1649 ]
+  %frombool.i.i.i.i1233 = phi i16 [ 256, %land.lhs.true.i.i.i.i1629 ], [ 256, %if.end.i7.i.i.i1229 ], [ 257, %land.rhs.i.i.i.i1632 ], [ 257, %for.end.i.i.i.i.i.i1638 ], [ %570, %if.then26.i.i.i.i.i.i1640 ], [ 256, %for.body.i.i.i.i.i.i1649 ]
   store i16 %frombool.i.i.i.i1233, ptr %allSelected_.i.i.i.i1226, align 4
   %571 = trunc i16 %frombool.i.i.i.i1233 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i1234
@@ -32864,7 +32864,7 @@ if.then.i19.i.i.i1626:                            ; preds = %lpad12.i.i.i.i1624
   br label %ehcleanup.i.i.i.i1616
 
 ehcleanup.i.i.i.i1616:                            ; preds = %if.then.i19.i.i.i1626, %lpad12.i.i.i.i1624, %lpad9.i.loopexit.split-lp.i.i.i1620, %lpad9.i.loopexit.i.i.i1614
-  %.pn.i.i.i1617 = phi { ptr, i32 } [ %585, %lpad12.i.i.i.i1624 ], [ %585, %if.then.i19.i.i.i1626 ], [ %lpad.loopexit.i.i.i1615, %lpad9.i.loopexit.i.i.i1614 ], [ %lpad.loopexit.split-lp.i.i.i1621, %lpad9.i.loopexit.split-lp.i.i.i1620 ]
+  %.pn.i.i.i1617 = phi { ptr, i32 } [ %585, %if.then.i19.i.i.i1626 ], [ %585, %lpad12.i.i.i.i1624 ], [ %lpad.loopexit.i.i.i1615, %lpad9.i.loopexit.i.i.i1614 ], [ %lpad.loopexit.split-lp.i.i.i1621, %lpad9.i.loopexit.split-lp.i.i.i1620 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i1277 unwind label %terminate.lpad.i.i.i.i1601
 
@@ -33083,7 +33083,7 @@ if.then.i32.i.i.i.i.i.i.i1343:                    ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i1333
 
 ehcleanup.i29.i.i.i.i.i.i.i1333:                  ; preds = %if.then.i32.i.i.i.i.i.i.i1343, %lpad14.i.i.i.i.i.i.i.i1341, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i1337, %lpad10.i.loopexit.i.i.i.i.i.i.i1331
-  %.pn19.i.i.i.i.i.i.i1334 = phi { ptr, i32 } [ %609, %lpad14.i.i.i.i.i.i.i.i1341 ], [ %609, %if.then.i32.i.i.i.i.i.i.i1343 ], [ %lpad.loopexit.i.i.i.i.i.i.i1332, %lpad10.i.loopexit.i.i.i.i.i.i.i1331 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i1338, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i1337 ]
+  %.pn19.i.i.i.i.i.i.i1334 = phi { ptr, i32 } [ %609, %if.then.i32.i.i.i.i.i.i.i1343 ], [ %609, %lpad14.i.i.i.i.i.i.i.i1341 ], [ %lpad.loopexit.i.i.i.i.i.i.i1332, %lpad10.i.loopexit.i.i.i.i.i.i.i1331 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i1338, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i1337 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i1277 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i1318
 
@@ -33257,7 +33257,7 @@ if.end4.i.i.i.i.i.i.i.i.i1361:                    ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i1361, %if.then3.i.i.i.i.i.i.i.i.i1530, %call2.i.i.noexc.i.i.i.i.i.i1354
-  %retval.0.i.i.i.i.i.i.i.i.i1365 = phi i32 [ %632, %if.then3.i.i.i.i.i.i.i.i.i1530 ], [ %634, %if.end4.i.i.i.i.i.i.i.i.i1361 ], [ %add9.i.i.i.i.i.i.i1351, %call2.i.i.noexc.i.i.i.i.i.i1354 ]
+  %retval.0.i.i.i.i.i.i.i.i.i1365 = phi i32 [ %634, %if.end4.i.i.i.i.i.i.i.i.i1361 ], [ %632, %if.then3.i.i.i.i.i.i.i.i.i1530 ], [ %add9.i.i.i.i.i.i.i1351, %call2.i.i.noexc.i.i.i.i.i.i1354 ]
   %idxprom.i.i.i.i.i.i.i.i1366 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i1365 to i64
   %arrayidx.i.i.i.i.i.i.i.i1367 = getelementptr inbounds i64, ptr %629, i64 %idxprom.i.i.i.i.i.i.i.i1366
   %635 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i1367, align 8
@@ -33420,7 +33420,7 @@ if.end4.i.i13.i.i.i.i.i.i.i1468:                  ; preds = %if.end.i.i10.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit22.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit22.i.i.i.i.i.i.i: ; preds = %if.end4.i.i13.i.i.i.i.i.i.i1468, %if.then3.i.i20.i.i.i.i.i.i.i1484, %call2.i6.i.noexc.i.i.i.i.i.i1461
-  %retval.0.i.i17.i.i.i.i.i.i.i1471 = phi i32 [ %657, %if.then3.i.i20.i.i.i.i.i.i.i1484 ], [ %659, %if.end4.i.i13.i.i.i.i.i.i.i1468 ], [ %add9.i.i.i.i.i.i.i1351, %call2.i6.i.noexc.i.i.i.i.i.i1461 ]
+  %retval.0.i.i17.i.i.i.i.i.i.i1471 = phi i32 [ %659, %if.end4.i.i13.i.i.i.i.i.i.i1468 ], [ %657, %if.then3.i.i20.i.i.i.i.i.i.i1484 ], [ %add9.i.i.i.i.i.i.i1351, %call2.i6.i.noexc.i.i.i.i.i.i1461 ]
   %idxprom.i18.i.i.i.i.i.i.i1472 = sext i32 %retval.0.i.i17.i.i.i.i.i.i.i1471 to i64
   %arrayidx.i19.i.i.i.i.i.i.i1473 = getelementptr inbounds i64, ptr %654, i64 %idxprom.i18.i.i.i.i.i.i.i1472
   %660 = load i64, ptr %arrayidx.i19.i.i.i.i.i.i.i1473, align 8
@@ -33494,7 +33494,7 @@ lor.rhs.i.i.i.i.i.i.i.i.i.i1400:                  ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i1403
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i1403: ; preds = %lor.rhs.i.i.i.i.i.i.i.i.i.i1400, %if.then.i.i.i.i.i.i.i.i.i1397
-  %669 = phi i1 [ true, %if.then.i.i.i.i.i.i.i.i.i1397 ], [ %cmp.i.i7.i.i.i.i.i.i.i.i.i1402, %lor.rhs.i.i.i.i.i.i.i.i.i.i1400 ]
+  %669 = phi i1 [ %cmp.i.i7.i.i.i.i.i.i.i.i.i1402, %lor.rhs.i.i.i.i.i.i.i.i.i.i1400 ], [ true, %if.then.i.i.i.i.i.i.i.i.i1397 ]
   %call5.i.i.i.i.i.i.i.i.i43.i.i.i.i.i.i1404 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
           to label %call5.i.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i1440 unwind label %lpad.i.i.loopexit.split-lp.i.i.i.i.i.i1405
 
@@ -33613,7 +33613,7 @@ if.then.i48.i.i.i.i.i.i.i1437:                    ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i1427
 
 ehcleanup.i.i.i.i.i.i.i.i1427:                    ; preds = %if.then.i48.i.i.i.i.i.i.i1437, %lpad12.i.i.i.i.i.i.i.i1435, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1431, %lpad9.i.loopexit.i.i.i.i.i.i.i1425
-  %.pn.i.i.i.i.i.i.i1428 = phi { ptr, i32 } [ %683, %lpad12.i.i.i.i.i.i.i.i1435 ], [ %683, %if.then.i48.i.i.i.i.i.i.i1437 ], [ %lpad.loopexit53.i.i.i.i.i.i.i1426, %lpad9.i.loopexit.i.i.i.i.i.i.i1425 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i1432, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1431 ]
+  %.pn.i.i.i.i.i.i.i1428 = phi { ptr, i32 } [ %683, %if.then.i48.i.i.i.i.i.i.i1437 ], [ %683, %lpad12.i.i.i.i.i.i.i.i1435 ], [ %lpad.loopexit53.i.i.i.i.i.i.i1426, %lpad9.i.loopexit.i.i.i.i.i.i.i1425 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i1432, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1431 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i1277 unwind label %terminate.lpad.i.i.i.i.i.i.i.i1417
 
@@ -33744,7 +33744,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1275: ; preds = %if
   br label %lpad8.body.i1277
 
 lpad8.body.i1277:                                 ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i1311, %catch.fallthrough.i.i.i.i.i.i.i.i1410, %catch.fallthrough.i.i.i.i1594, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1275, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i1324, %lpad8.loopexit.split-lp.loopexit.i1421, %lpad8.loopexit.i1607, %ehcleanup.i.i.i.i.i.i.i.i1427, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i1416, %ehcleanup.i29.i.i.i.i.i.i.i1333, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i1317, %ehcleanup.i.i.i.i1616, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1600
-  %eh.lpad-body.i1278 = phi { ptr, i32 } [ %.pn.i.i.i1617, %ehcleanup.i.i.i.i1616 ], [ %582, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1600 ], [ %.pn19.i.i.i.i.i.i.i1334, %ehcleanup.i29.i.i.i.i.i.i.i1333 ], [ %606, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i1317 ], [ %.pn.i.i.i.i.i.i.i1428, %ehcleanup.i.i.i.i.i.i.i.i1427 ], [ %680, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i1416 ], [ %lpad.loopexit.i1608, %lpad8.loopexit.i1607 ], [ %lpad.loopexit23.i1422, %lpad8.loopexit.split-lp.loopexit.i1421 ], [ %lpad.loopexit27.i1325, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i1324 ], [ %lpad.loopexit.split-lp.i1276, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1275 ], [ %574, %catch.fallthrough.i.i.i.i1594 ], [ %lpad.phi.i.i.i.i.i.i1408, %catch.fallthrough.i.i.i.i.i.i.i.i1410 ], [ %598, %catch.fallthrough.i20.i.i.i.i.i.i.i1311 ]
+  %eh.lpad-body.i1278 = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i.i1408, %catch.fallthrough.i.i.i.i.i.i.i.i1410 ], [ %574, %catch.fallthrough.i.i.i.i1594 ], [ %.pn.i.i.i1617, %ehcleanup.i.i.i.i1616 ], [ %582, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1600 ], [ %lpad.loopexit.split-lp.i1276, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1275 ], [ %.pn19.i.i.i.i.i.i.i1334, %ehcleanup.i29.i.i.i.i.i.i.i1333 ], [ %606, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i1317 ], [ %.pn.i.i.i.i.i.i.i1428, %ehcleanup.i.i.i.i.i.i.i.i1427 ], [ %680, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i1416 ], [ %lpad.loopexit.i1608, %lpad8.loopexit.i1607 ], [ %lpad.loopexit23.i1422, %lpad8.loopexit.split-lp.loopexit.i1421 ], [ %lpad.loopexit27.i1325, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i1324 ], [ %598, %catch.fallthrough.i20.i.i.i.i.i.i.i1311 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i1203) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i1202) #24
   br label %common.resume
@@ -33885,7 +33885,7 @@ if.then26.i.i.i.i.i.i1917:                        ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i1696
 
 land.end.i.i.i.i1696:                             ; preds = %for.body.i.i.i.i.i.i1926, %if.then26.i.i.i.i.i.i1917, %for.end.i.i.i.i.i.i1915, %land.rhs.i.i.i.i1909, %land.lhs.true.i.i.i.i1906, %if.end.i7.i.i.i1693
-  %frombool.i.i.i.i1697 = phi i16 [ 256, %land.lhs.true.i.i.i.i1906 ], [ 256, %if.end.i7.i.i.i1693 ], [ 257, %land.rhs.i.i.i.i1909 ], [ %721, %if.then26.i.i.i.i.i.i1917 ], [ 257, %for.end.i.i.i.i.i.i1915 ], [ 256, %for.body.i.i.i.i.i.i1926 ]
+  %frombool.i.i.i.i1697 = phi i16 [ 256, %land.lhs.true.i.i.i.i1906 ], [ 256, %if.end.i7.i.i.i1693 ], [ 257, %land.rhs.i.i.i.i1909 ], [ 257, %for.end.i.i.i.i.i.i1915 ], [ %721, %if.then26.i.i.i.i.i.i1917 ], [ 256, %for.body.i.i.i.i.i.i1926 ]
   store i16 %frombool.i.i.i.i1697, ptr %allSelected_.i.i.i.i1690, align 4
   %722 = trunc i16 %frombool.i.i.i.i1697 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i1698
@@ -33993,7 +33993,7 @@ if.then.i19.i.i.i1903:                            ; preds = %lpad12.i.i.i.i1901
   br label %ehcleanup.i.i.i.i1893
 
 ehcleanup.i.i.i.i1893:                            ; preds = %if.then.i19.i.i.i1903, %lpad12.i.i.i.i1901, %lpad9.i.loopexit.split-lp.i.i.i1897, %lpad9.i.loopexit.i.i.i1891
-  %.pn.i.i.i1894 = phi { ptr, i32 } [ %736, %lpad12.i.i.i.i1901 ], [ %736, %if.then.i19.i.i.i1903 ], [ %lpad.loopexit.i.i.i1892, %lpad9.i.loopexit.i.i.i1891 ], [ %lpad.loopexit.split-lp.i.i.i1898, %lpad9.i.loopexit.split-lp.i.i.i1897 ]
+  %.pn.i.i.i1894 = phi { ptr, i32 } [ %736, %if.then.i19.i.i.i1903 ], [ %736, %lpad12.i.i.i.i1901 ], [ %lpad.loopexit.i.i.i1892, %lpad9.i.loopexit.i.i.i1891 ], [ %lpad.loopexit.split-lp.i.i.i1898, %lpad9.i.loopexit.split-lp.i.i.i1897 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i1741 unwind label %terminate.lpad.i.i.i.i1878
 
@@ -34212,7 +34212,7 @@ if.then.i32.i.i.i.i.i.i.i1807:                    ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i1797
 
 ehcleanup.i29.i.i.i.i.i.i.i1797:                  ; preds = %if.then.i32.i.i.i.i.i.i.i1807, %lpad14.i.i.i.i.i.i.i.i1805, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i1801, %lpad10.i.loopexit.i.i.i.i.i.i.i1795
-  %.pn19.i.i.i.i.i.i.i1798 = phi { ptr, i32 } [ %760, %lpad14.i.i.i.i.i.i.i.i1805 ], [ %760, %if.then.i32.i.i.i.i.i.i.i1807 ], [ %lpad.loopexit.i.i.i.i.i.i.i1796, %lpad10.i.loopexit.i.i.i.i.i.i.i1795 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i1802, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i1801 ]
+  %.pn19.i.i.i.i.i.i.i1798 = phi { ptr, i32 } [ %760, %if.then.i32.i.i.i.i.i.i.i1807 ], [ %760, %lpad14.i.i.i.i.i.i.i.i1805 ], [ %lpad.loopexit.i.i.i.i.i.i.i1796, %lpad10.i.loopexit.i.i.i.i.i.i.i1795 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i1802, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i1801 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i1741 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i1782
 
@@ -34334,7 +34334,7 @@ if.then.i48.i.i.i.i.i.i.i1848:                    ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i1838
 
 ehcleanup.i.i.i.i.i.i.i.i1838:                    ; preds = %if.then.i48.i.i.i.i.i.i.i1848, %lpad12.i.i.i.i.i.i.i.i1846, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1842, %lpad9.i.loopexit.i.i.i.i.i.i.i1836
-  %.pn.i.i.i.i.i.i.i1839 = phi { ptr, i32 } [ %776, %lpad12.i.i.i.i.i.i.i.i1846 ], [ %776, %if.then.i48.i.i.i.i.i.i.i1848 ], [ %lpad.loopexit53.i.i.i.i.i.i.i1837, %lpad9.i.loopexit.i.i.i.i.i.i.i1836 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i1843, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1842 ]
+  %.pn.i.i.i.i.i.i.i1839 = phi { ptr, i32 } [ %776, %if.then.i48.i.i.i.i.i.i.i1848 ], [ %776, %lpad12.i.i.i.i.i.i.i.i1846 ], [ %lpad.loopexit53.i.i.i.i.i.i.i1837, %lpad9.i.loopexit.i.i.i.i.i.i.i1836 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i1843, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i1842 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i1741 unwind label %terminate.lpad.i.i.i.i.i.i.i.i1825
 
@@ -34465,7 +34465,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1739: ; preds = %if
   br label %lpad8.body.i1741
 
 lpad8.body.i1741:                                 ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i1775, %catch.fallthrough.i.i.i.i.i.i.i.i1818, %catch.fallthrough.i.i.i.i1871, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1739, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i1788, %lpad8.loopexit.split-lp.loopexit.i1829, %lpad8.loopexit.i1884, %ehcleanup.i.i.i.i.i.i.i.i1838, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i1824, %ehcleanup.i29.i.i.i.i.i.i.i1797, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i1781, %ehcleanup.i.i.i.i1893, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1877
-  %eh.lpad-body.i1742 = phi { ptr, i32 } [ %.pn.i.i.i1894, %ehcleanup.i.i.i.i1893 ], [ %733, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1877 ], [ %.pn19.i.i.i.i.i.i.i1798, %ehcleanup.i29.i.i.i.i.i.i.i1797 ], [ %757, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i1781 ], [ %.pn.i.i.i.i.i.i.i1839, %ehcleanup.i.i.i.i.i.i.i.i1838 ], [ %773, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i1824 ], [ %lpad.loopexit.i1885, %lpad8.loopexit.i1884 ], [ %lpad.loopexit23.i1830, %lpad8.loopexit.split-lp.loopexit.i1829 ], [ %lpad.loopexit27.i1789, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i1788 ], [ %lpad.loopexit.split-lp.i1740, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1739 ], [ %725, %catch.fallthrough.i.i.i.i1871 ], [ %765, %catch.fallthrough.i.i.i.i.i.i.i.i1818 ], [ %749, %catch.fallthrough.i20.i.i.i.i.i.i.i1775 ]
+  %eh.lpad-body.i1742 = phi { ptr, i32 } [ %765, %catch.fallthrough.i.i.i.i.i.i.i.i1818 ], [ %725, %catch.fallthrough.i.i.i.i1871 ], [ %.pn.i.i.i1894, %ehcleanup.i.i.i.i1893 ], [ %733, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i1877 ], [ %lpad.loopexit.split-lp.i1740, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i1739 ], [ %.pn19.i.i.i.i.i.i.i1798, %ehcleanup.i29.i.i.i.i.i.i.i1797 ], [ %757, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i1781 ], [ %.pn.i.i.i.i.i.i.i1839, %ehcleanup.i.i.i.i.i.i.i.i1838 ], [ %773, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i1824 ], [ %lpad.loopexit.i1885, %lpad8.loopexit.i1884 ], [ %lpad.loopexit23.i1830, %lpad8.loopexit.split-lp.loopexit.i1829 ], [ %lpad.loopexit27.i1789, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i1788 ], [ %749, %catch.fallthrough.i20.i.i.i.i.i.i.i1775 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i1667) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i1666) #24
   br label %common.resume
@@ -34606,7 +34606,7 @@ if.then26.i.i.i.i.i.i2372:                        ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i1973
 
 land.end.i.i.i.i1973:                             ; preds = %for.body.i.i.i.i.i.i2381, %if.then26.i.i.i.i.i.i2372, %for.end.i.i.i.i.i.i2370, %land.rhs.i.i.i.i2364, %land.lhs.true.i.i.i.i2361, %if.end.i7.i.i.i1970
-  %frombool.i.i.i.i1974 = phi i16 [ 256, %land.lhs.true.i.i.i.i2361 ], [ 256, %if.end.i7.i.i.i1970 ], [ 257, %land.rhs.i.i.i.i2364 ], [ %814, %if.then26.i.i.i.i.i.i2372 ], [ 257, %for.end.i.i.i.i.i.i2370 ], [ 256, %for.body.i.i.i.i.i.i2381 ]
+  %frombool.i.i.i.i1974 = phi i16 [ 256, %land.lhs.true.i.i.i.i2361 ], [ 256, %if.end.i7.i.i.i1970 ], [ 257, %land.rhs.i.i.i.i2364 ], [ 257, %for.end.i.i.i.i.i.i2370 ], [ %814, %if.then26.i.i.i.i.i.i2372 ], [ 256, %for.body.i.i.i.i.i.i2381 ]
   store i16 %frombool.i.i.i.i1974, ptr %allSelected_.i.i.i.i1967, align 4
   %815 = trunc i16 %frombool.i.i.i.i1974 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i1975
@@ -34714,7 +34714,7 @@ if.then.i19.i.i.i2358:                            ; preds = %lpad12.i.i.i.i2356
   br label %ehcleanup.i.i.i.i2348
 
 ehcleanup.i.i.i.i2348:                            ; preds = %if.then.i19.i.i.i2358, %lpad12.i.i.i.i2356, %lpad9.i.loopexit.split-lp.i.i.i2352, %lpad9.i.loopexit.i.i.i2346
-  %.pn.i.i.i2349 = phi { ptr, i32 } [ %829, %lpad12.i.i.i.i2356 ], [ %829, %if.then.i19.i.i.i2358 ], [ %lpad.loopexit.i.i.i2347, %lpad9.i.loopexit.i.i.i2346 ], [ %lpad.loopexit.split-lp.i.i.i2353, %lpad9.i.loopexit.split-lp.i.i.i2352 ]
+  %.pn.i.i.i2349 = phi { ptr, i32 } [ %829, %if.then.i19.i.i.i2358 ], [ %829, %lpad12.i.i.i.i2356 ], [ %lpad.loopexit.i.i.i2347, %lpad9.i.loopexit.i.i.i2346 ], [ %lpad.loopexit.split-lp.i.i.i2353, %lpad9.i.loopexit.split-lp.i.i.i2352 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2018 unwind label %terminate.lpad.i.i.i.i2333
 
@@ -34933,7 +34933,7 @@ if.then.i32.i.i.i.i.i.i.i2084:                    ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i2074
 
 ehcleanup.i29.i.i.i.i.i.i.i2074:                  ; preds = %if.then.i32.i.i.i.i.i.i.i2084, %lpad14.i.i.i.i.i.i.i.i2082, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2078, %lpad10.i.loopexit.i.i.i.i.i.i.i2072
-  %.pn19.i.i.i.i.i.i.i2075 = phi { ptr, i32 } [ %853, %lpad14.i.i.i.i.i.i.i.i2082 ], [ %853, %if.then.i32.i.i.i.i.i.i.i2084 ], [ %lpad.loopexit.i.i.i.i.i.i.i2073, %lpad10.i.loopexit.i.i.i.i.i.i.i2072 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i2079, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2078 ]
+  %.pn19.i.i.i.i.i.i.i2075 = phi { ptr, i32 } [ %853, %if.then.i32.i.i.i.i.i.i.i2084 ], [ %853, %lpad14.i.i.i.i.i.i.i.i2082 ], [ %lpad.loopexit.i.i.i.i.i.i.i2073, %lpad10.i.loopexit.i.i.i.i.i.i.i2072 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i2079, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2078 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2018 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i2059
 
@@ -35107,7 +35107,7 @@ if.end4.i.i.i.i.i.i.i.i.i2102:                    ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit.i.i.i.i.i.i.i: ; preds = %if.end4.i.i.i.i.i.i.i.i.i2102, %if.then3.i.i.i.i.i.i.i.i.i2262, %call2.i.i.noexc.i.i.i.i.i.i2095
-  %retval.0.i.i.i.i.i.i.i.i.i2106 = phi i32 [ %876, %if.then3.i.i.i.i.i.i.i.i.i2262 ], [ %878, %if.end4.i.i.i.i.i.i.i.i.i2102 ], [ %add9.i.i.i.i.i.i.i2092, %call2.i.i.noexc.i.i.i.i.i.i2095 ]
+  %retval.0.i.i.i.i.i.i.i.i.i2106 = phi i32 [ %878, %if.end4.i.i.i.i.i.i.i.i.i2102 ], [ %876, %if.then3.i.i.i.i.i.i.i.i.i2262 ], [ %add9.i.i.i.i.i.i.i2092, %call2.i.i.noexc.i.i.i.i.i.i2095 ]
   %idxprom.i.i.i.i.i.i.i.i2107 = sext i32 %retval.0.i.i.i.i.i.i.i.i.i2106 to i64
   %arrayidx.i.i.i.i.i.i.i.i2108 = getelementptr inbounds float, ptr %873, i64 %idxprom.i.i.i.i.i.i.i.i2107
   %879 = load float, ptr %arrayidx.i.i.i.i.i.i.i.i2108, align 4
@@ -35270,7 +35270,7 @@ if.end4.i.i13.i.i.i.i.i.i.i2202:                  ; preds = %if.end.i.i10.i.i.i.
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit22.i.i.i.i.i.i.i
 
 _ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit22.i.i.i.i.i.i.i: ; preds = %if.end4.i.i13.i.i.i.i.i.i.i2202, %if.then3.i.i20.i.i.i.i.i.i.i2216, %call2.i6.i.noexc.i.i.i.i.i.i2195
-  %retval.0.i.i17.i.i.i.i.i.i.i2205 = phi i32 [ %901, %if.then3.i.i20.i.i.i.i.i.i.i2216 ], [ %903, %if.end4.i.i13.i.i.i.i.i.i.i2202 ], [ %add9.i.i.i.i.i.i.i2092, %call2.i6.i.noexc.i.i.i.i.i.i2195 ]
+  %retval.0.i.i17.i.i.i.i.i.i.i2205 = phi i32 [ %903, %if.end4.i.i13.i.i.i.i.i.i.i2202 ], [ %901, %if.then3.i.i20.i.i.i.i.i.i.i2216 ], [ %add9.i.i.i.i.i.i.i2092, %call2.i6.i.noexc.i.i.i.i.i.i2195 ]
   %idxprom.i18.i.i.i.i.i.i.i2206 = sext i32 %retval.0.i.i17.i.i.i.i.i.i.i2205 to i64
   %arrayidx.i19.i.i.i.i.i.i.i2207 = getelementptr inbounds float, ptr %898, i64 %idxprom.i18.i.i.i.i.i.i.i2206
   %904 = load float, ptr %arrayidx.i19.i.i.i.i.i.i.i2207, align 4
@@ -35344,7 +35344,7 @@ lor.rhs.i.i.i.i.i.i.i.i.i.i2136:                  ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i2139
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i.i.i.i.i2139: ; preds = %lor.rhs.i.i.i.i.i.i.i.i.i.i2136, %if.then.i.i.i.i.i.i.i.i.i2133
-  %913 = phi i1 [ true, %if.then.i.i.i.i.i.i.i.i.i2133 ], [ %cmp.i.i7.i.i.i.i.i.i.i.i.i2138, %lor.rhs.i.i.i.i.i.i.i.i.i.i2136 ]
+  %913 = phi i1 [ %cmp.i.i7.i.i.i.i.i.i.i.i.i2138, %lor.rhs.i.i.i.i.i.i.i.i.i.i2136 ], [ true, %if.then.i.i.i.i.i.i.i.i.i2133 ]
   %call5.i.i.i.i.i.i.i.i.i43.i.i.i.i.i.i2140 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
           to label %call5.i.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i2176 unwind label %lpad.i.i.loopexit.split-lp.i.i.i.i.i.i2141
 
@@ -35463,7 +35463,7 @@ if.then.i48.i.i.i.i.i.i.i2173:                    ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i2163
 
 ehcleanup.i.i.i.i.i.i.i.i2163:                    ; preds = %if.then.i48.i.i.i.i.i.i.i2173, %lpad12.i.i.i.i.i.i.i.i2171, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2167, %lpad9.i.loopexit.i.i.i.i.i.i.i2161
-  %.pn.i.i.i.i.i.i.i2164 = phi { ptr, i32 } [ %927, %lpad12.i.i.i.i.i.i.i.i2171 ], [ %927, %if.then.i48.i.i.i.i.i.i.i2173 ], [ %lpad.loopexit53.i.i.i.i.i.i.i2162, %lpad9.i.loopexit.i.i.i.i.i.i.i2161 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i2168, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2167 ]
+  %.pn.i.i.i.i.i.i.i2164 = phi { ptr, i32 } [ %927, %if.then.i48.i.i.i.i.i.i.i2173 ], [ %927, %lpad12.i.i.i.i.i.i.i.i2171 ], [ %lpad.loopexit53.i.i.i.i.i.i.i2162, %lpad9.i.loopexit.i.i.i.i.i.i.i2161 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i2168, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2167 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2018 unwind label %terminate.lpad.i.i.i.i.i.i.i.i2153
 
@@ -35594,7 +35594,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2016: ; preds = %if
   br label %lpad8.body.i2018
 
 lpad8.body.i2018:                                 ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i2052, %catch.fallthrough.i.i.i.i.i.i.i.i2146, %catch.fallthrough.i.i.i.i2326, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2016, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2065, %lpad8.loopexit.split-lp.loopexit.i2157, %lpad8.loopexit.i2339, %ehcleanup.i.i.i.i.i.i.i.i2163, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2152, %ehcleanup.i29.i.i.i.i.i.i.i2074, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2058, %ehcleanup.i.i.i.i2348, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2332
-  %eh.lpad-body.i2019 = phi { ptr, i32 } [ %.pn.i.i.i2349, %ehcleanup.i.i.i.i2348 ], [ %826, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2332 ], [ %.pn19.i.i.i.i.i.i.i2075, %ehcleanup.i29.i.i.i.i.i.i.i2074 ], [ %850, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2058 ], [ %.pn.i.i.i.i.i.i.i2164, %ehcleanup.i.i.i.i.i.i.i.i2163 ], [ %924, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2152 ], [ %lpad.loopexit.i2340, %lpad8.loopexit.i2339 ], [ %lpad.loopexit23.i2158, %lpad8.loopexit.split-lp.loopexit.i2157 ], [ %lpad.loopexit27.i2066, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2065 ], [ %lpad.loopexit.split-lp.i2017, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2016 ], [ %818, %catch.fallthrough.i.i.i.i2326 ], [ %lpad.phi.i.i.i.i.i.i2144, %catch.fallthrough.i.i.i.i.i.i.i.i2146 ], [ %842, %catch.fallthrough.i20.i.i.i.i.i.i.i2052 ]
+  %eh.lpad-body.i2019 = phi { ptr, i32 } [ %lpad.phi.i.i.i.i.i.i2144, %catch.fallthrough.i.i.i.i.i.i.i.i2146 ], [ %818, %catch.fallthrough.i.i.i.i2326 ], [ %.pn.i.i.i2349, %ehcleanup.i.i.i.i2348 ], [ %826, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2332 ], [ %lpad.loopexit.split-lp.i2017, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2016 ], [ %.pn19.i.i.i.i.i.i.i2075, %ehcleanup.i29.i.i.i.i.i.i.i2074 ], [ %850, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2058 ], [ %.pn.i.i.i.i.i.i.i2164, %ehcleanup.i.i.i.i.i.i.i.i2163 ], [ %924, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2152 ], [ %lpad.loopexit.i2340, %lpad8.loopexit.i2339 ], [ %lpad.loopexit23.i2158, %lpad8.loopexit.split-lp.loopexit.i2157 ], [ %lpad.loopexit27.i2066, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2065 ], [ %842, %catch.fallthrough.i20.i.i.i.i.i.i.i2052 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i1944) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i1943) #24
   br label %common.resume
@@ -35735,7 +35735,7 @@ if.then26.i.i.i.i.i.i2649:                        ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i2428
 
 land.end.i.i.i.i2428:                             ; preds = %for.body.i.i.i.i.i.i2658, %if.then26.i.i.i.i.i.i2649, %for.end.i.i.i.i.i.i2647, %land.rhs.i.i.i.i2641, %land.lhs.true.i.i.i.i2638, %if.end.i7.i.i.i2425
-  %frombool.i.i.i.i2429 = phi i16 [ 256, %land.lhs.true.i.i.i.i2638 ], [ 256, %if.end.i7.i.i.i2425 ], [ 257, %land.rhs.i.i.i.i2641 ], [ %965, %if.then26.i.i.i.i.i.i2649 ], [ 257, %for.end.i.i.i.i.i.i2647 ], [ 256, %for.body.i.i.i.i.i.i2658 ]
+  %frombool.i.i.i.i2429 = phi i16 [ 256, %land.lhs.true.i.i.i.i2638 ], [ 256, %if.end.i7.i.i.i2425 ], [ 257, %land.rhs.i.i.i.i2641 ], [ 257, %for.end.i.i.i.i.i.i2647 ], [ %965, %if.then26.i.i.i.i.i.i2649 ], [ 256, %for.body.i.i.i.i.i.i2658 ]
   store i16 %frombool.i.i.i.i2429, ptr %allSelected_.i.i.i.i2422, align 4
   %966 = trunc i16 %frombool.i.i.i.i2429 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i2430
@@ -35843,7 +35843,7 @@ if.then.i19.i.i.i2635:                            ; preds = %lpad12.i.i.i.i2633
   br label %ehcleanup.i.i.i.i2625
 
 ehcleanup.i.i.i.i2625:                            ; preds = %if.then.i19.i.i.i2635, %lpad12.i.i.i.i2633, %lpad9.i.loopexit.split-lp.i.i.i2629, %lpad9.i.loopexit.i.i.i2623
-  %.pn.i.i.i2626 = phi { ptr, i32 } [ %980, %lpad12.i.i.i.i2633 ], [ %980, %if.then.i19.i.i.i2635 ], [ %lpad.loopexit.i.i.i2624, %lpad9.i.loopexit.i.i.i2623 ], [ %lpad.loopexit.split-lp.i.i.i2630, %lpad9.i.loopexit.split-lp.i.i.i2629 ]
+  %.pn.i.i.i2626 = phi { ptr, i32 } [ %980, %if.then.i19.i.i.i2635 ], [ %980, %lpad12.i.i.i.i2633 ], [ %lpad.loopexit.i.i.i2624, %lpad9.i.loopexit.i.i.i2623 ], [ %lpad.loopexit.split-lp.i.i.i2630, %lpad9.i.loopexit.split-lp.i.i.i2629 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2473 unwind label %terminate.lpad.i.i.i.i2610
 
@@ -36062,7 +36062,7 @@ if.then.i32.i.i.i.i.i.i.i2539:                    ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i2529
 
 ehcleanup.i29.i.i.i.i.i.i.i2529:                  ; preds = %if.then.i32.i.i.i.i.i.i.i2539, %lpad14.i.i.i.i.i.i.i.i2537, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2533, %lpad10.i.loopexit.i.i.i.i.i.i.i2527
-  %.pn19.i.i.i.i.i.i.i2530 = phi { ptr, i32 } [ %1004, %lpad14.i.i.i.i.i.i.i.i2537 ], [ %1004, %if.then.i32.i.i.i.i.i.i.i2539 ], [ %lpad.loopexit.i.i.i.i.i.i.i2528, %lpad10.i.loopexit.i.i.i.i.i.i.i2527 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i2534, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2533 ]
+  %.pn19.i.i.i.i.i.i.i2530 = phi { ptr, i32 } [ %1004, %if.then.i32.i.i.i.i.i.i.i2539 ], [ %1004, %lpad14.i.i.i.i.i.i.i.i2537 ], [ %lpad.loopexit.i.i.i.i.i.i.i2528, %lpad10.i.loopexit.i.i.i.i.i.i.i2527 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i2534, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2533 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2473 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i2514
 
@@ -36184,7 +36184,7 @@ if.then.i48.i.i.i.i.i.i.i2580:                    ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i2570
 
 ehcleanup.i.i.i.i.i.i.i.i2570:                    ; preds = %if.then.i48.i.i.i.i.i.i.i2580, %lpad12.i.i.i.i.i.i.i.i2578, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2574, %lpad9.i.loopexit.i.i.i.i.i.i.i2568
-  %.pn.i.i.i.i.i.i.i2571 = phi { ptr, i32 } [ %1020, %lpad12.i.i.i.i.i.i.i.i2578 ], [ %1020, %if.then.i48.i.i.i.i.i.i.i2580 ], [ %lpad.loopexit53.i.i.i.i.i.i.i2569, %lpad9.i.loopexit.i.i.i.i.i.i.i2568 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i2575, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2574 ]
+  %.pn.i.i.i.i.i.i.i2571 = phi { ptr, i32 } [ %1020, %if.then.i48.i.i.i.i.i.i.i2580 ], [ %1020, %lpad12.i.i.i.i.i.i.i.i2578 ], [ %lpad.loopexit53.i.i.i.i.i.i.i2569, %lpad9.i.loopexit.i.i.i.i.i.i.i2568 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i2575, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2574 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2473 unwind label %terminate.lpad.i.i.i.i.i.i.i.i2557
 
@@ -36315,7 +36315,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2471: ; preds = %if
   br label %lpad8.body.i2473
 
 lpad8.body.i2473:                                 ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i2507, %catch.fallthrough.i.i.i.i.i.i.i.i2550, %catch.fallthrough.i.i.i.i2603, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2471, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2520, %lpad8.loopexit.split-lp.loopexit.i2561, %lpad8.loopexit.i2616, %ehcleanup.i.i.i.i.i.i.i.i2570, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2556, %ehcleanup.i29.i.i.i.i.i.i.i2529, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2513, %ehcleanup.i.i.i.i2625, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2609
-  %eh.lpad-body.i2474 = phi { ptr, i32 } [ %.pn.i.i.i2626, %ehcleanup.i.i.i.i2625 ], [ %977, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2609 ], [ %.pn19.i.i.i.i.i.i.i2530, %ehcleanup.i29.i.i.i.i.i.i.i2529 ], [ %1001, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2513 ], [ %.pn.i.i.i.i.i.i.i2571, %ehcleanup.i.i.i.i.i.i.i.i2570 ], [ %1017, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2556 ], [ %lpad.loopexit.i2617, %lpad8.loopexit.i2616 ], [ %lpad.loopexit23.i2562, %lpad8.loopexit.split-lp.loopexit.i2561 ], [ %lpad.loopexit27.i2521, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2520 ], [ %lpad.loopexit.split-lp.i2472, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2471 ], [ %969, %catch.fallthrough.i.i.i.i2603 ], [ %1009, %catch.fallthrough.i.i.i.i.i.i.i.i2550 ], [ %993, %catch.fallthrough.i20.i.i.i.i.i.i.i2507 ]
+  %eh.lpad-body.i2474 = phi { ptr, i32 } [ %1009, %catch.fallthrough.i.i.i.i.i.i.i.i2550 ], [ %969, %catch.fallthrough.i.i.i.i2603 ], [ %.pn.i.i.i2626, %ehcleanup.i.i.i.i2625 ], [ %977, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2609 ], [ %lpad.loopexit.split-lp.i2472, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i2471 ], [ %.pn19.i.i.i.i.i.i.i2530, %ehcleanup.i29.i.i.i.i.i.i.i2529 ], [ %1001, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2513 ], [ %.pn.i.i.i.i.i.i.i2571, %ehcleanup.i.i.i.i.i.i.i.i2570 ], [ %1017, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2556 ], [ %lpad.loopexit.i2617, %lpad8.loopexit.i2616 ], [ %lpad.loopexit23.i2562, %lpad8.loopexit.split-lp.loopexit.i2561 ], [ %lpad.loopexit27.i2521, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2520 ], [ %993, %catch.fallthrough.i20.i.i.i.i.i.i.i2507 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i2399) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i2398) #24
   br label %common.resume
@@ -36456,7 +36456,7 @@ if.then26.i.i.i.i.i.i2912:                        ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i2699
 
 land.end.i.i.i.i2699:                             ; preds = %for.body.i.i.i.i.i.i2921, %if.then26.i.i.i.i.i.i2912, %for.end.i.i.i.i.i.i2910, %land.rhs.i.i.i.i2904, %land.lhs.true.i.i.i.i2901, %if.end.i7.i.i.i2696
-  %frombool.i.i.i.i2700 = phi i16 [ 256, %land.lhs.true.i.i.i.i2901 ], [ 256, %if.end.i7.i.i.i2696 ], [ 257, %land.rhs.i.i.i.i2904 ], [ %1058, %if.then26.i.i.i.i.i.i2912 ], [ 257, %for.end.i.i.i.i.i.i2910 ], [ 256, %for.body.i.i.i.i.i.i2921 ]
+  %frombool.i.i.i.i2700 = phi i16 [ 256, %land.lhs.true.i.i.i.i2901 ], [ 256, %if.end.i7.i.i.i2696 ], [ 257, %land.rhs.i.i.i.i2904 ], [ 257, %for.end.i.i.i.i.i.i2910 ], [ %1058, %if.then26.i.i.i.i.i.i2912 ], [ 256, %for.body.i.i.i.i.i.i2921 ]
   store i16 %frombool.i.i.i.i2700, ptr %allSelected_.i.i.i.i2693, align 4
   %1059 = trunc i16 %frombool.i.i.i.i2700 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i2701
@@ -36564,7 +36564,7 @@ if.then.i19.i.i.i2898:                            ; preds = %lpad12.i.i.i.i2896
   br label %ehcleanup.i.i.i.i2888
 
 ehcleanup.i.i.i.i2888:                            ; preds = %if.then.i19.i.i.i2898, %lpad12.i.i.i.i2896, %lpad9.i.loopexit.split-lp.i.i.i2892, %lpad9.i.loopexit.i.i.i2886
-  %.pn.i.i.i2889 = phi { ptr, i32 } [ %1073, %lpad12.i.i.i.i2896 ], [ %1073, %if.then.i19.i.i.i2898 ], [ %lpad.loopexit.i.i.i2887, %lpad9.i.loopexit.i.i.i2886 ], [ %lpad.loopexit.split-lp.i.i.i2893, %lpad9.i.loopexit.split-lp.i.i.i2892 ]
+  %.pn.i.i.i2889 = phi { ptr, i32 } [ %1073, %if.then.i19.i.i.i2898 ], [ %1073, %lpad12.i.i.i.i2896 ], [ %lpad.loopexit.i.i.i2887, %lpad9.i.loopexit.i.i.i2886 ], [ %lpad.loopexit.split-lp.i.i.i2893, %lpad9.i.loopexit.split-lp.i.i.i2892 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2713 unwind label %terminate.lpad.i.i.i.i2873
 
@@ -36777,7 +36777,7 @@ if.then.i32.i.i.i.i.i.i.i2803:                    ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i2793
 
 ehcleanup.i29.i.i.i.i.i.i.i2793:                  ; preds = %if.then.i32.i.i.i.i.i.i.i2803, %lpad14.i.i.i.i.i.i.i.i2801, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2797, %lpad10.i.loopexit.i.i.i.i.i.i.i2791
-  %.pn19.i.i.i.i.i.i.i2794 = phi { ptr, i32 } [ %1095, %lpad14.i.i.i.i.i.i.i.i2801 ], [ %1095, %if.then.i32.i.i.i.i.i.i.i2803 ], [ %lpad.loopexit.i.i.i.i.i.i.i2792, %lpad10.i.loopexit.i.i.i.i.i.i.i2791 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i2798, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2797 ]
+  %.pn19.i.i.i.i.i.i.i2794 = phi { ptr, i32 } [ %1095, %if.then.i32.i.i.i.i.i.i.i2803 ], [ %1095, %lpad14.i.i.i.i.i.i.i.i2801 ], [ %lpad.loopexit.i.i.i.i.i.i.i2792, %lpad10.i.loopexit.i.i.i.i.i.i.i2791 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i2798, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i2797 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2713 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i2780
 
@@ -36899,7 +36899,7 @@ if.then.i48.i.i.i.i.i.i.i2843:                    ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i2833
 
 ehcleanup.i.i.i.i.i.i.i.i2833:                    ; preds = %if.then.i48.i.i.i.i.i.i.i2843, %lpad12.i.i.i.i.i.i.i.i2841, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2837, %lpad9.i.loopexit.i.i.i.i.i.i.i2831
-  %.pn.i.i.i.i.i.i.i2834 = phi { ptr, i32 } [ %1111, %lpad12.i.i.i.i.i.i.i.i2841 ], [ %1111, %if.then.i48.i.i.i.i.i.i.i2843 ], [ %lpad.loopexit53.i.i.i.i.i.i.i2832, %lpad9.i.loopexit.i.i.i.i.i.i.i2831 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i2838, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2837 ]
+  %.pn.i.i.i.i.i.i.i2834 = phi { ptr, i32 } [ %1111, %if.then.i48.i.i.i.i.i.i.i2843 ], [ %1111, %lpad12.i.i.i.i.i.i.i.i2841 ], [ %lpad.loopexit53.i.i.i.i.i.i.i2832, %lpad9.i.loopexit.i.i.i.i.i.i.i2831 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i2838, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i2837 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i2713 unwind label %terminate.lpad.i.i.i.i.i.i.i.i2821
 
@@ -37012,7 +37012,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i:
   br label %lpad8.body.i2713
 
 lpad8.body.i2713:                                 ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i2773, %catch.fallthrough.i.i.i.i.i.i.i.i2814, %catch.fallthrough.i.i.i.i2866, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2825, %lpad8.loopexit.split-lp.loopexit.i2879, %lpad8.loopexit.i2711, %ehcleanup.i.i.i.i.i.i.i.i2833, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2820, %ehcleanup.i29.i.i.i.i.i.i.i2793, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2779, %ehcleanup.i.i.i.i2888, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2872
-  %eh.lpad-body.i2714 = phi { ptr, i32 } [ %.pn.i.i.i2889, %ehcleanup.i.i.i.i2888 ], [ %1070, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2872 ], [ %.pn19.i.i.i.i.i.i.i2794, %ehcleanup.i29.i.i.i.i.i.i.i2793 ], [ %1092, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2779 ], [ %.pn.i.i.i.i.i.i.i2834, %ehcleanup.i.i.i.i.i.i.i.i2833 ], [ %1108, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2820 ], [ %lpad.loopexit.i2712, %lpad8.loopexit.i2711 ], [ %lpad.loopexit27.i2880, %lpad8.loopexit.split-lp.loopexit.i2879 ], [ %lpad.loopexit31.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2825 ], [ %lpad.loopexit34.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp35.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %1062, %catch.fallthrough.i.i.i.i2866 ], [ %1100, %catch.fallthrough.i.i.i.i.i.i.i.i2814 ], [ %1084, %catch.fallthrough.i20.i.i.i.i.i.i.i2773 ]
+  %eh.lpad-body.i2714 = phi { ptr, i32 } [ %1100, %catch.fallthrough.i.i.i.i.i.i.i.i2814 ], [ %1062, %catch.fallthrough.i.i.i.i2866 ], [ %.pn.i.i.i2889, %ehcleanup.i.i.i.i2888 ], [ %1070, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i2872 ], [ %lpad.loopexit.split-lp35.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ], [ %.pn19.i.i.i.i.i.i.i2794, %ehcleanup.i29.i.i.i.i.i.i.i2793 ], [ %1092, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i2779 ], [ %.pn.i.i.i.i.i.i.i2834, %ehcleanup.i.i.i.i.i.i.i.i2833 ], [ %1108, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i2820 ], [ %lpad.loopexit.i2712, %lpad8.loopexit.i2711 ], [ %lpad.loopexit27.i2880, %lpad8.loopexit.split-lp.loopexit.i2879 ], [ %lpad.loopexit31.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i2825 ], [ %lpad.loopexit34.i, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %1084, %catch.fallthrough.i20.i.i.i.i.i.i.i2773 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i2675) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i2674) #24
   br label %common.resume
@@ -37202,7 +37202,7 @@ if.then26.i.i.i.i.i.i3189:                        ; preds = %for.end.i.i.i.i.i.i
   br label %land.end.i.i.i.i2968
 
 land.end.i.i.i.i2968:                             ; preds = %for.body.i.i.i.i.i.i3198, %if.then26.i.i.i.i.i.i3189, %for.end.i.i.i.i.i.i3187, %land.rhs.i.i.i.i3181, %land.lhs.true.i.i.i.i3178, %if.end.i7.i.i.i2965
-  %frombool.i.i.i.i2969 = phi i16 [ 256, %land.lhs.true.i.i.i.i3178 ], [ 256, %if.end.i7.i.i.i2965 ], [ 257, %land.rhs.i.i.i.i3181 ], [ %1155, %if.then26.i.i.i.i.i.i3189 ], [ 257, %for.end.i.i.i.i.i.i3187 ], [ 256, %for.body.i.i.i.i.i.i3198 ]
+  %frombool.i.i.i.i2969 = phi i16 [ 256, %land.lhs.true.i.i.i.i3178 ], [ 256, %if.end.i7.i.i.i2965 ], [ 257, %land.rhs.i.i.i.i3181 ], [ 257, %for.end.i.i.i.i.i.i3187 ], [ %1155, %if.then26.i.i.i.i.i.i3189 ], [ 256, %for.body.i.i.i.i.i.i3198 ]
   store i16 %frombool.i.i.i.i2969, ptr %allSelected_.i.i.i.i2962, align 4
   %1156 = trunc i16 %frombool.i.i.i.i2969 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i2970
@@ -37310,7 +37310,7 @@ if.then.i19.i.i.i3175:                            ; preds = %lpad12.i.i.i.i3173
   br label %ehcleanup.i.i.i.i3165
 
 ehcleanup.i.i.i.i3165:                            ; preds = %if.then.i19.i.i.i3175, %lpad12.i.i.i.i3173, %lpad9.i.loopexit.split-lp.i.i.i3169, %lpad9.i.loopexit.i.i.i3163
-  %.pn.i.i.i3166 = phi { ptr, i32 } [ %1170, %lpad12.i.i.i.i3173 ], [ %1170, %if.then.i19.i.i.i3175 ], [ %lpad.loopexit.i.i.i3164, %lpad9.i.loopexit.i.i.i3163 ], [ %lpad.loopexit.split-lp.i.i.i3170, %lpad9.i.loopexit.split-lp.i.i.i3169 ]
+  %.pn.i.i.i3166 = phi { ptr, i32 } [ %1170, %if.then.i19.i.i.i3175 ], [ %1170, %lpad12.i.i.i.i3173 ], [ %lpad.loopexit.i.i.i3164, %lpad9.i.loopexit.i.i.i3163 ], [ %lpad.loopexit.split-lp.i.i.i3170, %lpad9.i.loopexit.split-lp.i.i.i3169 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i3013 unwind label %terminate.lpad.i.i.i.i3150
 
@@ -37529,7 +37529,7 @@ if.then.i32.i.i.i.i.i.i.i3079:                    ; preds = %lpad14.i.i.i.i.i.i.
   br label %ehcleanup.i29.i.i.i.i.i.i.i3069
 
 ehcleanup.i29.i.i.i.i.i.i.i3069:                  ; preds = %if.then.i32.i.i.i.i.i.i.i3079, %lpad14.i.i.i.i.i.i.i.i3077, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i3073, %lpad10.i.loopexit.i.i.i.i.i.i.i3067
-  %.pn19.i.i.i.i.i.i.i3070 = phi { ptr, i32 } [ %1194, %lpad14.i.i.i.i.i.i.i.i3077 ], [ %1194, %if.then.i32.i.i.i.i.i.i.i3079 ], [ %lpad.loopexit.i.i.i.i.i.i.i3068, %lpad10.i.loopexit.i.i.i.i.i.i.i3067 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i3074, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i3073 ]
+  %.pn19.i.i.i.i.i.i.i3070 = phi { ptr, i32 } [ %1194, %if.then.i32.i.i.i.i.i.i.i3079 ], [ %1194, %lpad14.i.i.i.i.i.i.i.i3077 ], [ %lpad.loopexit.i.i.i.i.i.i.i3068, %lpad10.i.loopexit.i.i.i.i.i.i.i3067 ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i3074, %lpad10.i.loopexit.split-lp.i.i.i.i.i.i.i3073 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i3013 unwind label %terminate.lpad.i26.i.i.i.i.i.i.i3054
 
@@ -37651,7 +37651,7 @@ if.then.i48.i.i.i.i.i.i.i3120:                    ; preds = %lpad12.i.i.i.i.i.i.
   br label %ehcleanup.i.i.i.i.i.i.i.i3110
 
 ehcleanup.i.i.i.i.i.i.i.i3110:                    ; preds = %if.then.i48.i.i.i.i.i.i.i3120, %lpad12.i.i.i.i.i.i.i.i3118, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i3114, %lpad9.i.loopexit.i.i.i.i.i.i.i3108
-  %.pn.i.i.i.i.i.i.i3111 = phi { ptr, i32 } [ %1210, %lpad12.i.i.i.i.i.i.i.i3118 ], [ %1210, %if.then.i48.i.i.i.i.i.i.i3120 ], [ %lpad.loopexit53.i.i.i.i.i.i.i3109, %lpad9.i.loopexit.i.i.i.i.i.i.i3108 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i3115, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i3114 ]
+  %.pn.i.i.i.i.i.i.i3111 = phi { ptr, i32 } [ %1210, %if.then.i48.i.i.i.i.i.i.i3120 ], [ %1210, %lpad12.i.i.i.i.i.i.i.i3118 ], [ %lpad.loopexit53.i.i.i.i.i.i.i3109, %lpad9.i.loopexit.i.i.i.i.i.i.i3108 ], [ %lpad.loopexit.split-lp54.i.i.i.i.i.i.i3115, %lpad9.i.loopexit.split-lp.i.i.i.i.i.i.i3114 ]
   invoke void @__cxa_end_catch()
           to label %lpad8.body.i3013 unwind label %terminate.lpad.i.i.i.i.i.i.i.i3097
 
@@ -37782,7 +37782,7 @@ lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3011: ; preds = %if
   br label %lpad8.body.i3013
 
 lpad8.body.i3013:                                 ; preds = %catch.fallthrough.i20.i.i.i.i.i.i.i3047, %catch.fallthrough.i.i.i.i.i.i.i.i3090, %catch.fallthrough.i.i.i.i3143, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3011, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i3060, %lpad8.loopexit.split-lp.loopexit.i3101, %lpad8.loopexit.i3156, %ehcleanup.i.i.i.i.i.i.i.i3110, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i3096, %ehcleanup.i29.i.i.i.i.i.i.i3069, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i3053, %ehcleanup.i.i.i.i3165, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3149
-  %eh.lpad-body.i3014 = phi { ptr, i32 } [ %.pn.i.i.i3166, %ehcleanup.i.i.i.i3165 ], [ %1167, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3149 ], [ %.pn19.i.i.i.i.i.i.i3070, %ehcleanup.i29.i.i.i.i.i.i.i3069 ], [ %1191, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i3053 ], [ %.pn.i.i.i.i.i.i.i3111, %ehcleanup.i.i.i.i.i.i.i.i3110 ], [ %1207, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i3096 ], [ %lpad.loopexit.i3157, %lpad8.loopexit.i3156 ], [ %lpad.loopexit23.i3102, %lpad8.loopexit.split-lp.loopexit.i3101 ], [ %lpad.loopexit27.i3061, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i3060 ], [ %lpad.loopexit.split-lp.i3012, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3011 ], [ %1159, %catch.fallthrough.i.i.i.i3143 ], [ %1199, %catch.fallthrough.i.i.i.i.i.i.i.i3090 ], [ %1183, %catch.fallthrough.i20.i.i.i.i.i.i.i3047 ]
+  %eh.lpad-body.i3014 = phi { ptr, i32 } [ %1199, %catch.fallthrough.i.i.i.i.i.i.i.i3090 ], [ %1159, %catch.fallthrough.i.i.i.i3143 ], [ %.pn.i.i.i3166, %ehcleanup.i.i.i.i3165 ], [ %1167, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit13.i.i.i3149 ], [ %lpad.loopexit.split-lp.i3012, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i3011 ], [ %.pn19.i.i.i.i.i.i.i3070, %ehcleanup.i29.i.i.i.i.i.i.i3069 ], [ %1191, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit26.i.i.i.i.i.i.i3053 ], [ %.pn.i.i.i.i.i.i.i3111, %ehcleanup.i.i.i.i.i.i.i.i3110 ], [ %1207, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit42.i.i.i.i.i.i.i3096 ], [ %lpad.loopexit.i3157, %lpad8.loopexit.i3156 ], [ %lpad.loopexit23.i3102, %lpad8.loopexit.split-lp.loopexit.i3101 ], [ %lpad.loopexit27.i3061, %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.i3060 ], [ %1183, %catch.fallthrough.i20.i.i.i.i.i.i.i3047 ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %usedInputs.i2939) #24
   call void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %decodedArgs.i2938) #24
   br label %common.resume
@@ -37835,7 +37835,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %conv.i.i = sext i32 %retval.0.i.i to i64
   %div2.i.i = lshr i64 %conv.i.i, 6
   %arrayidx.i1.i = getelementptr inbounds nuw i64, ptr %2, i64 %div2.i.i
@@ -37893,7 +37893,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit27
 
 _ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit27: ; preds = %for.body, %if.then3.i.i25, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %20, %if.then3.i.i25 ], [ %22, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %22, %if.end4.i.i13 ], [ %20, %if.then3.i.i25 ], [ %row, %for.body ]
   %conv.i.i18 = sext i32 %retval.0.i.i17 to i64
   %div2.i.i19 = lshr i64 %conv.i.i18, 6
   %arrayidx.i1.i20 = getelementptr inbounds nuw i64, ptr %17, i64 %div2.i.i19
@@ -37973,7 +37973,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %35 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %35 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -38114,7 +38114,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -38184,7 +38184,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 %idxprom.i
   %8 = load i8, ptr %arrayidx.i, align 1
@@ -38237,7 +38237,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit22
 
 _ZNK8facebook5velox13DecodedVector7valueAtIaEET_i.exit22: ; preds = %for.body, %if.then3.i.i20, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %18, %if.then3.i.i20 ], [ %20, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %20, %if.end4.i.i13 ], [ %18, %if.then3.i.i20 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds i8, ptr %15, i64 %idxprom.i18
   %21 = load i8, ptr %arrayidx.i19, align 1
@@ -38312,7 +38312,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %31 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %31 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -38454,7 +38454,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -38524,7 +38524,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %2, i64 %idxprom.i
   %8 = load i16, ptr %arrayidx.i, align 2
@@ -38577,7 +38577,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit22
 
 _ZNK8facebook5velox13DecodedVector7valueAtIsEET_i.exit22: ; preds = %for.body, %if.then3.i.i20, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %18, %if.then3.i.i20 ], [ %20, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %20, %if.end4.i.i13 ], [ %18, %if.then3.i.i20 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds i16, ptr %15, i64 %idxprom.i18
   %21 = load i16, ptr %arrayidx.i19, align 2
@@ -38652,7 +38652,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %31 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %31 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -38794,7 +38794,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -38864,7 +38864,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %2, i64 %idxprom.i
   %8 = load i32, ptr %arrayidx.i, align 4
@@ -38917,7 +38917,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit22
 
 _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit22: ; preds = %for.body, %if.then3.i.i20, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %18, %if.then3.i.i20 ], [ %20, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %20, %if.end4.i.i13 ], [ %18, %if.then3.i.i20 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds i32, ptr %15, i64 %idxprom.i18
   %21 = load i32, ptr %arrayidx.i19, align 4
@@ -38992,7 +38992,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %31 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %31 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -39134,7 +39134,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -39204,7 +39204,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds i64, ptr %2, i64 %idxprom.i
   %8 = load i64, ptr %arrayidx.i, align 8
@@ -39257,7 +39257,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit22
 
 _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit22: ; preds = %for.body, %if.then3.i.i20, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %18, %if.then3.i.i20 ], [ %20, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %20, %if.end4.i.i13 ], [ %18, %if.then3.i.i20 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds i64, ptr %15, i64 %idxprom.i18
   %21 = load i64, ptr %arrayidx.i19, align 8
@@ -39332,7 +39332,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %31 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %31 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -39474,7 +39474,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -39544,7 +39544,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %conv.i = sext i32 %retval.0.i.i to i64
   %mul.i = shl nsw i64 %conv.i, 4
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %mul.i
@@ -39598,7 +39598,7 @@ if.end4.i.i14:                                    ; preds = %if.end.i.i11
   br label %_ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30
 
 _ZNK8facebook5velox13DecodedVector7valueAtInEET_i.exit30: ; preds = %for.body, %if.then3.i.i28, %if.end4.i.i14
-  %retval.0.i.i18 = phi i32 [ %17, %if.then3.i.i28 ], [ %19, %if.end4.i.i14 ], [ %row, %for.body ]
+  %retval.0.i.i18 = phi i32 [ %19, %if.end4.i.i14 ], [ %17, %if.then3.i.i28 ], [ %row, %for.body ]
   %conv.i19 = sext i32 %retval.0.i.i18 to i64
   %mul.i20 = shl nsw i64 %conv.i19, 4
   %add.ptr.i21 = getelementptr inbounds i8, ptr %14, i64 %mul.i20
@@ -39674,7 +39674,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %29 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %29 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -39816,7 +39816,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -39886,7 +39886,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds float, ptr %2, i64 %idxprom.i
   %8 = load float, ptr %arrayidx.i, align 4
@@ -39939,7 +39939,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit22
 
 _ZNK8facebook5velox13DecodedVector7valueAtIfEET_i.exit22: ; preds = %for.body, %if.then3.i.i20, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %18, %if.then3.i.i20 ], [ %20, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %20, %if.end4.i.i13 ], [ %18, %if.then3.i.i20 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds float, ptr %15, i64 %idxprom.i18
   %21 = load float, ptr %arrayidx.i19, align 4
@@ -40014,7 +40014,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %31 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %31 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -40156,7 +40156,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -40226,7 +40226,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds double, ptr %2, i64 %idxprom.i
   %8 = load double, ptr %arrayidx.i, align 8
@@ -40287,7 +40287,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit22
 
 _ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit22: ; preds = %for.body, %if.then3.i.i20, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %19, %if.then3.i.i20 ], [ %21, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %21, %if.end4.i.i13 ], [ %19, %if.then3.i.i20 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds double, ptr %16, i64 %idxprom.i18
   %22 = load double, ptr %arrayidx.i19, align 8
@@ -40370,7 +40370,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %33 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %33 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -40512,7 +40512,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -40584,7 +40584,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %2, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i, align 8
@@ -40644,7 +40644,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit27
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit27: ; preds = %for.body, %if.then3.i.i25, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %19, %if.then3.i.i25 ], [ %21, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %21, %if.end4.i.i13 ], [ %19, %if.then3.i.i25 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %16, i64 %idxprom.i18
   %retval.sroa.0.0.copyload.i20 = load i64, ptr %arrayidx.i19, align 8
@@ -40780,7 +40780,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i33
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i33
-  %38 = phi i1 [ true, %if.then.i.i33 ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %38 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i33 ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -40922,7 +40922,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 
@@ -40992,7 +40992,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit: ; preds = %entry, %if.then3.i.i, %if.end4.i.i
-  %retval.0.i.i = phi i32 [ %5, %if.then3.i.i ], [ %7, %if.end4.i.i ], [ %row, %entry ]
+  %retval.0.i.i = phi i32 [ %7, %if.end4.i.i ], [ %5, %if.then3.i.i ], [ %row, %entry ]
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %2, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i, align 8
@@ -41048,7 +41048,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit27
 
 _ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit27: ; preds = %for.body, %if.then3.i.i25, %if.end4.i.i13
-  %retval.0.i.i17 = phi i32 [ %17, %if.then3.i.i25 ], [ %19, %if.end4.i.i13 ], [ %row, %for.body ]
+  %retval.0.i.i17 = phi i32 [ %19, %if.end4.i.i13 ], [ %17, %if.then3.i.i25 ], [ %row, %for.body ]
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %14, i64 %idxprom.i18
   %retval.sroa.0.0.copyload.i20 = load i64, ptr %arrayidx.i19, align 8
@@ -41139,7 +41139,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
-  %29 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
+  %29 = phi i1 [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ], [ true, %if.then.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %valueIndex.0.lcssa, ptr %_M_storage.i.i.i.i.i.i.i, align 8
@@ -41283,7 +41283,7 @@ if.then.i23:                                      ; preds = %lpad12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad9.i.loopexit, %lpad9.i.loopexit.split-lp, %if.then.i23, %lpad12.i
-  %.pn = phi { ptr, i32 } [ %23, %lpad12.i ], [ %23, %if.then.i23 ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %if.then.i23 ], [ %23, %lpad12.i ], [ %lpad.loopexit, %lpad9.i.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.i.loopexit.split-lp ]
   invoke void @__cxa_end_catch()
           to label %eh.resume.i unwind label %terminate.lpad.i
 

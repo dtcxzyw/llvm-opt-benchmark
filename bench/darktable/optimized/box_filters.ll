@@ -1163,7 +1163,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i151:        ; preds = %.lr.ph.i.i.i148, %4
   unreachable
 
 _ZL9_box_meanILm1ELb0EEvPfmmmj.exit.sink.split:   ; preds = %._crit_edge.us.i160, %.preheader.i161, %._crit_edge.us.i135, %.preheader.i145, %._crit_edge.us.i91, %.preheader.i102, %._crit_edge.us.i53, %.preheader.i57, %._crit_edge.us.i, %.preheader.i, %.preheader25.i154, %.preheader33.i, %.preheader25.i66, %.preheader25.i37, %.preheader25.i
-  %.sink = phi ptr [ %20, %.preheader25.i ], [ %104, %.preheader25.i37 ], [ %211, %.preheader25.i66 ], [ %343, %.preheader33.i ], [ %450, %.preheader25.i154 ], [ %20, %.preheader.i ], [ %20, %._crit_edge.us.i ], [ %104, %.preheader.i57 ], [ %104, %._crit_edge.us.i53 ], [ %211, %.preheader.i102 ], [ %211, %._crit_edge.us.i91 ], [ %343, %.preheader.i145 ], [ %343, %._crit_edge.us.i135 ], [ %450, %.preheader.i161 ], [ %450, %._crit_edge.us.i160 ]
+  %.sink = phi ptr [ %343, %.preheader33.i ], [ %211, %.preheader25.i66 ], [ %104, %.preheader25.i37 ], [ %20, %.preheader25.i ], [ %343, %.preheader.i145 ], [ %450, %.preheader25.i154 ], [ %450, %.preheader.i161 ], [ %343, %._crit_edge.us.i135 ], [ %20, %._crit_edge.us.i ], [ %20, %.preheader.i ], [ %104, %._crit_edge.us.i53 ], [ %104, %.preheader.i57 ], [ %211, %._crit_edge.us.i91 ], [ %211, %.preheader.i102 ], [ %450, %._crit_edge.us.i160 ]
   tail call void @free(ptr noundef nonnull %.sink) #12
   br label %_ZL9_box_meanILm1ELb0EEvPfmmmj.exit
 
@@ -2918,7 +2918,7 @@ _ZL11_window_minPKfi.exit.i.us.i:                 ; preds = %_ZL11_window_minPKf
   br i1 %exitcond.not.i52.i.us.i, label %_ZL11_window_minPKfi.exit53.i.us.i, label %.lr.ph.i47.i.us.i, !llvm.loop !816
 
 _ZL11_window_minPKfi.exit53.i.us.i:               ; preds = %.lr.ph.i47.i.us.i, %45, %41, %_ZL11_window_minPKfi.exit.i.us.i
-  %.1.i.us.i = phi nsz float [ %.055.i.us.i, %41 ], [ %.055.i.us.i, %_ZL11_window_minPKfi.exit.i.us.i ], [ 0x47EFFFFFE0000000, %45 ], [ %.09..i50.i.us.i, %.lr.ph.i47.i.us.i ]
+  %.1.i.us.i = phi nsz float [ %.055.i.us.i, %_ZL11_window_minPKfi.exit.i.us.i ], [ %.055.i.us.i, %41 ], [ 0x47EFFFFFE0000000, %45 ], [ %.09..i50.i.us.i, %.lr.ph.i47.i.us.i ]
   %56 = trunc nuw nsw i64 %indvars.iv.i.us.i to i32
   %57 = add i32 %27, %56
   %58 = icmp slt i32 %57, %26
@@ -3554,7 +3554,7 @@ _ZL11_window_maxPKfi.exit.i.us.i:                 ; preds = %_ZL11_window_maxPKf
   br i1 %exitcond.not.i52.i.us.i, label %_ZL11_window_maxPKfi.exit53.i.us.i, label %.lr.ph.i47.i.us.i, !llvm.loop !937
 
 _ZL11_window_maxPKfi.exit53.i.us.i:               ; preds = %.lr.ph.i47.i.us.i, %45, %41, %_ZL11_window_maxPKfi.exit.i.us.i
-  %.1.i.us.i = phi nsz float [ %.055.i.us.i, %41 ], [ %.055.i.us.i, %_ZL11_window_maxPKfi.exit.i.us.i ], [ 0xC7EFFFFFE0000000, %45 ], [ %.09..i50.i.us.i, %.lr.ph.i47.i.us.i ]
+  %.1.i.us.i = phi nsz float [ %.055.i.us.i, %_ZL11_window_maxPKfi.exit.i.us.i ], [ %.055.i.us.i, %41 ], [ 0xC7EFFFFFE0000000, %45 ], [ %.09..i50.i.us.i, %.lr.ph.i47.i.us.i ]
   %56 = trunc nuw nsw i64 %indvars.iv.i.us.i to i32
   %57 = add i32 %27, %56
   %58 = icmp slt i32 %57, %26

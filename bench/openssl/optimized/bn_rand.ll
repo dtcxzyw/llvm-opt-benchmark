@@ -355,7 +355,7 @@ define internal fastcc range(i32 0, 2) i32 @bnrand_range(i32 noundef range(i32 0
   br i1 %50, label %43, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %48, %43, %40, %35, %30, %25, %17, %47, %39, %13, %7
-  %.036 = phi i32 [ 0, %7 ], [ 0, %13 ], [ 0, %47 ], [ 0, %39 ], [ 1, %17 ], [ 1, %40 ], [ 0, %35 ], [ 0, %30 ], [ 0, %25 ], [ 1, %48 ], [ 0, %43 ]
+  %.036 = phi i32 [ 0, %7 ], [ 0, %13 ], [ 1, %17 ], [ 0, %47 ], [ 0, %35 ], [ 0, %39 ], [ 1, %40 ], [ 0, %25 ], [ 0, %30 ], [ 1, %48 ], [ 0, %43 ]
   ret i32 %.036
 }
 
@@ -455,7 +455,7 @@ define range(i32 0, 2) i32 @ossl_bn_priv_rand_range_fixed_top(ptr noundef %0, pt
   br i1 %27, label %19, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %24, %19, %16, %23, %12, %6
-  %.016 = phi i32 [ 0, %6 ], [ 0, %12 ], [ 0, %23 ], [ 1, %16 ], [ 1, %24 ], [ 0, %19 ]
+  %.016 = phi i32 [ 0, %6 ], [ 0, %12 ], [ 1, %16 ], [ 0, %23 ], [ 1, %24 ], [ 0, %19 ]
   ret i32 %.016
 }
 
@@ -619,7 +619,7 @@ define range(i32 0, 2) i32 @ossl_bn_gen_dsa_nonce_fixed_top(ptr noundef %0, ptr 
   br i1 %67, label %.thread, label %68
 
 .thread:                                          ; preds = %63, %.preheader.split, %29, %._crit_edge.us, %49, %47, %45, %43, %41, %39, %36
-  %.2.ph = phi i32 [ 0, %36 ], [ 0, %39 ], [ 0, %41 ], [ 0, %43 ], [ 0, %45 ], [ 0, %47 ], [ 0, %49 ], [ 1, %29 ], [ 0, %._crit_edge.us ], [ 1, %63 ], [ 0, %.preheader.split ]
+  %.2.ph = phi i32 [ 1, %29 ], [ 0, %49 ], [ 0, %36 ], [ 0, %39 ], [ 0, %41 ], [ 0, %43 ], [ 0, %45 ], [ 0, %47 ], [ 0, %._crit_edge.us ], [ 1, %63 ], [ 0, %.preheader.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %._crit_edge
 
@@ -636,9 +636,9 @@ define range(i32 0, 2) i32 @ossl_bn_gen_dsa_nonce_fixed_top(ptr noundef %0, ptr 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6, %.thread, %18, %.split.us, %61, %24
-  %.050 = phi ptr [ %19, %.thread ], [ null, %18 ], [ %19, %.split.us ], [ %19, %61 ], [ %19, %24 ], [ null, %6 ]
-  %.047 = phi i32 [ %.2.ph, %.thread ], [ 0, %18 ], [ 0, %.split.us ], [ 0, %61 ], [ 0, %24 ], [ 0, %6 ]
-  %.046 = phi ptr [ %26, %.thread ], [ null, %18 ], [ %26, %.split.us ], [ null, %61 ], [ null, %24 ], [ null, %6 ]
+  %.050 = phi ptr [ %19, %24 ], [ %19, %.thread ], [ null, %18 ], [ %19, %.split.us ], [ %19, %61 ], [ null, %6 ]
+  %.047 = phi i32 [ 0, %24 ], [ %.2.ph, %.thread ], [ 0, %18 ], [ 0, %.split.us ], [ 0, %61 ], [ 0, %6 ]
+  %.046 = phi ptr [ null, %24 ], [ %26, %.thread ], [ null, %18 ], [ %26, %.split.us ], [ null, %61 ], [ null, %6 ]
   call void @EVP_MD_CTX_free(ptr noundef %11) #5
   call void @EVP_MD_free(ptr noundef %.046) #5
   call void @CRYPTO_clear_free(ptr noundef %.050, i64 noundef %.pre, ptr noundef nonnull @.str, i32 noundef 390) #5

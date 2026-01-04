@@ -32,7 +32,7 @@ define internal range(i32 0, 34) i32 @sdns_probe(ptr noundef readonly captures(n
   br label %15
 
 15:                                               ; preds = %9, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ %spec.select, %9 ]
+  %.0 = phi i32 [ %spec.select, %9 ], [ 0, %1 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -118,7 +118,7 @@ define internal range(i32 -2147483648, 1) i32 @sdns_read_header(ptr noundef %0) 
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 50:                                               ; preds = %18, %14, %6, %1, %._crit_edge
-  %.035 = phi i32 [ 0, %._crit_edge ], [ -12, %1 ], [ -1094995529, %6 ], [ -1094995529, %14 ], [ %24, %18 ]
+  %.035 = phi i32 [ -12, %1 ], [ -1094995529, %6 ], [ -1094995529, %14 ], [ 0, %._crit_edge ], [ %24, %18 ]
   ret i32 %.035
 }
 

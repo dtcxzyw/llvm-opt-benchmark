@@ -155,7 +155,7 @@ ossl_md5_sha1_init.exit:                          ; preds = %23
   br label %ossl_md5_sha1_update.exit.thread
 
 ossl_md5_sha1_update.exit.thread:                 ; preds = %23, %10, %35, %33, %31, %29, %26, %ossl_md5_sha1_init.exit, %21, %19, %17, %15, %ossl_md5_sha1_update.exit, %8, %4, %37
-  %.0 = phi i32 [ 1, %37 ], [ -2, %4 ], [ 0, %8 ], [ 0, %ossl_md5_sha1_update.exit ], [ 0, %15 ], [ 0, %17 ], [ 0, %19 ], [ 0, %21 ], [ 0, %ossl_md5_sha1_init.exit ], [ 0, %26 ], [ 0, %29 ], [ 0, %31 ], [ 0, %33 ], [ 0, %35 ], [ 0, %10 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %ossl_md5_sha1_update.exit ], [ -2, %4 ], [ 0, %8 ], [ 0, %35 ], [ 0, %ossl_md5_sha1_init.exit ], [ 1, %37 ], [ 0, %33 ], [ 0, %31 ], [ 0, %29 ], [ 0, %26 ], [ 0, %21 ], [ 0, %19 ], [ 0, %17 ], [ 0, %15 ], [ 0, %10 ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

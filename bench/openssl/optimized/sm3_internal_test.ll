@@ -99,7 +99,7 @@ define internal range(i32 0, 2) i32 @test_sm3() #0 {
   br label %38
 
 38:                                               ; preds = %36, %21, %26, %31, %0, %9, %14, %19
-  %.0 = phi i32 [ 0, %19 ], [ 0, %14 ], [ 0, %9 ], [ 0, %0 ], [ 0, %31 ], [ 0, %26 ], [ 0, %21 ], [ %spec.select, %36 ]
+  %.0 = phi i32 [ 0, %21 ], [ 0, %0 ], [ 0, %19 ], [ 0, %14 ], [ 0, %9 ], [ %spec.select, %36 ], [ 0, %31 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

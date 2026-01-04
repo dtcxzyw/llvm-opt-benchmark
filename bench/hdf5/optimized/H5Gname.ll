@@ -569,7 +569,7 @@ define range(i32 -1, 1) i32 @H5G_get_name(ptr noundef readonly captures(none) %0
   br label %.thread
 
 .thread:                                          ; preds = %27, %43, %44, %14, %51, %45, %56, %55, %18
-  %.0 = phi i32 [ -1, %14 ], [ 0, %45 ], [ -1, %51 ], [ 0, %56 ], [ 0, %55 ], [ 0, %18 ], [ 0, %44 ], [ 0, %43 ], [ 0, %27 ]
+  %.0 = phi i32 [ -1, %14 ], [ 0, %18 ], [ 0, %45 ], [ -1, %51 ], [ 0, %56 ], [ 0, %55 ], [ 0, %44 ], [ 0, %43 ], [ 0, %27 ]
   ret i32 %.0
 }
 
@@ -826,9 +826,9 @@ define range(i32 -1, 1) i32 @H5G_name_replace(ptr noundef readonly captures(addr
   br label %51
 
 .thread:                                          ; preds = %39, %42, %41
-  %.043.ph = phi i1 [ true, %39 ], [ false, %42 ], [ false, %41 ]
-  %.040.ph = phi i1 [ false, %39 ], [ false, %42 ], [ true, %41 ]
-  %.037.ph = phi i1 [ false, %39 ], [ true, %42 ], [ false, %41 ]
+  %.043.ph = phi i1 [ true, %39 ], [ false, %41 ], [ false, %42 ]
+  %.040.ph = phi i1 [ false, %39 ], [ true, %41 ], [ false, %42 ]
+  %.037.ph = phi i1 [ false, %39 ], [ false, %41 ], [ true, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %58
@@ -930,7 +930,7 @@ define range(i32 -1, 1) i32 @H5G_name_replace(ptr noundef readonly captures(addr
   br label %90
 
 90:                                               ; preds = %51, %89, %22, %18, %58, %54
-  %.046 = phi i32 [ -1, %18 ], [ 0, %22 ], [ -1, %54 ], [ -1, %51 ], [ 0, %58 ], [ %.5, %89 ]
+  %.046 = phi i32 [ -1, %18 ], [ 0, %22 ], [ -1, %54 ], [ -1, %51 ], [ %.5, %89 ], [ 0, %58 ]
   ret i32 %.046
 }
 
@@ -1291,7 +1291,7 @@ define internal range(i32 -1, 1) i32 @H5G__name_replace_cb(ptr noundef %0, i64 n
   br label %H5G_name_free.exit
 
 H5G_name_free.exit:                               ; preds = %156, %140, %3, %82, %86, %90, %123, %127, %131, %135, %158, %193, %27, %23, %18, %31, %58, %78, %74, %110, %115, %120, %106, %189, %185, %178
-  %.097 = phi i32 [ -1, %27 ], [ -1, %193 ], [ 0, %90 ], [ 0, %86 ], [ 0, %82 ], [ 0, %131 ], [ 0, %127 ], [ 0, %123 ], [ 0, %135 ], [ 0, %158 ], [ -1, %23 ], [ 0, %3 ], [ 0, %18 ], [ 0, %31 ], [ 0, %58 ], [ -1, %74 ], [ 0, %78 ], [ -1, %106 ], [ 0, %120 ], [ 0, %115 ], [ 0, %110 ], [ -1, %178 ], [ -1, %185 ], [ 0, %189 ], [ 0, %140 ], [ 0, %156 ]
+  %.097 = phi i32 [ -1, %27 ], [ -1, %193 ], [ 0, %58 ], [ -1, %23 ], [ 0, %90 ], [ 0, %86 ], [ 0, %82 ], [ 0, %78 ], [ -1, %74 ], [ 0, %131 ], [ 0, %127 ], [ 0, %123 ], [ 0, %189 ], [ 0, %135 ], [ 0, %110 ], [ 0, %115 ], [ 0, %158 ], [ 0, %31 ], [ 0, %18 ], [ 0, %3 ], [ -1, %106 ], [ 0, %120 ], [ -1, %178 ], [ -1, %185 ], [ 0, %140 ], [ 0, %156 ]
   ret i32 %.097
 }
 
@@ -1641,7 +1641,7 @@ H5G__component.exit55:                            ; preds = %.preheader.i53
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %57, %.critedge, %12, %H5G__component.exit.thread, %34, %H5G__component.exit39.thread, %74, %83, %2
-  %.0 = phi i32 [ -1, %12 ], [ -1, %H5G__component.exit.thread ], [ -1, %34 ], [ -1, %H5G__component.exit39.thread ], [ -1, %74 ], [ -1, %83 ], [ 0, %2 ], [ %spec.select, %.critedge ], [ 0, %57 ], [ 0, %55 ]
+  %.0 = phi i32 [ -1, %12 ], [ %spec.select, %.critedge ], [ -1, %H5G__component.exit.thread ], [ -1, %34 ], [ 0, %2 ], [ -1, %H5G__component.exit39.thread ], [ -1, %83 ], [ -1, %74 ], [ 0, %57 ], [ 0, %55 ]
   ret i32 %.0
 }
 
@@ -1723,7 +1723,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__name_move_path(ptr noundef cap
   br label %48
 
 48:                                               ; preds = %4, %11, %45, %34
-  %.040 = phi i32 [ 0, %11 ], [ 0, %4 ], [ -1, %34 ], [ 0, %45 ]
+  %.040 = phi i32 [ 0, %4 ], [ 0, %11 ], [ -1, %34 ], [ 0, %45 ]
   ret i32 %.040
 }
 

@@ -502,7 +502,7 @@ _ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit26.i: ; preds = %155, %.noexc25
   br label %.noexc21
 
 .noexc21:                                         ; preds = %_ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit26.i, %136, %135, %132, %131
-  %.0.i = phi ptr [ %153, %_ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit26.i ], [ %128, %131 ], [ %128, %132 ], [ %128, %135 ], [ %128, %136 ]
+  %.0.i = phi ptr [ %153, %_ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit26.i ], [ %128, %132 ], [ %128, %131 ], [ %128, %135 ], [ %128, %136 ]
   store ptr %.0.i, ptr %26, align 8, !tbaa !35
   %159 = load ptr, ptr %.0.i, align 8, !tbaa !41
   store ptr %159, ptr %30, align 8, !tbaa !36
@@ -3015,8 +3015,8 @@ _ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc27
   br label %_ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit
 
 _ZNSt6vectorIPvSaIS0_EEC2EmRKS1_.exit:            ; preds = %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc27, %_ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %.sroa.11.0 = phi ptr [ %11, %.noexc27 ], [ %11, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %.sroa.042.0 = phi ptr [ %10, %.noexc27 ], [ %10, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %11, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %11, %.noexc27 ], [ null, %_ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %.sroa.042.0 = phi ptr [ %10, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %10, %.noexc27 ], [ null, %_ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
   %15 = trunc i64 %2 to i32
   %16 = invoke i32 @backtrace(ptr noundef %.sroa.042.0, i32 noundef %15)
           to label %17 unwind label %24
@@ -4418,7 +4418,7 @@ _ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit26: ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit:   ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !35
   %58 = load ptr, ptr %.0, align 8, !tbaa !41
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

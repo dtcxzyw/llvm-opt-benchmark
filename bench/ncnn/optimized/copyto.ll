@@ -1514,7 +1514,7 @@ _ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %427, %334, %343, 
   br label %_ZN4ncnn3MataSERKS0_.exit
 
 _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3Mat7releaseEv.exit.i, %47, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
-  %.052 = phi i32 [ 0, %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %47 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ -100, %_ZN4ncnn3MatD2Ev.exit ]
+  %.052 = phi i32 [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit ], [ 0, %47 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ -100, %_ZN4ncnn3MatD2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.052
 }

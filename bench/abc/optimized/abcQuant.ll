@@ -1202,7 +1202,7 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %241
   br i1 %.not73.not, label %.lr.ph157, label %.loopexit, !llvm.loop !60
 
 .loopexit:                                        ; preds = %.lr.ph157, %._crit_edge153, %Vec_PtrFree.exit
-  %268 = phi ptr [ %257, %._crit_edge153 ], [ %236, %Vec_PtrFree.exit ], [ %257, %.lr.ph157 ]
+  %268 = phi ptr [ %236, %Vec_PtrFree.exit ], [ %257, %._crit_edge153 ], [ %257, %.lr.ph157 ]
   %269 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %268) #13
   %.not74 = icmp eq i32 %269, 0
   br i1 %.not74, label %270, label %271

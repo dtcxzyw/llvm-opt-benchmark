@@ -882,7 +882,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   br label %.thread
 
 .thread:                                          ; preds = %408, %404, %400, %396, %392, %343, %509, %_ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit179, %386, %_ZL11btDoSimplexP9btSimplexP9btVector3.exit, %.thread.loopexit
-  %.1104 = phi i1 [ false, %_ZL11btDoSimplexP9btSimplexP9btVector3.exit ], [ false, %386 ], [ true, %408 ], [ true, %404 ], [ true, %400 ], [ true, %396 ], [ true, %392 ], [ true, %343 ], [ false, %_ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit179 ], [ false, %509 ], [ true, %.thread.loopexit ]
+  %.1104 = phi i1 [ false, %_ZL11btDoSimplexP9btSimplexP9btVector3.exit ], [ false, %386 ], [ true, %408 ], [ true, %404 ], [ true, %400 ], [ true, %396 ], [ true, %392 ], [ true, %343 ], [ false, %509 ], [ false, %_ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit179 ], [ true, %.thread.loopexit ]
   %518 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %519 = load ptr, ptr %518, align 8, !tbaa !20
   call void @_ZN22btVoronoiSimplexSolver5resetEv(ptr noundef nonnull align 4 dereferenceable(357) %519)
@@ -1476,7 +1476,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   br label %858
 
 858:                                              ; preds = %.sink.split, %856, %857
-  %.2551 = phi float [ %.0, %857 ], [ %.0, %856 ], [ %.2551.ph, %.sink.split ]
+  %.2551 = phi float [ %.0, %856 ], [ %.0, %857 ], [ %.2551.ph, %.sink.split ]
   %859 = fcmp olt float %.2551, 0.000000e+00
   br i1 %859, label %864, label %860
 
@@ -2549,11 +2549,11 @@ _Z5ccdEqff.exit.i:                                ; preds = %15
   %21 = tail call noundef float @llvm.fabs.f32(float %16)
   %22 = tail call noundef float @llvm.fabs.f32(float %17)
   %23 = fcmp ogt float %22, %21
-  %24 = fmul float %22, 0x3E80000000000000
+  %24 = fmul float %21, 0x3E80000000000000
   %25 = fcmp uge float %19, %24
-  %26 = fmul float %21, 0x3E80000000000000
+  %26 = fmul float %22, 0x3E80000000000000
   %27 = fcmp uge float %19, %26
-  %.0.shrunk.i.i = select i1 %23, i1 %25, i1 %27
+  %.0.shrunk.i.i = select i1 %23, i1 %27, i1 %25
   br i1 %.0.shrunk.i.i, label %_Z8btVec3EqPK9btVector3S1_.exit.thread, label %_Z5ccdEqff.exit.thread.i
 
 _Z5ccdEqff.exit.thread.i:                         ; preds = %_Z5ccdEqff.exit.i, %15
@@ -2570,11 +2570,11 @@ _Z5ccdEqff.exit9.i:                               ; preds = %_Z5ccdEqff.exit.thr
   %35 = tail call noundef float @llvm.fabs.f32(float %29)
   %36 = tail call noundef float @llvm.fabs.f32(float %31)
   %37 = fcmp ogt float %36, %35
-  %38 = fmul float %36, 0x3E80000000000000
+  %38 = fmul float %35, 0x3E80000000000000
   %39 = fcmp uge float %33, %38
-  %40 = fmul float %35, 0x3E80000000000000
+  %40 = fmul float %36, 0x3E80000000000000
   %41 = fcmp uge float %33, %40
-  %.0.shrunk.i7.i = select i1 %37, i1 %39, i1 %41
+  %.0.shrunk.i7.i = select i1 %37, i1 %41, i1 %39
   br i1 %.0.shrunk.i7.i, label %_Z8btVec3EqPK9btVector3S1_.exit.thread, label %_Z5ccdEqff.exit9.thread.i
 
 _Z5ccdEqff.exit9.thread.i:                        ; preds = %_Z5ccdEqff.exit9.i, %_Z5ccdEqff.exit.thread.i
@@ -2591,11 +2591,11 @@ _Z8btVec3EqPK9btVector3S1_.exit:                  ; preds = %_Z5ccdEqff.exit9.th
   %49 = tail call noundef float @llvm.fabs.f32(float %43)
   %50 = tail call noundef float @llvm.fabs.f32(float %45)
   %51 = fcmp ogt float %50, %49
-  %52 = fmul float %50, 0x3E80000000000000
+  %52 = fmul float %49, 0x3E80000000000000
   %53 = fcmp uge float %47, %52
-  %54 = fmul float %49, 0x3E80000000000000
+  %54 = fmul float %50, 0x3E80000000000000
   %55 = fcmp uge float %47, %54
-  %.0.shrunk.i10.i = select i1 %51, i1 %53, i1 %55
+  %.0.shrunk.i10.i = select i1 %51, i1 %55, i1 %53
   br i1 %.0.shrunk.i10.i, label %_Z8btVec3EqPK9btVector3S1_.exit.thread, label %_Z8btVec3EqPK9btVector3S1_.exit.thread110
 
 _Z8btVec3EqPK9btVector3S1_.exit.thread:           ; preds = %_Z5ccdEqff.exit.i, %_Z5ccdEqff.exit9.i, %_Z8btVec3EqPK9btVector3S1_.exit
@@ -2609,11 +2609,11 @@ _Z5ccdEqff.exit.i71:                              ; preds = %_Z8btVec3EqPK9btVec
   %60 = tail call noundef float @llvm.fabs.f32(float %16)
   %61 = tail call noundef float @llvm.fabs.f32(float %56)
   %62 = fcmp ogt float %61, %60
-  %63 = fmul float %61, 0x3E80000000000000
+  %63 = fmul float %60, 0x3E80000000000000
   %64 = fcmp uge float %58, %63
-  %65 = fmul float %60, 0x3E80000000000000
+  %65 = fmul float %61, 0x3E80000000000000
   %66 = fcmp uge float %58, %65
-  %.0.shrunk.i.i72 = select i1 %62, i1 %64, i1 %66
+  %.0.shrunk.i.i72 = select i1 %62, i1 %66, i1 %64
   br i1 %.0.shrunk.i.i72, label %_Z5ccdEqff.exit.i71._Z8btVec3EqPK9btVector3S1_.exit80.thread_crit_edge, label %_Z5ccdEqff.exit.thread.i73
 
 _Z5ccdEqff.exit.i71._Z8btVec3EqPK9btVector3S1_.exit80.thread_crit_edge: ; preds = %_Z5ccdEqff.exit.i71
@@ -2637,11 +2637,11 @@ _Z5ccdEqff.exit9.i74:                             ; preds = %_Z5ccdEqff.exit.thr
   %74 = tail call noundef float @llvm.fabs.f32(float %68)
   %75 = tail call noundef float @llvm.fabs.f32(float %70)
   %76 = fcmp ogt float %75, %74
-  %77 = fmul float %75, 0x3E80000000000000
+  %77 = fmul float %74, 0x3E80000000000000
   %78 = fcmp uge float %72, %77
-  %79 = fmul float %74, 0x3E80000000000000
+  %79 = fmul float %75, 0x3E80000000000000
   %80 = fcmp uge float %72, %79
-  %.0.shrunk.i7.i75 = select i1 %76, i1 %78, i1 %80
+  %.0.shrunk.i7.i75 = select i1 %76, i1 %80, i1 %78
   br i1 %.0.shrunk.i7.i75, label %_Z8btVec3EqPK9btVector3S1_.exit80.thread, label %_Z5ccdEqff.exit9.thread.i76
 
 _Z5ccdEqff.exit9.thread.i76:                      ; preds = %_Z5ccdEqff.exit9.i74, %_Z5ccdEqff.exit.thread.i73
@@ -2658,11 +2658,11 @@ _Z8btVec3EqPK9btVector3S1_.exit80:                ; preds = %_Z5ccdEqff.exit9.th
   %88 = tail call noundef float @llvm.fabs.f32(float %82)
   %89 = tail call noundef float @llvm.fabs.f32(float %84)
   %90 = fcmp ogt float %89, %88
-  %91 = fmul float %89, 0x3E80000000000000
+  %91 = fmul float %88, 0x3E80000000000000
   %92 = fcmp uge float %86, %91
-  %93 = fmul float %88, 0x3E80000000000000
+  %93 = fmul float %89, 0x3E80000000000000
   %94 = fcmp uge float %86, %93
-  %.0.shrunk.i10.i78 = select i1 %90, i1 %92, i1 %94
+  %.0.shrunk.i10.i78 = select i1 %90, i1 %94, i1 %92
   br i1 %.0.shrunk.i10.i78, label %_Z8btVec3EqPK9btVector3S1_.exit80.thread, label %_Z8btVec3EqPK9btVector3S1_.exit.thread110
 
 _Z8btVec3EqPK9btVector3S1_.exit80.thread:         ; preds = %_Z5ccdEqff.exit.i71._Z8btVec3EqPK9btVector3S1_.exit80.thread_crit_edge, %_Z5ccdEqff.exit9.i74, %_Z8btVec3EqPK9btVector3S1_.exit80
@@ -2843,7 +2843,7 @@ _Z8btVec3EqPK9btVector3S1_.exit80.thread:         ; preds = %_Z5ccdEqff.exit.i71
   br label %_Z8btVec3EqPK9btVector3S1_.exit.thread110
 
 _Z8btVec3EqPK9btVector3S1_.exit.thread110:        ; preds = %_Z5ccdEqff.exit9.thread.i76, %_Z5ccdEqff.exit9.thread.i, %155, %156, %147, %189, %190, %180, %181, %_Z8btVec3EqPK9btVector3S1_.exit, %_Z8btVec3EqPK9btVector3S1_.exit80, %2
-  %.0 = phi i32 [ 1, %2 ], [ -1, %_Z8btVec3EqPK9btVector3S1_.exit80 ], [ -1, %_Z8btVec3EqPK9btVector3S1_.exit ], [ 0, %181 ], [ 0, %180 ], [ 0, %190 ], [ 0, %189 ], [ 0, %147 ], [ 0, %156 ], [ 0, %155 ], [ -1, %_Z5ccdEqff.exit9.thread.i ], [ -1, %_Z5ccdEqff.exit9.thread.i76 ]
+  %.0 = phi i32 [ -1, %_Z8btVec3EqPK9btVector3S1_.exit ], [ 1, %2 ], [ -1, %_Z8btVec3EqPK9btVector3S1_.exit80 ], [ 0, %181 ], [ 0, %180 ], [ 0, %190 ], [ 0, %189 ], [ 0, %147 ], [ 0, %156 ], [ 0, %155 ], [ -1, %_Z5ccdEqff.exit9.thread.i ], [ -1, %_Z5ccdEqff.exit9.thread.i76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

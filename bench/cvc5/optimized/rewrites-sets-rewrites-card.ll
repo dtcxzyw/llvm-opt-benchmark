@@ -2886,7 +2886,7 @@ _ZN4cvc58internal8RationalD2Ev.exit506:           ; preds = %1249, %1237
   br label %.body
 
 .body:                                            ; preds = %238, %235, %1254
-  %.pn233.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn233.pn.pn.pn.pn.pn, %1254 ], [ %236, %238 ], [ %236, %235 ]
+  %.pn233.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn233.pn.pn.pn.pn.pn, %1254 ], [ %236, %235 ], [ %236, %238 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #19
   br label %.loopexit531
 
@@ -3021,7 +3021,7 @@ _ZN4cvc58internal8RationalD2Ev.exit506:           ; preds = %1249, %1237
   br label %.body352
 
 .body352:                                         ; preds = %430, %427, %1282
-  %.pn242.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn242.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1282 ], [ %428, %430 ], [ %428, %427 ]
+  %.pn242.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn242.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1282 ], [ %428, %427 ], [ %428, %430 ]
   br label %1283
 
 1283:                                             ; preds = %1283, %.body352
@@ -3032,7 +3032,7 @@ _ZN4cvc58internal8RationalD2Ev.exit506:           ; preds = %1249, %1237
   br i1 %1286, label %.loopexit525, label %1283
 
 .loopexit525:                                     ; preds = %1283, %.loopexit525.loopexit533, %.thread
-  %.pn242.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %404, %.thread ], [ %1255, %.loopexit525.loopexit533 ], [ %.pn242.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1283 ]
+  %.pn242.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1255, %.loopexit525.loopexit533 ], [ %404, %.thread ], [ %.pn242.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1283 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %1337
 
@@ -3119,7 +3119,7 @@ _ZN4cvc58internal8RationalD2Ev.exit506:           ; preds = %1249, %1237
   br label %.loopexit523
 
 .loopexit523:                                     ; preds = %1307, %.thread625, %.thread621
-  %.pn255.pn.pn.pn.pn.pn624 = phi { ptr, i32 } [ %1292, %.thread621 ], [ %1293, %.thread625 ], [ %.pn255.pn.pn.pn, %1307 ]
+  %.pn255.pn.pn.pn.pn.pn624 = phi { ptr, i32 } [ %1292, %.thread621 ], [ %.pn255.pn.pn.pn, %1307 ], [ %1293, %.thread625 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
@@ -3140,7 +3140,7 @@ _ZN4cvc58internal8RationalD2Ev.exit506:           ; preds = %1249, %1237
   br label %.body400
 
 .body400:                                         ; preds = %706, %703, %1309
-  %.pn255.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn255.pn.pn.pn.pn.pn.pn.pn, %1309 ], [ %704, %706 ], [ %704, %703 ]
+  %.pn255.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn255.pn.pn.pn.pn.pn.pn.pn, %1309 ], [ %704, %703 ], [ %704, %706 ]
   br label %1310
 
 1310:                                             ; preds = %1310, %.body400
@@ -3151,7 +3151,7 @@ _ZN4cvc58internal8RationalD2Ev.exit506:           ; preds = %1249, %1237
   br i1 %1313, label %.loopexit521, label %1310
 
 .loopexit521:                                     ; preds = %1310, %.loopexit521.loopexit532, %.thread518
-  %.pn255.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %680, %.thread518 ], [ %1287, %.loopexit521.loopexit532 ], [ %.pn255.pn.pn.pn.pn.pn.pn.pn.pn, %1310 ]
+  %.pn255.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1287, %.loopexit521.loopexit532 ], [ %680, %.thread518 ], [ %.pn255.pn.pn.pn.pn.pn.pn.pn.pn, %1310 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %1337
 
@@ -3248,7 +3248,7 @@ _ZN4cvc58internal8RationalD2Ev.exit507:           ; preds = %1332, %1318
   br label %.body442
 
 .body442:                                         ; preds = %932, %929, %1336
-  %.pn266.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn266.pn.pn.pn.pn.pn.pn, %1336 ], [ %930, %932 ], [ %930, %929 ]
+  %.pn266.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn266.pn.pn.pn.pn.pn.pn, %1336 ], [ %930, %929 ], [ %930, %932 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %68) #19
   br label %.loopexit
 

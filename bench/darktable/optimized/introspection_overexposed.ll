@@ -393,7 +393,7 @@ dt_ioppr_get_rgb_matrix_luminance.exit274.us:     ; preds = %.lr.ph294, %118
   br label %225
 
 225:                                              ; preds = %215, %197, %188
-  %226 = phi reassoc nsz arcp contract afn float [ %214, %197 ], [ %224, %215 ], [ %194, %188 ]
+  %226 = phi reassoc nsz arcp contract afn float [ %224, %215 ], [ %214, %197 ], [ %194, %188 ]
   %227 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.i
   store float %226, ptr %227, align 4, !tbaa !74
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -586,7 +586,7 @@ dt_ioppr_get_rgb_matrix_luminance.exit:           ; preds = %dt_ioppr_apply_trc.
   br label %344
 
 344:                                              ; preds = %334, %316, %307
-  %345 = phi reassoc nsz arcp contract afn float [ %333, %316 ], [ %343, %334 ], [ %313, %307 ]
+  %345 = phi reassoc nsz arcp contract afn float [ %343, %334 ], [ %333, %316 ], [ %313, %307 ]
   %346 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i.i268
   store float %345, ptr %346, align 4, !tbaa !74
   %indvars.iv.next.i.i269 = add nuw nsw i64 %indvars.iv.i.i268, 1
@@ -695,7 +695,7 @@ dt_ioppr_apply_trc.exit.i271:                     ; preds = %344
   br label %415
 
 415:                                              ; preds = %405, %387, %378
-  %416 = phi reassoc nsz arcp contract afn float [ %404, %387 ], [ %414, %405 ], [ %384, %378 ]
+  %416 = phi reassoc nsz arcp contract afn float [ %414, %405 ], [ %404, %387 ], [ %384, %378 ]
   %417 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.i276
   store float %416, ptr %417, align 4, !tbaa !74
   %indvars.iv.next.i.i277 = add nuw nsw i64 %indvars.iv.i.i276, 1
@@ -977,7 +977,7 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %20
 
 20:                                               ; preds = %16, %4
-  %21 = phi i32 [ 0, %4 ], [ %19, %16 ]
+  %21 = phi i32 [ %19, %16 ], [ 0, %4 ]
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %21, ptr %22, align 16, !tbaa !161
   ret void

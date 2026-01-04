@@ -588,12 +588,12 @@ default.unreachable:                              ; preds = %_ZNSolsEPFRSoS_E.ex
   unreachable
 
 230:                                              ; preds = %_ZNSolsEPFRSoS_E.exit239, %229, %228, %227, %226, %225
-  %.sroa.0375.0 = phi float [ -1.000000e+00, %225 ], [ 0.000000e+00, %226 ], [ 0.000000e+00, %227 ], [ 0.000000e+00, %228 ], [ 0.000000e+00, %229 ], [ 1.000000e+00, %_ZNSolsEPFRSoS_E.exit239 ]
-  %.sroa.11.0 = phi float [ 0.000000e+00, %225 ], [ 1.000000e+00, %226 ], [ -1.000000e+00, %227 ], [ 0.000000e+00, %228 ], [ 0.000000e+00, %229 ], [ 0.000000e+00, %_ZNSolsEPFRSoS_E.exit239 ]
-  %.sroa.19.0 = phi float [ 0.000000e+00, %225 ], [ 0.000000e+00, %226 ], [ 0.000000e+00, %227 ], [ 1.000000e+00, %228 ], [ -1.000000e+00, %229 ], [ 0.000000e+00, %_ZNSolsEPFRSoS_E.exit239 ]
-  %.0202.sroa.phi = phi ptr [ %.sroa.17, %225 ], [ %.sroa.17, %226 ], [ %.sroa.17, %227 ], [ %.sroa.10, %228 ], [ %.sroa.10, %229 ], [ %.sroa.17, %_ZNSolsEPFRSoS_E.exit239 ]
-  %.0201.sroa.phi = phi ptr [ %.sroa.10, %225 ], [ %.sroa.0, %226 ], [ %.sroa.0, %227 ], [ %.sroa.0, %228 ], [ %.sroa.0, %229 ], [ %.sroa.10, %_ZNSolsEPFRSoS_E.exit239 ]
-  %.0199.sroa.phi = phi ptr [ %.sroa.0, %225 ], [ %.sroa.10, %226 ], [ %.sroa.10, %227 ], [ %.sroa.17, %228 ], [ %.sroa.17, %229 ], [ %.sroa.0, %_ZNSolsEPFRSoS_E.exit239 ]
+  %.sroa.0375.0 = phi float [ 0.000000e+00, %229 ], [ 0.000000e+00, %228 ], [ -1.000000e+00, %225 ], [ 0.000000e+00, %226 ], [ 0.000000e+00, %227 ], [ 1.000000e+00, %_ZNSolsEPFRSoS_E.exit239 ]
+  %.sroa.11.0 = phi float [ 0.000000e+00, %229 ], [ 0.000000e+00, %228 ], [ 0.000000e+00, %225 ], [ 1.000000e+00, %226 ], [ -1.000000e+00, %227 ], [ 0.000000e+00, %_ZNSolsEPFRSoS_E.exit239 ]
+  %.sroa.19.0 = phi float [ -1.000000e+00, %229 ], [ 1.000000e+00, %228 ], [ 0.000000e+00, %225 ], [ 0.000000e+00, %226 ], [ 0.000000e+00, %227 ], [ 0.000000e+00, %_ZNSolsEPFRSoS_E.exit239 ]
+  %.0202.sroa.phi = phi ptr [ %.sroa.10, %229 ], [ %.sroa.10, %228 ], [ %.sroa.17, %225 ], [ %.sroa.17, %226 ], [ %.sroa.17, %227 ], [ %.sroa.17, %_ZNSolsEPFRSoS_E.exit239 ]
+  %.0201.sroa.phi = phi ptr [ %.sroa.0, %229 ], [ %.sroa.0, %228 ], [ %.sroa.10, %225 ], [ %.sroa.0, %226 ], [ %.sroa.0, %227 ], [ %.sroa.10, %_ZNSolsEPFRSoS_E.exit239 ]
+  %.0199.sroa.phi = phi ptr [ %.sroa.17, %229 ], [ %.sroa.17, %228 ], [ %.sroa.0, %225 ], [ %.sroa.10, %226 ], [ %.sroa.10, %227 ], [ %.sroa.0, %_ZNSolsEPFRSoS_E.exit239 ]
   br i1 %169, label %.lr.ph483.us, label %._crit_edge490.split.us
 
 .lr.ph483.us:                                     ; preds = %230, %._crit_edge484.us
@@ -823,7 +823,7 @@ _ZNK9Imath_3_24Vec3IfE10normalizedEv.exit.us:     ; preds = %271, %_ZNK9Imath_3_
   br label %_ZN9Imath_3_24halfmLEf.exit.us
 
 _ZN9Imath_3_24halfmLEf.exit.us:                   ; preds = %364, %361, %359, %350, %344, %341, %327
-  %.0.i.i.i.us = phi i16 [ %371, %364 ], [ %360, %359 ], [ %358, %350 ], [ %362, %361 ], [ %325, %327 ], [ %345, %344 ], [ %339, %341 ]
+  %.0.i.i.i.us = phi i16 [ %325, %327 ], [ %371, %364 ], [ %360, %359 ], [ %358, %350 ], [ %362, %361 ], [ %345, %344 ], [ %339, %341 ]
   store i16 %.0.i.i.i.us, ptr %312, align 2, !tbaa !67
   %372 = getelementptr inbounds nuw i8, ptr %312, i64 2
   %373 = load i16, ptr %372, align 2, !tbaa !64
@@ -908,7 +908,7 @@ _ZN9Imath_3_24halfmLEf.exit.us:                   ; preds = %364, %361, %359, %3
   br label %_ZN9Imath_3_24halfmLEf.exit243.us
 
 _ZN9Imath_3_24halfmLEf.exit243.us:                ; preds = %422, %419, %417, %408, %402, %399, %385
-  %.0.i.i.i242.us = phi i16 [ %429, %422 ], [ %418, %417 ], [ %416, %408 ], [ %420, %419 ], [ %383, %385 ], [ %403, %402 ], [ %397, %399 ]
+  %.0.i.i.i242.us = phi i16 [ %383, %385 ], [ %429, %422 ], [ %418, %417 ], [ %416, %408 ], [ %420, %419 ], [ %403, %402 ], [ %397, %399 ]
   store i16 %.0.i.i.i242.us, ptr %372, align 2, !tbaa !67
   %430 = getelementptr inbounds nuw i8, ptr %312, i64 4
   %431 = load i16, ptr %430, align 2, !tbaa !64
@@ -993,7 +993,7 @@ _ZN9Imath_3_24halfmLEf.exit243.us:                ; preds = %422, %419, %417, %4
   br label %_ZN9Imath_3_24halfmLEf.exit247.us
 
 _ZN9Imath_3_24halfmLEf.exit247.us:                ; preds = %480, %477, %475, %466, %460, %457, %443
-  %.0.i.i.i246.us = phi i16 [ %487, %480 ], [ %476, %475 ], [ %474, %466 ], [ %478, %477 ], [ %441, %443 ], [ %461, %460 ], [ %455, %457 ]
+  %.0.i.i.i246.us = phi i16 [ %441, %443 ], [ %487, %480 ], [ %476, %475 ], [ %474, %466 ], [ %478, %477 ], [ %461, %460 ], [ %455, %457 ]
   store i16 %.0.i.i.i246.us, ptr %430, align 2, !tbaa !67
   %488 = getelementptr inbounds nuw i8, ptr %312, i64 6
   %489 = load i16, ptr %488, align 2, !tbaa !64
@@ -1078,7 +1078,7 @@ _ZN9Imath_3_24halfmLEf.exit247.us:                ; preds = %480, %477, %475, %4
   br label %_ZN9Imath_3_24halfmLEf.exit251.us
 
 _ZN9Imath_3_24halfmLEf.exit251.us:                ; preds = %538, %535, %533, %524, %518, %515, %501
-  %.0.i.i.i250.us = phi i16 [ %545, %538 ], [ %534, %533 ], [ %532, %524 ], [ %536, %535 ], [ %499, %501 ], [ %519, %518 ], [ %513, %515 ]
+  %.0.i.i.i250.us = phi i16 [ %499, %501 ], [ %545, %538 ], [ %534, %533 ], [ %532, %524 ], [ %536, %535 ], [ %519, %518 ], [ %513, %515 ]
   store i16 %.0.i.i.i250.us, ptr %488, align 2, !tbaa !67
   %546 = fadd double %.2172481.us, %.0205.us
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1205,7 +1205,7 @@ _ZN9Imath_3_24halfmLEf.exit251.us:                ; preds = %538, %535, %533, %5
   br label %_ZN9Imath_3_24halfmLEf.exit255
 
 _ZN9Imath_3_24halfmLEf.exit255:                   ; preds = %568, %571, %581, %583, %592, %606, %609
-  %.0.i.i.i254 = phi i16 [ %578, %571 ], [ %582, %581 ], [ %591, %583 ], [ %569, %568 ], [ %564, %592 ], [ %610, %609 ], [ %604, %606 ]
+  %.0.i.i.i254 = phi i16 [ %564, %592 ], [ %578, %571 ], [ %582, %581 ], [ %591, %583 ], [ %569, %568 ], [ %610, %609 ], [ %604, %606 ]
   store i16 %.0.i.i.i254, ptr %.0206499, align 2, !tbaa !67
   %611 = getelementptr inbounds nuw i8, ptr %.0206499, i64 2
   %612 = load i16, ptr %611, align 2, !tbaa !64
@@ -1290,7 +1290,7 @@ _ZN9Imath_3_24halfmLEf.exit255:                   ; preds = %568, %571, %581, %5
   br label %_ZN9Imath_3_24halfmLEf.exit259
 
 _ZN9Imath_3_24halfmLEf.exit259:                   ; preds = %626, %629, %639, %641, %650, %664, %667
-  %.0.i.i.i258 = phi i16 [ %636, %629 ], [ %640, %639 ], [ %649, %641 ], [ %627, %626 ], [ %622, %650 ], [ %668, %667 ], [ %662, %664 ]
+  %.0.i.i.i258 = phi i16 [ %622, %650 ], [ %636, %629 ], [ %640, %639 ], [ %649, %641 ], [ %627, %626 ], [ %668, %667 ], [ %662, %664 ]
   store i16 %.0.i.i.i258, ptr %611, align 2, !tbaa !67
   %669 = getelementptr inbounds nuw i8, ptr %.0206499, i64 4
   %670 = load i16, ptr %669, align 2, !tbaa !64
@@ -1375,7 +1375,7 @@ _ZN9Imath_3_24halfmLEf.exit259:                   ; preds = %626, %629, %639, %6
   br label %_ZN9Imath_3_24halfmLEf.exit263
 
 _ZN9Imath_3_24halfmLEf.exit263:                   ; preds = %684, %687, %697, %699, %708, %722, %725
-  %.0.i.i.i262 = phi i16 [ %694, %687 ], [ %698, %697 ], [ %707, %699 ], [ %685, %684 ], [ %680, %708 ], [ %726, %725 ], [ %720, %722 ]
+  %.0.i.i.i262 = phi i16 [ %680, %708 ], [ %694, %687 ], [ %698, %697 ], [ %707, %699 ], [ %685, %684 ], [ %726, %725 ], [ %720, %722 ]
   store i16 %.0.i.i.i262, ptr %669, align 2, !tbaa !67
   %727 = getelementptr inbounds nuw i8, ptr %.0206499, i64 6
   %728 = load i16, ptr %727, align 2, !tbaa !64
@@ -1460,7 +1460,7 @@ _ZN9Imath_3_24halfmLEf.exit263:                   ; preds = %684, %687, %697, %6
   br label %_ZN9Imath_3_24halfmLEf.exit267
 
 _ZN9Imath_3_24halfmLEf.exit267:                   ; preds = %742, %745, %755, %757, %766, %780, %783
-  %.0.i.i.i266 = phi i16 [ %752, %745 ], [ %756, %755 ], [ %765, %757 ], [ %743, %742 ], [ %738, %766 ], [ %784, %783 ], [ %778, %780 ]
+  %.0.i.i.i266 = phi i16 [ %738, %766 ], [ %752, %745 ], [ %756, %755 ], [ %765, %757 ], [ %743, %742 ], [ %784, %783 ], [ %778, %780 ]
   store i16 %.0.i.i.i266, ptr %727, align 2, !tbaa !67
   %785 = getelementptr inbounds nuw i8, ptr %.0206499, i64 8
   %786 = icmp ult ptr %785, %190
@@ -1802,7 +1802,7 @@ _ZNSolsEPFRSoS_E.exit271:                         ; preds = %.noexc353, %859
   br label %_ZN9Imath_3_24halfaSEf.exit.us
 
 _ZN9Imath_3_24halfaSEf.exit.us:                   ; preds = %940, %937, %935, %926, %920, %917, %903
-  %.0.i.i.i274.us = phi i16 [ %947, %940 ], [ %936, %935 ], [ %934, %926 ], [ %938, %937 ], [ %1121, %903 ], [ %921, %920 ], [ %915, %917 ]
+  %.0.i.i.i274.us = phi i16 [ %1121, %903 ], [ %947, %940 ], [ %936, %935 ], [ %934, %926 ], [ %938, %937 ], [ %921, %920 ], [ %915, %917 ]
   store i16 %.0.i.i.i274.us, ptr %902, align 2, !tbaa !67
   %948 = fdiv double %.us-phi547.us, %.us-phi.us
   %949 = fptrunc double %948 to float
@@ -1884,7 +1884,7 @@ _ZN9Imath_3_24halfaSEf.exit.us:                   ; preds = %940, %937, %935, %9
   br label %_ZN9Imath_3_24halfaSEf.exit278.us
 
 _ZN9Imath_3_24halfaSEf.exit278.us:                ; preds = %995, %992, %990, %981, %975, %972, %958
-  %.0.i.i.i277.us = phi i16 [ %1002, %995 ], [ %991, %990 ], [ %989, %981 ], [ %993, %992 ], [ %956, %958 ], [ %976, %975 ], [ %970, %972 ]
+  %.0.i.i.i277.us = phi i16 [ %956, %958 ], [ %1002, %995 ], [ %991, %990 ], [ %989, %981 ], [ %993, %992 ], [ %976, %975 ], [ %970, %972 ]
   store i16 %.0.i.i.i277.us, ptr %950, align 2, !tbaa !67
   %1003 = fdiv double %.us-phi548.us, %.us-phi.us
   %1004 = fptrunc double %1003 to float
@@ -1966,7 +1966,7 @@ _ZN9Imath_3_24halfaSEf.exit278.us:                ; preds = %995, %992, %990, %9
   br label %_ZN9Imath_3_24halfaSEf.exit282.us
 
 _ZN9Imath_3_24halfaSEf.exit282.us:                ; preds = %1050, %1047, %1045, %1036, %1030, %1027, %1013
-  %.0.i.i.i281.us = phi i16 [ %1057, %1050 ], [ %1046, %1045 ], [ %1044, %1036 ], [ %1048, %1047 ], [ %1011, %1013 ], [ %1031, %1030 ], [ %1025, %1027 ]
+  %.0.i.i.i281.us = phi i16 [ %1011, %1013 ], [ %1057, %1050 ], [ %1046, %1045 ], [ %1044, %1036 ], [ %1048, %1047 ], [ %1031, %1030 ], [ %1025, %1027 ]
   store i16 %.0.i.i.i281.us, ptr %1005, align 2, !tbaa !67
   %1058 = fdiv double %.us-phi549.us, %.us-phi.us
   %1059 = fptrunc double %1058 to float
@@ -2048,7 +2048,7 @@ _ZN9Imath_3_24halfaSEf.exit282.us:                ; preds = %1050, %1047, %1045,
   br label %_ZN9Imath_3_24halfaSEf.exit286.us
 
 _ZN9Imath_3_24halfaSEf.exit286.us:                ; preds = %1105, %1102, %1100, %1091, %1085, %1082, %1068
-  %.0.i.i.i285.us = phi i16 [ %1112, %1105 ], [ %1101, %1100 ], [ %1099, %1091 ], [ %1103, %1102 ], [ %1066, %1068 ], [ %1086, %1085 ], [ %1080, %1082 ]
+  %.0.i.i.i285.us = phi i16 [ %1066, %1068 ], [ %1112, %1105 ], [ %1101, %1100 ], [ %1099, %1091 ], [ %1103, %1102 ], [ %1086, %1085 ], [ %1080, %1082 ]
   store i16 %.0.i.i.i285.us, ptr %1060, align 2, !tbaa !67
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -2349,7 +2349,7 @@ _ZN11EnvmapImageD2Ev.exit:                        ; preds = %1240, %1244
   ret void
 
 1245:                                             ; preds = %.loopexit421.split.us, %.loopexit.split-lp422, %87, %133, %807, %1202, %1239, %77
-  %.pn229.pn = phi { ptr, i32 } [ %78, %77 ], [ %.us-phi477, %133 ], [ %.pn223.pn.pn.pn.pn, %807 ], [ %.pn213.pn.pn.pn.pn.pn.pn.pn.pn, %1202 ], [ %.pn, %1239 ], [ %88, %87 ], [ %lpad.loopexit423.us, %.loopexit421.split.us ], [ %lpad.loopexit.split-lp424, %.loopexit.split-lp422 ]
+  %.pn229.pn = phi { ptr, i32 } [ %78, %77 ], [ %.us-phi477, %133 ], [ %88, %87 ], [ %.pn223.pn.pn.pn.pn, %807 ], [ %.pn213.pn.pn.pn.pn.pn.pn.pn.pn, %1202 ], [ %.pn, %1239 ], [ %lpad.loopexit423.us, %.loopexit421.split.us ], [ %lpad.loopexit.split-lp424, %.loopexit.split-lp422 ]
   %1246 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %1247 = load ptr, ptr %1246, align 8, !tbaa !44
   %1248 = icmp eq ptr %1247, null

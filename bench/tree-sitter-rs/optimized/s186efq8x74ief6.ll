@@ -166,8 +166,8 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entr
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hd454ed00507b445eE.exit.i.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hd454ed00507b445eE.exit.i.i": ; preds = %.noexc, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hd454ed00507b445eE.exit.i"
-  %.sroa.3.0.i.i.i = phi i64 [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hd454ed00507b445eE.exit.i" ], [ %spec.select, %.noexc ]
-  %.sroa.0.0.i.i.i = phi i64 [ -9223372036854775807, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hd454ed00507b445eE.exit.i" ], [ %.fca.0.extract.i.i.i, %.noexc ]
+  %.sroa.3.0.i.i.i = phi i64 [ %spec.select, %.noexc ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hd454ed00507b445eE.exit.i" ]
+  %.sroa.0.0.i.i.i = phi i64 [ %.fca.0.extract.i.i.i, %.noexc ], [ -9223372036854775807, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hd454ed00507b445eE.exit.i" ]
   %22 = invoke { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h05d8245bc78683b1E.llvm.3133295511148960277"(i64 noundef %.sroa.0.0.i.i.i, i64 %.sroa.3.0.i.i.i)
           to label %.noexc5 unwind label %46
 
@@ -270,7 +270,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entr
   unreachable
 
 .critedge:                                        ; preds = %35, %50
-  %eh.lpad-body13 = phi { ptr, i32 } [ %47, %50 ], [ %36, %35 ]
+  %eh.lpad-body13 = phi { ptr, i32 } [ %36, %35 ], [ %47, %50 ]
   resume { ptr, i32 } %eh.lpad-body13
 
 50:                                               ; preds = %46
@@ -353,7 +353,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
 32:                                               ; preds = %18, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdc7e74606c77ffE.exit"
   ret void
 
-33:                                               ; preds = %5, %17
+33:                                               ; preds = %17, %5
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h7efca45dfd54dc8bE.llvm.10823498929142229777"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4) #14
@@ -502,8 +502,8 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
   br label %64
 
 64:                                               ; preds = %58, %54
-  %65 = phi i8 [ %.pre, %58 ], [ %56, %54 ]
-  %.sroa.410.0.ph = phi i64 [ %63, %58 ], [ %.sroa.6.1.i.i, %54 ]
+  %65 = phi i8 [ %56, %54 ], [ %.pre, %58 ]
+  %.sroa.410.0.ph = phi i64 [ %.sroa.6.1.i.i, %54 ], [ %63, %58 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %67 = load i64, ptr %66, align 8, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)

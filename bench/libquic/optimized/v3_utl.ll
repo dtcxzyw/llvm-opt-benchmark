@@ -341,7 +341,7 @@ define hidden ptr @s2i_ASN1_INTEGER(ptr readnone captures(none) %0, ptr noundef 
   br label %39
 
 39:                                               ; preds = %34, %35, %33, %23, %4
-  %.020 = phi ptr [ null, %23 ], [ null, %33 ], [ null, %4 ], [ %31, %35 ], [ %31, %34 ]
+  %.020 = phi ptr [ null, %23 ], [ null, %4 ], [ null, %33 ], [ %31, %35 ], [ %31, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.020
 }
@@ -762,9 +762,9 @@ strip_spaces.exit86.thread131:                    ; preds = %76, %.critedge2.i84
   br label %86
 
 86:                                               ; preds = %9, %strip_spaces.exit72.thread124, %strip_spaces.exit.thread117, %strip_spaces.exit86.thread131, %59
-  %.147 = phi ptr [ %33, %strip_spaces.exit.thread117 ], [ %57, %strip_spaces.exit72.thread124 ], [ %85, %strip_spaces.exit86.thread131 ], [ %.046, %59 ], [ %.046, %9 ]
-  %.144 = phi ptr [ %.01930.i, %strip_spaces.exit.thread117 ], [ %.01930.i61, %strip_spaces.exit72.thread124 ], [ null, %strip_spaces.exit86.thread131 ], [ %.043, %59 ], [ %.043, %9 ]
-  %.1 = phi i32 [ 2, %strip_spaces.exit.thread117 ], [ 1, %strip_spaces.exit72.thread124 ], [ 1, %strip_spaces.exit86.thread131 ], [ 2, %59 ], [ 1, %9 ]
+  %.147 = phi ptr [ %.046, %59 ], [ %33, %strip_spaces.exit.thread117 ], [ %57, %strip_spaces.exit72.thread124 ], [ %.046, %9 ], [ %85, %strip_spaces.exit86.thread131 ]
+  %.144 = phi ptr [ %.043, %59 ], [ %.01930.i, %strip_spaces.exit.thread117 ], [ %.01930.i61, %strip_spaces.exit72.thread124 ], [ %.043, %9 ], [ null, %strip_spaces.exit86.thread131 ]
+  %.1 = phi i32 [ 2, %59 ], [ 2, %strip_spaces.exit.thread117 ], [ 1, %strip_spaces.exit72.thread124 ], [ 1, %9 ], [ 1, %strip_spaces.exit86.thread131 ]
   %87 = getelementptr inbounds nuw i8, ptr %.045, i64 1
   br label %.preheader, !llvm.loop !33
 
@@ -1106,7 +1106,7 @@ define hidden noundef ptr @string_to_hex(ptr noundef readonly captures(address_i
   br label %64
 
 64:                                               ; preds = %57, %58, %63, %62, %16, %3
-  %.0 = phi ptr [ null, %63 ], [ null, %16 ], [ null, %62 ], [ null, %3 ], [ %7, %58 ], [ %7, %57 ]
+  %.0 = phi ptr [ null, %63 ], [ null, %16 ], [ null, %3 ], [ null, %62 ], [ %7, %58 ], [ %7, %57 ]
   ret ptr %.0
 }
 
@@ -1138,7 +1138,7 @@ define hidden i32 @name_cmp(ptr noundef readonly captures(none) %0, ptr noundef 
   br label %10
 
 10:                                               ; preds = %6, %2
-  %.0 = phi i32 [ %5, %2 ], [ %9, %6 ]
+  %.0 = phi i32 [ %9, %6 ], [ %5, %2 ]
   ret i32 %.0
 }
 
@@ -1337,7 +1337,7 @@ define internal fastcc range(i32 0, 2) i32 @append_ia5(ptr noundef nonnull captu
   br label %25
 
 25:                                               ; preds = %20, %.thread, %12, %5, %8, %2, %23
-  %.0 = phi i32 [ 0, %23 ], [ 1, %2 ], [ 1, %8 ], [ 1, %5 ], [ 0, %12 ], [ 1, %.thread ], [ 1, %20 ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %12 ], [ 1, %.thread ], [ 0, %23 ], [ 1, %5 ], [ 1, %8 ], [ 1, %20 ]
   ret i32 %.0
 }
 
@@ -1532,7 +1532,7 @@ select.unfold:                                    ; preds = %22, %.lr.ph
   br label %do_check_string.exit.us
 
 do_check_string.exit.us:                          ; preds = %44, %39, %34
-  %.0.i.us = phi i32 [ 0, %39 ], [ 0, %34 ], [ %47, %44 ]
+  %.0.i.us = phi i32 [ 0, %34 ], [ 0, %39 ], [ %47, %44 ]
   %.not80.us = icmp eq i32 %.0.i.us, 0
   br i1 %.not80.us, label %.split.us, label %.thread105, !llvm.loop !66
 
@@ -1585,12 +1585,12 @@ do_check_string.exit.thread:                      ; preds = %58, %41
   br label %.thread105
 
 do_check_string.exit:                             ; preds = %51, %56, %69
-  %.0.i = phi i32 [ 0, %56 ], [ 0, %51 ], [ %64, %69 ]
+  %.0.i = phi i32 [ 0, %51 ], [ 0, %56 ], [ %64, %69 ]
   %.not80 = icmp eq i32 %.0.i, 0
   br i1 %.not80, label %.split, label %.thread105, !llvm.loop !66
 
 .thread105:                                       ; preds = %do_check_string.exit, %.split, %do_check_string.exit.us, %.split.us, %.thread89, %do_check_string.exit.thread, %28, %._crit_edge
-  %.0 = phi i32 [ %.158, %._crit_edge ], [ 0, %28 ], [ -1, %do_check_string.exit.thread ], [ 0, %.thread89 ], [ 0, %.split.us ], [ %.0.i.us, %do_check_string.exit.us ], [ 0, %.split ], [ %.0.i, %do_check_string.exit ]
+  %.0 = phi i32 [ -1, %do_check_string.exit.thread ], [ %.158, %._crit_edge ], [ 0, %28 ], [ 0, %.thread89 ], [ 0, %.split.us ], [ %.0.i.us, %do_check_string.exit.us ], [ %.0.i, %do_check_string.exit ], [ 0, %.split ]
   ret i32 %.0
 }
 
@@ -1746,7 +1746,7 @@ ipv6_from_asc.exit:                               ; preds = %32, %37, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %64
 
-45:                                               ; preds = %9, %18, %19, %20, %24, %26, %27
+45:                                               ; preds = %9, %27, %18, %19, %20, %24, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %64
 
@@ -1799,7 +1799,7 @@ ipv4_from_asc.exit:                               ; preds = %48
   br label %64
 
 64:                                               ; preds = %63, %ipv4_from_asc.exit, %45, %ipv6_from_asc.exit
-  %.0 = phi i32 [ 0, %45 ], [ 16, %ipv6_from_asc.exit ], [ 0, %63 ], [ 4, %ipv4_from_asc.exit ]
+  %.0 = phi i32 [ 16, %ipv6_from_asc.exit ], [ 0, %45 ], [ 0, %63 ], [ 4, %ipv4_from_asc.exit ]
   ret i32 %.0
 }
 
@@ -1826,7 +1826,7 @@ define hidden ptr @a2i_IPADDRESS(ptr noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %6, %4, %1, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %1 ], [ null, %4 ], [ %5, %6 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ null, %1 ], [ %5, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -1889,7 +1889,7 @@ define hidden ptr @a2i_IPADDRESS_NC(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread48
 
 .thread48:                                        ; preds = %17, %12, %.thread44, %22, %19, %4, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %4 ], [ %18, %19 ], [ null, %22 ], [ null, %.thread44 ], [ null, %12 ], [ null, %17 ]
+  %.0 = phi ptr [ %18, %19 ], [ null, %4 ], [ null, %1 ], [ null, %22 ], [ null, %.thread44 ], [ null, %12 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -2062,8 +2062,8 @@ equal_nocase.exit.thread29:                       ; preds = %.preheader, %equal_
   %35 = zext i1 %.not6.i to i32
   br label %equal_nocase.exit.thread
 
-equal_nocase.exit.thread:                         ; preds = %23, %.lr.ph.i, %5, %33
-  %.023 = phi i32 [ %35, %33 ], [ 0, %5 ], [ 0, %.lr.ph.i ], [ 0, %23 ]
+equal_nocase.exit.thread:                         ; preds = %.lr.ph.i, %23, %5, %33
+  %.023 = phi i32 [ 0, %5 ], [ %35, %33 ], [ 0, %23 ], [ 0, %.lr.ph.i ]
   ret i32 %.023
 }
 
@@ -2164,7 +2164,7 @@ skip_prefix.exit:                                 ; preds = %.critedge.i, %5
   br i1 %.not30, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %31, %.lr.ph, %26, %.preheader, %skip_prefix.exit
-  %.025 = phi i32 [ 0, %skip_prefix.exit ], [ 1, %.preheader ], [ 1, %31 ], [ 0, %.lr.ph ], [ 0, %26 ]
+  %.025 = phi i32 [ 0, %skip_prefix.exit ], [ 1, %.preheader ], [ 0, %.lr.ph ], [ 1, %31 ], [ 0, %26 ]
   ret i32 %.025
 }
 
@@ -2305,10 +2305,10 @@ define internal range(i32 0, 2) i32 @equal_wildcard(ptr noundef %0, i64 noundef 
   br label %65
 
 65:                                               ; preds = %63, %61, %56, %46, %43, %32
-  %.184.i = phi i64 [ %.083113.i, %32 ], [ %44, %43 ], [ %.083113.i, %56 ], [ %.083113.i, %61 ], [ %.083113.i, %63 ], [ %.083113.i, %46 ]
-  %.282.i = phi i32 [ %33, %32 ], [ %45, %43 ], [ %57, %56 ], [ 1, %61 ], [ %64, %63 ], [ %48, %46 ]
-  %.179.i = phi i32 [ 0, %32 ], [ %.078115.i, %43 ], [ %.078115.i, %56 ], [ %62, %61 ], [ %.078115.i, %63 ], [ %.078115.i, %46 ]
-  %.277.i = phi ptr [ %14, %32 ], [ %.075116.i, %43 ], [ %.075116.i, %56 ], [ %.075116.i, %61 ], [ %.075116.i, %63 ], [ %.075116.i, %46 ]
+  %.184.i = phi i64 [ %.083113.i, %32 ], [ %44, %43 ], [ %.083113.i, %46 ], [ %.083113.i, %63 ], [ %.083113.i, %61 ], [ %.083113.i, %56 ]
+  %.282.i = phi i32 [ %33, %32 ], [ %45, %43 ], [ %48, %46 ], [ %64, %63 ], [ 1, %61 ], [ %57, %56 ]
+  %.179.i = phi i32 [ 0, %32 ], [ %.078115.i, %43 ], [ %.078115.i, %46 ], [ %.078115.i, %63 ], [ %62, %61 ], [ %.078115.i, %56 ]
+  %.277.i = phi ptr [ %14, %32 ], [ %.075116.i, %43 ], [ %.075116.i, %46 ], [ %.075116.i, %63 ], [ %.075116.i, %61 ], [ %.075116.i, %56 ]
   %66 = add i64 %.184.i, 1
   %67 = icmp ult i64 %66, %1
   br i1 %67, label %13, label %._crit_edge.loopexit.i, !llvm.loop !75
@@ -2322,7 +2322,7 @@ define internal range(i32 0, 2) i32 @equal_wildcard(ptr noundef %0, i64 noundef 
   %or.cond31 = select i1 %71, i1 true, i1 %72
   br i1 %or.cond31, label %valid_star.exit.thread, label %102
 
-valid_star.exit.thread:                           ; preds = %46, %26, %24, %30, %58, %59, %._crit_edge.loopexit.i, %10, %7
+valid_star.exit.thread:                           ; preds = %46, %24, %30, %26, %58, %59, %._crit_edge.loopexit.i, %10, %7
   %73 = and i32 %4, 32768
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %skip_prefix.exit.i, label %.preheader.i.i
@@ -2575,7 +2575,7 @@ equal_nocase.exit76.i:                            ; preds = %138, %equal_nocase.
   br i1 %.not53.i, label %equal_nocase.exit, label %.lr.ph.i28, !llvm.loop !76
 
 equal_nocase.exit:                                ; preds = %117, %.lr.ph.i.i27, %133, %.lr.ph.i65.i, %167, %163, %98, %93, %.lr.ph.i24, %159, %156, %150, %145, %102, %.preheader.i, %skip_prefix.exit.i
-  %.021 = phi i32 [ 0, %skip_prefix.exit.i ], [ 1, %.preheader.i ], [ 0, %102 ], [ 0, %145 ], [ 0, %150 ], [ 1, %156 ], [ 1, %159 ], [ 0, %93 ], [ 0, %.lr.ph.i24 ], [ 1, %98 ], [ 0, %163 ], [ 1, %167 ], [ 0, %.lr.ph.i65.i ], [ 0, %133 ], [ 0, %.lr.ph.i.i27 ], [ 0, %117 ]
+  %.021 = phi i32 [ 1, %159 ], [ 0, %skip_prefix.exit.i ], [ 1, %.preheader.i ], [ 0, %133 ], [ 0, %163 ], [ 0, %102 ], [ 0, %93 ], [ 0, %145 ], [ 0, %150 ], [ 1, %156 ], [ 1, %98 ], [ 0, %.lr.ph.i24 ], [ 1, %167 ], [ 0, %.lr.ph.i65.i ], [ 0, %.lr.ph.i.i27 ], [ 0, %117 ]
   ret i32 %.021
 }
 
@@ -2635,8 +2635,8 @@ skip_prefix.exit:                                 ; preds = %5, %.critedge.i
   br i1 %.not, label %skip_prefix.exit.thread, label %23
 
 skip_prefix.exit.thread:                          ; preds = %17, %12, %.critedge.i, %skip_prefix.exit
-  %.0915 = phi i64 [ %1, %skip_prefix.exit ], [ %3, %.critedge.i ], [ %3, %12 ], [ %3, %17 ]
-  %.01014 = phi ptr [ %0, %skip_prefix.exit ], [ %.015.lcssa.i, %.critedge.i ], [ %scevgep16.i, %12 ], [ %scevgep16.i, %17 ]
+  %.0915 = phi i64 [ %1, %skip_prefix.exit ], [ %3, %12 ], [ %3, %.critedge.i ], [ %3, %17 ]
+  %.01014 = phi ptr [ %0, %skip_prefix.exit ], [ %scevgep16.i, %12 ], [ %.015.lcssa.i, %.critedge.i ], [ %scevgep16.i, %17 ]
   %bcmp = tail call i32 @bcmp(ptr %.01014, ptr %2, i64 %.0915)
   %.not6 = icmp eq i32 %bcmp, 0
   %22 = zext i1 %.not6 to i32
@@ -2737,7 +2737,7 @@ define internal fastcc i32 @do_check_string(ptr noundef %0, i32 noundef range(i3
   br label %.thread
 
 .thread:                                          ; preds = %23, %47, %30, %27, %.critedge, %15, %7, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %7 ], [ 0, %15 ], [ -1, %.critedge ], [ %.039, %30 ], [ %.039, %27 ], [ %41, %47 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %7 ], [ -1, %.critedge ], [ %41, %47 ], [ 0, %11 ], [ 0, %15 ], [ %.039, %30 ], [ %.039, %27 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -2906,7 +2906,7 @@ ipv4_from_asc.exit.thread:                        ; preds = %31, %35
   br label %ipv6_hex.exit.thread
 
 ipv6_hex.exit.thread:                             ; preds = %64, %ipv4_from_asc.exit.thread, %19, %68, %43, %27, %25, %18, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %18 ], [ 0, %25 ], [ 0, %27 ], [ 1, %43 ], [ 1, %68 ], [ 1, %19 ], [ 0, %ipv4_from_asc.exit.thread ], [ 0, %64 ]
+  %.0 = phi i32 [ 0, %ipv4_from_asc.exit.thread ], [ 1, %19 ], [ 0, %3 ], [ 0, %18 ], [ 0, %25 ], [ 0, %27 ], [ 1, %43 ], [ 1, %68 ], [ 0, %64 ]
   ret i32 %.0
 }
 

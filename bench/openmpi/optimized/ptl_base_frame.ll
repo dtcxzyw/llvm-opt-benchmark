@@ -309,7 +309,7 @@ pmix_obj_run_constructors.exit35:                 ; preds = %.lr.ph.i32, %23
   br label %54
 
 54:                                               ; preds = %50, %52, %48
-  %.sink54 = phi ptr [ %53, %52 ], [ %49, %48 ], [ %51, %50 ]
+  %.sink54 = phi ptr [ %49, %48 ], [ %53, %52 ], [ %51, %50 ]
   %55 = tail call noalias ptr @strdup(ptr noundef %.sink54) #16
   store ptr %55, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 912), align 8, !tbaa !67
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 920), align 8, !tbaa !68

@@ -3286,7 +3286,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %31 unwind label %.loopexit44.i, !noalias !58
 
 .thread.i:                                        ; preds = %33, %31, %.loopexit.i
-  %39 = phi i64 [ %.pre.i, %31 ], [ %.pre.i, %33 ], [ %20, %.loopexit.i ]
+  %39 = phi i64 [ %.pre.i, %33 ], [ %.pre.i, %31 ], [ %20, %.loopexit.i ]
   %40 = load ptr, ptr %12, align 8, !alias.scope !69, !noalias !58, !nonnull !3, !noundef !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %39
   store i8 %.sroa.09.049.i, ptr %41, align 1, !noalias !58
@@ -3316,7 +3316,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %43 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %43 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %50 unwind label %48
 
@@ -3473,7 +3473,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %48 unwind label %.loopexit38.i, !noalias !81
 
 .thread.i:                                        ; preds = %50, %48, %.loopexit.i
-  %58 = phi i64 [ %.pre.i, %48 ], [ %.pre.i, %50 ], [ %23, %.loopexit.i ]
+  %58 = phi i64 [ %.pre.i, %50 ], [ %.pre.i, %48 ], [ %23, %.loopexit.i ]
   %59 = load ptr, ptr %15, align 8, !alias.scope !85, !noalias !81, !nonnull !3, !noundef !3
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %58
   store i8 %.sroa.09.043.i, ptr %60, align 1, !noalias !81
@@ -3503,7 +3503,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %16, %62
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %62 ], [ %17, %16 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %lpad.phi.i, %62 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %69 unwind label %67
 
@@ -3647,7 +3647,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %34 unwind label %.loopexit44.i, !noalias !97
 
 .thread.i:                                        ; preds = %36, %34, %.loopexit.i
-  %42 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %36 ], [ %20, %.loopexit.i ]
+  %42 = phi i64 [ %.pre.i, %36 ], [ %.pre.i, %34 ], [ %20, %.loopexit.i ]
   %43 = load ptr, ptr %12, align 8, !alias.scope !101, !noalias !97, !nonnull !3, !noundef !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
   store i8 %.sroa.09.049.i, ptr %44, align 1, !noalias !97
@@ -3677,7 +3677,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %46
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %46 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %46 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %53 unwind label %51
 
@@ -3824,7 +3824,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %35 unwind label %.loopexit44.i, !noalias !113
 
 .thread.i:                                        ; preds = %37, %35, %.loopexit.i
-  %43 = phi i64 [ %.pre.i, %35 ], [ %.pre.i, %37 ], [ %20, %.loopexit.i ]
+  %43 = phi i64 [ %.pre.i, %37 ], [ %.pre.i, %35 ], [ %20, %.loopexit.i ]
   %44 = load ptr, ptr %12, align 8, !alias.scope !117, !noalias !113, !nonnull !3, !noundef !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %43
   store i8 %.sroa.09.049.i, ptr %45, align 1, !noalias !113
@@ -3854,7 +3854,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %47
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %47 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %47 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %54 unwind label %52
 
@@ -3991,7 +3991,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %30 unwind label %.loopexit38.i, !noalias !129
 
 .thread.i:                                        ; preds = %32, %30, %.loopexit.i
-  %40 = phi i64 [ %.pre.i, %30 ], [ %.pre.i, %32 ], [ %21, %.loopexit.i ]
+  %40 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %30 ], [ %21, %.loopexit.i ]
   %41 = load ptr, ptr %13, align 8, !alias.scope !133, !noalias !129, !nonnull !3, !noundef !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   store i8 %.sroa.09.043.i, ptr %42, align 1, !noalias !129
@@ -4021,7 +4021,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %14, %44
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %44 ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %lpad.phi.i, %44 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %51 unwind label %49
 
@@ -4162,7 +4162,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit44.i, !noalias !145
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %40 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %20, %.loopexit.i ]
+  %40 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %20, %.loopexit.i ]
   %41 = load ptr, ptr %12, align 8, !alias.scope !155, !noalias !145, !nonnull !3, !noundef !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   store i8 %.sroa.09.049.i, ptr %42, align 1, !noalias !145
@@ -4192,7 +4192,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %44
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %44 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %44 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %51 unwind label %49
 
@@ -4334,7 +4334,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit38.i, !noalias !167
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %42 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %22, %.loopexit.i ]
+  %42 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %22, %.loopexit.i ]
   %43 = load ptr, ptr %14, align 8, !alias.scope !180, !noalias !167, !nonnull !3, !noundef !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
   store i8 %.sroa.09.043.i, ptr %44, align 1, !noalias !167
@@ -4364,7 +4364,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %15, %46
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %46 ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %16, %15 ], [ %lpad.phi.i, %46 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %53 unwind label %51
 
@@ -4506,7 +4506,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit38.i, !noalias !192
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %42 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %22, %.loopexit.i ]
+  %42 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %22, %.loopexit.i ]
   %43 = load ptr, ptr %14, align 8, !alias.scope !205, !noalias !192, !nonnull !3, !noundef !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
   store i8 %.sroa.09.043.i, ptr %44, align 1, !noalias !192
@@ -4536,7 +4536,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %15, %46
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %46 ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %16, %15 ], [ %lpad.phi.i, %46 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %53 unwind label %51
 
@@ -4673,7 +4673,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %30 unwind label %.loopexit38.i, !noalias !217
 
 .thread.i:                                        ; preds = %32, %30, %.loopexit.i
-  %40 = phi i64 [ %.pre.i, %30 ], [ %.pre.i, %32 ], [ %21, %.loopexit.i ]
+  %40 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %30 ], [ %21, %.loopexit.i ]
   %41 = load ptr, ptr %13, align 8, !alias.scope !221, !noalias !217, !nonnull !3, !noundef !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   store i8 %.sroa.09.043.i, ptr %42, align 1, !noalias !217
@@ -4703,7 +4703,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %14, %44
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %44 ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %lpad.phi.i, %44 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %51 unwind label %49
 
@@ -4844,7 +4844,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit44.i, !noalias !233
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %40 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %20, %.loopexit.i ]
+  %40 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %20, %.loopexit.i ]
   %41 = load ptr, ptr %12, align 8, !alias.scope !243, !noalias !233, !nonnull !3, !noundef !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   store i8 %.sroa.09.049.i, ptr %42, align 1, !noalias !233
@@ -4874,7 +4874,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %44
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %44 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %44 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %51 unwind label %49
 
@@ -5015,7 +5015,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit44.i, !noalias !255
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %40 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %20, %.loopexit.i ]
+  %40 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %20, %.loopexit.i ]
   %41 = load ptr, ptr %12, align 8, !alias.scope !265, !noalias !255, !nonnull !3, !noundef !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   store i8 %.sroa.09.049.i, ptr %42, align 1, !noalias !255
@@ -5045,7 +5045,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %44
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %44 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %44 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %51 unwind label %49
 
@@ -5187,7 +5187,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit38.i, !noalias !277
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %42 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %22, %.loopexit.i ]
+  %42 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %22, %.loopexit.i ]
   %43 = load ptr, ptr %14, align 8, !alias.scope !290, !noalias !277, !nonnull !3, !noundef !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
   store i8 %.sroa.09.043.i, ptr %44, align 1, !noalias !277
@@ -5217,7 +5217,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %15, %46
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %46 ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %16, %15 ], [ %lpad.phi.i, %46 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %53 unwind label %51
 
@@ -5358,7 +5358,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit44.i, !noalias !302
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %40 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %20, %.loopexit.i ]
+  %40 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %20, %.loopexit.i ]
   %41 = load ptr, ptr %12, align 8, !alias.scope !312, !noalias !302, !nonnull !3, !noundef !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   store i8 %.sroa.09.049.i, ptr %42, align 1, !noalias !302
@@ -5388,7 +5388,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %44
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %44 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %44 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %51 unwind label %49
 
@@ -5549,7 +5549,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %39 unwind label %.loopexit.split-lp.loopexit.i, !noalias !324
 
 .thread.i:                                        ; preds = %41, %39, %.loopexit.i
-  %46 = phi i64 [ %.pre.i, %39 ], [ %.pre.i, %41 ], [ %30, %.loopexit.i ]
+  %46 = phi i64 [ %.pre.i, %41 ], [ %.pre.i, %39 ], [ %30, %.loopexit.i ]
   %47 = load ptr, ptr %13, align 8, !alias.scope !331, !noalias !324, !nonnull !3, !noundef !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %46
   store i8 %.sroa.09.058.i, ptr %48, align 1, !noalias !324
@@ -5584,7 +5584,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %14, %.loopexit.split-lp.i
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %56 unwind label %54
 
@@ -5725,7 +5725,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %31 unwind label %.loopexit44.i, !noalias !343
 
 .thread.i:                                        ; preds = %33, %31, %.loopexit.i
-  %39 = phi i64 [ %.pre.i, %31 ], [ %.pre.i, %33 ], [ %20, %.loopexit.i ]
+  %39 = phi i64 [ %.pre.i, %33 ], [ %.pre.i, %31 ], [ %20, %.loopexit.i ]
   %40 = load ptr, ptr %12, align 8, !alias.scope !353, !noalias !343, !nonnull !3, !noundef !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %39
   store i8 %.sroa.09.049.i, ptr %41, align 1, !noalias !343
@@ -5755,7 +5755,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %43 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %43 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %50 unwind label %48
 
@@ -5924,7 +5924,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %48 unwind label %.loopexit45.i, !noalias !365
 
 .thread.i:                                        ; preds = %50, %48, %.loopexit.i
-  %56 = phi i64 [ %.pre.i, %48 ], [ %.pre.i, %50 ], [ %39, %.loopexit.i ]
+  %56 = phi i64 [ %.pre.i, %50 ], [ %.pre.i, %48 ], [ %39, %.loopexit.i ]
   %57 = load ptr, ptr %12, align 8, !alias.scope !392, !noalias !365, !nonnull !3, !noundef !3
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %56
   store i8 %.sroa.09.050.i, ptr %58, align 1, !noalias !365
@@ -5954,7 +5954,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %60
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %60 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %60 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %67 unwind label %65
 
@@ -6075,7 +6075,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   br i1 %37, label %46, label %.thread.i
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.i": ; preds = %30, %20
-  %.sroa.0.0.shrunk.i.i.i.i = phi i1 [ %33, %30 ], [ %.mux.i.i.i.i, %20 ]
+  %.sroa.0.0.shrunk.i.i.i.i = phi i1 [ %.mux.i.i.i.i, %20 ], [ %33, %30 ]
   %38 = select i1 %.sroa.0.0.shrunk.i.i.i.i, i8 %.sroa.04.061.i, i8 0
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h364c8d9e71a2b704E.exit.thread44.i"
 
@@ -6118,7 +6118,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %43 unwind label %.loopexit47.i, !noalias !404
 
 .thread.i:                                        ; preds = %45, %43, %.loopexit.i
-  %51 = phi i64 [ %.pre.i, %43 ], [ %.pre.i, %45 ], [ %34, %.loopexit.i ]
+  %51 = phi i64 [ %.pre.i, %45 ], [ %.pre.i, %43 ], [ %34, %.loopexit.i ]
   %52 = load ptr, ptr %12, align 8, !alias.scope !408, !noalias !404, !nonnull !3, !noundef !3
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %51
   store i8 %.sroa.09.052.i, ptr %53, align 1, !noalias !404
@@ -6148,7 +6148,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %55
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %55 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %55 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %62 unwind label %60
 
@@ -6290,7 +6290,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit38.i, !noalias !420
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %42 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %22, %.loopexit.i ]
+  %42 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %22, %.loopexit.i ]
   %43 = load ptr, ptr %14, align 8, !alias.scope !433, !noalias !420, !nonnull !3, !noundef !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
   store i8 %.sroa.09.043.i, ptr %44, align 1, !noalias !420
@@ -6320,7 +6320,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %15, %46
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %46 ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %16, %15 ], [ %lpad.phi.i, %46 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %53 unwind label %51
 
@@ -6461,7 +6461,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %31 unwind label %.loopexit44.i, !noalias !445
 
 .thread.i:                                        ; preds = %33, %31, %.loopexit.i
-  %39 = phi i64 [ %.pre.i, %31 ], [ %.pre.i, %33 ], [ %20, %.loopexit.i ]
+  %39 = phi i64 [ %.pre.i, %33 ], [ %.pre.i, %31 ], [ %20, %.loopexit.i ]
   %40 = load ptr, ptr %12, align 8, !alias.scope !455, !noalias !445, !nonnull !3, !noundef !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %39
   store i8 %.sroa.09.049.i, ptr %41, align 1, !noalias !445
@@ -6491,7 +6491,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %43 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %43 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %50 unwind label %48
 
@@ -6633,7 +6633,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit38.i, !noalias !467
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %42 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %22, %.loopexit.i ]
+  %42 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %22, %.loopexit.i ]
   %43 = load ptr, ptr %14, align 8, !alias.scope !480, !noalias !467, !nonnull !3, !noundef !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
   store i8 %.sroa.09.043.i, ptr %44, align 1, !noalias !467
@@ -6663,7 +6663,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %15, %46
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %46 ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %16, %15 ], [ %lpad.phi.i, %46 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %53 unwind label %51
 
@@ -6804,7 +6804,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit44.i, !noalias !492
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %40 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %20, %.loopexit.i ]
+  %40 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %20, %.loopexit.i ]
   %41 = load ptr, ptr %12, align 8, !alias.scope !502, !noalias !492, !nonnull !3, !noundef !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   store i8 %.sroa.09.049.i, ptr %42, align 1, !noalias !492
@@ -6834,7 +6834,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %44
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %44 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %44 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %51 unwind label %49
 
@@ -7001,7 +7001,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %49 unwind label %.loopexit45.i, !noalias !514
 
 .thread.i:                                        ; preds = %51, %49, %.loopexit.i
-  %57 = phi i64 [ %.pre.i, %49 ], [ %.pre.i, %51 ], [ %41, %.loopexit.i ]
+  %57 = phi i64 [ %.pre.i, %51 ], [ %.pre.i, %49 ], [ %41, %.loopexit.i ]
   %58 = load ptr, ptr %12, align 8, !alias.scope !536, !noalias !514, !nonnull !3, !noundef !3
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %57
   store i8 %.sroa.09.050.i, ptr %59, align 1, !noalias !514
@@ -7031,7 +7031,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %61
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %61 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %61 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %68 unwind label %66
 
@@ -7173,7 +7173,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit38.i, !noalias !548
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %42 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %22, %.loopexit.i ]
+  %42 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %22, %.loopexit.i ]
   %43 = load ptr, ptr %14, align 8, !alias.scope !561, !noalias !548, !nonnull !3, !noundef !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
   store i8 %.sroa.09.043.i, ptr %44, align 1, !noalias !548
@@ -7203,7 +7203,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %15, %46
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %46 ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %16, %15 ], [ %lpad.phi.i, %46 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %53 unwind label %51
 
@@ -7356,7 +7356,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %37 unwind label %.loopexit.split-lp.loopexit.i, !noalias !573
 
 .thread.i:                                        ; preds = %39, %37, %.loopexit.i
-  %44 = phi i64 [ %.pre.i, %37 ], [ %.pre.i, %39 ], [ %27, %.loopexit.i ]
+  %44 = phi i64 [ %.pre.i, %39 ], [ %.pre.i, %37 ], [ %27, %.loopexit.i ]
   %45 = load ptr, ptr %12, align 8, !alias.scope !579, !noalias !573, !nonnull !3, !noundef !3
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 %44
   store i8 %.sroa.09.057.i, ptr %46, align 1, !noalias !573
@@ -7391,7 +7391,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %.loopexit.split-lp.i
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %54 unwind label %52
 
@@ -7551,9 +7551,9 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   br i1 %.not21.i, label %.loopexit.i, label %26
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd576fa61712a4100E.exit.thread.i": ; preds = %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit19.i.i.i.i", %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit.i.i.i.i", %26
-  %.sroa.013.167.lcssa.i = phi i64 [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit19.i.i.i.i" ], [ %24, %26 ], [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit.i.i.i.i" ]
-  %.sroa.12.344.i = phi i64 [ %38, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit19.i.i.i.i" ], [ %.sroa.12.166.i, %26 ], [ %.sroa.12.166.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit.i.i.i.i" ]
-  %.sroa.4.343.i = phi i64 [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit19.i.i.i.i" ], [ %.sroa.8.0.copyload.i, %26 ], [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit.i.i.i.i" ]
+  %.sroa.013.167.lcssa.i = phi i64 [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit19.i.i.i.i" ], [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit.i.i.i.i" ], [ %24, %26 ]
+  %.sroa.12.344.i = phi i64 [ %38, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit19.i.i.i.i" ], [ %.sroa.12.166.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit.i.i.i.i" ], [ %.sroa.12.166.i, %26 ]
+  %.sroa.4.343.i = phi i64 [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit19.i.i.i.i" ], [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit.i.i.i.i" ], [ %.sroa.8.0.copyload.i, %26 ]
   %.old1.i = icmp eq i8 %.sroa.04.069.i, 1
   br i1 %.old1.i, label %55, label %.loopexit.i
 
@@ -7585,7 +7585,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %56 unwind label %.loopexit.split-lp.loopexit.i, !noalias !591
 
 .thread.i:                                        ; preds = %58, %56, %.loopexit.i
-  %65 = phi i64 [ %.pre.i, %56 ], [ %.pre.i, %58 ], [ %48, %.loopexit.i ]
+  %65 = phi i64 [ %.pre.i, %58 ], [ %.pre.i, %56 ], [ %48, %.loopexit.i ]
   %66 = load ptr, ptr %19, align 8, !alias.scope !606, !noalias !591, !nonnull !3, !noundef !3
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %65
   store i8 %.sroa.09.056.i, ptr %67, align 1, !noalias !591
@@ -7620,7 +7620,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %20, %.loopexit.split-lp.i
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %21, %20 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %75 unwind label %73
 
@@ -7761,7 +7761,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %31 unwind label %.loopexit44.i, !noalias !618
 
 .thread.i:                                        ; preds = %33, %31, %.loopexit.i
-  %39 = phi i64 [ %.pre.i, %31 ], [ %.pre.i, %33 ], [ %20, %.loopexit.i ]
+  %39 = phi i64 [ %.pre.i, %33 ], [ %.pre.i, %31 ], [ %20, %.loopexit.i ]
   %40 = load ptr, ptr %12, align 8, !alias.scope !628, !noalias !618, !nonnull !3, !noundef !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %39
   store i8 %.sroa.09.049.i, ptr %41, align 1, !noalias !618
@@ -7791,7 +7791,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %43 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %43 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %50 unwind label %48
 
@@ -7932,7 +7932,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %31 unwind label %.loopexit44.i, !noalias !640
 
 .thread.i:                                        ; preds = %33, %31, %.loopexit.i
-  %39 = phi i64 [ %.pre.i, %31 ], [ %.pre.i, %33 ], [ %20, %.loopexit.i ]
+  %39 = phi i64 [ %.pre.i, %33 ], [ %.pre.i, %31 ], [ %20, %.loopexit.i ]
   %40 = load ptr, ptr %12, align 8, !alias.scope !650, !noalias !640, !nonnull !3, !noundef !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %39
   store i8 %.sroa.09.049.i, ptr %41, align 1, !noalias !640
@@ -7962,7 +7962,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %43 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %43 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %50 unwind label %48
 
@@ -8126,9 +8126,9 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   br i1 %.not21.i, label %.loopexit.i, label %26
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ad74953ef01eddE.exit.thread.i": ; preds = %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit19.i.i.i.i", %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit.i.i.i.i", %26
-  %.sroa.013.167.lcssa.i = phi i64 [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit19.i.i.i.i" ], [ %24, %26 ], [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit.i.i.i.i" ]
-  %.sroa.12.344.i = phi i64 [ %40, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit19.i.i.i.i" ], [ %.sroa.12.166.i, %26 ], [ %.sroa.12.166.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit.i.i.i.i" ]
-  %.sroa.4.343.i = phi i64 [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit19.i.i.i.i" ], [ %.sroa.8.0.copyload.i, %26 ], [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit.i.i.i.i" ]
+  %.sroa.013.167.lcssa.i = phi i64 [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit19.i.i.i.i" ], [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit.i.i.i.i" ], [ %24, %26 ]
+  %.sroa.12.344.i = phi i64 [ %40, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit19.i.i.i.i" ], [ %.sroa.12.166.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit.i.i.i.i" ], [ %.sroa.12.166.i, %26 ]
+  %.sroa.4.343.i = phi i64 [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit19.i.i.i.i" ], [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit.i.i.i.i" ], [ %.sroa.8.0.copyload.i, %26 ]
   %.old1.i = icmp eq i8 %.sroa.04.069.i, 1
   br i1 %.old1.i, label %59, label %.loopexit.i
 
@@ -8160,7 +8160,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %60 unwind label %.loopexit.split-lp.loopexit.i, !noalias !662
 
 .thread.i:                                        ; preds = %62, %60, %.loopexit.i
-  %69 = phi i64 [ %.pre.i, %60 ], [ %.pre.i, %62 ], [ %52, %.loopexit.i ]
+  %69 = phi i64 [ %.pre.i, %62 ], [ %.pre.i, %60 ], [ %52, %.loopexit.i ]
   %70 = load ptr, ptr %19, align 8, !alias.scope !677, !noalias !662, !nonnull !3, !noundef !3
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 %69
   store i8 %.sroa.09.056.i, ptr %71, align 1, !noalias !662
@@ -8195,7 +8195,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %20, %.loopexit.split-lp.i
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %21, %20 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %79 unwind label %77
 
@@ -8336,7 +8336,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit44.i, !noalias !689
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %40 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %20, %.loopexit.i ]
+  %40 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %20, %.loopexit.i ]
   %41 = load ptr, ptr %12, align 8, !alias.scope !699, !noalias !689, !nonnull !3, !noundef !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   store i8 %.sroa.09.049.i, ptr %42, align 1, !noalias !689
@@ -8366,7 +8366,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %44
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %44 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %44 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %51 unwind label %49
 
@@ -8510,7 +8510,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %34 unwind label %.loopexit44.i, !noalias !711
 
 .thread.i:                                        ; preds = %36, %34, %.loopexit.i
-  %42 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %36 ], [ %20, %.loopexit.i ]
+  %42 = phi i64 [ %.pre.i, %36 ], [ %.pre.i, %34 ], [ %20, %.loopexit.i ]
   %43 = load ptr, ptr %12, align 8, !alias.scope !715, !noalias !711, !nonnull !3, !noundef !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
   store i8 %.sroa.09.049.i, ptr %44, align 1, !noalias !711
@@ -8540,7 +8540,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %46
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %46 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %46 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %53 unwind label %51
 
@@ -8677,7 +8677,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %30 unwind label %.loopexit38.i, !noalias !727
 
 .thread.i:                                        ; preds = %32, %30, %.loopexit.i
-  %40 = phi i64 [ %.pre.i, %30 ], [ %.pre.i, %32 ], [ %21, %.loopexit.i ]
+  %40 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %30 ], [ %21, %.loopexit.i ]
   %41 = load ptr, ptr %13, align 8, !alias.scope !731, !noalias !727, !nonnull !3, !noundef !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   store i8 %.sroa.09.043.i, ptr %42, align 1, !noalias !727
@@ -8707,7 +8707,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %14, %44
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %44 ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %lpad.phi.i, %44 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %51 unwind label %49
 
@@ -8845,7 +8845,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %30 unwind label %.loopexit38.i, !noalias !743
 
 .thread.i:                                        ; preds = %32, %30, %.loopexit.i
-  %39 = phi i64 [ %.pre.i, %30 ], [ %.pre.i, %32 ], [ %20, %.loopexit.i ]
+  %39 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %30 ], [ %20, %.loopexit.i ]
   %40 = load ptr, ptr %13, align 8, !alias.scope !756, !noalias !743, !nonnull !3, !noundef !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %39
   store i8 %.sroa.09.043.i, ptr %41, align 1, !noalias !743
@@ -8875,7 +8875,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %14, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %43 ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %lpad.phi.i, %43 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %50 unwind label %48
 
@@ -9013,7 +9013,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %30 unwind label %.loopexit38.i, !noalias !768
 
 .thread.i:                                        ; preds = %32, %30, %.loopexit.i
-  %39 = phi i64 [ %.pre.i, %30 ], [ %.pre.i, %32 ], [ %20, %.loopexit.i ]
+  %39 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %30 ], [ %20, %.loopexit.i ]
   %40 = load ptr, ptr %13, align 8, !alias.scope !781, !noalias !768, !nonnull !3, !noundef !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %39
   store i8 %.sroa.09.043.i, ptr %41, align 1, !noalias !768
@@ -9043,7 +9043,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %14, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %43 ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %lpad.phi.i, %43 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %50 unwind label %48
 
@@ -9184,7 +9184,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit44.i, !noalias !793
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %40 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %20, %.loopexit.i ]
+  %40 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %20, %.loopexit.i ]
   %41 = load ptr, ptr %12, align 8, !alias.scope !803, !noalias !793, !nonnull !3, !noundef !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   store i8 %.sroa.09.049.i, ptr %42, align 1, !noalias !793
@@ -9214,7 +9214,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %44
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %44 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %44 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %51 unwind label %49
 
@@ -9356,7 +9356,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit38.i, !noalias !815
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %42 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %22, %.loopexit.i ]
+  %42 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %22, %.loopexit.i ]
   %43 = load ptr, ptr %14, align 8, !alias.scope !828, !noalias !815, !nonnull !3, !noundef !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
   store i8 %.sroa.09.043.i, ptr %44, align 1, !noalias !815
@@ -9386,7 +9386,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %15, %46
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %46 ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %16, %15 ], [ %lpad.phi.i, %46 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %53 unwind label %51
 
@@ -9527,7 +9527,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %31 unwind label %.loopexit44.i, !noalias !840
 
 .thread.i:                                        ; preds = %33, %31, %.loopexit.i
-  %39 = phi i64 [ %.pre.i, %31 ], [ %.pre.i, %33 ], [ %20, %.loopexit.i ]
+  %39 = phi i64 [ %.pre.i, %33 ], [ %.pre.i, %31 ], [ %20, %.loopexit.i ]
   %40 = load ptr, ptr %12, align 8, !alias.scope !850, !noalias !840, !nonnull !3, !noundef !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %39
   store i8 %.sroa.09.049.i, ptr %41, align 1, !noalias !840
@@ -9557,7 +9557,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %43 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %43 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %50 unwind label %48
 
@@ -9698,7 +9698,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %31 unwind label %.loopexit44.i, !noalias !862
 
 .thread.i:                                        ; preds = %33, %31, %.loopexit.i
-  %39 = phi i64 [ %.pre.i, %31 ], [ %.pre.i, %33 ], [ %20, %.loopexit.i ]
+  %39 = phi i64 [ %.pre.i, %33 ], [ %.pre.i, %31 ], [ %20, %.loopexit.i ]
   %40 = load ptr, ptr %12, align 8, !alias.scope !872, !noalias !862, !nonnull !3, !noundef !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %39
   store i8 %.sroa.09.049.i, ptr %41, align 1, !noalias !862
@@ -9728,7 +9728,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %43 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %43 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %50 unwind label %48
 
@@ -9865,7 +9865,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %30 unwind label %.loopexit38.i, !noalias !884
 
 .thread.i:                                        ; preds = %32, %30, %.loopexit.i
-  %40 = phi i64 [ %.pre.i, %30 ], [ %.pre.i, %32 ], [ %21, %.loopexit.i ]
+  %40 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %30 ], [ %21, %.loopexit.i ]
   %41 = load ptr, ptr %13, align 8, !alias.scope !888, !noalias !884, !nonnull !3, !noundef !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   store i8 %.sroa.09.043.i, ptr %42, align 1, !noalias !884
@@ -9895,7 +9895,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %14, %44
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %44 ], [ %15, %14 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %lpad.phi.i, %44 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %51 unwind label %49
 
@@ -10036,7 +10036,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %31 unwind label %.loopexit44.i, !noalias !900
 
 .thread.i:                                        ; preds = %33, %31, %.loopexit.i
-  %39 = phi i64 [ %.pre.i, %31 ], [ %.pre.i, %33 ], [ %20, %.loopexit.i ]
+  %39 = phi i64 [ %.pre.i, %33 ], [ %.pre.i, %31 ], [ %20, %.loopexit.i ]
   %40 = load ptr, ptr %12, align 8, !alias.scope !910, !noalias !900, !nonnull !3, !noundef !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %39
   store i8 %.sroa.09.049.i, ptr %41, align 1, !noalias !900
@@ -10066,7 +10066,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %43 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %43 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %50 unwind label %48
 
@@ -10187,7 +10187,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   br i1 %37, label %46, label %.thread.i
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.i": ; preds = %30, %20
-  %.sroa.0.0.shrunk.i.i.i.i.i = phi i1 [ %33, %30 ], [ %.mux.i.i.i.i.i, %20 ]
+  %.sroa.0.0.shrunk.i.i.i.i.i = phi i1 [ %.mux.i.i.i.i.i, %20 ], [ %33, %30 ]
   %38 = select i1 %.sroa.0.0.shrunk.i.i.i.i.i, i8 0, i8 %.sroa.04.061.i
   %39 = or i8 %38, %.sroa.09.060.i
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf068277d2b494af3E.exit.thread44.i"
@@ -10230,7 +10230,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %43 unwind label %.loopexit47.i, !noalias !922
 
 .thread.i:                                        ; preds = %45, %43, %.loopexit.i
-  %51 = phi i64 [ %.pre.i, %43 ], [ %.pre.i, %45 ], [ %34, %.loopexit.i ]
+  %51 = phi i64 [ %.pre.i, %45 ], [ %.pre.i, %43 ], [ %34, %.loopexit.i ]
   %52 = load ptr, ptr %12, align 8, !alias.scope !926, !noalias !922, !nonnull !3, !noundef !3
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %51
   store i8 %.sroa.09.052.i, ptr %53, align 1, !noalias !922
@@ -10260,7 +10260,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %55
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %55 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %55 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %62 unwind label %60
 
@@ -10435,7 +10435,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %48 unwind label %.loopexit.split-lp.loopexit.i, !noalias !938
 
 .thread.i:                                        ; preds = %50, %48, %.loopexit.i
-  %55 = phi i64 [ %.pre.i, %48 ], [ %.pre.i, %50 ], [ %40, %.loopexit.i ]
+  %55 = phi i64 [ %.pre.i, %50 ], [ %.pre.i, %48 ], [ %40, %.loopexit.i ]
   %56 = load ptr, ptr %15, align 8, !alias.scope !944, !noalias !938, !nonnull !3, !noundef !3
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %55
   store i8 %.sroa.09.065.i, ptr %57, align 1, !noalias !938
@@ -10470,7 +10470,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %16, %.loopexit.split-lp.i
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %17, %16 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %65 unwind label %63
 
@@ -10611,7 +10611,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %31 unwind label %.loopexit44.i, !noalias !956
 
 .thread.i:                                        ; preds = %33, %31, %.loopexit.i
-  %39 = phi i64 [ %.pre.i, %31 ], [ %.pre.i, %33 ], [ %20, %.loopexit.i ]
+  %39 = phi i64 [ %.pre.i, %33 ], [ %.pre.i, %31 ], [ %20, %.loopexit.i ]
   %40 = load ptr, ptr %12, align 8, !alias.scope !966, !noalias !956, !nonnull !3, !noundef !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %39
   store i8 %.sroa.09.049.i, ptr %41, align 1, !noalias !956
@@ -10641,7 +10641,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %43 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %43 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %50 unwind label %48
 
@@ -10804,7 +10804,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %50 unwind label %.loopexit38.i, !noalias !978
 
 .thread.i:                                        ; preds = %52, %50, %.loopexit.i
-  %60 = phi i64 [ %.pre.i, %50 ], [ %.pre.i, %52 ], [ %24, %.loopexit.i ]
+  %60 = phi i64 [ %.pre.i, %52 ], [ %.pre.i, %50 ], [ %24, %.loopexit.i ]
   %61 = load ptr, ptr %16, align 8, !alias.scope !982, !noalias !978, !nonnull !3, !noundef !3
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %60
   store i8 %.sroa.09.043.i, ptr %62, align 1, !noalias !978
@@ -10834,7 +10834,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %17, %64
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %64 ], [ %18, %17 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %17 ], [ %lpad.phi.i, %64 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %71 unwind label %69
 
@@ -10978,7 +10978,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %34 unwind label %.loopexit44.i, !noalias !994
 
 .thread.i:                                        ; preds = %36, %34, %.loopexit.i
-  %42 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %36 ], [ %20, %.loopexit.i ]
+  %42 = phi i64 [ %.pre.i, %36 ], [ %.pre.i, %34 ], [ %20, %.loopexit.i ]
   %43 = load ptr, ptr %12, align 8, !alias.scope !998, !noalias !994, !nonnull !3, !noundef !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
   store i8 %.sroa.09.049.i, ptr %44, align 1, !noalias !994
@@ -11008,7 +11008,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %46
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %46 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %46 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %53 unwind label %51
 
@@ -11155,7 +11155,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %35 unwind label %.loopexit44.i, !noalias !1010
 
 .thread.i:                                        ; preds = %37, %35, %.loopexit.i
-  %43 = phi i64 [ %.pre.i, %35 ], [ %.pre.i, %37 ], [ %20, %.loopexit.i ]
+  %43 = phi i64 [ %.pre.i, %37 ], [ %.pre.i, %35 ], [ %20, %.loopexit.i ]
   %44 = load ptr, ptr %12, align 8, !alias.scope !1014, !noalias !1010, !nonnull !3, !noundef !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %43
   store i8 %.sroa.09.049.i, ptr %45, align 1, !noalias !1010
@@ -11185,7 +11185,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %47
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %47 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %47 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %54 unwind label %52
 
@@ -11349,9 +11349,9 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   br i1 %.not21.i, label %.loopexit.i, label %26
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd245ae10eb59825E.exit.thread.i": ; preds = %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit19.i.i.i.i", %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit.i.i.i.i", %26
-  %.sroa.013.167.lcssa.i = phi i64 [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit19.i.i.i.i" ], [ %24, %26 ], [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit.i.i.i.i" ]
-  %.sroa.12.344.i = phi i64 [ %40, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit19.i.i.i.i" ], [ %.sroa.12.166.i, %26 ], [ %.sroa.12.166.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit.i.i.i.i" ]
-  %.sroa.4.343.i = phi i64 [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit19.i.i.i.i" ], [ %.sroa.8.0.copyload.i, %26 ], [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit.i.i.i.i" ]
+  %.sroa.013.167.lcssa.i = phi i64 [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit19.i.i.i.i" ], [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit.i.i.i.i" ], [ %24, %26 ]
+  %.sroa.12.344.i = phi i64 [ %40, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit19.i.i.i.i" ], [ %.sroa.12.166.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit.i.i.i.i" ], [ %.sroa.12.166.i, %26 ]
+  %.sroa.4.343.i = phi i64 [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit19.i.i.i.i" ], [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bc1cc166192613aE.exit.i.i.i.i" ], [ %.sroa.8.0.copyload.i, %26 ]
   %.old1.i = icmp eq i8 %.sroa.04.069.i, 1
   br i1 %.old1.i, label %59, label %.loopexit.i
 
@@ -11383,7 +11383,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %60 unwind label %.loopexit.split-lp.loopexit.i, !noalias !1026
 
 .thread.i:                                        ; preds = %62, %60, %.loopexit.i
-  %69 = phi i64 [ %.pre.i, %60 ], [ %.pre.i, %62 ], [ %52, %.loopexit.i ]
+  %69 = phi i64 [ %.pre.i, %62 ], [ %.pre.i, %60 ], [ %52, %.loopexit.i ]
   %70 = load ptr, ptr %19, align 8, !alias.scope !1041, !noalias !1026, !nonnull !3, !noundef !3
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 %69
   store i8 %.sroa.09.056.i, ptr %71, align 1, !noalias !1026
@@ -11418,7 +11418,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %20, %.loopexit.split-lp.i
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %21, %20 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %79 unwind label %77
 
@@ -11559,7 +11559,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit44.i, !noalias !1053
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %40 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %20, %.loopexit.i ]
+  %40 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %20, %.loopexit.i ]
   %41 = load ptr, ptr %12, align 8, !alias.scope !1063, !noalias !1053, !nonnull !3, !noundef !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   store i8 %.sroa.09.049.i, ptr %42, align 1, !noalias !1053
@@ -11589,7 +11589,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %44
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %44 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %44 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %51 unwind label %49
 
@@ -11733,7 +11733,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %34 unwind label %.loopexit44.i, !noalias !1075
 
 .thread.i:                                        ; preds = %36, %34, %.loopexit.i
-  %42 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %36 ], [ %20, %.loopexit.i ]
+  %42 = phi i64 [ %.pre.i, %36 ], [ %.pre.i, %34 ], [ %20, %.loopexit.i ]
   %43 = load ptr, ptr %12, align 8, !alias.scope !1079, !noalias !1075, !nonnull !3, !noundef !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
   store i8 %.sroa.09.049.i, ptr %44, align 1, !noalias !1075
@@ -11763,7 +11763,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %46
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %46 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %46 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %53 unwind label %51
 
@@ -11910,7 +11910,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %36 unwind label %.loopexit44.i, !noalias !1091
 
 .thread.i:                                        ; preds = %38, %36, %.loopexit.i
-  %44 = phi i64 [ %.pre.i, %36 ], [ %.pre.i, %38 ], [ %20, %.loopexit.i ]
+  %44 = phi i64 [ %.pre.i, %38 ], [ %.pre.i, %36 ], [ %20, %.loopexit.i ]
   %45 = load ptr, ptr %12, align 8, !alias.scope !1095, !noalias !1091, !nonnull !3, !noundef !3
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 %44
   store i8 %.sroa.09.049.i, ptr %46, align 1, !noalias !1091
@@ -11940,7 +11940,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %48
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %48 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %55 unwind label %53
 
@@ -12087,7 +12087,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %35 unwind label %.loopexit44.i, !noalias !1107
 
 .thread.i:                                        ; preds = %37, %35, %.loopexit.i
-  %43 = phi i64 [ %.pre.i, %35 ], [ %.pre.i, %37 ], [ %20, %.loopexit.i ]
+  %43 = phi i64 [ %.pre.i, %37 ], [ %.pre.i, %35 ], [ %20, %.loopexit.i ]
   %44 = load ptr, ptr %12, align 8, !alias.scope !1111, !noalias !1107, !nonnull !3, !noundef !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %43
   store i8 %.sroa.09.049.i, ptr %45, align 1, !noalias !1107
@@ -12117,7 +12117,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %47
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %47 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %47 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %54 unwind label %52
 
@@ -12292,7 +12292,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %48 unwind label %.loopexit.split-lp.loopexit.i, !noalias !1123
 
 .thread.i:                                        ; preds = %50, %48, %.loopexit.i
-  %55 = phi i64 [ %.pre.i, %48 ], [ %.pre.i, %50 ], [ %40, %.loopexit.i ]
+  %55 = phi i64 [ %.pre.i, %50 ], [ %.pre.i, %48 ], [ %40, %.loopexit.i ]
   %56 = load ptr, ptr %15, align 8, !alias.scope !1127, !noalias !1123, !nonnull !3, !noundef !3
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %55
   store i8 %.sroa.09.065.i, ptr %57, align 1, !noalias !1123
@@ -12327,7 +12327,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %16, %.loopexit.split-lp.i
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %17, %16 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %65 unwind label %63
 
@@ -12516,7 +12516,7 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
           to label %55 unwind label %.loopexit.split-lp.loopexit.i, !noalias !1139
 
 .thread.i:                                        ; preds = %57, %55, %.loopexit.i
-  %62 = phi i64 [ %.pre.i, %55 ], [ %.pre.i, %57 ], [ %47, %.loopexit.i ]
+  %62 = phi i64 [ %.pre.i, %57 ], [ %.pre.i, %55 ], [ %47, %.loopexit.i ]
   %63 = load ptr, ptr %17, align 8, !alias.scope !1143, !noalias !1139, !nonnull !3, !noundef !3
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %62
   store i8 %.sroa.09.073.i, ptr %64, align 1, !noalias !1139
@@ -12551,7 +12551,7 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
   unreachable
 
 .body:                                            ; preds = %18, %.loopexit.split-lp.i
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %19, %18 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %72 unwind label %70
 
@@ -12711,9 +12711,9 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   br i1 %.not21.i, label %.loopexit.i, label %26
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2761fe0aa4b7adcE.exit.thread.i": ; preds = %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit19.i.i.i.i", %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit.i.i.i.i", %26
-  %.sroa.013.167.lcssa.i = phi i64 [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit19.i.i.i.i" ], [ %24, %26 ], [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit.i.i.i.i" ]
-  %.sroa.12.344.i = phi i64 [ %38, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit19.i.i.i.i" ], [ %.sroa.12.166.i, %26 ], [ %.sroa.12.166.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit.i.i.i.i" ]
-  %.sroa.4.343.i = phi i64 [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit19.i.i.i.i" ], [ %.sroa.8.0.copyload.i, %26 ], [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit.i.i.i.i" ]
+  %.sroa.013.167.lcssa.i = phi i64 [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit19.i.i.i.i" ], [ %.sroa.013.167.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit.i.i.i.i" ], [ %24, %26 ]
+  %.sroa.12.344.i = phi i64 [ %38, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit19.i.i.i.i" ], [ %.sroa.12.166.i, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit.i.i.i.i" ], [ %.sroa.12.166.i, %26 ]
+  %.sroa.4.343.i = phi i64 [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit19.i.i.i.i" ], [ %28, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h200ffcecaf2302faE.exit.i.i.i.i" ], [ %.sroa.8.0.copyload.i, %26 ]
   %.old1.i = icmp eq i8 %.sroa.04.069.i, 1
   br i1 %.old1.i, label %55, label %.loopexit.i
 
@@ -12745,7 +12745,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %56 unwind label %.loopexit.split-lp.loopexit.i, !noalias !1155
 
 .thread.i:                                        ; preds = %58, %56, %.loopexit.i
-  %65 = phi i64 [ %.pre.i, %56 ], [ %.pre.i, %58 ], [ %48, %.loopexit.i ]
+  %65 = phi i64 [ %.pre.i, %58 ], [ %.pre.i, %56 ], [ %48, %.loopexit.i ]
   %66 = load ptr, ptr %19, align 8, !alias.scope !1170, !noalias !1155, !nonnull !3, !noundef !3
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %65
   store i8 %.sroa.09.056.i, ptr %67, align 1, !noalias !1155
@@ -12780,7 +12780,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %20, %.loopexit.split-lp.i
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %21, %20 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %75 unwind label %73
 
@@ -12922,7 +12922,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit38.i, !noalias !1182
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %42 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %22, %.loopexit.i ]
+  %42 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %22, %.loopexit.i ]
   %43 = load ptr, ptr %14, align 8, !alias.scope !1195, !noalias !1182, !nonnull !3, !noundef !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
   store i8 %.sroa.09.043.i, ptr %44, align 1, !noalias !1182
@@ -12952,7 +12952,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %15, %46
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %46 ], [ %16, %15 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %16, %15 ], [ %lpad.phi.i, %46 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %53 unwind label %51
 
@@ -13141,7 +13141,7 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
           to label %55 unwind label %.loopexit.split-lp.loopexit.i, !noalias !1207
 
 .thread.i:                                        ; preds = %57, %55, %.loopexit.i
-  %62 = phi i64 [ %.pre.i, %55 ], [ %.pre.i, %57 ], [ %47, %.loopexit.i ]
+  %62 = phi i64 [ %.pre.i, %57 ], [ %.pre.i, %55 ], [ %47, %.loopexit.i ]
   %63 = load ptr, ptr %17, align 8, !alias.scope !1211, !noalias !1207, !nonnull !3, !noundef !3
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %62
   store i8 %.sroa.09.073.i, ptr %64, align 1, !noalias !1207
@@ -13176,7 +13176,7 @@ _ZN12polars_arrow5array17fixed_size_binary20FixedSizeBinaryArray5value17h4190e7f
   unreachable
 
 .body:                                            ; preds = %18, %.loopexit.split-lp.i
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %19, %18 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %72 unwind label %70
 
@@ -13317,7 +13317,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit44.i, !noalias !1223
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %40 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %20, %.loopexit.i ]
+  %40 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %20, %.loopexit.i ]
   %41 = load ptr, ptr %12, align 8, !alias.scope !1233, !noalias !1223, !nonnull !3, !noundef !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   store i8 %.sroa.09.049.i, ptr %42, align 1, !noalias !1223
@@ -13347,7 +13347,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %44
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %44 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %44 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %51 unwind label %49
 
@@ -13488,7 +13488,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %31 unwind label %.loopexit44.i, !noalias !1245
 
 .thread.i:                                        ; preds = %33, %31, %.loopexit.i
-  %39 = phi i64 [ %.pre.i, %31 ], [ %.pre.i, %33 ], [ %20, %.loopexit.i ]
+  %39 = phi i64 [ %.pre.i, %33 ], [ %.pre.i, %31 ], [ %20, %.loopexit.i ]
   %40 = load ptr, ptr %12, align 8, !alias.scope !1255, !noalias !1245, !nonnull !3, !noundef !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %39
   store i8 %.sroa.09.049.i, ptr %41, align 1, !noalias !1245
@@ -13518,7 +13518,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %43 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %43 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %50 unwind label %48
 
@@ -13659,7 +13659,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
           to label %32 unwind label %.loopexit44.i, !noalias !1267
 
 .thread.i:                                        ; preds = %34, %32, %.loopexit.i
-  %40 = phi i64 [ %.pre.i, %32 ], [ %.pre.i, %34 ], [ %20, %.loopexit.i ]
+  %40 = phi i64 [ %.pre.i, %34 ], [ %.pre.i, %32 ], [ %20, %.loopexit.i ]
   %41 = load ptr, ptr %12, align 8, !alias.scope !1277, !noalias !1267, !nonnull !3, !noundef !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   store i8 %.sroa.09.049.i, ptr %42, align 1, !noalias !1267
@@ -13689,7 +13689,7 @@ define hidden void @"_ZN118_$LT$polars_arrow..bitmap..mutable..MutableBitmap$u20
   unreachable
 
 .body:                                            ; preds = %13, %44
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %44 ], [ %14, %13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %13 ], [ %lpad.phi.i, %44 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7a404999c174fc55E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #22
           to label %51 unwind label %49
 
@@ -15770,7 +15770,7 @@ define hidden noundef range(i64 0, -9223372036854775808) i64 @"_ZN12polars_arrow
   br i1 %14, label %30, label %22
 
 16:                                               ; preds = %1, %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17h81078432989ef65eE.exit", %22
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload3, %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17h81078432989ef65eE.exit" ], [ %.sroa.0.0.copyload2, %22 ], [ 0, %1 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload2, %22 ], [ %.sroa.0.0.copyload3, %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17h81078432989ef65eE.exit" ], [ 0, %1 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load i64, ptr %17, align 8, !noundef !3
   %19 = and i64 %18, 63
@@ -16241,7 +16241,7 @@ thread-pre-split:                                 ; preds = %8
   br label %_ZN4core3str11validations15next_code_point17h927f8526ca10764bE.exit
 
 _ZN4core3str11validations15next_code_point17h927f8526ca10764bE.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a5f45e0b8b25543E.exit12.i", %22, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a5f45e0b8b25543E.exit14.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a5f45e0b8b25543E.exit16.i"
-  %.sroa.4.0.i = phi i32 [ %23, %22 ], [ %43, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a5f45e0b8b25543E.exit16.i" ], [ %32, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a5f45e0b8b25543E.exit14.i" ], [ %20, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a5f45e0b8b25543E.exit12.i" ]
+  %.sroa.4.0.i = phi i32 [ %23, %22 ], [ %20, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a5f45e0b8b25543E.exit12.i" ], [ %43, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a5f45e0b8b25543E.exit16.i" ], [ %32, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a5f45e0b8b25543E.exit14.i" ]
   switch i32 %.sroa.4.0.i, label %54 [
     i32 1114112, label %_ZN4core3str11validations15next_code_point17h927f8526ca10764bE.exit.thread
     i32 43, label %56
@@ -16324,9 +16324,9 @@ _ZN4core3str11validations15next_code_point17h927f8526ca10764bE.exit.thread: ; pr
   unreachable
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit120.thread": ; preds = %62, %56, %76, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit130", %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit125", %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit120"
-  %.sroa.076.0 = phi i1 [ false, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit120" ], [ true, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit125" ], [ true, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit130" ], [ true, %76 ], [ false, %56 ], [ true, %62 ]
-  %.pn145 = phi i64 [ %60, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit120" ], [ %66, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit125" ], [ %82, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit130" ], [ 0, %76 ], [ 0, %56 ], [ 0, %62 ]
-  %.sroa.0.0 = phi ptr [ %61, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit120" ], [ %67, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit125" ], [ %83, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit130" ], [ %78, %76 ], [ %57, %56 ], [ %63, %62 ]
+  %.sroa.076.0 = phi i1 [ true, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit125" ], [ false, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit120" ], [ true, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit130" ], [ true, %76 ], [ false, %56 ], [ true, %62 ]
+  %.pn145 = phi i64 [ %66, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit125" ], [ %60, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit120" ], [ %82, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit130" ], [ 0, %76 ], [ 0, %56 ], [ 0, %62 ]
+  %.sroa.0.0 = phi ptr [ %67, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit125" ], [ %61, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit120" ], [ %83, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h1ee6246044426801E.exit130" ], [ %78, %76 ], [ %57, %56 ], [ %63, %62 ]
   %70 = tail call i24 @_ZN6chrono6format4scan15timezone_offset6digits17ha42ba35239fd2093E(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.pn145)
   %.sroa.0102.1.extract.shift = lshr i24 %70, 8
   %.sroa.0102.1.extract.trunc = trunc i24 %.sroa.0102.1.extract.shift to i8
@@ -19362,7 +19362,7 @@ _ZN12polars_arrow5array5Array10null_count17h0f78d5fc81d678e8E.exit.thread: ; pre
   br label %986
 
 986:                                              ; preds = %198, %205, %398, %905, %.thread1211, %959, %967, %976, %977, %985, %72, %64, %2
-  %.sroa.0.0 = phi i64 [ 0, %2 ], [ 1, %64 ], [ %204, %198 ], [ %206, %205 ], [ %.sroa.0.2, %398 ], [ %906, %905 ], [ %931, %.thread1211 ], [ %960, %959 ], [ %963, %967 ], [ %972, %976 ], [ %978, %977 ], [ %981, %985 ], [ 1, %72 ]
+  %.sroa.0.0 = phi i64 [ 1, %64 ], [ 0, %2 ], [ %981, %985 ], [ %204, %198 ], [ %206, %205 ], [ %.sroa.0.2, %398 ], [ %906, %905 ], [ %931, %.thread1211 ], [ %960, %959 ], [ %963, %967 ], [ %972, %976 ], [ %978, %977 ], [ 1, %72 ]
   ret i64 %.sroa.0.0
 }
 
@@ -20434,8 +20434,8 @@ define { i64, double } @_ZN14polars_compute6moment9SkewState8finalize17h59bd253a
   br label %30
 
 30:                                               ; preds = %19, %21, %23
-  %.sroa.5.0 = phi double [ %29, %23 ], [ %.sroa.01.0, %21 ], [ undef, %19 ]
-  %.sroa.0.0 = phi i64 [ 1, %23 ], [ %., %21 ], [ 0, %19 ]
+  %.sroa.5.0 = phi double [ %29, %23 ], [ undef, %19 ], [ %.sroa.01.0, %21 ]
+  %.sroa.0.0 = phi i64 [ 1, %23 ], [ 0, %19 ], [ %., %21 ]
   %31 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
   %32 = insertvalue { i64, double } %31, double %.sroa.5.0, 1
   ret { i64, double } %32
@@ -20733,8 +20733,8 @@ define { i64, double } @_ZN14polars_compute6moment13KurtosisState8finalize17hb0a
   br i1 %1, label %39, label %36
 
 36:                                               ; preds = %35, %20, %18, %39
-  %.sroa.5.0 = phi double [ %40, %39 ], [ undef, %18 ], [ undef, %20 ], [ %.sroa.01.1, %35 ]
-  %.sroa.0.0 = phi i64 [ 1, %39 ], [ 0, %18 ], [ 0, %20 ], [ 1, %35 ]
+  %.sroa.5.0 = phi double [ undef, %18 ], [ %40, %39 ], [ undef, %20 ], [ %.sroa.01.1, %35 ]
+  %.sroa.0.0 = phi i64 [ 0, %18 ], [ 1, %39 ], [ 0, %20 ], [ 1, %35 ]
   %37 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
   %38 = insertvalue { i64, double } %37, double %.sroa.5.0, 1
   ret { i64, double } %38

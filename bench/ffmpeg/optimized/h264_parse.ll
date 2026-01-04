@@ -600,7 +600,7 @@ get_se_golomb.exit248:                            ; preds = %262, %272
   br label %341
 
 341:                                              ; preds = %.loopexit258, %339
-  %.0184 = phi i32 [ -1094995529, %.loopexit258 ], [ 0, %339 ]
+  %.0184 = phi i32 [ 0, %339 ], [ -1094995529, %.loopexit258 ]
   ret i32 %.0184
 }
 
@@ -754,7 +754,7 @@ define range(i32 -1094995529, 128) i32 @ff_h264_check_intra_pred_mode(ptr nounde
   br label %34
 
 34:                                               ; preds = %16, %27, %22, %21, %15, %7
-  %.0 = phi i32 [ -1094995529, %7 ], [ -1094995529, %21 ], [ -1094995529, %15 ], [ %33, %27 ], [ %26, %22 ], [ %.015, %16 ]
+  %.0 = phi i32 [ -1094995529, %7 ], [ -1094995529, %21 ], [ -1094995529, %15 ], [ %33, %27 ], [ %.015, %16 ], [ %26, %22 ]
   ret i32 %.0
 }
 
@@ -960,7 +960,7 @@ get_ue_golomb.exit57:                             ; preds = %80, %90
   br label %117
 
 117:                                              ; preds = %._crit_edge63, %.thread
-  %.040 = phi i32 [ 0, %.thread ], [ -1094995529, %._crit_edge63 ]
+  %.040 = phi i32 [ -1094995529, %._crit_edge63 ], [ 0, %.thread ]
   ret i32 %.040
 }
 
@@ -1166,8 +1166,8 @@ define range(i32 -1094995529, 1) i32 @ff_h264_init_poc(ptr noundef captures(none
   br label %117
 
 117:                                              ; preds = %97, %107, %53, %58, %112
-  %.sroa.0.0 = phi i64 [ %116, %112 ], [ %56, %58 ], [ %56, %53 ], [ %101, %107 ], [ %101, %97 ]
-  %.sroa.9.1 = phi i64 [ %116, %112 ], [ %62, %58 ], [ %56, %53 ], [ %111, %107 ], [ %105, %97 ]
+  %.sroa.0.0 = phi i64 [ %116, %112 ], [ %56, %53 ], [ %56, %58 ], [ %101, %107 ], [ %101, %97 ]
+  %.sroa.9.1 = phi i64 [ %116, %112 ], [ %56, %53 ], [ %62, %58 ], [ %111, %107 ], [ %105, %97 ]
   %118 = trunc i64 %.sroa.0.0 to i32
   %119 = add i64 %.sroa.0.0, 2147483648
   %.not109 = icmp ult i64 %119, 4294967296
@@ -1340,7 +1340,7 @@ define i32 @ff_h264_decode_extradata(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %24, %45, %57, %36, %15, %65, %7, %68
-  %.064 = phi i32 [ %1, %68 ], [ -22, %7 ], [ %66, %65 ], [ %55, %57 ], [ %34, %36 ], [ -1094995529, %15 ], [ -1094995529, %45 ], [ -1094995529, %24 ]
+  %.064 = phi i32 [ -22, %7 ], [ %1, %68 ], [ %66, %65 ], [ -1094995529, %15 ], [ %55, %57 ], [ -1094995529, %45 ], [ %34, %36 ], [ -1094995529, %24 ]
   ret i32 %.064
 }
 
@@ -1564,8 +1564,8 @@ define internal fastcc i32 @decode_extradata_ps(ptr noundef %0, i32 noundef %1, 
   %41 = icmp sgt i32 %40, -1
   br i1 %41, label %.thread, label %42
 
-.thread:                                          ; preds = %23, %27
-  %.2.ph = phi i32 [ %40, %27 ], [ %25, %23 ]
+.thread:                                          ; preds = %27, %23
+  %.2.ph = phi i32 [ %25, %23 ], [ %40, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread49
 
@@ -1588,7 +1588,7 @@ define internal fastcc i32 @decode_extradata_ps(ptr noundef %0, i32 noundef %1, 
   br label %.thread49
 
 .thread49:                                        ; preds = %.thread, %45, %42, %51
-  %.352 = phi i32 [ %.13657, %51 ], [ %43, %42 ], [ %49, %45 ], [ %.2.ph, %.thread ]
+  %.352 = phi i32 [ %.2.ph, %.thread ], [ %.13657, %51 ], [ %43, %42 ], [ %49, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %11, align 8, !tbaa !55
   %53 = sext i32 %52 to i64
@@ -1596,7 +1596,7 @@ define internal fastcc i32 @decode_extradata_ps(ptr noundef %0, i32 noundef %1, 
   br i1 %54, label %18, label %.thread53, !llvm.loop !70
 
 .thread53:                                        ; preds = %.thread49, %45, %42, %.preheader, %5
-  %.035 = phi i32 [ 0, %5 ], [ %9, %.preheader ], [ %.352, %.thread49 ], [ %49, %45 ], [ %43, %42 ]
+  %.035 = phi i32 [ 0, %5 ], [ %9, %.preheader ], [ %49, %45 ], [ %.352, %.thread49 ], [ %43, %42 ]
   call void @ff_h2645_packet_uninit(ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.035

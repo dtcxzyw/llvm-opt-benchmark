@@ -550,7 +550,7 @@ _ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit: ; preds = %103, %109
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 119:                                              ; preds = %39, %4, %._crit_edge31
-  %.016 = phi i1 [ %90, %._crit_edge31 ], [ false, %4 ], [ false, %39 ]
+  %.016 = phi i1 [ false, %4 ], [ %90, %._crit_edge31 ], [ false, %39 ]
   ret i1 %.016
 }
 
@@ -1065,7 +1065,7 @@ _ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26:              ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIPPhS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !32
   %57 = load ptr, ptr %.0, align 8, !tbaa !24
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -442,7 +442,7 @@ define internal i32 @dissect_fpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %frag_cnt_next.exit.i
 
 frag_cnt_next.exit.i:                             ; preds = %163, %162, %161, %158
-  %.0.i.i = phi i8 [ -26, %163 ], [ 127, %161 ], [ -77, %162 ], [ 76, %158 ]
+  %.0.i.i = phi i8 [ -26, %163 ], [ -77, %162 ], [ 127, %161 ], [ 76, %158 ]
   %164 = icmp eq i8 %.0.i.i, %67
   br i1 %164, label %165, label %168
 
@@ -523,7 +523,7 @@ frag_cnt_next.exit.i:                             ; preds = %163, %162, %161, %1
   br label %get_cont_by_start.exit.i
 
 get_cont_by_start.exit.i:                         ; preds = %205, %204, %203, %200
-  %.0.i352.i = phi i8 [ 82, %203 ], [ -98, %204 ], [ 42, %205 ], [ 97, %200 ]
+  %.0.i352.i = phi i8 [ 97, %200 ], [ 82, %203 ], [ -98, %204 ], [ 42, %205 ]
   store i8 1, ptr %202, align 8
   %206 = getelementptr inbounds nuw i8, ptr %202, i64 1
   store i8 %.0.i352.i, ptr %206, align 1
@@ -847,7 +847,7 @@ drop_fragments.exit372.i:                         ; preds = %290, %288
   br label %frag_cnt_next.exit383.i
 
 frag_cnt_next.exit383.i:                          ; preds = %361, %360, %359, %356
-  %.0.i382.i = phi i8 [ -26, %361 ], [ 127, %359 ], [ -77, %360 ], [ 76, %356 ]
+  %.0.i382.i = phi i8 [ -26, %361 ], [ -77, %360 ], [ 127, %359 ], [ 76, %356 ]
   %362 = icmp eq i8 %.0.i382.i, %67
   br i1 %362, label %363, label %376
 
@@ -998,7 +998,7 @@ dissect_express.exit.thread49:                    ; preds = %396
   br label %dissect_express.exit.thread
 
 dissect_express.exit:                             ; preds = %240, %59, %4
-  %.0 = phi ptr [ %0, %4 ], [ %60, %59 ], [ %244, %240 ]
+  %.0 = phi ptr [ %0, %4 ], [ %244, %240 ], [ %60, %59 ]
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %dissect_express.exit.thread, label %445
 
@@ -1008,7 +1008,7 @@ dissect_express.exit:                             ; preds = %240, %59, %4
   %447 = tail call i32 @call_dissector(ptr noundef %446, ptr noundef nonnull %.052, ptr noundef %1, ptr noundef %2)
   br label %450
 
-dissect_express.exit.thread:                      ; preds = %344, %342, %drop_fragments.exit372.i, %278, %drop_fragments.exit363.i, %438, %441, %433, %325, %328, %437, %407, %52, %dissect_express.exit
+dissect_express.exit.thread:                      ; preds = %344, %342, %278, %drop_fragments.exit363.i, %438, %441, %433, %325, %328, %drop_fragments.exit372.i, %437, %407, %52, %dissect_express.exit
   %448 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %5, i32 noundef %8)
   %449 = tail call i32 @call_data_dissector(ptr noundef %448, ptr noundef %1, ptr noundef %2)
   br label %450
@@ -1082,7 +1082,7 @@ define internal fastcc noundef i32 @get_preamble_length(ptr noundef %0) unnamed_
   br label %18
 
 18:                                               ; preds = %.critedge, %16, %14
-  %.0 = phi i32 [ %15, %14 ], [ %17, %16 ], [ 8, %.critedge ]
+  %.0 = phi i32 [ %17, %16 ], [ %15, %14 ], [ 8, %.critedge ]
   ret i32 %.0
 }
 
@@ -1166,7 +1166,7 @@ define internal fastcc range(i32 0, 6) i32 @get_packet_type(ptr noundef %0) unna
   br label %22
 
 22:                                               ; preds = %19, %19, %19, %19, %.critedge, %.critedge, %.critedge, %.critedge, %21, %20, %18, %17, %16
-  %.0 = phi i32 [ 5, %21 ], [ 1, %16 ], [ 2, %17 ], [ 0, %18 ], [ 5, %20 ], [ 3, %.critedge ], [ 3, %.critedge ], [ 3, %.critedge ], [ 3, %.critedge ], [ 4, %19 ], [ 4, %19 ], [ 4, %19 ], [ 4, %19 ]
+  %.0 = phi i32 [ 5, %21 ], [ 3, %.critedge ], [ 1, %16 ], [ 2, %17 ], [ 0, %18 ], [ 5, %20 ], [ 3, %.critedge ], [ 3, %.critedge ], [ 3, %.critedge ], [ 4, %19 ], [ 4, %19 ], [ 4, %19 ], [ 4, %19 ]
   ret i32 %.0
 }
 

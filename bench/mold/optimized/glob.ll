@@ -541,8 +541,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit78: ; preds = %_ZN
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE12emplace_backIJNS1_4KindEEEERS2_DpOT_.exit63, %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE12emplace_backIJNS1_4KindEEEERS2_DpOT_.exit66, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit78, %88
-  %.sroa.082.6 = phi i64 [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit78 ], [ %89, %88 ], [ %15, %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE12emplace_backIJNS1_4KindEEEERS2_DpOT_.exit63 ], [ %15, %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE12emplace_backIJNS1_4KindEEEERS2_DpOT_.exit66 ], [ %155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %89, %.preheader ]
-  %.sroa.24.6 = phi ptr [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit78 ], [ %90, %88 ], [ %16, %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE12emplace_backIJNS1_4KindEEEERS2_DpOT_.exit63 ], [ %16, %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE12emplace_backIJNS1_4KindEEEERS2_DpOT_.exit66 ], [ %156, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %90, %.preheader ]
+  %.sroa.082.6 = phi i64 [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit78 ], [ %155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %89, %88 ], [ %15, %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE12emplace_backIJNS1_4KindEEEERS2_DpOT_.exit63 ], [ %15, %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE12emplace_backIJNS1_4KindEEEERS2_DpOT_.exit66 ], [ %89, %.preheader ]
+  %.sroa.24.6 = phi ptr [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit78 ], [ %156, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %90, %88 ], [ %16, %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE12emplace_backIJNS1_4KindEEEERS2_DpOT_.exit63 ], [ %16, %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE12emplace_backIJNS1_4KindEEEERS2_DpOT_.exit66 ], [ %90, %.preheader ]
   %192 = icmp eq i64 %.sroa.082.6, 0
   br i1 %192, label %_ZSt8_DestroyIPN4mold4Glob7ElementES2_EvT_S4_RSaIT0_E.exit.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, !llvm.loop !38
 
@@ -564,7 +564,7 @@ _ZSt8_DestroyIPN4mold4Glob7ElementES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %.crit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge42
 
-.critedge42:                                      ; preds = %117, %56, %63, %41, %.critedge40, %_ZSt8_DestroyIPN4mold4Glob7ElementES2_EvT_S4_RSaIT0_E.exit.i.i
+.critedge42:                                      ; preds = %41, %117, %56, %63, %.critedge40, %_ZSt8_DestroyIPN4mold4Glob7ElementES2_EvT_S4_RSaIT0_E.exit.i.i
   %201 = load ptr, ptr %4, align 8, !tbaa !39
   %202 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %203 = load ptr, ptr %202, align 8, !tbaa !14
@@ -811,8 +811,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit66: ; preds = %.cri
   br label %81
 
 81:                                               ; preds = %.lr.ph, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit63, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit66
-  %.sroa.077.1 = phi i64 [ %.sroa.077.0139, %.lr.ph ], [ %17, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %66, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit63 ], [ %79, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit66 ]
-  %.sroa.17.1 = phi ptr [ %.sroa.17.0140, %.lr.ph ], [ %18, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %67, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit63 ], [ %80, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit66 ]
+  %.sroa.077.1 = phi i64 [ %.sroa.077.0139, %.lr.ph ], [ %17, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %79, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit66 ], [ %66, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit63 ]
+  %.sroa.17.1 = phi ptr [ %.sroa.17.0140, %.lr.ph ], [ %18, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %80, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit66 ], [ %67, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit63 ]
   %82 = icmp eq i64 %6, 0
   br i1 %82, label %._crit_edge, label %.lr.ph
 
@@ -821,8 +821,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit66: ; preds = %.cri
   %83 = icmp eq i64 %.sroa.077.0.lcssa, 0
   br label %.thread107
 
-.thread107:                                       ; preds = %68, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %9, %.critedge, %64, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit60, %32, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit52, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %40, %.preheader115, %19, %._crit_edge
-  %.5 = phi i1 [ %83, %._crit_edge ], [ true, %19 ], [ false, %.preheader115 ], [ false, %40 ], [ false, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ false, %32 ], [ false, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ true, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit52 ], [ %62, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit60 ], [ false, %64 ], [ false, %.critedge ], [ false, %9 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ false, %68 ]
+.thread107:                                       ; preds = %68, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %9, %64, %.critedge, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit60, %32, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit52, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, %40, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %.preheader115, %19, %._crit_edge
+  %.5 = phi i1 [ %83, %._crit_edge ], [ %62, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit60 ], [ false, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ true, %19 ], [ false, %40 ], [ false, %.preheader115 ], [ false, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ false, %32 ], [ true, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit52 ], [ false, %.critedge ], [ false, %64 ], [ false, %9 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ false, %68 ]
   ret i1 %.5
 }
 

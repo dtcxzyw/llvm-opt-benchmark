@@ -91,8 +91,8 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %3
-  %.166.i = phi i32 [ %1, %3 ], [ %1, %.lr.ph14.preheader.i.i ], [ %37, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
-  %.2.i = phi i32 [ 0, %3 ], [ %.196.i, %.lr.ph14.preheader.i.i ], [ %.196.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
+  %.166.i = phi i32 [ %37, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %3 ], [ %1, %.lr.ph14.preheader.i.i ]
+  %.2.i = phi i32 [ %.196.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ], [ 0, %3 ], [ %.196.i, %.lr.ph14.preheader.i.i ]
   %38 = icmp slt i32 %.2.i, %.166.i
   br i1 %38, label %.lr.ph.preheader.i32.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.thread_crit_edge.i
 
@@ -432,8 +432,8 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %.lr.ph14.i.i
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
 _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %.lr.ph14.preheader.i.i, %3
-  %.166.i = phi i32 [ %1, %3 ], [ %1, %.lr.ph14.preheader.i.i ], [ %37, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
-  %.2.i = phi i32 [ 0, %3 ], [ %.196.i, %.lr.ph14.preheader.i.i ], [ %.196.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
+  %.166.i = phi i32 [ %37, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ], [ %1, %3 ], [ %1, %.lr.ph14.preheader.i.i ]
+  %.2.i = phi i32 [ %.196.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ], [ 0, %3 ], [ %.196.i, %.lr.ph14.preheader.i.i ]
   %38 = icmp slt i32 %.2.i, %.166.i
   br i1 %38, label %.lr.ph.preheader.i32.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit._ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.thread_crit_edge.i
 

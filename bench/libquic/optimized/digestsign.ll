@@ -75,7 +75,7 @@ define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %0, ptr n
   br label %30
 
 30:                                               ; preds = %28, %22, %20, %18, %10, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %10 ], [ 0, %18 ], [ 0, %20 ], [ 0, %22 ], [ %., %28 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %16 ], [ 0, %22 ], [ %., %28 ], [ 0, %20 ], [ 0, %10 ]
   ret i32 %.0
 }
 

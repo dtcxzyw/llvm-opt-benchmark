@@ -1195,7 +1195,7 @@ _ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread: ; preds = %.noexc91, %_ZN6ic
   unreachable
 
 _ZN6icu_779HashtableD2Ev.exit:                    ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit90, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread, %186
-  %.0155.ph = phi ptr [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90 ], [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread ], [ %.0.ph, %186 ], [ %.0.ph, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread ]
+  %.0155.ph = phi ptr [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90 ], [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread ], [ %.0.ph, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread ], [ %.0.ph, %186 ]
   %.pr156 = load ptr, ptr %6, align 8, !tbaa !39
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i115 = icmp eq ptr %.pr156, null
@@ -2001,14 +2001,14 @@ _ZNK6icu_779Hashtable5countEv.exit:               ; preds = %_ZNK6icu_779Hashtab
   br label %163
 
 156:                                              ; preds = %_ZNK6icu_779Hashtable11nextElementERi.exit133.thread, %153, %_ZNK6icu_779Hashtable5countEv.exit
-  %.390 = phi i32 [ 1, %153 ], [ 0, %_ZNK6icu_779Hashtable5countEv.exit ], [ 1, %_ZNK6icu_779Hashtable11nextElementERi.exit133.thread ]
+  %.390 = phi i32 [ 1, %_ZNK6icu_779Hashtable11nextElementERi.exit133.thread ], [ 1, %153 ], [ 0, %_ZNK6icu_779Hashtable5countEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %157
 
 157:                                              ; preds = %97, %156
-  %.188 = phi i32 [ %.390, %156 ], [ %., %97 ]
+  %.188 = phi i32 [ %., %97 ], [ %.390, %156 ]
   %158 = load ptr, ptr %9, align 8, !tbaa !39
   %.not.i = icmp eq ptr %158, null
   br i1 %.not.i, label %_ZN6icu_779HashtableD2Ev.exit, label %159
@@ -2202,7 +2202,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
   br label %49
 
 49:                                               ; preds = %46, %44, %40
-  %.0.i = phi ptr [ %45, %44 ], [ %48, %46 ], [ null, %40 ]
+  %.0.i = phi ptr [ %48, %46 ], [ %45, %44 ], [ null, %40 ]
   %50 = icmp slt i16 %37, 0
   %51 = ashr i16 %37, 5
   %52 = sext i16 %51 to i32
@@ -2329,8 +2329,8 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
           to label %125 unwind label %99
 
 125:                                              ; preds = %111, %118, %123, %103
-  %.495 = phi i32 [ %104, %103 ], [ %.293136, %123 ], [ %119, %118 ], [ %104, %111 ]
-  %.490 = phi i32 [ %108, %103 ], [ %.288137, %123 ], [ %122, %118 ], [ %108, %111 ]
+  %.495 = phi i32 [ %.293136, %123 ], [ %104, %103 ], [ %119, %118 ], [ %104, %111 ]
+  %.490 = phi i32 [ %.288137, %123 ], [ %108, %103 ], [ %122, %118 ], [ %108, %111 ]
   %.not113 = icmp slt i32 %.285, %4
   br i1 %.not113, label %.lr.ph, label %.critedge, !llvm.loop !62
 
@@ -2440,7 +2440,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
   br label %177
 
 177:                                              ; preds = %174, %172, %167
-  %.0.i128 = phi ptr [ %173, %172 ], [ %176, %174 ], [ null, %167 ]
+  %.0.i128 = phi ptr [ %176, %174 ], [ %173, %172 ], [ null, %167 ]
   %178 = icmp slt i16 %168, 0
   %179 = ashr i16 %168, 5
   %180 = sext i16 %179 to i32
@@ -2465,7 +2465,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
   br label %188
 
 .critedge:                                        ; preds = %125, %70, %142, %.thread133, %31, %39
-  %.1 = phi ptr [ null, %39 ], [ null, %31 ], [ %1, %142 ], [ %.3, %.thread133 ], [ null, %70 ], [ null, %125 ]
+  %.1 = phi ptr [ null, %31 ], [ null, %39 ], [ %1, %142 ], [ %.3, %.thread133 ], [ null, %70 ], [ null, %125 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #13
@@ -2473,7 +2473,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
   br label %189
 
 188:                                              ; preds = %187, %143, %101, %99, %34
-  %.pn117.pn.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %144, %143 ], [ %.pn, %187 ], [ %100, %99 ], [ %102, %101 ]
+  %.pn117.pn.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %102, %101 ], [ %144, %143 ], [ %.pn, %187 ], [ %100, %99 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #13

@@ -3896,7 +3896,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit: ; preds 
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %24, %80, %101, %45, %168, %129, %73
-  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %130, %129 ], [ %169, %168 ], [ %25, %24 ], [ %46, %45 ], [ %81, %80 ], [ %102, %101 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %169, %168 ], [ %130, %129 ], [ %25, %24 ], [ %46, %45 ], [ %81, %80 ], [ %102, %101 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %0) #21
   resume { ptr, i32 } %.pn
 }
@@ -8293,7 +8293,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit33: ; preds =
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit35
 
 _ZNSt6vectorIdSaIdEED2Ev.exit35:                  ; preds = %194, %._crit_edge, %4
-  %.013 = phi i1 [ false, %4 ], [ %193, %._crit_edge ], [ %193, %194 ]
+  %.013 = phi i1 [ false, %4 ], [ %193, %194 ], [ %193, %._crit_edge ]
   ret i1 %.013
 }
 
@@ -8653,7 +8653,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -9377,7 +9377,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit33: ; preds =
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit35
 
 _ZNSt6vectorIdSaIdEED2Ev.exit35:                  ; preds = %194, %._crit_edge, %4
-  %.013 = phi i1 [ false, %4 ], [ %193, %._crit_edge ], [ %193, %194 ]
+  %.013 = phi i1 [ false, %4 ], [ %193, %194 ], [ %193, %._crit_edge ]
   ret i1 %.013
 }
 

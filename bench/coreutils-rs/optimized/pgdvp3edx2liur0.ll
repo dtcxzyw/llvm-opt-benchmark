@@ -481,7 +481,7 @@ _ZN7uu_join5State16print_first_line17h3775fcbcf7c89900E.llvm.9813240397669669264
   br i1 %22, label %15, label %23
 
 23:                                               ; preds = %20, %_ZN7uu_join5State16print_first_line17h3775fcbcf7c89900E.llvm.9813240397669669264.exit25, %_ZN7uu_join5State16print_first_line17h3775fcbcf7c89900E.llvm.9813240397669669264.exit, %15
-  %.0 = phi ptr [ null, %15 ], [ %13, %_ZN7uu_join5State16print_first_line17h3775fcbcf7c89900E.llvm.9813240397669669264.exit ], [ %18, %_ZN7uu_join5State16print_first_line17h3775fcbcf7c89900E.llvm.9813240397669669264.exit25 ], [ %21, %20 ]
+  %.0 = phi ptr [ null, %15 ], [ %18, %_ZN7uu_join5State16print_first_line17h3775fcbcf7c89900E.llvm.9813240397669669264.exit25 ], [ %13, %_ZN7uu_join5State16print_first_line17h3775fcbcf7c89900E.llvm.9813240397669669264.exit ], [ %21, %20 ]
   ret ptr %.0
 }
 
@@ -667,7 +667,7 @@ _ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit.us.us: ; preds = %8
   br label %97
 
 _ZN7uu_join4Repr12print_format17h2e2d56df4791540dE.exit.thread: ; preds = %.loopexit.split, %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit26.i", %.loopexit.split.us.us, %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.us.us, %73, %76, %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit.us.us, %119
-  %.0 = phi ptr [ %116, %119 ], [ %.0.i.i58.us.us, %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit.us.us ], [ %77, %76 ], [ %74, %73 ], [ %68, %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.us.us ], [ null, %.loopexit.split.us.us ], [ %.0.i25.i, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit26.i" ], [ %.0.i.i58, %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit ], [ null, %.loopexit.split ]
+  %.0 = phi ptr [ %.0.i25.i, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit26.i" ], [ %116, %119 ], [ %.0.i.i58, %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit ], [ null, %.loopexit.split.us.us ], [ %.0.i.i58.us.us, %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit.us.us ], [ %68, %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit.us.us ], [ %74, %73 ], [ %77, %76 ], [ null, %.loopexit.split ]
   ret ptr %.0
 
 97:                                               ; preds = %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit, %.split
@@ -813,8 +813,8 @@ _ZN7uu_join4Repr12print_format17h2e2d56df4791540dE.exit.thread: ; preds = %.loop
   br label %"_ZN7uu_join5State7combine28_$u7b$$u7b$closure$u7d$$u7d$17hf7f8eb98870b862bE.exit.i"
 
 "_ZN7uu_join5State7combine28_$u7b$$u7b$closure$u7d$$u7d$17hf7f8eb98870b862bE.exit.i": ; preds = %120, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i5.i.i", %149, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i.i", %131, %129
-  %.sroa.5.0.i.i = phi i64 [ undef, %129 ], [ %147, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i.i" ], [ undef, %131 ], [ %165, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i5.i.i" ], [ undef, %149 ], [ %.sroa.3.0.i.i, %120 ]
-  %.sroa.0.0.i.i56 = phi ptr [ null, %129 ], [ %148, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i.i" ], [ null, %131 ], [ %166, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i5.i.i" ], [ null, %149 ], [ %.sroa.0.0.i.i, %120 ]
+  %.sroa.5.0.i.i = phi i64 [ undef, %149 ], [ undef, %129 ], [ undef, %131 ], [ %147, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i.i" ], [ %165, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i5.i.i" ], [ %.sroa.3.0.i.i, %120 ]
+  %.sroa.0.0.i.i56 = phi ptr [ null, %149 ], [ null, %129 ], [ null, %131 ], [ %148, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i.i" ], [ %166, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i5.i.i" ], [ %.sroa.0.0.i.i, %120 ]
   %167 = icmp eq ptr %.sroa.0.0.i.i56, null
   %.sroa.018.0.i = select i1 %167, ptr %50, ptr %.sroa.0.0.i.i56
   %.sroa.3.0.i = select i1 %167, i64 %52, i64 %.sroa.5.0.i.i
@@ -963,7 +963,7 @@ _ZN7uu_join5State16print_first_line17h3775fcbcf7c89900E.llvm.9813240397669669264
   unreachable
 
 common.resume:                                    ; preds = %57, %71, %68, %35
-  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %58, %57 ], [ %lpad.phi, %71 ], [ %lpad.phi, %68 ]
+  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %lpad.phi, %68 ], [ %58, %57 ], [ %lpad.phi, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hbb68cf402af32bffE.llvm.9813240397669669264.exit43": ; preds = %30
@@ -1325,8 +1325,8 @@ _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit: ; preds = %_ZN7uu_join4L
   br label %"_ZN7uu_join5State10print_line28_$u7b$$u7b$closure$u7d$$u7d$17h83d04a87f782643fE.exit.i"
 
 "_ZN7uu_join5State10print_line28_$u7b$$u7b$closure$u7d$$u7d$17h83d04a87f782643fE.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i3.i.i", %105, %101, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i.i", %90
-  %.sroa.0.0.i.pn.i.i = phi ptr [ %100, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i.i" ], [ null, %90 ], [ null, %101 ], [ %120, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i3.i.i" ], [ null, %105 ]
-  %.sroa.3.0.i.pn.i.i = phi i64 [ %99, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i.i" ], [ undef, %90 ], [ undef, %101 ], [ %119, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i3.i.i" ], [ undef, %105 ]
+  %.sroa.0.0.i.pn.i.i = phi ptr [ null, %90 ], [ %100, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i.i" ], [ null, %101 ], [ %120, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i3.i.i" ], [ null, %105 ]
+  %.sroa.3.0.i.pn.i.i = phi i64 [ undef, %90 ], [ %99, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i.i.i" ], [ undef, %101 ], [ %119, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h21e0a5cc5c879931E.llvm.2011083569936217469.exit.i3.i.i" ], [ undef, %105 ]
   %121 = icmp eq ptr %.sroa.0.0.i.pn.i.i, null
   %.sroa.018.0.i = select i1 %121, ptr %69, ptr %.sroa.0.0.i.pn.i.i
   %.sroa.3.0.i27 = select i1 %121, i64 %71, i64 %.sroa.3.0.i.pn.i.i
@@ -1394,7 +1394,7 @@ _ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit: ; preds = %143, %1
   br label %_ZN7uu_join4Repr12print_format17hfee7c7e838b68403E.exit.thread
 
 _ZN7uu_join4Repr12print_format17hfee7c7e838b68403E.exit.thread: ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit27.i", %86, %133, %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit, %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit
-  %.0 = phi ptr [ %.0.i.i29, %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit ], [ %45, %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit ], [ %135, %133 ], [ %83, %86 ], [ %.0.i26.i, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit27.i" ]
+  %.0 = phi ptr [ %.0.i.i29, %_ZN7uu_join4Repr17print_line_ending17hae63dff723b77cfeE.exit ], [ %135, %133 ], [ %45, %_ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit ], [ %83, %86 ], [ %.0.i26.i, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit27.i" ]
   ret ptr %.0
 }
 

@@ -194,7 +194,7 @@ define internal i32 @buffer_write(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %87, label %.loopexit88, label %71, !llvm.loop !22
 
 .loopexit88:                                      ; preds = %82, %77, %60, %3, %7, %79, %62, %._crit_edge
-  %.0 = phi i32 [ %32, %._crit_edge ], [ %64, %62 ], [ %81, %79 ], [ 0, %7 ], [ 0, %3 ], [ %.2, %60 ], [ %.3, %77 ], [ %83, %82 ]
+  %.0 = phi i32 [ %.3, %77 ], [ %32, %._crit_edge ], [ %64, %62 ], [ 0, %3 ], [ %81, %79 ], [ %.2, %60 ], [ 0, %7 ], [ %83, %82 ]
   ret i32 %.0
 }
 
@@ -316,7 +316,7 @@ define internal i32 @buffer_read(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %15
 
 .loopexit:                                        ; preds = %17, %.lr.ph, %55, %._crit_edge, %3, %7, %57, %38
-  %.0 = phi i32 [ %40, %38 ], [ %59, %57 ], [ 0, %7 ], [ 0, %3 ], [ %.2.lcssa, %._crit_edge ], [ %.1, %55 ], [ %42, %.lr.ph ], [ %27, %17 ]
+  %.0 = phi i32 [ %.1, %55 ], [ 0, %3 ], [ %40, %38 ], [ %42, %.lr.ph ], [ %.2.lcssa, %._crit_edge ], [ %59, %57 ], [ 0, %7 ], [ %27, %17 ]
   ret i32 %.0
 }
 
@@ -445,7 +445,7 @@ define internal i32 @buffer_gets(ptr noundef %0, ptr noundef writeonly captures(
   br label %14
 
 59:                                               ; preds = %53, %3, %55, %46
-  %.0 = phi i32 [ %40, %46 ], [ %57, %55 ], [ 0, %3 ], [ %.050.ph, %53 ]
+  %.0 = phi i32 [ 0, %3 ], [ %40, %46 ], [ %57, %55 ], [ %.050.ph, %53 ]
   ret i32 %.0
 }
 
@@ -691,7 +691,7 @@ define internal i64 @buffer_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2,
   br label %124
 
 124:                                              ; preds = %15, %17, %84, %._crit_edge, %120, %30, %21, %41, %32, %116, %87, %37, %26, %7, %123, %105
-  %.094 = phi i64 [ 0, %123 ], [ %106, %105 ], [ 0, %7 ], [ 0, %26 ], [ 0, %37 ], [ 0, %87 ], [ 0, %116 ], [ %122, %120 ], [ %16, %15 ], [ %20, %17 ], [ %31, %30 ], [ %24, %21 ], [ %42, %41 ], [ %35, %32 ], [ 1, %84 ], [ %115, %._crit_edge ]
+  %.094 = phi i64 [ 0, %87 ], [ 0, %116 ], [ %106, %105 ], [ 0, %7 ], [ 0, %26 ], [ 0, %123 ], [ 0, %37 ], [ %122, %120 ], [ %16, %15 ], [ %20, %17 ], [ %31, %30 ], [ %24, %21 ], [ %42, %41 ], [ %35, %32 ], [ 1, %84 ], [ %115, %._crit_edge ]
   ret i64 %.094
 }
 
@@ -734,7 +734,7 @@ define internal range(i32 0, 2) i32 @buffer_new(ptr noundef writeonly captures(n
   br label %17
 
 17:                                               ; preds = %1, %16, %11
-  %.0 = phi i32 [ 0, %16 ], [ 1, %11 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %11 ], [ 0, %16 ], [ 0, %1 ]
   ret i32 %.0
 }
 

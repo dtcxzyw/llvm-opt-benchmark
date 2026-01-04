@@ -131,7 +131,7 @@ define hidden range(i32 0, 2) i32 @searchAllSourceNames(ptr noundef %0, ptr noun
   br label %patternMatch.exit.i
 
 patternMatch.exit.i:                              ; preds = %38, %30
-  %.0.shrunk.i.in.i = phi i32 [ %31, %30 ], [ %41, %38 ]
+  %.0.shrunk.i.in.i = phi i32 [ %41, %38 ], [ %31, %30 ]
   %.0.shrunk.i.not.i = icmp eq i32 %.0.shrunk.i.in.i, 0
   br i1 %.0.shrunk.i.not.i, label %searchOneSourceName.exit, label %patternMatch.exit.thread.i
 
@@ -147,7 +147,7 @@ patternMatch.exit.thread.i:                       ; preds = %patternMatch.exit.i
   br i1 %exitcond.not, label %searchOneSourceName.exit, label %.lr.ph.split, !llvm.loop !8
 
 searchOneSourceName.exit:                         ; preds = %.loopexit, %patternMatch.exit.i, %.lr.ph, %.preheader, %3
-  %.06 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ 0, %.lr.ph ], [ 1, %patternMatch.exit.i ], [ 0, %.loopexit ]
+  %.06 = phi i32 [ 0, %3 ], [ 1, %patternMatch.exit.i ], [ 0, %.preheader ], [ 0, %.lr.ph ], [ 0, %.loopexit ]
   ret i32 %.06
 }
 
@@ -632,8 +632,8 @@ lineLine.exit.i.i:                                ; preds = %203, %192
   unreachable
 
 fileSection.exit.i:                               ; preds = %135, %116, %.preheader.i, %113
-  %222 = phi i8 [ %.pre100.i, %113 ], [ %214, %.preheader.i ], [ %118, %116 ], [ %137, %135 ]
-  %223 = phi ptr [ %.pre.i, %113 ], [ %213, %.preheader.i ], [ %117, %116 ], [ %136, %135 ]
+  %222 = phi i8 [ %118, %116 ], [ %214, %.preheader.i ], [ %.pre100.i, %113 ], [ %137, %135 ]
+  %223 = phi ptr [ %117, %116 ], [ %213, %.preheader.i ], [ %.pre.i, %113 ], [ %136, %135 ]
   %224 = icmp eq i8 %222, 0
   br i1 %224, label %._crit_edge.i, label %sdeRead.exit8.i
 
@@ -809,7 +809,7 @@ define internal fastcc i32 @stratumTableIndex(ptr noundef readonly captures(addr
   br i1 %or.cond.i, label %12, label %common.ret
 
 common.ret:                                       ; preds = %.loopexit.loopexit, %7, %._crit_edge, %24, %12
-  %common.ret.op = phi i32 [ %13, %12 ], [ %25, %24 ], [ %26, %.loopexit.loopexit ], [ %8, %7 ], [ %20, %._crit_edge ]
+  %common.ret.op = phi i32 [ %13, %12 ], [ %25, %24 ], [ %26, %.loopexit.loopexit ], [ %20, %._crit_edge ], [ %8, %7 ]
   ret i32 %common.ret.op
 
 12:                                               ; preds = %7

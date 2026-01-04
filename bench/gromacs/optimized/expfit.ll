@@ -1352,7 +1352,7 @@ _ZL5myexpddd.exit182:                             ; preds = %263, %270
   br i1 %exitcond249.not, label %.loopexit, label %275, !llvm.loop !23
 
 .loopexit:                                        ; preds = %_Z11effnNparamsi.exit179, %275, %.preheader222, %_ZL5myexpddd.exit176, %_ZL5myexpddd.exit170, %_ZL5myexpddd.exit
-  %.2145 = phi double [ %213, %_ZL5myexpddd.exit ], [ %226, %_ZL5myexpddd.exit170 ], [ %250, %_ZL5myexpddd.exit176 ], [ 0.000000e+00, %.preheader222 ], [ %289, %275 ], [ %.3146, %_Z11effnNparamsi.exit179 ]
+  %.2145 = phi double [ %289, %275 ], [ %213, %_ZL5myexpddd.exit ], [ %226, %_ZL5myexpddd.exit170 ], [ %250, %_ZL5myexpddd.exit176 ], [ 0.000000e+00, %.preheader222 ], [ %.3146, %_Z11effnNparamsi.exit179 ]
   br i1 %8, label %290, label %294
 
 290:                                              ; preds = %.loopexit

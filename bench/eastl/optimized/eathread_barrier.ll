@@ -302,7 +302,7 @@ if.end48:                                         ; preds = %if.end37
   br label %return
 
 return:                                           ; preds = %if.end37, %if.end, %entry, %if.end48, %if.then46
-  %retval.0 = phi i32 [ -2, %if.then46 ], [ -1, %if.end48 ], [ -1, %entry ], [ -1, %if.end ], [ %not.bPrimary.0, %if.end37 ]
+  %retval.0 = phi i32 [ -1, %entry ], [ -1, %if.end ], [ -2, %if.then46 ], [ -1, %if.end48 ], [ %not.bPrimary.0, %if.end37 ]
   ret i32 %retval.0
 }
 
@@ -374,7 +374,7 @@ if.else.i.i10:                                    ; preds = %if.then10.i.i7
   br label %return
 
 return:                                           ; preds = %if.else.i.i10, %if.then14.i.i12, %if.else, %if.else.i.i, %if.then14.i.i, %if.then
-  %retval.0 = phi ptr [ %call1, %if.then ], [ %call1, %if.then14.i.i ], [ %call1, %if.else.i.i ], [ %call2, %if.else ], [ %call2, %if.then14.i.i12 ], [ %call2, %if.else.i.i10 ]
+  %retval.0 = phi ptr [ %call1, %if.else.i.i ], [ %call1, %if.then ], [ %call1, %if.then14.i.i ], [ %call2, %if.else ], [ %call2, %if.then14.i.i12 ], [ %call2, %if.else.i.i10 ]
   ret ptr %retval.0
 }
 

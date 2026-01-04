@@ -639,7 +639,7 @@ define dso_local i32 @pmix_info_register_framework_params() local_unnamed_addr #
   br label %14
 
 14:                                               ; preds = %0, %12, %9, %5
-  %.0 = phi i32 [ -1, %5 ], [ %8, %9 ], [ %13, %12 ], [ 0, %0 ]
+  %.0 = phi i32 [ %13, %12 ], [ -1, %5 ], [ %8, %9 ], [ 0, %0 ]
   ret i32 %.0
 }
 
@@ -963,7 +963,7 @@ escape_quotes.exit:                               ; preds = %.preheader.i, %.cri
   br label %107
 
 107:                                              ; preds = %escape_quotes.exit, %105, %106, %78, %80, %47, %44, %32, %56
-  %.sink111 = phi ptr [ %57, %56 ], [ %9, %32 ], [ %9, %44 ], [ %9, %47 ], [ %9, %80 ], [ %9, %78 ], [ %9, %106 ], [ %9, %105 ], [ %9, %escape_quotes.exit ]
+  %.sink111 = phi ptr [ %9, %47 ], [ %57, %56 ], [ %9, %44 ], [ %9, %32 ], [ %9, %80 ], [ %9, %78 ], [ %9, %106 ], [ %9, %105 ], [ %9, %escape_quotes.exit ]
   call void @free(ptr noundef %.sink111) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1044,8 +1044,8 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph
   br i1 %47, label %.critedge, label %pmix_cmd_line_get_param.exit
 
 pmix_cmd_line_get_param.exit.thread:              ; preds = %41, %pmix_cmd_line_get_param.exit, %pmix_cmd_line_get_param.exit.preheader, %1
-  %.not96 = phi i1 [ true, %1 ], [ false, %pmix_cmd_line_get_param.exit.preheader ], [ false, %pmix_cmd_line_get_param.exit ], [ true, %41 ]
-  %.08.i95 = phi ptr [ null, %1 ], [ %.011.i, %pmix_cmd_line_get_param.exit.preheader ], [ %.011.i, %pmix_cmd_line_get_param.exit ], [ null, %41 ]
+  %.not96 = phi i1 [ false, %pmix_cmd_line_get_param.exit.preheader ], [ true, %1 ], [ false, %pmix_cmd_line_get_param.exit ], [ true, %41 ]
+  %.08.i95 = phi ptr [ %.011.i, %pmix_cmd_line_get_param.exit.preheader ], [ null, %1 ], [ %.011.i, %pmix_cmd_line_get_param.exit ], [ null, %41 ]
   br i1 %0, label %.critedge, label %301
 
 .critedge:                                        ; preds = %.lr.ph, %pmix_cmd_line_get_param.exit.thread
@@ -3069,9 +3069,9 @@ define dso_local void @pmix_info_show_mca_version(ptr noundef %0, ptr noundef re
   br label %19
 
 19:                                               ; preds = %.thread, %3
-  %.04268 = phi i1 [ true, %3 ], [ %15, %.thread ]
-  %.0415865 = phi i1 [ true, %3 ], [ %12, %.thread ]
-  %.043 = phi i1 [ true, %3 ], [ %18, %.thread ]
+  %.04268 = phi i1 [ %15, %.thread ], [ true, %3 ]
+  %.0415865 = phi i1 [ %12, %.thread ], [ true, %3 ]
+  %.043 = phi i1 [ %18, %.thread ], [ true, %3 ]
   %20 = load i32, ptr %0, align 8, !tbaa !128
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !130
@@ -3401,12 +3401,12 @@ define dso_local ptr @pmix_info_make_version_str(ptr noundef readonly captures(n
   br label %49
 
 49:                                               ; preds = %47, %41, %17, %23
-  %.0 = phi ptr [ %24, %23 ], [ %19, %17 ], [ %42, %41 ], [ %48, %47 ]
+  %.0 = phi ptr [ %24, %23 ], [ %19, %17 ], [ %48, %47 ], [ %42, %41 ]
   %50 = icmp eq ptr %.0, null
   br i1 %50, label %.thread, label %53
 
 .thread.sink.split:                               ; preds = %33, %29, %25
-  %.sink = phi i32 [ %1, %25 ], [ %2, %29 ], [ %3, %33 ]
+  %.sink = phi i32 [ %2, %29 ], [ %1, %25 ], [ %3, %33 ]
   %51 = call i32 (ptr, i64, ptr, ...) @pmix_snprintf(ptr noundef nonnull %8, i64 noundef 8191, ptr noundef nonnull @.str.70, i32 noundef %.sink) #17
   br label %.thread
 
@@ -3415,7 +3415,7 @@ define dso_local ptr @pmix_info_make_version_str(ptr noundef readonly captures(n
   br label %53
 
 53:                                               ; preds = %20, %49, %.thread
-  %.022 = phi ptr [ %52, %.thread ], [ %.0, %49 ], [ null, %20 ]
+  %.022 = phi ptr [ %.0, %49 ], [ %52, %.thread ], [ null, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.022

@@ -1403,7 +1403,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %489, %491
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 499:                                              ; preds = %251, %257, %277, %290, %333, %480, %481, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195, %247, %210
-  %.pn154.pn = phi { ptr, i32 } [ %211, %210 ], [ %lpad.phi, %247 ], [ %.pn143, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195 ], [ %.pn151, %257 ], [ %.pn149, %290 ], [ %.pn147, %333 ], [ %252, %251 ], [ %482, %481 ], [ %.pn145, %480 ], [ %278, %277 ]
+  %.pn154.pn = phi { ptr, i32 } [ %211, %210 ], [ %.pn143, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195 ], [ %lpad.phi, %247 ], [ %.pn151, %257 ], [ %.pn149, %290 ], [ %.pn147, %333 ], [ %252, %251 ], [ %482, %481 ], [ %.pn145, %480 ], [ %278, %277 ]
   %500 = load ptr, ptr %28, align 8, !tbaa !46
   %.not.i.i.i218 = icmp eq ptr %500, null
   br i1 %.not.i.i.i218, label %_ZNSt6vectorIfSaIfEED2Ev.exit219, label %501
@@ -1511,7 +1511,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   ret i32 0
 
 _ZNSt6vectorIiSaIiEED2Ev.exit221:                 ; preds = %508, %507, %.thread, %130, %52
-  %.pn157.pn.pn = phi { ptr, i32 } [ %.pn, %130 ], [ %53, %52 ], [ %.pn141, %.thread ], [ %.pn157.pn, %507 ], [ %.pn157.pn, %508 ]
+  %.pn157.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %.pn, %130 ], [ %.pn141, %.thread ], [ %.pn157.pn, %507 ], [ %.pn157.pn, %508 ]
   %535 = getelementptr inbounds nuw i8, ptr %23, i64 168
   br label %536
 

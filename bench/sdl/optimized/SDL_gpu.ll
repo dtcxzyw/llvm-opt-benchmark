@@ -1237,7 +1237,7 @@ define hidden ptr @SDL_CreateGPUGraphicsPipeline_REAL(ptr noundef readonly captu
   br label %.thread
 
 .thread:                                          ; preds = %.preheader396, %.preheader394, %.preheader392, %.preheader390, %.preheader388, %.preheader386, %.preheader384, %.preheader382, %.preheader380, %.preheader436, %.preheader434, %.preheader432, %.preheader430, %.preheader428, %.preheader426, %.preheader402, %.preheader424, %.preheader404, %.preheader400, %.preheader398, %.preheader378, %.preheader, %155, %150, %142, %138, %129, %123, %114, %110, %107, %94, %88, %82, %76, %70, %64, %52, %46, %43, %34, %25, %19, %.critedge304.thread, %162, %222, %9, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %9 ], [ %227, %222 ], [ null, %162 ], [ null, %.critedge304.thread ], [ null, %19 ], [ null, %25 ], [ null, %34 ], [ null, %43 ], [ null, %46 ], [ null, %52 ], [ null, %64 ], [ null, %70 ], [ null, %76 ], [ null, %82 ], [ null, %88 ], [ null, %94 ], [ null, %107 ], [ null, %110 ], [ null, %114 ], [ null, %123 ], [ null, %129 ], [ null, %138 ], [ null, %142 ], [ null, %150 ], [ null, %155 ], [ null, %.preheader ], [ null, %.preheader378 ], [ null, %.preheader398 ], [ null, %.preheader400 ], [ null, %.preheader404 ], [ null, %.preheader424 ], [ null, %.preheader402 ], [ null, %.preheader426 ], [ null, %.preheader428 ], [ null, %.preheader430 ], [ null, %.preheader432 ], [ null, %.preheader434 ], [ null, %.preheader436 ], [ null, %.preheader380 ], [ null, %.preheader382 ], [ null, %.preheader384 ], [ null, %.preheader386 ], [ null, %.preheader388 ], [ null, %.preheader390 ], [ null, %.preheader392 ], [ null, %.preheader394 ], [ null, %.preheader396 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %9 ], [ null, %.preheader398 ], [ null, %.preheader386 ], [ null, %.preheader402 ], [ null, %.preheader400 ], [ null, %.preheader378 ], [ null, %.preheader380 ], [ null, %.preheader392 ], [ null, %.preheader390 ], [ null, %.preheader ], [ %227, %222 ], [ null, %.critedge304.thread ], [ null, %.preheader388 ], [ null, %.preheader394 ], [ null, %.preheader436 ], [ null, %.preheader432 ], [ null, %162 ], [ null, %19 ], [ null, %25 ], [ null, %34 ], [ null, %43 ], [ null, %.preheader382 ], [ null, %46 ], [ null, %.preheader384 ], [ null, %52 ], [ null, %.preheader434 ], [ null, %64 ], [ null, %.preheader404 ], [ null, %70 ], [ null, %.preheader424 ], [ null, %76 ], [ null, %.preheader426 ], [ null, %82 ], [ null, %.preheader428 ], [ null, %88 ], [ null, %.preheader430 ], [ null, %94 ], [ null, %107 ], [ null, %110 ], [ null, %114 ], [ null, %123 ], [ null, %129 ], [ null, %138 ], [ null, %142 ], [ null, %150 ], [ null, %155 ], [ null, %.preheader396 ]
   ret ptr %.0
 }
 
@@ -1685,7 +1685,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   tail call void @llvm.debugtrap()
   br label %.critedge175
 
-43:                                               ; preds = %.critedge
+43:                                               ; preds = %.critedge167
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge168, label %.lr.ph, !llvm.loop !11
@@ -1833,7 +1833,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   %97 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %98 = load i32, ptr %97, align 4
   %.not151 = icmp ult i32 %96, %98
-  br i1 %.not151, label %.critedge, label %.preheader218
+  br i1 %.not151, label %.critedge167, label %.preheader218
 
 .preheader218:                                    ; preds = %94, %.preheader218
   %99 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.211, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1644) #6
@@ -1846,7 +1846,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   tail call void @llvm.debugtrap()
   br label %.critedge175
 
-.critedge:                                        ; preds = %94
+.critedge167:                                     ; preds = %94
   %101 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %102 = load i32, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %45, i64 24
@@ -1854,7 +1854,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   %.not152 = icmp ult i32 %102, %104
   br i1 %.not152, label %43, label %.preheader216
 
-.preheader216:                                    ; preds = %.critedge, %.preheader216
+.preheader216:                                    ; preds = %.critedge167, %.preheader216
   %105 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BeginGPURenderPass_REAL.sdl_assert_data.214, ptr noundef nonnull @__func__.SDL_BeginGPURenderPass_REAL, ptr noundef nonnull @.str.8, i32 noundef 1649) #6
   switch i32 %105, label %.critedge175 [
     i32 0, label %.preheader216
@@ -1988,7 +1988,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br label %.critedge175
 
 .critedge175:                                     ; preds = %.preheader222, %.preheader220, %.preheader218, %.preheader216, %.preheader214, %.preheader212, %.preheader210, %.preheader208, %.preheader206, %139, %126, %.preheader224, %40, %.preheader, %141, %128, %113, %106, %100, %93, %87, %82, %75, %70, %64, %54, %42, %27, %._crit_edge, %153, %15, %11, %6
-  %.0118 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %15 ], [ %145, %153 ], [ %145, %._crit_edge ], [ null, %27 ], [ null, %42 ], [ null, %54 ], [ null, %64 ], [ null, %70 ], [ null, %75 ], [ null, %82 ], [ null, %87 ], [ null, %93 ], [ null, %100 ], [ null, %106 ], [ null, %113 ], [ null, %128 ], [ null, %141 ], [ null, %.preheader ], [ null, %40 ], [ null, %.preheader224 ], [ null, %126 ], [ null, %139 ], [ null, %.preheader206 ], [ null, %.preheader208 ], [ null, %.preheader210 ], [ null, %.preheader212 ], [ null, %.preheader214 ], [ null, %.preheader216 ], [ null, %.preheader218 ], [ null, %.preheader220 ], [ null, %.preheader222 ]
+  %.0118 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %15 ], [ null, %.preheader ], [ null, %.preheader212 ], [ null, %.preheader210 ], [ %145, %._crit_edge ], [ %145, %153 ], [ null, %.preheader206 ], [ null, %139 ], [ null, %40 ], [ null, %.preheader220 ], [ null, %.preheader218 ], [ null, %.preheader224 ], [ null, %126 ], [ null, %.preheader216 ], [ null, %.preheader208 ], [ null, %.preheader214 ], [ null, %27 ], [ null, %42 ], [ null, %54 ], [ null, %64 ], [ null, %70 ], [ null, %75 ], [ null, %82 ], [ null, %87 ], [ null, %93 ], [ null, %100 ], [ null, %106 ], [ null, %113 ], [ null, %128 ], [ null, %141 ], [ null, %.preheader222 ]
   ret ptr %.0118
 }
 
@@ -2528,7 +2528,7 @@ define internal fastcc noundef ptr @SDL_GPUSelectBackend(i32 noundef %0) unnamed
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %.preheader.preheader, %21, %19, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %19 ], [ null, %21 ], [ @VulkanDriver, %.preheader.preheader ], [ @VulkanDriver, %16 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %21 ], [ null, %19 ], [ @VulkanDriver, %.preheader.preheader ], [ @VulkanDriver, %16 ]
   ret ptr %.0
 }
 
@@ -2718,7 +2718,7 @@ switch.lookup:                                    ; preds = %1
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %switch.lookup, %4
-  %.05 = phi i32 [ 0, %4 ], [ %switch.load, %switch.lookup ], [ 0, %.preheader ]
+  %.05 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %4 ], [ 0, %.preheader ]
   ret i32 %.05
 }
 
@@ -2777,7 +2777,7 @@ define hidden zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef readonly
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %14, %17, %22, %6
-  %.016 = phi i1 [ false, %6 ], [ %27, %22 ], [ false, %17 ], [ false, %14 ], [ false, %.preheader ]
+  %.016 = phi i1 [ false, %6 ], [ false, %17 ], [ %27, %22 ], [ false, %14 ], [ false, %.preheader ]
   ret i1 %.016
 }
 
@@ -2956,7 +2956,7 @@ define hidden ptr @SDL_CreateGPUComputePipeline_REAL(ptr noundef readonly captur
   br label %.thread
 
 .thread:                                          ; preds = %50, %.preheader55, %.preheader53, %.preheader51, %.preheader, %52, %37, %31, %25, %19, %53, %8, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %58, %53 ], [ null, %19 ], [ null, %25 ], [ null, %31 ], [ null, %37 ], [ null, %52 ], [ null, %.preheader ], [ null, %.preheader51 ], [ null, %.preheader53 ], [ null, %.preheader55 ], [ null, %50 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ null, %.preheader51 ], [ null, %.preheader53 ], [ null, %.preheader55 ], [ null, %.preheader ], [ %58, %53 ], [ null, %19 ], [ null, %25 ], [ null, %31 ], [ null, %37 ], [ null, %52 ], [ null, %50 ]
   ret ptr %.0
 }
 
@@ -3139,7 +3139,7 @@ define hidden ptr @SDL_CreateGPUShader_REAL(ptr noundef readonly captures(addres
   br label %.thread
 
 .thread:                                          ; preds = %.preheader25, %.preheader, %25, %19, %26, %8, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %31, %26 ], [ null, %19 ], [ null, %25 ], [ null, %.preheader ], [ null, %.preheader25 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ null, %.preheader ], [ %31, %26 ], [ null, %19 ], [ null, %25 ], [ null, %.preheader25 ]
   ret ptr %.0
 }
 
@@ -3278,7 +3278,7 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
   br label %.thread235
 
 .thread235:                                       ; preds = %.preheader308, %51, %47, %.thread233
-  %.3 = phi i1 [ %.2, %47 ], [ %.2, %.thread233 ], [ true, %51 ], [ true, %.preheader308 ]
+  %.3 = phi i1 [ %.2, %.thread233 ], [ %.2, %47 ], [ true, %51 ], [ true, %.preheader308 ]
   %52 = load i32, ptr %15, align 4
   %.off.i = add i32 %52, -58
   %switch.i = icmp ult i32 %.off.i, 5
@@ -3342,7 +3342,7 @@ thread-pre-split:                                 ; preds = %.preheader307, %57,
   br label %IsIntegerFormat.exit
 
 IsIntegerFormat.exit:                             ; preds = %.preheader306, %64, %58, %60
-  %.5 = phi i1 [ %.4, %60 ], [ %.4, %58 ], [ true, %64 ], [ true, %.preheader306 ]
+  %.5 = phi i1 [ %.4, %58 ], [ %.4, %60 ], [ true, %64 ], [ true, %.preheader306 ]
   %65 = load i32, ptr %1, align 4
   switch i32 %65, label %.thread274 [
     i32 3, label %66
@@ -3693,7 +3693,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader306, %64,
   br label %.thread278
 
 .thread278:                                       ; preds = %.preheader289, %159, %.thread272, %.thread274, %155
-  %.20 = phi i1 [ %.18.ph, %155 ], [ %.18.ph, %.thread274 ], [ %.19, %.thread272 ], [ true, %159 ], [ true, %.preheader289 ]
+  %.20 = phi i1 [ %.18.ph, %.thread274 ], [ %.18.ph, %155 ], [ %.19, %.thread272 ], [ true, %159 ], [ true, %.preheader289 ]
   %160 = load i32, ptr %15, align 4
   %161 = load i32, ptr %40, align 4
   %162 = load i8, ptr %11, align 4, !range !5, !noundef !6
@@ -3749,7 +3749,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader306, %64,
   br label %.thread285
 
 182:                                              ; preds = %.thread249, %.thread268, %.thread260, %174
-  %.1137 = phi i1 [ %.9, %.thread249 ], [ %.14, %.thread260 ], [ %.17, %.thread268 ], [ %.20, %174 ]
+  %.1137 = phi i1 [ %.20, %174 ], [ %.9, %.thread249 ], [ %.17, %.thread268 ], [ %.14, %.thread260 ]
   br i1 %.1137, label %.thread285, label %183
 
 183:                                              ; preds = %182, %10
@@ -3761,7 +3761,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader306, %64,
   br label %.thread285
 
 .thread285:                                       ; preds = %.preheader300, %.preheader295, %.preheader290, %.preheader287, %.preheader, %181, %146, %120, %92, %19, %182, %183, %8, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %188, %183 ], [ null, %182 ], [ null, %19 ], [ null, %92 ], [ null, %120 ], [ null, %146 ], [ null, %181 ], [ null, %.preheader ], [ null, %.preheader287 ], [ null, %.preheader290 ], [ null, %.preheader295 ], [ null, %.preheader300 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %188, %183 ], [ null, %182 ], [ null, %19 ], [ null, %.preheader295 ], [ null, %92 ], [ null, %.preheader ], [ null, %120 ], [ null, %.preheader287 ], [ null, %146 ], [ null, %.preheader290 ], [ null, %181 ], [ null, %.preheader300 ]
   ret ptr %.0
 }
 
@@ -5583,7 +5583,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader92, %.preheader90, %.preheader88, %50, %.preheader, %74, %67, %60, %52, %37, %.critedge77, %25, %21, %17, %12, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %12 ], [ null, %17 ], [ null, %21 ], [ null, %25 ], [ %77, %.critedge77 ], [ null, %37 ], [ null, %52 ], [ null, %60 ], [ null, %67 ], [ null, %74 ], [ null, %.preheader ], [ null, %50 ], [ null, %.preheader88 ], [ null, %.preheader90 ], [ null, %.preheader92 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %12 ], [ null, %17 ], [ null, %21 ], [ null, %25 ], [ null, %50 ], [ null, %.preheader90 ], [ %77, %.critedge77 ], [ null, %.preheader88 ], [ null, %.preheader ], [ null, %37 ], [ null, %52 ], [ null, %60 ], [ null, %67 ], [ null, %74 ], [ null, %.preheader92 ]
   ret ptr %.0
 }
 
@@ -6109,7 +6109,7 @@ define hidden ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef %0) local_unnamed_addr 
   br label %.thread
 
 .thread:                                          ; preds = %28, %.preheader, %30, %15, %31, %3
-  %.0 = phi ptr [ null, %3 ], [ %34, %31 ], [ null, %15 ], [ null, %30 ], [ null, %.preheader ], [ null, %28 ]
+  %.0 = phi ptr [ null, %3 ], [ %34, %31 ], [ null, %.preheader ], [ null, %15 ], [ null, %30 ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -7329,7 +7329,7 @@ define hidden zeroext i1 @SDL_SetGPUSwapchainParameters_REAL(ptr noundef readonl
   br label %.thread
 
 .thread:                                          ; preds = %.preheader30, %.preheader, %23, %19, %24, %10, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %10 ], [ %29, %24 ], [ false, %19 ], [ false, %23 ], [ false, %.preheader ], [ false, %.preheader30 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %10 ], [ %29, %24 ], [ false, %.preheader ], [ false, %19 ], [ false, %23 ], [ false, %.preheader30 ]
   ret i1 %.0
 }
 
@@ -7503,7 +7503,7 @@ define hidden zeroext i1 @SDL_AcquireGPUSwapchainTexture_REAL(ptr noundef %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %40, %.preheader, %42, %27, %43, %48, %15, %11, %7
-  %.0 = phi i1 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ %46, %48 ], [ %46, %43 ], [ false, %27 ], [ false, %42 ], [ false, %.preheader ], [ false, %40 ]
+  %.0 = phi i1 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ false, %.preheader ], [ %46, %43 ], [ %46, %48 ], [ false, %27 ], [ false, %42 ], [ false, %40 ]
   ret i1 %.0
 }
 
@@ -7632,7 +7632,7 @@ define hidden zeroext i1 @SDL_WaitAndAcquireGPUSwapchainTexture_REAL(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %40, %.preheader, %42, %27, %43, %48, %15, %11, %7
-  %.0 = phi i1 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ %46, %48 ], [ %46, %43 ], [ false, %27 ], [ false, %42 ], [ false, %.preheader ], [ false, %40 ]
+  %.0 = phi i1 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ false, %.preheader ], [ %46, %43 ], [ %46, %48 ], [ false, %27 ], [ false, %42 ], [ false, %40 ]
   ret i1 %.0
 }
 
@@ -7710,7 +7710,7 @@ define hidden zeroext i1 @SDL_SubmitGPUCommandBuffer_REAL(ptr noundef %0) local_
   br label %.thread
 
 .thread:                                          ; preds = %28, %.preheader, %30, %15, %31, %3
-  %.0 = phi i1 [ false, %3 ], [ %35, %31 ], [ false, %15 ], [ false, %30 ], [ false, %.preheader ], [ false, %28 ]
+  %.0 = phi i1 [ false, %3 ], [ %35, %31 ], [ false, %.preheader ], [ false, %15 ], [ false, %30 ], [ false, %28 ]
   ret i1 %.0
 }
 
@@ -7788,7 +7788,7 @@ define hidden ptr @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL(ptr noundef %0
   br label %.thread
 
 .thread:                                          ; preds = %28, %.preheader, %30, %15, %31, %3
-  %.0 = phi ptr [ null, %3 ], [ %35, %31 ], [ null, %15 ], [ null, %30 ], [ null, %.preheader ], [ null, %28 ]
+  %.0 = phi ptr [ null, %3 ], [ %35, %31 ], [ null, %.preheader ], [ null, %15 ], [ null, %30 ], [ null, %28 ]
   ret ptr %.0
 }
 
@@ -8004,7 +8004,7 @@ switch.lookup:                                    ; preds = %1
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %switch.lookup, %4
-  %.05 = phi i32 [ 0, %4 ], [ %switch.load, %switch.lookup ], [ 0, %.preheader ]
+  %.05 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %4 ], [ 0, %.preheader ]
   ret i32 %.05
 }
 
@@ -8032,7 +8032,7 @@ switch.lookup:                                    ; preds = %1
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %switch.lookup, %4
-  %.05 = phi i32 [ 0, %4 ], [ %switch.load, %switch.lookup ], [ 0, %.preheader ]
+  %.05 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %4 ], [ 0, %.preheader ]
   ret i32 %.05
 }
 

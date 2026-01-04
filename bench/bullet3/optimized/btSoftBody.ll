@@ -12597,9 +12597,9 @@ define dso_local void @_ZN10btSoftBody13setVolumeMassEf(ptr noundef nonnull alig
   br label %29
 
 .preheader28:                                     ; preds = %29, %2, %.loopexit29
-  %18 = phi i1 [ false, %.loopexit29 ], [ false, %2 ], [ true, %29 ]
-  %19 = phi i32 [ %.pre, %.loopexit29 ], [ %9, %2 ], [ %.pre, %29 ]
-  %20 = phi ptr [ %14, %.loopexit29 ], [ null, %2 ], [ %14, %29 ]
+  %18 = phi i1 [ false, %2 ], [ false, %.loopexit29 ], [ true, %29 ]
+  %19 = phi i32 [ %9, %2 ], [ %.pre, %.loopexit29 ], [ %.pre, %29 ]
+  %20 = phi ptr [ null, %2 ], [ %14, %.loopexit29 ], [ %14, %29 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   %22 = load i32, ptr %21, align 4, !tbaa !158
   %23 = icmp sgt i32 %22, 0
@@ -14036,8 +14036,8 @@ _ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit172: ; preds = %_ZNK14Gi
   call void @_Z7processILi1EEvR11btMatrix3x3S1_R9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(48) %6, ptr noundef nonnull align 4 dereferenceable(48) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(48) %3)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %161, %157, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit132, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit152, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit172
-  %.sink = phi i32 [ 1, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit172 ], [ 0, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit152 ], [ 0, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit132 ], [ 0, %157 ], [ 1, %161 ]
+.sink.split:                                      ; preds = %161, %157, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit132, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit172, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit152
+  %.sink = phi i32 [ 0, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit152 ], [ 1, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit172 ], [ 0, %_ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit132 ], [ 0, %157 ], [ 1, %161 ]
   call void @_Z4sortR11btMatrix3x3R9btVector3S0_i(ptr noundef nonnull align 4 dereferenceable(48) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(48) %3, i32 noundef %.sink)
   br label %318
 
@@ -17658,7 +17658,7 @@ _ZN20btAlignedObjectArrayI9NodeLinksED2Ev.exit:   ; preds = %_ZN20btAlignedObjec
   br label %306
 
 306:                                              ; preds = %303, %299
-  %.sroa.6.0.i = phi ptr [ %2, %299 ], [ %305, %303 ]
+  %.sroa.6.0.i = phi ptr [ %305, %303 ], [ %2, %299 ]
   %307 = load i32, ptr %24, align 4, !tbaa !146
   %308 = load i32, ptr %287, align 8, !tbaa !147
   %309 = icmp eq i32 %307, %308
@@ -19721,8 +19721,8 @@ _ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit
   br label %_ZN10btSoftBody14releaseClusterEi.exit
 
 _ZN10btSoftBody14releaseClusterEi.exit:           ; preds = %605, %608, %_ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit.i.i, %.noexc372, %584
-  %616 = phi i32 [ %585, %584 ], [ %598, %.noexc372 ], [ %598, %_ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit.i.i ], [ %609, %608 ], [ %598, %605 ]
-  %.4148 = phi i32 [ %.3147673, %584 ], [ %594, %.noexc372 ], [ %594, %_ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit.i.i ], [ %594, %608 ], [ %594, %605 ]
+  %616 = phi i32 [ %585, %584 ], [ %598, %.noexc372 ], [ %609, %608 ], [ %598, %_ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit.i.i ], [ %598, %605 ]
+  %.4148 = phi i32 [ %.3147673, %584 ], [ %594, %.noexc372 ], [ %594, %608 ], [ %594, %_ZNK20btAlignedObjectArrayIPN10btSoftBody7ClusterEE16findLinearSearchERKS2_.exit.i.i ], [ %594, %605 ]
   %617 = add nsw i32 %.4148, 1
   %618 = icmp slt i32 %617, %616
   br i1 %618, label %584, label %._crit_edge676, !llvm.loop !666
@@ -19763,7 +19763,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %._crit_edge676, %62
   unreachable
 
 630:                                              ; preds = %535, %571, %470, %363, %361
-  %.pn168 = phi { ptr, i32 } [ %471, %470 ], [ %362, %361 ], [ %364, %363 ], [ %572, %571 ], [ %536, %535 ]
+  %.pn168 = phi { ptr, i32 } [ %471, %470 ], [ %364, %363 ], [ %362, %361 ], [ %572, %571 ], [ %536, %535 ]
   call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i.i.i377.not = icmp eq ptr %165, null
@@ -20491,7 +20491,7 @@ _ZN20btAlignedObjectArrayIbE6resizeEiRKb.exit:    ; preds = %.lr.ph.i470, %850
   br i1 %exitcond770.not, label %.critedge, label %.preheader
 
 .loopexit:                                        ; preds = %._crit_edge688, %_ZN20btAlignedObjectArrayIbE6resizeEiRKb.exit, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit
-  %911 = phi i32 [ %880, %_ZN20btAlignedObjectArrayIbE6resizeEiRKb.exit ], [ 0, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit ], [ %880, %._crit_edge688 ]
+  %911 = phi i32 [ 0, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit ], [ %880, %_ZN20btAlignedObjectArrayIbE6resizeEiRKb.exit ], [ %880, %._crit_edge688 ]
   ret i32 %911
 }
 
@@ -21666,7 +21666,7 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i:                   ; preds = %_Z8btSetMinIfEvRT_R
   br label %426
 
 .body:                                            ; preds = %424, %78, %76
-  %.pn122.pn.pn = phi { ptr, i32 } [ %79, %78 ], [ %77, %76 ], [ %.pn113.pn, %424 ]
+  %.pn122.pn.pn = phi { ptr, i32 } [ %77, %76 ], [ %.pn113.pn, %424 ], [ %79, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -22592,7 +22592,7 @@ _ZN20btAlignedObjectArrayIN10btSoftBody4FaceEE10deallocateEv.exit.i.i.i: ; preds
   br label %512
 
 512:                                              ; preds = %509, %466
-  %.sroa.6.0.i401 = phi ptr [ %505, %466 ], [ %511, %509 ]
+  %.sroa.6.0.i401 = phi ptr [ %511, %509 ], [ %505, %466 ]
   %513 = load i32, ptr %45, align 4, !tbaa !146
   %514 = load i32, ptr %336, align 8, !tbaa !147
   %515 = icmp eq i32 %513, %514
@@ -23338,7 +23338,7 @@ _ZN11btSymMatrixIiED2Ev.exit:                     ; preds = %855, %860
   ret void
 
 864:                                              ; preds = %.loopexit445, %.loopexit.split-lp, %90, %92, %320, %854, %570, %390
-  %.pn321.pn = phi { ptr, i32 } [ %391, %390 ], [ %.pn314, %570 ], [ %.pn310.pn, %854 ], [ %321, %320 ], [ %93, %92 ], [ %91, %90 ], [ %lpad.loopexit, %.loopexit445 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn321.pn = phi { ptr, i32 } [ %.pn314, %570 ], [ %93, %92 ], [ %321, %320 ], [ %.pn310.pn, %854 ], [ %91, %90 ], [ %391, %390 ], [ %lpad.loopexit, %.loopexit445 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN11btSymMatrixIiED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %8) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
@@ -23754,7 +23754,7 @@ _ZNK10btSoftBody9checkLinkEPKNS_4NodeES2_.exit.i: ; preds = %.critedge.i.i, %_ZN
   br label %203
 
 203:                                              ; preds = %200, %_ZNK10btSoftBody9checkLinkEPKNS_4NodeES2_.exit.i
-  %.sroa.6.0.i79 = phi ptr [ %182, %_ZNK10btSoftBody9checkLinkEPKNS_4NodeES2_.exit.i ], [ %202, %200 ]
+  %.sroa.6.0.i79 = phi ptr [ %202, %200 ], [ %182, %_ZNK10btSoftBody9checkLinkEPKNS_4NodeES2_.exit.i ]
   %204 = load i32, ptr %109, align 8, !tbaa !147
   %205 = icmp eq i32 %183, %204
   br i1 %205, label %206, label %_ZN10btSoftBody10appendLinkEiPNS_8MaterialE.exit
@@ -23912,7 +23912,7 @@ _ZNK10btSoftBody9checkLinkEPKNS_4NodeES2_.exit.i68: ; preds = %.critedge.i.i73, 
   br label %274
 
 274:                                              ; preds = %271, %_ZNK10btSoftBody9checkLinkEPKNS_4NodeES2_.exit.i68
-  %.sroa.6.0.i97 = phi ptr [ %254, %_ZNK10btSoftBody9checkLinkEPKNS_4NodeES2_.exit.i68 ], [ %273, %271 ]
+  %.sroa.6.0.i97 = phi ptr [ %273, %271 ], [ %254, %_ZNK10btSoftBody9checkLinkEPKNS_4NodeES2_.exit.i68 ]
   %275 = load i32, ptr %109, align 8, !tbaa !147
   %276 = icmp eq i32 %253, %275
   br i1 %276, label %277, label %_ZN10btSoftBody10appendLinkEiPNS_8MaterialE.exit115
@@ -24771,9 +24771,9 @@ _ZN20btAlignedObjectArrayIS_IiEED2Ev.exit97:      ; preds = %_ZN20btAlignedObjec
   br label %283
 
 283:                                              ; preds = %86, %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit97
-  %284 = phi i1 [ %282, %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit97 ], [ true, %86 ]
-  %285 = phi ptr [ %.pre167, %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit97 ], [ %19, %86 ]
-  %.pn41.pn = phi { ptr, i32 } [ %.pn38, %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit97 ], [ %87, %86 ]
+  %284 = phi i1 [ true, %86 ], [ %282, %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit97 ]
+  %285 = phi ptr [ %19, %86 ], [ %.pre167, %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit97 ]
+  %.pn41.pn = phi { ptr, i32 } [ %87, %86 ], [ %.pn38, %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit97 ]
   %.not.i.i.i98 = icmp ne ptr %285, null
   %or.cond.i.i99 = select i1 %.not.i.i.i98, i1 %284, i1 false
   br i1 %or.cond.i.i99, label %286, label %_ZN20btAlignedObjectArrayIP10btDbvtNodeED2Ev.exit100
@@ -24907,8 +24907,8 @@ define dso_local noundef i32 @_ZNK10btSoftBody7rayTestERK9btVector3S2_RfRNS_8eFe
   br label %69
 
 69:                                               ; preds = %66, %.lr.ph.split
-  %70 = phi float [ %64, %66 ], [ %53, %.lr.ph.split ]
-  %.1 = phi i32 [ %67, %66 ], [ %.072, %.lr.ph.split ]
+  %70 = phi float [ %53, %.lr.ph.split ], [ %64, %66 ]
+  %.1 = phi i32 [ %.072, %.lr.ph.split ], [ %67, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %37
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !760
@@ -25138,7 +25138,7 @@ define dso_local noundef i32 @_ZNK10btSoftBody7rayTestERK9btVector3S2_RfRNS_8eFe
   br label %_ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f.exit.thread
 
 _ZN10btSoftBody15RayFromToCaster17rayFromToTriangleERK9btVector3S3_S3_S3_S3_S3_f.exit.thread: ; preds = %142, %158, %184, %201, %103, %215, %217
-  %.6 = phi i32 [ %216, %215 ], [ %216, %217 ], [ %.574, %103 ], [ %.574, %201 ], [ %.574, %184 ], [ %.574, %158 ], [ %.574, %142 ]
+  %.6 = phi i32 [ %216, %215 ], [ %216, %217 ], [ %.574, %142 ], [ %.574, %103 ], [ %.574, %201 ], [ %.574, %184 ], [ %.574, %158 ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, 4
   br i1 %exitcond89.not, label %99, label %103, !llvm.loop !768
@@ -27679,7 +27679,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjec
   ret void
 
 198:                                              ; preds = %63, %61
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %64, %63 ]
   call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %4) #45
@@ -28097,9 +28097,9 @@ _ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i
   br label %_ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit.i
 
 _ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit.i: ; preds = %89, %92, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i.i, %79, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge.i
-  %100 = phi i32 [ %.pre9.i, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge.i ], [ %81, %79 ], [ %81, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i.i ], [ %93, %92 ], [ %81, %89 ]
-  %101 = phi ptr [ %72, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge.i ], [ %80, %79 ], [ %80, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i.i ], [ %80, %92 ], [ %80, %89 ]
-  %.1.i = phi i32 [ %78, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge.i ], [ %.07.i, %79 ], [ %.07.i, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i.i ], [ %.07.i, %92 ], [ %.07.i, %89 ]
+  %100 = phi i32 [ %.pre9.i, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge.i ], [ %81, %79 ], [ %93, %92 ], [ %81, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i.i ], [ %81, %89 ]
+  %101 = phi ptr [ %72, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge.i ], [ %80, %79 ], [ %80, %92 ], [ %80, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i.i ], [ %80, %89 ]
+  %.1.i = phi i32 [ %78, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge.i ], [ %.07.i, %79 ], [ %.07.i, %92 ], [ %.07.i, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i.i ], [ %.07.i, %89 ]
   %102 = icmp slt i32 %.1.i, %100
   br i1 %102, label %63, label %_ZN10btSoftBody15cleanupClustersEv.exit, !llvm.loop !852
 
@@ -28260,9 +28260,9 @@ _ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i
   br label %_ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit
 
 _ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit: ; preds = %33, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge, %36, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i, %23
-  %44 = phi i32 [ %.pre9, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge ], [ %25, %23 ], [ %25, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i ], [ %37, %36 ], [ %25, %33 ]
-  %45 = phi ptr [ %16, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge ], [ %24, %23 ], [ %24, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i ], [ %24, %36 ], [ %24, %33 ]
-  %.1 = phi i32 [ %22, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge ], [ %.07, %23 ], [ %.07, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i ], [ %.07, %36 ], [ %.07, %33 ]
+  %44 = phi i32 [ %.pre9, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge ], [ %25, %23 ], [ %37, %36 ], [ %25, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i ], [ %25, %33 ]
+  %45 = phi ptr [ %16, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge ], [ %24, %23 ], [ %24, %36 ], [ %24, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i ], [ %24, %33 ]
+  %.1 = phi i32 [ %22, %._ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE6removeERKS2_.exit_crit_edge ], [ %.07, %23 ], [ %.07, %36 ], [ %.07, %_ZNK20btAlignedObjectArrayIPN10btSoftBody5JointEE16findLinearSearchERKS2_.exit.i ], [ %.07, %33 ]
   %46 = icmp slt i32 %.1, %44
   br i1 %46, label %7, label %._crit_edge, !llvm.loop !852
 }
@@ -29101,8 +29101,8 @@ _ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.thread.i.i: ; preds =
           to label %87 unwind label %105
 
 87:                                               ; preds = %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.thread.i.i, %56, %73
-  %.sroa.18.6 = phi i32 [ %.sroa.18.0580, %73 ], [ %.sroa.18.0580, %56 ], [ %75, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.thread.i.i ], [ %75, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i ]
-  %.sroa.25339.9 = phi ptr [ %.sroa.25339.1581, %73 ], [ %.sroa.25339.1581, %56 ], [ %.0.i.i.i98, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.thread.i.i ], [ %.0.i.i.i98, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i ]
+  %.sroa.18.6 = phi i32 [ %.sroa.18.0580, %56 ], [ %.sroa.18.0580, %73 ], [ %75, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.thread.i.i ], [ %75, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i ]
+  %.sroa.25339.9 = phi ptr [ %.sroa.25339.1581, %56 ], [ %.sroa.25339.1581, %73 ], [ %.0.i.i.i98, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.thread.i.i ], [ %.0.i.i.i98, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i ]
   %88 = sext i32 %.sroa.3328.0578 to i64
   %89 = getelementptr inbounds ptr, ptr %.sroa.25339.9, i64 %88
   store ptr %55, ptr %89, align 8, !tbaa !736
@@ -29167,8 +29167,8 @@ _ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i.thread: ; preds = %
   br label %458
 
 .thread384:                                       ; preds = %91, %87, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i.thread, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i
-  %.sroa.16.6 = phi i32 [ %.sroa.3.0575, %91 ], [ %.sroa.16.0574, %87 ], [ %93, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i.thread ], [ %93, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i ]
-  %.sroa.23309.8 = phi ptr [ %.sroa.23309.1576, %91 ], [ %.sroa.23309.1576, %87 ], [ %.0.i.i.i111, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i.thread ], [ %.0.i.i.i111, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i ]
+  %.sroa.16.6 = phi i32 [ %.sroa.16.0574, %87 ], [ %.sroa.3.0575, %91 ], [ %93, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i.thread ], [ %93, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i ]
+  %.sroa.23309.8 = phi ptr [ %.sroa.23309.1576, %87 ], [ %.sroa.23309.1576, %91 ], [ %.0.i.i.i111, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i.thread ], [ %.0.i.i.i111, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i ]
   %109 = sext i32 %.sroa.3.0575 to i64
   %110 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.23309.8, i64 %109
   store i64 %.sroa.0.0.insert.insert.i, ptr %110, align 4
@@ -29226,8 +29226,8 @@ _ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.thread.i.i137: ; pred
           to label %128 unwind label %150
 
 128:                                              ; preds = %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i126, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.thread.i.i137, %._crit_edge, %114
-  %.sroa.18.7 = phi i32 [ %.sroa.18.0580, %114 ], [ %.sroa.18.0580, %._crit_edge ], [ %116, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.thread.i.i137 ], [ %116, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i126 ]
-  %.sroa.25339.10 = phi ptr [ %.sroa.25339.1581, %114 ], [ %.sroa.25339.1581, %._crit_edge ], [ %.0.i.i.i125, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.thread.i.i137 ], [ %.0.i.i.i125, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i126 ]
+  %.sroa.18.7 = phi i32 [ %.sroa.18.0580, %._crit_edge ], [ %.sroa.18.0580, %114 ], [ %116, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.thread.i.i137 ], [ %116, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i126 ]
+  %.sroa.25339.10 = phi ptr [ %.sroa.25339.1581, %._crit_edge ], [ %.sroa.25339.1581, %114 ], [ %.0.i.i.i125, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.thread.i.i137 ], [ %.0.i.i.i125, %_ZNK20btAlignedObjectArrayIP10btDbvtNodeE4copyEiiPS1_.exit.i.i126 ]
   %129 = sext i32 %.sroa.3328.0578 to i64
   %130 = getelementptr inbounds ptr, ptr %.sroa.25339.10, i64 %129
   %131 = load ptr, ptr %112, align 8, !tbaa !736
@@ -29281,8 +29281,8 @@ _ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i153.thread: ; preds 
           to label %147 unwind label %152
 
 147:                                              ; preds = %133, %128, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i153.thread, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i153
-  %.sroa.16.7 = phi i32 [ %.sroa.3.0575, %133 ], [ %.sroa.16.0574, %128 ], [ %135, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i153.thread ], [ %135, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i153 ]
-  %.sroa.23309.9 = phi ptr [ %.sroa.23309.1576, %133 ], [ %.sroa.23309.1576, %128 ], [ %.0.i.i.i152, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i153.thread ], [ %.0.i.i.i152, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i153 ]
+  %.sroa.16.7 = phi i32 [ %.sroa.16.0574, %128 ], [ %.sroa.3.0575, %133 ], [ %135, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i153.thread ], [ %135, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i153 ]
+  %.sroa.23309.9 = phi ptr [ %.sroa.23309.1576, %128 ], [ %.sroa.23309.1576, %133 ], [ %.0.i.i.i152, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i153.thread ], [ %.0.i.i.i152, %_ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i153 ]
   %148 = sext i32 %.sroa.3.0575 to i64
   %149 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.23309.9, i64 %148
   store i64 %.sroa.0.0.insert.insert.i147, ptr %149, align 4
@@ -29299,10 +29299,10 @@ _ZNK20btAlignedObjectArrayISt4pairIiiEE4copyEiiPS1_.exit.i.i153.thread: ; preds 
   br label %458
 
 154:                                              ; preds = %.thread384, %147
-  %.sroa.16.5 = phi i32 [ %.sroa.16.7, %147 ], [ %.sroa.16.6, %.thread384 ]
-  %.sroa.23309.7 = phi ptr [ %.sroa.23309.9, %147 ], [ %.sroa.23309.8, %.thread384 ]
-  %.sroa.18.5 = phi i32 [ %.sroa.18.7, %147 ], [ %.sroa.18.6, %.thread384 ]
-  %.sroa.25339.8 = phi ptr [ %.sroa.25339.10, %147 ], [ %.sroa.25339.9, %.thread384 ]
+  %.sroa.16.5 = phi i32 [ %.sroa.16.6, %.thread384 ], [ %.sroa.16.7, %147 ]
+  %.sroa.23309.7 = phi ptr [ %.sroa.23309.8, %.thread384 ], [ %.sroa.23309.9, %147 ]
+  %.sroa.18.5 = phi i32 [ %.sroa.18.6, %.thread384 ], [ %.sroa.18.7, %147 ]
+  %.sroa.25339.8 = phi ptr [ %.sroa.25339.9, %.thread384 ], [ %.sroa.25339.10, %147 ]
   %.sroa.3328.5 = add nsw i32 %.sroa.3328.0578, 1
   %.sroa.3.5 = add nsw i32 %.sroa.3.0575, 1
   store i8 1, ptr %35, align 1, !tbaa !673
@@ -30116,10 +30116,10 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i227: ; preds = %.noexc235, %_
   br i1 %457, label %.lr.ph605, label %._crit_edge606.loopexit, !llvm.loop !880
 
 458:                                              ; preds = %150, %152, %107, %105, %406, %399, %218, %202, %200, %33
-  %.sroa.23309.0 = phi ptr [ %.sroa.23309.2, %218 ], [ %.sroa.23309.2, %406 ], [ %.sroa.23309.2, %399 ], [ %.sroa.23309.2, %200 ], [ %.sroa.23309.2, %202 ], [ null, %33 ], [ %.sroa.23309.1576, %152 ], [ %.sroa.23309.1576, %150 ], [ %.sroa.23309.1576, %107 ], [ %.sroa.23309.1576, %105 ]
-  %.sroa.25339.0 = phi ptr [ %.sroa.25339.2, %218 ], [ %.sroa.25339.2, %406 ], [ %.sroa.25339.2, %399 ], [ %.sroa.25339.2, %200 ], [ %.sroa.25339.2, %202 ], [ null, %33 ], [ %.sroa.25339.10, %152 ], [ %.sroa.25339.1581, %150 ], [ %.sroa.25339.9, %107 ], [ %.sroa.25339.1581, %105 ]
-  %.sroa.14354.0 = phi ptr [ %31, %218 ], [ %31, %406 ], [ %31, %399 ], [ %31, %200 ], [ %31, %202 ], [ null, %33 ], [ %31, %152 ], [ %31, %150 ], [ %31, %107 ], [ %31, %105 ]
-  %.pn89.pn = phi { ptr, i32 } [ %219, %218 ], [ %407, %406 ], [ %400, %399 ], [ %201, %200 ], [ %203, %202 ], [ %34, %33 ], [ %153, %152 ], [ %151, %150 ], [ %108, %107 ], [ %106, %105 ]
+  %.sroa.23309.0 = phi ptr [ null, %33 ], [ %.sroa.23309.2, %218 ], [ %.sroa.23309.2, %406 ], [ %.sroa.23309.2, %399 ], [ %.sroa.23309.2, %200 ], [ %.sroa.23309.2, %202 ], [ %.sroa.23309.1576, %152 ], [ %.sroa.23309.1576, %150 ], [ %.sroa.23309.1576, %107 ], [ %.sroa.23309.1576, %105 ]
+  %.sroa.25339.0 = phi ptr [ null, %33 ], [ %.sroa.25339.2, %218 ], [ %.sroa.25339.2, %406 ], [ %.sroa.25339.2, %399 ], [ %.sroa.25339.2, %200 ], [ %.sroa.25339.2, %202 ], [ %.sroa.25339.10, %152 ], [ %.sroa.25339.1581, %150 ], [ %.sroa.25339.9, %107 ], [ %.sroa.25339.1581, %105 ]
+  %.sroa.14354.0 = phi ptr [ null, %33 ], [ %31, %218 ], [ %31, %406 ], [ %31, %399 ], [ %31, %200 ], [ %31, %202 ], [ %31, %152 ], [ %31, %150 ], [ %31, %107 ], [ %31, %105 ]
+  %.pn89.pn = phi { ptr, i32 } [ %34, %33 ], [ %219, %218 ], [ %407, %406 ], [ %400, %399 ], [ %201, %200 ], [ %203, %202 ], [ %153, %152 ], [ %151, %150 ], [ %108, %107 ], [ %106, %105 ]
   %459 = load i32, ptr %12, align 4, !tbaa !751
   %460 = icmp sgt i32 %459, 0
   br i1 %460, label %.lr.ph.i.i.i240, label %_ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i.i237
@@ -30264,7 +30264,7 @@ define internal fastcc noalias noundef ptr @_ZL11copyToDbvntPK10btDbvtNode(ptr n
   br i1 %.not, label %common.ret13, label %12
 
 common.ret13:                                     ; preds = %3, %1, %12
-  %common.ret13.op = phi ptr [ %4, %12 ], [ null, %1 ], [ %4, %3 ]
+  %common.ret13.op = phi ptr [ %4, %12 ], [ %4, %3 ], [ null, %1 ]
   ret ptr %common.ret13.op
 
 12:                                               ; preds = %3
@@ -30502,7 +30502,7 @@ define dso_local void @_ZN10btSoftBody15rebuildNodeTreeEv(ptr noundef nonnull al
   br i1 %92, label %85, label %.preheader122, !llvm.loop !891
 
 .preheader:                                       ; preds = %98, %.loopexit.thread, %.loopexit, %.preheader122
-  %93 = phi ptr [ %72, %.preheader122 ], [ null, %.loopexit.thread ], [ %72, %.loopexit ], [ %72, %98 ]
+  %93 = phi ptr [ %72, %.loopexit ], [ %72, %.preheader122 ], [ null, %.loopexit.thread ], [ %72, %98 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 996
   %95 = load i32, ptr %94, align 4, !tbaa !146
   %96 = icmp sgt i32 %95, 0
@@ -30875,7 +30875,7 @@ _ZN20btAlignedObjectArrayIP10btDbvtNodeED2Ev.exit: ; preds = %_ZN20btAlignedObje
   br label %247
 
 247:                                              ; preds = %44, %246, %20
-  %.pn52.pn = phi { ptr, i32 } [ %.pn47.pn.pn, %246 ], [ %21, %20 ], [ %45, %44 ]
+  %.pn52.pn = phi { ptr, i32 } [ %21, %20 ], [ %.pn47.pn.pn, %246 ], [ %45, %44 ]
   call void @_ZN20btAlignedObjectArrayIP10btDbvtNodeED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn52.pn
@@ -32014,7 +32014,7 @@ _ZL14getBarycentricRK9btVector3S1_S1_S1_RS_.exit: ; preds = %345, %388
   ret i1 %183
 
 439:                                              ; preds = %295, %301, %437, %184
-  %.pn91.pn.pn = phi { ptr, i32 } [ %.pn87, %437 ], [ %185, %184 ], [ %.pn91, %301 ], [ %296, %295 ]
+  %.pn91.pn.pn = phi { ptr, i32 } [ %185, %184 ], [ %296, %295 ], [ %.pn87, %437 ], [ %.pn91, %301 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %12) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -32153,8 +32153,8 @@ define dso_local void @_ZN10btSoftBody10updateAreaEb(ptr noundef nonnull readonl
   resume { ptr, i32 } %73
 
 ._crit_edge69:                                    ; preds = %69, %54, %.loopexit
-  %74 = phi i32 [ %.pre, %.loopexit ], [ %60, %54 ], [ %.pre, %69 ]
-  %75 = phi ptr [ %65, %.loopexit ], [ null, %54 ], [ %65, %69 ]
+  %74 = phi i32 [ %60, %54 ], [ %.pre, %.loopexit ], [ %.pre, %69 ]
+  %75 = phi ptr [ null, %54 ], [ %65, %.loopexit ], [ %65, %69 ]
   %76 = load i32, ptr %4, align 4, !tbaa !150
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %.lr.ph73, label %._crit_edge74
@@ -33903,10 +33903,10 @@ define dso_local void @_ZN10btSoftBody6LJoint5SolveEff(ptr noundef nonnull align
   br label %_ZNK10btSoftBody4Body8velocityERK9btVector3.exit
 
 _ZNK10btSoftBody4Body8velocityERK9btVector3.exit: ; preds = %10, %12, %34
-  %.sroa.5.0.i17.i = phi <2 x float> [ %.sroa.5.0.copyload8.i.i, %34 ], [ %.sroa.5.0.copyload.i.i, %12 ], [ zeroinitializer, %10 ]
-  %.sroa.0.0.i15.i = phi <2 x float> [ %.sroa.0.0.copyload6.i.i, %34 ], [ %.sroa.0.0.copyload.i.i, %12 ], [ zeroinitializer, %10 ]
-  %.sroa.0.0.i3.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i6.i.i, %34 ], [ %.sroa.0.4.vec.insert.i.i.i.i, %12 ], [ zeroinitializer, %10 ]
-  %.sroa.5.0.i4.i = phi <2 x float> [ %.sroa.3.12.vec.insert.i.i7.i.i, %34 ], [ %.sroa.3.12.vec.insert.i.i.i.i, %12 ], [ zeroinitializer, %10 ]
+  %.sroa.5.0.i17.i = phi <2 x float> [ %.sroa.5.0.copyload.i.i, %12 ], [ %.sroa.5.0.copyload8.i.i, %34 ], [ zeroinitializer, %10 ]
+  %.sroa.0.0.i15.i = phi <2 x float> [ %.sroa.0.0.copyload.i.i, %12 ], [ %.sroa.0.0.copyload6.i.i, %34 ], [ zeroinitializer, %10 ]
+  %.sroa.0.0.i3.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i.i, %12 ], [ %.sroa.0.4.vec.insert.i.i6.i.i, %34 ], [ zeroinitializer, %10 ]
+  %.sroa.5.0.i4.i = phi <2 x float> [ %.sroa.3.12.vec.insert.i.i.i.i, %12 ], [ %.sroa.3.12.vec.insert.i.i7.i.i, %34 ], [ zeroinitializer, %10 ]
   %foldExtExtBinop = fadd <2 x float> %.sroa.0.0.i15.i, %.sroa.0.0.i3.i
   %foldExtExtBinop73 = fadd <2 x float> %.sroa.0.0.i15.i, %.sroa.0.0.i3.i
   %foldExtExtBinop75 = fadd <2 x float> %.sroa.5.0.i17.i, %.sroa.5.0.i4.i
@@ -33983,10 +33983,10 @@ _ZNK10btSoftBody4Body8velocityERK9btVector3.exit: ; preds = %10, %12, %34
   br label %_ZNK10btSoftBody4Body8velocityERK9btVector3.exit30
 
 _ZNK10btSoftBody4Body8velocityERK9btVector3.exit30: ; preds = %60, %62, %84
-  %.sroa.5.0.i17.i8 = phi <2 x float> [ %.sroa.5.0.copyload8.i.i25, %84 ], [ %.sroa.5.0.copyload.i.i4, %62 ], [ zeroinitializer, %60 ]
-  %.sroa.0.0.i15.i9 = phi <2 x float> [ %.sroa.0.0.copyload6.i.i26, %84 ], [ %.sroa.0.0.copyload.i.i2, %62 ], [ zeroinitializer, %60 ]
-  %.sroa.0.0.i3.i10 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i6.i.i28, %84 ], [ %.sroa.0.4.vec.insert.i.i.i.i6, %62 ], [ zeroinitializer, %60 ]
-  %.sroa.5.0.i4.i11 = phi <2 x float> [ %.sroa.3.12.vec.insert.i.i7.i.i29, %84 ], [ %.sroa.3.12.vec.insert.i.i.i.i7, %62 ], [ zeroinitializer, %60 ]
+  %.sroa.5.0.i17.i8 = phi <2 x float> [ %.sroa.5.0.copyload.i.i4, %62 ], [ %.sroa.5.0.copyload8.i.i25, %84 ], [ zeroinitializer, %60 ]
+  %.sroa.0.0.i15.i9 = phi <2 x float> [ %.sroa.0.0.copyload.i.i2, %62 ], [ %.sroa.0.0.copyload6.i.i26, %84 ], [ zeroinitializer, %60 ]
+  %.sroa.0.0.i3.i10 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i.i6, %62 ], [ %.sroa.0.4.vec.insert.i.i6.i.i28, %84 ], [ zeroinitializer, %60 ]
+  %.sroa.5.0.i4.i11 = phi <2 x float> [ %.sroa.3.12.vec.insert.i.i.i.i7, %62 ], [ %.sroa.3.12.vec.insert.i.i7.i.i29, %84 ], [ zeroinitializer, %60 ]
   %foldExtExtBinop77 = fadd <2 x float> %.sroa.0.0.i15.i9, %.sroa.0.0.i3.i10
   %foldExtExtBinop79 = fadd <2 x float> %.sroa.0.0.i15.i9, %.sroa.0.0.i3.i10
   %foldExtExtBinop81 = fadd <2 x float> %.sroa.5.0.i17.i8, %.sroa.5.0.i4.i11
@@ -34777,8 +34777,8 @@ define dso_local void @_ZN10btSoftBody6AJoint5SolveEff(ptr noundef nonnull align
   br label %_ZNK10btSoftBody4Body15angularVelocityEv.exit
 
 _ZNK10btSoftBody4Body15angularVelocityEv.exit:    ; preds = %9, %11, %13
-  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.0.copyload6.i, %13 ], [ %.sroa.0.0.copyload.i, %9 ], [ zeroinitializer, %11 ]
-  %.sroa.5.0.i = phi <2 x float> [ %.sroa.5.0.copyload8.i, %13 ], [ %.sroa.5.0.copyload.i, %9 ], [ zeroinitializer, %11 ]
+  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.0.copyload.i, %9 ], [ %.sroa.0.0.copyload6.i, %13 ], [ zeroinitializer, %11 ]
+  %.sroa.5.0.i = phi <2 x float> [ %.sroa.5.0.copyload.i, %9 ], [ %.sroa.5.0.copyload8.i, %13 ], [ zeroinitializer, %11 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !950
@@ -34805,8 +34805,8 @@ _ZNK10btSoftBody4Body15angularVelocityEv.exit:    ; preds = %9, %11, %13
   br label %_ZNK10btSoftBody4Body15angularVelocityEv.exit14
 
 _ZNK10btSoftBody4Body15angularVelocityEv.exit14:  ; preds = %18, %20, %22
-  %.sroa.0.0.i6 = phi <2 x float> [ %.sroa.0.0.copyload6.i11, %22 ], [ %.sroa.0.0.copyload.i3, %18 ], [ zeroinitializer, %20 ]
-  %.sroa.5.0.i7 = phi <2 x float> [ %.sroa.5.0.copyload8.i13, %22 ], [ %.sroa.5.0.copyload.i5, %18 ], [ zeroinitializer, %20 ]
+  %.sroa.0.0.i6 = phi <2 x float> [ %.sroa.0.0.copyload.i3, %18 ], [ %.sroa.0.0.copyload6.i11, %22 ], [ zeroinitializer, %20 ]
+  %.sroa.5.0.i7 = phi <2 x float> [ %.sroa.5.0.copyload.i5, %18 ], [ %.sroa.5.0.copyload8.i13, %22 ], [ zeroinitializer, %20 ]
   %foldExtExtBinop = fsub <2 x float> %.sroa.0.0.i, %.sroa.0.0.i6
   %24 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %foldExtExtBinop77 = fsub <2 x float> %.sroa.0.0.i, %.sroa.0.0.i6
@@ -35342,10 +35342,10 @@ define dso_local void @_ZN10btSoftBody6CJoint5SolveEff(ptr noundef nonnull align
   br label %_ZNK10btSoftBody4Body8velocityERK9btVector3.exit
 
 _ZNK10btSoftBody4Body8velocityERK9btVector3.exit: ; preds = %12, %14, %36
-  %.sroa.5.0.i17.i = phi <2 x float> [ %.sroa.5.0.copyload8.i.i, %36 ], [ %.sroa.5.0.copyload.i.i, %14 ], [ zeroinitializer, %12 ]
-  %.sroa.0.0.i15.i = phi <2 x float> [ %.sroa.0.0.copyload6.i.i, %36 ], [ %.sroa.0.0.copyload.i.i, %14 ], [ zeroinitializer, %12 ]
-  %.sroa.0.0.i3.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i6.i.i, %36 ], [ %.sroa.0.4.vec.insert.i.i.i.i, %14 ], [ zeroinitializer, %12 ]
-  %.sroa.5.0.i4.i = phi <2 x float> [ %.sroa.3.12.vec.insert.i.i7.i.i, %36 ], [ %.sroa.3.12.vec.insert.i.i.i.i, %14 ], [ zeroinitializer, %12 ]
+  %.sroa.5.0.i17.i = phi <2 x float> [ %.sroa.5.0.copyload.i.i, %14 ], [ %.sroa.5.0.copyload8.i.i, %36 ], [ zeroinitializer, %12 ]
+  %.sroa.0.0.i15.i = phi <2 x float> [ %.sroa.0.0.copyload.i.i, %14 ], [ %.sroa.0.0.copyload6.i.i, %36 ], [ zeroinitializer, %12 ]
+  %.sroa.0.0.i3.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i.i, %14 ], [ %.sroa.0.4.vec.insert.i.i6.i.i, %36 ], [ zeroinitializer, %12 ]
+  %.sroa.5.0.i4.i = phi <2 x float> [ %.sroa.3.12.vec.insert.i.i.i.i, %14 ], [ %.sroa.3.12.vec.insert.i.i7.i.i, %36 ], [ zeroinitializer, %12 ]
   %foldExtExtBinop = fadd <2 x float> %.sroa.0.0.i15.i, %.sroa.0.0.i3.i
   %foldExtExtBinop137 = fadd <2 x float> %.sroa.0.0.i15.i, %.sroa.0.0.i3.i
   %foldExtExtBinop139 = fadd <2 x float> %.sroa.5.0.i17.i, %.sroa.5.0.i4.i
@@ -35422,10 +35422,10 @@ _ZNK10btSoftBody4Body8velocityERK9btVector3.exit: ; preds = %12, %14, %36
   br label %_ZNK10btSoftBody4Body8velocityERK9btVector3.exit30
 
 _ZNK10btSoftBody4Body8velocityERK9btVector3.exit30: ; preds = %62, %64, %86
-  %.sroa.5.0.i17.i8 = phi <2 x float> [ %.sroa.5.0.copyload8.i.i25, %86 ], [ %.sroa.5.0.copyload.i.i4, %64 ], [ zeroinitializer, %62 ]
-  %.sroa.0.0.i15.i9 = phi <2 x float> [ %.sroa.0.0.copyload6.i.i26, %86 ], [ %.sroa.0.0.copyload.i.i2, %64 ], [ zeroinitializer, %62 ]
-  %.sroa.0.0.i3.i10 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i6.i.i28, %86 ], [ %.sroa.0.4.vec.insert.i.i.i.i6, %64 ], [ zeroinitializer, %62 ]
-  %.sroa.5.0.i4.i11 = phi <2 x float> [ %.sroa.3.12.vec.insert.i.i7.i.i29, %86 ], [ %.sroa.3.12.vec.insert.i.i.i.i7, %64 ], [ zeroinitializer, %62 ]
+  %.sroa.5.0.i17.i8 = phi <2 x float> [ %.sroa.5.0.copyload.i.i4, %64 ], [ %.sroa.5.0.copyload8.i.i25, %86 ], [ zeroinitializer, %62 ]
+  %.sroa.0.0.i15.i9 = phi <2 x float> [ %.sroa.0.0.copyload.i.i2, %64 ], [ %.sroa.0.0.copyload6.i.i26, %86 ], [ zeroinitializer, %62 ]
+  %.sroa.0.0.i3.i10 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i.i6, %64 ], [ %.sroa.0.4.vec.insert.i.i6.i.i28, %86 ], [ zeroinitializer, %62 ]
+  %.sroa.5.0.i4.i11 = phi <2 x float> [ %.sroa.3.12.vec.insert.i.i.i.i7, %64 ], [ %.sroa.3.12.vec.insert.i.i7.i.i29, %86 ], [ zeroinitializer, %62 ]
   %foldExtExtBinop141 = fadd <2 x float> %.sroa.0.0.i15.i9, %.sroa.0.0.i3.i10
   %foldExtExtBinop143 = fadd <2 x float> %.sroa.0.0.i15.i9, %.sroa.0.0.i3.i10
   %foldExtExtBinop145 = fadd <2 x float> %.sroa.5.0.i17.i8, %.sroa.5.0.i4.i11
@@ -36688,11 +36688,11 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i115: ; preds = %148, %_ZNK20b
   br label %195
 
 195:                                              ; preds = %59, %62, %._crit_edge
-  %.sroa.0243.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %62 ], [ %.sroa.0.4.vec.insert.i135, %._crit_edge ], [ zeroinitializer, %59 ]
-  %.sroa.9.2 = phi <2 x float> [ %.sroa.3.12.vec.insert.i, %62 ], [ %.sroa.3.12.vec.insert.i136, %._crit_edge ], [ zeroinitializer, %59 ]
-  %.078 = phi ptr [ null, %62 ], [ %165, %._crit_edge ], [ null, %59 ]
-  %.077 = phi ptr [ null, %62 ], [ %54, %._crit_edge ], [ null, %59 ]
-  %.076 = phi ptr [ %54, %62 ], [ null, %._crit_edge ], [ null, %59 ]
+  %.sroa.0243.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %62 ], [ zeroinitializer, %59 ], [ %.sroa.0.4.vec.insert.i135, %._crit_edge ]
+  %.sroa.9.2 = phi <2 x float> [ %.sroa.3.12.vec.insert.i, %62 ], [ zeroinitializer, %59 ], [ %.sroa.3.12.vec.insert.i136, %._crit_edge ]
+  %.078 = phi ptr [ null, %62 ], [ null, %59 ], [ %165, %._crit_edge ]
+  %.077 = phi ptr [ null, %62 ], [ null, %59 ], [ %54, %._crit_edge ]
+  %.076 = phi ptr [ %54, %62 ], [ null, %59 ], [ null, %._crit_edge ]
   %196 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %197 = load ptr, ptr %196, align 8, !tbaa !991
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
@@ -36896,7 +36896,7 @@ _ZN11btMultiBody21applyDeltaVeeMultiDofEPKff.exit: ; preds = %_Z7btClampIfEvRT_R
   br label %341
 
 340:                                              ; preds = %309, %172, %174, %176
-  %.pn89.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %175, %174 ], [ %173, %172 ], [ %177, %176 ], [ %310, %309 ]
+  %.pn89.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %177, %176 ], [ %310, %309 ], [ %173, %172 ], [ %175, %174 ]
   call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %6) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %342
@@ -37499,7 +37499,7 @@ define dso_local void @_ZN10btSoftBody23defaultCollisionHandlerEPK24btCollisionO
   br label %83
 
 83:                                               ; preds = %79, %81
-  %.pn30.pn.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ]
+  %.pn30.pn.pn.pn = phi { ptr, i32 } [ %80, %79 ], [ %82, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %222
 
@@ -38442,7 +38442,7 @@ _ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i: ; preds = %30
   br i1 %exitcond.not.i.i.i76, label %_ZNK20btAlignedObjectArrayIN6btDbvt6sStkNNEE4copyEiiPS1_.exit.i.i68, label %35, !llvm.loop !1046
 
 _ZNK20btAlignedObjectArrayIN6btDbvt6sStkNNEE4copyEiiPS1_.exit.i.i68: ; preds = %35, %29, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i
-  %.0.i.i.i117 = phi ptr [ %33, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i ], [ null, %29 ], [ %33, %35 ]
+  %.0.i.i.i117 = phi ptr [ null, %29 ], [ %33, %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE8allocateEi.exit.i.i ], [ %33, %35 ]
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %20)
           to label %_ZN20btAlignedObjectArrayIN6btDbvt6sStkNNEE10deallocateEv.exit.i.i71 unwind label %49
 
@@ -38904,7 +38904,7 @@ _ZN20btAlignedObjectArrayIN6btDbvt7sStknNNEE8allocateEi.exit.i.i: ; preds = %27
   br i1 %exitcond.not.i.i.i75, label %_ZNK20btAlignedObjectArrayIN6btDbvt7sStknNNEE4copyEiiPS1_.exit.i.i67, label %32, !llvm.loop !1057
 
 _ZNK20btAlignedObjectArrayIN6btDbvt7sStknNNEE4copyEiiPS1_.exit.i.i67: ; preds = %32, %26, %_ZN20btAlignedObjectArrayIN6btDbvt7sStknNNEE8allocateEi.exit.i.i
-  %.0.i.i.i115 = phi ptr [ %30, %_ZN20btAlignedObjectArrayIN6btDbvt7sStknNNEE8allocateEi.exit.i.i ], [ null, %26 ], [ %30, %32 ]
+  %.0.i.i.i115 = phi ptr [ null, %26 ], [ %30, %_ZN20btAlignedObjectArrayIN6btDbvt7sStknNNEE8allocateEi.exit.i.i ], [ %30, %32 ]
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %17)
           to label %_ZN20btAlignedObjectArrayIN6btDbvt7sStknNNEE10deallocateEv.exit.i.i70 unwind label %46
 
@@ -41653,7 +41653,7 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit744: ; preds = %1101
   ret ptr @.str.24
 
 1196:                                             ; preds = %1078, %1193, %1124, %755, %915, %926, %917, %967, %961, %1044, %1005, %1048, %653, %714, %720, %657, %666, %655, %461, %511, %509, %386, %430, %428, %309, %350, %338, %230, %278, %276, %129, %199, %198, %52, %92, %96, %94, %100, %50
-  %.pn612.pn.pn.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %53, %52 ], [ %101, %100 ], [ %93, %92 ], [ %97, %96 ], [ %95, %94 ], [ %130, %129 ], [ %.pn606, %198 ], [ %200, %199 ], [ %231, %230 ], [ %277, %276 ], [ %279, %278 ], [ %310, %309 ], [ %339, %338 ], [ %351, %350 ], [ %387, %386 ], [ %429, %428 ], [ %431, %430 ], [ %462, %461 ], [ %510, %509 ], [ %512, %511 ], [ %654, %653 ], [ %656, %655 ], [ %667, %666 ], [ %658, %657 ], [ %721, %720 ], [ %715, %714 ], [ %756, %755 ], [ %1049, %1048 ], [ %916, %915 ], [ %927, %926 ], [ %918, %917 ], [ %968, %967 ], [ %962, %961 ], [ %1006, %1005 ], [ %1045, %1044 ], [ %1079, %1078 ], [ %1125, %1124 ], [ %1194, %1193 ]
+  %.pn612.pn.pn.pn.pn = phi { ptr, i32 } [ %512, %511 ], [ %95, %94 ], [ %200, %199 ], [ %279, %278 ], [ %351, %350 ], [ %431, %430 ], [ %715, %714 ], [ %1045, %1044 ], [ %51, %50 ], [ %53, %52 ], [ %101, %100 ], [ %93, %92 ], [ %97, %96 ], [ %130, %129 ], [ %.pn606, %198 ], [ %231, %230 ], [ %277, %276 ], [ %310, %309 ], [ %339, %338 ], [ %387, %386 ], [ %429, %428 ], [ %462, %461 ], [ %510, %509 ], [ %654, %653 ], [ %656, %655 ], [ %658, %657 ], [ %667, %666 ], [ %721, %720 ], [ %756, %755 ], [ %1049, %1048 ], [ %962, %961 ], [ %916, %915 ], [ %918, %917 ], [ %927, %926 ], [ %968, %967 ], [ %1006, %1005 ], [ %1194, %1193 ], [ %1079, %1078 ], [ %1125, %1124 ]
   call void @_ZN9btHashMapI9btHashPtriED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #45
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn612.pn.pn.pn.pn
@@ -42139,7 +42139,7 @@ define dso_local noundef zeroext i1 @_ZN10btSoftBody13wantsSleepingEv(ptr nounde
   br label %16
 
 16:                                               ; preds = %10, %12, %5, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %5 ], [ %15, %12 ], [ true, %10 ]
+  %.0 = phi i1 [ true, %10 ], [ false, %1 ], [ false, %5 ], [ %15, %12 ]
   ret i1 %.0
 }
 
@@ -43177,8 +43177,8 @@ _ZN14GivensRotationC2Effii.exit:                  ; preds = %3, %10, %12
   br label %_ZN14GivensRotation7computeEff.exit
 
 _ZN14GivensRotation7computeEff.exit:              ; preds = %49, %47, %41, %36, %34, %20
-  %.sroa.961.0 = phi float [ %38, %36 ], [ 1.000000e+00, %34 ], [ 1.000000e+00, %20 ], [ %51, %49 ], [ 1.000000e+00, %47 ], [ 1.000000e+00, %41 ]
-  %.sroa.18.0 = phi float [ %40, %36 ], [ 0.000000e+00, %34 ], [ 0.000000e+00, %20 ], [ %53, %49 ], [ 0.000000e+00, %47 ], [ 0.000000e+00, %41 ]
+  %.sroa.961.0 = phi float [ 1.000000e+00, %20 ], [ %38, %36 ], [ 1.000000e+00, %34 ], [ %51, %49 ], [ 1.000000e+00, %47 ], [ 1.000000e+00, %41 ]
+  %.sroa.18.0 = phi float [ 0.000000e+00, %20 ], [ %40, %36 ], [ 0.000000e+00, %34 ], [ %53, %49 ], [ 0.000000e+00, %47 ], [ 0.000000e+00, %41 ]
   br label %54
 
 54:                                               ; preds = %54, %_ZN14GivensRotation7computeEff.exit
@@ -46096,7 +46096,7 @@ define linkonce_odr dso_local void @_ZNK15btSoftColliders13CollideSDF_RS6DoNodeE
   br label %269
 
 .body:                                            ; preds = %256, %266
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %267, %266 ], [ %.pn.i.i, %256 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.i.i, %256 ], [ %267, %266 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %273
 
@@ -47078,7 +47078,7 @@ _ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE10deallocateEv.exit.i.i: ; preds
   br label %135
 
 134:                                              ; preds = %127, %131, %129
-  %.pn.pn.pn = phi { ptr, i32 } [ %128, %127 ], [ %132, %131 ], [ %130, %129 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %128, %127 ], [ %132, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.body
 
@@ -47308,10 +47308,10 @@ _ZNK10btSoftBody4Body5xformEv.exit34:             ; preds = %_ZNK10btSoftBody4Bo
   br label %_ZNK10btSoftBody4Body8velocityERK9btVector3.exit
 
 _ZNK10btSoftBody4Body8velocityERK9btVector3.exit: ; preds = %89, %91, %108
-  %.sroa.5.0.i17.i = phi <2 x float> [ %.sroa.5.0.copyload8.i.i, %108 ], [ %.sroa.5.0.copyload.i.i, %91 ], [ zeroinitializer, %89 ]
-  %.sroa.0.0.i15.i = phi <2 x float> [ %.sroa.0.0.copyload6.i.i, %108 ], [ %.sroa.0.0.copyload.i.i, %91 ], [ zeroinitializer, %89 ]
-  %.sroa.0.0.i3.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i6.i.i, %108 ], [ %.sroa.0.4.vec.insert.i.i.i.i, %91 ], [ zeroinitializer, %89 ]
-  %.sroa.5.0.i4.i = phi <2 x float> [ %.sroa.3.12.vec.insert.i.i7.i.i, %108 ], [ %.sroa.3.12.vec.insert.i.i.i.i, %91 ], [ zeroinitializer, %89 ]
+  %.sroa.5.0.i17.i = phi <2 x float> [ %.sroa.5.0.copyload.i.i, %91 ], [ %.sroa.5.0.copyload8.i.i, %108 ], [ zeroinitializer, %89 ]
+  %.sroa.0.0.i15.i = phi <2 x float> [ %.sroa.0.0.copyload.i.i, %91 ], [ %.sroa.0.0.copyload6.i.i, %108 ], [ zeroinitializer, %89 ]
+  %.sroa.0.0.i3.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i.i, %91 ], [ %.sroa.0.4.vec.insert.i.i6.i.i, %108 ], [ zeroinitializer, %89 ]
+  %.sroa.5.0.i4.i = phi <2 x float> [ %.sroa.3.12.vec.insert.i.i.i.i, %91 ], [ %.sroa.3.12.vec.insert.i.i7.i.i, %108 ], [ zeroinitializer, %89 ]
   %foldExtExtBinop = fadd <2 x float> %.sroa.0.0.i15.i, %.sroa.0.0.i3.i
   %foldExtExtBinop194 = fadd <2 x float> %.sroa.0.0.i15.i, %.sroa.0.0.i3.i
   %foldExtExtBinop196 = fadd <2 x float> %.sroa.5.0.i17.i, %.sroa.5.0.i4.i
@@ -47374,10 +47374,10 @@ _ZNK10btSoftBody4Body8velocityERK9btVector3.exit: ; preds = %89, %91, %108
   br label %_ZNK10btSoftBody4Body8velocityERK9btVector3.exit69
 
 _ZNK10btSoftBody4Body8velocityERK9btVector3.exit69: ; preds = %127, %128, %145
-  %.sroa.5.0.i17.i47 = phi <2 x float> [ %.sroa.5.0.copyload8.i.i64, %145 ], [ %.sroa.5.0.copyload.i.i43, %128 ], [ zeroinitializer, %127 ]
-  %.sroa.0.0.i15.i48 = phi <2 x float> [ %.sroa.0.0.copyload6.i.i65, %145 ], [ %.sroa.0.0.copyload.i.i41, %128 ], [ zeroinitializer, %127 ]
-  %.sroa.0.0.i3.i49 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i6.i.i67, %145 ], [ %.sroa.0.4.vec.insert.i.i.i.i45, %128 ], [ zeroinitializer, %127 ]
-  %.sroa.5.0.i4.i50 = phi <2 x float> [ %.sroa.3.12.vec.insert.i.i7.i.i68, %145 ], [ %.sroa.3.12.vec.insert.i.i.i.i46, %128 ], [ zeroinitializer, %127 ]
+  %.sroa.5.0.i17.i47 = phi <2 x float> [ %.sroa.5.0.copyload.i.i43, %128 ], [ %.sroa.5.0.copyload8.i.i64, %145 ], [ zeroinitializer, %127 ]
+  %.sroa.0.0.i15.i48 = phi <2 x float> [ %.sroa.0.0.copyload.i.i41, %128 ], [ %.sroa.0.0.copyload6.i.i65, %145 ], [ zeroinitializer, %127 ]
+  %.sroa.0.0.i3.i49 = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i.i.i45, %128 ], [ %.sroa.0.4.vec.insert.i.i6.i.i67, %145 ], [ zeroinitializer, %127 ]
+  %.sroa.5.0.i4.i50 = phi <2 x float> [ %.sroa.3.12.vec.insert.i.i.i.i46, %128 ], [ %.sroa.3.12.vec.insert.i.i7.i.i68, %145 ], [ zeroinitializer, %127 ]
   %foldExtExtBinop198 = fadd <2 x float> %.sroa.0.0.i15.i48, %.sroa.0.0.i3.i49
   %foldExtExtBinop200 = fadd <2 x float> %.sroa.0.0.i15.i48, %.sroa.0.0.i3.i49
   %foldExtExtBinop202 = fadd <2 x float> %.sroa.5.0.i17.i47, %.sroa.5.0.i4.i50
@@ -50100,7 +50100,7 @@ define linkonce_odr dso_local void @_ZNK15btSoftColliders14CollideSDF_RDF6DoNode
   ret void
 
 527:                                              ; preds = %520, %516, %213
-  %.pn81.pn.pn = phi { ptr, i32 } [ %214, %213 ], [ %521, %520 ], [ %.pn66.pn.pn, %516 ]
+  %.pn81.pn.pn = phi { ptr, i32 } [ %214, %213 ], [ %.pn66.pn.pn, %516 ], [ %521, %520 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN10btSoftBody22DeformableRigidContactD2Ev(ptr noundef nonnull align 8 dereferenceable(904) %3) #45
@@ -50708,7 +50708,7 @@ _ZN20btAlignedObjectArrayIPN10btSoftBody5JointEE10deallocateEv.exit.i.i: ; preds
   br label %173
 
 172:                                              ; preds = %165, %169, %167
-  %.pn.pn.pn = phi { ptr, i32 } [ %166, %165 ], [ %170, %169 ], [ %168, %167 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %168, %167 ], [ %166, %165 ], [ %170, %169 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.body
 
@@ -51009,9 +51009,9 @@ _ZL13ProjectOriginRK9btVector3S1_RS_Rf.exit101.i: ; preds = %175, %156, %_ZL13Pr
   br label %_ZL13ProjectOriginRK9btVector3S1_S1_RS_Rf.exit
 
 _ZL13ProjectOriginRK9btVector3S1_S1_RS_Rf.exit:   ; preds = %111, %202, %3, %61, %_ZL13ProjectOriginRK9btVector3S1_RS_Rf.exit101.i, %183
-  %.2 = phi float [ %.1, %183 ], [ %.1, %_ZL13ProjectOriginRK9btVector3S1_RS_Rf.exit101.i ], [ 0x47EFFFFFE0000000, %61 ], [ 0x47EFFFFFE0000000, %3 ], [ %200, %202 ], [ %69, %111 ]
-  %.sroa.0100.2 = phi <2 x float> [ %.sroa.0100.1, %183 ], [ %.sroa.0100.1, %_ZL13ProjectOriginRK9btVector3S1_RS_Rf.exit101.i ], [ undef, %61 ], [ undef, %3 ], [ %.sroa.0.4.vec.insert.i20.i105.i, %202 ], [ %.sroa.0.4.vec.insert.i47.i, %111 ]
-  %.sroa.9105.2 = phi <2 x float> [ %.sroa.9105.1, %183 ], [ %.sroa.9105.1, %_ZL13ProjectOriginRK9btVector3S1_RS_Rf.exit101.i ], [ undef, %61 ], [ undef, %3 ], [ %.sroa.3.12.vec.insert.i21.i103.i, %202 ], [ %.sroa.3.12.vec.insert.i48.i, %111 ]
+  %.2 = phi float [ 0x47EFFFFFE0000000, %3 ], [ %.1, %183 ], [ %.1, %_ZL13ProjectOriginRK9btVector3S1_RS_Rf.exit101.i ], [ 0x47EFFFFFE0000000, %61 ], [ %200, %202 ], [ %69, %111 ]
+  %.sroa.0100.2 = phi <2 x float> [ undef, %3 ], [ %.sroa.0100.1, %183 ], [ %.sroa.0100.1, %_ZL13ProjectOriginRK9btVector3S1_RS_Rf.exit101.i ], [ undef, %61 ], [ %.sroa.0.4.vec.insert.i20.i105.i, %202 ], [ %.sroa.0.4.vec.insert.i47.i, %111 ]
+  %.sroa.9105.2 = phi <2 x float> [ undef, %3 ], [ %.sroa.9105.1, %183 ], [ %.sroa.9105.1, %_ZL13ProjectOriginRK9btVector3S1_RS_Rf.exit101.i ], [ undef, %61 ], [ %.sroa.3.12.vec.insert.i21.i103.i, %202 ], [ %.sroa.3.12.vec.insert.i48.i, %111 ]
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %204 = load float, ptr %203, align 8, !tbaa !1033
   %205 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -51379,8 +51379,8 @@ define linkonce_odr dso_local void @_ZN15btSoftColliders12CollideVF_DD7ProcessEP
   br label %.critedge
 
 .critedge:                                        ; preds = %36, %60, %42
-  %.sroa.10.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i29, %60 ], [ %.sroa.10.48.copyload, %42 ], [ %.sroa.10.48.copyload, %36 ]
-  %.sroa.14.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i30, %60 ], [ %.sroa.14.48.copyload, %42 ], [ %.sroa.14.48.copyload, %36 ]
+  %.sroa.10.0 = phi <2 x float> [ %.sroa.10.48.copyload, %42 ], [ %.sroa.0.4.vec.insert.i29, %60 ], [ %.sroa.10.48.copyload, %36 ]
+  %.sroa.14.0 = phi <2 x float> [ %.sroa.14.48.copyload, %42 ], [ %.sroa.3.12.vec.insert.i30, %60 ], [ %.sroa.14.48.copyload, %36 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !843
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 444
@@ -51745,8 +51745,8 @@ define linkonce_odr dso_local void @_ZN15btSoftColliders12CollideFF_DD5RepelEPN1
   br label %.critedge
 
 .critedge:                                        ; preds = %34, %57, %39
-  %.sroa.10.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i33, %57 ], [ %.sroa.10.48.copyload, %39 ], [ %.sroa.10.48.copyload, %34 ]
-  %.sroa.14.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i34, %57 ], [ %.sroa.14.48.copyload, %39 ], [ %.sroa.14.48.copyload, %34 ]
+  %.sroa.10.0 = phi <2 x float> [ %.sroa.10.48.copyload, %39 ], [ %.sroa.0.4.vec.insert.i33, %57 ], [ %.sroa.10.48.copyload, %34 ]
+  %.sroa.14.0 = phi <2 x float> [ %.sroa.14.48.copyload, %39 ], [ %.sroa.3.12.vec.insert.i34, %57 ], [ %.sroa.14.48.copyload, %34 ]
   %61 = load ptr, ptr %12, align 8, !tbaa !843
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 444
   %63 = load float, ptr %62, align 4, !tbaa !251
@@ -51959,8 +51959,8 @@ define linkonce_odr dso_local void @_ZN15btSoftColliders10CollideCCD7ProcessEPK1
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %40, %18
-  %.sroa.10.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i12, %40 ], [ %.sroa.10.48.copyload, %18 ], [ %.sroa.10.48.copyload, %11 ]
-  %.sroa.14.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i13, %40 ], [ %.sroa.14.48.copyload, %18 ], [ %.sroa.14.48.copyload, %11 ]
+  %.sroa.10.0 = phi <2 x float> [ %.sroa.10.48.copyload, %18 ], [ %.sroa.0.4.vec.insert.i12, %40 ], [ %.sroa.10.48.copyload, %11 ]
+  %.sroa.14.0 = phi <2 x float> [ %.sroa.14.48.copyload, %18 ], [ %.sroa.3.12.vec.insert.i13, %40 ], [ %.sroa.14.48.copyload, %11 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !843
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 444
@@ -52489,7 +52489,7 @@ _ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i: ; pred
   br label %311
 
 311:                                              ; preds = %306, %302
-  %.067.i = phi i32 [ %305, %302 ], [ %310, %306 ]
+  %.067.i = phi i32 [ %310, %306 ], [ %305, %302 ]
   %312 = icmp sgt i32 %.067.i, 1
   br i1 %312, label %._crit_edge.i, label %.thread107.i
 
@@ -52544,7 +52544,7 @@ _ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i: ; pred
   br i1 %.not114.i, label %.lr.ph.i, label %.thread111.i
 
 .lr.ph.i:                                         ; preds = %.thread107.i, %331, %328, %319, %299
-  %.067102109141.i = phi i32 [ 1, %.thread107.i ], [ 1, %299 ], [ 2, %319 ], [ %.067105.i, %331 ], [ %.067105.i, %328 ]
+  %.067102109141.i = phi i32 [ 1, %.thread107.i ], [ 1, %299 ], [ %.067105.i, %331 ], [ %.067105.i, %328 ], [ 2, %319 ]
   %332 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %333 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %334 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -52719,12 +52719,12 @@ _ZN9btVector313safeNormalizeEv.exit.i:            ; preds = %441, %436
   br i1 %exitcond.not.i, label %.thread111.i, label %339, !llvm.loop !1315
 
 .thread111.i:                                     ; preds = %443, %_ZN9btVector313safeNormalizeEv.exit.i, %343, %.thread107.i, %295
-  %.not.lcssa.i = phi i1 [ false, %.thread107.i ], [ false, %295 ], [ false, %443 ], [ false, %343 ], [ true, %_ZN9btVector313safeNormalizeEv.exit.i ]
+  %.not.lcssa.i = phi i1 [ false, %.thread107.i ], [ false, %295 ], [ true, %_ZN9btVector313safeNormalizeEv.exit.i ], [ false, %443 ], [ false, %343 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit
 
 _ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit: ; preds = %4, %.thread111.i, %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i, %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.exit
-  %.0 = phi i1 [ false, %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.exit ], [ %.not.lcssa.i, %.thread111.i ], [ false, %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i ], [ false, %4 ]
+  %.0 = phi i1 [ false, %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i ], [ false, %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.exit ], [ %.not.lcssa.i, %.thread111.i ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -52824,8 +52824,8 @@ define linkonce_odr dso_local void @_ZN15btSoftColliders10CollideCCD5RepelEPN10b
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %53, %32
-  %.sroa.10.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i30, %53 ], [ %.sroa.10.48.copyload, %32 ], [ %.sroa.10.48.copyload, %27 ]
-  %.sroa.14.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i31, %53 ], [ %.sroa.14.48.copyload, %32 ], [ %.sroa.14.48.copyload, %27 ]
+  %.sroa.10.0 = phi <2 x float> [ %.sroa.10.48.copyload, %32 ], [ %.sroa.0.4.vec.insert.i30, %53 ], [ %.sroa.10.48.copyload, %27 ]
+  %.sroa.14.0 = phi <2 x float> [ %.sroa.14.48.copyload, %32 ], [ %.sroa.3.12.vec.insert.i31, %53 ], [ %.sroa.14.48.copyload, %27 ]
   %57 = load ptr, ptr %11, align 8, !tbaa !843
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 444
   %59 = load float, ptr %58, align 4, !tbaa !251

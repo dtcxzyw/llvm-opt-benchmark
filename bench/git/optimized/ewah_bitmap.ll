@@ -111,9 +111,9 @@ buffer_push_rlw.exit:                             ; preds = %.thread73, %st_mult
   br label %buffer_push_rlw.exit._crit_edge
 
 buffer_push_rlw.exit._crit_edge:                  ; preds = %buffer_push_rlw.exit, %16, %38, %14
-  %.val48 = phi i64 [ %storemerge.i, %14 ], [ %storemerge.i53, %38 ], [ %.val, %16 ], [ %.val48.pre, %buffer_push_rlw.exit ]
-  %39 = phi ptr [ %5, %14 ], [ %37, %38 ], [ %5, %16 ], [ %37, %buffer_push_rlw.exit ]
-  %.037 = phi i64 [ 0, %14 ], [ 1, %38 ], [ 0, %16 ], [ 1, %buffer_push_rlw.exit ]
+  %.val48 = phi i64 [ %storemerge.i, %14 ], [ %.val, %16 ], [ %storemerge.i53, %38 ], [ %.val48.pre, %buffer_push_rlw.exit ]
+  %39 = phi ptr [ %5, %14 ], [ %5, %16 ], [ %37, %38 ], [ %37, %buffer_push_rlw.exit ]
+  %.037 = phi i64 [ 0, %14 ], [ 0, %16 ], [ 1, %38 ], [ 1, %buffer_push_rlw.exit ]
   %40 = lshr i64 %.val48, 1
   %41 = and i64 %40, 4294967295
   %42 = xor i64 %41, 4294967295
@@ -1074,7 +1074,7 @@ define dso_local range(i32 0, 2) i32 @ewah_iterator_next(ptr noundef writeonly c
   br label %read_new_rlw.exit
 
 read_new_rlw.exit:                                ; preds = %.loopexit.i, %._crit_edge, %26, %30, %36, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %36 ], [ 1, %30 ], [ 1, %26 ], [ 1, %._crit_edge ], [ 1, %.loopexit.i ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %36 ], [ 1, %26 ], [ 1, %30 ], [ 1, %._crit_edge ], [ 1, %.loopexit.i ]
   ret i32 %.0
 }
 

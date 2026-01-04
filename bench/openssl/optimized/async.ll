@@ -337,7 +337,7 @@ async_get_pool_job.exit.thread:                   ; preds = %80, %92, %95, %asyn
   br label %async_ctx_new.exit.thread
 
 107:                                              ; preds = %103, %85
-  %.013.i = phi ptr [ %96, %103 ], [ %87, %85 ]
+  %.013.i = phi ptr [ %87, %85 ], [ %96, %103 ]
   store ptr %.013.i, ptr %24, align 8, !tbaa !3
   br i1 %.not67, label %123, label %108
 
@@ -393,7 +393,7 @@ async_release_job.exit72:                         ; preds = %116, %117
   br label %.backedge
 
 async_ctx_new.exit.thread:                        ; preds = %45, %11, %20, %async_get_pool_job.exit.thread, %6, %async_release_job.exit68, %async_release_job.exit72, %async_release_job.exit69, %42, %async_release_job.exit
-  %.055 = phi i32 [ 3, %async_release_job.exit ], [ 2, %42 ], [ 0, %async_release_job.exit68 ], [ 0, %async_release_job.exit69 ], [ 0, %async_release_job.exit72 ], [ 0, %6 ], [ 1, %async_get_pool_job.exit.thread ], [ 0, %20 ], [ 0, %11 ], [ 0, %45 ]
+  %.055 = phi i32 [ 0, %6 ], [ 3, %async_release_job.exit ], [ 2, %42 ], [ 1, %async_get_pool_job.exit.thread ], [ 0, %async_release_job.exit68 ], [ 0, %async_release_job.exit69 ], [ 0, %11 ], [ 0, %async_release_job.exit72 ], [ 0, %20 ], [ 0, %45 ]
   ret i32 %.055
 }
 
@@ -598,7 +598,7 @@ async_empty_pool.exit:                            ; preds = %.split.i, %32, %.sp
   br label %41
 
 41:                                               ; preds = %.split.thread, %9, %7, %5, %async_empty_pool.exit, %16, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %16 ], [ 0, %async_empty_pool.exit ], [ 0, %5 ], [ 0, %7 ], [ 0, %9 ], [ 1, %.split.thread ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %16 ], [ 0, %9 ], [ 0, %async_empty_pool.exit ], [ 0, %5 ], [ 1, %.split.thread ]
   ret i32 %.0
 }
 
@@ -693,7 +693,7 @@ define ptr @ASYNC_get_current_job() local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %2, %0, %5
-  %.0 = phi ptr [ %7, %5 ], [ null, %0 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %0 ], [ %7, %5 ], [ null, %2 ]
   ret ptr %.0
 }
 

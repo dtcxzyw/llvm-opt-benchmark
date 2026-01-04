@@ -326,7 +326,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1537,7 +1537,7 @@ _ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i: ; preds = %349, %297, %331, %
   br label %400
 
 400:                                              ; preds = %397, %._crit_edge.i213.i, %.thread.i.i
-  %.119.i.i = phi i32 [ 0, %._crit_edge.i213.i ], [ -1, %397 ], [ 1, %.thread.i.i ]
+  %.119.i.i = phi i32 [ 1, %.thread.i.i ], [ 0, %._crit_edge.i213.i ], [ -1, %397 ]
   call void @T_FileStream_close(ptr noundef nonnull %370)
   br label %404
 
@@ -1736,8 +1736,8 @@ _ZL21pkg_installCommonModePKcS0_.exit.i:          ; preds = %462, %459, %451, %4
   br label %.loopexit.i108
 
 .loopexit.i108:                                   ; preds = %474, %477, %475, %473
-  %480 = phi ptr [ null, %477 ], [ null, %475 ], [ %143, %473 ], [ %143, %474 ]
-  %.0129.i = phi i8 [ 1, %477 ], [ 1, %475 ], [ 0, %473 ], [ 0, %474 ]
+  %480 = phi ptr [ null, %475 ], [ null, %477 ], [ %143, %473 ], [ %143, %474 ]
+  %.0129.i = phi i8 [ 1, %475 ], [ 1, %477 ], [ 0, %473 ], [ 0, %474 ]
   %481 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 40
   %483 = load ptr, ptr %482, align 8, !tbaa !16
@@ -2016,7 +2016,7 @@ _ZN6icu_7711LocalMemoryIcED2Ev.exit.i.i:          ; preds = %616
           to label %641 unwind label %616
 
 641:                                              ; preds = %639, %634, %596
-  %.0.i.i = phi i32 [ 1, %634 ], [ -1, %596 ], [ %640, %639 ]
+  %.0.i.i = phi i32 [ -1, %596 ], [ 1, %634 ], [ %640, %639 ]
   invoke void @uprv_free_77(ptr noundef %615)
           to label %_ZL26pkg_createWithAssemblyCodePKccS0_.exit.i unwind label %642
 
@@ -2271,7 +2271,7 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %641
   br label %_ZL29pkg_createWithoutAssemblyCodeP12UPKGOptions_PKcc.exit.i
 
 _ZL29pkg_createWithoutAssemblyCodeP12UPKGOptions_PKcc.exit.i: ; preds = %752, %681, %673, %663
-  %.0.i229.i = phi i32 [ -1, %673 ], [ -1, %681 ], [ %.2.i228.i, %752 ], [ -1, %663 ]
+  %.0.i229.i = phi i32 [ %.2.i228.i, %752 ], [ -1, %673 ], [ -1, %681 ], [ -1, %663 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %792
@@ -2455,7 +2455,7 @@ _ZL23pkg_destroyOptMatchArchPc.exit.i:            ; preds = %788, %786, %_ZL22pk
   br label %859
 
 852:                                              ; preds = %847, %839, %828
-  %.sink323.i = phi i32 [ %830, %828 ], [ %841, %839 ], [ %849, %847 ]
+  %.sink323.i = phi i32 [ %841, %839 ], [ %830, %828 ], [ %849, %847 ]
   %853 = load ptr, ptr @stderr, align 8, !tbaa !20
   %854 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %853, ptr noundef nonnull @.str.110, i32 noundef %.sink323.i) #24
   %855 = load ptr, ptr @stderr, align 8, !tbaa !20
@@ -2502,7 +2502,7 @@ _ZL23pkg_destroyOptMatchArchPc.exit.i:            ; preds = %788, %786, %_ZL22pk
   br label %.thread253.i
 
 .thread253.i:                                     ; preds = %872, %862, %852, %793, %656, %654, %649, %645, %575, %574, %572
-  %.3.ph.i = phi i32 [ 0, %574 ], [ 0, %575 ], [ %573, %572 ], [ 1, %862 ], [ 1, %852 ], [ 1, %872 ], [ %.10.i, %793 ], [ 0, %649 ], [ %655, %654 ], [ -1, %656 ], [ %.0.i.i, %645 ]
+  %.3.ph.i = phi i32 [ 0, %575 ], [ %573, %572 ], [ 1, %852 ], [ 0, %574 ], [ 1, %872 ], [ %.10.i, %793 ], [ 1, %862 ], [ %655, %654 ], [ 0, %649 ], [ -1, %656 ], [ %.0.i.i, %645 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
@@ -2578,7 +2578,7 @@ _ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %353, %_ZL19pkg_inst
   br label %.loopexit
 
 .loopexit:                                        ; preds = %135, %890, %891, %284, %99, %91, %83, %39
-  %.052 = phi i32 [ 2, %284 ], [ 1, %39 ], [ 1, %99 ], [ 1, %91 ], [ 1, %83 ], [ %.0.i, %891 ], [ %.0.i, %890 ], [ 1, %135 ]
+  %.052 = phi i32 [ 1, %83 ], [ 2, %284 ], [ %.0.i, %890 ], [ 1, %39 ], [ 1, %99 ], [ 1, %91 ], [ %.0.i, %891 ], [ 1, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   ret i32 %.052
 }
@@ -2835,16 +2835,16 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL23pkg_generateLibraryFil
   br i1 %.not.i43, label %_ZL10runCommandPKca.exit42.thread, label %_ZL10runCommandPKca.exit42
 
 _ZL10runCommandPKca.exit42:                       ; preds = %117, %54, %43
-  %.sink61 = phi i32 [ %45, %43 ], [ %56, %54 ], [ %119, %117 ]
-  %.230 = phi ptr [ %.129, %43 ], [ %.129, %54 ], [ %.3, %117 ]
-  %.1 = phi i8 [ %.0, %43 ], [ %.0, %54 ], [ %.2, %117 ]
+  %.sink61 = phi i32 [ %56, %54 ], [ %45, %43 ], [ %119, %117 ]
+  %.230 = phi ptr [ %.129, %54 ], [ %.129, %43 ], [ %.3, %117 ]
+  %.1 = phi i8 [ %.0, %54 ], [ %.0, %43 ], [ %.2, %117 ]
   %120 = load ptr, ptr @stderr, align 8, !tbaa !20
   %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.110, i32 noundef %.sink61) #24
   %122 = load ptr, ptr @stderr, align 8, !tbaa !20
   %123 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.141, ptr noundef nonnull %.230) #24
   br label %_ZL10runCommandPKca.exit42.thread
 
-_ZL10runCommandPKca.exit42.thread:                ; preds = %117, %98, %54, %46, %_ZL10runCommandPKca.exit42
+_ZL10runCommandPKca.exit42.thread:                ; preds = %117, %98, %46, %54, %_ZL10runCommandPKca.exit42
   %.153 = phi i8 [ %.1, %_ZL10runCommandPKca.exit42 ], [ %.2, %117 ], [ %.2, %98 ], [ %.0, %54 ], [ %.0, %46 ]
   %.23052 = phi ptr [ %.230, %_ZL10runCommandPKca.exit42 ], [ %.3, %117 ], [ %.3, %98 ], [ %.129, %54 ], [ %.129, %46 ]
   %.03151 = phi i32 [ 1, %_ZL10runCommandPKca.exit42 ], [ 0, %117 ], [ 0, %98 ], [ 0, %54 ], [ 0, %46 ]
@@ -2930,7 +2930,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL18pkg_createSymLinksPKca(
   br label %_ZL10runCommandPKca.exit12
 
 _ZL10runCommandPKca.exit12:                       ; preds = %41, %38, %28, %1, %12, %23
-  %.0 = phi i32 [ 1, %23 ], [ 0, %12 ], [ 0, %1 ], [ 0, %28 ], [ 1, %41 ], [ 0, %38 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %23 ], [ 0, %12 ], [ 0, %28 ], [ 1, %41 ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3053,7 +3053,7 @@ _ZN6icu_778internal16LocalOpenPointerI8_IO_FILEXadL_Z6pcloseEEED2Ev.exit14.crite
   br label %_ZN6icu_778internal16LocalOpenPointerI8_IO_FILEXadL_Z6pcloseEEED2Ev.exit14
 
 _ZN6icu_778internal16LocalOpenPointerI8_IO_FILEXadL_Z6pcloseEEED2Ev.exit14: ; preds = %_ZN6icu_778internal16LocalOpenPointerI8_IO_FILEXadL_Z6pcloseEEED2Ev.exit14.critedge, %.thread
-  %.09 = phi i8 [ %.08, %.thread ], [ 0, %_ZN6icu_778internal16LocalOpenPointerI8_IO_FILEXadL_Z6pcloseEEED2Ev.exit14.critedge ]
+  %.09 = phi i8 [ 0, %_ZN6icu_778internal16LocalOpenPointerI8_IO_FILEXadL_Z6pcloseEEED2Ev.exit14.critedge ], [ %.08, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %3) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

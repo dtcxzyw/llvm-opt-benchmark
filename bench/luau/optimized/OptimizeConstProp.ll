@@ -1655,9 +1655,9 @@ _ZN4Luau7CodeGenL16constPropInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_14ConstPr
   br label %378
 
 378:                                              ; preds = %.loopexit52, %.loopexit.split-lp53, %.loopexit47, %.loopexit.split-lp48, %.loopexit39, %.loopexit.split-lp40, %.loopexit, %376, %206, %.loopexit.split-lp.i, %.loopexit.i
-  %.sroa.21.3 = phi ptr [ %.sroa.21.7, %376 ], [ %.sroa.21.7, %206 ], [ %.sroa.21.0184, %.loopexit.i ], [ %.sroa.21.0184, %.loopexit.split-lp.i ], [ %.sroa.21.6.ph, %.loopexit ], [ %.sroa.14.0185, %.loopexit39 ], [ %.sroa.14.0185, %.loopexit.split-lp40 ], [ %.sroa.21.7, %.loopexit47 ], [ %.sroa.21.7, %.loopexit.split-lp48 ], [ %.sroa.21.7, %.loopexit52 ], [ %.sroa.21.7, %.loopexit.split-lp53 ]
-  %.sroa.025.3 = phi ptr [ %.sroa.025.7, %376 ], [ %.sroa.025.7, %206 ], [ %.sroa.025.0186, %.loopexit.i ], [ %.sroa.025.0186, %.loopexit.split-lp.i ], [ %.sroa.025.6.ph, %.loopexit ], [ %.sroa.025.0186, %.loopexit39 ], [ %.sroa.025.0186, %.loopexit.split-lp40 ], [ %.sroa.025.7, %.loopexit47 ], [ %.sroa.025.7, %.loopexit.split-lp48 ], [ %.sroa.025.7, %.loopexit52 ], [ %.sroa.025.7, %.loopexit.split-lp53 ]
-  %.pn76.pn.i = phi { ptr, i32 } [ %377, %376 ], [ %207, %206 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit41, %.loopexit39 ], [ %lpad.loopexit.split-lp42, %.loopexit.split-lp40 ], [ %lpad.loopexit49, %.loopexit47 ], [ %lpad.loopexit.split-lp50, %.loopexit.split-lp48 ], [ %lpad.loopexit54, %.loopexit52 ], [ %lpad.loopexit.split-lp55, %.loopexit.split-lp53 ]
+  %.sroa.21.3 = phi ptr [ %.sroa.21.7, %.loopexit.split-lp53 ], [ %.sroa.21.0184, %.loopexit.split-lp.i ], [ %.sroa.14.0185, %.loopexit.split-lp40 ], [ %.sroa.21.7, %.loopexit.split-lp48 ], [ %.sroa.21.7, %376 ], [ %.sroa.21.7, %206 ], [ %.sroa.21.0184, %.loopexit.i ], [ %.sroa.21.6.ph, %.loopexit ], [ %.sroa.14.0185, %.loopexit39 ], [ %.sroa.21.7, %.loopexit47 ], [ %.sroa.21.7, %.loopexit52 ]
+  %.sroa.025.3 = phi ptr [ %.sroa.025.7, %.loopexit.split-lp53 ], [ %.sroa.025.0186, %.loopexit.split-lp.i ], [ %.sroa.025.0186, %.loopexit.split-lp40 ], [ %.sroa.025.7, %.loopexit.split-lp48 ], [ %.sroa.025.7, %376 ], [ %.sroa.025.7, %206 ], [ %.sroa.025.0186, %.loopexit.i ], [ %.sroa.025.6.ph, %.loopexit ], [ %.sroa.025.0186, %.loopexit39 ], [ %.sroa.025.7, %.loopexit47 ], [ %.sroa.025.7, %.loopexit52 ]
+  %.pn76.pn.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp55, %.loopexit.split-lp53 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.split-lp42, %.loopexit.split-lp40 ], [ %lpad.loopexit.split-lp50, %.loopexit.split-lp48 ], [ %377, %376 ], [ %207, %206 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit41, %.loopexit39 ], [ %lpad.loopexit49, %.loopexit47 ], [ %lpad.loopexit54, %.loopexit52 ]
   %.not.i.i.i133.i = icmp eq ptr %.sroa.0151.0.lcssa.ph.i, null
   br i1 %.not.i.i.i133.i, label %common.resume.i, label %.thread.i
 
@@ -1671,9 +1671,9 @@ _ZN4Luau7CodeGenL16constPropInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_14ConstPr
   br label %common.resume.i
 
 _ZN4Luau7CodeGenL20tryCreateLinearBlockERNS0_9IrBuilderERSt6vectorIhSaIhEERNS0_7IrBlockERNS0_14ConstPropStateE.exit: ; preds = %373, %_ZN4Luau7CodeGenL16constPropInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_14ConstPropStateE.exit131.i, %75, %71, %64, %55, %51, %51
-  %.sroa.21.1 = phi ptr [ %.sroa.21.0184, %55 ], [ %.sroa.21.0184, %51 ], [ %.sroa.21.0184, %51 ], [ %.sroa.21.0184, %75 ], [ %.sroa.21.8, %_ZN4Luau7CodeGenL16constPropInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_14ConstPropStateE.exit131.i ], [ %.sroa.21.8, %373 ], [ %.sroa.21.0184, %71 ], [ %.sroa.21.0184, %64 ]
-  %.sroa.14.1 = phi ptr [ %.sroa.14.0185, %55 ], [ %.sroa.14.0185, %51 ], [ %.sroa.14.0185, %51 ], [ %.sroa.14.0185, %75 ], [ %.sroa.14.3, %_ZN4Luau7CodeGenL16constPropInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_14ConstPropStateE.exit131.i ], [ %.sroa.14.3, %373 ], [ %.sroa.14.0185, %71 ], [ %.sroa.14.0185, %64 ]
-  %.sroa.025.1 = phi ptr [ %.sroa.025.0186, %55 ], [ %.sroa.025.0186, %51 ], [ %.sroa.025.0186, %51 ], [ %.sroa.025.0186, %75 ], [ %.sroa.025.8, %_ZN4Luau7CodeGenL16constPropInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_14ConstPropStateE.exit131.i ], [ %.sroa.025.8, %373 ], [ %.sroa.025.0186, %71 ], [ %.sroa.025.0186, %64 ]
+  %.sroa.21.1 = phi ptr [ %.sroa.21.0184, %51 ], [ %.sroa.21.0184, %55 ], [ %.sroa.21.0184, %51 ], [ %.sroa.21.0184, %75 ], [ %.sroa.21.8, %_ZN4Luau7CodeGenL16constPropInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_14ConstPropStateE.exit131.i ], [ %.sroa.21.8, %373 ], [ %.sroa.21.0184, %71 ], [ %.sroa.21.0184, %64 ]
+  %.sroa.14.1 = phi ptr [ %.sroa.14.0185, %51 ], [ %.sroa.14.0185, %55 ], [ %.sroa.14.0185, %51 ], [ %.sroa.14.0185, %75 ], [ %.sroa.14.3, %_ZN4Luau7CodeGenL16constPropInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_14ConstPropStateE.exit131.i ], [ %.sroa.14.3, %373 ], [ %.sroa.14.0185, %71 ], [ %.sroa.14.0185, %64 ]
+  %.sroa.025.1 = phi ptr [ %.sroa.025.0186, %51 ], [ %.sroa.025.0186, %55 ], [ %.sroa.025.0186, %51 ], [ %.sroa.025.0186, %75 ], [ %.sroa.025.8, %_ZN4Luau7CodeGenL16constPropInBlockERNS0_9IrBuilderERNS0_7IrBlockERNS0_14ConstPropStateE.exit131.i ], [ %.sroa.025.8, %373 ], [ %.sroa.025.0186, %71 ], [ %.sroa.025.0186, %64 ]
   %381 = add nuw i64 %.017187, 1
   %exitcond.not = icmp eq i64 %381, %23
   br i1 %exitcond.not, label %._crit_edge, label %51, !llvm.loop !123
@@ -2716,7 +2716,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread: ; preds = %84, %80
 
 339:                                              ; preds = %336, %338, %329
   %.not1037 = icmp eq i8 %.0979, -1
-  br i1 %.not1037, label %.critedge1048, label %340
+  br i1 %.not1037, label %.critedge, label %340
 
 340:                                              ; preds = %339
   %.sroa.0260.0.copyload = load i32, ptr %302, align 4, !tbaa !22
@@ -2763,9 +2763,9 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread: ; preds = %84, %80
   br label %363
 
 363:                                              ; preds = %342, %350, %353, %360, %358, %340
-  %.01282 = phi i32 [ -1, %340 ], [ -1, %342 ], [ -1, %358 ], [ %.sroa.41261.0.extract.trunc, %360 ], [ -1, %353 ], [ -1, %350 ]
-  %.01281 = phi i8 [ 0, %340 ], [ 0, %342 ], [ %.sroa.01259.0.extract.trunc, %358 ], [ %.sroa.01259.0.extract.trunc, %360 ], [ 0, %353 ], [ 0, %350 ]
-  %.sroa.0265.0 = phi i32 [ %330, %340 ], [ %330, %342 ], [ %330, %358 ], [ %362, %360 ], [ %330, %353 ], [ %330, %350 ]
+  %.01282 = phi i32 [ -1, %350 ], [ -1, %340 ], [ -1, %342 ], [ -1, %358 ], [ %.sroa.41261.0.extract.trunc, %360 ], [ -1, %353 ]
+  %.01281 = phi i8 [ 0, %350 ], [ 0, %340 ], [ 0, %342 ], [ %.sroa.01259.0.extract.trunc, %358 ], [ %.sroa.01259.0.extract.trunc, %360 ], [ 0, %353 ]
+  %.sroa.0265.0 = phi i32 [ %330, %350 ], [ %330, %340 ], [ %330, %342 ], [ %330, %358 ], [ %362, %360 ], [ %330, %353 ]
   %.pre1471 = and i32 %.sroa.0265.0, 15
   switch i8 %.0979, label %.thread1310 [
     i8 1, label %364
@@ -2774,7 +2774,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread: ; preds = %84, %80
 
 364:                                              ; preds = %363
   switch i32 %.pre1471, label %.thread1310 [
-    i32 4, label %.critedge
+    i32 4, label %.critedge1048
     i32 2, label %365
   ]
 
@@ -2786,11 +2786,11 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread: ; preds = %84, %80
   %370 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %369, i64 %368
   %371 = load i8, ptr %370, align 8, !tbaa !135
   %372 = icmp eq i8 %371, 0
-  br i1 %372, label %.critedge, label %.thread1310.thread
+  br i1 %372, label %.critedge1048, label %.thread1310.thread
 
 373:                                              ; preds = %363
   switch i32 %.pre1471, label %.thread1310 [
-    i32 4, label %.critedge
+    i32 4, label %.critedge1048
     i32 2, label %374
   ]
 
@@ -2802,19 +2802,19 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread: ; preds = %84, %80
   %379 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %378, i64 %377
   %380 = load i8, ptr %379, align 8, !tbaa !135
   %381 = icmp eq i8 %380, 2
-  br i1 %381, label %.critedge, label %.thread1310.thread
+  br i1 %381, label %.critedge1048, label %.thread1310.thread
 
 .thread1310.thread:                               ; preds = %365, %374
   %382 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen5isGCOEh(i8 noundef zeroext %.0979)
-  br label %.critedge1048
+  br label %.critedge
 
 .thread1310:                                      ; preds = %363, %373, %364
   %383 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen5isGCOEh(i8 noundef zeroext %.0979)
   %384 = icmp eq i32 %.pre1471, 4
   %or.cond1046 = select i1 %383, i1 %384, i1 false
-  br i1 %or.cond1046, label %.critedge, label %.critedge1048
+  br i1 %or.cond1046, label %.critedge1048, label %.critedge
 
-.critedge:                                        ; preds = %374, %364, %365, %373, %.thread1310
+.critedge1048:                                    ; preds = %374, %364, %365, %373, %.thread1310
   store i8 19, ptr %9, align 8, !tbaa !85
   %385 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %386 = load i32, ptr %272, align 4, !tbaa !22
@@ -2842,7 +2842,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread: ; preds = %84, %80
   %or.cond = select i1 %398, i1 %399, i1 false
   br i1 %or.cond, label %400, label %.critedge1066
 
-400:                                              ; preds = %.critedge
+400:                                              ; preds = %.critedge1048
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 5176
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
@@ -2867,13 +2867,13 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread: ; preds = %84, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge1066
 
-.critedge1048:                                    ; preds = %.thread1310.thread, %339, %.thread1310
+.critedge:                                        ; preds = %.thread1310.thread, %339, %.thread1310
   %414 = load i32, ptr %272, align 4
   %415 = and i32 %414, 15
   %416 = icmp eq i32 %415, 6
   br i1 %416, label %417, label %.critedge1066
 
-417:                                              ; preds = %.critedge1048
+417:                                              ; preds = %.critedge
   tail call void @_ZN4Luau7CodeGen14ConstPropState23forwardVmRegStoreToLoadERKNS0_6IrInstENS0_5IrCmdE(ptr noundef nonnull align 8 dereferenceable(5464) %0, ptr noundef nonnull align 4 dereferenceable(43) %4, i8 noundef zeroext 6)
   br label %.critedge1066
 
@@ -4009,7 +4009,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1131: ; preds = %895
   tail call void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(624) %2, ptr noundef nonnull align 4 dereferenceable(43) %4)
   br label %.critedge1066
 
-1028:                                             ; preds = %1014, %1011, %1018, %1017
+1028:                                             ; preds = %1011, %1017, %1014, %1018
   %1029 = getelementptr inbounds nuw i8, ptr %.sroa.01221.01447, i64 4
   %.not1398 = icmp eq ptr %1029, %997
   br i1 %.not1398, label %._crit_edge1450, label %1006
@@ -4822,7 +4822,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1158: ; preds = %1422
   br label %.critedge1066
 
 .thread1362:                                      ; preds = %1439, %.thread1357, %1444
-  %1464 = phi ptr [ %1440, %1444 ], [ %1440, %1439 ], [ %1442, %.thread1357 ]
+  %1464 = phi ptr [ %1442, %.thread1357 ], [ %1440, %1444 ], [ %1440, %1439 ]
   %1465 = getelementptr inbounds nuw i8, ptr %0, i64 5368
   %1466 = load ptr, ptr %1465, align 8, !tbaa !149
   %1467 = getelementptr inbounds nuw i8, ptr %0, i64 5376
@@ -5478,7 +5478,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1158: ; preds = %1422
   tail call void @_ZN4Luau7CodeGen14ConstPropState18invalidateUserCallEv(ptr noundef nonnull align 8 dereferenceable(5464) %0)
   br label %.critedge1066
 
-.critedge1066:                                    ; preds = %632, %630, %575, %573, %271, %1159, %1162, %1024, %1027, %669, %667, %1698, %1690, %1686, %1681, %1541, %1432, %1516, %.critedge1069, %1457, %1456, %1453, %1504, %1507, %1358, %1337, %1312, %1336, %1308, %1287, %1269, %1286, %1279, %1265, %1244, %1243, %1241, %1203, %1117, %917, %992, %.critedge1051, %958, %955, %982, %979, %764, %757, %750, %731, %724, %717, %653, %646, %598, %592, %400, %.critedge, %417, %.critedge1048, %287, %133, %134, %.thread, %1584, %1593, %1596, %1571, %1579, %1582, %1410, %1412, %1395, %1397, %1078, %1074, %1057, %1049, %1054, %1053, %859, %869, %872, %873, %844, %854, %857, %858, %843, %832, %835, %836, %800, %802, %528, %521, %539, %535, %477, %470, %467, %467, %460, %453, %450, %450, %171, %179, %184, %182, %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit, %94, %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread, %74, %79, %75, %50, %56, %52, %._crit_edge1433, %1556, %1369, %1381, %._crit_edge, %1368, %1174, %.critedge1058, %1213, %._crit_edge1438, %._crit_edge1445, %1127, %1044, %1042, %1043, %._crit_edge1450, %1037, %885, %884, %881, %795, %418, %449, %423, %226, %240, %241, %242, %196, %210, %211, %212, %148, %153, %101, %95, %100, %57, %62, %1790, %1775, %1764, %1735, %1734, %1719, %1718, %1703, %1699, %1687, %1670, %1659, %1644, %1643, %1628, %1613, %1598, %1382, %1340, %1339, %1338, %1214, %1082, %780, %256, %45
+.critedge1066:                                    ; preds = %632, %630, %575, %573, %271, %1162, %1159, %1024, %1027, %669, %667, %1698, %1690, %1686, %1681, %1541, %1432, %1516, %.critedge1069, %1456, %1453, %1457, %1504, %1507, %1358, %1337, %1312, %1336, %1308, %1287, %1269, %1286, %1279, %1265, %1244, %1243, %1241, %1203, %1117, %917, %992, %.critedge1051, %979, %955, %958, %982, %764, %757, %750, %731, %724, %717, %653, %646, %598, %592, %400, %.critedge1048, %417, %.critedge, %287, %133, %134, %.thread, %1584, %1593, %1596, %1571, %1579, %1582, %1410, %1412, %1395, %1397, %1078, %1074, %1057, %1049, %1054, %1053, %859, %869, %872, %873, %844, %854, %857, %858, %843, %832, %835, %836, %800, %802, %528, %521, %539, %535, %477, %470, %467, %467, %460, %453, %450, %450, %171, %179, %184, %182, %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit, %94, %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread, %74, %79, %75, %50, %56, %52, %._crit_edge1433, %1556, %1369, %1381, %._crit_edge, %1368, %1174, %.critedge1058, %1213, %._crit_edge1438, %._crit_edge1445, %1127, %1044, %1042, %1043, %._crit_edge1450, %1037, %885, %884, %881, %795, %418, %449, %423, %226, %240, %241, %242, %196, %210, %211, %212, %148, %153, %101, %95, %100, %57, %62, %1790, %1775, %1764, %1735, %1734, %1719, %1718, %1703, %1699, %1687, %1670, %1659, %1644, %1643, %1628, %1613, %1598, %1382, %1340, %1339, %1338, %1214, %1082, %780, %256, %45
   ret void
 }
 
@@ -5570,8 +5570,8 @@ _ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4find
   %54 = load i8, ptr %.014.i, align 4, !tbaa !9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %32, %2, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i.i, %17, %11, %53
-  %55 = phi i8 [ %54, %53 ], [ -1, %11 ], [ -1, %17 ], [ -1, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i.i ], [ -1, %2 ], [ -1, %32 ], [ -1, %34 ]
+.loopexit:                                        ; preds = %34, %32, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i.i, %11, %17, %2, %53
+  %55 = phi i8 [ %54, %53 ], [ -1, %2 ], [ -1, %17 ], [ -1, %11 ], [ -1, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i.i ], [ -1, %32 ], [ -1, %34 ]
   ret i8 %55
 }
 
@@ -5692,7 +5692,7 @@ _ZN4Luau7CodeGen14ConstPropState20getPreviousInstIndexERKNS0_6IrInstE.exit: ; pr
   %.not.i.i18 = icmp ugt i64 %64, %54
   br i1 %.not.i.i18, label %.loopexit, label %57, !llvm.loop !155
 
-.loopexit:                                        ; preds = %61, %63, %_ZN4Luau7CodeGen14ConstPropState20getPreviousInstIndexERKNS0_6IrInstE.exit, %47
+.loopexit:                                        ; preds = %61, %63, %47, %_ZN4Luau7CodeGen14ConstPropState20getPreviousInstIndexERKNS0_6IrInstE.exit
   %.sroa.03.0.copyload = load i32, ptr %8, align 4, !tbaa !22
   call void @_ZN4Luau7CodeGen14ConstPropState13createRegLinkEjNS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(5464) %0, i32 noundef %37, i32 %.sroa.03.0.copyload)
   %.pre = load ptr, ptr %0, align 8, !tbaa !159
@@ -5837,8 +5837,8 @@ _ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4find
   %55 = load i32, ptr %54, align 4, !tbaa !22
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %32, %2, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i.i, %17, %11, %53
-  %.sroa.0.1 = phi i32 [ %55, %53 ], [ 0, %11 ], [ 0, %17 ], [ 0, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i.i ], [ 0, %2 ], [ 0, %32 ], [ 0, %34 ]
+.loopexit:                                        ; preds = %34, %32, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i.i, %11, %17, %2, %53
+  %.sroa.0.1 = phi i32 [ %55, %53 ], [ 0, %2 ], [ 0, %17 ], [ 0, %11 ], [ 0, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i.i ], [ 0, %32 ], [ 0, %34 ]
   ret i32 %.sroa.0.1
 }
 
@@ -6020,7 +6020,7 @@ _ZNKSt6bitsetILm256EE4testEm.exit:                ; preds = %10
   br label %95
 
 95:                                               ; preds = %3, %_ZNKSt6bitsetILm256EE4testEm.exit, %70, %.thread, %.thread55, %.thread61, %94, %69, %46
-  %.sroa.019.1 = phi i64 [ %.sroa.0.0.insert.insert.i, %46 ], [ %.sroa.0.0.insert.insert.i34, %69 ], [ %.sroa.0.0.insert.insert.i41, %94 ], [ -4294967296, %.thread61 ], [ -4294967296, %.thread55 ], [ -4294967296, %.thread ], [ -4294967296, %70 ], [ -4294967296, %_ZNKSt6bitsetILm256EE4testEm.exit ], [ -4294967296, %3 ]
+  %.sroa.019.1 = phi i64 [ %.sroa.0.0.insert.insert.i41, %94 ], [ %.sroa.0.0.insert.insert.i, %46 ], [ %.sroa.0.0.insert.insert.i34, %69 ], [ -4294967296, %.thread61 ], [ -4294967296, %.thread55 ], [ -4294967296, %.thread ], [ -4294967296, %70 ], [ -4294967296, %_ZNKSt6bitsetILm256EE4testEm.exit ], [ -4294967296, %3 ]
   ret i64 %.sroa.019.1
 }
 
@@ -6123,7 +6123,7 @@ _ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit: ; preds = 
   store i32 %58, ptr %56, align 4, !tbaa !138
   br label %_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit.thread
 
-_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit.thread: ; preds = %35, %33, %3, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i.i, %18, %12, %_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit, %55
+_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit.thread: ; preds = %35, %33, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i.i, %12, %18, %3, %_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit, %55
   ret void
 }
 
@@ -6318,8 +6318,8 @@ _ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4find
   %52 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterInfo", ptr %51, i64 %42
   br label %select.unfold
 
-select.unfold:                                    ; preds = %34, %32, %2, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i, %47, %11, %17, %4
-  %.014 = phi ptr [ %10, %4 ], [ %52, %47 ], [ null, %11 ], [ null, %17 ], [ null, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i ], [ null, %2 ], [ null, %32 ], [ null, %34 ]
+select.unfold:                                    ; preds = %34, %32, %2, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i, %47, %17, %11, %4
+  %.014 = phi ptr [ %10, %4 ], [ %52, %47 ], [ null, %2 ], [ null, %17 ], [ null, %11 ], [ null, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i ], [ null, %32 ], [ null, %34 ]
   ret ptr %.014
 }
 
@@ -6427,7 +6427,7 @@ _ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit: ; preds = 
   store i32 %62, ptr %60, align 4, !tbaa !138
   br label %_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit.thread
 
-_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit.thread: ; preds = %35, %33, %3, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i.i, %18, %12, %_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit, %56
+_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit.thread: ; preds = %35, %33, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i.i, %12, %18, %3, %_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit, %56
   ret void
 }
 
@@ -6540,8 +6540,8 @@ _ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4find
   %. = select i1 %39, ptr null, ptr %31
   br label %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.thread
 
-_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.thread: ; preds = %25, %27, %10, %4, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit, %2
-  %.07 = phi ptr [ null, %2 ], [ %., %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit ], [ null, %4 ], [ null, %10 ], [ null, %27 ], [ null, %25 ]
+_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.thread: ; preds = %25, %27, %4, %10, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit, %2
+  %.07 = phi ptr [ null, %2 ], [ %., %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit ], [ null, %10 ], [ null, %4 ], [ null, %27 ], [ null, %25 ]
   ret ptr %.07
 }
 
@@ -6645,7 +6645,7 @@ _ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit: ; preds = 
   store i8 %2, ptr %.014.i, align 4, !tbaa !9
   br label %_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit.thread
 
-_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit.thread: ; preds = %35, %33, %3, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i.i, %18, %12, %_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit
+_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit.thread: ; preds = %35, %33, %_ZN4Luau12DenseHashMapIjNS_7CodeGen12RegisterLinkESt4hashIjESt8equal_toIjEE4findERKj.exit.i.i, %12, %18, %3, %_ZN4Luau7CodeGen14ConstPropState18tryGetRegisterInfoENS0_4IrOpE.exit
   ret void
 }
 
@@ -7931,7 +7931,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen14ConstPropState13createRegL
   br label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjNS_7CodeGen12RegisterLinkEES2_IKjS4_ENS0_16ItemInterfaceMapIjS4_EESt4hashIjESt8equal_toIjEE14rehash_if_fullERS6_.exit.i
 
 _ZN4Luau6detail14DenseHashTableIjSt4pairIjNS_7CodeGen12RegisterLinkEES2_IKjS4_ENS0_16ItemInterfaceMapIjS4_EESt4hashIjESt8equal_toIjEE14rehash_if_fullERS6_.exit.i: ; preds = %27, %.loopexit.i.i, %3
-  %37 = phi i64 [ %13, %3 ], [ %.pre.i, %.loopexit.i.i ], [ %13, %27 ]
+  %37 = phi i64 [ %.pre.i, %.loopexit.i.i ], [ %13, %3 ], [ %13, %27 ]
   %38 = add i64 %37, -1
   %39 = zext i32 %1 to i64
   %40 = and i64 %38, %39
@@ -8253,7 +8253,7 @@ _ZNK4Luau7CodeGen8IrInstEqclERKNS0_6IrInstES4_.exit25.thread: ; preds = %_ZNK4Lu
   br i1 %.not, label %.thread, label %130, !llvm.loop !198
 
 .thread:                                          ; preds = %_ZNK4Luau7CodeGen8IrInstEqclERKNS0_6IrInstES4_.exit25.thread, %_ZNK4Luau7CodeGen8IrInstEqclERKNS0_6IrInstES4_.exit24, %_ZNK4Luau7CodeGen8IrInstEqclERKNS0_6IrInstES4_.exit25, %_ZNK4Luau7CodeGen8IrInstEqclERKNS0_6IrInstES4_.exit, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %_ZNK4Luau7CodeGen8IrInstEqclERKNS0_6IrInstES4_.exit ], [ %131, %_ZNK4Luau7CodeGen8IrInstEqclERKNS0_6IrInstES4_.exit24 ], [ null, %_ZNK4Luau7CodeGen8IrInstEqclERKNS0_6IrInstES4_.exit25 ], [ null, %_ZNK4Luau7CodeGen8IrInstEqclERKNS0_6IrInstES4_.exit25.thread ]
+  %.0 = phi ptr [ null, %_ZNK4Luau7CodeGen8IrInstEqclERKNS0_6IrInstES4_.exit ], [ null, %2 ], [ %131, %_ZNK4Luau7CodeGen8IrInstEqclERKNS0_6IrInstES4_.exit24 ], [ null, %_ZNK4Luau7CodeGen8IrInstEqclERKNS0_6IrInstES4_.exit25 ], [ null, %_ZNK4Luau7CodeGen8IrInstEqclERKNS0_6IrInstES4_.exit25.thread ]
   ret ptr %.0
 }
 
@@ -9234,7 +9234,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !207
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
-  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.08.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
+  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.08.us, %.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %39 ]
   %42 = getelementptr inbounds nuw i32, ptr %.fr16, i64 %.0.lcssa.i.i.us
   store i32 %21, ptr %42, align 4, !tbaa !70
   %.not.us = icmp eq i64 %.08.us, 0

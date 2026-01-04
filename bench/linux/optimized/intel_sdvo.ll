@@ -1036,7 +1036,7 @@ define internal i32 @intel_sdvo_compute_config(ptr noundef %0, ptr noundef %1, p
   br label %.thread
 
 .thread:                                          ; preds = %34, %30, %118, %158, %139, %126, %37, %23, %11
-  %159 = phi i32 [ -22, %158 ], [ -22, %118 ], [ -22, %11 ], [ -22, %23 ], [ -22, %37 ], [ 0, %126 ], [ 0, %139 ], [ -22, %34 ], [ %32, %30 ]
+  %159 = phi i32 [ -22, %158 ], [ -22, %118 ], [ 0, %139 ], [ -22, %11 ], [ -22, %23 ], [ -22, %37 ], [ 0, %126 ], [ -22, %34 ], [ %32, %30 ]
   ret i32 %159
 }
 
@@ -3013,7 +3013,7 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_output_setup(ptr noundef n
   br label %.thread25
 
 .thread25:                                        ; preds = %201, %182, %106, %42, %198, %210, %190, %114, %50, %232, %216, %197, %.loopexit27, %120, %92, %236, %26
-  %238 = phi i1 [ false, %26 ], [ true, %236 ], [ false, %92 ], [ false, %120 ], [ false, %.loopexit27 ], [ false, %197 ], [ false, %216 ], [ false, %232 ], [ false, %50 ], [ false, %114 ], [ false, %190 ], [ false, %210 ], [ false, %198 ], [ false, %42 ], [ false, %106 ], [ false, %182 ], [ false, %201 ]
+  %238 = phi i1 [ false, %26 ], [ true, %236 ], [ false, %210 ], [ false, %92 ], [ false, %120 ], [ false, %.loopexit27 ], [ false, %197 ], [ false, %216 ], [ false, %232 ], [ false, %50 ], [ false, %190 ], [ false, %114 ], [ false, %198 ], [ false, %42 ], [ false, %106 ], [ false, %182 ], [ false, %201 ]
   ret i1 %238
 }
 
@@ -3060,7 +3060,7 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_get_input_pixel_clock_rang
   br label %.thread
 
 .thread:                                          ; preds = %3, %8, %6
-  %16 = phi i1 [ true, %8 ], [ false, %6 ], [ false, %3 ]
+  %16 = phi i1 [ false, %6 ], [ true, %8 ], [ false, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %16
 }
@@ -4390,7 +4390,7 @@ define internal fastcc range(i64 -6, 256) i64 @intel_sdvo_read_infoframe(ptr nou
   br i1 %62, label %48, label %.critedge
 
 .critedge:                                        ; preds = %55, %.preheader, %48, %41, %31, %33, %26, %24, %22, %20, %18, %14, %12, %4
-  %63 = phi i64 [ -6, %12 ], [ 0, %14 ], [ -6, %20 ], [ -6, %24 ], [ 0, %26 ], [ -6, %4 ], [ -6, %18 ], [ -6, %22 ], [ 0, %33 ], [ 0, %31 ], [ 0, %41 ], [ -6, %55 ], [ -6, %.preheader ], [ %51, %48 ]
+  %63 = phi i64 [ 0, %41 ], [ -6, %12 ], [ 0, %14 ], [ -6, %20 ], [ -6, %24 ], [ 0, %26 ], [ 0, %31 ], [ -6, %4 ], [ -6, %18 ], [ -6, %22 ], [ 0, %33 ], [ -6, %55 ], [ -6, %.preheader ], [ %51, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

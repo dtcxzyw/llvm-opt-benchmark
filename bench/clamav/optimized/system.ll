@@ -146,7 +146,7 @@ define range(i32 0, 6) i32 @mspack_sys_filelen(ptr noundef readonly captures(add
   br label %19
 
 19:                                               ; preds = %14, %7, %3
-  %.0 = phi i32 [ 2, %3 ], [ 5, %7 ], [ %., %14 ]
+  %.0 = phi i32 [ 2, %3 ], [ %., %14 ], [ 5, %7 ]
   ret i32 %.0
 }
 
@@ -176,7 +176,7 @@ switch.lookup:                                    ; preds = %3
   br label %11
 
 11:                                               ; preds = %3, %switch.lookup, %10, %7
-  %.08 = phi ptr [ null, %3 ], [ %6, %7 ], [ null, %10 ], [ null, %switch.lookup ]
+  %.08 = phi ptr [ %6, %7 ], [ null, %3 ], [ null, %10 ], [ null, %switch.lookup ]
   ret ptr %.08
 }
 
@@ -262,7 +262,7 @@ define internal noundef i32 @msp_seek(ptr noundef readonly captures(address_is_n
   br label %7
 
 7:                                                ; preds = %3, %4
-  %.0 = phi i32 [ %6, %4 ], [ -1, %3 ]
+  %.0 = phi i32 [ -1, %3 ], [ %6, %4 ]
   ret i32 %.0
 }
 

@@ -286,7 +286,7 @@ define hidden void @"_ZN14http_body_util9collected18Collected$LT$B$GT$10push_fra
   ret void
 
 .body:                                            ; preds = %27, %79, %60
-  %.pn14 = phi { ptr, i32 } [ %61, %60 ], [ %61, %79 ], [ %28, %27 ]
+  %.pn14 = phi { ptr, i32 } [ %61, %79 ], [ %61, %60 ], [ %28, %27 ]
   resume { ptr, i32 } %.pn14
 
 53:                                               ; preds = %79
@@ -444,8 +444,8 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h06e3d332115ef9d9E(ptr no
   %12 = ptrtoint ptr %10 to i64
   br i1 %11, label %13, label %15
 
-.loopexit:                                        ; preds = %13, %26, %23, %21, %31, %39, %3
-  %.sroa.04.0 = phi ptr [ null, %3 ], [ %10, %31 ], [ %10, %21 ], [ %10, %23 ], [ %10, %26 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.1, %13 ], [ null, %39 ]
+.loopexit:                                        ; preds = %13, %23, %28, %21, %32, %39, %3
+  %.sroa.04.0 = phi ptr [ null, %3 ], [ %10, %32 ], [ %10, %21 ], [ %10, %28 ], [ %10, %23 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.1, %13 ], [ null, %39 ]
   ret ptr %.sroa.04.0
 
 13:                                               ; preds = %7
@@ -456,9 +456,9 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h06e3d332115ef9d9E(ptr no
   %16 = and i64 %12, 3
   switch i64 %16, label %default.unreachable [
     i64 2, label %21
-    i64 3, label %23
-    i64 0, label %26
-    i64 1, label %31
+    i64 3, label %32
+    i64 0, label %23
+    i64 1, label %28
   ]
 
 default.unreachable:                              ; preds = %15
@@ -483,27 +483,27 @@ default.unreachable:                              ; preds = %15
   br i1 %22, label %35, label %.loopexit
 
 23:                                               ; preds = %15
-  %24 = icmp ult ptr %10, inttoptr (i64 176093659136 to ptr)
+  %24 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %24)
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %26 = load i8, ptr %25, align 8, !range !53, !noundef !7
+  %27 = icmp eq i8 %26, 35
+  br i1 %27, label %35, label %.loopexit
+
+28:                                               ; preds = %15
+  %29 = getelementptr i8, ptr %10, i64 15
+  %30 = load i8, ptr %29, align 8, !range !53, !noundef !7
+  %31 = icmp eq i8 %30, 35
+  br i1 %31, label %35, label %.loopexit
+
+32:                                               ; preds = %15
+  %33 = icmp ult ptr %10, inttoptr (i64 176093659136 to ptr)
+  call void @llvm.assume(i1 %33)
   %.mask = and i64 %12, -4294967296
-  %25 = icmp eq i64 %.mask, 150323855360
-  br i1 %25, label %35, label %.loopexit
-
-26:                                               ; preds = %15
-  %27 = icmp ne ptr %10, null
-  call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %29 = load i8, ptr %28, align 8, !range !53, !noundef !7
-  %30 = icmp eq i8 %29, 35
-  br i1 %30, label %35, label %.loopexit
-
-31:                                               ; preds = %15
-  %32 = getelementptr i8, ptr %10, i64 15
-  %33 = load i8, ptr %32, align 8, !range !53, !noundef !7
-  %34 = icmp eq i8 %33, 35
+  %34 = icmp eq i64 %.mask, 150323855360
   br i1 %34, label %35, label %.loopexit
 
-35:                                               ; preds = %31, %21, %23, %26
+35:                                               ; preds = %32, %21, %28, %23
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !54
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h903b54cb721ff79dE.llvm.16659958247667724540(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %10), !noalias !54
   %36 = load i8, ptr %4, align 8, !range !61, !alias.scope !62, !noalias !54, !noundef !7
@@ -2618,8 +2618,8 @@ define hidden { ptr, ptr } @"_ZN66_$LT$jsonwebtoken..errors..Error$u20$as$u20$co
   br label %16
 
 16:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %15, %14, %10, %8
-  %.sroa.20.0 = phi ptr [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.62, %8 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.64, %10 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.66, %14 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.68, %15 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %9, %8 ], [ %13, %10 ], [ %2, %14 ], [ %2, %15 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.20.0 = phi ptr [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.68, %15 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.62, %8 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.64, %10 ], [ @anon.94eae10dfa7e5a36a8d58fda4bf3d58e.66, %14 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %2, %15 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ %9, %8 ], [ %13, %10 ], [ %2, %14 ], [ null, %1 ]
   %17 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %18 = insertvalue { ptr, ptr } %17, ptr %.sroa.20.0, 1
   ret { ptr, ptr } %18
@@ -3370,7 +3370,7 @@ _ZN6base646encode19encode_with_padding17hbe4ee6135753c52aE.llvm.1286003163685833
   ret void
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc0aeb64dae013ad5E.exit": ; preds = %45, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i.i.i", %34, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i", %52
-  %eh.lpad-body33 = phi { ptr, i32 } [ %53, %52 ], [ %53, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i" ], [ %35, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i.i" ], [ %35, %34 ], [ %46, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i.i.i" ], [ %46, %45 ]
+  %eh.lpad-body33 = phi { ptr, i32 } [ %53, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i" ], [ %53, %52 ], [ %35, %34 ], [ %35, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i.i" ], [ %46, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16659958247667724540.exit.i.i1.i.i.i" ], [ %46, %45 ]
   resume { ptr, i32 } %eh.lpad-body33
 
 52:                                               ; preds = %33, %32, %28, %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h1731ea0d7e57f29eE.llvm.12860031636858333160.exit"
@@ -3753,7 +3753,7 @@ define hidden void @_ZN7reqwest10async_impl6client6Client7request17hb2d861883410
   unreachable
 
 .body.thread:                                     ; preds = %35, %37, %23, %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h7f6f442aa32744f0E.exit.i"
-  %eh.lpad-body18 = phi { ptr, i32 } [ %17, %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h7f6f442aa32744f0E.exit.i" ], [ %17, %23 ], [ %lpad.thr_comm.split-lp, %37 ], [ %lpad.thr_comm.split-lp, %35 ]
+  %eh.lpad-body18 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %35 ], [ %17, %23 ], [ %17, %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h7f6f442aa32744f0E.exit.i" ], [ %lpad.thr_comm.split-lp, %37 ]
   resume { ptr, i32 } %eh.lpad-body18
 
 35:                                               ; preds = %4
@@ -3918,7 +3918,7 @@ define hidden void @"_ZN84_$LT$http_body_util..util..BufList$LT$T$GT$$u20$as$u20
   unreachable
 
 "_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h0a0d312032b96698E.llvm.12860031636858333160.exit": ; preds = %.loopexit.split-lp, %287, %55
-  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %288, %287 ], [ %lpad.phi, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %288, %287 ], [ %lpad.phi, %.loopexit.split-lp ], [ %56, %55 ]
   resume { ptr, i32 } %.pn
 
 84:                                               ; preds = %.thread

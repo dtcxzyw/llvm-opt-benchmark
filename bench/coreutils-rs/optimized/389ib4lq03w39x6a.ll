@@ -1270,8 +1270,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %18,
   br label %83
 
 44:                                               ; preds = %"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str5parse17h160918caef1a1850E.exit71", %"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str5parse17h160918caef1a1850E.exit67", %"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str5parse17h160918caef1a1850E.exit", %73
-  %.sroa.8.0 = phi i64 [ %37, %"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str5parse17h160918caef1a1850E.exit" ], [ %70, %73 ], [ %64, %"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str5parse17h160918caef1a1850E.exit71" ], [ -2, %"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str5parse17h160918caef1a1850E.exit67" ]
-  %.sroa.0.0 = phi i64 [ %37, %"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str5parse17h160918caef1a1850E.exit" ], [ %58, %73 ], [ 1, %"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str5parse17h160918caef1a1850E.exit71" ], [ %53, %"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str5parse17h160918caef1a1850E.exit67" ]
+  %.sroa.8.0 = phi i64 [ %37, %"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str5parse17h160918caef1a1850E.exit" ], [ %64, %"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str5parse17h160918caef1a1850E.exit71" ], [ %70, %73 ], [ -2, %"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str5parse17h160918caef1a1850E.exit67" ]
+  %.sroa.0.0 = phi i64 [ %37, %"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str5parse17h160918caef1a1850E.exit" ], [ 1, %"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str5parse17h160918caef1a1850E.exit71" ], [ %58, %73 ], [ %53, %"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str5parse17h160918caef1a1850E.exit67" ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0.0, ptr %45, align 8
   br label %83
@@ -1668,9 +1668,9 @@ _ZN5alloc5slice11stable_sort17h4e6e4256d427f6e3E.exit.i: ; preds = %74
 
 .loopexit70:                                      ; preds = %56, %.loopexit.i.i, %72, %26
   %.sroa.17.1.ph = phi i64 [ %.sroa.17.073, %26 ], [ %70, %72 ], [ %.sroa.17.073, %.loopexit.i.i ], [ %.sroa.17.073, %56 ]
-  %.sroa.14.4.ph = phi i64 [ %.sroa.14.074, %26 ], [ %70, %72 ], [ %.sroa.14.1, %56 ], [ %70, %.loopexit.i.i ]
+  %.sroa.14.4.ph = phi i64 [ %.sroa.14.074, %26 ], [ %70, %72 ], [ %70, %.loopexit.i.i ], [ %.sroa.14.1, %56 ]
   %.sroa.27.1.ph = phi i1 [ true, %26 ], [ false, %72 ], [ true, %.loopexit.i.i ], [ true, %56 ]
-  %.sroa.8.2.ph = phi ptr [ %18, %26 ], [ %.sink16.i.i.i, %72 ], [ %58, %56 ], [ %18, %.loopexit.i.i ]
+  %.sroa.8.2.ph = phi ptr [ %18, %26 ], [ %.sink16.i.i.i, %72 ], [ %18, %.loopexit.i.i ], [ %58, %56 ]
   %.pn = phi i64 [ %2, %26 ], [ %.sroa.14.1, %72 ], [ %2, %.loopexit.i.i ], [ %2, %56 ]
   %.sroa.0.0.i.ph = getelementptr inbounds i8, ptr %1, i64 %.sroa.17.073
   %.sroa.4.0.i.ph = sub i64 %.pn, %.sroa.17.073
@@ -2001,28 +2001,28 @@ define void @_ZN6uucore6parser10parse_glob8from_str17hb352925bc8c38089E(ptr noal
   %19 = load i32, ptr %18, align 4, !range !248, !noalias !318, !noundef !13
   %20 = icmp eq i32 %19, 91
   %21 = add nuw i64 %.03670.i, 1
-  br i1 %20, label %22, label %.backedge.i
+  br i1 %20, label %24, label %.backedge.i
 
-22:                                               ; preds = %17
-  %23 = icmp ult i64 %21, %10
-  br i1 %23, label %24, label %.invoke.i, !prof !319
-
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds i32, ptr %.pre.i, i64 %21
-  %26 = load i32, ptr %25, align 4, !range !248, !noalias !318, !noundef !13
-  %27 = icmp eq i32 %26, 94
-  br i1 %27, label %30, label %.backedge.i
-
-.invoke.i:                                        ; preds = %22, %14
-  %28 = phi i64 [ %.03670.i, %14 ], [ %21, %22 ]
-  %29 = phi ptr [ @anon.da59c305f0f0aed4eca35e39d10eabc9.59, %14 ], [ @anon.da59c305f0f0aed4eca35e39d10eabc9.60, %22 ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %28, i64 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29) #20
+.invoke.i:                                        ; preds = %24, %14
+  %22 = phi i64 [ %.03670.i, %14 ], [ %21, %24 ]
+  %23 = phi ptr [ @anon.da59c305f0f0aed4eca35e39d10eabc9.59, %14 ], [ @anon.da59c305f0f0aed4eca35e39d10eabc9.60, %24 ]
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %22, i64 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23) #20
           to label %.cont.i unwind label %46, !noalias !318
 
 .cont.i:                                          ; preds = %.invoke.i
   unreachable
 
-30:                                               ; preds = %24
+24:                                               ; preds = %17
+  %25 = icmp ult i64 %21, %10
+  br i1 %25, label %26, label %.invoke.i, !prof !319
+
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds i32, ptr %.pre.i, i64 %21
+  %28 = load i32, ptr %27, align 4, !range !248, !noalias !318, !noundef !13
+  %29 = icmp eq i32 %28, 94
+  br i1 %29, label %30, label %.backedge.i
+
+30:                                               ; preds = %26
   %.idx51.i = shl nsw i64 %15, 2
   %gepdiff.i = sub nsw i64 %.idx.i, %.idx51.i
   %31 = lshr exact i64 %gepdiff.i, 2
@@ -2049,13 +2049,13 @@ define void @_ZN6uucore6parser10parse_glob8from_str17hb352925bc8c38089E(ptr noal
 40:                                               ; preds = %.lr.ph.i.i
   %41 = icmp samesign ult i64 %.010.i.i, %31
   tail call void @llvm.assume(i1 %41)
-  store i32 33, ptr %25, align 4, !noalias !318
+  store i32 33, ptr %27, align 4, !noalias !318
   %42 = add i64 %.03670.i, 4
   %43 = add i64 %42, %.010.i.i
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %40, %24, %17
-  %.036.be.i = phi i64 [ %43, %40 ], [ %21, %24 ], [ %21, %17 ]
+.backedge.i:                                      ; preds = %40, %26, %17
+  %.036.be.i = phi i64 [ %43, %40 ], [ %21, %26 ], [ %21, %17 ]
   %44 = add i64 %.036.be.i, 3
   %45 = icmp ult i64 %44, %10
   br i1 %45, label %14, label %_ZN6uucore6parser10parse_glob12fix_negation17h99365c49fc9b1722E.exit

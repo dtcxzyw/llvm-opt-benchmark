@@ -1203,7 +1203,7 @@ print_preparing_worktree_line.exit:               ; preds = %361, %_.exit27.i, %
   unreachable
 
 389:                                              ; preds = %print_preparing_worktree_line.exit, %382, %385
-  %.3 = phi ptr [ %384, %382 ], [ %.064, %385 ], [ %363, %print_preparing_worktree_line.exit ]
+  %.3 = phi ptr [ %.064, %385 ], [ %384, %382 ], [ %363, %print_preparing_worktree_line.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @__const.delete_git_work_tree.sb, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1815,7 +1815,7 @@ checkout_worktree.exit.i:                         ; preds = %605, %602
   br label %add_worktree.exit
 
 add_worktree.exit:                                ; preds = %616, %.thread119.i, %622
-  %.4.i = phi i32 [ %.054116.i, %616 ], [ %630, %622 ], [ 0, %.thread119.i ]
+  %.4.i = phi i32 [ %.054116.i, %616 ], [ 0, %.thread119.i ], [ %630, %622 ]
   call void @strvec_clear(ptr noundef nonnull %13) #18
   call void @strbuf_release(ptr noundef nonnull %12) #18
   call void @strbuf_release(ptr noundef nonnull %14) #18
@@ -3222,7 +3222,7 @@ _.exit:                                           ; preds = %strbuf_strip_suffix
   br label %38
 
 38:                                               ; preds = %7, %11, %_.exit, %1
-  %.0 = phi i32 [ 1, %1 ], [ 1, %_.exit ], [ 1, %11 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %11 ], [ 1, %1 ], [ 1, %_.exit ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -3303,7 +3303,7 @@ _.exit:                                           ; preds = %19, %22
   unreachable
 
 can_use_remote_refs.exit:                         ; preds = %7, %28, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %28 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %28 ], [ 0, %3 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -3391,7 +3391,7 @@ worktree_basename.exit:                           ; preds = %14, %16
   br label %30
 
 30:                                               ; preds = %26, %20, %28
-  %.0 = phi ptr [ %29, %28 ], [ %18, %20 ], [ null, %26 ]
+  %.0 = phi ptr [ %18, %20 ], [ %29, %28 ], [ null, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -3858,7 +3858,7 @@ define internal i32 @prune_cmp(ptr noundef readonly captures(none) %0, ptr nound
   br label %14
 
 14:                                               ; preds = %9, %6, %2, %12
-  %.0 = phi i32 [ %13, %12 ], [ %5, %2 ], [ -1, %6 ], [ 1, %9 ]
+  %.0 = phi i32 [ %5, %2 ], [ %13, %12 ], [ -1, %6 ], [ 1, %9 ]
   ret i32 %.0
 }
 
@@ -3918,7 +3918,7 @@ define internal fastcc void @validate_no_submodules(ptr noundef nonnull %0) unna
   %7 = tail call ptr (ptr, ptr, ptr, ...) @worktree_git_path(ptr noundef %6, ptr noundef nonnull %0, ptr noundef nonnull @.str.159) #18
   %8 = tail call i32 @is_directory(ptr noundef %7) #18
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %.critedge
+  br i1 %.not, label %9, label %40
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr @the_repository, align 8, !tbaa !17
@@ -3926,13 +3926,13 @@ define internal fastcc void @validate_no_submodules(ptr noundef nonnull %0) unna
   %12 = tail call ptr @get_worktree_git_dir(ptr noundef nonnull %0) #18
   %13 = call i32 @read_index_from(ptr noundef nonnull %2, ptr noundef %11, ptr noundef %12) #18
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.preheader, label %.loopexit
+  br i1 %14, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !107
   %.not18 = icmp eq i32 %16, 0
-  br i1 %.not18, label %.loopexit, label %.lr.ph
+  br i1 %.not18, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3978,7 +3978,7 @@ strbuf_setlen.exit.select.unfold_crit_edge:       ; preds = %strbuf_setlen.exit
 
 36:                                               ; preds = %strbuf_setlen.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.critedge
+  br label %40
 
 select.unfold:                                    ; preds = %strbuf_setlen.exit.select.unfold_crit_edge, %20
   %37 = phi i32 [ %.pre, %strbuf_setlen.exit.select.unfold_crit_edge ], [ %21, %20 ]
@@ -3986,21 +3986,21 @@ select.unfold:                                    ; preds = %strbuf_setlen.exit.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = zext i32 %37 to i64
   %39 = icmp samesign ult i64 %indvars.iv.next, %38
-  br i1 %39, label %20, label %.loopexit, !llvm.loop !111
+  br i1 %39, label %20, label %.critedge, !llvm.loop !111
 
-.loopexit:                                        ; preds = %select.unfold, %.preheader, %9
+40:                                               ; preds = %36, %1
+  call void @discard_index(ptr noundef nonnull %2) #18
+  call void @strbuf_release(ptr noundef nonnull %3) #18
+  %41 = call fastcc ptr @_(ptr noundef nonnull @.str.162)
+  call void (ptr, ...) @die(ptr noundef %41) #19
+  unreachable
+
+.critedge:                                        ; preds = %select.unfold, %.preheader, %9
   call void @discard_index(ptr noundef nonnull %2) #18
   call void @strbuf_release(ptr noundef nonnull %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
-
-.critedge:                                        ; preds = %1, %36
-  call void @discard_index(ptr noundef nonnull %2) #18
-  call void @strbuf_release(ptr noundef nonnull %3) #18
-  %40 = call fastcc ptr @_(ptr noundef nonnull @.str.162)
-  call void (ptr, ...) @die(ptr noundef %40) #19
-  unreachable
 }
 
 declare i32 @validate_worktree(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2

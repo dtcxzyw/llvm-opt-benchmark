@@ -1250,7 +1250,7 @@ _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE13InternalTableC2Em.e
   br label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE15try_resize_lockEP6Thread.exit.thread
 
 _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE15try_resize_lockEP6Thread.exit.thread: ; preds = %7, %14, %3, %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE13InternalTableC2Em.exit, %25
-  %.0 = phi i1 [ false, %25 ], [ true, %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE13InternalTableC2Em.exit ], [ false, %3 ], [ false, %14 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %25 ], [ true, %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE13InternalTableC2Em.exit ], [ false, %14 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -1403,8 +1403,8 @@ _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket4lockEv.exit: 
   unreachable
 
 89:                                               ; preds = %79, %69
-  %.145.i = phi ptr [ %.04052.i, %69 ], [ %.04450.i, %79 ]
-  %.143.i = phi ptr [ %.04251.i, %69 ], [ %.04052.i, %79 ]
+  %.145.i = phi ptr [ %.04450.i, %79 ], [ %.04052.i, %69 ]
+  %.143.i = phi ptr [ %.04052.i, %79 ], [ %.04251.i, %69 ]
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !15
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   %90 = load volatile ptr, ptr %8, align 8
@@ -1618,7 +1618,7 @@ _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket9cas_firstEPNS
 .backedge:                                        ; preds = %75, %74
   br label %20, !llvm.loop !22
 
-.thread:                                          ; preds = %70, %68
+.thread:                                          ; preds = %68, %70
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   store volatile i64 %21, ptr %16, align 8
   br label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE4Node12destroy_nodeEPvPS3_.exit
@@ -1646,8 +1646,8 @@ _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket9cas_firstEPNS
   br label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE4Node12destroy_nodeEPvPS3_.exit
 
 _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE4Node12destroy_nodeEPvPS3_.exit: ; preds = %.thread, %84, %81
-  %.1.ph82 = phi i1 [ true, %.thread ], [ false, %81 ], [ false, %84 ]
-  %.1.i61.ph80 = phi i64 [ %.1.i62, %.thread ], [ %55, %81 ], [ %55, %84 ]
+  %.1.ph82 = phi i1 [ true, %.thread ], [ false, %84 ], [ false, %81 ]
+  %.1.i61.ph80 = phi i64 [ %.1.i62, %.thread ], [ %55, %84 ], [ %55, %81 ]
   %.not45 = icmp eq ptr %5, null
   br i1 %.not45, label %90, label %85
 

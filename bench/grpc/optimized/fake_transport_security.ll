@@ -528,7 +528,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi27EEERS2_RAT__Kc.exit.i.i: 
   br label %65
 
 common.resume:                                    ; preds = %141, %177, %206, %63, %84, %111, %112
-  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %113, %112 ], [ %.pn54.i, %111 ], [ %.pn.pn.i, %84 ], [ %142, %141 ], [ %207, %206 ], [ %.pn.i69, %177 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %84 ], [ %64, %63 ], [ %113, %112 ], [ %.pn54.i, %111 ], [ %142, %141 ], [ %207, %206 ], [ %.pn.i69, %177 ]
   resume { ptr, i32 } %common.resume.op
 
 63:                                               ; preds = %58
@@ -983,9 +983,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi11EEERS2_RAT__Kc.exit.i71: 
   %.not.i65 = icmp eq i32 %219, 0
   br i1 %.not.i65, label %128, label %.loopexit, !llvm.loop !64
 
-.loopexit:                                        ; preds = %128, %209, %_ZL39fake_handshaker_process_bytes_from_peerP14tsi_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %.critedge54.i, %208
-  %.054107 = phi i64 [ %.054124, %.critedge54.i ], [ %.054124, %208 ], [ 0, %_ZL39fake_handshaker_process_bytes_from_peerP14tsi_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ %.054124, %128 ], [ %131, %209 ]
-  %.075.ph.ph = phi i64 [ %192, %.critedge54.i ], [ %192, %208 ], [ 0, %_ZL39fake_handshaker_process_bytes_from_peerP14tsi_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ 0, %209 ], [ 0, %128 ]
+.loopexit:                                        ; preds = %128, %209, %_ZL39fake_handshaker_process_bytes_from_peerP14tsi_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %208, %.critedge54.i
+  %.054107 = phi i64 [ %.054124, %208 ], [ %.054124, %.critedge54.i ], [ 0, %_ZL39fake_handshaker_process_bytes_from_peerP14tsi_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ %.054124, %128 ], [ %131, %209 ]
+  %.075.ph.ph = phi i64 [ %192, %208 ], [ %192, %.critedge54.i ], [ 0, %_ZL39fake_handshaker_process_bytes_from_peerP14tsi_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ 0, %209 ], [ 0, %128 ]
   %220 = add i64 %.075.ph.ph, %.054107
   %221 = load ptr, ptr %115, align 8, !tbaa !37
   store ptr %221, ptr %3, align 8, !tbaa !56
@@ -1041,7 +1041,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi11EEERS2_RAT__Kc.exit.i71: 
   br label %_ZL39fake_handshaker_process_bytes_from_peerP14tsi_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZL39fake_handshaker_process_bytes_from_peerP14tsi_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %184, %183, %231, %232, %65, %45, %241, %224
-  %.1 = phi i32 [ 0, %224 ], [ 0, %241 ], [ 8, %65 ], [ %47, %45 ], [ 2, %232 ], [ 2, %231 ], [ 7, %183 ], [ 7, %184 ]
+  %.1 = phi i32 [ %47, %45 ], [ 2, %231 ], [ 0, %224 ], [ 0, %241 ], [ 8, %65 ], [ 2, %232 ], [ 7, %183 ], [ 7, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %244
 
@@ -1179,7 +1179,7 @@ _ZL26tsi_fake_frame_ensure_sizeP14tsi_fake_frame.exit: ; preds = %._ZL26tsi_fake
   br label %67
 
 67:                                               ; preds = %32, %8, %9, %62, %55, %29
-  %.067 = phi i32 [ 4, %29 ], [ 4, %55 ], [ 0, %62 ], [ 7, %9 ], [ 7, %8 ], [ 8, %32 ]
+  %.067 = phi i32 [ 0, %62 ], [ 4, %29 ], [ 7, %8 ], [ 8, %32 ], [ 4, %55 ], [ 7, %9 ]
   ret i32 %.067
 }
 
@@ -1558,7 +1558,7 @@ _ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11c
   br label %71
 
 71:                                               ; preds = %66, %_ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit59.thread, %44, %56, %54, %23, %52
-  %.044 = phi i32 [ %spec.store.select, %52 ], [ %39, %44 ], [ 0, %23 ], [ 7, %54 ], [ 7, %56 ], [ 0, %66 ], [ 0, %_ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit59.thread ]
+  %.044 = phi i32 [ %39, %44 ], [ 0, %66 ], [ %spec.store.select, %52 ], [ 7, %54 ], [ 7, %56 ], [ 0, %_ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit59.thread ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.044
 }
@@ -1745,7 +1745,7 @@ _ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11c
   br label %57
 
 57:                                               ; preds = %52, %_ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit47.thread, %39, %37, %25, %35
-  %.0 = phi i32 [ %spec.store.select, %35 ], [ 0, %25 ], [ 7, %37 ], [ 7, %39 ], [ 0, %52 ], [ 0, %_ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit47.thread ]
+  %.0 = phi i32 [ 0, %_ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit47.thread ], [ 0, %52 ], [ %spec.store.select, %35 ], [ 7, %37 ], [ 7, %39 ], [ 0, %25 ]
   ret i32 %.0
 }
 

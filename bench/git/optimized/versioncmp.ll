@@ -103,7 +103,7 @@ define dso_local i32 @versioncmp(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %45, label %47, label %.sink.split
 
 .sink.split:                                      ; preds = %44, %.thread
-  %.sink105 = phi ptr [ %3, %.thread ], [ %.mux, %44 ]
+  %.sink105 = phi ptr [ %.mux, %44 ], [ %3, %.thread ]
   %46 = load ptr, ptr %.sink105, align 8, !tbaa !12
   store ptr %46, ptr @prereleases, align 8, !tbaa !12
   br label %47
@@ -235,7 +235,7 @@ find_better_matching_suffix.exit43.i:             ; preds = %89, %87, %find_bett
   %.sink.i = select i1 %96, i32 %..i, i32 1
   br label %.loopexit
 
-swap_prereleases.exit.thread:                     ; preds = %50, %._crit_edge.i, %48
+swap_prereleases.exit.thread:                     ; preds = %._crit_edge.i, %50, %48
   %99 = mul nuw nsw i32 %.038.lcssa, 3
   %100 = icmp eq i8 %.039.lcssa68, 48
   %101 = zext i1 %100 to i32
@@ -292,7 +292,7 @@ swap_prereleases.exit.thread:                     ; preds = %50, %._crit_edge.i,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %117, %swap_prereleases.exit.thread, %2, %132, %125, %95
-  %.0 = phi i32 [ %.sink.i, %95 ], [ %133, %132 ], [ %131, %125 ], [ 0, %2 ], [ %36, %swap_prereleases.exit.thread ], [ 1, %117 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ %131, %125 ], [ 0, %2 ], [ %.sink.i, %95 ], [ %133, %132 ], [ %36, %swap_prereleases.exit.thread ], [ 1, %117 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 

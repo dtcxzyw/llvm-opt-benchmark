@@ -789,7 +789,7 @@ define internal i32 @pcm_bluray_decode_frame(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not123, label %.loopexit, label %.preheader213, !llvm.loop !59
 
 .loopexit:                                        ; preds = %.preheader213, %.preheader211, %.preheader209, %.preheader207, %.preheader205, %.preheader203, %134, %111, %.preheader197, %.preheader, %71, %69
-  %.sroa.0.0 = phi ptr [ %56, %69 ], [ %56, %71 ], [ %78, %.preheader ], [ %83, %.preheader197 ], [ %114, %111 ], [ %137, %134 ], [ %161, %.preheader203 ], [ %241, %.preheader205 ], [ %292, %.preheader207 ], [ %401, %.preheader209 ], [ %433, %.preheader211 ], [ %543, %.preheader213 ]
+  %.sroa.0.0 = phi ptr [ %56, %69 ], [ %56, %71 ], [ %433, %.preheader211 ], [ %78, %.preheader ], [ %83, %.preheader197 ], [ %114, %111 ], [ %137, %134 ], [ %161, %.preheader203 ], [ %241, %.preheader205 ], [ %292, %.preheader207 ], [ %401, %.preheader209 ], [ %543, %.preheader213 ]
   store i32 1, ptr %2, align 4, !tbaa !35
   %560 = ptrtoint ptr %.sroa.0.0 to i64
   %561 = ptrtoint ptr %56 to i64

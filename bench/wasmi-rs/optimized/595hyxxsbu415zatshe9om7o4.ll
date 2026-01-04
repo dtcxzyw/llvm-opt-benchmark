@@ -889,9 +889,9 @@ _ZN5alloc11collections5btree4node12slice_insert17hed3f3132327a63e6E.exit.i72.i: 
   br i1 %.not.i, label %._crit_edge, label %130
 
 .loopexit81:                                      ; preds = %.loopexit, %.thread64, %81, %.thread, %271
-  %.sroa.10.059.sink = phi ptr [ %.sroa.021.0.i, %271 ], [ %18, %.thread ], [ %.sroa.021.0.i, %81 ], [ %.sroa.021.0.i, %.thread64 ], [ %.sroa.021.0.i, %.loopexit ]
-  %.sroa.14.058.sink = phi i64 [ %.sroa.8.0.i, %271 ], [ %.sroa.456.0.copyload.i, %.thread ], [ %.sroa.8.0.i, %81 ], [ %.sroa.8.0.i, %.thread64 ], [ %.sroa.8.0.i, %.loopexit ]
-  %.sroa.18.057.sink = phi i64 [ %.sroa.10.0.i, %271 ], [ %.sroa.5.0.copyload.i, %.thread ], [ %.sroa.10.0.i, %81 ], [ %.sroa.10.0.i, %.thread64 ], [ %.sroa.10.0.i, %.loopexit ]
+  %.sroa.10.059.sink = phi ptr [ %.sroa.021.0.i, %271 ], [ %.sroa.021.0.i, %81 ], [ %18, %.thread ], [ %.sroa.021.0.i, %.thread64 ], [ %.sroa.021.0.i, %.loopexit ]
+  %.sroa.14.058.sink = phi i64 [ %.sroa.8.0.i, %271 ], [ %.sroa.8.0.i, %81 ], [ %.sroa.456.0.copyload.i, %.thread ], [ %.sroa.8.0.i, %.thread64 ], [ %.sroa.8.0.i, %.loopexit ]
+  %.sroa.18.057.sink = phi i64 [ %.sroa.10.0.i, %271 ], [ %.sroa.10.0.i, %81 ], [ %.sroa.5.0.copyload.i, %.thread ], [ %.sroa.10.0.i, %.thread64 ], [ %.sroa.10.0.i, %.loopexit ]
   store ptr %.sroa.10.059.sink, ptr %0, align 8
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.14.058.sink, ptr %269, align 8
@@ -923,7 +923,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hed3f3132327a63e6E.exit.i72.i: 
   br label %.loopexit81
 
 .body:                                            ; preds = %264, %127, %123, %79
-  %.pn.pn = phi { ptr, i32 } [ %80, %79 ], [ %eh.lpad-body.ph.i, %127 ], [ %124, %123 ], [ %lpad.phi, %264 ]
+  %.pn.pn = phi { ptr, i32 } [ %80, %79 ], [ %lpad.phi, %264 ], [ %eh.lpad-body.ph.i, %127 ], [ %124, %123 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1237,16 +1237,16 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
 .split19.us.i:                                    ; preds = %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i", %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.us.i.us"
   unreachable
 
-.loopexit58:                                      ; preds = %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i", %.split.i
-  %.sroa.4.0.i.ph.ph59 = phi i64 [ %45, %.split.i ], [ %.sroa.8.0.i, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i" ]
+.loopexit58:                                      ; preds = %.split.i, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i"
+  %.sroa.4.0.i.ph.ph59 = phi i64 [ %.sroa.8.0.i, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i" ], [ %45, %.split.i ]
   %58 = icmp eq i64 %.sroa.3.0, 0
   br i1 %58, label %.split86.us, label %60
 
 .split86.us:                                      ; preds = %.loopexit58, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i", %.loopexit.us, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.us.i.us", %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.thread.i"
-  %.us-phi88.sink = phi ptr [ %.sroa.0.0.us, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.thread.i" ], [ %.sroa.0.0.us, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.us.i.us" ], [ %.sroa.0.0.us, %.loopexit.us ], [ %.sroa.0.0, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i" ], [ %.sroa.0.0, %.loopexit58 ]
-  %.sink = phi i64 [ %.sroa.3.0.us, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.thread.i" ], [ %.sroa.3.0.us, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.us.i.us" ], [ 0, %.loopexit.us ], [ %.sroa.3.0, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i" ], [ 0, %.loopexit58 ]
-  %.us-phi87.sink = phi i64 [ %.sroa.8.0.us.i.us, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.thread.i" ], [ %.sroa.8.0.us.i.us, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.us.i.us" ], [ %.sroa.4.0.i.ph.ph.us, %.loopexit.us ], [ %.sroa.8.0.i, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i" ], [ %.sroa.4.0.i.ph.ph59, %.loopexit58 ]
-  %storemerge = phi i64 [ 0, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.thread.i" ], [ 0, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.us.i.us" ], [ 1, %.loopexit.us ], [ 0, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i" ], [ 1, %.loopexit58 ]
+  %.us-phi88.sink = phi ptr [ %.sroa.0.0, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i" ], [ %.sroa.0.0.us, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.us.i.us" ], [ %.sroa.0.0.us, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.thread.i" ], [ %.sroa.0.0.us, %.loopexit.us ], [ %.sroa.0.0, %.loopexit58 ]
+  %.sink = phi i64 [ %.sroa.3.0, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i" ], [ %.sroa.3.0.us, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.us.i.us" ], [ %.sroa.3.0.us, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.thread.i" ], [ 0, %.loopexit.us ], [ 0, %.loopexit58 ]
+  %.us-phi87.sink = phi i64 [ %.sroa.8.0.i, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i" ], [ %.sroa.8.0.us.i.us, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.us.i.us" ], [ %.sroa.8.0.us.i.us, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.thread.i" ], [ %.sroa.4.0.i.ph.ph.us, %.loopexit.us ], [ %.sroa.4.0.i.ph.ph59, %.loopexit58 ]
+  %storemerge = phi i64 [ 0, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.i" ], [ 0, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.us.i.us" ], [ 0, %"_ZN87_$LT$wasmi_collections..string_interner..detail..LenOrder$u20$as$u20$core..cmp..Ord$GT$3cmp17h0fb0bb408ef713dfE.exit.thread.i" ], [ 1, %.loopexit.us ], [ 1, %.loopexit58 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.us-phi88.sink, ptr %59, align 8
   %.sroa.242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

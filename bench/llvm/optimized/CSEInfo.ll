@@ -1313,7 +1313,7 @@ _ZN4llvm12GISelCSEInfo19handleRecordedInstsEv.exit: ; preds = %4, %._crit_edge.i
   br label %_ZN4llvm12GISelCSEInfo15getNodeIfExistsERNS_16FoldingSetNodeIDEPNS_17MachineBasicBlockERPv.exit.thread
 
 _ZN4llvm12GISelCSEInfo15getNodeIfExistsERNS_16FoldingSetNodeIDEPNS_17MachineBasicBlockERPv.exit.thread: ; preds = %58, %_ZN4llvm12GISelCSEInfo19handleRecordedInstsEv.exit
-  %63 = phi ptr [ null, %_ZN4llvm12GISelCSEInfo19handleRecordedInstsEv.exit ], [ %spec.select, %58 ]
+  %63 = phi ptr [ %spec.select, %58 ], [ null, %_ZN4llvm12GISelCSEInfo19handleRecordedInstsEv.exit ]
   ret ptr %63
 }
 
@@ -3317,7 +3317,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i8: ; preds = %59, %58
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i8, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i
-  %.sink30 = phi i32 [ %56, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i ], [ %68, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i8 ], [ %.pre.i.i3.i.i.i.i10, %.sink.split.sink.split ]
+  %.sink30 = phi i32 [ %68, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i8 ], [ %56, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i ], [ %.pre.i.i3.i.i.i.i10, %.sink.split.sink.split ]
   %73 = lshr i64 %1, 32
   %74 = trunc nuw i64 %73 to i32
   %75 = load ptr, ptr %39, align 8, !tbaa !22

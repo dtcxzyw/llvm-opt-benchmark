@@ -197,7 +197,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.33
   br label %_ZN21unicode_normalization6tables24composition_table_astral17he73f9cf0d40d0b95E.exit
 
 _ZN21unicode_normalization6tables24composition_table_astral17he73f9cf0d40d0b95E.exit: ; preds = %25, %24, %23, %21, %19, %17, %16, %15, %13, %11, %9, %7, %5, %4, %_ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.3355593342274400970.exit
-  %.0 = phi i32 [ %spec.select.i3, %_ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.3355593342274400970.exit ], [ 70844, %23 ], [ 70843, %24 ], [ 70846, %25 ], [ 1114112, %16 ], [ 1114112, %4 ], [ %switch.select6.i, %15 ], [ %spec.select.i, %5 ], [ %spec.select1.i, %7 ], [ %spec.select2.i, %9 ], [ %spec.select3.i, %11 ], [ %spec.select4.i, %13 ], [ %spec.select7.i, %17 ], [ %spec.select8.i, %19 ], [ %spec.select9.i, %21 ]
+  %.0 = phi i32 [ %spec.select.i3, %_ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.3355593342274400970.exit ], [ %spec.select7.i, %17 ], [ %switch.select6.i, %15 ], [ %spec.select8.i, %19 ], [ 1114112, %4 ], [ %spec.select2.i, %9 ], [ %spec.select3.i, %11 ], [ %spec.select4.i, %13 ], [ %spec.select.i, %5 ], [ 70844, %23 ], [ 70843, %24 ], [ 70846, %25 ], [ %spec.select1.i, %7 ], [ 1114112, %16 ], [ %spec.select9.i, %21 ]
   ret i32 %.0
 }
 

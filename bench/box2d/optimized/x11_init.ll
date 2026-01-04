@@ -642,7 +642,7 @@ sub_0:
   br label %35
 
 35:                                               ; preds = %23, %34, %33, %10, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %10 ], [ 0, %23 ], [ 1, %34 ], [ 0, %33 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %12 ], [ 0, %23 ], [ 1, %34 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -2213,7 +2213,7 @@ thread-pre-split40.i:                             ; preds = %433
   br label %translateKeySyms.exit.i.i
 
 translateKeySyms.exit.i.i:                        ; preds = %702, %701, %700, %699, %698, %697, %696, %695, %694, %693, %692, %691, %690, %689, %688, %687, %686, %685, %684, %683, %682, %681, %680, %679, %678, %677, %676, %675, %674, %673, %672, %671, %670, %669, %668, %667, %666, %665, %664, %663, %662, %661, %660, %659, %658, %657, %656, %655, %654, %653, %652, %651, %650, %649, %648, %647, %646, %645, %644, %643, %642, %641, %640, %639, %638, %637, %636, %635, %634, %633, %632, %631, %630, %629, %628, %627, %626, %625, %624, %623, %622, %621, %620, %619, %618, %617, %616, %615, %614, %613, %612, %611, %610, %609, %608, %607, %606, %605, %604, %603, %602, %601, %600, %599, %598, %597, %596, %595, %594, %593, %592, %591, %590, %589, %588, %587, %586, %585, %583, %582, %581, %580, %579, %578, %577, %576, %575, %574, %573, %572, %571, %568
-  %.0.i.i.i = phi i16 [ -1, %702 ], [ 258, %585 ], [ 340, %586 ], [ 344, %587 ], [ 341, %588 ], [ 345, %589 ], [ 342, %590 ], [ 346, %591 ], [ 343, %592 ], [ 347, %593 ], [ 348, %594 ], [ 282, %595 ], [ 280, %596 ], [ 283, %597 ], [ 281, %598 ], [ 284, %599 ], [ 261, %600 ], [ 259, %601 ], [ 257, %602 ], [ 268, %603 ], [ 269, %604 ], [ 266, %605 ], [ 267, %606 ], [ 260, %607 ], [ 263, %608 ], [ 262, %609 ], [ 264, %610 ], [ 265, %611 ], [ 290, %612 ], [ 291, %613 ], [ 292, %614 ], [ 293, %615 ], [ 294, %616 ], [ 295, %617 ], [ 296, %618 ], [ 297, %619 ], [ 298, %620 ], [ 299, %621 ], [ 300, %622 ], [ 301, %623 ], [ 302, %624 ], [ 303, %625 ], [ 304, %626 ], [ 305, %627 ], [ 306, %628 ], [ 307, %629 ], [ 308, %630 ], [ 309, %631 ], [ 310, %632 ], [ 311, %633 ], [ 312, %634 ], [ 313, %635 ], [ 314, %636 ], [ 331, %637 ], [ 332, %638 ], [ 333, %639 ], [ 334, %640 ], [ 320, %641 ], [ 321, %642 ], [ 322, %643 ], [ 323, %644 ], [ 324, %645 ], [ 326, %646 ], [ 327, %647 ], [ 328, %648 ], [ 329, %649 ], [ 330, %650 ], [ 336, %651 ], [ 335, %652 ], [ 65, %653 ], [ 66, %654 ], [ 67, %655 ], [ 68, %656 ], [ 69, %657 ], [ 70, %658 ], [ 71, %659 ], [ 72, %660 ], [ 73, %661 ], [ 74, %662 ], [ 75, %663 ], [ 76, %664 ], [ 77, %665 ], [ 78, %666 ], [ 79, %667 ], [ 80, %668 ], [ 81, %669 ], [ 82, %670 ], [ 83, %671 ], [ 84, %672 ], [ 85, %673 ], [ 86, %674 ], [ 87, %675 ], [ 88, %676 ], [ 89, %677 ], [ 90, %678 ], [ 49, %679 ], [ 50, %680 ], [ 51, %681 ], [ 52, %682 ], [ 53, %683 ], [ 54, %684 ], [ 55, %685 ], [ 56, %686 ], [ 57, %687 ], [ 48, %688 ], [ 32, %689 ], [ 45, %690 ], [ 61, %691 ], [ 91, %692 ], [ 93, %693 ], [ 92, %694 ], [ 59, %695 ], [ 39, %696 ], [ 96, %697 ], [ 44, %698 ], [ 46, %699 ], [ 47, %700 ], [ 161, %701 ], [ 321, %571 ], [ 322, %572 ], [ 323, %573 ], [ 324, %574 ], [ 325, %575 ], [ 326, %576 ], [ 327, %577 ], [ 328, %578 ], [ 329, %579 ], [ 330, %580 ], [ 336, %581 ], [ 335, %582 ], [ 320, %568 ], [ 256, %583 ]
+  %.0.i.i.i = phi i16 [ -1, %702 ], [ 320, %568 ], [ 258, %585 ], [ 340, %586 ], [ 344, %587 ], [ 341, %588 ], [ 345, %589 ], [ 342, %590 ], [ 346, %591 ], [ 343, %592 ], [ 347, %593 ], [ 348, %594 ], [ 282, %595 ], [ 280, %596 ], [ 283, %597 ], [ 281, %598 ], [ 284, %599 ], [ 261, %600 ], [ 259, %601 ], [ 257, %602 ], [ 268, %603 ], [ 269, %604 ], [ 266, %605 ], [ 267, %606 ], [ 260, %607 ], [ 263, %608 ], [ 262, %609 ], [ 264, %610 ], [ 265, %611 ], [ 290, %612 ], [ 291, %613 ], [ 292, %614 ], [ 293, %615 ], [ 294, %616 ], [ 295, %617 ], [ 296, %618 ], [ 297, %619 ], [ 298, %620 ], [ 299, %621 ], [ 300, %622 ], [ 301, %623 ], [ 302, %624 ], [ 303, %625 ], [ 304, %626 ], [ 305, %627 ], [ 306, %628 ], [ 307, %629 ], [ 308, %630 ], [ 309, %631 ], [ 310, %632 ], [ 311, %633 ], [ 312, %634 ], [ 313, %635 ], [ 314, %636 ], [ 331, %637 ], [ 332, %638 ], [ 333, %639 ], [ 334, %640 ], [ 320, %641 ], [ 321, %642 ], [ 322, %643 ], [ 323, %644 ], [ 324, %645 ], [ 326, %646 ], [ 327, %647 ], [ 328, %648 ], [ 329, %649 ], [ 330, %650 ], [ 336, %651 ], [ 335, %652 ], [ 65, %653 ], [ 66, %654 ], [ 67, %655 ], [ 68, %656 ], [ 69, %657 ], [ 70, %658 ], [ 71, %659 ], [ 72, %660 ], [ 73, %661 ], [ 74, %662 ], [ 75, %663 ], [ 76, %664 ], [ 77, %665 ], [ 78, %666 ], [ 79, %667 ], [ 80, %668 ], [ 81, %669 ], [ 82, %670 ], [ 83, %671 ], [ 84, %672 ], [ 85, %673 ], [ 86, %674 ], [ 87, %675 ], [ 88, %676 ], [ 89, %677 ], [ 90, %678 ], [ 49, %679 ], [ 50, %680 ], [ 51, %681 ], [ 52, %682 ], [ 53, %683 ], [ 54, %684 ], [ 55, %685 ], [ 56, %686 ], [ 57, %687 ], [ 48, %688 ], [ 32, %689 ], [ 45, %690 ], [ 61, %691 ], [ 91, %692 ], [ 93, %693 ], [ 92, %694 ], [ 59, %695 ], [ 39, %696 ], [ 96, %697 ], [ 44, %698 ], [ 46, %699 ], [ 47, %700 ], [ 161, %701 ], [ 335, %582 ], [ 321, %571 ], [ 322, %572 ], [ 323, %573 ], [ 324, %574 ], [ 325, %575 ], [ 326, %576 ], [ 327, %577 ], [ 328, %578 ], [ 329, %579 ], [ 330, %580 ], [ 336, %581 ], [ 256, %583 ]
   store i16 %.0.i.i.i, ptr %561, align 2, !tbaa !318
   br label %703
 
@@ -2459,7 +2459,7 @@ createKeyTables.exit.i:                           ; preds = %710, %545
   br i1 %862, label %.lr.ph.i18.preheader.i.i, label %858
 
 .lr.ph.i18.preheader.i.i:                         ; preds = %.lr.ph.i.i.i, %858
-  %spec.select.i.i.i = phi i64 [ 0, %858 ], [ %857, %.lr.ph.i.i.i ]
+  %spec.select.i.i.i = phi i64 [ %857, %.lr.ph.i.i.i ], [ 0, %858 ]
   store i64 %spec.select.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141024), align 8, !tbaa !356
   %863 = load ptr, ptr %5, align 8, !tbaa !355
   %864 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
@@ -2487,7 +2487,7 @@ getAtomIfSupported.exit22.critedge.i.i:           ; preds = %850
   br label %getAtomIfSupported.exit22.i.i
 
 getAtomIfSupported.exit22.i.i:                    ; preds = %.lr.ph.i18.i.i, %867, %getAtomIfSupported.exit22.critedge.i.i
-  %spec.select.i21.i.i = phi i64 [ 0, %getAtomIfSupported.exit22.critedge.i.i ], [ 0, %867 ], [ %866, %.lr.ph.i18.i.i ]
+  %spec.select.i21.i.i = phi i64 [ 0, %getAtomIfSupported.exit22.critedge.i.i ], [ %866, %.lr.ph.i18.i.i ], [ 0, %867 ]
   store i64 %spec.select.i21.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141032), align 8, !tbaa !357
   %875 = load ptr, ptr %5, align 8, !tbaa !355
   %876 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
@@ -2508,7 +2508,7 @@ getAtomIfSupported.exit22.i.i:                    ; preds = %.lr.ph.i18.i.i, %86
   br i1 %883, label %.lr.ph.i30.preheader.i.i, label %879
 
 .lr.ph.i30.preheader.i.i:                         ; preds = %.lr.ph.i24.i.i, %879
-  %spec.select.i27.ph.i.i = phi i64 [ %878, %.lr.ph.i24.i.i ], [ 0, %879 ]
+  %spec.select.i27.ph.i.i = phi i64 [ 0, %879 ], [ %878, %.lr.ph.i24.i.i ]
   store i64 %spec.select.i27.ph.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141040), align 8, !tbaa !358
   %884 = load ptr, ptr %5, align 8, !tbaa !355
   %885 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
@@ -2536,7 +2536,7 @@ getAtomIfSupported.exit34.critedge.i.i:           ; preds = %getAtomIfSupported.
   br label %getAtomIfSupported.exit34.i.i
 
 getAtomIfSupported.exit34.i.i:                    ; preds = %.lr.ph.i30.i.i, %888, %getAtomIfSupported.exit34.critedge.i.i
-  %spec.select.i33.i.i = phi i64 [ 0, %getAtomIfSupported.exit34.critedge.i.i ], [ 0, %888 ], [ %887, %.lr.ph.i30.i.i ]
+  %spec.select.i33.i.i = phi i64 [ 0, %getAtomIfSupported.exit34.critedge.i.i ], [ %887, %.lr.ph.i30.i.i ], [ 0, %888 ]
   store i64 %spec.select.i33.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141048), align 8, !tbaa !359
   %896 = load ptr, ptr %5, align 8, !tbaa !355
   %897 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
@@ -2557,7 +2557,7 @@ getAtomIfSupported.exit34.i.i:                    ; preds = %.lr.ph.i30.i.i, %88
   br i1 %904, label %getAtomIfSupported.exit40.i.i, label %900
 
 getAtomIfSupported.exit40.i.i:                    ; preds = %.lr.ph.i36.i.i, %900
-  %spec.select.i39.ph.i.i = phi i64 [ %899, %.lr.ph.i36.i.i ], [ 0, %900 ]
+  %spec.select.i39.ph.i.i = phi i64 [ 0, %900 ], [ %899, %.lr.ph.i36.i.i ]
   store i64 %spec.select.i39.ph.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141056), align 8, !tbaa !360
   %905 = load ptr, ptr %5, align 8, !tbaa !355
   %906 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
@@ -2585,7 +2585,7 @@ getAtomIfSupported.exit46.critedge.i.i:           ; preds = %getAtomIfSupported.
   br label %getAtomIfSupported.exit46.i.i
 
 getAtomIfSupported.exit46.i.i:                    ; preds = %.lr.ph.i42.i.i, %909, %getAtomIfSupported.exit46.critedge.i.i
-  %spec.select.i45.i.i = phi i64 [ 0, %getAtomIfSupported.exit46.critedge.i.i ], [ 0, %909 ], [ %908, %.lr.ph.i42.i.i ]
+  %spec.select.i45.i.i = phi i64 [ 0, %getAtomIfSupported.exit46.critedge.i.i ], [ %908, %.lr.ph.i42.i.i ], [ 0, %909 ]
   store i64 %spec.select.i45.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141064), align 8, !tbaa !361
   %917 = load ptr, ptr %5, align 8, !tbaa !355
   %918 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
@@ -2634,7 +2634,7 @@ getAtomIfSupported.exit58.critedge.i.i:           ; preds = %getAtomIfSupported.
   br label %getAtomIfSupported.exit58.i.i
 
 getAtomIfSupported.exit58.i.i:                    ; preds = %.lr.ph.i54.i.i, %930, %getAtomIfSupported.exit58.critedge.i.i
-  %spec.select.i57.i.i = phi i64 [ 0, %getAtomIfSupported.exit58.critedge.i.i ], [ 0, %930 ], [ %929, %.lr.ph.i54.i.i ]
+  %spec.select.i57.i.i = phi i64 [ 0, %getAtomIfSupported.exit58.critedge.i.i ], [ %929, %.lr.ph.i54.i.i ], [ 0, %930 ]
   store i64 %spec.select.i57.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141008), align 8, !tbaa !363
   %938 = load ptr, ptr %5, align 8, !tbaa !355
   %939 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
@@ -2683,7 +2683,7 @@ getAtomIfSupported.exit70.critedge.i.i:           ; preds = %getAtomIfSupported.
   br label %getAtomIfSupported.exit70.i.i
 
 getAtomIfSupported.exit70.i.i:                    ; preds = %.lr.ph.i66.i.i, %951, %getAtomIfSupported.exit70.critedge.i.i
-  %spec.select.i69.i.i = phi i64 [ 0, %getAtomIfSupported.exit70.critedge.i.i ], [ 0, %951 ], [ %950, %.lr.ph.i66.i.i ]
+  %spec.select.i69.i.i = phi i64 [ 0, %getAtomIfSupported.exit70.critedge.i.i ], [ %950, %.lr.ph.i66.i.i ], [ 0, %951 ]
   store i64 %spec.select.i69.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141104), align 8, !tbaa !365
   %959 = load ptr, ptr %5, align 8, !tbaa !355
   %960 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
@@ -2704,7 +2704,7 @@ getAtomIfSupported.exit70.i.i:                    ; preds = %.lr.ph.i66.i.i, %95
   br i1 %967, label %.lr.ph.i78.i.preheader.i, label %963
 
 .lr.ph.i78.i.preheader.i:                         ; preds = %.lr.ph.i72.i.i, %963
-  %spec.select.i75.i.ph.i = phi i64 [ %962, %.lr.ph.i72.i.i ], [ 0, %963 ]
+  %spec.select.i75.i.ph.i = phi i64 [ 0, %963 ], [ %962, %.lr.ph.i72.i.i ]
   store i64 %spec.select.i75.i.ph.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141112), align 8, !tbaa !366
   %968 = load ptr, ptr %5, align 8, !tbaa !355
   %969 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
@@ -2732,7 +2732,7 @@ getAtomIfSupported.exit82.critedge.i.i:           ; preds = %getAtomIfSupported.
   br label %getAtomIfSupported.exit82.i.i
 
 getAtomIfSupported.exit82.i.i:                    ; preds = %.lr.ph.i78.i.i, %972, %getAtomIfSupported.exit82.critedge.i.i
-  %spec.select.i81.i.i = phi i64 [ 0, %getAtomIfSupported.exit82.critedge.i.i ], [ 0, %972 ], [ %971, %.lr.ph.i78.i.i ]
+  %spec.select.i81.i.i = phi i64 [ 0, %getAtomIfSupported.exit82.critedge.i.i ], [ %971, %.lr.ph.i78.i.i ], [ 0, %972 ]
   store i64 %spec.select.i81.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141120), align 8, !tbaa !367
   %980 = load ptr, ptr %5, align 8, !tbaa !355
   %981 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
@@ -2753,7 +2753,7 @@ getAtomIfSupported.exit82.i.i:                    ; preds = %.lr.ph.i78.i.i, %97
   br i1 %988, label %.lr.ph.i90.i.preheader.i, label %984
 
 .lr.ph.i90.i.preheader.i:                         ; preds = %.lr.ph.i84.i.i, %984
-  %spec.select.i87.i.ph.i = phi i64 [ 0, %984 ], [ %983, %.lr.ph.i84.i.i ]
+  %spec.select.i87.i.ph.i = phi i64 [ %983, %.lr.ph.i84.i.i ], [ 0, %984 ]
   store i64 %spec.select.i87.i.ph.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141128), align 8, !tbaa !368
   %989 = load ptr, ptr %5, align 8, !tbaa !355
   %990 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161

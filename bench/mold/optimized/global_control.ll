@@ -1129,7 +1129,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIPN3tbb6detail2d114global_control
   br label %_ZNSt8_Rb_treeIPN3tbb6detail2d114global_controlES4_St9_IdentityIS4_ENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE10_M_insert_IS4_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit
 
 _ZNSt8_Rb_treeIPN3tbb6detail2d114global_controlES4_St9_IdentityIS4_ENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE10_M_insert_IS4_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit: ; preds = %6, %17, %21
-  %25 = phi i1 [ true, %6 ], [ true, %17 ], [ %24, %21 ]
+  %25 = phi i1 [ %24, %21 ], [ true, %6 ], [ true, %17 ]
   %26 = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 40)
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load ptr, ptr %1, align 8, !tbaa !38
@@ -1271,8 +1271,8 @@ _ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.e
   br label %_ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit5.thread
 
 _ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit5.thread: ; preds = %_ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit5, %50, %._crit_edge.thread
-  %.sroa.019.0 = phi ptr [ null, %._crit_edge.thread ], [ null, %50 ], [ %spec.select, %_ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit5 ]
-  %.sroa.4.0 = phi ptr [ %.020.lcssa38, %._crit_edge.thread ], [ %.020.lcssa37, %50 ], [ %spec.select22, %_ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit5 ]
+  %.sroa.019.0 = phi ptr [ null, %50 ], [ null, %._crit_edge.thread ], [ %spec.select, %_ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit5 ]
+  %.sroa.4.0 = phi ptr [ %.020.lcssa37, %50 ], [ %.020.lcssa38, %._crit_edge.thread ], [ %spec.select22, %_ZNK3tbb6detail2r126control_storage_comparatorclEPKNS0_2d114global_controlES6_.exit5 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.019.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -1379,8 +1379,8 @@ _ZNSt3setIPN3tbb6detail2d114global_controlENS1_2r126control_storage_comparatorEN
   store i64 %43, ptr %41, align 8, !tbaa !24
   br label %_ZNSt3setIPN3tbb6detail2d114global_controlENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE4findERKS4_.exit.thread
 
-_ZNSt3setIPN3tbb6detail2d114global_controlENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE4findERKS4_.exit.thread: ; preds = %29, %2, %_ZNSt8_Rb_treeIPN3tbb6detail2d114global_controlES4_St9_IdentityIS4_ENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i.i, %_ZNSt3setIPN3tbb6detail2d114global_controlENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE4findERKS4_.exit, %_ZNSt3setIPN3tbb6detail2d114global_controlENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS4_E.exit
-  %44 = phi i1 [ false, %_ZNSt3setIPN3tbb6detail2d114global_controlENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE4findERKS4_.exit ], [ true, %_ZNSt3setIPN3tbb6detail2d114global_controlENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS4_E.exit ], [ false, %_ZNSt8_Rb_treeIPN3tbb6detail2d114global_controlES4_St9_IdentityIS4_ENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i.i ], [ false, %2 ], [ false, %29 ]
+_ZNSt3setIPN3tbb6detail2d114global_controlENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE4findERKS4_.exit.thread: ; preds = %_ZNSt8_Rb_treeIPN3tbb6detail2d114global_controlES4_St9_IdentityIS4_ENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i.i, %2, %29, %_ZNSt3setIPN3tbb6detail2d114global_controlENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE4findERKS4_.exit, %_ZNSt3setIPN3tbb6detail2d114global_controlENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS4_E.exit
+  %44 = phi i1 [ true, %_ZNSt3setIPN3tbb6detail2d114global_controlENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS4_E.exit ], [ false, %_ZNSt3setIPN3tbb6detail2d114global_controlENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE4findERKS4_.exit ], [ false, %29 ], [ false, %2 ], [ false, %_ZNSt8_Rb_treeIPN3tbb6detail2d114global_controlES4_St9_IdentityIS4_ENS1_2r126control_storage_comparatorENS2_13tbb_allocatorIS4_EEE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRKS4_.exit.i.i ]
   ret i1 %44
 }
 

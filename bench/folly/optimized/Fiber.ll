@@ -638,7 +638,7 @@ _ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exi
   br label %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit
 
 _ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit45, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit47, %97, %100, %103, %104
-  %.028.i.i.i.i = phi ptr [ %82, %104 ], [ %.029.lcssa.i.i.i.i, %97 ], [ %.1.i.i.i.i, %100 ], [ %.2.i.i.i.i, %103 ], [ %110, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit ], [ %111, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit45 ], [ %112, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit47 ], [ %.02949.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %100 ], [ %82, %104 ], [ %.2.i.i.i.i, %103 ], [ %.029.lcssa.i.i.i.i, %97 ], [ %112, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit47 ], [ %110, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit ], [ %111, %_ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit.loopexit.split.loop.exit45 ], [ %.02949.i.i.i.i, %.lr.ph.i.i.i.i ]
   %113 = ptrtoint ptr %82 to i64
   %114 = ptrtoint ptr %.028.i.i.i.i to i64
   %115 = sub i64 %113, %114

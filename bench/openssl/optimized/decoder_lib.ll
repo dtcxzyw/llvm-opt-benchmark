@@ -520,13 +520,13 @@ OSSL_DECODER_INSTANCE_get_input_structure.exit:   ; preds = %100, %106
   br i1 %.not126, label %select.unfold, label %.thread137
 
 select.unfold:                                    ; preds = %166, %138, %129, %127, %123, %118, %116
-  %.5 = phi i32 [ %.4159, %116 ], [ %.4159, %118 ], [ %.4159, %123 ], [ %.4159, %127 ], [ %.4159, %129 ], [ %.4159, %138 ], [ %158, %166 ]
+  %.5 = phi i32 [ %.4159, %116 ], [ %.4159, %123 ], [ %.4159, %138 ], [ %.4159, %118 ], [ %.4159, %127 ], [ %.4159, %129 ], [ %158, %166 ]
   %.not111 = icmp eq i64 %101, 0
   br i1 %.not111, label %.thread137, label %100
 
-.thread137:                                       ; preds = %select.unfold, %142, %166, %94, %164, %.thread, %70, %66, %55, %49, %52, %81, %93, %89
-  %.3 = phi i32 [ 0, %81 ], [ 0, %89 ], [ 0, %93 ], [ 1, %.thread ], [ 0, %70 ], [ 0, %66 ], [ 0, %55 ], [ 0, %49 ], [ 0, %52 ], [ %158, %164 ], [ 0, %94 ], [ %.5, %select.unfold ], [ %.4159, %142 ], [ %158, %166 ]
-  %.082 = phi ptr [ null, %81 ], [ null, %89 ], [ null, %93 ], [ null, %.thread ], [ null, %70 ], [ null, %66 ], [ null, %55 ], [ null, %49 ], [ null, %52 ], [ %91, %164 ], [ %91, %94 ], [ %91, %166 ], [ %91, %142 ], [ %91, %select.unfold ]
+.thread137:                                       ; preds = %select.unfold, %166, %142, %94, %164, %52, %55, %66, %70, %49, %.thread, %81, %93, %89
+  %.3 = phi i32 [ 0, %81 ], [ 0, %89 ], [ 0, %93 ], [ 1, %.thread ], [ %158, %164 ], [ 0, %52 ], [ 0, %55 ], [ 0, %66 ], [ 0, %70 ], [ 0, %49 ], [ 0, %94 ], [ %.5, %select.unfold ], [ %158, %166 ], [ %.4159, %142 ]
+  %.082 = phi ptr [ null, %81 ], [ null, %89 ], [ null, %93 ], [ null, %.thread ], [ %91, %164 ], [ null, %52 ], [ null, %55 ], [ null, %66 ], [ null, %70 ], [ null, %49 ], [ %91, %94 ], [ %91, %142 ], [ %91, %166 ], [ %91, %select.unfold ]
   %170 = call i32 @ossl_core_bio_free(ptr noundef %.082) #8
   %171 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %172 = load ptr, ptr %171, align 8, !tbaa !17
@@ -772,7 +772,7 @@ ossl_decoder_instance_free.exit:                  ; preds = %33, %35
   br label %41
 
 41:                                               ; preds = %4, %ossl_decoder_instance_free.exit, %31, %3
-  %.0 = phi ptr [ null, %ossl_decoder_instance_free.exit ], [ %5, %31 ], [ null, %3 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %ossl_decoder_instance_free.exit ], [ %5, %31 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -872,7 +872,7 @@ define ptr @ossl_decoder_instance_dup(ptr noundef readonly captures(none) %0) lo
   br label %18
 
 18:                                               ; preds = %8, %1, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %1 ], [ %2, %8 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %17 ], [ %2, %8 ]
   ret ptr %.0
 }
 
@@ -1007,7 +1007,7 @@ ossl_decoder_instance_free.exit:                  ; preds = %11
   br label %ossl_decoder_instance_free.exit.thread32
 
 ossl_decoder_instance_free.exit.thread32:         ; preds = %4, %ossl_decoder_instance_free.exit.thread, %ossl_decoder_instance_free.exit, %ossl_decoder_ctx_add_decoder_inst.exit, %3
-  %.015 = phi i32 [ 0, %3 ], [ 1, %ossl_decoder_ctx_add_decoder_inst.exit ], [ 0, %ossl_decoder_instance_free.exit ], [ 0, %ossl_decoder_instance_free.exit.thread ], [ 0, %4 ]
+  %.015 = phi i32 [ 1, %ossl_decoder_ctx_add_decoder_inst.exit ], [ 0, %3 ], [ 0, %ossl_decoder_instance_free.exit ], [ 0, %ossl_decoder_instance_free.exit.thread ], [ 0, %4 ]
   ret i32 %.015
 }
 
@@ -1324,7 +1324,7 @@ OSSL_DECODER_INSTANCE_get_input_type.exit:        ; preds = %.lr.ph32.split, %13
   br i1 %142, label %.lr.ph32.split, label %._crit_edge33, !llvm.loop !69
 
 ._crit_edge33:                                    ; preds = %._crit_edge.us, %OSSL_DECODER_INSTANCE_get_input_type.exit, %.split
-  %143 = phi i64 [ %32, %.split ], [ %141, %OSSL_DECODER_INSTANCE_get_input_type.exit ], [ %131, %._crit_edge.us ]
+  %143 = phi i64 [ %141, %OSSL_DECODER_INSTANCE_get_input_type.exit ], [ %32, %.split ], [ %131, %._crit_edge.us ]
   %144 = load i32, ptr %25, align 4, !tbaa !63
   %145 = add i32 %144, 1
   store i32 %145, ptr %25, align 4, !tbaa !63
@@ -1347,7 +1347,7 @@ OSSL_DECODER_INSTANCE_get_input_type.exit:        ; preds = %.lr.ph32.split, %13
   br label %151
 
 151:                                              ; preds = %6, %.loopexit, %13, %5
-  %.0 = phi i32 [ 0, %13 ], [ 1, %.loopexit ], [ 0, %5 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %13 ], [ 1, %.loopexit ], [ 1, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

@@ -358,7 +358,7 @@ define dso_local i32 @cpuidle_enter_s2idle(ptr noundef %0, ptr noundef %1) local
   br label %.thread
 
 .thread:                                          ; preds = %2, %36, %34
-  %37 = phi i32 [ %31, %36 ], [ %31, %34 ], [ 0, %2 ]
+  %37 = phi i32 [ %31, %34 ], [ %31, %36 ], [ 0, %2 ]
   ret i32 %37
 }
 
@@ -1269,12 +1269,12 @@ cpuidle_enable_device.exit:                       ; preds = %cpuidle_enable_devi
   br label %.thread
 
 .thread:                                          ; preds = %7, %94, %91, %cpuidle_enable_device.exit, %3
-  %92 = phi i32 [ -16, %3 ], [ %95, %94 ], [ 0, %cpuidle_enable_device.exit ], [ 0, %91 ], [ -22, %7 ]
+  %92 = phi i32 [ -16, %3 ], [ -22, %7 ], [ %95, %94 ], [ 0, %cpuidle_enable_device.exit ], [ 0, %91 ]
   tail call void @mutex_unlock(ptr noundef nonnull @cpuidle_lock) #19
   br label %110
 
-93:                                               ; preds = %88, %62, %65, %68, %72
-  %.ph = phi i32 [ %73, %72 ], [ -22, %68 ], [ -5, %65 ], [ -5, %62 ], [ %81, %88 ]
+93:                                               ; preds = %88, %72, %62, %65, %68
+  %.ph = phi i32 [ -22, %68 ], [ -5, %65 ], [ -5, %62 ], [ %73, %72 ], [ %81, %88 ]
   tail call void @cpuidle_remove_sysfs(ptr noundef nonnull %0) #19
   br label %94
 

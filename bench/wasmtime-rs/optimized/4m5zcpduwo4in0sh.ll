@@ -124,7 +124,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN3std10sys_common4once5futex4Once5sta
   br label %12
 
 12:                                               ; preds = %1, %11, %10
-  %.0 = phi i8 [ 1, %10 ], [ 2, %11 ], [ 0, %1 ]
+  %.0 = phi i8 [ 2, %11 ], [ 1, %10 ], [ 0, %1 ]
   ret i8 %.0
 }
 
@@ -4567,8 +4567,8 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..Cach
   br i1 %6, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit", label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit.sink.split"
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit.sink.split": ; preds = %1, %3
-  %.sink = phi i64 [ 16, %3 ], [ 8, %1 ]
-  %.sink4 = phi i64 [ %5, %3 ], [ %2, %1 ]
+  %.sink = phi i64 [ 8, %1 ], [ 16, %3 ]
+  %.sink4 = phi i64 [ %2, %1 ], [ %5, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %8 = load ptr, ptr %7, align 8, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink4, i64 noundef 1) #22, !noalias !4
@@ -4705,7 +4705,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$std..thread..Packet$LT$$LP$$
   br label %"_ZN4core3ptr188drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17h9e289d56e5b5f28bE.llvm.1979644106479486265.exit"
 
 common.resume:                                    ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.llvm.1979644106479486265.exit", %31, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1979644106479486265.exit.i.i.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %32, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1979644106479486265.exit.i.i.i.i.i" ], [ %32, %31 ], [ %.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.llvm.1979644106479486265.exit" ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %32, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1979644106479486265.exit.i.i.i.i.i" ], [ %.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.llvm.1979644106479486265.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr188drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17h9e289d56e5b5f28bE.llvm.1979644106479486265.exit": ; preds = %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.llvm.1979644106479486265.exit3", %23, %39, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.1979644106479486265.exit.i4.i.i.i.i"
@@ -5801,8 +5801,8 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$$u5b$wasmtime_cache..worker.
   br i1 %10, label %"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..CacheEntry$GT$17h5e259335b0fa18e8E.llvm.1979644106479486265.exit", label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit.sink.split.i"
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit.sink.split.i": ; preds = %.lr.ph, %7
-  %.sink.i = phi i64 [ 16, %7 ], [ 8, %.lr.ph ]
-  %.sink4.i = phi i64 [ %9, %7 ], [ %6, %.lr.ph ]
+  %.sink.i = phi i64 [ 8, %.lr.ph ], [ 16, %7 ]
+  %.sink4.i = phi i64 [ %6, %.lr.ph ], [ %9, %7 ]
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink.i
   %12 = load ptr, ptr %11, align 8, !alias.scope !3367, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %.sink4.i, i64 noundef 1) #22, !noalias !3367
@@ -6641,8 +6641,8 @@ define hidden void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_
   br i1 %13, label %"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..CacheEntry$GT$17h5e259335b0fa18e8E.llvm.1979644106479486265.exit.i.i", label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit.sink.split.i.i.i"
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit.sink.split.i.i.i": ; preds = %10, %.lr.ph.i.i
-  %.sink.i.i.i = phi i64 [ 16, %10 ], [ 8, %.lr.ph.i.i ]
-  %.sink4.i.i.i = phi i64 [ %12, %10 ], [ %9, %.lr.ph.i.i ]
+  %.sink.i.i.i = phi i64 [ 8, %.lr.ph.i.i ], [ 16, %10 ]
+  %.sink4.i.i.i = phi i64 [ %9, %.lr.ph.i.i ], [ %12, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink.i.i.i
   %15 = load ptr, ptr %14, align 8, !alias.scope !3833, !noalias !3824, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink4.i.i.i, i64 noundef 1) #22, !noalias !3851
@@ -7463,7 +7463,7 @@ define hidden void @"_ZN4core3ptr93drop_in_place$LT$std..sync..mpmc..list..Chann
   br label %"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..CacheEvent$GT$17h48678c6dd899f601E.llvm.1979644106479486265.exit.i"
 
 "_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..CacheEvent$GT$17h48678c6dd899f601E.llvm.1979644106479486265.exit.i": ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit.sink.split.i.i", %17, %14
-  %.1.i = phi ptr [ %16, %14 ], [ %.01419.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit.sink.split.i.i" ], [ %.01419.i, %17 ]
+  %.1.i = phi ptr [ %16, %14 ], [ %.01419.i, %17 ], [ %.01419.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit.sink.split.i.i" ]
   %25 = add i64 %.020.i, 2
   %.not.i = icmp eq i64 %25, %9
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -7542,7 +7542,7 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$std..sync..mpmc..array..Chan
           to label %"_ZN4core3ptr54drop_in_place$LT$std..sync..mpmc..waker..SyncWaker$GT$17h46271caf4f403af0E.llvm.1979644106479486265.exit" unwind label %16
 
 .body:                                            ; preds = %16, %9
-  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %10, %9 ]
+  %.pn = phi { ptr, i32 } [ %10, %9 ], [ %17, %16 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 320
   invoke void @"_ZN4core3ptr54drop_in_place$LT$std..sync..mpmc..waker..SyncWaker$GT$17h46271caf4f403af0E.llvm.1979644106479486265"(ptr noalias noundef nonnull align 8 dereferenceable(64) %15) #20
           to label %common.resume unwind label %25
@@ -8213,8 +8213,8 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %13, label %"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..CacheEntry$GT$17h5e259335b0fa18e8E.llvm.1979644106479486265.exit.i", label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit.sink.split.i.i"
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit.sink.split.i.i": ; preds = %10, %.lr.ph.i
-  %.sink.i.i = phi i64 [ 16, %10 ], [ 8, %.lr.ph.i ]
-  %.sink4.i.i = phi i64 [ %12, %10 ], [ %9, %.lr.ph.i ]
+  %.sink.i.i = phi i64 [ 8, %.lr.ph.i ], [ 16, %10 ]
+  %.sink4.i.i = phi i64 [ %9, %.lr.ph.i ], [ %12, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink.i.i
   %15 = load ptr, ptr %14, align 8, !alias.scope !4354, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink4.i.i, i64 noundef 1) #22, !noalias !4354
@@ -9538,7 +9538,7 @@ define hidden void @"_ZN81_$LT$std..sync..mpmc..list..Channel$LT$T$GT$$u20$as$u2
   br label %"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..CacheEvent$GT$17h48678c6dd899f601E.llvm.1979644106479486265.exit"
 
 "_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..CacheEvent$GT$17h48678c6dd899f601E.llvm.1979644106479486265.exit": ; preds = %18, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit.sink.split.i", %15
-  %.1 = phi ptr [ %17, %15 ], [ %.01419, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit.sink.split.i" ], [ %.01419, %18 ]
+  %.1 = phi ptr [ %17, %15 ], [ %.01419, %18 ], [ %.01419, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit.sink.split.i" ]
   %26 = add i64 %.020, 2
   %.not = icmp eq i64 %26, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph

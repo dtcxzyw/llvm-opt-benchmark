@@ -1005,7 +1005,7 @@ default.unreachable:                              ; preds = %54
   unreachable
 
 62:                                               ; preds = %60, %58, %56, %52, %48, %33
-  %63 = phi i32 [ -22, %48 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ -19, %33 ], [ -19, %52 ]
+  %63 = phi i32 [ -22, %48 ], [ -19, %52 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ -19, %33 ]
   call void @rtnl_unlock() #14
   %64 = icmp ne i32 %1, 35156
   %65 = icmp ne i32 %63, 0
@@ -1302,7 +1302,7 @@ define internal fastcc i32 @arp_req_set(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.thread11
 
 .thread11:                                        ; preds = %98, %100, %.thread10, %101, %80, %68, %66, %48
-  %102 = phi i32 [ %49, %48 ], [ -22, %66 ], [ -22, %68 ], [ %83, %80 ], [ %94, %101 ], [ %65, %.thread10 ], [ %94, %100 ], [ %94, %98 ]
+  %102 = phi i32 [ %49, %48 ], [ -22, %66 ], [ -22, %68 ], [ %83, %80 ], [ %65, %.thread10 ], [ %94, %101 ], [ %94, %100 ], [ %94, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %102
 }
@@ -1851,8 +1851,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @arp_process(ptr noundef %0, 
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %106, %100, %95
-  %109 = phi i1 [ true, %95 ], [ true, %100 ], [ %108, %106 ]
-  %110 = phi ptr [ null, %95 ], [ null, %100 ], [ %107, %106 ]
+  %109 = phi i1 [ %108, %106 ], [ true, %95 ], [ true, %100 ]
+  %110 = phi ptr [ %107, %106 ], [ null, %95 ], [ null, %100 ]
   %111 = icmp eq i32 %57, 0
   br i1 %111, label %113, label %123
 
@@ -2029,7 +2029,7 @@ thread-pre-split.thread:                          ; preds = %89
   br label %281
 
 .thread19:                                        ; preds = %thread-pre-split.thread, %190, %188, %162, %124, %123
-  %219 = phi ptr [ %110, %190 ], [ %110, %188 ], [ %110, %162 ], [ %110, %124 ], [ %110, %123 ], [ null, %thread-pre-split.thread ]
+  %219 = phi ptr [ %110, %123 ], [ %110, %190 ], [ %110, %188 ], [ %110, %162 ], [ %110, %124 ], [ null, %thread-pre-split.thread ]
   %220 = call ptr @neigh_lookup(ptr noundef nonnull @arp_tbl, ptr noundef nonnull %3, ptr noundef %7) #14
   store i32 -1, ptr %5, align 4
   %221 = icmp ne ptr %220, null

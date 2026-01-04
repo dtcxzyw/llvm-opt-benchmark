@@ -241,7 +241,7 @@ define internal range(i32 0, 2) i32 @ml_kem_get_params(ptr noundef %0, ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %40, %46, %86, %82, %75, %68, %64, %55, %17, %11, %5, %88
-  %.060 = phi i32 [ 1, %88 ], [ 0, %5 ], [ 0, %11 ], [ 0, %17 ], [ 0, %55 ], [ 0, %64 ], [ 0, %68 ], [ 0, %75 ], [ 0, %82 ], [ 0, %86 ], [ 0, %46 ], [ 0, %40 ], [ 0, %31 ]
+  %.060 = phi i32 [ 0, %17 ], [ 0, %55 ], [ 0, %68 ], [ 0, %75 ], [ 1, %88 ], [ 0, %82 ], [ 0, %64 ], [ 0, %86 ], [ 0, %11 ], [ 0, %5 ], [ 0, %46 ], [ 0, %40 ], [ 0, %31 ]
   ret i32 %.060
 }
 
@@ -312,7 +312,7 @@ thread-pre-split:                                 ; preds = %11
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %7, %2, %thread-pre-split, %ossl_param_is_empty.exit, %22, %21, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %21 ], [ %24, %22 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %thread-pre-split ], [ 1, %2 ], [ 1, %7 ]
+  %.0 = phi i32 [ %24, %22 ], [ 0, %16 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %21 ], [ 1, %thread-pre-split ], [ 1, %2 ], [ 1, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -489,7 +489,7 @@ ossl_param_is_empty.exit:                         ; preds = %5
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %5, %20, %13, %10, %ossl_param_is_empty.exit, %2, %30
-  %.0 = phi i32 [ %.1, %30 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %10 ], [ 0, %13 ], [ 1, %20 ], [ 1, %5 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %10 ], [ %.1, %30 ], [ 1, %20 ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -569,7 +569,7 @@ define internal ptr @ml_kem_gen(ptr noundef captures(address_is_null) %0, ptr re
   br label %ml_kem_new.exit.thread
 
 ml_kem_new.exit.thread:                           ; preds = %19, %10, %36, %32, %22, %3, %5, %38
-  %.0 = phi ptr [ null, %38 ], [ null, %5 ], [ null, %3 ], [ %21, %22 ], [ null, %32 ], [ %21, %36 ], [ null, %10 ], [ null, %19 ]
+  %.0 = phi ptr [ %21, %22 ], [ null, %3 ], [ %21, %36 ], [ null, %32 ], [ null, %38 ], [ null, %5 ], [ null, %10 ], [ null, %19 ]
   ret ptr %.0
 }
 
@@ -678,7 +678,7 @@ define internal ptr @ml_kem_load(ptr noundef captures(none) %0, i64 noundef %1) 
   br label %37
 
 37:                                               ; preds = %.sink.split, %2, %33, %.thread37
-  %.027 = phi ptr [ %8, %.thread37 ], [ %8, %33 ], [ null, %2 ], [ %8, %.sink.split ]
+  %.027 = phi ptr [ null, %2 ], [ %8, %.thread37 ], [ %8, %33 ], [ %8, %.sink.split ]
   call void @ossl_ml_kem_key_free(ptr noundef %.027) #7
   br label %38
 
@@ -906,7 +906,7 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
   %87 = call i32 @ossl_ml_kem_parse_public_key(ptr noundef %86, i64 noundef %79, ptr noundef nonnull %0) #7
   br label %ml_kem_key_fromdata.exit
 
-ml_kem_key_fromdata.exit.thread:                  ; preds = %29, %37, %45, %50, %61, %15, %24, %31, %39, %71
+ml_kem_key_fromdata.exit.thread:                  ; preds = %15, %29, %24, %37, %31, %45, %50, %61, %39, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -916,7 +916,7 @@ ml_kem_key_fromdata.exit.thread:                  ; preds = %29, %37, %45, %50, 
   br label %92
 
 ml_kem_key_fromdata.exit:                         ; preds = %74, %.thread58.i, %85
-  %.0.i = phi i32 [ %84, %.thread58.i ], [ %87, %85 ], [ %77, %74 ]
+  %.0.i = phi i32 [ %87, %85 ], [ %77, %74 ], [ %84, %.thread58.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -937,7 +937,7 @@ ml_kem_key_fromdata.exit:                         ; preds = %74, %.thread58.i, %
   br label %92
 
 92:                                               ; preds = %ml_kem_key_fromdata.exit.thread, %ml_kem_key_fromdata.exit, %89, %91, %3
-  %.015 = phi i32 [ 0, %3 ], [ %.0.i, %89 ], [ 0, %91 ], [ %.0.i, %ml_kem_key_fromdata.exit ], [ 0, %ml_kem_key_fromdata.exit.thread ]
+  %.015 = phi i32 [ %.0.i, %ml_kem_key_fromdata.exit ], [ 0, %3 ], [ %.0.i, %89 ], [ 0, %91 ], [ 0, %ml_kem_key_fromdata.exit.thread ]
   ret i32 %.015
 }
 
@@ -1105,11 +1105,11 @@ define internal i32 @ml_kem_export(ptr noundef %0, i32 noundef %1, ptr noundef r
   br i1 %.not100, label %89, label %.thread123
 
 .thread123:                                       ; preds = %.thread, %77, %76
-  %79 = phi ptr [ %69, %77 ], [ %69, %76 ], [ %71, %.thread ]
-  %.1112119132 = phi i64 [ %.2, %77 ], [ %.2, %76 ], [ 0, %.thread ]
-  %.165111120131 = phi i64 [ %.165, %77 ], [ %.165, %76 ], [ 0, %.thread ]
-  %.167110121130 = phi ptr [ %.268, %77 ], [ %.268, %76 ], [ null, %.thread ]
-  %.170109122129 = phi ptr [ %.170, %77 ], [ null, %76 ], [ null, %.thread ]
+  %79 = phi ptr [ %69, %76 ], [ %69, %77 ], [ %71, %.thread ]
+  %.1112119132 = phi i64 [ %.2, %76 ], [ %.2, %77 ], [ 0, %.thread ]
+  %.165111120131 = phi i64 [ %.165, %76 ], [ %.165, %77 ], [ 0, %.thread ]
+  %.167110121130 = phi ptr [ %.268, %76 ], [ %.268, %77 ], [ null, %.thread ]
+  %.170109122129 = phi ptr [ null, %76 ], [ %.170, %77 ], [ null, %.thread ]
   %.not101 = icmp eq ptr %.071, null
   br i1 %.not101, label %84, label %80
 
@@ -1145,7 +1145,7 @@ define internal i32 @ml_kem_export(ptr noundef %0, i32 noundef %1, ptr noundef r
   br label %90
 
 90:                                               ; preds = %4, %89, %27
-  %.073 = phi i32 [ %.0, %89 ], [ 0, %27 ], [ 0, %4 ]
+  %.073 = phi i32 [ 0, %27 ], [ 0, %4 ], [ %.0, %89 ]
   ret i32 %.073
 }
 
@@ -1363,7 +1363,7 @@ ml_kem_gen_cleanup.exit:                          ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %11, %4, %8, %ml_kem_gen_cleanup.exit
-  %.0 = phi ptr [ null, %ml_kem_gen_cleanup.exit ], [ null, %8 ], [ null, %4 ], [ %9, %11 ]
+  %.0 = phi ptr [ null, %ml_kem_gen_cleanup.exit ], [ null, %4 ], [ null, %8 ], [ %9, %11 ]
   ret ptr %.0
 }
 

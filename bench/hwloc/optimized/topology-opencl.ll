@@ -433,7 +433,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr noundef readonly
   br label %199
 
 199:                                              ; preds = %._crit_edge165, %196, %33, %27, %30, %26, %26, %2, %48
-  %.086 = phi i32 [ -1, %48 ], [ 0, %2 ], [ -1, %26 ], [ -1, %26 ], [ -1, %30 ], [ -1, %27 ], [ -1, %33 ], [ 0, %196 ], [ 0, %._crit_edge165 ]
+  %.086 = phi i32 [ 0, %2 ], [ -1, %33 ], [ -1, %48 ], [ -1, %27 ], [ -1, %26 ], [ -1, %26 ], [ -1, %30 ], [ 0, %196 ], [ 0, %._crit_edge165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.086

@@ -2534,9 +2534,9 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   br label %.thread47
 
 .thread47:                                        ; preds = %392, %397, %395, %372, %.thread45
-  %401 = phi i8 [ %365, %.thread45 ], [ %.pre70.pre, %372 ], [ %365, %395 ], [ %365, %397 ], [ %365, %392 ]
-  %402 = phi i32 [ %363, %.thread45 ], [ %.pre69.pre, %372 ], [ %363, %395 ], [ %363, %397 ], [ %363, %392 ]
-  %403 = phi ptr [ null, %.thread45 ], [ null, %372 ], [ null, %395 ], [ %spec.select, %397 ], [ null, %392 ]
+  %401 = phi i8 [ %365, %397 ], [ %365, %395 ], [ %365, %.thread45 ], [ %.pre70.pre, %372 ], [ %365, %392 ]
+  %402 = phi i32 [ %363, %397 ], [ %363, %395 ], [ %363, %.thread45 ], [ %.pre69.pre, %372 ], [ %363, %392 ]
+  %403 = phi ptr [ %spec.select, %397 ], [ null, %395 ], [ null, %.thread45 ], [ null, %372 ], [ null, %392 ]
   %404 = icmp eq i8 %401, 0
   br i1 %404, label %407, label %405
 
@@ -3343,7 +3343,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   br label %892
 
 892:                                              ; preds = %891, %888, %886, %863, %851, %834, %818, %814, %803, %802, %679, %671, %645, %644, %176, %24, %23
-  %893 = phi ptr [ %32, %176 ], [ %32, %644 ], [ %32, %645 ], [ %32, %671 ], [ %32, %679 ], [ %32, %802 ], [ %32, %803 ], [ %32, %814 ], [ %32, %818 ], [ %32, %834 ], [ %32, %851 ], [ %32, %863 ], [ %32, %886 ], [ %32, %888 ], [ null, %23 ], [ null, %24 ], [ null, %891 ]
+  %893 = phi ptr [ null, %891 ], [ %32, %176 ], [ %32, %644 ], [ %32, %645 ], [ %32, %671 ], [ %32, %679 ], [ %32, %802 ], [ %32, %803 ], [ %32, %814 ], [ %32, %818 ], [ %32, %834 ], [ %32, %851 ], [ %32, %863 ], [ %32, %886 ], [ %32, %888 ], [ null, %23 ], [ null, %24 ]
   call void @__rcu_read_unlock() #13
   ret ptr %893
 }
@@ -3771,7 +3771,7 @@ define internal fastcc ptr @ieee80211_tdls_ch_sw_resp_tmpl_get(ptr noundef nonnu
   br label %56
 
 56:                                               ; preds = %26, %50, %.thread, %23, %13
-  %57 = phi ptr [ null, %13 ], [ null, %23 ], [ null, %.thread ], [ %24, %50 ], [ %24, %26 ]
+  %57 = phi ptr [ null, %23 ], [ null, %.thread ], [ null, %13 ], [ %24, %50 ], [ %24, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %57
 }

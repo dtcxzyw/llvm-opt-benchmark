@@ -895,7 +895,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %._crit_edge
   br i1 %.not27.old.i.i.i.i, label %_ZNK10model_core16get_const_interpEP9func_decl.exit, label %.lr.ph38.i.i.i.i.backedge
 
 .lr.ph38.i.i.i.i.backedge:                        ; preds = %53, %50
-  %.137.i.i.i.i.be = phi ptr [ %.old.i.i.i.i, %53 ], [ %52, %50 ]
+  %.137.i.i.i.i.be = phi ptr [ %52, %50 ], [ %.old.i.i.i.i, %53 ]
   br label %.lr.ph38.i.i.i.i, !llvm.loop !113
 
 .loopexit.i:                                      ; preds = %34, %45
@@ -905,7 +905,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %._crit_edge
   br label %_ZNK10model_core16get_const_interpEP9func_decl.exit
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %39, %50, %53, %.preheader.i.i.i.i, %.loopexit.i
-  %56 = phi ptr [ %55, %.loopexit.i ], [ null, %.preheader.i.i.i.i ], [ null, %53 ], [ null, %50 ], [ null, %39 ]
+  %56 = phi ptr [ %55, %.loopexit.i ], [ null, %.preheader.i.i.i.i ], [ null, %50 ], [ null, %53 ], [ null, %39 ]
   tail call void @_ZN15model_converter11display_addERSoR19smt2_pp_environmentR11ast_managerP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nonnull align 8 poison, ptr noundef %21, ptr noundef %56)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -964,7 +964,7 @@ _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %39, %50, %53, %.
   br label %.lr.ph38.i.i.i.i35
 
 .lr.ph38.i.i.i.i35:                               ; preds = %.lr.ph38.i.i.i.i35.preheader, %.lr.ph38.backedge.i.i.i.i40
-  %.137.i.i.i.i36 = phi ptr [ %.pn, %.lr.ph38.backedge.i.i.i.i40 ], [ %66, %.lr.ph38.i.i.i.i35.preheader ]
+  %.137.i.i.i.i36 = phi ptr [ %.137.be.i.i.i.i41, %.lr.ph38.backedge.i.i.i.i40 ], [ %66, %.lr.ph38.i.i.i.i35.preheader ]
   %82 = load ptr, ptr %.137.i.i.i.i36, align 8, !tbaa !118
   %83 = icmp ult ptr %82, inttoptr (i64 2 to ptr)
   br i1 %83, label %89, label %84
@@ -983,7 +983,7 @@ _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %39, %50, %53, %.
   br label %.lr.ph38.backedge.i.i.i.i40
 
 .lr.ph38.backedge.i.i.i.i40:                      ; preds = %84, %89
-  %.pn = getelementptr inbounds nuw i8, ptr %.137.i.i.i.i36, i64 16
+  %.137.be.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %.137.i.i.i.i36, i64 16
   br label %.lr.ph38.i.i.i.i35, !llvm.loop !123
 
 .loopexit.i42:                                    ; preds = %73, %84
@@ -2062,7 +2062,7 @@ define linkonce_odr hidden void @_ZN8model2mcclER3refI5modelE(ptr noundef nonnul
   br label %_ZN3refI5modelEaSERS1_.exit
 
 _ZN3refI5modelEaSERS1_.exit:                      ; preds = %6, %7, %11, %16
-  %20 = phi ptr [ null, %11 ], [ %.pre.i, %16 ], [ %.pre, %7 ], [ null, %6 ]
+  %20 = phi ptr [ %.pre.i, %16 ], [ null, %11 ], [ %.pre, %7 ], [ null, %6 ]
   store ptr %20, ptr %1, align 8, !tbaa !88
   br label %26
 

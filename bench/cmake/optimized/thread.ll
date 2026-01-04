@@ -98,7 +98,7 @@ uv__min_stack_size.exit:                          ; preds = %6, %13
   br label %16
 
 16:                                               ; preds = %uv__min_stack_size.exit, %3, %0
-  %.0 = phi i64 [ 2097152, %0 ], [ 2097152, %3 ], [ %spec.select, %uv__min_stack_size.exit ]
+  %.0 = phi i64 [ 2097152, %3 ], [ 2097152, %0 ], [ %spec.select, %uv__min_stack_size.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %.0
 }
@@ -168,7 +168,7 @@ uv__min_stack_size.exit.i:                        ; preds = %24, %17
   br label %uv__thread_stack_size.exit
 
 uv__thread_stack_size.exit:                       ; preds = %.thread, %14, %uv__min_stack_size.exit.i
-  %.0.i = phi i64 [ 2097152, %.thread ], [ 2097152, %14 ], [ %spec.select.i, %uv__min_stack_size.exit.i ]
+  %.0.i = phi i64 [ 2097152, %14 ], [ 2097152, %.thread ], [ %spec.select.i, %uv__min_stack_size.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
@@ -655,7 +655,7 @@ uv_mutex_destroy.exit.i:                          ; preds = %uv_cond_init.exit.i
   br label %uv__custom_sem_init.exit
 
 uv__custom_sem_init.exit:                         ; preds = %32, %30, %uv_mutex_destroy.exit.i, %uv_cond_init.exit.thread.i, %12, %7
-  %.0 = phi i32 [ %13, %12 ], [ %.08.i.i, %uv_mutex_destroy.exit.i ], [ 0, %uv_cond_init.exit.thread.i ], [ -12, %7 ], [ %35, %32 ], [ 0, %30 ]
+  %.0 = phi i32 [ -12, %7 ], [ 0, %uv_cond_init.exit.thread.i ], [ %13, %12 ], [ %.08.i.i, %uv_mutex_destroy.exit.i ], [ %35, %32 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -925,7 +925,7 @@ define dso_local range(i32 -11, 1) i32 @uv_sem_trywait(ptr noundef %0) local_unn
   unreachable
 
 uv__custom_sem_trywait.exit:                      ; preds = %.preheader, %.critedge.i, %13, %10, %3, %3
-  %.0 = phi i32 [ -11, %3 ], [ -11, %3 ], [ -11, %10 ], [ 0, %13 ], [ -11, %.critedge.i ], [ %17, %.preheader ]
+  %.0 = phi i32 [ 0, %13 ], [ -11, %10 ], [ -11, %3 ], [ -11, %3 ], [ -11, %.critedge.i ], [ %17, %.preheader ]
   ret i32 %.0
 }
 

@@ -112,7 +112,7 @@ define dso_local range(i32 -1, 1) i32 @save_term(i32 noundef %0) local_unnamed_a
   br i1 %9, label %38, label %.thread
 
 .thread:                                          ; preds = %1, %.thread7, %7
-  %10 = phi i32 [ %8, %7 ], [ 0, %.thread7 ], [ %3, %1 ]
+  %10 = phi i32 [ 0, %.thread7 ], [ %8, %7 ], [ %3, %1 ]
   %11 = lshr i32 %0, 1
   %.lobit = and i32 %11, 1
   %12 = xor i32 %.lobit, 1
@@ -180,7 +180,7 @@ _.exit6:                                          ; preds = %_.exit.thread, %_.e
   br label %38
 
 38:                                               ; preds = %20, %7, %_.exit6, %close_term_fd.exit
-  %.0 = phi i32 [ -1, %close_term_fd.exit ], [ 0, %_.exit6 ], [ -1, %7 ], [ 0, %20 ]
+  %.0 = phi i32 [ 0, %_.exit6 ], [ -1, %close_term_fd.exit ], [ -1, %7 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -353,7 +353,7 @@ define dso_local ptr @git_terminal_prompt(ptr noundef readonly captures(none) %0
   br label %26
 
 26:                                               ; preds = %21, %2, %11, %6
-  %.0 = phi ptr [ null, %11 ], [ null, %6 ], [ null, %2 ], [ %spec.select, %21 ]
+  %.0 = phi ptr [ null, %2 ], [ %spec.select, %21 ], [ null, %11 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -781,7 +781,7 @@ close_term_fd.exit:                               ; preds = %reset_job_signals.e
   br label %28
 
 28:                                               ; preds = %15, %2, %close_term_fd.exit
-  %.0 = phi i32 [ -1, %close_term_fd.exit ], [ -1, %2 ], [ 0, %15 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %close_term_fd.exit ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

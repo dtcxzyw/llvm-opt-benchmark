@@ -181,10 +181,10 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr noundef writ
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %74, %72, %66, %50, %48, %42, %.critedge
-  %.0.ph = phi i32 [ %75, %74 ], [ 0, %72 ], [ 0, %66 ], [ %51, %50 ], [ 0, %48 ], [ 0, %42 ], [ 0, %.critedge ]
-  %.2.ph = phi ptr [ %64, %74 ], [ %64, %72 ], [ %64, %66 ], [ %40, %50 ], [ %40, %48 ], [ %40, %42 ], [ %.184, %.critedge ]
-  %.045.ph = phi i32 [ 1, %74 ], [ 1, %72 ], [ 1, %66 ], [ 2, %50 ], [ 2, %48 ], [ 2, %42 ], [ 0, %.critedge ]
-  %.0.shrunk.ph = phi i1 [ true, %74 ], [ false, %72 ], [ false, %66 ], [ true, %50 ], [ false, %48 ], [ false, %42 ], [ false, %.critedge ]
+  %.0.ph = phi i32 [ 0, %72 ], [ 0, %66 ], [ 0, %48 ], [ 0, %42 ], [ %51, %50 ], [ %75, %74 ], [ 0, %.critedge ]
+  %.2.ph = phi ptr [ %64, %72 ], [ %64, %66 ], [ %40, %48 ], [ %40, %42 ], [ %40, %50 ], [ %64, %74 ], [ %.184, %.critedge ]
+  %.045.ph = phi i32 [ 1, %72 ], [ 1, %66 ], [ 2, %48 ], [ 2, %42 ], [ 2, %50 ], [ 1, %74 ], [ 0, %.critedge ]
+  %.0.shrunk.ph = phi i1 [ false, %72 ], [ false, %66 ], [ false, %48 ], [ false, %42 ], [ true, %50 ], [ true, %74 ], [ false, %.critedge ]
   %.pr = load i8, ptr %.2.ph, align 1
   %.not5485 = icmp eq i8 %.pr, 0
   br i1 %.not5485, label %.critedge2, label %.lr.ph87
@@ -298,7 +298,7 @@ default.unreachable:                              ; preds = %.critedge2.thread
   unreachable
 
 drange_str_to_int32.exit.thread:                  ; preds = %19, %13, %95, %110, %.critedge2.thread.thread133, %108, %105, %93, %.thread
-  %.044 = phi ptr [ null, %.thread ], [ null, %93 ], [ null, %105 ], [ null, %108 ], [ %56, %.critedge2.thread.thread133 ], [ %89, %110 ], [ %96, %95 ], [ null, %13 ], [ null, %19 ]
+  %.044 = phi ptr [ null, %.thread ], [ null, %93 ], [ %96, %95 ], [ null, %105 ], [ null, %108 ], [ %56, %.critedge2.thread.thread133 ], [ %89, %110 ], [ null, %13 ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.044
 }

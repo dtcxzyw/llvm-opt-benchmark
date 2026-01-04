@@ -310,7 +310,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   br label %.sink.split
 
 .sink.split:                                      ; preds = %45, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48
-  %mode01.sink = phi ptr [ @mode02, %48 ], [ @mode03, %49 ], [ @mode04, %50 ], [ @mode05, %51 ], [ @mode06, %52 ], [ @mode07, %53 ], [ @mode08, %54 ], [ @mode09, %55 ], [ @mode10, %56 ], [ @mode1112, %57 ], [ @mode1314, %58 ], [ @mode1314, %59 ], [ @mode1516, %60 ], [ @mode1516, %61 ], [ @mode17, %62 ], [ @mode18, %63 ], [ @mode19, %64 ], [ @mode20, %65 ], [ @mode21, %66 ], [ @mode22, %67 ], [ @mode23, %68 ], [ @mode24, %69 ], [ @mode01, %45 ]
+  %mode01.sink = phi ptr [ @mode24, %69 ], [ @mode02, %48 ], [ @mode03, %49 ], [ @mode04, %50 ], [ @mode05, %51 ], [ @mode06, %52 ], [ @mode07, %53 ], [ @mode08, %54 ], [ @mode09, %55 ], [ @mode10, %56 ], [ @mode1112, %57 ], [ @mode01, %45 ], [ @mode1314, %58 ], [ @mode1314, %59 ], [ @mode1516, %60 ], [ @mode1516, %61 ], [ @mode17, %62 ], [ @mode18, %63 ], [ @mode19, %64 ], [ @mode20, %65 ], [ @mode21, %66 ], [ @mode22, %67 ], [ @mode23, %68 ]
   %70 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
   store ptr %mode01.sink, ptr %70, align 8, !tbaa !53
   br label %71
@@ -788,7 +788,7 @@ define internal i32 @mode02(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %20, %91, %94
-  %.1162 = phi i32 [ %92, %91 ], [ %92, %94 ], [ %21, %20 ], [ %.1162.ph, %.thread.loopexit ]
+  %.1162 = phi i32 [ %92, %94 ], [ %92, %91 ], [ %21, %20 ], [ %.1162.ph, %.thread.loopexit ]
   %.not = icmp eq i32 %.1162, 0
   br i1 %.not, label %95, label %20, !llvm.loop !62
 
@@ -1049,7 +1049,7 @@ define internal i32 @mode03(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %20, %91, %94
-  %.1162 = phi i32 [ %92, %91 ], [ %92, %94 ], [ %21, %20 ], [ %.1162.ph, %.thread.loopexit ]
+  %.1162 = phi i32 [ %92, %94 ], [ %92, %91 ], [ %21, %20 ], [ %.1162.ph, %.thread.loopexit ]
   %.not = icmp eq i32 %.1162, 0
   br i1 %.not, label %95, label %20, !llvm.loop !67
 
@@ -1310,7 +1310,7 @@ define internal i32 @mode04(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %20, %91, %94
-  %.1162 = phi i32 [ %92, %91 ], [ %92, %94 ], [ %21, %20 ], [ %.1162.ph, %.thread.loopexit ]
+  %.1162 = phi i32 [ %92, %94 ], [ %92, %91 ], [ %21, %20 ], [ %.1162.ph, %.thread.loopexit ]
   %.not = icmp eq i32 %.1162, 0
   br i1 %.not, label %95, label %20, !llvm.loop !72
 
@@ -1371,7 +1371,7 @@ define internal i32 @mode05(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br label %38
 
 38:                                               ; preds = %36, %34, %9
-  %.0 = phi i32 [ %.0.i130, %9 ], [ %.0.i126, %34 ], [ %., %36 ]
+  %.0 = phi i32 [ %.0.i126, %34 ], [ %.0.i130, %9 ], [ %., %36 ]
   ret i32 %.0
 }
 
@@ -1455,7 +1455,7 @@ define internal i32 @mode06(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br label %60
 
 60:                                               ; preds = %58, %55, %9
-  %.0 = phi i32 [ %.0.i122, %9 ], [ %.0.i118, %55 ], [ %., %58 ]
+  %.0 = phi i32 [ %.0.i118, %55 ], [ %.0.i122, %9 ], [ %., %58 ]
   ret i32 %.0
 }
 
@@ -1513,7 +1513,7 @@ define internal i32 @mode07(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br label %46
 
 46:                                               ; preds = %44, %42, %9
-  %.0 = phi i32 [ %.0.i122, %9 ], [ %.0.i118, %42 ], [ %., %44 ]
+  %.0 = phi i32 [ %.0.i118, %42 ], [ %.0.i122, %9 ], [ %., %44 ]
   ret i32 %.0
 }
 
@@ -1597,7 +1597,7 @@ define internal i32 @mode08(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br label %60
 
 60:                                               ; preds = %58, %55, %9
-  %.0 = phi i32 [ %.0.i122, %9 ], [ %.0.i118, %55 ], [ %., %58 ]
+  %.0 = phi i32 [ %.0.i118, %55 ], [ %.0.i122, %9 ], [ %., %58 ]
   ret i32 %.0
 }
 
@@ -1632,8 +1632,8 @@ define internal i32 @mode09(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br label %29
 
 29:                                               ; preds = %27, %25, %9
-  %.sink86 = phi i32 [ %17, %9 ], [ %13, %25 ], [ %.87, %27 ]
-  %.sink85 = phi i32 [ %16, %9 ], [ %12, %25 ], [ %.88, %27 ]
+  %.sink86 = phi i32 [ %13, %25 ], [ %.87, %27 ], [ %17, %9 ]
+  %.sink85 = phi i32 [ %12, %25 ], [ %.88, %27 ], [ %16, %9 ]
   %30 = icmp slt i32 %0, %.sink86
   %..i82 = tail call i32 @llvm.smin.i32(i32 %0, i32 %.sink85)
   %.0.i83 = select i1 %30, i32 %.sink86, i32 %..i82
@@ -1694,7 +1694,7 @@ define internal i32 @mode10(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br label %46
 
 46:                                               ; preds = %44, %42, %40, %38, %36, %34, %9
-  %.0 = phi i32 [ %7, %9 ], [ %8, %34 ], [ %6, %36 ], [ %2, %38 ], [ %3, %40 ], [ %1, %42 ], [ %.160, %44 ]
+  %.0 = phi i32 [ %1, %42 ], [ %7, %9 ], [ %8, %34 ], [ %6, %36 ], [ %2, %38 ], [ %3, %40 ], [ %.160, %44 ]
   ret i32 %.0
 }
 

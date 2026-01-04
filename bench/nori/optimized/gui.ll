@@ -952,7 +952,7 @@ _ZN7nanogui3refINS_7TextureEEaSEPS1_.exit:        ; preds = %252, %256
   br label %.body77
 
 .body77:                                          ; preds = %142, %286, %283
-  %.pn45 = phi { ptr, i32 } [ %143, %142 ], [ %284, %283 ], [ %284, %286 ]
+  %.pn45 = phi { ptr, i32 } [ %143, %142 ], [ %284, %286 ], [ %284, %283 ]
   call void @_ZdlPv(ptr noundef nonnull %139) #17
   br label %_ZNSt8functionIFvfEED2Ev.exit129
 
@@ -1066,7 +1066,7 @@ _ZN7nanogui3refINS_7TextureEEaSEPS1_.exit:        ; preds = %252, %256
   br label %_ZNSt8functionIFvfEED2Ev.exit129
 
 _ZNSt8functionIFvfEED2Ev.exit129:                 ; preds = %.body82, %.body77, %.body65, %311, %.body120, %.body114, %.body107, %.body101, %281, %273, %271, %269
-  %.pn59 = phi { ptr, i32 } [ %270, %269 ], [ %312, %311 ], [ %.pn57, %.body120 ], [ %.pn55, %.body114 ], [ %.pn53, %.body107 ], [ %.pn51, %.body101 ], [ %.pn47.pn.pn, %.body82 ], [ %.pn45, %.body77 ], [ %282, %281 ], [ %.pn42.pn, %.body65 ], [ %274, %273 ], [ %272, %271 ]
+  %.pn59 = phi { ptr, i32 } [ %270, %269 ], [ %312, %311 ], [ %.pn57, %.body120 ], [ %.pn55, %.body114 ], [ %.pn53, %.body107 ], [ %.pn51, %.body101 ], [ %.pn47.pn.pn, %.body82 ], [ %272, %271 ], [ %.pn45, %.body77 ], [ %274, %273 ], [ %.pn42.pn, %.body65 ], [ %282, %281 ]
   %313 = load ptr, ptr %63, align 8
   %.not.i133 = icmp eq ptr %313, null
   br i1 %.not.i133, label %_ZN7nanogui3refINS_10RenderPassEED2Ev.exit, label %314
@@ -1300,8 +1300,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit17: ; 
   br label %.body
 
 .body:                                            ; preds = %67, %48, %65, %63, %20, %61
-  %.sink = phi ptr [ %4, %61 ], [ %4, %20 ], [ %4, %63 ], [ %8, %65 ], [ %8, %48 ], [ %8, %67 ]
-  %.pn8.pn = phi { ptr, i32 } [ %62, %61 ], [ %21, %20 ], [ %64, %63 ], [ %66, %65 ], [ %49, %48 ], [ %68, %67 ]
+  %.sink = phi ptr [ %4, %63 ], [ %4, %61 ], [ %4, %20 ], [ %8, %65 ], [ %8, %48 ], [ %8, %67 ]
+  %.pn8.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ], [ %21, %20 ], [ %66, %65 ], [ %49, %48 ], [ %68, %67 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #14
   resume { ptr, i32 } %.pn8.pn
 }

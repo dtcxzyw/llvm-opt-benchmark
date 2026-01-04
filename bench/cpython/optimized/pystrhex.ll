@@ -45,7 +45,7 @@ define dso_local ptr @_Py_strhex(ptr noundef readonly captures(none) %0, i64 nou
   br label %_PyUnicode_DATA.exit.i
 
 _PyUnicode_DATA.exit.i:                           ; preds = %13, %11
-  %.0121.i = phi ptr [ %.0.i.i150.i, %11 ], [ %.val4.i.i, %13 ]
+  %.0121.i = phi ptr [ %.val4.i.i, %13 ], [ %.0.i.i150.i, %11 ]
   %15 = icmp sgt i64 %1, 0
   br i1 %15, label %.lr.ph197.i, label %_Py_strhex_impl.exit
 
@@ -75,7 +75,7 @@ _PyUnicode_DATA.exit.i:                           ; preds = %13, %11
   br i1 %exitcond214.not.i, label %_Py_strhex_impl.exit, label %.lr.ph197.i, !llvm.loop !10
 
 _Py_strhex_impl.exit:                             ; preds = %.lr.ph197.i, %3, %5, %_PyUnicode_DATA.exit.i
-  %.1109.i = phi ptr [ %4, %3 ], [ null, %5 ], [ %7, %_PyUnicode_DATA.exit.i ], [ %7, %.lr.ph197.i ]
+  %.1109.i = phi ptr [ %7, %_PyUnicode_DATA.exit.i ], [ %4, %3 ], [ null, %5 ], [ %7, %.lr.ph197.i ]
   ret ptr %.1109.i
 }
 
@@ -447,8 +447,8 @@ _PyUnicode_DATA.exit:                             ; preds = %65, %63, %56
   %.not229 = icmp eq i64 %.6120176, 0
   br i1 %.not229, label %.critedge, label %.lr.ph, !llvm.loop !31
 
-.critedge:                                        ; preds = %.lr.ph, %.lr.ph194, %.lr.ph197, %.preheader161, %.preheader157, %.preheader, %10, %20, %36, %32, %6, %48, %58, %54
-  %.1109 = phi ptr [ %49, %48 ], [ null, %54 ], [ null, %58 ], [ null, %6 ], [ null, %32 ], [ null, %36 ], [ null, %20 ], [ null, %10 ], [ %.0122, %.preheader ], [ %.0122, %.preheader157 ], [ %.0122, %.preheader161 ], [ %.0122, %.lr.ph197 ], [ %.0122, %.lr.ph194 ], [ %.0122, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph194, %.lr.ph197, %.preheader161, %.preheader157, %.preheader, %32, %10, %20, %6, %36, %48, %58, %54
+  %.1109 = phi ptr [ null, %32 ], [ %49, %48 ], [ null, %58 ], [ null, %54 ], [ %.0122, %.preheader157 ], [ %.0122, %.preheader ], [ null, %36 ], [ null, %6 ], [ null, %20 ], [ null, %10 ], [ %.0122, %.preheader161 ], [ %.0122, %.lr.ph194 ], [ %.0122, %.lr.ph197 ], [ %.0122, %.lr.ph ]
   ret ptr %.1109
 }
 
@@ -498,7 +498,7 @@ define hidden ptr @_Py_strhex_bytes(ptr noundef readonly captures(none) %0, i64 
   br i1 %exitcond214.not.i, label %_Py_strhex_impl.exit, label %.lr.ph197.i, !llvm.loop !10
 
 _Py_strhex_impl.exit:                             ; preds = %.lr.ph197.i, %3, %5, %8
-  %.1109.i = phi ptr [ %4, %3 ], [ null, %5 ], [ %7, %8 ], [ %7, %.lr.ph197.i ]
+  %.1109.i = phi ptr [ null, %5 ], [ %4, %3 ], [ %7, %8 ], [ %7, %.lr.ph197.i ]
   ret ptr %.1109.i
 }
 

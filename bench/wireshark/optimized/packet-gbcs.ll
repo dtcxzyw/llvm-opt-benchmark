@@ -949,7 +949,7 @@ define internal i32 @dissect_gbcs_tunnel(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %6, %21, %18
-  %.135 = phi i32 [ 2, %18 ], [ 0, %21 ], [ 1, %6 ]
+  %.135 = phi i32 [ 1, %6 ], [ 2, %18 ], [ 0, %21 ]
   %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.135)
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %33

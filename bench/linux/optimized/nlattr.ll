@@ -510,7 +510,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   br i1 %33, label %604, label %.split.us
 
 .split.us:                                        ; preds = %144, %111, %64
-  %.us-phi110 = phi ptr [ %59, %64 ], [ %106, %111 ], [ %131, %144 ]
+  %.us-phi110 = phi ptr [ %106, %111 ], [ %59, %64 ], [ %131, %144 ]
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nla_validate_parse.__msg.1) #14
   br i1 %27, label %.thread52, label %145
 
@@ -1191,9 +1191,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   br label %493
 
 493:                                              ; preds = %465, %471, %483, %.thread33, %489, %485
-  %494 = phi i64 [ %492, %489 ], [ %488, %485 ], [ %454, %.thread33 ], [ %484, %483 ], [ %474, %471 ], [ %466, %465 ]
-  %495 = phi i64 [ -2147483648, %489 ], [ -32768, %485 ], [ -128, %.thread33 ], [ -9223372036854775808, %483 ], [ -9223372036854775808, %471 ], [ -9223372036854775808, %465 ]
-  %496 = phi i64 [ 2147483647, %489 ], [ 32767, %485 ], [ 127, %.thread33 ], [ 9223372036854775807, %483 ], [ 9223372036854775807, %471 ], [ 9223372036854775807, %465 ]
+  %494 = phi i64 [ %454, %.thread33 ], [ %492, %489 ], [ %488, %485 ], [ %484, %483 ], [ %474, %471 ], [ %466, %465 ]
+  %495 = phi i64 [ -128, %.thread33 ], [ -2147483648, %489 ], [ -32768, %485 ], [ -9223372036854775808, %483 ], [ -9223372036854775808, %471 ], [ -9223372036854775808, %465 ]
+  %496 = phi i64 [ 127, %.thread33 ], [ 2147483647, %489 ], [ 32767, %485 ], [ 9223372036854775807, %483 ], [ 9223372036854775807, %471 ], [ 9223372036854775807, %465 ]
   switch i8 %344, label %518 [
     i8 1, label %497
     i8 6, label %504
@@ -1231,8 +1231,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   br label %518
 
 518:                                              ; preds = %514, %510, %504, %497, %493
-  %519 = phi i64 [ %495, %493 ], [ %495, %514 ], [ %513, %510 ], [ %507, %504 ], [ %500, %497 ]
-  %520 = phi i64 [ %496, %493 ], [ %517, %514 ], [ %496, %510 ], [ %509, %504 ], [ %503, %497 ]
+  %519 = phi i64 [ %500, %497 ], [ %495, %493 ], [ %495, %514 ], [ %513, %510 ], [ %507, %504 ]
+  %520 = phi i64 [ %503, %497 ], [ %496, %493 ], [ %517, %514 ], [ %496, %510 ], [ %509, %504 ]
   %521 = icmp slt i64 %494, %519
   %522 = icmp sgt i64 %494, %520
   %523 = select i1 %521, i1 true, i1 %522
@@ -1397,7 +1397,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   br i1 %598, label %.thread49, label %.thread52
 
 .thread:                                          ; preds = %243, %239, %233, %228, %339, %324, %303, %285, %277, %267, %261, %256, %247, %226, %221
-  %599 = phi i32 [ -34, %339 ], [ -34, %324 ], [ -34, %303 ], [ -34, %285 ], [ -34, %261 ], [ -34, %267 ], [ -34, %226 ], [ -34, %221 ], [ -22, %256 ], [ -22, %247 ], [ -34, %277 ], [ -22, %228 ], [ -22, %233 ], [ -22, %239 ], [ -22, %243 ]
+  %599 = phi i32 [ -34, %339 ], [ -34, %324 ], [ -34, %303 ], [ -34, %285 ], [ -34, %261 ], [ -34, %267 ], [ -34, %226 ], [ -22, %256 ], [ -34, %221 ], [ -22, %247 ], [ -34, %277 ], [ -22, %228 ], [ -22, %233 ], [ -22, %239 ], [ -22, %243 ]
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_nla.__msg.9) #14
   br i1 %27, label %.thread52, label %600
 
@@ -1428,12 +1428,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   br i1 %612, label %.lr.ph.split, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %604, %.thread49.us, %99, %.thread49.us.us, %52, %._crit_edge216
-  %.lcssa92 = phi i32 [ %1, %._crit_edge216 ], [ %55, %52 ], [ %78, %.thread49.us.us ], [ %102, %99 ], [ %127, %.thread49.us ], [ %609, %604 ]
+  %.lcssa92 = phi i32 [ %1, %._crit_edge216 ], [ %127, %.thread49.us ], [ %78, %.thread49.us.us ], [ %55, %52 ], [ %102, %99 ], [ %609, %604 ]
   %613 = icmp sgt i32 %.lcssa92, 0
   br i1 %613, label %.critedge.thread, label %627, !prof !26
 
 .critedge.thread:                                 ; preds = %.lr.ph.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %.critedge
-  %614 = phi i32 [ %.lcssa92, %.critedge ], [ %38, %.lr.ph.split.us.split.us.split.us ], [ %60, %.lr.ph.split.us.split.us.split ], [ %83, %.lr.ph.split.us.split.split.us ], [ %107, %.lr.ph.split.us.split.split ], [ %132, %.lr.ph.split ]
+  %614 = phi i32 [ %.lcssa92, %.critedge ], [ %107, %.lr.ph.split.us.split.split ], [ %60, %.lr.ph.split.us.split.us.split ], [ %38, %.lr.ph.split.us.split.us.split.us ], [ %83, %.lr.ph.split.us.split.split.us ], [ %132, %.lr.ph.split ]
   %615 = tail call i32 @___ratelimit(ptr noundef nonnull @__nla_validate_parse._rs, ptr noundef nonnull @__func__.__nla_validate_parse) #14
   %616 = icmp eq i32 %615, 0
   br i1 %616, label %622, label %617
@@ -1461,8 +1461,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
 627:                                              ; preds = %624, %.critedge
   br label %.thread52
 
-.thread52:                                        ; preds = %596, %309, %291, %528, %219, %195, %194, %206, %205, %212, %211, %225, %224, %323, %322, %600, %.thread, %.thread40, %.thread43, %526, %525, %524, %591, %590, %.split.us, %145, %627, %624, %20, %18
-  %628 = phi i32 [ 0, %627 ], [ -22, %20 ], [ -22, %18 ], [ -22, %624 ], [ -22, %.split.us ], [ -22, %145 ], [ -22, %.thread43 ], [ %.ph39, %.thread40 ], [ %599, %.thread ], [ %601, %600 ], [ -22, %322 ], [ -22, %323 ], [ -22, %224 ], [ -22, %225 ], [ -22, %211 ], [ -22, %212 ], [ -22, %205 ], [ -22, %206 ], [ -22, %194 ], [ -22, %195 ], [ -22, %219 ], [ -34, %524 ], [ -34, %525 ], [ -22, %526 ], [ -22, %591 ], [ -22, %590 ], [ %597, %596 ], [ -22, %528 ], [ %317, %309 ], [ %299, %291 ]
+.thread52:                                        ; preds = %596, %309, %291, %528, %219, %195, %194, %206, %205, %212, %211, %225, %224, %323, %322, %.thread40, %600, %.thread, %.thread43, %526, %525, %524, %591, %590, %.split.us, %145, %627, %624, %20, %18
+  %628 = phi i32 [ 0, %627 ], [ -22, %20 ], [ -22, %18 ], [ -22, %624 ], [ -34, %524 ], [ -22, %.split.us ], [ -22, %145 ], [ -22, %590 ], [ -22, %.thread43 ], [ -34, %525 ], [ %599, %.thread ], [ %601, %600 ], [ -22, %526 ], [ %.ph39, %.thread40 ], [ -22, %322 ], [ -22, %323 ], [ -22, %591 ], [ -22, %224 ], [ -22, %225 ], [ -22, %211 ], [ -22, %212 ], [ -22, %205 ], [ -22, %206 ], [ -22, %194 ], [ -22, %195 ], [ -22, %219 ], [ -22, %528 ], [ %299, %291 ], [ %317, %309 ], [ %597, %596 ]
   ret i32 %628
 }
 
@@ -1569,7 +1569,7 @@ define dso_local noundef ptr @nla_find(ptr noundef readonly captures(ret: addres
   br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %10, %16, %.lr.ph, %3
-  %23 = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ null, %16 ], [ %5, %10 ]
+  %23 = phi ptr [ null, %3 ], [ null, %16 ], [ null, %.lr.ph ], [ %5, %10 ]
   ret ptr %23
 }
 
@@ -2229,7 +2229,7 @@ define internal fastcc i32 @nla_validate_array(ptr noundef %0, i32 noundef range
   br i1 %38, label %.lr.ph, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %.thread4, %.lr.ph, %26, %7, %24, %25
-  %39 = phi i32 [ -34, %25 ], [ -34, %24 ], [ 0, %7 ], [ 0, %.thread4 ], [ 0, %.lr.ph ], [ %31, %26 ]
+  %39 = phi i32 [ -34, %24 ], [ -34, %25 ], [ 0, %7 ], [ 0, %.thread4 ], [ 0, %.lr.ph ], [ %31, %26 ]
   ret i32 %39
 }
 

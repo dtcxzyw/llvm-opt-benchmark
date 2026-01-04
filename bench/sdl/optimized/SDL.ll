@@ -154,7 +154,7 @@ define internal fastcc zeroext i1 @SDL_ValidMetadataProperty(ptr noundef %0) unn
   br label %25
 
 25:                                               ; preds = %22, %4, %7, %10, %13, %16, %19, %1, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %1 ], [ true, %19 ], [ true, %16 ], [ true, %13 ], [ true, %10 ], [ true, %7 ], [ true, %4 ], [ %24, %22 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %4 ], [ false, %2 ], [ %24, %22 ], [ true, %19 ], [ true, %16 ], [ true, %13 ], [ true, %10 ], [ true, %7 ]
   ret i1 %.0
 }
 
@@ -217,7 +217,7 @@ define hidden ptr @SDL_GetAppMetadataProperty_REAL(ptr noundef %0) local_unnamed
   br label %.thread23
 
 .thread23:                                        ; preds = %13, %21, %17, %18, %3
-  %.012 = phi ptr [ null, %3 ], [ %16, %17 ], [ @.str.7, %18 ], [ %spec.select, %21 ], [ %12, %13 ]
+  %.012 = phi ptr [ null, %3 ], [ %16, %17 ], [ %spec.select, %21 ], [ @.str.7, %18 ], [ %12, %13 ]
   ret ptr %.012
 }
 
@@ -946,7 +946,7 @@ SDL_QuitSubSystem_REAL.exit180:                   ; preds = %SDL_DecrementSubsys
   br label %196
 
 SDL_DecrementSubsystemRefCount.exit:              ; preds = %.sink.split.i123, %156, %.sink.split.i118, %142, %.sink.split.i, %8, %SDL_QuitSubSystem_REAL.exit180, %186, %SDL_QuitSubSystem_REAL.exit116, %129, %SDL_QuitSubSystem_REAL.exit107, %95, %SDL_QuitSubSystem_REAL.exit88, %66, %SDL_QuitSubSystem_REAL.exit, %37, %SDL_InitOrIncrementSubsystem.exit129, %SDL_InitOrIncrementSubsystem.exit110, %SDL_InitOrIncrementSubsystem.exit91, %SDL_InitOrIncrementSubsystem.exit72, %SDL_InitOrIncrementSubsystem.exit
-  %.1 = phi i32 [ %.7, %SDL_InitOrIncrementSubsystem.exit129 ], [ %.4, %SDL_InitOrIncrementSubsystem.exit110 ], [ %.3, %SDL_InitOrIncrementSubsystem.exit91 ], [ %.2, %SDL_InitOrIncrementSubsystem.exit72 ], [ %.044, %SDL_InitOrIncrementSubsystem.exit ], [ %.044, %37 ], [ %.044, %SDL_QuitSubSystem_REAL.exit ], [ %.2, %66 ], [ %.2, %SDL_QuitSubSystem_REAL.exit88 ], [ %.3, %95 ], [ %.3, %SDL_QuitSubSystem_REAL.exit107 ], [ %.4, %129 ], [ %.4, %SDL_QuitSubSystem_REAL.exit116 ], [ %.7, %186 ], [ %.7, %SDL_QuitSubSystem_REAL.exit180 ], [ 0, %8 ], [ 0, %.sink.split.i ], [ %.5, %142 ], [ %.5, %.sink.split.i118 ], [ %.6, %156 ], [ %.6, %.sink.split.i123 ]
+  %.1 = phi i32 [ %.4, %SDL_QuitSubSystem_REAL.exit116 ], [ %.7, %SDL_InitOrIncrementSubsystem.exit129 ], [ %.5, %.sink.split.i118 ], [ 0, %.sink.split.i ], [ %.3, %SDL_QuitSubSystem_REAL.exit107 ], [ %.4, %SDL_InitOrIncrementSubsystem.exit110 ], [ %.2, %SDL_QuitSubSystem_REAL.exit88 ], [ %.3, %SDL_InitOrIncrementSubsystem.exit91 ], [ %.044, %SDL_QuitSubSystem_REAL.exit ], [ %.2, %SDL_InitOrIncrementSubsystem.exit72 ], [ %.7, %SDL_QuitSubSystem_REAL.exit180 ], [ %.044, %SDL_InitOrIncrementSubsystem.exit ], [ %.044, %37 ], [ %.2, %66 ], [ %.3, %95 ], [ %.4, %129 ], [ %.7, %186 ], [ 0, %8 ], [ %.5, %142 ], [ %.6, %156 ], [ %.6, %.sink.split.i123 ]
   %192 = tail call ptr @SDL_GetError_REAL() #11
   %193 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %192) #11
   tail call void @SDL_QuitSubSystem_REAL(i32 noundef %.1)
@@ -1622,7 +1622,7 @@ define hidden range(i32 0, 4) i32 @SDL_GetSandbox_REAL() local_unnamed_addr #2 {
   br label %SDL_DetectSandbox.exit
 
 SDL_DetectSandbox.exit:                           ; preds = %1, %8, %10
-  %.0.i = phi i32 [ 2, %1 ], [ 3, %8 ], [ %..i, %10 ]
+  %.0.i = phi i32 [ 3, %8 ], [ 2, %1 ], [ %..i, %10 ]
   store i32 %.0.i, ptr @SDL_GetSandbox_REAL.sandbox, align 4
   store i1 true, ptr @SDL_GetSandbox_REAL.sandbox_initialized, align 1
   br label %13

@@ -124,7 +124,7 @@ define range(i32 -22, 1) i32 @av_crc_init(ptr noundef captures(none) %0, i32 nou
   br i1 %exitcond84.not, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %42, %.split65.us, %9, %5
-  %.052 = phi i32 [ -22, %5 ], [ -22, %9 ], [ 0, %.split65.us ], [ 0, %42 ]
+  %.052 = phi i32 [ -22, %9 ], [ -22, %5 ], [ 0, %.split65.us ], [ 0, %42 ]
   ret i32 %.052
 }
 

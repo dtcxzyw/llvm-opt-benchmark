@@ -872,7 +872,7 @@ define internal noundef zeroext i1 @heur_dissect_dplay(ptr noundef %0, ptr nound
   br label %dissect_dplay.exit
 
 dissect_dplay.exit:                               ; preds = %.preheader, %106, %102, %89, %88, %86, %85, %84, %82, %81, %79, %78, %74, %73, %72, %69, %39, %38, %14, %92, %96, %4
-  %.022 = phi i1 [ false, %4 ], [ false, %96 ], [ false, %92 ], [ true, %14 ], [ true, %38 ], [ true, %39 ], [ true, %69 ], [ true, %72 ], [ true, %73 ], [ true, %74 ], [ true, %78 ], [ true, %79 ], [ true, %81 ], [ true, %82 ], [ true, %84 ], [ true, %85 ], [ true, %86 ], [ true, %88 ], [ true, %89 ], [ true, %102 ], [ true, %106 ], [ false, %.preheader ]
+  %.022 = phi i1 [ true, %89 ], [ false, %92 ], [ false, %4 ], [ true, %106 ], [ false, %96 ], [ true, %14 ], [ true, %38 ], [ true, %39 ], [ true, %69 ], [ true, %72 ], [ true, %73 ], [ true, %74 ], [ true, %78 ], [ true, %79 ], [ true, %81 ], [ true, %82 ], [ true, %84 ], [ true, %85 ], [ true, %86 ], [ true, %88 ], [ true, %102 ], [ false, %.preheader ]
   ret i1 %.022
 }
 

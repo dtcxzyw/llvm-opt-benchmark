@@ -197,7 +197,7 @@ hash.exit:                                        ; preds = %4, %._crit_edge.loo
   br i1 %.not33, label %.loopexit, label %26
 
 .loopexit:                                        ; preds = %38, %33, %35, %26, %3
-  %.025 = phi ptr [ null, %3 ], [ null, %38 ], [ %.024, %33 ], [ %.024, %35 ], [ null, %26 ]
+  %.025 = phi ptr [ null, %3 ], [ null, %38 ], [ %.024, %35 ], [ %.024, %33 ], [ null, %26 ]
   ret ptr %.025
 }
 
@@ -307,7 +307,7 @@ define noundef ptr @cli_htu32_next(ptr noundef readonly captures(address_is_null
   br i1 %switch, label %19, label %.loopexit
 
 .loopexit:                                        ; preds = %21, %19, %15, %7, %2, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %2 ], [ null, %7 ], [ null, %15 ], [ %23, %21 ], [ null, %19 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %3 ], [ null, %7 ], [ null, %15 ], [ %23, %21 ], [ null, %19 ]
   ret ptr %.0
 }
 
@@ -508,7 +508,7 @@ hash.exit.us:                                     ; preds = %14, %36
   br label %.lr.ph.i.preheader
 
 89:                                               ; preds = %63, %64, %4, %.split77.us
-  %.0 = phi ptr [ %.us-phi78, %.split77.us ], [ null, %4 ], [ %spec.select, %64 ], [ null, %63 ]
+  %.0 = phi ptr [ null, %4 ], [ %.us-phi78, %.split77.us ], [ %spec.select, %64 ], [ null, %63 ]
   ret ptr %.0
 }
 
@@ -774,7 +774,7 @@ define range(i32 0, 3) i32 @cli_htu32_insert(ptr noundef %0, ptr noundef readonl
   br label %15
 
 54:                                               ; preds = %3, %43, %36
-  %.044 = phi i32 [ 0, %43 ], [ 0, %36 ], [ 2, %3 ]
+  %.044 = phi i32 [ 0, %36 ], [ 0, %43 ], [ 2, %3 ]
   ret i32 %.044
 }
 
@@ -1624,10 +1624,10 @@ nearest_power.exit.i31.i:                         ; preds = %41
   br label %cli_hashset_addkey_internal.exit
 
 cli_hashset_init_pool.exit.i:                     ; preds = %46, %31
-  %.sroa.23.0.in.in.i = phi i64 [ %33, %31 ], [ %48, %46 ]
-  %.sroa.14.0.in.i = phi i64 [ %.0.i.i.i, %31 ], [ %.0.i.i30.i, %46 ]
-  %.sroa.9.0.i = phi ptr [ %35, %31 ], [ %50, %46 ]
-  %.sroa.0.0.i = phi ptr [ %30, %31 ], [ %45, %46 ]
+  %.sroa.23.0.in.in.i = phi i64 [ %48, %46 ], [ %33, %31 ]
+  %.sroa.14.0.in.i = phi i64 [ %.0.i.i30.i, %46 ], [ %.0.i.i.i, %31 ]
+  %.sroa.9.0.i = phi ptr [ %50, %46 ], [ %35, %31 ]
+  %.sroa.0.0.i = phi ptr [ %45, %46 ], [ %30, %31 ]
   %.sroa.14.0.i = trunc i64 %.sroa.14.0.in.i to i32
   %.sroa.16.0.i = add i32 %.sroa.14.0.i, -1
   %.sroa.23.0.in.i = udiv i64 %.sroa.23.0.in.in.i, 100
@@ -1866,7 +1866,7 @@ cli_hashset_search.exit.i:                        ; preds = %152, %.cli_hashset_
   br label %cli_hashset_addkey_internal.exit
 
 cli_hashset_addkey_internal.exit:                 ; preds = %.sink.split.i34.i, %.sink.split.i.i, %165, %cli_hashset_search.exit.i
-  %.1 = phi i32 [ 0, %cli_hashset_search.exit.i ], [ 0, %165 ], [ 20, %.sink.split.i.i ], [ 20, %.sink.split.i34.i ]
+  %.1 = phi i32 [ 0, %165 ], [ 0, %cli_hashset_search.exit.i ], [ 20, %.sink.split.i.i ], [ 20, %.sink.split.i34.i ]
   ret i32 %.1
 }
 
@@ -2109,7 +2109,7 @@ define range(i64 -1, 4294967296) i64 @cli_hashset_toarray(ptr noundef readonly c
   br i1 %37, label %13, label %.critedge
 
 .critedge:                                        ; preds = %33, %13, %.preheader, %2, %12
-  %.0 = phi i64 [ -1, %12 ], [ -1, %2 ], [ 0, %.preheader ], [ %.1, %33 ], [ %.01724, %13 ]
+  %.0 = phi i64 [ -1, %2 ], [ -1, %12 ], [ 0, %.preheader ], [ %.1, %33 ], [ %.01724, %13 ]
   ret i64 %.0
 }
 
@@ -2319,7 +2319,7 @@ cli_hashtab_find.exit:                            ; preds = %38, %36
   %46 = trunc i64 %45 to i32
   br label %.critedge.sink.split
 
-47:                                               ; preds = %41, %29
+47:                                               ; preds = %29, %41
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load i32, ptr %48, align 8, !tbaa !50
   %50 = add i32 %49, 1
@@ -2377,7 +2377,7 @@ cli_hashtab_find.exit:                            ; preds = %38, %36
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %66, %56, %72, %3
-  %.0 = phi i32 [ 3, %3 ], [ 20, %72 ], [ 20, %56 ], [ 20, %66 ], [ %.0.ph, %.critedge.sink.split ]
+  %.0 = phi i32 [ 20, %72 ], [ 20, %66 ], [ 3, %3 ], [ 20, %56 ], [ %.0.ph, %.critedge.sink.split ]
   ret i32 %.0
 }
 
@@ -2575,8 +2575,8 @@ cli_hashtab_find.exit.i:                          ; preds = %95, %93
   store ptr @DELETED_KEY, ptr %.024.i.i, align 8, !tbaa !20
   br label %cli_hashtab_delete.exit
 
-cli_hashtab_delete.exit:                          ; preds = %29, %41, %98, %86, %cli_hashtab_find.exit.i, %cli_hashtab_find.exit, %3
-  %.0 = phi i32 [ 3, %3 ], [ 3, %cli_hashtab_find.exit ], [ 0, %cli_hashtab_find.exit.i ], [ 0, %86 ], [ 0, %98 ], [ 10, %41 ], [ 10, %29 ]
+cli_hashtab_delete.exit:                          ; preds = %41, %29, %98, %86, %cli_hashtab_find.exit.i, %cli_hashtab_find.exit, %3
+  %.0 = phi i32 [ 3, %3 ], [ 0, %cli_hashtab_find.exit.i ], [ 3, %cli_hashtab_find.exit ], [ 0, %98 ], [ 0, %86 ], [ 10, %29 ], [ 10, %41 ]
   ret i32 %.0
 }
 
@@ -2641,7 +2641,7 @@ define range(i32 0, 21) i32 @cli_map_setvalue(ptr noundef readonly captures(none
   br label %30
 
 30:                                               ; preds = %15, %.thread, %29, %6, %3
-  %.025 = phi i32 [ 20, %29 ], [ 3, %3 ], [ 3, %6 ], [ 0, %.thread ], [ 0, %15 ]
+  %.025 = phi i32 [ 20, %29 ], [ 3, %6 ], [ 3, %3 ], [ 0, %.thread ], [ 0, %15 ]
   ret i32 %.025
 }
 
@@ -2733,8 +2733,8 @@ cli_hashtab_find.exit:                            ; preds = %38, %36
   store i32 %46, ptr %47, align 8, !tbaa !49
   br label %cli_hashtab_find.exit.thread
 
-cli_hashtab_find.exit.thread:                     ; preds = %29, %41, %3, %cli_hashtab_find.exit
-  %.0 = phi i32 [ 0, %cli_hashtab_find.exit ], [ 3, %3 ], [ 16, %41 ], [ 16, %29 ]
+cli_hashtab_find.exit.thread:                     ; preds = %41, %29, %3, %cli_hashtab_find.exit
+  %.0 = phi i32 [ 3, %3 ], [ 0, %cli_hashtab_find.exit ], [ 16, %29 ], [ 16, %41 ]
   ret i32 %.0
 }
 
@@ -2805,7 +2805,7 @@ define ptr @cli_map_getvalue(ptr noundef readonly captures(none) %0) local_unnam
   br label %21
 
 21:                                               ; preds = %1, %5, %17, %13
-  %.0 = phi ptr [ %16, %13 ], [ %20, %17 ], [ null, %5 ], [ null, %1 ]
+  %.0 = phi ptr [ %20, %17 ], [ %16, %13 ], [ null, %5 ], [ null, %1 ]
   ret ptr %.0
 }
 

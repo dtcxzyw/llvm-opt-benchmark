@@ -794,7 +794,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %335, %338
   ret void
 
 342:                                              ; preds = %219, %_ZNSt6vectorIfSaIfEED2Ev.exit137
-  %.pn67.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn67.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit137 ], [ %220, %219 ]
+  %.pn67.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %220, %219 ], [ %.pn67.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit137 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #18
   br label %343
 

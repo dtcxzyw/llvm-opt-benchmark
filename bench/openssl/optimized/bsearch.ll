@@ -82,7 +82,7 @@ define ptr @ossl_bsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   br label %35
 
 35:                                               ; preds = %.critedge, %.thread, %._crit_edge, %6
-  %.041 = phi ptr [ null, %6 ], [ %34, %.critedge ], [ %.155, %.thread ], [ null, %._crit_edge ]
+  %.041 = phi ptr [ null, %6 ], [ %34, %.critedge ], [ null, %._crit_edge ], [ %.155, %.thread ]
   ret ptr %.041
 }
 

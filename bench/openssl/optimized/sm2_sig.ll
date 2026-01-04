@@ -48,7 +48,7 @@ define internal ptr @sm2sig_newctx(ptr noundef %0, ptr noundef %1) #0 {
   br label %15
 
 15:                                               ; preds = %2, %12, %11
-  %.0 = phi ptr [ null, %11 ], [ %3, %12 ], [ null, %2 ]
+  %.0 = phi ptr [ %3, %12 ], [ null, %11 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -93,7 +93,7 @@ define internal range(i32 0, 2) i32 @sm2sig_signature_init(ptr noundef %0, ptr n
   br label %20
 
 20:                                               ; preds = %13, %3, %18, %12
-  %.0 = phi i32 [ 0, %12 ], [ %19, %18 ], [ 0, %3 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %12 ], [ %19, %18 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -138,7 +138,7 @@ define internal range(i32 0, 2) i32 @sm2sig_sign(ptr noundef readonly captures(n
   br label %26
 
 26:                                               ; preds = %.sink.split, %18, %15, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %15 ], [ 0, %18 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %18 ], [ 0, %13 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -248,7 +248,7 @@ define internal range(i32 0, 2) i32 @sm2sig_digest_signverify_init(ptr noundef %
   br label %43
 
 43:                                               ; preds = %39, %13, %35, %4, %7
-  %.027 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 0, %13 ], [ 1, %39 ], [ 0, %35 ]
+  %.027 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %13 ], [ 1, %39 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.027
 }
@@ -277,7 +277,7 @@ define internal range(i32 0, 2) i32 @sm2sig_digest_signverify_update(ptr noundef
   br label %16
 
 16:                                               ; preds = %9, %11, %3, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %3 ], [ 0, %9 ], [ %15, %11 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %9 ], [ %15, %11 ]
   ret i32 %.0
 }
 
@@ -353,12 +353,12 @@ define internal range(i32 0, 2) i32 @sm2sig_digest_sign_final(ptr noundef captur
   br label %sm2sig_sign.exit
 
 sm2sig_sign.exit:                                 ; preds = %23, %30, %34, %.sink.split.i
-  %.0.i = phi i32 [ 0, %23 ], [ 0, %30 ], [ 0, %34 ], [ 1, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %30 ], [ 0, %34 ], [ 0, %23 ], [ 1, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
 40:                                               ; preds = %.split, %sm2sig_sign.exit, %18, %20, %4, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %4 ], [ 0, %20 ], [ 0, %18 ], [ 1, %.split ], [ %.0.i, %sm2sig_sign.exit ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %18 ], [ 0, %9 ], [ 0, %20 ], [ 1, %.split ], [ %.0.i, %sm2sig_sign.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -417,7 +417,7 @@ define internal i32 @sm2sig_digest_verify_final(ptr noundef captures(address_is_
   br label %sm2sig_verify.exit
 
 sm2sig_verify.exit:                               ; preds = %26, %21, %16, %18, %11, %3, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 0, %11 ], [ 0, %18 ], [ 0, %16 ], [ %30, %26 ], [ 0, %21 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %3 ], [ 0, %16 ], [ 0, %7 ], [ 0, %18 ], [ %30, %26 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -563,7 +563,7 @@ define internal ptr @sm2sig_dupctx(ptr noundef readonly captures(none) %0) #0 {
   br label %55
 
 55:                                               ; preds = %36, %45, %1, %49
-  %.0 = phi ptr [ null, %49 ], [ null, %1 ], [ %2, %45 ], [ %2, %36 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %49 ], [ %2, %45 ], [ %2, %36 ]
   ret ptr %.0
 }
 
@@ -628,7 +628,7 @@ define internal range(i32 0, 2) i32 @sm2sig_get_ctx_params(ptr noundef %0, ptr n
   br label %33
 
 33:                                               ; preds = %29, %15, %6, %2, %32
-  %.0 = phi i32 [ 1, %32 ], [ 0, %2 ], [ 0, %6 ], [ 0, %15 ], [ 0, %29 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %32 ], [ 0, %15 ], [ 0, %6 ], [ 0, %29 ]
   ret i32 %.0
 }
 
@@ -751,7 +751,7 @@ ossl_param_is_empty.exit:                         ; preds = %8
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %8, %36, %.critedge39, %45, %30, %32, %27, %ossl_param_is_empty.exit, %2
-  %.022 = phi i32 [ 0, %45 ], [ 0, %27 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %32 ], [ 0, %30 ], [ 1, %.critedge39 ], [ 1, %36 ], [ 1, %8 ]
+  %.022 = phi i32 [ 0, %27 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %30 ], [ 0, %45 ], [ 0, %32 ], [ 1, %.critedge39 ], [ 1, %36 ], [ 1, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.022
 }
@@ -907,7 +907,7 @@ define internal fastcc range(i32 0, 2) i32 @sm2sig_set_mdname(ptr noundef %0, pt
   br label %28
 
 28:                                               ; preds = %16, %6, %25, %24, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %24 ], [ 1, %25 ], [ 0, %6 ], [ 1, %16 ]
+  %.0 = phi i32 [ 1, %25 ], [ 0, %15 ], [ 0, %6 ], [ 0, %24 ], [ 1, %16 ]
   ret i32 %.0
 }
 

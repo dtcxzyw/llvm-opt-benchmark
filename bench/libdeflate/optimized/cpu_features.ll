@@ -96,7 +96,7 @@ define hidden void @libdeflate_init_x86_cpu_features() local_unnamed_addr #0 {
   br label %52
 
 52:                                               ; preds = %46, %40
-  %.5 = phi i32 [ %spec.select62, %40 ], [ %spec.select66, %46 ]
+  %.5 = phi i32 [ %spec.select66, %46 ], [ %spec.select62, %40 ]
   br i1 %.059, label %53, label %60
 
 53:                                               ; preds = %52
@@ -132,7 +132,7 @@ allow_512bit_vectors.exit:                        ; preds = %54, %54, %54, %54, 
   br label %60
 
 60:                                               ; preds = %allow_512bit_vectors.exit, %52
-  %.7 = phi i32 [ %.5, %52 ], [ %spec.select67, %allow_512bit_vectors.exit ]
+  %.7 = phi i32 [ %spec.select67, %allow_512bit_vectors.exit ], [ %.5, %52 ]
   %61 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #3, !srcloc !4
   %62 = extractvalue { i32, i32, i32, i32 } %61, 0
   %63 = and i32 %62, 16

@@ -151,7 +151,7 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not222, label %74, label %.thread232
 
 .thread232.sink.split:                            ; preds = %47, %44, %41, %28, %32, %34, %.critedge, %38, %25, %23
-  %.sink = phi i32 [ -1, %23 ], [ -2, %25 ], [ -3, %38 ], [ -3, %.critedge ], [ -3, %34 ], [ -3, %32 ], [ -3, %28 ], [ -4, %41 ], [ -6, %44 ], [ -9, %47 ]
+  %.sink = phi i32 [ -1, %23 ], [ -3, %28 ], [ -6, %44 ], [ -4, %41 ], [ -2, %25 ], [ -3, %38 ], [ -3, %.critedge ], [ -3, %34 ], [ -3, %32 ], [ -9, %47 ]
   store i32 %.sink, ptr %9, align 4, !tbaa !3
   br label %.thread232
 

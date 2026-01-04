@@ -259,7 +259,7 @@ define internal range(i32 -2147483648, 1) i32 @noise(ptr noundef %0, ptr noundef
   br label %62
 
 62:                                               ; preds = %48, %55, %60
-  %.074 = phi i32 [ %59, %55 ], [ %61, %60 ], [ 0, %48 ]
+  %.074 = phi i32 [ %61, %60 ], [ %59, %55 ], [ 0, %48 ]
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !18
   %.not = icmp eq ptr %64, null
@@ -290,7 +290,7 @@ define internal range(i32 -2147483648, 1) i32 @noise(ptr noundef %0, ptr noundef
   br label %80
 
 80:                                               ; preds = %65, %78, %72, %62
-  %.0.shrunk = phi i1 [ %.not85, %72 ], [ %79, %78 ], [ false, %62 ], [ false, %65 ]
+  %.0.shrunk = phi i1 [ false, %62 ], [ %.not85, %72 ], [ %79, %78 ], [ false, %65 ]
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %82 = load i32, ptr %81, align 8, !tbaa !19
   %.not86 = icmp eq i32 %82, 0
@@ -411,7 +411,7 @@ define internal range(i32 -2147483648, 1) i32 @noise(ptr noundef %0, ptr noundef
   br label %141
 
 141:                                              ; preds = %2, %._crit_edge, %103, %93
-  %.076 = phi i32 [ -11, %93 ], [ %101, %103 ], [ 0, %._crit_edge ], [ %5, %2 ]
+  %.076 = phi i32 [ 0, %._crit_edge ], [ -11, %93 ], [ %101, %103 ], [ %5, %2 ]
   ret i32 %.076
 }
 

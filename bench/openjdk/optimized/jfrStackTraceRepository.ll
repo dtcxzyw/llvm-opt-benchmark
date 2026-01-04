@@ -398,7 +398,7 @@ _ZN23JfrStackTraceRepository6recordEP10JavaThreadilP13JfrStackFramej.exit: ; pre
   br label %33
 
 33:                                               ; preds = %3, %_ZNK14JfrThreadLocal11stackframesEv.exit, %8, %13, %_ZN23JfrStackTraceRepository6recordEP10JavaThreadilP13JfrStackFramej.exit
-  %.0 = phi i64 [ %32, %_ZN23JfrStackTraceRepository6recordEP10JavaThreadilP13JfrStackFramej.exit ], [ 0, %13 ], [ 0, %8 ], [ 0, %_ZNK14JfrThreadLocal11stackframesEv.exit ], [ %7, %3 ]
+  %.0 = phi i64 [ 0, %_ZNK14JfrThreadLocal11stackframesEv.exit ], [ %32, %_ZN23JfrStackTraceRepository6recordEP10JavaThreadilP13JfrStackFramej.exit ], [ 0, %8 ], [ 0, %13 ], [ %7, %3 ]
   ret i64 %.0
 }
 
@@ -1269,7 +1269,7 @@ _ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEPhPKT_mSD_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEPhPKT_mSD_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i
-  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ], [ 5, %59 ]
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEvPKT_m.exit

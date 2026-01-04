@@ -1933,7 +1933,7 @@ _ZN9btVector36setMaxERKS_.exit:                   ; preds = %339, %_Z8btSetMaxIf
   br label %437
 
 350:                                              ; preds = %348, %234, %240, %287, %201
-  %.pn134.pn = phi { ptr, i32 } [ %.pn134, %201 ], [ %.pn124.pn.pn.pn, %287 ], [ %.pn129, %240 ], [ %235, %234 ], [ %.pn118.pn, %348 ]
+  %.pn134.pn = phi { ptr, i32 } [ %.pn134, %201 ], [ %.pn118.pn, %348 ], [ %.pn124.pn.pn.pn, %287 ], [ %235, %234 ], [ %.pn129, %240 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %438
@@ -2090,7 +2090,7 @@ _ZN9btVector36setMaxERKS_.exit:                   ; preds = %339, %_Z8btSetMaxIf
   ret void
 
 438:                                              ; preds = %350, %102, %436
-  %.pn140.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn140.pn.pn, %102 ], [ %.pn.pn.pn, %436 ], [ %.pn134.pn, %350 ]
+  %.pn140.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %436 ], [ %.pn140.pn.pn, %102 ], [ %.pn134.pn, %350 ]
   call void @_ZN13btConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn140.pn.pn.pn.pn.pn.pn
@@ -3978,7 +3978,7 @@ _ZN9btVector36setMaxERKS_.exit208:                ; preds = %719, %_Z8btSetMaxIf
   br label %763
 
 763:                                              ; preds = %762, %743, %741
-  %.pn115.pn = phi { ptr, i32 } [ %.pn115, %762 ], [ %744, %743 ], [ %742, %741 ]
+  %.pn115.pn = phi { ptr, i32 } [ %.pn115, %762 ], [ %742, %741 ], [ %744, %743 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)

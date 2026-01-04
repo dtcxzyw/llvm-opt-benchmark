@@ -505,7 +505,7 @@ common.resume:                                    ; preds = %104, %126
   br label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17h548f556cb8db3d87E.exit"
 
 129:                                              ; preds = %114, %30, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17h548f556cb8db3d87E.exit"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17h548f556cb8db3d87E.exit" ], [ true, %30 ], [ true, %114 ]
+  %.sroa.0.0 = phi i1 [ true, %30 ], [ false, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17h548f556cb8db3d87E.exit" ], [ true, %114 ]
   ret i1 %.sroa.0.0
 }
 
@@ -793,7 +793,7 @@ common.resume:                                    ; preds = %104, %126
   br label %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hbd643f227bd7e000E.exit"
 
 129:                                              ; preds = %114, %30, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hbd643f227bd7e000E.exit"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hbd643f227bd7e000E.exit" ], [ true, %30 ], [ true, %114 ]
+  %.sroa.0.0 = phi i1 [ true, %30 ], [ false, %"_ZN4http6header3map18HeaderMap$LT$T$GT$7rebuild17hbd643f227bd7e000E.exit" ], [ true, %114 ]
   ret i1 %.sroa.0.0
 }
 

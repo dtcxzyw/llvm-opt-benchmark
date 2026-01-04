@@ -1870,7 +1870,7 @@ define linkonce_odr noundef double @_ZNK5arrow8internal7TDigest11TDigestImpl8Qua
   br label %100
 
 100:                                              ; preds = %22, %28, %57, %68, %87, %50, %2, %5
-  %.0 = phi double [ 0x7FF8000000000000, %5 ], [ 0x7FF8000000000000, %2 ], [ %24, %22 ], [ %30, %28 ], [ %51, %50 ], [ %63, %57 ], [ %99, %87 ], [ %77, %68 ]
+  %.0 = phi double [ 0x7FF8000000000000, %2 ], [ 0x7FF8000000000000, %5 ], [ %24, %22 ], [ %30, %28 ], [ %51, %50 ], [ %63, %57 ], [ %99, %87 ], [ %77, %68 ]
   ret double %.0
 }
 
@@ -2195,10 +2195,10 @@ _ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vecto
   br label %.critedge, !llvm.loop !109
 
 .critedge:                                        ; preds = %87, %.lr.ph, %..critedge.loopexit_crit_edge, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit
-  %.val3659 = phi ptr [ %.val49, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ %.val34, %..critedge.loopexit_crit_edge ], [ %.val3450, %.lr.ph ], [ %.val34, %87 ]
-  %.val3558 = phi ptr [ %.val49, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ %.val, %..critedge.loopexit_crit_edge ], [ %.val49, %.lr.ph ], [ %.val, %87 ]
-  %.027.lcssa = phi i32 [ 0, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ %.128, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.128, %87 ]
-  %.0.lcssa = phi i32 [ 0, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ %.1, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %.1, %87 ]
+  %.val3659 = phi ptr [ %.val49, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ %.val3450, %.lr.ph ], [ %.val34, %..critedge.loopexit_crit_edge ], [ %.val34, %87 ]
+  %.val3558 = phi ptr [ %.val49, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ %.val49, %.lr.ph ], [ %.val, %..critedge.loopexit_crit_edge ], [ %.val, %87 ]
+  %.027.lcssa = phi i32 [ 0, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ 0, %.lr.ph ], [ %.128, %..critedge.loopexit_crit_edge ], [ %.128, %87 ]
+  %.0.lcssa = phi i32 [ 0, %_ZN5arrow8internal12_GLOBAL__N_113TDigestMergerINS1_8ScalerK1EE5ResetEdPSt6vectorINS1_8CentroidESaIS6_EE.exit ], [ 0, %.lr.ph ], [ %.1, %..critedge.loopexit_crit_edge ], [ %.1, %87 ]
   %115 = zext i32 %.027.lcssa to i64
   %116 = ptrtoint ptr %.val3659 to i64
   %117 = ptrtoint ptr %.val3558 to i64
@@ -3492,7 +3492,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !150
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
-  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.07.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
+  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.07.us, %.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %39 ]
   %42 = getelementptr inbounds nuw double, ptr %.fr15, i64 %.0.lcssa.i.i.us
   store double %21, ptr %42, align 8, !tbaa !40
   %.not.us = icmp eq i64 %.07.us, 0

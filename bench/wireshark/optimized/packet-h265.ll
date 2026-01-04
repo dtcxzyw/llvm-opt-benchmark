@@ -1930,7 +1930,7 @@ dissect_h265_st_ref_pic_set.exit:                 ; preds = %.lr.ph73.i, %._crit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %196, %..loopexit_crit_edge, %._crit_edge
-  %211 = phi i32 [ %207, %..loopexit_crit_edge ], [ %195, %._crit_edge ], [ %.pre, %196 ]
+  %211 = phi i32 [ %195, %._crit_edge ], [ %207, %..loopexit_crit_edge ], [ %.pre, %196 ]
   %212 = load i32, ptr @hf_h265_sps_temporal_mvp_enabled_flag, align 4
   %213 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %212, ptr noundef %1, i32 noundef %211, i32 noundef 1, i32 noundef 0)
   %214 = add i32 %211, 1
@@ -2336,7 +2336,7 @@ dissect_h265_vui_parameters.exit:                 ; preds = %343, %349
   br i1 %exitcond.not, label %dissect_h265_sps_scc_extension.exit, label %.preheader.i237, !llvm.loop !21
 
 dissect_h265_sps_scc_extension.exit:              ; preds = %.split.us.i, %.preheader.split.us.i.us, %442, %453
-  %479 = phi i32 [ %462, %453 ], [ %452, %442 ], [ %storemerge.us.reass.i.us, %.preheader.split.us.i.us ], [ %.us-phi.i, %.split.us.i ]
+  %479 = phi i32 [ %452, %442 ], [ %462, %453 ], [ %storemerge.us.reass.i.us, %.preheader.split.us.i.us ], [ %.us-phi.i, %.split.us.i ]
   %480 = load i32, ptr @hf_h265_motion_vector_resolution_control_idc, align 4
   %481 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %480, ptr noundef %1, i32 noundef %479, i32 noundef 2, i32 noundef 0)
   %482 = add i32 %479, 2
@@ -2384,7 +2384,7 @@ more_rbsp_data.exit.thread:                       ; preds = %.preheader, %more_r
   br label %.preheader, !llvm.loop !22
 
 .thread273:                                       ; preds = %more_rbsp_data.exit, %370, %dissect_h265_sps_scc_extension.exit, %486
-  %500 = phi i32 [ %375, %370 ], [ %485, %dissect_h265_sps_scc_extension.exit ], [ %.promoted292305, %486 ], [ %487, %more_rbsp_data.exit ]
+  %500 = phi i32 [ %.promoted292305, %486 ], [ %375, %370 ], [ %485, %dissect_h265_sps_scc_extension.exit ], [ %487, %more_rbsp_data.exit ]
   %501 = load i32, ptr @hf_h265_rbsp_stop_bit, align 4
   %502 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %501, ptr noundef %1, i32 noundef %500, i32 noundef 1, i32 noundef 0)
   %503 = add i32 %500, 1
@@ -2874,7 +2874,7 @@ more_rbsp_data.exit.thread:                       ; preds = %.preheader, %more_r
   br label %.preheader, !llvm.loop !28
 
 .thread209:                                       ; preds = %more_rbsp_data.exit, %128, %dissect_h265_pps_scc_extension.exit, %275
-  %289 = phi i32 [ %142, %128 ], [ %.1.i, %dissect_h265_pps_scc_extension.exit ], [ %.promoted234, %275 ], [ %276, %more_rbsp_data.exit ]
+  %289 = phi i32 [ %.promoted234, %275 ], [ %142, %128 ], [ %.1.i, %dissect_h265_pps_scc_extension.exit ], [ %276, %more_rbsp_data.exit ]
   %290 = load i32, ptr @hf_h265_rbsp_stop_bit, align 4
   %291 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %290, ptr noundef %1, i32 noundef %289, i32 noundef 1, i32 noundef 0)
   %292 = add i32 %289, 1
@@ -3816,7 +3816,7 @@ switch.hole_check:                                ; preds = %304
   br i1 %switch.lobit, label %.sink.split, label %306
 
 .sink.split:                                      ; preds = %switch.hole_check, %326, %306, %310, %314, %318, %322
-  %hf_h265_sub_layer_inbld_flag.sink = phi ptr [ @hf_h265_sub_layer_inbld_flag, %322 ], [ @hf_h265_sub_layer_inbld_flag, %318 ], [ @hf_h265_sub_layer_inbld_flag, %314 ], [ @hf_h265_sub_layer_inbld_flag, %310 ], [ @hf_h265_sub_layer_inbld_flag, %306 ], [ %spec.select, %326 ], [ @hf_h265_sub_layer_inbld_flag, %switch.hole_check ]
+  %hf_h265_sub_layer_inbld_flag.sink = phi ptr [ @hf_h265_sub_layer_inbld_flag, %306 ], [ %spec.select, %326 ], [ @hf_h265_sub_layer_inbld_flag, %310 ], [ @hf_h265_sub_layer_inbld_flag, %314 ], [ @hf_h265_sub_layer_inbld_flag, %318 ], [ @hf_h265_sub_layer_inbld_flag, %322 ], [ @hf_h265_sub_layer_inbld_flag, %switch.hole_check ]
   %330 = load i32, ptr %hf_h265_sub_layer_inbld_flag.sink, align 4
   %331 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %330, ptr noundef %1, i32 noundef %.6, i32 noundef 1, i32 noundef 0)
   %332 = add i32 %.410, 88
@@ -3894,8 +3894,8 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   unreachable
 
 .thread:                                          ; preds = %6, %15, %20, %10
-  %.not302 = phi i1 [ false, %15 ], [ false, %20 ], [ true, %10 ], [ true, %6 ]
-  %.0301 = phi ptr [ %11, %15 ], [ %11, %20 ], [ null, %10 ], [ null, %6 ]
+  %.not302 = phi i1 [ true, %10 ], [ false, %15 ], [ false, %20 ], [ true, %6 ]
+  %.0301 = phi ptr [ null, %10 ], [ %11, %15 ], [ %11, %20 ], [ null, %6 ]
   %25 = load i32, ptr %4, align 4
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %27 = load ptr, ptr %26, align 8
@@ -4159,12 +4159,12 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   %144 = icmp ult i32 %.0255330, 2147483647
   br i1 %144, label %.lr.ph335.preheader, label %.preheader
 
-.lr.ph335.preheader:                              ; preds = %116, %119, %.preheader326
-  %.1253.ph378 = phi i32 [ %135, %.preheader326 ], [ -2147483648, %119 ], [ -2147483648, %116 ]
-  %.0254311.ph377 = phi i32 [ %137, %.preheader326 ], [ -1, %119 ], [ -1, %116 ]
-  %.0250312.ph375 = phi i32 [ %.1251, %.preheader326 ], [ 0, %119 ], [ 1, %116 ]
-  %.0248313.ph374 = phi i32 [ %.0248313.ph, %.preheader326 ], [ 0, %119 ], [ %spec.select298, %116 ]
-  %.ph372 = phi i32 [ %143, %.preheader326 ], [ %120, %119 ], [ %118, %116 ]
+.lr.ph335.preheader:                              ; preds = %119, %116, %.preheader326
+  %.1253.ph378 = phi i32 [ %135, %.preheader326 ], [ -2147483648, %116 ], [ -2147483648, %119 ]
+  %.0254311.ph377 = phi i32 [ %137, %.preheader326 ], [ -1, %116 ], [ -1, %119 ]
+  %.0250312.ph375 = phi i32 [ %.1251, %.preheader326 ], [ 1, %116 ], [ 0, %119 ]
+  %.0248313.ph374 = phi i32 [ %.0248313.ph, %.preheader326 ], [ %spec.select298, %116 ], [ 0, %119 ]
+  %.ph372 = phi i32 [ %143, %.preheader326 ], [ %118, %116 ], [ %120, %119 ]
   br label %.lr.ph335
 
 145:                                              ; preds = %103
@@ -4344,7 +4344,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   br label %216
 
 216:                                              ; preds = %._crit_edge344, %89, %97, %95, %70, %81, %75, %215, %213, %.thread320, %.thread315
-  %.0246 = phi i32 [ %.0248310318, %.thread315 ], [ -1, %.thread320 ], [ %.0254311.ph376, %215 ], [ %.0248313.ph373, %213 ], [ 0, %75 ], [ 0, %81 ], [ 0, %70 ], [ 0, %95 ], [ 0, %97 ], [ 0, %89 ], [ 0, %._crit_edge344 ]
+  %.0246 = phi i32 [ %.0248313.ph373, %213 ], [ 0, %70 ], [ %.0248310318, %.thread315 ], [ -1, %.thread320 ], [ %.0254311.ph376, %215 ], [ 0, %75 ], [ 0, %81 ], [ 0, %95 ], [ 0, %97 ], [ 0, %89 ], [ 0, %._crit_edge344 ]
   ret i32 %.0246
 }
 

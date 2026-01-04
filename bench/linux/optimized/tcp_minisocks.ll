@@ -683,7 +683,7 @@ define dso_local void @tcp_twsk_purge(ptr noundef readonly captures(address) %0,
   br label %18
 
 18:                                               ; preds = %.sink.split, %15, %13
-  %19 = phi i8 [ 1, %13 ], [ 0, %15 ], [ %.ph, %.sink.split ]
+  %19 = phi i8 [ 0, %15 ], [ 1, %13 ], [ %.ph, %.sink.split ]
   %20 = load ptr, ptr %5, align 8
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !17

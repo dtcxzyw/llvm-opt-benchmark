@@ -696,7 +696,7 @@ define internal i32 @calipso_sock_getattr(ptr noundef %0, ptr noundef %1) #0 ali
   br i1 %73, label %45, label %.thread22, !llvm.loop !20
 
 .thread22:                                        ; preds = %.thread17._crit_edge, %56, %53, %45, %66, %68, %35
-  %74 = phi i32 [ %70, %68 ], [ -42, %35 ], [ -22, %66 ], [ -22, %45 ], [ -22, %53 ], [ -22, %56 ], [ -42, %.thread17._crit_edge ]
+  %74 = phi i32 [ -42, %35 ], [ -22, %66 ], [ %70, %68 ], [ -22, %56 ], [ -22, %45 ], [ -22, %53 ], [ -42, %.thread17._crit_edge ]
   %75 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 -1, ptr nonnull elementtype(i32) %15) #14, !srcloc !10
   %76 = icmp eq i32 %75, 1
   br i1 %76, label %80, label %77
@@ -716,7 +716,7 @@ define internal i32 @calipso_sock_getattr(ptr noundef %0, ptr noundef %1) #0 ali
   br label %.thread21
 
 .thread21:                                        ; preds = %77, %79, %.thread13, %80
-  %82 = phi i32 [ %74, %80 ], [ -42, %.thread13 ], [ %74, %79 ], [ %74, %77 ]
+  %82 = phi i32 [ %74, %79 ], [ %74, %80 ], [ -42, %.thread13 ], [ %74, %77 ]
   ret i32 %82
 }
 
@@ -2295,7 +2295,7 @@ define internal fastcc range(i32 -22, 1) i32 @calipso_opt_find(ptr noundef reado
   ]
 
 .thread21:                                        ; preds = %9, %29
-  %30 = phi i32 [ %26, %29 ], [ 1, %9 ]
+  %30 = phi i32 [ 1, %9 ], [ %26, %29 ]
   %31 = icmp eq i32 %10, 0
   %32 = select i1 %31, i32 0, i32 %12
   br label %35

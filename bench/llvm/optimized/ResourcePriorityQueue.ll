@@ -694,7 +694,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %27
   br i1 %.not36, label %.loopexit, label %27, !llvm.loop !296
 
 .loopexit:                                        ; preds = %35, %.thread, %22, %13, %17, %11
-  %.1 = phi i32 [ %.052, %11 ], [ %.052, %13 ], [ %spec.select, %17 ], [ %spec.select, %22 ], [ %spec.select38, %35 ], [ %.641, %.thread ]
+  %.1 = phi i32 [ %.052, %11 ], [ %spec.select, %17 ], [ %.052, %13 ], [ %spec.select, %22 ], [ %spec.select38, %35 ], [ %.641, %.thread ]
   %45 = getelementptr inbounds nuw i8, ptr %.03051, i64 16
   %.not = icmp eq ptr %45, %9
   br i1 %.not, label %._crit_edge, label %11
@@ -801,7 +801,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %27
   br i1 %.not38, label %.loopexit, label %27, !llvm.loop !304
 
 .loopexit:                                        ; preds = %42, %.thread, %22, %13, %17, %11
-  %.1 = phi i32 [ %.054, %11 ], [ %.054, %13 ], [ %spec.select, %17 ], [ %spec.select, %22 ], [ %spec.select40, %42 ], [ %.643, %.thread ]
+  %.1 = phi i32 [ %.054, %11 ], [ %spec.select, %17 ], [ %.054, %13 ], [ %spec.select, %22 ], [ %spec.select40, %42 ], [ %.643, %.thread ]
   %52 = getelementptr inbounds nuw i8, ptr %.03253, i64 16
   %.not = icmp eq ptr %52, %9
   br i1 %.not, label %._crit_edge, label %11
@@ -1140,7 +1140,7 @@ _ZNK4llvm21ResourcePriorityQueue10getLatencyEj.exit29: ; preds = %_ZNK4llvm21Res
   br label %53
 
 53:                                               ; preds = %50, %_ZNK4llvm21ResourcePriorityQueue10getLatencyEj.exit29, %39, %41, %11, %10
-  %.0 = phi i1 [ false, %10 ], [ true, %11 ], [ true, %_ZNK4llvm21ResourcePriorityQueue10getLatencyEj.exit29 ], [ false, %39 ], [ true, %41 ], [ %spec.select, %50 ]
+  %.0 = phi i1 [ true, %11 ], [ false, %10 ], [ false, %39 ], [ true, %_ZNK4llvm21ResourcePriorityQueue10getLatencyEj.exit29 ], [ %spec.select, %50 ], [ true, %41 ]
   ret i1 %.0
 }
 
@@ -1427,7 +1427,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21ResourcePriorityQueue19isResource
   br i1 %.not46, label %_ZNK4llvm6SDNode12getGluedNodeEv.exit, label %.lr.ph55
 
 _ZNK4llvm6SDNode12getGluedNodeEv.exit:            ; preds = %._crit_edge, %.lr.ph, %39, %8, %28, %2, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %2 ], [ false, %28 ], [ true, %8 ], [ true, %39 ], [ false, %.lr.ph ], [ true, %._crit_edge ]
+  %.0 = phi i1 [ false, %2 ], [ false, %28 ], [ true, %8 ], [ false, %3 ], [ false, %.lr.ph ], [ true, %39 ], [ true, %._crit_edge ]
   ret i1 %.0
 }
 
@@ -1840,7 +1840,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %70
   br i1 %.not38.i, label %.loopexit.i, label %70, !llvm.loop !304
 
 .loopexit.i:                                      ; preds = %.thread.i, %85, %65, %60, %56, %.lr.ph55.i
-  %.1.i = phi i32 [ %.054.i, %.lr.ph55.i ], [ %.054.i, %56 ], [ %spec.select.i, %60 ], [ %spec.select.i, %65 ], [ %.643.i, %.thread.i ], [ %spec.select40.i, %85 ]
+  %.1.i = phi i32 [ %.054.i, %.lr.ph55.i ], [ %spec.select.i, %60 ], [ %.054.i, %56 ], [ %spec.select.i, %65 ], [ %.643.i, %.thread.i ], [ %spec.select40.i, %85 ]
   %95 = getelementptr inbounds nuw i8, ptr %.03253.i, i64 16
   %.not.i51 = icmp eq ptr %95, %54
   br i1 %.not.i51, label %_ZN4llvm21ResourcePriorityQueue19numberRCValSuccInSUEPNS_5SUnitEj.exit, label %.lr.ph55.i
@@ -1995,7 +1995,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i67: ; preds = %153
   br i1 %.not36.i, label %.loopexit.i57, label %153, !llvm.loop !296
 
 .loopexit.i57:                                    ; preds = %.thread.i69, %161, %148, %143, %139, %.lr.ph53.i
-  %.1.i58 = phi i32 [ %.052.i, %.lr.ph53.i ], [ %.052.i, %139 ], [ %spec.select.i62, %143 ], [ %spec.select.i62, %148 ], [ %.641.i, %.thread.i69 ], [ %spec.select38.i, %161 ]
+  %.1.i58 = phi i32 [ %.052.i, %.lr.ph53.i ], [ %spec.select.i62, %143 ], [ %.052.i, %139 ], [ %spec.select.i62, %148 ], [ %.641.i, %.thread.i69 ], [ %spec.select38.i, %161 ]
   %171 = getelementptr inbounds nuw i8, ptr %.03051.i, i64 16
   %.not.i59 = icmp eq ptr %171, %137
   br i1 %.not.i59, label %_ZN4llvm21ResourcePriorityQueue19numberRCValPredInSUEPNS_5SUnitEj.exit, label %.lr.ph53.i
@@ -2012,7 +2012,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit54.thread: ; preds = %97
   br i1 %.not48, label %.loopexit, label %97, !llvm.loop !352
 
 .loopexit:                                        ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit54.thread, %._crit_edge, %3, %4, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %3 ], [ %.040.lcssa, %._crit_edge ], [ %.3, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit54.thread ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %4 ], [ %.040.lcssa, %._crit_edge ], [ %.3, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit54.thread ]
   ret i32 %.0
 }
 
@@ -2118,7 +2118,7 @@ define dso_local noundef i32 @_ZN4llvm21ResourcePriorityQueue16regPressureDeltaE
   br i1 %.not37, label %.loopexit, label %29
 
 .loopexit:                                        ; preds = %63, %.lr.ph52, %26, %17, %3, %4, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %3 ], [ 0, %17 ], [ 0, %26 ], [ %24, %.lr.ph52 ], [ %.3, %63 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %4 ], [ %24, %.lr.ph52 ], [ 0, %17 ], [ 0, %26 ], [ %.3, %63 ]
   ret i32 %.0
 }
 
@@ -2198,7 +2198,7 @@ _ZN4llvm21ResourcePriorityQueue16regPressureDeltaEPNS_5SUnitEb.exit.loopexit: ; 
   br label %_ZN4llvm21ResourcePriorityQueue16regPressureDeltaEPNS_5SUnitEb.exit
 
 _ZN4llvm21ResourcePriorityQueue16regPressureDeltaEPNS_5SUnitEb.exit: ; preds = %_ZN4llvm21ResourcePriorityQueue16regPressureDeltaEPNS_5SUnitEb.exit.loopexit, %17, %25, %29
-  %.0.i = phi i32 [ 0, %25 ], [ 0, %17 ], [ 0, %29 ], [ %44, %_ZN4llvm21ResourcePriorityQueue16regPressureDeltaEPNS_5SUnitEb.exit.loopexit ]
+  %.0.i = phi i32 [ 0, %29 ], [ 0, %25 ], [ 0, %17 ], [ %44, %_ZN4llvm21ResourcePriorityQueue16regPressureDeltaEPNS_5SUnitEb.exit.loopexit ]
   %45 = add i32 %.0.i, %spec.select36
   br label %62
 
@@ -2289,7 +2289,7 @@ _ZNK4llvm6SDNode12getGluedNodeEv.exit:            ; preds = %94, %.lr.ph
   br label %91
 
 91:                                               ; preds = %70, %79, %86, %89, %87
-  %.6 = phi i32 [ %.445, %86 ], [ %88, %87 ], [ %90, %89 ], [ %85, %79 ], [ %.445, %70 ]
+  %.6 = phi i32 [ %90, %89 ], [ %.445, %86 ], [ %88, %87 ], [ %85, %79 ], [ %.445, %70 ]
   %92 = getelementptr inbounds nuw i8, ptr %.03146, i64 64
   %93 = load i16, ptr %92, align 8, !tbaa !298
   %.not.i41 = icmp eq i16 %93, 0
@@ -2503,7 +2503,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %73
   br i1 %.not38.i, label %.loopexit.i, label %73, !llvm.loop !304
 
 .loopexit.i:                                      ; preds = %.thread.i, %88, %68, %63, %59, %.lr.ph55.i
-  %.1.i = phi i32 [ %.054.i, %.lr.ph55.i ], [ %.054.i, %59 ], [ %spec.select.i, %63 ], [ %spec.select.i, %68 ], [ %.643.i, %.thread.i ], [ %spec.select40.i, %88 ]
+  %.1.i = phi i32 [ %.054.i, %.lr.ph55.i ], [ %spec.select.i, %63 ], [ %.054.i, %59 ], [ %spec.select.i, %68 ], [ %.643.i, %.thread.i ], [ %spec.select40.i, %88 ]
   %97 = getelementptr inbounds nuw i8, ptr %.03253.i, i64 16
   %.not.i86 = icmp eq ptr %97, %57
   br i1 %.not.i86, label %_ZN4llvm21ResourcePriorityQueue19numberRCValSuccInSUEPNS_5SUnitEj.exit.loopexit, label %.lr.ph55.i
@@ -2662,7 +2662,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i103: ; preds = %157
   br i1 %.not36.i, label %.loopexit.i93, label %157, !llvm.loop !296
 
 .loopexit.i93:                                    ; preds = %.thread.i105, %165, %152, %147, %143, %.lr.ph53.i
-  %.1.i94 = phi i32 [ %.052.i, %.lr.ph53.i ], [ %.052.i, %143 ], [ %spec.select.i98, %147 ], [ %spec.select.i98, %152 ], [ %.641.i, %.thread.i105 ], [ %spec.select38.i, %165 ]
+  %.1.i94 = phi i32 [ %.052.i, %.lr.ph53.i ], [ %spec.select.i98, %147 ], [ %.052.i, %143 ], [ %spec.select.i98, %152 ], [ %.641.i, %.thread.i105 ], [ %spec.select38.i, %165 ]
   %174 = getelementptr inbounds nuw i8, ptr %.03051.i, i64 16
   %.not.i95 = icmp eq ptr %174, %141
   br i1 %.not.i95, label %_ZN4llvm21ResourcePriorityQueue19numberRCValPredInSUEPNS_5SUnitEj.exit, label %.lr.ph53.i
@@ -2757,7 +2757,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i127: ; preds = %199
   br i1 %.not36.i134, label %.loopexit.i114, label %199, !llvm.loop !296
 
 .loopexit.i114:                                   ; preds = %.thread.i131, %207, %194, %189, %185, %.lr.ph53.i109
-  %.1.i115 = phi i32 [ %.052.i110, %.lr.ph53.i109 ], [ %.052.i110, %185 ], [ %spec.select.i120, %189 ], [ %spec.select.i120, %194 ], [ %.641.i132, %.thread.i131 ], [ %spec.select38.i130, %207 ]
+  %.1.i115 = phi i32 [ %.052.i110, %.lr.ph53.i109 ], [ %spec.select.i120, %189 ], [ %.052.i110, %185 ], [ %spec.select.i120, %194 ], [ %.641.i132, %.thread.i131 ], [ %spec.select38.i130, %207 ]
   %216 = getelementptr inbounds nuw i8, ptr %.03051.i111, i64 16
   %.not.i116 = icmp eq ptr %216, %183
   br i1 %.not.i116, label %_ZN4llvm21ResourcePriorityQueue19numberRCValPredInSUEPNS_5SUnitEj.exit135.loopexit, label %.lr.ph53.i109
@@ -2903,7 +2903,7 @@ _ZN4llvm21ResourcePriorityQueue24getSingleUnscheduledPredEPNS_5SUnitE.exit.i: ; 
   br label %_ZN4llvm21ResourcePriorityQueue32adjustPriorityOfUnscheduledPredsEPNS_5SUnitE.exit
 
 _ZN4llvm21ResourcePriorityQueue32adjustPriorityOfUnscheduledPredsEPNS_5SUnitE.exit: ; preds = %262, %.lr.ph179, %250, %_ZN4llvm21ResourcePriorityQueue24getSingleUnscheduledPredEPNS_5SUnitE.exit.i, %264, %268
-  %.0.copyload.i.i.i.i.i141 = phi i64 [ %.0.copyload.i.i.i.i137, %.lr.ph179 ], [ %.0.copyload.i.i.i.i137, %250 ], [ %.0.copyload.i.i.i.i137, %_ZN4llvm21ResourcePriorityQueue24getSingleUnscheduledPredEPNS_5SUnitE.exit.i ], [ %.0.copyload.i.i.i.i137, %264 ], [ %.0.copyload.i.i.i.i.i141.pre, %268 ], [ %.0.copyload.i.i.i.i137, %262 ]
+  %.0.copyload.i.i.i.i.i141 = phi i64 [ %.0.copyload.i.i.i.i.i141.pre, %268 ], [ %.0.copyload.i.i.i.i137, %.lr.ph179 ], [ %.0.copyload.i.i.i.i137, %250 ], [ %.0.copyload.i.i.i.i137, %_ZN4llvm21ResourcePriorityQueue24getSingleUnscheduledPredEPNS_5SUnitE.exit.i ], [ %.0.copyload.i.i.i.i137, %264 ], [ %.0.copyload.i.i.i.i137, %262 ]
   %275 = and i64 %.0.copyload.i.i.i.i.i141, 6
   %.not163 = icmp eq i64 %275, 0
   %276 = zext i1 %.not163 to i32
@@ -3225,7 +3225,7 @@ _ZNK4llvm13resource_sortclEPKNS_5SUnitES3_.exit.thread22: ; preds = %66, %37, %_
   br i1 %.not25, label %.loopexit, label %28, !llvm.loop !359
 
 .loopexit:                                        ; preds = %23, %_ZNK4llvm13resource_sortclEPKNS_5SUnitES3_.exit.thread22, %11, %24
-  %.sroa.015.2 = phi ptr [ %8, %24 ], [ %8, %11 ], [ %.sroa.015.4, %_ZNK4llvm13resource_sortclEPKNS_5SUnitES3_.exit.thread22 ], [ %.sroa.015.1, %23 ]
+  %.sroa.015.2 = phi ptr [ %.sroa.015.4, %_ZNK4llvm13resource_sortclEPKNS_5SUnitES3_.exit.thread22 ], [ %8, %24 ], [ %8, %11 ], [ %.sroa.015.1, %23 ]
   %79 = load ptr, ptr %.sroa.015.2, align 8, !tbaa !310
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %81 = load ptr, ptr %80, align 8, !tbaa !332
@@ -3355,7 +3355,7 @@ _ZN4llvm4findIRSt6vectorIPNS_5SUnitESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.
   br label %_ZN4llvm4findIRSt6vectorIPNS_5SUnitESaIS3_EES3_EEDaOT_RKT0_.exit
 
 _ZN4llvm4findIRSt6vectorIPNS_5SUnitESaIS3_EES3_EEDaOT_RKT0_.exit: ; preds = %13, %_ZN4llvm4findIRSt6vectorIPNS_5SUnitESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRSt6vectorIPNS_5SUnitESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit20, %_ZN4llvm4findIRSt6vectorIPNS_5SUnitESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit22, %34, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %34 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %45, %_ZN4llvm4findIRSt6vectorIPNS_5SUnitESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %46, %_ZN4llvm4findIRSt6vectorIPNS_5SUnitESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit20 ], [ %47, %_ZN4llvm4findIRSt6vectorIPNS_5SUnitESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit22 ], [ %.sroa.032.051.i.i.i.i, %13 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i.i, %34 ], [ %47, %_ZN4llvm4findIRSt6vectorIPNS_5SUnitESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit22 ], [ %46, %_ZN4llvm4findIRSt6vectorIPNS_5SUnitESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit20 ], [ %45, %_ZN4llvm4findIRSt6vectorIPNS_5SUnitESaIS3_EES3_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i, %13 ]
   %48 = getelementptr inbounds i8, ptr %6, i64 -8
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %48
   br i1 %.not, label %53, label %49
@@ -3949,7 +3949,7 @@ _ZSt4copyIPPPN4llvm8internal14NfaTranscriber11PathSegmentES6_ET0_T_S8_S7_.exit26
   br label %_ZSt4copyIPPPN4llvm8internal14NfaTranscriber11PathSegmentES6_ET0_T_S8_S7_.exit
 
 _ZSt4copyIPPPN4llvm8internal14NfaTranscriber11PathSegmentES6_ET0_T_S8_S7_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPN4llvm8internal14NfaTranscriber11PathSegmentES6_ET0_T_S8_S7_.exit26
-  %.0 = phi ptr [ %53, %_ZSt4copyIPPPN4llvm8internal14NfaTranscriber11PathSegmentES6_ET0_T_S8_S7_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %53, %_ZSt4copyIPPPN4llvm8internal14NfaTranscriber11PathSegmentES6_ET0_T_S8_S7_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !372
   %60 = load ptr, ptr %.0, align 8, !tbaa !375
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4562,7 +4562,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !268
   br label %41
 

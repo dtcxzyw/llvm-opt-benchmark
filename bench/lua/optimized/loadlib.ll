@@ -357,7 +357,7 @@ lsys_sym.exit:                                    ; preds = %22
   br label %27
 
 27:                                               ; preds = %lsys_sym.exit.thread, %lsys_load.exit.thread, %lsys_sym.exit, %21
-  %.0 = phi i32 [ 0, %21 ], [ 0, %lsys_sym.exit ], [ 1, %lsys_load.exit.thread ], [ 2, %lsys_sym.exit.thread ]
+  %.0 = phi i32 [ 1, %lsys_load.exit.thread ], [ 0, %21 ], [ 0, %lsys_sym.exit ], [ 2, %lsys_sym.exit.thread ]
   ret i32 %.0
 }
 
@@ -647,7 +647,7 @@ findfile.exit:                                    ; preds = %5, %.split11.i
   br label %27
 
 27:                                               ; preds = %findfile.exit, %1, %25, %23, %19
-  %.0 = phi i32 [ %22, %19 ], [ 1, %23 ], [ 2, %25 ], [ 0, %1 ], [ 1, %findfile.exit ]
+  %.0 = phi i32 [ 2, %25 ], [ 0, %1 ], [ %22, %19 ], [ 1, %23 ], [ 1, %findfile.exit ]
   ret i32 %.0
 }
 

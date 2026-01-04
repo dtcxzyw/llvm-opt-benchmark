@@ -627,7 +627,7 @@ proto_item_set_generated.exit:                    ; preds = %59, %67, %70
   br label %.thread100.i
 
 .thread100.i:                                     ; preds = %126, %125, %119, %115, %112, %111, %104, %97, %94, %91
-  %.1.i = phi i32 [ 0, %126 ], [ 0, %125 ], [ 0, %94 ], [ 0, %119 ], [ 0, %115 ], [ 4, %91 ], [ 8, %97 ], [ 20, %104 ], [ 4, %112 ], [ 0, %111 ]
+  %.1.i = phi i32 [ 0, %111 ], [ 0, %126 ], [ 0, %125 ], [ 0, %94 ], [ 0, %119 ], [ 20, %104 ], [ 0, %115 ], [ 4, %112 ], [ 4, %91 ], [ 8, %97 ]
   %.not85.i = icmp eq i32 %.1.i, %61
   br i1 %.not85.i, label %dissect_extras.exit, label %130
 
@@ -816,7 +816,7 @@ switch.hole_check:                                ; preds = %18
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %switch.hole_check, %18
-  %.1 = phi i1 [ %or.cond100, %18 ], [ %spec.select201, %switch.hole_check ]
+  %.1 = phi i1 [ %spec.select201, %switch.hole_check ], [ %or.cond100, %18 ]
   %29 = and i8 %5, -17
   %30 = add i8 %29, -4
   %or.cond59 = icmp ult i8 %30, -3
@@ -901,7 +901,7 @@ define internal fastcc i32 @dissect_memcache_message(ptr noundef %0, i32 noundef
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %17, %.lr.ph.i
-  %.0.lcssa.i = phi i32 [ %9, %17 ], [ %.0153.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ %.0153.i, %.lr.ph.i ], [ %9, %17 ]
   switch i32 %.0.lcssa.i, label %.thread.i.thread [
     i32 2, label %sub_0.i
     i32 3, label %sub_0129.i
@@ -981,7 +981,7 @@ sub_1130.i:                                       ; preds = %sub_0129.i
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %104, label %.thread.i.thread
 
-sub_0133.i:                                       ; preds = %sub_1130.i, %sub_0129.i, %.tail128.i
+sub_0133.i:                                       ; preds = %.tail128.i, %sub_1130.i, %sub_0129.i
   %54 = add i8 %24, -97
   %55 = call i8 @llvm.fshl.i8(i8 %54, i8 %54, i8 7)
   switch i8 %55, label %.thread.i.thread [
@@ -1094,11 +1094,11 @@ sub_1149.i:                                       ; preds = %sub_0133.i
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %104, label %.thread.i.thread
 
-104:                                              ; preds = %.thread.i.thread74, %99, %91, %.thread.i.thread68, %84, %.tail147.i, %.tail142.i, %.tail137.i, %.tail132.i, %51, %48, %45, %42, %36, %39, %33, %30, %.tail128.i, %.tail.i, %.thread.i.thread66, %78, %81, %.thread.i.thread70, %.thread.i.thread72, %96
-  %.261.ph = phi i1 [ true, %96 ], [ true, %.thread.i.thread72 ], [ true, %.thread.i.thread70 ], [ false, %81 ], [ false, %78 ], [ false, %.thread.i.thread66 ], [ false, %51 ], [ false, %48 ], [ false, %45 ], [ false, %42 ], [ false, %36 ], [ false, %39 ], [ true, %33 ], [ false, %30 ], [ false, %.tail128.i ], [ false, %.tail.i ], [ false, %.tail132.i ], [ true, %.tail137.i ], [ true, %.tail142.i ], [ true, %.tail147.i ], [ false, %84 ], [ false, %.thread.i.thread68 ], [ false, %91 ], [ false, %99 ], [ false, %.thread.i.thread74 ]
-  %105 = phi i1 [ true, %96 ], [ true, %.thread.i.thread72 ], [ true, %.thread.i.thread70 ], [ true, %81 ], [ true, %78 ], [ true, %.thread.i.thread66 ], [ false, %51 ], [ false, %48 ], [ false, %45 ], [ false, %42 ], [ false, %36 ], [ false, %39 ], [ false, %33 ], [ false, %30 ], [ false, %.tail128.i ], [ false, %.tail.i ], [ true, %.tail132.i ], [ true, %.tail137.i ], [ true, %.tail142.i ], [ true, %.tail147.i ], [ true, %84 ], [ true, %.thread.i.thread68 ], [ true, %91 ], [ true, %99 ], [ true, %.thread.i.thread74 ]
-  %.055.ph = phi ptr [ @memcache_request_dissector, %96 ], [ @memcache_request_dissector, %.thread.i.thread72 ], [ @memcache_request_dissector, %.thread.i.thread70 ], [ @memcache_request_dissector, %81 ], [ @memcache_request_dissector, %78 ], [ @memcache_request_dissector, %.thread.i.thread66 ], [ @memcache_response_dissector, %51 ], [ @memcache_response_dissector, %48 ], [ @memcache_response_dissector, %45 ], [ @memcache_response_dissector, %42 ], [ @memcache_response_dissector, %36 ], [ @memcache_response_dissector, %39 ], [ @memcache_response_dissector, %33 ], [ @memcache_response_dissector, %30 ], [ @memcache_response_dissector, %.tail128.i ], [ @memcache_response_dissector, %.tail.i ], [ @memcache_request_dissector, %.tail132.i ], [ @memcache_request_dissector, %.tail137.i ], [ @memcache_request_dissector, %.tail142.i ], [ @memcache_request_dissector, %.tail147.i ], [ @memcache_request_dissector, %84 ], [ @memcache_request_dissector, %.thread.i.thread68 ], [ @memcache_request_dissector, %91 ], [ @memcache_request_dissector, %99 ], [ @memcache_request_dissector, %.thread.i.thread74 ]
-  %.2.ph = phi i8 [ 15, %96 ], [ 3, %.thread.i.thread72 ], [ 14, %.thread.i.thread70 ], [ 6, %81 ], [ 5, %78 ], [ -16, %.thread.i.thread66 ], [ -1, %51 ], [ -1, %48 ], [ 4, %45 ], [ 11, %42 ], [ -1, %36 ], [ -1, %39 ], [ 0, %33 ], [ 16, %30 ], [ -1, %.tail128.i ], [ -1, %.tail.i ], [ 0, %.tail132.i ], [ 1, %.tail137.i ], [ 2, %.tail142.i ], [ -15, %.tail147.i ], [ 7, %84 ], [ 16, %.thread.i.thread68 ], [ 4, %91 ], [ 11, %99 ], [ 8, %.thread.i.thread74 ]
+104:                                              ; preds = %.thread.i.thread74, %99, %91, %.thread.i.thread68, %84, %.tail147.i, %.tail142.i, %.tail137.i, %.tail132.i, %.tail.i, %51, %48, %45, %42, %36, %39, %33, %30, %.tail128.i, %.thread.i.thread66, %78, %81, %.thread.i.thread70, %.thread.i.thread72, %96
+  %.261.ph = phi i1 [ true, %.thread.i.thread72 ], [ true, %.thread.i.thread70 ], [ false, %99 ], [ true, %.tail142.i ], [ false, %.thread.i.thread68 ], [ false, %81 ], [ true, %.tail137.i ], [ true, %96 ], [ false, %84 ], [ false, %.tail132.i ], [ false, %91 ], [ true, %.tail147.i ], [ false, %51 ], [ false, %78 ], [ false, %.thread.i.thread66 ], [ false, %39 ], [ false, %45 ], [ false, %42 ], [ false, %36 ], [ true, %33 ], [ false, %30 ], [ false, %.tail128.i ], [ false, %.tail.i ], [ false, %48 ], [ false, %.thread.i.thread74 ]
+  %105 = phi i1 [ true, %.thread.i.thread72 ], [ true, %.thread.i.thread70 ], [ true, %99 ], [ true, %.tail142.i ], [ true, %.thread.i.thread68 ], [ true, %81 ], [ true, %.tail137.i ], [ true, %96 ], [ true, %84 ], [ true, %.tail132.i ], [ true, %91 ], [ true, %.tail147.i ], [ false, %51 ], [ true, %78 ], [ true, %.thread.i.thread66 ], [ false, %39 ], [ false, %45 ], [ false, %42 ], [ false, %36 ], [ false, %33 ], [ false, %30 ], [ false, %.tail128.i ], [ false, %.tail.i ], [ false, %48 ], [ true, %.thread.i.thread74 ]
+  %.055.ph = phi ptr [ @memcache_request_dissector, %.thread.i.thread72 ], [ @memcache_request_dissector, %.thread.i.thread70 ], [ @memcache_request_dissector, %99 ], [ @memcache_request_dissector, %.tail142.i ], [ @memcache_request_dissector, %.thread.i.thread68 ], [ @memcache_request_dissector, %81 ], [ @memcache_request_dissector, %.tail137.i ], [ @memcache_request_dissector, %96 ], [ @memcache_request_dissector, %84 ], [ @memcache_request_dissector, %.tail132.i ], [ @memcache_request_dissector, %91 ], [ @memcache_request_dissector, %.tail147.i ], [ @memcache_response_dissector, %51 ], [ @memcache_request_dissector, %78 ], [ @memcache_request_dissector, %.thread.i.thread66 ], [ @memcache_response_dissector, %39 ], [ @memcache_response_dissector, %45 ], [ @memcache_response_dissector, %42 ], [ @memcache_response_dissector, %36 ], [ @memcache_response_dissector, %33 ], [ @memcache_response_dissector, %30 ], [ @memcache_response_dissector, %.tail128.i ], [ @memcache_response_dissector, %.tail.i ], [ @memcache_response_dissector, %48 ], [ @memcache_request_dissector, %.thread.i.thread74 ]
+  %.2.ph = phi i8 [ 3, %.thread.i.thread72 ], [ 14, %.thread.i.thread70 ], [ 11, %99 ], [ 2, %.tail142.i ], [ 16, %.thread.i.thread68 ], [ 6, %81 ], [ 1, %.tail137.i ], [ 15, %96 ], [ 7, %84 ], [ 0, %.tail132.i ], [ 4, %91 ], [ -15, %.tail147.i ], [ -1, %51 ], [ 5, %78 ], [ -16, %.thread.i.thread66 ], [ -1, %39 ], [ 4, %45 ], [ 11, %42 ], [ -1, %36 ], [ 0, %33 ], [ 16, %30 ], [ -1, %.tail128.i ], [ -1, %.tail.i ], [ -1, %48 ], [ 8, %.thread.i.thread74 ]
   %106 = load i8, ptr @memcache_desegment_headers, align 1, !range !6, !noundef !7
   %107 = trunc nuw i8 %106 to i1
   %108 = load i8, ptr @memcache_desegment_body, align 1, !range !6, !noundef !7
@@ -1187,7 +1187,7 @@ desegment_pdus.exit.sink.split.i:                 ; preds = %141, %122, %116
   store i32 %.sink.i, ptr %146, align 8
   br label %memcache_req_resp_hdrs_do_reassembly.exit.thread
 
-memcache_req_resp_hdrs_do_reassembly.exit.thread: ; preds = %126, %128, %desegment_pdus.exit.sink.split.i
+memcache_req_resp_hdrs_do_reassembly.exit.thread: ; preds = %128, %126, %desegment_pdus.exit.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1208,7 +1208,7 @@ memcache_req_resp_hdrs_do_reassembly.exit.thread: ; preds = %126, %128, %desegme
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %151, i32 noundef 25, ptr noundef nonnull @.str.170, ptr noundef %154)
   br label %158
 
-.thread.i.thread:                                 ; preds = %._crit_edge.i, %sub_0.i, %11, %51, %.tail.i, %sub_0133.i, %.tail132.i, %sub_1134.i, %sub_1139.i, %.tail137.i, %sub_1144.i, %.tail142.i, %sub_1149.i, %.thread.i.thread74, %99, %91, %.thread.i.thread68, %84, %.tail147.i
+.thread.i.thread:                                 ; preds = %._crit_edge.i, %11, %51, %.tail.i, %sub_0.i, %.tail132.i, %sub_1134.i, %sub_1139.i, %.tail137.i, %sub_1144.i, %.tail142.i, %sub_1149.i, %sub_0133.i, %.thread.i.thread74, %99, %91, %.thread.i.thread68, %84, %.tail147.i
   %155 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %156 = load ptr, ptr %155, align 8
   call void @col_set_str(ptr noundef %156, i32 noundef 35, ptr noundef nonnull @.str.97)
@@ -1247,7 +1247,7 @@ memcache_req_resp_hdrs_do_reassembly.exit.thread: ; preds = %126, %128, %desegme
   br label %173
 
 173:                                              ; preds = %memcache_req_resp_hdrs_do_reassembly.exit.thread, %166, %4, %169
-  %.0 = phi i32 [ %172, %169 ], [ -1, %4 ], [ -1, %166 ], [ -1, %memcache_req_resp_hdrs_do_reassembly.exit.thread ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %memcache_req_resp_hdrs_do_reassembly.exit.thread ], [ %172, %169 ], [ -1, %166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -1470,7 +1470,7 @@ content_data_dissector.exit.i:                    ; preds = %118, %115, %dissect
   br i1 %120, label %get_response_dissector.exit, label %18, !llvm.loop !23
 
 get_response_dissector.exit:                      ; preds = %18, %20, %23, %28, %44, %dissect_key.exit.i, %59, %76, %96, %content_data_dissector.exit.i, %sub_0.i, %sub_1.i, %.tail.i, %37
-  %.0.i = phi i32 [ %43, %37 ], [ -1, %.tail.i ], [ -1, %sub_0.i ], [ -1, %sub_1.i ], [ -1, %20 ], [ -1, %23 ], [ -1, %44 ], [ -1, %dissect_key.exit.i ], [ -1, %59 ], [ -1, %76 ], [ -1, %96 ], [ -1, %content_data_dissector.exit.i ], [ %.090.i, %18 ], [ -1, %28 ]
+  %.0.i = phi i32 [ -1, %.tail.i ], [ %43, %37 ], [ -1, %sub_0.i ], [ -1, %sub_1.i ], [ -1, %28 ], [ -1, %content_data_dissector.exit.i ], [ -1, %20 ], [ -1, %44 ], [ -1, %dissect_key.exit.i ], [ -1, %59 ], [ -1, %76 ], [ -1, %96 ], [ %.090.i, %18 ], [ -1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1706,7 +1706,7 @@ default.unreachable:                              ; preds = %find_stat_colon.exi
   unreachable
 
 stat_dissector.exit:                              ; preds = %.lr.ph.i, %149, %154, %185, %210, %find_stat_colon.exit.thread96.i, %228, %234, %169, %145, %sub_0.i69, %sub_1.i71, %.tail.i72, %178
-  %.0.i68 = phi i32 [ %184, %178 ], [ -1, %.tail.i72 ], [ %3, %145 ], [ -1, %sub_0.i69 ], [ -1, %sub_1.i71 ], [ -1, %169 ], [ -1, %154 ], [ %242, %234 ], [ -1, %228 ], [ -1, %find_stat_colon.exit.thread96.i ], [ -1, %210 ], [ -1, %185 ], [ -1, %149 ], [ -1, %.lr.ph.i ]
+  %.0.i68 = phi i32 [ %184, %178 ], [ -1, %.tail.i72 ], [ %3, %145 ], [ -1, %sub_0.i69 ], [ -1, %sub_1.i71 ], [ -1, %169 ], [ -1, %find_stat_colon.exit.thread96.i ], [ -1, %185 ], [ %242, %234 ], [ -1, %228 ], [ -1, %210 ], [ -1, %149 ], [ -1, %.lr.ph.i ], [ -1, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1799,7 +1799,7 @@ sub_180:                                          ; preds = %sub_079
   br label %283
 
 283:                                              ; preds = %244, %121, %.thread77, %130, %126, %123, %281, %271, %stat_dissector.exit, %140, %get_response_dissector.exit
-  %.0 = phi i32 [ %279, %271 ], [ %282, %281 ], [ %.0.i, %get_response_dissector.exit ], [ %144, %140 ], [ %.0.i68, %stat_dissector.exit ], [ -1, %121 ], [ -1, %123 ], [ -1, %126 ], [ -1, %130 ], [ -1, %244 ], [ %3, %.thread77 ]
+  %.0 = phi i32 [ -1, %130 ], [ %279, %271 ], [ %282, %281 ], [ -1, %244 ], [ %.0.i, %get_response_dissector.exit ], [ %.0.i68, %stat_dissector.exit ], [ -1, %123 ], [ -1, %126 ], [ %144, %140 ], [ %3, %.thread77 ], [ -1, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %.0
 }
@@ -2195,7 +2195,7 @@ define internal i32 @memcache_request_dissector(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %187, %111, %244, %12, %253, %234, %216, %213, %202, %199, %178, %160, %152, %149, %137, %121, %117, %114, %80, %46, %29, %24, %21, %7, %252, %208, %182, %144, %143
-  %.0 = phi i32 [ %148, %144 ], [ -1, %143 ], [ %186, %182 ], [ %212, %208 ], [ -1, %252 ], [ -1, %7 ], [ -1, %21 ], [ -1, %24 ], [ -1, %29 ], [ -1, %46 ], [ -1, %80 ], [ -1, %114 ], [ -1, %117 ], [ %132, %121 ], [ -1, %137 ], [ -1, %149 ], [ %157, %152 ], [ -1, %160 ], [ -1, %178 ], [ %20, %199 ], [ -1, %202 ], [ %20, %213 ], [ -1, %216 ], [ %239, %234 ], [ %., %253 ], [ %20, %12 ], [ %251, %244 ], [ %113, %111 ], [ %20, %187 ], [ %196, %.lr.ph ]
+  %.0 = phi i32 [ %239, %234 ], [ %., %253 ], [ -1, %7 ], [ -1, %21 ], [ -1, %24 ], [ -1, %29 ], [ -1, %46 ], [ -1, %80 ], [ %113, %111 ], [ -1, %114 ], [ -1, %117 ], [ %148, %144 ], [ %132, %121 ], [ -1, %143 ], [ -1, %137 ], [ -1, %149 ], [ %186, %182 ], [ -1, %160 ], [ %157, %152 ], [ -1, %178 ], [ %251, %244 ], [ %212, %208 ], [ %20, %199 ], [ -1, %202 ], [ -1, %216 ], [ -1, %252 ], [ %20, %213 ], [ %20, %12 ], [ %20, %187 ], [ %196, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
@@ -2236,7 +2236,7 @@ define internal fastcc i32 @incr_dissector(ptr noundef %0, ptr noundef %1, i32 n
   br label %22
 
 22:                                               ; preds = %16, %3, %10, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %10 ], [ %2, %3 ], [ %spec.select, %16 ]
+  %.0 = phi i32 [ %spec.select, %16 ], [ -1, %7 ], [ %2, %3 ], [ -1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -2346,7 +2346,7 @@ define internal fastcc noundef zeroext i1 @get_payload_length(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %30, %34, %27, %6, %37
-  %.0 = phi i1 [ true, %37 ], [ false, %6 ], [ false, %27 ], [ false, %34 ], [ false, %30 ], [ false, %15 ]
+  %.0 = phi i1 [ false, %34 ], [ false, %6 ], [ false, %30 ], [ true, %37 ], [ false, %27 ], [ false, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0

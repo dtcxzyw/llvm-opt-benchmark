@@ -279,7 +279,7 @@ _ZN4ncnn3MatD2Ev.exit.us:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us134, %.lr.ph, %_ZN4ncnn3MatD2Ev.exit.lr.ph, %.lr.ph133, %66, %32, %21, %100, %102, %91, %57
-  %.087 = phi i32 [ 0, %57 ], [ 0, %91 ], [ 0, %102 ], [ -100, %100 ], [ 0, %21 ], [ 0, %32 ], [ 0, %66 ], [ 0, %.lr.ph133 ], [ 0, %_ZN4ncnn3MatD2Ev.exit.lr.ph ], [ 0, %.lr.ph ], [ 0, %._crit_edge.us134 ], [ 0, %._crit_edge.us ]
+  %.087 = phi i32 [ 0, %21 ], [ -100, %100 ], [ 0, %57 ], [ 0, %32 ], [ 0, %91 ], [ 0, %102 ], [ 0, %66 ], [ 0, %_ZN4ncnn3MatD2Ev.exit.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph133 ], [ 0, %._crit_edge.us134 ], [ 0, %._crit_edge.us ]
   ret i32 %.087
 }
 

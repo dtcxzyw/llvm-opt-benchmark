@@ -1669,8 +1669,8 @@ define internal noundef zeroext i1 @attribute_types_update_cb(ptr noundef readon
   br label %20
 
 20:                                               ; preds = %15, %17, %13, %5
-  %.sink = phi ptr [ %19, %17 ], [ %14, %13 ], [ %6, %5 ], [ null, %15 ]
-  %.0 = phi i1 [ false, %17 ], [ false, %13 ], [ false, %5 ], [ true, %15 ]
+  %.sink = phi ptr [ %6, %5 ], [ %19, %17 ], [ %14, %13 ], [ null, %15 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %17 ], [ false, %13 ], [ true, %15 ]
   store ptr %.sink, ptr %1, align 8
   ret i1 %.0
 }
@@ -1924,7 +1924,7 @@ define internal range(i32 0, 2) i32 @ldapstat_packet(ptr noundef readonly captur
   br label %19
 
 19:                                               ; preds = %11, %8, %5, %14
-  %.0 = phi i32 [ 1, %14 ], [ 0, %5 ], [ 0, %8 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %8 ], [ 1, %14 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -2766,7 +2766,7 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %.thread, label %26
 
-.thread:                                          ; preds = %22, %20
+.thread:                                          ; preds = %20, %22
   %25 = tail call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef 0)
   br label %30
 
@@ -2775,12 +2775,12 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %28 = load i32, ptr %27, align 4
   %.not149.not = icmp ult i32 %28, %24
   %29 = tail call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef 0)
-  br i1 %.not149.not, label %30, label %.critedge158
+  br i1 %.not149.not, label %30, label %.critedge159
 
 30:                                               ; preds = %.thread, %26
   %31 = phi i32 [ %25, %.thread ], [ %29, %26 ]
   %32 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 6)
-  br i1 %32, label %33, label %.critedge158
+  br i1 %32, label %33, label %.critedge159
 
 33:                                               ; preds = %30
   %34 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
@@ -2789,7 +2789,7 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %37 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
   %38 = add i32 %34, 4
   %39 = icmp ugt i32 %38, %35
-  br i1 %39, label %.critedge158, label %40
+  br i1 %39, label %.critedge159, label %40
 
 40:                                               ; preds = %33
   %41 = icmp eq i8 %37, 4
@@ -2797,9 +2797,9 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %or.cond = select i1 %42, i1 %41, i1 false
   %43 = icmp eq i8 %36, 96
   %or.cond166 = or i1 %43, %or.cond
-  br i1 %or.cond166, label %.critedge159, label %.critedge158
+  br i1 %or.cond166, label %.critedge158, label %.critedge159
 
-.critedge159:                                     ; preds = %40
+.critedge158:                                     ; preds = %40
   store i32 3, ptr %.0128, align 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4
@@ -2809,11 +2809,11 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %48 = tail call noalias ptr @wmem_strdup(ptr noundef %47, ptr noundef nonnull @.str.853)
   %49 = getelementptr inbounds nuw i8, ptr %.0128, i64 8
   store ptr %48, ptr %49, align 8
-  br label %.critedge158
+  br label %.critedge159
 
-.critedge158:                                     ; preds = %40, %33, %30, %26, %.critedge159
-  %50 = phi i32 [ %31, %.critedge159 ], [ %29, %26 ], [ %31, %30 ], [ %31, %33 ], [ %31, %40 ]
-  %.1 = phi i1 [ true, %.critedge159 ], [ true, %26 ], [ false, %30 ], [ false, %33 ], [ false, %40 ]
+.critedge159:                                     ; preds = %40, %26, %33, %30, %.critedge158
+  %50 = phi i32 [ %31, %.critedge158 ], [ %31, %40 ], [ %31, %30 ], [ %31, %33 ], [ %29, %26 ]
+  %.1 = phi i1 [ true, %.critedge158 ], [ false, %40 ], [ false, %30 ], [ false, %33 ], [ true, %26 ]
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %1, align 8
@@ -2822,13 +2822,13 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %54 = load ptr, ptr %51, align 8
   br i1 %.b, label %55, label %57
 
-55:                                               ; preds = %.critedge158
+55:                                               ; preds = %.critedge159
   tail call void @col_append_str(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.854)
   %56 = load ptr, ptr %51, align 8
   tail call void @col_set_fence(ptr noundef %56, i32 noundef 25)
   br label %58
 
-57:                                               ; preds = %.critedge158
+57:                                               ; preds = %.critedge159
   tail call void @col_clear(ptr noundef %54, i32 noundef 25)
   tail call void @register_frame_end_routine(ptr noundef %1, ptr noundef nonnull @ldap_frame_end)
   store i1 true, ptr @ldap_found_in_frame, align 1
@@ -3977,8 +3977,8 @@ ldap_do_protocolop.exit:                          ; preds = %12, %24
   br label %120
 
 .thread85:                                        ; preds = %.thread, %54, %50
-  %62 = phi i1 [ true, %54 ], [ %53, %50 ], [ false, %.thread ]
-  %.08188 = phi ptr [ %31, %54 ], [ %31, %50 ], [ null, %.thread ]
+  %62 = phi i1 [ %53, %50 ], [ true, %54 ], [ false, %.thread ]
+  %.08188 = phi ptr [ %31, %50 ], [ %31, %54 ], [ null, %.thread ]
   %63 = load i32, ptr @hf_ldap_objectName, align 4
   %64 = icmp eq i32 %5, %63
   %65 = load i32, ptr @hf_ldap_name, align 4

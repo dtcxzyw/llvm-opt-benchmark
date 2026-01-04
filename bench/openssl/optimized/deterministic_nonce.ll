@@ -211,8 +211,8 @@ bits2int_consttime.exit.thread64:                 ; preds = %.lr.ph.split
   br i1 %.not52, label %bits2int_consttime.exit.thread, label %.lr.ph.split, !llvm.loop !14
 
 bits2int_consttime.exit.thread:                   ; preds = %.backedge, %87, %.lr.ph.split, %bits2int_consttime.exit.us, %.backedge.us, %77, %.lr.ph.split.us, %kdf_setup.exit, %kdf_setup.exit.thread, %bits2octets.exit.thread, %26, %bits2octets.exit
-  %.046 = phi ptr [ null, %bits2octets.exit ], [ null, %26 ], [ null, %bits2octets.exit.thread ], [ null, %kdf_setup.exit.thread ], [ %53, %kdf_setup.exit ], [ %53, %.lr.ph.split.us ], [ %53, %77 ], [ %53, %.backedge.us ], [ %53, %bits2int_consttime.exit.us ], [ %53, %.lr.ph.split ], [ %53, %87 ], [ %53, %.backedge ]
-  %.045 = phi i32 [ 0, %bits2octets.exit ], [ 0, %26 ], [ 0, %bits2octets.exit.thread ], [ 0, %kdf_setup.exit.thread ], [ 0, %kdf_setup.exit ], [ 0, %bits2int_consttime.exit.us ], [ 0, %.backedge.us ], [ 1, %77 ], [ 0, %.lr.ph.split.us ], [ 0, %.backedge ], [ 1, %87 ], [ 0, %.lr.ph.split ]
+  %.046 = phi ptr [ null, %kdf_setup.exit.thread ], [ null, %26 ], [ null, %bits2octets.exit ], [ null, %bits2octets.exit.thread ], [ %53, %kdf_setup.exit ], [ %53, %bits2int_consttime.exit.us ], [ %53, %.lr.ph.split.us ], [ %53, %77 ], [ %53, %.backedge.us ], [ %53, %.lr.ph.split ], [ %53, %87 ], [ %53, %.backedge ]
+  %.045 = phi i32 [ 0, %kdf_setup.exit.thread ], [ 0, %26 ], [ 0, %bits2octets.exit ], [ 0, %bits2octets.exit.thread ], [ 0, %kdf_setup.exit ], [ 0, %bits2int_consttime.exit.us ], [ 0, %.backedge.us ], [ 1, %77 ], [ 0, %.lr.ph.split.us ], [ 1, %87 ], [ 0, %.lr.ph.split ], [ 0, %.backedge ]
   call void @EVP_KDF_CTX_free(ptr noundef %.046) #4
   call void @CRYPTO_clear_free(ptr noundef nonnull %24, i64 noundef %23, ptr noundef nonnull @.str, i32 noundef 238) #4
   br label %91

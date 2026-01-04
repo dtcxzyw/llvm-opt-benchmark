@@ -476,7 +476,7 @@ define dso_local noundef range(i32 0, 2) i32 @inet_addr_onlink(ptr noundef %0, i
   br i1 %36, label %.loopexit, label %.split, !llvm.loop !17
 
 .loopexit:                                        ; preds = %29, %33, %17, %.split.us, %3
-  %37 = phi i32 [ 0, %3 ], [ 1, %.split.us ], [ 0, %17 ], [ 1, %29 ], [ 0, %33 ]
+  %37 = phi i32 [ 0, %3 ], [ 0, %17 ], [ 1, %.split.us ], [ 1, %29 ], [ 0, %33 ]
   tail call void @__rcu_read_unlock() #17
   ret i32 %37
 }
@@ -777,7 +777,7 @@ define dso_local i32 @devinet_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef 
   %or.cond26 = or i1 %105, %or.cond24
   br i1 %or.cond26, label %select.unfold, label %inet_abc_len.exit
 
-select.unfold:                                    ; preds = %96, %94
+select.unfold:                                    ; preds = %94, %96
   br i1 %68, label %106, label %115
 
 106:                                              ; preds = %select.unfold
@@ -855,7 +855,7 @@ select.unfold:                                    ; preds = %96, %94
   br label %inet_abc_len.exit14
 
 inet_abc_len.exit14:                              ; preds = %131, %132, %136, %139, %142
-  %146 = phi i32 [ 8, %132 ], [ 16, %136 ], [ 24, %139 ], [ %145, %142 ], [ 0, %131 ]
+  %146 = phi i32 [ 0, %131 ], [ 8, %132 ], [ 16, %136 ], [ 24, %139 ], [ %145, %142 ]
   %147 = trunc nsw i32 %146 to i8
   %148 = getelementptr inbounds nuw i8, ptr %123, i64 69
   store i8 %147, ptr %148, align 1
@@ -955,7 +955,7 @@ inet_abc_len.exit14:                              ; preds = %131, %132, %136, %1
   %or.cond32 = or i1 %206, %or.cond30
   br i1 %or.cond32, label %select.unfold20, label %inet_abc_len.exit
 
-select.unfold20:                                  ; preds = %197, %196
+select.unfold20:                                  ; preds = %196, %197
   tail call fastcc void @__inet_del_ifa(ptr noundef %34, ptr noundef %70, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %207 = load i32, ptr %7, align 4
   store i32 %207, ptr %192, align 4
@@ -1030,7 +1030,7 @@ select.unfold20:                                  ; preds = %197, %196
   br label %inet_abc_len.exit
 
 inet_abc_len.exit:                                ; preds = %197, %96, %254, %216, %209, %select.unfold20, %191, %188, %183, %181, %115, %106, %90, %89, %85, %84, %80, %77, %74, %71, %.thread, %.loopexit, %26
-  %256 = phi i32 [ -99, %.loopexit ], [ -99, %.thread ], [ -22, %209 ], [ 0, %254 ], [ 0, %216 ], [ 0, %191 ], [ 0, %select.unfold20 ], [ 0, %188 ], [ 0, %183 ], [ 0, %115 ], [ %182, %181 ], [ -105, %106 ], [ 0, %85 ], [ 0, %89 ], [ -99, %84 ], [ %93, %90 ], [ 0, %80 ], [ 0, %77 ], [ 0, %74 ], [ 0, %71 ], [ -19, %26 ], [ -22, %96 ], [ -22, %197 ]
+  %256 = phi i32 [ -99, %.loopexit ], [ -99, %.thread ], [ -22, %209 ], [ 0, %254 ], [ 0, %216 ], [ 0, %191 ], [ -22, %96 ], [ 0, %select.unfold20 ], [ 0, %188 ], [ 0, %183 ], [ -19, %26 ], [ 0, %115 ], [ %182, %181 ], [ -105, %106 ], [ 0, %85 ], [ 0, %89 ], [ -99, %84 ], [ %93, %90 ], [ 0, %80 ], [ 0, %77 ], [ 0, %74 ], [ 0, %71 ], [ -22, %197 ]
   tail call void @rtnl_unlock() #17
   br label %257
 
@@ -1559,9 +1559,9 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef nonnull %0, i32 nound
   %71 = zext i1 %69 to i32
   br i1 %.not9.us.not, label %.backedge.us, label %.loopexit
 
-.backedge.us:                                     ; preds = %65, %42, %.thread4.us, %67
-  %.be.us = phi i32 [ %68, %67 ], [ %71, %.thread4.us ], [ 0, %65 ], [ 1, %42 ]
-  %.be12.us = phi i32 [ %44, %67 ], [ %44, %.thread4.us ], [ %44, %65 ], [ %27, %42 ]
+.backedge.us:                                     ; preds = %42, %65, %.thread4.us, %67
+  %.be.us = phi i32 [ %68, %67 ], [ %71, %.thread4.us ], [ 1, %42 ], [ 0, %65 ]
+  %.be12.us = phi i32 [ %44, %67 ], [ %44, %.thread4.us ], [ %27, %42 ], [ %44, %65 ]
   %72 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %73 = load volatile ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -1696,8 +1696,8 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef nonnull %0, i32 nound
   br label %.loopexit.thread
 
 .backedge:                                        ; preds = %133, %.thread, %148
-  %152 = phi i1 [ true, %133 ], [ %142, %.thread ], [ false, %148 ]
-  %153 = phi i32 [ %121, %133 ], [ %135, %.thread ], [ %135, %148 ]
+  %152 = phi i1 [ %142, %.thread ], [ false, %148 ], [ true, %133 ]
+  %153 = phi i32 [ %135, %.thread ], [ %135, %148 ], [ %121, %133 ]
   %154 = zext i1 %152 to i32
   %155 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %156 = load volatile ptr, ptr %155, align 8
@@ -1705,8 +1705,8 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef nonnull %0, i32 nound
   br i1 %157, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.backedge, %.backedge.us54, %104, %.backedge.us, %67, %.thread4.us
-  %158 = phi i32 [ %.be.us, %.backedge.us ], [ %68, %67 ], [ %71, %.thread4.us ], [ %116, %.backedge.us54 ], [ %114, %104 ], [ %154, %.backedge ]
-  %159 = phi i32 [ %.be12.us, %.backedge.us ], [ %44, %67 ], [ %44, %.thread4.us ], [ %115, %.backedge.us54 ], [ %105, %104 ], [ %153, %.backedge ]
+  %158 = phi i32 [ %116, %.backedge.us54 ], [ %71, %.thread4.us ], [ %.be.us, %.backedge.us ], [ %68, %67 ], [ %114, %104 ], [ %154, %.backedge ]
+  %159 = phi i32 [ %115, %.backedge.us54 ], [ %44, %.thread4.us ], [ %.be12.us, %.backedge.us ], [ %44, %67 ], [ %105, %104 ], [ %153, %.backedge ]
   %.fr = freeze i32 %158
   %160 = icmp eq i32 %.fr, 0
   br i1 %160, label %.loopexit.thread109, label %.loopexit.thread
@@ -1714,8 +1714,8 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef nonnull %0, i32 nound
 .loopexit.thread109:                              ; preds = %18, %.loopexit
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %129, %144, %98, %.backedge.us34, %82, %40, %61, %.split.us, %.loopexit, %.loopexit.thread109
-  %161 = phi i32 [ 0, %.loopexit.thread109 ], [ %159, %.loopexit ], [ %151, %.split.us ], [ %44, %61 ], [ %2, %40 ], [ %84, %82 ], [ 0, %.backedge.us34 ], [ %100, %98 ], [ %135, %144 ], [ %131, %129 ]
+.loopexit.thread:                                 ; preds = %129, %144, %98, %82, %.backedge.us34, %40, %61, %.split.us, %.loopexit, %.loopexit.thread109
+  %161 = phi i32 [ 0, %.loopexit.thread109 ], [ %159, %.loopexit ], [ 0, %.backedge.us34 ], [ %2, %40 ], [ %151, %.split.us ], [ %100, %98 ], [ %44, %61 ], [ %84, %82 ], [ %135, %144 ], [ %131, %129 ]
   ret i32 %161
 }
 
@@ -2941,16 +2941,16 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   br label %100
 
 .thread32.sink.split:                             ; preds = %88, %63, %52, %38
-  %94 = phi i32 [ -1, %38 ], [ -1, %52 ], [ -1, %63 ], [ %73, %88 ]
-  %inet_valid_dump_ifaddr_req.__msg.sink = phi ptr [ @inet_valid_dump_ifaddr_req.__msg, %38 ], [ @inet_valid_dump_ifaddr_req.__msg.50, %52 ], [ @__nlmsg_parse.__msg, %63 ], [ @inet_valid_dump_ifaddr_req.__msg.52, %88 ]
-  %.ph.ph = phi ptr [ %20, %38 ], [ %20, %52 ], [ %20, %63 ], [ %74, %88 ]
+  %94 = phi i32 [ -1, %52 ], [ -1, %63 ], [ -1, %38 ], [ %73, %88 ]
+  %inet_valid_dump_ifaddr_req.__msg.sink = phi ptr [ @inet_valid_dump_ifaddr_req.__msg.50, %52 ], [ @__nlmsg_parse.__msg, %63 ], [ @inet_valid_dump_ifaddr_req.__msg, %38 ], [ @inet_valid_dump_ifaddr_req.__msg.52, %88 ]
+  %.ph.ph = phi ptr [ %20, %52 ], [ %20, %63 ], [ %20, %38 ], [ %74, %88 ]
   store ptr %inet_valid_dump_ifaddr_req.__msg.sink, ptr %35, align 8
   br label %.thread32
 
 .thread32:                                        ; preds = %.thread32.sink.split, %38, %.thread, %88, %52, %63
-  %95 = phi i32 [ -1, %52 ], [ %73, %88 ], [ -1, %.thread ], [ -1, %38 ], [ -1, %63 ], [ %94, %.thread32.sink.split ]
-  %.ph = phi ptr [ %20, %52 ], [ %74, %88 ], [ %20, %.thread ], [ %20, %38 ], [ %20, %63 ], [ %.ph.ph, %.thread32.sink.split ]
-  %.ph31 = phi i32 [ -22, %52 ], [ -22, %88 ], [ %68, %.thread ], [ -22, %38 ], [ -22, %63 ], [ -22, %.thread32.sink.split ]
+  %95 = phi i32 [ -1, %38 ], [ -1, %.thread ], [ -1, %52 ], [ -1, %63 ], [ %73, %88 ], [ %94, %.thread32.sink.split ]
+  %.ph = phi ptr [ %20, %38 ], [ %20, %.thread ], [ %20, %52 ], [ %20, %63 ], [ %74, %88 ], [ %.ph.ph, %.thread32.sink.split ]
+  %.ph31 = phi i32 [ -22, %38 ], [ %68, %.thread ], [ -22, %52 ], [ -22, %63 ], [ -22, %88 ], [ -22, %.thread32.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %285
 
@@ -3305,7 +3305,7 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   br label %.thread38
 
 .thread38:                                        ; preds = %292, %294, %96, %295, %285
-  %296 = phi i32 [ %.ph37, %295 ], [ %.ph37, %285 ], [ %98, %96 ], [ %.ph37, %294 ], [ %.ph37, %292 ]
+  %296 = phi i32 [ %.ph37, %285 ], [ %.ph37, %295 ], [ %98, %96 ], [ %.ph37, %294 ], [ %.ph37, %292 ]
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %298 = load i32, ptr %297, align 8
   %299 = icmp eq i32 %298, 0
@@ -3477,7 +3477,7 @@ define internal i32 @inet_netconf_get_devconf(ptr noundef %0, ptr noundef %1, pt
   br label %.thread12
 
 .thread12:                                        ; preds = %23, %25, %19, %21, %40, %42, %26, %11, %13, %84, %83, %69, %63, %60, %.thread13, %43
-  %87 = phi i32 [ %46, %43 ], [ %78, %83 ], [ %86, %84 ], [ -105, %69 ], [ -22, %63 ], [ -22, %60 ], [ -22, %.thread13 ], [ -22, %19 ], [ -22, %21 ], [ -22, %40 ], [ -22, %42 ], [ %29, %26 ], [ -22, %11 ], [ -22, %13 ], [ -22, %25 ], [ -22, %23 ]
+  %87 = phi i32 [ %46, %43 ], [ %78, %83 ], [ %86, %84 ], [ -105, %69 ], [ -22, %63 ], [ -22, %60 ], [ -22, %.thread13 ], [ -22, %13 ], [ -22, %19 ], [ -22, %21 ], [ -22, %40 ], [ -22, %42 ], [ %29, %26 ], [ -22, %11 ], [ -22, %25 ], [ -22, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %87
 }
@@ -3655,7 +3655,7 @@ define internal i32 @inet_netconf_dump_devconf(ptr noundef %0, ptr noundef captu
   br i1 %110, label %122, label %.thread10
 
 .thread10:                                        ; preds = %100, %.thread
-  %111 = phi i32 [ %101, %.thread ], [ %31, %100 ]
+  %111 = phi i32 [ %31, %100 ], [ %101, %.thread ]
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 952
   %113 = load ptr, ptr %112, align 8
   %114 = load ptr, ptr %1, align 8
@@ -3669,8 +3669,8 @@ define internal i32 @inet_netconf_dump_devconf(ptr noundef %0, ptr noundef captu
   br label %122
 
 122:                                              ; preds = %100, %.thread10, %.thread, %75
-  %123 = phi i32 [ %58, %75 ], [ %101, %.thread ], [ %111, %.thread10 ], [ %31, %100 ]
-  %124 = phi i64 [ %44, %75 ], [ 256, %.thread ], [ %121, %.thread10 ], [ %27, %100 ]
+  %123 = phi i32 [ %58, %75 ], [ %101, %.thread ], [ %31, %100 ], [ %111, %.thread10 ]
+  %124 = phi i64 [ %44, %75 ], [ 256, %.thread ], [ %27, %100 ], [ %121, %.thread10 ]
   %sext = shl i64 %124, 32
   %125 = ashr exact i64 %sext, 32
   store i64 %125, ptr %26, align 8
@@ -3924,9 +3924,9 @@ define internal fastcc void @__inet_del_ifa(ptr noundef readonly captures(none) 
   br i1 %142, label %.thread17, label %.split37.us, !llvm.loop !91
 
 .thread17:                                        ; preds = %.loopexit18.split, %119, %.loopexit18.split.us.us, %139, %34, %29, %24
-  %143 = phi ptr [ null, %24 ], [ null, %34 ], [ null, %29 ], [ %44, %139 ], [ %42, %.loopexit18.split.us.us ], [ %73, %119 ], [ %76, %.loopexit18.split ]
-  %144 = phi ptr [ %1, %24 ], [ %1, %34 ], [ %1, %29 ], [ %43, %139 ], [ %49, %.loopexit18.split.us.us ], [ %72, %119 ], [ %99, %.loopexit18.split ]
-  %145 = phi ptr [ null, %24 ], [ null, %34 ], [ null, %29 ], [ %42, %139 ], [ null, %.loopexit18.split.us.us ], [ null, %119 ], [ null, %.loopexit18.split ]
+  %143 = phi ptr [ null, %24 ], [ null, %29 ], [ null, %34 ], [ %42, %.loopexit18.split.us.us ], [ %44, %139 ], [ %73, %119 ], [ %76, %.loopexit18.split ]
+  %144 = phi ptr [ %1, %24 ], [ %1, %29 ], [ %1, %34 ], [ %49, %.loopexit18.split.us.us ], [ %43, %139 ], [ %72, %119 ], [ %99, %.loopexit18.split ]
+  %145 = phi ptr [ null, %24 ], [ null, %29 ], [ null, %34 ], [ null, %.loopexit18.split.us.us ], [ %42, %139 ], [ null, %119 ], [ null, %.loopexit18.split ]
   %146 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %147 = load ptr, ptr %146, align 8
   store ptr %147, ptr %1, align 8
@@ -5839,7 +5839,7 @@ define internal range(i32 32768, 2) i32 @inetdev_event(ptr readnone captures(non
   br label %devinet_sysctl_register.exit
 
 devinet_sysctl_register.exit:                     ; preds = %101, %150, %152, %241, %232, %228, %225, %218, %173, %171, %112, %111, %110, %109, %95, %83, %43, %42, %41, %39, %35, %31, %26, %19, %15
-  %243 = phi i32 [ %25, %19 ], [ 0, %15 ], [ 0, %42 ], [ 0, %109 ], [ 0, %110 ], [ 0, %111 ], [ 0, %41 ], [ 0, %43 ], [ 0, %83 ], [ 0, %112 ], [ 0, %31 ], [ 0, %26 ], [ 0, %35 ], [ 0, %39 ], [ 0, %95 ], [ 0, %171 ], [ 0, %173 ], [ 0, %218 ], [ 0, %225 ], [ 0, %228 ], [ 0, %232 ], [ 0, %241 ], [ 0, %152 ], [ 0, %150 ], [ 0, %101 ]
+  %243 = phi i32 [ %25, %19 ], [ 0, %15 ], [ 0, %42 ], [ 0, %109 ], [ 0, %110 ], [ 0, %111 ], [ 0, %150 ], [ 0, %41 ], [ 0, %43 ], [ 0, %83 ], [ 0, %112 ], [ 0, %31 ], [ 0, %26 ], [ 0, %35 ], [ 0, %39 ], [ 0, %95 ], [ 0, %241 ], [ 0, %171 ], [ 0, %173 ], [ 0, %218 ], [ 0, %225 ], [ 0, %228 ], [ 0, %232 ], [ 0, %152 ], [ 0, %101 ]
   ret i32 %243
 }
 
@@ -6391,7 +6391,7 @@ define internal range(i32 -2147483648, 1) i32 @inet_validate_link_af(ptr noundef
   br i1 %46, label %.lr.ph, label %.critedge, !llvm.loop !145
 
 .critedge:                                        ; preds = %32, %34, %40, %.lr.ph, %21, %17, %10, %6
-  %47 = phi i32 [ -97, %6 ], [ %15, %10 ], [ 0, %17 ], [ 0, %21 ], [ -22, %32 ], [ -22, %34 ], [ 0, %40 ], [ 0, %.lr.ph ]
+  %47 = phi i32 [ -97, %6 ], [ %15, %10 ], [ 0, %17 ], [ 0, %21 ], [ -22, %34 ], [ 0, %40 ], [ -22, %32 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %47
 }

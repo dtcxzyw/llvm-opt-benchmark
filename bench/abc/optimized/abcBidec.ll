@@ -127,7 +127,7 @@ select.unfold.i79:                                ; preds = %select.unfold.i79.p
   br i1 %60, label %select.unfold.i79, label %Extra_TruthNot.exit82, !llvm.loop !7
 
 Extra_TruthNot.exit82:                            ; preds = %select.unfold.i79, %Extra_TruthNot.exit, %24, %33
-  %.sink = phi ptr [ null, %33 ], [ %5, %24 ], [ %5, %Extra_TruthNot.exit ], [ null, %select.unfold.i79 ]
+  %.sink = phi ptr [ %5, %24 ], [ null, %33 ], [ %5, %Extra_TruthNot.exit ], [ null, %select.unfold.i79 ]
   %61 = tail call i32 @Bdc_ManDecompose(ptr noundef %0, ptr noundef %11, ptr noundef %.sink, i32 noundef %3, ptr noundef null, i32 noundef 1000) #11
   %62 = tail call ptr @Bdc_ManFunc(ptr noundef %0, i32 noundef 0) #11
   %63 = getelementptr i8, ptr %1, i64 24

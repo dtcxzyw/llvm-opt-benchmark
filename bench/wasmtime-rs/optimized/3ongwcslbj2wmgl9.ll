@@ -1272,7 +1272,7 @@ define hidden noundef zeroext i1 @_ZN16wasmtime_environ6module20MemoryInitializa
   br i1 %trunc40, label %52, label %53
 
 .loopexit:                                        ; preds = %"_ZN16wasmtime_runtime8instance9allocator19initialize_memories28_$u7b$$u7b$closure$u7d$$u7d$17h804287983cc7d40bE.exit", %60, %53, %81, %52, %13, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ true, %13 ], [ true, %"_ZN16wasmtime_runtime8instance9allocator19initialize_memories28_$u7b$$u7b$closure$u7d$$u7d$17h804287983cc7d40bE.exit" ], [ false, %60 ], [ false, %53 ], [ false, %81 ], [ false, %52 ]
+  %.0 = phi i1 [ true, %._crit_edge ], [ true, %13 ], [ false, %81 ], [ false, %53 ], [ false, %60 ], [ true, %"_ZN16wasmtime_runtime8instance9allocator19initialize_memories28_$u7b$$u7b$closure$u7d$$u7d$17h804287983cc7d40bE.exit" ], [ false, %52 ]
   ret i1 %.0
 
 52:                                               ; preds = %43
@@ -4105,9 +4105,9 @@ _ZN16wasmtime_runtime3sys4unix2vm13get_page_size17h6ec93d4509f1070eE.exit.i: ; p
   br i1 %41, label %.invoke, label %45
 
 .invoke:                                          ; preds = %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.exit55.i, %164, %161, %_ZN16wasmtime_runtime3sys4unix2vm13get_page_size17h6ec93d4509f1070eE.exit.i, %.split196.us
-  %42 = phi ptr [ @str.1, %.split196.us ], [ @anon.f3b90557b61ab883507bc0abd2bbf363.178.llvm.10220905185939527020, %_ZN16wasmtime_runtime3sys4unix2vm13get_page_size17h6ec93d4509f1070eE.exit.i ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.45, %161 ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.48, %164 ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.58, %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.exit55.i ]
-  %43 = phi i64 [ 57, %.split196.us ], [ 27, %_ZN16wasmtime_runtime3sys4unix2vm13get_page_size17h6ec93d4509f1070eE.exit.i ], [ 42, %161 ], [ 41, %164 ], [ 56, %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.exit55.i ]
-  %44 = phi ptr [ @anon.8fb3e9176293a06dcba80ef82613c36f.56, %.split196.us ], [ @anon.f3b90557b61ab883507bc0abd2bbf363.180.llvm.10220905185939527020, %_ZN16wasmtime_runtime3sys4unix2vm13get_page_size17h6ec93d4509f1070eE.exit.i ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.47, %161 ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.49, %164 ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.59, %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.exit55.i ]
+  %42 = phi ptr [ @anon.f3b90557b61ab883507bc0abd2bbf363.178.llvm.10220905185939527020, %_ZN16wasmtime_runtime3sys4unix2vm13get_page_size17h6ec93d4509f1070eE.exit.i ], [ @str.1, %.split196.us ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.58, %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.exit55.i ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.48, %164 ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.45, %161 ]
+  %43 = phi i64 [ 27, %_ZN16wasmtime_runtime3sys4unix2vm13get_page_size17h6ec93d4509f1070eE.exit.i ], [ 57, %.split196.us ], [ 56, %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.exit55.i ], [ 41, %164 ], [ 42, %161 ]
+  %44 = phi ptr [ @anon.f3b90557b61ab883507bc0abd2bbf363.180.llvm.10220905185939527020, %_ZN16wasmtime_runtime3sys4unix2vm13get_page_size17h6ec93d4509f1070eE.exit.i ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.56, %.split196.us ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.59, %_ZN16wasmtime_runtime4mmap4Mmap5slice17hfd4e9369f3d56e85E.exit55.i ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.49, %164 ], [ @anon.8fb3e9176293a06dcba80ef82613c36f.47, %161 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %42, i64 noundef %43, ptr noalias noundef readonly align 8 dereferenceable(24) %44) #32
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -4789,7 +4789,7 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.l
   br label %21
 
 21:                                               ; preds = %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit, %5, %20
-  %.0 = phi ptr [ null, %20 ], [ null, %5 ], [ %19, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit ]
+  %.0 = phi ptr [ null, %5 ], [ null, %20 ], [ %19, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit ]
   ret ptr %.0
 }
 
@@ -4923,7 +4923,7 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot12remove_image17h3550ca3ccb32670dE.exi
   %70 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h77632ac8a72b50b7E"(ptr noundef nonnull %62), !noalias !1042
   br label %185
 
-_ZN16wasmtime_runtime3cow15MemoryImageSlot12remove_image17h3550ca3ccb32670dE.exit.thread: ; preds = %.critedge, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit.i", %17, %19
+_ZN16wasmtime_runtime3cow15MemoryImageSlot12remove_image17h3550ca3ccb32670dE.exit.thread: ; preds = %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit.i", %.critedge, %17, %19
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load i64, ptr %71, align 8, !noundef !16
   %73 = icmp ult i64 %72, %1
@@ -5158,7 +5158,7 @@ _ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit: ; preds 
   br label %185
 
 185:                                              ; preds = %_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit77, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit, %_ZN16wasmtime_runtime3cow15MemoryImageSlot12remove_image17h3550ca3ccb32670dE.exit, %155
-  %.0 = phi ptr [ null, %155 ], [ %70, %_ZN16wasmtime_runtime3cow15MemoryImageSlot12remove_image17h3550ca3ccb32670dE.exit ], [ %88, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit ], [ %113, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit77 ], [ %184, %_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit ]
+  %.0 = phi ptr [ null, %155 ], [ %113, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit77 ], [ %88, %_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_protection17h2c3b10105c0ccf08E.llvm.13048743790017271950.exit ], [ %70, %_ZN16wasmtime_runtime3cow15MemoryImageSlot12remove_image17h3550ca3ccb32670dE.exit ], [ %184, %_ZN16wasmtime_runtime3cow11MemoryImage6map_at17h7fbc39718eca98f1E.exit ]
   ret ptr %.0
 
 186:                                              ; preds = %170
@@ -5217,7 +5217,7 @@ _ZN16wasmtime_runtime3cow11MemoryImage17remap_as_zeros_at17h879c721b02d2ccabE.ll
   br label %22
 
 22:                                               ; preds = %_ZN16wasmtime_runtime3cow11MemoryImage17remap_as_zeros_at17h879c721b02d2ccabE.llvm.13048743790017271950.exit, %1, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit"
-  %.0 = phi ptr [ null, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit" ], [ null, %1 ], [ %15, %_ZN16wasmtime_runtime3cow11MemoryImage17remap_as_zeros_at17h879c721b02d2ccabE.llvm.13048743790017271950.exit ]
+  %.0 = phi ptr [ null, %1 ], [ null, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit" ], [ %15, %_ZN16wasmtime_runtime3cow11MemoryImage17remap_as_zeros_at17h879c721b02d2ccabE.llvm.13048743790017271950.exit ]
   ret ptr %.0
 }
 
@@ -5255,7 +5255,7 @@ define hidden noundef ptr @_ZN16wasmtime_runtime3cow15MemoryImageSlot25reset_all
   br i1 %5, label %13, label %22
 
 _ZN16wasmtime_runtime3cow15MemoryImageSlot13madvise_reset17h55fced7c7706abc0E.exit.thread.sink.split: ; preds = %59, %52, %35, %16
-  %.sink80 = phi ptr [ %21, %16 ], [ %40, %35 ], [ %56, %52 ], [ %64, %59 ]
+  %.sink80 = phi ptr [ %56, %52 ], [ %40, %35 ], [ %21, %16 ], [ %64, %59 ]
   %8 = ptrtoint ptr %.sink80 to i64
   %sext.i.i58 = shl i64 %8, 48
   %9 = ashr exact i64 %sext.i.i58, 48
@@ -5266,7 +5266,7 @@ _ZN16wasmtime_runtime3cow15MemoryImageSlot13madvise_reset17h55fced7c7706abc0E.ex
   br label %_ZN16wasmtime_runtime3cow15MemoryImageSlot13madvise_reset17h55fced7c7706abc0E.exit.thread
 
 _ZN16wasmtime_runtime3cow15MemoryImageSlot13madvise_reset17h55fced7c7706abc0E.exit.thread: ; preds = %_ZN16wasmtime_runtime3cow15MemoryImageSlot13madvise_reset17h55fced7c7706abc0E.exit.thread.sink.split, %59, %57, %35, %31, %13, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %13 ], [ null, %31 ], [ null, %35 ], [ null, %57 ], [ null, %59 ], [ %12, %_ZN16wasmtime_runtime3cow15MemoryImageSlot13madvise_reset17h55fced7c7706abc0E.exit.thread.sink.split ]
+  %.0 = phi ptr [ null, %35 ], [ null, %31 ], [ null, %57 ], [ null, %59 ], [ null, %16 ], [ null, %13 ], [ %12, %_ZN16wasmtime_runtime3cow15MemoryImageSlot13madvise_reset17h55fced7c7706abc0E.exit.thread.sink.split ]
   ret ptr %.0
 
 13:                                               ; preds = %2
@@ -5406,7 +5406,7 @@ define hidden noundef ptr @_ZN16wasmtime_runtime3cow15MemoryImageSlot14set_prote
   br label %20
 
 20:                                               ; preds = %.sink.split, %24, %21, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %21 ], [ null, %24 ], [ %19, %.sink.split ]
+  %.0 = phi ptr [ null, %21 ], [ null, %9 ], [ null, %24 ], [ %19, %.sink.split ]
   ret ptr %.0
 
 21:                                               ; preds = %10
@@ -5475,7 +5475,7 @@ define hidden noundef ptr @_ZN16wasmtime_runtime3cow15MemoryImageSlot22reset_wit
   unreachable
 
 19:                                               ; preds = %14, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit", %28
-  %.0 = phi ptr [ null, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit" ], [ %29, %28 ], [ null, %14 ]
+  %.0 = phi ptr [ %29, %28 ], [ null, %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$wasmtime_runtime..cow..MemoryImage$GT$$GT$$GT$17he11bb93d59478419E.llvm.13048743790017271950.exit" ], [ null, %14 ]
   ret ptr %.0
 
 20:                                               ; preds = %8

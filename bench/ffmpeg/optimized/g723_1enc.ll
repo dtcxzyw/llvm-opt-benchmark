@@ -598,9 +598,9 @@ comp_lpc_coeff.exit:                              ; preds = %levinson_durbin.exi
   br label %300
 
 300:                                              ; preds = %.thread.i, %253
-  %.2100.i = phi i32 [ %.098138.i, %253 ], [ %275, %.thread.i ]
-  %.196.i = phi i32 [ %.095139.i, %253 ], [ %280, %.thread.i ]
-  %.087.i = phi i32 [ %.0.i113.i, %253 ], [ %.0.i115.i, %.thread.i ]
+  %.2100.i = phi i32 [ %275, %.thread.i ], [ %.098138.i, %253 ]
+  %.196.i = phi i32 [ %280, %.thread.i ], [ %.095139.i, %253 ]
+  %.087.i = phi i32 [ %.0.i115.i, %.thread.i ], [ %.0.i113.i, %253 ]
   %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 1
   %exitcond173.not.i = icmp eq i64 %indvars.iv.next171.i, 256
   br i1 %exitcond173.not.i, label %301, label %.preheader.i, !llvm.loop !56
@@ -1986,9 +1986,9 @@ sub_acb_contrib.exit:                             ; preds = %970
   br i1 %1012, label %pack_fcb_param.exit.i, label %1013
 
 1013:                                             ; preds = %1008, %1002
-  %1014 = phi i32 [ %999, %1008 ], [ %1007, %1002 ]
-  %1015 = phi i32 [ %spec.select.i.i, %1008 ], [ %1000, %1002 ]
-  %.2.ph.i.i = phi i32 [ %1011, %1008 ], [ %.02433.i.i, %1002 ]
+  %1014 = phi i32 [ %1007, %1002 ], [ %999, %1008 ]
+  %1015 = phi i32 [ %1000, %1002 ], [ %spec.select.i.i, %1008 ]
+  %.2.ph.i.i = phi i32 [ %.02433.i.i, %1002 ], [ %1011, %1008 ]
   %indvars.iv.next.i.i212 = add nuw nsw i64 %indvars.iv.i.i210, 1
   %exitcond.not.i.i213 = icmp eq i64 %indvars.iv.next.i.i212, 30
   br i1 %exitcond.not.i.i213, label %pack_fcb_param.exit.i, label %998, !llvm.loop !113
@@ -2912,10 +2912,10 @@ define internal fastcc range(i32 -2147483648, 143) i32 @estimate_pitch(ptr nound
   br label %57
 
 57:                                               ; preds = %51, %44, %56, %24, %11
-  %.175 = phi i32 [ %.07484, %11 ], [ %.07484, %24 ], [ %.090, %56 ], [ %.07484, %44 ], [ %.07484, %51 ]
-  %.171 = phi i32 [ %.07086, %11 ], [ %.07086, %24 ], [ %36, %56 ], [ %.07086, %44 ], [ %.07086, %51 ]
-  %.168 = phi i32 [ %.06788, %11 ], [ %.06788, %24 ], [ %.072, %56 ], [ %.06788, %44 ], [ %.06788, %51 ]
-  %.1 = phi i32 [ %.06589, %11 ], [ %.06589, %24 ], [ %.066, %56 ], [ %.06589, %44 ], [ %.06589, %51 ]
+  %.175 = phi i32 [ %.07484, %11 ], [ %.07484, %24 ], [ %.090, %56 ], [ %.07484, %51 ], [ %.07484, %44 ]
+  %.171 = phi i32 [ %.07086, %11 ], [ %.07086, %24 ], [ %36, %56 ], [ %.07086, %51 ], [ %.07086, %44 ]
+  %.168 = phi i32 [ %.06788, %11 ], [ %.06788, %24 ], [ %.072, %56 ], [ %.06788, %51 ], [ %.06788, %44 ]
+  %.1 = phi i32 [ %.06589, %11 ], [ %.06589, %24 ], [ %.066, %56 ], [ %.06589, %51 ], [ %.06589, %44 ]
   %58 = add nuw nsw i32 %.090, 1
   %exitcond.not = icmp eq i32 %58, 143
   br i1 %exitcond.not, label %59, label %11, !llvm.loop !126

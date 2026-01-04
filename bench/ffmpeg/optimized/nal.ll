@@ -168,7 +168,7 @@ nal_find_startcode_internal.exit.loopexit12.split.loop.exit19: ; preds = %53
   br label %nal_find_startcode_internal.exit
 
 nal_find_startcode_internal.exit:                 ; preds = %16, %62, %40, %75, %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19, %.thread.loopexit95.split.loop.exit.i
-  %.0.i = phi ptr [ %81, %.thread.loopexit95.split.loop.exit.i ], [ %82, %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19 ], [ %.24670.i, %75 ], [ %59, %62 ], [ %.14566.i, %40 ], [ %.04456.i, %16 ]
+  %.0.i = phi ptr [ %82, %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19 ], [ %81, %.thread.loopexit95.split.loop.exit.i ], [ %.24670.i, %75 ], [ %.14566.i, %40 ], [ %59, %62 ], [ %.04456.i, %16 ]
   %83 = icmp ult ptr %0, %.0.i
   %84 = icmp ult ptr %.0.i, %1
   %or.cond = and i1 %83, %84
@@ -182,7 +182,7 @@ nal_find_startcode_internal.exit:                 ; preds = %16, %62, %40, %75, 
   br label %nal_find_startcode_internal.exit.thread
 
 nal_find_startcode_internal.exit.thread:          ; preds = %79, %.preheader.i, %85, %nal_find_startcode_internal.exit
-  %.0 = phi ptr [ %.0.i, %nal_find_startcode_internal.exit ], [ %spec.select, %85 ], [ %1, %.preheader.i ], [ %1, %79 ]
+  %.0 = phi ptr [ %spec.select, %85 ], [ %.0.i, %nal_find_startcode_internal.exit ], [ %1, %.preheader.i ], [ %1, %79 ]
   ret ptr %.0
 }
 
@@ -295,7 +295,7 @@ define internal fastcc i32 @nal_parse_units(ptr noundef %0, ptr noundef %1, ptr 
   br label %.split
 
 .critedge54.thread:                               ; preds = %.critedge, %.critedge.us, %17
-  %.us-phi = phi i32 [ %.040.us, %.critedge.us ], [ -12, %17 ], [ %.040, %.critedge ]
+  %.us-phi = phi i32 [ -12, %17 ], [ %.040.us, %.critedge.us ], [ %.040, %.critedge ]
   ret i32 %.us-phi
 }
 
@@ -366,7 +366,7 @@ define i32 @ff_nal_units_create_list(ptr noundef initializes((12, 16)) %0, ptr n
   br label %.split.us.i
 
 nal_parse_units.exit:                             ; preds = %.critedge.us.i, %16
-  %.us-phi.i = phi i32 [ %.040.us.i, %.critedge.us.i ], [ -12, %16 ]
+  %.us-phi.i = phi i32 [ -12, %16 ], [ %.040.us.i, %.critedge.us.i ]
   ret i32 %.us-phi.i
 }
 
@@ -477,7 +477,7 @@ define ptr @ff_nal_mp4_find_startcode(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %19
 
 19:                                               ; preds = %._crit_edge, %3
-  %.012 = phi ptr [ null, %3 ], [ %spec.select, %._crit_edge ]
+  %.012 = phi ptr [ %spec.select, %._crit_edge ], [ null, %3 ]
   ret ptr %.012
 }
 

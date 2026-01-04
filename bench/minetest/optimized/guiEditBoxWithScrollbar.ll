@@ -4020,7 +4020,7 @@ lpad130:                                          ; preds = %_ZNKSt6vectorIiSaIi
   br label %ehcleanup139
 
 ehcleanup139:                                     ; preds = %lpad.i.i.i.i382, %lpad.i.i.i.i273, %lpad.i.i.i.i, %lpad130, %if.then.i.i.i.i.i.i384, %if.then.i.i.i.i.i.i275, %lpad74.loopexit.split-lp, %lpad74.loopexit, %lpad59, %lpad51, %if.then.i.i.i.i.i.i, %lpad22
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %25, %lpad22 ], [ %49, %lpad51 ], [ %50, %lpad59 ], [ %38, %if.then.i.i.i.i.i.i ], [ %66, %if.then.i.i.i.i.i.i275 ], [ %95, %lpad130 ], [ %84, %if.then.i.i.i.i.i.i384 ], [ %lpad.loopexit, %lpad74.loopexit ], [ %lpad.loopexit.split-lp, %lpad74.loopexit.split-lp ], [ %38, %lpad.i.i.i.i ], [ %66, %lpad.i.i.i.i273 ], [ %84, %lpad.i.i.i.i382 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %25, %lpad22 ], [ %49, %lpad51 ], [ %50, %lpad59 ], [ %38, %if.then.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp, %lpad74.loopexit.split-lp ], [ %66, %if.then.i.i.i.i.i.i275 ], [ %38, %lpad.i.i.i.i ], [ %95, %lpad130 ], [ %84, %if.then.i.i.i.i.i.i384 ], [ %66, %lpad.i.i.i.i273 ], [ %lpad.loopexit, %lpad74.loopexit ], [ %84, %lpad.i.i.i.i382 ]
   %96 = load ptr, ptr %whitespace, align 8, !tbaa !67
   %cmp.i.i.i.i446 = icmp eq ptr %96, %11
   br i1 %cmp.i.i.i.i446, label %_ZN3irr4core6stringIwED2Ev.exit451, label %if.then.i.i.i447
@@ -5392,7 +5392,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp.i.not, label %cleanup16, label %for.body
 
 cleanup16:                                        ; preds = %if.end, %for.body, %for.inc.us, %if.end.us, %for.body.us, %entry
-  %spec.select = phi ptr [ null, %entry ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %0, %for.body.us ], [ null, %if.end ], [ %3, %for.body ]
+  %spec.select = phi ptr [ null, %entry ], [ %0, %for.body.us ], [ %call10.us, %if.end.us ], [ null, %for.inc.us ], [ %3, %for.body ], [ null, %if.end ]
   ret ptr %spec.select
 }
 

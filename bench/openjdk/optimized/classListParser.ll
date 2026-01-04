@@ -1861,7 +1861,7 @@ _ZNK27ResizeableResourceHashtableIiP13InstanceKlassLN6AnyObj15allocation_typeE2E
   br label %_ZN27ResizeableResourceHashtableIiP13InstanceKlassLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbS8_S8_EEE10maybe_growEib.exit.thread
 
 _ZN27ResizeableResourceHashtableIiP13InstanceKlassLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbS8_S8_EEE10maybe_growEib.exit.thread: ; preds = %101, %97, %61, %133, %.loopexit, %57, %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %_ZN9Signature8is_arrayEPK6Symbol.exit.thread, %26
-  %.0 = phi ptr [ null, %26 ], [ null, %_ZN9Signature8is_arrayEPK6Symbol.exit.thread ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %57 ], [ %.018, %.loopexit ], [ %.018, %133 ], [ %.018, %61 ], [ %.018, %97 ], [ %.018, %101 ]
+  %.0 = phi ptr [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %57 ], [ null, %26 ], [ null, %_ZN9Signature8is_arrayEPK6Symbol.exit.thread ], [ %.018, %61 ], [ %.018, %.loopexit ], [ %.018, %133 ], [ %.018, %97 ], [ %.018, %101 ]
   ret ptr %.0
 }
 
@@ -1992,7 +1992,7 @@ _ZN15ClassListParser9parse_intEPi.exit.i:         ; preds = %19, %19, %19, %24
   br label %_ZN15ClassListParser10skip_tokenEPKc.exit
 
 _ZN15ClassListParser10skip_tokenEPKc.exit:        ; preds = %27, %_ZN15ClassListParser9parse_intEPi.exit.i, %3, %12
-  %.0 = phi i1 [ false, %12 ], [ false, %3 ], [ true, %_ZN15ClassListParser9parse_intEPi.exit.i ], [ true, %27 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %12 ], [ true, %_ZN15ClassListParser9parse_intEPi.exit.i ], [ true, %27 ]
   ret i1 %.0
 }
 
@@ -2873,7 +2873,7 @@ _ZN15ClassListParser16skip_whitespacesEv.exit.i:  ; preds = %.preheader
   br label %_ZN15ClassListParser10skip_tokenEPKc.exit
 
 _ZN15ClassListParser10skip_tokenEPKc.exit:        ; preds = %19, %19, %19, %24, %3, %12
-  %.0 = phi i1 [ false, %12 ], [ false, %3 ], [ true, %24 ], [ true, %19 ], [ true, %19 ], [ true, %19 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %12 ], [ true, %24 ], [ true, %19 ], [ true, %19 ], [ true, %19 ]
   ret i1 %.0
 }
 
@@ -3899,9 +3899,9 @@ define linkonce_odr hidden void @_ZN11CDSIndyInfo12add_ref_kindEi(ptr noundef no
   unreachable
 
 _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.split: ; preds = %51, %45, %39, %33, %27, %21, %15, %9, %3
-  %.sink75 = phi i32 [ %5, %3 ], [ %11, %9 ], [ %17, %15 ], [ %23, %21 ], [ %29, %27 ], [ %35, %33 ], [ %41, %39 ], [ %47, %45 ], [ %53, %51 ]
-  %.sink64 = phi ptr [ %4, %3 ], [ %10, %9 ], [ %16, %15 ], [ %22, %21 ], [ %28, %27 ], [ %34, %33 ], [ %40, %39 ], [ %46, %45 ], [ %52, %51 ]
-  %.str.86.sink.ph = phi ptr [ @.str.78, %3 ], [ @.str.79, %9 ], [ @.str.80, %15 ], [ @.str.81, %21 ], [ @.str.82, %27 ], [ @.str.83, %33 ], [ @.str.84, %39 ], [ @.str.85, %45 ], [ @.str.86, %51 ]
+  %.sink75 = phi i32 [ %47, %45 ], [ %41, %39 ], [ %35, %33 ], [ %29, %27 ], [ %23, %21 ], [ %17, %15 ], [ %11, %9 ], [ %5, %3 ], [ %53, %51 ]
+  %.sink64 = phi ptr [ %46, %45 ], [ %40, %39 ], [ %34, %33 ], [ %28, %27 ], [ %22, %21 ], [ %16, %15 ], [ %10, %9 ], [ %4, %3 ], [ %52, %51 ]
+  %.str.86.sink.ph = phi ptr [ @.str.85, %45 ], [ @.str.84, %39 ], [ @.str.83, %33 ], [ @.str.82, %27 ], [ @.str.81, %21 ], [ @.str.80, %15 ], [ @.str.79, %9 ], [ @.str.78, %3 ], [ @.str.86, %51 ]
   %59 = add nsw i32 %.sink75, 1
   %60 = icmp sgt i32 %.sink75, -1
   %61 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %59)
@@ -3916,9 +3916,9 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.
   br label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.split, %51, %45, %39, %33, %27, %21, %15, %9, %3
-  %.sink63 = phi i32 [ %5, %3 ], [ %11, %9 ], [ %17, %15 ], [ %23, %21 ], [ %29, %27 ], [ %35, %33 ], [ %41, %39 ], [ %47, %45 ], [ %53, %51 ], [ %.pre.i31, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.split ]
-  %.sink62 = phi ptr [ %4, %3 ], [ %10, %9 ], [ %16, %15 ], [ %22, %21 ], [ %28, %27 ], [ %34, %33 ], [ %40, %39 ], [ %46, %45 ], [ %52, %51 ], [ %.sink64, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.split ]
-  %.str.86.sink = phi ptr [ @.str.78, %3 ], [ @.str.79, %9 ], [ @.str.80, %15 ], [ @.str.81, %21 ], [ @.str.82, %27 ], [ @.str.83, %33 ], [ @.str.84, %39 ], [ @.str.85, %45 ], [ @.str.86, %51 ], [ %.str.86.sink.ph, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.split ]
+  %.sink63 = phi i32 [ %47, %45 ], [ %41, %39 ], [ %35, %33 ], [ %29, %27 ], [ %23, %21 ], [ %17, %15 ], [ %11, %9 ], [ %5, %3 ], [ %53, %51 ], [ %.pre.i31, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.split ]
+  %.sink62 = phi ptr [ %46, %45 ], [ %40, %39 ], [ %34, %33 ], [ %28, %27 ], [ %22, %21 ], [ %16, %15 ], [ %10, %9 ], [ %4, %3 ], [ %52, %51 ], [ %.sink64, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.split ]
+  %.str.86.sink = phi ptr [ @.str.85, %45 ], [ @.str.84, %39 ], [ @.str.83, %33 ], [ @.str.82, %27 ], [ @.str.81, %21 ], [ @.str.80, %15 ], [ @.str.79, %9 ], [ @.str.78, %3 ], [ @.str.86, %51 ], [ %.str.86.sink.ph, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.split ]
   %66 = add nsw i32 %.sink63, 1
   store i32 %66, ptr %.sink62, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.sink62, i64 8
@@ -3987,7 +3987,7 @@ define hidden noundef zeroext i1 @_ZN15ClassListParser20is_matching_cp_entryERK1
   br i1 %.not16, label %27, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %27, %28, %18, %4
-  %.015 = phi i1 [ false, %4 ], [ false, %18 ], [ %exitcond.not, %28 ], [ %exitcond.not, %27 ]
+  %.015 = phi i1 [ false, %18 ], [ false, %4 ], [ %exitcond.not, %28 ], [ %exitcond.not, %27 ]
   %36 = load ptr, ptr %9, align 8
   %.not.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i, label %38, label %37
@@ -4190,13 +4190,13 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br label %96
 
 96:                                               ; preds = %92, %88, %94
-  %cond = phi i1 [ true, %94 ], [ false, %88 ], [ false, %92 ]
-  %.145 = phi i32 [ 0, %94 ], [ 1, %88 ], [ %., %92 ]
+  %cond = phi i1 [ false, %88 ], [ true, %94 ], [ false, %92 ]
+  %.145 = phi i32 [ 1, %88 ], [ 0, %94 ], [ %., %92 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %48) #19
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #19
   br i1 %cond, label %.thread, label %97
 
-.thread:                                          ; preds = %81, %83, %96
+.thread:                                          ; preds = %83, %81, %96
   %.2.ph = phi i1 [ %.066, %83 ], [ %.066, %81 ], [ true, %96 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %49) #19
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %50) #19
@@ -4225,7 +4225,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br i1 %102, label %51, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %98, %97
-  %.1 = phi i1 [ %.2, %97 ], [ %.255, %98 ]
+  %.1 = phi i1 [ %.255, %98 ], [ %.2, %97 ]
   br i1 %.1, label %_ZN12ResourceMarkD2Ev.exit, label %.critedge
 
 .critedge:                                        ; preds = %35, %._crit_edge
@@ -4636,7 +4636,7 @@ _ZN15ClassListParser25find_builtin_class_helperEP10JavaThreadP6SymbolP7oopDesc.e
   br label %49
 
 49:                                               ; preds = %_ZN15ClassListParser25find_builtin_class_helperEP10JavaThreadP6SymbolP7oopDesc.exit17, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, %_ZN15ClassListParser25find_builtin_class_helperEP10JavaThreadP6SymbolP7oopDesc.exit
-  %.07 = phi ptr [ %12, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit ], [ %30, %_ZN15ClassListParser25find_builtin_class_helperEP10JavaThreadP6SymbolP7oopDesc.exit ], [ %48, %_ZN15ClassListParser25find_builtin_class_helperEP10JavaThreadP6SymbolP7oopDesc.exit17 ]
+  %.07 = phi ptr [ %48, %_ZN15ClassListParser25find_builtin_class_helperEP10JavaThreadP6SymbolP7oopDesc.exit17 ], [ %12, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit ], [ %30, %_ZN15ClassListParser25find_builtin_class_helperEP10JavaThreadP6SymbolP7oopDesc.exit ]
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %50
 
 50:                                               ; preds = %49

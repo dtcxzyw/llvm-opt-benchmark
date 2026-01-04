@@ -212,7 +212,7 @@ append.exit.thread:                               ; preds = %31
   br label %freelist.exit
 
 freelist.exit:                                    ; preds = %.lr.ph.i, %.lr.ph.i84, %.lr.ph.i89, %48, %31, %25, %71, %78, %._crit_edge.thread, %20
-  %.0 = phi i32 [ 3, %20 ], [ 2, %._crit_edge.thread ], [ %.06394124128, %78 ], [ %.06394124128, %71 ], [ 3, %25 ], [ 3, %31 ], [ 3, %48 ], [ 3, %.lr.ph.i89 ], [ 3, %.lr.ph.i84 ], [ 3, %.lr.ph.i ]
+  %.0 = phi i32 [ %.06394124128, %71 ], [ 2, %._crit_edge.thread ], [ 3, %31 ], [ 3, %.lr.ph.i84 ], [ 3, %20 ], [ 3, %.lr.ph.i89 ], [ %.06394124128, %78 ], [ 3, %25 ], [ 3, %48 ], [ 3, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -440,8 +440,8 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef nonnull %0, i64 
 85:                                               ; preds = %79, %76
   br label %append.exit
 
-.thread243:                                       ; preds = %68, %65, %74, %73
-  %.2138246 = phi i32 [ 0, %74 ], [ %.1137, %73 ], [ %., %68 ], [ %.1137, %65 ]
+.thread243:                                       ; preds = %65, %68, %74, %73
+  %.2138246 = phi i32 [ %.1137, %73 ], [ 0, %74 ], [ %.1137, %65 ], [ %., %68 ]
   %86 = add i64 %.2, 17
   %87 = tail call noalias ptr @malloc(i64 noundef %86) #15
   %88 = icmp eq ptr %87, null
@@ -506,8 +506,8 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef nonnull %0, i64 
   br label %114
 
 114:                                              ; preds = %103, %.critedge9
-  %.0156 = phi ptr [ %104, %103 ], [ %spec.select212, %.critedge9 ]
-  %.0155 = phi i8 [ 47, %103 ], [ %spec.select213, %.critedge9 ]
+  %.0156 = phi ptr [ %spec.select212, %.critedge9 ], [ %104, %103 ]
+  %.0155 = phi i8 [ %spec.select213, %.critedge9 ], [ 47, %103 ]
   %.not190 = icmp eq i64 %.2, 0
   %115 = select i1 %.not190, ptr @.str, ptr %0
   %116 = tail call ptr @opendir(ptr noundef nonnull %115)
@@ -575,8 +575,8 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef nonnull %0, i64 
   br label %.thread251
 
 .thread251:                                       ; preds = %.thread249, %141
-  %142 = phi ptr [ %135, %141 ], [ %139, %.thread249 ]
-  %143 = phi i64 [ %136, %141 ], [ %140, %.thread249 ]
+  %142 = phi ptr [ %139, %.thread249 ], [ %135, %141 ]
+  %143 = phi i64 [ %140, %.thread249 ], [ %136, %141 ]
   %144 = tail call i32 @fnmatch(ptr noundef nonnull %.2141, ptr noundef nonnull %142, i32 noundef %129) #14
   %.not205 = icmp eq i32 %144, 0
   br i1 %.not205, label %145, label %.backedge
@@ -633,7 +633,7 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef nonnull %0, i64 
   br label %append.exit
 
 append.exit:                                      ; preds = %.thread, %59, %42, %._crit_edge288, %102, %.thread243, %119, %162, %79, %27, %168, %155, %85
-  %.0 = phi i32 [ %154, %155 ], [ 0, %168 ], [ 0, %85 ], [ 0, %27 ], [ 1, %79 ], [ 1, %162 ], [ %spec.select216, %119 ], [ 0, %102 ], [ 3, %.thread243 ], [ 0, %._crit_edge288 ], [ 0, %42 ], [ 0, %59 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %102 ], [ 0, %85 ], [ %154, %155 ], [ %spec.select216, %119 ], [ 0, %168 ], [ 0, %27 ], [ 1, %162 ], [ 3, %.thread243 ], [ 1, %79 ], [ 0, %._crit_edge288 ], [ 0, %42 ], [ 0, %59 ], [ 0, %.thread ]
   ret i32 %.0
 }
 

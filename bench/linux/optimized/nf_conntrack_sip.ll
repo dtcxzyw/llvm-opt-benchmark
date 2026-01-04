@@ -457,7 +457,7 @@ split:                                            ; preds = %23, %.preheader23._
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 176, i32 0, i64 12) #14, !srcloc !12
   unreachable
 
-sip_parse_addr.exit13.thread:                     ; preds = %138, %150, %147, %145, %161, %158
+sip_parse_addr.exit13.thread:                     ; preds = %138, %150, %145, %147, %161, %158
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
@@ -506,13 +506,13 @@ sip_parse_addr.exit13.thread:                     ; preds = %138, %150, %147, %1
   store i32 %193, ptr %4, align 4
   br label %.thread
 
-194:                                              ; preds = %.loopexit, %65, %77, %74, %72, %88, %85
+194:                                              ; preds = %.loopexit, %65, %77, %72, %74, %88, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
 .thread:                                          ; preds = %.preheader21, %.preheader21, %.thread19, %7, %sip_parse_addr.exit13.thread, %.thread16, %194, %186, %182, %173, %117, %split
-  %195 = phi i32 [ 1, %186 ], [ 0, %split ], [ 0, %117 ], [ -1, %173 ], [ 0, %182 ], [ 0, %194 ], [ 0, %.thread16 ], [ -1, %sip_parse_addr.exit13.thread ], [ 0, %7 ], [ 0, %.thread19 ], [ -1, %.preheader21 ], [ -1, %.preheader21 ]
+  %195 = phi i32 [ 1, %186 ], [ 0, %split ], [ 0, %117 ], [ -1, %sip_parse_addr.exit13.thread ], [ -1, %173 ], [ 0, %182 ], [ 0, %194 ], [ 0, %7 ], [ 0, %.thread19 ], [ 0, %.thread16 ], [ -1, %.preheader21 ], [ -1, %.preheader21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %195
 }
@@ -620,7 +620,7 @@ define internal i32 @skp_epaddr_len(ptr noundef readonly captures(address_is_nul
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 176, i32 0, i64 12) #14, !srcloc !12
   unreachable
 
-sip_parse_addr.exit.thread:                       ; preds = %.loopexit, %25, %37, %34, %32, %48, %45
+sip_parse_addr.exit.thread:                       ; preds = %.loopexit, %25, %37, %32, %34, %48, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %88
 
@@ -854,7 +854,7 @@ thread-pre-split:                                 ; preds = %56, %61
   br i1 %94, label %.split30.us, label %173
 
 .split30.us:                                      ; preds = %43, %73, %87
-  %.us-phi = phi ptr [ %66, %87 ], [ %66, %73 ], [ %36, %43 ]
+  %.us-phi = phi ptr [ %66, %73 ], [ %66, %87 ], [ %36, %43 ]
   %.us-phi31 = phi i64 [ %71, %73 ], [ %84, %87 ], [ %41, %43 ]
   %95 = getelementptr i8, ptr %.us-phi, i64 %.us-phi31
   %96 = icmp ult ptr %95, %12
@@ -937,7 +937,7 @@ thread-pre-split20:                               ; preds = %107, %112
   br i1 %132, label %.loopexit, label %101, !llvm.loop !16
 
 .loopexit:                                        ; preds = %130, %101, %127, %124, %119, %.split30.us
-  %133 = phi ptr [ %117, %119 ], [ %95, %.split30.us ], [ %125, %124 ], [ %123, %127 ], [ %100, %130 ], [ %102, %101 ]
+  %133 = phi ptr [ %95, %.split30.us ], [ %117, %119 ], [ %125, %124 ], [ %123, %127 ], [ %100, %130 ], [ %102, %101 ]
   %134 = icmp eq ptr %133, null
   br i1 %134, label %.thread, label %135
 
@@ -999,13 +999,13 @@ thread-pre-split20:                               ; preds = %107, %112
   br label %.thread
 
 173:                                              ; preds = %87, %82, %77, %64, %64, %.split
-  %174 = phi ptr [ %66, %64 ], [ %66, %87 ], [ %66, %82 ], [ %66, %77 ], [ %51, %.split ], [ %66, %64 ]
+  %174 = phi ptr [ %66, %64 ], [ %66, %87 ], [ %66, %82 ], [ %66, %77 ], [ %66, %64 ], [ %51, %.split ]
   %175 = getelementptr i8, ptr %174, i64 1
   %176 = icmp ult ptr %175, %12
   br i1 %176, label %.split, label %.thread, !llvm.loop !14
 
 .thread:                                          ; preds = %47, %31, %23, %53, %61, %173, %115, %112, %104, %167, %161, %151, %141, %138, %135, %.loopexit, %7
-  %177 = phi i32 [ 1, %167 ], [ -1, %151 ], [ -1, %161 ], [ 0, %141 ], [ 0, %135 ], [ 0, %138 ], [ 0, %.loopexit ], [ 0, %7 ], [ 0, %104 ], [ 0, %112 ], [ 0, %115 ], [ 0, %173 ], [ 0, %61 ], [ 0, %53 ], [ 0, %23 ], [ 0, %31 ], [ 0, %47 ]
+  %177 = phi i32 [ 1, %167 ], [ -1, %151 ], [ -1, %161 ], [ 0, %141 ], [ 0, %135 ], [ 0, %138 ], [ 0, %.loopexit ], [ 0, %7 ], [ 0, %104 ], [ 0, %112 ], [ 0, %115 ], [ 0, %53 ], [ 0, %173 ], [ 0, %61 ], [ 0, %23 ], [ 0, %31 ], [ 0, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %177
 }
@@ -1093,7 +1093,7 @@ thread-pre-split:                                 ; preds = %15, %20
   br i1 %40, label %.loopexit, label %9, !llvm.loop !16
 
 .loopexit:                                        ; preds = %38, %9, %35, %32, %27, %23, %20, %12, %2
-  %41 = phi ptr [ null, %12 ], [ null, %20 ], [ null, %23 ], [ %25, %27 ], [ %0, %2 ], [ %33, %32 ], [ %31, %35 ], [ %8, %38 ], [ %10, %9 ]
+  %41 = phi ptr [ null, %12 ], [ null, %20 ], [ null, %23 ], [ %25, %27 ], [ %0, %2 ], [ %31, %35 ], [ %33, %32 ], [ %8, %38 ], [ %10, %9 ]
   ret ptr %41
 }
 
@@ -1445,7 +1445,7 @@ ct_sip_header_search.exit11:                      ; preds = %119
   br i1 %139, label %37, label %ct_sip_header_search.exit.thread, !llvm.loop !18
 
 ct_sip_header_search.exit.thread:                 ; preds = %ct_sip_header_search.exit, %ct_sip_header_search.exit11, %135, %79, %.loopexit.i, %74, %43, %51, %54, %.loopexit.i10, %122, %91, %99, %102, %25
-  %140 = phi i32 [ %20, %25 ], [ %39, %102 ], [ %39, %99 ], [ %39, %91 ], [ %39, %122 ], [ %39, %.loopexit.i10 ], [ %39, %54 ], [ %39, %51 ], [ %39, %43 ], [ %39, %74 ], [ %39, %.loopexit.i ], [ %39, %ct_sip_header_search.exit ], [ %39, %ct_sip_header_search.exit11 ], [ %136, %135 ], [ %39, %79 ]
+  %140 = phi i32 [ %39, %.loopexit.i10 ], [ %20, %25 ], [ %39, %.loopexit.i ], [ %39, %102 ], [ %39, %99 ], [ %39, %91 ], [ %39, %122 ], [ %39, %54 ], [ %39, %51 ], [ %39, %43 ], [ %39, %74 ], [ %39, %ct_sip_header_search.exit11 ], [ %136, %135 ], [ %39, %79 ], [ %39, %ct_sip_header_search.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store i32 0, ptr %5, align 4
   br label %141
@@ -1546,7 +1546,7 @@ ct_sip_header_search.exit.thread:                 ; preds = %ct_sip_header_searc
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 176, i32 0, i64 12) #14, !srcloc !12
   unreachable
 
-sip_parse_addr.exit.thread:                       ; preds = %156, %164, %172, %169, %167, %179, %176
+sip_parse_addr.exit.thread:                       ; preds = %156, %164, %172, %167, %169, %179, %176
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
@@ -1587,7 +1587,7 @@ sip_parse_addr.exit.thread:                       ; preds = %156, %164, %172, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %sip_parse_addr.exit.thread, %200, %198, %189
-  %206 = phi i32 [ -1, %189 ], [ 1, %200 ], [ 1, %198 ], [ -1, %sip_parse_addr.exit.thread ], [ 0, %.preheader ]
+  %206 = phi i32 [ 1, %198 ], [ -1, %sip_parse_addr.exit.thread ], [ -1, %189 ], [ 1, %200 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %206
 }
@@ -2317,7 +2317,7 @@ define dso_local noundef range(i32 -1, 2) i32 @ct_sip_get_sdp_header(ptr noundef
   br i1 %130, label %.split, label %.thread, !llvm.loop !21
 
 .thread:                                          ; preds = %58, %66, %76, %127, %52, %38, %30, %108, %.preheader, %.preheader, %96, %121, %115, %111, %8
-  %131 = phi i32 [ 1, %121 ], [ -1, %111 ], [ -1, %115 ], [ 0, %8 ], [ -1, %96 ], [ -1, %.preheader ], [ -1, %.preheader ], [ -1, %108 ], [ 0, %30 ], [ 0, %38 ], [ 0, %52 ], [ 0, %127 ], [ 0, %76 ], [ 0, %66 ], [ 0, %58 ]
+  %131 = phi i32 [ 1, %121 ], [ -1, %111 ], [ -1, %115 ], [ 0, %8 ], [ -1, %96 ], [ 0, %52 ], [ -1, %108 ], [ -1, %.preheader ], [ -1, %.preheader ], [ 0, %30 ], [ 0, %38 ], [ 0, %127 ], [ 0, %76 ], [ 0, %66 ], [ 0, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %131
 }
@@ -2455,7 +2455,7 @@ define internal i32 @epaddr_len(ptr noundef readonly captures(address_is_null) %
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 176, i32 0, i64 12) #14, !srcloc !12
   unreachable
 
-sip_parse_addr.exit.thread:                       ; preds = %4, %11, %23, %20, %18, %34, %31
+sip_parse_addr.exit.thread:                       ; preds = %4, %11, %23, %18, %20, %34, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %74
 
@@ -3028,7 +3028,7 @@ define internal i32 @sip_help_tcp(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %120, label %.loopexit, label %.preheader16, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.preheader16, %106, %70, %90, %55
-  %.ph = phi i16 [ 0, %55 ], [ %59, %90 ], [ %59, %.preheader16 ], [ %112, %106 ], [ %59, %70 ]
+  %.ph = phi i16 [ %59, %90 ], [ 0, %55 ], [ %59, %.preheader16 ], [ %112, %106 ], [ %59, %70 ]
   %121 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %122 = load i64, ptr %121, align 8
   %123 = and i64 %122, 48
@@ -3047,7 +3047,7 @@ define internal i32 @sip_help_tcp(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %.thread
 
 .thread:                                          ; preds = %103, %94, %21, %19, %128, %125, %.loopexit, %47, %44, %.thread11, %24, %4
-  %131 = phi i32 [ 1, %4 ], [ 1, %24 ], [ 1, %.thread11 ], [ 0, %44 ], [ 1, %47 ], [ 1, %125 ], [ 1, %128 ], [ 1, %.loopexit ], [ 1, %19 ], [ 1, %21 ], [ %104, %103 ], [ 1, %94 ]
+  %131 = phi i32 [ 1, %4 ], [ 1, %24 ], [ 1, %.thread11 ], [ 0, %44 ], [ 1, %47 ], [ 1, %125 ], [ 1, %128 ], [ 1, %.loopexit ], [ 1, %19 ], [ 1, %21 ], [ 1, %94 ], [ %104, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3156,7 +3156,7 @@ define internal fastcc i32 @process_sip_msg(ptr noundef %0, ptr noundef %1, i32 
   %64 = load i32, ptr %5, align 4
   br label %68
 
-65:                                               ; preds = %75, %68, %85, %81
+65:                                               ; preds = %81, %75, %68, %85
   %66 = add nuw nsw i64 %69, 1
   %67 = icmp eq i64 %66, 6
   br i1 %67, label %.loopexit14, label %68, !llvm.loop !31
@@ -3235,7 +3235,7 @@ define internal fastcc i32 @process_sip_msg(ptr noundef %0, ptr noundef %1, i32 
   br label %.loopexit14
 
 .loopexit14:                                      ; preds = %65, %100, %116, %117
-  %119 = phi i32 [ 0, %100 ], [ %118, %117 ], [ 0, %116 ], [ 1, %65 ]
+  %119 = phi i32 [ 0, %116 ], [ 0, %100 ], [ %118, %117 ], [ 1, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -4073,7 +4073,7 @@ select.unfold:                                    ; preds = %122, %105
   br i1 %195, label %.thread35, label %274
 
 274:                                              ; preds = %.thread30.thread94, %.thread30
-  %275 = phi i16 [ %272, %.thread30 ], [ %269, %.thread30.thread94 ]
+  %275 = phi i16 [ %269, %.thread30.thread94 ], [ %272, %.thread30 ]
   %276 = load volatile ptr, ptr @nf_nat_sip_hooks, align 8
   %277 = icmp eq ptr %276, null
   br i1 %277, label %.thread35, label %283
@@ -4102,7 +4102,7 @@ select.unfold:                                    ; preds = %122, %105
   br i1 %brmerge.not, label %.thread35, label %325
 
 .thread35:                                        ; preds = %274, %.thread30.thread, %.thread30, %283
-  %292 = phi i1 [ true, %283 ], [ false, %.thread30 ], [ false, %.thread30.thread ], [ true, %274 ]
+  %292 = phi i1 [ true, %283 ], [ false, %.thread30.thread ], [ false, %.thread30 ], [ true, %274 ]
   %293 = call ptr @nf_ct_expect_alloc(ptr noundef %138) #14
   %294 = icmp eq ptr %293, null
   br i1 %294, label %.thread33, label %295
@@ -4181,7 +4181,7 @@ select.unfold:                                    ; preds = %122, %105
   br label %329
 
 325:                                              ; preds = %283, %323
-  %326 = phi i32 [ %324, %323 ], [ %.mux, %283 ]
+  %326 = phi i32 [ %.mux, %283 ], [ %324, %323 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -5386,7 +5386,7 @@ ct_sip_header_search.exit19:                      ; preds = %175
   %256 = icmp slt i32 %255, 0
   br i1 %256, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
-.thread27:                                        ; preds = %190, %.lr.ph, %45
+.thread27:                                        ; preds = %.lr.ph, %190, %45
   %257 = load ptr, ptr %20, align 8
   %258 = icmp eq ptr %257, null
   br i1 %258, label %271, label %259

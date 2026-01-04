@@ -252,8 +252,8 @@ define { ptr, i64 } @"_ZN121_$LT$actix_router..resource..ResourceDef..pattern_it
   br label %18
 
 18:                                               ; preds = %9, %5, %27, %25, %13
-  %.sroa.6.0 = phi i64 [ %17, %13 ], [ undef, %25 ], [ %35, %27 ], [ undef, %5 ], [ undef, %9 ]
-  %.sroa.0.0 = phi ptr [ %15, %13 ], [ null, %25 ], [ %33, %27 ], [ null, %5 ], [ null, %9 ]
+  %.sroa.6.0 = phi i64 [ %35, %27 ], [ %17, %13 ], [ undef, %5 ], [ undef, %25 ], [ undef, %9 ]
+  %.sroa.0.0 = phi ptr [ %33, %27 ], [ %15, %13 ], [ null, %5 ], [ null, %25 ], [ null, %9 ]
   %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %20
@@ -423,7 +423,7 @@ default.unreachable43:                            ; preds = %3
   br i1 %32, label %_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit, label %27
 
 _ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit: ; preds = %11, %25, %26, %27, %28
-  %.sroa.0.0.i = phi i64 [ 0, %27 ], [ 0, %11 ], [ 1, %25 ], [ 1, %28 ], [ 1, %26 ]
+  %.sroa.0.0.i = phi i64 [ 1, %25 ], [ 0, %27 ], [ 0, %11 ], [ 1, %28 ], [ 1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
@@ -443,8 +443,8 @@ _ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit: 
   br i1 %.not, label %.thread, label %53
 
 .thread:                                          ; preds = %57, %33, %37, %68, %48, %_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit
-  %.sroa.7.0 = phi i64 [ %15, %_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit ], [ %49, %48 ], [ %69, %68 ], [ undef, %37 ], [ undef, %33 ], [ undef, %57 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit ], [ 1, %48 ], [ 1, %68 ], [ 0, %37 ], [ 0, %33 ], [ 0, %57 ]
+  %.sroa.7.0 = phi i64 [ %15, %_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit ], [ %49, %48 ], [ undef, %33 ], [ %69, %68 ], [ undef, %37 ], [ undef, %57 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit ], [ 1, %48 ], [ 0, %33 ], [ 1, %68 ], [ 0, %37 ], [ 0, %57 ]
   %42 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %43 = insertvalue { i64, i64 } %42, i64 %.sroa.7.0, 1
   ret { i64, i64 } %43
@@ -543,8 +543,8 @@ define { i64, i64 } @_ZN12actix_router8resource11ResourceDef12static_match17h334
   br label %19
 
 19:                                               ; preds = %17, %22, %16, %5, %18
-  %.sroa.5.0 = phi i64 [ undef, %18 ], [ undef, %5 ], [ %2, %16 ], [ %2, %22 ], [ %2, %17 ]
-  %.sroa.0.0 = phi i64 [ 0, %18 ], [ 0, %5 ], [ 1, %16 ], [ 1, %22 ], [ 1, %17 ]
+  %.sroa.5.0 = phi i64 [ %2, %16 ], [ undef, %18 ], [ undef, %5 ], [ %2, %22 ], [ %2, %17 ]
+  %.sroa.0.0 = phi i64 [ 1, %16 ], [ 0, %18 ], [ 0, %5 ], [ 1, %22 ], [ 1, %17 ]
   %20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %21 = insertvalue { i64, i64 } %20, i64 %.sroa.5.0, 1
   ret { i64, i64 } %21
@@ -794,8 +794,8 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
           to label %149 unwind label %.loopexit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %236, %454, %355, %242, %177
-  %.3 = phi i1 [ true, %242 ], [ true, %177 ], [ true, %454 ], [ true, %355 ], [ true, %236 ], [ true, %.loopexit ], [ %.2.ph, %.loopexit.split-lp ]
-  %.pn201 = phi { ptr, i32 } [ %243, %242 ], [ %178, %177 ], [ %.pn199, %454 ], [ %356, %355 ], [ %237, %236 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.3 = phi i1 [ true, %355 ], [ true, %242 ], [ true, %177 ], [ true, %454 ], [ true, %236 ], [ true, %.loopexit ], [ %.2.ph, %.loopexit.split-lp ]
+  %.pn201 = phi { ptr, i32 } [ %356, %355 ], [ %243, %242 ], [ %178, %177 ], [ %.pn199, %454 ], [ %237, %236 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h20382adc74d7e508E"(ptr nonnull align 8 %80) #12
           to label %123 unwind label %120
 
@@ -805,7 +805,7 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke651, %.invoke649, %.invoke, %250, %255, %259, %.critedge, %264, %.critedge206, %280, %282, %.critedge208, %294, %301, %317, %327, %332, %342, %344, %349, %357, %361, %365, %.critedge211, %369, %.critedge213, %385, %387, %.critedge215, %399, %406, %421, %431, %436, %440, %444, %472, %358, %252, %184
-  %.2.ph = phi i1 [ true, %184 ], [ true, %252 ], [ true, %358 ], [ true, %255 ], [ true, %259 ], [ true, %.critedge ], [ true, %.critedge206 ], [ true, %280 ], [ true, %282 ], [ true, %.critedge208 ], [ true, %294 ], [ true, %301 ], [ true, %317 ], [ true, %264 ], [ true, %327 ], [ true, %250 ], [ true, %332 ], [ true, %342 ], [ true, %344 ], [ true, %349 ], [ true, %357 ], [ true, %361 ], [ true, %365 ], [ true, %.critedge211 ], [ true, %.critedge213 ], [ true, %385 ], [ true, %387 ], [ true, %.critedge215 ], [ true, %399 ], [ true, %406 ], [ true, %421 ], [ true, %369 ], [ true, %431 ], [ true, %436 ], [ true, %440 ], [ true, %444 ], [ false, %472 ], [ true, %.invoke ], [ true, %.invoke649 ], [ true, %.invoke651 ]
+  %.2.ph = phi i1 [ true, %184 ], [ true, %252 ], [ true, %255 ], [ true, %259 ], [ true, %.critedge ], [ true, %.critedge206 ], [ true, %280 ], [ true, %282 ], [ true, %.critedge208 ], [ true, %294 ], [ true, %301 ], [ true, %317 ], [ true, %.invoke649 ], [ true, %264 ], [ true, %327 ], [ true, %250 ], [ true, %332 ], [ true, %342 ], [ true, %344 ], [ true, %349 ], [ true, %357 ], [ true, %358 ], [ true, %361 ], [ true, %365 ], [ true, %.critedge211 ], [ true, %.critedge213 ], [ true, %385 ], [ true, %387 ], [ true, %.critedge215 ], [ true, %399 ], [ true, %406 ], [ true, %421 ], [ true, %.invoke ], [ true, %369 ], [ true, %431 ], [ true, %436 ], [ true, %.invoke651 ], [ true, %440 ], [ true, %444 ], [ false, %472 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -830,11 +830,11 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
   br i1 %157, label %.invoke, label %163
 
 .invoke:                                          ; preds = %.noexc237, %.noexc234, %.noexc231, %.noexc227, %.noexc225, %155
-  %158 = phi ptr [ %.sroa.058.0, %155 ], [ %165, %.noexc225 ], [ %189, %.noexc227 ], [ %193, %.noexc231 ], [ %197, %.noexc234 ], [ %229, %.noexc237 ]
-  %159 = phi i64 [ %.sroa.8.0, %155 ], [ %166, %.noexc225 ], [ %192, %.noexc227 ], [ %194, %.noexc231 ], [ %198, %.noexc234 ], [ %230, %.noexc237 ]
-  %160 = phi i64 [ 0, %155 ], [ 0, %.noexc225 ], [ 1, %.noexc227 ], [ 1, %.noexc231 ], [ 0, %.noexc234 ], [ 1, %.noexc237 ]
-  %161 = phi i64 [ %151, %155 ], [ %188, %.noexc225 ], [ %195, %.noexc227 ], [ %194, %.noexc231 ], [ %204, %.noexc234 ], [ %230, %.noexc237 ]
-  %162 = phi ptr [ @anon.3ce6b816cb19b0461f38b33c0e713f57.13, %155 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.13, %.noexc225 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.14, %.noexc227 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.18, %.noexc231 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.13, %.noexc234 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.20, %.noexc237 ]
+  %158 = phi ptr [ %197, %.noexc234 ], [ %.sroa.058.0, %155 ], [ %165, %.noexc225 ], [ %189, %.noexc227 ], [ %193, %.noexc231 ], [ %229, %.noexc237 ]
+  %159 = phi i64 [ %198, %.noexc234 ], [ %.sroa.8.0, %155 ], [ %166, %.noexc225 ], [ %192, %.noexc227 ], [ %194, %.noexc231 ], [ %230, %.noexc237 ]
+  %160 = phi i64 [ 0, %.noexc234 ], [ 0, %155 ], [ 0, %.noexc225 ], [ 1, %.noexc227 ], [ 1, %.noexc231 ], [ 1, %.noexc237 ]
+  %161 = phi i64 [ %204, %.noexc234 ], [ %151, %155 ], [ %188, %.noexc225 ], [ %195, %.noexc227 ], [ %194, %.noexc231 ], [ %230, %.noexc237 ]
+  %162 = phi ptr [ @anon.3ce6b816cb19b0461f38b33c0e713f57.13, %.noexc234 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.13, %155 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.13, %.noexc225 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.14, %.noexc227 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.18, %.noexc231 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.20, %.noexc237 ]
   invoke void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr nonnull align 1 %158, i64 %159, i64 %160, i64 %161, ptr nonnull align 8 %162) #14
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -1246,7 +1246,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit222: ; p
   br i1 %315, label %.invoke649, label %317
 
 .invoke649:                                       ; preds = %428, %418, %324, %313
-  %316 = phi ptr [ @anon.3ce6b816cb19b0461f38b33c0e713f57.36, %313 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.36, %324 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.40, %418 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.40, %428 ]
+  %316 = phi ptr [ @anon.3ce6b816cb19b0461f38b33c0e713f57.40, %418 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.36, %313 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.36, %324 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.40, %428 ]
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr nonnull align 1 @anon.3ce6b816cb19b0461f38b33c0e713f57.35, i64 34, ptr nonnull align 8 %316) #14
           to label %.cont650 unwind label %.loopexit.split-lp
 
@@ -1576,8 +1576,8 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; pred
           to label %444 unwind label %.loopexit.split-lp
 
 .invoke651:                                       ; preds = %436, %184, %222
-  %442 = phi ptr [ %16, %222 ], [ %9, %184 ], [ %35, %436 ]
-  %443 = phi ptr [ @anon.3ce6b816cb19b0461f38b33c0e713f57.28, %222 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.11, %184 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.47, %436 ]
+  %442 = phi ptr [ %9, %184 ], [ %16, %222 ], [ %35, %436 ]
+  %443 = phi ptr [ @anon.3ce6b816cb19b0461f38b33c0e713f57.11, %184 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.28, %222 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.47, %436 ]
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %442, ptr nonnull align 8 %443) #14
           to label %.cont652 unwind label %.loopexit.split-lp
 
@@ -1684,7 +1684,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; pred
           to label %168 unwind label %475
 
 478:                                              ; preds = %.thread, %123
-  %.pn201.pn239 = phi { ptr, i32 } [ %.pn201, %123 ], [ %lpad.thr_comm, %.thread ]
+  %.pn201.pn239 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %.pn201, %123 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$17h278e8b9d4cd94394E"(ptr nonnull align 8 %81) #12
           to label %122 unwind label %120
 }

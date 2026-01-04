@@ -181,7 +181,7 @@ define dso_local i32 @php_open_temporary_fd_ex(ptr noundef %0, ptr noundef reado
   br label %10
 
 30:                                               ; preds = %24, %22, %10, %12, %16, %18
-  %.0 = phi i32 [ %19, %18 ], [ -1, %16 ], [ -1, %12 ], [ -1, %10 ], [ -1, %22 ], [ %25, %24 ]
+  %.0 = phi i32 [ -1, %22 ], [ %19, %18 ], [ -1, %10 ], [ -1, %16 ], [ -1, %12 ], [ %25, %24 ]
   ret i32 %.0
 }
 
@@ -377,7 +377,7 @@ define dso_local i32 @php_open_temporary_fd(ptr noundef %0, ptr noundef readonly
   br label %9
 
 php_open_temporary_fd_ex.exit:                    ; preds = %9, %11, %13, %15
-  %.0.i = phi i32 [ %14, %13 ], [ -1, %11 ], [ -1, %9 ], [ %16, %15 ]
+  %.0.i = phi i32 [ -1, %11 ], [ %14, %13 ], [ -1, %9 ], [ %16, %15 ]
   ret i32 %.0.i
 }
 

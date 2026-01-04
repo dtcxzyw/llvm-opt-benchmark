@@ -813,7 +813,7 @@ kh_get_oid_map.exit.thread.i.i:                   ; preds = %.critedge2.i.i.i
   br label %kh_get_oid_map.exit.i.i
 
 kh_get_oid_map.exit.i.i:                          ; preds = %.critedge.i.i.i, %295
-  %.1.i.i.i = phi i32 [ 0, %295 ], [ %spec.select.i.i.i, %.critedge.i.i.i ]
+  %.1.i.i.i = phi i32 [ %spec.select.i.i.i, %.critedge.i.i.i ], [ 0, %295 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %324 = icmp eq i32 %.1.i.i.i, %298
   br i1 %324, label %mapped_commit.exit.i, label %325
@@ -1348,7 +1348,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge132.thre
   br i1 %.not49, label %.thread, label %284
 
 .thread:                                          ; preds = %.loopexit, %pick_regular_commit.exit, %mapped_commit.exit.i, %267
-  %.1 = phi ptr [ %.2110, %267 ], [ null, %mapped_commit.exit.i ], [ null, %pick_regular_commit.exit ], [ %.0.i28.i, %.loopexit ]
+  %.1 = phi ptr [ %.2110, %267 ], [ null, %pick_regular_commit.exit ], [ null, %mapped_commit.exit.i ], [ %.0.i28.i, %.loopexit ]
   %595 = load i32, ptr %28, align 8, !tbaa !123
   %596 = icmp eq i32 %595, 1
   %597 = icmp ne ptr %.3, null

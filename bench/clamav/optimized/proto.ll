@@ -210,7 +210,7 @@ define internal range(i32 0, 23) i32 @serial_callback(ptr readnone captures(none
   br label %66
 
 66:                                               ; preds = %63, %39, %18, %32, %15, %60, %47, %34, %27, %22
-  %.029 = phi i32 [ 8, %47 ], [ 8, %60 ], [ 0, %22 ], [ 20, %27 ], [ 0, %34 ], [ 0, %15 ], [ 0, %32 ], [ 0, %18 ], [ 0, %39 ], [ %., %63 ]
+  %.029 = phi i32 [ 0, %18 ], [ 8, %47 ], [ 8, %60 ], [ %., %63 ], [ 0, %39 ], [ 0, %22 ], [ 20, %27 ], [ 0, %15 ], [ 0, %34 ], [ 0, %32 ]
   %67 = load ptr, ptr %6, align 8, !tbaa !17
   %.not35 = icmp eq ptr %67, null
   br i1 %.not35, label %69, label %68
@@ -349,7 +349,7 @@ define dso_local range(i32 0, 2) i32 @parallel_client_scan(ptr noundef %0, i32 n
   br label %62
 
 62:                                               ; preds = %60, %57, %56, %6, %54, %30, %17
-  %.0 = phi i32 [ 1, %17 ], [ 1, %30 ], [ 1, %54 ], [ 1, %6 ], [ 1, %56 ], [ 0, %57 ], [ 0, %60 ]
+  %.0 = phi i32 [ 1, %56 ], [ 1, %17 ], [ 1, %30 ], [ 1, %54 ], [ 1, %6 ], [ 0, %57 ], [ 0, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -510,7 +510,7 @@ define internal range(i32 0, 23) i32 @parallel_callback(ptr readnone captures(no
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %115
 
-select.unfold:                                    ; preds = %77, %75, %58
+select.unfold:                                    ; preds = %75, %77, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %42
@@ -544,7 +544,7 @@ select.unfold:                                    ; preds = %77, %75, %58
   br label %93
 
 93:                                               ; preds = %90, %88
-  %.057 = phi i32 [ %89, %88 ], [ %92, %90 ]
+  %.057 = phi i32 [ %92, %90 ], [ %89, %88 ]
   %.057.fr = freeze i32 %.057
   %94 = icmp slt i32 %.057.fr, 1
   br i1 %94, label %95, label %101
@@ -590,7 +590,7 @@ select.unfold:                                    ; preds = %77, %75, %58
   br label %117
 
 115:                                              ; preds = %100, %95, %.thread, %20, %20, %37, %17, %103, %35, %30, %25
-  %.058 = phi i32 [ 22, %103 ], [ 0, %25 ], [ 20, %30 ], [ 0, %35 ], [ 0, %17 ], [ 0, %37 ], [ 0, %20 ], [ 0, %20 ], [ 22, %.thread ], [ 0, %100 ], [ 22, %95 ]
+  %.058 = phi i32 [ 0, %17 ], [ 0, %20 ], [ 22, %95 ], [ 22, %103 ], [ 22, %.thread ], [ 0, %25 ], [ 20, %30 ], [ 0, %35 ], [ 0, %37 ], [ 0, %20 ], [ 0, %100 ]
   %.not71 = icmp eq ptr %.055, null
   br i1 %.not71, label %117, label %116
 

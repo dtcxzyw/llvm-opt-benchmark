@@ -921,10 +921,10 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   br label %.thread22
 
 .sink.split:                                      ; preds = %.thread, %._crit_edge131, %179, %184
-  %.sink230 = phi i8 [ 48, %184 ], [ 48, %179 ], [ 16, %._crit_edge131 ], [ 16, %.thread ]
-  %.sink = phi ptr [ %191, %184 ], [ %43, %179 ], [ %.pre132, %._crit_edge131 ], [ %208, %.thread ]
-  %.ph226 = phi i32 [ %187, %184 ], [ %40, %179 ], [ %40, %._crit_edge131 ], [ %40, %.thread ]
-  %.ph227 = phi ptr [ %196, %184 ], [ null, %179 ], [ null, %._crit_edge131 ], [ %213, %.thread ]
+  %.sink230 = phi i8 [ 48, %179 ], [ 48, %184 ], [ 16, %._crit_edge131 ], [ 16, %.thread ]
+  %.sink = phi ptr [ %43, %179 ], [ %191, %184 ], [ %.pre132, %._crit_edge131 ], [ %208, %.thread ]
+  %.ph226 = phi i32 [ %40, %179 ], [ %187, %184 ], [ %40, %._crit_edge131 ], [ %40, %.thread ]
+  %.ph227 = phi ptr [ null, %179 ], [ %196, %184 ], [ null, %._crit_edge131 ], [ %213, %.thread ]
   %224 = load i8, ptr %34, align 4
   %225 = or i8 %224, %.sink230
   store i8 %225, ptr %34, align 4
@@ -978,7 +978,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   br i1 %247, label %.loopexit29, label %.thread22
 
 .thread22:                                        ; preds = %214, %215, %216, %.thread20, %235, %227, %.thread23, %254, %239
-  %255 = phi i32 [ %40, %239 ], [ %40, %254 ], [ %40, %.thread23 ], [ %40, %.thread20 ], [ %230, %235 ], [ %230, %227 ], [ %40, %216 ], [ %40, %215 ], [ %40, %214 ]
+  %255 = phi i32 [ %40, %239 ], [ %40, %254 ], [ %40, %.thread23 ], [ %40, %.thread20 ], [ %230, %227 ], [ %230, %235 ], [ %40, %216 ], [ %40, %215 ], [ %40, %214 ]
   %256 = load ptr, ptr %5, align 8
   %257 = ptrtoint ptr %256 to i64
   %258 = sub i64 %257, %31
@@ -1086,7 +1086,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   br label %.loopexit29
 
 .loopexit29:                                      ; preds = %278, %275, %281, %288, %163, %176, %197, %254, %156, %151, %108, %80, %66, %64, %.loopexit29.loopexit.split.loop.exit182, %.loopexit29.loopexit.split.loop.exit184, %.loopexit29.loopexit.split.loop.exit186, %.loopexit29.loopexit.split.loop.exit188, %.loopexit29.loopexit.split.loop.exit190, %.loopexit29.loopexit.split.loop.exit192, %.loopexit29.loopexit.split.loop.exit194, %.loopexit29.loopexit.split.loop.exit196, %219
-  %306 = phi ptr [ %221, %219 ], [ %298, %.loopexit29.loopexit.split.loop.exit182 ], [ %299, %.loopexit29.loopexit.split.loop.exit184 ], [ %300, %.loopexit29.loopexit.split.loop.exit186 ], [ %301, %.loopexit29.loopexit.split.loop.exit188 ], [ %302, %.loopexit29.loopexit.split.loop.exit190 ], [ %303, %.loopexit29.loopexit.split.loop.exit192 ], [ %304, %.loopexit29.loopexit.split.loop.exit194 ], [ %305, %.loopexit29.loopexit.split.loop.exit196 ], [ %.pre130, %278 ], [ %.pre130.pre, %275 ], [ %.pre144, %281 ], [ %.pre143, %288 ], [ %157, %163 ], [ %157, %176 ], [ %157, %197 ], [ %240, %254 ], [ %157, %156 ], [ %43, %151 ], [ %43, %108 ], [ %43, %80 ], [ %43, %66 ], [ %43, %64 ]
+  %306 = phi ptr [ %221, %219 ], [ %301, %.loopexit29.loopexit.split.loop.exit188 ], [ %302, %.loopexit29.loopexit.split.loop.exit190 ], [ %305, %.loopexit29.loopexit.split.loop.exit196 ], [ %303, %.loopexit29.loopexit.split.loop.exit192 ], [ %304, %.loopexit29.loopexit.split.loop.exit194 ], [ %298, %.loopexit29.loopexit.split.loop.exit182 ], [ %299, %.loopexit29.loopexit.split.loop.exit184 ], [ %300, %.loopexit29.loopexit.split.loop.exit186 ], [ %43, %64 ], [ %157, %176 ], [ %157, %163 ], [ %240, %254 ], [ %43, %80 ], [ %43, %108 ], [ %43, %151 ], [ %157, %156 ], [ %.pre143, %288 ], [ %157, %197 ], [ %43, %66 ], [ %.pre144, %281 ], [ %.pre130.pre, %275 ], [ %.pre130, %278 ]
   %307 = icmp eq ptr %3, null
   br i1 %307, label %.thread24, label %308
 
@@ -1099,7 +1099,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   br label %.thread24
 
 .thread24:                                        ; preds = %291, %60, %56, %45, %20, %308, %.loopexit29
-  %313 = phi i32 [ -22, %308 ], [ -22, %.loopexit29 ], [ 0, %20 ], [ 0, %45 ], [ 0, %56 ], [ 0, %60 ], [ 0, %291 ]
+  %313 = phi i32 [ 0, %20 ], [ -22, %308 ], [ -22, %.loopexit29 ], [ 0, %56 ], [ 0, %60 ], [ 0, %45 ], [ 0, %291 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %313
 }

@@ -459,7 +459,7 @@ mbedtls_ssl_tls13_derive_secret.exit47:           ; preds = %mbedtls_ssl_tls13_d
   br label %20
 
 20:                                               ; preds = %mbedtls_ssl_tls13_derive_secret.exit.thread, %mbedtls_ssl_tls13_derive_secret.exit47, %mbedtls_ssl_tls13_derive_secret.exit, %10
-  %.0 = phi i32 [ -27648, %10 ], [ %17, %mbedtls_ssl_tls13_derive_secret.exit ], [ %19, %mbedtls_ssl_tls13_derive_secret.exit47 ], [ -27648, %mbedtls_ssl_tls13_derive_secret.exit.thread ]
+  %.0 = phi i32 [ -27648, %10 ], [ %19, %mbedtls_ssl_tls13_derive_secret.exit47 ], [ %17, %mbedtls_ssl_tls13_derive_secret.exit ], [ -27648, %mbedtls_ssl_tls13_derive_secret.exit.thread ]
   ret i32 %.0
 }
 
@@ -509,7 +509,7 @@ mbedtls_ssl_tls13_derive_secret.exit47:           ; preds = %mbedtls_ssl_tls13_d
   br label %19
 
 19:                                               ; preds = %mbedtls_ssl_tls13_derive_secret.exit.thread, %mbedtls_ssl_tls13_derive_secret.exit47, %mbedtls_ssl_tls13_derive_secret.exit, %10
-  %.0 = phi i32 [ -27648, %10 ], [ %16, %mbedtls_ssl_tls13_derive_secret.exit ], [ %18, %mbedtls_ssl_tls13_derive_secret.exit47 ], [ -27648, %mbedtls_ssl_tls13_derive_secret.exit.thread ]
+  %.0 = phi i32 [ -27648, %10 ], [ %18, %mbedtls_ssl_tls13_derive_secret.exit47 ], [ %16, %mbedtls_ssl_tls13_derive_secret.exit ], [ -27648, %mbedtls_ssl_tls13_derive_secret.exit.thread ]
   ret i32 %.0
 }
 
@@ -569,7 +569,7 @@ mbedtls_ssl_tls13_derive_secret.exit60:           ; preds = %mbedtls_ssl_tls13_d
   br label %22
 
 22:                                               ; preds = %mbedtls_ssl_tls13_derive_secret.exit.thread, %mbedtls_ssl_tls13_derive_secret.exit60, %mbedtls_ssl_tls13_derive_secret.exit58, %mbedtls_ssl_tls13_derive_secret.exit, %11
-  %.0 = phi i32 [ -27648, %11 ], [ %17, %mbedtls_ssl_tls13_derive_secret.exit ], [ %19, %mbedtls_ssl_tls13_derive_secret.exit58 ], [ %21, %mbedtls_ssl_tls13_derive_secret.exit60 ], [ -27648, %mbedtls_ssl_tls13_derive_secret.exit.thread ]
+  %.0 = phi i32 [ -27648, %11 ], [ %17, %mbedtls_ssl_tls13_derive_secret.exit ], [ %21, %mbedtls_ssl_tls13_derive_secret.exit60 ], [ %19, %mbedtls_ssl_tls13_derive_secret.exit58 ], [ -27648, %mbedtls_ssl_tls13_derive_secret.exit.thread ]
   ret i32 %.0
 }
 
@@ -610,7 +610,7 @@ mbedtls_ssl_tls13_derive_secret.exit:             ; preds = %13, %15
   br label %18
 
 18:                                               ; preds = %mbedtls_ssl_tls13_derive_secret.exit, %9
-  %.0 = phi i32 [ -27648, %9 ], [ %.1.i, %mbedtls_ssl_tls13_derive_secret.exit ]
+  %.0 = phi i32 [ %.1.i, %mbedtls_ssl_tls13_derive_secret.exit ], [ -27648, %9 ]
   ret i32 %.0
 }
 
@@ -669,7 +669,7 @@ switch.lookup:                                    ; preds = %5
   br label %29
 
 29:                                               ; preds = %18, %25, %28, %24
-  %.0 = phi i32 [ %23, %24 ], [ %27, %25 ], [ 0, %28 ], [ -27136, %18 ]
+  %.0 = phi i32 [ 0, %28 ], [ %23, %24 ], [ %27, %25 ], [ -27136, %18 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %.039, i64 noundef 64) #8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 64) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1274,8 +1274,8 @@ switch.lookup:                                    ; preds = %60
   call void @mbedtls_zeroize_and_free(ptr noundef nonnull %.15496.i, i64 noundef %67) #8
   br label %ssl_tls13_key_schedule_stage_handshake.exit
 
-ssl_tls13_key_schedule_stage_handshake.exit.thread: ; preds = %54, %.thread88.i
-  %.1.i.ph = phi i32 [ -32512, %.thread88.i ], [ -28800, %54 ]
+ssl_tls13_key_schedule_stage_handshake.exit.thread: ; preds = %.thread88.i, %54
+  %.1.i.ph = phi i32 [ -28800, %54 ], [ -32512, %.thread88.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %68
 

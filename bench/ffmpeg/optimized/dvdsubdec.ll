@@ -144,7 +144,7 @@ dvdsub_parse_extradata.exit:                      ; preds = %31
   call void @av_free(ptr noundef nonnull %19) #14
   br label %dvdsub_parse_extradata.exit.thread
 
-dvdsub_parse_extradata.exit.thread:               ; preds = %1, %13, %dvdsub_parse_extradata.exit
+dvdsub_parse_extradata.exit.thread:               ; preds = %13, %1, %dvdsub_parse_extradata.exit
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %57 = load ptr, ptr %56, align 8, !tbaa !33
   %.not = icmp eq ptr %57, null
@@ -342,7 +342,7 @@ parse_ifo_palette.exit:                           ; preds = %62, %145
   br label %dvdsub_parse_extradata.exit.thread28
 
 dvdsub_parse_extradata.exit.thread28:             ; preds = %16, %dvdsub_parse_extradata.exit.thread30, %153, %161
-  %.019 = phi i32 [ 1, %161 ], [ 1, %153 ], [ %49, %dvdsub_parse_extradata.exit.thread30 ], [ -12, %16 ]
+  %.019 = phi i32 [ %49, %dvdsub_parse_extradata.exit.thread30 ], [ 1, %161 ], [ 1, %153 ], [ -12, %16 ]
   ret i32 %.019
 }
 
@@ -397,8 +397,8 @@ define internal i32 @dvdsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
   br label %594
 
 29:                                               ; preds = %.thread, %4
-  %.042 = phi i32 [ %12, %4 ], [ %27, %.thread ]
-  %.038 = phi ptr [ %10, %4 ], [ %24, %.thread ]
+  %.042 = phi i32 [ %27, %.thread ], [ %12, %4 ]
+  %.038 = phi ptr [ %24, %.thread ], [ %10, %4 ]
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 92
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %32 = icmp slt i32 %.042, 10
@@ -702,16 +702,16 @@ define internal i32 @dvdsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
   br label %216
 
 216:                                              ; preds = %214, %203, %189, %175, %139, %123, %107, %103, %102, %97
-  %.1231.i = phi i32 [ %.0230276.i, %102 ], [ %.0230276.i, %103 ], [ %.0230276.i, %107 ], [ %.0230276.i, %123 ], [ %170, %139 ], [ %.0230276.i, %175 ], [ %.0230276.i, %189 ], [ %.0230276.i, %203 ], [ %.0230276.i, %214 ], [ %.0230276.i, %97 ]
-  %.1229.i = phi i32 [ %.0228277.i, %102 ], [ %.0228277.i, %103 ], [ %.0228277.i, %107 ], [ %.0228277.i, %123 ], [ %155, %139 ], [ %.0228277.i, %175 ], [ %.0228277.i, %189 ], [ %.0228277.i, %203 ], [ %.0228277.i, %214 ], [ %.0228277.i, %97 ]
-  %.2224.i = phi i32 [ %.1223278.i, %102 ], [ %.1223278.i, %103 ], [ %.1223278.i, %107 ], [ %.1223278.i, %123 ], [ %spec.select.i, %139 ], [ %.1223278.i, %175 ], [ %.1223278.i, %189 ], [ %.1223278.i, %203 ], [ %.1223278.i, %214 ], [ %.1223278.i, %97 ]
-  %.2221.i = phi ptr [ %.1220279.i, %102 ], [ %.1220279.i, %103 ], [ %.1220279.i, %107 ], [ %.1220279.i, %123 ], [ %.1220279.i, %139 ], [ %.1220279.i, %175 ], [ %.1220279.i, %189 ], [ %205, %203 ], [ %.1220279.i, %214 ], [ %.1220279.i, %97 ]
-  %.1218.i = phi i32 [ %.0217280.i, %102 ], [ %.0217280.i, %103 ], [ %.0217280.i, %107 ], [ %.0217280.i, %123 ], [ %164, %139 ], [ %.0217280.i, %175 ], [ %.0217280.i, %189 ], [ %.0217280.i, %203 ], [ %.0217280.i, %214 ], [ %.0217280.i, %97 ]
-  %.1216.i = phi i32 [ %.0215281.i, %102 ], [ %.0215281.i, %103 ], [ %.0215281.i, %107 ], [ %.0215281.i, %123 ], [ %149, %139 ], [ %.0215281.i, %175 ], [ %.0215281.i, %189 ], [ %.0215281.i, %203 ], [ %.0215281.i, %214 ], [ %.0215281.i, %97 ]
-  %.1214.i = phi i32 [ %98, %102 ], [ %98, %103 ], [ %119, %107 ], [ %135, %123 ], [ %171, %139 ], [ %185, %175 ], [ %199, %189 ], [ %206, %203 ], [ %215, %214 ], [ %98, %97 ]
-  %.3.i = phi i32 [ %.2283.i, %102 ], [ %.2283.i, %103 ], [ %.2283.i, %107 ], [ %.2283.i, %123 ], [ %.2283.i, %139 ], [ %.2283.i, %175 ], [ %.2283.i, %189 ], [ %.2283.i, %203 ], [ %.2283.i, %214 ], [ 1, %97 ]
-  %.1207.i = phi i64 [ %.0206284.i, %102 ], [ %.0206284.i, %103 ], [ %.0206284.i, %107 ], [ %.0206284.i, %123 ], [ %.0206284.i, %139 ], [ %180, %175 ], [ %194, %189 ], [ %.0206284.i, %203 ], [ %.0206284.i, %214 ], [ %.0206284.i, %97 ]
-  %.1.i = phi i64 [ %.0205285.i, %102 ], [ %.0205285.i, %103 ], [ %.0205285.i, %107 ], [ %.0205285.i, %123 ], [ %.0205285.i, %139 ], [ %184, %175 ], [ %198, %189 ], [ %.0205285.i, %203 ], [ %.0205285.i, %214 ], [ %.0205285.i, %97 ]
+  %.1231.i = phi i32 [ %.0230276.i, %214 ], [ %.0230276.i, %102 ], [ %.0230276.i, %103 ], [ %.0230276.i, %107 ], [ %.0230276.i, %123 ], [ %170, %139 ], [ %.0230276.i, %175 ], [ %.0230276.i, %189 ], [ %.0230276.i, %203 ], [ %.0230276.i, %97 ]
+  %.1229.i = phi i32 [ %.0228277.i, %214 ], [ %.0228277.i, %102 ], [ %.0228277.i, %103 ], [ %.0228277.i, %107 ], [ %.0228277.i, %123 ], [ %155, %139 ], [ %.0228277.i, %175 ], [ %.0228277.i, %189 ], [ %.0228277.i, %203 ], [ %.0228277.i, %97 ]
+  %.2224.i = phi i32 [ %.1223278.i, %214 ], [ %.1223278.i, %102 ], [ %.1223278.i, %103 ], [ %.1223278.i, %107 ], [ %.1223278.i, %123 ], [ %spec.select.i, %139 ], [ %.1223278.i, %175 ], [ %.1223278.i, %189 ], [ %.1223278.i, %203 ], [ %.1223278.i, %97 ]
+  %.2221.i = phi ptr [ %.1220279.i, %214 ], [ %.1220279.i, %102 ], [ %.1220279.i, %103 ], [ %.1220279.i, %107 ], [ %.1220279.i, %123 ], [ %.1220279.i, %139 ], [ %.1220279.i, %175 ], [ %.1220279.i, %189 ], [ %205, %203 ], [ %.1220279.i, %97 ]
+  %.1218.i = phi i32 [ %.0217280.i, %214 ], [ %.0217280.i, %102 ], [ %.0217280.i, %103 ], [ %.0217280.i, %107 ], [ %.0217280.i, %123 ], [ %164, %139 ], [ %.0217280.i, %175 ], [ %.0217280.i, %189 ], [ %.0217280.i, %203 ], [ %.0217280.i, %97 ]
+  %.1216.i = phi i32 [ %.0215281.i, %214 ], [ %.0215281.i, %102 ], [ %.0215281.i, %103 ], [ %.0215281.i, %107 ], [ %.0215281.i, %123 ], [ %149, %139 ], [ %.0215281.i, %175 ], [ %.0215281.i, %189 ], [ %.0215281.i, %203 ], [ %.0215281.i, %97 ]
+  %.1214.i = phi i32 [ %215, %214 ], [ %98, %102 ], [ %98, %103 ], [ %119, %107 ], [ %135, %123 ], [ %171, %139 ], [ %185, %175 ], [ %199, %189 ], [ %206, %203 ], [ %98, %97 ]
+  %.3.i = phi i32 [ %.2283.i, %214 ], [ %.2283.i, %102 ], [ %.2283.i, %103 ], [ %.2283.i, %107 ], [ %.2283.i, %123 ], [ %.2283.i, %139 ], [ %.2283.i, %175 ], [ %.2283.i, %189 ], [ %.2283.i, %203 ], [ 1, %97 ]
+  %.1207.i = phi i64 [ %.0206284.i, %214 ], [ %.0206284.i, %102 ], [ %.0206284.i, %103 ], [ %.0206284.i, %107 ], [ %.0206284.i, %123 ], [ %.0206284.i, %139 ], [ %180, %175 ], [ %194, %189 ], [ %.0206284.i, %203 ], [ %.0206284.i, %97 ]
+  %.1.i = phi i64 [ %.0205285.i, %214 ], [ %.0205285.i, %102 ], [ %.0205285.i, %103 ], [ %.0205285.i, %107 ], [ %.0205285.i, %123 ], [ %.0205285.i, %139 ], [ %184, %175 ], [ %198, %189 ], [ %.0205285.i, %203 ], [ %.0205285.i, %97 ]
   %217 = icmp slt i32 %.1214.i, %.042
   br i1 %217, label %97, label %._crit_edge.i, !llvm.loop !48
 
@@ -1081,7 +1081,7 @@ yuv_a_to_rgba.exit:                               ; preds = %278, %guess_palette
   %410 = icmp eq ptr %.pr.i, null
   br i1 %410, label %decode_dvd_subtitles.exit.thread.thread, label %.preheader.i253.i
 
-.preheader.i253.i:                                ; preds = %269, %248, %245, %.thread261.i
+.preheader.i253.i:                                ; preds = %248, %245, %269, %.thread261.i
   %411 = load i32, ptr %66, align 4, !tbaa !50
   %.not12.i254.i = icmp eq i32 %411, 0
   br i1 %.not12.i254.i, label %._crit_edge.i258.i, label %.lr.ph.i255.i
@@ -1371,7 +1371,7 @@ is_transp.exit109.i:                              ; preds = %521
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %is_transp.exit109.i, %.critedge2.loopexit.i, %.preheader134.i
-  %.087144.i = phi i32 [ 0, %.preheader134.i ], [ %525, %.critedge2.loopexit.i ], [ 0, %is_transp.exit109.i ]
+  %.087144.i = phi i32 [ %525, %.critedge2.loopexit.i ], [ 0, %.preheader134.i ], [ 0, %is_transp.exit109.i ]
   %526 = add nsw i32 %467, -1
   %.not166.i = icmp eq i32 %467, 1
   br i1 %.not166.i, label %.critedge6.i, label %.lr.ph.i111.lr.ph.i
@@ -1516,7 +1516,7 @@ is_transp.exit123.i:                              ; preds = %547
   store i32 %582, ptr %580, align 4, !tbaa !62
   br label %find_smallest_bounding_rectangle.exit
 
-find_smallest_bounding_rectangle.exit.thread:     ; preds = %.critedge.i71.thread, %469, %464, %461, %459, %._crit_edge.i68, %.preheader138.i
+find_smallest_bounding_rectangle.exit.thread:     ; preds = %._crit_edge.i68, %459, %.critedge.i71.thread, %469, %464, %461, %.preheader138.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %441
 
@@ -1546,7 +1546,7 @@ find_smallest_bounding_rectangle.exit:            ; preds = %.critedge6.i, %._cr
   br label %594
 
 594:                                              ; preds = %28, %append_to_cached_buf.exit54, %decode_dvd_subtitles.exit.thread91, %593, %reset_rects.exit
-  %.1 = phi i32 [ %.042, %reset_rects.exit ], [ %.042, %593 ], [ -1094995529, %28 ], [ %.0.i53, %append_to_cached_buf.exit54 ], [ 0, %decode_dvd_subtitles.exit.thread91 ]
+  %.1 = phi i32 [ -1094995529, %28 ], [ %.042, %reset_rects.exit ], [ %.042, %593 ], [ %.0.i53, %append_to_cached_buf.exit54 ], [ 0, %decode_dvd_subtitles.exit.thread91 ]
   ret i32 %.1
 }
 
@@ -1785,8 +1785,8 @@ align_get_bits.exit.us:                           ; preds = %49
   br label %decode_run_8bit.exit
 
 decode_run_8bit.exit:                             ; preds = %113, %107, %.split
-  %.sroa.7.1 = phi i32 [ %86, %.split ], [ %116, %113 ], [ %110, %107 ]
-  %.036 = phi i32 [ 1, %.split ], [ %117, %113 ], [ %spec.select.i, %107 ]
+  %.sroa.7.1 = phi i32 [ %110, %107 ], [ %86, %.split ], [ %116, %113 ]
+  %.036 = phi i32 [ %spec.select.i, %107 ], [ 1, %.split ], [ %117, %113 ]
   %.not49 = icmp ne i32 %.036, 2147483647
   %118 = sub nsw i32 %2, %.03968
   %119 = icmp sgt i32 %.036, %118
@@ -1831,7 +1831,7 @@ align_get_bits.exit:                              ; preds = %129
   br i1 %137, label %.loopexit, label %.split
 
 .loopexit:                                        ; preds = %136, %decode_run_8bit.exit, %129, %55, %49, %decode_run_2bit.exit.us, %9
-  %.041 = phi i32 [ -1, %9 ], [ 0, %49 ], [ -1094995529, %decode_run_2bit.exit.us ], [ -1, %55 ], [ 0, %129 ], [ -1094995529, %decode_run_8bit.exit ], [ -1, %136 ]
+  %.041 = phi i32 [ -1, %9 ], [ -1, %55 ], [ 0, %49 ], [ -1094995529, %decode_run_2bit.exit.us ], [ 0, %129 ], [ -1094995529, %decode_run_8bit.exit ], [ -1, %136 ]
   ret i32 %.041
 }
 

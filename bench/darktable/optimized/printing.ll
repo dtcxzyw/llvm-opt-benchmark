@@ -128,8 +128,8 @@ define i32 @dt_printing_get_image_box(ptr noundef readonly captures(none) %0, i3
   br label %40
 
 40:                                               ; preds = %26, %23, %9
-  %.135 = phi nsz float [ %.236, %26 ], [ %.03447, %23 ], [ %.03447, %9 ]
-  %.1 = phi i32 [ %.2, %26 ], [ %.048, %23 ], [ %.048, %9 ]
+  %.135 = phi nsz float [ %.236, %26 ], [ %.03447, %9 ], [ %.03447, %23 ]
+  %.1 = phi i32 [ %.2, %26 ], [ %.048, %9 ], [ %.048, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9

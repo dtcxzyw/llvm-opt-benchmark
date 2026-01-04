@@ -2377,16 +2377,16 @@ thread-pre-split1000.thread:                      ; preds = %670, %thread-pre-sp
   br label %.thread963
 
 .thread963:                                       ; preds = %297, %901, %197, %227, %256, %132, %.thread918, %.thread923, %.thread928, %349, %.thread969, %.thread974, %.thread984, %.thread989, %.thread994, %900
-  %.1657 = phi i16 [ %.06561624, %901 ], [ %.06561624, %197 ], [ %.06561624, %227 ], [ %.06561624, %256 ], [ %.06561624, %900 ], [ %.06561624, %132 ], [ %.06561624, %.thread918 ], [ %.06561624, %.thread923 ], [ %.0.copyload223, %.thread928 ], [ %.06561624, %349 ], [ %.06561624, %.thread969 ], [ %.06561624, %.thread974 ], [ %.06561624, %.thread984 ], [ %.06561624, %.thread989 ], [ %.06561624, %.thread994 ], [ %.06561624, %297 ]
-  %.1633 = phi i64 [ %902, %901 ], [ %198, %197 ], [ %228, %227 ], [ %257, %256 ], [ %837, %900 ], [ %103, %132 ], [ %140, %.thread918 ], [ %152, %.thread923 ], [ %164, %.thread928 ], [ %350, %349 ], [ %358, %.thread969 ], [ %370, %.thread974 ], [ %387, %.thread984 ], [ %400, %.thread989 ], [ %413, %.thread994 ], [ %287, %297 ]
+  %.1657 = phi i16 [ %.06561624, %.thread923 ], [ %.0.copyload223, %.thread928 ], [ %.06561624, %197 ], [ %.06561624, %227 ], [ %.06561624, %256 ], [ %.06561624, %132 ], [ %.06561624, %.thread969 ], [ %.06561624, %.thread974 ], [ %.06561624, %.thread984 ], [ %.06561624, %.thread918 ], [ %.06561624, %.thread989 ], [ %.06561624, %.thread994 ], [ %.06561624, %349 ], [ %.06561624, %901 ], [ %.06561624, %900 ], [ %.06561624, %297 ]
+  %.1633 = phi i64 [ %152, %.thread923 ], [ %164, %.thread928 ], [ %198, %197 ], [ %228, %227 ], [ %257, %256 ], [ %103, %132 ], [ %358, %.thread969 ], [ %370, %.thread974 ], [ %387, %.thread984 ], [ %140, %.thread918 ], [ %400, %.thread989 ], [ %413, %.thread994 ], [ %350, %349 ], [ %902, %901 ], [ %837, %900 ], [ %287, %297 ]
   %903 = load i64, ptr %10, align 8, !tbaa !8
   %904 = icmp ult i64 %.1633, %903
   br i1 %904, label %80, label %.thread1055
 
-.thread1055:                                      ; preds = %.thread963, %98, %.preheader1101, %267, %290, %294, %300, %305, %285, %312, %315, %320, %331, %353, %348, %327, %569, %624, %660, %695, %691, %686, %683, %674, %656, %644, %637, %632, %629, %619, %607, %600, %595, %592, %583, %565, %553, %123, %119, %115, %111, %131, %135, %106, %.thread1048, %.thread1040, %.thread978, %442, %478, %533, %546, %541, %538, %528, %516, %509, %504, %501, %492, %474, %462, %455, %450, %447, %437, %425, %421, %410, %408, %397, %395, %379, %377, %367, %365, %355, %263, %255, %260, %238, %234, %226, %231, %208, %204, %196, %201, %179, %175, %172, %161, %159, %149, %147, %137, %100, %97, %90, %84, %79, %61, %54
-  %.0660 = phi ptr [ null, %54 ], [ null, %61 ], [ null, %79 ], [ %.9669.ph, %.thread1048 ], [ null, %.thread1040 ], [ null, %.thread978 ], [ null, %442 ], [ null, %478 ], [ null, %533 ], [ null, %546 ], [ null, %541 ], [ null, %538 ], [ null, %528 ], [ null, %516 ], [ null, %509 ], [ null, %504 ], [ null, %501 ], [ null, %492 ], [ null, %474 ], [ null, %462 ], [ null, %455 ], [ null, %450 ], [ null, %447 ], [ null, %437 ], [ null, %425 ], [ null, %421 ], [ null, %410 ], [ null, %408 ], [ null, %397 ], [ null, %395 ], [ null, %379 ], [ null, %377 ], [ null, %367 ], [ null, %365 ], [ null, %355 ], [ null, %263 ], [ null, %255 ], [ null, %260 ], [ null, %238 ], [ null, %234 ], [ null, %226 ], [ null, %231 ], [ null, %208 ], [ null, %204 ], [ null, %196 ], [ null, %201 ], [ null, %179 ], [ null, %175 ], [ null, %172 ], [ null, %161 ], [ null, %159 ], [ null, %149 ], [ null, %147 ], [ null, %137 ], [ null, %100 ], [ null, %97 ], [ null, %90 ], [ null, %84 ], [ null, %106 ], [ null, %135 ], [ null, %131 ], [ null, %111 ], [ null, %115 ], [ null, %119 ], [ null, %123 ], [ null, %553 ], [ null, %565 ], [ null, %583 ], [ null, %592 ], [ null, %595 ], [ null, %600 ], [ null, %607 ], [ null, %619 ], [ null, %629 ], [ null, %632 ], [ null, %637 ], [ null, %644 ], [ null, %656 ], [ null, %674 ], [ null, %683 ], [ null, %686 ], [ null, %691 ], [ null, %695 ], [ null, %660 ], [ null, %624 ], [ null, %569 ], [ null, %327 ], [ null, %348 ], [ null, %353 ], [ null, %331 ], [ null, %320 ], [ null, %315 ], [ null, %312 ], [ null, %285 ], [ null, %305 ], [ null, %300 ], [ null, %294 ], [ null, %290 ], [ null, %267 ], [ null, %.preheader1101 ], [ null, %98 ], [ null, %.thread963 ]
-  %.0645 = phi ptr [ null, %54 ], [ null, %61 ], [ null, %79 ], [ %845, %.thread1048 ], [ null, %.thread1040 ], [ null, %.thread978 ], [ null, %442 ], [ null, %478 ], [ null, %533 ], [ null, %546 ], [ null, %541 ], [ null, %538 ], [ null, %528 ], [ null, %516 ], [ null, %509 ], [ null, %504 ], [ null, %501 ], [ null, %492 ], [ null, %474 ], [ null, %462 ], [ null, %455 ], [ null, %450 ], [ null, %447 ], [ null, %437 ], [ null, %425 ], [ null, %421 ], [ null, %410 ], [ null, %408 ], [ null, %397 ], [ null, %395 ], [ null, %379 ], [ null, %377 ], [ null, %367 ], [ null, %365 ], [ null, %355 ], [ null, %263 ], [ null, %255 ], [ null, %260 ], [ null, %238 ], [ null, %234 ], [ null, %226 ], [ null, %231 ], [ null, %208 ], [ null, %204 ], [ null, %196 ], [ null, %201 ], [ null, %179 ], [ null, %175 ], [ null, %172 ], [ null, %161 ], [ null, %159 ], [ null, %149 ], [ null, %147 ], [ null, %137 ], [ null, %100 ], [ null, %97 ], [ null, %90 ], [ null, %84 ], [ null, %106 ], [ null, %135 ], [ null, %131 ], [ null, %111 ], [ null, %115 ], [ null, %119 ], [ null, %123 ], [ null, %553 ], [ null, %565 ], [ null, %583 ], [ null, %592 ], [ null, %595 ], [ null, %600 ], [ null, %607 ], [ null, %619 ], [ null, %629 ], [ null, %632 ], [ null, %637 ], [ null, %644 ], [ null, %656 ], [ null, %674 ], [ null, %683 ], [ null, %686 ], [ null, %691 ], [ null, %695 ], [ null, %660 ], [ null, %624 ], [ null, %569 ], [ null, %327 ], [ null, %348 ], [ null, %353 ], [ null, %331 ], [ null, %320 ], [ null, %315 ], [ null, %312 ], [ null, %285 ], [ null, %305 ], [ null, %300 ], [ null, %294 ], [ null, %290 ], [ null, %267 ], [ null, %.preheader1101 ], [ null, %98 ], [ null, %.thread963 ]
-  %.0627 = phi i32 [ 3, %54 ], [ %60, %61 ], [ 14, %79 ], [ %.28.ph, %.thread1048 ], [ %.25.ph, %.thread1040 ], [ 12, %.thread978 ], [ 14, %442 ], [ 14, %478 ], [ 14, %533 ], [ 14, %546 ], [ 12, %541 ], [ 12, %538 ], [ 14, %528 ], [ 12, %516 ], [ 14, %509 ], [ 12, %504 ], [ 12, %501 ], [ 14, %492 ], [ 14, %474 ], [ 12, %462 ], [ 14, %455 ], [ 12, %450 ], [ 12, %447 ], [ 14, %437 ], [ 14, %425 ], [ 14, %421 ], [ 12, %410 ], [ 14, %408 ], [ 12, %397 ], [ 14, %395 ], [ 12, %379 ], [ 14, %377 ], [ 12, %367 ], [ 14, %365 ], [ 12, %355 ], [ 12, %263 ], [ 14, %255 ], [ 14, %260 ], [ 14, %238 ], [ 12, %234 ], [ 14, %226 ], [ 14, %231 ], [ 14, %208 ], [ 12, %204 ], [ 14, %196 ], [ 14, %201 ], [ 14, %179 ], [ 12, %175 ], [ 14, %172 ], [ 12, %161 ], [ 14, %159 ], [ 12, %149 ], [ 14, %147 ], [ 12, %137 ], [ 12, %100 ], [ 12, %97 ], [ 12, %90 ], [ 12, %84 ], [ 14, %106 ], [ 14, %135 ], [ 14, %131 ], [ 14, %111 ], [ 14, %115 ], [ 14, %119 ], [ 14, %123 ], [ 12, %553 ], [ 14, %565 ], [ 14, %583 ], [ 12, %592 ], [ 12, %595 ], [ 14, %600 ], [ 12, %607 ], [ 14, %619 ], [ 12, %629 ], [ 12, %632 ], [ 14, %637 ], [ 12, %644 ], [ 14, %656 ], [ 14, %674 ], [ 12, %683 ], [ 12, %686 ], [ 12, %691 ], [ 12, %695 ], [ 14, %660 ], [ 14, %624 ], [ 14, %569 ], [ 14, %327 ], [ 14, %348 ], [ 14, %353 ], [ 14, %331 ], [ 14, %320 ], [ 12, %315 ], [ 12, %312 ], [ 14, %285 ], [ 12, %305 ], [ 14, %300 ], [ 12, %294 ], [ 14, %290 ], [ 14, %267 ], [ 0, %.preheader1101 ], [ 0, %98 ], [ 0, %.thread963 ]
+.thread1055:                                      ; preds = %.thread963, %98, %.preheader1101, %267, %290, %294, %300, %285, %305, %312, %315, %320, %331, %353, %327, %348, %569, %624, %660, %695, %691, %686, %683, %674, %656, %644, %637, %632, %629, %619, %607, %600, %595, %592, %583, %565, %553, %119, %115, %111, %131, %123, %135, %106, %.thread978, %442, %478, %533, %.thread1048, %546, %541, %538, %528, %516, %509, %504, %501, %492, %474, %462, %455, %450, %447, %437, %425, %421, %410, %408, %397, %395, %379, %377, %367, %365, %355, %263, %255, %260, %238, %234, %226, %231, %208, %204, %196, %201, %179, %175, %172, %161, %159, %149, %147, %137, %100, %.thread1040, %97, %90, %84, %79, %61, %54
+  %.0660 = phi ptr [ null, %290 ], [ null, %54 ], [ null, %61 ], [ null, %79 ], [ null, %569 ], [ null, %119 ], [ null, %.thread978 ], [ null, %267 ], [ null, %442 ], [ null, %478 ], [ null, %533 ], [ %.9669.ph, %.thread1048 ], [ null, %546 ], [ null, %541 ], [ null, %538 ], [ null, %528 ], [ null, %516 ], [ null, %509 ], [ null, %504 ], [ null, %501 ], [ null, %492 ], [ null, %474 ], [ null, %462 ], [ null, %455 ], [ null, %450 ], [ null, %447 ], [ null, %437 ], [ null, %425 ], [ null, %421 ], [ null, %410 ], [ null, %408 ], [ null, %397 ], [ null, %395 ], [ null, %379 ], [ null, %377 ], [ null, %367 ], [ null, %365 ], [ null, %355 ], [ null, %263 ], [ null, %255 ], [ null, %260 ], [ null, %238 ], [ null, %234 ], [ null, %226 ], [ null, %231 ], [ null, %208 ], [ null, %204 ], [ null, %196 ], [ null, %201 ], [ null, %179 ], [ null, %175 ], [ null, %172 ], [ null, %161 ], [ null, %159 ], [ null, %149 ], [ null, %147 ], [ null, %137 ], [ null, %84 ], [ null, %100 ], [ null, %.thread1040 ], [ null, %97 ], [ null, %90 ], [ null, %106 ], [ null, %135 ], [ null, %123 ], [ null, %131 ], [ null, %111 ], [ null, %115 ], [ null, %553 ], [ null, %565 ], [ null, %583 ], [ null, %592 ], [ null, %595 ], [ null, %600 ], [ null, %607 ], [ null, %619 ], [ null, %629 ], [ null, %632 ], [ null, %637 ], [ null, %644 ], [ null, %656 ], [ null, %674 ], [ null, %683 ], [ null, %686 ], [ null, %691 ], [ null, %695 ], [ null, %660 ], [ null, %624 ], [ null, %348 ], [ null, %327 ], [ null, %353 ], [ null, %331 ], [ null, %320 ], [ null, %315 ], [ null, %312 ], [ null, %305 ], [ null, %285 ], [ null, %300 ], [ null, %294 ], [ null, %.preheader1101 ], [ null, %98 ], [ null, %.thread963 ]
+  %.0645 = phi ptr [ null, %290 ], [ null, %54 ], [ null, %61 ], [ null, %79 ], [ null, %569 ], [ null, %119 ], [ null, %.thread978 ], [ null, %267 ], [ null, %442 ], [ null, %478 ], [ null, %533 ], [ %845, %.thread1048 ], [ null, %546 ], [ null, %541 ], [ null, %538 ], [ null, %528 ], [ null, %516 ], [ null, %509 ], [ null, %504 ], [ null, %501 ], [ null, %492 ], [ null, %474 ], [ null, %462 ], [ null, %455 ], [ null, %450 ], [ null, %447 ], [ null, %437 ], [ null, %425 ], [ null, %421 ], [ null, %410 ], [ null, %408 ], [ null, %397 ], [ null, %395 ], [ null, %379 ], [ null, %377 ], [ null, %367 ], [ null, %365 ], [ null, %355 ], [ null, %263 ], [ null, %255 ], [ null, %260 ], [ null, %238 ], [ null, %234 ], [ null, %226 ], [ null, %231 ], [ null, %208 ], [ null, %204 ], [ null, %196 ], [ null, %201 ], [ null, %179 ], [ null, %175 ], [ null, %172 ], [ null, %161 ], [ null, %159 ], [ null, %149 ], [ null, %147 ], [ null, %137 ], [ null, %84 ], [ null, %100 ], [ null, %.thread1040 ], [ null, %97 ], [ null, %90 ], [ null, %106 ], [ null, %135 ], [ null, %123 ], [ null, %131 ], [ null, %111 ], [ null, %115 ], [ null, %553 ], [ null, %565 ], [ null, %583 ], [ null, %592 ], [ null, %595 ], [ null, %600 ], [ null, %607 ], [ null, %619 ], [ null, %629 ], [ null, %632 ], [ null, %637 ], [ null, %644 ], [ null, %656 ], [ null, %674 ], [ null, %683 ], [ null, %686 ], [ null, %691 ], [ null, %695 ], [ null, %660 ], [ null, %624 ], [ null, %348 ], [ null, %327 ], [ null, %353 ], [ null, %331 ], [ null, %320 ], [ null, %315 ], [ null, %312 ], [ null, %305 ], [ null, %285 ], [ null, %300 ], [ null, %294 ], [ null, %.preheader1101 ], [ null, %98 ], [ null, %.thread963 ]
+  %.0627 = phi i32 [ 14, %290 ], [ 3, %54 ], [ %60, %61 ], [ 14, %79 ], [ 14, %569 ], [ 14, %119 ], [ 12, %.thread978 ], [ 14, %267 ], [ 14, %442 ], [ 14, %478 ], [ 14, %533 ], [ %.28.ph, %.thread1048 ], [ 14, %546 ], [ 12, %541 ], [ 12, %538 ], [ 14, %528 ], [ 12, %516 ], [ 14, %509 ], [ 12, %504 ], [ 12, %501 ], [ 14, %492 ], [ 14, %474 ], [ 12, %462 ], [ 14, %455 ], [ 12, %450 ], [ 12, %447 ], [ 14, %437 ], [ 14, %425 ], [ 14, %421 ], [ 12, %410 ], [ 14, %408 ], [ 12, %397 ], [ 14, %395 ], [ 12, %379 ], [ 14, %377 ], [ 12, %367 ], [ 14, %365 ], [ 12, %355 ], [ 12, %263 ], [ 14, %255 ], [ 14, %260 ], [ 14, %238 ], [ 12, %234 ], [ 14, %226 ], [ 14, %231 ], [ 14, %208 ], [ 12, %204 ], [ 14, %196 ], [ 14, %201 ], [ 14, %179 ], [ 12, %175 ], [ 14, %172 ], [ 12, %161 ], [ 14, %159 ], [ 12, %149 ], [ 14, %147 ], [ 12, %137 ], [ 12, %84 ], [ 12, %100 ], [ %.25.ph, %.thread1040 ], [ 12, %97 ], [ 12, %90 ], [ 14, %106 ], [ 14, %135 ], [ 14, %123 ], [ 14, %131 ], [ 14, %111 ], [ 14, %115 ], [ 12, %553 ], [ 14, %565 ], [ 14, %583 ], [ 12, %592 ], [ 12, %595 ], [ 14, %600 ], [ 12, %607 ], [ 14, %619 ], [ 12, %629 ], [ 12, %632 ], [ 14, %637 ], [ 12, %644 ], [ 14, %656 ], [ 14, %674 ], [ 12, %683 ], [ 12, %686 ], [ 12, %691 ], [ 12, %695 ], [ 14, %660 ], [ 14, %624 ], [ 14, %348 ], [ 14, %327 ], [ 14, %353 ], [ 14, %331 ], [ 14, %320 ], [ 12, %315 ], [ 12, %312 ], [ 12, %305 ], [ 14, %285 ], [ 14, %300 ], [ 12, %294 ], [ 0, %.preheader1101 ], [ 0, %98 ], [ 0, %.thread963 ]
   %905 = icmp sgt i32 %49, -1
   br i1 %905, label %906, label %908
 
@@ -2465,7 +2465,7 @@ thread-pre-split1000.thread:                      ; preds = %670, %thread-pre-sp
   br label %928
 
 928:                                              ; preds = %925, %927, %8
-  %.0 = phi i32 [ 3, %8 ], [ %.06271070107710861092, %927 ], [ %.06271070107710861092, %925 ]
+  %.0 = phi i32 [ %.06271070107710861092, %925 ], [ 3, %8 ], [ %.06271070107710861092, %927 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -2654,7 +2654,7 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   %94 = call i32 @blobAddData(ptr noundef nonnull %9, ptr noundef nonnull %6, i64 noundef 4096) #16
   br label %.loopexit140
 
-.loopexit:                                        ; preds = %69, %87, %62
+.loopexit:                                        ; preds = %69, %62, %87
   %.681.ph = phi i32 [ %68, %62 ], [ %spec.select, %87 ], [ %76, %69 ]
   %95 = shl nuw nsw i32 %.086150, 1
   %96 = icmp samesign ult i32 %.086150, 128
@@ -2700,8 +2700,8 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   %109 = call ptr @blobToMem(ptr noundef nonnull %9) #16
   br label %.thread129
 
-.thread129:                                       ; preds = %24, %25, %85, %86, %103, %104, %8, %3, %108
-  %.072 = phi ptr [ %109, %108 ], [ null, %3 ], [ null, %8 ], [ null, %104 ], [ null, %103 ], [ null, %86 ], [ null, %85 ], [ null, %25 ], [ null, %24 ]
+.thread129:                                       ; preds = %25, %24, %86, %85, %103, %104, %8, %3, %108
+  %.072 = phi ptr [ %109, %108 ], [ null, %3 ], [ null, %103 ], [ null, %8 ], [ null, %104 ], [ null, %85 ], [ null, %86 ], [ null, %24 ], [ null, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3300,7 +3300,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %198, label %123, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %133, %183, %178, %173, %165, %160, %123, %144, %159, %152, %143, %130
-  %.1.ph = phi ptr [ %.3, %159 ], [ %.3, %152 ], [ %.3, %143 ], [ %.0108239, %130 ], [ %.0108239, %133 ], [ %.3, %144 ], [ %.0108239, %123 ], [ %.3, %160 ], [ %.3, %165 ], [ %.3, %173 ], [ %.3, %178 ], [ %.3, %183 ]
+  %.1.ph = phi ptr [ %.3, %152 ], [ %.0108239, %130 ], [ %.3, %143 ], [ %.3, %159 ], [ %.0108239, %133 ], [ %.3, %144 ], [ %.0108239, %123 ], [ %.3, %160 ], [ %.3, %165 ], [ %.3, %173 ], [ %.3, %183 ], [ %.3, %178 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
@@ -3316,7 +3316,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %199, %.loopexit
-  %.0115235271 = phi i32 [ %.0115235, %199 ], [ %.0115235, %.loopexit ], [ 0, %.preheader ]
+  %.0115235271 = phi i32 [ %.0115235, %.loopexit ], [ %.0115235, %199 ], [ 0, %.preheader ]
   %200 = call i32 @close(i32 noundef %24) #16
   %201 = load i16, ptr %4, align 2, !tbaa !48
   %202 = zext i16 %201 to i32
@@ -3339,7 +3339,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %212
 
 212:                                              ; preds = %.loopexit.thread, %20, %17, %3, %204, %121, %113, %109, %101, %97, %88, %84, %76, %72, %65, %59, %54, %48, %42, %37, %31, %28, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %28 ], [ null, %31 ], [ null, %37 ], [ null, %42 ], [ null, %54 ], [ null, %59 ], [ null, %72 ], [ null, %84 ], [ null, %97 ], [ null, %109 ], [ null, %113 ], [ null, %121 ], [ null, %204 ], [ null, %101 ], [ null, %88 ], [ null, %76 ], [ null, %65 ], [ null, %48 ], [ null, %3 ], [ null, %17 ], [ null, %20 ], [ %116, %.loopexit.thread ]
+  %.0 = phi ptr [ null, %48 ], [ null, %16 ], [ null, %3 ], [ null, %17 ], [ null, %28 ], [ null, %31 ], [ null, %37 ], [ null, %42 ], [ null, %54 ], [ null, %59 ], [ null, %72 ], [ null, %84 ], [ null, %97 ], [ null, %109 ], [ null, %113 ], [ null, %121 ], [ null, %204 ], [ null, %20 ], [ null, %101 ], [ null, %88 ], [ null, %76 ], [ null, %65 ], [ %116, %.loopexit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3543,9 +3543,9 @@ vba56_test_middle.exit:                           ; preds = %67, %71, %.sink.spl
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.backedge
 
-read_uint16.exit.thread:                          ; preds = %57, %18, %6, %26, %56, %66, %15, %12, %36, %33
-  %.145.ph = phi i32 [ %.044, %33 ], [ 0, %36 ], [ %.044, %12 ], [ 0, %15 ], [ 0, %66 ], [ %.6, %56 ], [ 0, %26 ], [ %.044, %57 ], [ 0, %18 ], [ 0, %6 ]
-  %.1.ph = phi ptr [ %.2, %33 ], [ %.2, %36 ], [ %.0, %12 ], [ %.0, %15 ], [ %.2, %66 ], [ %.2, %56 ], [ %.2, %26 ], [ %.2, %57 ], [ %.0, %18 ], [ %.0, %6 ]
+read_uint16.exit.thread:                          ; preds = %57, %18, %6, %26, %12, %56, %66, %33, %15, %36
+  %.145.ph = phi i32 [ 0, %36 ], [ 0, %15 ], [ %.044, %12 ], [ %.044, %33 ], [ 0, %66 ], [ 0, %26 ], [ %.6, %56 ], [ %.044, %57 ], [ 0, %18 ], [ 0, %6 ]
+  %.1.ph = phi ptr [ %.2, %36 ], [ %.0, %15 ], [ %.0, %12 ], [ %.2, %33 ], [ %.2, %66 ], [ %.2, %26 ], [ %.2, %56 ], [ %.2, %57 ], [ %.0, %18 ], [ %.0, %6 ]
   call void @free(ptr noundef %.1.ph) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.145.ph
@@ -3776,7 +3776,7 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(addre
   br label %76
 
 76:                                               ; preds = %3, %5, %.thread._crit_edge, %15
-  %.0 = phi ptr [ null, %15 ], [ %75, %.thread._crit_edge ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ %75, %.thread._crit_edge ], [ null, %15 ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -3983,7 +3983,7 @@ ole_copy_file_data.exit:                          ; preds = %68, %69, %73
   br label %read_uint32.exit.thread
 
 read_uint32.exit.thread:                          ; preds = %54, %9, %skip_past_nul.exit48.thread, %skip_past_nul.exit.thread, %59, %52, %49, %skip_past_nul.exit48, %skip_past_nul.exit, %22, %12, %2, %87, %65
-  %.0 = phi i32 [ 9, %65 ], [ %77, %87 ], [ 0, %2 ], [ 11, %12 ], [ 0, %22 ], [ 0, %skip_past_nul.exit ], [ 0, %skip_past_nul.exit48 ], [ 0, %49 ], [ 0, %52 ], [ 20, %59 ], [ 0, %skip_past_nul.exit.thread ], [ 0, %skip_past_nul.exit48.thread ], [ 0, %9 ], [ 0, %54 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %skip_past_nul.exit48.thread ], [ 11, %12 ], [ 0, %skip_past_nul.exit48 ], [ 9, %65 ], [ %77, %87 ], [ 0, %9 ], [ 0, %52 ], [ 0, %49 ], [ 0, %skip_past_nul.exit ], [ 0, %22 ], [ 20, %59 ], [ 0, %skip_past_nul.exit.thread ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -4263,7 +4263,7 @@ ppt_stream_iter.exit.thread:                      ; preds = %25, %ppt_stream_ite
   br label %ppt_stream_iter.exit
 
 ppt_stream_iter.exit:                             ; preds = %94, %ppt_read_atom_header.exit.thread.i, %11, %ppt_stream_iter.exit.thread, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %ppt_stream_iter.exit.thread ], [ null, %11 ], [ %13, %ppt_read_atom_header.exit.thread.i ], [ %13, %94 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %17 ], [ null, %ppt_stream_iter.exit.thread ], [ %13, %ppt_read_atom_header.exit.thread.i ], [ %13, %94 ]
   ret ptr %.0
 }
 
@@ -4680,7 +4680,7 @@ read_uint16.exit22.i:                             ; preds = %.read_uint16.exit22
   br i1 %163, label %.lr.ph.split.i, label %word_skip_macro_extnames.exit
 
 .critedge.i:                                      ; preds = %153, %.lr.ph.split.i, %141, %.lr.ph.split.us.i
-  %.str.200.sink.i = phi ptr [ @.str.200, %141 ], [ @.str.198, %.lr.ph.split.us.i ], [ @.str.200, %153 ], [ @.str.198, %.lr.ph.split.i ]
+  %.str.200.sink.i = phi ptr [ @.str.198, %.lr.ph.split.us.i ], [ @.str.200, %141 ], [ @.str.198, %.lr.ph.split.i ], [ @.str.200, %153 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.200.sink.i) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %164
@@ -4689,7 +4689,7 @@ word_skip_macro_extnames.exit:                    ; preds = %159, %147, %read_ui
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %word_read_macro_info.exit
 
-164:                                              ; preds = %134, %129, %.critedge.i
+164:                                              ; preds = %.critedge.i, %129, %134
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %word_read_macro_info.exit.thread
 
@@ -4753,7 +4753,7 @@ word_skip_macro_intnames.exit:                    ; preds = %182, %168
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %word_read_macro_info.exit
 
-185:                                              ; preds = %167, %.critedge.i75
+185:                                              ; preds = %.critedge.i75, %167
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %word_read_macro_info.exit.thread
 
@@ -4762,7 +4762,7 @@ word_skip_macro_intnames.exit:                    ; preds = %182, %168
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.152, i32 noundef %187) #16
   br label %word_read_macro_info.exit.thread
 
-word_read_macro_info.exit.thread:                 ; preds = %36, %36, %186, %44, %45, %55, %56, %83, %84, %word_skip_oxo3.exit.thread90, %word_skip_oxo3.exit.thread, %.loopexit130, %164, %185
+word_read_macro_info.exit.thread:                 ; preds = %36, %36, %186, %word_skip_oxo3.exit.thread, %84, %44, %45, %55, %56, %83, %word_skip_oxo3.exit.thread90, %.loopexit130, %164, %185
   %188 = call i64 @lseek(i32 noundef %0, i64 noundef 0, i32 noundef 1) #16
   br label %.loopexit102
 
@@ -4869,13 +4869,13 @@ word_read_macro_info.exit:                        ; preds = %word_skip_macro_int
   br label %.loopexit
 
 .loopexit:                                        ; preds = %211, %207, %240, %193
-  %.039 = phi ptr [ null, %240 ], [ null, %193 ], [ %195, %207 ], [ %195, %211 ]
+  %.039 = phi ptr [ null, %193 ], [ null, %240 ], [ %195, %207 ], [ %195, %211 ]
   %241 = load ptr, ptr %11, align 8, !tbaa !80
   call void @free(ptr noundef %241) #16
   br label %242
 
 242:                                              ; preds = %word_read_fib.exit.thread, %.loopexit102, %.loopexit, %25, %20
-  %.040 = phi ptr [ null, %20 ], [ null, %25 ], [ %.039, %.loopexit ], [ null, %.loopexit102 ], [ null, %word_read_fib.exit.thread ]
+  %.040 = phi ptr [ null, %20 ], [ null, %25 ], [ null, %word_read_fib.exit.thread ], [ %.039, %.loopexit ], [ null, %.loopexit102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.040
@@ -4936,7 +4936,7 @@ seekandread.exit:                                 ; preds = %12
   br i1 %22, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %4, %16, %11
-  %.018 = phi ptr [ null, %11 ], [ null, %16 ], [ null, %4 ], [ %9, %17 ], [ %9, %.lr.ph ]
+  %.018 = phi ptr [ null, %16 ], [ null, %4 ], [ null, %11 ], [ %9, %17 ], [ %9, %.lr.ph ]
   ret ptr %.018
 }
 

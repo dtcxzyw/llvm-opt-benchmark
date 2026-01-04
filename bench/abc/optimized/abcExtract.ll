@@ -270,8 +270,8 @@ Vec_WrdPush.exit:
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge, %31, %._crit_edge29.i, %._crit_edge.i
-  %44 = phi i32 [ %.val84138, %._crit_edge.i ], [ %43, %._crit_edge29.i ], [ %.val84138, %31 ], [ %.val84138, %.critedge ]
-  %.171.in124.in = phi i64 [ %indvars.iv, %._crit_edge.i ], [ %indvars.iv, %._crit_edge29.i ], [ %indvars.iv, %31 ], [ %indvars.iv.next, %.critedge ]
+  %44 = phi i32 [ %.val84138, %31 ], [ %43, %._crit_edge29.i ], [ %.val84138, %._crit_edge.i ], [ %.val84138, %.critedge ]
+  %.171.in124.in = phi i64 [ %indvars.iv, %31 ], [ %indvars.iv, %._crit_edge29.i ], [ %indvars.iv, %._crit_edge.i ], [ %indvars.iv.next, %.critedge ]
   %45 = and i64 %.171.in124.in, 4294967295
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %137, label %47
@@ -603,8 +603,8 @@ Vec_WrdPush.exit:
   br i1 %54, label %22, label %.critedge2, !llvm.loop !63
 
 .critedge2:                                       ; preds = %.critedge, %41, %._crit_edge29.i, %._crit_edge.i
-  %55 = phi i32 [ %.val92155, %._crit_edge.i ], [ %53, %._crit_edge29.i ], [ %.val92155, %41 ], [ %.val92155, %.critedge ]
-  %.173.in137.in = phi i64 [ %indvars.iv, %._crit_edge.i ], [ %indvars.iv, %._crit_edge29.i ], [ %indvars.iv, %41 ], [ %indvars.iv.next, %.critedge ]
+  %55 = phi i32 [ %.val92155, %41 ], [ %53, %._crit_edge29.i ], [ %.val92155, %._crit_edge.i ], [ %.val92155, %.critedge ]
+  %.173.in137.in = phi i64 [ %indvars.iv, %41 ], [ %indvars.iv, %._crit_edge29.i ], [ %indvars.iv, %._crit_edge.i ], [ %indvars.iv.next, %.critedge ]
   %56 = and i64 %.173.in137.in, 4294967295
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %164, label %58
@@ -4481,7 +4481,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %221
   br label %Vec_IntStartFull.exit
 
 Vec_IntStartFull.exit:                            ; preds = %221, %Vec_IntAlloc.exit.i, %229
-  %232 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %228, %229 ], [ null, %221 ]
+  %232 = phi ptr [ %228, %229 ], [ null, %Vec_IntAlloc.exit.i ], [ null, %221 ]
   %233 = icmp sgt i32 %.val137, 0
   %.pre239 = load ptr, ptr %24, align 8, !tbaa !21
   br i1 %233, label %.lr.ph202, label %.critedge6

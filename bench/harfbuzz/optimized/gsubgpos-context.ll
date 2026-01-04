@@ -196,7 +196,7 @@ _ZN5graph5GSTAR12find_lookupsERNS_7graph_tER12hb_hashmap_tIjPNS_6LookupELb0EE.ex
   br label %_ZN5graph5GSTAR21get_lookup_list_indexERNS_7graph_tE.exit
 
 _ZN5graph5GSTAR21get_lookup_list_indexERNS_7graph_tE.exit: ; preds = %61, %_ZN5graph5GSTAR12find_lookupsERNS_7graph_tER12hb_hashmap_tIjPNS_6LookupELb0EE.exit.thread, %53, %56, %.thread.i.i
-  %.0.i.i = phi i32 [ -1, %53 ], [ -1, %_ZN5graph5GSTAR12find_lookupsERNS_7graph_tER12hb_hashmap_tIjPNS_6LookupELb0EE.exit.thread ], [ %69, %.thread.i.i ], [ -1, %56 ], [ -1, %61 ]
+  %.0.i.i = phi i32 [ -1, %_ZN5graph5GSTAR12find_lookupsERNS_7graph_tER12hb_hashmap_tIjPNS_6LookupELb0EE.exit.thread ], [ -1, %53 ], [ %69, %.thread.i.i ], [ -1, %56 ], [ -1, %61 ]
   store i32 %.0.i.i, ptr %5, align 8, !tbaa !23
   br label %_ZN5graph5GSTAR14graph_to_gstarERNS_7graph_tE.exit.thread
 
@@ -294,8 +294,8 @@ _ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit.thread9: ; preds = %._ZN
   br label %42
 
 _ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit: ; preds = %._ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit_crit_edge, %5
-  %33 = phi i32 [ %.pre11, %._ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit_crit_edge ], [ %10, %5 ]
-  %34 = phi i32 [ %27, %._ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit_crit_edge ], [ %11, %5 ]
+  %33 = phi i32 [ %10, %5 ], [ %.pre11, %._ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit_crit_edge ]
+  %34 = phi i32 [ %11, %5 ], [ %27, %._ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit_crit_edge ]
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %36 = load ptr, ptr %35, align 8, !tbaa !62
   %37 = add i32 %33, 1
@@ -515,7 +515,7 @@ _ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEERS6_E
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEERS6_EppEv.exit.i.us.i.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEEMS8_KFbvERK3$_8LPv0EEMS8_FRS6_vEL24hb_function_sortedness_t0ELSF_0EERK3$_9LSK_0ELSF_0EES6_EppEv.exit", %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEEMS8_KFbvERK3$_8LPv0EEMS8_FRS6_vEL24hb_function_sortedness_t0ELSF_0EERK3$_9LSK_0ELSF_0EES6_EppEv.exit" ], [ 0, %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEERS6_EppEv.exit.i.us.i.i.i.i.i ]
+  %.0.lcssa = phi i32 [ %.1, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEEMS8_KFbvERK3$_8LPv0EEMS8_FRS6_vEL24hb_function_sortedness_t0ELSF_0EERK3$_9LSK_0ELSF_0EES6_EppEv.exit" ], [ 0, %1 ], [ 0, %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEERS6_EppEv.exit.i.us.i.i.i.i.i ]
   ret i32 %.0.lcssa
 
 .lr.ph:                                           ; preds = %"_ZNK9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEEMS8_KFbvERK3$_8LPv0EEMS8_FRS6_vEL24hb_function_sortedness_t0ELSF_0EERK3$_9LSK_0ELSF_0EES6_E3endEv.exit", %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEEMS8_KFbvERK3$_8LPv0EEMS8_FRS6_vEL24hb_function_sortedness_t0ELSF_0EERK3$_9LSK_0ELSF_0EES6_EppEv.exit"
@@ -650,7 +650,7 @@ define linkonce_odr dso_local void @_ZN5graph5GSTAR12find_lookupsIN2OT6Layout10S
   br label %_ZN5graph5GSTAR21get_lookup_list_indexERNS_7graph_tE.exit
 
 _ZN5graph5GSTAR21get_lookup_list_indexERNS_7graph_tE.exit: ; preds = %25, %3, %17, %20, %.thread.i.i
-  %.0.i.i = phi i32 [ -1, %17 ], [ -1, %3 ], [ %33, %.thread.i.i ], [ -1, %20 ], [ -1, %25 ]
+  %.0.i.i = phi i32 [ -1, %3 ], [ -1, %17 ], [ %33, %.thread.i.i ], [ -1, %20 ], [ -1, %25 ]
   %.not.i.i20 = icmp ult i32 %.0.i.i, %7
   %34 = zext i32 %.0.i.i to i64
   %35 = getelementptr inbounds nuw %"struct.graph::graph_t::vertex_t", ptr %12, i64 %34
@@ -744,7 +744,7 @@ _ZNK5graph10LookupListIN2OT6Layout10SmallTypesEE8sanitizeERKNS_7graph_t8vertex_t
   br label %_ZNK5graph7graph_t16index_for_offsetEjPKv.exit
 
 _ZNK5graph7graph_t16index_for_offsetEjPKv.exit:   ; preds = %66, %51, %58, %61, %.thread.i
-  %.0.i24 = phi i32 [ -1, %58 ], [ -1, %51 ], [ %74, %.thread.i ], [ -1, %61 ], [ -1, %66 ]
+  %.0.i24 = phi i32 [ -1, %51 ], [ -1, %58 ], [ %74, %.thread.i ], [ -1, %61 ], [ -1, %66 ]
   store i32 %.0.i24, ptr %4, align 4, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i.i25 = icmp ult i32 %.0.i24, %53
@@ -894,8 +894,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6Lo
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge
-  %.0293962 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
-  %50 = phi i32 [ %21, %.critedge ], [ %spec.select68, %.loopexit ]
+  %.0293962 = phi i32 [ %.02939, %.loopexit ], [ 0, %.critedge ]
+  %50 = phi i32 [ %spec.select68, %.loopexit ], [ %21, %.critedge ]
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, graph::Lookup *>::item_t", ptr %23, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -950,7 +950,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6Lo
   br label %86
 
 86:                                               ; preds = %36, %83, %79, %64, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %36 ], [ true, %83 ], [ true, %79 ], [ true, %64 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %5 ], [ false, %36 ], [ true, %83 ], [ true, %79 ], [ true, %64 ]
   ret i1 %.0
 }
 
@@ -1067,7 +1067,7 @@ _ZN12hb_hashmap_tIjPN5graph6LookupELb0EE9prime_forEj.exit: ; preds = %_ZL9hb_mem
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !107
 
 52:                                               ; preds = %23, %._crit_edge, %7, %2
-  %.022 = phi i1 [ false, %2 ], [ true, %7 ], [ true, %._crit_edge ], [ false, %23 ]
+  %.022 = phi i1 [ true, %7 ], [ false, %2 ], [ true, %._crit_edge ], [ false, %23 ]
   ret i1 %.022
 }
 
@@ -1155,8 +1155,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6Lo
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge
-  %.0293962 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
-  %50 = phi i32 [ %21, %.critedge ], [ %spec.select68, %.loopexit ]
+  %.0293962 = phi i32 [ %.02939, %.loopexit ], [ 0, %.critedge ]
+  %50 = phi i32 [ %spec.select68, %.loopexit ], [ %21, %.critedge ]
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, graph::Lookup *>::item_t", ptr %23, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -1211,7 +1211,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6Lo
   br label %86
 
 86:                                               ; preds = %36, %83, %79, %64, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %36 ], [ true, %83 ], [ true, %79 ], [ true, %64 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %5 ], [ false, %36 ], [ true, %83 ], [ true, %79 ], [ true, %64 ]
   ret i1 %.0
 }
 
@@ -1556,7 +1556,7 @@ _ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE11grow_vectorIS2_TnPN12hb_enable_
   br label %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit.thread18
 
 _ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit.thread18: ; preds = %4, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit.thread21, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE11grow_vectorIS2_TnPN12hb_enable_ifIXntsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit
-  %.0.i16 = phi i1 [ true, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE11grow_vectorIS2_TnPN12hb_enable_ifIXntsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit ], [ false, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit.thread21 ], [ false, %4 ]
+  %.0.i16 = phi i1 [ false, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE5allocEjb.exit.thread21 ], [ true, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE11grow_vectorIS2_TnPN12hb_enable_ifIXntsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit ], [ false, %4 ]
   ret i1 %.0.i16
 }
 
@@ -2157,8 +2157,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb0EE13set
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge
-  %.0293962 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
-  %50 = phi i32 [ %21, %.critedge ], [ %spec.select68, %.loopexit ]
+  %.0293962 = phi i32 [ %.02939, %.loopexit ], [ 0, %.critedge ]
+  %50 = phi i32 [ %spec.select68, %.loopexit ], [ %21, %.critedge ]
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int>::item_t", ptr %23, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -2213,7 +2213,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb0EE13set
   br label %86
 
 86:                                               ; preds = %36, %83, %79, %64, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %36 ], [ true, %83 ], [ true, %79 ], [ true, %64 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %5 ], [ false, %36 ], [ true, %83 ], [ true, %79 ], [ true, %64 ]
   ret i1 %.0
 }
 
@@ -2328,7 +2328,7 @@ _ZN12hb_hashmap_tIjjLb0EE9prime_forEj.exit:       ; preds = %_ZL9hb_memsetPvij.e
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !156
 
 49:                                               ; preds = %22, %._crit_edge, %7, %2
-  %.022 = phi i1 [ false, %2 ], [ true, %7 ], [ true, %._crit_edge ], [ false, %22 ]
+  %.022 = phi i1 [ true, %7 ], [ false, %2 ], [ true, %._crit_edge ], [ false, %22 ]
   ret i1 %.022
 }
 
@@ -2413,8 +2413,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb0EE13set
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge
-  %.0293962 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
-  %50 = phi i32 [ %21, %.critedge ], [ %spec.select68, %.loopexit ]
+  %.0293962 = phi i32 [ %.02939, %.loopexit ], [ 0, %.critedge ]
+  %50 = phi i32 [ %spec.select68, %.loopexit ], [ %21, %.critedge ]
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int>::item_t", ptr %23, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -2469,7 +2469,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb0EE13set
   br label %86
 
 86:                                               ; preds = %36, %83, %79, %64, %16, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %16 ], [ false, %36 ], [ true, %83 ], [ true, %79 ], [ true, %64 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %5 ], [ false, %36 ], [ true, %83 ], [ true, %79 ], [ true, %64 ]
   ret i1 %.0
 }
 

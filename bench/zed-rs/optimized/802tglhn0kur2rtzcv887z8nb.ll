@@ -1378,7 +1378,7 @@ define hidden void @_ZN4gpui8elements4text15InteractiveText8on_click17h97f146c8c
           to label %63 unwind label %61
 
 54:                                               ; preds = %.body7, %16, %12
-  %.pn.ph = phi { ptr, i32 } [ %38, %.body7 ], [ %13, %12 ], [ %13, %16 ]
+  %.pn.ph = phi { ptr, i32 } [ %38, %.body7 ], [ %13, %16 ], [ %13, %12 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !318)
   call void @llvm.experimental.noalias.scope.decl(metadata !321)
   call void @llvm.experimental.noalias.scope.decl(metadata !324)

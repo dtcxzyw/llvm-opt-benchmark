@@ -1038,7 +1038,7 @@ define range(i32 0, 2) i32 @If_LibLutDelaysAreDifferent(ptr noundef readonly cap
   br i1 %21, label %.loopexit, label %18
 
 .loopexit:                                        ; preds = %17, %13, %.lr.ph, %18, %.preheader24, %.preheader
-  %.0 = phi i32 [ 0, %.preheader ], [ 0, %.preheader24 ], [ 1, %.lr.ph ], [ 0, %18 ], [ 1, %13 ], [ 0, %17 ]
+  %.0 = phi i32 [ 1, %13 ], [ 0, %18 ], [ 0, %.preheader24 ], [ 0, %.preheader ], [ 1, %.lr.ph ], [ 0, %17 ]
   ret i32 %.0
 }
 

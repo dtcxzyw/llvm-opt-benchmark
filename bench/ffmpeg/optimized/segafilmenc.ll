@@ -406,7 +406,7 @@ get_audio_codec_id.exit:                          ; preds = %17
   br label %.critedge
 
 .critedge:                                        ; preds = %28, %24, %get_audio_codec_id.exit, %34, %37, %.critedge37.thread
-  %.3 = phi i32 [ -22, %.critedge37.thread ], [ 0, %37 ], [ %35, %34 ], [ -22, %get_audio_codec_id.exit ], [ -22, %24 ], [ -22, %28 ]
+  %.3 = phi i32 [ -22, %.critedge37.thread ], [ %35, %34 ], [ 0, %37 ], [ -22, %get_audio_codec_id.exit ], [ -22, %24 ], [ -22, %28 ]
   ret i32 %.3
 }
 

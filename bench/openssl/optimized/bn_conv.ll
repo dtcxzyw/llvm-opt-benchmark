@@ -227,7 +227,7 @@ define ptr @BN_bn2dec(ptr noundef %0) local_unnamed_addr #0 {
   br label %62
 
 .critedge:                                        ; preds = %36, %32, %52, %._crit_edge, %18, %1
-  %.052.ph = phi ptr [ %19, %._crit_edge ], [ null, %18 ], [ null, %1 ], [ %19, %52 ], [ %19, %32 ], [ %19, %36 ]
+  %.052.ph = phi ptr [ %19, %._crit_edge ], [ null, %18 ], [ %19, %52 ], [ null, %1 ], [ %19, %32 ], [ %19, %36 ]
   tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str.1, i32 noundef 110) #3
   tail call void @BN_free(ptr noundef %.052.ph) #3
   tail call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str.1, i32 noundef 114) #3
@@ -399,7 +399,7 @@ bn_expand.exit.thread:                            ; preds = %29, %bn_expand.exit
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %14, %bn_expand.exit.thread, %59, %51, %55, %22, %16, %.critedge, %4, %2, %27
-  %.0 = phi i32 [ 0, %27 ], [ 0, %4 ], [ 0, %2 ], [ 0, %.critedge ], [ %17, %16 ], [ 0, %22 ], [ %17, %55 ], [ %17, %51 ], [ 0, %59 ], [ 0, %bn_expand.exit.thread ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %2 ], [ 0, %.critedge ], [ %17, %16 ], [ %17, %51 ], [ 0, %22 ], [ 0, %4 ], [ %17, %55 ], [ 0, %59 ], [ 0, %bn_expand.exit.thread ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -552,7 +552,7 @@ bn_expand.exit.thread62:                          ; preds = %28, %bn_expand.exit
   br label %63
 
 .critedge.thread:                                 ; preds = %14, %49, %51, %26, %bn_expand.exit, %.critedge
-  %.046 = phi ptr [ null, %.critedge ], [ %.147, %bn_expand.exit ], [ %.147, %26 ], [ %.147, %51 ], [ %.147, %49 ], [ null, %14 ]
+  %.046 = phi ptr [ null, %.critedge ], [ %.147, %bn_expand.exit ], [ %.147, %49 ], [ %.147, %26 ], [ %.147, %51 ], [ null, %14 ]
   %60 = load ptr, ptr %0, align 8, !tbaa !21
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %63
@@ -562,7 +562,7 @@ bn_expand.exit.thread62:                          ; preds = %28, %bn_expand.exit
   br label %63
 
 63:                                               ; preds = %.critedge.thread, %62, %55, %58, %22, %16, %4, %2
-  %.0 = phi i32 [ 0, %4 ], [ 0, %2 ], [ %17, %16 ], [ 0, %22 ], [ %17, %58 ], [ %17, %55 ], [ 0, %62 ], [ 0, %.critedge.thread ]
+  %.0 = phi i32 [ 0, %22 ], [ %17, %55 ], [ 0, %2 ], [ %17, %16 ], [ 0, %4 ], [ %17, %58 ], [ 0, %62 ], [ 0, %.critedge.thread ]
   ret i32 %.0
 }
 
@@ -619,7 +619,7 @@ define range(i32 0, 2) i32 @BN_asc2bn(ptr noundef captures(address_is_null) %0, 
   br label %24
 
 24:                                               ; preds = %15, %18, %22, %13, %10
-  %.013 = phi i32 [ 0, %10 ], [ 0, %13 ], [ 1, %22 ], [ 1, %18 ], [ 1, %15 ]
+  %.013 = phi i32 [ 0, %13 ], [ 0, %10 ], [ 1, %22 ], [ 1, %18 ], [ 1, %15 ]
   ret i32 %.013
 }
 

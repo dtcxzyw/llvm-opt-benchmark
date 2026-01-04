@@ -71,7 +71,7 @@ define dso_local range(i32 0, 2) i32 @p_test_init(ptr noundef %0, ptr noundef %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %11, %10, %9, %8, %7
-  %c_gettable_params.sink = phi ptr [ @c_get_params, %7 ], [ @c_new_error, %8 ], [ @c_set_error_debug, %9 ], [ @c_vset_error, %10 ], [ @c_BIO_vsnprintf, %11 ], [ @c_gettable_params, %5 ]
+  %c_gettable_params.sink = phi ptr [ @c_BIO_vsnprintf, %11 ], [ @c_get_params, %7 ], [ @c_new_error, %8 ], [ @c_set_error_debug, %9 ], [ @c_vset_error, %10 ], [ @c_gettable_params, %5 ]
   %12 = getelementptr i8, ptr %.033, i64 8
   %.033.val = load ptr, ptr %12, align 8, !tbaa !10
   store ptr %.033.val, ptr %c_gettable_params.sink, align 8, !tbaa !11
@@ -128,7 +128,7 @@ define dso_local range(i32 0, 2) i32 @p_test_init(ptr noundef %0, ptr noundef %1
   br label %30
 
 30:                                               ; preds = %29, %15, %.critedge, %26
-  %.0 = phi i32 [ 0, %26 ], [ 1, %.critedge ], [ 0, %29 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %29 ], [ 0, %26 ], [ 1, %.critedge ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -331,8 +331,8 @@ define internal range(i32 0, 2) i32 @p_get_params(ptr noundef readonly captures(
   br label %74
 
 74:                                               ; preds = %.thread, %72, %68, %70, %62, %59, %56, %53
-  %.270 = phi i32 [ 1, %70 ], [ 1, %68 ], [ 1, %62 ], [ 1, %59 ], [ 1, %56 ], [ 1, %53 ], [ 1, %72 ], [ 0, %.thread ]
-  %.051 = phi i32 [ 0, %70 ], [ 0, %68 ], [ 0, %62 ], [ 0, %59 ], [ 0, %56 ], [ 0, %53 ], [ %spec.select, %72 ], [ 0, %.thread ]
+  %.270 = phi i32 [ 0, %.thread ], [ 1, %72 ], [ 1, %70 ], [ 1, %68 ], [ 1, %62 ], [ 1, %59 ], [ 1, %56 ], [ 1, %53 ]
+  %.051 = phi i32 [ 0, %.thread ], [ %spec.select, %72 ], [ 0, %70 ], [ 0, %68 ], [ 0, %62 ], [ 0, %59 ], [ 0, %56 ], [ 0, %53 ]
   call void @EVP_MD_CTX_free(ptr noundef %44) #12
   call void @EVP_MD_free(ptr noundef %43) #12
   %75 = call i32 @OSSL_PROVIDER_unload(ptr noundef %46) #12

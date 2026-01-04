@@ -207,7 +207,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %14
   br label %86
 
 86:                                               ; preds = %82, %82, %83
-  %87 = phi i32 [ 0, %82 ], [ %85, %83 ], [ 0, %82 ]
+  %87 = phi i32 [ 0, %82 ], [ 0, %82 ], [ %85, %83 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %87, ptr %88, align 8, !tbaa !97
   %.sink.i.i45 = load i64, ptr %7, align 8, !tbaa !3
@@ -371,7 +371,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %12
   br label %82
 
 82:                                               ; preds = %78, %78, %79
-  %83 = phi i32 [ 0, %78 ], [ %81, %79 ], [ 0, %78 ]
+  %83 = phi i32 [ 0, %78 ], [ 0, %78 ], [ %81, %79 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %83, ptr %84, align 8, !tbaa !97
   %.sink.i.i45 = load i64, ptr %5, align 8, !tbaa !3
@@ -535,7 +535,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %15
   br label %89
 
 89:                                               ; preds = %85, %85, %86
-  %90 = phi i32 [ 0, %85 ], [ %88, %86 ], [ 0, %85 ]
+  %90 = phi i32 [ 0, %85 ], [ 0, %85 ], [ %88, %86 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %90, ptr %91, align 8, !tbaa !97
   %.sink.i.i48 = load i64, ptr %8, align 8, !tbaa !3
@@ -613,7 +613,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !107
@@ -781,7 +781,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %13
   br label %85
 
 85:                                               ; preds = %81, %81, %82
-  %86 = phi i32 [ 0, %81 ], [ %84, %82 ], [ 0, %81 ]
+  %86 = phi i32 [ 0, %81 ], [ 0, %81 ], [ %84, %82 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %86, ptr %87, align 8, !tbaa !97
   %.sink.i.i48 = load i64, ptr %6, align 8, !tbaa !3
@@ -952,7 +952,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %22
   br label %93
 
 93:                                               ; preds = %89, %89, %90
-  %94 = phi i32 [ 0, %89 ], [ %92, %90 ], [ 0, %89 ]
+  %94 = phi i32 [ 0, %89 ], [ 0, %89 ], [ %92, %90 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %94, ptr %95, align 8, !tbaa !97
   %.sink.i.i53 = load i64, ptr %7, align 8, !tbaa !3
@@ -1119,7 +1119,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %20
   br label %89
 
 89:                                               ; preds = %85, %85, %86
-  %90 = phi i32 [ 0, %85 ], [ %88, %86 ], [ 0, %85 ]
+  %90 = phi i32 [ 0, %85 ], [ 0, %85 ], [ %88, %86 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %90, ptr %91, align 8, !tbaa !97
   %.sink.i.i53 = load i64, ptr %5, align 8, !tbaa !3
@@ -1299,7 +1299,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %23
   br label %96
 
 96:                                               ; preds = %92, %92, %93
-  %97 = phi i32 [ 0, %92 ], [ %95, %93 ], [ 0, %92 ]
+  %97 = phi i32 [ 0, %92 ], [ 0, %92 ], [ %95, %93 ]
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %97, ptr %98, align 8, !tbaa !97
   %.sink.i.i56 = load i64, ptr %8, align 8, !tbaa !3
@@ -1475,7 +1475,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %21
   br label %92
 
 92:                                               ; preds = %88, %88, %89
-  %93 = phi i32 [ 0, %88 ], [ %91, %89 ], [ 0, %88 ]
+  %93 = phi i32 [ 0, %88 ], [ 0, %88 ], [ %91, %89 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 3952
   store i32 %93, ptr %94, align 8, !tbaa !97
   %.sink.i.i56 = load i64, ptr %6, align 8, !tbaa !3
@@ -1771,8 +1771,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

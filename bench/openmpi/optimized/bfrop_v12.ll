@@ -2810,7 +2810,7 @@ thread-pre-split:                                 ; preds = %5
   br label %77
 
 77:                                               ; preds = %thread-pre-split, %9, %.fold.split, %3, %10, %13, %23, %26, %29, %32, %35, %38, %41, %44, %47, %50, %53, %56, %59, %62, %65, %76, %19, %16, %75, %73
-  %.0 = phi i32 [ 0, %10 ], [ 0, %13 ], [ 0, %19 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %29 ], [ 0, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %41 ], [ 0, %44 ], [ 0, %47 ], [ 0, %50 ], [ 0, %53 ], [ 0, %56 ], [ 0, %59 ], [ 0, %62 ], [ 0, %65 ], [ 0, %73 ], [ 0, %75 ], [ -1, %76 ], [ -27, %9 ], [ -27, %3 ], [ 0, %.fold.split ], [ -16, %thread-pre-split ]
+  %.0 = phi i32 [ -1, %76 ], [ -27, %3 ], [ 0, %.fold.split ], [ 0, %10 ], [ 0, %13 ], [ 0, %19 ], [ 0, %16 ], [ 0, %23 ], [ 0, %26 ], [ 0, %29 ], [ 0, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %41 ], [ 0, %44 ], [ 0, %47 ], [ 0, %50 ], [ 0, %53 ], [ 0, %56 ], [ 0, %59 ], [ 0, %62 ], [ 0, %65 ], [ 0, %73 ], [ 0, %75 ], [ -27, %9 ], [ -16, %thread-pre-split ]
   ret i32 %.0
 }
 
@@ -2870,7 +2870,7 @@ define range(i32 0, 65536) i32 @pmix12_v2_to_v1_datatype(i16 noundef zeroext %0)
   br label %7
 
 7:                                                ; preds = %1, %1, %6, %4, %3
-  %.0 = phi i32 [ %2, %6 ], [ 22, %3 ], [ %5, %4 ], [ 6, %1 ], [ 6, %1 ]
+  %.0 = phi i32 [ %2, %6 ], [ %5, %4 ], [ 22, %3 ], [ 6, %1 ], [ 6, %1 ]
   ret i32 %.0
 }
 
@@ -2905,7 +2905,7 @@ define i32 @pmix12_bfrop_store_data_type(ptr noundef %0, ptr noundef %1, i16 nou
   br label %pmix12_v2_to_v1_datatype.exit
 
 pmix12_v2_to_v1_datatype.exit:                    ; preds = %3, %3, %6, %7, %9
-  %.0.i = phi i32 [ %5, %9 ], [ 22, %6 ], [ %8, %7 ], [ 6, %3 ], [ 6, %3 ]
+  %.0.i = phi i32 [ %5, %9 ], [ %8, %7 ], [ 22, %6 ], [ 6, %3 ], [ 6, %3 ]
   store i32 %.0.i, ptr %4, align 4, !tbaa !12
   %10 = call i32 @pmix12_bfrop_pack_datatype(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 1, i16 noundef zeroext 6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

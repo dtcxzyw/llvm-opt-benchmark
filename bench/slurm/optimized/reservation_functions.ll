@@ -376,13 +376,13 @@ _set_cond.exit.us:                                ; preds = %44, %39
   br i1 %exitcond.not.i, label %_set_cond.exit, label %68, !llvm.loop !11
 
 _set_cond.exit:                                   ; preds = %187, %65, %89
-  %.1138 = phi i32 [ %91, %89 ], [ %.0137, %65 ], [ %0, %187 ]
+  %.1138 = phi i32 [ %.0137, %65 ], [ %91, %89 ], [ %0, %187 ]
   %188 = add nsw i32 %.1138, 1
   %189 = icmp slt i32 %188, %0
   br i1 %189, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_set_cond.exit, %_set_cond.exit.us, %.thread163, %23
-  %190 = phi ptr [ %22, %.thread163 ], [ %24, %23 ], [ %24, %_set_cond.exit.us ], [ %24, %_set_cond.exit ]
+  %190 = phi ptr [ %22, %.thread163 ], [ %24, %_set_cond.exit.us ], [ %24, %23 ], [ %24, %_set_cond.exit ]
   %191 = getelementptr inbounds nuw i8, ptr %.fr, i64 40
   %192 = load ptr, ptr %191, align 8
   %.not = icmp eq ptr %192, null
@@ -663,7 +663,7 @@ _set_cond.exit:                                   ; preds = %187, %65, %89
   br label %322
 
 322:                                              ; preds = %.thread, %._crit_edge146, %321, %216, %219, %207, %208
-  %.1 = phi i32 [ -1, %208 ], [ -1, %207 ], [ -1, %219 ], [ -1, %216 ], [ 0, %321 ], [ 0, %._crit_edge146 ], [ 0, %.thread ]
+  %.1 = phi i32 [ 0, %.thread ], [ -1, %216 ], [ -1, %207 ], [ -1, %208 ], [ -1, %219 ], [ 0, %321 ], [ 0, %._crit_edge146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }

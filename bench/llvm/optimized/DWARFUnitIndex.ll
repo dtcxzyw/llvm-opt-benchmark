@@ -105,7 +105,7 @@ switch.lookup:                                    ; preds = %2
   br label %6
 
 6:                                                ; preds = %switch.lookup, %2
-  %.0 = phi i32 [ %0, %2 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ %0, %2 ]
   ret i32 %.0
 }
 
@@ -182,7 +182,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14DWARFUnitIndex6Header5parseENS_13
   br label %25
 
 25:                                               ; preds = %12, %3, %18
-  %.0 = phi i1 [ true, %18 ], [ false, %3 ], [ false, %12 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %18 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -645,7 +645,7 @@ _ZN4llvm22deserializeSectionKindEjj.exit:         ; preds = %109, %switch.lookup
   br i1 %.not47, label %._crit_edge95.loopexit, label %.lr.ph94, !llvm.loop !104
 
 _ZNSt10unique_ptrIA_PN4llvm14DWARFUnitIndex5Entry19SectionContributionESt14default_deleteIS5_EED2Ev.exit: ; preds = %116, %._crit_edge95, %.preheader73, %.preheader, %.critedge
-  %.2 = phi i1 [ false, %.critedge ], [ true, %.preheader ], [ true, %.preheader73 ], [ true, %._crit_edge95 ], [ false, %116 ]
+  %.2 = phi i1 [ true, %.preheader ], [ false, %.critedge ], [ true, %.preheader73 ], [ true, %._crit_edge95 ], [ false, %116 ]
   call void @_ZdaPv(ptr noundef nonnull %58) #17
   br label %157
 

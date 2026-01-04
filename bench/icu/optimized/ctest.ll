@@ -987,7 +987,7 @@ strncmp_nullcheck.exit.thread:                    ; preds = %24, %strncmp_nullch
   br i1 %32, label %.loopexit, label %8
 
 .loopexit:                                        ; preds = %31, %getNextLevel.exit, %strncmp_nullcheck.exit.thread, %4
-  %.017 = phi ptr [ null, %4 ], [ null, %strncmp_nullcheck.exit.thread ], [ %.015, %31 ], [ null, %getNextLevel.exit ]
+  %.017 = phi ptr [ null, %4 ], [ null, %strncmp_nullcheck.exit.thread ], [ null, %getNextLevel.exit ], [ %.015, %31 ]
   ret ptr %.017
 }
 
@@ -1820,7 +1820,7 @@ split:                                            ; preds = %174, %._crit_edge22
   br label %191
 
 191:                                              ; preds = %.thread, %._crit_edge, %189, %split, %172, %135
-  %.7 = phi i32 [ 0, %135 ], [ 0, %172 ], [ 0, %split ], [ 1, %189 ], [ 1, %._crit_edge ], [ 0, %.thread ]
+  %.7 = phi i32 [ 0, %.thread ], [ 0, %135 ], [ 0, %split ], [ 0, %172 ], [ 1, %189 ], [ 1, %._crit_edge ]
   ret i32 %.7
 }
 
@@ -2105,8 +2105,8 @@ sub_251:                                          ; preds = %sub_150
   br label %.tail48
 
 .tail48:                                          ; preds = %.tail.thread.thread, %sub_251, %sub_150, %.thread, %.tail, %.tail.thread
-  %.139 = phi i32 [ %.03859, %.tail.thread ], [ %.03859, %.tail ], [ %.03859, %.thread ], [ %.03859, %sub_150 ], [ %43, %sub_251 ], [ %.03859, %.tail.thread.thread ]
-  %.137 = phi i32 [ 0, %.tail.thread ], [ 0, %.tail ], [ 0, %.thread ], [ %.03660, %sub_150 ], [ %.03660, %sub_251 ], [ %spec.select, %.tail.thread.thread ]
+  %.139 = phi i32 [ %43, %sub_251 ], [ %.03859, %.thread ], [ %.03859, %.tail ], [ %.03859, %.tail.thread ], [ %.03859, %.tail.thread.thread ], [ %.03859, %sub_150 ]
+  %.137 = phi i32 [ %.03660, %sub_251 ], [ 0, %.thread ], [ 0, %.tail ], [ 0, %.tail.thread ], [ %spec.select, %.tail.thread.thread ], [ %.03660, %sub_150 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
@@ -2188,7 +2188,7 @@ showTests.exit47:                                 ; preds = %.split.i45, %.split
   br label %ctest_xml_fini.exit
 
 ctest_xml_fini.exit:                              ; preds = %62, %60, %3, %23
-  %.044 = phi i32 [ -1, %23 ], [ 1, %3 ], [ %.2, %60 ], [ %.2, %62 ]
+  %.044 = phi i32 [ 1, %3 ], [ -1, %23 ], [ %.2, %60 ], [ %.2, %62 ]
   ret i32 %.044
 }
 
@@ -2342,7 +2342,7 @@ define i32 @getTestOption(i32 noundef %0) local_unnamed_addr #8 {
   br label %16
 
 16:                                               ; preds = %1, %14, %12, %10, %8, %6, %4, %2
-  %.0 = phi i32 [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ 0, %1 ]
+  %.0 = phi i32 [ %15, %14 ], [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -2391,7 +2391,7 @@ define void @setTestOption(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1
   br label %getTestOption.exit
 
 getTestOption.exit:                               ; preds = %4, %5, %7, %9, %11, %13, %15, %17
-  %.0.i = phi i32 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ 0, %4 ]
+  %.0.i = phi i32 [ %18, %17 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ 0, %4 ]
   %19 = add nsw i32 %.0.i, -1
   br label %20
 

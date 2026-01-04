@@ -164,7 +164,7 @@ define internal i32 @pad_vaapi_filter_frame(ptr noundef readonly captures(none) 
   br label %73
 
 72:                                               ; preds = %19, %2, %15, %31, %28, %25
-  %.0 = phi i32 [ %26, %25 ], [ %29, %28 ], [ %68, %31 ], [ -22, %15 ], [ -22, %2 ], [ -12, %19 ]
+  %.0 = phi i32 [ -22, %2 ], [ %26, %25 ], [ %29, %28 ], [ %68, %31 ], [ -22, %15 ], [ -12, %19 ]
   call void @av_frame_free(ptr noundef nonnull %3) #6
   call void @av_frame_free(ptr noundef nonnull %4) #6
   br label %73
@@ -447,7 +447,7 @@ define internal range(i32 -2147483648, 1) i32 @pad_vaapi_config_output(ptr nound
   br label %149
 
 149:                                              ; preds = %147, %133, %100, %88, %56, %34, %132
-  %.0 = phi i32 [ -22, %132 ], [ %47, %34 ], [ %58, %56 ], [ %98, %88 ], [ %106, %100 ], [ -22, %133 ], [ %., %147 ]
+  %.0 = phi i32 [ -22, %133 ], [ %47, %34 ], [ %58, %56 ], [ %98, %88 ], [ -22, %132 ], [ %106, %100 ], [ %., %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

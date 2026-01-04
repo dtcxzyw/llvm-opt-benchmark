@@ -446,7 +446,7 @@ uv__queue_move.exit:                              ; preds = %7
   br label %uv__async_start.exit
 
 uv__async_start.exit:                             ; preds = %44, %40, %1
-  %.0 = phi i32 [ 0, %1 ], [ %43, %40 ], [ 0, %44 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %44 ], [ %43, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

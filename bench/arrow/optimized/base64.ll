@@ -446,7 +446,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   br i1 %.not, label %.critedge, label %13, !llvm.loop !23
 
 .critedge:                                        ; preds = %17, %.loopexit40, %13
-  %.026.lcssa = phi i32 [ %.02647, %17 ], [ %.1, %.loopexit40 ], [ %.02647, %13 ]
+  %.026.lcssa = phi i32 [ %.02647, %13 ], [ %.02647, %17 ], [ %.1, %.loopexit40 ]
   %.not32 = icmp eq i32 %.026.lcssa, 0
   br i1 %.not32, label %.loopexit, label %.preheader
 

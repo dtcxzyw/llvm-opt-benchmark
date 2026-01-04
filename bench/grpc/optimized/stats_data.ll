@@ -524,7 +524,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core19Histogram_100000_209Bucket
   br label %19
 
 19:                                               ; preds = %4, %3, %6
-  %.0 = phi i32 [ %18, %6 ], [ %., %3 ], [ 19, %4 ]
+  %.0 = phi i32 [ %., %3 ], [ %18, %6 ], [ 19, %4 ]
   ret i32 %.0
 }
 
@@ -558,7 +558,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core18Histogram_65536_269BucketF
   br label %19
 
 19:                                               ; preds = %4, %3, %6
-  %.0 = phi i32 [ %18, %6 ], [ %., %3 ], [ 25, %4 ]
+  %.0 = phi i32 [ %., %3 ], [ %18, %6 ], [ 25, %4 ]
   ret i32 %.0
 }
 
@@ -597,7 +597,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core16Histogram_100_209BucketFor
   br label %21
 
 21:                                               ; preds = %19, %3, %6
-  %.0 = phi i32 [ %18, %6 ], [ %., %3 ], [ %.11, %19 ]
+  %.0 = phi i32 [ %., %3 ], [ %.11, %19 ], [ %18, %6 ]
   ret i32 %.0
 }
 
@@ -631,7 +631,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core21Histogram_16777216_209Buck
   br label %19
 
 19:                                               ; preds = %4, %3, %6
-  %.0 = phi i32 [ %18, %6 ], [ %., %3 ], [ 19, %4 ]
+  %.0 = phi i32 [ %., %3 ], [ %18, %6 ], [ 19, %4 ]
   ret i32 %.0
 }
 
@@ -670,7 +670,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core15Histogram_80_109BucketForE
   br label %21
 
 21:                                               ; preds = %19, %3, %6
-  %.0 = phi i32 [ %18, %6 ], [ %., %3 ], [ %.11, %19 ]
+  %.0 = phi i32 [ %., %3 ], [ %.11, %19 ], [ %18, %6 ]
   ret i32 %.0
 }
 
@@ -709,7 +709,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core18Histogram_10000_209BucketF
   br label %21
 
 21:                                               ; preds = %19, %3, %6
-  %.0 = phi i32 [ %18, %6 ], [ %., %3 ], [ %.11, %19 ]
+  %.0 = phi i32 [ %., %3 ], [ %.11, %19 ], [ %18, %6 ]
   ret i32 %.0
 }
 
@@ -748,7 +748,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core20Histogram_1800000_409Bucke
   br label %21
 
 21:                                               ; preds = %19, %3, %6
-  %.0 = phi i32 [ %18, %6 ], [ %., %3 ], [ %.11, %19 ]
+  %.0 = phi i32 [ %., %3 ], [ %.11, %19 ], [ %18, %6 ]
   ret i32 %.0
 }
 

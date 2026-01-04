@@ -228,8 +228,8 @@ zend_shared_alloc_try.exit.thread:                ; preds = %24, %._crit_edge.i
   store ptr null, ptr @smm_shared_globals, align 8, !tbaa !11
   br label %164
 
-zend_shared_alloc_try.exit.thread92:              ; preds = %18, %44, %2, %9
-  %.04294 = phi i32 [ 0, %9 ], [ 0, %2 ], [ %23, %18 ], [ 0, %44 ]
+zend_shared_alloc_try.exit.thread92:              ; preds = %18, %44, %9, %2
+  %.04294 = phi i32 [ 0, %9 ], [ 0, %2 ], [ 0, %44 ], [ %23, %18 ]
   %48 = load ptr, ptr @g_shared_alloc_handler, align 8, !tbaa !33
   %.not59 = icmp eq ptr %48, null
   br i1 %.not59, label %.preheader101, label %zend_shared_alloc_try.exit84.thread97
@@ -478,7 +478,7 @@ copy_shared_segments.exit:                        ; preds = %127, %112
   br label %164
 
 164:                                              ; preds = %zend_shared_alloc_try.exit84.thread97, %163, %47
-  %.045 = phi i32 [ 2, %47 ], [ %.4100, %163 ], [ 4, %zend_shared_alloc_try.exit84.thread97 ]
+  %.045 = phi i32 [ 2, %47 ], [ 4, %zend_shared_alloc_try.exit84.thread97 ], [ %.4100, %163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.045
@@ -618,7 +618,7 @@ zend_shared_alloc_get_largest_free_block.exit27.thread: ; preds = %._crit_edge, 
   br label %62
 
 62:                                               ; preds = %zend_shared_alloc_get_largest_free_block.exit27, %zend_shared_alloc_get_largest_free_block.exit27.thread, %zend_shared_alloc_get_largest_free_block.exit, %zend_shared_alloc_get_largest_free_block.exit.thread, %37
-  %.0 = phi ptr [ %41, %37 ], [ null, %zend_shared_alloc_get_largest_free_block.exit.thread ], [ null, %zend_shared_alloc_get_largest_free_block.exit ], [ null, %zend_shared_alloc_get_largest_free_block.exit27.thread ], [ null, %zend_shared_alloc_get_largest_free_block.exit27 ]
+  %.0 = phi ptr [ null, %zend_shared_alloc_get_largest_free_block.exit ], [ %41, %37 ], [ null, %zend_shared_alloc_get_largest_free_block.exit.thread ], [ null, %zend_shared_alloc_get_largest_free_block.exit27.thread ], [ null, %zend_shared_alloc_get_largest_free_block.exit27 ]
   ret ptr %.0
 }
 

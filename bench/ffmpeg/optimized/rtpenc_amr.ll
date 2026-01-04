@@ -75,7 +75,7 @@ define void @ff_rtp_send_amr(ptr noundef %0, ptr noundef readonly captures(none)
   br label %.thread59
 
 .thread59:                                        ; preds = %22, %52, %44
-  %53 = phi ptr [ %51, %52 ], [ %51, %44 ], [ %15, %22 ]
+  %53 = phi ptr [ %51, %44 ], [ %51, %52 ], [ %15, %22 ]
   %54 = load ptr, ptr %12, align 8, !tbaa !30
   %55 = ptrtoint ptr %54 to i64
   %56 = ptrtoint ptr %53 to i64

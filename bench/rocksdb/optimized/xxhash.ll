@@ -1227,7 +1227,7 @@ _ZL20XXH3_len_17to128_64bPKhmS0_mm.exit:          ; preds = %77, %101, %125, %14
   br label %_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE.exit
 
 _ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE.exit: ; preds = %50, %29, %6, %49, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit, %180, %182
-  %.0.i = phi i64 [ %177, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit ], [ %181, %180 ], [ %183, %182 ], [ %26, %6 ], [ %48, %29 ], [ %74, %50 ], [ 3244421341483603138, %49 ]
+  %.0.i = phi i64 [ %183, %182 ], [ %177, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit ], [ %181, %180 ], [ %26, %6 ], [ %48, %29 ], [ %74, %50 ], [ 3244421341483603138, %49 ]
   ret i64 %.0.i
 }
 
@@ -1842,7 +1842,7 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %306
   br label %_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE.exit
 
 _ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE.exit: ; preds = %94, %65, %40, %10, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit, %226, %_ZL14XXH3_mergeAccsPKmPKhm.exit
-  %.0.i = phi i64 [ %223, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit ], [ %227, %226 ], [ %327, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %37, %10 ], [ %63, %40 ], [ %93, %65 ], [ %105, %94 ]
+  %.0.i = phi i64 [ %327, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %223, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit ], [ %227, %226 ], [ %37, %10 ], [ %63, %40 ], [ %93, %65 ], [ %105, %94 ]
   ret i64 %.0.i
 }
 
@@ -2128,7 +2128,7 @@ _ZL20XXH3_len_17to128_64bPKhmS0_mm.exit:          ; preds = %99, %127, %155, %18
   br label %_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE.exit
 
 _ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE.exit: ; preds = %87, %59, %32, %7, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit, %218, %220
-  %.0.i = phi i64 [ %215, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit ], [ %219, %218 ], [ %221, %220 ], [ %29, %7 ], [ %57, %32 ], [ %86, %59 ], [ %96, %87 ]
+  %.0.i = phi i64 [ %221, %220 ], [ %215, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit ], [ %219, %218 ], [ %29, %7 ], [ %57, %32 ], [ %86, %59 ], [ %96, %87 ]
   ret i64 %.0.i
 }
 
@@ -2884,7 +2884,7 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %302
   br label %_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE.exit
 
 _ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE.exit: ; preds = %221, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit, %12, %37, %64, %92, %_ZL14XXH3_mergeAccsPKmPKhm.exit
-  %.0 = phi i64 [ %323, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %220, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit ], [ %222, %221 ], [ %34, %12 ], [ %62, %37 ], [ %91, %64 ], [ %101, %92 ]
+  %.0 = phi i64 [ %323, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %101, %92 ], [ %220, %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit ], [ %222, %221 ], [ %34, %12 ], [ %62, %37 ], [ %91, %64 ]
   ret i64 %.0
 }
 
@@ -3017,7 +3017,7 @@ define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset_withSecret(ptr noundef wri
   br label %22
 
 22:                                               ; preds = %5, %3
-  %.0 = phi i32 [ 1, %3 ], [ %spec.select, %5 ]
+  %.0 = phi i32 [ %spec.select, %5 ], [ 1, %3 ]
   ret i32 %.0
 }
 
@@ -3823,7 +3823,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i:    ; preds = %.preheader
   br i1 %exitcond36.not, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph28, !llvm.loop !29
 
 _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %.lr.ph, %.lr.ph28, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i, %80
-  %storemerge = phi <8 x i64> [ %.promoted25, %80 ], [ %60, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i ], [ %95, %.lr.ph28 ], [ %78, %.lr.ph ]
+  %storemerge = phi <8 x i64> [ %95, %.lr.ph28 ], [ %.promoted25, %80 ], [ %60, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i ], [ %78, %.lr.ph ]
   %97 = zext i32 %14 to i64
   %98 = getelementptr inbounds nuw i8, ptr %24, i64 %97
   %99 = getelementptr inbounds i8, ptr %98, i64 -64
@@ -4267,7 +4267,7 @@ _ZL21XXH3_len_17to128_128bPKhmS0_mm.exit:         ; preds = %117, %179
   br label %_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE.exit
 
 _ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE.exit: ; preds = %78, %46, %6, %77, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit, %252, %254
-  %.pn.i = phi { i64, i64 } [ %.fca.1.insert.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit ], [ %253, %252 ], [ %255, %254 ], [ %.fca.1.insert.i2, %6 ], [ %.fca.1.insert.i4, %46 ], [ %.fca.1.insert.i6, %78 ], [ { i64 6918025063187695999, i64 -7374073936536430376 }, %77 ]
+  %.pn.i = phi { i64, i64 } [ %255, %254 ], [ %.fca.1.insert.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit ], [ %253, %252 ], [ %.fca.1.insert.i2, %6 ], [ %.fca.1.insert.i4, %46 ], [ %.fca.1.insert.i6, %78 ], [ { i64 6918025063187695999, i64 -7374073936536430376 }, %77 ]
   ret { i64, i64 } %.pn.i
 }
 
@@ -5064,7 +5064,7 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit96:                ; preds = %413
   br label %_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE.exit
 
 _ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE.exit: ; preds = %136, %93, %57, %10, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit, %313, %_ZL14XXH3_mergeAccsPKmPKhm.exit96
-  %.pn.i = phi { i64, i64 } [ %.fca.1.insert.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit ], [ %314, %313 ], [ %.fca.1.insert.i18, %_ZL14XXH3_mergeAccsPKmPKhm.exit96 ], [ %.fca.1.insert.i4, %10 ], [ %.fca.1.insert.i6, %57 ], [ %.fca.1.insert.i8, %93 ], [ %160, %136 ]
+  %.pn.i = phi { i64, i64 } [ %.fca.1.insert.i18, %_ZL14XXH3_mergeAccsPKmPKhm.exit96 ], [ %.fca.1.insert.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit ], [ %314, %313 ], [ %.fca.1.insert.i4, %10 ], [ %.fca.1.insert.i6, %57 ], [ %.fca.1.insert.i8, %93 ], [ %160, %136 ]
   ret { i64, i64 } %.pn.i
 }
 
@@ -5453,7 +5453,7 @@ _ZL21XXH3_len_17to128_128bPKhmS0_mm.exit:         ; preds = %153, %223
   br label %_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE.exit
 
 _ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE.exit: ; preds = %130, %87, %49, %7, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit, %305, %307
-  %.pn.i = phi { i64, i64 } [ %.fca.1.insert.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit ], [ %306, %305 ], [ %308, %307 ], [ %.fca.1.insert.i3, %7 ], [ %.fca.1.insert.i5, %49 ], [ %.fca.1.insert.i7, %87 ], [ %150, %130 ]
+  %.pn.i = phi { i64, i64 } [ %308, %307 ], [ %.fca.1.insert.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit ], [ %306, %305 ], [ %.fca.1.insert.i3, %7 ], [ %.fca.1.insert.i5, %49 ], [ %.fca.1.insert.i7, %87 ], [ %150, %130 ]
   ret { i64, i64 } %.pn.i
 }
 
@@ -6424,7 +6424,7 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit101:               ; preds = %409
   br label %_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE.exit
 
 _ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE.exit: ; preds = %308, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit, %12, %54, %92, %135, %_ZL14XXH3_mergeAccsPKmPKhm.exit101
-  %.pn = phi { i64, i64 } [ %.fca.1.insert.i24, %_ZL14XXH3_mergeAccsPKmPKhm.exit101 ], [ %.fca.1.insert.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit ], [ %309, %308 ], [ %.fca.1.insert.i10, %12 ], [ %.fca.1.insert.i12, %54 ], [ %.fca.1.insert.i14, %92 ], [ %155, %135 ]
+  %.pn = phi { i64, i64 } [ %.fca.1.insert.i24, %_ZL14XXH3_mergeAccsPKmPKhm.exit101 ], [ %155, %135 ], [ %.fca.1.insert.i, %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit ], [ %309, %308 ], [ %.fca.1.insert.i10, %12 ], [ %.fca.1.insert.i12, %54 ], [ %.fca.1.insert.i14, %92 ]
   ret { i64, i64 } %.pn
 }
 
@@ -6512,7 +6512,7 @@ define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset_withSecret(ptr noundef wr
   br label %ROCKSDB_XXH3_64bits_reset_withSecret.exit
 
 ROCKSDB_XXH3_64bits_reset_withSecret.exit:        ; preds = %3, %5
-  %.0.i = phi i32 [ 1, %3 ], [ %spec.select.i, %5 ]
+  %.0.i = phi i32 [ %spec.select.i, %5 ], [ 1, %3 ]
   ret i32 %.0.i
 }
 
@@ -7318,7 +7318,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i:    ; preds = %.preheader
   br i1 %exitcond49.not, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph40, !llvm.loop !29
 
 _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %.lr.ph, %.lr.ph40, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i, %80
-  %storemerge = phi <8 x i64> [ %.promoted37, %80 ], [ %60, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i ], [ %95, %.lr.ph40 ], [ %78, %.lr.ph ]
+  %storemerge = phi <8 x i64> [ %95, %.lr.ph40 ], [ %.promoted37, %80 ], [ %60, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i ], [ %78, %.lr.ph ]
   %97 = zext i32 %14 to i64
   %98 = getelementptr inbounds nuw i8, ptr %24, i64 %97
   %99 = getelementptr inbounds i8, ptr %98, i64 -64

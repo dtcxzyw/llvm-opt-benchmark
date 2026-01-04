@@ -715,7 +715,7 @@ sipr_decode_lp.exit:                              ; preds = %82
   br label %decode_fixed_sparse.exit
 
 decode_fixed_sparse.exit:                         ; preds = %.preheader76.i, %.preheader.i113, %175, %187
-  %.sink.i = phi i32 [ 2, %187 ], [ 3, %175 ], [ 3, %.preheader.i113 ], [ 6, %.preheader76.i ]
+  %.sink.i = phi i32 [ 3, %175 ], [ 2, %187 ], [ 3, %.preheader.i113 ], [ 6, %.preheader76.i ]
   store i32 %.sink.i, ptr %14, align 4, !tbaa !79
   %201 = load i32, ptr %16, align 4, !tbaa !39
   %202 = zext i32 %133 to i64

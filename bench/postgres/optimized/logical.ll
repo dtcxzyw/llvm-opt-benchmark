@@ -778,7 +778,7 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
   br label %63
 
 63:                                               ; preds = %44, %48, %61
-  %.0 = phi i64 [ %62, %61 ], [ %0, %48 ], [ %47, %44 ]
+  %.0 = phi i64 [ %0, %48 ], [ %62, %61 ], [ %47, %44 ]
   %64 = tail call fastcc ptr @StartupDecodingContext(ptr noundef %1, i64 noundef %.0, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext %2, i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr @CurrentMemoryContext, align 8

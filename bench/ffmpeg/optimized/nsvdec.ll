@@ -375,8 +375,8 @@ nsv_parse_NSVf_header.exit:                       ; preds = %nsv_parse_NSVf_head
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.3) #8
   br label %nsv_parse_NSVf_header.exit.thread
 
-nsv_parse_NSVf_header.exit.thread:                ; preds = %68, %72, %85, %40, %.loopexit.i, %63, %27, %24, %11, %.lr.ph.i, %.loopexit, %100, %106
-  %.021 = phi i32 [ %107, %106 ], [ %101, %100 ], [ -1094995529, %.loopexit ], [ -1094995529, %.lr.ph.i ], [ -1, %24 ], [ -1, %27 ], [ -1, %63 ], [ -1, %.loopexit.i ], [ -12, %40 ], [ -12, %85 ], [ -12, %72 ], [ -1, %68 ], [ -1, %11 ]
+nsv_parse_NSVf_header.exit.thread:                ; preds = %72, %85, %68, %27, %63, %.loopexit.i, %24, %40, %11, %.lr.ph.i, %.loopexit, %100, %106
+  %.021 = phi i32 [ %107, %106 ], [ -1094995529, %.lr.ph.i ], [ -1094995529, %.loopexit ], [ %101, %100 ], [ -1, %24 ], [ -1, %.loopexit.i ], [ -1, %63 ], [ -1, %27 ], [ -1, %68 ], [ -12, %85 ], [ -12, %72 ], [ -12, %40 ], [ -1, %11 ]
   ret i32 %.021
 }
 
@@ -421,7 +421,7 @@ define internal range(i32 -2147483648, 1) i32 @nsv_read_packet(ptr noundef %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %11, %19
-  %.014 = phi i32 [ 0, %19 ], [ %12, %11 ], [ -1, %14 ]
+  %.014 = phi i32 [ %12, %11 ], [ 0, %19 ], [ -1, %14 ]
   ret i32 %.014
 }
 
@@ -629,8 +629,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nsv_parse_NSVs_header(ptr 
   br label %29
 
 29:                                               ; preds = %1, %23, %27, %25
-  %.sroa.054.3 = phi i32 [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %11, %1 ]
-  %.sroa.19.2 = phi i32 [ %.sroa.19.1, %23 ], [ %.sroa.19.1, %25 ], [ %.sroa.19.1, %27 ], [ 1, %1 ]
+  %.sroa.054.3 = phi i32 [ %28, %27 ], [ %24, %23 ], [ %26, %25 ], [ %11, %1 ]
+  %.sroa.19.2 = phi i32 [ %.sroa.19.1, %27 ], [ %.sroa.19.1, %23 ], [ %.sroa.19.1, %25 ], [ 1, %1 ]
   %30 = tail call i32 @avio_rl16(ptr noundef %5) #8
   %31 = trunc i32 %30 to i16
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 252
@@ -835,9 +835,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nsv_parse_NSVs_header(ptr 
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.21) #8
   br label %.critedge.sink.split
 
-.critedge.sink.split:                             ; preds = %100, %102, %44, %46, %122, %.loopexit, %142, %139
-  %.sink = phi i32 [ 4, %139 ], [ 4, %142 ], [ 4, %.loopexit ], [ 4, %122 ], [ 0, %46 ], [ 0, %44 ], [ 0, %102 ], [ 0, %100 ]
-  %.0.ph = phi i32 [ 0, %139 ], [ 0, %142 ], [ 0, %.loopexit ], [ 0, %122 ], [ -1, %46 ], [ -1, %44 ], [ -1, %102 ], [ -1, %100 ]
+.critedge.sink.split:                             ; preds = %100, %102, %46, %44, %122, %.loopexit, %142, %139
+  %.sink = phi i32 [ 4, %122 ], [ 4, %139 ], [ 4, %142 ], [ 4, %.loopexit ], [ 0, %44 ], [ 0, %46 ], [ 0, %102 ], [ 0, %100 ]
+  %.0.ph = phi i32 [ 0, %122 ], [ 0, %139 ], [ 0, %142 ], [ 0, %.loopexit ], [ -1, %44 ], [ -1, %46 ], [ -1, %102 ], [ -1, %100 ]
   %143 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %.sink, ptr %143, align 4, !tbaa !31
   br label %.critedge
@@ -1135,7 +1135,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nsv_read_chunk(ptr noundef
   br label %.thread157
 
 .thread157:                                       ; preds = %135, %124, %110, %106
-  %.0130 = phi i32 [ %34, %110 ], [ %34, %106 ], [ %125, %124 ], [ %125, %135 ]
+  %.0130 = phi i32 [ %34, %106 ], [ %34, %110 ], [ %125, %124 ], [ %125, %135 ]
   %140 = and i32 %.0130, 65535
   %141 = tail call i32 @av_get_packet(ptr noundef %7, ptr noundef nonnull %12, i32 noundef %140) #8
   %142 = icmp slt i32 %141, 0
@@ -1192,7 +1192,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nsv_read_chunk(ptr noundef
   br label %.loopexit162
 
 .loopexit162:                                     ; preds = %51, %.critedge, %26, %._crit_edge, %.thread, %.preheader161, %116, %.thread157, %74, %2, %11, %177
-  %.0 = phi i32 [ 0, %177 ], [ 0, %11 ], [ 0, %2 ], [ %77, %74 ], [ %141, %.thread157 ], [ -1094995529, %116 ], [ -1, %.preheader161 ], [ -1, %51 ], [ -1, %.critedge ], [ %27, %26 ], [ -1, %._crit_edge ], [ -1, %.thread ]
+  %.0 = phi i32 [ %141, %.thread157 ], [ 0, %2 ], [ -1094995529, %116 ], [ %77, %74 ], [ 0, %177 ], [ 0, %11 ], [ -1, %.preheader161 ], [ %27, %26 ], [ -1, %._crit_edge ], [ -1, %.critedge ], [ -1, %51 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

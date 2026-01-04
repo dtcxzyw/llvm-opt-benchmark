@@ -576,7 +576,7 @@ define dso_local void @__cfg80211_connect_result(ptr noundef %0, ptr noundef %1,
   br i1 %exitcond.not, label %.loopexit40, label %.split, !llvm.loop !38
 
 .loopexit40:                                      ; preds = %74, %.split.us, %.split48.us, %56
-  %75 = phi i16 [ %.pre, %.split48.us ], [ %46, %56 ], [ 0, %.split.us ], [ %46, %74 ]
+  %75 = phi i16 [ 0, %.split.us ], [ %46, %56 ], [ %.pre, %.split48.us ], [ %46, %74 ]
   %76 = icmp eq i16 %75, 0
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 302
@@ -3844,7 +3844,7 @@ define dso_local i32 @cfg80211_connect(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread21
 
 .thread21:                                        ; preds = %.thread21.sink.split, %259, %133, %132, %110, %116, %312
-  %315 = phi i32 [ %291, %312 ], [ %257, %259 ], [ -12, %133 ], [ -115, %132 ], [ -95, %110 ], [ -95, %116 ], [ %.ph, %.thread21.sink.split ]
+  %315 = phi i32 [ %291, %312 ], [ -95, %116 ], [ %257, %259 ], [ -12, %133 ], [ -115, %132 ], [ -95, %110 ], [ %.ph, %.thread21.sink.split ]
   store ptr null, ptr %44, align 8
   %316 = load i8, ptr %25, align 4
   %317 = and i8 %316, 1
@@ -3855,8 +3855,8 @@ define dso_local i32 @cfg80211_connect(ptr noundef %0, ptr noundef %1, ptr nound
   store i8 0, ptr %10, align 2
   br label %.thread23
 
-.thread23:                                        ; preds = %.thread, %256, %319, %.thread21, %312, %85, %43, %31, %29, %18, %13
-  %320 = phi i32 [ -114, %18 ], [ -114, %13 ], [ -114, %29 ], [ -107, %31 ], [ -115, %43 ], [ -22, %85 ], [ %315, %319 ], [ %315, %.thread21 ], [ 0, %312 ], [ 0, %256 ], [ 0, %.thread ]
+.thread23:                                        ; preds = %256, %.thread, %319, %.thread21, %312, %85, %43, %31, %29, %18, %13
+  %320 = phi i32 [ -114, %18 ], [ -114, %13 ], [ -114, %29 ], [ -107, %31 ], [ -115, %43 ], [ -22, %85 ], [ %315, %319 ], [ %315, %.thread21 ], [ 0, %312 ], [ 0, %.thread ], [ 0, %256 ]
   ret i32 %320
 }
 
@@ -4432,7 +4432,7 @@ define internal fastcc i32 @cfg80211_conn_scan(ptr noundef %0) unnamed_addr #0 a
   br label %166
 
 166:                                              ; preds = %.thread, %165, %162, %156, %21, %10, %5
-  %167 = phi i32 [ -16, %10 ], [ -16, %5 ], [ -12, %21 ], [ %133, %165 ], [ 0, %156 ], [ 0, %162 ], [ -22, %.thread ]
+  %167 = phi i32 [ -22, %.thread ], [ -16, %10 ], [ -16, %5 ], [ -12, %21 ], [ %133, %165 ], [ 0, %156 ], [ 0, %162 ]
   ret i32 %167
 }
 

@@ -53,7 +53,7 @@ define internal range(i32 -1, 1) i32 @encode_init(ptr noundef %0) #0 {
   br label %23
 
 23:                                               ; preds = %1, %17, %16
-  %.0 = phi i32 [ -1, %16 ], [ 0, %17 ], [ -1, %1 ]
+  %.0 = phi i32 [ 0, %17 ], [ -1, %16 ], [ -1, %1 ]
   ret i32 %.0
 }
 
@@ -787,7 +787,7 @@ default.unreachable:                              ; preds = %221
   br label %.loopexit
 
 .loopexit:                                        ; preds = %344, %.loopexit.loopexit, %221, %274
-  %.2418.ph = phi ptr [ %.3419, %221 ], [ %294, %274 ], [ %358, %.loopexit.loopexit ], [ %356, %344 ]
+  %.2418.ph = phi ptr [ %.3419, %221 ], [ %358, %.loopexit.loopexit ], [ %294, %274 ], [ %356, %344 ]
   %indvars.iv.next669 = add nuw nsw i64 %indvars.iv668, 4
   %359 = load i32, ptr %7, align 8, !tbaa !32
   %360 = sext i32 %359 to i64
@@ -876,7 +876,7 @@ default.unreachable:                              ; preds = %221
   br label %.loopexit459
 
 .loopexit459:                                     ; preds = %119, %137, %170, %22, %4, %395
-  %.0 = phi i32 [ 0, %395 ], [ %15, %4 ], [ -12, %22 ], [ %174, %170 ], [ %141, %137 ], [ %120, %119 ]
+  %.0 = phi i32 [ %15, %4 ], [ -12, %22 ], [ 0, %395 ], [ %174, %170 ], [ %120, %119 ], [ %141, %137 ]
   ret i32 %.0
 }
 

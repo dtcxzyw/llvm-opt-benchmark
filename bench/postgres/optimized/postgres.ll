@@ -1500,7 +1500,7 @@ define dso_local range(i32 0, 3) i32 @check_log_duration(ptr noundef %0, i1 noun
   br label %.critedge36
 
 .critedge36:                                      ; preds = %37, %.critedge, %53, %44
-  %.028 = phi i1 [ false, %44 ], [ false, %.critedge ], [ %56, %53 ], [ false, %37 ]
+  %.028 = phi i1 [ %56, %53 ], [ false, %44 ], [ false, %.critedge ], [ false, %37 ]
   %or.cond7 = select i1 %34, i1 true, i1 %.028
   %57 = load i8, ptr @log_duration, align 1, !range !5
   %58 = trunc nuw i8 %57 to i1
@@ -2074,9 +2074,9 @@ define dso_local void @process_postgres_switches(i32 noundef %0, ptr noundef %1,
   br label %16
 
 16:                                               ; preds = %10, %4, %8
-  %.070 = phi i32 [ 4, %8 ], [ 4, %10 ], [ 9, %4 ]
-  %.069 = phi ptr [ %1, %8 ], [ %spec.select, %10 ], [ %1, %4 ]
-  %.0 = phi i32 [ %0, %8 ], [ %spec.select84, %10 ], [ %0, %4 ]
+  %.070 = phi i32 [ 9, %4 ], [ 4, %10 ], [ 4, %8 ]
+  %.069 = phi ptr [ %1, %4 ], [ %spec.select, %10 ], [ %1, %8 ]
+  %.0 = phi i32 [ %0, %4 ], [ %spec.select84, %10 ], [ %0, %8 ]
   store i32 0, ptr @opterr, align 4
   br label %.backedge
 
@@ -2308,11 +2308,11 @@ get_stats_option_name.exit.thread.fold.split:     ; preds = %87
   br label %get_stats_option_name.exit.thread
 
 get_stats_option_name.exit.thread:                ; preds = %87, %get_stats_option_name.exit.thread.fold.split, %84
-  %.0.i91 = phi ptr [ @.str.63, %84 ], [ @.str.61, %87 ], [ @.str.62, %get_stats_option_name.exit.thread.fold.split ]
+  %.0.i91 = phi ptr [ @.str.61, %87 ], [ @.str.63, %84 ], [ @.str.62, %get_stats_option_name.exit.thread.fold.split ]
   call void @SetConfigOption(ptr noundef nonnull %.0.i91, ptr noundef nonnull @.str.45, i32 noundef %2, i32 noundef %.070) #21
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %get_stats_option_name.exit.thread, %switch.lookup, %18, %21, %20, %42, %47, %46, %50, %55, %54, %56, %57, %63, %65, %67, %66, %68, %70, %71, %73, %74, %75, %78, %77, %81, %83, %91, %90, %95, %.backedge, %.backedge, %.backedge
+.backedge.backedge:                               ; preds = %get_stats_option_name.exit.thread, %switch.lookup, %18, %21, %20, %42, %47, %46, %50, %55, %54, %56, %57, %95, %63, %65, %67, %66, %68, %70, %71, %73, %74, %75, %78, %77, %81, %83, %91, %90, %.backedge, %.backedge, %.backedge
   br label %.backedge, !llvm.loop !10
 
 90:                                               ; preds = %.backedge
@@ -3141,7 +3141,7 @@ interactive_getc.exit.i.i:                        ; preds = %234, %232, %231, %2
   br label %ReadCommand.exit
 
 ReadCommand.exit:                                 ; preds = %185, %187, %190, %192, %207, %209, %267, %273
-  %.0.i = phi i32 [ %182, %209 ], [ -1, %190 ], [ -1, %192 ], [ -1, %185 ], [ -1, %187 ], [ -1, %207 ], [ 81, %273 ], [ -1, %267 ]
+  %.0.i = phi i32 [ -1, %207 ], [ %182, %209 ], [ -1, %187 ], [ -1, %190 ], [ -1, %192 ], [ -1, %185 ], [ 81, %273 ], [ -1, %267 ]
   %.0..0..0..0.45 = load volatile i8, ptr %28, align 1, !range !5, !noundef !6
   %276 = trunc nuw i8 %.0..0..0..0.45 to i1
   br i1 %276, label %277, label %278
@@ -3827,7 +3827,7 @@ pg_rewrite_query.exit211:                         ; preds = %452, %449, %509, %p
   br label %.critedge36.i
 
 .critedge36.i:                                    ; preds = %576, %.critedge.i118, %567, %560
-  %.028.i = phi i1 [ false, %567 ], [ false, %.critedge.i118 ], [ %579, %576 ], [ false, %560 ]
+  %.028.i = phi i1 [ %579, %576 ], [ false, %567 ], [ false, %.critedge.i118 ], [ false, %560 ]
   %or.cond7.i = select i1 %557, i1 true, i1 %.028.i
   %580 = load i8, ptr @log_duration, align 1, !range !5
   %581 = trunc nuw i8 %580 to i1
@@ -4591,7 +4591,7 @@ IsTransactionExitStmt.exit.thread.i72:            ; preds = %719, %716, %713, %7
   br label %.critedge36.i143
 
 .critedge36.i143:                                 ; preds = %917, %.critedge.i158, %908, %901
-  %.028.i144 = phi i1 [ false, %908 ], [ false, %.critedge.i158 ], [ %920, %917 ], [ false, %901 ]
+  %.028.i144 = phi i1 [ %920, %917 ], [ false, %908 ], [ false, %.critedge.i158 ], [ false, %901 ]
   %or.cond7.i145 = select i1 %898, i1 true, i1 %.028.i144
   %921 = load i8, ptr @log_duration, align 1, !range !5
   %922 = trunc nuw i8 %921 to i1
@@ -5001,7 +5001,7 @@ errdetail_params.exit.i:                          ; preds = %1101, %1099, %1097,
   br label %check_log_statement.exit.thread.i
 
 check_log_statement.exit.thread.i:                ; preds = %1074, %errdetail_params.exit.i, %check_log_statement.exit.i, %.lr.ph.split.i.i, %.preheader.i.i, %start_xact_command.exit194
-  %.0.i91.i.not = phi i1 [ false, %check_log_statement.exit.i ], [ false, %errdetail_params.exit.i ], [ true, %start_xact_command.exit194 ], [ true, %.preheader.i.i ], [ true, %.lr.ph.split.i.i ], [ true, %1074 ]
+  %.0.i91.i.not = phi i1 [ false, %errdetail_params.exit.i ], [ false, %check_log_statement.exit.i ], [ true, %start_xact_command.exit194 ], [ true, %.preheader.i.i ], [ true, %.lr.ph.split.i.i ], [ true, %1074 ]
   %1103 = call zeroext i1 @IsAbortedTransactionBlockState() #21
   br i1 %1103, label %1104, label %IsTransactionExitStmtList.exit.i
 
@@ -5120,7 +5120,7 @@ disable_statement_timeout.exit.i.i:               ; preds = %1145, %1143
   br label %finish_xact_command.exit.i
 
 finish_xact_command.exit.i:                       ; preds = %1151, %1147, %1146, %disable_statement_timeout.exit.i.i
-  %.064.i = phi ptr [ null, %disable_statement_timeout.exit.i.i ], [ null, %1146 ], [ %1012, %1147 ], [ %1012, %1151 ]
+  %.064.i = phi ptr [ null, %1146 ], [ null, %disable_statement_timeout.exit.i.i ], [ %1012, %1147 ], [ %1012, %1151 ]
   call void @EndCommand(ptr noundef nonnull %9, i32 noundef %spec.store.select.i, i1 noundef zeroext false) #21
   br label %1159
 
@@ -5226,7 +5226,7 @@ finish_xact_command.exit.i:                       ; preds = %1151, %1147, %1146,
   br label %.critedge36.i171
 
 .critedge36.i171:                                 ; preds = %1208, %.critedge.i186, %1199, %1192
-  %.028.i172 = phi i1 [ false, %1199 ], [ false, %.critedge.i186 ], [ %1211, %1208 ], [ false, %1192 ]
+  %.028.i172 = phi i1 [ %1211, %1208 ], [ false, %1199 ], [ false, %.critedge.i186 ], [ false, %1192 ]
   %or.cond7.i173 = select i1 %1189, i1 true, i1 %.028.i172
   %1212 = load i8, ptr @log_duration, align 1, !range !5
   %1213 = trunc nuw i8 %1212 to i1
@@ -6184,7 +6184,7 @@ check_log_statement.exit.thread.thread:           ; preds = %32, %.lr.ph.split.i
   br label %.lr.ph
 
 check_log_statement.exit.thread:                  ; preds = %pg_parse_query.exit, %check_log_statement.exit, %errdetail_execute.exit
-  %.0.i112 = phi i1 [ true, %check_log_statement.exit ], [ true, %errdetail_execute.exit ], [ false, %pg_parse_query.exit ]
+  %.0.i112 = phi i1 [ true, %errdetail_execute.exit ], [ true, %check_log_statement.exit ], [ false, %pg_parse_query.exit ]
   store ptr %16, ptr @CurrentMemoryContext, align 8
   %.not.i88 = icmp eq ptr %23, null
   br i1 %.not.i88, label %.critedge80, label %.lr.ph
@@ -6573,7 +6573,7 @@ finish_xact_command.exit:                         ; preds = %87, %disable_statem
   br i1 %219, label %.lr.ph32.i102, label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge25.i104, %.split.i107, %.lr.ph.i101, %193, %188
-  %.sink = phi i32 [ 1362, %188 ], [ 1369, %193 ], [ 1369, %.lr.ph.i101 ], [ 1369, %.split.i107 ], [ 1369, %.critedge25.i104 ]
+  %.sink = phi i32 [ 1362, %188 ], [ 1369, %.split.i107 ], [ 1369, %193 ], [ 1369, %.lr.ph.i101 ], [ 1369, %.critedge25.i104 ]
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.exec_simple_query) #21
   br label %220
 

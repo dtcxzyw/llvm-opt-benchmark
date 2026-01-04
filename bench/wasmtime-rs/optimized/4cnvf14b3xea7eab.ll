@@ -9923,7 +9923,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17h19b4edc3bb0c4d
   br i1 %cond, label %5, label %.loopexit
 
 .loopexit:                                        ; preds = %5, %2
-  %.sroa.02.0 = phi i16 [ 0, %2 ], [ %spec.select, %5 ]
+  %.sroa.02.0 = phi i16 [ %spec.select, %5 ], [ 0, %2 ]
   %3 = insertvalue { i16, i16 } poison, i16 %.sroa.02.0, 0
   %4 = insertvalue { i16, i16 } %3, i16 1, 1
   ret { i16, i16 } %4
@@ -9941,7 +9941,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17h27af83d5aa7e14
   br i1 %cond, label %5, label %.loopexit
 
 .loopexit:                                        ; preds = %5, %2
-  %.sroa.02.0 = phi i16 [ 0, %2 ], [ %spec.select, %5 ]
+  %.sroa.02.0 = phi i16 [ %spec.select, %5 ], [ 0, %2 ]
   %3 = insertvalue { i16, i16 } poison, i16 %.sroa.02.0, 0
   %4 = insertvalue { i16, i16 } %3, i16 1, 1
   ret { i16, i16 } %4
@@ -10033,7 +10033,7 @@ define hidden { i32, i32 } @_ZN8bitflags6traits5Flags9from_name17h404c14d6f47d21
   br i1 %cond, label %5, label %.loopexit
 
 .loopexit:                                        ; preds = %5, %2
-  %.sroa.02.0 = phi i32 [ 0, %2 ], [ %spec.select, %5 ]
+  %.sroa.02.0 = phi i32 [ %spec.select, %5 ], [ 0, %2 ]
   %3 = insertvalue { i32, i32 } poison, i32 %.sroa.02.0, 0
   %4 = insertvalue { i32, i32 } %3, i32 1, 1
   ret { i32, i32 } %4
@@ -10051,7 +10051,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17h434f72091869c9
   br i1 %cond, label %5, label %.loopexit
 
 .loopexit:                                        ; preds = %5, %2
-  %.sroa.02.0 = phi i16 [ 0, %2 ], [ %spec.select, %5 ]
+  %.sroa.02.0 = phi i16 [ %spec.select, %5 ], [ 0, %2 ]
   %3 = insertvalue { i16, i16 } poison, i16 %.sroa.02.0, 0
   %4 = insertvalue { i16, i16 } %3, i16 1, 1
   ret { i16, i16 } %4
@@ -10180,7 +10180,7 @@ define hidden { i32, i32 } @_ZN8bitflags6traits5Flags9from_name17h71540eea36d1f0
   br i1 %cond, label %5, label %.loopexit
 
 .loopexit:                                        ; preds = %5, %2
-  %.sroa.02.0 = phi i32 [ 0, %2 ], [ %spec.select, %5 ]
+  %.sroa.02.0 = phi i32 [ %spec.select, %5 ], [ 0, %2 ]
   %3 = insertvalue { i32, i32 } poison, i32 %.sroa.02.0, 0
   %4 = insertvalue { i32, i32 } %3, i32 1, 1
   ret { i32, i32 } %4
@@ -10198,7 +10198,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17h79174caf988f65
   br i1 %cond, label %5, label %.loopexit
 
 .loopexit:                                        ; preds = %5, %2
-  %.sroa.02.0 = phi i16 [ 0, %2 ], [ %spec.select, %5 ]
+  %.sroa.02.0 = phi i16 [ %spec.select, %5 ], [ 0, %2 ]
   %3 = insertvalue { i16, i16 } poison, i16 %.sroa.02.0, 0
   %4 = insertvalue { i16, i16 } %3, i16 1, 1
   ret { i16, i16 } %4
@@ -10401,7 +10401,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17hb61860610fb1fc
   br i1 %cond, label %5, label %.loopexit
 
 .loopexit:                                        ; preds = %5, %2
-  %.sroa.02.0 = phi i16 [ 0, %2 ], [ %spec.select, %5 ]
+  %.sroa.02.0 = phi i16 [ %spec.select, %5 ], [ 0, %2 ]
   %3 = insertvalue { i16, i16 } poison, i16 %.sroa.02.0, 0
   %4 = insertvalue { i16, i16 } %3, i16 1, 1
   ret { i16, i16 } %4
@@ -10419,7 +10419,7 @@ define hidden { i16, i16 } @_ZN8bitflags6traits5Flags9from_name17hba60fef70fc1f0
   br i1 %cond, label %5, label %.loopexit
 
 .loopexit:                                        ; preds = %5, %2
-  %.sroa.02.0 = phi i16 [ 0, %2 ], [ %spec.select, %5 ]
+  %.sroa.02.0 = phi i16 [ %spec.select, %5 ], [ 0, %2 ]
   %3 = insertvalue { i16, i16 } poison, i16 %.sroa.02.0, 0
   %4 = insertvalue { i16, i16 } %3, i16 1, 1
   ret { i16, i16 } %4
@@ -12551,8 +12551,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %86
 
 86:                                               ; preds = %79, %75
-  %87 = phi i8 [ %.pre, %79 ], [ %77, %75 ]
-  %.sroa.4.0.ph = phi i64 [ %85, %79 ], [ %.sroa.6.1.i.i, %75 ]
+  %87 = phi i8 [ %77, %75 ], [ %.pre, %79 ]
+  %.sroa.4.0.ph = phi i64 [ %.sroa.6.1.i.i, %75 ], [ %85, %79 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2289)
   %88 = getelementptr inbounds i8, ptr %44, i64 %.sroa.4.0.ph
   %89 = and i8 %87, 1
@@ -12727,8 +12727,8 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   br label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h4c5fe7659d6b77ebE.exit
 
 _ZN9hashbrown3raw13RawTableInner15fix_insert_slot17h4c5fe7659d6b77ebE.exit: ; preds = %17, %43, %39
-  %.sroa.3.0 = phi i64 [ %49, %43 ], [ %.sroa.6.1, %39 ], [ %23, %17 ]
-  %.sroa.0.0 = phi i64 [ 1, %43 ], [ 1, %39 ], [ 0, %17 ]
+  %.sroa.3.0 = phi i64 [ %.sroa.6.1, %39 ], [ %49, %43 ], [ %23, %17 ]
+  %.sroa.0.0 = phi i64 [ 1, %39 ], [ 1, %43 ], [ 0, %17 ]
   %50 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %51 = insertvalue { i64, i64 } %50, i64 %.sroa.3.0, 1
   ret { i64, i64 } %51
@@ -12885,8 +12885,8 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_inse
   store ptr %30, ptr %58, align 8
   br label %61
 
-59:                                               ; preds = %50, %46
-  %.sroa.3.0.i.ph = phi i64 [ %.sroa.6.1.i, %46 ], [ %56, %50 ]
+59:                                               ; preds = %46, %50
+  %.sroa.3.0.i.ph = phi i64 [ %56, %50 ], [ %.sroa.6.1.i, %46 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.3.0.i.ph, ptr %60, align 8
   br label %61

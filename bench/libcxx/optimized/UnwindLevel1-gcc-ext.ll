@@ -248,8 +248,8 @@ define range(i32 1, 0) i32 @_Unwind_Backtrace(ptr noundef %0, ptr noundef %1) lo
   %47 = call i32 @fflush(ptr noundef %46)
   br label %48
 
-48:                                               ; preds = %.sink.split, %22, %41
-  %.1.ph = phi i32 [ %40, %41 ], [ 5, %22 ], [ %.1.ph.ph, %.sink.split ]
+48:                                               ; preds = %.sink.split, %41, %22
+  %.1.ph = phi i32 [ 5, %22 ], [ %40, %41 ], [ %.1.ph.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1.ph

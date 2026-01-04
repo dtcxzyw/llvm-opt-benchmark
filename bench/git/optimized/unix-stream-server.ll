@@ -60,7 +60,7 @@ define dso_local range(i32 -2, 1) i32 @unix_ss_create(ptr noundef %0, ptr nounde
   br label %33
 
 33:                                               ; preds = %4, %26, %22, %15
-  %.0 = phi i32 [ -2, %15 ], [ -1, %22 ], [ 0, %26 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %26 ], [ -2, %15 ], [ -1, %22 ], [ -1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

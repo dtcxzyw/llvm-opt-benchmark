@@ -812,7 +812,7 @@ _ZN2cvL15calcMinEigenValERKNS_3MatERS0_.exit:     ; preds = %._crit_edge.us.i115
   br label %312
 
 312:                                              ; preds = %311, %81, %79, %64, %62
-  %.pn100.pn.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %63, %62 ], [ %82, %81 ], [ %80, %79 ], [ %.pn100.pn, %311 ]
+  %.pn100.pn.pn.pn = phi { ptr, i32 } [ %80, %79 ], [ %65, %64 ], [ %63, %62 ], [ %82, %81 ], [ %.pn100.pn, %311 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #12
@@ -1568,7 +1568,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge108, %18
   ret void
 
 193:                                              ; preds = %103, %101, %99, %97, %95
-  %.pn88 = phi { ptr, i32 } [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ]
+  %.pn88 = phi { ptr, i32 } [ %96, %95 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #12
   br label %194
 

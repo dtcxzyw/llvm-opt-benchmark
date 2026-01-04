@@ -289,7 +289,7 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   %.pre315348 = load i32, ptr %48, align 4
   br label %166
 
-.split109.us.thread341:                           ; preds = %121, %116, %.lr.ph.split.split.split
+.split109.us.thread341:                           ; preds = %116, %121, %.lr.ph.split.split.split
   %150 = tail call ptr @palloc(i64 noundef 24) #7
   br label %.split109.us._crit_edge
 
@@ -310,10 +310,10 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   br i1 %46, label %154, label %166
 
 154:                                              ; preds = %.split109.us.thread.thread, %153
-  %.pre315353 = phi i32 [ %.pre315, %153 ], [ %.pre315348358, %.split109.us.thread.thread ]
-  %.us-phi112333351 = phi ptr [ %.171.ph89238, %153 ], [ %.171104.us129.us, %.split109.us.thread.thread ]
-  %.us-phi113338349 = phi i32 [ %.1.ph91241, %153 ], [ %.1105.us128.us, %.split109.us.thread.thread ]
-  %155 = phi ptr [ %151, %153 ], [ %148, %.split109.us.thread.thread ]
+  %.pre315353 = phi i32 [ %.pre315348358, %.split109.us.thread.thread ], [ %.pre315, %153 ]
+  %.us-phi112333351 = phi ptr [ %.171104.us129.us, %.split109.us.thread.thread ], [ %.171.ph89238, %153 ]
+  %.us-phi113338349 = phi i32 [ %.1105.us128.us, %.split109.us.thread.thread ], [ %.1.ph91241, %153 ]
+  %155 = phi ptr [ %148, %.split109.us.thread.thread ], [ %151, %153 ]
   %156 = getelementptr inbounds nuw i8, ptr %.us-phi112333351, i64 8
   %157 = load i32, ptr %156, align 4
   %158 = icmp ult i32 %.pre315353, %157
@@ -363,7 +363,7 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   br label %.lr.ph.lr.ph
 
 .outer87._crit_edge:                              ; preds = %.outer87, %135, %138, %37
-  %.077.ph.lcssa = phi ptr [ null, %37 ], [ %.077.ph244, %138 ], [ %.077.ph244, %135 ], [ %.077.ph244, %.outer87 ]
+  %.077.ph.lcssa = phi ptr [ %.077.ph244, %135 ], [ null, %37 ], [ %.077.ph244, %138 ], [ %.077.ph244, %.outer87 ]
   ret ptr %.077.ph.lcssa
 }
 

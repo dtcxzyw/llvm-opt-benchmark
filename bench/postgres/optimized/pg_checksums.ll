@@ -335,7 +335,7 @@ sub_151:                                          ; preds = %.tail.thread, %.thr
   br i1 %53, label %.tail49.thread.backedge, label %54
 
 .tail49.thread.backedge:                          ; preds = %51, %50, %49, %48, %45, %40, %38, %37, %36
-  %.0.be = phi ptr [ %.0, %36 ], [ %.0, %37 ], [ %39, %38 ], [ %.0, %40 ], [ %.0, %45 ], [ %.0, %48 ], [ %.0, %49 ], [ %.0, %50 ], [ %.0, %51 ]
+  %.0.be = phi ptr [ %.0, %48 ], [ %.0, %49 ], [ %.0, %50 ], [ %.0, %51 ], [ %.0, %36 ], [ %.0, %37 ], [ %39, %38 ], [ %.0, %40 ], [ %.0, %45 ]
   br label %.tail49.thread, !llvm.loop !10
 
 54:                                               ; preds = %51
@@ -864,7 +864,7 @@ skipfile.exit:                                    ; preds = %41
   br label %71
 
 71:                                               ; preds = %67, %70, %65, %skipfile.exit
-  %.2 = phi i64 [ %.03354, %skipfile.exit ], [ %.03354, %65 ], [ %69, %70 ], [ %69, %67 ]
+  %.2 = phi i64 [ %.03354, %65 ], [ %.03354, %skipfile.exit ], [ %69, %70 ], [ %69, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %87
 
@@ -900,7 +900,7 @@ skipfile.exit:                                    ; preds = %41
   br label %87
 
 87:                                               ; preds = %71, %80, %84, %37, %29, %.tail46.thread, %.tail, %.tail46
-  %.1 = phi i64 [ %.03354, %.tail46 ], [ %.03354, %.tail ], [ %.03354, %.tail46.thread ], [ %.03354, %29 ], [ %.2, %71 ], [ %83, %80 ], [ %86, %84 ], [ %.03354, %37 ]
+  %.1 = phi i64 [ %.03354, %29 ], [ %.03354, %.tail ], [ %.03354, %37 ], [ %.03354, %.tail46.thread ], [ %.03354, %.tail46 ], [ %.2, %71 ], [ %83, %80 ], [ %86, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %88 = call ptr @readdir(ptr noundef nonnull %11) #12

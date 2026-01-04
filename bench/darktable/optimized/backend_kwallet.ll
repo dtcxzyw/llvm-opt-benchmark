@@ -443,7 +443,7 @@ define range(i32 0, 2) i32 @dt_pwstorage_kwallet_set(ptr noundef readonly captur
   br label %67
 
 67:                                               ; preds = %.thread, %.critedge, %66
-  %.3 = phi i32 [ %.4, %66 ], [ 0, %.critedge ], [ 0, %.thread ]
+  %.3 = phi i32 [ 0, %.thread ], [ %.4, %66 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -633,7 +633,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %9
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %18, %20, %21, %22, %23, %25
-  %.0.in.i = phi ptr [ @rb_cNilClass, %21 ], [ @rb_cTrueClass, %22 ], [ %19, %18 ], [ @rb_cFalseClass, %20 ], [ @rb_cInteger, %23 ], [ %spec.select.i, %25 ]
+  %.0.in.i = phi ptr [ %19, %18 ], [ @rb_cNilClass, %21 ], [ @rb_cTrueClass, %22 ], [ @rb_cFalseClass, %20 ], [ @rb_cInteger, %23 ], [ %spec.select.i, %25 ]
   %.0.i7 = load i64, ptr %.0.in.i, align 8, !tbaa !6
   %28 = and i64 %.0.i7, -5
   %.not.i8 = icmp eq i64 %28, 0
@@ -676,7 +676,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %29
   br label %rb_class_of.exit.i
 
 rb_class_of.exit.i:                               ; preds = %41, %39, %38, %37, %35
-  %.0.in.i.i = phi ptr [ @rb_cTrueClass, %38 ], [ %36, %35 ], [ @rb_cInteger, %39 ], [ %spec.select.i.i, %41 ], [ @rb_cNilClass, %37 ]
+  %.0.in.i.i = phi ptr [ %36, %35 ], [ @rb_cInteger, %39 ], [ @rb_cTrueClass, %38 ], [ %spec.select.i.i, %41 ], [ @rb_cNilClass, %37 ]
   %.0.i6.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !6
   %44 = icmp eq i64 %.0.i6.i, 0
   br i1 %44, label %rb_class_of.exit._crit_edge.i, label %wrap_klass_iow.exit
@@ -772,7 +772,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %23
   br label %rb_class_of.exit.i
 
 rb_class_of.exit.i:                               ; preds = %35, %33, %32, %31, %29
-  %.0.in.i.i = phi ptr [ @rb_cTrueClass, %32 ], [ %30, %29 ], [ @rb_cInteger, %33 ], [ %spec.select.i.i, %35 ], [ @rb_cNilClass, %31 ]
+  %.0.in.i.i = phi ptr [ %30, %29 ], [ @rb_cInteger, %33 ], [ @rb_cTrueClass, %32 ], [ %spec.select.i.i, %35 ], [ @rb_cNilClass, %31 ]
   %.0.i6.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !6
   %38 = icmp eq i64 %.0.i6.i, 0
   br i1 %38, label %rb_class_of.exit._crit_edge.i, label %wrap_klass_iow.exit
@@ -1359,7 +1359,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   unreachable
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i210, %.lr.ph.i204, %.lr.ph.i198, %.lr.ph.i192, %.lr.ph.i186, %.lr.ph.i180, %.lr.ph.i174, %.lr.ph.i168, %.lr.ph.i162, %.lr.ph.i156, %.lr.ph.i150, %.lr.ph.i144, %.lr.ph.i138, %.lr.ph.i132, %.lr.ph.i126, %.lr.ph.i120, %.lr.ph.i114, %.lr.ph.i108, %.lr.ph.i102, %.lr.ph.i96, %.lr.ph.i90, %.lr.ph.i84, %.lr.ph.i78, %.lr.ph.i72, %.lr.ph.i66, %.lr.ph.i60, %.lr.ph.i, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4, %2
-  %.lcssa.i209.sink = phi i64 [ %.pr.i, %2 ], [ %.pr.i57, %4 ], [ %.pr.i63, %6 ], [ %.pr.i69, %8 ], [ %.pr.i75, %10 ], [ %.pr.i81, %12 ], [ %.pr.i87, %14 ], [ %.pr.i93, %16 ], [ %.pr.i99, %18 ], [ %.pr.i105, %20 ], [ %.pr.i111, %22 ], [ %.pr.i117, %24 ], [ %.pr.i123, %26 ], [ %.pr.i129, %28 ], [ %.pr.i135, %30 ], [ %.pr.i141, %32 ], [ %.pr.i147, %34 ], [ %.pr.i153, %36 ], [ %.pr.i159, %38 ], [ %.pr.i165, %40 ], [ %.pr.i171, %42 ], [ %.pr.i177, %44 ], [ %.pr.i183, %46 ], [ %.pr.i189, %48 ], [ %.pr.i195, %50 ], [ %.pr.i201, %52 ], [ %.pr.i207, %54 ], [ %3, %.lr.ph.i ], [ %5, %.lr.ph.i60 ], [ %7, %.lr.ph.i66 ], [ %9, %.lr.ph.i72 ], [ %11, %.lr.ph.i78 ], [ %13, %.lr.ph.i84 ], [ %15, %.lr.ph.i90 ], [ %17, %.lr.ph.i96 ], [ %19, %.lr.ph.i102 ], [ %21, %.lr.ph.i108 ], [ %23, %.lr.ph.i114 ], [ %25, %.lr.ph.i120 ], [ %27, %.lr.ph.i126 ], [ %29, %.lr.ph.i132 ], [ %31, %.lr.ph.i138 ], [ %33, %.lr.ph.i144 ], [ %35, %.lr.ph.i150 ], [ %37, %.lr.ph.i156 ], [ %39, %.lr.ph.i162 ], [ %41, %.lr.ph.i168 ], [ %43, %.lr.ph.i174 ], [ %45, %.lr.ph.i180 ], [ %47, %.lr.ph.i186 ], [ %49, %.lr.ph.i192 ], [ %51, %.lr.ph.i198 ], [ %53, %.lr.ph.i204 ], [ %55, %.lr.ph.i210 ]
+  %.lcssa.i209.sink = phi i64 [ %45, %.lr.ph.i180 ], [ %43, %.lr.ph.i174 ], [ %41, %.lr.ph.i168 ], [ %39, %.lr.ph.i162 ], [ %37, %.lr.ph.i156 ], [ %35, %.lr.ph.i150 ], [ %33, %.lr.ph.i144 ], [ %31, %.lr.ph.i138 ], [ %29, %.lr.ph.i132 ], [ %27, %.lr.ph.i126 ], [ %25, %.lr.ph.i120 ], [ %23, %.lr.ph.i114 ], [ %21, %.lr.ph.i108 ], [ %19, %.lr.ph.i102 ], [ %17, %.lr.ph.i96 ], [ %15, %.lr.ph.i90 ], [ %13, %.lr.ph.i84 ], [ %11, %.lr.ph.i78 ], [ %9, %.lr.ph.i72 ], [ %7, %.lr.ph.i66 ], [ %5, %.lr.ph.i60 ], [ %3, %.lr.ph.i ], [ %53, %.lr.ph.i204 ], [ %51, %.lr.ph.i198 ], [ %49, %.lr.ph.i192 ], [ %47, %.lr.ph.i186 ], [ %.pr.i, %2 ], [ %.pr.i57, %4 ], [ %.pr.i63, %6 ], [ %.pr.i69, %8 ], [ %.pr.i75, %10 ], [ %.pr.i81, %12 ], [ %.pr.i87, %14 ], [ %.pr.i93, %16 ], [ %.pr.i99, %18 ], [ %.pr.i105, %20 ], [ %.pr.i111, %22 ], [ %.pr.i117, %24 ], [ %.pr.i123, %26 ], [ %.pr.i129, %28 ], [ %.pr.i135, %30 ], [ %.pr.i141, %32 ], [ %.pr.i147, %34 ], [ %.pr.i153, %36 ], [ %.pr.i159, %38 ], [ %.pr.i165, %40 ], [ %.pr.i171, %42 ], [ %.pr.i177, %44 ], [ %.pr.i183, %46 ], [ %.pr.i189, %48 ], [ %.pr.i195, %50 ], [ %.pr.i201, %52 ], [ %.pr.i207, %54 ], [ %55, %.lr.ph.i210 ]
   %57 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i209.sink) #7
   ret i64 %57
 }

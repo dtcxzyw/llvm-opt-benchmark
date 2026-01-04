@@ -381,7 +381,7 @@ spl_array_read_dimension_ex.exit:                 ; preds = %68, %69
   br label %88
 
 88:                                               ; preds = %13, %77, %82, %84, %18
-  %.0 = phi i1 [ %.1, %77 ], [ true, %18 ], [ %83, %82 ], [ %87, %84 ], [ false, %13 ]
+  %.0 = phi i1 [ true, %18 ], [ %.1, %77 ], [ %87, %84 ], [ %83, %82 ], [ false, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -443,7 +443,7 @@ define hidden void @zim_ArrayObject_offsetGet(ptr noundef readonly captures(none
   br label %35
 
 35:                                               ; preds = %.sink.split, %18, %25
-  %.0 = phi ptr [ %27, %25 ], [ %17, %18 ], [ %.sink.in, %.sink.split ]
+  %.0 = phi ptr [ %17, %18 ], [ %27, %25 ], [ %.sink.in, %.sink.split ]
   %36 = load ptr, ptr %.0, align 8, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %38 = load i32, ptr %37, align 8, !tbaa !4
@@ -1304,7 +1304,7 @@ define internal fastcc void @spl_array_set_array(ptr noundef readonly captures(n
   br label %114
 
 114:                                              ; preds = %111, %105, %65, %69, %35, %42, %18, %21, %63, %24
-  %.0 = phi i64 [ %3, %24 ], [ %64, %63 ], [ %3, %21 ], [ %3, %18 ], [ %3, %42 ], [ %3, %35 ], [ %66, %69 ], [ %66, %65 ], [ %3, %105 ], [ %3, %111 ]
+  %.0 = phi i64 [ %66, %65 ], [ %3, %18 ], [ %3, %24 ], [ %64, %63 ], [ %3, %35 ], [ %3, %21 ], [ %3, %42 ], [ %66, %69 ], [ %3, %105 ], [ %3, %111 ]
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %116 = load i32, ptr %115, align 4, !tbaa !50
   %117 = and i32 %116, -50331649
@@ -2233,8 +2233,8 @@ smart_str_alloc.exit:                             ; preds = %2
   br label %.thread
 
 .thread:                                          ; preds = %35, %29
-  %36 = phi ptr [ %.pre33, %35 ], [ %28, %29 ]
-  %.1.i.i = phi i64 [ %.0.i.i, %35 ], [ %32, %29 ]
+  %36 = phi ptr [ %28, %29 ], [ %.pre33, %35 ]
+  %.1.i.i = phi i64 [ %32, %29 ], [ %.0.i.i, %35 ]
   %37 = getelementptr i8, ptr %36, i64 23
   %38 = getelementptr i8, ptr %37, i64 %.1.i.i
   store i8 59, ptr %38, align 1, !tbaa !4
@@ -2271,9 +2271,9 @@ smart_str_alloc.exit:                             ; preds = %2
   br label %smart_str_alloc.exit25
 
 smart_str_alloc.exit25:                           ; preds = %42, %48
-  %49 = phi i64 [ %.pre38, %48 ], [ %43, %42 ]
-  %50 = phi ptr [ %.pre36, %48 ], [ %44, %42 ]
-  %.1.i24 = phi i64 [ %.0.i23, %48 ], [ %45, %42 ]
+  %49 = phi i64 [ %43, %42 ], [ %.pre38, %48 ]
+  %50 = phi ptr [ %44, %42 ], [ %.pre36, %48 ]
+  %.1.i24 = phi i64 [ %45, %42 ], [ %.0.i23, %48 ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %49
   store i16 14957, ptr %52, align 1
@@ -3338,7 +3338,7 @@ spl_array_get_pos_ptr.exit:                       ; preds = %.critedge, %14
   br label %52
 
 52:                                               ; preds = %.sink.split, %35, %42
-  %.026 = phi ptr [ %44, %42 ], [ %.0, %35 ], [ %.sink.in, %.sink.split ]
+  %.026 = phi ptr [ %.0, %35 ], [ %44, %42 ], [ %.sink.in, %.sink.split ]
   %53 = load ptr, ptr %.026, align 8, !tbaa !4
   %54 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %55 = load i32, ptr %54, align 8, !tbaa !4
@@ -4591,7 +4591,7 @@ define internal i32 @spl_array_compare_objects(ptr noundef %0, ptr noundef %1) #
   br label %37
 
 37:                                               ; preds = %.sink.split, %19, %32
-  %.020 = phi i32 [ 0, %32 ], [ %26, %19 ], [ %36, %.sink.split ]
+  %.020 = phi i32 [ %26, %19 ], [ 0, %32 ], [ %36, %.sink.split ]
   ret i32 %.020
 }
 
@@ -4754,7 +4754,7 @@ _zend_handle_numeric_str.exit:                    ; preds = %18, %21
   br label %zend_dval_to_lval.exit
 
 zend_dval_to_lval.exit:                           ; preds = %32, %39, %41
-  %.0.i31 = phi i64 [ %40, %39 ], [ %42, %41 ], [ 0, %32 ]
+  %.0.i31 = phi i64 [ %42, %41 ], [ %40, %39 ], [ 0, %32 ]
   %43 = sitofp i64 %.0.i31 to double
   %44 = fcmp oeq double %33, %43
   br i1 %44, label %zend_dval_to_lval_safe.exit, label %45
@@ -4829,7 +4829,7 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
   br label %_zend_handle_numeric_str.exit.thread
 
 _zend_handle_numeric_str.exit.thread:             ; preds = %5, %21, %20, %10, %spl_array_is_object.exit, %spl_array_is_object.exit.thread, %_zend_handle_numeric_str.exit, %8
-  %.029 = phi i32 [ 0, %8 ], [ 0, %_zend_handle_numeric_str.exit ], [ 0, %spl_array_is_object.exit.thread ], [ 0, %spl_array_is_object.exit ], [ 0, %10 ], [ 0, %20 ], [ 0, %21 ], [ -1, %5 ]
+  %.029 = phi i32 [ 0, %_zend_handle_numeric_str.exit ], [ 0, %8 ], [ 0, %21 ], [ 0, %spl_array_is_object.exit.thread ], [ 0, %spl_array_is_object.exit ], [ 0, %10 ], [ 0, %20 ], [ -1, %5 ]
   ret i32 %.029
 }
 
@@ -5078,7 +5078,7 @@ define internal fastcc ptr @spl_array_get_dimension_ptr(ptr noundef %0, ptr noun
   br label %spl_hash_key_release.exit
 
 spl_hash_key_release.exit:                        ; preds = %72, %67, %63, %60, %78, %81, %84, %73, %4, %10, %24, %20
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %20 ], [ %25, %24 ], [ @executor_globals, %10 ], [ @executor_globals, %4 ], [ null, %78 ], [ @executor_globals, %81 ], [ %87, %84 ], [ %76, %73 ], [ %.030, %60 ], [ %.030, %63 ], [ %.030, %67 ], [ %.030, %72 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %20 ], [ %25, %24 ], [ @executor_globals, %4 ], [ @executor_globals, %10 ], [ %76, %73 ], [ null, %78 ], [ @executor_globals, %81 ], [ %87, %84 ], [ %.030, %60 ], [ %.030, %63 ], [ %.030, %67 ], [ %.030, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -5194,7 +5194,7 @@ spl_array_get_pos_ptr.exit:                       ; preds = %spl_array_is_object
   br i1 %50, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %45, %47, %38, %42, %spl_array_get_pos_ptr.exit, %spl_array_is_object.exit
-  %.1 = phi i32 [ -1, %spl_array_is_object.exit ], [ 0, %spl_array_get_pos_ptr.exit ], [ -1, %45 ], [ 0, %47 ], [ 0, %38 ], [ 0, %42 ]
+  %.1 = phi i32 [ -1, %spl_array_is_object.exit ], [ 0, %spl_array_get_pos_ptr.exit ], [ 0, %38 ], [ 0, %47 ], [ -1, %45 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
@@ -5332,7 +5332,7 @@ zend_std_get_properties_ex.exit:                  ; preds = %42, %.thread, %46
   br label %60
 
 60:                                               ; preds = %38, %35, %58, %zend_std_get_properties_ex.exit, %24, %zend_std_get_properties_ex.exit30
-  %.023 = phi ptr [ %16, %zend_std_get_properties_ex.exit30 ], [ %.tr33, %24 ], [ %36, %38 ], [ %36, %35 ], [ %48, %58 ], [ %48, %zend_std_get_properties_ex.exit ]
+  %.023 = phi ptr [ %16, %zend_std_get_properties_ex.exit30 ], [ %48, %zend_std_get_properties_ex.exit ], [ %.tr33, %24 ], [ %36, %35 ], [ %36, %38 ], [ %48, %58 ]
   ret ptr %.023
 }
 
@@ -5608,7 +5608,7 @@ spl_array_get_pos_ptr.exit:                       ; preds = %39, %42
   br label %78
 
 78:                                               ; preds = %.sink.split, %24, %28, %31, %35
-  %.1 = phi ptr [ %.041, %35 ], [ %.041, %31 ], [ %.041, %28 ], [ %.041, %24 ], [ %.1.ph, %.sink.split ]
+  %.1 = phi ptr [ %.041, %28 ], [ %.041, %24 ], [ %.041, %35 ], [ %.041, %31 ], [ %.1.ph, %.sink.split ]
   ret ptr %.1
 }
 

@@ -207,7 +207,7 @@ define dso_local void @launch_common_set_stdio_fds(ptr noundef readonly captures
   br label %11
 
 11:                                               ; preds = %3, %6, %7
-  %.048 = phi i32 [ 1601, %6 ], [ %., %7 ], [ 1089, %3 ]
+  %.048 = phi i32 [ %., %7 ], [ 1601, %6 ], [ 1089, %3 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
@@ -368,7 +368,7 @@ _is_local_file.exit68:                            ; preds = %55
   %99 = load i32, ptr %98, align 4
   br label %.sink.split
 
-.critedge:                                        ; preds = %84, %81, %_is_local_file.exit68, %88
+.critedge:                                        ; preds = %_is_local_file.exit68, %84, %81, %88
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %101, align 8
@@ -1493,7 +1493,7 @@ define dso_local range(i32 -1, 1) i32 @launch_g_create_job_step(ptr noundef %0, 
   br i1 %.not308.i, label %469, label %.sink.split361.i
 
 .sink.split361.i:                                 ; preds = %462, %446, %442
-  %.sink363.i = phi i32 [ %449, %446 ], [ %445, %442 ], [ %467, %462 ]
+  %.sink363.i = phi i32 [ %445, %442 ], [ %449, %446 ], [ %467, %462 ]
   %468 = trunc i32 %.sink363.i to i16
   store i16 %468, ptr %438, align 4
   br label %469
@@ -1924,7 +1924,7 @@ launch_common_get_slurm_step_layout.exit.thread:  ; preds = %.loopexit155.thread
   br label %680
 
 680:                                              ; preds = %.thread152, %_create_job_step_create_request.exit.thread, %673, %677, %651, %635, %28, %22, %13
-  %.0107 = phi i32 [ -1, %22 ], [ -1, %28 ], [ -1, %635 ], [ -1, %651 ], [ -1, %13 ], [ 0, %677 ], [ 0, %673 ], [ -1, %_create_job_step_create_request.exit.thread ], [ -1, %.thread152 ]
+  %.0107 = phi i32 [ -1, %22 ], [ -1, %28 ], [ -1, %.thread152 ], [ -1, %635 ], [ -1, %_create_job_step_create_request.exit.thread ], [ -1, %651 ], [ -1, %13 ], [ 0, %677 ], [ 0, %673 ]
   ret i32 %.0107
 }
 
@@ -3010,37 +3010,37 @@ _find_srun_job.exit.thread:                       ; preds = %1, %_find_srun_job.
   %34 = icmp ne i32 %33, 253
   %.b78 = load i1, ptr @_task_finish.oom_printed, align 4
   %or.cond = select i1 %34, i1 true, i1 %.b78
-  br i1 %or.cond, label %35, label %.critedge100
+  br i1 %or.cond, label %35, label %.critedge
 
 35:                                               ; preds = %30
   %36 = and i32 %32, 127
   switch i32 %36, label %43 [
     i32 0, label %37
-    i32 127, label %.critedge
+    i32 127, label %.critedge100
   ]
 
 37:                                               ; preds = %35
   %38 = and i32 %32, 65280
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %.critedge100
+  br i1 %39, label %40, label %.critedge
 
 40:                                               ; preds = %37
   %41 = tail call i32 @get_log_level() #17
   %42 = icmp sgt i32 %41, 3
-  br i1 %42, label %.critedge100, label %.critedge
+  br i1 %42, label %.critedge, label %.critedge100
 
 43:                                               ; preds = %35
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 108
   %45 = load i32, ptr %44, align 4
   %46 = icmp ugt i32 %45, 3
-  br i1 %46, label %47, label %.critedge100
+  br i1 %46, label %47, label %.critedge
 
 47:                                               ; preds = %43
   %48 = tail call i32 @get_log_level() #17
   %49 = icmp sgt i32 %48, 3
-  br i1 %49, label %.critedge100, label %.critedge
+  br i1 %49, label %.critedge, label %.critedge100
 
-.critedge100:                                     ; preds = %40, %30, %37, %43, %47
+.critedge:                                        ; preds = %40, %30, %37, %43, %47
   %50 = load i32, ptr %0, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
@@ -3053,7 +3053,7 @@ _find_srun_job.exit.thread:                       ; preds = %1, %_find_srun_job.
   %.not.i105 = icmp eq ptr %55, null
   br i1 %.not.i105, label %57, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.critedge100
+.preheader.i:                                     ; preds = %.critedge
   %56 = icmp sgt i32 %50, 0
   br i1 %56, label %.lr.ph.i, label %_task_array_to_string.exit
 
@@ -3061,7 +3061,7 @@ _find_srun_job.exit.thread:                       ; preds = %1, %_find_srun_job.
   %wide.trip.count.i = zext nneg i32 %50 to i64
   br label %60
 
-57:                                               ; preds = %.critedge100
+57:                                               ; preds = %.critedge
   %58 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.70) #17
   %59 = load i32, ptr @error_exit, align 4
   tail call void @exit(i32 noundef %59) #18
@@ -3199,22 +3199,22 @@ _hostset_to_string.exit.i:                        ; preds = %107, %105
 _task_ids_to_host_list.exit:                      ; preds = %launch_common_get_slurm_step_layout.exit.thread.i, %85, %_hostset_to_string.exit.i
   %.0.i112 = phi ptr [ %78, %launch_common_get_slurm_step_layout.exit.thread.i ], [ %86, %85 ], [ %.pre.i.i, %_hostset_to_string.exit.i ]
   store ptr %.0.i112, ptr %6, align 8
-  br label %.critedge
+  br label %.critedge100
 
-.critedge:                                        ; preds = %35, %40, %47, %_task_ids_to_host_list.exit
-  %109 = phi ptr [ null, %40 ], [ null, %47 ], [ %64, %_task_ids_to_host_list.exit ], [ null, %35 ]
-  %110 = phi ptr [ null, %40 ], [ null, %47 ], [ %.0.i112, %_task_ids_to_host_list.exit ], [ null, %35 ]
+.critedge100:                                     ; preds = %35, %40, %47, %_task_ids_to_host_list.exit
+  %109 = phi ptr [ null, %40 ], [ null, %35 ], [ null, %47 ], [ %64, %_task_ids_to_host_list.exit ]
+  %110 = phi ptr [ null, %40 ], [ null, %35 ], [ null, %47 ], [ %.0.i112, %_task_ids_to_host_list.exit ]
   %111 = call i32 @pthread_mutex_lock(ptr noundef nonnull @launch_lock) #17
   %.not82 = icmp eq i32 %111, 0
   br i1 %.not82, label %114, label %112
 
-112:                                              ; preds = %.critedge
+112:                                              ; preds = %.critedge100
   %113 = tail call ptr @__errno_location() #19
   store i32 %111, ptr %113, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__._task_finish) #18
   unreachable
 
-114:                                              ; preds = %.critedge
+114:                                              ; preds = %.critedge100
   %115 = load i32, ptr %31, align 8
   %116 = and i32 %115, 255
   %117 = icmp eq i32 %116, 253
@@ -3340,7 +3340,7 @@ _is_openmpi_port_error.exit.thread:               ; preds = %126, %135, %_is_ope
   br label %171
 
 171:                                              ; preds = %129, %132, %_handle_openmpi_port_error.exit, %169, %166
-  %.1 = phi i32 [ 0, %_handle_openmpi_port_error.exit ], [ 0, %169 ], [ 0, %166 ], [ 1, %132 ], [ 1, %129 ]
+  %.1 = phi i32 [ 0, %166 ], [ 0, %_handle_openmpi_port_error.exit ], [ 0, %169 ], [ 1, %132 ], [ 1, %129 ]
   %172 = load ptr, ptr @local_global_rc, align 8
   %173 = load i32, ptr %172, align 4
   %174 = and i32 %173, 255
@@ -3427,7 +3427,7 @@ _is_openmpi_port_error.exit.thread:               ; preds = %126, %135, %_is_ope
   br label %216
 
 216:                                              ; preds = %124, %204, %215, %209, %185, %181, %175, %171, %121
-  %.067 = phi i32 [ 0, %121 ], [ %.1, %175 ], [ %.1, %185 ], [ %.1, %181 ], [ %.1, %171 ], [ 0, %209 ], [ 0, %215 ], [ 0, %204 ], [ 0, %124 ]
+  %.067 = phi i32 [ 0, %121 ], [ %.1, %175 ], [ %.1, %185 ], [ %.1, %181 ], [ %.1, %171 ], [ 0, %124 ], [ 0, %209 ], [ 0, %215 ], [ 0, %204 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #17
   call void @slurm_xfree(ptr noundef nonnull %6) #17
   %217 = load ptr, ptr @task_state_list, align 8
@@ -3606,7 +3606,7 @@ define dso_local range(i32 -1, 1) i32 @launch_g_step_wait(ptr noundef %0, i1 nou
   unreachable
 
 21:                                               ; preds = %14, %10, %3
-  %.0 = phi i32 [ 0, %10 ], [ 0, %3 ], [ -1, %14 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %10 ], [ -1, %14 ]
   ret i32 %.0
 }
 

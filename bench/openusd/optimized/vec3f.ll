@@ -696,7 +696,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__20GfOrthogonaliz
   br i1 %exitcond.not, label %.loopexit, label %153, !llvm.loop !4
 
 .loopexit:                                        ; preds = %352, %275, %119, %135, %144
-  %.0 = phi i1 [ false, %144 ], [ false, %135 ], [ false, %119 ], [ %295, %275 ], [ %295, %352 ]
+  %.0 = phi i1 [ false, %119 ], [ false, %144 ], [ false, %135 ], [ %295, %275 ], [ %295, %352 ]
   ret i1 %.0
 }
 

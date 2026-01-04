@@ -101,8 +101,8 @@ _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4t
   br label %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.thread
 
 _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.thread: ; preds = %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit, %16, %10, %13, %12
-  %.sroa.02.0 = phi i64 [ undef, %12 ], [ undef, %13 ], [ %17, %16 ], [ %11, %10 ], [ %spec.select.i.i, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit ]
-  %.sroa.2.0 = phi i8 [ 0, %12 ], [ 0, %13 ], [ 1, %16 ], [ 1, %10 ], [ %spec.select10, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit ]
+  %.sroa.02.0 = phi i64 [ %spec.select.i.i, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit ], [ %11, %10 ], [ undef, %13 ], [ undef, %12 ], [ %17, %16 ]
+  %.sroa.2.0 = phi i8 [ %spec.select10, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit ], [ 1, %10 ], [ 0, %13 ], [ 0, %12 ], [ 1, %16 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.02.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -245,7 +245,7 @@ define linkonce_odr void @_ZN4llvm12ScaledNumberImE9shiftLeftEi(ptr noundef nonn
   br label %34
 
 34:                                               ; preds = %26, %25
-  %.sroa.0.0.i.i.i = phi i64 [ %.sroa.0.0.insert.ext.i12.i.i.i, %25 ], [ %.sroa.0.0.insert.insert.i17.i.i.i, %26 ]
+  %.sroa.0.0.i.i.i = phi i64 [ %.sroa.0.0.insert.insert.i17.i.i.i, %26 ], [ %.sroa.0.0.insert.ext.i12.i.i.i, %25 ]
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.i.i.i to i32
   %.sroa.4.0.extract.shift.i.i = lshr i64 %.sroa.0.0.i.i.i, 32
   %.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i to i32
@@ -271,7 +271,7 @@ define linkonce_odr void @_ZN4llvm12ScaledNumberImE9shiftLeftEi(ptr noundef nonn
   br label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit
 
 _ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit: ; preds = %39, %42
-  %.0.i = phi i32 [ %41, %39 ], [ %45, %42 ]
+  %.0.i = phi i32 [ %45, %42 ], [ %41, %39 ]
   %46 = icmp eq i32 %.0.i, 0
   br i1 %46, label %56, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit._ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit.thread_crit_edge
 

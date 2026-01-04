@@ -2144,7 +2144,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3h9GetLengthEv.exit190: ; preds = %1
   br i1 %exitcond.not, label %.loopexit, label %463, !llvm.loop !4
 
 .loopexit:                                        ; preds = %1345, %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit128, %_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_7GfVec3hES2_d.exit, %_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_7GfVec3hES2_d.exit71, %_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_7GfVec3hES2_d.exit78
-  %.0 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_7GfVec3hES2_d.exit78 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_7GfVec3hES2_d.exit71 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_7GfVec3hES2_d.exit ], [ %1123, %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit128 ], [ %1123, %1345 ]
+  %.0 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_7GfVec3hES2_d.exit ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_7GfVec3hES2_d.exit78 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_7GfVec3hES2_d.exit71 ], [ %1123, %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit128 ], [ %1123, %1345 ]
   ret i1 %.0
 }
 

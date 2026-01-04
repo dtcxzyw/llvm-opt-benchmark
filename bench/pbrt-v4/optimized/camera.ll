@@ -3791,9 +3791,9 @@ _ZN4pbrt10DivRoundUpEff.exit21.i59:               ; preds = %94, %_ZN4pbrt12DivR
   br label %_ZN4pbrtdvENS_8IntervalEf.exit84
 
 _ZN4pbrtdvENS_8IntervalEf.exit84:                 ; preds = %3, %_ZN4pbrt10DivRoundUpEff.exit.i78, %_ZN4pbrt10DivRoundUpEff.exit21.i59
-  %.sroa.028.0.i2796 = phi <2 x float> [ %.sroa.028.4.vec.insert35.i45, %_ZN4pbrt10DivRoundUpEff.exit.i78 ], [ %.sroa.028.4.vec.insert37.i26, %_ZN4pbrt10DivRoundUpEff.exit21.i59 ], [ <float 0xFFF0000000000000, float 0x7FF0000000000000>, %3 ]
-  %.sroa.028.0.i8894 = phi <2 x float> [ %.sroa.028.4.vec.insert35.i, %_ZN4pbrt10DivRoundUpEff.exit.i78 ], [ %.sroa.028.4.vec.insert37.i, %_ZN4pbrt10DivRoundUpEff.exit21.i59 ], [ <float 0xFFF0000000000000, float 0x7FF0000000000000>, %3 ]
-  %.sroa.028.0.i65 = phi <2 x float> [ %.sroa.028.4.vec.insert35.i83, %_ZN4pbrt10DivRoundUpEff.exit.i78 ], [ %.sroa.028.4.vec.insert37.i64, %_ZN4pbrt10DivRoundUpEff.exit21.i59 ], [ <float 0xFFF0000000000000, float 0x7FF0000000000000>, %3 ]
+  %.sroa.028.0.i2796 = phi <2 x float> [ %.sroa.028.4.vec.insert37.i26, %_ZN4pbrt10DivRoundUpEff.exit21.i59 ], [ %.sroa.028.4.vec.insert35.i45, %_ZN4pbrt10DivRoundUpEff.exit.i78 ], [ <float 0xFFF0000000000000, float 0x7FF0000000000000>, %3 ]
+  %.sroa.028.0.i8894 = phi <2 x float> [ %.sroa.028.4.vec.insert37.i, %_ZN4pbrt10DivRoundUpEff.exit21.i59 ], [ %.sroa.028.4.vec.insert35.i, %_ZN4pbrt10DivRoundUpEff.exit.i78 ], [ <float 0xFFF0000000000000, float 0x7FF0000000000000>, %3 ]
+  %.sroa.028.0.i65 = phi <2 x float> [ %.sroa.028.4.vec.insert37.i64, %_ZN4pbrt10DivRoundUpEff.exit21.i59 ], [ %.sroa.028.4.vec.insert35.i83, %_ZN4pbrt10DivRoundUpEff.exit.i78 ], [ <float 0xFFF0000000000000, float 0x7FF0000000000000>, %3 ]
   store <2 x float> %.sroa.028.0.i8894, ptr %0, align 4
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store <2 x float> %.sroa.028.0.i2796, ptr %101, align 4
@@ -7305,7 +7305,7 @@ _ZN4pbrt21InverseRadicalInverseEmii.exit.us44:    ; preds = %.lr.ph.i.us39, %.sp
   br i1 %60, label %.split33.split.us, label %.split35.us, !llvm.loop !399
 
 .split35.us:                                      ; preds = %_ZN4pbrt21InverseRadicalInverseEmii.exit.us44, %_ZN4pbrt21InverseRadicalInverseEmii.exit.us, %_ZN4pbrt21InverseRadicalInverseEmii.exit.us.us, %.split33
-  %.us-phi = phi i64 [ 0, %.split33 ], [ %42, %_ZN4pbrt21InverseRadicalInverseEmii.exit.us.us ], [ %59, %_ZN4pbrt21InverseRadicalInverseEmii.exit.us ], [ %76, %_ZN4pbrt21InverseRadicalInverseEmii.exit.us44 ]
+  %.us-phi = phi i64 [ 0, %.split33 ], [ %59, %_ZN4pbrt21InverseRadicalInverseEmii.exit.us ], [ %42, %_ZN4pbrt21InverseRadicalInverseEmii.exit.us.us ], [ %76, %_ZN4pbrt21InverseRadicalInverseEmii.exit.us44 ]
   %77 = zext nneg i32 %9 to i64
   %78 = srem i64 %.us-phi, %77
   br label %79
@@ -9851,8 +9851,8 @@ define linkonce_odr dso_local void @_ZN4pbrt15GetCameraSampleINS_12SobolSamplerE
   br i1 %.not.i14.i, label %._crit_edge.loopexit.i15.i, label %.lr.ph.i7.i, !llvm.loop !437
 
 _ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit18.i: ; preds = %._crit_edge.loopexit.i15.i, %4
-  %.sroa.speculated.i29.i = phi float [ %.sroa.speculated.i.i, %._crit_edge.loopexit.i15.i ], [ 0.000000e+00, %4 ]
-  %.09.lcssa.i16.i = phi float [ %20, %._crit_edge.loopexit.i15.i ], [ 0.000000e+00, %4 ]
+  %.sroa.speculated.i29.i = phi float [ 0.000000e+00, %4 ], [ %.sroa.speculated.i.i, %._crit_edge.loopexit.i15.i ]
+  %.09.lcssa.i16.i = phi float [ 0.000000e+00, %4 ], [ %20, %._crit_edge.loopexit.i15.i ]
   %28 = fcmp ogt float %.09.lcssa.i16.i, 0x3FEFFFFFE0000000
   %.sroa.speculated.i17.i = select i1 %28, float 0x3FEFFFFFE0000000, float %.09.lcssa.i16.i
   store float %.sroa.speculated.i29.i, ptr %.sroa.0.i, align 8, !tbaa !462
@@ -11567,8 +11567,8 @@ _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread: ; preds =
   br i1 %.not.i57, label %._crit_edge.loopexit.i58, label %.lr.ph.i50, !llvm.loop !438
 
 _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit62: ; preds = %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread, %._crit_edge.loopexit.i58
-  %.sroa.speculated.i47149 = phi float [ %.sroa.speculated.i47, %._crit_edge.loopexit.i58 ], [ %.sroa.speculated.i47148, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread ]
-  %.09.lcssa.i60 = phi i32 [ %115, %._crit_edge.loopexit.i58 ], [ %78, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread ]
+  %.sroa.speculated.i47149 = phi float [ %.sroa.speculated.i47148, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread ], [ %.sroa.speculated.i47, %._crit_edge.loopexit.i58 ]
+  %.09.lcssa.i60 = phi i32 [ %78, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread ], [ %115, %._crit_edge.loopexit.i58 ]
   %123 = uitofp i32 %.09.lcssa.i60 to float
   %124 = fmul float %123, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit33
@@ -11786,8 +11786,8 @@ _ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit124: ; preds = %202
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit33
 
 _ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit33: ; preds = %._crit_edge.loopexit.i29, %80, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit124, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit91, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit62
-  %.sink160 = phi float [ %230, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit124 ], [ %168, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit91 ], [ %124, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit62 ], [ %92, %._crit_edge.loopexit.i29 ], [ 0.000000e+00, %80 ]
-  %.sroa.speculated.i104.sink = phi float [ %.sroa.speculated.i104, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit124 ], [ %.sroa.speculated.i76, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit91 ], [ %.sroa.speculated.i47149, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit62 ], [ %.sroa.speculated.i, %._crit_edge.loopexit.i29 ], [ 0.000000e+00, %80 ]
+  %.sink160 = phi float [ %230, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit124 ], [ %168, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit91 ], [ %124, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit62 ], [ 0.000000e+00, %80 ], [ %92, %._crit_edge.loopexit.i29 ]
+  %.sroa.speculated.i104.sink = phi float [ %.sroa.speculated.i104, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit124 ], [ %.sroa.speculated.i76, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit91 ], [ %.sroa.speculated.i47149, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit62 ], [ 0.000000e+00, %80 ], [ %.sroa.speculated.i, %._crit_edge.loopexit.i29 ]
   %231 = fcmp ogt float %.sink160, 0x3FEFFFFFE0000000
   %.sroa.speculated.i123 = select i1 %231, float 0x3FEFFFFFE0000000, float %.sink160
   %.sroa.0130.0.vec.insert137 = insertelement <2 x float> poison, float %.sroa.speculated.i104.sink, i64 0

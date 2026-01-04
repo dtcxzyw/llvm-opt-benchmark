@@ -372,7 +372,7 @@ _ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE9push_back
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %41, %27, %47
-  %.pn55.pn.pn = phi { ptr, i32 } [ %.pn55, %47 ], [ %42, %41 ], [ %28, %27 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn55.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %.pn55, %47 ], [ %42, %41 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %116

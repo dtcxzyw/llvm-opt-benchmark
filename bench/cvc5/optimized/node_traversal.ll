@@ -166,7 +166,7 @@ _ZNSt8functionIFbN4cvc58internal12NodeTemplateILb0EEEEEC2ERKS5_.exit: ; preds = 
   ret void
 
 .body:                                            ; preds = %46, %43, %28
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %44, %46 ], [ %44, %43 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %44, %43 ], [ %44, %46 ]
   tail call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEbSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_bEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #20
   %51 = load ptr, ptr %0, align 8, !tbaa !9
   %.not.i.i.i = icmp eq ptr %51, null
@@ -479,8 +479,8 @@ define hidden void @_ZN4cvc58internal15NodeDfsIterator18advanceToNextVisitEv(ptr
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %50
   br label %.loopexit39, !llvm.loop !47
 
-.loopexit39:                                      ; preds = %.lr.ph.i.i.i.i, %.preheader, %.noexc, %..loopexit_crit_edge21.i.i.i.i
-  %54 = phi ptr [ %.pre, %.noexc ], [ %.pre, %..loopexit_crit_edge21.i.i.i.i ], [ %21, %.preheader ], [ %.pre, %.lr.ph.i.i.i.i ]
+.loopexit39:                                      ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %.noexc
+  %54 = phi ptr [ %21, %.preheader ], [ %.pre, %.noexc ], [ %.pre, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre, %.lr.ph.i.i.i.i ]
   store ptr %54, ptr %3, align 8, !tbaa !3
   %55 = load ptr, ptr %13, align 8, !tbaa !35
   %.not.i.i16 = icmp eq ptr %55, null
@@ -690,8 +690,8 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit: ;
   br label %151
 
 _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEbSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_bEEE4findERS9_.exit: ; preds = %43, %23, %34
-  %131 = phi ptr [ %.pre, %34 ], [ %21, %23 ], [ %.pre, %43 ]
-  %.sroa.06.1.i.i = phi ptr [ %35, %34 ], [ %.sroa.06.0.i.i, %23 ], [ %49, %43 ]
+  %131 = phi ptr [ %21, %23 ], [ %.pre, %34 ], [ %.pre, %43 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %23 ], [ %35, %34 ], [ %49, %43 ]
   %132 = load i32, ptr %12, align 8, !tbaa !24
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %138, label %134
@@ -741,7 +741,7 @@ common.resume:                                    ; preds = %160, %151
   resume { ptr, i32 } %common.resume.op
 
 151:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit42, %.loopexit.split-lp43, %129, %86, %63
-  %.pn.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %87, %86 ], [ %130, %129 ], [ %lpad.loopexit44, %.loopexit42 ], [ %lpad.loopexit.split-lp45, %.loopexit.split-lp43 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %64, %63 ], [ %87, %86 ], [ %lpad.loopexit.split-lp45, %.loopexit.split-lp43 ], [ %lpad.loopexit44, %.loopexit42 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %common.resume
 
@@ -1389,7 +1389,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %27, %29
   unreachable
 
 .body:                                            ; preds = %37, %34, %22, %19
-  %.pn = phi { ptr, i32 } [ %20, %22 ], [ %20, %19 ], [ %35, %34 ], [ %35, %37 ]
+  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %35, %37 ], [ %20, %22 ], [ %35, %34 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1735,7 +1735,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_bESaIS6_ENSt8_
   resume { ptr, i32 } %34
 
 _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_bESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %19, %.loopexit, %10
-  %.pn = phi ptr [ %11, %10 ], [ %33, %.loopexit ], [ %25, %19 ]
+  %.pn = phi ptr [ %33, %.loopexit ], [ %11, %10 ], [ %25, %19 ]
   %.1 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   ret ptr %.1
 }

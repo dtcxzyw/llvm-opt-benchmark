@@ -1624,7 +1624,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_dp_dsc_compute_config(ptr 
   br label %34
 
 34:                                               ; preds = %29, %25, %23, %15
-  %35 = phi i1 [ false, %15 ], [ %33, %29 ], [ false, %25 ], [ false, %23 ]
+  %35 = phi i1 [ false, %23 ], [ false, %15 ], [ %33, %29 ], [ false, %25 ]
   %36 = zext i1 %35 to i8
   store i8 %36, ptr %12, align 1
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 872
@@ -1876,7 +1876,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_dp_dsc_compute_config(ptr 
   br label %204
 
 198:                                              ; preds = %192, %189, %166
-  %199 = phi i16 [ %195, %192 ], [ %191, %189 ], [ %185, %166 ]
+  %199 = phi i16 [ %185, %166 ], [ %195, %192 ], [ %191, %189 ]
   %.fr = freeze i16 %199
   %200 = lshr i16 %.fr, 4
   %201 = zext nneg i16 %200 to i32
@@ -2242,7 +2242,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_dp_dsc_compute_config(ptr 
   br label %428
 
 428:                                              ; preds = %.thread31, %415, %399, %293, %278, %69, %57, %53, %48, %44, %42, %34
-  %429 = phi i32 [ -22, %278 ], [ %394, %399 ], [ 0, %415 ], [ -22, %293 ], [ -22, %48 ], [ -22, %69 ], [ -22, %34 ], [ -22, %42 ], [ -22, %44 ], [ -22, %53 ], [ -22, %57 ], [ -22, %.thread31 ]
+  %429 = phi i32 [ -22, %278 ], [ %394, %399 ], [ 0, %415 ], [ -22, %293 ], [ -22, %.thread31 ], [ -22, %48 ], [ -22, %69 ], [ -22, %34 ], [ -22, %42 ], [ -22, %44 ], [ -22, %53 ], [ -22, %57 ]
   ret i32 %429
 }
 
@@ -2460,7 +2460,7 @@ switch.lookup:                                    ; preds = %6
   br label %10
 
 10:                                               ; preds = %6, %switch.lookup, %2
-  %11 = phi i1 [ true, %2 ], [ %switch.masked, %switch.lookup ], [ false, %6 ]
+  %11 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %2 ], [ false, %6 ]
   ret i1 %11
 }
 
@@ -3262,7 +3262,7 @@ intel_dp_compute_vsc_sdp.exit:                    ; preds = %intel_dp_drrs_compu
   br label %intel_dp_compute_hdr_metadata_infoframe_sdp.exit
 
 intel_dp_compute_hdr_metadata_infoframe_sdp.exit: ; preds = %378, %376, %intel_dp_compute_vsc_sdp.exit, %82, %72, %62, %48, %43, %40
-  %382 = phi i32 [ %41, %40 ], [ -22, %43 ], [ -22, %48 ], [ -22, %62 ], [ %73, %72 ], [ %83, %82 ], [ 0, %intel_dp_compute_vsc_sdp.exit ], [ 0, %376 ], [ 0, %378 ]
+  %382 = phi i32 [ %83, %82 ], [ %41, %40 ], [ -22, %43 ], [ -22, %48 ], [ -22, %62 ], [ %73, %72 ], [ 0, %intel_dp_compute_vsc_sdp.exit ], [ 0, %376 ], [ 0, %378 ]
   ret i32 %382
 }
 
@@ -6344,7 +6344,7 @@ define internal fastcc noundef zeroext i1 @intel_dp_needs_link_retrain(ptr nound
   br label %57
 
 57:                                               ; preds = %43, %50, %41, %31, %18, %12, %8, %6, %1
-  %58 = phi i1 [ false, %1 ], [ false, %6 ], [ false, %8 ], [ false, %31 ], [ false, %12 ], [ false, %18 ], [ false, %41 ], [ true, %50 ], [ false, %43 ]
+  %58 = phi i1 [ false, %18 ], [ false, %1 ], [ false, %6 ], [ false, %8 ], [ false, %31 ], [ false, %12 ], [ false, %41 ], [ true, %50 ], [ false, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %58
 }
@@ -6814,7 +6814,7 @@ define dso_local void @intel_dp_phy_test(ptr noundef %0) local_unnamed_addr #2 a
   br label %9, !llvm.loop !123
 
 .thread19:                                        ; preds = %246, %243, %._crit_edge.thread, %104, %242, %._crit_edge
-  %251 = phi i32 [ 0, %104 ], [ 0, %242 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 0, %243 ], [ %247, %246 ]
+  %251 = phi i32 [ 0, %._crit_edge.thread ], [ 0, %._crit_edge ], [ 0, %104 ], [ 0, %242 ], [ 0, %243 ], [ %247, %246 ]
   call void @drm_modeset_drop_locks(ptr noundef nonnull %4) #16
   call void @drm_modeset_acquire_fini(ptr noundef nonnull %4) #16
   %252 = icmp eq i32 %251, 0
@@ -9353,7 +9353,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @dsc_compute_compressed_bpp
   br label %55
 
 49:                                               ; preds = %43, %40, %16
-  %50 = phi i16 [ %46, %43 ], [ %42, %40 ], [ %36, %16 ]
+  %50 = phi i16 [ %36, %16 ], [ %46, %43 ], [ %42, %40 ]
   %.fr = freeze i16 %50
   %51 = lshr i16 %.fr, 4
   %52 = zext nneg i16 %51 to i32
@@ -9617,7 +9617,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @dsc_compute_compressed_bpp
   br i1 %221, label %.loopexit14, label %.split, !llvm.loop !186
 
 .loopexit14:                                      ; preds = %.loopexit13, %.loopexit13.us.us, %.split.us, %218, %.split23, %104, %85
-  %222 = phi i32 [ 0, %218 ], [ 0, %.split23 ], [ -22, %104 ], [ -22, %85 ], [ -22, %.split.us ], [ -22, %.loopexit13.us.us ], [ -22, %.loopexit13 ]
+  %222 = phi i32 [ 0, %218 ], [ 0, %.split23 ], [ -22, %104 ], [ -22, %85 ], [ -22, %.loopexit13.us.us ], [ -22, %.split.us ], [ -22, %.loopexit13 ]
   ret i32 %222
 }
 
@@ -9812,7 +9812,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
   br label %.thread
 
 .thread:                                          ; preds = %47, %58, %select.unfold, %87, %71, %31
-  %89 = phi i32 [ %12, %31 ], [ %77, %87 ], [ 2, %71 ], [ 1, %select.unfold ], [ 0, %58 ], [ 0, %47 ]
+  %89 = phi i32 [ 1, %select.unfold ], [ %12, %31 ], [ %77, %87 ], [ 2, %71 ], [ 0, %58 ], [ 0, %47 ]
   ret i32 %89
 }
 
@@ -10066,9 +10066,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_dp_compute_link_conf
   store i32 %129, ptr %160, align 8
   br label %175
 
-.loopexit17:                                      ; preds = %.loopexit16, %101, %72, %66, %.thread, %91
-  %.ph = phi ptr [ @.str.79, %91 ], [ @.str.79, %.thread ], [ @.str.78, %66 ], [ @.str.79, %72 ], [ @.str.79, %101 ], [ @.str.79, %.loopexit16 ]
-  %.ph15 = phi ptr [ @.str.78, %91 ], [ @.str.79, %.thread ], [ @.str.79, %66 ], [ @.str.79, %72 ], [ @.str.78, %101 ], [ @.str.78, %.loopexit16 ]
+.loopexit17:                                      ; preds = %.loopexit16, %101, %72, %.thread, %66, %91
+  %.ph = phi ptr [ @.str.79, %91 ], [ @.str.79, %72 ], [ @.str.78, %66 ], [ @.str.79, %.thread ], [ @.str.79, %101 ], [ @.str.79, %.loopexit16 ]
+  %.ph15 = phi ptr [ @.str.78, %91 ], [ @.str.79, %72 ], [ @.str.79, %66 ], [ @.str.79, %.thread ], [ @.str.78, %101 ], [ @.str.78, %.loopexit16 ]
   %161 = icmp eq ptr %6, null
   br i1 %161, label %165, label %162
 
@@ -10438,7 +10438,7 @@ intel_dp_max_link_rate.exit:                      ; preds = %49, %64
   br label %140
 
 140:                                              ; preds = %.critedge.thread, %75
-  %141 = phi i32 [ %96, %75 ], [ %139, %.critedge.thread ]
+  %141 = phi i32 [ %139, %.critedge.thread ], [ %96, %75 ]
   %142 = mul i32 %141, 3
   %143 = getelementptr i8, ptr %0, i64 -264
   %144 = load i32, ptr %143, align 8
@@ -10475,7 +10475,7 @@ intel_dp_max_link_rate.exit:                      ; preds = %49, %64
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge11.us, %.split, %161, %150, %146, %140
-  %164 = phi i32 [ %163, %161 ], [ %142, %150 ], [ %142, %146 ], [ %142, %140 ], [ 0, %.split ], [ 0, %.critedge11.us ]
+  %164 = phi i32 [ %142, %140 ], [ %163, %161 ], [ %142, %150 ], [ %142, %146 ], [ 0, %.split ], [ 0, %.critedge11.us ]
   %165 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %164, ptr %165, align 4
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10931,7 +10931,7 @@ define internal fastcc void @intel_dp_set_sink_rates(ptr noundef %0) unnamed_add
   br label %81
 
 81:                                               ; preds = %.thread9, %.loopexit
-  %82 = phi i32 [ %80, %.thread9 ], [ %33, %.loopexit ]
+  %82 = phi i32 [ %33, %.loopexit ], [ %80, %.thread9 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %82, ptr %83, align 8
   %84 = icmp eq i32 %82, 0
@@ -11517,7 +11517,7 @@ define internal fastcc void @intel_dp_check_device_service_irq(ptr noundef %0) u
   br label %.thread
 
 262:                                              ; preds = %232, %177, %103
-  %263 = phi i8 [ %234, %232 ], [ %178, %177 ], [ %104, %103 ]
+  %263 = phi i8 [ %104, %103 ], [ %234, %232 ], [ %178, %177 ]
   %264 = and i8 %263, 1
   %265 = icmp eq i8 %264, 0
   br i1 %265, label %.thread, label %266
@@ -12367,7 +12367,7 @@ define internal range(i32 1, 0) i32 @intel_dp_detect(ptr noundef %0, ptr noundef
   br label %52
 
 52:                                               ; preds = %51, %49, %47, %47, %47
-  %53 = phi ptr [ %50, %49 ], [ %15, %47 ], [ %15, %47 ], [ %15, %47 ], [ null, %51 ]
+  %53 = phi ptr [ %50, %49 ], [ null, %51 ], [ %15, %47 ], [ %15, %47 ], [ %15, %47 ]
   %54 = tail call i64 @intel_display_power_get(ptr noundef %48, i32 noundef 0) #16
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %select.unfold, label %56
@@ -13473,7 +13473,7 @@ define internal i32 @intel_dp_connector_atomic_check(ptr noundef %0, ptr noundef
   br label %170
 
 170:                                              ; preds = %142, %146, %163
-  %171 = phi i8 [ %169, %163 ], [ %135, %142 ], [ %135, %146 ]
+  %171 = phi i8 [ %135, %146 ], [ %169, %163 ], [ %135, %142 ]
   %172 = load ptr, ptr %134, align 8
   %173 = icmp eq ptr %172, %131
   br i1 %173, label %174, label %.preheader, !llvm.loop !230

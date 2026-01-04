@@ -164,7 +164,7 @@ define range(i32 -1, 1) i32 @H5PL__create_path_table() local_unnamed_addr #0 {
   br label %51
 
 51:                                               ; preds = %.thread28, %50, %0
-  %.0 = phi i32 [ -1, %50 ], [ 0, %0 ], [ 0, %.thread28 ]
+  %.0 = phi i32 [ -1, %50 ], [ 0, %.thread28 ], [ 0, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -372,7 +372,7 @@ H5PL__make_space_at.exit:                         ; preds = %53, %.H5PL__make_sp
   br label %60
 
 60:                                               ; preds = %23, %35, %H5PL__make_space_at.exit, %2
-  %.0 = phi i32 [ -1, %23 ], [ -1, %35 ], [ 0, %H5PL__make_space_at.exit ], [ 0, %2 ]
+  %.0 = phi i32 [ -1, %23 ], [ -1, %35 ], [ 0, %2 ], [ 0, %H5PL__make_space_at.exit ]
   ret i32 %.0
 }
 
@@ -730,7 +730,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %88
 
 88:                                               ; preds = %85, %81, %80
-  %89 = phi i1 [ true, %80 ], [ %87, %85 ], [ true, %81 ]
+  %89 = phi i1 [ %87, %85 ], [ true, %81 ], [ true, %80 ]
   %90 = load i8, ptr %6, align 1, !tbaa !8, !range !10, !noundef !11
   %91 = trunc nuw i8 %90 to i1
   %or.cond5.i = select i1 %91, i1 %89, i1 false
@@ -757,7 +757,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.sink.split.i, %45, %.tail.i, %sub_1.i, %sub_0.i
-  %.1.be.i = phi ptr [ %.185.i, %.tail.i ], [ %.185.i, %45 ], [ %.185.i, %sub_0.i ], [ %.185.i, %sub_1.i ], [ %.1.be.ph.i, %.backedge.sink.split.i ]
+  %.1.be.i = phi ptr [ %.185.i, %sub_0.i ], [ %.185.i, %.tail.i ], [ %.185.i, %sub_1.i ], [ %.185.i, %45 ], [ %.1.be.ph.i, %.backedge.sink.split.i ]
   %97 = call ptr @readdir64(ptr noundef nonnull %32) #13
   %.not53.i = icmp eq ptr %97, null
   br i1 %.not53.i, label %.loopexit.thread.i, label %sub_0.i, !llvm.loop !29
@@ -972,7 +972,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %81, label %.thread.i, label %.backedge.sink.split.i
 
 .thread.i:                                        ; preds = %79, %75, %59, %51
-  %82 = phi i1 [ true, %75 ], [ true, %59 ], [ true, %51 ], [ false, %79 ]
+  %82 = phi i1 [ true, %51 ], [ true, %75 ], [ true, %59 ], [ false, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit.i
 
@@ -982,7 +982,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.sink.split.i, %42, %.tail.i, %sub_1.i, %sub_0.i
-  %.137.be.i = phi ptr [ %.13770.i, %.tail.i ], [ %.13770.i, %42 ], [ %.13770.i, %sub_0.i ], [ %.13770.i, %sub_1.i ], [ %83, %.backedge.sink.split.i ]
+  %.137.be.i = phi ptr [ %.13770.i, %sub_0.i ], [ %.13770.i, %.tail.i ], [ %.13770.i, %sub_1.i ], [ %.13770.i, %42 ], [ %83, %.backedge.sink.split.i ]
   %84 = tail call ptr @readdir64(ptr noundef nonnull %30) #13
   %.not44.i = icmp eq ptr %84, null
   br i1 %.not44.i, label %.loopexit.i, label %sub_0.i, !llvm.loop !36

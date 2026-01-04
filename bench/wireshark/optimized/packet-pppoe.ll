@@ -1171,8 +1171,8 @@ define internal i32 @dissect_pppoes(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %47
 
 47:                                               ; preds = %38, %43, %14, %4
-  %.083 = phi i32 [ 0, %14 ], [ 0, %4 ], [ 8, %43 ], [ 8, %38 ]
-  %.081 = phi ptr [ %28, %14 ], [ null, %4 ], [ %34, %43 ], [ %34, %38 ]
+  %.083 = phi i32 [ 0, %4 ], [ 0, %14 ], [ 8, %43 ], [ 8, %38 ]
+  %.081 = phi ptr [ null, %4 ], [ %28, %14 ], [ %34, %43 ], [ %34, %38 ]
   %48 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %49 = icmp ugt i32 %48, 46
   br i1 %49, label %50, label %57

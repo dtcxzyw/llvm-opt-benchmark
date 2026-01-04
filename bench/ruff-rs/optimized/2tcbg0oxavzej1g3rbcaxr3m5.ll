@@ -1029,7 +1029,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #17
   unreachable
 
-"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread9": ; preds = %.split.split.i.i.i.i, %.split.us.i.i.i.i, %.split.split.us.i.i.i.i
+"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread9": ; preds = %.split.split.i.i.i.i, %.split.split.us.i.i.i.i, %.split.us.i.i.i.i
   call void @"_ZN4core3ptr75drop_in_place$LT$core..cell..Ref$LT$salsa..active_query..QueryStack$GT$$GT$17had207c0b18ed71d0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !20
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -1052,7 +1052,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
     i32 3, label %369
   ]
 
-"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread": ; preds = %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$20validate_provisional17h7207c1c94e761794E.exit.thread.i", %158, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread9", %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread6"
+"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread": ; preds = %158, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$20validate_provisional17h7207c1c94e761794E.exit.thread.i", %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread9", %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread6"
   %347 = icmp eq i8 %126, 1
   br i1 %347, label %348, label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
@@ -1093,7 +1093,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   br label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
 _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h884732d2605abc33E.exit129", %431, %._crit_edge, %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i", %365, %345, %345, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread", %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h884732d2605abc33E.exit", %440
-  %.sroa.0.0 = phi i8 [ 2, %440 ], [ 0, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h884732d2605abc33E.exit" ], [ 0, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread" ], [ 2, %345 ], [ 2, %345 ], [ 2, %365 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i" ], [ 0, %.loopexit.i ], [ %.sroa.0109.0.lcssa, %._crit_edge ], [ %.sroa.0109.0.lcssa, %431 ], [ %.sroa.0109.0.lcssa, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h884732d2605abc33E.exit129" ]
+  %.sroa.0.0 = phi i8 [ 2, %365 ], [ 0, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h73ca520ac151c7b0E.exit.thread" ], [ 2, %440 ], [ 0, %.loopexit.i ], [ 2, %345 ], [ 2, %345 ], [ 0, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h884732d2605abc33E.exit" ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i" ], [ %.sroa.0109.0.lcssa, %._crit_edge ], [ %.sroa.0109.0.lcssa, %431 ], [ %.sroa.0109.0.lcssa, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h884732d2605abc33E.exit129" ]
   ret i8 %.sroa.0.0
 
 365:                                              ; preds = %345
@@ -2100,7 +2100,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #17
   unreachable
 
-"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread9": ; preds = %.split.split.i.i.i.i, %.split.us.i.i.i.i, %.split.split.us.i.i.i.i
+"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread9": ; preds = %.split.split.i.i.i.i, %.split.split.us.i.i.i.i, %.split.us.i.i.i.i
   call void @"_ZN4core3ptr75drop_in_place$LT$core..cell..Ref$LT$salsa..active_query..QueryStack$GT$$GT$17had207c0b18ed71d0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !69
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -2123,7 +2123,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
     i32 3, label %369
   ]
 
-"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread": ; preds = %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$20validate_provisional17h668faa40aff57c4aE.exit.thread.i", %158, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread9", %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread6"
+"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread": ; preds = %158, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$20validate_provisional17h668faa40aff57c4aE.exit.thread.i", %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread9", %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread6"
   %347 = icmp eq i8 %126, 1
   br i1 %347, label %348, label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
@@ -2164,7 +2164,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   br label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
 _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17hbcedadfd454ee220E.exit129", %431, %._crit_edge, %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i", %365, %345, %345, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread", %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17hbcedadfd454ee220E.exit", %440
-  %.sroa.0.0 = phi i8 [ 2, %440 ], [ 0, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17hbcedadfd454ee220E.exit" ], [ 0, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread" ], [ 2, %345 ], [ 2, %345 ], [ 2, %365 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i" ], [ 0, %.loopexit.i ], [ %.sroa.0109.0.lcssa, %._crit_edge ], [ %.sroa.0109.0.lcssa, %431 ], [ %.sroa.0109.0.lcssa, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17hbcedadfd454ee220E.exit129" ]
+  %.sroa.0.0 = phi i8 [ 2, %365 ], [ 0, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h11c3f6aad50ea1feE.exit.thread" ], [ 2, %440 ], [ 0, %.loopexit.i ], [ 2, %345 ], [ 2, %345 ], [ 0, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17hbcedadfd454ee220E.exit" ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i" ], [ %.sroa.0109.0.lcssa, %._crit_edge ], [ %.sroa.0109.0.lcssa, %431 ], [ %.sroa.0109.0.lcssa, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17hbcedadfd454ee220E.exit129" ]
   ret i8 %.sroa.0.0
 
 365:                                              ; preds = %345
@@ -3171,7 +3171,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #17
   unreachable
 
-"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread9": ; preds = %.split.split.i.i.i.i, %.split.us.i.i.i.i, %.split.split.us.i.i.i.i
+"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread9": ; preds = %.split.split.i.i.i.i, %.split.split.us.i.i.i.i, %.split.us.i.i.i.i
   call void @"_ZN4core3ptr75drop_in_place$LT$core..cell..Ref$LT$salsa..active_query..QueryStack$GT$$GT$17had207c0b18ed71d0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !114
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -3194,7 +3194,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
     i32 3, label %369
   ]
 
-"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread": ; preds = %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$20validate_provisional17h27c053696b0ef764E.exit.thread.i", %158, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread9", %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread6"
+"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread": ; preds = %158, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$20validate_provisional17h27c053696b0ef764E.exit.thread.i", %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread9", %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread6"
   %347 = icmp eq i8 %126, 1
   br i1 %347, label %348, label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
@@ -3235,7 +3235,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   br label %_ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit
 
 _ZN5salsa5cycle10CycleHeads12push_initial17h21328b51a172f3a9E.exit: ; preds = %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h743f343e5eaf3220E.exit129", %431, %._crit_edge, %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i", %365, %345, %345, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread", %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h743f343e5eaf3220E.exit", %440
-  %.sroa.0.0 = phi i8 [ 2, %440 ], [ 0, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h743f343e5eaf3220E.exit" ], [ 0, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread" ], [ 2, %345 ], [ 2, %345 ], [ 2, %365 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i" ], [ 0, %.loopexit.i ], [ %.sroa.0109.0.lcssa, %._crit_edge ], [ %.sroa.0109.0.lcssa, %431 ], [ %.sroa.0109.0.lcssa, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h743f343e5eaf3220E.exit129" ]
+  %.sroa.0.0 = phi i8 [ 2, %365 ], [ 0, %"_ZN5salsa8function19maybe_changed_after58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$27validate_may_be_provisional17h6953ec81f211c460E.exit.thread" ], [ 2, %440 ], [ 0, %.loopexit.i ], [ 2, %345 ], [ 2, %345 ], [ 0, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h743f343e5eaf3220E.exit" ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h6e54b2f95575a577E.exit.i" ], [ %.sroa.0109.0.lcssa, %._crit_edge ], [ %.sroa.0109.0.lcssa, %431 ], [ %.sroa.0109.0.lcssa, %"_ZN5salsa8function4memo13Memo$LT$V$GT$16mark_as_verified17h743f343e5eaf3220E.exit129" ]
   ret i8 %.sroa.0.0
 
 365:                                              ; preds = %345
@@ -7583,7 +7583,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha803699c2f0a131fE
   resume { ptr, i32 } %23
 
 _ZN5salsa5table4memo18MemoTableWithTypes3get17hd807d4f95a7e9f97E.exit: ; preds = %.thread.i, %71, %"_ZN4core3ptr153drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$thin_vec..ThinVec$LT$salsa..table..memo..MemoEntry$GT$$GT$$GT$17h0910cda5e6f07380E.exit29.sink.split.i"
-  %.sroa.0.1.i = phi ptr [ null, %.thread.i ], [ %69, %71 ], [ %.sroa.0.1.ph.i, %"_ZN4core3ptr153drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$thin_vec..ThinVec$LT$salsa..table..memo..MemoEntry$GT$$GT$$GT$17h0910cda5e6f07380E.exit29.sink.split.i" ]
+  %.sroa.0.1.i = phi ptr [ %69, %71 ], [ null, %.thread.i ], [ %.sroa.0.1.ph.i, %"_ZN4core3ptr153drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$thin_vec..ThinVec$LT$salsa..table..memo..MemoEntry$GT$$GT$$GT$17h0910cda5e6f07380E.exit29.sink.split.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.sroa.0.1.i
 }
@@ -7742,7 +7742,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha803699c2f0a131fE
   resume { ptr, i32 } %23
 
 _ZN5salsa5table4memo18MemoTableWithTypes3get17h223aa4a9384918a1E.exit: ; preds = %.thread.i, %71, %"_ZN4core3ptr153drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$thin_vec..ThinVec$LT$salsa..table..memo..MemoEntry$GT$$GT$$GT$17h0910cda5e6f07380E.exit29.sink.split.i"
-  %.sroa.0.1.i = phi ptr [ null, %.thread.i ], [ %69, %71 ], [ %.sroa.0.1.ph.i, %"_ZN4core3ptr153drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$thin_vec..ThinVec$LT$salsa..table..memo..MemoEntry$GT$$GT$$GT$17h0910cda5e6f07380E.exit29.sink.split.i" ]
+  %.sroa.0.1.i = phi ptr [ %69, %71 ], [ null, %.thread.i ], [ %.sroa.0.1.ph.i, %"_ZN4core3ptr153drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$thin_vec..ThinVec$LT$salsa..table..memo..MemoEntry$GT$$GT$$GT$17h0910cda5e6f07380E.exit29.sink.split.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.sroa.0.1.i
 }
@@ -7901,7 +7901,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha803699c2f0a131fE
   resume { ptr, i32 } %23
 
 _ZN5salsa5table4memo18MemoTableWithTypes3get17hc0c00c96663c92beE.exit: ; preds = %.thread.i, %71, %"_ZN4core3ptr153drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$thin_vec..ThinVec$LT$salsa..table..memo..MemoEntry$GT$$GT$$GT$17h0910cda5e6f07380E.exit29.sink.split.i"
-  %.sroa.0.1.i = phi ptr [ null, %.thread.i ], [ %69, %71 ], [ %.sroa.0.1.ph.i, %"_ZN4core3ptr153drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$thin_vec..ThinVec$LT$salsa..table..memo..MemoEntry$GT$$GT$$GT$17h0910cda5e6f07380E.exit29.sink.split.i" ]
+  %.sroa.0.1.i = phi ptr [ %69, %71 ], [ null, %.thread.i ], [ %.sroa.0.1.ph.i, %"_ZN4core3ptr153drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$thin_vec..ThinVec$LT$salsa..table..memo..MemoEntry$GT$$GT$$GT$17h0910cda5e6f07380E.exit29.sink.split.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.sroa.0.1.i
 }
@@ -9023,7 +9023,7 @@ _ZN5salsa5zalsa5Zalsa28unwind_if_revision_cancelled17haa0efb5c5af470c5E.exit: ; 
   tail call void @"_ZN5salsa8function4memo13Memo$LT$V$GT$24mark_outputs_as_verified17h48ad5aaa9cb0aca6E"(ptr noundef nonnull align 8 %53, ptr noundef nonnull align 8 %32, i32 noundef range(i32 1, 0) %3, i32 noundef %58)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hab99ec122365b5c2E.exit.thread"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17hab99ec122365b5c2E.exit": ; preds = %61, %57, %54, %52
+"_ZN4core6option15Option$LT$T$GT$7or_else17hab99ec122365b5c2E.exit": ; preds = %57, %52, %61, %54
   %75 = tail call noundef align 8 ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold17hb22f5d99bc515115E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %32, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %2, i32 noundef %3, i32 noundef %47), !noalias !250
   %.not.i1 = icmp eq ptr %75, null
   br i1 %.not.i1, label %.backedge, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hab99ec122365b5c2E.exit.thread"
@@ -9545,7 +9545,7 @@ _ZN5salsa5zalsa5Zalsa28unwind_if_revision_cancelled17haa0efb5c5af470c5E.exit: ; 
   tail call void @"_ZN5salsa8function4memo13Memo$LT$V$GT$24mark_outputs_as_verified17h5a2535d71b6dfd2fE"(ptr noundef nonnull align 8 %53, ptr noundef nonnull align 8 %32, i32 noundef range(i32 1, 0) %3, i32 noundef %58)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h8ae90c833d7e26c5E.exit.thread"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h8ae90c833d7e26c5E.exit": ; preds = %61, %57, %54, %52
+"_ZN4core6option15Option$LT$T$GT$7or_else17h8ae90c833d7e26c5E.exit": ; preds = %57, %52, %61, %54
   %75 = tail call noundef align 8 ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold17hc1b5930571c80e85E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %32, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %2, i32 noundef %3, i32 noundef %47), !noalias !282
   %.not.i1 = icmp eq ptr %75, null
   br i1 %.not.i1, label %.backedge, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h8ae90c833d7e26c5E.exit.thread"
@@ -10067,7 +10067,7 @@ _ZN5salsa5zalsa5Zalsa28unwind_if_revision_cancelled17haa0efb5c5af470c5E.exit: ; 
   tail call void @"_ZN5salsa8function4memo13Memo$LT$V$GT$24mark_outputs_as_verified17hdb048067aaec8a1cE"(ptr noundef nonnull align 8 %53, ptr noundef nonnull align 8 %32, i32 noundef range(i32 1, 0) %3, i32 noundef %58)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h9130561d40cc6aecE.exit.thread"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h9130561d40cc6aecE.exit": ; preds = %61, %57, %54, %52
+"_ZN4core6option15Option$LT$T$GT$7or_else17h9130561d40cc6aecE.exit": ; preds = %57, %52, %61, %54
   %75 = tail call noundef align 8 ptr @"_ZN5salsa8function5fetch58_$LT$impl$u20$salsa..function..IngredientImpl$LT$C$GT$$GT$10fetch_cold17hbdc14aeff2ae0ba2E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %32, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %2, i32 noundef %3, i32 noundef %47), !noalias !314
   %.not.i1 = icmp eq ptr %75, null
   br i1 %.not.i1, label %.backedge, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h9130561d40cc6aecE.exit.thread"
@@ -11311,7 +11311,7 @@ define noundef nonnull align 8 ptr @"_ZN5salsa8function7execute58_$LT$impl$u20$s
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !361
   br label %"_ZN5salsa8function23IngredientImpl$LT$C$GT$11insert_memo17h5a910e425820fdc7E.exit"
 
-.body96.thread132:                                ; preds = %.invoke, %215, %224, %.thread.i, %245, %.noexc88, %269, %283, %290, %356, %369, %415, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h83be2790924edaccE.exit.thread.i"
+.body96.thread132:                                ; preds = %.invoke, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h83be2790924edaccE.exit.thread.i", %290, %215, %224, %.thread.i, %245, %.noexc88, %269, %283, %356, %369, %415
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body96.thread126
@@ -11675,7 +11675,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17habee24a7e753c200E.exit12.i.i
   ret ptr %298
 
 .body96.thread126:                                ; preds = %.loopexit.split-lp.i, %427, %.body96.thread132
-  %eh.lpad-body97130 = phi { ptr, i32 } [ %lpad.thr_comm, %.body96.thread132 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %428, %427 ]
+  %eh.lpad-body97130 = phi { ptr, i32 } [ %lpad.thr_comm, %.body96.thread132 ], [ %428, %427 ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$salsa..zalsa_local..QueryRevisions$GT$17h1f69ed98a161931bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %44) #16
           to label %447 unwind label %445
 
@@ -11689,8 +11689,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17habee24a7e753c200E.exit12.i.i
   invoke void @"_ZN4core3ptr48drop_in_place$LT$ruff_db..source..SourceText$GT$17h5adcaf98c8cbdf34E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %45) #16
           to label %.critedge79 unwind label %445
 
-.critedge79:                                      ; preds = %301, %340, %345, %447, %196, %192, %448
-  %.pn115 = phi { ptr, i32 } [ %449, %448 ], [ %197, %196 ], [ %193, %192 ], [ %eh.lpad-body97130, %447 ], [ %341, %340 ], [ %346, %345 ], [ %302, %301 ]
+.critedge79:                                      ; preds = %340, %345, %301, %447, %196, %192, %448
+  %.pn115 = phi { ptr, i32 } [ %193, %192 ], [ %449, %448 ], [ %197, %196 ], [ %eh.lpad-body97130, %447 ], [ %341, %340 ], [ %346, %345 ], [ %302, %301 ]
   resume { ptr, i32 } %.pn115
 
 448:                                              ; preds = %.invoke163, %160, %155, %.noexc80, %141, %130, %165, %126, %118, %101, %92, %.thread, %69
@@ -12546,7 +12546,7 @@ define noundef nonnull align 8 ptr @"_ZN5salsa8function7execute58_$LT$impl$u20$s
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !468
   br label %"_ZN5salsa8function23IngredientImpl$LT$C$GT$11insert_memo17hdd84eadfac687fa4E.exit"
 
-.body96.thread132:                                ; preds = %.invoke, %215, %224, %.thread.i, %245, %.noexc88, %269, %283, %290, %356, %369, %415, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h83be2790924edaccE.exit.thread.i"
+.body96.thread132:                                ; preds = %.invoke, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h83be2790924edaccE.exit.thread.i", %290, %215, %224, %.thread.i, %245, %.noexc88, %269, %283, %356, %369, %415
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body96.thread126
@@ -12910,7 +12910,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17habee24a7e753c200E.exit12.i.i
   ret ptr %298
 
 .body96.thread126:                                ; preds = %.loopexit.split-lp.i, %427, %.body96.thread132
-  %eh.lpad-body97130 = phi { ptr, i32 } [ %lpad.thr_comm, %.body96.thread132 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %428, %427 ]
+  %eh.lpad-body97130 = phi { ptr, i32 } [ %lpad.thr_comm, %.body96.thread132 ], [ %428, %427 ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$salsa..zalsa_local..QueryRevisions$GT$17h1f69ed98a161931bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %44) #16
           to label %447 unwind label %445
 
@@ -12924,8 +12924,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17habee24a7e753c200E.exit12.i.i
   invoke void @"_ZN4core3ptr60drop_in_place$LT$ruff_source_file..line_index..LineIndex$GT$17h7c71205925cc0797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %45) #16
           to label %.critedge79 unwind label %445
 
-.critedge79:                                      ; preds = %301, %340, %345, %447, %196, %192, %448
-  %.pn115 = phi { ptr, i32 } [ %449, %448 ], [ %197, %196 ], [ %193, %192 ], [ %eh.lpad-body97130, %447 ], [ %341, %340 ], [ %346, %345 ], [ %302, %301 ]
+.critedge79:                                      ; preds = %340, %345, %301, %447, %196, %192, %448
+  %.pn115 = phi { ptr, i32 } [ %193, %192 ], [ %449, %448 ], [ %197, %196 ], [ %eh.lpad-body97130, %447 ], [ %341, %340 ], [ %346, %345 ], [ %302, %301 ]
   resume { ptr, i32 } %.pn115
 
 448:                                              ; preds = %.invoke163, %160, %155, %.noexc80, %141, %130, %165, %126, %118, %101, %92, %.thread, %69
@@ -13781,7 +13781,7 @@ define noundef nonnull align 8 ptr @"_ZN5salsa8function7execute58_$LT$impl$u20$s
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !573
   br label %"_ZN5salsa8function23IngredientImpl$LT$C$GT$11insert_memo17h6de471ede7fec86cE.exit"
 
-.body96.thread132:                                ; preds = %.invoke, %215, %224, %.thread.i, %245, %.noexc88, %269, %283, %290, %356, %369, %415, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h83be2790924edaccE.exit.thread.i"
+.body96.thread132:                                ; preds = %.invoke, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h83be2790924edaccE.exit.thread.i", %290, %215, %224, %.thread.i, %245, %.noexc88, %269, %283, %356, %369, %415
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body96.thread126
@@ -14145,7 +14145,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17habee24a7e753c200E.exit12.i.i
   ret ptr %298
 
 .body96.thread126:                                ; preds = %.loopexit.split-lp.i, %427, %.body96.thread132
-  %eh.lpad-body97130 = phi { ptr, i32 } [ %lpad.thr_comm, %.body96.thread132 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %428, %427 ]
+  %eh.lpad-body97130 = phi { ptr, i32 } [ %lpad.thr_comm, %.body96.thread132 ], [ %428, %427 ], [ %lpad.phi.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$salsa..zalsa_local..QueryRevisions$GT$17h1f69ed98a161931bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %44) #16
           to label %447 unwind label %445
 
@@ -14159,8 +14159,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17habee24a7e753c200E.exit12.i.i
   invoke void @"_ZN4core3ptr50drop_in_place$LT$ruff_db..parsed..ParsedModule$GT$17ha343acae2648043eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %45) #16
           to label %.critedge79 unwind label %445
 
-.critedge79:                                      ; preds = %301, %340, %345, %447, %196, %192, %448
-  %.pn115 = phi { ptr, i32 } [ %449, %448 ], [ %197, %196 ], [ %193, %192 ], [ %eh.lpad-body97130, %447 ], [ %341, %340 ], [ %346, %345 ], [ %302, %301 ]
+.critedge79:                                      ; preds = %340, %345, %301, %447, %196, %192, %448
+  %.pn115 = phi { ptr, i32 } [ %193, %192 ], [ %449, %448 ], [ %197, %196 ], [ %eh.lpad-body97130, %447 ], [ %341, %340 ], [ %346, %345 ], [ %302, %301 ]
   resume { ptr, i32 } %.pn115
 
 448:                                              ; preds = %.invoke163, %160, %155, %.noexc80, %141, %130, %165, %126, %118, %101, %92, %.thread, %69

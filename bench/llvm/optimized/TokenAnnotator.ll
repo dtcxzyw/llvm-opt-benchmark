@@ -329,7 +329,7 @@ _ZNK5clang6format13AnnotatedLine9isCommentEv.exit: ; preds = %.preheader.i
   br label %54
 
 _ZNK5clang6format13AnnotatedLine9isCommentEv.exit.thread: ; preds = %19, %.lr.ph._ZNK5clang6format13AnnotatedLine9isCommentEv.exit.thread_crit_edge, %15, %25, %_ZNK5clang6format13AnnotatedLine9isCommentEv.exit, %10
-  %50 = phi ptr [ %.pre, %.lr.ph._ZNK5clang6format13AnnotatedLine9isCommentEv.exit.thread_crit_edge ], [ %.pre31, %15 ], [ %.pre30, %25 ], [ %.pre30, %_ZNK5clang6format13AnnotatedLine9isCommentEv.exit ], [ %.pre31, %10 ], [ %.pre31, %19 ]
+  %50 = phi ptr [ %.pre, %.lr.ph._ZNK5clang6format13AnnotatedLine9isCommentEv.exit.thread_crit_edge ], [ %.pre31, %10 ], [ %.pre30, %_ZNK5clang6format13AnnotatedLine9isCommentEv.exit ], [ %.pre31, %15 ], [ %.pre30, %25 ], [ %.pre31, %19 ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i16, ptr %51, align 8, !tbaa !61
   %.not26 = icmp eq i16 %52, 25
@@ -774,8 +774,8 @@ _ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_
   br i1 %.not9.i47, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_S4_EEEbT_T0_DpT1_.exit.thread.i, label %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit69
 
 _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_S4_EEEbT_T0_DpT1_.exit.thread.i: ; preds = %179, %150, %150, %150, %150, %150, %150, %137
-  %.130.i = phi ptr [ %139, %137 ], [ %.4.i, %179 ], [ %.02926.i, %150 ], [ %.02926.i, %150 ], [ %.02926.i, %150 ], [ %.02926.i, %150 ], [ %.02926.i, %150 ], [ %.02926.i, %150 ]
-  %.1.i = phi ptr [ %.02827.i, %137 ], [ %.4.i, %179 ], [ null, %150 ], [ null, %150 ], [ null, %150 ], [ null, %150 ], [ null, %150 ], [ null, %150 ]
+  %.130.i = phi ptr [ %139, %137 ], [ %.02926.i, %150 ], [ %.4.i, %179 ], [ %.02926.i, %150 ], [ %.02926.i, %150 ], [ %.02926.i, %150 ], [ %.02926.i, %150 ], [ %.02926.i, %150 ]
+  %.1.i = phi ptr [ %.02827.i, %137 ], [ null, %150 ], [ %.4.i, %179 ], [ null, %150 ], [ null, %150 ], [ null, %150 ], [ null, %150 ], [ null, %150 ]
   br label %182
 
 182:                                              ; preds = %183, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_S4_EEEbT_T0_DpT1_.exit.thread.i
@@ -950,7 +950,7 @@ _ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit: ; preds = 
   store i16 %257, ptr %255, align 1
   br label %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit69
 
-_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit69: ; preds = %.preheader.i.i, %137, %151, %174, %179, %177, %.thread.i, %166, %182, %222, %tailrecurse.i.i.i.i62, %226, %split.i.i.i57, %_ZNK5clang6format13AnnotatedLine8endsWithIJNS0_9TokenTypeEEEEbDpT_.exit.thread, %229, %214, %141, %143, %147, %_ZN5clang6formatL16isCtorOrDtorNameEPKNS0_11FormatTokenE.exit, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit, %254, %114
+_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit69: ; preds = %.preheader.i.i, %151, %174, %179, %177, %.thread.i, %137, %166, %182, %222, %226, %tailrecurse.i.i.i.i62, %229, %214, %split.i.i.i57, %_ZNK5clang6format13AnnotatedLine8endsWithIJNS0_9TokenTypeEEEEbDpT_.exit.thread, %143, %147, %141, %_ZN5clang6formatL16isCtorOrDtorNameEPKNS0_11FormatTokenE.exit, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit, %254, %114
   %258 = load ptr, ptr %1, align 8, !tbaa !23
   %.not.i70 = icmp eq ptr %258, null
   br i1 %.not.i70, label %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit85.thread, label %tailrecurse.i.i.i71
@@ -1766,7 +1766,7 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit89: ; preds = %270
   br label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit
 
 _ZNK5clang6format11FormatToken15isStringLiteralEv.exit: ; preds = %277, %270, %270, %270, %270, %270, %270, %270, %270, %270, %270, %270, %270, %270, %270, %266, %274, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit89, %260
-  %.339 = phi i1 [ %.137, %274 ], [ %.137, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit89 ], [ %.137, %260 ], [ %.137, %266 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %spec.select, %277 ]
+  %.339 = phi i1 [ %.137, %260 ], [ %spec.select, %277 ], [ %.137, %274 ], [ %.137, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit89 ], [ %.137, %270 ], [ %.137, %266 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ], [ %.137, %270 ]
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %251, i64 32
   %.sroa.210.0.copyload.i = load i64, ptr %.sroa.210.0..sroa_idx.i, align 8, !tbaa !66
   %.not.i.i90 = icmp eq i64 %.sroa.210.0.copyload.i, 4
@@ -1848,8 +1848,8 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser24isClosureImportStatementERKNS0
   %spec.select113 = select i1 %303, i1 true, i1 %.339
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24isClosureImportStatementERKNS0_11FormatTokenE.exit.thread
 
-_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24isClosureImportStatementERKNS0_11FormatTokenE.exit.thread: ; preds = %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24isClosureImportStatementERKNS0_11FormatTokenE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit40.i, %_ZN4llvmeqENS_9StringRefES0_.exit36.i, %_ZN4llvmeqENS_9StringRefES0_.exit28.i, %292, %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %285, %289, %_ZN4llvmeqENS_9StringRefES0_.exit44.i, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread.i, %252
-  %.238 = phi i1 [ %.137, %252 ], [ %.339, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread.i ], [ %.339, %_ZN4llvmeqENS_9StringRefES0_.exit44.i ], [ %.339, %289 ], [ %.339, %285 ], [ %.339, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ %.339, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %.339, %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit ], [ %.339, %292 ], [ %.339, %_ZN4llvmeqENS_9StringRefES0_.exit28.i ], [ %.339, %_ZN4llvmeqENS_9StringRefES0_.exit36.i ], [ %.339, %_ZN4llvmeqENS_9StringRefES0_.exit40.i ], [ %spec.select113, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24isClosureImportStatementERKNS0_11FormatTokenE.exit ]
+_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24isClosureImportStatementERKNS0_11FormatTokenE.exit.thread: ; preds = %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24isClosureImportStatementERKNS0_11FormatTokenE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit40.i, %_ZN4llvmeqENS_9StringRefES0_.exit28.i, %292, %_ZN4llvmeqENS_9StringRefES0_.exit36.i, %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %285, %289, %_ZN4llvmeqENS_9StringRefES0_.exit44.i, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread.i, %252
+  %.238 = phi i1 [ %.137, %252 ], [ %.339, %_ZN4llvmeqENS_9StringRefES0_.exit40.i ], [ %spec.select113, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24isClosureImportStatementERKNS0_11FormatTokenE.exit ], [ %.339, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread.i ], [ %.339, %_ZN4llvmeqENS_9StringRefES0_.exit44.i ], [ %.339, %289 ], [ %.339, %285 ], [ %.339, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ %.339, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %.339, %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit ], [ %.339, %_ZN4llvmeqENS_9StringRefES0_.exit36.i ], [ %.339, %292 ], [ %.339, %_ZN4llvmeqENS_9StringRefES0_.exit28.i ]
   %304 = tail call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser12consumeTokenEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
   br i1 %304, label %250, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser21parseIncludeDirectiveEv.exit, !llvm.loop !279
 
@@ -1943,8 +1943,8 @@ _ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit.threa
   %.not53 = icmp eq i32 %339, 4
   br i1 %.not53, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser21parseIncludeDirectiveEv.exit, label %336
 
-_ZN5clang6format12_GLOBAL__N_116AnnotatingParser21parseIncludeDirectiveEv.exit: ; preds = %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit98.thread, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit.i, %.lr.ph129, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24isClosureImportStatementERKNS0_11FormatTokenE.exit.thread, %336, %.lr.ph132, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit.i82, %87, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit.thread, %311, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %_ZNK5clang5Token17getIdentifierInfoEv.exit102, %37, %62, %181, %149, %145, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread, %323, %329, %310, %310, %310, %1
-  %.0 = phi i32 [ 0, %1 ], [ %.5, %310 ], [ %.5, %310 ], [ %.5, %310 ], [ %.mux, %311 ], [ 4, %329 ], [ 4, %323 ], [ 2, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread ], [ 2, %145 ], [ 2, %149 ], [ 2, %181 ], [ 7, %_ZNK5clang5Token17getIdentifierInfoEv.exit102 ], [ 7, %37 ], [ 7, %62 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 6, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit.thread ], [ %.09.i, %87 ], [ 2, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit.i82 ], [ 6, %336 ], [ 9, %.lr.ph132 ], [ 0, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24isClosureImportStatementERKNS0_11FormatTokenE.exit.thread ], [ 2, %.lr.ph129 ], [ 2, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit.i ], [ 2, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %.09.i, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit98.thread ]
+_ZN5clang6format12_GLOBAL__N_116AnnotatingParser21parseIncludeDirectiveEv.exit: ; preds = %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit98.thread, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit.i, %.lr.ph129, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24isClosureImportStatementERKNS0_11FormatTokenE.exit.thread, %336, %.lr.ph132, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit.i82, %87, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit.thread, %311, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %_ZNK5clang5Token17getIdentifierInfoEv.exit102, %62, %37, %181, %149, %145, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread, %323, %329, %310, %310, %310, %1
+  %.0 = phi i32 [ 0, %1 ], [ 2, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ 4, %329 ], [ 2, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit.i82 ], [ 2, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit.i ], [ %.5, %310 ], [ %.5, %310 ], [ %.mux, %311 ], [ 7, %59 ], [ 4, %323 ], [ 7, %59 ], [ %.09.i, %87 ], [ %.5, %310 ], [ 2, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread ], [ 2, %145 ], [ 2, %149 ], [ 2, %181 ], [ 7, %37 ], [ 0, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24isClosureImportStatementERKNS0_11FormatTokenE.exit.thread ], [ 2, %.lr.ph129 ], [ 7, %_ZNK5clang5Token17getIdentifierInfoEv.exit102 ], [ 7, %62 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 9, %.lr.ph132 ], [ 6, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit.thread ], [ 6, %336 ], [ %.09.i, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit98.thread ]
   ret i32 %.0
 }
 
@@ -2143,7 +2143,7 @@ _ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit264: ; preds = %.lr.
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit264, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us.i261, %.lr.ph564.preheader, %.critedge.i.sink.split
-  %.lcssa550.ph = phi ptr [ null, %.critedge.i.sink.split ], [ %5, %.lr.ph564.preheader ], [ null, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us.i261 ], [ null, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread ], [ %34, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit ], [ %41, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit264 ]
+  %.lcssa550.ph = phi ptr [ null, %.critedge.i.sink.split ], [ %5, %.lr.ph564.preheader ], [ null, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us.i261 ], [ %41, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit264 ], [ %34, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit ], [ null, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread ]
   tail call fastcc void @_ZN5clang6format12_GLOBAL__N_116ExpressionParser5parseEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 4)
   %55 = load ptr, ptr %4, align 8, !tbaa !241
   %.not4.i = icmp eq ptr %55, null
@@ -2399,7 +2399,7 @@ _ZN4llvm11SmallVectorIPN5clang6format11FormatTokenELj2EED2Ev.exit: ; preds = %_Z
   br label %common.ret1513
 
 _ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176.outer.backedge: ; preds = %.lr.ph.split.i, %773, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.i, %.lr.ph.split.us.i186, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.us.i190
-  %.ph.be = phi ptr [ %758, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.us.i190 ], [ %758, %.lr.ph.split.us.i186 ], [ %769, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.i ], [ %769, %773 ], [ %769, %.lr.ph.split.i ]
+  %.ph.be = phi ptr [ %758, %.lr.ph.split.us.i186 ], [ %758, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.us.i190 ], [ %769, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.i ], [ %769, %773 ], [ %769, %.lr.ph.split.i ]
   br label %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176.outer
 
 _ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176.outer: ; preds = %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176.outer.backedge, %.lr.ph644
@@ -2536,8 +2536,8 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit413: ; preds = %183
   %192 = icmp eq i16 %191, 4
   br i1 %192, label %.preheader508, label %.preheader497.preheader, !llvm.loop !63
 
-.preheader497.preheader:                          ; preds = %189, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit.thread439, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit413
-  %.177.i575.ph = phi ptr [ %.081.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit413 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit.thread439 ], [ %.0.i408, %189 ]
+.preheader497.preheader:                          ; preds = %189, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit.thread439, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit413, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183
+  %.177.i575.ph = phi ptr [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %183 ], [ %.081.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit413 ], [ %.081.i, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit.thread439 ], [ %.081.i, %183 ], [ %.0.i408, %189 ]
   br label %.preheader497.outer
 
 .preheader497.outer.backedge:                     ; preds = %203, %.lr.ph570
@@ -2617,7 +2617,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit405.thread: ; preds = %1
   br i1 %210, label %.preheader494, label %.preheader497.outer1206.backedge, !llvm.loop !63
 
 211:                                              ; preds = %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit405.thread, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit405
-  %212 = phi ptr [ %194, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit405 ], [ %193, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit405.thread ]
+  %212 = phi ptr [ %193, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit405.thread ], [ %194, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit405 ]
   %213 = load ptr, ptr %30, align 8, !tbaa !303
   %214 = tail call noundef zeroext i1 @_ZNK5clang6format18AdditionalKeywords18isVerilogQualifierERKNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(2072) %213, ptr noundef nonnull align 8 dereferenceable(305) %.177.i575.ph1207)
   br i1 %214, label %218, label %215
@@ -3048,14 +3048,14 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit: ; preds = %340
   br label %.critedge2.i.thread
 
 .critedge2.i.thread:                              ; preds = %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit367, %232, %218, %.lr.ph1172, %.preheader494, %.preheader491, %.thread442, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit365, %.preheader485, %221, %.preheader, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit405, %.critedge2.i.thread.loopexit1204, %348
-  %.075.i.lcssa847 = phi ptr [ %.075.i576.ph, %348 ], [ %.075.i576.ph, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit405 ], [ %.177.i575.ph1207, %.preheader ], [ %.177.i575.ph1207, %221 ], [ %.075.i576.ph, %.preheader485 ], [ %.075.i576.ph, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit365 ], [ %.075.i576.ph, %.thread442 ], [ %.177.i575.ph1207, %.preheader491 ], [ %.075.i576.ph, %.preheader494 ], [ %.075.i576.ph, %.lr.ph1172 ], [ %.075.i576.ph, %232 ], [ %.075.i576.ph, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit367 ], [ %.177.i575.ph1207, %218 ], [ %.177.i575.ph1207, %.critedge2.i.thread.loopexit1204 ]
+  %.075.i.lcssa847 = phi ptr [ %.177.i575.ph1207, %221 ], [ %.075.i576.ph, %348 ], [ %.177.i575.ph1207, %.preheader491 ], [ %.177.i575.ph1207, %.preheader ], [ %.075.i576.ph, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit405 ], [ %.075.i576.ph, %.lr.ph1172 ], [ %.075.i576.ph, %.preheader494 ], [ %.075.i576.ph, %.thread442 ], [ %.075.i576.ph, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit365 ], [ %.075.i576.ph, %.preheader485 ], [ %.075.i576.ph, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit367 ], [ %.075.i576.ph, %232 ], [ %.177.i575.ph1207, %218 ], [ %.177.i575.ph1207, %.critedge2.i.thread.loopexit1204 ]
   %.not114.i = icmp eq ptr %.075.i.lcssa847, %.081.i
   %.not116.i = icmp eq ptr %.075.i.lcssa847, null
   %or.cond476 = or i1 %.not114.i, %.not116.i
   br i1 %or.cond476, label %_ZN5clang6format12_GLOBAL__N_116ExpressionParser16verilogGroupDeclEPNS0_11FormatTokenES4_.exit, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit345.thread
 
 _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit345.thread: ; preds = %.critedge2.i.thread, %363, %356, %351, %352
-  %.0.i456 = phi ptr [ %.7.i629.lcssa, %352 ], [ %.7.i629.lcssa, %351 ], [ %.7.i629.lcssa, %356 ], [ %.7.i629.lcssa, %363 ], [ %.075.i.lcssa847, %.critedge2.i.thread ]
+  %.0.i456 = phi ptr [ %.075.i.lcssa847, %.critedge2.i.thread ], [ %.7.i629.lcssa, %352 ], [ %.7.i629.lcssa, %351 ], [ %.7.i629.lcssa, %356 ], [ %.7.i629.lcssa, %363 ]
   %364 = getelementptr inbounds nuw i8, ptr %.0.i456, i64 67
   %365 = load i8, ptr %364, align 1, !tbaa !244
   %366 = icmp eq i8 %365, -92
@@ -3307,7 +3307,7 @@ _ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit306: ; preds = %.lr.
   br i1 %.not118.i, label %_ZN5clang6format12_GLOBAL__N_116ExpressionParser16verilogGroupDeclEPNS0_11FormatTokenES4_.exit, label %.lr.ph635, !llvm.loop !321
 
 _ZN5clang6format12_GLOBAL__N_116ExpressionParser16verilogGroupDeclEPNS0_11FormatTokenES4_.exit: ; preds = %173, %.preheader508, %.thread, %.loopexit, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit306, %.preheader498, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us.i303, %.critedge.sink.split.i305, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser18addFakeParenthesisEPNS0_11FormatTokenENS_4prec5LevelES4_.exit339, %.critedge2.i.thread, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176
-  %.281 = phi ptr [ %.079640, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176 ], [ %.079640, %.critedge2.i.thread ], [ %.0.i456, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser18addFakeParenthesisEPNS0_11FormatTokenENS_4prec5LevelES4_.exit339 ], [ %.0.i456, %.critedge.sink.split.i305 ], [ %.0.i456, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us.i303 ], [ null, %.preheader498 ], [ %.0.i456, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit306 ], [ %.0.i456, %.loopexit ], [ %.0.i456, %.thread ], [ %.079640, %.preheader508 ], [ null, %173 ]
+  %.281 = phi ptr [ %.079640, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176 ], [ %.0.i456, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser18addFakeParenthesisEPNS0_11FormatTokenENS_4prec5LevelES4_.exit339 ], [ %.079640, %.preheader508 ], [ %.079640, %.critedge2.i.thread ], [ %.0.i456, %.critedge.sink.split.i305 ], [ %.0.i456, %.thread ], [ null, %.preheader498 ], [ %.0.i456, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us.i303 ], [ %.0.i456, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit306 ], [ %.0.i456, %.loopexit ], [ null, %173 ]
   tail call fastcc void @_ZN5clang6format12_GLOBAL__N_116ExpressionParser5parseEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %31)
   %465 = load ptr, ptr %4, align 8, !tbaa !241
   %.not.i113 = icmp eq ptr %465, null
@@ -3362,7 +3362,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.thread.i: ; preds = %.p
   br i1 %483, label %_ZN5clang6format12_GLOBAL__N_116ExpressionParser20getCurrentPrecedenceEv.exit, label %.thread19.i
 
 .thread.i:                                        ; preds = %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.thread.i, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.i
-  %484 = phi i8 [ %473, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.thread.i ], [ %471, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.i ]
+  %484 = phi i8 [ %471, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.i ], [ %473, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.thread.i ]
   switch i8 %484, label %.thread19.i [
     i8 65, label %_ZN5clang6format12_GLOBAL__N_116ExpressionParser20getCurrentPrecedenceEv.exit
     i8 73, label %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit.fold.split.i
@@ -3370,8 +3370,8 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.thread.i: ; preds = %.p
   ]
 
 .thread19.i:                                      ; preds = %.thread.i, %482, %478
-  %.not.i.not.not.not.i.not.not945 = phi i1 [ true, %482 ], [ true, %478 ], [ %.not.i.not.not.not.i.not.not.not.not.not, %.thread.i ]
-  %485 = phi i8 [ 111, %482 ], [ 111, %478 ], [ %484, %.thread.i ]
+  %.not.i.not.not.not.i.not.not945 = phi i1 [ %.not.i.not.not.not.i.not.not.not.not.not, %.thread.i ], [ true, %482 ], [ true, %478 ]
+  %485 = phi i8 [ %484, %.thread.i ], [ 111, %482 ], [ 111, %478 ]
   %486 = getelementptr inbounds nuw i8, ptr %465, i64 16
   %487 = load i16, ptr %486, align 8, !tbaa !61
   %488 = icmp eq i16 %487, 63
@@ -3496,7 +3496,7 @@ switch.hole_check:                                ; preds = %522
   br i1 %switch.lobit, label %.thread20.i, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.i
 
 .thread20.i:                                      ; preds = %switch.hole_check, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %497
-  %527 = phi i1 [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i ], [ false, %497 ], [ true, %switch.hole_check ]
+  %527 = phi i1 [ false, %497 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i ], [ true, %switch.hole_check ]
   %528 = icmp eq i8 %485, 8
   %529 = icmp eq i16 %487, 66
   %or.cond25.i = or i1 %528, %529
@@ -3560,7 +3560,7 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.fold.split.i: ; preds = %.t
   br label %_ZN5clang6format12_GLOBAL__N_116ExpressionParser20getCurrentPrecedenceEv.exit
 
 _ZN5clang6format12_GLOBAL__N_116ExpressionParser20getCurrentPrecedenceEv.exit: ; preds = %_ZN5clang6format12_GLOBAL__N_116ExpressionParser16verilogGroupDeclEPNS0_11FormatTokenES4_.exit, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.i, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.thread.i, %475, %475, %482, %.thread.i, %.thread.i, %.thread19.i, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindENS0_9TokenTypeEJS5_EEEbT_T0_DpT1_.exit.i, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindENS0_9TokenTypeEJS5_EEEbT_T0_DpT1_.exit.i, %491, %495, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.i, %530, %533, %536, %538, %547, %550, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit.fold.split.i
-  %.1.i114 = phi i32 [ -1, %547 ], [ -1, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser16verilogGroupDeclEPNS0_11FormatTokenES4_.exit ], [ %532, %530 ], [ %534, %533 ], [ 3, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.thread.i ], [ 0, %538 ], [ 17, %536 ], [ 10, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.i ], [ 10, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i ], [ 1, %495 ], [ 0, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindENS0_9TokenTypeEJS5_EEEbT_T0_DpT1_.exit.i ], [ 0, %491 ], [ 2, %.thread.i ], [ 2, %475 ], [ 2, %482 ], [ 3, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.i ], [ 0, %.thread19.i ], [ 10, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i ], [ 2, %475 ], [ 1, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit.fold.split.i ], [ 2, %.thread.i ], [ 0, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindENS0_9TokenTypeEJS5_EEEbT_T0_DpT1_.exit.i ], [ %spec.select.i116, %550 ]
+  %.1.i114 = phi i32 [ -1, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser16verilogGroupDeclEPNS0_11FormatTokenES4_.exit ], [ %spec.select.i116, %550 ], [ -1, %547 ], [ %532, %530 ], [ %534, %533 ], [ 3, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.i ], [ 3, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.thread.i ], [ 0, %491 ], [ 2, %482 ], [ 0, %538 ], [ 17, %536 ], [ 10, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.i ], [ 0, %.thread19.i ], [ 10, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i ], [ 1, %495 ], [ 0, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindENS0_9TokenTypeEJS5_EEEbT_T0_DpT1_.exit.i ], [ 2, %.thread.i ], [ 2, %475 ], [ 2, %.thread.i ], [ 2, %475 ], [ 10, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i ], [ 0, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindENS0_9TokenTypeEJS5_EEEbT_T0_DpT1_.exit.i ], [ 1, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit.fold.split.i ]
   %555 = load ptr, ptr %0, align 8, !tbaa !301
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 159
   %557 = load i8, ptr %556, align 1, !tbaa !329
@@ -3661,7 +3661,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i: ; preds = %595
   br label %_ZN5clang6format12_GLOBAL__N_116ExpressionParser18addFakeParenthesisEPNS0_11FormatTokenENS_4prec5LevelES4_.exit
 
 _ZN5clang6format12_GLOBAL__N_116ExpressionParser18addFakeParenthesisEPNS0_11FormatTokenENS_4prec5LevelES4_.exit: ; preds = %.preheader.i117, %602, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i, %593, %569, %568
-  %606 = phi ptr [ %.pre732, %602 ], [ %594, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i ], [ null, %593 ], [ %563, %569 ], [ %563, %568 ], [ %594, %.preheader.i117 ]
+  %606 = phi ptr [ %563, %568 ], [ %.pre732, %602 ], [ %594, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i ], [ null, %593 ], [ %563, %569 ], [ %594, %.preheader.i117 ]
   %.pre733 = load ptr, ptr %0, align 8, !tbaa !301
   br label %607
 
@@ -3779,7 +3779,7 @@ _ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_NS0_9TokenTyp
   store i8 115, ptr %652, align 1, !tbaa !244
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit
 
-_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %.preheader505, %616, %626, %633, %split.i.i.i, %split.i.i, %651, %644, %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_NS0_9TokenTypeEEEEbT_DpT0_.exit, %613, %611
+_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %.preheader505, %616, %626, %633, %split.i.i, %split.i.i.i, %651, %644, %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_NS0_9TokenTypeEEEEbT_DpT0_.exit, %613, %611
   %.pr = load ptr, ptr %4, align 8, !tbaa !241
   %.not99 = icmp eq ptr %.pr, null
   br i1 %.not99, label %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176.thread, label %653
@@ -4169,8 +4169,8 @@ _ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176.thread.sink.spli
   store ptr null, ptr %4, align 8, !tbaa !241
   br label %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176.thread
 
-_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176.thread: ; preds = %.critedge16, %.thread471, %_ZNK5clang6format11FormatToken11closesScopeEv.exit.thread, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit, %614, %_ZNK5clang6format11FormatToken11closesScopeEv.exit.thread.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %678, %755, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit162, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us.i173, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.i, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us.i192, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176.thread.sink.split
-  %.076.lcssa.ph = phi ptr [ %.076.lcssa.ph.ph, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176.thread.sink.split ], [ %.4, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us.i192 ], [ %.4, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.i ], [ %.076642.ph, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us.i173 ], [ %.076642.ph, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit162 ], [ %.076642.ph, %.critedge16 ], [ %.076642.ph, %.thread471 ], [ %.076642.ph, %_ZNK5clang6format11FormatToken11closesScopeEv.exit.thread ], [ %.076642.ph, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %.076642.ph, %614 ], [ %.076642.ph, %_ZNK5clang6format11FormatToken11closesScopeEv.exit.thread.thread ], [ %.076642.ph, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %.076642.ph, %678 ], [ %.4, %755 ]
+_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176.thread: ; preds = %.critedge16, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit, %.thread471, %_ZNK5clang6format11FormatToken11closesScopeEv.exit.thread, %614, %_ZNK5clang6format11FormatToken11closesScopeEv.exit.thread.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %678, %755, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit162, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us.i173, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.i, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us.i192, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176.thread.sink.split
+  %.076.lcssa.ph = phi ptr [ %.076642.ph, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us.i173 ], [ %.4, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.i ], [ %.076642.ph, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit162 ], [ %.4, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us.i192 ], [ %.076.lcssa.ph.ph, %_ZN5clang6format12_GLOBAL__N_116ExpressionParser4nextEb.exit176.thread.sink.split ], [ %.076642.ph, %678 ], [ %.076642.ph, %.critedge16 ], [ %.076642.ph, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %.076642.ph, %.thread471 ], [ %.076642.ph, %_ZNK5clang6format11FormatToken11closesScopeEv.exit.thread ], [ %.076642.ph, %614 ], [ %.076642.ph, %_ZNK5clang6format11FormatToken11closesScopeEv.exit.thread.thread ], [ %.076642.ph, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %.4, %755 ]
   %784 = load ptr, ptr %0, align 8, !tbaa !301
   %785 = getelementptr inbounds nuw i8, ptr %784, i64 431
   %786 = load i8, ptr %785, align 1, !tbaa !220
@@ -4299,7 +4299,7 @@ _ZN5clang6format12_GLOBAL__N_116ExpressionParser18addFakeParenthesisEPNS0_11Form
   br i1 %.not8.i, label %_ZZN5clang6format12_GLOBAL__N_116ExpressionParser5parseEiENKUlvE_clEv.exit, label %842, !llvm.loop !334
 
 _ZZN5clang6format12_GLOBAL__N_116ExpressionParser5parseEiENKUlvE_clEv.exit: ; preds = %846, %842, %831, %828
-  %849 = phi ptr [ null, %831 ], [ null, %828 ], [ %.0.i209, %842 ], [ %.0.i209, %846 ]
+  %849 = phi ptr [ null, %828 ], [ null, %831 ], [ %.0.i209, %842 ], [ %.0.i209, %846 ]
   %850 = icmp eq i32 %1, 17
   %851 = getelementptr inbounds nuw i8, ptr %.2, i64 304
   %852 = load i8, ptr %851, align 8, !tbaa !298, !range !203, !noundef !204
@@ -4497,7 +4497,7 @@ _ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJEEEbT_DpT0_.exit
   br label %_ZNK5clang6format13AnnotatedLine25mightBeFunctionDefinitionEv.exit
 
 _ZNK5clang6format13AnnotatedLine25mightBeFunctionDefinitionEv.exit: ; preds = %9, %2, %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJEEEbT_DpT0_.exit.i.i, %13, %6, %21
-  %.0 = phi i1 [ false, %21 ], [ false, %6 ], [ true, %9 ], [ true, %13 ], [ %20, %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJEEEbT_DpT0_.exit.i.i ], [ true, %2 ]
+  %.0 = phi i1 [ true, %2 ], [ false, %21 ], [ false, %6 ], [ true, %9 ], [ true, %13 ], [ %20, %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJEEEbT_DpT0_.exit.i.i ]
   ret i1 %.0
 }
 
@@ -4924,7 +4924,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit116.i:  ; preds = %132
   br i1 %175, label %.thread129.thread.i, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit
 
 176:                                              ; preds = %169, %161, %151
-  %.275.i = phi ptr [ %171, %169 ], [ %153, %151 ], [ %160, %161 ]
+  %.275.i = phi ptr [ %171, %169 ], [ %160, %161 ], [ %153, %151 ]
   %177 = getelementptr inbounds nuw i8, ptr %.275.i, i64 216
   %178 = load ptr, ptr %177, align 8, !tbaa !62
   %.not91.i = icmp eq ptr %178, null
@@ -5067,7 +5067,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   br i1 %or.cond107.i, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit, label %.lr.ph163.i, !llvm.loop !348
 
 _ZN5clang6formatL25isFunctionDeclarationNameERKNS_11LangOptionsERKNS0_11FormatTokenERKNS0_13AnnotatedLineERPS4_.exit: ; preds = %137, %139, %184, %189, %196, %95, %tailrecurse.i.i.i.i, %207, %.lr.ph163.i, %222, %224, %226, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i
-  %.4311 = phi ptr [ %183, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i ], [ %183, %226 ], [ %183, %224 ], [ %183, %222 ], [ %183, %.lr.ph163.i ], [ %183, %207 ], [ %183, %tailrecurse.i.i.i.i ], [ %.0308428, %95 ], [ %183, %184 ], [ %183, %189 ], [ %183, %196 ], [ %.0308428, %139 ], [ %.0308428, %137 ]
+  %.4311 = phi ptr [ %183, %tailrecurse.i.i.i.i ], [ %183, %.lr.ph163.i ], [ %183, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit.i ], [ %183, %226 ], [ %183, %224 ], [ %183, %222 ], [ %183, %207 ], [ %.0308428, %95 ], [ %183, %196 ], [ %.0308428, %139 ], [ %.0308428, %137 ], [ %183, %189 ], [ %183, %184 ]
   %238 = getelementptr inbounds nuw i8, ptr %.0206431, i64 256
   %239 = getelementptr inbounds nuw i8, ptr %.0206431, i64 296
   %240 = load i8, ptr %239, align 8, !tbaa !252, !range !203, !noundef !204
@@ -5087,7 +5087,7 @@ _ZN5clang6formatL25isFunctionDeclarationNameERKNS_11LangOptionsERKNS0_11FormatTo
   br label %.critedge265
 
 .critedge265:                                     ; preds = %95, %244, %_ZN5clang6formatL25isFunctionDeclarationNameERKNS_11LangOptionsERKNS0_11FormatTokenERKNS0_13AnnotatedLineERPS4_.exit
-  %.2 = phi ptr [ %.4311, %_ZN5clang6formatL25isFunctionDeclarationNameERKNS_11LangOptionsERKNS0_11FormatTokenERKNS0_13AnnotatedLineERPS4_.exit ], [ %.4311, %244 ], [ %.0308428, %95 ]
+  %.2 = phi ptr [ %.4311, %244 ], [ %.4311, %_ZN5clang6formatL25isFunctionDeclarationNameERKNS_11LangOptionsERKNS0_11FormatTokenERKNS0_13AnnotatedLineERPS4_.exit ], [ %.0308428, %95 ]
   %.not234 = icmp eq ptr %.2, null
   br i1 %.not234, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit.thread, label %249
 
@@ -5113,20 +5113,20 @@ _ZN5clang6formatL25isFunctionDeclarationNameERKNS_11LangOptionsERKNS0_11FormatTo
   store i8 50, ptr %252, align 1, !tbaa !244
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit.thread
 
-_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %169, %158, %176, %161, %233, %._crit_edge.i, %.loopexit.i, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %179, %.thread129.i, %.thread129.thread.i, %172, %145, %.thread125.i, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit114.i, %115, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i
-  %.4311.ph = phi ptr [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit114.i ], [ %.0308428, %172 ], [ %.0308428, %145 ], [ %.0308428, %.thread125.i ], [ %.0308428, %.thread129.i ], [ %183, %.loopexit.i ], [ %.0308428, %.thread129.thread.i ], [ %.0308428, %179 ], [ %.0308428, %115 ], [ %.0308428, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ %183, %._crit_edge.i ], [ %183, %233 ], [ %.0308428, %161 ], [ %.0308428, %176 ], [ %.0308428, %158 ], [ %.0308428, %169 ]
+_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %169, %158, %176, %161, %233, %._crit_edge.i, %.loopexit.i, %.thread129.i, %.thread129.thread.i, %145, %.thread125.i, %179, %172, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit114.i, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %104, %115, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i
+  %.4311.ph = phi ptr [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %104 ], [ %.0308428, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit114.i ], [ %.0308428, %172 ], [ %183, %.loopexit.i ], [ %.0308428, %.thread129.thread.i ], [ %.0308428, %179 ], [ %183, %233 ], [ %.0308428, %145 ], [ %.0308428, %.thread125.i ], [ %.0308428, %.thread129.i ], [ %.0308428, %115 ], [ %.0308428, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ %183, %._crit_edge.i ], [ %.0308428, %161 ], [ %.0308428, %176 ], [ %.0308428, %158 ], [ %.0308428, %169 ]
   %263 = getelementptr inbounds nuw i8, ptr %.0206431, i64 216
   %264 = load ptr, ptr %263, align 8, !tbaa !62
   %.not232.not = icmp eq ptr %264, null
   br i1 %.not232.not, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit.thread, label %95, !llvm.loop !349
 
-_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit.thread: ; preds = %.preheader.i, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit, %_ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit, %262, %255, %.critedge265, %249
-  %265 = phi ptr [ %.ph, %249 ], [ %.ph, %.critedge265 ], [ %.ph, %255 ], [ %.ph, %262 ], [ %.ph, %_ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit ], [ %.ph, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ null, %.preheader.i ]
-  %.not231314576 = phi i1 [ false, %249 ], [ false, %.critedge265 ], [ false, %255 ], [ false, %262 ], [ false, %_ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ true, %.preheader.i ]
-  %.not232.not389 = phi i1 [ false, %249 ], [ false, %.critedge265 ], [ false, %255 ], [ false, %262 ], [ true, %_ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ true, %.preheader.i ]
-  %.1309 = phi ptr [ %.2, %249 ], [ null, %.critedge265 ], [ %.2, %255 ], [ %.2, %262 ], [ null, %_ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit ], [ %.4311.ph, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ null, %.preheader.i ]
-  %.1201 = phi ptr [ %.2202, %249 ], [ %.2202, %.critedge265 ], [ %.2202, %255 ], [ %.2202, %262 ], [ null, %_ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit ], [ %.2202, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ null, %.preheader.i ]
-  %.1191 = phi i1 [ true, %249 ], [ true, %.critedge265 ], [ true, %255 ], [ true, %262 ], [ false, %_ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit ], [ %spec.select, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ false, %.preheader.i ]
+_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit.thread: ; preds = %.preheader.i, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit, %_ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit, %262, %255, %249, %.critedge265
+  %265 = phi ptr [ %.ph, %262 ], [ %.ph, %.critedge265 ], [ %.ph, %249 ], [ %.ph, %255 ], [ %.ph, %_ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit ], [ %.ph, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ null, %.preheader.i ]
+  %.not231314576 = phi i1 [ false, %262 ], [ false, %.critedge265 ], [ false, %249 ], [ false, %255 ], [ false, %_ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ true, %.preheader.i ]
+  %.not232.not389 = phi i1 [ false, %262 ], [ false, %.critedge265 ], [ false, %249 ], [ false, %255 ], [ true, %_ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ true, %.preheader.i ]
+  %.1309 = phi ptr [ %.2, %262 ], [ null, %.critedge265 ], [ %.2, %249 ], [ %.2, %255 ], [ null, %_ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit ], [ %.4311.ph, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ null, %.preheader.i ]
+  %.1201 = phi ptr [ %.2202, %262 ], [ %.2202, %.critedge265 ], [ %.2202, %249 ], [ %.2202, %255 ], [ null, %_ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit ], [ %.2202, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ null, %.preheader.i ]
+  %.1191 = phi i1 [ true, %262 ], [ true, %.critedge265 ], [ true, %249 ], [ true, %255 ], [ false, %_ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit ], [ %spec.select, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ false, %.preheader.i ]
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %267 = load i8, ptr %266, align 8, !tbaa !243, !range !203, !noundef !204
   %268 = trunc nuw i8 %267 to i1
@@ -5369,7 +5369,7 @@ _ZN5clang6formatL24mustBreakAfterAttributesERKNS0_11FormatTokenERKNS0_11FormatSt
   br label %.critedge268
 
 .critedge268:                                     ; preds = %345, %362, %355, %348, %342, %351, %.lr.ph454
-  %.4 = phi ptr [ %.3213453, %.lr.ph454 ], [ %.3213453, %351 ], [ %.3213453, %342 ], [ %.3213453, %345 ], [ %.3213453, %348 ], [ %344, %355 ], [ %344, %362 ]
+  %.4 = phi ptr [ %.3213453, %.lr.ph454 ], [ %.3213453, %348 ], [ %.3213453, %351 ], [ %.3213453, %342 ], [ %.3213453, %345 ], [ %344, %355 ], [ %344, %362 ]
   %.3213.in = getelementptr inbounds nuw i8, ptr %.4, i64 216
   %.3213 = load ptr, ptr %.3213.in, align 8, !tbaa !62, !nonnull !204, !noundef !204
   %.not240 = icmp eq ptr %.3213, %339
@@ -5442,8 +5442,8 @@ _ZN5clang6formatL24mustBreakAfterAttributesERKNS0_11FormatTokenERKNS0_11FormatSt
   %.not246 = icmp eq ptr %391, null
   br i1 %.not246, label %.critedge266, label %.thread
 
-.thread:                                          ; preds = %389, %383, %386, %382
-  %.1204 = phi ptr [ %.0203446, %382 ], [ %391, %389 ], [ %.0203446, %383 ], [ %.0203446, %386 ]
+.thread:                                          ; preds = %386, %383, %389, %382
+  %.1204 = phi ptr [ %.0203446, %382 ], [ %.0203446, %386 ], [ %.0203446, %383 ], [ %391, %389 ]
   %.0203.in = getelementptr inbounds nuw i8, ptr %.1204, i64 216
   %.0203 = load ptr, ptr %.0203.in, align 8, !tbaa !62
   %.not244 = icmp eq ptr %.0203, null
@@ -5596,7 +5596,7 @@ _ZNK5clang6format11FormatToken10opensScopeEv.exit.thread: ; preds = %.thread.i29
   br label %458
 
 458:                                              ; preds = %._crit_edge519, %_ZNK5clang6format11FormatToken10opensScopeEv.exit.thread, %449, %454
-  %.sink = phi i32 [ %457, %454 ], [ 1, %_ZNK5clang6format11FormatToken10opensScopeEv.exit.thread ], [ %452, %449 ], [ 0, %._crit_edge519 ]
+  %.sink = phi i32 [ %452, %449 ], [ %457, %454 ], [ 1, %_ZNK5clang6format11FormatToken10opensScopeEv.exit.thread ], [ 0, %._crit_edge519 ]
   %459 = getelementptr inbounds nuw i8, ptr %.0197469, i64 92
   store i32 %.sink, ptr %459, align 4, !tbaa !253
   %460 = getelementptr inbounds nuw i8, ptr %.0197469, i64 64
@@ -5764,17 +5764,17 @@ tailrecurse.i.i.i.i.i:                            ; preds = %tailrecurse.i.i.i.i
   %.not.i.i.i.i.i = icmp eq ptr %538, null
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread336, label %tailrecurse.i.i.i.i.i
 
-_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread336: ; preds = %tailrecurse.i.i.i.i.i, %536, %524, %533, %530
+_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread336: ; preds = %tailrecurse.i.i.i.i.i, %536, %533, %530, %524
   %539 = or i8 %517, 8
   br label %_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread333
 
 _ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread333: ; preds = %tailrecurse.i.i.i.i.i, %524, %528, %_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread336
-  %540 = phi i8 [ %539, %_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread336 ], [ %518, %528 ], [ %518, %524 ], [ %518, %tailrecurse.i.i.i.i.i ]
+  %540 = phi i8 [ %539, %_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread336 ], [ %518, %524 ], [ %518, %528 ], [ %518, %tailrecurse.i.i.i.i.i ]
   store i8 %540, ptr %511, align 8
   br label %.thread328
 
 .thread328:                                       ; preds = %510, %514, %521, %_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread333, %506
-  %541 = phi i8 [ %519, %514 ], [ %519, %521 ], [ %540, %_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread333 ], [ %509, %506 ], [ %512, %510 ]
+  %541 = phi i8 [ %509, %506 ], [ %519, %514 ], [ %519, %521 ], [ %540, %_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread333 ], [ %512, %510 ]
   %542 = getelementptr inbounds nuw i8, ptr %.0197469, i64 64
   %543 = and i8 %541, 8
   %.not257 = icmp eq i8 %543, 0
@@ -5837,7 +5837,7 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread338: ; preds = %5
   br label %577
 
 577:                                              ; preds = %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread338
-  %.0189 = phi i32 [ %573, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread ], [ %576, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread338 ]
+  %.0189 = phi i32 [ %576, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread338 ], [ %573, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread ]
   %578 = and i8 %548, 8
   %.not258.not = icmp eq i8 %578, 0
   br i1 %.not258.not, label %581, label %589
@@ -6131,7 +6131,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %4
   br label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_NS0_9TokenTypeEEEEbT_T0_DpT1_.exit
 
 _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_NS0_9TokenTypeEEEEbT_T0_DpT1_.exit: ; preds = %.thread, %.thread, %18, %12, %_ZNK4llvm9StringRef9ends_withES0_.exit
-  %.0 = phi i1 [ true, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ true, %12 ], [ true, %.thread ], [ %21, %18 ], [ true, %.thread ]
+  %.0 = phi i1 [ %21, %18 ], [ true, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ true, %12 ], [ true, %.thread ], [ true, %.thread ]
   ret i1 %.0
 }
 
@@ -6861,7 +6861,7 @@ _ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit403:
   %206 = icmp eq i8 %205, 111
   br i1 %206, label %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit, label %.thread574.thread
 
-.thread574.thread:                                ; preds = %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit403, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_S4_EEEbT_T0_DpT1_.exit, %161, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i396, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i400, %199, %199, %199, %199, %199, %199, %199, %199, %199, %199, %199, %199, %199, %199, %159, %203
+.thread574.thread:                                ; preds = %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit403, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_S4_EEEbT_T0_DpT1_.exit, %161, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %186, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i396, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i400, %199, %199, %199, %199, %199, %199, %199, %199, %199, %199, %199, %199, %199, %199, %159, %203
   %207 = icmp eq i16 %56, 43
   %208 = icmp eq i16 %21, 43
   %or.cond650 = or i1 %208, %207
@@ -7576,10 +7576,10 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEE
   br i1 %or.cond673, label %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit, label %488
 
 488:                                              ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit.thread, %482, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit
-  %489 = phi ptr [ %468, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit.thread ], [ %477, %482 ], [ %477, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit ]
-  %490 = phi ptr [ %469, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit.thread ], [ %478, %482 ], [ %478, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit ]
-  %491 = phi i16 [ %470, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit.thread ], [ %479, %482 ], [ %479, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit ]
-  %492 = phi i1 [ %476, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit.thread ], [ true, %482 ], [ %481, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit ]
+  %489 = phi ptr [ %468, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit.thread ], [ %477, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit ], [ %477, %482 ]
+  %490 = phi ptr [ %469, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit.thread ], [ %478, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit ], [ %478, %482 ]
+  %491 = phi i16 [ %470, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit.thread ], [ %479, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit ], [ %479, %482 ]
+  %492 = phi i1 [ %476, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit.thread ], [ %481, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEEEbT_T0_.exit ], [ true, %482 ]
   %.not.i440 = icmp eq ptr %489, null
   br i1 %.not.i440, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit442.thread, label %493
 
@@ -8668,7 +8668,7 @@ _ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.
   br i1 %873, label %.thread615, label %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit
 
 .thread615:                                       ; preds = %858, %.thread610, %864, %869
-  %874 = phi i16 [ %854, %869 ], [ %854, %864 ], [ %856, %.thread610 ], [ %854, %858 ]
+  %874 = phi i16 [ %854, %858 ], [ %854, %869 ], [ %854, %864 ], [ %856, %.thread610 ]
   %875 = icmp eq i8 %816, 9
   br i1 %875, label %876, label %882
 
@@ -9012,7 +9012,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_NS0_9TokenTyp
   br label %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit
 
 .thread627:                                       ; preds = %.thread864, %.thread864, %.thread864, %990, %993
-  %1021 = phi i16 [ %.pr622.pre, %993 ], [ %.pr622.pre, %990 ], [ 72, %.thread864 ], [ 72, %.thread864 ], [ 72, %.thread864 ]
+  %1021 = phi i16 [ %.pr622.pre, %990 ], [ 72, %.thread864 ], [ %.pr622.pre, %993 ], [ 72, %.thread864 ], [ 72, %.thread864 ]
   %1022 = load i8, ptr %815, align 1, !tbaa !244
   %1023 = icmp eq i8 %1022, -116
   %1024 = load i8, ptr %839, align 1, !tbaa !244
@@ -9089,7 +9089,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_NS0_9TokenTyp
   br label %_ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit
 
 _ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit: ; preds = %1048, %1051, %1054, %1055, %1056
-  %.0.i550 = phi i8 [ %1058, %1056 ], [ %1053, %1051 ], [ 1, %1054 ], [ 2, %1055 ], [ 0, %1048 ]
+  %.0.i550 = phi i8 [ %1058, %1056 ], [ %1053, %1051 ], [ 2, %1055 ], [ 1, %1054 ], [ 0, %1048 ]
   %1059 = icmp ne i8 %.0.i550, 1
   br label %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit
 
@@ -9132,7 +9132,7 @@ _ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatToke
   br label %_ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit553
 
 _ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit553: ; preds = %1068, %1071, %1074, %1075
-  %.0.i552 = phi i8 [ %1077, %1075 ], [ %1073, %1071 ], [ 1, %1074 ], [ 0, %1068 ]
+  %.0.i552 = phi i8 [ %1077, %1075 ], [ %1073, %1071 ], [ 0, %1068 ], [ 2, %1074 ]
   %1078 = icmp ne i8 %.0.i552, 0
   br label %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit
 
@@ -9207,7 +9207,7 @@ switch.hole_check:                                ; preds = %52
   br i1 %or.cond885.not, label %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit, label %_ZNK5clang6format18AdditionalKeywords10isWordLikeERKNS0_11FormatTokenEb.exit.thread
 
 _ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit: ; preds = %633, %.preheader, %753, %switch.hole_check, %.thread603, %238, %237, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit.fold.split869, %457, %457, %457, %122, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_NS0_9TokenTypeES5_EEEbT_T0_DpT1_.exit, %965, %965, %965, %156, %924, %911, %897, %689, %689, %689, %497, %497, %497, %1079, %1045, %1040, %1012, %1012, %991, %991, %969, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_EEEbT_T0_DpT1_.exit532, %966, %966, %910, %910, %896, %896, %896, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit.fold.split717, %884, %858, %841, %841, %.thread609, %.thread609, %809, %809, %804, %799, %794, %.thread606, %779, %779, %thread-pre-split604, %767, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit476.thread, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit458.thread.thread, %570, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit446.thread, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit446.thread, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit446, %482, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread580, %311, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit410, %265, %264, %264, %254, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit.fold.split, %222, %141, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit390.thread, %106, %106, %101, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit, %84, %84, %74, %69, %_ZNK5clang6format18AdditionalKeywords10isWordLikeERKNS0_11FormatTokenEb.exit.thread, %1006, %691, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i472, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i454, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i450, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i427, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i402, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i397, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i398, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i379, %946, %995, %_ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit553, %1101, %954, %951, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit, %1015, %1017, %"_ZZNK5clang6format14TokenAnnotator19spaceRequiredBeforeERKNS0_13AnnotatedLineERKNS0_11FormatTokenEENK3$_0clEv.exit542", %1002, %_ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit, %1083, %1089, %1095, %1098, %958, %960, %964, %1027, %1029, %1033, %.thread610, %598, %594, %588, %301, %297, %290, %54, %_ZNK5clang6format18AdditionalKeywords10isWordLikeERKNS0_11FormatTokenEb.exit383, %929, %934, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit521, %869, %864, %853, %846, %849, %833, %836, %_ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.exit, %825, %813, %810, %789, %787, %780, %782, %765, %758, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit495, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeEPNS_14IdentifierInfoEEEbT_T0_.exit, %683, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit476, %653, %657, %668, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit473, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit468, %618, %614, %584, %561, %565, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit455, %541, %533, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread591, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit, %513, %500, %460, %.thread588, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit428.thread.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit433.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit433, %_ZNK5clang5Token17getIdentifierInfoEv.exit431, %400, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit428, %_ZNK4llvm9StringRef9ends_withES0_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit, %343, %329, %328, %285, %251, %243, %247, %242, %.thread574.thread, %203, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit403, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_S4_EEEbT_T0_DpT1_.exit, %134, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit390, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread562, %920, %904, %899, %885, %876, %859, %818, %572, %260, %232, %225, %217, %149, %9
-  %.0 = phi i1 [ %12, %9 ], [ true, %_ZNK5clang6format18AdditionalKeywords10isWordLikeERKNS0_11FormatTokenEb.exit383 ], [ %153, %149 ], [ %821, %818 ], [ %863, %859 ], [ %spec.select, %876 ], [ %889, %885 ], [ %903, %899 ], [ %spec.select363, %904 ], [ %923, %920 ], [ %221, %217 ], [ %228, %225 ], [ %235, %232 ], [ %263, %260 ], [ %575, %572 ], [ true, %69 ], [ true, %84 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread562 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread ], [ false, %106 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit390 ], [ true, %134 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_S4_EEEbT_T0_DpT1_.exit ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit403 ], [ true, %203 ], [ false, %.thread574.thread ], [ false, %222 ], [ false, %237 ], [ false, %238 ], [ true, %242 ], [ true, %247 ], [ true, %243 ], [ false, %251 ], [ false, %264 ], [ true, %285 ], [ true, %328 ], [ true, %329 ], [ true, %343 ], [ true, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ false, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit428 ], [ true, %400 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit431 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit433 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit433.thread ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit428.thread.thread ], [ true, %.thread588 ], [ true, %460 ], [ true, %500 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit446.thread ], [ false, %513 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread591 ], [ false, %533 ], [ false, %541 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit455 ], [ true, %565 ], [ true, %561 ], [ true, %570 ], [ true, %584 ], [ true, %614 ], [ true, %618 ], [ %638, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit468 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit473 ], [ true, %668 ], [ true, %657 ], [ true, %653 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit476 ], [ true, %683 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeEPNS_14IdentifierInfoEEEbT_T0_.exit ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit495 ], [ false, %758 ], [ false, %765 ], [ false, %782 ], [ false, %780 ], [ false, %779 ], [ true, %787 ], [ true, %789 ], [ false, %794 ], [ false, %.thread606 ], [ false, %804 ], [ true, %809 ], [ false, %810 ], [ true, %813 ], [ true, %825 ], [ false, %_ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.exit ], [ false, %836 ], [ false, %833 ], [ true, %841 ], [ true, %.thread609 ], [ true, %849 ], [ true, %846 ], [ false, %853 ], [ true, %858 ], [ false, %864 ], [ false, %869 ], [ false, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit521 ], [ true, %910 ], [ true, %929 ], [ %spec.select.i526, %934 ], [ true, %54 ], [ true, %290 ], [ true, %297 ], [ %or.cond.not.i, %301 ], [ true, %588 ], [ true, %594 ], [ %or.cond.not.i460, %598 ], [ false, %.thread610 ], [ %950, %946 ], [ %998, %995 ], [ %1078, %_ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit553 ], [ %1102, %1101 ], [ false, %951 ], [ true, %954 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_EEEbT_T0_DpT1_.exit532 ], [ false, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit ], [ false, %991 ], [ true, %"_ZZNK5clang6format14TokenAnnotator19spaceRequiredBeforeERKNS0_13AnnotatedLineERKNS0_11FormatTokenEENK3$_0clEv.exit542" ], [ true, %1002 ], [ false, %1015 ], [ %1020, %1017 ], [ true, %1040 ], [ true, %1045 ], [ %1059, %_ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit ], [ true, %1083 ], [ false, %1089 ], [ true, %1095 ], [ false, %1098 ], [ %963, %960 ], [ false, %964 ], [ true, %958 ], [ %1032, %1029 ], [ false, %1033 ], [ true, %1027 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i379 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i398 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i397 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i402 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i427 ], [ true, %497 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i450 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i454 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i472 ], [ false, %689 ], [ true, %691 ], [ false, %965 ], [ false, %966 ], [ true, %1006 ], [ true, %_ZNK5clang6format18AdditionalKeywords10isWordLikeERKNS0_11FormatTokenEb.exit.thread ], [ true, %74 ], [ true, %84 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit ], [ false, %101 ], [ false, %106 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit390.thread ], [ true, %141 ], [ true, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit.fold.split ], [ true, %254 ], [ false, %264 ], [ false, %265 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit410 ], [ true, %311 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread580 ], [ false, %482 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit446 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit446.thread ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit458.thread.thread ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit476.thread ], [ false, %767 ], [ true, %thread-pre-split604 ], [ false, %779 ], [ true, %799 ], [ true, %809 ], [ true, %.thread609 ], [ true, %841 ], [ false, %884 ], [ %898, %897 ], [ false, %896 ], [ false, %896 ], [ false, %896 ], [ true, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit.fold.split717 ], [ true, %910 ], [ %spec.select720, %924 ], [ false, %966 ], [ false, %969 ], [ false, %991 ], [ false, %1012 ], [ false, %1012 ], [ true, %1079 ], [ true, %156 ], [ true, %497 ], [ true, %497 ], [ false, %689 ], [ false, %689 ], [ true, %911 ], [ %1014, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_NS0_9TokenTypeES5_EEEbT_T0_DpT1_.exit ], [ false, %965 ], [ false, %965 ], [ %123, %122 ], [ true, %457 ], [ true, %457 ], [ true, %457 ], [ true, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit.fold.split869 ], [ true, %.thread603 ], [ true, %switch.hole_check ], [ false, %753 ], [ false, %.preheader ], [ true, %633 ]
+  %.0 = phi i1 [ %12, %9 ], [ true, %_ZNK5clang6format18AdditionalKeywords10isWordLikeERKNS0_11FormatTokenEb.exit.thread ], [ true, %_ZNK5clang6format18AdditionalKeywords10isWordLikeERKNS0_11FormatTokenEb.exit383 ], [ false, %810 ], [ true, %69 ], [ true, %74 ], [ true, %84 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread562 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread ], [ false, %101 ], [ false, %106 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit390 ], [ true, %457 ], [ true, %134 ], [ %153, %149 ], [ true, %141 ], [ %821, %818 ], [ true, %813 ], [ true, %825 ], [ false, %_ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.exit ], [ false, %833 ], [ true, %.thread609 ], [ true, %846 ], [ false, %853 ], [ %863, %859 ], [ %spec.select, %876 ], [ %889, %885 ], [ false, %869 ], [ true, %switch.hole_check ], [ false, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit521 ], [ true, %841 ], [ %903, %899 ], [ false, %966 ], [ false, %896 ], [ false, %896 ], [ %spec.select363, %904 ], [ false, %896 ], [ false, %884 ], [ %898, %897 ], [ %923, %920 ], [ true, %910 ], [ true, %910 ], [ true, %.thread609 ], [ false, %864 ], [ true, %858 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit390.thread ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_S4_EEEbT_T0_DpT1_.exit ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit403 ], [ true, %203 ], [ %221, %217 ], [ false, %.thread574.thread ], [ %228, %225 ], [ false, %965 ], [ %235, %232 ], [ false, %222 ], [ false, %237 ], [ false, %238 ], [ false, %1012 ], [ true, %242 ], [ true, %84 ], [ true, %243 ], [ false, %251 ], [ %263, %260 ], [ true, %254 ], [ false, %264 ], [ false, %264 ], [ false, %265 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit410 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i397 ], [ true, %328 ], [ true, %329 ], [ true, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit ], [ false, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread580 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit428 ], [ true, %400 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit431 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit433 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit433.thread ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit428.thread.thread ], [ true, %460 ], [ false, %482 ], [ true, %497 ], [ true, %500 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit446 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit446.thread ], [ false, %513 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit ], [ false, %533 ], [ false, %541 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread591 ], [ true, %343 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit455 ], [ true, %561 ], [ %575, %572 ], [ true, %570 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i450 ], [ true, %614 ], [ true, %618 ], [ %638, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit468 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit473 ], [ true, %653 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit476 ], [ true, %683 ], [ false, %689 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeEPNS_14IdentifierInfoEEEbT_T0_.exit ], [ true, %311 ], [ false, %765 ], [ true, %.thread603 ], [ true, %thread-pre-split604 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit495 ], [ false, %779 ], [ true, %787 ], [ true, %789 ], [ false, %.thread606 ], [ false, %779 ], [ true, %799 ], [ false, %804 ], [ true, %809 ], [ false, %689 ], [ true, %247 ], [ true, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit.fold.split ], [ true, %285 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ true, %.thread588 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit446.thread ], [ true, %565 ], [ true, %584 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i454 ], [ true, %668 ], [ true, %657 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit476.thread ], [ true, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit.fold.split869 ], [ false, %758 ], [ false, %767 ], [ false, %782 ], [ false, %780 ], [ false, %794 ], [ true, %809 ], [ false, %836 ], [ true, %841 ], [ true, %849 ], [ true, %911 ], [ true, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit.fold.split717 ], [ true, %929 ], [ %spec.select.i526, %934 ], [ true, %1027 ], [ true, %54 ], [ false, %.preheader ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit458.thread.thread ], [ true, %497 ], [ %or.cond.not.i, %301 ], [ true, %290 ], [ true, %297 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i402 ], [ true, %156 ], [ false, %965 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i427 ], [ true, %497 ], [ %or.cond.not.i460, %598 ], [ true, %588 ], [ true, %594 ], [ true, %457 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i472 ], [ false, %689 ], [ true, %691 ], [ false, %.thread610 ], [ %950, %946 ], [ false, %106 ], [ false, %1012 ], [ false, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit ], [ %998, %995 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit ], [ %1020, %1017 ], [ true, %1040 ], [ %1078, %_ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit553 ], [ %1059, %_ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit ], [ true, %1079 ], [ false, %1089 ], [ true, %1095 ], [ false, %1098 ], [ %1102, %1101 ], [ false, %991 ], [ %spec.select720, %924 ], [ false, %951 ], [ true, %954 ], [ false, %969 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_EEEbT_T0_DpT1_.exit532 ], [ false, %991 ], [ %1014, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_NS0_9TokenTypeES5_EEEbT_T0_DpT1_.exit ], [ true, %"_ZZNK5clang6format14TokenAnnotator19spaceRequiredBeforeERKNS0_13AnnotatedLineERKNS0_11FormatTokenEENK3$_0clEv.exit542" ], [ true, %1002 ], [ false, %1015 ], [ true, %1045 ], [ true, %1083 ], [ false, %964 ], [ %963, %960 ], [ true, %958 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i398 ], [ false, %965 ], [ false, %966 ], [ false, %1033 ], [ %1032, %1029 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i379 ], [ false, %753 ], [ true, %457 ], [ %123, %122 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i ], [ true, %1006 ], [ true, %633 ]
   ret i1 %.0
 }
 
@@ -9576,7 +9576,7 @@ switch.hole_check:                                ; preds = %158
   br i1 %switch.lobit, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread388, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i
 
 _ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread388: ; preds = %switch.hole_check, %131, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEJS4_S4_EEEbT_T0_DpT1_.exit, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit, %144, %140
-  %173 = phi i1 [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEJS4_S4_EEEbT_T0_DpT1_.exit ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit ], [ true, %144 ], [ true, %140 ], [ %137, %131 ], [ true, %switch.hole_check ]
+  %173 = phi i1 [ true, %140 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEJS4_S4_EEEbT_T0_DpT1_.exit ], [ %137, %131 ], [ true, %144 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i ], [ true, %switch.hole_check ]
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %175 = load i32, ptr %174, align 4
   %176 = icmp eq i32 %175, 0
@@ -10526,8 +10526,8 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit349.thread: ; preds
   br label %_ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit
 
 _ZNK5clang6format13AnnotatedLine18getFirstNonCommentEv.exit: ; preds = %.preheader.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit349, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit349.thread
-  %609 = phi ptr [ %.ph, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit349 ], [ %.ph, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit349.thread ], [ null, %.preheader.i ]
-  %610 = phi i1 [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit349 ], [ %608, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit349.thread ], [ false, %.preheader.i ]
+  %609 = phi ptr [ %.ph, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit349.thread ], [ %.ph, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit349 ], [ null, %.preheader.i ]
+  %610 = phi i1 [ %608, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit349.thread ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit349 ], [ false, %.preheader.i ]
   %611 = getelementptr inbounds nuw i8, ptr %303, i64 135
   %612 = load i8, ptr %611, align 1, !tbaa !447, !range !203, !noundef !204
   %613 = trunc nuw i8 %612 to i1
@@ -10628,7 +10628,7 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit357: ; preds = %647
   br i1 %652, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.thread420
 
 .thread420:                                       ; preds = %647, %647, %647, %647, %647, %647, %647, %647, %647, %647, %647, %647, %647, %647, %642, %.thread419, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit357, %639, %638
-  %653 = phi ptr [ %630, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit357 ], [ %630, %639 ], [ %630, %638 ], [ %634, %.thread419 ], [ %630, %642 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ]
+  %653 = phi ptr [ %634, %.thread419 ], [ %630, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit357 ], [ %630, %639 ], [ %630, %638 ], [ %630, %642 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ], [ %630, %647 ]
   %654 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %655 = load ptr, ptr %654, align 8, !tbaa !205
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 304
@@ -10678,9 +10678,9 @@ _ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit
   %669 = icmp eq ptr %657, %668
   br i1 %669, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit.thread
 
-_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit.thread: ; preds = %666, %666, %666, %666, %666, %666, %666, %666, %666, %666, %666, %666, %666, %666, %665, %.thread420, %.thread419, %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit, %629
-  %670 = phi i1 [ false, %.thread419 ], [ true, %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit ], [ false, %629 ], [ true, %.thread420 ], [ true, %665 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ]
-  %671 = phi ptr [ %634, %.thread419 ], [ %653, %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit ], [ %630, %629 ], [ %653, %.thread420 ], [ %653, %665 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ]
+_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit.thread: ; preds = %665, %666, %666, %666, %666, %666, %666, %666, %666, %666, %666, %666, %666, %666, %666, %.thread420, %.thread419, %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit, %629
+  %670 = phi i1 [ false, %.thread419 ], [ true, %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit ], [ false, %629 ], [ true, %.thread420 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %666 ], [ true, %665 ]
+  %671 = phi ptr [ %634, %.thread419 ], [ %653, %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit ], [ %630, %629 ], [ %653, %.thread420 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %666 ], [ %653, %665 ]
   %672 = load i8, ptr %462, align 1, !tbaa !244
   %.not507 = icmp eq i8 %672, 51
   br i1 %.not507, label %_ZN5clang6formatL13isAllmanBraceERKNS0_11FormatTokenE.exit346.thread, label %673
@@ -10864,7 +10864,7 @@ _ZN5clang6formatL18IsFunctionArgumentERKNS0_11FormatTokenE.exit.thread: ; preds 
   br i1 %748, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %thread-pre-split432
 
 thread-pre-split432:                              ; preds = %745, %729, %.thread623
-  %749 = phi i8 [ %737, %.thread623 ], [ %731, %729 ], [ %737, %745 ]
+  %749 = phi i8 [ %737, %.thread623 ], [ %737, %745 ], [ %731, %729 ]
   %750 = icmp eq i8 %.pr433, 100
   br i1 %750, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.thread434
 
@@ -10928,9 +10928,9 @@ thread-pre-split432:                              ; preds = %745, %729, %.thread
   %.pre550 = load i16, ptr %.phi.trans.insert549, align 8, !tbaa !61
   br label %.thread440
 
-.thread440:                                       ; preds = %..thread440_crit_edge, %762, %769
-  %779 = phi i16 [ %.pre550, %..thread440_crit_edge ], [ %764, %762 ], [ %771, %769 ]
-  %.0443 = phi ptr [ %778, %..thread440_crit_edge ], [ %68, %762 ], [ %768, %769 ]
+.thread440:                                       ; preds = %..thread440_crit_edge, %769, %762
+  %779 = phi i16 [ %.pre550, %..thread440_crit_edge ], [ %771, %769 ], [ %764, %762 ]
+  %.0443 = phi ptr [ %778, %..thread440_crit_edge ], [ %768, %769 ], [ %68, %762 ]
   %780 = icmp eq i16 %779, 24
   %781 = getelementptr inbounds nuw i8, ptr %.0443, i64 67
   %782 = load i8, ptr %781, align 1, !tbaa !244
@@ -10982,8 +10982,8 @@ switch.lookup658:                                 ; preds = %.thread436
   %switch.masked = trunc i53 %switch.downshift to i1
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %tailrecurse.i.i.i, %tailrecurse.i.i.i.i321, %.preheader, %.preheader, %tailrecurse.i.i.i351, %tailrecurse.i.i.i370, %683, %299, %.thread436, %switch.lookup658, %309, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit, %.thread409, %.thread434, %725, %725, %725, %717, %680, %559, %512, %.thread401, %327, %327, %257, %257, %94, %794, %673, %686, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit357, %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit, %625, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit355.thread, %432, %436, %403, %407, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %753, %755, %215, %216, %.critedge, %343, %458, %478, %495, %497, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %572, %78, %82, %87, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit, %103, %127, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit, %197, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindES4_EEEbDpT_.exit.thread391, %211, %225, %219, %231, %231, %235, %241, %253, %277, %264, %285, %316, %330, %358, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit, %423, %419, %415, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit339, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit339.thread406, %465, %465, %465, %482, %.fold.split, %485, %507, %528, %532, %538, %540, %568, %694, %701, %711, %_ZN5clang6formatL18IsFunctionArgumentERKNS0_11FormatTokenE.exit.thread, %_ZN5clang6formatL18IsFunctionArgumentERKNS0_11FormatTokenE.exit.thread, %727, %745, %739, %thread-pre-split432, %759, %62, %36, %12
-  %.0229 = phi i1 [ true, %12 ], [ true, %36 ], [ true, %62 ], [ %326, %.critedge ], [ %460, %458 ], [ %481, %478 ], [ %555, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ %576, %572 ], [ %496, %495 ], [ %spec.select.i340.not, %497 ], [ %346, %343 ], [ true, %215 ], [ %.not.i325, %216 ], [ true, %78 ], [ false, %82 ], [ true, %87 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ true, %94 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit ], [ true, %103 ], [ true, %127 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit ], [ true, %197 ], [ true, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindES4_EEEbDpT_.exit.thread391 ], [ false, %211 ], [ false, %219 ], [ %.not.i326, %225 ], [ true, %231 ], [ false, %235 ], [ %243, %241 ], [ true, %231 ], [ true, %253 ], [ true, %257 ], [ true, %277 ], [ true, %264 ], [ true, %285 ], [ true, %309 ], [ true, %316 ], [ true, %327 ], [ true, %330 ], [ true, %358 ], [ true, %.thread401 ], [ true, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit ], [ false, %419 ], [ false, %415 ], [ %427, %423 ], [ true, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit339 ], [ true, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit339.thread406 ], [ true, %465 ], [ true, %465 ], [ true, %465 ], [ true, %482 ], [ %487, %485 ], [ false, %.fold.split ], [ true, %507 ], [ true, %512 ], [ true, %528 ], [ true, %532 ], [ true, %538 ], [ true, %540 ], [ true, %568 ], [ true, %694 ], [ true, %701 ], [ false, %711 ], [ true, %_ZN5clang6formatL18IsFunctionArgumentERKNS0_11FormatTokenE.exit.thread ], [ true, %_ZN5clang6formatL18IsFunctionArgumentERKNS0_11FormatTokenE.exit.thread ], [ true, %727 ], [ true, %725 ], [ true, %745 ], [ true, %739 ], [ true, %thread-pre-split432 ], [ false, %759 ], [ false, %755 ], [ false, %753 ], [ false, %.thread434 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ true, %407 ], [ true, %403 ], [ true, %436 ], [ true, %432 ], [ %689, %686 ], [ true, %680 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit357 ], [ true, %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit ], [ true, %625 ], [ true, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit355.thread ], [ false, %673 ], [ true, %794 ], [ true, %257 ], [ true, %327 ], [ true, %559 ], [ true, %717 ], [ true, %725 ], [ true, %725 ], [ true, %.thread409 ], [ %switch.selectcmp, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread ], [ %switch.masked, %switch.lookup658 ], [ false, %.thread436 ], [ true, %299 ], [ false, %683 ], [ false, %tailrecurse.i.i.i370 ], [ true, %tailrecurse.i.i.i351 ], [ true, %.preheader ], [ true, %.preheader ], [ true, %tailrecurse.i.i.i.i321 ], [ true, %tailrecurse.i.i.i ]
+_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %tailrecurse.i.i.i, %tailrecurse.i.i.i.i321, %.preheader, %.preheader, %tailrecurse.i.i.i351, %tailrecurse.i.i.i370, %683, %299, %.thread436, %switch.lookup658, %309, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit, %.thread409, %.thread434, %725, %725, %725, %717, %680, %559, %512, %.thread401, %327, %327, %257, %257, %94, %794, %673, %686, %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit355.thread, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit357, %625, %432, %436, %403, %407, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %753, %755, %215, %216, %.critedge, %343, %458, %478, %495, %497, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %572, %78, %82, %87, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit, %103, %127, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit, %197, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindES4_EEEbDpT_.exit.thread391, %211, %225, %219, %231, %231, %235, %241, %253, %277, %264, %285, %316, %330, %358, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit, %423, %419, %415, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit339, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit339.thread406, %465, %465, %465, %482, %.fold.split, %485, %507, %528, %532, %538, %540, %568, %694, %701, %711, %_ZN5clang6formatL18IsFunctionArgumentERKNS0_11FormatTokenE.exit.thread, %_ZN5clang6formatL18IsFunctionArgumentERKNS0_11FormatTokenE.exit.thread, %727, %745, %739, %thread-pre-split432, %759, %62, %36, %12
+  %.0229 = phi i1 [ true, %36 ], [ true, %12 ], [ true, %62 ], [ true, %285 ], [ true, %78 ], [ false, %82 ], [ true, %87 ], [ true, %94 ], [ true, %103 ], [ true, %299 ], [ true, %309 ], [ %326, %.critedge ], [ true, %316 ], [ true, %327 ], [ true, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit ], [ %427, %423 ], [ true, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit339 ], [ %460, %458 ], [ %481, %478 ], [ true, %465 ], [ false, %.fold.split ], [ true, %507 ], [ true, %512 ], [ true, %.thread409 ], [ true, %528 ], [ true, %532 ], [ true, %538 ], [ %555, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ true, %540 ], [ %576, %572 ], [ true, %568 ], [ true, %694 ], [ true, %701 ], [ false, %711 ], [ true, %717 ], [ true, %725 ], [ true, %739 ], [ true, %thread-pre-split432 ], [ false, %673 ], [ true, %559 ], [ true, %432 ], [ %496, %495 ], [ %spec.select.i340.not, %497 ], [ true, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit339.thread406 ], [ true, %358 ], [ %switch.masked, %switch.lookup658 ], [ true, %327 ], [ true, %330 ], [ %346, %343 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit ], [ true, %407 ], [ true, %215 ], [ %.not.i325, %216 ], [ false, %211 ], [ false, %219 ], [ true, %127 ], [ false, %235 ], [ true, %253 ], [ true, %257 ], [ true, %257 ], [ true, %264 ], [ true, %794 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit ], [ true, %197 ], [ true, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindES4_EEEbDpT_.exit.thread391 ], [ false, %.thread436 ], [ %.not.i326, %225 ], [ true, %231 ], [ true, %231 ], [ %243, %241 ], [ true, %277 ], [ true, %.thread401 ], [ false, %419 ], [ false, %415 ], [ true, %465 ], [ true, %465 ], [ true, %482 ], [ %487, %485 ], [ true, %436 ], [ true, %_ZN5clang6formatL18IsFunctionArgumentERKNS0_11FormatTokenE.exit.thread ], [ true, %_ZN5clang6formatL18IsFunctionArgumentERKNS0_11FormatTokenE.exit.thread ], [ true, %727 ], [ true, %745 ], [ false, %759 ], [ false, %.thread434 ], [ true, %725 ], [ true, %.preheader ], [ true, %403 ], [ %switch.selectcmp, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit ], [ false, %755 ], [ false, %753 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ false, %tailrecurse.i.i.i370 ], [ %689, %686 ], [ true, %tailrecurse.i.i.i.i321 ], [ true, %725 ], [ true, %tailrecurse.i.i.i351 ], [ true, %625 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit357 ], [ true, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit355.thread ], [ true, %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit ], [ true, %680 ], [ false, %683 ], [ true, %.preheader ], [ true, %tailrecurse.i.i.i ]
   ret i1 %.0229
 }
 
@@ -11130,7 +11130,7 @@ _ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1
   %50 = icmp eq ptr %32, %49
   br i1 %50, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread333
 
-_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread333: ; preds = %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit
+_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread333: ; preds = %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit
   br i1 %.not.i.i, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i258, label %51
 
 51:                                               ; preds = %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread333
@@ -12013,7 +12013,7 @@ _ZNK5clang6format18AdditionalKeywords20isTableGenDefinitionERKNS0_11FormatTokenE
   %or.cond418 = or i1 %293, %or.cond387
   br i1 %or.cond418, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit264.thread335
 
-_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit264.thread335: ; preds = %288, %3, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i260, %236, %.thread510, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit264, %22
+_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit264.thread335: ; preds = %288, %3, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i260, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %236, %.thread510, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit264, %22
   %294 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %295 = load i16, ptr %294, align 8, !tbaa !61
   switch i16 %295, label %335 [
@@ -12238,8 +12238,8 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread358: ; preds = %3
   br i1 %409, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread, label %.thread360
 
 .thread360:                                       ; preds = %.thread359, %408, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread358
-  %410 = phi i1 [ true, %408 ], [ false, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread358 ], [ %407, %.thread359 ]
-  %411 = phi i16 [ 61, %408 ], [ %404, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread358 ], [ %406, %.thread359 ]
+  %410 = phi i1 [ %407, %.thread359 ], [ true, %408 ], [ false, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread358 ]
+  %411 = phi i16 [ %406, %.thread359 ], [ 61, %408 ], [ %404, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread358 ]
   %412 = icmp eq i8 %362, 20
   %413 = icmp eq i16 %378, 61
   %or.cond395 = or i1 %412, %413
@@ -13033,8 +13033,8 @@ switch.hole_check537:                             ; preds = %736
   %switch.lobit541 = trunc i64 %switch.shifted540 to i1
   br i1 %switch.lobit541, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread, label %738
 
-_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread: ; preds = %.preheader, %151, %switch.hole_check537, %switch.hole_check, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread.i, %.thread518, %.thread523, %.thread520, %576, %285, %283, %513, %513, %513, %.thread371, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread, %456, %361, %361, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266, %739, %739, %_ZNK5clang6format11FormatToken14isMemberAccessEv.exit.thread, %_ZNK5clang6format11FormatToken14isMemberAccessEv.exit.thread, %691, %686, %.thread515, %590, %.thread513, %.thread513, %558, %558, %534, %532, %532, %514, %455, %455, %455, %455, %455, %444, %231, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread, %.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread340, %119, %119, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266.thread, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266.thread, %12, %12, %9, %9, %608, %579, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i299, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i300, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i286, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i267, %75, %236, %229, %203, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit288.thread, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit288, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit283, %132, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEJS4_S4_S4_S6_S6_S4_S6_S6_S6_S6_S6_S6_S6_EEEbT_T0_DpT1_.exit, %168, %160, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i262, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i263, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i, %710, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325, %726, %723, %730, %727, %740, %_ZNK5clang6format11FormatToken14isMemberAccessEv.exit, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit322, %677, %.thread519, %658, %647, %636, %629, %603, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit317.thread, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit317, %598, %_ZNK5clang6format11FormatToken11isAttributeEv.exit, %568, %.thread512, %553, %545, %539, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit, %523, %518, %520, %515, %509, %507, %494, %482, %465, %457, %441, %408, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread, %399, %395, %380, %377, %363, %370, %373, %367, %353, %352, %346, %.thread354, %328, %332, %.thread351, %307, %311, %296, %304, %299, %288, %_ZNK5clang6format18AdditionalKeywords20isTableGenDefinitionERKNS0_11FormatTokenE.exit, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit264, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit, %22, %622, %588, %499, %489, %480, %459, %435, %429, %421, %414, %358, %20
-  %.0 = phi i1 [ %21, %20 ], [ %360, %358 ], [ %418, %414 ], [ %426, %421 ], [ %433, %429 ], [ %439, %435 ], [ true, %459 ], [ %481, %480 ], [ %493, %489 ], [ %506, %499 ], [ %589, %588 ], [ %626, %622 ], [ false, %12 ], [ false, %9 ], [ false, %22 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit264 ], [ false, %_ZNK5clang6format18AdditionalKeywords20isTableGenDefinitionERKNS0_11FormatTokenE.exit ], [ false, %288 ], [ false, %296 ], [ true, %299 ], [ %306, %304 ], [ false, %311 ], [ false, %307 ], [ false, %.thread354 ], [ true, %.thread351 ], [ false, %328 ], [ %334, %332 ], [ false, %346 ], [ false, %352 ], [ false, %353 ], [ true, %363 ], [ false, %367 ], [ true, %370 ], [ %376, %373 ], [ true, %377 ], [ false, %380 ], [ true, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread ], [ false, %395 ], [ %403, %399 ], [ false, %408 ], [ true, %441 ], [ false, %444 ], [ false, %457 ], [ false, %465 ], [ true, %482 ], [ true, %494 ], [ true, %507 ], [ true, %509 ], [ true, %514 ], [ true, %515 ], [ false, %520 ], [ false, %518 ], [ true, %523 ], [ true, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit ], [ false, %534 ], [ false, %532 ], [ false, %539 ], [ false, %545 ], [ false, %553 ], [ false, %.thread512 ], [ false, %558 ], [ false, %.thread513 ], [ false, %568 ], [ true, %_ZNK5clang6format11FormatToken11isAttributeEv.exit ], [ true, %598 ], [ false, %603 ], [ true, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit317 ], [ %619, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit317.thread ], [ false, %629 ], [ true, %636 ], [ false, %647 ], [ true, %658 ], [ true, %.thread519 ], [ true, %677 ], [ true, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit322 ], [ %.not434, %710 ], [ %.not432, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325 ], [ true, %726 ], [ false, %723 ], [ false, %727 ], [ %733, %730 ], [ true, %740 ], [ true, %739 ], [ true, %_ZNK5clang6format11FormatToken14isMemberAccessEv.exit ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i263 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i262 ], [ true, %236 ], [ false, %229 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread ], [ false, %203 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit288.thread ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit288 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit283 ], [ false, %132 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %119 ], [ false, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEJS4_S4_S4_S6_S6_S4_S6_S6_S6_S6_S6_S6_S6_EEEbT_T0_DpT1_.exit ], [ %172, %168 ], [ %164, %160 ], [ false, %75 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i267 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266.thread ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i286 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i300 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i299 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i.i ], [ false, %455 ], [ false, %455 ], [ false, %455 ], [ false, %455 ], [ false, %455 ], [ false, %513 ], [ true, %579 ], [ true, %608 ], [ true, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread ], [ true, %_ZNK5clang6format11FormatToken14isMemberAccessEv.exit.thread ], [ false, %9 ], [ false, %12 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266.thread ], [ false, %119 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread340 ], [ false, %.thread ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread ], [ false, %231 ], [ false, %532 ], [ false, %558 ], [ false, %.thread513 ], [ true, %590 ], [ true, %.thread515 ], [ false, %686 ], [ false, %691 ], [ true, %_ZNK5clang6format11FormatToken14isMemberAccessEv.exit.thread ], [ true, %739 ], [ %spec.select, %.thread371 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266 ], [ true, %361 ], [ true, %361 ], [ %switch.selectcmp.not, %456 ], [ true, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread ], [ true, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread ], [ true, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread ], [ true, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread ], [ true, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread ], [ true, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread ], [ false, %513 ], [ false, %513 ], [ false, %283 ], [ %spec.select.i.i.not, %285 ], [ %spec.select.i.i.i.i.i.not, %576 ], [ false, %.thread520 ], [ true, %.thread523 ], [ true, %.thread518 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread.i ], [ false, %switch.hole_check ], [ true, %switch.hole_check537 ], [ false, %151 ], [ false, %.preheader ]
+_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread: ; preds = %.preheader, %151, %switch.hole_check537, %switch.hole_check, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread.i, %.thread518, %.thread523, %.thread520, %576, %285, %283, %513, %513, %513, %.thread371, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread, %456, %361, %361, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266, %739, %739, %_ZNK5clang6format11FormatToken14isMemberAccessEv.exit.thread, %_ZNK5clang6format11FormatToken14isMemberAccessEv.exit.thread, %691, %686, %.thread515, %590, %.thread513, %.thread513, %558, %558, %534, %532, %532, %514, %455, %455, %455, %455, %455, %444, %231, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread, %.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread340, %119, %119, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266.thread, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266.thread, %12, %12, %9, %9, %608, %579, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i299, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i300, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i286, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i267, %75, %236, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEJS4_S4_S4_S6_S6_S4_S6_S6_S6_S6_S6_S6_S6_EEEbT_T0_DpT1_.exit, %229, %203, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit288.thread, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit288, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit283, %168, %160, %132, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i262, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i263, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i, %710, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325, %726, %723, %730, %727, %740, %_ZNK5clang6format11FormatToken14isMemberAccessEv.exit, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit322, %677, %.thread519, %658, %647, %636, %629, %603, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit317.thread, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit317, %598, %_ZNK5clang6format11FormatToken11isAttributeEv.exit, %568, %.thread512, %553, %545, %539, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit, %523, %518, %520, %515, %509, %507, %494, %482, %465, %457, %441, %408, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread, %399, %395, %380, %377, %363, %370, %373, %367, %353, %352, %346, %.thread354, %328, %332, %.thread351, %307, %311, %296, %304, %299, %288, %_ZNK5clang6format18AdditionalKeywords20isTableGenDefinitionERKNS0_11FormatTokenE.exit, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit264, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit, %22, %622, %588, %499, %489, %480, %459, %435, %429, %421, %414, %358, %20
+  %.0 = phi i1 [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread ], [ %21, %20 ], [ false, %9 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266 ], [ %306, %304 ], [ false, %307 ], [ %334, %332 ], [ false, %346 ], [ false, %352 ], [ %360, %358 ], [ false, %353 ], [ %376, %373 ], [ true, %361 ], [ false, %380 ], [ false, %395 ], [ %418, %414 ], [ %426, %421 ], [ %433, %429 ], [ %439, %435 ], [ false, %408 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i.i ], [ true, %459 ], [ false, %444 ], [ false, %switch.hole_check ], [ %481, %480 ], [ false, %465 ], [ %493, %489 ], [ true, %482 ], [ %506, %499 ], [ true, %494 ], [ true, %507 ], [ true, %509 ], [ %switch.selectcmp.not, %456 ], [ true, %514 ], [ false, %455 ], [ true, %515 ], [ false, %518 ], [ true, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit ], [ false, %545 ], [ false, %.thread512 ], [ false, %558 ], [ false, %.thread513 ], [ false, %.thread513 ], [ %spec.select.i.i.not, %285 ], [ false, %568 ], [ %589, %588 ], [ true, %_ZNK5clang6format11FormatToken11isAttributeEv.exit ], [ true, %590 ], [ true, %598 ], [ %626, %622 ], [ %619, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit317.thread ], [ false, %629 ], [ true, %636 ], [ false, %647 ], [ true, %658 ], [ true, %.thread519 ], [ true, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit322 ], [ false, %686 ], [ true, %.thread515 ], [ false, %539 ], [ false, %532 ], [ true, %441 ], [ false, %22 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i262 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit264 ], [ false, %513 ], [ false, %_ZNK5clang6format18AdditionalKeywords20isTableGenDefinitionERKNS0_11FormatTokenE.exit ], [ false, %288 ], [ false, %12 ], [ false, %119 ], [ false, %296 ], [ true, %299 ], [ false, %311 ], [ false, %.thread354 ], [ true, %.thread351 ], [ false, %328 ], [ true, %363 ], [ false, %367 ], [ true, %370 ], [ true, %377 ], [ true, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread ], [ %403, %399 ], [ false, %457 ], [ false, %520 ], [ true, %523 ], [ false, %534 ], [ false, %553 ], [ false, %603 ], [ true, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit317 ], [ true, %677 ], [ false, %691 ], [ %.not434, %710 ], [ %.not432, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325 ], [ %733, %730 ], [ false, %723 ], [ true, %726 ], [ false, %727 ], [ true, %740 ], [ true, %739 ], [ false, %.thread520 ], [ true, %_ZNK5clang6format11FormatToken14isMemberAccessEv.exit ], [ true, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread ], [ %spec.select, %.thread371 ], [ true, %739 ], [ true, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i286 ], [ false, %513 ], [ true, %579 ], [ true, %608 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i263 ], [ %spec.select.i.i.i.i.i.not, %576 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i ], [ false, %.thread ], [ true, %236 ], [ false, %513 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEJS4_S4_S4_S6_S6_S4_S6_S6_S6_S6_S6_S6_S6_EEEbT_T0_DpT1_.exit ], [ false, %231 ], [ false, %229 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread ], [ false, %203 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit288.thread ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit288 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit283 ], [ true, %switch.hole_check537 ], [ %172, %168 ], [ %164, %160 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread340 ], [ false, %132 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %119 ], [ false, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ false, %75 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i267 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266.thread ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i300 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i299 ], [ false, %455 ], [ false, %455 ], [ false, %455 ], [ false, %455 ], [ true, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread ], [ true, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread ], [ true, %_ZNK5clang6format11FormatToken14isMemberAccessEv.exit.thread ], [ true, %.thread523 ], [ false, %9 ], [ false, %12 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266.thread ], [ true, %361 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i266 ], [ false, %532 ], [ false, %558 ], [ true, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread ], [ true, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread ], [ true, %_ZN5clang6formatL19isAllmanLambdaBraceERKNS0_11FormatTokenE.exit325.thread.thread ], [ true, %_ZNK5clang6format11FormatToken14isMemberAccessEv.exit.thread ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread.i ], [ false, %283 ], [ true, %.thread518 ], [ false, %151 ], [ false, %.preheader ]
   ret i1 %.0
 }
 
@@ -13847,7 +13847,7 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit: ; preds = %335
   br label %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit173
 
 _ZNK5clang6format11FormatToken13getPrecedenceEv.exit173: ; preds = %335, %344, %341, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit
-  %.0 = phi i32 [ %339, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit ], [ %346, %344 ], [ %343, %341 ], [ %337, %335 ]
+  %.0 = phi i32 [ %343, %341 ], [ %339, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit ], [ %346, %344 ], [ %337, %335 ]
   switch i32 %.0, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread177 [
     i32 2, label %347
     i32 0, label %351
@@ -13875,7 +13875,7 @@ _ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thr
   br label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread177
 
 _ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread177: ; preds = %170, %166, %160, %.thread189, %.thread189, %.thread189, %155, %155, %155, %105, %278, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread177.fold.split206, %237, %237, %223, %223, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread177.fold.split205, %143, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread177.fold.split204, %89, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread177.fold.split, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit148.thread, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit148, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i, %.thread185, %318, %347, %351, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit173, %332, %328, %311, %303, %298, %287, %290, %275, %271, %267, %256, %260, %246, %.thread200.thread, %.thread200, %240, %230, %.thread197, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit165.thread, %203, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit, %148, %146, %135, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit.thread, %128, %108, %102, %98, %_ZNK5clang6format11FormatToken10opensScopeEv.exit.thread, %_ZNK4llvm9StringRef9ends_withES0_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit, %42, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit, %4, %324, %209, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit.thread, %139, %112
-  %.0110 = phi i32 [ %115, %112 ], [ %142, %139 ], [ %196, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit.thread ], [ %213, %209 ], [ %327, %324 ], [ 0, %4 ], [ 1, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit ], [ 2, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit ], [ 3, %42 ], [ 35, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit148.thread ], [ 100, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ 100, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ 200, %_ZNK5clang6format11FormatToken10opensScopeEv.exit.thread ], [ 1, %89 ], [ 1, %98 ], [ 200, %102 ], [ 35, %108 ], [ 3, %128 ], [ 110, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit.thread ], [ 200, %135 ], [ 190, %143 ], [ 160, %146 ], [ 100, %148 ], [ 10, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit ], [ 4, %203 ], [ 0, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit165.thread ], [ 500, %223 ], [ %229, %.thread197 ], [ 100, %230 ], [ 1000, %240 ], [ 1000, %237 ], [ 110, %.thread200 ], [ 1, %.thread200.thread ], [ 100, %246 ], [ 0, %260 ], [ 0, %256 ], [ 19, %267 ], [ %277, %275 ], [ 19, %271 ], [ 50, %278 ], [ 50, %290 ], [ 50, %287 ], [ 25, %298 ], [ 1, %303 ], [ 25, %311 ], [ 0, %328 ], [ 3, %332 ], [ %350, %347 ], [ 3, %351 ], [ %.0, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit173 ], [ %spec.select, %318 ], [ 100, %.thread185 ], [ 1, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i ], [ 5000, %155 ], [ 2, %.thread189 ], [ 100, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit148 ], [ 500, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread177.fold.split ], [ 110, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread177.fold.split204 ], [ 1000, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread177.fold.split205 ], [ 500, %223 ], [ 1000, %237 ], [ 60, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread177.fold.split206 ], [ 500, %105 ], [ 5000, %155 ], [ 5000, %155 ], [ 2, %.thread189 ], [ 2, %.thread189 ], [ %.pre, %170 ], [ %165, %166 ], [ %165, %160 ]
+  %.0110 = phi i32 [ 1, %89 ], [ 0, %4 ], [ 1, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit ], [ 2, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit ], [ 2, %.thread189 ], [ 1, %98 ], [ 200, %102 ], [ %115, %112 ], [ 500, %105 ], [ 3, %128 ], [ %142, %139 ], [ 110, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit.thread ], [ 200, %135 ], [ 190, %143 ], [ 500, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread177.fold.split ], [ 160, %146 ], [ 100, %148 ], [ 5000, %155 ], [ 5000, %155 ], [ 1000, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread177.fold.split205 ], [ 2, %.thread189 ], [ %196, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit.thread ], [ 10, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit ], [ 4, %203 ], [ %213, %209 ], [ 0, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit165.thread ], [ 500, %223 ], [ %229, %.thread197 ], [ 100, %230 ], [ 1000, %237 ], [ 110, %.thread200 ], [ 1, %.thread200.thread ], [ 100, %246 ], [ 19, %267 ], [ 0, %256 ], [ 19, %271 ], [ 50, %278 ], [ 1000, %237 ], [ 50, %287 ], [ 25, %298 ], [ 1, %303 ], [ 25, %311 ], [ %.0, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit173 ], [ %327, %324 ], [ %spec.select, %318 ], [ 0, %328 ], [ 3, %332 ], [ 35, %108 ], [ 3, %42 ], [ 100, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit148 ], [ 35, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit148.thread ], [ 100, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ 200, %_ZNK5clang6format11FormatToken10opensScopeEv.exit.thread ], [ 100, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ 1000, %240 ], [ 0, %260 ], [ %277, %275 ], [ 50, %290 ], [ %350, %347 ], [ 3, %351 ], [ 5000, %155 ], [ 1, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i ], [ 60, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread177.fold.split206 ], [ 100, %.thread185 ], [ 500, %223 ], [ 2, %.thread189 ], [ 110, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread177.fold.split204 ], [ %.pre, %170 ], [ %165, %166 ], [ %165, %160 ]
   ret i32 %.0110
 }
 
@@ -14028,7 +14028,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %4
   br label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_NS0_9TokenTypeEEEEbT_T0_DpT1_.exit
 
 _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_NS0_9TokenTypeEEEEbT_T0_DpT1_.exit: ; preds = %.thread, %.thread, %16, %10, %_ZNK4llvm9StringRef11starts_withES0_.exit
-  %.0 = phi i1 [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ true, %10 ], [ true, %.thread ], [ %19, %16 ], [ true, %.thread ]
+  %.0 = phi i1 [ %19, %16 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ true, %10 ], [ true, %.thread ], [ true, %.thread ]
   ret i1 %.0
 }
 
@@ -14114,7 +14114,7 @@ _ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJEEEbT_.e
   br label %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit14
 
 _ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit14: ; preds = %tailrecurse.i.i.i, %23, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJEEEbT_.exit.i.i10, %split.i.i3, %2
-  %33 = phi i1 [ true, %2 ], [ false, %split.i.i3 ], [ %32, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJEEEbT_.exit.i.i10 ], [ false, %23 ], [ true, %tailrecurse.i.i.i ]
+  %33 = phi i1 [ false, %23 ], [ true, %2 ], [ false, %split.i.i3 ], [ %32, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJEEEbT_.exit.i.i10 ], [ true, %tailrecurse.i.i.i ]
   ret i1 %33
 }
 
@@ -14169,7 +14169,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread:    ; preds = %_ZNK4llvm9StringRef
   br label %_ZNK4llvm9StringRef9ends_withES0_.exit13.thread28
 
 _ZNK4llvm9StringRef9ends_withES0_.exit13.thread28: ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit, %6, %_ZNK4llvm9StringRef11starts_withES0_.exit8.thread26, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread
-  %18 = phi i64 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit8.thread26 ], [ %17, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread ], [ 0, %6 ], [ %13, %_ZNK4llvm9StringRef9ends_withES0_.exit ]
+  %18 = phi i64 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit8.thread26 ], [ %17, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread ], [ %13, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ 0, %6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nonnull @.str.50, i64 6, i64 noundef 0) #20
   %.sroa.speculated.i.i16 = call i64 @llvm.umin.i64(i64 %19, i64 %18)
@@ -14244,7 +14244,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6format14TokenAnnotator25spaceReq
   br label %21
 
 21:                                               ; preds = %15, %11, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %11 ], [ %or.cond.not, %15 ]
+  %.0 = phi i1 [ %or.cond.not, %15 ], [ true, %2 ], [ true, %11 ]
   ret i1 %.0
 }
 
@@ -15138,7 +15138,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   br i1 %414, label %410, label %.backedge, !llvm.loop !299
 
 .backedge:                                        ; preds = %422, %429, %411
-  %.0325.be = phi ptr [ %.0.i445, %411 ], [ %.0.i455, %429 ], [ %.0.i450, %422 ]
+  %.0325.be = phi ptr [ %.0.i455, %429 ], [ %.0.i445, %411 ], [ %.0.i450, %422 ]
   br label %405, !llvm.loop !491
 
 415:                                              ; preds = %408
@@ -16321,7 +16321,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit560.thread659:   ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit
 
 _ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit: ; preds = %955, %959, %962, %963
-  %.0.i563 = phi i8 [ %965, %963 ], [ %961, %959 ], [ 1, %962 ], [ 0, %955 ]
+  %.0.i563 = phi i8 [ %965, %963 ], [ %961, %959 ], [ 0, %955 ], [ 2, %962 ]
   %966 = icmp ne i8 %.0.i563, 0
   br label %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit463
 
@@ -16337,8 +16337,8 @@ switch.hole_check849:                             ; preds = %850
   %switch.lobit853 = trunc i32 %switch.shifted852 to i1
   br i1 %switch.lobit853, label %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit463, label %_ZNK5clang5Token17getIdentifierInfoEv.exit
 
-_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit463: ; preds = %.preheader722, %switch.hole_check849, %137, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit459, %191, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit461, %550, %547, %311, %260, %218, %873, %873, %873, %469, %403, %403, %403, %191, %191, %191, %191, %191, %191, %191, %191, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit425.thread, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit463.fold.split696, %125, %125, %125, %7, %946, %942, %922, %922, %900, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit463.fold.split, %_ZNK5clang5Token17getIdentifierInfoEv.exit, %624, %602, %315, %207, %190, %187, %128, %128, %746, %444, %448, %439, %345, %520, %_ZNK5clang6format13AnnotatedLine25mightBeFunctionDefinitionEv.exit.thread, %_ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit461.thread, %478, %473, %491, %493, %484, %512, %511, %539, %535, %545, %556, %581, %603, %628, %649, %687, %688, %681, %692, %704, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit497, %777, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEJS4_EEEbT_T0_DpT1_.exit.thread, %822, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit516, %840, %849, %868, %875, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit560, %_ZN4llvmeqENS_9StringRefES0_.exit556, %_ZN4llvmeqENS_9StringRefES0_.exit552, %_ZN4llvmeqENS_9StringRefES0_.exit548, %_ZN4llvmeqENS_9StringRefES0_.exit544, %_ZN4llvmeqENS_9StringRefES0_.exit540, %_ZN4llvmeqENS_9StringRefES0_.exit536, %_ZN4llvmeqENS_9StringRefES0_.exit, %925, %929, %937, %951, %939, %.thread623, %500, %.thread624, %563, %569, %573, %585, %592, %596, %607, %614, %618, %632, %639, %643, %653, %660, %664, %709, %716, %720, %726, %731, %735, %782, %786, %811, %815, %823, %.thread820, %855, %860, %_ZN5clang6format12_GLOBAL__N_122isKeywordWithConditionERKNS0_11FormatTokenE.exit.thread, %108, %369, %160, %183, %192, %209, %229, %275, %342, %389, %397, %247, %.critedge408, %174, %214, %219, %222, %240, %258, %254, %291, %.fold.split, %285, %294, %287, %278, %299, %296, %309, %326, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit, %352, %359, %371, %376, %378, %385, %380, %41, %29, %17, %90, %69, %54, %49
-  %.0 = phi i1 [ %50, %49 ], [ %55, %54 ], [ %72, %69 ], [ %93, %90 ], [ %123, %_ZN5clang6format12_GLOBAL__N_122isKeywordWithConditionERKNS0_11FormatTokenE.exit.thread ], [ false, %108 ], [ true, %17 ], [ true, %29 ], [ true, %41 ], [ false, %128 ], [ %162, %160 ], [ %186, %183 ], [ %195, %192 ], [ %213, %209 ], [ %232, %229 ], [ %277, %275 ], [ true, %247 ], [ %344, %342 ], [ %spec.select.i440, %389 ], [ %400, %397 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit425.thread ], [ false, %174 ], [ %180, %.critedge408 ], [ false, %187 ], [ false, %214 ], [ false, %219 ], [ %225, %222 ], [ true, %240 ], [ true, %258 ], [ true, %254 ], [ false, %278 ], [ true, %285 ], [ false, %287 ], [ true, %291 ], [ %295, %294 ], [ false, %.fold.split ], [ true, %299 ], [ true, %296 ], [ true, %309 ], [ true, %326 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit ], [ false, %352 ], [ false, %369 ], [ false, %359 ], [ false, %371 ], [ false, %376 ], [ true, %378 ], [ true, %380 ], [ %388, %385 ], [ false, %403 ], [ %.not.i464, %520 ], [ %765, %_ZNK5clang6format13AnnotatedLine25mightBeFunctionDefinitionEv.exit.thread ], [ %966, %_ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit ], [ true, %473 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit461.thread ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit461 ], [ %480, %478 ], [ false, %484 ], [ true, %491 ], [ false, %493 ], [ false, %512 ], [ false, %511 ], [ true, %535 ], [ %542, %539 ], [ true, %545 ], [ true, %556 ], [ true, %581 ], [ true, %603 ], [ true, %628 ], [ true, %649 ], [ true, %681 ], [ false, %687 ], [ %691, %688 ], [ true, %692 ], [ true, %704 ], [ true, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit497 ], [ true, %777 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEJS4_EEEbT_T0_DpT1_.exit.thread ], [ true, %822 ], [ true, %840 ], [ %or.cond.not.i514, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit516 ], [ false, %849 ], [ false, %868 ], [ %877, %875 ], [ false, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit ], [ false, %900 ], [ false, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.thread ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit560 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit556 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit552 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit548 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit544 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit540 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit536 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %922 ], [ false, %925 ], [ false, %929 ], [ false, %937 ], [ true, %951 ], [ true, %946 ], [ true, %942 ], [ true, %939 ], [ false, %.thread623 ], [ true, %500 ], [ %spec.select.i.i462, %.thread624 ], [ true, %563 ], [ true, %569 ], [ %or.cond.not.i, %573 ], [ true, %585 ], [ true, %592 ], [ %or.cond.not.i470, %596 ], [ true, %607 ], [ true, %614 ], [ %or.cond.not.i474, %618 ], [ true, %632 ], [ true, %639 ], [ %or.cond.not.i478, %643 ], [ true, %653 ], [ true, %660 ], [ %or.cond.not.i482, %664 ], [ true, %709 ], [ true, %716 ], [ %or.cond.not.i487, %720 ], [ true, %726 ], [ true, %731 ], [ %or.cond.not.i491, %735 ], [ true, %782 ], [ %or.cond.not.i500, %786 ], [ true, %811 ], [ %or.cond.not.i505, %815 ], [ true, %823 ], [ %or.cond.not.i510, %.thread820 ], [ true, %855 ], [ %or.cond.not.i519, %860 ], [ true, %125 ], [ false, %191 ], [ false, %345 ], [ %spec.select416, %448 ], [ true, %444 ], [ %443, %439 ], [ true, %746 ], [ false, %873 ], [ false, %128 ], [ false, %191 ], [ false, %190 ], [ false, %207 ], [ true, %315 ], [ false, %403 ], [ false, %403 ], [ true, %602 ], [ true, %624 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit463.fold.split ], [ false, %922 ], [ true, %7 ], [ true, %125 ], [ true, %125 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit463.fold.split696 ], [ false, %191 ], [ false, %191 ], [ false, %191 ], [ false, %191 ], [ false, %191 ], [ false, %191 ], [ true, %218 ], [ true, %260 ], [ true, %311 ], [ false, %469 ], [ false, %873 ], [ false, %873 ], [ true, %547 ], [ %555, %550 ], [ false, %191 ], [ %140, %137 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit459 ], [ false, %switch.hole_check849 ], [ true, %.preheader722 ]
+_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit463: ; preds = %.preheader722, %switch.hole_check849, %137, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit459, %191, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit461, %550, %547, %311, %260, %218, %873, %873, %873, %469, %403, %403, %403, %191, %191, %191, %191, %191, %191, %191, %191, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit425.thread, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit463.fold.split696, %125, %125, %125, %7, %946, %942, %922, %922, %900, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit463.fold.split, %_ZNK5clang5Token17getIdentifierInfoEv.exit, %624, %602, %315, %207, %190, %187, %128, %128, %746, %448, %444, %439, %345, %520, %_ZNK5clang6format13AnnotatedLine25mightBeFunctionDefinitionEv.exit.thread, %_ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit461.thread, %478, %473, %491, %493, %484, %512, %511, %539, %535, %545, %556, %581, %603, %628, %649, %687, %688, %681, %692, %704, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit497, %777, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEJS4_EEEbT_T0_DpT1_.exit.thread, %822, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit516, %840, %849, %868, %875, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit560, %_ZN4llvmeqENS_9StringRefES0_.exit556, %_ZN4llvmeqENS_9StringRefES0_.exit552, %_ZN4llvmeqENS_9StringRefES0_.exit548, %_ZN4llvmeqENS_9StringRefES0_.exit544, %_ZN4llvmeqENS_9StringRefES0_.exit540, %_ZN4llvmeqENS_9StringRefES0_.exit536, %_ZN4llvmeqENS_9StringRefES0_.exit, %925, %929, %937, %951, %939, %.thread623, %500, %.thread624, %563, %569, %573, %585, %592, %596, %607, %614, %618, %632, %639, %643, %653, %660, %664, %709, %716, %720, %726, %731, %735, %782, %786, %811, %815, %823, %.thread820, %855, %860, %_ZN5clang6format12_GLOBAL__N_122isKeywordWithConditionERKNS0_11FormatTokenE.exit.thread, %108, %369, %160, %183, %192, %209, %229, %275, %342, %389, %397, %247, %.critedge408, %174, %214, %219, %222, %240, %258, %254, %291, %.fold.split, %285, %294, %287, %278, %299, %296, %309, %326, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit, %352, %359, %371, %376, %378, %385, %380, %41, %29, %17, %90, %69, %54, %49
+  %.0 = phi i1 [ true, %7 ], [ true, %17 ], [ true, %29 ], [ %50, %49 ], [ %55, %54 ], [ %72, %69 ], [ %93, %90 ], [ true, %41 ], [ true, %125 ], [ false, %128 ], [ %123, %_ZN5clang6format12_GLOBAL__N_122isKeywordWithConditionERKNS0_11FormatTokenE.exit.thread ], [ false, %108 ], [ %140, %137 ], [ %162, %160 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit425.thread ], [ false, %switch.hole_check849 ], [ %186, %183 ], [ %180, %.critedge408 ], [ false, %187 ], [ %195, %192 ], [ false, %191 ], [ false, %190 ], [ %213, %209 ], [ false, %207 ], [ false, %214 ], [ %232, %229 ], [ true, %240 ], [ true, %254 ], [ %277, %275 ], [ false, %191 ], [ true, %247 ], [ false, %219 ], [ false, %.fold.split ], [ true, %296 ], [ true, %309 ], [ %spec.select416, %448 ], [ true, %260 ], [ true, %315 ], [ %344, %342 ], [ true, %326 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEbT_T0_DpT1_.exit ], [ false, %352 ], [ false, %371 ], [ true, %378 ], [ false, %376 ], [ %spec.select.i440, %389 ], [ false, %359 ], [ %400, %397 ], [ %388, %385 ], [ true, %444 ], [ false, %403 ], [ true, %311 ], [ false, %345 ], [ false, %174 ], [ false, %469 ], [ %225, %222 ], [ true, %258 ], [ false, %278 ], [ true, %285 ], [ false, %287 ], [ true, %291 ], [ %295, %294 ], [ true, %299 ], [ false, %369 ], [ true, %380 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit459 ], [ false, %191 ], [ true, %125 ], [ false, %191 ], [ true, %547 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit463.fold.split696 ], [ %555, %550 ], [ true, %125 ], [ false, %128 ], [ false, %.thread623 ], [ %480, %478 ], [ %.not.i464, %520 ], [ false, %511 ], [ %542, %539 ], [ true, %218 ], [ %spec.select.i.i462, %.thread624 ], [ true, %556 ], [ true, %569 ], [ true, %592 ], [ true, %602 ], [ true, %614 ], [ %691, %688 ], [ true, %692 ], [ false, %403 ], [ true, %716 ], [ true, %660 ], [ %765, %_ZNK5clang6format13AnnotatedLine25mightBeFunctionDefinitionEv.exit.thread ], [ true, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit497 ], [ true, %746 ], [ %or.cond.not.i514, %_ZNK5clang6format14TokenAnnotator25spaceRequiredBeforeParensERKNS0_11FormatTokenE.exit516 ], [ %443, %439 ], [ true, %782 ], [ true, %811 ], [ true, %639 ], [ false, %849 ], [ false, %868 ], [ false, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit ], [ false, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.thread ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %922 ], [ false, %925 ], [ false, %929 ], [ %966, %_ZNK5clang6format14TokenAnnotator26getTokenReferenceAlignmentERKNS0_11FormatTokenE.exit ], [ false, %937 ], [ %877, %875 ], [ true, %473 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit461.thread ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit461 ], [ false, %484 ], [ true, %491 ], [ false, %493 ], [ false, %403 ], [ false, %512 ], [ true, %535 ], [ true, %545 ], [ true, %581 ], [ true, %603 ], [ true, %624 ], [ true, %628 ], [ true, %649 ], [ true, %681 ], [ false, %687 ], [ true, %704 ], [ true, %777 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEJS4_EEEbT_T0_DpT1_.exit.thread ], [ true, %822 ], [ true, %840 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ false, %873 ], [ false, %873 ], [ false, %900 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit560 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit556 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit552 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit548 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit544 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit540 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit536 ], [ false, %922 ], [ true, %951 ], [ true, %946 ], [ true, %942 ], [ true, %939 ], [ true, %500 ], [ %or.cond.not.i, %573 ], [ true, %563 ], [ %or.cond.not.i470, %596 ], [ true, %585 ], [ %or.cond.not.i474, %618 ], [ true, %607 ], [ %or.cond.not.i478, %643 ], [ true, %632 ], [ %or.cond.not.i482, %664 ], [ true, %653 ], [ %or.cond.not.i487, %720 ], [ true, %709 ], [ %or.cond.not.i491, %735 ], [ true, %726 ], [ true, %731 ], [ %or.cond.not.i500, %786 ], [ %or.cond.not.i505, %815 ], [ %or.cond.not.i510, %.thread820 ], [ true, %823 ], [ %or.cond.not.i519, %860 ], [ true, %855 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JS3_EEEbT_T0_DpT1_.exit463.fold.split ], [ false, %873 ], [ false, %191 ], [ false, %191 ], [ false, %191 ], [ false, %191 ], [ false, %191 ], [ true, %.preheader722 ]
   ret i1 %.0
 }
 
@@ -16377,7 +16377,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang6format11FormatToken32c
   br label %_ZNK5clang6format11FormatToken11isAttributeEv.exit
 
 _ZNK5clang6format11FormatToken11isAttributeEv.exit: ; preds = %7, %7, %7, %7, %7, %1, %1, %1, %4, %8
-  %14 = phi i1 [ %13, %8 ], [ true, %1 ], [ true, %4 ], [ true, %7 ], [ true, %7 ], [ true, %1 ], [ true, %1 ], [ true, %7 ], [ true, %7 ], [ true, %7 ]
+  %14 = phi i1 [ true, %7 ], [ %13, %8 ], [ true, %7 ], [ true, %1 ], [ true, %1 ], [ true, %7 ], [ true, %4 ], [ true, %1 ], [ true, %7 ], [ true, %7 ]
   ret i1 %14
 }
 
@@ -16419,7 +16419,7 @@ define dso_local noundef signext i8 @_ZNK5clang6format14TokenAnnotator35getToken
   br label %18
 
 18:                                               ; preds = %7, %15, %14, %13, %10
-  %.0 = phi i8 [ %17, %15 ], [ %12, %10 ], [ 1, %13 ], [ 2, %14 ], [ 0, %7 ]
+  %.0 = phi i8 [ %17, %15 ], [ %12, %10 ], [ 2, %14 ], [ 1, %13 ], [ 0, %7 ]
   ret i8 %.0
 }
 
@@ -16482,7 +16482,7 @@ _ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJEEEbT_DpT0_.ex
   br label %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit14
 
 _ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit14: ; preds = %tailrecurse.i.i.i, %tailrecurse.i.i.i4, %0, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJEEEbT_DpT0_.exit.i12
-  %18 = phi i1 [ %17, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJEEEbT_DpT0_.exit.i12 ], [ false, %0 ], [ true, %tailrecurse.i.i.i4 ], [ true, %tailrecurse.i.i.i ]
+  %18 = phi i1 [ %17, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJEEEbT_DpT0_.exit.i12 ], [ true, %tailrecurse.i.i.i4 ], [ false, %0 ], [ true, %tailrecurse.i.i.i ]
   ret i1 %18
 }
 
@@ -16682,7 +16682,7 @@ _ZNK5clang6format11FormatToken20endsSequenceInternalINS0_9TokenTypeEJEEEbT_.exit
   br label %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_NS0_9TokenTypeEEEEbT_DpT0_.exit
 
 _ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_NS0_9TokenTypeEEEEbT_DpT0_.exit: ; preds = %19, %26, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS0_9TokenTypeEJEEEbT_.exit.i.i.i, %split.i.i.i, %split.i.i, %6, %2
-  %37 = phi i1 [ true, %2 ], [ false, %6 ], [ false, %split.i.i ], [ false, %split.i.i.i ], [ %36, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS0_9TokenTypeEJEEEbT_.exit.i.i.i ], [ false, %26 ], [ false, %19 ]
+  %37 = phi i1 [ true, %2 ], [ false, %6 ], [ %36, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS0_9TokenTypeEJEEEbT_.exit.i.i.i ], [ false, %split.i.i.i ], [ false, %split.i.i ], [ false, %26 ], [ false, %19 ]
   ret i1 %37
 }
 
@@ -16722,7 +16722,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread
 
 _ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread: ; preds = %switch.lookup, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit._ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread_crit_edge, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i
-  %17 = phi i16 [ %.pre, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit._ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread_crit_edge ], [ %10, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ %switch.load, %switch.lookup ]
+  %17 = phi i16 [ %.pre, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit._ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread_crit_edge ], [ %switch.load, %switch.lookup ], [ %10, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ]
   %18 = icmp eq i16 %17, %2
   %19 = icmp eq i16 %17, %3
   %or.cond.i = or i1 %18, %19
@@ -16743,7 +16743,7 @@ _ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread: ; preds =
   br label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_NS0_9TokenTypeES5_EEEbT_T0_DpT1_.exit
 
 _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_NS0_9TokenTypeES5_EEEbT_T0_DpT1_.exit: ; preds = %23, %20, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit
-  %28 = phi i1 [ true, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit ], [ true, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread ], [ true, %20 ], [ %spec.select.i.i.i.i.i, %23 ]
+  %28 = phi i1 [ true, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit ], [ true, %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread ], [ %spec.select.i.i.i.i.i, %23 ], [ true, %20 ]
   ret i1 %28
 }
 
@@ -16823,7 +16823,7 @@ define dso_local noundef signext i8 @_ZNK5clang6format14TokenAnnotator26getToken
   br label %14
 
 14:                                               ; preds = %2, %11, %10, %9, %6
-  %.0 = phi i8 [ %13, %11 ], [ %8, %6 ], [ 1, %9 ], [ 2, %10 ], [ 0, %2 ]
+  %.0 = phi i8 [ %13, %11 ], [ %8, %6 ], [ 2, %10 ], [ 1, %9 ], [ 0, %2 ]
   ret i8 %.0
 }
 
@@ -16919,7 +16919,7 @@ switch.hole_check14:                              ; preds = %20
   br i1 %switch.lobit18, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, label %22
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.thread: ; preds = %switch.hole_check14, %switch.hole_check, %22, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit
-  %24 = phi i1 [ %.not, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i ], [ %23, %22 ], [ false, %switch.hole_check ], [ true, %switch.hole_check14 ]
+  %24 = phi i1 [ %.not, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i ], [ false, %switch.hole_check ], [ %23, %22 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i ], [ true, %switch.hole_check14 ]
   ret i1 %24
 }
 
@@ -17306,7 +17306,7 @@ switch.hole_check:                                ; preds = %38
   br i1 %switch.lobit, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JPNS_14IdentifierInfoES6_S6_S6_S6_S6_EEEbT_T0_DpT1_.exit, label %40
 
 _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JPNS_14IdentifierInfoES6_S6_S6_S6_S6_EEEbT_T0_DpT1_.exit: ; preds = %switch.hole_check, %40, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i, %14, %10
-  %44 = phi i1 [ true, %10 ], [ true, %14 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i.i.i.i ], [ %43, %40 ], [ false, %switch.hole_check ]
+  %44 = phi i1 [ true, %10 ], [ true, %14 ], [ %43, %40 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i.i.i.i ], [ false, %switch.hole_check ]
   ret i1 %44
 }
 
@@ -17370,7 +17370,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %9
   br label %16
 
 16:                                               ; preds = %15, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %9, %3, %_ZNK5clang5Token17getIdentifierInfoEv.exit
-  %.0 = phi i1 [ %14, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ false, %3 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ %switch, %15 ]
+  %.0 = phi i1 [ %14, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ false, %9 ], [ %switch, %15 ], [ false, %3 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -17504,7 +17504,7 @@ switch.hole_check:                                ; preds = %18
   br i1 %switch.lobit, label %_ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJPNS_14IdentifierInfoEEEEbT_DpT0_.exit, label %20
 
 _ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJPNS_14IdentifierInfoEEEEbT_DpT0_.exit: ; preds = %9, %switch.hole_check, %split.i, %17, %20
-  %.0.i = phi i1 [ false, %split.i ], [ false, %17 ], [ %23, %20 ], [ false, %switch.hole_check ], [ false, %9 ]
+  %.0.i = phi i1 [ false, %switch.hole_check ], [ false, %17 ], [ false, %split.i ], [ %23, %20 ], [ false, %9 ]
   ret i1 %.0.i
 }
 
@@ -17669,7 +17669,7 @@ switch.hole_check:                                ; preds = %20
   br i1 %switch.lobit, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_PNS_14IdentifierInfoES6_EEEbT_T0_DpT1_.exit, label %22
 
 _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_PNS_14IdentifierInfoES6_EEEbT_T0_DpT1_.exit: ; preds = %switch.hole_check, %22, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i, %12, %7
-  %26 = phi i1 [ true, %7 ], [ true, %12 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i ], [ %25, %22 ], [ false, %switch.hole_check ]
+  %26 = phi i1 [ true, %7 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i ], [ true, %12 ], [ %25, %22 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i ], [ false, %switch.hole_check ]
   ret i1 %26
 }
 
@@ -17843,7 +17843,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %7
   br label %_ZNKSt13unordered_setIPN5clang14IdentifierInfoESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit, !llvm.loop !507
 
 _ZNKSt13unordered_setIPN5clang14IdentifierInfoESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit: ; preds = %39, %.lr.ph.i.i.i.i, %20, %21, %25, %34, %..loopexit_crit_edge21.i.i.i.i
-  %.sroa.06.1.i.i = phi ptr [ null, %25 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ %35, %34 ], [ null, %20 ], [ %.sroa.06.0.i.i, %21 ], [ %41, %39 ], [ null, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %20 ], [ %35, %34 ], [ null, %25 ], [ %.sroa.06.0.i.i, %21 ], [ %41, %39 ], [ null, %.lr.ph.i.i.i.i ]
   %47 = icmp eq ptr %.sroa.06.1.i.i, null
   br label %_ZNK5clang6format18AdditionalKeywords10isWordLikeERKNS0_11FormatTokenEb.exit.thread
 
@@ -17854,7 +17854,7 @@ _ZNKSt13unordered_setIPN5clang14IdentifierInfoESt4hashIS2_ESt8equal_toIS2_ESaIS2
   br label %_ZNK5clang6format18AdditionalKeywords10isWordLikeERKNS0_11FormatTokenEb.exit.thread
 
 _ZNK5clang6format18AdditionalKeywords10isWordLikeERKNS0_11FormatTokenEb.exit.thread: ; preds = %48, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %7, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i, %_ZNKSt13unordered_setIPN5clang14IdentifierInfoESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit
-  %.0 = phi i1 [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ %47, %_ZNKSt13unordered_setIPN5clang14IdentifierInfoESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ false, %7 ], [ %51, %48 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %7 ], [ %47, %_ZNKSt13unordered_setIPN5clang14IdentifierInfoESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4findERKS2_.exit ], [ %51, %48 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -18345,7 +18345,7 @@ _ZNK5clang6format11FormatToken22startsSequenceInternalINS_3tok9TokenKindEEEbT_.e
   br label %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit
 
 _ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit: ; preds = %11, %18, %_ZNK5clang6format11FormatToken22startsSequenceInternalINS_3tok9TokenKindEEEbT_.exit.i.i.i, %split.i.i.i, %split.i.i, %4
-  %27 = phi i1 [ false, %4 ], [ false, %split.i.i ], [ false, %split.i.i.i ], [ %26, %_ZNK5clang6format11FormatToken22startsSequenceInternalINS_3tok9TokenKindEEEbT_.exit.i.i.i ], [ false, %18 ], [ false, %11 ]
+  %27 = phi i1 [ false, %4 ], [ %26, %_ZNK5clang6format11FormatToken22startsSequenceInternalINS_3tok9TokenKindEEEbT_.exit.i.i.i ], [ false, %split.i.i.i ], [ false, %split.i.i ], [ false, %18 ], [ false, %11 ]
   ret i1 %27
 }
 
@@ -18443,7 +18443,7 @@ _ZNK5clang6format11FormatToken12endsSequenceIPNS_14IdentifierInfoEJS4_EEEbT_DpT0
   %30 = icmp eq ptr %6, %29
   br i1 %30, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_S4_EEEbT_T0_DpT1_.exit, label %_ZNK5clang6format11FormatToken12endsSequenceIPNS_14IdentifierInfoEJS4_EEEbT_DpT0_.exit.thread
 
-_ZNK5clang6format11FormatToken12endsSequenceIPNS_14IdentifierInfoEJS4_EEEbT_DpT0_.exit.thread: ; preds = %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %13, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %26, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i, %_ZNK5clang6format11FormatToken12endsSequenceIPNS_14IdentifierInfoEJS4_EEEbT_DpT0_.exit
+_ZNK5clang6format11FormatToken12endsSequenceIPNS_14IdentifierInfoEJS4_EEEbT_DpT0_.exit.thread: ; preds = %13, %26, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %_ZNK5clang6format11FormatToken12endsSequenceIPNS_14IdentifierInfoEJS4_EEEbT_DpT0_.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %32 = load ptr, ptr %31, align 8, !tbaa !516
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1112
@@ -18748,7 +18748,7 @@ switch.hole_check:                                ; preds = %47
   br i1 %switch.lobit, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JPNS_14IdentifierInfoES6_S6_S6_S6_EEEbT_T0_DpT1_.exit, label %49
 
 _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JPNS_14IdentifierInfoES6_S6_S6_S6_EEEbT_T0_DpT1_.exit: ; preds = %switch.hole_check, %49, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i, %15, %11, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit
-  %53 = phi i1 [ true, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit ], [ %not., %11 ], [ false, %15 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i.i.i ], [ %52, %49 ], [ true, %switch.hole_check ]
+  %53 = phi i1 [ true, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit ], [ %not., %11 ], [ false, %15 ], [ %52, %49 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i.i.i ], [ true, %switch.hole_check ]
   ret i1 %53
 }
 
@@ -19029,7 +19029,7 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i.i.i
   br label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEJS4_S4_S6_S6_S6_S6_S4_EEEbT_T0_DpT1_.exit
 
 _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindEPNS_14IdentifierInfoEJS4_S4_S6_S6_S6_S6_S4_EEEbT_T0_DpT1_.exit: ; preds = %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit
-  %42 = phi i1 [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i.i.i ], [ %41, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i.i.i.i.i ]
+  %42 = phi i1 [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i ], [ %41, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i.i.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i.i.i ]
   ret i1 %42
 }
 
@@ -21011,7 +21011,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.thread.i20
 
 .thread.i20:                                      ; preds = %switch.lookup, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i, %357, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeEPNS_14IdentifierInfoEEEbT_T0_.exit.thread..thread_crit_edge.i
-  %376 = phi i16 [ %.pre472.i, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeEPNS_14IdentifierInfoEEEbT_T0_.exit.thread..thread_crit_edge.i ], [ %.pre473.i, %357 ], [ %.pre473.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i ], [ %switch.load, %switch.lookup ]
+  %376 = phi i16 [ %.pre472.i, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeEPNS_14IdentifierInfoEEEbT_T0_.exit.thread..thread_crit_edge.i ], [ %switch.load, %switch.lookup ], [ %.pre473.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i ], [ %.pre473.i, %357 ]
   %377 = getelementptr inbounds nuw i8, ptr %268, i64 208
   %378 = load ptr, ptr %377, align 8, !tbaa !251
   %.not50.i.i = icmp eq ptr %378, null
@@ -21657,7 +21657,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser16isDeductionGuideERNS0_11Format
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser18determineTokenTypeERNS0_11FormatTokenE.exit
 
 _ZN5clang6format12_GLOBAL__N_116AnnotatingParser16isDeductionGuideERNS0_11FormatTokenE.exit.thread.i: ; preds = %602, %609, %613, %tailrecurse.i.i.i.i.i.i13, %619, %631, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser16isDeductionGuideERNS0_11FormatTokenE.exit.i, %653, %650, %647, %643, %640, %split.i.i.i.i.i9, %split.i.i.i.i, %.thread531.i, %592
-  %666 = phi ptr [ %594, %640 ], [ %594, %643 ], [ %594, %647 ], [ %594, %split.i.i.i.i.i9 ], [ %594, %split.i.i.i.i ], [ %.phi.trans.insert474.i, %592 ], [ %594, %.thread531.i ], [ %594, %653 ], [ %594, %650 ], [ %594, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser16isDeductionGuideERNS0_11FormatTokenE.exit.i ], [ %594, %631 ], [ %594, %619 ], [ %594, %tailrecurse.i.i.i.i.i.i13 ], [ %594, %613 ], [ %594, %609 ], [ %594, %602 ]
+  %666 = phi ptr [ %594, %609 ], [ %594, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser16isDeductionGuideERNS0_11FormatTokenE.exit.i ], [ %594, %613 ], [ %594, %619 ], [ %594, %631 ], [ %594, %640 ], [ %594, %643 ], [ %594, %647 ], [ %594, %split.i.i.i.i ], [ %594, %split.i.i.i.i.i9 ], [ %594, %.thread531.i ], [ %.phi.trans.insert474.i, %592 ], [ %594, %650 ], [ %594, %653 ], [ %594, %tailrecurse.i.i.i.i.i.i13 ], [ %594, %602 ]
   switch i16 %519, label %690 [
     i16 31, label %667
     i16 29, label %667
@@ -21786,7 +21786,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.e
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser23determineIncrementUsageERKNS0_11FormatTokenE.exit.i
 
 _ZN5clang6format12_GLOBAL__N_116AnnotatingParser23determineIncrementUsageERKNS0_11FormatTokenE.exit.i: ; preds = %712, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread.i.i, %720, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i244.i
-  %.0.i245.i = phi i8 [ -107, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i244.i ], [ -112, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread.i.i ], [ -107, %720 ], [ -107, %712 ]
+  %.0.i245.i = phi i8 [ -107, %720 ], [ -107, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i244.i ], [ -112, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread.i.i ], [ -107, %712 ]
   %721 = getelementptr inbounds nuw i8, ptr %268, i64 256
   %722 = getelementptr inbounds nuw i8, ptr %268, i64 296
   %723 = load i8, ptr %722, align 8, !tbaa !252, !range !203, !noundef !204
@@ -22327,7 +22327,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread384.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread384.i:    ; preds = %959, %956, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %946
-  %.ph.i = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ %963, %959 ], [ true, %956 ], [ false, %946 ]
+  %.ph.i = phi i1 [ true, %956 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ %963, %959 ], [ false, %946 ]
   %964 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %965 = icmp eq ptr %948, %964
   br i1 %965, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -22551,8 +22551,8 @@ _ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser18determineTokenTypeERNS0_11FormatTokenE.exit
 
 _ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.exit.thread.i: ; preds = %1045, %1042, %1039, %1035, %1033, %_ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.exit.i, %.thread392.i, %.thread392.i, %.thread392.i, %.thread392.i, %.thread392.i, %.thread392.i, %.thread392.i, %.thread392.i, %.thread392.i, %.thread392.i, %.thread392.i, %.thread392.i, %.thread392.i
-  %.val205398.i = phi ptr [ %.val205397.i, %1045 ], [ %.val205397.i, %1042 ], [ %.val205397.i, %1039 ], [ %.val205397.i, %1035 ], [ %.val205397.i, %1033 ], [ null, %_ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.exit.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ]
-  %1057 = phi i16 [ %1032, %1045 ], [ %1032, %1042 ], [ %1032, %1039 ], [ %1032, %1035 ], [ %1032, %1033 ], [ %1032, %_ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.exit.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ]
+  %.val205398.i = phi ptr [ null, %_ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.exit.i ], [ %.val205397.i, %1045 ], [ %.val205397.i, %1042 ], [ %.val205397.i, %1039 ], [ %.val205397.i, %1035 ], [ %.val205397.i, %1033 ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ], [ %.val205.i, %.thread392.i ]
+  %1057 = phi i16 [ %1032, %_ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.exit.i ], [ %1032, %1045 ], [ %1032, %1042 ], [ %1032, %1039 ], [ %1032, %1035 ], [ %1032, %1033 ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ], [ %.pr376.i, %.thread392.i ]
   switch i16 %1057, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_EEEbT_T0_DpT1_.exit.thread.i [
     i16 80, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_EEEbT_T0_DpT1_.exit.thread.i
     i16 5, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_EEEbT_T0_DpT1_.exit.thread.i
@@ -24365,7 +24365,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit322: ; preds = %727
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit324
 
 _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit324: ; preds = %.preheader576, %740, %733, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit322, %721, %714
-  %.val212 = phi i8 [ %.val212.pre, %740 ], [ %30, %733 ], [ %30, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit322 ], [ %30, %721 ], [ %30, %714 ], [ %30, %.preheader576 ]
+  %.val212 = phi i8 [ %30, %714 ], [ %.val212.pre, %740 ], [ %30, %733 ], [ %30, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit322 ], [ %30, %721 ], [ %30, %.preheader576 ]
   %741 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   %742 = load ptr, ptr %741, align 8, !tbaa !558
   switch i8 %.val212, label %744 [
@@ -24730,7 +24730,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit363: ; preds = %_ZNK5c
   br label %.lr.ph
 
 .critedge5:                                       ; preds = %856, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit363, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit363, %.lr.ph, %.lr.ph, %.lr.ph, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350
-  %.pr535.pr = phi ptr [ %831, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350 ], [ %831, %.lr.ph ], [ %831, %.lr.ph ], [ %831, %.lr.ph ], [ %848, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit363 ], [ %848, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit363 ], [ %848, %856 ]
+  %.pr535.pr = phi ptr [ %831, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350 ], [ %831, %.lr.ph ], [ %831, %.lr.ph ], [ %848, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit363 ], [ %848, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit363 ], [ %848, %856 ], [ %831, %.lr.ph ]
   %880 = getelementptr inbounds nuw i8, ptr %.pr535.pr, i64 16
   %881 = load i16, ptr %880, align 8, !tbaa !61
   %882 = icmp eq i16 %881, 22
@@ -24909,8 +24909,8 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_S4_EEEbT_T
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit
 
 .thread541:                                       ; preds = %940, %967, %964, %960, %959
-  %.not102543 = phi i1 [ false, %967 ], [ false, %964 ], [ false, %960 ], [ true, %959 ], [ true, %940 ]
-  %979 = phi ptr [ %.pr540, %967 ], [ %.pr540, %964 ], [ %.pr540, %960 ], [ null, %959 ], [ null, %940 ]
+  %.not102543 = phi i1 [ true, %959 ], [ false, %967 ], [ false, %964 ], [ false, %960 ], [ true, %940 ]
+  %979 = phi ptr [ null, %959 ], [ %.pr540, %967 ], [ %.pr540, %964 ], [ %.pr540, %960 ], [ null, %940 ]
   %.val196 = load ptr, ptr %0, align 8, !tbaa !3
   %980 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val197 = load i32, ptr %980, align 8, !tbaa !20
@@ -25110,7 +25110,7 @@ _ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit
   store i16 %1079, ptr %1077, align 1
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit384
 
-_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit.thread: ; preds = %1065, %1065, %1065, %1065, %1065, %1065, %1065, %1065, %1065, %1065, %1065, %1065, %1065, %1065, %1064, %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit, %1043
+_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit.thread: ; preds = %1064, %1065, %1065, %1065, %1065, %1065, %1065, %1065, %1065, %1065, %1065, %1065, %1065, %1065, %1065, %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit, %1043
   %1080 = getelementptr inbounds i8, ptr %1016, i64 -24
   %1081 = load ptr, ptr %1080, align 8, !tbaa !542
   %.not99 = icmp eq ptr %1081, null
@@ -25133,7 +25133,7 @@ _ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit
   br i1 %1088, label %.thread551, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit384
 
 .thread551:                                       ; preds = %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit.thread.thread, %1085, %1084
-  %1089 = phi ptr [ %1081, %1085 ], [ %1081, %1084 ], [ %1083, %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit.thread.thread ]
+  %1089 = phi ptr [ %1081, %1084 ], [ %1081, %1085 ], [ %1083, %_ZNK5clang6format13AnnotatedLine10startsWithIJPNS_14IdentifierInfoEEEEbDpT_.exit.thread.thread ]
   %1090 = getelementptr inbounds nuw i8, ptr %1089, i64 65
   %1091 = load i16, ptr %1090, align 1
   %1092 = or i16 %1091, 4
@@ -25494,7 +25494,7 @@ switch.hole_check742:                             ; preds = %1200
   br i1 %switch.lobit746, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit415
 
 _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %847, %tailrecurse.i.i.i311, %.preheader573, %.preheader571, %431, %.lr.ph594, %.lr.ph594, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit, %.preheader, %switch.hole_check742, %switch.hole_check735, %switch.hole_check, %.thread685, %.preheader578, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit260, %.thread, %1011, %1012, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit415.thread, %1237, %1238, %37, %34, %51, %54, %173, %193, %188, %486, %480, %507, %523, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit, %509, %534, %552, %545, %592, %586, %596, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit303, %_ZNK5clang6format11FormatToken11isAttributeEv.exit, %693, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit309, %660, %651, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit317, %_ZNK5clang6format12_GLOBAL__N_116AnnotatingParser12getScopeTypeERKNS0_11FormatTokenE.exit, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit337, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit341, %31, %31, %799, %822, %818, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit344, %892, %1101, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit384, %1124, %1119, %1109, %1103, %1189, %1211, %1217, %1214, %1213, %1235, %43, %50, %93, %101, %109, %116, %121, %128, %138, %145, %153, %160, %165, %172, %479, %472, %411, %404, %397, %390, %279, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit245, %245, %238, %231, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread520, %354, %.thread678, %468, %465, %_ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.exit287, %458, %_ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.exit, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit240, %493, %500, %785, %788, %898, %905, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_S4_EEEbT_T0_DpT1_.exit372.thread, %924, %951, %958, %971, %978, %1003, %1010, %1221, %1228, %428, %.loopexit, %452, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit284, %441, %434, %511, %683, %762, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit.thread531, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit.thread531, %765, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit327, %824, %824, %931, %692, %692, %692, %461, %461, %461, %461, %461, %461, %461, %461, %461, %461, %461, %461, %461, %461, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread
-  %.0 = phi i1 [ true, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread ], [ true, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread ], [ true, %1238 ], [ true, %.thread ], [ true, %1011 ], [ true, %1012 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit415.thread ], [ true, %1237 ], [ true, %37 ], [ true, %34 ], [ false, %51 ], [ true, %54 ], [ true, %173 ], [ true, %193 ], [ true, %188 ], [ true, %486 ], [ true, %480 ], [ false, %507 ], [ true, %523 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit ], [ true, %509 ], [ false, %534 ], [ true, %552 ], [ true, %545 ], [ false, %592 ], [ false, %586 ], [ %597, %596 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit303 ], [ true, %_ZNK5clang6format11FormatToken11isAttributeEv.exit ], [ true, %693 ], [ true, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit.thread531 ], [ true, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit309 ], [ true, %660 ], [ true, %651 ], [ %710, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit317 ], [ %747, %_ZNK5clang6format12_GLOBAL__N_116AnnotatingParser12getScopeTypeERKNS0_11FormatTokenE.exit ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit337 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit341 ], [ false, %31 ], [ false, %31 ], [ %.not113, %799 ], [ true, %822 ], [ true, %818 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit344 ], [ true, %824 ], [ true, %892 ], [ true, %1101 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit384 ], [ true, %1124 ], [ true, %1119 ], [ true, %1109 ], [ true, %1103 ], [ false, %1189 ], [ false, %1211 ], [ true, %1217 ], [ true, %1214 ], [ true, %1213 ], [ false, %1235 ], [ true, %43 ], [ true, %50 ], [ true, %93 ], [ true, %101 ], [ true, %109 ], [ true, %116 ], [ true, %121 ], [ true, %128 ], [ true, %138 ], [ true, %145 ], [ true, %153 ], [ true, %160 ], [ true, %165 ], [ true, %172 ], [ true, %479 ], [ true, %472 ], [ true, %411 ], [ true, %404 ], [ true, %397 ], [ true, %390 ], [ true, %279 ], [ true, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit245 ], [ true, %245 ], [ true, %238 ], [ true, %231 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread520 ], [ true, %354 ], [ true, %.thread678 ], [ true, %468 ], [ true, %465 ], [ true, %_ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.exit287 ], [ true, %458 ], [ true, %_ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.exit ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit240 ], [ true, %493 ], [ true, %500 ], [ true, %785 ], [ true, %788 ], [ true, %898 ], [ true, %905 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_S4_EEEbT_T0_DpT1_.exit372.thread ], [ true, %924 ], [ true, %951 ], [ true, %958 ], [ true, %971 ], [ true, %978 ], [ true, %1003 ], [ true, %1010 ], [ true, %1221 ], [ true, %1228 ], [ true, %428 ], [ true, %.loopexit ], [ true, %452 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit284 ], [ true, %441 ], [ true, %434 ], [ true, %511 ], [ true, %683 ], [ true, %692 ], [ true, %765 ], [ true, %762 ], [ true, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit.thread531 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit327 ], [ true, %824 ], [ true, %931 ], [ true, %692 ], [ true, %692 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit260 ], [ true, %.preheader578 ], [ false, %.thread685 ], [ true, %switch.hole_check ], [ true, %switch.hole_check735 ], [ true, %switch.hole_check742 ], [ true, %.preheader ], [ true, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit ], [ true, %.lr.ph594 ], [ true, %.lr.ph594 ], [ true, %431 ], [ true, %.preheader571 ], [ true, %.preheader573 ], [ true, %tailrecurse.i.i.i311 ], [ true, %847 ]
+  %.0 = phi i1 [ true, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread ], [ true, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread ], [ true, %1238 ], [ true, %1213 ], [ false, %51 ], [ true, %50 ], [ true, %824 ], [ true, %172 ], [ true, %101 ], [ true, %116 ], [ true, %54 ], [ true, %34 ], [ true, %128 ], [ false, %507 ], [ true, %480 ], [ true, %.thread ], [ true, %509 ], [ false, %534 ], [ true, %545 ], [ false, %586 ], [ %597, %596 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit303 ], [ false, %592 ], [ true, %651 ], [ %710, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit317 ], [ true, %461 ], [ %747, %_ZNK5clang6format12_GLOBAL__N_116AnnotatingParser12getScopeTypeERKNS0_11FormatTokenE.exit ], [ true, %660 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit341 ], [ %.not113, %799 ], [ false, %31 ], [ false, %31 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit344 ], [ true, %824 ], [ true, %905 ], [ true, %924 ], [ true, %958 ], [ true, %1011 ], [ true, %978 ], [ true, %788 ], [ true, %1012 ], [ true, %931 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit384 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit415.thread ], [ true, %1103 ], [ false, %1189 ], [ false, %1211 ], [ true, %1237 ], [ false, %1235 ], [ true, %37 ], [ true, %145 ], [ true, %173 ], [ true, %193 ], [ true, %188 ], [ true, %160 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit240 ], [ true, %486 ], [ true, %523 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit ], [ true, %552 ], [ true, %_ZNK5clang6format11FormatToken11isAttributeEv.exit ], [ true, %692 ], [ true, %693 ], [ true, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit.thread531 ], [ true, %tailrecurse.i.i.i311 ], [ true, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS0_9TokenTypeEEEEbDpT_.exit309 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit337 ], [ true, %692 ], [ true, %822 ], [ true, %818 ], [ true, %switch.hole_check742 ], [ true, %892 ], [ true, %1101 ], [ true, %1124 ], [ true, %1119 ], [ true, %1109 ], [ true, %1010 ], [ true, %1217 ], [ true, %1214 ], [ true, %43 ], [ true, %93 ], [ true, %109 ], [ true, %121 ], [ true, %138 ], [ true, %153 ], [ true, %165 ], [ true, %.preheader578 ], [ true, %479 ], [ true, %472 ], [ true, %.preheader573 ], [ true, %.preheader ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit260 ], [ true, %411 ], [ true, %404 ], [ true, %397 ], [ true, %390 ], [ true, %279 ], [ true, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit245 ], [ true, %1228 ], [ true, %245 ], [ true, %238 ], [ true, %231 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit.thread520 ], [ true, %692 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit327 ], [ true, %354 ], [ true, %.thread678 ], [ true, %468 ], [ true, %465 ], [ true, %_ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.exit287 ], [ true, %458 ], [ true, %_ZN5clang6format12_GLOBAL__N_126canBeObjCSelectorComponentERKNS0_11FormatTokenE.exit ], [ true, %493 ], [ true, %500 ], [ true, %461 ], [ true, %switch.hole_check ], [ true, %683 ], [ true, %785 ], [ true, %762 ], [ true, %898 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_S4_EEEbT_T0_DpT1_.exit372.thread ], [ true, %951 ], [ true, %971 ], [ true, %1003 ], [ true, %1221 ], [ true, %428 ], [ true, %.loopexit ], [ true, %452 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit284 ], [ true, %441 ], [ true, %434 ], [ true, %.preheader571 ], [ false, %.thread685 ], [ true, %.lr.ph594 ], [ true, %switch.hole_check735 ], [ true, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit.thread531 ], [ true, %765 ], [ true, %511 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit ], [ true, %.lr.ph594 ], [ true, %431 ], [ true, %847 ]
   ret i1 %.0
 }
 
@@ -25628,7 +25628,7 @@ switch.hole_check:                                ; preds = %2
   br i1 %switch.lobit, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEbT_T0_DpT1_.exit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit
 
 _ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEbT_T0_DpT1_.exit: ; preds = %8, %switch.hole_check, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i ], [ %54, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i ], [ false, %switch.hole_check ], [ true, %8 ]
+  %.0 = phi i1 [ %54, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ false, %switch.hole_check ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i ], [ true, %8 ]
   ret i1 %.0
 }
 
@@ -25796,8 +25796,8 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i5: ; preds = %_ZN
   br i1 %35, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i4
 
 _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i4: ; preds = %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i5, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread
-  %36 = phi ptr [ %33, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i5 ], [ %33, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %33, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %33, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %33, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %33, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %33, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %33, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %31, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread ]
-  %37 = phi i16 [ %34, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i5 ], [ %34, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %34, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %34, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %34, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %34, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %34, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %34, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %32, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread ]
+  %36 = phi ptr [ %33, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i5 ], [ %31, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread ], [ %33, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %33, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %33, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %33, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %33, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %33, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %33, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ]
+  %37 = phi i16 [ %34, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i5 ], [ %32, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread ], [ %34, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %34, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %34, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %34, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %34, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %34, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ], [ %34, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ]
   %.not.i3.i = icmp eq ptr %12, null
   br i1 %.not.i3.i, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit, label %38
 
@@ -25879,7 +25879,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %67, %60, 
   %.not2 = icmp eq ptr %69, null
   br i1 %.not2, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread7, label %.lr.ph.split, !llvm.loop !580
 
-_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread7: ; preds = %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit.us, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit, %1
+_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit.thread7: ; preds = %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit.us, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_EEbT_T0_.exit, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_EEEbT_T0_DpT1_.exit, %1
   ret void
 }
 
@@ -26042,8 +26042,8 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorC2ERS2_NS_
   br label %85
 
 85:                                               ; preds = %69, %.thread, %81, %78, %76
-  %86 = phi ptr [ %71, %78 ], [ %71, %76 ], [ %71, %81 ], [ %71, %.thread ], [ %70, %69 ]
-  %.0125 = phi i1 [ false, %78 ], [ false, %76 ], [ %84, %81 ], [ false, %.thread ], [ false, %69 ]
+  %86 = phi ptr [ %70, %69 ], [ %71, %.thread ], [ %71, %81 ], [ %71, %78 ], [ %71, %76 ]
+  %.0125 = phi i1 [ false, %69 ], [ false, %.thread ], [ %84, %81 ], [ false, %78 ], [ false, %76 ]
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 67
   %88 = load i8, ptr %87, align 1, !tbaa !244
   switch i8 %88, label %113 [
@@ -26181,7 +26181,7 @@ tailrecurse.i.i.i.i:                              ; preds = %_ZNK5clang6format11
   %.not.i8.i.i.i = icmp eq ptr %143, null
   br i1 %.not.i8.i.i.i, label %tailrecurse.i.i.i288.preheader, label %tailrecurse.i.i.i.i
 
-tailrecurse.i.i.i288.preheader:                   ; preds = %tailrecurse.i.i.i.i, %141, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %132, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i
+tailrecurse.i.i.i288.preheader:                   ; preds = %tailrecurse.i.i.i.i, %141, %132, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133
   br label %tailrecurse.i.i.i288
 
 tailrecurse.i.i.i288:                             ; preds = %tailrecurse.i.i.i288.preheader, %149
@@ -26271,7 +26271,7 @@ tailrecurse.i.i.i.i.i:                            ; preds = %_ZNK5clang6format11
   store i8 0, ptr %171, align 8, !tbaa !233
   br label %357
 
-_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEPNS_14IdentifierInfoES4_EEEbDpT_.exit.thread372: ; preds = %149, %tailrecurse.i.i.i.i.i, %166, %158, %158, %158, %158, %158, %158, %158, %158, %158, %158, %158, %158, %158, %158, %157, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i, %split.i.i.i
+_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEPNS_14IdentifierInfoES4_EEEbDpT_.exit.thread372: ; preds = %149, %tailrecurse.i.i.i.i.i, %166, %157, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i, %split.i.i.i, %158, %158, %158, %158, %158, %158, %158, %158, %158, %158, %158, %158, %158, %158
   %172 = load ptr, ptr %58, align 8, !tbaa !251
   %.not181 = icmp eq ptr %172, null
   br i1 %.not181, label %_ZN5clang6format12_GLOBAL__N_121isLambdaParameterListEPKNS0_11FormatTokenE.exit.thread.thread, label %175
@@ -26470,7 +26470,7 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread: ; preds = 
   br i1 %.not183, label %_ZN5clang6format12_GLOBAL__N_121isLambdaParameterListEPKNS0_11FormatTokenE.exit.thread, label %.thread377.thread648.thread701
 
 .thread377.thread648.thread701:                   ; preds = %226, %_ZNK5clang6format11FormatToken4isIfEb.exit.thread375, %.thread377.thread648
-  %.pr.pre644656 = phi ptr [ %.pr.pre.pre, %.thread377.thread648 ], [ %176, %_ZNK5clang6format11FormatToken4isIfEb.exit.thread375 ], [ %.pr.pre.pre, %226 ]
+  %.pr.pre644656 = phi ptr [ %176, %_ZNK5clang6format11FormatToken4isIfEb.exit.thread375 ], [ %.pr.pre.pre, %.thread377.thread648 ], [ %.pr.pre.pre, %226 ]
   %234 = getelementptr inbounds nuw i8, ptr %.pr.pre644656, i64 16
   %235 = load i16, ptr %234, align 8, !tbaa !61
   %236 = icmp eq i16 %235, 52
@@ -26834,7 +26834,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit: ; 
   %418 = call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24tryToParseTableGenTokVarEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
   br i1 %418, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thread, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thread388
 
-_ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thread: ; preds = %400, %.lr.ph.i.i, %394, %403, %405, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit
+_ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thread: ; preds = %400, %.lr.ph.i.i, %394, %405, %403, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit
   %419 = call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser26parseTableGenDAGArgAndListEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(1524) %0, ptr noundef nonnull %8)
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thread388
 
@@ -27581,9 +27581,9 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit356: ; preds = %755
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit358
 
 _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit358: ; preds = %.lr.ph499, %.lr.ph499, %.lr.ph499, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350, %.preheader462, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350.thread, %755, %755, %755, %755, %755, %755, %755, %755, %755, %755, %755, %755, %755, %755, %751, %768, %761, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit356
-  %770 = phi ptr [ %721, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit356 ], [ %721, %761 ], [ %721, %768 ], [ %721, %751 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350.thread ], [ %721, %.preheader462 ], [ %721, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350 ], [ %735, %.lr.ph499 ], [ %735, %.lr.ph499 ], [ %735, %.lr.ph499 ], [ %750, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit ]
-  %.2133690694 = phi i1 [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit356 ], [ true, %761 ], [ true, %768 ], [ true, %751 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350.thread ], [ false, %.preheader462 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350 ], [ false, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit ], [ false, %.lr.ph499 ], [ false, %.lr.ph499 ], [ false, %.lr.ph499 ]
-  %.3130 = phi ptr [ %.0127509, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit356 ], [ %721, %761 ], [ %721, %768 ], [ %.0127509, %751 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350.thread ], [ null, %.preheader462 ], [ null, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350 ], [ null, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit ], [ null, %.lr.ph499 ], [ null, %.lr.ph499 ], [ null, %.lr.ph499 ]
+  %770 = phi ptr [ %721, %768 ], [ %721, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit356 ], [ %721, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350 ], [ %721, %761 ], [ %721, %751 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %755 ], [ %721, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350.thread ], [ %721, %.preheader462 ], [ %735, %.lr.ph499 ], [ %735, %.lr.ph499 ], [ %750, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit ], [ %735, %.lr.ph499 ]
+  %.2133690694 = phi i1 [ true, %768 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit356 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350 ], [ true, %761 ], [ true, %751 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ true, %755 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350.thread ], [ false, %.preheader462 ], [ false, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit ], [ false, %.lr.ph499 ], [ false, %.lr.ph499 ], [ false, %.lr.ph499 ]
+  %.3130 = phi ptr [ %721, %768 ], [ %.0127509, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit356 ], [ null, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350 ], [ %721, %761 ], [ %.0127509, %751 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %755 ], [ %.0127509, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit350.thread ], [ null, %.preheader462 ], [ null, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit ], [ null, %.lr.ph499 ], [ null, %.lr.ph499 ], [ null, %.lr.ph499 ]
   %771 = getelementptr inbounds nuw i8, ptr %770, i64 16
   %772 = load i16, ptr %771, align 8, !tbaa !61
   %773 = icmp eq i16 %772, 66
@@ -27696,7 +27696,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thread388, !llvm.loop !588
 
 _ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thread388: ; preds = %816, %select.unfold, %814, %662, %662, %._ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thread388.loopexit_crit_edge512, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit338, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24tryToParseTableGenTokVarEv.exit, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thread, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit, %64
-  %.1 = phi i1 [ %68, %64 ], [ %419, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thread ], [ false, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit ], [ false, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24tryToParseTableGenTokVarEv.exit ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit338 ], [ false, %._ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thread388.loopexit_crit_edge512 ], [ false, %662 ], [ false, %662 ], [ false, %814 ], [ false, %select.unfold ], [ false, %816 ]
+  %.1 = phi i1 [ %68, %64 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit338 ], [ false, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24tryToParseTableGenTokVarEv.exit ], [ false, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit ], [ %419, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thread ], [ false, %._ZN5clang6format12_GLOBAL__N_116AnnotatingParser19parseTableGenDAGArgEb.exit.thread388.loopexit_crit_edge512 ], [ false, %662 ], [ false, %662 ], [ false, %814 ], [ false, %select.unfold ], [ false, %816 ]
   %823 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %824 = load ptr, ptr %823, align 8, !tbaa !255
   %825 = getelementptr inbounds nuw i8, ptr %824, i64 9
@@ -28312,7 +28312,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116Annot
   br i1 %.not.old, label %.loopexit, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %.backedge, %11
-  %.be = phi ptr [ %.old, %.backedge ], [ %13, %11 ]
+  %.be = phi ptr [ %13, %11 ], [ %.old, %.backedge ]
   br label %.lr.ph, !llvm.loop !589
 
 .loopexit:                                        ; preds = %11, %.backedge, %.lr.ph, %1
@@ -28438,7 +28438,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %29, %_ZN5
   br i1 %.not.i.i10, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24tryToParseTableGenTokVarEv.exit11, label %.lr.ph.i.i9, !llvm.loop !585
 
 _ZN5clang6format12_GLOBAL__N_116AnnotatingParser24tryToParseTableGenTokVarEv.exit11: ; preds = %20, %.lr.ph.i.i, %40, %.lr.ph.i, %53, %.lr.ph.i.i9, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit, %14, %47, %42, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24tryToParseTableGenTokVarEv.exit, %23, %25
-  %.0 = phi i1 [ true, %25 ], [ true, %23 ], [ false, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24tryToParseTableGenTokVarEv.exit ], [ false, %42 ], [ true, %47 ], [ true, %14 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ true, %.lr.ph.i.i9 ], [ true, %53 ], [ false, %.lr.ph.i ], [ false, %40 ], [ true, %.lr.ph.i.i ], [ true, %20 ]
+  %.0 = phi i1 [ true, %23 ], [ false, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24tryToParseTableGenTokVarEv.exit ], [ true, %14 ], [ true, %25 ], [ true, %53 ], [ false, %40 ], [ false, %42 ], [ true, %47 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ true, %.lr.ph.i.i9 ], [ false, %.lr.ph.i ], [ true, %.lr.ph.i.i ], [ true, %20 ]
   ret i1 %.0
 }
 
@@ -28459,7 +28459,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116Annot
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split.preheader, label %13
 
-_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split.preheader: ; preds = %27, %30, %19, %22, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser32isTableGenDAGArgBreakingOperatorERKNS0_11FormatTokenE.exit, %8
+_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split.preheader: ; preds = %27, %30, %22, %19, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser32isTableGenDAGArgBreakingOperatorERKNS0_11FormatTokenE.exit, %8
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split
 
 13:                                               ; preds = %8
@@ -28651,7 +28651,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %_ZN5clang
   store i8 -124, ptr %73, align 1, !tbaa !244
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split.us.preheader
 
-_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split.us.preheader: ; preds = %89, %77, %87, %104, %105, %106, %107
+_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split.us.preheader: ; preds = %107, %87, %105, %89, %77, %104, %106
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split.us
 
 _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split.us: ; preds = %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split.us.preheader, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit.thread.us
@@ -28818,7 +28818,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit.th
   br i1 %182, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit33, !llvm.loop !596
 
 _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit33: ; preds = %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit.thread.us, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split.us, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit.thread, %180, %.lr.ph.i31, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit29, %2
-  %.013 = phi i1 [ false, %2 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit29 ], [ true, %.lr.ph.i31 ], [ true, %180 ], [ false, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit.thread ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split.us ], [ false, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit.thread.us ]
+  %.013 = phi i1 [ false, %2 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit29 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split ], [ true, %180 ], [ true, %.lr.ph.i31 ], [ false, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit.thread ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit19.split.us ], [ false, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit.thread.us ]
   ret i1 %.013
 }
 
@@ -28879,7 +28879,7 @@ _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit42:
   br i1 %or.cond.i.i, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46, label %28
 
 28:                                               ; preds = %23
-  switch i16 %21, label %81 [
+  switch i16 %21, label %80 [
     i16 147, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46
     i16 133, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46
     i16 92, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46
@@ -28985,53 +28985,49 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit34: ; preds = %61, %69
   %77 = load i32, ptr %73, align 8
   %78 = icmp eq i32 %77, 1
   %or.cond.i31 = select i1 %76, i1 %78, i1 false
-  br i1 %or.cond.i31, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit32, label %79
+  br i1 %or.cond.i31, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit, label %79
 
 79:                                               ; preds = %72
   store i8 -126, ptr %25, align 1, !tbaa !244
-  br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit32
+  br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit
 
-_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit32: ; preds = %72, %79
-  %80 = tail call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser26parseTableGenDAGArgAndListEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(1524) %0, ptr noundef nonnull %.lcssa56)
-  br i1 %80, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
-
-81:                                               ; preds = %28
-  switch i8 %26, label %113 [
-    i8 121, label %82
-    i8 122, label %107
+80:                                               ; preds = %28
+  switch i8 %26, label %112 [
+    i8 121, label %81
+    i8 122, label %106
   ]
 
-82:                                               ; preds = %81
+81:                                               ; preds = %80
   %.not21.i = icmp eq ptr %20, null
-  br i1 %.not21.i, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread, label %83
+  br i1 %.not21.i, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread, label %82
 
-83:                                               ; preds = %82
-  %84 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %85 = load i16, ptr %84, align 8, !tbaa !61
-  %86 = icmp eq i16 %85, 47
-  br i1 %86, label %87, label %.thread
+82:                                               ; preds = %81
+  %83 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %84 = load i16, ptr %83, align 8, !tbaa !61
+  %85 = icmp eq i16 %84, 47
+  br i1 %85, label %86, label %.thread
 
-87:                                               ; preds = %83
-  %88 = getelementptr inbounds nuw i8, ptr %20, i64 256
-  %89 = getelementptr inbounds nuw i8, ptr %20, i64 296
-  %90 = load i8, ptr %89, align 8, !tbaa !252, !range !203, !noundef !204
-  %91 = trunc nuw i8 %90 to i1
-  %92 = load i32, ptr %88, align 8
-  %93 = icmp eq i32 %92, 1
-  %or.cond.i29 = select i1 %91, i1 %93, i1 false
-  br i1 %or.cond.i29, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30, label %94
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %20, i64 256
+  %88 = getelementptr inbounds nuw i8, ptr %20, i64 296
+  %89 = load i8, ptr %88, align 8, !tbaa !252, !range !203, !noundef !204
+  %90 = trunc nuw i8 %89 to i1
+  %91 = load i32, ptr %87, align 8
+  %92 = icmp eq i32 %91, 1
+  %or.cond.i29 = select i1 %90, i1 %92, i1 false
+  br i1 %or.cond.i29, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30, label %93
 
-94:                                               ; preds = %87
-  %95 = getelementptr inbounds nuw i8, ptr %20, i64 67
-  store i8 -116, ptr %95, align 1, !tbaa !244
+93:                                               ; preds = %86
+  %94 = getelementptr inbounds nuw i8, ptr %20, i64 67
+  store i8 -116, ptr %94, align 1, !tbaa !244
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30
 
-_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30: ; preds = %87, %94
+_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30: ; preds = %86, %93
   tail call fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
-  %96 = tail call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser10parseAngleEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
+  %95 = tail call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser10parseAngleEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
   %.pr.pre = load ptr, ptr %3, align 8
   %.not22.i = icmp ne ptr %.pr.pre, null
-  %or.cond.not = select i1 %96, i1 %.not22.i, i1 false
+  %or.cond.not = select i1 %95, i1 %.not22.i, i1 false
   br i1 %or.cond.not, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30..thread_crit_edge, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
 
 _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30..thread_crit_edge: ; preds = %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30
@@ -29039,79 +29035,83 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30..thread_crit_edge: 
   %.pre84 = load i16, ptr %.phi.trans.insert, align 8, !tbaa !61
   br label %.thread
 
-.thread:                                          ; preds = %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30..thread_crit_edge, %83
-  %97 = phi i16 [ %85, %83 ], [ %.pre84, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30..thread_crit_edge ]
-  %.not54 = icmp eq i16 %97, 22
-  br i1 %.not54, label %98, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
+.thread:                                          ; preds = %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30..thread_crit_edge, %82
+  %96 = phi i16 [ %.pre84, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30..thread_crit_edge ], [ %84, %82 ]
+  %.not54 = icmp eq i16 %96, 22
+  br i1 %.not54, label %97, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
 
-98:                                               ; preds = %.thread
+97:                                               ; preds = %.thread
   tail call fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser4nextEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
   %.val24.i = load ptr, ptr %0, align 8, !tbaa !3
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val25.i = load i32, ptr %99, align 8, !tbaa !20
-  %100 = zext i32 %.val25.i to i64
-  %101 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val24.i, i64 %100
-  %102 = getelementptr inbounds i8, ptr %101, i64 -9
-  store i8 1, ptr %102, align 1, !tbaa !584
-  %103 = tail call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser11parseParensEb(ptr noundef nonnull align 8 dereferenceable(1524) %0, i1 noundef zeroext false)
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val25.i = load i32, ptr %98, align 8, !tbaa !20
+  %99 = zext i32 %.val25.i to i64
+  %100 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val24.i, i64 %99
+  %101 = getelementptr inbounds i8, ptr %100, i64 -9
+  store i8 1, ptr %101, align 1, !tbaa !584
+  %102 = tail call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser11parseParensEb(ptr noundef nonnull align 8 dereferenceable(1524) %0, i1 noundef zeroext false)
   %.val.i = load ptr, ptr %0, align 8, !tbaa !3
-  %.val23.i = load i32, ptr %99, align 8, !tbaa !20
-  %104 = zext i32 %.val23.i to i64
-  %105 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i, i64 %104
-  %106 = getelementptr inbounds i8, ptr %105, i64 -9
-  store i8 0, ptr %106, align 1, !tbaa !584
-  br i1 %103, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
+  %.val23.i = load i32, ptr %98, align 8, !tbaa !20
+  %103 = zext i32 %.val23.i to i64
+  %104 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::AnnotatingParser::Context", ptr %.val.i, i64 %103
+  %105 = getelementptr inbounds i8, ptr %104, i64 -9
+  store i8 0, ptr %105, align 1, !tbaa !584
+  br i1 %102, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
 
-107:                                              ; preds = %81
+106:                                              ; preds = %80
   %.not20.i = icmp eq ptr %20, null
-  br i1 %.not20.i, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread, label %108
+  br i1 %.not20.i, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread, label %107
 
-108:                                              ; preds = %107
-  %109 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %110 = load i16, ptr %109, align 8, !tbaa !61
-  %.not53 = icmp eq i16 %110, 22
-  br i1 %.not53, label %111, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
+107:                                              ; preds = %106
+  %108 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %109 = load i16, ptr %108, align 8, !tbaa !61
+  %.not53 = icmp eq i16 %109, 22
+  br i1 %.not53, label %110, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
 
-111:                                              ; preds = %108
+110:                                              ; preds = %107
   tail call fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser4nextEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
-  %112 = tail call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser11parseParensEb(ptr noundef nonnull align 8 dereferenceable(1524) %0, i1 noundef zeroext false)
-  br i1 %112, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
+  %111 = tail call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser11parseParensEb(ptr noundef nonnull align 8 dereferenceable(1524) %0, i1 noundef zeroext false)
+  br i1 %111, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
 
-113:                                              ; preds = %81
-  %114 = icmp eq i16 %21, 5
-  br i1 %114, label %115, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
+112:                                              ; preds = %80
+  %113 = icmp eq i16 %21, 5
+  br i1 %113, label %114, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
 
-115:                                              ; preds = %113
+114:                                              ; preds = %112
   %.not19.i = icmp eq ptr %20, null
-  br i1 %.not19.i, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread, label %116
+  br i1 %.not19.i, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread, label %115
 
-116:                                              ; preds = %115
-  %117 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %118 = load i16, ptr %117, align 8, !tbaa !61
-  %119 = icmp eq i16 %118, 47
-  br i1 %119, label %120, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46
+115:                                              ; preds = %114
+  %116 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %117 = load i16, ptr %116, align 8, !tbaa !61
+  %118 = icmp eq i16 %117, 47
+  br i1 %118, label %119, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46
 
-120:                                              ; preds = %116
-  %121 = getelementptr inbounds nuw i8, ptr %20, i64 256
-  %122 = getelementptr inbounds nuw i8, ptr %20, i64 296
-  %123 = load i8, ptr %122, align 8, !tbaa !252, !range !203, !noundef !204
-  %124 = trunc nuw i8 %123 to i1
-  %125 = load i32, ptr %121, align 8
-  %126 = icmp eq i32 %125, 1
-  %or.cond.i27 = select i1 %124, i1 %126, i1 false
-  br i1 %or.cond.i27, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit, label %127
+119:                                              ; preds = %115
+  %120 = getelementptr inbounds nuw i8, ptr %20, i64 256
+  %121 = getelementptr inbounds nuw i8, ptr %20, i64 296
+  %122 = load i8, ptr %121, align 8, !tbaa !252, !range !203, !noundef !204
+  %123 = trunc nuw i8 %122 to i1
+  %124 = load i32, ptr %120, align 8
+  %125 = icmp eq i32 %124, 1
+  %or.cond.i27 = select i1 %123, i1 %125, i1 false
+  br i1 %or.cond.i27, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit28, label %126
 
-127:                                              ; preds = %120
-  %128 = getelementptr inbounds nuw i8, ptr %20, i64 67
-  store i8 -116, ptr %128, align 1, !tbaa !244
-  br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit
+126:                                              ; preds = %119
+  %127 = getelementptr inbounds nuw i8, ptr %20, i64 67
+  store i8 -116, ptr %127, align 1, !tbaa !244
+  br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit28
 
-_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit: ; preds = %127, %120
+_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit28: ; preds = %119, %126
   tail call fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
-  %129 = tail call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser10parseAngleEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
+  %128 = tail call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser10parseAngleEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
+  br i1 %128, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
+
+_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit: ; preds = %79, %72
+  %129 = tail call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser26parseTableGenDAGArgAndListEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(1524) %0, ptr noundef nonnull %.lcssa56)
   br i1 %129, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
 
-_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46: ; preds = %28, %28, %28, %28, %23, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit42, %116, %58, %111, %98, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit32, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit34, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE9push_backES3_.exit, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit
+_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46: ; preds = %28, %28, %28, %28, %23, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit42, %115, %58, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE9push_backES3_.exit, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit34, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit28, %97, %110, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit
   %.pr51 = load ptr, ptr %3, align 8, !tbaa !208
   %.not13 = icmp eq ptr %.pr51, null
   br i1 %.not13, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread, label %130
@@ -29307,8 +29307,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE9push_backES3_.e
   %207 = tail call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser10parseBraceEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread
 
-_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread: ; preds = %165, %._crit_edge59, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit25, %115, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE9push_backES3_.exit83, %185, %82, %113, %107, %108, %.thread, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit36, %111, %98, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit32, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit34, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE9push_backES3_.exit, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit17, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit, %2, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit
-  %.0 = phi i1 [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit17 ], [ false, %2 ], [ false, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit ], [ true, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE9push_backES3_.exit ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit34 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit32 ], [ false, %98 ], [ false, %111 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit36 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30 ], [ false, %.thread ], [ false, %108 ], [ false, %107 ], [ false, %113 ], [ false, %82 ], [ %207, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE9push_backES3_.exit83 ], [ %186, %185 ], [ true, %115 ], [ true, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit25 ], [ true, %._crit_edge59 ], [ true, %165 ]
+_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread: ; preds = %165, %._crit_edge59, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit25, %114, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE9push_backES3_.exit83, %185, %81, %107, %.thread, %106, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit36, %112, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE9push_backES3_.exit, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit34, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit28, %97, %110, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit17, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit, %2, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit
+  %.0 = phi i1 [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ true, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit.thread46 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE9push_backES3_.exit ], [ %186, %185 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit17 ], [ false, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser24parseTableGenSimpleValueEv.exit ], [ false, %2 ], [ true, %165 ], [ true, %._crit_edge59 ], [ false, %110 ], [ false, %97 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit28 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit34 ], [ true, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit25 ], [ false, %112 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit36 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit30 ], [ true, %114 ], [ false, %106 ], [ false, %.thread ], [ false, %107 ], [ false, %81 ], [ %207, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format9ScopeTypeELb1EE9push_backES3_.exit83 ]
   ret i1 %.0
 }
 
@@ -29455,7 +29455,7 @@ _ZNSt12__shared_ptrIN5clang6format9TokenRoleELN9__gnu_cxx12_Lock_policyE2EE5rese
   br i1 %74, label %.thread2, label %76
 
 .thread2:                                         ; preds = %67, %.thread1
-  %75 = phi ptr [ %72, %.thread1 ], [ %68, %67 ]
+  %75 = phi ptr [ %68, %67 ], [ %72, %.thread1 ]
   store i32 1, ptr %75, align 8, !tbaa !428
   br label %76
 
@@ -29505,7 +29505,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116Annot
   br i1 %.not.i, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit, label %.lr.ph.i, !llvm.loop !585
 
 _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20skipToNextNonCommentEv.exit: ; preds = %19, %.lr.ph.i, %13, %4, %8, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %8 ], [ false, %4 ], [ true, %13 ], [ true, %.lr.ph.i ], [ true, %19 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %1 ], [ false, %8 ], [ true, %13 ], [ true, %.lr.ph.i ], [ true, %19 ]
   ret i1 %.0
 }
 
@@ -29723,7 +29723,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit.thread
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit.thread: ; preds = %44, %36, %28, %20, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit21, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit19, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit17, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit, %80, %69, %58, %._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit27.thread52, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit27, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit25, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit23
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.037.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit23 ], [ %.sroa.037.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit25 ], [ %.sroa.037.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit27 ], [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit27.thread52 ], [ %1, %._crit_edge ], [ %.sroa.037.0.lcssa, %58 ], [ %.sroa.037.1, %69 ], [ %.sroa.037.2, %80 ], [ %40, %44 ], [ %32, %36 ], [ %24, %28 ], [ %.sroa.037.054, %20 ], [ %40, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit21 ], [ %32, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit19 ], [ %24, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit17 ], [ %.sroa.037.054, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit ]
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.037.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit25 ], [ %1, %._crit_edge ], [ %.sroa.037.1, %69 ], [ %.sroa.037.0.lcssa, %58 ], [ %.sroa.037.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit27 ], [ %.sroa.037.2, %80 ], [ %.sroa.037.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit23 ], [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit27.thread52 ], [ %40, %44 ], [ %32, %36 ], [ %24, %28 ], [ %.sroa.037.054, %20 ], [ %40, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit21 ], [ %32, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit19 ], [ %24, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit17 ], [ %.sroa.037.054, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbT_.exit ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 
@@ -29933,7 +29933,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_PNS_14Identif
   %93 = tail call noundef zeroext i1 @_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_(ptr noundef nonnull align 8 dereferenceable(305) %91, i16 noundef zeroext 5, i16 noundef zeroext 22)
   br i1 %93, label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser26isCSharpAttributeSpecifierERKNS0_11FormatTokenE.exit, label %.loopexit
 
-.loopexit:                                        ; preds = %76, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_PNS_14IdentifierInfoEEEEbT_T0_DpT1_.exit.thread4.i, %92, %64, %41, %58, %.thread.i, %68, %61
+.loopexit:                                        ; preds = %76, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_PNS_14IdentifierInfoEEEEbT_T0_DpT1_.exit.thread4.i, %92, %41, %58, %64, %.thread.i, %61, %68
   %.val180 = load ptr, ptr %0, align 8, !tbaa !3
   %.val181 = load i32, ptr %8, align 8, !tbaa !20
   %94 = zext i32 %.val181 to i64
@@ -30080,7 +30080,7 @@ switch.early.test:                                ; preds = %134
   br label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_EEEbT_T0_DpT1_.exit.thread
 
 _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_EEEbT_T0_DpT1_.exit.thread: ; preds = %140, %140, %140, %140, %140, %145, %145, %switch.early.test, %switch.early.test, %134, %143, %148, %131, %125, %124, %_ZNK5clang6format11FormatToken22isCppStructuredBindingEb.exit
-  %152 = phi i1 [ %spec.select.i.not, %switch.early.test ], [ false, %131 ], [ false, %125 ], [ false, %124 ], [ false, %_ZNK5clang6format11FormatToken22isCppStructuredBindingEb.exit ], [ true, %145 ], [ true, %143 ], [ %151, %148 ], [ true, %140 ], [ %spec.select.i.not, %134 ], [ %spec.select.i.not, %switch.early.test ], [ true, %145 ], [ true, %140 ], [ true, %140 ], [ true, %140 ], [ true, %140 ]
+  %152 = phi i1 [ %spec.select.i.not, %switch.early.test ], [ false, %131 ], [ false, %125 ], [ false, %_ZNK5clang6format11FormatToken22isCppStructuredBindingEb.exit ], [ false, %124 ], [ true, %145 ], [ true, %143 ], [ true, %140 ], [ %151, %148 ], [ true, %140 ], [ true, %140 ], [ %spec.select.i.not, %134 ], [ %spec.select.i.not, %switch.early.test ], [ true, %140 ], [ true, %140 ], [ true, %145 ]
   %153 = zext i1 %152 to i8
   br i1 %.07.i, label %154, label %163
 
@@ -30401,7 +30401,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindES5_S
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit
 
 _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %312, %305, %304, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindES5_S5_S5_S5_S5_S5_S5_EEEbT_T0_DpT1_.exit.thread, %287, %282, %267, %260, %250, %243, %241, %234, %221, %214, %184, %177, %175, %168, %161, %154, %163, %280, %278, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit225, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit212, %194, %196
-  %.0122 = phi i32 [ 1, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit212 ], [ 1, %196 ], [ 1, %194 ], [ 1, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit225 ], [ 1, %278 ], [ 1, %280 ], [ 1, %163 ], [ 1, %154 ], [ 1, %161 ], [ 1, %168 ], [ 1, %175 ], [ 1, %177 ], [ 1, %184 ], [ 1, %214 ], [ 1, %221 ], [ 1, %234 ], [ 1, %241 ], [ 1, %243 ], [ 1, %250 ], [ 1, %260 ], [ 1, %267 ], [ 10, %282 ], [ 10, %287 ], [ 1, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindES5_S5_S5_S5_S5_S5_S5_EEEbT_T0_DpT1_.exit.thread ], [ 1, %304 ], [ 10, %305 ], [ 10, %312 ]
+  %.0122 = phi i32 [ 1, %163 ], [ 1, %161 ], [ 1, %175 ], [ 1, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit212 ], [ 1, %196 ], [ 1, %194 ], [ 1, %184 ], [ 1, %221 ], [ 1, %241 ], [ 1, %250 ], [ 1, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit225 ], [ 1, %278 ], [ 1, %280 ], [ 1, %267 ], [ 10, %287 ], [ 1, %304 ], [ 1, %154 ], [ 1, %168 ], [ 1, %177 ], [ 1, %214 ], [ 1, %234 ], [ 1, %243 ], [ 1, %260 ], [ 10, %282 ], [ 1, %_ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindES5_S5_S5_S5_S5_S5_S5_EEEbT_T0_DpT1_.exit.thread ], [ 10, %305 ], [ 10, %312 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.val7.i = load ptr, ptr %0, align 8, !tbaa !3
   %.val8.i = load i32, ptr %8, align 8, !tbaa !20
@@ -30910,7 +30910,7 @@ tailrecurse.i.i.i.i:                              ; preds = %split.i.i.i, %541
   store i8 3, ptr %552, align 1, !tbaa !244
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit264
 
-_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit.thread279: ; preds = %530, %537, %tailrecurse.i.i.i.i, %541, %split.i.i.i, %split.i.i, %524
+_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit.thread279: ; preds = %530, %537, %tailrecurse.i.i.i.i, %541, %split.i.i, %split.i.i.i, %524
   %553 = load ptr, ptr %51, align 8, !tbaa !255
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 431
   %555 = load i8, ptr %554, align 1, !tbaa !220
@@ -30970,8 +30970,8 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit267: ; preds = %564, %
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit264
 
 _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit264: ; preds = %368, %562, %581, %576, %551, %544, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit267, %573, %557, %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit.thread279
-  %.1124 = phi i8 [ 1, %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit.thread279 ], [ 1, %557 ], [ 1, %562 ], [ 1, %573 ], [ 1, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit267 ], [ 1, %544 ], [ 1, %551 ], [ 1, %576 ], [ 1, %581 ], [ %.0123312, %368 ]
-  %.2120 = phi i1 [ %.0118313, %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit.thread279 ], [ %.0118313, %557 ], [ %.0118313, %562 ], [ true, %573 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit267 ], [ %.0118313, %544 ], [ %.0118313, %551 ], [ true, %576 ], [ true, %581 ], [ %.0118313, %368 ]
+  %.1124 = phi i8 [ %.0123312, %368 ], [ 1, %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit.thread279 ], [ 1, %557 ], [ 1, %562 ], [ 1, %551 ], [ 1, %573 ], [ 1, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit267 ], [ 1, %544 ], [ 1, %576 ], [ 1, %581 ]
+  %.2120 = phi i1 [ %.0118313, %368 ], [ %.0118313, %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit.thread279 ], [ %.0118313, %557 ], [ %.0118313, %562 ], [ %.0118313, %551 ], [ true, %573 ], [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit267 ], [ %.0118313, %544 ], [ true, %576 ], [ true, %581 ]
   %582 = icmp eq i16 %371, 66
   br i1 %582, label %583, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit271.thread
 
@@ -32094,7 +32094,7 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit: ; preds = %199, %202
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.i.i.i, %205, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit.thread, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit
-  %.257 = phi i8 [ 0, %205 ], [ %.055150, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit ], [ %.055150, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit.thread ], [ %.055150, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit ], [ %.055150, %tailrecurse.i.i.i ]
+  %.257 = phi i8 [ %.055150, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit ], [ 0, %205 ], [ %.055150, %_ZNK5clang6format11FormatToken13getPrecedenceEv.exit ], [ %.055150, %_ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit.thread ], [ %.055150, %tailrecurse.i.i.i ]
   %206 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %207 = load i16, ptr %206, align 8, !tbaa !61
   %208 = add i16 %207, -61
@@ -32112,7 +32112,7 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit: ; preds = %199, %202
   br label %215
 
 215:                                              ; preds = %.loopexit, %210
-  %.254 = phi i8 [ %.052152, %.loopexit ], [ %spec.select, %210 ]
+  %.254 = phi i8 [ %spec.select, %210 ], [ %.052152, %.loopexit ]
   %216 = load ptr, ptr %3, align 8, !tbaa !208
   call fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20updateParameterCountEPNS0_11FormatTokenES4_(ptr %.val88.pre, ptr noundef nonnull %7, ptr noundef %216)
   %217 = load ptr, ptr %90, align 8, !tbaa !255
@@ -32179,7 +32179,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit: ; preds = %223
 
 243:                                              ; preds = %239
   %244 = call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser18parseTableGenValueEb(ptr noundef nonnull align 8 dereferenceable(1524) %0, i1 noundef zeroext false)
-  br i1 %244, label %select.unfold, label %..thread132.loopexit_crit_edge153, !llvm.loop !629
+  br i1 %244, label %select.unfold, label %..thread132.loopexit_crit_edge154, !llvm.loop !629
 
 _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit107: ; preds = %222, %229, %230, %237, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit, %215
   %245 = call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser12consumeTokenEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
@@ -32191,18 +32191,18 @@ select.unfold.sink.split:                         ; preds = %239, %239, %177, %1
   call fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser4nextEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
   br label %select.unfold
 
-select.unfold:                                    ; preds = %select.unfold.sink.split, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit107, %243
+select.unfold:                                    ; preds = %select.unfold.sink.split, %243, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit107
   %.156 = phi i8 [ %.257, %243 ], [ %.257, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit107 ], [ %.156.ph, %select.unfold.sink.split ]
   %.153 = phi i8 [ %.254, %243 ], [ %.254, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit107 ], [ %.153.ph, %select.unfold.sink.split ]
   %246 = load ptr, ptr %3, align 8, !tbaa !208
   %.not73.not = icmp eq ptr %246, null
   br i1 %.not73.not, label %.thread132, label %105
 
-..thread132.loopexit_crit_edge153:                ; preds = %243
+..thread132.loopexit_crit_edge154:                ; preds = %243
   br label %.thread132, !llvm.loop !629
 
-.thread132:                                       ; preds = %select.unfold, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit107, %176, %176, %176, %100, %..thread132.loopexit_crit_edge153, %168, %.critedge.thread, %171, %128, %135, %139
-  %spec.select80 = phi i1 [ false, %139 ], [ false, %135 ], [ false, %128 ], [ true, %171 ], [ false, %.critedge.thread ], [ false, %168 ], [ false, %..thread132.loopexit_crit_edge153 ], [ false, %100 ], [ false, %176 ], [ false, %176 ], [ false, %176 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit107 ], [ false, %select.unfold ]
+.thread132:                                       ; preds = %select.unfold, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit107, %176, %176, %176, %100, %..thread132.loopexit_crit_edge154, %168, %.critedge.thread, %128, %135, %139, %171
+  %spec.select80 = phi i1 [ false, %128 ], [ false, %135 ], [ false, %168 ], [ false, %.critedge.thread ], [ true, %171 ], [ false, %139 ], [ false, %100 ], [ false, %..thread132.loopexit_crit_edge154 ], [ false, %176 ], [ false, %176 ], [ false, %176 ], [ false, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit107 ], [ false, %select.unfold ]
   %247 = load ptr, ptr %90, align 8, !tbaa !255
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 9
   %249 = load i8, ptr %248, align 1, !tbaa !341
@@ -32239,7 +32239,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorD2Ev.exit
 
 _ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorD2Ev.exit: ; preds = %.lr.ph.i.i, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %261, %256, %5, %_ZNK4llvm15SmallPtrSetImplIPN5clang6format11FormatTokenEE5countEPKS3_.exit, %41, %34, %37, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %5 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPN5clang6format11FormatTokenEE5countEPKS3_.exit ], [ false, %37 ], [ false, %34 ], [ false, %41 ], [ %spec.select80, %256 ], [ %spec.select80, %261 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %.lr.ph.i.i ]
+  %.0 = phi i1 [ false, %1 ], [ false, %5 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPN5clang6format11FormatTokenEE5countEPKS3_.exit ], [ false, %27 ], [ false, %27 ], [ false, %34 ], [ false, %27 ], [ false, %37 ], [ false, %41 ], [ %spec.select80, %261 ], [ false, %27 ], [ %spec.select80, %256 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %27 ], [ false, %.lr.ph.i.i ]
   ret i1 %.0
 }
 
@@ -32356,7 +32356,7 @@ tailrecurse.i.i.i.i:                              ; preds = %split.i.i.i, %43
   %.not.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i, label %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit.thread79, label %tailrecurse.i.i.i.i
 
-_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit.thread79: ; preds = %32, %39, %tailrecurse.i.i.i.i, %43, %split.i.i.i, %split.i.i25
+_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit.thread79: ; preds = %32, %39, %tailrecurse.i.i.i.i, %43, %split.i.i25, %split.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %47 = load i16, ptr %46, align 8, !tbaa !61
   %.not86 = icmp eq i16 %47, 5
@@ -32492,7 +32492,7 @@ _ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_
   br label %.critedge22
 
 .critedge22:                                      ; preds = %8, %tailrecurse.i.i.i, %12, %tailrecurse.i.i.i.i, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit47.thread81, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit75.thread85, %88, %tailrecurse.i.i.i55, %tailrecurse.i.i.i69, %split.i.i, %22, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit.thread79, %.critedge, %18, %2
-  %.017 = phi i1 [ false, %2 ], [ false, %18 ], [ false, %22 ], [ false, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit.thread79 ], [ %91, %.critedge ], [ false, %split.i.i ], [ false, %tailrecurse.i.i.i69 ], [ false, %tailrecurse.i.i.i55 ], [ false, %88 ], [ true, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit75.thread85 ], [ false, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit47.thread81 ], [ true, %tailrecurse.i.i.i.i ], [ false, %12 ], [ false, %tailrecurse.i.i.i ], [ false, %8 ]
+  %.017 = phi i1 [ false, %2 ], [ false, %18 ], [ %91, %.critedge ], [ false, %22 ], [ true, %tailrecurse.i.i.i.i ], [ false, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit.thread79 ], [ false, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit47.thread81 ], [ false, %split.i.i ], [ false, %tailrecurse.i.i.i69 ], [ false, %tailrecurse.i.i.i55 ], [ false, %tailrecurse.i.i.i ], [ false, %88 ], [ true, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit75.thread85 ], [ false, %12 ], [ false, %8 ]
   ret i1 %.017
 }
 
@@ -32581,7 +32581,7 @@ _ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJEEEbT_.e
   br label %_ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit
 
 _ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit: ; preds = %10, %17, %split.i, %split.i.i, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJEEEbT_.exit.i.i
-  %.0.i = phi i1 [ false, %split.i ], [ false, %split.i.i ], [ %25, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJEEEbT_.exit.i.i ], [ false, %17 ], [ false, %10 ]
+  %.0.i = phi i1 [ %25, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJEEEbT_.exit.i.i ], [ false, %split.i.i ], [ false, %split.i ], [ false, %17 ], [ false, %10 ]
   ret i1 %.0.i
 }
 
@@ -32647,7 +32647,7 @@ _ZNK5clang6format11FormatToken20endsSequenceInternalINS0_9TokenTypeEJEEEbT_.exit
   br label %_ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJS4_NS0_9TokenTypeEEEEbT_DpT0_.exit
 
 _ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJS4_NS0_9TokenTypeEEEEbT_DpT0_.exit: ; preds = %10, %17, %split.i, %split.i.i, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS0_9TokenTypeEJEEEbT_.exit.i.i
-  %.0.i = phi i1 [ false, %split.i ], [ false, %split.i.i ], [ %27, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS0_9TokenTypeEJEEEbT_.exit.i.i ], [ false, %17 ], [ false, %10 ]
+  %.0.i = phi i1 [ %27, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS0_9TokenTypeEJEEEbT_.exit.i.i ], [ false, %split.i.i ], [ false, %split.i ], [ false, %17 ], [ false, %10 ]
   ret i1 %.0.i
 }
 
@@ -32711,7 +32711,7 @@ _ZNK5clang6format11FormatToken22startsSequenceInternalINS_3tok9TokenKindEEEbT_.e
   br label %_ZNK5clang6format11FormatToken22startsSequenceInternalINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit
 
 _ZNK5clang6format11FormatToken22startsSequenceInternalINS_3tok9TokenKindEJS4_S4_EEEbT_DpT0_.exit: ; preds = %10, %17, %split.i, %split.i.i, %_ZNK5clang6format11FormatToken22startsSequenceInternalINS_3tok9TokenKindEEEbT_.exit.i.i
-  %.0.i = phi i1 [ false, %split.i ], [ false, %split.i.i ], [ %25, %_ZNK5clang6format11FormatToken22startsSequenceInternalINS_3tok9TokenKindEEEbT_.exit.i.i ], [ false, %17 ], [ false, %10 ]
+  %.0.i = phi i1 [ %25, %_ZNK5clang6format11FormatToken22startsSequenceInternalINS_3tok9TokenKindEEEbT_.exit.i.i ], [ false, %split.i.i ], [ false, %split.i ], [ false, %17 ], [ false, %10 ]
   ret i1 %.0.i
 }
 
@@ -32845,7 +32845,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i: ; preds = %17
     i8 8, label %.loopexit
   ]
 
-.loopexit:                                        ; preds = %.preheader167, %33, %33, %33, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i, %24, %24, %24, %25, %28, %28, %28, %28, %29, %32, %32, %32, %32, %32
+.loopexit:                                        ; preds = %.preheader167, %33, %33, %33, %32, %32, %32, %32, %32, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i, %24, %24, %24, %25, %29, %28, %28, %28, %28
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser29determineUnaryOperatorByUsageERKNS0_11FormatTokenE.exit
 
 .thread:                                          ; preds = %.thread.preheader, %34
@@ -33215,7 +33215,7 @@ _ZZN5clang6format12_GLOBAL__N_116AnnotatingParser21determineStarAmpUsageERKNS0_1
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser29determineUnaryOperatorByUsageERKNS0_11FormatTokenE.exit
 
 _ZN5clang6format12_GLOBAL__N_116AnnotatingParser29determineUnaryOperatorByUsageERKNS0_11FormatTokenE.exit: ; preds = %.thread, %47, %.preheader163, %.preheader162, %.preheader162, %.preheader162, %.preheader162, %.preheader162, %.preheader162, %.preheader162, %.preheader162, %.preheader162, %.preheader162, %.preheader162, %.preheader162, %.preheader162, %.preheader162, %.preheader162, %109, %142, %142, %142, %142, %142, %142, %.critedge89, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit, %105, %105, %105, %90, %90, %90, %90, %90, %90, %90, %90, %90, %90, %90, %90, %90, %90, %90, %90, %90, %90, %54, %54, %54, %.thread143, %.thread143, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit105, %4, %158, %151, %.critedge93, %.loopexit, %33, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit, %43, %98, %112, %124, %88, %85, %79, %77, %73, %70, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_NS0_9TokenTypeEEEEbT_T0_DpT1_.exit, %60, %13, %9
-  %.0 = phi i8 [ 8, %4 ], [ 8, %9 ], [ 8, %13 ], [ 99, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ 8, %43 ], [ 99, %60 ], [ 99, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_NS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ 99, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit105 ], [ 99, %70 ], [ -107, %73 ], [ 99, %77 ], [ 99, %79 ], [ 99, %.thread143 ], [ 99, %85 ], [ -107, %88 ], [ 8, %98 ], [ 8, %112 ], [ 99, %124 ], [ -107, %.loopexit ], [ 8, %33 ], [ 99, %158 ], [ 8, %151 ], [ 8, %.critedge93 ], [ 99, %54 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %105 ], [ 99, %.thread143 ], [ 99, %54 ], [ 99, %54 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %105 ], [ 8, %105 ], [ 8, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit ], [ 8, %.critedge89 ], [ 8, %142 ], [ 8, %142 ], [ 8, %142 ], [ 8, %142 ], [ 8, %142 ], [ 8, %142 ], [ 8, %109 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 99, %.preheader163 ], [ 99, %47 ], [ -107, %.thread ]
+  %.0 = phi i8 [ 8, %13 ], [ 8, %4 ], [ 8, %9 ], [ 99, %124 ], [ 8, %105 ], [ 99, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ 8, %43 ], [ 99, %77 ], [ 8, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit ], [ 8, %90 ], [ 99, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit105 ], [ 99, %70 ], [ -107, %73 ], [ 99, %79 ], [ 99, %85 ], [ -107, %88 ], [ 8, %90 ], [ 99, %.thread143 ], [ 99, %54 ], [ 99, %54 ], [ 99, %60 ], [ 99, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_NS0_9TokenTypeEEEEbT_T0_DpT1_.exit ], [ 8, %90 ], [ 8, %105 ], [ 99, %.thread143 ], [ 8, %.critedge89 ], [ 8, %105 ], [ 8, %112 ], [ 99, %47 ], [ 8, %98 ], [ 8, %90 ], [ -107, %.loopexit ], [ 8, %33 ], [ 8, %109 ], [ 8, %90 ], [ 8, %.preheader162 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 99, %.preheader163 ], [ 99, %158 ], [ 8, %142 ], [ 8, %151 ], [ 8, %.critedge93 ], [ 99, %54 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %90 ], [ 8, %142 ], [ 8, %142 ], [ 8, %142 ], [ 8, %142 ], [ 8, %142 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ 8, %.preheader162 ], [ -107, %.thread ]
   ret i8 %.0
 }
 
@@ -33301,8 +33301,8 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit: ; preds = %20
   %. = select i1 %24, i8 -107, i8 8
   br label %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser29determineUnaryOperatorByUsageERKNS0_11FormatTokenE.exit.thread
 
-_ZN5clang6format12_GLOBAL__N_116AnnotatingParser29determineUnaryOperatorByUsageERKNS0_11FormatTokenE.exit.thread: ; preds = %2, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser29determineUnaryOperatorByUsageERKNS0_11FormatTokenE.exit, %18, %18, %18, %18, %18, %15, %14, %14, %14, %14, %11, %10, %10, %10, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i, %19, %19, %19, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit
-  %.0 = phi i8 [ %., %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ -107, %19 ], [ -107, %19 ], [ -107, %19 ], [ -107, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i ], [ -107, %10 ], [ -107, %10 ], [ -107, %10 ], [ -107, %11 ], [ -107, %14 ], [ -107, %14 ], [ -107, %14 ], [ -107, %14 ], [ -107, %15 ], [ -107, %18 ], [ -107, %18 ], [ -107, %18 ], [ -107, %18 ], [ -107, %18 ], [ -107, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser29determineUnaryOperatorByUsageERKNS0_11FormatTokenE.exit ], [ -107, %2 ]
+_ZN5clang6format12_GLOBAL__N_116AnnotatingParser29determineUnaryOperatorByUsageERKNS0_11FormatTokenE.exit.thread: ; preds = %2, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser29determineUnaryOperatorByUsageERKNS0_11FormatTokenE.exit, %14, %14, %14, %14, %15, %11, %10, %10, %10, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i, %18, %18, %18, %18, %18, %19, %19, %19, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit
+  %.0 = phi i8 [ -107, %_ZN5clang6format12_GLOBAL__N_116AnnotatingParser29determineUnaryOperatorByUsageERKNS0_11FormatTokenE.exit ], [ %., %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ -107, %19 ], [ -107, %19 ], [ -107, %19 ], [ -107, %18 ], [ -107, %18 ], [ -107, %18 ], [ -107, %18 ], [ -107, %18 ], [ -107, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i ], [ -107, %10 ], [ -107, %10 ], [ -107, %10 ], [ -107, %11 ], [ -107, %15 ], [ -107, %14 ], [ -107, %14 ], [ -107, %14 ], [ -107, %14 ], [ -107, %2 ]
   ret i8 %.0
 }
 
@@ -33937,7 +33937,7 @@ switch.hole_check:                                ; preds = %68
   br i1 %switch.lobit, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i
 
 _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread: ; preds = %139, %155, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread, %.lr.ph, %switch.hole_check, %107, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %12, %184, %171, %switch.early.test170, %.critedge, %.critedge, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread, %71, %.critedge134, %161, %190, %193, %198, %195, %204, %201, %177, %178, %168, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_EEEbT_T0_DpT1_.exit, %18, %23, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread, %103, %93, %80, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit, %56, %33, %36, %2, %5
-  %.094 = phi i1 [ false, %5 ], [ false, %2 ], [ false, %18 ], [ false, %23 ], [ false, %36 ], [ false, %33 ], [ false, %56 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit ], [ false, %80 ], [ false, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread ], [ false, %93 ], [ false, %103 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread ], [ true, %thread-pre-split ], [ %or.cond4.not, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_EEEbT_T0_DpT1_.exit ], [ true, %.critedge ], [ false, %.critedge134 ], [ true, %161 ], [ false, %switch.early.test170 ], [ false, %171 ], [ false, %168 ], [ false, %178 ], [ false, %177 ], [ false, %190 ], [ false, %193 ], [ false, %198 ], [ false, %195 ], [ false, %201 ], [ %207, %204 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread ], [ false, %71 ], [ false, %12 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %.critedge ], [ false, %184 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %107 ], [ false, %switch.hole_check ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread ], [ false, %.lr.ph ], [ true, %155 ], [ false, %139 ]
+  %.094 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %5 ], [ false, %18 ], [ false, %23 ], [ false, %33 ], [ false, %.lr.ph ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit ], [ false, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread ], [ false, %93 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread ], [ true, %107 ], [ false, %71 ], [ false, %56 ], [ false, %36 ], [ false, %80 ], [ false, %103 ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ false, %switch.hole_check ], [ true, %155 ], [ false, %.critedge134 ], [ true, %161 ], [ true, %.critedge ], [ true, %thread-pre-split ], [ false, %201 ], [ %or.cond4.not, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_EEEbT_T0_DpT1_.exit ], [ false, %184 ], [ false, %168 ], [ false, %177 ], [ false, %switch.early.test170 ], [ false, %171 ], [ false, %178 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ false, %193 ], [ false, %195 ], [ false, %190 ], [ %207, %204 ], [ false, %198 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread ], [ true, %thread-pre-split ], [ true, %.critedge ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread ], [ false, %139 ]
   ret i1 %.094
 }
 
@@ -34079,7 +34079,7 @@ switch.hole_check:                                ; preds = %14
   br i1 %switch.lobit, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread, label %17
 
 _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread: ; preds = %2, %switch.hole_check, %17, %17, %17, %17, %17, %18, %10, %10, %10, %18, %18, %16, %11, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit, %19
-  %.0 = phi i1 [ true, %18 ], [ false, %19 ], [ true, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ true, %10 ], [ true, %11 ], [ true, %16 ], [ true, %17 ], [ true, %17 ], [ true, %18 ], [ true, %10 ], [ true, %10 ], [ true, %17 ], [ true, %17 ], [ true, %18 ], [ true, %17 ], [ true, %switch.hole_check ], [ true, %2 ]
+  %.0 = phi i1 [ true, %18 ], [ true, %17 ], [ true, %17 ], [ false, %19 ], [ true, %18 ], [ true, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ true, %10 ], [ true, %10 ], [ true, %17 ], [ true, %11 ], [ true, %16 ], [ true, %switch.hole_check ], [ true, %17 ], [ true, %10 ], [ true, %18 ], [ true, %17 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -34154,7 +34154,7 @@ switch.hole_check:                                ; preds = %25
   br i1 %switch.lobit, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_PNS_14IdentifierInfoES6_EEEbT_T0_DpT1_.exit, label %27
 
 _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_PNS_14IdentifierInfoES6_EEEbT_T0_DpT1_.exit: ; preds = %switch.hole_check, %27, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i, %17, %14, %9
-  %31 = phi i1 [ true, %9 ], [ true, %14 ], [ true, %17 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i.i.i ], [ %30, %27 ], [ false, %switch.hole_check ]
+  %31 = phi i1 [ true, %9 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i.i.i.i ], [ true, %14 ], [ %30, %27 ], [ true, %17 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i.i.i.i ], [ false, %switch.hole_check ]
   ret i1 %31
 }
 
@@ -34235,8 +34235,8 @@ _ZNK5clang6format11FormatToken32canBePointerOrReferenceQualifierEv.exit: ; preds
   %33 = or i1 %32, %31
   br i1 %33, label %.backedge.sink.split, label %.thread
 
-.backedge.sink.split:                             ; preds = %_ZNK5clang6format11FormatToken32canBePointerOrReferenceQualifierEv.exit, %24, %24, %24, %27, %30, %30, %30, %30, %30, %_ZNK5clang6format11FormatToken11isAttributeEv.exit, %9
-  %.01410.sink = phi ptr [ %8, %9 ], [ %8, %_ZNK5clang6format11FormatToken11isAttributeEv.exit ], [ %.01410, %30 ], [ %.01410, %30 ], [ %.01410, %30 ], [ %.01410, %30 ], [ %.01410, %30 ], [ %.01410, %27 ], [ %.01410, %24 ], [ %.01410, %24 ], [ %.01410, %24 ], [ %.01410, %_ZNK5clang6format11FormatToken32canBePointerOrReferenceQualifierEv.exit ]
+.backedge.sink.split:                             ; preds = %_ZNK5clang6format11FormatToken32canBePointerOrReferenceQualifierEv.exit, %30, %30, %30, %30, %30, %24, %24, %24, %27, %_ZNK5clang6format11FormatToken11isAttributeEv.exit, %9
+  %.01410.sink = phi ptr [ %8, %_ZNK5clang6format11FormatToken11isAttributeEv.exit ], [ %8, %9 ], [ %.01410, %27 ], [ %.01410, %24 ], [ %.01410, %24 ], [ %.01410, %24 ], [ %.01410, %30 ], [ %.01410, %30 ], [ %.01410, %30 ], [ %.01410, %30 ], [ %.01410, %30 ], [ %.01410, %_ZNK5clang6format11FormatToken32canBePointerOrReferenceQualifierEv.exit ]
   %34 = getelementptr inbounds nuw i8, ptr %.01410.sink, i64 208
   %35 = load ptr, ptr %34, align 8, !tbaa !251
   br label %.backedge
@@ -34349,7 +34349,7 @@ _ZNK5clang6format11FormatToken12endsSequenceIPNS_14IdentifierInfoEJS4_EEEbT_DpT0
   %30 = icmp eq ptr %6, %29
   br i1 %30, label %72, label %_ZNK5clang6format11FormatToken12endsSequenceIPNS_14IdentifierInfoEJS4_EEEbT_DpT0_.exit.thread
 
-_ZNK5clang6format11FormatToken12endsSequenceIPNS_14IdentifierInfoEJS4_EEEbT_DpT0_.exit.thread: ; preds = %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %13, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %26, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i, %_ZNK5clang6format11FormatToken12endsSequenceIPNS_14IdentifierInfoEJS4_EEEbT_DpT0_.exit
+_ZNK5clang6format11FormatToken12endsSequenceIPNS_14IdentifierInfoEJS4_EEEbT_DpT0_.exit.thread: ; preds = %13, %26, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %_ZNK5clang6format11FormatToken12endsSequenceIPNS_14IdentifierInfoEJS4_EEEbT_DpT0_.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %32 = load ptr, ptr %31, align 8, !tbaa !638
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 952
@@ -34456,7 +34456,7 @@ switch.hole_check:                                ; preds = %18
   br i1 %switch.lobit, label %_ZNK5clang6format11FormatToken22startsSequenceInternalINS_3tok9TokenKindEJPNS_14IdentifierInfoEEEEbT_DpT0_.exit, label %20
 
 _ZNK5clang6format11FormatToken22startsSequenceInternalINS_3tok9TokenKindEJPNS_14IdentifierInfoEEEEbT_DpT0_.exit: ; preds = %9, %switch.hole_check, %split.i, %17, %20
-  %.0.i = phi i1 [ false, %split.i ], [ false, %17 ], [ %23, %20 ], [ false, %switch.hole_check ], [ false, %9 ]
+  %.0.i = phi i1 [ false, %switch.hole_check ], [ false, %17 ], [ false, %split.i ], [ %23, %20 ], [ false, %9 ]
   ret i1 %.0.i
 }
 
@@ -34597,7 +34597,7 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread: ; preds = 
   br label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread
 
 _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread: ; preds = %1, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit, %34, %37, %.critedge, %46, %31, %27, %15
-  %.0 = phi i1 [ true, %15 ], [ true, %27 ], [ true, %31 ], [ true, %46 ], [ false, %.critedge ], [ false, %37 ], [ false, %34 ], [ false, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ false, %1 ]
+  %.0 = phi i1 [ false, %34 ], [ true, %15 ], [ true, %27 ], [ true, %46 ], [ true, %31 ], [ false, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ false, %.critedge ], [ false, %37 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -34667,10 +34667,10 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %3, %._crit_edge.i
   br label %31
 
 31:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread
-  %.fca.0.extract14 = phi ptr [ %.sink18, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %.fca.1.insert.merged.i12 = phi i8 [ %.sink17, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %30, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %32 = phi ptr [ %.ph, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.pre5, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %33 = phi i32 [ %23, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %spec.select, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
+  %.fca.0.extract14 = phi ptr [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %.sink18, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
+  %.fca.1.insert.merged.i12 = phi i8 [ %30, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %.sink17, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
+  %32 = phi ptr [ %.pre5, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %.ph, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
+  %33 = phi i32 [ %spec.select, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %23, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
   %.v.i5.i = zext i32 %33 to i64
   %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %.v.i5.i
   %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract14, %34
@@ -34952,7 +34952,7 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread: ; preds = 
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit8
 
 _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit8: ; preds = %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %66, %59, %56, %49, %39, %32, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit6, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit
-  %.1 = phi i32 [ %18, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %28, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit6 ], [ 0, %32 ], [ 0, %39 ], [ %.014, %49 ], [ %.014, %56 ], [ %.014, %59 ], [ %.014, %66 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread ]
+  %.1 = phi i32 [ %18, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %28, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit6 ], [ %.014, %66 ], [ 0, %39 ], [ %.014, %56 ], [ 0, %32 ], [ %.014, %49 ], [ %.014, %59 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %45 ], [ %.014, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread ]
   tail call fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser4nextEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
   %68 = load ptr, ptr %2, align 8, !tbaa !208
   %.not = icmp eq ptr %68, null
@@ -35247,7 +35247,7 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread: ; preds = %27, 
   store ptr null, ptr %3, align 8, !tbaa !241
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit, %.lr.ph.split, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread, %23, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.us, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us, %.lr.ph.split.us, %.critedge.sink.split, %2, %5
+.critedge:                                        ; preds = %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread, %.lr.ph.split, %23, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.us, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread.us, %.lr.ph.split.us, %.critedge.sink.split, %2, %5
   ret void
 }
 
@@ -35444,7 +35444,7 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i: ; pr
   br label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEbT_T0_DpT1_.exit
 
 _ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoES4_JS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEbT_T0_DpT1_.exit: ; preds = %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %5, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i, %2, %2, %2, %2, %2, %76
-  %.0 = phi i1 [ false, %76 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ %75, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i ], [ true, %5 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i ]
+  %.0 = phi i1 [ false, %76 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %5 ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i ], [ %75, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i ]
   ret i1 %.0
 }
 
@@ -36626,14 +36626,14 @@ _ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_
   br label %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit.thread2
 
 _ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit.thread2: ; preds = %14, %tailrecurse.i.i.i, %18, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit.thread2.sink.split, %40, %40, %40, %.lr.ph, %split.i.i, %46, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread
-  %.1 = phi ptr [ %.013, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread ], [ %48, %46 ], [ %39, %40 ], [ %.013, %split.i.i ], [ %.013, %.lr.ph ], [ %39, %40 ], [ %39, %40 ], [ %50, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit.thread2.sink.split ], [ %.013, %18 ], [ %.013, %tailrecurse.i.i.i ], [ %.013, %14 ]
+  %.1 = phi ptr [ %.013, %.lr.ph ], [ %50, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit.thread2.sink.split ], [ %39, %40 ], [ %.013, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread ], [ %.013, %tailrecurse.i.i.i ], [ %39, %40 ], [ %48, %46 ], [ %39, %40 ], [ %.013, %split.i.i ], [ %.013, %18 ], [ %.013, %14 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1, i64 216
   %52 = load ptr, ptr %51, align 8, !tbaa !62
   %.not = icmp eq ptr %52, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !708
 
 ._crit_edge:                                      ; preds = %43, %46, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit.thread2, %.lr.ph, %1
-  %.021 = phi ptr [ null, %1 ], [ %.013, %.lr.ph ], [ null, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit.thread2 ], [ null, %46 ], [ null, %43 ]
+  %.021 = phi ptr [ null, %1 ], [ null, %46 ], [ null, %_ZNK5clang6format11FormatToken14startsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit.thread2 ], [ %.013, %.lr.ph ], [ null, %43 ]
   ret ptr %.021
 }
 
@@ -36709,7 +36709,7 @@ define linkonce_odr hidden ptr @_ZNKSt13unordered_setIPN5clang14IdentifierInfoES
   br label %_ZNKSt10_HashtableIPN5clang14IdentifierInfoES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE4findERKS2_.exit, !llvm.loop !507
 
 _ZNKSt10_HashtableIPN5clang14IdentifierInfoES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE4findERKS2_.exit: ; preds = %27, %.lr.ph.i.i.i, %8, %9, %13, %22, %..loopexit_crit_edge21.i.i.i
-  %.sroa.06.1.i = phi ptr [ null, %13 ], [ null, %..loopexit_crit_edge21.i.i.i ], [ %23, %22 ], [ %.sroa.06.0.i, %9 ], [ null, %8 ], [ null, %.lr.ph.i.i.i ], [ %29, %27 ]
+  %.sroa.06.1.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i ], [ null, %8 ], [ %23, %22 ], [ null, %13 ], [ %.sroa.06.0.i, %9 ], [ null, %.lr.ph.i.i.i ], [ %29, %27 ]
   ret ptr %.sroa.06.1.i
 }
 

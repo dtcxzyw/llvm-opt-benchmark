@@ -1158,7 +1158,7 @@ _ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit: ; preds = %10, %7
   tail call void @free(ptr noundef nonnull %0) #25
   br label %_ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit.thread
 
-_ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit.thread: ; preds = %1, %5, %2, %241
+_ZL17hb_object_destroyI15hb_font_funcs_tEbPT_.exit.thread: ; preds = %1, %2, %5, %241
   ret void
 }
 
@@ -1215,7 +1215,7 @@ define hidden range(i32 0, 2) i32 @hb_font_funcs_set_user_data(ptr noundef captu
   br label %_ZL23hb_object_set_user_dataI15hb_font_funcs_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit
 
 _ZL23hb_object_set_user_dataI15hb_font_funcs_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit: ; preds = %.lr.ph.i, %5, %6, %.split.loop.exit.i
-  %.015.i = phi i32 [ %22, %.split.loop.exit.i ], [ 0, %6 ], [ 0, %5 ], [ 0, %.lr.ph.i ]
+  %.015.i = phi i32 [ 0, %5 ], [ %22, %.split.loop.exit.i ], [ 0, %6 ], [ 0, %.lr.ph.i ]
   ret i32 %.015.i
 }
 
@@ -1271,7 +1271,7 @@ _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %17, %18, 
   br label %_ZL23hb_object_get_user_dataIK15hb_font_funcs_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK15hb_font_funcs_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
-  %.0.i = phi ptr [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %2 ], [ null, %5 ]
+  %.0.i = phi ptr [ null, %2 ], [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %5 ]
   ret ptr %.0.i
 }
 
@@ -1393,7 +1393,7 @@ define hidden void @hb_font_funcs_set_font_h_extents_func(ptr noundef captures(n
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-36:                                               ; preds = %33, %31, %30
+36:                                               ; preds = %30, %33, %31
   %spec.select = select i1 %.not, ptr @_ZL34hb_font_get_font_h_extents_defaultP9hb_font_tPvP17hb_font_extents_tS1_, ptr %1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %spec.select, ptr %37, align 8
@@ -1625,7 +1625,7 @@ define hidden void @hb_font_funcs_set_font_v_extents_func(ptr noundef captures(n
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL34hb_font_get_font_v_extents_defaultP9hb_font_tPvP17hb_font_extents_tS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %spec.select, ptr %39, align 8
@@ -1860,7 +1860,7 @@ define hidden void @hb_font_funcs_set_nominal_glyph_func(ptr noundef captures(no
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL33hb_font_get_nominal_glyph_defaultP9hb_font_tPvjPjS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %spec.select, ptr %39, align 8
@@ -2044,7 +2044,7 @@ define hidden void @hb_font_funcs_set_nominal_glyphs_func(ptr noundef captures(n
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL34hb_font_get_nominal_glyphs_defaultP9hb_font_tPvjPKjjPjjS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %spec.select, ptr %39, align 8
@@ -2168,7 +2168,7 @@ define hidden void @hb_font_funcs_set_variation_glyph_func(ptr noundef captures(
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL35hb_font_get_variation_glyph_defaultP9hb_font_tPvjjPjS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %spec.select, ptr %39, align 8
@@ -2319,7 +2319,7 @@ define hidden void @hb_font_funcs_set_glyph_h_advance_func(ptr noundef captures(
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL35hb_font_get_glyph_h_advance_defaultP9hb_font_tPvjS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %spec.select, ptr %39, align 8
@@ -2523,7 +2523,7 @@ define hidden void @hb_font_funcs_set_glyph_v_advance_func(ptr noundef captures(
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL35hb_font_get_glyph_v_advance_defaultP9hb_font_tPvjS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %spec.select, ptr %39, align 8
@@ -2727,7 +2727,7 @@ define hidden void @hb_font_funcs_set_glyph_h_advances_func(ptr noundef captures
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL36hb_font_get_glyph_h_advances_defaultP9hb_font_tPvjPKjjPijS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %spec.select, ptr %39, align 8
@@ -2851,7 +2851,7 @@ define hidden void @hb_font_funcs_set_glyph_v_advances_func(ptr noundef captures
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL36hb_font_get_glyph_v_advances_defaultP9hb_font_tPvjPKjjPijS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %spec.select, ptr %39, align 8
@@ -2975,7 +2975,7 @@ define hidden void @hb_font_funcs_set_glyph_h_origin_func(ptr noundef captures(n
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL34hb_font_get_glyph_h_origin_defaultP9hb_font_tPvjPiS2_S1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %spec.select, ptr %39, align 8
@@ -3184,7 +3184,7 @@ define hidden void @hb_font_funcs_set_glyph_v_origin_func(ptr noundef captures(n
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL34hb_font_get_glyph_v_origin_defaultP9hb_font_tPvjPiS2_S1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %spec.select, ptr %39, align 8
@@ -3393,7 +3393,7 @@ define hidden void @hb_font_funcs_set_glyph_h_kerning_func(ptr noundef captures(
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL35hb_font_get_glyph_h_kerning_defaultP9hb_font_tPvjjS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %spec.select, ptr %39, align 8
@@ -3566,7 +3566,7 @@ define hidden void @hb_font_funcs_set_glyph_v_kerning_func(ptr noundef captures(
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL35hb_font_get_glyph_v_kerning_defaultP9hb_font_tPvjjS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %spec.select, ptr %39, align 8
@@ -3739,7 +3739,7 @@ define hidden void @hb_font_funcs_set_glyph_extents_func(ptr noundef captures(no
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL33hb_font_get_glyph_extents_defaultP9hb_font_tPvjP18hb_glyph_extents_tS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %spec.select, ptr %39, align 8
@@ -4000,7 +4000,7 @@ define hidden void @hb_font_funcs_set_glyph_contour_point_func(ptr noundef captu
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL39hb_font_get_glyph_contour_point_defaultP9hb_font_tPvjjPiS2_S1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %spec.select, ptr %39, align 8
@@ -4209,7 +4209,7 @@ define hidden void @hb_font_funcs_set_glyph_name_func(ptr noundef captures(none)
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL30hb_font_get_glyph_name_defaultP9hb_font_tPvjPcjS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %spec.select, ptr %39, align 8
@@ -4367,7 +4367,7 @@ define hidden void @hb_font_funcs_set_glyph_from_name_func(ptr noundef captures(
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL35hb_font_get_glyph_from_name_defaultP9hb_font_tPvPKciPjS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %spec.select, ptr %39, align 8
@@ -4528,7 +4528,7 @@ define hidden void @hb_font_funcs_set_draw_glyph_func(ptr noundef captures(none)
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL26hb_font_draw_glyph_defaultP9hb_font_tPvjP15hb_draw_funcs_tS1_S1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %spec.select, ptr %39, align 8
@@ -4729,7 +4729,7 @@ define hidden void @hb_font_funcs_set_paint_glyph_func(ptr noundef captures(none
   tail call void %.0.ph(ptr noundef %.034.ph)
   br label %_ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit
 
-38:                                               ; preds = %35, %33, %32
+38:                                               ; preds = %32, %35, %33
   %spec.select = select i1 %.not, ptr @_ZL27hb_font_paint_glyph_defaultP9hb_font_tPvjP16hb_paint_funcs_tS1_jjS1_, ptr %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %spec.select, ptr %39, align 8
@@ -6565,7 +6565,7 @@ _ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit: ; preds = %_ZN16hb_lazy
   tail call void %23(ptr noundef %26)
   br label %27
 
-common.ret16:                                     ; preds = %1, %5, %2, %27
+common.ret16:                                     ; preds = %1, %2, %5, %27
   ret void
 
 27:                                               ; preds = %24, %_ZN26hb_shaper_object_dataset_tI9hb_font_tE4finiEv.exit
@@ -6649,7 +6649,7 @@ define hidden range(i32 0, 2) i32 @hb_font_set_user_data(ptr noundef captures(no
   br label %_ZL23hb_object_set_user_dataI9hb_font_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit
 
 _ZL23hb_object_set_user_dataI9hb_font_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit: ; preds = %.lr.ph.i, %12, %.split.loop.exit.i
-  %.015.i = phi i32 [ %28, %.split.loop.exit.i ], [ 0, %12 ], [ 0, %.lr.ph.i ]
+  %.015.i = phi i32 [ 0, %12 ], [ %28, %.split.loop.exit.i ], [ 0, %.lr.ph.i ]
   ret i32 %.015.i
 }
 
@@ -6705,7 +6705,7 @@ _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %17, %18, 
   br label %_ZL23hb_object_get_user_dataIK9hb_font_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK9hb_font_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
-  %.0.i = phi ptr [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %2 ], [ null, %5 ]
+  %.0.i = phi ptr [ null, %2 ], [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %5 ]
   ret ptr %.0.i
 }
 
@@ -7724,9 +7724,9 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread59, %._crit_edge, %80
-  %83 = phi ptr [ %77, %._crit_edge ], [ %77, %80 ], [ %46, %.thread59 ]
-  %84 = phi ptr [ %76, %._crit_edge ], [ %76, %80 ], [ null, %.thread59 ]
-  %85 = phi ptr [ %75, %._crit_edge ], [ %75, %80 ], [ null, %.thread59 ]
+  %83 = phi ptr [ %46, %.thread59 ], [ %77, %80 ], [ %77, %._crit_edge ]
+  %84 = phi ptr [ null, %.thread59 ], [ %76, %80 ], [ %76, %._crit_edge ]
+  %85 = phi ptr [ null, %.thread59 ], [ %75, %80 ], [ %75, %._crit_edge ]
   br i1 %.not, label %._crit_edge67, label %.lr.ph66.preheader
 
 .lr.ph66.preheader:                               ; preds = %.lr.ph, %.loopexit
@@ -7971,7 +7971,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT4fvar22unnormalize_axis_valueEj
   br label %_ZNK2OT10AxisRecord22unnormalize_axis_valueEi.exit
 
 _ZNK2OT10AxisRecord22unnormalize_axis_valueEi.exit: ; preds = %3, %89, %95
-  %.0.i = phi float [ %94, %89 ], [ %100, %95 ], [ %43, %3 ]
+  %.0.i = phi float [ %100, %95 ], [ %94, %89 ], [ %43, %3 ]
   ret float %.0.i
 }
 
@@ -8951,7 +8951,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   br label %158
 
 158:                                              ; preds = %13, %124, %113, %87, %50, %14
-  %.0 = phi i32 [ %37, %14 ], [ %62, %50 ], [ %99, %87 ], [ %123, %113 ], [ %157, %124 ], [ %1, %13 ]
+  %.0 = phi i32 [ %37, %14 ], [ %157, %124 ], [ %62, %50 ], [ %99, %87 ], [ %123, %113 ], [ %1, %13 ]
   ret i32 %.0
 }
 
@@ -9260,7 +9260,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EE
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %19, %17, %20, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
-  %.0 = phi ptr [ null, %20 ], [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ %16, %17 ], [ %16, %19 ]
+  %.0 = phi ptr [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ null, %20 ], [ %16, %17 ], [ %16, %19 ]
   %43 = load i32, ptr %0, align 8
   %44 = icmp slt i32 %43, 0
   %45 = select i1 %44, ptr null, ptr %.0
@@ -9469,7 +9469,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -9487,7 +9487,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -9497,27 +9497,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %33, %36
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -9682,7 +9682,7 @@ _ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit
   br label %_ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit.thread
 
 _ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit.thread: ; preds = %116, %80, %55, %71, %_ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit, %36, %26, %21, %12, %2
-  %119 = phi i1 [ false, %_ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit ], [ false, %36 ], [ false, %26 ], [ false, %21 ], [ false, %12 ], [ false, %2 ], [ false, %71 ], [ false, %55 ], [ false, %80 ], [ %118, %116 ]
+  %119 = phi i1 [ false, %_ZNK10hb_array_tIKN2OT10AxisRecordEE8sanitizeI21hb_sanitize_context_tEEbPT_.exit ], [ false, %36 ], [ false, %26 ], [ false, %21 ], [ false, %12 ], [ false, %2 ], [ false, %71 ], [ false, %55 ], [ %118, %116 ], [ false, %80 ]
   ret i1 %119
 }
 
@@ -9870,7 +9870,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   br i1 %26, label %28, label %33
 
 28:                                               ; preds = %25
-  br i1 %.not19, label %.critedge23, label %29
+  br i1 %.not19, label %.critedge25, label %29
 
 29:                                               ; preds = %28
   store i32 0, ptr %10, align 4
@@ -9888,7 +9888,7 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %34 = load i8, ptr %5, align 8
   %35 = trunc i8 %34 to i1
   %or.cond = select i1 %.not19, i1 true, i1 %35
-  br i1 %or.cond, label %.critedge25, label %36
+  br i1 %or.cond, label %.critedge23, label %36
 
 36:                                               ; preds = %33
   %37 = tail call ptr @hb_blob_get_data_writable(ptr noundef %1, ptr noundef null)
@@ -9898,27 +9898,27 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit: ; preds = %13, %22
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   store ptr %40, ptr %7, align 8
   %.not18 = icmp eq ptr %37, null
-  br i1 %.not18, label %.critedge25, label %13
+  br i1 %.not18, label %.critedge23, label %13
 
-.critedge23:                                      ; preds = %28
+.critedge25:                                      ; preds = %28
   %41 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %41)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %42
 
-42:                                               ; preds = %29, %.critedge23
+42:                                               ; preds = %29, %.critedge25
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %45
 
-.critedge25:                                      ; preds = %33, %36
+.critedge23:                                      ; preds = %36, %33
   %43 = load ptr, ptr %4, align 8
   tail call void @hb_blob_destroy(ptr noundef %43)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %.critedge25
+.critedge:                                        ; preds = %29, %.critedge23
   tail call void @hb_blob_destroy(ptr noundef %1)
   %44 = tail call ptr @hb_blob_get_empty()
   br label %45
@@ -10044,7 +10044,7 @@ _ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_s
   br label %_ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread
 
 _ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread: ; preds = %39, %35, %_ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %67, %12, %._crit_edge, %2, %20
-  %.025 = phi i1 [ false, %20 ], [ false, %2 ], [ true, %._crit_edge ], [ false, %12 ], [ %68, %67 ], [ false, %_ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %35 ], [ false, %39 ]
+  %.025 = phi i1 [ false, %2 ], [ false, %12 ], [ %68, %67 ], [ true, %._crit_edge ], [ false, %20 ], [ false, %_ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %35 ], [ false, %39 ]
   ret i1 %.025
 }
 
@@ -10185,7 +10185,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %95, %70, %65, %46, %42, %25, %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
+_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %70, %65, %95, %42, %46, %25, %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %106 = load i32, ptr %105, align 4
   %107 = icmp ugt i32 %106, 31
@@ -10264,7 +10264,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i18: ; preds = %141
   br label %.thread25
 
 .thread25:                                        ; preds = %.thread, %128, %116, %141, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i18, %149, %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %3
-  %150 = phi i1 [ false, %3 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %.thread ], [ true, %128 ], [ true, %116 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i18 ], [ true, %149 ], [ false, %141 ]
+  %150 = phi i1 [ false, %3 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT16DeltaSetIndexMapEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %.thread ], [ true, %128 ], [ true, %116 ], [ true, %149 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i18 ], [ false, %141 ]
   ret i1 %150
 }
 
@@ -10373,7 +10373,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv1
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %75, %55, %40, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
+_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %55, %75, %40, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %85 = load i32, ptr %84, align 4
   %86 = icmp ugt i32 %85, 31
@@ -10451,7 +10451,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE1
   br i1 %or.cond.not, label %.lr.ph, label %.thread33, !llvm.loop !52
 
 .thread33:                                        ; preds = %.lr.ph, %109, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %.thread, %92, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %23, %14, %2
-  %118 = phi i1 [ false, %14 ], [ false, %2 ], [ false, %23 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %.thread ], [ false, %92 ], [ true, %109 ], [ %117, %.lr.ph ]
+  %118 = phi i1 [ false, %23 ], [ false, %14 ], [ false, %2 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %.thread ], [ false, %92 ], [ true, %109 ], [ %117, %.lr.ph ]
   ret i1 %118
 }
 
@@ -10587,7 +10587,7 @@ _ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_pri
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit, label %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
-_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %89, %75, %41, %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i, %26, %60, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
+_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %89, %75, %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i.i.i, %26, %41, %60, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %104 = load i32, ptr %103, align 4
   %105 = icmp ugt i32 %104, 31
@@ -10606,7 +10606,7 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_c
   br label %_ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit
 
 _ZNK2OT8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EE6neuterEP21hb_sanitize_context_t.exit: ; preds = %110, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %14, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %3
-  %111 = phi i1 [ false, %3 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ true, %14 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ true, %110 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ]
+  %111 = phi i1 [ false, %3 ], [ true, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit ], [ true, %14 ], [ true, %110 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT7VarDataEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ]
   ret i1 %111
 }
 

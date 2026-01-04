@@ -1910,7 +1910,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit395: ; preds = %62
   br label %636
 
 636:                                              ; preds = %389, %503, %635, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit386
-  %.pn134.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn114.pn.pn.pn, %635 ], [ %609, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit386 ], [ %.pn134.pn.pn.pn.pn.pn.pn.pn.pn, %503 ], [ %390, %389 ]
+  %.pn134.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %609, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit386 ], [ %.pn114.pn.pn.pn, %635 ], [ %.pn134.pn.pn.pn.pn.pn.pn.pn.pn, %503 ], [ %390, %389 ]
   %637 = load ptr, ptr %23, align 8, !tbaa !102
   %.not.i.i.i396 = icmp eq ptr %637, null
   br i1 %.not.i.i.i396, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit397, label %638
@@ -1953,7 +1953,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit397: ; preds = %638, %636, %304
   br label %647
 
 644:                                              ; preds = %101, %92, %71, %_ZNSt12__shared_ptrIN2cv29ShapeContextDistanceExtractorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.0 = phi i32 [ 0, %71 ], [ 0, %_ZNSt12__shared_ptrIN2cv29ShapeContextDistanceExtractorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ 1, %92 ], [ 1, %101 ]
+  %.0 = phi i32 [ 0, %71 ], [ 1, %92 ], [ 0, %_ZNSt12__shared_ptrIN2cv29ShapeContextDistanceExtractorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ 1, %101 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %645 = load ptr, ptr %5, align 8, !tbaa !12
@@ -1969,7 +1969,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit400: ; preds = %64
   ret i32 %.0
 
 647:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186, %97, %643, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174
-  %.pn154 = phi { ptr, i32 } [ %79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174 ], [ %98, %97 ], [ %.pn134.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %643 ], [ %94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186 ]
+  %.pn154 = phi { ptr, i32 } [ %94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186 ], [ %79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174 ], [ %98, %97 ], [ %.pn134.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %643 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #18
   br label %648
 
@@ -2662,7 +2662,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit: ; preds = %_ZSt8_Destr
   ret void
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %.loopexit76, %.loopexit.split-lp77, %.loopexit81, %.loopexit.split-lp82, %162, %161, %127, %37
-  %.pn35 = phi { ptr, i32 } [ %38, %37 ], [ %128, %127 ], [ %lpad.phi, %161 ], [ %lpad.phi, %162 ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ], [ %lpad.loopexit78, %.loopexit76 ], [ %lpad.loopexit.split-lp79, %.loopexit.split-lp77 ]
+  %.pn35 = phi { ptr, i32 } [ %lpad.phi, %162 ], [ %38, %37 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ], [ %128, %127 ], [ %lpad.phi, %161 ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit78, %.loopexit76 ], [ %lpad.loopexit.split-lp79, %.loopexit.split-lp77 ]
   %173 = load ptr, ptr %4, align 8, !tbaa !102
   %.not.i.i.i74 = icmp eq ptr %173, null
   br i1 %.not.i.i.i74, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit75, label %174

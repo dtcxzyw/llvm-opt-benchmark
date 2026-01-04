@@ -150,7 +150,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -522,7 +522,7 @@ define void @_ZN6icu_776number4impl14SymbolsWrapper10doCopyFromERKS2_(ptr nounde
   br label %26
 
 .sink.split:                                      ; preds = %14, %17, %20, %4, %7, %10
-  %.sink = phi ptr [ %8, %10 ], [ %8, %7 ], [ null, %4 ], [ %18, %20 ], [ %18, %17 ], [ null, %14 ]
+  %.sink = phi ptr [ null, %4 ], [ %18, %17 ], [ %8, %7 ], [ %8, %10 ], [ %18, %20 ], [ null, %14 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %24, align 8, !tbaa !18
   br label %25

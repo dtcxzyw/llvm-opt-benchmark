@@ -1591,7 +1591,7 @@ define internal noundef i32 @_ZL9enumCountP12UEnumerationP10UErrorCode(ptr nound
   br i1 %exitcond37.not, label %.loopexit, label %16, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph.split, %16, %.preheader23, %.preheader, %7
-  %.014 = phi i32 [ %8, %7 ], [ 0, %.preheader ], [ 0, %.preheader23 ], [ %spec.select22, %16 ], [ %spec.select, %.lr.ph.split ]
+  %.014 = phi i32 [ %8, %7 ], [ %spec.select22, %16 ], [ 0, %.preheader ], [ 0, %.preheader23 ], [ %spec.select, %.lr.ph.split ]
   ret i32 %.014
 }
 
@@ -1711,7 +1711,7 @@ define internal noundef ptr @_ZL8enumNextP12UEnumerationPiP10UErrorCode(ptr noun
   br i1 %68, label %.preheader, label %.critedge, !llvm.loop !55
 
 .critedge:                                        ; preds = %43, %.preheader34, %64, %.preheader, %12, %3
-  %.0 = phi ptr [ %20, %12 ], [ null, %3 ], [ %.5, %64 ], [ null, %.preheader ], [ %.2, %43 ], [ null, %.preheader34 ]
+  %.0 = phi ptr [ %20, %12 ], [ null, %3 ], [ null, %.preheader ], [ %.5, %64 ], [ %.2, %43 ], [ null, %.preheader34 ]
   %.not33 = icmp eq ptr %1, null
   br i1 %.not33, label %76, label %69
 

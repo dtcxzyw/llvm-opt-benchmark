@@ -478,7 +478,7 @@ define dso_local i64 @rb_obj_class(i64 noundef %0) local_unnamed_addr #5 {
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %6, %9, %10, %11, %12, %14
-  %.0.in.i = phi ptr [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ %8, %6 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select.i, %14 ]
+  %.0.in.i = phi ptr [ %8, %6 ], [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select.i, %14 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !7
   %.not9.i = icmp eq i64 %.0.i, 0
   br i1 %.not9.i, label %rb_class_real.exit, label %.lr.ph.i
@@ -504,7 +504,7 @@ rb_class_of.exit:                                 ; preds = %6, %9, %10, %11, %1
   br i1 %.not.i1, label %rb_class_real.exit, label %.lr.ph.i, !llvm.loop !26
 
 rb_class_real.exit:                               ; preds = %.critedge2.i, %.lr.ph.i, %rb_class_of.exit
-  %.0.lcssa.i = phi i64 [ 0, %rb_class_of.exit ], [ 0, %.critedge2.i ], [ %.010.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ 0, %rb_class_of.exit ], [ %.010.i, %.lr.ph.i ], [ 0, %.critedge2.i ]
   ret i64 %.0.lcssa.i
 }
 
@@ -546,7 +546,7 @@ define internal fastcc i64 @rb_class_of(i64 noundef %0) unnamed_addr #6 {
   br label %17
 
 17:                                               ; preds = %14, %12, %9, %11, %10, %6
-  %.0.in = phi ptr [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ %8, %6 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select, %14 ]
+  %.0.in = phi ptr [ %8, %6 ], [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select, %14 ]
   %.0 = load i64, ptr %.0.in, align 8, !tbaa !7
   ret i64 %.0
 }
@@ -1178,7 +1178,7 @@ define internal fastcc noundef i64 @mutable_obj_clone(i64 noundef %0, i64 nounde
   br label %rb_class_of.exit.i
 
 rb_class_of.exit.i:                               ; preds = %15, %13, %12, %11, %10, %7
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %11 ], [ @rb_cTrueClass, %12 ], [ %9, %7 ], [ @rb_cFalseClass, %10 ], [ @rb_cInteger, %13 ], [ %spec.select.i.i, %15 ]
+  %.0.in.i.i = phi ptr [ %9, %7 ], [ @rb_cNilClass, %11 ], [ @rb_cTrueClass, %12 ], [ @rb_cFalseClass, %10 ], [ @rb_cInteger, %13 ], [ %spec.select.i.i, %15 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !7
   %.not9.i.i = icmp eq i64 %.0.i.i, 0
   br i1 %.not9.i.i, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i, label %.lr.ph.i.i
@@ -1404,7 +1404,7 @@ switch.lookup:                                    ; preds = %29
   br label %rb_type.exit16
 
 rb_type.exit16:                                   ; preds = %switch.lookup, %24, %32, %34
-  %.0.i13 = phi i32 [ %28, %24 ], [ 21, %32 ], [ %spec.select.i15, %34 ], [ %switch.load, %switch.lookup ]
+  %.0.i13 = phi i32 [ %28, %24 ], [ %spec.select.i15, %34 ], [ 21, %32 ], [ %switch.load, %switch.lookup ]
   %.not = icmp eq i32 %19, %.0.i13
   br i1 %.not, label %rb_class_of.exit.i, label %63
 
@@ -1435,7 +1435,7 @@ rb_class_of.exit.i:                               ; preds = %rb_type.exit16
   br i1 %.not.i1.i, label %rb_obj_class.exit, label %.lr.ph.i.i, !llvm.loop !26
 
 rb_obj_class.exit:                                ; preds = %.lr.ph.i.i, %.critedge2.i.i, %rb_class_of.exit.i
-  %.0.lcssa.i.i = phi i64 [ 0, %rb_class_of.exit.i ], [ %.010.i.i, %.lr.ph.i.i ], [ 0, %.critedge2.i.i ]
+  %.0.lcssa.i.i = phi i64 [ 0, %rb_class_of.exit.i ], [ 0, %.critedge2.i.i ], [ %.010.i.i, %.lr.ph.i.i ]
   br i1 %23, label %48, label %45
 
 45:                                               ; preds = %rb_obj_class.exit
@@ -1468,7 +1468,7 @@ rb_obj_class.exit:                                ; preds = %.lr.ph.i.i, %.crite
   br label %rb_class_of.exit.i19
 
 rb_class_of.exit.i19:                             ; preds = %53, %51, %50, %49, %48, %45
-  %.0.in.i.i20 = phi ptr [ @rb_cNilClass, %49 ], [ @rb_cTrueClass, %50 ], [ %47, %45 ], [ @rb_cFalseClass, %48 ], [ @rb_cInteger, %51 ], [ %spec.select.i.i34, %53 ]
+  %.0.in.i.i20 = phi ptr [ %47, %45 ], [ @rb_cNilClass, %49 ], [ @rb_cTrueClass, %50 ], [ @rb_cFalseClass, %48 ], [ @rb_cInteger, %51 ], [ %spec.select.i.i34, %53 ]
   %.0.i.i21 = load i64, ptr %.0.in.i.i20, align 8, !tbaa !7
   %.not9.i.i22 = icmp eq i64 %.0.i.i21, 0
   br i1 %.not9.i.i22, label %rb_obj_class.exit35, label %.lr.ph.i.i23
@@ -1494,7 +1494,7 @@ rb_class_of.exit.i19:                             ; preds = %53, %51, %50, %49, 
   br i1 %.not.i1.i32, label %rb_obj_class.exit35, label %.lr.ph.i.i23, !llvm.loop !26
 
 rb_obj_class.exit35:                              ; preds = %.lr.ph.i.i23, %.critedge2.i.i31, %rb_class_of.exit.i19
-  %.0.lcssa.i.i30 = phi i64 [ 0, %rb_class_of.exit.i19 ], [ %.010.i.i24, %.lr.ph.i.i23 ], [ 0, %.critedge2.i.i31 ]
+  %.0.lcssa.i.i30 = phi i64 [ 0, %rb_class_of.exit.i19 ], [ 0, %.critedge2.i.i31 ], [ %.010.i.i24, %.lr.ph.i.i23 ]
   %.not11 = icmp eq i64 %.0.lcssa.i.i, %.0.lcssa.i.i30
   br i1 %.not11, label %65, label %63
 
@@ -1554,7 +1554,7 @@ define dso_local i64 @rb_any_to_s(i64 noundef %0) #2 {
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %6, %9, %10, %11, %12, %14
-  %.0.in.i = phi ptr [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ %8, %6 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select.i, %14 ]
+  %.0.in.i = phi ptr [ %8, %6 ], [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select.i, %14 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !7
   %17 = tail call i64 @rb_class_name(i64 noundef %.0.i) #24
   %18 = inttoptr i64 %0 to ptr
@@ -1689,7 +1689,7 @@ class_or_module_required.exit:                    ; preds = %7, %7, %7
   br label %rb_class_of.exit.i
 
 rb_class_of.exit.i:                               ; preds = %25, %23, %22, %21, %20, %17
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %21 ], [ @rb_cTrueClass, %22 ], [ %19, %17 ], [ @rb_cFalseClass, %20 ], [ @rb_cInteger, %23 ], [ %spec.select.i.i, %25 ]
+  %.0.in.i.i = phi ptr [ %19, %17 ], [ @rb_cNilClass, %21 ], [ @rb_cTrueClass, %22 ], [ @rb_cFalseClass, %20 ], [ @rb_cInteger, %23 ], [ %spec.select.i.i, %25 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !7
   %.not9.i.i = icmp eq i64 %.0.i.i, 0
   br i1 %.not9.i.i, label %rb_obj_class.exit, label %.lr.ph.i.i
@@ -1715,7 +1715,7 @@ rb_class_of.exit.i:                               ; preds = %25, %23, %22, %21, 
   br i1 %.not.i1.i, label %rb_obj_class.exit, label %.lr.ph.i.i, !llvm.loop !26
 
 rb_obj_class.exit:                                ; preds = %.lr.ph.i.i, %.critedge2.i.i, %rb_class_of.exit.i
-  %.0.lcssa.i.i = phi i64 [ 0, %rb_class_of.exit.i ], [ %.010.i.i, %.lr.ph.i.i ], [ 0, %.critedge2.i.i ]
+  %.0.lcssa.i.i = phi i64 [ 0, %rb_class_of.exit.i ], [ 0, %.critedge2.i.i ], [ %.010.i.i, %.lr.ph.i.i ]
   %35 = icmp eq i64 %.0.lcssa.i.i, %1
   %36 = select i1 %35, i64 20, i64 0
   ret i64 %36
@@ -1759,7 +1759,7 @@ define dso_local range(i64 0, 21) i64 @rb_obj_is_kind_of(i64 noundef %0, i64 nou
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %13, %15
-  %.0.in.i = phi ptr [ @rb_cNilClass, %11 ], [ @rb_cTrueClass, %12 ], [ %9, %7 ], [ @rb_cFalseClass, %10 ], [ @rb_cInteger, %13 ], [ %spec.select.i, %15 ]
+  %.0.in.i = phi ptr [ %9, %7 ], [ @rb_cNilClass, %11 ], [ @rb_cTrueClass, %12 ], [ @rb_cFalseClass, %10 ], [ @rb_cInteger, %13 ], [ %spec.select.i, %15 ]
   %.0.i30 = load i64, ptr %.0.in.i, align 8, !tbaa !7
   %18 = icmp eq i64 %.0.i30, %1
   br i1 %18, label %class_search_class_ancestor.exit, label %19
@@ -1914,7 +1914,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 class_search_class_ancestor.exit:                 ; preds = %59, %33, %27, %class_search_ancestor.exit, %40, %rb_class_of.exit, %class_search_ancestor.exit44
-  %.0 = phi i64 [ %97, %class_search_ancestor.exit44 ], [ 20, %rb_class_of.exit ], [ %80, %class_search_ancestor.exit ], [ 20, %40 ], [ %39, %33 ], [ 0, %27 ], [ 20, %59 ]
+  %.0 = phi i64 [ %97, %class_search_ancestor.exit44 ], [ 0, %27 ], [ 20, %rb_class_of.exit ], [ %80, %class_search_ancestor.exit ], [ 20, %40 ], [ %39, %33 ], [ 20, %59 ]
   ret i64 %.0
 }
 
@@ -2115,7 +2115,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %1
   br label %rb_any_to_s.exit
 
 rb_any_to_s.exit:                                 ; preds = %23, %25, %26, %27, %28, %30
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %26 ], [ @rb_cTrueClass, %27 ], [ %24, %23 ], [ @rb_cFalseClass, %25 ], [ @rb_cInteger, %28 ], [ %spec.select.i.i, %30 ]
+  %.0.in.i.i = phi ptr [ %24, %23 ], [ @rb_cNilClass, %26 ], [ @rb_cTrueClass, %27 ], [ @rb_cFalseClass, %25 ], [ @rb_cInteger, %28 ], [ %spec.select.i.i, %30 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !7
   %33 = tail call i64 @rb_class_name(i64 noundef %.0.i.i) #24
   %34 = inttoptr i64 %12 to ptr
@@ -2312,7 +2312,7 @@ class_search_ancestor.exit43:                     ; preds = %66, %71
   br label %class_search_ancestor.exit.thread
 
 class_search_ancestor.exit.thread:                ; preds = %54, %class_search_ancestor.exit43, %class_search_ancestor.exit, %28, %37, %35, %2
-  %.0 = phi i64 [ 20, %2 ], [ %34, %28 ], [ %43, %37 ], [ 4, %35 ], [ 20, %class_search_ancestor.exit ], [ %., %class_search_ancestor.exit43 ], [ 20, %54 ]
+  %.0 = phi i64 [ 20, %class_search_ancestor.exit ], [ 20, %2 ], [ 4, %35 ], [ %., %class_search_ancestor.exit43 ], [ %34, %28 ], [ %43, %37 ], [ 20, %54 ]
   ret i64 %.0
 }
 
@@ -2554,7 +2554,7 @@ define hidden i64 @rb_mod_attr(i32 noundef %0, ptr noundef readonly captures(non
   br label %rb_mod_attr_reader.exit
 
 rb_mod_attr_reader.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i21, %.split, %22, %34
-  %.0 = phi i64 [ %25, %34 ], [ %25, %22 ], [ %6, %.split ], [ %16, %.lr.ph.i21 ], [ %6, %.lr.ph.i ]
+  %.0 = phi i64 [ %25, %22 ], [ %25, %34 ], [ %16, %.lr.ph.i21 ], [ %6, %.split ], [ %6, %.lr.ph.i ]
   ret i64 %.0
 }
 
@@ -2680,7 +2680,7 @@ switch.lookup:                                    ; preds = %14
   br label %rb_type.exit
 
 rb_type.exit:                                     ; preds = %switch.lookup, %9, %17, %19
-  %.0.i = phi i32 [ %13, %9 ], [ 21, %17 ], [ %spec.select.i, %19 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi i32 [ %13, %9 ], [ %spec.select.i, %19 ], [ 21, %17 ], [ %switch.load, %switch.lookup ]
   %22 = icmp eq i32 %.0.i, %1
   br i1 %22, label %75, label %23
 
@@ -2792,7 +2792,7 @@ switch.lookup30:                                  ; preds = %66
   br label %rb_type.exit17
 
 rb_type.exit17:                                   ; preds = %switch.lookup30, %61, %69, %71
-  %.0.i14 = phi i32 [ %65, %61 ], [ 21, %69 ], [ %spec.select.i16, %71 ], [ %switch.load35, %switch.lookup30 ]
+  %.0.i14 = phi i32 [ %65, %61 ], [ %spec.select.i16, %71 ], [ 21, %69 ], [ %switch.load35, %switch.lookup30 ]
   %.not = icmp eq i32 %.0.i14, %1
   br i1 %.not, label %75, label %74
 
@@ -2855,7 +2855,7 @@ switch.lookup:                                    ; preds = %14
   br label %rb_type.exit
 
 rb_type.exit:                                     ; preds = %switch.lookup, %9, %17, %19
-  %.0.i = phi i32 [ %13, %9 ], [ 21, %17 ], [ %spec.select.i, %19 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi i32 [ %13, %9 ], [ %spec.select.i, %19 ], [ 21, %17 ], [ %switch.load, %switch.lookup ]
   %22 = icmp eq i32 %.0.i, %1
   br i1 %22, label %49, label %23
 
@@ -2900,7 +2900,7 @@ switch.lookup22:                                  ; preds = %34
   br label %rb_type.exit17
 
 rb_type.exit17:                                   ; preds = %switch.lookup22, %29, %37, %39
-  %.0.i14 = phi i32 [ %33, %29 ], [ 21, %37 ], [ %spec.select.i16, %39 ], [ %switch.load27, %switch.lookup22 ]
+  %.0.i14 = phi i32 [ %33, %29 ], [ %spec.select.i16, %39 ], [ 21, %37 ], [ %switch.load27, %switch.lookup22 ]
   %.not = icmp eq i32 %.0.i14, %1
   br i1 %.not, label %49, label %42
 
@@ -3017,7 +3017,7 @@ switch.lookup:                                    ; preds = %14
   br label %rb_type.exit
 
 rb_type.exit:                                     ; preds = %switch.lookup, %9, %17, %19
-  %.0.i = phi i32 [ %13, %9 ], [ 21, %17 ], [ %spec.select.i, %19 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi i32 [ %13, %9 ], [ %spec.select.i, %19 ], [ 21, %17 ], [ %switch.load, %switch.lookup ]
   %22 = icmp eq i32 %.0.i, %1
   %23 = icmp ne i32 %1, 12
   %or.cond = and i1 %23, %22
@@ -3134,7 +3134,7 @@ switch.lookup34:                                  ; preds = %67
   br label %rb_type.exit19
 
 rb_type.exit19:                                   ; preds = %switch.lookup34, %62, %70, %72
-  %.0.i16 = phi i32 [ %66, %62 ], [ 21, %70 ], [ %spec.select.i18, %72 ], [ %switch.load39, %switch.lookup34 ]
+  %.0.i16 = phi i32 [ %66, %62 ], [ %spec.select.i18, %72 ], [ 21, %70 ], [ %switch.load39, %switch.lookup34 ]
   %.not = icmp eq i32 %.0.i16, %1
   br i1 %.not, label %convert_type_with_id.exit.thread, label %75
 
@@ -3143,7 +3143,7 @@ rb_type.exit19:                                   ; preds = %switch.lookup34, %6
   unreachable
 
 convert_type_with_id.exit.thread:                 ; preds = %convert_type.exit, %convert_type.exit, %rb_type.exit19, %rb_type.exit
-  %.0 = phi i64 [ %0, %rb_type.exit ], [ %56, %rb_type.exit19 ], [ 4, %convert_type.exit ], [ 4, %convert_type.exit ]
+  %.0 = phi i64 [ 4, %convert_type.exit ], [ %0, %rb_type.exit ], [ %56, %rb_type.exit19 ], [ 4, %convert_type.exit ]
   ret i64 %.0
 }
 
@@ -3188,7 +3188,7 @@ switch.lookup:                                    ; preds = %14
   br label %rb_type.exit
 
 rb_type.exit:                                     ; preds = %switch.lookup, %9, %17, %19
-  %.0.i = phi i32 [ %13, %9 ], [ 21, %17 ], [ %spec.select.i, %19 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi i32 [ %13, %9 ], [ %spec.select.i, %19 ], [ 21, %17 ], [ %switch.load, %switch.lookup ]
   %22 = icmp eq i32 %.0.i, %1
   %23 = icmp ne i32 %1, 12
   %or.cond = and i1 %23, %22
@@ -3241,7 +3241,7 @@ switch.lookup26:                                  ; preds = %36
   br label %rb_type.exit20
 
 rb_type.exit20:                                   ; preds = %switch.lookup26, %31, %39, %41
-  %.0.i17 = phi i32 [ %35, %31 ], [ 21, %39 ], [ %spec.select.i19, %41 ], [ %switch.load31, %switch.lookup26 ]
+  %.0.i17 = phi i32 [ %35, %31 ], [ %spec.select.i19, %41 ], [ 21, %39 ], [ %switch.load31, %switch.lookup26 ]
   %.not = icmp eq i32 %.0.i17, %1
   br i1 %.not, label %convert_type_with_id.exit.thread, label %44
 
@@ -3264,7 +3264,7 @@ RSTRING_PTR.exit:                                 ; preds = %44, %50
   unreachable
 
 convert_type_with_id.exit.thread:                 ; preds = %24, %24, %rb_type.exit20, %rb_type.exit
-  %.0 = phi i64 [ %0, %rb_type.exit ], [ %25, %rb_type.exit20 ], [ 4, %24 ], [ 4, %24 ]
+  %.0 = phi i64 [ 4, %24 ], [ %0, %rb_type.exit ], [ %25, %rb_type.exit20 ], [ 4, %24 ]
   ret i64 %.0
 }
 
@@ -3379,7 +3379,7 @@ rb_integer_type_p.exit8:                          ; preds = %47
   br label %rb_integer_type_p.exit.thread
 
 rb_integer_type_p.exit.thread:                    ; preds = %rb_integer_type_p.exit8, %convert_type.exit, %47, %convert_type_with_id.exit, %2, %rb_integer_type_p.exit
-  %.0 = phi i64 [ %0, %rb_integer_type_p.exit ], [ %0, %2 ], [ %44, %convert_type_with_id.exit ], [ 4, %47 ], [ 4, %convert_type.exit ], [ %spec.select, %rb_integer_type_p.exit8 ]
+  %.0 = phi i64 [ 4, %convert_type.exit ], [ %0, %rb_integer_type_p.exit ], [ %44, %convert_type_with_id.exit ], [ %spec.select, %rb_integer_type_p.exit8 ], [ %0, %2 ], [ 4, %47 ]
   ret i64 %.0
 }
 
@@ -3440,7 +3440,7 @@ rb_integer_type_p.exit4.thread:                   ; preds = %rb_integer_type_p.e
   br label %rb_to_integer_with_id_exception.exit
 
 rb_to_integer_with_id_exception.exit:             ; preds = %1, %rb_integer_type_p.exit, %rb_integer_type_p.exit4.thread
-  %.0.i = phi i64 [ %17, %rb_integer_type_p.exit4.thread ], [ %0, %rb_integer_type_p.exit ], [ %0, %1 ]
+  %.0.i = phi i64 [ %0, %rb_integer_type_p.exit ], [ %17, %rb_integer_type_p.exit4.thread ], [ %0, %1 ]
   ret i64 %.0.i
 }
 
@@ -3491,7 +3491,7 @@ rb_integer_type_p.exit9:                          ; preds = %15
   br label %rb_integer_type_p.exit.thread
 
 rb_integer_type_p.exit.thread:                    ; preds = %rb_integer_type_p.exit9, %rb_integer_type_p.exit.thread11, %15, %convert_type_with_id.exit, %1, %rb_integer_type_p.exit
-  %.0 = phi i64 [ %0, %rb_integer_type_p.exit ], [ %0, %1 ], [ %12, %convert_type_with_id.exit ], [ 4, %15 ], [ 4, %rb_integer_type_p.exit.thread11 ], [ %spec.select, %rb_integer_type_p.exit9 ]
+  %.0 = phi i64 [ %0, %rb_integer_type_p.exit ], [ 4, %rb_integer_type_p.exit.thread11 ], [ %12, %convert_type_with_id.exit ], [ %spec.select, %rb_integer_type_p.exit9 ], [ %0, %1 ], [ 4, %15 ]
   ret i64 %.0
 }
 
@@ -3710,7 +3710,7 @@ rb_integer_type_p.exit53.thread:                  ; preds = %rb_integer_type_p.e
   br label %rb_to_integer_with_id_exception.exit
 
 rb_to_integer_with_id_exception.exit:             ; preds = %62, %RB_FLOAT_TYPE_P.exit.thread55, %rb_integer_type_p.exit53.thread, %rb_integer_type_p.exit50, %rb_integer_type_p.exit47, %59, %rb_integer_type_p.exit, %37, %41, %rb_float_value_inline.exit, %7, %79, %76, %56
-  %.0 = phi i64 [ %57, %56 ], [ %80, %79 ], [ %77, %76 ], [ 4, %7 ], [ %40, %37 ], [ %42, %41 ], [ 4, %rb_float_value_inline.exit ], [ %.033, %rb_integer_type_p.exit ], [ 4, %59 ], [ %63, %rb_integer_type_p.exit47 ], [ %91, %rb_integer_type_p.exit53.thread ], [ %.033, %rb_integer_type_p.exit50 ], [ %.033, %RB_FLOAT_TYPE_P.exit.thread55 ], [ %63, %62 ]
+  %.0 = phi i64 [ %77, %76 ], [ 4, %7 ], [ 4, %rb_float_value_inline.exit ], [ %57, %56 ], [ %.033, %rb_integer_type_p.exit ], [ 4, %59 ], [ %.033, %RB_FLOAT_TYPE_P.exit.thread55 ], [ %80, %79 ], [ %40, %37 ], [ %42, %41 ], [ %63, %rb_integer_type_p.exit47 ], [ %91, %rb_integer_type_p.exit53.thread ], [ %.033, %rb_integer_type_p.exit50 ], [ %63, %62 ]
   ret i64 %.0
 }
 
@@ -3838,7 +3838,7 @@ define dso_local noundef i32 @rb_opts_exception_p(i64 noundef %0, i32 noundef %1
   unreachable
 
 rb_bool_expected.exit:                            ; preds = %7, %5, %2
-  %.0 = phi i32 [ %1, %2 ], [ 0, %7 ], [ 1, %5 ]
+  %.0 = phi i32 [ %1, %2 ], [ 1, %5 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -4215,7 +4215,7 @@ thread-pre-split:                                 ; preds = %66, %59
   %.not149 = icmp eq i8 %148, 0
   br i1 %.not149, label %.critedge.thread170, label %.lr.ph215, !llvm.loop !86
 
-.critedge.thread165:                              ; preds = %.lr.ph215, %72, %106, %113, %136
+.critedge.thread165:                              ; preds = %.lr.ph215, %106, %136, %113, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %161
 
@@ -4228,8 +4228,8 @@ thread-pre-split:                                 ; preds = %66, %59
   br label %167
 
 149:                                              ; preds = %.critedge.thread170, %34
-  %.0123 = phi double [ %19, %34 ], [ %124, %.critedge.thread170 ]
-  %.1104 = phi ptr [ %.0103, %34 ], [ %7, %.critedge.thread170 ]
+  %.0123 = phi double [ %124, %.critedge.thread170 ], [ %19, %34 ]
+  %.1104 = phi ptr [ %7, %.critedge.thread170 ], [ %.0103, %34 ]
   %150 = call ptr @rb_errno_ptr() #24
   %151 = load i32, ptr %150, align 4, !tbaa !79
   %152 = icmp eq i32 %151, 34
@@ -4269,7 +4269,7 @@ thread-pre-split:                                 ; preds = %66, %59
   br label %167
 
 167:                                              ; preds = %.critedge, %165, %166, %149, %33, %16, %16, %5
-  %.0 = phi double [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %5 ], [ 0.000000e+00, %16 ], [ 0.000000e+00, %16 ], [ %19, %33 ], [ %.0123, %149 ], [ 0.000000e+00, %166 ], [ 0.000000e+00, %165 ]
+  %.0 = phi double [ %.0123, %149 ], [ 0.000000e+00, %16 ], [ 0.000000e+00, %.critedge ], [ %19, %33 ], [ 0.000000e+00, %5 ], [ 0.000000e+00, %16 ], [ 0.000000e+00, %166 ], [ 0.000000e+00, %165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret double %.0
 }
@@ -4389,7 +4389,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %30, %32
   br label %45
 
 45:                                               ; preds = %41, %42, %21, %22
-  %.0 = phi double [ 0.000000e+00, %22 ], [ 0.000000e+00, %21 ], [ %39, %42 ], [ %39, %41 ]
+  %.0 = phi double [ 0.000000e+00, %21 ], [ 0.000000e+00, %22 ], [ %39, %42 ], [ %39, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret double %.0
 }
@@ -4458,7 +4458,7 @@ define internal fastcc i64 @rb_convert_to_float(i64 noundef %0, i32 noundef rang
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %28, %26, %22, %10
-  %30 = phi i64 [ 4, %10 ], [ %29, %28 ], [ %25, %22 ], [ -9223372036854775806, %26 ]
+  %30 = phi i64 [ 4, %10 ], [ %25, %22 ], [ %29, %28 ], [ -9223372036854775806, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %rb_float_new_inline.exit15
 
@@ -4527,7 +4527,7 @@ rb_float_new_inline.exit:                         ; preds = %28, %26, %22, %10
   br label %rb_float_new_inline.exit15
 
 rb_float_new_inline.exit15:                       ; preds = %47, %45, %41, %49, %63, %62, %rb_float_new_inline.exit, %7
-  %.0 = phi i64 [ %65, %63 ], [ %59, %62 ], [ %8, %7 ], [ %30, %rb_float_new_inline.exit ], [ 4, %49 ], [ %48, %47 ], [ %44, %41 ], [ -9223372036854775806, %45 ]
+  %.0 = phi i64 [ %65, %63 ], [ %59, %62 ], [ %8, %7 ], [ 4, %49 ], [ %30, %rb_float_new_inline.exit ], [ %44, %41 ], [ %48, %47 ], [ -9223372036854775806, %45 ]
   ret i64 %.0
 }
 
@@ -4605,7 +4605,7 @@ define internal fastcc range(i32 0, 6) i32 @to_float(ptr noundef nonnull capture
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %20, %24, %26
-  %.0.i = phi i64 [ %27, %26 ], [ %23, %20 ], [ -9223372036854775806, %24 ]
+  %.0.i = phi i64 [ %23, %20 ], [ %27, %26 ], [ -9223372036854775806, %24 ]
   store i64 %.0.i, ptr %0, align 8, !tbaa !7
   br label %conversion_to_float.exit
 
@@ -4684,7 +4684,7 @@ rb_float_new_inline.exit:                         ; preds = %20, %24, %26
   br label %rb_float_new_inline.exit18
 
 rb_float_new_inline.exit18:                       ; preds = %55, %59, %61
-  %.0.i17 = phi i64 [ %62, %61 ], [ %58, %55 ], [ -9223372036854775806, %59 ]
+  %.0.i17 = phi i64 [ %58, %55 ], [ %62, %61 ], [ -9223372036854775806, %59 ]
   store i64 %.0.i17, ptr %0, align 8, !tbaa !7
   br label %conversion_to_float.exit
 
@@ -4717,7 +4717,7 @@ rb_float_new_inline.exit18:                       ; preds = %55, %59, %61
   br label %rb_float_new_inline.exit21
 
 rb_float_new_inline.exit21:                       ; preds = %72, %76, %78
-  %.0.i20 = phi i64 [ %79, %78 ], [ %75, %72 ], [ -9223372036854775806, %76 ]
+  %.0.i20 = phi i64 [ %75, %72 ], [ %79, %78 ], [ -9223372036854775806, %76 ]
   store i64 %.0.i20, ptr %0, align 8, !tbaa !7
   br label %conversion_to_float.exit
 
@@ -4725,7 +4725,7 @@ rb_float_new_inline.exit21:                       ; preds = %72, %76, %78
   br label %conversion_to_float.exit
 
 conversion_to_float.exit:                         ; preds = %rb_float_new_inline.exit21, %rb_float_new_inline.exit18, %30, %31, %41, %.thread, %28, %rb_float_new_inline.exit
-  %.0 = phi i32 [ 4, %rb_float_new_inline.exit ], [ 4, %28 ], [ 0, %41 ], [ 0, %31 ], [ 0, %30 ], [ 4, %rb_float_new_inline.exit21 ], [ 4, %rb_float_new_inline.exit18 ], [ %45, %.thread ]
+  %.0 = phi i32 [ 4, %rb_float_new_inline.exit ], [ 0, %30 ], [ 4, %28 ], [ 0, %41 ], [ 0, %31 ], [ 4, %rb_float_new_inline.exit21 ], [ 4, %rb_float_new_inline.exit18 ], [ %45, %.thread ]
   ret i32 %.0
 }
 
@@ -4760,7 +4760,7 @@ RB_FLOAT_TYPE_P.exit.thread6:                     ; preds = %4, %RB_FLOAT_TYPE_P
   br label %RB_FLOAT_TYPE_P.exit.thread
 
 RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %1, %RB_FLOAT_TYPE_P.exit.thread6, %RB_FLOAT_TYPE_P.exit, %15
-  %.0 = phi i64 [ %16, %15 ], [ %0, %RB_FLOAT_TYPE_P.exit ], [ 4, %RB_FLOAT_TYPE_P.exit.thread6 ], [ %0, %1 ]
+  %.0 = phi i64 [ %0, %RB_FLOAT_TYPE_P.exit ], [ %16, %15 ], [ 4, %RB_FLOAT_TYPE_P.exit.thread6 ], [ %0, %1 ]
   ret i64 %.0
 }
 
@@ -4905,7 +4905,7 @@ numeric_to_float.exit:                            ; preds = %conversion_to_float
   br label %rb_float_flonum_value.exit
 
 rb_float_flonum_value.exit:                       ; preds = %66, %60, %59, %17, %16, %49, %44, %38, %11
-  %.0 = phi double [ %13, %11 ], [ %40, %38 ], [ %45, %44 ], [ %50, %49 ], [ %22, %17 ], [ 0.000000e+00, %16 ], [ %69, %66 ], [ %65, %60 ], [ 0.000000e+00, %59 ]
+  %.0 = phi double [ %13, %11 ], [ 0.000000e+00, %16 ], [ %50, %49 ], [ %40, %38 ], [ %45, %44 ], [ %22, %17 ], [ %69, %66 ], [ %65, %60 ], [ 0.000000e+00, %59 ]
   ret double %.0
 }
 
@@ -5152,7 +5152,7 @@ implicit_conversion_to_float.exit:                ; preds = %20, %30
   br label %rb_float_flonum_value.exit
 
 rb_float_flonum_value.exit:                       ; preds = %54, %48, %47, %14, %13, %40, %38, %35, %8
-  %.0 = phi double [ %10, %8 ], [ %37, %35 ], [ %39, %38 ], [ %41, %40 ], [ %19, %14 ], [ 0.000000e+00, %13 ], [ %57, %54 ], [ %53, %48 ], [ 0.000000e+00, %47 ]
+  %.0 = phi double [ %10, %8 ], [ %41, %40 ], [ 0.000000e+00, %13 ], [ %37, %35 ], [ %39, %38 ], [ %19, %14 ], [ %57, %54 ], [ %53, %48 ], [ 0.000000e+00, %47 ]
   ret double %.0
 }
 
@@ -5578,7 +5578,7 @@ define hidden void @InitVM_Object() local_unnamed_addr #2 {
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %68, %71, %72, %73, %74, %76
-  %.0.in.i = phi ptr [ @rb_cNilClass, %72 ], [ @rb_cTrueClass, %73 ], [ %70, %68 ], [ @rb_cFalseClass, %71 ], [ @rb_cInteger, %74 ], [ %spec.select.i, %76 ]
+  %.0.in.i = phi ptr [ %70, %68 ], [ @rb_cNilClass, %72 ], [ @rb_cTrueClass, %73 ], [ @rb_cFalseClass, %71 ], [ @rb_cInteger, %74 ], [ %spec.select.i, %76 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !7
   tail call void @rb_undef_method(i64 noundef %.0.i, ptr noundef nonnull @.str.80) #24
   %79 = load i64, ptr @rb_cModule, align 8, !tbaa !7
@@ -5753,7 +5753,7 @@ rb_class_of.exit:                                 ; preds = %68, %71, %72, %73, 
   br label %rb_class_of.exit5
 
 rb_class_of.exit5:                                ; preds = %153, %156, %157, %158, %159, %161
-  %.0.in.i1 = phi ptr [ @rb_cNilClass, %157 ], [ @rb_cTrueClass, %158 ], [ %155, %153 ], [ @rb_cFalseClass, %156 ], [ @rb_cInteger, %159 ], [ %spec.select.i4, %161 ]
+  %.0.in.i1 = phi ptr [ %155, %153 ], [ @rb_cNilClass, %157 ], [ @rb_cTrueClass, %158 ], [ @rb_cFalseClass, %156 ], [ @rb_cInteger, %159 ], [ %spec.select.i4, %161 ]
   %.0.i2 = load i64, ptr %.0.in.i1, align 8, !tbaa !7
   tail call void @rb_undef_method(i64 noundef %.0.i2, ptr noundef nonnull @.str.80) #24
   %164 = load i64, ptr @rb_cObject, align 8, !tbaa !7
@@ -5814,7 +5814,7 @@ rb_class_of.exit5:                                ; preds = %153, %156, %157, %1
   br label %rb_class_of.exit10
 
 rb_class_of.exit10:                               ; preds = %180, %183, %184, %185, %186, %188
-  %.0.in.i6 = phi ptr [ @rb_cNilClass, %184 ], [ @rb_cTrueClass, %185 ], [ %182, %180 ], [ @rb_cFalseClass, %183 ], [ @rb_cInteger, %186 ], [ %spec.select.i9, %188 ]
+  %.0.in.i6 = phi ptr [ %182, %180 ], [ @rb_cNilClass, %184 ], [ @rb_cTrueClass, %185 ], [ @rb_cFalseClass, %183 ], [ @rb_cInteger, %186 ], [ %spec.select.i9, %188 ]
   %.0.i7 = load i64, ptr %.0.in.i6, align 8, !tbaa !7
   tail call void @rb_undef_method(i64 noundef %.0.i7, ptr noundef nonnull @.str.80) #24
   ret void
@@ -5924,7 +5924,7 @@ rb_scan_args_n_opt.exit:
   br i1 %16, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %.thread10, %11
-  %.0.i6 = phi i32 [ %.0.i14, %.thread10 ], [ 0, %11 ], [ %0, %rb_scan_args_n_opt.exit ]
+  %.0.i6 = phi i32 [ 0, %11 ], [ %.0.i14, %.thread10 ], [ %0, %rb_scan_args_n_opt.exit ]
   tail call void @rb_error_arity(i32 noundef %.0.i6, i32 noundef 1, i32 noundef 1) #25
   unreachable
 
@@ -5985,7 +5985,7 @@ define internal i64 @rb_obj_inspect(i64 noundef %0) #2 {
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %14, %16
-  %.0.in.i = phi ptr [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ %10, %8 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
+  %.0.in.i = phi ptr [ %10, %8 ], [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !7
   %19 = tail call i64 @rb_class_name(i64 noundef %.0.i) #24
   %20 = inttoptr i64 %0 to ptr
@@ -6026,7 +6026,7 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
   br label %rb_any_to_s.exit
 
 rb_any_to_s.exit:                                 ; preds = %24, %27, %28, %29, %30, %32
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %28 ], [ @rb_cTrueClass, %29 ], [ %26, %24 ], [ @rb_cFalseClass, %27 ], [ @rb_cInteger, %30 ], [ %spec.select.i.i, %32 ]
+  %.0.in.i.i = phi ptr [ %26, %24 ], [ @rb_cNilClass, %28 ], [ @rb_cTrueClass, %29 ], [ @rb_cFalseClass, %27 ], [ @rb_cInteger, %30 ], [ %spec.select.i.i, %32 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !7
   %35 = tail call i64 @rb_class_name(i64 noundef %.0.i.i) #24
   %36 = inttoptr i64 %0 to ptr
@@ -6369,7 +6369,7 @@ define internal range(i64 -1, 5) i64 @rb_mod_cmp(i64 noundef %0, i64 noundef %1)
   br label %17
 
 17:                                               ; preds = %9, %16, %13, %4, %2
-  %.0 = phi i64 [ 1, %2 ], [ 4, %9 ], [ 4, %4 ], [ 4, %13 ], [ %., %16 ]
+  %.0 = phi i64 [ 4, %13 ], [ 1, %2 ], [ 4, %4 ], [ %., %16 ], [ 4, %9 ]
   ret i64 %.0
 }
 
@@ -6569,7 +6569,7 @@ rb_scan_args_n_opt.exit:
   br i1 %16, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %.thread18, %11
-  %.0.i11 = phi i32 [ %.0.i20, %.thread18 ], [ 0, %11 ], [ %0, %rb_scan_args_n_opt.exit ]
+  %.0.i11 = phi i32 [ 0, %11 ], [ %.0.i20, %.thread18 ], [ %0, %rb_scan_args_n_opt.exit ]
   tail call void @rb_error_arity(i32 noundef %.0.i11, i32 noundef 1, i32 noundef 1) #25
   unreachable
 
@@ -6595,7 +6595,7 @@ rb_scan_args_set.exit:                            ; preds = %.thread18
   br i1 %24, label %rb_scan_args_set.exit.i, label %.thread.i
 
 .thread.i:                                        ; preds = %.thread10.i, %19
-  %.0.i6.i = phi i32 [ %.0.i14.i, %.thread10.i ], [ 0, %19 ]
+  %.0.i6.i = phi i32 [ 0, %19 ], [ %.0.i14.i, %.thread10.i ]
   tail call void @rb_error_arity(i32 noundef %.0.i6.i, i32 noundef 1, i32 noundef 1) #25
   unreachable
 
@@ -6823,8 +6823,8 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.th
   br i1 %.not93, label %83, label %.thread111.loopexit
 
 83:                                               ; preds = %80, %69, %75
-  %.482 = phi ptr [ %.280.lcssa, %75 ], [ %.280.lcssa, %69 ], [ %79, %80 ]
-  %.377 = phi ptr [ %.175131, %75 ], [ %.175131, %69 ], [ %79, %80 ]
+  %.482 = phi ptr [ %.280.lcssa, %69 ], [ %.280.lcssa, %75 ], [ %79, %80 ]
+  %.377 = phi ptr [ %.175131, %69 ], [ %.175131, %75 ], [ %79, %80 ]
   %84 = icmp eq i64 %.2132, 0
   %85 = and i64 %.2132, 7
   %86 = icmp ne i64 %85, 0
@@ -6907,22 +6907,22 @@ rb_class_of.exit:                                 ; preds = %95
   br label %120
 
 120:                                              ; preds = %112, %118, %116, %102
-  %.3 = phi i64 [ %104, %102 ], [ %117, %116 ], [ %119, %118 ], [ %113, %112 ]
+  %.3 = phi i64 [ %104, %102 ], [ %113, %112 ], [ %117, %116 ], [ %119, %118 ]
   %121 = icmp ult ptr %.482, %48
   br i1 %121, label %.preheader, label %.loopexit
 
-.thread111.loopexit:                              ; preds = %.critedge, %80, %78
+.thread111.loopexit:                              ; preds = %.critedge, %78, %80
   %.pre = load i64, ptr %4, align 8, !tbaa !7
   br label %.thread111
 
-.thread111:                                       ; preds = %.thread111.loopexit, %99, %109, %43, %49, %RB_SYMBOL_P.exit.thread
-  %122 = phi i64 [ %7, %RB_SYMBOL_P.exit.thread ], [ %44, %43 ], [ %44, %49 ], [ %110, %109 ], [ %97, %99 ], [ %.pre, %.thread111.loopexit ]
-  %.072 = phi i64 [ %2, %RB_SYMBOL_P.exit.thread ], [ %2, %43 ], [ %2, %49 ], [ %.2132, %109 ], [ %.2132, %99 ], [ %.2132, %.thread111.loopexit ]
+.thread111:                                       ; preds = %.thread111.loopexit, %109, %99, %43, %49, %RB_SYMBOL_P.exit.thread
+  %122 = phi i64 [ %7, %RB_SYMBOL_P.exit.thread ], [ %44, %43 ], [ %44, %49 ], [ %97, %99 ], [ %110, %109 ], [ %.pre, %.thread111.loopexit ]
+  %.072 = phi i64 [ %2, %RB_SYMBOL_P.exit.thread ], [ %2, %43 ], [ %2, %49 ], [ %.2132, %99 ], [ %.2132, %109 ], [ %.2132, %.thread111.loopexit ]
   call fastcc void @rb_name_err_raise(ptr noundef nonnull @bad_const_name, i64 noundef %.072, i64 noundef %122) #28
   unreachable
 
 .loopexit:                                        ; preds = %120, %60, %33, %35, %29
-  %.0 = phi i64 [ %31, %29 ], [ %34, %33 ], [ %36, %35 ], [ %.1, %60 ], [ %.3, %120 ]
+  %.0 = phi i64 [ %34, %33 ], [ %31, %29 ], [ %36, %35 ], [ %.1, %60 ], [ %.3, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -7148,11 +7148,11 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.th
   br i1 %.not101.us, label %85, label %.thread125
 
 85:                                               ; preds = %.thread, %82, %73
-  %86 = phi i64 [ %77, %73 ], [ %77, %82 ], [ %72, %.thread ]
-  %87 = phi i64 [ %76, %73 ], [ %76, %82 ], [ %71, %.thread ]
-  %88 = phi i64 [ %75, %73 ], [ %75, %82 ], [ %70, %.thread ]
-  %.490.us = phi ptr [ %.288.lcssa.us, %73 ], [ %81, %82 ], [ %65, %.thread ]
-  %.384.us = phi ptr [ %.182150.us, %73 ], [ %81, %82 ], [ %.182150.us, %.thread ]
+  %86 = phi i64 [ %72, %.thread ], [ %77, %73 ], [ %77, %82 ]
+  %87 = phi i64 [ %71, %.thread ], [ %76, %73 ], [ %76, %82 ]
+  %88 = phi i64 [ %70, %.thread ], [ %75, %73 ], [ %75, %82 ]
+  %.490.us = phi ptr [ %65, %.thread ], [ %.288.lcssa.us, %73 ], [ %81, %82 ]
+  %.384.us = phi ptr [ %.182150.us, %.thread ], [ %.182150.us, %73 ], [ %81, %82 ]
   %.not102.us = icmp eq i64 %86, 0
   br i1 %.not102.us, label %.split.us, label %89
 
@@ -7242,11 +7242,11 @@ rbimpl_RB_TYPE_P_fastpath.exit112.us:             ; preds = %98
   br i1 %.not101, label %129, label %.thread125
 
 129:                                              ; preds = %.thread245, %126, %117
-  %130 = phi i64 [ %121, %117 ], [ %121, %126 ], [ %116, %.thread245 ]
-  %131 = phi i64 [ %120, %117 ], [ %120, %126 ], [ %115, %.thread245 ]
-  %132 = phi i64 [ %119, %117 ], [ %119, %126 ], [ %114, %.thread245 ]
-  %.490 = phi ptr [ %.288146, %117 ], [ %125, %126 ], [ %109, %.thread245 ]
-  %.384 = phi ptr [ %.182150, %117 ], [ %125, %126 ], [ %.182150, %.thread245 ]
+  %130 = phi i64 [ %116, %.thread245 ], [ %121, %117 ], [ %121, %126 ]
+  %131 = phi i64 [ %115, %.thread245 ], [ %120, %117 ], [ %120, %126 ]
+  %132 = phi i64 [ %114, %.thread245 ], [ %119, %117 ], [ %119, %126 ]
+  %.490 = phi ptr [ %109, %.thread245 ], [ %.288146, %117 ], [ %125, %126 ]
+  %.384 = phi ptr [ %.182150, %.thread245 ], [ %.182150, %117 ], [ %125, %126 ]
   %.not102 = icmp eq i64 %130, 0
   br i1 %.not102, label %.split.us, label %138
 
@@ -7336,14 +7336,14 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
   store i64 %.sink, ptr %4, align 8, !tbaa !7
   br label %.thread125
 
-.thread125:                                       ; preds = %.critedge, %126, %124, %.critedge.thread, %82, %80, %.critedge.us, %.critedge.us.thread, %.thread125.sink.split, %43, %49, %RB_SYMBOL_P.exit.thread
-  %.078 = phi i64 [ %2, %RB_SYMBOL_P.exit.thread ], [ %2, %43 ], [ %2, %49 ], [ %.078.ph, %.thread125.sink.split ], [ %.280151.us, %.critedge.us.thread ], [ %.280151.us, %.critedge.us ], [ %.280151.us, %80 ], [ %.280151.us, %82 ], [ %.280151, %.critedge.thread ], [ %.280151, %124 ], [ %.280151, %126 ], [ %.280151, %.critedge ]
+.thread125:                                       ; preds = %.critedge, %124, %126, %.critedge.thread, %82, %80, %.critedge.us, %.critedge.us.thread, %.thread125.sink.split, %43, %49, %RB_SYMBOL_P.exit.thread
+  %.078 = phi i64 [ %2, %RB_SYMBOL_P.exit.thread ], [ %2, %43 ], [ %2, %49 ], [ %.078.ph, %.thread125.sink.split ], [ %.280151.us, %82 ], [ %.280151.us, %.critedge.us.thread ], [ %.280151.us, %.critedge.us ], [ %.280151.us, %80 ], [ %.280151, %.critedge.thread ], [ %.280151, %126 ], [ %.280151, %124 ], [ %.280151, %.critedge ]
   %168 = load i64, ptr %4, align 8, !tbaa !7
   call fastcc void @rb_name_err_raise(ptr noundef nonnull @bad_const_name, i64 noundef %.078, i64 noundef %168) #28
   unreachable
 
-.thread118:                                       ; preds = %155, %143, %145, %149, %151, %95, %91, %93, %60, %.split.us, %27, %34
-  %.0 = phi i64 [ %36, %34 ], [ 0, %27 ], [ 0, %.split.us ], [ 20, %60 ], [ 20, %95 ], [ 0, %91 ], [ 20, %93 ], [ 20, %155 ], [ 0, %143 ], [ 20, %145 ], [ 0, %149 ], [ 20, %151 ]
+.thread118:                                       ; preds = %155, %143, %151, %149, %145, %95, %93, %91, %60, %.split.us, %27, %34
+  %.0 = phi i64 [ %36, %34 ], [ 0, %27 ], [ 0, %.split.us ], [ 20, %93 ], [ 20, %60 ], [ 20, %95 ], [ 0, %91 ], [ 0, %149 ], [ 20, %145 ], [ 20, %155 ], [ 0, %143 ], [ 20, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -7523,11 +7523,11 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %RB_SYMBOL_P.exit.th
   br i1 %.not98, label %83, label %.thread112.loopexit
 
 83:                                               ; preds = %.thread, %80, %71
-  %84 = phi i64 [ %75, %71 ], [ %75, %80 ], [ %70, %.thread ]
-  %85 = phi i64 [ %74, %71 ], [ %74, %80 ], [ %69, %.thread ]
-  %86 = phi i64 [ %73, %71 ], [ %73, %80 ], [ %68, %.thread ]
-  %.487 = phi ptr [ %.285160, %71 ], [ %79, %80 ], [ %63, %.thread ]
-  %.382 = phi ptr [ %.180164, %71 ], [ %79, %80 ], [ %.180164, %.thread ]
+  %84 = phi i64 [ %70, %.thread ], [ %75, %71 ], [ %75, %80 ]
+  %85 = phi i64 [ %69, %.thread ], [ %74, %71 ], [ %74, %80 ]
+  %86 = phi i64 [ %68, %.thread ], [ %73, %71 ], [ %73, %80 ]
+  %.487 = phi ptr [ %63, %.thread ], [ %.285160, %71 ], [ %79, %80 ]
+  %.382 = phi ptr [ %.180164, %.thread ], [ %.180164, %71 ], [ %79, %80 ]
   %.not99 = icmp eq i64 %84, 0
   br i1 %.not99, label %87, label %94
 
@@ -7603,18 +7603,18 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
   %120 = call i64 @rb_const_source_location_at(i64 noundef %.271166, i64 noundef %84) #24
   br label %.thread128
 
-.thread112.loopexit:                              ; preds = %.critedge.thread, %.critedge, %80, %78
+.thread112.loopexit:                              ; preds = %.critedge.thread, %.critedge, %78, %80
   %.pre = load i64, ptr %4, align 8, !tbaa !7
   br label %.thread112
 
-.thread112:                                       ; preds = %.thread112.loopexit, %93, %96, %41, %47, %RB_SYMBOL_P.exit.thread
-  %121 = phi i64 [ %7, %RB_SYMBOL_P.exit.thread ], [ %42, %41 ], [ %42, %47 ], [ %97, %96 ], [ %91, %93 ], [ %.pre, %.thread112.loopexit ]
-  %.069 = phi i64 [ %2, %RB_SYMBOL_P.exit.thread ], [ %2, %41 ], [ %2, %47 ], [ %.271166, %96 ], [ %.271166, %93 ], [ %.271166, %.thread112.loopexit ]
+.thread112:                                       ; preds = %.thread112.loopexit, %96, %93, %41, %47, %RB_SYMBOL_P.exit.thread
+  %121 = phi i64 [ %7, %RB_SYMBOL_P.exit.thread ], [ %42, %41 ], [ %42, %47 ], [ %91, %93 ], [ %97, %96 ], [ %.pre, %.thread112.loopexit ]
+  %.069 = phi i64 [ %2, %RB_SYMBOL_P.exit.thread ], [ %2, %41 ], [ %2, %47 ], [ %.271166, %93 ], [ %.271166, %96 ], [ %.271166, %.thread112.loopexit ]
   call fastcc void @rb_name_err_raise(ptr noundef nonnull @bad_const_name, i64 noundef %.069, i64 noundef %121) #28
   unreachable
 
-.thread128:                                       ; preds = %58, %87, %117, %119, %31, %33, %28
-  %.0 = phi i64 [ 4, %28 ], [ %32, %31 ], [ %34, %33 ], [ %120, %119 ], [ %118, %117 ], [ 4, %87 ], [ 4, %58 ]
+.thread128:                                       ; preds = %58, %87, %119, %117, %31, %33, %28
+  %.0 = phi i64 [ 4, %28 ], [ %34, %33 ], [ %120, %119 ], [ %32, %31 ], [ 4, %87 ], [ %118, %117 ], [ 4, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -7759,7 +7759,7 @@ RCLASS_SINGLETON_P.exit:                          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %RCLASS_SINGLETON_P.exit.thread
 
 RCLASS_SINGLETON_P.exit.thread:                   ; preds = %RCLASS_SINGLETON_P.exit, %1, %rbimpl_RB_TYPE_P_fastpath.exit.i
-  %11 = phi i64 [ 0, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ 0, %1 ], [ %spec.select, %RCLASS_SINGLETON_P.exit ]
+  %11 = phi i64 [ 0, %1 ], [ %spec.select, %RCLASS_SINGLETON_P.exit ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
   ret i64 %11
 }
 
@@ -7991,7 +7991,7 @@ define internal i64 @builtin_inline_class_20(ptr readnone captures(none) %0, i64
   br label %rb_class_of.exit.i
 
 rb_class_of.exit.i:                               ; preds = %15, %13, %12, %11, %10, %7
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %11 ], [ @rb_cTrueClass, %12 ], [ %9, %7 ], [ @rb_cFalseClass, %10 ], [ @rb_cInteger, %13 ], [ %spec.select.i.i, %15 ]
+  %.0.in.i.i = phi ptr [ %9, %7 ], [ @rb_cNilClass, %11 ], [ @rb_cTrueClass, %12 ], [ @rb_cFalseClass, %10 ], [ @rb_cInteger, %13 ], [ %spec.select.i.i, %15 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !7
   %.not9.i.i = icmp eq i64 %.0.i.i, 0
   br i1 %.not9.i.i, label %rb_obj_class.exit, label %.lr.ph.i.i
@@ -8017,7 +8017,7 @@ rb_class_of.exit.i:                               ; preds = %15, %13, %12, %11, 
   br i1 %.not.i1.i, label %rb_obj_class.exit, label %.lr.ph.i.i, !llvm.loop !26
 
 rb_obj_class.exit:                                ; preds = %.lr.ph.i.i, %.critedge2.i.i, %rb_class_of.exit.i
-  %.0.lcssa.i.i = phi i64 [ 0, %rb_class_of.exit.i ], [ %.010.i.i, %.lr.ph.i.i ], [ 0, %.critedge2.i.i ]
+  %.0.lcssa.i.i = phi i64 [ 0, %rb_class_of.exit.i ], [ 0, %.critedge2.i.i ], [ %.010.i.i, %.lr.ph.i.i ]
   ret i64 %.0.lcssa.i.i
 }
 
@@ -8139,7 +8139,7 @@ define internal i64 @rb_f_float(ptr readnone captures(none) %0, i64 %1, i64 noun
   unreachable
 
 rb_bool_expected.exit:                            ; preds = %4, %5
-  %.0.i = phi i32 [ 0, %5 ], [ 1, %4 ]
+  %.0.i = phi i32 [ 1, %4 ], [ 0, %5 ]
   %8 = tail call fastcc i64 @rb_convert_to_float(i64 noundef %2, i32 noundef %.0.i)
   ret i64 %8
 }
@@ -8166,7 +8166,7 @@ define internal i64 @rb_f_integer(ptr readnone captures(none) %0, i64 %1, i64 no
   unreachable
 
 rb_bool_expected.exit:                            ; preds = %5, %6
-  %.0.i = phi i32 [ 0, %6 ], [ 1, %5 ]
+  %.0.i = phi i32 [ 1, %5 ], [ 0, %6 ]
   %9 = and i64 %3, 1
   %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %12, label %10
@@ -8295,7 +8295,7 @@ define internal fastcc i64 @class_call_alloc_func(ptr noundef nonnull readonly c
   br label %rb_class_of.exit.i
 
 rb_class_of.exit.i:                               ; preds = %23, %21, %20, %19, %18, %15
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %19 ], [ @rb_cTrueClass, %20 ], [ %17, %15 ], [ @rb_cFalseClass, %18 ], [ @rb_cInteger, %21 ], [ %spec.select.i.i, %23 ]
+  %.0.in.i.i = phi ptr [ %17, %15 ], [ @rb_cNilClass, %19 ], [ @rb_cTrueClass, %20 ], [ @rb_cFalseClass, %18 ], [ @rb_cInteger, %21 ], [ %spec.select.i.i, %23 ]
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !7
   %.not9.i.i = icmp eq i64 %.0.i.i, 0
   br i1 %.not9.i.i, label %rb_obj_class.exit, label %.lr.ph.i.i
@@ -8321,7 +8321,7 @@ rb_class_of.exit.i:                               ; preds = %23, %21, %20, %19, 
   br i1 %.not.i1.i, label %rb_obj_class.exit, label %.lr.ph.i.i, !llvm.loop !26
 
 rb_obj_class.exit:                                ; preds = %.lr.ph.i.i, %.critedge2.i.i, %rb_class_of.exit.i
-  %.0.lcssa.i.i = phi i64 [ 0, %rb_class_of.exit.i ], [ %.010.i.i, %.lr.ph.i.i ], [ 0, %.critedge2.i.i ]
+  %.0.lcssa.i.i = phi i64 [ 0, %rb_class_of.exit.i ], [ 0, %.critedge2.i.i ], [ %.010.i.i, %.lr.ph.i.i ]
   %.not9.i = icmp eq i64 %1, 0
   br i1 %.not9.i, label %rb_class_real.exit, label %.lr.ph.i
 
@@ -8346,7 +8346,7 @@ rb_obj_class.exit:                                ; preds = %.lr.ph.i.i, %.crite
   br i1 %.not.i, label %rb_class_real.exit, label %.lr.ph.i, !llvm.loop !26
 
 rb_class_real.exit:                               ; preds = %.critedge2.i, %.lr.ph.i, %rb_obj_class.exit
-  %.0.lcssa.i = phi i64 [ 0, %rb_obj_class.exit ], [ 0, %.critedge2.i ], [ %.010.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ 0, %rb_obj_class.exit ], [ %.010.i, %.lr.ph.i ], [ 0, %.critedge2.i ]
   %.not8 = icmp eq i64 %.0.lcssa.i.i, %.0.lcssa.i
   br i1 %.not8, label %42, label %40
 
@@ -8521,7 +8521,7 @@ rb_integer_type_p.exit9:                          ; preds = %15
   br label %rb_integer_type_p.exit.thread
 
 rb_integer_type_p.exit.thread:                    ; preds = %rb_integer_type_p.exit9, %rb_integer_type_p.exit.thread11, %15, %convert_type_with_id.exit, %1, %rb_integer_type_p.exit
-  %.0 = phi i64 [ %0, %rb_integer_type_p.exit ], [ %0, %1 ], [ %12, %convert_type_with_id.exit ], [ 4, %15 ], [ 4, %rb_integer_type_p.exit.thread11 ], [ %spec.select, %rb_integer_type_p.exit9 ]
+  %.0 = phi i64 [ %0, %rb_integer_type_p.exit ], [ 4, %rb_integer_type_p.exit.thread11 ], [ %12, %convert_type_with_id.exit ], [ %spec.select, %rb_integer_type_p.exit9 ], [ %0, %1 ], [ 4, %15 ]
   ret i64 %.0
 }
 
@@ -8649,7 +8649,7 @@ define internal noundef i32 @inspect_i(i64 noundef %0, i64 noundef %1, i64 nound
   br label %rb_class_of.exit
 
 rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %14, %16
-  %.0.in.i = phi ptr [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ %10, %8 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
+  %.0.in.i = phi ptr [ %10, %8 ], [ @rb_cNilClass, %12 ], [ @rb_cTrueClass, %13 ], [ @rb_cFalseClass, %11 ], [ @rb_cInteger, %14 ], [ %spec.select.i, %16 ]
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !7
   %19 = icmp eq i64 %.0.i, 0
   br i1 %19, label %39, label %20

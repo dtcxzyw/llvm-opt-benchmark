@@ -120,7 +120,7 @@ _ZN12ImageStrings9hash_codeEPKci.exit:            ; preds = %.lr.ph.i, %21
   br label %29
 
 29:                                               ; preds = %27, %4, %_ZN12ImageStrings9hash_codeEPKci.exit
-  %.0 = phi i32 [ %26, %_ZN12ImageStrings9hash_codeEPKci.exit ], [ -1, %4 ], [ %28, %27 ]
+  %.0 = phi i32 [ %26, %_ZN12ImageStrings9hash_codeEPKci.exit ], [ %28, %27 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -150,7 +150,7 @@ define hidden noundef ptr @_ZN12ImageStrings11starts_withEPKcS1_(ptr noundef rea
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !8
 
 .critedge:                                        ; preds = %6, %7, %.lr.ph, %2
-  %.0 = phi ptr [ %0, %2 ], [ %.0715, %.lr.ph ], [ %8, %7 ], [ null, %6 ]
+  %.0 = phi ptr [ %0, %2 ], [ %8, %7 ], [ %.0715, %.lr.ph ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -996,7 +996,7 @@ _ZN20ImageFileReaderTable3addEP15ImageFileReader.exit: ; preds = %._crit_edge.i,
   unreachable
 
 _ZN25SimpleCriticalSectionLockD2Ev.exit31:        ; preds = %84, %_ZN15ImageFileReader10find_imageEPKc.exit, %33
-  %.0 = phi ptr [ null, %33 ], [ %.0.i, %_ZN15ImageFileReader10find_imageEPKc.exit ], [ %.1, %84 ]
+  %.0 = phi ptr [ %.0.i, %_ZN15ImageFileReader10find_imageEPKc.exit ], [ null, %33 ], [ %.1, %84 ]
   ret ptr %.0
 
 _ZN25SimpleCriticalSectionLockD2Ev.exit:          ; preds = %63, %34
@@ -1168,7 +1168,7 @@ define hidden noundef zeroext i1 @_ZN15ImageFileReader4openEv(ptr noundef nonnul
   br label %_ZN15ImageFileReader5closeEv.exit
 
 _ZN15ImageFileReader5closeEv.exit:                ; preds = %55, %52, %56, %1, %61
-  %.0 = phi i1 [ true, %61 ], [ false, %1 ], [ false, %56 ], [ false, %52 ], [ false, %55 ]
+  %.0 = phi i1 [ true, %61 ], [ false, %56 ], [ false, %1 ], [ false, %52 ], [ false, %55 ]
   ret i1 %.0
 }
 
@@ -1641,9 +1641,9 @@ define hidden noundef zeroext i1 @_ZNK15ImageFileReader15verify_locationER13Imag
   %.not.i54 = icmp eq i8 %60, 0
   br i1 %.not.i54, label %.loopexit, label %.lr.ph.i48, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph.i48, %57, %48
-  %61 = phi i8 [ 0, %48 ], [ %54, %.lr.ph.i48 ], [ 0, %57 ]
-  %.0.i53.ph = phi ptr [ %.1, %48 ], [ %.0715.i49, %.lr.ph.i48 ], [ %58, %57 ]
+.loopexit:                                        ; preds = %57, %.lr.ph.i48, %48
+  %61 = phi i8 [ 0, %48 ], [ 0, %57 ], [ %54, %.lr.ph.i48 ]
+  %.0.i53.ph = phi ptr [ %.1, %48 ], [ %58, %57 ], [ %.0715.i49, %.lr.ph.i48 ]
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %63 = load i64, ptr %62, align 8
   %64 = and i64 %63, 4294967295
@@ -1681,13 +1681,13 @@ define hidden noundef zeroext i1 @_ZNK15ImageFileReader15verify_locationER13Imag
   %.not.i63 = icmp eq i8 %77, 0
   br i1 %.not.i63, label %_ZN12ImageStrings11starts_withEPKcS1_.exit64.thread, label %.lr.ph.i57, !llvm.loop !8
 
-_ZN12ImageStrings11starts_withEPKcS1_.exit64.thread: ; preds = %74, %.lr.ph.i57, %68, %.loopexit
-  %78 = phi i8 [ %61, %.loopexit ], [ 0, %68 ], [ 1, %.lr.ph.i57 ], [ 0, %74 ]
+_ZN12ImageStrings11starts_withEPKcS1_.exit64.thread: ; preds = %.lr.ph.i57, %74, %68, %.loopexit
+  %78 = phi i8 [ %61, %.loopexit ], [ 0, %68 ], [ 0, %74 ], [ 1, %.lr.ph.i57 ]
   %79 = icmp eq i8 %78, 0
   br label %_ZN12ImageStrings11starts_withEPKcS1_.exit
 
 _ZN12ImageStrings11starts_withEPKcS1_.exit:       ; preds = %26, %25, %43, %.lr.ph.i39.preheader, %56, %73, %38, %21, %67, %46, %30, %19, %_ZN12ImageStrings11starts_withEPKcS1_.exit64.thread
-  %.0 = phi i1 [ %79, %_ZN12ImageStrings11starts_withEPKcS1_.exit64.thread ], [ false, %19 ], [ false, %30 ], [ false, %46 ], [ false, %67 ], [ false, %21 ], [ false, %38 ], [ false, %73 ], [ false, %56 ], [ false, %.lr.ph.i39.preheader ], [ false, %43 ], [ false, %25 ], [ false, %26 ]
+  %.0 = phi i1 [ false, %19 ], [ false, %73 ], [ false, %38 ], [ false, %21 ], [ %79, %_ZN12ImageStrings11starts_withEPKcS1_.exit64.thread ], [ false, %67 ], [ false, %46 ], [ false, %30 ], [ false, %56 ], [ false, %43 ], [ false, %.lr.ph.i39.preheader ], [ false, %25 ], [ false, %26 ]
   ret i1 %.0
 }
 

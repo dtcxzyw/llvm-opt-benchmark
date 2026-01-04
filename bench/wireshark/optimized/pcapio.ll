@@ -69,7 +69,7 @@ writecap_file_open.exit.thread28:                 ; preds = %17
   br label %29
 
 writecap_file_open.exit:                          ; preds = %13, %15
-  %.014.i = phi ptr [ %14, %13 ], [ %16, %15 ]
+  %.014.i = phi ptr [ %16, %15 ], [ %14, %13 ]
   %27 = icmp eq ptr %.014.i, null
   br i1 %27, label %writecap_file_open.exit.thread, label %29
 
@@ -151,7 +151,7 @@ writecap_file_fdopen.exit.thread28:               ; preds = %17
   br label %29
 
 writecap_file_fdopen.exit:                        ; preds = %13, %15
-  %.014.i = phi ptr [ %14, %13 ], [ %16, %15 ]
+  %.014.i = phi ptr [ %16, %15 ], [ %14, %13 ]
   %27 = icmp eq ptr %.014.i, null
   br i1 %27, label %writecap_file_fdopen.exit.thread, label %29
 
@@ -261,7 +261,7 @@ define hidden noundef zeroext i1 @writecap_flush(ptr noundef readonly captures(n
   br label %27
 
 27:                                               ; preds = %.sink.split, %6, %13, %20, %23, %16, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %16 ], [ false, %23 ], [ true, %20 ], [ true, %13 ], [ true, %6 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ false, %16 ], [ false, %23 ], [ false, %9 ], [ true, %20 ], [ true, %13 ], [ true, %6 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -683,7 +683,7 @@ pcapng_count_string_option.exit72:                ; preds = %pcapng_count_string
   %.not59 = icmp samesign ult i64 %indvars.iv.next101, %94
   br i1 %.not59, label %74, label %.critedge, !llvm.loop !8
 
-95:                                               ; preds = %82, %85, %89
+95:                                               ; preds = %85, %82, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %146
@@ -722,7 +722,7 @@ pcapng_count_string_option.exit72:                ; preds = %pcapng_count_string
   %109 = call fastcc zeroext i1 @write_to_file(ptr noundef readonly %0, ptr noundef nonnull %14, i64 noundef %108, ptr noundef %6, ptr noundef %7)
   br i1 %109, label %110, label %pcapng_write_string_option.exit79.thread
 
-pcapng_write_string_option.exit79.thread:         ; preds = %99, %103, %107
+pcapng_write_string_option.exit79.thread:         ; preds = %103, %99, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %146
@@ -763,7 +763,7 @@ pcapng_write_string_option.exit79.thread:         ; preds = %99, %103, %107
   %124 = call fastcc zeroext i1 @write_to_file(ptr noundef readonly %0, ptr noundef nonnull %12, i64 noundef %123, ptr noundef %6, ptr noundef %7)
   br i1 %124, label %125, label %pcapng_write_string_option.exit83.thread
 
-pcapng_write_string_option.exit83.thread:         ; preds = %114, %118, %122
+pcapng_write_string_option.exit83.thread:         ; preds = %118, %114, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %146
@@ -804,7 +804,7 @@ pcapng_write_string_option.exit83.thread:         ; preds = %114, %118, %122
   %139 = call fastcc zeroext i1 @write_to_file(ptr noundef readonly %0, ptr noundef nonnull %10, i64 noundef %138, ptr noundef %6, ptr noundef %7)
   br i1 %139, label %140, label %pcapng_write_string_option.exit87.thread
 
-pcapng_write_string_option.exit87.thread:         ; preds = %129, %133, %137
+pcapng_write_string_option.exit87.thread:         ; preds = %133, %129, %137
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %146
@@ -827,7 +827,7 @@ pcapng_write_string_option.exit87.thread:         ; preds = %129, %133, %137
   br label %146
 
 146:                                              ; preds = %pcapng_write_string_option.exit87.thread, %pcapng_write_string_option.exit83.thread, %pcapng_write_string_option.exit79.thread, %95, %141, %pcapng_count_string_option.exit72, %144
-  %.052 = phi i1 [ %145, %144 ], [ false, %95 ], [ false, %pcapng_count_string_option.exit72 ], [ false, %141 ], [ false, %pcapng_write_string_option.exit79.thread ], [ false, %pcapng_write_string_option.exit83.thread ], [ false, %pcapng_write_string_option.exit87.thread ]
+  %.052 = phi i1 [ %145, %144 ], [ false, %pcapng_write_string_option.exit87.thread ], [ false, %pcapng_write_string_option.exit83.thread ], [ false, %pcapng_write_string_option.exit79.thread ], [ false, %pcapng_count_string_option.exit72 ], [ false, %95 ], [ false, %141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -876,7 +876,7 @@ define internal fastcc noundef zeroext i1 @pcapng_write_string_option(ptr nounde
   br label %24
 
 24:                                               ; preds = %20, %16, %12, %5, %23
-  %.0 = phi i1 [ true, %23 ], [ true, %5 ], [ false, %12 ], [ false, %16 ], [ false, %20 ]
+  %.0 = phi i1 [ true, %5 ], [ true, %23 ], [ false, %16 ], [ false, %12 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
@@ -983,7 +983,7 @@ pcapng_count_string_option.exit113:               ; preds = %pcapng_count_string
   br label %63
 
 63:                                               ; preds = %57, %54, %pcapng_count_string_option.exit113
-  %.2 = phi i32 [ %62, %57 ], [ %.1, %54 ], [ %.1, %pcapng_count_string_option.exit113 ]
+  %.2 = phi i32 [ %62, %57 ], [ %.1, %pcapng_count_string_option.exit113 ], [ %.1, %54 ]
   %.not.i114 = icmp eq ptr %5, null
   br i1 %.not.i114, label %pcapng_count_string_option.exit117, label %64
 
@@ -1073,7 +1073,7 @@ pcapng_count_string_option.exit121:               ; preds = %pcapng_count_string
   %104 = call fastcc zeroext i1 @write_to_file(ptr noundef readonly %0, ptr noundef nonnull %19, i64 noundef %103, ptr noundef %9, ptr noundef %12)
   br i1 %104, label %105, label %pcapng_write_string_option.exit.thread
 
-pcapng_write_string_option.exit.thread:           ; preds = %94, %98, %102
+pcapng_write_string_option.exit.thread:           ; preds = %98, %94, %102
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %182
@@ -1114,7 +1114,7 @@ pcapng_write_string_option.exit.thread:           ; preds = %94, %98, %102
   %119 = call fastcc zeroext i1 @write_to_file(ptr noundef readonly %0, ptr noundef nonnull %17, i64 noundef %118, ptr noundef %9, ptr noundef %12)
   br i1 %119, label %120, label %pcapng_write_string_option.exit128.thread
 
-pcapng_write_string_option.exit128.thread:        ; preds = %109, %113, %117
+pcapng_write_string_option.exit128.thread:        ; preds = %113, %109, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %182
@@ -1155,7 +1155,7 @@ pcapng_write_string_option.exit128.thread:        ; preds = %109, %113, %117
   %134 = call fastcc zeroext i1 @write_to_file(ptr noundef readonly %0, ptr noundef nonnull %15, i64 noundef %133, ptr noundef %9, ptr noundef %12)
   br i1 %134, label %135, label %pcapng_write_string_option.exit132.thread
 
-pcapng_write_string_option.exit132.thread:        ; preds = %124, %128, %132
+pcapng_write_string_option.exit132.thread:        ; preds = %128, %124, %132
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %182
@@ -1259,7 +1259,7 @@ pcapng_write_string_option.exit132.thread:        ; preds = %124, %128, %132
   br label %182
 
 182:                                              ; preds = %pcapng_write_string_option.exit132.thread, %pcapng_write_string_option.exit128.thread, %pcapng_write_string_option.exit.thread, %177, %174, %172, %167, %160, %158, %153, %147, %145, %142, %139, %136, %pcapng_count_string_option.exit121, %180
-  %.087 = phi i1 [ %181, %180 ], [ false, %pcapng_count_string_option.exit121 ], [ false, %136 ], [ false, %139 ], [ false, %142 ], [ false, %145 ], [ false, %147 ], [ false, %153 ], [ false, %158 ], [ false, %160 ], [ false, %167 ], [ false, %172 ], [ false, %174 ], [ false, %177 ], [ false, %pcapng_write_string_option.exit.thread ], [ false, %pcapng_write_string_option.exit128.thread ], [ false, %pcapng_write_string_option.exit132.thread ]
+  %.087 = phi i1 [ %181, %180 ], [ false, %174 ], [ false, %172 ], [ false, %167 ], [ false, %160 ], [ false, %158 ], [ false, %153 ], [ false, %147 ], [ false, %145 ], [ false, %142 ], [ false, %139 ], [ false, %136 ], [ false, %pcapng_write_string_option.exit132.thread ], [ false, %pcapng_write_string_option.exit128.thread ], [ false, %pcapng_write_string_option.exit.thread ], [ false, %pcapng_count_string_option.exit121 ], [ false, %177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -1414,7 +1414,7 @@ pcapng_count_string_option.exit:                  ; preds = %12, %24, %27
   %82 = call fastcc zeroext i1 @write_to_file(ptr noundef readonly %0, ptr noundef nonnull %14, i64 noundef %81, ptr noundef %10, ptr noundef %11)
   br i1 %82, label %83, label %pcapng_write_string_option.exit.thread
 
-pcapng_write_string_option.exit.thread:           ; preds = %72, %76, %80
+pcapng_write_string_option.exit.thread:           ; preds = %76, %72, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %95
@@ -1450,7 +1450,7 @@ pcapng_write_string_option.exit.thread:           ; preds = %72, %76, %80
   br label %95
 
 95:                                               ; preds = %pcapng_write_string_option.exit.thread, %90, %87, %84, %65, %49, %pcapng_count_string_option.exit, %93, %._crit_edge
-  %.064 = phi i1 [ %63, %._crit_edge ], [ %94, %93 ], [ false, %pcapng_count_string_option.exit ], [ false, %49 ], [ false, %65 ], [ false, %84 ], [ false, %87 ], [ false, %90 ], [ false, %pcapng_write_string_option.exit.thread ]
+  %.064 = phi i1 [ %63, %._crit_edge ], [ %94, %93 ], [ false, %87 ], [ false, %84 ], [ false, %pcapng_write_string_option.exit.thread ], [ false, %65 ], [ false, %49 ], [ false, %pcapng_count_string_option.exit ], [ false, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -1570,7 +1570,7 @@ pcapng_count_string_option.exit:                  ; preds = %9, %31, %34
   %66 = call fastcc zeroext i1 @write_to_file(ptr noundef readonly %0, ptr noundef nonnull %11, i64 noundef %65, ptr noundef %2, ptr noundef %8)
   br i1 %66, label %67, label %pcapng_write_string_option.exit.thread
 
-pcapng_write_string_option.exit.thread:           ; preds = %56, %60, %64
+pcapng_write_string_option.exit.thread:           ; preds = %60, %56, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %107
@@ -1673,18 +1673,18 @@ pcapng_write_string_option.exit.thread:           ; preds = %56, %60, %64
   %106 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %17, i64 noundef 4, ptr noundef %2, ptr noundef %8)
   br label %107
 
-.critedge:                                        ; preds = %74, %68
+.critedge:                                        ; preds = %68, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %107
 
-.critedge84:                                      ; preds = %85, %79
+.critedge84:                                      ; preds = %79, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %107
 
 107:                                              ; preds = %pcapng_write_string_option.exit.thread, %102, %99, %96, %93, %90, %.critedge84, %.critedge, %pcapng_count_string_option.exit, %76, %87, %105
-  %.067 = phi i1 [ %106, %105 ], [ false, %87 ], [ false, %76 ], [ false, %pcapng_count_string_option.exit ], [ false, %.critedge ], [ false, %.critedge84 ], [ false, %90 ], [ false, %93 ], [ false, %96 ], [ false, %99 ], [ false, %102 ], [ false, %pcapng_write_string_option.exit.thread ]
+  %.067 = phi i1 [ %106, %105 ], [ false, %99 ], [ false, %96 ], [ false, %93 ], [ false, %90 ], [ false, %.critedge84 ], [ false, %87 ], [ false, %76 ], [ false, %pcapng_count_string_option.exit ], [ false, %pcapng_write_string_option.exit.thread ], [ false, %.critedge ], [ false, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

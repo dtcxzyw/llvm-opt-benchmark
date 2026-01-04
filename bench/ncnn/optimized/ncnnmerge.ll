@@ -526,7 +526,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
   br label %_ZL10copy_paramPKcP8_IO_FILEPiS3_.exit
 
 .critedge132.i:                                   ; preds = %187, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i143.i, %.critedge131.i
-  %.pn117.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.ph.i, %.critedge131.i ], [ %.pn117.pn.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i143.i ], [ %.pn117.pn.pn.i, %187 ]
+  %.pn117.pn.pn.pn.i = phi { ptr, i32 } [ %.pn117.pn.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i143.i ], [ %.pn.pn.ph.i, %.critedge131.i ], [ %.pn117.pn.pn.i, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn117.pn.pn.pn.i
 

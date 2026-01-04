@@ -1279,8 +1279,8 @@ _ZL21_calc_vignette_splinefPKf.exit56.us.i:       ; preds = %_ZL21_calc_vignette
   br i1 %exitcond13.not.i, label %_ZL20_preprocess_vignetteP15dt_iop_module_tP22dt_dev_pixelpipe_iop_tPKfPfPK12dt_iop_roi_ti.exit, label %.preheader.us.i, !llvm.loop !240
 
 _ZL20_preprocess_vignetteP15dt_iop_module_tP22dt_dev_pixelpipe_iop_tPKfPfPK12dt_iop_roi_ti.exit: ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i, %_ZL21_init_vignette_splineP18dt_iop_lens_data_t.exit.i, %25, %.thread
-  %.not141.i = phi i1 [ true, %.thread ], [ false, %25 ], [ false, %_ZL21_init_vignette_splineP18dt_iop_lens_data_t.exit.i ], [ false, %.preheader.lr.ph.i ], [ false, %._crit_edge.us.i ]
-  %.0 = phi ptr [ %2, %.thread ], [ %2, %25 ], [ %34, %_ZL21_init_vignette_splineP18dt_iop_lens_data_t.exit.i ], [ %34, %.preheader.lr.ph.i ], [ %34, %._crit_edge.us.i ]
+  %.not141.i = phi i1 [ false, %25 ], [ true, %.thread ], [ false, %_ZL21_init_vignette_splineP18dt_iop_lens_data_t.exit.i ], [ false, %.preheader.lr.ph.i ], [ false, %._crit_edge.us.i ]
+  %.0 = phi ptr [ %2, %25 ], [ %2, %.thread ], [ %34, %_ZL21_init_vignette_splineP18dt_iop_lens_data_t.exit.i ], [ %34, %.preheader.lr.ph.i ], [ %34, %._crit_edge.us.i ]
   %189 = load i32, ptr %9, align 8, !tbaa !241
   switch i32 %189, label %775 [
     i32 1, label %190
@@ -2238,7 +2238,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit152.i: ; preds = %._crit_edge.i144.i
   br label %755
 
 755:                                              ; preds = %754, %752, %_ZL26_interpolate_linear_splinePKfS0_if.exit152.i
-  %756 = phi reassoc nsz arcp contract afn float [ %750, %754 ], [ 0.000000e+00, %752 ], [ %668, %_ZL26_interpolate_linear_splinePKfS0_if.exit152.i ]
+  %756 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %752 ], [ %750, %754 ], [ %668, %_ZL26_interpolate_linear_splinePKfS0_if.exit152.i ]
   %757 = fmul reassoc nsz arcp contract afn float %.0.i145.i, %702
   %758 = fadd reassoc nsz arcp contract afn float %757, %546
   %759 = load i32, ptr %678, align 4, !tbaa !237
@@ -2255,7 +2255,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit152.i: ; preds = %._crit_edge.i144.i
   br label %766
 
 766:                                              ; preds = %765, %763, %755
-  %767 = phi reassoc nsz arcp contract afn float [ %761, %765 ], [ 0.000000e+00, %763 ], [ %670, %755 ]
+  %767 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %763 ], [ %761, %765 ], [ %670, %755 ]
   %768 = getelementptr inbounds nuw float, ptr %.0.i, i64 %.013127.i
   %769 = load i32, ptr %666, align 4, !tbaa !224
   %770 = load i32, ptr %.phi.trans.insert.i53, align 4, !tbaa !225
@@ -2660,7 +2660,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.i:   ; preds = %_ZL26_interpolate_l
   br i1 %187, label %.split.i, label %_ZL21_distort_transform_lfP15dt_iop_module_tP22dt_dev_pixelpipe_iop_tPfm.exit, !llvm.loop !293
 
 _ZL21_distort_transform_lfP15dt_iop_module_tP22dt_dev_pixelpipe_iop_tPfm.exit: ; preds = %.split17.i, %.split17.us.us.i, %79, %75, %72, %.loopexit.i, %14, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %.loopexit.i ], [ 0, %14 ], [ 0, %12 ], [ 0, %9 ], [ 0, %75 ], [ 0, %72 ], [ 1, %79 ], [ 1, %.split17.us.us.i ], [ 1, %.split17.i ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 1, %.loopexit.i ], [ 0, %14 ], [ 0, %12 ], [ 0, %72 ], [ 0, %75 ], [ 1, %79 ], [ 1, %.split17.us.us.i ], [ 1, %.split17.i ]
   ret i32 %.0
 }
 
@@ -2892,7 +2892,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.us.i: ; preds = %._crit_edge.i.loop
   br i1 %142, label %.lr.ph.split.i, label %_ZL25_distort_backtransform_lfP15dt_iop_module_tP22dt_dev_pixelpipe_iop_tPfm.exit, !llvm.loop !298
 
 _ZL25_distort_backtransform_lfP15dt_iop_module_tP22dt_dev_pixelpipe_iop_tPfm.exit: ; preds = %.lr.ph.split.i, %_ZL26_interpolate_linear_splinePKfS0_if.exit.us.i, %55, %51, %48, %.loopexit.i, %15, %13, %10, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %.loopexit.i ], [ 0, %15 ], [ 0, %13 ], [ 0, %10 ], [ 0, %51 ], [ 0, %48 ], [ 1, %55 ], [ 1, %_ZL26_interpolate_linear_splinePKfS0_if.exit.us.i ], [ 1, %.lr.ph.split.i ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 1, %.loopexit.i ], [ 0, %15 ], [ 0, %13 ], [ 0, %48 ], [ 0, %51 ], [ 1, %55 ], [ 1, %_ZL26_interpolate_linear_splinePKfS0_if.exit.us.i ], [ 1, %.lr.ph.split.i ]
   ret i32 %.0
 }
 
@@ -3073,7 +3073,7 @@ define void @distort_mask(ptr noundef readnone captures(none) %0, ptr noundef re
   br label %114
 
 114:                                              ; preds = %110, %98, %93, %90
-  %storemerge.i = phi float [ 0.000000e+00, %93 ], [ 0.000000e+00, %90 ], [ %113, %110 ], [ 1.000000e+00, %98 ]
+  %storemerge.i = phi float [ 0.000000e+00, %90 ], [ 0.000000e+00, %93 ], [ %113, %110 ], [ 1.000000e+00, %98 ]
   store float %storemerge.i, ptr %.0652.i, align 4, !tbaa !52
   %115 = add nuw nsw i32 %.0643.i, 1
   %116 = getelementptr inbounds nuw i8, ptr %.0661.i, i64 24
@@ -3267,7 +3267,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.i:   ; preds = %._crit_edge.i.i, %2
   br label %236
 
 236:                                              ; preds = %235, %233, %_ZL26_interpolate_linear_splinePKfS0_if.exit.i
-  %237 = phi reassoc nsz arcp contract afn float [ %231, %235 ], [ 0.000000e+00, %233 ], [ %154, %_ZL26_interpolate_linear_splinePKfS0_if.exit.i ]
+  %237 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %233 ], [ %231, %235 ], [ %154, %_ZL26_interpolate_linear_splinePKfS0_if.exit.i ]
   %238 = fmul reassoc nsz arcp contract afn float %.0.i.i, %191
   %239 = fadd reassoc nsz arcp contract afn float %238, %150
   %240 = load i32, ptr %167, align 4, !tbaa !237
@@ -3284,7 +3284,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.i:   ; preds = %._crit_edge.i.i, %2
   br label %247
 
 247:                                              ; preds = %246, %244, %236
-  %248 = phi reassoc nsz arcp contract afn float [ %242, %246 ], [ 0.000000e+00, %244 ], [ %158, %236 ]
+  %248 = phi reassoc nsz arcp contract afn float [ 0.000000e+00, %244 ], [ %242, %246 ], [ %158, %236 ]
   %249 = load i32, ptr %151, align 4, !tbaa !224
   %250 = load i32, ptr %155, align 4, !tbaa !225
   %251 = tail call reassoc nsz arcp contract afn float @dt_interpolation_compute_sample(ptr noundef %159, ptr noundef %2, float noundef %237, float noundef %248, i32 noundef %249, i32 noundef %250, i32 noundef 1, i32 noundef %249)
@@ -3809,7 +3809,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.us.us.us.i: ; preds = %256, %_ZL26_
   br i1 %exitcond.not.i.us.us.us.i, label %._crit_edge.i.loopexit.us.us.us.i, label %.lr.ph.i.us.us.us.i, !llvm.loop !268
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit.us27.us.us.i: ; preds = %._crit_edge.i.loopexit.us.us.us.i, %287
-  %.0.i.us28.us.us.i = phi nsz float [ %314, %._crit_edge.i.loopexit.us.us.us.i ], [ %297, %287 ]
+  %.0.i.us28.us.us.i = phi nsz float [ %297, %287 ], [ %314, %._crit_edge.i.loopexit.us.us.us.i ]
   %299 = fmul reassoc nsz arcp contract afn float %.0.i.us28.us.us.i, %254
   %300 = fadd reassoc nsz arcp contract afn float %299, %215
   %301 = fmul reassoc nsz arcp contract afn float %.0.i.us28.us.us.i, %indvars.iv176.i.sroa.phi.sroa.speculated
@@ -3955,7 +3955,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit207.us.us.us.i: ; preds = %327, %_ZL
   br i1 %exitcond.not.i206.us.us.us.i, label %._crit_edge.i199.loopexit.us.us.us.i, label %.lr.ph.i203.us.us.us.i, !llvm.loop !268
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit207.us80.us.us.i: ; preds = %._crit_edge.i199.loopexit.us.us.us.i, %358
-  %.0.i200.us81.us.us.i = phi nsz float [ %385, %._crit_edge.i199.loopexit.us.us.us.i ], [ %368, %358 ]
+  %.0.i200.us81.us.us.i = phi nsz float [ %368, %358 ], [ %385, %._crit_edge.i199.loopexit.us.us.us.i ]
   %370 = fmul reassoc nsz arcp contract afn float %.0.i200.us81.us.us.i, %indvars.iv188.i.sroa.phi.sroa.speculated
   %371 = fadd reassoc nsz arcp contract afn float %370, %215
   %372 = fmul reassoc nsz arcp contract afn float %.0.i200.us81.us.us.i, %325
@@ -4230,7 +4230,7 @@ define hidden i32 @_get_method(ptr noundef readonly captures(none) %0, i32 nound
   br label %7
 
 7:                                                ; preds = %4, %2
-  %.0 = phi i32 [ %1, %2 ], [ %spec.select, %4 ]
+  %.0 = phi i32 [ %spec.select, %4 ], [ %1, %2 ]
   ret i32 %.0
 }
 
@@ -4269,7 +4269,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr noundef readnone 
   br label %_get_method.exit
 
 _get_method.exit:                                 ; preds = %20, %24
-  %.0.i = phi i32 [ %19, %20 ], [ %spec.select.i, %24 ]
+  %.0.i = phi i32 [ %spec.select.i, %24 ], [ %19, %20 ]
   store i32 %.0.i, ptr %22, align 4, !tbaa !342
   br label %._crit_edge
 
@@ -4430,7 +4430,7 @@ _get_method.exit:                                 ; preds = %20, %24
   br i1 %.not77.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !364
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.preheader.i, %91
-  %109 = phi ptr [ %99, %.preheader.i ], [ %99, %91 ], [ %105, %.lr.ph.i ]
+  %109 = phi ptr [ %99, %91 ], [ %99, %.preheader.i ], [ %105, %.lr.ph.i ]
   call void @_ZN6lfLens11AddCalibTCAEPK14lfLensCalibTCA(ptr noundef nonnull align 8 dereferenceable(116) %109, ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %110
@@ -4665,7 +4665,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.thread.us.i.i: ; preds = %.preheade
   br label %_ZL26_interpolate_linear_splinePKfS0_if.exit.i.i
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit.i.i: ; preds = %._crit_edge.i.i.i, %222
-  %.0.i.i.i = phi nsz float [ %235, %._crit_edge.i.i.i ], [ %232, %222 ]
+  %.0.i.i.i = phi nsz float [ %232, %222 ], [ %235, %._crit_edge.i.i.i ]
   %236 = fcmp reassoc nsz arcp contract afn ogt float %.113.i.i, %.0.i.i.i
   br i1 %236, label %_ZL26_interpolate_linear_splinePKfS0_if.exit29.i.i, label %.preheader.i20.i.i
 
@@ -4711,7 +4711,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.i.i: ; preds = %._crit_edge.i.i.i, 
   br label %_ZL26_interpolate_linear_splinePKfS0_if.exit29.i.i
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit29.i.i: ; preds = %._crit_edge.i21.i.i, %246, %_ZL26_interpolate_linear_splinePKfS0_if.exit.i.i
-  %260 = phi reassoc nsz arcp contract afn float [ %.113.i.i, %_ZL26_interpolate_linear_splinePKfS0_if.exit.i.i ], [ %259, %._crit_edge.i21.i.i ], [ %256, %246 ]
+  %260 = phi reassoc nsz arcp contract afn float [ %259, %._crit_edge.i21.i.i ], [ %.113.i.i, %_ZL26_interpolate_linear_splinePKfS0_if.exit.i.i ], [ %256, %246 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i.i, label %.split.us.i.i, label %.preheader.i.i.i, !llvm.loop !385
@@ -5046,7 +5046,7 @@ _ZL20_get_autoscale_md_v1P15dt_iop_module_tP20dt_iop_lens_params_t.exit.i: ; pre
   br label %_ZL26_interpolate_linear_splinePKfS0_if.exit.i66.i
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit.i66.i: ; preds = %._crit_edge.i.i65.i, %434, %420
-  %.0.i.i67.i = phi nsz float [ %445, %._crit_edge.i.i65.i ], [ %444, %434 ], [ %370, %420 ]
+  %.0.i.i67.i = phi nsz float [ %444, %434 ], [ %445, %._crit_edge.i.i65.i ], [ %370, %420 ]
   %446 = fdiv reassoc nsz arcp contract afn float %423, %.0.i.i67.i
   %447 = getelementptr inbounds nuw float, ptr %270, i64 %indvars.iv566.i.i
   store float %446, ptr %447, align 4, !tbaa !52
@@ -5119,7 +5119,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.i66.i: ; preds = %._crit_edge.i.i65
   br label %.preheader.i413.i.i
 
 .preheader.i413.i.i:                              ; preds = %._crit_edge.i404.i.i, %463
-  %.0.i405.i.i = phi nsz float [ %474, %._crit_edge.i404.i.i ], [ %473, %463 ]
+  %.0.i405.i.i = phi nsz float [ %473, %463 ], [ %474, %._crit_edge.i404.i.i ]
   br i1 %372, label %.lr.ph.i418.i.i, label %._crit_edge.i414.i.i
 
 .lr.ph.i418.i.i:                                  ; preds = %.preheader.i413.i.i, %483
@@ -5159,8 +5159,8 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.i66.i: ; preds = %._crit_edge.i.i65
   br label %_ZL26_interpolate_linear_splinePKfS0_if.exit422.i.i
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit422.i.i: ; preds = %._crit_edge.i414.i.i, %484, %453
-  %.0.i405434.i.i = phi float [ %.0.i405.i.i, %._crit_edge.i414.i.i ], [ %.0.i405.i.i, %484 ], [ %369, %453 ]
-  %.0.i415.i.i = phi nsz float [ %495, %._crit_edge.i414.i.i ], [ %494, %484 ], [ %368, %453 ]
+  %.0.i405434.i.i = phi float [ %.0.i405.i.i, %484 ], [ %.0.i405.i.i, %._crit_edge.i414.i.i ], [ %369, %453 ]
+  %.0.i415.i.i = phi nsz float [ %494, %484 ], [ %495, %._crit_edge.i414.i.i ], [ %368, %453 ]
   %496 = fadd reassoc nsz arcp contract afn float %.0.i405434.i.i, 1.000000e+00
   %497 = getelementptr inbounds nuw float, ptr %272, i64 %indvars.iv566.i.i
   %498 = load float, ptr %497, align 4, !tbaa !52
@@ -5422,7 +5422,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit422.i.i: ; preds = %._crit_edge.i414
   br i1 %exitcond.not.i57.i, label %.loopexit.i.i, label %607, !llvm.loop !395
 
 .loopexit.i.i:                                    ; preds = %.critedge402.i.i, %571, %.critedge394.sink.split.i.i, %419, %285, %269
-  %.0329.i.i = phi i32 [ 16, %419 ], [ 0, %269 ], [ %286, %285 ], [ %286, %.critedge394.sink.split.i.i ], [ 16, %571 ], [ 16, %.critedge402.i.i ]
+  %.0329.i.i = phi i32 [ 0, %269 ], [ 16, %419 ], [ %286, %285 ], [ 16, %571 ], [ %286, %.critedge394.sink.split.i.i ], [ 16, %.critedge402.i.i ]
   %651 = getelementptr inbounds nuw i8, ptr %177, i64 1500
   %652 = load i32, ptr %651, align 4, !tbaa !396
   %653 = sitofp i32 %652 to float
@@ -5509,7 +5509,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit432.us.i.i: ; preds = %.preheader436
   br i1 %exitcond.not.i431.us.i.i, label %._crit_edge.i424.loopexit.us.i.i, label %.lr.ph.i428.us.i.i, !llvm.loop !268
 
 _ZL26_interpolate_linear_splinePKfS0_if.exit432.us489.i.i: ; preds = %._crit_edge.i424.loopexit.us.i.i, %687
-  %.0.i425.us490.i.i = phi nsz float [ %703, %._crit_edge.i424.loopexit.us.i.i ], [ %697, %687 ]
+  %.0.i425.us490.i.i = phi nsz float [ %697, %687 ], [ %703, %._crit_edge.i424.loopexit.us.i.i ]
   %699 = fcmp reassoc nsz arcp contract afn ogt float %.1483.us488.i.i, %.0.i425.us490.i.i
   %700 = select reassoc nsz arcp contract afn i1 %699, float %.1483.us488.i.i, float %.0.i425.us490.i.i
   %indvars.iv.next579.i.i = add nuw nsw i64 %indvars.iv578.i.i, 1
@@ -6159,7 +6159,7 @@ _ZL14_lens_sanitizePKc.exit:                      ; preds = %20, %25, %27
   call void @gtk_label_set_text(ptr noundef %156, ptr noundef nonnull @.str.17)
   br label %.critedge121
 
-.critedge121:                                     ; preds = %70, %67, %134, %137
+.critedge121:                                     ; preds = %67, %70, %134, %137
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -6402,9 +6402,9 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone captures(address) 
   br label %84
 
 84:                                               ; preds = %.thread73, %79
-  %85 = phi i32 [ 1, %79 ], [ %78, %.thread73 ]
-  %86 = phi i32 [ 1, %79 ], [ %76, %.thread73 ]
-  %87 = phi i32 [ %83, %79 ], [ 0, %.thread73 ]
+  %85 = phi i32 [ %78, %.thread73 ], [ 1, %79 ]
+  %86 = phi i32 [ %76, %.thread73 ], [ 1, %79 ]
+  %87 = phi i32 [ 0, %.thread73 ], [ %83, %79 ]
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %89 = load ptr, ptr %88, align 8, !tbaa !436
   %90 = tail call i64 @gtk_toggle_button_get_type() #36
@@ -6975,7 +6975,7 @@ define internal void @_ZL26_camera_autosearch_clickedP10_GtkWidgetP15dt_iop_modu
   br i1 %.not.i, label %_ZL12_parse_modelPKcPcm.exit, label %.lr.ph.i, !llvm.loop !493
 
 _ZL12_parse_modelPKcPcm.exit:                     ; preds = %.lr.ph.i, %23
-  %.011.lcssa.i = phi ptr [ %24, %23 ], [ %.01117.i, %.lr.ph.i ]
+  %.011.lcssa.i = phi ptr [ %.01117.i, %.lr.ph.i ], [ %24, %23 ]
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.011.lcssa.i) #35
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %26, i64 199)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %.011.lcssa.i, i64 %spec.select.i, i1 false)
@@ -7380,7 +7380,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #3 {
   br label %_get_method.exit
 
 _get_method.exit:                                 ; preds = %10, %15
-  %.0.i = phi i32 [ %11, %10 ], [ %spec.select.i, %15 ]
+  %.0.i = phi i32 [ %spec.select.i, %15 ], [ %11, %10 ]
   store i32 %.0.i, ptr %6, align 4, !tbaa !342
   br label %18
 
@@ -7884,7 +7884,7 @@ define internal fastcc void @_ZL9_lens_setP15dt_iop_module_tPK6lfLens(ptr nounde
   br label %_ZL10_precisiondd.exit
 
 _ZL10_precisiondd.exit:                           ; preds = %126, %139, %141, %143, %145
-  %.0.i = phi i32 [ 1, %126 ], [ %..i, %141 ], [ 3, %139 ], [ %.9.i, %145 ], [ 0, %143 ]
+  %.0.i = phi i32 [ %.9.i, %145 ], [ %..i, %141 ], [ 1, %126 ], [ 3, %139 ], [ 0, %143 ]
   %147 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 30, ptr noundef nonnull @.str.159, i32 noundef %.0.i, double noundef %134) #30
   call void @dt_bauhaus_combobox_add(ptr noundef %129, ptr noundef nonnull %8)
   %148 = sub nsw i32 %spec.select, %.3
@@ -7942,7 +7942,7 @@ _ZL10_precisiondd.exit:                           ; preds = %126, %139, %141, %1
   br label %_ZL10_precisiondd.exit181
 
 _ZL10_precisiondd.exit181:                        ; preds = %.lr.ph204, %164, %166, %168, %170
-  %.0.i178 = phi i32 [ 1, %.lr.ph204 ], [ %..i180, %166 ], [ 3, %164 ], [ %.9.i179, %170 ], [ 0, %168 ]
+  %.0.i178 = phi i32 [ %.9.i179, %170 ], [ %..i180, %166 ], [ 1, %.lr.ph204 ], [ 3, %164 ], [ 0, %168 ]
   %172 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 30, ptr noundef nonnull @.str.159, i32 noundef %.0.i178, double noundef %159) #30
   call void @dt_bauhaus_combobox_add(ptr noundef %129, ptr noundef nonnull %8)
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
@@ -8010,7 +8010,7 @@ _ZL10_precisiondd.exit181:                        ; preds = %.lr.ph204, %164, %1
   br label %_ZL10_precisiondd.exit185
 
 _ZL10_precisiondd.exit185:                        ; preds = %186, %197, %199, %201, %203
-  %.0.i182 = phi i32 [ 1, %186 ], [ %..i184, %199 ], [ 3, %197 ], [ %.9.i183, %203 ], [ 0, %201 ]
+  %.0.i182 = phi i32 [ %.9.i183, %203 ], [ %..i184, %199 ], [ 1, %186 ], [ 3, %197 ], [ 0, %201 ]
   %205 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 30, ptr noundef nonnull @.str.159, i32 noundef %.0.i182, double noundef %192) #30
   call void @dt_bauhaus_combobox_add(ptr noundef %187, ptr noundef nonnull %8)
   %206 = icmp slt i32 %.6, 40
@@ -8067,7 +8067,7 @@ _ZL10_precisiondd.exit185:                        ; preds = %186, %197, %199, %2
   br label %_ZL10_precisiondd.exit189
 
 _ZL10_precisiondd.exit189:                        ; preds = %._crit_edge209, %224, %226, %228, %230
-  %.0.i186 = phi i32 [ 1, %._crit_edge209 ], [ %..i188, %226 ], [ 3, %224 ], [ %.9.i187, %230 ], [ 0, %228 ]
+  %.0.i186 = phi i32 [ %.9.i187, %230 ], [ %..i188, %226 ], [ 1, %._crit_edge209 ], [ 3, %224 ], [ 0, %228 ]
   %232 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 30, ptr noundef nonnull @.str.159, i32 noundef %.0.i186, double noundef %219) #30
   call void @dt_bauhaus_combobox_add(ptr noundef %214, ptr noundef nonnull %8)
   br label %247
@@ -8103,7 +8103,7 @@ _ZL10_precisiondd.exit189:                        ; preds = %._crit_edge209, %22
   br label %_ZL10_precisiondd.exit193
 
 _ZL10_precisiondd.exit193:                        ; preds = %.lr.ph208, %238, %240, %242, %244
-  %.0.i190 = phi i32 [ 1, %.lr.ph208 ], [ %..i192, %240 ], [ 3, %238 ], [ %.9.i191, %244 ], [ 0, %242 ]
+  %.0.i190 = phi i32 [ %.9.i191, %244 ], [ %..i192, %240 ], [ 1, %.lr.ph208 ], [ 3, %238 ], [ 0, %242 ]
   %246 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 30, ptr noundef nonnull @.str.159, i32 noundef %.0.i190, double noundef %233) #30
   call void @dt_bauhaus_combobox_add(ptr noundef %187, ptr noundef nonnull %8)
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
@@ -8143,7 +8143,7 @@ _ZL10_precisiondd.exit193:                        ; preds = %.lr.ph208, %238, %2
   br label %_ZL10_precisiondd.exit197
 
 _ZL10_precisiondd.exit197:                        ; preds = %247, %254, %256, %258, %260
-  %.0.i194 = phi i32 [ 1, %247 ], [ %..i196, %256 ], [ 3, %254 ], [ %.9.i195, %260 ], [ 0, %258 ]
+  %.0.i194 = phi i32 [ %.9.i195, %260 ], [ %..i196, %256 ], [ 1, %247 ], [ 3, %254 ], [ 0, %258 ]
   %262 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 30, ptr noundef nonnull @.str.159, i32 noundef %.0.i194, double noundef %249) #30
   call void @dt_bauhaus_combobox_add(ptr noundef %214, ptr noundef nonnull %8)
   %263 = fcmp reassoc nsz arcp contract afn ult float %.1, 1.000000e+03
@@ -8476,7 +8476,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %115
 
 115:                                              ; preds = %112, %2, %110, %106, %102, %98, %94, %90, %86, %82, %78, %74, %70, %66, %62, %58, %54, %50, %46, %42, %38, %34, %30, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %111, %110 ], [ %107, %106 ], [ %103, %102 ], [ %99, %98 ], [ %95, %94 ], [ %91, %90 ], [ %87, %86 ], [ %83, %82 ], [ %79, %78 ], [ %75, %74 ], [ %71, %70 ], [ %67, %66 ], [ %63, %62 ], [ %59, %58 ], [ %55, %54 ], [ %51, %50 ], [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %112 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %112 ], [ %111, %110 ], [ %107, %106 ], [ %103, %102 ], [ %99, %98 ], [ %95, %94 ], [ %91, %90 ], [ %87, %86 ], [ %83, %82 ], [ %79, %78 ], [ %75, %74 ], [ %71, %70 ], [ %67, %66 ], [ %63, %62 ], [ %59, %58 ], [ %55, %54 ], [ %51, %50 ], [ %47, %46 ], [ %43, %42 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -8631,7 +8631,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #3 {
   br label %59
 
 59:                                               ; preds = %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @_ZL20introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1408), %33 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1496), %35 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1584), %37 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1672), %39 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1760), %41 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1848), %43 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1936), %45 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2024), %47 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2112), %49 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2200), %51 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2288), %53 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2376), %55 ], [ %., %57 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2376), %55 ], [ %., %57 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2288), %53 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2200), %51 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2112), %49 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 2024), %47 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1936), %45 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1848), %43 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1760), %41 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1672), %39 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1584), %37 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1496), %35 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1408), %33 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @_ZL20introspection_linear, i64 88), %3 ], [ @_ZL20introspection_linear, %1 ]
   ret ptr %.0
 }
 
@@ -9209,7 +9209,7 @@ define internal fastcc noundef i32 @_ZL18_init_coeffs_md_v1PK10dt_image_tPK20dt_
   br i1 %exitcond.not, label %.loopexit, label %182, !llvm.loop !534
 
 .loopexit:                                        ; preds = %259, %.critedge222, %.critedge220.us, %.critedge220.us.us231, %.critedge220.us.us, %.critedge217, %93, %24, %7
-  %.0 = phi i32 [ 0, %7 ], [ %25, %24 ], [ %94, %93 ], [ %25, %.critedge217 ], [ %94, %.critedge220.us.us ], [ %94, %.critedge220.us.us231 ], [ %94, %.critedge220.us ], [ %94, %.critedge222 ], [ 16, %259 ]
+  %.0 = phi i32 [ %25, %24 ], [ 0, %7 ], [ %94, %93 ], [ %94, %.critedge220.us.us231 ], [ %94, %.critedge222 ], [ %25, %.critedge217 ], [ %94, %.critedge220.us ], [ %94, %.critedge220.us.us ], [ 16, %259 ]
   ret i32 %.0
 }
 

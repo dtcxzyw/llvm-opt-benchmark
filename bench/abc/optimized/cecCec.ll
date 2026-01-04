@@ -750,7 +750,7 @@ Abc_Clock.exit130:                                ; preds = %175, %178
   br label %Cec_ManTransformPattern.exit
 
 Cec_ManTransformPattern.exit:                     ; preds = %._crit_edge, %.critedge, %172, %Abc_Clock.exit130, %144, %Gia_ObjIsPi.exit127.thread, %Cec_ManTransformPattern.exit103
-  %.0 = phi i32 [ 0, %Cec_ManTransformPattern.exit103 ], [ 0, %Gia_ObjIsPi.exit127.thread ], [ 0, %144 ], [ 1, %Abc_Clock.exit130 ], [ 1, %172 ], [ -1, %.critedge ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ -1, %.critedge ], [ 0, %Cec_ManTransformPattern.exit103 ], [ 1, %172 ], [ 0, %144 ], [ 0, %Gia_ObjIsPi.exit127.thread ], [ 1, %Abc_Clock.exit130 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1326,7 +1326,7 @@ Abc_Clock.exit105:                                ; preds = %109, %112
   br label %141
 
 141:                                              ; preds = %84, %86, %Abc_Clock.exit101, %140, %123, %32
-  %.0 = phi i32 [ %33, %32 ], [ -1, %123 ], [ %132, %140 ], [ %26, %Abc_Clock.exit101 ], [ 0, %86 ], [ 0, %84 ]
+  %.0 = phi i32 [ %132, %140 ], [ %33, %32 ], [ %26, %Abc_Clock.exit101 ], [ -1, %123 ], [ 0, %86 ], [ 0, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

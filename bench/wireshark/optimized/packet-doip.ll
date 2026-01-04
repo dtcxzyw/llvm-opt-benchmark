@@ -778,7 +778,7 @@ resolve_doip_payload_type.exit.i:                 ; preds = %46, %.thread.i.i, %
   br label %resolve_doip_payload_type.exit.i.i
 
 resolve_doip_payload_type.exit.i.i:               ; preds = %75, %.thread18.i.i.i
-  %.014.i.i.i = phi ptr [ %74, %.thread18.i.i.i ], [ %76, %75 ]
+  %.014.i.i.i = phi ptr [ %76, %75 ], [ %74, %.thread18.i.i.i ]
   %77 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %57, i32 noundef %64, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %63, ptr noundef nonnull @.str.169, ptr noundef %.014.i.i.i)
   %78 = load i32, ptr @hf_doip_length, align 4
   %79 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %57, i32 noundef %78, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7)

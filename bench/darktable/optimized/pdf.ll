@@ -258,7 +258,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr noun
   br label %81
 
 81:                                               ; preds = %.loopexit192, %80, %45, %42
-  %.0143 = phi i32 [ 0, %45 ], [ 0, %42 ], [ %.5, %80 ], [ %57, %.loopexit192 ]
+  %.0143 = phi i32 [ 0, %42 ], [ 0, %45 ], [ %.5, %80 ], [ %57, %.loopexit192 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %83 = load i32, ptr %82, align 8, !tbaa !30
   %84 = icmp eq i32 %83, 0
@@ -385,8 +385,8 @@ define range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %exitcond233.not, label %.loopexit, label %.preheader189.us
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge, %.preheader189.lr.ph, %.preheader.lr.ph, %.preheader190, %.preheader187
-  %136 = phi i32 [ %99, %.preheader187 ], [ %123, %.preheader190 ], [ %99, %.preheader.lr.ph ], [ %123, %.preheader189.lr.ph ], [ %106, %._crit_edge ], [ %123, %._crit_edge.us ]
-  %.0148 = phi ptr [ %98, %.preheader187 ], [ %122, %.preheader190 ], [ %98, %.preheader.lr.ph ], [ %122, %.preheader189.lr.ph ], [ %98, %._crit_edge ], [ %122, %._crit_edge.us ]
+  %136 = phi i32 [ %99, %.preheader187 ], [ %123, %.preheader189.lr.ph ], [ %123, %.preheader190 ], [ %99, %.preheader.lr.ph ], [ %106, %._crit_edge ], [ %123, %._crit_edge.us ]
+  %.0148 = phi ptr [ %98, %.preheader187 ], [ %122, %.preheader189.lr.ph ], [ %122, %.preheader190 ], [ %98, %.preheader.lr.ph ], [ %98, %._crit_edge ], [ %122, %._crit_edge.us ]
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %138 = load ptr, ptr %137, align 8, !tbaa !26
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -483,8 +483,8 @@ define range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr noun
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread184
 
-.thread184:                                       ; preds = %81, %115, %91, %40, %._crit_edge222, %.loopexit, %.critedge
-  %.2 = phi i32 [ 1, %40 ], [ 1, %.critedge ], [ 0, %._crit_edge222 ], [ 0, %.loopexit ], [ 1, %91 ], [ 1, %115 ], [ 1, %81 ]
+.thread184:                                       ; preds = %115, %91, %81, %40, %._crit_edge222, %.loopexit, %.critedge
+  %.2 = phi i32 [ 1, %.critedge ], [ 1, %40 ], [ 1, %115 ], [ 0, %._crit_edge222 ], [ 0, %.loopexit ], [ 1, %81 ], [ 1, %91 ]
   ret i32 %.2
 }
 
@@ -690,7 +690,7 @@ define range(i32 0, 2) i32 @dimension(ptr noundef readnone captures(none) %0, pt
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %31, %12
-  %.1.ph = phi i32 [ 0, %12 ], [ 0, %31 ], [ 1, %8 ]
+  %.1.ph = phi i32 [ 0, %31 ], [ 0, %12 ], [ 1, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

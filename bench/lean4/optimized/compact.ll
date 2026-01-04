@@ -517,7 +517,7 @@ define noundef ptr @_ZN4lean16object_compactor9to_offsetEP11lean_object(ptr noun
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %30
   br label %.loopexit, !llvm.loop !66
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %10, %15, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %10, %..loopexit_crit_edge21.i.i.i.i, %15
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load ptr, ptr %36, align 8, !tbaa !67
@@ -582,7 +582,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_allocatorISt4pairIKS1_S1_EEE4findERS8_.exit: ; preds = %27, %11, %22
-  %.sroa.06.1.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i, %11 ], [ %29, %27 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %11 ], [ %23, %22 ], [ %29, %27 ]
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EE9push_backERKS1_.exit
 
@@ -2109,21 +2109,21 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE9push_backERKS1_.exit: ; preds = %39, %_ZNSt6
 _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_allocatorISt4pairIKS1_S1_EEE4findERS8_.exit: ; preds = %89, %73, %84
   br label %.sink.split, !llvm.loop !87
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader, %77, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %77
   %97 = getelementptr i8, ptr %71, i64 4
   %.val = load i32, ptr %97, align 4
   %98 = lshr i32 %.val, 24
   %99 = trunc nuw i32 %98 to i8
   switch i8 %99, label %118 [
     i8 -11, label %100
-    i8 -10, label %101
-    i8 -8, label %103
-    i8 -7, label %104
-    i8 -6, label %105
-    i8 -5, label %106
-    i8 -4, label %108
-    i8 -12, label %110
-    i8 -3, label %120
+    i8 -10, label %120
+    i8 -8, label %101
+    i8 -7, label %102
+    i8 -6, label %103
+    i8 -5, label %104
+    i8 -4, label %106
+    i8 -12, label %108
+    i8 -3, label %110
     i8 -2, label %112
     i8 -1, label %113
   ]
@@ -2133,31 +2133,31 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   unreachable
 
 101:                                              ; preds = %.loopexit
-  %102 = tail call noundef zeroext i1 @_ZN4lean16object_compactor12insert_arrayEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
-  br i1 %102, label %.critedge, label %124
-
-103:                                              ; preds = %.loopexit
   tail call void @_ZN4lean16object_compactor13insert_sarrayEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br label %.critedge
 
-104:                                              ; preds = %.loopexit
+102:                                              ; preds = %.loopexit
   tail call void @_ZN4lean16object_compactor13insert_stringEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br label %.critedge
 
-105:                                              ; preds = %.loopexit
+103:                                              ; preds = %.loopexit
   tail call void @_ZN4lean16object_compactor10insert_mpzEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br label %.critedge
 
+104:                                              ; preds = %.loopexit
+  %105 = tail call noundef zeroext i1 @_ZN4lean16object_compactor12insert_thunkEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
+  br i1 %105, label %.critedge, label %124
+
 106:                                              ; preds = %.loopexit
-  %107 = tail call noundef zeroext i1 @_ZN4lean16object_compactor12insert_thunkEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
+  %107 = tail call noundef zeroext i1 @_ZN4lean16object_compactor11insert_taskEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br i1 %107, label %.critedge, label %124
 
 108:                                              ; preds = %.loopexit
-  %109 = tail call noundef zeroext i1 @_ZN4lean16object_compactor11insert_taskEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
+  %109 = tail call noundef zeroext i1 @_ZN4lean16object_compactor14insert_promiseEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br i1 %109, label %.critedge, label %124
 
 110:                                              ; preds = %.loopexit
-  %111 = tail call noundef zeroext i1 @_ZN4lean16object_compactor14insert_promiseEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
+  %111 = tail call noundef zeroext i1 @_ZN4lean16object_compactor10insert_refEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br i1 %111, label %.critedge, label %124
 
 112:                                              ; preds = %.loopexit
@@ -2181,10 +2181,10 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   br i1 %119, label %.critedge, label %124
 
 120:                                              ; preds = %.loopexit
-  %121 = tail call noundef zeroext i1 @_ZN4lean16object_compactor10insert_refEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
+  %121 = tail call noundef zeroext i1 @_ZN4lean16object_compactor12insert_arrayEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br i1 %121, label %.critedge, label %124
 
-.critedge:                                        ; preds = %110, %108, %106, %101, %118, %103, %104, %105, %120
+.critedge:                                        ; preds = %106, %108, %110, %104, %118, %101, %102, %103, %120
   %122 = load ptr, ptr %35, align 8, !tbaa !67
   %123 = getelementptr inbounds i8, ptr %122, i64 -8
   br label %.sink.split
@@ -2194,7 +2194,7 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   store ptr %.sink, ptr %35, align 8, !tbaa !67
   br label %124
 
-124:                                              ; preds = %.sink.split, %110, %108, %106, %101, %118, %120
+124:                                              ; preds = %.sink.split, %106, %108, %110, %104, %118, %120
   %125 = load ptr, ptr %34, align 8, !tbaa !86
   %126 = load ptr, ptr %35, align 8, !tbaa !86
   %127 = icmp eq ptr %125, %126
@@ -2915,7 +2915,7 @@ _ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__det
   resume { ptr, i32 } %78
 
 _ZNKSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %36, %22, %31
-  %.sroa.045.0 = phi ptr [ %32, %31 ], [ %.sroa.037.0, %22 ], [ %38, %36 ]
+  %.sroa.045.0 = phi ptr [ %.sroa.037.0, %22 ], [ %32, %31 ], [ %38, %36 ]
   tail call void @mi_free(ptr noundef nonnull %4) #24
   br label %_ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -3156,7 +3156,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14
   br i1 %.not19.i.i, label %46, label %_ZNKSt10_HashtableIN4lean15max_sharing_keyES1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityENS0_14max_sharing_eqENS0_16max_sharing_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS1_m.exit, !llvm.loop !124
 
 _ZNKSt10_HashtableIN4lean15max_sharing_keyES1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityENS0_14max_sharing_eqENS0_16max_sharing_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS1_m.exit: ; preds = %60, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread.i.i, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread, %5, %22
-  %.sroa.07.1 = phi ptr [ null, %22 ], [ null, %5 ], [ %.sroa.07.016, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread ], [ %48, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i ], [ null, %60 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread.i.i ]
+  %.sroa.07.1 = phi ptr [ null, %22 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread ], [ null, %5 ], [ %.sroa.07.016, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS2_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread.i.i ], [ %48, %_ZNKSt8__detail15_Hashtable_baseIN4lean15max_sharing_keyES2_NS_9_IdentityENS1_14max_sharing_eqENS1_16max_sharing_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i ], [ null, %60 ]
   ret ptr %.sroa.07.1
 }
 
@@ -3530,7 +3530,7 @@ _ZSt6fill_nIPP11lean_objectmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPP11lean_objectmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPP11lean_objectmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPP11lean_objectmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPP11lean_objectmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPP11lean_objectmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !67
   br label %41
 

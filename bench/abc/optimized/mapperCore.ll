@@ -620,7 +620,7 @@ Abc_Clock.exit171:                                ; preds = %322, %325
   br label %336
 
 336:                                              ; preds = %.sink.split, %Abc_Clock.exit171, %99, %Abc_Clock.exit143
-  %.0 = phi i32 [ 0, %Abc_Clock.exit143 ], [ 1, %99 ], [ 1, %Abc_Clock.exit171 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 1, %99 ], [ 0, %Abc_Clock.exit143 ], [ 1, %Abc_Clock.exit171 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

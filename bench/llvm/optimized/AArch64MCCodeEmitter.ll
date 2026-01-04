@@ -18367,7 +18367,7 @@ _ZNK12_GLOBAL__N_120AArch64MCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS
   br label %_ZNK12_GLOBAL__N_120AArch64MCCodeEmitter7fixMOVZERKN4llvm6MCInstEjRKNS1_15MCSubtargetInfoE.exit
 
 _ZNK12_GLOBAL__N_120AArch64MCCodeEmitter7fixMOVZERKN4llvm6MCInstEjRKNS1_15MCSubtargetInfoE.exit: ; preds = %_ZNK12_GLOBAL__N_120AArch64MCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit15554, %7553, %7555, %7558
-  %.0.i15555 = phi i32 [ %7550, %_ZNK12_GLOBAL__N_120AArch64MCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit15554 ], [ %7559, %7558 ], [ %7550, %7555 ], [ %7550, %7553 ]
+  %.0.i15555 = phi i32 [ %7550, %_ZNK12_GLOBAL__N_120AArch64MCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit15554 ], [ %7550, %7555 ], [ %7559, %7558 ], [ %7550, %7553 ]
   %7560 = zext i32 %.0.i15555 to i64
   br label %31406
 
@@ -52256,7 +52256,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit: ; pred
   br label %.thread
 
 .thread:                                          ; preds = %51, %48, %48, %48, %11
-  %.0 = phi i32 [ %17, %11 ], [ 4096, %48 ], [ 4096, %48 ], [ 4096, %48 ], [ %spec.select, %51 ]
+  %.0 = phi i32 [ %17, %11 ], [ 4096, %48 ], [ %spec.select, %51 ], [ 4096, %48 ], [ 4096, %48 ]
   ret i32 %.0
 }
 

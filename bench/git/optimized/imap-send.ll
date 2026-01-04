@@ -889,7 +889,7 @@ define internal i32 @git_imap_config(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %73
 
 73:                                               ; preds = %6, %67, %49, %11, %71, %56, %42, %36, %29, %22, %16
-  %.0 = phi i32 [ %72, %71 ], [ -1, %56 ], [ %46, %42 ], [ %39, %36 ], [ %33, %29 ], [ %26, %22 ], [ %19, %16 ], [ 0, %11 ], [ 0, %49 ], [ 0, %67 ], [ 0, %6 ]
+  %.0 = phi i32 [ %72, %71 ], [ %19, %16 ], [ -1, %56 ], [ %46, %42 ], [ %39, %36 ], [ %33, %29 ], [ %26, %22 ], [ 0, %11 ], [ 0, %49 ], [ 0, %67 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -1254,7 +1254,7 @@ next_arg.exit.thread.i:                           ; preds = %.thread.i.i
   br i1 %152, label %next_arg.exit136.thread160.i, label %next_arg.exit136.thread.i
 
 next_arg.exit136.thread160.i:                     ; preds = %145, %.thread.i126.i, %.critedge.thread.i122.i
-  %.022.ph.i131.ph.i = phi ptr [ %.056.i123.i, %.critedge.thread.i122.i ], [ %.056.i123.i, %.thread.i126.i ], [ %.promoted44.i119.i, %145 ]
+  %.022.ph.i131.ph.i = phi ptr [ %.056.i123.i, %.thread.i126.i ], [ %.056.i123.i, %.critedge.thread.i122.i ], [ %.promoted44.i119.i, %145 ]
   store ptr null, ptr %6, align 8, !tbaa !72
   br label %next_arg.exit136.thread.i
 
@@ -1264,8 +1264,8 @@ next_arg.exit.thread148.i:                        ; preds = %119, %.critedge.thr
   br label %258
 
 next_arg.exit136.thread.i:                        ; preds = %next_arg.exit136.thread160.i, %.thread.i126.i, %.critedge.i120.i
-  %155 = phi ptr [ null, %next_arg.exit136.thread160.i ], [ null, %.critedge.i120.i ], [ %.pre.i127.i, %.thread.i126.i ]
-  %.022.i129156.i = phi ptr [ %.022.ph.i131.ph.i, %next_arg.exit136.thread160.i ], [ %148, %.critedge.i120.i ], [ %.056.i123.i, %.thread.i126.i ]
+  %155 = phi ptr [ null, %next_arg.exit136.thread160.i ], [ %.pre.i127.i, %.thread.i126.i ], [ null, %.critedge.i120.i ]
+  %.022.i129156.i = phi ptr [ %.022.ph.i131.ph.i, %next_arg.exit136.thread160.i ], [ %.056.i123.i, %.thread.i126.i ], [ %148, %.critedge.i120.i ]
   %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.48, ptr noundef nonnull dereferenceable(1) %.022.i129156.i) #25
   %.not90.not.i = icmp eq i32 %156, 0
   br i1 %.not90.not.i, label %172, label %sub_0.i
@@ -2176,7 +2176,7 @@ host_matches.exit37.thread.i:                     ; preds = %host_matches.exit37
   %130 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.81, ptr noundef nonnull %4, ptr noundef %67) #22
   br label %verify_hostname.exit.thread
 
-verify_hostname.exit.thread:                      ; preds = %108, %host_matches.exit37.thread.i, %103
+verify_hostname.exit.thread:                      ; preds = %103, %108, %host_matches.exit37.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %socket_perror.exit
 
@@ -2185,7 +2185,7 @@ verify_hostname.exit:                             ; preds = %._crit_edge.i, %hos
   br label %socket_perror.exit
 
 socket_perror.exit:                               ; preds = %59, %verify_hostname.exit, %verify_hostname.exit.thread, %56, %55, %52, %51, %49, %64, %35, %29, %25, %21, %11, %8
-  %.0 = phi i32 [ -1, %64 ], [ -1, %35 ], [ -1, %29 ], [ -1, %25 ], [ -1, %21 ], [ -1, %11 ], [ -1, %8 ], [ -1, %49 ], [ -1, %51 ], [ -1, %52 ], [ -1, %55 ], [ -1, %56 ], [ -1, %verify_hostname.exit.thread ], [ 0, %verify_hostname.exit ], [ 0, %59 ]
+  %.0 = phi i32 [ -1, %verify_hostname.exit.thread ], [ -1, %8 ], [ -1, %56 ], [ -1, %64 ], [ -1, %35 ], [ -1, %29 ], [ -1, %25 ], [ -1, %21 ], [ -1, %11 ], [ -1, %49 ], [ -1, %51 ], [ -1, %52 ], [ -1, %55 ], [ 0, %verify_hostname.exit ], [ 0, %59 ]
   ret i32 %.0
 }
 
@@ -2349,7 +2349,7 @@ socket_read.exit:                                 ; preds = %37, %socket_perror.
   br label %11
 
 .loopexit:                                        ; preds = %socket_read.exit, %70, %75
-  %.036 = phi i32 [ 0, %75 ], [ 0, %70 ], [ -1, %socket_read.exit ]
+  %.036 = phi i32 [ 0, %70 ], [ 0, %75 ], [ -1, %socket_read.exit ]
   ret i32 %.036
 }
 
@@ -2435,7 +2435,7 @@ define internal fastcc ptr @next_arg(ptr noundef nonnull captures(none) %0) unna
   br label %29
 
 29:                                               ; preds = %.sink.split, %.critedge, %.thread, %1
-  %.022 = phi ptr [ null, %1 ], [ %.056, %.thread ], [ %24, %.critedge ], [ %.022.ph, %.sink.split ]
+  %.022 = phi ptr [ null, %1 ], [ %24, %.critedge ], [ %.056, %.thread ], [ %.022.ph, %.sink.split ]
   ret ptr %.022
 }
 
@@ -2539,7 +2539,7 @@ define internal fastcc range(i32 0, 3) i32 @parse_response_code(ptr noundef capt
   br i1 %42, label %next_arg.exit.thread118, label %next_arg.exit.thread
 
 next_arg.exit.thread118:                          ; preds = %35, %.thread.i, %.critedge.thread.i
-  %.022.ph.i.ph = phi ptr [ %.056.i, %.critedge.thread.i ], [ %.056.i, %.thread.i ], [ %.promoted44.i, %35 ]
+  %.022.ph.i.ph = phi ptr [ %.056.i, %.thread.i ], [ %.056.i, %.critedge.thread.i ], [ %.promoted44.i, %35 ]
   store ptr null, ptr %6, align 8, !tbaa !72
   br label %next_arg.exit.thread
 
@@ -2548,9 +2548,9 @@ next_arg.exit.thread118:                          ; preds = %35, %.thread.i, %.c
   %45 = tail call i64 @fwrite(ptr nonnull @.str.84, i64 32, i64 1, ptr %44) #24
   br label %165
 
-next_arg.exit.thread:                             ; preds = %.critedge.i, %.thread.i, %next_arg.exit.thread118
-  %46 = phi ptr [ null, %next_arg.exit.thread118 ], [ null, %.critedge.i ], [ %.pre.i, %.thread.i ]
-  %.022.i116 = phi ptr [ %.022.ph.i.ph, %next_arg.exit.thread118 ], [ %38, %.critedge.i ], [ %.056.i, %.thread.i ]
+next_arg.exit.thread:                             ; preds = %.thread.i, %.critedge.i, %next_arg.exit.thread118
+  %46 = phi ptr [ null, %next_arg.exit.thread118 ], [ %.pre.i, %.thread.i ], [ null, %.critedge.i ]
+  %.022.i116 = phi ptr [ %.022.ph.i.ph, %next_arg.exit.thread118 ], [ %.056.i, %.thread.i ], [ %38, %.critedge.i ]
   %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.85, ptr noundef nonnull dereferenceable(1) %.022.i116) #25
   %.not38 = icmp eq i32 %47, 0
   br i1 %.not38, label %48, label %88
@@ -2632,12 +2632,12 @@ next_arg.exit.thread:                             ; preds = %.critedge.i, %.thre
   br i1 %74, label %next_arg.exit81.thread128, label %next_arg.exit81.thread
 
 next_arg.exit81.thread128:                        ; preds = %67, %.thread.i71, %.critedge.thread.i67
-  %.022.ph.i76.ph = phi ptr [ %.056.i68, %.critedge.thread.i67 ], [ %.056.i68, %.thread.i71 ], [ %.promoted44.i64, %67 ]
+  %.022.ph.i76.ph = phi ptr [ %.056.i68, %.thread.i71 ], [ %.056.i68, %.critedge.thread.i67 ], [ %.promoted44.i64, %67 ]
   store ptr null, ptr %6, align 8, !tbaa !72
   br label %next_arg.exit81.thread
 
-next_arg.exit81.thread:                           ; preds = %.critedge.i65, %.thread.i71, %next_arg.exit81.thread128
-  %.022.i74123 = phi ptr [ %.022.ph.i76.ph, %next_arg.exit81.thread128 ], [ %70, %.critedge.i65 ], [ %.056.i68, %.thread.i71 ]
+next_arg.exit81.thread:                           ; preds = %.thread.i71, %.critedge.i65, %next_arg.exit81.thread128
+  %.022.i74123 = phi ptr [ %.022.ph.i76.ph, %next_arg.exit81.thread128 ], [ %.056.i68, %.thread.i71 ], [ %70, %.critedge.i65 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %76 = tail call ptr @__errno_location() #27
@@ -2756,12 +2756,12 @@ next_arg.exit81.thread124:                        ; preds = %._crit_edge.i63, %4
   br i1 %116, label %next_arg.exit106.thread140, label %next_arg.exit106.thread
 
 next_arg.exit106.thread140:                       ; preds = %109, %.thread.i96, %.critedge.thread.i92
-  %.022.ph.i101.ph = phi ptr [ %.056.i93, %.critedge.thread.i92 ], [ %.056.i93, %.thread.i96 ], [ %.promoted44.i89, %109 ]
+  %.022.ph.i101.ph = phi ptr [ %.056.i93, %.thread.i96 ], [ %.056.i93, %.critedge.thread.i92 ], [ %.promoted44.i89, %109 ]
   store ptr null, ptr %6, align 8, !tbaa !72
   br label %next_arg.exit106.thread
 
-next_arg.exit106.thread:                          ; preds = %.critedge.i90, %.thread.i96, %next_arg.exit106.thread140
-  %.022.i99135 = phi ptr [ %.022.ph.i101.ph, %next_arg.exit106.thread140 ], [ %112, %.critedge.i90 ], [ %.056.i93, %.thread.i96 ]
+next_arg.exit106.thread:                          ; preds = %.thread.i96, %.critedge.i90, %next_arg.exit106.thread140
+  %.022.i99135 = phi ptr [ %.022.ph.i101.ph, %next_arg.exit106.thread140 ], [ %.056.i93, %.thread.i96 ], [ %112, %.critedge.i90 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %117 = tail call ptr @__errno_location() #27
   store i32 0, ptr %117, align 4, !tbaa !19
@@ -2880,7 +2880,7 @@ next_arg.exit106.thread136:                       ; preds = %._crit_edge.i88, %9
   br label %165
 
 165:                                              ; preds = %84, %131, %142, %143, %146, %160, %139, %125, %3, %9, %162, %next_arg.exit106.thread136, %next_arg.exit81.thread124, %43, %14
-  %.026 = phi i32 [ 2, %162 ], [ 2, %next_arg.exit106.thread136 ], [ 2, %next_arg.exit81.thread124 ], [ 2, %43 ], [ 2, %14 ], [ 0, %9 ], [ 0, %3 ], [ 0, %125 ], [ 0, %139 ], [ 0, %160 ], [ 0, %146 ], [ 0, %143 ], [ 0, %142 ], [ 0, %131 ], [ 0, %84 ]
+  %.026 = phi i32 [ 2, %14 ], [ 0, %3 ], [ 2, %162 ], [ 2, %next_arg.exit106.thread136 ], [ 2, %next_arg.exit81.thread124 ], [ 2, %43 ], [ 0, %9 ], [ 0, %125 ], [ 0, %139 ], [ 0, %160 ], [ 0, %146 ], [ 0, %143 ], [ 0, %142 ], [ 0, %131 ], [ 0, %84 ]
   ret i32 %.026
 }
 
@@ -3320,8 +3320,8 @@ define internal fastcc void @parse_capability(ptr noundef captures(none) initial
   br label %next_arg.exit
 
 next_arg.exit:                                    ; preds = %22, %.thread.i, %.critedge.thread.i, %.critedge.i
-  %.1 = phi ptr [ null, %.critedge.i ], [ null, %.critedge.thread.i ], [ %spec.select, %.thread.i ], [ null, %22 ]
-  %.022.i = phi ptr [ %25, %.critedge.i ], [ %.056.i, %.critedge.thread.i ], [ %.056.i, %.thread.i ], [ %.promoted44.i, %22 ]
+  %.1 = phi ptr [ null, %.critedge.thread.i ], [ null, %.critedge.i ], [ %spec.select, %.thread.i ], [ null, %22 ]
+  %.022.i = phi ptr [ %.056.i, %.critedge.thread.i ], [ %25, %.critedge.i ], [ %.056.i, %.thread.i ], [ %.promoted44.i, %22 ]
   br label %30
 
 30:                                               ; preds = %next_arg.exit, %39
@@ -3664,7 +3664,7 @@ define internal fastcc range(i32 0, 3) i32 @get_cmd_result(ptr noundef %0, ptr n
   br i1 %40, label %next_arg.exit.thread187, label %next_arg.exit.thread
 
 next_arg.exit.thread187:                          ; preds = %33, %.thread.i, %.critedge.thread.i
-  %.022.ph.i.ph = phi ptr [ %.056.i, %.critedge.thread.i ], [ %.056.i, %.thread.i ], [ %.promoted44.i, %33 ]
+  %.022.ph.i.ph = phi ptr [ %.056.i, %.thread.i ], [ %.056.i, %.critedge.thread.i ], [ %.promoted44.i, %33 ]
   store ptr null, ptr %4, align 8, !tbaa !72
   br label %next_arg.exit.thread
 
@@ -3673,9 +3673,9 @@ next_arg.exit.thread183:                          ; preds = %13, %._crit_edge.i
   %42 = tail call i64 @fwrite(ptr nonnull @.str.108, i64 27, i64 1, ptr %41) #24
   br label %.loopexit
 
-next_arg.exit.thread:                             ; preds = %.critedge.i, %.thread.i, %next_arg.exit.thread187
-  %43 = phi ptr [ null, %next_arg.exit.thread187 ], [ null, %.critedge.i ], [ %.pre.i, %.thread.i ]
-  %.022.i182 = phi ptr [ %.022.ph.i.ph, %next_arg.exit.thread187 ], [ %36, %.critedge.i ], [ %.056.i, %.thread.i ]
+next_arg.exit.thread:                             ; preds = %.thread.i, %.critedge.i, %next_arg.exit.thread187
+  %43 = phi ptr [ null, %next_arg.exit.thread187 ], [ %.pre.i, %.thread.i ], [ null, %.critedge.i ]
+  %.022.i182 = phi ptr [ %.022.ph.i.ph, %next_arg.exit.thread187 ], [ %.056.i, %.thread.i ], [ %36, %.critedge.i ]
   %44 = load i8, ptr %.022.i182, align 1, !tbaa !26
   %45 = icmp eq i8 %44, 42
   br i1 %45, label %46, label %140
@@ -3757,7 +3757,7 @@ next_arg.exit.thread:                             ; preds = %.critedge.i, %.thre
   br i1 %72, label %next_arg.exit129.thread197, label %next_arg.exit129.thread
 
 next_arg.exit129.thread197:                       ; preds = %65, %.thread.i119, %.critedge.thread.i115
-  %.022.ph.i124.ph = phi ptr [ %.056.i116, %.critedge.thread.i115 ], [ %.056.i116, %.thread.i119 ], [ %.promoted44.i112, %65 ]
+  %.022.ph.i124.ph = phi ptr [ %.056.i116, %.thread.i119 ], [ %.056.i116, %.critedge.thread.i115 ], [ %.promoted44.i112, %65 ]
   store ptr null, ptr %4, align 8, !tbaa !72
   br label %next_arg.exit129.thread
 
@@ -3766,9 +3766,9 @@ next_arg.exit129.thread193:                       ; preds = %46, %._crit_edge.i1
   %74 = tail call i64 @fwrite(ptr nonnull @.str.109, i64 46, i64 1, ptr %73) #24
   br label %.loopexit
 
-next_arg.exit129.thread:                          ; preds = %.critedge.i113, %.thread.i119, %next_arg.exit129.thread197
-  %75 = phi ptr [ null, %next_arg.exit129.thread197 ], [ null, %.critedge.i113 ], [ %.pre.i120, %.thread.i119 ]
-  %.022.i122192 = phi ptr [ %.022.ph.i124.ph, %next_arg.exit129.thread197 ], [ %68, %.critedge.i113 ], [ %.056.i116, %.thread.i119 ]
+next_arg.exit129.thread:                          ; preds = %.thread.i119, %.critedge.i113, %next_arg.exit129.thread197
+  %75 = phi ptr [ null, %next_arg.exit129.thread197 ], [ %.pre.i120, %.thread.i119 ], [ null, %.critedge.i113 ]
+  %.022.i122192 = phi ptr [ %.022.ph.i124.ph, %next_arg.exit129.thread197 ], [ %.056.i116, %.thread.i119 ], [ %68, %.critedge.i113 ]
   %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(10) @.str.96, ptr noundef nonnull dereferenceable(1) %.022.i122192) #25
   %.not98 = icmp eq i32 %76, 0
   br i1 %.not98, label %77, label %sub_0
@@ -4162,8 +4162,8 @@ strtol_i.exit:                                    ; preds = %176
   br label %next_arg.exit178
 
 next_arg.exit178:                                 ; preds = %206, %.critedge.i162, %.thread.i168, %.sink.split.i172
-  %233 = phi ptr [ null, %206 ], [ %.pre.i169, %.thread.i168 ], [ null, %.critedge.i162 ], [ null, %.sink.split.i172 ]
-  %.022.i171 = phi ptr [ null, %206 ], [ %.056.i165, %.thread.i168 ], [ %228, %.critedge.i162 ], [ %.022.ph.i173, %.sink.split.i172 ]
+  %233 = phi ptr [ null, %206 ], [ null, %.critedge.i162 ], [ %.pre.i169, %.thread.i168 ], [ null, %.sink.split.i172 ]
+  %.022.i171 = phi ptr [ null, %206 ], [ %228, %.critedge.i162 ], [ %.056.i165, %.thread.i168 ], [ %.022.ph.i173, %.sink.split.i172 ]
   %.not84 = icmp eq ptr %.022.i171, null
   %spec.store.select = select i1 %.not84, ptr @.str, ptr %.022.i171
   %234 = load i8, ptr %spec.store.select, align 1
@@ -4258,7 +4258,7 @@ next_arg.exit153.thread:                          ; preds = %131, %.thread.i143,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %next_arg.exit153.thread, %107, %153, %161, %166, %171, %.loopexit.split.loop.exit261, %2, %191, %182, %163, %142, %next_arg.exit153.thread202, %next_arg.exit129.thread193, %next_arg.exit.thread183
-  %.0 = phi i32 [ 2, %next_arg.exit153.thread202 ], [ 2, %next_arg.exit129.thread193 ], [ 2, %163 ], [ 2, %182 ], [ 2, %191 ], [ 2, %142 ], [ 2, %next_arg.exit.thread183 ], [ %spec.select.le, %.loopexit.split.loop.exit261 ], [ 2, %2 ], [ 2, %next_arg.exit153.thread ], [ %108, %107 ], [ 2, %153 ], [ 2, %161 ], [ 2, %166 ], [ 0, %171 ]
+  %.0 = phi i32 [ 2, %next_arg.exit.thread183 ], [ 2, %next_arg.exit153.thread202 ], [ 2, %191 ], [ 2, %next_arg.exit129.thread193 ], [ 2, %163 ], [ 2, %182 ], [ 2, %142 ], [ 2, %2 ], [ %spec.select.le, %.loopexit.split.loop.exit261 ], [ 2, %166 ], [ 2, %161 ], [ 2, %next_arg.exit153.thread ], [ 2, %153 ], [ %108, %107 ], [ 0, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -4498,12 +4498,12 @@ define internal fastcc range(i32 -1, 1) i32 @skip_imap_list_l(ptr noundef nonnul
   br label %.loopexit19
 
 .loopexit19:                                      ; preds = %12, %.lr.ph, %44, %37, %..loopexit19_crit_edge, %50
-  %52 = phi ptr [ %.pre58, %..loopexit19_crit_edge ], [ %51, %50 ], [ %.promoted27, %37 ], [ %39, %.lr.ph ], [ %45, %44 ], [ %11, %12 ]
+  %52 = phi ptr [ %.pre58, %..loopexit19_crit_edge ], [ %51, %50 ], [ %39, %.lr.ph ], [ %.promoted27, %37 ], [ %45, %44 ], [ %11, %12 ]
   store ptr %52, ptr %0, align 8, !tbaa !72
   br label %.loopexit18
 
 .loopexit18:                                      ; preds = %.critedge.thread.us, %16, %.preheader17.us, %.preheader17, %47, %.loopexit19
-  %.0 = phi i32 [ 0, %.loopexit19 ], [ -1, %47 ], [ -1, %.preheader17 ], [ -1, %.preheader17.us ], [ -1, %16 ], [ -1, %.critedge.thread.us ]
+  %.0 = phi i32 [ 0, %.loopexit19 ], [ -1, %.preheader17 ], [ -1, %47 ], [ -1, %.preheader17.us ], [ -1, %16 ], [ -1, %.critedge.thread.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

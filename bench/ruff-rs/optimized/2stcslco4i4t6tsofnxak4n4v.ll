@@ -274,16 +274,16 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i.i.i.i: ; 
   br label %.body.i.i.i
 
 .loopexit.split-lp.i.i.i:                         ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i32.i.i.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i.i.i.i
-  %.sroa.012.1.ph.i.i.i = phi i8 [ %.sroa.012.0.i.i.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i32.i.i.i ], [ 0, %_ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i.i.i.i ]
-  %.sroa.0.0.ph.i.i.i = phi i1 [ false, %_ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i32.i.i.i ], [ true, %_ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i.i.i.i ]
+  %.sroa.012.1.ph.i.i.i = phi i8 [ 0, %_ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i.i.i.i ], [ %.sroa.012.0.i.i.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i32.i.i.i ]
+  %.sroa.0.0.ph.i.i.i = phi i1 [ true, %_ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i.i.i.i ], [ false, %_ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i32.i.i.i ]
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i
 
 .body.i.i.i:                                      ; preds = %87, %.loopexit.split-lp.i.i.i, %.loopexit.i.i.i, %58
-  %.sroa.012.1.lpad-body.i.i.i = phi i8 [ %.sroa.012.0.i.i.i, %58 ], [ %.sroa.012.0.i.i.i, %87 ], [ %.sroa.012.0.i.i.i, %.loopexit.i.i.i ], [ %.sroa.012.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
-  %.sroa.0.0.lpad-body.i.i.i = phi i1 [ true, %58 ], [ false, %87 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0.0.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %59, %58 ], [ %88, %87 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.sroa.012.1.lpad-body.i.i.i = phi i8 [ %.sroa.012.0.i.i.i, %87 ], [ %.sroa.012.0.i.i.i, %58 ], [ %.sroa.012.0.i.i.i, %.loopexit.i.i.i ], [ %.sroa.012.1.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.sroa.0.0.lpad-body.i.i.i = phi i1 [ false, %87 ], [ true, %58 ], [ true, %.loopexit.i.i.i ], [ %.sroa.0.0.ph.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %88, %87 ], [ %59, %58 ], [ %lpad.loopexit.i.i.i, %.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
   %71 = icmp ne i64 %11, 0
   %72 = trunc nuw i8 %.sroa.012.1.lpad-body.i.i.i to i1
   %or.cond7.i.i.i = select i1 %71, i1 %72, i1 false
@@ -413,8 +413,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i32.i.i.i: 
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h96092c60d9ae9b11E.exit"
 
 .body.thread.i.i.i:                               ; preds = %119, %.body.i.i.i, %24
-  %eh.lpad-body45.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i, %119 ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %25, %24 ]
-  %.sroa.0.0.lpad-body44.i.i.i = phi i1 [ %.sroa.0.0.lpad-body.i.i.i, %119 ], [ %.sroa.0.0.lpad-body.i.i.i, %.body.i.i.i ], [ true, %24 ]
+  %eh.lpad-body45.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %eh.lpad-body.i.i.i, %119 ], [ %25, %24 ]
+  %.sroa.0.0.lpad-body44.i.i.i = phi i1 [ %.sroa.0.0.lpad-body.i.i.i, %.body.i.i.i ], [ %.sroa.0.0.lpad-body.i.i.i, %119 ], [ true, %24 ]
   %116 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %117 = load i64, ptr %116, align 8, !range !35, !alias.scope !36, !noalias !37, !noundef !11
   %118 = icmp ne i64 %117, 0

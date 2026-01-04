@@ -616,7 +616,7 @@ define hidden noundef zeroext i1 @_ZN14cranelift_isle7codegen7Codegen10emit_bloc
   br i1 %267, label %._crit_edge, label %.lr.ph
 
 .critedge:                                        ; preds = %495, %.backedge425, %351, %395, %447, %488, %496, %501, %503, %505, %507, %514, %517, %519, %521, %523, %111, %619, %642, %620, %.critedge337, %.critedge335, %.critedge331, %354
-  %268 = phi i1 [ true, %619 ], [ true, %642 ], [ true, %620 ], [ true, %.critedge337 ], [ true, %.critedge335 ], [ true, %.critedge331 ], [ true, %354 ], [ false, %111 ], [ false, %.backedge425 ], [ true, %351 ], [ true, %395 ], [ true, %447 ], [ true, %488 ], [ true, %496 ], [ true, %501 ], [ true, %503 ], [ true, %505 ], [ true, %507 ], [ true, %514 ], [ true, %517 ], [ true, %519 ], [ true, %521 ], [ true, %523 ], [ true, %495 ]
+  %268 = phi i1 [ true, %354 ], [ true, %619 ], [ true, %642 ], [ true, %620 ], [ false, %111 ], [ true, %.critedge337 ], [ true, %.critedge335 ], [ true, %.critedge331 ], [ true, %523 ], [ false, %.backedge425 ], [ true, %351 ], [ true, %395 ], [ true, %447 ], [ true, %488 ], [ true, %496 ], [ true, %501 ], [ true, %503 ], [ true, %505 ], [ true, %507 ], [ true, %514 ], [ true, %517 ], [ true, %519 ], [ true, %521 ], [ true, %495 ]
   ret i1 %268
 
 ._crit_edge:                                      ; preds = %.backedge, %259
@@ -852,10 +852,10 @@ default.unreachable592:                           ; preds = %._crit_edge
   br label %.critedge
 
 .thread406:                                       ; preds = %601, %643, %613, %587, %563, %491, %490, %449, %.thread366, %355
-  %.pn328 = phi { ptr, i32 } [ %lpad.thr_comm, %355 ], [ %.pn326369, %.thread366 ], [ %lpad.thr_comm390, %449 ], [ %lpad.thr_comm398, %490 ], [ %492, %491 ], [ %lpad.thr_comm.split-lp413, %643 ], [ %lpad.thr_comm.split-lp413, %613 ], [ %564, %563 ], [ %588, %587 ], [ %602, %601 ]
+  %.pn328 = phi { ptr, i32 } [ %lpad.thr_comm, %355 ], [ %602, %601 ], [ %.pn326369, %.thread366 ], [ %lpad.thr_comm.split-lp413, %613 ], [ %lpad.thr_comm390, %449 ], [ %588, %587 ], [ %lpad.thr_comm398, %490 ], [ %564, %563 ], [ %492, %491 ], [ %lpad.thr_comm.split-lp413, %643 ]
   resume { ptr, i32 } %.pn328
 
-355:                                              ; preds = %347, %324, %320, %316, %313, %312, %342, %338, %334, %331, %311, %328, %.noexc
+355:                                              ; preds = %347, %.noexc, %324, %320, %316, %313, %312, %342, %338, %334, %331, %311, %328
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %74) #8
@@ -867,12 +867,12 @@ default.unreachable592:                           ; preds = %._crit_edge
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #9
   unreachable
 
-.thread374.loopexit:                              ; preds = %391, %385
+.thread374.loopexit:                              ; preds = %385, %391
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.thread366
 
-.thread374.loopexit.split-lp.loopexit:            ; preds = %392, %389, %358, %309, %368, %370, %373, %379, %.noexc345
+.thread374.loopexit.split-lp.loopexit:            ; preds = %392, %389, %.noexc345, %373, %358, %309, %368, %370, %379
   %lpad.loopexit421 = landingpad { ptr, i32 }
           cleanup
   br label %.thread366
@@ -1083,22 +1083,22 @@ default.unreachable592:                           ; preds = %._crit_edge
 420:                                              ; preds = %418
   br i1 %419, label %.critedge331, label %385
 
-.critedge333:                                     ; preds = %417, %413, %409, %405, %402
+.critedge333:                                     ; preds = %402, %405, %409, %413, %417
   invoke void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %59)
           to label %.critedge331 unwind label %.thread374.loopexit.split-lp.loopexit.split-lp
 
-421:                                              ; preds = %414, %406, %403, %400, %397, %410, %.noexc350
+421:                                              ; preds = %414, %.noexc350, %406, %403, %400, %397, %410
   %lpad.thr_comm381 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %59) #8
           to label %.thread366 unwind label %356
 
-.critedge331:                                     ; preds = %360, %378, %382, %394, %420, %.thread377, %.critedge333
+.critedge331:                                     ; preds = %394, %382, %378, %360, %420, %.thread377, %.critedge333
   call void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %64)
   br label %.critedge
 
 .thread366:                                       ; preds = %.thread374.loopexit, %.thread374.loopexit.split-lp.loopexit.split-lp, %.thread374.loopexit.split-lp.loopexit, %399, %421
-  %.pn326369 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp382, %399 ], [ %lpad.thr_comm381, %421 ], [ %lpad.loopexit, %.thread374.loopexit ], [ %lpad.loopexit421, %.thread374.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp422, %.thread374.loopexit.split-lp.loopexit.split-lp ]
+  %.pn326369 = phi { ptr, i32 } [ %lpad.thr_comm381, %421 ], [ %lpad.thr_comm.split-lp382, %399 ], [ %lpad.loopexit, %.thread374.loopexit ], [ %lpad.loopexit421, %.thread374.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp422, %.thread374.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %64) #8
           to label %.thread406 unwind label %356
 
@@ -1172,11 +1172,11 @@ default.unreachable592:                           ; preds = %._crit_edge
   %448 = call zeroext i1 @"_ZN14cranelift_isle7codegen20BodyContext$LT$W$GT$9end_block17hcb3ad09c2a4f2013E"(ptr nonnull align 8 %1, ptr nonnull align 8 %44)
   br i1 %448, label %.critedge, label %.backedge425
 
-.critedge335:                                     ; preds = %446, %442, %438, %433, %429, %424
+.critedge335:                                     ; preds = %424, %429, %433, %438, %442, %446
   call void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %49)
   br label %.critedge
 
-449:                                              ; preds = %443, %434, %430, %425, %422, %284, %439, %.noexc353
+449:                                              ; preds = %443, %.noexc353, %434, %430, %425, %422, %284, %439
   %lpad.thr_comm390 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %49) #8
@@ -1300,11 +1300,11 @@ default.unreachable592:                           ; preds = %._crit_edge
   %489 = call zeroext i1 @"_ZN14cranelift_isle7codegen20BodyContext$LT$W$GT$9end_block17hcb3ad09c2a4f2013E"(ptr nonnull align 8 %1, ptr nonnull align 8 %31)
   br i1 %489, label %.critedge, label %.backedge425
 
-.critedge337:                                     ; preds = %487, %483, %477, %468
+.critedge337:                                     ; preds = %468, %477, %483, %487
   call void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %42)
   br label %.critedge
 
-490:                                              ; preds = %484, %478, %475, %474, %472, %469, %466, %465, %463, %457, %480, %.noexc357
+490:                                              ; preds = %484, %.noexc357, %478, %475, %474, %472, %469, %466, %465, %463, %457, %480
   %lpad.thr_comm398 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %42) #8
@@ -1537,7 +1537,7 @@ default.unreachable592:                           ; preds = %._crit_edge
   br label %571
 
 571:                                              ; preds = %562, %568, %570, %586, %592, %594
-  %.sink = phi ptr [ %94, %594 ], [ %94, %592 ], [ %94, %586 ], [ %101, %570 ], [ %101, %568 ], [ %101, %562 ]
+  %.sink = phi ptr [ %94, %586 ], [ %94, %594 ], [ %94, %592 ], [ %101, %570 ], [ %101, %568 ], [ %101, %562 ]
   call void @"_ZN4core3ptr54drop_in_place$LT$cranelift_isle..sema..ExternalSig$GT$17hff1c4745da4a339cE"(ptr nonnull align 8 %.sink)
   %.pr = load i64, ptr %102, align 8
   %.not = icmp eq i64 %.pr, -9223372036854775808
@@ -1668,7 +1668,7 @@ default.unreachable592:                           ; preds = %._crit_edge
   br label %617
 
 613:                                              ; preds = %598, %617, %624, %625, %629, %633
-  %.3256.ph = phi i8 [ 1, %598 ], [ 1, %624 ], [ 1, %625 ], [ %.5258, %617 ], [ %.5258, %629 ], [ %.5258, %633 ]
+  %.3256.ph = phi i8 [ 1, %625 ], [ 1, %598 ], [ 1, %624 ], [ %.5258, %617 ], [ %.5258, %629 ], [ %.5258, %633 ]
   %lpad.thr_comm.split-lp413 = landingpad { ptr, i32 }
           cleanup
   %614 = trunc nuw i8 %.3256.ph to i1
@@ -1687,7 +1687,7 @@ default.unreachable592:                           ; preds = %._crit_edge
   br label %.critedge
 
 620:                                              ; preds = %632, %628, %627
-  %.6259 = phi i8 [ 1, %627 ], [ %.5258, %628 ], [ %.5258, %632 ]
+  %.6259 = phi i8 [ %.5258, %628 ], [ 1, %627 ], [ %.5258, %632 ]
   %621 = load i64, ptr %102, align 8, !range !10, !noundef !3
   %622 = icmp ne i64 %621, -9223372036854775808
   %623 = trunc nuw i8 %.6259 to i1
@@ -1945,7 +1945,7 @@ default.unreachable135:                           ; preds = %53
   br i1 %125, label %.loopexit, label %253
 
 .loopexit:                                        ; preds = %233, %236, %228, %224, %216, %120, %116, %110, %190, %184, %177, %98, %253, %245, %239, %133, %126, %90, %85, %77, %61, %47
-  %.0.shrunk = phi i1 [ %52, %47 ], [ %66, %61 ], [ %131, %126 ], [ %84, %77 ], [ %89, %85 ], [ %97, %90 ], [ %140, %133 ], [ %244, %239 ], [ %252, %245 ], [ %258, %253 ], [ true, %98 ], [ true, %177 ], [ false, %184 ], [ true, %190 ], [ true, %110 ], [ true, %116 ], [ true, %120 ], [ %217, %216 ], [ true, %224 ], [ true, %228 ], [ true, %236 ], [ true, %233 ]
+  %.0.shrunk = phi i1 [ %52, %47 ], [ %66, %61 ], [ %131, %126 ], [ %84, %77 ], [ %89, %85 ], [ %97, %90 ], [ %140, %133 ], [ true, %116 ], [ true, %177 ], [ true, %120 ], [ %252, %245 ], [ true, %110 ], [ %258, %253 ], [ true, %190 ], [ false, %184 ], [ true, %98 ], [ %244, %239 ], [ %217, %216 ], [ true, %224 ], [ true, %228 ], [ true, %236 ], [ true, %233 ]
   ret i1 %.0.shrunk
 
 126:                                              ; preds = %67
@@ -2417,7 +2417,7 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
   br i1 %135, label %.loopexit57, label %123
 
 .loopexit57:                                      ; preds = %143, %157, %163, %170, %123, %79, %82, %136
-  %.1 = phi i1 [ true, %136 ], [ true, %82 ], [ true, %79 ], [ %131, %123 ], [ true, %170 ], [ true, %163 ], [ true, %157 ], [ true, %143 ]
+  %.1 = phi i1 [ true, %79 ], [ %131, %123 ], [ true, %136 ], [ true, %82 ], [ true, %170 ], [ true, %163 ], [ true, %157 ], [ true, %143 ]
   call void @"_ZN4core3ptr54drop_in_place$LT$cranelift_isle..sema..ExternalSig$GT$17hff1c4745da4a339cE"(ptr nonnull align 8 %24)
   ret i1 %.1
 
@@ -2458,10 +2458,10 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
   br label %151
 
 151:                                              ; preds = %150, %149
-  %.sroa.040.0 = phi ptr [ @anon.56deb51d4300d1bb4711f96d6950176e.3, %149 ], [ %spec.select55, %150 ]
-  %.sroa.4.0 = phi i64 [ 0, %149 ], [ %spec.select56, %150 ]
-  %.sroa.041.0 = phi ptr [ %spec.select, %149 ], [ @anon.56deb51d4300d1bb4711f96d6950176e.3, %150 ]
-  %.sroa.442.0 = phi i64 [ %spec.select54, %149 ], [ 0, %150 ]
+  %.sroa.040.0 = phi ptr [ %spec.select55, %150 ], [ @anon.56deb51d4300d1bb4711f96d6950176e.3, %149 ]
+  %.sroa.4.0 = phi i64 [ %spec.select56, %150 ], [ 0, %149 ]
+  %.sroa.041.0 = phi ptr [ @anon.56deb51d4300d1bb4711f96d6950176e.3, %150 ], [ %spec.select, %149 ]
+  %.sroa.442.0 = phi i64 [ 0, %150 ], [ %spec.select54, %149 ]
   store ptr %.sroa.040.0, ptr %15, align 8
   store i64 %.sroa.4.0, ptr %95, align 8
   store ptr %.sroa.041.0, ptr %14, align 8
@@ -2828,7 +2828,7 @@ default.unreachable143:                           ; preds = %._crit_edge
   br i1 %166, label %.loopexit, label %161
 
 .loopexit:                                        ; preds = %181, %185, %172, %161, %205, %212, %77, %163, %128, %126, %119, %219, %189, %61
-  %.0.shrunk = phi i1 [ %66, %61 ], [ %194, %189 ], [ %225, %219 ], [ true, %119 ], [ false, %126 ], [ true, %128 ], [ true, %163 ], [ true, %77 ], [ true, %212 ], [ true, %205 ], [ %162, %161 ], [ true, %172 ], [ true, %185 ], [ true, %181 ]
+  %.0.shrunk = phi i1 [ true, %119 ], [ true, %205 ], [ true, %128 ], [ true, %77 ], [ true, %212 ], [ true, %163 ], [ false, %126 ], [ %162, %161 ], [ %66, %61 ], [ %194, %189 ], [ %225, %219 ], [ true, %172 ], [ true, %185 ], [ true, %181 ]
   ret i1 %.0.shrunk
 
 167:                                              ; preds = %156

@@ -533,7 +533,7 @@ define noundef i32 @_ZN14dtPathCorridor11findCornersEPfPhPjiP14dtNavMeshQueryPK1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph41, !llvm.loop !13
 
 .loopexit:                                        ; preds = %43, %57, %20, %._crit_edge, %54
-  %58 = phi i32 [ %.lcssa, %._crit_edge ], [ %56, %54 ], [ 0, %20 ], [ %.lcssa, %57 ], [ 0, %43 ]
+  %58 = phi i32 [ %.lcssa, %57 ], [ %.lcssa, %._crit_edge ], [ %56, %54 ], [ 0, %20 ], [ 0, %43 ]
   ret i32 %58
 }
 
@@ -863,7 +863,7 @@ _Z28dtMergeCorridorStartShortcutPjiiPKji.exit:    ; preds = %.split63.us.i, %._c
   br label %77
 
 77:                                               ; preds = %25, %21, %_Z28dtMergeCorridorStartShortcutPjiiPKji.exit
-  %.0 = phi i1 [ true, %_Z28dtMergeCorridorStartShortcutPjiiPKji.exit ], [ false, %21 ], [ false, %25 ]
+  %.0 = phi i1 [ false, %21 ], [ true, %_Z28dtMergeCorridorStartShortcutPjiiPKji.exit ], [ false, %25 ]
   ret i1 %.0
 }
 
@@ -1010,7 +1010,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor25moveOverOffmeshConnectionEjPjPfS
   br label %67
 
 67:                                               ; preds = %54, %._crit_edge, %59
-  %.0 = phi i1 [ true, %59 ], [ false, %._crit_edge ], [ false, %54 ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ true, %59 ], [ false, %54 ]
   ret i1 %.0
 }
 

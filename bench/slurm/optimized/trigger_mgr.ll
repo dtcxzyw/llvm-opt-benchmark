@@ -441,7 +441,7 @@ define dso_local range(i32 0, 23) i32 @trigger_pull(ptr noundef readonly capture
   br label %trigger_primary_ctld_acct_full.exit
 
 trigger_primary_ctld_acct_full.exit:              ; preds = %102, %94, %83, %75, %64, %56, %48, %37, %106, %24, %18
-  %.1 = phi i32 [ 22, %106 ], [ %.01781, %24 ], [ %.01781, %18 ], [ %.01781, %37 ], [ %.01781, %48 ], [ %.01781, %56 ], [ %.01781, %64 ], [ %.01781, %75 ], [ %.01781, %83 ], [ %.01781, %94 ], [ %.01781, %102 ]
+  %.1 = phi i32 [ 22, %106 ], [ %.01781, %18 ], [ %.01781, %37 ], [ %.01781, %48 ], [ %.01781, %56 ], [ %.01781, %64 ], [ %.01781, %75 ], [ %.01781, %83 ], [ %.01781, %94 ], [ %.01781, %24 ], [ %.01781, %102 ]
   %108 = tail call ptr @list_next(ptr noundef %15) #13
   %.not24 = icmp eq ptr %108, null
   br i1 %.not24, label %._crit_edge, label %18, !llvm.loop !8
@@ -1147,13 +1147,13 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %.not3746, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !12
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %.backedge, %.split.us, %.backedge.us, %.outer.backedge.us, %.backedge.us.us, %.split.us.us.us, %.backedge.us.us.us, %33
-  %.0.ph.lcssa = phi i32 [ 3, %33 ], [ %.0.ph50.us.us, %.backedge.us.us.us ], [ 0, %.split.us.us.us ], [ %.0.ph50.us, %.backedge.us.us ], [ %.0.ph.be.us, %.outer.backedge.us ], [ %.0.ph50.us55, %.backedge.us ], [ 0, %.split.us ], [ %.0.ph50, %.backedge ], [ %.0.ph.be, %.outer.backedge ]
+  %.0.ph.lcssa = phi i32 [ %.0.ph50, %.backedge ], [ 3, %33 ], [ %.0.ph50.us, %.backedge.us.us ], [ %.0.ph50.us.us, %.backedge.us.us.us ], [ %.0.ph50.us55, %.backedge.us ], [ 0, %.split.us.us.us ], [ 0, %.split.us ], [ %.0.ph.be.us, %.outer.backedge.us ], [ %.0.ph.be, %.outer.backedge ]
   tail call void @list_iterator_destroy(ptr noundef %35) #13
   tail call void @schedule_trigger_save() #13
   br label %127
 
 127:                                              ; preds = %29, %19, %.outer._crit_edge, %11
-  %.1 = phi i32 [ 3, %11 ], [ %.0.ph.lcssa, %.outer._crit_edge ], [ 2017, %19 ], [ 22, %29 ]
+  %.1 = phi i32 [ 3, %11 ], [ 2017, %19 ], [ %.0.ph.lcssa, %.outer._crit_edge ], [ 22, %29 ]
   %128 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #13
   %.not44 = icmp eq i32 %128, 0
   br i1 %.not44, label %131, label %129
@@ -1697,7 +1697,7 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   br label %206
 
 206:                                              ; preds = %40, %35, %203, %197, %111, %53
-  %.1 = phi i32 [ 2089, %111 ], [ %.05582, %203 ], [ 2002, %197 ], [ 2018, %53 ], [ 2017, %35 ], [ 2021, %40 ]
+  %.1 = phi i32 [ 2018, %53 ], [ 2017, %35 ], [ 2089, %111 ], [ %.05582, %203 ], [ 2002, %197 ], [ 2021, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %207 = load i32, ptr %2, align 8
   %208 = zext i32 %207 to i64
@@ -1705,7 +1705,7 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   br i1 %209, label %27, label %.loopexit81, !llvm.loop !15
 
 .loopexit81:                                      ; preds = %206, %24, %21, %11, %14
-  %.2 = phi i32 [ 2002, %14 ], [ 2002, %11 ], [ 11, %21 ], [ 0, %24 ], [ %.1, %206 ]
+  %.2 = phi i32 [ 2002, %11 ], [ 11, %21 ], [ 2002, %14 ], [ 0, %24 ], [ %.1, %206 ]
   %210 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @trigger_mutex) #13
   %.not79 = icmp eq i32 %210, 0
   br i1 %.not79, label %213, label %211
@@ -1854,7 +1854,7 @@ define internal fastcc noundef zeroext i1 @_validate_trigger(ptr noundef readonl
   br label %60
 
 60:                                               ; preds = %55, %58, %53, %33, %36, %27
-  %.012 = phi i1 [ false, %27 ], [ false, %36 ], [ false, %33 ], [ true, %53 ], [ false, %58 ], [ false, %55 ]
+  %.012 = phi i1 [ false, %27 ], [ false, %33 ], [ true, %53 ], [ false, %36 ], [ false, %58 ], [ false, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.012
@@ -4096,7 +4096,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %595, label %.sink.split.i107, label %_trigger_other_event.exitthread-pre-split
 
 .sink.split.i107:                                 ; preds = %593, %579, %565, %551, %537, %523, %509
-  %.str.56.sink.i = phi ptr [ @.str.44, %509 ], [ @.str.46, %523 ], [ @.str.48, %537 ], [ @.str.50, %551 ], [ @.str.52, %565 ], [ @.str.54, %579 ], [ @.str.56, %593 ]
+  %.str.56.sink.i = phi ptr [ @.str.54, %579 ], [ @.str.52, %565 ], [ @.str.50, %551 ], [ @.str.48, %537 ], [ @.str.46, %523 ], [ @.str.44, %509 ], [ @.str.56, %593 ]
   %596 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %597 = load i32, ptr %596, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull %.str.56.sink.i, i32 noundef %597) #13
@@ -4409,9 +4409,9 @@ _trigger_other_event.exit._crit_edge:             ; preds = %_trigger_other_even
   br label %879
 
 _trigger_other_event.exit.thread140:              ; preds = %_trigger_other_event.exit
-  %.phi.trans.insert160 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %.pre161 = load i64, ptr %.phi.trans.insert160, align 8
-  %746 = icmp sgt i64 %.pre161, %9
+  %.phi.trans.insert161 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %.pre162 = load i64, ptr %.phi.trans.insert161, align 8
+  %746 = icmp sgt i64 %.pre162, %9
   br i1 %746, label %.thread146, label %_trigger_other_event.exit.thread140.thread
 
 _trigger_other_event.exit.thread140.thread:       ; preds = %96, %_trigger_other_event.exit.thread140
@@ -4807,7 +4807,7 @@ thread-pre-split:                                 ; preds = %913, %911
   br label %.thread146
 
 .thread146:                                       ; preds = %_trigger_other_event.exit, %28, %_trigger_other_event.exit.thread140, %927, %thread-pre-split, %953, %955, %959, %_trigger_run_program.exit
-  %.1 = phi i1 [ true, %_trigger_run_program.exit ], [ true, %927 ], [ %.0155, %thread-pre-split ], [ %.0155, %959 ], [ %.0155, %955 ], [ %.0155, %953 ], [ %.0155, %_trigger_other_event.exit.thread140 ], [ %.0155, %28 ], [ %.0155, %_trigger_other_event.exit ]
+  %.1 = phi i1 [ true, %_trigger_run_program.exit ], [ true, %927 ], [ %.0155, %thread-pre-split ], [ %.0155, %959 ], [ %.0155, %955 ], [ %.0155, %953 ], [ %.0155, %_trigger_other_event.exit ], [ %.0155, %_trigger_other_event.exit.thread140 ], [ %.0155, %28 ]
   %960 = call ptr @list_next(ptr noundef %20) #13
   %.not80 = icmp eq ptr %960, null
   br i1 %.not80, label %._crit_edge, label %23, !llvm.loop !26

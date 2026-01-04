@@ -92,11 +92,11 @@ check_temporal_id.exit:                           ; preds = %21, %19
   br label %33
 
 33:                                               ; preds = %30, %27, %25, %check_temporal_id.exit, %8
-  %.358 = phi i32 [ %.05572, %8 ], [ %.05572, %check_temporal_id.exit ], [ %26, %25 ], [ %.05572, %27 ], [ %.05572, %30 ]
-  %.354 = phi i32 [ %.05173, %8 ], [ %.05173, %check_temporal_id.exit ], [ %.05173, %25 ], [ %28, %27 ], [ %.05173, %30 ]
-  %.350 = phi i32 [ %.04774, %8 ], [ %.04774, %check_temporal_id.exit ], [ %.04774, %25 ], [ %.04774, %27 ], [ %31, %30 ]
-  %.346 = phi i32 [ %.04375, %8 ], [ %.04375, %check_temporal_id.exit ], [ %.04375, %25 ], [ %spec.select63, %27 ], [ %.04375, %30 ]
-  %.342 = phi i32 [ %.03976, %8 ], [ %.03976, %check_temporal_id.exit ], [ %.03976, %25 ], [ %.03976, %27 ], [ %spec.select65, %30 ]
+  %.358 = phi i32 [ %.05572, %8 ], [ %.05572, %27 ], [ %.05572, %30 ], [ %.05572, %check_temporal_id.exit ], [ %26, %25 ]
+  %.354 = phi i32 [ %.05173, %8 ], [ %28, %27 ], [ %.05173, %30 ], [ %.05173, %check_temporal_id.exit ], [ %.05173, %25 ]
+  %.350 = phi i32 [ %.04774, %8 ], [ %.04774, %27 ], [ %31, %30 ], [ %.04774, %check_temporal_id.exit ], [ %.04774, %25 ]
+  %.346 = phi i32 [ %.04375, %8 ], [ %spec.select63, %27 ], [ %.04375, %30 ], [ %.04375, %check_temporal_id.exit ], [ %.04375, %25 ]
+  %.342 = phi i32 [ %.03976, %8 ], [ %.03976, %27 ], [ %spec.select65, %30 ], [ %.03976, %check_temporal_id.exit ], [ %.03976, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !13
@@ -123,7 +123,7 @@ check_temporal_id.exit:                           ; preds = %21, %19
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %19, %15, %.thread, %35, %._crit_edge
-  %.2 = phi i32 [ 51, %._crit_edge ], [ 25, %35 ], [ %., %.thread ], [ 0, %15 ], [ 0, %19 ], [ 0, %21 ]
+  %.2 = phi i32 [ %., %.thread ], [ 25, %35 ], [ 51, %._crit_edge ], [ 0, %15 ], [ 0, %19 ], [ 0, %21 ]
   ret i32 %.2
 }
 

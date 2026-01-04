@@ -727,7 +727,7 @@ _ZNSt6vectorIN2cv10TEvolutionESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc56
   br label %.body
 
 .body:                                            ; preds = %.loopexit71, %.loopexit.split-lp72, %195, %247, %242, %237, %232, %227, %222, %217, %212
-  %.pn46 = phi { ptr, i32 } [ %.pn44, %247 ], [ %.pn42, %242 ], [ %.pn40, %237 ], [ %.pn38, %232 ], [ %.pn36, %227 ], [ %.pn34, %222 ], [ %.pn32, %217 ], [ %.pn30, %212 ], [ %196, %195 ], [ %lpad.loopexit73, %.loopexit71 ], [ %lpad.loopexit.split-lp74, %.loopexit.split-lp72 ]
+  %.pn46 = phi { ptr, i32 } [ %.pn30, %212 ], [ %.pn44, %247 ], [ %.pn42, %242 ], [ %.pn40, %237 ], [ %.pn38, %232 ], [ %.pn36, %227 ], [ %.pn34, %222 ], [ %.pn32, %217 ], [ %196, %195 ], [ %lpad.loopexit73, %.loopexit71 ], [ %lpad.loopexit.split-lp74, %.loopexit.split-lp72 ]
   call void @_ZN2cv10TEvolutionD2Ev(ptr noundef nonnull align 8 dereferenceable(788) %2) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %324
@@ -2303,7 +2303,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__
   br i1 %214, label %114, label %._crit_edge186.loopexit, !llvm.loop !166
 
 215:                                              ; preds = %.loopexit139, %.loopexit.split-lp, %.loopexit140, %.loopexit.split-lp141, %104
-  %.pn96 = phi { ptr, i32 } [ %105, %104 ], [ %lpad.loopexit142, %.loopexit140 ], [ %lpad.loopexit.split-lp143, %.loopexit.split-lp141 ], [ %lpad.loopexit, %.loopexit139 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn96 = phi { ptr, i32 } [ %lpad.loopexit.split-lp143, %.loopexit.split-lp141 ], [ %105, %104 ], [ %lpad.loopexit142, %.loopexit140 ], [ %lpad.loopexit, %.loopexit139 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %216 = load ptr, ptr %3, align 8, !tbaa !95
   %.not.i.i.i112 = icmp eq ptr %216, null
   br i1 %.not.i.i.i112, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit113, label %217
@@ -3346,8 +3346,8 @@ define hidden void @_ZN2cv12KAZEFeatures24Compute_Main_OrientationERNS_8KeyPoint
   br i1 %exitcond192.not, label %.split172.us, label %.split.split.us, !llvm.loop !196
 
 .split172.us:                                     ; preds = %145, %132, %.split
-  %.us-phi = phi float [ 0.000000e+00, %.split ], [ %.198.us, %132 ], [ %.198.us178, %145 ]
-  %.us-phi173 = phi float [ 0.000000e+00, %.split ], [ %.196.us, %132 ], [ %.196.us179, %145 ]
+  %.us-phi = phi float [ %.198.us, %132 ], [ 0.000000e+00, %.split ], [ %.198.us178, %145 ]
+  %.us-phi173 = phi float [ %.196.us, %132 ], [ 0.000000e+00, %.split ], [ %.196.us179, %145 ]
   %147 = fmul float %.us-phi173, %.us-phi173
   %148 = tail call float @llvm.fmuladd.f32(float %.us-phi, float %.us-phi, float %147)
   %149 = fcmp ogt float %148, %.094184
@@ -4789,9 +4789,9 @@ define linkonce_odr hidden void @_ZNK2cv23FindExtremumKAZEInvokerclERKNS_5RangeE
   br label %._crit_edge66
 
 ._crit_edge66:                                    ; preds = %.preheader.lr.ph, %._crit_edge66.loopexit, %.preheader63
-  %31 = phi i32 [ %.pre79, %._crit_edge66.loopexit ], [ %17, %.preheader63 ], [ %17, %.preheader.lr.ph ]
-  %32 = phi i32 [ %36, %._crit_edge66.loopexit ], [ %18, %.preheader63 ], [ %18, %.preheader.lr.ph ]
-  %33 = phi i32 [ %36, %._crit_edge66.loopexit ], [ %19, %.preheader63 ], [ %19, %.preheader.lr.ph ]
+  %31 = phi i32 [ %17, %.preheader63 ], [ %.pre79, %._crit_edge66.loopexit ], [ %17, %.preheader.lr.ph ]
+  %32 = phi i32 [ %18, %.preheader63 ], [ %36, %._crit_edge66.loopexit ], [ %18, %.preheader.lr.ph ]
+  %33 = phi i32 [ %19, %.preheader63 ], [ %36, %._crit_edge66.loopexit ], [ %19, %.preheader.lr.ph ]
   %indvars.iv.next77 = add nsw i64 %indvars.iv76, 1
   %34 = sext i32 %31 to i64
   %35 = icmp slt i64 %indvars.iv.next77, %34
@@ -4958,7 +4958,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__
   store ptr %112, ptr %89, align 8, !tbaa !143
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %91, %63, %60, %56, %41, %68
+.critedge:                                        ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %91, %41, %63, %60, %56, %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %113 = load i32, ptr %12, align 8, !tbaa !222
   %114 = add nsw i32 %113, -1

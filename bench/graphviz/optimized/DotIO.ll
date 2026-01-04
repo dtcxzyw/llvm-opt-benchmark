@@ -760,7 +760,7 @@ gv_calloc.exit198:                                ; preds = %.thread.i197, %123
   br label %196
 
 192:                                              ; preds = %140, %145, %171, %185, %157
-  %.4142.ph = phi i1 [ true, %140 ], [ true, %185 ], [ %.not177, %171 ], [ %.not178, %157 ], [ %.not179, %145 ]
+  %.4142.ph = phi i1 [ %.not179, %145 ], [ true, %140 ], [ true, %185 ], [ %.not177, %171 ], [ %.not178, %157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -801,7 +801,7 @@ gv_calloc.exit198:                                ; preds = %.thread.i197, %123
   br label %204
 
 203:                                              ; preds = %198, %.critedge
-  %.4 = phi ptr [ %.0137, %.critedge ], [ null, %198 ]
+  %.4 = phi ptr [ null, %198 ], [ %.0137, %.critedge ]
   br i1 %.not168, label %205, label %204
 
 204:                                              ; preds = %.thread209, %203
@@ -943,7 +943,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %20
   br i1 %.not36, label %.loopexit, label %.lr.ph50, !llvm.loop !51
 
 .loopexit:                                        ; preds = %._crit_edge46, %gv_calloc.exit, %._crit_edge, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %._crit_edge ], [ 1, %gv_calloc.exit ], [ 1, %._crit_edge46 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %3 ], [ 1, %gv_calloc.exit ], [ 1, %._crit_edge46 ]
   ret i32 %.0
 }
 
@@ -1222,9 +1222,9 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   br label %36
 
 36:                                               ; preds = %15, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26
-  %37 = phi i1 [ true, %35 ], [ true, %26 ], [ true, %27 ], [ true, %28 ], [ true, %29 ], [ true, %30 ], [ true, %31 ], [ true, %32 ], [ true, %33 ], [ false, %34 ], [ true, %15 ]
-  %.0280 = phi ptr [ @palette_pastel, %35 ], [ @palette_white_to_red, %26 ], [ @palette_grey_to_red, %27 ], [ @palette_grey, %28 ], [ @palette_sequential_singlehue_red, %29 ], [ @palette_sequential_singlehue_red_lighter, %30 ], [ @palette_primary, %31 ], [ @palette_adam_blend, %32 ], [ @palette_adam, %33 ], [ null, %34 ], [ @palette_blue_to_yellow, %15 ]
-  %.0279 = phi i32 [ 1001, %35 ], [ 1001, %26 ], [ 1001, %27 ], [ 1001, %28 ], [ 1001, %29 ], [ 1001, %30 ], [ 1001, %31 ], [ 1001, %32 ], [ 11, %33 ], [ 1001, %34 ], [ 1001, %15 ]
+  %37 = phi i1 [ true, %35 ], [ false, %34 ], [ true, %26 ], [ true, %27 ], [ true, %28 ], [ true, %15 ], [ true, %29 ], [ true, %30 ], [ true, %31 ], [ true, %32 ], [ true, %33 ]
+  %.0280 = phi ptr [ @palette_pastel, %35 ], [ null, %34 ], [ @palette_white_to_red, %26 ], [ @palette_grey_to_red, %27 ], [ @palette_grey, %28 ], [ @palette_blue_to_yellow, %15 ], [ @palette_sequential_singlehue_red, %29 ], [ @palette_sequential_singlehue_red_lighter, %30 ], [ @palette_primary, %31 ], [ @palette_adam_blend, %32 ], [ @palette_adam, %33 ]
+  %.0279 = phi i32 [ 1001, %35 ], [ 1001, %34 ], [ 1001, %26 ], [ 1001, %27 ], [ 1001, %28 ], [ 1001, %15 ], [ 1001, %29 ], [ 1001, %30 ], [ 1001, %31 ], [ 1001, %32 ], [ 11, %33 ]
   %.not303 = icmp eq ptr %0, null
   br i1 %.not303, label %570, label %38
 

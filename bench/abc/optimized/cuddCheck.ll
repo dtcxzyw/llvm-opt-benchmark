@@ -1038,7 +1038,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   br label %590
 
 590:                                              ; preds = %1, %._crit_edge330, %479, %467, %216, %198
-  %.0158 = phi i32 [ -1, %198 ], [ -1, %216 ], [ -1, %467 ], [ -1, %479 ], [ %.27.lcssa, %._crit_edge330 ], [ -1, %1 ]
+  %.0158 = phi i32 [ %.27.lcssa, %._crit_edge330 ], [ -1, %198 ], [ -1, %216 ], [ -1, %467 ], [ -1, %479 ], [ -1, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0158
@@ -1661,7 +1661,7 @@ define range(i32 0, 2) i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %44, %39, %32, %1
-  %.047 = phi i32 [ 0, %1 ], [ 0, %32 ], [ 0, %39 ], [ %., %44 ], [ 0, %18 ]
+  %.047 = phi i32 [ 0, %39 ], [ 0, %1 ], [ %., %44 ], [ 0, %32 ], [ 0, %18 ]
   ret i32 %.047
 }
 

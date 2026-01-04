@@ -115,7 +115,7 @@ define dso_local i32 @onas_ddd_init(i64 %0, i64 noundef %1) local_unnamed_addr #
   br label %onas_ddd_init_wdlt.exit.thread
 
 onas_ddd_init_wdlt.exit.thread:                   ; preds = %14, %11, %17, %7, %2
-  %.0 = phi i32 [ 8, %2 ], [ 12, %7 ], [ %21, %17 ], [ 20, %14 ], [ 3, %11 ]
+  %.0 = phi i32 [ %21, %17 ], [ 8, %2 ], [ 12, %7 ], [ 20, %14 ], [ 3, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -452,7 +452,7 @@ sub_0326:                                         ; preds = %110
   br label %110
 
 .loopexit337:                                     ; preds = %.outer, %.backedge, %.preheader336, %.loopexit339
-  %.0227 = phi ptr [ null, %.loopexit339 ], [ %103, %.preheader336 ], [ %103, %.backedge ], [ %103, %.outer ]
+  %.0227 = phi ptr [ null, %.loopexit339 ], [ %103, %.backedge ], [ %103, %.preheader336 ], [ %103, %.outer ]
   %143 = load ptr, ptr %49, align 1, !tbaa !23
   %144 = call ptr @optget(ptr noundef %143, ptr noundef nonnull @.str.20) #16
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
@@ -1581,7 +1581,7 @@ onas_ddd_grow_wdlt.exit:                          ; preds = %.onas_ddd_grow_wdlt
   br i1 %.not64, label %.thread, label %61
 
 .thread:                                          ; preds = %87, %50, %85, %70, %47, %20, %9
-  %.1 = phi i32 [ 3, %9 ], [ 3, %20 ], [ 3, %47 ], [ 3, %85 ], [ 20, %70 ], [ 0, %50 ], [ 0, %87 ]
+  %.1 = phi i32 [ 3, %9 ], [ 3, %20 ], [ 3, %47 ], [ 20, %70 ], [ 3, %85 ], [ 0, %50 ], [ 0, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
@@ -1697,7 +1697,7 @@ define internal fastcc noundef range(i32 0, 21) i32 @onas_ddd_unwatch_hierarchy(
   br i1 %.not52, label %.critedge, label %38
 
 .critedge:                                        ; preds = %38, %56, %29, %24, %17, %4
-  %.1 = phi i32 [ 3, %4 ], [ 3, %17 ], [ 3, %24 ], [ 0, %29 ], [ 20, %38 ], [ 0, %56 ]
+  %.1 = phi i32 [ 3, %17 ], [ 3, %24 ], [ 3, %4 ], [ 0, %29 ], [ 20, %38 ], [ 0, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }

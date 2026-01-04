@@ -370,7 +370,7 @@ _ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread: ; preds = %_ZL18is_unbox
   br label %90
 
 90:                                               ; preds = %83, %88, %89, %81, %46, %35, %20, %11
-  %.0 = phi i1 [ true, %11 ], [ true, %20 ], [ true, %35 ], [ true, %46 ], [ false, %81 ], [ false, %89 ], [ false, %88 ], [ true, %83 ]
+  %.0 = phi i1 [ true, %11 ], [ true, %20 ], [ true, %35 ], [ true, %46 ], [ false, %81 ], [ false, %88 ], [ false, %89 ], [ true, %83 ]
   ret i1 %.0
 }
 
@@ -461,7 +461,7 @@ _ZNK10ciMetadata9is_loadedEv.exit19.thread:       ; preds = %_ZNK10ciMetadata9is
   br label %48
 
 48:                                               ; preds = %_ZNK10ciMetadata9is_loadedEv.exit19.thread, %26, %16, %9, %3, %47
-  %.0 = phi i1 [ false, %47 ], [ false, %3 ], [ true, %9 ], [ true, %16 ], [ true, %26 ], [ true, %_ZNK10ciMetadata9is_loadedEv.exit19.thread ]
+  %.0 = phi i1 [ false, %3 ], [ true, %9 ], [ true, %16 ], [ true, %26 ], [ false, %47 ], [ true, %_ZNK10ciMetadata9is_loadedEv.exit19.thread ]
   ret i1 %.0
 }
 
@@ -572,7 +572,7 @@ select.unfold:                                    ; preds = %46, %38
   br i1 %59, label %.thread, label %61
 
 .thread:                                          ; preds = %58, %46, %select.unfold
-  %.2.ph = phi ptr [ %.044, %select.unfold ], [ @.str.17, %46 ], [ @.str.18, %58 ]
+  %.2.ph = phi ptr [ @.str.17, %46 ], [ %.044, %select.unfold ], [ @.str.18, %58 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.2.ph, ptr %60, align 8
   br label %180
@@ -787,7 +787,7 @@ _ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread: ; preds = %111, %_ZL18is
   br label %180
 
 180:                                              ; preds = %161, %156, %143, %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit, %91, %92, %178, %154, %141, %122, %109, %102, %98, %73, %66, %.thread
-  %.0 = phi i1 [ true, %.thread ], [ false, %66 ], [ true, %73 ], [ true, %98 ], [ true, %102 ], [ false, %109 ], [ true, %122 ], [ true, %178 ], [ true, %154 ], [ true, %141 ], [ false, %92 ], [ false, %91 ], [ false, %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit ], [ false, %143 ], [ false, %156 ], [ false, %161 ]
+  %.0 = phi i1 [ true, %.thread ], [ false, %66 ], [ true, %73 ], [ true, %141 ], [ true, %98 ], [ true, %102 ], [ false, %109 ], [ false, %91 ], [ true, %122 ], [ false, %_ZL18is_unboxing_methodP8ciMethodP7Compile.exit ], [ false, %143 ], [ true, %178 ], [ false, %156 ], [ true, %154 ], [ false, %92 ], [ false, %161 ]
   ret i1 %.0
 }
 
@@ -839,7 +839,7 @@ define hidden noundef zeroext i1 @_ZN10InlineTree14is_not_reachedEP8ciMethodS1_i
   br label %25
 
 25:                                               ; preds = %19, %16, %14, %12, %8, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %8 ], [ true, %12 ], [ true, %14 ], [ false, %16 ], [ %24, %19 ]
+  %.0 = phi i1 [ false, %5 ], [ true, %12 ], [ true, %14 ], [ %24, %19 ], [ false, %16 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -1199,7 +1199,7 @@ _ZNK10InlineTree12inline_levelEv.exit67:          ; preds = %_ZNK10InlineTree12i
   br label %199
 
 199:                                              ; preds = %174, %178, %193, %198, %33, %30, %191, %172, %117, %102, %94, %87, %73, %37, %22
-  %.0 = phi i1 [ true, %37 ], [ false, %102 ], [ false, %172 ], [ false, %191 ], [ false, %117 ], [ false, %94 ], [ false, %87 ], [ false, %73 ], [ false, %22 ], [ false, %30 ], [ false, %33 ], [ true, %198 ], [ true, %193 ], [ true, %178 ], [ true, %174 ]
+  %.0 = phi i1 [ false, %30 ], [ true, %37 ], [ false, %102 ], [ false, %172 ], [ false, %33 ], [ false, %191 ], [ false, %117 ], [ false, %94 ], [ false, %87 ], [ false, %73 ], [ false, %22 ], [ true, %198 ], [ true, %193 ], [ true, %178 ], [ true, %174 ]
   ret i1 %.0
 }
 
@@ -1361,7 +1361,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit:      ; preds = %59, %63
   br label %79
 
 79:                                               ; preds = %75, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit, %29, %_ZNK10ciMetadata9is_loadedEv.exit, %4, %78
-  %.0 = phi i1 [ true, %78 ], [ false, %4 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit ], [ false, %29 ], [ false, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit ], [ false, %75 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %78 ], [ false, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit ], [ false, %29 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit ], [ false, %75 ]
   ret i1 %.0
 }
 
@@ -1408,7 +1408,7 @@ define hidden noundef ptr @_ZN10InlineTree15check_can_parseEP8ciMethod(ptr nound
   br label %22
 
 22:                                               ; preds = %18, %8, %6, %4, %1
-  %.0 = phi ptr [ @.str.15, %1 ], [ @.str.13, %4 ], [ @.str.33, %6 ], [ @.str.34, %8 ], [ %..str.35, %18 ]
+  %.0 = phi ptr [ @.str.13, %4 ], [ @.str.15, %1 ], [ @.str.33, %6 ], [ @.str.34, %8 ], [ %..str.35, %18 ]
   ret ptr %.0
 }
 
@@ -1578,8 +1578,8 @@ define hidden noundef zeroext i1 @_ZN10InlineTree12ok_to_inlineEP8ciMethodP8JVMS
   %33 = trunc i8 %32 to i1
   br i1 %33, label %36, label %34
 
-34:                                               ; preds = %13, %16, %18, %20, %30
-  %.0.i.ph = phi ptr [ @.str.35, %30 ], [ @.str.34, %20 ], [ @.str.33, %18 ], [ @.str.13, %16 ], [ @.str.15, %13 ]
+34:                                               ; preds = %16, %13, %18, %20, %30
+  %.0.i.ph = phi ptr [ @.str.35, %30 ], [ @.str.34, %20 ], [ @.str.33, %18 ], [ @.str.15, %13 ], [ @.str.13, %16 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.0.i.ph, ptr %35, align 8
   tail call void @_ZNK10InlineTree14print_inliningEP8ciMethodiS1_b(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull %1, i32 noundef %7, ptr noundef %9, i1 noundef zeroext false)
@@ -1624,7 +1624,7 @@ define hidden noundef zeroext i1 @_ZN10InlineTree12ok_to_inlineEP8ciMethodP8JVMS
   br label %52
 
 52:                                               ; preds = %43, %47, %51, %34, %11
-  %.0 = phi i1 [ false, %34 ], [ false, %51 ], [ false, %11 ], [ true, %47 ], [ true, %43 ]
+  %.0 = phi i1 [ false, %34 ], [ false, %11 ], [ false, %51 ], [ true, %47 ], [ true, %43 ]
   ret i1 %.0
 }
 
@@ -1951,7 +1951,7 @@ _ZNK10InlineTree9callee_atEiP8ciMethod.exit:      ; preds = %36
   br i1 %.not34, label %.loopexit40, label %.lr.ph, !llvm.loop !11
 
 .loopexit40:                                      ; preds = %_ZNK10InlineTree9callee_atEiP8ciMethod.exit, %3, %4, %7, %41
-  %.028 = phi ptr [ %42, %41 ], [ %0, %7 ], [ %0, %4 ], [ %0, %3 ], [ %28, %_ZNK10InlineTree9callee_atEiP8ciMethod.exit ]
+  %.028 = phi ptr [ %42, %41 ], [ %0, %7 ], [ %0, %3 ], [ %0, %4 ], [ %28, %_ZNK10InlineTree9callee_atEiP8ciMethod.exit ]
   ret ptr %.028
 }
 

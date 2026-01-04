@@ -350,8 +350,8 @@ define dso_local void @_ZN4Luau7CodeGen23translateInstJumpIfCondERNS0_9IrBuilder
   br label %36
 
 36:                                               ; preds = %4, %.fold.split, %34, %35
-  %.091 = phi i1 [ true, %34 ], [ true, %35 ], [ true, %4 ], [ false, %.fold.split ]
-  %.0 = phi i8 [ 2, %34 ], [ 0, %35 ], [ 4, %4 ], [ %3, %.fold.split ]
+  %.091 = phi i1 [ true, %4 ], [ true, %34 ], [ true, %35 ], [ false, %.fold.split ]
+  %.0 = phi i8 [ 4, %4 ], [ 2, %34 ], [ 0, %35 ], [ %3, %.fold.split ]
   %37 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %16)
   %38 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %21)
   %39 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4condENS0_11IrConditionE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %.0)
@@ -2029,7 +2029,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4Luau7CodeGen13getJumpTargetEjj(i3
   br label %.thread
 
 .thread:                                          ; preds = %2, %11, %16, %13, %7, %3
-  %.0 = phi i32 [ %6, %3 ], [ %10, %7 ], [ %15, %13 ], [ %19, %16 ], [ -1, %11 ], [ -1, %2 ]
+  %.0 = phi i32 [ %6, %3 ], [ %10, %7 ], [ %15, %13 ], [ %19, %16 ], [ -1, %2 ], [ -1, %11 ]
   ret i32 %.0
 }
 

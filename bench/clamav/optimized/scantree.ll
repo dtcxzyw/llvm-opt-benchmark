@@ -254,7 +254,7 @@ define noundef zeroext i1 @_ZN8ScanTree11GetNextMaskEv(ptr noundef nonnull align
   br label %.sink.split
 
 .sink.split:                                      ; preds = %20, %22, %26, %13, %16
-  %.sink.shrunk = phi i1 [ false, %13 ], [ %19, %16 ], [ false, %22 ], [ false, %20 ], [ %29, %26 ]
+  %.sink.shrunk = phi i1 [ %19, %16 ], [ false, %13 ], [ false, %22 ], [ false, %20 ], [ %29, %26 ]
   %.sink = zext i1 %.sink.shrunk to i8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8224
   store i8 %.sink, ptr %30, align 8, !tbaa !22
@@ -363,7 +363,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   br i1 %36, label %.thread77, label %.thread78
 
 .thread77:                                        ; preds = %19, %21, %26, %33
-  %37 = phi i1 [ true, %33 ], [ false, %21 ], [ true, %26 ], [ false, %19 ]
+  %37 = phi i1 [ true, %33 ], [ true, %26 ], [ false, %21 ], [ false, %19 ]
   %38 = load i32, ptr %13, align 8, !tbaa !28
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.thread83, label %40
@@ -393,9 +393,9 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   br label %.thread78
 
 .thread78:                                        ; preds = %49, %30, %44, %40, %33
-  %.ph79 = phi i1 [ false, %44 ], [ false, %40 ], [ true, %33 ], [ true, %30 ], [ false, %49 ]
-  %.ph80 = phi i1 [ %37, %44 ], [ %37, %40 ], [ true, %33 ], [ true, %30 ], [ %37, %49 ]
-  %.ph81 = phi i1 [ true, %44 ], [ true, %40 ], [ false, %33 ], [ false, %30 ], [ %spec.select, %49 ]
+  %.ph79 = phi i1 [ true, %33 ], [ true, %30 ], [ false, %49 ], [ false, %40 ], [ false, %44 ]
+  %.ph80 = phi i1 [ true, %33 ], [ true, %30 ], [ %37, %49 ], [ %37, %40 ], [ %37, %44 ]
+  %.ph81 = phi i1 [ false, %33 ], [ false, %30 ], [ %spec.select, %49 ], [ true, %40 ], [ true, %44 ]
   %.pr = load i32, ptr %13, align 8, !tbaa !28
   %53 = icmp eq i32 %.pr, 0
   br i1 %53, label %54, label %57
@@ -633,7 +633,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   br label %165
 
 165:                                              ; preds = %154, %161, %._crit_edge, %121
-  %.4 = phi i32 [ 1, %121 ], [ 1, %._crit_edge ], [ %160, %154 ], [ %164, %161 ]
+  %.4 = phi i32 [ 1, %._crit_edge ], [ 1, %121 ], [ %160, %154 ], [ %164, %161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %230
@@ -774,7 +774,7 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   br label %230
 
 230:                                              ; preds = %220, %83, %165, %183, %198, %229, %227, %2
-  %.0 = phi i32 [ 3, %2 ], [ 0, %229 ], [ %199, %198 ], [ 2, %220 ], [ %187, %183 ], [ %.4, %165 ], [ %.052, %83 ], [ 3, %227 ]
+  %.0 = phi i32 [ 3, %2 ], [ 0, %229 ], [ %.052, %83 ], [ %199, %198 ], [ 2, %220 ], [ %187, %183 ], [ %.4, %165 ], [ 3, %227 ]
   ret i32 %.0
 }
 
@@ -1096,7 +1096,7 @@ define noundef zeroext i1 @_ZN8ScanTree15GetFilteredMaskEv(ptr noundef nonnull a
   br label %69
 
 69:                                               ; preds = %40, %68, %19, %9, %5
-  %.0 = phi i1 [ true, %5 ], [ false, %9 ], [ %41, %40 ], [ true, %68 ], [ true, %19 ]
+  %.0 = phi i1 [ true, %5 ], [ false, %9 ], [ true, %68 ], [ %41, %40 ], [ true, %19 ]
   ret i1 %.0
 }
 

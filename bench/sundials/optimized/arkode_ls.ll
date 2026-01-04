@@ -452,7 +452,7 @@ switch.early.test:                                ; preds = %60
   br label %.thread
 
 .thread:                                          ; preds = %140, %150
-  %.sink150 = phi i32 [ %154, %150 ], [ 1, %140 ]
+  %.sink150 = phi i32 [ 1, %140 ], [ %154, %150 ]
   %155 = getelementptr inbounds nuw i8, ptr %calloc, i64 36
   store i32 %.sink150, ptr %155, align 4, !tbaa !65
   %156 = load ptr, ptr %67, align 8, !tbaa !32
@@ -470,7 +470,7 @@ switch.early.test:                                ; preds = %60
   br label %161
 
 161:                                              ; preds = %.thread, %158, %139, %134, %125, %118, %99, %85, %82, %65, %62, %59, %52, %46, %42, %22, %12, %9, %5
-  %.0 = phi i32 [ -21, %5 ], [ -3, %12 ], [ -3, %22 ], [ -3, %42 ], [ -3, %46 ], [ -3, %52 ], [ -3, %59 ], [ -3, %62 ], [ -3, %82 ], [ -4, %85 ], [ -3, %99 ], [ -12, %118 ], [ -12, %125 ], [ %157, %158 ], [ -4, %139 ], [ -4, %134 ], [ -3, %65 ], [ -48, %9 ], [ 0, %.thread ]
+  %.0 = phi i32 [ -21, %5 ], [ -3, %12 ], [ -3, %22 ], [ -3, %42 ], [ -3, %46 ], [ -3, %52 ], [ -3, %59 ], [ -3, %62 ], [ -3, %82 ], [ -4, %85 ], [ -3, %99 ], [ -12, %118 ], [ -12, %125 ], [ %157, %158 ], [ -48, %9 ], [ -4, %139 ], [ -4, %134 ], [ -3, %65 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -596,7 +596,7 @@ arkLs_AccessARKODELMem.exit:                      ; preds = %11
   br label %arkLs_AccessARKODELMem.exit.thread
 
 arkLs_AccessARKODELMem.exit.thread:               ; preds = %16, %10, %61, %68, %66, %57, %24, %18
-  %.021 = phi i32 [ -2, %18 ], [ -3, %24 ], [ -3, %57 ], [ %62, %61 ], [ %67, %66 ], [ -3, %68 ], [ -2, %16 ], [ -1, %10 ]
+  %.021 = phi i32 [ -3, %68 ], [ -2, %18 ], [ -3, %24 ], [ -3, %57 ], [ %62, %61 ], [ %67, %66 ], [ -2, %16 ], [ -1, %10 ]
   ret i32 %.021
 }
 
@@ -660,7 +660,7 @@ arkLs_AccessARKODELMem.exit:                      ; preds = %10
   br label %arkLs_AccessARKODELMem.exit.thread
 
 arkLs_AccessARKODELMem.exit.thread:               ; preds = %30, %32, %15, %9, %.thread
-  %.024 = phi i32 [ 0, %.thread ], [ -2, %15 ], [ -1, %9 ], [ 1, %32 ], [ -1, %30 ]
+  %.024 = phi i32 [ -2, %15 ], [ -1, %9 ], [ 0, %.thread ], [ 1, %32 ], [ -1, %30 ]
   ret i32 %.024
 }
 
@@ -784,7 +784,7 @@ arkLs_AccessARKODELMem.exit:                      ; preds = %15
   br label %arkLs_AccessARKODELMem.exit.thread
 
 arkLs_AccessARKODELMem.exit.thread:               ; preds = %20, %14, %58, %59, %49, %43, %40, %31, %25
-  %.028 = phi i32 [ -11, %25 ], [ -11, %59 ], [ -1, %40 ], [ 1, %43 ], [ -11, %49 ], [ -11, %31 ], [ 0, %58 ], [ -2, %20 ], [ -1, %14 ]
+  %.028 = phi i32 [ -11, %31 ], [ -11, %25 ], [ -11, %59 ], [ 0, %58 ], [ -1, %40 ], [ 1, %43 ], [ -11, %49 ], [ -2, %20 ], [ -1, %14 ]
   ret i32 %.028
 }
 
@@ -892,7 +892,7 @@ arkLs_AccessARKODELMem.exit:                      ; preds = %10
   br label %arkLs_AccessARKODELMem.exit.thread
 
 arkLs_AccessARKODELMem.exit.thread:               ; preds = %15, %9, %47, %51, %44, %26, %25
-  %.022 = phi i32 [ %24, %25 ], [ %39, %26 ], [ %46, %44 ], [ 0, %51 ], [ 0, %47 ], [ -2, %15 ], [ -1, %9 ]
+  %.022 = phi i32 [ %46, %44 ], [ %24, %25 ], [ 0, %47 ], [ %39, %26 ], [ 0, %51 ], [ -2, %15 ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1179,7 +1179,7 @@ select.unfold:                                    ; preds = %66
   br label %134
 
 134:                                              ; preds = %arkLs_AccessMassMem.exit, %arkLs_AccessLMem.exit, %130, %100, %90, %.thread, %63, %48, %38
-  %.029 = phi i32 [ -3, %63 ], [ -3, %.thread ], [ -3, %90 ], [ -3, %100 ], [ %132, %130 ], [ -3, %38 ], [ -4, %48 ], [ -2, %arkLs_AccessLMem.exit ], [ -6, %arkLs_AccessMassMem.exit ]
+  %.029 = phi i32 [ -4, %48 ], [ -2, %arkLs_AccessLMem.exit ], [ -3, %63 ], [ -3, %.thread ], [ -3, %90 ], [ -3, %100 ], [ %132, %130 ], [ -3, %38 ], [ -6, %arkLs_AccessMassMem.exit ]
   ret i32 %.029
 }
 
@@ -1265,7 +1265,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %53
 
 53:                                               ; preds = %46, %50, %38, %35
-  %54 = phi i32 [ 1, %38 ], [ 1, %35 ], [ %52, %50 ], [ 1, %46 ]
+  %54 = phi i32 [ 1, %46 ], [ 1, %38 ], [ 1, %35 ], [ %52, %50 ]
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i32 %54, ptr %55, align 8, !tbaa !56
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -1395,7 +1395,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %115
 
 115:                                              ; preds = %96, %114, %112, %arkLs_AccessLMem.exit, %87, %93, %92, %64, %33, %23
-  %.046 = phi i32 [ 0, %23 ], [ %34, %33 ], [ %65, %64 ], [ -1, %92 ], [ 1, %93 ], [ -2, %arkLs_AccessLMem.exit ], [ %76, %87 ], [ %99, %112 ], [ %.pre89, %114 ], [ %99, %96 ]
+  %.046 = phi i32 [ %76, %87 ], [ 0, %23 ], [ %34, %33 ], [ %65, %64 ], [ -1, %92 ], [ 1, %93 ], [ -2, %arkLs_AccessLMem.exit ], [ %99, %112 ], [ %.pre89, %114 ], [ %99, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1674,7 +1674,7 @@ arkLs_AccessLMem.exit:                            ; preds = %7
   br label %138
 
 138:                                              ; preds = %arkLs_AccessLMem.exit, %126, %126, %126, %126, %126, %126, %131, %63, %137, %136, %135, %134, %133, %95, %79, %51, %32
-  %.0 = phi i32 [ 0, %32 ], [ -12, %51 ], [ %80, %79 ], [ %96, %95 ], [ 0, %137 ], [ -1, %133 ], [ -1, %134 ], [ -1, %135 ], [ -1, %136 ], [ -2, %arkLs_AccessLMem.exit ], [ -1, %63 ], [ %., %131 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ]
+  %.0 = phi i32 [ -1, %136 ], [ 0, %32 ], [ -12, %51 ], [ -2, %arkLs_AccessLMem.exit ], [ %80, %79 ], [ %96, %95 ], [ 0, %137 ], [ -1, %63 ], [ %., %131 ], [ -1, %135 ], [ -1, %134 ], [ -1, %133 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ], [ 1, %126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2049,7 +2049,7 @@ switch.early.test:                                ; preds = %61
   br label %.thread122
 
 .thread122:                                       ; preds = %.thread, %135, %125
-  %138 = phi ptr [ %126, %135 ], [ %111, %125 ], [ %118, %.thread ]
+  %138 = phi ptr [ %111, %125 ], [ %126, %135 ], [ %118, %.thread ]
   %139 = load ptr, ptr %68, align 8, !tbaa !106
   %140 = tail call i32 %139(ptr noundef nonnull %0, ptr noundef nonnull @arkLsMassInitialize, ptr noundef nonnull @arkLsMassSetup, ptr noundef nonnull @arkLsMTimes, ptr noundef nonnull @arkLsMassSolve, ptr noundef nonnull @arkLsMassFree, i32 noundef %3, i32 noundef %25, ptr noundef nonnull %calloc) #13
   %.not120 = icmp eq i32 %140, 0
@@ -2072,7 +2072,7 @@ switch.early.test:                                ; preds = %61
   br label %147
 
 147:                                              ; preds = %.thread122, %146, %124, %108, %100, %93, %78, %75, %66, %63, %60, %53, %47, %43, %23, %13, %10, %6
-  %.0 = phi i32 [ -21, %6 ], [ -3, %13 ], [ -3, %23 ], [ -3, %43 ], [ -3, %47 ], [ -3, %53 ], [ -3, %60 ], [ -3, %63 ], [ -3, %75 ], [ -4, %78 ], [ -12, %93 ], [ -12, %100 ], [ %140, %146 ], [ -4, %124 ], [ -4, %108 ], [ -3, %66 ], [ -48, %10 ], [ 0, %.thread122 ]
+  %.0 = phi i32 [ -21, %6 ], [ -3, %13 ], [ -3, %23 ], [ -3, %43 ], [ -3, %47 ], [ -3, %53 ], [ -3, %60 ], [ -3, %63 ], [ -3, %75 ], [ -4, %78 ], [ -12, %93 ], [ -12, %100 ], [ %140, %146 ], [ -48, %10 ], [ -4, %124 ], [ -4, %108 ], [ -3, %66 ], [ 0, %.thread122 ]
   ret i32 %.0
 }
 
@@ -2222,7 +2222,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %1
   br label %70
 
 70:                                               ; preds = %arkLs_AccessMassMem.exit, %66, %42, %37, %27, %15
-  %.0 = phi i32 [ -3, %15 ], [ -3, %27 ], [ -3, %37 ], [ -3, %42 ], [ %68, %66 ], [ -6, %arkLs_AccessMassMem.exit ]
+  %.0 = phi i32 [ %68, %66 ], [ -3, %15 ], [ -3, %27 ], [ -3, %37 ], [ -3, %42 ], [ -6, %arkLs_AccessMassMem.exit ]
   ret i32 %.0
 }
 
@@ -2446,7 +2446,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %5
   br label %115
 
 115:                                              ; preds = %.thread79, %._crit_edge81, %arkLs_AccessMassMem.exit, %102, %86, %77, %74, %64, %58, %45, %26, %15
-  %.027 = phi i32 [ 0, %15 ], [ 0, %26 ], [ %46, %45 ], [ -11, %102 ], [ -1, %74 ], [ 1, %77 ], [ -11, %86 ], [ -11, %64 ], [ 0, %58 ], [ -6, %arkLs_AccessMassMem.exit ], [ %.pre82, %._crit_edge81 ], [ %110, %.thread79 ]
+  %.027 = phi i32 [ 0, %58 ], [ 0, %15 ], [ 0, %26 ], [ %46, %45 ], [ -11, %102 ], [ -6, %arkLs_AccessMassMem.exit ], [ -1, %74 ], [ 1, %77 ], [ -11, %86 ], [ -11, %64 ], [ %.pre82, %._crit_edge81 ], [ %110, %.thread79 ]
   ret i32 %.027
 }
 
@@ -2531,7 +2531,7 @@ arkLs_AccessARKODEMassMem.exit:                   ; preds = %6
   br label %arkLs_AccessARKODEMassMem.exit.thread
 
 arkLs_AccessARKODEMassMem.exit.thread:            ; preds = %11, %5, %37, %41, %21, %25, %42
-  %.0 = phi i32 [ -1, %42 ], [ %19, %25 ], [ 0, %21 ], [ %35, %41 ], [ 0, %37 ], [ -6, %11 ], [ -1, %5 ]
+  %.0 = phi i32 [ -1, %42 ], [ 0, %37 ], [ 0, %21 ], [ %19, %25 ], [ %35, %41 ], [ -6, %11 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -2717,7 +2717,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %3
   br label %89
 
 89:                                               ; preds = %arkLs_AccessMassMem.exit, %79, %79, %79, %79, %79, %79, %79, %43, %88, %87, %86, %85, %84, %32
-  %.0 = phi i32 [ -12, %32 ], [ 0, %88 ], [ -1, %84 ], [ -1, %85 ], [ -1, %86 ], [ -1, %87 ], [ -6, %arkLs_AccessMassMem.exit ], [ -1, %43 ], [ 1, %79 ], [ 1, %79 ], [ 1, %79 ], [ 1, %79 ], [ 1, %79 ], [ 1, %79 ], [ 1, %79 ]
+  %.0 = phi i32 [ -1, %87 ], [ -12, %32 ], [ -6, %arkLs_AccessMassMem.exit ], [ 0, %88 ], [ -1, %43 ], [ -1, %86 ], [ -1, %84 ], [ -1, %85 ], [ 1, %79 ], [ 1, %79 ], [ 1, %79 ], [ 1, %79 ], [ 1, %79 ], [ 1, %79 ], [ 1, %79 ]
   ret i32 %.0
 }
 
@@ -2891,7 +2891,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %32
 
 32:                                               ; preds = %arkLs_AccessLMem.exit, %27, %19, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ -3, %19 ], [ 0, %27 ], [ -48, %8 ], [ -2, %arkLs_AccessLMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ -48, %8 ], [ -3, %19 ], [ 0, %27 ], [ -2, %arkLs_AccessLMem.exit ]
   ret i32 %.0
 }
 
@@ -2974,7 +2974,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
   br label %27
 
 27:                                               ; preds = %arkLs_AccessMassMem.exit, %22, %21, %16, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ -3, %16 ], [ -3, %21 ], [ 0, %22 ], [ -48, %8 ], [ -6, %arkLs_AccessMassMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ -48, %8 ], [ -3, %16 ], [ -3, %21 ], [ 0, %22 ], [ -6, %arkLs_AccessMassMem.exit ]
   ret i32 %.0
 }
 
@@ -3037,7 +3037,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %18
 
 18:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ -48, %8 ], [ -2, %arkLs_AccessLMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ -48, %8 ], [ 0, %14 ], [ -2, %arkLs_AccessLMem.exit ]
   ret i32 %.0
 }
 
@@ -3170,7 +3170,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %18
 
 18:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ -48, %8 ], [ -2, %arkLs_AccessLMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ -48, %8 ], [ 0, %14 ], [ -2, %arkLs_AccessLMem.exit ]
   ret i32 %.0
 }
 
@@ -3216,7 +3216,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %19
 
 19:                                               ; preds = %arkLs_AccessLMem.exit, %14, %17, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %17 ], [ -48, %8 ], [ -2, %arkLs_AccessLMem.exit ], [ -3, %14 ]
+  %.0 = phi i32 [ -21, %4 ], [ -48, %8 ], [ 0, %17 ], [ -2, %arkLs_AccessLMem.exit ], [ -3, %14 ]
   ret i32 %.0
 }
 
@@ -3282,7 +3282,7 @@ arkLs_AccessLMem.exit:                            ; preds = %10
   br label %33
 
 33:                                               ; preds = %arkLs_AccessLMem.exit, %24, %32, %23, %9, %5
-  %.0 = phi i32 [ -21, %5 ], [ -3, %23 ], [ -12, %32 ], [ -48, %9 ], [ -2, %arkLs_AccessLMem.exit ], [ 0, %24 ]
+  %.0 = phi i32 [ -21, %5 ], [ -48, %9 ], [ -3, %23 ], [ -12, %32 ], [ -2, %arkLs_AccessLMem.exit ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -3346,7 +3346,7 @@ arkLs_AccessARKODELMem.exit:                      ; preds = %8
   br label %arkLs_AccessARKODELMem.exit.thread
 
 arkLs_AccessARKODELMem.exit.thread:               ; preds = %13, %7, %18, %17
-  %.0 = phi i32 [ %16, %17 ], [ %34, %18 ], [ -2, %13 ], [ -1, %7 ]
+  %.0 = phi i32 [ %34, %18 ], [ %16, %17 ], [ -2, %13 ], [ -1, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3413,7 +3413,7 @@ arkLs_AccessARKODELMem.exit:                      ; preds = %12
   br label %arkLs_AccessARKODELMem.exit.thread
 
 arkLs_AccessARKODELMem.exit.thread:               ; preds = %17, %11, %22, %21
-  %.0 = phi i32 [ %20, %21 ], [ %34, %22 ], [ -2, %17 ], [ -1, %11 ]
+  %.0 = phi i32 [ %34, %22 ], [ %20, %21 ], [ -2, %17 ], [ -1, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3501,7 +3501,7 @@ arkLs_AccessLMem.exit:                            ; preds = %10
   br label %40
 
 40:                                               ; preds = %arkLs_AccessLMem.exit, %28, %32, %39, %23, %9, %5
-  %.0 = phi i32 [ -21, %5 ], [ -3, %23 ], [ -3, %39 ], [ -48, %9 ], [ -2, %arkLs_AccessLMem.exit ], [ 0, %32 ], [ 0, %28 ]
+  %.0 = phi i32 [ -21, %5 ], [ -48, %9 ], [ -3, %23 ], [ -2, %arkLs_AccessLMem.exit ], [ -3, %39 ], [ 0, %32 ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -3568,7 +3568,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %28
 
 28:                                               ; preds = %arkLs_AccessLMem.exit, %19, %21, %27, %17, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ -3, %27 ], [ -3, %17 ], [ -48, %8 ], [ -2, %arkLs_AccessLMem.exit ], [ 0, %21 ], [ 0, %19 ]
+  %.0 = phi i32 [ -21, %4 ], [ -48, %8 ], [ -2, %arkLs_AccessLMem.exit ], [ -3, %27 ], [ -3, %17 ], [ 0, %21 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -3637,7 +3637,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %29
 
 29:                                               ; preds = %arkLs_AccessLMem.exit, %20, %.critedge, %19, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ -3, %19 ], [ -48, %8 ], [ -2, %arkLs_AccessLMem.exit ], [ 0, %.critedge ], [ 0, %20 ]
+  %.0 = phi i32 [ -21, %4 ], [ -48, %8 ], [ -3, %19 ], [ -2, %arkLs_AccessLMem.exit ], [ 0, %.critedge ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -3678,7 +3678,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -2, %arkLs_AccessLMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -2, %arkLs_AccessLMem.exit ]
   ret i32 %.0
 }
 
@@ -3719,7 +3719,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ -48, %8 ], [ -2, %arkLs_AccessLMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ -48, %8 ], [ 0, %14 ], [ -2, %arkLs_AccessLMem.exit ]
   ret i32 %.0
 }
 
@@ -3760,7 +3760,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -2, %arkLs_AccessLMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -2, %arkLs_AccessLMem.exit ]
   ret i32 %.0
 }
 
@@ -3937,7 +3937,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -2, %arkLs_AccessLMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -2, %arkLs_AccessLMem.exit ]
   ret i32 %.0
 }
 
@@ -3978,7 +3978,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -2, %arkLs_AccessLMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -2, %arkLs_AccessLMem.exit ]
   ret i32 %.0
 }
 
@@ -4019,7 +4019,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -2, %arkLs_AccessLMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -2, %arkLs_AccessLMem.exit ]
   ret i32 %.0
 }
 
@@ -4060,7 +4060,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -2, %arkLs_AccessLMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -2, %arkLs_AccessLMem.exit ]
   ret i32 %.0
 }
 
@@ -4101,7 +4101,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -2, %arkLs_AccessLMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -2, %arkLs_AccessLMem.exit ]
   ret i32 %.0
 }
 
@@ -4142,7 +4142,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -2, %arkLs_AccessLMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -2, %arkLs_AccessLMem.exit ]
   ret i32 %.0
 }
 
@@ -4183,7 +4183,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -2, %arkLs_AccessLMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -2, %arkLs_AccessLMem.exit ]
   ret i32 %.0
 }
 
@@ -4224,7 +4224,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -2, %arkLs_AccessLMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -2, %arkLs_AccessLMem.exit ]
   ret i32 %.0
 }
 
@@ -4265,7 +4265,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -6, %arkLs_AccessMassMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -6, %arkLs_AccessMassMem.exit ]
   ret i32 %.0
 }
 
@@ -4307,7 +4307,7 @@ arkLs_AccessLMem.exit:                            ; preds = %9
   br label %18
 
 18:                                               ; preds = %arkLs_AccessLMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -2, %arkLs_AccessLMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -2, %arkLs_AccessLMem.exit ]
   ret i32 %.0
 }
 
@@ -4423,7 +4423,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
   br label %18
 
 18:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ -48, %8 ], [ -6, %arkLs_AccessMassMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ -48, %8 ], [ 0, %14 ], [ -6, %arkLs_AccessMassMem.exit ]
   ret i32 %.0
 }
 
@@ -4576,7 +4576,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %10
   br label %33
 
 33:                                               ; preds = %arkLs_AccessMassMem.exit, %24, %32, %23, %9, %5
-  %.0 = phi i32 [ -21, %5 ], [ -3, %23 ], [ -12, %32 ], [ -48, %9 ], [ -6, %arkLs_AccessMassMem.exit ], [ 0, %24 ]
+  %.0 = phi i32 [ -21, %5 ], [ -48, %9 ], [ -3, %23 ], [ -12, %32 ], [ -6, %arkLs_AccessMassMem.exit ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -4627,7 +4627,7 @@ arkLs_AccessARKODEMassMem.exit:                   ; preds = %4
   br label %arkLs_AccessARKODEMassMem.exit.thread
 
 arkLs_AccessARKODEMassMem.exit.thread:            ; preds = %9, %3, %12, %15
-  %.0 = phi i32 [ %22, %15 ], [ 0, %12 ], [ -6, %9 ], [ -1, %3 ]
+  %.0 = phi i32 [ 0, %12 ], [ %22, %15 ], [ -6, %9 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -4738,7 +4738,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %11
   br label %34
 
 34:                                               ; preds = %arkLs_AccessMassMem.exit, %28, %33, %27, %18, %10, %6
-  %.0 = phi i32 [ -21, %6 ], [ -3, %18 ], [ -3, %27 ], [ -12, %33 ], [ -48, %10 ], [ -6, %arkLs_AccessMassMem.exit ], [ 0, %28 ]
+  %.0 = phi i32 [ -21, %6 ], [ -48, %10 ], [ -3, %18 ], [ -3, %27 ], [ -12, %33 ], [ -6, %arkLs_AccessMassMem.exit ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -4912,7 +4912,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -6, %arkLs_AccessMassMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -6, %arkLs_AccessMassMem.exit ]
   ret i32 %.0
 }
 
@@ -4953,7 +4953,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -6, %arkLs_AccessMassMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -6, %arkLs_AccessMassMem.exit ]
   ret i32 %.0
 }
 
@@ -4994,7 +4994,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -6, %arkLs_AccessMassMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -6, %arkLs_AccessMassMem.exit ]
   ret i32 %.0
 }
 
@@ -5035,7 +5035,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -6, %arkLs_AccessMassMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -6, %arkLs_AccessMassMem.exit ]
   ret i32 %.0
 }
 
@@ -5076,7 +5076,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -6, %arkLs_AccessMassMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -6, %arkLs_AccessMassMem.exit ]
   ret i32 %.0
 }
 
@@ -5117,7 +5117,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -6, %arkLs_AccessMassMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -6, %arkLs_AccessMassMem.exit ]
   ret i32 %.0
 }
 
@@ -5158,7 +5158,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -6, %arkLs_AccessMassMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -6, %arkLs_AccessMassMem.exit ]
   ret i32 %.0
 }
 
@@ -5199,7 +5199,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -6, %arkLs_AccessMassMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -6, %arkLs_AccessMassMem.exit ]
   ret i32 %.0
 }
 
@@ -5240,7 +5240,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
   br label %17
 
 17:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -6, %arkLs_AccessMassMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -6, %arkLs_AccessMassMem.exit ]
   ret i32 %.0
 }
 
@@ -5282,7 +5282,7 @@ arkLs_AccessMassMem.exit:                         ; preds = %9
   br label %18
 
 18:                                               ; preds = %arkLs_AccessMassMem.exit, %14, %8, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %14 ], [ 0, %8 ], [ -6, %arkLs_AccessMassMem.exit ]
+  %.0 = phi i32 [ -21, %4 ], [ 0, %8 ], [ 0, %14 ], [ -6, %arkLs_AccessMassMem.exit ]
   ret i32 %.0
 }
 

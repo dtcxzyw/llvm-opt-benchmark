@@ -234,7 +234,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %56
 
 56:                                               ; preds = %54, %52, %50, %48, %45
-  %.0269 = phi i64 [ 12, %45 ], [ 11, %48 ], [ 10, %50 ], [ 9, %52 ], [ %., %54 ]
+  %.0269 = phi i64 [ 9, %52 ], [ 12, %45 ], [ 11, %48 ], [ 10, %50 ], [ %., %54 ]
   %57 = call i32 @llvm.smax.i32(i32 %32, i32 3)
   %58 = shl nsw i32 %32, 2
   %59 = add nsw i32 %58, 24
@@ -851,7 +851,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %11
 
 11:                                               ; preds = %8, %2, %6
-  %.0 = phi ptr [ %7, %6 ], [ %0, %2 ], [ %spec.select, %8 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %8 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -876,7 +876,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %7
 
 7:                                                ; preds = %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ %., %5 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ %., %5 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

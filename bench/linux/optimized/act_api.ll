@@ -369,7 +369,7 @@ define dso_local noundef range(i32 0, 2) i32 @tcf_idr_release(ptr noundef %0, i1
   br label %.thread
 
 .thread:                                          ; preds = %14, %13, %2, %16
-  %24 = phi i32 [ 1, %16 ], [ 0, %2 ], [ 0, %13 ], [ 0, %14 ]
+  %24 = phi i32 [ 0, %2 ], [ 1, %16 ], [ 0, %13 ], [ 0, %14 ]
   ret i32 %24
 }
 
@@ -515,7 +515,7 @@ define dso_local i32 @tcf_generic_walker(ptr noundef readonly captures(none) %0,
   br label %.thread20
 
 .thread21:                                        ; preds = %65, %70, %23
-  %83 = phi i32 [ -22, %23 ], [ %72, %70 ], [ -1, %65 ]
+  %83 = phi i32 [ -22, %23 ], [ -1, %65 ], [ %72, %70 ]
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %85 = load ptr, ptr %84, align 8
   %86 = icmp ugt ptr %85, %18
@@ -538,7 +538,7 @@ define dso_local i32 @tcf_generic_walker(ptr noundef readonly captures(none) %0,
   br label %.thread20
 
 .thread20:                                        ; preds = %11, %88, %74
-  %94 = phi i32 [ %71, %74 ], [ %83, %88 ], [ -22, %11 ]
+  %94 = phi i32 [ %71, %74 ], [ -22, %11 ], [ %83, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %266
 
@@ -774,8 +774,8 @@ define dso_local i32 @tcf_generic_walker(ptr noundef readonly captures(none) %0,
   br i1 %249, label %.thread22, label %.split.split, !llvm.loop !25
 
 .thread22:                                        ; preds = %245, %233, %210, %.split.split, %.split.split.us, %166, %179, %191, %152, %140, %127, %.split.us, %227
-  %250 = phi i32 [ %.us-phi35, %227 ], [ %117, %152 ], [ %113, %127 ], [ %113, %.split.us ], [ %117, %140 ], [ %162, %191 ], [ %158, %166 ], [ %158, %.split.split.us ], [ %162, %179 ], [ %201, %245 ], [ %197, %210 ], [ %197, %.split.split ], [ %201, %233 ]
-  %251 = phi i32 [ %.us-phi36, %227 ], [ %153, %152 ], [ %112, %127 ], [ %112, %.split.us ], [ %149, %140 ], [ %192, %191 ], [ %157, %166 ], [ %157, %.split.split.us ], [ %188, %179 ], [ %246, %245 ], [ %196, %210 ], [ %196, %.split.split ], [ %242, %233 ]
+  %250 = phi i32 [ %.us-phi35, %227 ], [ %162, %179 ], [ %117, %140 ], [ %117, %152 ], [ %113, %127 ], [ %113, %.split.us ], [ %162, %191 ], [ %158, %166 ], [ %158, %.split.split.us ], [ %201, %245 ], [ %197, %210 ], [ %197, %.split.split ], [ %201, %233 ]
+  %251 = phi i32 [ %.us-phi36, %227 ], [ %188, %179 ], [ %149, %140 ], [ %153, %152 ], [ %112, %127 ], [ %112, %.split.us ], [ %192, %191 ], [ %157, %166 ], [ %157, %.split.split.us ], [ %246, %245 ], [ %196, %210 ], [ %196, %.split.split ], [ %242, %233 ]
   %252 = icmp sgt i32 %250, -1
   br i1 %252, label %253, label %256
 
@@ -1414,7 +1414,7 @@ define dso_local i32 @tcf_register_action(ptr noundef %0, ptr noundef %1) #0 ali
   br label %.sink.split
 
 .sink.split:                                      ; preds = %27, %63, %71, %31
-  %.ph16 = phi i32 [ -12, %31 ], [ -17, %71 ], [ -17, %63 ], [ -17, %27 ]
+  %.ph16 = phi i32 [ -17, %63 ], [ -12, %31 ], [ -17, %71 ], [ -17, %27 ]
   tail call void @mutex_unlock(ptr noundef nonnull @act_id_mutex) #14
   br label %76
 
@@ -1739,7 +1739,7 @@ define dso_local noundef range(i32 -1, 2) i32 @tcf_action_destroy(ptr noundef ca
   br i1 %58, label %.thread8, label %34, !llvm.loop !49
 
 .thread8:                                         ; preds = %34, %55, %30, %26, %.preheader.split.us, %2
-  %59 = phi i32 [ 0, %2 ], [ -1, %.preheader.split.us ], [ %27, %30 ], [ %27, %26 ], [ %56, %55 ], [ %56, %34 ]
+  %59 = phi i32 [ 0, %2 ], [ %27, %30 ], [ -1, %.preheader.split.us ], [ %27, %26 ], [ %56, %55 ], [ %56, %34 ]
   ret i32 %59
 }
 
@@ -2089,7 +2089,7 @@ define dso_local range(i32 -22, 1) i32 @tcf_action_dump(ptr noundef %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %.split, %54, %40, %26, %12, %.split.us, %68
-  %74 = phi i32 [ -1, %68 ], [ -22, %12 ], [ 0, %.split.us ], [ 0, %26 ], [ -22, %40 ], [ 0, %.split ], [ 0, %54 ]
+  %74 = phi i32 [ -1, %68 ], [ 0, %.split.us ], [ -22, %12 ], [ 0, %26 ], [ -22, %40 ], [ 0, %54 ], [ 0, %.split ]
   ret i32 %74
 }
 
@@ -2492,7 +2492,7 @@ define dso_local ptr @tcf_action_init_1(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.thread12
 
 .thread12:                                        ; preds = %48, %50, %107, %103
-  %109 = phi i32 [ %105, %107 ], [ %105, %103 ], [ -12, %50 ], [ -12, %48 ]
+  %109 = phi i32 [ %105, %103 ], [ %105, %107 ], [ -12, %50 ], [ -12, %48 ]
   %110 = sext i32 %109 to i64
   %111 = inttoptr i64 %110 to ptr
   br label %112
@@ -2702,7 +2702,7 @@ define dso_local i32 @tcf_action_init(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %137
 
 .thread20:                                        ; preds = %97, %95, %96, %55
-  %135 = phi i32 [ %57, %55 ], [ -22, %96 ], [ -22, %95 ], [ %98, %97 ]
+  %135 = phi i32 [ %57, %55 ], [ -22, %95 ], [ -22, %96 ], [ %98, %97 ]
   %136 = call i32 @tcf_action_destroy(ptr noundef %4, i32 noundef %35)
   br label %137
 
@@ -3080,7 +3080,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tcf_action_reoffload_cb(ptr noun
   store i32 %102, ptr %79, align 8
   br label %tcf_action_offload_del_ex.exit.thread15
 
-tcf_action_offload_del_ex.exit.thread:            ; preds = %82, %97
+tcf_action_offload_del_ex.exit.thread:            ; preds = %97, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %173
 
@@ -3963,7 +3963,7 @@ define internal i32 @tc_ctl_action(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %115, label %.thread13, label %90, !llvm.loop !69
 
 .thread13:                                        ; preds = %45, %113, %90, %52
-  %116 = phi i32 [ %50, %52 ], [ %89, %90 ], [ %89, %113 ], [ -11, %45 ]
+  %116 = phi i32 [ %50, %52 ], [ %89, %113 ], [ %89, %90 ], [ -11, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

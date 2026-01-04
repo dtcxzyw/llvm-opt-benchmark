@@ -3189,7 +3189,7 @@ _ZN2cv4Mat_IiE6createEii.exit158:                 ; preds = %_ZN2cv4Mat_IiE6crea
   ret void
 
 .body:                                            ; preds = %319, %412, %447, %429, %363, %335, %313
-  %.pn81.pn = phi { ptr, i32 } [ %.pn81, %429 ], [ %448, %447 ], [ %336, %335 ], [ %.pn75.pn, %363 ], [ %314, %313 ], [ %320, %319 ], [ %413, %412 ]
+  %.pn81.pn = phi { ptr, i32 } [ %.pn81, %429 ], [ %448, %447 ], [ %314, %313 ], [ %336, %335 ], [ %.pn75.pn, %363 ], [ %320, %319 ], [ %413, %412 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #20
   br label %450
 
@@ -5531,9 +5531,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190: ; preds = %83
   br label %199
 
 199:                                              ; preds = %188, %185, %183, %164, %158, %154
-  %.3155.us = phi i8 [ %.1153194.us, %164 ], [ %.1153194.us, %158 ], [ %.1153194.us, %154 ], [ %.1153194.us, %188 ], [ %187, %185 ], [ %.1153194.us, %183 ]
-  %.3151.us = phi i8 [ %.1149195.us, %164 ], [ %.1149195.us, %158 ], [ %.1149195.us, %154 ], [ %.1149195.us, %188 ], [ %186, %185 ], [ %.1149195.us, %183 ]
-  %.6.us = phi i32 [ %.4143197.us, %164 ], [ %.4143197.us, %158 ], [ %.4143197.us, %154 ], [ %192, %188 ], [ %.4143197.us, %185 ], [ %.4143197.us, %183 ]
+  %.3155.us = phi i8 [ %.1153194.us, %158 ], [ %.1153194.us, %164 ], [ %.1153194.us, %154 ], [ %.1153194.us, %188 ], [ %187, %185 ], [ %.1153194.us, %183 ]
+  %.3151.us = phi i8 [ %.1149195.us, %158 ], [ %.1149195.us, %164 ], [ %.1149195.us, %154 ], [ %.1149195.us, %188 ], [ %186, %185 ], [ %.1149195.us, %183 ]
+  %.6.us = phi i32 [ %.4143197.us, %158 ], [ %.4143197.us, %164 ], [ %.4143197.us, %154 ], [ %192, %188 ], [ %.4143197.us, %185 ], [ %.4143197.us, %183 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %151, label %154, !llvm.loop !176
@@ -5577,7 +5577,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190: ; preds = %83
   ret void
 
 204:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn173.pn = phi { ptr, i32 } [ %.pn173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190 ], [ %.pn168, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187 ], [ %.pn166, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %.pn164, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn173.pn = phi { ptr, i32 } [ %.pn173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn168, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187 ], [ %.pn166, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %.pn164, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181 ]
   resume { ptr, i32 } %.pn173.pn
 }
 
@@ -6571,10 +6571,10 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching7makeMapclERKNS_5RangeE(
   br label %41
 
 41:                                               ; preds = %40, %38, %36, %.lr.ph.i
-  %.161.i = phi double [ %.06065.i, %40 ], [ %.06065.i, %38 ], [ %34, %.lr.ph.i ], [ %.06065.i, %36 ]
-  %.159.i = phi double [ %.05866.i, %40 ], [ %.05866.i, %38 ], [ %.06065.i, %.lr.ph.i ], [ %34, %36 ]
-  %.157.i = phi double [ %34, %40 ], [ %.05667.i, %38 ], [ %.05866.i, %.lr.ph.i ], [ %.05866.i, %36 ]
-  %.1.i = phi i32 [ %.05568.i, %40 ], [ %.05568.i, %38 ], [ %indvars72.i, %.lr.ph.i ], [ %.05568.i, %36 ]
+  %.161.i = phi double [ %.06065.i, %38 ], [ %34, %.lr.ph.i ], [ %.06065.i, %40 ], [ %.06065.i, %36 ]
+  %.159.i = phi double [ %.05866.i, %38 ], [ %.06065.i, %.lr.ph.i ], [ %.05866.i, %40 ], [ %34, %36 ]
+  %.157.i = phi double [ %.05667.i, %38 ], [ %.05866.i, %.lr.ph.i ], [ %34, %40 ], [ %.05866.i, %36 ]
+  %.1.i = phi i32 [ %.05568.i, %38 ], [ %indvars72.i, %.lr.ph.i ], [ %.05568.i, %40 ], [ %.05568.i, %36 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN2cv6stereo8Matching5minimEPsiidi.exit, label %.lr.ph.i, !llvm.loop !201
@@ -6629,10 +6629,10 @@ _ZN2cv6stereo8Matching5minimEPsiidi.exit:         ; preds = %41, %.lr.ph
   br label %61
 
 61:                                               ; preds = %60, %58, %56, %.lr.ph.i51
-  %.161.i58 = phi double [ %.06065.i56, %60 ], [ %.06065.i56, %58 ], [ %54, %.lr.ph.i51 ], [ %.06065.i56, %56 ]
-  %.159.i59 = phi double [ %.05866.i55, %60 ], [ %.05866.i55, %58 ], [ %.06065.i56, %.lr.ph.i51 ], [ %54, %56 ]
-  %.157.i60 = phi double [ %54, %60 ], [ %.05667.i54, %58 ], [ %.05866.i55, %.lr.ph.i51 ], [ %.05866.i55, %56 ]
-  %.1.i61 = phi i32 [ %.05568.i53, %60 ], [ %.05568.i53, %58 ], [ %indvars72.i57, %.lr.ph.i51 ], [ %.05568.i53, %56 ]
+  %.161.i58 = phi double [ %.06065.i56, %58 ], [ %54, %.lr.ph.i51 ], [ %.06065.i56, %60 ], [ %.06065.i56, %56 ]
+  %.159.i59 = phi double [ %.05866.i55, %58 ], [ %.06065.i56, %.lr.ph.i51 ], [ %.05866.i55, %60 ], [ %54, %56 ]
+  %.157.i60 = phi double [ %.05667.i54, %58 ], [ %.05866.i55, %.lr.ph.i51 ], [ %54, %60 ], [ %.05866.i55, %56 ]
+  %.1.i61 = phi i32 [ %.05568.i53, %58 ], [ %indvars72.i57, %.lr.ph.i51 ], [ %.05568.i53, %60 ], [ %.05568.i53, %56 ]
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i52, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, %wide.trip.count.i50
   br i1 %exitcond.not.i63, label %_ZN2cv6stereo8Matching5minimEPsiidi.exit64, label %.lr.ph.i51, !llvm.loop !201
@@ -6891,7 +6891,7 @@ _ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit80: ; preds = %182, %2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN2cv6stereo8Matching5minimEPsiidi.exit, %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73, %172, %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit80
-  %.sink = phi i8 [ %227, %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit80 ], [ %176, %172 ], [ 0, %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73 ], [ 0, %_ZN2cv6stereo8Matching5minimEPsiidi.exit ]
+  %.sink = phi i8 [ 0, %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73 ], [ %227, %_ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit80 ], [ %176, %172 ], [ 0, %_ZN2cv6stereo8Matching5minimEPsiidi.exit ]
   %228 = load ptr, ptr %13, align 8, !tbaa !131
   %229 = getelementptr inbounds i8, ptr %228, i64 %27
   store i8 %.sink, ptr %229, align 1, !tbaa !26
@@ -6968,7 +6968,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median1x9IhEclERKNS_5Ra
   ret void
 
 ._crit_edge58:                                    ; preds = %73, %.lr.ph57.split.us, %.preheader50
-  %30 = phi i32 [ %15, %.preheader50 ], [ %28, %.lr.ph57.split.us ], [ %75, %73 ]
+  %30 = phi i32 [ %28, %.lr.ph57.split.us ], [ %15, %.preheader50 ], [ %75, %73 ]
   %31 = add nsw i32 %.059, 1
   %32 = load i32, ptr %5, align 4, !tbaa !116
   %33 = icmp slt i32 %31, %32
@@ -7127,7 +7127,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median9x1IhEclERKNS_5Ra
   ret void
 
 ._crit_edge54:                                    ; preds = %74, %.lr.ph53.split.us, %.preheader46
-  %32 = phi i32 [ %16, %.preheader46 ], [ %29, %.lr.ph53.split.us ], [ %76, %74 ]
+  %32 = phi i32 [ %29, %.lr.ph53.split.us ], [ %16, %.preheader46 ], [ %76, %74 ]
   %indvars.iv.next78 = add nsw i64 %indvars.iv77, 1
   %33 = load i32, ptr %5, align 4, !tbaa !116
   %34 = sext i32 %33 to i64

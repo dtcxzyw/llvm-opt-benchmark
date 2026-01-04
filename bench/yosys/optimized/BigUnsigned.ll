@@ -647,7 +647,7 @@ define noundef range(i32 -1, 2) i32 @_ZNK11BigUnsigned9compareToERKS_(ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %23, %8, %2
-  %.011 = phi i32 [ -1, %2 ], [ 1, %8 ], [ %., %23 ], [ 0, %15 ]
+  %.011 = phi i32 [ 1, %8 ], [ -1, %2 ], [ %., %23 ], [ 0, %15 ]
   ret i32 %.011
 }
 

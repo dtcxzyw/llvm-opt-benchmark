@@ -202,15 +202,15 @@ make_proc_acpi_key_val.exit.i:                    ; preds = %.preheader102.i, %4
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %.outer258.backedge, label %56
 
-.outer258.backedge:                               ; preds = %53, %56
-  %.0.i.ph260.be = phi i1 [ %spec.select.i, %56 ], [ true, %53 ]
-  br label %.outer258, !llvm.loop !7
-
 56:                                               ; preds = %53
   %57 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.2.i.i, ptr noundef nonnull @.str.27) #6
   %58 = icmp eq i32 %57, 0
   %spec.select.i = select i1 %58, i1 true, i1 %.0.i.ph260
   br label %.outer258.backedge
+
+.outer258.backedge:                               ; preds = %56, %53
+  %.0.i.ph260.be = phi i1 [ true, %53 ], [ %spec.select.i, %56 ]
+  br label %.outer258, !llvm.loop !7
 
 59:                                               ; preds = %50
   %60 = call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.0.i44.i, ptr noundef nonnull @.str.28) #6
@@ -490,7 +490,7 @@ make_proc_acpi_key_val.exit.i30:                  ; preds = %.preheader.i28, %14
   br label %.outer, !llvm.loop !10
 
 check_proc_acpi_ac_adapter.exit:                  ; preds = %127, %.preheader16.i, %135, %.lr.ph92, %120
-  %.3 = phi i1 [ %.03591, %.lr.ph92 ], [ %.03591, %120 ], [ %.136.ph, %135 ], [ %.136.ph, %.preheader16.i ], [ %.136.ph, %127 ]
+  %.3 = phi i1 [ %.03591, %.lr.ph92 ], [ %.03591, %120 ], [ %.136.ph, %.preheader16.i ], [ %.136.ph, %135 ], [ %.136.ph, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %147 = call ptr @readdir(ptr noundef nonnull %114) #6
   %.not24 = icmp eq ptr %147, null
@@ -509,7 +509,7 @@ check_proc_acpi_ac_adapter.exit:                  ; preds = %127, %.preheader16.
   br label %150
 
 150:                                              ; preds = %._crit_edge93, %._crit_edge, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %._crit_edge ], [ true, %._crit_edge93 ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ false, %3 ], [ true, %._crit_edge93 ]
   ret i1 %.0
 }
 
@@ -928,7 +928,7 @@ next_string.exit82:                               ; preds = %.preheader.i77, %99
   br label %next_string.exit.thread
 
 next_string.exit.thread:                          ; preds = %18, %next_string.exit, %next_string.exit33, %next_string.exit40, %.preheader140, %.preheader138, %.preheader136, %.preheader134, %.preheader, %int_string.exit.thread, %.critedge, %121, %119, %next_string.exit75, %84, %next_string.exit61, %next_string.exit54, %int_string.exit, %12, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %12 ], [ false, %int_string.exit ], [ false, %next_string.exit54 ], [ false, %next_string.exit61 ], [ false, %84 ], [ false, %next_string.exit75 ], [ true, %119 ], [ true, %121 ], [ true, %.critedge ], [ false, %int_string.exit.thread ], [ false, %.preheader ], [ false, %.preheader134 ], [ false, %.preheader136 ], [ false, %.preheader138 ], [ false, %.preheader140 ], [ false, %next_string.exit40 ], [ false, %next_string.exit33 ], [ false, %next_string.exit ], [ false, %18 ]
+  %.0 = phi i1 [ false, %12 ], [ false, %3 ], [ false, %next_string.exit33 ], [ false, %next_string.exit75 ], [ false, %next_string.exit40 ], [ false, %84 ], [ false, %.preheader140 ], [ false, %next_string.exit61 ], [ false, %int_string.exit.thread ], [ false, %next_string.exit54 ], [ false, %.preheader138 ], [ false, %int_string.exit ], [ false, %.preheader136 ], [ false, %.preheader134 ], [ false, %.preheader ], [ false, %next_string.exit ], [ true, %119 ], [ true, %121 ], [ true, %.critedge ], [ false, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1090,8 +1090,8 @@ read_power_file.exit66.thread:                    ; preds = %38, %read_power_fil
   br label %read_power_file.exit68.thread
 
 read_power_file.exit68.thread:                    ; preds = %48, %read_power_file.exit66.thread, %62, %59, %56, %52, %42
-  %65 = phi i1 [ false, %42 ], [ false, %52 ], [ true, %56 ], [ false, %59 ], [ false, %62 ], [ false, %read_power_file.exit66.thread ], [ false, %48 ]
-  %.053 = phi i32 [ 2, %42 ], [ 3, %52 ], [ 1, %56 ], [ 4, %59 ], [ %spec.select62, %62 ], [ 0, %read_power_file.exit66.thread ], [ 0, %48 ]
+  %65 = phi i1 [ false, %42 ], [ false, %62 ], [ false, %52 ], [ true, %56 ], [ false, %59 ], [ false, %read_power_file.exit66.thread ], [ false, %48 ]
+  %.053 = phi i32 [ 2, %42 ], [ %spec.select62, %62 ], [ 3, %52 ], [ 1, %56 ], [ 4, %59 ], [ 0, %read_power_file.exit66.thread ], [ 0, %48 ]
   %66 = call fastcc i32 @open_power_file(ptr noundef nonnull @.str.33, ptr noundef nonnull %9, ptr noundef nonnull @.str.14)
   %67 = icmp eq i32 %66, -1
   br i1 %67, label %read_power_file.exit70.thread, label %68
@@ -1200,7 +1200,7 @@ read_power_file.exit74.thread:                    ; preds = %90, %87, %94
   br i1 %123, label %.critedge, label %read_power_file.exit.thread
 
 .critedge:                                        ; preds = %118, %.thread92
-  %.05288 = phi i32 [ %.05290, %.thread92 ], [ %.05291, %118 ]
+  %.05288 = phi i32 [ %.05291, %118 ], [ %.05290, %.thread92 ]
   store i32 %.05288, ptr %1, align 4
   store i32 %.051, ptr %2, align 4
   store i32 %.053, ptr %0, align 4
@@ -1315,7 +1315,7 @@ switch.lookup:                                    ; preds = %33
   br label %39
 
 39:                                               ; preds = %switch.lookup, %36, %30, %28
-  %.038.i = phi i32 [ 2, %28 ], [ 0, %30 ], [ %..i, %36 ], [ %switch.load, %switch.lookup ]
+  %.038.i = phi i32 [ 0, %30 ], [ %switch.load, %switch.lookup ], [ %..i, %36 ], [ 2, %28 ]
   %40 = call zeroext i1 @SDL_DBus_QueryPropertyOnConnection(ptr noundef %17, ptr noundef nonnull @.str.18, ptr noundef %20, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.41, i32 noundef 100, ptr noundef nonnull %6) #6
   br i1 %40, label %41, label %45
 

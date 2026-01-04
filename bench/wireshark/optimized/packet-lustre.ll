@@ -3805,7 +3805,7 @@ dissect_struct_lu_ladvise_hdr.exit.i:             ; preds = %121, %113
   br label %dissect_struct_fid_array.exit.i
 
 dissect_struct_fid_array.exit.i:                  ; preds = %329, %._crit_edge.i.i, %312, %304
-  %.0.i.i = phi i32 [ %305, %312 ], [ %332, %329 ], [ %.029.lcssa.i.i, %._crit_edge.i.i ], [ %305, %304 ]
+  %.0.i.i = phi i32 [ %.029.lcssa.i.i, %._crit_edge.i.i ], [ %305, %312 ], [ %332, %329 ], [ %305, %304 ]
   switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %333
     i32 4713, label %336
@@ -4505,7 +4505,7 @@ default.unreachable:                              ; preds = %343
   br label %add_extra_padding.exit.i.i.i
 
 add_extra_padding.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i, %755, %752, %.preheader.i.i.i
-  %.1.i.i.i = phi i32 [ %758, %755 ], [ %726, %752 ], [ %726, %.preheader.i.i.i ], [ %745, %.lr.ph.i.i.i ]
+  %.1.i.i.i = phi i32 [ %726, %752 ], [ %758, %755 ], [ %726, %.preheader.i.i.i ], [ %745, %.lr.ph.i.i.i ]
   %759 = sub i32 %.1.i.i.i, %682
   %.not77.i.i.i = icmp eq i32 %759, %693
   br i1 %.not77.i.i.i, label %762, label %760
@@ -4953,7 +4953,7 @@ default.unreachable138:                           ; preds = %893
   br label %process_opcode_ost.exit
 
 process_opcode_ost.exit:                          ; preds = %991, %.thread39.i, %965, %962, %dissect_struct_mgs_target_info.exit.i, %899, %897, %.thread.i136, %893, %893, %893, %877, %871, %864, %862, %858, %dissect_xattr_buffers.exit.i.i, %772, %764, %dissect_struct_lmv_user_md.exit.i.i, %675, %670, %670, %670, %670, %665, %633, %627, %619, %617, %615, %581, %575, %568, %dissect_struct_ldlm_gl_barrier_desc.exit.i.i, %529, %520, %518, %516, %513, %dissect_struct_layout_intent.exit.i.i, %474, %469, %458, %448, %344, %342, %338, %336, %333, %dissect_struct_fid_array.exit.i, %298, %296, %294, %292, %289, %287, %282, %280, %277, %275, %273, %.thread293.i, %270, %266, %264, %262, %.thread291.i, %259, %257, %.thread289.i, %252, %250, %248, %245, %243, %.thread287.i, %237, %235, %233, %230, %225, %223, %220, %218, %215, %213, %211, %209, %.thread285.i, %205, %203, %201, %.thread282.i, %196, %.thread280.i, %194, %188, %.thread278.i, %183, %178, %175, %171, %169, %168, %164, %dissect_struct_lu_ladvise_hdr.exit.i, %110, %90, %84, %76, %74, %72, %69, %64, %62, %60, %58, %56, %.thread4.i, %54, %51, %.thread2.i, %48, %45, %42, %40, %38, %.thread.i, %33, %29, %26, %24, %21, %20, %20, %20, %20, %1021, %6, %1035, %1033, %1029, %1025, %1019, %1015, %1011, %1007
-  %.0 = phi i32 [ %1008, %1007 ], [ %1012, %1011 ], [ %1016, %1015 ], [ %1020, %1019 ], [ %1026, %1025 ], [ %1030, %1029 ], [ %1034, %1033 ], [ %1, %1035 ], [ %1, %6 ], [ %1, %1021 ], [ %1, %164 ], [ %25, %24 ], [ %22, %21 ], [ %32, %29 ], [ %27, %26 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %47, %45 ], [ %53, %51 ], [ %57, %56 ], [ %1, %20 ], [ %1, %20 ], [ %1, %20 ], [ %1, %20 ], [ %1, %58 ], [ %61, %60 ], [ %1, %62 ], [ %68, %64 ], [ %73, %72 ], [ %1, %69 ], [ %75, %74 ], [ %111, %110 ], [ %163, %dissect_struct_lu_ladvise_hdr.exit.i ], [ %37, %.thread.i ], [ %50, %.thread2.i ], [ %55, %.thread4.i ], [ %109, %90 ], [ %1, %84 ], [ %1, %76 ], [ %34, %33 ], [ %1, %48 ], [ %1, %54 ], [ %1, %338 ], [ %182, %178 ], [ %193, %188 ], [ %197, %196 ], [ %204, %203 ], [ %1, %201 ], [ %1, %168 ], [ %210, %209 ], [ %214, %213 ], [ %1, %211 ], [ %219, %218 ], [ %216, %215 ], [ %222, %220 ], [ %229, %225 ], [ %1, %223 ], [ %234, %233 ], [ %1, %230 ], [ %236, %235 ], [ %244, %243 ], [ %249, %248 ], [ %1, %245 ], [ %1, %250 ], [ %258, %257 ], [ %263, %262 ], [ %269, %266 ], [ %1, %264 ], [ %274, %273 ], [ %279, %277 ], [ %1, %275 ], [ %286, %282 ], [ %1, %280 ], [ %291, %289 ], [ %1, %287 ], [ %295, %294 ], [ %1, %292 ], [ %303, %298 ], [ %1, %296 ], [ %335, %333 ], [ %337, %336 ], [ %.0.i.i, %dissect_struct_fid_array.exit.i ], [ %187, %.thread278.i ], [ %195, %.thread280.i ], [ %200, %.thread282.i ], [ %208, %.thread285.i ], [ %242, %.thread287.i ], [ %254, %.thread289.i ], [ %261, %.thread291.i ], [ %272, %.thread293.i ], [ %172, %171 ], [ %177, %175 ], [ %170, %169 ], [ %1, %183 ], [ %1, %194 ], [ %206, %205 ], [ %238, %237 ], [ %1, %252 ], [ %260, %259 ], [ %271, %270 ], [ %863, %862 ], [ %1, %670 ], [ %1, %670 ], [ %1, %670 ], [ %1, %670 ], [ %861, %858 ], [ %676, %675 ], [ %763, %dissect_struct_lmv_user_md.exit.i.i ], [ %771, %764 ], [ %774, %772 ], [ %856, %dissect_xattr_buffers.exit.i.i ], [ %890, %877 ], [ %1, %871 ], [ %1, %864 ], [ %620, %619 ], [ %620, %627 ], [ %664, %633 ], [ %522, %568 ], [ %522, %575 ], [ %614, %581 ], [ %522, %520 ], [ %564, %dissect_struct_ldlm_gl_barrier_desc.exit.i.i ], [ %616, %615 ], [ %522, %529 ], [ %517, %516 ], [ %515, %513 ], [ %512, %dissect_struct_layout_intent.exit.i.i ], [ %478, %474 ], [ %473, %469 ], [ %468, %458 ], [ %457, %448 ], [ %519, %518 ], [ %345, %344 ], [ %669, %665 ], [ %618, %617 ], [ %1, %342 ], [ %900, %899 ], [ %1, %897 ], [ %.079.i.i, %dissect_struct_mgs_target_info.exit.i ], [ %1, %893 ], [ %1, %893 ], [ %1, %893 ], [ %964, %962 ], [ %1004, %991 ], [ %896, %.thread.i136 ], [ %990, %.thread39.i ], [ %1, %965 ]
+  %.0 = phi i32 [ %1, %1035 ], [ %1, %1021 ], [ %1, %76 ], [ %177, %175 ], [ %990, %.thread39.i ], [ %1008, %1007 ], [ %1012, %1011 ], [ %1016, %1015 ], [ %1020, %1019 ], [ %1, %6 ], [ %1026, %1025 ], [ %1030, %1029 ], [ %1034, %1033 ], [ %1, %164 ], [ %25, %24 ], [ %22, %21 ], [ %32, %29 ], [ %27, %26 ], [ %39, %38 ], [ %34, %33 ], [ %41, %40 ], [ %43, %42 ], [ %47, %45 ], [ %53, %51 ], [ %1, %48 ], [ %57, %56 ], [ %1, %54 ], [ %1, %20 ], [ %1, %20 ], [ %1, %20 ], [ %1, %20 ], [ %1, %58 ], [ %61, %60 ], [ %1, %62 ], [ %68, %64 ], [ %73, %72 ], [ %1, %69 ], [ %75, %74 ], [ %55, %.thread4.i ], [ %111, %110 ], [ %163, %dissect_struct_lu_ladvise_hdr.exit.i ], [ %37, %.thread.i ], [ %50, %.thread2.i ], [ %109, %90 ], [ %1, %84 ], [ %1, %338 ], [ %182, %178 ], [ %170, %169 ], [ %193, %188 ], [ %1, %183 ], [ %197, %196 ], [ %1, %194 ], [ %204, %203 ], [ %1, %201 ], [ %1, %168 ], [ %210, %209 ], [ %206, %205 ], [ %214, %213 ], [ %1, %211 ], [ %219, %218 ], [ %216, %215 ], [ %222, %220 ], [ %229, %225 ], [ %1, %223 ], [ %234, %233 ], [ %1, %230 ], [ %236, %235 ], [ %244, %243 ], [ %238, %237 ], [ %249, %248 ], [ %1, %245 ], [ %1, %250 ], [ %258, %257 ], [ %1, %252 ], [ %263, %262 ], [ %260, %259 ], [ %269, %266 ], [ %1, %264 ], [ %274, %273 ], [ %271, %270 ], [ %279, %277 ], [ %1, %275 ], [ %286, %282 ], [ %1, %280 ], [ %291, %289 ], [ %1, %287 ], [ %295, %294 ], [ %1, %292 ], [ %303, %298 ], [ %1, %296 ], [ %335, %333 ], [ %337, %336 ], [ %.0.i.i, %dissect_struct_fid_array.exit.i ], [ %272, %.thread293.i ], [ %187, %.thread278.i ], [ %195, %.thread280.i ], [ %200, %.thread282.i ], [ %208, %.thread285.i ], [ %242, %.thread287.i ], [ %254, %.thread289.i ], [ %261, %.thread291.i ], [ %172, %171 ], [ %896, %.thread.i136 ], [ %1, %864 ], [ %863, %862 ], [ %856, %dissect_xattr_buffers.exit.i.i ], [ %1, %670 ], [ %1, %670 ], [ %1, %670 ], [ %1, %670 ], [ %1, %342 ], [ %861, %858 ], [ %676, %675 ], [ %763, %dissect_struct_lmv_user_md.exit.i.i ], [ %771, %764 ], [ %774, %772 ], [ %890, %877 ], [ %1, %871 ], [ %620, %619 ], [ %620, %627 ], [ %664, %633 ], [ %522, %575 ], [ %614, %581 ], [ %564, %dissect_struct_ldlm_gl_barrier_desc.exit.i.i ], [ %616, %615 ], [ %522, %520 ], [ %522, %529 ], [ %515, %513 ], [ %512, %dissect_struct_layout_intent.exit.i.i ], [ %478, %474 ], [ %473, %469 ], [ %468, %458 ], [ %457, %448 ], [ %519, %518 ], [ %345, %344 ], [ %669, %665 ], [ %522, %568 ], [ %618, %617 ], [ %517, %516 ], [ %1, %965 ], [ %900, %899 ], [ %1, %897 ], [ %.079.i.i, %dissect_struct_mgs_target_info.exit.i ], [ %1, %893 ], [ %1, %893 ], [ %1, %893 ], [ %964, %962 ], [ %1004, %991 ]
   ret i32 %.0
 }
 
@@ -5527,7 +5527,7 @@ add_extra_padding.exit._crit_edge.i.i:            ; preds = %add_extra_padding.e
   br i1 %366, label %.lr.ph84.i.i, label %dissect_struct_lustre_cfg.exit.i, !llvm.loop !15
 
 dissect_struct_lustre_cfg.exit.i:                 ; preds = %.lr.ph84.i.i, %352, %305, %273
-  %.178.i.i = phi i32 [ %301, %273 ], [ %351, %305 ], [ %.0.i.i.i, %352 ], [ %363, %.lr.ph84.i.i ]
+  %.178.i.i = phi i32 [ %351, %305 ], [ %301, %273 ], [ %.0.i.i.i, %352 ], [ %363, %.lr.ph84.i.i ]
   %367 = sub i32 %.178.i.i, %232
   call void @proto_item_set_len(ptr noundef %234, i32 noundef %367)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -5866,7 +5866,7 @@ dissect_struct_changelog_rec.exit.i:              ; preds = %486, %484
   br label %dissect_llog_eadata.exit
 
 dissect_llog_eadata.exit:                         ; preds = %551, %570, %564, %557, %.thread, %547, %.loopexit.i, %28, %21, %555, %553, %18, %11, %14, %596, %594, %592, %590, %5
-  %.0 = phi i32 [ %1, %596 ], [ %17, %14 ], [ %12, %11 ], [ %19, %18 ], [ %554, %553 ], [ %1, %555 ], [ %591, %590 ], [ %1, %592 ], [ %1, %594 ], [ %1, %5 ], [ %19, %28 ], [ %19, %21 ], [ %550, %547 ], [ %.1.i, %.loopexit.i ], [ %552, %.thread ], [ %589, %570 ], [ %1, %564 ], [ %1, %557 ], [ %1, %551 ]
+  %.0 = phi i32 [ %1, %596 ], [ %17, %14 ], [ %12, %11 ], [ %1, %5 ], [ %19, %18 ], [ %554, %553 ], [ %1, %551 ], [ %552, %.thread ], [ %1, %555 ], [ %591, %590 ], [ %1, %592 ], [ %1, %594 ], [ %19, %21 ], [ %19, %28 ], [ %550, %547 ], [ %.1.i, %.loopexit.i ], [ %589, %570 ], [ %1, %564 ], [ %1, %557 ]
   ret i32 %.0
 }
 
@@ -5996,7 +5996,7 @@ add_extra_padding.exit:                           ; preds = %.split, %19
   br label %30
 
 30:                                               ; preds = %24, %.thread, %add_extra_padding.exit, %.split34, %26, %28
-  %.1 = phi i32 [ %1, %28 ], [ %27, %26 ], [ %23, %add_extra_padding.exit ], [ %10, %.split34 ], [ %25, %.thread ], [ %1, %24 ]
+  %.1 = phi i32 [ %1, %28 ], [ %1, %24 ], [ %27, %26 ], [ %23, %add_extra_padding.exit ], [ %10, %.split34 ], [ %25, %.thread ]
   ret i32 %.1
 }
 
@@ -6280,7 +6280,7 @@ dissect_struct_object_update_request.exit.i:      ; preds = %dissect_struct_obje
   br label %dissect_struct_out_update_header.exit
 
 dissect_struct_out_update_header.exit:            ; preds = %20, %27, %165, %168
-  %.0.i = phi i32 [ %1, %27 ], [ %171, %168 ], [ %.2.i, %165 ], [ %1, %20 ]
+  %.0.i = phi i32 [ %.2.i, %165 ], [ %1, %27 ], [ %171, %168 ], [ %1, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -6528,7 +6528,7 @@ define internal fastcc noundef i32 @process_opcode_lfsck(ptr noundef %0, i32 nou
   br label %dissect_struct_lfsck_reply.exit
 
 dissect_struct_lfsck_reply.exit:                  ; preds = %10, %25, %19, %12, %.thread, %6, %8, %39
-  %.0 = phi i32 [ %1, %39 ], [ %9, %8 ], [ %1, %6 ], [ %11, %.thread ], [ %38, %25 ], [ %1, %19 ], [ %1, %12 ], [ %1, %10 ]
+  %.0 = phi i32 [ %1, %39 ], [ %9, %8 ], [ %1, %6 ], [ %11, %.thread ], [ %1, %10 ], [ %38, %25 ], [ %1, %19 ], [ %1, %12 ]
   ret i32 %.0
 }
 
@@ -7002,7 +7002,7 @@ define internal fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %1
   br label %add_extra_padding.exit
 
 add_extra_padding.exit:                           ; preds = %5, %24, %19, %11
-  %.0 = phi i32 [ %2, %11 ], [ %27, %24 ], [ %21, %19 ], [ %2, %5 ]
+  %.0 = phi i32 [ %21, %19 ], [ %2, %11 ], [ %27, %24 ], [ %2, %5 ]
   ret i32 %.0
 }
 
@@ -7875,7 +7875,7 @@ dissect_struct_lmv_mds_md_v1.exit:                ; preds = %24, %30, %._crit_ed
   br label %.thread
 
 .thread:                                          ; preds = %5, %14, %175, %79, %dissect_struct_lmv_mds_md_v1.exit
-  %.0 = phi i32 [ %80, %79 ], [ %.2.lcssa, %175 ], [ %.055.i, %dissect_struct_lmv_mds_md_v1.exit ], [ %1, %14 ], [ %1, %5 ]
+  %.0 = phi i32 [ %.055.i, %dissect_struct_lmv_mds_md_v1.exit ], [ %80, %79 ], [ %.2.lcssa, %175 ], [ %1, %14 ], [ %1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -7920,7 +7920,7 @@ define internal fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %1, p
   br label %add_extra_padding.exit
 
 add_extra_padding.exit:                           ; preds = %4, %28, %18, %10
-  %.0 = phi i32 [ %1, %10 ], [ %31, %28 ], [ %25, %18 ], [ %1, %4 ]
+  %.0 = phi i32 [ %25, %18 ], [ %1, %10 ], [ %31, %28 ], [ %1, %4 ]
   ret i32 %.0
 }
 
@@ -8172,8 +8172,8 @@ define internal fastcc noundef i32 @dissect_struct_mdt_rec_reint(ptr noundef %0,
   br label %153
 
 153:                                              ; preds = %134, %139, %107, %116, %88
-  %hf_lustre_mdt_rec_reint_size32.sink = phi ptr [ @hf_lustre_mdt_rec_reint_size32, %107 ], [ @hf_lustre_mdt_rec_reint_attr_flags, %116 ], [ @hf_lustre_mdt_rec_reint_mode, %88 ], [ @hf_lustre_mdt_rec_reint_bias, %139 ], [ @hf_lustre_mdt_rec_reint_bias, %134 ]
-  %hf_lustre_mdt_rec_reint_flags.sink = phi ptr [ @hf_lustre_mdt_rec_reint_flags, %107 ], [ @hf_lustre_mdt_rec_reint_mode, %116 ], [ @hf_lustre_mdt_rec_reint_bias, %88 ], [ @hf_lustre_mdt_rec_reint_mode, %139 ], [ @hf_lustre_mdt_rec_reint_mode, %134 ]
+  %hf_lustre_mdt_rec_reint_size32.sink = phi ptr [ @hf_lustre_mdt_rec_reint_size32, %107 ], [ @hf_lustre_mdt_rec_reint_mode, %88 ], [ @hf_lustre_mdt_rec_reint_attr_flags, %116 ], [ @hf_lustre_mdt_rec_reint_bias, %139 ], [ @hf_lustre_mdt_rec_reint_bias, %134 ]
+  %hf_lustre_mdt_rec_reint_flags.sink = phi ptr [ @hf_lustre_mdt_rec_reint_flags, %107 ], [ @hf_lustre_mdt_rec_reint_bias, %88 ], [ @hf_lustre_mdt_rec_reint_mode, %116 ], [ @hf_lustre_mdt_rec_reint_mode, %139 ], [ @hf_lustre_mdt_rec_reint_mode, %134 ]
   %154 = add i32 %.1, 40
   %155 = load i32, ptr %hf_lustre_mdt_rec_reint_size32.sink, align 4
   %156 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %155, ptr noundef %0, i32 noundef %154, i32 noundef 4, i32 noundef -2147483648)
@@ -8232,7 +8232,7 @@ define internal fastcc noundef i32 @dissect_struct_mdt_rec_reint(ptr noundef %0,
   br label %add_extra_padding.exit
 
 add_extra_padding.exit:                           ; preds = %5, %186, %179, %12
-  %.0 = phi i32 [ %1, %12 ], [ %189, %186 ], [ %183, %179 ], [ %1, %5 ]
+  %.0 = phi i32 [ %183, %179 ], [ %1, %12 ], [ %189, %186 ], [ %1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -8503,7 +8503,7 @@ define internal fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %1
   br label %add_extra_padding.exit
 
 add_extra_padding.exit:                           ; preds = %4, %24, %18, %10
-  %.0 = phi i32 [ %1, %10 ], [ %27, %24 ], [ %21, %18 ], [ %1, %4 ]
+  %.0 = phi i32 [ %21, %18 ], [ %1, %10 ], [ %27, %24 ], [ %1, %4 ]
   ret i32 %.0
 }
 
@@ -8551,7 +8551,7 @@ define internal fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %1, 
   br label %add_extra_padding.exit
 
 add_extra_padding.exit:                           ; preds = %5, %27, %24, %11
-  %.0 = phi i32 [ %1, %11 ], [ %30, %27 ], [ %22, %24 ], [ %1, %5 ]
+  %.0 = phi i32 [ %22, %24 ], [ %1, %11 ], [ %30, %27 ], [ %1, %5 ]
   ret i32 %.0
 }
 

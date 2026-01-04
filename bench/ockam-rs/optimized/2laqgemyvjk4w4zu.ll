@@ -125,11 +125,11 @@ define hidden void @"_ZN122_$LT$alloc..collections..vec_deque..into_iter..IntoIt
   %.0.i.i = sub nuw i64 %17, %20
   %21 = sub i64 %19, %.0.i.i
   %.not17.i.i = icmp ult i64 %21, %14
-  %22 = sub nuw i64 %14, %21
-  %23 = shl nsw i64 %22, 5
-  %24 = add i64 %.0.i.i, %14
-  %.sroa.5.0.i = select i1 %.not17.i.i, i64 %19, i64 %24
-  %.sroa.11.0.i = select i1 %.not17.i.i, i64 %23, i64 0
+  %22 = add i64 %.0.i.i, %14
+  %23 = sub nuw i64 %14, %21
+  %24 = shl nsw i64 %23, 5
+  %.sroa.5.0.i = select i1 %.not17.i.i, i64 %19, i64 %22
+  %.sroa.11.0.i = select i1 %.not17.i.i, i64 %24, i64 0
   %25 = load ptr, ptr %0, align 8, !alias.scope !24, !noalias !27, !nonnull !10, !noundef !10
   %26 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %25, i64 %.sroa.5.0.i
   %27 = icmp eq i64 %.0.i.i, %.sroa.5.0.i
@@ -205,7 +205,7 @@ define hidden void @"_ZN122_$LT$alloc..collections..vec_deque..into_iter..IntoIt
   br i1 %43, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb8784e6f4a4fa6b5E.exit", label %.lr.ph.i.i12
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb8784e6f4a4fa6b5E.exit": ; preds = %.noexc13, %.noexc, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h66a7366337180233E.exit"
-  %44 = phi i64 [ %35, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h66a7366337180233E.exit" ], [ 0, %.noexc ], [ %41, %.noexc13 ]
+  %44 = phi i64 [ 0, %.noexc ], [ %35, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h66a7366337180233E.exit" ], [ %41, %.noexc13 ]
   %45 = load i64, ptr %7, align 8, !noalias !98, !noundef !10
   %46 = sub i64 %45, %44
   store i64 %46, ptr %7, align 8, !noalias !98
@@ -1933,9 +1933,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h409e1dbd42c23432E.exit.i"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h409e1dbd42c23432E.exit.i": ; preds = %23, %21, %2
-  %.sroa.0.0.i.i.i = phi i64 [ %.0.i.i.i.i, %21 ], [ %.0.i.i.i.i, %23 ], [ 0, %2 ]
-  %.sroa.5.0.i.i.i = phi i64 [ %18, %21 ], [ %24, %23 ], [ 0, %2 ]
-  %.sroa.11.0.i.i.i = phi i64 [ %22, %21 ], [ 0, %23 ], [ 0, %2 ]
+  %.sroa.0.0.i.i.i = phi i64 [ %.0.i.i.i.i, %23 ], [ %.0.i.i.i.i, %21 ], [ 0, %2 ]
+  %.sroa.5.0.i.i.i = phi i64 [ %24, %23 ], [ %18, %21 ], [ 0, %2 ]
+  %.sroa.11.0.i.i.i = phi i64 [ 0, %23 ], [ %22, %21 ], [ 0, %2 ]
   %25 = load ptr, ptr %5, align 8, !alias.scope !597, !noalias !598, !nonnull !10, !noundef !10
   %26 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %25, i64 %.sroa.0.0.i.i.i
   %27 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %25, i64 %.sroa.5.0.i.i.i
@@ -3139,9 +3139,9 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4ite
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h449d34e8c5b19755E.llvm.15130365213601569483.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h449d34e8c5b19755E.llvm.15130365213601569483.exit": ; preds = %2, %18, %20
-  %.sroa.0.0.i = phi i64 [ %.0.i.i, %18 ], [ %.0.i.i, %20 ], [ 0, %2 ]
-  %.sroa.5.0.i = phi i64 [ %15, %18 ], [ %21, %20 ], [ 0, %2 ]
-  %.sroa.11.0.i = phi i64 [ %19, %18 ], [ 0, %20 ], [ 0, %2 ]
+  %.sroa.0.0.i = phi i64 [ %.0.i.i, %20 ], [ %.0.i.i, %18 ], [ 0, %2 ]
+  %.sroa.5.0.i = phi i64 [ %21, %20 ], [ %15, %18 ], [ 0, %2 ]
+  %.sroa.11.0.i = phi i64 [ 0, %20 ], [ %19, %18 ], [ 0, %2 ]
   %22 = load ptr, ptr %1, align 8, !alias.scope !748, !noalias !751, !nonnull !10, !noundef !10
   %23 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %22, i64 %.sroa.0.0.i
   %24 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %22, i64 %.sroa.5.0.i
@@ -3191,9 +3191,9 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4ite
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h1f0e95d68c03d4d8E.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h1f0e95d68c03d4d8E.exit": ; preds = %2, %18, %20
-  %.sroa.0.0.i = phi i64 [ %.0.i.i, %18 ], [ %.0.i.i, %20 ], [ 0, %2 ]
-  %.sroa.5.0.i = phi i64 [ %15, %18 ], [ %21, %20 ], [ 0, %2 ]
-  %.sroa.11.0.i = phi i64 [ %19, %18 ], [ 0, %20 ], [ 0, %2 ]
+  %.sroa.0.0.i = phi i64 [ %.0.i.i, %20 ], [ %.0.i.i, %18 ], [ 0, %2 ]
+  %.sroa.5.0.i = phi i64 [ %21, %20 ], [ %15, %18 ], [ 0, %2 ]
+  %.sroa.11.0.i = phi i64 [ 0, %20 ], [ %19, %18 ], [ 0, %2 ]
   %22 = load ptr, ptr %1, align 8, !alias.scope !760, !noalias !763, !nonnull !10, !noundef !10
   %23 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %22, i64 %.sroa.0.0.i
   %24 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %22, i64 %.sroa.5.0.i
@@ -3284,9 +3284,9 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17hd2f12f845aeb41d7E.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17hd2f12f845aeb41d7E.exit": ; preds = %2, %18, %20
-  %.sroa.0.0 = phi i64 [ %.0.i, %18 ], [ %.0.i, %20 ], [ 0, %2 ]
-  %.sroa.5.0 = phi i64 [ %15, %18 ], [ %21, %20 ], [ 0, %2 ]
-  %.sroa.11.0 = phi i64 [ %19, %18 ], [ 0, %20 ], [ 0, %2 ]
+  %.sroa.0.0 = phi i64 [ %.0.i, %20 ], [ %.0.i, %18 ], [ 0, %2 ]
+  %.sroa.5.0 = phi i64 [ %21, %20 ], [ %15, %18 ], [ 0, %2 ]
+  %.sroa.11.0 = phi i64 [ 0, %20 ], [ %19, %18 ], [ 0, %2 ]
   %22 = load ptr, ptr %1, align 8, !nonnull !10, !noundef !10
   %23 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %22, i64 %.sroa.0.0
   %24 = sub i64 %.sroa.5.0, %.sroa.0.0
@@ -3994,9 +3994,9 @@ define hidden void @"_ZN91_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
           to label %39 unwind label %37
 
 31:                                               ; preds = %27, %25, %.noexc
-  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i, %25 ], [ %.0.i.i.i, %27 ], [ 0, %.noexc ]
-  %.sroa.5.0.i.i = phi i64 [ %22, %25 ], [ %28, %27 ], [ 0, %.noexc ]
-  %.sroa.11.0.i.i = phi i64 [ %26, %25 ], [ 0, %27 ], [ 0, %.noexc ]
+  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i, %27 ], [ %.0.i.i.i, %25 ], [ 0, %.noexc ]
+  %.sroa.5.0.i.i = phi i64 [ %28, %27 ], [ %22, %25 ], [ 0, %.noexc ]
+  %.sroa.11.0.i.i = phi i64 [ 0, %27 ], [ %26, %25 ], [ 0, %.noexc ]
   %32 = load ptr, ptr %1, align 8, !alias.scope !810, !noalias !811, !nonnull !10, !noundef !10
   %33 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %32, i64 %.sroa.0.0.i.i
   %34 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %32, i64 %.sroa.5.0.i.i
@@ -4079,9 +4079,9 @@ define hidden void @"_ZN91_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$
           to label %39 unwind label %37
 
 31:                                               ; preds = %27, %25, %.noexc
-  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i, %25 ], [ %.0.i.i.i, %27 ], [ 0, %.noexc ]
-  %.sroa.5.0.i.i = phi i64 [ %22, %25 ], [ %28, %27 ], [ 0, %.noexc ]
-  %.sroa.11.0.i.i = phi i64 [ %26, %25 ], [ 0, %27 ], [ 0, %.noexc ]
+  %.sroa.0.0.i.i = phi i64 [ %.0.i.i.i, %27 ], [ %.0.i.i.i, %25 ], [ 0, %.noexc ]
+  %.sroa.5.0.i.i = phi i64 [ %28, %27 ], [ %22, %25 ], [ 0, %.noexc ]
+  %.sroa.11.0.i.i = phi i64 [ 0, %27 ], [ %26, %25 ], [ 0, %.noexc ]
   %32 = load ptr, ptr %1, align 8, !alias.scope !823, !noalias !824, !nonnull !10, !noundef !10
   %33 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %32, i64 %.sroa.0.0.i.i
   %34 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %32, i64 %.sroa.5.0.i.i
@@ -4160,9 +4160,9 @@ define hidden noundef zeroext i1 @"_ZN93_$LT$alloc..collections..vec_deque..VecD
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h449d34e8c5b19755E.llvm.15130365213601569483.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h449d34e8c5b19755E.llvm.15130365213601569483.exit": ; preds = %15, %29, %31
-  %.sroa.0.0.i = phi i64 [ %.0.i.i, %29 ], [ %.0.i.i, %31 ], [ 0, %15 ]
-  %.sroa.5.0.i = phi i64 [ %26, %29 ], [ %32, %31 ], [ 0, %15 ]
-  %.sroa.11.0.i = phi i64 [ %30, %29 ], [ 0, %31 ], [ 0, %15 ]
+  %.sroa.0.0.i = phi i64 [ %.0.i.i, %31 ], [ %.0.i.i, %29 ], [ 0, %15 ]
+  %.sroa.5.0.i = phi i64 [ %32, %31 ], [ %26, %29 ], [ 0, %15 ]
+  %.sroa.11.0.i = phi i64 [ 0, %31 ], [ %30, %29 ], [ 0, %15 ]
   %33 = load ptr, ptr %0, align 8, !alias.scope !825, !noalias !836, !nonnull !10, !noundef !10
   %34 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %33, i64 %.sroa.0.0.i
   %35 = sub i64 %.sroa.5.0.i, %.sroa.0.0.i
@@ -4197,9 +4197,9 @@ define hidden noundef zeroext i1 @"_ZN93_$LT$alloc..collections..vec_deque..VecD
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h449d34e8c5b19755E.llvm.15130365213601569483.exit94"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h449d34e8c5b19755E.llvm.15130365213601569483.exit94": ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h449d34e8c5b19755E.llvm.15130365213601569483.exit", %49, %51
-  %.sroa.0.0.i91 = phi i64 [ %.0.i.i89, %49 ], [ %.0.i.i89, %51 ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h449d34e8c5b19755E.llvm.15130365213601569483.exit" ]
-  %.sroa.5.0.i92 = phi i64 [ %46, %49 ], [ %52, %51 ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h449d34e8c5b19755E.llvm.15130365213601569483.exit" ]
-  %.sroa.11.0.i93 = phi i64 [ %50, %49 ], [ 0, %51 ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h449d34e8c5b19755E.llvm.15130365213601569483.exit" ]
+  %.sroa.0.0.i91 = phi i64 [ %.0.i.i89, %51 ], [ %.0.i.i89, %49 ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h449d34e8c5b19755E.llvm.15130365213601569483.exit" ]
+  %.sroa.5.0.i92 = phi i64 [ %52, %51 ], [ %46, %49 ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h449d34e8c5b19755E.llvm.15130365213601569483.exit" ]
+  %.sroa.11.0.i93 = phi i64 [ 0, %51 ], [ %50, %49 ], [ 0, %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h449d34e8c5b19755E.llvm.15130365213601569483.exit" ]
   %53 = load ptr, ptr %1, align 8, !alias.scope !837, !noalias !848, !nonnull !10, !noundef !10
   %54 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %53, i64 %.sroa.0.0.i91
   %55 = sub i64 %.sroa.5.0.i92, %.sroa.0.0.i91
@@ -4312,7 +4312,7 @@ define hidden noundef zeroext i1 @"_ZN93_$LT$alloc..collections..vec_deque..VecD
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h252758476906dddfE.exit101"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h252758476906dddfE.exit101": ; preds = %96, %91, %77, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h252758476906dddfE.exit", %69, %73, %83, %87, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %73 ], [ false, %69 ], [ false, %87 ], [ false, %83 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h252758476906dddfE.exit" ], [ %81, %77 ], [ %95, %91 ], [ %100, %96 ]
+  %.0 = phi i1 [ false, %2 ], [ %100, %96 ], [ false, %83 ], [ false, %69 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h252758476906dddfE.exit" ], [ false, %73 ], [ %95, %91 ], [ false, %87 ], [ %81, %77 ]
   ret i1 %.0
 }
 
@@ -4730,7 +4730,7 @@ _ZN10ockam_core7routing7message13opentelemetry20OpenTelemetryContext6inject17hc6
   br i1 %.not11, label %114, label %.thread45
 
 .thread45:                                        ; preds = %.thread, %114, %113
-  %.pn154448 = phi { ptr, i32 } [ %97, %114 ], [ %97, %113 ], [ %.pn13, %.thread ]
+  %.pn154448 = phi { ptr, i32 } [ %97, %113 ], [ %97, %114 ], [ %.pn13, %.thread ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$opentelemetry..trace..tracer..SpanBuilder$GT$17hff78c6bf028b92e0E"(ptr noalias noundef nonnull align 8 dereferenceable(272) %9) #27
           to label %45 unwind label %94
 

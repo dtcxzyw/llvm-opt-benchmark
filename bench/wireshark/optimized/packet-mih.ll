@@ -2116,7 +2116,7 @@ define internal fastcc signext i16 @dissect_link_addr(ptr noundef %0, i16 nounde
   br label %51
 
 51:                                               ; preds = %3, %42, %31, %23, %21
-  %.0 = phi i16 [ %22, %21 ], [ %30, %23 ], [ %41, %31 ], [ %50, %42 ], [ 0, %3 ]
+  %.0 = phi i16 [ %50, %42 ], [ %22, %21 ], [ %30, %23 ], [ %41, %31 ], [ 0, %3 ]
   ret i16 %.0
 }
 
@@ -2857,7 +2857,7 @@ define internal signext i16 @dissect_link_action_rsp(ptr noundef %0, i16 noundef
   br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !11
 
 dissect_mih_list.exit:                            ; preds = %.lr.ph.i, %3, %16
-  %.0 = phi i16 [ %19, %16 ], [ %15, %3 ], [ %35, %.lr.ph.i ]
+  %.0 = phi i16 [ %15, %3 ], [ %19, %16 ], [ %35, %.lr.ph.i ]
   ret i16 %.0
 }
 
@@ -3404,7 +3404,7 @@ dissect_link_param_type.exit:                     ; preds = %3, %switch.lookup
   br i1 %exitcond.not.i72, label %dissect_mih_list.exit, label %.lr.ph.i69, !llvm.loop !11
 
 dissect_mih_list.exit:                            ; preds = %.lr.ph.i69, %.lr.ph.i62, %.lr.ph.i55, %.lr.ph.i48, %.lr.ph.i, %97, %80, %63, %46, %29, %21, %24, %16
-  %.0 = phi i16 [ %20, %16 ], [ %15, %21 ], [ %28, %24 ], [ %36, %29 ], [ %53, %46 ], [ %70, %63 ], [ %87, %80 ], [ %104, %97 ], [ %44, %.lr.ph.i ], [ %61, %.lr.ph.i48 ], [ %78, %.lr.ph.i55 ], [ %95, %.lr.ph.i62 ], [ %112, %.lr.ph.i69 ]
+  %.0 = phi i16 [ %20, %16 ], [ %15, %21 ], [ %28, %24 ], [ %61, %.lr.ph.i48 ], [ %78, %.lr.ph.i55 ], [ %95, %.lr.ph.i62 ], [ %44, %.lr.ph.i ], [ %36, %29 ], [ %53, %46 ], [ %70, %63 ], [ %87, %80 ], [ %104, %97 ], [ %112, %.lr.ph.i69 ]
   ret i16 %.0
 }
 

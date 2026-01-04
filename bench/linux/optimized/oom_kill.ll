@@ -2177,8 +2177,8 @@ define dso_local zeroext i1 @out_of_memory(ptr noundef %0) local_unnamed_addr #1
   br label %174
 
 .thread31:                                        ; preds = %160, %.preheader, %167, %142, %.thread, %59, %140, %147, %112
-  %.ph = phi i1 [ true, %112 ], [ false, %147 ], [ true, %140 ], [ true, %59 ], [ false, %.thread ], [ false, %142 ], [ false, %167 ], [ false, %.preheader ], [ false, %160 ]
-  %.ph35 = phi i32 [ 0, %112 ], [ 1, %147 ], [ 0, %140 ], [ 0, %59 ], [ 3, %.thread ], [ 1, %142 ], [ 1, %167 ], [ 1, %.preheader ], [ 1, %160 ]
+  %.ph = phi i1 [ false, %142 ], [ false, %.thread ], [ true, %59 ], [ true, %112 ], [ false, %147 ], [ true, %140 ], [ false, %167 ], [ false, %.preheader ], [ false, %160 ]
+  %.ph35 = phi i32 [ 1, %142 ], [ 3, %.thread ], [ 0, %59 ], [ 0, %112 ], [ 1, %147 ], [ 0, %140 ], [ 1, %167 ], [ 1, %.preheader ], [ 1, %160 ]
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %.ph35, ptr %172, align 8
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2562,7 +2562,7 @@ thread-pre-split37:                               ; preds = %thread-pre-split37.
   br label %queue_oom_reaper.exit
 
 queue_oom_reaper.exit:                            ; preds = %39, %20, %370, %234, %50, %12, %1
-  %373 = phi i1 [ %372, %370 ], [ true, %234 ], [ false, %1 ], [ true, %12 ], [ true, %50 ], [ true, %20 ], [ true, %39 ]
+  %373 = phi i1 [ true, %50 ], [ %372, %370 ], [ true, %234 ], [ false, %1 ], [ true, %12 ], [ true, %20 ], [ true, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %373
 }
@@ -2713,7 +2713,7 @@ define internal fastcc noundef zeroext i1 @task_will_free_mem(ptr noundef readon
   br i1 %91, label %.thread, label %.preheader.backedge
 
 .thread:                                          ; preds = %87, %65, %82, %78, %74, %.loopexit, %39
-  %92 = phi i1 [ true, %39 ], [ true, %87 ], [ false, %65 ], [ false, %82 ], [ false, %78 ], [ false, %74 ], [ true, %.loopexit ]
+  %92 = phi i1 [ true, %39 ], [ false, %74 ], [ false, %82 ], [ false, %65 ], [ true, %87 ], [ false, %78 ], [ true, %.loopexit ]
   tail call void @__rcu_read_unlock() #18
   br label %93
 

@@ -355,8 +355,8 @@ ruby_nonempty_memcpy.exit:                        ; preds = %54, %53
   br label %ruby_nonempty_memcpy.exit58
 
 ruby_nonempty_memcpy.exit58:                      ; preds = %56, %58, %60, %47, %ruby_nonempty_memcpy.exit
-  %.137 = phi i32 [ 0, %ruby_nonempty_memcpy.exit ], [ %49, %47 ], [ %.036, %60 ], [ %.036, %58 ], [ 0, %56 ]
-  %.1 = phi i32 [ %51, %ruby_nonempty_memcpy.exit ], [ %51, %47 ], [ %.035, %60 ], [ %.035, %58 ], [ %51, %56 ]
+  %.137 = phi i32 [ %.036, %58 ], [ 0, %ruby_nonempty_memcpy.exit ], [ %49, %47 ], [ %.036, %60 ], [ 0, %56 ]
+  %.1 = phi i32 [ %.035, %58 ], [ %51, %ruby_nonempty_memcpy.exit ], [ %51, %47 ], [ %.035, %60 ], [ %51, %56 ]
   %61 = load i32, ptr %29, align 8, !tbaa !31
   %62 = add nsw i32 %61, -1
   store i32 %62, ptr %29, align 8, !tbaa !31
@@ -386,7 +386,7 @@ allocate_getnameinfo_arg.exit.thread.sink.split:  ; preds = %65, %39
   br label %allocate_getnameinfo_arg.exit.thread
 
 allocate_getnameinfo_arg.exit.thread:             ; preds = %15, %allocate_getnameinfo_arg.exit.thread.sink.split, %65
-  %.034 = phi i32 [ %.137, %65 ], [ %.034.ph, %allocate_getnameinfo_arg.exit.thread.sink.split ], [ -10, %15 ]
+  %.034 = phi i32 [ %.034.ph, %allocate_getnameinfo_arg.exit.thread.sink.split ], [ %.137, %65 ], [ -10, %15 ]
   ret i32 %.034
 }
 
@@ -659,7 +659,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %.thread
   br label %53
 
 53:                                               ; preds = %39, %make_inetaddr.exit44, %46, %47, %ruby_nonempty_memcpy.exit, %make_inetaddr.exit, %19, %4
-  %.0 = phi ptr [ null, %4 ], [ %1, %19 ], [ %1, %make_inetaddr.exit ], [ %1, %ruby_nonempty_memcpy.exit ], [ %1, %47 ], [ %1, %46 ], [ %1, %make_inetaddr.exit44 ], [ %1, %39 ]
+  %.0 = phi ptr [ %1, %make_inetaddr.exit ], [ null, %4 ], [ %1, %19 ], [ %1, %ruby_nonempty_memcpy.exit ], [ %1, %47 ], [ %1, %46 ], [ %1, %make_inetaddr.exit44 ], [ %1, %39 ]
   ret ptr %.0
 }
 
@@ -870,7 +870,7 @@ port_str.exit:                                    ; preds = %4, %19, %ruby_nonem
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %52, label %str_is_number.exit.thread
 
-str_is_number.exit.thread:                        ; preds = %43, %42, %49, %46
+str_is_number.exit.thread:                        ; preds = %42, %43, %49, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %53
 
@@ -938,7 +938,7 @@ str_is_number.exit.thread:                        ; preds = %43, %42, %49, %46
   br label %rb_array_len.exit.i
 
 rb_array_len.exit.i:                              ; preds = %79, %76
-  %.027.i = phi i64 [ %78, %76 ], [ %81, %79 ]
+  %.027.i = phi i64 [ %81, %79 ], [ %78, %76 ]
   %82 = icmp sgt i64 %.027.i, 0
   br i1 %82, label %.lr.ph.i, label %.thread78
 
@@ -1168,7 +1168,7 @@ allocate_getaddrinfo_arg.exit.thread.sink.split.i: ; preds = %163, %139
   br label %rb_getaddrinfo.exit
 
 rb_getaddrinfo.exit:                              ; preds = %163, %allocate_getaddrinfo_arg.exit.thread.sink.split.i
-  %.026.i = phi i32 [ %.129.i, %163 ], [ %.026.ph.i, %allocate_getaddrinfo_arg.exit.thread.sink.split.i ]
+  %.026.i = phi i32 [ %.026.ph.i, %allocate_getaddrinfo_arg.exit.thread.sink.split.i ], [ %.129.i, %163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %165 = icmp eq i32 %.026.i, 0
   br i1 %165, label %166, label %.thread72
@@ -1546,7 +1546,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   br i1 %.not157, label %.loopexit, label %118, !llvm.loop !90
 
 .loopexit:                                        ; preds = %106, %83, %64, %151
-  %.2 = phi ptr [ %.4, %151 ], [ %.185.us, %64 ], [ %.185.us127, %83 ], [ %.185, %106 ]
+  %.2 = phi ptr [ %.185.us, %64 ], [ %.185.us127, %83 ], [ %.4, %151 ], [ %.185, %106 ]
   %.not105 = icmp eq ptr %.2, null
   br i1 %.not105, label %parse_numeric_port.exit.thread.sink.split, label %152
 
@@ -1554,14 +1554,14 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   store ptr %.2, ptr %3, align 8, !tbaa !63
   br label %parse_numeric_port.exit.thread.sink.split
 
-parse_numeric_port.exit.thread.sink.split:        ; preds = %.loopexit, %114, %108, %107, %20, %152
-  %.1.ph = phi i32 [ 0, %152 ], [ -4, %20 ], [ -4, %107 ], [ -4, %108 ], [ -4, %114 ], [ -4, %.loopexit ]
+parse_numeric_port.exit.thread.sink.split:        ; preds = %.loopexit, %107, %114, %108, %20, %152
+  %.1.ph = phi i32 [ 0, %152 ], [ -4, %20 ], [ -4, %108 ], [ -4, %114 ], [ -4, %107 ], [ -4, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %parse_numeric_port.exit.thread
 
-parse_numeric_port.exit.thread:                   ; preds = %parse_numeric_port.exit.thread.sink.split, %11, %8, %4
-  %.1 = phi i32 [ -4, %4 ], [ -4, %8 ], [ -4, %11 ], [ %.1.ph, %parse_numeric_port.exit.thread.sink.split ]
+parse_numeric_port.exit.thread:                   ; preds = %parse_numeric_port.exit.thread.sink.split, %8, %11, %4
+  %.1 = phi i32 [ -4, %11 ], [ -4, %8 ], [ -4, %4 ], [ %.1.ph, %parse_numeric_port.exit.thread.sink.split ]
   ret i32 %.1
 }
 
@@ -1834,7 +1834,7 @@ RSTRING_LENINT.exit:                              ; preds = %17
   br label %21
 
 21:                                               ; preds = %RSTRING_PTR.exit, %1, %RSTRING_LENINT.exit
-  %.0 = phi i32 [ %20, %RSTRING_LENINT.exit ], [ 2, %1 ], [ 110, %RSTRING_PTR.exit ]
+  %.0 = phi i32 [ 2, %1 ], [ %20, %RSTRING_LENINT.exit ], [ 110, %RSTRING_PTR.exit ]
   ret i32 %.0
 }
 
@@ -1958,7 +1958,7 @@ define internal i64 @make_hostent_internal(i64 noundef %0) #0 {
   br label %.lr.ph46.preheader
 
 .lr.ph46.preheader:                               ; preds = %.lr.ph, %34, %24, %.preheader
-  %.030 = phi i64 [ %25, %24 ], [ %35, %34 ], [ %25, %.preheader ], [ %25, %.lr.ph ]
+  %.030 = phi i64 [ %35, %34 ], [ %25, %24 ], [ %25, %.preheader ], [ %25, %.lr.ph ]
   %36 = call i64 @rb_ary_push(i64 noundef %10, i64 noundef %.030) #21
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !77
@@ -2228,7 +2228,7 @@ unixsocket_len.exit:                              ; preds = %.preheader
   br label %90
 
 90:                                               ; preds = %84, %.lr.ph211
-  %91 = phi i1 [ true, %.lr.ph211 ], [ %spec.select239, %84 ]
+  %91 = phi i1 [ %spec.select239, %84 ], [ true, %.lr.ph211 ]
   %92 = getelementptr inbounds nuw i8, ptr %.0210, i64 1
   %93 = icmp ult ptr %92, %82
   br i1 %93, label %.lr.ph211, label %._crit_edge, !llvm.loop !122
@@ -2883,7 +2883,7 @@ define internal noalias noundef ptr @do_fast_fallback_getaddrinfo(ptr noundef %0
   br label %26
 
 26:                                               ; preds = %22, %17, %1
-  %.09 = phi i32 [ %20, %17 ], [ 0, %1 ], [ %spec.select, %22 ]
+  %.09 = phi i32 [ 0, %1 ], [ %spec.select, %22 ], [ %20, %17 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %28 = load i64, ptr %27, align 8, !tbaa !155
   %29 = icmp sgt i64 %28, 0
@@ -3618,7 +3618,7 @@ ai_get_afamily.exit:                              ; preds = %18
   br label %73
 
 .thread:                                          ; preds = %inspect_sockaddr.exit, %33, %46, %43, %44
-  %51 = phi i32 [ %.pr, %33 ], [ %.pr, %46 ], [ %.pr, %43 ], [ %.pr, %44 ], [ 0, %inspect_sockaddr.exit ]
+  %51 = phi i32 [ %.pr, %44 ], [ %.pr, %33 ], [ %.pr, %46 ], [ %.pr, %43 ], [ 0, %inspect_sockaddr.exit ]
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %53 = load i32, ptr %52, align 4, !tbaa !120
   %.not62 = icmp eq i32 %53, 0
@@ -3756,8 +3756,8 @@ rb_scan_args_n_opt.exit:
   br label %28
 
 28:                                               ; preds = %25, %19
-  %.087.i = phi i64 [ %26, %25 ], [ 4, %19 ]
-  %.0.i = phi i32 [ %27, %25 ], [ %0, %19 ]
+  %.087.i = phi i64 [ 4, %19 ], [ %26, %25 ]
+  %.0.i = phi i32 [ %0, %19 ], [ %27, %25 ]
   %29 = icmp samesign ult i32 %.0.i, 2
   br i1 %29, label %.thread, label %.preheader6
 
@@ -3820,7 +3820,7 @@ rb_scan_args_n_opt.exit:
   br i1 %49, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %48, %28
-  %.0.i5 = phi i32 [ %.0.i, %48 ], [ %.0.i, %28 ], [ %0, %rb_scan_args_n_opt.exit ]
+  %.0.i5 = phi i32 [ %.0.i, %28 ], [ %.0.i, %48 ], [ %0, %rb_scan_args_n_opt.exit ]
   call void @rb_error_arity(i32 noundef %.0.i5, i32 noundef 2, i32 noundef 6) #23
   unreachable
 
@@ -5223,7 +5223,7 @@ ai_get_afamily.exit:                              ; preds = %get_addrinfo.exit
   br label %.critedge24
 
 .critedge24:                                      ; preds = %14, %get_addrinfo.exit, %10, %26, %22, %ai_get_afamily.exit, %31
-  %.0 = phi i64 [ %41, %31 ], [ 4, %ai_get_afamily.exit ], [ 4, %22 ], [ 4, %26 ], [ 4, %10 ], [ 4, %get_addrinfo.exit ], [ 4, %14 ]
+  %.0 = phi i64 [ 4, %ai_get_afamily.exit ], [ %41, %31 ], [ 4, %22 ], [ 4, %get_addrinfo.exit ], [ 4, %10 ], [ 4, %26 ], [ 4, %14 ]
   ret i64 %.0
 }
 
@@ -6164,7 +6164,7 @@ rsock_unix_sockaddr_len.exit:                     ; preds = %RSTRING_PTR.exit.i
   br label %init_addrinfo.exit
 
 init_addrinfo.exit:                               ; preds = %RSTRING_PTR.exit.thread, %rsock_unix_sockaddr_len.exit, %RSTRING_PTR.exit, %RSTRING_PTR.exit.i
-  %.0.i58 = phi i32 [ %27, %rsock_unix_sockaddr_len.exit ], [ 110, %RSTRING_PTR.exit.i ], [ 2, %RSTRING_PTR.exit ], [ 2, %RSTRING_PTR.exit.thread ]
+  %.0.i58 = phi i32 [ %27, %rsock_unix_sockaddr_len.exit ], [ 2, %RSTRING_PTR.exit ], [ 110, %RSTRING_PTR.exit.i ], [ 2, %RSTRING_PTR.exit.thread ]
   %28 = zext nneg i32 %.0.i58 to i64
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull readonly align 2 dereferenceable(1) %5, i64 noundef range(i64 1, 0) %28, i1 noundef false) #21
@@ -6379,8 +6379,8 @@ rbimpl_RB_TYPE_P_fastpath.exit22.thread:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %50
 
 50:                                               ; preds = %.sink.split, %44, %rbimpl_RB_TYPE_P_fastpath.exit22.thread, %7
-  %51 = phi i64 [ %1, %44 ], [ %1, %rbimpl_RB_TYPE_P_fastpath.exit22.thread ], [ %1, %7 ], [ 4, %.sink.split ]
-  %.0 = phi i64 [ %.1, %44 ], [ %.1, %rbimpl_RB_TYPE_P_fastpath.exit22.thread ], [ %0, %7 ], [ %.1, %.sink.split ]
+  %51 = phi i64 [ %1, %rbimpl_RB_TYPE_P_fastpath.exit22.thread ], [ %1, %7 ], [ %1, %44 ], [ 4, %.sink.split ]
+  %.0 = phi i64 [ %.1, %rbimpl_RB_TYPE_P_fastpath.exit22.thread ], [ %0, %7 ], [ %.1, %44 ], [ %.1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %52
@@ -6459,7 +6459,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
   br label %.thread
 
 91:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread, %80, %87, %75
-  %.115 = phi i64 [ %76, %75 ], [ %88, %87 ], [ %.014, %80 ], [ %.014, %rbimpl_RB_TYPE_P_fastpath.exit.thread ]
+  %.115 = phi i64 [ %76, %75 ], [ %.014, %80 ], [ %88, %87 ], [ %.014, %rbimpl_RB_TYPE_P_fastpath.exit.thread ]
   %92 = icmp eq i64 %.115, 4
   br i1 %92, label %93, label %.thread
 

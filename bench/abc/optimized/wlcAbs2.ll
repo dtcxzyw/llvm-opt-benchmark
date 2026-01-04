@@ -294,10 +294,10 @@ Vec_BitStart.exit.i.i:                            ; preds = %72, %52
   br label %143
 
 143:                                              ; preds = %138, %131, %129, %124, %117, %112, %105, %100, %93, %80
-  %.sroa.0.1.i.i = phi i32 [ %.sroa.0.080.i.i, %80 ], [ %104, %100 ], [ %.sroa.0.080.i.i, %93 ], [ %.sroa.0.080.i.i, %112 ], [ %.sroa.0.080.i.i, %105 ], [ %.sroa.0.080.i.i, %124 ], [ %.sroa.0.080.i.i, %117 ], [ %.sroa.0.080.i.i, %138 ], [ %.sroa.0.080.i.i, %131 ], [ %.sroa.0.080.i.i, %129 ]
-  %.sroa.6.1.i.i = phi i32 [ %.sroa.6.081.i.i, %80 ], [ %.sroa.6.081.i.i, %100 ], [ %.sroa.6.081.i.i, %93 ], [ %116, %112 ], [ %.sroa.6.081.i.i, %105 ], [ %.sroa.6.081.i.i, %124 ], [ %.sroa.6.081.i.i, %117 ], [ %.sroa.6.081.i.i, %138 ], [ %.sroa.6.081.i.i, %131 ], [ %.sroa.6.081.i.i, %129 ]
-  %.sroa.9.1.i.i = phi i32 [ %.sroa.9.082.i.i, %80 ], [ %.sroa.9.082.i.i, %100 ], [ %.sroa.9.082.i.i, %93 ], [ %.sroa.9.082.i.i, %112 ], [ %.sroa.9.082.i.i, %105 ], [ %128, %124 ], [ %.sroa.9.082.i.i, %117 ], [ %.sroa.9.082.i.i, %138 ], [ %.sroa.9.082.i.i, %131 ], [ %.sroa.9.082.i.i, %129 ]
-  %.sroa.12.1.i.i = phi i32 [ %.sroa.12.083.i.i, %80 ], [ %.sroa.12.083.i.i, %100 ], [ %.sroa.12.083.i.i, %93 ], [ %.sroa.12.083.i.i, %112 ], [ %.sroa.12.083.i.i, %105 ], [ %.sroa.12.083.i.i, %124 ], [ %.sroa.12.083.i.i, %117 ], [ %142, %138 ], [ %.sroa.12.083.i.i, %131 ], [ %.sroa.12.083.i.i, %129 ]
+  %.sroa.0.1.i.i = phi i32 [ %.sroa.0.080.i.i, %80 ], [ %104, %100 ], [ %.sroa.0.080.i.i, %93 ], [ %.sroa.0.080.i.i, %112 ], [ %.sroa.0.080.i.i, %105 ], [ %.sroa.0.080.i.i, %124 ], [ %.sroa.0.080.i.i, %117 ], [ %.sroa.0.080.i.i, %129 ], [ %.sroa.0.080.i.i, %138 ], [ %.sroa.0.080.i.i, %131 ]
+  %.sroa.6.1.i.i = phi i32 [ %.sroa.6.081.i.i, %80 ], [ %.sroa.6.081.i.i, %100 ], [ %.sroa.6.081.i.i, %93 ], [ %116, %112 ], [ %.sroa.6.081.i.i, %105 ], [ %.sroa.6.081.i.i, %124 ], [ %.sroa.6.081.i.i, %117 ], [ %.sroa.6.081.i.i, %129 ], [ %.sroa.6.081.i.i, %138 ], [ %.sroa.6.081.i.i, %131 ]
+  %.sroa.9.1.i.i = phi i32 [ %.sroa.9.082.i.i, %80 ], [ %.sroa.9.082.i.i, %100 ], [ %.sroa.9.082.i.i, %93 ], [ %.sroa.9.082.i.i, %112 ], [ %.sroa.9.082.i.i, %105 ], [ %128, %124 ], [ %.sroa.9.082.i.i, %117 ], [ %.sroa.9.082.i.i, %129 ], [ %.sroa.9.082.i.i, %138 ], [ %.sroa.9.082.i.i, %131 ]
+  %.sroa.12.1.i.i = phi i32 [ %.sroa.12.083.i.i, %80 ], [ %.sroa.12.083.i.i, %100 ], [ %.sroa.12.083.i.i, %93 ], [ %.sroa.12.083.i.i, %112 ], [ %.sroa.12.083.i.i, %105 ], [ %.sroa.12.083.i.i, %124 ], [ %.sroa.12.083.i.i, %117 ], [ %.sroa.12.083.i.i, %129 ], [ %142, %138 ], [ %.sroa.12.083.i.i, %131 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.critedge.i.i, label %80, !llvm.loop !47
@@ -678,8 +678,8 @@ Vec_IntStartFull.exit.i:                          ; preds = %216, %Vec_IntAlloc.
   br label %Vec_IntGrow.exit23thread-pre-split.i.i.i
 
 Vec_IntGrow.exit23thread-pre-split.i.i.i:         ; preds = %293, %291, %285, %283
-  %storemerge.i = phi ptr [ %284, %283 ], [ %286, %285 ], [ %292, %291 ], [ %294, %293 ]
-  %.sink.i.i.i = phi i32 [ 16, %283 ], [ 16, %285 ], [ %288, %291 ], [ %288, %293 ]
+  %storemerge.i = phi ptr [ %286, %285 ], [ %284, %283 ], [ %292, %291 ], [ %294, %293 ]
+  %.sink.i.i.i = phi i32 [ 16, %285 ], [ 16, %283 ], [ %288, %291 ], [ %288, %293 ]
   store ptr %storemerge.i, ptr %205, align 8, !tbaa !37
   store i32 %.sink.i.i.i, ptr %202, align 8, !tbaa !36
   br label %Vec_IntGrow.exit23.i.i.i
@@ -721,9 +721,9 @@ Vec_IntPushOrder.exit.i.i:                        ; preds = %301, %._crit_edge.l
   br label %Vec_IntPushUniqueOrder.exit.i
 
 Vec_IntPushUniqueOrder.exit.i:                    ; preds = %274, %Vec_IntPushOrder.exit.i.i, %.lr.ph67.i
-  %307 = phi i32 [ %.pre.i77, %Vec_IntPushOrder.exit.i.i ], [ %251, %.lr.ph67.i ], [ %251, %274 ]
-  %.pre.i84.i = phi ptr [ %.pre.i85.i, %Vec_IntPushOrder.exit.i.i ], [ %252, %.lr.ph67.i ], [ %252, %274 ]
-  %308 = phi ptr [ %.pre.i85.i, %Vec_IntPushOrder.exit.i.i ], [ %253, %.lr.ph67.i ], [ %253, %274 ]
+  %307 = phi i32 [ %251, %.lr.ph67.i ], [ %.pre.i77, %Vec_IntPushOrder.exit.i.i ], [ %251, %274 ]
+  %.pre.i84.i = phi ptr [ %252, %.lr.ph67.i ], [ %.pre.i85.i, %Vec_IntPushOrder.exit.i.i ], [ %252, %274 ]
+  %308 = phi ptr [ %253, %.lr.ph67.i ], [ %.pre.i85.i, %Vec_IntPushOrder.exit.i.i ], [ %253, %274 ]
   %indvars.iv.next78.i = add nsw i64 %indvars.iv77.i, 1
   %309 = sext i32 %307 to i64
   %310 = icmp slt i64 %indvars.iv.next78.i, %309
@@ -905,8 +905,8 @@ Wlc_NtkRemoveFromAbstraction.exit:                ; preds = %Wlc_NtkMarkMffc.exi
   br i1 %378, label %47, label %.thread, !llvm.loop !75
 
 .thread:                                          ; preds = %375, %Vec_BitStart.exit, %325, %Vec_IntFree.exit
-  %.060114 = phi i32 [ %.060126, %Vec_IntFree.exit ], [ %.060126, %325 ], [ 1, %Vec_BitStart.exit ], [ %376, %375 ]
-  %.163 = phi i32 [ %194, %Vec_IntFree.exit ], [ %194, %325 ], [ -1, %Vec_BitStart.exit ], [ %194, %375 ]
+  %.060114 = phi i32 [ %.060126, %325 ], [ %.060126, %Vec_IntFree.exit ], [ 1, %Vec_BitStart.exit ], [ %376, %375 ]
+  %.163 = phi i32 [ %194, %325 ], [ %194, %Vec_IntFree.exit ], [ -1, %Vec_BitStart.exit ], [ %194, %375 ]
   %379 = load ptr, ptr %26, align 8, !tbaa !24
   %.not.i97 = icmp eq ptr %379, null
   br i1 %.not.i97, label %Vec_BitFree.exit, label %380

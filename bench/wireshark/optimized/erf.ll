@@ -460,7 +460,7 @@ define hidden range(i32 -1, 2) i32 @erf_open(ptr noundef captures(none) %0, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %83, %81, %74, %64, %44, %39, %27, %37, %35, %24, %53, %.loopexit93, %71, %61, %50, %20, %22, %90
-  %.0 = phi i32 [ 1, %90 ], [ 0, %22 ], [ -1, %20 ], [ %., %50 ], [ %.91, %61 ], [ %.92, %71 ], [ -1, %.loopexit93 ], [ 0, %53 ], [ 0, %83 ], [ -1, %81 ], [ 0, %74 ], [ 0, %64 ], [ 0, %44 ], [ 0, %39 ], [ 0, %27 ], [ 0, %37 ], [ -1, %35 ], [ 0, %24 ]
+  %.0 = phi i32 [ -1, %20 ], [ 0, %22 ], [ %., %50 ], [ %.91, %61 ], [ -1, %.loopexit93 ], [ 0, %53 ], [ %.92, %71 ], [ 1, %90 ], [ 0, %64 ], [ 0, %83 ], [ -1, %81 ], [ 0, %74 ], [ 0, %44 ], [ 0, %39 ], [ 0, %27 ], [ 0, %37 ], [ -1, %35 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -962,7 +962,7 @@ erf_meta_read_tag.exit116.thread.i:               ; preds = %200, %188, %181
   br i1 %or.cond3.i.i.i, label %.critedge.i.i, label %.lr.ph.i117.i, !llvm.loop !14
 
 .critedge.i.i:                                    ; preds = %251, %239, %.lr.ph.i117.i
-  %.060.lcssa.i.i = phi ptr [ %.0609.i.i, %239 ], [ %.1.i.i, %251 ], [ %.0609.i.i, %.lr.ph.i117.i ]
+  %.060.lcssa.i.i = phi ptr [ %.0609.i.i, %.lr.ph.i117.i ], [ %.0609.i.i, %239 ], [ %.1.i.i, %251 ]
   %.not71.i.i = icmp eq ptr %.060.lcssa.i.i, null
   br i1 %.not71.i.i, label %.loopexit.i.i, label %.preheader.i.i
 
@@ -1023,7 +1023,7 @@ erf_meta_read_tag.exit116.thread.i:               ; preds = %200, %188, %181
   br i1 %289, label %.lr.ph15.i.i, label %.loopexit.i.i, !llvm.loop !15
 
 .loopexit.i.i:                                    ; preds = %286, %.preheader.i.i, %.critedge.i.i, %.preheader7.i.i
-  %.060.lcssa31.i.i = phi ptr [ %.060.lcssa.i.i, %.preheader.i.i ], [ null, %.critedge.i.i ], [ null, %.preheader7.i.i ], [ %.060.lcssa.i.i, %286 ]
+  %.060.lcssa31.i.i = phi ptr [ null, %.preheader7.i.i ], [ null, %.critedge.i.i ], [ %.060.lcssa.i.i, %.preheader.i.i ], [ %.060.lcssa.i.i, %286 ]
   call void @g_free(ptr noundef %.060.lcssa31.i.i)
   %.pre277.i = load ptr, ptr %11, align 8
   %.pre278.i = load i32, ptr %21, align 8
@@ -1602,7 +1602,7 @@ erf_meta_read_tag.exit116.thread.i:               ; preds = %200, %188, %181
   br label %.critedge.i156.i, !llvm.loop !18
 
 .critedge.i156.i:                                 ; preds = %.lr.ph237.i, %519, %..critedge.i156_crit_edge.i
-  %.1.lcssa.ph.i.i = phi i32 [ %.2.i154.i, %..critedge.i156_crit_edge.i ], [ %.2.i154.i, %519 ], [ %.1225.i236.i, %.lr.ph237.i ]
+  %.1.lcssa.ph.i.i = phi i32 [ %.2.i154.i, %..critedge.i156_crit_edge.i ], [ %.1225.i236.i, %.lr.ph237.i ], [ %.2.i154.i, %519 ]
   %590 = icmp eq i32 %.1.lcssa.ph.i.i, -1
   br i1 %590, label %.critedge.i156.i..critedge.i156..critedge.thread.i_crit_edge.i_crit_edge, label %populate_interface_info.exit.thread.i
 
@@ -2023,7 +2023,7 @@ populate_interface_info.exit.i:                   ; preds = %.critedge.thread.i.
   br label %populate_module_info.exit.i
 
 populate_module_info.exit.i:                      ; preds = %340, %326, %841, %populate_interface_info.exit.thread.i, %.critedge.i145.i, %414, %413, %412, %290
-  %.1.i = phi ptr [ %.074.ph255.i, %290 ], [ %843, %841 ], [ %.074.ph255.i, %414 ], [ %.074.ph255.i, %.critedge.i145.i ], [ %.074.ph255.i, %populate_interface_info.exit.thread.i ], [ %.074.ph255.i, %413 ], [ %.074.ph255.i, %412 ], [ %.074.ph255.i, %326 ], [ %.074.ph255.i, %340 ]
+  %.1.i = phi ptr [ %.074.ph255.i, %290 ], [ %.074.ph255.i, %.critedge.i145.i ], [ %843, %841 ], [ %.074.ph255.i, %populate_interface_info.exit.thread.i ], [ %.074.ph255.i, %414 ], [ %.074.ph255.i, %412 ], [ %.074.ph255.i, %413 ], [ %.074.ph255.i, %326 ], [ %.074.ph255.i, %340 ]
   %844 = load ptr, ptr %11, align 8
   %845 = load i32, ptr %21, align 8
   %846 = icmp eq ptr %844, null
@@ -2032,7 +2032,7 @@ populate_module_info.exit.i:                      ; preds = %340, %326, %841, %p
   br i1 %or.cond3.i228.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 .outer._crit_edge.i:                              ; preds = %populate_module_info.exit.i, %.backedge.i, %114
-  %.074.ph.lcssa.i = phi ptr [ %.074.ph255.i, %114 ], [ %.074.ph255.i, %.backedge.i ], [ %.1.i, %populate_module_info.exit.i ]
+  %.074.ph.lcssa.i = phi ptr [ %.074.ph255.i, %.backedge.i ], [ %.074.ph255.i, %114 ], [ %.1.i, %populate_module_info.exit.i ]
   %.not88.i = icmp eq ptr %.074.ph.lcssa.i, null
   br i1 %.not88.i, label %.outer._crit_edge.thread.i, label %.preheader.i
 
@@ -2364,10 +2364,10 @@ populate_module_info.exit.i:                      ; preds = %340, %326, %841, %p
   br i1 %or.cond3.i112.i.i, label %.critedge2.i167.i, label %945, !llvm.loop !21
 
 .critedge2.i167.i:                                ; preds = %1026, %957, %945, %.preheader.i172.i, %940, %927, %924, %913
-  %.186.i.i = phi ptr [ %.08552.i.i, %913 ], [ null, %940 ], [ %.08552.i.i, %924 ], [ %.08552.i.i, %927 ], [ %.287.i.i, %.preheader.i172.i ], [ %.287.i.i, %945 ], [ %.287.i.i, %957 ], [ %.287.i.i, %1026 ]
-  %.183.i.i = phi ptr [ %.08253.i.i, %913 ], [ %.284.i.i, %940 ], [ %.08253.i.i, %924 ], [ %.08253.i.i, %927 ], [ %.284.i.i, %.preheader.i172.i ], [ %.284.i.i, %945 ], [ %.284.i.i, %957 ], [ %.284.i.i, %1026 ]
-  %.376.i.i = phi ptr [ %914, %913 ], [ %914, %940 ], [ %914, %924 ], [ %914, %927 ], [ %914, %.preheader.i172.i ], [ %1028, %1026 ], [ %.47741.i.i, %957 ], [ %.47741.i.i, %945 ]
-  %.3.i.i = phi i32 [ %915, %913 ], [ %915, %940 ], [ %915, %924 ], [ %915, %927 ], [ %915, %.preheader.i172.i ], [ %1029, %1026 ], [ %.442.i.i, %957 ], [ %.442.i.i, %945 ]
+  %.186.i.i = phi ptr [ %.08552.i.i, %913 ], [ %.08552.i.i, %927 ], [ null, %940 ], [ %.08552.i.i, %924 ], [ %.287.i.i, %.preheader.i172.i ], [ %.287.i.i, %945 ], [ %.287.i.i, %957 ], [ %.287.i.i, %1026 ]
+  %.183.i.i = phi ptr [ %.08253.i.i, %913 ], [ %.08253.i.i, %927 ], [ %.284.i.i, %940 ], [ %.08253.i.i, %924 ], [ %.284.i.i, %.preheader.i172.i ], [ %.284.i.i, %945 ], [ %.284.i.i, %957 ], [ %.284.i.i, %1026 ]
+  %.376.i.i = phi ptr [ %914, %913 ], [ %914, %927 ], [ %914, %940 ], [ %914, %924 ], [ %914, %.preheader.i172.i ], [ %1028, %1026 ], [ %.47741.i.i, %957 ], [ %.47741.i.i, %945 ]
+  %.3.i.i = phi i32 [ %915, %913 ], [ %915, %927 ], [ %915, %940 ], [ %915, %924 ], [ %915, %.preheader.i172.i ], [ %1029, %1026 ], [ %.442.i.i, %957 ], [ %.442.i.i, %945 ]
   %indvars.iv.next.i168.i = add nuw nsw i64 %indvars.iv.i165.i, 1
   %exitcond.not.i169.i = icmp eq i64 %indvars.iv.next.i168.i, 8
   br i1 %exitcond.not.i169.i, label %populate_stream_info.exit.i, label %913, !llvm.loop !22
@@ -2420,7 +2420,7 @@ populate_summary_info.exit:                       ; preds = %152, %153, %.outer.
   %.pr = load i8, ptr %19, align 8
   br label %1047
 
-1046:                                             ; preds = %1032, %65, %.split51.us, %populate_interface_info.exit.i, %293, %299
+1046:                                             ; preds = %293, %299, %.split51.us, %1032, %populate_interface_info.exit.i, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.split47.us
 
@@ -2430,7 +2430,7 @@ populate_summary_info.exit:                       ; preds = %152, %153, %.outer.
   br i1 %1049, label %.split, label %.split47.us, !llvm.loop !10
 
 .split47.us:                                      ; preds = %1047, %54, %.split, %50, %40, %.split.us, %1046
-  %.0 = phi i1 [ false, %1046 ], [ false, %.split.us ], [ false, %40 ], [ true, %50 ], [ false, %.split ], [ false, %54 ], [ true, %1047 ]
+  %.0 = phi i1 [ false, %1046 ], [ false, %40 ], [ false, %.split.us ], [ true, %50 ], [ false, %54 ], [ true, %1047 ], [ false, %.split ]
   %1050 = call ptr @g_ptr_array_free(ptr noundef %17, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -2478,7 +2478,7 @@ define internal zeroext i1 @erf_seek_read(ptr noundef %0, i64 noundef %1, ptr no
   br label %29
 
 29:                                               ; preds = %5, %23, %18
-  %.0 = phi i1 [ %28, %23 ], [ false, %18 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %18 ], [ %28, %23 ], [ false, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
@@ -2804,7 +2804,7 @@ erf_set_interface_descr.exit112.i:                ; preds = %110, %108
   br i1 %exitcond.not.i, label %.loopexit.i, label %66, !llvm.loop !25
 
 .loopexit.i:                                      ; preds = %112, %64, %55
-  %.191.i = phi ptr [ %65, %64 ], [ %.090127.i, %55 ], [ %.090127.i, %112 ]
+  %.191.i = phi ptr [ %.090127.i, %55 ], [ %65, %64 ], [ %.090127.i, %112 ]
   %113 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef null)
   %.not.i = icmp eq i32 %113, 0
   br i1 %.not.i, label %._crit_edge.i, label %55, !llvm.loop !26
@@ -3133,7 +3133,7 @@ erf_set_interface_descr.exit77:                   ; preds = %235, %236
   br label %245
 
 245:                                              ; preds = %208, %erf_set_interface_descr.exit77, %33, %30, %27
-  %.059 = phi i32 [ %244, %erf_set_interface_descr.exit77 ], [ -1, %33 ], [ -1, %30 ], [ -1, %27 ], [ %212, %208 ]
+  %.059 = phi i32 [ -1, %27 ], [ -1, %30 ], [ %244, %erf_set_interface_descr.exit77 ], [ -1, %33 ], [ %212, %208 ]
   ret i32 %.059
 }
 
@@ -3528,9 +3528,9 @@ erf_find_anchor_mapping.exit.us.i:                ; preds = %182
   br label %198
 
 198:                                              ; preds = %196, %194, %191, %187, %erf_find_anchor_mapping.exit.us.i, %182, %.lr.ph.split.split.us.i
-  %.158.us83.i = phi ptr [ %.05775.us80.i, %.lr.ph.split.split.us.i ], [ %.05775.us80.i, %196 ], [ %.05775.us80.i, %187 ], [ %.05775.us80.i, %erf_find_anchor_mapping.exit.us.i ], [ %.05775.us80.i, %191 ], [ %spec.select.us.i, %194 ], [ %.05775.us80.i, %182 ]
-  %.156.us84.i = phi i64 [ %.05576.us79.i, %.lr.ph.split.split.us.i ], [ %197, %196 ], [ %.05576.us79.i, %187 ], [ %.05576.us79.i, %erf_find_anchor_mapping.exit.us.i ], [ %.05576.us79.i, %191 ], [ %.05576.us79.i, %194 ], [ %.05576.us79.i, %182 ]
-  %.1.us85.i = phi i64 [ %.05477.us78.i, %.lr.ph.split.split.us.i ], [ %.05477.us78.i, %196 ], [ %.05477.us78.i, %187 ], [ %.05477.us78.i, %erf_find_anchor_mapping.exit.us.i ], [ %189, %191 ], [ %189, %194 ], [ %.05477.us78.i, %182 ]
+  %.158.us83.i = phi ptr [ %.05775.us80.i, %.lr.ph.split.split.us.i ], [ %.05775.us80.i, %196 ], [ %.05775.us80.i, %erf_find_anchor_mapping.exit.us.i ], [ %.05775.us80.i, %191 ], [ %.05775.us80.i, %187 ], [ %spec.select.us.i, %194 ], [ %.05775.us80.i, %182 ]
+  %.156.us84.i = phi i64 [ %.05576.us79.i, %.lr.ph.split.split.us.i ], [ %197, %196 ], [ %.05576.us79.i, %erf_find_anchor_mapping.exit.us.i ], [ %.05576.us79.i, %191 ], [ %.05576.us79.i, %187 ], [ %.05576.us79.i, %194 ], [ %.05576.us79.i, %182 ]
+  %.1.us85.i = phi i64 [ %.05477.us78.i, %.lr.ph.split.split.us.i ], [ %.05477.us78.i, %196 ], [ %.05477.us78.i, %erf_find_anchor_mapping.exit.us.i ], [ %189, %191 ], [ %.05477.us78.i, %187 ], [ %189, %194 ], [ %.05477.us78.i, %182 ]
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %199 = icmp slt i64 %178, 0
   %200 = icmp samesign ult i64 %indvars.iv93.i, 15
@@ -3606,9 +3606,9 @@ erf_find_anchor_mapping.exit.i:                   ; preds = %209
   br label %230
 
 230:                                              ; preds = %227, %223, %221, %218, %214, %erf_find_anchor_mapping.exit.i, %207, %.lr.ph.split.split.i
-  %.158.i = phi ptr [ %.05775.i, %.lr.ph.split.split.i ], [ %.05775.i, %207 ], [ %.05775.i, %227 ], [ %.05775.i, %223 ], [ %.05775.i, %214 ], [ %.05775.i, %erf_find_anchor_mapping.exit.i ], [ %.05775.i, %218 ], [ %spec.select.i, %221 ]
-  %.156.i = phi i64 [ %.05576.i, %.lr.ph.split.split.i ], [ %208, %207 ], [ %.05576.i, %227 ], [ %.05576.i, %223 ], [ %.05576.i, %214 ], [ %.05576.i, %erf_find_anchor_mapping.exit.i ], [ %.05576.i, %218 ], [ %.05576.i, %221 ]
-  %.1.i = phi i64 [ %.05477.i, %.lr.ph.split.split.i ], [ %.05477.i, %207 ], [ %.05477.i, %227 ], [ %.05477.i, %223 ], [ %.05477.i, %214 ], [ %.05477.i, %erf_find_anchor_mapping.exit.i ], [ %216, %218 ], [ %216, %221 ]
+  %.158.i = phi ptr [ %.05775.i, %.lr.ph.split.split.i ], [ %.05775.i, %207 ], [ %.05775.i, %227 ], [ %.05775.i, %223 ], [ %.05775.i, %218 ], [ %spec.select.i, %221 ], [ %.05775.i, %214 ], [ %.05775.i, %erf_find_anchor_mapping.exit.i ]
+  %.156.i = phi i64 [ %.05576.i, %.lr.ph.split.split.i ], [ %208, %207 ], [ %.05576.i, %227 ], [ %.05576.i, %223 ], [ %.05576.i, %218 ], [ %.05576.i, %221 ], [ %.05576.i, %214 ], [ %.05576.i, %erf_find_anchor_mapping.exit.i ]
+  %.1.i = phi i64 [ %.05477.i, %.lr.ph.split.split.i ], [ %.05477.i, %207 ], [ %.05477.i, %227 ], [ %.05477.i, %223 ], [ %216, %218 ], [ %216, %221 ], [ %.05477.i, %214 ], [ %.05477.i, %erf_find_anchor_mapping.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %231 = icmp slt i64 %203, 0
   %232 = icmp samesign ult i64 %indvars.iv.i, 15
@@ -3748,7 +3748,7 @@ erf_update_anchors_from_header.exit:              ; preds = %erf_find_anchor_map
   br label %.loopexit
 
 .loopexit:                                        ; preds = %88, %.loopexit.sink.split, %278, %265, %252, %240, %._crit_edge, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %._crit_edge ], [ false, %240 ], [ false, %252 ], [ false, %265 ], [ true, %278 ], [ false, %.loopexit.sink.split ], [ false, %88 ]
+  %.0 = phi i1 [ false, %240 ], [ false, %._crit_edge ], [ false, %9 ], [ true, %278 ], [ false, %.loopexit.sink.split ], [ false, %265 ], [ false, %252 ], [ false, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -4380,8 +4380,8 @@ wtap_wtap_encap_to_erf_encap.exit:                ; preds = %.preheader
   br label %.thread.i
 
 .thread.i:                                        ; preds = %177, %175, %174, %171, %.loopexit.i, %145, %139
-  %.148.i = phi i8 [ %.04771.i, %139 ], [ %179, %177 ], [ %.04771.i, %175 ], [ %148, %174 ], [ %148, %171 ], [ %148, %.loopexit.i ], [ %148, %145 ]
-  %.146.i = phi i8 [ %.04572.i, %139 ], [ %.04572.i, %177 ], [ %.04572.i, %175 ], [ 1, %174 ], [ 1, %171 ], [ 1, %.loopexit.i ], [ 1, %145 ]
+  %.148.i = phi i8 [ %.04771.i, %139 ], [ %.04771.i, %175 ], [ %179, %177 ], [ %148, %174 ], [ %148, %171 ], [ %148, %.loopexit.i ], [ %148, %145 ]
+  %.146.i = phi i8 [ %.04572.i, %139 ], [ %.04572.i, %175 ], [ %.04572.i, %177 ], [ 1, %174 ], [ 1, %171 ], [ 1, %.loopexit.i ], [ 1, %145 ]
   %indvars.iv.next.i179 = add nuw nsw i64 %indvars.iv.i178, 1
   %180 = icmp slt i64 %141, 0
   %181 = icmp samesign ult i64 %indvars.iv.i178, 15
@@ -4540,10 +4540,10 @@ erf_update_host_id_ext_hdrs_list.exit:            ; preds = %127, %._crit_edge.i
   br i1 %or.cond5.i183, label %266, label %258
 
 258:                                              ; preds = %255, %253, %.thread87.i, %245
-  %259 = phi i16 [ %250, %245 ], [ %220, %255 ], [ %220, %253 ], [ %251, %.thread87.i ]
-  %260 = phi i16 [ %240, %245 ], [ -256, %255 ], [ %221, %253 ], [ %240, %.thread87.i ]
-  %.124.i = phi i8 [ %.02334.i, %245 ], [ %.02334.i, %255 ], [ %.02334.i, %253 ], [ %spec.select.i186, %.thread87.i ]
-  %.1.i = phi i1 [ %.02235.i, %245 ], [ %.02235.i, %255 ], [ %.02235.i, %253 ], [ true, %.thread87.i ]
+  %259 = phi i16 [ %250, %245 ], [ %220, %253 ], [ %251, %.thread87.i ], [ %220, %255 ]
+  %260 = phi i16 [ %240, %245 ], [ %221, %253 ], [ %240, %.thread87.i ], [ -256, %255 ]
+  %.124.i = phi i8 [ %.02334.i, %245 ], [ %.02334.i, %253 ], [ %spec.select.i186, %.thread87.i ], [ %.02334.i, %255 ]
+  %.1.i = phi i1 [ %.02235.i, %245 ], [ %.02235.i, %253 ], [ true, %.thread87.i ], [ %.02235.i, %255 ]
   %261 = zext nneg i32 %233 to i64
   %262 = getelementptr i8, ptr %222, i64 %261
   %263 = sub i32 %223, %233
@@ -4559,8 +4559,8 @@ erf_update_host_id_ext_hdrs_list.exit:            ; preds = %127, %._crit_edge.i
   br i1 %269, label %271, label %erf_dump_priv_compare_capture_comment.exit
 
 .thread.i181:                                     ; preds = %258, %219
-  %.023.lcssa.i = phi i8 [ %.02334.i, %219 ], [ %.124.i, %258 ]
-  %.022.lcssa.i = phi i1 [ %.02235.i, %219 ], [ %.1.i, %258 ]
+  %.023.lcssa.i = phi i8 [ %.124.i, %258 ], [ %.02334.i, %219 ]
+  %.022.lcssa.i = phi i1 [ %.1.i, %258 ], [ %.02235.i, %219 ]
   %270 = trunc nuw i8 %.023.lcssa.i to i1
   br i1 %270, label %.thread18.i, label %erf_dump_priv_compare_capture_comment.exit
 
@@ -4611,8 +4611,8 @@ erf_update_host_id_ext_hdrs_list.exit:            ; preds = %127, %._crit_edge.i
   br label %erf_dump_priv_compare_capture_comment.exit
 
 erf_dump_priv_compare_capture_comment.exit:       ; preds = %214, %266, %.thread.i181, %.thread18.i, %.thread.thread.sink.split.i
-  %.017.sink.i = phi ptr [ null, %.thread.i181 ], [ null, %.thread18.i ], [ %268, %266 ], [ null, %214 ], [ %.01621.i, %.thread.thread.sink.split.i ]
-  %.025.i = phi i1 [ %.022.lcssa.i, %.thread.i181 ], [ %.02225.i, %.thread18.i ], [ %.02235.i, %266 ], [ false, %214 ], [ %.025.ph.i, %.thread.thread.sink.split.i ]
+  %.017.sink.i = phi ptr [ %268, %266 ], [ null, %.thread.i181 ], [ null, %214 ], [ null, %.thread18.i ], [ %.01621.i, %.thread.thread.sink.split.i ]
+  %.025.i = phi i1 [ %.02235.i, %266 ], [ %.022.lcssa.i, %.thread.i181 ], [ false, %214 ], [ %.02225.i, %.thread18.i ], [ %.025.ph.i, %.thread.thread.sink.split.i ]
   call void @g_free(ptr noundef %.017.sink.i)
   %286 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %287 = zext i1 %.025.i to i8
@@ -4789,7 +4789,7 @@ erf_dump_priv_compare_capture_comment.exit:       ; preds = %214, %266, %.thread
   br label %.critedge
 
 .critedge:                                        ; preds = %375, %40, %wtap_wtap_encap_to_erf_encap.exit.thread, %93, %370, %364, %356, %354, %352, %338, %306, %377, %16
-  %.0 = phi i1 [ false, %16 ], [ true, %377 ], [ false, %306 ], [ false, %338 ], [ false, %352 ], [ false, %354 ], [ false, %356 ], [ false, %364 ], [ false, %370 ], [ false, %93 ], [ false, %wtap_wtap_encap_to_erf_encap.exit.thread ], [ false, %40 ], [ false, %375 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %370 ], [ true, %377 ], [ false, %364 ], [ false, %356 ], [ false, %354 ], [ false, %338 ], [ false, %352 ], [ false, %40 ], [ false, %306 ], [ false, %93 ], [ false, %wtap_wtap_encap_to_erf_encap.exit.thread ], [ false, %375 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
@@ -4843,7 +4843,7 @@ define internal noundef zeroext i1 @erf_dump_finish(ptr noundef %0, ptr noundef 
   br label %31
 
 31:                                               ; preds = %24, %3
-  %.0 = phi i1 [ true, %3 ], [ %30, %24 ]
+  %.0 = phi i1 [ %30, %24 ], [ true, %3 ]
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %erf_dump_priv_free.exit, label %32
 
@@ -5230,7 +5230,7 @@ erf_meta_write_section.exit:                      ; preds = %111, %75, %.prehead
   br label %.loopexit
 
 .loopexit:                                        ; preds = %122, %59, %6, %12, %124, %37
-  %.049 = phi i1 [ false, %37 ], [ true, %124 ], [ false, %12 ], [ false, %6 ], [ false, %59 ], [ false, %122 ]
+  %.049 = phi i1 [ false, %6 ], [ false, %37 ], [ false, %59 ], [ true, %124 ], [ false, %12 ], [ false, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.049
 }
@@ -5929,7 +5929,7 @@ define internal fastcc zeroext i1 @erf_write_phdr(ptr noundef %0, ptr noundef re
   br label %109
 
 109:                                              ; preds = %107, %.loopexit, %66
-  %.073 = phi i1 [ false, %66 ], [ false, %.loopexit ], [ %108, %107 ]
+  %.073 = phi i1 [ false, %.loopexit ], [ %108, %107 ], [ false, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

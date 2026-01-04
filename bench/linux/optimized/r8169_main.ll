@@ -533,8 +533,8 @@ define dso_local void @r8169_apply_firmware(ptr noundef %0) local_unnamed_addr #
   br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %30, %5, %21
-  %.pre-phi = phi i32 [ 0, %5 ], [ %29, %21 ], [ 0, %30 ]
-  %39 = phi i32 [ %16, %5 ], [ %27, %21 ], [ %36, %30 ]
+  %.pre-phi = phi i32 [ %29, %21 ], [ 0, %5 ], [ 0, %30 ]
+  %39 = phi i32 [ %27, %21 ], [ %16, %5 ], [ %36, %30 ]
   %40 = icmp slt i32 %39, 0
   %41 = select i1 %40, i32 %39, i32 %.pre-phi
   %42 = icmp eq i32 %41, 0
@@ -868,9 +868,9 @@ rtl_aspm_is_safe.exit.thread:                     ; preds = %106, %rtl_aspm_is_s
   switch i32 %126, label %rtl_dash_is_enabled.exit.thread16 [
     i32 21, label %128
     i32 24, label %128
-    i32 39, label %158
-    i32 40, label %158
-    i32 41, label %158
+    i32 39, label %152
+    i32 40, label %152
+    i32 41, label %152
   ]
 
 rtl_dash_is_enabled.exit.thread16:                ; preds = %rtl_aspm_is_safe.exit.thread
@@ -888,7 +888,7 @@ rtl_dash_is_enabled.exit.thread16:                ; preds = %rtl_aspm_is_safe.ex
   %134 = getelementptr i8, ptr %133, i64 180
   %135 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %134) #19, !srcloc !16
   %136 = icmp sgt i32 %135, -1
-  br i1 %136, label %.preheader.i.i, label %152
+  br i1 %136, label %.preheader.i.i, label %rtl_dash_is_enabled.exit
 
 137:                                              ; preds = %.preheader.i.i
   %138 = load ptr, ptr %9, align 8
@@ -916,81 +916,81 @@ rtl_dash_is_enabled.exit.thread16:                ; preds = %rtl_aspm_is_safe.ex
 
 150:                                              ; preds = %137
   %151 = icmp samesign ult i32 %142, 19
-  br i1 %151, label %152, label %rtl_dash_is_enabled.exit.thread
+  br i1 %151, label %rtl_dash_is_enabled.exit, label %rtl_dash_is_enabled.exit.thread
 
-152:                                              ; preds = %150, %128
-  %153 = load ptr, ptr %9, align 8
-  %154 = getelementptr i8, ptr %153, i64 176
-  %155 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %154) #19, !srcloc !16
-  %.fr24 = freeze i32 %155
-  %156 = and i32 %.fr24, 32768
-  %.not25 = icmp eq i32 %156, 0
-  %157 = load i8, ptr %15, align 8
-  br i1 %.not25, label %191, label %189
-
-158:                                              ; preds = %rtl_aspm_is_safe.exit.thread, %rtl_aspm_is_safe.exit.thread, %rtl_aspm_is_safe.exit.thread
+152:                                              ; preds = %rtl_aspm_is_safe.exit.thread, %rtl_aspm_is_safe.exit.thread, %rtl_aspm_is_safe.exit.thread
   store i32 2, ptr %127, align 4
-  %159 = and i32 %126, -2
-  %160 = icmp eq i32 %159, 40
-  %161 = select i1 %160, i32 1036185896, i32 192808
-  %162 = load ptr, ptr %9, align 8
-  %163 = getelementptr i8, ptr %162, i64 116
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %161, ptr elementtype(i32) %163) #19, !srcloc !15
-  %164 = load ptr, ptr %9, align 8
-  %165 = getelementptr i8, ptr %164, i64 116
-  %166 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %165) #19, !srcloc !16
-  %167 = icmp sgt i32 %166, -1
-  br i1 %167, label %.preheader.i1.i, label %rtl_dash_is_enabled.exit
+  %153 = and i32 %126, -2
+  %154 = icmp eq i32 %153, 40
+  %155 = select i1 %154, i32 1036185896, i32 192808
+  %156 = load ptr, ptr %9, align 8
+  %157 = getelementptr i8, ptr %156, i64 116
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %155, ptr elementtype(i32) %157) #19, !srcloc !15
+  %158 = load ptr, ptr %9, align 8
+  %159 = getelementptr i8, ptr %158, i64 116
+  %160 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %159) #19, !srcloc !16
+  %161 = icmp sgt i32 %160, -1
+  br i1 %161, label %.preheader.i1.i, label %177
 
-168:                                              ; preds = %.preheader.i1.i
-  %169 = load ptr, ptr %9, align 8
-  %170 = getelementptr i8, ptr %169, i64 116
-  %171 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %170) #19, !srcloc !16
-  %172 = icmp sgt i32 %171, -1
-  br i1 %172, label %.preheader.i1.i, label %181, !llvm.loop !17
+162:                                              ; preds = %.preheader.i1.i
+  %163 = load ptr, ptr %9, align 8
+  %164 = getelementptr i8, ptr %163, i64 116
+  %165 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %164) #19, !srcloc !16
+  %166 = icmp sgt i32 %165, -1
+  br i1 %166, label %.preheader.i1.i, label %175, !llvm.loop !17
 
-.preheader.i1.i:                                  ; preds = %158, %168
-  %173 = phi i32 [ %174, %168 ], [ 0, %158 ]
+.preheader.i1.i:                                  ; preds = %152, %162
+  %167 = phi i32 [ %168, %162 ], [ 0, %152 ]
   tail call void @usleep_range_state(i64 noundef 100, i64 noundef 200, i32 noundef 2) #19
-  %174 = add nuw nsw i32 %173, 1
-  %175 = icmp eq i32 %174, 100
-  br i1 %175, label %176, label %168, !llvm.loop !17
+  %168 = add nuw nsw i32 %167, 1
+  %169 = icmp eq i32 %168, 100
+  br i1 %169, label %170, label %162, !llvm.loop !17
 
-176:                                              ; preds = %.preheader.i1.i
-  %177 = tail call i32 @net_ratelimit() #19
-  %178 = icmp eq i32 %177, 0
-  br i1 %178, label %rtl_dash_is_enabled.exit.thread, label %179
+170:                                              ; preds = %.preheader.i1.i
+  %171 = tail call i32 @net_ratelimit() #19
+  %172 = icmp eq i32 %171, 0
+  br i1 %172, label %rtl_dash_is_enabled.exit.thread, label %173
 
-179:                                              ; preds = %176
-  %180 = load ptr, ptr %10, align 8
-  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %180, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.30, i32 noundef 0, i32 noundef 100, i64 noundef 100) #20
+173:                                              ; preds = %170
+  %174 = load ptr, ptr %10, align 8
+  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %174, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.30, i32 noundef 0, i32 noundef 100, i64 noundef 100) #20
   br label %rtl_dash_is_enabled.exit.thread
 
-181:                                              ; preds = %168
-  %182 = icmp samesign ult i32 %173, 99
-  br i1 %182, label %rtl_dash_is_enabled.exit, label %rtl_dash_is_enabled.exit.thread
+175:                                              ; preds = %162
+  %176 = icmp samesign ult i32 %167, 99
+  br i1 %176, label %177, label %rtl_dash_is_enabled.exit.thread
 
-rtl_dash_is_enabled.exit.thread:                  ; preds = %150, %148, %145, %181, %179, %176
+177:                                              ; preds = %175, %152
+  %178 = load ptr, ptr %9, align 8
+  %179 = getelementptr i8, ptr %178, i64 112
+  %180 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %179) #19, !srcloc !16
+  %.fr = freeze i32 %180
+  %181 = and i32 %.fr, 1
+  %.not = icmp eq i32 %181, 0
+  %182 = load i8, ptr %15, align 8
+  br i1 %.not, label %191, label %189
+
+rtl_dash_is_enabled.exit.thread:                  ; preds = %145, %150, %148, %175, %173, %170
   %183 = load i8, ptr %15, align 8
   br label %189
 
-rtl_dash_is_enabled.exit:                         ; preds = %158, %181
+rtl_dash_is_enabled.exit:                         ; preds = %128, %150
   %184 = load ptr, ptr %9, align 8
-  %185 = getelementptr i8, ptr %184, i64 112
+  %185 = getelementptr i8, ptr %184, i64 176
   %186 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %185) #19, !srcloc !16
-  %.fr = freeze i32 %186
-  %187 = and i32 %.fr, 1
-  %.not = icmp eq i32 %187, 0
+  %.fr24 = freeze i32 %186
+  %187 = and i32 %.fr24, 32768
+  %.not25 = icmp eq i32 %187, 0
   %188 = load i8, ptr %15, align 8
-  br i1 %.not, label %191, label %189
+  br i1 %.not25, label %191, label %189
 
-189:                                              ; preds = %152, %rtl_dash_is_enabled.exit.thread, %rtl_dash_is_enabled.exit
-  %190 = phi i8 [ %183, %rtl_dash_is_enabled.exit.thread ], [ %188, %rtl_dash_is_enabled.exit ], [ %157, %152 ]
+189:                                              ; preds = %177, %rtl_dash_is_enabled.exit.thread, %rtl_dash_is_enabled.exit
+  %190 = phi i8 [ %183, %rtl_dash_is_enabled.exit.thread ], [ %188, %rtl_dash_is_enabled.exit ], [ %182, %177 ]
   br label %191
 
-191:                                              ; preds = %152, %rtl_dash_is_enabled.exit.thread16, %rtl_dash_is_enabled.exit, %189
-  %192 = phi i8 [ %190, %189 ], [ %188, %rtl_dash_is_enabled.exit ], [ %125, %rtl_dash_is_enabled.exit.thread16 ], [ %157, %152 ]
-  %193 = phi i8 [ 4, %189 ], [ 0, %rtl_dash_is_enabled.exit ], [ 0, %rtl_dash_is_enabled.exit.thread16 ], [ 0, %152 ]
+191:                                              ; preds = %177, %rtl_dash_is_enabled.exit.thread16, %rtl_dash_is_enabled.exit, %189
+  %192 = phi i8 [ %190, %189 ], [ %188, %rtl_dash_is_enabled.exit ], [ %125, %rtl_dash_is_enabled.exit.thread16 ], [ %182, %177 ]
+  %193 = phi i8 [ 4, %189 ], [ 0, %rtl_dash_is_enabled.exit ], [ 0, %rtl_dash_is_enabled.exit.thread16 ], [ 0, %177 ]
   %194 = and i8 %192, -5
   %195 = or disjoint i8 %194, %193
   store i8 %195, ptr %15, align 8
@@ -1653,7 +1653,7 @@ thread-pre-split:                                 ; preds = %443, %458
   br label %517
 
 517:                                              ; preds = %515, %513, %492, %488, %472, %401, %100, %76, %67, %59, %49, %47, %2
-  %518 = phi i32 [ %50, %49 ], [ %60, %59 ], [ %68, %67 ], [ %77, %76 ], [ %102, %100 ], [ %402, %401 ], [ -12, %2 ], [ -12, %47 ], [ -12, %472 ], [ %490, %488 ], [ %493, %492 ], [ 0, %515 ], [ 0, %513 ]
+  %518 = phi i32 [ %50, %49 ], [ %60, %59 ], [ %68, %67 ], [ %77, %76 ], [ %102, %100 ], [ %402, %401 ], [ -12, %2 ], [ -12, %47 ], [ 0, %513 ], [ -12, %472 ], [ %490, %488 ], [ %493, %492 ], [ 0, %515 ]
   ret i32 %518
 }
 
@@ -2565,7 +2565,7 @@ define internal i32 @rtl8169_poll(ptr noundef %0, i32 noundef %1) #0 align 16 {
   br label %.thread9
 
 .thread9:                                         ; preds = %231, %253, %250, %242, %.loopexit
-  %257 = phi i32 [ %240, %253 ], [ %240, %250 ], [ %240, %242 ], [ %240, %.loopexit ], [ %1, %231 ]
+  %257 = phi i32 [ %240, %.loopexit ], [ %240, %253 ], [ %240, %250 ], [ %240, %242 ], [ %1, %231 ]
   ret i32 %257
 }
 
@@ -3333,7 +3333,7 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
   br i1 %191, label %.thread16, label %174, !llvm.loop !40
 
 .thread16:                                        ; preds = %179, %174, %55, %.loopexit
-  %192 = phi i32 [ -12, %.loopexit ], [ -12, %55 ], [ %169, %174 ], [ %169, %179 ]
+  %192 = phi i32 [ -12, %55 ], [ -12, %.loopexit ], [ %169, %174 ], [ %169, %179 ]
   %193 = load ptr, ptr %14, align 8
   %194 = load i64, ptr %12, align 8
   tail call void @dma_free_attrs(ptr noundef nonnull %5, i64 noundef 4096, ptr noundef %193, i64 noundef %194, i64 noundef 0) #19
@@ -3837,8 +3837,8 @@ __skb_put.exit:                                   ; preds = %230
   br label %240
 
 240:                                              ; preds = %56, %__skb_put.exit, %221, %207, %105, %64, %63, %51, %47
-  %.sroa.13.0 = phi i32 [ %220, %207 ], [ %37, %__skb_put.exit ], [ %37, %221 ], [ %120, %105 ], [ %37, %64 ], [ %37, %63 ], [ %37, %51 ], [ %37, %47 ], [ %37, %56 ]
-  %.sroa.0.0 = phi i32 [ 0, %207 ], [ 0, %__skb_put.exit ], [ 0, %221 ], [ %118, %105 ], [ 0, %64 ], [ 393216, %63 ], [ 0, %51 ], [ %50, %47 ], [ 327680, %56 ]
+  %.sroa.13.0 = phi i32 [ %220, %207 ], [ %37, %__skb_put.exit ], [ %37, %221 ], [ %120, %105 ], [ %37, %64 ], [ %37, %47 ], [ %37, %63 ], [ %37, %51 ], [ %37, %56 ]
+  %.sroa.0.0 = phi i32 [ 0, %207 ], [ 0, %__skb_put.exit ], [ 0, %221 ], [ %118, %105 ], [ 0, %64 ], [ %50, %47 ], [ 393216, %63 ], [ 0, %51 ], [ 327680, %56 ]
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %242 = load i32, ptr %241, align 8
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -4443,7 +4443,7 @@ define internal i64 @rtl8169_features_check(ptr noundef %0, ptr noundef readonly
   br label %175
 
 175:                                              ; preds = %141, %141, %141, %141, %141, %141, %141, %141, %141, %143, %174, %171, %171, %171, %171, %171, %171, %171, %171, %171, %150, %145, %.thread9
-  %176 = phi i64 [ %129, %.thread9 ], [ %158, %150 ], [ %2, %145 ], [ %154, %174 ], [ %158, %171 ], [ %158, %171 ], [ %158, %171 ], [ %158, %171 ], [ %158, %171 ], [ %158, %171 ], [ %158, %171 ], [ %158, %171 ], [ %158, %171 ], [ %144, %143 ], [ %129, %141 ], [ %129, %141 ], [ %129, %141 ], [ %129, %141 ], [ %129, %141 ], [ %129, %141 ], [ %129, %141 ], [ %129, %141 ], [ %129, %141 ]
+  %176 = phi i64 [ %129, %.thread9 ], [ %158, %150 ], [ %2, %145 ], [ %158, %171 ], [ %154, %174 ], [ %158, %171 ], [ %158, %171 ], [ %158, %171 ], [ %158, %171 ], [ %158, %171 ], [ %158, %171 ], [ %158, %171 ], [ %158, %171 ], [ %144, %143 ], [ %129, %141 ], [ %129, %141 ], [ %129, %141 ], [ %129, %141 ], [ %129, %141 ], [ %129, %141 ], [ %129, %141 ], [ %129, %141 ], [ %129, %141 ]
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %178 = load i16, ptr %177, align 8
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -4494,7 +4494,7 @@ define internal i64 @rtl8169_features_check(ptr noundef %0, ptr noundef readonly
   br label %.thread15
 
 .thread15:                                        ; preds = %201, %182, %192, %190
-  %207 = phi i64 [ %176, %190 ], [ %176, %192 ], [ %176, %182 ], [ %spec.select17, %201 ]
+  %207 = phi i64 [ %176, %182 ], [ %spec.select17, %201 ], [ %176, %190 ], [ %176, %192 ]
   ret i64 %207
 }
 

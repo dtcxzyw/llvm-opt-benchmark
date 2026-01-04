@@ -370,7 +370,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unn
   br label %56
 
 56:                                               ; preds = %46, %49, %44, %.lr.ph
-  %.1 = phi i32 [ %.02756, %44 ], [ %.02756, %.lr.ph ], [ -1, %49 ], [ -1, %46 ]
+  %.1 = phi i32 [ %.02756, %.lr.ph ], [ %.02756, %44 ], [ -1, %49 ], [ -1, %46 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = load i32, ptr @g_context_num, align 4
   %58 = sext i32 %57 to i64

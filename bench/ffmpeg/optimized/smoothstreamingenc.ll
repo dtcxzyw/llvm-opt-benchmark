@@ -377,8 +377,8 @@ thread-pre-split.i:                               ; preds = %148, %131
   call void @av_free(ptr noundef %170) #8
   br label %173
 
-.thread:                                          ; preds = %60, %62, %65, %69, %79, %95, %57, %120, %124
-  %.2.ph = phi i32 [ -22, %124 ], [ -22, %120 ], [ %59, %57 ], [ -12, %60 ], [ %63, %62 ], [ -12, %65 ], [ %77, %69 ], [ -12, %79 ], [ %100, %95 ]
+.thread:                                          ; preds = %60, %65, %79, %69, %62, %95, %57, %120, %124
+  %.2.ph = phi i32 [ -22, %124 ], [ -22, %120 ], [ %59, %57 ], [ -12, %60 ], [ -12, %65 ], [ -12, %79 ], [ %77, %69 ], [ %63, %62 ], [ %100, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %186
 
@@ -414,7 +414,7 @@ thread-pre-split.i:                               ; preds = %148, %131
   br label %186
 
 186:                                              ; preds = %.thread, %184, %19, %17, %183, %14
-  %.0 = phi i32 [ %16, %14 ], [ -22, %183 ], [ -1481985528, %17 ], [ -12, %19 ], [ %., %184 ], [ %.2.ph, %.thread ]
+  %.0 = phi i32 [ %16, %14 ], [ %.2.ph, %.thread ], [ %., %184 ], [ -12, %19 ], [ -22, %183 ], [ -1481985528, %17 ]
   ret i32 %.0
 }
 
@@ -832,7 +832,7 @@ define internal i64 @ism_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0
   br i1 %82, label %32, label %.loopexit, !llvm.loop !107
 
 .loopexit:                                        ; preds = %81, %25, %.thread, %3, %23
-  %.0 = phi i64 [ %1, %23 ], [ -38, %3 ], [ %.2, %.thread ], [ -5, %25 ], [ -5, %81 ]
+  %.0 = phi i64 [ -38, %3 ], [ %1, %23 ], [ %.2, %.thread ], [ -5, %25 ], [ -5, %81 ]
   ret i64 %.0
 }
 
@@ -1635,8 +1635,8 @@ copy_moof.exit:                                   ; preds = %147, %.sink.split.i
   store i32 %208, ptr %199, align 8, !tbaa !123
   br label %209
 
-add_fragment.exit.thread:                         ; preds = %130, %46, %36, %.thread
-  %.1.ph = phi i32 [ -22, %.thread ], [ %145, %130 ], [ -5, %46 ], [ -5, %36 ]
+add_fragment.exit.thread:                         ; preds = %36, %130, %46, %.thread
+  %.1.ph = phi i32 [ -22, %.thread ], [ -5, %36 ], [ %145, %130 ], [ -5, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1649,7 +1649,7 @@ add_fragment.exit.sink.split:                     ; preds = %49, %parse_fragment
   br label %add_fragment.exit
 
 add_fragment.exit:                                ; preds = %copy_moof.exit, %28, %add_fragment.exit.sink.split
-  %.2103 = phi i32 [ %.2103.ph254, %add_fragment.exit.sink.split ], [ %34, %28 ], [ %173, %copy_moof.exit ]
+  %.2103 = phi i32 [ %.2103.ph254, %add_fragment.exit.sink.split ], [ %173, %copy_moof.exit ], [ %34, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1837,7 +1837,7 @@ add_fragment.exit:                                ; preds = %copy_moof.exit, %28
   br label %307
 
 307:                                              ; preds = %add_fragment.exit.thread, %.loopexit, %305
-  %.4 = phi i32 [ %306, %305 ], [ %.1102, %.loopexit ], [ %.1.ph, %add_fragment.exit.thread ]
+  %.4 = phi i32 [ %.1.ph, %add_fragment.exit.thread ], [ %306, %305 ], [ %.1102, %.loopexit ]
   ret i32 %.4
 }
 

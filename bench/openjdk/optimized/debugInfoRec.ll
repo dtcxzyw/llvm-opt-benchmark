@@ -530,7 +530,7 @@ _ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit: ; preds = %87
   br label %96
 
 96:                                               ; preds = %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit.thread, %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit, %93, %2, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ %92, %93 ], [ %12, %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit ], [ %12, %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit.thread ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %92, %93 ], [ %12, %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit ], [ %12, %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit.thread ]
   ret i32 %.0
 }
 
@@ -833,7 +833,7 @@ _ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit: ; preds = %90
   br label %99
 
 99:                                               ; preds = %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit.thread, %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit, %96, %2, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ %95, %96 ], [ %12, %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit ], [ %12, %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit.thread ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %95, %96 ], [ %12, %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit ], [ %12, %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit.thread ]
   ret i32 %.0
 }
 

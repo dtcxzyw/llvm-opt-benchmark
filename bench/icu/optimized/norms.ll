@@ -538,7 +538,7 @@ define dso_local void @_ZNK6icu_775Norms7reorderERNS_13UnicodeStringERNS_23Build
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %15, %17
-  %.0.i = phi ptr [ %16, %15 ], [ %19, %17 ], [ null, %3 ]
+  %.0.i = phi ptr [ %19, %17 ], [ %16, %15 ], [ null, %3 ]
   %20 = icmp sgt i32 %11, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
@@ -763,7 +763,7 @@ _ZNK6icu_774Norm19getCompositionPairsERi.exit:    ; preds = %8
   br i1 %or.cond, label %.thread, label %19
 
 .thread:                                          ; preds = %.critedge, %19, %8, %_ZNK6icu_774Norm19getCompositionPairsERi.exit, %4
-  %.3 = phi i8 [ 0, %4 ], [ 0, %_ZNK6icu_774Norm19getCompositionPairsERi.exit ], [ 0, %8 ], [ 1, %.critedge ], [ 0, %19 ]
+  %.3 = phi i8 [ 0, %4 ], [ 0, %_ZNK6icu_774Norm19getCompositionPairsERi.exit ], [ 0, %8 ], [ 0, %19 ], [ 1, %.critedge ]
   ret i8 %.3
 }
 
@@ -1061,7 +1061,7 @@ define dso_local void @_ZN6icu_7710Decomposer12rangeHandlerEiiRNS_4NormE(ptr nou
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %9, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %20, %18 ], [ null, %9 ]
+  %.0.i = phi ptr [ %20, %18 ], [ %17, %16 ], [ null, %9 ]
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #18, !srcloc !74
   %21 = load i16, ptr %11, align 8, !tbaa !15
   %22 = icmp slt i16 %21, 0

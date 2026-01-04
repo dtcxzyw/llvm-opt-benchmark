@@ -690,7 +690,7 @@ define internal void @overlay_changed(ptr noundef %0, ptr noundef readonly captu
   br label %16
 
 16:                                               ; preds = %12, %.thread
-  %.sink8 = phi i32 [ 0, %.thread ], [ %spec.select, %12 ]
+  %.sink8 = phi i32 [ %spec.select, %12 ], [ 0, %.thread ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %18 = load ptr, ptr %17, align 8, !tbaa !34
   %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %18, i64 noundef %7) #12
@@ -911,7 +911,7 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   br label %54
 
 54:                                               ; preds = %52, %49
-  %.0166 = phi i32 [ %51, %49 ], [ %53, %52 ]
+  %.0166 = phi i32 [ %53, %52 ], [ %51, %49 ]
   %55 = icmp sgt i32 %.0166, 0
   br i1 %55, label %56, label %.thread
 
@@ -1377,7 +1377,7 @@ define range(i32 0, 2) i32 @button_pressed(ptr noundef readonly captures(none) %
   br label %18
 
 18:                                               ; preds = %16, %13
-  %.031 = phi i32 [ %15, %13 ], [ %17, %16 ]
+  %.031 = phi i32 [ %17, %16 ], [ %15, %13 ]
   %19 = icmp sgt i32 %.031, 0
   br i1 %19, label %20, label %.critedge
 
@@ -1450,7 +1450,7 @@ define range(i32 0, 2) i32 @button_pressed(ptr noundef readonly captures(none) %
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %7, %62, %24, %20, %18
-  %.0 = phi i32 [ 0, %20 ], [ 0, %18 ], [ 0, %62 ], [ 0, %24 ], [ 0, %7 ], [ 1, %.critedge.sink.split ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %20 ], [ 0, %24 ], [ 0, %7 ], [ 0, %62 ], [ 1, %.critedge.sink.split ]
   ret i32 %.0
 }
 
@@ -1489,7 +1489,7 @@ define range(i32 0, 2) i32 @mouse_moved(ptr noundef readonly captures(none) %0, 
   br label %27
 
 27:                                               ; preds = %10, %26, %24
-  %28 = phi reassoc nsz arcp contract afn double [ %22, %26 ], [ 1.000000e+00, %24 ], [ 0.000000e+00, %10 ]
+  %28 = phi reassoc nsz arcp contract afn double [ 1.000000e+00, %24 ], [ %22, %26 ], [ 0.000000e+00, %10 ]
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store double %28, ptr %29, align 8, !tbaa !20
   %30 = fsub reassoc nsz arcp contract afn double %2, %19
@@ -1505,7 +1505,7 @@ define range(i32 0, 2) i32 @mouse_moved(ptr noundef readonly captures(none) %0, 
   br label %36
 
 36:                                               ; preds = %27, %35, %33
-  %37 = phi reassoc nsz arcp contract afn double [ %31, %35 ], [ 1.000000e+00, %33 ], [ 0.000000e+00, %27 ]
+  %37 = phi reassoc nsz arcp contract afn double [ 1.000000e+00, %33 ], [ %31, %35 ], [ 0.000000e+00, %27 ]
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store double %37, ptr %38, align 8, !tbaa !17
   br label %39

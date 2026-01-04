@@ -842,7 +842,7 @@ define noundef ptr @_ZN3tbb6detail2r117thread_dispatcher14client_in_needEPNS1_14
   br i1 %14, label %10, label %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit
 
 _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit: ; preds = %10, %.lr.ph.i
-  %spec.select.i = phi ptr [ %13, %.lr.ph.i ], [ %2, %10 ]
+  %spec.select.i = phi ptr [ %2, %10 ], [ %13, %.lr.ph.i ]
   %.not = icmp eq ptr %spec.select.i, null
   br i1 %.not, label %.loopexit31, label %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit._ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.thread_crit_edge
 
@@ -956,7 +956,7 @@ _ZN3tbb6detail2r117thread_dispatcher15is_client_aliveEPNS1_24thread_dispatcher_c
   br i1 %18, label %14, label %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i
 
 _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i: ; preds = %.lr.ph.i.i, %14
-  %spec.select.i.i = phi ptr [ %17, %.lr.ph.i.i ], [ %1, %14 ]
+  %spec.select.i.i = phi ptr [ %1, %14 ], [ %17, %.lr.ph.i.i ]
   %.not.i5 = icmp eq ptr %spec.select.i.i, null
   br i1 %.not.i5, label %.loopexit60, label %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit._ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.thread_crit_edge.i
 
@@ -1058,7 +1058,7 @@ _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatche
   br i1 %50, label %46, label %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i14
 
 _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i14: ; preds = %.lr.ph.i.i12, %46
-  %spec.select.i.i15 = phi ptr [ %49, %.lr.ph.i.i12 ], [ %40, %46 ]
+  %spec.select.i.i15 = phi ptr [ %40, %46 ], [ %49, %.lr.ph.i.i12 ]
   %.not.i16 = icmp eq ptr %spec.select.i.i15, null
   br i1 %.not.i16, label %.loopexit60, label %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit._ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.thread_crit_edge.i17
 
@@ -1111,7 +1111,7 @@ _ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatche
   br i1 %.not30.i29, label %.loopexit60, label %52, !llvm.loop !93
 
 .loopexit60:                                      ; preds = %36, %.noexc, %68, %.noexc35, %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i14, %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i
-  %.0 = phi ptr [ null, %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i ], [ null, %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i14 ], [ %.sroa.023.0.i24, %.noexc35 ], [ null, %68 ], [ %.sroa.023.0.i, %.noexc ], [ null, %36 ]
+  %.0 = phi ptr [ null, %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i14 ], [ null, %_ZN3tbb6detail2r117thread_dispatcher18select_next_clientEPNS1_24thread_dispatcher_clientE.exit.i ], [ null, %68 ], [ %.sroa.023.0.i24, %.noexc35 ], [ null, %36 ], [ %.sroa.023.0.i, %.noexc ]
   store ptr null, ptr %3, align 8, !tbaa !85
   %69 = atomicrmw sub ptr %4, i64 4 seq_cst, align 8
   %70 = and i64 %69, 2
@@ -1504,7 +1504,7 @@ define linkonce_odr void @_ZN3tbb6detail2d18rw_mutex11lock_sharedEv(ptr noundef 
   call void @_ZN3tbb6detail2r117notify_by_addressEPvm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 0)
   br label %15
 
-15:                                               ; preds = %13, %7
+15:                                               ; preds = %7, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 3, ptr %4, align 8, !tbaa !142
   call void @llvm.lifetime.start.p0(ptr nonnull %2)

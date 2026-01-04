@@ -1359,7 +1359,7 @@ rate_control_send_low.exit:                       ; preds = %31, %28
   br label %.loopexit
 
 .loopexit:                                        ; preds = %156, %165, %148, %145, %143, %139, %130, %113, %104
-  %166 = phi ptr [ null, %165 ], [ null, %148 ], [ null, %145 ], [ null, %143 ], [ null, %139 ], [ null, %130 ], [ null, %113 ], [ %19, %104 ], [ null, %156 ]
+  %166 = phi ptr [ null, %165 ], [ %19, %104 ], [ null, %148 ], [ null, %145 ], [ null, %143 ], [ null, %139 ], [ null, %130 ], [ null, %113 ], [ null, %156 ]
   %167 = load ptr, ptr %4, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 88
   %169 = load volatile i64, ptr %168, align 8

@@ -297,7 +297,7 @@ _ZNSt3__111lower_boundB8ne210000IPKNS_12_GLOBAL__N_110classnamesEPKcNS1_10use_st
   br label %21
 
 21:                                               ; preds = %18, %14, %10, %_ZNSt3__111lower_boundB8ne210000IPKNS_12_GLOBAL__N_110classnamesEPKcNS1_10use_strcmpEEET_S8_S8_RKT0_T1_.exit
-  %.0 = phi i16 [ 0, %10 ], [ 0, %_ZNSt3__111lower_boundB8ne210000IPKNS_12_GLOBAL__N_110classnamesEPKcNS1_10use_strcmpEEET_S8_S8_RKT0_T1_.exit ], [ %.mux, %14 ], [ %spec.select, %18 ]
+  %.0 = phi i16 [ 0, %_ZNSt3__111lower_boundB8ne210000IPKNS_12_GLOBAL__N_110classnamesEPKcNS1_10use_strcmpEEET_S8_S8_RKT0_T1_.exit ], [ 0, %10 ], [ %spec.select, %18 ], [ %.mux, %14 ]
   ret i16 %.0
 }
 

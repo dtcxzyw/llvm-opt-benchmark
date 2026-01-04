@@ -1433,7 +1433,7 @@ exit_mm.exit:                                     ; preds = %134, %153, %157
   br i1 %305, label %.thread44, label %.preheader49, !llvm.loop !55
 
 .thread44:                                        ; preds = %.thread43, %294, %262, %.thread42, %255
-  %306 = phi ptr [ %256, %255 ], [ %239, %.thread42 ], [ %239, %262 ], [ %239, %.thread43 ], [ %295, %294 ]
+  %306 = phi ptr [ %239, %262 ], [ %256, %255 ], [ %239, %.thread42 ], [ %239, %.thread43 ], [ %295, %294 ]
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 1880
   %308 = icmp eq i64 %5, 0
   br label %309
@@ -2674,7 +2674,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__do_wait(ptr noundef c
   br label %.thread
 
 .thread:                                          ; preds = %123, %6, %10, %.loopexit, %89, %100, %72
-  %128 = phi i64 [ %73, %72 ], [ %90, %89 ], [ %101, %100 ], [ %121, %.loopexit ], [ -10, %10 ], [ -10, %6 ], [ %spec.select, %123 ]
+  %128 = phi i64 [ %73, %72 ], [ %101, %100 ], [ %spec.select, %123 ], [ %90, %89 ], [ -10, %6 ], [ %121, %.loopexit ], [ -10, %10 ]
   ret i64 %128
 }
 
@@ -3137,7 +3137,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_wait(ptr nound
   br label %.critedge, !llvm.loop !94
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader, %..critedge.loopexit_crit_edge1, %24
-  %55 = phi i64 [ %35, %24 ], [ %52, %..critedge.loopexit_crit_edge1 ], [ %35, %.preheader ], [ %52, %..critedge.loopexit_crit_edge ], [ %35, %.lr.ph.preheader ], [ %52, %.lr.ph ]
+  %55 = phi i64 [ %35, %24 ], [ %35, %.preheader ], [ %52, %..critedge.loopexit_crit_edge1 ], [ %52, %..critedge.loopexit_crit_edge ], [ %35, %.lr.ph.preheader ], [ %52, %.lr.ph ]
   store volatile i32 0, ptr %33, align 8
   %56 = load ptr, ptr %30, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
@@ -4378,7 +4378,7 @@ select.unfold:                                    ; preds = %374, %381
   %449 = icmp eq i32 %421, 0
   br i1 %449, label %.thread36, label %.thread53
 
-.thread36:                                        ; preds = %.thread32, %.thread19, %367, %358, %448
+.thread36:                                        ; preds = %.thread19, %.thread32, %367, %358, %448
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %451 = load i32, ptr %450, align 4
   %452 = and i32 %451, 8

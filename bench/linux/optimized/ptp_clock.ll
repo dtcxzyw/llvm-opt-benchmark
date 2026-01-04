@@ -418,7 +418,7 @@ define dso_local ptr @ptp_clock_register(ptr noundef %0, ptr noundef %1) #0 alig
   br label %194
 
 194:                                              ; preds = %191, %159, %155, %2
-  %195 = phi ptr [ %193, %191 ], [ %158, %155 ], [ %12, %159 ], [ inttoptr (i64 -22 to ptr), %2 ]
+  %195 = phi ptr [ %193, %191 ], [ inttoptr (i64 -22 to ptr), %2 ], [ %158, %155 ], [ %12, %159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %195
 }
@@ -1111,7 +1111,7 @@ define internal i32 @ptp_clock_adjtime(ptr noundef %0, ptr noundef captures(none
   br label %.critedge
 
 .critedge:                                        ; preds = %71, %94, %96, %62, %35, %91, %75, %58, %48, %27, %18
-  %100 = phi i32 [ -16, %18 ], [ -22, %27 ], [ -34, %48 ], [ -34, %58 ], [ -34, %75 ], [ %44, %35 ], [ %65, %62 ], [ %93, %91 ], [ -95, %71 ], [ 0, %96 ], [ -95, %94 ]
+  %100 = phi i32 [ -16, %18 ], [ -34, %58 ], [ -34, %75 ], [ -22, %27 ], [ -34, %48 ], [ %44, %35 ], [ %65, %62 ], [ %93, %91 ], [ -95, %71 ], [ 0, %96 ], [ -95, %94 ]
   ret i32 %100
 }
 

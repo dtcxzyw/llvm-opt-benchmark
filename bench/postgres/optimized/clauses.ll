@@ -219,7 +219,7 @@ define dso_local double @expression_returns_set_rows(ptr noundef %0, ptr noundef
   br label %.thread21
 
 .thread21:                                        ; preds = %.thread21.sink.split, %4, %6, %10, %2
-  %.0 = phi double [ 1.000000e+00, %2 ], [ 1.000000e+00, %10 ], [ 1.000000e+00, %6 ], [ 1.000000e+00, %4 ], [ %17, %.thread21.sink.split ]
+  %.0 = phi double [ 1.000000e+00, %10 ], [ 1.000000e+00, %2 ], [ 1.000000e+00, %6 ], [ 1.000000e+00, %4 ], [ %17, %.thread21.sink.split ]
   ret double %.0
 }
 
@@ -403,7 +403,7 @@ define internal zeroext i1 @contain_mutable_functions_walker(ptr noundef %0, ptr
   br label %.thread48
 
 .thread48:                                        ; preds = %.critedge, %.critedge.us, %49, %44, %63, %63, %53, %4, %2, %67, %65
-  %.0 = phi i1 [ %66, %65 ], [ %68, %67 ], [ true, %53 ], [ false, %2 ], [ true, %4 ], [ true, %63 ], [ true, %63 ], [ false, %49 ], [ true, %44 ], [ true, %.critedge.us ], [ true, %.critedge ]
+  %.0 = phi i1 [ false, %49 ], [ false, %2 ], [ true, %4 ], [ true, %63 ], [ %66, %65 ], [ %68, %67 ], [ true, %53 ], [ true, %63 ], [ true, %44 ], [ true, %.critedge.us ], [ true, %.critedge ]
   ret i1 %.0
 }
 
@@ -452,7 +452,7 @@ define internal zeroext i1 @contain_volatile_functions_walker(ptr noundef %0, pt
   br label %common.ret35
 
 common.ret35:                                     ; preds = %6, %19, %16, %11, %8, %4, %2, %26, %24, %20, %12
-  %common.ret35.op = phi i1 [ %15, %12 ], [ %23, %20 ], [ %25, %24 ], [ %27, %26 ], [ false, %2 ], [ true, %4 ], [ true, %6 ], [ true, %11 ], [ false, %8 ], [ true, %19 ], [ false, %16 ]
+  %common.ret35.op = phi i1 [ %23, %20 ], [ %15, %12 ], [ true, %19 ], [ true, %11 ], [ %27, %26 ], [ false, %2 ], [ true, %4 ], [ true, %6 ], [ false, %8 ], [ %25, %24 ], [ false, %16 ]
   ret i1 %common.ret35.op
 
 12:                                               ; preds = %8
@@ -521,7 +521,7 @@ define dso_local zeroext i1 @contain_volatile_functions_not_nextval(ptr noundef 
   br label %contain_volatile_functions_not_nextval_walker.exit
 
 contain_volatile_functions_not_nextval_walker.exit: ; preds = %1, %3, %8, %10
-  %.0.i = phi i1 [ %9, %8 ], [ %11, %10 ], [ false, %1 ], [ true, %3 ]
+  %.0.i = phi i1 [ %11, %10 ], [ false, %1 ], [ %9, %8 ], [ true, %3 ]
   ret i1 %.0.i
 }
 
@@ -548,7 +548,7 @@ define internal zeroext i1 @contain_volatile_functions_not_nextval_walker(ptr no
   br label %13
 
 13:                                               ; preds = %4, %2, %11, %9
-  %.0 = phi i1 [ %10, %9 ], [ %12, %11 ], [ false, %2 ], [ true, %4 ]
+  %.0 = phi i1 [ %12, %11 ], [ false, %2 ], [ %10, %9 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -693,7 +693,7 @@ max_parallel_hazard_test.exit:                    ; preds = %8, %19, %14, %10
   br label %max_parallel_hazard_test.exit58
 
 max_parallel_hazard_test.exit58:                  ; preds = %tailrecurse.backedge, %6, %max_parallel_hazard_test.exit56, %26, %2, %46, %19, %14, %10, %41, %13, %52, %53, %38, %max_parallel_hazard_test.exit
-  %.0 = phi i1 [ %55, %max_parallel_hazard_test.exit ], [ true, %13 ], [ false, %38 ], [ true, %52 ], [ %54, %53 ], [ false, %41 ], [ true, %10 ], [ true, %14 ], [ true, %19 ], [ %48, %46 ], [ false, %2 ], [ false, %tailrecurse.backedge ], [ true, %6 ], [ true, %max_parallel_hazard_test.exit56 ], [ true, %26 ]
+  %.0 = phi i1 [ true, %19 ], [ true, %52 ], [ %54, %53 ], [ %55, %max_parallel_hazard_test.exit ], [ false, %41 ], [ true, %13 ], [ %48, %46 ], [ true, %10 ], [ true, %14 ], [ false, %38 ], [ false, %2 ], [ true, %6 ], [ false, %tailrecurse.backedge ], [ true, %max_parallel_hazard_test.exit56 ], [ true, %26 ]
   ret i1 %.0
 }
 
@@ -864,7 +864,7 @@ tailrecurse.backedge:                             ; preds = %16, %16
   br label %.thread
 
 .thread:                                          ; preds = %tailrecurse.backedge, %.lr.ph, %.lr.ph, %.lr.ph, %5, %8, %12, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %2, %18, %.thread49, %23
-  %.0 = phi i1 [ %24, %23 ], [ true, %18 ], [ true, %.thread49 ], [ false, %2 ], [ false, %tailrecurse.backedge ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %5 ], [ true, %8 ], [ true, %12 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ]
+  %.0 = phi i1 [ true, %.thread49 ], [ true, %18 ], [ %24, %23 ], [ false, %2 ], [ true, %.lr.ph ], [ true, %12 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %5 ], [ true, %8 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ false, %tailrecurse.backedge ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %16 ]
   ret i1 %.0
 }
 
@@ -895,7 +895,7 @@ define dso_local zeroext i1 @contain_exec_param(ptr noundef %0, ptr noundef %1) 
   br label %contain_exec_param_walker.exit
 
 contain_exec_param_walker.exit:                   ; preds = %2, %11, %.thread.i
-  %.09.i = phi i1 [ %15, %.thread.i ], [ false, %2 ], [ true, %11 ]
+  %.09.i = phi i1 [ false, %2 ], [ %15, %.thread.i ], [ true, %11 ]
   ret i1 %.09.i
 }
 
@@ -926,7 +926,7 @@ define internal zeroext i1 @contain_exec_param_walker(ptr noundef %0, ptr nounde
   br label %16
 
 16:                                               ; preds = %11, %2, %.thread
-  %.09 = phi i1 [ %15, %.thread ], [ false, %2 ], [ true, %11 ]
+  %.09 = phi i1 [ false, %2 ], [ %15, %.thread ], [ true, %11 ]
   ret i1 %.09
 }
 
@@ -1121,7 +1121,7 @@ define internal zeroext i1 @contain_leaked_vars_walker(ptr noundef %0, ptr nound
   br label %.critedge
 
 .critedge:                                        ; preds = %69, %72, %.critedge82, %25, %4, %8, %2, %.thread, %86
-  %.052 = phi i1 [ true, %86 ], [ %87, %.thread ], [ false, %2 ], [ true, %8 ], [ false, %4 ], [ true, %25 ], [ true, %.critedge82 ], [ true, %72 ], [ true, %69 ]
+  %.052 = phi i1 [ true, %8 ], [ true, %86 ], [ %87, %.thread ], [ false, %2 ], [ false, %4 ], [ true, %25 ], [ true, %.critedge82 ], [ true, %72 ], [ true, %69 ]
   ret i1 %.052
 }
 
@@ -1201,8 +1201,8 @@ define internal fastcc ptr @find_nonnullable_rels_walker(ptr noundef %0, i1 noun
   br i1 %27, label %tailrecurse.backedge, label %.critedge
 
 tailrecurse.backedge:                             ; preds = %24, %112, %109, %109, %109, %104, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %71, %74, %67, %38, %54, %30
-  %.sink = phi i64 [ 32, %30 ], [ 32, %54 ], [ 32, %38 ], [ 32, %67 ], [ 8, %74 ], [ 8, %71 ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %104 ], [ 8, %109 ], [ 8, %109 ], [ 8, %109 ], [ 8, %112 ], [ 32, %24 ]
-  %.tr116.be = phi i1 [ false, %30 ], [ false, %54 ], [ false, %38 ], [ false, %67 ], [ true, %74 ], [ false, %71 ], [ %.tr116131, %.lr.ph ], [ %.tr116131, %.lr.ph ], [ %.tr116131, %.lr.ph ], [ %.tr116131, %.lr.ph ], [ %.tr116131, %.lr.ph ], [ false, %104 ], [ false, %109 ], [ false, %109 ], [ false, %109 ], [ %.tr116131, %112 ], [ false, %24 ]
+  %.sink = phi i64 [ 8, %112 ], [ 8, %109 ], [ 32, %30 ], [ 32, %67 ], [ 8, %74 ], [ 8, %71 ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %104 ], [ 32, %54 ], [ 32, %38 ], [ 8, %109 ], [ 8, %109 ], [ 32, %24 ]
+  %.tr116.be = phi i1 [ %.tr116131, %112 ], [ false, %109 ], [ false, %30 ], [ false, %67 ], [ true, %74 ], [ false, %71 ], [ %.tr116131, %.lr.ph ], [ %.tr116131, %.lr.ph ], [ %.tr116131, %.lr.ph ], [ %.tr116131, %.lr.ph ], [ %.tr116131, %.lr.ph ], [ false, %104 ], [ false, %54 ], [ false, %38 ], [ false, %109 ], [ false, %109 ], [ false, %24 ]
   %28 = getelementptr inbounds nuw i8, ptr %.tr130, i64 %.sink
   %.tr.be = load ptr, ptr %28, align 8
   %29 = icmp eq ptr %.tr.be, null
@@ -1393,7 +1393,7 @@ tailrecurse.backedge:                             ; preds = %24, %112, %109, %10
   br label %.critedge
 
 .critedge:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %108, %109, %99, %100, %104, %30, %24, %34, %50, %67, %64, %54, %48, %42, %112, %93, %82, %16, %2, %75, %.lr.ph149, %.preheader, %12, %8, %129, %124, %117
-  %.0 = phi ptr [ %15, %12 ], [ null, %8 ], [ %131, %129 ], [ %120, %124 ], [ %120, %117 ], [ null, %.preheader ], [ null, %75 ], [ null, %.lr.ph149 ], [ null, %2 ], [ %21, %16 ], [ null, %93 ], [ %.9, %82 ], [ null, %112 ], [ null, %42 ], [ null, %48 ], [ null, %54 ], [ null, %64 ], [ null, %67 ], [ null, %50 ], [ null, %34 ], [ null, %24 ], [ null, %30 ], [ null, %104 ], [ null, %100 ], [ null, %99 ], [ null, %109 ], [ null, %108 ], [ null, %.lr.ph ], [ null, %tailrecurse.backedge ]
+  %.0 = phi ptr [ %120, %124 ], [ null, %2 ], [ null, %8 ], [ %120, %117 ], [ %15, %12 ], [ %131, %129 ], [ %.9, %82 ], [ null, %.preheader ], [ null, %75 ], [ %21, %16 ], [ null, %.lr.ph149 ], [ null, %93 ], [ null, %112 ], [ null, %42 ], [ null, %48 ], [ null, %54 ], [ null, %64 ], [ null, %67 ], [ null, %50 ], [ null, %34 ], [ null, %24 ], [ null, %30 ], [ null, %104 ], [ null, %100 ], [ null, %99 ], [ null, %109 ], [ null, %108 ], [ null, %.lr.ph ], [ null, %tailrecurse.backedge ]
   ret ptr %.0
 }
 
@@ -1477,8 +1477,8 @@ define internal fastcc ptr @find_nonnullable_vars_walker(ptr noundef %0, i1 noun
   br i1 %31, label %tailrecurse.backedge, label %.critedge
 
 tailrecurse.backedge:                             ; preds = %28, %.lr.ph, %117, %114, %114, %114, %109, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %75, %78, %71, %42, %58, %34, %103
-  %.sink = phi i64 [ 8, %103 ], [ 32, %34 ], [ 32, %58 ], [ 32, %42 ], [ 32, %71 ], [ 8, %78 ], [ 8, %75 ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %109 ], [ 8, %114 ], [ 8, %114 ], [ 8, %114 ], [ 8, %117 ], [ 8, %.lr.ph ], [ 32, %28 ]
-  %.tr113.be = phi i1 [ false, %103 ], [ false, %34 ], [ false, %58 ], [ false, %42 ], [ false, %71 ], [ true, %78 ], [ false, %75 ], [ %.tr113126, %.lr.ph ], [ %.tr113126, %.lr.ph ], [ %.tr113126, %.lr.ph ], [ %.tr113126, %.lr.ph ], [ false, %109 ], [ false, %114 ], [ false, %114 ], [ false, %114 ], [ %.tr113126, %117 ], [ %.tr113126, %.lr.ph ], [ false, %28 ]
+  %.sink = phi i64 [ 8, %.lr.ph ], [ 8, %117 ], [ 32, %34 ], [ 32, %71 ], [ 8, %78 ], [ 8, %75 ], [ 8, %103 ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %.lr.ph ], [ 8, %109 ], [ 8, %114 ], [ 32, %58 ], [ 32, %42 ], [ 8, %114 ], [ 8, %114 ], [ 32, %28 ]
+  %.tr113.be = phi i1 [ %.tr113126, %.lr.ph ], [ %.tr113126, %117 ], [ false, %34 ], [ false, %71 ], [ true, %78 ], [ false, %75 ], [ false, %103 ], [ %.tr113126, %.lr.ph ], [ %.tr113126, %.lr.ph ], [ %.tr113126, %.lr.ph ], [ %.tr113126, %.lr.ph ], [ false, %109 ], [ false, %114 ], [ false, %58 ], [ false, %42 ], [ false, %114 ], [ false, %114 ], [ false, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %.tr125, i64 %.sink
   %.tr.be = load ptr, ptr %32, align 8
   %33 = icmp eq ptr %.tr.be, null
@@ -1651,7 +1651,7 @@ tailrecurse.backedge:                             ; preds = %28, %.lr.ph, %117, 
   br i1 %or.cond190, label %tailrecurse.backedge, label %.critedge
 
 .critedge:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %113, %114, %104, %105, %109, %34, %28, %38, %54, %71, %68, %58, %52, %46, %117, %97, %86, %20, %2, %79, %.lr.ph144, %.preheader, %12, %8
-  %.0 = phi ptr [ %19, %12 ], [ null, %8 ], [ null, %.preheader ], [ null, %79 ], [ null, %.lr.ph144 ], [ null, %2 ], [ %25, %20 ], [ null, %97 ], [ %.9, %86 ], [ null, %117 ], [ null, %46 ], [ null, %52 ], [ null, %58 ], [ null, %68 ], [ null, %71 ], [ null, %54 ], [ null, %38 ], [ null, %28 ], [ null, %34 ], [ null, %109 ], [ null, %105 ], [ null, %104 ], [ null, %114 ], [ null, %113 ], [ null, %.lr.ph ], [ null, %tailrecurse.backedge ]
+  %.0 = phi ptr [ %19, %12 ], [ null, %2 ], [ null, %8 ], [ %.9, %86 ], [ null, %.preheader ], [ null, %79 ], [ %25, %20 ], [ null, %.lr.ph144 ], [ null, %97 ], [ null, %117 ], [ null, %46 ], [ null, %52 ], [ null, %58 ], [ null, %68 ], [ null, %71 ], [ null, %54 ], [ null, %38 ], [ null, %28 ], [ null, %34 ], [ null, %109 ], [ null, %105 ], [ null, %104 ], [ null, %114 ], [ null, %113 ], [ null, %.lr.ph ], [ null, %tailrecurse.backedge ]
   ret ptr %.0
 }
 
@@ -1770,7 +1770,7 @@ tailrecurse:                                      ; preds = %54
   br i1 %60, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %tailrecurse, %54, %.lr.ph, %46, %22, %26, %29, %32, %4, %8, %12, %15, %18, %1, %.preheader, %find_forced_null_var.exit
-  %.0 = phi ptr [ %42, %find_forced_null_var.exit ], [ null, %.preheader ], [ null, %1 ], [ null, %18 ], [ null, %15 ], [ null, %12 ], [ null, %8 ], [ null, %4 ], [ null, %32 ], [ null, %29 ], [ null, %26 ], [ null, %22 ], [ %51, %46 ], [ null, %.lr.ph ], [ null, %54 ], [ null, %tailrecurse ]
+  %.0 = phi ptr [ null, %1 ], [ %42, %find_forced_null_var.exit ], [ null, %.preheader ], [ null, %22 ], [ null, %29 ], [ null, %26 ], [ %51, %46 ], [ null, %18 ], [ null, %15 ], [ null, %12 ], [ null, %8 ], [ null, %4 ], [ null, %32 ], [ null, %.lr.ph ], [ null, %54 ], [ null, %tailrecurse ]
   ret ptr %.0
 }
 
@@ -1845,7 +1845,7 @@ define dso_local ptr @find_forced_null_var(ptr noundef readonly captures(address
   br label %37
 
 37:                                               ; preds = %3, %.thread, %.thread38, %33, %19, %1
-  %.0 = phi ptr [ null, %1 ], [ %15, %19 ], [ %29, %33 ], [ null, %.thread38 ], [ null, %.thread ], [ null, %3 ]
+  %.0 = phi ptr [ %15, %19 ], [ %29, %33 ], [ null, %1 ], [ null, %.thread38 ], [ null, %.thread ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -2193,7 +2193,7 @@ define internal ptr @eval_const_expressions_mutator(ptr noundef %0, ptr noundef 
   unreachable
 
 common.ret1269:                                   ; preds = %.thread856, %.split, %.critedge767, %723, %726, %.thread834, %705, %.split924, %.split957, %68, %978, %975, %973, %912, %924, %881, %884, %813, %.thread853, %793, %790, %._crit_edge.thread, %654, %618, %624, %.critedge765.thread.thread, %603, %564, %543, %.critedge763.thread, %476, %474, %471, %469, %466, %455, %392, %347, %374, %ece_function_is_safe.exit775.thread, %ece_function_is_safe.exit775, %303, %ece_function_is_safe.exit.thread, %ece_function_is_safe.exit, %._crit_edge951, %80, %983, %567, %562, %560, %454, %270, %205, %167, %2, %._crit_edge951.thread, %tailrecurse, %20, %20, %481, %401, %395, %375, %90
-  %common.ret1269.op = phi ptr [ %100, %90 ], [ %381, %375 ], [ %400, %395 ], [ %415, %401 ], [ %491, %481 ], [ %984, %983 ], [ %.3, %167 ], [ %.4, %205 ], [ %.5, %270 ], [ %.13, %454 ], [ %561, %560 ], [ %563, %562 ], [ %571, %567 ], [ %81, %80 ], [ %76, %68 ], [ %302, %ece_function_is_safe.exit.thread ], [ %290, %.split957 ], [ %272, %ece_function_is_safe.exit ], [ %272, %._crit_edge951 ], [ %317, %ece_function_is_safe.exit775.thread ], [ %304, %ece_function_is_safe.exit775 ], [ %304, %303 ], [ %.9, %347 ], [ %.11, %374 ], [ %391, %392 ], [ %480, %476 ], [ %456, %474 ], [ %456, %471 ], [ %456, %469 ], [ %456, %466 ], [ %456, %455 ], [ %544, %543 ], [ %541, %.critedge763.thread ], [ %565, %564 ], [ %602, %.critedge765.thread.thread ], [ %604, %603 ], [ %623, %618 ], [ %625, %624 ], [ %662, %654 ], [ %815, %813 ], [ %816, %.thread853 ], [ %786, %._crit_edge.thread ], [ %792, %790 ], [ %794, %793 ], [ %784, %.split ], [ %883, %881 ], [ %885, %884 ], [ %923, %912 ], [ %925, %924 ], [ %982, %978 ], [ %951, %975 ], [ %951, %973 ], [ %582, %.split924 ], [ %687, %705 ], [ %734, %.thread834 ], [ %709, %726 ], [ %709, %723 ], [ %709, %.critedge767 ], [ %951, %.thread856 ], [ null, %2 ], [ %272, %._crit_edge951.thread ], [ %.tr900, %20 ], [ %.tr900, %20 ], [ null, %tailrecurse ]
+  %common.ret1269.op = phi ptr [ %491, %481 ], [ %100, %90 ], [ %381, %375 ], [ %400, %395 ], [ %415, %401 ], [ %815, %813 ], [ %272, %._crit_edge951.thread ], [ null, %2 ], [ %792, %790 ], [ %786, %._crit_edge.thread ], [ %925, %924 ], [ %984, %983 ], [ %794, %793 ], [ %951, %.thread856 ], [ %.3, %167 ], [ %.4, %205 ], [ %.5, %270 ], [ %76, %68 ], [ %272, %._crit_edge951 ], [ %304, %303 ], [ %709, %.critedge767 ], [ %391, %392 ], [ %709, %726 ], [ %.13, %454 ], [ %883, %881 ], [ %951, %975 ], [ %456, %455 ], [ %561, %560 ], [ %563, %562 ], [ %541, %.critedge763.thread ], [ %571, %567 ], [ %565, %564 ], [ %951, %973 ], [ %625, %624 ], [ %582, %.split924 ], [ %784, %.split ], [ %885, %884 ], [ %982, %978 ], [ %81, %80 ], [ %290, %.split957 ], [ %302, %ece_function_is_safe.exit.thread ], [ %272, %ece_function_is_safe.exit ], [ %317, %ece_function_is_safe.exit775.thread ], [ %304, %ece_function_is_safe.exit775 ], [ %.9, %347 ], [ %.11, %374 ], [ %709, %723 ], [ %923, %912 ], [ %480, %476 ], [ %456, %474 ], [ %456, %471 ], [ %456, %469 ], [ %456, %466 ], [ %544, %543 ], [ %602, %.critedge765.thread.thread ], [ %604, %603 ], [ %623, %618 ], [ %662, %654 ], [ %687, %705 ], [ %734, %.thread834 ], [ %816, %.thread853 ], [ %.tr900, %20 ], [ %.tr900, %20 ], [ null, %tailrecurse ]
   ret ptr %common.ret1269.op
 
 90:                                               ; preds = %82
@@ -3316,7 +3316,7 @@ list_length.exit779:                              ; preds = %675
   %708 = icmp eq i32 %706, %707
   br i1 %708, label %common.ret1269, label %.critedge767
 
-.critedge767:                                     ; preds = %633, %637, %675, %682, %697, %701, %705, %671, %list_length.exit779, %626, %thread-pre-split
+.critedge767:                                     ; preds = %633, %637, %675, %682, %697, %701, %705, %list_length.exit779, %671, %626, %thread-pre-split
   %709 = tail call noundef ptr @palloc0(i64 noundef 32) #8
   store i32 25, ptr %709, align 4
   %710 = getelementptr inbounds nuw i8, ptr %709, i64 8
@@ -3627,7 +3627,7 @@ list_length.exit781:                              ; preds = %._crit_edge
   unreachable
 
 881:                                              ; preds = %861, %865, %853, %857, %845, %849, %836, %840, %873, %870
-  %.0658 = phi i8 [ %872, %870 ], [ %876, %873 ], [ 0, %836 ], [ %844, %840 ], [ 1, %845 ], [ %852, %849 ], [ 0, %853 ], [ %860, %857 ], [ 1, %861 ], [ %869, %865 ]
+  %.0658 = phi i8 [ %876, %873 ], [ %844, %840 ], [ %852, %849 ], [ %860, %857 ], [ %872, %870 ], [ 0, %836 ], [ 1, %845 ], [ 0, %853 ], [ 1, %861 ], [ %869, %865 ]
   %882 = trunc nuw i8 %.0658 to i1
   %883 = tail call ptr @makeBoolConst(i1 noundef zeroext %882, i1 noundef zeroext false) #8
   br label %common.ret1269
@@ -3913,12 +3913,12 @@ define internal zeroext i1 @convert_saop_to_hashed_saop_walker(ptr noundef %0, p
   store i32 %66, ptr %67, align 8
   br label %.critedge
 
-.critedge.thread:                                 ; preds = %50, %48, %46, %30, %28, %18, %15, %9
+.critedge.thread:                                 ; preds = %9, %50, %48, %46, %30, %28, %18, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %68
 
-.critedge:                                        ; preds = %63, %54, %34, %43
+.critedge:                                        ; preds = %54, %63, %34, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %70
@@ -3928,7 +3928,7 @@ define internal zeroext i1 @convert_saop_to_hashed_saop_walker(ptr noundef %0, p
   br label %70
 
 70:                                               ; preds = %.critedge, %2, %68
-  %.0 = phi i1 [ %69, %68 ], [ true, %.critedge ], [ false, %2 ]
+  %.0 = phi i1 [ true, %.critedge ], [ %69, %68 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -4755,7 +4755,7 @@ list_length.exit122:                              ; preds = %136
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %36, %11, %170, %183, %43, %contain_subplans.exit.thread125, %29, %contain_subplans.exit, %23, %16, %list_length.exit, %2, %.thread, %93
-  %.0 = phi ptr [ null, %93 ], [ null, %.thread ], [ null, %2 ], [ null, %list_length.exit ], [ null, %16 ], [ null, %23 ], [ null, %contain_subplans.exit ], [ null, %29 ], [ null, %contain_subplans.exit.thread125 ], [ null, %43 ], [ %178, %183 ], [ %178, %170 ], [ null, %11 ], [ null, %36 ]
+  %.0 = phi ptr [ null, %list_length.exit ], [ null, %2 ], [ null, %23 ], [ null, %29 ], [ null, %contain_subplans.exit.thread125 ], [ null, %93 ], [ null, %.thread ], [ null, %contain_subplans.exit ], [ null, %43 ], [ null, %16 ], [ %178, %183 ], [ %178, %170 ], [ null, %11 ], [ null, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4883,7 +4883,7 @@ define internal zeroext i1 @pull_paramids_walker(ptr noundef %0, ptr noundef %1)
   br label %14
 
 14:                                               ; preds = %2, %12, %7
-  %.0 = phi i1 [ false, %7 ], [ %13, %12 ], [ false, %2 ]
+  %.0 = phi i1 [ %13, %12 ], [ false, %7 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -5177,7 +5177,7 @@ define internal fastcc ptr @simplify_function(i32 noundef %0, i32 noundef %1, i3
   br label %evaluate_function.exit
 
 evaluate_function.exit:                           ; preds = %36, %41, %64, %66, %70, %75
-  %.0.i = phi ptr [ %65, %64 ], [ %86, %75 ], [ null, %36 ], [ null, %41 ], [ null, %66 ], [ null, %70 ]
+  %.0.i = phi ptr [ null, %66 ], [ null, %36 ], [ %65, %64 ], [ null, %41 ], [ %86, %75 ], [ null, %70 ]
   %87 = icmp eq ptr %.0.i, null
   %or.cond = and i1 %8, %87
   br i1 %or.cond, label %88, label %111
@@ -5681,7 +5681,7 @@ contain_subplans.exit.thread71:                   ; preds = %337, %contain_subpl
   %348 = fcmp ogt double %345, %347
   br i1 %348, label %.thread74, label %349
 
-.thread74:                                        ; preds = %339, %contain_subplans.exit.thread71, %contain_subplans.exit
+.thread74:                                        ; preds = %339, %contain_subplans.exit, %contain_subplans.exit.thread71
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread
 
@@ -5759,7 +5759,7 @@ inline_function.exit.sink.split:                  ; preds = %.thread, %366
   br label %inline_function.exit
 
 inline_function.exit:                             ; preds = %inline_function.exit.sink.split, %113, %120, %123, %127, %131, %135, %list_length.exit64, %145, %149, %154
-  %.0.i54 = phi ptr [ null, %list_length.exit64 ], [ null, %135 ], [ null, %131 ], [ null, %127 ], [ null, %123 ], [ null, %120 ], [ null, %113 ], [ null, %145 ], [ null, %149 ], [ null, %154 ], [ %.0.i54.ph, %inline_function.exit.sink.split ]
+  %.0.i54 = phi ptr [ null, %154 ], [ null, %113 ], [ null, %145 ], [ null, %149 ], [ null, %127 ], [ null, %120 ], [ null, %123 ], [ null, %list_length.exit64 ], [ null, %135 ], [ null, %131 ], [ %.0.i54.ph, %inline_function.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -5820,12 +5820,12 @@ define internal fastcc ptr @simplify_boolean_equality(i32 noundef %0, ptr %.16.v
   br i1 %.not4, label %22, label %.sink.split
 
 .sink.split:                                      ; preds = %20, %19, %10, %9
-  %.16.val.0.val.sink = phi ptr [ %.16.val.8.val, %9 ], [ %.16.val.8.val, %10 ], [ %.16.val.0.val, %19 ], [ %.16.val.0.val, %20 ]
+  %.16.val.0.val.sink = phi ptr [ %.16.val.0.val, %19 ], [ %.16.val.8.val, %10 ], [ %.16.val.8.val, %9 ], [ %.16.val.0.val, %20 ]
   %21 = tail call ptr @negate_clause(ptr noundef %.16.val.0.val.sink) #8
   br label %22
 
 22:                                               ; preds = %.sink.split, %11, %12, %20, %19, %10, %9
-  %.0 = phi ptr [ %.16.val.8.val, %9 ], [ %.16.val.8.val, %10 ], [ %.16.val.0.val, %19 ], [ %.16.val.0.val, %20 ], [ null, %12 ], [ null, %11 ], [ %21, %.sink.split ]
+  %.0 = phi ptr [ %.16.val.0.val, %20 ], [ null, %11 ], [ %.16.val.0.val, %19 ], [ %.16.val.8.val, %9 ], [ %.16.val.8.val, %10 ], [ null, %12 ], [ %21, %.sink.split ]
   ret ptr %.0
 }
 
@@ -5853,7 +5853,7 @@ define internal zeroext i1 @contain_non_const_walker(ptr noundef %0, ptr noundef
   br label %9
 
 9:                                                ; preds = %4, %2, %8, %6
-  %.0 = phi i1 [ %7, %6 ], [ true, %8 ], [ false, %2 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %8 ], [ false, %2 ], [ %7, %6 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -6118,12 +6118,12 @@ define internal fastcc noundef zeroext i1 @rowtype_field_matches(i32 noundef %0,
   br i1 %41, label %.sink.split, label %42
 
 .sink.split:                                      ; preds = %38, %34, %13
-  %.0.ph = phi i1 [ false, %13 ], [ false, %34 ], [ true, %38 ]
+  %.0.ph = phi i1 [ false, %34 ], [ false, %13 ], [ true, %38 ]
   tail call void @DecrTupleDescRefCount(ptr noundef nonnull %8) #8
   br label %42
 
 42:                                               ; preds = %.sink.split, %38, %34, %13, %5
-  %.0 = phi i1 [ true, %5 ], [ false, %13 ], [ false, %34 ], [ true, %38 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i1 [ false, %34 ], [ true, %5 ], [ false, %13 ], [ true, %38 ], [ %.0.ph, %.sink.split ]
   ret i1 %.0
 }
 
@@ -6189,7 +6189,7 @@ define internal zeroext i1 @contain_context_dependent_node_walker(ptr noundef %0
   br i1 %19, label %common.ret32, label %20
 
 common.ret32:                                     ; preds = %12, %16, %2, %.thread, %6, %20
-  %common.ret32.op = phi i1 [ %25, %20 ], [ %.not30, %6 ], [ %26, %.thread ], [ %15, %12 ], [ false, %2 ], [ true, %16 ]
+  %common.ret32.op = phi i1 [ %25, %20 ], [ true, %16 ], [ false, %2 ], [ %.not30, %6 ], [ %26, %.thread ], [ %15, %12 ]
   ret i1 %common.ret32.op
 
 20:                                               ; preds = %16
@@ -6273,7 +6273,7 @@ define internal ptr @substitute_actual_parameters_mutator(ptr noundef %0, ptr no
   br label %43
 
 43:                                               ; preds = %2, %41, %25
-  %.0 = phi ptr [ %40, %25 ], [ %42, %41 ], [ null, %2 ]
+  %.0 = phi ptr [ %42, %41 ], [ %40, %25 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -6374,7 +6374,7 @@ define internal ptr @substitute_actual_srf_parameters_mutator(ptr noundef %0, pt
   br label %39
 
 39:                                               ; preds = %.thread, %2, %37, %6
-  %.0 = phi ptr [ %10, %6 ], [ %38, %37 ], [ null, %2 ], [ %34, %.thread ]
+  %.0 = phi ptr [ %34, %.thread ], [ %10, %6 ], [ %38, %37 ], [ null, %2 ]
   ret ptr %.0
 }
 

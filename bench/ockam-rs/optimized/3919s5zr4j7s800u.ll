@@ -1967,7 +1967,7 @@ define void @_ZN11hello_ockam7project9read_json17h160c2d660bf1611aE(ptr noalias 
   br label %.body
 
 .body:                                            ; preds = %53, %37, %30
-  %eh.lpad-body = phi { ptr, i32 } [ %31, %30 ], [ %38, %37 ], [ %.pn.i.i, %53 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %38, %37 ], [ %31, %30 ], [ %.pn.i.i, %53 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd95875f610674446E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #24
           to label %93 unwind label %103
 

@@ -1160,7 +1160,7 @@ _ZZN8nanobind16cpp_function_defI4TestiS1_JiEJNS_5scopeENS_4nameENS_9is_methodEEE
   unreachable
 
 _ZZN8nanobind6detail11func_createILb0ELb1EZNS_16cpp_function_defI4TestiS3_JiEJNS_5scopeENS_4nameENS_9is_methodEEEEvMT1_KFT0_DpT2_EDpRKT3_EUlPKS3_iE_iJSI_iEJLm0ELm1EEJS4_S5_S6_EEEP7_objectOS7_PFT2_DpSD_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSL_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESX_SY_SZ_S10_S12_.exit: ; preds = %_ZZN8nanobind16cpp_function_defI4TestiS1_JiEJNS_5scopeENS_4nameENS_9is_methodEEEEvMT1_KFT0_DpT2_EDpRKT3_ENKUlPKS1_iE_clESG_i.exit, %5, %11
-  %.0.i = phi ptr [ inttoptr (i64 1 to ptr), %11 ], [ inttoptr (i64 1 to ptr), %5 ], [ %32, %_ZZN8nanobind16cpp_function_defI4TestiS1_JiEJNS_5scopeENS_4nameENS_9is_methodEEEEvMT1_KFT0_DpT2_EDpRKT3_ENKUlPKS1_iE_clESG_i.exit ]
+  %.0.i = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ inttoptr (i64 1 to ptr), %11 ], [ %32, %_ZZN8nanobind16cpp_function_defI4TestiS1_JiEJNS_5scopeENS_4nameENS_9is_methodEEEEvMT1_KFT0_DpT2_EDpRKT3_ENKUlPKS1_iE_clESG_i.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
 }

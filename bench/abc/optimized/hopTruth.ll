@@ -224,7 +224,7 @@ Vec_IntFetch.exit.thread:                         ; preds = %8
   br i1 %exitcond117.not, label %.loopexit, label %.lr.ph98, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph102, %.lr.ph98, %.lr.ph, %.lr.ph96, %.lr.ph100, %Vec_IntFetch.exit.thread, %.preheader92, %.preheader90, %.thread86, %.preheader87, %.preheader
-  %.0.i132 = phi ptr [ %.0.i133, %.preheader92 ], [ %.0.i133, %.preheader90 ], [ %.0.i133, %.thread86 ], [ %.0.i133, %.preheader87 ], [ %.0.i, %.preheader ], [ null, %Vec_IntFetch.exit.thread ], [ %.0.i133, %.lr.ph100 ], [ %.0.i133, %.lr.ph96 ], [ %.0.i133, %.lr.ph ], [ %.0.i133, %.lr.ph98 ], [ %.0.i, %.lr.ph102 ]
+  %.0.i132 = phi ptr [ %.0.i133, %.lr.ph98 ], [ %.0.i133, %.lr.ph96 ], [ null, %Vec_IntFetch.exit.thread ], [ %.0.i133, %.lr.ph ], [ %.0.i133, %.lr.ph100 ], [ %.0.i133, %.preheader92 ], [ %.0.i133, %.preheader90 ], [ %.0.i133, %.thread86 ], [ %.0.i133, %.preheader87 ], [ %.0.i, %.preheader ], [ %.0.i, %.lr.ph102 ]
   %77 = load i32, ptr %4, align 8
   %78 = and i32 %77, -17
   store i32 %78, ptr %4, align 8
@@ -322,9 +322,9 @@ Vec_PtrAllocSimInfo.exit.split.us.split.us.i:     ; preds = %..loopexit27_crit_e
   br label %27
 
 Vec_PtrAllocTruthTables.exit:                     ; preds = %..loopexit27_crit_edge.us.us.i, %5, %Vec_PtrAllocSimInfo.exit.i
-  %.pre-phi114 = phi i32 [ -2147483648, %Vec_PtrAllocSimInfo.exit.i ], [ %8, %5 ], [ %8, %..loopexit27_crit_edge.us.us.i ]
-  %.pre-phi = phi i32 [ 31, %Vec_PtrAllocSimInfo.exit.i ], [ %7, %5 ], [ %7, %..loopexit27_crit_edge.us.us.i ]
-  %.0 = phi ptr [ %21, %Vec_PtrAllocSimInfo.exit.i ], [ null, %5 ], [ %21, %..loopexit27_crit_edge.us.us.i ]
+  %.pre-phi114 = phi i32 [ %8, %5 ], [ -2147483648, %Vec_PtrAllocSimInfo.exit.i ], [ %8, %..loopexit27_crit_edge.us.us.i ]
+  %.pre-phi = phi i32 [ %7, %5 ], [ 31, %Vec_PtrAllocSimInfo.exit.i ], [ %7, %..loopexit27_crit_edge.us.us.i ]
+  %.0 = phi ptr [ null, %5 ], [ %21, %Vec_PtrAllocSimInfo.exit.i ], [ %21, %..loopexit27_crit_edge.us.us.i ]
   %38 = ptrtoint ptr %1 to i64
   %39 = and i64 %38, -2
   %40 = inttoptr i64 %39 to ptr

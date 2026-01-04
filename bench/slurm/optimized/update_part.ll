@@ -700,7 +700,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge511
 
 .critedge:                                        ; preds = %329, %321, %315, %310, %330, %322
-  %.sink = phi i16 [ %334, %330 ], [ %325, %322 ], [ 1, %310 ], [ 0, %315 ], [ 4, %321 ], [ -32764, %329 ]
+  %.sink = phi i16 [ 1, %310 ], [ 4, %321 ], [ %334, %330 ], [ %325, %322 ], [ 0, %315 ], [ -32764, %329 ]
   store i16 %.sink, ptr %30, align 4
   br label %.critedge512
 
@@ -875,7 +875,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge511
 
 420:                                              ; preds = %413, %411, %409, %405
-  %.sink748 = phi i16 [ 0, %405 ], [ 1, %409 ], [ 3, %411 ], [ 2, %413 ]
+  %.sink748 = phi i16 [ 0, %405 ], [ 3, %411 ], [ 1, %409 ], [ 2, %413 ]
   store i16 %.sink748, ptr %24, align 2
   br label %.critedge512
 
@@ -1090,7 +1090,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br i1 %exitcond.not, label %.critedge511, label %41, !llvm.loop !8
 
 .critedge511:                                     ; preds = %.critedge512, %.preheader, %96, %74, %62, %85, %112, %123, %157, %177, %195, %213, %232, %251, %272, %291, %352, %362, %387, %395, %401, %415, %454, %462, %471, %477, %486, %497, %335, %379, %376, %39, %7
-  %.0 = phi i32 [ -1, %39 ], [ -1, %7 ], [ -1, %376 ], [ -1, %379 ], [ -1, %335 ], [ -1, %74 ], [ -1, %96 ], [ -1, %497 ], [ -1, %486 ], [ -1, %477 ], [ -1, %471 ], [ -1, %462 ], [ -1, %454 ], [ -1, %415 ], [ -1, %401 ], [ -1, %395 ], [ -1, %387 ], [ -1, %362 ], [ -1, %352 ], [ -1, %291 ], [ -1, %272 ], [ -1, %251 ], [ -1, %232 ], [ -1, %213 ], [ -1, %195 ], [ -1, %177 ], [ -1, %157 ], [ -1, %123 ], [ -1, %112 ], [ -1, %85 ], [ -1, %62 ], [ 0, %.preheader ], [ 0, %.critedge512 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %62 ], [ -1, %39 ], [ -1, %376 ], [ -1, %379 ], [ -1, %335 ], [ -1, %74 ], [ -1, %96 ], [ -1, %497 ], [ -1, %486 ], [ -1, %477 ], [ -1, %471 ], [ -1, %462 ], [ -1, %454 ], [ -1, %415 ], [ -1, %401 ], [ -1, %395 ], [ -1, %387 ], [ -1, %362 ], [ -1, %352 ], [ -1, %291 ], [ -1, %272 ], [ -1, %251 ], [ -1, %232 ], [ -1, %213 ], [ -1, %195 ], [ -1, %177 ], [ -1, %157 ], [ -1, %123 ], [ -1, %112 ], [ -1, %85 ], [ 0, %.preheader ], [ 0, %.critedge512 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1174,7 +1174,7 @@ define dso_local i32 @scontrol_update_part(i32 noundef %0, ptr noundef readonly 
   br label %22
 
 22:                                               ; preds = %17, %2, %19, %15, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %15 ], [ %21, %19 ], [ -1, %2 ], [ 0, %17 ]
+  %.0 = phi i32 [ -1, %2 ], [ 0, %10 ], [ 0, %15 ], [ %21, %19 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -1243,7 +1243,7 @@ define dso_local i32 @scontrol_create_part(i32 noundef %0, ptr noundef readonly 
   br label %27
 
 27:                                               ; preds = %22, %2, %24, %20, %15, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %15 ], [ 0, %20 ], [ %26, %24 ], [ -1, %2 ], [ 0, %22 ]
+  %.0 = phi i32 [ -1, %2 ], [ 0, %10 ], [ 0, %15 ], [ 0, %20 ], [ %26, %24 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

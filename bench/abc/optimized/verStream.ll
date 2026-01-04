@@ -653,7 +653,7 @@ define ptr @Ver_StreamGetWord(ptr noundef captures(ret: address, provenance) %0,
   br label %86
 
 86:                                               ; preds = %2, %83, %80, %69, %62
-  %.035 = phi ptr [ null, %62 ], [ %48, %69 ], [ %81, %80 ], [ null, %83 ], [ null, %2 ]
+  %.035 = phi ptr [ null, %83 ], [ null, %62 ], [ %48, %69 ], [ %81, %80 ], [ null, %2 ]
   ret ptr %.035
 }
 

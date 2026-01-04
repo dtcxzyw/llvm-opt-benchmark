@@ -384,8 +384,8 @@ binary_search.exit.thread.i:                      ; preds = %125, %139, %binary_
   br label %157
 
 157:                                              ; preds = %154, %152, %binary_search.exit.thread.i, %.lr.ph.i
-  %.142.i = phi i32 [ %.04161.i, %binary_search.exit.thread.i ], [ %153, %152 ], [ %.04161.i, %.lr.ph.i ], [ %spec.select.i, %154 ]
-  %.1.i = phi i32 [ %.062.i, %binary_search.exit.thread.i ], [ %145, %152 ], [ %.062.i, %.lr.ph.i ], [ %.062.i, %154 ]
+  %.142.i = phi i32 [ %spec.select.i, %154 ], [ %.04161.i, %binary_search.exit.thread.i ], [ %153, %152 ], [ %.04161.i, %.lr.ph.i ]
+  %.1.i = phi i32 [ %.062.i, %154 ], [ %.062.i, %binary_search.exit.thread.i ], [ %145, %152 ], [ %.062.i, %.lr.ph.i ]
   %158 = getelementptr inbounds nuw i8, ptr %.03963.i, i64 24
   %.039.i = load ptr, ptr %158, align 8, !tbaa !49
   %.not50.i = icmp eq ptr %.039.i, null
@@ -589,7 +589,7 @@ binary_search.exit.thread.i:                      ; preds = %125, %139, %binary_
   %249 = add i32 %248, 1
   br label %173
 
-250:                                              ; preds = %122, %._crit_edge.i
+250:                                              ; preds = %._crit_edge.i, %122
   tail call void @free(ptr noundef %121) #6
   %.val51.val = load i64, ptr %0, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -606,12 +606,12 @@ walk_common_sequence.exit.loopexit.split.loop.exit: ; preds = %.critedge2.i.thre
   br label %walk_common_sequence.exit
 
 walk_common_sequence.exit:                        ; preds = %226, %walk_common_sequence.exit.loopexit.split.loop.exit, %.thread, %118, %250
-  %.0 = phi i32 [ %253, %250 ], [ -1, %118 ], [ -1, %.thread ], [ %.mux.i.le, %walk_common_sequence.exit.loopexit.split.loop.exit ], [ 0, %226 ]
+  %.0 = phi i32 [ -1, %118 ], [ %253, %250 ], [ -1, %.thread ], [ %.mux.i.le, %walk_common_sequence.exit.loopexit.split.loop.exit ], [ 0, %226 ]
   call void @free(ptr noundef %26) #6
   br label %fill_hashmap.exit
 
 fill_hashmap.exit:                                ; preds = %18, %10, %.preheader, %23, %walk_common_sequence.exit, %116
-  %.037 = phi i32 [ %.0, %walk_common_sequence.exit ], [ 0, %116 ], [ -1, %23 ], [ 0, %.preheader ], [ 0, %10 ], [ 0, %18 ]
+  %.037 = phi i32 [ 0, %.preheader ], [ %.0, %walk_common_sequence.exit ], [ 0, %116 ], [ -1, %23 ], [ 0, %10 ], [ 0, %18 ]
   ret i32 %.037
 }
 

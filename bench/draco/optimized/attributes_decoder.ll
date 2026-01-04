@@ -383,7 +383,7 @@ _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit60: ;
   resume { ptr, i32 } %.pn
 
 .critedge47:                                      ; preds = %72, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit57, %79, %59, %63, %68, %.critedge54, %13, %.critedge, %27, %24, %22
-  %.033 = phi i1 [ false, %22 ], [ false, %24 ], [ false, %27 ], [ false, %.critedge ], [ false, %13 ], [ false, %72 ], [ false, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit57 ], [ false, %79 ], [ false, %59 ], [ false, %63 ], [ false, %68 ], [ true, %.critedge54 ]
+  %.033 = phi i1 [ false, %22 ], [ false, %24 ], [ false, %27 ], [ false, %.critedge ], [ false, %13 ], [ false, %72 ], [ false, %79 ], [ false, %59 ], [ false, %63 ], [ false, %68 ], [ false, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit57 ], [ true, %.critedge54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.033
 }
@@ -471,7 +471,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17AttributesDecoder16DecodeAttr
   br label %17
 
 17:                                               ; preds = %12, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %16, %12 ]
+  %.0 = phi i1 [ false, %7 ], [ %16, %12 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -615,7 +615,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !39
   br label %41
 

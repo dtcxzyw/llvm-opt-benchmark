@@ -422,7 +422,7 @@ _ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exi
   br label %30
 
 30:                                               ; preds = %_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exit6, %_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exit, %26
-  %.0 = phi ptr [ %29, %26 ], [ null, %_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exit ], [ null, %_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exit6 ]
+  %.0 = phi ptr [ null, %_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exit ], [ %29, %26 ], [ null, %_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exit6 ]
   ret ptr %.0
 
 31:                                               ; preds = %24

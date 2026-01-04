@@ -380,7 +380,7 @@ define dso_local void @_ZN5clang8comments4Sema18checkContainerDeclEPKNS0_19Block
   br label %31
 
 31:                                               ; preds = %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %17
-  %.0 = phi i64 [ 1, %21 ], [ 2, %22 ], [ 3, %23 ], [ 4, %24 ], [ 5, %25 ], [ 6, %26 ], [ 7, %27 ], [ 8, %28 ], [ 9, %29 ], [ 10, %30 ], [ 0, %17 ]
+  %.0 = phi i64 [ 0, %17 ], [ 10, %30 ], [ 1, %21 ], [ 2, %22 ], [ 3, %23 ], [ 4, %24 ], [ 5, %25 ], [ 6, %26 ], [ 7, %27 ], [ 8, %28 ], [ 9, %29 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 4, !tbaa !60
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1654,7 +1654,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %38
   br label %63
 
 63:                                               ; preds = %57, %52, %62
-  %.0 = phi i64 [ 2, %62 ], [ 1, %52 ], [ %61, %57 ]
+  %.0 = phi i64 [ 1, %52 ], [ 2, %62 ], [ %61, %57 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 4, !tbaa !60
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3289,8 +3289,8 @@ _ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39: ; preds = %104
   %.not103 = icmp eq i32 %116, 69
   br i1 %.not103, label %.thread, label %.thread90
 
-.thread90:                                        ; preds = %44, %19, %40, %92, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i34, %104, %73, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i27, %85, %65, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit, %_ZN5clang8comments4Sema22isFunctionTemplateDeclEv.exit24, %111, %113
-  %.093 = phi i64 [ 0, %113 ], [ 3, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39 ], [ 2, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit ], [ 1, %_ZN5clang8comments4Sema22isFunctionTemplateDeclEv.exit24 ], [ 4, %111 ], [ 1, %65 ], [ 2, %85 ], [ 2, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i27 ], [ 2, %73 ], [ 3, %104 ], [ 3, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i34 ], [ 3, %92 ], [ 0, %40 ], [ 0, %19 ], [ 1, %44 ]
+.thread90:                                        ; preds = %44, %19, %40, %92, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i34, %104, %73, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i27, %85, %65, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39, %111, %_ZN5clang8comments4Sema22isFunctionTemplateDeclEv.exit24, %113
+  %.093 = phi i64 [ 3, %92 ], [ 0, %113 ], [ 2, %73 ], [ 2, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit ], [ 3, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39 ], [ 0, %19 ], [ 1, %_ZN5clang8comments4Sema22isFunctionTemplateDeclEv.exit24 ], [ 4, %111 ], [ 0, %40 ], [ 1, %65 ], [ 2, %85 ], [ 2, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i27 ], [ 3, %104 ], [ 3, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i34 ], [ 1, %44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 4, !tbaa !60
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3493,7 +3493,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
-.thread:                                          ; preds = %111, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit, %_ZN5clang8comments4Sema22isFunctionTemplateDeclEv.exit24, %15, %_ZN5clang8comments4Sema17isAnyFunctionDeclEv.exit18, %_ZN5clang8comments4Sema17isAnyFunctionDeclEv.exit, %113, %_ZN5clang17DiagnosticBuilderD2Ev.exit, %2
+.thread:                                          ; preds = %111, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit, %_ZN5clang8comments4Sema22isFunctionTemplateDeclEv.exit24, %_ZN5clang8comments4Sema17isAnyFunctionDeclEv.exit18, %_ZN5clang8comments4Sema17isAnyFunctionDeclEv.exit, %15, %113, %_ZN5clang17DiagnosticBuilderD2Ev.exit, %2
   ret void
 }
 
@@ -3718,7 +3718,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread8.i: ; preds = %_ZNK5c
   br label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit
 
 _ZNK5clang4Type21isFunctionPointerTypeEv.exit:    ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread8.i, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %29, %9, %17, %14, %1
-  %.04 = phi i1 [ false, %1 ], [ false, %14 ], [ false, %17 ], [ false, %9 ], [ false, %29 ], [ false, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread8.i ]
+  %.04 = phi i1 [ false, %1 ], [ false, %9 ], [ false, %14 ], [ false, %17 ], [ false, %29 ], [ false, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread8.i ]
   ret i1 %.04
 }
 
@@ -3931,7 +3931,7 @@ _ZN5clang8comments4Sema11isUnionDeclEv.exit:      ; preds = %98
   br i1 %105, label %.thread, label %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit.thread
 
 _ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit.thread: ; preds = %21, %94, %98, %86, %76, %68, %60, %52, %44, %.thread73, %84, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit23, %_ZN5clang8comments4Sema18isObjCProtocolDeclEv.exit, %_ZN5clang8comments4Sema11isUnionDeclEv.exit
-  %.0.ph = phi i64 [ 4, %_ZN5clang8comments4Sema11isUnionDeclEv.exit ], [ 2, %_ZN5clang8comments4Sema18isObjCProtocolDeclEv.exit ], [ 1, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit23 ], [ 0, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit ], [ 3, %84 ], [ 0, %.thread73 ], [ 0, %44 ], [ 1, %52 ], [ 1, %60 ], [ 2, %68 ], [ 2, %76 ], [ 4, %86 ], [ 4, %98 ], [ 4, %94 ], [ 0, %21 ]
+  %.0.ph = phi i64 [ 2, %76 ], [ 4, %_ZN5clang8comments4Sema11isUnionDeclEv.exit ], [ 2, %_ZN5clang8comments4Sema18isObjCProtocolDeclEv.exit ], [ 1, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit23 ], [ 0, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit ], [ 3, %84 ], [ 0, %44 ], [ 1, %60 ], [ 0, %.thread73 ], [ 4, %94 ], [ 1, %52 ], [ 2, %68 ], [ 4, %86 ], [ 4, %98 ], [ 0, %21 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 4, !tbaa !60
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4241,7 +4241,7 @@ _ZNK5clang8QualType16getTypePtrOrNullEv.exit:     ; preds = %32
   br label %_ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit45
 
 _ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit45: ; preds = %32, %47, %42, %40, %_ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit.thread, %21, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit, %37, %_ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit, %9, %1
-  %.020 = phi i1 [ false, %1 ], [ false, %9 ], [ true, %_ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit ], [ %50, %47 ], [ false, %42 ], [ false, %40 ], [ false, %_ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit.thread ], [ false, %21 ], [ false, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit ], [ false, %37 ], [ false, %32 ]
+  %.020 = phi i1 [ false, %9 ], [ true, %_ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit ], [ false, %1 ], [ false, %40 ], [ %50, %47 ], [ false, %42 ], [ false, %_ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit.thread ], [ false, %21 ], [ false, %37 ], [ false, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit ], [ false, %32 ]
   ret i1 %.020
 }
 
@@ -4546,7 +4546,7 @@ _ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit.thread: ; preds = %_ZN5clang
   br label %_ZN5clang8comments4Sema18isObjCProtocolDeclEv.exit
 
 _ZN5clang8comments4Sema18isObjCProtocolDeclEv.exit: ; preds = %8, %54, %52, %_ZN5clang8comments4Sema11isUnionDeclEv.exit, %_ZN5clang8comments4Sema19isClassOrStructDeclEv.exit, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit ], [ true, %_ZN5clang8comments4Sema19isClassOrStructDeclEv.exit ], [ true, %_ZN5clang8comments4Sema11isUnionDeclEv.exit ], [ false, %52 ], [ %58, %54 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %_ZN5clang8comments4Sema19isObjCInterfaceDeclEv.exit ], [ true, %_ZN5clang8comments4Sema19isClassOrStructDeclEv.exit ], [ true, %_ZN5clang8comments4Sema11isUnionDeclEv.exit ], [ false, %8 ], [ false, %52 ], [ %58, %54 ]
   ret i1 %.0
 }
 
@@ -4593,7 +4593,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i.i:      ; preds = %_ZN4llvmeqENS_9Stri
   %21 = icmp eq i32 %bcmp.i.i15.i.i.i, 0
   br i1 %21, label %_ZN5clang8commentsL21getParamPassDirectionEN4llvm9StringRefE.exit, label %_ZN5clang8commentsL21getParamPassDirectionEN4llvm9StringRefE.exit.thread.thread
 
-_ZN5clang8commentsL21getParamPassDirectionEN4llvm9StringRefE.exit.thread.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i.i
+_ZN5clang8commentsL21getParamPassDirectionEN4llvm9StringRefE.exit.thread.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 %17
   %23 = ptrtoint ptr %22 to i64
   %24 = lshr i64 %17, 2
@@ -4724,8 +4724,8 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i.loopexit.split.loop.exit108, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i.loopexit.split.loop.exit110, %82, %74, %66
-  %91 = phi ptr [ %64, %66 ], [ %64, %74 ], [ %64, %82 ], [ %31, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i.loopexit.split.loop.exit110 ], [ %31, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i.loopexit.split.loop.exit108 ], [ %31, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %31, %.lr.ph.i.i.i.i.i.i ]
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %66 ], [ %.sroa.032.1.i.i.i.i.i.i, %74 ], [ %spec.select.i.i.i.i.i.i, %82 ], [ %90, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i.loopexit.split.loop.exit110 ], [ %89, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i.loopexit.split.loop.exit108 ], [ %88, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %91 = phi ptr [ %64, %74 ], [ %64, %82 ], [ %64, %66 ], [ %31, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %31, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i.loopexit.split.loop.exit110 ], [ %31, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i.loopexit.split.loop.exit108 ], [ %31, %.lr.ph.i.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i.i.i, %74 ], [ %spec.select.i.i.i.i.i.i, %82 ], [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %66 ], [ %88, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %90, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i.loopexit.split.loop.exit110 ], [ %89, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i.loopexit.split.loop.exit108 ], [ %.sroa.032.051.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %92 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %91
   %.sroa.07.026.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, i64 1
   %.not27.i.i.i.i = icmp eq ptr %.sroa.07.026.i.i.i.i, %91
@@ -4759,8 +4759,8 @@ _ZN4llvm8erase_ifINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFbhEEEvRT
   br label %_ZN4llvm8erase_ifINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFbhEEEvRT_T0_.exit
 
 _ZN4llvm8erase_ifINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFbhEEEvRT_T0_.exit: ; preds = %_ZN4llvm8erase_ifINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFbhEEEvRT_T0_.exit.loopexit, %._crit_edge.i.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i
-  %101 = phi ptr [ %15, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i ], [ %15, %._crit_edge.i.i.i.i.i.i ], [ %.pre, %_ZN4llvm8erase_ifINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFbhEEEvRT_T0_.exit.loopexit ]
-  %.sroa.013.0.i.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i ], [ %64, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.013.2.i.i.i.i, %_ZN4llvm8erase_ifINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFbhEEEvRT_T0_.exit.loopexit ]
+  %101 = phi ptr [ %15, %._crit_edge.i.i.i.i.i.i ], [ %15, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i ], [ %.pre, %_ZN4llvm8erase_ifINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFbhEEEvRT_T0_.exit.loopexit ]
+  %.sroa.013.0.i.i.i.i = phi ptr [ %64, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIPFbhEEEET_SF_SF_T0_.exit.i.i.i.i ], [ %.sroa.013.2.i.i.i.i, %_ZN4llvm8erase_ifINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFbhEEEvRT_T0_.exit.loopexit ]
   %102 = ptrtoint ptr %.sroa.013.0.i.i.i.i to i64
   %103 = ptrtoint ptr %101 to i64
   %104 = sub i64 %102, %103
@@ -4796,7 +4796,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i.i18:    ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %111, label %_ZN5clang8commentsL21getParamPassDirectionEN4llvm9StringRefE.exit31, label %_ZN5clang8commentsL21getParamPassDirectionEN4llvm9StringRefE.exit31.thread
 
 _ZN5clang8commentsL21getParamPassDirectionEN4llvm9StringRefE.exit31: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7.i25, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i29, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i.i18, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i16
-  %.sroa.10.2.i20 = phi i32 [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7.i25 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i29 ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i.i18 ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i16 ]
+  %.sroa.10.2.i20 = phi i32 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i29 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7.i25 ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i.i18 ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i16 ]
   %112 = call noundef ptr @_ZN5clang8comments19ParamCommandComment20getDirectionAsStringENS0_25ParamCommandPassDirectionE(i32 noundef %.sroa.10.2.i20) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4888,7 +4888,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   %145 = shl nuw nsw i32 %.sroa.10.2.i20, 29
   br label %_ZN5clang8commentsL21getParamPassDirectionEN4llvm9StringRefE.exit
 
-_ZN5clang8commentsL21getParamPassDirectionEN4llvm9StringRefE.exit31.thread: ; preds = %_ZN4llvm8erase_ifINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFbhEEEvRT_T0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i29, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7.i25, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i.i18
+_ZN5clang8commentsL21getParamPassDirectionEN4llvm9StringRefE.exit31.thread: ; preds = %_ZN4llvm8erase_ifINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFbhEEEvRT_T0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7.i25, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i29, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i.i18
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %147 = load ptr, ptr %146, align 8, !tbaa !67, !noalias !186
@@ -4953,7 +4953,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit44:          ; preds = %_ZNSt7__cxx1112basi
   br label %_ZN5clang8commentsL21getParamPassDirectionEN4llvm9StringRefE.exit
 
 _ZN5clang8commentsL21getParamPassDirectionEN4llvm9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i, %_ZN5clang17DiagnosticBuilderD2Ev.exit, %_ZN5clang17DiagnosticBuilderD2Ev.exit44
-  %.0 = phi i32 [ %145, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ 0, %_ZN5clang17DiagnosticBuilderD2Ev.exit44 ], [ 536870912, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 1073741824, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i.i ], [ 1073741824, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i ]
+  %.0 = phi i32 [ 0, %_ZN5clang17DiagnosticBuilderD2Ev.exit44 ], [ %145, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 536870912, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7.i ], [ 1073741824, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i.i ], [ 1073741824, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i ]
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %170 = load i32, ptr %169, align 4
   %171 = and i32 %170, 536870911
@@ -5835,8 +5835,8 @@ _ZN5clang8comments4Sema28correctTypoInTParamReferenceEN4llvm9StringRefEPKNS_21Te
   br label %209
 
 209:                                              ; preds = %178, %_ZN5clang8comments4Sema28correctTypoInTParamReferenceEN4llvm9StringRefEPKNS_21TemplateParameterListE.exit
-  %.sroa.0.0 = phi ptr [ %182, %178 ], [ %.sroa.0.0.i, %_ZN5clang8comments4Sema28correctTypoInTParamReferenceEN4llvm9StringRefEPKNS_21TemplateParameterListE.exit ]
-  %.sroa.7.0 = phi i64 [ %184, %178 ], [ %.sroa.4.0.i, %_ZN5clang8comments4Sema28correctTypoInTParamReferenceEN4llvm9StringRefEPKNS_21TemplateParameterListE.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i, %_ZN5clang8comments4Sema28correctTypoInTParamReferenceEN4llvm9StringRefEPKNS_21TemplateParameterListE.exit ], [ %182, %178 ]
+  %.sroa.7.0 = phi i64 [ %.sroa.4.0.i, %_ZN5clang8comments4Sema28correctTypoInTParamReferenceEN4llvm9StringRefEPKNS_21TemplateParameterListE.exit ], [ %184, %178 ]
   %210 = icmp eq i64 %.sroa.7.0, 0
   br i1 %210, label %.thread, label %211
 
@@ -6101,7 +6101,7 @@ _ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13
   br label %_ZNK5clang8comments4Sema26getInlineCommandRenderKindEN4llvm9StringRefE.exit
 
 _ZNK5clang8comments4Sema26getInlineCommandRenderKindEN4llvm9StringRefE.exit: ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i.i, %.thread77.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split.i, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split85.i
-  %.sroa.12.3.i = phi i32 [ 0, %.thread77.i ], [ 1536, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i.i ], [ 0, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit ], [ %35, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i ], [ 512, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 1024, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split.i ], [ 1536, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split85.i ]
+  %.sroa.12.3.i = phi i32 [ 1536, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split85.i ], [ 1536, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i.i ], [ %35, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i ], [ 0, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit ], [ 0, %.thread77.i ], [ 1024, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split.i ], [ 512, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ]
   store i32 %1, ptr %.0.i.i.i, align 4, !tbaa !60
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   store i32 %1, ptr %36, align 4, !tbaa !60
@@ -6164,7 +6164,7 @@ _ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13
   br label %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16
 
 _ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split85, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13, %3, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i, %.thread77
-  %.sroa.12.3 = phi i32 [ 0, %.thread77 ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i ], [ 0, %3 ], [ %6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 2, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split ], [ 3, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split85 ]
+  %.sroa.12.3 = phi i32 [ 3, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split85 ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i28.i.i ], [ %6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13 ], [ 0, %3 ], [ 0, %.thread77 ], [ 2, %_ZN4llvm12StringSwitchIN5clang8comments23InlineCommandRenderKindES3_E4CaseENS_13StringLiteralES3_.exit16.fold.split ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   ret i32 %.sroa.12.3
 }
 
@@ -6682,7 +6682,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang8comments19HTMLStartTagCommentELb1EE9p
   store i32 %43, ptr %29, align 8, !tbaa !31
   br label %_ZN5clang8comments12_GLOBAL__N_121isHTMLEndTagForbiddenEN4llvm9StringRefE.exit.thread
 
-_ZN5clang8comments12_GLOBAL__N_121isHTMLEndTagForbiddenEN4llvm9StringRefE.exit.thread: ; preds = %26, %24, %19, %16, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang8comments19HTMLStartTagCommentELb1EE9push_backES4_.exit, %8
+_ZN5clang8comments12_GLOBAL__N_121isHTMLEndTagForbiddenEN4llvm9StringRefE.exit.thread: ; preds = %26, %19, %16, %24, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang8comments19HTMLStartTagCommentELb1EE9push_backES4_.exit, %8
   ret void
 }
 
@@ -6795,7 +6795,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %63, label %_ZN5clang8comments12_GLOBAL__N_121isHTMLEndTagForbiddenEN4llvm9StringRefE.exit
 
-63:                                               ; preds = %51, %54, %59, %61
+63:                                               ; preds = %59, %51, %54, %61
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !67, !noalias !232
@@ -7329,7 +7329,7 @@ switch.lookup:                                    ; preds = %14
   br label %31
 
 31:                                               ; preds = %switch.lookup, %29, %27, %25, %23, %11, %7, %3, %30
-  %.0 = phi i1 [ false, %30 ], [ true, %3 ], [ %switch.selectcmp, %7 ], [ true, %11 ], [ true, %23 ], [ true, %25 ], [ true, %27 ], [ true, %29 ], [ %switch.masked, %switch.lookup ]
+  %.0 = phi i1 [ false, %30 ], [ true, %27 ], [ %switch.selectcmp, %7 ], [ true, %3 ], [ true, %25 ], [ true, %11 ], [ %switch.masked, %switch.lookup ], [ true, %29 ], [ true, %23 ]
   ret i1 %.0
 }
 
@@ -8525,7 +8525,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.loopexit: ; preds = %_ZN4llvmeqENS_9Str
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.loopexit, %_ZN5clang8comments4Sema26isFunctionOrMethodVariadicEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit24.thread38
-  %.3 = phi i32 [ -1, %_ZN4llvmeqENS_9StringRefES0_.exit24.thread38 ], [ -2, %_ZN5clang8comments4Sema26isFunctionOrMethodVariadicEv.exit ], [ %35, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.loopexit ]
+  %.3 = phi i32 [ -2, %_ZN5clang8comments4Sema26isFunctionOrMethodVariadicEv.exit ], [ -1, %_ZN4llvmeqENS_9StringRefES0_.exit24.thread38 ], [ %35, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.loopexit ]
   ret i32 %.3
 }
 
@@ -8747,7 +8747,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8comments4Sema19isClassOrStructDec
   br label %_ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit
 
 _ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit: ; preds = %18, %13, %9, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %9 ], [ %21, %18 ], [ false, %13 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %1 ], [ %21, %18 ], [ false, %13 ]
   ret i1 %.0
 }
 

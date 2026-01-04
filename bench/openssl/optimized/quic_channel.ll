@@ -654,7 +654,7 @@ define ptr @ossl_quic_channel_alloc(ptr noundef readonly captures(none) %0) loca
   br label %38
 
 38:                                               ; preds = %4, %30, %33, %1, %37
-  %.0 = phi ptr [ null, %37 ], [ null, %1 ], [ %2, %33 ], [ %2, %30 ], [ %2, %4 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %37 ], [ %2, %33 ], [ %2, %30 ], [ %2, %4 ]
   ret ptr %.0
 }
 
@@ -1026,7 +1026,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_schedule_new_token(ptr noundef rea
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread, label %24
 
-.thread:                                          ; preds = %8, %12, %13, %3, %16
+.thread:                                          ; preds = %12, %13, %8, %3, %16
   call void @BUF_MEM_free(ptr noundef %6) #15
   br label %24
 
@@ -1326,8 +1326,8 @@ define void @ossl_quic_channel_subtick(ptr noundef %0, ptr noundef writeonly cap
   br label %ch_on_terminating_timeout.exit
 
 ch_on_terminating_timeout.exit:                   ; preds = %31, %38, %42, %46, %60
-  %62 = phi i64 [ %61, %60 ], [ %34, %31 ], [ %34, %38 ], [ %34, %42 ], [ %.pre.i.i, %46 ]
-  %.0.i.i.i = phi ptr [ null, %60 ], [ %37, %31 ], [ null, %38 ], [ null, %42 ], [ %58, %46 ]
+  %62 = phi i64 [ %34, %31 ], [ %34, %38 ], [ %61, %60 ], [ %34, %42 ], [ %.pre.i.i, %46 ]
+  %.0.i.i.i = phi ptr [ %37, %31 ], [ null, %38 ], [ null, %60 ], [ null, %42 ], [ %58, %46 ]
   %63 = trunc i64 %32 to i32
   %64 = and i32 %63, 7
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -1806,7 +1806,7 @@ PACKET_buf_init.exit.i.i:                         ; preds = %257, %PACKET_buf_in
   br label %ch_get_qlog.exit.i.i
 
 ch_get_qlog.exit.i.i:                             ; preds = %310, %303, %300, %296, %290
-  %.0.i130.i.i = phi ptr [ null, %310 ], [ %295, %290 ], [ null, %296 ], [ null, %300 ], [ %308, %303 ]
+  %.0.i130.i.i = phi ptr [ %295, %290 ], [ null, %296 ], [ null, %310 ], [ null, %300 ], [ %308, %303 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %313 = load ptr, ptr %95, align 8, !tbaa !165
   %314 = load ptr, ptr %313, align 8, !tbaa !185
@@ -1917,7 +1917,7 @@ ch_retry.exit:                                    ; preds = %359
   %.not28.i107.not = icmp eq i32 %371, 0
   br i1 %.not28.i107.not, label %ch_retry.exit.thread, label %ch_rx_handle_packet.exit.i
 
-ch_retry.exit.thread:                             ; preds = %359, %352, %ossl_quic_conn_id_eq.exit.thread.i, %358, %ch_retry.exit
+ch_retry.exit.thread:                             ; preds = %358, %352, %359, %ossl_quic_conn_id_eq.exit.thread.i, %ch_retry.exit
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 1, i64 noundef 0, ptr noundef nonnull @.str.101, ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2478, ptr noundef nonnull @__func__.ch_rx_handle_packet)
   br label %ch_rx_handle_packet.exit.i
 
@@ -2291,8 +2291,8 @@ ch_tick_tls.exit:                                 ; preds = %479, %480, %486
   br label %ch_on_idle_timeout.exit
 
 ch_on_idle_timeout.exit:                          ; preds = %503, %515, %519, %523, %537
-  %539 = phi i64 [ %538, %537 ], [ %511, %503 ], [ %511, %515 ], [ %511, %519 ], [ %.pre.i.i84, %523 ]
-  %.0.i.i.i81 = phi ptr [ null, %537 ], [ %514, %503 ], [ null, %515 ], [ null, %519 ], [ %535, %523 ]
+  %539 = phi i64 [ %511, %503 ], [ %511, %515 ], [ %538, %537 ], [ %511, %519 ], [ %.pre.i.i84, %523 ]
+  %.0.i.i.i81 = phi ptr [ %514, %503 ], [ null, %515 ], [ null, %537 ], [ null, %519 ], [ %535, %523 ]
   %540 = trunc i64 %509 to i32
   %541 = and i32 %540, 7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2471,7 +2471,7 @@ txku_allowed.exit.i.i.i:                          ; preds = %586, %581, %579
   br label %ch_maybe_trigger_spontaneous_txku.exit.i
 
 ch_maybe_trigger_spontaneous_txku.exit.i:         ; preds = %625, %624, %606, %600, %txku_allowed.exit.i.i.i, %576
-  %633 = phi i64 [ %577, %576 ], [ %598, %txku_allowed.exit.i.i.i ], [ %.pre37.i, %600 ], [ %.pre38.i, %606 ], [ %.pre.i, %624 ], [ %632, %625 ]
+  %633 = phi i64 [ %577, %576 ], [ %598, %txku_allowed.exit.i.i.i ], [ %.pre37.i, %600 ], [ %632, %625 ], [ %.pre38.i, %606 ], [ %.pre.i, %624 ]
   %634 = and i64 %633, -34359738369
   store i64 %634, ptr %17, align 8
   %635 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -2623,7 +2623,7 @@ ch_update_ping_deadline.exit.i95:                 ; preds = %ch_update_ping_dead
   br label %ch_tx.exit
 
 ch_tx.exit:                                       ; preds = %705, %570, %572
-  %.6 = phi i8 [ %.0, %570 ], [ %.0, %572 ], [ %spec.select, %705 ]
+  %.6 = phi i8 [ %spec.select, %705 ], [ %.0, %572 ], [ %.0, %570 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %708 = getelementptr inbounds nuw i8, ptr %0, i64 848
   call void @ossl_quic_stream_map_gc(ptr noundef nonnull %708) #15
@@ -2712,7 +2712,7 @@ ch_tx.exit:                                       ; preds = %705, %570, %572
   br label %ch_determine_next_tick_deadline.exit
 
 ch_determine_next_tick_deadline.exit:             ; preds = %709, %738, %740
-  %.sroa.032.0.i = phi i64 [ %..i43.i, %740 ], [ %.sroa.013.4.i, %738 ], [ -1, %709 ]
+  %.sroa.032.0.i = phi i64 [ %.sroa.013.4.i, %738 ], [ %..i43.i, %740 ], [ -1, %709 ]
   store i64 %.sroa.032.0.i, ptr %1, align 8, !tbaa !71
   %743 = load i64, ptr %17, align 8
   %744 = and i64 %743, 7
@@ -2951,8 +2951,8 @@ define range(i32 0, 2) i32 @ossl_quic_channel_start(ptr noundef %0) local_unname
   br label %ch_record_state_transition.exit
 
 ch_record_state_transition.exit:                  ; preds = %57, %64, %68, %71, %84
-  %86 = phi i64 [ %85, %84 ], [ %60, %57 ], [ %60, %64 ], [ %60, %68 ], [ %.pre.i, %71 ]
-  %.0.i.i = phi ptr [ null, %84 ], [ %63, %57 ], [ null, %64 ], [ null, %68 ], [ %82, %71 ]
+  %86 = phi i64 [ %60, %57 ], [ %60, %64 ], [ %85, %84 ], [ %60, %68 ], [ %.pre.i, %71 ]
+  %.0.i.i = phi ptr [ %63, %57 ], [ null, %64 ], [ null, %84 ], [ null, %68 ], [ %82, %71 ]
   %87 = trunc i64 %58 to i32
   %88 = and i32 %87, 7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3016,7 +3016,7 @@ ch_record_state_transition.exit:                  ; preds = %57, %64, %68, %71, 
   br label %ch_get_qlog.exit
 
 ch_get_qlog.exit:                                 ; preds = %ch_record_state_transition.exit, %98, %102, %105, %118
-  %.0.i = phi ptr [ null, %118 ], [ %97, %ch_record_state_transition.exit ], [ null, %98 ], [ null, %102 ], [ %116, %105 ]
+  %.0.i = phi ptr [ %97, %ch_record_state_transition.exit ], [ null, %98 ], [ null, %118 ], [ null, %102 ], [ %116, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @ossl_qlog_event_connectivity_connection_started(ptr noundef %.0.i, ptr noundef nonnull %42) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -3054,7 +3054,7 @@ ch_tick_tls.exit.thread:                          ; preds = %ch_get_qlog.exit
   br label %135
 
 135:                                              ; preds = %ch_tick_tls.exit.thread, %55, %36, %13, %11, %1, %131
-  %.0 = phi i32 [ 1, %131 ], [ 0, %1 ], [ 1, %11 ], [ 0, %13 ], [ 0, %36 ], [ 0, %55 ], [ 0, %ch_tick_tls.exit.thread ]
+  %.0 = phi i32 [ 1, %11 ], [ 0, %1 ], [ 1, %131 ], [ 0, %55 ], [ 0, %36 ], [ 0, %13 ], [ 0, %ch_tick_tls.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -3301,8 +3301,8 @@ define internal fastcc range(i32 0, 2) i32 @ch_generate_transport_params(ptr nou
   br label %114
 
 114:                                              ; preds = %110, %10, %1, %14, %17, %76, %78, %113
-  %.097 = phi i32 [ 0, %113 ], [ 0, %1 ], [ 0, %10 ], [ 0, %14 ], [ 1, %110 ], [ 0, %78 ], [ 0, %76 ], [ 0, %17 ]
-  %.06195 = phi ptr [ %15, %113 ], [ null, %1 ], [ null, %10 ], [ null, %14 ], [ %15, %110 ], [ %15, %78 ], [ %15, %76 ], [ %15, %17 ]
+  %.097 = phi i32 [ 0, %113 ], [ 0, %1 ], [ 0, %10 ], [ 0, %14 ], [ 0, %17 ], [ 1, %110 ], [ 0, %78 ], [ 0, %76 ]
+  %.06195 = phi ptr [ %15, %113 ], [ null, %1 ], [ null, %10 ], [ null, %14 ], [ %15, %17 ], [ %15, %110 ], [ %15, %78 ], [ %15, %76 ]
   call void @BUF_MEM_free(ptr noundef %.06195) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3370,7 +3370,7 @@ define internal fastcc ptr @ch_get_qlog(ptr noundef %0) unnamed_addr #0 {
   br label %33
 
 33:                                               ; preds = %16, %12, %6, %1, %30
-  %.0 = phi ptr [ null, %30 ], [ %5, %1 ], [ null, %6 ], [ null, %12 ], [ %28, %16 ]
+  %.0 = phi ptr [ %5, %1 ], [ null, %6 ], [ null, %30 ], [ null, %12 ], [ %28, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -3560,8 +3560,8 @@ copy_tcause.exit:                                 ; preds = %17, %38, %42, %46
   br label %ch_on_terminating_timeout.exit
 
 ch_on_terminating_timeout.exit:                   ; preds = %copy_tcause.exit, %54, %58, %62, %76
-  %78 = phi i64 [ %77, %76 ], [ %50, %copy_tcause.exit ], [ %50, %54 ], [ %50, %58 ], [ %.pre.i.i, %62 ]
-  %.0.i.i.i = phi ptr [ null, %76 ], [ %53, %copy_tcause.exit ], [ null, %54 ], [ null, %58 ], [ %74, %62 ]
+  %78 = phi i64 [ %50, %copy_tcause.exit ], [ %50, %54 ], [ %77, %76 ], [ %50, %58 ], [ %.pre.i.i, %62 ]
+  %.0.i.i.i = phi ptr [ %53, %copy_tcause.exit ], [ null, %54 ], [ null, %76 ], [ null, %58 ], [ %74, %62 ]
   %79 = trunc i64 %48 to i32
   %80 = and i32 %79, 7
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -3683,7 +3683,7 @@ copy_tcause.exit40:                               ; preds = %86, %107, %111, %11
   br label %ch_get_qlog.exit
 
 ch_get_qlog.exit:                                 ; preds = %copy_tcause.exit40, %120, %125, %129, %143
-  %.0.i42 = phi ptr [ null, %143 ], [ %119, %copy_tcause.exit40 ], [ null, %120 ], [ null, %125 ], [ %141, %129 ]
+  %.0.i42 = phi ptr [ %119, %copy_tcause.exit40 ], [ null, %120 ], [ null, %143 ], [ null, %125 ], [ %141, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @ossl_qlog_event_connectivity_connection_closed(ptr noundef %.0.i42, ptr noundef nonnull %1) #15
   %.not35 = icmp eq i32 %spec.store.select, 0
@@ -3752,8 +3752,8 @@ ch_get_qlog.exit:                                 ; preds = %copy_tcause.exit40,
   br label %ch_record_state_transition.exit
 
 ch_record_state_transition.exit:                  ; preds = %146, %156, %160, %164, %178
-  %180 = phi i64 [ %179, %178 ], [ %153, %146 ], [ %153, %156 ], [ %153, %160 ], [ %.pre.i, %164 ]
-  %.0.i.i = phi ptr [ null, %178 ], [ %155, %146 ], [ null, %156 ], [ null, %160 ], [ %176, %164 ]
+  %180 = phi i64 [ %153, %146 ], [ %153, %156 ], [ %179, %178 ], [ %153, %160 ], [ %.pre.i, %164 ]
+  %.0.i.i = phi ptr [ %155, %146 ], [ null, %156 ], [ null, %178 ], [ null, %160 ], [ %176, %164 ]
   %181 = trunc i64 %150 to i32
   %182 = and i32 %181, 7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3865,8 +3865,8 @@ ch_record_state_transition.exit:                  ; preds = %146, %156, %160, %1
   br label %ch_on_terminating_timeout.exit48
 
 ch_on_terminating_timeout.exit48:                 ; preds = %216, %222, %226, %230, %244
-  %246 = phi i64 [ %245, %244 ], [ %219, %216 ], [ %219, %222 ], [ %219, %226 ], [ %.pre.i.i47, %230 ]
-  %.0.i.i.i44 = phi ptr [ null, %244 ], [ %221, %216 ], [ null, %222 ], [ null, %226 ], [ %242, %230 ]
+  %246 = phi i64 [ %219, %216 ], [ %219, %222 ], [ %245, %244 ], [ %219, %226 ], [ %.pre.i.i47, %230 ]
+  %.0.i.i.i44 = phi ptr [ %221, %216 ], [ null, %222 ], [ null, %244 ], [ null, %226 ], [ %242, %230 ]
   %247 = trunc i64 %217 to i32
   %248 = and i32 %247, 7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3939,8 +3939,8 @@ ch_on_terminating_timeout.exit48:                 ; preds = %216, %222, %226, %2
   br label %ch_on_terminating_timeout.exit54
 
 ch_on_terminating_timeout.exit54:                 ; preds = %255, %261, %265, %269, %282
-  %284 = phi i64 [ %283, %282 ], [ %257, %255 ], [ %257, %261 ], [ %257, %265 ], [ %.pre.i.i53, %269 ]
-  %.0.i.i.i50 = phi ptr [ null, %282 ], [ %260, %255 ], [ null, %261 ], [ null, %265 ], [ %280, %269 ]
+  %284 = phi i64 [ %257, %255 ], [ %257, %261 ], [ %283, %282 ], [ %257, %265 ], [ %.pre.i.i53, %269 ]
+  %.0.i.i.i50 = phi ptr [ %260, %255 ], [ null, %261 ], [ null, %282 ], [ null, %265 ], [ %280, %269 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %285 = trunc i64 %284 to i32
   %286 = lshr i32 %285, 9
@@ -4014,8 +4014,8 @@ ch_on_terminating_timeout.exit54:                 ; preds = %255, %261, %265, %2
   br label %ch_record_state_transition.exit60
 
 ch_record_state_transition.exit60:                ; preds = %294, %300, %304, %308, %321
-  %323 = phi i64 [ %322, %321 ], [ %296, %294 ], [ %296, %300 ], [ %296, %304 ], [ %.pre.i59, %308 ]
-  %.0.i.i56 = phi ptr [ null, %321 ], [ %299, %294 ], [ null, %300 ], [ null, %304 ], [ %319, %308 ]
+  %323 = phi i64 [ %296, %294 ], [ %296, %300 ], [ %322, %321 ], [ %296, %304 ], [ %.pre.i59, %308 ]
+  %.0.i.i56 = phi ptr [ %299, %294 ], [ null, %300 ], [ null, %321 ], [ null, %304 ], [ %319, %308 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %324 = trunc i64 %323 to i32
   %325 = lshr i32 %324, 9
@@ -4086,8 +4086,8 @@ ch_record_state_transition.exit60:                ; preds = %294, %300, %304, %3
   br label %ch_on_terminating_timeout.exit66
 
 ch_on_terminating_timeout.exit66:                 ; preds = %330, %336, %340, %344, %357
-  %359 = phi i64 [ %358, %357 ], [ %332, %330 ], [ %332, %336 ], [ %332, %340 ], [ %.pre.i.i65, %344 ]
-  %.0.i.i.i62 = phi ptr [ null, %357 ], [ %335, %330 ], [ null, %336 ], [ null, %340 ], [ %355, %344 ]
+  %359 = phi i64 [ %332, %330 ], [ %332, %336 ], [ %358, %357 ], [ %332, %340 ], [ %.pre.i.i65, %344 ]
+  %.0.i.i.i62 = phi ptr [ %335, %330 ], [ null, %336 ], [ null, %357 ], [ null, %340 ], [ %355, %344 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %360 = trunc i64 %359 to i32
   %361 = lshr i32 %360, 9
@@ -4179,8 +4179,8 @@ define range(i32 0, 2) i32 @ossl_quic_channel_on_handshake_confirmed(ptr noundef
   br label %ch_record_state_transition.exit
 
 ch_record_state_transition.exit:                  ; preds = %9, %17, %21, %25, %38
-  %40 = phi i64 [ %39, %38 ], [ %13, %9 ], [ %13, %17 ], [ %13, %21 ], [ %.pre.i, %25 ]
-  %.0.i.i = phi ptr [ null, %38 ], [ %16, %9 ], [ null, %17 ], [ null, %21 ], [ %36, %25 ]
+  %40 = phi i64 [ %13, %9 ], [ %13, %17 ], [ %39, %38 ], [ %13, %21 ], [ %.pre.i, %25 ]
+  %.0.i.i = phi ptr [ %16, %9 ], [ null, %17 ], [ null, %38 ], [ null, %21 ], [ %36, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %41 = trunc i64 %40 to i32
   %42 = lshr i32 %41, 9
@@ -4194,7 +4194,7 @@ ch_record_state_transition.exit:                  ; preds = %9, %17, %21, %25, %
   br label %49
 
 49:                                               ; preds = %1, %ch_record_state_transition.exit, %8
-  %.0 = phi i32 [ 1, %ch_record_state_transition.exit ], [ 0, %8 ], [ 1, %1 ]
+  %.0 = phi i32 [ 0, %8 ], [ 1, %ch_record_state_transition.exit ], [ 1, %1 ]
   ret i32 %.0
 }
 
@@ -4807,8 +4807,8 @@ define internal fastcc range(i32 0, 2) i32 @ch_on_new_conn_common(ptr noundef in
   br label %ch_record_state_transition.exit
 
 ch_record_state_transition.exit:                  ; preds = %41, %49, %53, %56, %69
-  %71 = phi i64 [ %70, %69 ], [ %45, %41 ], [ %45, %49 ], [ %45, %53 ], [ %.pre.i, %56 ]
-  %.0.i.i = phi ptr [ null, %69 ], [ %48, %41 ], [ null, %49 ], [ null, %53 ], [ %67, %56 ]
+  %71 = phi i64 [ %45, %41 ], [ %45, %49 ], [ %70, %69 ], [ %45, %53 ], [ %.pre.i, %56 ]
+  %.0.i.i = phi ptr [ %48, %41 ], [ null, %49 ], [ null, %69 ], [ null, %53 ], [ %67, %56 ]
   %72 = trunc i64 %43 to i32
   %73 = and i32 %72, 7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4824,7 +4824,7 @@ ch_record_state_transition.exit:                  ; preds = %41, %49, %53, %56, 
   br label %81
 
 81:                                               ; preds = %36, %23, %19, %16, %12, %ch_record_state_transition.exit
-  %.0 = phi i32 [ 1, %ch_record_state_transition.exit ], [ 0, %12 ], [ 0, %16 ], [ 0, %19 ], [ 0, %23 ], [ 0, %36 ]
+  %.0 = phi i32 [ 1, %ch_record_state_transition.exit ], [ 0, %23 ], [ 0, %19 ], [ 0, %16 ], [ 0, %12 ], [ 0, %36 ]
   ret i32 %.0
 }
 
@@ -4854,7 +4854,7 @@ define range(i32 0, 2) i32 @ossl_quic_bind_channel(ptr noundef %0, ptr noundef r
   br label %19
 
 19:                                               ; preds = %12, %7, %5, %17
-  %.0 = phi i32 [ %18, %17 ], [ 0, %5 ], [ 0, %7 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %5 ], [ %18, %17 ], [ 0, %7 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -4946,7 +4946,7 @@ define ptr @ossl_quic_channel_new_stream_local(ptr noundef %0, i32 noundef %1) l
   br label %26
 
 26:                                               ; preds = %6, %2, %25, %22
-  %.0 = phi ptr [ %17, %22 ], [ null, %25 ], [ null, %2 ], [ null, %6 ]
+  %.0 = phi ptr [ null, %25 ], [ null, %2 ], [ %17, %22 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -5167,7 +5167,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_replace_local_cid(ptr noundef %0, 
   br label %14
 
 14:                                               ; preds = %11, %7, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %7 ], [ %., %11 ]
+  %.0 = phi i32 [ 0, %7 ], [ %., %11 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -5328,7 +5328,7 @@ txku_allowed.exit:                                ; preds = %5, %7, %13
   br label %ch_trigger_txku.exit
 
 ch_trigger_txku.exit:                             ; preds = %1, %38, %37, %txku_allowed.exit
-  %.0 = phi i32 [ 0, %txku_allowed.exit ], [ 1, %37 ], [ 1, %38 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %38 ], [ 0, %txku_allowed.exit ], [ 1, %37 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -5466,7 +5466,7 @@ define internal ptr @ch_get_qlog_cb(ptr noundef %0) #0 {
   br label %ch_get_qlog.exit
 
 ch_get_qlog.exit:                                 ; preds = %1, %6, %12, %16, %30
-  %.0.i = phi ptr [ null, %30 ], [ %5, %1 ], [ null, %6 ], [ null, %12 ], [ %28, %16 ]
+  %.0.i = phi ptr [ %5, %1 ], [ null, %6 ], [ null, %30 ], [ null, %12 ], [ %28, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i
 }
@@ -5735,7 +5735,7 @@ crypto_ensure_empty.exit._crit_edge:              ; preds = %crypto_ensure_empty
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %3
-  %26 = phi i64 [ 0, %3 ], [ %spec.select44, %._crit_edge ]
+  %26 = phi i64 [ %spec.select44, %._crit_edge ], [ 0, %3 ]
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 1120
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !118
@@ -5786,7 +5786,7 @@ define internal i32 @ch_on_crypto_release_record(i64 noundef %0, ptr noundef %1)
   br label %21
 
 21:                                               ; preds = %13, %2, %19
-  %.0 = phi i32 [ %20, %19 ], [ 0, %2 ], [ 0, %13 ]
+  %.0 = phi i32 [ 0, %2 ], [ %20, %19 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -5902,7 +5902,7 @@ crypto_ensure_empty.exit:                         ; preds = %36
   br label %52
 
 52:                                               ; preds = %22, %45, %41, %28, %18, %15, %7, %.loopexit
-  %.034 = phi i32 [ 0, %.loopexit ], [ 0, %7 ], [ 0, %15 ], [ 0, %18 ], [ 0, %28 ], [ 0, %41 ], [ 1, %45 ], [ 1, %22 ]
+  %.034 = phi i32 [ 0, %28 ], [ 0, %7 ], [ 1, %22 ], [ 0, %41 ], [ 0, %15 ], [ 0, %18 ], [ 0, %.loopexit ], [ 1, %45 ]
   ret i32 %.034
 }
 
@@ -6382,25 +6382,25 @@ ch_update_idle.exit:                              ; preds = %min_u64_ignore_0.ex
   br i1 %207, label %ossl_quic_conn_id_eq.exit.thread, label %208
 
 208:                                              ; preds = %200, %196, %183, %ossl_quic_conn_id_eq.exit276, %ossl_quic_conn_id_eq.exit271, %ossl_quic_conn_id_eq.exit, %205, %173, %166, %ch_update_idle.exit, %132, %125, %116, %108, %100, %95, %90, %84
-  %.1199 = phi i32 [ %.0198312, %205 ], [ %.0198312, %84 ], [ %.0198312, %90 ], [ %.0198312, %95 ], [ %.0198312, %100 ], [ %.0198312, %108 ], [ %.0198312, %116 ], [ %.0198312, %125 ], [ %.0198312, %132 ], [ %.0198312, %ch_update_idle.exit ], [ %.0198312, %166 ], [ %.0198312, %173 ], [ %.0198312, %ossl_quic_conn_id_eq.exit ], [ %.0198312, %ossl_quic_conn_id_eq.exit271 ], [ 1, %ossl_quic_conn_id_eq.exit276 ], [ %.0198312, %183 ], [ %.0198312, %196 ], [ %.0198312, %200 ]
-  %.1197 = phi i32 [ %.0196313, %205 ], [ %.0196313, %84 ], [ %.0196313, %90 ], [ %.0196313, %95 ], [ %.0196313, %100 ], [ %.0196313, %108 ], [ %.0196313, %116 ], [ %.0196313, %125 ], [ %.0196313, %132 ], [ %.0196313, %ch_update_idle.exit ], [ %.0196313, %166 ], [ %.0196313, %173 ], [ %.0196313, %ossl_quic_conn_id_eq.exit ], [ 1, %ossl_quic_conn_id_eq.exit271 ], [ %.0196313, %ossl_quic_conn_id_eq.exit276 ], [ %.0196313, %183 ], [ %.0196313, %196 ], [ %.0196313, %200 ]
-  %.1195 = phi i32 [ %.0194314, %205 ], [ 1, %84 ], [ %.0194314, %90 ], [ %.0194314, %95 ], [ %.0194314, %100 ], [ %.0194314, %108 ], [ %.0194314, %116 ], [ %.0194314, %125 ], [ %.0194314, %132 ], [ %.0194314, %ch_update_idle.exit ], [ %.0194314, %166 ], [ %.0194314, %173 ], [ %.0194314, %ossl_quic_conn_id_eq.exit ], [ %.0194314, %ossl_quic_conn_id_eq.exit271 ], [ %.0194314, %ossl_quic_conn_id_eq.exit276 ], [ %.0194314, %183 ], [ %.0194314, %196 ], [ %.0194314, %200 ]
-  %.1193 = phi i32 [ %.0192315, %205 ], [ %.0192315, %84 ], [ 1, %90 ], [ %.0192315, %95 ], [ %.0192315, %100 ], [ %.0192315, %108 ], [ %.0192315, %116 ], [ %.0192315, %125 ], [ %.0192315, %132 ], [ %.0192315, %ch_update_idle.exit ], [ %.0192315, %166 ], [ %.0192315, %173 ], [ %.0192315, %ossl_quic_conn_id_eq.exit ], [ %.0192315, %ossl_quic_conn_id_eq.exit271 ], [ %.0192315, %ossl_quic_conn_id_eq.exit276 ], [ %.0192315, %183 ], [ %.0192315, %196 ], [ %.0192315, %200 ]
-  %.1191 = phi i32 [ %.0190316, %205 ], [ %.0190316, %84 ], [ %.0190316, %90 ], [ 1, %95 ], [ %.0190316, %100 ], [ %.0190316, %108 ], [ %.0190316, %116 ], [ %.0190316, %125 ], [ %.0190316, %132 ], [ %.0190316, %ch_update_idle.exit ], [ %.0190316, %166 ], [ %.0190316, %173 ], [ %.0190316, %ossl_quic_conn_id_eq.exit ], [ %.0190316, %ossl_quic_conn_id_eq.exit271 ], [ %.0190316, %ossl_quic_conn_id_eq.exit276 ], [ %.0190316, %183 ], [ %.0190316, %196 ], [ %.0190316, %200 ]
-  %.1189 = phi i32 [ %.0188317, %205 ], [ %.0188317, %84 ], [ %.0188317, %90 ], [ %.0188317, %95 ], [ 1, %100 ], [ %.0188317, %108 ], [ %.0188317, %116 ], [ %.0188317, %125 ], [ %.0188317, %132 ], [ %.0188317, %ch_update_idle.exit ], [ %.0188317, %166 ], [ %.0188317, %173 ], [ %.0188317, %ossl_quic_conn_id_eq.exit ], [ %.0188317, %ossl_quic_conn_id_eq.exit271 ], [ %.0188317, %ossl_quic_conn_id_eq.exit276 ], [ %.0188317, %183 ], [ %.0188317, %196 ], [ %.0188317, %200 ]
-  %.1187 = phi i32 [ %.0186318, %205 ], [ %.0186318, %84 ], [ %.0186318, %90 ], [ %.0186318, %95 ], [ %.0186318, %100 ], [ %.0186318, %108 ], [ %.0186318, %116 ], [ 1, %125 ], [ %.0186318, %132 ], [ %.0186318, %ch_update_idle.exit ], [ %.0186318, %166 ], [ %.0186318, %173 ], [ %.0186318, %ossl_quic_conn_id_eq.exit ], [ %.0186318, %ossl_quic_conn_id_eq.exit271 ], [ %.0186318, %ossl_quic_conn_id_eq.exit276 ], [ %.0186318, %183 ], [ %.0186318, %196 ], [ %.0186318, %200 ]
-  %.1185 = phi i32 [ %.0184319, %205 ], [ %.0184319, %84 ], [ %.0184319, %90 ], [ %.0184319, %95 ], [ %.0184319, %100 ], [ %.0184319, %108 ], [ %.0184319, %116 ], [ %.0184319, %125 ], [ 1, %132 ], [ %.0184319, %ch_update_idle.exit ], [ %.0184319, %166 ], [ %.0184319, %173 ], [ %.0184319, %ossl_quic_conn_id_eq.exit ], [ %.0184319, %ossl_quic_conn_id_eq.exit271 ], [ %.0184319, %ossl_quic_conn_id_eq.exit276 ], [ %.0184319, %183 ], [ %.0184319, %196 ], [ %.0184319, %200 ]
-  %.1183 = phi i32 [ %.0182320, %205 ], [ %.0182320, %84 ], [ %.0182320, %90 ], [ %.0182320, %95 ], [ %.0182320, %100 ], [ %.0182320, %108 ], [ %.0182320, %116 ], [ %.0182320, %125 ], [ %.0182320, %132 ], [ %.0182320, %ch_update_idle.exit ], [ %.0182320, %166 ], [ %.0182320, %173 ], [ %.0182320, %ossl_quic_conn_id_eq.exit ], [ %.0182320, %ossl_quic_conn_id_eq.exit271 ], [ %.0182320, %ossl_quic_conn_id_eq.exit276 ], [ 1, %183 ], [ %.0182320, %196 ], [ %.0182320, %200 ]
-  %.1181 = phi i32 [ %.0180321, %205 ], [ %.0180321, %84 ], [ %.0180321, %90 ], [ %.0180321, %95 ], [ %.0180321, %100 ], [ %.0180321, %108 ], [ %.0180321, %116 ], [ %.0180321, %125 ], [ %.0180321, %132 ], [ %.0180321, %ch_update_idle.exit ], [ %.0180321, %166 ], [ %.0180321, %173 ], [ %.0180321, %ossl_quic_conn_id_eq.exit ], [ %.0180321, %ossl_quic_conn_id_eq.exit271 ], [ %.0180321, %ossl_quic_conn_id_eq.exit276 ], [ %.0180321, %183 ], [ 1, %196 ], [ %.0180321, %200 ]
-  %.1179 = phi i32 [ %.0178322, %205 ], [ %.0178322, %84 ], [ %.0178322, %90 ], [ %.0178322, %95 ], [ %.0178322, %100 ], [ 1, %108 ], [ %.0178322, %116 ], [ %.0178322, %125 ], [ %.0178322, %132 ], [ %.0178322, %ch_update_idle.exit ], [ %.0178322, %166 ], [ %.0178322, %173 ], [ %.0178322, %ossl_quic_conn_id_eq.exit ], [ %.0178322, %ossl_quic_conn_id_eq.exit271 ], [ %.0178322, %ossl_quic_conn_id_eq.exit276 ], [ %.0178322, %183 ], [ %.0178322, %196 ], [ %.0178322, %200 ]
-  %.1177 = phi i32 [ %.0176323, %205 ], [ %.0176323, %84 ], [ %.0176323, %90 ], [ %.0176323, %95 ], [ %.0176323, %100 ], [ %.0176323, %108 ], [ 1, %116 ], [ %.0176323, %125 ], [ %.0176323, %132 ], [ %.0176323, %ch_update_idle.exit ], [ %.0176323, %166 ], [ %.0176323, %173 ], [ %.0176323, %ossl_quic_conn_id_eq.exit ], [ %.0176323, %ossl_quic_conn_id_eq.exit271 ], [ %.0176323, %ossl_quic_conn_id_eq.exit276 ], [ %.0176323, %183 ], [ %.0176323, %196 ], [ %.0176323, %200 ]
-  %.1175 = phi i32 [ %.0174324, %205 ], [ %.0174324, %84 ], [ %.0174324, %90 ], [ %.0174324, %95 ], [ %.0174324, %100 ], [ %.0174324, %108 ], [ %.0174324, %116 ], [ %.0174324, %125 ], [ %.0174324, %132 ], [ %.0174324, %ch_update_idle.exit ], [ 1, %166 ], [ %.0174324, %173 ], [ %.0174324, %ossl_quic_conn_id_eq.exit ], [ %.0174324, %ossl_quic_conn_id_eq.exit271 ], [ %.0174324, %ossl_quic_conn_id_eq.exit276 ], [ %.0174324, %183 ], [ %.0174324, %196 ], [ %.0174324, %200 ]
-  %.1173 = phi i32 [ %.0172325, %205 ], [ %.0172325, %84 ], [ %.0172325, %90 ], [ %.0172325, %95 ], [ %.0172325, %100 ], [ %.0172325, %108 ], [ %.0172325, %116 ], [ %.0172325, %125 ], [ %.0172325, %132 ], [ 1, %ch_update_idle.exit ], [ %.0172325, %166 ], [ %.0172325, %173 ], [ %.0172325, %ossl_quic_conn_id_eq.exit ], [ %.0172325, %ossl_quic_conn_id_eq.exit271 ], [ %.0172325, %ossl_quic_conn_id_eq.exit276 ], [ %.0172325, %183 ], [ %.0172325, %196 ], [ %.0172325, %200 ]
-  %.1171 = phi i32 [ %.0170326, %205 ], [ %.0170326, %84 ], [ %.0170326, %90 ], [ %.0170326, %95 ], [ %.0170326, %100 ], [ %.0170326, %108 ], [ %.0170326, %116 ], [ %.0170326, %125 ], [ %.0170326, %132 ], [ %.0170326, %ch_update_idle.exit ], [ %.0170326, %166 ], [ 1, %173 ], [ %.0170326, %ossl_quic_conn_id_eq.exit ], [ %.0170326, %ossl_quic_conn_id_eq.exit271 ], [ %.0170326, %ossl_quic_conn_id_eq.exit276 ], [ %.0170326, %183 ], [ %.0170326, %196 ], [ %.0170326, %200 ]
-  %.1169 = phi i32 [ %.0168327, %205 ], [ %.0168327, %84 ], [ %.0168327, %90 ], [ %.0168327, %95 ], [ %.0168327, %100 ], [ %.0168327, %108 ], [ %.0168327, %116 ], [ %.0168327, %125 ], [ %.0168327, %132 ], [ %.0168327, %ch_update_idle.exit ], [ %.0168327, %166 ], [ %.0168327, %173 ], [ %.0168327, %ossl_quic_conn_id_eq.exit ], [ %.0168327, %ossl_quic_conn_id_eq.exit271 ], [ %.0168327, %ossl_quic_conn_id_eq.exit276 ], [ %.0168327, %183 ], [ %.0168327, %196 ], [ 1, %200 ]
-  %.1166 = phi i64 [ %.0165328, %205 ], [ %.0165328, %84 ], [ %.0165328, %90 ], [ %.0165328, %95 ], [ %.0165328, %100 ], [ %.0165328, %108 ], [ %.0165328, %116 ], [ %.0165328, %125 ], [ %.0165328, %132 ], [ %159, %ch_update_idle.exit ], [ %.0165328, %166 ], [ %.0165328, %173 ], [ %.0165328, %ossl_quic_conn_id_eq.exit ], [ %.0165328, %ossl_quic_conn_id_eq.exit271 ], [ %.0165328, %ossl_quic_conn_id_eq.exit276 ], [ %.0165328, %183 ], [ %.0165328, %196 ], [ %.0165328, %200 ]
-  %.1164 = phi ptr [ %.0163329, %205 ], [ %.0163329, %84 ], [ %.0163329, %90 ], [ %.0163329, %95 ], [ %.0163329, %100 ], [ %.0163329, %108 ], [ %.0163329, %116 ], [ %.0163329, %125 ], [ %.0163329, %132 ], [ %.0163329, %ch_update_idle.exit ], [ %.0163329, %166 ], [ %.0163329, %173 ], [ %.0163329, %ossl_quic_conn_id_eq.exit ], [ %.0163329, %ossl_quic_conn_id_eq.exit271 ], [ %.0163329, %ossl_quic_conn_id_eq.exit276 ], [ %179, %183 ], [ %.0163329, %196 ], [ %.0163329, %200 ]
-  %.1 = phi i32 [ %.0162330, %205 ], [ %.0162330, %84 ], [ %.0162330, %90 ], [ %.0162330, %95 ], [ %.0162330, %100 ], [ %.0162330, %108 ], [ %.0162330, %116 ], [ %.0162330, %125 ], [ %.0162330, %132 ], [ %.0162330, %ch_update_idle.exit ], [ %.0162330, %166 ], [ %.0162330, %173 ], [ 1, %ossl_quic_conn_id_eq.exit ], [ %.0162330, %ossl_quic_conn_id_eq.exit271 ], [ %.0162330, %ossl_quic_conn_id_eq.exit276 ], [ %.0162330, %183 ], [ %.0162330, %196 ], [ %.0162330, %200 ]
+  %.1199 = phi i32 [ %.0198312, %205 ], [ %.0198312, %196 ], [ %.0198312, %ossl_quic_conn_id_eq.exit ], [ %.0198312, %ossl_quic_conn_id_eq.exit271 ], [ %.0198312, %84 ], [ %.0198312, %90 ], [ %.0198312, %95 ], [ %.0198312, %100 ], [ %.0198312, %108 ], [ %.0198312, %116 ], [ %.0198312, %125 ], [ %.0198312, %132 ], [ %.0198312, %ch_update_idle.exit ], [ %.0198312, %166 ], [ %.0198312, %173 ], [ 1, %ossl_quic_conn_id_eq.exit276 ], [ %.0198312, %183 ], [ %.0198312, %200 ]
+  %.1197 = phi i32 [ %.0196313, %205 ], [ %.0196313, %196 ], [ %.0196313, %ossl_quic_conn_id_eq.exit ], [ 1, %ossl_quic_conn_id_eq.exit271 ], [ %.0196313, %84 ], [ %.0196313, %90 ], [ %.0196313, %95 ], [ %.0196313, %100 ], [ %.0196313, %108 ], [ %.0196313, %116 ], [ %.0196313, %125 ], [ %.0196313, %132 ], [ %.0196313, %ch_update_idle.exit ], [ %.0196313, %166 ], [ %.0196313, %173 ], [ %.0196313, %ossl_quic_conn_id_eq.exit276 ], [ %.0196313, %183 ], [ %.0196313, %200 ]
+  %.1195 = phi i32 [ %.0194314, %205 ], [ %.0194314, %196 ], [ %.0194314, %ossl_quic_conn_id_eq.exit ], [ %.0194314, %ossl_quic_conn_id_eq.exit271 ], [ 1, %84 ], [ %.0194314, %90 ], [ %.0194314, %95 ], [ %.0194314, %100 ], [ %.0194314, %108 ], [ %.0194314, %116 ], [ %.0194314, %125 ], [ %.0194314, %132 ], [ %.0194314, %ch_update_idle.exit ], [ %.0194314, %166 ], [ %.0194314, %173 ], [ %.0194314, %ossl_quic_conn_id_eq.exit276 ], [ %.0194314, %183 ], [ %.0194314, %200 ]
+  %.1193 = phi i32 [ %.0192315, %205 ], [ %.0192315, %196 ], [ %.0192315, %ossl_quic_conn_id_eq.exit ], [ %.0192315, %ossl_quic_conn_id_eq.exit271 ], [ %.0192315, %84 ], [ 1, %90 ], [ %.0192315, %95 ], [ %.0192315, %100 ], [ %.0192315, %108 ], [ %.0192315, %116 ], [ %.0192315, %125 ], [ %.0192315, %132 ], [ %.0192315, %ch_update_idle.exit ], [ %.0192315, %166 ], [ %.0192315, %173 ], [ %.0192315, %ossl_quic_conn_id_eq.exit276 ], [ %.0192315, %183 ], [ %.0192315, %200 ]
+  %.1191 = phi i32 [ %.0190316, %205 ], [ %.0190316, %196 ], [ %.0190316, %ossl_quic_conn_id_eq.exit ], [ %.0190316, %ossl_quic_conn_id_eq.exit271 ], [ %.0190316, %84 ], [ %.0190316, %90 ], [ 1, %95 ], [ %.0190316, %100 ], [ %.0190316, %108 ], [ %.0190316, %116 ], [ %.0190316, %125 ], [ %.0190316, %132 ], [ %.0190316, %ch_update_idle.exit ], [ %.0190316, %166 ], [ %.0190316, %173 ], [ %.0190316, %ossl_quic_conn_id_eq.exit276 ], [ %.0190316, %183 ], [ %.0190316, %200 ]
+  %.1189 = phi i32 [ %.0188317, %205 ], [ %.0188317, %196 ], [ %.0188317, %ossl_quic_conn_id_eq.exit ], [ %.0188317, %ossl_quic_conn_id_eq.exit271 ], [ %.0188317, %84 ], [ %.0188317, %90 ], [ %.0188317, %95 ], [ 1, %100 ], [ %.0188317, %108 ], [ %.0188317, %116 ], [ %.0188317, %125 ], [ %.0188317, %132 ], [ %.0188317, %ch_update_idle.exit ], [ %.0188317, %166 ], [ %.0188317, %173 ], [ %.0188317, %ossl_quic_conn_id_eq.exit276 ], [ %.0188317, %183 ], [ %.0188317, %200 ]
+  %.1187 = phi i32 [ %.0186318, %205 ], [ %.0186318, %196 ], [ %.0186318, %ossl_quic_conn_id_eq.exit ], [ %.0186318, %ossl_quic_conn_id_eq.exit271 ], [ %.0186318, %84 ], [ %.0186318, %90 ], [ %.0186318, %95 ], [ %.0186318, %100 ], [ %.0186318, %108 ], [ %.0186318, %116 ], [ 1, %125 ], [ %.0186318, %132 ], [ %.0186318, %ch_update_idle.exit ], [ %.0186318, %166 ], [ %.0186318, %173 ], [ %.0186318, %ossl_quic_conn_id_eq.exit276 ], [ %.0186318, %183 ], [ %.0186318, %200 ]
+  %.1185 = phi i32 [ %.0184319, %205 ], [ %.0184319, %196 ], [ %.0184319, %ossl_quic_conn_id_eq.exit ], [ %.0184319, %ossl_quic_conn_id_eq.exit271 ], [ %.0184319, %84 ], [ %.0184319, %90 ], [ %.0184319, %95 ], [ %.0184319, %100 ], [ %.0184319, %108 ], [ %.0184319, %116 ], [ %.0184319, %125 ], [ 1, %132 ], [ %.0184319, %ch_update_idle.exit ], [ %.0184319, %166 ], [ %.0184319, %173 ], [ %.0184319, %ossl_quic_conn_id_eq.exit276 ], [ %.0184319, %183 ], [ %.0184319, %200 ]
+  %.1183 = phi i32 [ %.0182320, %205 ], [ %.0182320, %196 ], [ %.0182320, %ossl_quic_conn_id_eq.exit ], [ %.0182320, %ossl_quic_conn_id_eq.exit271 ], [ %.0182320, %84 ], [ %.0182320, %90 ], [ %.0182320, %95 ], [ %.0182320, %100 ], [ %.0182320, %108 ], [ %.0182320, %116 ], [ %.0182320, %125 ], [ %.0182320, %132 ], [ %.0182320, %ch_update_idle.exit ], [ %.0182320, %166 ], [ %.0182320, %173 ], [ %.0182320, %ossl_quic_conn_id_eq.exit276 ], [ 1, %183 ], [ %.0182320, %200 ]
+  %.1181 = phi i32 [ %.0180321, %205 ], [ 1, %196 ], [ %.0180321, %ossl_quic_conn_id_eq.exit ], [ %.0180321, %ossl_quic_conn_id_eq.exit271 ], [ %.0180321, %84 ], [ %.0180321, %90 ], [ %.0180321, %95 ], [ %.0180321, %100 ], [ %.0180321, %108 ], [ %.0180321, %116 ], [ %.0180321, %125 ], [ %.0180321, %132 ], [ %.0180321, %ch_update_idle.exit ], [ %.0180321, %166 ], [ %.0180321, %173 ], [ %.0180321, %ossl_quic_conn_id_eq.exit276 ], [ %.0180321, %183 ], [ %.0180321, %200 ]
+  %.1179 = phi i32 [ %.0178322, %205 ], [ %.0178322, %196 ], [ %.0178322, %ossl_quic_conn_id_eq.exit ], [ %.0178322, %ossl_quic_conn_id_eq.exit271 ], [ %.0178322, %84 ], [ %.0178322, %90 ], [ %.0178322, %95 ], [ %.0178322, %100 ], [ 1, %108 ], [ %.0178322, %116 ], [ %.0178322, %125 ], [ %.0178322, %132 ], [ %.0178322, %ch_update_idle.exit ], [ %.0178322, %166 ], [ %.0178322, %173 ], [ %.0178322, %ossl_quic_conn_id_eq.exit276 ], [ %.0178322, %183 ], [ %.0178322, %200 ]
+  %.1177 = phi i32 [ %.0176323, %205 ], [ %.0176323, %196 ], [ %.0176323, %ossl_quic_conn_id_eq.exit ], [ %.0176323, %ossl_quic_conn_id_eq.exit271 ], [ %.0176323, %84 ], [ %.0176323, %90 ], [ %.0176323, %95 ], [ %.0176323, %100 ], [ %.0176323, %108 ], [ 1, %116 ], [ %.0176323, %125 ], [ %.0176323, %132 ], [ %.0176323, %ch_update_idle.exit ], [ %.0176323, %166 ], [ %.0176323, %173 ], [ %.0176323, %ossl_quic_conn_id_eq.exit276 ], [ %.0176323, %183 ], [ %.0176323, %200 ]
+  %.1175 = phi i32 [ %.0174324, %205 ], [ %.0174324, %196 ], [ %.0174324, %ossl_quic_conn_id_eq.exit ], [ %.0174324, %ossl_quic_conn_id_eq.exit271 ], [ %.0174324, %84 ], [ %.0174324, %90 ], [ %.0174324, %95 ], [ %.0174324, %100 ], [ %.0174324, %108 ], [ %.0174324, %116 ], [ %.0174324, %125 ], [ %.0174324, %132 ], [ %.0174324, %ch_update_idle.exit ], [ 1, %166 ], [ %.0174324, %173 ], [ %.0174324, %ossl_quic_conn_id_eq.exit276 ], [ %.0174324, %183 ], [ %.0174324, %200 ]
+  %.1173 = phi i32 [ %.0172325, %205 ], [ %.0172325, %196 ], [ %.0172325, %ossl_quic_conn_id_eq.exit ], [ %.0172325, %ossl_quic_conn_id_eq.exit271 ], [ %.0172325, %84 ], [ %.0172325, %90 ], [ %.0172325, %95 ], [ %.0172325, %100 ], [ %.0172325, %108 ], [ %.0172325, %116 ], [ %.0172325, %125 ], [ %.0172325, %132 ], [ 1, %ch_update_idle.exit ], [ %.0172325, %166 ], [ %.0172325, %173 ], [ %.0172325, %ossl_quic_conn_id_eq.exit276 ], [ %.0172325, %183 ], [ %.0172325, %200 ]
+  %.1171 = phi i32 [ %.0170326, %205 ], [ %.0170326, %196 ], [ %.0170326, %ossl_quic_conn_id_eq.exit ], [ %.0170326, %ossl_quic_conn_id_eq.exit271 ], [ %.0170326, %84 ], [ %.0170326, %90 ], [ %.0170326, %95 ], [ %.0170326, %100 ], [ %.0170326, %108 ], [ %.0170326, %116 ], [ %.0170326, %125 ], [ %.0170326, %132 ], [ %.0170326, %ch_update_idle.exit ], [ %.0170326, %166 ], [ 1, %173 ], [ %.0170326, %ossl_quic_conn_id_eq.exit276 ], [ %.0170326, %183 ], [ %.0170326, %200 ]
+  %.1169 = phi i32 [ %.0168327, %205 ], [ %.0168327, %196 ], [ %.0168327, %ossl_quic_conn_id_eq.exit ], [ %.0168327, %ossl_quic_conn_id_eq.exit271 ], [ %.0168327, %84 ], [ %.0168327, %90 ], [ %.0168327, %95 ], [ %.0168327, %100 ], [ %.0168327, %108 ], [ %.0168327, %116 ], [ %.0168327, %125 ], [ %.0168327, %132 ], [ %.0168327, %ch_update_idle.exit ], [ %.0168327, %166 ], [ %.0168327, %173 ], [ %.0168327, %ossl_quic_conn_id_eq.exit276 ], [ %.0168327, %183 ], [ 1, %200 ]
+  %.1166 = phi i64 [ %.0165328, %205 ], [ %.0165328, %196 ], [ %.0165328, %ossl_quic_conn_id_eq.exit ], [ %.0165328, %ossl_quic_conn_id_eq.exit271 ], [ %.0165328, %84 ], [ %.0165328, %90 ], [ %.0165328, %95 ], [ %.0165328, %100 ], [ %.0165328, %108 ], [ %.0165328, %116 ], [ %.0165328, %125 ], [ %.0165328, %132 ], [ %159, %ch_update_idle.exit ], [ %.0165328, %166 ], [ %.0165328, %173 ], [ %.0165328, %ossl_quic_conn_id_eq.exit276 ], [ %.0165328, %183 ], [ %.0165328, %200 ]
+  %.1164 = phi ptr [ %.0163329, %205 ], [ %.0163329, %196 ], [ %.0163329, %ossl_quic_conn_id_eq.exit ], [ %.0163329, %ossl_quic_conn_id_eq.exit271 ], [ %.0163329, %84 ], [ %.0163329, %90 ], [ %.0163329, %95 ], [ %.0163329, %100 ], [ %.0163329, %108 ], [ %.0163329, %116 ], [ %.0163329, %125 ], [ %.0163329, %132 ], [ %.0163329, %ch_update_idle.exit ], [ %.0163329, %166 ], [ %.0163329, %173 ], [ %.0163329, %ossl_quic_conn_id_eq.exit276 ], [ %179, %183 ], [ %.0163329, %200 ]
+  %.1 = phi i32 [ %.0162330, %205 ], [ %.0162330, %196 ], [ 1, %ossl_quic_conn_id_eq.exit ], [ %.0162330, %ossl_quic_conn_id_eq.exit271 ], [ %.0162330, %84 ], [ %.0162330, %90 ], [ %.0162330, %95 ], [ %.0162330, %100 ], [ %.0162330, %108 ], [ %.0162330, %116 ], [ %.0162330, %125 ], [ %.0162330, %132 ], [ %.0162330, %ch_update_idle.exit ], [ %.0162330, %166 ], [ %.0162330, %173 ], [ %.0162330, %ossl_quic_conn_id_eq.exit276 ], [ %.0162330, %183 ], [ %.0162330, %200 ]
   %.val = load i64, ptr %16, align 8, !tbaa !259
   %.not208 = icmp eq i64 %.val, 0
   br i1 %.not208, label %._crit_edge, label %45, !llvm.loop !267
@@ -6490,7 +6490,7 @@ ch_update_idle.exit:                              ; preds = %min_u64_ignore_0.ex
   br label %ch_get_qlog.exit
 
 ch_get_qlog.exit:                                 ; preds = %228, %233, %236, %240, %254
-  %.0.i279 = phi ptr [ null, %254 ], [ %232, %228 ], [ null, %233 ], [ null, %236 ], [ %252, %240 ]
+  %.0.i279 = phi ptr [ %232, %228 ], [ null, %233 ], [ null, %254 ], [ null, %236 ], [ %252, %240 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %257 = call i32 @ossl_qlog_event_try_begin(ptr noundef %.0.i279, i32 noundef 4, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67) #15
   %.not212 = icmp eq i32 %257, 0
@@ -6696,12 +6696,12 @@ ch_get_qlog.exit:                                 ; preds = %228, %233, %236, %2
   br label %347
 
 ossl_quic_conn_id_eq.exit.thread:                 ; preds = %76, %68, %55, %200, %199, %196, %194, %191, %188, %187, %183, %178, %175, %174, %168, %167, %161, %160, %134, %133, %127, %126, %120, %119, %111, %110, %103, %102, %98, %97, %93, %92, %88, %87, %82, %81, %ossl_quic_conn_id_eq.exit276, %74, %73, %ossl_quic_conn_id_eq.exit271, %66, %64, %63, %60, %ossl_quic_conn_id_eq.exit, %53, %50, %49, %205, %45, %PACKET_buf_init.exit, %224, %223, %._crit_edge, %3
-  %.0167 = phi ptr [ @.str.15, %3 ], [ @.str.62, %._crit_edge ], [ @.str.63, %223 ], [ @.str.64, %224 ], [ @.str.62, %PACKET_buf_init.exit ], [ @.str.28, %76 ], [ @.str.25, %68 ], [ @.str.20, %55 ], [ @.str.61, %200 ], [ @.str.60, %199 ], [ @.str.59, %196 ], [ @.str.58, %194 ], [ @.str.57, %191 ], [ @.str.56, %188 ], [ @.str.55, %187 ], [ @.str.54, %183 ], [ @.str.53, %178 ], [ @.str.52, %175 ], [ @.str.51, %174 ], [ @.str.50, %168 ], [ @.str.49, %167 ], [ @.str.48, %161 ], [ @.str.47, %160 ], [ @.str.46, %134 ], [ @.str.45, %133 ], [ @.str.44, %127 ], [ @.str.43, %126 ], [ @.str.42, %120 ], [ @.str.41, %119 ], [ @.str.40, %111 ], [ @.str.39, %110 ], [ @.str.38, %103 ], [ @.str.37, %102 ], [ @.str.36, %98 ], [ @.str.35, %97 ], [ @.str.34, %93 ], [ @.str.33, %92 ], [ @.str.32, %88 ], [ @.str.31, %87 ], [ @.str.30, %82 ], [ @.str.29, %81 ], [ @.str.28, %ossl_quic_conn_id_eq.exit276 ], [ @.str.27, %74 ], [ @.str.26, %73 ], [ @.str.25, %ossl_quic_conn_id_eq.exit271 ], [ @.str.24, %66 ], [ @.str.23, %64 ], [ @.str.22, %63 ], [ @.str.21, %60 ], [ @.str.20, %ossl_quic_conn_id_eq.exit ], [ @.str.19, %53 ], [ @.str.18, %50 ], [ @.str.17, %49 ], [ @.str.14, %45 ], [ @.str.14, %205 ]
+  %.0167 = phi ptr [ @.str.62, %._crit_edge ], [ @.str.64, %224 ], [ @.str.15, %3 ], [ @.str.63, %223 ], [ @.str.62, %PACKET_buf_init.exit ], [ @.str.20, %55 ], [ @.str.25, %68 ], [ @.str.14, %45 ], [ @.str.60, %199 ], [ @.str.59, %196 ], [ @.str.57, %191 ], [ @.str.58, %194 ], [ @.str.56, %188 ], [ @.str.55, %187 ], [ @.str.54, %183 ], [ @.str.53, %178 ], [ @.str.52, %175 ], [ @.str.51, %174 ], [ @.str.50, %168 ], [ @.str.49, %167 ], [ @.str.48, %161 ], [ @.str.47, %160 ], [ @.str.46, %134 ], [ @.str.45, %133 ], [ @.str.44, %127 ], [ @.str.43, %126 ], [ @.str.42, %120 ], [ @.str.41, %119 ], [ @.str.40, %111 ], [ @.str.39, %110 ], [ @.str.38, %103 ], [ @.str.37, %102 ], [ @.str.36, %98 ], [ @.str.35, %97 ], [ @.str.34, %93 ], [ @.str.33, %92 ], [ @.str.32, %88 ], [ @.str.31, %87 ], [ @.str.30, %82 ], [ @.str.29, %81 ], [ @.str.28, %ossl_quic_conn_id_eq.exit276 ], [ @.str.26, %73 ], [ @.str.27, %74 ], [ @.str.25, %ossl_quic_conn_id_eq.exit271 ], [ @.str.22, %63 ], [ @.str.23, %64 ], [ @.str.24, %66 ], [ @.str.21, %60 ], [ @.str.20, %ossl_quic_conn_id_eq.exit ], [ @.str.18, %50 ], [ @.str.19, %53 ], [ @.str.17, %49 ], [ @.str.14, %205 ], [ @.str.61, %200 ], [ @.str.28, %76 ]
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef %2, i64 noundef 8, i64 noundef 0, ptr noundef nonnull %.0167, ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1799, ptr noundef nonnull @__func__.ch_on_transport_params)
   br label %347
 
 347:                                              ; preds = %341, %344, %ossl_quic_conn_id_eq.exit.thread, %346, %44
-  %.0 = phi i32 [ 0, %ossl_quic_conn_id_eq.exit.thread ], [ 0, %346 ], [ 0, %44 ], [ 1, %344 ], [ 1, %341 ]
+  %.0 = phi i32 [ 0, %ossl_quic_conn_id_eq.exit.thread ], [ 0, %44 ], [ 0, %346 ], [ 1, %344 ], [ 1, %341 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -6831,8 +6831,8 @@ define internal range(i32 0, 2) i32 @ch_on_handshake_complete(ptr noundef %0) #0
   br label %ch_record_state_transition.exit
 
 ch_record_state_transition.exit:                  ; preds = %33, %40, %44, %48, %61
-  %63 = phi i64 [ %62, %61 ], [ %34, %33 ], [ %34, %40 ], [ %34, %44 ], [ %.pre.i, %48 ]
-  %.0.i.i = phi ptr [ null, %61 ], [ %39, %33 ], [ null, %40 ], [ null, %44 ], [ %59, %48 ]
+  %63 = phi i64 [ %34, %33 ], [ %34, %40 ], [ %62, %61 ], [ %34, %44 ], [ %.pre.i, %48 ]
+  %.0.i.i = phi ptr [ %39, %33 ], [ null, %40 ], [ null, %61 ], [ null, %44 ], [ %59, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %64 = trunc i64 %63 to i32
   %65 = lshr i32 %64, 9

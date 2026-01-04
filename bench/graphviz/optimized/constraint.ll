@@ -357,7 +357,7 @@ overlaps.exit:                                    ; preds = %137
   br i1 %exitcond.not, label %overlaps.exit.thread, label %.lr.ph93, !llvm.loop !51
 
 overlaps.exit.thread:                             ; preds = %.loopexit.i, %.lr.ph93, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %.lr.ph93 ], [ 0, %.loopexit.i ]
+  %.0 = phi i32 [ 1, %.lr.ph93 ], [ 0, %._crit_edge ], [ 0, %.loopexit.i ]
   call void @free(ptr noundef %18) #17
   ret i32 %.0
 }
@@ -1141,7 +1141,7 @@ points_sync.exit.i.i:                             ; preds = %._crit_edge.i.i45.i
   br label %205
 
 205:                                              ; preds = %204, %195, %191
-  %.sroa.0.0.i86 = phi double [ 1.000000e+00, %204 ], [ %202, %195 ], [ 0x7FF0000000000000, %191 ]
+  %.sroa.0.0.i86 = phi double [ %202, %195 ], [ 1.000000e+00, %204 ], [ 0x7FF0000000000000, %191 ]
   %206 = load double, ptr %169, align 8, !tbaa !74
   %207 = getelementptr inbounds nuw i8, ptr %.036127.i, i64 8
   %208 = load double, ptr %207, align 8, !tbaa !74
@@ -1163,7 +1163,7 @@ points_sync.exit.i.i:                             ; preds = %._crit_edge.i.i45.i
   br label %220
 
 220:                                              ; preds = %219, %210, %205
-  %.sroa.7.0.i = phi double [ 1.000000e+00, %219 ], [ %217, %210 ], [ 0x7FF0000000000000, %205 ]
+  %.sroa.7.0.i = phi double [ %217, %210 ], [ 1.000000e+00, %219 ], [ 0x7FF0000000000000, %205 ]
   %221 = icmp eq i64 %.sroa.30.1125.i, %.sroa.39.1126.i
   br i1 %221, label %222, label %points_append.exit72.i
 
@@ -1230,7 +1230,7 @@ points_append.exit72.i:                           ; preds = %235, %229, %220
   br i1 %exitcond.not.i87, label %.loopexit.i84, label %171, !llvm.loop !92
 
 mkOverlapSet.exit:                                ; preds = %.lr.ph14.split.us.i.i.i, %points_sync.exit.i.i, %156, %158
-  %.sroa.0.4.i = phi ptr [ %.sroa.0.1.lcssa.i, %points_sync.exit.i.i ], [ %151, %158 ], [ %151, %156 ], [ %.sroa.0.1.lcssa.i, %.lr.ph14.split.us.i.i.i ]
+  %.sroa.0.4.i = phi ptr [ %.sroa.0.1.lcssa.i, %points_sync.exit.i.i ], [ %151, %156 ], [ %151, %158 ], [ %.sroa.0.1.lcssa.i, %.lr.ph14.split.us.i.i.i ]
   %.not81 = icmp eq i64 %.sroa.30.1.lcssa.i, 1
   br i1 %.not81, label %mkOverlapSet.exit.thread, label %252
 
@@ -1411,7 +1411,7 @@ mkOverlapSet.exit.thread:                         ; preds = %points_append.exit.
   br i1 %exitcond.not, label %compress.exit.thread, label %.lr.ph136, !llvm.loop !97
 
 compress.exit.thread:                             ; preds = %89, %.lr.ph136, %.thread126, %compress.exit, %62, %mkOverlapSet.exit.thread
-  %.0 = phi i32 [ 0, %mkOverlapSet.exit.thread ], [ 0, %62 ], [ 0, %compress.exit ], [ 1, %.thread126 ], [ 1, %.lr.ph136 ], [ 0, %89 ]
+  %.0 = phi i32 [ 0, %mkOverlapSet.exit.thread ], [ 0, %compress.exit ], [ 1, %.lr.ph136 ], [ 0, %62 ], [ 1, %.thread126 ], [ 0, %89 ]
   call void @free(ptr noundef %20) #17
   ret i32 %.0
 }
@@ -2462,7 +2462,7 @@ define internal range(i32 -1, 2) i32 @sortf(ptr noundef readonly captures(none) 
   br label %16
 
 16:                                               ; preds = %14, %8, %6, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %6 ], [ -1, %8 ], [ %., %14 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %2 ], [ 1, %6 ], [ %., %14 ]
   ret i32 %.0
 }
 

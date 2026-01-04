@@ -522,7 +522,7 @@ _ZTW24softfloat_exceptionFlags.exit249:           ; preds = %201
   br label %_ZTW24softfloat_exceptionFlags.exit253
 
 _ZTW24softfloat_exceptionFlags.exit253:           ; preds = %.thread308, %.thread307
-  %220 = phi ptr [ %210, %.thread307 ], [ %202, %.thread308 ]
+  %220 = phi ptr [ %202, %.thread308 ], [ %210, %.thread307 ]
   store i8 0, ptr %220, align 1, !tbaa !156
   br label %221
 
@@ -696,7 +696,7 @@ _ZTW24softfloat_exceptionFlags.exit263:           ; preds = %272
   br label %_ZTW24softfloat_exceptionFlags.exit267
 
 _ZTW24softfloat_exceptionFlags.exit267:           ; preds = %.thread316, %.thread315
-  %291 = phi ptr [ %281, %.thread315 ], [ %273, %.thread316 ]
+  %291 = phi ptr [ %273, %.thread316 ], [ %281, %.thread315 ]
   store i8 0, ptr %291, align 1, !tbaa !156
   br label %292
 
@@ -897,7 +897,7 @@ _ZTW24softfloat_exceptionFlags.exit277:           ; preds = %353
   br label %_ZTW24softfloat_exceptionFlags.exit281
 
 _ZTW24softfloat_exceptionFlags.exit281:           ; preds = %.thread324, %.thread323
-  %372 = phi ptr [ %362, %.thread323 ], [ %354, %.thread324 ]
+  %372 = phi ptr [ %354, %.thread324 ], [ %362, %.thread323 ]
   store i8 0, ptr %372, align 1, !tbaa !156
   br label %373
 
@@ -1011,7 +1011,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !170
@@ -1527,7 +1527,7 @@ _ZTW24softfloat_exceptionFlags.exit249:           ; preds = %201
   br label %_ZTW24softfloat_exceptionFlags.exit253
 
 _ZTW24softfloat_exceptionFlags.exit253:           ; preds = %.thread308, %.thread307
-  %220 = phi ptr [ %210, %.thread307 ], [ %202, %.thread308 ]
+  %220 = phi ptr [ %202, %.thread308 ], [ %210, %.thread307 ]
   store i8 0, ptr %220, align 1, !tbaa !156
   br label %221
 
@@ -1701,7 +1701,7 @@ _ZTW24softfloat_exceptionFlags.exit263:           ; preds = %272
   br label %_ZTW24softfloat_exceptionFlags.exit267
 
 _ZTW24softfloat_exceptionFlags.exit267:           ; preds = %.thread316, %.thread315
-  %291 = phi ptr [ %281, %.thread315 ], [ %273, %.thread316 ]
+  %291 = phi ptr [ %273, %.thread316 ], [ %281, %.thread315 ]
   store i8 0, ptr %291, align 1, !tbaa !156
   br label %292
 
@@ -1902,7 +1902,7 @@ _ZTW24softfloat_exceptionFlags.exit277:           ; preds = %353
   br label %_ZTW24softfloat_exceptionFlags.exit281
 
 _ZTW24softfloat_exceptionFlags.exit281:           ; preds = %.thread324, %.thread323
-  %372 = phi ptr [ %362, %.thread323 ], [ %354, %.thread324 ]
+  %372 = phi ptr [ %354, %.thread324 ], [ %362, %.thread323 ]
   store i8 0, ptr %372, align 1, !tbaa !156
   br label %373
 
@@ -2390,7 +2390,7 @@ _ZTW24softfloat_exceptionFlags.exit249:           ; preds = %201
   br label %_ZTW24softfloat_exceptionFlags.exit253
 
 _ZTW24softfloat_exceptionFlags.exit253:           ; preds = %.thread308, %.thread307
-  %220 = phi ptr [ %210, %.thread307 ], [ %202, %.thread308 ]
+  %220 = phi ptr [ %202, %.thread308 ], [ %210, %.thread307 ]
   store i8 0, ptr %220, align 1, !tbaa !156
   br label %221
 
@@ -2564,7 +2564,7 @@ _ZTW24softfloat_exceptionFlags.exit263:           ; preds = %272
   br label %_ZTW24softfloat_exceptionFlags.exit267
 
 _ZTW24softfloat_exceptionFlags.exit267:           ; preds = %.thread316, %.thread315
-  %291 = phi ptr [ %281, %.thread315 ], [ %273, %.thread316 ]
+  %291 = phi ptr [ %273, %.thread316 ], [ %281, %.thread315 ]
   store i8 0, ptr %291, align 1, !tbaa !156
   br label %292
 
@@ -2765,7 +2765,7 @@ _ZTW24softfloat_exceptionFlags.exit277:           ; preds = %353
   br label %_ZTW24softfloat_exceptionFlags.exit281
 
 _ZTW24softfloat_exceptionFlags.exit281:           ; preds = %.thread324, %.thread323
-  %372 = phi ptr [ %362, %.thread323 ], [ %354, %.thread324 ]
+  %372 = phi ptr [ %354, %.thread324 ], [ %362, %.thread323 ]
   store i8 0, ptr %372, align 1, !tbaa !156
   br label %373
 
@@ -3255,7 +3255,7 @@ _ZTW24softfloat_exceptionFlags.exit249:           ; preds = %201
   br label %_ZTW24softfloat_exceptionFlags.exit253
 
 _ZTW24softfloat_exceptionFlags.exit253:           ; preds = %.thread308, %.thread307
-  %220 = phi ptr [ %210, %.thread307 ], [ %202, %.thread308 ]
+  %220 = phi ptr [ %202, %.thread308 ], [ %210, %.thread307 ]
   store i8 0, ptr %220, align 1, !tbaa !156
   br label %221
 
@@ -3429,7 +3429,7 @@ _ZTW24softfloat_exceptionFlags.exit263:           ; preds = %272
   br label %_ZTW24softfloat_exceptionFlags.exit267
 
 _ZTW24softfloat_exceptionFlags.exit267:           ; preds = %.thread316, %.thread315
-  %291 = phi ptr [ %281, %.thread315 ], [ %273, %.thread316 ]
+  %291 = phi ptr [ %273, %.thread316 ], [ %281, %.thread315 ]
   store i8 0, ptr %291, align 1, !tbaa !156
   br label %292
 
@@ -3630,7 +3630,7 @@ _ZTW24softfloat_exceptionFlags.exit277:           ; preds = %353
   br label %_ZTW24softfloat_exceptionFlags.exit281
 
 _ZTW24softfloat_exceptionFlags.exit281:           ; preds = %.thread324, %.thread323
-  %372 = phi ptr [ %362, %.thread323 ], [ %354, %.thread324 ]
+  %372 = phi ptr [ %354, %.thread324 ], [ %362, %.thread323 ]
   store i8 0, ptr %372, align 1, !tbaa !156
   br label %373
 
@@ -4118,7 +4118,7 @@ _ZTW24softfloat_exceptionFlags.exit249:           ; preds = %201
   br label %_ZTW24softfloat_exceptionFlags.exit253
 
 _ZTW24softfloat_exceptionFlags.exit253:           ; preds = %.thread308, %.thread307
-  %220 = phi ptr [ %210, %.thread307 ], [ %202, %.thread308 ]
+  %220 = phi ptr [ %202, %.thread308 ], [ %210, %.thread307 ]
   store i8 0, ptr %220, align 1, !tbaa !156
   br label %221
 
@@ -4292,7 +4292,7 @@ _ZTW24softfloat_exceptionFlags.exit263:           ; preds = %272
   br label %_ZTW24softfloat_exceptionFlags.exit267
 
 _ZTW24softfloat_exceptionFlags.exit267:           ; preds = %.thread316, %.thread315
-  %291 = phi ptr [ %281, %.thread315 ], [ %273, %.thread316 ]
+  %291 = phi ptr [ %273, %.thread316 ], [ %281, %.thread315 ]
   store i8 0, ptr %291, align 1, !tbaa !156
   br label %292
 
@@ -4493,7 +4493,7 @@ _ZTW24softfloat_exceptionFlags.exit277:           ; preds = %353
   br label %_ZTW24softfloat_exceptionFlags.exit281
 
 _ZTW24softfloat_exceptionFlags.exit281:           ; preds = %.thread324, %.thread323
-  %372 = phi ptr [ %362, %.thread323 ], [ %354, %.thread324 ]
+  %372 = phi ptr [ %354, %.thread324 ], [ %362, %.thread323 ]
   store i8 0, ptr %372, align 1, !tbaa !156
   br label %373
 
@@ -4983,7 +4983,7 @@ _ZTW24softfloat_exceptionFlags.exit249:           ; preds = %201
   br label %_ZTW24softfloat_exceptionFlags.exit253
 
 _ZTW24softfloat_exceptionFlags.exit253:           ; preds = %.thread308, %.thread307
-  %220 = phi ptr [ %210, %.thread307 ], [ %202, %.thread308 ]
+  %220 = phi ptr [ %202, %.thread308 ], [ %210, %.thread307 ]
   store i8 0, ptr %220, align 1, !tbaa !156
   br label %221
 
@@ -5157,7 +5157,7 @@ _ZTW24softfloat_exceptionFlags.exit263:           ; preds = %272
   br label %_ZTW24softfloat_exceptionFlags.exit267
 
 _ZTW24softfloat_exceptionFlags.exit267:           ; preds = %.thread316, %.thread315
-  %291 = phi ptr [ %281, %.thread315 ], [ %273, %.thread316 ]
+  %291 = phi ptr [ %273, %.thread316 ], [ %281, %.thread315 ]
   store i8 0, ptr %291, align 1, !tbaa !156
   br label %292
 
@@ -5358,7 +5358,7 @@ _ZTW24softfloat_exceptionFlags.exit277:           ; preds = %353
   br label %_ZTW24softfloat_exceptionFlags.exit281
 
 _ZTW24softfloat_exceptionFlags.exit281:           ; preds = %.thread324, %.thread323
-  %372 = phi ptr [ %362, %.thread323 ], [ %354, %.thread324 ]
+  %372 = phi ptr [ %354, %.thread324 ], [ %362, %.thread323 ]
   store i8 0, ptr %372, align 1, !tbaa !156
   br label %373
 
@@ -5846,7 +5846,7 @@ _ZTW24softfloat_exceptionFlags.exit249:           ; preds = %201
   br label %_ZTW24softfloat_exceptionFlags.exit253
 
 _ZTW24softfloat_exceptionFlags.exit253:           ; preds = %.thread308, %.thread307
-  %220 = phi ptr [ %210, %.thread307 ], [ %202, %.thread308 ]
+  %220 = phi ptr [ %202, %.thread308 ], [ %210, %.thread307 ]
   store i8 0, ptr %220, align 1, !tbaa !156
   br label %221
 
@@ -6020,7 +6020,7 @@ _ZTW24softfloat_exceptionFlags.exit263:           ; preds = %272
   br label %_ZTW24softfloat_exceptionFlags.exit267
 
 _ZTW24softfloat_exceptionFlags.exit267:           ; preds = %.thread316, %.thread315
-  %291 = phi ptr [ %281, %.thread315 ], [ %273, %.thread316 ]
+  %291 = phi ptr [ %273, %.thread316 ], [ %281, %.thread315 ]
   store i8 0, ptr %291, align 1, !tbaa !156
   br label %292
 
@@ -6221,7 +6221,7 @@ _ZTW24softfloat_exceptionFlags.exit277:           ; preds = %353
   br label %_ZTW24softfloat_exceptionFlags.exit281
 
 _ZTW24softfloat_exceptionFlags.exit281:           ; preds = %.thread324, %.thread323
-  %372 = phi ptr [ %362, %.thread323 ], [ %354, %.thread324 ]
+  %372 = phi ptr [ %354, %.thread324 ], [ %362, %.thread323 ]
   store i8 0, ptr %372, align 1, !tbaa !156
   br label %373
 
@@ -6711,7 +6711,7 @@ _ZTW24softfloat_exceptionFlags.exit249:           ; preds = %201
   br label %_ZTW24softfloat_exceptionFlags.exit253
 
 _ZTW24softfloat_exceptionFlags.exit253:           ; preds = %.thread308, %.thread307
-  %220 = phi ptr [ %210, %.thread307 ], [ %202, %.thread308 ]
+  %220 = phi ptr [ %202, %.thread308 ], [ %210, %.thread307 ]
   store i8 0, ptr %220, align 1, !tbaa !156
   br label %221
 
@@ -6885,7 +6885,7 @@ _ZTW24softfloat_exceptionFlags.exit263:           ; preds = %272
   br label %_ZTW24softfloat_exceptionFlags.exit267
 
 _ZTW24softfloat_exceptionFlags.exit267:           ; preds = %.thread316, %.thread315
-  %291 = phi ptr [ %281, %.thread315 ], [ %273, %.thread316 ]
+  %291 = phi ptr [ %273, %.thread316 ], [ %281, %.thread315 ]
   store i8 0, ptr %291, align 1, !tbaa !156
   br label %292
 
@@ -7086,7 +7086,7 @@ _ZTW24softfloat_exceptionFlags.exit277:           ; preds = %353
   br label %_ZTW24softfloat_exceptionFlags.exit281
 
 _ZTW24softfloat_exceptionFlags.exit281:           ; preds = %.thread324, %.thread323
-  %372 = phi ptr [ %362, %.thread323 ], [ %354, %.thread324 ]
+  %372 = phi ptr [ %354, %.thread324 ], [ %362, %.thread323 ]
   store i8 0, ptr %372, align 1, !tbaa !156
   br label %373
 
@@ -7397,8 +7397,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -76,7 +76,7 @@ _.exit:                                           ; preds = %20, %22
   br label %27
 
 27:                                               ; preds = %unclean.exit, %25, %_.exit
-  %.0 = phi i32 [ 1, %_.exit ], [ %26, %25 ], [ -1, %unclean.exit ]
+  %.0 = phi i32 [ %26, %25 ], [ 1, %_.exit ], [ -1, %unclean.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

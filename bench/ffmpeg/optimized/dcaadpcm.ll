@@ -389,7 +389,7 @@ calc_prediction_gain.exit:                        ; preds = %._crit_edge.i
   br i1 %exitcond92.not, label %.loopexit, label %.lr.ph64, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph64, %calc_prediction_gain.exit, %find_best_filter.exit, %.preheader
-  %.0 = phi i32 [ %.mux, %find_best_filter.exit ], [ %.mux110, %calc_prediction_gain.exit ], [ %spec.select.i41, %.preheader ], [ %spec.select.i41, %.lr.ph64 ]
+  %.0 = phi i32 [ %.mux110, %calc_prediction_gain.exit ], [ %.mux, %find_best_filter.exit ], [ %spec.select.i41, %.preheader ], [ %spec.select.i41, %.lr.ph64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -592,7 +592,7 @@ define range(i32 -12, 1) i32 @ff_dcaadpcm_init(ptr noundef writeonly captures(ad
   br i1 %exitcond41.not.i, label %precalc.exit, label %.preheader22.i, !llvm.loop !29
 
 precalc.exit:                                     ; preds = %17, %2, %1
-  %.0 = phi i32 [ -1, %1 ], [ -12, %2 ], [ 0, %17 ]
+  %.0 = phi i32 [ -12, %2 ], [ -1, %1 ], [ 0, %17 ]
   ret i32 %.0
 }
 

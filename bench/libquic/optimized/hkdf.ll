@@ -84,7 +84,7 @@ define hidden range(i32 0, 2) i32 @HKDF(ptr noundef writeonly captures(none) %0,
   %.not49 = icmp eq i32 %40, 0
   br i1 %.not49, label %.thread, label %41
 
-.thread:                                          ; preds = %33, %31, %39, %37, %35
+.thread:                                          ; preds = %31, %33, %39, %37, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %49
 
@@ -105,7 +105,7 @@ define hidden range(i32 0, 2) i32 @HKDF(ptr noundef writeonly captures(none) %0,
   call void @HMAC_CTX_cleanup(ptr noundef nonnull %13) #4
   br label %50
 
-49:                                               ; preds = %22, %25, %.thread
+49:                                               ; preds = %22, %.thread, %25
   call void @HMAC_CTX_cleanup(ptr noundef nonnull %13) #4
   call void @ERR_put_error(i32 noundef 31, i32 noundef 0, i32 noundef 28, ptr noundef nonnull @.str, i32 noundef 86) #4
   br label %50

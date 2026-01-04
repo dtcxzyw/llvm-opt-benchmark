@@ -209,7 +209,7 @@ define void @IDEA_cfb64_encrypt(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %.not110, label %.loopexit, label %86, !llvm.loop !12
 
 .loopexit:                                        ; preds = %76, %134, %.preheader, %.preheader112, %7
-  %storemerge = phi i32 [ -1, %7 ], [ %9, %.preheader ], [ %9, %.preheader112 ], [ %143, %134 ], [ %85, %76 ]
+  %storemerge = phi i32 [ -1, %7 ], [ %143, %134 ], [ %9, %.preheader ], [ %9, %.preheader112 ], [ %85, %76 ]
   store i32 %storemerge, ptr %5, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void

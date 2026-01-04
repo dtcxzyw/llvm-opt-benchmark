@@ -240,14 +240,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12Dens
   br i1 %.not150162.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread.i
-  %.pre187.i = load ptr, ptr %81, align 8, !tbaa !36
+  %.pre188.i = load ptr, ptr %81, align 8, !tbaa !36
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5clearEv.exit.i
-  %96 = phi ptr [ %95, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5clearEv.exit.i ], [ %.pre187.i, %._crit_edge.loopexit.i ]
+  %96 = phi ptr [ %95, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5clearEv.exit.i ], [ %.pre188.i, %._crit_edge.loopexit.i ]
   %.1.lcssa.i = phi i64 [ %.0.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5clearEv.exit.i ], [ %.2.i, %._crit_edge.loopexit.i ]
-  %.not151165.i = icmp eq ptr %96, %82
-  br i1 %.not151165.i, label %._crit_edge169.i, label %.lr.ph168.i
+  %.not151166.i = icmp eq ptr %96, %82
+  br i1 %.not151166.i, label %._crit_edge170.i, label %.lr.ph169.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5clearEv.exit.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread.i
   %.1164.i = phi i64 [ %.2.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread.i ], [ %.0.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5clearEv.exit.i ]
@@ -574,30 +574,30 @@ _ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.thread.i: ; preds = %_ZL
   br label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread.i
 
 _ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread.i: ; preds = %.lr.ph.i.i.i81.i, %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.thread.i, %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.i, %239, %_ZL28hasMetadataOtherThanDebugLocPKN4llvm14GlobalVariableE.exit.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.i, %125, %120, %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i.i, %116, %114, %110, %108
-  %.2.i = phi i64 [ %109, %108 ], [ %.1164.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.i ], [ %.1164.i, %_ZL28hasMetadataOtherThanDebugLocPKN4llvm14GlobalVariableE.exit.i ], [ %.1164.i, %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.thread.i ], [ %.1164.i, %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.i ], [ %.1164.i, %125 ], [ %.1164.i, %120 ], [ %.1164.i, %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i.i ], [ %.1164.i, %110 ], [ %.1164.i, %116 ], [ %.1164.i, %114 ], [ %.1164.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i ], [ %.1164.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i ], [ %.1164.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i ], [ %.1164.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i ], [ %.1164.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i ], [ %.1164.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i ], [ %.1164.i, %239 ], [ %.1164.i, %.lr.ph.i.i.i81.i ]
+  %.2.i = phi i64 [ %109, %108 ], [ %.1164.i, %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.i ], [ %.1164.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.i ], [ %.1164.i, %239 ], [ %.1164.i, %_ZL28hasMetadataOtherThanDebugLocPKN4llvm14GlobalVariableE.exit.i ], [ %.1164.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i ], [ %.1164.i, %_ZL17IsBetterCanonicalRKN4llvm14GlobalVariableES2_.exit.thread.i ], [ %.1164.i, %114 ], [ %.1164.i, %125 ], [ %.1164.i, %120 ], [ %.1164.i, %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i.i ], [ %.1164.i, %110 ], [ %.1164.i, %116 ], [ %.1164.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i ], [ %.1164.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i ], [ %.1164.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i ], [ %.1164.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i ], [ %.1164.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit.thread141.i ], [ %.1164.i, %.lr.ph.i.i.i81.i ]
   %.not150.i = icmp eq ptr %98, %82
   br i1 %.not150.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
-._crit_edge169.i:                                 ; preds = %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread.i, %._crit_edge.i
+._crit_edge170.i:                                 ; preds = %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread.i, %._crit_edge.i
   %242 = load i32, ptr %79, align 8, !tbaa !34
-  %.not170.i = icmp eq i32 %242, 0
-  br i1 %.not170.i, label %._crit_edge175.i, label %.lr.ph174.preheader.i
+  %.not171.i = icmp eq i32 %242, 0
+  br i1 %.not171.i, label %._crit_edge176.i, label %.lr.ph175.preheader.i
 
-.lr.ph174.preheader.i:                            ; preds = %._crit_edge169.i
+.lr.ph175.preheader.i:                            ; preds = %._crit_edge170.i
   %243 = zext i32 %242 to i64
-  br label %.lr.ph174.i
+  br label %.lr.ph175.i
 
-.lr.ph168.i:                                      ; preds = %._crit_edge.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread.i
-  %.sroa.0123.0166.i = phi ptr [ %245, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread.i ], [ %96, %._crit_edge.i ]
-  %244 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0166.i, i64 8
+.lr.ph169.i:                                      ; preds = %._crit_edge.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread.i
+  %.sroa.0123.0167.i = phi ptr [ %245, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread.i ], [ %96, %._crit_edge.i ]
+  %244 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0167.i, i64 8
   %245 = load ptr, ptr %244, align 8, !tbaa !36
-  %246 = getelementptr inbounds i8, ptr %.sroa.0123.0166.i, i64 -56
-  %247 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0166.i, i64 24
+  %246 = getelementptr inbounds i8, ptr %.sroa.0123.0167.i, i64 -56
+  %247 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0167.i, i64 24
   %248 = load i8, ptr %247, align 8
   %249 = trunc i8 %248 to i1
   br i1 %249, label %250, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread.i
 
-250:                                              ; preds = %.lr.ph168.i
+250:                                              ; preds = %.lr.ph169.i
   %251 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(81) %246) #8
   br i1 %251, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread.i, label %252
 
@@ -612,7 +612,7 @@ _ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i88.i: ; preds = %252
   br i1 %.not.i.i89.i, label %256, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread.i
 
 256:                                              ; preds = %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i88.i
-  %257 = getelementptr inbounds i8, ptr %.sroa.0123.0166.i, i64 -48
+  %257 = getelementptr inbounds i8, ptr %.sroa.0123.0167.i, i64 -48
   %258 = load ptr, ptr %257, align 8, !tbaa !43
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %260 = load i32, ptr %259, align 8
@@ -620,7 +620,7 @@ _ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i88.i: ; preds = %252
   br i1 %.not.i90.i, label %261, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread.i
 
 261:                                              ; preds = %256
-  %262 = getelementptr inbounds i8, ptr %.sroa.0123.0166.i, i64 -24
+  %262 = getelementptr inbounds i8, ptr %.sroa.0123.0167.i, i64 -24
   %263 = load i32, ptr %262, align 8
   %264 = and i32 %263, 67116032
   %or.cond.not.i91.i = icmp eq i32 %264, 0
@@ -657,18 +657,18 @@ _ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11Gl
   br i1 %.not152.i, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97._ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread146_crit_edge.i, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread.i
 
 _ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97._ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread146_crit_edge.i: ; preds = %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.i
-  %.pre188.i = load i32, ptr %262, align 8
+  %.pre189.i = load i32, ptr %262, align 8
   br label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread146.i
 
 _ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread146.i: ; preds = %273, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97._ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread146_crit_edge.i, %268
-  %278 = phi i32 [ %.pre188.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97._ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread146_crit_edge.i ], [ %263, %268 ], [ %263, %273 ]
+  %278 = phi i32 [ %.pre189.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97._ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread146_crit_edge.i ], [ %263, %268 ], [ %263, %273 ]
   %279 = and i32 %278, 15
   %280 = add nsw i32 %279, -7
   %spec.select.i.i98.i = icmp ult i32 %280, 2
   br i1 %spec.select.i.i98.i, label %281, label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread.i
 
 281:                                              ; preds = %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread146.i
-  %282 = getelementptr inbounds i8, ptr %.sroa.0123.0166.i, i64 -88
+  %282 = getelementptr inbounds i8, ptr %.sroa.0123.0167.i, i64 -88
   %283 = load ptr, ptr %282, align 8, !tbaa !14
   %284 = load ptr, ptr %9, align 8, !tbaa !48
   %285 = load i32, ptr %86, align 8, !tbaa !51
@@ -811,24 +811,24 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_14GlobalVariableES3_ELb1EE9push_ba
   store i32 %351, ptr %79, align 8, !tbaa !34
   br label %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread.i
 
-_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread.i: ; preds = %.lr.ph.i.i.i94.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_14GlobalVariableES3_ELb1EE9push_backES4_.exit.i, %_ZL28hasMetadataOtherThanDebugLocPKN4llvm14GlobalVariableE.exit.i.i, %319, %312, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread146.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.i, %261, %256, %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i88.i, %252, %250, %.lr.ph168.i
+_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread.i: ; preds = %.lr.ph.i.i.i94.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_14GlobalVariableES3_ELb1EE9push_backES4_.exit.i, %_ZL28hasMetadataOtherThanDebugLocPKN4llvm14GlobalVariableE.exit.i.i, %319, %312, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.thread146.i, %_ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11GlobalValueEEE.exit97.i, %261, %256, %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.i88.i, %252, %250, %.lr.ph169.i
   %.not151.i = icmp eq ptr %245, %82
-  br i1 %.not151.i, label %._crit_edge169.i, label %.lr.ph168.i
+  br i1 %.not151.i, label %._crit_edge170.i, label %.lr.ph169.i
 
-._crit_edge175.loopexit.i:                        ; preds = %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.exit.i
+._crit_edge176.loopexit.i:                        ; preds = %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.exit.i
   %352 = add i64 %.1.lcssa.i, 1
   %353 = add i32 %242, -1
   %354 = zext i32 %353 to i64
   %355 = add i64 %352, %354
-  br label %._crit_edge175.i
+  br label %._crit_edge176.i
 
-._crit_edge175.i:                                 ; preds = %._crit_edge175.loopexit.i, %._crit_edge169.i
-  %.3.lcssa.i = phi i64 [ %.1.lcssa.i, %._crit_edge169.i ], [ %355, %._crit_edge175.loopexit.i ]
+._crit_edge176.i:                                 ; preds = %._crit_edge176.loopexit.i, %._crit_edge170.i
+  %.3.lcssa.i = phi i64 [ %.1.lcssa.i, %._crit_edge170.i ], [ %355, %._crit_edge176.loopexit.i ]
   %356 = icmp eq i64 %.3.lcssa.i, %.0.i
   br i1 %356, label %408, label %392
 
-.lr.ph174.i:                                      ; preds = %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.exit.i, %.lr.ph174.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph174.preheader.i ], [ %indvars.iv.next.i, %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.exit.i ]
+.lr.ph175.i:                                      ; preds = %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.exit.i, %.lr.ph175.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph175.preheader.i ], [ %indvars.iv.next.i, %_ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.exit.i ]
   %357 = load ptr, ptr %10, align 8, !tbaa !32
   %358 = getelementptr inbounds nuw %"struct.std::pair.84", ptr %357, i64 %indvars.iv.i
   %359 = load ptr, ptr %358, align 8, !tbaa !65
@@ -841,14 +841,14 @@ _ZL19isUnmergeableGlobalPN4llvm14GlobalVariableERKNS_15SmallPtrSetImplIPKNS_11Gl
   %.not.i.i.not.i106.i = icmp eq i32 %365, 0
   br i1 %.not.i.i.not.i106.i, label %366, label %.critedge.i107.i
 
-366:                                              ; preds = %.lr.ph174.i
+366:                                              ; preds = %.lr.ph175.i
   %367 = getelementptr inbounds nuw i8, ptr %361, i64 32
   %368 = load i32, ptr %367, align 8
   %369 = and i32 %368, 8257536
   %.not.i.i11.not.i.i = icmp eq i32 %369, 0
   br i1 %.not.i.i11.not.i.i, label %382, label %.critedge.i107.i
 
-.critedge.i107.i:                                 ; preds = %366, %.lr.ph174.i
+.critedge.i107.i:                                 ; preds = %366, %.lr.ph175.i
   %370 = trunc nuw nsw i32 %365 to i8
   %371 = add nsw i8 %370, -1
   %372 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm11GlobalValue13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(48) %359) #8
@@ -909,9 +909,9 @@ _ZL7replaceRN4llvm6ModuleEPNS_14GlobalVariableES3_.exit.i: ; preds = %389, %._cr
   call void @_ZN4llvm14GlobalVariable15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(81) %359) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, %243
-  br i1 %.not.i, label %._crit_edge175.loopexit.i, label %.lr.ph174.i, !llvm.loop !70
+  br i1 %.not.i, label %._crit_edge176.loopexit.i, label %.lr.ph175.i, !llvm.loop !70
 
-392:                                              ; preds = %._crit_edge175.i
+392:                                              ; preds = %._crit_edge176.i
   store i32 0, ptr %79, align 8, !tbaa !34
   %393 = load i32, ptr %87, align 8, !tbaa !58
   %394 = icmp eq i32 %393, 0
@@ -955,7 +955,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12Dens
   %.not.i114.i = icmp eq ptr %407, %406
   br i1 %.not.i114.i, label %._crit_edge.i.i, label %.lr.ph.i113.i, !llvm.loop !72
 
-408:                                              ; preds = %._crit_edge175.i
+408:                                              ; preds = %._crit_edge176.i
   %409 = load ptr, ptr %10, align 8, !tbaa !32
   %410 = icmp eq ptr %409, %78
   br i1 %410, label %_ZN4llvm11SmallVectorISt4pairIPNS_14GlobalVariableES3_ELj32EED2Ev.exit.i, label %411

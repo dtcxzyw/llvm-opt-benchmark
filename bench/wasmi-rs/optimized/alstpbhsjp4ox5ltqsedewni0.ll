@@ -226,7 +226,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hb6f4580267b547cbE"
   br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h554eacf8da0c13dcE.exit": ; preds = %5, %._crit_edge.i
-  %storemerge = phi i64 [ %25, %._crit_edge.i ], [ %1, %5 ]
+  %storemerge = phi i64 [ %1, %5 ], [ %25, %._crit_edge.i ]
   store i64 %storemerge, ptr %6, align 8
   ret void
 }
@@ -277,7 +277,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he68b3cb74bd146a2E"
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hb35e3abaddc6f782E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hb35e3abaddc6f782E.exit": ; preds = %4, %._crit_edge.i
-  %storemerge = phi i64 [ %23, %._crit_edge.i ], [ %1, %4 ]
+  %storemerge = phi i64 [ %1, %4 ], [ %23, %._crit_edge.i ]
   store i64 %storemerge, ptr %5, align 8
   ret void
 }
@@ -505,7 +505,7 @@ define noundef zeroext i1 @_ZN10wasmi_core5table2ty9TableType13is_subtype_of17ha
   br label %29
 
 29:                                               ; preds = %21, %18, %12, %7, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ false, %7 ], [ false, %12 ], [ true, %18 ], [ %spec.select, %21 ]
+  %.sroa.0.0 = phi i1 [ false, %12 ], [ false, %2 ], [ false, %7 ], [ %spec.select, %21 ], [ true, %18 ]
   ret i1 %.sroa.0.0
 }
 

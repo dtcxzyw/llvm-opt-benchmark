@@ -30,7 +30,7 @@ define internal range(i32 0, 34) i32 @svs_probe(ptr noundef readonly captures(no
   br label %12
 
 12:                                               ; preds = %8, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ %., %8 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %., %8 ]
   ret i32 %.0
 }
 

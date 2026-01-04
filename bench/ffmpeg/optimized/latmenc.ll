@@ -68,7 +68,7 @@ define internal range(i32 -1094995529, 1) i32 @latm_write_header(ptr noundef %0)
   br label %20
 
 20:                                               ; preds = %14, %1, %19, %9
-  %.0 = phi i32 [ -22, %9 ], [ 0, %19 ], [ 0, %1 ], [ -1094995529, %14 ]
+  %.0 = phi i32 [ 0, %19 ], [ -22, %9 ], [ 0, %1 ], [ -1094995529, %14 ]
   ret i32 %.0
 }
 
@@ -157,8 +157,8 @@ define internal i32 @latm_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %.thread, label %56
 
-.thread:                                          ; preds = %47, %51, %44
-  %.1.ph = phi i32 [ -1094995529, %44 ], [ %54, %51 ], [ -1094995529, %47 ]
+.thread:                                          ; preds = %51, %47, %44
+  %.1.ph = phi i32 [ -1094995529, %44 ], [ -1094995529, %47 ], [ %54, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %909
 
@@ -1735,7 +1735,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @latm_decode_extradata(ptr 
   br label %28
 
 28:                                               ; preds = %9, %24, %23, %18, %8
-  %.0 = phi i32 [ -1094995529, %8 ], [ -1094995529, %18 ], [ -1094995529, %23 ], [ 0, %24 ], [ %10, %9 ]
+  %.0 = phi i32 [ -1094995529, %8 ], [ 0, %24 ], [ -1094995529, %18 ], [ -1094995529, %23 ], [ %10, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

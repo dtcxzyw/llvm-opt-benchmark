@@ -57,7 +57,7 @@ define range(i32 0, 3) i32 @lv_draw_sw_mask_apply(ptr noundef readonly captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %._crit_edge.loopexit
-  %.2 = phi i32 [ 1, %5 ], [ %16, %._crit_edge.loopexit ], [ 0, %.lr.ph ]
+  %.2 = phi i32 [ %16, %._crit_edge.loopexit ], [ 1, %5 ], [ 0, %.lr.ph ]
   ret i32 %.2
 }
 
@@ -226,7 +226,7 @@ define void @lv_draw_sw_mask_line_points_init(ptr noundef %0, i32 noundef %1, i3
   br label %57
 
 57:                                               ; preds = %51, %53, %40, %42
-  %.sink = phi i32 [ %41, %42 ], [ %41, %40 ], [ %52, %53 ], [ %52, %51 ]
+  %.sink = phi i32 [ %41, %40 ], [ %41, %42 ], [ %52, %53 ], [ %52, %51 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %.sink, ptr %58, align 4, !tbaa !32
   %59 = load i8, ptr %15, align 8
@@ -1032,7 +1032,7 @@ mask_mix.exit224.i:                               ; preds = %388, %386, %372
   br label %line_mask_flat.exit
 
 line_mask_flat.exit:                              ; preds = %406, %404, %401, %399, %397, %338, %336, %335, %333, %328, %267, %265, %262, %260, %258, %256, %215, %210, %196, %194, %192, %190, %188, %79, %72, %65, %61, %29, %22, %50, %48, %47, %39, %43, %41, %38, %31, %26, %23
-  %.056 = phi i32 [ 1, %22 ], [ 1, %23 ], [ %., %26 ], [ 1, %29 ], [ 1, %31 ], [ 1, %38 ], [ 0, %39 ], [ 2, %43 ], [ 2, %41 ], [ 0, %47 ], [ 2, %50 ], [ 0, %48 ], [ %..i, %61 ], [ %.125.i, %65 ], [ %.126.i, %72 ], [ %.127.i, %79 ], [ 0, %188 ], [ %.mux.i, %194 ], [ 2, %196 ], [ 2, %190 ], [ 2, %192 ], [ %..i74, %210 ], [ %.204.i, %215 ], [ 0, %256 ], [ 0, %262 ], [ 1, %335 ], [ 0, %401 ], [ %.mux.i68, %397 ], [ 2, %260 ], [ 2, %258 ], [ 2, %265 ], [ 2, %267 ], [ 2, %406 ], [ 2, %404 ], [ 2, %399 ], [ 2, %328 ], [ 2, %336 ], [ 2, %338 ], [ 2, %333 ]
+  %.056 = phi i32 [ 0, %48 ], [ 2, %190 ], [ %., %26 ], [ 1, %23 ], [ 1, %22 ], [ 2, %50 ], [ 1, %31 ], [ 1, %38 ], [ 2, %41 ], [ 0, %47 ], [ 1, %29 ], [ 0, %39 ], [ 2, %43 ], [ %..i, %61 ], [ %.125.i, %65 ], [ %.126.i, %72 ], [ %.127.i, %79 ], [ 0, %188 ], [ %.mux.i, %194 ], [ 2, %192 ], [ 2, %196 ], [ %..i74, %210 ], [ %.204.i, %215 ], [ 0, %262 ], [ %.mux.i68, %397 ], [ 0, %256 ], [ 1, %335 ], [ 0, %401 ], [ 2, %267 ], [ 2, %260 ], [ 2, %258 ], [ 2, %265 ], [ 2, %333 ], [ 2, %406 ], [ 2, %404 ], [ 2, %338 ], [ 2, %399 ], [ 2, %328 ], [ 2, %336 ]
   ret i32 %.056
 }
 
@@ -1170,7 +1170,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noun
   br label %.thread
 
 .thread:                                          ; preds = %21, %37, %39, %34
-  %.0220 = phi i32 [ %40, %39 ], [ %32, %37 ], [ 0, %34 ], [ %32, %21 ]
+  %.0220 = phi i32 [ %32, %37 ], [ %40, %39 ], [ 0, %34 ], [ %32, %21 ]
   %41 = icmp sgt i32 %16, 0
   br i1 %41, label %42, label %.thread263
 
@@ -1189,7 +1189,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noun
   br label %.thread263
 
 .thread263:                                       ; preds = %.thread, %42, %47, %45
-  %.1221 = phi i32 [ %48, %47 ], [ %.0220, %45 ], [ 0, %42 ], [ %.0220, %.thread ]
+  %.1221 = phi i32 [ %.0220, %45 ], [ 0, %42 ], [ %48, %47 ], [ %.0220, %.thread ]
   %49 = sub nsw i32 %26, %.1221
   %50 = ashr i32 %49, 1
   %51 = add i32 %.1221, %.neg275
@@ -1355,7 +1355,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noun
   br label %134
 
 134:                                              ; preds = %.thread264.thread, %128, %.thread265, %131
-  %.0210 = phi i32 [ %133, %131 ], [ %., %.thread265 ], [ %.259, %128 ], [ 3, %.thread264.thread ]
+  %.0210 = phi i32 [ %., %.thread265 ], [ %133, %131 ], [ %.259, %128 ], [ 3, %.thread264.thread ]
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %136 = load i32, ptr %135, align 4, !tbaa !43
   switch i32 %136, label %143 [
@@ -1399,7 +1399,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noun
   br label %153
 
 153:                                              ; preds = %145, %149, %140, %137, %.thread266
-  %.0 = phi i32 [ %152, %.thread266 ], [ %.260, %137 ], [ %.261, %140 ], [ 3, %149 ], [ 3, %145 ]
+  %.0 = phi i32 [ %.260, %137 ], [ %152, %.thread266 ], [ %.261, %140 ], [ 3, %149 ], [ 3, %145 ]
   %154 = icmp eq i32 %.0210, 0
   %155 = icmp eq i32 %.0, 0
   %or.cond26 = select i1 %154, i1 true, i1 %155
@@ -1419,7 +1419,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noun
   br label %162
 
 162:                                              ; preds = %153, %156, %159, %76, %19, %125, %68
-  %.0213 = phi i32 [ %.0219., %68 ], [ %.0212., %125 ], [ 1, %19 ], [ 1, %76 ], [ 0, %153 ], [ 0, %156 ], [ %.262, %159 ]
+  %.0213 = phi i32 [ 1, %76 ], [ %.0219., %68 ], [ 1, %19 ], [ %.0212., %125 ], [ 0, %156 ], [ 0, %153 ], [ %.262, %159 ]
   ret i32 %.0213
 }
 
@@ -1520,7 +1520,7 @@ define void @lv_draw_sw_mask_radius_init(ptr noundef captures(none) initializes(
   br label %59
 
 59:                                               ; preds = %53, %52, %.preheader71
-  %.1 = phi ptr [ %.080, %.preheader71 ], [ %48, %52 ], [ %spec.select68, %53 ]
+  %.1 = phi ptr [ %48, %52 ], [ %spec.select68, %53 ], [ %.080, %.preheader71 ]
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, 4
   br i1 %exitcond92.not, label %60, label %.preheader71, !llvm.loop !59
@@ -2339,7 +2339,7 @@ mask_mix.exit230:                                 ; preds = %185, %190, %192
   br label %205
 
 205:                                              ; preds = %5, %._crit_edge247, %._crit_edge, %52, %55, %63, %56, %35, %41
-  %.0 = phi i32 [ 0, %35 ], [ 0, %41 ], [ 2, %56 ], [ 2, %63 ], [ 2, %55 ], [ %spec.select224, %52 ], [ 2, %._crit_edge ], [ 2, %._crit_edge247 ], [ %., %5 ]
+  %.0 = phi i32 [ %., %5 ], [ 2, %._crit_edge247 ], [ %spec.select224, %52 ], [ 2, %63 ], [ 0, %35 ], [ 2, %55 ], [ 0, %41 ], [ 2, %56 ], [ 2, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -2547,7 +2547,7 @@ mask_mix.exit78:                                  ; preds = %.lr.ph89.split, %ma
   br i1 %94, label %mask_mix.exit78, label %.loopexit, !llvm.loop !85
 
 .loopexit:                                        ; preds = %mask_mix.exit, %mask_mix.exit76, %mask_mix.exit78, %.lr.ph89, %mask_mix.exit78.us91.preheader, %.preheader83, %.preheader, %68, %18, %14, %10, %5
-  %.0 = phi i32 [ 1, %5 ], [ 1, %10 ], [ 1, %14 ], [ 1, %18 ], [ 2, %68 ], [ 2, %.preheader ], [ 2, %.preheader83 ], [ 2, %mask_mix.exit78.us91.preheader ], [ 2, %.lr.ph89 ], [ 2, %mask_mix.exit78 ], [ 2, %mask_mix.exit76 ], [ 2, %mask_mix.exit ]
+  %.0 = phi i32 [ 1, %18 ], [ 1, %5 ], [ 1, %10 ], [ 1, %14 ], [ 2, %68 ], [ 2, %.preheader ], [ 2, %.preheader83 ], [ 2, %mask_mix.exit78.us91.preheader ], [ 2, %mask_mix.exit76 ], [ 2, %.lr.ph89 ], [ 2, %mask_mix.exit78 ], [ 2, %mask_mix.exit ]
   ret i32 %.0
 }
 
@@ -2664,7 +2664,7 @@ mask_mix.exit:                                    ; preds = %.lr.ph, %45, %47
   br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !95
 
 .loopexit:                                        ; preds = %mask_mix.exit, %22, %18, %14, %10, %5
-  %.041 = phi i32 [ 1, %5 ], [ 1, %10 ], [ 1, %14 ], [ 1, %18 ], [ 2, %22 ], [ 2, %mask_mix.exit ]
+  %.041 = phi i32 [ 1, %18 ], [ 1, %5 ], [ 1, %10 ], [ 1, %14 ], [ 2, %22 ], [ 2, %mask_mix.exit ]
   ret i32 %.041
 }
 

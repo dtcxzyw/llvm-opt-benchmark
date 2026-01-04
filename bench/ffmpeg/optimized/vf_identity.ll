@@ -709,7 +709,7 @@ av_cmp_q.exit.thread:                             ; preds = %av_cmp_q.exit.threa
   br label %av_cmp_q.exit44.thread52
 
 av_cmp_q.exit44.thread52:                         ; preds = %58, %56, %av_cmp_q.exit.thread, %11, %1
-  %.0 = phi i32 [ %9, %1 ], [ %27, %11 ], [ 0, %av_cmp_q.exit.thread ], [ 0, %56 ], [ 0, %58 ]
+  %.0 = phi i32 [ %27, %11 ], [ %9, %1 ], [ 0, %av_cmp_q.exit.thread ], [ 0, %58 ], [ 0, %56 ]
   ret i32 %.0
 }
 

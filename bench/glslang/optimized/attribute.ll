@@ -112,8 +112,8 @@ _ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeEi.exit: ; preds = %3
   store i32 %57, ptr %1, align 4
   br label %_ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeEi.exit.thread
 
-_ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeEi.exit.thread: ; preds = %37, %21, %7, %3, %_ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeEi.exit
-  %58 = phi i1 [ true, %_ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeEi.exit ], [ false, %3 ], [ false, %7 ], [ false, %21 ], [ false, %37 ]
+_ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeEi.exit.thread: ; preds = %21, %7, %3, %37, %_ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeEi.exit
+  %58 = phi i1 [ true, %_ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeEi.exit ], [ false, %37 ], [ false, %3 ], [ false, %7 ], [ false, %21 ]
   ret i1 %58
 }
 
@@ -184,7 +184,7 @@ define noundef ptr @_ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeE
   br label %57
 
 57:                                               ; preds = %37, %21, %7, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ null, %21 ], [ %spec.select, %37 ]
+  %.0 = phi ptr [ %spec.select, %37 ], [ null, %3 ], [ null, %7 ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -347,8 +347,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
   %.not.i13 = icmp eq ptr %97, %92
   br i1 %.not.i13, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEEESB_PDoFiiEET0_T_SF_SE_T1_.exit, label %.lr.ph.i, !llvm.loop !4
 
-_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEEESB_PDoFiiEET0_T_SF_SE_T1_.exit: ; preds = %.lr.ph.i, %38, %22, %8, %4, %87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit
-  %98 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit ], [ true, %87 ], [ false, %4 ], [ false, %8 ], [ false, %22 ], [ false, %38 ], [ true, %.lr.ph.i ]
+_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEEESB_PDoFiiEET0_T_SF_SE_T1_.exit: ; preds = %.lr.ph.i, %22, %8, %4, %38, %87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit
+  %98 = phi i1 [ false, %22 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit ], [ true, %87 ], [ false, %38 ], [ false, %4 ], [ false, %8 ], [ true, %.lr.ph.i ]
   ret i1 %98
 }
 
@@ -480,7 +480,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   br label %31
 
 31:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i38, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i31, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i24, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i17, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %29, %27, %25, %23, %21, %19, %17, %15, %13, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit50.thread
-  %.0 = phi i32 [ 27, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit50.thread ], [ 28, %13 ], [ 29, %15 ], [ 30, %17 ], [ 31, %19 ], [ 32, %21 ], [ 33, %23 ], [ 76, %25 ], [ 77, %27 ], [ %., %29 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i17 ], [ 7, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i24 ], [ 18, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i31 ], [ 19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i38 ], [ 19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45 ]
+  %.0 = phi i32 [ 77, %27 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 7, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i24 ], [ 18, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i31 ], [ 19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i38 ], [ 27, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit50.thread ], [ 28, %13 ], [ 29, %15 ], [ 30, %17 ], [ 31, %19 ], [ 32, %21 ], [ 33, %23 ], [ 76, %25 ], [ %., %29 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i17 ], [ 19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45 ]
   ret i32 %.0
 }
 
@@ -1084,8 +1084,8 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.i36:     ; preds = %138
   br i1 %209, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.exit", label %217
 
 "_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.exit": ; preds = %138, %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36, %155, %160, %174, %188, %207
-  %.sink6.i = phi i64 [ 344, %207 ], [ 352, %188 ], [ 352, %174 ], [ 352, %160 ], [ 352, %155 ], [ 352, %138 ], [ 352, %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36 ]
-  %.str.25.sink.i = phi ptr [ @.str.24, %207 ], [ @.str.25, %188 ], [ @.str.25, %174 ], [ @.str.25, %160 ], [ @.str.25, %155 ], [ @.str.25, %138 ], [ @.str.25, %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36 ]
+  %.sink6.i = phi i64 [ 344, %207 ], [ 352, %174 ], [ 352, %160 ], [ 352, %155 ], [ 352, %188 ], [ 352, %138 ], [ 352, %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36 ]
+  %.str.25.sink.i = phi ptr [ @.str.24, %207 ], [ @.str.25, %174 ], [ @.str.25, %160 ], [ @.str.25, %155 ], [ @.str.25, %188 ], [ @.str.25, %138 ], [ @.str.25, %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36 ]
   %210 = load ptr, ptr %4, align 8
   %211 = load ptr, ptr %210, align 8
   %212 = load ptr, ptr %211, align 8
@@ -1453,7 +1453,7 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit:         ; preds = %3
   %.not10.i.i = icmp eq i32 %76, 8
   br i1 %.not10.i.i, label %86, label %_ZNK7glslang14TAttributeArgs4sizeEv.exit.thread
 
-_ZNK7glslang14TAttributeArgs4sizeEv.exit.thread:  ; preds = %58, %44, %30, %24, %3, %_ZNK7glslang14TAttributeArgs4sizeEv.exit
+_ZNK7glslang14TAttributeArgs4sizeEv.exit.thread:  ; preds = %44, %30, %24, %58, %3, %_ZNK7glslang14TAttributeArgs4sizeEv.exit
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %78, align 8

@@ -773,8 +773,8 @@ define internal fastcc { i64, ptr } @_ZN19pyo3_macros_backend8pymethod12PyMethod
   br label %172
 
 172:                                              ; preds = %168, %170, %166, %164, %162, %160, %158, %156, %154, %152, %150, %148, %146, %144, %142, %140, %138, %136, %134, %132, %130, %128, %126, %124, %122, %120, %118, %116, %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4, %2
-  %.sroa.87.0 = phi ptr [ @anon.39a382d3dbc3d89bd70175d6e216cc63.233, %2 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.231, %4 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.228, %6 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.225, %8 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.221, %10 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.217, %12 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.214, %14 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.211, %16 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.209, %18 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.207, %20 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.205, %22 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.202, %24 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.199, %26 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.197, %28 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.199, %30 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.197, %32 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.193, %34 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.191, %36 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.189, %38 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.187, %40 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.185, %42 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.183, %44 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.181, %46 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.179, %48 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.176, %50 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.174, %52 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.172, %54 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.170, %56 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.168, %58 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.166, %60 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.164, %62 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.162, %64 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.160, %66 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.156, %68 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.154, %70 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.152, %72 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.150, %74 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.148, %76 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.145, %78 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.141, %80 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.137, %82 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.134, %84 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.133, %86 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.132, %88 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.131, %90 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.130, %92 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.129, %94 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.128, %96 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.126, %98 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.125, %100 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.124, %102 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.123, %104 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.122, %106 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.121, %108 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.120, %110 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.119, %112 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.118, %114 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.117, %116 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.116, %118 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.115, %120 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.114, %122 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.113, %124 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.112, %126 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.111, %128 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.110, %130 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.109, %132 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.108, %134 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.107, %136 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.106, %138 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.105, %140 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.104, %142 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.103, %144 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.102, %146 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.101, %148 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.100, %150 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.99, %152 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.98, %154 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.96, %156 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.95, %158 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.94, %160 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.93, %162 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.92, %164 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.91, %166 ], [ undef, %170 ], [ undef, %168 ]
-  %.sroa.0.0 = phi i64 [ 0, %2 ], [ 0, %4 ], [ 0, %6 ], [ 0, %8 ], [ 0, %10 ], [ 0, %12 ], [ 0, %14 ], [ 0, %16 ], [ 0, %18 ], [ 0, %20 ], [ 0, %22 ], [ 0, %24 ], [ 0, %26 ], [ 0, %28 ], [ 0, %30 ], [ 0, %32 ], [ 0, %34 ], [ 0, %36 ], [ 0, %38 ], [ 0, %40 ], [ 0, %42 ], [ 0, %44 ], [ 0, %46 ], [ 0, %48 ], [ 0, %50 ], [ 0, %52 ], [ 0, %54 ], [ 0, %56 ], [ 0, %58 ], [ 0, %60 ], [ 0, %62 ], [ 0, %64 ], [ 0, %66 ], [ 0, %68 ], [ 0, %70 ], [ 0, %72 ], [ 0, %74 ], [ 0, %76 ], [ 0, %78 ], [ 0, %80 ], [ 0, %82 ], [ 3, %84 ], [ 3, %86 ], [ 3, %88 ], [ 3, %90 ], [ 3, %92 ], [ 3, %94 ], [ 3, %96 ], [ 3, %98 ], [ 3, %100 ], [ 3, %102 ], [ 3, %104 ], [ 3, %106 ], [ 3, %108 ], [ 3, %110 ], [ 3, %112 ], [ 3, %114 ], [ 3, %116 ], [ 3, %118 ], [ 3, %120 ], [ 3, %122 ], [ 3, %124 ], [ 3, %126 ], [ 3, %128 ], [ 3, %130 ], [ 3, %132 ], [ 3, %134 ], [ 3, %136 ], [ 3, %138 ], [ 3, %140 ], [ 3, %142 ], [ 3, %144 ], [ 3, %146 ], [ 3, %148 ], [ 3, %150 ], [ 3, %152 ], [ 3, %154 ], [ 3, %156 ], [ 3, %158 ], [ 3, %160 ], [ 3, %162 ], [ 3, %164 ], [ 3, %166 ], [ %., %170 ], [ 1, %168 ]
+  %.sroa.87.0 = phi ptr [ undef, %168 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.233, %2 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.231, %4 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.228, %6 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.225, %8 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.221, %10 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.217, %12 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.214, %14 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.211, %16 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.209, %18 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.207, %20 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.205, %22 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.202, %24 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.199, %26 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.197, %28 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.199, %30 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.197, %32 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.193, %34 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.191, %36 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.189, %38 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.187, %40 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.185, %42 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.183, %44 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.181, %46 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.179, %48 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.176, %50 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.174, %52 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.172, %54 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.170, %56 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.168, %58 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.166, %60 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.164, %62 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.162, %64 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.160, %66 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.156, %68 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.154, %70 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.152, %72 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.150, %74 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.148, %76 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.145, %78 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.141, %80 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.137, %82 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.134, %84 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.133, %86 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.132, %88 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.131, %90 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.130, %92 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.129, %94 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.128, %96 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.126, %98 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.125, %100 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.124, %102 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.123, %104 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.122, %106 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.121, %108 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.120, %110 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.119, %112 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.118, %114 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.117, %116 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.116, %118 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.115, %120 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.114, %122 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.113, %124 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.112, %126 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.111, %128 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.110, %130 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.109, %132 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.108, %134 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.107, %136 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.106, %138 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.105, %140 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.104, %142 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.103, %144 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.102, %146 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.101, %148 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.100, %150 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.99, %152 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.98, %154 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.96, %156 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.95, %158 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.94, %160 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.93, %162 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.92, %164 ], [ undef, %170 ], [ @anon.39a382d3dbc3d89bd70175d6e216cc63.91, %166 ]
+  %.sroa.0.0 = phi i64 [ 1, %168 ], [ 0, %2 ], [ 0, %4 ], [ 0, %6 ], [ 0, %8 ], [ 0, %10 ], [ 0, %12 ], [ 0, %14 ], [ 0, %16 ], [ 0, %18 ], [ 0, %20 ], [ 0, %22 ], [ 0, %24 ], [ 0, %26 ], [ 0, %28 ], [ 0, %30 ], [ 0, %32 ], [ 0, %34 ], [ 0, %36 ], [ 0, %38 ], [ 0, %40 ], [ 0, %42 ], [ 0, %44 ], [ 0, %46 ], [ 0, %48 ], [ 0, %50 ], [ 0, %52 ], [ 0, %54 ], [ 0, %56 ], [ 0, %58 ], [ 0, %60 ], [ 0, %62 ], [ 0, %64 ], [ 0, %66 ], [ 0, %68 ], [ 0, %70 ], [ 0, %72 ], [ 0, %74 ], [ 0, %76 ], [ 0, %78 ], [ 0, %80 ], [ 0, %82 ], [ 3, %84 ], [ 3, %86 ], [ 3, %88 ], [ 3, %90 ], [ 3, %92 ], [ 3, %94 ], [ 3, %96 ], [ 3, %98 ], [ 3, %100 ], [ 3, %102 ], [ 3, %104 ], [ 3, %106 ], [ 3, %108 ], [ 3, %110 ], [ 3, %112 ], [ 3, %114 ], [ 3, %116 ], [ 3, %118 ], [ 3, %120 ], [ 3, %122 ], [ 3, %124 ], [ 3, %126 ], [ 3, %128 ], [ 3, %130 ], [ 3, %132 ], [ 3, %134 ], [ 3, %136 ], [ 3, %138 ], [ 3, %140 ], [ 3, %142 ], [ 3, %144 ], [ 3, %146 ], [ 3, %148 ], [ 3, %150 ], [ 3, %152 ], [ 3, %154 ], [ 3, %156 ], [ 3, %158 ], [ 3, %160 ], [ 3, %162 ], [ 3, %164 ], [ %., %170 ], [ 3, %166 ]
   %173 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %174 = insertvalue { i64, ptr } %173, ptr %.sroa.87.0, 1
   ret { i64, ptr } %174
@@ -1673,7 +1673,7 @@ _ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit
           to label %300 unwind label %298
 
 .thread40.i:                                      ; preds = %167, %.thread44.i, %159
-  %.pn2643.i = phi { ptr, i32 } [ %.pn24.i, %159 ], [ %lpad.thr_comm.i, %.thread44.i ], [ %168, %167 ]
+  %.pn2643.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread44.i ], [ %.pn24.i, %159 ], [ %168, %167 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %51) #7
           to label %.body204 unwind label %153, !noalias !9
 
@@ -1738,13 +1738,13 @@ _ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit
   br i1 %.not178, label %330, label %305
 
 .body204:                                         ; preds = %298, %.thread40.i, %159, %155, %140, %449, %433, %418
-  %.sroa.0135.1 = phi i1 [ true, %418 ], [ true, %433 ], [ true, %449 ], [ %.sroa.0135.0, %298 ], [ true, %.thread40.i ], [ true, %159 ], [ true, %155 ], [ true, %140 ]
-  %.pn192 = phi { ptr, i32 } [ %419, %418 ], [ %.pn181, %433 ], [ %.pn, %449 ], [ %299, %298 ], [ %.pn2643.i, %.thread40.i ], [ %.pn24.i, %159 ], [ %156, %155 ], [ %.pn.i201, %140 ]
+  %.sroa.0135.1 = phi i1 [ true, %449 ], [ true, %418 ], [ true, %433 ], [ %.sroa.0135.0, %298 ], [ true, %.thread40.i ], [ true, %159 ], [ true, %155 ], [ true, %140 ]
+  %.pn192 = phi { ptr, i32 } [ %.pn, %449 ], [ %419, %418 ], [ %.pn181, %433 ], [ %299, %298 ], [ %.pn2643.i, %.thread40.i ], [ %.pn24.i, %159 ], [ %156, %155 ], [ %.pn.i201, %140 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx) #7
           to label %478 unwind label %424
 
 298:                                              ; preds = %.invoke, %.noexc218, %.noexc217, %.noexc216, %323, %.noexc214, %.noexc213, %.noexc212, %316, %.noexc209, %.noexc208, %.noexc207, %_ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit.thread33.i, %294, %138, %136, %463, %447, %423, %407, %397, %392, %387, %382, %381, %376, %371, %366, %341, %340, %339, %336
-  %.sroa.0135.0 = phi i1 [ true, %336 ], [ false, %339 ], [ true, %340 ], [ true, %341 ], [ true, %397 ], [ true, %366 ], [ true, %407 ], [ true, %371 ], [ true, %423 ], [ true, %376 ], [ true, %381 ], [ true, %447 ], [ true, %382 ], [ true, %463 ], [ true, %387 ], [ true, %392 ], [ true, %136 ], [ true, %138 ], [ true, %294 ], [ true, %_ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit.thread33.i ], [ true, %.noexc207 ], [ true, %.noexc208 ], [ true, %.noexc209 ], [ true, %316 ], [ true, %.noexc212 ], [ true, %.noexc213 ], [ true, %.noexc214 ], [ true, %323 ], [ true, %.noexc216 ], [ true, %.noexc217 ], [ true, %.noexc218 ], [ true, %.invoke ]
+  %.sroa.0135.0 = phi i1 [ true, %.noexc209 ], [ true, %336 ], [ false, %339 ], [ true, %340 ], [ true, %341 ], [ true, %.noexc218 ], [ true, %397 ], [ true, %366 ], [ true, %407 ], [ true, %371 ], [ true, %423 ], [ true, %.noexc216 ], [ true, %376 ], [ true, %381 ], [ true, %447 ], [ true, %.noexc217 ], [ true, %382 ], [ true, %463 ], [ true, %.invoke ], [ true, %387 ], [ true, %392 ], [ true, %136 ], [ true, %138 ], [ true, %294 ], [ true, %_ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit.thread33.i ], [ true, %.noexc207 ], [ true, %.noexc208 ], [ true, %316 ], [ true, %.noexc212 ], [ true, %.noexc213 ], [ true, %.noexc214 ], [ true, %323 ]
   %299 = landingpad { ptr, i32 }
           cleanup
   br label %.body204
@@ -1804,9 +1804,9 @@ _ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit
   br label %303
 
 303:                                              ; preds = %.sink.split, %463, %447, %423
-  %.sroa.13.sroa.0.0 = phi i64 [ %421, %423 ], [ %445, %447 ], [ %461, %463 ], [ %.sroa.13.sroa.0.0.ph, %.sink.split ]
-  %.sroa.0135.2 = phi i1 [ true, %423 ], [ true, %447 ], [ true, %463 ], [ %.sroa.0135.2.ph, %.sink.split ]
-  %.sroa.06.0 = phi i64 [ 0, %423 ], [ 0, %447 ], [ 0, %463 ], [ %.sroa.06.0.ph, %.sink.split ]
+  %.sroa.13.sroa.0.0 = phi i64 [ %421, %423 ], [ %461, %463 ], [ %445, %447 ], [ %.sroa.13.sroa.0.0.ph, %.sink.split ]
+  %.sroa.0135.2 = phi i1 [ true, %423 ], [ true, %463 ], [ true, %447 ], [ %.sroa.0135.2.ph, %.sink.split ]
+  %.sroa.06.0 = phi i64 [ 0, %423 ], [ 0, %463 ], [ 0, %447 ], [ %.sroa.06.0.ph, %.sink.split ]
   store i64 %.sroa.06.0, ptr %0, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.13.sroa.0.0, ptr %.sroa.13.0..sroa_idx, align 8
@@ -2337,8 +2337,8 @@ _ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit
           to label %303 unwind label %298
 
 .invoke:                                          ; preds = %460, %444, %420
-  %.sink321 = phi ptr [ %422, %420 ], [ %446, %444 ], [ %462, %460 ]
-  %464 = phi ptr [ %76, %420 ], [ %73, %444 ], [ %69, %460 ]
+  %.sink321 = phi ptr [ %446, %444 ], [ %422, %420 ], [ %462, %460 ]
+  %464 = phi ptr [ %73, %444 ], [ %76, %420 ], [ %69, %460 ]
   %465 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %465, ptr noundef nonnull align 8 dereferenceable(24) %.sink321, i64 24, i1 false)
   store i64 3, ptr %0, align 8
@@ -2400,10 +2400,10 @@ _ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit
   br label %.thread303
 
 .thread277:                                       ; preds = %478, %479, %470, %476, %466, %469, %103, %481
-  %.pn196276 = phi { ptr, i32 } [ %lpad.thr_comm, %481 ], [ %.pn.i, %103 ], [ %.pn192, %478 ], [ %.pn192, %479 ], [ %471, %470 ], [ %471, %476 ], [ %467, %466 ], [ %467, %469 ]
+  %.pn196276 = phi { ptr, i32 } [ %.pn.i, %103 ], [ %lpad.thr_comm, %481 ], [ %467, %469 ], [ %.pn192, %478 ], [ %.pn192, %479 ], [ %471, %470 ], [ %471, %476 ], [ %467, %466 ]
   resume { ptr, i32 } %.pn196276
 
-481:                                              ; preds = %6, %93, %.noexc, %.noexc198
+481:                                              ; preds = %.noexc198, %6, %93, %.noexc
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr71drop_in_place$LT$pyo3_macros_backend..pyfunction..PyFunctionOptions$GT$17h937b5491ae287342E"(ptr align 8 %4) #7
@@ -2965,7 +2965,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend8pymethod18impl_py_method_d
   ret void
 
 141:                                              ; preds = %.thread47, %70
-  %.pn3446 = phi { ptr, i32 } [ %.pn32, %70 ], [ %66, %.thread47 ]
+  %.pn3446 = phi { ptr, i32 } [ %66, %.thread47 ], [ %.pn32, %70 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %24) #7
           to label %54 unwind label %84
 
@@ -2978,7 +2978,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend8pymethod18impl_py_method_d
   resume { ptr, i32 } %.pn3741
 
 .thread:                                          ; preds = %50, %.thread43, %36
-  %.pn3742 = phi { ptr, i32 } [ %.pn34.pn, %36 ], [ %lpad.thr_comm, %.thread43 ], [ %51, %50 ]
+  %.pn3742 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread43 ], [ %.pn34.pn, %36 ], [ %51, %50 ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h9aa821bb60b0e557E"(ptr nonnull align 8 %4) #7
           to label %143 unwind label %84
 }
@@ -5333,7 +5333,7 @@ _ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit
           to label %212 unwind label %175, !noalias !25
 
 .body:                                            ; preds = %220, %174, %301, %232
-  %.pn111 = phi { ptr, i32 } [ %.pn109, %301 ], [ %.pn55.pn, %232 ], [ %221, %220 ], [ %.pn9.i, %174 ]
+  %.pn111 = phi { ptr, i32 } [ %.pn55.pn, %232 ], [ %.pn109, %301 ], [ %221, %220 ], [ %.pn9.i, %174 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$pyo3_macros_backend..params..Holders$GT$17h0b4d5360dbd153b4E"(ptr nonnull align 8 %113) #7
           to label %141 unwind label %249
 
@@ -5668,7 +5668,7 @@ _ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit
           to label %.invoke unwind label %333
 
 .invoke:                                          ; preds = %335, %319, %313
-  %338 = phi ptr [ %99, %313 ], [ %93, %319 ], [ %88, %335 ]
+  %338 = phi ptr [ %93, %319 ], [ %99, %313 ], [ %88, %335 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %338)
           to label %316 unwind label %302
 
@@ -9402,7 +9402,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend8pymethod12PropertyType27nu
   unreachable
 
 common.resume:                                    ; preds = %38, %41, %76, %61
-  %common.resume.op = phi { ptr, i32 } [ %62, %61 ], [ %lpad.thr_comm, %76 ], [ %.pn, %41 ], [ %39, %38 ]
+  %common.resume.op = phi { ptr, i32 } [ %62, %61 ], [ %lpad.thr_comm, %76 ], [ %39, %38 ], [ %.pn, %41 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7e49aadd86744485E.exit": ; preds = %57
@@ -9547,7 +9547,7 @@ define hidden void @_ZN19pyo3_macros_backend8pymethod2Ty8ffi_type17h5d7d5396af8c
           to label %37 unwind label %29
 
 37:                                               ; preds = %36, %100, %91, %87, %80, %73, %63, %54
-  %.sink = phi ptr [ %11, %54 ], [ %10, %63 ], [ %9, %73 ], [ %8, %80 ], [ %7, %87 ], [ %6, %91 ], [ %4, %100 ], [ %12, %36 ]
+  %.sink = phi ptr [ %6, %91 ], [ %7, %87 ], [ %8, %80 ], [ %9, %73 ], [ %10, %63 ], [ %11, %54 ], [ %4, %100 ], [ %12, %36 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink, i64 32, i1 false)
   call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %13)
   ret void
@@ -10640,7 +10640,7 @@ define hidden void @_ZN19pyo3_macros_backend8pymethod7SlotDef18generate_type_slo
   br label %.body90
 
 .body90:                                          ; preds = %334, %316, %304
-  %eh.lpad-body91 = phi { ptr, i32 } [ %305, %304 ], [ %317, %316 ], [ %335, %334 ]
+  %eh.lpad-body91 = phi { ptr, i32 } [ %317, %316 ], [ %305, %304 ], [ %335, %334 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %12) #7
           to label %219 unwind label %352
 
@@ -11083,7 +11083,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend8pymethod20generate_method_
   unreachable
 
 144:                                              ; preds = %.body.i, %194, %185, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.i = phi { ptr, i32 } [ %186, %185 ], [ %eh.lpad-body.i, %.body.i ], [ %195, %194 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.i = phi { ptr, i32 } [ %195, %194 ], [ %186, %185 ], [ %eh.lpad-body.i, %.body.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %113) #7
           to label %.body unwind label %188, !noalias !44
 
@@ -11253,7 +11253,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend8pymethod20generate_method_
   br label %.body.i
 
 .body.i:                                          ; preds = %220, %.loopexit59.i, %517, %471, %433, %426, %419, %393, %215, %.loopexit.split-lp60.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %216, %215 ], [ %.pn9.i.i, %393 ], [ %420, %419 ], [ %427, %426 ], [ %.pn7.i.i, %433 ], [ %.pn3.i.i, %471 ], [ %518, %517 ], [ %lpad.loopexit.split-lp62.i, %.loopexit.split-lp60.i ], [ %lpad.loopexit61.i, %.loopexit59.i ], [ %.pn20.i, %220 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %518, %517 ], [ %216, %215 ], [ %.pn9.i.i, %393 ], [ %420, %419 ], [ %427, %426 ], [ %.pn7.i.i, %433 ], [ %.pn3.i.i, %471 ], [ %lpad.loopexit.split-lp62.i, %.loopexit.split-lp60.i ], [ %lpad.loopexit61.i, %.loopexit59.i ], [ %.pn20.i, %220 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %108) #7
           to label %144 unwind label %188, !noalias !44
 
@@ -13107,7 +13107,7 @@ _ZN19pyo3_macros_backend8pymethod14extract_object17h9a5c5bce06d57120E.exit: ; pr
           to label %633 unwind label %631, !noalias !53
 
 .body.i28:                                        ; preds = %668, %654, %640, %631
-  %.pn2.i = phi { ptr, i32 } [ %669, %668 ], [ %655, %654 ], [ %632, %631 ], [ %641, %640 ]
+  %.pn2.i = phi { ptr, i32 } [ %655, %654 ], [ %669, %668 ], [ %632, %631 ], [ %641, %640 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %59) #7
           to label %569 unwind label %628, !noalias !53
 
@@ -13281,7 +13281,7 @@ _ZN19pyo3_macros_backend8pymethod14extract_object17h9a5c5bce06d57120E.exit: ; pr
           to label %676 unwind label %674, !noalias !53
 
 .body17.i:                                        ; preds = %718, %707, %701, %.body12.i, %674
-  %.pn.i27 = phi { ptr, i32 } [ %719, %718 ], [ %702, %701 ], [ %eh.lpad-body13.i, %.body12.i ], [ %675, %674 ], [ %708, %707 ]
+  %.pn.i27 = phi { ptr, i32 } [ %eh.lpad-body13.i, %.body12.i ], [ %719, %718 ], [ %702, %701 ], [ %675, %674 ], [ %708, %707 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %54) #7
           to label %569 unwind label %628, !noalias !53
 

@@ -93,8 +93,8 @@ define internal i32 @mpl2_decode_frame(ptr noundef readonly captures(none) %0, p
   br label %.critedge.i.preheader, !llvm.loop !31
 
 .critedge.i.preheader:                            ; preds = %21, %..critedge.i_crit_edge, %.preheader.i
-  %.ph = phi i8 [ %19, %.preheader.i ], [ 0, %..critedge.i_crit_edge ], [ %.pr.i, %21 ]
-  %.3.i.ph = phi ptr [ %.139.i, %.preheader.i ], [ %27, %..critedge.i_crit_edge ], [ %27, %21 ]
+  %.ph = phi i8 [ 0, %..critedge.i_crit_edge ], [ %19, %.preheader.i ], [ %.pr.i, %21 ]
+  %.3.i.ph = phi ptr [ %27, %..critedge.i_crit_edge ], [ %.139.i, %.preheader.i ], [ %27, %21 ]
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %30
@@ -130,7 +130,7 @@ define internal i32 @mpl2_decode_frame(ptr noundef readonly captures(none) %0, p
   %.not.i = icmp eq i8 %.pre41.i, 0
   br i1 %.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !34
 
-.thread:                                          ; preds = %14, %10, %4
+.thread:                                          ; preds = %4, %14, %10
   %35 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #4
   br label %42
 

@@ -97,7 +97,7 @@ define noundef ptr @_RNvCshSmAE3ICOH0_7___rustc19___rust_alloc_zeroed(i64 nounde
   br label %"_ZN3std3sys5alloc4unix81_$LT$impl$u20$core..alloc..global..GlobalAlloc$u20$for$u20$std..alloc..System$GT$12alloc_zeroed17hee397110c5f2cbd3E.exit"
 
 "_ZN3std3sys5alloc4unix81_$LT$impl$u20$core..alloc..global..GlobalAlloc$u20$for$u20$std..alloc..System$GT$12alloc_zeroed17hee397110c5f2cbd3E.exit": ; preds = %7, %12, %14
-  %.sroa.04.0.i = phi ptr [ %13, %12 ], [ %10, %14 ], [ null, %7 ]
+  %.sroa.04.0.i = phi ptr [ %13, %12 ], [ null, %7 ], [ %10, %14 ]
   ret ptr %.sroa.04.0.i
 }
 

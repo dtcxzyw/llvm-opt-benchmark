@@ -268,7 +268,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %27, %11
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i: ; preds = %46, %43, %40, %35, %_ZN9grpc_core9Timestamp3NowEv.exit.i
-  %.0.i.i.i = phi i64 [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit.i ], [ -9223372036854775808, %35 ], [ %47, %46 ], [ 9223372036854775807, %40 ], [ -9223372036854775808, %43 ]
+  %.0.i.i.i = phi i64 [ -9223372036854775808, %35 ], [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit.i ], [ -9223372036854775808, %43 ], [ %47, %46 ], [ 9223372036854775807, %40 ]
   %48 = load ptr, ptr @_ZL8g_poller, align 8, !tbaa !26
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   tail call void @_Z15grpc_timer_initP10grpc_timerN9grpc_core9TimestampEP12grpc_closure(ptr noundef nonnull %23, i64 %.0.i.i.i, ptr noundef nonnull %49)
@@ -667,7 +667,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit37:             ; preds = %_ZTWN9grpc_core9Tim
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %104, %101, %98, %93, %_ZN9grpc_core9Timestamp3NowEv.exit37
-  %.0.i.i38 = phi i64 [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit37 ], [ -9223372036854775808, %93 ], [ %105, %104 ], [ 9223372036854775807, %98 ], [ -9223372036854775808, %101 ]
+  %.0.i.i38 = phi i64 [ -9223372036854775808, %93 ], [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit37 ], [ -9223372036854775808, %101 ], [ %105, %104 ], [ 9223372036854775807, %98 ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 56
   invoke void @_Z15grpc_timer_initP10grpc_timerN9grpc_core9TimestampEP12grpc_closure(ptr noundef nonnull %0, i64 %.0.i.i38, ptr noundef nonnull %106)
           to label %107 unwind label %115

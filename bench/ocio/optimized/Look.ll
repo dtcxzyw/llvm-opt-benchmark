@@ -1456,7 +1456,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i77: ; preds = %138, %13
   br label %166
 
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit71, %119, %126, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i77, %141, %67, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %52, %45
-  %.1 = phi i1 [ %44, %45 ], [ %44, %52 ], [ %44, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i ], [ %44, %67 ], [ false, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit71 ], [ %118, %119 ], [ %118, %126 ], [ %118, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i77 ], [ %118, %141 ]
+  %.1 = phi i1 [ %44, %67 ], [ %44, %45 ], [ %44, %52 ], [ %44, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i ], [ false, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit71 ], [ %118, %119 ], [ %118, %126 ], [ %118, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i77 ], [ %118, %141 ]
   %144 = load ptr, ptr %21, align 8, !tbaa !11
   %.not.i.i80 = icmp eq ptr %144, null
   br i1 %.not.i.i80, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit84, label %145
@@ -1803,7 +1803,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i114: ; preds = %288, %2
   br label %316
 
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit95: ; preds = %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit108, %269, %276, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i114, %291, %217, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i93, %202, %195
-  %.2 = phi i1 [ %194, %195 ], [ %194, %202 ], [ %194, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i93 ], [ %194, %217 ], [ false, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit108 ], [ %268, %269 ], [ %268, %276 ], [ %268, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i114 ], [ %268, %291 ]
+  %.2 = phi i1 [ %194, %217 ], [ %194, %195 ], [ %194, %202 ], [ %194, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i93 ], [ false, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit108 ], [ %268, %269 ], [ %268, %276 ], [ %268, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i114 ], [ %268, %291 ]
   %294 = load ptr, ptr %171, align 8, !tbaa !11
   %.not.i.i117 = icmp eq ptr %294, null
   br i1 %.not.i.i117, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121, label %295
@@ -2507,7 +2507,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %94, %92
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   br i1 %.not, label %142, label %98
 
-98:                                               ; preds = %97, %82, %_ZNK19OpenColorIO_v2_5dev4Look12getTransformEv.exit, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+98:                                               ; preds = %82, %97, %_ZNK19OpenColorIO_v2_5dev4Look12getTransformEv.exit, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %99 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.4, i64 noundef 16)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit35 unwind label %63
 
@@ -2611,7 +2611,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policy
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %226
 
-142:                                              ; preds = %97, %82, %_ZNK19OpenColorIO_v2_5dev4Look12getTransformEv.exit, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit45, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+142:                                              ; preds = %82, %97, %_ZNK19OpenColorIO_v2_5dev4Look12getTransformEv.exit, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit45, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %143 = load ptr, ptr %1, align 8, !tbaa !29, !noalias !72
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 112
   %145 = load ptr, ptr %144, align 8, !tbaa !35, !noalias !72
@@ -2687,7 +2687,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50: ; preds = %172, %17
 _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50
   br i1 %.not74, label %220, label %176
 
-176:                                              ; preds = %175, %160, %_ZNK19OpenColorIO_v2_5dev4Look19getInverseTransformEv.exit, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52
+176:                                              ; preds = %160, %175, %_ZNK19OpenColorIO_v2_5dev4Look19getInverseTransformEv.exit, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52
   %177 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.6, i64 noundef 23)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit54 unwind label %63
 
@@ -2791,7 +2791,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policy
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %226
 
-220:                                              ; preds = %175, %160, %_ZNK19OpenColorIO_v2_5dev4Look19getInverseTransformEv.exit, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit64, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52
+220:                                              ; preds = %160, %175, %_ZNK19OpenColorIO_v2_5dev4Look19getInverseTransformEv.exit, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit64, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52
   %221 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.7, i64 noundef 1)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit66 unwind label %63
 

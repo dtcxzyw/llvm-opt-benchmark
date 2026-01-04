@@ -163,7 +163,7 @@ HIST_count_simple.exit.loopexit:                  ; preds = %28
   br label %HIST_count_simple.exit
 
 HIST_count_simple.exit:                           ; preds = %15, %HIST_count_simple.exit.loopexit, %35, %32, %37
-  %.0 = phi i64 [ %38, %37 ], [ -1, %32 ], [ -66, %35 ], [ 0, %15 ], [ %31, %HIST_count_simple.exit.loopexit ]
+  %.0 = phi i64 [ -66, %35 ], [ %38, %37 ], [ -1, %32 ], [ 0, %15 ], [ %31, %HIST_count_simple.exit.loopexit ]
   ret i64 %.0
 }
 
@@ -463,7 +463,7 @@ HIST_count_simple.exit.loopexit.i:                ; preds = %34
   br label %HIST_countFast_wksp.exit
 
 HIST_countFast_wksp.exit:                         ; preds = %38, %HIST_count_simple.exit.loopexit.i, %21, %9, %6, %14
-  %.0 = phi i64 [ %15, %14 ], [ -1, %6 ], [ -66, %9 ], [ %39, %38 ], [ 0, %21 ], [ %37, %HIST_count_simple.exit.loopexit.i ]
+  %.0 = phi i64 [ -66, %9 ], [ -1, %6 ], [ %15, %14 ], [ 0, %21 ], [ %39, %38 ], [ %37, %HIST_count_simple.exit.loopexit.i ]
   ret i64 %.0
 }
 
@@ -532,7 +532,7 @@ HIST_count_simple.exit.loopexit.i:                ; preds = %27
   br label %HIST_countFast_wksp.exit
 
 HIST_countFast_wksp.exit:                         ; preds = %14, %HIST_count_simple.exit.loopexit.i, %31
-  %.0.i = phi i64 [ %32, %31 ], [ 0, %14 ], [ %30, %HIST_count_simple.exit.loopexit.i ]
+  %.0.i = phi i64 [ %30, %HIST_count_simple.exit.loopexit.i ], [ %32, %31 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0.i
 }
@@ -608,7 +608,7 @@ HIST_count_simple.exit.loopexit.i.i:              ; preds = %28
   br label %HIST_count_wksp.exit
 
 HIST_count_wksp.exit:                             ; preds = %8, %15, %HIST_count_simple.exit.loopexit.i.i, %32
-  %.0.i = phi i64 [ %9, %8 ], [ %33, %32 ], [ 0, %15 ], [ %31, %HIST_count_simple.exit.loopexit.i.i ]
+  %.0.i = phi i64 [ %31, %HIST_count_simple.exit.loopexit.i.i ], [ %33, %32 ], [ %9, %8 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0.i
 }

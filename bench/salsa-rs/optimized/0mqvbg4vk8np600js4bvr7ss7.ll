@@ -57,9 +57,9 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h7bf09a314e757cabE(ptr no
   %14 = and i64 %12, 3
   switch i64 %14, label %default.unreachable [
     i64 2, label %27
-    i64 3, label %29
-    i64 0, label %32
-    i64 1, label %37
+    i64 3, label %38
+    i64 0, label %29
+    i64 1, label %34
   ], !prof !3
 
 default.unreachable:                              ; preds = %13
@@ -80,8 +80,8 @@ default.unreachable:                              ; preds = %13
 .noexc:                                           ; preds = %19
   unreachable
 
-20:                                               ; preds = %37, %27, %29, %32, %15
-  %.sroa.04.1 = phi ptr [ @anon.f28676bfa5d7cf5083108750d26dc31f.1, %15 ], [ %10, %32 ], [ %10, %29 ], [ %10, %27 ], [ %10, %37 ]
+20:                                               ; preds = %38, %27, %34, %29, %15
+  %.sroa.04.1 = phi ptr [ @anon.f28676bfa5d7cf5083108750d26dc31f.1, %15 ], [ %10, %29 ], [ %10, %34 ], [ %10, %27 ], [ %10, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -103,27 +103,27 @@ default.unreachable:                              ; preds = %13
   br i1 %28, label %.thread, label %20
 
 29:                                               ; preds = %13
-  %30 = icmp ult ptr %10, inttoptr (i64 180388626432 to ptr)
+  %30 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %30)
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %32 = load i8, ptr %31, align 8, !range !7, !noundef !6
+  %33 = icmp eq i8 %32, 35
+  br i1 %33, label %.thread, label %20
+
+34:                                               ; preds = %13
+  %35 = getelementptr i8, ptr %10, i64 15
+  %36 = load i8, ptr %35, align 8, !range !7, !noundef !6
+  %37 = icmp eq i8 %36, 35
+  br i1 %37, label %.thread, label %20
+
+38:                                               ; preds = %13
+  %39 = icmp ult ptr %10, inttoptr (i64 180388626432 to ptr)
+  call void @llvm.assume(i1 %39)
   %.mask = and i64 %12, -4294967296
-  %31 = icmp eq i64 %.mask, 150323855360
-  br i1 %31, label %.thread, label %20
-
-32:                                               ; preds = %13
-  %33 = icmp ne ptr %10, null
-  call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %35 = load i8, ptr %34, align 8, !range !7, !noundef !6
-  %36 = icmp eq i8 %35, 35
-  br i1 %36, label %.thread, label %20
-
-37:                                               ; preds = %13
-  %38 = getelementptr i8, ptr %10, i64 15
-  %39 = load i8, ptr %38, align 8, !range !7, !noundef !6
-  %40 = icmp eq i8 %39, 35
+  %40 = icmp eq i64 %.mask, 150323855360
   br i1 %40, label %.thread, label %20
 
-.thread:                                          ; preds = %37, %27, %29, %32
+.thread:                                          ; preds = %38, %27, %34, %29
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b51449ece05beabE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
   br label %41
 
@@ -358,11 +358,11 @@ _ZN8smallvec10deallocate17h3032643b6bcf32c6E.exit.i: ; preds = %43
   tail call void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %23) #18
   unreachable
 
-48:                                               ; preds = %22, %25, %27, %30
+48:                                               ; preds = %30, %22, %25, %27
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f28676bfa5d7cf5083108750d26dc31f.17, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f28676bfa5d7cf5083108750d26dc31f.18) #18
   unreachable
 
-_ZN8smallvec10infallible17h4112fd0fa84149a8E.exit: ; preds = %20, %36, %_ZN8smallvec10deallocate17h3032643b6bcf32c6E.exit.i, %21
+_ZN8smallvec10infallible17h4112fd0fa84149a8E.exit: ; preds = %_ZN8smallvec10deallocate17h3032643b6bcf32c6E.exit.i, %21, %20, %36
   ret void
 
 49:                                               ; preds = %7, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17ha22964447f98a588E.exit"

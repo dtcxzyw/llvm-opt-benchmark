@@ -117,7 +117,7 @@ define noalias ptr @CRYPTO_malloc(i64 noundef %0, ptr noundef %1, i32 noundef %2
   br label %19
 
 19:                                               ; preds = %18, %15, %13, %9, %5
-  %.0 = phi ptr [ %6, %5 ], [ null, %9 ], [ %14, %13 ], [ null, %15 ], [ null, %18 ]
+  %.0 = phi ptr [ null, %9 ], [ %14, %13 ], [ %6, %5 ], [ null, %15 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -182,7 +182,7 @@ CRYPTO_malloc.exit.thread9:                       ; preds = %13, %CRYPTO_malloc.
   br label %CRYPTO_malloc.exit.thread
 
 CRYPTO_malloc.exit.thread:                        ; preds = %18, %15, %9, %CRYPTO_malloc.exit.thread9, %CRYPTO_malloc.exit
-  %.0.i8 = phi ptr [ %.0.i12, %CRYPTO_malloc.exit.thread9 ], [ null, %CRYPTO_malloc.exit ], [ null, %9 ], [ null, %15 ], [ null, %18 ]
+  %.0.i8 = phi ptr [ null, %CRYPTO_malloc.exit ], [ %.0.i12, %CRYPTO_malloc.exit.thread9 ], [ null, %9 ], [ null, %15 ], [ null, %18 ]
   ret ptr %.0.i8
 }
 
@@ -228,7 +228,7 @@ define noalias ptr @CRYPTO_aligned_alloc(i64 noundef %0, i64 noundef %1, ptr nou
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786688, ptr noundef null) #11
   br label %CRYPTO_malloc.exit.thread
 
-CRYPTO_malloc.exit.thread:                        ; preds = %18, %21
+CRYPTO_malloc.exit.thread:                        ; preds = %21, %18
   store ptr null, ptr %2, align 8, !tbaa !3
   br label %30
 
@@ -247,7 +247,7 @@ CRYPTO_malloc.exit:                               ; preds = %13
   br label %30
 
 30:                                               ; preds = %CRYPTO_malloc.exit.thread, %CRYPTO_malloc.exit, %9, %23, %11
-  %.0 = phi ptr [ %12, %11 ], [ %29, %23 ], [ null, %9 ], [ null, %CRYPTO_malloc.exit ], [ null, %CRYPTO_malloc.exit.thread ]
+  %.0 = phi ptr [ %29, %23 ], [ %12, %11 ], [ null, %9 ], [ null, %CRYPTO_malloc.exit ], [ null, %CRYPTO_malloc.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -332,7 +332,7 @@ define ptr @CRYPTO_realloc(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 n
   br label %CRYPTO_malloc.exit
 
 CRYPTO_malloc.exit:                               ; preds = %31, %30, %25, %22, %20, %16, %12, %32, %6
-  %.0 = phi ptr [ %7, %6 ], [ %33, %32 ], [ %13, %12 ], [ null, %16 ], [ %21, %20 ], [ null, %22 ], [ null, %25 ], [ null, %30 ], [ null, %31 ]
+  %.0 = phi ptr [ %7, %6 ], [ %33, %32 ], [ null, %25 ], [ null, %16 ], [ %21, %20 ], [ %13, %12 ], [ null, %22 ], [ null, %30 ], [ null, %31 ]
   ret ptr %.0
 }
 
@@ -496,8 +496,8 @@ define ptr @CRYPTO_clear_realloc(ptr noundef %0, i64 noundef %1, i64 noundef %2,
   tail call void @free(ptr noundef nonnull %0) #11
   br label %CRYPTO_malloc.exit
 
-CRYPTO_malloc.exit:                               ; preds = %47, %44, %53, %52, %30, %29, %22, %19, %17, %13, %9, %33
-  %.0 = phi ptr [ %0, %33 ], [ %10, %9 ], [ null, %13 ], [ %18, %17 ], [ null, %19 ], [ null, %22 ], [ null, %29 ], [ null, %30 ], [ %.0.i36, %52 ], [ %.0.i36, %53 ], [ null, %44 ], [ null, %47 ]
+CRYPTO_malloc.exit:                               ; preds = %44, %47, %53, %52, %30, %29, %22, %19, %17, %13, %9, %33
+  %.0 = phi ptr [ %.0.i36, %53 ], [ null, %22 ], [ %0, %33 ], [ null, %30 ], [ null, %13 ], [ %18, %17 ], [ %10, %9 ], [ null, %19 ], [ null, %29 ], [ %.0.i36, %52 ], [ null, %47 ], [ null, %44 ]
   ret ptr %.0
 }
 

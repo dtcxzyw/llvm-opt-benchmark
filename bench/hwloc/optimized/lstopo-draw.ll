@@ -2925,8 +2925,8 @@ thread-pre-split:                                 ; preds = %4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %41, %39, %39, %39, %39, %39, %42
-  %.sink = phi i64 [ 16, %42 ], [ 52, %39 ], [ 52, %39 ], [ 52, %39 ], [ 52, %39 ], [ 52, %39 ], [ 52, %41 ]
-  %.sink105 = phi i64 [ 1320, %42 ], [ 1312, %39 ], [ 1312, %39 ], [ 1312, %39 ], [ 1312, %39 ], [ 1312, %39 ], [ 1312, %41 ]
+  %.sink = phi i64 [ 52, %39 ], [ 52, %39 ], [ 16, %42 ], [ 52, %39 ], [ 52, %39 ], [ 52, %39 ], [ 52, %41 ]
+  %.sink105 = phi i64 [ 1312, %39 ], [ 1312, %39 ], [ 1320, %42 ], [ 1312, %39 ], [ 1312, %39 ], [ 1312, %39 ], [ 1312, %41 ]
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink
   %.072.ph.ph = load i32, ptr %43, align 4, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink105
@@ -3174,7 +3174,7 @@ hwloc_obj_get_info_by_name.exit:                  ; preds = %9
   br label %hwloc_obj_get_info_by_name.exit.thread
 
 hwloc_obj_get_info_by_name.exit.thread:           ; preds = %8, %2, %49, %19, %27, %35, %43, %47, %39, %31, %23, %15, %hwloc_obj_get_info_by_name.exit
-  %.014 = phi i64 [ 0, %hwloc_obj_get_info_by_name.exit ], [ 0, %15 ], [ %48, %47 ], [ %44, %43 ], [ %40, %39 ], [ %36, %35 ], [ %32, %31 ], [ %28, %27 ], [ %24, %23 ], [ %16, %19 ], [ %spec.select, %49 ], [ 0, %2 ], [ 0, %8 ]
+  %.014 = phi i64 [ 0, %hwloc_obj_get_info_by_name.exit ], [ 0, %15 ], [ %spec.select, %49 ], [ %16, %19 ], [ %48, %47 ], [ %44, %43 ], [ %40, %39 ], [ %36, %35 ], [ %32, %31 ], [ %28, %27 ], [ %24, %23 ], [ 0, %2 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.014
 }
@@ -3656,8 +3656,8 @@ define internal void @pci_device_draw(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %26
 
 26:                                               ; preds = %19, %15, %5
-  %.092 = phi i32 [ 0, %15 ], [ 0, %5 ], [ %spec.select, %19 ]
-  %.0 = phi i32 [ %2, %15 ], [ %2, %5 ], [ %20, %19 ]
+  %.092 = phi i32 [ 0, %5 ], [ %spec.select, %19 ], [ 0, %15 ]
+  %.0 = phi i32 [ %2, %5 ], [ %20, %19 ], [ %2, %15 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   %28 = load i32, ptr %27, align 8, !tbaa !70
   %29 = icmp eq i32 %28, 0
@@ -4369,7 +4369,7 @@ define internal fastcc void @place_children(ptr noundef %0, ptr noundef readonly
   br label %.thread325
 
 .thread325:                                       ; preds = %132, %122, %110, %.thread324, %130
-  %.2321 = phi i32 [ 0, %130 ], [ %25, %.thread324 ], [ 2, %110 ], [ 1, %122 ], [ %spec.select337, %132 ]
+  %.2321 = phi i32 [ 0, %130 ], [ 1, %122 ], [ %spec.select337, %132 ], [ 2, %110 ], [ %25, %.thread324 ]
   %136 = load i32, ptr %43, align 8, !tbaa !124
   %137 = icmp ne i32 %136, 0
   %138 = zext i1 %137 to i32
@@ -4885,7 +4885,7 @@ thread-pre-split.i298:                            ; preds = %231, %225, %223
   br label %374
 
 364:                                              ; preds = %346, %351
-  %365 = phi i32 [ %353, %351 ], [ %348, %346 ]
+  %365 = phi i32 [ %348, %346 ], [ %353, %351 ]
   %.not256 = icmp eq i32 %318, 0
   %366 = select i1 %.not256, i32 0, i32 %16
   %367 = add i32 %366, %318
@@ -4959,8 +4959,8 @@ thread-pre-split.i298:                            ; preds = %231, %225, %223
   br label %402
 
 402:                                              ; preds = %388, %396, %383, %390, %379
-  %.1206 = phi i32 [ %spec.select268, %379 ], [ %spec.select271, %390 ], [ %spec.select269, %383 ], [ %spec.select272, %396 ], [ %389, %388 ]
-  %.1204 = phi i32 [ %.0203, %379 ], [ %.2, %390 ], [ %386, %383 ], [ %399, %396 ], [ %spec.select273, %388 ]
+  %.1206 = phi i32 [ %spec.select271, %390 ], [ %spec.select269, %383 ], [ %spec.select268, %379 ], [ %spec.select272, %396 ], [ %389, %388 ]
+  %.1204 = phi i32 [ %.2, %390 ], [ %386, %383 ], [ %.0203, %379 ], [ %399, %396 ], [ %spec.select273, %388 ]
   store i32 %.1206, ptr %17, align 8, !tbaa !98
   store i32 %.1204, ptr %19, align 4, !tbaa !100
   br label %._crit_edge.thread
@@ -5155,7 +5155,7 @@ lstopo_pu_binding.exit.thread:                    ; preds = %61, %lstopo_pu_bind
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %15, %lstopo_pu_binding.exit, %54, %lstopo_numa_binding.exit, %32, %24, %26, %3, %47, %48, %49, %50, %69, %70, %71, %28, %lstopo_numa_binding.exit.thread, %lstopo_pu_binding.exit.thread
-  %.sink100 = phi i64 [ 256, %lstopo_pu_binding.exit.thread ], [ 288, %lstopo_numa_binding.exit.thread ], [ 480, %28 ], [ 416, %71 ], [ 384, %70 ], [ 448, %69 ], [ 352, %50 ], [ 224, %49 ], [ 192, %48 ], [ 128, %47 ], [ 64, %3 ], [ 576, %26 ], [ 576, %24 ], [ 544, %32 ], [ 512, %lstopo_numa_binding.exit ], [ 544, %54 ], [ 512, %lstopo_pu_binding.exit ], [ 160, %15 ]
+  %.sink100 = phi i64 [ 64, %3 ], [ 512, %lstopo_numa_binding.exit ], [ 256, %lstopo_pu_binding.exit.thread ], [ 544, %54 ], [ 576, %24 ], [ 288, %lstopo_numa_binding.exit.thread ], [ 544, %32 ], [ 512, %lstopo_pu_binding.exit ], [ 480, %28 ], [ 416, %71 ], [ 384, %70 ], [ 448, %69 ], [ 352, %50 ], [ 224, %49 ], [ 192, %48 ], [ 128, %47 ], [ 576, %26 ], [ 160, %15 ]
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink100
   store ptr %72, ptr %2, align 8, !tbaa !59
   br label %.loopexit
@@ -5575,7 +5575,7 @@ pci_link_speed.exit.us.i:                         ; preds = %64, %58
   br label %pci_link_speed.exit.thread.us.i
 
 pci_link_speed.exit.thread.us.i:                  ; preds = %70, %pci_link_speed.exit.us.i, %58, %.lr.ph.split.us.i
-  %.0.us.i = phi i32 [ %51, %pci_link_speed.exit.us.i ], [ %spec.select47.us.i, %70 ], [ %51, %.lr.ph.split.us.i ], [ %51, %58 ]
+  %.0.us.i = phi i32 [ %51, %58 ], [ %spec.select47.us.i, %70 ], [ %51, %pci_link_speed.exit.us.i ], [ %51, %.lr.ph.split.us.i ]
   %71 = add i32 %.03953.us.i, %4
   %72 = add i32 %71, %.0.us.i
   %73 = call fastcc ptr @next_child(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %2, ptr noundef nonnull %.04051.us.i, ptr noundef %10)
@@ -5788,7 +5788,7 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   br label %find_children_rectangle.exit.i
 
 find_children_rectangle.exit.i:                   ; preds = %152, %189, %167, %._crit_edge142.i.i
-  %.395.i.i = phi i32 [ %.193.ph.i.i, %._crit_edge142.i.i ], [ %191, %189 ], [ %178, %167 ], [ %.294.i.i, %152 ]
+  %.395.i.i = phi i32 [ %178, %167 ], [ %.193.ph.i.i, %._crit_edge142.i.i ], [ %191, %189 ], [ %.294.i.i, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %192 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef %9)
   %.not66.i = icmp eq ptr %192, null

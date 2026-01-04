@@ -637,7 +637,7 @@ define internal i32 @dissect_obdii_iso15765(ptr noundef %0, ptr noundef %1, ptr 
   unreachable
 
 64:                                               ; preds = %36, %31, %22, %7, %61, %58
-  %.055 = phi i32 [ %59, %58 ], [ %62, %61 ], [ 0, %7 ], [ 0, %22 ], [ 0, %31 ], [ 0, %36 ]
+  %.055 = phi i32 [ 0, %22 ], [ 0, %7 ], [ %59, %58 ], [ 0, %31 ], [ %62, %61 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.055
 }
@@ -769,7 +769,7 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr noundef read
   br label %16
 
 16:                                               ; preds = %8, %8, %11, %14
-  %.037 = phi i16 [ %13, %11 ], [ %15, %14 ], [ 0, %8 ], [ 0, %8 ]
+  %.037 = phi i16 [ %15, %14 ], [ %13, %11 ], [ 0, %8 ], [ 0, %8 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
@@ -834,7 +834,7 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr noundef read
   br label %59
 
 59:                                               ; preds = %3, %8, %57
-  %.0 = phi i32 [ %58, %57 ], [ 0, %8 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %8 ], [ %58, %57 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1003,31 +1003,31 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef %
     i8 67, label %584
     i8 68, label %606
     i8 69, label %627
-    i8 70, label %630
-    i8 71, label %633
-    i8 72, label %636
-    i8 73, label %639
-    i8 74, label %642
-    i8 75, label %645
-    i8 76, label %648
-    i8 33, label %651
-    i8 49, label %654
-    i8 77, label %657
-    i8 78, label %660
-    i8 81, label %663
-    i8 82, label %678
-    i8 83, label %681
-    i8 85, label %702
-    i8 86, label %702
-    i8 87, label %702
-    i8 88, label %702
-    i8 90, label %721
-    i8 91, label %724
-    i8 92, label %727
-    i8 93, label %730
-    i8 94, label %752
-    i8 97, label %773
-    i8 98, label %795
+    i8 70, label %795
+    i8 71, label %630
+    i8 72, label %633
+    i8 73, label %636
+    i8 74, label %639
+    i8 75, label %642
+    i8 76, label %645
+    i8 33, label %648
+    i8 49, label %651
+    i8 77, label %654
+    i8 78, label %657
+    i8 81, label %660
+    i8 82, label %675
+    i8 83, label %678
+    i8 85, label %699
+    i8 86, label %699
+    i8 87, label %699
+    i8 88, label %699
+    i8 90, label %718
+    i8 91, label %721
+    i8 92, label %724
+    i8 93, label %727
+    i8 94, label %749
+    i8 97, label %770
+    i8 98, label %773
     i8 99, label %776
   ]
 
@@ -1817,205 +1817,205 @@ switch.lookup:                                    ; preds = %540
   br i1 %629, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 630:                                              ; preds = %42
-  %631 = load i32, ptr @hf_obdii_mode01_ambient_air_temp, align 4
-  %632 = tail call fastcc zeroext i1 @dissect_obdii_common_temperature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %631)
+  %631 = load i32, ptr @hf_obdii_mode01_absolute_throttle_position_B, align 4
+  %632 = tail call fastcc zeroext i1 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %631)
   br i1 %632, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 633:                                              ; preds = %42
-  %634 = load i32, ptr @hf_obdii_mode01_absolute_throttle_position_B, align 4
+  %634 = load i32, ptr @hf_obdii_mode01_absolute_throttle_position_C, align 4
   %635 = tail call fastcc zeroext i1 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %634)
   br i1 %635, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 636:                                              ; preds = %42
-  %637 = load i32, ptr @hf_obdii_mode01_absolute_throttle_position_C, align 4
+  %637 = load i32, ptr @hf_obdii_mode01_accelerator_pedal_position_D, align 4
   %638 = tail call fastcc zeroext i1 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %637)
   br i1 %638, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 639:                                              ; preds = %42
-  %640 = load i32, ptr @hf_obdii_mode01_accelerator_pedal_position_D, align 4
+  %640 = load i32, ptr @hf_obdii_mode01_accelerator_pedal_position_E, align 4
   %641 = tail call fastcc zeroext i1 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %640)
   br i1 %641, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 642:                                              ; preds = %42
-  %643 = load i32, ptr @hf_obdii_mode01_accelerator_pedal_position_E, align 4
+  %643 = load i32, ptr @hf_obdii_mode01_accelerator_pedal_position_F, align 4
   %644 = tail call fastcc zeroext i1 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %643)
   br i1 %644, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 645:                                              ; preds = %42
-  %646 = load i32, ptr @hf_obdii_mode01_accelerator_pedal_position_F, align 4
+  %646 = load i32, ptr @hf_obdii_mode01_commanded_throttle_actuator, align 4
   %647 = tail call fastcc zeroext i1 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %646)
   br i1 %647, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 648:                                              ; preds = %42
-  %649 = load i32, ptr @hf_obdii_mode01_commanded_throttle_actuator, align 4
-  %650 = tail call fastcc zeroext i1 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %649)
+  %649 = load i32, ptr @hf_obdii_mode01_distance_traveled_with_mil, align 4
+  %650 = tail call fastcc zeroext i1 @dissect_obdii_common_distance_travelled(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %649)
   br i1 %650, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 651:                                              ; preds = %42
-  %652 = load i32, ptr @hf_obdii_mode01_distance_traveled_with_mil, align 4
+  %652 = load i32, ptr @hf_obdii_mode01_distance_traveled_since_code_clear, align 4
   %653 = tail call fastcc zeroext i1 @dissect_obdii_common_distance_travelled(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %652)
   br i1 %653, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 654:                                              ; preds = %42
-  %655 = load i32, ptr @hf_obdii_mode01_distance_traveled_since_code_clear, align 4
-  %656 = tail call fastcc zeroext i1 @dissect_obdii_common_distance_travelled(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %655)
+  %655 = load i32, ptr @hf_obdii_mode01_time_run_with_mil, align 4
+  %656 = tail call fastcc zeroext i1 @dissect_obdii_common_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %655)
   br i1 %656, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 657:                                              ; preds = %42
-  %658 = load i32, ptr @hf_obdii_mode01_time_run_with_mil, align 4
+  %658 = load i32, ptr @hf_obdii_mode01_time_since_trouble_code_clear, align 4
   %659 = tail call fastcc zeroext i1 @dissect_obdii_common_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %658)
   br i1 %659, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 660:                                              ; preds = %42
-  %661 = load i32, ptr @hf_obdii_mode01_time_since_trouble_code_clear, align 4
-  %662 = tail call fastcc zeroext i1 @dissect_obdii_common_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %661)
-  br i1 %662, label %dissect_obdii_mode_01.exit, label %.critedge.i
+  %661 = load i8, ptr %22, align 2
+  %662 = icmp eq i8 %661, 1
+  br i1 %662, label %663, label %.critedge.i
 
-663:                                              ; preds = %42
-  %664 = load i8, ptr %22, align 2
-  %665 = icmp eq i8 %664, 1
-  br i1 %665, label %666, label %.critedge.i
-
-666:                                              ; preds = %663
-  %667 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %668 = load i8, ptr %667, align 4
-  %669 = load ptr, ptr %1, align 8
-  %670 = getelementptr inbounds nuw i8, ptr %669, i64 8
-  %671 = load ptr, ptr %670, align 8
-  %672 = zext i8 %668 to i32
-  %673 = tail call ptr @val_to_str(i32 noundef %672, ptr noundef nonnull @obdii_fuel_type_coding_vals, ptr noundef nonnull @.str.340)
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %671, i32 noundef 25, ptr noundef nonnull @.str.325, ptr noundef %673)
-  %674 = load i32, ptr @hf_obdii_mode01_fuel_type, align 4
-  %675 = load i8, ptr %22, align 2
-  %676 = zext i8 %675 to i32
-  %677 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %674, ptr noundef %0, i32 noundef 2, i32 noundef %676, i32 noundef %672)
+663:                                              ; preds = %660
+  %664 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %665 = load i8, ptr %664, align 4
+  %666 = load ptr, ptr %1, align 8
+  %667 = getelementptr inbounds nuw i8, ptr %666, i64 8
+  %668 = load ptr, ptr %667, align 8
+  %669 = zext i8 %665 to i32
+  %670 = tail call ptr @val_to_str(i32 noundef %669, ptr noundef nonnull @obdii_fuel_type_coding_vals, ptr noundef nonnull @.str.340)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %668, i32 noundef 25, ptr noundef nonnull @.str.325, ptr noundef %670)
+  %671 = load i32, ptr @hf_obdii_mode01_fuel_type, align 4
+  %672 = load i8, ptr %22, align 2
+  %673 = zext i8 %672 to i32
+  %674 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %671, ptr noundef %0, i32 noundef 2, i32 noundef %673, i32 noundef %669)
   br label %dissect_obdii_mode_01.exit
+
+675:                                              ; preds = %42
+  %676 = load i32, ptr @hf_obdii_mode01_ethanol_fuel, align 4
+  %677 = tail call fastcc zeroext i1 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %676)
+  br i1 %677, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 678:                                              ; preds = %42
-  %679 = load i32, ptr @hf_obdii_mode01_ethanol_fuel, align 4
-  %680 = tail call fastcc zeroext i1 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %679)
-  br i1 %680, label %dissect_obdii_mode_01.exit, label %.critedge.i
+  %679 = load i8, ptr %22, align 2
+  %680 = icmp eq i8 %679, 2
+  br i1 %680, label %681, label %.critedge.i
 
-681:                                              ; preds = %42
-  %682 = load i8, ptr %22, align 2
-  %683 = icmp eq i8 %682, 2
-  br i1 %683, label %684, label %.critedge.i
-
-684:                                              ; preds = %681
-  %685 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %686 = load i8, ptr %685, align 4
-  %687 = zext i8 %686 to i32
-  %688 = shl nuw nsw i32 %687, 8
-  %689 = getelementptr inbounds nuw i8, ptr %1, i64 21
-  %690 = load i8, ptr %689, align 1
-  %691 = zext i8 %690 to i32
-  %692 = or disjoint i32 %688, %691
-  %693 = uitofp nneg i32 %692 to double
-  %694 = fdiv double %693, 2.000000e+02
-  %695 = load ptr, ptr %1, align 8
-  %696 = getelementptr inbounds nuw i8, ptr %695, i64 8
-  %697 = load ptr, ptr %696, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %697, i32 noundef 25, ptr noundef nonnull @.str.346, double noundef %694)
-  %698 = load i32, ptr @hf_obdii_mode01_absolute_evap_system_vapor_pressure, align 4
-  %699 = load i8, ptr %22, align 2
-  %700 = zext i8 %699 to i32
-  %701 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %698, ptr noundef %0, i32 noundef 2, i32 noundef %700, double noundef %694)
+681:                                              ; preds = %678
+  %682 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %683 = load i8, ptr %682, align 4
+  %684 = zext i8 %683 to i32
+  %685 = shl nuw nsw i32 %684, 8
+  %686 = getelementptr inbounds nuw i8, ptr %1, i64 21
+  %687 = load i8, ptr %686, align 1
+  %688 = zext i8 %687 to i32
+  %689 = or disjoint i32 %685, %688
+  %690 = uitofp nneg i32 %689 to double
+  %691 = fdiv double %690, 2.000000e+02
+  %692 = load ptr, ptr %1, align 8
+  %693 = getelementptr inbounds nuw i8, ptr %692, i64 8
+  %694 = load ptr, ptr %693, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %694, i32 noundef 25, ptr noundef nonnull @.str.346, double noundef %691)
+  %695 = load i32, ptr @hf_obdii_mode01_absolute_evap_system_vapor_pressure, align 4
+  %696 = load i8, ptr %22, align 2
+  %697 = zext i8 %696 to i32
+  %698 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %695, ptr noundef %0, i32 noundef 2, i32 noundef %697, double noundef %691)
   br label %dissect_obdii_mode_01.exit
 
-702:                                              ; preds = %42, %42, %42, %42
-  %703 = load i8, ptr %22, align 2
-  %704 = icmp eq i8 %703, 2
-  br i1 %704, label %705, label %.critedge.i
+699:                                              ; preds = %42, %42, %42, %42
+  %700 = load i8, ptr %22, align 2
+  %701 = icmp eq i8 %700, 2
+  br i1 %701, label %702, label %.critedge.i
 
-705:                                              ; preds = %702
-  %706 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %707 = load i8, ptr %706, align 4
-  %708 = uitofp i8 %707 to double
-  %709 = fmul double %708, 1.000000e+02
-  %710 = fmul double %709, 7.812500e-03
-  %711 = fadd double %710, -1.000000e+02
-  %712 = getelementptr inbounds nuw i8, ptr %1, i64 21
-  %713 = load i8, ptr %712, align 1
-  %714 = uitofp i8 %713 to double
-  %715 = fmul double %714, 1.000000e+02
-  %716 = fmul double %715, 7.812500e-03
-  %717 = fadd double %716, -1.000000e+02
-  %718 = load ptr, ptr %1, align 8
-  %719 = getelementptr inbounds nuw i8, ptr %718, i64 8
-  %720 = load ptr, ptr %719, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %720, i32 noundef 25, ptr noundef nonnull @.str.352, double noundef %711, double noundef %717)
+702:                                              ; preds = %699
+  %703 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %704 = load i8, ptr %703, align 4
+  %705 = uitofp i8 %704 to double
+  %706 = fmul double %705, 1.000000e+02
+  %707 = fmul double %706, 7.812500e-03
+  %708 = fadd double %707, -1.000000e+02
+  %709 = getelementptr inbounds nuw i8, ptr %1, i64 21
+  %710 = load i8, ptr %709, align 1
+  %711 = uitofp i8 %710 to double
+  %712 = fmul double %711, 1.000000e+02
+  %713 = fmul double %712, 7.812500e-03
+  %714 = fadd double %713, -1.000000e+02
+  %715 = load ptr, ptr %1, align 8
+  %716 = getelementptr inbounds nuw i8, ptr %715, i64 8
+  %717 = load ptr, ptr %716, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %717, i32 noundef 25, ptr noundef nonnull @.str.352, double noundef %708, double noundef %714)
   br label %dissect_obdii_mode_01.exit
+
+718:                                              ; preds = %42
+  %719 = load i32, ptr @hf_obdii_mode01_relative_accelerator_pedal_position, align 4
+  %720 = tail call fastcc zeroext i1 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %719)
+  br i1 %720, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 721:                                              ; preds = %42
-  %722 = load i32, ptr @hf_obdii_mode01_relative_accelerator_pedal_position, align 4
+  %722 = load i32, ptr @hf_obdii_mode01_hybrid_battery_remaining_life, align 4
   %723 = tail call fastcc zeroext i1 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %722)
   br i1 %723, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 724:                                              ; preds = %42
-  %725 = load i32, ptr @hf_obdii_mode01_hybrid_battery_remaining_life, align 4
-  %726 = tail call fastcc zeroext i1 @dissect_obdii_common_percent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %725)
+  %725 = load i32, ptr @hf_obdii_mode01_engine_oil_temp, align 4
+  %726 = tail call fastcc zeroext i1 @dissect_obdii_common_temperature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %725)
   br i1 %726, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 727:                                              ; preds = %42
-  %728 = load i32, ptr @hf_obdii_mode01_engine_oil_temp, align 4
-  %729 = tail call fastcc zeroext i1 @dissect_obdii_common_temperature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %728)
-  br i1 %729, label %dissect_obdii_mode_01.exit, label %.critedge.i
+  %728 = load i8, ptr %22, align 2
+  %729 = icmp eq i8 %728, 2
+  br i1 %729, label %730, label %.critedge.i
 
-730:                                              ; preds = %42
-  %731 = load i8, ptr %22, align 2
-  %732 = icmp eq i8 %731, 2
-  br i1 %732, label %733, label %.critedge.i
-
-733:                                              ; preds = %730
-  %734 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %735 = load i8, ptr %734, align 4
-  %736 = zext i8 %735 to i32
-  %737 = shl nuw nsw i32 %736, 8
-  %738 = getelementptr inbounds nuw i8, ptr %1, i64 21
-  %739 = load i8, ptr %738, align 1
-  %740 = zext i8 %739 to i32
-  %741 = or disjoint i32 %737, %740
-  %742 = add nsw i32 %741, -26880
-  %743 = sitofp i32 %742 to double
-  %744 = fmul double %743, 7.812500e-03
-  %745 = load ptr, ptr %1, align 8
-  %746 = getelementptr inbounds nuw i8, ptr %745, i64 8
-  %747 = load ptr, ptr %746, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %747, i32 noundef 25, ptr noundef nonnull @.str.353, double noundef %744)
-  %748 = load i32, ptr @hf_obdii_mode01_fuel_injection_timing, align 4
-  %749 = load i8, ptr %22, align 2
-  %750 = zext i8 %749 to i32
-  %751 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %748, ptr noundef %0, i32 noundef 2, i32 noundef %750, double noundef %744)
+730:                                              ; preds = %727
+  %731 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %732 = load i8, ptr %731, align 4
+  %733 = zext i8 %732 to i32
+  %734 = shl nuw nsw i32 %733, 8
+  %735 = getelementptr inbounds nuw i8, ptr %1, i64 21
+  %736 = load i8, ptr %735, align 1
+  %737 = zext i8 %736 to i32
+  %738 = or disjoint i32 %734, %737
+  %739 = add nsw i32 %738, -26880
+  %740 = sitofp i32 %739 to double
+  %741 = fmul double %740, 7.812500e-03
+  %742 = load ptr, ptr %1, align 8
+  %743 = getelementptr inbounds nuw i8, ptr %742, i64 8
+  %744 = load ptr, ptr %743, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %744, i32 noundef 25, ptr noundef nonnull @.str.353, double noundef %741)
+  %745 = load i32, ptr @hf_obdii_mode01_fuel_injection_timing, align 4
+  %746 = load i8, ptr %22, align 2
+  %747 = zext i8 %746 to i32
+  %748 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %745, ptr noundef %0, i32 noundef 2, i32 noundef %747, double noundef %741)
   br label %dissect_obdii_mode_01.exit
 
-752:                                              ; preds = %42
-  %753 = load i8, ptr %22, align 2
-  %754 = icmp eq i8 %753, 2
-  br i1 %754, label %755, label %.critedge.i
+749:                                              ; preds = %42
+  %750 = load i8, ptr %22, align 2
+  %751 = icmp eq i8 %750, 2
+  br i1 %751, label %752, label %.critedge.i
 
-755:                                              ; preds = %752
-  %756 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %757 = load i8, ptr %756, align 4
-  %758 = zext i8 %757 to i32
-  %759 = shl nuw nsw i32 %758, 8
-  %760 = getelementptr inbounds nuw i8, ptr %1, i64 21
-  %761 = load i8, ptr %760, align 1
-  %762 = zext i8 %761 to i32
-  %763 = or disjoint i32 %759, %762
-  %764 = uitofp nneg i32 %763 to double
-  %765 = fdiv double %764, 2.000000e+01
-  %766 = load ptr, ptr %1, align 8
-  %767 = getelementptr inbounds nuw i8, ptr %766, i64 8
-  %768 = load ptr, ptr %767, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %768, i32 noundef 25, ptr noundef nonnull @.str.354, double noundef %765)
-  %769 = load i32, ptr @hf_obdii_mode01_engine_fuel_rate, align 4
-  %770 = load i8, ptr %22, align 2
-  %771 = zext i8 %770 to i32
-  %772 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %769, ptr noundef %0, i32 noundef 2, i32 noundef %771, double noundef %765)
+752:                                              ; preds = %749
+  %753 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %754 = load i8, ptr %753, align 4
+  %755 = zext i8 %754 to i32
+  %756 = shl nuw nsw i32 %755, 8
+  %757 = getelementptr inbounds nuw i8, ptr %1, i64 21
+  %758 = load i8, ptr %757, align 1
+  %759 = zext i8 %758 to i32
+  %760 = or disjoint i32 %756, %759
+  %761 = uitofp nneg i32 %760 to double
+  %762 = fdiv double %761, 2.000000e+01
+  %763 = load ptr, ptr %1, align 8
+  %764 = getelementptr inbounds nuw i8, ptr %763, i64 8
+  %765 = load ptr, ptr %764, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %765, i32 noundef 25, ptr noundef nonnull @.str.354, double noundef %762)
+  %766 = load i32, ptr @hf_obdii_mode01_engine_fuel_rate, align 4
+  %767 = load i8, ptr %22, align 2
+  %768 = zext i8 %767 to i32
+  %769 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %766, ptr noundef %0, i32 noundef 2, i32 noundef %768, double noundef %762)
   br label %dissect_obdii_mode_01.exit
+
+770:                                              ; preds = %42
+  %771 = load i32, ptr @hf_obdii_mode01_torque_driver_demand_engine, align 4
+  %772 = tail call fastcc zeroext i1 @dissect_obdii_common_torque(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %771)
+  br i1 %772, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
 773:                                              ; preds = %42
-  %774 = load i32, ptr @hf_obdii_mode01_torque_driver_demand_engine, align 4
+  %774 = load i32, ptr @hf_obdii_mode01_torque_actual_engine, align 4
   %775 = tail call fastcc zeroext i1 @dissect_obdii_common_torque(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %774)
   br i1 %775, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
@@ -2044,11 +2044,11 @@ switch.lookup:                                    ; preds = %540
   br label %dissect_obdii_mode_01.exit
 
 795:                                              ; preds = %42
-  %796 = load i32, ptr @hf_obdii_mode01_torque_actual_engine, align 4
-  %797 = tail call fastcc zeroext i1 @dissect_obdii_common_torque(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %796)
+  %796 = load i32, ptr @hf_obdii_mode01_ambient_air_temp, align 4
+  %797 = tail call fastcc zeroext i1 @dissect_obdii_common_temperature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %796)
   br i1 %797, label %dissect_obdii_mode_01.exit, label %.critedge.i
 
-.critedge.i:                                      ; preds = %795, %776, %773, %752, %730, %727, %724, %721, %702, %681, %678, %663, %660, %657, %654, %651, %648, %645, %642, %639, %636, %633, %630, %627, %606, %584, %563, %537, %498, %495, %492, %471, %457, %454, %451, %448, %445, %406, %403, %400, %379, %360, %345, %315, %275, %245, %230, %227, %206, %203, %186, %172, %151, %136, %133, %130, %127, %124, %121, %118, %96, %55, %42
+.critedge.i:                                      ; preds = %795, %776, %773, %770, %749, %727, %724, %721, %718, %699, %678, %675, %660, %657, %654, %651, %648, %645, %642, %639, %636, %633, %630, %627, %606, %584, %563, %537, %498, %495, %492, %471, %457, %454, %451, %448, %445, %406, %403, %400, %379, %360, %345, %315, %275, %245, %230, %227, %206, %203, %186, %172, %151, %136, %133, %130, %127, %124, %121, %118, %96, %55, %42
   %798 = load ptr, ptr %1, align 8
   %799 = getelementptr inbounds nuw i8, ptr %798, i64 8
   %800 = load ptr, ptr %799, align 8
@@ -2238,7 +2238,7 @@ dissect_obdii_mode_07.exit:                       ; preds = %835, %844, %852, %.
   %913 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %912, ptr noundef %0, i32 noundef 2, i32 noundef %896, i32 noundef 0)
   br label %dissect_obdii_mode_01.exit
 
-dissect_obdii_mode_01.exit:                       ; preds = %911, %907, %904, %900, %897, %.thread530.i, %795, %779, %773, %755, %733, %727, %724, %721, %705, %684, %678, %666, %660, %657, %654, %651, %648, %645, %642, %639, %636, %633, %630, %627, %609, %587, %566, %543, %501, %495, %492, %474, %460, %454, %451, %448, %445, %409, %403, %400, %382, %363, %348, %337, %278, %248, %233, %227, %209, %203, %189, %175, %154, %139, %133, %130, %127, %124, %121, %118, %99, %95, %dissect_obdii_mode_07.exit, %.thread42
+dissect_obdii_mode_01.exit:                       ; preds = %911, %907, %904, %900, %897, %.thread530.i, %795, %779, %773, %770, %752, %730, %724, %721, %718, %702, %681, %675, %663, %657, %654, %651, %648, %645, %642, %639, %636, %633, %630, %627, %609, %587, %566, %543, %501, %495, %492, %474, %460, %454, %451, %448, %445, %409, %403, %400, %382, %363, %348, %337, %278, %248, %233, %227, %209, %203, %189, %175, %154, %139, %133, %130, %127, %124, %121, %118, %99, %95, %dissect_obdii_mode_07.exit, %.thread42
   %914 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %915
 

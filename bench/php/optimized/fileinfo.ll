@@ -786,12 +786,12 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr noundef wri
   br label %115
 
 115:                                              ; preds = %106, %113, %109
-  %.5 = phi ptr [ %114, %113 ], [ null, %106 ], [ %10, %109 ]
+  %.5 = phi ptr [ null, %106 ], [ %114, %113 ], [ %10, %109 ]
   %116 = call i32 @_php_stream_free(ptr noundef nonnull %105, i32 noundef 3) #8
   br label %.thread
 
 .thread:                                          ; preds = %91, %115
-  %.2.ph = phi ptr [ %.5, %115 ], [ null, %91 ]
+  %.2.ph = phi ptr [ null, %91 ], [ %.5, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %120
@@ -812,7 +812,7 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr noundef wri
   unreachable
 
 120:                                              ; preds = %.thread, %76, %67
-  %.059 = phi ptr [ %70, %67 ], [ %79, %76 ], [ %.2.ph, %.thread ]
+  %.059 = phi ptr [ %.2.ph, %.thread ], [ %70, %67 ], [ %79, %76 ]
   %.not89 = icmp eq ptr %.059, null
   br i1 %.not89, label %.thread100, label %zend_string_alloc.exit
 

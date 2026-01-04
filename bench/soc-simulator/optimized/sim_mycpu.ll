@@ -1575,7 +1575,7 @@ define dso_local void @_Z8func_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EE(ptr no
   ret void
 
 269:                                              ; preds = %119, %164, %162, %160, %135, %123, %117
-  %270 = phi { ptr, i32 } [ %136, %135 ], [ %118, %117 ], [ %120, %123 ], [ %165, %164 ], [ %161, %160 ], [ %163, %162 ], [ %120, %119 ]
+  %270 = phi { ptr, i32 } [ %136, %135 ], [ %118, %117 ], [ %163, %162 ], [ %120, %123 ], [ %165, %164 ], [ %161, %160 ], [ %120, %119 ]
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV14nscscc_confreg, i64 16), ptr %8, align 8, !tbaa !68
   %271 = getelementptr inbounds nuw i8, ptr %8, i64 616
   call void @_ZNSt11_Deque_baseIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %271) #27
@@ -23150,7 +23150,7 @@ default.unreachable46:                            ; preds = %1904, %1839, %1683,
   br label %1862
 
 1862:                                             ; preds = %1839, %1857, %1852, %1847
-  %.sink = phi i32 [ %1861, %1857 ], [ %1856, %1852 ], [ %1851, %1847 ], [ %1846, %1839 ]
+  %.sink = phi i32 [ %1851, %1847 ], [ %1861, %1857 ], [ %1856, %1852 ], [ %1846, %1839 ]
   store i32 %.sink, ptr %12, align 4, !tbaa !56
   %1863 = load i32, ptr %90, align 8
   %1864 = and i32 %1863, 6

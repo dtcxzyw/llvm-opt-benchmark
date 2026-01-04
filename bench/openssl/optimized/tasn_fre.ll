@@ -351,9 +351,9 @@ define void @ossl_asn1_primitive_free(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %33, label %.critedge, label %34
 
 34:                                               ; preds = %31, %.critedge54
-  %35 = phi ptr [ %32, %31 ], [ %20, %.critedge54 ]
-  %.037 = phi i32 [ %30, %31 ], [ %18, %.critedge54 ]
-  %.0 = phi ptr [ %0, %31 ], [ %19, %.critedge54 ]
+  %35 = phi ptr [ %20, %.critedge54 ], [ %32, %31 ]
+  %.037 = phi i32 [ %18, %.critedge54 ], [ %30, %31 ]
+  %.0 = phi ptr [ %19, %.critedge54 ], [ %0, %31 ]
   switch i32 %.037, label %.thread [
     i32 6, label %36
     i32 1, label %37

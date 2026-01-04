@@ -576,7 +576,7 @@ define void @_ZN5ZXing12CenterOfRingERKNS_9BitMatrixENS_6PointTIiEEiib(ptr dead_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %50, %22, %56, %6, %58
-  %.sink = phi i8 [ 1, %58 ], [ 0, %6 ], [ 0, %56 ], [ 0, %22 ], [ 0, %50 ], [ 0, %42 ]
+  %.sink = phi i8 [ 0, %6 ], [ 1, %58 ], [ 0, %56 ], [ 0, %22 ], [ 0, %50 ], [ 0, %42 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %62, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -742,7 +742,7 @@ _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit: ; preds = %42
   br label %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit41
 
 _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit41: ; preds = %32, %42, %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit, %67, %64, %53, %48, %27
-  %.011 = phi i1 [ false, %27 ], [ true, %48 ], [ false, %64 ], [ false, %53 ], [ %70, %67 ], [ %47, %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit ], [ false, %42 ], [ false, %32 ]
+  %.011 = phi i1 [ false, %27 ], [ false, %53 ], [ true, %48 ], [ %70, %67 ], [ false, %64 ], [ %47, %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit ], [ false, %42 ], [ false, %32 ]
   ret i1 %.011
 }
 
@@ -811,7 +811,7 @@ define void @_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii(ptr dead_
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %11, !llvm.loop !43
 
 .loopexit:                                        ; preds = %20, %14, %16
-  %.sink = phi i8 [ 1, %16 ], [ 0, %14 ], [ 0, %20 ]
+  %.sink = phi i8 [ 0, %14 ], [ 1, %16 ], [ 0, %20 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %34, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1191,9 +1191,9 @@ _ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17
   br label %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit.thread
 
 105:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i, %.loopexit86.i
-  %.sroa.21.3.i = phi ptr [ %.sroa.21.5.i, %.loopexit86.i ], [ %.sroa.21.1.i, %.loopexit.i ], [ %.sroa.21.1.i, %.loopexit.split-lp.i ]
-  %.sroa.046.3.i = phi ptr [ %.sroa.046.5.i, %.loopexit86.i ], [ %.sroa.046.1.i, %.loopexit.i ], [ %.sroa.046.1.i, %.loopexit.split-lp.i ]
-  %.pn.i = phi { ptr, i32 } [ %lpad.loopexit88.i, %.loopexit86.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.sroa.21.3.i = phi ptr [ %.sroa.21.1.i, %.loopexit.split-lp.i ], [ %.sroa.21.5.i, %.loopexit86.i ], [ %.sroa.21.1.i, %.loopexit.i ]
+  %.sroa.046.3.i = phi ptr [ %.sroa.046.1.i, %.loopexit.split-lp.i ], [ %.sroa.046.5.i, %.loopexit86.i ], [ %.sroa.046.1.i, %.loopexit.i ]
+  %.pn.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit88.i, %.loopexit86.i ], [ %lpad.loopexit.i, %.loopexit.i ]
   %.not.i.i.i39.i = icmp eq ptr %.sroa.046.3.i, null
   br i1 %.not.i.i.i39.i, label %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit40.i, label %.thread76.i
 
@@ -1212,7 +1212,7 @@ _ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit40.i: ; preds = %.thread76.i, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !54
   br label %common.resume
 
-_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit.thread: ; preds = %.loopexit, %101, %7
+_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit.thread: ; preds = %7, %.loopexit, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !54
   br label %579
 
@@ -1340,9 +1340,9 @@ _ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit: ; preds = 
   br i1 %.not.i.i.i10, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit.i, label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %._crit_edge.i.i.i, %147
-  %.056.i.i.i.be = phi i64 [ %.0.i.i.i, %147 ], [ %138, %._crit_edge.i.i.i ]
-  %.0.i.i.i.be = phi i64 [ %148, %147 ], [ %154, %._crit_edge.i.i.i ]
-  %.sroa.026.0.i.i.i.be = phi ptr [ %.sroa.026.1.lcssa.i.i.i, %147 ], [ %.sroa.026.3.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %.056.i.i.i.be = phi i64 [ %138, %._crit_edge.i.i.i ], [ %.0.i.i.i, %147 ]
+  %.0.i.i.i.be = phi i64 [ %154, %._crit_edge.i.i.i ], [ %148, %147 ]
+  %.sroa.026.0.i.i.i.be = phi ptr [ %.sroa.026.3.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %.sroa.026.1.lcssa.i.i.i, %147 ]
   br label %.preheader.i, !llvm.loop !70
 
 .lr.ph.i.i94.i:                                   ; preds = %149, %.lr.ph.i.i94.i
@@ -2219,9 +2219,9 @@ _ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit: ; preds = %"_ZSt11max_elementI
   br label %579
 
 579:                                              ; preds = %578, %567, %551, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit.thread
-  %.sink.sink = phi i8 [ 0, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit.thread ], [ 0, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit ], [ 1, %578 ], [ 0, %567 ], [ 0, %551 ]
-  %.sroa.18.039 = phi ptr [ null, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit.thread ], [ %.sroa.21.5.i, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit ], [ %.sroa.21.5.i, %578 ], [ %.sroa.21.5.i, %567 ], [ %.sroa.21.5.i, %551 ]
-  %.sroa.019.036 = phi ptr [ null, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit.thread ], [ %.sroa.046.5.i, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit ], [ %.sroa.046.5.i, %578 ], [ %.sroa.046.5.i, %567 ], [ %.sroa.046.5.i, %551 ]
+  %.sink.sink = phi i8 [ 0, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit ], [ 0, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit.thread ], [ 1, %578 ], [ 0, %567 ], [ 0, %551 ]
+  %.sroa.18.039 = phi ptr [ %.sroa.21.5.i, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit ], [ null, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit.thread ], [ %.sroa.21.5.i, %578 ], [ %.sroa.21.5.i, %567 ], [ %.sroa.21.5.i, %551 ]
+  %.sroa.019.036 = phi ptr [ %.sroa.046.5.i, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit ], [ null, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit.thread ], [ %.sroa.046.5.i, %578 ], [ %.sroa.046.5.i, %567 ], [ %.sroa.046.5.i, %551 ]
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %.sink.sink, ptr %.sroa.6.0..sroa_idx, align 8
   %.not.i.i.i17 = icmp eq ptr %.sroa.019.036, null

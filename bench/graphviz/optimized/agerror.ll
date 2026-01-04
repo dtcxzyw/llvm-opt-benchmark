@@ -544,7 +544,7 @@ gv_isspace.exit.thread:                           ; preds = %6, %6, %6, %6, %6, 
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !12
 
 .thread:                                          ; preds = %13, %gv_isspace.exit.thread, %gv_isspace.exit, %1
-  %16 = phi i32 [ 0, %1 ], [ %8, %gv_isspace.exit ], [ %11, %gv_isspace.exit.thread ], [ 0, %13 ]
+  %16 = phi i32 [ 0, %1 ], [ %11, %gv_isspace.exit.thread ], [ %8, %gv_isspace.exit ], [ 0, %13 ]
   ret i32 %16
 }
 

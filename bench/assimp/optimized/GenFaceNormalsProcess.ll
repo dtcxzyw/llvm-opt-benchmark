@@ -643,7 +643,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit74:  ; preds = %_ZNSt13_Bvector_bas
   br label %249
 
 224:                                              ; preds = %70, %140, %181, %49
-  %.pn58.pn = phi { ptr, i32 } [ %50, %49 ], [ %182, %181 ], [ %71, %70 ], [ %141, %140 ]
+  %.pn58.pn = phi { ptr, i32 } [ %182, %181 ], [ %50, %49 ], [ %71, %70 ], [ %141, %140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %225 = load ptr, ptr %6, align 8

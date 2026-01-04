@@ -288,8 +288,8 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i53.invoke.sink.split: ; pred
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i53.invoke
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i53.invoke: ; preds = %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i53.invoke.sink.split, %.noexc56, %.noexc46
-  %88 = phi ptr [ %52, %.noexc46 ], [ @_ZSt4cout, %.noexc56 ], [ %.ph, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i53.invoke.sink.split ]
-  %89 = phi i8 [ %65, %.noexc46 ], [ %85, %.noexc56 ], [ %87, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i53.invoke.sink.split ]
+  %88 = phi ptr [ @_ZSt4cout, %.noexc56 ], [ %52, %.noexc46 ], [ %.ph, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i53.invoke.sink.split ]
+  %89 = phi i8 [ %85, %.noexc56 ], [ %65, %.noexc46 ], [ %87, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i53.invoke.sink.split ]
   %90 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %88, i8 noundef signext %89)
           to label %.noexc58.invoke unwind label %33
 

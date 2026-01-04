@@ -194,9 +194,9 @@ define internal fastcc range(i32 0, 2) i32 @stringmatchlen_impl(ptr noundef read
   br label %.thread239
 
 .thread239:                                       ; preds = %43, %38, %35
-  %44 = phi i32 [ 0, %35 ], [ %42, %38 ], [ %37, %43 ]
-  %45 = phi i1 [ false, %35 ], [ true, %38 ], [ false, %43 ]
-  %46 = phi ptr [ %36, %35 ], [ %41, %38 ], [ %36, %43 ]
+  %44 = phi i32 [ 0, %35 ], [ %37, %43 ], [ %42, %38 ]
+  %45 = phi i1 [ false, %35 ], [ false, %43 ], [ true, %38 ]
+  %46 = phi ptr [ %36, %35 ], [ %36, %43 ], [ %41, %38 ]
   br label %47
 
 47:                                               ; preds = %105, %.thread239
@@ -313,9 +313,9 @@ thread-pre-split:                                 ; preds = %58
   br label %105
 
 105:                                              ; preds = %94, %91, %52, %88
-  %.1191 = phi i32 [ %.2192, %88 ], [ %spec.select, %52 ], [ %spec.select223, %91 ], [ %spec.select224, %94 ]
-  %.7177 = phi i32 [ %89, %88 ], [ %54, %52 ], [ %.6176, %91 ], [ %.6176, %94 ]
-  %.6 = phi ptr [ %71, %88 ], [ %53, %52 ], [ %.5, %91 ], [ %.5, %94 ]
+  %.1191 = phi i32 [ %spec.select, %52 ], [ %spec.select224, %94 ], [ %.2192, %88 ], [ %spec.select223, %91 ]
+  %.7177 = phi i32 [ %54, %52 ], [ %.6176, %94 ], [ %89, %88 ], [ %.6176, %91 ]
+  %.6 = phi ptr [ %53, %52 ], [ %.5, %94 ], [ %71, %88 ], [ %.5, %91 ]
   %106 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   %107 = add nsw i32 %.7177, -1
   br label %47
@@ -365,8 +365,8 @@ thread-pre-split:                                 ; preds = %58
   br i1 %.not219, label %128, label %.loopexit
 
 128:                                              ; preds = %116, %118, %13, %.loopexit248
-  %.4174 = phi i32 [ %.8178, %.loopexit248 ], [ %.0170, %13 ], [ %.2172, %118 ], [ %.2172, %116 ]
-  %.3168 = phi ptr [ %.7, %.loopexit248 ], [ %.0165, %13 ], [ %.1166, %118 ], [ %.1166, %116 ]
+  %.4174 = phi i32 [ %.0170, %13 ], [ %.8178, %.loopexit248 ], [ %.2172, %118 ], [ %.2172, %116 ]
+  %.3168 = phi ptr [ %.0165, %13 ], [ %.7, %.loopexit248 ], [ %.1166, %118 ], [ %.1166, %116 ]
   %.2181 = getelementptr inbounds nuw i8, ptr %.0179, i64 1
   %.3188 = add nsw i32 %.0185, -1
   %129 = getelementptr inbounds nuw i8, ptr %.3168, i64 1
@@ -398,7 +398,7 @@ thread-pre-split:                                 ; preds = %58
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit248, %118, %116, %29, %27, %.lr.ph, %134, %.preheader, %.critedge15.loopexit282, %.critedge, %7, %34
-  %.0 = phi i32 [ 0, %34 ], [ 0, %7 ], [ 1, %.critedge ], [ 1, %.preheader ], [ %139, %.critedge15.loopexit282 ], [ 0, %.lr.ph ], [ 1, %134 ], [ 0, %29 ], [ 1, %27 ], [ 0, %116 ], [ 0, %118 ], [ 0, %.loopexit248 ]
+  %.0 = phi i32 [ 0, %7 ], [ 1, %.critedge ], [ 0, %.lr.ph ], [ 0, %29 ], [ 0, %34 ], [ 1, %.preheader ], [ %139, %.critedge15.loopexit282 ], [ 1, %134 ], [ 1, %27 ], [ 0, %116 ], [ 0, %118 ], [ 0, %.loopexit248 ]
   ret i32 %.0
 }
 
@@ -593,8 +593,8 @@ define dso_local i64 @memtoull(ptr noundef %0, ptr noundef writeonly captures(ad
   br label %59
 
 .critedge.thread:                                 ; preds = %19, %.preheader, %32, %30, %28, %26, %24, %22, %.critedge
-  %.03250 = phi ptr [ %.03252, %.critedge ], [ %.03252, %22 ], [ %.03252, %24 ], [ %.03252, %26 ], [ %.03252, %28 ], [ %.03252, %30 ], [ %.03252, %32 ], [ %0, %.preheader ], [ %20, %19 ]
-  %.033 = phi i64 [ 1, %.critedge ], [ 1000, %22 ], [ 1024, %24 ], [ 1000000, %26 ], [ 1048576, %28 ], [ 1000000000, %30 ], [ 1073741824, %32 ], [ 1, %.preheader ], [ 1, %19 ]
+  %.03250 = phi ptr [ %.03252, %32 ], [ %.03252, %30 ], [ %.03252, %28 ], [ %.03252, %26 ], [ %.03252, %24 ], [ %.03252, %22 ], [ %.03252, %.critedge ], [ %0, %.preheader ], [ %20, %19 ]
+  %.033 = phi i64 [ 1073741824, %32 ], [ 1000000000, %30 ], [ 1048576, %28 ], [ 1000000, %26 ], [ 1024, %24 ], [ 1000, %22 ], [ 1, %.critedge ], [ 1, %.preheader ], [ 1, %19 ]
   %36 = ptrtoint ptr %.03250 to i64
   %37 = ptrtoint ptr %0 to i64
   %38 = sub i64 %36, %37
@@ -648,7 +648,7 @@ define dso_local i64 @memtoull(ptr noundef %0, ptr noundef writeonly captures(ad
   br label %59
 
 59:                                               ; preds = %5, %41, %42, %34, %35, %12, %58
-  %.0 = phi i64 [ %.1, %58 ], [ 0, %12 ], [ 0, %35 ], [ 0, %34 ], [ 0, %42 ], [ 0, %41 ], [ 0, %5 ]
+  %.0 = phi i64 [ 0, %41 ], [ 0, %34 ], [ %.1, %58 ], [ 0, %12 ], [ 0, %35 ], [ 0, %42 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -831,12 +831,12 @@ define dso_local range(i32 1, 21) i32 @digits10(i64 noundef %0) local_unnamed_ad
   br label %digits10.exit
 
 digits10.exit:                                    ; preds = %29, %31, %33, %37, %39, %42
-  %.0.i = phi i32 [ %41, %39 ], [ %44, %42 ], [ 1, %29 ], [ 2, %31 ], [ 3, %33 ], [ 4, %37 ]
+  %.0.i = phi i32 [ 4, %37 ], [ 1, %29 ], [ 2, %31 ], [ 3, %33 ], [ %41, %39 ], [ %44, %42 ]
   %45 = add nuw nsw i32 %.0.i, 12
   br label %46
 
 46:                                               ; preds = %13, %5, %3, %1, %digits10.exit, %26, %23, %18, %15
-  %.0 = phi i32 [ %17, %15 ], [ %20, %18 ], [ %25, %23 ], [ %28, %26 ], [ %45, %digits10.exit ], [ 1, %1 ], [ 2, %3 ], [ 3, %5 ], [ 4, %13 ]
+  %.0 = phi i32 [ %45, %digits10.exit ], [ 1, %1 ], [ 2, %3 ], [ 3, %5 ], [ %17, %15 ], [ %20, %18 ], [ %25, %23 ], [ %28, %26 ], [ 4, %13 ]
   ret i32 %.0
 }
 
@@ -924,7 +924,7 @@ define dso_local range(i32 1, 21) i32 @sdigits10(i64 noundef %0) local_unnamed_a
   br label %digits10.exit
 
 digits10.exit:                                    ; preds = %32, %34, %36, %40, %42, %38, %3, %6, %8, %16, %18, %21, %26, %29
-  %.0.i = phi i32 [ %20, %18 ], [ %23, %21 ], [ %28, %26 ], [ %31, %29 ], [ 1, %3 ], [ 2, %6 ], [ 3, %8 ], [ 4, %16 ], [ %44, %42 ], [ 13, %32 ], [ 14, %34 ], [ 15, %36 ], [ 16, %40 ], [ 19, %38 ]
+  %.0.i = phi i32 [ 4, %16 ], [ 1, %3 ], [ 2, %6 ], [ 3, %8 ], [ %20, %18 ], [ %23, %21 ], [ %28, %26 ], [ %31, %29 ], [ 16, %40 ], [ 13, %32 ], [ 14, %34 ], [ 15, %36 ], [ %44, %42 ], [ 19, %38 ]
   %45 = add nuw nsw i32 %.0.i, 1
   br label %digits10.exit10
 
@@ -1006,7 +1006,7 @@ digits10.exit:                                    ; preds = %32, %34, %36, %40, 
   br label %digits10.exit10
 
 digits10.exit10:                                  ; preds = %74, %76, %78, %82, %84, %80, %71, %68, %63, %60, %58, %50, %48, %46, %digits10.exit
-  %.0 = phi i32 [ %45, %digits10.exit ], [ %62, %60 ], [ %65, %63 ], [ %70, %68 ], [ %73, %71 ], [ 1, %46 ], [ 2, %48 ], [ 3, %50 ], [ 4, %58 ], [ %86, %84 ], [ 13, %74 ], [ 14, %76 ], [ 15, %78 ], [ 16, %82 ], [ 19, %80 ]
+  %.0 = phi i32 [ %45, %digits10.exit ], [ 4, %58 ], [ 1, %46 ], [ 2, %48 ], [ 3, %50 ], [ %62, %60 ], [ %65, %63 ], [ %70, %68 ], [ %73, %71 ], [ 16, %82 ], [ 13, %74 ], [ 14, %76 ], [ 15, %78 ], [ %86, %84 ], [ 19, %80 ]
   ret i32 %.0
 }
 
@@ -1048,7 +1048,7 @@ define dso_local range(i32 0, 22) i32 @ll2string(ptr noundef writeonly captures(
   br label %19
 
 19:                                               ; preds = %16, %18, %11, %14
-  %.0 = phi i32 [ %15, %14 ], [ 0, %11 ], [ 0, %18 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %11 ], [ %15, %14 ], [ 0, %18 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -1136,12 +1136,12 @@ define dso_local range(i32 0, 21) i32 @ull2string(ptr noundef writeonly captures
   br label %digits10.exit.i
 
 digits10.exit.i:                                  ; preds = %44, %41, %39, %35, %33, %31
-  %.0.i.i = phi i32 [ %43, %41 ], [ %46, %44 ], [ 1, %31 ], [ 2, %33 ], [ 3, %35 ], [ 4, %39 ]
+  %.0.i.i = phi i32 [ 4, %39 ], [ 1, %31 ], [ 2, %33 ], [ 3, %35 ], [ %43, %41 ], [ %46, %44 ]
   %47 = add nuw nsw i32 %.0.i.i, 12
   br label %digits10.exit
 
 digits10.exit:                                    ; preds = %3, %5, %7, %15, %17, %20, %25, %28, %digits10.exit.i
-  %.0.i = phi i32 [ %19, %17 ], [ %22, %20 ], [ %27, %25 ], [ %30, %28 ], [ %47, %digits10.exit.i ], [ 1, %3 ], [ 2, %5 ], [ 3, %7 ], [ 4, %15 ]
+  %.0.i = phi i32 [ %47, %digits10.exit.i ], [ 1, %3 ], [ 2, %5 ], [ 3, %7 ], [ %19, %17 ], [ %22, %20 ], [ %27, %25 ], [ %30, %28 ], [ 4, %15 ]
   %48 = zext nneg i32 %.0.i to i64
   %.not = icmp ugt i64 %1, %48
   br i1 %.not, label %49, label %84
@@ -1212,7 +1212,7 @@ digits10.exit:                                    ; preds = %3, %5, %7, %15, %17
   br label %86
 
 86:                                               ; preds = %84, %85, %68, %73
-  %.0 = phi i32 [ %.0.i, %73 ], [ %.0.i, %68 ], [ 0, %85 ], [ 0, %84 ]
+  %.0 = phi i32 [ %.0.i, %68 ], [ %.0.i, %73 ], [ 0, %85 ], [ 0, %84 ]
   ret i32 %.0
 }
 
@@ -1247,9 +1247,9 @@ define dso_local range(i32 0, 2) i32 @string2ll(ptr noundef readonly captures(no
   br label %11
 
 11:                                               ; preds = %.thread63, %.thread
-  %12 = phi i8 [ %7, %.thread ], [ %.pre, %.thread63 ]
-  %.044 = phi ptr [ %0, %.thread ], [ %10, %.thread63 ]
-  %.043 = phi i64 [ 1, %.thread ], [ 2, %.thread63 ]
+  %12 = phi i8 [ %.pre, %.thread63 ], [ %7, %.thread ]
+  %.044 = phi ptr [ %10, %.thread63 ], [ %0, %.thread ]
+  %.043 = phi i64 [ 2, %.thread63 ], [ 1, %.thread ]
   %13 = add i8 %12, -49
   %or.cond57 = icmp ult i8 %13, 9
   br i1 %or.cond57, label %16, label %.critedge
@@ -1327,7 +1327,7 @@ define dso_local range(i32 0, 2) i32 @string2ll(ptr noundef readonly captures(no
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %22, %.critedge.sink.split, %.thread74, %8, %32, %37, %35, %30, %11, %9, %3
-  %.046 = phi i32 [ 0, %3 ], [ 1, %9 ], [ 0, %11 ], [ 0, %30 ], [ 0, %35 ], [ 1, %37 ], [ 1, %32 ], [ 0, %8 ], [ 0, %.thread74 ], [ 1, %.critedge.sink.split ], [ 0, %22 ], [ 0, %.lr.ph ]
+  %.046 = phi i32 [ 1, %32 ], [ 0, %3 ], [ 1, %9 ], [ 0, %11 ], [ 0, %.thread74 ], [ 0, %8 ], [ 1, %37 ], [ 0, %35 ], [ 0, %30 ], [ 1, %.critedge.sink.split ], [ 0, %22 ], [ 0, %.lr.ph ]
   ret i32 %.046
 }
 
@@ -1360,9 +1360,9 @@ define dso_local range(i32 0, 2) i32 @string2ull(ptr noundef %0, ptr noundef wri
   br label %11
 
 11:                                               ; preds = %.thread63.i, %.thread.i
-  %12 = phi i8 [ %8, %.thread.i ], [ %.pre.i, %.thread63.i ]
-  %.044.i = phi ptr [ %0, %.thread.i ], [ %10, %.thread63.i ]
-  %.043.i = phi i64 [ 1, %.thread.i ], [ 2, %.thread63.i ]
+  %12 = phi i8 [ %.pre.i, %.thread63.i ], [ %8, %.thread.i ]
+  %.044.i = phi ptr [ %10, %.thread63.i ], [ %0, %.thread.i ]
+  %.043.i = phi i64 [ 2, %.thread63.i ], [ 1, %.thread.i ]
   %13 = add i8 %12, -49
   %or.cond57.i = icmp ult i8 %13, 9
   br i1 %or.cond57.i, label %16, label %.loopexit
@@ -1430,7 +1430,7 @@ string2ll.exit.thread14:                          ; preds = %32, %.thread91.i, %
   store i64 %.sink.i16, ptr %1, align 8, !tbaa !35
   br label %44
 
-.loopexit:                                        ; preds = %22, %.lr.ph.i, %2, %11, %30, %32, %9, %.thread74.i
+.loopexit:                                        ; preds = %.lr.ph.i, %22, %2, %11, %.thread74.i, %9, %32, %30
   %34 = tail call ptr @__errno_location() #30
   store i32 0, ptr %34, align 4, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1456,12 +1456,12 @@ string2ll.exit.thread14:                          ; preds = %32, %.thread91.i, %
   br label %43
 
 43:                                               ; preds = %39, %37, %.loopexit, %.loopexit
-  %.1 = phi i32 [ 0, %.loopexit ], [ 0, %.loopexit ], [ 0, %37 ], [ %spec.select, %39 ]
+  %.1 = phi i32 [ 0, %37 ], [ 0, %.loopexit ], [ 0, %.loopexit ], [ %spec.select, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
 
 44:                                               ; preds = %string2ll.exit, %43, %string2ll.exit.thread14
-  %.0 = phi i32 [ 1, %string2ll.exit.thread14 ], [ %.1, %43 ], [ 0, %string2ll.exit ]
+  %.0 = phi i32 [ %.1, %43 ], [ 1, %string2ll.exit.thread14 ], [ 0, %string2ll.exit ]
   ret i32 %.0
 }
 
@@ -1492,9 +1492,9 @@ define dso_local range(i32 0, 2) i32 @string2l(ptr noundef readonly captures(non
   br label %10
 
 10:                                               ; preds = %.thread63.i, %.thread.i
-  %11 = phi i8 [ %7, %.thread.i ], [ %.pre.i, %.thread63.i ]
-  %.044.i = phi ptr [ %0, %.thread.i ], [ %9, %.thread63.i ]
-  %.043.i = phi i64 [ 1, %.thread.i ], [ 2, %.thread63.i ]
+  %11 = phi i8 [ %.pre.i, %.thread63.i ], [ %7, %.thread.i ]
+  %.044.i = phi ptr [ %9, %.thread63.i ], [ %0, %.thread.i ]
+  %.043.i = phi i64 [ 2, %.thread63.i ], [ 1, %.thread.i ]
   %12 = add i8 %11, -49
   %or.cond57.i = icmp ult i8 %12, 9
   br i1 %or.cond57.i, label %15, label %string2ll.exit.thread
@@ -1562,8 +1562,8 @@ string2ll.exit:                                   ; preds = %.thread91.i, %33, %
   store i64 %.sink.i, ptr %2, align 8, !tbaa !37
   br label %string2ll.exit.thread
 
-string2ll.exit.thread:                            ; preds = %.lr.ph.i, %21, %.thread74.i, %8, %33, %29, %10, %3, %string2ll.exit
-  %.0 = phi i32 [ 1, %string2ll.exit ], [ 0, %3 ], [ 0, %10 ], [ 0, %29 ], [ 0, %33 ], [ 0, %8 ], [ 0, %.thread74.i ], [ 0, %21 ], [ 0, %.lr.ph.i ]
+string2ll.exit.thread:                            ; preds = %21, %.lr.ph.i, %29, %33, %8, %.thread74.i, %10, %3, %string2ll.exit
+  %.0 = phi i32 [ 1, %string2ll.exit ], [ 0, %33 ], [ 0, %3 ], [ 0, %10 ], [ 0, %.thread74.i ], [ 0, %8 ], [ 0, %29 ], [ 0, %.lr.ph.i ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -1592,7 +1592,7 @@ define dso_local range(i32 -1, 2) i32 @string2ul_base16_async_signal_safe(ptr no
   br label %base_16_char_type.exit
 
 base_16_char_type.exit:                           ; preds = %4, %8, %10
-  %.0.i = phi i32 [ 0, %4 ], [ 1, %8 ], [ %..i, %10 ]
+  %.0.i = phi i32 [ 1, %8 ], [ 0, %4 ], [ %..i, %10 ]
   %12 = icmp ne i32 %.0.i, -1
   %13 = icmp ult i64 %.022, %1
   %14 = and i1 %13, %12
@@ -1691,7 +1691,7 @@ define dso_local range(i32 0, 2) i32 @string2ld(ptr noundef readonly captures(no
   br label %.critedge
 
 .critedge:                                        ; preds = %31, %32, %7, %18, %27, %28, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %28 ], [ 0, %27 ], [ 0, %18 ], [ 0, %7 ], [ 1, %32 ], [ 1, %31 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 1, %31 ], [ 0, %28 ], [ 0, %27 ], [ 0, %18 ], [ 1, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1753,7 +1753,7 @@ define dso_local range(i32 0, 2) i32 @string2d(ptr noundef %0, i64 noundef %1, p
   br label %.critedge
 
 .critedge:                                        ; preds = %3, %8, %16, %24, %25, %26
-  %.0 = phi i32 [ 1, %26 ], [ 0, %25 ], [ 0, %24 ], [ 0, %16 ], [ 0, %8 ], [ 0, %3 ]
+  %.0 = phi i32 [ 1, %26 ], [ 0, %3 ], [ 0, %25 ], [ 0, %24 ], [ 0, %16 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1884,7 +1884,7 @@ double2ll.exit:                                   ; preds = %26
   br label %ll2string.exit
 
 ll2string.exit:                                   ; preds = %45, %37, %40, %42, %44, %14, %12, %21, %23, %5
-  %.0 = phi i32 [ %6, %5 ], [ %13, %12 ], [ %15, %14 ], [ %22, %21 ], [ %24, %23 ], [ %46, %45 ], [ %41, %40 ], [ 0, %37 ], [ 0, %44 ], [ 0, %42 ]
+  %.0 = phi i32 [ %6, %5 ], [ %13, %12 ], [ %15, %14 ], [ %22, %21 ], [ %24, %23 ], [ %46, %45 ], [ 0, %37 ], [ %41, %40 ], [ 0, %44 ], [ 0, %42 ]
   ret i32 %.0
 }
 
@@ -2022,7 +2022,7 @@ define dso_local range(i32 0, 38) i32 @fixedpoint_d2string(ptr noundef writeonly
   br label %digits10.exit
 
 digits10.exit:                                    ; preds = %59, %61, %63, %67, %69, %65, %31, %33, %35, %43, %45, %48, %53, %56
-  %.0.i = phi i32 [ %47, %45 ], [ %50, %48 ], [ %55, %53 ], [ %58, %56 ], [ 1, %31 ], [ 2, %33 ], [ 3, %35 ], [ 4, %43 ], [ %71, %69 ], [ 13, %59 ], [ 14, %61 ], [ 15, %63 ], [ 16, %67 ], [ 19, %65 ]
+  %.0.i = phi i32 [ 4, %43 ], [ 1, %31 ], [ 2, %33 ], [ 3, %35 ], [ %47, %45 ], [ %50, %48 ], [ %55, %53 ], [ %58, %56 ], [ 16, %67 ], [ 13, %59 ], [ 14, %61 ], [ 15, %63 ], [ %71, %69 ], [ 19, %65 ]
   %72 = zext nneg i32 %.0.i to i64
   %.not86 = icmp ugt i64 %.172, %72
   br i1 %.not86, label %73, label %118
@@ -2106,8 +2106,8 @@ digits10.exit:                                    ; preds = %59, %61, %63, %67, 
   br label %120
 
 118:                                              ; preds = %digits10.exit, %25, %4
-  %.071 = phi i64 [ %1, %4 ], [ %1, %25 ], [ %.172, %digits10.exit ]
-  %.068 = phi ptr [ %0, %4 ], [ %0, %25 ], [ %.1, %digits10.exit ]
+  %.071 = phi i64 [ %1, %4 ], [ %.172, %digits10.exit ], [ %1, %25 ]
+  %.068 = phi ptr [ %0, %4 ], [ %.1, %digits10.exit ], [ %0, %25 ]
   %.not87 = icmp eq i64 %.071, 0
   br i1 %.not87, label %120, label %119
 
@@ -2116,7 +2116,7 @@ digits10.exit:                                    ; preds = %59, %61, %63, %67, 
   br label %120
 
 120:                                              ; preds = %118, %119, %114, %11
-  %.0 = phi i32 [ %15, %11 ], [ %117, %114 ], [ 0, %119 ], [ 0, %118 ]
+  %.0 = phi i32 [ %117, %114 ], [ %15, %11 ], [ 0, %119 ], [ 0, %118 ]
   ret i32 %.0
 }
 
@@ -2513,7 +2513,7 @@ define dso_local ptr @getAbsolutePath(ptr noundef %0) local_unnamed_addr #3 {
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %16, %19, %23, %27, %31
-  %.0.i = phi i64 [ %18, %16 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ %33, %31 ]
+  %.0.i = phi i64 [ %33, %31 ], [ %18, %16 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ]
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %sdslen.exit.thread, label %34
 
@@ -2558,7 +2558,7 @@ default.unreachable43:                            ; preds = %34
   unreachable
 
 sdslen.exit32:                                    ; preds = %35, %38, %42, %46, %50
-  %.0.i31 = phi i64 [ %37, %35 ], [ %41, %38 ], [ %45, %42 ], [ %49, %46 ], [ %52, %50 ]
+  %.0.i31 = phi i64 [ %52, %50 ], [ %37, %35 ], [ %41, %38 ], [ %45, %42 ], [ %49, %46 ]
   %53 = getelementptr i8, ptr %11, i64 %.0.i31
   %54 = getelementptr i8, ptr %53, i64 -1
   %55 = load i8, ptr %54, align 1, !tbaa !9
@@ -2622,7 +2622,7 @@ sdslen.exit36.thread:                             ; preds = %sdslen.exit36.threa
   br label %sdslen.exit34
 
 sdslen.exit34:                                    ; preds = %73, %76, %79, %82, %85
-  %.0.i33 = phi i64 [ %75, %73 ], [ %78, %76 ], [ %81, %79 ], [ %84, %82 ], [ %86, %85 ]
+  %.0.i33 = phi i64 [ %86, %85 ], [ %75, %73 ], [ %78, %76 ], [ %81, %79 ], [ %84, %82 ]
   %87 = icmp ugt i64 %.0.i33, 2
   br i1 %87, label %88, label %.critedge
 
@@ -2682,7 +2682,7 @@ sdslen.exit36.thread.backedge:                    ; preds = %97, %._crit_edge, %
   br label %sdslen.exit36
 
 sdslen.exit36:                                    ; preds = %101, %104, %107, %110, %113
-  %.0.i35 = phi i64 [ %103, %101 ], [ %106, %104 ], [ %109, %107 ], [ %112, %110 ], [ %114, %113 ]
+  %.0.i35 = phi i64 [ %114, %113 ], [ %103, %101 ], [ %106, %104 ], [ %109, %107 ], [ %112, %110 ]
   %115 = icmp ugt i64 %.0.i35, 1
   br i1 %115, label %116, label %sdslen.exit36.thread.backedge
 
@@ -2723,7 +2723,7 @@ default.unreachable:                              ; preds = %116
   unreachable
 
 sdslen.exit38:                                    ; preds = %117, %120, %123, %126, %129
-  %.0.i37 = phi i64 [ %119, %117 ], [ %122, %120 ], [ %125, %123 ], [ %128, %126 ], [ %130, %129 ]
+  %.0.i37 = phi i64 [ %130, %129 ], [ %119, %117 ], [ %122, %120 ], [ %125, %123 ], [ %128, %126 ]
   %131 = getelementptr inbounds nuw i8, ptr %.027, i64 %.0.i37
   %132 = getelementptr inbounds i8, ptr %131, i64 -2
   %133 = load i8, ptr %132, align 1, !tbaa !9
@@ -3065,7 +3065,7 @@ define dso_local range(i32 -1, 1) i32 @fsyncFileDir(ptr noundef readonly capture
   br label %26
 
 26:                                               ; preds = %12, %24, %22, %5
-  %.0 = phi i32 [ -1, %5 ], [ 0, %24 ], [ -1, %22 ], [ %., %12 ]
+  %.0 = phi i32 [ -1, %5 ], [ %., %12 ], [ -1, %22 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -3433,7 +3433,7 @@ check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_long
   br label %.sink.split.i71
 
 .sink.split.i71:                                  ; preds = %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %.preheader.i
-  %.sink.i = phi i8 [ 101, %110 ], [ 100, %111 ], [ 99, %112 ], [ 98, %113 ], [ 97, %114 ], [ 57, %115 ], [ 56, %116 ], [ 55, %117 ], [ 54, %118 ], [ 53, %119 ], [ 52, %120 ], [ 51, %121 ], [ 50, %122 ], [ 49, %123 ], [ 48, %124 ], [ 102, %.preheader.i ]
+  %.sink.i = phi i8 [ 48, %124 ], [ 101, %110 ], [ 100, %111 ], [ 99, %112 ], [ 98, %113 ], [ 97, %114 ], [ 57, %115 ], [ 56, %116 ], [ 55, %117 ], [ 54, %118 ], [ 53, %119 ], [ 52, %120 ], [ 51, %121 ], [ 50, %122 ], [ 49, %123 ], [ 102, %.preheader.i ]
   store i8 %.sink.i, ptr %.357.i, align 1, !tbaa !9
   br label %125
 

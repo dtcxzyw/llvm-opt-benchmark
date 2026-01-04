@@ -606,7 +606,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %184
   br i1 %203, label %.loopexit102, label %200
 
 .loopexit102:                                     ; preds = %161, %200, %.thread100
-  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %84, %.thread100 ], [ %.pn67.pn.pn, %200 ], [ %160, %161 ]
+  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %.pn67.pn.pn, %200 ], [ %84, %.thread100 ], [ %160, %161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %204 = getelementptr inbounds nuw i8, ptr %18, i64 288
   br label %210
@@ -644,7 +644,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %184
   br i1 %213, label %.loopexit, label %210
 
 .loopexit:                                        ; preds = %155, %210, %.thread
-  %.pn67.pn.pn.pn.pn = phi { ptr, i32 } [ %78, %.thread ], [ %.pn67.pn.pn.pn, %210 ], [ %154, %155 ]
+  %.pn67.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn67.pn.pn.pn, %210 ], [ %78, %.thread ], [ %154, %155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #9
   br label %214

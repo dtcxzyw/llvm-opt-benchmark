@@ -298,7 +298,7 @@ define hidden void @_ZN15G1YoungGenSizer19adjust_max_new_sizeEj(ptr noundef nonn
   unreachable
 
 _ZN15G1YoungGenSizer32recalculate_min_max_young_lengthEjPjS0_.exit: ; preds = %2, %2, %8, %13, %21
-  %.0 = phi i32 [ %12, %8 ], [ %20, %13 ], [ %5, %2 ], [ %27, %21 ], [ %5, %2 ]
+  %.0 = phi i32 [ %12, %8 ], [ %20, %13 ], [ %27, %21 ], [ %5, %2 ], [ %5, %2 ]
   %30 = zext i32 %.0 to i64
   %31 = load i64, ptr @_ZN12G1HeapRegion10GrainBytesE, align 8
   %32 = mul i64 %31, %30

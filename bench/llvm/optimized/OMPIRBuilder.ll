@@ -2501,8 +2501,8 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit: ; preds = %_ZN4llvm13
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit, %34, %35
-  %.sink107 = phi i8 [ 3, %34 ], [ %.014.i.i, %35 ], [ %33, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ]
-  %.sink = phi i8 [ 1, %34 ], [ 3, %35 ], [ 1, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ]
+  %.sink107 = phi i8 [ %.014.i.i, %35 ], [ 3, %34 ], [ %33, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ]
+  %.sink = phi i8 [ 3, %35 ], [ 1, %34 ], [ 1, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 %.sink107, ptr %40, align 8, !tbaa !113
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 33
@@ -2570,8 +2570,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; 
   br label %_ZN4llvmplERKNS_5TwineES2_.exit40
 
 _ZN4llvmplERKNS_5TwineES2_.exit40:                ; preds = %58, %62, %63
-  %.sink111 = phi i8 [ 3, %62 ], [ %.014.i.i29, %63 ], [ %61, %58 ]
-  %.sink109 = phi i8 [ 1, %62 ], [ 3, %63 ], [ 1, %58 ]
+  %.sink111 = phi i8 [ %.014.i.i29, %63 ], [ 3, %62 ], [ %61, %58 ]
+  %.sink109 = phi i8 [ 3, %63 ], [ 1, %62 ], [ 1, %58 ]
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i8 %.sink111, ptr %68, align 8, !tbaa !113
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 33
@@ -2696,8 +2696,8 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit56: ; preds = %_ZN4llvm
   br label %_ZN4llvmplERKNS_5TwineES2_.exit71
 
 _ZN4llvmplERKNS_5TwineES2_.exit71:                ; preds = %102, %104, %105
-  %.sink115 = phi i8 [ 3, %104 ], [ %.014.i.i60, %105 ], [ %103, %102 ]
-  %.sink113 = phi i8 [ 1, %104 ], [ 3, %105 ], [ 1, %102 ]
+  %.sink115 = phi i8 [ %.014.i.i60, %105 ], [ 3, %104 ], [ %103, %102 ]
+  %.sink113 = phi i8 [ 3, %105 ], [ 1, %104 ], [ 1, %102 ]
   %110 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 %.sink115, ptr %110, align 8, !tbaa !113
   %111 = getelementptr inbounds nuw i8, ptr %12, i64 33
@@ -4316,7 +4316,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %519, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i, %515
-  %.ph.i = phi i32 [ 54, %515 ], [ %520, %519 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i ]
+  %.ph.i = phi i32 [ %520, %519 ], [ 54, %515 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i ]
   %521 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %509, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i
 
@@ -4326,7 +4326,7 @@ select.unfold.i:                                  ; preds = %519, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i: ; preds = %522, %select.unfold.i
-  %.sink.i = phi ptr [ %521, %select.unfold.i ], [ %523, %522 ]
+  %.sink.i = phi ptr [ %523, %522 ], [ %521, %select.unfold.i ]
   store ptr %.sink.i, ptr %509, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit"
 
@@ -4387,7 +4387,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i3951
 
 select.unfold.i3951:                              ; preds = %542, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i3954, %538
-  %.ph.i3952 = phi i32 [ 54, %538 ], [ %543, %542 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i3954 ]
+  %.ph.i3952 = phi i32 [ %543, %542 ], [ 54, %538 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i3954 ]
   %544 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %532, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i3952) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i3949
 
@@ -4397,7 +4397,7 @@ select.unfold.i3951:                              ; preds = %542, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i3949
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i3949: ; preds = %545, %select.unfold.i3951
-  %.sink.i3950 = phi ptr [ %544, %select.unfold.i3951 ], [ %546, %545 ]
+  %.sink.i3950 = phi ptr [ %546, %545 ], [ %544, %select.unfold.i3951 ]
   store ptr %.sink.i3950, ptr %532, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit3957"
 
@@ -4458,7 +4458,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i3965
 
 select.unfold.i3965:                              ; preds = %565, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i3968, %561
-  %.ph.i3966 = phi i32 [ 54, %561 ], [ %566, %565 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i3968 ]
+  %.ph.i3966 = phi i32 [ %566, %565 ], [ 54, %561 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i3968 ]
   %567 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %555, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i3966) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i3963
 
@@ -4468,7 +4468,7 @@ select.unfold.i3965:                              ; preds = %565, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i3963
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i3963: ; preds = %568, %select.unfold.i3965
-  %.sink.i3964 = phi ptr [ %567, %select.unfold.i3965 ], [ %569, %568 ]
+  %.sink.i3964 = phi ptr [ %569, %568 ], [ %567, %select.unfold.i3965 ]
   store ptr %.sink.i3964, ptr %555, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit3971"
 
@@ -4546,7 +4546,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4006
 
 select.unfold.i4006:                              ; preds = %594, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4009, %590
-  %.ph.i4007 = phi i32 [ 54, %590 ], [ %595, %594 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4009 ]
+  %.ph.i4007 = phi i32 [ %595, %594 ], [ 54, %590 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4009 ]
   %596 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %583, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4007) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4004
 
@@ -4556,7 +4556,7 @@ select.unfold.i4006:                              ; preds = %594, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4004
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4004: ; preds = %597, %select.unfold.i4006
-  %.sink.i4005 = phi ptr [ %596, %select.unfold.i4006 ], [ %598, %597 ]
+  %.sink.i4005 = phi ptr [ %598, %597 ], [ %596, %select.unfold.i4006 ]
   store ptr %.sink.i4005, ptr %583, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4012"
 
@@ -4615,7 +4615,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4019
 
 select.unfold.i4019:                              ; preds = %617, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4022, %613
-  %.ph.i4020 = phi i32 [ 54, %613 ], [ %618, %617 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4022 ]
+  %.ph.i4020 = phi i32 [ %618, %617 ], [ 54, %613 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4022 ]
   %619 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %607, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4020) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4017
 
@@ -4625,7 +4625,7 @@ select.unfold.i4019:                              ; preds = %617, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4017
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4017: ; preds = %620, %select.unfold.i4019
-  %.sink.i4018 = phi ptr [ %619, %select.unfold.i4019 ], [ %621, %620 ]
+  %.sink.i4018 = phi ptr [ %621, %620 ], [ %619, %select.unfold.i4019 ]
   store ptr %.sink.i4018, ptr %607, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4025"
 
@@ -4699,7 +4699,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4037
 
 select.unfold.i4037:                              ; preds = %649, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4040, %645
-  %.ph.i4038 = phi i32 [ 54, %645 ], [ %650, %649 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4040 ]
+  %.ph.i4038 = phi i32 [ %650, %649 ], [ 54, %645 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4040 ]
   %651 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %636, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4038) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4035
 
@@ -4709,7 +4709,7 @@ select.unfold.i4037:                              ; preds = %649, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4035
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4035: ; preds = %652, %select.unfold.i4037
-  %.sink.i4036 = phi ptr [ %651, %select.unfold.i4037 ], [ %653, %652 ]
+  %.sink.i4036 = phi ptr [ %653, %652 ], [ %651, %select.unfold.i4037 ]
   store ptr %.sink.i4036, ptr %636, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4043"
 
@@ -4787,7 +4787,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4055
 
 select.unfold.i4055:                              ; preds = %684, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4058, %680
-  %.ph.i4056 = phi i32 [ 54, %680 ], [ %685, %684 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4058 ]
+  %.ph.i4056 = phi i32 [ %685, %684 ], [ 54, %680 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4058 ]
   %686 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %671, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4056) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4053
 
@@ -4797,7 +4797,7 @@ select.unfold.i4055:                              ; preds = %684, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4053
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4053: ; preds = %687, %select.unfold.i4055
-  %.sink.i4054 = phi ptr [ %686, %select.unfold.i4055 ], [ %688, %687 ]
+  %.sink.i4054 = phi ptr [ %688, %687 ], [ %686, %select.unfold.i4055 ]
   store ptr %.sink.i4054, ptr %671, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4061"
 
@@ -4871,7 +4871,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4073
 
 select.unfold.i4073:                              ; preds = %717, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4076, %713
-  %.ph.i4074 = phi i32 [ 54, %713 ], [ %718, %717 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4076 ]
+  %.ph.i4074 = phi i32 [ %718, %717 ], [ 54, %713 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4076 ]
   %719 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %704, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4074) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4071
 
@@ -4881,7 +4881,7 @@ select.unfold.i4073:                              ; preds = %717, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4071
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4071: ; preds = %720, %select.unfold.i4073
-  %.sink.i4072 = phi ptr [ %719, %select.unfold.i4073 ], [ %721, %720 ]
+  %.sink.i4072 = phi ptr [ %721, %720 ], [ %719, %select.unfold.i4073 ]
   store ptr %.sink.i4072, ptr %704, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4079"
 
@@ -4955,7 +4955,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4091
 
 select.unfold.i4091:                              ; preds = %750, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4094, %746
-  %.ph.i4092 = phi i32 [ 54, %746 ], [ %751, %750 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4094 ]
+  %.ph.i4092 = phi i32 [ %751, %750 ], [ 54, %746 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4094 ]
   %752 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %737, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4092) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4089
 
@@ -4965,7 +4965,7 @@ select.unfold.i4091:                              ; preds = %750, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4089
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4089: ; preds = %753, %select.unfold.i4091
-  %.sink.i4090 = phi ptr [ %752, %select.unfold.i4091 ], [ %754, %753 ]
+  %.sink.i4090 = phi ptr [ %754, %753 ], [ %752, %select.unfold.i4091 ]
   store ptr %.sink.i4090, ptr %737, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4097"
 
@@ -5041,7 +5041,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4109
 
 select.unfold.i4109:                              ; preds = %784, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4112, %780
-  %.ph.i4110 = phi i32 [ 54, %780 ], [ %785, %784 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4112 ]
+  %.ph.i4110 = phi i32 [ %785, %784 ], [ 54, %780 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4112 ]
   %786 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %771, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4110) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4107
 
@@ -5051,7 +5051,7 @@ select.unfold.i4109:                              ; preds = %784, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4107
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4107: ; preds = %787, %select.unfold.i4109
-  %.sink.i4108 = phi ptr [ %786, %select.unfold.i4109 ], [ %788, %787 ]
+  %.sink.i4108 = phi ptr [ %788, %787 ], [ %786, %select.unfold.i4109 ]
   store ptr %.sink.i4108, ptr %771, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4115"
 
@@ -5127,7 +5127,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4127
 
 select.unfold.i4127:                              ; preds = %818, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4130, %814
-  %.ph.i4128 = phi i32 [ 54, %814 ], [ %819, %818 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4130 ]
+  %.ph.i4128 = phi i32 [ %819, %818 ], [ 54, %814 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4130 ]
   %820 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %805, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4128) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4125
 
@@ -5137,7 +5137,7 @@ select.unfold.i4127:                              ; preds = %818, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4125
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4125: ; preds = %821, %select.unfold.i4127
-  %.sink.i4126 = phi ptr [ %820, %select.unfold.i4127 ], [ %822, %821 ]
+  %.sink.i4126 = phi ptr [ %822, %821 ], [ %820, %select.unfold.i4127 ]
   store ptr %.sink.i4126, ptr %805, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4133"
 
@@ -5205,7 +5205,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4144
 
 select.unfold.i4144:                              ; preds = %847, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4147, %843
-  %.ph.i4145 = phi i32 [ 54, %843 ], [ %848, %847 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4147 ]
+  %.ph.i4145 = phi i32 [ %848, %847 ], [ 54, %843 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4147 ]
   %849 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %836, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4145) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4142
 
@@ -5215,7 +5215,7 @@ select.unfold.i4144:                              ; preds = %847, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4142
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4142: ; preds = %850, %select.unfold.i4144
-  %.sink.i4143 = phi ptr [ %849, %select.unfold.i4144 ], [ %851, %850 ]
+  %.sink.i4143 = phi ptr [ %851, %850 ], [ %849, %select.unfold.i4144 ]
   store ptr %.sink.i4143, ptr %836, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4150"
 
@@ -5267,7 +5267,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4158
 
 select.unfold.i4158:                              ; preds = %866, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4161, %862
-  %.ph.i4159 = phi i32 [ 54, %862 ], [ %867, %866 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4161 ]
+  %.ph.i4159 = phi i32 [ %867, %866 ], [ 54, %862 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4161 ]
   %868 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %856, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4159) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4156
 
@@ -5277,7 +5277,7 @@ select.unfold.i4158:                              ; preds = %866, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4156
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4156: ; preds = %869, %select.unfold.i4158
-  %.sink.i4157 = phi ptr [ %868, %select.unfold.i4158 ], [ %870, %869 ]
+  %.sink.i4157 = phi ptr [ %870, %869 ], [ %868, %select.unfold.i4158 ]
   store ptr %.sink.i4157, ptr %856, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4164"
 
@@ -5324,7 +5324,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4171
 
 select.unfold.i4171:                              ; preds = %883, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4174, %879
-  %.ph.i4172 = phi i32 [ 54, %879 ], [ %884, %883 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4174 ]
+  %.ph.i4172 = phi i32 [ %884, %883 ], [ 54, %879 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4174 ]
   %885 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %873, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4172) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4169
 
@@ -5334,7 +5334,7 @@ select.unfold.i4171:                              ; preds = %883, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4169
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4169: ; preds = %886, %select.unfold.i4171
-  %.sink.i4170 = phi ptr [ %885, %select.unfold.i4171 ], [ %887, %886 ]
+  %.sink.i4170 = phi ptr [ %887, %886 ], [ %885, %select.unfold.i4171 ]
   store ptr %.sink.i4170, ptr %873, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4177"
 
@@ -5402,7 +5402,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4198
 
 select.unfold.i4198:                              ; preds = %909, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4201, %905
-  %.ph.i4199 = phi i32 [ 54, %905 ], [ %910, %909 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4201 ]
+  %.ph.i4199 = phi i32 [ %910, %909 ], [ 54, %905 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4201 ]
   %911 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %898, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4199) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4196
 
@@ -5412,7 +5412,7 @@ select.unfold.i4198:                              ; preds = %909, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4196
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4196: ; preds = %912, %select.unfold.i4198
-  %.sink.i4197 = phi ptr [ %911, %select.unfold.i4198 ], [ %913, %912 ]
+  %.sink.i4197 = phi ptr [ %913, %912 ], [ %911, %select.unfold.i4198 ]
   store ptr %.sink.i4197, ptr %898, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4204"
 
@@ -5479,7 +5479,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4213
 
 select.unfold.i4213:                              ; preds = %936, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4216, %932
-  %.ph.i4214 = phi i32 [ 54, %932 ], [ %937, %936 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4216 ]
+  %.ph.i4214 = phi i32 [ %937, %936 ], [ 54, %932 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4216 ]
   %938 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %925, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4214) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4211
 
@@ -5489,7 +5489,7 @@ select.unfold.i4213:                              ; preds = %936, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4211
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4211: ; preds = %939, %select.unfold.i4213
-  %.sink.i4212 = phi ptr [ %938, %select.unfold.i4213 ], [ %940, %939 ]
+  %.sink.i4212 = phi ptr [ %940, %939 ], [ %938, %select.unfold.i4213 ]
   store ptr %.sink.i4212, ptr %925, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4219"
 
@@ -5548,7 +5548,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4226
 
 select.unfold.i4226:                              ; preds = %959, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4229, %955
-  %.ph.i4227 = phi i32 [ 54, %955 ], [ %960, %959 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4229 ]
+  %.ph.i4227 = phi i32 [ %960, %959 ], [ 54, %955 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4229 ]
   %961 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %949, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4227) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4224
 
@@ -5558,7 +5558,7 @@ select.unfold.i4226:                              ; preds = %959, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4224
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4224: ; preds = %962, %select.unfold.i4226
-  %.sink.i4225 = phi ptr [ %961, %select.unfold.i4226 ], [ %963, %962 ]
+  %.sink.i4225 = phi ptr [ %963, %962 ], [ %961, %select.unfold.i4226 ]
   store ptr %.sink.i4225, ptr %949, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4232"
 
@@ -5616,7 +5616,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4239
 
 select.unfold.i4239:                              ; preds = %982, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4242, %978
-  %.ph.i4240 = phi i32 [ 54, %978 ], [ %983, %982 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4242 ]
+  %.ph.i4240 = phi i32 [ %983, %982 ], [ 54, %978 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4242 ]
   %984 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %971, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4240) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4237
 
@@ -5626,7 +5626,7 @@ select.unfold.i4239:                              ; preds = %982, %_ZN4llvm17Tar
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4237
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4237: ; preds = %985, %select.unfold.i4239
-  %.sink.i4238 = phi ptr [ %984, %select.unfold.i4239 ], [ %986, %985 ]
+  %.sink.i4238 = phi ptr [ %986, %985 ], [ %984, %select.unfold.i4239 ]
   store ptr %.sink.i4238, ptr %971, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4245"
 
@@ -5690,7 +5690,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4253
 
 select.unfold.i4253:                              ; preds = %1007, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4256, %1003
-  %.ph.i4254 = phi i32 [ 54, %1003 ], [ %1008, %1007 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4256 ]
+  %.ph.i4254 = phi i32 [ %1008, %1007 ], [ 54, %1003 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4256 ]
   %1009 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %996, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4254) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4251
 
@@ -5700,7 +5700,7 @@ select.unfold.i4253:                              ; preds = %1007, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4251
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4251: ; preds = %1010, %select.unfold.i4253
-  %.sink.i4252 = phi ptr [ %1009, %select.unfold.i4253 ], [ %1011, %1010 ]
+  %.sink.i4252 = phi ptr [ %1011, %1010 ], [ %1009, %select.unfold.i4253 ]
   store ptr %.sink.i4252, ptr %996, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4259"
 
@@ -5764,7 +5764,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4267
 
 select.unfold.i4267:                              ; preds = %1032, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4270, %1028
-  %.ph.i4268 = phi i32 [ 54, %1028 ], [ %1033, %1032 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4270 ]
+  %.ph.i4268 = phi i32 [ %1033, %1032 ], [ 54, %1028 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4270 ]
   %1034 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1021, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4268) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4265
 
@@ -5774,7 +5774,7 @@ select.unfold.i4267:                              ; preds = %1032, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4265
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4265: ; preds = %1035, %select.unfold.i4267
-  %.sink.i4266 = phi ptr [ %1034, %select.unfold.i4267 ], [ %1036, %1035 ]
+  %.sink.i4266 = phi ptr [ %1036, %1035 ], [ %1034, %select.unfold.i4267 ]
   store ptr %.sink.i4266, ptr %1021, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4273"
 
@@ -5838,7 +5838,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4280
 
 select.unfold.i4280:                              ; preds = %1058, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4283, %1054
-  %.ph.i4281 = phi i32 [ 54, %1054 ], [ %1059, %1058 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4283 ]
+  %.ph.i4281 = phi i32 [ %1059, %1058 ], [ 54, %1054 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4283 ]
   %1060 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1047, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4281) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4278
 
@@ -5848,7 +5848,7 @@ select.unfold.i4280:                              ; preds = %1058, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4278
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4278: ; preds = %1061, %select.unfold.i4280
-  %.sink.i4279 = phi ptr [ %1060, %select.unfold.i4280 ], [ %1062, %1061 ]
+  %.sink.i4279 = phi ptr [ %1062, %1061 ], [ %1060, %select.unfold.i4280 ]
   store ptr %.sink.i4279, ptr %1047, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4286"
 
@@ -6003,7 +6003,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4428
 
 select.unfold.i4428:                              ; preds = %1118, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4431, %1114
-  %.ph.i4429 = phi i32 [ 54, %1114 ], [ %1119, %1118 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4431 ]
+  %.ph.i4429 = phi i32 [ %1119, %1118 ], [ 54, %1114 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4431 ]
   %1120 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1102, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4429) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4426
 
@@ -6013,7 +6013,7 @@ select.unfold.i4428:                              ; preds = %1118, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4426
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4426: ; preds = %1121, %select.unfold.i4428
-  %.sink.i4427 = phi ptr [ %1120, %select.unfold.i4428 ], [ %1122, %1121 ]
+  %.sink.i4427 = phi ptr [ %1122, %1121 ], [ %1120, %select.unfold.i4428 ]
   store ptr %.sink.i4427, ptr %1102, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4434"
 
@@ -6088,7 +6088,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4493
 
 select.unfold.i4493:                              ; preds = %1145, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4496, %1141
-  %.ph.i4494 = phi i32 [ 54, %1141 ], [ %1146, %1145 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4496 ]
+  %.ph.i4494 = phi i32 [ %1146, %1145 ], [ 54, %1141 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4496 ]
   %1147 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1134, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4494) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4491
 
@@ -6098,7 +6098,7 @@ select.unfold.i4493:                              ; preds = %1145, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4491
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4491: ; preds = %1148, %select.unfold.i4493
-  %.sink.i4492 = phi ptr [ %1147, %select.unfold.i4493 ], [ %1149, %1148 ]
+  %.sink.i4492 = phi ptr [ %1149, %1148 ], [ %1147, %select.unfold.i4493 ]
   store ptr %.sink.i4492, ptr %1134, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4499"
 
@@ -6146,7 +6146,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4506
 
 select.unfold.i4506:                              ; preds = %1163, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4509, %1159
-  %.ph.i4507 = phi i32 [ 54, %1159 ], [ %1164, %1163 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4509 ]
+  %.ph.i4507 = phi i32 [ %1164, %1163 ], [ 54, %1159 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4509 ]
   %1165 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1152, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4507) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4504
 
@@ -6156,7 +6156,7 @@ select.unfold.i4506:                              ; preds = %1163, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4504
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4504: ; preds = %1166, %select.unfold.i4506
-  %.sink.i4505 = phi ptr [ %1165, %select.unfold.i4506 ], [ %1167, %1166 ]
+  %.sink.i4505 = phi ptr [ %1167, %1166 ], [ %1165, %select.unfold.i4506 ]
   store ptr %.sink.i4505, ptr %1152, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4512"
 
@@ -6262,7 +6262,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4587
 
 select.unfold.i4587:                              ; preds = %1204, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4590, %1200
-  %.ph.i4588 = phi i32 [ 54, %1200 ], [ %1205, %1204 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4590 ]
+  %.ph.i4588 = phi i32 [ %1205, %1204 ], [ 54, %1200 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4590 ]
   %1206 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1191, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4588) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4585
 
@@ -6272,7 +6272,7 @@ select.unfold.i4587:                              ; preds = %1204, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4585
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4585: ; preds = %1207, %select.unfold.i4587
-  %.sink.i4586 = phi ptr [ %1206, %select.unfold.i4587 ], [ %1208, %1207 ]
+  %.sink.i4586 = phi ptr [ %1208, %1207 ], [ %1206, %select.unfold.i4587 ]
   store ptr %.sink.i4586, ptr %1191, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4593"
 
@@ -6364,7 +6364,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4655
 
 select.unfold.i4655:                              ; preds = %1236, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4658, %1232
-  %.ph.i4656 = phi i32 [ 54, %1232 ], [ %1237, %1236 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4658 ]
+  %.ph.i4656 = phi i32 [ %1237, %1236 ], [ 54, %1232 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4658 ]
   %1238 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1225, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4656) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4653
 
@@ -6374,7 +6374,7 @@ select.unfold.i4655:                              ; preds = %1236, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4653
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4653: ; preds = %1239, %select.unfold.i4655
-  %.sink.i4654 = phi ptr [ %1238, %select.unfold.i4655 ], [ %1240, %1239 ]
+  %.sink.i4654 = phi ptr [ %1240, %1239 ], [ %1238, %select.unfold.i4655 ]
   store ptr %.sink.i4654, ptr %1225, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4661"
 
@@ -6426,7 +6426,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4669
 
 select.unfold.i4669:                              ; preds = %1255, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4672, %1251
-  %.ph.i4670 = phi i32 [ 54, %1251 ], [ %1256, %1255 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4672 ]
+  %.ph.i4670 = phi i32 [ %1256, %1255 ], [ 54, %1251 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4672 ]
   %1257 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1244, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4670) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4667
 
@@ -6436,7 +6436,7 @@ select.unfold.i4669:                              ; preds = %1255, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4667
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4667: ; preds = %1258, %select.unfold.i4669
-  %.sink.i4668 = phi ptr [ %1257, %select.unfold.i4669 ], [ %1259, %1258 ]
+  %.sink.i4668 = phi ptr [ %1259, %1258 ], [ %1257, %select.unfold.i4669 ]
   store ptr %.sink.i4668, ptr %1244, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4675"
 
@@ -6488,7 +6488,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4683
 
 select.unfold.i4683:                              ; preds = %1274, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4686, %1270
-  %.ph.i4684 = phi i32 [ 54, %1270 ], [ %1275, %1274 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4686 ]
+  %.ph.i4684 = phi i32 [ %1275, %1274 ], [ 54, %1270 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4686 ]
   %1276 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1263, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4684) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4681
 
@@ -6498,7 +6498,7 @@ select.unfold.i4683:                              ; preds = %1274, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4681
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4681: ; preds = %1277, %select.unfold.i4683
-  %.sink.i4682 = phi ptr [ %1276, %select.unfold.i4683 ], [ %1278, %1277 ]
+  %.sink.i4682 = phi ptr [ %1278, %1277 ], [ %1276, %select.unfold.i4683 ]
   store ptr %.sink.i4682, ptr %1263, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4689"
 
@@ -6559,7 +6559,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4697
 
 select.unfold.i4697:                              ; preds = %1297, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4700, %1293
-  %.ph.i4698 = phi i32 [ 54, %1293 ], [ %1298, %1297 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4700 ]
+  %.ph.i4698 = phi i32 [ %1298, %1297 ], [ 54, %1293 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4700 ]
   %1299 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1287, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4698) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4695
 
@@ -6569,7 +6569,7 @@ select.unfold.i4697:                              ; preds = %1297, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4695
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4695: ; preds = %1300, %select.unfold.i4697
-  %.sink.i4696 = phi ptr [ %1299, %select.unfold.i4697 ], [ %1301, %1300 ]
+  %.sink.i4696 = phi ptr [ %1301, %1300 ], [ %1299, %select.unfold.i4697 ]
   store ptr %.sink.i4696, ptr %1287, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4703"
 
@@ -6621,7 +6621,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4711
 
 select.unfold.i4711:                              ; preds = %1316, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4714, %1312
-  %.ph.i4712 = phi i32 [ 54, %1312 ], [ %1317, %1316 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4714 ]
+  %.ph.i4712 = phi i32 [ %1317, %1316 ], [ 54, %1312 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4714 ]
   %1318 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1305, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4712) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4709
 
@@ -6631,7 +6631,7 @@ select.unfold.i4711:                              ; preds = %1316, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4709
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4709: ; preds = %1319, %select.unfold.i4711
-  %.sink.i4710 = phi ptr [ %1318, %select.unfold.i4711 ], [ %1320, %1319 ]
+  %.sink.i4710 = phi ptr [ %1320, %1319 ], [ %1318, %select.unfold.i4711 ]
   store ptr %.sink.i4710, ptr %1305, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4717"
 
@@ -6688,7 +6688,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4724
 
 select.unfold.i4724:                              ; preds = %1338, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4727, %1334
-  %.ph.i4725 = phi i32 [ 54, %1334 ], [ %1339, %1338 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4727 ]
+  %.ph.i4725 = phi i32 [ %1339, %1338 ], [ 54, %1334 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4727 ]
   %1340 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1328, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4725) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4722
 
@@ -6698,7 +6698,7 @@ select.unfold.i4724:                              ; preds = %1338, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4722
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4722: ; preds = %1341, %select.unfold.i4724
-  %.sink.i4723 = phi ptr [ %1340, %select.unfold.i4724 ], [ %1342, %1341 ]
+  %.sink.i4723 = phi ptr [ %1342, %1341 ], [ %1340, %select.unfold.i4724 ]
   store ptr %.sink.i4723, ptr %1328, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4730"
 
@@ -6759,7 +6759,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4738
 
 select.unfold.i4738:                              ; preds = %1361, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4741, %1357
-  %.ph.i4739 = phi i32 [ 54, %1357 ], [ %1362, %1361 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4741 ]
+  %.ph.i4739 = phi i32 [ %1362, %1361 ], [ 54, %1357 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4741 ]
   %1363 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1351, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4739) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4736
 
@@ -6769,7 +6769,7 @@ select.unfold.i4738:                              ; preds = %1361, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4736
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4736: ; preds = %1364, %select.unfold.i4738
-  %.sink.i4737 = phi ptr [ %1363, %select.unfold.i4738 ], [ %1365, %1364 ]
+  %.sink.i4737 = phi ptr [ %1365, %1364 ], [ %1363, %select.unfold.i4738 ]
   store ptr %.sink.i4737, ptr %1351, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4744"
 
@@ -6827,7 +6827,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4751
 
 select.unfold.i4751:                              ; preds = %1384, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4754, %1380
-  %.ph.i4752 = phi i32 [ 54, %1380 ], [ %1385, %1384 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4754 ]
+  %.ph.i4752 = phi i32 [ %1385, %1384 ], [ 54, %1380 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4754 ]
   %1386 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1373, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4752) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4749
 
@@ -6837,7 +6837,7 @@ select.unfold.i4751:                              ; preds = %1384, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4749
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4749: ; preds = %1387, %select.unfold.i4751
-  %.sink.i4750 = phi ptr [ %1386, %select.unfold.i4751 ], [ %1388, %1387 ]
+  %.sink.i4750 = phi ptr [ %1388, %1387 ], [ %1386, %select.unfold.i4751 ]
   store ptr %.sink.i4750, ptr %1373, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4757"
 
@@ -6900,7 +6900,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4765
 
 select.unfold.i4765:                              ; preds = %1408, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4768, %1404
-  %.ph.i4766 = phi i32 [ 54, %1404 ], [ %1409, %1408 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4768 ]
+  %.ph.i4766 = phi i32 [ %1409, %1408 ], [ 54, %1404 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4768 ]
   %1410 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1398, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4766) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4763
 
@@ -6910,7 +6910,7 @@ select.unfold.i4765:                              ; preds = %1408, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4763
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4763: ; preds = %1411, %select.unfold.i4765
-  %.sink.i4764 = phi ptr [ %1410, %select.unfold.i4765 ], [ %1412, %1411 ]
+  %.sink.i4764 = phi ptr [ %1412, %1411 ], [ %1410, %select.unfold.i4765 ]
   store ptr %.sink.i4764, ptr %1398, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4771"
 
@@ -6974,7 +6974,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4781
 
 select.unfold.i4781:                              ; preds = %1434, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4784, %1430
-  %.ph.i4782 = phi i32 [ 54, %1430 ], [ %1435, %1434 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4784 ]
+  %.ph.i4782 = phi i32 [ %1435, %1434 ], [ 54, %1430 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4784 ]
   %1436 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1422, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4782) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4779
 
@@ -6984,7 +6984,7 @@ select.unfold.i4781:                              ; preds = %1434, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4779
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4779: ; preds = %1437, %select.unfold.i4781
-  %.sink.i4780 = phi ptr [ %1436, %select.unfold.i4781 ], [ %1438, %1437 ]
+  %.sink.i4780 = phi ptr [ %1438, %1437 ], [ %1436, %select.unfold.i4781 ]
   store ptr %.sink.i4780, ptr %1422, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4787"
 
@@ -7054,7 +7054,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4797
 
 select.unfold.i4797:                              ; preds = %1464, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4800, %1460
-  %.ph.i4798 = phi i32 [ 54, %1460 ], [ %1465, %1464 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4800 ]
+  %.ph.i4798 = phi i32 [ %1465, %1464 ], [ 54, %1460 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4800 ]
   %1466 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1451, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4798) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4795
 
@@ -7064,7 +7064,7 @@ select.unfold.i4797:                              ; preds = %1464, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4795
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4795: ; preds = %1467, %select.unfold.i4797
-  %.sink.i4796 = phi ptr [ %1466, %select.unfold.i4797 ], [ %1468, %1467 ]
+  %.sink.i4796 = phi ptr [ %1468, %1467 ], [ %1466, %select.unfold.i4797 ]
   store ptr %.sink.i4796, ptr %1451, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4803"
 
@@ -7131,7 +7131,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4813
 
 select.unfold.i4813:                              ; preds = %1492, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4816, %1488
-  %.ph.i4814 = phi i32 [ 54, %1488 ], [ %1493, %1492 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4816 ]
+  %.ph.i4814 = phi i32 [ %1493, %1492 ], [ 54, %1488 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4816 ]
   %1494 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1480, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4814) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4811
 
@@ -7141,7 +7141,7 @@ select.unfold.i4813:                              ; preds = %1492, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4811
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4811: ; preds = %1495, %select.unfold.i4813
-  %.sink.i4812 = phi ptr [ %1494, %select.unfold.i4813 ], [ %1496, %1495 ]
+  %.sink.i4812 = phi ptr [ %1496, %1495 ], [ %1494, %select.unfold.i4813 ]
   store ptr %.sink.i4812, ptr %1480, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4819"
 
@@ -7205,7 +7205,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4827
 
 select.unfold.i4827:                              ; preds = %1517, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4830, %1513
-  %.ph.i4828 = phi i32 [ 54, %1513 ], [ %1518, %1517 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4830 ]
+  %.ph.i4828 = phi i32 [ %1518, %1517 ], [ 54, %1513 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4830 ]
   %1519 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1507, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4828) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4825
 
@@ -7215,7 +7215,7 @@ select.unfold.i4827:                              ; preds = %1517, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4825
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4825: ; preds = %1520, %select.unfold.i4827
-  %.sink.i4826 = phi ptr [ %1519, %select.unfold.i4827 ], [ %1521, %1520 ]
+  %.sink.i4826 = phi ptr [ %1521, %1520 ], [ %1519, %select.unfold.i4827 ]
   store ptr %.sink.i4826, ptr %1507, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4833"
 
@@ -7266,7 +7266,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4841
 
 select.unfold.i4841:                              ; preds = %1535, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4844, %1531
-  %.ph.i4842 = phi i32 [ 54, %1531 ], [ %1536, %1535 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4844 ]
+  %.ph.i4842 = phi i32 [ %1536, %1535 ], [ 54, %1531 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4844 ]
   %1537 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1525, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4842) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4839
 
@@ -7276,7 +7276,7 @@ select.unfold.i4841:                              ; preds = %1535, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4839
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4839: ; preds = %1538, %select.unfold.i4841
-  %.sink.i4840 = phi ptr [ %1537, %select.unfold.i4841 ], [ %1539, %1538 ]
+  %.sink.i4840 = phi ptr [ %1539, %1538 ], [ %1537, %select.unfold.i4841 ]
   store ptr %.sink.i4840, ptr %1525, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4847"
 
@@ -7342,7 +7342,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4856
 
 select.unfold.i4856:                              ; preds = %1563, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4859, %1559
-  %.ph.i4857 = phi i32 [ 54, %1559 ], [ %1564, %1563 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4859 ]
+  %.ph.i4857 = phi i32 [ %1564, %1563 ], [ 54, %1559 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4859 ]
   %1565 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1551, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4857) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4854
 
@@ -7352,7 +7352,7 @@ select.unfold.i4856:                              ; preds = %1563, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4854
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4854: ; preds = %1566, %select.unfold.i4856
-  %.sink.i4855 = phi ptr [ %1565, %select.unfold.i4856 ], [ %1567, %1566 ]
+  %.sink.i4855 = phi ptr [ %1567, %1566 ], [ %1565, %select.unfold.i4856 ]
   store ptr %.sink.i4855, ptr %1551, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4862"
 
@@ -7421,7 +7421,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4871
 
 select.unfold.i4871:                              ; preds = %1593, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4874, %1589
-  %.ph.i4872 = phi i32 [ 54, %1589 ], [ %1594, %1593 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4874 ]
+  %.ph.i4872 = phi i32 [ %1594, %1593 ], [ 54, %1589 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4874 ]
   %1595 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1581, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4872) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4869
 
@@ -7431,7 +7431,7 @@ select.unfold.i4871:                              ; preds = %1593, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4869
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4869: ; preds = %1596, %select.unfold.i4871
-  %.sink.i4870 = phi ptr [ %1595, %select.unfold.i4871 ], [ %1597, %1596 ]
+  %.sink.i4870 = phi ptr [ %1597, %1596 ], [ %1595, %select.unfold.i4871 ]
   store ptr %.sink.i4870, ptr %1581, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4877"
 
@@ -7498,7 +7498,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4887
 
 select.unfold.i4887:                              ; preds = %1621, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4890, %1617
-  %.ph.i4888 = phi i32 [ 54, %1617 ], [ %1622, %1621 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4890 ]
+  %.ph.i4888 = phi i32 [ %1622, %1621 ], [ 54, %1617 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4890 ]
   %1623 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1609, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4888) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4885
 
@@ -7508,7 +7508,7 @@ select.unfold.i4887:                              ; preds = %1621, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4885
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4885: ; preds = %1624, %select.unfold.i4887
-  %.sink.i4886 = phi ptr [ %1623, %select.unfold.i4887 ], [ %1625, %1624 ]
+  %.sink.i4886 = phi ptr [ %1625, %1624 ], [ %1623, %select.unfold.i4887 ]
   store ptr %.sink.i4886, ptr %1609, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4893"
 
@@ -7575,7 +7575,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4903
 
 select.unfold.i4903:                              ; preds = %1649, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4906, %1645
-  %.ph.i4904 = phi i32 [ 54, %1645 ], [ %1650, %1649 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4906 ]
+  %.ph.i4904 = phi i32 [ %1650, %1649 ], [ 54, %1645 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4906 ]
   %1651 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1637, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4904) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4901
 
@@ -7585,7 +7585,7 @@ select.unfold.i4903:                              ; preds = %1649, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4901
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4901: ; preds = %1652, %select.unfold.i4903
-  %.sink.i4902 = phi ptr [ %1651, %select.unfold.i4903 ], [ %1653, %1652 ]
+  %.sink.i4902 = phi ptr [ %1653, %1652 ], [ %1651, %select.unfold.i4903 ]
   store ptr %.sink.i4902, ptr %1637, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4909"
 
@@ -7649,7 +7649,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4917
 
 select.unfold.i4917:                              ; preds = %1674, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4920, %1670
-  %.ph.i4918 = phi i32 [ 54, %1670 ], [ %1675, %1674 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4920 ]
+  %.ph.i4918 = phi i32 [ %1675, %1674 ], [ 54, %1670 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4920 ]
   %1676 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1664, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4918) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4915
 
@@ -7659,7 +7659,7 @@ select.unfold.i4917:                              ; preds = %1674, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4915
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4915: ; preds = %1677, %select.unfold.i4917
-  %.sink.i4916 = phi ptr [ %1676, %select.unfold.i4917 ], [ %1678, %1677 ]
+  %.sink.i4916 = phi ptr [ %1678, %1677 ], [ %1676, %select.unfold.i4917 ]
   store ptr %.sink.i4916, ptr %1664, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4923"
 
@@ -7720,7 +7720,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4931
 
 select.unfold.i4931:                              ; preds = %1697, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4934, %1693
-  %.ph.i4932 = phi i32 [ 54, %1693 ], [ %1698, %1697 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4934 ]
+  %.ph.i4932 = phi i32 [ %1698, %1697 ], [ 54, %1693 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4934 ]
   %1699 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1687, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4932) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4929
 
@@ -7730,7 +7730,7 @@ select.unfold.i4931:                              ; preds = %1697, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4929
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4929: ; preds = %1700, %select.unfold.i4931
-  %.sink.i4930 = phi ptr [ %1699, %select.unfold.i4931 ], [ %1701, %1700 ]
+  %.sink.i4930 = phi ptr [ %1701, %1700 ], [ %1699, %select.unfold.i4931 ]
   store ptr %.sink.i4930, ptr %1687, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4937"
 
@@ -7804,7 +7804,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4945
 
 select.unfold.i4945:                              ; preds = %1727, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4948, %1723
-  %.ph.i4946 = phi i32 [ 54, %1723 ], [ %1728, %1727 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4948 ]
+  %.ph.i4946 = phi i32 [ %1728, %1727 ], [ 54, %1723 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4948 ]
   %1729 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1716, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4946) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4943
 
@@ -7814,7 +7814,7 @@ select.unfold.i4945:                              ; preds = %1727, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4943
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4943: ; preds = %1730, %select.unfold.i4945
-  %.sink.i4944 = phi ptr [ %1729, %select.unfold.i4945 ], [ %1731, %1730 ]
+  %.sink.i4944 = phi ptr [ %1731, %1730 ], [ %1729, %select.unfold.i4945 ]
   store ptr %.sink.i4944, ptr %1716, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4951"
 
@@ -7890,7 +7890,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4959
 
 select.unfold.i4959:                              ; preds = %1758, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4962, %1754
-  %.ph.i4960 = phi i32 [ 54, %1754 ], [ %1759, %1758 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4962 ]
+  %.ph.i4960 = phi i32 [ %1759, %1758 ], [ 54, %1754 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4962 ]
   %1760 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1747, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4960) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4957
 
@@ -7900,7 +7900,7 @@ select.unfold.i4959:                              ; preds = %1758, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4957
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4957: ; preds = %1761, %select.unfold.i4959
-  %.sink.i4958 = phi ptr [ %1760, %select.unfold.i4959 ], [ %1762, %1761 ]
+  %.sink.i4958 = phi ptr [ %1762, %1761 ], [ %1760, %select.unfold.i4959 ]
   store ptr %.sink.i4958, ptr %1747, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4965"
 
@@ -7980,7 +7980,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4977
 
 select.unfold.i4977:                              ; preds = %1793, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4980, %1789
-  %.ph.i4978 = phi i32 [ 54, %1789 ], [ %1794, %1793 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4980 ]
+  %.ph.i4978 = phi i32 [ %1794, %1793 ], [ 54, %1789 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4980 ]
   %1795 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1780, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4978) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4975
 
@@ -7990,7 +7990,7 @@ select.unfold.i4977:                              ; preds = %1793, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4975
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4975: ; preds = %1796, %select.unfold.i4977
-  %.sink.i4976 = phi ptr [ %1795, %select.unfold.i4977 ], [ %1797, %1796 ]
+  %.sink.i4976 = phi ptr [ %1797, %1796 ], [ %1795, %select.unfold.i4977 ]
   store ptr %.sink.i4976, ptr %1780, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit4983"
 
@@ -8072,7 +8072,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i4995
 
 select.unfold.i4995:                              ; preds = %1830, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4998, %1826
-  %.ph.i4996 = phi i32 [ 54, %1826 ], [ %1831, %1830 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4998 ]
+  %.ph.i4996 = phi i32 [ %1831, %1830 ], [ 54, %1826 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i4998 ]
   %1832 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1817, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i4996) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4993
 
@@ -8082,7 +8082,7 @@ select.unfold.i4995:                              ; preds = %1830, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4993
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i4993: ; preds = %1833, %select.unfold.i4995
-  %.sink.i4994 = phi ptr [ %1832, %select.unfold.i4995 ], [ %1834, %1833 ]
+  %.sink.i4994 = phi ptr [ %1834, %1833 ], [ %1832, %select.unfold.i4995 ]
   store ptr %.sink.i4994, ptr %1817, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5001"
 
@@ -8147,7 +8147,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5009
 
 select.unfold.i5009:                              ; preds = %1856, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5012, %1852
-  %.ph.i5010 = phi i32 [ 54, %1852 ], [ %1857, %1856 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5012 ]
+  %.ph.i5010 = phi i32 [ %1857, %1856 ], [ 54, %1852 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5012 ]
   %1858 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1846, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5010) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5007
 
@@ -8157,7 +8157,7 @@ select.unfold.i5009:                              ; preds = %1856, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5007
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5007: ; preds = %1859, %select.unfold.i5009
-  %.sink.i5008 = phi ptr [ %1858, %select.unfold.i5009 ], [ %1860, %1859 ]
+  %.sink.i5008 = phi ptr [ %1860, %1859 ], [ %1858, %select.unfold.i5009 ]
   store ptr %.sink.i5008, ptr %1846, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5015"
 
@@ -8231,7 +8231,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5023
 
 select.unfold.i5023:                              ; preds = %1886, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5026, %1882
-  %.ph.i5024 = phi i32 [ 54, %1882 ], [ %1887, %1886 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5026 ]
+  %.ph.i5024 = phi i32 [ %1887, %1886 ], [ 54, %1882 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5026 ]
   %1888 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1875, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5024) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5021
 
@@ -8241,7 +8241,7 @@ select.unfold.i5023:                              ; preds = %1886, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5021
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5021: ; preds = %1889, %select.unfold.i5023
-  %.sink.i5022 = phi ptr [ %1888, %select.unfold.i5023 ], [ %1890, %1889 ]
+  %.sink.i5022 = phi ptr [ %1890, %1889 ], [ %1888, %select.unfold.i5023 ]
   store ptr %.sink.i5022, ptr %1875, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5029"
 
@@ -8317,7 +8317,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5037
 
 select.unfold.i5037:                              ; preds = %1917, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5040, %1913
-  %.ph.i5038 = phi i32 [ 54, %1913 ], [ %1918, %1917 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5040 ]
+  %.ph.i5038 = phi i32 [ %1918, %1917 ], [ 54, %1913 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5040 ]
   %1919 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1906, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5038) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5035
 
@@ -8327,7 +8327,7 @@ select.unfold.i5037:                              ; preds = %1917, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5035
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5035: ; preds = %1920, %select.unfold.i5037
-  %.sink.i5036 = phi ptr [ %1919, %select.unfold.i5037 ], [ %1921, %1920 ]
+  %.sink.i5036 = phi ptr [ %1921, %1920 ], [ %1919, %select.unfold.i5037 ]
   store ptr %.sink.i5036, ptr %1906, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5043"
 
@@ -8407,7 +8407,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5055
 
 select.unfold.i5055:                              ; preds = %1952, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5058, %1948
-  %.ph.i5056 = phi i32 [ 54, %1948 ], [ %1953, %1952 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5058 ]
+  %.ph.i5056 = phi i32 [ %1953, %1952 ], [ 54, %1948 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5058 ]
   %1954 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1939, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5056) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5053
 
@@ -8417,7 +8417,7 @@ select.unfold.i5055:                              ; preds = %1952, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5053
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5053: ; preds = %1955, %select.unfold.i5055
-  %.sink.i5054 = phi ptr [ %1954, %select.unfold.i5055 ], [ %1956, %1955 ]
+  %.sink.i5054 = phi ptr [ %1956, %1955 ], [ %1954, %select.unfold.i5055 ]
   store ptr %.sink.i5054, ptr %1939, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5061"
 
@@ -8499,7 +8499,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5073
 
 select.unfold.i5073:                              ; preds = %1989, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5076, %1985
-  %.ph.i5074 = phi i32 [ 54, %1985 ], [ %1990, %1989 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5076 ]
+  %.ph.i5074 = phi i32 [ %1990, %1989 ], [ 54, %1985 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5076 ]
   %1991 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1976, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5074) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5071
 
@@ -8509,7 +8509,7 @@ select.unfold.i5073:                              ; preds = %1989, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5071
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5071: ; preds = %1992, %select.unfold.i5073
-  %.sink.i5072 = phi ptr [ %1991, %select.unfold.i5073 ], [ %1993, %1992 ]
+  %.sink.i5072 = phi ptr [ %1993, %1992 ], [ %1991, %select.unfold.i5073 ]
   store ptr %.sink.i5072, ptr %1976, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5079"
 
@@ -8574,7 +8574,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5087
 
 select.unfold.i5087:                              ; preds = %2015, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5090, %2011
-  %.ph.i5088 = phi i32 [ 54, %2011 ], [ %2016, %2015 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5090 ]
+  %.ph.i5088 = phi i32 [ %2016, %2015 ], [ 54, %2011 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5090 ]
   %2017 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2005, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5088) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5085
 
@@ -8584,7 +8584,7 @@ select.unfold.i5087:                              ; preds = %2015, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5085
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5085: ; preds = %2018, %select.unfold.i5087
-  %.sink.i5086 = phi ptr [ %2017, %select.unfold.i5087 ], [ %2019, %2018 ]
+  %.sink.i5086 = phi ptr [ %2019, %2018 ], [ %2017, %select.unfold.i5087 ]
   store ptr %.sink.i5086, ptr %2005, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5093"
 
@@ -8656,7 +8656,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5101
 
 select.unfold.i5101:                              ; preds = %2044, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5104, %2040
-  %.ph.i5102 = phi i32 [ 54, %2040 ], [ %2045, %2044 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5104 ]
+  %.ph.i5102 = phi i32 [ %2045, %2044 ], [ 54, %2040 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5104 ]
   %2046 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2033, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5102) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5099
 
@@ -8666,7 +8666,7 @@ select.unfold.i5101:                              ; preds = %2044, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5099
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5099: ; preds = %2047, %select.unfold.i5101
-  %.sink.i5100 = phi ptr [ %2046, %select.unfold.i5101 ], [ %2048, %2047 ]
+  %.sink.i5100 = phi ptr [ %2048, %2047 ], [ %2046, %select.unfold.i5101 ]
   store ptr %.sink.i5100, ptr %2033, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5107"
 
@@ -8741,7 +8741,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5115
 
 select.unfold.i5115:                              ; preds = %2075, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5118, %2071
-  %.ph.i5116 = phi i32 [ 54, %2071 ], [ %2076, %2075 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5118 ]
+  %.ph.i5116 = phi i32 [ %2076, %2075 ], [ 54, %2071 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5118 ]
   %2077 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2063, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5116) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5113
 
@@ -8751,7 +8751,7 @@ select.unfold.i5115:                              ; preds = %2075, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5113
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5113: ; preds = %2078, %select.unfold.i5115
-  %.sink.i5114 = phi ptr [ %2077, %select.unfold.i5115 ], [ %2079, %2078 ]
+  %.sink.i5114 = phi ptr [ %2079, %2078 ], [ %2077, %select.unfold.i5115 ]
   store ptr %.sink.i5114, ptr %2063, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5121"
 
@@ -8817,7 +8817,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5129
 
 select.unfold.i5129:                              ; preds = %2101, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5132, %2097
-  %.ph.i5130 = phi i32 [ 54, %2097 ], [ %2102, %2101 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5132 ]
+  %.ph.i5130 = phi i32 [ %2102, %2101 ], [ 54, %2097 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5132 ]
   %2103 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2090, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5130) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5127
 
@@ -8827,7 +8827,7 @@ select.unfold.i5129:                              ; preds = %2101, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5127
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5127: ; preds = %2104, %select.unfold.i5129
-  %.sink.i5128 = phi ptr [ %2103, %select.unfold.i5129 ], [ %2105, %2104 ]
+  %.sink.i5128 = phi ptr [ %2105, %2104 ], [ %2103, %select.unfold.i5129 ]
   store ptr %.sink.i5128, ptr %2090, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5135"
 
@@ -8893,7 +8893,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5143
 
 select.unfold.i5143:                              ; preds = %2127, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5146, %2123
-  %.ph.i5144 = phi i32 [ 54, %2123 ], [ %2128, %2127 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5146 ]
+  %.ph.i5144 = phi i32 [ %2128, %2127 ], [ 54, %2123 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5146 ]
   %2129 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2116, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5144) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5141
 
@@ -8903,7 +8903,7 @@ select.unfold.i5143:                              ; preds = %2127, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5141
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5141: ; preds = %2130, %select.unfold.i5143
-  %.sink.i5142 = phi ptr [ %2129, %select.unfold.i5143 ], [ %2131, %2130 ]
+  %.sink.i5142 = phi ptr [ %2131, %2130 ], [ %2129, %select.unfold.i5143 ]
   store ptr %.sink.i5142, ptr %2116, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5149"
 
@@ -8975,7 +8975,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5157
 
 select.unfold.i5157:                              ; preds = %2156, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5160, %2152
-  %.ph.i5158 = phi i32 [ 54, %2152 ], [ %2157, %2156 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5160 ]
+  %.ph.i5158 = phi i32 [ %2157, %2156 ], [ 54, %2152 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5160 ]
   %2158 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2145, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5158) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5155
 
@@ -8985,7 +8985,7 @@ select.unfold.i5157:                              ; preds = %2156, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5155
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5155: ; preds = %2159, %select.unfold.i5157
-  %.sink.i5156 = phi ptr [ %2158, %select.unfold.i5157 ], [ %2160, %2159 ]
+  %.sink.i5156 = phi ptr [ %2160, %2159 ], [ %2158, %select.unfold.i5157 ]
   store ptr %.sink.i5156, ptr %2145, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5163"
 
@@ -9058,7 +9058,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5171
 
 select.unfold.i5171:                              ; preds = %2186, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5174, %2182
-  %.ph.i5172 = phi i32 [ 54, %2182 ], [ %2187, %2186 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5174 ]
+  %.ph.i5172 = phi i32 [ %2187, %2186 ], [ 54, %2182 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5174 ]
   %2188 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2174, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5172) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5169
 
@@ -9068,7 +9068,7 @@ select.unfold.i5171:                              ; preds = %2186, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5169
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5169: ; preds = %2189, %select.unfold.i5171
-  %.sink.i5170 = phi ptr [ %2188, %select.unfold.i5171 ], [ %2190, %2189 ]
+  %.sink.i5170 = phi ptr [ %2190, %2189 ], [ %2188, %select.unfold.i5171 ]
   store ptr %.sink.i5170, ptr %2174, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5177"
 
@@ -9132,7 +9132,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5185
 
 select.unfold.i5185:                              ; preds = %2211, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5188, %2207
-  %.ph.i5186 = phi i32 [ 54, %2207 ], [ %2212, %2211 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5188 ]
+  %.ph.i5186 = phi i32 [ %2212, %2211 ], [ 54, %2207 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5188 ]
   %2213 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2200, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5186) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5183
 
@@ -9142,7 +9142,7 @@ select.unfold.i5185:                              ; preds = %2211, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5183
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5183: ; preds = %2214, %select.unfold.i5185
-  %.sink.i5184 = phi ptr [ %2213, %select.unfold.i5185 ], [ %2215, %2214 ]
+  %.sink.i5184 = phi ptr [ %2215, %2214 ], [ %2213, %select.unfold.i5185 ]
   store ptr %.sink.i5184, ptr %2200, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5191"
 
@@ -9206,7 +9206,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5199
 
 select.unfold.i5199:                              ; preds = %2236, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5202, %2232
-  %.ph.i5200 = phi i32 [ 54, %2232 ], [ %2237, %2236 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5202 ]
+  %.ph.i5200 = phi i32 [ %2237, %2236 ], [ 54, %2232 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5202 ]
   %2238 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2225, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5200) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5197
 
@@ -9216,7 +9216,7 @@ select.unfold.i5199:                              ; preds = %2236, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5197
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5197: ; preds = %2239, %select.unfold.i5199
-  %.sink.i5198 = phi ptr [ %2238, %select.unfold.i5199 ], [ %2240, %2239 ]
+  %.sink.i5198 = phi ptr [ %2240, %2239 ], [ %2238, %select.unfold.i5199 ]
   store ptr %.sink.i5198, ptr %2225, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5205"
 
@@ -9282,7 +9282,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5212
 
 select.unfold.i5212:                              ; preds = %2263, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5215, %2259
-  %.ph.i5213 = phi i32 [ 54, %2259 ], [ %2264, %2263 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5215 ]
+  %.ph.i5213 = phi i32 [ %2264, %2263 ], [ 54, %2259 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5215 ]
   %2265 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2252, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5213) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5210
 
@@ -9292,7 +9292,7 @@ select.unfold.i5212:                              ; preds = %2263, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5210
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5210: ; preds = %2266, %select.unfold.i5212
-  %.sink.i5211 = phi ptr [ %2265, %select.unfold.i5212 ], [ %2267, %2266 ]
+  %.sink.i5211 = phi ptr [ %2267, %2266 ], [ %2265, %select.unfold.i5212 ]
   store ptr %.sink.i5211, ptr %2252, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5218"
 
@@ -9358,7 +9358,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5225
 
 select.unfold.i5225:                              ; preds = %2290, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5228, %2286
-  %.ph.i5226 = phi i32 [ 54, %2286 ], [ %2291, %2290 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5228 ]
+  %.ph.i5226 = phi i32 [ %2291, %2290 ], [ 54, %2286 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5228 ]
   %2292 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2279, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5226) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5223
 
@@ -9368,7 +9368,7 @@ select.unfold.i5225:                              ; preds = %2290, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5223
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5223: ; preds = %2293, %select.unfold.i5225
-  %.sink.i5224 = phi ptr [ %2292, %select.unfold.i5225 ], [ %2294, %2293 ]
+  %.sink.i5224 = phi ptr [ %2294, %2293 ], [ %2292, %select.unfold.i5225 ]
   store ptr %.sink.i5224, ptr %2279, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5231"
 
@@ -9434,7 +9434,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5238
 
 select.unfold.i5238:                              ; preds = %2317, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5241, %2313
-  %.ph.i5239 = phi i32 [ 54, %2313 ], [ %2318, %2317 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5241 ]
+  %.ph.i5239 = phi i32 [ %2318, %2317 ], [ 54, %2313 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5241 ]
   %2319 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2306, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5239) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5236
 
@@ -9444,7 +9444,7 @@ select.unfold.i5238:                              ; preds = %2317, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5236
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5236: ; preds = %2320, %select.unfold.i5238
-  %.sink.i5237 = phi ptr [ %2319, %select.unfold.i5238 ], [ %2321, %2320 ]
+  %.sink.i5237 = phi ptr [ %2321, %2320 ], [ %2319, %select.unfold.i5238 ]
   store ptr %.sink.i5237, ptr %2306, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5244"
 
@@ -9510,7 +9510,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5251
 
 select.unfold.i5251:                              ; preds = %2344, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5254, %2340
-  %.ph.i5252 = phi i32 [ 54, %2340 ], [ %2345, %2344 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5254 ]
+  %.ph.i5252 = phi i32 [ %2345, %2344 ], [ 54, %2340 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5254 ]
   %2346 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2333, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5252) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5249
 
@@ -9520,7 +9520,7 @@ select.unfold.i5251:                              ; preds = %2344, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5249
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5249: ; preds = %2347, %select.unfold.i5251
-  %.sink.i5250 = phi ptr [ %2346, %select.unfold.i5251 ], [ %2348, %2347 ]
+  %.sink.i5250 = phi ptr [ %2348, %2347 ], [ %2346, %select.unfold.i5251 ]
   store ptr %.sink.i5250, ptr %2333, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5257"
 
@@ -9583,7 +9583,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5265
 
 select.unfold.i5265:                              ; preds = %2368, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5268, %2364
-  %.ph.i5266 = phi i32 [ 54, %2364 ], [ %2369, %2368 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5268 ]
+  %.ph.i5266 = phi i32 [ %2369, %2368 ], [ 54, %2364 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5268 ]
   %2370 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2358, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5266) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5263
 
@@ -9593,7 +9593,7 @@ select.unfold.i5265:                              ; preds = %2368, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5263
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5263: ; preds = %2371, %select.unfold.i5265
-  %.sink.i5264 = phi ptr [ %2370, %select.unfold.i5265 ], [ %2372, %2371 ]
+  %.sink.i5264 = phi ptr [ %2372, %2371 ], [ %2370, %select.unfold.i5265 ]
   store ptr %.sink.i5264, ptr %2358, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5271"
 
@@ -9654,7 +9654,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5279
 
 select.unfold.i5279:                              ; preds = %2391, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5282, %2387
-  %.ph.i5280 = phi i32 [ 54, %2387 ], [ %2392, %2391 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5282 ]
+  %.ph.i5280 = phi i32 [ %2392, %2391 ], [ 54, %2387 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5282 ]
   %2393 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2381, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5280) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5277
 
@@ -9664,7 +9664,7 @@ select.unfold.i5279:                              ; preds = %2391, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5277
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5277: ; preds = %2394, %select.unfold.i5279
-  %.sink.i5278 = phi ptr [ %2393, %select.unfold.i5279 ], [ %2395, %2394 ]
+  %.sink.i5278 = phi ptr [ %2395, %2394 ], [ %2393, %select.unfold.i5279 ]
   store ptr %.sink.i5278, ptr %2381, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5285"
 
@@ -9725,7 +9725,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5293
 
 select.unfold.i5293:                              ; preds = %2414, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5296, %2410
-  %.ph.i5294 = phi i32 [ 54, %2410 ], [ %2415, %2414 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5296 ]
+  %.ph.i5294 = phi i32 [ %2415, %2414 ], [ 54, %2410 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5296 ]
   %2416 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2404, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5294) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5291
 
@@ -9735,7 +9735,7 @@ select.unfold.i5293:                              ; preds = %2414, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5291
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5291: ; preds = %2417, %select.unfold.i5293
-  %.sink.i5292 = phi ptr [ %2416, %select.unfold.i5293 ], [ %2418, %2417 ]
+  %.sink.i5292 = phi ptr [ %2418, %2417 ], [ %2416, %select.unfold.i5293 ]
   store ptr %.sink.i5292, ptr %2404, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5299"
 
@@ -9796,7 +9796,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5307
 
 select.unfold.i5307:                              ; preds = %2437, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5310, %2433
-  %.ph.i5308 = phi i32 [ 54, %2433 ], [ %2438, %2437 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5310 ]
+  %.ph.i5308 = phi i32 [ %2438, %2437 ], [ 54, %2433 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5310 ]
   %2439 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2427, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5308) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5305
 
@@ -9806,7 +9806,7 @@ select.unfold.i5307:                              ; preds = %2437, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5305
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5305: ; preds = %2440, %select.unfold.i5307
-  %.sink.i5306 = phi ptr [ %2439, %select.unfold.i5307 ], [ %2441, %2440 ]
+  %.sink.i5306 = phi ptr [ %2441, %2440 ], [ %2439, %select.unfold.i5307 ]
   store ptr %.sink.i5306, ptr %2427, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5313"
 
@@ -9867,7 +9867,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5321
 
 select.unfold.i5321:                              ; preds = %2460, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5324, %2456
-  %.ph.i5322 = phi i32 [ 54, %2456 ], [ %2461, %2460 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5324 ]
+  %.ph.i5322 = phi i32 [ %2461, %2460 ], [ 54, %2456 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5324 ]
   %2462 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2450, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5322) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5319
 
@@ -9877,7 +9877,7 @@ select.unfold.i5321:                              ; preds = %2460, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5319
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5319: ; preds = %2463, %select.unfold.i5321
-  %.sink.i5320 = phi ptr [ %2462, %select.unfold.i5321 ], [ %2464, %2463 ]
+  %.sink.i5320 = phi ptr [ %2464, %2463 ], [ %2462, %select.unfold.i5321 ]
   store ptr %.sink.i5320, ptr %2450, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5327"
 
@@ -9949,7 +9949,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5335
 
 select.unfold.i5335:                              ; preds = %2489, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5338, %2485
-  %.ph.i5336 = phi i32 [ 54, %2485 ], [ %2490, %2489 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5338 ]
+  %.ph.i5336 = phi i32 [ %2490, %2489 ], [ 54, %2485 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5338 ]
   %2491 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2478, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5336) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5333
 
@@ -9959,7 +9959,7 @@ select.unfold.i5335:                              ; preds = %2489, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5333
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5333: ; preds = %2492, %select.unfold.i5335
-  %.sink.i5334 = phi ptr [ %2491, %select.unfold.i5335 ], [ %2493, %2492 ]
+  %.sink.i5334 = phi ptr [ %2493, %2492 ], [ %2491, %select.unfold.i5335 ]
   store ptr %.sink.i5334, ptr %2478, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5341"
 
@@ -10033,7 +10033,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5349
 
 select.unfold.i5349:                              ; preds = %2519, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5352, %2515
-  %.ph.i5350 = phi i32 [ 54, %2515 ], [ %2520, %2519 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5352 ]
+  %.ph.i5350 = phi i32 [ %2520, %2519 ], [ 54, %2515 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5352 ]
   %2521 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2508, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5350) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5347
 
@@ -10043,7 +10043,7 @@ select.unfold.i5349:                              ; preds = %2519, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5347
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5347: ; preds = %2522, %select.unfold.i5349
-  %.sink.i5348 = phi ptr [ %2521, %select.unfold.i5349 ], [ %2523, %2522 ]
+  %.sink.i5348 = phi ptr [ %2523, %2522 ], [ %2521, %select.unfold.i5349 ]
   store ptr %.sink.i5348, ptr %2508, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5355"
 
@@ -10113,7 +10113,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5363
 
 select.unfold.i5363:                              ; preds = %2547, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5366, %2543
-  %.ph.i5364 = phi i32 [ 54, %2543 ], [ %2548, %2547 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5366 ]
+  %.ph.i5364 = phi i32 [ %2548, %2547 ], [ 54, %2543 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5366 ]
   %2549 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2536, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5364) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5361
 
@@ -10123,7 +10123,7 @@ select.unfold.i5363:                              ; preds = %2547, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5361
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5361: ; preds = %2550, %select.unfold.i5363
-  %.sink.i5362 = phi ptr [ %2549, %select.unfold.i5363 ], [ %2551, %2550 ]
+  %.sink.i5362 = phi ptr [ %2551, %2550 ], [ %2549, %select.unfold.i5363 ]
   store ptr %.sink.i5362, ptr %2536, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5369"
 
@@ -10193,7 +10193,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5377
 
 select.unfold.i5377:                              ; preds = %2575, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5380, %2571
-  %.ph.i5378 = phi i32 [ 54, %2571 ], [ %2576, %2575 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5380 ]
+  %.ph.i5378 = phi i32 [ %2576, %2575 ], [ 54, %2571 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5380 ]
   %2577 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2564, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5378) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5375
 
@@ -10203,7 +10203,7 @@ select.unfold.i5377:                              ; preds = %2575, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5375
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5375: ; preds = %2578, %select.unfold.i5377
-  %.sink.i5376 = phi ptr [ %2577, %select.unfold.i5377 ], [ %2579, %2578 ]
+  %.sink.i5376 = phi ptr [ %2579, %2578 ], [ %2577, %select.unfold.i5377 ]
   store ptr %.sink.i5376, ptr %2564, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5383"
 
@@ -10281,7 +10281,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5391
 
 select.unfold.i5391:                              ; preds = %2607, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5394, %2603
-  %.ph.i5392 = phi i32 [ 54, %2603 ], [ %2608, %2607 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5394 ]
+  %.ph.i5392 = phi i32 [ %2608, %2607 ], [ 54, %2603 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5394 ]
   %2609 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2596, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5392) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5389
 
@@ -10291,7 +10291,7 @@ select.unfold.i5391:                              ; preds = %2607, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5389
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5389: ; preds = %2610, %select.unfold.i5391
-  %.sink.i5390 = phi ptr [ %2609, %select.unfold.i5391 ], [ %2611, %2610 ]
+  %.sink.i5390 = phi ptr [ %2611, %2610 ], [ %2609, %select.unfold.i5391 ]
   store ptr %.sink.i5390, ptr %2596, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5397"
 
@@ -10369,7 +10369,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5405
 
 select.unfold.i5405:                              ; preds = %2639, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5408, %2635
-  %.ph.i5406 = phi i32 [ 54, %2635 ], [ %2640, %2639 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5408 ]
+  %.ph.i5406 = phi i32 [ %2640, %2639 ], [ 54, %2635 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5408 ]
   %2641 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2628, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5406) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5403
 
@@ -10379,7 +10379,7 @@ select.unfold.i5405:                              ; preds = %2639, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5403
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5403: ; preds = %2642, %select.unfold.i5405
-  %.sink.i5404 = phi ptr [ %2641, %select.unfold.i5405 ], [ %2643, %2642 ]
+  %.sink.i5404 = phi ptr [ %2643, %2642 ], [ %2641, %select.unfold.i5405 ]
   store ptr %.sink.i5404, ptr %2628, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5411"
 
@@ -10453,7 +10453,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5419
 
 select.unfold.i5419:                              ; preds = %2669, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5422, %2665
-  %.ph.i5420 = phi i32 [ 54, %2665 ], [ %2670, %2669 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5422 ]
+  %.ph.i5420 = phi i32 [ %2670, %2669 ], [ 54, %2665 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5422 ]
   %2671 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2658, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5420) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5417
 
@@ -10463,7 +10463,7 @@ select.unfold.i5419:                              ; preds = %2669, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5417
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5417: ; preds = %2672, %select.unfold.i5419
-  %.sink.i5418 = phi ptr [ %2671, %select.unfold.i5419 ], [ %2673, %2672 ]
+  %.sink.i5418 = phi ptr [ %2673, %2672 ], [ %2671, %select.unfold.i5419 ]
   store ptr %.sink.i5418, ptr %2658, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5425"
 
@@ -10537,7 +10537,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5433
 
 select.unfold.i5433:                              ; preds = %2699, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5436, %2695
-  %.ph.i5434 = phi i32 [ 54, %2695 ], [ %2700, %2699 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5436 ]
+  %.ph.i5434 = phi i32 [ %2700, %2699 ], [ 54, %2695 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5436 ]
   %2701 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2688, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5434) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5431
 
@@ -10547,7 +10547,7 @@ select.unfold.i5433:                              ; preds = %2699, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5431
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5431: ; preds = %2702, %select.unfold.i5433
-  %.sink.i5432 = phi ptr [ %2701, %select.unfold.i5433 ], [ %2703, %2702 ]
+  %.sink.i5432 = phi ptr [ %2703, %2702 ], [ %2701, %select.unfold.i5433 ]
   store ptr %.sink.i5432, ptr %2688, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5439"
 
@@ -10606,7 +10606,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5446
 
 select.unfold.i5446:                              ; preds = %2722, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5449, %2718
-  %.ph.i5447 = phi i32 [ 54, %2718 ], [ %2723, %2722 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5449 ]
+  %.ph.i5447 = phi i32 [ %2723, %2722 ], [ 54, %2718 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5449 ]
   %2724 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2712, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5447) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5444
 
@@ -10616,7 +10616,7 @@ select.unfold.i5446:                              ; preds = %2722, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5444
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5444: ; preds = %2725, %select.unfold.i5446
-  %.sink.i5445 = phi ptr [ %2724, %select.unfold.i5446 ], [ %2726, %2725 ]
+  %.sink.i5445 = phi ptr [ %2726, %2725 ], [ %2724, %select.unfold.i5446 ]
   store ptr %.sink.i5445, ptr %2712, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5452"
 
@@ -10677,7 +10677,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5460
 
 select.unfold.i5460:                              ; preds = %2745, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5463, %2741
-  %.ph.i5461 = phi i32 [ 54, %2741 ], [ %2746, %2745 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5463 ]
+  %.ph.i5461 = phi i32 [ %2746, %2745 ], [ 54, %2741 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5463 ]
   %2747 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2735, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5461) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5458
 
@@ -10687,7 +10687,7 @@ select.unfold.i5460:                              ; preds = %2745, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5458
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5458: ; preds = %2748, %select.unfold.i5460
-  %.sink.i5459 = phi ptr [ %2747, %select.unfold.i5460 ], [ %2749, %2748 ]
+  %.sink.i5459 = phi ptr [ %2749, %2748 ], [ %2747, %select.unfold.i5460 ]
   store ptr %.sink.i5459, ptr %2735, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5466"
 
@@ -10751,7 +10751,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5473
 
 select.unfold.i5473:                              ; preds = %2771, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5476, %2767
-  %.ph.i5474 = phi i32 [ 54, %2767 ], [ %2772, %2771 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5476 ]
+  %.ph.i5474 = phi i32 [ %2772, %2771 ], [ 54, %2767 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5476 ]
   %2773 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2760, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5474) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5471
 
@@ -10761,7 +10761,7 @@ select.unfold.i5473:                              ; preds = %2771, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5471
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5471: ; preds = %2774, %select.unfold.i5473
-  %.sink.i5472 = phi ptr [ %2773, %select.unfold.i5473 ], [ %2775, %2774 ]
+  %.sink.i5472 = phi ptr [ %2775, %2774 ], [ %2773, %select.unfold.i5473 ]
   store ptr %.sink.i5472, ptr %2760, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5479"
 
@@ -10823,7 +10823,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5488
 
 select.unfold.i5488:                              ; preds = %2797, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5491, %2793
-  %.ph.i5489 = phi i32 [ 54, %2793 ], [ %2798, %2797 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5491 ]
+  %.ph.i5489 = phi i32 [ %2798, %2797 ], [ 54, %2793 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5491 ]
   %2799 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2785, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5489) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5486
 
@@ -10833,7 +10833,7 @@ select.unfold.i5488:                              ; preds = %2797, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5486
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5486: ; preds = %2800, %select.unfold.i5488
-  %.sink.i5487 = phi ptr [ %2799, %select.unfold.i5488 ], [ %2801, %2800 ]
+  %.sink.i5487 = phi ptr [ %2801, %2800 ], [ %2799, %select.unfold.i5488 ]
   store ptr %.sink.i5487, ptr %2785, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5494"
 
@@ -10897,7 +10897,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5502
 
 select.unfold.i5502:                              ; preds = %2822, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5505, %2818
-  %.ph.i5503 = phi i32 [ 54, %2818 ], [ %2823, %2822 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5505 ]
+  %.ph.i5503 = phi i32 [ %2823, %2822 ], [ 54, %2818 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5505 ]
   %2824 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2812, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5503) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5500
 
@@ -10907,7 +10907,7 @@ select.unfold.i5502:                              ; preds = %2822, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5500
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5500: ; preds = %2825, %select.unfold.i5502
-  %.sink.i5501 = phi ptr [ %2824, %select.unfold.i5502 ], [ %2826, %2825 ]
+  %.sink.i5501 = phi ptr [ %2826, %2825 ], [ %2824, %select.unfold.i5502 ]
   store ptr %.sink.i5501, ptr %2812, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5508"
 
@@ -10968,7 +10968,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5516
 
 select.unfold.i5516:                              ; preds = %2845, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5519, %2841
-  %.ph.i5517 = phi i32 [ 54, %2841 ], [ %2846, %2845 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5519 ]
+  %.ph.i5517 = phi i32 [ %2846, %2845 ], [ 54, %2841 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5519 ]
   %2847 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2835, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5517) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5514
 
@@ -10978,7 +10978,7 @@ select.unfold.i5516:                              ; preds = %2845, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5514
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5514: ; preds = %2848, %select.unfold.i5516
-  %.sink.i5515 = phi ptr [ %2847, %select.unfold.i5516 ], [ %2849, %2848 ]
+  %.sink.i5515 = phi ptr [ %2849, %2848 ], [ %2847, %select.unfold.i5516 ]
   store ptr %.sink.i5515, ptr %2835, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5522"
 
@@ -11039,7 +11039,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5530
 
 select.unfold.i5530:                              ; preds = %2868, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5533, %2864
-  %.ph.i5531 = phi i32 [ 54, %2864 ], [ %2869, %2868 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5533 ]
+  %.ph.i5531 = phi i32 [ %2869, %2868 ], [ 54, %2864 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5533 ]
   %2870 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2858, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5531) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5528
 
@@ -11049,7 +11049,7 @@ select.unfold.i5530:                              ; preds = %2868, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5528
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5528: ; preds = %2871, %select.unfold.i5530
-  %.sink.i5529 = phi ptr [ %2870, %select.unfold.i5530 ], [ %2872, %2871 ]
+  %.sink.i5529 = phi ptr [ %2872, %2871 ], [ %2870, %select.unfold.i5530 ]
   store ptr %.sink.i5529, ptr %2858, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5536"
 
@@ -11110,7 +11110,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5544
 
 select.unfold.i5544:                              ; preds = %2891, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5547, %2887
-  %.ph.i5545 = phi i32 [ 54, %2887 ], [ %2892, %2891 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5547 ]
+  %.ph.i5545 = phi i32 [ %2892, %2891 ], [ 54, %2887 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5547 ]
   %2893 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2881, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5545) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5542
 
@@ -11120,7 +11120,7 @@ select.unfold.i5544:                              ; preds = %2891, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5542
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5542: ; preds = %2894, %select.unfold.i5544
-  %.sink.i5543 = phi ptr [ %2893, %select.unfold.i5544 ], [ %2895, %2894 ]
+  %.sink.i5543 = phi ptr [ %2895, %2894 ], [ %2893, %select.unfold.i5544 ]
   store ptr %.sink.i5543, ptr %2881, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5550"
 
@@ -11189,7 +11189,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5559
 
 select.unfold.i5559:                              ; preds = %2921, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5562, %2917
-  %.ph.i5560 = phi i32 [ 54, %2917 ], [ %2922, %2921 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5562 ]
+  %.ph.i5560 = phi i32 [ %2922, %2921 ], [ 54, %2917 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5562 ]
   %2923 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2908, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5560) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5557
 
@@ -11199,7 +11199,7 @@ select.unfold.i5559:                              ; preds = %2921, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5557
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5557: ; preds = %2924, %select.unfold.i5559
-  %.sink.i5558 = phi ptr [ %2923, %select.unfold.i5559 ], [ %2925, %2924 ]
+  %.sink.i5558 = phi ptr [ %2925, %2924 ], [ %2923, %select.unfold.i5559 ]
   store ptr %.sink.i5558, ptr %2908, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5565"
 
@@ -11282,7 +11282,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5577
 
 select.unfold.i5577:                              ; preds = %2959, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5580, %2955
-  %.ph.i5578 = phi i32 [ 54, %2955 ], [ %2960, %2959 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5580 ]
+  %.ph.i5578 = phi i32 [ %2960, %2959 ], [ 54, %2955 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5580 ]
   %2961 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2944, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5578) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5575
 
@@ -11292,7 +11292,7 @@ select.unfold.i5577:                              ; preds = %2959, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5575
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5575: ; preds = %2962, %select.unfold.i5577
-  %.sink.i5576 = phi ptr [ %2961, %select.unfold.i5577 ], [ %2963, %2962 ]
+  %.sink.i5576 = phi ptr [ %2963, %2962 ], [ %2961, %select.unfold.i5577 ]
   store ptr %.sink.i5576, ptr %2944, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5583"
 
@@ -11364,7 +11364,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5592
 
 select.unfold.i5592:                              ; preds = %2991, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5595, %2987
-  %.ph.i5593 = phi i32 [ 54, %2987 ], [ %2992, %2991 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5595 ]
+  %.ph.i5593 = phi i32 [ %2992, %2991 ], [ 54, %2987 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5595 ]
   %2993 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %2979, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5593) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5590
 
@@ -11374,7 +11374,7 @@ select.unfold.i5592:                              ; preds = %2991, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5590
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5590: ; preds = %2994, %select.unfold.i5592
-  %.sink.i5591 = phi ptr [ %2993, %select.unfold.i5592 ], [ %2995, %2994 ]
+  %.sink.i5591 = phi ptr [ %2995, %2994 ], [ %2993, %select.unfold.i5592 ]
   store ptr %.sink.i5591, ptr %2979, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5598"
 
@@ -11441,7 +11441,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5606
 
 select.unfold.i5606:                              ; preds = %3018, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5609, %3014
-  %.ph.i5607 = phi i32 [ 54, %3014 ], [ %3019, %3018 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5609 ]
+  %.ph.i5607 = phi i32 [ %3019, %3018 ], [ 54, %3014 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5609 ]
   %3020 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3007, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5607) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5604
 
@@ -11451,7 +11451,7 @@ select.unfold.i5606:                              ; preds = %3018, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5604
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5604: ; preds = %3021, %select.unfold.i5606
-  %.sink.i5605 = phi ptr [ %3020, %select.unfold.i5606 ], [ %3022, %3021 ]
+  %.sink.i5605 = phi ptr [ %3022, %3021 ], [ %3020, %select.unfold.i5606 ]
   store ptr %.sink.i5605, ptr %3007, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5612"
 
@@ -11514,7 +11514,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5620
 
 select.unfold.i5620:                              ; preds = %3042, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5623, %3038
-  %.ph.i5621 = phi i32 [ 54, %3038 ], [ %3043, %3042 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5623 ]
+  %.ph.i5621 = phi i32 [ %3043, %3042 ], [ 54, %3038 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5623 ]
   %3044 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3032, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5621) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5618
 
@@ -11524,7 +11524,7 @@ select.unfold.i5620:                              ; preds = %3042, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5618
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5618: ; preds = %3045, %select.unfold.i5620
-  %.sink.i5619 = phi ptr [ %3044, %select.unfold.i5620 ], [ %3046, %3045 ]
+  %.sink.i5619 = phi ptr [ %3046, %3045 ], [ %3044, %select.unfold.i5620 ]
   store ptr %.sink.i5619, ptr %3032, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5626"
 
@@ -11586,7 +11586,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5634
 
 select.unfold.i5634:                              ; preds = %3066, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5637, %3062
-  %.ph.i5635 = phi i32 [ 54, %3062 ], [ %3067, %3066 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5637 ]
+  %.ph.i5635 = phi i32 [ %3067, %3066 ], [ 54, %3062 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5637 ]
   %3068 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3055, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5635) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5632
 
@@ -11596,7 +11596,7 @@ select.unfold.i5634:                              ; preds = %3066, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5632
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5632: ; preds = %3069, %select.unfold.i5634
-  %.sink.i5633 = phi ptr [ %3068, %select.unfold.i5634 ], [ %3070, %3069 ]
+  %.sink.i5633 = phi ptr [ %3070, %3069 ], [ %3068, %select.unfold.i5634 ]
   store ptr %.sink.i5633, ptr %3055, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5640"
 
@@ -11650,7 +11650,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5648
 
 select.unfold.i5648:                              ; preds = %3086, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5651, %3082
-  %.ph.i5649 = phi i32 [ 54, %3082 ], [ %3087, %3086 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5651 ]
+  %.ph.i5649 = phi i32 [ %3087, %3086 ], [ 54, %3082 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5651 ]
   %3088 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3075, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5649) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5646
 
@@ -11660,7 +11660,7 @@ select.unfold.i5648:                              ; preds = %3086, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5646
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5646: ; preds = %3089, %select.unfold.i5648
-  %.sink.i5647 = phi ptr [ %3088, %select.unfold.i5648 ], [ %3090, %3089 ]
+  %.sink.i5647 = phi ptr [ %3090, %3089 ], [ %3088, %select.unfold.i5648 ]
   store ptr %.sink.i5647, ptr %3075, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5654"
 
@@ -11721,7 +11721,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5662
 
 select.unfold.i5662:                              ; preds = %3109, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5665, %3105
-  %.ph.i5663 = phi i32 [ 54, %3105 ], [ %3110, %3109 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5665 ]
+  %.ph.i5663 = phi i32 [ %3110, %3109 ], [ 54, %3105 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5665 ]
   %3111 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3099, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5663) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5660
 
@@ -11731,7 +11731,7 @@ select.unfold.i5662:                              ; preds = %3109, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5660
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5660: ; preds = %3112, %select.unfold.i5662
-  %.sink.i5661 = phi ptr [ %3111, %select.unfold.i5662 ], [ %3113, %3112 ]
+  %.sink.i5661 = phi ptr [ %3113, %3112 ], [ %3111, %select.unfold.i5662 ]
   store ptr %.sink.i5661, ptr %3099, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5668"
 
@@ -11797,7 +11797,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5678
 
 select.unfold.i5678:                              ; preds = %3136, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5681, %3132
-  %.ph.i5679 = phi i32 [ 54, %3132 ], [ %3137, %3136 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5681 ]
+  %.ph.i5679 = phi i32 [ %3137, %3136 ], [ 54, %3132 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5681 ]
   %3138 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3124, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5679) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5676
 
@@ -11807,7 +11807,7 @@ select.unfold.i5678:                              ; preds = %3136, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5676
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5676: ; preds = %3139, %select.unfold.i5678
-  %.sink.i5677 = phi ptr [ %3138, %select.unfold.i5678 ], [ %3140, %3139 ]
+  %.sink.i5677 = phi ptr [ %3140, %3139 ], [ %3138, %select.unfold.i5678 ]
   store ptr %.sink.i5677, ptr %3124, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5684"
 
@@ -11886,7 +11886,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5706
 
 select.unfold.i5706:                              ; preds = %3167, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5709, %3163
-  %.ph.i5707 = phi i32 [ 54, %3163 ], [ %3168, %3167 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5709 ]
+  %.ph.i5707 = phi i32 [ %3168, %3167 ], [ 54, %3163 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5709 ]
   %3169 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3156, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5707) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5704
 
@@ -11896,7 +11896,7 @@ select.unfold.i5706:                              ; preds = %3167, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5704
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5704: ; preds = %3170, %select.unfold.i5706
-  %.sink.i5705 = phi ptr [ %3169, %select.unfold.i5706 ], [ %3171, %3170 ]
+  %.sink.i5705 = phi ptr [ %3171, %3170 ], [ %3169, %select.unfold.i5706 ]
   store ptr %.sink.i5705, ptr %3156, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5712"
 
@@ -11971,7 +11971,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5722
 
 select.unfold.i5722:                              ; preds = %3199, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5725, %3195
-  %.ph.i5723 = phi i32 [ 54, %3195 ], [ %3200, %3199 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5725 ]
+  %.ph.i5723 = phi i32 [ %3200, %3199 ], [ 54, %3195 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5725 ]
   %3201 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3186, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5723) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5720
 
@@ -11981,7 +11981,7 @@ select.unfold.i5722:                              ; preds = %3199, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5720
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5720: ; preds = %3202, %select.unfold.i5722
-  %.sink.i5721 = phi ptr [ %3201, %select.unfold.i5722 ], [ %3203, %3202 ]
+  %.sink.i5721 = phi ptr [ %3203, %3202 ], [ %3201, %select.unfold.i5722 ]
   store ptr %.sink.i5721, ptr %3186, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5728"
 
@@ -12042,7 +12042,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5735
 
 select.unfold.i5735:                              ; preds = %3224, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5738, %3220
-  %.ph.i5736 = phi i32 [ 54, %3220 ], [ %3225, %3224 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5738 ]
+  %.ph.i5736 = phi i32 [ %3225, %3224 ], [ 54, %3220 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5738 ]
   %3226 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3213, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5736) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5733
 
@@ -12052,7 +12052,7 @@ select.unfold.i5735:                              ; preds = %3224, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5733
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5733: ; preds = %3227, %select.unfold.i5735
-  %.sink.i5734 = phi ptr [ %3226, %select.unfold.i5735 ], [ %3228, %3227 ]
+  %.sink.i5734 = phi ptr [ %3228, %3227 ], [ %3226, %select.unfold.i5735 ]
   store ptr %.sink.i5734, ptr %3213, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5741"
 
@@ -12116,7 +12116,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5749
 
 select.unfold.i5749:                              ; preds = %3249, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5752, %3245
-  %.ph.i5750 = phi i32 [ 54, %3245 ], [ %3250, %3249 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5752 ]
+  %.ph.i5750 = phi i32 [ %3250, %3249 ], [ 54, %3245 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5752 ]
   %3251 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3238, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5750) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5747
 
@@ -12126,7 +12126,7 @@ select.unfold.i5749:                              ; preds = %3249, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5747
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5747: ; preds = %3252, %select.unfold.i5749
-  %.sink.i5748 = phi ptr [ %3251, %select.unfold.i5749 ], [ %3253, %3252 ]
+  %.sink.i5748 = phi ptr [ %3253, %3252 ], [ %3251, %select.unfold.i5749 ]
   store ptr %.sink.i5748, ptr %3238, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5755"
 
@@ -12192,7 +12192,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5763
 
 select.unfold.i5763:                              ; preds = %3275, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5766, %3271
-  %.ph.i5764 = phi i32 [ 54, %3271 ], [ %3276, %3275 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5766 ]
+  %.ph.i5764 = phi i32 [ %3276, %3275 ], [ 54, %3271 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5766 ]
   %3277 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3264, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5764) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5761
 
@@ -12202,7 +12202,7 @@ select.unfold.i5763:                              ; preds = %3275, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5761
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5761: ; preds = %3278, %select.unfold.i5763
-  %.sink.i5762 = phi ptr [ %3277, %select.unfold.i5763 ], [ %3279, %3278 ]
+  %.sink.i5762 = phi ptr [ %3279, %3278 ], [ %3277, %select.unfold.i5763 ]
   store ptr %.sink.i5762, ptr %3264, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5769"
 
@@ -12266,7 +12266,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5777
 
 select.unfold.i5777:                              ; preds = %3300, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5780, %3296
-  %.ph.i5778 = phi i32 [ 54, %3296 ], [ %3301, %3300 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5780 ]
+  %.ph.i5778 = phi i32 [ %3301, %3300 ], [ 54, %3296 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5780 ]
   %3302 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3289, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5778) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5775
 
@@ -12276,7 +12276,7 @@ select.unfold.i5777:                              ; preds = %3300, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5775
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5775: ; preds = %3303, %select.unfold.i5777
-  %.sink.i5776 = phi ptr [ %3302, %select.unfold.i5777 ], [ %3304, %3303 ]
+  %.sink.i5776 = phi ptr [ %3304, %3303 ], [ %3302, %select.unfold.i5777 ]
   store ptr %.sink.i5776, ptr %3289, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5783"
 
@@ -12349,7 +12349,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5793
 
 select.unfold.i5793:                              ; preds = %3331, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5796, %3327
-  %.ph.i5794 = phi i32 [ 54, %3327 ], [ %3332, %3331 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5796 ]
+  %.ph.i5794 = phi i32 [ %3332, %3331 ], [ 54, %3327 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5796 ]
   %3333 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3318, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5794) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5791
 
@@ -12359,7 +12359,7 @@ select.unfold.i5793:                              ; preds = %3331, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5791
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5791: ; preds = %3334, %select.unfold.i5793
-  %.sink.i5792 = phi ptr [ %3333, %select.unfold.i5793 ], [ %3335, %3334 ]
+  %.sink.i5792 = phi ptr [ %3335, %3334 ], [ %3333, %select.unfold.i5793 ]
   store ptr %.sink.i5792, ptr %3318, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5799"
 
@@ -12428,7 +12428,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5809
 
 select.unfold.i5809:                              ; preds = %3360, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5812, %3356
-  %.ph.i5810 = phi i32 [ 54, %3356 ], [ %3361, %3360 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5812 ]
+  %.ph.i5810 = phi i32 [ %3361, %3360 ], [ 54, %3356 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5812 ]
   %3362 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3348, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5810) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5807
 
@@ -12438,7 +12438,7 @@ select.unfold.i5809:                              ; preds = %3360, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5807
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5807: ; preds = %3363, %select.unfold.i5809
-  %.sink.i5808 = phi ptr [ %3362, %select.unfold.i5809 ], [ %3364, %3363 ]
+  %.sink.i5808 = phi ptr [ %3364, %3363 ], [ %3362, %select.unfold.i5809 ]
   store ptr %.sink.i5808, ptr %3348, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5815"
 
@@ -12508,7 +12508,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5825
 
 select.unfold.i5825:                              ; preds = %3389, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5828, %3385
-  %.ph.i5826 = phi i32 [ 54, %3385 ], [ %3390, %3389 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5828 ]
+  %.ph.i5826 = phi i32 [ %3390, %3389 ], [ 54, %3385 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5828 ]
   %3391 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3378, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5826) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5823
 
@@ -12518,7 +12518,7 @@ select.unfold.i5825:                              ; preds = %3389, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5823
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5823: ; preds = %3392, %select.unfold.i5825
-  %.sink.i5824 = phi ptr [ %3391, %select.unfold.i5825 ], [ %3393, %3392 ]
+  %.sink.i5824 = phi ptr [ %3393, %3392 ], [ %3391, %select.unfold.i5825 ]
   store ptr %.sink.i5824, ptr %3378, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5831"
 
@@ -12583,7 +12583,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5839
 
 select.unfold.i5839:                              ; preds = %3415, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5842, %3411
-  %.ph.i5840 = phi i32 [ 54, %3411 ], [ %3416, %3415 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5842 ]
+  %.ph.i5840 = phi i32 [ %3416, %3415 ], [ 54, %3411 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5842 ]
   %3417 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3404, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5840) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5837
 
@@ -12593,7 +12593,7 @@ select.unfold.i5839:                              ; preds = %3415, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5837
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5837: ; preds = %3418, %select.unfold.i5839
-  %.sink.i5838 = phi ptr [ %3417, %select.unfold.i5839 ], [ %3419, %3418 ]
+  %.sink.i5838 = phi ptr [ %3419, %3418 ], [ %3417, %select.unfold.i5839 ]
   store ptr %.sink.i5838, ptr %3404, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5845"
 
@@ -12657,7 +12657,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5853
 
 select.unfold.i5853:                              ; preds = %3440, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5856, %3436
-  %.ph.i5854 = phi i32 [ 54, %3436 ], [ %3441, %3440 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5856 ]
+  %.ph.i5854 = phi i32 [ %3441, %3440 ], [ 54, %3436 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5856 ]
   %3442 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3429, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5854) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5851
 
@@ -12667,7 +12667,7 @@ select.unfold.i5853:                              ; preds = %3440, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5851
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5851: ; preds = %3443, %select.unfold.i5853
-  %.sink.i5852 = phi ptr [ %3442, %select.unfold.i5853 ], [ %3444, %3443 ]
+  %.sink.i5852 = phi ptr [ %3444, %3443 ], [ %3442, %select.unfold.i5853 ]
   store ptr %.sink.i5852, ptr %3429, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5859"
 
@@ -12731,7 +12731,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5867
 
 select.unfold.i5867:                              ; preds = %3465, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5870, %3461
-  %.ph.i5868 = phi i32 [ 54, %3461 ], [ %3466, %3465 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5870 ]
+  %.ph.i5868 = phi i32 [ %3466, %3465 ], [ 54, %3461 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5870 ]
   %3467 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3454, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5868) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5865
 
@@ -12741,7 +12741,7 @@ select.unfold.i5867:                              ; preds = %3465, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5865
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5865: ; preds = %3468, %select.unfold.i5867
-  %.sink.i5866 = phi ptr [ %3467, %select.unfold.i5867 ], [ %3469, %3468 ]
+  %.sink.i5866 = phi ptr [ %3469, %3468 ], [ %3467, %select.unfold.i5867 ]
   store ptr %.sink.i5866, ptr %3454, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5873"
 
@@ -12804,7 +12804,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5881
 
 select.unfold.i5881:                              ; preds = %3489, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5884, %3485
-  %.ph.i5882 = phi i32 [ 54, %3485 ], [ %3490, %3489 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5884 ]
+  %.ph.i5882 = phi i32 [ %3490, %3489 ], [ 54, %3485 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5884 ]
   %3491 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3479, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5882) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5879
 
@@ -12814,7 +12814,7 @@ select.unfold.i5881:                              ; preds = %3489, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5879
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5879: ; preds = %3492, %select.unfold.i5881
-  %.sink.i5880 = phi ptr [ %3491, %select.unfold.i5881 ], [ %3493, %3492 ]
+  %.sink.i5880 = phi ptr [ %3493, %3492 ], [ %3491, %select.unfold.i5881 ]
   store ptr %.sink.i5880, ptr %3479, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5887"
 
@@ -12876,7 +12876,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5895
 
 select.unfold.i5895:                              ; preds = %3513, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5898, %3509
-  %.ph.i5896 = phi i32 [ 54, %3509 ], [ %3514, %3513 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5898 ]
+  %.ph.i5896 = phi i32 [ %3514, %3513 ], [ 54, %3509 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5898 ]
   %3515 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3503, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5896) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5893
 
@@ -12886,7 +12886,7 @@ select.unfold.i5895:                              ; preds = %3513, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5893
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5893: ; preds = %3516, %select.unfold.i5895
-  %.sink.i5894 = phi ptr [ %3515, %select.unfold.i5895 ], [ %3517, %3516 ]
+  %.sink.i5894 = phi ptr [ %3517, %3516 ], [ %3515, %select.unfold.i5895 ]
   store ptr %.sink.i5894, ptr %3503, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5901"
 
@@ -12961,7 +12961,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5911
 
 select.unfold.i5911:                              ; preds = %3543, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5914, %3539
-  %.ph.i5912 = phi i32 [ 54, %3539 ], [ %3544, %3543 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5914 ]
+  %.ph.i5912 = phi i32 [ %3544, %3543 ], [ 54, %3539 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5914 ]
   %3545 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3531, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5912) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5909
 
@@ -12971,7 +12971,7 @@ select.unfold.i5911:                              ; preds = %3543, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5909
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5909: ; preds = %3546, %select.unfold.i5911
-  %.sink.i5910 = phi ptr [ %3545, %select.unfold.i5911 ], [ %3547, %3546 ]
+  %.sink.i5910 = phi ptr [ %3547, %3546 ], [ %3545, %select.unfold.i5911 ]
   store ptr %.sink.i5910, ptr %3531, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5917"
 
@@ -13042,7 +13042,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5928
 
 select.unfold.i5928:                              ; preds = %3571, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5931, %3567
-  %.ph.i5929 = phi i32 [ 54, %3567 ], [ %3572, %3571 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5931 ]
+  %.ph.i5929 = phi i32 [ %3572, %3571 ], [ 54, %3567 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5931 ]
   %3573 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3561, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5929) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5926
 
@@ -13052,7 +13052,7 @@ select.unfold.i5928:                              ; preds = %3571, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5926
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5926: ; preds = %3574, %select.unfold.i5928
-  %.sink.i5927 = phi ptr [ %3573, %select.unfold.i5928 ], [ %3575, %3574 ]
+  %.sink.i5927 = phi ptr [ %3575, %3574 ], [ %3573, %select.unfold.i5928 ]
   store ptr %.sink.i5927, ptr %3561, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5934"
 
@@ -13110,7 +13110,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5941
 
 select.unfold.i5941:                              ; preds = %3594, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5944, %3590
-  %.ph.i5942 = phi i32 [ 54, %3590 ], [ %3595, %3594 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5944 ]
+  %.ph.i5942 = phi i32 [ %3595, %3594 ], [ 54, %3590 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5944 ]
   %3596 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3584, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5942) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5939
 
@@ -13120,7 +13120,7 @@ select.unfold.i5941:                              ; preds = %3594, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5939
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5939: ; preds = %3597, %select.unfold.i5941
-  %.sink.i5940 = phi ptr [ %3596, %select.unfold.i5941 ], [ %3598, %3597 ]
+  %.sink.i5940 = phi ptr [ %3598, %3597 ], [ %3596, %select.unfold.i5941 ]
   store ptr %.sink.i5940, ptr %3584, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5947"
 
@@ -13178,7 +13178,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5954
 
 select.unfold.i5954:                              ; preds = %3617, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5957, %3613
-  %.ph.i5955 = phi i32 [ 54, %3613 ], [ %3618, %3617 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5957 ]
+  %.ph.i5955 = phi i32 [ %3618, %3617 ], [ 54, %3613 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5957 ]
   %3619 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3606, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5955) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5952
 
@@ -13188,7 +13188,7 @@ select.unfold.i5954:                              ; preds = %3617, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5952
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5952: ; preds = %3620, %select.unfold.i5954
-  %.sink.i5953 = phi ptr [ %3619, %select.unfold.i5954 ], [ %3621, %3620 ]
+  %.sink.i5953 = phi ptr [ %3621, %3620 ], [ %3619, %select.unfold.i5954 ]
   store ptr %.sink.i5953, ptr %3606, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5960"
 
@@ -13242,7 +13242,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5968
 
 select.unfold.i5968:                              ; preds = %3637, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5971, %3633
-  %.ph.i5969 = phi i32 [ 54, %3633 ], [ %3638, %3637 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5971 ]
+  %.ph.i5969 = phi i32 [ %3638, %3637 ], [ 54, %3633 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5971 ]
   %3639 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3626, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5969) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5966
 
@@ -13252,7 +13252,7 @@ select.unfold.i5968:                              ; preds = %3637, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5966
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5966: ; preds = %3640, %select.unfold.i5968
-  %.sink.i5967 = phi ptr [ %3639, %select.unfold.i5968 ], [ %3641, %3640 ]
+  %.sink.i5967 = phi ptr [ %3641, %3640 ], [ %3639, %select.unfold.i5968 ]
   store ptr %.sink.i5967, ptr %3626, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5974"
 
@@ -13339,7 +13339,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i5991
 
 select.unfold.i5991:                              ; preds = %3678, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5994, %3674
-  %.ph.i5992 = phi i32 [ 54, %3674 ], [ %3679, %3678 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5994 ]
+  %.ph.i5992 = phi i32 [ %3679, %3678 ], [ 54, %3674 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i5994 ]
   %3680 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3661, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i5992) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5989
 
@@ -13349,7 +13349,7 @@ select.unfold.i5991:                              ; preds = %3678, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5989
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i5989: ; preds = %3681, %select.unfold.i5991
-  %.sink.i5990 = phi ptr [ %3680, %select.unfold.i5991 ], [ %3682, %3681 ]
+  %.sink.i5990 = phi ptr [ %3682, %3681 ], [ %3680, %select.unfold.i5991 ]
   store ptr %.sink.i5990, ptr %3661, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit5997"
 
@@ -13429,7 +13429,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6012
 
 select.unfold.i6012:                              ; preds = %3716, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6015, %3712
-  %.ph.i6013 = phi i32 [ 54, %3712 ], [ %3717, %3716 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6015 ]
+  %.ph.i6013 = phi i32 [ %3717, %3716 ], [ 54, %3712 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6015 ]
   %3718 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3700, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6013) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6010
 
@@ -13439,7 +13439,7 @@ select.unfold.i6012:                              ; preds = %3716, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6010
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6010: ; preds = %3719, %select.unfold.i6012
-  %.sink.i6011 = phi ptr [ %3718, %select.unfold.i6012 ], [ %3720, %3719 ]
+  %.sink.i6011 = phi ptr [ %3720, %3719 ], [ %3718, %select.unfold.i6012 ]
   store ptr %.sink.i6011, ptr %3700, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6018"
 
@@ -13523,7 +13523,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6033
 
 select.unfold.i6033:                              ; preds = %3757, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6036, %3753
-  %.ph.i6034 = phi i32 [ 54, %3753 ], [ %3758, %3757 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6036 ]
+  %.ph.i6034 = phi i32 [ %3758, %3757 ], [ 54, %3753 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6036 ]
   %3759 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3741, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6034) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6031
 
@@ -13533,7 +13533,7 @@ select.unfold.i6033:                              ; preds = %3757, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6031
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6031: ; preds = %3760, %select.unfold.i6033
-  %.sink.i6032 = phi ptr [ %3759, %select.unfold.i6033 ], [ %3761, %3760 ]
+  %.sink.i6032 = phi ptr [ %3761, %3760 ], [ %3759, %select.unfold.i6033 ]
   store ptr %.sink.i6032, ptr %3741, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6039"
 
@@ -13603,7 +13603,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6049
 
 select.unfold.i6049:                              ; preds = %3788, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6052, %3784
-  %.ph.i6050 = phi i32 [ 54, %3784 ], [ %3789, %3788 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6052 ]
+  %.ph.i6050 = phi i32 [ %3789, %3788 ], [ 54, %3784 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6052 ]
   %3790 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3775, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6050) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6047
 
@@ -13613,7 +13613,7 @@ select.unfold.i6049:                              ; preds = %3788, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6047
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6047: ; preds = %3791, %select.unfold.i6049
-  %.sink.i6048 = phi ptr [ %3790, %select.unfold.i6049 ], [ %3792, %3791 ]
+  %.sink.i6048 = phi ptr [ %3792, %3791 ], [ %3790, %select.unfold.i6049 ]
   store ptr %.sink.i6048, ptr %3775, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6055"
 
@@ -13668,7 +13668,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6063
 
 select.unfold.i6063:                              ; preds = %3809, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6066, %3805
-  %.ph.i6064 = phi i32 [ 54, %3805 ], [ %3810, %3809 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6066 ]
+  %.ph.i6064 = phi i32 [ %3810, %3809 ], [ 54, %3805 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6066 ]
   %3811 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3798, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6064) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6061
 
@@ -13678,7 +13678,7 @@ select.unfold.i6063:                              ; preds = %3809, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6061
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6061: ; preds = %3812, %select.unfold.i6063
-  %.sink.i6062 = phi ptr [ %3811, %select.unfold.i6063 ], [ %3813, %3812 ]
+  %.sink.i6062 = phi ptr [ %3813, %3812 ], [ %3811, %select.unfold.i6063 ]
   store ptr %.sink.i6062, ptr %3798, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6069"
 
@@ -13754,7 +13754,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6096
 
 select.unfold.i6096:                              ; preds = %3842, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6099, %3838
-  %.ph.i6097 = phi i32 [ 54, %3838 ], [ %3843, %3842 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6099 ]
+  %.ph.i6097 = phi i32 [ %3843, %3842 ], [ 54, %3838 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6099 ]
   %3844 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3828, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6097) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6094
 
@@ -13764,7 +13764,7 @@ select.unfold.i6096:                              ; preds = %3842, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6094
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6094: ; preds = %3845, %select.unfold.i6096
-  %.sink.i6095 = phi ptr [ %3844, %select.unfold.i6096 ], [ %3846, %3845 ]
+  %.sink.i6095 = phi ptr [ %3846, %3845 ], [ %3844, %select.unfold.i6096 ]
   store ptr %.sink.i6095, ptr %3828, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6102"
 
@@ -13873,7 +13873,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6129
 
 select.unfold.i6129:                              ; preds = %3902, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6132, %3898
-  %.ph.i6130 = phi i32 [ 54, %3898 ], [ %3903, %3902 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6132 ]
+  %.ph.i6130 = phi i32 [ %3903, %3902 ], [ 54, %3898 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6132 ]
   %3904 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3879, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6130) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6127
 
@@ -13883,7 +13883,7 @@ select.unfold.i6129:                              ; preds = %3902, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6127
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6127: ; preds = %3905, %select.unfold.i6129
-  %.sink.i6128 = phi ptr [ %3904, %select.unfold.i6129 ], [ %3906, %3905 ]
+  %.sink.i6128 = phi ptr [ %3906, %3905 ], [ %3904, %select.unfold.i6129 ]
   store ptr %.sink.i6128, ptr %3879, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6135"
 
@@ -13983,7 +13983,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6160
 
 select.unfold.i6160:                              ; preds = %3955, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6163, %3951
-  %.ph.i6161 = phi i32 [ 54, %3951 ], [ %3956, %3955 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6163 ]
+  %.ph.i6161 = phi i32 [ %3956, %3955 ], [ 54, %3951 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6163 ]
   %3957 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3934, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6161) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6158
 
@@ -13993,7 +13993,7 @@ select.unfold.i6160:                              ; preds = %3955, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6158
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6158: ; preds = %3958, %select.unfold.i6160
-  %.sink.i6159 = phi ptr [ %3957, %select.unfold.i6160 ], [ %3959, %3958 ]
+  %.sink.i6159 = phi ptr [ %3959, %3958 ], [ %3957, %select.unfold.i6160 ]
   store ptr %.sink.i6159, ptr %3934, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6166"
 
@@ -14102,7 +14102,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6193
 
 select.unfold.i6193:                              ; preds = %4014, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6196, %4010
-  %.ph.i6194 = phi i32 [ 54, %4010 ], [ %4015, %4014 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6196 ]
+  %.ph.i6194 = phi i32 [ %4015, %4014 ], [ 54, %4010 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6196 ]
   %4016 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3991, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6194) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6191
 
@@ -14112,7 +14112,7 @@ select.unfold.i6193:                              ; preds = %4014, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6191
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6191: ; preds = %4017, %select.unfold.i6193
-  %.sink.i6192 = phi ptr [ %4016, %select.unfold.i6193 ], [ %4018, %4017 ]
+  %.sink.i6192 = phi ptr [ %4018, %4017 ], [ %4016, %select.unfold.i6193 ]
   store ptr %.sink.i6192, ptr %3991, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6199"
 
@@ -14177,7 +14177,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6210
 
 select.unfold.i6210:                              ; preds = %4043, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6213, %4039
-  %.ph.i6211 = phi i32 [ 54, %4039 ], [ %4044, %4043 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6213 ]
+  %.ph.i6211 = phi i32 [ %4044, %4043 ], [ 54, %4039 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6213 ]
   %4045 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4030, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6211) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6208
 
@@ -14187,7 +14187,7 @@ select.unfold.i6210:                              ; preds = %4043, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6208
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6208: ; preds = %4046, %select.unfold.i6210
-  %.sink.i6209 = phi ptr [ %4045, %select.unfold.i6210 ], [ %4047, %4046 ]
+  %.sink.i6209 = phi ptr [ %4047, %4046 ], [ %4045, %select.unfold.i6210 ]
   store ptr %.sink.i6209, ptr %4030, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6216"
 
@@ -14277,7 +14277,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6233
 
 select.unfold.i6233:                              ; preds = %4088, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6236, %4084
-  %.ph.i6234 = phi i32 [ 54, %4084 ], [ %4089, %4088 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6236 ]
+  %.ph.i6234 = phi i32 [ %4089, %4088 ], [ 54, %4084 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6236 ]
   %4090 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4070, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6234) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6231
 
@@ -14287,7 +14287,7 @@ select.unfold.i6233:                              ; preds = %4088, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6231
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6231: ; preds = %4091, %select.unfold.i6233
-  %.sink.i6232 = phi ptr [ %4090, %select.unfold.i6233 ], [ %4092, %4091 ]
+  %.sink.i6232 = phi ptr [ %4092, %4091 ], [ %4090, %select.unfold.i6233 ]
   store ptr %.sink.i6232, ptr %4070, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6239"
 
@@ -14354,7 +14354,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6251
 
 select.unfold.i6251:                              ; preds = %4117, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6254, %4113
-  %.ph.i6252 = phi i32 [ 54, %4113 ], [ %4118, %4117 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6254 ]
+  %.ph.i6252 = phi i32 [ %4118, %4117 ], [ 54, %4113 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6254 ]
   %4119 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4104, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6252) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6249
 
@@ -14364,7 +14364,7 @@ select.unfold.i6251:                              ; preds = %4117, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6249
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6249: ; preds = %4120, %select.unfold.i6251
-  %.sink.i6250 = phi ptr [ %4119, %select.unfold.i6251 ], [ %4121, %4120 ]
+  %.sink.i6250 = phi ptr [ %4121, %4120 ], [ %4119, %select.unfold.i6251 ]
   store ptr %.sink.i6250, ptr %4104, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6257"
 
@@ -14476,7 +14476,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6285
 
 select.unfold.i6285:                              ; preds = %4177, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6288, %4173
-  %.ph.i6286 = phi i32 [ 54, %4173 ], [ %4178, %4177 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6288 ]
+  %.ph.i6286 = phi i32 [ %4178, %4177 ], [ 54, %4173 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6288 ]
   %4179 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4154, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6286) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6283
 
@@ -14486,7 +14486,7 @@ select.unfold.i6285:                              ; preds = %4177, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6283
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6283: ; preds = %4180, %select.unfold.i6285
-  %.sink.i6284 = phi ptr [ %4179, %select.unfold.i6285 ], [ %4181, %4180 ]
+  %.sink.i6284 = phi ptr [ %4181, %4180 ], [ %4179, %select.unfold.i6285 ]
   store ptr %.sink.i6284, ptr %4154, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6291"
 
@@ -14554,7 +14554,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6304
 
 select.unfold.i6304:                              ; preds = %4207, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6307, %4203
-  %.ph.i6305 = phi i32 [ 54, %4203 ], [ %4208, %4207 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6307 ]
+  %.ph.i6305 = phi i32 [ %4208, %4207 ], [ 54, %4203 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6307 ]
   %4209 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4194, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6305) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6302
 
@@ -14564,7 +14564,7 @@ select.unfold.i6304:                              ; preds = %4207, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6302
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6302: ; preds = %4210, %select.unfold.i6304
-  %.sink.i6303 = phi ptr [ %4209, %select.unfold.i6304 ], [ %4211, %4210 ]
+  %.sink.i6303 = phi ptr [ %4211, %4210 ], [ %4209, %select.unfold.i6304 ]
   store ptr %.sink.i6303, ptr %4194, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6310"
 
@@ -14634,7 +14634,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6322
 
 select.unfold.i6322:                              ; preds = %4238, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6325, %4234
-  %.ph.i6323 = phi i32 [ 54, %4234 ], [ %4239, %4238 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6325 ]
+  %.ph.i6323 = phi i32 [ %4239, %4238 ], [ 54, %4234 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6325 ]
   %4240 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4225, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6323) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6320
 
@@ -14644,7 +14644,7 @@ select.unfold.i6322:                              ; preds = %4238, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6320
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6320: ; preds = %4241, %select.unfold.i6322
-  %.sink.i6321 = phi ptr [ %4240, %select.unfold.i6322 ], [ %4242, %4241 ]
+  %.sink.i6321 = phi ptr [ %4242, %4241 ], [ %4240, %select.unfold.i6322 ]
   store ptr %.sink.i6321, ptr %4225, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6328"
 
@@ -14756,7 +14756,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6356
 
 select.unfold.i6356:                              ; preds = %4298, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6359, %4294
-  %.ph.i6357 = phi i32 [ 54, %4294 ], [ %4299, %4298 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6359 ]
+  %.ph.i6357 = phi i32 [ %4299, %4298 ], [ 54, %4294 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6359 ]
   %4300 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4275, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6357) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6354
 
@@ -14766,7 +14766,7 @@ select.unfold.i6356:                              ; preds = %4298, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6354
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6354: ; preds = %4301, %select.unfold.i6356
-  %.sink.i6355 = phi ptr [ %4300, %select.unfold.i6356 ], [ %4302, %4301 ]
+  %.sink.i6355 = phi ptr [ %4302, %4301 ], [ %4300, %select.unfold.i6356 ]
   store ptr %.sink.i6355, ptr %4275, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6362"
 
@@ -14833,7 +14833,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6374
 
 select.unfold.i6374:                              ; preds = %4327, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6377, %4323
-  %.ph.i6375 = phi i32 [ 54, %4323 ], [ %4328, %4327 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6377 ]
+  %.ph.i6375 = phi i32 [ %4328, %4327 ], [ 54, %4323 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6377 ]
   %4329 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4314, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6375) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6372
 
@@ -14843,7 +14843,7 @@ select.unfold.i6374:                              ; preds = %4327, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6372
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6372: ; preds = %4330, %select.unfold.i6374
-  %.sink.i6373 = phi ptr [ %4329, %select.unfold.i6374 ], [ %4331, %4330 ]
+  %.sink.i6373 = phi ptr [ %4331, %4330 ], [ %4329, %select.unfold.i6374 ]
   store ptr %.sink.i6373, ptr %4314, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6380"
 
@@ -14955,7 +14955,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6408
 
 select.unfold.i6408:                              ; preds = %4387, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6411, %4383
-  %.ph.i6409 = phi i32 [ 54, %4383 ], [ %4388, %4387 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6411 ]
+  %.ph.i6409 = phi i32 [ %4388, %4387 ], [ 54, %4383 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6411 ]
   %4389 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4364, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6409) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6406
 
@@ -14965,7 +14965,7 @@ select.unfold.i6408:                              ; preds = %4387, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6406
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6406: ; preds = %4390, %select.unfold.i6408
-  %.sink.i6407 = phi ptr [ %4389, %select.unfold.i6408 ], [ %4391, %4390 ]
+  %.sink.i6407 = phi ptr [ %4391, %4390 ], [ %4389, %select.unfold.i6408 ]
   store ptr %.sink.i6407, ptr %4364, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6414"
 
@@ -15047,7 +15047,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6450
 
 select.unfold.i6450:                              ; preds = %4417, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6453, %4413
-  %.ph.i6451 = phi i32 [ 54, %4413 ], [ %4418, %4417 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6453 ]
+  %.ph.i6451 = phi i32 [ %4418, %4417 ], [ 54, %4413 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6453 ]
   %4419 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4407, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6451) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6448
 
@@ -15057,7 +15057,7 @@ select.unfold.i6450:                              ; preds = %4417, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6448
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6448: ; preds = %4420, %select.unfold.i6450
-  %.sink.i6449 = phi ptr [ %4419, %select.unfold.i6450 ], [ %4421, %4420 ]
+  %.sink.i6449 = phi ptr [ %4421, %4420 ], [ %4419, %select.unfold.i6450 ]
   store ptr %.sink.i6449, ptr %4407, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6456"
 
@@ -15107,7 +15107,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6466
 
 select.unfold.i6466:                              ; preds = %4437, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6469, %4433
-  %.ph.i6467 = phi i32 [ 54, %4433 ], [ %4438, %4437 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6469 ]
+  %.ph.i6467 = phi i32 [ %4438, %4437 ], [ 54, %4433 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6469 ]
   %4439 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4426, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6467) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6464
 
@@ -15117,7 +15117,7 @@ select.unfold.i6466:                              ; preds = %4437, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6464
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6464: ; preds = %4440, %select.unfold.i6466
-  %.sink.i6465 = phi ptr [ %4439, %select.unfold.i6466 ], [ %4441, %4440 ]
+  %.sink.i6465 = phi ptr [ %4441, %4440 ], [ %4439, %select.unfold.i6466 ]
   store ptr %.sink.i6465, ptr %4426, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6472"
 
@@ -15215,7 +15215,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6503
 
 select.unfold.i6503:                              ; preds = %4481, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6506, %4477
-  %.ph.i6504 = phi i32 [ 54, %4477 ], [ %4482, %4481 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6506 ]
+  %.ph.i6504 = phi i32 [ %4482, %4481 ], [ 54, %4477 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6506 ]
   %4483 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4466, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6504) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6501
 
@@ -15225,7 +15225,7 @@ select.unfold.i6503:                              ; preds = %4481, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6501
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6501: ; preds = %4484, %select.unfold.i6503
-  %.sink.i6502 = phi ptr [ %4483, %select.unfold.i6503 ], [ %4485, %4484 ]
+  %.sink.i6502 = phi ptr [ %4485, %4484 ], [ %4483, %select.unfold.i6503 ]
   store ptr %.sink.i6502, ptr %4466, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6509"
 
@@ -15287,7 +15287,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6517
 
 select.unfold.i6517:                              ; preds = %4505, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6520, %4501
-  %.ph.i6518 = phi i32 [ 54, %4501 ], [ %4506, %4505 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6520 ]
+  %.ph.i6518 = phi i32 [ %4506, %4505 ], [ 54, %4501 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6520 ]
   %4507 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4495, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6518) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6515
 
@@ -15297,7 +15297,7 @@ select.unfold.i6517:                              ; preds = %4505, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6515
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6515: ; preds = %4508, %select.unfold.i6517
-  %.sink.i6516 = phi ptr [ %4507, %select.unfold.i6517 ], [ %4509, %4508 ]
+  %.sink.i6516 = phi ptr [ %4509, %4508 ], [ %4507, %select.unfold.i6517 ]
   store ptr %.sink.i6516, ptr %4495, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6523"
 
@@ -15358,7 +15358,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6531
 
 select.unfold.i6531:                              ; preds = %4528, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6534, %4524
-  %.ph.i6532 = phi i32 [ 54, %4524 ], [ %4529, %4528 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6534 ]
+  %.ph.i6532 = phi i32 [ %4529, %4528 ], [ 54, %4524 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6534 ]
   %4530 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4518, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6532) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6529
 
@@ -15368,7 +15368,7 @@ select.unfold.i6531:                              ; preds = %4528, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6529
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6529: ; preds = %4531, %select.unfold.i6531
-  %.sink.i6530 = phi ptr [ %4530, %select.unfold.i6531 ], [ %4532, %4531 ]
+  %.sink.i6530 = phi ptr [ %4532, %4531 ], [ %4530, %select.unfold.i6531 ]
   store ptr %.sink.i6530, ptr %4518, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6537"
 
@@ -15427,7 +15427,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6545
 
 select.unfold.i6545:                              ; preds = %4552, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6548, %4548
-  %.ph.i6546 = phi i32 [ 54, %4548 ], [ %4553, %4552 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6548 ]
+  %.ph.i6546 = phi i32 [ %4553, %4552 ], [ 54, %4548 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6548 ]
   %4554 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4541, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6546) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6543
 
@@ -15437,7 +15437,7 @@ select.unfold.i6545:                              ; preds = %4552, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6543
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6543: ; preds = %4555, %select.unfold.i6545
-  %.sink.i6544 = phi ptr [ %4554, %select.unfold.i6545 ], [ %4556, %4555 ]
+  %.sink.i6544 = phi ptr [ %4556, %4555 ], [ %4554, %select.unfold.i6545 ]
   store ptr %.sink.i6544, ptr %4541, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6551"
 
@@ -15509,7 +15509,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6577
 
 select.unfold.i6577:                              ; preds = %4584, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6580, %4580
-  %.ph.i6578 = phi i32 [ 54, %4580 ], [ %4585, %4584 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6580 ]
+  %.ph.i6578 = phi i32 [ %4585, %4584 ], [ 54, %4580 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6580 ]
   %4586 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4571, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6578) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6575
 
@@ -15519,7 +15519,7 @@ select.unfold.i6577:                              ; preds = %4584, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6575
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6575: ; preds = %4587, %select.unfold.i6577
-  %.sink.i6576 = phi ptr [ %4586, %select.unfold.i6577 ], [ %4588, %4587 ]
+  %.sink.i6576 = phi ptr [ %4588, %4587 ], [ %4586, %select.unfold.i6577 ]
   store ptr %.sink.i6576, ptr %4571, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6583"
 
@@ -15598,7 +15598,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold.i6608
 
 select.unfold.i6608:                              ; preds = %4617, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6611, %4613
-  %.ph.i6609 = phi i32 [ 54, %4613 ], [ %4618, %4617 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6611 ]
+  %.ph.i6609 = phi i32 [ %4618, %4617 ], [ 54, %4613 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i.i6611 ]
   %4619 = call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %4605, ptr noundef nonnull align 8 dereferenceable(8) %311, i32 noundef %.ph.i6609) #30
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6606
 
@@ -15608,7 +15608,7 @@ select.unfold.i6608:                              ; preds = %4617, %_ZN4llvm17Ta
   br label %_ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6606
 
 _ZN4llvm17TargetLibraryInfo21getExtAttrForI32ParamERKNS_6TripleEb.exit.sink.split.i6606: ; preds = %4620, %select.unfold.i6608
-  %.sink.i6607 = phi ptr [ %4619, %select.unfold.i6608 ], [ %4621, %4620 ]
+  %.sink.i6607 = phi ptr [ %4621, %4620 ], [ %4619, %select.unfold.i6608 ]
   store ptr %.sink.i6607, ptr %4605, align 8, !tbaa !274
   br label %"_ZZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionEENK3$_0clERNS_12AttributeSetERKS6_b.exit6614"
 
@@ -15715,7 +15715,7 @@ _ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.ex
   br label %select.unfold
 
 select.unfold:                                    ; preds = %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i, %16, %12
-  %.ph = phi i32 [ 54, %12 ], [ %17, %16 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i ]
+  %.ph = phi i32 [ %17, %16 ], [ 54, %12 ], [ 54, %_ZN4llvm17TargetLibraryInfo23initExtensionsForTripleERbS1_S1_S1_RKNS_6TripleE.exit.i ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !477
   %20 = tail call ptr @_ZNK4llvm12AttributeSet12addAttributeERNS_11LLVMContextENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %.ph) #30
@@ -20340,8 +20340,8 @@ define dso_local { ptr, ptr } @_ZN4llvm15OpenMPIRBuilder26getOrCreateRuntimeFunc
   br label %2862
 
 2862:                                             ; preds = %2857, %2847, %2840, %2833, %2828, %2818, %2808, %2803, %2793, %2786, %2781, %2771, %2761, %2754, %2745, %2740, %2713, %2694, %2685, %2675, %2665, %2660, %2653, %2636, %2619, %2602, %2585, %2570, %2555, %2540, %2525, %2509, %2493, %2477, %2461, %2438, %2431, %2426, %2416, %2405, %2391, %2384, %2355, %2332, %2303, %2280, %2270, %2244, %2215, %2192, %2170, %2152, %2122, %2096, %2068, %2044, %2033, %2023, %2013, %1994, %1975, %1955, %1944, %1932, %1921, %1911, %1898, %1885, %1871, %1852, %1835, %1815, %1804, %1791, %1779, %1766, %1757, %1740, %1724, %1717, %1706, %1697, %1688, %1677, %1668, %1655, %1634, %1608, %1583, %1568, %1555, %1542, %1532, %1522, %1511, %1493, %1483, %1475, %1451, %1427, %1407, %1387, %1365, %1343, %1325, %1307, %1297, %1287, %1277, %1267, %1257, %1241, %1225, %1211, %1197, %1180, %1163, %1148, %1133, %1113, %1093, %1075, %1057, %1047, %1024, %1001, %982, %963, %953, %930, %907, %888, %869, %859, %849, %836, %823, %802, %781, %774, %764, %751, %737, %724, %714, %705, %695, %687, %680, %672, %665, %658, %651, %646, %639, %634, %629, %619, %614, %609, %604, %599, %594, %589, %584, %579, %574, %569, %564, %556, %551, %546, %541, %536, %531, %526, %521, %516, %511, %506, %493, %482, %471, %462, %454, %437, %424, %419, %412, %405, %392, %384, %375, %365
-  %.0927 = phi ptr [ %374, %365 ], [ %383, %375 ], [ %391, %384 ], [ %404, %392 ], [ %411, %405 ], [ %418, %412 ], [ %423, %419 ], [ %436, %424 ], [ %453, %437 ], [ %461, %454 ], [ %470, %462 ], [ %481, %471 ], [ %492, %482 ], [ %505, %493 ], [ %510, %506 ], [ %515, %511 ], [ %520, %516 ], [ %525, %521 ], [ %530, %526 ], [ %535, %531 ], [ %540, %536 ], [ %545, %541 ], [ %550, %546 ], [ %555, %551 ], [ %563, %556 ], [ %568, %564 ], [ %573, %569 ], [ %578, %574 ], [ %583, %579 ], [ %588, %584 ], [ %593, %589 ], [ %598, %594 ], [ %603, %599 ], [ %608, %604 ], [ %613, %609 ], [ %618, %614 ], [ %628, %619 ], [ %633, %629 ], [ %638, %634 ], [ %645, %639 ], [ %650, %646 ], [ %657, %651 ], [ %664, %658 ], [ %671, %665 ], [ %679, %672 ], [ %686, %680 ], [ %694, %687 ], [ %704, %695 ], [ %713, %705 ], [ %723, %714 ], [ %736, %724 ], [ %750, %737 ], [ %763, %751 ], [ %773, %764 ], [ %780, %774 ], [ %801, %781 ], [ %822, %802 ], [ %835, %823 ], [ %848, %836 ], [ %858, %849 ], [ %868, %859 ], [ %887, %869 ], [ %906, %888 ], [ %929, %907 ], [ %952, %930 ], [ %962, %953 ], [ %981, %963 ], [ %1000, %982 ], [ %1023, %1001 ], [ %1046, %1024 ], [ %1056, %1047 ], [ %1074, %1057 ], [ %1092, %1075 ], [ %1112, %1093 ], [ %1132, %1113 ], [ %1147, %1133 ], [ %1162, %1148 ], [ %1179, %1163 ], [ %1196, %1180 ], [ %1210, %1197 ], [ %1224, %1211 ], [ %1240, %1225 ], [ %1256, %1241 ], [ %1266, %1257 ], [ %1276, %1267 ], [ %1286, %1277 ], [ %1296, %1287 ], [ %1306, %1297 ], [ %1324, %1307 ], [ %1342, %1325 ], [ %1364, %1343 ], [ %1386, %1365 ], [ %1406, %1387 ], [ %1426, %1407 ], [ %1450, %1427 ], [ %1474, %1451 ], [ %1482, %1475 ], [ %1492, %1483 ], [ %1510, %1493 ], [ %1521, %1511 ], [ %1531, %1522 ], [ %1541, %1532 ], [ %1554, %1542 ], [ %1567, %1555 ], [ %1582, %1568 ], [ %1607, %1583 ], [ %1633, %1608 ], [ %1654, %1634 ], [ %1667, %1655 ], [ %1676, %1668 ], [ %1687, %1677 ], [ %1696, %1688 ], [ %1705, %1697 ], [ %1716, %1706 ], [ %1723, %1717 ], [ %1739, %1724 ], [ %1756, %1740 ], [ %1765, %1757 ], [ %1778, %1766 ], [ %1790, %1779 ], [ %1803, %1791 ], [ %1814, %1804 ], [ %1834, %1815 ], [ %1851, %1835 ], [ %1870, %1852 ], [ %1884, %1871 ], [ %1897, %1885 ], [ %1910, %1898 ], [ %1920, %1911 ], [ %1931, %1921 ], [ %1943, %1932 ], [ %1954, %1944 ], [ %1974, %1955 ], [ %1993, %1975 ], [ %2012, %1994 ], [ %2022, %2013 ], [ %2032, %2023 ], [ %2043, %2033 ], [ %2067, %2044 ], [ %2095, %2068 ], [ %2121, %2096 ], [ %2151, %2122 ], [ %2169, %2152 ], [ %2191, %2170 ], [ %2214, %2192 ], [ %2243, %2215 ], [ %2269, %2244 ], [ %2279, %2270 ], [ %2302, %2280 ], [ %2331, %2303 ], [ %2354, %2332 ], [ %2383, %2355 ], [ %2390, %2384 ], [ %2404, %2391 ], [ %2415, %2405 ], [ %2425, %2416 ], [ %2430, %2426 ], [ %2437, %2431 ], [ %2460, %2438 ], [ %2476, %2461 ], [ %2492, %2477 ], [ %2508, %2493 ], [ %2524, %2509 ], [ %2539, %2525 ], [ %2554, %2540 ], [ %2569, %2555 ], [ %2584, %2570 ], [ %2601, %2585 ], [ %2618, %2602 ], [ %2635, %2619 ], [ %2652, %2636 ], [ %2659, %2653 ], [ %2664, %2660 ], [ %2674, %2665 ], [ %2684, %2675 ], [ %2693, %2685 ], [ %2712, %2694 ], [ %2739, %2713 ], [ %2744, %2740 ], [ %2753, %2745 ], [ %2760, %2754 ], [ %2770, %2761 ], [ %2780, %2771 ], [ %2785, %2781 ], [ %2792, %2786 ], [ %2802, %2793 ], [ %2807, %2803 ], [ %2817, %2808 ], [ %2827, %2818 ], [ %2832, %2828 ], [ %2839, %2833 ], [ %2846, %2840 ], [ %2856, %2847 ], [ %2861, %2857 ]
-  %.0 = phi ptr [ %373, %365 ], [ %382, %375 ], [ %390, %384 ], [ %403, %392 ], [ %410, %405 ], [ %417, %412 ], [ %422, %419 ], [ %435, %424 ], [ %452, %437 ], [ %460, %454 ], [ %469, %462 ], [ %480, %471 ], [ %491, %482 ], [ %504, %493 ], [ %509, %506 ], [ %514, %511 ], [ %519, %516 ], [ %524, %521 ], [ %529, %526 ], [ %534, %531 ], [ %539, %536 ], [ %544, %541 ], [ %549, %546 ], [ %554, %551 ], [ %562, %556 ], [ %567, %564 ], [ %572, %569 ], [ %577, %574 ], [ %582, %579 ], [ %587, %584 ], [ %592, %589 ], [ %597, %594 ], [ %602, %599 ], [ %607, %604 ], [ %612, %609 ], [ %617, %614 ], [ %627, %619 ], [ %632, %629 ], [ %637, %634 ], [ %644, %639 ], [ %649, %646 ], [ %656, %651 ], [ %663, %658 ], [ %670, %665 ], [ %678, %672 ], [ %685, %680 ], [ %693, %687 ], [ %703, %695 ], [ %712, %705 ], [ %722, %714 ], [ %735, %724 ], [ %749, %737 ], [ %762, %751 ], [ %772, %764 ], [ %779, %774 ], [ %800, %781 ], [ %821, %802 ], [ %834, %823 ], [ %847, %836 ], [ %857, %849 ], [ %867, %859 ], [ %886, %869 ], [ %905, %888 ], [ %928, %907 ], [ %951, %930 ], [ %961, %953 ], [ %980, %963 ], [ %999, %982 ], [ %1022, %1001 ], [ %1045, %1024 ], [ %1055, %1047 ], [ %1073, %1057 ], [ %1091, %1075 ], [ %1111, %1093 ], [ %1131, %1113 ], [ %1146, %1133 ], [ %1161, %1148 ], [ %1178, %1163 ], [ %1195, %1180 ], [ %1209, %1197 ], [ %1223, %1211 ], [ %1239, %1225 ], [ %1255, %1241 ], [ %1265, %1257 ], [ %1275, %1267 ], [ %1285, %1277 ], [ %1295, %1287 ], [ %1305, %1297 ], [ %1323, %1307 ], [ %1341, %1325 ], [ %1363, %1343 ], [ %1385, %1365 ], [ %1405, %1387 ], [ %1425, %1407 ], [ %1449, %1427 ], [ %1473, %1451 ], [ %1481, %1475 ], [ %1491, %1483 ], [ %1509, %1493 ], [ %1520, %1511 ], [ %1530, %1522 ], [ %1540, %1532 ], [ %1553, %1542 ], [ %1566, %1555 ], [ %1581, %1568 ], [ %1606, %1583 ], [ %1632, %1608 ], [ %1653, %1634 ], [ %1666, %1655 ], [ %1675, %1668 ], [ %1686, %1677 ], [ %1695, %1688 ], [ %1704, %1697 ], [ %1715, %1706 ], [ %1722, %1717 ], [ %1738, %1724 ], [ %1755, %1740 ], [ %1764, %1757 ], [ %1777, %1766 ], [ %1789, %1779 ], [ %1802, %1791 ], [ %1813, %1804 ], [ %1833, %1815 ], [ %1850, %1835 ], [ %1869, %1852 ], [ %1883, %1871 ], [ %1896, %1885 ], [ %1909, %1898 ], [ %1919, %1911 ], [ %1930, %1921 ], [ %1942, %1932 ], [ %1953, %1944 ], [ %1973, %1955 ], [ %1992, %1975 ], [ %2011, %1994 ], [ %2021, %2013 ], [ %2031, %2023 ], [ %2042, %2033 ], [ %2066, %2044 ], [ %2094, %2068 ], [ %2120, %2096 ], [ %2150, %2122 ], [ %2168, %2152 ], [ %2190, %2170 ], [ %2213, %2192 ], [ %2242, %2215 ], [ %2268, %2244 ], [ %2278, %2270 ], [ %2301, %2280 ], [ %2330, %2303 ], [ %2353, %2332 ], [ %2382, %2355 ], [ %2389, %2384 ], [ %2403, %2391 ], [ %2414, %2405 ], [ %2424, %2416 ], [ %2429, %2426 ], [ %2436, %2431 ], [ %2459, %2438 ], [ %2475, %2461 ], [ %2491, %2477 ], [ %2507, %2493 ], [ %2523, %2509 ], [ %2538, %2525 ], [ %2553, %2540 ], [ %2568, %2555 ], [ %2583, %2570 ], [ %2600, %2585 ], [ %2617, %2602 ], [ %2634, %2619 ], [ %2651, %2636 ], [ %2658, %2653 ], [ %2663, %2660 ], [ %2673, %2665 ], [ %2683, %2675 ], [ %2692, %2685 ], [ %2711, %2694 ], [ %2738, %2713 ], [ %2743, %2740 ], [ %2752, %2745 ], [ %2759, %2754 ], [ %2769, %2761 ], [ %2779, %2771 ], [ %2784, %2781 ], [ %2791, %2786 ], [ %2801, %2793 ], [ %2806, %2803 ], [ %2816, %2808 ], [ %2826, %2818 ], [ %2831, %2828 ], [ %2838, %2833 ], [ %2845, %2840 ], [ %2855, %2847 ], [ %2860, %2857 ]
+  %.0927 = phi ptr [ %2861, %2857 ], [ %374, %365 ], [ %383, %375 ], [ %391, %384 ], [ %404, %392 ], [ %411, %405 ], [ %418, %412 ], [ %423, %419 ], [ %436, %424 ], [ %453, %437 ], [ %461, %454 ], [ %470, %462 ], [ %481, %471 ], [ %492, %482 ], [ %505, %493 ], [ %510, %506 ], [ %515, %511 ], [ %520, %516 ], [ %525, %521 ], [ %530, %526 ], [ %535, %531 ], [ %540, %536 ], [ %545, %541 ], [ %550, %546 ], [ %555, %551 ], [ %563, %556 ], [ %568, %564 ], [ %573, %569 ], [ %578, %574 ], [ %583, %579 ], [ %588, %584 ], [ %593, %589 ], [ %598, %594 ], [ %603, %599 ], [ %608, %604 ], [ %613, %609 ], [ %618, %614 ], [ %628, %619 ], [ %633, %629 ], [ %638, %634 ], [ %645, %639 ], [ %650, %646 ], [ %657, %651 ], [ %664, %658 ], [ %671, %665 ], [ %679, %672 ], [ %686, %680 ], [ %694, %687 ], [ %704, %695 ], [ %713, %705 ], [ %723, %714 ], [ %736, %724 ], [ %750, %737 ], [ %763, %751 ], [ %773, %764 ], [ %780, %774 ], [ %801, %781 ], [ %822, %802 ], [ %835, %823 ], [ %848, %836 ], [ %858, %849 ], [ %868, %859 ], [ %887, %869 ], [ %906, %888 ], [ %929, %907 ], [ %952, %930 ], [ %962, %953 ], [ %981, %963 ], [ %1000, %982 ], [ %1023, %1001 ], [ %1046, %1024 ], [ %1056, %1047 ], [ %1074, %1057 ], [ %1092, %1075 ], [ %1112, %1093 ], [ %1132, %1113 ], [ %1147, %1133 ], [ %1162, %1148 ], [ %1179, %1163 ], [ %1196, %1180 ], [ %1210, %1197 ], [ %1224, %1211 ], [ %1240, %1225 ], [ %1256, %1241 ], [ %1266, %1257 ], [ %1276, %1267 ], [ %1286, %1277 ], [ %1296, %1287 ], [ %1306, %1297 ], [ %1324, %1307 ], [ %1342, %1325 ], [ %1364, %1343 ], [ %1386, %1365 ], [ %1406, %1387 ], [ %1426, %1407 ], [ %1450, %1427 ], [ %1474, %1451 ], [ %1482, %1475 ], [ %1492, %1483 ], [ %1510, %1493 ], [ %1521, %1511 ], [ %1531, %1522 ], [ %1541, %1532 ], [ %1554, %1542 ], [ %1567, %1555 ], [ %1582, %1568 ], [ %1607, %1583 ], [ %1633, %1608 ], [ %1654, %1634 ], [ %1667, %1655 ], [ %1676, %1668 ], [ %1687, %1677 ], [ %1696, %1688 ], [ %1705, %1697 ], [ %1716, %1706 ], [ %1723, %1717 ], [ %1739, %1724 ], [ %1756, %1740 ], [ %1765, %1757 ], [ %1778, %1766 ], [ %1790, %1779 ], [ %1803, %1791 ], [ %1814, %1804 ], [ %1834, %1815 ], [ %1851, %1835 ], [ %1870, %1852 ], [ %1884, %1871 ], [ %1897, %1885 ], [ %1910, %1898 ], [ %1920, %1911 ], [ %1931, %1921 ], [ %1943, %1932 ], [ %1954, %1944 ], [ %1974, %1955 ], [ %1993, %1975 ], [ %2012, %1994 ], [ %2022, %2013 ], [ %2032, %2023 ], [ %2043, %2033 ], [ %2067, %2044 ], [ %2095, %2068 ], [ %2121, %2096 ], [ %2151, %2122 ], [ %2169, %2152 ], [ %2191, %2170 ], [ %2214, %2192 ], [ %2243, %2215 ], [ %2269, %2244 ], [ %2279, %2270 ], [ %2302, %2280 ], [ %2331, %2303 ], [ %2354, %2332 ], [ %2383, %2355 ], [ %2390, %2384 ], [ %2404, %2391 ], [ %2415, %2405 ], [ %2425, %2416 ], [ %2430, %2426 ], [ %2437, %2431 ], [ %2460, %2438 ], [ %2476, %2461 ], [ %2492, %2477 ], [ %2508, %2493 ], [ %2524, %2509 ], [ %2539, %2525 ], [ %2554, %2540 ], [ %2569, %2555 ], [ %2584, %2570 ], [ %2601, %2585 ], [ %2618, %2602 ], [ %2635, %2619 ], [ %2652, %2636 ], [ %2659, %2653 ], [ %2664, %2660 ], [ %2674, %2665 ], [ %2684, %2675 ], [ %2693, %2685 ], [ %2712, %2694 ], [ %2739, %2713 ], [ %2744, %2740 ], [ %2753, %2745 ], [ %2760, %2754 ], [ %2770, %2761 ], [ %2780, %2771 ], [ %2785, %2781 ], [ %2792, %2786 ], [ %2802, %2793 ], [ %2807, %2803 ], [ %2817, %2808 ], [ %2827, %2818 ], [ %2832, %2828 ], [ %2839, %2833 ], [ %2846, %2840 ], [ %2856, %2847 ]
+  %.0 = phi ptr [ %2860, %2857 ], [ %373, %365 ], [ %382, %375 ], [ %390, %384 ], [ %403, %392 ], [ %410, %405 ], [ %417, %412 ], [ %422, %419 ], [ %435, %424 ], [ %452, %437 ], [ %460, %454 ], [ %469, %462 ], [ %480, %471 ], [ %491, %482 ], [ %504, %493 ], [ %509, %506 ], [ %514, %511 ], [ %519, %516 ], [ %524, %521 ], [ %529, %526 ], [ %534, %531 ], [ %539, %536 ], [ %544, %541 ], [ %549, %546 ], [ %554, %551 ], [ %562, %556 ], [ %567, %564 ], [ %572, %569 ], [ %577, %574 ], [ %582, %579 ], [ %587, %584 ], [ %592, %589 ], [ %597, %594 ], [ %602, %599 ], [ %607, %604 ], [ %612, %609 ], [ %617, %614 ], [ %627, %619 ], [ %632, %629 ], [ %637, %634 ], [ %644, %639 ], [ %649, %646 ], [ %656, %651 ], [ %663, %658 ], [ %670, %665 ], [ %678, %672 ], [ %685, %680 ], [ %693, %687 ], [ %703, %695 ], [ %712, %705 ], [ %722, %714 ], [ %735, %724 ], [ %749, %737 ], [ %762, %751 ], [ %772, %764 ], [ %779, %774 ], [ %800, %781 ], [ %821, %802 ], [ %834, %823 ], [ %847, %836 ], [ %857, %849 ], [ %867, %859 ], [ %886, %869 ], [ %905, %888 ], [ %928, %907 ], [ %951, %930 ], [ %961, %953 ], [ %980, %963 ], [ %999, %982 ], [ %1022, %1001 ], [ %1045, %1024 ], [ %1055, %1047 ], [ %1073, %1057 ], [ %1091, %1075 ], [ %1111, %1093 ], [ %1131, %1113 ], [ %1146, %1133 ], [ %1161, %1148 ], [ %1178, %1163 ], [ %1195, %1180 ], [ %1209, %1197 ], [ %1223, %1211 ], [ %1239, %1225 ], [ %1255, %1241 ], [ %1265, %1257 ], [ %1275, %1267 ], [ %1285, %1277 ], [ %1295, %1287 ], [ %1305, %1297 ], [ %1323, %1307 ], [ %1341, %1325 ], [ %1363, %1343 ], [ %1385, %1365 ], [ %1405, %1387 ], [ %1425, %1407 ], [ %1449, %1427 ], [ %1473, %1451 ], [ %1481, %1475 ], [ %1491, %1483 ], [ %1509, %1493 ], [ %1520, %1511 ], [ %1530, %1522 ], [ %1540, %1532 ], [ %1553, %1542 ], [ %1566, %1555 ], [ %1581, %1568 ], [ %1606, %1583 ], [ %1632, %1608 ], [ %1653, %1634 ], [ %1666, %1655 ], [ %1675, %1668 ], [ %1686, %1677 ], [ %1695, %1688 ], [ %1704, %1697 ], [ %1715, %1706 ], [ %1722, %1717 ], [ %1738, %1724 ], [ %1755, %1740 ], [ %1764, %1757 ], [ %1777, %1766 ], [ %1789, %1779 ], [ %1802, %1791 ], [ %1813, %1804 ], [ %1833, %1815 ], [ %1850, %1835 ], [ %1869, %1852 ], [ %1883, %1871 ], [ %1896, %1885 ], [ %1909, %1898 ], [ %1919, %1911 ], [ %1930, %1921 ], [ %1942, %1932 ], [ %1953, %1944 ], [ %1973, %1955 ], [ %1992, %1975 ], [ %2011, %1994 ], [ %2021, %2013 ], [ %2031, %2023 ], [ %2042, %2033 ], [ %2066, %2044 ], [ %2094, %2068 ], [ %2120, %2096 ], [ %2150, %2122 ], [ %2168, %2152 ], [ %2190, %2170 ], [ %2213, %2192 ], [ %2242, %2215 ], [ %2268, %2244 ], [ %2278, %2270 ], [ %2301, %2280 ], [ %2330, %2303 ], [ %2353, %2332 ], [ %2382, %2355 ], [ %2389, %2384 ], [ %2403, %2391 ], [ %2414, %2405 ], [ %2424, %2416 ], [ %2429, %2426 ], [ %2436, %2431 ], [ %2459, %2438 ], [ %2475, %2461 ], [ %2491, %2477 ], [ %2507, %2493 ], [ %2523, %2509 ], [ %2538, %2525 ], [ %2553, %2540 ], [ %2568, %2555 ], [ %2583, %2570 ], [ %2600, %2585 ], [ %2617, %2602 ], [ %2634, %2619 ], [ %2651, %2636 ], [ %2658, %2653 ], [ %2663, %2660 ], [ %2673, %2665 ], [ %2683, %2675 ], [ %2692, %2685 ], [ %2711, %2694 ], [ %2738, %2713 ], [ %2743, %2740 ], [ %2752, %2745 ], [ %2759, %2754 ], [ %2769, %2761 ], [ %2779, %2771 ], [ %2784, %2781 ], [ %2791, %2786 ], [ %2801, %2793 ], [ %2806, %2803 ], [ %2816, %2808 ], [ %2826, %2818 ], [ %2831, %2828 ], [ %2838, %2833 ], [ %2845, %2840 ], [ %2855, %2847 ]
   %.not = icmp eq ptr %.0927, null
   br i1 %.not, label %.thread, label %3647
 
@@ -22713,7 +22713,7 @@ unreachable:                                      ; preds = %.thread
   unreachable
 
 .thread1772:                                      ; preds = %2863, %2867, %2871, %2875, %2879, %2883, %2887, %2895, %2899, %2903, %2907, %2911, %2915, %2919, %2923, %2927, %2931, %2935, %2939, %2943, %2947, %2951, %2955, %2959, %2963, %2967, %2971, %2975, %2979, %2983, %2987, %2991, %2995, %2999, %3003, %3007, %3011, %3015, %3019, %3023, %3027, %3031, %3035, %3039, %3043, %3047, %3051, %3055, %3059, %3063, %3067, %3071, %3075, %3079, %3083, %3087, %3091, %3095, %3099, %3103, %3107, %3111, %3115, %3119, %3123, %3127, %3131, %3135, %3139, %3143, %3147, %3151, %3155, %3159, %3163, %3167, %3171, %3175, %3179, %3183, %3187, %3191, %3195, %3199, %3203, %3207, %3211, %3215, %3219, %3223, %3227, %3231, %3235, %3239, %3243, %3247, %3251, %3255, %3259, %3263, %3267, %3271, %3275, %3279, %3283, %3287, %3291, %3295, %3299, %3303, %3307, %3311, %3315, %3319, %3323, %3327, %3331, %3339, %3343, %3347, %3351, %3355, %3359, %3363, %3367, %3371, %3375, %3379, %3383, %3387, %3391, %3395, %3399, %3403, %3407, %3411, %3415, %3419, %3423, %3427, %3431, %3435, %3439, %3443, %3447, %3451, %3455, %3459, %3463, %3467, %3471, %3475, %3479, %3483, %3487, %3491, %3495, %3499, %3503, %3507, %3511, %3515, %3519, %3523, %3527, %3531, %3535, %3539, %3543, %3547, %3551, %3555, %3559, %3563, %3567, %3571, %3575, %3579, %3583, %3587, %3591, %3595, %3599, %3603, %3607, %3611, %3615, %3619, %3623, %3627, %3631, %3635, %_ZNK4llvm5Value11hasMetadataEj.exit.thread, %_ZNK4llvm5Value11hasMetadataEj.exit
-  %.11774 = phi ptr [ %.11780, %_ZNK4llvm5Value11hasMetadataEj.exit.thread ], [ %.11780, %_ZNK4llvm5Value11hasMetadataEj.exit ], [ %3638, %3635 ], [ %3634, %3631 ], [ %3630, %3627 ], [ %3626, %3623 ], [ %3622, %3619 ], [ %3618, %3615 ], [ %3614, %3611 ], [ %3610, %3607 ], [ %3606, %3603 ], [ %3602, %3599 ], [ %3598, %3595 ], [ %3594, %3591 ], [ %3590, %3587 ], [ %3586, %3583 ], [ %3582, %3579 ], [ %3578, %3575 ], [ %3574, %3571 ], [ %3570, %3567 ], [ %3566, %3563 ], [ %3562, %3559 ], [ %3558, %3555 ], [ %3554, %3551 ], [ %3550, %3547 ], [ %3546, %3543 ], [ %3542, %3539 ], [ %3538, %3535 ], [ %3534, %3531 ], [ %3530, %3527 ], [ %3526, %3523 ], [ %3522, %3519 ], [ %3518, %3515 ], [ %3514, %3511 ], [ %3510, %3507 ], [ %3506, %3503 ], [ %3502, %3499 ], [ %3498, %3495 ], [ %3494, %3491 ], [ %3490, %3487 ], [ %3486, %3483 ], [ %3482, %3479 ], [ %3478, %3475 ], [ %3474, %3471 ], [ %3470, %3467 ], [ %3466, %3463 ], [ %3462, %3459 ], [ %3458, %3455 ], [ %3454, %3451 ], [ %3450, %3447 ], [ %3446, %3443 ], [ %3442, %3439 ], [ %3438, %3435 ], [ %3434, %3431 ], [ %3430, %3427 ], [ %3426, %3423 ], [ %3422, %3419 ], [ %3418, %3415 ], [ %3414, %3411 ], [ %3410, %3407 ], [ %3406, %3403 ], [ %3402, %3399 ], [ %3398, %3395 ], [ %3394, %3391 ], [ %3390, %3387 ], [ %3386, %3383 ], [ %3382, %3379 ], [ %3378, %3375 ], [ %3374, %3371 ], [ %3370, %3367 ], [ %3366, %3363 ], [ %3362, %3359 ], [ %3358, %3355 ], [ %3354, %3351 ], [ %3350, %3347 ], [ %3346, %3343 ], [ %3342, %3339 ], [ %3334, %3331 ], [ %3330, %3327 ], [ %3326, %3323 ], [ %3322, %3319 ], [ %3318, %3315 ], [ %3314, %3311 ], [ %3310, %3307 ], [ %3306, %3303 ], [ %3302, %3299 ], [ %3298, %3295 ], [ %3294, %3291 ], [ %3290, %3287 ], [ %3286, %3283 ], [ %3282, %3279 ], [ %3278, %3275 ], [ %3274, %3271 ], [ %3270, %3267 ], [ %3266, %3263 ], [ %3262, %3259 ], [ %3258, %3255 ], [ %3254, %3251 ], [ %3250, %3247 ], [ %3246, %3243 ], [ %3242, %3239 ], [ %3238, %3235 ], [ %3234, %3231 ], [ %3230, %3227 ], [ %3226, %3223 ], [ %3222, %3219 ], [ %3218, %3215 ], [ %3214, %3211 ], [ %3210, %3207 ], [ %3206, %3203 ], [ %3202, %3199 ], [ %3198, %3195 ], [ %3194, %3191 ], [ %3190, %3187 ], [ %3186, %3183 ], [ %3182, %3179 ], [ %3178, %3175 ], [ %3174, %3171 ], [ %3170, %3167 ], [ %3166, %3163 ], [ %3162, %3159 ], [ %3158, %3155 ], [ %3154, %3151 ], [ %3150, %3147 ], [ %3146, %3143 ], [ %3142, %3139 ], [ %3138, %3135 ], [ %3134, %3131 ], [ %3130, %3127 ], [ %3126, %3123 ], [ %3122, %3119 ], [ %3118, %3115 ], [ %3114, %3111 ], [ %3110, %3107 ], [ %3106, %3103 ], [ %3102, %3099 ], [ %3098, %3095 ], [ %3094, %3091 ], [ %3090, %3087 ], [ %3086, %3083 ], [ %3082, %3079 ], [ %3078, %3075 ], [ %3074, %3071 ], [ %3070, %3067 ], [ %3066, %3063 ], [ %3062, %3059 ], [ %3058, %3055 ], [ %3054, %3051 ], [ %3050, %3047 ], [ %3046, %3043 ], [ %3042, %3039 ], [ %3038, %3035 ], [ %3034, %3031 ], [ %3030, %3027 ], [ %3026, %3023 ], [ %3022, %3019 ], [ %3018, %3015 ], [ %3014, %3011 ], [ %3010, %3007 ], [ %3006, %3003 ], [ %3002, %2999 ], [ %2998, %2995 ], [ %2994, %2991 ], [ %2990, %2987 ], [ %2986, %2983 ], [ %2982, %2979 ], [ %2978, %2975 ], [ %2974, %2971 ], [ %2970, %2967 ], [ %2966, %2963 ], [ %2962, %2959 ], [ %2958, %2955 ], [ %2954, %2951 ], [ %2950, %2947 ], [ %2946, %2943 ], [ %2942, %2939 ], [ %2938, %2935 ], [ %2934, %2931 ], [ %2930, %2927 ], [ %2926, %2923 ], [ %2922, %2919 ], [ %2918, %2915 ], [ %2914, %2911 ], [ %2910, %2907 ], [ %2906, %2903 ], [ %2902, %2899 ], [ %2898, %2895 ], [ %2890, %2887 ], [ %2886, %2883 ], [ %2882, %2879 ], [ %2878, %2875 ], [ %2874, %2871 ], [ %2870, %2867 ], [ %2866, %2863 ]
+  %.11774 = phi ptr [ %.11780, %_ZNK4llvm5Value11hasMetadataEj.exit ], [ %2866, %2863 ], [ %.11780, %_ZNK4llvm5Value11hasMetadataEj.exit.thread ], [ %3638, %3635 ], [ %3634, %3631 ], [ %3630, %3627 ], [ %3626, %3623 ], [ %3622, %3619 ], [ %3618, %3615 ], [ %3614, %3611 ], [ %3610, %3607 ], [ %3606, %3603 ], [ %3602, %3599 ], [ %3598, %3595 ], [ %3594, %3591 ], [ %3590, %3587 ], [ %3586, %3583 ], [ %3582, %3579 ], [ %3578, %3575 ], [ %3574, %3571 ], [ %3570, %3567 ], [ %3566, %3563 ], [ %3562, %3559 ], [ %3558, %3555 ], [ %3554, %3551 ], [ %3550, %3547 ], [ %3546, %3543 ], [ %3542, %3539 ], [ %3538, %3535 ], [ %3534, %3531 ], [ %3530, %3527 ], [ %3526, %3523 ], [ %3522, %3519 ], [ %3518, %3515 ], [ %3514, %3511 ], [ %3510, %3507 ], [ %3506, %3503 ], [ %3502, %3499 ], [ %3498, %3495 ], [ %3494, %3491 ], [ %3490, %3487 ], [ %3486, %3483 ], [ %3482, %3479 ], [ %3478, %3475 ], [ %3474, %3471 ], [ %3470, %3467 ], [ %3466, %3463 ], [ %3462, %3459 ], [ %3458, %3455 ], [ %3454, %3451 ], [ %3450, %3447 ], [ %3446, %3443 ], [ %3442, %3439 ], [ %3438, %3435 ], [ %3434, %3431 ], [ %3430, %3427 ], [ %3426, %3423 ], [ %3422, %3419 ], [ %3418, %3415 ], [ %3414, %3411 ], [ %3410, %3407 ], [ %3406, %3403 ], [ %3402, %3399 ], [ %3398, %3395 ], [ %3394, %3391 ], [ %3390, %3387 ], [ %3386, %3383 ], [ %3382, %3379 ], [ %3378, %3375 ], [ %3374, %3371 ], [ %3370, %3367 ], [ %3366, %3363 ], [ %3362, %3359 ], [ %3358, %3355 ], [ %3354, %3351 ], [ %3350, %3347 ], [ %3346, %3343 ], [ %3342, %3339 ], [ %3334, %3331 ], [ %3330, %3327 ], [ %3326, %3323 ], [ %3322, %3319 ], [ %3318, %3315 ], [ %3314, %3311 ], [ %3310, %3307 ], [ %3306, %3303 ], [ %3302, %3299 ], [ %3298, %3295 ], [ %3294, %3291 ], [ %3290, %3287 ], [ %3286, %3283 ], [ %3282, %3279 ], [ %3278, %3275 ], [ %3274, %3271 ], [ %3270, %3267 ], [ %3266, %3263 ], [ %3262, %3259 ], [ %3258, %3255 ], [ %3254, %3251 ], [ %3250, %3247 ], [ %3246, %3243 ], [ %3242, %3239 ], [ %3238, %3235 ], [ %3234, %3231 ], [ %3230, %3227 ], [ %3226, %3223 ], [ %3222, %3219 ], [ %3218, %3215 ], [ %3214, %3211 ], [ %3210, %3207 ], [ %3206, %3203 ], [ %3202, %3199 ], [ %3198, %3195 ], [ %3194, %3191 ], [ %3190, %3187 ], [ %3186, %3183 ], [ %3182, %3179 ], [ %3178, %3175 ], [ %3174, %3171 ], [ %3170, %3167 ], [ %3166, %3163 ], [ %3162, %3159 ], [ %3158, %3155 ], [ %3154, %3151 ], [ %3150, %3147 ], [ %3146, %3143 ], [ %3142, %3139 ], [ %3138, %3135 ], [ %3134, %3131 ], [ %3130, %3127 ], [ %3126, %3123 ], [ %3122, %3119 ], [ %3118, %3115 ], [ %3114, %3111 ], [ %3110, %3107 ], [ %3106, %3103 ], [ %3102, %3099 ], [ %3098, %3095 ], [ %3094, %3091 ], [ %3090, %3087 ], [ %3086, %3083 ], [ %3082, %3079 ], [ %3078, %3075 ], [ %3074, %3071 ], [ %3070, %3067 ], [ %3066, %3063 ], [ %3062, %3059 ], [ %3058, %3055 ], [ %3054, %3051 ], [ %3050, %3047 ], [ %3046, %3043 ], [ %3042, %3039 ], [ %3038, %3035 ], [ %3034, %3031 ], [ %3030, %3027 ], [ %3026, %3023 ], [ %3022, %3019 ], [ %3018, %3015 ], [ %3014, %3011 ], [ %3010, %3007 ], [ %3006, %3003 ], [ %3002, %2999 ], [ %2998, %2995 ], [ %2994, %2991 ], [ %2990, %2987 ], [ %2986, %2983 ], [ %2982, %2979 ], [ %2978, %2975 ], [ %2974, %2971 ], [ %2970, %2967 ], [ %2966, %2963 ], [ %2962, %2959 ], [ %2958, %2955 ], [ %2954, %2951 ], [ %2950, %2947 ], [ %2946, %2943 ], [ %2942, %2939 ], [ %2938, %2935 ], [ %2934, %2931 ], [ %2930, %2927 ], [ %2926, %2923 ], [ %2922, %2919 ], [ %2918, %2915 ], [ %2914, %2911 ], [ %2910, %2907 ], [ %2906, %2903 ], [ %2902, %2899 ], [ %2898, %2895 ], [ %2890, %2887 ], [ %2886, %2883 ], [ %2882, %2879 ], [ %2878, %2875 ], [ %2874, %2871 ], [ %2870, %2867 ]
   call void @_ZN4llvm15OpenMPIRBuilder13addAttributesENS_3omp15RuntimeFunctionERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(3104) %0, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(136) %.11774)
   br label %3647
 
@@ -26357,7 +26357,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit23: ; preds = %_ZN4llvm
   br i1 %61, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !728
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %58, %56, %52, %48, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit23
-  %.0.i.i = phi i32 [ %49, %48 ], [ %53, %52 ], [ %57, %56 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit23 ], [ %60, %58 ]
+  %.0.i.i = phi i32 [ %57, %56 ], [ %49, %48 ], [ %53, %52 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit23 ], [ %60, %58 ]
   %62 = zext i32 %.0.i.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %63, ptr %9, align 8, !tbaa !595, !alias.scope !725
@@ -26519,7 +26519,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit32: ; preds = %_ZNSt7__
   br i1 %138, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i36, label %.lr.ph.i.i33, !llvm.loop !728
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i36:  ; preds = %135, %133, %129, %125, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit32
-  %.0.i.i37 = phi i32 [ %126, %125 ], [ %130, %129 ], [ %134, %133 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit32 ], [ %137, %135 ]
+  %.0.i.i37 = phi i32 [ %134, %133 ], [ %126, %125 ], [ %130, %129 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit32 ], [ %137, %135 ]
   %139 = zext i32 %.0.i.i37 to i64
   %140 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %140, ptr %10, align 8, !tbaa !595, !alias.scope !730
@@ -26954,7 +26954,7 @@ define dso_local void @_ZN4llvm15OpenMPIRBuilder13createBarrierERKNS0_19Location
   br label %24
 
 24:                                               ; preds = %20, %23, %22, %21
-  %.014 = phi i32 [ 64, %23 ], [ 320, %21 ], [ 32, %22 ], [ 192, %20 ]
+  %.014 = phi i32 [ 64, %23 ], [ 32, %22 ], [ 320, %21 ], [ 192, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -27045,8 +27045,8 @@ _ZN4llvm15OpenMPIRBuilder33isLastFinalizationInfoCancellableENS_3omp9DirectiveE.
   br label %_ZN4llvm15OpenMPIRBuilder33isLastFinalizationInfoCancellableENS_3omp9DirectiveE.exit.thread
 
 _ZN4llvm15OpenMPIRBuilder33isLastFinalizationInfoCancellableENS_3omp9DirectiveE.exit.thread: ; preds = %_ZN4llvm15OpenMPIRBuilder33isLastFinalizationInfoCancellableENS_3omp9DirectiveE.exit, %53, %56, %_ZN4llvm15OpenMPIRBuilder19getOrCreateThreadIDEPNS_5ValueE.exit
-  %or.cond = phi i1 [ false, %_ZN4llvm15OpenMPIRBuilder19getOrCreateThreadIDEPNS_5ValueE.exit ], [ false, %56 ], [ false, %53 ], [ %66, %_ZN4llvm15OpenMPIRBuilder33isLastFinalizationInfoCancellableENS_3omp9DirectiveE.exit ]
-  %67 = phi i32 [ 0, %_ZN4llvm15OpenMPIRBuilder19getOrCreateThreadIDEPNS_5ValueE.exit ], [ 0, %56 ], [ 0, %53 ], [ %spec.select, %_ZN4llvm15OpenMPIRBuilder33isLastFinalizationInfoCancellableENS_3omp9DirectiveE.exit ]
+  %or.cond = phi i1 [ false, %53 ], [ %66, %_ZN4llvm15OpenMPIRBuilder33isLastFinalizationInfoCancellableENS_3omp9DirectiveE.exit ], [ false, %_ZN4llvm15OpenMPIRBuilder19getOrCreateThreadIDEPNS_5ValueE.exit ], [ false, %56 ]
+  %67 = phi i32 [ 0, %53 ], [ %spec.select, %_ZN4llvm15OpenMPIRBuilder33isLastFinalizationInfoCancellableENS_3omp9DirectiveE.exit ], [ 0, %_ZN4llvm15OpenMPIRBuilder19getOrCreateThreadIDEPNS_5ValueE.exit ], [ 0, %56 ]
   %68 = load ptr, ptr %39, align 8, !tbaa !278
   %69 = call { ptr, ptr } @_ZN4llvm15OpenMPIRBuilder26getOrCreateRuntimeFunctionERNS_6ModuleENS_3omp15RuntimeFunctionE(ptr noundef nonnull align 8 dereferenceable(3104) %1, ptr noundef nonnull align 8 dereferenceable(841) %68, i32 noundef %67)
   %70 = extractvalue { ptr, ptr } %69, 1
@@ -30380,10 +30380,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12De
   br label %"_ZSt9__find_ifIPPN4llvm5ValueEN9__gnu_cxx5__ops10_Iter_predINS0_9SetVectorIS2_NS0_11SmallVectorIS2_Lj0EEENS0_8DenseSetIS2_NS0_12DenseMapInfoIS2_vEEEELj0EE19TestAndEraseFromSetIZNS0_15OpenMPIRBuilder14createParallelERKNSG_19LocationDescriptionENS0_13IRBuilderBase11InsertPointENS0_12function_refIFNS0_5ErrorESL_SL_EEENSM_IFNS0_8ExpectedISL_EESL_SL_RS1_SS_RS2_EEESt8functionIFSN_SL_EES2_S2_NS0_3omp12ProcBindKindEbE3$_3EEEEET_S14_S14_T0_.exit.i.i.i.i.i"
 
 "_ZSt9__find_ifIPPN4llvm5ValueEN9__gnu_cxx5__ops10_Iter_predINS0_9SetVectorIS2_NS0_11SmallVectorIS2_Lj0EEENS0_8DenseSetIS2_NS0_12DenseMapInfoIS2_vEEEELj0EE19TestAndEraseFromSetIZNS0_15OpenMPIRBuilder14createParallelERKNSG_19LocationDescriptionENS0_13IRBuilderBase11InsertPointENS0_12function_refIFNS0_5ErrorESL_SL_EEENSM_IFNS0_8ExpectedISL_EESL_SL_RS1_SS_RS2_EEESt8functionIFSN_SL_EES2_S2_NS0_3omp12ProcBindKindEbE3$_3EEEEET_S14_S14_T0_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i50.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i60.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i70.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i80.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i90.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i100.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit106.sink.split.i.i.i.i.i.i.i", %773, %737, %701, %661, %627, %593, %560
-  %808 = phi i32 [ 0, %560 ], [ 0, %593 ], [ 0, %627 ], [ 0, %661 ], [ 0, %701 ], [ 0, %737 ], [ 0, %773 ], [ %799, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit106.sink.split.i.i.i.i.i.i.i" ], [ %776, %.lr.ph.i.i.i.i.i100.i.i.i.i.i.i.i ], [ %740, %.lr.ph.i.i.i.i.i90.i.i.i.i.i.i.i ], [ %704, %.lr.ph.i.i.i.i.i80.i.i.i.i.i.i.i ], [ %665, %.lr.ph.i.i.i.i.i70.i.i.i.i.i.i.i ], [ %631, %.lr.ph.i.i.i.i.i60.i.i.i.i.i.i.i ], [ %597, %.lr.ph.i.i.i.i.i50.i.i.i.i.i.i.i ], [ %563, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %809 = phi ptr [ %561, %560 ], [ %595, %593 ], [ %629, %627 ], [ %663, %661 ], [ %702, %701 ], [ %738, %737 ], [ %774, %773 ], [ %800, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit106.sink.split.i.i.i.i.i.i.i" ], [ %774, %.lr.ph.i.i.i.i.i100.i.i.i.i.i.i.i ], [ %738, %.lr.ph.i.i.i.i.i90.i.i.i.i.i.i.i ], [ %702, %.lr.ph.i.i.i.i.i80.i.i.i.i.i.i.i ], [ %663, %.lr.ph.i.i.i.i.i70.i.i.i.i.i.i.i ], [ %629, %.lr.ph.i.i.i.i.i60.i.i.i.i.i.i.i ], [ %595, %.lr.ph.i.i.i.i.i50.i.i.i.i.i.i.i ], [ %561, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %810 = phi ptr [ %552, %560 ], [ %552, %593 ], [ %552, %627 ], [ %552, %661 ], [ %697, %701 ], [ %733, %737 ], [ %769, %773 ], [ %801, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit106.sink.split.i.i.i.i.i.i.i" ], [ %769, %.lr.ph.i.i.i.i.i100.i.i.i.i.i.i.i ], [ %733, %.lr.ph.i.i.i.i.i90.i.i.i.i.i.i.i ], [ %697, %.lr.ph.i.i.i.i.i80.i.i.i.i.i.i.i ], [ %552, %.lr.ph.i.i.i.i.i70.i.i.i.i.i.i.i ], [ %552, %.lr.ph.i.i.i.i.i60.i.i.i.i.i.i.i ], [ %552, %.lr.ph.i.i.i.i.i50.i.i.i.i.i.i.i ], [ %552, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %.028.i.i.i.i.i.i.i = phi ptr [ %.029138.i.i.i.i.i.i.i, %560 ], [ %594, %593 ], [ %628, %627 ], [ %662, %661 ], [ %.029.lcssa.i.i.i.i.i.i.i, %701 ], [ %.1.i.i.i.i.i.i.i, %737 ], [ %.2.i.i.i.i.i.i.i, %773 ], [ %.028.ph.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit106.sink.split.i.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i100.i.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i90.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i80.i.i.i.i.i.i.i ], [ %662, %.lr.ph.i.i.i.i.i70.i.i.i.i.i.i.i ], [ %628, %.lr.ph.i.i.i.i.i60.i.i.i.i.i.i.i ], [ %594, %.lr.ph.i.i.i.i.i50.i.i.i.i.i.i.i ], [ %.029138.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %808 = phi i32 [ %776, %.lr.ph.i.i.i.i.i100.i.i.i.i.i.i.i ], [ 0, %627 ], [ %799, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit106.sink.split.i.i.i.i.i.i.i" ], [ %740, %.lr.ph.i.i.i.i.i90.i.i.i.i.i.i.i ], [ %631, %.lr.ph.i.i.i.i.i60.i.i.i.i.i.i.i ], [ %597, %.lr.ph.i.i.i.i.i50.i.i.i.i.i.i.i ], [ %665, %.lr.ph.i.i.i.i.i70.i.i.i.i.i.i.i ], [ 0, %737 ], [ 0, %661 ], [ %704, %.lr.ph.i.i.i.i.i80.i.i.i.i.i.i.i ], [ 0, %773 ], [ 0, %560 ], [ 0, %701 ], [ 0, %593 ], [ %563, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %809 = phi ptr [ %774, %.lr.ph.i.i.i.i.i100.i.i.i.i.i.i.i ], [ %629, %627 ], [ %800, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit106.sink.split.i.i.i.i.i.i.i" ], [ %738, %.lr.ph.i.i.i.i.i90.i.i.i.i.i.i.i ], [ %629, %.lr.ph.i.i.i.i.i60.i.i.i.i.i.i.i ], [ %595, %.lr.ph.i.i.i.i.i50.i.i.i.i.i.i.i ], [ %663, %.lr.ph.i.i.i.i.i70.i.i.i.i.i.i.i ], [ %738, %737 ], [ %663, %661 ], [ %702, %.lr.ph.i.i.i.i.i80.i.i.i.i.i.i.i ], [ %774, %773 ], [ %561, %560 ], [ %702, %701 ], [ %595, %593 ], [ %561, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %810 = phi ptr [ %769, %.lr.ph.i.i.i.i.i100.i.i.i.i.i.i.i ], [ %552, %627 ], [ %801, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit106.sink.split.i.i.i.i.i.i.i" ], [ %733, %.lr.ph.i.i.i.i.i90.i.i.i.i.i.i.i ], [ %552, %.lr.ph.i.i.i.i.i60.i.i.i.i.i.i.i ], [ %552, %.lr.ph.i.i.i.i.i50.i.i.i.i.i.i.i ], [ %552, %.lr.ph.i.i.i.i.i70.i.i.i.i.i.i.i ], [ %733, %737 ], [ %552, %661 ], [ %697, %.lr.ph.i.i.i.i.i80.i.i.i.i.i.i.i ], [ %769, %773 ], [ %552, %560 ], [ %697, %701 ], [ %552, %593 ], [ %552, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.028.i.i.i.i.i.i.i = phi ptr [ %.2.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i100.i.i.i.i.i.i.i ], [ %628, %627 ], [ %.028.ph.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit106.sink.split.i.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i90.i.i.i.i.i.i.i ], [ %628, %.lr.ph.i.i.i.i.i60.i.i.i.i.i.i.i ], [ %594, %.lr.ph.i.i.i.i.i50.i.i.i.i.i.i.i ], [ %662, %.lr.ph.i.i.i.i.i70.i.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i, %737 ], [ %662, %661 ], [ %.029.lcssa.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i80.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i, %773 ], [ %.029138.i.i.i.i.i.i.i, %560 ], [ %.029.lcssa.i.i.i.i.i.i.i, %701 ], [ %594, %593 ], [ %.029138.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ]
   %811 = icmp eq ptr %.028.i.i.i.i.i.i.i, %548
   br i1 %811, label %"_ZZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE9remove_ifIZNS_15OpenMPIRBuilder14createParallelERKNSB_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS_12function_refIFNS_5ErrorESG_SG_EEENSH_IFNS_8ExpectedISG_EESG_SG_RS1_SN_RS2_EEESt8functionIFSI_SG_EES2_S2_NS_3omp12ProcBindKindEbE3$_3EEbT_ENKUlvE_clEv.exit.i", label %.preheader.i.i.i.i.i
 
@@ -30470,15 +30470,15 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12De
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit.thread.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit.thread.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit.i.i.i.i.i", %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIS3_EEPS9_RKT_.exit.i.i.i.i.i.i.i.i.i, %825
-  %849 = phi i32 [ %817, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit.i.i.i.i.i" ], [ %817, %825 ], [ %847, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIS3_EEPS9_RKT_.exit.i.i.i.i.i.i.i.i.i ], [ %817, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %850 = phi i32 [ %818, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit.i.i.i.i.i" ], [ %818, %825 ], [ %846, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIS3_EEPS9_RKT_.exit.i.i.i.i.i.i.i.i.i ], [ %818, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %.1.i.i.i.i.i = phi ptr [ %848, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit.i.i.i.i.i" ], [ %.064.i.i.i.i.i, %825 ], [ %.064.i.i.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIS3_EEPS9_RKT_.exit.i.i.i.i.i.i.i.i.i ], [ %.064.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %849 = phi i32 [ %817, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit.i.i.i.i.i" ], [ %847, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIS3_EEPS9_RKT_.exit.i.i.i.i.i.i.i.i.i ], [ %817, %825 ], [ %817, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %850 = phi i32 [ %818, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit.i.i.i.i.i" ], [ %846, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIS3_EEPS9_RKT_.exit.i.i.i.i.i.i.i.i.i ], [ %818, %825 ], [ %818, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi ptr [ %848, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit.i.i.i.i.i" ], [ %.064.i.i.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIS3_EEPS9_RKT_.exit.i.i.i.i.i.i.i.i.i ], [ %.064.i.i.i.i.i, %825 ], [ %.064.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   %.017.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01765.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i227 = icmp eq ptr %.017.i.i.i.i.i, %548
   br i1 %.not.i.i.i.i.i227, label %"_ZZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE9remove_ifIZNS_15OpenMPIRBuilder14createParallelERKNSB_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS_12function_refIFNS_5ErrorESG_SG_EEENSH_IFNS_8ExpectedISG_EESG_SG_RS1_SN_RS2_EEESt8functionIFSI_SG_EES2_S2_NS_3omp12ProcBindKindEbE3$_3EEbT_ENKUlvE_clEv.exit.i", label %816, !llvm.loop !864
 
 "_ZZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE9remove_ifIZNS_15OpenMPIRBuilder14createParallelERKNSB_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS_12function_refIFNS_5ErrorESG_SG_EEENSH_IFNS_8ExpectedISG_EESG_SG_RS1_SN_RS2_EEESt8functionIFSI_SG_EES2_S2_NS_3omp12ProcBindKindEbE3$_3EEbT_ENKUlvE_clEv.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit.thread.i.i.i.i.i", %.preheader.i.i.i.i.i, %"_ZSt9__find_ifIPPN4llvm5ValueEN9__gnu_cxx5__ops10_Iter_predINS0_9SetVectorIS2_NS0_11SmallVectorIS2_Lj0EEENS0_8DenseSetIS2_NS0_12DenseMapInfoIS2_vEEEELj0EE19TestAndEraseFromSetIZNS0_15OpenMPIRBuilder14createParallelERKNSG_19LocationDescriptionENS0_13IRBuilderBase11InsertPointENS0_12function_refIFNS0_5ErrorESL_SL_EEENSM_IFNS0_8ExpectedISL_EESL_SL_RS1_SS_RS2_EEESt8functionIFSN_SL_EES2_S2_NS0_3omp12ProcBindKindEbE3$_3EEEEET_S14_S14_T0_.exit.i.i.i.i.i", %"_ZZN4llvm15OpenMPIRBuilder14createParallelERKNS0_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS_12function_refIFNS_5ErrorES5_S5_EEENS6_IFNS_8ExpectedIS5_EES5_S5_RNS_5ValueESD_RPSC_EEESt8functionIFS7_S5_EESE_SE_NS_3omp12ProcBindKindEbENK3$_3clESE_.exit.i.i98.i.i.i.i.i.i.i", %765, %764, %._crit_edge.i.i.i.i.i.i.i
-  %.016.i.i.i.i.i = phi ptr [ %548, %"_ZSt9__find_ifIPPN4llvm5ValueEN9__gnu_cxx5__ops10_Iter_predINS0_9SetVectorIS2_NS0_11SmallVectorIS2_Lj0EEENS0_8DenseSetIS2_NS0_12DenseMapInfoIS2_vEEEELj0EE19TestAndEraseFromSetIZNS0_15OpenMPIRBuilder14createParallelERKNSG_19LocationDescriptionENS0_13IRBuilderBase11InsertPointENS0_12function_refIFNS0_5ErrorESL_SL_EEENSM_IFNS0_8ExpectedISL_EESL_SL_RS1_SS_RS2_EEESt8functionIFSN_SL_EES2_S2_NS0_3omp12ProcBindKindEbE3$_3EEEEET_S14_S14_T0_.exit.i.i.i.i.i" ], [ %548, %"_ZZN4llvm15OpenMPIRBuilder14createParallelERKNS0_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS_12function_refIFNS_5ErrorES5_S5_EEENS6_IFNS_8ExpectedIS5_EES5_S5_RNS_5ValueESD_RPSC_EEESt8functionIFS7_S5_EESE_SE_NS_3omp12ProcBindKindEbENK3$_3clESE_.exit.i.i98.i.i.i.i.i.i.i" ], [ %548, %765 ], [ %548, %764 ], [ %548, %._crit_edge.i.i.i.i.i.i.i ], [ %.028.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit.thread.i.i.i.i.i" ]
+  %.016.i.i.i.i.i = phi ptr [ %548, %"_ZSt9__find_ifIPPN4llvm5ValueEN9__gnu_cxx5__ops10_Iter_predINS0_9SetVectorIS2_NS0_11SmallVectorIS2_Lj0EEENS0_8DenseSetIS2_NS0_12DenseMapInfoIS2_vEEEELj0EE19TestAndEraseFromSetIZNS0_15OpenMPIRBuilder14createParallelERKNSG_19LocationDescriptionENS0_13IRBuilderBase11InsertPointENS0_12function_refIFNS0_5ErrorESL_SL_EEENSM_IFNS0_8ExpectedISL_EESL_SL_RS1_SS_RS2_EEESt8functionIFSN_SL_EES2_S2_NS0_3omp12ProcBindKindEbE3$_3EEEEET_S14_S14_T0_.exit.i.i.i.i.i" ], [ %548, %764 ], [ %548, %._crit_edge.i.i.i.i.i.i.i ], [ %548, %"_ZZN4llvm15OpenMPIRBuilder14createParallelERKNS0_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS_12function_refIFNS_5ErrorES5_S5_EEENS6_IFNS_8ExpectedIS5_EES5_S5_RNS_5ValueESD_RPSC_EEESt8functionIFS7_S5_EESE_SE_NS_3omp12ProcBindKindEbENK3$_3clESE_.exit.i.i98.i.i.i.i.i.i.i" ], [ %548, %765 ], [ %.028.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIN4llvm9SetVectorIPNS2_5ValueENS2_11SmallVectorIS5_Lj0EEENS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEELj0EE19TestAndEraseFromSetIZNS2_15OpenMPIRBuilder14createParallelERKNSE_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_12function_refIFNS2_5ErrorESJ_SJ_EEENSK_IFNS2_8ExpectedISJ_EESJ_SJ_RS4_SQ_RS5_EEESt8functionIFSL_SJ_EES5_S5_NS2_3omp12ProcBindKindEbE3$_3EEEclIPS5_EEbT_.exit.thread.i.i.i.i.i" ]
   %851 = getelementptr inbounds nuw ptr, ptr %.val.i.i, i64 %547
   %.not402 = icmp eq ptr %.016.i.i.i.i.i, %851
   br i1 %.not402, label %"_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE9remove_ifIZNS_15OpenMPIRBuilder14createParallelERKNSB_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS_12function_refIFNS_5ErrorESG_SG_EEENSH_IFNS_8ExpectedISG_EESG_SG_RS1_SN_RS2_EEESt8functionIFSI_SG_EES2_S2_NS_3omp12ProcBindKindEbE3$_3EEbT_.exit", label %_ZN4llvm15SmallVectorImplIPNS_5ValueEE5eraseEPKS2_S5_.exit.i
@@ -30901,7 +30901,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i: ; preds = %
   br label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i
 
 _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i:   ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %1010, %1007
-  %1018 = phi ptr [ null, %1010 ], [ null, %1007 ], [ %spec.select.i.i253, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ]
+  %1018 = phi ptr [ %spec.select.i.i253, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ], [ null, %1007 ], [ null, %1010 ]
   %1019 = icmp eq ptr %1018, %spec.select.i.i.i228
   br i1 %1019, label %1020, label %1021
 
@@ -32178,7 +32178,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder10DependDataELb1EE18uninit
   br label %_ZN4llvm11SmallVectorINS_15OpenMPIRBuilder10DependDataELj2EEC2EOS3_.exit.i.i.i.i.i
 
 _ZN4llvm11SmallVectorINS_15OpenMPIRBuilder10DependDataELj2EEC2EOS3_.exit.i.i.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder10DependDataELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i, %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder10DependDataEE12assignRemoteEOS3_.exit.i, %_ZN4llvm11SmallVectorIPNS_11InstructionELj4EEC2ERKS3_.exit
-  %144 = phi i32 [ %.pre94, %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder10DependDataELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i ], [ %120, %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder10DependDataEE12assignRemoteEOS3_.exit.i ], [ %120, %_ZN4llvm11SmallVectorIPNS_11InstructionELj4EEC2ERKS3_.exit ]
+  %144 = phi i32 [ %.pre94, %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder10DependDataELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i ], [ %120, %_ZN4llvm11SmallVectorIPNS_11InstructionELj4EEC2ERKS3_.exit ], [ %120, %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder10DependDataEE12assignRemoteEOS3_.exit.i ]
   %145 = getelementptr inbounds nuw i8, ptr %130, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef nonnull align 8 dereferenceable(32) %112, i64 32, i1 false)
   %146 = getelementptr inbounds nuw i8, ptr %130, i64 136
@@ -33198,7 +33198,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit
 
 _ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit: ; preds = %111, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %120, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %117, %111 ]
+  %.1.i = phi ptr [ %117, %111 ], [ %120, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %136 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i16 257, ptr %136, align 8
@@ -33360,7 +33360,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i7
   br label %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit78
 
 _ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit78: ; preds = %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i77
-  %.1.i68 = phi ptr [ %195, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i77 ], [ %192, %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit ]
+  %.1.i68 = phi ptr [ %192, %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit ], [ %195, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i77 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %211 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i16 257, ptr %211, align 8
@@ -33642,7 +33642,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %61, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !1005
 
 .loopexit:                                        ; preds = %.lr.ph.i, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i, %58, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i
-  %.1.i.i = phi ptr [ %48, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i ], [ %48, %58 ], [ %50, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i ], [ %48, %.lr.ph.i ]
+  %.1.i.i = phi ptr [ %48, %58 ], [ %48, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i ], [ %48, %.lr.ph.i ], [ %50, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i ]
   %62 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 48
   %63 = load ptr, ptr %62, align 8, !tbaa !97, !noalias !1001
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -33869,7 +33869,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %155, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit, label %.lr.ph.i.i.i, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit: ; preds = %.lr.ph, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit, %152, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i
-  %.1.i = phi ptr [ %142, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %142, %152 ], [ %142, %.lr.ph ], [ %144, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
+  %.1.i = phi ptr [ %142, %152 ], [ %142, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %142, %.lr.ph ], [ %144, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
   %156 = getelementptr inbounds nuw i8, ptr %.1.i, i64 48
   %157 = load ptr, ptr %156, align 8, !tbaa !97
   %158 = icmp ne ptr %156, %157
@@ -34572,7 +34572,7 @@ _ZN4llvm15isa_and_nonnullIJNS_10BranchInstEEPNS_11InstructionEEEbRKT0_.exit.thre
   br label %_ZN4llvm10BasicBlock13getTerminatorEv.exit33
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit33:     ; preds = %78, %_ZN4llvm15isa_and_nonnullIJNS_10BranchInstEEPNS_11InstructionEEEbRKT0_.exit.thread
-  %.0 = phi ptr [ %82, %_ZN4llvm15isa_and_nonnullIJNS_10BranchInstEEPNS_11InstructionEEEbRKT0_.exit.thread ], [ %79, %78 ]
+  %.0 = phi ptr [ %79, %78 ], [ %82, %_ZN4llvm15isa_and_nonnullIJNS_10BranchInstEEPNS_11InstructionEEEbRKT0_.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %88 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 33
@@ -34850,7 +34850,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase10CreateAShrEPNS_5ValueES2_RKNS_5TwineEb.exit
 
 _ZN4llvm13IRBuilderBase10CreateAShrEPNS_5ValueES2_RKNS_5TwineEb.exit: ; preds = %1, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i = phi ptr [ %29, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %26, %1 ]
+  %.1.i = phi ptr [ %26, %1 ], [ %29, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.1.i
 }
@@ -35152,7 +35152,7 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit46: ; preds = %_ZN4llvm
   br label %96
 
 96:                                               ; preds = %4, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit46, %48, %34
-  %.0 = phi ptr [ %37, %34 ], [ %56, %48 ], [ %95, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit46 ], [ %2, %4 ]
+  %.0 = phi ptr [ %95, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit46 ], [ %37, %34 ], [ %56, %48 ], [ %2, %4 ]
   ret ptr %.0
 }
 
@@ -35251,7 +35251,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
   br label %_ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit.thread
 
 _ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit.thread: ; preds = %.lr.ph.i.i.i, %12, %21, %4, %_ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit
-  %.013 = phi ptr [ %38, %_ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit ], [ %1, %4 ], [ %18, %21 ], [ %18, %12 ], [ %18, %.lr.ph.i.i.i ]
+  %.013 = phi ptr [ %1, %4 ], [ %38, %_ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit ], [ %18, %12 ], [ %18, %21 ], [ %18, %.lr.ph.i.i.i ]
   ret ptr %.013
 }
 
@@ -39172,7 +39172,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i357: 
   br i1 %.3, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i357, %.lr.ph
-  %.1144638 = phi i32 [ %.2145, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i357 ], [ %.0143649, %.lr.ph ]
+  %.1144638 = phi i32 [ %.0143649, %.lr.ph ], [ %.2145, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i357 ]
   %1125 = lshr i32 %.0148648, 1
   %1126 = icmp ne i32 %1125, 0
   %1127 = icmp ne i32 %.1144638, 0
@@ -45053,7 +45053,7 @@ _ZN4llvm15OpenMPIRBuilder20getOrCreateSrcLocStrERKNS0_19LocationDescriptionERj.e
   br label %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_15OpenMPIRBuilder13ReductionInfoEEEZNS2_16createReductionsERKNS2_19LocationDescriptionENS_13IRBuilderBase11InsertPointES4_NS1_IbEEbE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6all_ofIRNS_8ArrayRefINS_15OpenMPIRBuilder13ReductionInfoEEEZNS2_16createReductionsERKNS2_19LocationDescriptionENS_13IRBuilderBase11InsertPointES4_NS1_IbEEbE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit.thread.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit34.thread.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit39.thread.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit44.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit49.thread.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit54.thread.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit59.thread.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit59.i.i.i.i.i"
-  %.028.i.i.i.i.i = phi ptr [ %.02979.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit.thread.i.i.i.i.i" ], [ %159, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit34.thread.i.i.i.i.i" ], [ %169, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit39.thread.i.i.i.i.i" ], [ %179, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit44.thread.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit49.thread.i.i.i.i.i" ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit54.thread.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit59.thread.i.i.i.i.i" ], [ %69, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit59.i.i.i.i.i" ], [ %69, %._crit_edge.i.i.i.i.i ]
+  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit54.thread.i.i.i.i.i" ], [ %.02979.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit.thread.i.i.i.i.i" ], [ %159, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit34.thread.i.i.i.i.i" ], [ %169, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit39.thread.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit59.thread.i.i.i.i.i" ], [ %179, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit44.thread.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit49.thread.i.i.i.i.i" ], [ %69, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15OpenMPIRBuilder16createReductionsERKNS3_19LocationDescriptionENS2_13IRBuilderBase11InsertPointENS2_8ArrayRefINS3_13ReductionInfoEEENS9_IbEEbE3$_0EclIPKSA_EEbT_.exit59.i.i.i.i.i" ], [ %69, %._crit_edge.i.i.i.i.i ]
   %223 = icmp eq ptr %69, %.028.i.i.i.i.i
   %224 = load i32, ptr %43, align 4, !tbaa !233
   %225 = select i1 %223, i32 16, i32 0
@@ -45457,8 +45457,8 @@ _ZN4llvm8ExpectedINS_13IRBuilderBase11InsertPointEED2Ev.exit: ; preds = %382, %_
   %.not454 = icmp eq ptr %388, %69
   br i1 %.not454, label %.critedge160, label %328
 
-.critedge:                                        ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, %.loopexit460
-  %389 = phi i8 [ %347, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ %.pre534, %.loopexit460 ]
+.critedge:                                        ; preds = %.loopexit460, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+  %389 = phi i8 [ %.pre534, %.loopexit460 ], [ %347, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ]
   %390 = trunc i8 %389 to i1
   br i1 %390, label %391, label %_ZN4llvm8ExpectedINS_13IRBuilderBase11InsertPointEED2Ev.exit231
 
@@ -45641,7 +45641,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit: ; preds = %.lr.ph.i.i.i
   br label %"_ZN4llvm7none_ofIRNS_8ArrayRefIbEEZNS_15OpenMPIRBuilder16createReductionsERKNS4_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS1_INS4_13ReductionInfoEEES2_bE3$_1EEbOT_T0_.exit"
 
 "_ZN4llvm7none_ofIRNS_8ArrayRefIbEEZNS_15OpenMPIRBuilder16createReductionsERKNS4_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS1_INS4_13ReductionInfoEEES2_bE3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i250, %"_ZN4llvm7none_ofIRNS_8ArrayRefIbEEZNS_15OpenMPIRBuilder16createReductionsERKNS4_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS1_INS4_13ReductionInfoEEES2_bE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7none_ofIRNS_8ArrayRefIbEEZNS_15OpenMPIRBuilder16createReductionsERKNS4_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS1_INS4_13ReductionInfoEEES2_bE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit596", %"_ZN4llvm7none_ofIRNS_8ArrayRefIbEEZNS_15OpenMPIRBuilder16createReductionsERKNS4_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS1_INS4_13ReductionInfoEEES2_bE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit598", %447, %451, %455
-  %.028.i.i.i.i.i248 = phi ptr [ %.029.lcssa.i.i.i.i.i246, %447 ], [ %.1.i.i.i.i.i249, %451 ], [ %.2.i.i.i.i.i247, %455 ], [ %457, %"_ZN4llvm7none_ofIRNS_8ArrayRefIbEEZNS_15OpenMPIRBuilder16createReductionsERKNS4_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS1_INS4_13ReductionInfoEEES2_bE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %458, %"_ZN4llvm7none_ofIRNS_8ArrayRefIbEEZNS_15OpenMPIRBuilder16createReductionsERKNS4_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS1_INS4_13ReductionInfoEEES2_bE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit596" ], [ %459, %"_ZN4llvm7none_ofIRNS_8ArrayRefIbEEZNS_15OpenMPIRBuilder16createReductionsERKNS4_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS1_INS4_13ReductionInfoEEES2_bE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit598" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i250 ]
+  %.028.i.i.i.i.i248 = phi ptr [ %.1.i.i.i.i.i249, %451 ], [ %.029.lcssa.i.i.i.i.i246, %447 ], [ %.2.i.i.i.i.i247, %455 ], [ %459, %"_ZN4llvm7none_ofIRNS_8ArrayRefIbEEZNS_15OpenMPIRBuilder16createReductionsERKNS4_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS1_INS4_13ReductionInfoEEES2_bE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit598" ], [ %458, %"_ZN4llvm7none_ofIRNS_8ArrayRefIbEEZNS_15OpenMPIRBuilder16createReductionsERKNS4_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS1_INS4_13ReductionInfoEEES2_bE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit596" ], [ %457, %"_ZN4llvm7none_ofIRNS_8ArrayRefIbEEZNS_15OpenMPIRBuilder16createReductionsERKNS4_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS1_INS4_13ReductionInfoEEES2_bE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i250 ]
   %460 = icmp eq ptr %427, %.028.i.i.i.i.i248
   br i1 %460, label %"_ZN4llvm7none_ofIRNS_8ArrayRefIbEEZNS_15OpenMPIRBuilder16createReductionsERKNS4_19LocationDescriptionENS_13IRBuilderBase11InsertPointENS1_INS4_13ReductionInfoEEES2_bE3$_1EEbOT_T0_.exit.thread", label %527
 
@@ -45794,8 +45794,8 @@ _ZN4llvm8ExpectedINS_13IRBuilderBase11InsertPointEED2Ev.exit277: ; preds = %500,
   %.not156 = icmp eq ptr %505, %69
   br i1 %.not156, label %.critedge164, label %462
 
-.critedge162:                                     ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i258, %.loopexit459
-  %506 = phi i8 [ %475, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i258 ], [ %.pre535, %.loopexit459 ]
+.critedge162:                                     ; preds = %.loopexit459, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i258
+  %506 = phi i8 [ %.pre535, %.loopexit459 ], [ %475, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i258 ]
   %507 = trunc i8 %506 to i1
   br i1 %507, label %508, label %_ZN4llvm8ExpectedINS_13IRBuilderBase11InsertPointEED2Ev.exit281
 
@@ -46141,8 +46141,8 @@ _ZN4llvm8ExpectedINS_13IRBuilderBase11InsertPointEED2Ev.exit339: ; preds = %633,
   %.not455 = icmp eq ptr %639, %69
   br i1 %.not455, label %.critedge168, label %569
 
-.critedge166:                                     ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i320, %.loopexit
-  %640 = phi i8 [ %599, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i320 ], [ %.pre538, %.loopexit ]
+.critedge166:                                     ; preds = %.loopexit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i320
+  %640 = phi i8 [ %.pre538, %.loopexit ], [ %599, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i320 ]
   %641 = trunc i8 %640 to i1
   br i1 %641, label %642, label %_ZN4llvm8ExpectedINS_13IRBuilderBase11InsertPointEED2Ev.exit343
 
@@ -47937,7 +47937,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %57, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit, label %.lr.ph.i.i.i, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit: ; preds = %.lr.ph, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit, %54, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i
-  %.1.i = phi ptr [ %44, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %44, %54 ], [ %44, %.lr.ph ], [ %46, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
+  %.1.i = phi ptr [ %44, %54 ], [ %44, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %44, %.lr.ph ], [ %46, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
   %58 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 1) #30
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_4User9AllocInfoENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %58, ptr noundef %.1.i, i32 1, ptr null, i64 0) #30
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -48090,7 +48090,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %30, label %._crit_edge, label %.lr.ph.i.i, !llvm.loop !1005
 
 ._crit_edge:                                      ; preds = %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.loopexit, %.lr.ph, %27, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit
-  %.1 = phi ptr [ %15, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit ], [ %.0.34, %27 ], [ %.01632, %.lr.ph ], [ %19, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.loopexit ]
+  %.1 = phi ptr [ %15, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit ], [ %.0.34, %27 ], [ %19, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.loopexit ], [ %.01632, %.lr.ph ]
   ret ptr %.1
 }
 
@@ -48895,7 +48895,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %176, label %.loopexit310, label %.lr.ph.i.i.i.i, !llvm.loop !1005
 
 .loopexit310:                                     ; preds = %.lr.ph.i, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i, %173, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i
-  %.1.i.i = phi ptr [ %163, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i ], [ %163, %173 ], [ %165, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i ], [ %163, %.lr.ph.i ]
+  %.1.i.i = phi ptr [ %163, %173 ], [ %163, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i ], [ %163, %.lr.ph.i ], [ %165, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i ]
   %177 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 48
   %178 = load ptr, ptr %177, align 8, !tbaa !97, !noalias !1581
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -49414,7 +49414,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %386, label %.loopexit, label %.lr.ph.i.i.i.i177, !llvm.loop !1005
 
 .loopexit:                                        ; preds = %.lr.ph.i175, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i180, %383, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i171
-  %.1.i.i173 = phi ptr [ %373, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i171 ], [ %373, %383 ], [ %375, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i180 ], [ %373, %.lr.ph.i175 ]
+  %.1.i.i173 = phi ptr [ %373, %383 ], [ %373, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i171 ], [ %373, %.lr.ph.i175 ], [ %375, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i180 ]
   %387 = getelementptr inbounds nuw i8, ptr %.1.i.i173, i64 48
   %388 = load ptr, ptr %387, align 8, !tbaa !97, !noalias !1587
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -49523,7 +49523,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %426, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit, label %.lr.ph.i.i.i, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit: ; preds = %.lr.ph, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit, %423, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i
-  %.1.i201 = phi ptr [ %413, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %413, %423 ], [ %413, %.lr.ph ], [ %415, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
+  %.1.i201 = phi ptr [ %413, %423 ], [ %413, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %413, %.lr.ph ], [ %415, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
   %427 = getelementptr inbounds nuw i8, ptr %.1.i201, i64 48
   %428 = load ptr, ptr %427, align 8, !tbaa !97
   %429 = icmp ne ptr %427, %428
@@ -50438,7 +50438,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %96, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit72, label %.lr.ph.i.i.i69, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit72: ; preds = %.lr.ph210, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i63.loopexit, %93, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i60
-  %.1.i68 = phi ptr [ %83, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i60 ], [ %83, %93 ], [ %83, %.lr.ph210 ], [ %85, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i63.loopexit ]
+  %.1.i68 = phi ptr [ %83, %93 ], [ %83, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i60 ], [ %83, %.lr.ph210 ], [ %85, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i63.loopexit ]
   %97 = getelementptr inbounds nuw i8, ptr %.1.i68, i64 72
   %98 = load ptr, ptr %97, align 8, !tbaa !114
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -50532,7 +50532,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %146, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit88, label %.lr.ph.i.i.i85, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit88: ; preds = %.lr.ph217, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i79.loopexit, %143, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i76
-  %.1.i84 = phi ptr [ %133, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i76 ], [ %133, %143 ], [ %133, %.lr.ph217 ], [ %135, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i79.loopexit ]
+  %.1.i84 = phi ptr [ %133, %143 ], [ %133, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i76 ], [ %133, %.lr.ph217 ], [ %135, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i79.loopexit ]
   %147 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %148 = load ptr, ptr %147, align 8, !tbaa !869
   %149 = load i8, ptr %148, align 8, !tbaa !98
@@ -50588,7 +50588,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %171, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit104, label %.lr.ph.i.i.i101, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit104: ; preds = %.lr.ph224, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i95.loopexit, %168, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i92
-  %.1.i100 = phi ptr [ %158, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i92 ], [ %158, %168 ], [ %158, %.lr.ph224 ], [ %160, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i95.loopexit ]
+  %.1.i100 = phi ptr [ %158, %168 ], [ %158, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i92 ], [ %158, %.lr.ph224 ], [ %160, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i95.loopexit ]
   %172 = getelementptr inbounds nuw i8, ptr %.1.i100, i64 56
   %173 = load ptr, ptr %172, align 8, !tbaa !75
   %.not.i107 = icmp eq ptr %.1.i84, null
@@ -50891,7 +50891,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %288, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit130, label %.lr.ph.i.i.i127, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit130: ; preds = %.lr.ph231, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i121.loopexit, %285, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i118
-  %.1.i126 = phi ptr [ %275, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i118 ], [ %275, %285 ], [ %275, %.lr.ph231 ], [ %277, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i121.loopexit ]
+  %.1.i126 = phi ptr [ %275, %285 ], [ %275, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i118 ], [ %275, %.lr.ph231 ], [ %277, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i121.loopexit ]
   %289 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %289, ptr %21, align 8, !tbaa !595
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %289, ptr noundef nonnull align 1 dereferenceable(11) @.str.310, i64 11, i1 false)
@@ -51590,7 +51590,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %23, %25
   unreachable
 
 _ZL25getOpenMPBaseScheduleTypeN4llvm3omp12ScheduleKindEbb.exit.i: ; preds = %38, %37, %35, %33, %32
-  %.0.i.i = phi i32 [ %34, %33 ], [ %36, %35 ], [ 6, %37 ], [ %39, %38 ], [ %6, %32 ]
+  %.0.i.i = phi i32 [ %34, %33 ], [ %39, %38 ], [ %36, %35 ], [ 6, %37 ], [ %6, %32 ]
   %41 = select i1 %11, i32 64, i32 32
   %42 = or disjoint i32 %.0.i.i, %41
   %43 = icmp eq i32 %42, 78
@@ -51980,7 +51980,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %126, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit, label %.lr.ph.i.i.i, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit: ; preds = %.lr.ph, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit, %123, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i
-  %.1.i = phi ptr [ %113, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %113, %123 ], [ %113, %.lr.ph ], [ %115, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
+  %.1.i = phi ptr [ %113, %123 ], [ %113, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %113, %.lr.ph ], [ %115, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
   %127 = getelementptr inbounds nuw i8, ptr %.1.i, i64 48
   %128 = load ptr, ptr %127, align 8, !tbaa !97
   %129 = icmp ne ptr %127, %128
@@ -52764,7 +52764,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %53, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit, label %.lr.ph.i.i.i, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit: ; preds = %.lr.ph, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit, %50, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i
-  %.1.i = phi ptr [ %40, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %40, %50 ], [ %40, %.lr.ph ], [ %42, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
+  %.1.i = phi ptr [ %40, %50 ], [ %40, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %40, %.lr.ph ], [ %42, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
   %54 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !1014
   %56 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %55) #30
@@ -52922,7 +52922,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %111, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !1005
 
 .loopexit:                                        ; preds = %.lr.ph.i, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i, %108, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i
-  %.1.i.i = phi ptr [ %98, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i ], [ %98, %108 ], [ %100, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i ], [ %98, %.lr.ph.i ]
+  %.1.i.i = phi ptr [ %98, %108 ], [ %98, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i ], [ %98, %.lr.ph.i ], [ %100, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i ]
   %112 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 48
   %113 = load ptr, ptr %112, align 8, !tbaa !97, !noalias !1633
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -53317,7 +53317,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i1
   br label %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit
 
 _ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit: ; preds = %_ZN4llvm13IRBuilderBase10CreateURemEPNS_5ValueES2_RKNS_5TwineE.exit, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i146
-  %.1.i137 = phi ptr [ %277, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i146 ], [ %275, %_ZN4llvm13IRBuilderBase10CreateURemEPNS_5ValueES2_RKNS_5TwineE.exit ]
+  %.1.i137 = phi ptr [ %275, %_ZN4llvm13IRBuilderBase10CreateURemEPNS_5ValueES2_RKNS_5TwineE.exit ], [ %277, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %290 = icmp sgt i64 %indvars.iv, 1
@@ -53412,7 +53412,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %337, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit162, label %.lr.ph.i.i.i159, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit162: ; preds = %.lr.ph270, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i153.loopexit, %334, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i150
-  %.1.i158 = phi ptr [ %324, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i150 ], [ %324, %334 ], [ %324, %.lr.ph270 ], [ %326, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i153.loopexit ]
+  %.1.i158 = phi ptr [ %324, %334 ], [ %324, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i150 ], [ %324, %.lr.ph270 ], [ %326, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i153.loopexit ]
   %338 = load ptr, ptr %139, align 8, !tbaa !999
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 16
   br label %.lr.ph.i.i.i.i.i163
@@ -53464,7 +53464,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %360, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit178, label %.lr.ph.i.i.i175, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit178: ; preds = %.lr.ph277, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i169.loopexit, %357, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i166
-  %.1.i174 = phi ptr [ %347, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i166 ], [ %347, %357 ], [ %347, %.lr.ph277 ], [ %349, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i169.loopexit ]
+  %.1.i174 = phi ptr [ %347, %357 ], [ %347, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i166 ], [ %347, %.lr.ph277 ], [ %349, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i169.loopexit ]
   %361 = load ptr, ptr %1, align 8, !tbaa !104
   store ptr %361, ptr %22, align 8, !tbaa !104
   %.not.i.i.i.i179 = icmp eq ptr %361, null
@@ -53676,7 +53676,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %36, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit, label %.lr.ph.i.i.i, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit: ; preds = %.lr.ph, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit, %33, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i
-  %.1.i = phi ptr [ %23, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %23, %33 ], [ %23, %.lr.ph ], [ %25, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
+  %.1.i = phi ptr [ %23, %33 ], [ %23, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %23, %.lr.ph ], [ %25, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !1006
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -54076,7 +54076,7 @@ _ZN4llvm11SmallPtrSetIPNS_10BasicBlockELj6EEC2IPKS2_EET_S7_.exit: ; preds = %_ZN
   br i1 %.not21.not.i.i, label %"_ZZL28removeUnusedBlocksFromParentN4llvm8ArrayRefIPNS_10BasicBlockEEEENK3$_0clES2_.exit.i", label %.lr.ph.i.i5
 
 .loopexit.i:                                      ; preds = %46, %51, %..loopexit.i.loopexit19_crit_edge
-  %59 = phi i32 [ %.pre.pre, %..loopexit.i.loopexit19_crit_edge ], [ %48, %51 ], [ 0, %46 ]
+  %59 = phi i32 [ %48, %51 ], [ %.pre.pre, %..loopexit.i.loopexit19_crit_edge ], [ 0, %46 ]
   %60 = getelementptr inbounds i8, ptr %.02354.i, i64 -8
   %61 = load ptr, ptr %60, align 8, !tbaa !638
   store ptr %61, ptr %.02055.i, align 8, !tbaa !638
@@ -54171,7 +54171,7 @@ _ZN4llvm11SmallPtrSetIPNS_10BasicBlockELj6EEC2IPKS2_EET_S7_.exit: ; preds = %_ZN
   br label %"_ZZL28removeUnusedBlocksFromParentN4llvm8ArrayRefIPNS_10BasicBlockEEEENK3$_0clES2_.exit42.i"
 
 "_ZZL28removeUnusedBlocksFromParentN4llvm8ArrayRefIPNS_10BasicBlockEEEENK3$_0clES2_.exit42.i": ; preds = %.thread.i34.i, %.loopexit47.i, %70, %.lr.ph.i
-  %.3.i = phi i1 [ true, %.loopexit47.i ], [ %.252.i, %70 ], [ %.252.i, %.lr.ph.i ], [ %.252.i, %.thread.i34.i ]
+  %.3.i = phi i1 [ %.252.i, %70 ], [ %.252.i, %.lr.ph.i ], [ true, %.loopexit47.i ], [ %.252.i, %.thread.i34.i ]
   %96 = getelementptr inbounds nuw i8, ptr %.02251.i, i64 8
   %.not.i = icmp eq ptr %96, %68
   br i1 %.not.i, label %"_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE9remove_ifIZL28removeUnusedBlocksFromParentNS_8ArrayRefIS2_EEE3$_0EEbT_.exit", label %.lr.ph.i, !llvm.loop !1651
@@ -54629,7 +54629,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %175, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !1005
 
 .loopexit:                                        ; preds = %.lr.ph.i, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i, %172, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i
-  %.1.i.i = phi ptr [ %162, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i ], [ %162, %172 ], [ %164, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i ], [ %162, %.lr.ph.i ]
+  %.1.i.i = phi ptr [ %162, %172 ], [ %162, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i ], [ %162, %.lr.ph.i ], [ %164, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i ]
   %176 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 48
   %177 = load ptr, ptr %176, align 8, !tbaa !97, !noalias !1653
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -54831,7 +54831,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %266, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit, label %.lr.ph.i.i.i, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit: ; preds = %.lr.ph314, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit, %263, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i
-  %.1.i = phi ptr [ %253, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %253, %263 ], [ %253, %.lr.ph314 ], [ %255, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
+  %.1.i = phi ptr [ %253, %263 ], [ %253, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %253, %.lr.ph314 ], [ %255, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
   store ptr %.1.i, ptr %30, align 8, !tbaa !615
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %267 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -54989,7 +54989,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i:
   br label %_ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit
 
 _ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit: ; preds = %311, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i
-  %.1.i133 = phi ptr [ %325, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ], [ %323, %311 ]
+  %.1.i133 = phi ptr [ %323, %311 ], [ %325, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i16 257, ptr %201, align 8
@@ -55788,8 +55788,8 @@ define internal fastcc void @"_ZZN4llvm15OpenMPIRBuilder9tileLoopsENS_8DebugLocE
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %23, %26, %27
-  %.sink42 = phi i8 [ 11, %26 ], [ %.014.i.i, %27 ], [ %25, %23 ]
-  %.sink = phi i8 [ 1, %26 ], [ 11, %27 ], [ 1, %23 ]
+  %.sink42 = phi i8 [ %.014.i.i, %27 ], [ 11, %26 ], [ %25, %23 ]
+  %.sink = phi i8 [ 11, %27 ], [ 1, %26 ], [ 1, %23 ]
   store i8 %.sink42, ptr %11, align 8, !tbaa !113
   store i8 %.sink, ptr %12, align 1, !tbaa !113
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -55874,7 +55874,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %66, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit.i: ; preds = %.lr.ph.i, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i, %63, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i
-  %.1.i.i = phi ptr [ %53, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i ], [ %53, %63 ], [ %55, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i ], [ %53, %.lr.ph.i ]
+  %.1.i.i = phi ptr [ %53, %63 ], [ %53, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i ], [ %53, %.lr.ph.i ], [ %55, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i ]
   %67 = load ptr, ptr %15, align 8, !tbaa !104
   store ptr %67, ptr %5, align 8, !tbaa !104
   %.not.i.i.i.i10.i = icmp eq ptr %67, null
@@ -56127,7 +56127,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %48, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit, label %.lr.ph.i.i.i, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit: ; preds = %.lr.ph, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit, %45, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i
-  %.1.i = phi ptr [ %35, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %35, %45 ], [ %35, %.lr.ph ], [ %37, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
+  %.1.i = phi ptr [ %35, %45 ], [ %35, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i ], [ %35, %.lr.ph ], [ %37, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit ]
   %49 = getelementptr inbounds nuw i8, ptr %.1.i, i64 48
   %50 = load ptr, ptr %49, align 8, !tbaa !97
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -56279,8 +56279,8 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit55:     ; preds = %_ZNK4llvm12LoopInfo
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit55, %107, %108
-  %.sink202 = phi i8 [ 3, %107 ], [ %.014.i.i, %108 ], [ %106, %_ZN4llvm10BasicBlock13getTerminatorEv.exit55 ]
-  %.sink = phi i8 [ 1, %107 ], [ 3, %108 ], [ 1, %_ZN4llvm10BasicBlock13getTerminatorEv.exit55 ]
+  %.sink202 = phi i8 [ %.014.i.i, %108 ], [ 3, %107 ], [ %106, %_ZN4llvm10BasicBlock13getTerminatorEv.exit55 ]
+  %.sink = phi i8 [ 3, %108 ], [ 1, %107 ], [ 1, %_ZN4llvm10BasicBlock13getTerminatorEv.exit55 ]
   %113 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i8 %.sink202, ptr %113, align 8, !tbaa !113
   %114 = getelementptr inbounds nuw i8, ptr %17, i64 33
@@ -56327,8 +56327,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvm10BasicBloc
   br label %_ZN4llvmplERKNS_5TwineES2_.exit72
 
 _ZN4llvmplERKNS_5TwineES2_.exit72:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %124, %125
-  %.sink206 = phi i8 [ 3, %124 ], [ %.014.i.i61, %125 ], [ %123, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %.sink204 = phi i8 [ 1, %124 ], [ 3, %125 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %.sink206 = phi i8 [ %.014.i.i61, %125 ], [ 3, %124 ], [ %123, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %.sink204 = phi i8 [ 3, %125 ], [ 1, %124 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   %130 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i8 %.sink206, ptr %130, align 8, !tbaa !113
   %131 = getelementptr inbounds nuw i8, ptr %18, i64 33
@@ -56488,7 +56488,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %198, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit93, label %.lr.ph.i.i.i90, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit93: ; preds = %.lr.ph141, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i84.loopexit, %195, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i81
-  %.1.i89 = phi ptr [ %185, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i81 ], [ %185, %195 ], [ %185, %.lr.ph141 ], [ %187, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i84.loopexit ]
+  %.1.i89 = phi ptr [ %185, %195 ], [ %185, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i81 ], [ %185, %.lr.ph141 ], [ %187, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i84.loopexit ]
   store ptr %.1.i89, ptr %20, align 8, !tbaa !232
   %199 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(57) %3, ptr noundef nonnull align 8 dereferenceable(8) %20)
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
@@ -56849,8 +56849,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_5ValueENS_14Wea
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEES6_NS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_S6_EEEESC_S6_SE_SH_EixEOSC_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEES6_NS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_S6_EEEESC_S6_SE_SH_EixEOSC_.exit: ; preds = %32, %14, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEES6_NS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_S6_EEEESC_S6_SE_SH_E15LookupBucketForISC_EEbRKT_RPSH_.exit.i
-  %magicptr.i.i.pre-phi = phi i64 [ %16, %14 ], [ %.pre8, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEES6_NS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_S6_EEEESC_S6_SE_SH_E15LookupBucketForISC_EEbRKT_RPSH_.exit.i ], [ %16, %32 ]
-  %.pn.i = phi ptr [ %23, %14 ], [ %42, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEES6_NS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_S6_EEEESC_S6_SE_SH_E15LookupBucketForISC_EEbRKT_RPSH_.exit.i ], [ %38, %32 ]
+  %magicptr.i.i.pre-phi = phi i64 [ %.pre8, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEES6_NS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_S6_EEEESC_S6_SE_SH_E15LookupBucketForISC_EEbRKT_RPSH_.exit.i ], [ %16, %14 ], [ %16, %32 ]
+  %.pn.i = phi ptr [ %42, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEES6_NS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_S6_EEEESC_S6_SE_SH_E15LookupBucketForISC_EEbRKT_RPSH_.exit.i ], [ %23, %14 ], [ %38, %32 ]
   switch i64 %magicptr.i.i.pre-phi, label %43 [
     i64 0, label %_ZN4llvm10CallbackVHD2Ev.exit
     i64 -4096, label %_ZN4llvm10CallbackVHD2Ev.exit
@@ -57063,7 +57063,7 @@ _ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit10: ; pred
   br label %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit10.thread
 
 _ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit10.thread: ; preds = %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit10, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit.thread, %32, %30, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit
-  %.0 = phi i32 [ 512, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit ], [ 128, %30 ], [ %.5, %32 ], [ 128, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit.thread ], [ %spec.select, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit10 ]
+  %.0 = phi i32 [ 128, %30 ], [ %.5, %32 ], [ 512, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit ], [ 128, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit.thread ], [ %spec.select, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit10 ]
   ret i32 %.0
 }
 
@@ -57569,11 +57569,11 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   br label %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit
 
 _ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %222, %202, %211
-  %228 = phi i32 [ %203, %202 ], [ %203, %211 ], [ %226, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre161, %222 ], [ %203, %.lr.ph.i.i ]
-  %229 = phi i32 [ %204, %202 ], [ %204, %211 ], [ %227, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %204, %222 ], [ %204, %.lr.ph.i.i ]
-  %230 = phi i32 [ %205, %202 ], [ %205, %211 ], [ %226, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre161, %222 ], [ %203, %.lr.ph.i.i ]
-  %231 = phi ptr [ %206, %202 ], [ %206, %211 ], [ %.pre5.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %224, %222 ], [ %206, %.lr.ph.i.i ]
-  %232 = phi i8 [ %207, %202 ], [ %207, %211 ], [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %222 ], [ 1, %.lr.ph.i.i ]
+  %228 = phi i32 [ %203, %211 ], [ %203, %202 ], [ %226, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre161, %222 ], [ %203, %.lr.ph.i.i ]
+  %229 = phi i32 [ %204, %211 ], [ %204, %202 ], [ %227, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %204, %222 ], [ %204, %.lr.ph.i.i ]
+  %230 = phi i32 [ %205, %211 ], [ %205, %202 ], [ %226, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre161, %222 ], [ %203, %.lr.ph.i.i ]
+  %231 = phi ptr [ %206, %211 ], [ %206, %202 ], [ %.pre5.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %224, %222 ], [ %206, %.lr.ph.i.i ]
+  %232 = phi i8 [ %207, %211 ], [ %207, %202 ], [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %222 ], [ 1, %.lr.ph.i.i ]
   %233 = getelementptr inbounds nuw i8, ptr %.074151, i64 8
   %.not79 = icmp eq ptr %233, %195
   br i1 %.not79, label %._crit_edge154, label %202
@@ -63231,7 +63231,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZN
   br i1 %88, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !728
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %85, %83, %79, %75, %71
-  %.0.i.i = phi i32 [ %76, %75 ], [ %80, %79 ], [ %84, %83 ], [ 1, %71 ], [ %87, %85 ]
+  %.0.i.i = phi i32 [ %84, %83 ], [ %76, %75 ], [ %80, %79 ], [ 1, %71 ], [ %87, %85 ]
   %.lobit.i = lshr i32 %2, 31
   %89 = add i32 %.0.i.i, %.lobit.i
   %90 = zext i32 %89 to i64
@@ -63363,7 +63363,7 @@ define dso_local void @_ZN4llvm15OpenMPIRBuilder26writeThreadBoundsForKernelERKN
   br i1 %30, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !728
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %27, %25, %21, %17, %4
-  %.0.i.i = phi i32 [ %18, %17 ], [ %22, %21 ], [ %26, %25 ], [ 1, %4 ], [ %29, %27 ]
+  %.0.i.i = phi i32 [ %26, %25 ], [ %18, %17 ], [ %22, %21 ], [ 1, %4 ], [ %29, %27 ]
   %.lobit.i = lshr i32 %3, 31
   %31 = add i32 %.0.i.i, %.lobit.i
   %32 = zext i32 %31 to i64
@@ -64069,8 +64069,8 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %24, %25
   br label %47
 
 47:                                               ; preds = %35, %44, %45, %13, %15
-  %.sroa.041.0 = phi i64 [ 0, %15 ], [ 0, %13 ], [ %46, %45 ], [ 0, %44 ], [ 0, %35 ]
-  %.sroa.742.0 = phi i32 [ %9, %15 ], [ %9, %13 ], [ %39, %45 ], [ %39, %44 ], [ %9, %35 ]
+  %.sroa.041.0 = phi i64 [ 0, %13 ], [ 0, %15 ], [ %46, %45 ], [ 0, %44 ], [ 0, %35 ]
+  %.sroa.742.0 = phi i32 [ %9, %13 ], [ %9, %15 ], [ %39, %45 ], [ %39, %44 ], [ %9, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
@@ -64226,7 +64226,7 @@ _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %44
   %.not78 = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not78, label %.thread70, label %.thread66
 
-.thread66:                                        ; preds = %_ZN4llvmneENS_9StringRefES0_.exit, %40, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread, %_ZNK4llvm6MDNode10getOperandEj.exit46, %_ZNK4llvm6MDNode10getOperandEj.exit, %25, %_ZNK4llvm6MDNode14getNumOperandsEv.exit
+.thread66:                                        ; preds = %_ZN4llvmneENS_9StringRefES0_.exit, %40, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread, %_ZNK4llvm6MDNode10getOperandEj.exit46, %25, %_ZNK4llvm6MDNode10getOperandEj.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit
   %45 = add nuw i32 %.sroa.4.080, 1
   %.not73 = icmp eq i32 %45, %7
   br i1 %.not73, label %.thread70, label %.lr.ph
@@ -64969,7 +64969,7 @@ _ZNKSt3mapIN4llvm21TargetRegionEntryInfoENS0_25OffloadEntriesInfoManager28Offloa
   br label %_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit
 
 _ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit: ; preds = %53, %_ZN4llvm21TargetRegionEntryInfoC2ERKS0_.exit, %_ZNKSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_NS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %_ZNKSt3mapIN4llvm21TargetRegionEntryInfoENS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i, %50
-  %.0.i = phi i1 [ false, %_ZNKSt3mapIN4llvm21TargetRegionEntryInfoENS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i ], [ false, %50 ], [ false, %_ZNKSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_NS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i ], [ false, %_ZN4llvm21TargetRegionEntryInfoC2ERKS0_.exit ], [ %.not2.i, %53 ]
+  %.0.i = phi i1 [ false, %_ZNKSt3mapIN4llvm21TargetRegionEntryInfoENS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i ], [ false, %_ZNKSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_NS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i ], [ %.not2.i, %53 ], [ false, %50 ], [ false, %_ZN4llvm21TargetRegionEntryInfoC2ERKS0_.exit ]
   %56 = load ptr, ptr %12, align 8, !tbaa !597
   %57 = icmp eq ptr %56, %22
   br i1 %57, label %_ZN4llvm21TargetRegionEntryInfoD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -64981,7 +64981,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4llvm21TargetRegionEntryInfoD2Ev.exit
 
 _ZN4llvm21TargetRegionEntryInfoD2Ev.exit:         ; preds = %_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  br i1 %.0.i, label %60, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i36.thread
+  br i1 %.0.i, label %60, label %_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34.thread58
 
 60:                                               ; preds = %_ZN4llvm21TargetRegionEntryInfoD2Ev.exit
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -65142,26 +65142,26 @@ _ZNKSt3mapIN4llvm21TargetRegionEntryInfoENS0_25OffloadEntriesInfoManager28Offloa
 110:                                              ; preds = %_ZNKSt3mapIN4llvm21TargetRegionEntryInfoENS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i32, %_ZNKSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_NS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i31, %_ZN4llvm21TargetRegionEntryInfoC2ERKS0_.exit21
   %111 = load ptr, ptr %13, align 8, !tbaa !597
   %112 = icmp eq ptr %111, %82
-  br i1 %112, label %_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34.thread54, label %_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34
+  br i1 %112, label %_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34.thread54, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i35
 
 .thread:                                          ; preds = %_ZNKSt3mapIN4llvm21TargetRegionEntryInfoENS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.i32
   %113 = load ptr, ptr %13, align 8, !tbaa !597
   %114 = icmp eq ptr %113, %82
-  br i1 %114, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i36.thread, label %_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34.thread59
+  br i1 %114, label %_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34.thread58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i35.thread
 
-_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34.thread59: ; preds = %.thread
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i35.thread: ; preds = %.thread
   %115 = load i64, ptr %82, align 8, !tbaa !111
   %116 = add i64 %115, 1
   call void @_ZdlPvm(ptr noundef %113, i64 noundef %116) #32
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i36.thread
+  br label %_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34.thread58
 
-_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34: ; preds = %110
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i35: ; preds = %110
   %117 = load i64, ptr %82, align 8, !tbaa !111
   %118 = add i64 %117, 1
   call void @_ZdlPvm(ptr noundef %111, i64 noundef %118) #32
   br label %_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34.thread54
 
-_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34.thread54: ; preds = %110, %_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34, %79
+_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34.thread54: ; preds = %110, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i35, %79
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %120 = load i32, ptr %119, align 8, !tbaa !651
@@ -65299,9 +65299,9 @@ _ZN4llvm25OffloadEntriesInfoManager16OffloadEntryInfoD2Ev.exit: ; preds = %_ZN4l
 
 159:                                              ; preds = %_ZN4llvm25OffloadEntriesInfoManager16OffloadEntryInfoD2Ev.exit, %_ZN4llvm25OffloadEntriesInfoManager16OffloadEntryInfo10setAddressEPNS_8ConstantE.exit
   call void @_ZN4llvm25OffloadEntriesInfoManager35incrementTargetRegionEntryInfoCountERKNS_21TargetRegionEntryInfoE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i36.thread
+  br label %_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34.thread58
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i36.thread: ; preds = %.thread, %_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34.thread59, %_ZN4llvm21TargetRegionEntryInfoD2Ev.exit, %159
+_ZNK4llvm25OffloadEntriesInfoManager24hasTargetRegionEntryInfoENS_21TargetRegionEntryInfoEb.exit34.thread58: ; preds = %.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i35.thread, %_ZN4llvm21TargetRegionEntryInfoD2Ev.exit, %159
   ret void
 }
 
@@ -66193,7 +66193,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE18uninitialized_moveIPS
   br label %_ZN4llvm11SmallVectorIPNS_11InstructionELj4EEC2EOS3_.exit.i.i.i.i.i
 
 _ZN4llvm11SmallVectorIPNS_11InstructionELj4EEC2EOS3_.exit.i.i.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i, %_ZN4llvm15SmallVectorImplIPNS_11InstructionEE12assignRemoteEOS3_.exit.i, %_ZN4llvm11SmallVectorINS_15OpenMPIRBuilder10DependDataELj2EEC2ERKS3_.exit
-  %123 = phi i32 [ %.pre73, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i ], [ %103, %_ZN4llvm15SmallVectorImplIPNS_11InstructionEE12assignRemoteEOS3_.exit.i ], [ %103, %_ZN4llvm11SmallVectorINS_15OpenMPIRBuilder10DependDataELj2EEC2ERKS3_.exit ]
+  %123 = phi i32 [ %.pre73, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i ], [ %103, %_ZN4llvm11SmallVectorINS_15OpenMPIRBuilder10DependDataELj2EEC2ERKS3_.exit ], [ %103, %_ZN4llvm15SmallVectorImplIPNS_11InstructionEE12assignRemoteEOS3_.exit.i ]
   %124 = getelementptr inbounds nuw i8, ptr %108, i64 56
   %125 = getelementptr inbounds nuw i8, ptr %108, i64 72
   store ptr %125, ptr %124, align 8, !tbaa !25
@@ -66731,7 +66731,7 @@ _ZNK4llvm14SmallBitVector3allEv.exit:             ; preds = %._crit_edge.i.i
   br label %_ZN4llvm14SmallBitVector3setEj.exit
 
 _ZN4llvm14SmallBitVector3setEj.exit:              ; preds = %192, %181, %176, %169
-  %.sroa.0337.1 = phi i64 [ %.sroa.0337.0398, %169 ], [ %.sroa.0337.0398, %176 ], [ %.sroa.0337.0398, %192 ], [ %191, %181 ]
+  %.sroa.0337.1 = phi i64 [ %.sroa.0337.0398, %176 ], [ %.sroa.0337.0398, %169 ], [ %.sroa.0337.0398, %192 ], [ %191, %181 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %156, !llvm.loop !2111
@@ -66975,7 +66975,7 @@ _ZNK4llvm14SmallBitVector3anyEv.exit.loopexit.split.loop.exit506: ; preds = %271
   br label %_ZNK4llvm14SmallBitVector3anyEv.exit
 
 _ZNK4llvm14SmallBitVector3anyEv.exit:             ; preds = %.lr.ph.i.i.i.i.i.i.i.i190, %_ZNK4llvm14SmallBitVector3anyEv.exit.loopexit.split.loop.exit, %_ZNK4llvm14SmallBitVector3anyEv.exit.loopexit.split.loop.exit504, %_ZNK4llvm14SmallBitVector3anyEv.exit.loopexit.split.loop.exit506, %285, %289, %293
-  %.028.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %285 ], [ %.1.i.i.i.i.i.i.i.i, %289 ], [ %.2.i.i.i.i.i.i.i.i, %293 ], [ %295, %_ZNK4llvm14SmallBitVector3anyEv.exit.loopexit.split.loop.exit ], [ %296, %_ZNK4llvm14SmallBitVector3anyEv.exit.loopexit.split.loop.exit504 ], [ %297, %_ZNK4llvm14SmallBitVector3anyEv.exit.loopexit.split.loop.exit506 ], [ %.02946.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i190 ]
+  %.028.i.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.i, %289 ], [ %.029.lcssa.i.i.i.i.i.i.i.i, %285 ], [ %.2.i.i.i.i.i.i.i.i, %293 ], [ %297, %_ZNK4llvm14SmallBitVector3anyEv.exit.loopexit.split.loop.exit506 ], [ %296, %_ZNK4llvm14SmallBitVector3anyEv.exit.loopexit.split.loop.exit504 ], [ %295, %_ZNK4llvm14SmallBitVector3anyEv.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i190 ]
   %.not391 = icmp eq ptr %267, %.028.i.i.i.i.i.i.i.i
   br i1 %.not391, label %_ZNK4llvm14SmallBitVector3anyEv.exit.thread, label %299
 
@@ -67806,9 +67806,9 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit291: ; preds = %_ZN4llv
   br label %644
 
 644:                                              ; preds = %.sink.split, %605, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit291, %641, %587
-  %.sroa.22.8.insert.ext.i428 = phi i64 [ %.sroa.22.8.insert.ext.i429, %605 ], [ %.sroa.22.8.insert.ext.i, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit291 ], [ %.sroa.22.8.insert.ext.i429, %641 ], [ %.sroa.22.8.insert.ext.i429, %587 ], [ %.sroa.22.8.insert.ext.i428.ph, %.sink.split ]
-  %.sroa.0.0.copyload.i.i262426 = phi ptr [ %.sroa.0.0.copyload.i.i262427, %605 ], [ %.sroa.0.0.copyload.i.i262, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit291 ], [ %.sroa.0.0.copyload.i.i262427, %641 ], [ %.sroa.0.0.copyload.i.i262427, %587 ], [ %.sroa.0.0.copyload.i.i262426.ph, %.sink.split ]
-  %645 = phi ptr [ %589, %605 ], [ %610, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit291 ], [ %589, %641 ], [ %589, %587 ], [ %.ph, %.sink.split ]
+  %.sroa.22.8.insert.ext.i428 = phi i64 [ %.sroa.22.8.insert.ext.i429, %605 ], [ %.sroa.22.8.insert.ext.i429, %587 ], [ %.sroa.22.8.insert.ext.i, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit291 ], [ %.sroa.22.8.insert.ext.i429, %641 ], [ %.sroa.22.8.insert.ext.i428.ph, %.sink.split ]
+  %.sroa.0.0.copyload.i.i262426 = phi ptr [ %.sroa.0.0.copyload.i.i262427, %605 ], [ %.sroa.0.0.copyload.i.i262427, %587 ], [ %.sroa.0.0.copyload.i.i262, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit291 ], [ %.sroa.0.0.copyload.i.i262427, %641 ], [ %.sroa.0.0.copyload.i.i262426.ph, %.sink.split ]
+  %645 = phi ptr [ %589, %605 ], [ %589, %587 ], [ %610, %_ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit291 ], [ %589, %641 ], [ %.ph, %.sink.split ]
   %646 = load ptr, ptr %568, align 8, !tbaa !25
   %647 = getelementptr inbounds nuw ptr, ptr %646, i64 %indvars.iv442
   %648 = load ptr, ptr %647, align 8, !tbaa !232
@@ -69121,7 +69121,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
   br label %_ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit.thread
 
 _ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit.thread: ; preds = %.lr.ph.i.i.i, %12, %21, %4, %_ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit
-  %.013 = phi ptr [ %38, %_ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit ], [ %1, %4 ], [ %18, %21 ], [ %18, %12 ], [ %18, %.lr.ph.i.i.i ]
+  %.013 = phi ptr [ %1, %4 ], [ %38, %_ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit ], [ %18, %12 ], [ %18, %21 ], [ %18, %.lr.ph.i.i.i ]
   ret ptr %.013
 }
 
@@ -73463,10 +73463,10 @@ _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %_ZN4llvm15OpenMPIRB
 define dso_local noundef zeroext i1 @_ZN4llvm15OpenMPIRBuilder28checkAndEmitFlushAfterAtomicERKNS0_19LocationDescriptionENS_14AtomicOrderingENS0_10AtomicKindE(ptr noundef nonnull align 8 dereferenceable(3104) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   switch i32 %3, label %.thread [
     i32 0, label %5
-    i32 1, label %6
-    i32 4, label %6
-    i32 2, label %6
-    i32 3, label %8
+    i32 1, label %8
+    i32 4, label %8
+    i32 2, label %8
+    i32 3, label %6
   ]
 
 5:                                                ; preds = %4
@@ -73476,22 +73476,22 @@ define dso_local noundef zeroext i1 @_ZN4llvm15OpenMPIRBuilder28checkAndEmitFlus
     i32 4, label %.thread20
   ]
 
-6:                                                ; preds = %4, %4, %4
-  %7 = add i32 %2, -5
-  %or.cond7 = icmp ult i32 %7, 3
-  br i1 %or.cond7, label %.thread20, label %.thread
-
-8:                                                ; preds = %4
-  %9 = and i32 %2, -4
-  %switch.selectcmp = icmp eq i32 %9, 4
+6:                                                ; preds = %4
+  %7 = and i32 %2, -4
+  %switch.selectcmp = icmp eq i32 %7, 4
   br i1 %switch.selectcmp, label %.thread20, label %.thread
+
+8:                                                ; preds = %4, %4, %4
+  %9 = add i32 %2, -5
+  %or.cond7 = icmp ult i32 %9, 3
+  br i1 %or.cond7, label %.thread20, label %.thread
 
 .thread20:                                        ; preds = %5, %5, %5, %6, %8
   tail call void @_ZN4llvm15OpenMPIRBuilder9emitFlushERKNS0_19LocationDescriptionE(ptr noundef nonnull align 8 dereferenceable(3104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %.thread
 
 .thread:                                          ; preds = %5, %4, %6, %.thread20, %8
-  %.019 = phi i1 [ true, %.thread20 ], [ false, %8 ], [ false, %6 ], [ false, %4 ], [ false, %5 ]
+  %.019 = phi i1 [ false, %6 ], [ true, %.thread20 ], [ false, %8 ], [ false, %4 ], [ false, %5 ]
   ret i1 %.019
 }
 
@@ -74164,7 +74164,7 @@ define dso_local void @_ZN4llvm15OpenMPIRBuilder16emitAtomicUpdateENS_13IRBuilde
   br label %51
 
 51:                                               ; preds = %48, %46
-  %.0.shrunk = phi i1 [ %47, %46 ], [ %50, %48 ]
+  %.0.shrunk = phi i1 [ %50, %48 ], [ %47, %46 ]
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 255
@@ -75324,8 +75324,8 @@ _ZN4llvm8ExpectedIPNS_5ValueEED2Ev.exit278:       ; preds = %606, %_ZNKSt14defau
   br i1 %509, label %615, label %611
 
 611:                                              ; preds = %57, %_ZN4llvm8ExpectedIPNS_5ValueEED2Ev.exit, %_ZN4llvm8ExpectedIPNS_5ValueEED2Ev.exit278, %61
-  %.sroa.7.0 = phi ptr [ %62, %61 ], [ %.sroa.7.1, %_ZN4llvm8ExpectedIPNS_5ValueEED2Ev.exit ], [ %.sroa.7.2, %_ZN4llvm8ExpectedIPNS_5ValueEED2Ev.exit278 ], [ %59, %57 ]
-  %.sroa.0308.0 = phi ptr [ %59, %61 ], [ %.sroa.0308.1, %_ZN4llvm8ExpectedIPNS_5ValueEED2Ev.exit ], [ %.sroa.0308.2, %_ZN4llvm8ExpectedIPNS_5ValueEED2Ev.exit278 ], [ %59, %57 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.7.2, %_ZN4llvm8ExpectedIPNS_5ValueEED2Ev.exit278 ], [ %62, %61 ], [ %.sroa.7.1, %_ZN4llvm8ExpectedIPNS_5ValueEED2Ev.exit ], [ %59, %57 ]
+  %.sroa.0308.0 = phi ptr [ %.sroa.0308.2, %_ZN4llvm8ExpectedIPNS_5ValueEED2Ev.exit278 ], [ %59, %61 ], [ %.sroa.0308.1, %_ZN4llvm8ExpectedIPNS_5ValueEED2Ev.exit ], [ %59, %57 ]
   %612 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %613 = load i8, ptr %612, align 8
   %614 = and i8 %613, -2
@@ -77713,7 +77713,7 @@ _ZNKSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_jESt10_Select1stIS4_ES
   br label %_ZNKSt3mapIN4llvm21TargetRegionEntryInfoEjSt4lessIS1_ESaISt4pairIKS1_jEEE4findERS5_.exit
 
 _ZNKSt3mapIN4llvm21TargetRegionEntryInfoEjSt4lessIS1_ESaISt4pairIKS1_jEEE4findERS5_.exit: ; preds = %_ZN4llvm25OffloadEntriesInfoManager28getTargetRegionEntryCountKeyERKNS_21TargetRegionEntryInfoE.exit, %_ZNKSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, %41
-  %.sroa.0.0.i.i = phi ptr [ %37, %_ZNKSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ %37, %_ZN4llvm25OffloadEntriesInfoManager28getTargetRegionEntryCountKeyERKNS_21TargetRegionEntryInfoE.exit ], [ %spec.select.i.i, %41 ]
+  %.sroa.0.0.i.i = phi ptr [ %37, %_ZN4llvm25OffloadEntriesInfoManager28getTargetRegionEntryCountKeyERKNS_21TargetRegionEntryInfoE.exit ], [ %37, %_ZNKSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ %spec.select.i.i, %41 ]
   %44 = load ptr, ptr %4, align 8, !tbaa !597
   %45 = icmp eq ptr %44, %14
   br i1 %45, label %_ZN4llvm21TargetRegionEntryInfoD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -78276,7 +78276,7 @@ _ZN4llvm11SmallVectorIcLj64EED2Ev.exit:           ; preds = %_ZN4llvm21TargetReg
   br label %164
 
 164:                                              ; preds = %27, %25, %13, %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit
-  %.0 = phi ptr [ %.027, %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit ], [ null, %13 ], [ null, %25 ], [ null, %27 ]
+  %.0 = phi ptr [ null, %13 ], [ %.027, %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit ], [ null, %25 ], [ null, %27 ]
   ret ptr %.0
 }
 
@@ -78871,8 +78871,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ %.fca.0.extract, %54 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ %.fca.1.extract, %54 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -80103,8 +80103,8 @@ _ZNKSt3mapIN4llvm21TargetRegionEntryInfoENS0_25OffloadEntriesInfoManager28Offloa
 21:                                               ; preds = %18, %14
   br label %_ZNKSt3mapIN4llvm21TargetRegionEntryInfoENS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread
 
-_ZNKSt3mapIN4llvm21TargetRegionEntryInfoENS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread: ; preds = %3, %_ZNKSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_NS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, %15, %18, %_ZNKSt3mapIN4llvm21TargetRegionEntryInfoENS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit, %21
-  %.0 = phi i1 [ true, %21 ], [ false, %_ZNKSt3mapIN4llvm21TargetRegionEntryInfoENS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit ], [ false, %18 ], [ false, %15 ], [ false, %_ZNKSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_NS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ false, %3 ]
+_ZNKSt3mapIN4llvm21TargetRegionEntryInfoENS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread: ; preds = %_ZNKSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_NS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, %3, %15, %18, %_ZNKSt3mapIN4llvm21TargetRegionEntryInfoENS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit, %21
+  %.0 = phi i1 [ false, %_ZNKSt3mapIN4llvm21TargetRegionEntryInfoENS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit ], [ true, %21 ], [ false, %18 ], [ false, %15 ], [ false, %3 ], [ false, %_ZNKSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_NS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i ]
   ret i1 %.0
 }
 
@@ -80424,7 +80424,7 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   br label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
 
 _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit37, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit39, %43, %38, %33
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %33 ], [ %.1.i.i.i.i.i.i, %38 ], [ %.2.i.i.i.i.i.i, %43 ], [ %46, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %47, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit37 ], [ %48, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit39 ], [ %.02946.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.028.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %38 ], [ %.029.lcssa.i.i.i.i.i.i, %33 ], [ %.2.i.i.i.i.i.i, %43 ], [ %48, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit39 ], [ %47, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit37 ], [ %46, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %.02946.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %49 = icmp eq ptr %.028.i.i.i.i.i.i, %10
   %.01730.i.i.i.i = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i.i, i64 16
   %.not31.i.i.i.i = icmp eq ptr %.01730.i.i.i.i, %10
@@ -80455,7 +80455,7 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !2470
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %57, %._crit_edge.i.i.i.i.i.i, %43, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %10, %43 ], [ %.1.i.i.i.i, %57 ]
+  %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i ], [ %10, %43 ], [ %10, %._crit_edge.i.i.i.i.i.i ], [ %.1.i.i.i.i, %57 ]
   %58 = ptrtoint ptr %.016.i.i.i.i to i64
   %59 = ptrtoint ptr %6 to i64
   %60 = sub i64 %58, %59
@@ -81018,7 +81018,7 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i:    ; preds = %_ZNK4llvm4Type13get
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %1, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
-  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %1 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
+  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ false, %1 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ false, %22 ], [ false, %20 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ]
   ret i1 %.1
 }
 
@@ -82336,7 +82336,7 @@ _ZSt13move_backwardIPPN4llvm8MetadataES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm1
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !2493
 
 _ZSt4copyIPKN4llvm9MDOperandEPPNS0_8MetadataEET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i48, %.lr.ph.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPN4llvm8MetadataES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKNS_9MDOperandEvEEvT_S8_.exit
-  %.041 = phi ptr [ %33, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKNS_9MDOperandEvEEvT_S8_.exit ], [ %45, %_ZSt13move_backwardIPPN4llvm8MetadataES3_ET0_T_S5_S4_.exit ], [ %45, %._crit_edge ], [ %45, %.lr.ph.i.i.i.i ], [ %45, %.lr.ph.i.i.i.i.i48 ]
+  %.041 = phi ptr [ %33, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKNS_9MDOperandEvEEvT_S8_.exit ], [ %45, %.lr.ph.i.i.i.i ], [ %45, %_ZSt13move_backwardIPPN4llvm8MetadataES3_ET0_T_S5_S4_.exit ], [ %45, %._crit_edge ], [ %45, %.lr.ph.i.i.i.i.i48 ]
   ret ptr %.041
 }
 
@@ -82516,7 +82516,7 @@ _ZSt13move_backwardIPPN4llvm8MetadataES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm1
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !2494
 
 _ZSt4copyIPKPN4llvm8MetadataEPS2_ET0_T_S7_S6_.exit: ; preds = %77, %._crit_edge, %69, %_ZSt13move_backwardIPPN4llvm8MetadataES3_ET0_T_S5_S4_.exit, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit
-  %.041 = phi ptr [ %33, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit ], [ %45, %_ZSt13move_backwardIPPN4llvm8MetadataES3_ET0_T_S5_S4_.exit ], [ %45, %69 ], [ %45, %._crit_edge ], [ %45, %77 ]
+  %.041 = phi ptr [ %33, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit ], [ %45, %69 ], [ %45, %_ZSt13move_backwardIPPN4llvm8MetadataES3_ET0_T_S5_S4_.exit ], [ %45, %._crit_edge ], [ %45, %77 ]
   ret ptr %.041
 }
 
@@ -88016,7 +88016,7 @@ _ZN4llvm13IRBuilderBase9restoreIPENS0_11InsertPointE.exit.i.i.i.i: ; preds = %25
   br label %_ZN4llvm15SmallVectorImplIPNS_8FunctionEE12emplace_backIJRS2_EEES5_DpOT_.exit.i.i.i.i
 
 _ZN4llvm15SmallVectorImplIPNS_8FunctionEE12emplace_backIJRS2_EEES5_DpOT_.exit.i.i.i.i: ; preds = %271, %269, %261, %235
-  %277 = phi ptr [ %.pre343.i.i.i.i, %271 ], [ %.pre343.i.i.i.i, %269 ], [ %.pre343.i.i.i.i, %261 ], [ %240, %235 ]
+  %277 = phi ptr [ %.pre343.i.i.i.i, %261 ], [ %.pre343.i.i.i.i, %271 ], [ %.pre343.i.i.i.i, %269 ], [ %240, %235 ]
   %278 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %279 = getelementptr inbounds nuw i8, ptr %32, i64 33
   store i8 1, ptr %279, align 1, !tbaa !110, !noalias !2683
@@ -93024,7 +93024,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
@@ -95869,7 +95869,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   br i1 %50, label %_ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1005
 
 _ZNK4llvm17CanonicalLoopInfo12getPreheaderEv.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i.i.i.i, %47, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %37, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i.i.i.i ], [ %37, %47 ], [ %37, %.lr.ph.i.i.i.i ], [ %39, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i.i.i.i ]
+  %.1.i.i.i.i.i = phi ptr [ %37, %47 ], [ %37, %_ZN4llvm12predecessorsEPNS_10BasicBlockE.exit.i.i.i.i.i ], [ %37, %.lr.ph.i.i.i.i ], [ %39, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.loopexit.i.i.i.i ]
   %51 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !1006
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 56
@@ -96084,7 +96084,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit.i.i.i.i: ; preds = %.lr.
   unreachable
 
 .sink.split.i.i.i.i.i.i:                          ; preds = %166, %165, %164
-  %.sink.ph.i.i.i.i.i.i = phi i32 [ 162, %164 ], [ 166, %165 ], [ 170, %166 ]
+  %.sink.ph.i.i.i.i.i.i = phi i32 [ 166, %165 ], [ 162, %164 ], [ 170, %166 ]
   %168 = icmp eq i32 %162, 64
   call void @llvm.assume(i1 %168)
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit.i.i.i.i.i
@@ -96842,7 +96842,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i: ; pre
   br label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i.i.i
 
 _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i, %67, %2
-  %75 = phi ptr [ null, %67 ], [ null, %2 ], [ %spec.select.i.i.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i ]
+  %75 = phi ptr [ %spec.select.i.i.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i ], [ null, %2 ], [ null, %67 ]
   %76 = getelementptr inbounds nuw i8, ptr %.val2.val, i64 40
   %77 = load ptr, ptr %76, align 8, !tbaa !102
   %78 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm10BasicBlock10getContextEv(ptr noundef nonnull align 8 dereferenceable(80) %77) #30
@@ -98511,7 +98511,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPKNS_5ValueEjLj4ENS_12D
   br label %34
 
 34:                                               ; preds = %27, %27, %29
-  %.1 = phi ptr [ %.02738, %27 ], [ %33, %29 ], [ %.02738, %27 ]
+  %.1 = phi ptr [ %.02738, %27 ], [ %.02738, %27 ], [ %33, %29 ]
   %.028.add = add nuw nsw i64 %.028.idx37, 16
   %.not31 = icmp eq i64 %.028.add, 64
   br i1 %.not31, label %25, label %27, !llvm.loop !3052
@@ -99459,7 +99459,7 @@ _ZNSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_jESt10_Select1stIS4_ESt
   br label %.thread
 
 .thread:                                          ; preds = %32, %29
-  %35 = phi i1 [ true, %29 ], [ %34, %32 ]
+  %35 = phi i1 [ %34, %32 ], [ true, %29 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %35, ptr noundef nonnull %6, ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(32) %30) #30
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i64, ptr %36, align 8, !tbaa !619
@@ -99676,8 +99676,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm21TargetRegionEntryInfoES
   br label %_ZNSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 _ZNSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit: ; preds = %77, %._crit_edge.thread.i47, %51, %._crit_edge.thread.i27, %25, %._crit_edge.thread.i, %64, %39, %54, %56, %31, %14
-  %.sroa.070.0 = phi ptr [ null, %14 ], [ %33, %31 ], [ null, %56 ], [ %1, %54 ], [ %spec.select, %39 ], [ %spec.select72, %64 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %25 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %51 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %77 ]
-  %.sroa.12.0 = phi ptr [ %15, %14 ], [ %33, %31 ], [ %58, %56 ], [ null, %54 ], [ %spec.select71, %39 ], [ %spec.select73, %64 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %25 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %51 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %77 ]
+  %.sroa.070.0 = phi ptr [ null, %56 ], [ null, %14 ], [ %spec.select, %39 ], [ %spec.select72, %64 ], [ null, %._crit_edge.thread.i ], [ %33, %31 ], [ %1, %54 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %25 ], [ %spec.select.i21, %51 ], [ %spec.select.i41, %77 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %58, %56 ], [ %15, %14 ], [ %spec.select71, %39 ], [ %spec.select73, %64 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %33, %31 ], [ null, %54 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %25 ], [ %spec.select21.i22, %51 ], [ %spec.select21.i42, %77 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -99772,7 +99772,7 @@ _ZNSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_NS0_25OffloadEntriesInf
   br label %.thread
 
 .thread:                                          ; preds = %40, %37
-  %43 = phi i1 [ true, %37 ], [ %42, %40 ]
+  %43 = phi i1 [ %42, %40 ], [ true, %37 ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %43, ptr noundef nonnull %7, ptr noundef nonnull %36, ptr noundef nonnull align 8 dereferenceable(32) %38) #30
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load i64, ptr %44, align 8, !tbaa !619
@@ -100003,8 +100003,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm21TargetRegionEntryInfoES
   br label %_ZNSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_NS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE24_M_get_insert_unique_posERS3_.exit
 
 _ZNSt8_Rb_treeIN4llvm21TargetRegionEntryInfoESt4pairIKS1_NS0_25OffloadEntriesInfoManager28OffloadEntryInfoTargetRegionEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE24_M_get_insert_unique_posERS3_.exit: ; preds = %77, %._crit_edge.thread.i47, %51, %._crit_edge.thread.i27, %25, %._crit_edge.thread.i, %64, %39, %54, %56, %31, %14
-  %.sroa.070.0 = phi ptr [ null, %14 ], [ %33, %31 ], [ null, %56 ], [ %1, %54 ], [ %spec.select, %39 ], [ %spec.select72, %64 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %25 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %51 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %77 ]
-  %.sroa.12.0 = phi ptr [ %15, %14 ], [ %33, %31 ], [ %58, %56 ], [ null, %54 ], [ %spec.select71, %39 ], [ %spec.select73, %64 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %25 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %51 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %77 ]
+  %.sroa.070.0 = phi ptr [ null, %56 ], [ null, %14 ], [ %spec.select, %39 ], [ %spec.select72, %64 ], [ null, %._crit_edge.thread.i ], [ %33, %31 ], [ %1, %54 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %25 ], [ %spec.select.i21, %51 ], [ %spec.select.i41, %77 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %58, %56 ], [ %15, %14 ], [ %spec.select71, %39 ], [ %spec.select73, %64 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %33, %31 ], [ null, %54 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %25 ], [ %spec.select21.i22, %51 ], [ %spec.select21.i42, %77 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

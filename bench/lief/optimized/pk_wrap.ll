@@ -60,7 +60,7 @@ define internal i32 @rsa_verify_wrap(ptr noundef readonly captures(none) %0, i32
   br label %19
 
 19:                                               ; preds = %17, %14, %12, %6
-  %.0 = phi i32 [ -16000, %6 ], [ -17280, %12 ], [ %16, %14 ], [ %., %17 ]
+  %.0 = phi i32 [ %16, %14 ], [ -16000, %6 ], [ -17280, %12 ], [ %., %17 ]
   ret i32 %.0
 }
 
@@ -394,11 +394,11 @@ rsa_alt_sign_wrap.exit:                           ; preds = %17
   %or.cond = select i1 %.not.i, i1 true, i1 %34
   br i1 %or.cond, label %rsa_verify_wrap.exit.thread, label %rsa_verify_wrap.exit
 
-rsa_verify_wrap.exit.thread:                      ; preds = %28, %32
+rsa_verify_wrap.exit.thread:                      ; preds = %32, %28
   br label %rsa_verify_wrap.exit
 
 rsa_verify_wrap.exit:                             ; preds = %32, %17, %rsa_verify_wrap.exit.thread, %rsa_alt_sign_wrap.exit, %4
-  %.0 = phi i32 [ -16896, %4 ], [ %27, %rsa_alt_sign_wrap.exit ], [ -16896, %rsa_verify_wrap.exit.thread ], [ -16000, %17 ], [ 0, %32 ]
+  %.0 = phi i32 [ %27, %rsa_alt_sign_wrap.exit ], [ -16896, %4 ], [ 0, %32 ], [ -16896, %rsa_verify_wrap.exit.thread ], [ -16000, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

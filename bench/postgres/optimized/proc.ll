@@ -1508,7 +1508,7 @@ define dso_local range(i32 0, 3) i32 @JoinWaitQueue(ptr noundef readonly capture
   br label %110
 
 .thread115:                                       ; preds = %76, %46, %34, %68, %71, %31, %.loopexit
-  %.071 = phi ptr [ null, %31 ], [ null, %.loopexit ], [ %.us-phi133, %71 ], [ %.us-phi133, %68 ], [ null, %34 ], [ null, %46 ], [ null, %76 ]
+  %.071 = phi ptr [ null, %31 ], [ null, %.loopexit ], [ %.us-phi133, %68 ], [ %.us-phi133, %71 ], [ null, %34 ], [ null, %46 ], [ null, %76 ]
   br i1 %2, label %110, label %80
 
 80:                                               ; preds = %.thread115
@@ -1574,7 +1574,7 @@ dclist_push_tail.exit:                            ; preds = %87, %91
   br label %110
 
 110:                                              ; preds = %.thread115.thread, %79, %.thread115, %96
-  %.4 = phi i32 [ 1, %96 ], [ 0, %79 ], [ 2, %.thread115 ], [ 2, %.thread115.thread ]
+  %.4 = phi i32 [ 0, %79 ], [ 2, %.thread115 ], [ 1, %96 ], [ 2, %.thread115.thread ]
   ret i32 %.4
 }
 
@@ -1788,7 +1788,7 @@ CheckDeadLock.exit:                               ; preds = %106
   br label %114
 
 114:                                              ; preds = %63, %73, %69, %111, %113
-  %.3 = phi i8 [ %.075, %113 ], [ %.075, %111 ], [ %.075, %63 ], [ 1, %73 ], [ 0, %69 ]
+  %.3 = phi i8 [ %.075, %111 ], [ %.075, %113 ], [ %.075, %63 ], [ 1, %73 ], [ 0, %69 ]
   %115 = load ptr, ptr @MyProc, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %117 = load volatile i32, ptr %116, align 8

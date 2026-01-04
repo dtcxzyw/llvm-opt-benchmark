@@ -81,7 +81,7 @@ define void @_ZN6icu_7712StringSearchC2ERKNS_13UnicodeStringES3_RKNS_6LocaleEPNS
   br label %28
 
 28:                                               ; preds = %25, %23, %17
-  %.0.i = phi ptr [ %24, %23 ], [ %27, %25 ], [ null, %17 ]
+  %.0.i = phi ptr [ %27, %25 ], [ %24, %23 ], [ null, %17 ]
   %29 = icmp slt i16 %19, 0
   %30 = ashr i16 %19, 5
   %31 = sext i16 %30 to i32
@@ -109,7 +109,7 @@ define void @_ZN6icu_7712StringSearchC2ERKNS_13UnicodeStringES3_RKNS_6LocaleEPNS
   br label %45
 
 45:                                               ; preds = %42, %40, %28
-  %.0.i14 = phi ptr [ %41, %40 ], [ %44, %42 ], [ null, %28 ]
+  %.0.i14 = phi ptr [ %44, %42 ], [ %41, %40 ], [ null, %28 ]
   %46 = icmp slt i16 %36, 0
   %47 = ashr i16 %36, 5
   %48 = sext i16 %47 to i32
@@ -227,7 +227,7 @@ define void @_ZN6icu_7712StringSearchC2ERKNS_13UnicodeStringES3_PNS_17RuleBasedC
   br label %32
 
 32:                                               ; preds = %29, %27, %21
-  %.0.i = phi ptr [ %28, %27 ], [ %31, %29 ], [ null, %21 ]
+  %.0.i = phi ptr [ %31, %29 ], [ %28, %27 ], [ null, %21 ]
   %33 = icmp slt i16 %23, 0
   %34 = ashr i16 %23, 5
   %35 = sext i16 %34 to i32
@@ -255,7 +255,7 @@ define void @_ZN6icu_7712StringSearchC2ERKNS_13UnicodeStringES3_PNS_17RuleBasedC
   br label %49
 
 49:                                               ; preds = %46, %44, %32
-  %.0.i17 = phi ptr [ %45, %44 ], [ %48, %46 ], [ null, %32 ]
+  %.0.i17 = phi ptr [ %48, %46 ], [ %45, %44 ], [ null, %32 ]
   %50 = icmp slt i16 %40, 0
   %51 = ashr i16 %40, 5
   %52 = sext i16 %51 to i32
@@ -347,7 +347,7 @@ define void @_ZN6icu_7712StringSearchC2ERKNS_13UnicodeStringERNS_17CharacterIter
   br label %28
 
 28:                                               ; preds = %25, %23, %17
-  %.0.i = phi ptr [ %24, %23 ], [ %27, %25 ], [ null, %17 ]
+  %.0.i = phi ptr [ %27, %25 ], [ %24, %23 ], [ null, %17 ]
   %29 = icmp slt i16 %19, 0
   %30 = ashr i16 %19, 5
   %31 = sext i16 %30 to i32
@@ -375,7 +375,7 @@ define void @_ZN6icu_7712StringSearchC2ERKNS_13UnicodeStringERNS_17CharacterIter
   br label %45
 
 45:                                               ; preds = %42, %40, %28
-  %.0.i14 = phi ptr [ %41, %40 ], [ %44, %42 ], [ null, %28 ]
+  %.0.i14 = phi ptr [ %44, %42 ], [ %41, %40 ], [ null, %28 ]
   %46 = icmp slt i16 %36, 0
   %47 = ashr i16 %36, 5
   %48 = sext i16 %47 to i32
@@ -479,7 +479,7 @@ define void @_ZN6icu_7712StringSearchC2ERKNS_13UnicodeStringERNS_17CharacterIter
   br label %32
 
 32:                                               ; preds = %29, %27, %21
-  %.0.i = phi ptr [ %28, %27 ], [ %31, %29 ], [ null, %21 ]
+  %.0.i = phi ptr [ %31, %29 ], [ %28, %27 ], [ null, %21 ]
   %33 = icmp slt i16 %23, 0
   %34 = ashr i16 %23, 5
   %35 = sext i16 %34 to i32
@@ -507,7 +507,7 @@ define void @_ZN6icu_7712StringSearchC2ERKNS_13UnicodeStringERNS_17CharacterIter
   br label %49
 
 49:                                               ; preds = %46, %44, %32
-  %.0.i17 = phi ptr [ %45, %44 ], [ %48, %46 ], [ null, %32 ]
+  %.0.i17 = phi ptr [ %48, %46 ], [ %45, %44 ], [ null, %32 ]
   %50 = icmp slt i16 %40, 0
   %51 = ashr i16 %40, 5
   %52 = sext i16 %51 to i32
@@ -613,7 +613,7 @@ define void @_ZN6icu_7712StringSearchC2ERKS0_(ptr noundef nonnull align 8 derefe
   br label %33
 
 33:                                               ; preds = %30, %28, %22
-  %.0.i = phi ptr [ %29, %28 ], [ %32, %30 ], [ null, %22 ]
+  %.0.i = phi ptr [ %32, %30 ], [ %29, %28 ], [ null, %22 ]
   %34 = icmp slt i16 %24, 0
   %35 = ashr i16 %24, 5
   %36 = sext i16 %35 to i32
@@ -641,7 +641,7 @@ define void @_ZN6icu_7712StringSearchC2ERKS0_(ptr noundef nonnull align 8 derefe
   br label %50
 
 50:                                               ; preds = %47, %45, %33
-  %.0.i11 = phi ptr [ %46, %45 ], [ %49, %47 ], [ null, %33 ]
+  %.0.i11 = phi ptr [ %49, %47 ], [ %46, %45 ], [ null, %33 ]
   %51 = icmp slt i16 %41, 0
   %52 = ashr i16 %41, 5
   %53 = sext i16 %52 to i32
@@ -796,7 +796,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN6icu_7712StringSearc
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %4, %21, %23
-  %.0.i = phi ptr [ %22, %21 ], [ %25, %23 ], [ null, %4 ]
+  %.0.i = phi ptr [ %25, %23 ], [ %22, %21 ], [ null, %4 ]
   %26 = icmp slt i16 %17, 0
   %27 = ashr i16 %17, 5
   %28 = sext i16 %27 to i32
@@ -824,7 +824,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %4, %21, %23
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit12
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit12:    ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit, %37, %39
-  %.0.i10 = phi ptr [ %38, %37 ], [ %41, %39 ], [ null, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
+  %.0.i10 = phi ptr [ %41, %39 ], [ %38, %37 ], [ null, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
   %42 = icmp slt i16 %33, 0
   %43 = ashr i16 %33, 5
   %44 = sext i16 %43 to i32
@@ -928,7 +928,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %16
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %16, %12, %4, %39, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ %48, %39 ], [ false, %4 ], [ false, %12 ], [ false, %16 ]
+  %.0 = phi i1 [ %48, %39 ], [ true, %2 ], [ false, %16 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ false, %4 ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -986,7 +986,7 @@ define void @_ZN6icu_7712StringSearch7setTextERKNS_13UnicodeStringER10UErrorCode
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %6, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %20, %18 ], [ null, %6 ]
+  %.0.i = phi ptr [ %20, %18 ], [ %17, %16 ], [ null, %6 ]
   %21 = icmp slt i16 %12, 0
   %22 = ashr i16 %12, 5
   %23 = sext i16 %22 to i32
@@ -1037,7 +1037,7 @@ define void @_ZN6icu_7712StringSearch7setTextERNS_17CharacterIteratorER10UErrorC
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %6, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %22, %20 ], [ null, %6 ]
+  %.0.i = phi ptr [ %22, %20 ], [ %19, %18 ], [ null, %6 ]
   %23 = icmp slt i16 %14, 0
   %24 = ashr i16 %14, 5
   %25 = sext i16 %24 to i32
@@ -1123,7 +1123,7 @@ define void @_ZN6icu_7712StringSearch10setPatternERKNS_13UnicodeStringER10UError
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %6, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %20, %18 ], [ null, %6 ]
+  %.0.i = phi ptr [ %20, %18 ], [ %17, %16 ], [ null, %6 ]
   %21 = icmp slt i16 %12, 0
   %22 = ashr i16 %12, 5
   %23 = sext i16 %22 to i32
@@ -1342,7 +1342,7 @@ define noundef i32 @_ZN6icu_7712StringSearch10handleNextEiR10UErrorCode(ptr noun
   br label %73
 
 73:                                               ; preds = %3, %22, %36, %55, %69
-  %.0 = phi i32 [ %72, %69 ], [ -1, %55 ], [ -1, %36 ], [ -1, %22 ], [ -1, %3 ]
+  %.0 = phi i32 [ -1, %55 ], [ %72, %69 ], [ -1, %36 ], [ -1, %22 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -1440,7 +1440,7 @@ define noundef i32 @_ZN6icu_7712StringSearch10handlePrevEiR10UErrorCode(ptr noun
   br label %52
 
 52:                                               ; preds = %.sink.split, %3, %45
-  %.0 = phi i32 [ -1, %45 ], [ -1, %3 ], [ %51, %.sink.split ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %45 ], [ %51, %.sink.split ]
   ret i32 %.0
 }
 

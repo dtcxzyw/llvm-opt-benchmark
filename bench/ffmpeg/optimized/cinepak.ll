@@ -186,7 +186,7 @@ define internal range(i32 10, 0) i32 @cinepak_decode_frame(ptr noundef %0, ptr n
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %86, %82, %58, %57
-  %.sink.i = phi i32 [ 2, %86 ], [ 6, %82 ], [ 0, %58 ], [ 0, %57 ]
+  %.sink.i = phi i32 [ 6, %82 ], [ 2, %86 ], [ 0, %58 ], [ 0, %57 ]
   store i32 %.sink.i, ptr %52, align 8, !tbaa !35
   br label %87
 
@@ -224,7 +224,7 @@ define internal range(i32 10, 0) i32 @cinepak_decode_frame(ptr noundef %0, ptr n
   br i1 %or.cond.i, label %select.unfold, label %cinepak_predecode_check.exit
 
 select.unfold:                                    ; preds = %94, %56, %22, %87
-  %.0.i.ph = phi i32 [ -1094995529, %87 ], [ -1094995529, %22 ], [ -1163346256, %56 ], [ -1094995529, %94 ]
+  %.0.i.ph = phi i32 [ -1163346256, %56 ], [ -1094995529, %87 ], [ -1094995529, %22 ], [ -1094995529, %94 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #6
   br label %537
 
@@ -518,9 +518,9 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
   br label %292
 
 292:                                              ; preds = %288, %285, %265
-  %.0189.i.i = phi ptr [ %287, %285 ], [ %279, %265 ], [ %287, %288 ]
-  %.0186.i.i = phi ptr [ %279, %285 ], [ %279, %265 ], [ %289, %288 ]
-  %.0183.i.i = phi ptr [ %279, %285 ], [ %279, %265 ], [ %spec.select.i.i, %288 ]
+  %.0189.i.i = phi ptr [ %279, %265 ], [ %287, %288 ], [ %287, %285 ]
+  %.0186.i.i = phi ptr [ %279, %265 ], [ %289, %288 ], [ %279, %285 ]
+  %.0183.i.i = phi ptr [ %279, %265 ], [ %spec.select.i.i, %288 ], [ %279, %285 ]
   %293 = load i16, ptr %177, align 2, !tbaa !58
   %294 = icmp ult i16 %270, %293
   br i1 %294, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
@@ -787,9 +787,9 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
   br label %.thread248.i.i
 
 .thread248.i.i:                                   ; preds = %421, %381, %359, %344, %325, %305
-  %.3209.i.i = phi i32 [ %.4210.ph.i.i, %381 ], [ %.4210.ph.i.i, %421 ], [ %.4210.ph.i.i, %359 ], [ %.2208.i.i, %305 ], [ %.4210242.i.i, %325 ], [ %.4210242.i.i, %344 ]
-  %.3204.i.i = phi i32 [ %.4205.ph.i.i, %381 ], [ %.4205.ph.i.i, %421 ], [ %.4205.ph.i.i, %359 ], [ %.2203.i.i, %305 ], [ %.4205244.i.i, %325 ], [ %.4205244.i.i, %344 ]
-  %.3199.i.i = phi ptr [ %362, %381 ], [ %362, %421 ], [ %.4200.ph.i.i, %359 ], [ %.2198.i.i, %305 ], [ %320, %325 ], [ %320, %344 ]
+  %.3209.i.i = phi i32 [ %.2208.i.i, %305 ], [ %.4210.ph.i.i, %381 ], [ %.4210.ph.i.i, %421 ], [ %.4210.ph.i.i, %359 ], [ %.4210242.i.i, %325 ], [ %.4210242.i.i, %344 ]
+  %.3204.i.i = phi i32 [ %.2203.i.i, %305 ], [ %.4205.ph.i.i, %381 ], [ %.4205.ph.i.i, %421 ], [ %.4205.ph.i.i, %359 ], [ %.4205244.i.i, %325 ], [ %.4205244.i.i, %344 ]
+  %.3199.i.i = phi ptr [ %.2198.i.i, %305 ], [ %362, %381 ], [ %362, %421 ], [ %.4200.ph.i.i, %359 ], [ %320, %325 ], [ %320, %344 ]
   %429 = load i32, ptr %117, align 4, !tbaa !37
   %.not227.i.i = icmp eq i32 %429, 0
   %..i.i = select i1 %.not227.i.i, i64 12, i64 4
@@ -1032,7 +1032,7 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
   br i1 %exitcond131.not.i.i, label %cinepak_decode_codebook.exit.i, label %.split.split.i.i, !llvm.loop !64
 
 cinepak_decode_codebook.exit.i:                   ; preds = %.thread81.i.i, %.thread.i.i, %506, %.thread81.us111.i.i, %.thread.us105.i.i, %.thread81.us.i.i, %.thread.us.i.i, %450, %.cinepak_decode_codebook.exit_crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %.cinepak_decode_codebook.exit_crit_edge.i ], [ %443, %450 ], [ %443, %.thread.us.i.i ], [ %443, %.thread81.us.i.i ], [ %443, %.thread.us105.i.i ], [ %443, %.thread81.us111.i.i ], [ %443, %506 ], [ %443, %.thread.i.i ], [ %443, %.thread81.i.i ]
+  %.pre-phi.i = phi i64 [ %.pre.i, %.cinepak_decode_codebook.exit_crit_edge.i ], [ %443, %.thread81.us111.i.i ], [ %443, %.thread81.us.i.i ], [ %443, %450 ], [ %443, %.thread.us.i.i ], [ %443, %.thread.us105.i.i ], [ %443, %506 ], [ %443, %.thread.i.i ], [ %443, %.thread81.i.i ]
   %522 = getelementptr inbounds i8, ptr %229, i64 %.pre-phi.i
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 4
   %.not47.i.i = icmp ugt ptr %523, %215
@@ -1047,7 +1047,7 @@ cinepak_decode_strip.exit.i:                      ; preds = %._crit_edge.i.i, %2
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %cinepak_decode.exit, label %145, !llvm.loop !68
 
-.loopexit:                                        ; preds = %145, %184, %223, %219, %213, %cinepak_decode_codebook.exit.i, %228, %299, %309, %361, %318
+.loopexit:                                        ; preds = %213, %219, %145, %184, %223, %cinepak_decode_codebook.exit.i, %228, %361, %318, %299, %309
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #6
   br label %cinepak_decode.exit
 
@@ -1076,7 +1076,7 @@ cinepak_decode.exit:                              ; preds = %cinepak_decode_stri
   br label %537
 
 537:                                              ; preds = %532, %cinepak_predecode_check.exit, %17, %20, %4, %536, %select.unfold
-  %.0 = phi i32 [ %.0.i.ph, %select.unfold ], [ %8, %536 ], [ -1094995529, %4 ], [ %8, %20 ], [ %8, %17 ], [ %114, %cinepak_predecode_check.exit ], [ %534, %532 ]
+  %.0 = phi i32 [ -1094995529, %4 ], [ %.0.i.ph, %select.unfold ], [ %8, %17 ], [ %114, %cinepak_predecode_check.exit ], [ %8, %536 ], [ %8, %20 ], [ %534, %532 ]
   ret i32 %.0
 }
 

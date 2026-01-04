@@ -626,7 +626,7 @@ php_output_write.exit:                            ; preds = %20, %21, %23
   br label %php_output_context_dtor.exit
 
 php_output_context_dtor.exit:                     ; preds = %41, %39, %35, %0, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %0 ], [ 0, %35 ], [ 0, %39 ], [ 0, %41 ]
+  %.0 = phi i32 [ -1, %0 ], [ -1, %3 ], [ 0, %35 ], [ 0, %39 ], [ 0, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -901,7 +901,7 @@ php_output_context_feed.exit:                     ; preds = %112, %121, %123
   br label %139
 
 139:                                              ; preds = %93, %93, %.fold.split, %97, %101, %zend_string_alloc.exit
-  %.056 = phi i32 [ 1, %101 ], [ 2, %97 ], [ 0, %93 ], [ 0, %zend_string_alloc.exit ], [ 0, %93 ], [ 2, %.fold.split ]
+  %.056 = phi i32 [ 0, %zend_string_alloc.exit ], [ 1, %101 ], [ 2, %97 ], [ 0, %93 ], [ 0, %93 ], [ 2, %.fold.split ]
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #22
   call void @zval_ptr_dtor(ptr noundef nonnull %78) #22
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #22
@@ -1009,7 +1009,7 @@ default.unreachable91:                            ; preds = %139
   br label %181
 
 181:                                              ; preds = %php_output_lock_error.exit.thread, %2, %180, %56
-  %.0 = phi i32 [ %.174, %180 ], [ 2, %56 ], [ 0, %2 ], [ 0, %php_output_lock_error.exit.thread ]
+  %.0 = phi i32 [ 2, %56 ], [ 0, %2 ], [ %.174, %180 ], [ 0, %php_output_lock_error.exit.thread ]
   ret i32 %.0
 }
 
@@ -1083,7 +1083,7 @@ define dso_local range(i32 -1, 1) i32 @php_output_clean() local_unnamed_addr #0 
   br label %php_output_context_dtor.exit
 
 php_output_context_dtor.exit:                     ; preds = %23, %20, %16, %0, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %0 ], [ 0, %16 ], [ 0, %20 ], [ 0, %23 ]
+  %.0 = phi i32 [ -1, %0 ], [ -1, %3 ], [ 0, %16 ], [ 0, %20 ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -1302,7 +1302,7 @@ php_output_handler_free.exit:                     ; preds = %42, %40, %39, %29
   br label %php_output_context_dtor.exit
 
 php_output_context_dtor.exit:                     ; preds = %58, %56, %52, %11, %4
-  %.0 = phi i32 [ 0, %11 ], [ 0, %4 ], [ 1, %52 ], [ 1, %56 ], [ 1, %58 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 1, %52 ], [ 1, %56 ], [ 1, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1685,7 +1685,7 @@ zend_hash_find_ptr.exit.thread:                   ; preds = %8, %11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %php_output_lock_error.exit.thread, %11, %php_output_lock_error.exit, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ -1, %php_output_lock_error.exit ], [ -1, %11 ], [ -1, %php_output_lock_error.exit.thread ], [ -1, %31 ]
+  %.0 = phi i32 [ -1, %php_output_lock_error.exit ], [ 0, %.critedge ], [ -1, %php_output_lock_error.exit.thread ], [ -1, %11 ], [ -1, %31 ]
   ret i32 %.0
 }
 
@@ -1931,7 +1931,7 @@ zend_string_copy.exit.i:                          ; preds = %36, %28
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %73, %68, %64, %62, %17, %8
-  %.0 = phi ptr [ %.1, %62 ], [ %9, %8 ], [ %23, %17 ], [ %.1, %64 ], [ %.1, %68 ], [ %.1, %73 ]
+  %.0 = phi ptr [ %23, %17 ], [ %.1, %62 ], [ %9, %8 ], [ %.1, %64 ], [ %.1, %68 ], [ %.1, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -2439,7 +2439,7 @@ define dso_local range(i32 -1, 1) i32 @php_output_handler_hook(i32 noundef %0, p
   br label %21
 
 21:                                               ; preds = %2, %4, %17, %13, %10, %7, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %7 ], [ 0, %10 ], [ 0, %13 ], [ 0, %17 ], [ -1, %4 ], [ -1, %2 ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %5 ], [ 0, %7 ], [ 0, %10 ], [ 0, %13 ], [ -1, %4 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -2749,7 +2749,7 @@ define hidden void @zif_ob_clean(ptr noundef readonly captures(none) %0, ptr nou
   store i32 2, ptr %36, align 8, !tbaa !8
   br label %39
 
-37:                                               ; preds = %23, %27, %30
+37:                                               ; preds = %30, %23, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %38, align 8, !tbaa !8
@@ -3556,7 +3556,7 @@ php_output_context_swap.exit20:                   ; preds = %59, %64, %66
   br label %82
 
 82:                                               ; preds = %38, %35, %php_output_context_swap.exit20, %56, %9, %php_output_context_swap.exit, %7
-  %.0 = phi i32 [ 1, %7 ], [ 0, %php_output_context_swap.exit ], [ 0, %9 ], [ 0, %56 ], [ 0, %php_output_context_swap.exit20 ], [ 0, %35 ], [ 0, %38 ]
+  %.0 = phi i32 [ 0, %9 ], [ 1, %7 ], [ 0, %php_output_context_swap.exit ], [ 0, %56 ], [ 0, %php_output_context_swap.exit20 ], [ 0, %35 ], [ 0, %38 ]
   ret i32 %.0
 }
 

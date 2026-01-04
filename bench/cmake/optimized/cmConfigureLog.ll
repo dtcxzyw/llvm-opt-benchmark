@@ -271,7 +271,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %9,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit34, %.loopexit.loopexit.split.loop.exit36, %._crit_edge._crit_edge57.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %59
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %59 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %70, %.loopexit.loopexit.split.loop.exit ], [ %71, %.loopexit.loopexit.split.loop.exit34 ], [ %72, %.loopexit.loopexit.split.loop.exit36 ], [ %.sroa.032.051.i.i.i.i, %39 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %.sroa.032.0.lcssa.i.i.i.i, %59 ], [ %72, %.loopexit.loopexit.split.loop.exit36 ], [ %71, %.loopexit.loopexit.split.loop.exit34 ], [ %70, %.loopexit.loopexit.split.loop.exit ], [ %.sroa.032.051.i.i.i.i, %39 ]
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %32
   br i1 %.not, label %.thread, label %_ZNSt6vectorImSaImEE12emplace_backIJRKmEEERmDpOT_.exit
 
@@ -2999,7 +2999,7 @@ _ZN14cmConfigureLog11WriteEscapeEh.exit60:        ; preds = %115, %119
   br label %_ZN14cmConfigureLog9BeginLineEv.exit59
 
 _ZN14cmConfigureLog9BeginLineEv.exit59:           ; preds = %.lr.ph.i57, %108, %_ZN14cmConfigureLog7EndLineEv.exit55, %62, %53, %_ZN14cmConfigureLog11WriteEscapeEh.exit, %_ZN14cmConfigureLog11WriteEscapeEh.exit60, %98, %93, %90
-  %.1 = phi i64 [ %100, %98 ], [ %122, %_ZN14cmConfigureLog11WriteEscapeEh.exit60 ], [ %114, %108 ], [ %51, %_ZN14cmConfigureLog11WriteEscapeEh.exit ], [ %51, %53 ], [ %92, %90 ], [ %95, %93 ], [ %63, %62 ], [ %63, %_ZN14cmConfigureLog7EndLineEv.exit55 ], [ %63, %.lr.ph.i57 ]
+  %.1 = phi i64 [ %100, %98 ], [ %122, %_ZN14cmConfigureLog11WriteEscapeEh.exit60 ], [ %114, %108 ], [ %51, %_ZN14cmConfigureLog11WriteEscapeEh.exit ], [ %51, %53 ], [ %95, %93 ], [ %92, %90 ], [ %63, %62 ], [ %63, %_ZN14cmConfigureLog7EndLineEv.exit55 ], [ %63, %.lr.ph.i57 ]
   %123 = icmp ult i64 %.1, %3
   br i1 %123, label %47, label %124, !llvm.loop !143
 

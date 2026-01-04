@@ -201,7 +201,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17AArch64GISelUtils5isCMNEPKNS_12Ma
   br label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %11, %19, %27
-  %28 = phi i1 [ %24, %19 ], [ %24, %27 ], [ false, %11 ]
+  %28 = phi i1 [ %24, %27 ], [ %24, %19 ], [ false, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %29
 
@@ -399,7 +399,7 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %97, %99
   br label %104
 
 104:                                              ; preds = %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit24, %20, %_ZNK4llvm5APInt12getSExtValueEv.exit, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit
-  %.1 = phi i1 [ true, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ false, %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit24 ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %20 ]
+  %.1 = phi i1 [ false, %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit24 ], [ true, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %20 ]
   %105 = load i8, ptr %25, align 8, !tbaa !34, !range !8, !noundef !9
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %107, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit25
@@ -657,8 +657,8 @@ _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit: ; preds = %9, %17
   br label %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit23
 
 _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit23: ; preds = %30, %47, %50
-  %.sroa.026.233 = phi i32 [ %.sroa.026.2.ph, %47 ], [ %.sroa.026.2.ph, %50 ], [ %1, %30 ]
-  %.231 = phi i16 [ %.2.ph, %47 ], [ %.2.ph, %50 ], [ 0, %30 ]
+  %.sroa.026.233 = phi i32 [ %.sroa.026.2.ph, %50 ], [ %.sroa.026.2.ph, %47 ], [ %1, %30 ]
+  %.231 = phi i16 [ %.2.ph, %50 ], [ %.2.ph, %47 ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 %.sroa.026.233, ptr %0, align 4, !tbaa !40, !alias.scope !208
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 4

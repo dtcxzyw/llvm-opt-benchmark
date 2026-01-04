@@ -2020,7 +2020,7 @@ KnownAssignedXidExists.exit.thread:               ; preds = %111, %97, %115, %Kn
   br label %147
 
 147:                                              ; preds = %93, %.thread71, %143, %8, %1, %146, %139, %136, %122, %47
-  %.0 = phi i1 [ true, %47 ], [ true, %122 ], [ false, %136 ], [ false, %139 ], [ false, %146 ], [ true, %93 ], [ false, %1 ], [ true, %8 ], [ true, %143 ], [ true, %.thread71 ]
+  %.0 = phi i1 [ true, %93 ], [ false, %1 ], [ true, %143 ], [ true, %47 ], [ true, %122 ], [ false, %136 ], [ false, %139 ], [ false, %146 ], [ true, %8 ], [ true, %.thread71 ]
   ret i1 %.0
 }
 
@@ -2116,7 +2116,7 @@ define internal fastcc zeroext i1 @pg_lfind32(i32 noundef %0, ptr noundef readon
   br label %pg_lfind32_one_by_one_helper.exit
 
 pg_lfind32_one_by_one_helper.exit:                ; preds = %.preheader, %10, %31
-  %.0 = phi i1 [ %49, %31 ], [ %13, %10 ], [ true, %.preheader ]
+  %.0 = phi i1 [ %13, %10 ], [ %49, %31 ], [ true, %.preheader ]
   ret i1 %.0
 }
 
@@ -2253,12 +2253,12 @@ define dso_local i32 @GetOldestNonRemovableTransactionId(ptr noundef %0) local_u
   %.not16.i = icmp eq i32 %41, 0
   br i1 %.not16.i, label %48, label %GlobalVisHorizonKindForRel.exit
 
-42:                                               ; preds = %10, %4, %1
+42:                                               ; preds = %1, %10, %4
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %44 = load i32, ptr %43, align 4
   br label %53
 
-45:                                               ; preds = %31, %22, %12
+45:                                               ; preds = %12, %31, %22
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %47 = load i32, ptr %46, align 4
   br label %53
@@ -2274,7 +2274,7 @@ GlobalVisHorizonKindForRel.exit:                  ; preds = %39, %35
   br label %53
 
 53:                                               ; preds = %GlobalVisHorizonKindForRel.exit, %48, %45, %42
-  %.0 = phi i32 [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %GlobalVisHorizonKindForRel.exit ]
+  %.0 = phi i32 [ %52, %GlobalVisHorizonKindForRel.exit ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -2362,8 +2362,8 @@ define internal fastcc void @ComputeXidHorizons(ptr noundef nonnull captures(non
 TransactionIdOlder.exit:                          ; preds = %33
   br i1 %.not84, label %71, label %TransactionIdOlder.exit.thread
 
-TransactionIdOlder.exit.thread:                   ; preds = %49, %48, %TransactionIdOlder.exit
-  %.0.i153 = phi i32 [ %45, %TransactionIdOlder.exit ], [ %..i, %49 ], [ %47, %48 ]
+TransactionIdOlder.exit.thread:                   ; preds = %48, %49, %TransactionIdOlder.exit
+  %.0.i153 = phi i32 [ %45, %TransactionIdOlder.exit ], [ %47, %48 ], [ %..i, %49 ]
   %51 = load i32, ptr %16, align 8
   %.not.i86 = icmp eq i32 %51, 0
   br i1 %.not.i86, label %TransactionIdOlder.exit90, label %52
@@ -2374,7 +2374,7 @@ TransactionIdOlder.exit.thread:                   ; preds = %49, %48, %Transacti
   br label %TransactionIdOlder.exit90
 
 TransactionIdOlder.exit90:                        ; preds = %TransactionIdOlder.exit.thread, %52
-  %.0.i89 = phi i32 [ %.0.i153, %TransactionIdOlder.exit.thread ], [ %..i88, %52 ]
+  %.0.i89 = phi i32 [ %..i88, %52 ], [ %.0.i153, %TransactionIdOlder.exit.thread ]
   store i32 %.0.i89, ptr %16, align 8
   %54 = and i8 %43, 18
   %.not85 = icmp eq i8 %54, 0
@@ -2391,7 +2391,7 @@ TransactionIdOlder.exit90:                        ; preds = %TransactionIdOlder.
   br label %TransactionIdOlder.exit95
 
 TransactionIdOlder.exit95:                        ; preds = %55, %57
-  %.0.i94 = phi i32 [ %.0.i153, %55 ], [ %..i93, %57 ]
+  %.0.i94 = phi i32 [ %..i93, %57 ], [ %.0.i153, %55 ]
   store i32 %.0.i94, ptr %17, align 4
   %59 = getelementptr inbounds nuw i8, ptr %38, i64 76
   %60 = load i32, ptr %59, align 4
@@ -2418,7 +2418,7 @@ TransactionIdOlder.exit95:                        ; preds = %55, %57
   br label %TransactionIdOlder.exit100
 
 TransactionIdOlder.exit100:                       ; preds = %67, %69
-  %.0.i99 = phi i32 [ %.0.i153, %67 ], [ %..i98, %69 ]
+  %.0.i99 = phi i32 [ %..i98, %69 ], [ %.0.i153, %67 ]
   store i32 %.0.i99, ptr %18, align 8
   br label %71
 
@@ -2482,7 +2482,7 @@ KnownAssignedXidsGetOldestXmin.exit:              ; preds = %84, %75, %89
   br label %TransactionIdOlder.exit105
 
 TransactionIdOlder.exit105:                       ; preds = %KnownAssignedXidsGetOldestXmin.exit, %97
-  %.0.i104 = phi i32 [ %.07.i, %KnownAssignedXidsGetOldestXmin.exit ], [ %..i103, %97 ]
+  %.0.i104 = phi i32 [ %..i103, %97 ], [ %.07.i, %KnownAssignedXidsGetOldestXmin.exit ]
   store i32 %.0.i104, ptr %16, align 8
   %99 = load i32, ptr %17, align 4
   %.not.i106 = icmp eq i32 %99, 0
@@ -2502,7 +2502,7 @@ TransactionIdOlder.exit105.thread:                ; preds = %96
   br label %TransactionIdOlder.exit110
 
 TransactionIdOlder.exit110:                       ; preds = %TransactionIdOlder.exit105.thread, %TransactionIdOlder.exit105, %101, %102
-  %.0.i109 = phi i32 [ %.07.i, %TransactionIdOlder.exit105 ], [ %99, %101 ], [ %..i108, %102 ], [ %100, %TransactionIdOlder.exit105.thread ]
+  %.0.i109 = phi i32 [ %..i108, %102 ], [ %99, %101 ], [ %.07.i, %TransactionIdOlder.exit105 ], [ %100, %TransactionIdOlder.exit105.thread ]
   store i32 %.0.i109, ptr %17, align 4
   %104 = load i32, ptr %18, align 8
   %.not.i111 = icmp eq i32 %104, 0
@@ -2518,7 +2518,7 @@ TransactionIdOlder.exit110:                       ; preds = %TransactionIdOlder.
   br label %TransactionIdOlder.exit115
 
 TransactionIdOlder.exit115:                       ; preds = %TransactionIdOlder.exit110, %105, %106
-  %.0.i114 = phi i32 [ %.07.i, %TransactionIdOlder.exit110 ], [ %104, %105 ], [ %..i113, %106 ]
+  %.0.i114 = phi i32 [ %..i113, %106 ], [ %104, %105 ], [ %.07.i, %TransactionIdOlder.exit110 ]
   store i32 %.0.i114, ptr %18, align 8
   br label %110
 
@@ -2634,9 +2634,9 @@ TransactionIdOlder.exit135:                       ; preds = %TransactionIdOlder.
   %.pre = load i32, ptr %7, align 4
   br label %TransactionIdOlder.exit140.thread
 
-TransactionIdOlder.exit140.thread:                ; preds = %140, %141
-  %143 = phi i32 [ %.pre, %141 ], [ %138, %140 ]
-  %.0.i139.ph = phi i32 [ %..i138, %141 ], [ %139, %140 ]
+TransactionIdOlder.exit140.thread:                ; preds = %141, %140
+  %143 = phi i32 [ %138, %140 ], [ %.pre, %141 ]
+  %.0.i139.ph = phi i32 [ %139, %140 ], [ %..i138, %141 ]
   store i32 %.0.i139.ph, ptr %16, align 8
   br label %144
 
@@ -2656,8 +2656,8 @@ TransactionIdOlder.exit140:                       ; preds = %TransactionIdOlder.
   %..i143 = select i1 %147, i32 %.0.i139163, i32 %145
   br label %TransactionIdOlder.exit145.thread
 
-TransactionIdOlder.exit145.thread:                ; preds = %144, %146
-  %.0.i144.ph = phi i32 [ %..i143, %146 ], [ %.0.i139163, %144 ]
+TransactionIdOlder.exit145.thread:                ; preds = %146, %144
+  %.0.i144.ph = phi i32 [ %.0.i139163, %144 ], [ %..i143, %146 ]
   store i32 %.0.i144.ph, ptr %16, align 8
   %148 = load i32, ptr %18, align 8
   br label %150
@@ -2681,8 +2681,8 @@ TransactionIdOlder.exit145:                       ; preds = %TransactionIdOlder.
   br label %TransactionIdOlder.exit150
 
 TransactionIdOlder.exit150:                       ; preds = %TransactionIdOlder.exit145, %150, %152
-  %154 = phi i32 [ %149, %TransactionIdOlder.exit145 ], [ 0, %150 ], [ %.pre173, %152 ]
-  %.0.i149 = phi i32 [ %149, %TransactionIdOlder.exit145 ], [ %.0.i144166, %150 ], [ %..i148, %152 ]
+  %154 = phi i32 [ %.pre173, %152 ], [ 0, %150 ], [ %149, %TransactionIdOlder.exit145 ]
+  %.0.i149 = phi i32 [ %..i148, %152 ], [ %.0.i144166, %150 ], [ %149, %TransactionIdOlder.exit145 ]
   store i32 %.0.i149, ptr %16, align 8
   %155 = load i32, ptr %17, align 4
   %156 = load i64, ptr %0, align 8
@@ -2726,7 +2726,7 @@ TransactionIdOlder.exit150:                       ; preds = %TransactionIdOlder.
   br label %FullTransactionIdNewer.exit.i
 
 FullTransactionIdNewer.exit.i:                    ; preds = %182, %180, %TransactionIdOlder.exit150
-  %.sroa.06.0.i.i = phi i64 [ %178, %TransactionIdOlder.exit150 ], [ %160, %180 ], [ %..i.i, %182 ]
+  %.sroa.06.0.i.i = phi i64 [ %..i.i, %182 ], [ %160, %180 ], [ %178, %TransactionIdOlder.exit150 ]
   store i64 %.sroa.06.0.i.i, ptr @GlobalVisSharedRels, align 8
   %183 = load i64, ptr @GlobalVisCatalogRels, align 8
   %184 = and i64 %166, 4294967295
@@ -2743,7 +2743,7 @@ FullTransactionIdNewer.exit.i:                    ; preds = %182, %180, %Transac
   br label %FullTransactionIdNewer.exit18.i
 
 FullTransactionIdNewer.exit18.i:                  ; preds = %187, %185, %FullTransactionIdNewer.exit.i
-  %.sroa.06.0.i17.i = phi i64 [ %183, %FullTransactionIdNewer.exit.i ], [ %166, %185 ], [ %..i16.i, %187 ]
+  %.sroa.06.0.i17.i = phi i64 [ %..i16.i, %187 ], [ %166, %185 ], [ %183, %FullTransactionIdNewer.exit.i ]
   store i64 %.sroa.06.0.i17.i, ptr @GlobalVisCatalogRels, align 8
   %188 = load i64, ptr @GlobalVisDataRels, align 8
   %189 = and i64 %171, 4294967295
@@ -2760,7 +2760,7 @@ FullTransactionIdNewer.exit18.i:                  ; preds = %187, %185, %FullTra
   br label %GlobalVisUpdateApply.exit
 
 GlobalVisUpdateApply.exit:                        ; preds = %FullTransactionIdNewer.exit18.i, %190, %192
-  %.sroa.06.0.i22.i = phi i64 [ %188, %FullTransactionIdNewer.exit18.i ], [ %171, %190 ], [ %..i21.i, %192 ]
+  %.sroa.06.0.i22.i = phi i64 [ %..i21.i, %192 ], [ %171, %190 ], [ %188, %FullTransactionIdNewer.exit18.i ]
   store i64 %.sroa.06.0.i22.i, ptr @GlobalVisDataRels, align 8
   store i64 %177, ptr @GlobalVisTempRels, align 8
   %193 = load i32, ptr @RecentXmin, align 4
@@ -3016,10 +3016,10 @@ define dso_local noundef ptr @GetSnapshotData(ptr noundef returned captures(ret:
   br label %126
 
 126:                                              ; preds = %98, %105, %112, %110, %94, %90, %86
-  %spec.store.select155156 = phi i32 [ %spec.store.select155157158, %86 ], [ %spec.store.select155157158, %90 ], [ %spec.store.select155157158, %94 ], [ %spec.store.select155, %98 ], [ %spec.store.select155, %105 ], [ %spec.store.select155, %112 ], [ %spec.store.select155, %110 ]
-  %.1106 = phi i8 [ %.0105160, %86 ], [ %.0105160, %90 ], [ %.0105160, %94 ], [ 1, %98 ], [ 1, %105 ], [ 0, %112 ], [ 0, %110 ]
-  %.1103 = phi i32 [ %.0102161, %86 ], [ %.0102161, %90 ], [ %.0102161, %94 ], [ %.0102161, %98 ], [ %.0102161, %105 ], [ %125, %112 ], [ %.0102161, %110 ]
-  %.1 = phi i32 [ %.0101162, %86 ], [ %.0101162, %90 ], [ %.0101162, %94 ], [ %101, %98 ], [ %101, %105 ], [ %101, %112 ], [ %101, %110 ]
+  %spec.store.select155156 = phi i32 [ %spec.store.select155157158, %90 ], [ %spec.store.select155157158, %86 ], [ %spec.store.select155, %110 ], [ %spec.store.select155157158, %94 ], [ %spec.store.select155, %98 ], [ %spec.store.select155, %105 ], [ %spec.store.select155, %112 ]
+  %.1106 = phi i8 [ %.0105160, %90 ], [ %.0105160, %86 ], [ 0, %110 ], [ %.0105160, %94 ], [ 1, %98 ], [ 1, %105 ], [ 0, %112 ]
+  %.1103 = phi i32 [ %.0102161, %90 ], [ %.0102161, %86 ], [ %.0102161, %110 ], [ %.0102161, %94 ], [ %.0102161, %98 ], [ %.0102161, %105 ], [ %125, %112 ]
+  %.1 = phi i32 [ %.0101162, %90 ], [ %.0101162, %86 ], [ %101, %110 ], [ %.0101162, %94 ], [ %101, %98 ], [ %101, %105 ], [ %101, %112 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %86, !llvm.loop !42
@@ -3077,7 +3077,7 @@ thread-pre-split:                                 ; preds = %._crit_edge, %145
   br label %TransactionIdOlder.exit
 
 TransactionIdOlder.exit:                          ; preds = %thread-pre-split, %151, %152
-  %.0.i120 = phi i32 [ %139, %thread-pre-split ], [ %136, %151 ], [ %..i, %152 ]
+  %.0.i120 = phi i32 [ %..i, %152 ], [ %136, %151 ], [ %139, %thread-pre-split ]
   %.not.i121 = icmp eq i32 %141, 0
   br i1 %.not.i121, label %TransactionIdOlder.exit125, label %154
 
@@ -3091,7 +3091,7 @@ TransactionIdOlder.exit:                          ; preds = %thread-pre-split, %
   br label %TransactionIdOlder.exit125
 
 TransactionIdOlder.exit125:                       ; preds = %TransactionIdOlder.exit, %154, %155
-  %.0.i124 = phi i32 [ %.0.i120, %TransactionIdOlder.exit ], [ %141, %154 ], [ %..i123, %155 ]
+  %.0.i124 = phi i32 [ %..i123, %155 ], [ %141, %154 ], [ %.0.i120, %TransactionIdOlder.exit ]
   %157 = sub i32 %.0.i124, %66
   %158 = sext i32 %157 to i64
   %159 = add i64 %.sroa.054.0.copyload, %158
@@ -3123,7 +3123,7 @@ FullTransactionIdNewer.exit:                      ; preds = %TransactionIdOlder.
   br label %FullTransactionIdNewer.exit132
 
 FullTransactionIdNewer.exit132:                   ; preds = %FullTransactionIdNewer.exit, %164, %170
-  %.sroa.06.0.i131 = phi i64 [ %169, %FullTransactionIdNewer.exit ], [ %159, %164 ], [ %..i130, %170 ]
+  %.sroa.06.0.i131 = phi i64 [ %..i130, %170 ], [ %159, %164 ], [ %169, %FullTransactionIdNewer.exit ]
   store i64 %.sroa.06.0.i131, ptr @GlobalVisCatalogRels, align 8
   %171 = load i64, ptr @GlobalVisDataRels, align 8
   %172 = and i64 %162, 4294967295
@@ -3140,7 +3140,7 @@ FullTransactionIdNewer.exit132:                   ; preds = %FullTransactionIdNe
   br label %FullTransactionIdNewer.exit137
 
 FullTransactionIdNewer.exit137:                   ; preds = %FullTransactionIdNewer.exit132, %173, %175
-  %.sroa.06.0.i136 = phi i64 [ %171, %FullTransactionIdNewer.exit132 ], [ %162, %173 ], [ %..i135, %175 ]
+  %.sroa.06.0.i136 = phi i64 [ %..i135, %175 ], [ %162, %173 ], [ %171, %FullTransactionIdNewer.exit132 ]
   store i64 %.sroa.06.0.i136, ptr @GlobalVisDataRels, align 8
   br i1 %68, label %176, label %180
 
@@ -3181,7 +3181,7 @@ FullTransactionIdNewer.exit137:                   ; preds = %FullTransactionIdNe
   br label %FullTransactionIdNewer.exit142
 
 FullTransactionIdNewer.exit142:                   ; preds = %189, %193, %195
-  %.sroa.06.0.i141 = phi i64 [ %150, %189 ], [ %191, %193 ], [ %..i140, %195 ]
+  %.sroa.06.0.i141 = phi i64 [ %..i140, %195 ], [ %191, %193 ], [ %150, %189 ]
   store i64 %.sroa.06.0.i141, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisSharedRels, i64 8), align 8
   %196 = load i64, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisCatalogRels, i64 8), align 8
   %197 = and i64 %196, 4294967295
@@ -3198,7 +3198,7 @@ FullTransactionIdNewer.exit142:                   ; preds = %189, %193, %195
   br label %FullTransactionIdNewer.exit147
 
 FullTransactionIdNewer.exit147:                   ; preds = %FullTransactionIdNewer.exit142, %198, %200
-  %.sroa.06.0.i146 = phi i64 [ %150, %FullTransactionIdNewer.exit142 ], [ %196, %198 ], [ %..i145, %200 ]
+  %.sroa.06.0.i146 = phi i64 [ %..i145, %200 ], [ %196, %198 ], [ %150, %FullTransactionIdNewer.exit142 ]
   store i64 %.sroa.06.0.i146, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisCatalogRels, i64 8), align 8
   %201 = load i64, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisDataRels, i64 8), align 8
   %202 = and i64 %201, 4294967295
@@ -3215,7 +3215,7 @@ FullTransactionIdNewer.exit147:                   ; preds = %FullTransactionIdNe
   br label %FullTransactionIdNewer.exit152
 
 FullTransactionIdNewer.exit152:                   ; preds = %FullTransactionIdNewer.exit147, %203, %205
-  %.sroa.06.0.i151 = phi i64 [ %150, %FullTransactionIdNewer.exit147 ], [ %201, %203 ], [ %..i150, %205 ]
+  %.sroa.06.0.i151 = phi i64 [ %..i150, %205 ], [ %201, %203 ], [ %150, %FullTransactionIdNewer.exit147 ]
   store i64 %.sroa.06.0.i151, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisDataRels, i64 8), align 8
   store i64 %190, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisTempRels, i64 8), align 8
   store i32 %136, ptr @RecentXmin, align 4
@@ -3298,8 +3298,8 @@ define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr noundef writeonly
   br label %28
 
 28:                                               ; preds = %.thread.us, %.lr.ph.split.us
-  %29 = phi ptr [ %11, %.lr.ph.split.us ], [ %24, %.thread.us ]
-  %.3.us = phi i32 [ %.01824.us, %.lr.ph.split.us ], [ %25, %.thread.us ]
+  %29 = phi ptr [ %24, %.thread.us ], [ %11, %.lr.ph.split.us ]
+  %.3.us = phi i32 [ %25, %.thread.us ], [ %.01824.us, %.lr.ph.split.us ]
   %indvars.iv.next30 = add nsw i64 %indvars.iv29, 1
   %lftr.wideiv32 = trunc i64 %indvars.iv.next30 to i32
   %exitcond33.not = icmp eq i32 %8, %lftr.wideiv32
@@ -3343,15 +3343,15 @@ define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr noundef writeonly
   br label %48
 
 48:                                               ; preds = %.thread, %.lr.ph.split
-  %49 = phi ptr [ %30, %.lr.ph.split ], [ %.pre, %.thread ]
-  %.3 = phi i32 [ %.01824, %.lr.ph.split ], [ %45, %.thread ]
+  %49 = phi ptr [ %.pre, %.thread ], [ %30, %.lr.ph.split ]
+  %.3 = phi i32 [ %45, %.thread ], [ %.01824, %.lr.ph.split ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %8, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %48, %43, %28, %3
-  %.018.lcssa = phi i32 [ 0, %3 ], [ %.3.us, %28 ], [ %.01824, %43 ], [ %.3, %48 ]
+  %.018.lcssa = phi i32 [ 0, %3 ], [ %.3.us, %28 ], [ %.3, %48 ], [ %.01824, %43 ]
   ret i32 %.018.lcssa
 }
 
@@ -3439,10 +3439,10 @@ define dso_local noundef zeroext i1 @ProcArrayInstallImportedXmin(i32 noundef %0
   store i32 %0, ptr %45, align 8
   br label %.loopexit
 
-46:                                               ; preds = %._crit_edge, %12, %25, %29, %33, %37
-  %47 = phi i32 [ %13, %12 ], [ %13, %25 ], [ %13, %29 ], [ %13, %33 ], [ %.pre39, %._crit_edge ], [ %13, %37 ]
-  %48 = phi ptr [ %14, %12 ], [ %14, %25 ], [ %14, %29 ], [ %14, %33 ], [ %.pre37, %._crit_edge ], [ %14, %37 ]
-  %49 = phi ptr [ %15, %12 ], [ %15, %25 ], [ %15, %29 ], [ %15, %33 ], [ %.pre, %._crit_edge ], [ %15, %37 ]
+46:                                               ; preds = %._crit_edge, %33, %12, %25, %29, %37
+  %47 = phi i32 [ %13, %33 ], [ %13, %12 ], [ %13, %25 ], [ %13, %29 ], [ %.pre39, %._crit_edge ], [ %13, %37 ]
+  %48 = phi ptr [ %14, %33 ], [ %14, %12 ], [ %14, %25 ], [ %14, %29 ], [ %.pre37, %._crit_edge ], [ %14, %37 ]
+  %49 = phi ptr [ %15, %33 ], [ %15, %12 ], [ %15, %25 ], [ %15, %29 ], [ %.pre, %._crit_edge ], [ %15, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = sext i32 %47 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
@@ -4001,7 +4001,7 @@ define dso_local ptr @ProcNumberGetProc(i32 noundef %0) local_unnamed_addr #7 {
   br label %14
 
 14:                                               ; preds = %7, %1, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ %., %7 ]
+  %.0 = phi ptr [ null, %1 ], [ %., %7 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -4096,7 +4096,7 @@ define dso_local ptr @BackendPidGetProc(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %19, label %BackendPidGetProcWithLock.exit, label %11
 
 BackendPidGetProcWithLock.exit:                   ; preds = %11, %12, %.preheader.i
-  %.0.i = phi ptr [ null, %.preheader.i ], [ %16, %12 ], [ null, %11 ]
+  %.0.i = phi ptr [ null, %.preheader.i ], [ null, %11 ], [ %16, %12 ]
   %20 = load ptr, ptr @MainLWLockArray, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 512
   tail call void @LWLockRelease(ptr noundef nonnull %21) #14
@@ -4238,7 +4238,7 @@ define dso_local zeroext i1 @IsBackendPid(i32 noundef %0) local_unnamed_addr #0 
   br i1 %19, label %BackendPidGetProcWithLock.exit.i.loopexit, label %11
 
 BackendPidGetProcWithLock.exit.i.loopexit:        ; preds = %11, %12
-  %.0.i.i.ph = phi ptr [ %16, %12 ], [ null, %11 ]
+  %.0.i.i.ph = phi ptr [ null, %11 ], [ %16, %12 ]
   %20 = icmp ne ptr %.0.i.i.ph, null
   br label %BackendPidGetProcWithLock.exit.i
 
@@ -4332,8 +4332,8 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   br label %50
 
 50:                                               ; preds = %44, %40, %38, %33, %25, %.lr.ph.split.us
-  %51 = phi ptr [ %18, %.lr.ph.split.us ], [ %18, %25 ], [ %18, %33 ], [ %.pre74, %38 ], [ %41, %44 ], [ %41, %40 ]
-  %.1.us = phi i32 [ %.036.us, %.lr.ph.split.us ], [ %.036.us, %25 ], [ %.036.us, %33 ], [ %.036.us, %38 ], [ %47, %44 ], [ %.036.us, %40 ]
+  %51 = phi ptr [ %41, %40 ], [ %18, %.lr.ph.split.us ], [ %18, %25 ], [ %18, %33 ], [ %.pre74, %38 ], [ %41, %44 ]
+  %.1.us = phi i32 [ %.036.us, %40 ], [ %.036.us, %.lr.ph.split.us ], [ %.036.us, %25 ], [ %.036.us, %33 ], [ %.036.us, %38 ], [ %47, %44 ]
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %52 = load i32, ptr %6, align 4
   %53 = sext i32 %52 to i64
@@ -4404,9 +4404,9 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   br label %89
 
 89:                                               ; preds = %83, %80, %76, %71, %63, %55
-  %90 = phi i32 [ %56, %55 ], [ %56, %63 ], [ %56, %71 ], [ %56, %76 ], [ %.pre73, %83 ], [ %56, %80 ]
-  %91 = phi ptr [ %57, %55 ], [ %57, %63 ], [ %57, %71 ], [ %57, %76 ], [ %.pre71, %83 ], [ %57, %80 ]
-  %.1.us43 = phi i32 [ %.036.us37, %55 ], [ %.036.us37, %63 ], [ %.036.us37, %71 ], [ %.036.us37, %76 ], [ %86, %83 ], [ %.036.us37, %80 ]
+  %90 = phi i32 [ %56, %71 ], [ %56, %55 ], [ %56, %63 ], [ %56, %76 ], [ %56, %80 ], [ %.pre73, %83 ]
+  %91 = phi ptr [ %57, %71 ], [ %57, %55 ], [ %57, %63 ], [ %57, %76 ], [ %57, %80 ], [ %.pre71, %83 ]
+  %.1.us43 = phi i32 [ %.036.us37, %71 ], [ %.036.us37, %55 ], [ %.036.us37, %63 ], [ %.036.us37, %76 ], [ %.036.us37, %80 ], [ %86, %83 ]
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %92 = sext i32 %90 to i64
   %93 = icmp slt i64 %indvars.iv.next63, %92
@@ -4470,8 +4470,8 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   br label %127
 
 127:                                              ; preds = %121, %118, %114, %109, %101, %.lr.ph.split.split.split.us
-  %128 = phi ptr [ %94, %.lr.ph.split.split.split.us ], [ %94, %101 ], [ %94, %109 ], [ %.pre, %114 ], [ %.pre, %121 ], [ %.pre, %118 ]
-  %.1.us52 = phi i32 [ %.036.us46, %.lr.ph.split.split.split.us ], [ %.036.us46, %101 ], [ %.036.us46, %109 ], [ %.036.us46, %114 ], [ %124, %121 ], [ %.036.us46, %118 ]
+  %128 = phi ptr [ %94, %109 ], [ %94, %.lr.ph.split.split.split.us ], [ %94, %101 ], [ %.pre, %118 ], [ %.pre, %114 ], [ %.pre, %121 ]
+  %.1.us52 = phi i32 [ %.036.us46, %109 ], [ %.036.us46, %.lr.ph.split.split.split.us ], [ %.036.us46, %101 ], [ %.036.us46, %118 ], [ %.036.us46, %114 ], [ %124, %121 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %129 = load i32, ptr %6, align 4
   %130 = sext i32 %129 to i64
@@ -4537,8 +4537,8 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   br label %167
 
 167:                                              ; preds = %152, %158, %161, %156, %147, %139, %.lr.ph.split.split.split
-  %168 = phi ptr [ %132, %.lr.ph.split.split.split ], [ %132, %139 ], [ %132, %147 ], [ %132, %152 ], [ %.pre69, %156 ], [ %.pre69, %161 ], [ %.pre69, %158 ]
-  %.1 = phi i32 [ %.036, %.lr.ph.split.split.split ], [ %.036, %139 ], [ %.036, %147 ], [ %.036, %152 ], [ %.036, %156 ], [ %164, %161 ], [ %.036, %158 ]
+  %168 = phi ptr [ %132, %147 ], [ %132, %.lr.ph.split.split.split ], [ %132, %139 ], [ %132, %152 ], [ %.pre69, %156 ], [ %.pre69, %161 ], [ %.pre69, %158 ]
+  %.1 = phi i32 [ %.036, %147 ], [ %.036, %.lr.ph.split.split.split ], [ %.036, %139 ], [ %.036, %152 ], [ %.036, %156 ], [ %164, %161 ], [ %.036, %158 ]
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %169 = load i32, ptr %6, align 4
   %170 = sext i32 %169 to i64
@@ -4546,7 +4546,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   br i1 %171, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %127, %167, %89, %50, %5
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %.1.us, %50 ], [ %.1.us43, %89 ], [ %.1, %167 ], [ %.1.us52, %127 ]
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %.1.us, %50 ], [ %.1, %167 ], [ %.1.us43, %89 ], [ %.1.us52, %127 ]
   %172 = load ptr, ptr @MainLWLockArray, align 8
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 512
   tail call void @LWLockRelease(ptr noundef nonnull %173) #14
@@ -4632,8 +4632,8 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   br label %46
 
 46:                                               ; preds = %40, %35, %.lr.ph.split.us.split.us
-  %47 = phi i32 [ %27, %.lr.ph.split.us.split.us ], [ %.pre55, %40 ], [ %27, %35 ]
-  %.1.us.us = phi i32 [ %.029.us.us, %.lr.ph.split.us.split.us ], [ %43, %40 ], [ %.029.us.us, %35 ]
+  %47 = phi i32 [ %27, %.lr.ph.split.us.split.us ], [ %27, %35 ], [ %.pre55, %40 ]
+  %.1.us.us = phi i32 [ %.029.us.us, %.lr.ph.split.us.split.us ], [ %.029.us.us, %35 ], [ %43, %40 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next49, %48
@@ -4732,8 +4732,8 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   br label %100
 
 100:                                              ; preds = %93, %90, %88, %85, %.lr.ph.split.split.us
-  %101 = phi ptr [ %77, %.lr.ph.split.split.us ], [ %.pre52, %88 ], [ %77, %85 ], [ %.pre52, %93 ], [ %.pre52, %90 ]
-  %.1.us34 = phi i32 [ %.029.us30, %.lr.ph.split.split.us ], [ %.029.us30, %88 ], [ %.029.us30, %85 ], [ %97, %93 ], [ %.029.us30, %90 ]
+  %101 = phi ptr [ %77, %.lr.ph.split.split.us ], [ %.pre52, %90 ], [ %.pre52, %88 ], [ %77, %85 ], [ %.pre52, %93 ]
+  %.1.us34 = phi i32 [ %.029.us30, %.lr.ph.split.split.us ], [ %.029.us30, %90 ], [ %.029.us30, %88 ], [ %.029.us30, %85 ], [ %97, %93 ]
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %102 = load i32, ptr %3, align 4
   %103 = sext i32 %102 to i64
@@ -4798,7 +4798,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   br i1 %136, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %132, %100, %73, %46, %18
-  %.0.lcssa = phi i32 [ 0, %18 ], [ %.1.us.us, %46 ], [ %.1.us, %73 ], [ %.1.us34, %100 ], [ %.1, %132 ]
+  %.0.lcssa = phi i32 [ 0, %18 ], [ %.1.us34, %100 ], [ %.1.us, %73 ], [ %.1.us.us, %46 ], [ %.1, %132 ]
   %137 = load ptr, ptr @MainLWLockArray, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 512
   tail call void @LWLockRelease(ptr noundef nonnull %138) #14
@@ -4991,7 +4991,7 @@ define dso_local zeroext i1 @MinimumActiveBackends(i32 noundef %0) local_unnamed
   %.not25 = icmp slt i32 %28, %0
   br i1 %.not25, label %select.unfold, label %._crit_edge
 
-select.unfold:                                    ; preds = %27, %9, %16, %20, %24
+select.unfold:                                    ; preds = %27, %24, %9, %16, %20
   %.2.ph = phi i32 [ %.01831, %24 ], [ %.01831, %20 ], [ %.01831, %16 ], [ %.01831, %9 ], [ %28, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5287,7 +5287,7 @@ define dso_local i32 @CountUserBackends(i32 noundef %0) local_unnamed_addr #0 {
   br label %27
 
 27:                                               ; preds = %18, %10, %22
-  %.1 = phi i32 [ %spec.select, %22 ], [ %.013, %10 ], [ %.013, %18 ]
+  %.1 = phi i32 [ %.013, %10 ], [ %spec.select, %22 ], [ %.013, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !63
@@ -5384,8 +5384,8 @@ define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr no
   br label %49
 
 49:                                               ; preds = %35, %44, %38, %17
-  %.136 = phi i1 [ %.03541, %17 ], [ true, %38 ], [ true, %44 ], [ true, %35 ]
-  %.131 = phi i32 [ %.03043, %17 ], [ %.03043, %38 ], [ %46, %44 ], [ %.03043, %35 ]
+  %.136 = phi i1 [ true, %35 ], [ %.03541, %17 ], [ true, %38 ], [ true, %44 ]
+  %.131 = phi i32 [ %.03043, %35 ], [ %.03043, %17 ], [ %.03043, %38 ], [ %46, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %5, align 4
   %51 = sext i32 %50 to i64
@@ -5500,11 +5500,11 @@ define dso_local void @TerminateOtherDBBackends(i32 noundef %0) local_unnamed_ad
   br label %30
 
 30:                                               ; preds = %26, %28, %12
-  %31 = phi i32 [ %13, %12 ], [ %.pre104, %26 ], [ %13, %28 ]
-  %32 = phi ptr [ %14, %12 ], [ %.pre101, %26 ], [ %14, %28 ]
-  %33 = phi ptr [ %15, %12 ], [ %.pre, %26 ], [ %15, %28 ]
-  %.139 = phi i32 [ %.03883, %12 ], [ %.03883, %26 ], [ %29, %28 ]
-  %.1 = phi ptr [ %.084, %12 ], [ %27, %26 ], [ %.084, %28 ]
+  %31 = phi i32 [ %13, %28 ], [ %13, %12 ], [ %.pre104, %26 ]
+  %32 = phi ptr [ %14, %28 ], [ %14, %12 ], [ %.pre101, %26 ]
+  %33 = phi ptr [ %15, %28 ], [ %15, %12 ], [ %.pre, %26 ]
+  %.139 = phi i32 [ %29, %28 ], [ %.03883, %12 ], [ %.03883, %26 ]
+  %.1 = phi ptr [ %.084, %28 ], [ %.084, %12 ], [ %27, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = sext i32 %31 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
@@ -6031,8 +6031,8 @@ define dso_local noundef nonnull ptr @GlobalVisTestFor(ptr noundef %0) local_unn
 GlobalVisHorizonKindForRel.exit:                  ; preds = %38, %34
   br label %GlobalVisHorizonKindForRel.exit.thread
 
-GlobalVisHorizonKindForRel.exit.thread:           ; preds = %1, %3, %9, %38, %11, %21, %30, %GlobalVisHorizonKindForRel.exit
-  %.0 = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit ], [ @GlobalVisCatalogRels, %30 ], [ @GlobalVisCatalogRels, %21 ], [ @GlobalVisCatalogRels, %11 ], [ @GlobalVisDataRels, %38 ], [ @GlobalVisSharedRels, %9 ], [ @GlobalVisSharedRels, %3 ], [ @GlobalVisSharedRels, %1 ]
+GlobalVisHorizonKindForRel.exit.thread:           ; preds = %3, %9, %1, %38, %21, %30, %11, %GlobalVisHorizonKindForRel.exit
+  %.0 = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit ], [ @GlobalVisCatalogRels, %21 ], [ @GlobalVisDataRels, %38 ], [ @GlobalVisCatalogRels, %11 ], [ @GlobalVisCatalogRels, %30 ], [ @GlobalVisSharedRels, %1 ], [ @GlobalVisSharedRels, %9 ], [ @GlobalVisSharedRels, %3 ]
   ret ptr %.0
 }
 
@@ -6066,7 +6066,7 @@ GlobalVisTestShouldUpdate.exit.thread:            ; preds = %9
   br label %GlobalVisTestShouldUpdate.exit.thread9
 
 GlobalVisTestShouldUpdate.exit.thread9:           ; preds = %9, %7, %2, %GlobalVisTestShouldUpdate.exit.thread
-  %.0 = phi i1 [ %13, %GlobalVisTestShouldUpdate.exit.thread ], [ true, %2 ], [ false, %7 ], [ false, %9 ]
+  %.0 = phi i1 [ false, %7 ], [ true, %2 ], [ %13, %GlobalVisTestShouldUpdate.exit.thread ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -6104,7 +6104,7 @@ GlobalVisTestShouldUpdate.exit.thread.i:          ; preds = %13
   br label %GlobalVisTestIsRemovableFullXid.exit
 
 GlobalVisTestIsRemovableFullXid.exit:             ; preds = %2, %12, %13, %GlobalVisTestShouldUpdate.exit.thread.i
-  %.0.i = phi i1 [ %17, %GlobalVisTestShouldUpdate.exit.thread.i ], [ true, %2 ], [ false, %12 ], [ false, %13 ]
+  %.0.i = phi i1 [ false, %12 ], [ true, %2 ], [ %17, %GlobalVisTestShouldUpdate.exit.thread.i ], [ false, %13 ]
   ret i1 %.0.i
 }
 
@@ -6183,7 +6183,7 @@ GlobalVisHorizonKindForRel.exit.i:                ; preds = %40, %36
   br label %GlobalVisTestFor.exit
 
 GlobalVisTestFor.exit:                            ; preds = %2, %5, %11, %13, %23, %32, %40, %GlobalVisHorizonKindForRel.exit.i
-  %.0.i = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit.i ], [ @GlobalVisCatalogRels, %32 ], [ @GlobalVisCatalogRels, %23 ], [ @GlobalVisCatalogRels, %13 ], [ @GlobalVisDataRels, %40 ], [ @GlobalVisSharedRels, %11 ], [ @GlobalVisSharedRels, %5 ], [ @GlobalVisSharedRels, %2 ]
+  %.0.i = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit.i ], [ @GlobalVisCatalogRels, %23 ], [ @GlobalVisDataRels, %40 ], [ @GlobalVisCatalogRels, %13 ], [ @GlobalVisCatalogRels, %32 ], [ @GlobalVisSharedRels, %2 ], [ @GlobalVisSharedRels, %11 ], [ @GlobalVisSharedRels, %5 ]
   %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = icmp ult i64 %1, %44
@@ -6211,7 +6211,7 @@ GlobalVisTestShouldUpdate.exit.thread.i:          ; preds = %48
   br label %GlobalVisTestIsRemovableFullXid.exit
 
 GlobalVisTestIsRemovableFullXid.exit:             ; preds = %GlobalVisTestFor.exit, %46, %48, %GlobalVisTestShouldUpdate.exit.thread.i
-  %.0.i2 = phi i1 [ %52, %GlobalVisTestShouldUpdate.exit.thread.i ], [ true, %GlobalVisTestFor.exit ], [ false, %46 ], [ false, %48 ]
+  %.0.i2 = phi i1 [ false, %46 ], [ true, %GlobalVisTestFor.exit ], [ %52, %GlobalVisTestShouldUpdate.exit.thread.i ], [ false, %48 ]
   ret i1 %.0.i2
 }
 
@@ -6290,7 +6290,7 @@ GlobalVisHorizonKindForRel.exit.i:                ; preds = %40, %36
   br label %GlobalVisTestFor.exit
 
 GlobalVisTestFor.exit:                            ; preds = %2, %5, %11, %13, %23, %32, %40, %GlobalVisHorizonKindForRel.exit.i
-  %.0.i = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit.i ], [ @GlobalVisCatalogRels, %32 ], [ @GlobalVisCatalogRels, %23 ], [ @GlobalVisCatalogRels, %13 ], [ @GlobalVisDataRels, %40 ], [ @GlobalVisSharedRels, %11 ], [ @GlobalVisSharedRels, %5 ], [ @GlobalVisSharedRels, %2 ]
+  %.0.i = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit.i ], [ @GlobalVisCatalogRels, %23 ], [ @GlobalVisDataRels, %40 ], [ @GlobalVisCatalogRels, %13 ], [ @GlobalVisCatalogRels, %32 ], [ @GlobalVisSharedRels, %2 ], [ @GlobalVisSharedRels, %11 ], [ @GlobalVisSharedRels, %5 ]
   %43 = load i64, ptr %.0.i, align 8
   %44 = trunc i64 %43 to i32
   %45 = sub i32 %1, %44
@@ -6322,7 +6322,7 @@ GlobalVisTestShouldUpdate.exit.thread.i.i:        ; preds = %52
   br label %GlobalVisTestIsRemovableXid.exit
 
 GlobalVisTestIsRemovableXid.exit:                 ; preds = %GlobalVisTestFor.exit, %51, %52, %GlobalVisTestShouldUpdate.exit.thread.i.i
-  %.0.i.i = phi i1 [ %56, %GlobalVisTestShouldUpdate.exit.thread.i.i ], [ true, %GlobalVisTestFor.exit ], [ false, %51 ], [ false, %52 ]
+  %.0.i.i = phi i1 [ false, %51 ], [ true, %GlobalVisTestFor.exit ], [ %56, %GlobalVisTestShouldUpdate.exit.thread.i.i ], [ false, %52 ]
   ret i1 %.0.i.i
 }
 
@@ -6570,7 +6570,7 @@ define internal fastcc void @KnownAssignedXidsRemovePreceding(i32 noundef %0) un
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.thread, %25
-  %.0.lcssa = phi i32 [ %.4, %.thread ], [ %.041, %25 ]
+  %.0.lcssa = phi i32 [ %.041, %25 ], [ %.4, %.thread ]
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = sub i32 %37, %.0.lcssa

@@ -653,7 +653,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %39 = icmp eq i32 %38, %36
   br i1 %39, label %46, label %40
 
-40:                                               ; preds = %3, %32
+40:                                               ; preds = %32, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr @anon.b4e7a9529b2389d2df3f066fc89d27c6.22, ptr %15, align 8
@@ -729,7 +729,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %62 = icmp eq i64 %.sroa.026.0.copyload, 3
   br i1 %62, label %.thread79, label %65
 
-.thread87:                                        ; preds = %121, %95, %110, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h26466eb3809d0453E.llvm.12319479977877695114.exit.i", %134, %.noexc69, %162
+.thread87:                                        ; preds = %162, %.noexc69, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h26466eb3809d0453E.llvm.12319479977877695114.exit.i", %110, %121, %95, %134
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread81
@@ -905,7 +905,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !160
   br label %134
 
-121:                                              ; preds = %.noexc, %103
+121:                                              ; preds = %103, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr @anon.b4e7a9529b2389d2df3f066fc89d27c6.22, ptr %12, align 8
@@ -1101,7 +1101,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %37 = icmp eq i32 %36, %34
   br i1 %37, label %44, label %38
 
-38:                                               ; preds = %3, %30
+38:                                               ; preds = %30, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr @anon.b4e7a9529b2389d2df3f066fc89d27c6.22, ptr %13, align 8
@@ -1177,7 +1177,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %60 = icmp eq i64 %.sroa.026.0.copyload, 3
   br i1 %60, label %.thread76, label %63
 
-.thread84:                                        ; preds = %113, %87, %102, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h26466eb3809d0453E.llvm.12319479977877695114.exit.i", %127, %.noexc69, %155
+.thread84:                                        ; preds = %155, %.noexc69, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h26466eb3809d0453E.llvm.12319479977877695114.exit.i", %102, %113, %87, %127
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread78
@@ -1317,7 +1317,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !240
   br label %127
 
-113:                                              ; preds = %.noexc, %95
+113:                                              ; preds = %95, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr @anon.b4e7a9529b2389d2df3f066fc89d27c6.22, ptr %10, align 8
@@ -1519,7 +1519,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %41 = icmp eq i32 %40, %38
   br i1 %41, label %48, label %42
 
-42:                                               ; preds = %3, %34
+42:                                               ; preds = %34, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr @anon.b4e7a9529b2389d2df3f066fc89d27c6.22, ptr %17, align 8
@@ -1595,7 +1595,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %64 = icmp eq i64 %.sroa.026.0.copyload, 3
   br i1 %64, label %.thread79, label %67
 
-.thread87:                                        ; preds = %253, %227, %242, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h26466eb3809d0453E.llvm.12319479977877695114.exit.i", %267, %.noexc69, %295
+.thread87:                                        ; preds = %295, %.noexc69, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h26466eb3809d0453E.llvm.12319479977877695114.exit.i", %242, %253, %227, %267
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread81
@@ -1714,7 +1714,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
           to label %100 unwind label %98, !noalias !299
 
 .body.i.i:                                        ; preds = %215, %.body14.i.i, %147, %141, %131, %125, %121, %98
-  %.pn.i.i = phi { ptr, i32 } [ %171, %.body14.i.i ], [ %216, %215 ], [ %122, %121 ], [ %99, %98 ], [ %126, %131 ], [ %126, %125 ], [ %142, %147 ], [ %142, %141 ]
+  %.pn.i.i = phi { ptr, i32 } [ %122, %121 ], [ %171, %.body14.i.i ], [ %216, %215 ], [ %126, %125 ], [ %99, %98 ], [ %126, %131 ], [ %142, %147 ], [ %142, %141 ]
   invoke void @"_ZN4core3ptr86drop_in_place$LT$gpui..view..View$LT$ui..components..context_menu..ContextMenu$GT$$GT$17h33e8529c091fb9cbE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #27
           to label %.body.i unwind label %213, !noalias !291
 
@@ -2104,7 +2104,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h7b15c4978de84c41E.exit.i.i: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !431
   br label %267
 
-253:                                              ; preds = %.noexc, %235
+253:                                              ; preds = %235, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr @anon.b4e7a9529b2389d2df3f066fc89d27c6.22, ptr %14, align 8

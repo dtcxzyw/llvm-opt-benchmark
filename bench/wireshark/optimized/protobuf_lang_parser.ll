@@ -565,7 +565,7 @@ define internal fastcc void @ProtobufLangParser(ptr noundef initializes((16, 24)
   br label %yy_find_shift_action.exit
 
 yy_find_shift_action.exit:                        ; preds = %12, %.thread.i, %._crit_edge.i
-  %.0.i = phi i16 [ %33, %._crit_edge.i ], [ %.037, %12 ], [ %24, %.thread.i ]
+  %.0.i = phi i16 [ %33, %._crit_edge.i ], [ %24, %.thread.i ], [ %.037, %12 ]
   %34 = icmp ugt i16 %.0.i, 531
   br i1 %34, label %35, label %662
 

@@ -116,8 +116,8 @@ define internal void @mermaid_print_section_header(ptr noundef %0, ptr noundef r
   br label %tf_get_section.exit
 
 tf_get_section.exit:                              ; preds = %9, %.thread.i
-  %14 = phi i32 [ %.pre, %.thread.i ], [ %6, %9 ]
-  %.0.i = phi ptr [ null, %.thread.i ], [ %13, %9 ]
+  %14 = phi i32 [ %6, %9 ], [ %.pre, %.thread.i ]
+  %.0.i = phi ptr [ %13, %9 ], [ null, %.thread.i ]
   %15 = icmp slt i32 %14, 1
   br i1 %15, label %tf_get_parent_section.exit, label %16
 
@@ -140,7 +140,7 @@ tf_get_section.exit:                              ; preds = %9, %.thread.i
   br label %tf_get_parent_section.exit
 
 tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit, %19, %.thread.i.i
-  %.0.i162 = phi ptr [ null, %tf_get_section.exit ], [ null, %.thread.i.i ], [ %23, %19 ]
+  %.0.i162 = phi ptr [ null, %tf_get_section.exit ], [ %23, %19 ], [ null, %.thread.i.i ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %253, label %24
 
@@ -1268,7 +1268,7 @@ tf_get_section.exit:                              ; preds = %13
   br label %99
 
 99:                                               ; preds = %96, %93, %90, %98
-  %.0 = phi ptr [ @.str.57, %98 ], [ @.str.55, %90 ], [ @.str.56, %93 ], [ @.str.56, %96 ]
+  %.0 = phi ptr [ @.str.57, %98 ], [ @.str.56, %93 ], [ @.str.55, %90 ], [ @.str.56, %96 ]
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %101 = load i32, ptr %100, align 8, !tbaa !46
   %102 = shl nsw i32 %101, 1

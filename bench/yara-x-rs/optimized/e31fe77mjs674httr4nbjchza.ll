@@ -815,8 +815,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %12 = icmp eq i64 %11, -9223372036854775808
   br i1 %.not.i.i, label %14, label %13
 
-_ZN4core3cmp9PartialEq2ne17h4de40dea292a4558E.exit.thread: ; preds = %.preheader.split.backedge, %_ZN4core3cmp9PartialEq2ne17h4de40dea292a4558E.exit, %41, %35, %27, %13, %28, %14, %15, %29, %53, %.preheader.split.preheader, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split.preheader ], [ false, %53 ], [ false, %29 ], [ false, %15 ], [ false, %14 ], [ false, %28 ], [ false, %13 ], [ false, %27 ], [ false, %35 ], [ false, %41 ], [ false, %_ZN4core3cmp9PartialEq2ne17h4de40dea292a4558E.exit ], [ true, %.preheader.split.backedge ]
+_ZN4core3cmp9PartialEq2ne17h4de40dea292a4558E.exit.thread: ; preds = %.preheader.split.backedge, %_ZN4core3cmp9PartialEq2ne17h4de40dea292a4558E.exit, %14, %29, %41, %35, %27, %13, %28, %15, %53, %.preheader.split.preheader, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split.preheader ], [ false, %53 ], [ false, %15 ], [ false, %28 ], [ false, %13 ], [ false, %27 ], [ false, %35 ], [ false, %41 ], [ false, %29 ], [ false, %14 ], [ false, %_ZN4core3cmp9PartialEq2ne17h4de40dea292a4558E.exit ], [ true, %.preheader.split.backedge ]
   ret i1 %.sroa.0.0
 
 13:                                               ; preds = %.lr.ph

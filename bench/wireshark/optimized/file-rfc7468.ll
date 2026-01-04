@@ -148,7 +148,7 @@ define internal i32 @dissect_rfc7468(ptr noundef %0, ptr noundef %1, ptr noundef
   %or.cond.i = icmp ult i8 %38, 95
   br i1 %or.cond.i, label %35, label %.loopexit141
 
-.loopexit141:                                     ; preds = %.lr.ph.i, %19, %23, %24, %31, %31
+.loopexit141:                                     ; preds = %.lr.ph.i, %31, %31, %19, %23, %24
   %.2128.ph = phi ptr [ %.0126160, %23 ], [ %.0126160, %24 ], [ %28, %31 ], [ %28, %31 ], [ %.0126160, %19 ], [ %28, %.lr.ph.i ]
   %.4.ph = phi i32 [ %.0123161, %23 ], [ %.0123161, %24 ], [ %29, %31 ], [ %29, %31 ], [ %.0123161, %19 ], [ %29, %.lr.ph.i ]
   %39 = load i32, ptr %5, align 4
@@ -159,9 +159,9 @@ define internal i32 @dissect_rfc7468(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %43, label %.lr.ph, label %line_is_eb.exit, !llvm.loop !8
 
 line_is_eb.exit:                                  ; preds = %.loopexit141, %27, %33, %35, %4
-  %.098157 = phi i32 [ 0, %4 ], [ %.098162, %35 ], [ %42, %.loopexit141 ], [ %.098162, %27 ], [ %.098162, %33 ]
-  %.1127 = phi ptr [ null, %4 ], [ %28, %35 ], [ %.2128.ph, %.loopexit141 ], [ %28, %27 ], [ %28, %33 ]
-  %.1124 = phi i32 [ 0, %4 ], [ %29, %35 ], [ %.4.ph, %.loopexit141 ], [ 0, %27 ], [ %29, %33 ]
+  %.098157 = phi i32 [ %.098162, %35 ], [ 0, %4 ], [ %42, %.loopexit141 ], [ %.098162, %27 ], [ %.098162, %33 ]
+  %.1127 = phi ptr [ %28, %35 ], [ null, %4 ], [ %.2128.ph, %.loopexit141 ], [ %28, %27 ], [ %28, %33 ]
+  %.1124 = phi i32 [ %29, %35 ], [ 0, %4 ], [ %.4.ph, %.loopexit141 ], [ 0, %27 ], [ %29, %33 ]
   %44 = load i32, ptr %5, align 4
   %45 = sub i32 %44, %.098157
   %46 = call ptr @proto_tree_add_format_text(ptr noundef %11, ptr noundef %0, i32 noundef %.098157, i32 noundef %45)
@@ -219,7 +219,7 @@ line_is_eb.exit:                                  ; preds = %.loopexit141, %27, 
   br i1 %71, label %.lr.ph175, label %line_is_blank.exit, !llvm.loop !10
 
 line_is_blank.exit:                               ; preds = %.loopexit139, %.lr.ph.i106, %line_is_eb.exit
-  %.199154 = phi i32 [ %.199173, %line_is_eb.exit ], [ %.199174, %.lr.ph.i106 ], [ %.199, %.loopexit139 ]
+  %.199154 = phi i32 [ %.199174, %.lr.ph.i106 ], [ %.199173, %line_is_eb.exit ], [ %.199, %.loopexit139 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -287,7 +287,7 @@ line_is_blank.exit:                               ; preds = %.loopexit139, %.lr.
   %or.cond.i118 = icmp ult i8 %94, 95
   br i1 %or.cond.i118, label %91, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i114, %75, %79, %80, %87, %87
+.loopexit:                                        ; preds = %.lr.ph.i114, %87, %87, %75, %79, %80
   %.5.ph = phi i32 [ %.2125177, %79 ], [ %.2125177, %80 ], [ %85, %87 ], [ %85, %87 ], [ %.2125177, %75 ], [ %85, %.lr.ph.i114 ]
   %95 = load i32, ptr %5, align 4
   %96 = sub i32 %95, %.2181
@@ -309,10 +309,10 @@ line_is_blank.exit:                               ; preds = %.loopexit139, %.lr.
   br i1 %111, label %.lr.ph182, label %line_is_eb.exit120, !llvm.loop !11
 
 line_is_eb.exit120:                               ; preds = %.loopexit, %83, %89, %91
-  %.0102151 = phi ptr [ %.0102178, %91 ], [ %104, %.loopexit ], [ %.0102178, %83 ], [ %.0102178, %89 ]
-  %.0100148 = phi i32 [ %.0100180, %91 ], [ %109, %.loopexit ], [ %.0100180, %83 ], [ %.0100180, %89 ]
-  %.2145 = phi i32 [ %.2181, %91 ], [ %110, %.loopexit ], [ %.2181, %83 ], [ %.2181, %89 ]
-  %.3 = phi i32 [ %85, %91 ], [ %.5.ph, %.loopexit ], [ 0, %83 ], [ %85, %89 ]
+  %.0102151 = phi ptr [ %.0102178, %91 ], [ %.0102178, %83 ], [ %.0102178, %89 ], [ %104, %.loopexit ]
+  %.0100148 = phi i32 [ %.0100180, %91 ], [ %.0100180, %83 ], [ %.0100180, %89 ], [ %109, %.loopexit ]
+  %.2145 = phi i32 [ %.2181, %91 ], [ %.2181, %83 ], [ %.2181, %89 ], [ %110, %.loopexit ]
+  %.3 = phi i32 [ %85, %91 ], [ 0, %83 ], [ %85, %89 ], [ %.5.ph, %.loopexit ]
   %.not = icmp eq i32 %.0100148, 0
   br i1 %.not, label %line_is_eb.exit120.thread, label %112
 
@@ -334,8 +334,8 @@ line_is_eb.exit120:                               ; preds = %.loopexit, %83, %89
   br label %line_is_eb.exit120.thread
 
 line_is_eb.exit120.thread:                        ; preds = %line_is_blank.exit, %112, %117, %line_is_eb.exit120
-  %.3226 = phi i32 [ %.3, %112 ], [ %.3, %117 ], [ %.3, %line_is_eb.exit120 ], [ %.1124, %line_is_blank.exit ]
-  %.2145225 = phi i32 [ %.2145, %112 ], [ %.2145, %117 ], [ %.2145, %line_is_eb.exit120 ], [ %.199154, %line_is_blank.exit ]
+  %.3226 = phi i32 [ %.3, %line_is_eb.exit120 ], [ %.3, %112 ], [ %.3, %117 ], [ %.1124, %line_is_blank.exit ]
+  %.2145225 = phi i32 [ %.2145, %line_is_eb.exit120 ], [ %.2145, %112 ], [ %.2145, %117 ], [ %.199154, %line_is_blank.exit ]
   %124 = load i32, ptr %5, align 4
   %125 = sub i32 %124, %.2145225
   %126 = call ptr @proto_tree_add_format_text(ptr noundef %11, ptr noundef %0, i32 noundef %.2145225, i32 noundef %125)
@@ -434,7 +434,7 @@ define internal noundef zeroext i1 @dissect_rfc7468_heur(ptr noundef %0, ptr nou
   %or.cond.i = icmp ult i8 %27, 95
   br i1 %or.cond.i, label %24, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i, %9, %13, %14, %20, %20
+.loopexit:                                        ; preds = %.lr.ph.i, %20, %20, %9, %13, %14
   %28 = load i32, ptr %5, align 4
   %29 = add nuw nsw i32 %.028, 1
   %exitcond.not = icmp eq i32 %29, 20

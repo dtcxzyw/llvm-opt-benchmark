@@ -456,7 +456,7 @@ _make_all_resv.exit:                              ; preds = %._crit_edge.i, %._c
   br label %203
 
 203:                                              ; preds = %48, %44, %47, %35, %38, %.thread, %._crit_edge39, %_make_all_resv.exit
-  %.0 = phi i32 [ 0, %_make_all_resv.exit ], [ 0, %._crit_edge39 ], [ 0, %.thread ], [ -1, %38 ], [ -1, %35 ], [ -1, %47 ], [ -1, %44 ], [ 0, %48 ]
+  %.0 = phi i32 [ 0, %_make_all_resv.exit ], [ 0, %.thread ], [ -1, %35 ], [ -1, %44 ], [ 0, %._crit_edge39 ], [ -1, %38 ], [ -1, %47 ], [ 0, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -649,7 +649,7 @@ define dso_local range(i32 -1, 1) i32 @reserve_port_stepmgr_init(ptr noundef %0)
   br i1 %82, label %63, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %78, %55, %35, %5, %._crit_edge, %32
-  %.0 = phi i32 [ -1, %32 ], [ 0, %._crit_edge ], [ 0, %5 ], [ 0, %35 ], [ 0, %55 ], [ 0, %78 ]
+  %.0 = phi i32 [ -1, %32 ], [ 0, %5 ], [ 0, %35 ], [ 0, %._crit_edge ], [ 0, %55 ], [ 0, %78 ]
   ret i32 %.0
 }
 
@@ -708,7 +708,7 @@ define internal fastcc range(i32 -1, 2061) i32 @_rebuild_port_array(ptr noundef 
   br label %27
 
 27:                                               ; preds = %._crit_edge, %3
-  %.0 = phi i32 [ -1, %3 ], [ %., %._crit_edge ]
+  %.0 = phi i32 [ %., %._crit_edge ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -901,7 +901,7 @@ define internal fastcc range(i32 0, 2061) i32 @_resv_port_alloc(i16 noundef zero
   br label %59
 
 59:                                               ; preds = %5, %._crit_edge35, %39
-  %.0 = phi i32 [ 2059, %39 ], [ 0, %._crit_edge35 ], [ 2060, %5 ]
+  %.0 = phi i32 [ 0, %._crit_edge35 ], [ 2059, %39 ], [ 2060, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -1026,7 +1026,7 @@ define dso_local range(i32 0, 2061) i32 @resv_port_check_job_request_cnt(ptr nou
   br label %25
 
 25:                                               ; preds = %13, %18, %21, %11
-  %.0 = phi i32 [ 2060, %11 ], [ 2060, %21 ], [ 2060, %18 ], [ 0, %13 ]
+  %.0 = phi i32 [ 2060, %11 ], [ 2060, %18 ], [ 2060, %21 ], [ 0, %13 ]
   ret i32 %.0
 }
 

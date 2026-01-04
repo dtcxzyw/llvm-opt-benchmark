@@ -1869,7 +1869,7 @@ _ZN7rocksdb13BlockContentsD2Ev.exit58:            ; preds = %147, %153, %157
   br label %.body52
 
 .body52:                                          ; preds = %161, %128, %102, %.body
-  %.pn25 = phi { ptr, i32 } [ %.pn22.pn, %.body ], [ %103, %102 ], [ %162, %161 ], [ %129, %128 ]
+  %.pn25 = phi { ptr, i32 } [ %103, %102 ], [ %.pn22.pn, %.body ], [ %162, %161 ], [ %129, %128 ]
   call void @_ZN7rocksdb13BlockContentsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn25
@@ -3474,7 +3474,7 @@ _ZN7rocksdb13BlockContentsD2Ev.exit56:            ; preds = %131, %137, %141
   br label %.body52
 
 .body52:                                          ; preds = %145, %126, %102, %.body
-  %.pn25 = phi { ptr, i32 } [ %.pn22.pn, %.body ], [ %103, %102 ], [ %146, %145 ], [ %127, %126 ]
+  %.pn25 = phi { ptr, i32 } [ %103, %102 ], [ %.pn22.pn, %.body ], [ %146, %145 ], [ %127, %126 ]
   call void @_ZN7rocksdb13BlockContentsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn25

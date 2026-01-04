@@ -671,7 +671,7 @@ _ZN9HuffTable6decodeER7BitPump.exit129:           ; preds = %339, %341, %346, %.
   br i1 %395, label %138, label %._crit_edge, !llvm.loop !68
 
 396:                                              ; preds = %._crit_edge134, %51, %47, %27, %16, %11, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %11 ], [ false, %16 ], [ true, %._crit_edge134 ], [ false, %51 ], [ false, %47 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %4 ], [ false, %11 ], [ true, %._crit_edge134 ], [ false, %51 ], [ false, %47 ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -762,7 +762,7 @@ define noundef zeroext i1 @_ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vec
   br label %17
 
 17:                                               ; preds = %10, %4, %15, %13
-  %.0 = phi i1 [ %14, %13 ], [ %16, %15 ], [ false, %4 ], [ false, %10 ]
+  %.0 = phi i1 [ %14, %13 ], [ %16, %15 ], [ false, %10 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -913,7 +913,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc91
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit144
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc91
-  %.0.i.i.i.i.i90.idx = phi i64 [ 0, %.noexc91 ], [ %.idx.i.i.i.i.i.i.i89, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i90.idx = phi i64 [ %.idx.i.i.i.i.i.i.i89, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ 0, %.noexc91 ]
   %.0.i.i.i.i.i90.ptr = getelementptr i8, ptr %63, i64 %.0.i.i.i.i.i90.idx
   %73 = load ptr, ptr %9, align 8, !tbaa !133
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 381624
@@ -1020,8 +1020,8 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.
   br label %.lr.ph205
 
 .lr.ph205:                                        ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit, %.noexc94, %112
-  %.sroa.0149.0 = phi ptr [ %108, %.noexc94 ], [ %108, %112 ], [ null, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit ]
-  %.sroa.11.0 = phi ptr [ %109, %.noexc94 ], [ %109, %112 ], [ null, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit ]
+  %.sroa.0149.0 = phi ptr [ %108, %112 ], [ %108, %.noexc94 ], [ null, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit ]
+  %.sroa.11.0 = phi ptr [ %109, %112 ], [ %109, %.noexc94 ], [ null, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1180,7 +1180,7 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %186
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %186
-  %.0.i.i.i.i = phi ptr [ %187, %186 ], [ %190, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %190, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %187, %186 ]
   store ptr %.0.i.i.i.i, ptr %116, align 8, !tbaa !27
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
@@ -1270,7 +1270,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %_ZNSt12_Vector_base
           to label %_ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit unwind label %.loopexit188
 
 _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit: ; preds = %212, %214
-  %.0.i = phi i1 [ %213, %212 ], [ %215, %214 ]
+  %.0.i = phi i1 [ %215, %214 ], [ %213, %212 ]
   br i1 %.0.i, label %217, label %_ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread
 
 _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: ; preds = %209, %_ZNSt6vectorItSaItEE6resizeEm.exit, %_ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit
@@ -1620,7 +1620,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
   br label %_ZL9_lim16bitf.exit.us.i
 
 _ZL9_lim16bitf.exit.us.i:                         ; preds = %384, %382, %360
-  %.0.i.us.i = phi nsz float [ 6.553500e+04, %384 ], [ %376, %382 ], [ 0.000000e+00, %360 ]
+  %.0.i.us.i = phi nsz float [ %376, %382 ], [ 6.553500e+04, %384 ], [ 0.000000e+00, %360 ]
   %385 = fptoui float %.0.i.us.i to i32
   %386 = trunc i32 %385 to i16
   %387 = getelementptr inbounds nuw [4 x i16], ptr %gep.i131, i64 %indvars.iv.i132
@@ -1636,7 +1636,7 @@ _ZL9_lim16bitf.exit.us.i:                         ; preds = %384, %382, %360
   br label %_ZL9_lim16bitf.exit48.us.i
 
 _ZL9_lim16bitf.exit48.us.i:                       ; preds = %391, %389, %_ZL9_lim16bitf.exit.us.i
-  %.0.i47.us.i = phi nsz float [ 6.553500e+04, %391 ], [ %378, %389 ], [ 0.000000e+00, %_ZL9_lim16bitf.exit.us.i ]
+  %.0.i47.us.i = phi nsz float [ %378, %389 ], [ 6.553500e+04, %391 ], [ 0.000000e+00, %_ZL9_lim16bitf.exit.us.i ]
   %392 = fptoui float %.0.i47.us.i to i32
   %393 = trunc i32 %392 to i16
   %394 = getelementptr inbounds nuw i8, ptr %387, i64 2
@@ -1652,7 +1652,7 @@ _ZL9_lim16bitf.exit48.us.i:                       ; preds = %391, %389, %_ZL9_li
   br label %_ZL9_lim16bitf.exit50.us.i
 
 _ZL9_lim16bitf.exit50.us.i:                       ; preds = %398, %396, %_ZL9_lim16bitf.exit48.us.i
-  %.0.i49.us.i = phi nsz float [ 6.553500e+04, %398 ], [ %380, %396 ], [ 0.000000e+00, %_ZL9_lim16bitf.exit48.us.i ]
+  %.0.i49.us.i = phi nsz float [ %380, %396 ], [ 6.553500e+04, %398 ], [ 0.000000e+00, %_ZL9_lim16bitf.exit48.us.i ]
   %399 = fptoui float %.0.i49.us.i to i32
   %400 = trunc i32 %399 to i16
   %401 = getelementptr inbounds nuw i8, ptr %387, i64 4
@@ -1807,7 +1807,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit140:                 ; preds = %453, %_ZNSt6vectorI
   ret void
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %.loopexit194, %.loopexit.split-lp195, %92, %443, %_ZNSt6vectorItSaItEED2Ev.exit, %132
-  %.pn82 = phi { ptr, i32 } [ %93, %92 ], [ %133, %132 ], [ %.pn77.pn, %_ZNSt6vectorItSaItEED2Ev.exit ], [ %.pn77.pn, %443 ], [ %lpad.loopexit196, %.loopexit194 ], [ %lpad.loopexit.split-lp197, %.loopexit.split-lp195 ]
+  %.pn82 = phi { ptr, i32 } [ %.pn77.pn, %_ZNSt6vectorItSaItEED2Ev.exit ], [ %93, %92 ], [ %.pn77.pn, %443 ], [ %133, %132 ], [ %lpad.loopexit196, %.loopexit194 ], [ %lpad.loopexit.split-lp197, %.loopexit.split-lp195 ]
   call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %61) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit144
 
@@ -2058,8 +2058,8 @@ define linkonce_odr noundef i32 @_ZN11BitPumpJpeg4peekEj(ptr noundef nonnull ali
   br i1 %or.cond, label %.critedge, label %59, !llvm.loop !165
 
 .critedge:                                        ; preds = %81, %2, %8
-  %91 = phi i8 [ 1, %8 ], [ %7, %2 ], [ %82, %81 ]
-  %92 = phi i32 [ %4, %8 ], [ %4, %2 ], [ %88, %81 ]
+  %91 = phi i8 [ %7, %2 ], [ 1, %8 ], [ %82, %81 ]
+  %92 = phi i32 [ %4, %2 ], [ %4, %8 ], [ %88, %81 ]
   %93 = icmp ugt i32 %1, %92
   %94 = trunc nuw i8 %91 to i1
   %or.cond26 = select i1 %93, i1 %94, i1 false
@@ -2184,7 +2184,7 @@ _ZN7BitPump3getEj.exit.i:                         ; preds = %2
   br label %_ZN9HuffTable4diffER7BitPumpj.exit
 
 _ZN9HuffTable4diffER7BitPumpj.exit:               ; preds = %2, %19, %23, %_ZN7BitPump3getEj.exit.i, %47
-  %.018.i = phi i32 [ 0, %2 ], [ -32768, %23 ], [ -32768, %19 ], [ %49, %47 ], [ %42, %_ZN7BitPump3getEj.exit.i ]
+  %.018.i = phi i32 [ -32768, %19 ], [ 0, %2 ], [ -32768, %23 ], [ %49, %47 ], [ %42, %_ZN7BitPump3getEj.exit.i ]
   ret i32 %.018.i
 }
 

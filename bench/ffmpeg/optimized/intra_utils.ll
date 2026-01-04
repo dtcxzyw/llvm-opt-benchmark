@@ -32,7 +32,7 @@ define range(i32 0, 3) i32 @ff_vvc_get_mip_size_id(i32 noundef %0, i32 noundef %
   br label %9
 
 9:                                                ; preds = %6, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %5 ], [ %spec.select, %6 ]
+  %.0 = phi i32 [ 1, %5 ], [ 0, %2 ], [ %spec.select, %6 ]
   ret i32 %.0
 }
 
@@ -283,7 +283,7 @@ define range(i32 0, 2) i32 @ff_vvc_need_pdpc(i32 noundef %0, i32 noundef %1, i8 
   br label %20
 
 20:                                               ; preds = %8, %16, %13, %13, %13, %13, %14
-  %.1 = phi i32 [ %19, %16 ], [ 1, %13 ], [ 1, %13 ], [ 1, %13 ], [ 1, %13 ], [ 0, %14 ], [ 0, %8 ]
+  %.1 = phi i32 [ 0, %14 ], [ %19, %16 ], [ 1, %13 ], [ 1, %13 ], [ 1, %13 ], [ 1, %13 ], [ 0, %8 ]
   ret i32 %.1
 }
 
@@ -411,7 +411,7 @@ get_reconstructed_area.exit:                      ; preds = %67
   br i1 %85, label %62, label %.critedge, !llvm.loop !93
 
 .critedge:                                        ; preds = %get_reconstructed_area.exit, %63, %80, %45
-  %.07088 = phi i32 [ %1, %45 ], [ %.07090, %80 ], [ %.07090, %63 ], [ %83, %get_reconstructed_area.exit ]
+  %.07088 = phi i32 [ %1, %45 ], [ %.07090, %63 ], [ %.07090, %80 ], [ %83, %get_reconstructed_area.exit ]
   %86 = sub nsw i32 %.07088, %1
   br label %87
 
@@ -533,7 +533,7 @@ get_reconstructed_area.exit:                      ; preds = %58
   br i1 %76, label %53, label %.critedge, !llvm.loop !97
 
 .critedge:                                        ; preds = %get_reconstructed_area.exit, %54, %71, %42
-  %.05467 = phi i32 [ %2, %42 ], [ %.05469, %71 ], [ %.05469, %54 ], [ %74, %get_reconstructed_area.exit ]
+  %.05467 = phi i32 [ %2, %42 ], [ %.05469, %54 ], [ %.05469, %71 ], [ %74, %get_reconstructed_area.exit ]
   %77 = sub nsw i32 %.05467, %2
   br label %78
 
@@ -572,7 +572,7 @@ define range(i32 0, 2) i32 @ff_vvc_ref_filter_flag_derive(i32 noundef %0) local_
   br i1 %12, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !98
 
 bsearch.exit:                                     ; preds = %8, %11
-  %.0.i = phi i32 [ 0, %11 ], [ 1, %8 ]
+  %.0.i = phi i32 [ 1, %8 ], [ 0, %11 ]
   ret i32 %.0.i
 }
 

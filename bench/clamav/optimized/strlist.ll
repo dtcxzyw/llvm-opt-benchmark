@@ -227,13 +227,13 @@ _ZN5ArrayIwED2Ev.exit:                            ; preds = %19, %28
           to label %_ZN10StringList9GetStringEPwm.exit.thread12 unwind label %_ZN5ArrayIwED2Ev.exit
 
 _ZN10StringList9GetStringEPwm.exit.thread12:      ; preds = %_ZN5ArrayIwEC2Em.exit.thread29, %28
-  %.not.i.i19 = phi i1 [ true, %28 ], [ false, %_ZN5ArrayIwEC2Em.exit.thread29 ]
-  %.sroa.0.017 = phi ptr [ %.sroa.0.016, %28 ], [ %malloc.i, %_ZN5ArrayIwEC2Em.exit.thread29 ]
+  %.not.i.i19 = phi i1 [ false, %_ZN5ArrayIwEC2Em.exit.thread29 ], [ true, %28 ]
+  %.sroa.0.017 = phi ptr [ %malloc.i, %_ZN5ArrayIwEC2Em.exit.thread29 ], [ %.sroa.0.016, %28 ]
   tail call void @free(ptr noundef nonnull %.sroa.0.017) #14
   br label %_ZN5ArrayIwED2Ev.exit8
 
 _ZN5ArrayIwED2Ev.exit8:                           ; preds = %_ZN5ArrayIwEC2Em.exit, %_ZN5ArrayIwEC2Em.exit.thread, %_ZN10StringList9GetStringEPwm.exit.thread12
-  %.not.i.i20 = phi i1 [ %.not.i.i19, %_ZN10StringList9GetStringEPwm.exit.thread12 ], [ false, %_ZN5ArrayIwEC2Em.exit.thread ], [ false, %_ZN5ArrayIwEC2Em.exit ]
+  %.not.i.i20 = phi i1 [ false, %_ZN5ArrayIwEC2Em.exit.thread ], [ %.not.i.i19, %_ZN10StringList9GetStringEPwm.exit.thread12 ], [ false, %_ZN5ArrayIwEC2Em.exit ]
   ret i1 %.not.i.i20
 }
 
@@ -516,8 +516,8 @@ _ZN10StringList9GetStringEPPw.exit.loopexit15:    ; preds = %34, %_ZN10StringLis
   br label %_ZN10StringList9GetStringEPPw.exit
 
 _ZN10StringList9GetStringEPPw.exit:               ; preds = %26, %24, %_ZN10StringList9GetStringEPPw.exit.loopexit15, %_ZN10StringList12SavePositionEv.exit.split.us, %18
-  %41 = phi i64 [ %14, %18 ], [ %14, %_ZN10StringList12SavePositionEv.exit.split.us ], [ %.pre, %_ZN10StringList9GetStringEPPw.exit.loopexit15 ], [ %14, %24 ], [ %14, %26 ]
-  %.us-phi = phi i1 [ true, %18 ], [ false, %_ZN10StringList12SavePositionEv.exit.split.us ], [ %.not.i, %_ZN10StringList9GetStringEPPw.exit.loopexit15 ], [ %.not.i.us12, %24 ], [ %.not.i.us12, %26 ]
+  %41 = phi i64 [ %.pre, %_ZN10StringList9GetStringEPPw.exit.loopexit15 ], [ %14, %18 ], [ %14, %_ZN10StringList12SavePositionEv.exit.split.us ], [ %14, %24 ], [ %14, %26 ]
+  %.us-phi = phi i1 [ %.not.i, %_ZN10StringList9GetStringEPPw.exit.loopexit15 ], [ true, %18 ], [ false, %_ZN10StringList12SavePositionEv.exit.split.us ], [ %.not.i.us12, %24 ], [ %.not.i.us12, %26 ]
   %.not.i8 = icmp eq i64 %41, 0
   br i1 %.not.i8, label %_ZN10StringList15RestorePositionEv.exit, label %42
 

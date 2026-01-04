@@ -122,7 +122,7 @@ define dso_local ptr @lzma_index_init(ptr noundef %0) local_unnamed_addr #0 {
   br label %index_tree_append.exit
 
 index_tree_append.exit:                           ; preds = %1, %54, %27, %25, %9
-  %.0 = phi ptr [ null, %9 ], [ %2, %25 ], [ %2, %27 ], [ %2, %54 ], [ null, %1 ]
+  %.0 = phi ptr [ %2, %54 ], [ null, %9 ], [ %2, %25 ], [ %2, %27 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -387,7 +387,7 @@ define dso_local i32 @lzma_index_stream_flags(ptr noundef readonly captures(addr
   br label %11
 
 11:                                               ; preds = %5, %2, %7
-  %.0 = phi i32 [ 0, %7 ], [ %6, %5 ], [ 11, %2 ]
+  %.0 = phi i32 [ %6, %5 ], [ 0, %7 ], [ 11, %2 ]
   ret i32 %.0
 }
 
@@ -710,7 +710,7 @@ index_tree_append.exit:                           ; preds = %137, %110, %108, %8
   br label %index_file_size.exit.thread
 
 index_file_size.exit.thread:                      ; preds = %37, %index_tree_append.exit, %.thread, %34, %index_file_size.exit, %63, %85, %4
-  %.0 = phi i32 [ 11, %4 ], [ 0, %index_tree_append.exit ], [ 9, %.thread ], [ 9, %34 ], [ 9, %index_file_size.exit ], [ 9, %63 ], [ 5, %85 ], [ 9, %37 ]
+  %.0 = phi i32 [ 11, %4 ], [ 9, %63 ], [ 9, %.thread ], [ 9, %34 ], [ 9, %index_file_size.exit ], [ 0, %index_tree_append.exit ], [ 5, %85 ], [ 9, %37 ]
   ret i32 %.0
 }
 
@@ -978,7 +978,7 @@ lzma_index_checks.exit:                           ; preds = %.thread, %146
   br label %174
 
 174:                                              ; preds = %117, %lzma_index_checks.exit, %87, %80, %lzma_index_file_size.exit84, %3
-  %.0 = phi i32 [ 11, %3 ], [ 0, %lzma_index_checks.exit ], [ 9, %87 ], [ 9, %80 ], [ 9, %lzma_index_file_size.exit84 ], [ 5, %117 ]
+  %.0 = phi i32 [ 11, %3 ], [ 9, %87 ], [ 0, %lzma_index_checks.exit ], [ 9, %lzma_index_file_size.exit84 ], [ 9, %80 ], [ 5, %117 ]
   ret i32 %.0
 }
 
@@ -1377,7 +1377,7 @@ index_tree_next.exit.thread:                      ; preds = %133, %index_dup_str
   tail call void @lzma_free(ptr noundef nonnull %3, ptr noundef %1) #17
   br label %index_init_plain.exit.thread
 
-134:                                              ; preds = %38, %103, %105, %132
+134:                                              ; preds = %38, %132, %103, %105
   %135 = load ptr, ptr %24, align 8, !tbaa !20
   store ptr %135, ptr %40, align 8, !tbaa !21
   %136 = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -1572,7 +1572,7 @@ define dso_local zeroext range(i8 0, 2) i8 @lzma_index_iter_next(ptr noundef cap
   br label %index_tree_next.exit
 
 index_tree_next.exit:                             ; preds = %.preheader17.i, %26, %.preheader.i, %11, %14, %30, %4
-  %.043 = phi ptr [ null, %11 ], [ %16, %14 ], [ %32, %30 ], [ null, %4 ], [ null, %.preheader.i ], [ %25, %26 ], [ %.0.i, %.preheader17.i ]
+  %.043 = phi ptr [ null, %11 ], [ %16, %14 ], [ null, %4 ], [ %32, %30 ], [ null, %.preheader.i ], [ %25, %26 ], [ %.0.i, %.preheader17.i ]
   %33 = icmp ugt i32 %1, 1
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %35 = icmp eq i32 %1, 3
@@ -1739,9 +1739,9 @@ index_tree_next.exit65:                           ; preds = %.preheader17.i58, %
   br label %.critedge56.thread
 
 .critedge56.thread:                               ; preds = %.preheader17.i67, %69, %index_tree_next.exit65, %.preheader, %60, %.critedge
-  %.348 = phi ptr [ %.045, %60 ], [ %.us-phi, %.critedge ], [ %38, %.preheader ], [ %.011.i61, %index_tree_next.exit65 ], [ %.045, %69 ], [ %.045, %.preheader17.i67 ]
-  %.2 = phi ptr [ %.144, %60 ], [ %97, %.critedge ], [ %40, %.preheader ], [ %53, %index_tree_next.exit65 ], [ %68, %69 ], [ %.0.i68, %.preheader17.i67 ]
-  %.1 = phi i64 [ %61, %60 ], [ 0, %.critedge ], [ 0, %.preheader ], [ 0, %index_tree_next.exit65 ], [ 0, %69 ], [ 0, %.preheader17.i67 ]
+  %.348 = phi ptr [ %.045, %69 ], [ %.045, %60 ], [ %.us-phi, %.critedge ], [ %38, %.preheader ], [ %.011.i61, %index_tree_next.exit65 ], [ %.045, %.preheader17.i67 ]
+  %.2 = phi ptr [ %68, %69 ], [ %.144, %60 ], [ %97, %.critedge ], [ %40, %.preheader ], [ %53, %index_tree_next.exit65 ], [ %.0.i68, %.preheader17.i67 ]
+  %.1 = phi i64 [ 0, %69 ], [ %61, %60 ], [ 0, %.critedge ], [ 0, %.preheader ], [ 0, %index_tree_next.exit65 ], [ 0, %.preheader17.i67 ]
   br i1 %35, label %98, label %.loopexit
 
 98:                                               ; preds = %.critedge56.thread
@@ -1779,7 +1779,7 @@ index_tree_next.exit65:                           ; preds = %.preheader17.i58, %
   br label %index_tree_next.exit83
 
 index_tree_next.exit83:                           ; preds = %.preheader.i80, %.preheader.i80.us, %.preheader.i62, %.loopexit, %2
-  %.049 = phi i8 [ 1, %2 ], [ 0, %.loopexit ], [ 1, %.preheader.i62 ], [ 1, %.preheader.i80.us ], [ 1, %.preheader.i80 ]
+  %.049 = phi i8 [ 1, %2 ], [ 1, %.preheader.i80.us ], [ 0, %.loopexit ], [ 1, %.preheader.i62 ], [ 1, %.preheader.i80 ]
   ret i8 %.049
 }
 

@@ -711,7 +711,7 @@ switch.lookup:                                    ; preds = %2
   br label %6
 
 6:                                                ; preds = %2, %switch.lookup
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %2 ], [ %switch.load, %switch.lookup ]
   ret i32 %.0
 }
 

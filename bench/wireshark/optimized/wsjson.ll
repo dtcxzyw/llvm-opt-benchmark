@@ -33,7 +33,7 @@ define zeroext i1 @json_validate(ptr noundef %0, i64 noundef %1) local_unnamed_a
   br label %13
 
 13:                                               ; preds = %8, %5, %2, %10
-  %.0 = phi i1 [ %12, %10 ], [ false, %2 ], [ false, %5 ], [ false, %8 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %2 ], [ %12, %10 ], [ false, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -258,7 +258,7 @@ define ptr @json_get_array_index(ptr noundef readonly %0, i32 noundef %1) local_
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %2, %6
-  %.012 = phi ptr [ null, %6 ], [ null, %2 ], [ %9, %.preheader ], [ %10, %.lr.ph ]
+  %.012 = phi ptr [ null, %2 ], [ null, %6 ], [ %9, %.preheader ], [ %10, %.lr.ph ]
   ret ptr %.012
 }
 
@@ -489,8 +489,8 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
   br label %64
 
 64:                                               ; preds = %62, %19, %17, %15, %13, %11, %9, %58
-  %.682 = phi ptr [ %7, %9 ], [ %7, %11 ], [ %7, %13 ], [ %7, %15 ], [ %7, %17 ], [ %7, %19 ], [ %4, %62 ], [ %.581, %58 ]
-  %.274 = phi ptr [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %63, %62 ], [ %61, %58 ]
+  %.682 = phi ptr [ %4, %62 ], [ %.581, %58 ], [ %7, %9 ], [ %7, %11 ], [ %7, %13 ], [ %7, %15 ], [ %7, %17 ], [ %7, %19 ]
+  %.274 = phi ptr [ %63, %62 ], [ %61, %58 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ]
   %65 = load i8, ptr %.682, align 1
   %.not = icmp eq i8 %65, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
@@ -500,8 +500,8 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
   store i8 0, ptr %.072.lcssa, align 1
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %33, %31, %48, %55, %6, %.preheader, %38, %._crit_edge
-  %.not102 = phi i1 [ true, %._crit_edge ], [ false, %38 ], [ false, %.preheader ], [ false, %6 ], [ false, %55 ], [ false, %48 ], [ false, %31 ], [ false, %33 ], [ false, %29 ]
+.critedge:                                        ; preds = %29, %31, %33, %48, %55, %6, %.preheader, %38, %._crit_edge
+  %.not102 = phi i1 [ false, %.preheader ], [ false, %38 ], [ true, %._crit_edge ], [ false, %6 ], [ false, %55 ], [ false, %48 ], [ false, %33 ], [ false, %31 ], [ false, %29 ]
   ret i1 %.not102
 }
 
@@ -679,7 +679,7 @@ define noundef zeroext i1 @json_get_boolean(ptr noundef readonly captures(none) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %.loopexit.sink.split, %4, %32, %46, %48, %41, %43
-  %.030 = phi i1 [ false, %43 ], [ false, %41 ], [ false, %48 ], [ false, %46 ], [ false, %32 ], [ false, %4 ], [ true, %.loopexit.sink.split ], [ false, %51 ]
+  %.030 = phi i1 [ false, %46 ], [ false, %4 ], [ false, %32 ], [ true, %.loopexit.sink.split ], [ false, %41 ], [ false, %43 ], [ false, %48 ], [ false, %51 ]
   ret i1 %.030
 }
 

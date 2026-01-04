@@ -108,7 +108,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %33
 
 31:                                               ; preds = %26, %16
-  %.sroa.4.0.i.i = phi ptr [ %20, %16 ], [ null, %26 ]
+  %.sroa.4.0.i.i = phi ptr [ null, %26 ], [ %20, %16 ]
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints28_$u7b$$u7b$closure$u7d$$u7d$17h4477ac7ee5d2a3e9E.llvm.11958950475034435786"(ptr noalias noundef nonnull sret({ i64, [40 x i64] }) align 8 captures(none) dereferenceable(328) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %10, ptr noalias noundef readonly align 8 dereferenceable_or_null(176) %.sroa.4.0.i.i)
@@ -400,7 +400,7 @@ define internal fastcc void @_ZN12darling_core9from_meta8FromMeta9from_expr17h58
   unreachable
 
 common.resume:                                    ; preds = %74, %35, %55
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %36, %35 ], [ %75, %74 ]
+  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %56, %55 ], [ %75, %74 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN12darling_core9from_meta8FromMeta10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h463e082123289029E.exit.i.i": ; preds = %57, %50
@@ -567,7 +567,7 @@ define hidden void @_ZN12darling_core9from_meta8FromMeta9from_meta17h487e4e211d4
   unreachable
 
 common.resume:                                    ; preds = %70, %78, %63, %35, %38
-  %common.resume.op = phi { ptr, i32 } [ %36, %38 ], [ %36, %35 ], [ %64, %63 ], [ %79, %78 ], [ %71, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %79, %78 ], [ %36, %35 ], [ %64, %63 ], [ %36, %38 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN76_$LT$proc_macro2..imp..DeferredTokenStream$u20$as$u20$core..clone..Clone$GT$5clone17ha87e86801b899359E.exit.i": ; preds = %29
@@ -844,7 +844,7 @@ define hidden void @_ZN12darling_core9from_meta8FromMeta9from_meta17h93eb5187e81
   unreachable
 
 common.resume:                                    ; preds = %70, %78, %63, %35, %38
-  %common.resume.op = phi { ptr, i32 } [ %36, %38 ], [ %36, %35 ], [ %64, %63 ], [ %79, %78 ], [ %71, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %79, %78 ], [ %36, %35 ], [ %64, %63 ], [ %36, %38 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN76_$LT$proc_macro2..imp..DeferredTokenStream$u20$as$u20$core..clone..Clone$GT$5clone17ha87e86801b899359E.exit.i": ; preds = %29
@@ -1469,7 +1469,7 @@ define hidden void @"_ZN6either8iterator96_$LT$impl$u20$core..iter..traits..iter
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7722ebe9153b3ea4E.llvm.13348757914254812529.exit"
 
 46:                                               ; preds = %41, %31
-  %.sroa.4.0.i.i.i = phi ptr [ %35, %31 ], [ null, %41 ]
+  %.sroa.4.0.i.i.i = phi ptr [ null, %41 ], [ %35, %31 ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !461
   call void @"_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints28_$u7b$$u7b$closure$u7d$$u7d$17h4477ac7ee5d2a3e9E.llvm.11958950475034435786"(ptr noalias noundef nonnull sret({ i64, [40 x i64] }) align 8 captures(none) dereferenceable(328) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %25, ptr noalias noundef readonly align 8 dereferenceable_or_null(176) %.sroa.4.0.i.i.i), !noalias !419

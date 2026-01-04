@@ -440,9 +440,9 @@ is_keyword.exit:                                  ; preds = %.preheader.i, %.lr.
   br label %sub_0.i.i
 
 sub_0.i.i:                                        ; preds = %38, %37, %30
-  %41 = phi ptr [ %34, %37 ], [ %24, %30 ], [ %19, %38 ]
-  %42 = phi i1 [ false, %37 ], [ false, %30 ], [ %40, %38 ]
-  %.031.i.i = phi i32 [ 2, %37 ], [ 16, %30 ], [ %spec.select47.i.i, %38 ]
+  %41 = phi ptr [ %24, %30 ], [ %19, %38 ], [ %34, %37 ]
+  %42 = phi i1 [ false, %30 ], [ %40, %38 ], [ false, %37 ]
+  %.031.i.i = phi i32 [ 16, %30 ], [ %spec.select47.i.i, %38 ], [ 2, %37 ]
   %43 = call i64 @strtoul(ptr noundef nonnull %41, ptr noundef nonnull %2, i32 noundef %.031.i.i) #27
   %44 = load ptr, ptr %2, align 8, !tbaa !39
   %45 = load i8, ptr %44, align 1
@@ -572,9 +572,9 @@ sub_017.i:                                        ; preds = %73
   br label %88
 
 88:                                               ; preds = %86, %.thread43.i, %83, %sub_017.i, %75, %70
-  %89 = phi ptr [ %71, %70 ], [ %84, %83 ], [ %85, %.thread43.i ], [ %87, %86 ], [ %76, %75 ], [ %44, %sub_017.i ]
-  %.029.i.i = phi i1 [ true, %70 ], [ true, %83 ], [ true, %.thread43.i ], [ false, %86 ], [ true, %75 ], [ false, %sub_017.i ]
-  %.028.i.i = phi i1 [ true, %70 ], [ false, %83 ], [ false, %.thread43.i ], [ true, %86 ], [ true, %75 ], [ false, %sub_017.i ]
+  %89 = phi ptr [ %71, %70 ], [ %84, %83 ], [ %85, %.thread43.i ], [ %87, %86 ], [ %44, %sub_017.i ], [ %76, %75 ]
+  %.029.i.i = phi i1 [ true, %70 ], [ true, %83 ], [ true, %.thread43.i ], [ false, %86 ], [ false, %sub_017.i ], [ true, %75 ]
+  %.028.i.i = phi i1 [ true, %70 ], [ false, %83 ], [ false, %.thread43.i ], [ true, %86 ], [ false, %sub_017.i ], [ true, %75 ]
   %90 = load ptr, ptr %9, align 16, !tbaa !32
   %91 = load i32, ptr %11, align 8, !tbaa !33
   %92 = sext i32 %91 to i64
@@ -1728,7 +1728,7 @@ define internal fastcc i32 @read_ident(ptr noundef %0) unnamed_addr #5 {
   br i1 %16, label %.lr.ph, label %.thread
 
 17:                                               ; preds = %.thread, %1
-  %.05 = phi i32 [ 0, %1 ], [ %13, %.thread ]
+  %.05 = phi i32 [ %13, %.thread ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.05
 }
@@ -2136,8 +2136,8 @@ read_universal_char.exit45.thread.i:              ; preds = %118, %read_universa
   br label %145
 
 145:                                              ; preds = %143, %138, %read_universal_char.exit45.thread.i, %132, %read_universal_char.exit.thread.i, %108
-  %.229.i = phi ptr [ %142, %138 ], [ %144, %143 ], [ %112, %108 ], [ %113, %read_universal_char.exit.thread.i ], [ %136, %132 ], [ %137, %read_universal_char.exit45.thread.i ]
-  %.2.i = phi ptr [ %140, %138 ], [ %88, %143 ], [ %109, %108 ], [ %88, %read_universal_char.exit.thread.i ], [ %133, %132 ], [ %88, %read_universal_char.exit45.thread.i ]
+  %.229.i = phi ptr [ %144, %143 ], [ %113, %read_universal_char.exit.thread.i ], [ %142, %138 ], [ %112, %108 ], [ %136, %132 ], [ %137, %read_universal_char.exit45.thread.i ]
+  %.2.i = phi ptr [ %88, %143 ], [ %88, %read_universal_char.exit.thread.i ], [ %140, %138 ], [ %109, %108 ], [ %133, %132 ], [ %88, %read_universal_char.exit45.thread.i ]
   %146 = load i8, ptr %.2.i, align 1, !tbaa !18
   %.not.i17 = icmp eq i8 %146, 0
   br i1 %.not.i17, label %convert_universal_chars.exit, label %sub_0.i, !llvm.loop !74
@@ -2229,8 +2229,8 @@ define internal fastcc i32 @read_escaped_char(ptr noundef nonnull writeonly capt
   br label %22
 
 22:                                               ; preds = %10, %17, %5
-  %.030 = phi ptr [ %19, %17 ], [ %12, %10 ], [ %6, %5 ]
-  %.029 = phi i32 [ %21, %17 ], [ %14, %10 ], [ %7, %5 ]
+  %.030 = phi ptr [ %19, %17 ], [ %6, %5 ], [ %12, %10 ]
+  %.029 = phi i32 [ %21, %17 ], [ %7, %5 ], [ %14, %10 ]
   store ptr %.030, ptr %0, align 8, !tbaa !39
   br label %59
 
@@ -2321,7 +2321,7 @@ define internal fastcc i32 @read_escaped_char(ptr noundef nonnull writeonly capt
   br label %59
 
 59:                                               ; preds = %48, %57, %56, %55, %54, %53, %52, %51, %50, %._crit_edge, %22
-  %.031 = phi i32 [ %.029, %22 ], [ %41, %._crit_edge ], [ %58, %57 ], [ 8, %50 ], [ 9, %51 ], [ 10, %52 ], [ 11, %53 ], [ 12, %54 ], [ 13, %55 ], [ 27, %56 ], [ 7, %48 ]
+  %.031 = phi i32 [ %.029, %22 ], [ %41, %._crit_edge ], [ %58, %57 ], [ 27, %56 ], [ 8, %50 ], [ 9, %51 ], [ 10, %52 ], [ 11, %53 ], [ 12, %54 ], [ 13, %55 ], [ 7, %48 ]
   ret i32 %.031
 }
 

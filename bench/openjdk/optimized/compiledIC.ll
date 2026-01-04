@@ -317,7 +317,7 @@ _ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.thread: ; preds = %1, 
   br label %23
 
 23:                                               ; preds = %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit, %21, %12
-  %.0 = phi ptr [ %20, %12 ], [ %22, %21 ], [ null, %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit ]
+  %.0 = phi ptr [ %22, %21 ], [ %20, %12 ], [ null, %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit ]
   ret ptr %.0
 }
 
@@ -370,7 +370,7 @@ _ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.thread.i: ; preds = %_
   br label %_ZNK14CompiledICData16speculated_klassEv.exit
 
 _ZNK14CompiledICData16speculated_klassEv.exit:    ; preds = %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i, %20, %29
-  %.0.i = phi ptr [ %28, %20 ], [ %30, %29 ], [ null, %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i ]
+  %.0.i = phi ptr [ %30, %29 ], [ %28, %20 ], [ null, %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i ]
   %31 = load ptr, ptr %1, align 8
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.0.i) #13
@@ -1046,7 +1046,7 @@ _ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.thread.i.i: ; preds = 
   br label %_ZN10CompiledIC19is_speculated_klassEP5Klass.exit
 
 _ZN10CompiledIC19is_speculated_klassEP5Klass.exit: ; preds = %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i.i, %56, %63
-  %.0.i.i = phi ptr [ %62, %56 ], [ %64, %63 ], [ null, %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i.i ]
+  %.0.i.i = phi ptr [ %64, %63 ], [ %62, %56 ], [ null, %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i.i ]
   %65 = icmp eq ptr %.0.i.i, %2
   br i1 %65, label %66, label %94
 
@@ -1156,7 +1156,7 @@ _ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.thread.i: ; preds = %_
   br label %_ZNK14CompiledICData16speculated_klassEv.exit
 
 _ZNK14CompiledICData16speculated_klassEv.exit:    ; preds = %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i, %15, %22
-  %.0.i = phi ptr [ %21, %15 ], [ %23, %22 ], [ null, %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i ]
+  %.0.i = phi ptr [ %23, %22 ], [ %21, %15 ], [ null, %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i ]
   %24 = icmp eq ptr %.0.i, %1
   ret i1 %24
 }
@@ -1302,7 +1302,7 @@ _ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.thread.i.i: ; preds = 
   br label %_ZNK14CompiledICData16speculated_klassEv.exit.i
 
 _ZNK14CompiledICData16speculated_klassEv.exit.i:  ; preds = %31, %22, %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i.i
-  %.0.i.i = phi ptr [ %30, %22 ], [ %32, %31 ], [ null, %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i.i ]
+  %.0.i.i = phi ptr [ %32, %31 ], [ %30, %22 ], [ null, %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i.i ]
   %33 = load ptr, ptr %1, align 8
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.0.i.i) #13

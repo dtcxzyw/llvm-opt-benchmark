@@ -139,7 +139,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h33c5f342f7e17fb1E
   br i1 %.sroa.18.0.in.i.us, label %.split25.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %20, %17, %15
-  %.0.us.be = phi i32 [ %19, %17 ], [ %.sroa.07.0.i.us, %20 ], [ %.sroa.07.0.i21.us, %15 ]
+  %.0.us.be = phi i32 [ %.sroa.07.0.i21.us, %15 ], [ %19, %17 ], [ %.sroa.07.0.i.us, %20 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
@@ -326,7 +326,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h33c5f342f7e17fb1E
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %63, %26, %61
-  %.0.be = phi i32 [ %65, %63 ], [ %.sroa.07.0.i, %26 ], [ %.sroa.07.0.i21, %61 ]
+  %.0.be = phi i32 [ %.sroa.07.0.i21, %61 ], [ %65, %63 ], [ %.sroa.07.0.i, %26 ]
   br label %.split
 }
 
@@ -806,7 +806,7 @@ define hidden noundef range(i8 0, 41) i8 @_ZN3std3sys4unix17decode_error_kind17h
   br label %36
 
 36:                                               ; preds = %1, %38, %37, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i8 [ 13, %38 ], [ 40, %37 ], [ 8, %2 ], [ 9, %3 ], [ 28, %4 ], [ 6, %5 ], [ 2, %6 ], [ 3, %7 ], [ 30, %8 ], [ 26, %9 ], [ 12, %10 ], [ 27, %11 ], [ 4, %12 ], [ 35, %13 ], [ 20, %14 ], [ 15, %15 ], [ 18, %16 ], [ 0, %17 ], [ 38, %18 ], [ 24, %19 ], [ 36, %20 ], [ 32, %21 ], [ 33, %22 ], [ 10, %23 ], [ 5, %24 ], [ 7, %25 ], [ 14, %26 ], [ 16, %27 ], [ 11, %28 ], [ 17, %29 ], [ 25, %30 ], [ 19, %31 ], [ 22, %32 ], [ 29, %33 ], [ 31, %34 ], [ 1, %35 ], [ 34, %1 ]
+  %.0 = phi i8 [ 13, %38 ], [ 40, %37 ], [ 1, %35 ], [ 8, %2 ], [ 9, %3 ], [ 28, %4 ], [ 6, %5 ], [ 2, %6 ], [ 3, %7 ], [ 30, %8 ], [ 26, %9 ], [ 12, %10 ], [ 27, %11 ], [ 4, %12 ], [ 35, %13 ], [ 20, %14 ], [ 15, %15 ], [ 18, %16 ], [ 0, %17 ], [ 38, %18 ], [ 24, %19 ], [ 36, %20 ], [ 32, %21 ], [ 33, %22 ], [ 10, %23 ], [ 5, %24 ], [ 7, %25 ], [ 14, %26 ], [ 16, %27 ], [ 11, %28 ], [ 17, %29 ], [ 25, %30 ], [ 19, %31 ], [ 22, %32 ], [ 29, %33 ], [ 31, %34 ], [ 34, %1 ]
   ret i8 %.0
 
 37:                                               ; preds = %1
@@ -3362,7 +3362,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5tokio7runtime7context7current12with
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h86b73fa8147d919aE.llvm.11424388141523703806.exit.thread"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h86b73fa8147d919aE.llvm.11424388141523703806.exit.thread": ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h86b73fa8147d919aE.llvm.11424388141523703806.exit", %0
-  %.0 = phi i8 [ 1, %0 ], [ %spec.select, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h86b73fa8147d919aE.llvm.11424388141523703806.exit" ]
+  %.0 = phi i8 [ %spec.select, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h86b73fa8147d919aE.llvm.11424388141523703806.exit" ], [ 1, %0 ]
   ret i8 %.0
 }
 
@@ -3553,7 +3553,7 @@ define hidden noundef align 8 ptr @_ZN5tokio7runtime7context7CONTEXT7__getit17hd
   ]
 
 3:                                                ; preds = %1, %4, %5
-  %.0 = phi ptr [ @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, %4 ], [ @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, %5 ], [ null, %1 ]
+  %.0 = phi ptr [ @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, %5 ], [ @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, %4 ], [ null, %1 ]
   ret ptr %.0
 
 4:                                                ; preds = %1
@@ -3661,7 +3661,7 @@ _ZN5tokio7runtime9thread_id8ThreadId4next17h8ffabff2ed186df3E.exit.i.i: ; preds 
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h75bb82850986e17fE.llvm.11424388141523703806.exit"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h75bb82850986e17fE.llvm.11424388141523703806.exit": ; preds = %0, %3, %_ZN5tokio7runtime9thread_id8ThreadId4next17h8ffabff2ed186df3E.exit.i.i
-  %.0.i = phi i64 [ %11, %_ZN5tokio7runtime9thread_id8ThreadId4next17h8ffabff2ed186df3E.exit.i.i ], [ %4, %3 ], [ 0, %0 ]
+  %.0.i = phi i64 [ %4, %3 ], [ %11, %_ZN5tokio7runtime9thread_id8ThreadId4next17h8ffabff2ed186df3E.exit.i.i ], [ 0, %0 ]
   ret i64 %.0.i
 }
 
@@ -7756,7 +7756,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %18, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %18, %switch.lookup ], [ 0, %.split.i.i ]
   %19 = lshr i64 %13, 16
   %20 = trunc i64 %19 to i8
   %21 = icmp eq i64 %.0.i.i, 0
@@ -7923,7 +7923,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %18, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %18, %switch.lookup ], [ 0, %.split.i.i ]
   %19 = lshr i64 %13, 16
   %20 = trunc i64 %19 to i8
   %21 = icmp eq i64 %.0.i.i, 0
@@ -8090,7 +8090,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %18, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %18, %switch.lookup ], [ 0, %.split.i.i ]
   %19 = lshr i64 %13, 16
   %20 = trunc i64 %19 to i8
   %21 = icmp eq i64 %.0.i.i, 0
@@ -8257,7 +8257,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %18, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %18, %switch.lookup ], [ 0, %.split.i.i ]
   %19 = lshr i64 %13, 16
   %20 = trunc i64 %19 to i8
   %21 = icmp eq i64 %.0.i.i, 0
@@ -8424,7 +8424,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %18, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %18, %switch.lookup ], [ 0, %.split.i.i ]
   %19 = lshr i64 %13, 16
   %20 = trunc i64 %19 to i8
   %21 = icmp eq i64 %.0.i.i, 0
@@ -8590,7 +8590,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %17, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %17, %switch.lookup ], [ 0, %.split.i.i ]
   %18 = lshr i64 %12, 16
   %19 = trunc i64 %18 to i8
   %20 = icmp eq i64 %.0.i.i, 0
@@ -8754,7 +8754,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %18, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %18, %switch.lookup ], [ 0, %.split.i.i ]
   %19 = lshr i64 %13, 16
   %20 = trunc i64 %19 to i8
   %21 = icmp eq i64 %.0.i.i, 0
@@ -8920,7 +8920,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %17, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %17, %switch.lookup ], [ 0, %.split.i.i ]
   %18 = lshr i64 %12, 16
   %19 = trunc i64 %18 to i8
   %20 = icmp eq i64 %.0.i.i, 0
@@ -9084,7 +9084,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %18, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %18, %switch.lookup ], [ 0, %.split.i.i ]
   %19 = lshr i64 %13, 16
   %20 = trunc i64 %19 to i8
   %21 = icmp eq i64 %.0.i.i, 0
@@ -9250,7 +9250,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %17, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %17, %switch.lookup ], [ 0, %.split.i.i ]
   %18 = lshr i64 %12, 16
   %19 = trunc i64 %18 to i8
   %20 = icmp eq i64 %.0.i.i, 0
@@ -9414,7 +9414,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %18, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %18, %switch.lookup ], [ 0, %.split.i.i ]
   %19 = lshr i64 %13, 16
   %20 = trunc i64 %19 to i8
   %21 = icmp eq i64 %.0.i.i, 0
@@ -9584,7 +9584,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %17, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %17, %switch.lookup ], [ 0, %.split.i.i ]
   %18 = lshr i64 %12, 16
   %19 = trunc i64 %18 to i8
   %20 = icmp eq i64 %.0.i.i, 0
@@ -9748,7 +9748,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %18, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %18, %switch.lookup ], [ 0, %.split.i.i ]
   %19 = lshr i64 %13, 16
   %20 = trunc i64 %19 to i8
   %21 = icmp eq i64 %.0.i.i, 0
@@ -9914,7 +9914,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %17, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %17, %switch.lookup ], [ 0, %.split.i.i ]
   %18 = lshr i64 %12, 16
   %19 = trunc i64 %18 to i8
   %20 = icmp eq i64 %.0.i.i, 0
@@ -10078,7 +10078,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %18, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %18, %switch.lookup ], [ 0, %.split.i.i ]
   %19 = lshr i64 %13, 16
   %20 = trunc i64 %19 to i8
   %21 = icmp eq i64 %.0.i.i, 0
@@ -10245,7 +10245,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %18, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %18, %switch.lookup ], [ 0, %.split.i.i ]
   %19 = lshr i64 %13, 16
   %20 = trunc i64 %19 to i8
   %21 = icmp eq i64 %.0.i.i, 0
@@ -10412,7 +10412,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %18, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %18, %switch.lookup ], [ 0, %.split.i.i ]
   %19 = lshr i64 %13, 16
   %20 = trunc i64 %19 to i8
   %21 = icmp eq i64 %.0.i.i, 0
@@ -10578,7 +10578,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %17, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %17, %switch.lookup ], [ 0, %.split.i.i ]
   %18 = lshr i64 %12, 16
   %19 = trunc i64 %18 to i8
   %20 = icmp eq i64 %.0.i.i, 0
@@ -10741,7 +10741,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %17, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %17, %switch.lookup ], [ 0, %.split.i.i ]
   %18 = lshr i64 %12, 16
   %19 = trunc i64 %18 to i8
   %20 = icmp eq i64 %.0.i.i, 0
@@ -10908,7 +10908,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %21, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %21, %switch.lookup ], [ 0, %.split.i.i ]
   %22 = lshr i64 %16, 16
   %23 = trunc i64 %22 to i8
   %24 = icmp eq i64 %.0.i.i, 0
@@ -11125,7 +11125,7 @@ switch.lookup:                                    ; preds = %.split.i.i
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %switch.lookup, %.split.i.i, %4
-  %.0.i.i = phi i64 [ 0, %4 ], [ 0, %.split.i.i ], [ %18, %switch.lookup ]
+  %.0.i.i = phi i64 [ 0, %4 ], [ %18, %switch.lookup ], [ 0, %.split.i.i ]
   %19 = lshr i64 %13, 16
   %20 = trunc i64 %19 to i8
   %21 = icmp eq i64 %.0.i.i, 0

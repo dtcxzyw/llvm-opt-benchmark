@@ -594,7 +594,7 @@ CVBandPDQJac.exit:                                ; preds = %._crit_edge.i
   br label %205
 
 205:                                              ; preds = %CVBandPDQJac.exit, %193, %24, %18, %200, %199, %192, %186, %23, %17
-  %.0 = phi i32 [ -1, %17 ], [ -1, %199 ], [ %204, %200 ], [ -1, %23 ], [ -1, %186 ], [ -1, %192 ], [ 1, %18 ], [ 1, %24 ], [ 1, %193 ], [ 1, %CVBandPDQJac.exit ]
+  %.0 = phi i32 [ -1, %17 ], [ 1, %193 ], [ -1, %199 ], [ %204, %200 ], [ -1, %23 ], [ 1, %18 ], [ -1, %186 ], [ 1, %24 ], [ -1, %192 ], [ 1, %CVBandPDQJac.exit ]
   ret i32 %.0
 }
 
@@ -750,7 +750,7 @@ define range(i32 -5, 1) i32 @CVBandPrecGetWorkSpace(ptr noundef %0, ptr noundef 
   br label %84
 
 84:                                               ; preds = %68, %77, %75, %59, %43, %19, %14, %9
-  %.0 = phi i32 [ -1, %9 ], [ -2, %14 ], [ -5, %19 ], [ -1, %43 ], [ -1, %59 ], [ -1, %75 ], [ 0, %77 ], [ 0, %68 ]
+  %.0 = phi i32 [ -1, %9 ], [ -2, %14 ], [ -5, %19 ], [ -1, %75 ], [ -1, %43 ], [ -1, %59 ], [ 0, %77 ], [ 0, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -713,10 +713,10 @@ auxgetinfo.exit.thread:                           ; preds = %43
   br label %182
 
 182:                                              ; preds = %179, %auxgetinfo.exit
-  %.023.i54 = phi i32 [ %.023.i5359, %179 ], [ 1, %auxgetinfo.exit ]
-  %.0283652 = phi ptr [ %.028365162, %179 ], [ null, %auxgetinfo.exit ]
-  %.03950 = phi ptr [ %.0394963, %179 ], [ %.040, %auxgetinfo.exit ]
-  %183 = phi i1 [ %169, %179 ], [ true, %auxgetinfo.exit ]
+  %.023.i54 = phi i32 [ 1, %auxgetinfo.exit ], [ %.023.i5359, %179 ]
+  %.0283652 = phi ptr [ null, %auxgetinfo.exit ], [ %.028365162, %179 ]
+  %.03950 = phi ptr [ %.040, %auxgetinfo.exit ], [ %.0394963, %179 ]
+  %183 = phi i1 [ true, %auxgetinfo.exit ], [ %169, %179 ]
   %184 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03950, i32 noundef 76) #11
   %.not32 = icmp eq ptr %184, null
   br i1 %.not32, label %226, label %186
@@ -1070,8 +1070,8 @@ default.unreachable307:                           ; preds = %checkArgMode.exit, 
   unreachable
 
 .critedge:                                        ; preds = %90, %86, %83, %81, %checkArgMode.exit, %109, %._crit_edge, %99, %92, %96, %56
-  %.0180 = phi i32 [ 0, %96 ], [ 0, %92 ], [ 0, %99 ], [ 0, %56 ], [ 0, %._crit_edge ], [ 0, %109 ], [ %78, %checkArgMode.exit ], [ 0, %81 ], [ %78, %83 ], [ %78, %86 ], [ %78, %90 ]
-  %.0179 = phi i32 [ %93, %96 ], [ %93, %92 ], [ %101, %99 ], [ 0, %56 ], [ %101, %._crit_edge ], [ %101, %109 ], [ %63, %checkArgMode.exit ], [ %63, %81 ], [ %63, %83 ], [ %63, %86 ], [ %63, %90 ]
+  %.0180 = phi i32 [ 0, %109 ], [ 0, %96 ], [ 0, %92 ], [ 0, %56 ], [ 0, %99 ], [ 0, %._crit_edge ], [ %78, %checkArgMode.exit ], [ 0, %81 ], [ %78, %83 ], [ %78, %86 ], [ %78, %90 ]
+  %.0179 = phi i32 [ %101, %109 ], [ %93, %96 ], [ %93, %92 ], [ 0, %56 ], [ %101, %99 ], [ %101, %._crit_edge ], [ %63, %checkArgMode.exit ], [ %63, %81 ], [ %63, %83 ], [ %63, %86 ], [ %63, %90 ]
   %120 = and i8 %59, 64
   %.not197 = icmp ne i8 %120, 0
   %121 = icmp eq i32 %53, %2
@@ -1333,8 +1333,8 @@ luaG_checkopenop.exit243:                         ; preds = %219, %219, %219, %2
   br i1 %.not202.old, label %.critedge232, label %226
 
 226:                                              ; preds = %luaG_checkopenop.exit243, %._crit_edge277, %140, %184, %162, %153, %130, %224, %194, %196, %185, %187, %155, %143, %141, %131, %136, %166
-  %.3171 = phi i32 [ %.2170, %130 ], [ %.2170, %136 ], [ %.2170, %131 ], [ %.2170, %141 ], [ %.2170, %143 ], [ %.2170, %155 ], [ %.2170, %166 ], [ %.2170, %187 ], [ %.2170, %185 ], [ %.2170, %196 ], [ %.2170, %194 ], [ %.2170, %._crit_edge277 ], [ %.2170, %224 ], [ %spec.select, %153 ], [ %spec.select225, %162 ], [ %spec.select228, %184 ], [ %spec.select233, %140 ], [ %.2170, %luaG_checkopenop.exit243 ]
-  %.2164 = phi i32 [ %.0162279, %130 ], [ %.0162279, %136 ], [ %.0162279, %131 ], [ %.0162279, %141 ], [ %.0162279, %143 ], [ %.0162279, %155 ], [ %.3165, %166 ], [ %.0162279, %187 ], [ %.0162279, %185 ], [ %197, %196 ], [ %.0162279, %194 ], [ %spec.select229, %._crit_edge277 ], [ %.0162279, %224 ], [ %.0162279, %153 ], [ %.0162279, %162 ], [ %.0162279, %184 ], [ %.0162279, %140 ], [ %.0162279, %luaG_checkopenop.exit243 ]
+  %.3171 = phi i32 [ %.2170, %130 ], [ %.2170, %136 ], [ %.2170, %224 ], [ %.2170, %131 ], [ %.2170, %185 ], [ %.2170, %._crit_edge277 ], [ %.2170, %187 ], [ %.2170, %141 ], [ %.2170, %143 ], [ %.2170, %194 ], [ %spec.select233, %140 ], [ %.2170, %155 ], [ %spec.select, %153 ], [ %.2170, %196 ], [ %.2170, %166 ], [ %spec.select225, %162 ], [ %spec.select228, %184 ], [ %.2170, %luaG_checkopenop.exit243 ]
+  %.2164 = phi i32 [ %.0162279, %130 ], [ %.0162279, %136 ], [ %.0162279, %224 ], [ %.0162279, %131 ], [ %.0162279, %185 ], [ %spec.select229, %._crit_edge277 ], [ %.0162279, %187 ], [ %.0162279, %141 ], [ %.0162279, %143 ], [ %.0162279, %194 ], [ %.0162279, %140 ], [ %.0162279, %155 ], [ %.0162279, %153 ], [ %197, %196 ], [ %.3165, %166 ], [ %.0162279, %162 ], [ %.0162279, %184 ], [ %.0162279, %luaG_checkopenop.exit243 ]
   %227 = add nsw i32 %.2164, 1
   %228 = icmp slt i32 %227, %1
   br i1 %228, label %47, label %._crit_edge282, !llvm.loop !76
@@ -1346,8 +1346,8 @@ luaG_checkopenop.exit243:                         ; preds = %219, %219, %219, %2
   %231 = load i32, ptr %230, align 4, !tbaa !53
   br label %.critedge232
 
-.critedge232:                                     ; preds = %190, %181, %172, %219, %202, %199, %176, %86, %90, %83, %81, %71, %75, %68, %66, %47, %96, %104, %._crit_edge, %122, %125, %133, %136, %141, %143, %150, %155, %157, %158, %163, %luaG_checkopenop.exit, %187, %196, %216, %luaG_checkopenop.exit243, %224, %.lr.ph276, %26, %20, %9, %3, %precheck.exit, %._crit_edge282
-  %.0 = phi i32 [ %231, %._crit_edge282 ], [ 0, %precheck.exit ], [ 0, %3 ], [ 0, %9 ], [ 0, %20 ], [ 0, %26 ], [ 0, %.lr.ph276 ], [ 0, %224 ], [ 0, %luaG_checkopenop.exit243 ], [ 0, %216 ], [ 0, %196 ], [ 0, %187 ], [ 0, %luaG_checkopenop.exit ], [ 0, %163 ], [ 0, %158 ], [ 0, %157 ], [ 0, %155 ], [ 0, %150 ], [ 0, %143 ], [ 0, %141 ], [ 0, %136 ], [ 0, %133 ], [ 0, %125 ], [ 0, %122 ], [ 0, %._crit_edge ], [ 0, %104 ], [ 0, %96 ], [ 0, %47 ], [ 0, %66 ], [ 0, %68 ], [ 0, %75 ], [ 0, %71 ], [ 0, %81 ], [ 0, %83 ], [ 0, %90 ], [ 0, %86 ], [ 0, %176 ], [ 0, %199 ], [ 0, %202 ], [ 0, %219 ], [ 0, %172 ], [ 0, %181 ], [ 0, %190 ]
+.critedge232:                                     ; preds = %190, %181, %172, %219, %202, %199, %176, %86, %90, %83, %81, %71, %75, %68, %66, %133, %125, %136, %141, %143, %150, %157, %155, %158, %luaG_checkopenop.exit, %163, %187, %196, %luaG_checkopenop.exit243, %216, %122, %._crit_edge, %96, %47, %104, %224, %.lr.ph276, %9, %3, %20, %26, %precheck.exit, %._crit_edge282
+  %.0 = phi i32 [ 0, %precheck.exit ], [ %231, %._crit_edge282 ], [ 0, %.lr.ph276 ], [ 0, %26 ], [ 0, %9 ], [ 0, %20 ], [ 0, %3 ], [ 0, %224 ], [ 0, %104 ], [ 0, %47 ], [ 0, %96 ], [ 0, %._crit_edge ], [ 0, %122 ], [ 0, %216 ], [ 0, %luaG_checkopenop.exit243 ], [ 0, %196 ], [ 0, %187 ], [ 0, %163 ], [ 0, %luaG_checkopenop.exit ], [ 0, %158 ], [ 0, %155 ], [ 0, %157 ], [ 0, %150 ], [ 0, %143 ], [ 0, %141 ], [ 0, %136 ], [ 0, %125 ], [ 0, %133 ], [ 0, %66 ], [ 0, %68 ], [ 0, %75 ], [ 0, %71 ], [ 0, %81 ], [ 0, %83 ], [ 0, %90 ], [ 0, %86 ], [ 0, %176 ], [ 0, %199 ], [ 0, %202 ], [ 0, %219 ], [ 0, %172 ], [ 0, %181 ], [ 0, %190 ]
   ret i32 %.0
 }
 
@@ -1551,13 +1551,13 @@ currentpc.exit:                                   ; preds = %._crit_edge.i, %21
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %86, %76, %74, %68, %65, %62, %52, %50, %38
-  %.0.i51.sink = phi ptr [ %45, %38 ], [ %64, %62 ], [ @.str.17, %52 ], [ @.str.17, %50 ], [ %73, %68 ], [ @.str.17, %65 ], [ %88, %86 ], [ @.str.17, %76 ], [ @.str.17, %74 ]
-  %.3.ph = phi ptr [ @.str.15, %38 ], [ @.str.16, %62 ], [ @.str.16, %52 ], [ @.str.16, %50 ], [ @.str.18, %68 ], [ @.str.18, %65 ], [ @.str.19, %86 ], [ @.str.19, %76 ], [ @.str.19, %74 ]
-  store ptr %.0.i51.sink, ptr %3, align 8, !tbaa !77
+  %.sink = phi ptr [ @.str.17, %50 ], [ @.str.17, %65 ], [ %45, %38 ], [ %64, %62 ], [ @.str.17, %52 ], [ %73, %68 ], [ %88, %86 ], [ @.str.17, %76 ], [ @.str.17, %74 ]
+  %.3.ph = phi ptr [ @.str.16, %50 ], [ @.str.18, %65 ], [ @.str.15, %38 ], [ @.str.16, %62 ], [ @.str.16, %52 ], [ @.str.18, %68 ], [ @.str.19, %86 ], [ @.str.19, %76 ], [ @.str.19, %74 ]
+  store ptr %.sink, ptr %3, align 8, !tbaa !77
   br label %.thread
 
 .thread:                                          ; preds = %currentpc.exit, %tailrecurse, %12, %46, %35, %.thread.sink.split
-  %.3 = phi ptr [ %.3.ph, %.thread.sink.split ], [ @.str.14, %currentpc.exit ], [ null, %tailrecurse ], [ null, %12 ], [ null, %46 ], [ null, %35 ]
+  %.3 = phi ptr [ %.3.ph, %.thread.sink.split ], [ null, %12 ], [ null, %46 ], [ null, %35 ], [ null, %tailrecurse ], [ @.str.14, %currentpc.exit ]
   ret ptr %.3
 }
 
@@ -1617,7 +1617,7 @@ currentpc.exit.i.i:                               ; preds = %13
   br label %getluaproto.exit.i
 
 getluaproto.exit.i:                               ; preds = %34, %31, %currentpc.exit.i.i
-  %.0.i.ph.i = phi i32 [ 0, %31 ], [ %37, %34 ], [ -1, %currentpc.exit.i.i ]
+  %.0.i.ph.i = phi i32 [ -1, %currentpc.exit.i.i ], [ 0, %31 ], [ %37, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %39 = load ptr, ptr %38, align 8, !tbaa !47
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24

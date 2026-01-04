@@ -127,7 +127,7 @@ define internal ptr @szddd_open(ptr noundef captures(address_is_null) %0, ptr no
   br label %szddd_read_headers.exit
 
 szddd_read_headers.exit:                          ; preds = %14, %21, %24, %32, %34, %.sink.split.i
-  %.0.i = phi i32 [ 3, %14 ], [ 3, %21 ], [ 8, %24 ], [ 3, %34 ], [ 7, %32 ], [ 0, %.sink.split.i ]
+  %.0.i = phi i32 [ 3, %34 ], [ 3, %14 ], [ 3, %21 ], [ 7, %32 ], [ 8, %24 ], [ 0, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %.0.i, ptr %42, align 8, !tbaa !18

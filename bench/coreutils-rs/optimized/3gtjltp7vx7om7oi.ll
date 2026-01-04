@@ -905,7 +905,7 @@ define void @_ZN7uu_echo6uu_app17h9e06b6a816c35a89E(ptr noalias noundef writeonl
   ret void
 
 .body:                                            ; preds = %190, %183, %133, %83, %51, %202, %201, %200, %199, %195
-  %.pn = phi { ptr, i32 } [ %196, %195 ], [ %eh.lpad-body63.ph, %199 ], [ %eh.lpad-body42.ph, %200 ], [ %eh.lpad-body27.ph, %201 ], [ %203, %202 ], [ %52, %51 ], [ %84, %83 ], [ %134, %133 ], [ %184, %183 ], [ %191, %190 ]
+  %.pn = phi { ptr, i32 } [ %196, %195 ], [ %184, %183 ], [ %eh.lpad-body63.ph, %199 ], [ %134, %133 ], [ %eh.lpad-body42.ph, %200 ], [ %84, %83 ], [ %eh.lpad-body27.ph, %201 ], [ %52, %51 ], [ %203, %202 ], [ %191, %190 ]
   resume { ptr, i32 } %.pn
 
 195:                                              ; preds = %187
@@ -1090,7 +1090,7 @@ define noundef ptr @_ZN7uu_echo7execute17h10569a384cbd0620E(i1 noundef zeroext %
   br label %.body
 
 .body:                                            ; preds = %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %122, %111, %74
-  %eh.lpad-body = phi { ptr, i32 } [ %75, %74 ], [ %.us-phi, %111 ], [ %123, %122 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.us-phi, %111 ], [ %75, %74 ], [ %123, %122 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17hfc74ff8b1297f7d3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17) #10
           to label %137 unwind label %135
 
@@ -1189,7 +1189,7 @@ select.unfold:                                    ; preds = %76
   %95 = icmp eq i32 %94, 2
   br i1 %95, label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17hfc74ff8b1297f7d3E.exit.sink.split", label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17hfc74ff8b1297f7d3E.exit"
 
-.thread66:                                        ; preds = %78, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i"
+.thread66:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i", %78
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !295
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %86
@@ -1221,7 +1221,7 @@ select.unfold:                                    ; preds = %76
   br label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17hfc74ff8b1297f7d3E.exit"
 
 "_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17hfc74ff8b1297f7d3E.exit": ; preds = %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17hfc74ff8b1297f7d3E.exit.sink.split", %102, %96, %92, %86
-  %.0 = phi ptr [ null, %86 ], [ null, %92 ], [ %.1, %96 ], [ %.1, %102 ], [ %.0.ph, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17hfc74ff8b1297f7d3E.exit.sink.split" ]
+  %.0 = phi ptr [ %.1, %102 ], [ null, %86 ], [ null, %92 ], [ %.1, %96 ], [ %.0.ph, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17hfc74ff8b1297f7d3E.exit.sink.split" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret ptr %.0
@@ -1305,7 +1305,7 @@ select.unfold68:                                  ; preds = %112, %42
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11, !noalias !342
   unreachable
 
-.thread70:                                        ; preds = %114, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i44"
+.thread70:                                        ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i44", %114
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !277
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %106
@@ -1355,7 +1355,7 @@ select.unfold72:                                  ; preds = %124
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11, !noalias !343
   unreachable
 
-133:                                              ; preds = %126, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i53"
+133:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i53", %126
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !338
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1364,7 +1364,7 @@ select.unfold72:                                  ; preds = %124
   br i1 %134, label %._crit_edge, label %.lr.ph.split
 
 .loopexit78:                                      ; preds = %60, %56, %select.unfold68, %select.unfold72
-  %.2 = phi ptr [ %spec.select77, %select.unfold72 ], [ %spec.select76, %select.unfold68 ], [ %59, %56 ], [ null, %60 ]
+  %.2 = phi ptr [ %spec.select76, %select.unfold68 ], [ %spec.select77, %select.unfold72 ], [ %59, %56 ], [ null, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %96
 

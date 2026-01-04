@@ -231,13 +231,13 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   br i1 %45, label %46, label %.loopexit48.us.us
 
 46:                                               ; preds = %44, %.preheader47.split.us86.us
-  %47 = phi i32 [ %41, %.preheader47.split.us86.us ], [ %40, %44 ]
+  %47 = phi i32 [ %40, %44 ], [ %41, %.preheader47.split.us86.us ]
   %48 = getelementptr i8, ptr %39, i64 12
   %49 = add i32 %40, 1
   br label %.preheader47.split.us86.us, !llvm.loop !15
 
 .loopexit48.us.us:                                ; preds = %.preheader47.split.us86.us, %44, %.preheader47.split.us.us.us, %61
-  %.us-phi82.us.us = phi i32 [ %54, %.preheader47.split.us.us.us ], [ %53, %61 ], [ %41, %.preheader47.split.us86.us ], [ %40, %44 ]
+  %.us-phi82.us.us = phi i32 [ %54, %.preheader47.split.us.us.us ], [ %53, %61 ], [ %40, %44 ], [ %41, %.preheader47.split.us86.us ]
   %50 = icmp slt i32 %.us-phi82.us.us, 0
   %51 = and i1 %34, %50
   br i1 %51, label %.split83.us.split.us, label %.loopexit59
@@ -309,13 +309,13 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   br label %.loopexit51.us
 
 83:                                               ; preds = %79, %.preheader50.us.split
-  %84 = phi i32 [ %74, %.preheader50.us.split ], [ %73, %79 ]
+  %84 = phi i32 [ %73, %79 ], [ %74, %.preheader50.us.split ]
   %85 = getelementptr i8, ptr %72, i64 12
   %86 = add i32 %73, 1
   br label %.preheader50.us.split, !llvm.loop !16
 
 .loopexit51.us:                                   ; preds = %77, %.preheader50.us.split, %99, %.preheader50.us.split.us, %.split103
-  %87 = phi i32 [ %82, %.split103 ], [ %92, %.preheader50.us.split.us ], [ %91, %99 ], [ %74, %.preheader50.us.split ], [ %73, %77 ]
+  %87 = phi i32 [ %82, %.split103 ], [ %91, %99 ], [ %92, %.preheader50.us.split.us ], [ %74, %.preheader50.us.split ], [ %73, %77 ]
   %88 = icmp slt i32 %87, 0
   %89 = and i1 %67, %88
   br i1 %89, label %.split83.us.split, label %.loopexit59
@@ -387,13 +387,13 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   br i1 %120, label %121, label %.split109.us112
 
 121:                                              ; preds = %119, %.preheader53.us.split.us117
-  %122 = phi i32 [ %114, %.preheader53.us.split.us117 ], [ %113, %119 ]
+  %122 = phi i32 [ %113, %119 ], [ %114, %.preheader53.us.split.us117 ]
   %123 = getelementptr i8, ptr %112, i64 12
   %124 = add i32 %113, 1
   br label %.preheader53.us.split.us117, !llvm.loop !17
 
 .loopexit54.us.us:                                ; preds = %117, %.preheader53.us.split.us117, %.preheader53.us.split.us.us, %139, %.split109.us112
-  %125 = phi i32 [ %129, %.split109.us112 ], [ %132, %.preheader53.us.split.us.us ], [ %131, %139 ], [ %114, %.preheader53.us.split.us117 ], [ %113, %117 ]
+  %125 = phi i32 [ %129, %.split109.us112 ], [ %131, %139 ], [ %132, %.preheader53.us.split.us.us ], [ %114, %.preheader53.us.split.us117 ], [ %113, %117 ]
   %126 = icmp slt i32 %125, 0
   %127 = and i1 %107, %126
   br i1 %127, label %.split83.us88.split.us, label %.loopexit59
@@ -465,13 +465,13 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   br i1 %158, label %159, label %.loopexit57.us
 
 159:                                              ; preds = %157, %.preheader56.split.us91
-  %160 = phi i32 [ %154, %.preheader56.split.us91 ], [ %153, %157 ]
+  %160 = phi i32 [ %153, %157 ], [ %154, %.preheader56.split.us91 ]
   %161 = getelementptr i8, ptr %152, i64 12
   %162 = add i32 %153, 1
   br label %.preheader56.split.us91, !llvm.loop !18
 
 .loopexit57.us:                                   ; preds = %.preheader56.split.us91, %157, %.preheader56.split.us.us, %174
-  %.us-phi.us = phi i32 [ %167, %.preheader56.split.us.us ], [ %166, %174 ], [ %154, %.preheader56.split.us91 ], [ %153, %157 ]
+  %.us-phi.us = phi i32 [ %167, %.preheader56.split.us.us ], [ %166, %174 ], [ %153, %157 ], [ %154, %.preheader56.split.us91 ]
   %163 = icmp slt i32 %.us-phi.us, 0
   %164 = and i1 %147, %163
   br i1 %164, label %.split83.us88.split, label %.loopexit59
@@ -557,13 +557,13 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   br label %.loopexit42.us
 
 203:                                              ; preds = %192, %.preheader41.us.split
-  %204 = phi i32 [ %187, %.preheader41.us.split ], [ %186, %192 ]
+  %204 = phi i32 [ %186, %192 ], [ %187, %.preheader41.us.split ]
   %205 = getelementptr i8, ptr %185, i64 12
   %206 = add i32 %186, 1
   br label %.preheader41.us.split, !llvm.loop !19
 
 .loopexit42.us:                                   ; preds = %190, %.preheader41.us.split, %219, %.preheader41.us.split.us, %195, %.split97
-  %207 = phi i32 [ %.us-phi98, %.split97 ], [ %202, %195 ], [ %212, %.preheader41.us.split.us ], [ %211, %219 ], [ %187, %.preheader41.us.split ], [ %186, %190 ]
+  %207 = phi i32 [ %202, %195 ], [ %.us-phi98, %.split97 ], [ %211, %219 ], [ %212, %.preheader41.us.split.us ], [ %187, %.preheader41.us.split ], [ %186, %190 ]
   %208 = icmp slt i32 %207, 0
   %209 = and i1 %180, %208
   br i1 %209, label %.split83.split.us, label %.loopexit59
@@ -678,7 +678,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   br i1 %266, label %.split83.split, label %.loopexit59
 
 .loopexit59:                                      ; preds = %.loopexit57.us, %.loopexit54.us.us, %.loopexit51.us, %.loopexit48.us.us, %.loopexit45, %.loopexit42.us, %263, %227
-  %267 = phi i32 [ %228, %227 ], [ 0, %263 ], [ %207, %.loopexit42.us ], [ %264, %.loopexit45 ], [ %.us-phi82.us.us, %.loopexit48.us.us ], [ %87, %.loopexit51.us ], [ %125, %.loopexit54.us.us ], [ %.us-phi.us, %.loopexit57.us ]
+  %267 = phi i32 [ %228, %227 ], [ 0, %263 ], [ %207, %.loopexit42.us ], [ %125, %.loopexit54.us.us ], [ %.us-phi82.us.us, %.loopexit48.us.us ], [ %264, %.loopexit45 ], [ %87, %.loopexit51.us ], [ %.us-phi.us, %.loopexit57.us ]
   %268 = zext i32 %267 to i64
   %.split29 = getelementptr %struct.cpufreq_frequency_table, ptr %9, i64 %268
   %269 = getelementptr i8, ptr %.split29, i64 8
@@ -726,7 +726,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   br i1 %295, label %296, label %.loopexit36
 
 296:                                              ; preds = %294, %.preheader38.split.us
-  %297 = phi i32 [ %291, %.preheader38.split.us ], [ %290, %294 ]
+  %297 = phi i32 [ %290, %294 ], [ %291, %.preheader38.split.us ]
   %298 = getelementptr i8, ptr %289, i64 12
   %299 = add i32 %290, 1
   br label %.preheader38.split.us, !llvm.loop !18
@@ -754,7 +754,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   br i1 %308, label %309, label %.split122.us
 
 309:                                              ; preds = %307, %.preheader35.split.us
-  %310 = phi i32 [ %302, %.preheader35.split.us ], [ %301, %307 ]
+  %310 = phi i32 [ %301, %307 ], [ %302, %.preheader35.split.us ]
   %311 = getelementptr i8, ptr %300, i64 12
   %312 = add i32 %301, 1
   br label %.preheader35.split.us, !llvm.loop !17
@@ -825,7 +825,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   br label %.preheader38.split, !llvm.loop !18
 
 .loopexit36:                                      ; preds = %.preheader38.split, %341, %294, %.preheader38.split.us, %.preheader35.split, %322, %305, %.preheader35.split.us, %.split122.us
-  %347 = phi i32 [ %327, %.split122.us ], [ %302, %.preheader35.split.us ], [ %301, %305 ], [ %315, %.preheader35.split ], [ %314, %322 ], [ %291, %.preheader38.split.us ], [ %290, %294 ], [ %334, %.preheader38.split ], [ %333, %341 ]
+  %347 = phi i32 [ %327, %.split122.us ], [ %290, %294 ], [ %314, %322 ], [ %301, %305 ], [ %302, %.preheader35.split.us ], [ %315, %.preheader35.split ], [ %291, %.preheader38.split.us ], [ %334, %.preheader38.split ], [ %333, %341 ]
   %348 = zext i32 %347 to i64
   %.split30 = getelementptr %struct.cpufreq_frequency_table, ptr %9, i64 %348
   %349 = getelementptr i8, ptr %.split30, i64 8
@@ -861,7 +861,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   br i1 %363, label %364, label %.loopexit
 
 364:                                              ; preds = %362, %.preheader.split.us
-  %365 = phi i32 [ %359, %.preheader.split.us ], [ %358, %362 ]
+  %365 = phi i32 [ %358, %362 ], [ %359, %.preheader.split.us ]
   %366 = getelementptr i8, ptr %357, i64 12
   %367 = add i32 %358, 1
   br label %.preheader.split.us, !llvm.loop !15
@@ -933,7 +933,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   br label %.preheader32, !llvm.loop !16
 
 .loopexit:                                        ; preds = %393, %.preheader32, %.preheader.split, %377, %362, %.preheader.split.us, %397
-  %404 = phi i32 [ %399, %397 ], [ %359, %.preheader.split.us ], [ %358, %362 ], [ %370, %.preheader.split ], [ %369, %377 ], [ %385, %.preheader32 ], [ %384, %393 ]
+  %404 = phi i32 [ %399, %397 ], [ %369, %377 ], [ %358, %362 ], [ %359, %.preheader.split.us ], [ %370, %.preheader.split ], [ %385, %.preheader32 ], [ %384, %393 ]
   %405 = zext i32 %404 to i64
   %.split31 = getelementptr %struct.cpufreq_frequency_table, ptr %9, i64 %405
   %406 = getelementptr i8, ptr %.split31, i64 8

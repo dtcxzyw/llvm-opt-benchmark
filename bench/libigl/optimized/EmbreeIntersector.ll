@@ -974,8 +974,8 @@ _ZNK3igl6embree17EmbreeIntersector12intersectRayERKN5Eigen6MatrixIfLi1ELi3ELi1EL
   br label %.critedge
 
 .critedge:                                        ; preds = %156, %_ZNK3igl6embree17EmbreeIntersector12intersectRayERKN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES6_RNS_3HitIfEEffi.exit48, %165
-  %.2 = phi i1 [ true, %165 ], [ %.185, %_ZNK3igl6embree17EmbreeIntersector12intersectRayERKN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES6_RNS_3HitIfEEffi.exit48 ], [ %.185, %156 ]
-  %.sroa.5.3 = phi float [ %160, %165 ], [ %.sroa.5.286, %_ZNK3igl6embree17EmbreeIntersector12intersectRayERKN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES6_RNS_3HitIfEEffi.exit48 ], [ %.sroa.5.286, %156 ]
+  %.2 = phi i1 [ true, %165 ], [ %.185, %156 ], [ %.185, %_ZNK3igl6embree17EmbreeIntersector12intersectRayERKN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES6_RNS_3HitIfEEffi.exit48 ]
+  %.sroa.5.3 = phi float [ %160, %165 ], [ %.sroa.5.286, %156 ], [ %.sroa.5.286, %_ZNK3igl6embree17EmbreeIntersector12intersectRayERKN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES6_RNS_3HitIfEEffi.exit48 ]
   %166 = fmul float %111, %141
   %167 = fmul float %102, %140
   %168 = fmul float %105, %139

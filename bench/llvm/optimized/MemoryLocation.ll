@@ -895,7 +895,7 @@ _ZN4llvm12LocationSize10upperBoundENS_8TypeSizeE.exit192: ; preds = %_ZN4llvm8dy
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !82
   br label %.critedge165
 
-.critedge166:                                     ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_8CallBaseEvE10isPossibleERKS4_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %18, %21, %4, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_8CallBaseEEEDcPT0_.exit
+.critedge166:                                     ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPKNS_8CallBaseEvE10isPossibleERKS4_.exit.i.i, %18, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %4, %21, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_8CallBaseEEEDcPT0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not155 = icmp eq ptr %3, null
   br i1 %.not155, label %_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.thread, label %191
@@ -1158,7 +1158,7 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %209
   %.sroa.0.0.i229 = select i1 %340, i64 0, i64 %spec.select.i228, !prof !89
   br label %.critedge168
 
-_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.thread: ; preds = %209, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %_ZNK4llvm8CallBase11isNoBuiltinEv.exit.thread.i, %199, %_ZNK4llvm8CallBase11isNoBuiltinEv.exit.i, %229, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit, %_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit, %.critedge166
+_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.thread: ; preds = %209, %199, %_ZNK4llvm8CallBase11isNoBuiltinEv.exit.thread.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %_ZNK4llvm8CallBase11isNoBuiltinEv.exit.i, %229, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit, %_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit, %.critedge166
   %343 = load i32, ptr %7, align 4
   %344 = and i32 %343, 134217727
   %345 = zext nneg i32 %344 to i64
@@ -1169,8 +1169,8 @@ _ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.threa
   br label %.critedge168
 
 .critedge168:                                     ; preds = %325, %308, %291, %274, %248, %267, %264, %230, %239, %229, %229, %229, %334, %317, %300, %283, %_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.thread, %273
-  %.sink = phi ptr [ %15, %334 ], [ %15, %317 ], [ %15, %300 ], [ %15, %283 ], [ %349, %_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.thread ], [ %15, %273 ], [ %15, %229 ], [ %15, %229 ], [ %15, %229 ], [ %15, %239 ], [ %15, %230 ], [ %15, %264 ], [ %15, %267 ], [ %15, %248 ], [ %15, %274 ], [ %15, %291 ], [ %15, %308 ], [ %15, %325 ]
-  %.sroa.0.0.i229.sink = phi i64 [ %.sroa.0.0.i229, %334 ], [ %324, %317 ], [ %307, %300 ], [ %290, %283 ], [ -1, %_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.thread ], [ %switch.select176, %273 ], [ -4611686018427387906, %229 ], [ -4611686018427387906, %229 ], [ -4611686018427387906, %229 ], [ %.sroa.0.0.i208, %239 ], [ -4611686018427387906, %230 ], [ %266, %264 ], [ %.sroa.0.0.i215, %267 ], [ -4611686018427387906, %248 ], [ -4611686018427387906, %274 ], [ -4611686018427387906, %291 ], [ -4611686018427387906, %308 ], [ -4611686018427387906, %325 ]
+  %.sink = phi ptr [ %15, %334 ], [ %15, %317 ], [ %15, %300 ], [ %15, %283 ], [ %349, %_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.thread ], [ %15, %308 ], [ %15, %291 ], [ %15, %274 ], [ %15, %248 ], [ %15, %273 ], [ %15, %230 ], [ %15, %229 ], [ %15, %229 ], [ %15, %229 ], [ %15, %239 ], [ %15, %264 ], [ %15, %267 ], [ %15, %325 ]
+  %.sroa.0.0.i229.sink = phi i64 [ %.sroa.0.0.i229, %334 ], [ %324, %317 ], [ %307, %300 ], [ %290, %283 ], [ -1, %_ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.thread ], [ -4611686018427387906, %308 ], [ -4611686018427387906, %291 ], [ -4611686018427387906, %274 ], [ -4611686018427387906, %248 ], [ %switch.select176, %273 ], [ -4611686018427387906, %230 ], [ -4611686018427387906, %229 ], [ -4611686018427387906, %229 ], [ -4611686018427387906, %229 ], [ %.sroa.0.0.i208, %239 ], [ %266, %264 ], [ %.sroa.0.0.i215, %267 ], [ -4611686018427387906, %325 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !28
   %350 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i229.sink, ptr %350, align 8, !tbaa !32
@@ -1179,7 +1179,7 @@ _ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge165
 
-.critedge165:                                     ; preds = %66, %45, %172, %160, %143, %140, %_ZN4llvm12LocationSize10upperBoundENS_8TypeSizeE.exit192, %_ZN4llvm12LocationSize10upperBoundENS_8TypeSizeE.exit, %96, %.critedge163, %.critedge, %.critedge168
+.critedge165:                                     ; preds = %66, %45, %160, %143, %140, %_ZN4llvm12LocationSize10upperBoundENS_8TypeSizeE.exit192, %_ZN4llvm12LocationSize10upperBoundENS_8TypeSizeE.exit, %96, %.critedge163, %.critedge, %172, %.critedge168
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -1289,9 +1289,9 @@ _ZNSt8optionalIjEaSESt9nullopt_t.exit:            ; preds = %44
   br i1 %.not15, label %52, label %.critedge.thread
 
 52:                                               ; preds = %44, %_ZNSt8optionalIjEaSESt9nullopt_t.exit, %41, %.lr.ph
-  %.sroa.026.1 = phi i32 [ %.sroa.026.034, %41 ], [ %.sroa.026.034, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %.sroa.026.034, %.lr.ph ], [ %42, %44 ]
-  %.sroa.427.1 = phi i1 [ %.sroa.427.035, %41 ], [ false, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %.sroa.427.035, %.lr.ph ], [ true, %44 ]
-  %.1 = phi ptr [ %.01437, %41 ], [ %.01437, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %.01437, %.lr.ph ], [ %51, %44 ]
+  %.sroa.026.1 = phi i32 [ %.sroa.026.034, %41 ], [ %.sroa.026.034, %.lr.ph ], [ %.sroa.026.034, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %42, %44 ]
+  %.sroa.427.1 = phi i1 [ %.sroa.427.035, %41 ], [ %.sroa.427.035, %.lr.ph ], [ false, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ true, %44 ]
+  %.1 = phi ptr [ %.01437, %41 ], [ %.01437, %.lr.ph ], [ %.01437, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ], [ %51, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %1)
   %54 = load i32, ptr %6, align 4
@@ -1327,7 +1327,7 @@ _ZNSt8optionalIjEaSESt9nullopt_t.exit:            ; preds = %44
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZNSt8optionalIjEaSESt9nullopt_t.exit, %.critedge, %.preheader, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit, %3, %65, %66
-  %.sink = phi i8 [ 1, %65 ], [ 1, %66 ], [ 0, %3 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit ], [ 0, %.preheader ], [ 0, %.critedge ], [ 0, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ]
+  %.sink = phi i8 [ 0, %.critedge ], [ 1, %65 ], [ 1, %66 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit ], [ 0, %3 ], [ 0, %.preheader ], [ 0, %_ZNSt8optionalIjEaSESt9nullopt_t.exit ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %.sink, ptr %67, align 8, !tbaa !40
   ret void
@@ -1552,8 +1552,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.079.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ %.fca.0.extract, %54 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ %.fca.1.extract, %54 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -1588,7 +1588,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef 
   unreachable
 
 _ZN4llvm8CallBase17data_operands_endEv.exit:      ; preds = %1, %3, %4
-  %.0.i.i = phi i64 [ 2, %3 ], [ %6, %4 ], [ 0, %1 ]
+  %.0.i.i = phi i64 [ %6, %4 ], [ 2, %3 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0

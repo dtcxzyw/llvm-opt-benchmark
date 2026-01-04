@@ -226,7 +226,7 @@ define internal i32 @dissect_babel(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %32
 
 32:                                               ; preds = %7, %4, %29, %14
-  %.0 = phi i32 [ 2, %14 ], [ %31, %29 ], [ 0, %4 ], [ 0, %7 ]
+  %.0 = phi i32 [ %31, %29 ], [ 0, %4 ], [ 2, %14 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -492,7 +492,7 @@ define internal fastcc i32 @dissect_babel_body(ptr noundef %0, ptr noundef %1, p
   br label %network_address.exit
 
 network_address.exit:                             ; preds = %125, %130, %133, %135, %140
-  %.056.i.i = phi i32 [ %.0.i.i, %140 ], [ -1, %130 ], [ -1, %133 ], [ -1, %135 ], [ -1, %125 ]
+  %.056.i.i = phi i32 [ -1, %133 ], [ -1, %135 ], [ %.0.i.i, %140 ], [ -1, %125 ], [ -1, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %141 = load i32, ptr @hf_babel_message_rxcost, align 4
   %142 = add i32 %.0328, 8
@@ -591,7 +591,7 @@ format_address.exit:                              ; preds = %network_address.exi
   %182 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %.sink.i.i277, i32 noundef %172, i64 noundef %.sink70.i.i276)
   br label %network_address.exit280
 
-network_address.exit280.thread:                   ; preds = %174, %177, %179, %169
+network_address.exit280.thread:                   ; preds = %177, %179, %169, %174
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %183 = load i32, ptr @ett_subtree, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -616,8 +616,8 @@ network_address.exit280:                          ; preds = %169, %.sink.split.i
   br label %format_address.exit285
 
 format_address.exit285:                           ; preds = %network_address.exit280.thread, %network_address.exit280
-  %188 = phi i32 [ %184, %network_address.exit280 ], [ %183, %network_address.exit280.thread ]
-  %.0.i284 = phi ptr [ %187, %network_address.exit280 ], [ @.str.104, %network_address.exit280.thread ]
+  %188 = phi i32 [ %183, %network_address.exit280.thread ], [ %184, %network_address.exit280 ]
+  %.0.i284 = phi ptr [ @.str.104, %network_address.exit280.thread ], [ %187, %network_address.exit280 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %189 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %87, ptr noundef %0, i32 noundef %172, i32 noundef %173, i32 noundef %188, ptr noundef null, ptr noundef nonnull @.str.94, ptr noundef %.0.i284)
   %190 = load i32, ptr @hf_babel_message_ae, align 4
@@ -774,13 +774,13 @@ format_prefix.exit:                               ; preds = %212, %.sink.split.i
   br i1 %269, label %.sink.split.i291, label %.sink.split.i.i293
 
 .sink.split.i291:                                 ; preds = %272, %263, %267
-  %.sink70.i = phi i32 [ %255, %267 ], [ %255, %263 ], [ %270, %272 ]
-  %.sink.i292 = phi ptr [ %9, %267 ], [ %32, %263 ], [ %31, %272 ]
+  %.sink70.i = phi i32 [ %255, %263 ], [ %255, %267 ], [ %270, %272 ]
+  %.sink.i292 = phi ptr [ %32, %263 ], [ %9, %267 ], [ %31, %272 ]
   %273 = zext nneg i32 %.sink70.i to i64
   %274 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %.sink.i292, i32 noundef %252, i64 noundef %273)
   br label %.sink.split.i.i293
 
-network_prefix.exit.thread:                       ; preds = %246, %260, %258, %264, %268, %257
+network_prefix.exit.thread:                       ; preds = %264, %268, %246, %258, %257, %260
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %275 = load i32, ptr @ett_subtree, align 4
   %276 = load ptr, ptr %27, align 8
@@ -806,9 +806,9 @@ network_prefix.exit.thread:                       ; preds = %246, %260, %258, %2
   br label %format_prefix.exit300
 
 format_prefix.exit300:                            ; preds = %network_prefix.exit.thread, %.sink.split.i.i293
-  %281 = phi ptr [ %278, %.sink.split.i.i293 ], [ %276, %network_prefix.exit.thread ]
-  %282 = phi i32 [ %277, %.sink.split.i.i293 ], [ %275, %network_prefix.exit.thread ]
-  %.0.i.i299 = phi ptr [ %280, %.sink.split.i.i293 ], [ @.str.104, %network_prefix.exit.thread ]
+  %281 = phi ptr [ %276, %network_prefix.exit.thread ], [ %278, %.sink.split.i.i293 ]
+  %282 = phi i32 [ %275, %network_prefix.exit.thread ], [ %277, %.sink.split.i.i293 ]
+  %.0.i.i299 = phi ptr [ @.str.104, %network_prefix.exit.thread ], [ %280, %.sink.split.i.i293 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %283 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %281, ptr noundef nonnull @.str.105, ptr noundef %.0.i.i299, i32 noundef %251)
   %284 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %87, ptr noundef %0, i32 noundef %252, i32 noundef %253, i32 noundef %282, ptr noundef null, ptr noundef nonnull @.str.95, ptr noundef %283)
@@ -881,20 +881,20 @@ format_prefix.exit300:                            ; preds = %network_prefix.exit
   br i1 %314, label %.sink.split.i305, label %321
 
 .sink.split.i305:                                 ; preds = %317, %308, %312
-  %.sink70.i306 = phi i32 [ %300, %312 ], [ %300, %308 ], [ %315, %317 ]
-  %.sink.i307 = phi ptr [ %7, %312 ], [ %26, %308 ], [ %25, %317 ]
+  %.sink70.i306 = phi i32 [ %300, %308 ], [ %300, %312 ], [ %315, %317 ]
+  %.sink.i307 = phi ptr [ %26, %308 ], [ %7, %312 ], [ %25, %317 ]
   %318 = zext nneg i32 %.sink70.i306 to i64
   %319 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %.sink.i307, i32 noundef %297, i64 noundef %318)
   %320 = icmp slt i32 %.sink70.i306, 0
   br label %321
 
 321:                                              ; preds = %.sink.split.i305, %317, %312, %308, %302
-  %.0.i303 = phi i1 [ false, %302 ], [ false, %308 ], [ false, %312 ], [ false, %317 ], [ %320, %.sink.split.i305 ]
+  %.0.i303 = phi i1 [ false, %302 ], [ false, %312 ], [ false, %308 ], [ false, %317 ], [ %320, %.sink.split.i305 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 noundef 16, i1 noundef false) #8
   br label %network_prefix.exit310
 
 network_prefix.exit310:                           ; preds = %291, %302, %303, %305, %309, %313, %321
-  %.056.i304 = phi i1 [ %.0.i303, %321 ], [ true, %291 ], [ true, %305 ], [ true, %303 ], [ true, %309 ], [ true, %313 ], [ true, %302 ]
+  %.056.i304 = phi i1 [ true, %309 ], [ true, %313 ], [ %.0.i303, %321 ], [ true, %291 ], [ true, %303 ], [ true, %302 ], [ true, %305 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %322 = load i32, ptr @hf_babel_message_seqno, align 4
   %323 = add i32 %.0328, 8
@@ -1235,12 +1235,12 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
   br label %61
 
 61:                                               ; preds = %.sink.split, %55, %47, %30, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %30 ], [ 0, %47 ], [ 0, %55 ], [ %.sink70, %.sink.split ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %47 ], [ 0, %30 ], [ 0, %55 ], [ %.sink70, %.sink.split ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %9, i64 noundef 16, i1 noundef false) #8
   br label %62
 
 62:                                               ; preds = %15, %51, %42, %35, %37, %24, %16, %19, %8, %61
-  %.056 = phi i32 [ %.0, %61 ], [ -1, %8 ], [ -1, %19 ], [ -1, %16 ], [ -1, %24 ], [ -1, %37 ], [ -1, %35 ], [ -1, %42 ], [ -1, %51 ], [ -1, %15 ]
+  %.056 = phi i32 [ -1, %42 ], [ -1, %51 ], [ %.0, %61 ], [ -1, %8 ], [ -1, %16 ], [ -1, %24 ], [ -1, %35 ], [ -1, %19 ], [ -1, %37 ], [ -1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.056
 }

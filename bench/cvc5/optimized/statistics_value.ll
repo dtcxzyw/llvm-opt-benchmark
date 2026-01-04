@@ -380,7 +380,7 @@ _ZNK4cvc58internal19StatisticTimerValue3getEv.exit: ; preds = %2, %10
   br i1 %31, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !49
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %28, %26, %22, %18, %_ZNK4cvc58internal19StatisticTimerValue3getEv.exit
-  %.0.i.i = phi i32 [ %19, %18 ], [ %23, %22 ], [ %27, %26 ], [ 1, %_ZNK4cvc58internal19StatisticTimerValue3getEv.exit ], [ %30, %28 ]
+  %.0.i.i = phi i32 [ %27, %26 ], [ %19, %18 ], [ %23, %22 ], [ 1, %_ZNK4cvc58internal19StatisticTimerValue3getEv.exit ], [ %30, %28 ]
   %32 = zext i32 %.0.i.i to i64
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %33, ptr %4, align 8, !tbaa !51, !alias.scope !46

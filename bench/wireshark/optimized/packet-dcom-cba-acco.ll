@@ -1066,7 +1066,7 @@ cba_frame_find_by_cons.exit:                      ; preds = %cba_packet_in_range
   br label %51
 
 51:                                               ; preds = %.split, %.split22, %10, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %10 ], [ true, %.split22 ], [ true, %.split ]
+  %.0 = phi i1 [ false, %10 ], [ false, %4 ], [ true, %.split22 ], [ true, %.split ]
   ret i1 %.0
 }
 
@@ -4412,7 +4412,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
   br label %cba_ldev_find.exit.thread
 
 cba_ldev_find.exit:                               ; preds = %35, %31
-  %.1.i = phi ptr [ %38, %35 ], [ %33, %31 ]
+  %.1.i = phi ptr [ %33, %31 ], [ %38, %35 ]
   %48 = call ptr @wmem_file_scope()
   %49 = load i32, ptr %8, align 4
   %50 = zext i32 %49 to i64
@@ -5768,7 +5768,7 @@ cba_packet_in_range.exit:                         ; preds = %40
   %or.cond17.not.i = or i1 %.not16.i, %42
   br i1 %or.cond17.not.i, label %.loopexit73, label %cba_packet_in_range.exit.thread
 
-cba_packet_in_range.exit.thread:                  ; preds = %40, %37, %.critedge.i, %23, %cba_packet_in_range.exit
+cba_packet_in_range.exit.thread:                  ; preds = %.critedge.i, %40, %37, %23, %cba_packet_in_range.exit
   %43 = getelementptr inbounds nuw i8, ptr %.182, i64 8
   %.1 = load ptr, ptr %43, align 8
   %.not70 = icmp eq ptr %.1, null
@@ -6598,7 +6598,7 @@ cba_frame_find_by_provcrid.exit:                  ; preds = %cba_packet_in_range
   br i1 %.not51, label %._crit_edge, label %.preheader.i, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %cba_frame_find_by_provcrid.exit, %.lr.ph.split.us, %.thread, %50
-  %.049.lcssa = phi i32 [ %49, %50 ], [ %49, %.thread ], [ %68, %.lr.ph.split.us ], [ %73, %cba_frame_find_by_provcrid.exit ]
+  %.049.lcssa = phi i32 [ %49, %50 ], [ %68, %.lr.ph.split.us ], [ %49, %.thread ], [ %73, %cba_frame_find_by_provcrid.exit ]
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = load i32, ptr %9, align 4
@@ -6894,8 +6894,8 @@ cba_frame_find_by_provcrid.exit:                  ; preds = %cba_packet_in_range
   br label %cba_frame_find_by_provcrid.exit.thread
 
 cba_frame_find_by_provcrid.exit.thread:           ; preds = %proto_item_set_generated.exit, %._crit_edge.i, %83, %cba_frame_find_by_provcrid.exit
-  %.not176 = phi i1 [ false, %83 ], [ true, %cba_frame_find_by_provcrid.exit ], [ true, %._crit_edge.i ], [ true, %proto_item_set_generated.exit ]
-  %.0.i175 = phi ptr [ %62, %83 ], [ null, %cba_frame_find_by_provcrid.exit ], [ null, %._crit_edge.i ], [ null, %proto_item_set_generated.exit ]
+  %.not176 = phi i1 [ true, %cba_frame_find_by_provcrid.exit ], [ false, %83 ], [ true, %._crit_edge.i ], [ true, %proto_item_set_generated.exit ]
+  %.0.i175 = phi ptr [ null, %cba_frame_find_by_provcrid.exit ], [ %62, %83 ], [ null, %._crit_edge.i ], [ null, %proto_item_set_generated.exit ]
   %84 = load i32, ptr @hf_cba_acco_conn_state, align 4
   %85 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %84, ptr noundef nonnull %8)
   %86 = load i32, ptr @hf_cba_acco_serversrt_last_connect, align 4

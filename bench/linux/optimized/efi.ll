@@ -1226,7 +1226,7 @@ define internal fastcc ptr @efi_map_regions(ptr noundef captures(none) %0, ptr n
   br i1 %26, label %select.unfold, label %.thread
 
 select.unfold:                                    ; preds = %24, %20, %23, %19
-  %27 = phi ptr [ %21, %20 ], [ %12, %19 ], [ %10, %23 ], [ %25, %24 ]
+  %27 = phi ptr [ %10, %23 ], [ %21, %20 ], [ %12, %19 ], [ %25, %24 ]
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread, label %29
 

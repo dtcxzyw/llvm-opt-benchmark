@@ -295,7 +295,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %35, %29, %23, %.tail, %4, %113
-  %.087 = phi i32 [ %114, %113 ], [ 0, %4 ], [ 0, %.tail ], [ 0, %23 ], [ 0, %29 ], [ 0, %35 ], [ 0, %sub_0 ], [ 0, %sub_1 ]
+  %.087 = phi i32 [ 0, %23 ], [ 0, %4 ], [ 0, %.tail ], [ 0, %29 ], [ %114, %113 ], [ 0, %35 ], [ 0, %sub_0 ], [ 0, %sub_1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -59,8 +59,8 @@ define internal fastcc range(i32 0, 2) i32 @dsa_precheck_params(ptr noundef read
   br i1 %.not, label %18, label %.sink.split
 
 .sink.split:                                      ; preds = %13, %10, %2, %6
-  %.sink10 = phi i32 [ 25, %6 ], [ 25, %2 ], [ 31, %10 ], [ 37, %13 ]
-  %.sink = phi i32 [ 114, %6 ], [ 114, %2 ], [ 103, %10 ], [ 102, %13 ]
+  %.sink10 = phi i32 [ 31, %10 ], [ 25, %2 ], [ 25, %6 ], [ 37, %13 ]
+  %.sink = phi i32 [ 103, %10 ], [ 114, %2 ], [ 114, %6 ], [ 102, %13 ]
   tail call void @ERR_new() #2
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink10, ptr noundef nonnull @__func__.dsa_precheck_params) #2
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 10, i32 noundef %.sink, ptr noundef null) #2
@@ -173,8 +173,8 @@ define range(i32 0, 2) i32 @ossl_dsa_check_pairwise(ptr noundef %0) local_unname
   br i1 %.not.i, label %dsa_precheck_params.exit, label %dsa_precheck_params.exit.thread
 
 dsa_precheck_params.exit.thread:                  ; preds = %1, %5, %9, %12
-  %.sink10.i = phi i32 [ 25, %5 ], [ 25, %1 ], [ 31, %9 ], [ 37, %12 ]
-  %.sink.i = phi i32 [ 114, %5 ], [ 114, %1 ], [ 103, %9 ], [ 102, %12 ]
+  %.sink10.i = phi i32 [ 31, %9 ], [ 25, %1 ], [ 25, %5 ], [ 37, %12 ]
+  %.sink.i = phi i32 [ 103, %9 ], [ 114, %1 ], [ 114, %5 ], [ 102, %12 ]
   tail call void @ERR_new() #2
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink10.i, ptr noundef nonnull @__func__.dsa_precheck_params) #2
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 10, i32 noundef %.sink.i, ptr noundef null) #2
@@ -231,7 +231,7 @@ dsa_precheck_params.exit:                         ; preds = %12
   br label %45
 
 45:                                               ; preds = %dsa_precheck_params.exit.thread, %dsa_precheck_params.exit, %20, %24, %44
-  %.015 = phi i32 [ %.019, %44 ], [ 0, %24 ], [ 0, %20 ], [ 0, %dsa_precheck_params.exit ], [ 0, %dsa_precheck_params.exit.thread ]
+  %.015 = phi i32 [ 0, %dsa_precheck_params.exit.thread ], [ %.019, %44 ], [ 0, %24 ], [ 0, %20 ], [ 0, %dsa_precheck_params.exit ]
   ret i32 %.015
 }
 

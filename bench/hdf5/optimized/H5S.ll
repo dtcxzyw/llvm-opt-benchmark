@@ -265,7 +265,7 @@ define range(i32 0, 3) i32 @H5S_top_term_package() local_unnamed_addr #0 {
   br label %.thread9
 
 .thread9:                                         ; preds = %.thread6, %.thread, %17, %0
-  %.0 = phi i32 [ 0, %17 ], [ 0, %0 ], [ %.18, %.thread ], [ 1, %.thread6 ]
+  %.0 = phi i32 [ 0, %17 ], [ %.18, %.thread ], [ 0, %0 ], [ 1, %.thread6 ]
   ret i32 %.0
 }
 
@@ -417,7 +417,7 @@ define ptr @H5S_create(i32 noundef %0) local_unnamed_addr #0 {
   br label %.thread27
 
 .thread27:                                        ; preds = %20, %10, %40, %51, %48, %14
-  %.1 = phi ptr [ null, %51 ], [ null, %48 ], [ null, %14 ], [ %18, %40 ], [ null, %20 ], [ null, %10 ]
+  %.1 = phi ptr [ null, %51 ], [ null, %48 ], [ null, %10 ], [ null, %14 ], [ %18, %40 ], [ null, %20 ]
   ret ptr %.1
 }
 
@@ -1021,7 +1021,7 @@ define ptr @H5S_copy(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %
   br label %.thread
 
 .thread:                                          ; preds = %22, %12, %33, %40, %16
-  %.1 = phi ptr [ null, %40 ], [ null, %16 ], [ %20, %33 ], [ null, %22 ], [ null, %12 ]
+  %.1 = phi ptr [ null, %40 ], [ null, %12 ], [ null, %16 ], [ %20, %33 ], [ null, %22 ]
   ret ptr %.1
 }
 
@@ -1309,7 +1309,7 @@ H5S__extent_release.exit:                         ; preds = %10, %19, %22
   br label %.loopexit48
 
 .loopexit48:                                      ; preds = %46, %40, %50
-  %52 = phi i32 [ 0, %40 ], [ %34, %50 ], [ %44, %46 ]
+  %52 = phi i32 [ %34, %50 ], [ 0, %40 ], [ %44, %46 ]
   br i1 %2, label %53, label %66
 
 53:                                               ; preds = %.loopexit48
@@ -1367,7 +1367,7 @@ H5S__extent_release.exit:                         ; preds = %10, %19, %22
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %76, %70, %3
-  %.0 = phi i32 [ -1, %76 ], [ -1, %70 ], [ 0, %3 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ -1, %76 ], [ -1, %70 ], [ 0, %.loopexit ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1615,7 +1615,7 @@ define i64 @H5S_get_npoints_max(ptr noundef readonly captures(none) %0) local_un
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.lr.ph, %33, %.preheader21, %.preheader, %17, %10, %37, %20, %14
-  %.0 = phi i64 [ 0, %10 ], [ 0, %37 ], [ 1, %20 ], [ 0, %14 ], [ 0, %17 ], [ 1, %.preheader ], [ 1, %.preheader21 ], [ %36, %33 ], [ %32, %31 ], [ -1, %.lr.ph ]
+  %.0 = phi i64 [ 0, %10 ], [ 0, %37 ], [ 0, %14 ], [ 1, %20 ], [ 0, %17 ], [ 1, %.preheader21 ], [ 1, %.preheader ], [ %36, %33 ], [ %32, %31 ], [ -1, %.lr.ph ]
   ret i64 %.0
 }
 
@@ -2101,7 +2101,7 @@ define i32 @H5S_extent_get_dims(ptr noundef readonly captures(none) %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %28, %.lr.ph.split.us, %22, %19, %19, %12, %53, %16
-  %.0 = phi i32 [ -1, %12 ], [ -1, %53 ], [ -1, %16 ], [ 0, %19 ], [ 0, %19 ], [ %24, %22 ], [ %24, %.lr.ph.split.us ], [ %24, %28 ], [ %24, %.lr.ph.split.split.us.split.us ], [ %24, %.lr.ph.split.split.us.split ], [ %24, %.lr.ph.split.split.split.us ], [ %24, %46 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %53 ], [ -1, %16 ], [ 0, %19 ], [ 0, %19 ], [ %24, %.lr.ph.split.split.us.split.us ], [ %24, %22 ], [ %24, %.lr.ph.split.split.split.us ], [ %24, %28 ], [ %24, %.lr.ph.split.us ], [ %24, %.lr.ph.split.split.us.split ], [ %24, %46 ]
   ret i32 %.0
 }
 
@@ -2287,7 +2287,7 @@ define ptr @H5S_read(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %20, %10, %31, %38, %14
-  %.1 = phi ptr [ null, %38 ], [ null, %14 ], [ %18, %31 ], [ null, %20 ], [ null, %10 ]
+  %.1 = phi ptr [ null, %38 ], [ null, %10 ], [ null, %14 ], [ %18, %31 ], [ null, %20 ]
   ret ptr %.1
 }
 
@@ -2771,7 +2771,7 @@ H5S__extent_release.exit:                         ; preds = %26, %35, %38
   br label %76
 
 76:                                               ; preds = %13, %22, %72, %69, %.critedge2, %17
-  %.050 = phi i32 [ -1, %13 ], [ -1, %22 ], [ -1, %72 ], [ 0, %69 ], [ 0, %.critedge2 ], [ 0, %17 ]
+  %.050 = phi i32 [ -1, %13 ], [ -1, %22 ], [ 0, %17 ], [ -1, %72 ], [ 0, %69 ], [ 0, %.critedge2 ]
   ret i32 %.050
 }
 
@@ -2963,7 +2963,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Screate_simple(i32 noundef %0,
   %98 = call i32 @H5CX_pop(i1 noundef zeroext true) #10
   br label %100
 
-.thread74:                                        ; preds = %13, %26, %33, %.thread83, %.thread79
+.thread74:                                        ; preds = %26, %33, %13, %.thread83, %.thread79
   %99 = call i32 @H5E_dump_api_stack() #10
   br label %100
 
@@ -3568,8 +3568,8 @@ H5S__extent_release.exit:                         ; preds = %68, %89
   %107 = load ptr, ptr %2, align 8, !tbaa !56
   br label %108
 
-108:                                              ; preds = %49, %57, %64, %95, %102, %106
-  %.1.ph = phi ptr [ %107, %106 ], [ null, %102 ], [ null, %95 ], [ null, %64 ], [ null, %57 ], [ null, %49 ]
+108:                                              ; preds = %49, %57, %64, %106, %95, %102
+  %.1.ph = phi ptr [ null, %102 ], [ null, %95 ], [ %107, %106 ], [ null, %64 ], [ null, %57 ], [ null, %49 ]
   %109 = call i32 @H5F_fake_free(ptr noundef nonnull %26) #10
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %115
@@ -3794,7 +3794,7 @@ define range(i32 -1, 1) i32 @H5Sset_extent_none(i64 noundef %0) local_unnamed_ad
   %36 = call i32 @H5E_clear_stack() #10
   %37 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 4) #10
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread23, label %43, !prof !33
+  br i1 %38, label %.thread23, label %43
 
 .thread23:                                        ; preds = %35
   %39 = load i64, ptr @H5E_ID_g, align 8, !tbaa !10
@@ -4094,7 +4094,7 @@ define noundef zeroext i1 @H5S_has_extent(ptr noundef readonly captures(none) %0
   br label %20
 
 20:                                               ; preds = %16, %19, %1
-  %.0 = phi i1 [ true, %19 ], [ false, %1 ], [ false, %16 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %19 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -4252,7 +4252,7 @@ define range(i32 -1, 2) i32 @H5Sextent_equal(i64 noundef %0, i64 noundef %1) loc
   br label %H5S_extent_equal.exit.thread30
 
 H5S_extent_equal.exit.thread30:                   ; preds = %66, %.preheader.i, %77, %83, %82, %60, %55, %50, %43
-  %.012.ph.ph = phi i32 [ 0, %83 ], [ 1, %43 ], [ 0, %50 ], [ 0, %55 ], [ 1, %60 ], [ 1, %82 ], [ 1, %77 ], [ 0, %.preheader.i ], [ 0, %66 ]
+  %.012.ph.ph = phi i32 [ 1, %43 ], [ 0, %50 ], [ 0, %55 ], [ 1, %60 ], [ 1, %82 ], [ 0, %83 ], [ 1, %77 ], [ 0, %.preheader.i ], [ 0, %66 ]
   %84 = call i32 @H5CX_pop(i1 noundef zeroext true) #10
   br label %90
 
@@ -4358,7 +4358,7 @@ define range(i32 0, 2) i32 @H5S_extent_equal(ptr noundef readonly captures(none)
   br label %.thread
 
 .thread:                                          ; preds = %25, %.preheader, %36, %41, %19, %14, %9, %42, %2
-  %.0 = phi i32 [ 0, %42 ], [ 1, %2 ], [ 0, %9 ], [ 0, %14 ], [ 1, %19 ], [ 1, %41 ], [ 0, %.preheader ], [ 1, %36 ], [ 0, %25 ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %9 ], [ 0, %14 ], [ 1, %19 ], [ 1, %41 ], [ 0, %42 ], [ 1, %36 ], [ 0, %.preheader ], [ 0, %25 ]
   ret i32 %.0
 }
 

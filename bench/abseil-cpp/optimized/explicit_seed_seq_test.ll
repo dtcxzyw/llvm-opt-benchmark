@@ -3231,7 +3231,7 @@ _ZN7testing8internal16PointwiseMatcherINS0_10Eq2MatcherESt6vectorIjSaIjEEED2Ev.e
   br label %_ZN7testing8internal16PointwiseMatcherINS0_10Eq2MatcherESt6vectorIjSaIjEEED2Ev.exit185
 
 _ZN7testing8internal16PointwiseMatcherINS0_10Eq2MatcherESt6vectorIjSaIjEEED2Ev.exit185: ; preds = %143, %161, %164
-  %.pn88 = phi { ptr, i32 } [ %144, %143 ], [ %162, %161 ], [ %162, %164 ]
+  %.pn88 = phi { ptr, i32 } [ %162, %164 ], [ %162, %161 ], [ %144, %143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %210
 
@@ -3584,12 +3584,12 @@ _ZN7testing8internal16PointwiseMatcherINS0_10Eq2MatcherESt6vectorIjSaIjEEED2Ev.e
   br label %.body269
 
 .body269:                                         ; preds = %254, %276, %279
-  %.pn100 = phi { ptr, i32 } [ %255, %254 ], [ %277, %276 ], [ %277, %279 ]
+  %.pn100 = phi { ptr, i32 } [ %277, %279 ], [ %277, %276 ], [ %255, %254 ]
   call void @_ZdlPvm(ptr noundef nonnull %249, i64 noundef 4000) #23
   br label %_ZN7testing8internal16PointwiseMatcherINS0_10Eq2MatcherESt6vectorIjSaIjEEED2Ev.exit280
 
 _ZN7testing8internal16PointwiseMatcherINS0_10Eq2MatcherESt6vectorIjSaIjEEED2Ev.exit280: ; preds = %250, %.body269
-  %.pn100.pn = phi { ptr, i32 } [ %251, %250 ], [ %.pn100, %.body269 ]
+  %.pn100.pn = phi { ptr, i32 } [ %.pn100, %.body269 ], [ %251, %250 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %393
 
@@ -3921,7 +3921,7 @@ _ZN7testing8internal16PointwiseMatcherINS0_10Eq2MatcherESt6vectorIjSaIjEEED2Ev.e
   br label %_ZN7testing8internal16PointwiseMatcherINS0_10Eq2MatcherESt6vectorIjSaIjEEED2Ev.exit345
 
 _ZN7testing8internal16PointwiseMatcherINS0_10Eq2MatcherESt6vectorIjSaIjEEED2Ev.exit345: ; preds = %379, %394, %397
-  %.pn108 = phi { ptr, i32 } [ %380, %379 ], [ %395, %394 ], [ %395, %397 ]
+  %.pn108 = phi { ptr, i32 } [ %395, %397 ], [ %395, %394 ], [ %380, %379 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %483
 
@@ -4245,7 +4245,7 @@ _ZN4absl15random_internal15ExplicitSeedSeqD2Ev.exit427: ; preds = %492, %_ZNSt6v
   br label %_ZN7testing8internal16PointwiseMatcherINS0_10Eq2MatcherESt6vectorIjSaIjEEED2Ev.exit431
 
 _ZN7testing8internal16PointwiseMatcherINS0_10Eq2MatcherESt6vectorIjSaIjEEED2Ev.exit431: ; preds = %469, %502, %505
-  %.pn119 = phi { ptr, i32 } [ %470, %469 ], [ %503, %502 ], [ %503, %505 ]
+  %.pn119 = phi { ptr, i32 } [ %503, %505 ], [ %503, %502 ], [ %470, %469 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %554
 
@@ -10414,7 +10414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %122
   br label %.body
 
 .body:                                            ; preds = %51, %33, %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %54, %53 ], [ %52, %51 ], [ %34, %33 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %52, %51 ], [ %34, %33 ]
   call void @_ZN7testing25StringMatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -11254,7 +11254,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit56: ; preds = %.critedge, %_ZNKSt
   br i1 %.not23, label %_ZN7testing19MatchResultListenerlsIA8_cEERS0_RKT_.exit, label %54, !llvm.loop !345
 
 _ZN7testing19MatchResultListenerlsIA8_cEERS0_RKT_.exit: ; preds = %154, %_ZNK7testing8internal11MatcherBaseISt5tupleIJRKjS4_EEE7MatchesERKS5_.exit, %.preheader, %47, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit, %_ZN7testing25StringMatchResultListenerD2Ev.exit, %52, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit
-  %.021 = phi i1 [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %52 ], [ false, %_ZN7testing25StringMatchResultListenerD2Ev.exit ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %47 ], [ true, %.preheader ], [ true, %154 ], [ false, %_ZNK7testing8internal11MatcherBaseISt5tupleIJRKjS4_EEE7MatchesERKS5_.exit ]
+  %.021 = phi i1 [ false, %52 ], [ false, %_ZN7testing25StringMatchResultListenerD2Ev.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %47 ], [ true, %.preheader ], [ true, %154 ], [ false, %_ZNK7testing8internal11MatcherBaseISt5tupleIJRKjS4_EEE7MatchesERKS5_.exit ]
   ret i1 %.021
 }
 
@@ -13826,7 +13826,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %129
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %33, %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ], [ %61, %60 ], [ %34, %33 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ], [ %34, %33 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN7testing25StringMatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
@@ -15864,9 +15864,9 @@ _ZNK7testing8internal11MatcherBaseIRKmE15MatchAndExplainES3_PNS_19MatchResultLis
   br i1 %.not, label %._crit_edge.thread, label %.split, !llvm.loop !500
 
 .critedge:                                        ; preds = %.split, %155, %.split.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us
-  %.us-phi = phi i64 [ %storemerge166.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %storemerge166.us, %.split.us ], [ %storemerge166, %155 ], [ %storemerge166, %.split ]
-  %.us-phi169 = phi i64 [ %.037.idx167.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %.037.idx167.us, %.split.us ], [ %.037.idx167, %155 ], [ %.037.idx167, %.split ]
-  %.us-phi170 = phi i1 [ %.not50.us.not, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %.not50.us.not, %.split.us ], [ %.not50.not, %155 ], [ %.not50.not, %.split ]
+  %.us-phi = phi i64 [ %storemerge166.us, %.split.us ], [ %storemerge166.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %storemerge166, %155 ], [ %storemerge166, %.split ]
+  %.us-phi169 = phi i64 [ %.037.idx167.us, %.split.us ], [ %.037.idx167.us, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %.037.idx167, %155 ], [ %.037.idx167, %.split ]
+  %.us-phi170 = phi i1 [ %.not50.us.not, %.split.us ], [ %.not50.us.not, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ %.not50.not, %155 ], [ %.not50.not, %.split ]
   %.not54185 = icmp eq i64 %.us-phi169, 32
   %158 = sub nsw i64 24, %.us-phi169
   %159 = lshr exact i64 %158, 3
@@ -16067,7 +16067,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
   br label %.body81
 
 .body81:                                          ; preds = %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i88, %.body85, %227, %_ZN7testing7MessageD2Ev.exit6.i
-  %.pn58 = phi { ptr, i32 } [ %228, %227 ], [ %.pn.i, %_ZN7testing7MessageD2Ev.exit6.i ], [ %eh.lpad-body86, %.body85 ], [ %eh.lpad-body86, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i88 ]
+  %.pn58 = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit6.i ], [ %228, %227 ], [ %eh.lpad-body86, %.body85 ], [ %eh.lpad-body86, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN7testing8internal11NativeArrayImED2Ev.exit116
 
@@ -16217,7 +16217,7 @@ _ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %.not57, label %_ZN7testing8internal11NativeArrayImED2Ev.exit, label %.lr.ph191, !llvm.loop !504
 
 _ZN7testing8internal11NativeArrayImED2Ev.exit:    ; preds = %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit, %237, %_ZN7testing7MessageD2Ev.exit, %175, %236, %.thread, %.noexc96, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit
-  %.0 = phi i1 [ false, %_ZN7testing7MessageD2Ev.exit ], [ false, %175 ], [ false, %236 ], [ true, %.thread ], [ false, %.noexc96 ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %237 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
+  %.0 = phi i1 [ false, %236 ], [ false, %175 ], [ false, %_ZN7testing7MessageD2Ev.exit ], [ true, %.thread ], [ false, %_ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit ], [ false, %.noexc96 ], [ false, %_ZN7testing19MatchResultListenerlsIA16_cEERS0_RKT_.exit ], [ false, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit ], [ false, %237 ], [ true, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ]
   %285 = load ptr, ptr %9, align 8, !tbaa !484
   %286 = load ptr, ptr %33, align 8, !tbaa !488
   %.not4.i.i.i.i = icmp eq ptr %285, %286
@@ -16259,7 +16259,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   ret i1 %.0
 
 _ZN7testing8internal11NativeArrayImED2Ev.exit116: ; preds = %153, %.body.i, %168, %.body81, %266, %147
-  %.pn58.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %147 ], [ %.pn58, %.body81 ], [ %169, %168 ], [ %267, %266 ], [ %154, %153 ], [ %149, %.body.i ]
+  %.pn58.pn.pn.pn = phi { ptr, i32 } [ %149, %.body.i ], [ %267, %266 ], [ %.pn.pn, %147 ], [ %.pn58, %.body81 ], [ %169, %168 ], [ %154, %153 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn58.pn.pn.pn
@@ -17197,7 +17197,7 @@ common.resume.sink.split:                         ; preds = %_ZNKSt7__cxx1112bas
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i ], [ %.pn.i10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i9 ], [ %.pn.i32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i31 ], [ %.pn.i54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i53 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i9 ], [ %.pn.i32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i31 ], [ %.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i ], [ %.pn.i54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i53 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12.i

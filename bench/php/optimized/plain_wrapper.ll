@@ -66,8 +66,8 @@ define dso_local range(i32 -1, 1) i32 @php_stream_parse_fopen_modes(ptr noundef 
   br label %8
 
 8:                                                ; preds = %2, %7, %6, %5, %4
-  %.not13 = phi i1 [ false, %4 ], [ false, %5 ], [ false, %6 ], [ false, %7 ], [ true, %2 ]
-  %.0 = phi i32 [ 576, %4 ], [ 1088, %5 ], [ 192, %6 ], [ 64, %7 ], [ 0, %2 ]
+  %.not13 = phi i1 [ false, %7 ], [ false, %4 ], [ false, %5 ], [ false, %6 ], [ true, %2 ]
+  %.0 = phi i32 [ 64, %7 ], [ 576, %4 ], [ 1088, %5 ], [ 192, %6 ], [ 0, %2 ]
   %9 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 43) #16
   %.not = icmp eq ptr %9, null
   %10 = or disjoint i32 %.0, 2
@@ -149,7 +149,7 @@ define dso_local ptr @_php_stream_fopen_temporary_file(ptr noundef %0, ptr nound
   br label %30
 
 30:                                               ; preds = %3, %15, %28
-  %.1 = phi ptr [ %14, %15 ], [ null, %28 ], [ null, %3 ]
+  %.1 = phi ptr [ null, %28 ], [ %14, %15 ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.1
 }
@@ -247,7 +247,7 @@ do_fstat.exit.thread.i:                           ; preds = %do_fstat.exit.i, %2
   br label %detect_is_seekable.exit
 
 detect_is_seekable.exit:                          ; preds = %14, %do_fstat.exit.i, %do_fstat.exit.thread.i
-  %47 = phi i32 [ %35, %do_fstat.exit.i ], [ %46, %do_fstat.exit.thread.i ], [ %21, %14 ]
+  %47 = phi i32 [ %46, %do_fstat.exit.thread.i ], [ %35, %do_fstat.exit.i ], [ %21, %14 ]
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %49 = and i32 %47, 32
   %.not16 = icmp eq i32 %49, 0
@@ -373,7 +373,7 @@ do_fstat.exit.thread.i:                           ; preds = %do_fstat.exit.i, %1
   br label %detect_is_seekable.exit
 
 detect_is_seekable.exit:                          ; preds = %9, %do_fstat.exit.i, %do_fstat.exit.thread.i
-  %42 = phi i32 [ %30, %do_fstat.exit.i ], [ %41, %do_fstat.exit.thread.i ], [ %16, %9 ]
+  %42 = phi i32 [ %41, %do_fstat.exit.thread.i ], [ %30, %do_fstat.exit.i ], [ %16, %9 ]
   %43 = and i32 %42, 32
   %.not11 = icmp eq i32 %43, 0
   br i1 %.not11, label %44, label %48
@@ -478,7 +478,7 @@ define internal noundef i64 @php_stdiop_write(ptr noundef readonly captures(none
   br label %25
 
 25:                                               ; preds = %15, %12, %16, %20, %9, %22
-  %.1 = phi i64 [ %24, %22 ], [ %10, %15 ], [ 0, %12 ], [ %10, %16 ], [ %10, %20 ], [ %10, %9 ]
+  %.1 = phi i64 [ %24, %22 ], [ 0, %12 ], [ %10, %15 ], [ %10, %16 ], [ %10, %20 ], [ %10, %9 ]
   ret i64 %.1
 }
 
@@ -581,7 +581,7 @@ define internal noundef i64 @php_stdiop_read(ptr noundef captures(none) %0, ptr 
   br label %52
 
 52:                                               ; preds = %.thread, %.fold.split, %30, %28, %36, %34, %40
-  %.1 = phi i64 [ %.026, %30 ], [ %.026, %28 ], [ 0, %36 ], [ %.0, %34 ], [ %42, %40 ], [ 0, %.thread ], [ %.026, %.fold.split ]
+  %.1 = phi i64 [ %42, %40 ], [ 0, %.thread ], [ %.026, %30 ], [ %.026, %28 ], [ 0, %36 ], [ %.0, %34 ], [ %.026, %.fold.split ]
   ret i64 %.1
 }
 
@@ -762,7 +762,7 @@ define internal noundef i32 @php_stdiop_seek(ptr noundef readonly captures(none)
   br label %24
 
 24:                                               ; preds = %18, %15, %19, %10
-  %.0 = phi i32 [ %21, %19 ], [ -1, %10 ], [ 0, %18 ], [ -1, %15 ]
+  %.0 = phi i32 [ -1, %10 ], [ %21, %19 ], [ 0, %18 ], [ -1, %15 ]
   ret i32 %.0
 }
 
@@ -868,7 +868,7 @@ define internal range(i32 -1, 1) i32 @php_stdiop_cast(ptr noundef %0, i32 nounde
   br label %46
 
 46:                                               ; preds = %3, %44, %45, %37, %28, %29, %25, %7, %15, %11
-  %.1 = phi i32 [ -1, %11 ], [ 0, %15 ], [ 0, %7 ], [ -1, %25 ], [ 0, %29 ], [ 0, %28 ], [ -1, %37 ], [ 0, %45 ], [ 0, %44 ], [ -1, %3 ]
+  %.1 = phi i32 [ 0, %44 ], [ -1, %37 ], [ -1, %11 ], [ 0, %7 ], [ -1, %25 ], [ 0, %28 ], [ 0, %15 ], [ 0, %29 ], [ 0, %45 ], [ -1, %3 ]
   ret i32 %.1
 }
 
@@ -1184,7 +1184,7 @@ php_stdiop_flush.exit.thread.i:                   ; preds = %php_stdiop_flush.ex
   br label %php_stdiop_sync.exit
 
 php_stdiop_sync.exit:                             ; preds = %106, %php_stdiop_flush.exit.i, %121
-  %.0.i102 = phi i32 [ %125, %121 ], [ -1, %106 ], [ -1, %php_stdiop_flush.exit.i ]
+  %.0.i102 = phi i32 [ -1, %106 ], [ -1, %php_stdiop_flush.exit.i ], [ %125, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
@@ -1228,7 +1228,7 @@ php_stdiop_flush.exit.thread.i107:                ; preds = %php_stdiop_flush.ex
   br label %php_stdiop_sync.exit109
 
 php_stdiop_sync.exit109:                          ; preds = %126, %php_stdiop_flush.exit.i105, %141
-  %.0.i106 = phi i32 [ %145, %141 ], [ -1, %126 ], [ -1, %php_stdiop_flush.exit.i105 ]
+  %.0.i106 = phi i32 [ -1, %126 ], [ %145, %141 ], [ -1, %php_stdiop_flush.exit.i105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
@@ -1271,8 +1271,8 @@ php_stdiop_sync.exit109:                          ; preds = %126, %php_stdiop_fl
   tail call void @add_assoc_bool_ex(ptr noundef %3, ptr noundef nonnull @.str.14, i64 noundef 3, i1 noundef zeroext %166) #17
   br label %.thread
 
-.thread:                                          ; preds = %80, %95, %do_fstat.exit, %98, %91, %90, %48, %47, %19, %15, %157, %146, %153, %150, %102, %43, %41, %39, %32, %26, %17, %159, %147, %php_stdiop_sync.exit109, %php_stdiop_sync.exit, %103, %45, %37, %35, %33
-  %.0 = phi i32 [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ 0, %45 ], [ %105, %103 ], [ %.0.i102, %php_stdiop_sync.exit ], [ %.0.i106, %php_stdiop_sync.exit109 ], [ %149, %147 ], [ 0, %159 ], [ -1, %17 ], [ -1, %26 ], [ -1, %32 ], [ -1, %39 ], [ 0, %41 ], [ -1, %43 ], [ -1, %102 ], [ %156, %153 ], [ -1, %150 ], [ -2, %146 ], [ -1, %157 ], [ -2, %15 ], [ %spec.select101, %19 ], [ -2, %47 ], [ -1, %95 ], [ -1, %80 ], [ -1, %do_fstat.exit ], [ 0, %98 ], [ 0, %91 ], [ -1, %90 ], [ %50, %48 ]
+.thread:                                          ; preds = %80, %98, %91, %90, %do_fstat.exit, %48, %95, %47, %19, %15, %157, %146, %153, %150, %102, %43, %41, %39, %32, %26, %17, %159, %147, %php_stdiop_sync.exit109, %php_stdiop_sync.exit, %103, %45, %37, %35, %33
+  %.0 = phi i32 [ -1, %157 ], [ 0, %159 ], [ -1, %17 ], [ %156, %153 ], [ %spec.select101, %19 ], [ -1, %26 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ -1, %32 ], [ -1, %39 ], [ 0, %41 ], [ 0, %45 ], [ -1, %43 ], [ -2, %15 ], [ -2, %146 ], [ %105, %103 ], [ %.0.i102, %php_stdiop_sync.exit ], [ %.0.i106, %php_stdiop_sync.exit109 ], [ -1, %150 ], [ %149, %147 ], [ -1, %102 ], [ -2, %47 ], [ 0, %98 ], [ 0, %91 ], [ -1, %90 ], [ -1, %do_fstat.exit ], [ -1, %80 ], [ %50, %48 ], [ -1, %95 ]
   ret i32 %.0
 }
 
@@ -1548,7 +1548,7 @@ zend_string_release_ex.exit:                      ; preds = %99, %104, %109
   br label %128
 
 128:                                              ; preds = %115, %117, %125, %127, %110, %17, %35, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %110 ], [ %37, %35 ], [ null, %17 ], [ null, %127 ], [ null, %125 ], [ %.pre48, %117 ], [ %.pre48, %115 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %125 ], [ null, %110 ], [ null, %17 ], [ %37, %35 ], [ null, %127 ], [ %.pre48, %117 ], [ %.pre48, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1802,12 +1802,12 @@ define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1
   br i1 %.not167, label %.critedge2, label %.lr.ph.split
 
 .critedge2:                                       ; preds = %.lr.ph.split, %86, %.lr.ph.split.us, %74, %57
-  %.1206 = phi ptr [ null, %57 ], [ %.1205, %74 ], [ %.1205, %.lr.ph.split.us ], [ %.1205, %86 ], [ %.1205, %.lr.ph.split ]
+  %.1206 = phi ptr [ %.1205, %.lr.ph.split.us ], [ null, %57 ], [ %.1205, %74 ], [ %.1205, %86 ], [ %.1205, %.lr.ph.split ]
   call void @_efree(ptr noundef %.1206) #17
   br label %87
 
 87:                                               ; preds = %28, %21, %8, %.critedge2, %.split.us, %34, %30, %23
-  %.0 = phi ptr [ %24, %23 ], [ %31, %30 ], [ %.us-phi, %.split.us ], [ null, %.critedge2 ], [ %35, %34 ], [ null, %8 ], [ null, %21 ], [ null, %28 ]
+  %.0 = phi ptr [ null, %8 ], [ %24, %23 ], [ null, %21 ], [ %31, %30 ], [ %.us-phi, %.split.us ], [ null, %.critedge2 ], [ %35, %34 ], [ null, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -2104,14 +2104,14 @@ define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr readnone capture
   tail call void (ptr, ptr, ptr, i32, ptr, ...) @php_error_docref2(ptr noundef null, ptr noundef nonnull %spec.select, ptr noundef nonnull %.034, i32 noundef 2, ptr noundef nonnull @.str.18, ptr noundef %39) #17
   %40 = load i32, ptr %21, align 4, !tbaa !7
   %.not40.not = icmp eq i32 %40, 1
-  br i1 %.not40.not, label %.critedge, label %.critedge50
+  br i1 %.not40.not, label %.critedge, label %.critedge48
 
 .critedge:                                        ; preds = %31, %37
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %42 = load i32, ptr %41, align 8, !tbaa !61
   %43 = tail call i32 @chmod(ptr noundef nonnull %.034, i32 noundef %42) #17
   %.not42 = icmp eq i32 %43, 0
-  br i1 %.not42, label %.critedge48, label %44
+  br i1 %.not42, label %.critedge50, label %44
 
 44:                                               ; preds = %.critedge
   %45 = load i32, ptr %21, align 4, !tbaa !7
@@ -2119,26 +2119,26 @@ define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr readnone capture
   tail call void (ptr, ptr, ptr, i32, ptr, ...) @php_error_docref2(ptr noundef null, ptr noundef nonnull %spec.select, ptr noundef nonnull %.034, i32 noundef 2, ptr noundef nonnull @.str.18, ptr noundef %46) #17
   %47 = load i32, ptr %21, align 4, !tbaa !7
   %.not43.not = icmp eq i32 %47, 1
-  br i1 %.not43.not, label %.critedge48, label %.critedge50
+  br i1 %.not43.not, label %.critedge50, label %.critedge48
 
-.critedge48:                                      ; preds = %.critedge, %44
+.critedge50:                                      ; preds = %.critedge, %44
   %48 = tail call i32 @unlink(ptr noundef nonnull %spec.select) #17
-  br label %.critedge50
+  br label %.critedge48
 
 49:                                               ; preds = %28
   %50 = load i32, ptr %21, align 4, !tbaa !7
   %51 = tail call ptr @strerror(i32 noundef %50) #17
   tail call void (ptr, ptr, ptr, i32, ptr, ...) @php_error_docref2(ptr noundef null, ptr noundef nonnull %spec.select, ptr noundef nonnull %.034, i32 noundef 2, ptr noundef nonnull @.str.18, ptr noundef %51) #17
-  br label %.critedge50
+  br label %.critedge48
 
 52:                                               ; preds = %24
   %53 = load i32, ptr %21, align 4, !tbaa !7
   %54 = tail call ptr @strerror(i32 noundef %53) #17
   tail call void (ptr, ptr, ptr, i32, ptr, ...) @php_error_docref2(ptr noundef null, ptr noundef nonnull %spec.select, ptr noundef nonnull %.034, i32 noundef 2, ptr noundef nonnull @.str.18, ptr noundef %54) #17
-  br label %.critedge50
+  br label %.critedge48
 
-.critedge50:                                      ; preds = %37, %49, %.critedge48, %44, %52
-  %.2 = phi i32 [ 1, %.critedge48 ], [ 0, %44 ], [ 0, %49 ], [ 0, %52 ], [ 0, %37 ]
+.critedge48:                                      ; preds = %37, %49, %.critedge50, %44, %52
+  %.2 = phi i32 [ 1, %.critedge50 ], [ 0, %44 ], [ 0, %49 ], [ 0, %52 ], [ 0, %37 ]
   %55 = tail call i32 @umask(i32 noundef %25) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %59
@@ -2152,8 +2152,8 @@ define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr readnone capture
   tail call void @php_clear_stat_cache(i1 noundef zeroext true, ptr noundef null, i64 noundef 0) #17
   br label %59
 
-59:                                               ; preds = %9, %15, %5, %58, %56, %.critedge50
-  %.032 = phi i32 [ %.2, %.critedge50 ], [ 0, %56 ], [ 1, %58 ], [ 0, %5 ], [ 0, %15 ], [ 0, %9 ]
+59:                                               ; preds = %9, %15, %5, %58, %56, %.critedge48
+  %.032 = phi i32 [ 0, %5 ], [ %.2, %.critedge48 ], [ 0, %56 ], [ 1, %58 ], [ 0, %15 ], [ 0, %9 ]
   ret i32 %.032
 }
 
@@ -2323,7 +2323,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
   br label %.critedge3
 
 .critedge3:                                       ; preds = %52, %.preheader96.split.us, %.lr.ph110.preheader, %.preheader, %27
-  %.059 = phi ptr [ %.fr, %27 ], [ %.us-phi, %.preheader ], [ %scevgep131, %.lr.ph110.preheader ], [ null, %.preheader96.split.us ], [ null, %52 ]
+  %.059 = phi ptr [ %.fr, %27 ], [ %scevgep131, %.lr.ph110.preheader ], [ %.us-phi, %.preheader ], [ null, %.preheader96.split.us ], [ null, %52 ]
   %.not81 = icmp eq ptr %.059, null
   %spec.select87 = select i1 %.not81, ptr %6, ptr %.059
   br label %.loopexit
@@ -2389,12 +2389,12 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
   br label %.thread91
 
 .thread91:                                        ; preds = %.thread91.sink.split, %._crit_edge, %84, %72
-  %.495 = phi i32 [ 0, %72 ], [ 0, %84 ], [ 1, %._crit_edge ], [ 0, %.thread91.sink.split ]
+  %.495 = phi i32 [ 0, %84 ], [ 0, %72 ], [ 1, %._crit_edge ], [ 0, %.thread91.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %90
 
 90:                                               ; preds = %25, %.thread91, %24
-  %.251 = phi i32 [ %.495, %.thread91 ], [ 0, %24 ], [ 0, %25 ]
+  %.251 = phi i32 [ 0, %24 ], [ %.495, %.thread91 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %91
 
@@ -2430,7 +2430,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_rmdir(ptr readnone captures
   br label %16
 
 16:                                               ; preds = %4, %15, %11
-  %.0 = phi i32 [ 0, %11 ], [ 1, %15 ], [ 0, %4 ]
+  %.0 = phi i32 [ 1, %15 ], [ 0, %11 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -2558,7 +2558,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_metadata(ptr readnone captu
   br label %53
 
 53:                                               ; preds = %.thread, %5, %52, %48, %45, %34, %25
-  %.0 = phi i32 [ 0, %45 ], [ 0, %48 ], [ 1, %52 ], [ 0, %25 ], [ 0, %34 ], [ 0, %5 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %34 ], [ 0, %45 ], [ 0, %48 ], [ 1, %52 ], [ 0, %.thread ], [ 0, %25 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -2607,7 +2607,7 @@ define internal range(i64 -1, 4098) i64 @php_plain_files_dirstream_read(ptr noun
   br label %17
 
 17:                                               ; preds = %4, %12, %8, %3
-  %.0 = phi i64 [ -1, %3 ], [ 4097, %12 ], [ -1, %8 ], [ 0, %4 ]
+  %.0 = phi i64 [ -1, %8 ], [ -1, %3 ], [ 4097, %12 ], [ 0, %4 ]
   ret i64 %.0
 }
 

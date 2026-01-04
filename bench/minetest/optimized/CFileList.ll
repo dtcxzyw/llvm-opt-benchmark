@@ -5031,7 +5031,7 @@ if.end24:                                         ; preds = %_ZNK3irr2io14SFileL
   br label %return
 
 return:                                           ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit, %if.end24, %_ZNK3irr2io14SFileListEntryltERKS1_.exit89, %for.end.i.i83, %_ZNK3irr2io14SFileListEntryltERKS1_.exit, %for.end.i.i, %entry
-  %retval.1 = phi i32 [ -1, %entry ], [ %conv29, %if.end24 ], [ -1, %_ZNK3irr2io14SFileListEntryltERKS1_.exit89 ], [ -1, %_ZNK3irr2io14SFileListEntryltERKS1_.exit ], [ -1, %for.end.i.i ], [ -1, %for.end.i.i83 ], [ -1, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit ]
+  %retval.1 = phi i32 [ -1, %entry ], [ %conv29, %if.end24 ], [ -1, %_ZNK3irr2io14SFileListEntryltERKS1_.exit89 ], [ -1, %_ZNK3irr2io14SFileListEntryltERKS1_.exit ], [ -1, %for.end.i.i83 ], [ -1, %for.end.i.i ], [ -1, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit ]
   ret i32 %retval.1
 }
 

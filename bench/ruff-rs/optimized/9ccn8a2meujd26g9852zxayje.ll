@@ -233,7 +233,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
-.thread116.loopexit:                              ; preds = %95, %34, %48, %51, %53, %74, %139, %107, %117, %160
+.thread116.loopexit:                              ; preds = %74, %53, %51, %139, %48, %34, %107, %95, %117, %160
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.thread110
@@ -243,7 +243,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
           cleanup
   br label %.thread110
 
-.thread123.loopexit:                              ; preds = %149, %96, %128, %66
+.thread123.loopexit:                              ; preds = %128, %149, %66, %96
   %lpad.loopexit127 = landingpad { ptr, i32 }
           cleanup
   br label %.thread123
@@ -254,7 +254,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   br label %.thread123
 
 39:                                               ; preds = %104, %136, %157
-  %.sroa.051.1.ph.ph = phi i8 [ %.sroa.051.7, %157 ], [ %.sroa.051.4, %104 ], [ %.sroa.051.6, %136 ]
+  %.sroa.051.1.ph.ph = phi i8 [ %.sroa.051.6, %136 ], [ %.sroa.051.7, %157 ], [ %.sroa.051.4, %104 ]
   %lpad.thr_comm.split-lp122 = landingpad { ptr, i32 }
           cleanup
   %40 = trunc nuw i8 %.sroa.051.1.ph.ph to i1
@@ -347,8 +347,8 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   br label %62
 
 .backedge:                                        ; preds = %147, %125, %115, %62, %168
-  %.sroa.642.0.be = phi i32 [ %54, %168 ], [ %54, %62 ], [ %.sroa.642.0151, %125 ], [ %54, %115 ], [ %54, %147 ]
-  %.sroa.045.0.be.shrunk = phi i1 [ %169, %168 ], [ false, %62 ], [ %127, %125 ], [ %116, %115 ], [ %148, %147 ]
+  %.sroa.642.0.be = phi i32 [ %54, %62 ], [ %54, %168 ], [ %.sroa.642.0151, %125 ], [ %54, %115 ], [ %54, %147 ]
+  %.sroa.045.0.be.shrunk = phi i1 [ false, %62 ], [ %169, %168 ], [ %127, %125 ], [ %116, %115 ], [ %148, %147 ]
   %70 = icmp eq ptr %.sroa.067.1156, %20
   %.sroa.067.1.idx = select i1 %70, i64 0, i64 8
   %.sroa.067.1 = getelementptr inbounds nuw i8, ptr %.sroa.067.1156, i64 %.sroa.067.1.idx
@@ -610,7 +610,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   br label %.backedge
 
 .thread110:                                       ; preds = %.thread116.loopexit, %.thread116.loopexit.split-lp, %64, %145, %113, %166, %39
-  %.pn114 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp122, %39 ], [ %65, %64 ], [ %146, %145 ], [ %114, %113 ], [ %167, %166 ], [ %lpad.loopexit, %.thread116.loopexit ], [ %lpad.loopexit.split-lp, %.thread116.loopexit.split-lp ]
+  %.pn114 = phi { ptr, i32 } [ %167, %166 ], [ %lpad.thr_comm.split-lp122, %39 ], [ %65, %64 ], [ %146, %145 ], [ %114, %113 ], [ %lpad.loopexit, %.thread116.loopexit ], [ %lpad.loopexit.split-lp, %.thread116.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..Vec$LT$ruff_text_size..size..TextSize$GT$$GT$17hca97f564e35adae2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #14
           to label %.thread123 unwind label %170
 
@@ -739,8 +739,8 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i: ; 
   br i1 %.not.not.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h06eed86deddc6ff7E.exit", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i.i", %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i.i"
-  %64 = phi ptr [ %55, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i" ], [ %35, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i.i" ], [ %45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i.i" ], [ %29, %42 ]
-  %spec.select.i7.i.i = phi i32 [ %63, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i" ], [ %40, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i.i" ], [ %52, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i.i" ], [ %43, %42 ]
+  %64 = phi ptr [ %55, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i" ], [ %45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i.i" ], [ %35, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i.i" ], [ %29, %42 ]
+  %spec.select.i7.i.i = phi i32 [ %63, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i" ], [ %52, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i.i" ], [ %40, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i.i" ], [ %43, %42 ]
   %65 = call noundef zeroext i1 @_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h4b88a9bee0e343fbE(i32 noundef range(i32 0, 1114112) %spec.select.i7.i.i), !noalias !59
   br i1 %65, label %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h06eed86deddc6ff7E.exit"
 
@@ -757,7 +757,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i: ; 
   br i1 %71, label %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i.preheader, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i7.i"
 
 _ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i.preheader: ; preds = %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i9.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i7.i", %68
-  %.ph = phi ptr [ %89, %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.i ], [ %80, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i9.i" ], [ %75, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i7.i" ], [ %69, %68 ]
+  %.ph = phi ptr [ %75, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i7.i" ], [ %80, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i9.i" ], [ %69, %68 ], [ %89, %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.i ]
   br label %_ZN4core4iter6traits8iterator8Iterator3nth17h1c23de89e735c169E.exit.thread.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i7.i": ; preds = %68
@@ -934,8 +934,8 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia14comment_ranges13CommentRange
   br i1 %.not.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h9beac69d23e6e6dfE.exit, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.thread.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i", %48, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i"
-  %70 = phi ptr [ %61, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i" ], [ %41, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i" ], [ %51, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i" ], [ %35, %48 ]
-  %spec.select.i7.i = phi i32 [ %69, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i" ], [ %46, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i" ], [ %58, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i" ], [ %49, %48 ]
+  %70 = phi ptr [ %61, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i" ], [ %51, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i" ], [ %41, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i" ], [ %35, %48 ]
+  %spec.select.i7.i = phi i32 [ %69, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i" ], [ %58, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i.i.i" ], [ %46, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i.i.i" ], [ %49, %48 ]
   %71 = call noundef zeroext i1 @_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h4b88a9bee0e343fbE(i32 noundef range(i32 0, 1114112) %spec.select.i7.i), !noalias !77
   br i1 %71, label %32, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h9beac69d23e6e6dfE.exit
 

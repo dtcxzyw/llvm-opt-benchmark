@@ -1604,7 +1604,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit103: ; preds = %.critedge99, %2
   br label %238
 
 238:                                              ; preds = %168, %_ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit103, %224, %206, %.critedge97
-  %.5 = phi i1 [ false, %.critedge97 ], [ false, %168 ], [ false, %_ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit103 ], [ true, %224 ], [ true, %206 ]
+  %.5 = phi i1 [ false, %.critedge97 ], [ false, %_ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit103 ], [ true, %206 ], [ false, %168 ], [ true, %224 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit

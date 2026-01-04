@@ -66,7 +66,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverXbox360_IsSupportedDevice(ptr r
   br label %20
 
 20:                                               ; preds = %18, %15, %14, %14, %13, %10
-  %.0 = phi i1 [ true, %10 ], [ false, %13 ], [ false, %14 ], [ false, %14 ], [ false, %15 ], [ %., %18 ]
+  %.0 = phi i1 [ false, %15 ], [ true, %10 ], [ false, %13 ], [ %., %18 ], [ false, %14 ], [ false, %14 ]
   ret i1 %.0
 }
 

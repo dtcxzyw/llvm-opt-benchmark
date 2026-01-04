@@ -151,10 +151,10 @@ define noundef i32 @_ZN3zmq15proxy_steerableEPNS_13socket_base_tES1_S1_S1_(ptr n
   br label %568
 
 56:                                               ; preds = %25, %38, %41
-  %.0385 = phi ptr [ %27, %41 ], [ %27, %38 ], [ null, %25 ]
-  %.0384 = phi ptr [ %31, %41 ], [ %31, %38 ], [ null, %25 ]
-  %.0383 = phi ptr [ %35, %41 ], [ %35, %38 ], [ null, %25 ]
-  %.0382 = phi ptr [ %39, %41 ], [ null, %38 ], [ null, %25 ]
+  %.0385 = phi ptr [ %27, %38 ], [ %27, %41 ], [ null, %25 ]
+  %.0384 = phi ptr [ %31, %38 ], [ %31, %41 ], [ null, %25 ]
+  %.0383 = phi ptr [ %35, %38 ], [ %35, %41 ], [ null, %25 ]
+  %.0382 = phi ptr [ null, %38 ], [ %39, %41 ], [ null, %25 ]
   %or.cond = or i1 %15, %19
   %or.cond3 = or i1 %or.cond, %23
   br i1 %or.cond3, label %60, label %57
@@ -1407,13 +1407,13 @@ select.unfold:                                    ; preds = %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit
 
-_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread: ; preds = %426, %428
+_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread: ; preds = %428, %426
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ; preds = %446, %462
-  %.5466 = phi i32 [ %.4, %462 ], [ %.1463493, %446 ]
-  %.032.i = phi i32 [ %.4.i, %462 ], [ %.lobit.i, %446 ]
+  %.5466 = phi i32 [ %.1463493, %446 ], [ %.4, %462 ]
+  %.032.i = phi i32 [ %.lobit.i, %446 ], [ %.4.i, %462 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %463 = icmp slt i32 %.032.i, 0
   br i1 %463, label %.loopexit, label %488
@@ -1497,11 +1497,11 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   br i1 %.not446, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %488, %410, %383, %select.unfold
-  %.1463.lcssa = phi i32 [ %.0462508, %select.unfold ], [ %.0462508, %383 ], [ %.0462508, %410 ], [ %.3465, %488 ]
-  %.1402.lcssa = phi i8 [ %.0401509, %select.unfold ], [ %.0401509, %383 ], [ %.2403.us, %410 ], [ %.2403, %488 ]
-  %.1397.lcssa = phi i8 [ %.0396510, %select.unfold ], [ %.0396510, %383 ], [ %.2398.us, %410 ], [ %.2398, %488 ]
-  %.1392.lcssa = phi i8 [ %.0391511, %select.unfold ], [ %.0391511, %383 ], [ %.2393.us, %410 ], [ %.2393, %488 ]
-  %.1387.lcssa = phi i8 [ %.0386512, %select.unfold ], [ %.0386512, %383 ], [ %.2388.us, %410 ], [ %.2388, %488 ]
+  %.1463.lcssa = phi i32 [ %.0462508, %select.unfold ], [ %.0462508, %410 ], [ %.0462508, %383 ], [ %.3465, %488 ]
+  %.1402.lcssa = phi i8 [ %.0401509, %select.unfold ], [ %.2403.us, %410 ], [ %.0401509, %383 ], [ %.2403, %488 ]
+  %.1397.lcssa = phi i8 [ %.0396510, %select.unfold ], [ %.2398.us, %410 ], [ %.0396510, %383 ], [ %.2398, %488 ]
+  %.1392.lcssa = phi i8 [ %.0391511, %select.unfold ], [ %.2393.us, %410 ], [ %.0391511, %383 ], [ %.2393, %488 ]
+  %.1387.lcssa = phi i8 [ %.0386512, %select.unfold ], [ %.2388.us, %410 ], [ %.0386512, %383 ], [ %.2388, %488 ]
   %490 = icmp eq i32 %.1463.lcssa, 0
   br i1 %490, label %491, label %554
 
@@ -1679,7 +1679,7 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   br label %547
 
 547:                                              ; preds = %541, %545, %543
-  %.3 = phi ptr [ %.0371513.mux, %541 ], [ %.0384, %543 ], [ %spec.select452, %545 ]
+  %.3 = phi ptr [ %.0371513.mux, %541 ], [ %spec.select452, %545 ], [ %.0384, %543 ]
   br i1 %512, label %548, label %554
 
 548:                                              ; preds = %547
@@ -1696,11 +1696,11 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   br label %554
 
 554:                                              ; preds = %538, %552, %550, %548, %536, %535, %.thread475, %547, %._crit_edge
-  %.3404 = phi i8 [ %.4405543, %535 ], [ %.4405543, %.thread475 ], [ %.1402.lcssa, %547 ], [ %.1402.lcssa, %._crit_edge ], [ %.4405543, %536 ], [ 1, %548 ], [ 0, %550 ], [ 0, %552 ], [ %.4405543, %538 ]
-  %.3399 = phi i8 [ %.4400479, %535 ], [ %.4400479, %.thread475 ], [ 0, %547 ], [ %.1397.lcssa, %._crit_edge ], [ %.4400479, %536 ], [ 1, %548 ], [ 1, %550 ], [ 1, %552 ], [ %.4400479, %538 ]
-  %.3394 = phi i8 [ %.4395480, %535 ], [ %.4395480, %.thread475 ], [ %.1392.lcssa, %547 ], [ %.1392.lcssa, %._crit_edge ], [ %.4395480, %536 ], [ %.1392.lcssa, %548 ], [ %.1392.lcssa, %550 ], [ %.1392.lcssa, %552 ], [ %.4395480, %538 ]
-  %.3389 = phi i8 [ %.4390546, %535 ], [ %.4390546, %.thread475 ], [ %.1387.lcssa, %547 ], [ %.1387.lcssa, %._crit_edge ], [ %.4390546, %536 ], [ %.1387.lcssa, %548 ], [ %.1387.lcssa, %550 ], [ %.1387.lcssa, %552 ], [ %.4390546, %538 ]
-  %.1 = phi ptr [ %.2, %535 ], [ %.0371513, %.thread475 ], [ %.3, %547 ], [ %.0371513, %._crit_edge ], [ %22, %536 ], [ %.0383, %548 ], [ %.0384, %550 ], [ %spec.select453, %552 ], [ %spec.select455, %538 ]
+  %.3404 = phi i8 [ %.1402.lcssa, %._crit_edge ], [ %.1402.lcssa, %547 ], [ %.4405543, %538 ], [ %.4405543, %535 ], [ %.4405543, %.thread475 ], [ %.4405543, %536 ], [ 1, %548 ], [ 0, %550 ], [ 0, %552 ]
+  %.3399 = phi i8 [ %.1397.lcssa, %._crit_edge ], [ 0, %547 ], [ %.4400479, %538 ], [ %.4400479, %535 ], [ %.4400479, %.thread475 ], [ %.4400479, %536 ], [ 1, %548 ], [ 1, %550 ], [ 1, %552 ]
+  %.3394 = phi i8 [ %.1392.lcssa, %._crit_edge ], [ %.1392.lcssa, %547 ], [ %.4395480, %538 ], [ %.4395480, %535 ], [ %.4395480, %.thread475 ], [ %.4395480, %536 ], [ %.1392.lcssa, %548 ], [ %.1392.lcssa, %550 ], [ %.1392.lcssa, %552 ]
+  %.3389 = phi i8 [ %.1387.lcssa, %._crit_edge ], [ %.1387.lcssa, %547 ], [ %.4390546, %538 ], [ %.4390546, %535 ], [ %.4390546, %.thread475 ], [ %.4390546, %536 ], [ %.1387.lcssa, %548 ], [ %.1387.lcssa, %550 ], [ %.1387.lcssa, %552 ]
+  %.1 = phi ptr [ %.0371513, %._crit_edge ], [ %.3, %547 ], [ %spec.select455, %538 ], [ %.2, %535 ], [ %.0371513, %.thread475 ], [ %22, %536 ], [ %.0383, %548 ], [ %.0384, %550 ], [ %spec.select453, %552 ]
   %.not445 = icmp eq i32 %.1463.lcssa, 2
   br i1 %.not445, label %555, label %363, !llvm.loop !22
 
@@ -1749,7 +1749,7 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   br label %567
 
 567:                                              ; preds = %.thread472, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit457, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit459, %150, %165, %180, %193, %206, %217, %228, %239, %250, %258, %263, %279, %294, %309, %322, %333, %341, %346, %565, %527, %507, %421, %379, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit
-  %.1373 = phi i32 [ -1, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit ], [ -1, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit457 ], [ -1, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit459 ], [ %151, %150 ], [ %280, %279 ], [ %295, %294 ], [ %310, %309 ], [ %323, %322 ], [ %334, %333 ], [ %342, %341 ], [ %347, %346 ], [ %166, %165 ], [ %181, %180 ], [ %194, %193 ], [ %207, %206 ], [ %218, %217 ], [ %229, %228 ], [ %240, %239 ], [ %251, %250 ], [ %259, %258 ], [ %264, %263 ], [ %380, %379 ], [ %422, %421 ], [ %508, %507 ], [ %528, %527 ], [ %566, %565 ], [ %473, %.thread472 ]
+  %.1373 = phi i32 [ -1, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit ], [ -1, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit457 ], [ -1, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit459 ], [ %151, %150 ], [ %280, %279 ], [ %295, %294 ], [ %310, %309 ], [ %323, %322 ], [ %334, %333 ], [ %342, %341 ], [ %347, %346 ], [ %264, %263 ], [ %166, %165 ], [ %181, %180 ], [ %194, %193 ], [ %207, %206 ], [ %218, %217 ], [ %229, %228 ], [ %240, %239 ], [ %251, %250 ], [ %259, %258 ], [ %380, %379 ], [ %422, %421 ], [ %508, %507 ], [ %528, %527 ], [ %473, %.thread472 ], [ %566, %565 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %569
@@ -1964,8 +1964,8 @@ _ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit: ; preds = %57
   %exitcond.not = icmp eq i32 %72, 1000
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !26
 
-_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread: ; preds = %42, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit, %57, %15, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us, %.thread.i, %.split53.us
-  %.3.ph = phi i32 [ %., %.split53.us ], [ -1, %.thread.i ], [ -1, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us ], [ -1, %15 ], [ -1, %57 ], [ -1, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit ], [ -1, %42 ]
+_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread: ; preds = %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit, %42, %57, %15, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us, %.thread.i, %.split53.us
+  %.3.ph = phi i32 [ %., %.split53.us ], [ -1, %.thread.i ], [ -1, %15 ], [ -1, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us ], [ -1, %57 ], [ -1, %42 ], [ -1, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit

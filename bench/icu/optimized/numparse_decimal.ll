@@ -383,7 +383,7 @@ _ZN6icu_7710LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit: ; preds = 
   ret void
 
 154:                                              ; preds = %38, %127, %136, %95, %93, %64, %62, %42, %40, %17
-  %.pn85.pn.pn.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %65, %64 ], [ %63, %62 ], [ %96, %95 ], [ %94, %93 ], [ %128, %127 ], [ %137, %136 ]
+  %.pn85.pn.pn.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %39, %38 ], [ %94, %93 ], [ %41, %40 ], [ %63, %62 ], [ %43, %42 ], [ %65, %64 ], [ %96, %95 ], [ %128, %127 ], [ %137, %136 ]
   call void @_ZN6icu_7710LocalArrayIKNS_13UnicodeStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #9
   call void @_ZN6icu_7712LocalPointerIKNS_10UnicodeSetEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #9
   call void @_ZN6icu_7712LocalPointerIKNS_10UnicodeSetEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #9
@@ -762,8 +762,8 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   br label %357
 
 124:                                              ; preds = %109, %118, %.thread317
-  %.0203 = phi i1 [ false, %.thread317 ], [ true, %118 ], [ false, %109 ]
-  %.8 = phi i8 [ %.2320, %.thread317 ], [ %110, %118 ], [ %110, %109 ]
+  %.0203 = phi i1 [ false, %109 ], [ false, %.thread317 ], [ true, %118 ]
+  %.8 = phi i8 [ %110, %109 ], [ %.2320, %.thread317 ], [ %110, %118 ]
   %125 = load i16, ptr %17, align 8, !tbaa !6
   %126 = and i16 %125, 1
   %.not252 = icmp eq i16 %126, 0
@@ -860,7 +860,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   br label %357
 
 179:                                              ; preds = %166, %152, %147
-  %.10 = phi i8 [ %.9, %147 ], [ %.9, %152 ], [ %167, %166 ]
+  %.10 = phi i8 [ %.9, %147 ], [ %167, %166 ], [ %.9, %152 ]
   br i1 %.0198, label %.thread321, label %180
 
 180:                                              ; preds = %179
@@ -980,7 +980,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   br label %227
 
 227:                                              ; preds = %217, %218, %223
-  %.0.i.ph = phi i1 [ true, %217 ], [ %226, %223 ], [ %222, %218 ]
+  %.0.i.ph = phi i1 [ %226, %223 ], [ %222, %218 ], [ true, %217 ]
   %cond359 = icmp eq i32 %.0192.ph, 1
   br i1 %cond359, label %228, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296
 
@@ -1000,8 +1000,8 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   br label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296
 
 _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296: ; preds = %227, %228, %232
-  %.0.i327 = phi i1 [ %.0.i.ph, %228 ], [ %spec.select.i, %232 ], [ %.0.i.ph, %227 ]
-  %.0.i295 = phi i1 [ %231, %228 ], [ %spec.select.i294, %232 ], [ true, %227 ]
+  %.0.i327 = phi i1 [ %spec.select.i, %232 ], [ %.0.i.ph, %227 ], [ %.0.i.ph, %228 ]
+  %.0.i295 = phi i1 [ %spec.select.i294, %232 ], [ true, %227 ], [ %231, %228 ]
   %.not = xor i1 %.2205, true
   %or.cond8 = or i1 %.0.i295, %.not
   %or.cond285 = and i1 %.0.i327, %or.cond8
@@ -1074,7 +1074,7 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296: ; preds = 
   %.0192.ph.be = phi i32 [ 1, %248 ], [ 2, %255 ]
   br label %.outer
 
-.thread330:                                       ; preds = %38, %241, %209, %237, %240
+.thread330:                                       ; preds = %38, %241, %209, %240, %237
   %.1207 = phi i32 [ %.0206, %237 ], [ %.0206, %240 ], [ %.0206, %38 ], [ 0, %241 ], [ %.0206, %209 ]
   %.1193 = phi i32 [ %.0192.ph, %237 ], [ %.0192.ph, %240 ], [ %.0192.ph, %38 ], [ 1, %241 ], [ %.0192.ph, %209 ]
   %.1156 = phi i8 [ %.10325, %237 ], [ %.10325, %240 ], [ %.0155, %38 ], [ %.10325, %241 ], [ %.10325, %209 ]
@@ -1120,7 +1120,7 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296: ; preds = 
   br label %277
 
 277:                                              ; preds = %267, %268, %273
-  %.0.i298.ph = phi i1 [ true, %267 ], [ %276, %273 ], [ %272, %268 ]
+  %.0.i298.ph = phi i1 [ %276, %273 ], [ %272, %268 ], [ true, %267 ]
   %cond = icmp eq i32 %.5197, 1
   br i1 %cond, label %278, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
 
@@ -1180,7 +1180,7 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296: ; preds = 
           to label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread unwind label %289
 
 _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread: ; preds = %277, %278
-  %.0162 = phi i1 [ %.0.i298.ph, %277 ], [ %282, %278 ]
+  %.0162 = phi i1 [ %282, %278 ], [ %.0.i298.ph, %277 ]
   %.not267 = icmp eq i32 %.5197, 2
   %or.cond290 = or i1 %.not267, %.0162
   br i1 %or.cond290, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread, label %.thread610
@@ -1327,7 +1327,7 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thre
   br label %358
 
 357:                                              ; preds = %.loopexit369, %.loopexit.split-lp370, %.loopexit362, %.loopexit.split-lp, %.loopexit364, %.loopexit.split-lp365, %120, %122, %145, %177, %190, %207, %52, %327, %331, %329, %289, %287, %50
-  %.pn275.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %53, %52 ], [ %208, %207 ], [ %121, %120 ], [ %191, %190 ], [ %178, %177 ], [ %146, %145 ], [ %123, %122 ], [ %288, %287 ], [ %290, %289 ], [ %328, %327 ], [ %332, %331 ], [ %330, %329 ], [ %lpad.loopexit366, %.loopexit364 ], [ %lpad.loopexit.split-lp367, %.loopexit.split-lp365 ], [ %lpad.loopexit, %.loopexit362 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit371, %.loopexit369 ], [ %lpad.loopexit.split-lp372, %.loopexit.split-lp370 ]
+  %.pn275.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %123, %122 ], [ %330, %329 ], [ %53, %52 ], [ %lpad.loopexit.split-lp367, %.loopexit.split-lp365 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %208, %207 ], [ %121, %120 ], [ %191, %190 ], [ %178, %177 ], [ %146, %145 ], [ %288, %287 ], [ %290, %289 ], [ %328, %327 ], [ %332, %331 ], [ %lpad.loopexit366, %.loopexit364 ], [ %lpad.loopexit, %.loopexit362 ], [ %lpad.loopexit371, %.loopexit369 ], [ %lpad.loopexit.split-lp372, %.loopexit.split-lp370 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #9
@@ -1417,7 +1417,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher13validateGr
   br label %30
 
 30:                                               ; preds = %27, %8, %9, %22, %17, %10
-  %.0 = phi i1 [ %15, %10 ], [ %21, %17 ], [ %26, %22 ], [ true, %9 ], [ true, %8 ], [ %spec.select, %27 ]
+  %.0 = phi i1 [ %spec.select, %27 ], [ true, %8 ], [ %15, %10 ], [ %21, %17 ], [ %26, %22 ], [ true, %9 ]
   ret i1 %.0
 }
 

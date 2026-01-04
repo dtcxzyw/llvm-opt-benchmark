@@ -322,7 +322,7 @@ define hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$6detach17hb53b313966
   ret void
 
 .body:                                            ; preds = %26, %17, %9
-  %eh.lpad-body3 = phi { ptr, i32 } [ %10, %9 ], [ %10, %17 ], [ %27, %26 ]
+  %eh.lpad-body3 = phi { ptr, i32 } [ %10, %17 ], [ %10, %9 ], [ %27, %26 ]
   resume { ptr, i32 } %eh.lpad-body3
 
 26:                                               ; preds = %1
@@ -444,8 +444,8 @@ define hidden { ptr, ptr } @"_ZN10async_task6header15Header$LT$M$GT$4take17h213b
   unreachable
 
 .critedge:                                        ; preds = %8, %42, %20, %25, %31, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit", %16, %14, %2
-  %.sroa.4.1 = phi ptr [ undef, %2 ], [ %12, %14 ], [ %12, %16 ], [ %12, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit" ], [ %12, %31 ], [ %12, %25 ], [ %12, %20 ], [ undef, %42 ], [ undef, %8 ]
-  %.sroa.0.1 = phi ptr [ null, %2 ], [ %10, %14 ], [ %10, %16 ], [ %10, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit" ], [ %10, %31 ], [ %10, %25 ], [ %10, %20 ], [ null, %42 ], [ null, %8 ]
+  %.sroa.4.1 = phi ptr [ %12, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit" ], [ undef, %2 ], [ %12, %14 ], [ %12, %20 ], [ %12, %16 ], [ %12, %31 ], [ %12, %25 ], [ undef, %42 ], [ undef, %8 ]
+  %.sroa.0.1 = phi ptr [ %10, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit" ], [ null, %2 ], [ %10, %14 ], [ %10, %20 ], [ %10, %16 ], [ %10, %31 ], [ %10, %25 ], [ null, %42 ], [ null, %8 ]
   %47 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
   %48 = insertvalue { ptr, ptr } %47, ptr %.sroa.4.1, 1
   ret { ptr, ptr } %48
@@ -537,7 +537,7 @@ common.resume:                                    ; preds = %50, %43
   %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %51, %50 ]
   resume { ptr, i32 } %common.resume.op
 
-47:                                               ; preds = %14, %16, %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit.i", %31, %25, %20
+47:                                               ; preds = %"_ZN73_$LT$core..task..wake..RawWakerVTable$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d424b7343833c28E.exit.i", %14, %20, %16, %31, %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %49 = load ptr, ptr %48, align 8, !alias.scope !69, !nonnull !4, !noundef !4

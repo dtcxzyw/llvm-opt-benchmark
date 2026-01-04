@@ -62,8 +62,8 @@ define void @dlatm1_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %28, label %.thread, label %30
 
 .thread:                                          ; preds = %27, %24, %20, %17, %13
-  %.sink = phi i32 [ -1, %13 ], [ -2, %17 ], [ -3, %20 ], [ -4, %24 ], [ -7, %27 ]
-  %.neg = phi i32 [ 1, %13 ], [ 2, %17 ], [ 3, %20 ], [ 4, %24 ], [ 7, %27 ]
+  %.sink = phi i32 [ -1, %13 ], [ -2, %17 ], [ -4, %24 ], [ -3, %20 ], [ -7, %27 ]
+  %.neg = phi i32 [ 1, %13 ], [ 2, %17 ], [ 4, %24 ], [ 3, %20 ], [ 7, %27 ]
   store i32 %.sink, ptr %7, align 4, !tbaa !3
   store i32 %.neg, ptr %9, align 4, !tbaa !3
   %29 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %9, i32 noundef 6) #6
@@ -276,7 +276,7 @@ thread-pre-split143.loopexit:                     ; preds = %101
   br label %thread-pre-split143
 
 thread-pre-split143:                              ; preds = %92, %thread-pre-split143.loopexit, %.loopexit145, %.loopexit145, %.loopexit145, %89
-  %102 = phi i32 [ %88, %.loopexit145 ], [ %88, %.loopexit145 ], [ %88, %.loopexit145 ], [ %88, %89 ], [ %.pr144.pre, %thread-pre-split143.loopexit ], [ %88, %92 ]
+  %102 = phi i32 [ %88, %89 ], [ %88, %.loopexit145 ], [ %88, %.loopexit145 ], [ %88, %.loopexit145 ], [ %.pr144.pre, %thread-pre-split143.loopexit ], [ %88, %92 ]
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %104, label %.loopexit
 

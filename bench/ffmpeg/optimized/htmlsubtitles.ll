@@ -132,7 +132,7 @@ rstrip_spaces_buf.exit:                           ; preds = %.lr.ph.i, %25, %17
   br label %scanbraces.exit.i
 
 scanbraces.exit.i:                                ; preds = %37, %31, %29
-  %.0.i.i = phi i32 [ 0, %29 ], [ 0, %31 ], [ %..i.i, %37 ]
+  %.0.i.i = phi i32 [ 0, %29 ], [ %..i.i, %37 ], [ 0, %31 ]
   %40 = add nsw i32 %.0.i.i, %.0243287
   %.not.i211 = icmp eq i32 %.0240288, 0
   br i1 %.not.i211, label %41, label %.thread.i
@@ -168,7 +168,7 @@ scanbraces.exit.i:                                ; preds = %37, %31, %29
   br i1 %.not21.i, label %.thread.i, label %handle_open_brace.exit
 
 .thread.i:                                        ; preds = %49, %45, %43, %._crit_edge.i, %scanbraces.exit.i
-  %.2242 = phi i32 [ 0, %._crit_edge.i ], [ 0, %43 ], [ 0, %45 ], [ 1, %scanbraces.exit.i ], [ 1, %49 ]
+  %.2242 = phi i32 [ 1, %scanbraces.exit.i ], [ 0, %._crit_edge.i ], [ 0, %43 ], [ 0, %45 ], [ 1, %49 ]
   call void @av_bprint_chars(ptr noundef %1, i8 noundef signext 123, i32 noundef 1) #10
   br label %handle_open_brace.exit
 
@@ -481,14 +481,14 @@ html_color_parse.exit:                            ; preds = %156
   br label %select.unfold
 
 select.unfold:                                    ; preds = %html_color_parse.exit, %175, %179, %177, %138, %146
-  %.2 = phi ptr [ %.1283, %177 ], [ %195, %179 ], [ %143, %146 ], [ %143, %138 ], [ %155, %175 ], [ %155, %html_color_parse.exit ]
+  %.2 = phi ptr [ %.1283, %177 ], [ %195, %179 ], [ %143, %138 ], [ %143, %146 ], [ %155, %175 ], [ %155, %html_color_parse.exit ]
   %196 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.2, i32 noundef 32) #11
   %.not181 = icmp eq ptr %196, null
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 1
   br i1 %.not181, label %.loopexit, label %136
 
 .loopexit:                                        ; preds = %select.unfold, %128, %118, %123, %125, %122, %126
-  %.2137 = phi i32 [ %.0135290, %126 ], [ %95, %122 ], [ %95, %125 ], [ %95, %123 ], [ %95, %118 ], [ %130, %128 ], [ %130, %select.unfold ]
+  %.2137 = phi i32 [ %.0135290, %126 ], [ %95, %118 ], [ %95, %122 ], [ %95, %125 ], [ %95, %123 ], [ %130, %128 ], [ %130, %select.unfold ]
   %198 = zext nneg i32 %76 to i64
   %199 = getelementptr inbounds nuw i8, ptr %.2248.lcssa319, i64 %198
   br label %handle_open_brace.exit
@@ -576,11 +576,11 @@ scantag.exit.thread:                              ; preds = %63, %63, %65
   br label %handle_open_brace.exit
 
 handle_open_brace.exit:                           ; preds = %.thread.i, %49, %.loopexit, %221, %230, %227, %208, %scantag.exit.thread, %28, %232, %rstrip_spaces_buf.exit
-  %.1247.ph = phi ptr [ %51, %49 ], [ %.0246286, %.thread.i ], [ %.2248.lcssa319, %scantag.exit.thread ], [ %212, %208 ], [ %223, %221 ], [ %229, %227 ], [ %.2248.lcssa319, %230 ], [ %199, %.loopexit ], [ %.0246286, %28 ], [ %.0246286, %rstrip_spaces_buf.exit ], [ %.0246286, %232 ]
-  %.1244.ph = phi i32 [ %40, %49 ], [ %40, %.thread.i ], [ %.0243287, %scantag.exit.thread ], [ %.0243287, %208 ], [ %.0243287, %221 ], [ %.0243287, %227 ], [ %.0243287, %230 ], [ %.0243287, %.loopexit ], [ %.0243287, %28 ], [ %.0243287, %rstrip_spaces_buf.exit ], [ %.0243287, %232 ]
-  %.1241.ph = phi i32 [ 0, %49 ], [ %.2242, %.thread.i ], [ %.0240288, %scantag.exit.thread ], [ %.0240288, %208 ], [ %.0240288, %221 ], [ %.0240288, %227 ], [ %.0240288, %230 ], [ %.0240288, %.loopexit ], [ %.0240288, %28 ], [ %.0240288, %rstrip_spaces_buf.exit ], [ %.0240288, %232 ]
-  %.1140.ph = phi i32 [ %.0139289, %49 ], [ %.0139289, %.thread.i ], [ %.0139289, %scantag.exit.thread ], [ %.0139289, %208 ], [ %.0139289, %221 ], [ %.0139289, %227 ], [ %.0139289, %230 ], [ %.0139289, %.loopexit ], [ 0, %28 ], [ 1, %rstrip_spaces_buf.exit ], [ %.0139289, %232 ]
-  %.1136.ph = phi i32 [ %.0135290, %49 ], [ %.0135290, %.thread.i ], [ %.0135290, %scantag.exit.thread ], [ %.0135290, %208 ], [ %.0135290, %221 ], [ %.0135290, %227 ], [ %.0135290, %230 ], [ %.2137, %.loopexit ], [ %.0135290, %28 ], [ %.0135290, %rstrip_spaces_buf.exit ], [ %.0135290, %232 ]
+  %.1247.ph = phi ptr [ %51, %49 ], [ %.0246286, %.thread.i ], [ %212, %208 ], [ %223, %221 ], [ %229, %227 ], [ %.2248.lcssa319, %230 ], [ %199, %.loopexit ], [ %.2248.lcssa319, %scantag.exit.thread ], [ %.0246286, %28 ], [ %.0246286, %rstrip_spaces_buf.exit ], [ %.0246286, %232 ]
+  %.1244.ph = phi i32 [ %40, %49 ], [ %40, %.thread.i ], [ %.0243287, %208 ], [ %.0243287, %221 ], [ %.0243287, %227 ], [ %.0243287, %230 ], [ %.0243287, %.loopexit ], [ %.0243287, %scantag.exit.thread ], [ %.0243287, %28 ], [ %.0243287, %rstrip_spaces_buf.exit ], [ %.0243287, %232 ]
+  %.1241.ph = phi i32 [ 0, %49 ], [ %.2242, %.thread.i ], [ %.0240288, %208 ], [ %.0240288, %221 ], [ %.0240288, %227 ], [ %.0240288, %230 ], [ %.0240288, %.loopexit ], [ %.0240288, %scantag.exit.thread ], [ %.0240288, %28 ], [ %.0240288, %rstrip_spaces_buf.exit ], [ %.0240288, %232 ]
+  %.1140.ph = phi i32 [ %.0139289, %49 ], [ %.0139289, %.thread.i ], [ %.0139289, %208 ], [ %.0139289, %221 ], [ %.0139289, %227 ], [ %.0139289, %230 ], [ %.0139289, %.loopexit ], [ %.0139289, %scantag.exit.thread ], [ 0, %28 ], [ 1, %rstrip_spaces_buf.exit ], [ %.0139289, %232 ]
+  %.1136.ph = phi i32 [ %.0135290, %49 ], [ %.0135290, %.thread.i ], [ %.0135290, %208 ], [ %.0135290, %221 ], [ %.0135290, %227 ], [ %.0135290, %230 ], [ %.2137, %.loopexit ], [ %.0135290, %scantag.exit.thread ], [ %.0135290, %28 ], [ %.0135290, %rstrip_spaces_buf.exit ], [ %.0135290, %232 ]
   %.pr = load i8, ptr %.1247.ph, align 1, !tbaa !4
   switch i8 %.pr, label %233 [
     i8 32, label %handle_open_brace.exit.thread
@@ -592,11 +592,11 @@ handle_open_brace.exit:                           ; preds = %.thread.i, %49, %.l
   br label %handle_open_brace.exit.thread
 
 handle_open_brace.exit.thread:                    ; preds = %27, %10, %handle_open_brace.exit, %handle_open_brace.exit, %handle_open_brace.exit, %233
-  %.1136264 = phi i32 [ %.1136.ph, %233 ], [ %.1136.ph, %handle_open_brace.exit ], [ %.1136.ph, %handle_open_brace.exit ], [ %.1136.ph, %handle_open_brace.exit ], [ %.0135290, %10 ], [ %.0135290, %27 ]
-  %.1241262 = phi i32 [ %.1241.ph, %233 ], [ %.1241.ph, %handle_open_brace.exit ], [ %.1241.ph, %handle_open_brace.exit ], [ %.1241.ph, %handle_open_brace.exit ], [ %.0240288, %10 ], [ %.0240288, %27 ]
-  %.1244261 = phi i32 [ %.1244.ph, %233 ], [ %.1244.ph, %handle_open_brace.exit ], [ %.1244.ph, %handle_open_brace.exit ], [ %.1244.ph, %handle_open_brace.exit ], [ %.0243287, %10 ], [ %.0243287, %27 ]
-  %.1247260 = phi ptr [ %.1247.ph, %233 ], [ %.1247.ph, %handle_open_brace.exit ], [ %.1247.ph, %handle_open_brace.exit ], [ %.1247.ph, %handle_open_brace.exit ], [ %.0246286, %10 ], [ %.0246286, %27 ]
-  %.2141 = phi i32 [ 0, %233 ], [ %.1140.ph, %handle_open_brace.exit ], [ %.1140.ph, %handle_open_brace.exit ], [ %.1140.ph, %handle_open_brace.exit ], [ %.0139289, %10 ], [ 1, %27 ]
+  %.1136264 = phi i32 [ %.1136.ph, %233 ], [ %.1136.ph, %handle_open_brace.exit ], [ %.1136.ph, %handle_open_brace.exit ], [ %.1136.ph, %handle_open_brace.exit ], [ %.0135290, %27 ], [ %.0135290, %10 ]
+  %.1241262 = phi i32 [ %.1241.ph, %233 ], [ %.1241.ph, %handle_open_brace.exit ], [ %.1241.ph, %handle_open_brace.exit ], [ %.1241.ph, %handle_open_brace.exit ], [ %.0240288, %27 ], [ %.0240288, %10 ]
+  %.1244261 = phi i32 [ %.1244.ph, %233 ], [ %.1244.ph, %handle_open_brace.exit ], [ %.1244.ph, %handle_open_brace.exit ], [ %.1244.ph, %handle_open_brace.exit ], [ %.0243287, %27 ], [ %.0243287, %10 ]
+  %.1247260 = phi ptr [ %.1247.ph, %233 ], [ %.1247.ph, %handle_open_brace.exit ], [ %.1247.ph, %handle_open_brace.exit ], [ %.1247.ph, %handle_open_brace.exit ], [ %.0246286, %27 ], [ %.0246286, %10 ]
+  %.2141 = phi i32 [ 0, %233 ], [ %.1140.ph, %handle_open_brace.exit ], [ %.1140.ph, %handle_open_brace.exit ], [ %.1140.ph, %handle_open_brace.exit ], [ 1, %27 ], [ %.0139289, %10 ]
   %234 = getelementptr inbounds nuw i8, ptr %.1247260, i64 1
   br label %10, !llvm.loop !26
 

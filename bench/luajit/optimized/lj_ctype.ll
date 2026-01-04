@@ -2169,8 +2169,8 @@ ctype_appc.exit291.i:                             ; preds = %509, %508
   br label %ctype_appc.exit252.i
 
 ctype_appc.exit252.i:                             ; preds = %513, %512, %._crit_edge.i284.i, %486, %430, %429, %ctype_prepc.exit216.i, %325, %41
-  %.294.i = phi i32 [ %.092.i, %41 ], [ 1, %ctype_prepc.exit216.i ], [ %.092.i, %325 ], [ 0, %429 ], [ 0, %430 ], [ %.092.i, %486 ], [ %.092.i, %._crit_edge.i284.i ], [ 0, %512 ], [ 0, %513 ]
-  %.2.i = phi i32 [ %.090.i, %41 ], [ 0, %ctype_prepc.exit216.i ], [ %spec.select.i, %325 ], [ %.090.i, %429 ], [ %.090.i, %430 ], [ %.090.i, %486 ], [ %.090.i, %._crit_edge.i284.i ], [ %.090.i, %512 ], [ %.090.i, %513 ]
+  %.294.i = phi i32 [ %.092.i, %41 ], [ %.092.i, %._crit_edge.i284.i ], [ %.092.i, %325 ], [ 1, %ctype_prepc.exit216.i ], [ 0, %430 ], [ 0, %429 ], [ %.092.i, %486 ], [ 0, %512 ], [ 0, %513 ]
+  %.2.i = phi i32 [ %.090.i, %41 ], [ %.090.i, %._crit_edge.i284.i ], [ %spec.select.i, %325 ], [ 0, %ctype_prepc.exit216.i ], [ %.090.i, %430 ], [ %.090.i, %429 ], [ %.090.i, %486 ], [ %.090.i, %512 ], [ %.090.i, %513 ]
   %515 = load ptr, ptr %14, align 8, !tbaa !66
   %516 = and i32 %42, 65535
   %517 = load ptr, ptr %515, align 8, !tbaa !19

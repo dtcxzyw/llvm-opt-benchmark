@@ -735,7 +735,7 @@ define dso_local noundef range(i32 -22, 1) i32 @fib6_check_nexthop(ptr noundef r
   br label %35
 
 35:                                               ; preds = %.sink.split, %12, %.critedge, %32, %28
-  %36 = phi i32 [ -22, %32 ], [ 0, %28 ], [ -22, %.critedge ], [ -22, %12 ], [ -22, %.sink.split ]
+  %36 = phi i32 [ -22, %12 ], [ -22, %32 ], [ 0, %28 ], [ -22, %.critedge ], [ -22, %.sink.split ]
   ret i32 %36
 }
 
@@ -1949,17 +1949,17 @@ define internal i32 @rtm_new_nexthop(ptr noundef readonly captures(none) %0, ptr
   br i1 %237, label %.thread95, label %.thread95.sink.split
 
 .thread95.sink.split:                             ; preds = %236, %227, %225, %214, %208, %199, %190, %179, %172, %.thread, %153, %147, %117, %105, %94, %90, %47, %39, %32, %17
-  %rtm_to_nh_config.__msg.sink = phi ptr [ @__nlmsg_parse.__msg, %17 ], [ @rtm_to_nh_config.__msg, %32 ], [ @rtm_to_nh_config.__msg.10, %39 ], [ @rtm_to_nh_config.__msg.11, %47 ], [ @rtm_to_nh_config.__msg.12, %90 ], [ @rtm_to_nh_config.__msg.13, %94 ], [ @rtm_to_nh_config.__msg.14, %105 ], [ @rtm_to_nh_config.__msg.15, %117 ], [ @rtm_to_nh_config.__msg.16, %147 ], [ @rtm_to_nh_config.__msg.17, %153 ], [ @rtm_to_nh_config.__msg.18, %.thread ], [ @rtm_to_nh_config.__msg.19, %172 ], [ @rtm_to_nh_config.__msg.20, %179 ], [ @rtm_to_nh_config.__msg.21, %190 ], [ @rtm_to_nh_config.__msg.22, %199 ], [ @rtm_to_nh_config.__msg.23, %208 ], [ @rtm_to_nh_config.__msg.24, %214 ], [ @rtm_to_nh_config.__msg.25, %225 ], [ @lwtunnel_valid_encap_type.__msg, %227 ], [ @rtm_to_nh_config.__msg.26, %236 ]
-  %.ph.ph = phi i32 [ -22, %17 ], [ -22, %32 ], [ -22, %39 ], [ -22, %47 ], [ -22, %90 ], [ -22, %94 ], [ -22, %105 ], [ -22, %117 ], [ -22, %147 ], [ -22, %153 ], [ -22, %.thread ], [ -100, %172 ], [ -100, %179 ], [ -22, %190 ], [ -22, %199 ], [ -22, %208 ], [ -22, %214 ], [ -22, %225 ], [ -95, %227 ], [ -22, %236 ]
+  %rtm_to_nh_config.__msg.sink = phi ptr [ @__nlmsg_parse.__msg, %17 ], [ @rtm_to_nh_config.__msg, %32 ], [ @rtm_to_nh_config.__msg.10, %39 ], [ @rtm_to_nh_config.__msg.11, %47 ], [ @rtm_to_nh_config.__msg.12, %90 ], [ @rtm_to_nh_config.__msg.13, %94 ], [ @rtm_to_nh_config.__msg.14, %105 ], [ @rtm_to_nh_config.__msg.15, %117 ], [ @rtm_to_nh_config.__msg.16, %147 ], [ @rtm_to_nh_config.__msg.17, %153 ], [ @rtm_to_nh_config.__msg.18, %.thread ], [ @rtm_to_nh_config.__msg.19, %172 ], [ @rtm_to_nh_config.__msg.23, %208 ], [ @rtm_to_nh_config.__msg.24, %214 ], [ @lwtunnel_valid_encap_type.__msg, %227 ], [ @rtm_to_nh_config.__msg.25, %225 ], [ @rtm_to_nh_config.__msg.22, %199 ], [ @rtm_to_nh_config.__msg.21, %190 ], [ @rtm_to_nh_config.__msg.20, %179 ], [ @rtm_to_nh_config.__msg.26, %236 ]
+  %.ph.ph = phi i32 [ -22, %17 ], [ -22, %32 ], [ -22, %39 ], [ -22, %47 ], [ -22, %90 ], [ -22, %94 ], [ -22, %105 ], [ -22, %117 ], [ -22, %147 ], [ -22, %153 ], [ -22, %.thread ], [ -100, %172 ], [ -22, %208 ], [ -22, %214 ], [ -95, %227 ], [ -22, %225 ], [ -22, %199 ], [ -22, %190 ], [ -100, %179 ], [ -22, %236 ]
   store ptr %rtm_to_nh_config.__msg.sink, ptr %2, align 8
   br label %.thread95
 
 .thread95:                                        ; preds = %.thread95.sink.split, %19, %.thread93, %32, %39, %47, %90, %94, %105, %117, %147, %153, %.thread, %172, %179, %214, %225, %236, %227, %208, %199, %190, %17
-  %.ph = phi i32 [ -22, %190 ], [ -22, %199 ], [ -22, %208 ], [ -95, %227 ], [ -22, %236 ], [ -22, %225 ], [ -22, %214 ], [ -100, %179 ], [ -100, %172 ], [ -22, %.thread ], [ -22, %153 ], [ -22, %147 ], [ -22, %117 ], [ -22, %105 ], [ -22, %94 ], [ -22, %90 ], [ -22, %47 ], [ -22, %39 ], [ -22, %32 ], [ %120, %.thread93 ], [ %22, %19 ], [ -22, %17 ], [ %.ph.ph, %.thread95.sink.split ]
+  %.ph = phi i32 [ %22, %19 ], [ -22, %32 ], [ -22, %190 ], [ -22, %147 ], [ -22, %199 ], [ -22, %47 ], [ -22, %208 ], [ -22, %117 ], [ -95, %227 ], [ -22, %236 ], [ -22, %17 ], [ -22, %225 ], [ -22, %105 ], [ -22, %214 ], [ -22, %39 ], [ -100, %179 ], [ -22, %94 ], [ -100, %172 ], [ %120, %.thread93 ], [ -22, %.thread ], [ -22, %90 ], [ -22, %153 ], [ %.ph.ph, %.thread95.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %1124
 
-.thread97:                                        ; preds = %122, %149, %232
+.thread97:                                        ; preds = %149, %232, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %243
 
@@ -2679,7 +2679,7 @@ define internal i32 @rtm_new_nexthop(ptr noundef readonly captures(none) %0, ptr
   br label %631
 
 631:                                              ; preds = %630, %589
-  %632 = phi i32 [ %622, %630 ], [ %590, %589 ]
+  %632 = phi i32 [ %590, %589 ], [ %622, %630 ]
   %633 = icmp eq i32 %632, 0
   br i1 %633, label %.thread110, label %634
 
@@ -2743,7 +2743,7 @@ define internal i32 @rtm_new_nexthop(ptr noundef readonly captures(none) %0, ptr
   br label %665
 
 665:                                              ; preds = %663, %634, %.loopexit159, %471
-  %666 = phi ptr [ %502, %.loopexit159 ], [ %291, %471 ], [ %636, %634 ], [ %505, %663 ]
+  %666 = phi ptr [ %505, %663 ], [ %502, %.loopexit159 ], [ %291, %471 ], [ %636, %634 ]
   %667 = icmp ugt ptr %666, inttoptr (i64 -4096 to ptr)
   br i1 %667, label %.loopexit147, label %668
 
@@ -3157,7 +3157,7 @@ fib6_check_nh_list.exit92:                        ; preds = %.thread115, %817
   %888 = icmp eq i8 %887, 0
   br i1 %888, label %894, label %890
 
-.thread119:                                       ; preds = %881, %880
+.thread119:                                       ; preds = %880, %881
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %fib6_check_nh_list.exit.thread
 
@@ -3276,7 +3276,7 @@ fib6_check_nh_list.exit92:                        ; preds = %.thread115, %817
   br label %fib6_check_nh_list.exit.thread
 
 fib6_check_nh_list.exit.thread:                   ; preds = %706, %785, %.thread301, %.thread119, %865, %866, %842, %843, %830, %831, %.sink.split.i88, %801, %.critedge.i90, %821, %.sink.split.i, %721, %.critedge.i, %743, %939, %936, %778, %777
-  %940 = phi i32 [ -22, %778 ], [ -22, %777 ], [ 0, %939 ], [ %937, %936 ], [ -22, %743 ], [ -22, %.critedge.i ], [ -22, %721 ], [ -22, %.sink.split.i ], [ -22, %821 ], [ -22, %.critedge.i90 ], [ -22, %801 ], [ -22, %.sink.split.i88 ], [ %878, %.thread119 ], [ -22, %865 ], [ -22, %866 ], [ -22, %842 ], [ -22, %843 ], [ -22, %830 ], [ -22, %831 ], [ %889, %.thread301 ], [ %788, %785 ], [ %709, %706 ]
+  %940 = phi i32 [ -22, %831 ], [ -22, %.sink.split.i88 ], [ -22, %778 ], [ -22, %777 ], [ 0, %939 ], [ %937, %936 ], [ %889, %.thread301 ], [ -22, %.sink.split.i ], [ -22, %743 ], [ -22, %.critedge.i ], [ -22, %721 ], [ -22, %821 ], [ -22, %.critedge.i90 ], [ -22, %801 ], [ %878, %.thread119 ], [ -22, %865 ], [ -22, %866 ], [ -22, %842 ], [ -22, %843 ], [ -22, %830 ], [ %788, %785 ], [ %709, %706 ]
   %941 = icmp eq i32 %940, 0
   %942 = zext i1 %941 to i32
   %943 = select i1 %941, ptr %693, ptr %666
@@ -3582,7 +3582,7 @@ fib6_check_nh_list.exit.thread:                   ; preds = %706, %785, %.thread
   br label %.thread134
 
 .thread134:                                       ; preds = %.thread134.sink.split, %699, %966, %952, %.thread128
-  %1109 = phi i32 [ %1037, %.thread128 ], [ -22, %966 ], [ -2, %952 ], [ -17, %699 ], [ %.ph322, %.thread134.sink.split ]
+  %1109 = phi i32 [ %1037, %.thread128 ], [ -22, %966 ], [ -17, %699 ], [ -2, %952 ], [ %.ph322, %.thread134.sink.split ]
   call fastcc void @__remove_nexthop(ptr noundef %13, ptr noundef %666)
   %1110 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %669, i32 -1, ptr nonnull elementtype(i32) %669) #13, !srcloc !11
   %1111 = icmp eq i32 %1110, 1
@@ -3608,12 +3608,12 @@ fib6_check_nh_list.exit.thread:                   ; preds = %706, %785, %.thread
   br label %.loopexit147
 
 .loopexit147:                                     ; preds = %.loopexit, %1046, %1048, %.loopexit149, %.thread139, %665
-  %1119 = phi ptr [ %666, %665 ], [ %1118, %.thread139 ], [ %666, %.loopexit149 ], [ %666, %1048 ], [ %666, %1046 ], [ %666, %.loopexit ]
+  %1119 = phi ptr [ %666, %665 ], [ %1118, %.thread139 ], [ %666, %1046 ], [ %666, %.loopexit149 ], [ %666, %1048 ], [ %666, %.loopexit ]
   %1120 = icmp ugt ptr %1119, inttoptr (i64 -4096 to ptr)
   br i1 %1120, label %.thread142, label %1124
 
-.thread142:                                       ; preds = %503, %519, %289, %312, %321, %288, %275, %277, %250, %252, %.loopexit147
-  %1121 = phi ptr [ %1119, %.loopexit147 ], [ inttoptr (i64 -22 to ptr), %275 ], [ inttoptr (i64 -22 to ptr), %277 ], [ inttoptr (i64 -22 to ptr), %250 ], [ inttoptr (i64 -22 to ptr), %252 ], [ inttoptr (i64 -12 to ptr), %503 ], [ inttoptr (i64 -12 to ptr), %519 ], [ inttoptr (i64 -12 to ptr), %289 ], [ inttoptr (i64 -12 to ptr), %312 ], [ inttoptr (i64 -12 to ptr), %321 ], [ inttoptr (i64 -22 to ptr), %288 ]
+.thread142:                                       ; preds = %519, %289, %312, %321, %503, %288, %277, %250, %252, %275, %.loopexit147
+  %1121 = phi ptr [ %1119, %.loopexit147 ], [ inttoptr (i64 -22 to ptr), %275 ], [ inttoptr (i64 -22 to ptr), %277 ], [ inttoptr (i64 -22 to ptr), %250 ], [ inttoptr (i64 -22 to ptr), %252 ], [ inttoptr (i64 -12 to ptr), %519 ], [ inttoptr (i64 -12 to ptr), %289 ], [ inttoptr (i64 -12 to ptr), %312 ], [ inttoptr (i64 -12 to ptr), %321 ], [ inttoptr (i64 -12 to ptr), %503 ], [ inttoptr (i64 -22 to ptr), %288 ]
   %1122 = ptrtoint ptr %1121 to i64
   %1123 = trunc i64 %1122 to i32
   br label %1124
@@ -3752,7 +3752,7 @@ define internal i32 @rtm_get_nexthop(ptr noundef readonly captures(none) %0, ptr
   br label %43
 
 .thread8:                                         ; preds = %25, %14, %38, %36
-  %42 = phi i32 [ -90, %38 ], [ %34, %36 ], [ -2, %14 ], [ -2, %25 ]
+  %42 = phi i32 [ %34, %36 ], [ -90, %38 ], [ -2, %14 ], [ -2, %25 ]
   tail call void @kfree_skb_reason(ptr noundef nonnull %12, i32 noundef 2) #13
   br label %43
 
@@ -4120,7 +4120,7 @@ __nh_valid_dump_req.exit.thread:                  ; preds = %18, %32, %42, %62, 
   br i1 %199, label %.thread21, label %.split, !llvm.loop !82
 
 .split24.us:                                      ; preds = %._crit_edge41, %99, %._crit_edge45, %126
-  %.us-phi = phi i32 [ %132, %126 ], [ %152, %._crit_edge45 ], [ %105, %99 ], [ %197, %._crit_edge41 ]
+  %.us-phi = phi i32 [ %105, %99 ], [ %132, %126 ], [ %152, %._crit_edge45 ], [ %197, %._crit_edge41 ]
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %201 = load i32, ptr %200, align 8
   %202 = icmp eq i32 %201, 0
@@ -4128,7 +4128,7 @@ __nh_valid_dump_req.exit.thread:                  ; preds = %18, %32, %42, %62, 
   br label %.thread21
 
 .thread21:                                        ; preds = %.thread17, %.thread17.us.us, %.thread17.us, %.thread17.us.us28, %66, %.split24.us
-  %204 = phi i32 [ %203, %.split24.us ], [ 0, %66 ], [ 0, %.thread17.us.us28 ], [ 0, %.thread17.us ], [ 0, %.thread17.us.us ], [ 0, %.thread17 ]
+  %204 = phi i32 [ 0, %.thread17.us ], [ %203, %.split24.us ], [ 0, %66 ], [ 0, %.thread17.us.us28 ], [ 0, %.thread17.us.us ], [ 0, %.thread17 ]
   %205 = getelementptr inbounds nuw i8, ptr %8, i64 600
   %206 = load i32, ptr %205, align 8
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -4294,17 +4294,17 @@ define internal i32 @rtm_get_nexthop_bucket(ptr noundef readonly captures(none) 
   br label %.thread27
 
 .thread25.sink.split:                             ; preds = %53, %35, %41, %47, %12
-  %nh_valid_get_bucket_req.__msg.sink = phi ptr [ @__nlmsg_parse.__msg, %12 ], [ @__nh_valid_get_del_req.__msg, %35 ], [ @__nh_valid_get_del_req.__msg.40, %41 ], [ @__nh_valid_get_del_req.__msg.41, %47 ], [ @nh_valid_get_bucket_req.__msg, %53 ]
+  %nh_valid_get_bucket_req.__msg.sink = phi ptr [ @__nh_valid_get_del_req.__msg.41, %47 ], [ @__nlmsg_parse.__msg, %12 ], [ @__nh_valid_get_del_req.__msg, %35 ], [ @__nh_valid_get_del_req.__msg.40, %41 ], [ @nh_valid_get_bucket_req.__msg, %53 ]
   store ptr %nh_valid_get_bucket_req.__msg.sink, ptr %2, align 8
   br label %.thread25
 
 .thread25:                                        ; preds = %.thread25.sink.split, %14, %53, %12, %41, %47, %35
-  %.ph24 = phi i32 [ -22, %53 ], [ %17, %14 ], [ -22, %12 ], [ -22, %41 ], [ -22, %47 ], [ -22, %35 ], [ -22, %.thread25.sink.split ]
+  %.ph24 = phi i32 [ %17, %14 ], [ -22, %12 ], [ -22, %47 ], [ -22, %53 ], [ -22, %35 ], [ -22, %41 ], [ -22, %.thread25.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %144
 
 .thread27:                                        ; preds = %64, %75, %77, %61, %59
-  %.ph = phi i32 [ -22, %77 ], [ -22, %75 ], [ %69, %64 ], [ -22, %61 ], [ -22, %59 ]
+  %.ph = phi i32 [ %69, %64 ], [ -22, %77 ], [ -22, %75 ], [ -22, %61 ], [ -22, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %144
@@ -4430,7 +4430,7 @@ define internal i32 @rtm_get_nexthop_bucket(ptr noundef readonly captures(none) 
   br label %144
 
 144:                                              ; preds = %.thread27, %.thread25, %141, %140, %124, %123, %121, %.thread33
-  %145 = phi i32 [ %114, %.thread33 ], [ %135, %140 ], [ %143, %141 ], [ -2, %123 ], [ -2, %121 ], [ -105, %124 ], [ %.ph24, %.thread25 ], [ %.ph, %.thread27 ]
+  %145 = phi i32 [ %114, %.thread33 ], [ %135, %140 ], [ %143, %141 ], [ %.ph, %.thread27 ], [ -2, %123 ], [ -2, %121 ], [ -105, %124 ], [ %.ph24, %.thread25 ]
   ret i32 %145
 }
 
@@ -4648,8 +4648,8 @@ define internal i32 @rtm_dump_nexthop_bucket(ptr noundef %0, ptr noundef %1) #0 
   store ptr %125, ptr %72, align 8
   br label %__nh_valid_dump_req.exit.thread
 
-__nh_valid_dump_req.exit.thread:                  ; preds = %17, %.thread, %80, %92, %122, %124, %34, %32, %49, %68, %66, %46, %44
-  %.ph27 = phi i32 [ -22, %124 ], [ -22, %122 ], [ -22, %92 ], [ -22, %80 ], [ -22, %.thread ], [ %20, %17 ], [ -22, %34 ], [ -22, %32 ], [ -22, %66 ], [ -22, %68 ], [ %54, %49 ], [ -22, %46 ], [ -22, %44 ]
+__nh_valid_dump_req.exit.thread:                  ; preds = %.thread, %17, %80, %92, %122, %124, %34, %32, %49, %68, %66, %46, %44
+  %.ph27 = phi i32 [ -22, %124 ], [ -22, %122 ], [ -22, %92 ], [ -22, %80 ], [ -22, %.thread ], [ %20, %17 ], [ -22, %32 ], [ -22, %34 ], [ %54, %49 ], [ -22, %66 ], [ -22, %68 ], [ -22, %46 ], [ -22, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %211
@@ -5819,7 +5819,7 @@ define internal fastcc range(i32 -90, 1) i32 @nh_fill_node(ptr noundef %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %6, %18, %228, %214, %25
-  %234 = phi i32 [ -90, %228 ], [ 0, %214 ], [ -90, %25 ], [ -90, %18 ], [ -90, %6 ]
+  %234 = phi i32 [ -90, %228 ], [ -90, %25 ], [ 0, %214 ], [ -90, %18 ], [ -90, %6 ]
   ret i32 %234
 }
 
@@ -6589,7 +6589,7 @@ define internal fastcc void @nh_res_table_upkeep(ptr noundef %0, i1 noundef zero
   br label %164
 
 164:                                              ; preds = %33, %67, %159, %147
-  %165 = phi i64 [ %.ph, %147 ], [ %163, %159 ], [ %27, %33 ], [ %71, %67 ]
+  %165 = phi i64 [ %.ph, %147 ], [ %163, %159 ], [ %71, %67 ], [ %27, %33 ]
   %166 = add nuw nsw i64 %26, 1
   %167 = load i16, ptr %16, align 8
   %168 = zext i16 %167 to i64
@@ -7477,12 +7477,12 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
   br i1 %169, label %.critedge, label %.split29, !llvm.loop !126
 
 .critedge.sink.split:                             ; preds = %14, %32, %38, %53, %._crit_edge, %.split26.us, %.split31.us, %150, %157, %.split24.us, %.split22.us, %.split20.us
-  %.sink78 = phi ptr [ @valid_group_nh.__msg, %.split20.us ], [ @valid_group_nh.__msg.33, %.split22.us ], [ @valid_group_nh.__msg.34, %.split24.us ], [ @nh_check_attr_fdb_group.__msg, %150 ], [ @nh_check_attr_fdb_group.__msg.35, %157 ], [ @nh_check_attr_group.__msg, %14 ], [ @nh_check_attr_group.__msg.27, %32 ], [ @nh_check_attr_group.__msg.28, %38 ], [ @nh_check_attr_group.__msg.29, %53 ], [ @nh_check_attr_group.__msg.30, %._crit_edge ], [ @nh_check_attr_group.__msg.31, %.split26.us ], [ @nh_check_attr_group.__msg.32, %.split31.us ]
+  %.sink78 = phi ptr [ @valid_group_nh.__msg.34, %.split24.us ], [ @valid_group_nh.__msg.33, %.split22.us ], [ @valid_group_nh.__msg, %.split20.us ], [ @nh_check_attr_fdb_group.__msg.35, %157 ], [ @nh_check_attr_fdb_group.__msg, %150 ], [ @nh_check_attr_group.__msg, %14 ], [ @nh_check_attr_group.__msg.27, %32 ], [ @nh_check_attr_group.__msg.28, %38 ], [ @nh_check_attr_group.__msg.29, %53 ], [ @nh_check_attr_group.__msg.30, %._crit_edge ], [ @nh_check_attr_group.__msg.31, %.split26.us ], [ @nh_check_attr_group.__msg.32, %.split31.us ]
   store ptr %.sink78, ptr %3, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %167, %108, %.critedge.sink.split, %157, %150, %.split24.us, %.split22.us, %.split20.us, %.split31.us, %.split26.us, %._crit_edge, %53, %38, %32, %14
-  %170 = phi i32 [ -22, %14 ], [ -22, %32 ], [ -22, %38 ], [ -22, %53 ], [ -22, %.split31.us ], [ -22, %.split26.us ], [ -22, %._crit_edge ], [ -22, %.split20.us ], [ -22, %.split22.us ], [ -22, %.split24.us ], [ -22, %150 ], [ -22, %157 ], [ -22, %.critedge.sink.split ], [ 0, %108 ], [ 0, %167 ]
+  %170 = phi i32 [ -22, %14 ], [ -22, %32 ], [ -22, %38 ], [ -22, %53 ], [ -22, %.split31.us ], [ -22, %.split26.us ], [ -22, %._crit_edge ], [ 0, %108 ], [ -22, %150 ], [ -22, %.split24.us ], [ -22, %.split22.us ], [ -22, %157 ], [ -22, %.split20.us ], [ -22, %.critedge.sink.split ], [ 0, %167 ]
   ret i32 %170
 }
 
@@ -7612,7 +7612,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_nh_config_grp_res(p
   br label %.thread
 
 .thread:                                          ; preds = %10, %12, %44, %46, %63, %62, %60, %53, %32, %30, %15
-  %64 = phi i32 [ %20, %15 ], [ -22, %32 ], [ -22, %30 ], [ 0, %63 ], [ 0, %53 ], [ -22, %62 ], [ -22, %60 ], [ -22, %46 ], [ -22, %44 ], [ -22, %12 ], [ -22, %10 ]
+  %64 = phi i32 [ %20, %15 ], [ -22, %32 ], [ -22, %30 ], [ -22, %44 ], [ 0, %63 ], [ 0, %53 ], [ -22, %62 ], [ -22, %60 ], [ -22, %46 ], [ -22, %12 ], [ -22, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %64
 }

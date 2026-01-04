@@ -204,7 +204,7 @@ _ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRKT0_.exit93: ; preds = 
   br label %.thread140
 
 .thread140:                                       ; preds = %.thread140.sink.split, %72, %45, %63, %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRKT0_.exit90, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRKT0_.exit87, %48, %_ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRKT0_.exit, %91, %102, %14, %31, %_ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRKT0_.exit93, %37, %4, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %4 ], [ true, %37 ], [ true, %_ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRKT0_.exit93 ], [ false, %31 ], [ false, %14 ], [ false, %102 ], [ false, %91 ], [ false, %_ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRKT0_.exit ], [ false, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRKT0_.exit87 ], [ false, %48 ], [ false, %63 ], [ false, %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRKT0_.exit90 ], [ false, %45 ], [ false, %72 ], [ true, %.thread140.sink.split ]
+  %.0 = phi i1 [ false, %_ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRKT0_.exit ], [ true, %_ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRKT0_.exit93 ], [ true, %37 ], [ false, %48 ], [ false, %91 ], [ false, %4 ], [ false, %6 ], [ false, %45 ], [ false, %72 ], [ false, %14 ], [ false, %31 ], [ false, %102 ], [ false, %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRKT0_.exit87 ], [ false, %_ZN4llvm8dyn_castINS_18ConstantPoolSDNodeENS_7SDValueEEEDcRKT0_.exit90 ], [ false, %63 ], [ true, %.thread140.sink.split ]
   ret i1 %.0
 }
 
@@ -373,13 +373,13 @@ _ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRKT0_.exit.thread: ; pre
   br i1 %77, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %75, %62, %35, %46, %19, %24
-  %.sink.shrunk = phi i1 [ %27, %24 ], [ %.not115, %19 ], [ false, %46 ], [ false, %35 ], [ false, %62 ], [ false, %75 ]
+  %.sink.shrunk = phi i1 [ false, %35 ], [ false, %62 ], [ %.not115, %19 ], [ %27, %24 ], [ false, %46 ], [ false, %75 ]
   %.sink = zext i1 %.sink.shrunk to i8
   store i8 %.sink, ptr %5, align 1, !tbaa !242
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %21, %21, %16, %16, %17, %75, %72, %67, %66, %_ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRKT0_.exit.thread, %22
-  %.2 = phi i1 [ false, %22 ], [ false, %21 ], [ false, %66 ], [ false, %_ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRKT0_.exit.thread ], [ false, %67 ], [ false, %72 ], [ false, %75 ], [ false, %17 ], [ false, %16 ], [ false, %16 ], [ false, %21 ], [ true, %.thread.sink.split ]
+  %.2 = phi i1 [ false, %72 ], [ false, %17 ], [ false, %16 ], [ false, %75 ], [ false, %22 ], [ false, %21 ], [ false, %16 ], [ false, %21 ], [ false, %_ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_7SDValueEEEDcRKT0_.exit.thread ], [ false, %66 ], [ false, %67 ], [ true, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %78
 
@@ -511,7 +511,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit134.i: ; preds =
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i.preheader
 
 _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i.preheader: ; preds = %70, %42, %35, %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i
-  %.3.i.ph = phi i64 [ 0, %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i ], [ %.0.i.i.i.i.i, %35 ], [ %44, %42 ], [ %71, %70 ]
+  %.3.i.ph = phi i64 [ %.0.i.i.i.i.i, %35 ], [ %44, %42 ], [ %71, %70 ], [ 0, %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i ]
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i
 
 _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i: ; preds = %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i.backedge, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i.preheader
@@ -724,8 +724,8 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit154.i: ; preds = %169, %162
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i.backedge
 
 _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i.backedge: ; preds = %178, %133, %102
-  %.pn.i.be = phi { ptr, i32 } [ %109, %102 ], [ %139, %133 ], [ %184, %178 ]
-  %.3.i.be = phi i64 [ %103, %102 ], [ %134, %133 ], [ %.7.i, %178 ]
+  %.pn.i.be = phi { ptr, i32 } [ %184, %178 ], [ %109, %102 ], [ %139, %133 ]
+  %.3.i.be = phi i64 [ %.7.i, %178 ], [ %103, %102 ], [ %134, %133 ]
   br label %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i
 
 .thread222.i:                                     ; preds = %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.thread.i, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit141..thread222_crit_edge.i

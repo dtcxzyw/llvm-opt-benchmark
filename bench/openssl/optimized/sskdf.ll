@@ -518,8 +518,8 @@ kmac_init.exit.thread.i:                          ; preds = %88, %82, %switch.ea
   br i1 %.not75.i, label %.loopexit.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %117, %111, %109, %106, %104, %.lr.ph.i, %116, %114, %.preheader.i, %93, %91
-  %.064.i = phi i32 [ 0, %93 ], [ 0, %114 ], [ 0, %91 ], [ 1, %116 ], [ 0, %.preheader.i ], [ 1, %111 ], [ 0, %109 ], [ 0, %117 ], [ 0, %.lr.ph.i ], [ 0, %104 ], [ 0, %106 ]
-  %.059.i = phi ptr [ null, %93 ], [ %102, %114 ], [ null, %91 ], [ %102, %116 ], [ null, %.preheader.i ], [ %102, %111 ], [ %102, %109 ], [ null, %117 ], [ %102, %.lr.ph.i ], [ %102, %104 ], [ %102, %106 ]
+  %.064.i = phi i32 [ 0, %93 ], [ 0, %114 ], [ 1, %116 ], [ 0, %91 ], [ 0, %.preheader.i ], [ 1, %111 ], [ 0, %109 ], [ 0, %117 ], [ 0, %106 ], [ 0, %104 ], [ 0, %.lr.ph.i ]
+  %.059.i = phi ptr [ null, %93 ], [ %102, %114 ], [ %102, %116 ], [ null, %91 ], [ null, %.preheader.i ], [ %102, %111 ], [ %102, %109 ], [ null, %117 ], [ %102, %106 ], [ %102, %104 ], [ %102, %.lr.ph.i ]
   br i1 %.not73.i, label %.thread.i, label %128
 
 128:                                              ; preds = %.loopexit.i
@@ -566,7 +566,7 @@ SSKDF_mac_kdm.exit:                               ; preds = %54, %129
   br label %142
 
 142:                                              ; preds = %30, %39, %SSKDF_mac_kdm.exit, %31, %48, %4, %sskdf_set_ctx_params.exit, %133, %132, %19
-  %.0 = phi i32 [ 0, %19 ], [ 0, %132 ], [ %141, %133 ], [ 0, %sskdf_set_ctx_params.exit ], [ 0, %4 ], [ 0, %30 ], [ %.062.i, %SSKDF_mac_kdm.exit ], [ 0, %39 ], [ 0, %31 ], [ 0, %48 ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %4 ], [ 0, %132 ], [ %141, %133 ], [ 0, %sskdf_set_ctx_params.exit ], [ 0, %30 ], [ 0, %39 ], [ 0, %31 ], [ %.062.i, %SSKDF_mac_kdm.exit ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -590,7 +590,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %5, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ %6, %5 ], [ 1, %2 ]
+  %.0 = phi i32 [ %6, %5 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -614,7 +614,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %5, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ %6, %5 ], [ 1, %2 ]
+  %.0 = phi i32 [ %6, %5 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -710,7 +710,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %5, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ %6, %5 ], [ 1, %2 ]
+  %.0 = phi i32 [ %6, %5 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %2 ]
   ret i32 %.0
 }
 
@@ -921,7 +921,7 @@ define internal fastcc range(i32 0, 2) i32 @SSKDF_hash_kdm(ptr noundef nonnull %
   br i1 %.not64, label %.loopexit, label %.thread
 
 .loopexit:                                        ; preds = %55, %53, %65, %58, %60, %.thread, %33, %31, %.lr.ph.split.us, %41, %36, %38, %.preheader, %64, %.split.us, %24, %18
-  %.055 = phi i32 [ 0, %18 ], [ 0, %.split.us ], [ 0, %24 ], [ 1, %64 ], [ 0, %.preheader ], [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph.split.us ], [ 0, %41 ], [ 0, %36 ], [ 1, %38 ], [ 0, %55 ], [ 0, %53 ], [ 0, %65 ], [ 0, %58 ], [ 1, %60 ], [ 0, %.thread ]
+  %.055 = phi i32 [ 0, %18 ], [ 0, %24 ], [ 1, %64 ], [ 0, %.split.us ], [ 0, %.preheader ], [ 0, %.lr.ph.split.us ], [ 0, %31 ], [ 0, %33 ], [ 0, %41 ], [ 0, %36 ], [ 1, %38 ], [ 1, %60 ], [ 0, %58 ], [ 0, %65 ], [ 0, %.thread ], [ 0, %53 ], [ 0, %55 ]
   call void @EVP_MD_CTX_free(ptr noundef %20) #7
   call void @EVP_MD_CTX_free(ptr noundef %21) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 64) #7
@@ -1082,7 +1082,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %50, %57, %52, %45, %40, %38, %24, %8, %ossl_param_is_empty.exit, %30
-  %.033 = phi i32 [ 0, %30 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %8 ], [ 0, %24 ], [ 0, %38 ], [ 0, %40 ], [ 0, %45 ], [ 0, %52 ], [ 1, %57 ], [ 1, %50 ], [ 1, %2 ]
+  %.033 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %30 ], [ 0, %24 ], [ 0, %38 ], [ 0, %40 ], [ 0, %45 ], [ 0, %52 ], [ 0, %8 ], [ 1, %57 ], [ 1, %50 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.033
 }
@@ -1143,7 +1143,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %sskdf_size.exit
 
 sskdf_size.exit:                                  ; preds = %7, %14, %15
-  %.0.i = phi i64 [ 0, %14 ], [ %17, %15 ], [ -1, %7 ]
+  %.0.i = phi i64 [ %17, %15 ], [ 0, %14 ], [ -1, %7 ]
   %18 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %6, i64 noundef %.0.i) #7
   %.not6 = icmp eq i32 %18, 0
   br i1 %.not6, label %ossl_param_is_empty.exit.thread, label %19
@@ -1152,7 +1152,7 @@ sskdf_size.exit:                                  ; preds = %7, %14, %15
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %sskdf_size.exit, %ossl_param_is_empty.exit, %19
-  %.0 = phi i32 [ 1, %19 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %sskdf_size.exit ], [ 1, %2 ]
+  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 1, %19 ], [ 0, %sskdf_size.exit ], [ 1, %2 ]
   ret i32 %.0
 }
 

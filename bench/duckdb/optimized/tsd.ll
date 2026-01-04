@@ -769,7 +769,7 @@ define ptr @duckdb_je_malloc_tsd_boot0() local_unnamed_addr #0 {
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %2, %8, %4, %0
-  %.0 = phi ptr [ null, %0 ], [ %5, %8 ], [ %5, %4 ], [ null, %2 ]
+  %.0 = phi ptr [ %5, %4 ], [ null, %0 ], [ %5, %8 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -815,7 +815,7 @@ tsd_fetch_impl.exit:                              ; preds = %0, %4
   br label %atomic_exchange_u8.exit.i
 
 atomic_exchange_u8.exit.i:                        ; preds = %16, %9, %7
-  %.0.i5.i = phi i8 [ 1, %9 ], [ %spec.select.i.i, %16 ], [ %.val.i.i, %7 ]
+  %.0.i5.i = phi i8 [ %.val.i.i, %7 ], [ 1, %9 ], [ %spec.select.i.i, %16 ]
   %18 = atomicrmw xchg ptr %2, i8 %.0.i5.i acquire, align 1
   %19 = icmp eq i8 %18, 2
   br i1 %19, label %7, label %duckdb_je_tsd_slow_update.exit

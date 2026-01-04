@@ -168,13 +168,13 @@ define noundef zeroext i1 @_ZN13duckdb_snappy21GetUncompressedLengthEPKcmPm(ptr 
   br i1 %43, label %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit, label %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread
 
 _ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit: ; preds = %38, %29, %20, %11, %4
-  %.0 = phi i32 [ %8, %4 ], [ %17, %11 ], [ %26, %20 ], [ %35, %29 ], [ %42, %38 ]
+  %.0 = phi i32 [ %35, %29 ], [ %8, %4 ], [ %17, %11 ], [ %26, %20 ], [ %42, %38 ]
   %44 = zext i32 %.0 to i64
   store i64 %44, ptr %2, align 8, !tbaa !6
   br label %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread
 
-_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread: ; preds = %38, %37, %28, %19, %10, %3, %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit
-  %.not8 = phi i1 [ true, %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit ], [ false, %3 ], [ false, %10 ], [ false, %19 ], [ false, %28 ], [ false, %37 ], [ false, %38 ]
+_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread: ; preds = %28, %19, %10, %3, %38, %37, %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit
+  %.not8 = phi i1 [ true, %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit ], [ false, %37 ], [ false, %38 ], [ false, %3 ], [ false, %10 ], [ false, %19 ], [ false, %28 ]
   ret i1 %.not8
 }
 
@@ -293,16 +293,16 @@ define noundef ptr @_ZN13duckdb_snappy8internal16CompressFragmentEPKcmPcPti(ptr 
   %18 = getelementptr inbounds i8, ptr %8, i64 -8
   br label %19
 
-19:                                               ; preds = %253, %10
-  %.0131 = phi i32 [ %.0.copyload.i, %10 ], [ %255, %253 ]
-  %.0118 = phi ptr [ %0, %10 ], [ %229, %253 ]
-  %.0117 = phi ptr [ %2, %10 ], [ %.10, %253 ]
+19:                                               ; preds = %255, %10
+  %.0131 = phi i32 [ %.0.copyload.i, %10 ], [ %257, %255 ]
+  %.0118 = phi ptr [ %0, %10 ], [ %231, %255 ]
+  %.0117 = phi ptr [ %2, %10 ], [ %.10, %255 ]
   %20 = getelementptr inbounds nuw i8, ptr %.0118, i64 1
   %.0.copyload.i161 = load i64, ptr %20, align 1
   %21 = ptrtoint ptr %20 to i64
   %22 = sub i64 %13, %21
   %23 = icmp sgt i64 %22, 15
-  br i1 %23, label %24, label %55
+  br i1 %23, label %24, label %56
 
 24:                                               ; preds = %19
   %25 = sub i64 %21, %14
@@ -316,7 +316,7 @@ define noundef ptr @_ZN13duckdb_snappy8internal16CompressFragmentEPKcmPcPti(ptr 
 
 .thread209:                                       ; preds = %46
   %27 = getelementptr inbounds nuw i8, ptr %.0118, i64 17
-  br label %55
+  br label %56
 
 28:                                               ; preds = %.preheader, %44
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %44 ]
@@ -356,440 +356,441 @@ define noundef ptr @_ZN13duckdb_snappy8internal16CompressFragmentEPKcmPcPti(ptr 
   br i1 %exitcond332.not, label %.thread209, label %.preheader, !llvm.loop !25
 
 49:                                               ; preds = %28
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 %40
   %.tr = trunc i64 %29 to i8
-  %50 = shl nuw nsw i8 %.tr, 2
-  store i8 %50, ptr %.0117, align 1, !tbaa !3
-  %51 = getelementptr inbounds nuw i8, ptr %.0117, i64 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %51, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0118, i64 16, i1 false)
-  %52 = getelementptr inbounds nuw i8, ptr %20, i64 %29
-  %53 = getelementptr inbounds nuw i8, ptr %.0117, i64 %29
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
+  %51 = shl nuw nsw i8 %.tr, 2
+  store i8 %51, ptr %.0117, align 1, !tbaa !3
+  %52 = getelementptr inbounds nuw i8, ptr %.0117, i64 1
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %52, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0118, i64 16, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %20, i64 %29
+  %54 = getelementptr inbounds nuw i8, ptr %.0117, i64 %29
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 2
   br label %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader
 
-55:                                               ; preds = %.thread209, %19
-  %.0183 = phi i64 [ %.0.copyload.i161, %19 ], [ %.0.copyload.i163, %.thread209 ]
-  %.0133 = phi i32 [ 33, %19 ], [ 49, %.thread209 ]
-  %.1119 = phi ptr [ %20, %19 ], [ %27, %.thread209 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.1119, i64 1
-  %57 = icmp ugt ptr %56, %11
-  br i1 %57, label %.thread255, label %.lr.ph, !prof !26
+56:                                               ; preds = %.thread209, %19
+  %.0183 = phi i64 [ %.0.copyload.i163, %.thread209 ], [ %.0.copyload.i161, %19 ]
+  %.0133 = phi i32 [ 49, %.thread209 ], [ 33, %19 ]
+  %.1119 = phi ptr [ %27, %.thread209 ], [ %20, %19 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.1119, i64 1
+  %58 = icmp ugt ptr %57, %11
+  br i1 %58, label %.thread255, label %.lr.ph, !prof !26
 
-.lr.ph:                                           ; preds = %55, %74
-  %58 = phi ptr [ %79, %74 ], [ %56, %55 ]
-  %59 = phi i32 [ %77, %74 ], [ %.0133, %55 ]
-  %.10128293 = phi ptr [ %58, %74 ], [ %.1119, %55 ]
-  %.7190292 = phi i64 [ %75, %74 ], [ %.0183, %55 ]
-  %60 = trunc i64 %.7190292 to i32
-  %61 = mul i32 %60, 506832829
-  %62 = lshr i32 %61, 16
-  %63 = and i32 %62, %7
-  %64 = zext nneg i32 %63 to i64
-  %65 = add i64 %64, %15
-  %66 = inttoptr i64 %65 to ptr
-  %67 = load i16, ptr %66, align 2, !tbaa !20
-  %68 = zext i16 %67 to i64
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %68
-  %70 = ptrtoint ptr %.10128293 to i64
-  %71 = sub i64 %70, %14
-  %72 = trunc i64 %71 to i16
-  store i16 %72, ptr %66, align 2, !tbaa !20
-  %.0.copyload.i164 = load i32, ptr %69, align 1
-  %73 = icmp eq i32 %.0.copyload.i164, %60
-  br i1 %73, label %81, label %74, !prof !22
+.lr.ph:                                           ; preds = %56, %75
+  %59 = phi ptr [ %80, %75 ], [ %57, %56 ]
+  %60 = phi i32 [ %78, %75 ], [ %.0133, %56 ]
+  %.10128293 = phi ptr [ %59, %75 ], [ %.1119, %56 ]
+  %.7190292 = phi i64 [ %76, %75 ], [ %.0183, %56 ]
+  %61 = trunc i64 %.7190292 to i32
+  %62 = mul i32 %61, 506832829
+  %63 = lshr i32 %62, 16
+  %64 = and i32 %63, %7
+  %65 = zext nneg i32 %64 to i64
+  %66 = add i64 %65, %15
+  %67 = inttoptr i64 %66 to ptr
+  %68 = load i16, ptr %67, align 2, !tbaa !20
+  %69 = zext i16 %68 to i64
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %69
+  %71 = ptrtoint ptr %.10128293 to i64
+  %72 = sub i64 %71, %14
+  %73 = trunc i64 %72 to i16
+  store i16 %73, ptr %67, align 2, !tbaa !20
+  %.0.copyload.i164 = load i32, ptr %70, align 1
+  %74 = icmp eq i32 %.0.copyload.i164, %61
+  br i1 %74, label %82, label %75, !prof !22
 
-74:                                               ; preds = %.lr.ph
-  %.0.copyload.i165 = load i32, ptr %58, align 1
-  %75 = zext i32 %.0.copyload.i165 to i64
-  %76 = lshr i32 %59, 5
-  %77 = add i32 %76, %59
-  %78 = zext nneg i32 %76 to i64
-  %79 = getelementptr inbounds nuw i8, ptr %58, i64 %78
-  %80 = icmp ugt ptr %79, %11
-  br i1 %80, label %.thread255, label %.lr.ph, !prof !27
+75:                                               ; preds = %.lr.ph
+  %.0.copyload.i165 = load i32, ptr %59, align 1
+  %76 = zext i32 %.0.copyload.i165 to i64
+  %77 = lshr i32 %60, 5
+  %78 = add i32 %77, %60
+  %79 = zext nneg i32 %77 to i64
+  %80 = getelementptr inbounds nuw i8, ptr %59, i64 %79
+  %81 = icmp ugt ptr %80, %11
+  br i1 %81, label %.thread255, label %.lr.ph, !prof !27
 
-81:                                               ; preds = %.lr.ph
-  %82 = ptrtoint ptr %.0118 to i64
-  %83 = sub i64 %70, %82
-  %84 = trunc i64 %83 to i32
-  %85 = add nsw i32 %84, -1
-  %86 = icmp slt i32 %84, 17
-  br i1 %86, label %87, label %92
+82:                                               ; preds = %.lr.ph
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 %69
+  %84 = ptrtoint ptr %.0118 to i64
+  %85 = sub i64 %71, %84
+  %86 = trunc i64 %85 to i32
+  %87 = add nsw i32 %86, -1
+  %88 = icmp slt i32 %86, 17
+  br i1 %88, label %89, label %94
 
-87:                                               ; preds = %81
-  %.tr37.i = trunc i32 %85 to i8
-  %88 = shl i8 %.tr37.i, 2
-  %89 = getelementptr inbounds nuw i8, ptr %.0117, i64 1
-  store i8 %88, ptr %.0117, align 1, !tbaa !3
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %89, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0118, i64 16, i1 false)
-  %sext = shl i64 %83, 32
-  %90 = ashr exact i64 %sext, 32
-  %91 = getelementptr inbounds i8, ptr %89, i64 %90
+89:                                               ; preds = %82
+  %.tr37.i = trunc i32 %87 to i8
+  %90 = shl i8 %.tr37.i, 2
+  %91 = getelementptr inbounds nuw i8, ptr %.0117, i64 1
+  store i8 %90, ptr %.0117, align 1, !tbaa !3
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %91, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0118, i64 16, i1 false)
+  %sext = shl i64 %85, 32
+  %92 = ashr exact i64 %sext, 32
+  %93 = getelementptr inbounds i8, ptr %91, i64 %92
   br label %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader
 
-92:                                               ; preds = %81
-  %93 = icmp samesign ult i32 %84, 61
-  br i1 %93, label %94, label %96
+94:                                               ; preds = %82
+  %95 = icmp samesign ult i32 %86, 61
+  br i1 %95, label %96, label %98
 
-94:                                               ; preds = %92
-  %.tr.i = trunc nuw nsw i32 %85 to i8
-  %95 = shl nuw i8 %.tr.i, 2
-  br label %105
+96:                                               ; preds = %94
+  %.tr.i = trunc nuw nsw i32 %87 to i8
+  %97 = shl nuw i8 %.tr.i, 2
+  br label %107
 
-96:                                               ; preds = %92
-  %97 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %85, i1 true)
-  %98 = lshr i32 %97, 3
-  %99 = xor i32 %98, 3
-  %.tr38.i = trunc nuw nsw i32 %99 to i8
-  %100 = shl nuw nsw i8 %.tr38.i, 2
-  %101 = or disjoint i8 %100, -16
-  %102 = getelementptr inbounds nuw i8, ptr %.0117, i64 1
-  store i32 %85, ptr %102, align 1
-  %103 = zext nneg i32 %99 to i64
-  %104 = getelementptr i8, ptr %102, i64 %103
-  br label %105
+98:                                               ; preds = %94
+  %99 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %87, i1 true)
+  %100 = lshr i32 %99, 3
+  %101 = xor i32 %100, 3
+  %.tr38.i = trunc nuw nsw i32 %101 to i8
+  %102 = shl nuw nsw i8 %.tr38.i, 2
+  %103 = or disjoint i8 %102, -16
+  %104 = getelementptr inbounds nuw i8, ptr %.0117, i64 1
+  store i32 %87, ptr %104, align 1
+  %105 = zext nneg i32 %101 to i64
+  %106 = getelementptr i8, ptr %104, i64 %105
+  br label %107
 
-105:                                              ; preds = %96, %94
-  %.sink.i = phi i8 [ %95, %94 ], [ %101, %96 ]
-  %.pn.i = phi ptr [ %.0117, %94 ], [ %104, %96 ]
+107:                                              ; preds = %98, %96
+  %.sink.i = phi i8 [ %97, %96 ], [ %103, %98 ]
+  %.pn.i = phi ptr [ %.0117, %96 ], [ %106, %98 ]
   store i8 %.sink.i, ptr %.0117, align 1, !tbaa !3
   %.032.i = getelementptr i8, ptr %.pn.i, i64 1
-  %106 = and i64 %83, 2147483647
-  %107 = getelementptr inbounds nuw i8, ptr %.032.i, i64 %106
-  br label %108
+  %108 = and i64 %85, 2147483647
+  %109 = getelementptr inbounds nuw i8, ptr %.032.i, i64 %108
+  br label %110
 
-108:                                              ; preds = %108, %105
-  %.031.i = phi ptr [ %.032.i, %105 ], [ %109, %108 ]
-  %.030.i = phi ptr [ %.0118, %105 ], [ %110, %108 ]
+110:                                              ; preds = %110, %107
+  %.031.i = phi ptr [ %.032.i, %107 ], [ %111, %110 ]
+  %.030.i = phi ptr [ %.0118, %107 ], [ %112, %110 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.031.i, ptr noundef nonnull align 1 dereferenceable(16) %.030.i, i64 16, i1 false)
-  %109 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
-  %110 = getelementptr inbounds nuw i8, ptr %.030.i, i64 16
-  %111 = icmp ult ptr %109, %107
-  br i1 %111, label %108, label %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader, !llvm.loop !28
+  %111 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %.030.i, i64 16
+  %113 = icmp ult ptr %111, %109
+  br i1 %113, label %110, label %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader, !llvm.loop !28
 
-_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader: ; preds = %108, %87, %49
-  %.9192.ph = phi i64 [ %.7190292, %87 ], [ %.3186287, %49 ], [ %.7190292, %108 ]
-  %.pn = phi i64 [ %68, %87 ], [ %40, %49 ], [ %68, %108 ]
-  %.12130.ph = phi ptr [ %.10128293, %87 ], [ %52, %49 ], [ %.10128293, %108 ]
-  %.9.ph = phi ptr [ %91, %87 ], [ %54, %49 ], [ %107, %108 ]
-  %.10146.ph = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
+_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader: ; preds = %110, %89, %49
+  %.9192.ph = phi i64 [ %.3186287, %49 ], [ %.7190292, %89 ], [ %.7190292, %110 ]
+  %.10146.ph = phi ptr [ %50, %49 ], [ %83, %89 ], [ %83, %110 ]
+  %.12130.ph = phi ptr [ %53, %49 ], [ %.10128293, %89 ], [ %.10128293, %110 ]
+  %.9.ph = phi ptr [ %55, %49 ], [ %93, %89 ], [ %109, %110 ]
   br label %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
 
-_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit: ; preds = %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader, %230
-  %.9192 = phi i64 [ %.11194238, %230 ], [ %.9192.ph, %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
-  %.10146 = phi ptr [ %251, %230 ], [ %.10146.ph, %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
-  %.12130 = phi ptr [ %229, %230 ], [ %.12130.ph, %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
-  %.9 = phi ptr [ %.10, %230 ], [ %.9.ph, %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
-  %112 = getelementptr inbounds nuw i8, ptr %.10146, i64 4
-  %113 = getelementptr inbounds nuw i8, ptr %.12130, i64 4
-  %.not.i = icmp ugt ptr %113, %17
-  br i1 %.not.i, label %128, label %114, !prof !22
+_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit: ; preds = %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader, %232
+  %.9192 = phi i64 [ %.11194238, %232 ], [ %.9192.ph, %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
+  %.10146 = phi ptr [ %253, %232 ], [ %.10146.ph, %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
+  %.12130 = phi ptr [ %231, %232 ], [ %.12130.ph, %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
+  %.9 = phi ptr [ %.10, %232 ], [ %.9.ph, %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader ]
+  %114 = getelementptr inbounds nuw i8, ptr %.10146, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %.12130, i64 4
+  %.not.i = icmp ugt ptr %115, %17
+  br i1 %.not.i, label %130, label %116, !prof !22
 
-114:                                              ; preds = %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
-  %.0.copyload.i.i = load i64, ptr %112, align 1
-  %.0.copyload.i62.i = load i64, ptr %113, align 1
+116:                                              ; preds = %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
+  %.0.copyload.i.i = load i64, ptr %114, align 1
+  %.0.copyload.i62.i = load i64, ptr %115, align 1
   %.not59.i = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i62.i
   br i1 %.not59.i, label %.thread.i, label %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread, !prof !22
 
-.thread.i:                                        ; preds = %114
-  %115 = getelementptr inbounds nuw i8, ptr %.12130, i64 12
-  br label %128
+.thread.i:                                        ; preds = %116
+  %117 = getelementptr inbounds nuw i8, ptr %.12130, i64 12
+  br label %130
 
-_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread: ; preds = %114
-  %116 = xor i64 %.0.copyload.i62.i, %.0.copyload.i.i
-  %117 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %116, i1 true)
-  %118 = lshr i64 %117, 3
-  %119 = getelementptr inbounds nuw i8, ptr %.12130, i64 8
-  %.0.copyload.i63.i = load i64, ptr %119, align 1
-  %120 = tail call i64 asm "testl ${2:k}, ${2:k}\0A\09cmovzq $1, $0\0A\09", "=r,r,r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.0.copyload.i63.i, i64 %116, i64 %.0.copyload.i62.i) #30, !srcloc !29
-  %121 = and i64 %117, 24
-  %122 = lshr i64 %120, %121
-  %123 = add nuw nsw i64 %118, 4
-  %124 = getelementptr inbounds nuw i8, ptr %.12130, i64 %123
-  %125 = ptrtoint ptr %.12130 to i64
-  %126 = ptrtoint ptr %.10146 to i64
-  %127 = sub i64 %125, %126
-  br label %174
+_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread: ; preds = %116
+  %118 = xor i64 %.0.copyload.i62.i, %.0.copyload.i.i
+  %119 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %118, i1 true)
+  %120 = lshr i64 %119, 3
+  %121 = getelementptr inbounds nuw i8, ptr %.12130, i64 8
+  %.0.copyload.i63.i = load i64, ptr %121, align 1
+  %122 = tail call i64 asm "testl ${2:k}, ${2:k}\0A\09cmovzq $1, $0\0A\09", "=r,r,r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.0.copyload.i63.i, i64 %118, i64 %.0.copyload.i62.i) #30, !srcloc !29
+  %123 = and i64 %119, 24
+  %124 = lshr i64 %122, %123
+  %125 = add nuw nsw i64 %120, 4
+  %126 = getelementptr inbounds nuw i8, ptr %.12130, i64 %125
+  %127 = ptrtoint ptr %.12130 to i64
+  %128 = ptrtoint ptr %.10146 to i64
+  %129 = sub i64 %127, %128
+  br label %176
 
-128:                                              ; preds = %.thread.i, %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
+130:                                              ; preds = %.thread.i, %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
   %.081.i = phi i64 [ 0, %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit ], [ 8, %.thread.i ]
-  %.0.i166 = phi ptr [ %113, %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit ], [ %115, %.thread.i ]
-  %129 = getelementptr inbounds nuw i8, ptr %.10146, i64 68
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly %129, i32 0, i32 3, i32 1)
-  %130 = getelementptr inbounds nuw i8, ptr %.0.i166, i64 64
-  tail call void @llvm.prefetch.p0(ptr nonnull %130, i32 0, i32 3, i32 1)
+  %.0.i166 = phi ptr [ %115, %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit ], [ %117, %.thread.i ]
+  %131 = getelementptr inbounds nuw i8, ptr %.10146, i64 68
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %131, i32 0, i32 3, i32 1)
+  %132 = getelementptr inbounds nuw i8, ptr %.0.i166, i64 64
+  tail call void @llvm.prefetch.p0(ptr nonnull %132, i32 0, i32 3, i32 1)
   %.not6098.i = icmp ugt ptr %.0.i166, %17
   br i1 %.not6098.i, label %.preheader.i, label %.lr.ph.i, !prof !26
 
-.preheader.i:                                     ; preds = %149, %128
-  %.283.lcssa.i = phi i64 [ %.081.i, %128 ], [ %151, %149 ]
-  %.2.lcssa.i = phi ptr [ %.0.i166, %128 ], [ %150, %149 ]
-  %131 = icmp ult ptr %.2.lcssa.i, %8
-  br i1 %131, label %.lr.ph104.preheader.i, label %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit, !prof !30
+.preheader.i:                                     ; preds = %151, %130
+  %.283.lcssa.i = phi i64 [ %.081.i, %130 ], [ %153, %151 ]
+  %.2.lcssa.i = phi ptr [ %.0.i166, %130 ], [ %152, %151 ]
+  %133 = icmp ult ptr %.2.lcssa.i, %8
+  br i1 %133, label %.lr.ph104.preheader.i, label %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit, !prof !30
 
 .lr.ph104.preheader.i:                            ; preds = %.preheader.i
   %.2.lcssa114.i = ptrtoint ptr %.2.lcssa.i to i64
-  %132 = add i64 %.283.lcssa.i, %16
-  %133 = sub i64 %132, %.2.lcssa114.i
+  %134 = add i64 %.283.lcssa.i, %16
+  %135 = sub i64 %134, %.2.lcssa114.i
   br label %.lr.ph104.i
 
-.lr.ph.i:                                         ; preds = %128, %149
-  %.2100.i = phi ptr [ %150, %149 ], [ %.0.i166, %128 ]
-  %.28399.i = phi i64 [ %151, %149 ], [ %.081.i, %128 ]
-  %134 = getelementptr inbounds nuw i8, ptr %112, i64 %.28399.i
-  %.0.copyload.i64.i = load i64, ptr %134, align 1
+.lr.ph.i:                                         ; preds = %130, %151
+  %.2100.i = phi ptr [ %152, %151 ], [ %.0.i166, %130 ]
+  %.28399.i = phi i64 [ %153, %151 ], [ %.081.i, %130 ]
+  %136 = getelementptr inbounds nuw i8, ptr %114, i64 %.28399.i
+  %.0.copyload.i64.i = load i64, ptr %136, align 1
   %.0.copyload.i65.i = load i64, ptr %.2100.i, align 1
-  %135 = icmp eq i64 %.0.copyload.i64.i, %.0.copyload.i65.i
-  br i1 %135, label %149, label %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240
+  %137 = icmp eq i64 %.0.copyload.i64.i, %.0.copyload.i65.i
+  br i1 %137, label %151, label %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240
 
 _ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240: ; preds = %.lr.ph.i
-  %136 = xor i64 %.0.copyload.i65.i, %.0.copyload.i64.i
-  %137 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %136, i1 true)
-  %138 = lshr i64 %137, 3
-  %139 = getelementptr inbounds nuw i8, ptr %.2100.i, i64 4
-  %.0.copyload.i66.i = load i64, ptr %139, align 1
-  %140 = tail call i64 asm "testl ${2:k}, ${2:k}\0A\09cmovzq $1, $0\0A\09", "=r,r,r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.0.copyload.i66.i, i64 %136, i64 %.0.copyload.i65.i) #30, !srcloc !31
-  %141 = and i64 %137, 24
-  %142 = lshr i64 %140, %141
-  %143 = or disjoint i64 %138, %.28399.i
-  %144 = add i64 %143, 4
-  %145 = getelementptr inbounds nuw i8, ptr %.12130, i64 %144
-  %146 = ptrtoint ptr %.12130 to i64
-  %147 = ptrtoint ptr %.10146 to i64
-  %148 = sub i64 %146, %147
-  br label %191
+  %138 = xor i64 %.0.copyload.i65.i, %.0.copyload.i64.i
+  %139 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %138, i1 true)
+  %140 = lshr i64 %139, 3
+  %141 = getelementptr inbounds nuw i8, ptr %.2100.i, i64 4
+  %.0.copyload.i66.i = load i64, ptr %141, align 1
+  %142 = tail call i64 asm "testl ${2:k}, ${2:k}\0A\09cmovzq $1, $0\0A\09", "=r,r,r,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.0.copyload.i66.i, i64 %138, i64 %.0.copyload.i65.i) #30, !srcloc !31
+  %143 = and i64 %139, 24
+  %144 = lshr i64 %142, %143
+  %145 = or disjoint i64 %140, %.28399.i
+  %146 = add i64 %145, 4
+  %147 = getelementptr inbounds nuw i8, ptr %.12130, i64 %146
+  %148 = ptrtoint ptr %.12130 to i64
+  %149 = ptrtoint ptr %.10146 to i64
+  %150 = sub i64 %148, %149
+  br label %193
 
-149:                                              ; preds = %.lr.ph.i
-  %150 = getelementptr inbounds nuw i8, ptr %.2100.i, i64 8
-  %151 = add i64 %.28399.i, 8
-  %.not60.i = icmp ugt ptr %150, %17
+151:                                              ; preds = %.lr.ph.i
+  %152 = getelementptr inbounds nuw i8, ptr %.2100.i, i64 8
+  %153 = add i64 %.28399.i, 8
+  %.not60.i = icmp ugt ptr %152, %17
   br i1 %.not60.i, label %.preheader.i, label %.lr.ph.i, !prof !27
 
-.lr.ph104.i:                                      ; preds = %156, %.lr.ph104.preheader.i
-  %.4103.i = phi ptr [ %157, %156 ], [ %.2.lcssa.i, %.lr.ph104.preheader.i ]
-  %.485102.i = phi i64 [ %158, %156 ], [ %.283.lcssa.i, %.lr.ph104.preheader.i ]
-  %152 = getelementptr inbounds nuw i8, ptr %112, i64 %.485102.i
-  %153 = load i8, ptr %152, align 1, !tbaa !3
-  %154 = load i8, ptr %.4103.i, align 1, !tbaa !3
-  %155 = icmp eq i8 %153, %154
-  br i1 %155, label %156, label %159
+.lr.ph104.i:                                      ; preds = %158, %.lr.ph104.preheader.i
+  %.4103.i = phi ptr [ %159, %158 ], [ %.2.lcssa.i, %.lr.ph104.preheader.i ]
+  %.485102.i = phi i64 [ %160, %158 ], [ %.283.lcssa.i, %.lr.ph104.preheader.i ]
+  %154 = getelementptr inbounds nuw i8, ptr %114, i64 %.485102.i
+  %155 = load i8, ptr %154, align 1, !tbaa !3
+  %156 = load i8, ptr %.4103.i, align 1, !tbaa !3
+  %157 = icmp eq i8 %155, %156
+  br i1 %157, label %158, label %161
 
-156:                                              ; preds = %.lr.ph104.i
-  %157 = getelementptr inbounds nuw i8, ptr %.4103.i, i64 1
-  %158 = add i64 %.485102.i, 1
-  %exitcond.not.i = icmp eq ptr %157, %8
+158:                                              ; preds = %.lr.ph104.i
+  %159 = getelementptr inbounds nuw i8, ptr %.4103.i, i64 1
+  %160 = add i64 %.485102.i, 1
+  %exitcond.not.i = icmp eq ptr %159, %8
   br i1 %exitcond.not.i, label %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit, label %.lr.ph104.i, !prof !27, !llvm.loop !32
 
-159:                                              ; preds = %.lr.ph104.i
+161:                                              ; preds = %.lr.ph104.i
   %.not61.i = icmp ugt ptr %.4103.i, %18
-  br i1 %.not61.i, label %161, label %160
+  br i1 %.not61.i, label %163, label %162
 
-160:                                              ; preds = %159
+162:                                              ; preds = %161
   %.0.copyload.i67.i = load i64, ptr %.4103.i, align 1
-  br label %161
+  br label %163
 
-161:                                              ; preds = %160, %159
-  %.10193 = phi i64 [ %.9192, %159 ], [ %.0.copyload.i67.i, %160 ]
-  %162 = icmp ult i64 %.485102.i, 8
-  %163 = add i64 %.485102.i, 4
-  %164 = getelementptr inbounds nuw i8, ptr %.12130, i64 %163
-  %165 = ptrtoint ptr %.12130 to i64
-  %166 = ptrtoint ptr %.10146 to i64
-  %167 = sub i64 %165, %166
-  br i1 %162, label %174, label %191
+163:                                              ; preds = %162, %161
+  %.10193 = phi i64 [ %.9192, %161 ], [ %.0.copyload.i67.i, %162 ]
+  %164 = icmp ult i64 %.485102.i, 8
+  %165 = add i64 %.485102.i, 4
+  %166 = getelementptr inbounds nuw i8, ptr %.12130, i64 %165
+  %167 = ptrtoint ptr %.12130 to i64
+  %168 = ptrtoint ptr %.10146 to i64
+  %169 = sub i64 %167, %168
+  br i1 %164, label %176, label %193
 
-_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit: ; preds = %156, %.preheader.i
-  %.485.lcssa.i = phi i64 [ %.283.lcssa.i, %.preheader.i ], [ %133, %156 ]
-  %168 = icmp ult i64 %.485.lcssa.i, 8
-  %169 = add i64 %.485.lcssa.i, 4
-  %170 = getelementptr inbounds nuw i8, ptr %.12130, i64 %169
-  %171 = ptrtoint ptr %.12130 to i64
-  %172 = ptrtoint ptr %.10146 to i64
-  %173 = sub i64 %171, %172
-  br i1 %168, label %174, label %191
+_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit: ; preds = %158, %.preheader.i
+  %.485.lcssa.i = phi i64 [ %.283.lcssa.i, %.preheader.i ], [ %135, %158 ]
+  %170 = icmp ult i64 %.485.lcssa.i, 8
+  %171 = add i64 %.485.lcssa.i, 4
+  %172 = getelementptr inbounds nuw i8, ptr %.12130, i64 %171
+  %173 = ptrtoint ptr %.12130 to i64
+  %174 = ptrtoint ptr %.10146 to i64
+  %175 = sub i64 %173, %174
+  br i1 %170, label %176, label %193
 
-174:                                              ; preds = %161, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit
-  %175 = phi i64 [ %127, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %173, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %167, %161 ]
-  %176 = phi ptr [ %124, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %170, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %164, %161 ]
-  %177 = phi i64 [ %123, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %169, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %163, %161 ]
-  %.11194239 = phi i64 [ %122, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %.9192, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %.10193, %161 ]
-  %178 = shl nuw nsw i64 %177, 2
-  %179 = shl i64 %175, 8
-  %180 = add nuw i64 %178, %179
-  %181 = trunc i64 %180 to i32
-  %182 = trunc i64 %175 to i32
-  %183 = lshr i32 %182, 3
-  %184 = and i32 %183, 224
-  %185 = add nsw i32 %184, -15
-  %186 = icmp ult i64 %175, 2048
-  %187 = select i1 %186, i32 %185, i32 -2
-  %188 = add i32 %187, %181
-  store i32 %188, ptr %.9, align 1
-  %189 = select i1 %186, i64 2, i64 3
-  %190 = getelementptr inbounds nuw i8, ptr %.9, i64 %189
+176:                                              ; preds = %163, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit
+  %177 = phi i64 [ %129, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %175, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %169, %163 ]
+  %178 = phi ptr [ %126, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %172, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %166, %163 ]
+  %179 = phi i64 [ %125, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %171, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %165, %163 ]
+  %.11194239 = phi i64 [ %124, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread ], [ %.9192, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %.10193, %163 ]
+  %180 = shl nuw nsw i64 %179, 2
+  %181 = shl i64 %177, 8
+  %182 = add nuw i64 %180, %181
+  %183 = trunc i64 %182 to i32
+  %184 = trunc i64 %177 to i32
+  %185 = lshr i32 %184, 3
+  %186 = and i32 %185, 224
+  %187 = add nsw i32 %186, -15
+  %188 = icmp ult i64 %177, 2048
+  %189 = select i1 %188, i32 %187, i32 -2
+  %190 = add i32 %189, %183
+  store i32 %190, ptr %.9, align 1
+  %191 = select i1 %188, i64 2, i64 3
+  %192 = getelementptr inbounds nuw i8, ptr %.9, i64 %191
   br label %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit
 
-191:                                              ; preds = %161, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit
-  %192 = phi i64 [ %148, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %173, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %167, %161 ]
-  %193 = phi ptr [ %145, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %170, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %164, %161 ]
-  %194 = phi i64 [ %144, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %169, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %163, %161 ]
-  %.11194247 = phi i64 [ %142, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %.9192, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %.10193, %161 ]
-  %195 = icmp ugt i64 %194, 67
-  br i1 %195, label %.lr.ph.i170, label %._crit_edge.i167, !prof !33
+193:                                              ; preds = %163, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit
+  %194 = phi i64 [ %150, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %175, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %169, %163 ]
+  %195 = phi ptr [ %147, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %172, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %166, %163 ]
+  %196 = phi i64 [ %146, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %171, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %165, %163 ]
+  %.11194247 = phi i64 [ %144, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit.thread240 ], [ %.9192, %_ZN13duckdb_snappy8internalL15FindMatchLengthEPKcS2_S2_Pm.exit ], [ %.10193, %163 ]
+  %197 = icmp ugt i64 %196, 67
+  br i1 %197, label %.lr.ph.i170, label %._crit_edge.i167, !prof !33
 
-.lr.ph.i170:                                      ; preds = %191
-  %.tr21.i = trunc i64 %192 to i32
-  %196 = shl i32 %.tr21.i, 8
-  %197 = or disjoint i32 %196, 254
-  br label %198
+.lr.ph.i170:                                      ; preds = %193
+  %.tr21.i = trunc i64 %194 to i32
+  %198 = shl i32 %.tr21.i, 8
+  %199 = or disjoint i32 %198, 254
+  br label %200
 
-198:                                              ; preds = %198, %.lr.ph.i170
-  %.023.i = phi i64 [ %194, %.lr.ph.i170 ], [ %200, %198 ]
-  %.01522.i = phi ptr [ %.9, %.lr.ph.i170 ], [ %199, %198 ]
-  store i32 %197, ptr %.01522.i, align 1
-  %199 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 3
-  %200 = add i64 %.023.i, -64
-  %201 = icmp ugt i64 %200, 67
-  br i1 %201, label %198, label %._crit_edge.i167, !prof !34, !llvm.loop !35
+200:                                              ; preds = %200, %.lr.ph.i170
+  %.023.i = phi i64 [ %196, %.lr.ph.i170 ], [ %202, %200 ]
+  %.01522.i = phi ptr [ %.9, %.lr.ph.i170 ], [ %201, %200 ]
+  store i32 %199, ptr %.01522.i, align 1
+  %201 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 3
+  %202 = add i64 %.023.i, -64
+  %203 = icmp ugt i64 %202, 67
+  br i1 %203, label %200, label %._crit_edge.i167, !prof !34, !llvm.loop !35
 
-._crit_edge.i167:                                 ; preds = %198, %191
-  %.015.lcssa.i = phi ptr [ %.9, %191 ], [ %199, %198 ]
-  %.0.lcssa.i = phi i64 [ %194, %191 ], [ %200, %198 ]
-  %202 = icmp samesign ugt i64 %.0.lcssa.i, 64
-  br i1 %202, label %.thread.i168, label %207
+._crit_edge.i167:                                 ; preds = %200, %193
+  %.015.lcssa.i = phi ptr [ %.9, %193 ], [ %201, %200 ]
+  %.0.lcssa.i = phi i64 [ %196, %193 ], [ %202, %200 ]
+  %204 = icmp samesign ugt i64 %.0.lcssa.i, 64
+  br i1 %204, label %.thread.i168, label %209
 
 .thread.i168:                                     ; preds = %._crit_edge.i167
-  %.tr.i169 = trunc i64 %192 to i32
-  %203 = shl i32 %.tr.i169, 8
-  %204 = or disjoint i32 %203, 238
-  store i32 %204, ptr %.015.lcssa.i, align 1
-  %205 = getelementptr inbounds nuw i8, ptr %.015.lcssa.i, i64 3
-  %206 = add nsw i64 %.0.lcssa.i, -60
-  br label %209
+  %.tr.i169 = trunc i64 %194 to i32
+  %205 = shl i32 %.tr.i169, 8
+  %206 = or disjoint i32 %205, 238
+  store i32 %206, ptr %.015.lcssa.i, align 1
+  %207 = getelementptr inbounds nuw i8, ptr %.015.lcssa.i, i64 3
+  %208 = add nsw i64 %.0.lcssa.i, -60
+  br label %211
 
-207:                                              ; preds = %._crit_edge.i167
-  %208 = icmp samesign ult i64 %.0.lcssa.i, 12
-  br i1 %208, label %._crit_edge26.i, label %222
+209:                                              ; preds = %._crit_edge.i167
+  %210 = icmp samesign ult i64 %.0.lcssa.i, 12
+  br i1 %210, label %._crit_edge26.i, label %224
 
-._crit_edge26.i:                                  ; preds = %207
-  %.pre.i = trunc i64 %192 to i32
-  br label %209
+._crit_edge26.i:                                  ; preds = %209
+  %.pre.i = trunc i64 %194 to i32
+  br label %211
 
-209:                                              ; preds = %._crit_edge26.i, %.thread.i168
+211:                                              ; preds = %._crit_edge26.i, %.thread.i168
   %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge26.i ], [ %.tr.i169, %.thread.i168 ]
-  %.120.i = phi i64 [ %.0.lcssa.i, %._crit_edge26.i ], [ %206, %.thread.i168 ]
-  %.11619.i = phi ptr [ %.015.lcssa.i, %._crit_edge26.i ], [ %205, %.thread.i168 ]
-  %210 = shl nuw nsw i64 %.120.i, 2
-  %211 = shl i64 %192, 8
-  %212 = add nuw i64 %210, %211
-  %213 = trunc i64 %212 to i32
-  %214 = lshr i32 %.pre-phi.i, 3
-  %215 = and i32 %214, 224
-  %216 = add nsw i32 %215, -15
-  %217 = icmp ult i64 %192, 2048
-  %218 = select i1 %217, i32 %216, i32 -2
-  %219 = add i32 %218, %213
-  store i32 %219, ptr %.11619.i, align 1
-  %220 = select i1 %217, i64 2, i64 3
-  %221 = getelementptr inbounds nuw i8, ptr %.11619.i, i64 %220
+  %.120.i = phi i64 [ %.0.lcssa.i, %._crit_edge26.i ], [ %208, %.thread.i168 ]
+  %.11619.i = phi ptr [ %.015.lcssa.i, %._crit_edge26.i ], [ %207, %.thread.i168 ]
+  %212 = shl nuw nsw i64 %.120.i, 2
+  %213 = shl i64 %194, 8
+  %214 = add nuw i64 %212, %213
+  %215 = trunc i64 %214 to i32
+  %216 = lshr i32 %.pre-phi.i, 3
+  %217 = and i32 %216, 224
+  %218 = add nsw i32 %217, -15
+  %219 = icmp ult i64 %194, 2048
+  %220 = select i1 %219, i32 %218, i32 -2
+  %221 = add i32 %220, %215
+  store i32 %221, ptr %.11619.i, align 1
+  %222 = select i1 %219, i64 2, i64 3
+  %223 = getelementptr inbounds nuw i8, ptr %.11619.i, i64 %222
   br label %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit
 
-222:                                              ; preds = %207
-  %223 = shl nuw nsw i64 %.0.lcssa.i, 2
-  %224 = shl i64 %192, 8
-  %225 = add i64 %224, 4294967294
-  %226 = add i64 %225, %223
-  %227 = trunc i64 %226 to i32
-  store i32 %227, ptr %.015.lcssa.i, align 1
-  %228 = getelementptr inbounds nuw i8, ptr %.015.lcssa.i, i64 3
+224:                                              ; preds = %209
+  %225 = shl nuw nsw i64 %.0.lcssa.i, 2
+  %226 = shl i64 %194, 8
+  %227 = add i64 %226, 4294967294
+  %228 = add i64 %227, %225
+  %229 = trunc i64 %228 to i32
+  store i32 %229, ptr %.015.lcssa.i, align 1
+  %230 = getelementptr inbounds nuw i8, ptr %.015.lcssa.i, i64 3
   br label %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit
 
-_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit:  ; preds = %222, %209, %174
-  %229 = phi ptr [ %176, %174 ], [ %193, %209 ], [ %193, %222 ]
-  %.11194238 = phi i64 [ %.11194239, %174 ], [ %.11194247, %209 ], [ %.11194247, %222 ]
-  %.10 = phi ptr [ %190, %174 ], [ %221, %209 ], [ %228, %222 ]
-  %.not160 = icmp ult ptr %229, %11
-  br i1 %.not160, label %230, label %.thread255, !prof !19
+_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit:  ; preds = %224, %211, %176
+  %231 = phi ptr [ %178, %176 ], [ %195, %211 ], [ %195, %224 ]
+  %.11194238 = phi i64 [ %.11194239, %176 ], [ %.11194247, %211 ], [ %.11194247, %224 ]
+  %.10 = phi ptr [ %192, %176 ], [ %223, %211 ], [ %230, %224 ]
+  %.not160 = icmp ult ptr %231, %11
+  br i1 %.not160, label %232, label %.thread255, !prof !19
 
-230:                                              ; preds = %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit
-  %231 = ptrtoint ptr %229 to i64
-  %232 = sub i64 %231, %14
-  %233 = trunc i64 %232 to i16
-  %234 = add i16 %233, -1
-  %235 = getelementptr inbounds i8, ptr %229, i64 -1
-  %.0.copyload.i171 = load i32, ptr %235, align 1
-  %236 = mul i32 %.0.copyload.i171, 506832829
-  %237 = lshr i32 %236, 16
-  %238 = and i32 %237, %7
-  %239 = zext nneg i32 %238 to i64
-  %240 = add i64 %239, %15
-  %241 = inttoptr i64 %240 to ptr
-  store i16 %234, ptr %241, align 2, !tbaa !20
-  %242 = trunc i64 %.11194238 to i32
-  %243 = mul i32 %242, 506832829
-  %244 = lshr i32 %243, 16
-  %245 = and i32 %244, %7
-  %246 = zext nneg i32 %245 to i64
-  %247 = add i64 %246, %15
-  %248 = inttoptr i64 %247 to ptr
-  %249 = load i16, ptr %248, align 2, !tbaa !20
-  %250 = zext i16 %249 to i64
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 %250
-  store i16 %233, ptr %248, align 2, !tbaa !20
-  %.0.copyload.i172 = load i32, ptr %251, align 1
-  %252 = icmp eq i32 %.0.copyload.i172, %242
-  br i1 %252, label %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit, label %253, !llvm.loop !36
+232:                                              ; preds = %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit
+  %233 = ptrtoint ptr %231 to i64
+  %234 = sub i64 %233, %14
+  %235 = trunc i64 %234 to i16
+  %236 = add i16 %235, -1
+  %237 = getelementptr inbounds i8, ptr %231, i64 -1
+  %.0.copyload.i171 = load i32, ptr %237, align 1
+  %238 = mul i32 %.0.copyload.i171, 506832829
+  %239 = lshr i32 %238, 16
+  %240 = and i32 %239, %7
+  %241 = zext nneg i32 %240 to i64
+  %242 = add i64 %241, %15
+  %243 = inttoptr i64 %242 to ptr
+  store i16 %236, ptr %243, align 2, !tbaa !20
+  %244 = trunc i64 %.11194238 to i32
+  %245 = mul i32 %244, 506832829
+  %246 = lshr i32 %245, 16
+  %247 = and i32 %246, %7
+  %248 = zext nneg i32 %247 to i64
+  %249 = add i64 %248, %15
+  %250 = inttoptr i64 %249 to ptr
+  %251 = load i16, ptr %250, align 2, !tbaa !20
+  %252 = zext i16 %251 to i64
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 %252
+  store i16 %235, ptr %250, align 2, !tbaa !20
+  %.0.copyload.i172 = load i32, ptr %253, align 1
+  %254 = icmp eq i32 %.0.copyload.i172, %244
+  br i1 %254, label %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit, label %255, !llvm.loop !36
 
-253:                                              ; preds = %230
-  %254 = lshr i64 %.11194238, 8
-  %255 = trunc i64 %254 to i32
+255:                                              ; preds = %232
+  %256 = lshr i64 %.11194238, 8
+  %257 = trunc i64 %256 to i32
   br label %19
 
-.thread255:                                       ; preds = %55, %74, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit, %5
-  %.13 = phi ptr [ %0, %5 ], [ %229, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0118, %74 ], [ %.0118, %55 ]
-  %.11 = phi ptr [ %2, %5 ], [ %.10, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0117, %74 ], [ %.0117, %55 ]
-  %256 = icmp ult ptr %.13, %8
-  br i1 %256, label %257, label %277
+.thread255:                                       ; preds = %56, %75, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit, %5
+  %.13 = phi ptr [ %0, %5 ], [ %.0118, %75 ], [ %231, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0118, %56 ]
+  %.11 = phi ptr [ %2, %5 ], [ %.0117, %75 ], [ %.10, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0117, %56 ]
+  %258 = icmp ult ptr %.13, %8
+  br i1 %258, label %259, label %279
 
-257:                                              ; preds = %.thread255
-  %258 = ptrtoint ptr %8 to i64
-  %259 = ptrtoint ptr %.13 to i64
-  %260 = sub i64 %258, %259
-  %261 = trunc i64 %260 to i32
-  %262 = add nsw i32 %261, -1
-  %263 = icmp slt i32 %261, 61
-  br i1 %263, label %264, label %266
+259:                                              ; preds = %.thread255
+  %260 = ptrtoint ptr %8 to i64
+  %261 = ptrtoint ptr %.13 to i64
+  %262 = sub i64 %260, %261
+  %263 = trunc i64 %262 to i32
+  %264 = add nsw i32 %263, -1
+  %265 = icmp slt i32 %263, 61
+  br i1 %265, label %266, label %268
 
-264:                                              ; preds = %257
-  %.tr.i176 = trunc i32 %262 to i8
-  %265 = shl i8 %.tr.i176, 2
+266:                                              ; preds = %259
+  %.tr.i176 = trunc i32 %264 to i8
+  %267 = shl i8 %.tr.i176, 2
   br label %_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit
 
-266:                                              ; preds = %257
-  %267 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %262, i1 true)
-  %268 = lshr i32 %267, 3
-  %269 = xor i32 %268, 3
-  %.tr16.i = trunc nuw nsw i32 %269 to i8
-  %270 = shl nuw nsw i8 %.tr16.i, 2
-  %271 = or disjoint i8 %270, -16
-  %272 = getelementptr inbounds nuw i8, ptr %.11, i64 1
-  store i32 %262, ptr %272, align 1
-  %273 = zext nneg i32 %269 to i64
-  %274 = getelementptr i8, ptr %272, i64 %273
+268:                                              ; preds = %259
+  %269 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %264, i1 true)
+  %270 = lshr i32 %269, 3
+  %271 = xor i32 %270, 3
+  %.tr16.i = trunc nuw nsw i32 %271 to i8
+  %272 = shl nuw nsw i8 %.tr16.i, 2
+  %273 = or disjoint i8 %272, -16
+  %274 = getelementptr inbounds nuw i8, ptr %.11, i64 1
+  store i32 %264, ptr %274, align 1
+  %275 = zext nneg i32 %271 to i64
+  %276 = getelementptr i8, ptr %274, i64 %275
   br label %_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit
 
-_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit: ; preds = %264, %266
-  %.sink.i173 = phi i8 [ %265, %264 ], [ %271, %266 ]
-  %.pn.i174 = phi ptr [ %.11, %264 ], [ %274, %266 ]
+_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit: ; preds = %266, %268
+  %.sink.i173 = phi i8 [ %267, %266 ], [ %273, %268 ]
+  %.pn.i174 = phi ptr [ %.11, %266 ], [ %276, %268 ]
   store i8 %.sink.i173, ptr %.11, align 1, !tbaa !3
   %.0.i175 = getelementptr i8, ptr %.pn.i174, i64 1
-  %sext261 = shl i64 %260, 32
-  %275 = ashr exact i64 %sext261, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i175, ptr readonly align 1 %.13, i64 %275, i1 false)
-  %276 = getelementptr inbounds i8, ptr %.0.i175, i64 %275
-  br label %277
+  %sext261 = shl i64 %262, 32
+  %277 = ashr exact i64 %sext261, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i175, ptr readonly align 1 %.13, i64 %277, i1 false)
+  %278 = getelementptr inbounds i8, ptr %.0.i175, i64 %277
+  br label %279
 
-277:                                              ; preds = %.thread255, %_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit
-  %.0 = phi ptr [ %276, %_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit ], [ %.11, %.thread255 ]
+279:                                              ; preds = %.thread255, %_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit
+  %.0 = phi ptr [ %.11, %.thread255 ], [ %278, %_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit ]
   ret ptr %.0
 }
 
@@ -1109,10 +1110,10 @@ _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = 
   store i16 %47, ptr %122, align 2, !tbaa !20
   br label %.preheader
 
-.preheader:                                       ; preds = %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit, %151, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268
-  %.2203.ph = phi i32 [ %114, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %.127.i252, %151 ], [ %76, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
-  %.2194.ph = phi ptr [ %89, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %125, %151 ], [ %51, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
-  %.2178.ph = phi ptr [ %.1177583, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %115, %151 ], [ %.1177583, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
+.preheader:                                       ; preds = %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit, %151
+  %.2203.ph = phi i32 [ %.127.i252, %151 ], [ %76, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ], [ %114, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ]
+  %.2194.ph = phi ptr [ %125, %151 ], [ %51, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ], [ %89, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ]
+  %.2178.ph = phi ptr [ %115, %151 ], [ %.1177583, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ], [ %.1177583, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ]
   %152 = icmp ugt ptr %.2178.ph, %.0176588
   %153 = icmp ugt ptr %.2194.ph, %0
   %or.cond403 = select i1 %152, i1 %153, i1 false
@@ -1586,14 +1587,14 @@ _ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit:  ; preds = %270, %257, %228
   br label %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit308
 
 _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit308: ; preds = %.critedge28.i332, %.critedge28.i305, %.critedge2.loopexit.split.loop.exit.i331, %.critedge.i318, %.critedge28.preheader.i323, %.critedge2.loopexit.split.loop.exit.i304, %.critedge.i291, %.critedge28.preheader.i296
-  %.8209.in = phi i32 [ %362, %.critedge.i291 ], [ %.026.lcssa.i297, %.critedge28.preheader.i296 ], [ %368, %.critedge2.loopexit.split.loop.exit.i304 ], [ %398, %.critedge.i318 ], [ %.026.lcssa.i324, %.critedge28.preheader.i323 ], [ %404, %.critedge2.loopexit.split.loop.exit.i331 ], [ %352, %.critedge28.i305 ], [ %388, %.critedge28.i332 ]
-  %.8200 = phi ptr [ %342, %.critedge.i291 ], [ %342, %.critedge28.preheader.i296 ], [ %342, %.critedge2.loopexit.split.loop.exit.i304 ], [ %378, %.critedge.i318 ], [ %378, %.critedge28.preheader.i323 ], [ %378, %.critedge2.loopexit.split.loop.exit.i331 ], [ %342, %.critedge28.i305 ], [ %378, %.critedge28.i332 ]
+  %.8209.in = phi i32 [ %352, %.critedge28.i305 ], [ %362, %.critedge.i291 ], [ %.026.lcssa.i297, %.critedge28.preheader.i296 ], [ %368, %.critedge2.loopexit.split.loop.exit.i304 ], [ %398, %.critedge.i318 ], [ %.026.lcssa.i324, %.critedge28.preheader.i323 ], [ %404, %.critedge2.loopexit.split.loop.exit.i331 ], [ %388, %.critedge28.i332 ]
+  %.8200 = phi ptr [ %342, %.critedge28.i305 ], [ %342, %.critedge.i291 ], [ %342, %.critedge28.preheader.i296 ], [ %342, %.critedge2.loopexit.split.loop.exit.i304 ], [ %378, %.critedge.i318 ], [ %378, %.critedge28.preheader.i323 ], [ %378, %.critedge2.loopexit.split.loop.exit.i331 ], [ %378, %.critedge28.i332 ]
   %.8209 = add i32 %.8209.in, 4
   br label %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
 
 .thread355:                                       ; preds = %.loopexit.loopexit, %26, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit, %12, %7
-  %.8 = phi ptr [ %0, %7 ], [ %0, %12 ], [ %223, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0176588, %26 ], [ %223, %.loopexit.loopexit ]
-  %.5 = phi ptr [ %2, %7 ], [ %2, %12 ], [ %.4, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0175590, %26 ], [ %.4, %.loopexit.loopexit ]
+  %.8 = phi ptr [ %.0176588, %26 ], [ %0, %7 ], [ %223, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %0, %12 ], [ %223, %.loopexit.loopexit ]
+  %.5 = phi ptr [ %.0175590, %26 ], [ %2, %7 ], [ %.4, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %2, %12 ], [ %.4, %.loopexit.loopexit ]
   %405 = icmp ult ptr %.8, %10
   br i1 %405, label %406, label %426
 
@@ -1636,7 +1637,7 @@ _ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit: ; preds = %413, %415
   br label %426
 
 426:                                              ; preds = %.thread355, %_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit
-  %.0 = phi ptr [ %425, %_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit ], [ %.5, %.thread355 ]
+  %.0 = phi ptr [ %.5, %.thread355 ], [ %425, %_ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit ]
   ret ptr %.0
 }
 
@@ -1838,7 +1839,7 @@ _ZN13duckdb_snappy15CalculateNeededEh.exit:       ; preds = %36, %39
   br label %96
 
 96:                                               ; preds = %.critedge37, %84, %95, %79, %.critedge
-  %.2 = phi i1 [ false, %.critedge ], [ false, %.critedge37 ], [ true, %84 ], [ true, %95 ], [ true, %79 ]
+  %.2 = phi i1 [ false, %.critedge ], [ true, %79 ], [ true, %95 ], [ false, %.critedge37 ], [ true, %84 ]
   ret i1 %.2
 }
 
@@ -1895,7 +1896,7 @@ define noundef zeroext i1 @_ZN13duckdb_snappy21GetUncompressedLengthEPNS_6Source
   br i1 %28, label %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit, label %4
 
 .loopexit.sink.split.i:                           ; preds = %20, %.noexc3, %.noexc
-  %.1.ph.i = phi i1 [ false, %.noexc ], [ false, %.noexc3 ], [ true, %20 ]
+  %.1.ph.i = phi i1 [ false, %.noexc3 ], [ false, %.noexc ], [ true, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit
 
@@ -2189,7 +2190,7 @@ _ZN13duckdb_snappy6Varint8Encode32EPcj.exit:      ; preds = %13, %18, %27, %53, 
   br label %136
 
 136:                                              ; preds = %123, %130, %122
-  %.0 = phi ptr [ %125, %123 ], [ null, %122 ], [ %135, %130 ]
+  %.0 = phi ptr [ null, %122 ], [ %125, %123 ], [ %135, %130 ]
   %137 = ptrtoint ptr %.0 to i64
   %138 = ptrtoint ptr %121 to i64
   %139 = sub i64 %137, %138
@@ -2214,7 +2215,7 @@ _ZN13duckdb_snappy6Varint8Encode32EPcj.exit:      ; preds = %13, %18, %27, %53, 
   br i1 %.not, label %._crit_edge, label %70, !llvm.loop !54
 
 150:                                              ; preds = %.loopexit93, %.loopexit.split-lp, %128, %126, %98, %77
-  %.pn73.pn.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %99, %98 ], [ %129, %128 ], [ %127, %126 ], [ %lpad.loopexit, %.loopexit93 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn73.pn.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %129, %128 ], [ %99, %98 ], [ %127, %126 ], [ %lpad.loopexit, %.loopexit93 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN13duckdb_snappy8internal13WorkingMemoryD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2403,7 +2404,7 @@ _ZN13duckdb_snappy18SnappyDecompressorD2Ev.exit.i: ; preds = %46
   br label %_ZN13duckdb_snappyL25InternalUncompressAllTagsINS_17SnappyIOVecWriterEEEbPNS_18SnappyDecompressorEPT_jj.exit.i
 
 _ZN13duckdb_snappyL25InternalUncompressAllTagsINS_17SnappyIOVecWriterEEEbPNS_18SnappyDecompressorEPT_jj.exit.i: ; preds = %43, %64, %.noexc6.i, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12.i
-  %.0.i = phi i1 [ false, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12.i ], [ false, %.noexc6.i ], [ %67, %64 ], [ false, %43 ]
+  %.0.i = phi i1 [ false, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12.i ], [ %67, %64 ], [ false, %.noexc6.i ], [ false, %43 ]
   %68 = load ptr, ptr %5, align 8, !tbaa !47
   %69 = load i32, ptr %19, align 8, !tbaa !48
   %70 = zext i32 %69 to i64
@@ -2591,7 +2592,7 @@ _ZN13duckdb_snappy18SnappyDecompressorD2Ev.exit.i: ; preds = %37
   br label %_ZN13duckdb_snappyL25InternalUncompressAllTagsINS_17SnappyArrayWriterEEEbPNS_18SnappyDecompressorEPT_jj.exit.i
 
 _ZN13duckdb_snappyL25InternalUncompressAllTagsINS_17SnappyArrayWriterEEEbPNS_18SnappyDecompressorEPT_jj.exit.i: ; preds = %34, %58, %.noexc6.i, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12.i
-  %.0.i = phi i1 [ false, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12.i ], [ false, %.noexc6.i ], [ %61, %58 ], [ false, %34 ]
+  %.0.i = phi i1 [ false, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12.i ], [ %61, %58 ], [ false, %.noexc6.i ], [ false, %34 ]
   %62 = load ptr, ptr %4, align 8, !tbaa !47
   %63 = load i32, ptr %10, align 8, !tbaa !48
   %64 = zext i32 %63 to i64
@@ -2683,7 +2684,7 @@ define noundef zeroext i1 @_ZN13duckdb_snappy10UncompressEPKcmPNSt7__cxx1112basi
   br i1 %44, label %45, label %_ZN13duckdb_snappy21GetUncompressedLengthEPKcmPm.exit.thread
 
 45:                                               ; preds = %5, %12, %21, %30, %39
-  %.0.i = phi i32 [ %9, %5 ], [ %18, %12 ], [ %27, %21 ], [ %36, %30 ], [ %43, %39 ]
+  %.0.i = phi i32 [ %36, %30 ], [ %9, %5 ], [ %18, %12 ], [ %27, %21 ], [ %43, %39 ]
   %46 = zext i32 %.0.i to i64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %46, i8 noundef signext 0)
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2718,8 +2719,8 @@ _ZN13duckdb_snappy13RawUncompressEPKcmPc.exit:    ; preds = %_ZN13duckdb_snappy1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN13duckdb_snappy21GetUncompressedLengthEPKcmPm.exit.thread
 
-_ZN13duckdb_snappy21GetUncompressedLengthEPKcmPm.exit.thread: ; preds = %39, %38, %29, %20, %11, %3, %_ZN13duckdb_snappy13RawUncompressEPKcmPc.exit
-  %.0 = phi i1 [ %55, %_ZN13duckdb_snappy13RawUncompressEPKcmPc.exit ], [ false, %3 ], [ false, %11 ], [ false, %20 ], [ false, %29 ], [ false, %38 ], [ false, %39 ]
+_ZN13duckdb_snappy21GetUncompressedLengthEPKcmPm.exit.thread: ; preds = %29, %20, %11, %3, %39, %38, %_ZN13duckdb_snappy13RawUncompressEPKcmPc.exit
+  %.0 = phi i1 [ %55, %_ZN13duckdb_snappy13RawUncompressEPKcmPc.exit ], [ false, %38 ], [ false, %39 ], [ false, %3 ], [ false, %11 ], [ false, %20 ], [ false, %29 ]
   ret i1 %.0
 }
 
@@ -2812,7 +2813,7 @@ define internal fastcc noundef zeroext i1 @_ZN13duckdb_snappyL18InternalUncompre
   %31 = icmp samesign ugt i64 %indvars.iv.i, 24
   br i1 %31, label %_ZN13duckdb_snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit, label %8
 
-_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12: ; preds = %.noexc, %.noexc5
+_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12: ; preds = %.noexc5, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN13duckdb_snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit
 
@@ -2877,7 +2878,7 @@ _ZN13duckdb_snappy18SnappyDecompressorD2Ev.exit:  ; preds = %33
   br label %_ZN13duckdb_snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit
 
 _ZN13duckdb_snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit: ; preds = %30, %51, %.noexc6, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12
-  %.0 = phi i1 [ false, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12 ], [ false, %.noexc6 ], [ %55, %51 ], [ false, %30 ]
+  %.0 = phi i1 [ false, %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread12 ], [ %55, %51 ], [ false, %.noexc6 ], [ false, %30 ]
   %56 = load ptr, ptr %4, align 8, !tbaa !47
   %57 = load i32, ptr %6, align 8, !tbaa !48
   %58 = zext i32 %57 to i64
@@ -3565,7 +3566,7 @@ define noundef zeroext i1 @_ZN13duckdb_snappy10UncompressEPNS_6SourceEPNS_4SinkE
   %35 = icmp samesign ugt i64 %indvars.iv.i, 24
   br i1 %35, label %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread, label %12
 
-_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread45: ; preds = %.noexc, %.noexc23
+_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread45: ; preds = %.noexc23, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN13duckdb_snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread
 
@@ -4033,8 +4034,8 @@ _ZN13duckdb_snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit: ; preds = %_ZN13duckd
   br label %_ZN13duckdb_snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge
 
 _ZN13duckdb_snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge: ; preds = %46, %128, %168, %151
-  %.0136.be = phi i32 [ %170, %168 ], [ %154, %151 ], [ %49, %46 ], [ %130, %128 ]
-  %.1.be = phi ptr [ %.15, %168 ], [ %153, %151 ], [ %47, %46 ], [ %.10, %128 ]
+  %.0136.be = phi i32 [ %170, %168 ], [ %130, %128 ], [ %154, %151 ], [ %49, %46 ]
+  %.1.be = phi ptr [ %.15, %168 ], [ %.10, %128 ], [ %153, %151 ], [ %47, %46 ]
   br label %_ZN13duckdb_snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit, !llvm.loop !122
 
 50:                                               ; preds = %37
@@ -4267,7 +4268,7 @@ _ZN13duckdb_snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge: ; preds = %4
   %170 = zext i8 %169 to i32
   br label %_ZN13duckdb_snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge
 
-.thread149:                                       ; preds = %131, %118, %._crit_edge, %137, %.thread185, %.lr.ph, %76, %.thread, %15
+.thread149:                                       ; preds = %131, %._crit_edge, %118, %137, %.thread185, %.lr.ph, %76, %.thread, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -4507,10 +4508,10 @@ _ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.threa
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %121, ptr noundef nonnull readonly align 1 dereferenceable(32) %122, i64 32, i1 false)
   br label %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit
 
-_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit: ; preds = %120, %115, %112, %109, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131
-  %.5140 = phi i64 [ 0, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131 ], [ %46, %109 ], [ %46, %112 ], [ %46, %115 ], [ %46, %120 ]
-  %.5104139 = phi ptr [ %8, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131 ], [ %.2115182, %109 ], [ %.2115182, %112 ], [ %117, %115 ], [ %117, %120 ]
-  %.5111138 = phi i64 [ %102, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131 ], [ %104, %109 ], [ %104, %112 ], [ %104, %115 ], [ %104, %120 ]
+_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit: ; preds = %120, %115, %109, %112, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131
+  %.5140 = phi i64 [ 0, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131 ], [ %46, %112 ], [ %46, %109 ], [ %46, %115 ], [ %46, %120 ]
+  %.5104139 = phi ptr [ %8, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131 ], [ %.2115182, %112 ], [ %.2115182, %109 ], [ %117, %115 ], [ %117, %120 ]
+  %.5111138 = phi i64 [ %102, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit.thread131 ], [ %104, %112 ], [ %104, %109 ], [ %104, %115 ], [ %104, %120 ]
   br i1 %23, label %22, label %123, !llvm.loop !134
 
 123:                                              ; preds = %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit
@@ -4525,10 +4526,10 @@ _ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit: ; pr
   br label %.thread152
 
 .thread:                                          ; preds = %123, %54, %108
-  %.2115181 = phi ptr [ %.2115182, %108 ], [ %.2115182, %54 ], [ %45, %123 ]
-  %.2108178 = phi i64 [ %.2108183, %108 ], [ %.2108183, %54 ], [ %.5111138, %123 ]
-  %.2101175 = phi ptr [ %.2101184, %108 ], [ %.2101184, %54 ], [ %.5104139, %123 ]
-  %.297172 = phi i64 [ %.297185, %108 ], [ %.297185, %54 ], [ %.5140, %123 ]
+  %.2115181 = phi ptr [ %.2115182, %54 ], [ %.2115182, %108 ], [ %45, %123 ]
+  %.2108178 = phi i64 [ %.2108183, %54 ], [ %.2108183, %108 ], [ %.5111138, %123 ]
+  %.2101175 = phi ptr [ %.2101184, %54 ], [ %.2101184, %108 ], [ %.5104139, %123 ]
+  %.297172 = phi i64 [ %.297185, %54 ], [ %.297185, %108 ], [ %.5140, %123 ]
   %128 = getelementptr inbounds i8, ptr %.2115181, i64 -1
   %.not51 = icmp eq i64 %.297172, 0
   br i1 %.not51, label %.thread152, label %129
@@ -4991,12 +4992,12 @@ _ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %36, %
   br i1 %.not53, label %.lr.ph102, label %.split.us
 
 .outer:                                           ; preds = %.thread69, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit
-  %.pre.i136 = phi i64 [ %.pre.i133, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %122, %.thread69 ]
-  %.promoted86112129 = phi i64 [ %.promoted86112126, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %122, %.thread69 ]
-  %.sroa.speculated.pn = phi i64 [ %.sroa.speculated, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %spec.select57, %.thread69 ]
-  %.342 = phi ptr [ %spec.select, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %.140.ph107, %.thread69 ]
-  %.437 = phi i64 [ %spec.select56, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ], [ %123, %.thread69 ]
-  %.1 = sub i64 %.0.ph106, %.sroa.speculated.pn
+  %.pre.i136 = phi i64 [ %122, %.thread69 ], [ %.pre.i133, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %.promoted86112129 = phi i64 [ %122, %.thread69 ], [ %.promoted86112126, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %spec.select57.pn = phi i64 [ %spec.select57, %.thread69 ], [ %.sroa.speculated, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %.342 = phi ptr [ %.140.ph107, %.thread69 ], [ %spec.select, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %.437 = phi i64 [ %123, %.thread69 ], [ %spec.select56, %_ZN13duckdb_snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %.1 = sub i64 %.0.ph106, %spec.select57.pn
   %.not52 = icmp eq i64 %.1, 0
   br i1 %.not52, label %.thread, label %.lr.ph87.split, !llvm.loop !141
 
@@ -5331,14 +5332,14 @@ define linkonce_odr void @_ZN13duckdb_snappy18SnappyDecompressor17DecompressAllT
   br label %_ZN13duckdb_snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit
 
 .thread133.i:                                     ; preds = %90, %88, %75
-  %.pre-phi.i = phi i64 [ %84, %88 ], [ %77, %75 ], [ %92, %90 ]
-  %.2112167.i = phi ptr [ %.2112168.i, %75 ], [ %.2112168.i, %88 ], [ %66, %90 ]
+  %.pre-phi.i = phi i64 [ %77, %75 ], [ %84, %88 ], [ %92, %90 ]
+  %.2112167.i = phi ptr [ %.2112168.i, %88 ], [ %.2112168.i, %75 ], [ %66, %90 ]
   %95 = getelementptr inbounds i8, ptr %.2112167.i, i64 -1
   br label %_ZN13duckdb_snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit
 
 _ZN13duckdb_snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit: ; preds = %.loopexit, %.thread133.thread.i, %.thread133.i
-  %.0110148.i = phi ptr [ %.1, %.loopexit ], [ %94, %.thread133.thread.i ], [ %95, %.thread133.i ]
-  %.7.i = phi i64 [ %30, %.loopexit ], [ %77, %.thread133.thread.i ], [ %.pre-phi.i, %.thread133.i ]
+  %.0110148.i = phi ptr [ %95, %.thread133.i ], [ %94, %.thread133.thread.i ], [ %.1, %.loopexit ]
+  %.7.i = phi i64 [ %.pre-phi.i, %.thread133.i ], [ %77, %.thread133.thread.i ], [ %30, %.loopexit ]
   %96 = add i64 %.7.i, 1
   %97 = load ptr, ptr %14, align 8, !tbaa !119
   %.not116 = icmp ult ptr %.0110148.i, %97
@@ -5547,12 +5548,12 @@ _ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit134: ;
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %.loopexit.sink.split, %194, %162, %191
-  %.1147.be = phi i64 [ %189, %191 ], [ %160, %162 ], [ %.6151, %194 ], [ %.5150.ph, %.loopexit.sink.split ]
-  %.1.be = phi ptr [ %193, %191 ], [ %163, %162 ], [ %.13, %194 ], [ %197, %.loopexit.sink.split ]
+  %.1147.be = phi i64 [ %160, %162 ], [ %189, %191 ], [ %.6151, %194 ], [ %.5150.ph, %.loopexit.sink.split ]
+  %.1.be = phi ptr [ %163, %162 ], [ %193, %191 ], [ %.13, %194 ], [ %197, %.loopexit.sink.split ]
   br label %.loopexit
 
-.thread194:                                       ; preds = %._crit_edge, %164, %175, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit134, %166, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit, %195, %98, %.lr.ph, %.thread174, %17
-  %.0146 = phi i64 [ %16, %17 ], [ %136, %.thread174 ], [ %136, %.lr.ph ], [ %160, %164 ], [ %160, %._crit_edge ], [ %96, %175 ], [ %189, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit134 ], [ %96, %166 ], [ %173, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit ], [ %.6151, %195 ], [ %96, %98 ]
+.thread194:                                       ; preds = %164, %._crit_edge, %175, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit134, %166, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit, %195, %98, %.lr.ph, %.thread174, %17
+  %.0146 = phi i64 [ %16, %17 ], [ %136, %.thread174 ], [ %136, %.lr.ph ], [ %160, %164 ], [ %160, %._crit_edge ], [ %189, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit134 ], [ %173, %_ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit ], [ %.6151, %195 ], [ %96, %166 ], [ %96, %98 ], [ %96, %175 ]
   store i64 %.0146, ptr %15, align 8, !tbaa !83
   ret void
 }
@@ -5697,8 +5698,8 @@ _ZN13duckdb_snappy17SnappyArrayWriter6AppendEPKcmPPc.exit: ; preds = %_ZN13duckd
   br label %_ZN13duckdb_snappy17SnappyArrayWriter6AppendEPKcmPPc.exit.backedge
 
 _ZN13duckdb_snappy17SnappyArrayWriter6AppendEPKcmPPc.exit.backedge: ; preds = %81, %141, %203, %186
-  %.0138.be = phi i32 [ %205, %203 ], [ %189, %186 ], [ %85, %81 ], [ %143, %141 ]
-  %.1.be = phi ptr [ %.15, %203 ], [ %188, %186 ], [ %83, %81 ], [ %.10, %141 ]
+  %.0138.be = phi i32 [ %205, %203 ], [ %143, %141 ], [ %189, %186 ], [ %85, %81 ]
+  %.1.be = phi ptr [ %.15, %203 ], [ %.10, %141 ], [ %188, %186 ], [ %83, %81 ]
   br label %_ZN13duckdb_snappy17SnappyArrayWriter6AppendEPKcmPPc.exit, !llvm.loop !146
 
 _ZN13duckdb_snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit: ; preds = %65
@@ -5926,7 +5927,7 @@ _ZN13duckdb_snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit: ; preds = %6
   %205 = zext i8 %204 to i32
   br label %_ZN13duckdb_snappy17SnappyArrayWriter6AppendEPKcmPPc.exit.backedge
 
-.thread167:                                       ; preds = %144, %131, %._crit_edge, %150, %175, %.thread, %48, %.lr.ph, %.thread158, %17
+.thread167:                                       ; preds = %144, %131, %._crit_edge, %175, %150, %.thread, %48, %.lr.ph, %.thread158, %17
   %206 = load ptr, ptr %3, align 8, !tbaa !120
   store ptr %206, ptr %15, align 8, !tbaa !74
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -5977,7 +5978,7 @@ define linkonce_odr noundef zeroext i1 @_ZN13duckdb_snappy17SnappyArrayWriter14A
   br label %30
 
 30:                                               ; preds = %.sink.split, %18, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %18 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %18 ], [ false, %4 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -6120,8 +6121,8 @@ define linkonce_odr void @_ZN13duckdb_snappy18SnappyDecompressor17DecompressAllT
   br label %.backedge
 
 .backedge:                                        ; preds = %84, %148, %211, %194
-  %.0142.be = phi i32 [ %213, %211 ], [ %197, %194 ], [ %88, %84 ], [ %150, %148 ]
-  %.1.be = phi ptr [ %.15, %211 ], [ %196, %194 ], [ %86, %84 ], [ %.10, %148 ]
+  %.0142.be = phi i32 [ %213, %211 ], [ %150, %148 ], [ %197, %194 ], [ %88, %84 ]
+  %.1.be = phi ptr [ %.15, %211 ], [ %.10, %148 ], [ %196, %194 ], [ %86, %84 ]
   br label %34, !llvm.loop !150
 
 _ZN13duckdb_snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE13TryFastAppendEPKcmmPPc.exit: ; preds = %67
@@ -6757,7 +6758,7 @@ _ZN13duckdb_snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcm
   br label %40
 
 40:                                               ; preds = %._crit_edge, %.thread, %16, %3
-  %.013 = phi i1 [ false, %3 ], [ false, %16 ], [ false, %.thread ], [ true, %._crit_edge ]
+  %.013 = phi i1 [ false, %16 ], [ false, %3 ], [ false, %.thread ], [ true, %._crit_edge ]
   ret i1 %.013
 }
 

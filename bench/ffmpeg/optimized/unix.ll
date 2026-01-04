@@ -156,7 +156,7 @@ define internal i32 @unix_read(ptr noundef readonly captures(none) %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %20, %26, %24, %9
-  %.0 = phi i32 [ %12, %9 ], [ %29, %26 ], [ %19, %24 ], [ %spec.select, %20 ]
+  %.0 = phi i32 [ %spec.select, %20 ], [ %12, %9 ], [ %29, %26 ], [ %19, %24 ]
   ret i32 %.0
 }
 

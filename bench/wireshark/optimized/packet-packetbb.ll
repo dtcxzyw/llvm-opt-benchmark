@@ -469,7 +469,7 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
   br label %72
 
 72:                                               ; preds = %71, %70, %69, %59
-  %.0.i35 = phi i8 [ 3, %71 ], [ 1, %69 ], [ 2, %70 ], [ 0, %59 ]
+  %.0.i35 = phi i8 [ 3, %71 ], [ 2, %70 ], [ 1, %69 ], [ 0, %59 ]
   %73 = zext i16 %64 to i32
   %74 = trunc i32 %.03338 to i16
   %75 = add i16 %64, %74
@@ -901,7 +901,7 @@ default.unreachable:                              ; preds = %303
   unreachable
 
 322:                                              ; preds = %317, %314, %311, %307
-  %.1.i.i = phi ptr [ %310, %307 ], [ %313, %311 ], [ %316, %314 ], [ %321, %317 ]
+  %.1.i.i = phi ptr [ %321, %317 ], [ %310, %307 ], [ %313, %311 ], [ %316, %314 ]
   %323 = load i32, ptr @ett_packetbb_addr_value, align 4
   %324 = call ptr @proto_item_add_subtree(ptr noundef %.1.i.i, i32 noundef %323)
   %325 = load i32, ptr @hf_packetbb_addr_value_mid, align 4
@@ -935,7 +935,7 @@ default.unreachable:                              ; preds = %303
   br label %dissect_pbb_addressblock.exit.i
 
 dissect_pbb_addressblock.exit.i:                  ; preds = %._crit_edge.i.i, %239, %234, %222, %211, %200, %187, %182, %174, %162
-  %.0264.i.i = phi i32 [ %164, %162 ], [ %176, %174 ], [ %184, %182 ], [ %189, %187 ], [ %202, %200 ], [ %214, %211 ], [ %336, %._crit_edge.i.i ], [ %224, %222 ], [ %236, %234 ], [ %241, %239 ]
+  %.0264.i.i = phi i32 [ %164, %162 ], [ %176, %174 ], [ %184, %182 ], [ %189, %187 ], [ %202, %200 ], [ %214, %211 ], [ %241, %239 ], [ %336, %._crit_edge.i.i ], [ %224, %222 ], [ %236, %234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %337 = icmp ult i32 %.0264.i.i, %149
   br i1 %337, label %159, label %dissect_pbb_message.exit, !llvm.loop !9
@@ -1114,8 +1114,8 @@ define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1,
   br label %73
 
 73:                                               ; preds = %61, %71, %72
-  %.0168.in = phi ptr [ @hf_packetbb_msgtlv_type, %71 ], [ @hf_packetbb_addrtlv_type, %72 ], [ @hf_packetbb_pkttlv_type, %61 ]
-  %.0167 = phi ptr [ @msgtlv_type_vals, %71 ], [ @addrtlv_type_vals, %72 ], [ @pkttlv_type_vals, %61 ]
+  %.0168.in = phi ptr [ @hf_packetbb_addrtlv_type, %72 ], [ @hf_packetbb_msgtlv_type, %71 ], [ @hf_packetbb_pkttlv_type, %61 ]
+  %.0167 = phi ptr [ @addrtlv_type_vals, %72 ], [ @msgtlv_type_vals, %71 ], [ @pkttlv_type_vals, %61 ]
   %.0168 = load i32, ptr %.0168.in, align 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %.0168, ptr noundef %0, i32 noundef %.0172197, i32 noundef 1, i32 noundef 0)
   %75 = load i32, ptr @hf_packetbb_tlv_flags, align 4

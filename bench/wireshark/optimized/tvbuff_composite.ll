@@ -510,7 +510,7 @@ define internal ptr @composite_memcpy(ptr noundef captures(none) %0, ptr noundef
   unreachable
 
 common.ret86:                                     ; preds = %45, %.thread, %37, %56
-  %common.ret86.op = phi ptr [ %1, %56 ], [ %39, %37 ], [ %1, %.thread ], [ %1, %45 ]
+  %common.ret86.op = phi ptr [ %1, %56 ], [ %1, %45 ], [ %39, %37 ], [ %1, %.thread ]
   ret ptr %common.ret86.op
 
 56:                                               ; preds = %50

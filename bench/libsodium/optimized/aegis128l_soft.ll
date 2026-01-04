@@ -916,7 +916,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   br i1 %.not66, label %.loopexit, label %.lr.ph219, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph219, %.lr.ph223, %.preheader90, %.preheader
-  %.3 = phi i64 [ 0, %.preheader ], [ 0, %.preheader90 ], [ %294, %.lr.ph223 ], [ %298, %.lr.ph219 ]
+  %.3 = phi i64 [ %294, %.lr.ph223 ], [ 0, %.preheader ], [ 0, %.preheader90 ], [ %298, %.lr.ph219 ]
   %301 = and i64 %2, 31
   %.not68 = icmp eq i64 %301, 0
   br i1 %.not68, label %505, label %302
@@ -1203,7 +1203,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   br label %513
 
 513:                                              ; preds = %508, %509, %511, %505
-  %.0 = phi i32 [ %510, %509 ], [ %512, %511 ], [ -1, %505 ], [ -1, %508 ]
+  %.0 = phi i32 [ %510, %509 ], [ %512, %511 ], [ -1, %508 ], [ -1, %505 ]
   %514 = icmp ne i32 %.0, 0
   %or.cond = and i1 %293, %514
   br i1 %or.cond, label %515, label %516

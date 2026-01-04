@@ -2135,9 +2135,9 @@ define linkonce_odr hidden void @_ZN15MonitorExitStub5visitEP16LIR_OpVisitState(
   br i1 %.not17.i.i7, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split
 
 _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split: ; preds = %34, %34, %55, %9, %9, %30
-  %.sink15 = phi i64 [ 192, %30 ], [ 192, %9 ], [ 192, %9 ], [ 24, %55 ], [ 24, %34 ], [ 24, %34 ]
-  %.sink = phi i64 [ 12, %30 ], [ 12, %9 ], [ 12, %9 ], [ 8, %55 ], [ 8, %34 ], [ 8, %34 ]
-  %.sink.i.i4.sink = phi ptr [ %31, %30 ], [ %6, %9 ], [ %6, %9 ], [ %56, %55 ], [ %6, %34 ], [ %6, %34 ]
+  %.sink15 = phi i64 [ 192, %9 ], [ 192, %30 ], [ 192, %9 ], [ 24, %55 ], [ 24, %34 ], [ 24, %34 ]
+  %.sink = phi i64 [ 12, %9 ], [ 12, %30 ], [ 12, %9 ], [ 8, %55 ], [ 8, %34 ], [ 8, %34 ]
+  %.sink.i.i4.sink = phi ptr [ %6, %9 ], [ %31, %30 ], [ %6, %9 ], [ %56, %55 ], [ %6, %34 ], [ %6, %34 ]
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink15
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %61 = load i32, ptr %60, align 4
@@ -2283,7 +2283,7 @@ define linkonce_odr hidden void @_ZN19SimpleExceptionStub5visitEP16LIR_OpVisitSt
   br i1 %.not17.i.i, label %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %2, %2, %26
-  %.sink.i.i = phi ptr [ %27, %26 ], [ %3, %2 ], [ %3, %2 ]
+  %.sink.i.i = phi ptr [ %3, %2 ], [ %3, %2 ], [ %27, %26 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i32, ptr %31, align 4

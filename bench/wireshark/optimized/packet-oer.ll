@@ -494,8 +494,8 @@ define noundef i32 @dissect_oer_integer(ptr noundef %0, i32 noundef %1, ptr noun
   br label %21
 
 21:                                               ; preds = %16, %.thread
-  %.not7884.in = phi i8 [ %15, %.thread ], [ %20, %16 ]
-  %22 = phi i32 [ -1, %.thread ], [ %spec.select, %16 ]
+  %.not7884.in = phi i8 [ %20, %16 ], [ %15, %.thread ]
+  %22 = phi i32 [ %spec.select, %16 ], [ -1, %.thread ]
   %.not7884 = icmp sgt i8 %.not7884.in, -1
   %.070 = select i1 %.not7884, i32 0, i32 %22
   br label %23
@@ -753,7 +753,7 @@ define i32 @dissect_oer_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %29, %26, %19, %7
-  %.0140 = phi i32 [ %15, %7 ], [ %23, %19 ], [ %23, %26 ], [ %23, %29 ]
+  %.0140 = phi i32 [ %15, %7 ], [ %23, %19 ], [ %23, %29 ], [ %23, %26 ]
   %33 = load ptr, ptr %6, align 8
   %.not209 = icmp eq ptr %33, null
   br i1 %.not209, label %._crit_edge217.thread, label %.lr.ph
@@ -872,7 +872,7 @@ proto_item_set_hidden.exit:                       ; preds = %29, %26, %19, %7
   br i1 %.not.i165, label %index_get_optional_name.exit, label %.lr.ph.i, !llvm.loop !11
 
 index_get_optional_name.exit:                     ; preds = %81, %62, %74, %77
-  %.0.i = phi ptr [ %78, %77 ], [ @.str.44, %74 ], [ @.str.45, %62 ], [ @.str.45, %81 ]
+  %.0.i = phi ptr [ @.str.44, %74 ], [ %78, %77 ], [ @.str.45, %62 ], [ @.str.45, %81 ]
   %86 = load i64, ptr %9, align 8
   %.not161 = icmp eq i64 %86, 0
   %87 = select i1 %.not161, ptr @.str.12, ptr @.str.11
@@ -1009,9 +1009,9 @@ index_get_field_name.exit:                        ; preds = %140, %148
   unreachable
 
 .thread:                                          ; preds = %124, %122, %.lr.ph225, %137
-  %.5147 = phi i32 [ %.3145, %137 ], [ %.2144220, %.lr.ph225 ], [ 0, %122 ], [ %132, %124 ]
-  %.3139 = phi i32 [ %.1137, %137 ], [ %.0136221, %.lr.ph225 ], [ %.0136221, %122 ], [ %133, %124 ]
-  %.1 = phi i32 [ %139, %137 ], [ %.0223, %.lr.ph225 ], [ %.0223, %122 ], [ %.0223, %124 ]
+  %.5147 = phi i32 [ %.3145, %137 ], [ %132, %124 ], [ %.2144220, %.lr.ph225 ], [ 0, %122 ]
+  %.3139 = phi i32 [ %.1137, %137 ], [ %133, %124 ], [ %.0136221, %.lr.ph225 ], [ %.0136221, %122 ]
+  %.1 = phi i32 [ %139, %137 ], [ %.0223, %124 ], [ %.0223, %.lr.ph225 ], [ %.0223, %122 ]
   %154 = add i32 %.2129222, 1
   %155 = zext i32 %154 to i64
   %156 = getelementptr %struct._oer_sequence_t, ptr %6, i64 %155
@@ -1103,8 +1103,8 @@ index_get_field_name.exit:                        ; preds = %140, %148
   br i1 %exitcond.not.i, label %dissect_oer_bit_string_unconstr.exit, label %186, !llvm.loop !14
 
 dissect_oer_bit_string_unconstr.exit:             ; preds = %193, %.preheader.i.thread, %.preheader.i
-  %195 = phi i32 [ 0, %.preheader.i ], [ %161, %.preheader.i.thread ], [ %174, %193 ]
-  %.036.i = phi i32 [ %173, %.preheader.i ], [ %160, %.preheader.i.thread ], [ %194, %193 ]
+  %195 = phi i32 [ %161, %.preheader.i.thread ], [ 0, %.preheader.i ], [ %174, %193 ]
+  %.036.i = phi i32 [ %160, %.preheader.i.thread ], [ %173, %.preheader.i ], [ %194, %193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %196 = load ptr, ptr %6, align 8
   %.not153228 = icmp eq ptr %196, null
@@ -1359,7 +1359,7 @@ dissect_oer_length_determinant.exit187:           ; preds = %proto_item_set_hidd
   br label %._crit_edge254
 
 ._crit_edge254:                                   ; preds = %214, %259, %dissect_oer_length_determinant.exit187
-  %.5 = phi i32 [ %262, %259 ], [ %312, %dissect_oer_length_determinant.exit187 ], [ %.4237, %214 ]
+  %.5 = phi i32 [ %312, %dissect_oer_length_determinant.exit187 ], [ %262, %259 ], [ %.4237, %214 ]
   %313 = getelementptr %struct._oer_sequence_t, ptr %6, i64 %.pre255
   %314 = load ptr, ptr %313, align 8
   %.not157 = icmp ne ptr %314, null
@@ -1606,7 +1606,7 @@ proto_item_set_hidden.exit74.sink.split:          ; preds = %50, %42
   br label %proto_item_set_hidden.exit74
 
 proto_item_set_hidden.exit74:                     ; preds = %proto_item_set_hidden.exit74.sink.split, %50, %42, %45, %36
-  %.065 = phi i8 [ %29, %36 ], [ %25, %45 ], [ %29, %42 ], [ %25, %50 ], [ %.065.ph, %proto_item_set_hidden.exit74.sink.split ]
+  %.065 = phi i8 [ %25, %50 ], [ %29, %36 ], [ %29, %42 ], [ %25, %45 ], [ %.065.ph, %proto_item_set_hidden.exit74.sink.split ]
   %.not70 = icmp eq ptr %7, null
   br i1 %.not70, label %57, label %56
 

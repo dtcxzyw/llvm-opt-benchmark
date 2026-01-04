@@ -406,7 +406,7 @@ _ZN5faiss2nn16Tensor2DTemplateIiED2Ev.exit35:     ; preds = %117, %_ZN5faiss2nn1
   ret void
 
 _ZN5faiss2nn16Tensor2DTemplateIfED2Ev.exit37:     ; preds = %124, %_ZN5faiss2nn16Tensor2DTemplateIiED2Ev.exit35, %_ZN5faiss2nn16Tensor2DTemplateIiED2Ev.exit22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn17.pn.pn = phi { ptr, i32 } [ %64, %_ZN5faiss2nn16Tensor2DTemplateIiED2Ev.exit22 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn17.pn, %_ZN5faiss2nn16Tensor2DTemplateIiED2Ev.exit35 ], [ %.pn17.pn, %124 ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %64, %_ZN5faiss2nn16Tensor2DTemplateIiED2Ev.exit22 ], [ %.pn17.pn, %_ZN5faiss2nn16Tensor2DTemplateIiED2Ev.exit35 ], [ %.pn17.pn, %124 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
 130:                                              ; preds = %24
@@ -549,10 +549,10 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc57
   br label %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit
 
 _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc57, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.10.096105 = phi ptr [ %47, %.noexc57 ], [ %47, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.085.099103 = phi ptr [ %46, %.noexc57 ], [ %46, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.075.0 = phi ptr [ %54, %.noexc57 ], [ %54, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.12.0 = phi ptr [ %55, %.noexc57 ], [ %55, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.10.096105 = phi ptr [ %47, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %47, %.noexc57 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.085.099103 = phi ptr [ %46, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %46, %.noexc57 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.075.0 = phi ptr [ %54, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %54, %.noexc57 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.12.0 = phi ptr [ %55, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %55, %.noexc57 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !35
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -843,7 +843,7 @@ _ZN5faiss2nn16Tensor2DTemplateIiED2Ev.exit:       ; preds = %165, %167
   br label %_ZN5faiss2nn16Tensor2DTemplateIiED2Ev.exit68
 
 _ZN5faiss2nn16Tensor2DTemplateIiED2Ev.exit68:     ; preds = %.split, %.split.us, %178, %176
-  %.pn46 = phi { ptr, i32 } [ %.us-phi130, %176 ], [ %.us-phi130, %178 ], [ %164, %.split ], [ %106, %.split.us ]
+  %.pn46 = phi { ptr, i32 } [ %.us-phi130, %178 ], [ %.us-phi130, %176 ], [ %164, %.split ], [ %106, %.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %183 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %184 = load ptr, ptr %183, align 8, !tbaa !35
@@ -991,8 +991,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
   br label %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i
 
 _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc10
-  %17 = phi ptr [ %10, %.noexc10 ], [ %10, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i = phi ptr [ %13, %.noexc10 ], [ %16, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %17 = phi ptr [ %10, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %10, %.noexc10 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i = phi ptr [ %16, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %13, %.noexc10 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.0.i.i.i.i.i, ptr %18, align 8, !tbaa !57
   %.not = icmp eq ptr %3, null
@@ -1320,8 +1320,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
   br label %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
 
 _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc10
-  %17 = phi ptr [ %10, %.noexc10 ], [ %10, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i = phi ptr [ %13, %.noexc10 ], [ %16, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %17 = phi ptr [ %10, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %10, %.noexc10 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i = phi ptr [ %16, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %13, %.noexc10 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.0.i.i.i.i.i, ptr %18, align 8, !tbaa !60
   %.not = icmp eq ptr %3, null
@@ -1586,7 +1586,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
   br label %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i
 
 _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc10
-  %.0.i.i.i.i.i = phi ptr [ %13, %.noexc10 ], [ %16, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i = phi ptr [ %16, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %13, %.noexc10 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.0.i.i.i.i.i, ptr %17, align 8, !tbaa !57
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1676,7 +1676,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !57
   br label %41
 
@@ -3094,7 +3094,7 @@ _ZN5faiss2nn16Tensor2DTemplateIfED2Ev.exit34:     ; preds = %144, %141, %139
   br label %.body
 
 .body:                                            ; preds = %152, %149, %110, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %.pn22.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.pn22.pn, %149 ], [ %.pn22.pn, %152 ]
+  %.pn22.pn.pn = phi { ptr, i32 } [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %111, %110 ], [ %.pn22.pn, %149 ], [ %.pn22.pn, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %159 = load ptr, ptr %158, align 8, !tbaa !35
@@ -3718,7 +3718,7 @@ _ZN5faiss2nn16Tensor2DTemplateIfED2Ev.exit153:    ; preds = %_ZN5faiss2nn16Tenso
   ret void
 
 _ZN5faiss2nn16Tensor2DTemplateIiED2Ev.exit:       ; preds = %278, %275, %205, %_ZN5faiss2nn16Tensor2DTemplateIfED2Ev.exit144, %_ZN5faiss2nn16Tensor2DTemplateIfED2Ev.exit140
-  %.pn124.pn = phi { ptr, i32 } [ %.pn124, %_ZN5faiss2nn16Tensor2DTemplateIfED2Ev.exit144 ], [ %206, %205 ], [ %.pn117, %_ZN5faiss2nn16Tensor2DTemplateIfED2Ev.exit140 ], [ %.pn122, %275 ], [ %.pn122, %278 ]
+  %.pn124.pn = phi { ptr, i32 } [ %.pn124, %_ZN5faiss2nn16Tensor2DTemplateIfED2Ev.exit144 ], [ %.pn117, %_ZN5faiss2nn16Tensor2DTemplateIfED2Ev.exit140 ], [ %206, %205 ], [ %.pn122, %275 ], [ %.pn122, %278 ]
   %300 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %301 = load ptr, ptr %300, align 8, !tbaa !35
   %.not.i.i.i.i154 = icmp eq ptr %301, null

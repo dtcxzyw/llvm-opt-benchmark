@@ -648,7 +648,7 @@ define noundef zeroext i1 @_ZNK7rocksdb17BaseDeltaIterator5ValidEv(ptr noundef n
   br label %_ZNK7rocksdb17BaseDeltaIterator9BaseValidEv.exit
 
 _ZNK7rocksdb17BaseDeltaIterator9BaseValidEv.exit: ; preds = %30, %28, %25, %19, %12, %1
-  %36 = phi i1 [ false, %1 ], [ %18, %12 ], [ false, %19 ], [ false, %25 ], [ false, %28 ], [ %35, %30 ]
+  %36 = phi i1 [ %18, %12 ], [ false, %1 ], [ false, %19 ], [ false, %25 ], [ false, %28 ], [ %35, %30 ]
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !118
   %.not.i.i = icmp eq ptr %38, null
@@ -1160,7 +1160,7 @@ _ZN7rocksdb17BaseDeltaIterator12AdvanceDeltaEv.exit36: ; preds = %143, %144
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %29
 
-_ZNK7rocksdb17BaseDeltaIterator10DeltaValidEv.exit28.thread: ; preds = %71, %68, %63, %_ZNK7rocksdb17BaseDeltaIterator10DeltaValidEv.exit28, %61, %89, %110, %_ZNK7rocksdb17BaseDeltaIterator10DeltaValidEv.exit32.thread, %154, %159, %138
+_ZNK7rocksdb17BaseDeltaIterator10DeltaValidEv.exit28.thread: ; preds = %71, %68, %63, %_ZNK7rocksdb17BaseDeltaIterator10DeltaValidEv.exit28, %_ZNK7rocksdb17BaseDeltaIterator10DeltaValidEv.exit32.thread, %61, %89, %138, %110, %159, %154
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -5180,7 +5180,7 @@ _ZNK7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparato
   br label %_ZNK7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparatorEE14KeyIsAfterNodeERKS2_PNS6_4NodeE.exit
 
 _ZNK7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparatorEE14KeyIsAfterNodeERKS2_PNS6_4NodeE.exit: ; preds = %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i.i, %153
-  %.1.i.i = phi i32 [ %148, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i.i ], [ %..i.i, %153 ]
+  %.1.i.i = phi i32 [ %..i.i, %153 ], [ %148, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %155 = icmp slt i32 %.1.i.i, 0
@@ -5867,7 +5867,7 @@ _ZNK7rocksdb16WBWIIteratorImpl5ValidEv.exit35.thread: ; preds = %91, %89, %_ZN7r
   br label %_ZN7rocksdb16WBWIIteratorImpl4PrevEv.exit
 
 _ZN7rocksdb16WBWIIteratorImpl4PrevEv.exit:        ; preds = %32, %29, %_ZN7rocksdb12MergeContext5ClearEv.exit, %171, %_ZNK7rocksdb16WBWIIteratorImpl27ValidRegardlessOfBoundLimitEv.exit.i38, %165, %_ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparatorEE8Iterator4PrevEv.exit.i, %_ZN7rocksdb16WBWIIteratorImpl4NextEv.exit31.thread, %_ZNK7rocksdb16WBWIIteratorImpl5ValidEv.exit35.thread, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit, %_ZNK7rocksdb16WBWIIteratorImpl5ValidEv.exit
-  %.010 = phi i8 [ 2, %_ZNK7rocksdb16WBWIIteratorImpl5ValidEv.exit ], [ 2, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit ], [ %.095087, %_ZNK7rocksdb16WBWIIteratorImpl5ValidEv.exit35.thread ], [ %.212.ph, %_ZN7rocksdb16WBWIIteratorImpl4NextEv.exit31.thread ], [ %.0951, %_ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparatorEE8Iterator4PrevEv.exit.i ], [ %.0951, %165 ], [ %.0951, %_ZNK7rocksdb16WBWIIteratorImpl27ValidRegardlessOfBoundLimitEv.exit.i38 ], [ %.0951, %171 ], [ 2, %_ZN7rocksdb12MergeContext5ClearEv.exit ], [ 2, %29 ], [ 2, %32 ]
+  %.010 = phi i8 [ 2, %_ZNK7rocksdb16WBWIIteratorImpl5ValidEv.exit ], [ %.212.ph, %_ZN7rocksdb16WBWIIteratorImpl4NextEv.exit31.thread ], [ 2, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit ], [ %.095087, %_ZNK7rocksdb16WBWIIteratorImpl5ValidEv.exit35.thread ], [ %.0951, %171 ], [ %.0951, %_ZN7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparatorEE8Iterator4PrevEv.exit.i ], [ %.0951, %165 ], [ %.0951, %_ZNK7rocksdb16WBWIIteratorImpl27ValidRegardlessOfBoundLimitEv.exit.i38 ], [ 2, %_ZN7rocksdb12MergeContext5ClearEv.exit ], [ 2, %29 ], [ 2, %32 ]
   ret i8 %.010
 }
 
@@ -6231,7 +6231,7 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__
   store ptr %134, ptr %111, align 8, !tbaa !10
   br label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE9push_backERKS1_.exit
 
-135:                                              ; preds = %59, %.noexc.i
+135:                                              ; preds = %.noexc.i, %59
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef 32) #25
@@ -6627,7 +6627,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind noalias w
   br i1 %18, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !336
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %15, %2, %5, %9, %13
-  %.0.i = phi i32 [ %6, %5 ], [ %10, %9 ], [ %14, %13 ], [ 1, %2 ], [ %17, %15 ]
+  %.0.i = phi i32 [ %14, %13 ], [ %6, %5 ], [ %10, %9 ], [ 1, %2 ], [ %17, %15 ]
   %19 = zext i32 %.0.i to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !102
@@ -6821,7 +6821,7 @@ _ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit: ; pre
   br label %75
 
 75:                                               ; preds = %73, %69, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit
-  %.1 = phi i32 [ %68, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit ], [ 1, %69 ], [ %., %73 ]
+  %.1 = phi i32 [ 1, %69 ], [ %68, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit ], [ %., %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %76
@@ -7023,7 +7023,7 @@ define noundef zeroext range(i8 0, 5) i8 @_ZN7rocksdb27WriteBatchWithIndexIntern
   br i1 %46, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !336
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %43, %41, %37, %33, %28
-  %.0.i.i.i = phi i32 [ %34, %33 ], [ %38, %37 ], [ %42, %41 ], [ 1, %28 ], [ %45, %43 ]
+  %.0.i.i.i = phi i32 [ %42, %41 ], [ %34, %33 ], [ %38, %37 ], [ 1, %28 ], [ %45, %43 ]
   %.lobit.i.i = lshr i32 %29, 31
   %47 = add i32 %.0.i.i.i, %.lobit.i.i
   %48 = zext i32 %47 to i64
@@ -7589,7 +7589,7 @@ _ZN7rocksdb6StatusD2Ev.exit117.i:                 ; preds = %208, %_ZN7rocksdb6S
   br label %_ZN7rocksdb27WriteBatchWithIndexInternal16GetFromBatchImplIZNS0_12GetFromBatchEPNS_19WriteBatchWithIndexEPNS_18ColumnFamilyHandleERKNS_5SliceEPNS_12MergeContextEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6StatusEE6TraitsEENS_16WBWIIteratorImpl6ResultES3_S5_S8_SA_PNT_10OutputTypeESJ_.exit
 
 .body.i:                                          ; preds = %256, %_ZN7rocksdb6StatusD2Ev.exit.i.i, %211, %198, %171, %169
-  %.pn75.i = phi { ptr, i32 } [ %170, %169 ], [ %212, %211 ], [ %172, %171 ], [ %199, %198 ], [ %257, %256 ], [ %eh.lpad-body.i.i, %_ZN7rocksdb6StatusD2Ev.exit.i.i ]
+  %.pn75.i = phi { ptr, i32 } [ %170, %169 ], [ %172, %171 ], [ %212, %211 ], [ %199, %198 ], [ %257, %256 ], [ %eh.lpad-body.i.i, %_ZN7rocksdb6StatusD2Ev.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZNKSt14default_deleteIN7rocksdb16WBWIIteratorImplEEclEPS1_.exit.i146.i
 
@@ -7724,7 +7724,7 @@ _ZNKSt14default_deleteIN7rocksdb16WBWIIteratorImplEEclEPS1_.exit.i146.i: ; preds
   resume { ptr, i32 } %.pn78.pn.pn169.i
 
 _ZN7rocksdb27WriteBatchWithIndexInternal16GetFromBatchImplIZNS0_12GetFromBatchEPNS_19WriteBatchWithIndexEPNS_18ColumnFamilyHandleERKNS_5SliceEPNS_12MergeContextEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6StatusEE6TraitsEENS_16WBWIIteratorImpl6ResultES3_S5_S8_SA_PNT_10OutputTypeESJ_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %128, %_ZN7rocksdb6StatusaSEOS0_.exit89.i, %263, %295, %300, %_ZNK7rocksdb12MergeContext14GetNumOperandsEv.exit120.thread.i, %_ZN7rocksdb6StatusaSEOS0_.exit133.i, %307, %_ZN7rocksdb6StatusaSEOS0_.exit140.i
-  %.0.i = phi i8 [ 4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.065.i, %263 ], [ 4, %300 ], [ 0, %295 ], [ 2, %_ZN7rocksdb6StatusaSEOS0_.exit89.i ], [ 2, %128 ], [ 1, %_ZN7rocksdb6StatusaSEOS0_.exit133.i ], [ 1, %_ZNK7rocksdb12MergeContext14GetNumOperandsEv.exit120.thread.i ], [ %22, %_ZN7rocksdb6StatusaSEOS0_.exit140.i ], [ %22, %307 ]
+  %.0.i = phi i8 [ 4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ 0, %295 ], [ %.065.i, %263 ], [ 1, %_ZNK7rocksdb12MergeContext14GetNumOperandsEv.exit120.thread.i ], [ 2, %128 ], [ 4, %300 ], [ 2, %_ZN7rocksdb6StatusaSEOS0_.exit89.i ], [ 1, %_ZN7rocksdb6StatusaSEOS0_.exit133.i ], [ %22, %_ZN7rocksdb6StatusaSEOS0_.exit140.i ], [ %22, %307 ]
   call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 72) #25
   ret i8 %.0.i
 }
@@ -7866,7 +7866,7 @@ _ZZN7rocksdb27WriteBatchWithIndexInternal18GetEntityFromBatchEPNS_19WriteBatchWi
   br i1 %66, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !336
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %63, %61, %57, %53, %48
-  %.0.i.i.i = phi i32 [ %54, %53 ], [ %58, %57 ], [ %62, %61 ], [ 1, %48 ], [ %65, %63 ]
+  %.0.i.i.i = phi i32 [ %62, %61 ], [ %54, %53 ], [ %58, %57 ], [ 1, %48 ], [ %65, %63 ]
   %.lobit.i.i = lshr i32 %49, 31
   %67 = add i32 %.0.i.i.i, %.lobit.i.i
   %68 = zext i32 %67 to i64
@@ -8623,7 +8623,7 @@ _ZZN7rocksdb27WriteBatchWithIndexInternal18GetEntityFromBatchEPNS_19WriteBatchWi
   br label %_ZN7rocksdb27WriteBatchWithIndexInternal16GetFromBatchImplIZNS0_18GetEntityFromBatchEPNS_19WriteBatchWithIndexEPNS_18ColumnFamilyHandleERKNS_5SliceEPNS_12MergeContextEPNS_19PinnableWideColumnsEPNS_6StatusEE6TraitsEENS_16WBWIIteratorImpl6ResultES3_S5_S8_SA_PNT_10OutputTypeESE_.exit
 
 .body.i:                                          ; preds = %327, %_ZN7rocksdb6StatusD2Ev.exit.i.i, %268, %237, %210, %.loopexit.split-lp234.i, %.loopexit233.i
-  %.pn75.i = phi { ptr, i32 } [ %269, %268 ], [ %211, %210 ], [ %238, %237 ], [ %lpad.loopexit235.i, %.loopexit233.i ], [ %lpad.loopexit.split-lp236.i, %.loopexit.split-lp234.i ], [ %328, %327 ], [ %eh.lpad-body.i.i, %_ZN7rocksdb6StatusD2Ev.exit.i.i ]
+  %.pn75.i = phi { ptr, i32 } [ %211, %210 ], [ %lpad.loopexit.split-lp236.i, %.loopexit.split-lp234.i ], [ %269, %268 ], [ %238, %237 ], [ %lpad.loopexit235.i, %.loopexit233.i ], [ %328, %327 ], [ %eh.lpad-body.i.i, %_ZN7rocksdb6StatusD2Ev.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNKSt14default_deleteIN7rocksdb16WBWIIteratorImplEEclEPS1_.exit.i200.i
 
@@ -8928,12 +8928,12 @@ _ZN7rocksdb6StatusaSEOS0_.exit194.i:              ; preds = %469
   br label %_ZN7rocksdb27WriteBatchWithIndexInternal16GetFromBatchImplIZNS0_18GetEntityFromBatchEPNS_19WriteBatchWithIndexEPNS_18ColumnFamilyHandleERKNS_5SliceEPNS_12MergeContextEPNS_19PinnableWideColumnsEPNS_6StatusEE6TraitsEENS_16WBWIIteratorImpl6ResultES3_S5_S8_SA_PNT_10OutputTypeESE_.exit
 
 _ZNKSt14default_deleteIN7rocksdb16WBWIIteratorImplEEclEPS1_.exit.i200.i: ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %.loopexit.split-lp242.i, %.loopexit241.i, %390, %.body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.i, %.loopexit.split-lp226.loopexit.split-lp.i, %.loopexit.split-lp226.loopexit.i, %.loopexit225.i, %136
-  %.pn78.pn.pn223.i = phi { ptr, i32 } [ %391, %390 ], [ %137, %136 ], [ %.pn78.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.i ], [ %.pn75.i, %.body.i ], [ %lpad.loopexit227.i, %.loopexit225.i ], [ %lpad.loopexit230.i, %.loopexit.split-lp226.loopexit.i ], [ %lpad.loopexit.split-lp231.i, %.loopexit.split-lp226.loopexit.split-lp.i ], [ %lpad.loopexit243.i, %.loopexit241.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp242.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit238.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp239.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+  %.pn78.pn.pn223.i = phi { ptr, i32 } [ %137, %136 ], [ %391, %390 ], [ %lpad.loopexit.split-lp231.i, %.loopexit.split-lp226.loopexit.split-lp.i ], [ %.pn78.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.i ], [ %.pn75.i, %.body.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp242.i ], [ %lpad.loopexit227.i, %.loopexit225.i ], [ %lpad.loopexit230.i, %.loopexit.split-lp226.loopexit.i ], [ %lpad.loopexit243.i, %.loopexit241.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit238.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp239.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef 72) #25
   resume { ptr, i32 } %.pn78.pn.pn223.i
 
 _ZN7rocksdb27WriteBatchWithIndexInternal16GetFromBatchImplIZNS0_18GetEntityFromBatchEPNS_19WriteBatchWithIndexEPNS_18ColumnFamilyHandleERKNS_5SliceEPNS_12MergeContextEPNS_19PinnableWideColumnsEPNS_6StatusEE6TraitsEENS_16WBWIIteratorImpl6ResultES3_S5_S8_SA_PNT_10OutputTypeESE_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %171, %_ZN7rocksdb6StatusaSEOS0_.exit102.i, %_ZZN7rocksdb27WriteBatchWithIndexInternal18GetEntityFromBatchEPNS_19WriteBatchWithIndexEPNS_18ColumnFamilyHandleERKNS_5SliceEPNS_12MergeContextEPNS_19PinnableWideColumnsEPNS_6StatusEEN6Traits11ClearOutputESB_.exit142.i, %387, %_ZN7rocksdb13PinnableSlice5ResetEv.exit.i.i159.i, %416, %441, %_ZN7rocksdb6StatusaSEOS0_.exit177.i, %469, %_ZN7rocksdb6StatusaSEOS0_.exit194.i
-  %.0.i = phi i8 [ 4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.065.i, %_ZZN7rocksdb27WriteBatchWithIndexInternal18GetEntityFromBatchEPNS_19WriteBatchWithIndexEPNS_18ColumnFamilyHandleERKNS_5SliceEPNS_12MergeContextEPNS_19PinnableWideColumnsEPNS_6StatusEEN6Traits11ClearOutputESB_.exit142.i ], [ 0, %387 ], [ 4, %_ZN7rocksdb13PinnableSlice5ResetEv.exit.i.i159.i ], [ 4, %416 ], [ 2, %_ZN7rocksdb6StatusaSEOS0_.exit102.i ], [ 2, %171 ], [ 1, %_ZN7rocksdb6StatusaSEOS0_.exit177.i ], [ 1, %441 ], [ %20, %_ZN7rocksdb6StatusaSEOS0_.exit194.i ], [ %20, %469 ]
+  %.0.i = phi i8 [ 4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ 4, %416 ], [ %.065.i, %_ZZN7rocksdb27WriteBatchWithIndexInternal18GetEntityFromBatchEPNS_19WriteBatchWithIndexEPNS_18ColumnFamilyHandleERKNS_5SliceEPNS_12MergeContextEPNS_19PinnableWideColumnsEPNS_6StatusEEN6Traits11ClearOutputESB_.exit142.i ], [ 1, %441 ], [ 2, %171 ], [ 0, %387 ], [ 4, %_ZN7rocksdb13PinnableSlice5ResetEv.exit.i.i159.i ], [ 2, %_ZN7rocksdb6StatusaSEOS0_.exit102.i ], [ 1, %_ZN7rocksdb6StatusaSEOS0_.exit177.i ], [ %20, %_ZN7rocksdb6StatusaSEOS0_.exit194.i ], [ %20, %469 ]
   call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef 72) #25
   ret i8 %.0.i
 }
@@ -9293,8 +9293,8 @@ _ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i: ; p
   %88 = icmp ult i64 %86, %87
   br i1 %88, label %_ZNK7rocksdb25WriteBatchEntryComparatorclEPKNS_20WriteBatchIndexEntryES3_.exit.thread31, label %_ZNK7rocksdb25WriteBatchEntryComparatorclEPKNS_20WriteBatchIndexEntryES3_.exit
 
-_ZNK7rocksdb25WriteBatchEntryComparatorclEPKNS_20WriteBatchIndexEntryES3_.exit.thread31: ; preds = %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i, %85
-  %.1.i.ph = phi i32 [ 1, %85 ], [ %84, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i ]
+_ZNK7rocksdb25WriteBatchEntryComparatorclEPKNS_20WriteBatchIndexEntryES3_.exit.thread31: ; preds = %85, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i
+  %.1.i.ph = phi i32 [ %84, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i ], [ 1, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK7rocksdb25WriteBatchEntryComparatorclEPKNS_20WriteBatchIndexEntryES3_.exit.thread
@@ -9452,7 +9452,7 @@ _ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i: ; p
   br label %80
 
 80:                                               ; preds = %78, %74, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i
-  %.1.i = phi i32 [ %73, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i ], [ 1, %74 ], [ %..i, %78 ]
+  %.1.i = phi i32 [ 1, %74 ], [ %73, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i ], [ %..i, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %81 = icmp slt i32 %.1.i, 0
@@ -9687,7 +9687,7 @@ _ZNK7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparato
   br label %_ZNK7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparatorEE14KeyIsAfterNodeERKS2_PNS6_4NodeE.exit
 
 _ZNK7rocksdb8SkipListIPNS_20WriteBatchIndexEntryERKNS_25WriteBatchEntryComparatorEE14KeyIsAfterNodeERKS2_PNS6_4NodeE.exit: ; preds = %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i.i, %118
-  %.1.i.i = phi i32 [ %113, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i.i ], [ %..i.i, %118 ]
+  %.1.i.i = phi i32 [ %..i.i, %118 ], [ %113, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %120 = icmp slt i32 %.1.i.i, 0
@@ -9838,7 +9838,7 @@ _ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i: ; p
   br label %79
 
 79:                                               ; preds = %77, %73, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i
-  %.1.i = phi i32 [ %72, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i ], [ 1, %73 ], [ %..i, %77 ]
+  %.1.i = phi i32 [ 1, %73 ], [ %72, %_ZNK7rocksdb25WriteBatchEntryComparator10CompareKeyEjRKNS_5SliceES3_.exit.i ], [ %..i, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %80 = icmp slt i32 %.1.i, 0
@@ -11380,12 +11380,12 @@ define internal void @_GLOBAL__sub_I_write_batch_with_index_internal.cc() #19 se
   br label %25
 
 25:                                               ; preds = %23, %21
-  %.015.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 280), %21 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 320), %23 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %22, %21 ], [ %24, %23 ]
+  %.015.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 320), %23 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL22global_operation_tableE, i64 280), %21 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
   br label %26
 
 26:                                               ; preds = %_ZN7rocksdb13OperationInfoD2Ev.exit.i, %25
-  %27 = phi ptr [ %28, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ], [ %.015.i, %25 ]
+  %27 = phi ptr [ %.015.i, %25 ], [ %28, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
   %28 = getelementptr inbounds i8, ptr %27, i64 -40
   %29 = getelementptr inbounds i8, ptr %27, i64 -32
   %30 = load ptr, ptr %29, align 8, !tbaa !11
@@ -11404,7 +11404,7 @@ _ZN7rocksdb13OperationInfoD2Ev.exit.i:            ; preds = %26, %_ZNKSt7__cxx11
   br i1 %35, label %common.resume, label %26
 
 common.resume:                                    ; preds = %_ZN7rocksdb13OperationInfoD2Ev.exit.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.i, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZN7rocksdb13OperationInfoD2Ev.exit.i ]
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.2.exit:                     ; preds = %.noexc63.i
@@ -11631,12 +11631,12 @@ __cxx_global_var_init.2.exit:                     ; preds = %.noexc63.i
   br label %91
 
 91:                                               ; preds = %89, %87, %85, %83, %81, %79, %77, %75, %73
-  %.014.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 80), %73 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 120), %75 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 160), %77 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 200), %79 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 240), %81 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 280), %83 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 320), %85 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 400), %89 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 360), %87 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %90, %89 ], [ %88, %87 ]
+  %.014.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 360), %87 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 400), %89 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 80), %73 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 120), %75 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 160), %77 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 200), %79 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 240), %81 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 280), %83 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL21global_op_stage_tableE, i64 320), %85 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %88, %87 ], [ %90, %89 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ]
   br label %92
 
 92:                                               ; preds = %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i, %91
-  %93 = phi ptr [ %94, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ], [ %.014.i, %91 ]
+  %93 = phi ptr [ %.014.i, %91 ], [ %94, %_ZN7rocksdb18OperationStageInfoD2Ev.exit.i ]
   %94 = getelementptr inbounds i8, ptr %93, i64 -40
   %95 = getelementptr inbounds i8, ptr %93, i64 -32
   %96 = load ptr, ptr %95, align 8, !tbaa !11
@@ -11715,12 +11715,12 @@ __cxx_global_var_init.14.exit:                    ; preds = %.noexc68.i
   br label %116
 
 116:                                              ; preds = %114, %112
-  %.09.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 40), %112 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 80), %114 ]
-  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %113, %112 ], [ %115, %114 ]
+  %.09.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 80), %114 ], [ getelementptr inbounds nuw (i8, ptr @_ZN7rocksdbL31compaction_operation_propertiesE, i64 40), %112 ]
+  %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %115, %114 ], [ %113, %112 ]
   br label %117
 
 117:                                              ; preds = %_ZN7rocksdb17OperationPropertyD2Ev.exit.i, %116
-  %118 = phi ptr [ %119, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ], [ %.09.i, %116 ]
+  %118 = phi ptr [ %.09.i, %116 ], [ %119, %_ZN7rocksdb17OperationPropertyD2Ev.exit.i ]
   %119 = getelementptr inbounds i8, ptr %118, i64 -40
   %120 = getelementptr inbounds i8, ptr %118, i64 -32
   %121 = load ptr, ptr %120, align 8, !tbaa !11

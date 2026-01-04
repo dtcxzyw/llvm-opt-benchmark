@@ -428,7 +428,7 @@ define dso_local range(i32 -1, 1) i32 @unpack_slurmd_conf_lite_no_alloc(ptr noun
   br label %103
 
 103:                                              ; preds = %15, %90, %93
-  %.068 = phi i32 [ -1, %93 ], [ 0, %90 ], [ 0, %15 ]
+  %.068 = phi i32 [ -1, %93 ], [ 0, %15 ], [ 0, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.068

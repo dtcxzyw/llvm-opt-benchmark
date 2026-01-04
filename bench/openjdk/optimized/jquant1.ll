@@ -300,7 +300,7 @@ select_ncolors.exit.i:                            ; preds = %._crit_edge.us70.i.
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph.i, %.lr.ph71.i
-  %131 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %108, %.lr.ph71.i ], [ %108, %.lr.ph.i ]
+  %131 = phi i32 [ %108, %.lr.ph71.i ], [ %.pre.i, %._crit_edge.loopexit.i ], [ %108, %.lr.ph.i ]
   %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
   %132 = sext i32 %131 to i64
   %133 = icmp slt i64 %indvars.iv.next84.i, %132

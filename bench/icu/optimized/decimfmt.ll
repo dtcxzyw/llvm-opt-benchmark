@@ -260,7 +260,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -2390,7 +2390,7 @@ _ZNK6icu_7713DecimalFormat31isFormatFailIfMoreThanMaxDigitsEv.exit: ; preds = %1
   br label %_ZNK6icu_7713DecimalFormat16getCurrencyUsageEv.exit
 
 _ZNK6icu_7713DecimalFormat16getCurrencyUsageEv.exit: ; preds = %42, %39, %77, %73, %3, %87, %_ZNK6icu_7713DecimalFormat31isFormatFailIfMoreThanMaxDigitsEv.exit, %_ZNK6icu_7713DecimalFormat17isSignAlwaysShownEv.exit, %_ZNK6icu_7713DecimalFormat20isParseCaseSensitiveEv.exit, %_ZNK6icu_7713DecimalFormat24getMinimumGroupingDigitsEv.exit, %_ZNK6icu_7713DecimalFormat29isDecimalPatternMatchRequiredEv.exit, %_ZNK6icu_7713DecimalFormat17isParseNoExponentEv.exit, %_ZNK6icu_7713DecimalFormat24getSecondaryGroupingSizeEv.exit, %63, %58, %53, %_ZNK6icu_7713DecimalFormat15getGroupingSizeEv.exit, %_ZNK6icu_7713DecimalFormat18getMultiplierScaleEv.exit, %49, %_ZNK6icu_7713DecimalFormat27getMinimumSignificantDigitsEv.exit, %_ZNK6icu_7713DecimalFormat27getMaximumSignificantDigitsEv.exit, %37, %35, %33, %31, %29, %27, %_ZNK6icu_7713DecimalFormat29isDecimalSeparatorAlwaysShownEv.exit, %22, %18, %12, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %87 ], [ %17, %12 ], [ %21, %18 ], [ %24, %22 ], [ %26, %_ZNK6icu_7713DecimalFormat29isDecimalSeparatorAlwaysShownEv.exit ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %.0.i7, %_ZNK6icu_7713DecimalFormat27getMaximumSignificantDigitsEv.exit ], [ %.0.i9, %_ZNK6icu_7713DecimalFormat27getMinimumSignificantDigitsEv.exit ], [ %50, %49 ], [ %.0.i11, %_ZNK6icu_7713DecimalFormat18getMultiplierScaleEv.exit ], [ %..0.i, %_ZNK6icu_7713DecimalFormat15getGroupingSizeEv.exit ], [ %57, %53 ], [ %62, %58 ], [ %67, %63 ], [ %..0.i16, %_ZNK6icu_7713DecimalFormat24getSecondaryGroupingSizeEv.exit ], [ %70, %_ZNK6icu_7713DecimalFormat17isParseNoExponentEv.exit ], [ %72, %_ZNK6icu_7713DecimalFormat29isDecimalPatternMatchRequiredEv.exit ], [ %.0.i23, %_ZNK6icu_7713DecimalFormat24getMinimumGroupingDigitsEv.exit ], [ %82, %_ZNK6icu_7713DecimalFormat20isParseCaseSensitiveEv.exit ], [ %84, %_ZNK6icu_7713DecimalFormat17isSignAlwaysShownEv.exit ], [ %86, %_ZNK6icu_7713DecimalFormat31isFormatFailIfMoreThanMaxDigitsEv.exit ], [ -1, %3 ], [ %79, %77 ], [ 0, %73 ], [ 1, %39 ], [ %46, %42 ]
+  %.0 = phi i32 [ %86, %_ZNK6icu_7713DecimalFormat31isFormatFailIfMoreThanMaxDigitsEv.exit ], [ -1, %10 ], [ -1, %87 ], [ %17, %12 ], [ %21, %18 ], [ %24, %22 ], [ %26, %_ZNK6icu_7713DecimalFormat29isDecimalSeparatorAlwaysShownEv.exit ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ 0, %73 ], [ %.0.i7, %_ZNK6icu_7713DecimalFormat27getMaximumSignificantDigitsEv.exit ], [ %.0.i9, %_ZNK6icu_7713DecimalFormat27getMinimumSignificantDigitsEv.exit ], [ %50, %49 ], [ %.0.i11, %_ZNK6icu_7713DecimalFormat18getMultiplierScaleEv.exit ], [ %..0.i, %_ZNK6icu_7713DecimalFormat15getGroupingSizeEv.exit ], [ %57, %53 ], [ %62, %58 ], [ %67, %63 ], [ %..0.i16, %_ZNK6icu_7713DecimalFormat24getSecondaryGroupingSizeEv.exit ], [ %70, %_ZNK6icu_7713DecimalFormat17isParseNoExponentEv.exit ], [ %72, %_ZNK6icu_7713DecimalFormat29isDecimalPatternMatchRequiredEv.exit ], [ -1, %3 ], [ %.0.i23, %_ZNK6icu_7713DecimalFormat24getMinimumGroupingDigitsEv.exit ], [ %82, %_ZNK6icu_7713DecimalFormat20isParseCaseSensitiveEv.exit ], [ %84, %_ZNK6icu_7713DecimalFormat17isSignAlwaysShownEv.exit ], [ %79, %77 ], [ 1, %39 ], [ %46, %42 ]
   ret i32 %.0
 }
 
@@ -2538,7 +2538,7 @@ define noundef i32 @_ZNK6icu_7713DecimalFormat13getMultiplierEv(ptr noundef nonn
   br label %18
 
 18:                                               ; preds = %12, %9, %15
-  %.05 = phi i32 [ %17, %15 ], [ %11, %9 ], [ 1, %12 ]
+  %.05 = phi i32 [ %11, %9 ], [ %17, %15 ], [ 1, %12 ]
   ret i32 %.05
 }
 
@@ -3707,7 +3707,7 @@ define noundef zeroext i1 @_ZNK6icu_7713DecimalFormateqERKNS_6FormatE(ptr nounde
   br label %27
 
 27:                                               ; preds = %13, %17, %5, %9, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %9 ], [ false, %5 ], [ false, %13 ], [ %26, %17 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %2 ], [ false, %9 ], [ false, %13 ], [ %26, %17 ]
   ret i1 %.0
 }
 
@@ -3925,7 +3925,7 @@ define noundef zeroext i1 @_ZNK6icu_7713DecimalFormat16fastFormatDoubleEdRNS_13U
   br label %19
 
 19:                                               ; preds = %10, %3, %15
-  %.0 = phi i1 [ true, %15 ], [ false, %3 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %15 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -5469,7 +5469,7 @@ define void @_ZNK6icu_7713DecimalFormat5parseERKNS_13UnicodeStringERNS_11Formatt
   br label %_ZNK6icu_7713DecimalFormat9getParserER10UErrorCode.exit
 
 _ZNK6icu_7713DecimalFormat9getParserER10UErrorCode.exit: ; preds = %54, %48, %30
-  %.0.i.ph = phi ptr [ %42, %48 ], [ %56, %54 ], [ %.0.i.i.i, %30 ]
+  %.0.i.ph = phi ptr [ %56, %54 ], [ %.0.i.i.i, %30 ], [ %42, %48 ]
   %.pr = load i32, ptr %29, align 8, !tbaa !13
   %60 = icmp slt i32 %.pr, 1
   br i1 %60, label %65, label %_ZNK6icu_7713DecimalFormat9getParserER10UErrorCode.exit.thread
@@ -5595,7 +5595,7 @@ define noundef ptr @_ZNK6icu_7713DecimalFormat9getParserER10UErrorCode(ptr nound
   br label %_ZNSt6atomicIPN6icu_778numparse4impl16NumberParserImplEE23compare_exchange_strongERS4_S4_St12memory_order.exit.thread
 
 _ZNSt6atomicIPN6icu_778numparse4impl16NumberParserImplEE23compare_exchange_strongERS4_S4_St12memory_order.exit.thread: ; preds = %23, %5, %29, %10, %22, %2
-  %.0 = phi ptr [ null, %2 ], [ %.0.i.i, %5 ], [ null, %22 ], [ null, %10 ], [ %31, %29 ], [ %17, %23 ]
+  %.0 = phi ptr [ null, %2 ], [ %.0.i.i, %5 ], [ null, %10 ], [ null, %22 ], [ %31, %29 ], [ %17, %23 ]
   ret ptr %.0
 }
 
@@ -5720,7 +5720,7 @@ _ZNSt6atomicIPN6icu_778numparse4impl16NumberParserImplEE23compare_exchange_stron
   br label %_ZNK6icu_7713DecimalFormat17getCurrencyParserER10UErrorCode.exit
 
 _ZNK6icu_7713DecimalFormat17getCurrencyParserER10UErrorCode.exit: ; preds = %54, %_ZNSt6atomicIPN6icu_778numparse4impl16NumberParserImplEE23compare_exchange_strongERS4_S4_St12memory_order.exit.thread24.i, %.split11.i, %.split.i, %30
-  %.0.i.ph = phi ptr [ null, %.split11.i ], [ %41, %.split.i ], [ %56, %54 ], [ %53, %_ZNSt6atomicIPN6icu_778numparse4impl16NumberParserImplEE23compare_exchange_strongERS4_S4_St12memory_order.exit.thread24.i ], [ %.0.i.i.i, %30 ]
+  %.0.i.ph = phi ptr [ null, %.split11.i ], [ %41, %.split.i ], [ %53, %_ZNSt6atomicIPN6icu_778numparse4impl16NumberParserImplEE23compare_exchange_strongERS4_S4_St12memory_order.exit.thread24.i ], [ %56, %54 ], [ %.0.i.i.i, %30 ]
   %.pr = load i32, ptr %25, align 8, !tbaa !13
   %60 = icmp slt i32 %.pr, 1
   br i1 %60, label %65, label %_ZNK6icu_7713DecimalFormat17getCurrencyParserER10UErrorCode.exit.thread
@@ -5842,7 +5842,7 @@ _ZN6icu_7712LocalPointerINS_14CurrencyAmountEED2Ev.exit: ; preds = %85, %82, %_Z
   br label %_ZNK6icu_7713DecimalFormat17getCurrencyParserER10UErrorCode.exit.thread
 
 _ZNK6icu_7713DecimalFormat17getCurrencyParserER10UErrorCode.exit.thread: ; preds = %26, %66, %_ZNK6icu_7713DecimalFormat17getCurrencyParserER10UErrorCode.exit, %101, %_ZN6icu_7712LocalPointerINS_14CurrencyAmountEED2Ev.exit
-  %.123 = phi ptr [ %.245, %_ZN6icu_7712LocalPointerINS_14CurrencyAmountEED2Ev.exit ], [ null, %101 ], [ null, %_ZNK6icu_7713DecimalFormat17getCurrencyParserER10UErrorCode.exit ], [ null, %66 ], [ null, %26 ]
+  %.123 = phi ptr [ null, %101 ], [ null, %_ZNK6icu_7713DecimalFormat17getCurrencyParserER10UErrorCode.exit ], [ %.245, %_ZN6icu_7712LocalPointerINS_14CurrencyAmountEED2Ev.exit ], [ null, %66 ], [ null, %26 ]
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 144
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %104) #19
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 80
@@ -5927,7 +5927,7 @@ _ZNSt6atomicIPN6icu_778numparse4impl16NumberParserImplEE23compare_exchange_stron
   br label %_ZNSt6atomicIPN6icu_778numparse4impl16NumberParserImplEE23compare_exchange_strongERS4_S4_St12memory_order.exit.thread
 
 _ZNSt6atomicIPN6icu_778numparse4impl16NumberParserImplEE23compare_exchange_strongERS4_S4_St12memory_order.exit.thread: ; preds = %.split11, %.split, %5, %_ZNSt6atomicIPN6icu_778numparse4impl16NumberParserImplEE23compare_exchange_strongERS4_S4_St12memory_order.exit.thread24, %30, %2
-  %.0 = phi ptr [ null, %2 ], [ %.0.i.i, %5 ], [ %29, %_ZNSt6atomicIPN6icu_778numparse4impl16NumberParserImplEE23compare_exchange_strongERS4_S4_St12memory_order.exit.thread24 ], [ %32, %30 ], [ %17, %.split ], [ null, %.split11 ]
+  %.0 = phi ptr [ null, %2 ], [ %.0.i.i, %5 ], [ %32, %30 ], [ %29, %_ZNSt6atomicIPN6icu_778numparse4impl16NumberParserImplEE23compare_exchange_strongERS4_S4_St12memory_order.exit.thread24 ], [ %17, %.split ], [ null, %.split11 ]
   ret ptr %.0
 }
 
@@ -5957,7 +5957,7 @@ define noundef ptr @_ZNK6icu_7713DecimalFormat23getDecimalFormatSymbolsEv(ptr no
   br label %11
 
 11:                                               ; preds = %5, %1, %8
-  %.0 = phi ptr [ %10, %8 ], [ null, %1 ], [ %7, %5 ]
+  %.0 = phi ptr [ null, %1 ], [ %10, %8 ], [ %7, %5 ]
   ret ptr %.0
 }
 
@@ -7385,7 +7385,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713DecimalForm
 41:                                               ; preds = %38
   br i1 %40, label %.critedge, label %56
 
-.critedge:                                        ; preds = %37, %33, %29, %19, %13, %41
+.critedge:                                        ; preds = %37, %33, %29, %13, %19, %41
   %42 = load ptr, ptr %6, align 8, !tbaa !25
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 3872
   %44 = load i32, ptr %43, align 8, !tbaa !107
@@ -8215,7 +8215,7 @@ _ZN6icu_7712LocalPointerINS_20DecimalFormatSymbolsEED2Ev.exit: ; preds = %_ZN6ic
   br label %_ZN6icu_7712LocalPointerINS_20DecimalFormatSymbolsEED2Ev.exit32
 
 _ZN6icu_7712LocalPointerINS_20DecimalFormatSymbolsEED2Ev.exit32: ; preds = %75, %.thread38, %77, %36, %22
-  %.pn28.pn = phi { ptr, i32 } [ %23, %22 ], [ %.pn, %36 ], [ %76, %75 ], [ %73, %.thread38 ], [ %78, %77 ]
+  %.pn28.pn = phi { ptr, i32 } [ %.pn, %36 ], [ %23, %22 ], [ %76, %75 ], [ %78, %77 ], [ %73, %.thread38 ]
   call void @_ZN6icu_7712CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #19
   br label %82
 
@@ -8414,7 +8414,7 @@ define noundef ptr @_ZNK6icu_7713DecimalFormat17toNumberFormatterER10UErrorCode(
   br label %12
 
 12:                                               ; preds = %2, %10, %9
-  %.0 = phi ptr [ null, %9 ], [ %11, %10 ], [ null, %2 ]
+  %.0 = phi ptr [ %11, %10 ], [ null, %9 ], [ null, %2 ]
   ret ptr %.0
 }
 

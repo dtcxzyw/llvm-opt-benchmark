@@ -693,7 +693,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br label %233
 
 233:                                              ; preds = %231, %227, %225, %221, %218, %213, %208, %._crit_edge23, %195, %188
-  %234 = phi i32 [ -22, %188 ], [ -22, %195 ], [ -22, %._crit_edge23 ], [ -22, %208 ], [ -22, %213 ], [ -22, %218 ], [ -22, %221 ], [ -22, %225 ], [ -22, %231 ], [ 0, %227 ]
+  %234 = phi i32 [ -22, %221 ], [ -22, %225 ], [ -22, %231 ], [ 0, %227 ], [ -22, %188 ], [ -22, %195 ], [ -22, %._crit_edge23 ], [ -22, %208 ], [ -22, %213 ], [ -22, %218 ]
   %235 = icmp eq ptr %177, null
   br i1 %235, label %.thread19, label %236
 
@@ -706,7 +706,7 @@ define dso_local i32 @ext4_group_add(ptr noundef %0, ptr noundef %1) local_unnam
   br label %253
 
 .thread19:                                        ; preds = %179, %236, %233
-  %237 = phi i32 [ %234, %233 ], [ %234, %236 ], [ %181, %179 ]
+  %237 = phi i32 [ %234, %236 ], [ %234, %233 ], [ %181, %179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %238 = icmp eq i32 %237, 0
   br i1 %238, label %239, label %253
@@ -1130,7 +1130,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br label %249
 
 249:                                              ; preds = %248, %241, %238
-  %250 = phi ptr [ %240, %238 ], [ %233, %241 ], [ %233, %248 ]
+  %250 = phi ptr [ %240, %238 ], [ %233, %248 ], [ %233, %241 ]
   %251 = icmp ugt ptr %250, inttoptr (i64 -4096 to ptr)
   br i1 %251, label %.thread105, label %255
 
@@ -1262,7 +1262,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br label %335
 
 335:                                              ; preds = %334, %327, %324
-  %336 = phi ptr [ %326, %324 ], [ %319, %327 ], [ %319, %334 ]
+  %336 = phi ptr [ %326, %324 ], [ %319, %334 ], [ %319, %327 ]
   %337 = icmp ugt ptr %336, inttoptr (i64 -4096 to ptr)
   br i1 %337, label %.thread106, label %341
 
@@ -1374,7 +1374,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %413, label %357, label %.thread109
 
 .thread109:                                       ; preds = %341, %304, %280, %218, %192, %174, %164, %132, %129, %.loopexit138, %357, %384, %149, %.thread105, %.thread106
-  %414 = phi i32 [ %254, %.thread105 ], [ %340, %.thread106 ], [ %147, %149 ], [ %392, %384 ], [ 0, %357 ], [ %412, %.loopexit138 ], [ %165, %164 ], [ %130, %129 ], [ -12, %132 ], [ %184, %174 ], [ %203, %192 ], [ %219, %218 ], [ %290, %280 ], [ %305, %304 ], [ %351, %341 ]
+  %414 = phi i32 [ %254, %.thread105 ], [ %165, %164 ], [ %412, %.loopexit138 ], [ %147, %149 ], [ %340, %.thread106 ], [ %392, %384 ], [ 0, %357 ], [ -12, %132 ], [ %130, %129 ], [ %184, %174 ], [ %203, %192 ], [ %290, %280 ], [ %305, %304 ], [ %219, %218 ], [ %351, %341 ]
   %415 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 717, ptr noundef %77) #13
   %416 = icmp eq i32 %415, 0
   %417 = icmp ne i32 %414, 0
@@ -2093,7 +2093,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br label %868
 
 868:                                              ; preds = %866, %670, %652, %488
-  %869 = phi i32 [ %653, %652 ], [ %494, %488 ], [ %867, %866 ], [ %672, %670 ]
+  %869 = phi i32 [ %653, %652 ], [ %672, %670 ], [ %494, %488 ], [ %867, %866 ]
   %870 = icmp eq i32 %869, 0
   br i1 %870, label %.thread116, label %.thread132
 
@@ -2347,7 +2347,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %1019, label %882, label %.thread119, !llvm.loop !38
 
 .thread132:                                       ; preds = %868, %1011, %.thread123, %1010, %681, %692, %694, %443
-  %.ph = phi i32 [ -5, %.thread123 ], [ %1008, %1010 ], [ -12, %681 ], [ %690, %692 ], [ %690, %694 ], [ %446, %443 ], [ %1012, %1011 ], [ %869, %868 ]
+  %.ph = phi i32 [ -5, %.thread123 ], [ %1008, %1010 ], [ %446, %443 ], [ -12, %681 ], [ %690, %692 ], [ %1012, %1011 ], [ %690, %694 ], [ %869, %868 ]
   %1020 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.ext4_flex_group_add, i32 noundef 1597, ptr noundef %438) #13
   br label %.loopexit
 
@@ -4070,7 +4070,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br label %.loopexit91
 
 .loopexit91:                                      ; preds = %598, %603, %618, %623, %853
-  %854 = phi i64 [ %396, %853 ], [ %584, %623 ], [ %584, %618 ], [ %584, %603 ], [ %584, %598 ]
+  %854 = phi i64 [ %396, %853 ], [ %584, %603 ], [ %584, %623 ], [ %584, %618 ], [ %584, %598 ]
   br i1 %342, label %.thread79, label %855
 
 855:                                              ; preds = %.loopexit91
@@ -4097,8 +4097,8 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br label %.thread83
 
 .thread83:                                        ; preds = %351, %325, %336, %344, %348, %247, %.loopexit110, %.thread, %.loopexit102, %.thread79
-  %862 = phi i32 [ %859, %.thread79 ], [ %.ph, %.thread ], [ -22, %.loopexit102 ], [ -12, %.loopexit110 ], [ %248, %247 ], [ -12, %351 ], [ %349, %348 ], [ %346, %344 ], [ 0, %336 ], [ %326, %325 ]
-  %863 = phi ptr [ %256, %.thread79 ], [ %140, %.thread ], [ %140, %.loopexit102 ], [ %256, %.loopexit110 ], [ %140, %247 ], [ %256, %348 ], [ %256, %344 ], [ %256, %336 ], [ %256, %325 ], [ %256, %351 ]
+  %862 = phi i32 [ %.ph, %.thread ], [ %859, %.thread79 ], [ -22, %.loopexit102 ], [ %248, %247 ], [ -12, %.loopexit110 ], [ %349, %348 ], [ %346, %344 ], [ 0, %336 ], [ %326, %325 ], [ -12, %351 ]
+  %863 = phi ptr [ %140, %.thread ], [ %256, %.thread79 ], [ %140, %.loopexit102 ], [ %140, %247 ], [ %256, %.loopexit110 ], [ %256, %348 ], [ %256, %344 ], [ %256, %336 ], [ %256, %325 ], [ %256, %351 ]
   %864 = icmp eq ptr %863, null
   br i1 %864, label %868, label %865
 
@@ -4611,10 +4611,10 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   br label %85
 
 .thread:                                          ; preds = %230, %217, %215, %232
-  %79 = phi i32 [ %68, %232 ], [ %207, %230 ], [ %223, %217 ], [ %89, %215 ]
-  %80 = phi i32 [ %87, %232 ], [ %87, %230 ], [ %229, %217 ], [ %87, %215 ]
-  %81 = phi i32 [ %88, %232 ], [ %88, %230 ], [ %228, %217 ], [ %88, %215 ]
-  %82 = phi i32 [ %89, %232 ], [ %231, %230 ], [ %227, %217 ], [ %216, %215 ]
+  %79 = phi i32 [ %68, %232 ], [ %223, %217 ], [ %207, %230 ], [ %89, %215 ]
+  %80 = phi i32 [ %87, %232 ], [ %229, %217 ], [ %87, %230 ], [ %87, %215 ]
+  %81 = phi i32 [ %88, %232 ], [ %228, %217 ], [ %88, %230 ], [ %88, %215 ]
+  %82 = phi i32 [ %89, %232 ], [ %227, %217 ], [ %231, %230 ], [ %216, %215 ]
   %83 = load i32, ptr %70, align 64
   %84 = icmp ult i32 %79, %83
   br i1 %84, label %85, label %.thread22
@@ -5190,8 +5190,8 @@ define internal fastcc i32 @verify_reserved_gdb(ptr noundef %0, i32 noundef %1, 
   br i1 %97, label %98, label %.split11.us
 
 .split11.us:                                      ; preds = %90, %56, %23
-  %.us-phi12 = phi i64 [ %29, %23 ], [ %62, %56 ], [ %96, %90 ]
-  %.us-phi13 = phi i32 [ %19, %23 ], [ %48, %56 ], [ %84, %90 ]
+  %.us-phi12 = phi i64 [ %62, %56 ], [ %29, %23 ], [ %96, %90 ]
+  %.us-phi13 = phi i32 [ %48, %56 ], [ %19, %23 ], [ %84, %90 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_reserved_gdb, i32 noundef 795, ptr noundef nonnull @.str.44, i64 noundef %.24.val, i32 noundef %.us-phi13, i64 noundef %.us-phi12) #13
   br label %.thread
 
@@ -5205,7 +5205,7 @@ define internal fastcc i32 @verify_reserved_gdb(ptr noundef %0, i32 noundef %1, 
   br i1 %104, label %.thread, label %.split, !llvm.loop !65
 
 .thread:                                          ; preds = %87, %98, %.split, %77, %.split.us.split, %64, %.split.us.split.us, %31, %.split11.us
-  %105 = phi i32 [ -22, %.split11.us ], [ %18, %.split.us.split.us ], [ -27, %31 ], [ %42, %.split.us.split ], [ -27, %64 ], [ %73, %77 ], [ %73, %.split ], [ %73, %87 ], [ -27, %98 ]
+  %105 = phi i32 [ -22, %.split11.us ], [ %42, %.split.us.split ], [ %73, %77 ], [ %18, %.split.us.split.us ], [ -27, %31 ], [ -27, %64 ], [ %73, %.split ], [ -27, %98 ], [ %73, %87 ]
   ret i32 %105
 }
 

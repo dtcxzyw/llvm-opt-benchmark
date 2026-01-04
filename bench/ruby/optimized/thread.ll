@@ -1807,8 +1807,8 @@ ractor_sched_lock_.exit:                          ; preds = %14
   br label %ractor_sched_lock_.exit.thread
 
 ractor_sched_lock_.exit.thread:                   ; preds = %.thread, %33
-  %.035 = phi ptr [ %.0, %33 ], [ null, %.thread ]
-  %35 = phi ptr [ %15, %33 ], [ %17, %.thread ]
+  %.035 = phi ptr [ null, %.thread ], [ %.0, %33 ]
+  %35 = phi ptr [ %17, %.thread ], [ %15, %33 ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %50, label %.preheader
 
@@ -2510,7 +2510,7 @@ define dso_local range(i32 0, 2) i32 @rb_reserved_fd_p(i32 noundef %0) local_unn
   br label %14
 
 14:                                               ; preds = %10, %3, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %3 ], [ %., %10 ]
+  %.0 = phi i32 [ 0, %1 ], [ %., %10 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -3171,7 +3171,7 @@ threadptr_get_interrupts.exit:                    ; preds = %.preheader
   br label %155
 
 155:                                              ; preds = %threadptr_get_interrupts.exit, %138, %vm_check_ints_blocking.exit, %137
-  %.1 = phi i32 [ %.086, %vm_check_ints_blocking.exit ], [ %.086, %137 ], [ %.086, %138 ], [ %..0, %threadptr_get_interrupts.exit ]
+  %.1 = phi i32 [ %.086, %vm_check_ints_blocking.exit ], [ %.086, %137 ], [ %..0, %threadptr_get_interrupts.exit ], [ %.086, %138 ]
   %156 = load ptr, ptr %11, align 8, !tbaa !174
   %.not66 = icmp eq ptr %156, %10
   br i1 %.not66, label %._crit_edge, label %58, !llvm.loop !186
@@ -3378,7 +3378,7 @@ default.unreachable32:                            ; preds = %34
   unreachable
 
 rb_threadptr_interrupt.exit:                      ; preds = %threadptr_interrupt_locked.exit.i.i, %30, %thread_mutex_remove.exit, %6, %3
-  %.0 = phi ptr [ @.str.154, %3 ], [ @.str.155, %6 ], [ null, %thread_mutex_remove.exit ], [ null, %30 ], [ null, %threadptr_interrupt_locked.exit.i.i ]
+  %.0 = phi ptr [ @.str.155, %6 ], [ @.str.154, %3 ], [ null, %thread_mutex_remove.exit ], [ null, %30 ], [ null, %threadptr_interrupt_locked.exit.i.i ]
   ret ptr %.0
 }
 
@@ -6437,8 +6437,8 @@ rb_ec_vm_ptr.exit:                                ; preds = %.thread, %22
   br label %36
 
 36:                                               ; preds = %rb_ec_vm_ptr.exit, %.fold.split, %28, %34
-  %.047 = phi ptr [ %3, %34 ], [ %3, %28 ], [ %.val, %rb_ec_vm_ptr.exit ], [ %3, %.fold.split ]
-  %.046 = phi ptr [ %2, %34 ], [ %2, %28 ], [ @ubf_select, %rb_ec_vm_ptr.exit ], [ null, %.fold.split ]
+  %.047 = phi ptr [ %.val, %rb_ec_vm_ptr.exit ], [ %3, %34 ], [ %3, %.fold.split ], [ %3, %28 ]
+  %.046 = phi ptr [ @ubf_select, %rb_ec_vm_ptr.exit ], [ %2, %34 ], [ null, %.fold.split ], [ %2, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile ptr %.0.i, ptr %7, align 8, !tbaa !147
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -6911,7 +6911,7 @@ define dso_local i64 @rb_thread_io_blocking_call(ptr noundef readonly captures(n
   br label %thread_io_mn_schedulable.exit
 
 thread_io_mn_schedulable.exit:                    ; preds = %4, %24
-  %29 = phi i8 [ 0, %4 ], [ %28, %24 ]
+  %29 = phi i8 [ %28, %24 ], [ 0, %4 ]
   %.0..0..0..0.16 = load volatile ptr, ptr %7, align 8, !tbaa !59
   %30 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.16, i64 200
   store i8 %29, ptr %30, align 8, !tbaa !251
@@ -7885,7 +7885,7 @@ RARRAY_AREF.exit.i:                               ; preds = %117, %.thread.i
   br label %rb_class_of.exit.i
 
 rb_class_of.exit.i:                               ; preds = %134, %132, %131, %130, %129, %126
-  %.0.in.i.i = phi ptr [ @rb_cNilClass, %130 ], [ @rb_cTrueClass, %131 ], [ %128, %126 ], [ @rb_cFalseClass, %129 ], [ @rb_cInteger, %132 ], [ %spec.select.i.i, %134 ]
+  %.0.in.i.i = phi ptr [ %128, %126 ], [ @rb_cNilClass, %130 ], [ @rb_cTrueClass, %131 ], [ @rb_cFalseClass, %129 ], [ @rb_cInteger, %132 ], [ %spec.select.i.i, %134 ]
   %.0.i17.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !145
   %.val.i93 = load i64, ptr %14, align 8, !tbaa !234
   %137 = inttoptr i64 %.val.i93 to ptr
@@ -7984,7 +7984,7 @@ RB_SYMBOL_P.exit.thread.i.i:                      ; preds = %178, %.lr.ph11.spli
   br i1 %.not33.i.i, label %RB_SYMBOL_P.exit..loopexit_crit_edge.i.i, label %.split.us.i.i
 
 .split.us.i.i:                                    ; preds = %RB_SYMBOL_P.exit.thread.i.i, %162, %.lr.ph11.split.us.split.i.i
-  %.us-phi.i.i = phi i64 [ %154, %.lr.ph11.split.us.split.i.i ], [ %154, %162 ], [ %170, %RB_SYMBOL_P.exit.thread.i.i ]
+  %.us-phi.i.i = phi i64 [ %154, %162 ], [ %154, %.lr.ph11.split.us.split.i.i ], [ %170, %RB_SYMBOL_P.exit.thread.i.i ]
   %184 = load i64, ptr @sym_immediate, align 8, !tbaa !145
   %185 = icmp eq i64 %.us-phi.i.i, %184
   br i1 %185, label %rb_threadptr_pending_interrupt_deque.exit, label %186
@@ -8114,7 +8114,7 @@ rb_threadptr_pending_interrupt_deque.exit:        ; preds = %rb_array_const_ptr.
   unreachable
 
 threadptr_pending_interrupt_active_p.exit.thread: ; preds = %rb_threadptr_pending_interrupt_deque.exit, %92, %rb_threadptr_pending_interrupt_deque.exit.thread, %threadptr_pending_interrupt_active_p.exit, %91
-  %.4 = phi i32 [ %.1, %threadptr_pending_interrupt_active_p.exit ], [ %.1, %91 ], [ 1, %rb_threadptr_pending_interrupt_deque.exit ], [ 1, %rb_threadptr_pending_interrupt_deque.exit.thread ], [ %.1, %92 ]
+  %.4 = phi i32 [ %.1, %91 ], [ %.1, %threadptr_pending_interrupt_active_p.exit ], [ 1, %rb_threadptr_pending_interrupt_deque.exit ], [ 1, %rb_threadptr_pending_interrupt_deque.exit.thread ], [ %.1, %92 ]
   %.not83 = icmp eq i32 %40, 0
   br i1 %.not83, label %237, label %.thread
 
@@ -10071,7 +10071,7 @@ wait_retryable.exit:                              ; preds = %hrtime_update_expir
 .backedge:                                        ; preds = %145, %143
   br label %32, !llvm.loop !323
 
-.critedge:                                        ; preds = %110, %114, %117
+.critedge:                                        ; preds = %114, %110, %117
   %.0..0..0.51 = load volatile i32, ptr %2, align 4, !tbaa !131
   %154 = icmp slt i32 %.0..0..0.51, 0
   br i1 %154, label %155, label %157
@@ -10459,7 +10459,7 @@ hrtime_update_expire.exit18.sink.split.i:         ; preds = %155, %147
   store i64 %.sink.i, ptr %storemerge.i, align 8, !tbaa !145
   br label %wait_retryable.exit.backedge
 
-157:                                              ; preds = %145, %149, %152
+157:                                              ; preds = %149, %145, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %158
 
@@ -11614,7 +11614,7 @@ rb_mutex_unlock.exit:                             ; preds = %38
   br label %50
 
 50:                                               ; preds = %rb_thread_shield_waiting_dec.exit, %4, %1, %rb_mutex_unlock.exit
-  %.0 = phi i64 [ %49, %rb_mutex_unlock.exit ], [ 0, %1 ], [ 4, %4 ], [ 20, %rb_thread_shield_waiting_dec.exit ]
+  %.0 = phi i64 [ 0, %1 ], [ 4, %4 ], [ %49, %rb_mutex_unlock.exit ], [ 20, %rb_thread_shield_waiting_dec.exit ]
   ret i64 %.0
 }
 
@@ -12079,8 +12079,8 @@ recursive_pop.exit69:                             ; preds = %183
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %191
 
-190:                                              ; preds = %118, %121, %recursive_pop.exit69
-  %.034.ph = phi i64 [ %.0..0..0..0.6, %recursive_pop.exit69 ], [ %78, %118 ], [ %122, %121 ]
+190:                                              ; preds = %121, %118, %recursive_pop.exit69
+  %.034.ph = phi i64 [ %.0..0..0..0.6, %recursive_pop.exit69 ], [ %122, %121 ], [ %78, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %7, i64 40, i1 true), !tbaa.struct !355
   br label %197
@@ -13165,7 +13165,7 @@ RARRAY_AREF.exit.i:                               ; preds = %37, %.thread.i
   br i1 %.not.i, label %.preheader, label %rb_threadptr_pending_interrupt_include_p.exit, !llvm.loop !357
 
 rb_threadptr_pending_interrupt_include_p.exit:    ; preds = %RARRAY_AREF.exit.i, %rb_array_len.exit.i, %rb_array_len.exit.thread.i, %rb_check_arity.exit, %rb_threadptr_pending_interrupt_empty_p.exit, %3
-  %.0 = phi i64 [ 0, %3 ], [ 0, %rb_threadptr_pending_interrupt_empty_p.exit ], [ 20, %rb_check_arity.exit ], [ 0, %rb_array_len.exit.thread.i ], [ 0, %rb_array_len.exit.i ], [ 20, %RARRAY_AREF.exit.i ]
+  %.0 = phi i64 [ 0, %3 ], [ 20, %rb_check_arity.exit ], [ 0, %rb_threadptr_pending_interrupt_empty_p.exit ], [ 0, %rb_array_len.exit.thread.i ], [ 0, %rb_array_len.exit.i ], [ 20, %RARRAY_AREF.exit.i ]
   ret i64 %.0
 }
 
@@ -13636,7 +13636,7 @@ thread_status_name.exit:                          ; preds = %1, %1, %13
   br label %17
 
 17:                                               ; preds = %5, %thread_status_name.exit
-  %.0 = phi i64 [ %16, %thread_status_name.exit ], [ %spec.select, %5 ]
+  %.0 = phi i64 [ %spec.select, %5 ], [ %16, %thread_status_name.exit ]
   ret i64 %.0
 }
 
@@ -14004,7 +14004,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 thread_status_name.exit:                          ; preds = %1, %7, %10, %11
-  %.0.i = phi ptr [ %9, %7 ], [ @.str.239, %11 ], [ @.str.238, %10 ], [ @.str.240, %1 ]
+  %.0.i = phi ptr [ %9, %7 ], [ @.str.238, %10 ], [ @.str.239, %11 ], [ @.str.240, %1 ]
   %12 = inttoptr i64 %0 to ptr
   %13 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.244, i64 noundef %3, ptr noundef %12) #16
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 448
@@ -14306,7 +14306,7 @@ define dso_local ptr @rb_resolve_me_location(ptr noundef readonly captures(ret: 
   br label %.backedge
 
 .backedge:                                        ; preds = %23, %26
-  %.037.be = phi ptr [ %25, %23 ], [ %28, %26 ]
+  %.037.be = phi ptr [ %28, %26 ], [ %25, %23 ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.037.be, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !371
   br label %.preheader
@@ -14386,7 +14386,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %29, %rbimpl_RB_TYPE
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %26, %38, %15, %rbimpl_RB_TYPE_P_fastpath.exit.thread, %48, %rbimpl_RB_TYPE_P_fastpath.exit56, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit56 ], [ %.037, %48 ], [ %.037, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ null, %15 ], [ null, %38 ], [ null, %26 ], [ null, %.preheader ]
+  %.0 = phi ptr [ %.037, %48 ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit56 ], [ null, %38 ], [ null, %15 ], [ %.037, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ null, %2 ], [ null, %26 ], [ null, %.preheader ]
   ret ptr %.0
 }
 
@@ -14568,7 +14568,7 @@ RARRAY_AREF.exit32:                               ; preds = %.thread, %61
   tail call fastcc void @RARRAY_ASET(i64 noundef %28, i64 noundef %32, i64 noundef %69)
   br label %.critedge
 
-.critedge:                                        ; preds = %2, %rb_array_len.exit.thread, %68, %RARRAY_AREF.exit, %rbimpl_RB_TYPE_P_fastpath.exit, %18, %RARRAY_AREF.exit32, %rb_array_len.exit, %37
+.critedge:                                        ; preds = %2, %rb_array_len.exit.thread, %RARRAY_AREF.exit, %68, %rbimpl_RB_TYPE_P_fastpath.exit, %18, %RARRAY_AREF.exit32, %rb_array_len.exit, %37
   ret void
 }
 
@@ -16087,7 +16087,7 @@ rb_array_len.exit32:                              ; preds = %104, %107
   br label %.loopexit
 
 .loopexit:                                        ; preds = %rb_array_len.exit32, %rb_array_len.exit32.us, %.thread
-  %128 = phi i64 [ %.pre, %.thread ], [ %73, %rb_array_len.exit32.us ], [ %100, %rb_array_len.exit32 ]
+  %128 = phi i64 [ %73, %rb_array_len.exit32.us ], [ %.pre, %.thread ], [ %100, %rb_array_len.exit32 ]
   %129 = call i64 @rb_ary_shift(i64 noundef %128) #16
   br label %.loopexit36
 
@@ -17338,7 +17338,7 @@ rb_native_mutex_unlock.exit:                      ; preds = %44
   br label %._crit_edge, !llvm.loop !430
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph94, %.._crit_edge_crit_edge, %.lr.ph.preheader
-  %.0.lcssa = phi ptr [ %.0427693, %.._crit_edge_crit_edge ], [ null, %.lr.ph.preheader ], [ %.0427693, %.lr.ph ], [ %.07591, %.lr.ph94 ]
+  %.0.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0427693, %.._crit_edge_crit_edge ], [ %.0427693, %.lr.ph ], [ %.07591, %.lr.ph94 ]
   %.not65 = icmp eq ptr %.0.lcssa, null
   br i1 %.not65, label %._crit_edge.thread, label %72
 
@@ -17378,7 +17378,7 @@ rb_native_mutex_unlock.exit:                      ; preds = %44
   unreachable
 
 rb_native_mutex_unlock.exit68:                    ; preds = %82, %rb_native_mutex_unlock.exit, %20, %28, %8
-  %.046 = phi i1 [ false, %8 ], [ false, %rb_native_mutex_unlock.exit ], [ false, %20 ], [ false, %28 ], [ true, %82 ]
+  %.046 = phi i1 [ false, %8 ], [ false, %28 ], [ false, %rb_native_mutex_unlock.exit ], [ false, %20 ], [ true, %82 ]
   ret i1 %.046
 }
 
@@ -21018,7 +21018,7 @@ hrtime_update_expire.exit:                        ; preds = %132, %121
   br i1 %138, label %thread_finished.exit.thread, label %thread_finished.exit
 
 thread_finished.exit.thread:                      ; preds = %thread_finished.exit, %hrtime_update_expire.exit, %94, %thread_finished.exit.us, %hrtime_update_expire.exit.us, %.thread, %10, %thread_finished.exit31, %hrtime_update_expire.exit.thread44
-  %.2 = phi i64 [ 20, %hrtime_update_expire.exit.thread44 ], [ 0, %thread_finished.exit31 ], [ 20, %10 ], [ 20, %.thread ], [ 20, %hrtime_update_expire.exit.us ], [ 20, %thread_finished.exit.us ], [ 20, %thread_finished.exit ], [ 20, %hrtime_update_expire.exit ], [ 0, %94 ]
+  %.2 = phi i64 [ 0, %thread_finished.exit31 ], [ 20, %hrtime_update_expire.exit.thread44 ], [ 20, %.thread ], [ 20, %10 ], [ 20, %thread_finished.exit.us ], [ 20, %hrtime_update_expire.exit.us ], [ 0, %94 ], [ 20, %hrtime_update_expire.exit ], [ 20, %thread_finished.exit ]
   ret i64 %.2
 }
 

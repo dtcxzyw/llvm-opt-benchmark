@@ -1233,8 +1233,8 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Vec_PtrPush.exit.Ab
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i.i:              ; preds = %71, %73, %63, %65
-  %storemerge = phi ptr [ %64, %63 ], [ %66, %65 ], [ %72, %71 ], [ %74, %73 ]
-  %.sink.i.i.i.i = phi i32 [ %54, %63 ], [ %54, %65 ], [ %58, %71 ], [ %58, %73 ]
+  %storemerge = phi ptr [ %66, %65 ], [ %64, %63 ], [ %72, %71 ], [ %74, %73 ]
+  %.sink.i.i.i.i = phi i32 [ %54, %65 ], [ %54, %63 ], [ %58, %71 ], [ %58, %73 ]
   store ptr %storemerge, ptr %30, align 8, !tbaa !30
   store i32 %.sink.i.i.i.i, ptr %53, align 8, !tbaa !29
   %.pre.i.i.i = load i32, ptr %55, align 4, !tbaa !28
@@ -1478,8 +1478,8 @@ Abc_NtkIncrementTravId.exit98:                    ; preds = %._crit_edge, %Vec_I
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i103
 
 Vec_IntGrow.exit.sink.split.i.i.i.i103:           ; preds = %174, %176, %165, %167
-  %storemerge144 = phi ptr [ %166, %165 ], [ %168, %167 ], [ %175, %174 ], [ %177, %176 ]
-  %.sink.i.i.i.i104 = phi i32 [ %153, %165 ], [ %153, %167 ], [ %159, %174 ], [ %159, %176 ]
+  %storemerge144 = phi ptr [ %168, %167 ], [ %166, %165 ], [ %175, %174 ], [ %177, %176 ]
+  %.sink.i.i.i.i104 = phi i32 [ %153, %167 ], [ %153, %165 ], [ %159, %174 ], [ %159, %176 ]
   store ptr %storemerge144, ptr %130, align 8, !tbaa !30
   store i32 %.sink.i.i.i.i104, ptr %152, align 8, !tbaa !29
   %.pre.i.i.i105 = load i32, ptr %154, align 4, !tbaa !28
@@ -1560,8 +1560,8 @@ Abc_NodeSetTravIdCurrent.exit113:                 ; preds = %156, %._crit_edge.i
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i118
 
 Vec_IntGrow.exit.sink.split.i.i.i.i118:           ; preds = %206, %208, %197, %199
-  %storemerge145 = phi ptr [ %198, %197 ], [ %200, %199 ], [ %207, %206 ], [ %209, %208 ]
-  %.sink.i.i.i.i119 = phi i32 [ %153, %197 ], [ %153, %199 ], [ %191, %206 ], [ %191, %208 ]
+  %storemerge145 = phi ptr [ %200, %199 ], [ %198, %197 ], [ %207, %206 ], [ %209, %208 ]
+  %.sink.i.i.i.i119 = phi i32 [ %153, %199 ], [ %153, %197 ], [ %191, %206 ], [ %191, %208 ]
   store ptr %storemerge145, ptr %130, align 8, !tbaa !30
   store i32 %.sink.i.i.i.i119, ptr %152, align 8, !tbaa !29
   %.pre.i.i.i120 = load i32, ptr %154, align 4, !tbaa !28
@@ -1962,8 +1962,8 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge.Abc_NtkIn
   br label %Vec_IntGrow.exit.sink.split.i.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i.i:              ; preds = %64, %66, %55, %57
-  %storemerge = phi ptr [ %56, %55 ], [ %58, %57 ], [ %65, %64 ], [ %67, %66 ]
-  %.sink.i.i.i.i = phi i32 [ %45, %55 ], [ %45, %57 ], [ %49, %64 ], [ %49, %66 ]
+  %storemerge = phi ptr [ %58, %57 ], [ %56, %55 ], [ %65, %64 ], [ %67, %66 ]
+  %.sink.i.i.i.i = phi i32 [ %45, %57 ], [ %45, %55 ], [ %49, %64 ], [ %49, %66 ]
   store ptr %storemerge, ptr %22, align 8, !tbaa !30
   store i32 %.sink.i.i.i.i, ptr %44, align 8, !tbaa !29
   %.pre.i.i.i = load i32, ptr %46, align 4, !tbaa !28
@@ -2404,7 +2404,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %96, %86
-  %.val60 = phi i32 [ %.val60.pre, %.critedge4.loopexit ], [ %.val60128, %96 ], [ %.val60128, %86 ]
+  %.val60 = phi i32 [ %.val60.pre, %.critedge4.loopexit ], [ %.val60128, %86 ], [ %.val60128, %96 ]
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %262 = sext i32 %.val60 to i64
   %263 = icmp slt i64 %indvars.iv.next123, %262
@@ -2604,7 +2604,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br label %81
 
 .critedge4.preheader:                             ; preds = %81, %72, %74
-  %.0145.pn = phi i32 [ %75, %74 ], [ %.0145, %72 ], [ %75, %81 ]
+  %.0145.pn = phi i32 [ %.0145, %72 ], [ %75, %74 ], [ %75, %81 ]
   %78 = add i32 %.0145.pn, %.val107.pre
   %79 = icmp sgt i32 %.val107.pre, 0
   br i1 %79, label %.lr.ph142, label %.critedge6

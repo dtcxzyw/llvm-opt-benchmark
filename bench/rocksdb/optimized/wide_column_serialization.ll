@@ -1013,7 +1013,7 @@ _ZN7rocksdb10autovectorIjLm16EED2Ev.exit:         ; preds = %_ZN7rocksdb10autove
   br label %268
 
 256:                                              ; preds = %.loopexit, %.loopexit.split-lp, %237, %119, %121, %141, %222, %97
-  %.pn49.pn = phi { ptr, i32 } [ %98, %97 ], [ %.pn, %222 ], [ %142, %141 ], [ %122, %121 ], [ %120, %119 ], [ %238, %237 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn49.pn = phi { ptr, i32 } [ %120, %119 ], [ %98, %97 ], [ %.pn, %222 ], [ %238, %237 ], [ %142, %141 ], [ %122, %121 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.pr.i.i90 = load i64, ptr %13, align 8, !tbaa !41
   %.not1.i.i91 = icmp eq i64 %.pr.i.i90, 0
   br i1 %.not1.i.i91, label %257, label %.lr.ph.preheader.i.i92

@@ -246,7 +246,7 @@ define range(i32 0, 2) i32 @ossl_cmp_hdr_update_messageTime(ptr noundef captures
   br label %15
 
 15:                                               ; preds = %6, %1, %9
-  %.0 = phi i32 [ %14, %9 ], [ 0, %1 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %1 ], [ %14, %9 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -299,7 +299,7 @@ define i32 @ossl_cmp_hdr_push0_freeText(ptr noundef captures(address_is_null) %0
   br label %16
 
 16:                                               ; preds = %10, %2, %13
-  %.0 = phi i32 [ %15, %13 ], [ 0, %2 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %2 ], [ %15, %13 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -335,7 +335,7 @@ define i32 @ossl_cmp_hdr_push1_freeText(ptr noundef captures(address_is_null) %0
   br label %19
 
 19:                                               ; preds = %10, %2, %13
-  %.0 = phi i32 [ %18, %13 ], [ 0, %2 ], [ 0, %10 ]
+  %.0 = phi i32 [ 0, %2 ], [ %18, %13 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -397,7 +397,7 @@ ossl_cmp_hdr_generalInfo_push0_item.exit:         ; preds = %10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %6, %.preheader, %2, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %2 ], [ 1, %.preheader ], [ 0, %10 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %15 ], [ 1, %.preheader ], [ 0, %10 ], [ 1, %6 ]
   ret i32 %.0
 }
 
@@ -437,7 +437,7 @@ ossl_cmp_hdr_generalInfo_push0_item.exit:         ; preds = %5
   br label %12
 
 12:                                               ; preds = %ossl_cmp_hdr_generalInfo_push0_item.exit, %2, %1, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %1 ], [ 0, %2 ], [ 1, %ossl_cmp_hdr_generalInfo_push0_item.exit ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %11 ], [ 0, %2 ], [ 1, %ossl_cmp_hdr_generalInfo_push0_item.exit ]
   ret i32 %.0
 }
 
@@ -653,7 +653,7 @@ ossl_cmp_hdr_set1_sender.exit:                    ; preds = %16, %23, %21, %11
   br label %ossl_cmp_hdr_set1_recipient.exit
 
 ossl_cmp_hdr_set1_recipient.exit:                 ; preds = %37, %29, %35, %43, %47, %45
-  %.0 = phi ptr [ %36, %35 ], [ %44, %43 ], [ %48, %47 ], [ null, %45 ], [ %31, %29 ], [ %39, %37 ]
+  %.0 = phi ptr [ null, %45 ], [ %36, %35 ], [ %31, %29 ], [ %44, %43 ], [ %48, %47 ], [ %39, %37 ]
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %50 = tail call i32 @GENERAL_NAME_set1_X509_NAME(ptr noundef nonnull %49, ptr noundef %.0) #5
   %.not59 = icmp eq i32 %50, 0
@@ -750,7 +750,7 @@ ossl_cmp_hdr_set_transactionID.exit:              ; preds = %67, %.thread.i
   br label %ossl_cmp_hdr_update_messageTime.exit.thread
 
 ossl_cmp_hdr_update_messageTime.exit.thread:      ; preds = %71, %55, %90, %84, %81, %ossl_cmp_hdr_set_transactionID.exit, %64, %ossl_cmp_hdr_update_messageTime.exit, %ossl_cmp_hdr_set1_recipient.exit, %ossl_cmp_hdr_set1_sender.exit, %ossl_cmp_hdr_set_pvno.exit, %2, %92
-  %.037 = phi i32 [ 1, %92 ], [ 0, %2 ], [ 0, %ossl_cmp_hdr_set_pvno.exit ], [ 0, %ossl_cmp_hdr_set1_sender.exit ], [ 0, %ossl_cmp_hdr_set1_recipient.exit ], [ 0, %ossl_cmp_hdr_update_messageTime.exit ], [ 0, %64 ], [ 0, %ossl_cmp_hdr_set_transactionID.exit ], [ 0, %81 ], [ 0, %84 ], [ 0, %90 ], [ 0, %55 ], [ 0, %71 ]
+  %.037 = phi i32 [ 1, %92 ], [ 0, %84 ], [ 0, %81 ], [ 0, %ossl_cmp_hdr_set_transactionID.exit ], [ 0, %64 ], [ 0, %ossl_cmp_hdr_update_messageTime.exit ], [ 0, %ossl_cmp_hdr_set1_recipient.exit ], [ 0, %ossl_cmp_hdr_set1_sender.exit ], [ 0, %ossl_cmp_hdr_set_pvno.exit ], [ 0, %2 ], [ 0, %90 ], [ 0, %55 ], [ 0, %71 ]
   ret i32 %.037
 }
 

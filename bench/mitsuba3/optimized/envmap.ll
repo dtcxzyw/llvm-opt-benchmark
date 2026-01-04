@@ -1300,19 +1300,19 @@ _ZN7mitsuba3refINS_6BitmapEED2Ev.exit271:         ; preds = %_ZNSt3__110unique_p
   br label %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216
 
 _ZN7mitsuba3refINS_6ObjectEED2Ev.exit216:         ; preds = %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit271, %46
-  %.sroa.0296.1 = phi ptr [ %.sroa.0296.0, %46 ], [ %156, %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit271 ]
-  %.pn207 = phi { ptr, i32 } [ %47, %46 ], [ %.pn202.pn, %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit271 ]
+  %.sroa.0296.1 = phi ptr [ %156, %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit271 ], [ %.sroa.0296.0, %46 ]
+  %.pn207 = phi { ptr, i32 } [ %.pn202.pn, %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit271 ], [ %47, %46 ]
   %.not.i272 = icmp eq ptr %.sroa.0296.1, null
   br i1 %.not.i272, label %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit273, label %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216.thread339
 
-_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216.thread339: ; preds = %214, %153, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216
-  %.pn207344 = phi { ptr, i32 } [ %.pn207, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216 ], [ %215, %214 ], [ %.pn205, %153 ]
-  %.sroa.0296.1343 = phi ptr [ %.sroa.0296.1, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216 ], [ %156, %214 ], [ %.sroa.0296.2, %153 ]
+_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216.thread339: ; preds = %153, %214, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216
+  %.pn207344 = phi { ptr, i32 } [ %.pn207, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216 ], [ %.pn205, %153 ], [ %215, %214 ]
+  %.sroa.0296.1343 = phi ptr [ %.sroa.0296.1, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216 ], [ %.sroa.0296.2, %153 ], [ %156, %214 ]
   call void @_ZNK7mitsuba6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0296.1343, i1 noundef zeroext true) #32
   br label %_ZN7mitsuba3refINS_6BitmapEED2Ev.exit273
 
-_ZN7mitsuba3refINS_6BitmapEED2Ev.exit273:         ; preds = %75, %74, %48, %.body, %126, %50, %58, %52, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216.thread339, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216
-  %.pn207.pn = phi { ptr, i32 } [ %.pn207, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216 ], [ %.pn207344, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216.thread339 ], [ %.pn195, %75 ], [ %.pn195, %74 ], [ %49, %48 ], [ %.pn, %.body ], [ %.pn193, %126 ], [ %51, %50 ], [ %59, %58 ], [ %53, %52 ]
+_ZN7mitsuba3refINS_6BitmapEED2Ev.exit273:         ; preds = %75, %74, %.body, %126, %50, %58, %48, %52, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216.thread339, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216
+  %.pn207.pn = phi { ptr, i32 } [ %53, %52 ], [ %.pn207344, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216.thread339 ], [ %.pn207, %_ZN7mitsuba3refINS_6ObjectEED2Ev.exit216 ], [ %.pn195, %75 ], [ %.pn195, %74 ], [ %.pn193, %126 ], [ %51, %50 ], [ %59, %58 ], [ %.pn, %.body ], [ %49, %48 ]
   %380 = load ptr, ptr %36, align 8
   %.not.i274 = icmp eq ptr %380, null
   br i1 %.not.i274, label %_ZN7mitsuba3refINS_7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exit275, label %381
@@ -5779,7 +5779,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -6810,7 +6810,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -6885,7 +6885,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
   ret ptr %.069
 }
 

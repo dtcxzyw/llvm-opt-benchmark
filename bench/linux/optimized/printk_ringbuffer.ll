@@ -1493,7 +1493,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   br label %.loopexit18
 
 .thread14:                                        ; preds = %111, %138, %146, %50, %58, %148
-  %154 = phi i1 [ true, %146 ], [ false, %138 ], [ true, %111 ], [ true, %58 ], [ false, %50 ], [ true, %148 ]
+  %154 = phi i1 [ false, %50 ], [ true, %111 ], [ true, %146 ], [ false, %138 ], [ true, %58 ], [ true, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %156
 
@@ -1892,7 +1892,7 @@ default.unreachable10:                            ; preds = %select.unfold
   br i1 %98, label %19, label %.critedge, !llvm.loop !56
 
 .critedge:                                        ; preds = %84, %91, %.loopexit, %7, %2
-  %99 = phi i1 [ true, %2 ], [ true, %7 ], [ true, %84 ], [ false, %.loopexit ], [ true, %91 ]
+  %99 = phi i1 [ true, %2 ], [ true, %7 ], [ false, %.loopexit ], [ true, %84 ], [ true, %91 ]
   ret i1 %99
 }
 

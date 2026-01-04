@@ -500,8 +500,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @frame_data_ensure(ptr noun
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %.sink.split, label %32, !llvm.loop !91
 
-.sink.split:                                      ; preds = %32, %.critedge, %.thread, %9, %13
-  %.5.ph = phi i32 [ %27, %.thread ], [ -12, %9 ], [ -12, %13 ], [ 0, %.critedge ], [ 0, %32 ]
+.sink.split:                                      ; preds = %32, %.critedge, %.thread, %13, %9
+  %.5.ph = phi i32 [ -12, %9 ], [ %27, %.thread ], [ -12, %13 ], [ 0, %.critedge ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
@@ -1655,7 +1655,7 @@ select.unfold:                                    ; preds = %444, %26
   br label %.thread
 
 .thread:                                          ; preds = %select.unfold, %2, %444, %36, %34
-  %449 = phi i32 [ -12, %2 ], [ 255, %444 ], [ 1, %36 ], [ 1, %34 ], [ %spec.select, %select.unfold ]
+  %449 = phi i32 [ 1, %34 ], [ %spec.select, %select.unfold ], [ -12, %2 ], [ 255, %444 ], [ 1, %36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %450 = load i32, ptr @print_graphs, align 4, !tbaa !12
   %451 = icmp ne i32 %450, 0
@@ -1983,8 +1983,8 @@ ost_iter.exit:                                    ; preds = %41
   br label %51
 
 ._crit_edge:                                      ; preds = %39, %.thread.i, %ost_iter.exit161, %109, %31, %ost_iter.exit
-  %.0131.lcssa = phi i64 [ 0, %ost_iter.exit ], [ 0, %31 ], [ %.1132, %109 ], [ %.1132, %ost_iter.exit161 ], [ %.1132, %.thread.i ], [ 0, %39 ]
-  %.0129.lcssa = phi i64 [ 0, %ost_iter.exit ], [ 0, %31 ], [ %.1130, %109 ], [ %.1130, %ost_iter.exit161 ], [ %.1130, %.thread.i ], [ 0, %39 ]
+  %.0131.lcssa = phi i64 [ 0, %ost_iter.exit ], [ %.1132, %109 ], [ %.1132, %.thread.i ], [ 0, %31 ], [ %.1132, %ost_iter.exit161 ], [ 0, %39 ]
+  %.0129.lcssa = phi i64 [ 0, %ost_iter.exit ], [ %.1130, %109 ], [ %.1130, %.thread.i ], [ 0, %31 ], [ %.1130, %ost_iter.exit161 ], [ 0, %39 ]
   %50 = load i32, ptr @copy_ts, align 4, !tbaa !12
   %.not145 = icmp eq i32 %50, 0
   br i1 %.not145, label %128, label %120
@@ -2072,9 +2072,9 @@ ost_iter.exit:                                    ; preds = %41
   br label %.thread.i
 
 .thread.i:                                        ; preds = %65, %66, %89, %92, %.critedge
-  %.1132 = phi i64 [ %.0131168, %.critedge ], [ %97, %92 ], [ %.0131168, %89 ], [ %.0131168, %66 ], [ %.0131168, %65 ]
-  %.1130 = phi i64 [ %.0129169, %.critedge ], [ %94, %92 ], [ %.0129169, %89 ], [ %.0129169, %66 ], [ %.0129169, %65 ]
-  %.1 = phi i32 [ 0, %.critedge ], [ 1, %92 ], [ 1, %89 ], [ 1, %66 ], [ 1, %65 ]
+  %.1132 = phi i64 [ %.0131168, %89 ], [ %.0131168, %.critedge ], [ %97, %92 ], [ %.0131168, %66 ], [ %.0131168, %65 ]
+  %.1130 = phi i64 [ %.0129169, %89 ], [ %.0129169, %.critedge ], [ %94, %92 ], [ %.0129169, %66 ], [ %.0129169, %65 ]
+  %.1 = phi i32 [ 1, %89 ], [ 0, %.critedge ], [ 1, %92 ], [ 1, %66 ], [ 1, %65 ]
   %98 = getelementptr inbounds nuw i8, ptr %.0134167, i64 16
   %99 = load ptr, ptr %98, align 8, !tbaa !19
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8

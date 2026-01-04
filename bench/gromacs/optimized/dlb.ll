@@ -327,7 +327,7 @@ _Z46dd_dlb_set_should_check_whether_to_turn_dlb_onP12gmx_domdec_tb.exit: ; preds
   br label %25
 
 25:                                               ; preds = %12, %6, %1, %20, %_Z46dd_dlb_set_should_check_whether_to_turn_dlb_onP12gmx_domdec_tb.exit
-  %.0 = phi i1 [ true, %_Z46dd_dlb_set_should_check_whether_to_turn_dlb_onP12gmx_domdec_tb.exit ], [ %24, %20 ], [ false, %1 ], [ false, %6 ], [ false, %12 ]
+  %.0 = phi i1 [ %24, %20 ], [ false, %1 ], [ false, %6 ], [ true, %_Z46dd_dlb_set_should_check_whether_to_turn_dlb_onP12gmx_domdec_tb.exit ], [ false, %12 ]
   ret i1 %.0
 }
 

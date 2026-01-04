@@ -379,7 +379,7 @@ define dso_local i64 @gen_pool_alloc_algo_owner(ptr noundef %0, i64 noundef %1, 
   br i1 %92, label %.preheader29, label %.thread21, !llvm.loop !15
 
 .thread21:                                        ; preds = %.preheader31, %89, %63, %75
-  %93 = phi i64 [ %71, %75 ], [ %53, %63 ], [ %71, %89 ], [ %53, %.preheader31 ]
+  %93 = phi i64 [ %71, %89 ], [ %71, %75 ], [ %53, %63 ], [ %53, %.preheader31 ]
   %94 = sub i64 %17, %93
   %95 = add i64 %40, %94
   %96 = icmp ugt i64 %47, %94
@@ -776,7 +776,7 @@ define dso_local ptr @gen_pool_dma_zalloc(ptr noundef %0, i64 noundef %1, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %5, %3, %35
-  %37 = phi ptr [ %36, %35 ], [ null, %3 ], [ null, %5 ]
+  %37 = phi ptr [ null, %5 ], [ %36, %35 ], [ null, %3 ]
   ret ptr %37
 }
 
@@ -838,7 +838,7 @@ define dso_local ptr @gen_pool_dma_zalloc_algo(ptr noundef %0, i64 noundef %1, p
   br label %.thread
 
 .thread:                                          ; preds = %7, %5, %33
-  %35 = phi ptr [ %34, %33 ], [ null, %5 ], [ null, %7 ]
+  %35 = phi ptr [ null, %7 ], [ %34, %33 ], [ null, %5 ]
   ret ptr %35
 }
 
@@ -903,7 +903,7 @@ define dso_local ptr @gen_pool_dma_zalloc_align(ptr noundef %0, i64 noundef %1, 
   br label %.thread
 
 .thread:                                          ; preds = %7, %4, %33
-  %35 = phi ptr [ %34, %33 ], [ null, %4 ], [ null, %7 ]
+  %35 = phi ptr [ null, %7 ], [ %34, %33 ], [ null, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %35
 }

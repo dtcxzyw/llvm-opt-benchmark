@@ -2704,7 +2704,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88: ; preds = %124
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i81, %127, %.thread93
-  %.7 = phi i32 [ -1, %.thread93 ], [ 0, %127 ], [ -1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i81 ]
+  %.7 = phi i32 [ 0, %127 ], [ -1, %.thread93 ], [ -1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i81 ]
   ret i32 %.7
 }
 
@@ -2982,7 +2982,7 @@ _ZL9strequalsILm4EEbPKcmRAT__S0_.exit94:          ; preds = %44
   br label %_ZL9strequalsILm7EEbPKcmRAT__S0_.exit
 
 _ZL9strequalsILm7EEbPKcmRAT__S0_.exit:            ; preds = %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit94, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit90, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit86, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit82, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit73, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit67, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit63, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit, %44, %40, %36, %32, %19, %14, %10, %6, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %42, %38, %34, %30, %28, %26, %24, %22, %17, %12, %8, %3, %_ZL9strequalsILm7EEbPKcmRAT__S0_.exit75, %_ZL9strequalsILm7EEbPKcmRAT__S0_.exit69
-  %.0 = phi i1 [ true, %_ZL9strequalsILm7EEbPKcmRAT__S0_.exit69 ], [ true, %_ZL9strequalsILm7EEbPKcmRAT__S0_.exit75 ], [ false, %3 ], [ %9, %8 ], [ %13, %12 ], [ %18, %17 ], [ %23, %22 ], [ false, %24 ], [ %27, %26 ], [ false, %28 ], [ %31, %30 ], [ %35, %34 ], [ %39, %38 ], [ %43, %42 ], [ %47, %46 ], [ false, %48 ], [ %51, %50 ], [ false, %52 ], [ %55, %54 ], [ false, %56 ], [ %59, %58 ], [ false, %60 ], [ %63, %62 ], [ false, %64 ], [ %67, %66 ], [ false, %68 ], [ %71, %70 ], [ false, %72 ], [ %75, %74 ], [ false, %76 ], [ %79, %78 ], [ false, %80 ], [ %83, %82 ], [ false, %84 ], [ %87, %86 ], [ %7, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit ], [ false, %6 ], [ %11, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit63 ], [ false, %10 ], [ false, %14 ], [ %15, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit67 ], [ false, %19 ], [ %20, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit73 ], [ %33, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit82 ], [ false, %32 ], [ %37, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit86 ], [ false, %36 ], [ %41, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit90 ], [ false, %40 ], [ %45, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit94 ], [ false, %44 ]
+  %.0 = phi i1 [ false, %68 ], [ %83, %82 ], [ false, %3 ], [ false, %19 ], [ false, %60 ], [ false, %80 ], [ %27, %26 ], [ false, %84 ], [ %31, %30 ], [ false, %76 ], [ false, %72 ], [ false, %64 ], [ %51, %50 ], [ %55, %54 ], [ %59, %58 ], [ %63, %62 ], [ %67, %66 ], [ %71, %70 ], [ %75, %74 ], [ %79, %78 ], [ %7, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit ], [ %11, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit63 ], [ true, %_ZL9strequalsILm7EEbPKcmRAT__S0_.exit69 ], [ %15, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit67 ], [ true, %_ZL9strequalsILm7EEbPKcmRAT__S0_.exit75 ], [ %20, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit73 ], [ %33, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit82 ], [ %37, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit86 ], [ %41, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit90 ], [ %45, %_ZL9strequalsILm4EEbPKcmRAT__S0_.exit94 ], [ false, %6 ], [ %9, %8 ], [ false, %10 ], [ %13, %12 ], [ %87, %86 ], [ %18, %17 ], [ false, %14 ], [ %23, %22 ], [ false, %24 ], [ false, %28 ], [ false, %32 ], [ %35, %34 ], [ false, %36 ], [ %39, %38 ], [ false, %40 ], [ %43, %42 ], [ false, %44 ], [ %47, %46 ], [ false, %48 ], [ false, %52 ], [ false, %56 ]
   ret i1 %.0
 }
 
@@ -3798,7 +3798,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.thread
 
 .thread:                                          ; preds = %40, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %54 = phi i1 [ true, %40 ], [ %53, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %54 = phi i1 [ %53, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ true, %40 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %54, ptr noundef nonnull %5, ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(32) %41) #30
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load i64, ptr %55, align 8, !tbaa !17
@@ -3937,8 +3937,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %34
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
-  %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.027.0 = phi ptr [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ null, %._crit_edge.thread ]
+  %.sroa.4.0 = phi ptr [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ], [ %.028.lcssa39, %._crit_edge.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -4052,7 +4052,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.thread
 
 .thread:                                          ; preds = %12, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %27 = phi i1 [ true, %12 ], [ %26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %27 = phi i1 [ %26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ true, %12 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(32) %13) #30
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8, !tbaa !17

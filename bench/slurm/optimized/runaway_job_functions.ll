@@ -119,7 +119,7 @@ define dso_local i32 @sacctmgr_list_runaway_jobs(i32 noundef %0, ptr noundef rea
   br i1 %.not45.i, label %.thread.i, label %56
 
 .thread.i:                                        ; preds = %.thread55.i, %41, %31
-  %.03954.i = phi i32 [ %.03959.i, %.thread55.i ], [ 0, %41 ], [ 0, %31 ]
+  %.03954.i = phi i32 [ 0, %41 ], [ %.03959.i, %.thread55.i ], [ 0, %31 ]
   %47 = load ptr, ptr %11, align 8
   %.not46.i = icmp eq ptr %47, null
   br i1 %.not46.i, label %48, label %50
@@ -320,7 +320,7 @@ _set_cond.exit:                                   ; preds = %69, %28
   br label %_get_runaway_jobs.exit
 
 _get_runaway_jobs.exit:                           ; preds = %89, %94, %97, %99, %135, %138, %140
-  %.026.i = phi ptr [ null, %89 ], [ %93, %135 ], [ %93, %99 ], [ null, %140 ], [ null, %138 ], [ null, %97 ], [ null, %94 ]
+  %.026.i = phi ptr [ null, %89 ], [ %93, %99 ], [ %93, %135 ], [ null, %140 ], [ null, %138 ], [ null, %94 ], [ null, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %141 = load ptr, ptr %76, align 8
@@ -689,7 +689,7 @@ define internal range(i32 0, 2) i32 @_purge_known_jobs(ptr noundef readonly capt
   br label %40
 
 40:                                               ; preds = %27, %24, %.critedge, %35
-  %.1 = phi i32 [ 0, %35 ], [ 0, %.critedge ], [ 1, %24 ], [ 1, %27 ]
+  %.1 = phi i32 [ 0, %.critedge ], [ 0, %35 ], [ 1, %24 ], [ 1, %27 ]
   ret i32 %.1
 }
 

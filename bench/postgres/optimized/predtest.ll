@@ -333,80 +333,80 @@ define internal fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %0, 
 127:                                              ; preds = %125
   %128 = load i32, ptr %.054, align 4
   %cond.i = icmp eq i32 %128, 17
-  br i1 %cond.i, label %129, label %.critedge42.threadthread-pre-split.i
+  br i1 %cond.i, label %129, label %.critedge.threadthread-pre-split.i
 
 129:                                              ; preds = %127
   %130 = getelementptr inbounds nuw i8, ptr %.054, i64 4
   %131 = load i32, ptr %130, align 4
   %132 = icmp eq i32 %131, 91
-  br i1 %132, label %133, label %.critedge42.threadthread-pre-split.i
+  br i1 %132, label %133, label %.critedge.threadthread-pre-split.i
 
 133:                                              ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %.054, i64 32
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr i8, ptr %135, i64 16
-  %.val43.i = load ptr, ptr %136, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %.val43.i, i64 8
+  %.val42.i = load ptr, ptr %136, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %.val42.i, i64 8
   %138 = load ptr, ptr %137, align 8
   %.not40.i = icmp eq ptr %138, null
-  br i1 %.not40.i, label %.critedge42.threadthread-pre-split.i, label %139
+  br i1 %.not40.i, label %.critedge.threadthread-pre-split.i, label %139
 
 139:                                              ; preds = %133
   %140 = load i32, ptr %138, align 4
   %141 = icmp eq i32 %140, 7
-  br i1 %141, label %142, label %.critedge42.threadthread-pre-split.i
+  br i1 %141, label %142, label %.critedge.threadthread-pre-split.i
 
 142:                                              ; preds = %139
   %143 = getelementptr inbounds nuw i8, ptr %138, i64 32
   %144 = load i8, ptr %143, align 8, !range !14, !noundef !15
   %145 = trunc nuw i8 %144 to i1
-  br i1 %145, label %.critedge42.threadthread-pre-split.i, label %146
+  br i1 %145, label %.critedge.threadthread-pre-split.i, label %146
 
 146:                                              ; preds = %142
-  %147 = load ptr, ptr %.val43.i, align 8
+  %147 = load ptr, ptr %.val42.i, align 8
   %148 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %149 = load i64, ptr %148, align 8
-  %.not47.i = icmp eq i64 %149, 0
-  br i1 %.not47.i, label %152, label %150
+  %.not46.i = icmp eq i64 %149, 0
+  br i1 %.not46.i, label %152, label %150
 
 150:                                              ; preds = %146
   %151 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef %147) #7
-  br i1 %151, label %predicate_implied_by_simple_clause.exit, label %.critedge42.threadthread-pre-split.i
+  br i1 %151, label %predicate_implied_by_simple_clause.exit, label %.critedge.threadthread-pre-split.i
 
 152:                                              ; preds = %146
   %.not.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i, label %.critedge42.threadthread-pre-split.i, label %153
+  br i1 %.not.i.i, label %.critedge.threadthread-pre-split.i, label %153
 
 153:                                              ; preds = %152
   %154 = load i32, ptr %1, align 4
   %155 = icmp eq i32 %154, 21
-  br i1 %155, label %is_notclause.exit.i, label %.critedge42.thread.i
+  br i1 %155, label %is_notclause.exit.i, label %.critedge.thread.i
 
 is_notclause.exit.i:                              ; preds = %153
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %157 = load i32, ptr %156, align 4
   %158 = icmp eq i32 %157, 2
-  br i1 %158, label %159, label %.critedge42.threadthread-pre-split.i
+  br i1 %158, label %159, label %.critedge.threadthread-pre-split.i
 
 159:                                              ; preds = %is_notclause.exit.i
   %160 = getelementptr i8, ptr %1, i64 8
-  %.val44.i = load ptr, ptr %160, align 8
-  %161 = getelementptr i8, ptr %.val44.i, i64 16
-  %.val44.val.i = load ptr, ptr %161, align 8
-  %.val44.val.val.i = load ptr, ptr %.val44.val.i, align 8
-  %162 = tail call zeroext i1 @equal(ptr noundef %.val44.val.val.i, ptr noundef %147) #7
-  br i1 %162, label %predicate_implied_by_simple_clause.exit, label %.critedge42.threadthread-pre-split.i
+  %.val43.i = load ptr, ptr %160, align 8
+  %161 = getelementptr i8, ptr %.val43.i, i64 16
+  %.val43.val.i = load ptr, ptr %161, align 8
+  %.val43.val.val.i = load ptr, ptr %.val43.val.i, align 8
+  %162 = tail call zeroext i1 @equal(ptr noundef %.val43.val.val.i, ptr noundef %147) #7
+  br i1 %162, label %predicate_implied_by_simple_clause.exit, label %.critedge.threadthread-pre-split.i
 
-.critedge42.threadthread-pre-split.i:             ; preds = %159, %is_notclause.exit.i, %152, %150, %142, %139, %133, %129, %127
+.critedge.threadthread-pre-split.i:               ; preds = %159, %is_notclause.exit.i, %152, %150, %142, %139, %133, %129, %127
   %.pr.i = load i32, ptr %1, align 4
-  br label %.critedge42.thread.i
+  br label %.critedge.thread.i
 
-.critedge42.thread.i:                             ; preds = %.critedge42.threadthread-pre-split.i, %153
-  %163 = phi i32 [ %.pr.i, %.critedge42.threadthread-pre-split.i ], [ %154, %153 ]
+.critedge.thread.i:                               ; preds = %.critedge.threadthread-pre-split.i, %153
+  %163 = phi i32 [ %.pr.i, %.critedge.threadthread-pre-split.i ], [ %154, %153 ]
   %cond1.i = icmp eq i32 %163, 52
   br i1 %cond1.i, label %164, label %.thread.i
 
-164:                                              ; preds = %.critedge42.thread.i
+164:                                              ; preds = %.critedge.thread.i
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %166 = load i32, ptr %165, align 8
   %cond2.i = icmp ne i32 %166, 1
@@ -425,7 +425,7 @@ is_notclause.exit.i:                              ; preds = %153
   %174 = tail call fastcc zeroext i1 @clause_is_strict_for(ptr noundef nonnull %.054, ptr noundef %173, i1 noundef zeroext true)
   br i1 %174, label %predicate_implied_by_simple_clause.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %171, %167, %164, %.critedge42.thread.i
+.thread.i:                                        ; preds = %171, %167, %164, %.critedge.thread.i
   %175 = tail call fastcc zeroext i1 @operator_predicate_proof(ptr noundef nonnull %1, ptr noundef nonnull %.054, i1 noundef zeroext false, i1 noundef zeroext %2)
   br label %predicate_implied_by_simple_clause.exit
 
@@ -433,7 +433,7 @@ default.unreachable98:                            ; preds = %97, %14, %11
   unreachable
 
 predicate_implied_by_simple_clause.exit:          ; preds = %.thread.i, %171, %159, %150, %125, %.thread, %119, %107, %94, %.loopexit, %61, %49, %24
-  %.0 = phi i1 [ %.not74, %24 ], [ %.not73.not.not.not.not.not, %49 ], [ %.not71.not.not.not.not.not, %61 ], [ %.not6982, %.loopexit ], [ %.not68, %94 ], [ %.not67, %107 ], [ %.not.not.not.not.not.not, %119 ], [ true, %.thread ], [ %175, %.thread.i ], [ true, %125 ], [ true, %159 ], [ true, %150 ], [ true, %171 ]
+  %.0 = phi i1 [ %.not74, %24 ], [ true, %.thread ], [ %.not73.not.not.not.not.not, %49 ], [ %.not71.not.not.not.not.not, %61 ], [ %.not6982, %.loopexit ], [ %.not68, %94 ], [ %.not67, %107 ], [ %.not.not.not.not.not.not, %119 ], [ true, %125 ], [ %175, %.thread.i ], [ true, %150 ], [ true, %159 ], [ true, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
@@ -623,7 +623,7 @@ define internal fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef %0, 
   br label %extract_not_arg.exit
 
 extract_not_arg.exit:                             ; preds = %60, %67
-  %.0.i.in = phi ptr [ %.val.i, %60 ], [ %68, %67 ]
+  %.0.i.in = phi ptr [ %68, %67 ], [ %.val.i, %60 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
   %.not102 = icmp eq ptr %.0.i, null
   br i1 %.not102, label %extract_not_arg.exit.thread, label %69
@@ -632,7 +632,7 @@ extract_not_arg.exit:                             ; preds = %60, %67
   %70 = tail call fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %.076, ptr noundef nonnull %.0.i, i1 noundef zeroext false)
   br i1 %70, label %predicate_refuted_by_simple_clause.exit, label %extract_not_arg.exit.thread
 
-extract_not_arg.exit.thread:                      ; preds = %64, %56, %54, %52, %69, %extract_not_arg.exit
+extract_not_arg.exit.thread:                      ; preds = %64, %54, %56, %52, %69, %extract_not_arg.exit
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef %.076, ptr noundef nonnull %4) #7
@@ -775,7 +775,7 @@ extract_not_arg.exit.thread:                      ; preds = %64, %56, %54, %52, 
   br label %extract_not_arg.exit109
 
 extract_not_arg.exit109:                          ; preds = %127, %134
-  %.0.i107.in = phi ptr [ %.val.i108, %127 ], [ %135, %134 ]
+  %.0.i107.in = phi ptr [ %135, %134 ], [ %.val.i108, %127 ]
   %.0.i107 = load ptr, ptr %.0.i107.in, align 8
   %.not97 = icmp eq ptr %.0.i107, null
   br i1 %.not97, label %extract_not_arg.exit109.thread, label %136
@@ -784,7 +784,7 @@ extract_not_arg.exit109:                          ; preds = %127, %134
   %137 = tail call fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %.076, ptr noundef nonnull %.0.i107, i1 noundef zeroext false)
   br i1 %137, label %predicate_refuted_by_simple_clause.exit, label %extract_not_arg.exit109.thread
 
-extract_not_arg.exit109.thread:                   ; preds = %131, %123, %121, %119, %136, %extract_not_arg.exit109
+extract_not_arg.exit109.thread:                   ; preds = %131, %121, %123, %119, %136, %extract_not_arg.exit109
   %138 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %139 = load ptr, ptr %138, align 8
   call void %139(ptr noundef %.076, ptr noundef nonnull %4) #7
@@ -842,7 +842,7 @@ extract_not_arg.exit109.thread:                   ; preds = %131, %123, %121, %1
   br label %extract_strong_not_arg.exit
 
 extract_strong_not_arg.exit:                      ; preds = %157, %165
-  %.0.i110.in = phi ptr [ %.val.i111, %157 ], [ %166, %165 ]
+  %.0.i110.in = phi ptr [ %166, %165 ], [ %.val.i111, %157 ]
   %.0.i110 = load ptr, ptr %.0.i110.in, align 8
   %.not = icmp eq ptr %.0.i110, null
   br i1 %.not, label %extract_strong_not_arg.exit.thread, label %167
@@ -852,7 +852,7 @@ extract_strong_not_arg.exit:                      ; preds = %157, %165
   %169 = tail call fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %1, ptr noundef nonnull %.0.i110, i1 noundef zeroext %168)
   br i1 %169, label %predicate_refuted_by_simple_clause.exit, label %extract_strong_not_arg.exit.thread
 
-extract_strong_not_arg.exit.thread:               ; preds = %161, %153, %151, %149, %167, %extract_strong_not_arg.exit
+extract_strong_not_arg.exit.thread:               ; preds = %161, %151, %153, %149, %167, %extract_strong_not_arg.exit
   switch i32 %12, label %default.unreachable147 [
     i32 1, label %170
     i32 2, label %182
@@ -943,7 +943,7 @@ extract_strong_not_arg.exit.thread:               ; preds = %161, %153, %151, %1
   br label %extract_not_arg.exit114
 
 extract_not_arg.exit114:                          ; preds = %202, %209
-  %.0.i112.in = phi ptr [ %.val.i113, %202 ], [ %210, %209 ]
+  %.0.i112.in = phi ptr [ %210, %209 ], [ %.val.i113, %202 ]
   %.0.i112 = load ptr, ptr %.0.i112.in, align 8
   %.not94 = icmp eq ptr %.0.i112, null
   br i1 %.not94, label %extract_not_arg.exit114.thread, label %211
@@ -952,7 +952,7 @@ extract_not_arg.exit114:                          ; preds = %202, %209
   %212 = tail call fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %.076, ptr noundef nonnull %.0.i112, i1 noundef zeroext false)
   br i1 %212, label %predicate_refuted_by_simple_clause.exit, label %extract_not_arg.exit114.thread
 
-extract_not_arg.exit114.thread:                   ; preds = %206, %198, %196, %194, %211, %extract_not_arg.exit114
+extract_not_arg.exit114.thread:                   ; preds = %206, %196, %198, %194, %211, %extract_not_arg.exit114
   %213 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %213, 0
   br i1 %.not.i, label %215, label %214, !prof !13
@@ -1080,7 +1080,7 @@ default.unreachable147:                           ; preds = %extract_strong_not_
   unreachable
 
 predicate_refuted_by_simple_clause.exit:          ; preds = %276, %275, %271, %265, %257, %249, %246, %242, %235, %227, %219, %215, %.thread, %211, %167, %136, %69, %191, %179, %146, %.loopexit, %92, %79, %49, %37
-  %.0 = phi i1 [ %.not106.not.not.not.not.not, %37 ], [ %.not104, %49 ], [ %.not103.not.not.not.not.not, %79 ], [ %.not101, %92 ], [ %.not99131, %.loopexit ], [ %.not98, %146 ], [ %.not96.not.not.not.not.not, %179 ], [ %.not95, %191 ], [ true, %69 ], [ true, %136 ], [ true, %167 ], [ true, %211 ], [ true, %.thread ], [ %277, %276 ], [ false, %215 ], [ false, %275 ], [ false, %249 ], [ true, %271 ], [ true, %242 ], [ false, %219 ], [ false, %246 ], [ true, %235 ], [ false, %227 ], [ true, %265 ], [ false, %257 ]
+  %.0 = phi i1 [ true, %211 ], [ %.not106.not.not.not.not.not, %37 ], [ %.not104, %49 ], [ true, %.thread ], [ %.not103.not.not.not.not.not, %79 ], [ %.not101, %92 ], [ %.not99131, %.loopexit ], [ true, %69 ], [ %.not98, %146 ], [ true, %136 ], [ %.not96.not.not.not.not.not, %179 ], [ %.not95, %191 ], [ true, %167 ], [ true, %271 ], [ false, %215 ], [ %277, %276 ], [ false, %227 ], [ false, %249 ], [ false, %275 ], [ true, %242 ], [ false, %246 ], [ false, %219 ], [ true, %235 ], [ true, %265 ], [ false, %257 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
@@ -1209,8 +1209,8 @@ list_length.exit.thread:                          ; preds = %52, %list_length.ex
   %64 = select i1 %63, i32 2, i32 1
   br label %.critedge
 
-.critedge:                                        ; preds = %is_andclause.exit, %2, %24, %30, %26, %list_length.exit, %48, %18, %40, %list_length.exit.thread, %14, %10, %4
-  %.036 = phi i32 [ 1, %4 ], [ 1, %10 ], [ 2, %14 ], [ %64, %list_length.exit.thread ], [ %47, %40 ], [ 0, %18 ], [ 0, %48 ], [ 0, %list_length.exit ], [ 0, %26 ], [ 0, %30 ], [ 0, %24 ], [ 0, %2 ], [ 0, %is_andclause.exit ]
+.critedge:                                        ; preds = %is_andclause.exit, %2, %24, %30, %26, %48, %list_length.exit, %18, %40, %list_length.exit.thread, %14, %10, %4
+  %.036 = phi i32 [ 1, %4 ], [ 1, %10 ], [ 2, %14 ], [ %64, %list_length.exit.thread ], [ %47, %40 ], [ 0, %is_andclause.exit ], [ 0, %2 ], [ 0, %18 ], [ 0, %list_length.exit ], [ 0, %24 ], [ 0, %48 ], [ 0, %26 ], [ 0, %30 ]
   ret i32 %.036
 }
 
@@ -1682,7 +1682,7 @@ tailrecurse.backedge.sink.split:                  ; preds = %is_funcclause.exit.
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %tailrecurse.backedge.sink.split, %65, %73, %.critedge96, %98, %102, %83
-  %.tr.be = phi ptr [ %71, %83 ], [ %71, %102 ], [ %71, %98 ], [ %71, %.critedge96 ], [ %71, %73 ], [ %71, %65 ], [ %62, %tailrecurse.backedge.sink.split ]
+  %.tr.be = phi ptr [ %71, %65 ], [ %71, %98 ], [ %71, %.critedge96 ], [ %71, %73 ], [ %71, %83 ], [ %71, %102 ], [ %62, %tailrecurse.backedge.sink.split ]
   %63 = icmp eq ptr %.tr.be, null
   %64 = icmp eq ptr %.077, null
   %or.cond = or i1 %63, %64
@@ -1772,7 +1772,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   br label %.critedge97
 
 .critedge97:                                      ; preds = %tailrecurse.backedge, %17, %78, %85, %is_funcclause.exit.thread, %.critedge96, %82, %52, %.lr.ph150, %31, %.lr.ph163, %3, %45, %.lr.ph141, %24, %.lr.ph153, %109
-  %.0 = phi i1 [ %112, %109 ], [ false, %24 ], [ false, %.lr.ph153 ], [ false, %45 ], [ false, %.lr.ph141 ], [ false, %3 ], [ %38, %.lr.ph163 ], [ %38, %31 ], [ %59, %.lr.ph150 ], [ %59, %52 ], [ false, %82 ], [ false, %tailrecurse.backedge ], [ true, %17 ], [ true, %78 ], [ true, %85 ], [ false, %is_funcclause.exit.thread ], [ true, %.critedge96 ]
+  %.0 = phi i1 [ false, %.lr.ph141 ], [ false, %3 ], [ %112, %109 ], [ %38, %31 ], [ false, %24 ], [ false, %.lr.ph153 ], [ %59, %52 ], [ false, %45 ], [ %38, %.lr.ph163 ], [ %59, %.lr.ph150 ], [ false, %is_funcclause.exit.thread ], [ true, %17 ], [ true, %85 ], [ false, %tailrecurse.backedge ], [ true, %.critedge96 ], [ true, %78 ], [ false, %82 ]
   ret i1 %.0
 }
 
@@ -1959,10 +1959,10 @@ list_length.exit138:                              ; preds = %15
   br i1 %.not118, label %is_opclause.exit.thread, label %96
 
 96:                                               ; preds = %49, %64, %94, %83
-  %.099 = phi ptr [ %35, %64 ], [ %35, %83 ], [ %37, %94 ], [ %37, %49 ]
-  %.098 = phi ptr [ %31, %64 ], [ %33, %83 ], [ %31, %94 ], [ %33, %49 ]
-  %.097 = phi i32 [ %65, %64 ], [ %84, %83 ], [ %29, %94 ], [ %29, %49 ]
-  %.096 = phi i32 [ %63, %64 ], [ %27, %83 ], [ %95, %94 ], [ %27, %49 ]
+  %.099 = phi ptr [ %37, %94 ], [ %35, %64 ], [ %35, %83 ], [ %37, %49 ]
+  %.098 = phi ptr [ %31, %94 ], [ %31, %64 ], [ %33, %83 ], [ %33, %49 ]
+  %.097 = phi i32 [ %29, %94 ], [ %65, %64 ], [ %84, %83 ], [ %29, %49 ]
+  %.096 = phi i32 [ %95, %94 ], [ %63, %64 ], [ %27, %83 ], [ %27, %49 ]
   %97 = getelementptr inbounds nuw i8, ptr %.099, i64 32
   %98 = load i8, ptr %97, align 8, !range !14, !noundef !15
   %99 = trunc nuw i8 %98 to i1
@@ -2060,7 +2060,7 @@ list_length.exit138:                              ; preds = %15
   br label %is_opclause.exit.thread
 
 is_opclause.exit.thread:                          ; preds = %15, %8, %4, %140, %142, %118, %115, %107, %102, %100, %85, %94, %91, %87, %83, %80, %74, %76, %70, %64, %62, %59, %53, %55, %49, %43, %45, %20, %list_length.exit138, %is_opclause.exit136, %list_length.exit, %is_opclause.exit, %144, %117, %109, %72, %41
-  %.0 = phi i1 [ %42, %41 ], [ false, %109 ], [ false, %117 ], [ %145, %144 ], [ %73, %72 ], [ false, %is_opclause.exit ], [ false, %list_length.exit ], [ false, %is_opclause.exit136 ], [ false, %list_length.exit138 ], [ false, %20 ], [ false, %45 ], [ false, %43 ], [ false, %49 ], [ false, %55 ], [ false, %53 ], [ false, %59 ], [ false, %62 ], [ false, %64 ], [ false, %70 ], [ false, %76 ], [ false, %74 ], [ false, %80 ], [ false, %83 ], [ false, %87 ], [ false, %91 ], [ false, %94 ], [ false, %85 ], [ false, %100 ], [ true, %102 ], [ true, %107 ], [ true, %115 ], [ false, %118 ], [ false, %142 ], [ false, %140 ], [ false, %4 ], [ false, %8 ], [ false, %15 ]
+  %.0 = phi i1 [ false, %is_opclause.exit ], [ false, %is_opclause.exit136 ], [ false, %list_length.exit138 ], [ %42, %41 ], [ false, %20 ], [ false, %43 ], [ false, %100 ], [ true, %102 ], [ false, %109 ], [ false, %85 ], [ true, %107 ], [ false, %117 ], [ false, %118 ], [ %145, %144 ], [ true, %115 ], [ false, %140 ], [ false, %53 ], [ false, %62 ], [ false, %142 ], [ %73, %72 ], [ false, %64 ], [ false, %70 ], [ false, %74 ], [ false, %91 ], [ false, %83 ], [ false, %87 ], [ false, %80 ], [ false, %94 ], [ false, %list_length.exit ], [ false, %45 ], [ false, %49 ], [ false, %55 ], [ false, %59 ], [ false, %76 ], [ false, %15 ], [ false, %4 ], [ false, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -2091,7 +2091,7 @@ define internal fastcc zeroext i1 @operator_same_subexprs_proof(i32 noundef %0, 
   br label %11
 
 11:                                               ; preds = %7, %4, %9
-  %.0 = phi i1 [ %.0.i, %9 ], [ true, %4 ], [ true, %7 ]
+  %.0 = phi i1 [ true, %4 ], [ %.0.i, %9 ], [ true, %7 ]
   ret i1 %.0
 }
 
@@ -2275,7 +2275,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br i1 %86, label %.critedge, label %.thread113.us.us
 
 .thread113.us.us:                                 ; preds = %84, %83, %71, %56, %.lr.ph194.us
-  %.4.ph.us.us = phi i8 [ %68, %84 ], [ %68, %83 ], [ %68, %56 ], [ %.2126.us191.us, %.lr.ph194.us ], [ %68, %71 ]
+  %.4.ph.us.us = phi i8 [ %68, %56 ], [ %68, %83 ], [ %68, %84 ], [ %.2126.us191.us, %.lr.ph194.us ], [ %68, %71 ]
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %87 = load i32, ptr %37, align 4
   %88 = sext i32 %87 to i64
@@ -2356,8 +2356,8 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %132 = icmp eq i8 %131, 105
   br i1 %132, label %.critedge, label %.thread113
 
-.thread113:                                       ; preds = %117, %.lr.ph178, %102, %129, %130
-  %.4.ph = phi i8 [ %114, %130 ], [ %114, %129 ], [ %114, %102 ], [ %.2126175, %.lr.ph178 ], [ %114, %117 ]
+.thread113:                                       ; preds = %117, %102, %.lr.ph178, %130, %129
+  %.4.ph = phi i8 [ %114, %102 ], [ %114, %129 ], [ %114, %130 ], [ %.2126175, %.lr.ph178 ], [ %114, %117 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %133 = load i32, ptr %37, align 4
   %134 = sext i32 %133 to i64
@@ -2373,9 +2373,9 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br i1 %138, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.loopexit283, %130, %.loopexit, %84, %.lr.ph201.split.split.preheader, %.lr.ph201.split.split.us.preheader, %31, %33
-  %.090254 = phi ptr [ null, %33 ], [ null, %31 ], [ %34, %.lr.ph201.split.split.us.preheader ], [ %34, %.lr.ph201.split.split.preheader ], [ %34, %84 ], [ %34, %.loopexit ], [ %34, %130 ], [ %34, %.loopexit283 ]
-  %.186 = phi i32 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph201.split.split.us.preheader ], [ 0, %.lr.ph201.split.split.preheader ], [ %.583.us.us, %84 ], [ 0, %.loopexit ], [ %.583, %130 ], [ 0, %.loopexit283 ]
-  %.1 = phi i8 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph201.split.split.us.preheader ], [ 0, %.lr.ph201.split.split.preheader ], [ %68, %84 ], [ %.3.us219.ph, %.loopexit ], [ %114, %130 ], [ %.3.ph, %.loopexit283 ]
+  %.090254 = phi ptr [ %34, %.lr.ph201.split.split.preheader ], [ %34, %84 ], [ null, %33 ], [ null, %31 ], [ %34, %.lr.ph201.split.split.us.preheader ], [ %34, %130 ], [ %34, %.loopexit ], [ %34, %.loopexit283 ]
+  %.186 = phi i32 [ 0, %.lr.ph201.split.split.preheader ], [ %.583.us.us, %84 ], [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph201.split.split.us.preheader ], [ %.583, %130 ], [ 0, %.loopexit ], [ 0, %.loopexit283 ]
+  %.1 = phi i8 [ 0, %.lr.ph201.split.split.preheader ], [ %68, %84 ], [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph201.split.split.us.preheader ], [ %114, %130 ], [ %.3.us219.ph, %.loopexit ], [ %.3.ph, %.loopexit283 ]
   call void @list_free_deep(ptr noundef %.090254) #7
   call void @list_free_deep(ptr noundef %32) #7
   %139 = trunc nuw i8 %.1 to i1

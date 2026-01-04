@@ -192,7 +192,7 @@ define noundef zeroext i1 @_ZNK6icu_776number4impl8Modifier22semanticallyEquival
   br i1 %exitcond47, label %.critedge41, label %.preheader, !llvm.loop !17
 
 .critedge41:                                      ; preds = %.critedge42, %35, %38, %20, %15
-  %.0 = phi i1 [ %19, %15 ], [ false, %20 ], [ false, %38 ], [ false, %35 ], [ true, %.critedge42 ]
+  %.0 = phi i1 [ %19, %15 ], [ false, %20 ], [ false, %35 ], [ false, %38 ], [ true, %.critedge42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
@@ -451,7 +451,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit14:        ; preds = %46
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %46, %14, %42, %10, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit14, %69, %75, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %69 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit14 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ %80, %75 ], [ false, %10 ], [ false, %42 ], [ false, %14 ], [ false, %46 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %69 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit14 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ %80, %75 ], [ false, %42 ], [ false, %10 ], [ false, %14 ], [ false, %46 ]
   ret i1 %.0
 }
 
@@ -507,7 +507,7 @@ define void @_ZN6icu_776number4impl14SimpleModifierC2ERKNS_15SimpleFormatterENS_
   br label %25
 
 25:                                               ; preds = %22, %20, %6
-  %.0.i = phi ptr [ %21, %20 ], [ %24, %22 ], [ null, %6 ]
+  %.0.i = phi ptr [ %24, %22 ], [ %21, %20 ], [ null, %6 ]
   %26 = icmp slt i16 %16, 0
   %27 = ashr i16 %16, 5
   %28 = sext i16 %27 to i32
@@ -602,7 +602,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit13:       ; preds = %53, %45
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit16
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit16:       ; preds = %59, %62, %64, %_ZNK6icu_7713UnicodeString6charAtEi.exit
-  %.0.i.i14.sink = phi i32 [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %74, %64 ], [ 65279, %62 ], [ 0, %59 ]
+  %.0.i.i14.sink = phi i32 [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 65279, %62 ], [ %74, %64 ], [ 0, %59 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %.0.i.i14.sink, ptr %75, align 4, !tbaa !41
   ret void
@@ -884,7 +884,7 @@ define noundef range(i32 -256, 195838) i32 @_ZN6icu_776number4impl14SimpleModifi
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %7, %14, %16
-  %.0.i = phi ptr [ %15, %14 ], [ %18, %16 ], [ null, %7 ]
+  %.0.i = phi ptr [ %18, %16 ], [ %15, %14 ], [ null, %7 ]
   %19 = icmp slt i16 %10, 0
   %20 = ashr i16 %10, 5
   %21 = sext i16 %20 to i32
@@ -1535,7 +1535,7 @@ _ZN6icu_776number4impl30CurrencySpacingEnabledModifier15getInsertStringERKNS_20D
   ret void
 
 143:                                              ; preds = %123, %140, %75, %92, %73, %71
-  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %74, %73 ], [ %.pn43.pn, %92 ], [ %76, %75 ], [ %.pn50.pn, %140 ], [ %124, %123 ]
+  %.pn50.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %72, %71 ], [ %124, %123 ], [ %74, %73 ], [ %.pn43.pn, %92 ], [ %.pn50.pn, %140 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %33) #19
   call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %31) #19
   br label %144

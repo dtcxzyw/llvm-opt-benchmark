@@ -832,7 +832,7 @@ define internal noundef i32 @deband_8_coupling_c(ptr noundef readonly captures(n
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph183
-  %.1.lcssa = phi i32 [ 0, %.lr.ph183 ], [ %127, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %127, %._crit_edge.loopexit ], [ 0, %.lr.ph183 ]
   %128 = icmp eq i32 %.1.lcssa, %36
   br i1 %128, label %.preheader, label %.preheader166
 
@@ -884,8 +884,8 @@ define internal noundef i32 @deband_8_coupling_c(ptr noundef readonly captures(n
   br i1 %157, label %.lr.ph177, label %.loopexit, !llvm.loop !78
 
 .loopexit:                                        ; preds = %.lr.ph177, %.lr.ph179, %.preheader166, %.preheader
-  %158 = phi i32 [ %35, %.preheader166 ], [ %35, %.preheader ], [ %141, %.lr.ph179 ], [ %155, %.lr.ph177 ]
-  %159 = phi i32 [ %36, %.preheader166 ], [ %35, %.preheader ], [ %141, %.lr.ph179 ], [ %155, %.lr.ph177 ]
+  %158 = phi i32 [ %141, %.lr.ph179 ], [ %35, %.preheader ], [ %35, %.preheader166 ], [ %155, %.lr.ph177 ]
+  %159 = phi i32 [ %141, %.lr.ph179 ], [ %35, %.preheader ], [ %36, %.preheader166 ], [ %155, %.lr.ph177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1360,7 +1360,7 @@ define internal noundef i32 @deband_8_c(ptr noundef readonly captures(none) %0, 
   br label %._crit_edge158
 
 ._crit_edge158:                                   ; preds = %._crit_edge158.loopexit, %22
-  %136 = phi i32 [ %.pre, %._crit_edge158.loopexit ], [ %23, %22 ]
+  %136 = phi i32 [ %23, %22 ], [ %.pre, %._crit_edge158.loopexit ]
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %137 = sext i32 %136 to i64
   %138 = icmp slt i64 %indvars.iv.next169, %137

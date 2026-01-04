@@ -176,7 +176,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1101,7 +1101,7 @@ define internal fastcc noundef ptr @_ZL19udata_cacheDataItemPKcP11UDataMemoryP10
   br label %48
 
 48:                                               ; preds = %43, %40, %3, %46, %27, %17, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %17 ], [ null, %27 ], [ %47, %46 ], [ null, %3 ], [ %45, %43 ], [ null, %40 ]
+  %.0 = phi ptr [ %47, %46 ], [ null, %11 ], [ null, %17 ], [ null, %27 ], [ null, %3 ], [ %45, %43 ], [ null, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1134,7 +1134,7 @@ define noundef ptr @udata_open_77(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %17
 
 17:                                               ; preds = %4, %6, %15, %14
-  %.0 = phi ptr [ null, %14 ], [ %16, %15 ], [ null, %6 ], [ null, %4 ]
+  %.0 = phi ptr [ %16, %15 ], [ null, %14 ], [ null, %6 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -1161,10 +1161,10 @@ define internal fastcc noundef ptr @_ZL12doOpenChoicePKcS0_S0_PFaPvS0_S0_PK9UDat
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !13
   %25 = icmp eq ptr %0, null
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink.sroa.gep240 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.sink.sroa.gep241 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink.sroa.gep242 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sink.sroa.gep240 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink.sroa.gep241 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sink.sroa.gep242 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sink.sroa.gep243 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br i1 %25, label %32, label %26
 
@@ -1336,15 +1336,15 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit196: ; preds = 
           to label %.invoke unwind label %68
 
 .invoke:                                          ; preds = %92, %91, %80, %70, %66
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %66 ], [ %.sink.sroa.gep240, %70 ], [ %.sink.sroa.gep241, %80 ], [ %.sink.sroa.gep242, %91 ], [ %.sink.sroa.gep243, %92 ]
-  %.sink = phi ptr [ %13, %66 ], [ %14, %70 ], [ %16, %80 ], [ %17, %91 ], [ %18, %92 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %91 ], [ %.sink.sroa.gep240, %66 ], [ %.sink.sroa.gep241, %70 ], [ %.sink.sroa.gep242, %80 ], [ %.sink.sroa.gep243, %92 ]
+  %.sink = phi ptr [ %17, %91 ], [ %13, %66 ], [ %14, %70 ], [ %16, %80 ], [ %18, %92 ]
   %93 = load ptr, ptr %.sink, align 8
   %94 = load i32, ptr %.sink.sroa.phi, align 8
   %95 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %10, ptr noundef %93, i32 noundef %94, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit unwind label %68
 
 _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.invoke, %87, %47
-  %.0135 = phi ptr [ null, %47 ], [ %spec.select, %87 ], [ %0, %.invoke ]
+  %.0135 = phi ptr [ %spec.select, %87 ], [ null, %47 ], [ %0, %.invoke ]
   %96 = load ptr, ptr %10, align 8, !tbaa !3
   %97 = load i32, ptr %41, align 8, !tbaa !18
   %98 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %8, ptr noundef %96, i32 noundef %97, ptr noundef nonnull align 4 dereferenceable(4) %5)
@@ -1645,7 +1645,7 @@ thread-pre-split:                                 ; preds = %199, %196, %.thread
   br label %.thread
 
 .thread:                                          ; preds = %.thread237, %177, %178, %225, %221, %222, %211, %212, %203, %204, %188, %189
-  %.1 = phi ptr [ null, %189 ], [ %187, %188 ], [ null, %204 ], [ %202, %203 ], [ null, %212 ], [ %210, %211 ], [ null, %222 ], [ %220, %221 ], [ null, %225 ], [ null, %178 ], [ %176, %177 ], [ null, %.thread237 ]
+  %.1 = phi ptr [ null, %225 ], [ %202, %203 ], [ %210, %211 ], [ %220, %221 ], [ %187, %188 ], [ null, %189 ], [ null, %204 ], [ null, %212 ], [ null, %222 ], [ null, %178 ], [ %176, %177 ], [ null, %.thread237 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %10) #15
@@ -1713,7 +1713,7 @@ define noundef ptr @udata_openChoice_77(ptr noundef %0, ptr noundef %1, ptr noun
   br label %20
 
 20:                                               ; preds = %6, %8, %18, %17
-  %.0 = phi ptr [ null, %17 ], [ %19, %18 ], [ null, %8 ], [ null, %6 ]
+  %.0 = phi ptr [ %19, %18 ], [ null, %17 ], [ null, %8 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -2078,7 +2078,7 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.us-phi
 
-_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit.thread: ; preds = %66, %.noexc27, %47
+_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit.thread: ; preds = %66, %47, %.noexc27
   invoke void @udata_close_77(ptr noundef nonnull %11)
           to label %79 unwind label %.split31
 
@@ -2095,7 +2095,7 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
   br label %.split, !llvm.loop !56
 
 .loopexit:                                        ; preds = %79, %43, %37, %16, %.split33.us
-  %.0 = phi ptr [ %.lcssa46.sink, %.split33.us ], [ null, %16 ], [ null, %37 ], [ null, %43 ], [ null, %79 ]
+  %.0 = phi ptr [ %.lcssa46.sink, %.split33.us ], [ null, %37 ], [ null, %16 ], [ null, %43 ], [ null, %79 ]
   %83 = getelementptr inbounds nuw i8, ptr %12, i64 176
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %83) #15
   %84 = getelementptr inbounds nuw i8, ptr %12, i64 112
@@ -2194,8 +2194,8 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
   %.pr = load i32, ptr %7, align 4, !tbaa !13
   br label %49
 
-.loopexit:                                        ; preds = %39, %24, %_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit, %46
-  %.2 = phi ptr [ %40, %46 ], [ null, %_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit ], [ null, %24 ], [ null, %39 ]
+.loopexit:                                        ; preds = %24, %39, %_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit, %46
+  %.2 = phi ptr [ %40, %46 ], [ null, %_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit ], [ null, %39 ], [ null, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit5
 
@@ -2311,7 +2311,7 @@ _ZL13extendICUDataP10UErrorCode.exit:             ; preds = %86
   br i1 %.not45, label %.loopexit5, label %15, !llvm.loop !63
 
 .loopexit5:                                       ; preds = %57, %_ZL13extendICUDataP10UErrorCode.exit, %53, %_ZL13extendICUDataP10UErrorCode.exit.thread, %.loopexit, %52
-  %.3 = phi ptr [ null, %52 ], [ %.2, %.loopexit ], [ null, %_ZL13extendICUDataP10UErrorCode.exit.thread ], [ null, %53 ], [ null, %_ZL13extendICUDataP10UErrorCode.exit ], [ null, %57 ]
+  %.3 = phi ptr [ null, %52 ], [ null, %_ZL13extendICUDataP10UErrorCode.exit.thread ], [ %.2, %.loopexit ], [ null, %53 ], [ null, %_ZL13extendICUDataP10UErrorCode.exit ], [ null, %57 ]
   ret ptr %.3
 }
 
@@ -2526,7 +2526,7 @@ _ZL20udata_findCachedDataPKcR10UErrorCode.exit.thread: ; preds = %43, %_ZL20udat
   br label %_ZN6icu_775MutexD2Ev.exit49
 
 _ZN6icu_775MutexD2Ev.exit49:                      ; preds = %39, %24, %75, %_ZL20udata_findCachedDataPKcR10UErrorCode.exit.thread, %_ZL20udata_findCachedDataPKcR10UErrorCode.exit, %35, %38, %11, %3, %_ZN6icu_775MutexD2Ev.exit
-  %.0 = phi ptr [ %.1, %_ZN6icu_775MutexD2Ev.exit ], [ null, %3 ], [ null, %11 ], [ null, %38 ], [ null, %35 ], [ %.4, %75 ], [ null, %_ZL20udata_findCachedDataPKcR10UErrorCode.exit.thread ], [ %49, %_ZL20udata_findCachedDataPKcR10UErrorCode.exit ], [ %25, %24 ], [ null, %39 ]
+  %.0 = phi ptr [ null, %35 ], [ null, %3 ], [ %49, %_ZL20udata_findCachedDataPKcR10UErrorCode.exit ], [ %.1, %_ZN6icu_775MutexD2Ev.exit ], [ null, %11 ], [ null, %38 ], [ %.4, %75 ], [ null, %_ZL20udata_findCachedDataPKcR10UErrorCode.exit.thread ], [ %25, %24 ], [ null, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

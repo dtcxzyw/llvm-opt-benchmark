@@ -278,8 +278,8 @@ define internal void @zend_unclean_zval_ptr_dtor(ptr noundef readonly captures(n
   br label %26
 
 26:                                               ; preds = %.thread, %16
-  %27 = phi i32 [ %18, %16 ], [ %.pre, %.thread ]
-  %.06.i = phi ptr [ %11, %16 ], [ %25, %.thread ]
+  %27 = phi i32 [ %.pre, %.thread ], [ %18, %16 ]
+  %.06.i = phi ptr [ %25, %.thread ], [ %11, %16 ]
   %28 = and i32 %27, -1008
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %i_zval_ptr_dtor.exit, !prof !92
@@ -798,8 +798,8 @@ zval_ptr_dtor_nogc.exit247:                       ; preds = %183, %186, %191
   br label %221
 
 221:                                              ; preds = %.thread260, %211
-  %222 = phi i32 [ %213, %211 ], [ %.pre, %.thread260 ]
-  %.06.i = phi ptr [ %206, %211 ], [ %220, %.thread260 ]
+  %222 = phi i32 [ %.pre, %.thread260 ], [ %213, %211 ]
+  %.06.i = phi ptr [ %220, %.thread260 ], [ %206, %211 ]
   %223 = and i32 %222, -1008
   %224 = icmp eq i32 %223, 0
   br i1 %224, label %225, label %i_zval_ptr_dtor.exit, !prof !92
@@ -1560,7 +1560,7 @@ zend_active_function.exit.thread:                 ; preds = %5, %zend_active_fun
   br label %33
 
 33:                                               ; preds = %31, %32, %27, %26, %3, %4
-  %.0 = phi ptr [ @.str, %4 ], [ @.str, %3 ], [ %30, %27 ], [ @.str, %26 ], [ @.str, %32 ], [ @.str, %31 ]
+  %.0 = phi ptr [ @.str, %26 ], [ @.str, %3 ], [ @.str, %4 ], [ %30, %27 ], [ @.str, %32 ], [ @.str, %31 ]
   ret ptr %.0
 }
 
@@ -1603,8 +1603,8 @@ define dso_local ptr @get_active_function_name() local_unnamed_addr #4 {
   br label %zend_active_function.exit
 
 zend_active_function.exit:                        ; preds = %11, %6
-  %.pr = phi i8 [ %5, %6 ], [ %.pr.pre, %11 ]
-  %.0.i.ph = phi ptr [ %4, %6 ], [ %17, %11 ]
+  %.pr = phi i8 [ %.pr.pre, %11 ], [ %5, %6 ]
+  %.0.i.ph = phi ptr [ %17, %11 ], [ %4, %6 ]
   switch i8 %.pr, label %25 [
     i8 2, label %18
     i8 1, label %zend_active_function.exit.thread
@@ -1626,7 +1626,7 @@ zend_active_function.exit.thread:                 ; preds = %2, %zend_active_fun
   br label %25
 
 25:                                               ; preds = %zend_active_function.exit, %0, %zend_active_function.exit.thread, %18
-  %.0 = phi ptr [ %.1, %18 ], [ %24, %zend_active_function.exit.thread ], [ null, %0 ], [ null, %zend_active_function.exit ]
+  %.0 = phi ptr [ null, %0 ], [ %.1, %18 ], [ %24, %zend_active_function.exit.thread ], [ null, %zend_active_function.exit ]
   ret ptr %.0
 }
 
@@ -1687,7 +1687,7 @@ define dso_local ptr @get_active_function_or_method_name() local_unnamed_addr #0
   br label %zend_active_function.exit
 
 zend_active_function.exit:                        ; preds = %10, %5, %0
-  %.0.i = phi ptr [ %3, %0 ], [ %16, %10 ], [ %3, %5 ]
+  %.0.i = phi ptr [ %3, %0 ], [ %3, %5 ], [ %16, %10 ]
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %.not.i3 = icmp eq ptr %18, null
@@ -1829,7 +1829,7 @@ define dso_local ptr @get_active_function_arg_name(i32 noundef %0) local_unnamed
   br label %zend_active_function.exit
 
 zend_active_function.exit:                        ; preds = %12, %7, %3
-  %.0.i = phi ptr [ %5, %3 ], [ %18, %12 ], [ %5, %7 ]
+  %.0.i = phi ptr [ %5, %3 ], [ %5, %7 ], [ %18, %12 ]
   %19 = icmp eq ptr %.0.i, null
   %20 = icmp eq i32 %0, 0
   %or.cond.i4 = or i1 %20, %19
@@ -1873,7 +1873,7 @@ zend_active_function.exit:                        ; preds = %12, %7, %3
   br label %get_function_arg_name.exit
 
 get_function_arg_name.exit:                       ; preds = %40, %32, %21, %zend_active_function.exit, %1
-  %.0 = phi ptr [ null, %1 ], [ %39, %32 ], [ %46, %40 ], [ null, %21 ], [ null, %zend_active_function.exit ]
+  %.0 = phi ptr [ null, %1 ], [ %46, %40 ], [ %39, %32 ], [ null, %21 ], [ null, %zend_active_function.exit ]
   ret ptr %.0
 }
 
@@ -1922,7 +1922,7 @@ define dso_local ptr @get_function_arg_name(ptr noundef readonly captures(addres
   br label %31
 
 31:                                               ; preds = %2, %5, %24, %16
-  %.0 = phi ptr [ %23, %16 ], [ %30, %24 ], [ null, %5 ], [ null, %2 ]
+  %.0 = phi ptr [ %30, %24 ], [ %23, %16 ], [ null, %5 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -2269,7 +2269,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %59, %62, %67
   br label %.critedge54
 
 .critedge54:                                      ; preds = %zval_ptr_dtor_nogc.exit, %zval_ptr_dtor_nogc.exit59, %43, %.critedge, %3, %.critedge56, %14
-  %.4 = phi i32 [ -1, %14 ], [ -1, %.critedge56 ], [ 0, %3 ], [ 0, %.critedge ], [ 0, %43 ], [ 0, %zval_ptr_dtor_nogc.exit59 ], [ 0, %zval_ptr_dtor_nogc.exit ]
+  %.4 = phi i32 [ -1, %.critedge56 ], [ -1, %14 ], [ 0, %3 ], [ 0, %.critedge ], [ 0, %43 ], [ 0, %zval_ptr_dtor_nogc.exit59 ], [ 0, %zval_ptr_dtor_nogc.exit ]
   ret i32 %.4
 }
 
@@ -3086,7 +3086,7 @@ zend_check_arg_send_type.exit242.thread:          ; preds = %278, %zend_check_ar
   br label %150
 
 .thread291:                                       ; preds = %334, %335, %246
-  %.1177294 = phi i1 [ true, %334 ], [ false, %335 ], [ %.0176317, %246 ]
+  %.1177294 = phi i1 [ %.0176317, %246 ], [ false, %335 ], [ true, %334 ]
   %342 = add i32 %.0186314, -1
   %.not203 = icmp eq i32 %342, 0
   br i1 %.not203, label %.thread300.loopexit, label %237
@@ -3504,7 +3504,7 @@ zend_vm_stack_free_call_frame_ex.exit:            ; preds = %509, %518
   br label %zend_vm_stack_free_call_frame_ex.exit279
 
 zend_vm_stack_free_call_frame_ex.exit279:         ; preds = %532, %528, %384, %375, %101, %92, %zend_string_release_ex.exit.thread, %zend_vm_stack_free_call_frame_ex.exit, %523, %526, %522, %15, %16, %2, %zend_vm_stack_free_call_frame_ex.exit277
-  %.0 = phi i32 [ 0, %zend_vm_stack_free_call_frame_ex.exit277 ], [ -1, %2 ], [ 0, %16 ], [ 0, %15 ], [ 0, %522 ], [ 0, %526 ], [ 0, %523 ], [ 0, %zend_vm_stack_free_call_frame_ex.exit ], [ 0, %zend_string_release_ex.exit.thread ], [ 0, %92 ], [ 0, %101 ], [ 0, %375 ], [ 0, %384 ], [ 0, %528 ], [ 0, %532 ]
+  %.0 = phi i32 [ -1, %2 ], [ 0, %zend_vm_stack_free_call_frame_ex.exit ], [ 0, %zend_vm_stack_free_call_frame_ex.exit277 ], [ 0, %101 ], [ 0, %15 ], [ 0, %zend_string_release_ex.exit.thread ], [ 0, %16 ], [ 0, %522 ], [ 0, %384 ], [ 0, %526 ], [ 0, %523 ], [ 0, %92 ], [ 0, %375 ], [ 0, %528 ], [ 0, %532 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -3860,7 +3860,7 @@ zend_string_alloc.exit98:                         ; preds = %23
   br label %41
 
 41:                                               ; preds = %zend_string_alloc.exit98, %39
-  %.062 = phi ptr [ %30, %zend_string_alloc.exit98 ], [ %40, %39 ]
+  %.062 = phi ptr [ %40, %39 ], [ %30, %zend_string_alloc.exit98 ]
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 464), align 8, !tbaa !61
   %43 = tail call ptr @zend_hash_find(ptr noundef %42, ptr noundef %.062) #24
   %.not71 = icmp eq ptr %43, null
@@ -3893,7 +3893,7 @@ zend_string_alloc.exit98:                         ; preds = %23
   br label %zend_string_release_ex.exit96
 
 zend_string_release_ex.exit96:                    ; preds = %.thread, %55, %50, %46
-  %56 = phi ptr [ %43, %46 ], [ %43, %50 ], [ %43, %55 ], [ %45, %.thread ]
+  %56 = phi ptr [ %43, %55 ], [ %45, %.thread ], [ %43, %46 ], [ %43, %50 ]
   %57 = load ptr, ptr %56, align 8, !tbaa !4
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 28
   %59 = load i32, ptr %58, align 4, !tbaa !127
@@ -4197,7 +4197,7 @@ zend_string_release_ex.exit:                      ; preds = %193, %188, %184, %z
   br label %zend_string_release_ex.exit94
 
 zend_string_release_ex.exit94:                    ; preds = %146, %141, %137, %126, %121, %117, %110, %105, %101, %97, %92, %88, %zend_string_release_ex.exit, %195, %194, %136, %100, %87, %74, %79, %75, %63, %20, %14, %70
-  %.0 = phi ptr [ %57, %70 ], [ %18, %14 ], [ null, %20 ], [ null, %63 ], [ %57, %75 ], [ %57, %79 ], [ %57, %74 ], [ null, %87 ], [ null, %100 ], [ null, %136 ], [ %172, %194 ], [ %172, %195 ], [ null, %zend_string_release_ex.exit ], [ null, %88 ], [ null, %92 ], [ null, %97 ], [ null, %101 ], [ null, %105 ], [ null, %110 ], [ null, %117 ], [ null, %121 ], [ null, %126 ], [ null, %137 ], [ null, %141 ], [ null, %146 ]
+  %.0 = phi ptr [ %18, %14 ], [ %57, %70 ], [ null, %20 ], [ null, %63 ], [ %57, %74 ], [ null, %100 ], [ null, %136 ], [ null, %110 ], [ null, %87 ], [ %57, %75 ], [ %57, %79 ], [ null, %zend_string_release_ex.exit ], [ null, %97 ], [ null, %126 ], [ %172, %194 ], [ %172, %195 ], [ null, %88 ], [ null, %92 ], [ null, %101 ], [ null, %105 ], [ null, %117 ], [ null, %121 ], [ null, %137 ], [ null, %141 ], [ null, %146 ]
   ret ptr %.0
 }
 
@@ -4272,7 +4272,7 @@ define dso_local ptr @zend_get_called_scope(ptr noundef readonly captures(addres
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %10, %16, %14, %19, %1, %7
-  %.010 = phi ptr [ %9, %7 ], [ null, %1 ], [ %6, %10 ], [ null, %16 ], [ null, %14 ], [ null, %19 ]
+  %.010 = phi ptr [ %9, %7 ], [ null, %1 ], [ null, %14 ], [ %6, %10 ], [ null, %16 ], [ null, %19 ]
   ret ptr %.010
 }
 
@@ -4769,7 +4769,7 @@ zend_get_called_scope.exit:                       ; preds = %.lr.ph.i43
   %.not24 = icmp eq ptr %48, null
   br i1 %.not24, label %zend_get_called_scope.exit.thread, label %report_class_fetch_error.exit, !prof !204
 
-zend_get_called_scope.exit.thread:                ; preds = %44, %39, %41, %28, %zend_get_called_scope.exit
+zend_get_called_scope.exit.thread:                ; preds = %44, %41, %39, %28, %zend_get_called_scope.exit
   tail call void (i32, ptr, ptr, ...) @zend_throw_or_error(i32 noundef %1, ptr poison, ptr noundef nonnull @.str.17)
   br label %report_class_fetch_error.exit
 
@@ -4812,7 +4812,7 @@ zend_get_called_scope.exit.thread:                ; preds = %44, %39, %41, %28, 
   br label %report_class_fetch_error.exit
 
 report_class_fetch_error.exit:                    ; preds = %35, %12, %zend_get_executed_scope.exit42.thread57, %27, %.sink.split.i, %57, %53, %51, %zend_get_called_scope.exit, %zend_get_executed_scope.exit, %zend_get_executed_scope.exit.thread, %zend_get_called_scope.exit.thread, %zend_get_executed_scope.exit42.thread
-  %.021 = phi ptr [ null, %zend_get_executed_scope.exit42.thread ], [ null, %zend_get_called_scope.exit.thread ], [ null, %zend_get_executed_scope.exit.thread ], [ %11, %zend_get_executed_scope.exit ], [ %48, %zend_get_called_scope.exit ], [ %52, %51 ], [ null, %53 ], [ null, %57 ], [ null, %.sink.split.i ], [ %.pre, %27 ], [ %26, %zend_get_executed_scope.exit42.thread57 ], [ %11, %12 ], [ %34, %35 ]
+  %.021 = phi ptr [ %48, %zend_get_called_scope.exit ], [ %26, %zend_get_executed_scope.exit42.thread57 ], [ %11, %zend_get_executed_scope.exit ], [ null, %zend_get_executed_scope.exit42.thread ], [ %11, %12 ], [ null, %zend_get_called_scope.exit.thread ], [ null, %zend_get_executed_scope.exit.thread ], [ %52, %51 ], [ null, %.sink.split.i ], [ null, %53 ], [ null, %57 ], [ %.pre, %27 ], [ %34, %35 ]
   ret ptr %.021
 }
 
@@ -4915,7 +4915,7 @@ define dso_local ptr @zend_fetch_class_with_scope(ptr noundef %0, i32 noundef %1
   br label %report_class_fetch_error.exit
 
 report_class_fetch_error.exit:                    ; preds = %9, %12, %.sink.split.i, %20, %16, %14, %5, %6, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %6 ], [ %2, %5 ], [ %15, %14 ], [ null, %16 ], [ null, %20 ], [ null, %.sink.split.i ], [ %.pre, %12 ], [ %11, %9 ]
+  %.0 = phi ptr [ %15, %14 ], [ null, %8 ], [ null, %.sink.split.i ], [ %2, %5 ], [ null, %6 ], [ null, %16 ], [ null, %20 ], [ %.pre, %12 ], [ %11, %9 ]
   ret ptr %.0
 }
 
@@ -5131,7 +5131,7 @@ _zend_hash_append_ind.exit:                       ; preds = %68, %zend_string_ad
   br i1 %.not52, label %.critedge53, label %47
 
 .critedge53:                                      ; preds = %.critedge2, %_zend_hash_append_ind.exit, %0, %32, %24, %18, %10
-  %.037 = phi ptr [ %12, %10 ], [ %20, %18 ], [ %27, %24 ], [ %.039, %32 ], [ null, %0 ], [ %.039, %_zend_hash_append_ind.exit ], [ null, %.critedge2 ]
+  %.037 = phi ptr [ %12, %10 ], [ %27, %24 ], [ null, %0 ], [ %20, %18 ], [ %.039, %32 ], [ %.039, %_zend_hash_append_ind.exit ], [ null, %.critedge2 ]
   ret ptr %.037
 }
 
@@ -5384,7 +5384,7 @@ zend_string_equal_content.exit.thread:            ; preds = %33, %zend_string_eq
   br label %.critedge59
 
 .critedge59:                                      ; preds = %.critedge4, %3, %.loopexit, %51, %53, %.critedge61, %55
-  %.5 = phi i32 [ 0, %55 ], [ 0, %.critedge61 ], [ 0, %53 ], [ -1, %51 ], [ -1, %.loopexit ], [ -1, %3 ], [ -1, %.critedge4 ]
+  %.5 = phi i32 [ 0, %55 ], [ 0, %53 ], [ 0, %.critedge61 ], [ -1, %51 ], [ -1, %.loopexit ], [ -1, %3 ], [ -1, %.critedge4 ]
   ret i32 %.5
 }
 
@@ -5498,7 +5498,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %29, %zend_string_eq
   br label %.critedge64
 
 .critedge64:                                      ; preds = %.critedge4, %4, %.loopexit, %45, %47, %.critedge66, %49
-  %.5 = phi i32 [ 0, %49 ], [ 0, %.critedge66 ], [ 0, %47 ], [ -1, %45 ], [ -1, %.loopexit ], [ -1, %4 ], [ -1, %.critedge4 ]
+  %.5 = phi i32 [ 0, %49 ], [ 0, %47 ], [ 0, %.critedge66 ], [ -1, %45 ], [ -1, %.loopexit ], [ -1, %4 ], [ -1, %.critedge4 ]
   ret i32 %.5
 }
 
@@ -5566,8 +5566,8 @@ define internal void @zend_timeout_handler(i32 %0) #0 {
   br label %19
 
 19:                                               ; preds = %13, %11, %17, %7
-  %.06 = phi i32 [ %10, %7 ], [ %18, %17 ], [ 0, %11 ], [ 0, %13 ]
-  %.0 = phi ptr [ %9, %7 ], [ %14, %17 ], [ null, %11 ], [ null, %13 ]
+  %.06 = phi i32 [ %10, %7 ], [ 0, %11 ], [ %18, %17 ], [ 0, %13 ]
+  %.0 = phi ptr [ %9, %7 ], [ null, %11 ], [ %14, %17 ], [ null, %13 ]
   %.not10 = icmp eq ptr %.0, null
   %spec.store.select = select i1 %.not10, ptr @.str.18, ptr %.0
   %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 848), align 8, !tbaa !191

@@ -1044,10 +1044,10 @@ define void @ff_vc1_mc_4mv_luma(ptr noundef readonly %0, i32 noundef %1, i32 nou
   br i1 %.not315, label %63, label %.thread
 
 63:                                               ; preds = %39, %53, %54, %60
-  %.sink577 = phi i64 [ 920, %60 ], [ 920, %54 ], [ 920, %53 ], [ 1040, %39 ]
-  %.sink576 = phi i64 [ 7008, %60 ], [ 7008, %54 ], [ 7008, %53 ], [ 9056, %39 ]
-  %.sink575 = phi i64 [ 10096, %60 ], [ 10096, %54 ], [ 10096, %53 ], [ 10112, %39 ]
-  %.sink = phi i64 [ 10120, %60 ], [ 10120, %54 ], [ 10120, %53 ], [ 10124, %39 ]
+  %.sink577 = phi i64 [ 920, %53 ], [ 920, %60 ], [ 920, %54 ], [ 1040, %39 ]
+  %.sink576 = phi i64 [ 7008, %53 ], [ 7008, %60 ], [ 7008, %54 ], [ 9056, %39 ]
+  %.sink575 = phi i64 [ 10096, %53 ], [ 10096, %60 ], [ 10096, %54 ], [ 10112, %39 ]
+  %.sink = phi i64 [ 10120, %53 ], [ 10120, %60 ], [ 10120, %54 ], [ 10124, %39 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink577
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink576
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink575
@@ -1296,7 +1296,7 @@ median4.exit350:                                  ; preds = %176, %180, %185, %1
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %207, %209, %210, %212
-  %.0.i351 = phi i32 [ %201, %207 ], [ %201, %210 ], [ %..i352, %209 ], [ %.20.i, %212 ]
+  %.0.i351 = phi i32 [ %..i352, %209 ], [ %201, %210 ], [ %201, %207 ], [ %.20.i, %212 ]
   %213 = trunc i32 %.0.i351 to i16
   store i16 %213, ptr %99, align 2, !tbaa !54
   %214 = getelementptr inbounds nuw i8, ptr %196, i64 4
@@ -1357,7 +1357,7 @@ mid_pred.exit:                                    ; preds = %207, %209, %210, %2
   br label %mid_pred.exit360
 
 mid_pred.exit360:                                 ; preds = %241, %243, %244, %246
-  %.0.i357 = phi i32 [ %235, %241 ], [ %235, %244 ], [ %..i359, %243 ], [ %.20.i358, %246 ]
+  %.0.i357 = phi i32 [ %..i359, %243 ], [ %235, %244 ], [ %235, %241 ], [ %.20.i358, %246 ]
   %247 = trunc i32 %.0.i357 to i16
   store i16 %247, ptr %99, align 2, !tbaa !54
   %248 = getelementptr inbounds nuw i8, ptr %230, i64 4
@@ -1410,7 +1410,7 @@ mid_pred.exit360:                                 ; preds = %241, %243, %244, %2
   br label %get_luma_mv.exit.sink.split
 
 get_luma_mv.exit.sink.split:                      ; preds = %260, %258, %257, %255, %226, %224, %223, %221, %261, %median4.exit350
-  %.0.i349.sink = phi i32 [ %.0.i349, %median4.exit350 ], [ %281, %261 ], [ %217, %221 ], [ %217, %224 ], [ %..i355, %223 ], [ %.20.i354, %226 ], [ %251, %255 ], [ %251, %258 ], [ %..i363, %257 ], [ %.20.i362, %260 ]
+  %.0.i349.sink = phi i32 [ %.0.i349, %median4.exit350 ], [ %281, %261 ], [ %.20.i354, %226 ], [ %..i355, %223 ], [ %217, %224 ], [ %217, %221 ], [ %..i363, %257 ], [ %251, %258 ], [ %251, %255 ], [ %.20.i362, %260 ]
   %282 = trunc i32 %.0.i349.sink to i16
   store i16 %282, ptr %100, align 2, !tbaa !54
   br label %get_luma_mv.exit
@@ -1441,13 +1441,13 @@ get_luma_mv.exit:                                 ; preds = %get_luma_mv.exit.si
   br label %.thread406
 
 .thread406:                                       ; preds = %.thread406.loopexit, %.thread389, %83
-  %295 = phi i32 [ %6, %83 ], [ %6, %.thread389 ], [ %.pre483, %.thread406.loopexit ]
-  %296 = phi ptr [ %85, %83 ], [ %89, %.thread389 ], [ %85, %.thread406.loopexit ]
-  %.0292404 = phi i32 [ %84, %83 ], [ %52, %.thread389 ], [ %84, %.thread406.loopexit ]
-  %.0302375382402 = phi i32 [ %.0302375381562, %83 ], [ %.0302, %.thread389 ], [ %.0302375381562, %.thread406.loopexit ]
-  %.0374384400 = phi ptr [ %.0374383561, %83 ], [ %.0, %.thread389 ], [ %.0374383561, %.thread406.loopexit ]
-  %.0300373386398 = phi ptr [ %.0300373385560, %83 ], [ %65, %.thread389 ], [ %.0300373385560, %.thread406.loopexit ]
-  %.0301372388396 = phi i32 [ %.0301372387559, %83 ], [ %.0301, %.thread389 ], [ %.0301372387559, %.thread406.loopexit ]
+  %295 = phi i32 [ %6, %.thread389 ], [ %6, %83 ], [ %.pre483, %.thread406.loopexit ]
+  %296 = phi ptr [ %89, %.thread389 ], [ %85, %83 ], [ %85, %.thread406.loopexit ]
+  %.0292404 = phi i32 [ %52, %.thread389 ], [ %84, %83 ], [ %84, %.thread406.loopexit ]
+  %.0302375382402 = phi i32 [ %.0302, %.thread389 ], [ %.0302375381562, %83 ], [ %.0302375381562, %.thread406.loopexit ]
+  %.0374384400 = phi ptr [ %.0, %.thread389 ], [ %.0374383561, %83 ], [ %.0374383561, %.thread406.loopexit ]
+  %.0300373386398 = phi ptr [ %65, %.thread389 ], [ %.0300373385560, %83 ], [ %.0300373385560, %.thread406.loopexit ]
+  %.0301372388396 = phi i32 [ %.0301, %.thread389 ], [ %.0301372387559, %83 ], [ %.0301372387559, %.thread406.loopexit ]
   %297 = icmp eq i32 %295, 1
   br i1 %297, label %299, label %.thread412
 
@@ -1542,7 +1542,7 @@ get_luma_mv.exit:                                 ; preds = %get_luma_mv.exit.si
   br label %355
 
 355:                                              ; preds = %344, %350, %347
-  %.1293 = phi i32 [ %346, %344 ], [ %354, %350 ], [ %.0292404, %347 ]
+  %.1293 = phi i32 [ %.0292404, %347 ], [ %346, %344 ], [ %354, %350 ]
   %.not421 = icmp eq i32 %20, 0
   br i1 %.not421, label %369, label %356
 
@@ -2218,7 +2218,7 @@ median4.exit305:                                  ; preds = %89, %93, %98, %102
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %122, %124, %125, %127
-  %.0.i306 = phi i32 [ %117, %122 ], [ %117, %125 ], [ %..i307, %124 ], [ %.20.i, %127 ]
+  %.0.i306 = phi i32 [ %..i307, %124 ], [ %117, %125 ], [ %117, %122 ], [ %.20.i, %127 ]
   %128 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %129 = load i32, ptr %128, align 4, !tbaa !44
   %130 = getelementptr inbounds nuw i8, ptr %116, i64 4
@@ -2485,7 +2485,7 @@ median4.exit317:                                  ; preds = %268, %272, %277, %2
   br label %mid_pred.exit321
 
 mid_pred.exit321:                                 ; preds = %302, %304, %305, %307
-  %.0.i318 = phi i32 [ %296, %302 ], [ %296, %305 ], [ %..i320, %304 ], [ %.20.i319, %307 ]
+  %.0.i318 = phi i32 [ %..i320, %304 ], [ %296, %305 ], [ %296, %302 ], [ %.20.i319, %307 ]
   %308 = trunc i32 %.0.i318 to i16
   %309 = getelementptr inbounds nuw i8, ptr %291, i64 4
   %310 = load i32, ptr %309, align 4, !tbaa !44
@@ -2513,7 +2513,7 @@ mid_pred.exit321:                                 ; preds = %302, %304, %305, %3
   br label %mid_pred.exit325
 
 mid_pred.exit325:                                 ; preds = %316, %318, %319, %321
-  %.0.i322 = phi i32 [ %312, %316 ], [ %312, %319 ], [ %..i324, %318 ], [ %.20.i323, %321 ]
+  %.0.i322 = phi i32 [ %..i324, %318 ], [ %312, %319 ], [ %312, %316 ], [ %.20.i323, %321 ]
   %322 = trunc i32 %.0.i322 to i16
   br label %get_luma_mv.exit
 
@@ -2552,7 +2552,7 @@ mid_pred.exit325:                                 ; preds = %316, %318, %319, %3
   br label %mid_pred.exit329
 
 mid_pred.exit329:                                 ; preds = %339, %341, %342, %344
-  %.0.i326 = phi i32 [ %333, %339 ], [ %333, %342 ], [ %..i328, %341 ], [ %.20.i327, %344 ]
+  %.0.i326 = phi i32 [ %..i328, %341 ], [ %333, %342 ], [ %333, %339 ], [ %.20.i327, %344 ]
   %345 = trunc i32 %.0.i326 to i16
   %346 = getelementptr inbounds nuw i8, ptr %328, i64 4
   %347 = load i32, ptr %346, align 4, !tbaa !44
@@ -2580,7 +2580,7 @@ mid_pred.exit329:                                 ; preds = %339, %341, %342, %3
   br label %mid_pred.exit333
 
 mid_pred.exit333:                                 ; preds = %353, %355, %356, %358
-  %.0.i330 = phi i32 [ %349, %353 ], [ %349, %356 ], [ %..i332, %355 ], [ %.20.i331, %358 ]
+  %.0.i330 = phi i32 [ %..i332, %355 ], [ %349, %356 ], [ %349, %353 ], [ %.20.i331, %358 ]
   %359 = trunc i32 %.0.i330 to i16
   br label %get_luma_mv.exit
 
@@ -3062,8 +3062,8 @@ vc1_scale_chroma.exit:                            ; preds = %629, %606
   br label %.preheader359
 
 vc1_lut_scale_chroma.exit:                        ; preds = %656, %vc1_scale_chroma.exit, %536
-  %.2252 = phi ptr [ %609, %vc1_scale_chroma.exit ], [ %.1251, %536 ], [ %609, %656 ]
-  %.2 = phi ptr [ %608, %vc1_scale_chroma.exit ], [ %.1, %536 ], [ %608, %656 ]
+  %.2252 = phi ptr [ %.1251, %536 ], [ %609, %vc1_scale_chroma.exit ], [ %609, %656 ]
+  %.2 = phi ptr [ %.1, %536 ], [ %608, %vc1_scale_chroma.exit ], [ %608, %656 ]
   %674 = shl nsw i32 %.0254, 1
   %675 = and i32 %674, 6
   %676 = shl i32 %.1259, 1
@@ -3504,8 +3504,8 @@ define void @ff_vc1_mc_4mv_chroma4(ptr noundef readonly %0, i32 noundef %1, i32 
   br label %.preheader254
 
 vc1_lut_scale_chroma.exit:                        ; preds = %246, %168, %221
-  %.1230 = phi ptr [ %223, %221 ], [ %160, %168 ], [ %223, %246 ]
-  %.1 = phi ptr [ %222, %221 ], [ %159, %168 ], [ %222, %246 ]
+  %.1230 = phi ptr [ %160, %168 ], [ %223, %221 ], [ %223, %246 ]
+  %.1 = phi ptr [ %159, %168 ], [ %222, %221 ], [ %222, %246 ]
   %264 = load i32, ptr %74, align 8, !tbaa !106
   %.not246 = icmp eq i32 %264, 0
   %265 = load ptr, ptr %76, align 8, !tbaa !46
@@ -3513,8 +3513,8 @@ vc1_lut_scale_chroma.exit:                        ; preds = %246, %168, %221
   %267 = getelementptr inbounds i8, ptr %265, i64 %266
   %268 = load i64, ptr %46, align 8, !tbaa !89
   %269 = shl i64 %268, %73
-  %. = select i1 %.not246, ptr %78, ptr %75
   %.293 = select i1 %.not246, ptr %80, ptr %79
+  %. = select i1 %.not246, ptr %78, ptr %75
   %.sink287.in = select i1 %.not245, ptr %.293, ptr %.
   %.sink = load ptr, ptr %.sink287.in, align 8, !tbaa !105
   tail call void %.sink(ptr noundef %267, ptr noundef %.1, i64 noundef %269, i32 noundef 4, i32 noundef %162, i32 noundef %164) #4
@@ -4136,7 +4136,7 @@ vc1_lut_scale_luma.exit.loopexit:                 ; preds = %._crit_edge413.us.u
   br label %vc1_lut_scale_luma.exit
 
 vc1_lut_scale_luma.exit:                          ; preds = %vc1_lut_scale_luma.exit.loopexit, %354
-  %377 = phi i32 [ %.pre461, %vc1_lut_scale_luma.exit.loopexit ], [ %341, %354 ]
+  %377 = phi i32 [ %341, %354 ], [ %.pre461, %vc1_lut_scale_luma.exit.loopexit ]
   %.not361 = icmp eq i32 %377, 0
   br i1 %.not361, label %382, label %378
 

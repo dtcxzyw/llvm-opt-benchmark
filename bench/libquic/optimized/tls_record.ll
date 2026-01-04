@@ -570,7 +570,7 @@ ssl_record_sequence_update.exit:                  ; preds = %41
   br label %60
 
 60:                                               ; preds = %ssl_record_sequence_update.exit.thread, %48, %57, %17, %47
-  %.1 = phi i32 [ 0, %47 ], [ 0, %17 ], [ 1, %57 ], [ 1, %48 ], [ 0, %ssl_record_sequence_update.exit.thread ]
+  %.1 = phi i32 [ 0, %47 ], [ 0, %17 ], [ 0, %ssl_record_sequence_update.exit.thread ], [ 1, %57 ], [ 1, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %61
 

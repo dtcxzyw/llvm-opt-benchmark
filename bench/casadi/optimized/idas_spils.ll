@@ -1359,7 +1359,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerB(ptr noundef %0, i32 no
   br label %IDASpilsSetPreconditioner.exit
 
 IDASpilsSetPreconditioner.exit:                   ; preds = %51, %50, %45, %41, %40, %35, %28, %17, %11, %6
-  %.0 = phi i32 [ -1, %6 ], [ -101, %11 ], [ -3, %17 ], [ -3, %28 ], [ -1, %35 ], [ -2, %40 ], [ 0, %41 ], [ -1, %45 ], [ -2, %50 ], [ 0, %51 ]
+  %.0 = phi i32 [ -1, %6 ], [ -101, %11 ], [ -3, %17 ], [ -3, %28 ], [ 0, %41 ], [ -1, %35 ], [ -2, %40 ], [ -1, %45 ], [ -2, %50 ], [ 0, %51 ]
   ret i32 %.0
 }
 
@@ -1570,7 +1570,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerBS(ptr noundef %0, i32 n
   br label %IDASpilsSetPreconditioner.exit
 
 IDASpilsSetPreconditioner.exit:                   ; preds = %51, %50, %45, %41, %40, %35, %28, %17, %11, %6
-  %.0 = phi i32 [ -1, %6 ], [ -101, %11 ], [ -3, %17 ], [ -3, %28 ], [ -1, %35 ], [ -2, %40 ], [ 0, %41 ], [ -1, %45 ], [ -2, %50 ], [ 0, %51 ]
+  %.0 = phi i32 [ -1, %6 ], [ -101, %11 ], [ -3, %17 ], [ -3, %28 ], [ 0, %41 ], [ -1, %35 ], [ -2, %40 ], [ -1, %45 ], [ -2, %50 ], [ 0, %51 ]
   ret i32 %.0
 }
 
@@ -1820,7 +1820,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnB(ptr noundef %0, i32 nou
   br label %IDASpilsSetJacTimesVecFn.exit
 
 IDASpilsSetJacTimesVecFn.exit:                    ; preds = %47, %46, %41, %37, %36, %31, %27, %16, %10, %5
-  %.023 = phi i32 [ -1, %5 ], [ -101, %10 ], [ -3, %16 ], [ -3, %27 ], [ -1, %31 ], [ -2, %36 ], [ 0, %37 ], [ -1, %41 ], [ -2, %46 ], [ 0, %47 ]
+  %.023 = phi i32 [ -1, %5 ], [ -101, %10 ], [ -3, %16 ], [ -3, %27 ], [ 0, %37 ], [ -1, %31 ], [ -2, %36 ], [ -1, %41 ], [ -2, %46 ], [ 0, %47 ]
   ret i32 %.023
 }
 
@@ -1979,7 +1979,7 @@ define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnBS(ptr noundef %0, i32 no
   br label %IDASpilsSetJacTimesVecFn.exit
 
 IDASpilsSetJacTimesVecFn.exit:                    ; preds = %48, %47, %42, %38, %37, %32, %27, %16, %10, %5
-  %.023 = phi i32 [ -1, %5 ], [ -101, %10 ], [ -3, %16 ], [ -3, %27 ], [ -1, %32 ], [ -2, %37 ], [ 0, %38 ], [ -1, %42 ], [ -2, %47 ], [ 0, %48 ]
+  %.023 = phi i32 [ -1, %5 ], [ -101, %10 ], [ -3, %16 ], [ -3, %27 ], [ 0, %38 ], [ -1, %32 ], [ -2, %37 ], [ -1, %42 ], [ -2, %47 ], [ 0, %48 ]
   ret i32 %.023
 }
 

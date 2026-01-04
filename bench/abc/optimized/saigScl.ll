@@ -232,7 +232,7 @@ define i32 @Saig_ManReportComplements(ptr noundef readonly captures(none) %0) lo
   br i1 %45, label %.lr.ph48, label %.critedge4, !llvm.loop !35
 
 .critedge4:                                       ; preds = %.lr.ph48, %.critedge, %.critedge2
-  %.0.lcssa61 = phi i32 [ %.1, %.critedge2 ], [ 0, %.critedge ], [ %.1, %.lr.ph48 ]
+  %.0.lcssa61 = phi i32 [ 0, %.critedge ], [ %.1, %.critedge2 ], [ %.1, %.lr.ph48 ]
   ret i32 %.0.lcssa61
 }
 

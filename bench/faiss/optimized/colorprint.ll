@@ -389,7 +389,7 @@ define hidden noundef zeroext i1 @_ZN9benchmark15IsColorTerminalEv() local_unnam
   br i1 %.not.not.not.not, label %4, label %.split21.us
 
 .split21.us:                                      ; preds = %4, %.lr.ph, %0, %.split
-  %.us-phi = phi i1 [ true, %.split ], [ false, %0 ], [ %.not.not.not.not, %.lr.ph ], [ %.not.not.not.not, %4 ]
+  %.us-phi = phi i1 [ false, %0 ], [ true, %.split ], [ %.not.not.not.not, %.lr.ph ], [ %.not.not.not.not, %4 ]
   %8 = load ptr, ptr @stdout, align 8, !tbaa !20
   %9 = tail call i32 @fileno(ptr noundef %8) #14
   %10 = tail call i32 @isatty(i32 noundef %9) #14

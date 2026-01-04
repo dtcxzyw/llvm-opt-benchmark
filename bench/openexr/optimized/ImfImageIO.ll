@@ -526,8 +526,8 @@ _ZN7Imf_3_418MultiPartInputFileD2Ev.exit:         ; preds = %_ZNSt12__shared_ptr
   br label %146
 
 139:                                              ; preds = %133, %121
-  %.227 = phi ptr [ %.025, %121 ], [ %.328, %133 ]
-  %.pn33.pn = phi { ptr, i32 } [ %122, %121 ], [ %134, %133 ]
+  %.227 = phi ptr [ %.328, %133 ], [ %.025, %121 ]
+  %.pn33.pn = phi { ptr, i32 } [ %134, %133 ], [ %122, %121 ]
   %.4 = extractvalue { ptr, i32 } %.pn33.pn, 0
   %140 = call ptr @__cxa_begin_catch(ptr %.4) #16
   %141 = icmp eq ptr %.227, null
@@ -551,14 +551,14 @@ _ZN7Imf_3_418MultiPartInputFileD2Ev.exit:         ; preds = %_ZNSt12__shared_ptr
           to label %150 unwind label %151
 
 149:                                              ; preds = %132, %137, %118, %125
-  %.530 = phi ptr [ %113, %125 ], [ %113, %118 ], [ %127, %137 ], [ %127, %132 ]
+  %.530 = phi ptr [ %113, %118 ], [ %113, %125 ], [ %127, %137 ], [ %127, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.530
 
 150:                                              ; preds = %147, %119, %43, %25
-  %.pn34.pn = phi { ptr, i32 } [ %.pn34, %43 ], [ %120, %119 ], [ %.pn, %25 ], [ %148, %147 ]
+  %.pn34.pn = phi { ptr, i32 } [ %.pn34, %43 ], [ %.pn, %25 ], [ %120, %119 ], [ %148, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -81,8 +81,8 @@ define void @dlaed8_(ptr noundef readonly captures(none) %0, ptr noundef capture
   br i1 %63, label %.thread, label %65
 
 .thread:                                          ; preds = %61, %57, %54, %51, %46, %22
-  %.sink = phi i32 [ -1, %22 ], [ -3, %46 ], [ -4, %51 ], [ -7, %54 ], [ -10, %57 ], [ -14, %61 ]
-  %.neg = phi i32 [ 1, %22 ], [ 3, %46 ], [ 4, %51 ], [ 7, %54 ], [ 10, %57 ], [ 14, %61 ]
+  %.sink = phi i32 [ -1, %22 ], [ -3, %46 ], [ -7, %54 ], [ -10, %57 ], [ -4, %51 ], [ -14, %61 ]
+  %.neg = phi i32 [ 1, %22 ], [ 3, %46 ], [ 7, %54 ], [ 10, %57 ], [ 4, %51 ], [ 14, %61 ]
   store i32 %.sink, ptr %21, align 4, !tbaa !3
   store i32 %.neg, ptr %23, align 4, !tbaa !3
   %64 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %23, i32 noundef 6) #5
@@ -347,10 +347,10 @@ define void @dlaed8_(ptr noundef readonly captures(none) %0, ptr noundef capture
   br label %.preheader
 
 .preheader:                                       ; preds = %193, %.lr.ph434.preheader, %.lr.ph434..preheader.split.loop.exit_crit_edge
-  %184 = phi i32 [ %190, %.lr.ph434..preheader.split.loop.exit_crit_edge ], [ %166, %.lr.ph434.preheader ], [ %190, %193 ]
-  %.3.lcssa.ph = phi i32 [ %182, %.lr.ph434..preheader.split.loop.exit_crit_edge ], [ 1, %.lr.ph434.preheader ], [ %167, %193 ]
-  %.0.lcssa.ph = phi i32 [ %183, %.lr.ph434..preheader.split.loop.exit_crit_edge ], [ %167, %.lr.ph434.preheader ], [ 1, %193 ]
-  %.0366.ph.ph = phi i32 [ %182, %.lr.ph434..preheader.split.loop.exit_crit_edge ], [ 1, %.lr.ph434.preheader ], [ undef, %193 ]
+  %184 = phi i32 [ %166, %.lr.ph434.preheader ], [ %190, %.lr.ph434..preheader.split.loop.exit_crit_edge ], [ %190, %193 ]
+  %.3.lcssa.ph = phi i32 [ 1, %.lr.ph434.preheader ], [ %182, %.lr.ph434..preheader.split.loop.exit_crit_edge ], [ %167, %193 ]
+  %.0.lcssa.ph = phi i32 [ %167, %.lr.ph434.preheader ], [ %183, %.lr.ph434..preheader.split.loop.exit_crit_edge ], [ 1, %193 ]
+  %.0366.ph.ph = phi i32 [ 1, %.lr.ph434.preheader ], [ %182, %.lr.ph434..preheader.split.loop.exit_crit_edge ], [ undef, %193 ]
   %185 = icmp slt i32 %.3.lcssa.ph, %184
   br i1 %185, label %.lr.ph450.preheader, label %._crit_edge451
 

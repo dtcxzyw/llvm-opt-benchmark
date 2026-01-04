@@ -523,7 +523,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %97,
   ret void
 
 123:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn30 = phi { ptr, i32 } [ %.pn28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ], [ %.pn26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ %.pn24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ], [ %.pn22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39 ], [ %.pn20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn30 = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ], [ %.pn26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ %.pn24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ], [ %.pn22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39 ], [ %.pn20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36 ]
   resume { ptr, i32 } %.pn30
 }
 
@@ -928,7 +928,7 @@ _ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit75:   ; preds = %175, %180
   br i1 %exitcond24.not.i89, label %_ZN2cv6bgsegmL18normalizeHistogramEPfi.exit90, label %.lr.ph18.i86, !llvm.loop !75
 
 _ZN2cv6bgsegmL18normalizeHistogramEPfi.exit90:    ; preds = %.lr.ph18.i86, %._crit_edge.i83, %152, %_ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit75, %150
-  %.050.neg = phi i8 [ %151, %150 ], [ 0, %_ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit75 ], [ 0, %152 ], [ 0, %._crit_edge.i83 ], [ 0, %.lr.ph18.i86 ]
+  %.050.neg = phi i8 [ %151, %150 ], [ 0, %152 ], [ 0, %_ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit75 ], [ 0, %._crit_edge.i83 ], [ 0, %.lr.ph18.i86 ]
   %194 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv129
   store i8 %.050.neg, ptr %194, align 1, !tbaa !76
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
@@ -1351,8 +1351,8 @@ switch.lookup:                                    ; preds = %66
   br label %70
 
 70:                                               ; preds = %switch.lookup, %66, %59
-  %.046 = phi double [ %61, %59 ], [ 0.000000e+00, %66 ], [ %switch.load, %switch.lookup ]
-  %.045 = phi double [ %63, %59 ], [ 1.000000e+00, %66 ], [ %switch.load75, %switch.lookup ]
+  %.046 = phi double [ %switch.load, %switch.lookup ], [ 0.000000e+00, %66 ], [ %61, %59 ]
+  %.045 = phi double [ %switch.load75, %switch.lookup ], [ 1.000000e+00, %66 ], [ %63, %59 ]
   invoke void @_ZN2cv6bgsegm27BackgroundSubtractorGMGImpl10initializeENS_5Size_IiEEdd(ptr noundef nonnull align 8 dereferenceable(408) %0, i64 %.sroa.0.0.insert.insert.i, double noundef %.046, double noundef %.045)
           to label %73 unwind label %71
 

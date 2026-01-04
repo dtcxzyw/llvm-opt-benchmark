@@ -642,7 +642,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   br label %99
 
 99:                                               ; preds = %.thread74, %._crit_edge, %22
-  %.0 = phi i32 [ %36, %22 ], [ %98, %._crit_edge ], [ %83, %.thread74 ]
+  %.0 = phi i32 [ %36, %22 ], [ %83, %.thread74 ], [ %98, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -827,7 +827,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   br label %67
 
 67:                                               ; preds = %.thread, %._crit_edge, %33, %22
-  %.0 = phi i1 [ true, %22 ], [ false, %33 ], [ false, %._crit_edge ], [ true, %.thread ]
+  %.0 = phi i1 [ true, %22 ], [ false, %33 ], [ true, %.thread ], [ false, %._crit_edge ]
   ret i1 %.0
 }
 
@@ -920,7 +920,7 @@ define internal zeroext i16 @entryFindChildPtr(ptr readnone captures(none) %0, p
   br i1 %.not37, label %.loopexit, label %38, !llvm.loop !9
 
 .loopexit:                                        ; preds = %25, %38, %50, %.loopexit59, %12
-  %.031 = phi i16 [ %3, %12 ], [ 0, %.loopexit59 ], [ %.151, %38 ], [ 0, %50 ], [ %.030, %25 ]
+  %.031 = phi i16 [ 0, %.loopexit59 ], [ %3, %12 ], [ 0, %50 ], [ %.151, %38 ], [ %.030, %25 ]
   ret i16 %.031
 }
 

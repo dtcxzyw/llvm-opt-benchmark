@@ -228,9 +228,9 @@ _ZNK4ncnn3Mat5emptyEv.exit259:                    ; preds = %._crit_edge286
   br i1 %113, label %.lr.ph290, label %.loopexit, !llvm.loop !44
 
 .loopexit271:                                     ; preds = %.loopexit273.thread, %.loopexit273
-  %114 = phi i1 [ %68, %.loopexit273 ], [ %66, %.loopexit273.thread ]
-  %115 = phi i1 [ %67, %.loopexit273 ], [ false, %.loopexit273.thread ]
-  %116 = phi ptr [ %14, %.loopexit273 ], [ %.ph, %.loopexit273.thread ]
+  %114 = phi i1 [ %66, %.loopexit273.thread ], [ %68, %.loopexit273 ]
+  %115 = phi i1 [ false, %.loopexit273.thread ], [ %67, %.loopexit273 ]
+  %116 = phi ptr [ %.ph, %.loopexit273.thread ], [ %14, %.loopexit273 ]
   %117 = icmp eq i32 %23, 1
   %or.cond9 = select i1 %115, i1 %117, i1 false
   br i1 %or.cond9, label %118, label %147
@@ -397,9 +397,9 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnn3MatD2Ev.ex
   br i1 %214, label %_ZN4ncnn3MatD2Ev.exit, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph290, %_ZN4ncnn3MatD2Ev.exit, %.preheader, %183, %147
-  %215 = phi i1 [ %149, %183 ], [ %149, %147 ], [ false, %.preheader ], [ %149, %_ZN4ncnn3MatD2Ev.exit ], [ false, %.lr.ph290 ]
-  %216 = phi i1 [ %148, %183 ], [ %148, %147 ], [ false, %.preheader ], [ %148, %_ZN4ncnn3MatD2Ev.exit ], [ false, %.lr.ph290 ]
-  %217 = phi i1 [ %117, %183 ], [ %117, %147 ], [ false, %.preheader ], [ %117, %_ZN4ncnn3MatD2Ev.exit ], [ false, %.lr.ph290 ]
+  %215 = phi i1 [ false, %.preheader ], [ %149, %147 ], [ %149, %183 ], [ %149, %_ZN4ncnn3MatD2Ev.exit ], [ false, %.lr.ph290 ]
+  %216 = phi i1 [ false, %.preheader ], [ %148, %147 ], [ %148, %183 ], [ %148, %_ZN4ncnn3MatD2Ev.exit ], [ false, %.lr.ph290 ]
+  %217 = phi i1 [ false, %.preheader ], [ %117, %147 ], [ %117, %183 ], [ %117, %_ZN4ncnn3MatD2Ev.exit ], [ false, %.lr.ph290 ]
   %or.cond15 = select i1 %216, i1 %217, i1 false
   %218 = icmp eq i32 %23, 2
   %or.cond17 = select i1 %215, i1 %218, i1 false
@@ -636,7 +636,7 @@ _ZNK4ncnn3Mat5emptyEv.exit264:                    ; preds = %._crit_edge321
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge301, %._crit_edge286, %._crit_edge, %293, %326, %_ZNK4ncnn3Mat5emptyEv.exit261, %_ZNK4ncnn3Mat5emptyEv.exit259, %_ZNK4ncnn3Mat5emptyEv.exit, %.critedge258, %.critedge256, %.critedge253, %.critedge248
-  %.2 = phi i32 [ -100, %.critedge248 ], [ -100, %.critedge253 ], [ -100, %.critedge256 ], [ -100, %.critedge258 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit259 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit261 ], [ 0, %326 ], [ 0, %293 ], [ -100, %._crit_edge ], [ -100, %._crit_edge286 ], [ -100, %._crit_edge301 ]
+  %.2 = phi i32 [ -100, %.critedge248 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit259 ], [ -100, %.critedge253 ], [ -100, %.critedge256 ], [ -100, %._crit_edge301 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit261 ], [ -100, %._crit_edge ], [ -100, %._crit_edge286 ], [ -100, %.critedge258 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %326 ], [ 0, %293 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
 }
@@ -1037,9 +1037,9 @@ define internal void @_ZNK4ncnn6Concat7forwardERKSt6vectorINS_3MatESaIS2_EERS4_R
   br label %._crit_edge95
 
 ._crit_edge95:                                    ; preds = %.preheader86.lr.ph, %._crit_edge95.loopexit, %.noexc
-  %43 = phi i32 [ %.pre113, %._crit_edge95.loopexit ], [ %27, %.noexc ], [ %27, %.preheader86.lr.ph ]
-  %44 = phi i32 [ %50, %._crit_edge95.loopexit ], [ %28, %.noexc ], [ %28, %.preheader86.lr.ph ]
-  %45 = phi i32 [ %50, %._crit_edge95.loopexit ], [ %29, %.noexc ], [ %29, %.preheader86.lr.ph ]
+  %43 = phi i32 [ %27, %.noexc ], [ %.pre113, %._crit_edge95.loopexit ], [ %27, %.preheader86.lr.ph ]
+  %44 = phi i32 [ %28, %.noexc ], [ %50, %._crit_edge95.loopexit ], [ %28, %.preheader86.lr.ph ]
+  %45 = phi i32 [ %29, %.noexc ], [ %50, %._crit_edge95.loopexit ], [ %29, %.preheader86.lr.ph ]
   %indvars.iv.next107 = add nsw i64 %indvars.iv106, 1
   %46 = sext i32 %43 to i64
   %.not.not = icmp slt i64 %indvars.iv106, %46

@@ -3066,7 +3066,7 @@ define hidden void @_colorchecker_rebuild_patch_list(ptr noundef readonly captur
   br i1 %27, label %.lr.ph, label %._crit_edge
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %17
-  %.sink24 = phi double [ 0x3FE5555555555555, %17 ], [ %spec.select, %._crit_edge ]
+  %.sink24 = phi double [ %spec.select, %._crit_edge ], [ 0x3FE5555555555555, %17 ]
   %28 = load ptr, ptr %6, align 8, !tbaa !70
   call void @dtgtk_drawing_area_set_aspect_ratio(ptr noundef %28, double noundef %.sink24) #23
   %29 = load ptr, ptr %13, align 8, !tbaa !69
@@ -4201,7 +4201,7 @@ define internal range(i32 0, 2) i32 @checker_button_press(ptr noundef %0, ptr no
   br label %20
 
 20:                                               ; preds = %3, %19, %17
-  %21 = phi reassoc nsz arcp contract afn double [ %14, %19 ], [ 0.000000e+00, %17 ], [ %15, %3 ]
+  %21 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %17 ], [ %14, %19 ], [ %15, %3 ]
   %22 = fptrunc reassoc nsz arcp contract afn double %21 to float
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load double, ptr %23, align 8, !tbaa !133
@@ -4217,7 +4217,7 @@ define internal range(i32 0, 2) i32 @checker_button_press(ptr noundef %0, ptr no
   br label %30
 
 30:                                               ; preds = %20, %29, %27
-  %31 = phi reassoc nsz arcp contract afn double [ %24, %29 ], [ 0.000000e+00, %27 ], [ %25, %20 ]
+  %31 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %27 ], [ %24, %29 ], [ %25, %20 ]
   %32 = fptrunc reassoc nsz arcp contract afn double %31 to float
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 1176
   %34 = load i32, ptr %33, align 4, !tbaa !16
@@ -4477,7 +4477,7 @@ define internal range(i32 0, 2) i32 @checker_button_press(ptr noundef %0, ptr no
   br label %202
 
 202:                                              ; preds = %198, %200, %196
-  %.0150 = phi i32 [ %168, %200 ], [ %46, %196 ], [ %46, %198 ]
+  %.0150 = phi i32 [ %168, %200 ], [ %46, %198 ], [ %46, %196 ]
   %203 = sext i32 %.0150 to i64
   %204 = getelementptr inbounds float, ptr %6, i64 %203
   store float %152, ptr %204, align 4, !tbaa !14
@@ -4535,7 +4535,7 @@ define internal range(i32 0, 2) i32 @checker_button_press(ptr noundef %0, ptr no
   br label %237
 
 237:                                              ; preds = %._crit_edge, %202, %82, %52, %.thread170, %84, %54
-  %.0 = phi i32 [ 1, %54 ], [ 1, %84 ], [ 0, %.thread170 ], [ 0, %52 ], [ 0, %82 ], [ 1, %202 ], [ 1, %._crit_edge ]
+  %.0 = phi i32 [ 0, %.thread170 ], [ 1, %54 ], [ 0, %52 ], [ 1, %84 ], [ 0, %82 ], [ 1, %._crit_edge ], [ 1, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -4568,7 +4568,7 @@ define internal range(i32 0, 2) i32 @checker_motion_notify(ptr noundef %0, ptr n
   br label %21
 
 21:                                               ; preds = %3, %20, %18
-  %22 = phi reassoc nsz arcp contract afn double [ %15, %20 ], [ 0.000000e+00, %18 ], [ %16, %3 ]
+  %22 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %18 ], [ %15, %20 ], [ %16, %3 ]
   %23 = fptrunc reassoc nsz arcp contract afn double %22 to float
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load double, ptr %24, align 8, !tbaa !140
@@ -4584,7 +4584,7 @@ define internal range(i32 0, 2) i32 @checker_motion_notify(ptr noundef %0, ptr n
   br label %31
 
 31:                                               ; preds = %21, %30, %28
-  %32 = phi reassoc nsz arcp contract afn double [ %25, %30 ], [ 0.000000e+00, %28 ], [ %26, %21 ]
+  %32 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %28 ], [ %25, %30 ], [ %26, %21 ]
   %33 = fptrunc reassoc nsz arcp contract afn double %32 to float
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 1176
   %35 = load i32, ptr %34, align 4, !tbaa !16
@@ -5374,7 +5374,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %49
 
 49:                                               ; preds = %46, %4, %2, %44, %40, %36, %32, %28, %24, %20, %16, %12, %8
-  %.0 = phi ptr [ %45, %44 ], [ %41, %40 ], [ %37, %36 ], [ %33, %32 ], [ %29, %28 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ], [ %13, %12 ], [ %9, %8 ], [ %0, %2 ], [ %0, %4 ], [ %spec.select, %46 ]
+  %.0 = phi ptr [ %0, %4 ], [ %spec.select, %46 ], [ %45, %44 ], [ %41, %40 ], [ %37, %36 ], [ %33, %32 ], [ %29, %28 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ], [ %13, %12 ], [ %9, %8 ], [ %0, %2 ]
   ret ptr %.0
 }
 
@@ -5449,7 +5449,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %27
 
 27:                                               ; preds = %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ %., %25 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ %., %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

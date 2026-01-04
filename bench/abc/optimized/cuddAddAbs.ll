@@ -100,7 +100,7 @@ addCheckPositiveCube.exit:                        ; preds = %addCheckPositiveCub
   br label %53
 
 53:                                               ; preds = %3, %43, %41, %.loopexit
-  %.0 = phi ptr [ null, %.loopexit ], [ null, %41 ], [ %36, %43 ], [ null, %3 ]
+  %.0 = phi ptr [ %36, %43 ], [ null, %.loopexit ], [ null, %41 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -304,7 +304,7 @@ define ptr @cuddAddExistAbstractRecur(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %122
 
 122:                                              ; preds = %91, %56, %.critedge, %22, %3, %7, %.thread, %116, %103, %82, %81, %71, %38, %37
-  %.0 = phi ptr [ null, %37 ], [ %35, %38 ], [ null, %71 ], [ null, %81 ], [ %79, %82 ], [ null, %103 ], [ null, %116 ], [ %117, %.thread ], [ %1, %7 ], [ %1, %3 ], [ null, %22 ], [ %47, %.critedge ], [ null, %56 ], [ null, %91 ]
+  %.0 = phi ptr [ %117, %.thread ], [ %1, %3 ], [ null, %37 ], [ %35, %38 ], [ null, %22 ], [ %47, %.critedge ], [ null, %71 ], [ null, %81 ], [ %79, %82 ], [ null, %56 ], [ null, %103 ], [ null, %116 ], [ %1, %7 ], [ null, %91 ]
   ret ptr %.0
 }
 
@@ -575,7 +575,7 @@ define ptr @cuddAddUnivAbstractRecur(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %131
 
 131:                                              ; preds = %100, %65, %.critedge, %32, %3, %.thread, %125, %112, %91, %90, %80, %47, %46
-  %.0 = phi ptr [ null, %46 ], [ %44, %47 ], [ null, %80 ], [ null, %90 ], [ %88, %91 ], [ null, %112 ], [ null, %125 ], [ %126, %.thread ], [ %1, %3 ], [ null, %32 ], [ %56, %.critedge ], [ null, %65 ], [ null, %100 ]
+  %.0 = phi ptr [ %126, %.thread ], [ %1, %3 ], [ null, %46 ], [ %44, %47 ], [ null, %32 ], [ %56, %.critedge ], [ null, %80 ], [ null, %90 ], [ %88, %91 ], [ null, %65 ], [ null, %112 ], [ null, %125 ], [ null, %100 ]
   ret ptr %.0
 }
 
@@ -814,7 +814,7 @@ tailrecurse:                                      ; preds = %13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %3, %71, %33, %.critedge, %.thread, %96, %83, %67, %59, %49
-  %.0 = phi ptr [ null, %49 ], [ null, %59 ], [ %.091, %67 ], [ null, %83 ], [ null, %96 ], [ %97, %.thread ], [ %24, %.critedge ], [ null, %33 ], [ null, %71 ], [ %1, %3 ], [ %1, %tailrecurse ]
+  %.0 = phi ptr [ %97, %.thread ], [ null, %71 ], [ null, %96 ], [ %24, %.critedge ], [ null, %49 ], [ null, %59 ], [ %.091, %67 ], [ null, %33 ], [ null, %83 ], [ %1, %3 ], [ %1, %tailrecurse ]
   ret ptr %.0
 }
 

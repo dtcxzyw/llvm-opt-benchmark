@@ -309,7 +309,7 @@ cat_header.exit77:                                ; preds = %cat_header.exit74, 
   br label %107
 
 107:                                              ; preds = %46, %3, %.thread, %44
-  %.036 = phi i32 [ %.1, %.thread ], [ -12, %44 ], [ -38, %3 ], [ %47, %46 ]
+  %.036 = phi i32 [ -12, %44 ], [ -38, %3 ], [ %47, %46 ], [ %.1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

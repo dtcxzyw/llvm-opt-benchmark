@@ -774,7 +774,7 @@ define internal i32 @sr_done(ptr noundef readonly captures(none) %0) #2 align 16
   br label %76
 
 76:                                               ; preds = %75, %74, %69, %41, %22, %16, %1
-  %77 = phi i32 [ %7, %22 ], [ %5, %75 ], [ %61, %74 ], [ %61, %69 ], [ %61, %41 ], [ %7, %16 ], [ %7, %1 ]
+  %77 = phi i32 [ %7, %22 ], [ %5, %75 ], [ %61, %74 ], [ %61, %69 ], [ %61, %41 ], [ %7, %1 ], [ %7, %16 ]
   ret i32 %77
 }
 
@@ -1259,7 +1259,7 @@ define internal range(i32 0, 4) i32 @sr_check_events(ptr noundef readonly captur
   br label %.thread
 
 .thread:                                          ; preds = %28, %51, %50, %47, %42, %38, %36
-  %52 = phi i32 [ 1, %50 ], [ 0, %51 ], [ 0, %38 ], [ 0, %36 ], [ 0, %42 ], [ 2, %47 ], [ %spec.select, %28 ]
+  %52 = phi i32 [ 1, %50 ], [ 2, %47 ], [ 0, %51 ], [ %spec.select, %28 ], [ 0, %38 ], [ 0, %36 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

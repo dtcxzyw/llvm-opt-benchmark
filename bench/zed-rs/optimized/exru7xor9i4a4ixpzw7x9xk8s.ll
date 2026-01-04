@@ -427,7 +427,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
   unreachable
 
 .thread19.i:                                      ; preds = %113, %106, %95, %84, %73, %66, %.thread31.i
-  %.pn18.i = phi { ptr, i32 } [ %63, %.thread31.i ], [ %67, %66 ], [ %74, %73 ], [ %85, %84 ], [ %96, %95 ], [ %114, %113 ], [ %107, %106 ]
+  %.pn18.i = phi { ptr, i32 } [ %96, %95 ], [ %63, %.thread31.i ], [ %85, %84 ], [ %67, %66 ], [ %74, %73 ], [ %114, %113 ], [ %107, %106 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %18) #8
           to label %.thread unwind label %115, !noalias !47
 
@@ -731,7 +731,7 @@ _ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit: ; preds = %147, %.noexc.
   resume { ptr, i32 } %eh.lpad-body4554
 
 .thread:                                          ; preds = %189, %170, %160, %145, %125, %133, %58, %.thread19.i, %201, %.thread58
-  %eh.lpad-body4554 = phi { ptr, i32 } [ %lpad.thr_comm56, %.thread58 ], [ %lpad.thr_comm.split-lp, %201 ], [ %59, %58 ], [ %.pn18.i, %.thread19.i ], [ %134, %133 ], [ %126, %125 ], [ %146, %145 ], [ %161, %160 ], [ %171, %170 ], [ %190, %189 ]
+  %eh.lpad-body4554 = phi { ptr, i32 } [ %lpad.thr_comm56, %.thread58 ], [ %lpad.thr_comm.split-lp, %201 ], [ %171, %170 ], [ %161, %160 ], [ %146, %145 ], [ %126, %125 ], [ %.pn18.i, %.thread19.i ], [ %59, %58 ], [ %134, %133 ], [ %190, %189 ]
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 736
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba4172180bbc87eE.llvm.8627063476570623420"(ptr noalias noundef nonnull align 8 dereferenceable(56) %204)
           to label %"_ZN4core3ptr93drop_in_place$LT$smallvec..SmallVec$LT$$u5b$gpui..element..AnyElement$u3b$$u20$2$u5d$$GT$$GT$17h22cc52eef00b743aE.exit" unwind label %202

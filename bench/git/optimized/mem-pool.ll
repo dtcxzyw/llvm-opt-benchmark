@@ -163,8 +163,8 @@ mem_pool_alloc_block.exit23:                      ; preds = %30
   br label %41
 
 41:                                               ; preds = %6, %mem_pool_alloc_block.exit, %mem_pool_alloc_block.exit23
-  %42 = phi ptr [ %25, %mem_pool_alloc_block.exit ], [ %36, %mem_pool_alloc_block.exit23 ], [ %10, %6 ]
-  %.1 = phi ptr [ %24, %mem_pool_alloc_block.exit ], [ %35, %mem_pool_alloc_block.exit23 ], [ %5, %6 ]
+  %42 = phi ptr [ %36, %mem_pool_alloc_block.exit23 ], [ %25, %mem_pool_alloc_block.exit ], [ %10, %6 ]
+  %.1 = phi ptr [ %35, %mem_pool_alloc_block.exit23 ], [ %24, %mem_pool_alloc_block.exit ], [ %5, %6 ]
   %43 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 %4
   store ptr %44, ptr %43, align 8, !tbaa !12

@@ -28,8 +28,8 @@ define range(i32 0, 2) i32 @ssl3_cbc_digest_record(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %18 = icmp ult i64 %6, 1048576
-  %.0204.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.0204.sroa.gep237 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.0204.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.0204.sroa.gep234 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br i1 %18, label %19, label %.critedge, !prof !3
 
 19:                                               ; preds = %10
@@ -101,13 +101,13 @@ define range(i32 0, 2) i32 @ssl3_cbc_digest_record(ptr noundef %0, ptr noundef %
   br label %.critedge
 
 51:                                               ; preds = %21, %26, %31, %36, %41, %46
-  %.0210 = phi i64 [ 48, %21 ], [ 40, %26 ], [ 40, %31 ], [ 40, %36 ], [ 40, %41 ], [ 40, %46 ]
-  %.0204.sroa.phi = phi ptr [ %.0204.sroa.gep, %21 ], [ %.0204.sroa.gep, %26 ], [ %.0204.sroa.gep, %31 ], [ %.0204.sroa.gep, %36 ], [ %.0204.sroa.gep237, %41 ], [ %.0204.sroa.gep237, %46 ]
-  %.0204 = phi i64 [ 8, %21 ], [ 8, %26 ], [ 8, %31 ], [ 8, %36 ], [ 16, %41 ], [ 16, %46 ]
-  %.0200 = phi i64 [ 64, %21 ], [ 64, %26 ], [ 64, %31 ], [ 64, %36 ], [ 128, %41 ], [ 128, %46 ]
-  %.0199 = phi i64 [ 16, %21 ], [ 20, %26 ], [ 28, %31 ], [ 32, %36 ], [ 48, %41 ], [ 64, %46 ]
-  %.0198 = phi ptr [ @MD5_Transform, %21 ], [ @SHA1_Transform, %26 ], [ @SHA256_Transform, %31 ], [ @SHA256_Transform, %36 ], [ @SHA512_Transform, %41 ], [ @SHA512_Transform, %46 ]
-  %.0195 = phi ptr [ @tls1_md5_final_raw, %21 ], [ @tls1_sha1_final_raw, %26 ], [ @tls1_sha256_final_raw, %31 ], [ @tls1_sha256_final_raw, %36 ], [ @tls1_sha512_final_raw, %41 ], [ @tls1_sha512_final_raw, %46 ]
+  %.0210 = phi i64 [ 40, %41 ], [ 48, %21 ], [ 40, %26 ], [ 40, %31 ], [ 40, %36 ], [ 40, %46 ]
+  %.0204.sroa.phi = phi ptr [ %.0204.sroa.gep, %41 ], [ %.0204.sroa.gep234, %21 ], [ %.0204.sroa.gep234, %26 ], [ %.0204.sroa.gep234, %31 ], [ %.0204.sroa.gep234, %36 ], [ %.0204.sroa.gep, %46 ]
+  %.0204 = phi i64 [ 16, %41 ], [ 8, %21 ], [ 8, %26 ], [ 8, %31 ], [ 8, %36 ], [ 16, %46 ]
+  %.0200 = phi i64 [ 128, %41 ], [ 64, %21 ], [ 64, %26 ], [ 64, %31 ], [ 64, %36 ], [ 128, %46 ]
+  %.0199 = phi i64 [ 48, %41 ], [ 16, %21 ], [ 20, %26 ], [ 28, %31 ], [ 32, %36 ], [ 64, %46 ]
+  %.0198 = phi ptr [ @SHA512_Transform, %41 ], [ @MD5_Transform, %21 ], [ @SHA1_Transform, %26 ], [ @SHA256_Transform, %31 ], [ @SHA256_Transform, %36 ], [ @SHA512_Transform, %46 ]
+  %.0195 = phi ptr [ @tls1_sha512_final_raw, %41 ], [ @tls1_md5_final_raw, %21 ], [ @tls1_sha1_final_raw, %26 ], [ @tls1_sha256_final_raw, %31 ], [ @tls1_sha256_final_raw, %36 ], [ @tls1_sha512_final_raw, %46 ]
   %.not228 = icmp eq i8 %9, 0
   %52 = add i64 %8, 11
   %53 = add i64 %52, %.0210
@@ -442,12 +442,12 @@ define range(i32 0, 2) i32 @ssl3_cbc_digest_record(ptr noundef %0, ptr noundef %
   br label %222
 
 222:                                              ; preds = %215, %219, %209, %212, %196, %199, %202, %192, %._crit_edge
-  %.0202 = phi i32 [ 0, %._crit_edge ], [ 0, %192 ], [ 0, %196 ], [ 0, %199 ], [ 0, %202 ], [ 0, %209 ], [ 0, %212 ], [ 1, %219 ], [ 1, %215 ]
+  %.0202 = phi i32 [ 0, %._crit_edge ], [ 0, %192 ], [ 0, %196 ], [ 0, %199 ], [ 0, %202 ], [ 0, %212 ], [ 0, %209 ], [ 1, %219 ], [ 1, %215 ]
   call void @EVP_MD_CTX_free(ptr noundef %190) #8
   br label %.critedge
 
 .critedge:                                        ; preds = %107, %78, %49, %50, %46, %41, %36, %31, %26, %21, %10, %222
-  %.0 = phi i32 [ %.0202, %222 ], [ 0, %10 ], [ 0, %21 ], [ 0, %26 ], [ 0, %31 ], [ 0, %36 ], [ 0, %41 ], [ 0, %46 ], [ 0, %50 ], [ 0, %49 ], [ 0, %78 ], [ 0, %107 ]
+  %.0 = phi i32 [ 0, %10 ], [ %.0202, %222 ], [ 0, %107 ], [ 0, %49 ], [ 0, %46 ], [ 0, %21 ], [ 0, %26 ], [ 0, %31 ], [ 0, %36 ], [ 0, %41 ], [ 0, %50 ], [ 0, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

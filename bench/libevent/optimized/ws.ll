@@ -703,8 +703,8 @@ get_ws_frame.exit.thread66:                       ; preds = %67
   br i1 %74, label %94, label %96
 
 get_ws_frame.exit.thread58:                       ; preds = %.loopexit.i, %45
-  %.253.ph = phi ptr [ %46, %45 ], [ %64, %.loopexit.i ]
-  %.2.ph = phi i64 [ 0, %45 ], [ %.069.i, %.loopexit.i ]
+  %.253.ph = phi ptr [ %64, %.loopexit.i ], [ %46, %45 ]
+  %.2.ph = phi i64 [ %.069.i, %.loopexit.i ], [ 0, %45 ]
   %75 = ptrtoint ptr %.253.ph to i64
   %76 = ptrtoint ptr %16 to i64
   %77 = sub i64 %75, %76
@@ -808,7 +808,7 @@ evws_force_disconnect_.exit46:                    ; preds = %107, %110
   %.not = icmp eq i64 %118, 0
   br i1 %.not, label %.thread, label %14
 
-.thread:                                          ; preds = %117, %14, %47, %30, %35, %2
+.thread:                                          ; preds = %117, %14, %30, %47, %35, %2
   %119 = load ptr, ptr %5, align 8
   %120 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %119) #9
   ret void

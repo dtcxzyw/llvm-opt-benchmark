@@ -228,8 +228,8 @@ define noundef i32 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..Lin
   call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %7, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8f9e6b69f05f344aa4cdf8cf484df9ed.20) #7
   unreachable
 
-41:                                               ; preds = %32, %28, %33, %36
-  %.sroa.3.0.i20.ph = phi i8 [ %spec.select.i, %36 ], [ 1, %33 ], [ 1, %28 ], [ 0, %32 ]
+41:                                               ; preds = %36, %28, %32, %33
+  %.sroa.3.0.i20.ph = phi i8 [ 1, %33 ], [ 0, %32 ], [ 1, %28 ], [ %spec.select.i, %36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %.sroa.3.0.i20.ph, ptr %5, align 1
   %42 = icmp ugt i64 %26, 4294967295

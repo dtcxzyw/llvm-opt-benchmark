@@ -1283,7 +1283,7 @@ define internal fastcc void @UpdateModel(ptr noundef %0) unnamed_addr #7 {
   br label %.thread244
 
 .thread244:                                       ; preds = %.thread244.sink.split, %178, %186
-  %.1 = phi i32 [ %12, %186 ], [ %184, %178 ], [ %197, %.thread244.sink.split ]
+  %.1 = phi i32 [ %184, %178 ], [ %12, %186 ], [ %197, %.thread244.sink.split ]
   %198 = load i32, ptr %61, align 8, !tbaa !30
   %199 = add i32 %198, -1
   store i32 %199, ptr %61, align 8, !tbaa !30
@@ -1401,7 +1401,7 @@ AllocUnits.exit.thread:                           ; preds = %239
   br label %AllocUnits.exit
 
 AllocUnits.exit:                                  ; preds = %264, %267
-  %.0.i228 = phi ptr [ %259, %264 ], [ %268, %267 ]
+  %.0.i228 = phi ptr [ %268, %267 ], [ %259, %264 ]
   %.not222.not = icmp eq ptr %.0.i228, null
   br i1 %.not222.not, label %.thread254, label %AllocUnits.exit._crit_edge
 
@@ -1517,7 +1517,7 @@ AllocUnits.exit232.thread:                        ; preds = %309
   br label %AllocUnits.exit232
 
 AllocUnits.exit232:                               ; preds = %328, %331
-  %.0.i230 = phi ptr [ %323, %328 ], [ %332, %331 ]
+  %.0.i230 = phi ptr [ %332, %331 ], [ %323, %328 ]
   %.not219.not = icmp eq ptr %.0.i230, null
   br i1 %.not219.not, label %.thread261, label %333
 
@@ -2590,7 +2590,7 @@ RangeDec_Decode.exit209:                          ; preds = %566
   br label %.thread215
 
 .thread215:                                       ; preds = %552, %.thread215.loopexit, %Ppmd8_Update2.exit
-  %.5.ph = phi i32 [ %551, %Ppmd8_Update2.exit ], [ -1, %.thread215.loopexit ], [ -2, %552 ]
+  %.5.ph = phi i32 [ -1, %.thread215.loopexit ], [ %551, %Ppmd8_Update2.exit ], [ -2, %552 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
@@ -2600,7 +2600,7 @@ RangeDec_Decode.exit209:                          ; preds = %566
   br label %398
 
 .thread:                                          ; preds = %181, %Ppmd8_Update1.exit, %Ppmd8_Update1_0.exit, %.thread215, %387
-  %.1 = phi i32 [ %.3, %387 ], [ %.5.ph, %.thread215 ], [ -2, %181 ], [ %178, %Ppmd8_Update1.exit ], [ %97, %Ppmd8_Update1_0.exit ]
+  %.1 = phi i32 [ %.5.ph, %.thread215 ], [ %.3, %387 ], [ -2, %181 ], [ %178, %Ppmd8_Update1.exit ], [ %97, %Ppmd8_Update1_0.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
@@ -2780,7 +2780,7 @@ SplitBlock.exit:                                  ; preds = %._crit_edge.i, %80
   br label %123
 
 123:                                              ; preds = %4, %SplitBlock.exit, %42
-  %.034 = phi ptr [ %24, %42 ], [ %1, %SplitBlock.exit ], [ %1, %4 ]
+  %.034 = phi ptr [ %1, %SplitBlock.exit ], [ %24, %42 ], [ %1, %4 ]
   ret ptr %.034
 }
 
@@ -2876,7 +2876,7 @@ define internal fastcc ptr @CreateSuccessors(ptr noundef %0, i32 noundef range(i
   br label %56
 
 56:                                               ; preds = %.lr.ph, %43, %38, %34
-  %.084 = phi ptr [ %.185, %38 ], [ %.185, %34 ], [ %44, %43 ], [ %.080138, %.lr.ph ]
+  %.084 = phi ptr [ %44, %43 ], [ %.185, %38 ], [ %.185, %34 ], [ %.080138, %.lr.ph ]
   %57 = getelementptr inbounds nuw i8, ptr %.084, i64 2
   %58 = load i16, ptr %57, align 2, !tbaa !62
   %59 = zext i16 %58 to i32
@@ -4109,7 +4109,7 @@ define internal fastcc i32 @CutOff(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %107, %97, %66, %55
-  %.034.i = phi ptr [ %58, %66 ], [ %58, %55 ], [ %78, %107 ], [ %78, %97 ]
+  %.034.i = phi ptr [ %58, %55 ], [ %58, %66 ], [ %78, %107 ], [ %78, %97 ]
   %114 = ptrtoint ptr %.034.i to i64
   %115 = ptrtoint ptr %7 to i64
   %116 = sub i64 %114, %115
@@ -4368,14 +4368,14 @@ Refresh.exit:                                     ; preds = %266
   br label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge, %194, %Refresh.exit
-  %.pre-phi124 = phi i64 [ %219, %194 ], [ %245, %Refresh.exit ], [ %155, %._crit_edge ]
+  %.pre-phi124 = phi i64 [ %245, %Refresh.exit ], [ %219, %194 ], [ %155, %._crit_edge ]
   %286 = ptrtoint ptr %1 to i64
   %287 = sub i64 %286, %.pre-phi124
   %288 = trunc i64 %287 to i32
   br label %SpecialFreeUnit.exit
 
 SpecialFreeUnit.exit:                             ; preds = %190, %180, %53, %38, %._crit_edge._crit_edge, %30
-  %.0 = phi i32 [ %288, %._crit_edge._crit_edge ], [ %35, %30 ], [ 0, %38 ], [ 0, %53 ], [ 0, %180 ], [ 0, %190 ]
+  %.0 = phi i32 [ 0, %53 ], [ %288, %._crit_edge._crit_edge ], [ %35, %30 ], [ 0, %38 ], [ 0, %180 ], [ 0, %190 ]
   ret i32 %.0
 }
 

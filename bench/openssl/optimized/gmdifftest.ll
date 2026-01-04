@@ -177,7 +177,7 @@ define internal fastcc range(i32 0, 2) i32 @check_time(i64 noundef range(i64 -21
   br label %65
 
 65:                                               ; preds = %57, %1, %18, %24, %30, %36, %42, %48, %52
-  %.0 = phi i32 [ 0, %52 ], [ 0, %48 ], [ 0, %42 ], [ 0, %36 ], [ 0, %30 ], [ 0, %24 ], [ 0, %18 ], [ 0, %1 ], [ %., %57 ]
+  %.0 = phi i32 [ 0, %1 ], [ %., %57 ], [ 0, %52 ], [ 0, %48 ], [ 0, %42 ], [ 0, %36 ], [ 0, %30 ], [ 0, %24 ], [ 0, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

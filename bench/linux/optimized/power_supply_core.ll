@@ -285,7 +285,7 @@ define internal i32 @__power_supply_am_i_supplied(ptr noundef readonly captures(
   br label %.loopexit8
 
 .loopexit8:                                       ; preds = %22, %40, %.loopexit, %36, %32, %18, %14, %10
-  %60 = phi i32 [ %59, %.loopexit ], [ 0, %18 ], [ 0, %36 ], [ 0, %32 ], [ 0, %14 ], [ 0, %10 ], [ 0, %40 ], [ 0, %22 ]
+  %60 = phi i32 [ 0, %40 ], [ %59, %.loopexit ], [ 0, %18 ], [ 0, %36 ], [ 0, %32 ], [ 0, %14 ], [ 0, %10 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %60
 }
@@ -570,7 +570,7 @@ power_supply_battery_info_get_prop.exit:          ; preds = %69, %60
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %112, label %power_supply_battery_info_get_prop.exit.thread
 
-power_supply_battery_info_get_prop.exit.thread:   ; preds = %21, %39, %77, %.loopexit16, %.loopexit, %power_supply_battery_info_get_prop.exit, %35, %31, %17, %13, %9
+power_supply_battery_info_get_prop.exit.thread:   ; preds = %21, %39, %77, %.loopexit, %.loopexit16, %power_supply_battery_info_get_prop.exit, %35, %31, %17, %13, %9
   br label %112
 
 112:                                              ; preds = %power_supply_battery_info_get_prop.exit.thread12, %power_supply_battery_info_get_prop.exit.thread, %power_supply_battery_info_get_prop.exit
@@ -1219,8 +1219,8 @@ define dso_local i32 @power_supply_temp2resist_simple(ptr noundef readonly captu
   br label %.thread
 
 .thread:                                          ; preds = %14, %3, %.thread8
-  %20 = phi i32 [ %13, %.thread8 ], [ 0, %3 ], [ %19, %14 ]
-  %21 = phi i32 [ %13, %.thread8 ], [ 0, %3 ], [ %spec.select, %14 ]
+  %20 = phi i32 [ %13, %.thread8 ], [ %19, %14 ], [ 0, %3 ]
+  %21 = phi i32 [ %13, %.thread8 ], [ %spec.select, %14 ], [ 0, %3 ]
   %22 = sext i32 %21 to i64
   %23 = getelementptr %struct.power_supply_resistance_temp_table, ptr %0, i64 %22
   %24 = load i32, ptr %23, align 4
@@ -1418,8 +1418,8 @@ define dso_local i32 @power_supply_ocv2cap_simple(ptr noundef readonly captures(
   br label %.thread
 
 .thread:                                          ; preds = %14, %3, %.thread8
-  %20 = phi i32 [ %13, %.thread8 ], [ 0, %3 ], [ %19, %14 ]
-  %21 = phi i32 [ %13, %.thread8 ], [ 0, %3 ], [ %spec.select, %14 ]
+  %20 = phi i32 [ %13, %.thread8 ], [ %19, %14 ], [ 0, %3 ]
+  %21 = phi i32 [ %13, %.thread8 ], [ %spec.select, %14 ], [ 0, %3 ]
   %22 = sext i32 %21 to i64
   %23 = getelementptr %struct.power_supply_battery_ocv_table, ptr %0, i64 %22
   %24 = load i32, ptr %23, align 4
@@ -1586,8 +1586,8 @@ define dso_local i32 @power_supply_batinfo_ocv2cap(ptr noundef readonly captures
   br label %.thread9
 
 .thread9:                                         ; preds = %.loopexit, %36
-  %58 = phi i64 [ 0, %36 ], [ %57, %.loopexit ]
-  %59 = phi i64 [ 0, %36 ], [ %56, %.loopexit ]
+  %58 = phi i64 [ %57, %.loopexit ], [ 0, %36 ]
+  %59 = phi i64 [ %56, %.loopexit ], [ 0, %36 ]
   %60 = getelementptr %struct.power_supply_battery_ocv_table, ptr %34, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
@@ -1790,7 +1790,7 @@ define dso_local i32 @power_supply_get_property(ptr noundef %0, i32 noundef %1, 
   br label %power_supply_battery_info_get_prop.exit
 
 power_supply_battery_info_get_prop.exit:          ; preds = %65, %36, %.critedge, %.loopexit, %7
-  %68 = phi i32 [ %31, %.loopexit ], [ %11, %7 ], [ -22, %.critedge ], [ -22, %36 ], [ 0, %65 ]
+  %68 = phi i32 [ %31, %.loopexit ], [ -22, %.critedge ], [ %11, %7 ], [ -22, %36 ], [ 0, %65 ]
   ret i32 %68
 }
 
@@ -2150,7 +2150,7 @@ define internal fastcc ptr @__power_supply_register(ptr noundef %0, ptr noundef 
   br label %144
 
 144:                                              ; preds = %93, %99, %142, %112, %109, %74
-  %145 = phi i32 [ %76, %74 ], [ %111, %109 ], [ %114, %112 ], [ %143, %142 ], [ -12, %93 ], [ %101, %99 ]
+  %145 = phi i32 [ %76, %74 ], [ %143, %142 ], [ %111, %109 ], [ %114, %112 ], [ %101, %99 ], [ -12, %93 ]
   tail call void @put_device(ptr noundef nonnull %44) #18
   %146 = sext i32 %145 to i64
   %147 = inttoptr i64 %146 to ptr
@@ -2753,7 +2753,7 @@ define internal i32 @power_supply_read_temp(ptr noundef %0, ptr noundef writeonl
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %16, %11, %37, %.loopexit
-  %40 = phi i32 [ 0, %37 ], [ %35, %.loopexit ], [ -22, %16 ], [ %15, %11 ], [ -22, %.preheader ]
+  %40 = phi i32 [ %35, %.loopexit ], [ 0, %37 ], [ -22, %16 ], [ %15, %11 ], [ -22, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %40
 }

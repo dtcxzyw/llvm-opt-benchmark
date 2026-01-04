@@ -745,9 +745,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126: ; preds = %21
   br label %222
 
 216:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96
-  %.253 = phi i32 [ %22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96 ], [ %.152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123 ]
-  %cond = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96 ], [ %cond1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123 ]
-  %.5 = phi i32 [ undef, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96 ], [ %.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123 ]
+  %.253 = phi i32 [ %.152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123 ], [ %22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96 ]
+  %cond = phi i1 [ %cond1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96 ]
+  %.5 = phi i32 [ %.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123 ], [ undef, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96 ]
   %217 = load ptr, ptr %9, align 8, !tbaa !119
   %218 = icmp eq ptr %217, %115
   br i1 %218, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i127
@@ -1119,7 +1119,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167: ; preds = %_Z
   br label %364
 
 364:                                              ; preds = %221, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, %._crit_edge194, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83, %35
-  %.028 = phi i32 [ %36, %35 ], [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83 ], [ 0, %._crit_edge194 ], [ %240, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %.5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %.253, %221 ]
+  %.028 = phi i32 [ %36, %35 ], [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83 ], [ %.5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ 0, %._crit_edge194 ], [ %240, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %.253, %221 ]
   ret i32 %.028
 
 365:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86
@@ -2619,7 +2619,7 @@ default.unreachable:                              ; preds = %140
   unreachable
 
 145:                                              ; preds = %140, %142, %143, %144
-  %.05.i = phi double [ %.sink25.i, %142 ], [ %.sink24.i, %143 ], [ %.sink.i, %144 ], [ %.sink26.i, %140 ]
+  %.05.i = phi double [ %.sink26.i, %140 ], [ %.sink.i, %144 ], [ %.sink25.i, %142 ], [ %.sink24.i, %143 ]
   %146 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %122, i64 %.029
   %147 = load double, ptr %146, align 8, !tbaa !122, !noalias !216
   %148 = fmul double %.05.i, %147
@@ -3163,7 +3163,7 @@ default.unreachable:                              ; preds = %140
   unreachable
 
 145:                                              ; preds = %140, %142, %143, %144
-  %.05.i = phi double [ %.sink14.i, %142 ], [ %.sink13.i, %143 ], [ %.sink.i, %144 ], [ %.sink15.i, %140 ]
+  %.05.i = phi double [ %.sink15.i, %140 ], [ %.sink.i, %144 ], [ %.sink14.i, %142 ], [ %.sink13.i, %143 ]
   %146 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %122, i64 %.029
   %147 = load double, ptr %146, align 8, !tbaa !122, !noalias !246
   %148 = fmul double %.05.i, %147

@@ -306,7 +306,7 @@ _ZN3gmx11StopHandler18isSuitableStopStepEli.exit.thread: ; preds = %8, %_ZN3gmx1
   br label %41
 
 41:                                               ; preds = %_ZN3gmx11StopHandler18isSuitableStopStepEli.exit, %_ZN3gmx11StopHandler18isSuitableStopStepEli.exit.thread, %4, %34
-  %.0 = phi i32 [ 1, %34 ], [ 0, %4 ], [ 0, %_ZN3gmx11StopHandler18isSuitableStopStepEli.exit.thread ], [ 0, %_ZN3gmx11StopHandler18isSuitableStopStepEli.exit ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %34 ], [ 0, %_ZN3gmx11StopHandler18isSuitableStopStepEli.exit.thread ], [ 0, %_ZN3gmx11StopHandler18isSuitableStopStepEli.exit ]
   ret i32 %.0
 }
 

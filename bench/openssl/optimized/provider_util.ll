@@ -163,7 +163,7 @@ ossl_param_is_empty.exit:                         ; preds = %3
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %3, %13, %10, %7, %ossl_param_is_empty.exit, %36
-  %.0 = phi i32 [ %39, %36 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %7 ], [ 1, %10 ], [ 0, %13 ], [ 1, %3 ]
+  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %7 ], [ 1, %10 ], [ %39, %36 ], [ 0, %13 ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -407,7 +407,7 @@ ossl_param_is_empty.exit:                         ; preds = %3
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %3, %13, %10, %7, %ossl_param_is_empty.exit, %36
-  %.0 = phi i32 [ %39, %36 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %7 ], [ 1, %10 ], [ 0, %13 ], [ 1, %3 ]
+  %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 0, %7 ], [ 1, %10 ], [ %39, %36 ], [ 0, %13 ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -686,7 +686,7 @@ define range(i32 0, 2) i32 @ossl_prov_macctx_load_from_params(ptr noundef captur
   br label %40
 
 40:                                               ; preds = %.thread, %34, %18, %10, %31, %38
-  %.0 = phi i32 [ 0, %38 ], [ 0, %31 ], [ 0, %10 ], [ 0, %18 ], [ 1, %34 ], [ 1, %.thread ]
+  %.0 = phi i32 [ 0, %31 ], [ 0, %10 ], [ 0, %18 ], [ 1, %34 ], [ 0, %38 ], [ 1, %.thread ]
   ret i32 %.0
 }
 

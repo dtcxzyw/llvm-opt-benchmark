@@ -346,9 +346,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   br label %15
 
 15:                                               ; preds = %.noexc15, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
-  %16 = phi i64 [ %14, %.noexc15 ], [ 0, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %17 = phi ptr [ %11, %.noexc15 ], [ %9, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %18 = phi ptr [ %12, %.noexc15 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
+  %16 = phi i64 [ 0, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %14, %.noexc15 ]
+  %17 = phi ptr [ %9, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %11, %.noexc15 ]
+  %18 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %12, %.noexc15 ]
   store ptr %18, ptr %17, align 8, !tbaa !21
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %31, label %19
@@ -648,7 +648,7 @@ define noundef zeroext i1 @_ZNK5ZXing9BitMatrix15findBoundingBoxERiS1_S1_S1_i(pt
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.i"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.i.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.i.loopexit.split.loop.exit171", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.i.loopexit.split.loop.exit173", %40, %36, %32, %._crit_edge.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %32 ], [ %.sroa.025.1.i.i.i.i, %36 ], [ %10, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %40 ], [ %42, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.i.loopexit.split.loop.exit" ], [ %43, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.i.loopexit.split.loop.exit171" ], [ %44, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.i.loopexit.split.loop.exit173" ], [ %.sroa.025.050.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.1.i.i.i.i, %36 ], [ %spec.select.i.i.i.i, %40 ], [ %10, %._crit_edge.i.i.i.i ], [ %.sroa.025.0.lcssa.i.i.i.i, %32 ], [ %44, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.i.loopexit.split.loop.exit173" ], [ %42, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.i.loopexit.split.loop.exit" ], [ %43, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.i.loopexit.split.loop.exit171" ], [ %.sroa.025.050.i.i.i.i, %.lr.ph.i.i.i.i ]
   %45 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i to i64
   %46 = sub i64 %45, %12
   %47 = trunc i64 %46 to i32
@@ -767,7 +767,7 @@ define noundef zeroext i1 @_ZNK5ZXing9BitMatrix15findBoundingBoxERiS1_S1_S1_i(pt
   br label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEEN5ZXing3$_0EET_SC_SC_T0_.exit.i"
 
 "_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEEN5ZXing3$_0EET_SC_SC_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i35, %100, %91, %84, %._crit_edge.i.i.i.i33, %75, %70, %65
-  %.sink.i.i.i.i = phi i64 [ %.cast22.i.i.i.i, %75 ], [ %.cast20.i.i.i.i, %70 ], [ %.cast.i.i.i.i, %65 ], [ %81, %84 ], [ %93, %91 ], [ %12, %._crit_edge.i.i.i.i33 ], [ %spec.select.i.i.i, %100 ], [ %58, %.lr.ph.i.i.i.i35 ]
+  %.sink.i.i.i.i = phi i64 [ %spec.select.i.i.i, %100 ], [ %93, %91 ], [ %81, %84 ], [ %12, %._crit_edge.i.i.i.i33 ], [ %.cast22.i.i.i.i, %75 ], [ %.cast20.i.i.i.i, %70 ], [ %.cast.i.i.i.i, %65 ], [ %58, %.lr.ph.i.i.i.i35 ]
   %105 = sub i64 %11, %.sink.i.i.i.i
   %106 = trunc i64 %105 to i32
   %107 = xor i32 %106, -1
@@ -891,8 +891,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit:                 ; preds = %143
   br i1 %exitcond121.not, label %.loopexit, label %143, !llvm.loop !41
 
 .loopexit:                                        ; preds = %150, %.preheader, %148
-  %151 = phi i32 [ %130, %.preheader ], [ %.pre, %148 ], [ %130, %150 ]
-  %152 = phi i32 [ %131, %.preheader ], [ %149, %148 ], [ %131, %150 ]
+  %151 = phi i32 [ %.pre, %148 ], [ %130, %.preheader ], [ %130, %150 ]
+  %152 = phi i32 [ %149, %148 ], [ %131, %.preheader ], [ %131, %150 ]
   %153 = mul nsw i32 %151, %.02990
   %154 = sext i32 %151 to i64
   %155 = zext nneg i32 %.04489 to i64
@@ -1038,7 +1038,7 @@ define noundef zeroext i1 @_ZNK5ZXing9BitMatrix15getTopLeftOnBitERiS1_(ptr nound
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.loopexit.split.loop.exit23", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.loopexit.split.loop.exit25", %._crit_edge.i.i.i, %29, %33, %37
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %29 ], [ %.sroa.025.1.i.i.i, %33 ], [ %7, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %37 ], [ %39, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.loopexit.split.loop.exit" ], [ %40, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.loopexit.split.loop.exit23" ], [ %41, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.loopexit.split.loop.exit25" ], [ %.sroa.025.050.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.1.i.i.i, %33 ], [ %spec.select.i.i.i, %37 ], [ %7, %._crit_edge.i.i.i ], [ %.sroa.025.0.lcssa.i.i.i, %29 ], [ %41, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.loopexit.split.loop.exit25" ], [ %40, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.loopexit.split.loop.exit23" ], [ %39, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEN5ZXing3$_0EET_SA_SA_T0_.exit.loopexit.split.loop.exit" ], [ %.sroa.025.050.i.i.i, %.lr.ph.i.i.i ]
   %42 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i to i64
   %43 = sub i64 %42, %9
   %44 = trunc i64 %43 to i32
@@ -1175,7 +1175,7 @@ define noundef zeroext i1 @_ZNK5ZXing9BitMatrix19getBottomRightOnBitERiS1_(ptr n
   br label %"_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEEN5ZXing3$_0EET_SC_SC_T0_.exit"
 
 "_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEEN5ZXing3$_0EET_SC_SC_T0_.exit": ; preds = %.lr.ph.i.i.i, %25, %30, %35, %._crit_edge.i.i.i, %44, %51, %60
-  %.sink.i.i.i = phi i64 [ %.cast22.i.i.i, %35 ], [ %.cast20.i.i.i, %30 ], [ %.cast.i.i.i, %25 ], [ %41, %44 ], [ %53, %51 ], [ %9, %._crit_edge.i.i.i ], [ %spec.select.i.i, %60 ], [ %18, %.lr.ph.i.i.i ]
+  %.sink.i.i.i = phi i64 [ %spec.select.i.i, %60 ], [ %53, %51 ], [ %41, %44 ], [ %9, %._crit_edge.i.i.i ], [ %.cast22.i.i.i, %35 ], [ %.cast20.i.i.i, %30 ], [ %.cast.i.i.i, %25 ], [ %18, %.lr.ph.i.i.i ]
   %65 = sub i64 %8, %.sink.i.i.i
   %66 = trunc i64 %65 to i32
   %67 = xor i32 %66, -1
@@ -1669,10 +1669,10 @@ _ZN5ZXing9BitMatrix9setRegionEiiii.exit.us:       ; preds = %64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us, %.preheader, %._crit_edge.loopexit99
-  %71 = phi i32 [ %.pre120, %._crit_edge.loopexit99 ], [ %48, %.preheader ], [ %48, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
-  %72 = phi i32 [ %132, %._crit_edge.loopexit99 ], [ %49, %.preheader ], [ %49, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
-  %73 = phi i32 [ %133, %._crit_edge.loopexit99 ], [ %50, %.preheader ], [ %49, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
-  %74 = phi i32 [ %133, %._crit_edge.loopexit99 ], [ %51, %.preheader ], [ %49, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
+  %71 = phi i32 [ %48, %.preheader ], [ %.pre120, %._crit_edge.loopexit99 ], [ %48, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
+  %72 = phi i32 [ %49, %.preheader ], [ %132, %._crit_edge.loopexit99 ], [ %49, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
+  %73 = phi i32 [ %50, %.preheader ], [ %133, %._crit_edge.loopexit99 ], [ %49, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
+  %74 = phi i32 [ %51, %.preheader ], [ %133, %._crit_edge.loopexit99 ], [ %49, %_ZN5ZXing9BitMatrix9setRegionEiiii.exit.us ]
   %75 = add nuw nsw i32 %.04890, 1
   %76 = icmp slt i32 %75, %71
   br i1 %76, label %.preheader, label %.loopexit, !llvm.loop !64
@@ -1796,7 +1796,7 @@ _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %.body, %80
           to label %.invoke unwind label %129
 
 .invoke:                                          ; preds = %126, %.split82.us, %.split80.us
-  %128 = phi ptr [ %103, %.split80.us ], [ %113, %.split82.us ], [ %127, %126 ]
+  %128 = phi ptr [ %113, %.split82.us ], [ %103, %.split80.us ], [ %127, %126 ]
   invoke void @__cxa_throw(ptr nonnull %128, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #18
           to label %.cont unwind label %77
 
@@ -2012,7 +2012,7 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !53
   br label %41
 

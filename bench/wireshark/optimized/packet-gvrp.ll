@@ -216,7 +216,7 @@ define internal i32 @dissect_gvrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %77
 
 .thread154:                                       ; preds = %52, %53, %68, %66
-  %.2133216.lcssa.lcssa.sink = phi i32 [ %65, %66 ], [ %65, %68 ], [ %65, %53 ], [ %.2133216, %52 ]
+  %.2133216.lcssa.lcssa.sink = phi i32 [ %65, %53 ], [ %65, %66 ], [ %65, %68 ], [ %.2133216, %52 ]
   %74 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2133216.lcssa.lcssa.sink)
   %75 = call i32 @call_data_dissector(ptr noundef %74, ptr noundef %1, ptr noundef %2)
   %76 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -224,8 +224,8 @@ define internal i32 @dissect_gvrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.thread170
 
 77:                                               ; preds = %69, %66
-  %.5136 = phi i32 [ %65, %66 ], [ %72, %69 ]
-  %.5129 = phi i32 [ %67, %66 ], [ %73, %69 ]
+  %.5136 = phi i32 [ %72, %69 ], [ %65, %66 ]
+  %.5129 = phi i32 [ %73, %69 ], [ %67, %66 ]
   %78 = load ptr, ptr %6, align 8
   %79 = sub i32 %.5136, %.2133216
   call void @proto_item_set_len(ptr noundef %78, i32 noundef %79)
@@ -260,7 +260,7 @@ define internal i32 @dissect_gvrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %87
 
 87:                                               ; preds = %.thread170, %.loopexit182, %21
-  %.0 = phi i32 [ %25, %21 ], [ %86, %.loopexit182 ], [ %.2.ph, %.thread170 ]
+  %.0 = phi i32 [ %25, %21 ], [ %.2.ph, %.thread170 ], [ %86, %.loopexit182 ]
   ret i32 %.0
 }
 

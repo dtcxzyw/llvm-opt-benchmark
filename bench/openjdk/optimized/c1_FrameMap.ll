@@ -709,9 +709,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   unreachable
 
 _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %79, %85, %92, %93, %94, %95, %96, %97
-  %100 = phi i32 [ %.pre24, %79 ], [ %37, %92 ], [ %37, %93 ], [ %37, %94 ], [ %37, %95 ], [ %37, %96 ], [ %37, %97 ], [ %37, %85 ]
-  %101 = phi ptr [ %.pre23, %79 ], [ %38, %92 ], [ %38, %93 ], [ %38, %94 ], [ %38, %95 ], [ %38, %96 ], [ %38, %97 ], [ %38, %85 ]
-  %.0.i = phi i64 [ %84, %79 ], [ 11, %92 ], [ 6, %93 ], [ 7, %94 ], [ 12, %95 ], [ 15, %96 ], [ 17, %97 ], [ 10, %85 ]
+  %100 = phi i32 [ %.pre24, %79 ], [ %37, %97 ], [ %37, %92 ], [ %37, %93 ], [ %37, %94 ], [ %37, %95 ], [ %37, %96 ], [ %37, %85 ]
+  %101 = phi ptr [ %.pre23, %79 ], [ %38, %97 ], [ %38, %92 ], [ %38, %93 ], [ %38, %94 ], [ %38, %95 ], [ %38, %96 ], [ %38, %85 ]
+  %.0.i = phi i64 [ %84, %79 ], [ 17, %97 ], [ 11, %92 ], [ 6, %93 ], [ 7, %94 ], [ 12, %95 ], [ 15, %96 ], [ 10, %85 ]
   %102 = getelementptr inbounds nuw i32, ptr @type2size, i64 %.0.i
   %103 = load i32, ptr %102, align 4
   %104 = add nsw i32 %103, %.020
@@ -936,7 +936,7 @@ _ZNK8FrameMap18sp_offset_for_slotEi.exit:         ; preds = %9, %17
   br label %_ZNK8FrameMap22location_for_sp_offsetE8ByteSizeN8Location4TypeEPS1_.exit
 
 _ZNK8FrameMap22location_for_sp_offsetE8ByteSizeN8Location4TypeEPS1_.exit: ; preds = %33, %30, %_ZNK8FrameMap18sp_offset_for_slotEi.exit, %26
-  %.0 = phi i1 [ true, %26 ], [ false, %_ZNK8FrameMap18sp_offset_for_slotEi.exit ], [ false, %30 ], [ true, %33 ]
+  %.0 = phi i1 [ false, %_ZNK8FrameMap18sp_offset_for_slotEi.exit ], [ true, %26 ], [ false, %30 ], [ true, %33 ]
   ret i1 %.0
 }
 

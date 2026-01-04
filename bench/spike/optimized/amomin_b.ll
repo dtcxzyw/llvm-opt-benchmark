@@ -609,7 +609,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_amomin_bP1
           to label %214 unwind label %215
 
 214:                                              ; preds = %213, %208, %203, %198, %168
-  %.merged.i = phi { ptr, i32 } [ %.pn.i, %168 ], [ %.pn51.i, %198 ], [ %.pn53.i, %203 ], [ %.pn55.i, %208 ], [ %.pn57.i, %213 ]
+  %.merged.i = phi { ptr, i32 } [ %.pn55.i, %208 ], [ %.pn53.i, %203 ], [ %.pn51.i, %198 ], [ %.pn.i, %168 ], [ %.pn57.i, %213 ]
   resume { ptr, i32 } %.merged.i
 
 215:                                              ; preds = %213, %208, %203, %198
@@ -1077,7 +1077,7 @@ define noundef i64 @_Z19fast_rv64i_amomin_bP11processor_t6insn_tm(ptr noundef ca
           to label %214 unwind label %215
 
 214:                                              ; preds = %213, %208, %203, %198, %168
-  %.merged.i = phi { ptr, i32 } [ %.pn.i, %168 ], [ %.pn51.i, %198 ], [ %.pn53.i, %203 ], [ %.pn55.i, %208 ], [ %.pn57.i, %213 ]
+  %.merged.i = phi { ptr, i32 } [ %.pn55.i, %208 ], [ %.pn53.i, %203 ], [ %.pn51.i, %198 ], [ %.pn.i, %168 ], [ %.pn57.i, %213 ]
   resume { ptr, i32 } %.merged.i
 
 215:                                              ; preds = %213, %208, %203, %198
@@ -1532,7 +1532,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_amomin_b
           to label %215 unwind label %216
 
 215:                                              ; preds = %214, %209, %204, %199, %169
-  %.merged.i = phi { ptr, i32 } [ %.pn.i, %169 ], [ %.pn51.i, %199 ], [ %.pn53.i, %204 ], [ %.pn55.i, %209 ], [ %.pn57.i, %214 ]
+  %.merged.i = phi { ptr, i32 } [ %.pn55.i, %209 ], [ %.pn53.i, %204 ], [ %.pn51.i, %199 ], [ %.pn.i, %169 ], [ %.pn57.i, %214 ]
   resume { ptr, i32 } %.merged.i
 
 216:                                              ; preds = %214, %209, %204, %199
@@ -1635,7 +1635,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !187
@@ -2084,7 +2084,7 @@ define noundef i64 @_Z21logged_rv64i_amomin_bP11processor_t6insn_tm(ptr noundef 
           to label %215 unwind label %216
 
 215:                                              ; preds = %214, %209, %204, %199, %169
-  %.merged.i = phi { ptr, i32 } [ %.pn.i, %169 ], [ %.pn51.i, %199 ], [ %.pn53.i, %204 ], [ %.pn55.i, %209 ], [ %.pn57.i, %214 ]
+  %.merged.i = phi { ptr, i32 } [ %.pn55.i, %209 ], [ %.pn53.i, %204 ], [ %.pn51.i, %199 ], [ %.pn.i, %169 ], [ %.pn57.i, %214 ]
   resume { ptr, i32 } %.merged.i
 
 216:                                              ; preds = %214, %209, %204, %199
@@ -2600,7 +2600,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_amomin_bP1
           to label %237 unwind label %238
 
 237:                                              ; preds = %236, %231, %226, %221, %191
-  %.merged.i = phi { ptr, i32 } [ %.pn.i, %191 ], [ %.pn51.i, %221 ], [ %.pn53.i, %226 ], [ %.pn55.i, %231 ], [ %.pn57.i, %236 ]
+  %.merged.i = phi { ptr, i32 } [ %.pn55.i, %231 ], [ %.pn53.i, %226 ], [ %.pn51.i, %221 ], [ %.pn.i, %191 ], [ %.pn57.i, %236 ]
   resume { ptr, i32 } %.merged.i
 
 238:                                              ; preds = %236, %231, %226, %221
@@ -3107,7 +3107,7 @@ define noundef i64 @_Z19fast_rv64e_amomin_bP11processor_t6insn_tm(ptr noundef ca
           to label %237 unwind label %238
 
 237:                                              ; preds = %236, %231, %226, %221, %191
-  %.merged.i = phi { ptr, i32 } [ %.pn.i, %191 ], [ %.pn51.i, %221 ], [ %.pn53.i, %226 ], [ %.pn55.i, %231 ], [ %.pn57.i, %236 ]
+  %.merged.i = phi { ptr, i32 } [ %.pn55.i, %231 ], [ %.pn53.i, %226 ], [ %.pn51.i, %221 ], [ %.pn.i, %191 ], [ %.pn57.i, %236 ]
   resume { ptr, i32 } %.merged.i
 
 238:                                              ; preds = %236, %231, %226, %221
@@ -3613,7 +3613,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_amomin_b
           to label %238 unwind label %239
 
 238:                                              ; preds = %237, %232, %227, %222, %192
-  %.merged.i = phi { ptr, i32 } [ %.pn.i, %192 ], [ %.pn51.i, %222 ], [ %.pn53.i, %227 ], [ %.pn55.i, %232 ], [ %.pn57.i, %237 ]
+  %.merged.i = phi { ptr, i32 } [ %.pn55.i, %232 ], [ %.pn53.i, %227 ], [ %.pn51.i, %222 ], [ %.pn.i, %192 ], [ %.pn57.i, %237 ]
   resume { ptr, i32 } %.merged.i
 
 239:                                              ; preds = %237, %232, %227, %222
@@ -4130,7 +4130,7 @@ define noundef i64 @_Z21logged_rv64e_amomin_bP11processor_t6insn_tm(ptr noundef 
           to label %238 unwind label %239
 
 238:                                              ; preds = %237, %232, %227, %222, %192
-  %.merged.i = phi { ptr, i32 } [ %.pn.i, %192 ], [ %.pn51.i, %222 ], [ %.pn53.i, %227 ], [ %.pn55.i, %232 ], [ %.pn57.i, %237 ]
+  %.merged.i = phi { ptr, i32 } [ %.pn55.i, %232 ], [ %.pn53.i, %227 ], [ %.pn51.i, %222 ], [ %.pn.i, %192 ], [ %.pn57.i, %237 ]
   resume { ptr, i32 } %.merged.i
 
 239:                                              ; preds = %237, %232, %227, %222
@@ -4741,8 +4741,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -69,7 +69,7 @@ define i32 @BIO_set_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br label %34
 
 34:                                               ; preds = %29, %20, %16, %10, %5, %30, %25
-  %.029 = phi i32 [ %28, %25 ], [ %33, %30 ], [ 0, %5 ], [ 0, %10 ], [ 0, %16 ], [ 0, %20 ], [ 1, %29 ]
+  %.029 = phi i32 [ 0, %10 ], [ 0, %5 ], [ %28, %25 ], [ %33, %30 ], [ 0, %20 ], [ 0, %16 ], [ 1, %29 ]
   ret i32 %.029
 }
 
@@ -199,7 +199,7 @@ define internal i32 @enc_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br label %59
 
 59:                                               ; preds = %._crit_edge, %3, %58, %48, %35, %21
-  %.0 = phi i32 [ %19, %21 ], [ %51, %48 ], [ 0, %35 ], [ %2, %58 ], [ 0, %3 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ %2, %58 ], [ %19, %21 ], [ 0, %3 ], [ %51, %48 ], [ 0, %35 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -376,11 +376,11 @@ define internal i32 @enc_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1
   br label %.backedge
 
 90:                                               ; preds = %.thread161, %70
-  %91 = phi ptr [ %.pre, %70 ], [ %87, %.thread161 ]
-  %.4132 = phi i32 [ %.1129170, %70 ], [ %79, %.thread161 ]
-  %.2125 = phi i32 [ %.1124154, %70 ], [ %83, %.thread161 ]
-  %.3121 = phi i32 [ %.1119171, %70 ], [ %82, %.thread161 ]
-  %.3116 = phi ptr [ %.1114172, %70 ], [ %81, %.thread161 ]
+  %91 = phi ptr [ %87, %.thread161 ], [ %.pre, %70 ]
+  %.4132 = phi i32 [ %79, %.thread161 ], [ %.1129170, %70 ]
+  %.2125 = phi i32 [ %83, %.thread161 ], [ %.1124154, %70 ]
+  %.3121 = phi i32 [ %82, %.thread161 ], [ %.1119171, %70 ]
+  %.3116 = phi ptr [ %81, %.thread161 ], [ %.1114172, %70 ]
   %92 = call i32 @llvm.umin.i32(i32 %.2125, i32 256)
   %93 = load ptr, ptr %30, align 8, !tbaa !3
   %94 = call i32 @EVP_CipherUpdate(ptr noundef %93, ptr noundef nonnull %41, ptr noundef nonnull %7, ptr noundef %91, i32 noundef %92) #6
@@ -428,7 +428,7 @@ define internal i32 @enc_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1
   br i1 %110, label %44, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.backedge, %44, %102, %34, %67
-  %.2130 = phi i32 [ %69, %67 ], [ %.0128, %34 ], [ %.1129.be, %.backedge ], [ %.1129170, %44 ], [ %.3131, %102 ]
+  %.2130 = phi i32 [ %69, %67 ], [ %.0128, %34 ], [ %.1129170, %44 ], [ %.1129.be, %.backedge ], [ %.3131, %102 ]
   call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #6
   call void @BIO_copy_next_retry(ptr noundef %0) #6
   %111 = icmp eq i32 %.2130, 0
@@ -440,7 +440,7 @@ define internal i32 @enc_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1
   br label %115
 
 115:                                              ; preds = %.thread155, %112, %.loopexit, %29, %6, %3, %95
-  %.0 = phi i32 [ 0, %95 ], [ 0, %3 ], [ 0, %6 ], [ 0, %29 ], [ %114, %112 ], [ %.2130, %.loopexit ], [ 0, %.thread155 ]
+  %.0 = phi i32 [ 0, %95 ], [ 0, %3 ], [ 0, %6 ], [ 0, %29 ], [ 0, %.thread155 ], [ %114, %112 ], [ %.2130, %.loopexit ]
   ret i32 %.0
 }
 
@@ -658,7 +658,7 @@ enc_write.exit.thread:                            ; preds = %69, %56, %51, %enc_
   br label %113
 
 113:                                              ; preds = %.loopexit, %21, %88, %90, %94, %96, %110, %27, %36, %29, %45, %38, %108, %104, %23, %99, %14, %4, %80
-  %.0 = phi i64 [ %81, %80 ], [ 0, %4 ], [ 0, %14 ], [ 0, %99 ], [ %111, %110 ], [ %22, %21 ], [ %28, %27 ], [ %37, %36 ], [ %34, %29 ], [ %46, %45 ], [ %43, %38 ], [ %89, %88 ], [ %93, %90 ], [ %95, %94 ], [ 1, %96 ], [ %109, %108 ], [ 0, %104 ], [ 1, %23 ], [ %112, %.loopexit ]
+  %.0 = phi i64 [ 0, %14 ], [ 0, %99 ], [ 0, %4 ], [ %81, %80 ], [ %111, %110 ], [ %22, %21 ], [ 0, %104 ], [ %28, %27 ], [ %37, %36 ], [ %34, %29 ], [ %46, %45 ], [ %43, %38 ], [ %89, %88 ], [ 1, %23 ], [ %93, %90 ], [ %95, %94 ], [ 1, %96 ], [ %109, %108 ], [ %112, %.loopexit ]
   ret i64 %.0
 }
 
@@ -694,7 +694,7 @@ define internal range(i32 0, 2) i32 @enc_new(ptr noundef %0) #1 {
   br label %15
 
 15:                                               ; preds = %1, %9, %8
-  %.0 = phi i32 [ 0, %8 ], [ 1, %9 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %9 ], [ 0, %8 ], [ 0, %1 ]
   ret i32 %.0
 }
 

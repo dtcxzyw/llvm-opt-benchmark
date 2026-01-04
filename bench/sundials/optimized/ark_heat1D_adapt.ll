@@ -475,7 +475,7 @@ check_flag.exit194.thread:                        ; preds = %213
   br label %227
 
 227:                                              ; preds = %check_flag.exit194.thread, %check_flag.exit192, %check_flag.exit190, %check_flag.exit188, %check_flag.exit184, %check_flag.exit182, %check_flag.exit180, %check_flag.exit178, %check_flag.exit176, %check_flag.exit174, %check_flag.exit172, %check_flag.exit170, %check_flag.exit168, %check_flag.exit166, %check_flag.exit164, %check_flag.exit162, %check_flag.exit160, %check_flag.exit158, %check_flag.exit156, %check_flag.exit154, %check_flag.exit152, %check_flag.exit150, %check_flag.exit148, %check_flag.exit, %218
-  %.0 = phi i32 [ 0, %218 ], [ 1, %check_flag.exit ], [ 1, %check_flag.exit148 ], [ 1, %check_flag.exit150 ], [ 1, %check_flag.exit152 ], [ 1, %check_flag.exit154 ], [ 1, %check_flag.exit156 ], [ 1, %check_flag.exit158 ], [ 1, %check_flag.exit160 ], [ 1, %check_flag.exit162 ], [ 1, %check_flag.exit164 ], [ 1, %check_flag.exit166 ], [ 1, %check_flag.exit168 ], [ 1, %check_flag.exit170 ], [ 1, %check_flag.exit172 ], [ 1, %check_flag.exit174 ], [ 1, %check_flag.exit176 ], [ 1, %check_flag.exit178 ], [ 1, %check_flag.exit180 ], [ 1, %check_flag.exit182 ], [ 1, %check_flag.exit184 ], [ 1, %check_flag.exit188 ], [ 1, %check_flag.exit190 ], [ 1, %check_flag.exit192 ], [ 1, %check_flag.exit194.thread ]
+  %.0 = phi i32 [ 0, %218 ], [ 1, %check_flag.exit ], [ 1, %check_flag.exit148 ], [ 1, %check_flag.exit150 ], [ 1, %check_flag.exit152 ], [ 1, %check_flag.exit154 ], [ 1, %check_flag.exit156 ], [ 1, %check_flag.exit158 ], [ 1, %check_flag.exit160 ], [ 1, %check_flag.exit162 ], [ 1, %check_flag.exit164 ], [ 1, %check_flag.exit166 ], [ 1, %check_flag.exit168 ], [ 1, %check_flag.exit170 ], [ 1, %check_flag.exit172 ], [ 1, %check_flag.exit174 ], [ 1, %check_flag.exit176 ], [ 1, %check_flag.exit178 ], [ 1, %check_flag.exit180 ], [ 1, %check_flag.exit182 ], [ 1, %check_flag.exit184 ], [ 1, %check_flag.exit194.thread ], [ 1, %check_flag.exit188 ], [ 1, %check_flag.exit190 ], [ 1, %check_flag.exit192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -869,7 +869,7 @@ check_flag.exit:                                  ; preds = %3
   br label %82
 
 82:                                               ; preds = %check_flag.exit, %81, %78
-  %.0 = phi ptr [ null, %78 ], [ %40, %81 ], [ null, %check_flag.exit ]
+  %.0 = phi ptr [ %40, %81 ], [ null, %78 ], [ null, %check_flag.exit ]
   ret ptr %.0
 }
 

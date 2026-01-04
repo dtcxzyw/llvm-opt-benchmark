@@ -89,7 +89,7 @@ define hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef
   br i1 %.not3137.i, label %.thread40.i, label %.thread23
 
 .thread40.i:                                      ; preds = %.thread.i, %23
-  %.03942.i = phi ptr [ %37, %.thread.i ], [ %26, %23 ]
+  %.03942.i = phi ptr [ %26, %23 ], [ %37, %.thread.i ]
   %43 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !28
   store ptr %44, ptr %15, align 8, !tbaa !20
@@ -219,7 +219,7 @@ define hidden noundef ptr @_Z12luaM_newgco_P9lua_Statemh(ptr noundef %0, i64 nou
   br i1 %.not3036.i, label %.thread39.i, label %68
 
 .thread39.i:                                      ; preds = %.thread.i, %24
-  %.03841.i = phi ptr [ %36, %.thread.i ], [ %27, %24 ]
+  %.03841.i = phi ptr [ %27, %24 ], [ %36, %.thread.i ]
   %42 = getelementptr inbounds nuw i8, ptr %.026.i, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !28
   store ptr %43, ptr %15, align 8, !tbaa !20
@@ -584,7 +584,7 @@ define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nound
   br label %_ZL12freegcoblockP9lua_StateiPvP8lua_Page.exit.sink.split
 
 _ZL12freegcoblockP9lua_StateiPvP8lua_Page.exit.sink.split: ; preds = %73, %70, %68, %57, %59, %62
-  %.val.i.i.sink25 = phi ptr [ %.val.i.i, %62 ], [ %.val.i.i, %59 ], [ %.val.i.i, %57 ], [ %7, %68 ], [ %7, %70 ], [ %7, %73 ]
+  %.val.i.i.sink25 = phi ptr [ %.val.i.i, %57 ], [ %.val.i.i, %62 ], [ %.val.i.i, %59 ], [ %7, %68 ], [ %7, %70 ], [ %7, %73 ]
   %74 = getelementptr inbounds nuw i8, ptr %.val.i.i.sink25, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !30
   %76 = getelementptr inbounds nuw i8, ptr %.val.i.i.sink25, i64 24
@@ -700,7 +700,7 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
   br i1 %.not3137.i, label %.thread40.i, label %.thread
 
 .thread40.i:                                      ; preds = %.thread.i, %39
-  %.03942.i = phi ptr [ %53, %.thread.i ], [ %42, %39 ]
+  %.03942.i = phi ptr [ %42, %39 ], [ %53, %.thread.i ]
   %59 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !28
   store ptr %60, ptr %30, align 8, !tbaa !20
@@ -862,7 +862,7 @@ _ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i: ; preds = %117, %113, %1
   unreachable
 
 _ZL9freeblockP9lua_StateiPv.exit:                 ; preds = %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i, %99, %132, %126
-  %.0 = phi ptr [ %76, %126 ], [ %137, %132 ], [ %76, %99 ], [ %76, %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i ]
+  %.0 = phi ptr [ %137, %132 ], [ %76, %126 ], [ %76, %99 ], [ %76, %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i ]
   %141 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %142 = load i64, ptr %141, align 8, !tbaa !45
   %143 = sub i64 %3, %2
@@ -994,7 +994,7 @@ define hidden void @_Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE(ptr nound
   br i1 %29, label %._crit_edge, label %30
 
 30:                                               ; preds = %27, %.lr.ph, %25
-  %.1.ph = phi i32 [ %.01218, %25 ], [ %.01218, %.lr.ph ], [ %28, %27 ]
+  %.1.ph = phi i32 [ %.01218, %.lr.ph ], [ %.01218, %25 ], [ %28, %27 ]
   %.0 = getelementptr inbounds i8, ptr %.019, i64 %10
   %.not = icmp eq ptr %.0, %19
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
@@ -1062,7 +1062,7 @@ define hidden void @_Z13luaM_visitgcoP9lua_StatePvPFbS1_P8lua_PageP8GCObjectE(pt
   br i1 %35, label %_Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE.exit, label %36
 
 36:                                               ; preds = %33, %31, %.lr.ph.i
-  %.1.ph.i = phi i32 [ %.01218.i, %31 ], [ %.01218.i, %.lr.ph.i ], [ %34, %33 ]
+  %.1.ph.i = phi i32 [ %.01218.i, %.lr.ph.i ], [ %.01218.i, %31 ], [ %34, %33 ]
   %.0.i = getelementptr inbounds i8, ptr %.019.i, i64 %16
   %.not.i = icmp eq ptr %.0.i, %25
   br i1 %.not.i, label %_Z14luaM_visitpageP8lua_PagePvPFbS1_S0_P8GCObjectE.exit, label %.lr.ph.i, !llvm.loop !55

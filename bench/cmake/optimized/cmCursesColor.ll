@@ -147,7 +147,7 @@ select.unfold:                                    ; preds = %33
   br label %.thread
 
 .thread:                                          ; preds = %select.unfold, %28
-  %.148 = phi ptr [ %39, %select.unfold ], [ %32, %28 ]
+  %.148 = phi ptr [ %32, %28 ], [ %39, %select.unfold ]
   %40 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #16
   %41 = trunc i64 %40 to i32
   %.not39 = icmp ne i32 %41, 0
@@ -236,13 +236,13 @@ select.unfold:                                    ; preds = %33
   br label %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit.thread, !llvm.loop !28
 
 _ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit: ; preds = %67, %51, %62
-  %.sroa.06.1.i.i = phi ptr [ %63, %62 ], [ %.sroa.06.0.i.i, %51 ], [ %69, %67 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %51 ], [ %63, %62 ], [ %69, %67 ]
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 10
   %76 = load i16, ptr %75, align 2, !tbaa !29
   br label %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit.thread
 
-_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %55, %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit
-  %77 = phi i16 [ %76, %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit ], [ %1, %55 ], [ %1, %..loopexit_crit_edge21.i.i.i.i ], [ %1, %.preheader ], [ %1, %.lr.ph.i.i.i.i ]
+_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %.preheader, %55, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit
+  %77 = phi i16 [ %76, %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit ], [ %1, %..loopexit_crit_edge21.i.i.i.i ], [ %1, %.preheader ], [ %1, %55 ], [ %1, %.lr.ph.i.i.i.i ]
   ret i16 %77
 }
 
@@ -420,7 +420,7 @@ _ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %36, %22, %31
-  %.sroa.043.0.ph = phi ptr [ %32, %31 ], [ %.sroa.035.0, %22 ], [ %38, %36 ]
+  %.sroa.043.0.ph = phi ptr [ %.sroa.035.0, %22 ], [ %32, %31 ], [ %38, %36 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 16) #18
   br label %_ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

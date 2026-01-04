@@ -631,7 +631,7 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_779BytesTrie8nextImplEPKhi(ptr nound
   br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit
 
 _ZN6icu_779BytesTrie9skipValueEPKhi.exit:         ; preds = %42, %40, %36, %32
-  %.122 = phi ptr [ %37, %36 ], [ %41, %40 ], [ %47, %42 ], [ %11, %32 ]
+  %.122 = phi ptr [ %37, %36 ], [ %47, %42 ], [ %41, %40 ], [ %11, %32 ]
   %48 = getelementptr inbounds nuw i8, ptr %.122, i64 1
   %49 = load i8, ptr %.122, align 1, !tbaa !10
   %50 = zext i8 %49 to i32
@@ -643,8 +643,8 @@ _ZN6icu_779BytesTrie9skipValueEPKhi.exit:         ; preds = %42, %40, %36, %32
   store ptr null, ptr %52, align 8, !tbaa !11
   br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit.thread
 
-_ZN6icu_779BytesTrie9skipValueEPKhi.exit.thread:  ; preds = %26, %23, %18, %._crit_edge, %.loopexit
-  %.3 = phi i32 [ 0, %.loopexit ], [ 1, %18 ], [ 1, %23 ], [ %29, %26 ], [ %8, %._crit_edge ]
+_ZN6icu_779BytesTrie9skipValueEPKhi.exit.thread:  ; preds = %23, %18, %26, %._crit_edge, %.loopexit
+  %.3 = phi i32 [ 0, %.loopexit ], [ 1, %23 ], [ %29, %26 ], [ 1, %18 ], [ %8, %._crit_edge ]
   ret i32 %.3
 }
 
@@ -770,7 +770,7 @@ define noundef range(i32 0, 4) i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonn
   br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit.i
 
 _ZN6icu_779BytesTrie9skipValueEPKhi.exit.i:       ; preds = %62, %60, %56, %52
-  %.122.i = phi ptr [ %57, %56 ], [ %61, %60 ], [ %67, %62 ], [ %33, %52 ]
+  %.122.i = phi ptr [ %57, %56 ], [ %67, %62 ], [ %61, %60 ], [ %33, %52 ]
   %68 = getelementptr inbounds nuw i8, ptr %.122.i, i64 1
   %69 = load i8, ptr %.122.i, align 1, !tbaa !10
   %70 = zext i8 %69 to i32
@@ -782,7 +782,7 @@ _ZN6icu_779BytesTrie9skipValueEPKhi.exit.i:       ; preds = %62, %60, %56, %52
   br label %_ZN6icu_779BytesTrie8nextImplEPKhi.exit
 
 _ZN6icu_779BytesTrie8nextImplEPKhi.exit:          ; preds = %.loopexit.i, %46, %43, %40, %._crit_edge.i, %27, %17, %20, %23, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %27 ], [ %26, %23 ], [ 1, %20 ], [ 1, %17 ], [ 0, %.loopexit.i ], [ 1, %40 ], [ 1, %43 ], [ %49, %46 ], [ %30, %._crit_edge.i ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %17 ], [ 0, %27 ], [ %26, %23 ], [ 1, %20 ], [ 0, %.loopexit.i ], [ 1, %43 ], [ %49, %46 ], [ 1, %40 ], [ %30, %._crit_edge.i ]
   ret i32 %.0
 }
 
@@ -1081,8 +1081,8 @@ _ZN6icu_779BytesTrie9skipValueEPKhi.exit.backedge: ; preds = %122, %120, %116, %
   %130 = add nsw i32 %83, -17
   br label %32, !llvm.loop !18
 
-_ZNK6icu_779BytesTrie7currentEv.exit:             ; preds = %93, %90, %85, %100, %111, %108, %64, %61, %.preheader155._crit_edge, %41, %38, %.preheader._crit_edge, %76, %51, %21, %18, %14, %10, %25
-  %.0 = phi i32 [ 0, %25 ], [ 0, %10 ], [ %24, %21 ], [ 1, %18 ], [ 1, %14 ], [ 1, %.preheader155._crit_edge ], [ 1, %61 ], [ %67, %64 ], [ 1, %.preheader._crit_edge ], [ 1, %38 ], [ %44, %41 ], [ 0, %76 ], [ 0, %51 ], [ 0, %111 ], [ 0, %108 ], [ 0, %100 ], [ 0, %85 ], [ %86, %90 ], [ %86, %93 ]
+_ZNK6icu_779BytesTrie7currentEv.exit:             ; preds = %93, %85, %90, %100, %108, %111, %64, %61, %.preheader155._crit_edge, %38, %.preheader._crit_edge, %41, %51, %76, %21, %18, %14, %10, %25
+  %.0 = phi i32 [ 1, %14 ], [ 0, %25 ], [ 0, %10 ], [ %24, %21 ], [ 1, %18 ], [ 1, %.preheader155._crit_edge ], [ 1, %61 ], [ %67, %64 ], [ 1, %38 ], [ %44, %41 ], [ 1, %.preheader._crit_edge ], [ 0, %51 ], [ 0, %76 ], [ 0, %108 ], [ 0, %111 ], [ 0, %100 ], [ %86, %90 ], [ 0, %85 ], [ %86, %93 ]
   ret i32 %.0
 }
 
@@ -1460,11 +1460,6 @@ _ZN6icu_779BytesTrie9readValueEPKhi.exit48:       ; preds = %177, %181, %189, %2
   %230 = icmp ugt i8 %153, -95
   br i1 %230, label %231, label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit46.outer.backedge
 
-_ZN6icu_779BytesTrie9skipValueEPKhi.exit46.outer.backedge: ; preds = %229, %233, %237, %239, %162
-  %.032.i.ph.be = phi i8 [ 1, %162 ], [ %.436.i, %239 ], [ %.436.i, %237 ], [ %.436.i, %233 ], [ %.436.i, %229 ]
-  %.025.i.ph.be = phi ptr [ %164, %162 ], [ %243, %239 ], [ %238, %237 ], [ %234, %233 ], [ %152, %229 ]
-  br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit46.outer
-
 231:                                              ; preds = %229
   %232 = icmp samesign ult i8 %153, -40
   br i1 %232, label %233, label %235
@@ -1488,6 +1483,11 @@ _ZN6icu_779BytesTrie9skipValueEPKhi.exit46.outer.backedge: ; preds = %229, %233,
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 3
   br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit46.outer.backedge
 
+_ZN6icu_779BytesTrie9skipValueEPKhi.exit46.outer.backedge: ; preds = %239, %229, %233, %237, %162
+  %.032.i.ph.be = phi i8 [ 1, %162 ], [ %.436.i, %237 ], [ %.436.i, %233 ], [ %.436.i, %229 ], [ %.436.i, %239 ]
+  %.025.i.ph.be = phi ptr [ %164, %162 ], [ %238, %237 ], [ %234, %233 ], [ %152, %229 ], [ %243, %239 ]
+  br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit46.outer
+
 _ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit: ; preds = %228, %146, %148
   %.135.ph = phi i8 [ 1, %148 ], [ %.034, %146 ], [ 1, %228 ]
   %244 = add nsw i32 %.133, -1
@@ -1499,7 +1499,7 @@ _ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit: ; preds = %228, %146, %148
   br label %_ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit.thread
 
 _ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit.thread: ; preds = %_ZN6icu_779BytesTrie11jumpByDeltaEPKh.exit, %146, %162, %225, %246
-  %.029 = phi ptr [ %247, %246 ], [ null, %225 ], [ null, %162 ], [ null, %146 ], [ null, %_ZN6icu_779BytesTrie11jumpByDeltaEPKh.exit ]
+  %.029 = phi ptr [ null, %162 ], [ %247, %246 ], [ null, %146 ], [ null, %225 ], [ null, %_ZN6icu_779BytesTrie11jumpByDeltaEPKh.exit ]
   ret ptr %.029
 }
 
@@ -1642,11 +1642,6 @@ _ZN6icu_779BytesTrie9readValueEPKhi.exit:         ; preds = %29, %33, %41, %62, 
   %82 = icmp ugt i8 %5, -95
   br i1 %82, label %83, label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit.outer.backedge
 
-_ZN6icu_779BytesTrie9skipValueEPKhi.exit.outer.backedge: ; preds = %81, %85, %89, %91, %14
-  %.032.ph.be = phi i8 [ 1, %14 ], [ %.436, %91 ], [ %.436, %89 ], [ %.436, %85 ], [ %.436, %81 ]
-  %.025.ph.be = phi ptr [ %16, %14 ], [ %95, %91 ], [ %90, %89 ], [ %86, %85 ], [ %4, %81 ]
-  br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit.outer
-
 83:                                               ; preds = %81
   %84 = icmp samesign ult i8 %5, -40
   br i1 %84, label %85, label %87
@@ -1670,7 +1665,12 @@ _ZN6icu_779BytesTrie9skipValueEPKhi.exit.outer.backedge: ; preds = %81, %85, %89
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 3
   br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit.outer.backedge
 
-96:                                               ; preds = %14, %80, %77
+_ZN6icu_779BytesTrie9skipValueEPKhi.exit.outer.backedge: ; preds = %91, %81, %85, %89, %14
+  %.032.ph.be = phi i8 [ 1, %14 ], [ %.436, %89 ], [ %.436, %85 ], [ %.436, %81 ], [ %.436, %91 ]
+  %.025.ph.be = phi ptr [ %16, %14 ], [ %90, %89 ], [ %86, %85 ], [ %4, %81 ], [ %95, %91 ]
+  br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit.outer
+
+96:                                               ; preds = %14, %77, %80
   %.1.ph = phi i8 [ 1, %80 ], [ 0, %77 ], [ 0, %14 ]
   ret i8 %.1.ph
 }
@@ -1783,7 +1783,7 @@ _ZN6icu_779BytesTrie9skipValueEPKhi.exit:         ; preds = %24, %28, %32, %34
   br label %58
 
 58:                                               ; preds = %51, %53, %22, %2, %12
-  %.021 = phi i32 [ 1, %12 ], [ 0, %2 ], [ %52, %51 ], [ 1, %53 ], [ 0, %22 ]
+  %.021 = phi i32 [ 0, %2 ], [ 1, %12 ], [ 1, %53 ], [ %52, %51 ], [ 0, %22 ]
   ret i32 %.021
 }
 

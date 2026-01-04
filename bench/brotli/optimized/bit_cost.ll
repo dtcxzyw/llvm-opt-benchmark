@@ -230,7 +230,7 @@ FastLog2.exit112:                                 ; preds = %95, %99
   br i1 %117, label %.lr.ph126, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph126, %115
-  %.086.lcssa = phi i32 [ %.086124, %.lr.ph126 ], [ %116, %115 ]
+  %.086.lcssa = phi i32 [ %116, %115 ], [ %.086124, %.lr.ph126 ]
   %118 = zext i32 %.086.lcssa to i64
   %119 = add nuw nsw i64 %.3100134, %118
   %120 = icmp eq i64 %119, 256
@@ -364,7 +364,7 @@ ShannonEntropy.exit:                              ; preds = %158, %FastLog2.exit
   br label %174
 
 174:                                              ; preds = %17, %1, %ShannonEntropy.exit, %62, %21, %18
-  %.087 = phi double [ %20, %18 ], [ %41, %21 ], [ %80, %62 ], [ %173, %ShannonEntropy.exit ], [ 1.200000e+01, %1 ], [ 1.200000e+01, %17 ]
+  %.087 = phi double [ %173, %ShannonEntropy.exit ], [ 1.200000e+01, %1 ], [ %20, %18 ], [ %41, %21 ], [ %80, %62 ], [ 1.200000e+01, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret double %.087
 }
@@ -605,7 +605,7 @@ FastLog2.exit:                                    ; preds = %98, %102
   br i1 %exitcond151.not, label %.critedge, label %.lr.ph126, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph126, %118
-  %.086.lcssa = phi i32 [ %.086124, %.lr.ph126 ], [ %95, %118 ]
+  %.086.lcssa = phi i32 [ %95, %118 ], [ %.086124, %.lr.ph126 ]
   %120 = zext nneg i32 %.086.lcssa to i64
   %121 = add nuw nsw i64 %.3100134, %120
   %122 = icmp eq i64 %121, 704
@@ -746,7 +746,7 @@ ShannonEntropy.exit:                              ; preds = %163, %FastLog2.exit
   br label %179
 
 179:                                              ; preds = %17, %1, %ShannonEntropy.exit, %62, %21, %18
-  %.087 = phi double [ %20, %18 ], [ %41, %21 ], [ %80, %62 ], [ %178, %ShannonEntropy.exit ], [ 1.200000e+01, %1 ], [ 1.200000e+01, %17 ]
+  %.087 = phi double [ %178, %ShannonEntropy.exit ], [ 1.200000e+01, %1 ], [ %20, %18 ], [ %41, %21 ], [ %80, %62 ], [ 1.200000e+01, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret double %.087
 }
@@ -981,7 +981,7 @@ FastLog2.exit:                                    ; preds = %98, %102
   br i1 %exitcond151.not, label %.critedge, label %.lr.ph126, !llvm.loop !37
 
 .critedge:                                        ; preds = %.lr.ph126, %118
-  %.086.lcssa = phi i32 [ %.086124, %.lr.ph126 ], [ %95, %118 ]
+  %.086.lcssa = phi i32 [ %95, %118 ], [ %.086124, %.lr.ph126 ]
   %120 = zext nneg i32 %.086.lcssa to i64
   %121 = add nuw nsw i64 %.3100134, %120
   %122 = icmp eq i64 %121, 544
@@ -1122,7 +1122,7 @@ ShannonEntropy.exit:                              ; preds = %163, %FastLog2.exit
   br label %179
 
 179:                                              ; preds = %17, %1, %ShannonEntropy.exit, %62, %21, %18
-  %.087 = phi double [ %20, %18 ], [ %41, %21 ], [ %80, %62 ], [ %178, %ShannonEntropy.exit ], [ 1.200000e+01, %1 ], [ 1.200000e+01, %17 ]
+  %.087 = phi double [ %178, %ShannonEntropy.exit ], [ 1.200000e+01, %1 ], [ %20, %18 ], [ %41, %21 ], [ %80, %62 ], [ 1.200000e+01, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret double %.087
 }

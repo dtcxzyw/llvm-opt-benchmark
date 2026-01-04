@@ -222,7 +222,7 @@ is_safe_restriction_clause_for.exit.thread.sink.split: ; preds = %32, %46
   br label %is_safe_restriction_clause_for.exit.thread
 
 is_safe_restriction_clause_for.exit.thread:       ; preds = %is_safe_restriction_clause_for.exit.thread.sink.split, %38, %34, %32, %is_safe_restriction_clause_for.exit
-  %.254 = phi ptr [ %.0528894, %is_safe_restriction_clause_for.exit ], [ %.0528894, %32 ], [ %.0528894, %34 ], [ %.0528894, %38 ], [ %48, %is_safe_restriction_clause_for.exit.thread.sink.split ]
+  %.254 = phi ptr [ %.0528894, %is_safe_restriction_clause_for.exit ], [ %.0528894, %34 ], [ %.0528894, %38 ], [ %.0528894, %32 ], [ %48, %is_safe_restriction_clause_for.exit.thread.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i32, ptr %24, align 4
   %50 = sext i32 %49 to i64
@@ -285,7 +285,7 @@ is_orclause.exit.thread:                          ; preds = %66, %68, %is_orclau
   br label %79
 
 79:                                               ; preds = %is_orclause.exit.thread, %74
-  %.246 = phi ptr [ %77, %74 ], [ %78, %is_orclause.exit.thread ]
+  %.246 = phi ptr [ %78, %is_orclause.exit.thread ], [ %77, %74 ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103116, 1
   %80 = load i32, ptr %7, align 4
   %81 = sext i32 %80 to i64

@@ -1231,7 +1231,7 @@ define internal noundef zeroext i1 @dissect_hl7_heur(ptr noundef %0, ptr noundef
   br label %19
 
 19:                                               ; preds = %11, %16, %4, %7, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %7 ], [ false, %4 ], [ true, %16 ], [ true, %11 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %9 ], [ false, %7 ], [ true, %16 ], [ true, %11 ]
   ret i1 %.0
 }
 

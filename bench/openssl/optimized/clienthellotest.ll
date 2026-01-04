@@ -232,11 +232,11 @@ PACKET_forward.exit75:                            ; preds = %PACKET_forward.exit
   br label %PACKET_get_length_prefixed_1.exit
 
 PACKET_get_length_prefixed_1.exit:                ; preds = %77, %82
-  %.sroa.0101.4 = phi ptr [ %.sroa.0101.3, %77 ], [ %84, %82 ]
-  %.sroa.18.4 = phi i64 [ %.sroa.18.3, %77 ], [ %85, %82 ]
-  %.sroa.098.1 = phi ptr [ null, %77 ], [ %83, %82 ]
-  %.sroa.11.1 = phi i64 [ 0, %77 ], [ %80, %82 ]
-  %.0.i76 = phi i32 [ 0, %77 ], [ 1, %82 ]
+  %.sroa.0101.4 = phi ptr [ %84, %82 ], [ %.sroa.0101.3, %77 ]
+  %.sroa.18.4 = phi i64 [ %85, %82 ], [ %.sroa.18.3, %77 ]
+  %.sroa.098.1 = phi ptr [ %83, %82 ], [ null, %77 ]
+  %.sroa.11.1 = phi i64 [ %80, %82 ], [ 0, %77 ]
+  %.0.i76 = phi i32 [ 1, %82 ], [ 0, %77 ]
   %86 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 167, ptr noundef nonnull @.str.22, i32 noundef %.0.i76) #3
   %.not55 = icmp eq i32 %86, 0
   br i1 %.not55, label %PACKET_forward.exit.thread, label %88
@@ -467,8 +467,8 @@ PACKET_equal.exit:                                ; preds = %168, %169
   br label %PACKET_forward.exit.thread
 
 PACKET_forward.exit.thread:                       ; preds = %176, %PACKET_get_net_2.exit, %PACKET_get_length_prefixed_2.exit96, %PACKET_get_net_2.exit.thread, %PACKET_get_length_prefixed_2.exit.thread, %PACKET_get_length_prefixed_1.exit.thread, %PACKET_buf_init.exit.thread, %182, %PACKET_equal.exit, %PACKET_forward.exit72, %PACKET_forward.exit75, %PACKET_get_length_prefixed_1.exit, %PACKET_get_length_prefixed_2.exit, %PACKET_get_length_prefixed_1.exit86, %PACKET_as_length_prefixed_2.exit, %60, %PACKET_buf_init.exit, %57, %52, %36, %11, %26, %31, %21, %12, %6, %1, %47
-  %.039 = phi i32 [ 0, %11 ], [ 0, %PACKET_as_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit86 ], [ 0, %PACKET_get_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit ], [ 0, %PACKET_forward.exit75 ], [ 0, %PACKET_forward.exit72 ], [ 0, %PACKET_buf_init.exit ], [ 0, %60 ], [ 0, %57 ], [ 0, %52 ], [ 0, %47 ], [ 0, %36 ], [ 0, %12 ], [ 0, %21 ], [ 0, %31 ], [ 0, %26 ], [ 0, %6 ], [ 0, %1 ], [ %spec.select, %PACKET_equal.exit ], [ %spec.select65, %182 ], [ 0, %PACKET_buf_init.exit.thread ], [ 0, %PACKET_get_length_prefixed_1.exit.thread ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ], [ %.1.ph, %PACKET_get_net_2.exit.thread ], [ %.1.ph, %PACKET_get_length_prefixed_2.exit96 ], [ %.1.ph, %PACKET_get_net_2.exit ], [ %.1.ph, %176 ]
-  %.0 = phi ptr [ null, %11 ], [ %37, %PACKET_as_length_prefixed_2.exit ], [ %37, %PACKET_get_length_prefixed_1.exit86 ], [ %37, %PACKET_get_length_prefixed_2.exit ], [ %37, %PACKET_get_length_prefixed_1.exit ], [ %37, %PACKET_forward.exit75 ], [ %37, %PACKET_forward.exit72 ], [ %37, %PACKET_buf_init.exit ], [ %37, %60 ], [ %37, %57 ], [ %37, %52 ], [ %37, %47 ], [ %37, %36 ], [ null, %12 ], [ null, %21 ], [ null, %31 ], [ null, %26 ], [ null, %6 ], [ null, %1 ], [ %37, %PACKET_equal.exit ], [ %37, %182 ], [ %37, %PACKET_buf_init.exit.thread ], [ %37, %PACKET_get_length_prefixed_1.exit.thread ], [ %37, %PACKET_get_length_prefixed_2.exit.thread ], [ %37, %PACKET_get_net_2.exit.thread ], [ %37, %PACKET_get_length_prefixed_2.exit96 ], [ %37, %PACKET_get_net_2.exit ], [ %37, %176 ]
+  %.039 = phi i32 [ 0, %11 ], [ 0, %1 ], [ 0, %6 ], [ 0, %21 ], [ 0, %31 ], [ 0, %26 ], [ %spec.select, %PACKET_equal.exit ], [ %spec.select65, %182 ], [ 0, %PACKET_as_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit86 ], [ 0, %PACKET_get_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit ], [ 0, %PACKET_forward.exit75 ], [ 0, %PACKET_forward.exit72 ], [ 0, %PACKET_buf_init.exit.thread ], [ 0, %PACKET_buf_init.exit ], [ 0, %60 ], [ 0, %57 ], [ 0, %52 ], [ 0, %47 ], [ 0, %36 ], [ 0, %12 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ], [ 0, %PACKET_get_length_prefixed_1.exit.thread ], [ %.1.ph, %PACKET_get_net_2.exit.thread ], [ %.1.ph, %PACKET_get_length_prefixed_2.exit96 ], [ %.1.ph, %PACKET_get_net_2.exit ], [ %.1.ph, %176 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %1 ], [ null, %6 ], [ null, %21 ], [ null, %31 ], [ null, %26 ], [ %37, %PACKET_equal.exit ], [ %37, %182 ], [ %37, %PACKET_as_length_prefixed_2.exit ], [ %37, %PACKET_get_length_prefixed_1.exit86 ], [ %37, %PACKET_get_length_prefixed_2.exit ], [ %37, %PACKET_get_length_prefixed_1.exit ], [ %37, %PACKET_forward.exit75 ], [ %37, %PACKET_forward.exit72 ], [ %37, %PACKET_buf_init.exit.thread ], [ %37, %PACKET_buf_init.exit ], [ %37, %60 ], [ %37, %57 ], [ %37, %52 ], [ %37, %47 ], [ %37, %36 ], [ null, %12 ], [ %37, %PACKET_get_length_prefixed_2.exit.thread ], [ %37, %PACKET_get_length_prefixed_1.exit.thread ], [ %37, %PACKET_get_net_2.exit.thread ], [ %37, %PACKET_get_length_prefixed_2.exit96 ], [ %37, %PACKET_get_net_2.exit ], [ %37, %176 ]
   call void @SSL_free(ptr noundef %.0) #3
   call void @SSL_CTX_free(ptr noundef %4) #3
   call void @SSL_SESSION_free(ptr noundef null) #3

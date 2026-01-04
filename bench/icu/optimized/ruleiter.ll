@@ -372,7 +372,7 @@ _ZN6icu_7721RuleCharacterIterator9jumpaheadEi.exit: ; preds = %163, %148, %147, 
   resume { ptr, i32 } %.pn
 
 170:                                              ; preds = %.thread, %121, %119, %.critedge, %165, %168, %4
-  %.022 = phi i32 [ -1, %4 ], [ -1, %165 ], [ 92, %121 ], [ %.0.i3862, %119 ], [ %131, %.critedge ], [ 36, %168 ], [ -1, %.thread ]
+  %.022 = phi i32 [ -1, %4 ], [ -1, %.thread ], [ -1, %165 ], [ %131, %.critedge ], [ 92, %121 ], [ %.0.i3862, %119 ], [ 36, %168 ]
   ret i32 %.022
 }
 

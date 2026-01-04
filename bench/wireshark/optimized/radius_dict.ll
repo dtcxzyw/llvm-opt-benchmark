@@ -441,7 +441,7 @@ define hidden noundef i32 @Radius_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %156, label %.sink.split, label %159
 
 .sink.split:                                      ; preds = %154, %151, %148, %145, %142, %138
-  %.sink = phi i32 [ 241, %138 ], [ 242, %142 ], [ 243, %145 ], [ 244, %148 ], [ 245, %151 ], [ 246, %154 ]
+  %.sink = phi i32 [ 241, %138 ], [ 243, %145 ], [ 245, %151 ], [ 244, %148 ], [ 242, %142 ], [ 246, %154 ]
   %157 = load ptr, ptr %0, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 184
   store i32 %.sink, ptr %158, align 8
@@ -1309,8 +1309,8 @@ add_value.exit416:                                ; preds = %550, %562
   br label %694
 
 694:                                              ; preds = %665, %679, %678
-  %695 = phi i64 [ %.pre870, %679 ], [ %.pre871, %678 ], [ %.pre871, %665 ]
-  %696 = phi ptr [ %.pre.i, %679 ], [ %674, %678 ], [ null, %665 ]
+  %695 = phi i64 [ %.pre871, %678 ], [ %.pre870, %679 ], [ %.pre871, %665 ]
+  %696 = phi ptr [ %674, %678 ], [ %.pre.i, %679 ], [ null, %665 ]
   %697 = getelementptr ptr, ptr %696, i64 %695
   store ptr %673, ptr %697, align 8
   %698 = load ptr, ptr %57, align 8
@@ -1684,7 +1684,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i427, %897
   ]
 
 .backedge.sink.split1165.backedge:                ; preds = %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit, %118
-  %.1378.ph.be = phi ptr [ %.1378, %118 ], [ %847, %yy_try_NUL_trans.exit ], [ %847, %yy_try_NUL_trans.exit ]
+  %.1378.ph.be = phi ptr [ %847, %yy_try_NUL_trans.exit ], [ %.1378, %118 ], [ %847, %yy_try_NUL_trans.exit ]
   br label %.backedge.sink.split1165
 
 917:                                              ; preds = %yy_try_NUL_trans.exit
@@ -1694,9 +1694,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i427, %897
   br label %.loopexit474.backedge
 
 .loopexit474.backedge:                            ; preds = %._crit_edge.i449, %917, %1117
-  %.0377.be = phi ptr [ %1115, %1117 ], [ %847, %917 ], [ %1115, %._crit_edge.i449 ]
-  %.0371.be = phi ptr [ %1123, %1117 ], [ %919, %917 ], [ %1123, %._crit_edge.i449 ]
-  %.0370.be = phi i32 [ %1124, %1117 ], [ %918, %917 ], [ %1165, %._crit_edge.i449 ]
+  %.0377.be = phi ptr [ %847, %917 ], [ %1115, %1117 ], [ %1115, %._crit_edge.i449 ]
+  %.0371.be = phi ptr [ %919, %917 ], [ %1123, %1117 ], [ %1123, %._crit_edge.i449 ]
+  %.0370.be = phi i32 [ %918, %917 ], [ %1124, %1117 ], [ %1165, %._crit_edge.i449 ]
   br label %.loopexit474
 
 920:                                              ; preds = %832
@@ -2749,7 +2749,7 @@ define internal fastcc noundef zeroext i1 @add_attribute(ptr noundef readonly ca
   br label %add_tlv.exit
 
 add_tlv.exit:                                     ; preds = %.thread107, %45, %39, %23, %108, %134, %127
-  %.0 = phi i1 [ true, %127 ], [ true, %134 ], [ true, %108 ], [ true, %39 ], [ true, %45 ], [ false, %23 ], [ false, %.thread107 ]
+  %.0 = phi i1 [ true, %108 ], [ false, %.thread107 ], [ true, %127 ], [ true, %134 ], [ true, %39 ], [ true, %45 ], [ false, %23 ]
   ret i1 %.0
 }
 
@@ -3189,7 +3189,7 @@ define hidden void @Radius_push_buffer_state(ptr noundef %0, ptr noundef capture
   br label %.thread
 
 .thread:                                          ; preds = %4, %12, %33, %.thread31
-  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
+  %35 = phi ptr [ %.pr34, %.thread31 ], [ null, %12 ], [ %.pr34, %33 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37
@@ -3398,7 +3398,7 @@ define hidden noundef ptr @Radius__scan_buffer(ptr noundef %0, i64 noundef %1, p
   br label %53
 
 53:                                               ; preds = %16, %35, %34
-  %54 = phi ptr [ %.pre.i, %35 ], [ %28, %34 ], [ null, %16 ]
+  %54 = phi ptr [ %28, %34 ], [ %.pre.i, %35 ], [ null, %16 ]
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %56 = load i64, ptr %55, align 8
   %57 = getelementptr ptr, ptr %54, i64 %56
@@ -3430,7 +3430,7 @@ define hidden noundef ptr @Radius__scan_buffer(ptr noundef %0, i64 noundef %1, p
   br label %Radius__switch_to_buffer.exit
 
 Radius__switch_to_buffer.exit:                    ; preds = %53, %.thread.i, %3, %5, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ null, %3 ], [ %14, %.thread.i ], [ %14, %53 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %9 ], [ null, %5 ], [ %14, %.thread.i ], [ %14, %53 ]
   ret ptr %.0
 }
 
@@ -3857,7 +3857,7 @@ Radius__delete_buffer.exit.i:                     ; preds = %32, %.critedge.i.i
   br label %Radius_pop_buffer_state.exit
 
 Radius_pop_buffer_state.exit:                     ; preds = %26, %44, %47
-  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
+  %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

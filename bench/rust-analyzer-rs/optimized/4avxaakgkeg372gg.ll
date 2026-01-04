@@ -119,7 +119,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$T$u20$as$u20$core..option..SpecOpti
   br i1 %brmerge, label %7, label %8
 
 7:                                                ; preds = %2, %8
-  %.0.shrunk = phi i1 [ %.0.i, %8 ], [ %.mux, %2 ]
+  %.0.shrunk = phi i1 [ %.mux, %2 ], [ %.0.i, %8 ]
   ret i1 %.0.shrunk
 
 8:                                                ; preds = %2
@@ -990,10 +990,10 @@ _ZN3std4path4Path4join17he0ac40c6f85915e8E.exit:  ; preds = %1
   ret void
 
 .body.thread:                                     ; preds = %42, %26, %48, %13
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %48 ], [ %14, %13 ], [ %27, %26 ], [ %43, %42 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %48 ], [ %43, %42 ], [ %14, %13 ], [ %27, %26 ]
   resume { ptr, i32 } %.pn
 
-48:                                               ; preds = %_ZN3std4path4Path4join17he0ac40c6f85915e8E.exit, %17
+48:                                               ; preds = %17, %_ZN3std4path4Path4join17he0ac40c6f85915e8E.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h94ec7c0561237710E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #18
@@ -1129,10 +1129,10 @@ _ZN3std4path4Path4join17he0ac40c6f85915e8E.exit:  ; preds = %1
   ret void
 
 .body.thread:                                     ; preds = %42, %26, %48, %13
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %48 ], [ %14, %13 ], [ %27, %26 ], [ %43, %42 ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %48 ], [ %43, %42 ], [ %14, %13 ], [ %27, %26 ]
   resume { ptr, i32 } %.pn
 
-48:                                               ; preds = %_ZN3std4path4Path4join17he0ac40c6f85915e8E.exit, %17
+48:                                               ; preds = %17, %_ZN3std4path4Path4join17he0ac40c6f85915e8E.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h94ec7c0561237710E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #18

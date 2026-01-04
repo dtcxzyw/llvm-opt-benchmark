@@ -1039,7 +1039,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_2v() #3 personality ptr @__gxx_pers
   ret void
 
 314:                                              ; preds = %272, %312, %150, %267, %144
-  %.pn137.pn.pn.pn = phi { ptr, i32 } [ %145, %144 ], [ %.pn121.pn, %267 ], [ %.pn, %150 ], [ %.pn137.pn, %312 ], [ %.pn125, %272 ]
+  %.pn137.pn.pn.pn = phi { ptr, i32 } [ %.pn, %150 ], [ %145, %144 ], [ %.pn121.pn, %267 ], [ %.pn137.pn, %312 ], [ %.pn125, %272 ]
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %315

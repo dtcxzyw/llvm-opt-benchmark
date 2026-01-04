@@ -90,7 +90,7 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not339, label %61, label %.thread
 
 .thread.sink.split:                               ; preds = %54, %51, %48, %45, %42, %39, %37
-  %.sink = phi i32 [ -1, %37 ], [ -2, %39 ], [ -3, %42 ], [ -5, %45 ], [ -7, %48 ], [ -10, %51 ], [ -12, %54 ]
+  %.sink = phi i32 [ -1, %37 ], [ -2, %39 ], [ -5, %45 ], [ -10, %51 ], [ -7, %48 ], [ -3, %42 ], [ -12, %54 ]
   store i32 %.sink, ptr %16, align 4, !tbaa !3
   br label %.thread
 
@@ -413,7 +413,7 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not351397, label %.loopexit359.backedge, label %.lr.ph400.preheader
 
 .loopexit359.backedge:                            ; preds = %.lr.ph400, %201, %._crit_edge405
-  %.be = phi i32 [ %206, %201 ], [ %.pre.pre, %._crit_edge405 ], [ %206, %.lr.ph400 ]
+  %.be = phi i32 [ %.pre.pre, %._crit_edge405 ], [ %206, %201 ], [ %206, %.lr.ph400 ]
   br label %.loopexit359
 
 .lr.ph400.preheader:                              ; preds = %201

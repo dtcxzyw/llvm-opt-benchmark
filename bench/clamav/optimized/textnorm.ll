@@ -97,7 +97,7 @@ define i64 @text_normalize_buffer(ptr noundef captures(none) %0, ptr noundef rea
   br label %32
 
 32:                                               ; preds = %17, %30, %27
-  %.2 = phi ptr [ %.3, %27 ], [ %.02429, %17 ], [ %31, %30 ]
+  %.2 = phi ptr [ %31, %30 ], [ %.3, %27 ], [ %.02429, %17 ]
   %33 = add nuw i64 %.02628, 1
   %34 = icmp ult i64 %33, %2
   %35 = icmp ult ptr %.2, %7
@@ -203,7 +203,7 @@ define i64 @text_normalize_map(ptr noundef captures(none) %0, ptr noundef %1, i6
   br label %39
 
 39:                                               ; preds = %37, %34, %24
-  %.2.i = phi ptr [ %.3.i, %34 ], [ %.02429.i, %24 ], [ %38, %37 ]
+  %.2.i = phi ptr [ %38, %37 ], [ %.3.i, %34 ], [ %.02429.i, %24 ]
   %40 = add nuw i64 %.02628.i, 1
   %41 = icmp ult i64 %40, %.63
   %42 = icmp ult ptr %.2.i, %20

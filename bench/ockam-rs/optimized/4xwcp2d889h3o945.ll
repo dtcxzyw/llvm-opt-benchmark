@@ -141,7 +141,7 @@ define hidden void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..D
   br i1 %35, label %41, label %39
 
 38:                                               ; preds = %171, %.body
-  %.pn20 = phi { ptr, i32 } [ %172, %171 ], [ %.pn, %.body ]
+  %.pn20 = phi { ptr, i32 } [ %.pn, %.body ], [ %172, %171 ]
   resume { ptr, i32 } %.pn20
 
 39:                                               ; preds = %3
@@ -1574,7 +1574,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$
   br label %62
 
 .thread27:                                        ; preds = %60, %.thread23
-  %.pn22 = phi { ptr, i32 } [ %eh.lpad-body26, %.thread23 ], [ %59, %60 ]
+  %.pn22 = phi { ptr, i32 } [ %59, %60 ], [ %eh.lpad-body26, %.thread23 ]
   resume { ptr, i32 } %.pn22
 
 .thread23:                                        ; preds = %38, %.thread30

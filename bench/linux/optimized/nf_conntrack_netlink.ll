@@ -436,7 +436,7 @@ define internal i32 @ctnetlink_get_expect(ptr noundef %0, ptr noundef readonly c
   br label %.thread12
 
 .thread12:                                        ; preds = %84, %86, %74, %76, %88, %78, %.thread, %42, %36, %24
-  %90 = phi i32 [ %34, %24 ], [ -95, %36 ], [ -2, %42 ], [ 0, %.thread ], [ %79, %78 ], [ %89, %88 ], [ 0, %76 ], [ 0, %74 ], [ %79, %86 ], [ %79, %84 ]
+  %90 = phi i32 [ %34, %24 ], [ -95, %36 ], [ -2, %42 ], [ 0, %.thread ], [ %89, %88 ], [ %79, %78 ], [ 0, %74 ], [ 0, %76 ], [ %79, %86 ], [ %79, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1002,7 +1002,7 @@ define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef 
   br i1 %153, label %.thread31, label %157
 
 .thread31:                                        ; preds = %.thread23, %51, %79, %72, %63, %151
-  %154 = phi ptr [ %152, %151 ], [ inttoptr (i64 -12 to ptr), %79 ], [ inttoptr (i64 -22 to ptr), %72 ], [ inttoptr (i64 -95 to ptr), %63 ], [ inttoptr (i64 -95 to ptr), %51 ], [ inttoptr (i64 -95 to ptr), %.thread23 ]
+  %154 = phi ptr [ %152, %151 ], [ inttoptr (i64 -95 to ptr), %63 ], [ inttoptr (i64 -12 to ptr), %79 ], [ inttoptr (i64 -22 to ptr), %72 ], [ inttoptr (i64 -95 to ptr), %51 ], [ inttoptr (i64 -95 to ptr), %.thread23 ]
   %155 = ptrtoint ptr %154 to i64
   %156 = trunc i64 %155 to i32
   br label %.thread.sink.split
@@ -1013,7 +1013,7 @@ define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef 
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %43, %.thread31, %157
-  %.ph56 = phi i32 [ %156, %.thread31 ], [ %158, %157 ], [ %spec.select, %43 ]
+  %.ph56 = phi i32 [ %spec.select, %43 ], [ %158, %157 ], [ %156, %.thread31 ]
   call void @__rcu_read_unlock() #16
   br label %.thread
 
@@ -1041,7 +1041,7 @@ define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef 
   br label %.thread33
 
 .thread33:                                        ; preds = %164, %166, %167, %.thread, %20, %17, %14, %6
-  %168 = phi i32 [ %12, %6 ], [ %15, %14 ], [ %18, %17 ], [ -2, %20 ], [ %159, %.thread ], [ %159, %167 ], [ %159, %166 ], [ %159, %164 ]
+  %168 = phi i32 [ %159, %167 ], [ %12, %6 ], [ %15, %14 ], [ %18, %17 ], [ -2, %20 ], [ %159, %.thread ], [ %159, %166 ], [ %159, %164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1312,7 +1312,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
   br label %151
 
 151:                                              ; preds = %.thread17, %.thread, %150, %149, %143, %140, %138, %128, %125, %90, %33, %21, %6
-  %152 = phi i32 [ %19, %6 ], [ -95, %21 ], [ -22, %33 ], [ -22, %90 ], [ %126, %125 ], [ -22, %128 ], [ -22, %138 ], [ 0, %150 ], [ 0, %149 ], [ -22, %140 ], [ -95, %143 ], [ %.ph, %.thread ], [ %.ph16, %.thread17 ]
+  %152 = phi i32 [ %19, %6 ], [ -95, %21 ], [ -22, %33 ], [ %.ph, %.thread ], [ -22, %90 ], [ %126, %125 ], [ -22, %128 ], [ -22, %138 ], [ 0, %150 ], [ 0, %149 ], [ -22, %140 ], [ -95, %143 ], [ %.ph16, %.thread17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %152
 }
@@ -3030,7 +3030,7 @@ define internal i32 @ctnetlink_new_conntrack(ptr readonly captures(none) %0, ptr
   br label %170
 
 170:                                              ; preds = %159, %161, %164, %168, %134, %137
-  %171 = phi i32 [ -16, %134 ], [ %141, %137 ], [ 0, %168 ], [ 0, %164 ], [ -16, %161 ], [ -95, %159 ]
+  %171 = phi i32 [ %141, %137 ], [ -16, %134 ], [ 0, %168 ], [ 0, %164 ], [ -16, %161 ], [ -95, %159 ]
   call void @__rcu_read_unlock() #16
   %172 = icmp slt i32 %171, 0
   br i1 %172, label %.thread26, label %.thread28
@@ -3100,8 +3100,8 @@ define internal i32 @ctnetlink_new_conntrack(ptr readonly captures(none) %0, ptr
   %216 = select i1 %215, i32 0, i32 -95
   br label %.thread26
 
-.thread26:                                        ; preds = %.thread23, %132, %158, %212, %209, %198, %188, %176, %170, %88, %84, %80, %67
-  %217 = phi i32 [ -17, %67 ], [ -95, %88 ], [ -95, %84 ], [ -95, %80 ], [ %171, %170 ], [ %182, %176 ], [ %192, %188 ], [ %199, %198 ], [ %210, %209 ], [ %216, %212 ], [ %.ph, %.thread23 ], [ -16, %132 ], [ -95, %158 ]
+.thread26:                                        ; preds = %132, %.thread23, %158, %212, %209, %198, %188, %176, %170, %88, %84, %80, %67
+  %217 = phi i32 [ -17, %67 ], [ -95, %88 ], [ -95, %84 ], [ -95, %80 ], [ %171, %170 ], [ %182, %176 ], [ %192, %188 ], [ %199, %198 ], [ %210, %209 ], [ %216, %212 ], [ -16, %132 ], [ %.ph, %.thread23 ], [ -95, %158 ]
   %218 = icmp eq ptr %73, null
   br i1 %218, label %.thread30, label %219
 
@@ -3124,7 +3124,7 @@ define internal i32 @ctnetlink_new_conntrack(ptr readonly captures(none) %0, ptr
   br label %.thread30
 
 .thread30:                                        ; preds = %222, %224, %225, %.thread26, %64, %61, %51, %48, %45, %.thread, %25, %18, %3
-  %226 = phi i32 [ -95, %3 ], [ %19, %18 ], [ %26, %25 ], [ -2, %.thread ], [ %217, %.thread26 ], [ %217, %225 ], [ %63, %61 ], [ 0, %64 ], [ -22, %48 ], [ -22, %45 ], [ -22, %51 ], [ %217, %224 ], [ %217, %222 ]
+  %226 = phi i32 [ -95, %3 ], [ %19, %18 ], [ %26, %25 ], [ -2, %.thread ], [ %217, %.thread26 ], [ -22, %51 ], [ %217, %225 ], [ %63, %61 ], [ 0, %64 ], [ -22, %48 ], [ -22, %45 ], [ %217, %224 ], [ %217, %222 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3496,7 +3496,7 @@ define internal i32 @ctnetlink_del_conntrack(ptr noundef readonly captures(none)
   br label %.thread
 
 .thread:                                          ; preds = %118, %120, %95, %97, %121, %111, %98, %90, %71, %.split1, %67, %3
-  %122 = phi i32 [ %68, %67 ], [ -95, %3 ], [ %69, %.split1 ], [ -2, %71 ], [ -2, %90 ], [ -2, %98 ], [ 0, %111 ], [ 0, %121 ], [ -2, %97 ], [ -2, %95 ], [ 0, %120 ], [ 0, %118 ]
+  %122 = phi i32 [ %68, %67 ], [ -95, %3 ], [ %69, %.split1 ], [ -2, %71 ], [ -2, %90 ], [ 0, %121 ], [ -2, %98 ], [ 0, %111 ], [ -2, %95 ], [ -2, %97 ], [ 0, %120 ], [ 0, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %122
@@ -4008,20 +4008,20 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   call fastcc void @nf_ct_put(ptr noundef nonnull %176)
   br label %.thread27
 
-.thread27:                                        ; preds = %.split, %.thread, %50, %44, %.thread36, %.thread32, %178, %174, %149, %127, %113, %73
-  %179 = phi i32 [ %76, %73 ], [ %117, %113 ], [ %128, %127 ], [ %150, %149 ], [ %171, %178 ], [ %171, %174 ], [ %140, %.thread32 ], [ %.ph35, %.thread36 ], [ %.ph, %.thread ], [ -12, %50 ], [ -11, %44 ], [ %71, %.split ]
+.thread27:                                        ; preds = %.split, %50, %44, %.thread, %.thread36, %.thread32, %178, %174, %149, %127, %113, %73
+  %179 = phi i32 [ %140, %.thread32 ], [ %76, %73 ], [ %117, %113 ], [ %128, %127 ], [ %150, %149 ], [ %.ph35, %.thread36 ], [ %171, %178 ], [ %171, %174 ], [ %.ph, %.thread ], [ -12, %50 ], [ -11, %44 ], [ %71, %.split ]
   call void @__rcu_read_unlock() #16
   %180 = sext i32 %179 to i64
   br label %.thread29
 
 .thread29:                                        ; preds = %41, %49, %.thread27, %12
-  %181 = phi i64 [ %180, %.thread27 ], [ -22, %12 ], [ -95, %49 ], [ -95, %41 ]
+  %181 = phi i64 [ -22, %12 ], [ %180, %.thread27 ], [ -95, %49 ], [ -95, %41 ]
   call void @nf_conntrack_free(ptr noundef %10) #16
   %182 = inttoptr i64 %181 to ptr
   br label %183
 
 183:                                              ; preds = %.thread29, %173, %6
-  %184 = phi ptr [ %182, %.thread29 ], [ %10, %173 ], [ inttoptr (i64 -12 to ptr), %6 ]
+  %184 = phi ptr [ inttoptr (i64 -12 to ptr), %6 ], [ %182, %.thread29 ], [ %10, %173 ]
   ret ptr %184
 }
 
@@ -5334,7 +5334,7 @@ define internal fastcc ptr @ctnetlink_alloc_filter(ptr noundef readonly captures
   br i1 %80, label %.thread, label %84
 
 .thread:                                          ; preds = %34, %30, %75, %71, %61, %57, %50, %42
-  %81 = phi i32 [ -95, %42 ], [ %51, %50 ], [ %65, %61 ], [ %79, %75 ], [ -22, %57 ], [ -22, %71 ], [ -22, %30 ], [ -22, %34 ]
+  %81 = phi i32 [ -22, %71 ], [ -95, %42 ], [ %51, %50 ], [ %65, %61 ], [ %79, %75 ], [ -22, %57 ], [ -22, %30 ], [ -22, %34 ]
   tail call void @kfree(ptr noundef nonnull %12) #16
   %82 = sext i32 %81 to i64
   %83 = inttoptr i64 %82 to ptr

@@ -245,7 +245,7 @@ define noundef range(i32 -32768, 32768) i32 @_ZNK6icu_7714SearchIterator12getAtt
   br label %21
 
 21:                                               ; preds = %2, %15, %9, %3
-  %.0 = phi i32 [ %8, %3 ], [ %14, %9 ], [ %.1, %15 ], [ -1, %2 ]
+  %.0 = phi i32 [ %.1, %15 ], [ %8, %3 ], [ %14, %9 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -382,7 +382,7 @@ define void @_ZN6icu_7714SearchIterator7setTextERKNS_13UnicodeStringER10UErrorCo
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %17, %25, %27
-  %.0.i = phi ptr [ %26, %25 ], [ %29, %27 ], [ null, %17 ]
+  %.0.i = phi ptr [ %29, %27 ], [ %26, %25 ], [ null, %17 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !16
   store ptr %.0.i, ptr %31, align 8, !tbaa !28
@@ -726,7 +726,7 @@ _ZN6icu_7714SearchIterator16setMatchNotFoundEv.exit: ; preds = %.critedge, %36
   br label %57
 
 57:                                               ; preds = %2, %52, %_ZN6icu_7714SearchIterator16setMatchNotFoundEv.exit, %42
-  %.2 = phi i32 [ %56, %52 ], [ -1, %_ZN6icu_7714SearchIterator16setMatchNotFoundEv.exit ], [ %14, %42 ], [ -1, %2 ]
+  %.2 = phi i32 [ %14, %42 ], [ %56, %52 ], [ -1, %_ZN6icu_7714SearchIterator16setMatchNotFoundEv.exit ], [ -1, %2 ]
   ret i32 %.2
 }
 
@@ -884,7 +884,7 @@ _ZN6icu_7714SearchIterator16setMatchNotFoundEv.exit: ; preds = %33, %43
   br label %68
 
 68:                                               ; preds = %29, %2, %_ZN6icu_7714SearchIterator16setMatchNotFoundEv.exit, %58, %63
-  %.1 = phi i32 [ %62, %58 ], [ %67, %63 ], [ -1, %_ZN6icu_7714SearchIterator16setMatchNotFoundEv.exit ], [ %26, %29 ], [ -1, %2 ]
+  %.1 = phi i32 [ %26, %29 ], [ -1, %_ZN6icu_7714SearchIterator16setMatchNotFoundEv.exit ], [ %62, %58 ], [ %67, %63 ], [ -1, %2 ]
   ret i32 %.1
 }
 
@@ -1039,7 +1039,7 @@ define void @_ZN6icu_7714SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIterat
   br label %28
 
 28:                                               ; preds = %25, %23, %8
-  %.0.i = phi ptr [ %24, %23 ], [ %27, %25 ], [ null, %8 ]
+  %.0.i = phi ptr [ %27, %25 ], [ %24, %23 ], [ null, %8 ]
   store ptr %.0.i, ptr %7, align 8, !tbaa !28
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i16, ptr %29, align 8, !tbaa !6
@@ -1130,7 +1130,7 @@ define void @_ZN6icu_7714SearchIteratorC2ERNS_17CharacterIteratorEPNS_13BreakIte
   br label %31
 
 31:                                               ; preds = %28, %26, %21
-  %.0.i = phi ptr [ %27, %26 ], [ %30, %28 ], [ null, %21 ]
+  %.0.i = phi ptr [ %30, %28 ], [ %27, %26 ], [ null, %21 ]
   %32 = load ptr, ptr %9, align 8, !tbaa !16
   store ptr %.0.i, ptr %32, align 8, !tbaa !28
   %33 = load i16, ptr %6, align 8, !tbaa !6

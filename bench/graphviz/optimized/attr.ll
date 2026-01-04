@@ -593,7 +593,7 @@ addattr.exit.i:                                   ; preds = %192, %190
   br label %setattr.exit
 
 setattr.exit:                                     ; preds = %.lr.ph110.i, %164, %167, %.loopexit.i, %205
-  %.08298.i = phi ptr [ %.08299.i, %205 ], [ %.082.i, %.loopexit.i ], [ %145, %167 ], [ %145, %164 ], [ %145, %.lr.ph110.i ]
+  %.08298.i = phi ptr [ %.08299.i, %205 ], [ %.082.i, %.loopexit.i ], [ %145, %164 ], [ %145, %167 ], [ %145, %.lr.ph110.i ]
   call void @agmethod_upd(ptr noundef %.010, ptr noundef %.010, ptr noundef %.08298.i) #12
   br label %getattr.exit
 
@@ -921,7 +921,7 @@ define range(i32 0, 2) i32 @agraphattr_delete(ptr noundef %0) local_unnamed_addr
   br label %24
 
 24:                                               ; preds = %7, %21, %17, %13, %9
-  %.0 = phi i32 [ 1, %9 ], [ 1, %13 ], [ 1, %17 ], [ 0, %21 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %17 ], [ 1, %9 ], [ 1, %13 ], [ 0, %21 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1313,7 +1313,7 @@ agattr_.exit:                                     ; preds = %switch.lookup
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %agattr_.exit.thread, label %26
 
-agattr_.exit.thread:                              ; preds = %15, %switch.lookup, %agattr_.exit
+agattr_.exit.thread:                              ; preds = %switch.lookup, %15, %agattr_.exit
   %22 = call ptr @agraphof(ptr noundef nonnull %0) #12
   %23 = load i32, ptr %0, align 8
   %24 = and i32 %23, 3
@@ -1418,7 +1418,7 @@ agattrsym.exit:                                   ; preds = %22
   br i1 %.not.i.i, label %agnxtattr.exit.thread, label %switch.lookup, !llvm.loop !49
 
 agnxtattr.exit.thread:                            ; preds = %agattrsym.exit, %agnxtattr.exit, %switch.lookup, %31, %22, %.preheader, %2
-  %.019 = phi i32 [ 1, %2 ], [ 1, %.preheader ], [ 1, %agattrsym.exit ], [ %.034, %agnxtattr.exit ], [ %.034, %switch.lookup ], [ 0, %31 ], [ 1, %22 ]
+  %.019 = phi i32 [ 1, %2 ], [ 1, %.preheader ], [ 0, %31 ], [ %.034, %agnxtattr.exit ], [ %.034, %switch.lookup ], [ 1, %agattrsym.exit ], [ 1, %22 ]
   ret i32 %.019
 }
 

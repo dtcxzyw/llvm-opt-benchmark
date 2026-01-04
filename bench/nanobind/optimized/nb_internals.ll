@@ -330,7 +330,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %7, %12
           to label %109 unwind label %110
 
 109:                                              ; preds = %107, %105, %103, %101, %99, %97, %95, %93, %83
-  %.merged = phi { ptr, i32 } [ %8, %83 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ]
+  %.merged = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %8, %83 ], [ %108, %107 ]
   resume { ptr, i32 } %.merged
 
 110:                                              ; preds = %107, %105, %103, %101, %99, %97, %95, %93
@@ -700,7 +700,7 @@ _ZL10_Py_DECREFP7_object.exit76:                  ; preds = %27, %20, %_ZN8nanob
   ret void
 
 117:                                              ; preds = %77, %79, %101, %55
-  %.pn71 = phi { ptr, i32 } [ %56, %55 ], [ %102, %101 ], [ %78, %77 ], [ %80, %79 ]
+  %.pn71 = phi { ptr, i32 } [ %80, %79 ], [ %56, %55 ], [ %102, %101 ], [ %78, %77 ]
   call void @_ZN8nanobind6objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %118
@@ -1066,8 +1066,8 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
   br label %.thread
 
 .thread:                                          ; preds = %2, %81, %._crit_edge163.thread
-  %84 = phi i1 [ %10, %81 ], [ %10, %._crit_edge163.thread ], [ false, %2 ]
-  %85 = phi i1 [ %11, %81 ], [ %11, %._crit_edge163.thread ], [ false, %2 ]
+  %84 = phi i1 [ %10, %._crit_edge163.thread ], [ %10, %81 ], [ false, %2 ]
+  %85 = phi i1 [ %11, %._crit_edge163.thread ], [ %11, %81 ], [ false, %2 ]
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %87 = load i64, ptr %86, align 8
   %88 = icmp ne i64 %87, 0

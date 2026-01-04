@@ -233,8 +233,8 @@ define dso_local noundef zeroext i1 @defGetBoolean(ptr noundef readonly captures
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.defGetBoolean) #6
   unreachable
 
-.thread:                                          ; preds = %18, %15, %11, %21, %7, %1, %10
-  %.010 = phi i1 [ true, %10 ], [ false, %21 ], [ true, %1 ], [ false, %7 ], [ true, %18 ], [ false, %15 ], [ true, %11 ]
+.thread:                                          ; preds = %15, %11, %18, %21, %7, %1, %10
+  %.010 = phi i1 [ false, %21 ], [ true, %1 ], [ true, %10 ], [ false, %7 ], [ false, %15 ], [ true, %11 ], [ true, %18 ]
   ret i1 %.010
 }
 

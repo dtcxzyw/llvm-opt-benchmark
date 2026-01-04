@@ -311,7 +311,7 @@ ff_bufqueue_peek.exit:                            ; preds = %ff_bufqueue_add.exi
   br i1 %exitcond120.not, label %ff_bufqueue_peek.exit.thread, label %131, !llvm.loop !75
 
 ff_bufqueue_peek.exit.thread:                     ; preds = %67, %131, %.preheader, %ff_bufqueue_add.exit, %120, %109, %104, %ff_bufqueue_peek.exit, %53, %36, %32
-  %.091 = phi i32 [ -12, %32 ], [ %51, %36 ], [ -12, %53 ], [ -12, %ff_bufqueue_peek.exit ], [ %108, %104 ], [ -12, %109 ], [ -12, %120 ], [ -12, %ff_bufqueue_add.exit ], [ 0, %.preheader ], [ 0, %131 ], [ -12, %67 ]
+  %.091 = phi i32 [ -12, %32 ], [ -12, %ff_bufqueue_peek.exit ], [ -12, %120 ], [ -12, %109 ], [ %108, %104 ], [ -12, %53 ], [ -12, %ff_bufqueue_add.exit ], [ %51, %36 ], [ 0, %.preheader ], [ 0, %131 ], [ -12, %67 ]
   ret i32 %.091
 }
 
@@ -1524,10 +1524,10 @@ celt_encode_frame.exit:                           ; preds = %615, %218, %.lr.ph.
   br label %660
 
 660:                                              ; preds = %659, %657, %649
-  %.025.i = phi i32 [ 0, %659 ], [ 0, %657 ], [ %spec.select.i, %649 ]
-  %.035.i.i = phi i32 [ 3, %659 ], [ 0, %657 ], [ %spec.select33.i, %649 ]
-  %.not38.i.i = phi i1 [ false, %659 ], [ true, %657 ], [ true, %649 ]
-  %.034.i.i = phi i32 [ 2, %659 ], [ 1, %657 ], [ 1, %649 ]
+  %.025.i = phi i32 [ %spec.select.i, %649 ], [ 0, %657 ], [ 0, %659 ]
+  %.035.i.i = phi i32 [ %spec.select33.i, %649 ], [ 0, %657 ], [ 3, %659 ]
+  %.not38.i.i = phi i1 [ true, %649 ], [ true, %657 ], [ false, %659 ]
+  %.034.i.i = phi i32 [ 1, %649 ], [ 1, %657 ], [ 2, %659 ]
   %661 = getelementptr inbounds nuw i8, ptr %8, i64 15180
   %662 = load i32, ptr %661, align 4, !tbaa !44
   %663 = icmp sgt i32 %662, 1
@@ -1578,7 +1578,7 @@ celt_encode_frame.exit:                           ; preds = %615, %218, %.lr.ph.
   br i1 %exitcond.not.i110, label %._crit_edge.i.i100, label %680, !llvm.loop !133
 
 opus_gen_toc.exit.i:                              ; preds = %._crit_edge.i.i100, %660
-  %.3.i = phi i32 [ %.025.i, %660 ], [ %.1.i, %._crit_edge.i.i100 ]
+  %.3.i = phi i32 [ %.1.i, %._crit_edge.i.i100 ], [ %.025.i, %660 ]
   %.not.i101 = icmp eq i32 %.3.i, 0
   br i1 %.not.i101, label %opus_gen_toc.exit.thread.ithread-pre-split, label %.preheader.i
 
@@ -1712,7 +1712,7 @@ opus_packet_assembler.exit:                       ; preds = %721, %opus_gen_toc.
   br label %.critedge91
 
 .critedge91:                                      ; preds = %70, %753, %._crit_edge, %45, %38, %42, %9, %763
-  %.0 = phi i32 [ 0, %763 ], [ %11, %9 ], [ 0, %42 ], [ 0, %38 ], [ 0, %45 ], [ %108, %._crit_edge ], [ -12, %753 ], [ -12, %70 ]
+  %.0 = phi i32 [ %11, %9 ], [ 0, %38 ], [ 0, %45 ], [ 0, %763 ], [ -12, %753 ], [ %108, %._crit_edge ], [ 0, %42 ], [ -12, %70 ]
   ret i32 %.0
 }
 
@@ -1862,7 +1862,7 @@ define internal fastcc ptr @spawn_empty_frame(ptr noundef readonly captures(none
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %23, %._crit_edge.sink.split, %.preheader, %1
-  %.0 = phi ptr [ null, %1 ], [ %3, %.preheader ], [ null, %._crit_edge.sink.split ], [ %3, %23 ]
+  %.0 = phi ptr [ %3, %.preheader ], [ null, %._crit_edge.sink.split ], [ null, %1 ], [ %3, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -2164,7 +2164,7 @@ define internal fastcc void @celt_frame_mdct(ptr noundef %0, ptr noundef %1) unn
   %wide.trip.count161 = zext nneg i32 %93 to i64
   br label %97
 
-._crit_edge136:                                   ; preds = %101, %45, %.preheader, %.loopexit
+._crit_edge136:                                   ; preds = %101, %.preheader, %45, %.loopexit
   ret void
 
 97:                                               ; preds = %.lr.ph135, %101

@@ -649,7 +649,7 @@ Amap_LibFindGate.exit.thread:                     ; preds = %2
   br i1 %exitcond.not.i, label %Amap_LibFindGate.exit, label %9, !llvm.loop !63
 
 Amap_LibFindGate.exit:                            ; preds = %21, %24
-  %.011.i = phi ptr [ null, %24 ], [ %11, %21 ]
+  %.011.i = phi ptr [ %11, %21 ], [ null, %24 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.011.i, ptr %25, align 8, !tbaa !64
   br label %26
@@ -684,7 +684,7 @@ Amap_LibFindGate.exit:                            ; preds = %21, %24
   br i1 %exitcond.not.i49, label %Amap_LibFindGate.exit50, label %26, !llvm.loop !63
 
 Amap_LibFindGate.exit50:                          ; preds = %38, %41
-  %.011.i43 = phi ptr [ null, %41 ], [ %28, %38 ]
+  %.011.i43 = phi ptr [ %28, %38 ], [ null, %41 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.011.i43, ptr %42, align 8, !tbaa !65
   br label %43
@@ -719,7 +719,7 @@ Amap_LibFindGate.exit50:                          ; preds = %38, %41
   br i1 %exitcond.not.i58, label %Amap_LibFindGate.exit59, label %43, !llvm.loop !63
 
 Amap_LibFindGate.exit59:                          ; preds = %55, %58
-  %.011.i52 = phi ptr [ null, %58 ], [ %45, %55 ]
+  %.011.i52 = phi ptr [ %45, %55 ], [ null, %58 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.011.i52, ptr %59, align 8, !tbaa !66
   br label %60
@@ -899,9 +899,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.critedge2
 
 .critedge2:                                       ; preds = %109, %.lr.ph75, %90, %Vec_PtrPush.exit
-  %143 = phi ptr [ %81, %.lr.ph75 ], [ %81, %90 ], [ %.pre, %Vec_PtrPush.exit ], [ %81, %109 ]
-  %144 = phi i32 [ %82, %.lr.ph75 ], [ %82, %90 ], [ %138, %Vec_PtrPush.exit ], [ %82, %109 ]
-  %145 = phi i32 [ %83, %.lr.ph75 ], [ %83, %90 ], [ %140, %Vec_PtrPush.exit ], [ %83, %109 ]
+  %143 = phi ptr [ %.pre, %Vec_PtrPush.exit ], [ %81, %.lr.ph75 ], [ %81, %90 ], [ %81, %109 ]
+  %144 = phi i32 [ %138, %Vec_PtrPush.exit ], [ %82, %.lr.ph75 ], [ %82, %90 ], [ %82, %109 ]
+  %145 = phi i32 [ %140, %Vec_PtrPush.exit ], [ %83, %.lr.ph75 ], [ %83, %90 ], [ %83, %109 ]
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %146 = getelementptr i8, ptr %143, i64 4
   %.val = load i32, ptr %146, align 4, !tbaa !3

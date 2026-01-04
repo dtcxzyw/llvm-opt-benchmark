@@ -173,9 +173,9 @@ cond.false.i.loopexit.i:                          ; preds = %land.rhs.i.i
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %while.body.i.i, %cond.false.i.loopexit.i, %if.end.i.i
-  %previousSrc.sroa.3.032.i.i = phi i64 [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ %conv.i, %if.end.i.i ], [ 1, %while.body.i.i ]
-  %src.sroa.10.030.i.i = phi i64 [ %sub.i.i.i, %cond.false.i.loopexit.i ], [ %conv.i, %if.end.i.i ], [ 0, %while.body.i.i ]
-  %cond.i.i = phi i8 [ %.pre.i, %cond.false.i.loopexit.i ], [ %8, %if.end.i.i ], [ 0, %while.body.i.i ]
+  %previousSrc.sroa.3.032.i.i = phi i64 [ %conv.i, %if.end.i.i ], [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ 1, %while.body.i.i ]
+  %src.sroa.10.030.i.i = phi i64 [ %conv.i, %if.end.i.i ], [ %sub.i.i.i, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
+  %cond.i.i = phi i8 [ %8, %if.end.i.i ], [ %.pre.i, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
   %cmp14.i.i = icmp eq i8 %cond.i.i, %8
   %retval.sroa.3.0.copyload3.i.i = select i1 %cmp14.i.i, i64 %src.sroa.10.030.i.i, i64 %previousSrc.sroa.3.032.i.i
   %11 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i to i32
@@ -184,8 +184,8 @@ cond.end.i.i:                                     ; preds = %while.body.i.i, %co
   br label %return
 
 return:                                           ; preds = %cond.end.i.i, %if.end6, %if.end, %entry
-  %retval.sroa.3.0.i.i.sink = phi i32 [ 0, %entry ], [ 0, %if.end ], [ %13, %cond.end.i.i ], [ 0, %if.end6 ]
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 0, %cond.end.i.i ], [ 0, %if.end6 ]
+  %retval.sroa.3.0.i.i.sink = phi i32 [ 0, %if.end ], [ 0, %entry ], [ %13, %cond.end.i.i ], [ 0, %if.end6 ]
+  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %entry ], [ 0, %cond.end.i.i ], [ 0, %if.end6 ]
   store i32 %retval.sroa.3.0.i.i.sink, ptr %dst.coerce1, align 4
   ret i32 %retval.0
 }
@@ -269,9 +269,9 @@ cond.false.i.loopexit:                            ; preds = %land.rhs.i
   br label %_ZN6hermes6bigint17dropExtraSignBitsEN4llvh8ArrayRefIhEE.exit
 
 _ZN6hermes6bigint17dropExtraSignBitsEN4llvh8ArrayRefIhEE.exit: ; preds = %while.body.i, %if.end.i, %cond.false.i.loopexit
-  %previousSrc.sroa.3.032.i = phi i64 [ %src.sroa.10.034.i29, %cond.false.i.loopexit ], [ %mul, %if.end.i ], [ 1, %while.body.i ]
-  %src.sroa.10.030.i = phi i64 [ %sub.i.i4, %cond.false.i.loopexit ], [ %mul, %if.end.i ], [ 0, %while.body.i ]
-  %cond.i = phi i8 [ %.pre, %cond.false.i.loopexit ], [ %4, %if.end.i ], [ 0, %while.body.i ]
+  %previousSrc.sroa.3.032.i = phi i64 [ %mul, %if.end.i ], [ %src.sroa.10.034.i29, %cond.false.i.loopexit ], [ 1, %while.body.i ]
+  %src.sroa.10.030.i = phi i64 [ %mul, %if.end.i ], [ %sub.i.i4, %cond.false.i.loopexit ], [ 0, %while.body.i ]
+  %cond.i = phi i8 [ %4, %if.end.i ], [ %.pre, %cond.false.i.loopexit ], [ 0, %while.body.i ]
   %cmp14.i = icmp eq i8 %cond.i, %4
   %retval.sroa.3.0.copyload3.i = select i1 %cmp14.i, i64 %src.sroa.10.030.i, i64 %previousSrc.sroa.3.032.i
   %7 = load i32, ptr %dst.coerce1, align 4
@@ -326,9 +326,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %while.body.i.i.i, %cond.false.i.loopexit.i.i, %if.end.i.i.i
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i.i7, %if.end.i.i.i ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i.i7, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
-  %cond.i.i.i = phi i8 [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ %15, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %conv.i.i7, %if.end.i.i.i ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ %conv.i.i7, %if.end.i.i.i ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i.i = phi i8 [ %15, %if.end.i.i.i ], [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i.i, %15
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %18 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -337,8 +337,8 @@ cond.end.i.i.i:                                   ; preds = %while.body.i.i.i, %
   br label %_ZN6hermes6bigint13initWithBytesENS0_16MutableBigIntRefEN4llvh8ArrayRefIhEE.exit
 
 _ZN6hermes6bigint13initWithBytesENS0_16MutableBigIntRefEN4llvh8ArrayRefIhEE.exit: ; preds = %entry, %_ZN6hermes6bigint17dropExtraSignBitsEN4llvh8ArrayRefIhEE.exit, %if.end.i6, %if.end6.i, %cond.end.i.i.i
-  %retval.sroa.3.0.i.i.sink.i = phi i32 [ 0, %_ZN6hermes6bigint17dropExtraSignBitsEN4llvh8ArrayRefIhEE.exit ], [ 0, %if.end.i6 ], [ %20, %cond.end.i.i.i ], [ 0, %if.end6.i ], [ 0, %entry ]
-  %retval.0.i8 = phi i32 [ 1, %_ZN6hermes6bigint17dropExtraSignBitsEN4llvh8ArrayRefIhEE.exit ], [ 0, %if.end.i6 ], [ 0, %cond.end.i.i.i ], [ 0, %if.end6.i ], [ 0, %entry ]
+  %retval.sroa.3.0.i.i.sink.i = phi i32 [ 0, %if.end.i6 ], [ 0, %_ZN6hermes6bigint17dropExtraSignBitsEN4llvh8ArrayRefIhEE.exit ], [ %20, %cond.end.i.i.i ], [ 0, %if.end6.i ], [ 0, %entry ]
+  %retval.0.i8 = phi i32 [ 0, %if.end.i6 ], [ 1, %_ZN6hermes6bigint17dropExtraSignBitsEN4llvh8ArrayRefIhEE.exit ], [ 0, %cond.end.i.i.i ], [ 0, %if.end6.i ], [ 0, %entry ]
   store i32 %retval.sroa.3.0.i.i.sink.i, ptr %dst.coerce1, align 4
   %isnull.i = icmp eq ptr %1, null
   %or.cond = select i1 %cmp.i.i, i1 true, i1 %isnull.i
@@ -442,9 +442,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %while.body.i.i.i, %cond.false.i.loopexit.i.i, %if.end.i.i.i40
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i.i, %if.end.i.i.i40 ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i.i, %if.end.i.i.i40 ], [ 0, %while.body.i.i.i ]
-  %cond.i.i5.i = phi i8 [ %.pre.i.i41, %cond.false.i.loopexit.i.i ], [ %5, %if.end.i.i.i40 ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %conv.i.i, %if.end.i.i.i40 ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ %conv.i.i, %if.end.i.i.i40 ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i5.i = phi i8 [ %5, %if.end.i.i.i40 ], [ %.pre.i.i41, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i5.i, %5
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %8 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -752,7 +752,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   br i1 %exitcond.not, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE20binaryIntegerLiteralEv.exit.i.i, label %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i5.i.i.i.i.i, !llvm.loop !12
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE20binaryIntegerLiteralEv.exit.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49EEEENS_8OptValueIcEEv.exit9.i.i.i.i.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i5.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49EEEENS_8OptValueIcEEv.exit.i.i.i.i.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc66ELc98EEEENS_8OptValueIcEEv.exit.i.i.i
-  %ref.tmp.sroa.0.13 = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49EEEENS_8OptValueIcEEv.exit.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc66ELc98EEEENS_8OptValueIcEEv.exit.i.i.i ], [ %ref.tmp.sroa.0.14, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i5.i.i.i.i.i ], [ %scevgep38, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49EEEENS_8OptValueIcEEv.exit9.i.i.i.i.i ]
+  %ref.tmp.sroa.0.13 = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc66ELc98EEEENS_8OptValueIcEEv.exit.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49EEEENS_8OptValueIcEEv.exit.i.i.i.i.i ], [ %ref.tmp.sroa.0.14, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i5.i.i.i.i.i ], [ %scevgep38, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49EEEENS_8OptValueIcEEv.exit9.i.i.i.i.i ]
   %call3.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   %cmp.i.not.i.i = icmp eq i64 %call3.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %lor.lhs.false.i.i, label %if.then9.i
@@ -810,7 +810,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   br i1 %exitcond41.not, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE19octalIntegerLiteralEv.exit.i.i, label %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i5.i.i.i21.i.i, !llvm.loop !13
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE19octalIntegerLiteralEv.exit.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55EEEENS_8OptValueIcEEv.exit8.i.i.i.i.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i5.i.i.i21.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55EEEENS_8OptValueIcEEv.exit.i.i.i.i.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i.i.i.i15.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc79ELc111EEEENS_8OptValueIcEEv.exit.i.i.i
-  %ref.tmp.sroa.0.11 = phi ptr [ %add.ptr.i.i.i.i.i16.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55EEEENS_8OptValueIcEEv.exit.i.i.i.i.i ], [ %add.ptr.i.i.i7.i.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i.i.i.i15.i.i ], [ %add.ptr.i.i.i7.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc79ELc111EEEENS_8OptValueIcEEv.exit.i.i.i ], [ %ref.tmp.sroa.0.12, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i5.i.i.i21.i.i ], [ %add.ptr.i.i7.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55EEEENS_8OptValueIcEEv.exit8.i.i.i.i.i ]
+  %ref.tmp.sroa.0.11 = phi ptr [ %add.ptr.i.i.i7.i.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i.i.i.i15.i.i ], [ %add.ptr.i.i.i7.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc79ELc111EEEENS_8OptValueIcEEv.exit.i.i.i ], [ %add.ptr.i.i.i.i.i16.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55EEEENS_8OptValueIcEEv.exit.i.i.i.i.i ], [ %ref.tmp.sroa.0.12, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i5.i.i.i21.i.i ], [ %add.ptr.i.i7.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55EEEENS_8OptValueIcEEv.exit8.i.i.i.i.i ]
   %call3.i13.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   %cmp.i14.not.i.i = icmp eq i64 %call3.i13.i.i, 0
   br i1 %cmp.i14.not.i.i, label %lor.rhs.i.i, label %if.then9.i
@@ -1017,7 +1017,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   br i1 %exitcond47.not, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE13decimalDigitsEv.exit.i, label %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i5.i.i.i.i, !llvm.loop !16
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE13decimalDigitsEv.exit.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit8.i.i.i.i, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i5.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i.i.i.i, %if.then9.i.i
-  %ref.tmp.sroa.0.5 = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i.i.i.i ], [ %ref.tmp.sroa.0.4, %if.then9.i.i ], [ %ref.tmp.sroa.0.6, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i5.i.i.i.i ], [ %add.ptr.i.i7.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit8.i.i.i.i ]
+  %ref.tmp.sroa.0.5 = phi ptr [ %ref.tmp.sroa.0.4, %if.then9.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit.i.i.i.i ], [ %ref.tmp.sroa.0.6, %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE4peekEl.exit.i.i5.i.i.i.i ], [ %add.ptr.i.i7.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEEE22lookaheadAndEatIfAnyOfIJLc48ELc49ELc50ELc51ELc52ELc53ELc54ELc55ELc56ELc57EEEENS_8OptValueIcEEv.exit8.i.i.i.i ]
   %call10.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   %cmp11.i.not.i = icmp eq i64 %call10.i.i, 0
   br i1 %cmp11.i.not.i, label %if.end23.i, label %if.then20.i
@@ -1052,7 +1052,7 @@ if.else.i:                                        ; preds = %if.then.i1, %if.the
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   br label %nrvo.skipdtor
 
-nrvo.skipdtor:                                    ; preds = %if.then.i29.i, %if.end23.i, %if.then.i3.i26.i, %cond.true.i23.i, %if.then.i3.i.i, %cond.true.i.i, %if.else.i
+nrvo.skipdtor:                                    ; preds = %if.then.i29.i, %if.end23.i, %if.then.i3.i26.i, %if.then.i3.i.i, %cond.true.i23.i, %cond.true.i.i, %if.else.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   ret void
 }
@@ -1293,7 +1293,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   br i1 %cmp.i.i.i3.i.i.i27.i.i, label %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i.i5.i.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i, !llvm.loop !20
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE19octalIntegerLiteralEv.exit.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEENS_8OptValueIDsEEv.exit11.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i6.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEENS_8OptValueIDsEEv.exit.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i
-  %ref.tmp.sroa.0.10 = phi ptr [ %add.ptr.i.i.i.i.i16.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEENS_8OptValueIDsEEv.exit.i.i.i.i.i ], [ %add.ptr.i.i.i8.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i8.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i ], [ %ref.tmp.sroa.0.13, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i6.i.i.i.i.i ], [ %add.ptr.i.i10.i.i.i23.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEENS_8OptValueIDsEEv.exit11.i.i.i.i.i ]
+  %ref.tmp.sroa.0.10 = phi ptr [ %add.ptr.i.i.i8.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i8.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs79ELDs111EEEENS_8OptValueIDsEEv.exit.i.i.i ], [ %add.ptr.i.i.i.i.i16.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEENS_8OptValueIDsEEv.exit.i.i.i.i.i ], [ %ref.tmp.sroa.0.13, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEEbDs.exit.i.i6.i.i.i.i.i ], [ %add.ptr.i.i10.i.i.i23.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55EEEENS_8OptValueIDsEEv.exit11.i.i.i.i.i ]
   %call3.i14.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   %cmp.i15.not.i.i = icmp eq i64 %call3.i14.i.i, 0
   br i1 %cmp.i15.not.i.i, label %lor.rhs.i.i, label %if.then9.i
@@ -1402,7 +1402,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   br i1 %cmp.i.i.i3.i.i.i55.i.i, label %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i.i5.i.i.i50.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i, !llvm.loop !21
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE24nonDecimalIntegerLiteralEv.exit.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit11.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i8.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i
-  %ref.tmp.sroa.0.11 = phi ptr [ %add.ptr.i.i.i.i.i44.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit.i.i.i.i.i ], [ %add.ptr.i.i.i35.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i35.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i ], [ %ref.tmp.sroa.0.12, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i8.i.i.i.i.i ], [ %add.ptr.i.i7.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit11.i.i.i.i.i ]
+  %ref.tmp.sroa.0.11 = phi ptr [ %add.ptr.i.i.i35.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i35.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs88ELDs120EEEENS_8OptValueIDsEEv.exit.i.i.i ], [ %add.ptr.i.i.i.i.i44.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit.i.i.i.i.i ], [ %ref.tmp.sroa.0.12, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEEbDs.exit.i.i8.i.i.i.i.i ], [ %add.ptr.i.i7.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57ELDs65ELDs66ELDs67ELDs68ELDs69ELDs70ELDs97ELDs98ELDs99ELDs100ELDs101ELDs102EEEENS_8OptValueIDsEEv.exit11.i.i.i.i.i ]
   %call3.i41.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   %cmp.i42.i.not.i = icmp eq i64 %call3.i41.i.i, 0
   br i1 %cmp.i42.i.not.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE11nextIsAnyOfIJLDs43ELDs45EEEENS_8OptValueIDsEEv.exit.i.i, label %if.then9.i
@@ -1522,7 +1522,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringInteger
   br i1 %cmp.i.i.i3.i.i.i.i, label %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE4peekEl.exit.i.i5.i.i.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE13decimalDigitsEv.exit.i, !llvm.loop !23
 
 _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE13decimalDigitsEv.exit.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEENS_8OptValueIDsEEv.exit11.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i6.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEENS_8OptValueIDsEEv.exit.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i.i.i.i
-  %ref.tmp.sroa.0.5 = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEENS_8OptValueIDsEEv.exit.i.i.i.i ], [ %ref.tmp.sroa.0.4, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i.i.i.i ], [ %ref.tmp.sroa.0.6, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i6.i.i.i.i ], [ %add.ptr.i.i10.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEENS_8OptValueIDsEEv.exit11.i.i.i.i ]
+  %ref.tmp.sroa.0.5 = phi ptr [ %ref.tmp.sroa.0.4, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEENS_8OptValueIDsEEv.exit.i.i.i.i ], [ %ref.tmp.sroa.0.6, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE5anyOfILDs48ELDs49EJLDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEEbDs.exit.i.i6.i.i.i.i ], [ %add.ptr.i.i10.i.i.i.i, %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEEE22lookaheadAndEatIfAnyOfIJLDs48ELDs49ELDs50ELDs51ELDs52ELDs53ELDs54ELDs55ELDs56ELDs57EEEENS_8OptValueIDsEEv.exit11.i.i.i.i ]
   %call10.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   %cmp11.i.not.i = icmp eq i64 %call10.i.i, 0
   br i1 %cmp11.i.not.i, label %if.end23.i, label %if.then20.i
@@ -1557,7 +1557,7 @@ if.else.i:                                        ; preds = %if.then.i1, %if.the
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   br label %nrvo.skipdtor
 
-nrvo.skipdtor:                                    ; preds = %if.then.i32.i, %if.end23.i, %if.then.i3.i29.i, %cond.true.i26.i, %if.then.i3.i.i, %cond.true.i.i, %if.else.i
+nrvo.skipdtor:                                    ; preds = %if.then.i32.i, %if.end23.i, %if.then.i3.i29.i, %if.then.i3.i.i, %cond.true.i26.i, %cond.true.i.i, %if.else.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   ret void
 }
@@ -1979,7 +1979,7 @@ if.else.i:                                        ; preds = %if.then7.i, %_ZNK6h
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   br label %nrvo.skipdtor
 
-nrvo.skipdtor:                                    ; preds = %if.then.i66.i, %if.end27.i, %if.then.i62.i, %if.end23.i, %if.then.i3.i58.i, %cond.true.i55.i, %if.then.i30.i, %if.end15.i, %if.then.i3.i27.i, %cond.true.i24.i, %if.then.i3.i.i, %cond.true.i.i, %if.else.i
+nrvo.skipdtor:                                    ; preds = %if.then.i66.i, %if.end27.i, %if.end23.i, %if.then.i3.i58.i, %if.end15.i, %if.then.i3.i27.i, %if.then.i3.i.i, %if.then.i30.i, %if.then.i62.i, %cond.true.i24.i, %cond.true.i.i, %cond.true.i55.i, %if.else.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
   ret void
 }
@@ -2650,7 +2650,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread: ; preds = %
   br label %if.end8
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit: ; preds = %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread, %if.end
-  %mul164 = phi i32 [ %mul1, %if.end ], [ %mul16367, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread ]
+  %mul164 = phi i32 [ %mul16367, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread ], [ %mul1, %if.end ]
   %sub.i = add i32 %src.coerce1, -1
   %idxprom.i = zext i32 %sub.i to i64
   %arrayidx.i = getelementptr inbounds nuw i64, ptr %src.coerce0, i64 %idxprom.i
@@ -2842,9 +2842,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit: ; preds = %while.body.i.i.i, %entry, %cond.false.i.loopexit.i.i
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 8, %entry ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 8, %entry ], [ 0, %while.body.i.i.i ]
-  %cond.i.i.i = phi i8 [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ %2, %entry ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ 8, %entry ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ 8, %entry ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i.i = phi i8 [ %2, %entry ], [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i.i, %2
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %5 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -2919,7 +2919,7 @@ if.else19.i:                                      ; preds = %if.else.i, %if.end.
   br label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefES1_.exit
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefES1_.exit: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i, %if.then.i, %if.then.thread.i, %if.then9.i, %if.then14.i, %if.else19.i
-  %retval.0.i = phi i32 [ %call12.i, %if.then9.i ], [ %cond18.i, %if.then14.i ], [ %cond23.i, %if.else19.i ], [ -1, %if.then.thread.i ], [ 1, %if.then.i ], [ 1, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i ]
+  %retval.0.i = phi i32 [ %cond23.i, %if.else19.i ], [ %call12.i, %if.then9.i ], [ %cond18.i, %if.then14.i ], [ -1, %if.then.thread.i ], [ 1, %if.then.i ], [ 1, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i ]
   ret i32 %retval.0.i
 }
 
@@ -3037,9 +3037,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %while.body.i.i.i, %cond.false.i.loopexit.i.i, %if.end6.i
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i3, %if.end6.i ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i3, %if.end6.i ], [ 0, %while.body.i.i.i ]
-  %cond.i.i.i = phi i8 [ %.pre.i.i7, %cond.false.i.loopexit.i.i ], [ %7, %if.end6.i ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %conv.i3, %if.end6.i ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ %conv.i3, %if.end6.i ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i.i = phi i8 [ %7, %if.end6.i ], [ %.pre.i.i7, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i.i, %7
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %10 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -3048,7 +3048,7 @@ cond.end.i.i.i:                                   ; preds = %while.body.i.i.i, %
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end.i, %cond.end.i.i.i
-  %retval.sroa.3.0.i.i.sink.i.ph = phi i32 [ %12, %cond.end.i.i.i ], [ 0, %if.end.i ]
+  %retval.sroa.3.0.i.i.sink.i.ph = phi i32 [ 0, %if.end.i ], [ %12, %cond.end.i.i.i ]
   call void @_ZN6hermes6bigint8toStringB5cxx11ENS0_18ImmutableBigIntRefEh(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %1, i32 %retval.sroa.3.0.i.i.sink.i.ph, i8 noundef zeroext %radix)
   %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
@@ -3145,7 +3145,7 @@ if.else19:                                        ; preds = %_ZN6hermes6bigint10
   br label %return
 
 return:                                           ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge, %if.then.thread, %if.then, %if.then9, %if.else19, %if.then14
-  %retval.0 = phi i32 [ %call12, %if.then9 ], [ %cond18, %if.then14 ], [ %cond23, %if.else19 ], [ -1, %if.then.thread ], [ 1, %if.then ], [ 1, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge ]
+  %retval.0 = phi i32 [ %cond23, %if.else19 ], [ %call12, %if.then9 ], [ %cond18, %if.then14 ], [ -1, %if.then.thread ], [ 1, %if.then ], [ 1, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge ]
   ret i32 %retval.0
 }
 
@@ -3182,7 +3182,7 @@ land.rhs:                                         ; preds = %if.end4
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %land.rhs, %if.end4, %entry, %if.then1
-  %retval.0 = phi i1 [ %cmp3, %if.then1 ], [ true, %entry ], [ %cmp12, %land.rhs ], [ false, %if.end4 ], [ %cmp7.not, %land.lhs.true ]
+  %retval.0 = phi i1 [ true, %entry ], [ %cmp3, %if.then1 ], [ %cmp7.not, %land.lhs.true ], [ false, %if.end4 ], [ %cmp12, %land.rhs ]
   ret i1 %retval.0
 }
 
@@ -3340,9 +3340,9 @@ cond.false.i.loopexit.i.i.i:                      ; preds = %land.rhs.i.i.i.i
   br label %cond.end.i.i.i.i
 
 cond.end.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %cond.false.i.loopexit.i.i.i, %if.end.i.i.i.i
-  %previousSrc.sroa.3.032.i.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i.i, %cond.false.i.loopexit.i.i.i ], [ %conv.i.i.i, %if.end.i.i.i.i ], [ 1, %while.body.i.i.i.i ]
-  %src.sroa.10.030.i.i.i.i = phi i64 [ %sub.i.i.i.i.i, %cond.false.i.loopexit.i.i.i ], [ %conv.i.i.i, %if.end.i.i.i.i ], [ 0, %while.body.i.i.i.i ]
-  %cond.i.i.i.i = phi i8 [ %.pre.i.i.i, %cond.false.i.loopexit.i.i.i ], [ %7, %if.end.i.i.i.i ], [ 0, %while.body.i.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i.i = phi i64 [ %conv.i.i.i, %if.end.i.i.i.i ], [ %src.sroa.10.034.i6.i.i.i, %cond.false.i.loopexit.i.i.i ], [ 1, %while.body.i.i.i.i ]
+  %src.sroa.10.030.i.i.i.i = phi i64 [ %conv.i.i.i, %if.end.i.i.i.i ], [ %sub.i.i.i.i.i, %cond.false.i.loopexit.i.i.i ], [ 0, %while.body.i.i.i.i ]
+  %cond.i.i.i.i = phi i8 [ %7, %if.end.i.i.i.i ], [ %.pre.i.i.i, %cond.false.i.loopexit.i.i.i ], [ 0, %while.body.i.i.i.i ]
   %cmp14.i.i.i.i = icmp eq i8 %cond.i.i.i.i, %7
   %retval.sroa.3.0.copyload3.i.i.i.i = select i1 %cmp14.i.i.i.i, i64 %src.sroa.10.030.i.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i.i
   %10 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i.i to i32
@@ -3480,9 +3480,9 @@ cond.false.i.loopexit.i:                          ; preds = %land.rhs.i.i
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %while.body.i.i, %cond.false.i.loopexit.i, %if.end.i.i31
-  %previousSrc.sroa.3.032.i.i = phi i64 [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ %conv.i32, %if.end.i.i31 ], [ 1, %while.body.i.i ]
-  %src.sroa.10.030.i.i = phi i64 [ %sub.i.i.i, %cond.false.i.loopexit.i ], [ %conv.i32, %if.end.i.i31 ], [ 0, %while.body.i.i ]
-  %cond.i.i33 = phi i8 [ %.pre.i, %cond.false.i.loopexit.i ], [ %31, %if.end.i.i31 ], [ 0, %while.body.i.i ]
+  %previousSrc.sroa.3.032.i.i = phi i64 [ %conv.i32, %if.end.i.i31 ], [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ 1, %while.body.i.i ]
+  %src.sroa.10.030.i.i = phi i64 [ %conv.i32, %if.end.i.i31 ], [ %sub.i.i.i, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
+  %cond.i.i33 = phi i8 [ %31, %if.end.i.i31 ], [ %.pre.i, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
   %cmp14.i.i = icmp eq i8 %cond.i.i33, %31
   %retval.sroa.3.0.copyload3.i.i = select i1 %cmp14.i.i, i64 %src.sroa.10.030.i.i, i64 %previousSrc.sroa.3.032.i.i
   %34 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i to i32
@@ -3491,8 +3491,8 @@ cond.end.i.i:                                     ; preds = %while.body.i.i, %co
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %cond.end.i.i, %if.end68, %cond.end.i.i.i.i, %if.end6.i.i, %if.end.i.i, %if.then6
-  %retval.sroa.3.0.i.i.sink = phi i32 [ 0, %if.then6 ], [ 0, %if.end.i.i ], [ %12, %cond.end.i.i.i.i ], [ 0, %if.end6.i.i ], [ %36, %cond.end.i.i ], [ 0, %if.end68 ]
-  %retval.0.ph = phi i32 [ 1, %if.then6 ], [ 0, %if.end.i.i ], [ 0, %cond.end.i.i.i.i ], [ 0, %if.end6.i.i ], [ 0, %cond.end.i.i ], [ 0, %if.end68 ]
+  %retval.sroa.3.0.i.i.sink = phi i32 [ 0, %if.end6.i.i ], [ 0, %if.end.i.i ], [ 0, %if.then6 ], [ %12, %cond.end.i.i.i.i ], [ %36, %cond.end.i.i ], [ 0, %if.end68 ]
+  %retval.0.ph = phi i32 [ 0, %if.end6.i.i ], [ 0, %if.end.i.i ], [ 1, %if.then6 ], [ 0, %cond.end.i.i.i.i ], [ 0, %cond.end.i.i ], [ 0, %if.end68 ]
   store i32 %retval.sroa.3.0.i.i.sink, ptr %dst.coerce1, align 4
   br label %return
 
@@ -3601,9 +3601,9 @@ cond.false.i.loopexit.i:                          ; preds = %land.rhs.i.i
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %while.body.i.i, %cond.false.i.loopexit.i, %if.end.i.i
-  %previousSrc.sroa.3.032.i.i = phi i64 [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ %conv.i5, %if.end.i.i ], [ 1, %while.body.i.i ]
-  %src.sroa.10.030.i.i = phi i64 [ %sub.i.i.i, %cond.false.i.loopexit.i ], [ %conv.i5, %if.end.i.i ], [ 0, %while.body.i.i ]
-  %cond.i.i6 = phi i8 [ %.pre.i, %cond.false.i.loopexit.i ], [ %8, %if.end.i.i ], [ 0, %while.body.i.i ]
+  %previousSrc.sroa.3.032.i.i = phi i64 [ %conv.i5, %if.end.i.i ], [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ 1, %while.body.i.i ]
+  %src.sroa.10.030.i.i = phi i64 [ %conv.i5, %if.end.i.i ], [ %sub.i.i.i, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
+  %cond.i.i6 = phi i8 [ %8, %if.end.i.i ], [ %.pre.i, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
   %cmp14.i.i = icmp eq i8 %cond.i.i6, %8
   %retval.sroa.3.0.copyload3.i.i = select i1 %cmp14.i.i, i64 %src.sroa.10.030.i.i, i64 %previousSrc.sroa.3.032.i.i
   %11 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i to i32
@@ -3696,9 +3696,9 @@ cond.false.i.loopexit.i:                          ; preds = %land.rhs.i.i
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %while.body.i.i, %cond.false.i.loopexit.i, %if.end.i.i
-  %previousSrc.sroa.3.032.i.i = phi i64 [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ %conv.i5, %if.end.i.i ], [ 1, %while.body.i.i ]
-  %src.sroa.10.030.i.i = phi i64 [ %sub.i.i.i, %cond.false.i.loopexit.i ], [ %conv.i5, %if.end.i.i ], [ 0, %while.body.i.i ]
-  %cond.i.i6 = phi i8 [ %.pre.i, %cond.false.i.loopexit.i ], [ %8, %if.end.i.i ], [ 0, %while.body.i.i ]
+  %previousSrc.sroa.3.032.i.i = phi i64 [ %conv.i5, %if.end.i.i ], [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ 1, %while.body.i.i ]
+  %src.sroa.10.030.i.i = phi i64 [ %conv.i5, %if.end.i.i ], [ %sub.i.i.i, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
+  %cond.i.i6 = phi i8 [ %8, %if.end.i.i ], [ %.pre.i, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
   %cmp14.i.i = icmp eq i8 %cond.i.i6, %8
   %retval.sroa.3.0.copyload3.i.i = select i1 %cmp14.i.i, i64 %src.sroa.10.030.i.i, i64 %previousSrc.sroa.3.032.i.i
   %11 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i to i32
@@ -3809,9 +3809,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %while.body.i.i.i, %cond.false.i.loopexit.i.i, %if.end.i.i.i
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i9.i, %if.end.i.i.i ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i9.i, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
-  %cond.i.i10.i = phi i8 [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ %8, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %conv.i9.i, %if.end.i.i.i ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ %conv.i9.i, %if.end.i.i.i ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i10.i = phi i8 [ %8, %if.end.i.i.i ], [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i10.i, %8
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %11 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -3926,9 +3926,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %while.body.i.i.i, %cond.false.i.loopexit.i.i, %if.end.i.i.i
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i9.i, %if.end.i.i.i ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i9.i, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
-  %cond.i.i10.i = phi i8 [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ %8, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %conv.i9.i, %if.end.i.i.i ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ %conv.i9.i, %if.end.i.i.i ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i10.i = phi i8 [ %8, %if.end.i.i.i ], [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i10.i, %8
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %11 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -4037,9 +4037,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %while.body.i.i.i, %cond.false.i.loopexit.i.i, %if.end.i.i.i
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i9.i, %if.end.i.i.i ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i9.i, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
-  %cond.i.i10.i = phi i8 [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ %8, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %conv.i9.i, %if.end.i.i.i ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ %conv.i9.i, %if.end.i.i.i ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i10.i = phi i8 [ %8, %if.end.i.i.i ], [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i10.i, %8
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %11 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -4168,9 +4168,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %while.body.i.i.i, %cond.false.i.loopexit.i.i, %if.end.i.i.i
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i9.i, %if.end.i.i.i ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i9.i, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
-  %cond.i.i10.i = phi i8 [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ %10, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %conv.i9.i, %if.end.i.i.i ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ %conv.i9.i, %if.end.i.i.i ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i10.i = phi i8 [ %10, %if.end.i.i.i ], [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i10.i, %10
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %13 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -4221,9 +4221,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit: ; preds = %while.body.i.i.i, %entry, %cond.false.i.loopexit.i.i
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 8, %entry ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 8, %entry ], [ 0, %while.body.i.i.i ]
-  %cond.i.i.i = phi i8 [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ %2, %entry ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ 8, %entry ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ 8, %entry ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i.i = phi i8 [ %2, %entry ], [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i.i, %2
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %5 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -4263,9 +4263,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit: ; preds = %while.body.i.i.i, %entry, %cond.false.i.loopexit.i.i
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 8, %entry ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 8, %entry ], [ 0, %while.body.i.i.i ]
-  %cond.i.i.i = phi i8 [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ %2, %entry ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ 8, %entry ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ 8, %entry ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i.i = phi i8 [ %2, %entry ], [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i.i, %2
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %5 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -4395,9 +4395,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %while.body.i.i.i, %cond.false.i.loopexit.i.i, %if.end.i.i.i
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i9.i, %if.end.i.i.i ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i9.i, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
-  %cond.i.i10.i = phi i8 [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ %11, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %conv.i9.i, %if.end.i.i.i ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ %conv.i9.i, %if.end.i.i.i ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i10.i = phi i8 [ %11, %if.end.i.i.i ], [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i10.i, %11
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %14 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -4460,9 +4460,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit: ; preds = %while.body.i.i.i, %entry, %cond.false.i.loopexit.i.i
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 8, %entry ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 8, %entry ], [ 0, %while.body.i.i.i ]
-  %cond.i.i.i = phi i8 [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ %2, %entry ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ 8, %entry ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ 8, %entry ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i.i = phi i8 [ %2, %entry ], [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i.i, %2
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %5 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -4502,9 +4502,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit
 
 _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit: ; preds = %while.body.i.i.i, %entry, %cond.false.i.loopexit.i.i
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 8, %entry ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 8, %entry ], [ 0, %while.body.i.i.i ]
-  %cond.i.i.i = phi i8 [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ %2, %entry ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ 8, %entry ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ 8, %entry ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i.i = phi i8 [ %2, %entry ], [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i.i, %2
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %5 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -4662,9 +4662,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %while.body.i.i.i, %cond.false.i.loopexit.i.i, %if.end.i.i.i31
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i4.i, %if.end.i.i.i31 ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i4.i, %if.end.i.i.i31 ], [ 0, %while.body.i.i.i ]
-  %cond.i.i5.i = phi i8 [ %.pre.i.i32, %cond.false.i.loopexit.i.i ], [ %12, %if.end.i.i.i31 ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %conv.i4.i, %if.end.i.i.i31 ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ %conv.i4.i, %if.end.i.i.i31 ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i5.i = phi i8 [ %12, %if.end.i.i.i31 ], [ %.pre.i.i32, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i5.i, %12
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %15 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -4740,9 +4740,9 @@ cond.false.i.loopexit.i.i78:                      ; preds = %land.rhs.i.i.i75
   br label %cond.end.i.i.i59
 
 cond.end.i.i.i59:                                 ; preds = %while.body.i.i.i71, %cond.false.i.loopexit.i.i78, %if.end.i.i.i55
-  %previousSrc.sroa.3.032.i.i.i60 = phi i64 [ %src.sroa.10.034.i6.i.i72, %cond.false.i.loopexit.i.i78 ], [ %conv.i4.i56, %if.end.i.i.i55 ], [ 1, %while.body.i.i.i71 ]
-  %src.sroa.10.030.i.i.i61 = phi i64 [ %sub.i.i.i.i73, %cond.false.i.loopexit.i.i78 ], [ %conv.i4.i56, %if.end.i.i.i55 ], [ 0, %while.body.i.i.i71 ]
-  %cond.i.i5.i62 = phi i8 [ %.pre.i.i79, %cond.false.i.loopexit.i.i78 ], [ %23, %if.end.i.i.i55 ], [ 0, %while.body.i.i.i71 ]
+  %previousSrc.sroa.3.032.i.i.i60 = phi i64 [ %conv.i4.i56, %if.end.i.i.i55 ], [ %src.sroa.10.034.i6.i.i72, %cond.false.i.loopexit.i.i78 ], [ 1, %while.body.i.i.i71 ]
+  %src.sroa.10.030.i.i.i61 = phi i64 [ %conv.i4.i56, %if.end.i.i.i55 ], [ %sub.i.i.i.i73, %cond.false.i.loopexit.i.i78 ], [ 0, %while.body.i.i.i71 ]
+  %cond.i.i5.i62 = phi i8 [ %23, %if.end.i.i.i55 ], [ %.pre.i.i79, %cond.false.i.loopexit.i.i78 ], [ 0, %while.body.i.i.i71 ]
   %cmp14.i.i.i63 = icmp eq i8 %cond.i.i5.i62, %23
   %retval.sroa.3.0.copyload3.i.i.i64 = select i1 %cmp14.i.i.i63, i64 %src.sroa.10.030.i.i.i61, i64 %previousSrc.sroa.3.032.i.i.i60
   %26 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i64 to i32
@@ -4820,9 +4820,9 @@ cond.false.i.loopexit.i:                          ; preds = %land.rhs.i.i
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %while.body.i.i, %cond.false.i.loopexit.i, %if.end.i.i89
-  %previousSrc.sroa.3.032.i.i = phi i64 [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ %conv.i90, %if.end.i.i89 ], [ 1, %while.body.i.i ]
-  %src.sroa.10.030.i.i = phi i64 [ %sub.i.i.i92, %cond.false.i.loopexit.i ], [ %conv.i90, %if.end.i.i89 ], [ 0, %while.body.i.i ]
-  %cond.i.i = phi i8 [ %.pre.i94, %cond.false.i.loopexit.i ], [ %35, %if.end.i.i89 ], [ 0, %while.body.i.i ]
+  %previousSrc.sroa.3.032.i.i = phi i64 [ %conv.i90, %if.end.i.i89 ], [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ 1, %while.body.i.i ]
+  %src.sroa.10.030.i.i = phi i64 [ %conv.i90, %if.end.i.i89 ], [ %sub.i.i.i92, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
+  %cond.i.i = phi i8 [ %35, %if.end.i.i89 ], [ %.pre.i94, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
   %cmp14.i.i = icmp eq i8 %cond.i.i, %35
   %retval.sroa.3.0.copyload3.i.i = select i1 %cmp14.i.i, i64 %src.sroa.10.030.i.i, i64 %previousSrc.sroa.3.032.i.i
   %38 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i to i32
@@ -4941,7 +4941,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i: ; preds = %_
   br i1 %or.cond36, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i
-  %cmp.not.i.i.i62 = phi i1 [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i ], [ true, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i ], [ false, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread ]
+  %cmp.not.i.i.i62 = phi i1 [ true, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i ], [ false, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i)
   br label %if.end13
 
@@ -5153,9 +5153,9 @@ cond.false.i.loopexit.i:                          ; preds = %land.rhs.i.i
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %while.body.i.i, %cond.false.i.loopexit.i, %if.end.i.i69
-  %previousSrc.sroa.3.032.i.i = phi i64 [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ %conv.i70, %if.end.i.i69 ], [ 1, %while.body.i.i ]
-  %src.sroa.10.030.i.i = phi i64 [ %sub.i.i.i73, %cond.false.i.loopexit.i ], [ %conv.i70, %if.end.i.i69 ], [ 0, %while.body.i.i ]
-  %cond.i.i72 = phi i8 [ %.pre.i75, %cond.false.i.loopexit.i ], [ %31, %if.end.i.i69 ], [ 0, %while.body.i.i ]
+  %previousSrc.sroa.3.032.i.i = phi i64 [ %conv.i70, %if.end.i.i69 ], [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ 1, %while.body.i.i ]
+  %src.sroa.10.030.i.i = phi i64 [ %conv.i70, %if.end.i.i69 ], [ %sub.i.i.i73, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
+  %cond.i.i72 = phi i8 [ %31, %if.end.i.i69 ], [ %.pre.i75, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
   %cmp14.i.i = icmp eq i8 %cond.i.i72, %31
   %retval.sroa.3.0.copyload3.i.i = select i1 %cmp14.i.i, i64 %src.sroa.10.030.i.i, i64 %previousSrc.sroa.3.032.i.i
   %34 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i to i32
@@ -5212,9 +5212,9 @@ cond.false.i.loopexit.i96:                        ; preds = %land.rhs.i.i93
   br label %cond.end.i.i82
 
 cond.end.i.i82:                                   ; preds = %while.body.i.i89, %cond.false.i.loopexit.i96, %if.end.i.i78
-  %previousSrc.sroa.3.032.i.i83 = phi i64 [ %src.sroa.10.034.i6.i90, %cond.false.i.loopexit.i96 ], [ %conv.i79, %if.end.i.i78 ], [ 1, %while.body.i.i89 ]
-  %src.sroa.10.030.i.i84 = phi i64 [ %sub.i.i.i91, %cond.false.i.loopexit.i96 ], [ %conv.i79, %if.end.i.i78 ], [ 0, %while.body.i.i89 ]
-  %cond.i.i85 = phi i8 [ %.pre.i97, %cond.false.i.loopexit.i96 ], [ %41, %if.end.i.i78 ], [ 0, %while.body.i.i89 ]
+  %previousSrc.sroa.3.032.i.i83 = phi i64 [ %conv.i79, %if.end.i.i78 ], [ %src.sroa.10.034.i6.i90, %cond.false.i.loopexit.i96 ], [ 1, %while.body.i.i89 ]
+  %src.sroa.10.030.i.i84 = phi i64 [ %conv.i79, %if.end.i.i78 ], [ %sub.i.i.i91, %cond.false.i.loopexit.i96 ], [ 0, %while.body.i.i89 ]
+  %cond.i.i85 = phi i8 [ %41, %if.end.i.i78 ], [ %.pre.i97, %cond.false.i.loopexit.i96 ], [ 0, %while.body.i.i89 ]
   %cmp14.i.i86 = icmp eq i8 %cond.i.i85, %41
   %retval.sroa.3.0.copyload3.i.i87 = select i1 %cmp14.i.i86, i64 %src.sroa.10.030.i.i84, i64 %previousSrc.sroa.3.032.i.i83
   %44 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i87 to i32
@@ -5237,7 +5237,7 @@ if.then.i.i.i:                                    ; preds = %if.end99
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %if.end99, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 3, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit ], [ 0, %if.end99 ], [ 0, %if.then.i.i.i ]
+  %retval.0 = phi i32 [ 3, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit ], [ 1, %if.end ], [ 0, %if.end99 ], [ 0, %if.then.i.i.i ]
   ret i32 %retval.0
 }
 
@@ -5433,7 +5433,7 @@ if.end.thread.i.i52:                              ; preds = %while.body.i.i.i.i2
   br label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit56: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i45, %if.end.thread.i.i52
-  %retval.0.i.i51 = phi i32 [ %call12.i.i55, %if.end.thread.i.i52 ], [ %spec.select348, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i45 ]
+  %retval.0.i.i51 = phi i32 [ %spec.select348, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i45 ], [ %call12.i.i55, %if.end.thread.i.i52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i27)
   br label %cond.end
 
@@ -5522,7 +5522,7 @@ if.else19.i.i86:                                  ; preds = %_ZN6hermes6bigint10
   br label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit105
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit105: ; preds = %if.then.i.i95, %if.then.thread.i.i96, %if.then9.i.i93, %if.then14.i.i90, %if.else19.i.i86
-  %retval.0.i.i89 = phi i32 [ %call12.i.i94, %if.then9.i.i93 ], [ %cond18.i.i92, %if.then14.i.i90 ], [ %cond23.i.i88, %if.else19.i.i86 ], [ -1, %if.then.thread.i.i96 ], [ 1, %if.then.i.i95 ]
+  %retval.0.i.i89 = phi i32 [ %cond23.i.i88, %if.else19.i.i86 ], [ %call12.i.i94, %if.then9.i.i93 ], [ %cond18.i.i92, %if.then14.i.i90 ], [ -1, %if.then.thread.i.i96 ], [ 1, %if.then.i.i95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i57)
   br label %cond.end
 
@@ -5598,7 +5598,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i130: ; preds =
   br i1 %or.cond359, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit154, label %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit154.thread
 
 _ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit154.thread: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i116.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i123, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i130, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i149
-  %cmp.not.i.i.i122436 = phi i1 [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i130 ], [ true, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i149 ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i123 ], [ false, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i116.thread.thread ]
+  %cmp.not.i.i.i122436 = phi i1 [ true, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i149 ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i130 ], [ false, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i123 ], [ false, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i116.thread.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %rhs.addr.i106)
   br label %if.else18
 
@@ -5847,7 +5847,7 @@ if.else72:                                        ; preds = %if.else58
   br label %if.end85
 
 if.end85:                                         ; preds = %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit267, %if.then68, %if.else72, %if.then47
-  %res.0 = phi i32 [ %call50, %if.then47 ], [ %retval.0.i266, %if.then68 ], [ %retval.0.i266, %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit267 ], [ %call76, %if.else72 ]
+  %res.0 = phi i32 [ %call76, %if.else72 ], [ %retval.0.i266, %if.then68 ], [ %retval.0.i266, %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit267 ], [ %call50, %if.then47 ]
   %cmp86.not = icmp eq i32 %res.0, 0
   br i1 %cmp86.not, label %if.end89, label %return
 
@@ -5884,9 +5884,9 @@ cond.false.i.loopexit.i:                          ; preds = %land.rhs.i.i
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %while.body.i.i, %cond.false.i.loopexit.i, %if.end.i.i268
-  %previousSrc.sroa.3.032.i.i = phi i64 [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ %conv.i, %if.end.i.i268 ], [ 1, %while.body.i.i ]
-  %src.sroa.10.030.i.i = phi i64 [ %sub.i.i.i270, %cond.false.i.loopexit.i ], [ %conv.i, %if.end.i.i268 ], [ 0, %while.body.i.i ]
-  %cond.i.i = phi i8 [ %.pre.i, %cond.false.i.loopexit.i ], [ %80, %if.end.i.i268 ], [ 0, %while.body.i.i ]
+  %previousSrc.sroa.3.032.i.i = phi i64 [ %conv.i, %if.end.i.i268 ], [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ 1, %while.body.i.i ]
+  %src.sroa.10.030.i.i = phi i64 [ %conv.i, %if.end.i.i268 ], [ %sub.i.i.i270, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
+  %cond.i.i = phi i8 [ %80, %if.end.i.i268 ], [ %.pre.i, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
   %cmp14.i.i = icmp eq i8 %cond.i.i, %80
   %retval.sroa.3.0.copyload3.i.i = select i1 %cmp14.i.i, i64 %src.sroa.10.030.i.i, i64 %previousSrc.sroa.3.032.i.i
   %83 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i to i32
@@ -5899,8 +5899,8 @@ _ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.
   store i32 %retval.sroa.3.0.i.i, ptr %dst.coerce1, align 4
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.then55, %if.else40, %if.else18, %if.then4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread289, %if.end85, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit
-  %retval.0 = phi i32 [ 0, %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit ], [ 4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit ], [ %res.0, %if.end85 ], [ 4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread289 ], [ 1, %if.end.i ], [ 2, %if.then55 ], [ 2, %if.else40 ], [ 1, %if.else18 ], [ 1, %if.then4 ]
+return:                                           ; preds = %if.else40, %if.else18, %if.then55, %if.end.i, %if.then4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread289, %if.end85, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit
+  %retval.0 = phi i32 [ 0, %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit ], [ 4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit ], [ %res.0, %if.end85 ], [ 4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread289 ], [ 2, %if.else40 ], [ 1, %if.else18 ], [ 2, %if.then55 ], [ 1, %if.end.i ], [ 1, %if.then4 ]
   ret i32 %retval.0
 }
 
@@ -5959,9 +5959,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %while.body.i.i.i, %cond.false.i.loopexit.i.i, %if.end.i.i.i
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i.i, %if.end.i.i.i ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i.i, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
-  %cond.i.i.i = phi i8 [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ %7, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %conv.i.i, %if.end.i.i.i ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ %conv.i.i, %if.end.i.i.i ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i.i = phi i8 [ %7, %if.end.i.i.i ], [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i.i, %7
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %10 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -5970,8 +5970,8 @@ cond.end.i.i.i:                                   ; preds = %while.body.i.i.i, %
   br label %_ZN6hermes6bigint13initWithBytesENS0_16MutableBigIntRefEN4llvh8ArrayRefIhEE.exit
 
 _ZN6hermes6bigint13initWithBytesENS0_16MutableBigIntRefEN4llvh8ArrayRefIhEE.exit: ; preds = %entry, %if.end.i, %if.end6.i, %cond.end.i.i.i
-  %retval.sroa.3.0.i.i.sink.i = phi i32 [ 0, %entry ], [ 0, %if.end.i ], [ %12, %cond.end.i.i.i ], [ 0, %if.end6.i ]
-  %retval.0.i = phi i32 [ 1, %entry ], [ 0, %if.end.i ], [ 0, %cond.end.i.i.i ], [ 0, %if.end6.i ]
+  %retval.sroa.3.0.i.i.sink.i = phi i32 [ 0, %if.end.i ], [ 0, %entry ], [ %12, %cond.end.i.i.i ], [ 0, %if.end6.i ]
+  %retval.0.i = phi i32 [ 0, %if.end.i ], [ 1, %entry ], [ 0, %cond.end.i.i.i ], [ 0, %if.end6.i ]
   store i32 %retval.sroa.3.0.i.i.sink.i, ptr %dst.coerce1, align 4
   ret i32 %retval.0.i
 }
@@ -6061,9 +6061,9 @@ cond.false.i.loopexit.i.i.i:                      ; preds = %land.rhs.i.i.i.i
   br label %cond.end.i.i.i.i
 
 cond.end.i.i.i.i:                                 ; preds = %while.body.i.i.i.i, %cond.false.i.loopexit.i.i.i, %if.end.i.i.i.i
-  %previousSrc.sroa.3.032.i.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i.i, %cond.false.i.loopexit.i.i.i ], [ 8192, %if.end.i.i.i.i ], [ 1, %while.body.i.i.i.i ]
-  %src.sroa.10.030.i.i.i.i = phi i64 [ %sub.i.i.i.i.i, %cond.false.i.loopexit.i.i.i ], [ 8192, %if.end.i.i.i.i ], [ 0, %while.body.i.i.i.i ]
-  %cond.i.i.i.i = phi i8 [ %.pre.i.i.i, %cond.false.i.loopexit.i.i.i ], [ %6, %if.end.i.i.i.i ], [ 0, %while.body.i.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i.i = phi i64 [ 8192, %if.end.i.i.i.i ], [ %src.sroa.10.034.i6.i.i.i, %cond.false.i.loopexit.i.i.i ], [ 1, %while.body.i.i.i.i ]
+  %src.sroa.10.030.i.i.i.i = phi i64 [ 8192, %if.end.i.i.i.i ], [ %sub.i.i.i.i.i, %cond.false.i.loopexit.i.i.i ], [ 0, %while.body.i.i.i.i ]
+  %cond.i.i.i.i = phi i8 [ %6, %if.end.i.i.i.i ], [ %.pre.i.i.i, %cond.false.i.loopexit.i.i.i ], [ 0, %while.body.i.i.i.i ]
   %cmp14.i.i.i.i = icmp eq i8 %cond.i.i.i.i, %6
   %retval.sroa.3.0.copyload3.i.i.i.i = select i1 %cmp14.i.i.i.i, i64 %src.sroa.10.030.i.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i.i
   %9 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i.i to i32
@@ -6076,7 +6076,7 @@ _ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18Imm
   br label %cleanup
 
 if.end:                                           ; preds = %if.end.i.i, %cond.end.i.i.i.i
-  %retval.sroa.3.0.i.i.sink.i.i.ph = phi i32 [ %11, %cond.end.i.i.i.i ], [ 0, %if.end.i.i ]
+  %retval.sroa.3.0.i.i.sink.i.i.ph = phi i32 [ 0, %if.end.i.i ], [ %11, %cond.end.i.i.i.i ]
   store i32 %retval.sroa.3.0.i.i.sink.i.i.ph, ptr %runningSquareSize0, align 4
   %and = and i32 %exponent, 1
   %cmp11 = icmp eq i32 %and, 0
@@ -6132,9 +6132,9 @@ cond.false.i.loopexit.i.i.i88:                    ; preds = %land.rhs.i.i.i.i85
   br label %cond.end.i.i.i.i73
 
 cond.end.i.i.i.i73:                               ; preds = %while.body.i.i.i.i81, %cond.false.i.loopexit.i.i.i88, %if.end.i.i.i.i69
-  %previousSrc.sroa.3.032.i.i.i.i74 = phi i64 [ %src.sroa.10.034.i6.i.i.i82, %cond.false.i.loopexit.i.i.i88 ], [ %conv.i.i.i70, %if.end.i.i.i.i69 ], [ 1, %while.body.i.i.i.i81 ]
-  %src.sroa.10.030.i.i.i.i75 = phi i64 [ %sub.i.i.i.i.i83, %cond.false.i.loopexit.i.i.i88 ], [ %conv.i.i.i70, %if.end.i.i.i.i69 ], [ 0, %while.body.i.i.i.i81 ]
-  %cond.i.i.i.i76 = phi i8 [ %.pre.i.i.i89, %cond.false.i.loopexit.i.i.i88 ], [ %19, %if.end.i.i.i.i69 ], [ 0, %while.body.i.i.i.i81 ]
+  %previousSrc.sroa.3.032.i.i.i.i74 = phi i64 [ %conv.i.i.i70, %if.end.i.i.i.i69 ], [ %src.sroa.10.034.i6.i.i.i82, %cond.false.i.loopexit.i.i.i88 ], [ 1, %while.body.i.i.i.i81 ]
+  %src.sroa.10.030.i.i.i.i75 = phi i64 [ %conv.i.i.i70, %if.end.i.i.i.i69 ], [ %sub.i.i.i.i.i83, %cond.false.i.loopexit.i.i.i88 ], [ 0, %while.body.i.i.i.i81 ]
+  %cond.i.i.i.i76 = phi i8 [ %19, %if.end.i.i.i.i69 ], [ %.pre.i.i.i89, %cond.false.i.loopexit.i.i.i88 ], [ 0, %while.body.i.i.i.i81 ]
   %cmp14.i.i.i.i77 = icmp eq i8 %cond.i.i.i.i76, %19
   %retval.sroa.3.0.copyload3.i.i.i.i78 = select i1 %cmp14.i.i.i.i77, i64 %src.sroa.10.030.i.i.i.i75, i64 %previousSrc.sroa.3.032.i.i.i.i74
   %22 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i.i78 to i32
@@ -6310,9 +6310,9 @@ cond.false.i.loopexit.i.i.i145:                   ; preds = %land.rhs.i.i.i.i142
   br label %cond.end.i.i.i.i130
 
 cond.end.i.i.i.i130:                              ; preds = %while.body.i.i.i.i138, %cond.false.i.loopexit.i.i.i145, %if.end.i.i.i.i126
-  %previousSrc.sroa.3.032.i.i.i.i131 = phi i64 [ %src.sroa.10.034.i6.i.i.i139, %cond.false.i.loopexit.i.i.i145 ], [ %conv.i.i.i127, %if.end.i.i.i.i126 ], [ 1, %while.body.i.i.i.i138 ]
-  %src.sroa.10.030.i.i.i.i132 = phi i64 [ %sub.i.i.i.i.i140, %cond.false.i.loopexit.i.i.i145 ], [ %conv.i.i.i127, %if.end.i.i.i.i126 ], [ 0, %while.body.i.i.i.i138 ]
-  %cond.i.i.i.i133 = phi i8 [ %.pre.i.i.i146, %cond.false.i.loopexit.i.i.i145 ], [ %48, %if.end.i.i.i.i126 ], [ 0, %while.body.i.i.i.i138 ]
+  %previousSrc.sroa.3.032.i.i.i.i131 = phi i64 [ %conv.i.i.i127, %if.end.i.i.i.i126 ], [ %src.sroa.10.034.i6.i.i.i139, %cond.false.i.loopexit.i.i.i145 ], [ 1, %while.body.i.i.i.i138 ]
+  %src.sroa.10.030.i.i.i.i132 = phi i64 [ %conv.i.i.i127, %if.end.i.i.i.i126 ], [ %sub.i.i.i.i.i140, %cond.false.i.loopexit.i.i.i145 ], [ 0, %while.body.i.i.i.i138 ]
+  %cond.i.i.i.i133 = phi i8 [ %48, %if.end.i.i.i.i126 ], [ %.pre.i.i.i146, %cond.false.i.loopexit.i.i.i145 ], [ 0, %while.body.i.i.i.i138 ]
   %cmp14.i.i.i.i134 = icmp eq i8 %cond.i.i.i.i133, %48
   %retval.sroa.3.0.copyload3.i.i.i.i135 = select i1 %cmp14.i.i.i.i134, i64 %src.sroa.10.030.i.i.i.i132, i64 %previousSrc.sroa.3.032.i.i.i.i131
   %51 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i.i135 to i32
@@ -6321,8 +6321,8 @@ cond.end.i.i.i.i130:                              ; preds = %while.body.i.i.i.i1
   br label %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit147
 
 _ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit147: ; preds = %if.then43, %if.end.i.i118, %if.end6.i.i120, %cond.end.i.i.i.i130
-  %retval.sroa.3.0.i.i.sink.i.i136 = phi i32 [ 0, %if.then43 ], [ 0, %if.end.i.i118 ], [ %53, %cond.end.i.i.i.i130 ], [ 0, %if.end6.i.i120 ]
-  %retval.0.i.i137 = phi i32 [ 1, %if.then43 ], [ 0, %if.end.i.i118 ], [ 0, %cond.end.i.i.i.i130 ], [ 0, %if.end6.i.i120 ]
+  %retval.sroa.3.0.i.i.sink.i.i136 = phi i32 [ 0, %if.end.i.i118 ], [ 0, %if.then43 ], [ %53, %cond.end.i.i.i.i130 ], [ 0, %if.end6.i.i120 ]
+  %retval.0.i.i137 = phi i32 [ 0, %if.end.i.i118 ], [ 1, %if.then43 ], [ 0, %cond.end.i.i.i.i130 ], [ 0, %if.end6.i.i120 ]
   store i32 %retval.sroa.3.0.i.i.sink.i.i136, ptr %agg.tmp44.sroa.2.0.copyload, align 4
   br label %if.end59
 
@@ -6403,7 +6403,7 @@ _ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntR
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else49, %if.end59, %for.body, %if.end22, %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i, %if.then67, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit90, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit, %for.end
-  %retval.0 = phi i32 [ 1, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit ], [ 1, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit90 ], [ 0, %for.end ], [ 0, %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i ], [ 1, %if.then67 ], [ 0, %if.end22 ], [ 2, %if.else49 ], [ 1, %if.end59 ], [ 2, %for.body ]
+  %retval.0 = phi i32 [ 1, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit ], [ 1, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit90 ], [ 0, %for.end ], [ 0, %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i ], [ 1, %if.then67 ], [ 0, %if.end22 ], [ 1, %if.end59 ], [ 2, %for.body ], [ 2, %if.else49 ]
   %64 = load ptr, ptr %tmpBuffers, align 8
   %cmp.i.i.i.i168 = icmp eq ptr %64, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i168, label %_ZN6hermes6bigint10TmpStorageD2Ev.exit, label %if.then.i.i.i
@@ -6796,9 +6796,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %while.body.i.i.i, %cond.false.i.loopexit.i.i, %if.end.i.i.i
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i6.i, %if.end.i.i.i ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i6.i, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
-  %cond.i.i7.i = phi i8 [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ %11, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %conv.i6.i, %if.end.i.i.i ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ %conv.i6.i, %if.end.i.i.i ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i7.i = phi i8 [ %11, %if.end.i.i.i ], [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i7.i, %11
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %14 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -6898,9 +6898,9 @@ cond.false.i.loopexit.i.i:                        ; preds = %land.rhs.i.i.i
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %while.body.i.i.i, %cond.false.i.loopexit.i.i, %if.end.i.i.i
-  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i6.i, %if.end.i.i.i ], [ 1, %while.body.i.i.i ]
-  %src.sroa.10.030.i.i.i = phi i64 [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ %conv.i6.i, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
-  %cond.i.i7.i = phi i8 [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ %11, %if.end.i.i.i ], [ 0, %while.body.i.i.i ]
+  %previousSrc.sroa.3.032.i.i.i = phi i64 [ %conv.i6.i, %if.end.i.i.i ], [ %src.sroa.10.034.i6.i.i, %cond.false.i.loopexit.i.i ], [ 1, %while.body.i.i.i ]
+  %src.sroa.10.030.i.i.i = phi i64 [ %conv.i6.i, %if.end.i.i.i ], [ %sub.i.i.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
+  %cond.i.i7.i = phi i8 [ %11, %if.end.i.i.i ], [ %.pre.i.i, %cond.false.i.loopexit.i.i ], [ 0, %while.body.i.i.i ]
   %cmp14.i.i.i = icmp eq i8 %cond.i.i7.i, %11
   %retval.sroa.3.0.copyload3.i.i.i = select i1 %cmp14.i.i.i, i64 %src.sroa.10.030.i.i.i, i64 %previousSrc.sroa.3.032.i.i.i
   %14 = trunc nuw i64 %retval.sroa.3.0.copyload3.i.i.i to i32
@@ -7027,9 +7027,9 @@ cond.false.i.loopexit.i:                          ; preds = %land.rhs.i.i
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %while.body.i.i, %cond.false.i.loopexit.i, %if.end.i.i
-  %previousSrc.sroa.3.032.i.i = phi i64 [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ %sub.ptr.sub.i.i.i, %if.end.i.i ], [ 1, %while.body.i.i ]
-  %src.sroa.10.030.i.i = phi i64 [ %sub.i.i.i, %cond.false.i.loopexit.i ], [ %sub.ptr.sub.i.i.i, %if.end.i.i ], [ 0, %while.body.i.i ]
-  %cond.i.i = phi i8 [ %.pre.i, %cond.false.i.loopexit.i ], [ %12, %if.end.i.i ], [ 0, %while.body.i.i ]
+  %previousSrc.sroa.3.032.i.i = phi i64 [ %sub.ptr.sub.i.i.i, %if.end.i.i ], [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ 1, %while.body.i.i ]
+  %src.sroa.10.030.i.i = phi i64 [ %sub.ptr.sub.i.i.i, %if.end.i.i ], [ %sub.i.i.i, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
+  %cond.i.i = phi i8 [ %12, %if.end.i.i ], [ %.pre.i, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
   %cmp14.i.i = icmp eq i8 %cond.i.i, %12
   %retval.sroa.3.0.copyload3.i.i = select i1 %cmp14.i.i, i64 %src.sroa.10.030.i.i, i64 %previousSrc.sroa.3.032.i.i
   %15 = trunc i64 %retval.sroa.3.0.copyload3.i.i to i32
@@ -7185,9 +7185,9 @@ cond.false.i.loopexit.i:                          ; preds = %land.rhs.i.i
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %while.body.i.i, %cond.false.i.loopexit.i, %if.end.i.i
-  %previousSrc.sroa.3.032.i.i = phi i64 [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ %sub.ptr.sub.i.i.i, %if.end.i.i ], [ 1, %while.body.i.i ]
-  %src.sroa.10.030.i.i = phi i64 [ %sub.i.i.i, %cond.false.i.loopexit.i ], [ %sub.ptr.sub.i.i.i, %if.end.i.i ], [ 0, %while.body.i.i ]
-  %cond.i.i = phi i8 [ %.pre.i, %cond.false.i.loopexit.i ], [ %8, %if.end.i.i ], [ 0, %while.body.i.i ]
+  %previousSrc.sroa.3.032.i.i = phi i64 [ %sub.ptr.sub.i.i.i, %if.end.i.i ], [ %src.sroa.10.034.i6.i, %cond.false.i.loopexit.i ], [ 1, %while.body.i.i ]
+  %src.sroa.10.030.i.i = phi i64 [ %sub.ptr.sub.i.i.i, %if.end.i.i ], [ %sub.i.i.i, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
+  %cond.i.i = phi i8 [ %8, %if.end.i.i ], [ %.pre.i, %cond.false.i.loopexit.i ], [ 0, %while.body.i.i ]
   %cmp14.i.i = icmp eq i8 %cond.i.i, %8
   %retval.sroa.3.0.copyload3.i.i = select i1 %cmp14.i.i, i64 %src.sroa.10.030.i.i, i64 %previousSrc.sroa.3.032.i.i
   br label %_ZNK6hermes6bigint12ParsedBigInt8getBytesEv.exit

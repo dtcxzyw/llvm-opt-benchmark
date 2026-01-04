@@ -183,7 +183,7 @@ if.then4.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then4.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  %result.0.i.i.i.i.i.i.i = phi ptr [ %2, %if.then.i.i.i.i.i.i.i.i ], [ %4, %if.then4.i.i.i.i.i.i.i.i ], [ null, %if.else.i.i.i.i.i.i.i.i ]
+  %result.0.i.i.i.i.i.i.i = phi ptr [ null, %if.else.i.i.i.i.i.i.i.i ], [ %2, %if.then.i.i.i.i.i.i.i.i ], [ %4, %if.then4.i.i.i.i.i.i.i.i ]
   %mValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i.i, i64 16
   store i32 0, ptr %mValue.i.i.i.i.i, align 4, !noalias !5
   store ptr %intList1.i, ptr %result.0.i.i.i.i.i.i.i, align 8, !noalias !5
@@ -305,7 +305,7 @@ if.then4.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i
   br label %_ZN5eastl4listIiNS_15fixed_allocatorEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i.i
 
 _ZN5eastl4listIiNS_15fixed_allocatorEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i.i: ; preds = %if.then4.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
-  %result.0.i.i.i.i.i.i.i.i = phi ptr [ %20, %if.then.i.i.i.i.i.i.i.i.i ], [ %22, %if.then4.i.i.i.i.i.i.i.i.i ], [ null, %if.else.i.i.i.i.i.i.i.i.i ]
+  %result.0.i.i.i.i.i.i.i.i = phi ptr [ null, %if.else.i.i.i.i.i.i.i.i.i ], [ %20, %if.then.i.i.i.i.i.i.i.i.i ], [ %22, %if.then4.i.i.i.i.i.i.i.i.i ]
   %mValue.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i.i.i, i64 16
   %24 = load i32, ptr %mValue.i.i.i.i17.i, align 4
   store i32 %24, ptr %mValue.i.i.i.i.i.i, align 4
@@ -469,7 +469,7 @@ if.else11.i.i.i.i.i.i.i:                          ; preds = %if.else.i.i.i.i.i.i
           to label %for.inc42.i unwind label %lpad35.loopexit.split-lp.loopexit.i
 
 for.inc42.i:                                      ; preds = %if.else11.i.i.i.i.i.i.i, %if.then7.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %result.0.i.i.i.i.i.i = phi ptr [ %45, %if.then.i.i.i.i.i.i.i ], [ %47, %if.then7.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i50.i, %if.else11.i.i.i.i.i.i.i ]
+  %result.0.i.i.i.i.i.i = phi ptr [ %47, %if.then7.i.i.i.i.i.i.i ], [ %45, %if.then.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i50.i, %if.else11.i.i.i.i.i.i.i ]
   %mValue.i.i.i48.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i, i64 16
   store i32 305419913, ptr %mValue.i.i.i48.i, align 4
   store ptr %intList132.i, ptr %result.0.i.i.i.i.i.i, align 8
@@ -599,7 +599,7 @@ if.else11.i.i.i.i.i.i.i.i:                        ; preds = %if.else.i.i.i.i.i.i
           to label %for.inc74.i unwind label %lpad66.loopexit.i
 
 for.inc74.i:                                      ; preds = %if.else11.i.i.i.i.i.i.i.i, %if.then7.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i70.i
-  %result.0.i.i.i.i.i.i71.i = phi ptr [ %61, %if.then.i.i.i.i.i.i.i70.i ], [ %63, %if.then7.i.i.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i.i81.i, %if.else11.i.i.i.i.i.i.i.i ]
+  %result.0.i.i.i.i.i.i71.i = phi ptr [ %63, %if.then7.i.i.i.i.i.i.i.i ], [ %61, %if.then.i.i.i.i.i.i.i70.i ], [ %call.i.i.i.i.i.i.i.i81.i, %if.else11.i.i.i.i.i.i.i.i ]
   %mValue.i.i.i.i72.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i71.i, i64 16
   store i32 0, ptr %mValue.i.i.i.i72.i, align 4, !noalias !23
   store ptr %intList162.i, ptr %result.0.i.i.i.i.i.i71.i, align 8, !noalias !23
@@ -761,7 +761,7 @@ if.then4.i.i.i.i.i.i.i.i141.i:                    ; preds = %if.else.i.i.i.i.i.i
   br label %invoke.cont104.i
 
 invoke.cont104.i:                                 ; preds = %if.then4.i.i.i.i.i.i.i.i141.i, %if.else.i.i.i.i.i.i.i.i137.i, %if.then.i.i.i.i.i.i.i.i130.i
-  %result.0.i.i.i.i.i.i131.i = phi ptr [ %83, %if.then.i.i.i.i.i.i.i.i130.i ], [ %85, %if.then4.i.i.i.i.i.i.i.i141.i ], [ null, %if.else.i.i.i.i.i.i.i.i137.i ]
+  %result.0.i.i.i.i.i.i131.i = phi ptr [ null, %if.else.i.i.i.i.i.i.i.i137.i ], [ %83, %if.then.i.i.i.i.i.i.i.i130.i ], [ %85, %if.then4.i.i.i.i.i.i.i.i141.i ]
   %mValue.i.i.i.i132.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i131.i, i64 16
   store i32 1, ptr %mValue.i.i.i.i132.i, align 4, !noalias !27
   store ptr %myList1.i, ptr %result.0.i.i.i.i.i.i131.i, align 8, !noalias !27
@@ -799,7 +799,7 @@ if.then4.i.i.i.i.i.i.i.i156.i:                    ; preds = %if.else.i.i.i.i.i.i
   br label %invoke.cont106.i
 
 invoke.cont106.i:                                 ; preds = %if.then4.i.i.i.i.i.i.i.i156.i, %if.else.i.i.i.i.i.i.i.i152.i, %if.then.i.i.i.i.i.i.i.i145.i
-  %result.0.i.i.i.i.i.i146.i = phi ptr [ %91, %if.then.i.i.i.i.i.i.i.i145.i ], [ %93, %if.then4.i.i.i.i.i.i.i.i156.i ], [ null, %if.else.i.i.i.i.i.i.i.i152.i ]
+  %result.0.i.i.i.i.i.i146.i = phi ptr [ null, %if.else.i.i.i.i.i.i.i.i152.i ], [ %91, %if.then.i.i.i.i.i.i.i.i145.i ], [ %93, %if.then4.i.i.i.i.i.i.i.i156.i ]
   %mValue.i.i.i.i147.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i146.i, i64 16
   store i32 1, ptr %mValue.i.i.i.i147.i, align 4, !noalias !30
   store ptr %myList2.i, ptr %result.0.i.i.i.i.i.i146.i, align 8, !noalias !30
@@ -863,7 +863,7 @@ if.then4.i.i.i.i.i.i.i.i175.i:                    ; preds = %if.else.i.i.i.i.i.i
   br label %invoke.cont112.i
 
 invoke.cont112.i:                                 ; preds = %if.then4.i.i.i.i.i.i.i.i175.i, %if.else.i.i.i.i.i.i.i.i171.i, %if.then.i.i.i.i.i.i.i.i164.i
-  %result.0.i.i.i.i.i.i165.i = phi ptr [ %102, %if.then.i.i.i.i.i.i.i.i164.i ], [ %104, %if.then4.i.i.i.i.i.i.i.i175.i ], [ null, %if.else.i.i.i.i.i.i.i.i171.i ]
+  %result.0.i.i.i.i.i.i165.i = phi ptr [ null, %if.else.i.i.i.i.i.i.i.i171.i ], [ %102, %if.then.i.i.i.i.i.i.i.i164.i ], [ %104, %if.then4.i.i.i.i.i.i.i.i175.i ]
   %mValue.i.i.i.i166.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i165.i, i64 16
   store i32 2, ptr %mValue.i.i.i.i166.i, align 4, !noalias !34
   store ptr %myList1.i, ptr %result.0.i.i.i.i.i.i165.i, align 8, !noalias !34
@@ -918,7 +918,7 @@ if.then4.i.i.i.i.i.i.i.i193.i:                    ; preds = %if.else.i.i.i.i.i.i
   br label %invoke.cont115.i
 
 invoke.cont115.i:                                 ; preds = %if.then4.i.i.i.i.i.i.i.i193.i, %if.else.i.i.i.i.i.i.i.i189.i, %if.then.i.i.i.i.i.i.i.i182.i
-  %result.0.i.i.i.i.i.i183.i = phi ptr [ %112, %if.then.i.i.i.i.i.i.i.i182.i ], [ %114, %if.then4.i.i.i.i.i.i.i.i193.i ], [ null, %if.else.i.i.i.i.i.i.i.i189.i ]
+  %result.0.i.i.i.i.i.i183.i = phi ptr [ null, %if.else.i.i.i.i.i.i.i.i189.i ], [ %112, %if.then.i.i.i.i.i.i.i.i182.i ], [ %114, %if.then4.i.i.i.i.i.i.i.i193.i ]
   %mValue.i.i.i.i184.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i.i183.i, i64 16
   store i32 2, ptr %mValue.i.i.i.i184.i, align 4, !noalias !46
   store ptr %110, ptr %result.0.i.i.i.i.i.i183.i, align 8, !noalias !46
@@ -1042,13 +1042,13 @@ while.body.i.i.i240.i:                            ; preds = %ehcleanup122.i, %wh
   br i1 %cmp.not.i.i.i242.i, label %common.resume, label %while.body.i.i.i240.i, !llvm.loop !55
 
 eh.resume.sink.split.i:                           ; preds = %lpad86.i, %lpad66.loopexit.split-lp.i, %lpad66.loopexit.i, %lpad35.loopexit.split-lp.loopexit.split-lp.i, %lpad35.loopexit.split-lp.loopexit.i, %lpad35.loopexit.i
-  %intList162.sink.i = phi ptr [ %intList132.i, %lpad35.loopexit.split-lp.loopexit.i ], [ %intList132.i, %lpad35.loopexit.split-lp.loopexit.split-lp.i ], [ %intList132.i, %lpad35.loopexit.i ], [ %intList162.i, %lpad66.loopexit.i ], [ %intList162.i, %lpad66.loopexit.split-lp.i ], [ %intList162.i, %lpad86.i ]
-  %.pn12.pn.ph.i = phi { ptr, i32 } [ %lpad.loopexit247.i, %lpad35.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp248.i, %lpad35.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit244.i, %lpad35.loopexit.i ], [ %lpad.loopexit.i, %lpad66.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad66.loopexit.split-lp.i ], [ %132, %lpad86.i ]
+  %intList162.sink.i = phi ptr [ %intList132.i, %lpad35.loopexit.i ], [ %intList132.i, %lpad35.loopexit.split-lp.loopexit.i ], [ %intList132.i, %lpad35.loopexit.split-lp.loopexit.split-lp.i ], [ %intList162.i, %lpad66.loopexit.i ], [ %intList162.i, %lpad66.loopexit.split-lp.i ], [ %intList162.i, %lpad86.i ]
+  %.pn12.pn.ph.i = phi { ptr, i32 } [ %lpad.loopexit244.i, %lpad35.loopexit.i ], [ %lpad.loopexit247.i, %lpad35.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp248.i, %lpad35.loopexit.split-lp.loopexit.split-lp.i ], [ %lpad.loopexit.i, %lpad66.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad66.loopexit.split-lp.i ], [ %132, %lpad86.i ]
   call void @_ZN5eastl4listIiNS_29fixed_allocator_with_overflowEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %intList162.sink.i) #12
   br label %common.resume
 
 common.resume:                                    ; preds = %while.body.i.i.i42.i, %while.body.i.i.i240.i, %while.body.i.i.i54.i, %ehcleanup.i28, %ehcleanup.i, %ehcleanup122.i, %eh.resume.sink.split.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn12.i, %ehcleanup.i ], [ %133, %ehcleanup122.i ], [ %.pn12.pn.ph.i, %eh.resume.sink.split.i ], [ %162, %ehcleanup.i28 ], [ %162, %while.body.i.i.i54.i ], [ %133, %while.body.i.i.i240.i ], [ %.pn12.i, %while.body.i.i.i42.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn12.pn.ph.i, %eh.resume.sink.split.i ], [ %133, %while.body.i.i.i240.i ], [ %133, %ehcleanup122.i ], [ %162, %while.body.i.i.i54.i ], [ %.pn12.i, %ehcleanup.i ], [ %162, %ehcleanup.i28 ], [ %.pn12.i, %while.body.i.i.i42.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZL18TestFixedAllocatorv.exit:                    ; preds = %while.body.i.i.i226.i, %_ZN5eastl4listIi20fixed_pool_referenceED2Ev.exit.i
@@ -1493,7 +1493,7 @@ if.else11.i.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i.i
   br label %_ZN5eastl4listIiNS_29fixed_allocator_with_overflowEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i
 
 _ZN5eastl4listIiNS_29fixed_allocator_with_overflowEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i: ; preds = %if.else11.i.i.i.i.i.i, %if.then7.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %result.0.i.i.i.i.i = phi ptr [ %11, %if.then.i.i.i.i.i.i ], [ %13, %if.then7.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i, %if.else11.i.i.i.i.i.i ]
+  %result.0.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i, %if.else11.i.i.i.i.i.i ], [ %11, %if.then.i.i.i.i.i.i ], [ %13, %if.then7.i.i.i.i.i.i ]
   %mValue.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i, i64 16
   %16 = load i32, ptr %mValue.i.i, align 4
   store i32 %16, ptr %mValue.i.i.i, align 4

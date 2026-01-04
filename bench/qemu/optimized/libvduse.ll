@@ -166,41 +166,41 @@ vduse_queue_empty.exit.thread21.i:                ; preds = %vduse_queue_empty.e
   %.val16.i = phi i64 [ %.val16.pre.i, %vduse_queue_empty.exit.vduse_queue_empty.exit.thread21_crit_edge.i ], [ %.val.i, %15 ], [ %.val.i, %10 ], [ %.val.i, %7 ]
   %23 = and i64 %.val16.i, 536870912
   %.not24.i = icmp eq i64 %23, 0
-  br i1 %.not24.i, label %24, label %26
+  br i1 %.not24.i, label %vduse_queue_should_notify.exit, label %24
 
 24:                                               ; preds = %vduse_queue_empty.exit.thread21.i
-  %.val17.i = load ptr, ptr %5, align 8
-  %.val17.val.i = load i16, ptr %.val17.i, align 2
-  %25 = and i16 %.val17.val.i, 1
-  %.not15.i = icmp eq i16 %25, 0
-  br i1 %.not15.i, label %vduse_queue_should_notify.exit.thread, label %54
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %26 = load i8, ptr %25, align 8, !range !6, !noundef !7
+  %27 = trunc nuw i8 %26 to i1
+  store i8 1, ptr %25, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 62
+  %29 = load i16, ptr %28, align 2
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %31 = load i16, ptr %30, align 4
+  store i16 %31, ptr %28, align 2
+  br i1 %27, label %32, label %vduse_queue_should_notify.exit.thread
 
-26:                                               ; preds = %vduse_queue_empty.exit.thread21.i
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %28 = load i8, ptr %27, align 8, !range !6, !noundef !7
-  %29 = trunc nuw i8 %28 to i1
-  store i8 1, ptr %27, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  %31 = load i16, ptr %30, align 2
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %33 = load i16, ptr %32, align 4
-  store i16 %33, ptr %30, align 2
-  br i1 %29, label %vduse_queue_should_notify.exit, label %vduse_queue_should_notify.exit.thread
-
-vduse_queue_should_notify.exit:                   ; preds = %26
+32:                                               ; preds = %24
   %.val18.i = load i32, ptr %0, align 8
   %.val19.i = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 4
-  %35 = sext i32 %.val18.i to i64
-  %36 = getelementptr inbounds i16, ptr %34, i64 %35
-  %37 = load i16, ptr %36, align 2
-  %38 = xor i16 %37, -1
-  %39 = add i16 %33, %38
-  %40 = sub i16 %33, %31
-  %41 = icmp ult i16 %39, %40
-  br i1 %41, label %vduse_queue_should_notify.exit.thread, label %54
+  %33 = getelementptr inbounds nuw i8, ptr %.val19.i, i64 4
+  %34 = sext i32 %.val18.i to i64
+  %35 = getelementptr inbounds i16, ptr %33, i64 %34
+  %36 = load i16, ptr %35, align 2
+  %37 = xor i16 %36, -1
+  %38 = add i16 %31, %37
+  %39 = sub i16 %31, %29
+  %40 = icmp ult i16 %38, %39
+  br i1 %40, label %vduse_queue_should_notify.exit.thread, label %54
 
-vduse_queue_should_notify.exit.thread:            ; preds = %13, %26, %vduse_queue_empty.exit.i, %24, %vduse_queue_should_notify.exit
+vduse_queue_should_notify.exit:                   ; preds = %vduse_queue_empty.exit.thread21.i
+  %.val17.i = load ptr, ptr %5, align 8
+  %.val17.val.i = load i16, ptr %.val17.i, align 2
+  %41 = and i16 %.val17.val.i, 1
+  %.not15.i = icmp eq i16 %41, 0
+  br i1 %.not15.i, label %vduse_queue_should_notify.exit.thread, label %54
+
+vduse_queue_should_notify.exit.thread:            ; preds = %13, %24, %vduse_queue_empty.exit.i, %32, %vduse_queue_should_notify.exit
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %43 = load i32, ptr %42, align 4
   %44 = getelementptr i8, ptr %4, i64 8248
@@ -221,7 +221,7 @@ vduse_queue_should_notify.exit.thread:            ; preds = %13, %26, %vduse_que
   %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str, i32 noundef %49, ptr noundef %52) #22
   br label %54
 
-54:                                               ; preds = %24, %vduse_queue_should_notify.exit.thread, %47, %vduse_queue_should_notify.exit, %1
+54:                                               ; preds = %32, %vduse_queue_should_notify.exit.thread, %47, %vduse_queue_should_notify.exit, %1
   ret void
 }
 
@@ -365,7 +365,7 @@ vduse_queue_get_head.exit:                        ; preds = %36
   br label %72
 
 72:                                               ; preds = %vduse_queue_get_head.exit, %56, %vduse_queue_empty.exit, %13, %21, %2, %58, %33
-  %.0 = phi ptr [ null, %33 ], [ %57, %58 ], [ null, %2 ], [ %19, %21 ], [ %19, %13 ], [ null, %vduse_queue_empty.exit ], [ null, %vduse_queue_get_head.exit ], [ null, %56 ]
+  %.0 = phi ptr [ null, %vduse_queue_empty.exit ], [ null, %2 ], [ %19, %13 ], [ null, %33 ], [ %57, %58 ], [ null, %vduse_queue_get_head.exit ], [ %19, %21 ], [ null, %56 ]
   ret ptr %.0
 }
 
@@ -599,7 +599,7 @@ vduse_queue_read_next_desc.exit:                  ; preds = %80, %.thread69
   br i1 %exitcond90.not, label %.loopexit, label %.lr.ph81
 
 .loopexit:                                        ; preds = %60, %47, %.lr.ph81, %.preheader, %102, %84, %71, %57, %.thread, %23
-  %.037 = phi ptr [ null, %23 ], [ null, %71 ], [ null, %84 ], [ null, %102 ], [ null, %57 ], [ null, %.thread ], [ %101, %.preheader ], [ %101, %.lr.ph81 ], [ null, %47 ], [ null, %60 ]
+  %.037 = phi ptr [ null, %23 ], [ null, %71 ], [ null, %84 ], [ %101, %.preheader ], [ null, %102 ], [ null, %.thread ], [ null, %57 ], [ %101, %.lr.ph81 ], [ null, %47 ], [ null, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -992,7 +992,7 @@ vduse_iova_remove_region.exit:                    ; preds = %141, %114
   br i1 %165, label %.lr.ph, label %vduse_dev_start_dataplane.exit
 
 vduse_dev_start_dataplane.exit:                   ; preds = %162, %.lr.ph.i, %113, %16, %vduse_iova_remove_region.exit, %53, %37, %.preheader.i, %20
-  %.sink = phi i32 [ 0, %20 ], [ 0, %.preheader.i ], [ 0, %37 ], [ 0, %53 ], [ 0, %vduse_iova_remove_region.exit ], [ 1, %16 ], [ 0, %113 ], [ 0, %.lr.ph.i ], [ 0, %162 ]
+  %.sink = phi i32 [ 0, %vduse_iova_remove_region.exit ], [ 0, %53 ], [ 0, %20 ], [ 0, %.lr.ph.i ], [ 1, %16 ], [ 0, %.preheader.i ], [ 0, %37 ], [ 0, %113 ], [ 0, %162 ]
   %166 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.sink, ptr %166, align 4
   %167 = load i32, ptr %6, align 8
@@ -1171,7 +1171,7 @@ define dso_local i32 @vduse_dev_setup_queue(ptr noundef readonly captures(none) 
   br label %23
 
 23:                                               ; preds = %3, %22, %18
-  %.0 = phi i32 [ %21, %18 ], [ 0, %22 ], [ -22, %3 ]
+  %.0 = phi i32 [ 0, %22 ], [ %21, %18 ], [ -22, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1681,7 +1681,7 @@ vduse_name_is_invalid.exit.thread:                ; preds = %5, %13, %11, %vduse
   br label %31
 
 31:                                               ; preds = %23, %26, %20, %vduse_name_is_invalid.exit.thread
-  %.0 = phi ptr [ null, %26 ], [ null, %20 ], [ null, %vduse_name_is_invalid.exit.thread ], [ %19, %23 ]
+  %.0 = phi ptr [ null, %26 ], [ null, %vduse_name_is_invalid.exit.thread ], [ null, %20 ], [ %19, %23 ]
   ret ptr %.0
 }
 
@@ -2281,7 +2281,7 @@ define internal fastcc noundef zeroext i1 @vduse_queue_map_single_desc(ptr captu
   br label %32
 
 32:                                               ; preds = %.critedge, %31, %10
-  %.022 = phi i1 [ true, %31 ], [ false, %10 ], [ false, %.critedge ]
+  %.022 = phi i1 [ false, %.critedge ], [ true, %31 ], [ false, %10 ]
   ret i1 %.022
 }
 

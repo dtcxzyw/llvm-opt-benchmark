@@ -685,7 +685,7 @@ rehash.exit:                                      ; preds = %._crit_edge.i, %41
   br label %63
 
 63:                                               ; preds = %29, %rehash.exit, %34, %find_entry_ptr.exit, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %find_entry_ptr.exit ], [ %28, %34 ], [ %28, %rehash.exit ], [ %28, %29 ]
+  %.0 = phi ptr [ null, %find_entry_ptr.exit ], [ null, %3 ], [ %28, %34 ], [ %28, %rehash.exit ], [ %28, %29 ]
   ret ptr %.0
 }
 

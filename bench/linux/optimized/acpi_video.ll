@@ -400,8 +400,8 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nounde
   br label %151
 
 151:                                              ; preds = %.thread, %150, %147, %39, %22, %18
-  %152 = phi ptr [ %11, %150 ], [ %11, %147 ], [ %11, %39 ], [ %11, %18 ], [ %11, %22 ], [ null, %.thread ]
-  %153 = phi i32 [ 0, %150 ], [ 0, %147 ], [ -12, %39 ], [ -22, %18 ], [ -12, %22 ], [ -19, %.thread ]
+  %152 = phi ptr [ %11, %150 ], [ %11, %147 ], [ %11, %39 ], [ null, %.thread ], [ %11, %18 ], [ %11, %22 ]
+  %153 = phi i32 [ 0, %150 ], [ 0, %147 ], [ -12, %39 ], [ -19, %.thread ], [ -22, %18 ], [ -12, %22 ]
   call void @kfree(ptr noundef %152) #19
   ret i32 %153
 }
@@ -1003,7 +1003,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   br label %._crit_edge34
 
 ._crit_edge34:                                    ; preds = %159, %181, %173
-  %183 = phi i8 [ %182, %181 ], [ %165, %173 ], [ %165, %159 ]
+  %183 = phi i8 [ %165, %173 ], [ %182, %181 ], [ %165, %159 ]
   %184 = and i8 %183, 4
   %185 = icmp eq i8 %184, 0
   br i1 %185, label %186, label %192
@@ -2077,7 +2077,7 @@ select.unfold:                                    ; preds = %11, %5
   br label %74
 
 74:                                               ; preds = %11, %65, %60
-  %75 = phi i32 [ %36, %60 ], [ %36, %65 ], [ -5, %11 ]
+  %75 = phi i32 [ %36, %65 ], [ %36, %60 ], [ -5, %11 ]
   tail call void @input_free_device(ptr noundef nonnull %2) #19
   store ptr null, ptr %3, align 8
   br label %76
@@ -2183,7 +2183,7 @@ define internal void @acpi_video_bus_notify(ptr readnone captures(none) %0, i32 
   br label %58
 
 50:                                               ; preds = %48, %47, %.loopexit6, %11, %11
-  %51 = phi i32 [ 242, %48 ], [ 241, %47 ], [ 227, %.loopexit6 ], [ 227, %11 ], [ 227, %11 ]
+  %51 = phi i32 [ 227, %11 ], [ 242, %48 ], [ 241, %47 ], [ 227, %.loopexit6 ], [ 227, %11 ]
   %52 = tail call i32 @acpi_notifier_call_chain(ptr noundef %2, i32 noundef %1, i32 noundef 0) #19
   %.not = icmp eq i32 %52, 0
   br i1 %.not, label %53, label %58
@@ -2860,7 +2860,7 @@ define internal void @acpi_video_switch_brightness(ptr noundef captures(none) %0
   br i1 %39, label %40, label %25, !llvm.loop !34
 
 40:                                               ; preds = %36, %34
-  %41 = phi i32 [ %37, %36 ], [ 0, %34 ]
+  %41 = phi i32 [ 0, %34 ], [ %37, %36 ]
   %42 = add i32 %41, %15
   br label %43
 
@@ -3213,7 +3213,7 @@ define internal void @acpi_video_device_notify(ptr readnone captures(none) %0, i
   br label %43
 
 43:                                               ; preds = %22, %25, %28, %31, %34, %37
-  %44 = phi i32 [ 243, %22 ], [ 225, %25 ], [ 224, %28 ], [ 244, %31 ], [ 245, %34 ], [ %38, %37 ]
+  %44 = phi i32 [ %38, %37 ], [ 243, %22 ], [ 225, %25 ], [ 224, %28 ], [ 244, %31 ], [ 245, %34 ]
   store i1 true, ptr @may_report_brightness_keys, align 1
   %45 = tail call i32 @acpi_notifier_call_chain(ptr noundef %7, i32 noundef %1, i32 noundef 0) #19
   %46 = load i32, ptr @report_key_events, align 4

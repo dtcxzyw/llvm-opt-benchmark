@@ -1208,7 +1208,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i: ;
   unreachable
 
 common.resume:                                    ; preds = %131, %157, %26, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %45, %.body.i ], [ %132, %131 ], [ %158, %157 ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %.body.i ], [ %27, %26 ], [ %132, %131 ], [ %158, %157 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h5e84317fa960bf79E.exit.i": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17he62dace541883b47E.exit.i"

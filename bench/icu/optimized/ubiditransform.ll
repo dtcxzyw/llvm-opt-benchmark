@@ -330,7 +330,7 @@ _ZL18findMatchingSchemehh10UBiDiOrderS_.exit.thread: ; preds = %69
   br label %ubiditransform_open_77.exit.thread
 
 ubiditransform_open_77.exit.thread:               ; preds = %42, %48, %ubiditransform_open_77.exit, %31, %22, %12, %128, %35, %26, %21
-  %.081 = phi i32 [ 0, %21 ], [ 0, %26 ], [ 0, %35 ], [ %131, %128 ], [ 0, %12 ], [ 0, %22 ], [ 0, %31 ], [ 0, %ubiditransform_open_77.exit ], [ 0, %48 ], [ 0, %42 ]
+  %.081 = phi i32 [ %131, %128 ], [ 0, %21 ], [ 0, %12 ], [ 0, %26 ], [ 0, %22 ], [ 0, %35 ], [ 0, %31 ], [ 0, %ubiditransform_open_77.exit ], [ 0, %48 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.081
 }
@@ -759,7 +759,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL13action_mirrorP14UBiDiTra
   br label %83
 
 83:                                               ; preds = %2, %80, %15
-  %.0 = phi i8 [ 0, %15 ], [ 1, %80 ], [ 0, %2 ]
+  %.0 = phi i8 [ 1, %80 ], [ 0, %15 ], [ 0, %2 ]
   ret i8 %.0
 }
 

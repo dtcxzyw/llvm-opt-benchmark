@@ -224,7 +224,7 @@ If_CutMaxCubeSize.exit.thread:                    ; preds = %40, %If_CutMaxCubeS
   br i1 %exitcond.not, label %.critedge, label %105, !llvm.loop !51
 
 .critedge:                                        ; preds = %105, %112, %74, %81, %If_CutMaxCubeSize.exit.thread.thread, %.thread, %If_CutMaxCubeSize.exit.thread, %34, %22, %2, %12
-  %.047 = phi i32 [ %21, %12 ], [ 0, %2 ], [ -1, %22 ], [ -1, %34 ], [ 0, %If_CutMaxCubeSize.exit.thread ], [ 0, %.thread ], [ 0, %If_CutMaxCubeSize.exit.thread.thread ], [ %.074, %74 ], [ %87, %81 ], [ %.270, %105 ], [ %118, %112 ]
+  %.047 = phi i32 [ -1, %34 ], [ %21, %12 ], [ 0, %2 ], [ -1, %22 ], [ 0, %If_CutMaxCubeSize.exit.thread.thread ], [ 0, %If_CutMaxCubeSize.exit.thread ], [ 0, %.thread ], [ %87, %81 ], [ %.074, %74 ], [ %.270, %105 ], [ %118, %112 ]
   ret i32 %.047
 }
 
@@ -380,7 +380,7 @@ If_CutPinDelayMax.exit.loopexit.us.i:             ; preds = %62
   br i1 %76, label %.lr.ph.us.i, label %.loopexit.us.i
 
 If_LogCounterPinDelays.exit:                      ; preds = %.preheader.split.us.i, %.loopexit.us.i, %22
-  %.0.i = phi i32 [ %29, %22 ], [ %.2.us.i, %.loopexit.us.i ], [ %.175.us.i, %.preheader.split.us.i ]
+  %.0.i = phi i32 [ %29, %22 ], [ %.175.us.i, %.preheader.split.us.i ], [ %.2.us.i, %.loopexit.us.i ]
   %77 = load i32, ptr %8, align 16, !tbaa !26
   %78 = icmp sgt i32 %.0.i, 1
   %79 = zext i1 %78 to i32
@@ -447,7 +447,7 @@ If_CutPinDelayMax.exit.loopexit.us.i46:           ; preds = %104
   br i1 %105, label %.lr.ph.preheader.i.us.i36, label %If_LogPinDelaysMulti.exit, !llvm.loop !58
 
 If_LogPinDelaysMulti.exit:                        ; preds = %If_CutPinDelayMax.exit.loopexit.us.i46, %15, %._crit_edge
-  %.1.lcssa153 = phi i32 [ %.2, %._crit_edge ], [ %.027110, %15 ], [ %.2, %If_CutPinDelayMax.exit.loopexit.us.i46 ]
+  %.1.lcssa153 = phi i32 [ %.027110, %15 ], [ %.2, %._crit_edge ], [ %.2, %If_CutPinDelayMax.exit.loopexit.us.i46 ]
   %106 = load i64, ptr %6, align 16, !tbaa !52
   %107 = sext i32 %.096108 to i64
   %108 = getelementptr inbounds i64, ptr %7, i64 %107
@@ -687,7 +687,7 @@ If_CutPinDelayMax.exit.loopexit.us.i91:           ; preds = %221
   br i1 %222, label %.lr.ph.preheader.i.us.i81, label %If_LogPinDelaysMulti.exit92, !llvm.loop !58
 
 If_LogPinDelaysMulti.exit92:                      ; preds = %If_CutPinDelayMax.exit.loopexit.us.i91, %.preheader, %.critedge, %If_CutPinDelayMax.exit.preheader.i79
-  %.027.lcssa156 = phi i32 [ %188, %.critedge ], [ %188, %If_CutPinDelayMax.exit.preheader.i79 ], [ 0, %.preheader ], [ %188, %If_CutPinDelayMax.exit.loopexit.us.i91 ]
+  %.027.lcssa156 = phi i32 [ 0, %.preheader ], [ %188, %If_CutPinDelayMax.exit.preheader.i79 ], [ %188, %.critedge ], [ %188, %If_CutPinDelayMax.exit.loopexit.us.i91 ]
   %223 = load i64, ptr %7, align 16, !tbaa !52
   store i64 %223, ptr %4, align 8, !tbaa !52
   br label %224
@@ -887,7 +887,7 @@ If_CutSopBalancePinDelaysIntInt.exit:             ; preds = %.lr.ph.i.i, %._crit
   br label %62
 
 62:                                               ; preds = %3, %61, %11
-  %.019 = phi i32 [ %21, %11 ], [ %.1, %61 ], [ 0, %3 ]
+  %.019 = phi i32 [ %.1, %61 ], [ %21, %11 ], [ 0, %3 ]
   ret i32 %.019
 }
 
@@ -1172,7 +1172,7 @@ If_LogCreateAndXor.exit:                          ; preds = %Vec_IntPush.exit.i.
   br i1 %135, label %.preheader.split.i, label %If_LogCounterAddAig.exit92, !llvm.loop !63
 
 If_LogCounterAddAig.exit92:                       ; preds = %.preheader.split.i, %.loopexit.i, %.thread.i
-  %.0.i83 = phi i32 [ %60, %.thread.i ], [ %.2.i, %.loopexit.i ], [ %.181.i, %.preheader.split.i ]
+  %.0.i83 = phi i32 [ %60, %.thread.i ], [ %.181.i, %.preheader.split.i ], [ %.2.i, %.loopexit.i ]
   %136 = load i32, ptr %8, align 16, !tbaa !26
   %137 = icmp sgt i32 %.0.i83, 1
   %138 = zext i1 %137 to i32
@@ -1408,7 +1408,7 @@ If_LogCreateAndXor.exit178:                       ; preds = %Vec_IntPush.exit.i.
   br i1 %250, label %.preheader.split.i108, label %If_LogCounterAddAig.exit124, !llvm.loop !63
 
 If_LogCounterAddAig.exit124:                      ; preds = %.preheader.split.i108, %.loopexit.i111, %.thread.i106
-  %.0.i107 = phi i32 [ %175, %.thread.i106 ], [ %.2.i112, %.loopexit.i111 ], [ %.181.i109, %.preheader.split.i108 ]
+  %.0.i107 = phi i32 [ %175, %.thread.i106 ], [ %.181.i109, %.preheader.split.i108 ], [ %.2.i112, %.loopexit.i111 ]
   %251 = load i32, ptr %8, align 16, !tbaa !26
   %252 = icmp sgt i32 %.0.i107, 1
   %253 = zext i1 %252 to i32
@@ -1600,7 +1600,7 @@ If_LogCreateAndXor.exit191:                       ; preds = %Vec_IntPush.exit.i.
   br i1 %334, label %.lr.ph.us.i135, label %.loopexit.us.i133, !llvm.loop !64
 
 .thread.i141:                                     ; preds = %If_LogCreateAndXor.exit191, %._crit_edge.thread, %257
-  %.153.lcssa284288 = phi i32 [ %.2, %257 ], [ %.052214, %._crit_edge.thread ], [ %.2, %If_LogCreateAndXor.exit191 ]
+  %.153.lcssa284288 = phi i32 [ %.052214, %._crit_edge.thread ], [ %.2, %257 ], [ %.2, %If_LogCreateAndXor.exit191 ]
   %335 = load i32, ptr %9, align 16, !tbaa !26
   %336 = xor i32 %335, 1
   %.pre.i140 = sext i32 %.0199212 to i64
@@ -1672,7 +1672,7 @@ If_LogCreateAndXor.exit191:                       ; preds = %Vec_IntPush.exit.i.
   br i1 %371, label %.preheader.split.i143, label %If_LogCounterAddAig.exit138, !llvm.loop !63
 
 If_LogCounterAddAig.exit138:                      ; preds = %.loopexit.i146, %.preheader.split.i143, %.loopexit.us.i133, %.preheader.split.us.i130, %.thread.i141, %.split66
-  %.0.i129.sink = phi i32 [ %311, %.split66 ], [ %338, %.thread.i141 ], [ %.2.us.i134, %.loopexit.us.i133 ], [ %.181.us.i131, %.preheader.split.us.i130 ], [ %.2.i147, %.loopexit.i146 ], [ %.181.i144, %.preheader.split.i143 ]
+  %.0.i129.sink = phi i32 [ %338, %.thread.i141 ], [ %311, %.split66 ], [ %.181.us.i131, %.preheader.split.us.i130 ], [ %.2.us.i134, %.loopexit.us.i133 ], [ %.181.i144, %.preheader.split.i143 ], [ %.2.i147, %.loopexit.i146 ]
   %372 = load i32, ptr %10, align 16, !tbaa !26
   %373 = icmp sgt i32 %.0.i129.sink, 1
   %374 = zext i1 %373 to i32
@@ -1713,7 +1713,7 @@ If_LogCounterAddAig.exit138:                      ; preds = %.loopexit.i146, %.p
   br i1 %387, label %.lr.ph.i161, label %If_LogCreateAndXorMulti.exit164, !llvm.loop !67
 
 If_LogCreateAndXorMulti.exit164:                  ; preds = %.lr.ph.i161, %.critedge.thread, %378
-  %.052.lcssa295300 = phi i32 [ %375, %378 ], [ 0, %.critedge.thread ], [ %375, %.lr.ph.i161 ]
+  %.052.lcssa295300 = phi i32 [ 0, %.critedge.thread ], [ %375, %378 ], [ %375, %.lr.ph.i161 ]
   %388 = load i32, ptr %11, align 16, !tbaa !26
   %389 = xor i32 %388, 1
   store i32 %389, ptr %4, align 4, !tbaa !26
@@ -1734,7 +1734,7 @@ If_LogCreateAndXorMulti.exit164:                  ; preds = %.lr.ph.i161, %.crit
   br label %396
 
 396:                                              ; preds = %If_LogCreateAndXorMulti.exit164, %392, %7
-  %.056 = phi i32 [ -1, %7 ], [ %.052.lcssa296, %392 ], [ %.052.lcssa295300, %If_LogCreateAndXorMulti.exit164 ]
+  %.056 = phi i32 [ -1, %7 ], [ %.052.lcssa295300, %If_LogCreateAndXorMulti.exit164 ], [ %.052.lcssa296, %392 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2295,7 +2295,7 @@ define i32 @If_CutLutBalancePinDelays(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond.not, label %.loopexit, label %62, !llvm.loop !77
 
 .loopexit:                                        ; preds = %62, %19, %.preheader, %3, %8
-  %.032 = phi i32 [ %18, %8 ], [ 0, %3 ], [ -1, %.preheader ], [ -1, %19 ], [ %75, %62 ]
+  %.032 = phi i32 [ 0, %3 ], [ %18, %8 ], [ -1, %.preheader ], [ -1, %19 ], [ %75, %62 ]
   ret i32 %.032
 }
 
@@ -2488,7 +2488,7 @@ define i32 @If_CutLutBalanceEval(ptr noundef readonly captures(none) %0, ptr nou
   br label %111
 
 111:                                              ; preds = %94, %72, %92, %2, %12
-  %.054 = phi i32 [ %22, %12 ], [ 0, %2 ], [ %73, %72 ], [ %93, %92 ], [ %spec.select, %94 ]
+  %.054 = phi i32 [ 0, %2 ], [ %22, %12 ], [ %73, %72 ], [ %93, %92 ], [ %spec.select, %94 ]
   ret i32 %.054
 }
 
@@ -2636,7 +2636,7 @@ define i32 @If_LutDecEval(ptr noundef readonly captures(none) %0, ptr noundef ca
   br label %82
 
 82:                                               ; preds = %71, %75
-  %.052.shrunk = phi i1 [ %74, %71 ], [ %81, %75 ]
+  %.052.shrunk = phi i1 [ %81, %75 ], [ %74, %71 ]
   %83 = icmp eq i32 %.053.lcssa, %31
   br i1 %83, label %85, label %88
 
@@ -2776,7 +2776,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   br label %150
 
 150:                                              ; preds = %5, %149, %16
-  %.0 = phi i32 [ %26, %16 ], [ %.1, %149 ], [ 0, %5 ]
+  %.0 = phi i32 [ %.1, %149 ], [ %26, %16 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2924,7 +2924,7 @@ define i32 @If_Lut2DecEval(ptr noundef readonly captures(none) %0, ptr noundef c
   br label %82
 
 82:                                               ; preds = %71, %75
-  %.054.shrunk = phi i1 [ %74, %71 ], [ %81, %75 ]
+  %.054.shrunk = phi i1 [ %81, %75 ], [ %74, %71 ]
   %83 = icmp eq i32 %.055.lcssa, %31
   %or.cond = select i1 %83, i1 %.054.shrunk, i1 false
   br i1 %or.cond, label %84, label %86
@@ -3056,7 +3056,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   br label %145
 
 145:                                              ; preds = %5, %144, %16
-  %.0 = phi i32 [ %26, %16 ], [ %.1, %144 ], [ 0, %5 ]
+  %.0 = phi i32 [ %.1, %144 ], [ %26, %16 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -3128,7 +3128,7 @@ define i32 @If_LutDecReEval(ptr noundef readonly captures(none) %0, ptr noundef 
   br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !98
 
 .loopexit:                                        ; preds = %24, %.preheader, %2, %13
-  %.016 = phi i32 [ %23, %13 ], [ 0, %2 ], [ -1, %.preheader ], [ %39, %24 ]
+  %.016 = phi i32 [ 0, %2 ], [ %23, %13 ], [ -1, %.preheader ], [ %39, %24 ]
   ret i32 %.016
 }
 
@@ -3158,7 +3158,7 @@ define float @If_LutDecPinRequired(ptr noundef readnone captures(none) %0, ptr n
   br label %18
 
 18:                                               ; preds = %4, %9, %8
-  %.0 = phi float [ 0.000000e+00, %8 ], [ %17, %9 ], [ %3, %4 ]
+  %.0 = phi float [ %17, %9 ], [ 0.000000e+00, %8 ], [ %3, %4 ]
   ret float %.0
 }
 

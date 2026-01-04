@@ -1018,7 +1018,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef initializes((
   br label %.loopexit
 
 .loopexit:                                        ; preds = %364, %362, %345, %347, %323, %325, %301, %303, %108, %110, %127, %129, %146, %148, %165, %167, %184, %186, %203, %205, %222, %224, %241, %243, %260, %262, %279, %281, %32, %34, %51, %53, %70, %72, %89, %91, %351, %.preheader485, %.preheader482, %.preheader479, %.preheader476, %.preheader473, %.preheader470, %.preheader467, %.preheader464, %.preheader461, %.preheader458, %.preheader455, %.preheader452, %.preheader449, %.preheader446, %.preheader443, %.preheader440, %.preheader, %266, %76, %18, %._crit_edge, %13
-  %.0 = phi i64 [ 0, %13 ], [ 0, %18 ], [ 0, %76 ], [ 0, %266 ], [ %.19, %._crit_edge ], [ 0, %.preheader ], [ 0, %.preheader440 ], [ 0, %.preheader443 ], [ 0, %.preheader446 ], [ 0, %.preheader449 ], [ 0, %.preheader452 ], [ 0, %.preheader455 ], [ 0, %.preheader458 ], [ 0, %.preheader461 ], [ 0, %.preheader464 ], [ 0, %.preheader467 ], [ 0, %.preheader470 ], [ 0, %.preheader473 ], [ 0, %.preheader476 ], [ 0, %.preheader479 ], [ 0, %.preheader482 ], [ 0, %.preheader485 ], [ 0, %351 ], [ %85, %91 ], [ %85, %89 ], [ %66, %72 ], [ %66, %70 ], [ %47, %53 ], [ %47, %51 ], [ %28, %34 ], [ %28, %32 ], [ %275, %281 ], [ %275, %279 ], [ %256, %262 ], [ %256, %260 ], [ %237, %243 ], [ %237, %241 ], [ %218, %224 ], [ %218, %222 ], [ %199, %205 ], [ %199, %203 ], [ %180, %186 ], [ %180, %184 ], [ %161, %167 ], [ %161, %165 ], [ %142, %148 ], [ %142, %146 ], [ %123, %129 ], [ %123, %127 ], [ %104, %110 ], [ %104, %108 ], [ %297, %303 ], [ %297, %301 ], [ %319, %325 ], [ %319, %323 ], [ %341, %347 ], [ %341, %345 ], [ %360, %362 ], [ %360, %364 ]
+  %.0 = phi i64 [ 0, %.preheader470 ], [ 0, %76 ], [ 0, %13 ], [ %47, %51 ], [ 0, %.preheader467 ], [ %.19, %._crit_edge ], [ %28, %32 ], [ %85, %89 ], [ 0, %.preheader476 ], [ 0, %.preheader479 ], [ %341, %345 ], [ %319, %323 ], [ 0, %.preheader482 ], [ 0, %.preheader464 ], [ 0, %.preheader485 ], [ 0, %266 ], [ 0, %.preheader473 ], [ %66, %70 ], [ 0, %18 ], [ 0, %351 ], [ %275, %279 ], [ %297, %301 ], [ %104, %108 ], [ 0, %.preheader ], [ %123, %127 ], [ 0, %.preheader440 ], [ %142, %146 ], [ 0, %.preheader443 ], [ %161, %165 ], [ 0, %.preheader446 ], [ %180, %184 ], [ 0, %.preheader449 ], [ %256, %260 ], [ 0, %.preheader452 ], [ %237, %241 ], [ 0, %.preheader455 ], [ %218, %222 ], [ 0, %.preheader458 ], [ %199, %203 ], [ 0, %.preheader461 ], [ %85, %91 ], [ %66, %72 ], [ %47, %53 ], [ %28, %34 ], [ %275, %281 ], [ %256, %262 ], [ %237, %243 ], [ %218, %224 ], [ %199, %205 ], [ %180, %186 ], [ %161, %167 ], [ %142, %148 ], [ %123, %129 ], [ %104, %110 ], [ %297, %303 ], [ %319, %325 ], [ %341, %347 ], [ %360, %362 ], [ %360, %364 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0
 }
@@ -1503,7 +1503,7 @@ print_data.exit318:                               ; preds = %equal_float.exit, %
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %256, %239, %250, %246, %220, %202, %168, %132, %106, %84, %42, %30, %print_data.exit318, %260, %print_data.exit314, %224, %215, %print_data.exit310, %206, %print_data.exit306, %172, %print_data.exit302, %136, %127, %print_data.exit298, %110, %print_data.exit294, %88, %print_data.exit290, %46, %37, %print_data.exit, %34, %14, %186, %182, %98
-  %.0247 = phi i64 [ 0, %186 ], [ 0, %182 ], [ 0, %98 ], [ 0, %14 ], [ 1, %34 ], [ 1, %print_data.exit ], [ 0, %37 ], [ 1, %46 ], [ 1, %print_data.exit290 ], [ 1, %88 ], [ 1, %print_data.exit294 ], [ 1, %110 ], [ 1, %print_data.exit298 ], [ 0, %127 ], [ 1, %136 ], [ 1, %print_data.exit302 ], [ 1, %172 ], [ 1, %print_data.exit306 ], [ 1, %206 ], [ 1, %print_data.exit310 ], [ 0, %215 ], [ 1, %224 ], [ 1, %print_data.exit314 ], [ 1, %260 ], [ 1, %print_data.exit318 ], [ 1, %30 ], [ 1, %42 ], [ 1, %84 ], [ 1, %106 ], [ 1, %132 ], [ 1, %168 ], [ 1, %202 ], [ 1, %220 ], [ 0, %246 ], [ 0, %250 ], [ 0, %239 ], [ 1, %256 ]
+  %.0247 = phi i64 [ 1, %print_data.exit310 ], [ 0, %215 ], [ 1, %print_data.exit306 ], [ 0, %186 ], [ 0, %182 ], [ 1, %print_data.exit302 ], [ 1, %print_data.exit314 ], [ 1, %220 ], [ 1, %print_data.exit298 ], [ 0, %127 ], [ 1, %print_data.exit294 ], [ 0, %98 ], [ 1, %print_data.exit290 ], [ 1, %print_data.exit ], [ 0, %37 ], [ 0, %14 ], [ 1, %34 ], [ 1, %46 ], [ 1, %88 ], [ 1, %110 ], [ 1, %136 ], [ 1, %172 ], [ 1, %206 ], [ 1, %224 ], [ 1, %260 ], [ 1, %print_data.exit318 ], [ 0, %239 ], [ 1, %30 ], [ 1, %42 ], [ 1, %84 ], [ 1, %106 ], [ 1, %132 ], [ 1, %168 ], [ 1, %202 ], [ 0, %246 ], [ 0, %250 ], [ 1, %256 ]
   ret i64 %.0247
 }
 
@@ -1948,7 +1948,7 @@ print_data.exit330:                               ; preds = %equal_float.exit, %
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %224, %207, %218, %214, %195, %178, %150, %117, %95, %76, %39, %27, %print_data.exit330, %228, %print_data.exit326, %199, %190, %print_data.exit322, %182, %print_data.exit318, %154, %print_data.exit314, %121, %112, %print_data.exit310, %99, %print_data.exit306, %80, %print_data.exit302, %43, %34, %print_data.exit, %31, %14, %165, %161, %87
-  %.0247 = phi i64 [ 0, %165 ], [ 0, %161 ], [ 0, %87 ], [ 0, %14 ], [ 1, %31 ], [ 1, %print_data.exit ], [ 0, %34 ], [ 1, %43 ], [ 1, %print_data.exit302 ], [ 1, %80 ], [ 1, %print_data.exit306 ], [ 1, %99 ], [ 1, %print_data.exit310 ], [ 0, %112 ], [ 1, %121 ], [ 1, %print_data.exit314 ], [ 1, %154 ], [ 1, %print_data.exit318 ], [ 1, %182 ], [ 1, %print_data.exit322 ], [ 0, %190 ], [ 1, %199 ], [ 1, %print_data.exit326 ], [ 1, %228 ], [ 1, %print_data.exit330 ], [ 1, %27 ], [ 1, %39 ], [ 1, %76 ], [ 1, %95 ], [ 1, %117 ], [ 1, %150 ], [ 1, %178 ], [ 1, %195 ], [ 0, %214 ], [ 0, %218 ], [ 0, %207 ], [ 1, %224 ]
+  %.0247 = phi i64 [ 1, %print_data.exit322 ], [ 0, %190 ], [ 1, %print_data.exit318 ], [ 0, %165 ], [ 0, %161 ], [ 1, %print_data.exit314 ], [ 1, %print_data.exit326 ], [ 1, %195 ], [ 1, %print_data.exit310 ], [ 0, %112 ], [ 1, %print_data.exit306 ], [ 0, %87 ], [ 1, %print_data.exit302 ], [ 1, %print_data.exit ], [ 0, %34 ], [ 0, %14 ], [ 1, %31 ], [ 1, %43 ], [ 1, %80 ], [ 1, %99 ], [ 1, %121 ], [ 1, %154 ], [ 1, %182 ], [ 1, %199 ], [ 1, %228 ], [ 1, %print_data.exit330 ], [ 0, %207 ], [ 1, %27 ], [ 1, %39 ], [ 1, %76 ], [ 1, %95 ], [ 1, %117 ], [ 1, %150 ], [ 1, %178 ], [ 0, %214 ], [ 0, %218 ], [ 1, %224 ]
   ret i64 %.0247
 }
 
@@ -2362,7 +2362,7 @@ print_data.exit330:                               ; preds = %equal_double.exit, 
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %196, %179, %190, %186, %170, %155, %130, %103, %84, %67, %36, %26, %print_data.exit330, %200, %print_data.exit326, %174, %165, %print_data.exit322, %159, %print_data.exit318, %134, %print_data.exit314, %107, %98, %print_data.exit310, %88, %print_data.exit306, %71, %print_data.exit302, %40, %31, %print_data.exit, %30, %14, %143, %139, %76
-  %.0247 = phi i64 [ 0, %143 ], [ 0, %139 ], [ 0, %76 ], [ 0, %14 ], [ 1, %30 ], [ 1, %print_data.exit ], [ 0, %31 ], [ 1, %40 ], [ 1, %print_data.exit302 ], [ 1, %71 ], [ 1, %print_data.exit306 ], [ 1, %88 ], [ 1, %print_data.exit310 ], [ 0, %98 ], [ 1, %107 ], [ 1, %print_data.exit314 ], [ 1, %134 ], [ 1, %print_data.exit318 ], [ 1, %159 ], [ 1, %print_data.exit322 ], [ 0, %165 ], [ 1, %174 ], [ 1, %print_data.exit326 ], [ 1, %200 ], [ 1, %print_data.exit330 ], [ 1, %26 ], [ 1, %36 ], [ 1, %67 ], [ 1, %84 ], [ 1, %103 ], [ 1, %130 ], [ 1, %155 ], [ 1, %170 ], [ 0, %186 ], [ 0, %190 ], [ 0, %179 ], [ 1, %196 ]
+  %.0247 = phi i64 [ 1, %print_data.exit322 ], [ 0, %165 ], [ 1, %print_data.exit318 ], [ 0, %143 ], [ 0, %139 ], [ 1, %print_data.exit314 ], [ 1, %print_data.exit326 ], [ 1, %170 ], [ 1, %print_data.exit310 ], [ 0, %98 ], [ 1, %print_data.exit306 ], [ 0, %76 ], [ 1, %print_data.exit302 ], [ 1, %print_data.exit ], [ 0, %31 ], [ 0, %14 ], [ 1, %30 ], [ 1, %40 ], [ 1, %71 ], [ 1, %88 ], [ 1, %107 ], [ 1, %134 ], [ 1, %159 ], [ 1, %174 ], [ 1, %200 ], [ 1, %print_data.exit330 ], [ 0, %179 ], [ 1, %26 ], [ 1, %36 ], [ 1, %67 ], [ 1, %84 ], [ 1, %103 ], [ 1, %130 ], [ 1, %155 ], [ 0, %186 ], [ 0, %190 ], [ 1, %196 ]
   ret i64 %.0247
 }
 
@@ -2800,7 +2800,7 @@ print_data.exit330:                               ; preds = %205, %209
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %209, %182, %167, %141, %111, %92, %75, %39, %29, %equal_ldouble.exit.thread, %print_data.exit330, %213, %print_data.exit326, %186, %177, %print_data.exit322, %171, %print_data.exit318, %145, %print_data.exit314, %115, %106, %print_data.exit310, %96, %print_data.exit306, %79, %print_data.exit302, %43, %34, %print_data.exit, %33, %16, %154, %150, %84
-  %.0247 = phi i64 [ 0, %154 ], [ 0, %150 ], [ 0, %84 ], [ 0, %16 ], [ 1, %33 ], [ 1, %print_data.exit ], [ 0, %34 ], [ 1, %43 ], [ 1, %print_data.exit302 ], [ 1, %79 ], [ 1, %print_data.exit306 ], [ 1, %96 ], [ 1, %print_data.exit310 ], [ 0, %106 ], [ 1, %115 ], [ 1, %print_data.exit314 ], [ 1, %145 ], [ 1, %print_data.exit318 ], [ 1, %171 ], [ 1, %print_data.exit322 ], [ 0, %177 ], [ 1, %186 ], [ 1, %print_data.exit326 ], [ 1, %213 ], [ 1, %print_data.exit330 ], [ 0, %equal_ldouble.exit.thread ], [ 1, %29 ], [ 1, %39 ], [ 1, %75 ], [ 1, %92 ], [ 1, %111 ], [ 1, %141 ], [ 1, %167 ], [ 1, %182 ], [ 1, %209 ]
+  %.0247 = phi i64 [ 1, %print_data.exit322 ], [ 0, %177 ], [ 1, %print_data.exit318 ], [ 0, %154 ], [ 0, %150 ], [ 1, %print_data.exit314 ], [ 1, %print_data.exit326 ], [ 0, %equal_ldouble.exit.thread ], [ 1, %print_data.exit310 ], [ 0, %106 ], [ 1, %print_data.exit306 ], [ 0, %84 ], [ 1, %print_data.exit302 ], [ 1, %print_data.exit ], [ 0, %34 ], [ 0, %16 ], [ 1, %33 ], [ 1, %43 ], [ 1, %79 ], [ 1, %96 ], [ 1, %115 ], [ 1, %145 ], [ 1, %171 ], [ 1, %186 ], [ 1, %213 ], [ 1, %print_data.exit330 ], [ 1, %182 ], [ 1, %29 ], [ 1, %39 ], [ 1, %75 ], [ 1, %92 ], [ 1, %111 ], [ 1, %141 ], [ 1, %167 ], [ 1, %209 ]
   ret i64 %.0247
 }
 
@@ -3071,7 +3071,7 @@ print_data.exit194:                               ; preds = %130, %134
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %134, %123, %97, %66, %49, %21, %print_data.exit194, %138, %print_data.exit190, %127, %print_data.exit186, %101, %print_data.exit182, %70, %print_data.exit178, %53, %print_data.exit, %25, %8, %106, %110, %.thread10, %58
-  %.0141 = phi i64 [ 0, %110 ], [ 0, %106 ], [ 0, %.thread10 ], [ 0, %58 ], [ 0, %8 ], [ 1, %25 ], [ 1, %print_data.exit ], [ 1, %53 ], [ 1, %print_data.exit178 ], [ 1, %70 ], [ 1, %print_data.exit182 ], [ 1, %101 ], [ 1, %print_data.exit186 ], [ 1, %127 ], [ 1, %print_data.exit190 ], [ 1, %138 ], [ 1, %print_data.exit194 ], [ 1, %21 ], [ 1, %49 ], [ 1, %66 ], [ 1, %97 ], [ 1, %123 ], [ 1, %134 ]
+  %.0141 = phi i64 [ 1, %print_data.exit186 ], [ 0, %110 ], [ 0, %106 ], [ 1, %print_data.exit182 ], [ 1, %print_data.exit190 ], [ 0, %.thread10 ], [ 1, %print_data.exit178 ], [ 0, %58 ], [ 1, %print_data.exit ], [ 0, %8 ], [ 1, %25 ], [ 1, %53 ], [ 1, %70 ], [ 1, %101 ], [ 1, %127 ], [ 1, %138 ], [ 1, %print_data.exit194 ], [ 1, %123 ], [ 1, %21 ], [ 1, %49 ], [ 1, %66 ], [ 1, %97 ], [ 1, %134 ]
   ret i64 %.0141
 }
 
@@ -3350,7 +3350,7 @@ print_data.exit206:                               ; preds = %136, %140
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %140, %129, %99, %68, %49, %23, %print_data.exit206, %144, %print_data.exit202, %133, %print_data.exit198, %103, %print_data.exit194, %72, %print_data.exit190, %53, %print_data.exit, %27, %8, %110, %114, %.thread10, %60
-  %.0141 = phi i64 [ 0, %114 ], [ 0, %110 ], [ 0, %.thread10 ], [ 0, %60 ], [ 0, %8 ], [ 1, %27 ], [ 1, %print_data.exit ], [ 1, %53 ], [ 1, %print_data.exit190 ], [ 1, %72 ], [ 1, %print_data.exit194 ], [ 1, %103 ], [ 1, %print_data.exit198 ], [ 1, %133 ], [ 1, %print_data.exit202 ], [ 1, %144 ], [ 1, %print_data.exit206 ], [ 1, %23 ], [ 1, %49 ], [ 1, %68 ], [ 1, %99 ], [ 1, %129 ], [ 1, %140 ]
+  %.0141 = phi i64 [ 1, %print_data.exit198 ], [ 0, %114 ], [ 0, %110 ], [ 1, %print_data.exit194 ], [ 1, %print_data.exit202 ], [ 0, %.thread10 ], [ 1, %print_data.exit190 ], [ 0, %60 ], [ 1, %print_data.exit ], [ 0, %8 ], [ 1, %27 ], [ 1, %53 ], [ 1, %72 ], [ 1, %103 ], [ 1, %133 ], [ 1, %144 ], [ 1, %print_data.exit206 ], [ 1, %129 ], [ 1, %23 ], [ 1, %49 ], [ 1, %68 ], [ 1, %99 ], [ 1, %140 ]
   ret i64 %.0141
 }
 
@@ -3621,7 +3621,7 @@ print_data.exit194:                               ; preds = %130, %134
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %134, %123, %97, %66, %49, %21, %print_data.exit194, %138, %print_data.exit190, %127, %print_data.exit186, %101, %print_data.exit182, %70, %print_data.exit178, %53, %print_data.exit, %25, %8, %106, %110, %.thread10, %58
-  %.0141 = phi i64 [ 0, %110 ], [ 0, %106 ], [ 0, %.thread10 ], [ 0, %58 ], [ 0, %8 ], [ 1, %25 ], [ 1, %print_data.exit ], [ 1, %53 ], [ 1, %print_data.exit178 ], [ 1, %70 ], [ 1, %print_data.exit182 ], [ 1, %101 ], [ 1, %print_data.exit186 ], [ 1, %127 ], [ 1, %print_data.exit190 ], [ 1, %138 ], [ 1, %print_data.exit194 ], [ 1, %21 ], [ 1, %49 ], [ 1, %66 ], [ 1, %97 ], [ 1, %123 ], [ 1, %134 ]
+  %.0141 = phi i64 [ 1, %print_data.exit186 ], [ 0, %110 ], [ 0, %106 ], [ 1, %print_data.exit182 ], [ 1, %print_data.exit190 ], [ 0, %.thread10 ], [ 1, %print_data.exit178 ], [ 0, %58 ], [ 1, %print_data.exit ], [ 0, %8 ], [ 1, %25 ], [ 1, %53 ], [ 1, %70 ], [ 1, %101 ], [ 1, %127 ], [ 1, %138 ], [ 1, %print_data.exit194 ], [ 1, %123 ], [ 1, %21 ], [ 1, %49 ], [ 1, %66 ], [ 1, %97 ], [ 1, %134 ]
   ret i64 %.0141
 }
 
@@ -3900,7 +3900,7 @@ print_data.exit206:                               ; preds = %136, %140
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %140, %129, %99, %68, %49, %23, %print_data.exit206, %144, %print_data.exit202, %133, %print_data.exit198, %103, %print_data.exit194, %72, %print_data.exit190, %53, %print_data.exit, %27, %8, %110, %114, %.thread10, %60
-  %.0141 = phi i64 [ 0, %114 ], [ 0, %110 ], [ 0, %.thread10 ], [ 0, %60 ], [ 0, %8 ], [ 1, %27 ], [ 1, %print_data.exit ], [ 1, %53 ], [ 1, %print_data.exit190 ], [ 1, %72 ], [ 1, %print_data.exit194 ], [ 1, %103 ], [ 1, %print_data.exit198 ], [ 1, %133 ], [ 1, %print_data.exit202 ], [ 1, %144 ], [ 1, %print_data.exit206 ], [ 1, %23 ], [ 1, %49 ], [ 1, %68 ], [ 1, %99 ], [ 1, %129 ], [ 1, %140 ]
+  %.0141 = phi i64 [ 1, %print_data.exit198 ], [ 0, %114 ], [ 0, %110 ], [ 1, %print_data.exit194 ], [ 1, %print_data.exit202 ], [ 0, %.thread10 ], [ 1, %print_data.exit190 ], [ 0, %60 ], [ 1, %print_data.exit ], [ 0, %8 ], [ 1, %27 ], [ 1, %53 ], [ 1, %72 ], [ 1, %103 ], [ 1, %133 ], [ 1, %144 ], [ 1, %print_data.exit206 ], [ 1, %129 ], [ 1, %23 ], [ 1, %49 ], [ 1, %68 ], [ 1, %99 ], [ 1, %140 ]
   ret i64 %.0141
 }
 
@@ -4155,7 +4155,7 @@ print_data.exit192:                               ; preds = %114, %118
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %118, %109, %87, %60, %45, %19, %print_data.exit192, %122, %print_data.exit188, %113, %print_data.exit184, %91, %print_data.exit180, %64, %print_data.exit176, %49, %print_data.exit, %23, %8, %94, %98, %.thread10, %52
-  %.0141 = phi i64 [ 0, %98 ], [ 0, %94 ], [ 0, %.thread10 ], [ 0, %52 ], [ 0, %8 ], [ 1, %23 ], [ 1, %print_data.exit ], [ 1, %49 ], [ 1, %print_data.exit176 ], [ 1, %64 ], [ 1, %print_data.exit180 ], [ 1, %91 ], [ 1, %print_data.exit184 ], [ 1, %113 ], [ 1, %print_data.exit188 ], [ 1, %122 ], [ 1, %print_data.exit192 ], [ 1, %19 ], [ 1, %45 ], [ 1, %60 ], [ 1, %87 ], [ 1, %109 ], [ 1, %118 ]
+  %.0141 = phi i64 [ 1, %print_data.exit184 ], [ 0, %98 ], [ 0, %94 ], [ 1, %print_data.exit180 ], [ 1, %print_data.exit188 ], [ 0, %.thread10 ], [ 1, %print_data.exit176 ], [ 0, %52 ], [ 1, %print_data.exit ], [ 0, %8 ], [ 1, %23 ], [ 1, %49 ], [ 1, %64 ], [ 1, %91 ], [ 1, %113 ], [ 1, %122 ], [ 1, %print_data.exit192 ], [ 1, %109 ], [ 1, %19 ], [ 1, %45 ], [ 1, %60 ], [ 1, %87 ], [ 1, %118 ]
   ret i64 %.0141
 }
 
@@ -4410,7 +4410,7 @@ print_data.exit192:                               ; preds = %114, %118
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %118, %109, %87, %60, %45, %19, %print_data.exit192, %122, %print_data.exit188, %113, %print_data.exit184, %91, %print_data.exit180, %64, %print_data.exit176, %49, %print_data.exit, %23, %8, %94, %98, %.thread10, %52
-  %.0141 = phi i64 [ 0, %98 ], [ 0, %94 ], [ 0, %.thread10 ], [ 0, %52 ], [ 0, %8 ], [ 1, %23 ], [ 1, %print_data.exit ], [ 1, %49 ], [ 1, %print_data.exit176 ], [ 1, %64 ], [ 1, %print_data.exit180 ], [ 1, %91 ], [ 1, %print_data.exit184 ], [ 1, %113 ], [ 1, %print_data.exit188 ], [ 1, %122 ], [ 1, %print_data.exit192 ], [ 1, %19 ], [ 1, %45 ], [ 1, %60 ], [ 1, %87 ], [ 1, %109 ], [ 1, %118 ]
+  %.0141 = phi i64 [ 1, %print_data.exit184 ], [ 0, %98 ], [ 0, %94 ], [ 1, %print_data.exit180 ], [ 1, %print_data.exit188 ], [ 0, %.thread10 ], [ 1, %print_data.exit176 ], [ 0, %52 ], [ 1, %print_data.exit ], [ 0, %8 ], [ 1, %23 ], [ 1, %49 ], [ 1, %64 ], [ 1, %91 ], [ 1, %113 ], [ 1, %122 ], [ 1, %print_data.exit192 ], [ 1, %109 ], [ 1, %19 ], [ 1, %45 ], [ 1, %60 ], [ 1, %87 ], [ 1, %118 ]
   ret i64 %.0141
 }
 
@@ -4677,7 +4677,7 @@ print_data.exit178:                               ; preds = %124, %128
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %128, %119, %93, %64, %47, %21, %print_data.exit178, %132, %print_data.exit174, %123, %print_data.exit170, %97, %print_data.exit166, %68, %print_data.exit162, %51, %print_data.exit, %25, %8, %102, %106, %.thread10, %56
-  %.0141 = phi i64 [ 0, %106 ], [ 0, %102 ], [ 0, %.thread10 ], [ 0, %56 ], [ 0, %8 ], [ 1, %25 ], [ 1, %print_data.exit ], [ 1, %51 ], [ 1, %print_data.exit162 ], [ 1, %68 ], [ 1, %print_data.exit166 ], [ 1, %97 ], [ 1, %print_data.exit170 ], [ 1, %123 ], [ 1, %print_data.exit174 ], [ 1, %132 ], [ 1, %print_data.exit178 ], [ 1, %21 ], [ 1, %47 ], [ 1, %64 ], [ 1, %93 ], [ 1, %119 ], [ 1, %128 ]
+  %.0141 = phi i64 [ 1, %print_data.exit170 ], [ 0, %106 ], [ 0, %102 ], [ 1, %print_data.exit166 ], [ 1, %print_data.exit174 ], [ 0, %.thread10 ], [ 1, %print_data.exit162 ], [ 0, %56 ], [ 1, %print_data.exit ], [ 0, %8 ], [ 1, %25 ], [ 1, %51 ], [ 1, %68 ], [ 1, %97 ], [ 1, %123 ], [ 1, %132 ], [ 1, %print_data.exit178 ], [ 1, %119 ], [ 1, %21 ], [ 1, %47 ], [ 1, %64 ], [ 1, %93 ], [ 1, %128 ]
   ret i64 %.0141
 }
 
@@ -4932,7 +4932,7 @@ print_data.exit192:                               ; preds = %114, %118
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %118, %109, %87, %60, %45, %19, %print_data.exit192, %122, %print_data.exit188, %113, %print_data.exit184, %91, %print_data.exit180, %64, %print_data.exit176, %49, %print_data.exit, %23, %8, %94, %98, %.thread10, %52
-  %.0141 = phi i64 [ 0, %98 ], [ 0, %94 ], [ 0, %.thread10 ], [ 0, %52 ], [ 0, %8 ], [ 1, %23 ], [ 1, %print_data.exit ], [ 1, %49 ], [ 1, %print_data.exit176 ], [ 1, %64 ], [ 1, %print_data.exit180 ], [ 1, %91 ], [ 1, %print_data.exit184 ], [ 1, %113 ], [ 1, %print_data.exit188 ], [ 1, %122 ], [ 1, %print_data.exit192 ], [ 1, %19 ], [ 1, %45 ], [ 1, %60 ], [ 1, %87 ], [ 1, %109 ], [ 1, %118 ]
+  %.0141 = phi i64 [ 1, %print_data.exit184 ], [ 0, %98 ], [ 0, %94 ], [ 1, %print_data.exit180 ], [ 1, %print_data.exit188 ], [ 0, %.thread10 ], [ 1, %print_data.exit176 ], [ 0, %52 ], [ 1, %print_data.exit ], [ 0, %8 ], [ 1, %23 ], [ 1, %49 ], [ 1, %64 ], [ 1, %91 ], [ 1, %113 ], [ 1, %122 ], [ 1, %print_data.exit192 ], [ 1, %109 ], [ 1, %19 ], [ 1, %45 ], [ 1, %60 ], [ 1, %87 ], [ 1, %118 ]
   ret i64 %.0141
 }
 
@@ -5211,7 +5211,7 @@ print_data.exit158:                               ; preds = %130, %134
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %134, %125, %99, %68, %51, %23, %print_data.exit158, %138, %print_data.exit154, %129, %print_data.exit150, %103, %print_data.exit146, %72, %print_data.exit142, %55, %print_data.exit, %27, %10, %108, %112, %.thread10, %60
-  %.0121 = phi i64 [ 0, %112 ], [ 0, %108 ], [ 0, %.thread10 ], [ 0, %60 ], [ 0, %10 ], [ 1, %27 ], [ 1, %print_data.exit ], [ 1, %55 ], [ 1, %print_data.exit142 ], [ 1, %72 ], [ 1, %print_data.exit146 ], [ 1, %103 ], [ 1, %print_data.exit150 ], [ 1, %129 ], [ 1, %print_data.exit154 ], [ 1, %138 ], [ 1, %print_data.exit158 ], [ 1, %23 ], [ 1, %51 ], [ 1, %68 ], [ 1, %99 ], [ 1, %125 ], [ 1, %134 ]
+  %.0121 = phi i64 [ 1, %print_data.exit150 ], [ 0, %112 ], [ 0, %108 ], [ 1, %print_data.exit146 ], [ 1, %print_data.exit154 ], [ 0, %.thread10 ], [ 1, %print_data.exit142 ], [ 0, %60 ], [ 1, %print_data.exit ], [ 0, %10 ], [ 1, %27 ], [ 1, %55 ], [ 1, %72 ], [ 1, %103 ], [ 1, %129 ], [ 1, %138 ], [ 1, %print_data.exit158 ], [ 1, %125 ], [ 1, %23 ], [ 1, %51 ], [ 1, %68 ], [ 1, %99 ], [ 1, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0121
@@ -5421,11 +5421,11 @@ define internal fastcc i64 @diff_datum(ptr noundef %0, ptr noundef %1, i64 nound
   %104 = tail call i64 @llvm.umin.i64(i64 %103, i64 %82)
   br label %105
 
-.thread:                                          ; preds = %91, %95
-  %.0599.ph = phi ptr [ %1, %95 ], [ null, %91 ]
-  %.3598.ph = phi i64 [ %82, %95 ], [ %.0595, %91 ]
-  %.1594.ph = phi i64 [ %82, %95 ], [ 0, %91 ]
-  %.0591.ph = phi ptr [ %0, %95 ], [ %88, %91 ]
+.thread:                                          ; preds = %95, %91
+  %.0599.ph = phi ptr [ null, %91 ], [ %1, %95 ]
+  %.3598.ph = phi i64 [ %.0595, %91 ], [ %82, %95 ]
+  %.1594.ph = phi i64 [ 0, %91 ], [ %82, %95 ]
+  %.0591.ph = phi ptr [ %88, %91 ], [ %0, %95 ]
   %.not777856 = icmp eq i64 %.3598.ph, %.1594.ph
   br label %107
 
@@ -5710,7 +5710,7 @@ print_data.exit.thread.sink.split:                ; preds = %print_data.exit842,
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %.lr.ph893, %print_data.exit.thread.sink.split, %.preheader878, %185, %175, %print_data.exit842, %print_data.exit
-  %.7 = phi i64 [ 1, %print_data.exit ], [ 1, %print_data.exit842 ], [ 1, %175 ], [ 1, %185 ], [ 0, %.preheader878 ], [ 1, %print_data.exit.thread.sink.split ], [ %192, %.lr.ph893 ]
+  %.7 = phi i64 [ 0, %.preheader878 ], [ 1, %print_data.exit ], [ 1, %print_data.exit.thread.sink.split ], [ 1, %print_data.exit842 ], [ 1, %185 ], [ 1, %175 ], [ %192, %.lr.ph893 ]
   %194 = load i32, ptr %9, align 4, !tbaa !53
   %.not771 = icmp eq i32 %194, 0
   %195 = load ptr, ptr %10, align 8, !tbaa !60
@@ -7475,8 +7475,8 @@ all_zero.exit851:                                 ; preds = %247
   br label %.thread869
 
 .thread869:                                       ; preds = %.lr.ph897, %.lr.ph901, %character_compare.exit, %character_compare.exit837, %.thread1051, %.preheader876, %.preheader874, %.preheader872, %.preheader, %all_zero.exit851.thr_comm, %1148, %.split, %1140, %1144, %1132, %1123, %1127, %1115, %107, %42, %46, %34, %._crit_edge913, %201, %._crit_edge889, %._crit_edge, %1022, %1071, %1079, %1075, %1067, %1090, %1097, %1104, %1111, %1131, %1108, %1101, %1094, %1086, %1154, %1158, %1156, %1152, %251, %29
-  %.0584 = phi i32 [ %30, %29 ], [ %21, %1152 ], [ %21, %1154 ], [ %21, %1156 ], [ %21, %1158 ], [ %21, %1086 ], [ %21, %1090 ], [ %21, %1094 ], [ %21, %1097 ], [ %21, %1101 ], [ %21, %1104 ], [ %21, %1108 ], [ %21, %1111 ], [ %21, %1131 ], [ %21, %1067 ], [ %21, %1071 ], [ %21, %1075 ], [ %21, %1079 ], [ %21, %._crit_edge913 ], [ %21, %201 ], [ %21, %._crit_edge889 ], [ %252, %251 ], [ %.4588, %1022 ], [ %21, %._crit_edge ], [ 2, %34 ], [ 2, %46 ], [ 2, %42 ], [ %21, %107 ], [ 2, %1115 ], [ 2, %1127 ], [ 2, %1123 ], [ 2, %1132 ], [ 2, %1144 ], [ 2, %1140 ], [ %21, %.split ], [ %21, %1148 ], [ %21, %all_zero.exit851.thr_comm ], [ %21, %.preheader ], [ %21, %.preheader872 ], [ %21, %.preheader874 ], [ %21, %.preheader876 ], [ %21, %.thread1051 ], [ %21, %character_compare.exit837 ], [ %21, %character_compare.exit ], [ %21, %.lr.ph901 ], [ %21, %.lr.ph897 ]
-  %.0577 = phi i64 [ 0, %29 ], [ %1153, %1152 ], [ %1155, %1154 ], [ %1157, %1156 ], [ %1159, %1158 ], [ %1087, %1086 ], [ %1091, %1090 ], [ %1095, %1094 ], [ %1098, %1097 ], [ %1102, %1101 ], [ %1105, %1104 ], [ %1109, %1108 ], [ %1112, %1111 ], [ 0, %1131 ], [ %1070, %1067 ], [ %1074, %1071 ], [ %1078, %1075 ], [ %1080, %1079 ], [ %.1578.lcssa, %._crit_edge913 ], [ %.7, %201 ], [ %.9.lcssa, %._crit_edge889 ], [ 1, %251 ], [ %.24, %1022 ], [ %.25.lcssa, %._crit_edge ], [ 0, %34 ], [ 0, %46 ], [ 0, %42 ], [ %spec.select784865, %107 ], [ 0, %1115 ], [ 0, %1127 ], [ 0, %1123 ], [ 0, %1132 ], [ 0, %1144 ], [ 0, %1140 ], [ 0, %.split ], [ 0, %1148 ], [ 0, %all_zero.exit851.thr_comm ], [ %spec.select7848651074, %.preheader ], [ %spec.select7848651074, %.preheader872 ], [ 0, %.preheader874 ], [ 0, %.preheader876 ], [ %spec.select7848651058, %.thread1051 ], [ %138, %character_compare.exit837 ], [ %spec.select7848651074, %character_compare.exit ], [ %143, %.lr.ph901 ], [ %148, %.lr.ph897 ]
+  %.0584 = phi i32 [ %30, %29 ], [ %21, %1131 ], [ %21, %1071 ], [ %21, %1152 ], [ %.4588, %1022 ], [ %21, %1154 ], [ %21, %1067 ], [ %21, %1156 ], [ %21, %._crit_edge ], [ %21, %1158 ], [ %21, %.split ], [ %252, %251 ], [ %21, %1086 ], [ %21, %._crit_edge889 ], [ %21, %1090 ], [ %21, %201 ], [ %21, %1094 ], [ %21, %.preheader872 ], [ %21, %1097 ], [ %21, %.preheader ], [ %21, %1101 ], [ 2, %42 ], [ %21, %1104 ], [ %21, %._crit_edge913 ], [ %21, %1108 ], [ %21, %1079 ], [ %21, %1111 ], [ %21, %107 ], [ %21, %1075 ], [ 2, %1123 ], [ %21, %all_zero.exit851.thr_comm ], [ 2, %34 ], [ 2, %46 ], [ %21, %.preheader874 ], [ %21, %1148 ], [ 2, %1115 ], [ 2, %1127 ], [ 2, %1132 ], [ 2, %1144 ], [ 2, %1140 ], [ %21, %.preheader876 ], [ %21, %.thread1051 ], [ %21, %character_compare.exit837 ], [ %21, %character_compare.exit ], [ %21, %.lr.ph901 ], [ %21, %.lr.ph897 ]
+  %.0577 = phi i64 [ 0, %29 ], [ 0, %1131 ], [ %1074, %1071 ], [ %1153, %1152 ], [ %.24, %1022 ], [ %1155, %1154 ], [ %1070, %1067 ], [ %1157, %1156 ], [ %.25.lcssa, %._crit_edge ], [ %1159, %1158 ], [ 0, %.split ], [ 1, %251 ], [ %1087, %1086 ], [ %.9.lcssa, %._crit_edge889 ], [ %1091, %1090 ], [ %.7, %201 ], [ %1095, %1094 ], [ %spec.select7848651074, %.preheader872 ], [ %1098, %1097 ], [ %spec.select7848651074, %.preheader ], [ %1102, %1101 ], [ 0, %42 ], [ %1105, %1104 ], [ %.1578.lcssa, %._crit_edge913 ], [ %1109, %1108 ], [ %1080, %1079 ], [ %1112, %1111 ], [ %spec.select784865, %107 ], [ %1078, %1075 ], [ 0, %1123 ], [ 0, %all_zero.exit851.thr_comm ], [ 0, %34 ], [ 0, %46 ], [ 0, %.preheader874 ], [ 0, %1148 ], [ 0, %1115 ], [ 0, %1127 ], [ 0, %1132 ], [ 0, %1144 ], [ 0, %1140 ], [ 0, %.preheader876 ], [ %spec.select7848651058, %.thread1051 ], [ %138, %character_compare.exit837 ], [ %spec.select7848651074, %character_compare.exit ], [ %143, %.lr.ph901 ], [ %148, %.lr.ph897 ]
   %1160 = load i32, ptr %20, align 8, !tbaa !52
   %1161 = or i32 %1160, %.0584
   store i32 %1161, ptr %20, align 8, !tbaa !52
@@ -7827,7 +7827,7 @@ print_data.exit155:                               ; preds = %96, %100
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %100, %89, %48, %23, %print_data.exit155, %104, %print_data.exit151, %93, %print_data.exit147, %52, %print_data.exit, %27, %8, %74, %70, %.thread5, %40
-  %.0107 = phi i64 [ 0, %74 ], [ 0, %70 ], [ 0, %.thread5 ], [ 0, %40 ], [ 0, %8 ], [ 1, %27 ], [ 1, %print_data.exit ], [ 1, %52 ], [ 1, %print_data.exit147 ], [ 1, %93 ], [ 1, %print_data.exit151 ], [ 1, %104 ], [ 1, %print_data.exit155 ], [ 1, %23 ], [ 1, %48 ], [ 1, %89 ], [ 1, %100 ]
+  %.0107 = phi i64 [ 1, %print_data.exit147 ], [ 0, %74 ], [ 0, %70 ], [ 1, %print_data.exit151 ], [ 0, %.thread5 ], [ 1, %print_data.exit ], [ 0, %40 ], [ 0, %8 ], [ 1, %27 ], [ 1, %52 ], [ 1, %93 ], [ 1, %104 ], [ 1, %print_data.exit155 ], [ 1, %89 ], [ 1, %23 ], [ 1, %48 ], [ 1, %100 ]
   ret i64 %.0107
 }
 
@@ -8379,7 +8379,7 @@ print_region_block.exit212.loopexit.us:           ; preds = %.lr.ph23.i204.us
   br label %._crit_edge237.thread
 
 ._crit_edge237.thread:                            ; preds = %.preheader231.lr.ph, %._crit_edge, %104, %._crit_edge237
-  %.2150.lcssa317 = phi i64 [ %.4.us, %._crit_edge ], [ %.4.us, %104 ], [ 0, %._crit_edge237 ], [ 0, %.preheader231.lr.ph ]
+  %.2150.lcssa317 = phi i64 [ 0, %._crit_edge237 ], [ %.4.us, %._crit_edge ], [ %.4.us, %104 ], [ 0, %.preheader231.lr.ph ]
   call void @free(ptr noundef nonnull %65) #16
   br label %141
 
@@ -8575,7 +8575,7 @@ print_points.exit229.us:                          ; preds = %213
   br i1 %exitcond298.not, label %.loopexit, label %.preheader.us, !llvm.loop !109
 
 .loopexit:                                        ; preds = %.critedge.us, %.preheader230.lr.ph, %198, %._crit_edge246
-  %.2154.lcssa320 = phi i64 [ %spec.select.us, %198 ], [ 0, %._crit_edge246 ], [ 0, %.preheader230.lr.ph ], [ %spec.select.us, %.critedge.us ]
+  %.2154.lcssa320 = phi i64 [ 0, %.preheader230.lr.ph ], [ 0, %._crit_edge246 ], [ %spec.select.us, %198 ], [ %spec.select.us, %.critedge.us ]
   call void @free(ptr noundef nonnull %169) #16
   br label %216
 
@@ -8585,7 +8585,7 @@ print_points.exit229.us:                          ; preds = %213
   br label %._crit_edge299
 
 ._crit_edge299:                                   ; preds = %142, %216, %159, %163, %150
-  %.0152 = phi i64 [ %.1153, %216 ], [ 0, %159 ], [ 0, %163 ], [ 0, %150 ], [ 0, %142 ]
+  %.0152 = phi i64 [ 0, %150 ], [ %.1153, %216 ], [ 0, %159 ], [ 0, %163 ], [ 0, %142 ]
   %217 = udiv i64 %.0148, %144
   %218 = udiv i64 %.0152, %144
   %219 = add i64 %218, %217
@@ -8954,7 +8954,7 @@ print_data.exit178:                               ; preds = %124, %128
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %128, %119, %93, %64, %47, %21, %print_data.exit178, %132, %print_data.exit174, %123, %print_data.exit170, %97, %print_data.exit166, %68, %print_data.exit162, %51, %print_data.exit, %25, %8, %102, %106, %.thread10, %56
-  %.0141 = phi i64 [ 0, %106 ], [ 0, %102 ], [ 0, %.thread10 ], [ 0, %56 ], [ 0, %8 ], [ 1, %25 ], [ 1, %print_data.exit ], [ 1, %51 ], [ 1, %print_data.exit162 ], [ 1, %68 ], [ 1, %print_data.exit166 ], [ 1, %97 ], [ 1, %print_data.exit170 ], [ 1, %123 ], [ 1, %print_data.exit174 ], [ 1, %132 ], [ 1, %print_data.exit178 ], [ 1, %21 ], [ 1, %47 ], [ 1, %64 ], [ 1, %93 ], [ 1, %119 ], [ 1, %128 ]
+  %.0141 = phi i64 [ 1, %print_data.exit170 ], [ 0, %106 ], [ 0, %102 ], [ 1, %print_data.exit166 ], [ 1, %print_data.exit174 ], [ 0, %.thread10 ], [ 1, %print_data.exit162 ], [ 0, %56 ], [ 1, %print_data.exit ], [ 0, %8 ], [ 1, %25 ], [ 1, %51 ], [ 1, %68 ], [ 1, %97 ], [ 1, %123 ], [ 1, %132 ], [ 1, %print_data.exit178 ], [ 1, %119 ], [ 1, %21 ], [ 1, %47 ], [ 1, %64 ], [ 1, %93 ], [ 1, %128 ]
   ret i64 %.0141
 }
 
@@ -9757,7 +9757,7 @@ print_data.exit540:                               ; preds = %equal_float.exit, %
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %408, %.thread560, %402, %398, %356, %319, %271, %205, %168, %139, %72, %50, %print_data.exit540, %412, %print_data.exit529, %360, %351, %306, %304, %275, %print_data.exit521, %323, %print_data.exit525, %print_data.exit517, %209, %200, %143, %print_data.exit509, %159, %172, %print_data.exit513, %print_data.exit505, %76, %67, %print_data.exit, %54, %39
-  %.0 = phi i64 [ 0, %39 ], [ 1, %54 ], [ 1, %print_data.exit ], [ 0, %67 ], [ 1, %76 ], [ 1, %print_data.exit505 ], [ 1, %143 ], [ 1, %print_data.exit509 ], [ 0, %159 ], [ 1, %172 ], [ 1, %print_data.exit513 ], [ 0, %200 ], [ 1, %209 ], [ 1, %print_data.exit517 ], [ 0, %306 ], [ 0, %304 ], [ 1, %275 ], [ 1, %print_data.exit521 ], [ 1, %323 ], [ 1, %print_data.exit525 ], [ 0, %351 ], [ 1, %360 ], [ 1, %print_data.exit529 ], [ 1, %412 ], [ 1, %print_data.exit540 ], [ 1, %50 ], [ 1, %72 ], [ 1, %139 ], [ 1, %168 ], [ 1, %205 ], [ 1, %271 ], [ 1, %319 ], [ 1, %356 ], [ 0, %398 ], [ 0, %402 ], [ 0, %.thread560 ], [ 1, %408 ]
+  %.0 = phi i64 [ 1, %print_data.exit525 ], [ 0, %351 ], [ 1, %print_data.exit517 ], [ 1, %print_data.exit529 ], [ 1, %356 ], [ 1, %print_data.exit513 ], [ 0, %200 ], [ 1, %print_data.exit505 ], [ 1, %print_data.exit ], [ 0, %67 ], [ 0, %39 ], [ 1, %54 ], [ 1, %76 ], [ 1, %print_data.exit509 ], [ 0, %159 ], [ 1, %143 ], [ 1, %172 ], [ 1, %209 ], [ 1, %print_data.exit521 ], [ 0, %306 ], [ 0, %304 ], [ 1, %275 ], [ 1, %323 ], [ 1, %360 ], [ 1, %412 ], [ 1, %print_data.exit540 ], [ 0, %.thread560 ], [ 1, %50 ], [ 1, %72 ], [ 1, %139 ], [ 1, %168 ], [ 1, %205 ], [ 1, %271 ], [ 1, %319 ], [ 0, %398 ], [ 0, %402 ], [ 1, %408 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -10399,7 +10399,7 @@ print_data.exit540:                               ; preds = %equal_double.exit, 
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %345, %.thread560, %339, %335, %299, %268, %230, %175, %144, %119, %63, %46, %print_data.exit540, %349, %print_data.exit529, %303, %294, %258, %256, %234, %print_data.exit521, %272, %print_data.exit525, %print_data.exit517, %179, %170, %123, %print_data.exit509, %135, %148, %print_data.exit513, %print_data.exit505, %67, %58, %print_data.exit, %50, %38
-  %.0 = phi i64 [ 0, %38 ], [ 1, %50 ], [ 1, %print_data.exit ], [ 0, %58 ], [ 1, %67 ], [ 1, %print_data.exit505 ], [ 1, %123 ], [ 1, %print_data.exit509 ], [ 0, %135 ], [ 1, %148 ], [ 1, %print_data.exit513 ], [ 0, %170 ], [ 1, %179 ], [ 1, %print_data.exit517 ], [ 0, %258 ], [ 0, %256 ], [ 1, %234 ], [ 1, %print_data.exit521 ], [ 1, %272 ], [ 1, %print_data.exit525 ], [ 0, %294 ], [ 1, %303 ], [ 1, %print_data.exit529 ], [ 1, %349 ], [ 1, %print_data.exit540 ], [ 1, %46 ], [ 1, %63 ], [ 1, %119 ], [ 1, %144 ], [ 1, %175 ], [ 1, %230 ], [ 1, %268 ], [ 1, %299 ], [ 0, %335 ], [ 0, %339 ], [ 0, %.thread560 ], [ 1, %345 ]
+  %.0 = phi i64 [ 1, %print_data.exit525 ], [ 0, %294 ], [ 1, %print_data.exit517 ], [ 1, %print_data.exit529 ], [ 1, %299 ], [ 1, %print_data.exit513 ], [ 0, %170 ], [ 1, %print_data.exit505 ], [ 1, %print_data.exit ], [ 0, %58 ], [ 0, %38 ], [ 1, %50 ], [ 1, %67 ], [ 1, %print_data.exit509 ], [ 0, %135 ], [ 1, %123 ], [ 1, %148 ], [ 1, %179 ], [ 1, %print_data.exit521 ], [ 0, %258 ], [ 0, %256 ], [ 1, %234 ], [ 1, %272 ], [ 1, %303 ], [ 1, %349 ], [ 1, %print_data.exit540 ], [ 0, %.thread560 ], [ 1, %46 ], [ 1, %63 ], [ 1, %119 ], [ 1, %144 ], [ 1, %175 ], [ 1, %230 ], [ 1, %268 ], [ 0, %335 ], [ 0, %339 ], [ 1, %345 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -11103,7 +11103,7 @@ print_data.exit541:                               ; preds = %367, %371
   br label %print_data.exit.thread
 
 print_data.exit.thread:                           ; preds = %371, %325, %294, %250, %190, %159, %134, %71, %54, %equal_ldouble.exit537.thread, %print_data.exit541, %375, %print_data.exit529, %329, %320, %281, %279, %254, %print_data.exit521, %298, %print_data.exit525, %print_data.exit517, %194, %185, %138, %print_data.exit509, %150, %163, %print_data.exit513, %print_data.exit505, %75, %66, %print_data.exit, %58, %43
-  %.0 = phi i64 [ 0, %43 ], [ 1, %58 ], [ 1, %print_data.exit ], [ 0, %66 ], [ 1, %75 ], [ 1, %print_data.exit505 ], [ 1, %138 ], [ 1, %print_data.exit509 ], [ 0, %150 ], [ 1, %163 ], [ 1, %print_data.exit513 ], [ 0, %185 ], [ 1, %194 ], [ 1, %print_data.exit517 ], [ 0, %281 ], [ 0, %279 ], [ 1, %254 ], [ 1, %print_data.exit521 ], [ 1, %298 ], [ 1, %print_data.exit525 ], [ 0, %320 ], [ 1, %329 ], [ 1, %print_data.exit529 ], [ 1, %375 ], [ 1, %print_data.exit541 ], [ 0, %equal_ldouble.exit537.thread ], [ 1, %54 ], [ 1, %71 ], [ 1, %134 ], [ 1, %159 ], [ 1, %190 ], [ 1, %250 ], [ 1, %294 ], [ 1, %325 ], [ 1, %371 ]
+  %.0 = phi i64 [ 1, %print_data.exit525 ], [ 0, %320 ], [ 1, %print_data.exit517 ], [ 1, %print_data.exit529 ], [ 0, %equal_ldouble.exit537.thread ], [ 1, %print_data.exit513 ], [ 0, %185 ], [ 1, %print_data.exit505 ], [ 1, %print_data.exit ], [ 0, %66 ], [ 0, %43 ], [ 1, %58 ], [ 1, %75 ], [ 1, %print_data.exit509 ], [ 0, %150 ], [ 1, %138 ], [ 1, %163 ], [ 1, %194 ], [ 1, %print_data.exit521 ], [ 0, %281 ], [ 0, %279 ], [ 1, %254 ], [ 1, %298 ], [ 1, %329 ], [ 1, %375 ], [ 1, %print_data.exit541 ], [ 1, %325 ], [ 1, %54 ], [ 1, %71 ], [ 1, %134 ], [ 1, %159 ], [ 1, %190 ], [ 1, %250 ], [ 1, %294 ], [ 1, %371 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -11229,7 +11229,7 @@ define internal fastcc void @ull2float(i64 noundef %0, ptr noundef nonnull write
   br label %72
 
 72:                                               ; preds = %63, %67, %55, %42, %46, %34, %18, %22, %10, %71
-  %.019 = phi ptr [ %32, %71 ], [ null, %10 ], [ null, %22 ], [ null, %18 ], [ null, %34 ], [ null, %46 ], [ null, %42 ], [ %32, %55 ], [ %32, %67 ], [ %32, %63 ]
+  %.019 = phi ptr [ %32, %71 ], [ null, %18 ], [ null, %42 ], [ null, %10 ], [ null, %22 ], [ null, %34 ], [ null, %46 ], [ %32, %55 ], [ %32, %67 ], [ %32, %63 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

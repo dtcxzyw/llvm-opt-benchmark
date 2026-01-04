@@ -304,7 +304,7 @@ er_supported.exit:                                ; preds = %115
   store atomic i32 2147483647, ptr %138 seq_cst, align 8
   br label %er_supported.exit.thread
 
-er_supported.exit.thread:                         ; preds = %112, %115, %99, %107, %er_supported.exit, %120, %136, %126, %33, %6, %32
+er_supported.exit.thread:                         ; preds = %115, %112, %99, %107, %er_supported.exit, %120, %136, %126, %33, %6, %32
   ret void
 }
 
@@ -1176,9 +1176,9 @@ select.unfold:                                    ; preds = %238
   br label %466
 
 466:                                              ; preds = %464, %462, %443, %416, %404
-  %467 = phi i32 [ %405, %404 ], [ %405, %416 ], [ %405, %462 ], [ %405, %464 ], [ %.pre101.i, %443 ]
-  %.265.i = phi i32 [ %.16485.i, %404 ], [ %417, %416 ], [ %417, %462 ], [ %417, %464 ], [ %417, %443 ]
-  %.2.i = phi i32 [ %.186.i, %404 ], [ %.186.i, %416 ], [ %463, %462 ], [ %465, %464 ], [ %456, %443 ]
+  %467 = phi i32 [ %405, %416 ], [ %405, %404 ], [ %405, %462 ], [ %405, %464 ], [ %.pre101.i, %443 ]
+  %.265.i = phi i32 [ %417, %416 ], [ %.16485.i, %404 ], [ %417, %462 ], [ %417, %464 ], [ %417, %443 ]
+  %.2.i = phi i32 [ %.186.i, %416 ], [ %.186.i, %404 ], [ %463, %462 ], [ %465, %464 ], [ %456, %443 ]
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %468 = sext i32 %467 to i64
   %469 = icmp slt i64 %indvars.iv.next99.i, %468
@@ -1207,16 +1207,16 @@ is_intra_more_likely.exit.is_intra_more_likely.exit.thread_crit_edge: ; preds = 
   %.pre982 = load ptr, ptr %0, align 8, !tbaa !4
   br label %is_intra_more_likely.exit.thread
 
-is_intra_more_likely.exit.thread:                 ; preds = %is_intra_more_likely.exit.is_intra_more_likely.exit.thread_crit_edge, %.preheader81.i, %.preheader.lr.ph.i, %387, %._crit_edge.i, %369
-  %477 = phi ptr [ %.pre982, %is_intra_more_likely.exit.is_intra_more_likely.exit.thread_crit_edge ], [ %370, %.preheader81.i ], [ %370, %.preheader.lr.ph.i ], [ %370, %387 ], [ %370, %._crit_edge.i ], [ %370, %369 ]
+is_intra_more_likely.exit.thread:                 ; preds = %is_intra_more_likely.exit.is_intra_more_likely.exit.thread_crit_edge, %.preheader81.i, %387, %._crit_edge.i, %.preheader.lr.ph.i, %369
+  %477 = phi ptr [ %.pre982, %is_intra_more_likely.exit.is_intra_more_likely.exit.thread_crit_edge ], [ %370, %.preheader81.i ], [ %370, %387 ], [ %370, %._crit_edge.i ], [ %370, %.preheader.lr.ph.i ], [ %370, %369 ]
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 24
   %479 = load i32, ptr %478, align 8, !tbaa !57
   %480 = icmp eq i32 %479, 27
   %481 = select i1 %480, i32 12296, i32 4104
   br label %is_intra_more_likely.exit.thread752
 
-is_intra_more_likely.exit.thread752:              ; preds = %365, %367, %is_intra_more_likely.exit, %is_intra_more_likely.exit.thread
-  %482 = phi i32 [ %481, %is_intra_more_likely.exit.thread ], [ 1, %is_intra_more_likely.exit ], [ 1, %367 ], [ 1, %365 ]
+is_intra_more_likely.exit.thread752:              ; preds = %367, %365, %is_intra_more_likely.exit, %is_intra_more_likely.exit.thread
+  %482 = phi i32 [ %481, %is_intra_more_likely.exit.thread ], [ 1, %is_intra_more_likely.exit ], [ 1, %365 ], [ 1, %367 ]
   %483 = load i32, ptr %176, align 8, !tbaa !41
   %484 = icmp sgt i32 %483, 0
   br i1 %484, label %.lr.ph842, label %._crit_edge843
@@ -1363,8 +1363,8 @@ is_intra_more_likely.exit.thread752:              ; preds = %365, %367, %is_intr
   br label %.thread755
 
 .thread755:                                       ; preds = %554, %543
-  %558 = phi i64 [ 1, %543 ], [ %557, %554 ]
-  %559 = phi i32 [ 2, %543 ], [ %spec.select758, %554 ]
+  %558 = phi i64 [ %557, %554 ], [ 1, %543 ]
+  %559 = phi i32 [ %spec.select758, %554 ], [ 2, %543 ]
   %560 = load ptr, ptr %178, align 8, !tbaa !38
   %561 = getelementptr inbounds i8, ptr %560, i64 %550
   %562 = load i8, ptr %561, align 1, !tbaa !42
@@ -1829,8 +1829,8 @@ is_intra_more_likely.exit.thread752:              ; preds = %365, %367, %is_intr
   br i1 %exitcond968.not, label %._crit_edge873, label %.preheader771.us, !llvm.loop !114
 
 ._crit_edge873:                                   ; preds = %._crit_edge871.us, %.preheader773, %.preheader771.lr.ph, %.loopexit
-  %816 = phi i32 [ %708, %.loopexit ], [ %708, %.preheader771.lr.ph ], [ %614, %.preheader773 ], [ %708, %._crit_edge871.us ]
-  %.pre9921057 = phi i32 [ %.pre992, %.loopexit ], [ %.pre992, %.preheader771.lr.ph ], [ %.pre992.pre995, %.preheader773 ], [ %.pre992, %._crit_edge871.us ]
+  %816 = phi i32 [ %614, %.preheader773 ], [ %708, %.loopexit ], [ %708, %.preheader771.lr.ph ], [ %708, %._crit_edge871.us ]
+  %.pre9921057 = phi i32 [ %.pre992.pre995, %.preheader773 ], [ %.pre992, %.loopexit ], [ %.pre992, %.preheader771.lr.ph ], [ %.pre992, %._crit_edge871.us ]
   %817 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %818 = load ptr, ptr %817, align 8, !tbaa !69
   %819 = shl nsw i32 %.pre9921057, 1
@@ -2308,7 +2308,7 @@ put_dc.exit:                                      ; preds = %1000, %985, %899, %
   store ptr null, ptr %1096, align 8, !tbaa !69
   br label %er_supported.exit.thread
 
-er_supported.exit.thread:                         ; preds = %.loopexit786, %19, %22, %2, %12, %15, %er_supported.exit, %27, %._crit_edge.thread
+er_supported.exit.thread:                         ; preds = %.loopexit786, %22, %19, %2, %12, %15, %er_supported.exit, %27, %._crit_edge.thread
   ret void
 }
 
@@ -3229,7 +3229,7 @@ add_blocklist.exit670.us:                         ; preds = %.add_blocklist.exit
   br i1 %502, label %.preheader750.us, label %.loopexit751.us
 
 .loopexit751.us:                                  ; preds = %544, %500, %497
-  %.0541.us = phi i32 [ 0, %500 ], [ 0, %497 ], [ %554, %544 ]
+  %.0541.us = phi i32 [ 0, %497 ], [ 0, %500 ], [ %554, %544 ]
   br i1 %259, label %503, label %.loopexit749.us
 
 503:                                              ; preds = %.loopexit751.us
@@ -3238,7 +3238,7 @@ add_blocklist.exit670.us:                         ; preds = %.add_blocklist.exit
   br i1 %505, label %.preheader748.us, label %.loopexit749.us
 
 .loopexit749.us:                                  ; preds = %532, %503, %.loopexit751.us
-  %.2.us = phi i32 [ %.0541.us, %503 ], [ %.0541.us, %.loopexit751.us ], [ %543, %532 ]
+  %.2.us = phi i32 [ %.0541.us, %.loopexit751.us ], [ %.0541.us, %503 ], [ %543, %532 ]
   br i1 %268, label %506, label %.loopexit747.us
 
 506:                                              ; preds = %.loopexit749.us
@@ -3247,7 +3247,7 @@ add_blocklist.exit670.us:                         ; preds = %.add_blocklist.exit
   br i1 %508, label %.preheader746.us, label %.loopexit747.us
 
 .loopexit747.us:                                  ; preds = %521, %506, %.loopexit749.us
-  %.4.us = phi i32 [ %.2.us, %506 ], [ %.2.us, %.loopexit749.us ], [ %531, %521 ]
+  %.4.us = phi i32 [ %.2.us, %.loopexit749.us ], [ %.2.us, %506 ], [ %531, %521 ]
   br i1 %278, label %509, label %.loopexit.us
 
 509:                                              ; preds = %.loopexit747.us
@@ -3256,7 +3256,7 @@ add_blocklist.exit670.us:                         ; preds = %.add_blocklist.exit
   br i1 %511, label %.preheader745.us, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %513, %509, %.loopexit747.us
-  %.6.us = phi i32 [ %.4.us, %509 ], [ %.4.us, %.loopexit747.us ], [ %520, %513 ]
+  %.6.us = phi i32 [ %.4.us, %.loopexit747.us ], [ %.4.us, %509 ], [ %520, %513 ]
   %.not648.us = icmp sgt i32 %.6.us, %.0572804.us
   %spec.select663.us = tail call i32 @llvm.smin.i32(i32 %.6.us, i32 %.0572804.us)
   %512 = trunc nuw nsw i64 %indvars.iv883 to i32
@@ -3344,8 +3344,8 @@ add_blocklist.exit670.us:                         ; preds = %.add_blocklist.exit
   br i1 %exitcond861.not, label %.lr.ph787.us.preheader, label %.preheader752.us, !llvm.loop !144
 
 557:                                              ; preds = %469, %465, %377, %285, %237
-  %.2591.us = phi i32 [ %.1590813.us, %237 ], [ %.1590813.us, %285 ], [ 0, %377 ], [ 0, %469 ], [ 0, %465 ]
-  %.2566.us = phi i32 [ %.1565814.us, %237 ], [ %.1565814.us, %285 ], [ %.1565814.us, %377 ], [ %.1565814.us, %469 ], [ %468, %465 ]
+  %.2591.us = phi i32 [ 0, %377 ], [ %.1590813.us, %237 ], [ %.1590813.us, %285 ], [ 0, %469 ], [ 0, %465 ]
+  %.2566.us = phi i32 [ %.1565814.us, %377 ], [ %.1565814.us, %237 ], [ %.1565814.us, %285 ], [ %.1565814.us, %469 ], [ %468, %465 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next897 = add nuw nsw i64 %indvars.iv896, 1

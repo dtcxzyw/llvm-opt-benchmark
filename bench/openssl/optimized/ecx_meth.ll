@@ -327,7 +327,7 @@ define internal range(i32 253, 457) i32 @ecx_bits(ptr noundef readonly captures(
   br label %7
 
 7:                                                ; preds = %1, %1, %6, %5
-  %.0 = phi i32 [ 448, %5 ], [ 456, %6 ], [ 253, %1 ], [ 253, %1 ]
+  %.0 = phi i32 [ 456, %6 ], [ 448, %5 ], [ 253, %1 ], [ 253, %1 ]
   ret i32 %.0
 }
 
@@ -424,7 +424,7 @@ switch.edge27:                                    ; preds = %27
   br label %.thread
 
 .thread:                                          ; preds = %switch.edge27, %27, %27, %30, %15, %24, %4, %11, %5
-  %.1 = phi i32 [ 1, %11 ], [ 0, %5 ], [ -2, %4 ], [ 0, %24 ], [ 0, %15 ], [ 56, %switch.edge27 ], [ 32, %27 ], [ 32, %27 ], [ 57, %30 ]
+  %.1 = phi i32 [ 0, %5 ], [ 0, %15 ], [ -2, %4 ], [ 1, %11 ], [ 0, %24 ], [ 32, %27 ], [ 32, %27 ], [ 57, %30 ], [ 56, %switch.edge27 ]
   ret i32 %.1
 }
 
@@ -1024,7 +1024,7 @@ switch.edge36:                                    ; preds = %46
   br label %56
 
 56:                                               ; preds = %51, %43, %40, %37, %31, %23, %20, %17
-  %.0.shrunk = phi i1 [ %19, %17 ], [ false, %20 ], [ false, %23 ], [ false, %31 ], [ %39, %37 ], [ false, %40 ], [ false, %43 ], [ %55, %51 ]
+  %.0.shrunk = phi i1 [ %19, %17 ], [ %39, %37 ], [ false, %31 ], [ false, %20 ], [ false, %23 ], [ false, %40 ], [ %55, %51 ], [ false, %43 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1314,7 +1314,7 @@ define internal range(i32 -2, 2) i32 @pkey_ecd_ctrl(ptr readnone captures(none) 
   br label %12
 
 12:                                               ; preds = %4, %5, %7, %11, %10
-  %.0 = phi i32 [ -2, %11 ], [ 0, %10 ], [ 1, %7 ], [ 1, %5 ], [ 1, %4 ]
+  %.0 = phi i32 [ -2, %11 ], [ 1, %5 ], [ 0, %10 ], [ 1, %7 ], [ 1, %4 ]
   ret i32 %.0
 }
 

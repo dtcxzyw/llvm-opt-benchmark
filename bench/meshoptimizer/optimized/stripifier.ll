@@ -198,7 +198,7 @@ define dso_local i64 @meshopt_stripify(ptr noundef writeonly captures(none) %0, 
   br i1 %exitcond.not.i, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit.thread, label %.lr.ph.i, !llvm.loop !14
 
 _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit:       ; preds = %81, %88, %94
-  %100 = phi i32 [ %97, %94 ], [ %90, %88 ], [ %84, %81 ]
+  %100 = phi i32 [ %84, %81 ], [ %97, %94 ], [ %90, %88 ]
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit.thread, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221.thread
 
@@ -256,7 +256,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit.thread: ; preds = %98, %_ZN7meshoptL1
   br i1 %exitcond.not.i220, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221.thread, label %.lr.ph.i215, !llvm.loop !14
 
 _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221:    ; preds = %126, %120, %113
-  %132 = phi i32 [ %129, %126 ], [ %122, %120 ], [ %116, %113 ]
+  %132 = phi i32 [ %122, %120 ], [ %116, %113 ], [ %129, %126 ]
   %133 = icmp sgt i32 %132, -1
   br i1 %133, label %134, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit221.thread
 
@@ -399,7 +399,7 @@ _ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit:     ; preds = %.lr.ph.i223, %142
   br i1 %exitcond.not.i232, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit233, label %.lr.ph.i227, !llvm.loop !14
 
 _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit233:    ; preds = %220, %203, %210, %216
-  %222 = phi i32 [ %219, %216 ], [ %212, %210 ], [ %206, %203 ], [ -1, %220 ]
+  %222 = phi i32 [ %206, %203 ], [ %219, %216 ], [ %212, %210 ], [ -1, %220 ]
   %.fr = freeze i32 %222
   br label %.lr.ph.i235
 
@@ -451,7 +451,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit233:    ; preds = %220, %203, %210, %2
   br i1 %exitcond.not.i240, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit241, label %.lr.ph.i235, !llvm.loop !14
 
 _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit241:    ; preds = %248, %231, %238, %244
-  %250 = phi i32 [ %247, %244 ], [ %240, %238 ], [ %234, %231 ], [ -1, %248 ]
+  %250 = phi i32 [ %234, %231 ], [ %247, %244 ], [ %240, %238 ], [ -1, %248 ]
   br label %.lr.ph.i243
 
 .lr.ph.i243:                                      ; preds = %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit241, %276
@@ -502,7 +502,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit241:    ; preds = %248, %231, %238, %2
   br i1 %exitcond.not.i248, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit249.thread, label %.lr.ph.i243, !llvm.loop !14
 
 _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit249.thread: ; preds = %276, %272, %266, %259
-  %278 = phi i32 [ %275, %272 ], [ %268, %266 ], [ %262, %259 ], [ -1, %276 ]
+  %278 = phi i32 [ %262, %259 ], [ %275, %272 ], [ %268, %266 ], [ -1, %276 ]
   %spec.select = tail call i32 @llvm.umin.i32(i32 %.fr, i32 %250)
   %279 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 %278)
   %280 = tail call i32 @llvm.umin.i32(i32 %279, i32 2147483647)
@@ -521,10 +521,10 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit249.thread: ; preds = %276, %272, %266
   br label %.thread318
 
 .thread318:                                       ; preds = %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit, %282, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit249.thread, %286, %284
-  %.3194 = phi i32 [ %278, %286 ], [ %.0191276, %284 ], [ %.fr, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit249.thread ], [ %250, %282 ], [ %.0191276, %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit ]
-  %.0190 = phi i32 [ %173, %286 ], [ %169, %284 ], [ %169, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit249.thread ], [ %171, %282 ], [ %169, %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit ]
-  %.0189 = phi i32 [ %169, %286 ], [ %171, %284 ], [ %171, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit249.thread ], [ %173, %282 ], [ %171, %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit ]
-  %.0188 = phi i32 [ %171, %286 ], [ %173, %284 ], [ %173, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit249.thread ], [ %169, %282 ], [ %173, %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit ]
+  %.3194 = phi i32 [ %.0191276, %284 ], [ %.fr, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit249.thread ], [ %278, %286 ], [ %250, %282 ], [ %.0191276, %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit ]
+  %.0190 = phi i32 [ %169, %284 ], [ %169, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit249.thread ], [ %173, %286 ], [ %171, %282 ], [ %169, %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit ]
+  %.0189 = phi i32 [ %171, %284 ], [ %171, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit249.thread ], [ %169, %286 ], [ %173, %282 ], [ %171, %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit ]
+  %.0188 = phi i32 [ %173, %284 ], [ %173, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit249.thread ], [ %171, %286 ], [ %169, %282 ], [ %173, %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit ]
   %.not207 = icmp eq i64 %.0183277, 0
   br i1 %.not206, label %295, label %287
 
@@ -703,7 +703,7 @@ define dso_local i64 @meshopt_unstripify(ptr noundef writeonly captures(none) %0
   br label %20
 
 20:                                               ; preds = %15, %6, %.lr.ph.split.us
-  %.2.us = phi i64 [ %.053.us, %.lr.ph.split.us ], [ %19, %15 ], [ %.053.us, %6 ]
+  %.2.us = phi i64 [ %.053.us, %6 ], [ %.053.us, %.lr.ph.split.us ], [ %19, %15 ]
   %21 = add nuw i64 %.04151.us, 1
   %exitcond56.not = icmp eq i64 %21, %2
   br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !21

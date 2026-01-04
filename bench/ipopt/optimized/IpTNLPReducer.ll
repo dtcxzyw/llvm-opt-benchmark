@@ -1080,7 +1080,7 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer12get_nlp_infoERiS1_S1_S1_RNS_4
   br label %134
 
 134:                                              ; preds = %.thread, %6, %129
-  %.038 = phi i1 [ true, %129 ], [ false, %6 ], [ false, %.thread ]
+  %.038 = phi i1 [ true, %129 ], [ false, %.thread ], [ false, %6 ]
   ret i1 %.038
 }
 
@@ -1712,8 +1712,8 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer10eval_jac_gEiPKdbiiPiS3_Pd(ptr
   br i1 %exitcond.not, label %.loopexit, label %99, !llvm.loop !58
 
 .loopexit:                                        ; preds = %113, %79, %.preheader, %78
-  %.sink = phi ptr [ %23, %78 ], [ %86, %.preheader ], [ %86, %79 ], [ %86, %113 ]
-  %.050.in = phi i1 [ %31, %78 ], [ true, %.preheader ], [ false, %79 ], [ true, %113 ]
+  %.sink = phi ptr [ %23, %78 ], [ %86, %79 ], [ %86, %.preheader ], [ %86, %113 ]
+  %.050.in = phi i1 [ %31, %78 ], [ false, %79 ], [ true, %.preheader ], [ true, %113 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink) #10
   ret i1 %.050.in
 }
@@ -2185,7 +2185,7 @@ define linkonce_odr void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_less_iter
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !62
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %40, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.018.i.i.us, %40 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.01317.i.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %40 ]
   %43 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.us
   store i32 %21, ptr %43, align 4, !tbaa !29
   %.not.us = icmp eq i64 %.013.us, 0

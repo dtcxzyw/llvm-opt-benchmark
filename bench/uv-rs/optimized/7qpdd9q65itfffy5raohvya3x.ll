@@ -542,7 +542,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17h4e56a4da1c05
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6
@@ -735,7 +735,7 @@ define hidden void @_ZN8schemars8_private22insert_object_property17heffcc26fedec
   br label %46
 
 .body.thread:                                     ; preds = %58, %61, %37, %33
-  %eh.lpad-body19 = phi { ptr, i32 } [ %34, %33 ], [ %34, %37 ], [ %lpad.thr_comm.split-lp, %61 ], [ %lpad.thr_comm.split-lp, %58 ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %58 ], [ %34, %37 ], [ %34, %33 ], [ %lpad.thr_comm.split-lp, %61 ]
   resume { ptr, i32 } %eh.lpad-body19
 
 58:                                               ; preds = %24, %6

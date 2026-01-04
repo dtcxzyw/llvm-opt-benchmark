@@ -183,7 +183,7 @@ define ptr @pxr_nc_1_0_GetDescription(ptr noundef readonly captures(address_is_n
   br label %57
 
 57:                                               ; preds = %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %21, %18, %15, %12, %9, %6, %2, %1
-  %.0 = phi ptr [ null, %1 ], [ @.str, %2 ], [ @.str.1, %6 ], [ @.str.2, %9 ], [ @.str.3, %12 ], [ @.str.4, %15 ], [ @.str.5, %18 ], [ @.str.6, %21 ], [ @.str.7, %24 ], [ @.str.8, %27 ], [ @.str.9, %30 ], [ @.str.10, %33 ], [ @.str.11, %36 ], [ @.str.12, %39 ], [ @.str.13, %42 ], [ @.str.14, %45 ], [ @.str.15, %48 ], [ @.str.16, %51 ], [ %.str.17., %54 ]
+  %.0 = phi ptr [ @.str.16, %51 ], [ %.str.17., %54 ], [ @.str.15, %48 ], [ @.str.14, %45 ], [ @.str.13, %42 ], [ @.str.12, %39 ], [ @.str.11, %36 ], [ @.str.10, %33 ], [ @.str.9, %30 ], [ @.str.8, %27 ], [ @.str.7, %24 ], [ @.str.6, %21 ], [ @.str.5, %18 ], [ @.str.4, %15 ], [ @.str.3, %12 ], [ @.str.2, %9 ], [ @.str.1, %6 ], [ @.str, %2 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -254,7 +254,7 @@ define zeroext i1 @pxr_nc_1_0_ColorSpaceEqual(ptr noundef readonly captures(addr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %30, %22, %5, %8, %2
-  %.017 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %5 ], [ false, %22 ], [ %37, %30 ], [ false, %14 ]
+  %.017 = phi i1 [ false, %2 ], [ false, %22 ], [ false, %5 ], [ false, %8 ], [ %37, %30 ], [ false, %14 ]
   ret i1 %.017
 }
 
@@ -2937,7 +2937,7 @@ define noundef zeroext i1 @pxr_nc_1_0_GetColorSpaceDescriptor(ptr noundef readon
   br label %10
 
 10:                                               ; preds = %5, %2, %9
-  %.0 = phi i1 [ true, %9 ], [ false, %2 ], [ false, %5 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %9 ], [ false, %5 ]
   ret i1 %.0
 }
 

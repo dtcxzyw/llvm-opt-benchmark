@@ -572,7 +572,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit99:               ; preds = %186
   br label %206
 
 206:                                              ; preds = %202, %204
-  %.pn56.pn = phi { ptr, i32 } [ %205, %204 ], [ %203, %202 ]
+  %.pn56.pn = phi { ptr, i32 } [ %203, %202 ], [ %205, %204 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %255
@@ -597,7 +597,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit99:               ; preds = %186
   br label %213
 
 213:                                              ; preds = %209, %211
-  %.pn63.pn = phi { ptr, i32 } [ %212, %211 ], [ %210, %209 ]
+  %.pn63.pn = phi { ptr, i32 } [ %210, %209 ], [ %212, %211 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %255
@@ -704,7 +704,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit99:               ; preds = %186
   br label %245
 
 245:                                              ; preds = %243, %.body
-  %.pn82.pn = phi { ptr, i32 } [ %182, %.body ], [ %244, %243 ]
+  %.pn82.pn = phi { ptr, i32 } [ %244, %243 ], [ %182, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %254

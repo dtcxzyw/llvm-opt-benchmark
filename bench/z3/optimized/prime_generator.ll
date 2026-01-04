@@ -507,7 +507,7 @@ _ZN6vectorImLb0EjED2Ev.exit:                      ; preds = %.critedge, %.prehea
   ret void
 
 .body:                                            ; preds = %136, %121, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %39, %162
-  %.pn63.pn = phi { ptr, i32 } [ %40, %39 ], [ %163, %162 ], [ %137, %136 ], [ %116, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %122, %121 ]
+  %.pn63.pn = phi { ptr, i32 } [ %122, %121 ], [ %40, %39 ], [ %116, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %163, %162 ], [ %137, %136 ]
   call void @_ZN6vectorImLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn63.pn
@@ -675,7 +675,7 @@ _ZNK6vectorImLb0EjE4sizeEv.exit14:                ; preds = %.critedge, %22
   br label %.critedge, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit14, %_ZNK6vectorImLb0EjE4sizeEv.exit12, %_ZNK6vectorImLb0EjE4sizeEv.exit
-  %.lcssa.sink = phi ptr [ %3, %_ZNK6vectorImLb0EjE4sizeEv.exit ], [ %15, %_ZNK6vectorImLb0EjE4sizeEv.exit12 ], [ %20, %_ZNK6vectorImLb0EjE4sizeEv.exit14 ]
+  %.lcssa.sink = phi ptr [ %15, %_ZNK6vectorImLb0EjE4sizeEv.exit12 ], [ %3, %_ZNK6vectorImLb0EjE4sizeEv.exit ], [ %20, %_ZNK6vectorImLb0EjE4sizeEv.exit14 ]
   %26 = zext i32 %1 to i64
   %27 = getelementptr inbounds nuw i64, ptr %.lcssa.sink, i64 %26
   %.0 = load i64, ptr %27, align 8, !tbaa !11

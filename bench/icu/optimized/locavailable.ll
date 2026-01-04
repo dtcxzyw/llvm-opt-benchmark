@@ -477,7 +477,7 @@ _ZN6icu_7712LocalPointerIN12_GLOBAL__N_133AvailableLocalesStringEnumerationEEC2E
   br label %_ZN6icu_7712LocalPointerIN12_GLOBAL__N_133AvailableLocalesStringEnumerationEED2Ev.exit23
 
 _ZN6icu_7712LocalPointerIN12_GLOBAL__N_133AvailableLocalesStringEnumerationEED2Ev.exit23: ; preds = %14, %17, %23, %25, %7, %2, %6
-  %.016 = phi ptr [ null, %6 ], [ null, %2 ], [ null, %7 ], [ null, %25 ], [ %24, %23 ], [ null, %17 ], [ null, %14 ]
+  %.016 = phi ptr [ null, %7 ], [ null, %6 ], [ null, %2 ], [ null, %25 ], [ %24, %23 ], [ null, %17 ], [ null, %14 ]
   ret ptr %.016
 }
 
@@ -715,7 +715,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_133AvailableLocalesStringEnumerati
   br label %17
 
 17:                                               ; preds = %2, %13, %9
-  %.0 = phi i32 [ %12, %9 ], [ %16, %13 ], [ 0, %2 ]
+  %.0 = phi i32 [ %16, %13 ], [ %12, %9 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -777,7 +777,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_133AvailableLocalesStringEnumeratio
   br label %32
 
 32:                                               ; preds = %.sink.split, %22, %31, %3
-  %.017 = phi ptr [ null, %3 ], [ %27, %22 ], [ null, %31 ], [ %.017.ph, %.sink.split ]
+  %.017 = phi ptr [ null, %3 ], [ null, %31 ], [ %27, %22 ], [ %.017.ph, %.sink.split ]
   ret ptr %.017
 }
 

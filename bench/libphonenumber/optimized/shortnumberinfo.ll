@@ -747,7 +747,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumb
   br label %152
 
 152:                                              ; preds = %.body, %150, %148, %146, %62, %56
-  %.pn18.pn.pn.pn.pn = phi { ptr, i32 } [ %151, %150 ], [ %149, %148 ], [ %147, %146 ], [ %.pn, %62 ], [ %57, %56 ], [ %.pn18, %.body ]
+  %.pn18.pn.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %151, %150 ], [ %149, %148 ], [ %147, %146 ], [ %.pn, %62 ], [ %.pn18, %.body ]
   call void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #27
   br label %153
 
@@ -1407,7 +1407,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   br i1 %.not.i.i.i, label %_ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_ET_S8_S8_RKT0_.exit, label %.lr.ph.i.split.i.i, !llvm.loop !163
 
 _ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_ET_S8_S8_RKT0_.exit: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclISt14_List_iteratorIS7_EEEbT_.exit.thread5.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclISt14_List_iteratorIS7_EEEbT_.exit.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclISt14_List_iteratorIS7_EEEbT_.exit.thread5.i.us.i.i, %.lr.ph.i.split.us.i.i
-  %.sroa.03.0.lcssa.i.i.i = phi ptr [ %.sroa.03.07.i.us.i.i, %.lr.ph.i.split.us.i.i ], [ %4, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclISt14_List_iteratorIS7_EEEbT_.exit.thread5.i.us.i.i ], [ %.sroa.03.07.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclISt14_List_iteratorIS7_EEEbT_.exit.i.i.i ], [ %4, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclISt14_List_iteratorIS7_EEEbT_.exit.thread5.i.i.i ]
+  %.sroa.03.0.lcssa.i.i.i = phi ptr [ %4, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclISt14_List_iteratorIS7_EEEbT_.exit.thread5.i.us.i.i ], [ %.sroa.03.07.i.us.i.i, %.lr.ph.i.split.us.i.i ], [ %4, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclISt14_List_iteratorIS7_EEEbT_.exit.thread5.i.i.i ], [ %.sroa.03.07.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclISt14_List_iteratorIS7_EEEbT_.exit.i.i.i ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZSt4findISt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_ET_S8_S8_RKT0_.exit, %_ZNSt16allocator_traitsISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7destroyIS6_EEvRS8_PT_.exit.i.i
@@ -1628,7 +1628,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit48: ; preds = %38
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit:                ; preds = %34, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit46, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit48, %72, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %58
-  %.028.i.i.i = phi ptr [ %29, %72 ], [ %.029.lcssa.i.i.i, %58 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %73, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %74, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit46 ], [ %75, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit48 ], [ %.02946.i.i.i, %34 ]
+  %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %29, %72 ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %.029.lcssa.i.i.i, %58 ], [ %75, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit48 ], [ %73, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %74, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit46 ], [ %.02946.i.i.i, %34 ]
   %76 = icmp ne ptr %.028.i.i.i, %29
   %77 = load ptr, ptr %4, align 8, !tbaa !26
   %78 = icmp eq ptr %77, %17
@@ -1857,7 +1857,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit81: ; preds = %49
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit:                ; preds = %45, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit79, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit81, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %69
-  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %69 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %83, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %84, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit79 ], [ %85, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit81 ], [ %.02946.i.i.i, %45 ]
+  %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.029.lcssa.i.i.i, %69 ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %85, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit81 ], [ %84, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit79 ], [ %83, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %45 ]
   %.not33 = icmp eq ptr %.028.i.i.i, %40
   br i1 %.not33, label %_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.critedge
 
@@ -2083,7 +2083,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit86: ; preds = %51
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.i:              ; preds = %37, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit84, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit86, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %61
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %61 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %75, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit ], [ %76, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit84 ], [ %77, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit86 ], [ %.02946.i.i.i.i, %37 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %61 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %77, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit86 ], [ %75, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit ], [ %76, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit84 ], [ %.02946.i.i.i.i, %37 ]
   %78 = icmp eq ptr %.028.i.i.i.i, %33
   br i1 %78, label %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit43, label %.critedge.i
 
@@ -2223,7 +2223,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.i35.loopexit.split.loop.exit94: ; preds = %117
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i35
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.i35:            ; preds = %103, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i35.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i35.loopexit.split.loop.exit92, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i35.loopexit.split.loop.exit94, %._crit_edge._crit_edge52.i.i.i.i33, %._crit_edge._crit_edge.i.i.i.i37, %127
-  %.028.i.i.i.i36 = phi ptr [ %.029.lcssa.i.i.i.i32, %127 ], [ %.1.i.i.i.i38, %._crit_edge._crit_edge.i.i.i.i37 ], [ %.2.i.i.i.i34, %._crit_edge._crit_edge52.i.i.i.i33 ], [ %141, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i35.loopexit.split.loop.exit ], [ %142, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i35.loopexit.split.loop.exit92 ], [ %143, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i35.loopexit.split.loop.exit94 ], [ %.02946.i.i.i.i28, %103 ]
+  %.028.i.i.i.i36 = phi ptr [ %.1.i.i.i.i38, %._crit_edge._crit_edge.i.i.i.i37 ], [ %.029.lcssa.i.i.i.i32, %127 ], [ %.2.i.i.i.i34, %._crit_edge._crit_edge52.i.i.i.i33 ], [ %143, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i35.loopexit.split.loop.exit94 ], [ %141, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i35.loopexit.split.loop.exit ], [ %142, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i35.loopexit.split.loop.exit92 ], [ %.02946.i.i.i.i28, %103 ]
   %144 = icmp eq ptr %.028.i.i.i.i36, %99
   br i1 %144, label %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit43, label %.critedge.i21
 
@@ -2239,8 +2239,8 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.i35:            ; preds = %103, %_ZSt4findIPKi
           cleanup
   br label %155
 
-_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit43: ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i35, %._crit_edge._crit_edge52.i.i.i.i33, %._crit_edge.i.i.i.i30, %.critedge.i21, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit
-  %.2 = phi i1 [ false, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit ], [ false, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i35 ], [ false, %._crit_edge.i.i.i.i30 ], [ false, %._crit_edge._crit_edge52.i.i.i.i33 ], [ %148, %.critedge.i21 ], [ false, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i ], [ false, %._crit_edge.i.i.i.i ], [ false, %._crit_edge._crit_edge52.i.i.i.i ]
+_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit43: ; preds = %._crit_edge.i.i.i.i, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i, %._crit_edge._crit_edge52.i.i.i.i, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i35, %._crit_edge._crit_edge52.i.i.i.i33, %._crit_edge.i.i.i.i30, %.critedge.i21, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit
+  %.2 = phi i1 [ false, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit ], [ %148, %.critedge.i21 ], [ false, %._crit_edge._crit_edge52.i.i.i.i33 ], [ false, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i35 ], [ false, %._crit_edge.i.i.i.i30 ], [ false, %._crit_edge._crit_edge52.i.i.i.i ], [ false, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i ], [ false, %._crit_edge.i.i.i.i ]
   %151 = load ptr, ptr %4, align 8, !tbaa !26
   %152 = icmp eq ptr %151, %17
   br i1 %152, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -2573,7 +2573,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit72: ; preds = %63
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.i:              ; preds = %49, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit70, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit72, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %73
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %73 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %87, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit ], [ %88, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit70 ], [ %89, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit72 ], [ %.02946.i.i.i.i, %49 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %73 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %89, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit72 ], [ %87, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit ], [ %88, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit70 ], [ %.02946.i.i.i.i, %49 ]
   %90 = icmp eq ptr %.028.i.i.i.i, %45
   br i1 %90, label %_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.critedge.i
 
@@ -2601,7 +2601,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKN
           cleanup
   br label %104
 
-_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i, %.noexc, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit
+_ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %._crit_edge.i.i.i.i, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i, %._crit_edge._crit_edge52.i.i.i.i, %.noexc, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit
   %.sroa.034.0 = load ptr, ptr %.sroa.034.052, align 8, !tbaa !149
   %.not = icmp eq ptr %.sroa.034.0, %2
   br i1 %.not, label %.critedge26, label %23
@@ -2793,7 +2793,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit152: ; preds = %38
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit:                ; preds = %34, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit150, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit152, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %58
-  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %58 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %72, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %73, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit150 ], [ %74, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit152 ], [ %.02946.i.i.i, %34 ]
+  %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.029.lcssa.i.i.i, %58 ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %74, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit152 ], [ %73, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit150 ], [ %72, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %34 ]
   %75 = icmp eq ptr %.028.i.i.i, %29
   br i1 %75, label %_ZSt4findIPKimET_S2_S2_RKT0_.exit.thread, label %80
 
@@ -2923,7 +2923,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit160: ; preds = %110
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.i:              ; preds = %96, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit158, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit160, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %120
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %120 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %134, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit ], [ %135, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit158 ], [ %136, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit160 ], [ %.02946.i.i.i.i, %96 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %120 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %136, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit160 ], [ %134, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit ], [ %135, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit158 ], [ %.02946.i.i.i.i, %96 ]
   %137 = icmp eq ptr %.028.i.i.i.i, %93
   br i1 %137, label %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit.thread, label %.critedge.i
 
@@ -2941,8 +2941,8 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKN
   %.pre = load ptr, ptr %81, align 8, !tbaa !33
   br label %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit.thread
 
-_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit.thread: ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit._ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit.thread_crit_edge, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i
-  %142 = phi ptr [ %.pre, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit._ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit.thread_crit_edge ], [ %82, %._crit_edge._crit_edge52.i.i.i.i ], [ %82, %._crit_edge.i.i.i.i ], [ %82, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i ]
+_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit.thread: ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit._ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit.thread_crit_edge, %._crit_edge.i.i.i.i, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i, %._crit_edge._crit_edge52.i.i.i.i
+  %142 = phi ptr [ %.pre, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit._ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit.thread_crit_edge ], [ %82, %._crit_edge.i.i.i.i ], [ %82, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i ], [ %82, %._crit_edge._crit_edge52.i.i.i.i ]
   %143 = getelementptr inbounds nuw i8, ptr %11, i64 280
   %144 = load ptr, ptr %143, align 8, !tbaa !179
   %.not.i.i25 = icmp eq ptr %144, null
@@ -3057,7 +3057,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.i40.loopexit.split.loop.exit168: ; preds = %17
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i40
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.i40:            ; preds = %157, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i40.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i40.loopexit.split.loop.exit166, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i40.loopexit.split.loop.exit168, %._crit_edge._crit_edge52.i.i.i.i38, %._crit_edge._crit_edge.i.i.i.i42, %181
-  %.028.i.i.i.i41 = phi ptr [ %.029.lcssa.i.i.i.i37, %181 ], [ %.1.i.i.i.i43, %._crit_edge._crit_edge.i.i.i.i42 ], [ %.2.i.i.i.i39, %._crit_edge._crit_edge52.i.i.i.i38 ], [ %195, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i40.loopexit.split.loop.exit ], [ %196, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i40.loopexit.split.loop.exit166 ], [ %197, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i40.loopexit.split.loop.exit168 ], [ %.02946.i.i.i.i33, %157 ]
+  %.028.i.i.i.i41 = phi ptr [ %.1.i.i.i.i43, %._crit_edge._crit_edge.i.i.i.i42 ], [ %.029.lcssa.i.i.i.i37, %181 ], [ %.2.i.i.i.i39, %._crit_edge._crit_edge52.i.i.i.i38 ], [ %197, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i40.loopexit.split.loop.exit168 ], [ %195, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i40.loopexit.split.loop.exit ], [ %196, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i40.loopexit.split.loop.exit166 ], [ %.02946.i.i.i.i33, %157 ]
   %198 = icmp eq ptr %.028.i.i.i.i41, %153
   br i1 %198, label %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit48.thread, label %.critedge.i26
 
@@ -3075,8 +3075,8 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKN
   %.pre135 = load ptr, ptr %81, align 8, !tbaa !33
   br label %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit48.thread
 
-_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit48.thread: ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit48._ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit48.thread_crit_edge, %._crit_edge._crit_edge52.i.i.i.i38, %._crit_edge.i.i.i.i35, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i40
-  %203 = phi ptr [ %.pre135, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit48._ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit48.thread_crit_edge ], [ %142, %._crit_edge._crit_edge52.i.i.i.i38 ], [ %142, %._crit_edge.i.i.i.i35 ], [ %142, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i40 ]
+_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit48.thread: ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit48._ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit48.thread_crit_edge, %._crit_edge.i.i.i.i35, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i40, %._crit_edge._crit_edge52.i.i.i.i38
+  %203 = phi ptr [ %.pre135, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit48._ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit48.thread_crit_edge ], [ %142, %._crit_edge.i.i.i.i35 ], [ %142, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i40 ], [ %142, %._crit_edge._crit_edge52.i.i.i.i38 ]
   %204 = getelementptr inbounds nuw i8, ptr %11, i64 192
   %205 = load ptr, ptr %204, align 8, !tbaa !180
   %.not.i.i49 = icmp eq ptr %205, null
@@ -3191,7 +3191,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.i64.loopexit.split.loop.exit176: ; preds = %23
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i64
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.i64:            ; preds = %218, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i64.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i64.loopexit.split.loop.exit174, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i64.loopexit.split.loop.exit176, %._crit_edge._crit_edge52.i.i.i.i62, %._crit_edge._crit_edge.i.i.i.i66, %242
-  %.028.i.i.i.i65 = phi ptr [ %.029.lcssa.i.i.i.i61, %242 ], [ %.1.i.i.i.i67, %._crit_edge._crit_edge.i.i.i.i66 ], [ %.2.i.i.i.i63, %._crit_edge._crit_edge52.i.i.i.i62 ], [ %256, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i64.loopexit.split.loop.exit ], [ %257, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i64.loopexit.split.loop.exit174 ], [ %258, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i64.loopexit.split.loop.exit176 ], [ %.02946.i.i.i.i57, %218 ]
+  %.028.i.i.i.i65 = phi ptr [ %.1.i.i.i.i67, %._crit_edge._crit_edge.i.i.i.i66 ], [ %.029.lcssa.i.i.i.i61, %242 ], [ %.2.i.i.i.i63, %._crit_edge._crit_edge52.i.i.i.i62 ], [ %258, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i64.loopexit.split.loop.exit176 ], [ %256, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i64.loopexit.split.loop.exit ], [ %257, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i64.loopexit.split.loop.exit174 ], [ %.02946.i.i.i.i57, %218 ]
   %259 = icmp eq ptr %.028.i.i.i.i65, %214
   br i1 %259, label %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit72.thread, label %.critedge.i50
 
@@ -3205,7 +3205,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.i64:            ; preds = %218, %_ZSt4findIPKi
 _ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit72: ; preds = %.critedge.i50
   br i1 %263, label %_ZSt4findIPKimET_S2_S2_RKT0_.exit.thread, label %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit72.thread
 
-_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit72.thread: ; preds = %._crit_edge._crit_edge52.i.i.i.i62, %._crit_edge.i.i.i.i59, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i64, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit72
+_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit72.thread: ; preds = %._crit_edge.i.i.i.i59, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i64, %._crit_edge._crit_edge52.i.i.i.i62, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit72
   %264 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers15ShortNumberInfo28MatchesEmergencyNumberHelperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_b(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext false)
           to label %_ZNK4i18n12phonenumbers15ShortNumberInfo17IsEmergencyNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit unwind label %78
 
@@ -3214,7 +3214,7 @@ _ZNK4i18n12phonenumbers15ShortNumberInfo17IsEmergencyNumberERKNSt7__cxx1112basic
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit.thread
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.thread:         ; preds = %._crit_edge._crit_edge52.i.i.i, %._crit_edge.i.i.i, %_ZNK4i18n12phonenumbers15ShortNumberInfo17IsEmergencyNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit72, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit48, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit
-  %.2 = phi i32 [ 3, %_ZSt4findIPKimET_S2_S2_RKT0_.exit ], [ 2, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit ], [ 1, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit48 ], [ 0, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit72 ], [ %., %_ZNK4i18n12phonenumbers15ShortNumberInfo17IsEmergencyNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ 3, %._crit_edge.i.i.i ], [ 3, %._crit_edge._crit_edge52.i.i.i ]
+  %.2 = phi i32 [ 0, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit72 ], [ 3, %_ZSt4findIPKimET_S2_S2_RKT0_.exit ], [ 2, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit ], [ 1, %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit48 ], [ %., %_ZNK4i18n12phonenumbers15ShortNumberInfo17IsEmergencyNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ], [ 3, %._crit_edge.i.i.i ], [ 3, %._crit_edge._crit_edge52.i.i.i ]
   %265 = load ptr, ptr %4, align 8, !tbaa !26
   %266 = icmp eq ptr %265, %17
   br i1 %266, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -3327,7 +3327,7 @@ default.unreachable54:                            ; preds = %19
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %19, %19, %23, %.preheader, %9, %13
-  %.0 = phi i32 [ 3, %9 ], [ %16, %13 ], [ 0, %.preheader ], [ %18, %19 ], [ %.330.ph, %23 ], [ %18, %19 ]
+  %.0 = phi i32 [ %16, %13 ], [ 3, %9 ], [ 0, %.preheader ], [ %18, %19 ], [ %.330.ph, %23 ], [ %18, %19 ]
   %24 = load ptr, ptr %3, align 8, !tbaa !149
   %.not8.i.i = icmp eq ptr %24, %3
   br i1 %.not8.i.i, label %_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %.lr.ph.i.i
@@ -3682,7 +3682,7 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers15ShortNumberInfo28M
   br label %63
 
 _ZNK4i18n12phonenumbers15ShortNumberInfo20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.noexc, %25, %45, %12
-  %.0 = phi i1 [ false, %12 ], [ false, %25 ], [ %54, %45 ], [ false, %.noexc ]
+  %.0 = phi i1 [ false, %12 ], [ %54, %45 ], [ false, %25 ], [ false, %.noexc ]
   %59 = load ptr, ptr %5, align 8, !tbaa !26
   %60 = icmp eq ptr %59, %6
   br i1 %60, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -4105,7 +4105,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit57: ; preds = %59
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.i:              ; preds = %45, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit55, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit57, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %69
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %69 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %83, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit ], [ %84, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit55 ], [ %85, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit57 ], [ %.02946.i.i.i.i, %45 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %69 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %85, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit57 ], [ %83, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit ], [ %84, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit55 ], [ %.02946.i.i.i.i, %45 ]
   %86 = icmp eq ptr %.028.i.i.i.i, %41
   br i1 %86, label %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit, label %.critedge.i
 
@@ -4117,7 +4117,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.i:              ; preds = %45, %_ZSt4findIPKim
           to label %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit unwind label %114
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit: ; preds = %.noexc, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i, %.critedge.i
-  %91 = phi i1 [ false, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i ], [ false, %._crit_edge.i.i.i.i ], [ false, %._crit_edge._crit_edge52.i.i.i.i ], [ %90, %.critedge.i ], [ false, %.noexc ]
+  %91 = phi i1 [ %90, %.critedge.i ], [ false, %._crit_edge._crit_edge52.i.i.i.i ], [ false, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i ], [ false, %._crit_edge.i.i.i.i ], [ false, %.noexc ]
   %92 = load ptr, ptr %5, align 8, !tbaa !26
   %93 = icmp eq ptr %92, %15
   br i1 %93, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -4384,7 +4384,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit41: ; preds = %51
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.i:              ; preds = %37, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit39, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit41, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %61
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %61 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %75, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit ], [ %76, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit39 ], [ %77, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit41 ], [ %.02946.i.i.i.i, %37 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %61 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %77, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit41 ], [ %75, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit ], [ %76, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit39 ], [ %.02946.i.i.i.i, %37 ]
   %78 = icmp eq ptr %.028.i.i.i.i, %33
   br i1 %78, label %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit, label %.critedge.i
 
@@ -4396,7 +4396,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.i:              ; preds = %37, %_ZSt4findIPKim
           to label %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit unwind label %90
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit: ; preds = %.noexc, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i, %.critedge.i
-  %83 = phi i1 [ false, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i ], [ false, %._crit_edge.i.i.i.i ], [ false, %._crit_edge._crit_edge52.i.i.i.i ], [ %82, %.critedge.i ], [ false, %.noexc ]
+  %83 = phi i1 [ %82, %.critedge.i ], [ false, %._crit_edge._crit_edge52.i.i.i.i ], [ false, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i ], [ false, %._crit_edge.i.i.i.i ], [ false, %.noexc ]
   %84 = load ptr, ptr %4, align 8, !tbaa !26
   %85 = icmp eq ptr %84, %7
   br i1 %85, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -4597,7 +4597,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit41: ; preds = %51
   br label %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i
 
 _ZSt4findIPKimET_S2_S2_RKT0_.exit.i:              ; preds = %37, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit39, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit41, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %61
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %61 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %75, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit ], [ %76, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit39 ], [ %77, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit41 ], [ %.02946.i.i.i.i, %37 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %61 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %77, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit41 ], [ %75, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit ], [ %76, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i.loopexit.split.loop.exit39 ], [ %.02946.i.i.i.i, %37 ]
   %78 = icmp eq ptr %.028.i.i.i.i, %33
   br i1 %78, label %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit, label %.critedge.i
 
@@ -4609,7 +4609,7 @@ _ZSt4findIPKimET_S2_S2_RKT0_.exit.i:              ; preds = %37, %_ZSt4findIPKim
           to label %_ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit unwind label %90
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_138MatchesPossibleNumberAndNationalNumberERKNS0_10MatcherApiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_15PhoneNumberDescE.exit: ; preds = %.noexc, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i, %.critedge.i
-  %83 = phi i1 [ false, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i ], [ false, %._crit_edge.i.i.i.i ], [ false, %._crit_edge._crit_edge52.i.i.i.i ], [ %82, %.critedge.i ], [ false, %.noexc ]
+  %83 = phi i1 [ %82, %.critedge.i ], [ false, %._crit_edge._crit_edge52.i.i.i.i ], [ false, %_ZSt4findIPKimET_S2_S2_RKT0_.exit.i ], [ false, %._crit_edge.i.i.i.i ], [ false, %.noexc ]
   %84 = load ptr, ptr %4, align 8, !tbaa !26
   %85 = icmp eq ptr %84, %7
   br i1 %85, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

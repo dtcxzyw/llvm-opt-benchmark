@@ -4702,7 +4702,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %51, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %51 ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %51 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   store ptr %.fca.0.extract26, ptr %8, align 8, !tbaa !24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %.fca.1.extract27, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !26
@@ -5153,7 +5153,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread:             ; preds = %_ZN4llvm5SDLocC2EPK
   br label %63
 
 63:                                               ; preds = %_ZNK4llvm3EVT6bitsGEES0_.exit.thread76, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread, %_ZNK4llvm3EVT6bitsGEES0_.exit
-  %.1 = phi i32 [ 717, %_ZNK4llvm3EVT6bitsGEES0_.exit ], [ %62, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread ], [ 717, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread76 ]
+  %.1 = phi i32 [ 717, %_ZNK4llvm3EVT6bitsGEES0_.exit ], [ 717, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread76 ], [ %62, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %64 = icmp samesign ult i64 %indvars.iv86, 9
   %65 = icmp eq i32 %.1, 717
@@ -6332,7 +6332,7 @@ define hidden noundef zeroext i1 @_ZN4llvm16DAGTypeLegalizer18SoftenFloatOperand
   br label %98
 
 98:                                               ; preds = %95, %94, %97
-  %.0 = phi i1 [ false, %97 ], [ false, %94 ], [ true, %95 ]
+  %.0 = phi i1 [ false, %94 ], [ false, %97 ], [ true, %95 ]
   ret i1 %.0
 }
 
@@ -7927,7 +7927,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread.us51:        ; preds = %_ZNK4llvm3EVT6bitsG
   br label %40
 
 40:                                               ; preds = %_ZNK4llvm3EVT6bitsGEES0_.exit.thread.us51, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread31.us50, %_ZNK4llvm3EVT6bitsGEES0_.exit.us47
-  %.1.us52 = phi i32 [ 717, %_ZNK4llvm3EVT6bitsGEES0_.exit.us47 ], [ %39, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread.us51 ], [ 717, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread31.us50 ]
+  %.1.us52 = phi i32 [ 717, %_ZNK4llvm3EVT6bitsGEES0_.exit.us47 ], [ 717, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread31.us50 ], [ %39, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread.us51 ]
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %41 = icmp samesign ult i64 %indvars.iv61, 9
   %42 = icmp eq i32 %.1.us52, 717
@@ -7935,7 +7935,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread.us51:        ; preds = %_ZNK4llvm3EVT6bitsG
   br i1 %43, label %_ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i.us38, label %.split35.us, !llvm.loop !274
 
 .split35.us:                                      ; preds = %50, %40, %29, %19
-  %.us-phi = phi i32 [ %.1.us.us, %19 ], [ %.1.us, %29 ], [ %.1.us52, %40 ], [ %.1, %50 ]
+  %.us-phi = phi i32 [ %.1.us52, %40 ], [ %.1.us, %29 ], [ %.1.us.us, %19 ], [ %.1, %50 ]
   ret i32 %.us-phi
 
 .split.split:                                     ; preds = %.split, %50
@@ -7975,7 +7975,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread:             ; preds = %.split.split, %_ZNK
   br label %50
 
 50:                                               ; preds = %_ZNK4llvm3EVT6bitsGEES0_.exit.thread31, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread, %_ZNK4llvm3EVT6bitsGEES0_.exit
-  %.1 = phi i32 [ 717, %_ZNK4llvm3EVT6bitsGEES0_.exit ], [ %49, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread ], [ 717, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread31 ]
+  %.1 = phi i32 [ 717, %_ZNK4llvm3EVT6bitsGEES0_.exit ], [ 717, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread31 ], [ %49, %_ZNK4llvm3EVT6bitsGEES0_.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = icmp samesign ult i64 %indvars.iv, 9
   %52 = icmp eq i32 %.1, 717
@@ -11177,7 +11177,7 @@ define hidden noundef zeroext i1 @_ZN4llvm16DAGTypeLegalizer18ExpandFloatOperand
   br label %52
 
 52:                                               ; preds = %49, %48, %3, %51
-  %.0 = phi i1 [ false, %51 ], [ false, %3 ], [ false, %48 ], [ true, %49 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %48 ], [ false, %51 ], [ true, %49 ]
   ret i1 %.0
 }
 
@@ -13151,7 +13151,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %72 = load ptr, ptr %71, align 8, !tbaa !50
@@ -14476,7 +14476,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   store ptr %.sroa.04.0.copyload.i, ptr %8, align 8, !tbaa !24
   %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %.sroa.25.0.copyload.i, ptr %.sroa.555.0..sroa_idx, align 8, !tbaa !26
@@ -14699,7 +14699,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   store ptr %.sroa.04.0.copyload.i, ptr %8, align 8, !tbaa !24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %.sroa.25.0.copyload.i, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !26
@@ -15055,7 +15055,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %55 = load ptr, ptr %54, align 8, !tbaa !50
@@ -15250,7 +15250,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm5APIntD2Ev.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm5APIntD2Ev.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm5APIntD2Ev.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   store ptr %.fca.0.extract15, ptr %7, align 8, !tbaa !24
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %.fca.1.extract16, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !26
@@ -15734,7 +15734,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZNK4llvm3EVT20getVectorElementTypeEv.exit160, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit160 ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit160 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %215 = load ptr, ptr %20, align 8, !tbaa !50
   store ptr %215, ptr %18, align 8, !tbaa !50
@@ -15767,7 +15767,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %223
 
-.critedge:                                        ; preds = %176, %_ZN4llvm16DAGTypeLegalizer16GetWidenedVectorENS_7SDValueE.exit, %_ZN4llvm16DAGTypeLegalizer19GetScalarizedVectorENS_7SDValueE.exit
+.critedge:                                        ; preds = %_ZN4llvm16DAGTypeLegalizer16GetWidenedVectorENS_7SDValueE.exit, %_ZN4llvm16DAGTypeLegalizer19GetScalarizedVectorENS_7SDValueE.exit, %176
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %223
 
@@ -17027,7 +17027,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   store ptr %.sroa.0.0.copyload, ptr %6, align 8, !tbaa !24
   %.sroa.5.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %17, ptr %.sroa.5.0..sroa_idx67, align 8
@@ -17056,7 +17056,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i62:                    ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit64:     ; preds = %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit, %_ZNK4llvm3EVTeqES0_.exit.i56, %_ZNK4llvm3EVTeqES0_.exit3.i58, %_ZNK4llvm3EVTeqES0_.exit6.i60
-  %.0.i63 = phi i32 [ 236, %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i56 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i58 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i60 ]
+  %.0.i63 = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i56 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i58 ], [ 236, %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i60 ]
   store ptr %.fca.0.extract10, ptr %7, align 8, !tbaa !24
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %.fca.1.extract11, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !26
@@ -17208,7 +17208,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL24GetPromotionOpcodeStrictN4llvm3EVTES0_.exit: ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 238, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ], [ 239, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 242, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 243, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 239, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 242, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 238, %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit ], [ 243, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   %58 = call { ptr, i32 } @_ZN4llvm12SelectionDAG9getVTListENS_3EVTES1_(ptr noundef nonnull align 8 dereferenceable(952) %57, i16 %55, ptr %56, i16 1, ptr null) #17
   %59 = extractvalue { ptr, i32 } %58, 0
   %60 = extractvalue { ptr, i32 } %58, 1
@@ -17240,7 +17240,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i73:                    ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL24GetPromotionOpcodeStrictN4llvm3EVTES0_.exit75: ; preds = %_ZL24GetPromotionOpcodeStrictN4llvm3EVTES0_.exit, %_ZNK4llvm3EVTeqES0_.exit.i67, %_ZNK4llvm3EVTeqES0_.exit3.i69, %_ZNK4llvm3EVTeqES0_.exit6.i71
-  %.0.i74 = phi i32 [ 238, %_ZL24GetPromotionOpcodeStrictN4llvm3EVTES0_.exit ], [ 239, %_ZNK4llvm3EVTeqES0_.exit.i67 ], [ 242, %_ZNK4llvm3EVTeqES0_.exit3.i69 ], [ 243, %_ZNK4llvm3EVTeqES0_.exit6.i71 ]
+  %.0.i74 = phi i32 [ 239, %_ZNK4llvm3EVTeqES0_.exit.i67 ], [ 242, %_ZNK4llvm3EVTeqES0_.exit3.i69 ], [ 238, %_ZL24GetPromotionOpcodeStrictN4llvm3EVTES0_.exit ], [ 243, %_ZNK4llvm3EVTeqES0_.exit6.i71 ]
   %63 = call { ptr, i32 } @_ZN4llvm12SelectionDAG9getVTListENS_3EVTES1_(ptr noundef nonnull align 8 dereferenceable(952) %62, i16 %35, ptr %36, i16 1, ptr null) #17
   %64 = extractvalue { ptr, i32 } %63, 0
   %65 = extractvalue { ptr, i32 } %63, 1
@@ -17432,7 +17432,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm5SDLocD2Ev.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm5SDLocD2Ev.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm5SDLocD2Ev.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %74 = load ptr, ptr %43, align 8, !tbaa !50
   store ptr %74, ptr %8, align 8, !tbaa !50
@@ -17631,7 +17631,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm5SDLocD2Ev.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm5SDLocD2Ev.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm5SDLocD2Ev.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %72 = load ptr, ptr %36, align 8, !tbaa !50
   store ptr %72, ptr %9, align 8, !tbaa !50
@@ -19230,7 +19230,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL24GetPromotionOpcodeStrictN4llvm3EVTES0_.exit: ; preds = %71, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 238, %71 ], [ 239, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 242, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 243, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 239, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 242, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 238, %71 ], [ 243, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %73 = load ptr, ptr %72, align 8, !tbaa !50
@@ -19294,7 +19294,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i96:                    ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %85, %_ZNK4llvm3EVTeqES0_.exit.i90, %_ZNK4llvm3EVTeqES0_.exit3.i92, %_ZNK4llvm3EVTeqES0_.exit6.i94
-  %.0.i97 = phi i32 [ 236, %85 ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i90 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i92 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i94 ]
+  %.0.i97 = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i90 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i92 ], [ 236, %85 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i94 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %87 = load ptr, ptr %86, align 8, !tbaa !50
@@ -19456,7 +19456,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   store ptr %.sroa.04.0.copyload.i, ptr %5, align 8, !tbaa !24
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sroa.25.0.copyload.i, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !26
@@ -19491,7 +19491,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i69:                    ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit71:     ; preds = %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit, %_ZNK4llvm3EVTeqES0_.exit3.i65, %_ZNK4llvm3EVTeqES0_.exit6.i67
-  %.0.i70 = phi i32 [ %.mux, %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i65 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i67 ]
+  %.0.i70 = phi i32 [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i67 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i65 ], [ %.mux, %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit ]
   store ptr %.fca.0.extract7, ptr %7, align 8, !tbaa !24
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %.fca.1.extract8, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !26
@@ -19695,7 +19695,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   %97 = load ptr, ptr %14, align 8, !tbaa !49
   store ptr %.sroa.04.0.copyload.i, ptr %6, align 8, !tbaa !24
   %.sroa.663.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -19741,7 +19741,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i112:                   ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit114:    ; preds = %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit, %_ZNK4llvm3EVTeqES0_.exit3.i108, %_ZNK4llvm3EVTeqES0_.exit6.i110
-  %.0.i113 = phi i32 [ %.mux, %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i108 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i110 ]
+  %.0.i113 = phi i32 [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i110 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i108 ], [ %.mux, %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit ]
   store ptr %.fca.0.extract7, ptr %10, align 8, !tbaa !24
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %.fca.1.extract8, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !26
@@ -20008,7 +20008,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   %131 = load ptr, ptr %17, align 8, !tbaa !49
   store ptr %.sroa.04.0.copyload.i, ptr %7, align 8, !tbaa !24
   %.sroa.689.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -20064,7 +20064,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i154:                   ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit156:    ; preds = %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit, %_ZNK4llvm3EVTeqES0_.exit3.i150, %_ZNK4llvm3EVTeqES0_.exit6.i152
-  %.0.i155 = phi i32 [ %.mux, %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i150 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i152 ]
+  %.0.i155 = phi i32 [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i152 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i150 ], [ %.mux, %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit ]
   store ptr %.fca.0.extract7, ptr %13, align 8, !tbaa !24
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %.fca.1.extract8, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !26
@@ -20210,7 +20210,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   store ptr %.sroa.04.0.copyload.i, ptr %6, align 8, !tbaa !24
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %.sroa.25.0.copyload.i, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !26
@@ -20245,7 +20245,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i70:                    ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit72:     ; preds = %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit, %_ZNK4llvm3EVTeqES0_.exit3.i66, %_ZNK4llvm3EVTeqES0_.exit6.i68
-  %.0.i71 = phi i32 [ %.mux, %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i66 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i68 ]
+  %.0.i71 = phi i32 [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i68 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i66 ], [ %.mux, %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit ]
   store ptr %.fca.0.extract7, ptr %8, align 8, !tbaa !24
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %.fca.1.extract8, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !26
@@ -20387,7 +20387,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   store ptr %.sroa.04.0.copyload.i, ptr %5, align 8, !tbaa !24
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sroa.25.0.copyload.i, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !26
@@ -20431,7 +20431,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i85:                    ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit87:     ; preds = %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit, %_ZNK4llvm3EVTeqES0_.exit3.i81, %_ZNK4llvm3EVTeqES0_.exit6.i83
-  %.0.i86 = phi i32 [ %.mux, %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i81 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i83 ]
+  %.0.i86 = phi i32 [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i83 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i81 ], [ %.mux, %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit ]
   store ptr %.fca.0.extract13, ptr %7, align 8, !tbaa !24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %.fca.1.extract14, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !26
@@ -20573,7 +20573,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   store ptr %.sroa.04.0.copyload.i, ptr %5, align 8, !tbaa !24
   %.sroa.655.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sroa.25.0.copyload.i, ptr %.sroa.655.0..sroa_idx, align 8, !tbaa !26
@@ -20608,7 +20608,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i88:                    ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit90:     ; preds = %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit, %_ZNK4llvm3EVTeqES0_.exit3.i84, %_ZNK4llvm3EVTeqES0_.exit6.i86
-  %.0.i89 = phi i32 [ %.mux, %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i84 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i86 ]
+  %.0.i89 = phi i32 [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i86 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i84 ], [ %.mux, %_ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit ]
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 66
   %73 = load i16, ptr %72, align 2, !tbaa !290
   %74 = zext i16 %73 to i32
@@ -21268,7 +21268,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL24GetPromotionOpcodeStrictN4llvm3EVTES0_.exit: ; preds = %35, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 238, %35 ], [ 239, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 242, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 243, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 239, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 242, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 238, %35 ], [ 243, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) @constinit.12, i64 32, i1 false), !tbaa.struct !223
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -21316,7 +21316,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i77:                    ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %48, %_ZNK4llvm3EVTeqES0_.exit.i71, %_ZNK4llvm3EVTeqES0_.exit3.i73, %_ZNK4llvm3EVTeqES0_.exit6.i75
-  %.0.i78 = phi i32 [ 236, %48 ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i71 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i73 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i75 ]
+  %.0.i78 = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i71 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i73 ], [ 236, %48 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i75 ]
   store ptr %.fca.0.extract7, ptr %10, align 8, !tbaa !24
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %.fca.1.extract8, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !26
@@ -21848,7 +21848,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   store ptr %.sroa.04.0.copyload.i, ptr %6, align 8, !tbaa !24
   %.sroa.10.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %.sroa.25.0.copyload.i, ptr %.sroa.10.0..sroa_idx52, align 8, !tbaa !26
@@ -22029,7 +22029,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL24GetPromotionOpcodeStrictN4llvm3EVTES0_.exit: ; preds = %76, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 238, %76 ], [ 239, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 242, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 243, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 239, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 242, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 238, %76 ], [ 243, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 %40, ptr %5, align 8, !tbaa !28
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -22104,7 +22104,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i101:                   ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %91, %_ZNK4llvm3EVTeqES0_.exit.i95, %_ZNK4llvm3EVTeqES0_.exit3.i97, %_ZNK4llvm3EVTeqES0_.exit6.i99
-  %.0.i102 = phi i32 [ 236, %91 ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i95 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i97 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i99 ]
+  %.0.i102 = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i95 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i97 ], [ 236, %91 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i99 ]
   store ptr %.sroa.04.0.copyload.i, ptr %11, align 8, !tbaa !24
   %.sroa.14.0..sroa_idx116 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %.sroa.25.0.copyload.i, ptr %.sroa.14.0..sroa_idx116, align 8, !tbaa !26
@@ -22278,7 +22278,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   store ptr %.sroa.04.0.copyload.i, ptr %5, align 8, !tbaa !24
   %.sroa.8.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sroa.25.0.copyload.i, ptr %.sroa.8.0..sroa_idx60, align 8, !tbaa !26
@@ -22426,7 +22426,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL24GetPromotionOpcodeStrictN4llvm3EVTES0_.exit: ; preds = %56, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 238, %56 ], [ 239, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 242, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 243, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 239, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 242, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 238, %56 ], [ 243, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %58 = load ptr, ptr %57, align 8, !tbaa !50
@@ -22500,7 +22500,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i68:                    ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %72, %_ZNK4llvm3EVTeqES0_.exit.i62, %_ZNK4llvm3EVTeqES0_.exit3.i64, %_ZNK4llvm3EVTeqES0_.exit6.i66
-  %.0.i69 = phi i32 [ 236, %72 ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i62 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i64 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i66 ]
+  %.0.i69 = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i62 ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i64 ], [ 236, %72 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %74 = load ptr, ptr %73, align 8, !tbaa !50
@@ -22736,7 +22736,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit90, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit90 ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit90 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   %99 = load ptr, ptr %27, align 8, !tbaa !49
   store ptr %.sroa.04.0.copyload.i, ptr %7, align 8, !tbaa !24
   %.sroa.9.0..sroa_idx100 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -23009,7 +23009,7 @@ _ZNK4llvm3EVTeqES0_.exit9.i:                      ; preds = %_ZNK4llvm3EVTeqES0_
   unreachable
 
 _ZL18GetPromotionOpcodeN4llvm3EVTES0_.exit:       ; preds = %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit96, %_ZNK4llvm3EVTeqES0_.exit.i, %_ZNK4llvm3EVTeqES0_.exit3.i, %_ZNK4llvm3EVTeqES0_.exit6.i
-  %.0.i = phi i32 [ 236, %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit96 ], [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
+  %.0.i = phi i32 [ 237, %_ZNK4llvm3EVTeqES0_.exit.i ], [ 240, %_ZNK4llvm3EVTeqES0_.exit3.i ], [ 236, %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit96 ], [ 241, %_ZNK4llvm3EVTeqES0_.exit6.i ]
   %103 = load ptr, ptr %31, align 8, !tbaa !49
   store ptr %.sroa.04.0.copyload.i, ptr %9, align 8, !tbaa !24
   %.sroa.10.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -25176,7 +25176,7 @@ define linkonce_odr hidden i16 @_ZN4llvm3MVT19getScalableVectorVTES0_j(i16 %0, i
   br label %71
 
 71:                                               ; preds = %70, %69, %68, %66, %65, %64, %63, %62, %60, %59, %58, %57, %56, %55, %53, %52, %51, %50, %49, %48, %46, %45, %44, %43, %42, %41, %39, %38, %37, %36, %35, %34, %32, %31, %30, %29, %28, %27, %25, %24, %23, %22, %21, %20, %19, %17, %15, %13, %11, %9, %7, %5, %2
-  %.sroa.0.0 = phi i16 [ 138, %2 ], [ 139, %5 ], [ 140, %7 ], [ 141, %9 ], [ 142, %11 ], [ 143, %13 ], [ 144, %15 ], [ 145, %17 ], [ 146, %19 ], [ 147, %20 ], [ 148, %21 ], [ 149, %22 ], [ 150, %23 ], [ 151, %24 ], [ 152, %25 ], [ 153, %27 ], [ 154, %28 ], [ 155, %29 ], [ 156, %30 ], [ 157, %31 ], [ 158, %32 ], [ 159, %34 ], [ 160, %35 ], [ 161, %36 ], [ 162, %37 ], [ 163, %38 ], [ 164, %39 ], [ 165, %41 ], [ 166, %42 ], [ 167, %43 ], [ 168, %44 ], [ 169, %45 ], [ 170, %46 ], [ 171, %48 ], [ 172, %49 ], [ 173, %50 ], [ 174, %51 ], [ 175, %52 ], [ 176, %53 ], [ 177, %55 ], [ 178, %56 ], [ 179, %57 ], [ 180, %58 ], [ 181, %59 ], [ 182, %60 ], [ 183, %62 ], [ 184, %63 ], [ 185, %64 ], [ 186, %65 ], [ 187, %66 ], [ 188, %68 ], [ 189, %69 ], [ %spec.select, %70 ]
+  %.sroa.0.0 = phi i16 [ %spec.select, %70 ], [ 138, %2 ], [ 139, %5 ], [ 140, %7 ], [ 141, %9 ], [ 142, %11 ], [ 143, %13 ], [ 144, %15 ], [ 145, %17 ], [ 146, %19 ], [ 147, %20 ], [ 148, %21 ], [ 149, %22 ], [ 150, %23 ], [ 151, %24 ], [ 152, %25 ], [ 153, %27 ], [ 154, %28 ], [ 155, %29 ], [ 156, %30 ], [ 157, %31 ], [ 158, %32 ], [ 159, %34 ], [ 160, %35 ], [ 161, %36 ], [ 162, %37 ], [ 163, %38 ], [ 164, %39 ], [ 165, %41 ], [ 166, %42 ], [ 167, %43 ], [ 168, %44 ], [ 169, %45 ], [ 170, %46 ], [ 171, %48 ], [ 172, %49 ], [ 173, %50 ], [ 174, %51 ], [ 175, %52 ], [ 176, %53 ], [ 177, %55 ], [ 178, %56 ], [ 179, %57 ], [ 180, %58 ], [ 181, %59 ], [ 182, %60 ], [ 183, %62 ], [ 184, %63 ], [ 185, %64 ], [ 186, %65 ], [ 187, %66 ], [ 188, %68 ], [ 189, %69 ]
   ret i16 %.sroa.0.0
 }
 
@@ -25699,7 +25699,7 @@ define linkonce_odr hidden i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %0, i32 nound
   br label %155
 
 155:                                              ; preds = %154, %153, %152, %151, %150, %149, %148, %147, %146, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %123, %122, %121, %120, %119, %118, %117, %116, %115, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %101, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %88, %87, %86, %85, %84, %83, %82, %81, %80, %78, %76, %74, %72, %71, %69, %67, %65, %64, %63, %62, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %35, %34, %32, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %2
-  %.sroa.0.0 = phi i16 [ 17, %2 ], [ 18, %5 ], [ 19, %7 ], [ 20, %9 ], [ 21, %11 ], [ 22, %13 ], [ 23, %15 ], [ 24, %17 ], [ 25, %19 ], [ 26, %21 ], [ 27, %23 ], [ 28, %25 ], [ 29, %27 ], [ 30, %29 ], [ 31, %31 ], [ 32, %32 ], [ 33, %34 ], [ 34, %35 ], [ 35, %37 ], [ 36, %38 ], [ 37, %39 ], [ 38, %40 ], [ 39, %41 ], [ 40, %42 ], [ 41, %43 ], [ 42, %44 ], [ 43, %45 ], [ 44, %46 ], [ 45, %47 ], [ 46, %48 ], [ 47, %50 ], [ 48, %51 ], [ 49, %52 ], [ 50, %53 ], [ 51, %54 ], [ 52, %55 ], [ 53, %56 ], [ 54, %57 ], [ 55, %58 ], [ 56, %59 ], [ 57, %60 ], [ 58, %62 ], [ 59, %63 ], [ 60, %64 ], [ 61, %65 ], [ 62, %67 ], [ 63, %69 ], [ 64, %71 ], [ 65, %72 ], [ 66, %74 ], [ 67, %76 ], [ 68, %78 ], [ 69, %80 ], [ 70, %81 ], [ 71, %82 ], [ 72, %83 ], [ 73, %84 ], [ 74, %85 ], [ 75, %86 ], [ 76, %87 ], [ 77, %88 ], [ 78, %90 ], [ 79, %91 ], [ 80, %92 ], [ 81, %93 ], [ 82, %94 ], [ 83, %95 ], [ 84, %96 ], [ 85, %97 ], [ 86, %98 ], [ 87, %99 ], [ 88, %101 ], [ 89, %103 ], [ 90, %104 ], [ 91, %105 ], [ 92, %106 ], [ 93, %107 ], [ 94, %108 ], [ 95, %109 ], [ 96, %110 ], [ 97, %111 ], [ 98, %112 ], [ 99, %113 ], [ 100, %115 ], [ 101, %116 ], [ 102, %117 ], [ 103, %118 ], [ 104, %119 ], [ 105, %120 ], [ 106, %121 ], [ 107, %122 ], [ 108, %123 ], [ 109, %125 ], [ 110, %126 ], [ 111, %127 ], [ 112, %128 ], [ 113, %129 ], [ 114, %130 ], [ 115, %131 ], [ 116, %132 ], [ 117, %133 ], [ 118, %134 ], [ 119, %135 ], [ 120, %136 ], [ 121, %137 ], [ 122, %138 ], [ 123, %139 ], [ 124, %140 ], [ 125, %141 ], [ 126, %142 ], [ 127, %143 ], [ 128, %144 ], [ 129, %146 ], [ 130, %147 ], [ 131, %148 ], [ 132, %149 ], [ 133, %150 ], [ 134, %151 ], [ 135, %152 ], [ 136, %153 ], [ %spec.select, %154 ]
+  %.sroa.0.0 = phi i16 [ %spec.select, %154 ], [ 17, %2 ], [ 18, %5 ], [ 19, %7 ], [ 20, %9 ], [ 21, %11 ], [ 22, %13 ], [ 23, %15 ], [ 24, %17 ], [ 25, %19 ], [ 26, %21 ], [ 27, %23 ], [ 28, %25 ], [ 29, %27 ], [ 30, %29 ], [ 31, %31 ], [ 32, %32 ], [ 33, %34 ], [ 34, %35 ], [ 35, %37 ], [ 36, %38 ], [ 37, %39 ], [ 38, %40 ], [ 39, %41 ], [ 40, %42 ], [ 41, %43 ], [ 42, %44 ], [ 43, %45 ], [ 44, %46 ], [ 45, %47 ], [ 46, %48 ], [ 47, %50 ], [ 48, %51 ], [ 49, %52 ], [ 50, %53 ], [ 51, %54 ], [ 52, %55 ], [ 53, %56 ], [ 54, %57 ], [ 55, %58 ], [ 56, %59 ], [ 57, %60 ], [ 58, %62 ], [ 59, %63 ], [ 60, %64 ], [ 61, %65 ], [ 62, %67 ], [ 63, %69 ], [ 64, %71 ], [ 65, %72 ], [ 66, %74 ], [ 67, %76 ], [ 68, %78 ], [ 69, %80 ], [ 70, %81 ], [ 71, %82 ], [ 72, %83 ], [ 73, %84 ], [ 74, %85 ], [ 75, %86 ], [ 76, %87 ], [ 77, %88 ], [ 78, %90 ], [ 79, %91 ], [ 80, %92 ], [ 81, %93 ], [ 82, %94 ], [ 83, %95 ], [ 84, %96 ], [ 85, %97 ], [ 86, %98 ], [ 87, %99 ], [ 88, %101 ], [ 89, %103 ], [ 90, %104 ], [ 91, %105 ], [ 92, %106 ], [ 93, %107 ], [ 94, %108 ], [ 95, %109 ], [ 96, %110 ], [ 97, %111 ], [ 98, %112 ], [ 99, %113 ], [ 100, %115 ], [ 101, %116 ], [ 102, %117 ], [ 103, %118 ], [ 104, %119 ], [ 105, %120 ], [ 106, %121 ], [ 107, %122 ], [ 108, %123 ], [ 109, %125 ], [ 110, %126 ], [ 111, %127 ], [ 112, %128 ], [ 113, %129 ], [ 114, %130 ], [ 115, %131 ], [ 116, %132 ], [ 117, %133 ], [ 118, %134 ], [ 119, %135 ], [ 120, %136 ], [ 121, %137 ], [ 122, %138 ], [ 123, %139 ], [ 124, %140 ], [ 125, %141 ], [ 126, %142 ], [ 127, %143 ], [ 128, %144 ], [ 129, %146 ], [ 130, %147 ], [ 131, %148 ], [ 132, %149 ], [ 133, %150 ], [ 134, %151 ], [ 135, %152 ], [ 136, %153 ]
   ret i16 %.sroa.0.0
 }
 

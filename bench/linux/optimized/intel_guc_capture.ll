@@ -395,7 +395,7 @@ define internal fastcc i32 @guc_capture_getlistsize(ptr noundef readonly capture
   br label %.thread15
 
 .thread15:                                        ; preds = %143, %125, %119, %152, %150
-  %156 = phi i32 [ %155, %152 ], [ %121, %150 ], [ %121, %119 ], [ %121, %125 ], [ %121, %143 ]
+  %156 = phi i32 [ %121, %150 ], [ %155, %152 ], [ %121, %119 ], [ %121, %125 ], [ %121, %143 ]
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %.thread17, label %158
 
@@ -569,7 +569,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
   br label %.thread
 
 .thread:                                          ; preds = %61, %92, %74, %69, %44, %101, %99, %67
-  %105 = phi i32 [ 0, %67 ], [ %104, %101 ], [ %71, %99 ], [ 0, %44 ], [ %71, %69 ], [ %71, %74 ], [ %71, %92 ], [ 0, %61 ]
+  %105 = phi i32 [ 0, %67 ], [ %104, %101 ], [ %71, %99 ], [ %71, %92 ], [ 0, %44 ], [ %71, %69 ], [ %71, %74 ], [ 0, %61 ]
   %106 = tail call i32 @llvm.smax.i32(i32 %105, i32 %40)
   br label %107
 
@@ -873,7 +873,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
   br label %.thread55
 
 .thread55:                                        ; preds = %234, %266, %248, %242, %275, %273, %240
-  %279 = phi i32 [ 0, %240 ], [ %278, %275 ], [ %244, %273 ], [ %244, %242 ], [ %244, %248 ], [ %244, %266 ], [ 0, %234 ]
+  %279 = phi i32 [ 0, %240 ], [ %278, %275 ], [ %244, %273 ], [ %244, %242 ], [ %244, %266 ], [ %244, %248 ], [ 0, %234 ]
   %280 = and i32 %279, 65535
   br label %.thread55.thread175
 
@@ -1083,7 +1083,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
   br label %.thread59
 
 .thread59:                                        ; preds = %301, %380, %.thread55.thread, %.thread55.thread175, %405, %.thread61, %307
-  %409 = phi i64 [ %198, %.thread55.thread175 ], [ %.pre131, %405 ], [ %198, %.thread61 ], [ %198, %307 ], [ %198, %.thread55.thread ], [ %198, %380 ], [ %198, %301 ]
+  %409 = phi i64 [ %198, %380 ], [ %198, %.thread55.thread ], [ %198, %.thread55.thread175 ], [ %.pre131, %405 ], [ %198, %.thread61 ], [ %198, %307 ], [ %198, %301 ]
   store i8 1, ptr %14, align 8
   %410 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %199, ptr %410, align 8
@@ -2661,8 +2661,8 @@ default.unreachable161:                           ; preds = %388
   br i1 %546, label %.critedge, label %.preheader52, !llvm.loop !33
 
 .critedge:                                        ; preds = %544, %164, %383, %362
-  %547 = phi i32 [ -5, %164 ], [ -5, %362 ], [ %384, %383 ], [ %545, %544 ]
-  %548 = phi ptr [ %157, %362 ], [ %157, %383 ], [ %157, %164 ], [ %510, %544 ]
+  %547 = phi i32 [ -5, %362 ], [ -5, %164 ], [ %384, %383 ], [ %545, %544 ]
+  %548 = phi ptr [ %157, %164 ], [ %157, %362 ], [ %157, %383 ], [ %510, %544 ]
   %549 = icmp eq ptr %548, null
   br i1 %549, label %.critedge.thread, label %.preheader51
 
@@ -4003,7 +4003,7 @@ define internal fastcc ptr @guc_capture_clone_node(ptr noundef readonly captures
   br i1 %98, label %.thread, label %70, !llvm.loop !50
 
 .thread:                                          ; preds = %96, %17, %23
-  %99 = phi ptr [ null, %23 ], [ null, %17 ], [ %30, %96 ]
+  %99 = phi ptr [ null, %17 ], [ null, %23 ], [ %30, %96 ]
   ret ptr %99
 }
 

@@ -331,8 +331,8 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
   store ptr null, ptr %122, align 8
   br label %124
 
-124:                                              ; preds = %121, %120, %.thread
-  %.ph = phi i32 [ -12, %.thread ], [ %97, %120 ], [ %97, %121 ]
+124:                                              ; preds = %.thread, %121, %120
+  %.ph = phi i32 [ %97, %120 ], [ %97, %121 ], [ -12, %.thread ]
   %125 = load ptr, ptr %5, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 184
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %126, ptr noundef nonnull @.str.2) #11

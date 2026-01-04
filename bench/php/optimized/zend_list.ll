@@ -339,7 +339,7 @@ define dso_local ptr @zend_fetch_resource_ex(ptr noundef readonly captures(addre
   br label %zend_fetch_resource.exit
 
 zend_fetch_resource.exit:                         ; preds = %29, %28, %25, %15, %16, %7, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %7 ], [ null, %16 ], [ null, %15 ], [ %27, %25 ], [ null, %29 ], [ null, %28 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %7 ], [ null, %8 ], [ null, %16 ], [ %27, %25 ], [ null, %29 ], [ null, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -419,7 +419,7 @@ define dso_local ptr @zend_fetch_resource2_ex(ptr noundef readonly captures(addr
   br label %zend_fetch_resource2.exit
 
 zend_fetch_resource2.exit:                        ; preds = %36, %35, %32, %27, %16, %17, %8, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %8 ], [ null, %17 ], [ null, %16 ], [ %29, %27 ], [ %34, %32 ], [ null, %36 ], [ null, %35 ]
+  %.0 = phi ptr [ null, %16 ], [ null, %8 ], [ null, %9 ], [ null, %17 ], [ %29, %27 ], [ %34, %32 ], [ null, %36 ], [ null, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }

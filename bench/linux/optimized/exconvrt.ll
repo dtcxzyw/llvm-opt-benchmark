@@ -67,7 +67,7 @@ define dso_local noundef range(i32 0, 12299) i32 @acpi_ex_convert_to_integer(ptr
   br i1 %37, label %.loopexit, label %27, !llvm.loop !5
 
 .loopexit:                                        ; preds = %27, %20, %16, %14
-  %38 = phi i64 [ %15, %14 ], [ %17, %16 ], [ 0, %20 ], [ %35, %27 ]
+  %38 = phi i64 [ 0, %20 ], [ %15, %14 ], [ %17, %16 ], [ %35, %27 ]
   %39 = tail call ptr @acpi_ut_create_integer_object(i64 noundef %38) #6
   %40 = icmp eq ptr %39, null
   br i1 %40, label %45, label %41
@@ -652,7 +652,7 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   br i1 %48, label %.loopexit.i, label %38, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %38, %31, %27
-  %49 = phi i64 [ %28, %27 ], [ 0, %31 ], [ %46, %38 ]
+  %49 = phi i64 [ 0, %31 ], [ %28, %27 ], [ %46, %38 ]
   %50 = tail call ptr @acpi_ut_create_integer_object(i64 noundef %49) #6
   %51 = icmp eq ptr %50, null
   br i1 %51, label %acpi_ex_convert_to_integer.exit.thread, label %52
@@ -736,11 +736,11 @@ acpi_ex_convert_to_integer.exit:                  ; preds = %17
   %97 = icmp eq i32 %96, 8
   br i1 %97, label %acpi_ex_convert_to_integer.exit.thread5, label %acpi_ex_convert_to_integer.exit.thread
 
-acpi_ex_convert_to_integer.exit.thread5:          ; preds = %18, %56, %12, %acpi_ex_convert_to_integer.exit
+acpi_ex_convert_to_integer.exit.thread5:          ; preds = %12, %18, %56, %acpi_ex_convert_to_integer.exit
   br label %acpi_ex_convert_to_integer.exit.thread
 
 acpi_ex_convert_to_integer.exit.thread:           ; preds = %56, %12, %54, %.loopexit.i, %29, %70, %59, %85, %10, %90, %4, %91, %acpi_ex_convert_to_integer.exit, %acpi_ex_convert_to_integer.exit.thread5
-  %98 = phi i32 [ 0, %acpi_ex_convert_to_integer.exit.thread5 ], [ %96, %acpi_ex_convert_to_integer.exit ], [ 0, %54 ], [ 4, %.loopexit.i ], [ 12298, %29 ], [ 4, %70 ], [ 4, %59 ], [ 0, %85 ], [ 0, %10 ], [ 12303, %90 ], [ 0, %4 ], [ 12303, %91 ], [ 0, %12 ], [ 0, %56 ]
+  %98 = phi i32 [ 0, %acpi_ex_convert_to_integer.exit.thread5 ], [ %96, %acpi_ex_convert_to_integer.exit ], [ 12303, %91 ], [ 0, %54 ], [ 4, %.loopexit.i ], [ 12298, %29 ], [ 4, %70 ], [ 4, %59 ], [ 0, %12 ], [ 0, %85 ], [ 0, %10 ], [ 12303, %90 ], [ 0, %4 ], [ 0, %56 ]
   ret i32 %98
 }
 

@@ -1465,7 +1465,7 @@ define internal fastcc void @_ZN6cipher11stream_core16StreamCipherCore28apply_ke
   unreachable
 
 common.resume.i.i.i.i:                            ; preds = %150, %124, %116, %109, %105, %99, %90, %69
-  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %70, %69 ], [ %91, %90 ], [ %100, %99 ], [ %106, %105 ], [ %110, %109 ], [ %117, %116 ], [ %125, %124 ], [ %151, %150 ]
+  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %125, %124 ], [ %70, %69 ], [ %91, %90 ], [ %100, %99 ], [ %106, %105 ], [ %110, %109 ], [ %117, %116 ], [ %151, %150 ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i
 
 73:                                               ; preds = %._crit_edge.i.i.i.i
@@ -2195,7 +2195,7 @@ define internal fastcc void @"_ZN71_$LT$aes..autodetect..Aes256$u20$as$u20$ciphe
   unreachable
 
 common.resume:                                    ; preds = %288, %262, %187, %182, %178, %150, %105
-  %common.resume.op = phi { ptr, i32 } [ %106, %105 ], [ %151, %150 ], [ %179, %178 ], [ %183, %182 ], [ %188, %187 ], [ %263, %262 ], [ %289, %288 ]
+  %common.resume.op = phi { ptr, i32 } [ %263, %262 ], [ %106, %105 ], [ %151, %150 ], [ %179, %178 ], [ %183, %182 ], [ %188, %187 ], [ %289, %288 ]
   resume { ptr, i32 } %common.resume.op
 
 109:                                              ; preds = %._crit_edge
@@ -2869,7 +2869,7 @@ define internal fastcc void @"_ZN7aes_gcm39AesGcm$LT$Aes$C$NonceSize$C$TagSize$G
   unreachable
 
 common.resume:                                    ; preds = %54, %47, %34
-  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %48, %47 ], [ %55, %54 ]
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %35, %34 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i": ; preds = %30
@@ -3061,7 +3061,7 @@ define internal fastcc void @"_ZN7aes_gcm39AesGcm$LT$Aes$C$NonceSize$C$TagSize$G
   unreachable
 
 common.resume:                                    ; preds = %62, %72, %51, %37, %30
-  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %38, %37 ], [ %52, %51 ], [ %63, %62 ], [ %73, %72 ]
+  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %31, %30 ], [ %38, %37 ], [ %63, %62 ], [ %73, %72 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit": ; preds = %3
@@ -4282,7 +4282,7 @@ default.unreachable84:                            ; preds = %2
   br label %.critedge
 
 .thread65:                                        ; preds = %24, %8, %36
-  %.pn68 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %36 ], [ %25, %24 ], [ %9, %8 ]
+  %.pn68 = phi { ptr, i32 } [ %9, %8 ], [ %lpad.thr_comm.split-lp, %36 ], [ %25, %24 ]
   resume { ptr, i32 } %.pn68
 
 36:                                               ; preds = %6

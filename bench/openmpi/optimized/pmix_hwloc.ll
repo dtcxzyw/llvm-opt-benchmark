@@ -233,7 +233,7 @@ define range(i32 -1, 1) i32 @pmix_hwloc_register() local_unnamed_addr #0 {
   br label %31
 
 28:                                               ; preds = %24, %21, %18, %15, %12, %7
-  %.sink = phi i32 [ -1, %7 ], [ 0, %12 ], [ 3, %15 ], [ 4, %18 ], [ 1, %21 ], [ 2, %24 ]
+  %.sink = phi i32 [ -1, %7 ], [ 3, %15 ], [ 1, %21 ], [ 4, %18 ], [ 0, %12 ], [ 2, %24 ]
   store i32 %.sink, ptr @hole_kind, align 4, !tbaa !3
   %29 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @topo_file) #17
   %30 = tail call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 5, ptr noundef nonnull @testcpuset) #17
@@ -2040,7 +2040,7 @@ pmix_obj_new_tma.exit338:                         ; preds = %.lr.ph.i.i335, %715
   br label %899
 
 899:                                              ; preds = %93, %770, %774, %756, %758, %764, %744, %746, %752, %612, %552, %529, %527, %509, %395, %2, %861, %847, %823, %807, %792, %565, %559, %540, %537, %284
-  %.0 = phi i32 [ 0, %792 ], [ 0, %823 ], [ 0, %847 ], [ 0, %861 ], [ 0, %807 ], [ -1, %537 ], [ -1, %540 ], [ -31, %559 ], [ -47, %565 ], [ 0, %284 ], [ 0, %2 ], [ %.1202, %93 ], [ %.4, %395 ], [ %.7, %509 ], [ -1366, %527 ], [ -47, %529 ], [ -1366, %552 ], [ 0, %612 ], [ 0, %752 ], [ 0, %746 ], [ 0, %744 ], [ 0, %764 ], [ 0, %758 ], [ 0, %756 ], [ 0, %774 ], [ 0, %770 ]
+  %.0 = phi i32 [ 0, %284 ], [ 0, %2 ], [ 0, %612 ], [ 0, %744 ], [ 0, %756 ], [ 0, %792 ], [ 0, %823 ], [ 0, %847 ], [ 0, %861 ], [ 0, %807 ], [ %.1202, %93 ], [ %.7, %509 ], [ -1366, %527 ], [ -1, %537 ], [ -1, %540 ], [ -1366, %552 ], [ -47, %529 ], [ -31, %559 ], [ -47, %565 ], [ %.4, %395 ], [ 0, %770 ], [ 0, %752 ], [ 0, %746 ], [ 0, %764 ], [ 0, %758 ], [ 0, %774 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2160,7 +2160,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %32
   br i1 %48, label %.loopexit, label %.lr.ph, !llvm.loop !111
 
 .loopexit:                                        ; preds = %46, %9, %4, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %4 ], [ %11, %9 ], [ %11, %46 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %1 ], [ %11, %9 ], [ %11, %46 ]
   ret ptr %.0
 }
 
@@ -2276,7 +2276,7 @@ pmix_list_remove_first.exit22:                    ; preds = %44
   br i1 %57, label %.lr.ph._crit_edge, label %pmix_obj_update.exit, !llvm.loop !112
 
 .loopexit:                                        ; preds = %44, %9, %4, %1
-  %.0 = phi i64 [ -1, %1 ], [ -1, %4 ], [ %11, %9 ], [ %11, %44 ]
+  %.0 = phi i64 [ -1, %4 ], [ -1, %1 ], [ %11, %9 ], [ %11, %44 ]
   ret i64 %.0
 }
 
@@ -2381,7 +2381,7 @@ define internal fastcc range(i32 -1, 1) i32 @load_xml(ptr noundef nonnull %0) un
   br label %25
 
 25:                                               ; preds = %1, %23, %21, %15, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %15 ], [ -1, %21 ], [ 0, %23 ], [ -1, %1 ]
+  %.0 = phi i32 [ 0, %23 ], [ -1, %10 ], [ -1, %15 ], [ -1, %21 ], [ -1, %1 ]
   ret i32 %.0
 }
 
@@ -2855,7 +2855,7 @@ pmix_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %153
   br i1 %169, label %popptr.exit, label %.lr.ph.i56, !llvm.loop !114
 
 popptr.exit:                                      ; preds = %167, %122, %125, %130
-  %.0.i = phi ptr [ null, %122 ], [ null, %125 ], [ %132, %130 ], [ %132, %167 ]
+  %.0.i = phi ptr [ null, %125 ], [ null, %122 ], [ %132, %130 ], [ %132, %167 ]
   %170 = load ptr, ptr %81, align 8, !tbaa !70
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 48
   %172 = load ptr, ptr %171, align 8, !tbaa !97
@@ -2939,7 +2939,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i58, %popptr
   br label %211
 
 211:                                              ; preds = %203, %206, %44, %45, %51, %16, %18, %24, %186, %62, %41
-  %.0 = phi i32 [ 0, %41 ], [ 0, %186 ], [ 0, %62 ], [ -1366, %24 ], [ -1366, %18 ], [ -1366, %16 ], [ -1366, %51 ], [ -1366, %45 ], [ -1366, %44 ], [ 0, %206 ], [ %204, %203 ]
+  %.0 = phi i32 [ 0, %62 ], [ 0, %41 ], [ -1366, %16 ], [ 0, %186 ], [ -1366, %44 ], [ -1366, %24 ], [ -1366, %18 ], [ -1366, %51 ], [ -1366, %45 ], [ 0, %206 ], [ %204, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -3310,7 +3310,7 @@ get_locality_string_by_depth.exit97:              ; preds = %._crit_edge, %124
   br label %.sink.split
 
 .sink.split:                                      ; preds = %get_locality_string_by_depth.exit97, %125, %7, %11
-  %.4.sink = phi ptr [ null, %11 ], [ null, %7 ], [ %.4, %125 ], [ %.4, %get_locality_string_by_depth.exit97 ]
+  %.4.sink = phi ptr [ null, %7 ], [ null, %11 ], [ %.4, %125 ], [ %.4, %get_locality_string_by_depth.exit97 ]
   store ptr %.4.sink, ptr %1, align 8, !tbaa !7
   br label %129
 
@@ -3575,7 +3575,7 @@ define range(i32 -1366, 1) i32 @pmix_hwloc_get_cpuset(ptr noundef captures(none)
   br label %25
 
 25:                                               ; preds = %20, %23, %6, %4, %18
-  %.014 = phi i32 [ -46, %18 ], [ -1366, %4 ], [ -27, %6 ], [ 0, %23 ], [ 0, %20 ]
+  %.014 = phi i32 [ -1366, %4 ], [ -46, %18 ], [ -27, %6 ], [ 0, %23 ], [ 0, %20 ]
   ret i32 %.014
 }
 
@@ -3650,7 +3650,7 @@ define range(i32 -1366, 1) i32 @pmix_hwloc_compute_distances(ptr noundef readonl
   br i1 %exitcond.not, label %.loopexit471, label %.lr.ph, !llvm.loop !129
 
 .loopexit471:                                     ; preds = %32, %18, %.preheader472
-  %.1258 = phi i64 [ 0, %.preheader472 ], [ 63, %18 ], [ %.3260, %32 ]
+  %.1258 = phi i64 [ 63, %18 ], [ 0, %.preheader472 ], [ %.3260, %32 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !41
   %36 = call i32 @hwloc_topology_get_depth(ptr noundef %35) #18
@@ -5038,7 +5038,7 @@ pmix_obj_run_destructors.exit441:                 ; preds = %.lr.ph.i437, %._cri
   br label %.critedge314
 
 .critedge314:                                     ; preds = %.lr.ph.i362, %.lr.ph.i418, %.lr.ph.i401, %.lr.ph.i349, %.lr.ph.i333, %.loopexit471, %._crit_edge539, %._crit_edge541, %._crit_edge543, %._crit_edge545, %._crit_edge547, %581, %dsearch.exit.thread, %14, %16, %6, %11, %pmix_obj_run_destructors.exit441
-  %.0 = phi i32 [ 0, %pmix_obj_run_destructors.exit441 ], [ -27, %11 ], [ -27, %6 ], [ -1366, %16 ], [ -1366, %14 ], [ -64, %dsearch.exit.thread ], [ -46, %581 ], [ -1, %._crit_edge547 ], [ -1, %._crit_edge545 ], [ -46, %._crit_edge543 ], [ -1, %._crit_edge541 ], [ -1, %._crit_edge539 ], [ -64, %.loopexit471 ], [ -1, %.lr.ph.i333 ], [ -1, %.lr.ph.i349 ], [ -46, %.lr.ph.i401 ], [ -1, %.lr.ph.i418 ], [ -1, %.lr.ph.i362 ]
+  %.0 = phi i32 [ 0, %pmix_obj_run_destructors.exit441 ], [ -27, %6 ], [ -1366, %14 ], [ -1, %.lr.ph.i418 ], [ -1, %.lr.ph.i333 ], [ -46, %581 ], [ -46, %.lr.ph.i401 ], [ -64, %dsearch.exit.thread ], [ -27, %11 ], [ -1366, %16 ], [ -1, %._crit_edge539 ], [ -1, %._crit_edge547 ], [ -1, %._crit_edge545 ], [ -46, %._crit_edge543 ], [ -1, %._crit_edge541 ], [ -64, %.loopexit471 ], [ -1, %.lr.ph.i349 ], [ -1, %.lr.ph.i362 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0

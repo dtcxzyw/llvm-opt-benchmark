@@ -2089,7 +2089,7 @@ define void @_ZN7Imf_3_413AcesInputFile10readPixelsEii(ptr noundef nonnull reado
   br label %_ZN9Imath_3_24halfaSEf.exit
 
 _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %107, %110, %120, %122, %131, %145, %148
-  %.0.i.i.i = phi i16 [ %117, %110 ], [ %121, %120 ], [ %130, %122 ], [ %108, %107 ], [ %103, %131 ], [ %149, %148 ], [ %143, %145 ]
+  %.0.i.i.i = phi i16 [ %103, %131 ], [ %117, %110 ], [ %121, %120 ], [ %130, %122 ], [ %108, %107 ], [ %149, %148 ], [ %143, %145 ]
   store i16 %.0.i.i.i, ptr %.01441, align 2, !tbaa !65
   %150 = bitcast float %96 to i32
   %151 = tail call float @llvm.fabs.f32(float %96)
@@ -2168,7 +2168,7 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %107, %110, %120, %1
   br label %_ZN9Imath_3_24halfaSEf.exit21
 
 _ZN9Imath_3_24halfaSEf.exit21:                    ; preds = %159, %162, %172, %174, %183, %197, %200
-  %.0.i.i.i20 = phi i16 [ %169, %162 ], [ %173, %172 ], [ %182, %174 ], [ %160, %159 ], [ %155, %183 ], [ %201, %200 ], [ %195, %197 ]
+  %.0.i.i.i20 = phi i16 [ %155, %183 ], [ %169, %162 ], [ %173, %172 ], [ %182, %174 ], [ %160, %159 ], [ %201, %200 ], [ %195, %197 ]
   store i16 %.0.i.i.i20, ptr %69, align 2, !tbaa !65
   %202 = bitcast float %97 to i32
   %203 = tail call float @llvm.fabs.f32(float %97)
@@ -2247,7 +2247,7 @@ _ZN9Imath_3_24halfaSEf.exit21:                    ; preds = %159, %162, %172, %1
   br label %_ZN9Imath_3_24halfaSEf.exit25
 
 _ZN9Imath_3_24halfaSEf.exit25:                    ; preds = %211, %214, %224, %226, %235, %249, %252
-  %.0.i.i.i24 = phi i16 [ %221, %214 ], [ %225, %224 ], [ %234, %226 ], [ %212, %211 ], [ %207, %235 ], [ %253, %252 ], [ %247, %249 ]
+  %.0.i.i.i24 = phi i16 [ %207, %235 ], [ %221, %214 ], [ %225, %224 ], [ %234, %226 ], [ %212, %211 ], [ %253, %252 ], [ %247, %249 ]
   store i16 %.0.i.i.i24, ptr %74, align 2, !tbaa !65
   %254 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %.01441, i64 %15
   %255 = add i32 %.042, 1

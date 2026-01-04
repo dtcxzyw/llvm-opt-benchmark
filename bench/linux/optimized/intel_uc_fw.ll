@@ -789,7 +789,7 @@ define dso_local noundef range(i32 -8, 1) i32 @intel_uc_check_file_version(ptr n
   br label %123
 
 .thread12:                                        ; preds = %2, %4, %6, %43, %8
-  %71 = phi ptr [ %9, %8 ], [ %9, %43 ], [ null, %2 ], [ %5, %4 ], [ %7, %6 ]
+  %71 = phi ptr [ %9, %43 ], [ %9, %8 ], [ null, %2 ], [ %5, %4 ], [ %7, %6 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load i32, ptr %73, align 8
@@ -1317,15 +1317,15 @@ __uc_fw_auto_select.exit:                         ; preds = %66
   br label %255
 
 255:                                              ; preds = %.loopexit, %246, %182, %121, %20
-  %256 = phi i32 [ %15, %20 ], [ %125, %121 ], [ %183, %182 ], [ %248, %246 ], [ %34, %.loopexit ]
+  %256 = phi i32 [ %15, %20 ], [ %248, %246 ], [ %125, %121 ], [ %183, %182 ], [ %34, %.loopexit ]
   %.fr = freeze i32 %256
   %257 = icmp eq i32 %.fr, -2
   %spec.select = select i1 %257, i32 3, i32 4
   br label %.thread20
 
 .thread20:                                        ; preds = %255, %148, %174, %.thread16, %.thread22
-  %258 = phi i32 [ -2, %.thread22 ], [ -22, %.thread16 ], [ -22, %174 ], [ -22, %148 ], [ %.fr, %255 ]
-  %259 = phi i32 [ 3, %.thread22 ], [ 4, %.thread16 ], [ 4, %174 ], [ 4, %148 ], [ %spec.select, %255 ]
+  %258 = phi i32 [ -22, %148 ], [ %.fr, %255 ], [ -2, %.thread22 ], [ -22, %.thread16 ], [ -22, %174 ]
+  %259 = phi i32 [ 4, %148 ], [ %spec.select, %255 ], [ 3, %.thread22 ], [ 4, %.thread16 ], [ 4, %174 ]
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %259, ptr %260, align 4
   %261 = load ptr, ptr %13, align 8
@@ -1880,8 +1880,8 @@ define dso_local i32 @intel_uc_fw_init(ptr noundef %0) local_unnamed_addr #1 ali
   br label %40
 
 40:                                               ; preds = %35, %.thread6, %.thread5, %.thread
-  %.in = phi ptr [ %37, %.thread ], [ %38, %.thread5 ], [ %39, %.thread6 ], [ inttoptr (i64 4952 to ptr), %35 ]
-  %41 = phi ptr [ @.str.53, %.thread ], [ @.str.54, %.thread5 ], [ @.str.55, %.thread6 ], [ @.str.56, %35 ]
+  %.in = phi ptr [ %38, %.thread5 ], [ %39, %.thread6 ], [ %37, %.thread ], [ inttoptr (i64 4952 to ptr), %35 ]
+  %41 = phi ptr [ @.str.54, %.thread5 ], [ @.str.55, %.thread6 ], [ @.str.53, %.thread ], [ @.str.56, %35 ]
   %42 = load i32, ptr %.in, align 8
   %43 = sext i32 %9 to i64
   %44 = inttoptr i64 %43 to ptr
@@ -2050,8 +2050,8 @@ define dso_local i32 @intel_uc_fw_init(ptr noundef %0) local_unnamed_addr #1 ali
   br label %120
 
 120:                                              ; preds = %115, %.thread12, %.thread11, %.thread10
-  %.in13 = phi ptr [ %117, %.thread10 ], [ %118, %.thread11 ], [ %119, %.thread12 ], [ inttoptr (i64 4952 to ptr), %115 ]
-  %121 = phi ptr [ @.str.53, %.thread10 ], [ @.str.54, %.thread11 ], [ @.str.55, %.thread12 ], [ @.str.56, %115 ]
+  %.in13 = phi ptr [ %118, %.thread11 ], [ %119, %.thread12 ], [ %117, %.thread10 ], [ inttoptr (i64 4952 to ptr), %115 ]
+  %121 = phi ptr [ @.str.54, %.thread11 ], [ @.str.55, %.thread12 ], [ @.str.53, %.thread10 ], [ @.str.56, %115 ]
   %122 = load i32, ptr %.in13, align 8
   %123 = sext i32 %89 to i64
   %124 = inttoptr i64 %123 to ptr
@@ -2422,7 +2422,7 @@ define dso_local i64 @intel_uc_fw_copy_rsa(ptr noundef readonly captures(none) %
   br label %93
 
 93:                                               ; preds = %90, %85
-  %94 = phi ptr [ %92, %90 ], [ %86, %85 ]
+  %94 = phi ptr [ %86, %85 ], [ %92, %90 ]
   %95 = icmp eq ptr %94, null
   br i1 %95, label %.thread19, label %96
 
@@ -2567,7 +2567,7 @@ define dso_local i64 @intel_uc_fw_copy_rsa(ptr noundef readonly captures(none) %
   br label %196
 
 196:                                              ; preds = %193, %188
-  %197 = phi ptr [ %195, %193 ], [ %189, %188 ]
+  %197 = phi ptr [ %189, %188 ], [ %195, %193 ]
   %198 = icmp eq ptr %197, null
   br i1 %198, label %.thread20, label %199
 
@@ -2595,7 +2595,7 @@ define dso_local i64 @intel_uc_fw_copy_rsa(ptr noundef readonly captures(none) %
   br label %135, !llvm.loop !48
 
 .thread20:                                        ; preds = %184, %196, %199, %171, %.thread19, %57, %25, %120, %121, %26
-  %216 = phi i64 [ 0, %26 ], [ 0, %121 ], [ 0, %120 ], [ 0, %25 ], [ %71, %57 ], [ %78, %.thread19 ], [ %181, %184 ], [ %181, %196 ], [ %181, %199 ], [ %174, %171 ]
+  %216 = phi i64 [ 0, %26 ], [ 0, %120 ], [ 0, %121 ], [ 0, %25 ], [ %78, %.thread19 ], [ %71, %57 ], [ %181, %199 ], [ %181, %184 ], [ %174, %171 ], [ %181, %196 ]
   ret i64 %216
 }
 

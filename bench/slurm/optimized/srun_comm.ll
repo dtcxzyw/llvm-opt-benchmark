@@ -835,7 +835,7 @@ _find_first_node_record.exit:                     ; preds = %50
   br label %_find_first_node_record.exit.thread
 
 _find_first_node_record.exit.thread:              ; preds = %50, %48, %2, %40, %58, %_find_first_node_record.exit, %14
-  %.0 = phi i32 [ 0, %14 ], [ 2021, %2 ], [ 0, %58 ], [ 2037, %_find_first_node_record.exit ], [ 2037, %40 ], [ 2037, %48 ], [ 2037, %50 ]
+  %.0 = phi i32 [ 0, %14 ], [ 2021, %2 ], [ 2037, %_find_first_node_record.exit ], [ 0, %58 ], [ 2037, %40 ], [ 2037, %50 ], [ 2037, %48 ]
   ret i32 %.0
 }
 

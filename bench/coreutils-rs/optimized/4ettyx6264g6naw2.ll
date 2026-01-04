@@ -120,11 +120,11 @@ default.unreachable93:                            ; preds = %84, %79, %30
   unreachable
 
 common.resume:                                    ; preds = %.body, %60, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %41, %40 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hb2e560079f1c5a15E.exit": ; preds = %44, %45, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i.i.i"
-  %.08.i.i.i = phi ptr [ null, %45 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i.i.i" ], [ %spec.select.i.i.i, %44 ]
+  %.08.i.i.i = phi ptr [ %spec.select.i.i.i, %44 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i.i.i" ], [ null, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !10
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %73
@@ -189,13 +189,13 @@ common.resume:                                    ; preds = %.body, %60, %40
   unreachable
 
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hb2e560079f1c5a15E.exit58": ; preds = %64, %65, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i.i.i55"
-  %.08.i.i.i56 = phi ptr [ null, %65 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i.i.i55" ], [ %spec.select.i.i.i57, %64 ]
+  %.08.i.i.i56 = phi ptr [ %spec.select.i.i.i57, %64 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i.i.i55" ], [ null, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !34
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %73
 
 73:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hb2e560079f1c5a15E.exit58", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hb2e560079f1c5a15E.exit"
-  %.047 = phi ptr [ %.08.i.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hb2e560079f1c5a15E.exit" ], [ %.08.i.i.i56, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hb2e560079f1c5a15E.exit58" ]
+  %.047 = phi ptr [ %.08.i.i.i56, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hb2e560079f1c5a15E.exit58" ], [ %.08.i.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hb2e560079f1c5a15E.exit" ]
   %74 = icmp eq ptr %.047, null
   br i1 %74, label %.thread, label %200
 
@@ -536,7 +536,7 @@ common.resume:                                    ; preds = %.body, %60, %40
           to label %common.resume unwind label %201
 
 189:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i.i.i61", %129, %128
-  %.08.i.i.i62 = phi ptr [ null, %129 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i.i.i61" ], [ %spec.select.i.i.i63, %128 ]
+  %.08.i.i.i62 = phi ptr [ %spec.select.i.i.i63, %128 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i.i.i61" ], [ null, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !58
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -566,7 +566,7 @@ common.resume:                                    ; preds = %.body, %60, %40
   br label %200
 
 198:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i.i.i68", %154, %153
-  %.08.i.i.i69 = phi ptr [ null, %154 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i.i.i68" ], [ %spec.select.i.i.i70, %153 ]
+  %.08.i.i.i69 = phi ptr [ %spec.select.i.i.i70, %153 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i.i.i68" ], [ null, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !80
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -574,7 +574,7 @@ common.resume:                                    ; preds = %.body, %60, %40
   br label %190
 
 199:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i.i.i78", %179, %178
-  %.08.i.i.i79 = phi ptr [ null, %179 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i.i.i78" ], [ %spec.select.i.i.i80, %178 ]
+  %.08.i.i.i79 = phi ptr [ %spec.select.i.i.i80, %178 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h4eba6266c73a574aE.exit.i.i.i.i78" ], [ null, %179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !102
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

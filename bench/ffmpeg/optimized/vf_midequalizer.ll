@@ -132,7 +132,7 @@ define internal range(i32 -12, 1) i32 @config_input0(ptr noundef readonly captur
   br label %59
 
 59:                                               ; preds = %.sink.split, %1, %54
-  %.0 = phi i32 [ -12, %54 ], [ -12, %1 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -12, %1 ], [ -12, %54 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -847,7 +847,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
   br label %.critedge
 
 .critedge:                                        ; preds = %23, %20, %1, %14, %.loopexit
-  %.060 = phi i32 [ %116, %.loopexit ], [ %12, %1 ], [ %15, %14 ], [ -12, %20 ], [ -12, %23 ]
+  %.060 = phi i32 [ -12, %23 ], [ %116, %.loopexit ], [ %15, %14 ], [ %12, %1 ], [ -12, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.060

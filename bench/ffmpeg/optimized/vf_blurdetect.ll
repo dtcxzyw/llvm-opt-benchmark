@@ -431,7 +431,7 @@ switch.lookup:                                    ; preds = %129
   br label %._crit_edge16.i.us.us.us.us.us.us.i
 
 ._crit_edge16.i.us.us.us.us.us.us.i:              ; preds = %._crit_edge16.loopexit.i.us.us.us.us.us.us.i, %135
-  %.088.lcssa28.i.us.us.us.us.us.us.i = phi float [ %206, %._crit_edge16.loopexit.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %135 ]
+  %.088.lcssa28.i.us.us.us.us.us.us.i = phi float [ 0.000000e+00, %135 ], [ %206, %._crit_edge16.loopexit.i.us.us.us.us.us.us.i ]
   %or.cond6.i.us.us.us.us.us.us.i = icmp ult i8 %131, 2
   %207 = fpext nsz float %.088.lcssa28.i.us.us.us.us.us.us.i to double
   %208 = fmul nsz double %207, 0x3FE6666666666666
@@ -441,7 +441,7 @@ switch.lookup:                                    ; preds = %129
   br label %edge_width.exit.us.us.us.us.us.us.i
 
 edge_width.exit.us.us.us.us.us.us.i:              ; preds = %160, %.lr.ph.i.us.us.us.us.us.us.i, %.lr.ph15.i.us.us.us.us.us.us.i, %._crit_edge16.i.us.us.us.us.us.us.i, %._crit_edge.i.us.us.us.us.us.us.i, %.lr.ph.preheader.i.us.us.us.us.us.us.i
-  %.0.i.us.us.us.us.us.us.i = phi double [ %210, %._crit_edge16.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %._crit_edge.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %.lr.ph.preheader.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %.lr.ph15.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %.lr.ph.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %160 ]
+  %.0.i.us.us.us.us.us.us.i = phi double [ %210, %._crit_edge16.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %.lr.ph15.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %._crit_edge.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %.lr.ph.preheader.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %.lr.ph.i.us.us.us.us.us.us.i ], [ 0.000000e+00, %160 ]
   %211 = fcmp nsz ogt double %.0.i.us.us.us.us.us.us.i, 1.000000e-03
   %212 = fadd nsz double %.1194276.us.us.us.us.us.us.i, %.0.i.us.us.us.us.us.us.i
   %.2195.us.us.us.us.us.us.i = select nsz i1 %211, double %212, double %.1194276.us.us.us.us.us.us.i
@@ -704,7 +704,7 @@ edge_width.exit.us.us.us.us.us.us.i:              ; preds = %160, %.lr.ph.i.us.u
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.loopexit.i, %295, %292, %220
-  %.1220270.i = phi i32 [ %293, %292 ], [ %293, %295 ], [ %221, %220 ], [ %.1220270.ph.i, %.thread.loopexit.i ]
+  %.1220270.i = phi i32 [ %293, %295 ], [ %293, %292 ], [ %221, %220 ], [ %.1220270.ph.i, %.thread.loopexit.i ]
   %.not.i = icmp eq i32 %.1220270.i, 0
   br i1 %.not.i, label %296, label %220, !llvm.loop !77
 
@@ -845,7 +845,7 @@ define internal range(i32 -12, 1) i32 @blurdetect_config_input(ptr noundef reado
   br label %64
 
 64:                                               ; preds = %62, %36, %58, %60
-  %.0 = phi i32 [ -12, %60 ], [ -12, %58 ], [ -12, %36 ], [ %spec.select, %62 ]
+  %.0 = phi i32 [ -12, %36 ], [ %spec.select, %62 ], [ -12, %60 ], [ -12, %58 ]
   ret i32 %.0
 }
 

@@ -69,7 +69,7 @@ define range(i32 -2147483633, -2147483648) i32 @ff_mpeg4_get_video_packet_prefix
   br label %10
 
 10:                                               ; preds = %3, %9, %6, %4
-  %.0 = phi i32 [ -1, %9 ], [ %5, %4 ], [ %spec.select, %6 ], [ 16, %3 ]
+  %.0 = phi i32 [ -1, %9 ], [ %spec.select, %6 ], [ %5, %4 ], [ 16, %3 ]
   ret i32 %.0
 }
 
@@ -258,7 +258,7 @@ define range(i32 12552, 12689) i32 @ff_mpeg4_set_direct_mv(ptr noundef %0, i32 n
   br label %66
 
 66:                                               ; preds = %63, %61, %52, %50
-  %.sink.i = phi i32 [ %51, %50 ], [ %55, %52 ], [ %62, %61 ], [ %65, %63 ]
+  %.sink.i = phi i32 [ %55, %52 ], [ %51, %50 ], [ %62, %61 ], [ %65, %63 ]
   %67 = getelementptr inbounds nuw [2 x i32], ptr %27, i64 %indvars.iv
   store i32 %.sink.i, ptr %67, align 8, !tbaa !40
   %68 = getelementptr inbounds nuw i8, ptr %38, i64 2
@@ -308,7 +308,7 @@ define range(i32 12552, 12689) i32 @ff_mpeg4_set_direct_mv(ptr noundef %0, i32 n
   br label %ff_mpeg4_set_one_direct_mv.exit
 
 ff_mpeg4_set_one_direct_mv.exit:                  ; preds = %81, %83, %93, %95
-  %.sink74.i = phi i32 [ %86, %83 ], [ %82, %81 ], [ %97, %95 ], [ %94, %93 ]
+  %.sink74.i = phi i32 [ %82, %81 ], [ %86, %83 ], [ %97, %95 ], [ %94, %93 ]
   %98 = getelementptr [2 x i32], ptr %0, i64 %indvars.iv
   %99 = getelementptr i8, ptr %98, i64 3012
   store i32 %.sink74.i, ptr %99, align 4, !tbaa !40
@@ -483,8 +483,8 @@ ff_mpeg4_set_one_direct_mv.exit:                  ; preds = %81, %83, %93, %95
   br label %210
 
 210:                                              ; preds = %206, %204, %192, %190
-  %211 = phi i32 [ %188, %190 ], [ %188, %192 ], [ %202, %204 ], [ %202, %206 ]
-  %.sink.i116 = phi i32 [ %191, %190 ], [ %196, %192 ], [ %205, %204 ], [ %209, %206 ]
+  %211 = phi i32 [ %188, %192 ], [ %188, %190 ], [ %202, %204 ], [ %202, %206 ]
+  %.sink.i116 = phi i32 [ %196, %192 ], [ %191, %190 ], [ %205, %204 ], [ %209, %206 ]
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 3008
   store i32 %.sink.i116, ptr %212, align 8, !tbaa !40
   %213 = getelementptr inbounds nuw i8, ptr %177, i64 2
@@ -539,8 +539,8 @@ ff_mpeg4_set_one_direct_mv.exit:                  ; preds = %81, %83, %93, %95
   br label %ff_mpeg4_set_one_direct_mv.exit121
 
 ff_mpeg4_set_one_direct_mv.exit121:               ; preds = %226, %228, %240, %242
-  %246 = phi i32 [ %224, %228 ], [ %224, %226 ], [ %238, %242 ], [ %238, %240 ]
-  %.sink74.i118 = phi i32 [ %232, %228 ], [ %227, %226 ], [ %245, %242 ], [ %241, %240 ]
+  %246 = phi i32 [ %224, %226 ], [ %224, %228 ], [ %238, %242 ], [ %238, %240 ]
+  %.sink74.i118 = phi i32 [ %227, %226 ], [ %232, %228 ], [ %245, %242 ], [ %241, %240 ]
   %247 = getelementptr i8, ptr %0, i64 3012
   store i32 %.sink74.i118, ptr %247, align 4, !tbaa !40
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 3000
@@ -589,7 +589,7 @@ ff_mpeg4_set_one_direct_mv.exit121:               ; preds = %226, %228, %240, %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %ff_mpeg4_set_one_direct_mv.exit, %162, %.loopexit.sink.split
-  %.0 = phi i32 [ 12552, %.loopexit.sink.split ], [ 12688, %162 ], [ 12608, %ff_mpeg4_set_one_direct_mv.exit ]
+  %.0 = phi i32 [ 12688, %162 ], [ 12552, %.loopexit.sink.split ], [ 12608, %ff_mpeg4_set_one_direct_mv.exit ]
   ret i32 %.0
 }
 

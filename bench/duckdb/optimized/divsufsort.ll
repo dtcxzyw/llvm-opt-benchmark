@@ -259,7 +259,7 @@ _ZN11duckdb_zstdL12construct_SAEPKhPiS2_S2_ii.exit: ; preds = %133, %20
   br label %136
 
 136:                                              ; preds = %8, %4, %_ZN11duckdb_zstdL12construct_SAEPKhPiS2_S2_ii.exit, %10, %9
-  %.035 = phi i32 [ 0, %9 ], [ 0, %10 ], [ %.0, %_ZN11duckdb_zstdL12construct_SAEPKhPiS2_S2_ii.exit ], [ -1, %4 ], [ %2, %8 ]
+  %.035 = phi i32 [ %.0, %_ZN11duckdb_zstdL12construct_SAEPKhPiS2_S2_ii.exit ], [ -1, %4 ], [ 0, %9 ], [ 0, %10 ], [ %2, %8 ]
   ret i32 %.035
 }
 
@@ -349,7 +349,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   br i1 %48, label %.lr.ph, label %.loopexit826, !llvm.loop !14
 
 .loopexit826:                                     ; preds = %22, %12, %40
-  %.1261.ph = phi i32 [ %31, %40 ], [ %.0260424, %12 ], [ %31, %22 ]
+  %.1261.ph = phi i32 [ %.0260424, %12 ], [ %31, %40 ], [ %31, %22 ]
   br label %49
 
 .loopexit336:                                     ; preds = %.lr.ph430, %49
@@ -566,7 +566,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   br label %167
 
 167:                                              ; preds = %163, %157, %150, %144
-  %168 = phi i32 [ %149, %144 ], [ %155, %150 ], [ %162, %157 ], [ %166, %163 ]
+  %168 = phi i32 [ %155, %150 ], [ %149, %144 ], [ %162, %157 ], [ %166, %163 ]
   %169 = icmp sgt i32 %168, 15
   br i1 %169, label %170, label %191
 
@@ -632,7 +632,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   br label %_ZN11duckdb_zstdL8ss_isqrtEi.exit.i
 
 _ZN11duckdb_zstdL8ss_isqrtEi.exit.i:              ; preds = %209, %204
-  %.0.i.i = phi i32 [ %213, %209 ], [ %208, %204 ]
+  %.0.i.i = phi i32 [ %208, %204 ], [ %213, %209 ]
   %214 = icmp slt i32 %111, %.0.i.i
   br i1 %214, label %_ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i, label %219
 
@@ -862,7 +862,7 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.i.i: ; preds = %294, %.thread.i.i.
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %307, %305, %._crit_edge.thread.i.i
-  %.052.lcssa113117.i.i = phi ptr [ %.153.i.i, %307 ], [ %.153.i.i, %305 ], [ %spec.select.i, %._crit_edge.thread.i.i ]
+  %.052.lcssa113117.i.i = phi ptr [ %.153.i.i, %305 ], [ %.153.i.i, %307 ], [ %spec.select.i, %._crit_edge.thread.i.i ]
   %310 = ptrtoint ptr %.052.lcssa113117.i.i to i64
   %311 = sub i64 %254, %310
   %312 = lshr exact i64 %311, 2
@@ -1094,7 +1094,7 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.i:  ; preds = %.lr.ph.i129.i, %._Z
   br i1 %404, label %.lr.ph173.split.i, label %.critedge.i, !llvm.loop !29
 
 .critedge.i:                                      ; preds = %.critedge2.us.i, %.lr.ph173.split.us.i, %.critedge2.i, %_ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.i, %.critedge.i.i
-  %.3.lcssa.i = phi ptr [ %.3171.i, %_ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.i ], [ %403, %.critedge2.i ], [ %.3171.i, %.critedge.i.i ], [ %.3171.us.i, %.lr.ph173.split.us.i ], [ %376, %.critedge2.us.i ]
+  %.3.lcssa.i = phi ptr [ %.3171.i, %.critedge.i.i ], [ %.3171.i, %_ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.i ], [ %403, %.critedge2.i ], [ %.3171.us.i, %.lr.ph173.split.us.i ], [ %376, %.critedge2.us.i ]
   %405 = getelementptr inbounds i8, ptr %.3.lcssa.i, i64 -4
   store i32 %366, ptr %405, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6sssortEPKhPKiPiS4_S4_iiii.exit
@@ -1220,7 +1220,7 @@ _ZN11duckdb_zstdL6sssortEPKhPKiPiS4_S4_iiii.exit: ; preds = %.critedge.i, %_ZN11
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit.i
 
 _ZN11duckdb_zstdL6tr_ilgEi.exit.i:                ; preds = %465, %459, %452, %446
-  %468 = phi i32 [ %451, %446 ], [ %457, %452 ], [ %464, %459 ], [ %467, %465 ]
+  %468 = phi i32 [ %457, %452 ], [ %451, %446 ], [ %464, %459 ], [ %467, %465 ]
   %469 = sub nsw i32 0, %66
   %470 = load i32, ptr %1, align 4, !tbaa !3
   %471 = icmp sgt i32 %470, %469
@@ -1343,7 +1343,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
   br label %.outer.i.i.preheader
 
 .outer.i.i.preheader:                             ; preds = %528, %522, %515, %509
-  %.0449.ph.i.i.ph = phi i32 [ %514, %509 ], [ %520, %515 ], [ %527, %522 ], [ %531, %528 ]
+  %.0449.ph.i.i.ph = phi i32 [ %520, %515 ], [ %527, %522 ], [ %531, %528 ], [ %514, %509 ]
   br label %.outer.i.i
 
 .outer.i.i:                                       ; preds = %.outer.i.i.backedge, %.outer.i.i.preheader
@@ -1427,9 +1427,9 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
   br i1 %573, label %.preheader.i562.us.us.us.i.i, label %.critedge.thread.i.us.us.us.i.i, !llvm.loop !35
 
 .critedge.thread.i.us.us.us.i.i:                  ; preds = %.critedge.loopexit.i.us.us.us.i.i, %562, %.lr.ph.i559.us.us.us.i.i
-  %574 = phi i32 [ %553, %.lr.ph.i559.us.us.us.i.i ], [ %561, %562 ], [ %569, %.critedge.loopexit.i.us.us.us.i.i ]
-  %575 = phi i32 [ %557, %.lr.ph.i559.us.us.us.i.i ], [ %560, %562 ], [ %572, %.critedge.loopexit.i.us.us.us.i.i ]
-  %.1.i560.us.us.us.i.i = phi ptr [ %.pn36.i.us.us.us.i.i, %.lr.ph.i559.us.us.us.i.i ], [ %565, %562 ], [ %565, %.critedge.loopexit.i.us.us.us.i.i ]
+  %574 = phi i32 [ %561, %562 ], [ %553, %.lr.ph.i559.us.us.us.i.i ], [ %569, %.critedge.loopexit.i.us.us.us.i.i ]
+  %575 = phi i32 [ %560, %562 ], [ %557, %.lr.ph.i559.us.us.us.i.i ], [ %572, %.critedge.loopexit.i.us.us.us.i.i ]
+  %.1.i560.us.us.us.i.i = phi ptr [ %565, %562 ], [ %.pn36.i.us.us.us.i.i, %.lr.ph.i559.us.us.us.i.i ], [ %565, %.critedge.loopexit.i.us.us.us.i.i ]
   %576 = icmp eq i32 %574, %575
   br i1 %576, label %577, label %580
 
@@ -1520,8 +1520,8 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
   br i1 %616, label %.lr.ph.i117.i, label %.critedge2.i62.i, !llvm.loop !39
 
 .critedge2.i62.i:                                 ; preds = %592, %614, %.lr.ph.i117.i, %.preheader206.i116.i, %.critedge.i115.i
-  %.0159.i63.i = phi ptr [ %593, %.critedge.i115.i ], [ %593, %.preheader206.i116.i ], [ %.2161.i120.i, %614 ], [ %.1160217.i118.i, %.lr.ph.i117.i ], [ %593, %592 ]
-  %.1155.i64.i = phi ptr [ %593, %.critedge.i115.i ], [ %602, %.preheader206.i116.i ], [ %615, %614 ], [ %604, %.lr.ph.i117.i ], [ %593, %592 ]
+  %.0159.i63.i = phi ptr [ %593, %.critedge.i115.i ], [ %.1160217.i118.i, %.lr.ph.i117.i ], [ %593, %.preheader206.i116.i ], [ %.2161.i120.i, %614 ], [ %593, %592 ]
+  %.1155.i64.i = phi ptr [ %593, %.critedge.i115.i ], [ %604, %.lr.ph.i117.i ], [ %602, %.preheader206.i116.i ], [ %615, %614 ], [ %593, %592 ]
   br label %617
 
 617:                                              ; preds = %620, %.critedge2.i62.i
@@ -1575,8 +1575,8 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
   br i1 %641, label %.lr.ph223.i111.i, label %.critedge6.i66.i, !llvm.loop !41
 
 .critedge6.i66.i:                                 ; preds = %617, %639, %.lr.ph223.i111.i, %.preheader.i110.i, %.critedge4.i109.i
-  %.1150.i67.i = phi ptr [ %618, %.critedge4.i109.i ], [ %627, %.preheader.i110.i ], [ %640, %639 ], [ %629, %.lr.ph223.i111.i ], [ %618, %617 ]
-  %.0143.i68.i = phi ptr [ %618, %.critedge4.i109.i ], [ %618, %.preheader.i110.i ], [ %.2145.i114.i, %639 ], [ %.1144222.i112.i, %.lr.ph223.i111.i ], [ %618, %617 ]
+  %.1150.i67.i = phi ptr [ %618, %.critedge4.i109.i ], [ %629, %.lr.ph223.i111.i ], [ %627, %.preheader.i110.i ], [ %640, %639 ], [ %618, %617 ]
+  %.0143.i68.i = phi ptr [ %618, %.critedge4.i109.i ], [ %.1144222.i112.i, %.lr.ph223.i111.i ], [ %618, %.preheader.i110.i ], [ %.2145.i114.i, %639 ], [ %618, %617 ]
   %642 = icmp ult ptr %.1155.i64.i, %.1150.i67.i
   br i1 %642, label %.lr.ph247.i90.i, label %._crit_edge.i69.i
 
@@ -1888,7 +1888,7 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit121.i: ; preds = %._crit
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i
 
 _ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i:           ; preds = %796, %790, %783, %777
-  %800 = phi i32 [ %782, %777 ], [ %788, %783 ], [ %795, %790 ], [ %799, %796 ]
+  %800 = phi i32 [ %788, %783 ], [ %782, %777 ], [ %795, %790 ], [ %799, %796 ]
   %801 = getelementptr inbounds nuw i8, ptr %771, i64 24
   store i32 %800, ptr %801, align 8, !tbaa !55
   %802 = add nsw i32 %.1446.i.i, 1
@@ -2059,7 +2059,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i:           ; preds = %796, %790, %783, %7
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i
 
 _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %883
-  %906 = phi i32 [ %888, %883 ], [ %894, %889 ], [ %901, %896 ], [ %905, %902 ]
+  %906 = phi i32 [ %894, %889 ], [ %888, %883 ], [ %901, %896 ], [ %905, %902 ]
   %907 = getelementptr inbounds nuw i8, ptr %877, i64 24
   store i32 %906, ptr %907, align 8, !tbaa !55
   %908 = add nsw i32 %.1446.i.i, 1
@@ -2532,7 +2532,7 @@ _ZN11duckdb_zstdL7tr_copyEPiPKiS0_S0_S0_S0_i.exit.i.i: ; preds = %1101, %1033, %
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit556.i.i
 
 _ZN11duckdb_zstdL6tr_ilgEi.exit556.i.i:           ; preds = %1174, %1168, %1161, %1155, %1141
-  %1178 = phi i32 [ -1, %1141 ], [ %1160, %1155 ], [ %1166, %1161 ], [ %1173, %1168 ], [ %1177, %1174 ]
+  %1178 = phi i32 [ -1, %1141 ], [ %1166, %1161 ], [ %1160, %1155 ], [ %1173, %1168 ], [ %1177, %1174 ]
   %1179 = getelementptr inbounds nuw i8, ptr %1136, i64 8
   %1180 = icmp ult ptr %1179, %.0463.ph.i.i
   %1181 = ptrtoint ptr %1179 to i64
@@ -3212,8 +3212,8 @@ _ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit59.i.i.i: ; preds = %1582, %_ZN11d
   br label %_ZN11duckdb_zstdL8tr_pivotEPKiPiS2_.exit.i.i
 
 _ZN11duckdb_zstdL8tr_pivotEPKiPiS2_.exit.i.i:     ; preds = %1603, %_ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit59.i.i.i, %1443, %1437, %1418
-  %1609 = phi i32 [ %1476, %1443 ], [ %1419, %1437 ], [ %1419, %1418 ], [ %1510, %1603 ], [ %1510, %_ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit59.i.i.i ]
-  %.0.i569.i.i = phi ptr [ %.055.i.i.i.i, %1443 ], [ %spec.select22..i.i.i.i, %1437 ], [ %spec.select.i.i570.i.i, %1418 ], [ %spec.select22..i63.i.i.i, %1603 ], [ %spec.select.i60.i.i.i, %_ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit59.i.i.i ]
+  %1609 = phi i32 [ %1419, %1418 ], [ %1476, %1443 ], [ %1419, %1437 ], [ %1510, %1603 ], [ %1510, %_ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit59.i.i.i ]
+  %.0.i569.i.i = phi ptr [ %spec.select.i.i570.i.i, %1418 ], [ %.055.i.i.i.i, %1443 ], [ %spec.select22..i.i.i.i, %1437 ], [ %spec.select22..i63.i.i.i, %1603 ], [ %spec.select.i60.i.i.i, %_ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit59.i.i.i ]
   %1610 = load i32, ptr %.0.i569.i.i, align 4, !tbaa !3
   store i32 %1610, ptr %.0455.ph.i.i, align 4, !tbaa !3
   store i32 %1609, ptr %.0.i569.i.i, align 4, !tbaa !3
@@ -3274,8 +3274,8 @@ _ZN11duckdb_zstdL8tr_pivotEPKiPiS2_.exit.i.i:     ; preds = %1603, %_ZN11duckdb_
   br i1 %1639, label %.lr.ph.i59.i, label %.critedge2.i55.i, !llvm.loop !39
 
 .critedge2.i55.i:                                 ; preds = %1615, %1637, %.lr.ph.i59.i, %.preheader206.i.i, %.critedge.i58.i
-  %.0159.i.i = phi ptr [ %1616, %.critedge.i58.i ], [ %1616, %.preheader206.i.i ], [ %.2161.i.i, %1637 ], [ %.1160217.i.i, %.lr.ph.i59.i ], [ %1616, %1615 ]
-  %.1155.i.i = phi ptr [ %1616, %.critedge.i58.i ], [ %1625, %.preheader206.i.i ], [ %1638, %1637 ], [ %1627, %.lr.ph.i59.i ], [ %1616, %1615 ]
+  %.0159.i.i = phi ptr [ %1616, %.critedge.i58.i ], [ %.1160217.i.i, %.lr.ph.i59.i ], [ %1616, %.preheader206.i.i ], [ %.2161.i.i, %1637 ], [ %1616, %1615 ]
+  %.1155.i.i = phi ptr [ %1616, %.critedge.i58.i ], [ %1627, %.lr.ph.i59.i ], [ %1625, %.preheader206.i.i ], [ %1638, %1637 ], [ %1616, %1615 ]
   br label %1640
 
 1640:                                             ; preds = %1643, %.critedge2.i55.i
@@ -3329,8 +3329,8 @@ _ZN11duckdb_zstdL8tr_pivotEPKiPiS2_.exit.i.i:     ; preds = %1603, %_ZN11duckdb_
   br i1 %1664, label %.lr.ph223.i.i, label %.critedge6.i.i, !llvm.loop !41
 
 .critedge6.i.i:                                   ; preds = %1640, %1662, %.lr.ph223.i.i, %.preheader.i.i298, %.critedge4.i.i
-  %.1150.i.i = phi ptr [ %1641, %.critedge4.i.i ], [ %1650, %.preheader.i.i298 ], [ %1663, %1662 ], [ %1652, %.lr.ph223.i.i ], [ %1641, %1640 ]
-  %.0143.i.i = phi ptr [ %1641, %.critedge4.i.i ], [ %1641, %.preheader.i.i298 ], [ %.2145.i.i, %1662 ], [ %.1144222.i.i, %.lr.ph223.i.i ], [ %1641, %1640 ]
+  %.1150.i.i = phi ptr [ %1641, %.critedge4.i.i ], [ %1652, %.lr.ph223.i.i ], [ %1650, %.preheader.i.i298 ], [ %1663, %1662 ], [ %1641, %1640 ]
+  %.0143.i.i = phi ptr [ %1641, %.critedge4.i.i ], [ %.1144222.i.i, %.lr.ph223.i.i ], [ %1641, %.preheader.i.i298 ], [ %.2145.i.i, %1662 ], [ %1641, %1640 ]
   %1665 = icmp ult ptr %.1155.i.i, %.1150.i.i
   br i1 %1665, label %.lr.ph247.i.i, label %._crit_edge.i56.i
 
@@ -3552,7 +3552,7 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit.i: ; preds = %.lr.ph261
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit574.i.i
 
 _ZN11duckdb_zstdL6tr_ilgEi.exit574.i.i:           ; preds = %1767, %1761, %1754, %1748, %1740
-  %1771 = phi i32 [ -1, %1740 ], [ %1753, %1748 ], [ %1759, %1754 ], [ %1766, %1761 ], [ %1770, %1767 ]
+  %1771 = phi i32 [ -1, %1740 ], [ %1759, %1754 ], [ %1753, %1748 ], [ %1766, %1761 ], [ %1770, %1767 ]
   %1772 = sub i64 %.pre263.i, %476
   %1773 = lshr exact i64 %1772, 2
   %1774 = trunc i64 %1773 to i32
@@ -4028,7 +4028,7 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit.thread.i: ; preds = %_Z
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i
 
 _ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i:           ; preds = %2022, %2016, %2009, %2003
-  %2026 = phi i32 [ %2008, %2003 ], [ %2014, %2009 ], [ %2021, %2016 ], [ %2025, %2022 ]
+  %2026 = phi i32 [ %2014, %2009 ], [ %2008, %2003 ], [ %2021, %2016 ], [ %2025, %2022 ]
   %2027 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %480
   br label %.outer.i.i.backedge
 
@@ -4064,15 +4064,15 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i:           ; preds = %2022, %2016, %2009,
   br label %.outer.i.i.backedge
 
 .outer.i.i.backedge:                              ; preds = %2037, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i, %1983, %1979, %1971, %1956, %1952, %1944, %1918, %1914, %1905, %1889, %1886, %1872, %1855, %1851, %1842, %1826, %1823, %1809, %1254, %1239, %1233, %1218, %1215, %1206, %1104, %966, %960, %954, %947, %941, %932, %926, %919, %913, %860, %854, %848, %841, %835, %826, %820, %813, %807
-  %.sroa.23.0.i.be = phi i32 [ %1227, %1233 ], [ %1227, %1239 ], [ %.sroa.23.0.i, %1218 ], [ %.sroa.23.0.i, %1215 ], [ %.sroa.23.0.i, %1206 ], [ %.sroa.23.0.i, %1254 ], [ %.sroa.23.0.i, %932 ], [ %.sroa.23.0.i, %926 ], [ %.sroa.23.0.i, %919 ], [ %.sroa.23.0.i, %913 ], [ %.sroa.23.0.i, %960 ], [ %.sroa.23.0.i, %954 ], [ %.sroa.23.0.i, %947 ], [ %.sroa.23.0.i, %941 ], [ %.sroa.23.0.i, %966 ], [ %.sroa.23.0.i, %826 ], [ %.sroa.23.0.i, %820 ], [ %.sroa.23.0.i, %813 ], [ %.sroa.23.0.i, %807 ], [ %.sroa.23.0.i, %854 ], [ %.sroa.23.0.i, %848 ], [ %.sroa.23.0.i, %841 ], [ %.sroa.23.0.i, %835 ], [ %.sroa.23.0.i, %860 ], [ %.sroa.23.0.i, %1104 ], [ %2029, %2037 ], [ %.sroa.23.0.i, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %.sroa.23.1.i, %1971 ], [ %.sroa.23.1.i, %1979 ], [ %.sroa.23.1.i, %1983 ], [ %.sroa.23.1.i, %1944 ], [ %.sroa.23.1.i, %1952 ], [ %.sroa.23.1.i, %1956 ], [ %.sroa.23.0.i, %1918 ], [ %.sroa.23.0.i, %1905 ], [ %.sroa.23.0.i, %1914 ], [ %.sroa.23.0.i, %1872 ], [ %.sroa.23.0.i, %1889 ], [ %.sroa.23.0.i, %1886 ], [ %.sroa.23.0.i, %1855 ], [ %.sroa.23.0.i, %1842 ], [ %.sroa.23.0.i, %1851 ], [ %.sroa.23.0.i, %1809 ], [ %.sroa.23.0.i, %1826 ], [ %.sroa.23.0.i, %1823 ]
-  %.sroa.9.3.i.be = phi i32 [ %.sroa.9.3.i, %1233 ], [ %.sroa.9.3.i, %1239 ], [ %.sroa.9.7.i, %1218 ], [ %.sroa.9.7.i, %1215 ], [ %.sroa.9.7.i, %1206 ], [ %.sroa.9.3.i, %1254 ], [ %.sroa.9.3.i, %932 ], [ %.sroa.9.3.i, %926 ], [ %.sroa.9.3.i, %919 ], [ %.sroa.9.3.i, %913 ], [ %.sroa.9.3.i, %960 ], [ %.sroa.9.3.i, %954 ], [ %.sroa.9.3.i, %947 ], [ %.sroa.9.3.i, %941 ], [ %.sroa.9.3.i, %966 ], [ %.sroa.9.3.i, %826 ], [ %.sroa.9.3.i, %820 ], [ %.sroa.9.3.i, %813 ], [ %.sroa.9.3.i, %807 ], [ %.sroa.9.3.i, %854 ], [ %.sroa.9.3.i, %848 ], [ %.sroa.9.3.i, %841 ], [ %.sroa.9.3.i, %835 ], [ %.sroa.9.3.i, %860 ], [ %.sroa.9.3.i, %1104 ], [ %.sroa.9.3.i, %2037 ], [ %.sroa.9.6.i, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %.sroa.9.3.i, %1971 ], [ %.sroa.9.3.i, %1979 ], [ %.sroa.9.3.i, %1983 ], [ %.sroa.9.3.i, %1944 ], [ %.sroa.9.3.i, %1952 ], [ %.sroa.9.3.i, %1956 ], [ %.sroa.9.5.i, %1918 ], [ %.sroa.9.5.i, %1905 ], [ %.sroa.9.5.i, %1914 ], [ %.sroa.9.5.i, %1872 ], [ %.sroa.9.5.i, %1889 ], [ %.sroa.9.5.i, %1886 ], [ %.sroa.9.5.i, %1855 ], [ %.sroa.9.5.i, %1842 ], [ %.sroa.9.5.i, %1851 ], [ %.sroa.9.5.i, %1809 ], [ %.sroa.9.5.i, %1826 ], [ %.sroa.9.5.i, %1823 ]
-  %.sroa.0.3.i.be = phi i32 [ 0, %1233 ], [ 0, %1239 ], [ %.sroa.0.7.i, %1218 ], [ %.sroa.0.7.i, %1215 ], [ %.sroa.0.7.i, %1206 ], [ %.sroa.0.3.i, %1254 ], [ %.sroa.0.3.i, %932 ], [ %.sroa.0.3.i, %926 ], [ %.sroa.0.3.i, %919 ], [ %.sroa.0.3.i, %913 ], [ %.sroa.0.3.i, %960 ], [ %.sroa.0.3.i, %954 ], [ %.sroa.0.3.i, %947 ], [ %.sroa.0.3.i, %941 ], [ %.sroa.0.3.i, %966 ], [ %.sroa.0.3.i, %826 ], [ %.sroa.0.3.i, %820 ], [ %.sroa.0.3.i, %813 ], [ %.sroa.0.3.i, %807 ], [ %.sroa.0.3.i, %854 ], [ %.sroa.0.3.i, %848 ], [ %.sroa.0.3.i, %841 ], [ %.sroa.0.3.i, %835 ], [ %.sroa.0.3.i, %860 ], [ %.sroa.0.3.i, %1104 ], [ 0, %2037 ], [ %.sroa.0.6.i, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %.sroa.0.3.i, %1971 ], [ %.sroa.0.3.i, %1979 ], [ %.sroa.0.3.i, %1983 ], [ %.sroa.0.3.i, %1944 ], [ %.sroa.0.3.i, %1952 ], [ %.sroa.0.3.i, %1956 ], [ %.sroa.0.5.i, %1918 ], [ %.sroa.0.5.i, %1905 ], [ %.sroa.0.5.i, %1914 ], [ %.sroa.0.5.i, %1872 ], [ %.sroa.0.5.i, %1889 ], [ %.sroa.0.5.i, %1886 ], [ %.sroa.0.5.i, %1855 ], [ %.sroa.0.5.i, %1842 ], [ %.sroa.0.5.i, %1851 ], [ %.sroa.0.5.i, %1809 ], [ %.sroa.0.5.i, %1826 ], [ %.sroa.0.5.i, %1823 ]
-  %.0463.ph.i.i.be = phi ptr [ %.0463.ph.i.i, %1233 ], [ %1247, %1239 ], [ %.0463.ph.i.i, %1218 ], [ %1179, %1215 ], [ %1179, %1206 ], [ %1262, %1254 ], [ %.0463.ph.i.i, %932 ], [ %.0463.ph.i.i, %926 ], [ %.0463.ph.i.i, %919 ], [ %.0463.ph.i.i, %913 ], [ %.0165.i79.i, %960 ], [ %.0165.i79.i, %954 ], [ %.0165.i79.i, %947 ], [ %.0165.i79.i, %941 ], [ %974, %966 ], [ %.0165.i79.i, %826 ], [ %.0165.i79.i, %820 ], [ %.0165.i79.i, %813 ], [ %.0165.i79.i, %807 ], [ %.0463.ph.i.i, %854 ], [ %.0463.ph.i.i, %848 ], [ %.0463.ph.i.i, %841 ], [ %.0463.ph.i.i, %835 ], [ %868, %860 ], [ %1112, %1104 ], [ %2045, %2037 ], [ %.0463.ph.i.i, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %.0463.ph.i.i, %1971 ], [ %1738, %1979 ], [ %1991, %1983 ], [ %1738, %1944 ], [ %.0463.ph.i.i, %1952 ], [ %1964, %1956 ], [ %1739, %1918 ], [ %.0463.ph.i.i, %1905 ], [ %1739, %1914 ], [ %.0463.ph.i.i, %1872 ], [ %1738, %1889 ], [ %1739, %1886 ], [ %1739, %1855 ], [ %1738, %1842 ], [ %1739, %1851 ], [ %1738, %1809 ], [ %.0463.ph.i.i, %1826 ], [ %1739, %1823 ]
-  %.0455.ph.i.i.be = phi ptr [ %1179, %1233 ], [ %1245, %1239 ], [ %1179, %1218 ], [ %.2457.i.i, %1215 ], [ %.2457.i.i, %1206 ], [ %1260, %1254 ], [ %.0166.i78.i, %932 ], [ %.0166.i78.i, %926 ], [ %.0166.i78.i, %919 ], [ %.0166.i78.i, %913 ], [ %.0455.ph.i.i, %960 ], [ %.0455.ph.i.i, %954 ], [ %.0455.ph.i.i, %947 ], [ %.0455.ph.i.i, %941 ], [ %972, %966 ], [ %.0455.ph.i.i, %826 ], [ %.0455.ph.i.i, %820 ], [ %.0455.ph.i.i, %813 ], [ %.0455.ph.i.i, %807 ], [ %.0166.i78.i, %854 ], [ %.0166.i78.i, %848 ], [ %.0166.i78.i, %841 ], [ %.0166.i78.i, %835 ], [ %866, %860 ], [ %1110, %1104 ], [ %2043, %2037 ], [ %.0455.ph.i.i, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %1739, %1971 ], [ %.0455.ph.i.i, %1979 ], [ %1989, %1983 ], [ %.0455.ph.i.i, %1944 ], [ %1739, %1952 ], [ %1962, %1956 ], [ %1738, %1918 ], [ %1739, %1905 ], [ %1738, %1914 ], [ %1739, %1872 ], [ %.0455.ph.i.i, %1889 ], [ %1738, %1886 ], [ %1738, %1855 ], [ %.0455.ph.i.i, %1842 ], [ %1738, %1851 ], [ %.0455.ph.i.i, %1809 ], [ %1739, %1826 ], [ %1738, %1823 ]
-  %.0452.ph.i.i.be = phi ptr [ %.0452.ph.i.i, %1233 ], [ %1243, %1239 ], [ %.0452.ph.i.i, %1218 ], [ %1217, %1215 ], [ %1214, %1206 ], [ %1258, %1254 ], [ %.0452.ph.i.i, %932 ], [ %.0452.ph.i.i, %926 ], [ %.0452.ph.i.i, %919 ], [ %.0452.ph.i.i, %913 ], [ %.0452.ph.i.i, %960 ], [ %.0452.ph.i.i, %954 ], [ %.0452.ph.i.i, %947 ], [ %.0452.ph.i.i, %941 ], [ %970, %966 ], [ %.0452.ph.i.i, %826 ], [ %.0452.ph.i.i, %820 ], [ %.0452.ph.i.i, %813 ], [ %.0452.ph.i.i, %807 ], [ %.0452.ph.i.i, %854 ], [ %.0452.ph.i.i, %848 ], [ %.0452.ph.i.i, %841 ], [ %.0452.ph.i.i, %835 ], [ %864, %860 ], [ %1108, %1104 ], [ %2041, %2037 ], [ %2027, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %.0452.ph.i.i, %1971 ], [ %.0452.ph.i.i, %1979 ], [ %1987, %1983 ], [ %.0452.ph.i.i, %1944 ], [ %.0452.ph.i.i, %1952 ], [ %1960, %1956 ], [ %1931, %1918 ], [ %.0452.ph.i.i, %1905 ], [ %1917, %1914 ], [ %.0452.ph.i.i, %1872 ], [ %.0452.ph.i.i, %1889 ], [ %1888, %1886 ], [ %1868, %1855 ], [ %.0452.ph.i.i, %1842 ], [ %1854, %1851 ], [ %.0452.ph.i.i, %1809 ], [ %.0452.ph.i.i, %1826 ], [ %1825, %1823 ]
-  %.0449.ph.i.i.be = phi i32 [ -3, %1233 ], [ %1249, %1239 ], [ -3, %1218 ], [ %1178, %1215 ], [ %1178, %1206 ], [ %1264, %1254 ], [ %935, %932 ], [ %931, %926 ], [ %924, %919 ], [ %918, %913 ], [ %963, %960 ], [ %959, %954 ], [ %952, %947 ], [ %946, %941 ], [ %976, %966 ], [ %829, %826 ], [ %825, %820 ], [ %818, %813 ], [ %812, %807 ], [ %857, %854 ], [ %853, %848 ], [ %846, %841 ], [ %840, %835 ], [ %870, %860 ], [ %1114, %1104 ], [ %2047, %2037 ], [ %2026, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %1409, %1971 ], [ %1409, %1979 ], [ %1993, %1983 ], [ %1409, %1944 ], [ %1409, %1952 ], [ %1966, %1956 ], [ %1771, %1918 ], [ %1409, %1905 ], [ %1771, %1914 ], [ %1409, %1872 ], [ %1409, %1889 ], [ %1771, %1886 ], [ %1771, %1855 ], [ %1409, %1842 ], [ %1771, %1851 ], [ %1409, %1809 ], [ %1409, %1826 ], [ %1771, %1823 ]
-  %.0445.ph.i.i.be = phi i32 [ %.0445.ph.i.i, %1233 ], [ %1240, %1239 ], [ %1224, %1218 ], [ %.0445.ph.i.i, %1215 ], [ %1212, %1206 ], [ %1255, %1254 ], [ %908, %932 ], [ %908, %926 ], [ %908, %919 ], [ %908, %913 ], [ %.1446.i.i, %960 ], [ %.1446.i.i, %954 ], [ %.1446.i.i, %947 ], [ %.1446.i.i, %941 ], [ %967, %966 ], [ %802, %826 ], [ %802, %820 ], [ %802, %813 ], [ %802, %807 ], [ %.1446.i.i, %854 ], [ %.1446.i.i, %848 ], [ %.1446.i.i, %841 ], [ %.1446.i.i, %835 ], [ %861, %860 ], [ %1105, %1104 ], [ %2038, %2037 ], [ %.0445.ph.i.i, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %1977, %1971 ], [ %.0445.ph.i.i, %1979 ], [ %1984, %1983 ], [ %1950, %1944 ], [ %.0445.ph.i.i, %1952 ], [ %1957, %1956 ], [ %1929, %1918 ], [ %1912, %1905 ], [ %1915, %1914 ], [ %1884, %1872 ], [ %1895, %1889 ], [ %.0445.ph.i.i, %1886 ], [ %1866, %1855 ], [ %1849, %1842 ], [ %1852, %1851 ], [ %1821, %1809 ], [ %1832, %1826 ], [ %.0445.ph.i.i, %1823 ]
-  %.0.ph.i.i.be = phi i32 [ %.0.ph.i.i, %1233 ], [ %1251, %1239 ], [ %.0.ph.i.i, %1218 ], [ %.0.ph.i.i, %1215 ], [ %.0.ph.i.i, %1206 ], [ %1266, %1254 ], [ %.1.i.i311, %932 ], [ %.1.i.i311, %926 ], [ %.1.i.i311, %919 ], [ %.1.i.i311, %913 ], [ %.1.i.i311, %960 ], [ %.1.i.i311, %954 ], [ %.1.i.i311, %947 ], [ %.1.i.i311, %941 ], [ %978, %966 ], [ %.1.i.i311, %826 ], [ %.1.i.i311, %820 ], [ %.1.i.i311, %813 ], [ %.1.i.i311, %807 ], [ %.1.i.i311, %854 ], [ %.1.i.i311, %848 ], [ %.1.i.i311, %841 ], [ %.1.i.i311, %835 ], [ %872, %860 ], [ %1116, %1104 ], [ %2049, %2037 ], [ %.0.ph.i.i, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %.0.ph.i.i, %1971 ], [ %.0.ph.i.i, %1979 ], [ %1995, %1983 ], [ %.0.ph.i.i, %1944 ], [ %.0.ph.i.i, %1952 ], [ %1968, %1956 ], [ %.0.ph.i.i, %1918 ], [ %.0.ph.i.i, %1905 ], [ %.0.ph.i.i, %1914 ], [ %.0.ph.i.i, %1872 ], [ %.0.ph.i.i, %1889 ], [ %.0.ph.i.i, %1886 ], [ %.0.ph.i.i, %1855 ], [ %.0.ph.i.i, %1842 ], [ %.0.ph.i.i, %1851 ], [ %.0.ph.i.i, %1809 ], [ %.0.ph.i.i, %1826 ], [ %.0.ph.i.i, %1823 ]
+  %.sroa.23.0.i.be = phi i32 [ %.sroa.23.0.i, %1851 ], [ %.sroa.23.0.i, %1809 ], [ %.sroa.23.0.i, %1826 ], [ %.sroa.23.0.i, %1823 ], [ %1227, %1233 ], [ %1227, %1239 ], [ %.sroa.23.0.i, %1218 ], [ %.sroa.23.0.i, %1215 ], [ %.sroa.23.0.i, %1206 ], [ %.sroa.23.0.i, %1254 ], [ %.sroa.23.0.i, %932 ], [ %.sroa.23.0.i, %926 ], [ %.sroa.23.0.i, %919 ], [ %.sroa.23.0.i, %913 ], [ %.sroa.23.0.i, %960 ], [ %.sroa.23.0.i, %954 ], [ %.sroa.23.0.i, %947 ], [ %.sroa.23.0.i, %941 ], [ %.sroa.23.0.i, %966 ], [ %.sroa.23.0.i, %826 ], [ %.sroa.23.0.i, %820 ], [ %.sroa.23.0.i, %813 ], [ %.sroa.23.0.i, %807 ], [ %.sroa.23.0.i, %854 ], [ %.sroa.23.0.i, %848 ], [ %.sroa.23.0.i, %841 ], [ %.sroa.23.0.i, %835 ], [ %.sroa.23.0.i, %860 ], [ %.sroa.23.0.i, %1104 ], [ %2029, %2037 ], [ %.sroa.23.0.i, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %.sroa.23.1.i, %1971 ], [ %.sroa.23.1.i, %1979 ], [ %.sroa.23.1.i, %1983 ], [ %.sroa.23.1.i, %1944 ], [ %.sroa.23.1.i, %1952 ], [ %.sroa.23.1.i, %1956 ], [ %.sroa.23.0.i, %1918 ], [ %.sroa.23.0.i, %1905 ], [ %.sroa.23.0.i, %1914 ], [ %.sroa.23.0.i, %1872 ], [ %.sroa.23.0.i, %1889 ], [ %.sroa.23.0.i, %1886 ], [ %.sroa.23.0.i, %1855 ], [ %.sroa.23.0.i, %1842 ]
+  %.sroa.9.3.i.be = phi i32 [ %.sroa.9.5.i, %1851 ], [ %.sroa.9.5.i, %1809 ], [ %.sroa.9.5.i, %1826 ], [ %.sroa.9.5.i, %1823 ], [ %.sroa.9.3.i, %1233 ], [ %.sroa.9.3.i, %1239 ], [ %.sroa.9.7.i, %1218 ], [ %.sroa.9.7.i, %1215 ], [ %.sroa.9.7.i, %1206 ], [ %.sroa.9.3.i, %1254 ], [ %.sroa.9.3.i, %932 ], [ %.sroa.9.3.i, %926 ], [ %.sroa.9.3.i, %919 ], [ %.sroa.9.3.i, %913 ], [ %.sroa.9.3.i, %960 ], [ %.sroa.9.3.i, %954 ], [ %.sroa.9.3.i, %947 ], [ %.sroa.9.3.i, %941 ], [ %.sroa.9.3.i, %966 ], [ %.sroa.9.3.i, %826 ], [ %.sroa.9.3.i, %820 ], [ %.sroa.9.3.i, %813 ], [ %.sroa.9.3.i, %807 ], [ %.sroa.9.3.i, %854 ], [ %.sroa.9.3.i, %848 ], [ %.sroa.9.3.i, %841 ], [ %.sroa.9.3.i, %835 ], [ %.sroa.9.3.i, %860 ], [ %.sroa.9.3.i, %1104 ], [ %.sroa.9.3.i, %2037 ], [ %.sroa.9.6.i, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %.sroa.9.3.i, %1971 ], [ %.sroa.9.3.i, %1979 ], [ %.sroa.9.3.i, %1983 ], [ %.sroa.9.3.i, %1944 ], [ %.sroa.9.3.i, %1952 ], [ %.sroa.9.3.i, %1956 ], [ %.sroa.9.5.i, %1918 ], [ %.sroa.9.5.i, %1905 ], [ %.sroa.9.5.i, %1914 ], [ %.sroa.9.5.i, %1872 ], [ %.sroa.9.5.i, %1889 ], [ %.sroa.9.5.i, %1886 ], [ %.sroa.9.5.i, %1855 ], [ %.sroa.9.5.i, %1842 ]
+  %.sroa.0.3.i.be = phi i32 [ %.sroa.0.5.i, %1851 ], [ %.sroa.0.5.i, %1809 ], [ %.sroa.0.5.i, %1826 ], [ %.sroa.0.5.i, %1823 ], [ 0, %1233 ], [ 0, %1239 ], [ %.sroa.0.7.i, %1218 ], [ %.sroa.0.7.i, %1215 ], [ %.sroa.0.7.i, %1206 ], [ %.sroa.0.3.i, %1254 ], [ %.sroa.0.3.i, %932 ], [ %.sroa.0.3.i, %926 ], [ %.sroa.0.3.i, %919 ], [ %.sroa.0.3.i, %913 ], [ %.sroa.0.3.i, %960 ], [ %.sroa.0.3.i, %954 ], [ %.sroa.0.3.i, %947 ], [ %.sroa.0.3.i, %941 ], [ %.sroa.0.3.i, %966 ], [ %.sroa.0.3.i, %826 ], [ %.sroa.0.3.i, %820 ], [ %.sroa.0.3.i, %813 ], [ %.sroa.0.3.i, %807 ], [ %.sroa.0.3.i, %854 ], [ %.sroa.0.3.i, %848 ], [ %.sroa.0.3.i, %841 ], [ %.sroa.0.3.i, %835 ], [ %.sroa.0.3.i, %860 ], [ %.sroa.0.3.i, %1104 ], [ 0, %2037 ], [ %.sroa.0.6.i, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %.sroa.0.3.i, %1971 ], [ %.sroa.0.3.i, %1979 ], [ %.sroa.0.3.i, %1983 ], [ %.sroa.0.3.i, %1944 ], [ %.sroa.0.3.i, %1952 ], [ %.sroa.0.3.i, %1956 ], [ %.sroa.0.5.i, %1918 ], [ %.sroa.0.5.i, %1905 ], [ %.sroa.0.5.i, %1914 ], [ %.sroa.0.5.i, %1872 ], [ %.sroa.0.5.i, %1889 ], [ %.sroa.0.5.i, %1886 ], [ %.sroa.0.5.i, %1855 ], [ %.sroa.0.5.i, %1842 ]
+  %.0463.ph.i.i.be = phi ptr [ %1739, %1851 ], [ %1738, %1809 ], [ %.0463.ph.i.i, %1826 ], [ %1739, %1823 ], [ %.0463.ph.i.i, %1233 ], [ %1247, %1239 ], [ %.0463.ph.i.i, %1218 ], [ %1179, %1215 ], [ %1179, %1206 ], [ %1262, %1254 ], [ %.0463.ph.i.i, %932 ], [ %.0463.ph.i.i, %926 ], [ %.0463.ph.i.i, %919 ], [ %.0463.ph.i.i, %913 ], [ %.0165.i79.i, %960 ], [ %.0165.i79.i, %954 ], [ %.0165.i79.i, %947 ], [ %.0165.i79.i, %941 ], [ %974, %966 ], [ %.0165.i79.i, %826 ], [ %.0165.i79.i, %820 ], [ %.0165.i79.i, %813 ], [ %.0165.i79.i, %807 ], [ %.0463.ph.i.i, %854 ], [ %.0463.ph.i.i, %848 ], [ %.0463.ph.i.i, %841 ], [ %.0463.ph.i.i, %835 ], [ %868, %860 ], [ %1112, %1104 ], [ %2045, %2037 ], [ %.0463.ph.i.i, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %.0463.ph.i.i, %1971 ], [ %1738, %1979 ], [ %1991, %1983 ], [ %1738, %1944 ], [ %.0463.ph.i.i, %1952 ], [ %1964, %1956 ], [ %1739, %1918 ], [ %.0463.ph.i.i, %1905 ], [ %1739, %1914 ], [ %.0463.ph.i.i, %1872 ], [ %1738, %1889 ], [ %1739, %1886 ], [ %1739, %1855 ], [ %1738, %1842 ]
+  %.0455.ph.i.i.be = phi ptr [ %1738, %1851 ], [ %.0455.ph.i.i, %1809 ], [ %1739, %1826 ], [ %1738, %1823 ], [ %1179, %1233 ], [ %1245, %1239 ], [ %1179, %1218 ], [ %.2457.i.i, %1215 ], [ %.2457.i.i, %1206 ], [ %1260, %1254 ], [ %.0166.i78.i, %932 ], [ %.0166.i78.i, %926 ], [ %.0166.i78.i, %919 ], [ %.0166.i78.i, %913 ], [ %.0455.ph.i.i, %960 ], [ %.0455.ph.i.i, %954 ], [ %.0455.ph.i.i, %947 ], [ %.0455.ph.i.i, %941 ], [ %972, %966 ], [ %.0455.ph.i.i, %826 ], [ %.0455.ph.i.i, %820 ], [ %.0455.ph.i.i, %813 ], [ %.0455.ph.i.i, %807 ], [ %.0166.i78.i, %854 ], [ %.0166.i78.i, %848 ], [ %.0166.i78.i, %841 ], [ %.0166.i78.i, %835 ], [ %866, %860 ], [ %1110, %1104 ], [ %2043, %2037 ], [ %.0455.ph.i.i, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %1739, %1971 ], [ %.0455.ph.i.i, %1979 ], [ %1989, %1983 ], [ %.0455.ph.i.i, %1944 ], [ %1739, %1952 ], [ %1962, %1956 ], [ %1738, %1918 ], [ %1739, %1905 ], [ %1738, %1914 ], [ %1739, %1872 ], [ %.0455.ph.i.i, %1889 ], [ %1738, %1886 ], [ %1738, %1855 ], [ %.0455.ph.i.i, %1842 ]
+  %.0452.ph.i.i.be = phi ptr [ %1854, %1851 ], [ %.0452.ph.i.i, %1809 ], [ %.0452.ph.i.i, %1826 ], [ %1825, %1823 ], [ %.0452.ph.i.i, %1233 ], [ %1243, %1239 ], [ %.0452.ph.i.i, %1218 ], [ %1217, %1215 ], [ %1214, %1206 ], [ %1258, %1254 ], [ %.0452.ph.i.i, %932 ], [ %.0452.ph.i.i, %926 ], [ %.0452.ph.i.i, %919 ], [ %.0452.ph.i.i, %913 ], [ %.0452.ph.i.i, %960 ], [ %.0452.ph.i.i, %954 ], [ %.0452.ph.i.i, %947 ], [ %.0452.ph.i.i, %941 ], [ %970, %966 ], [ %.0452.ph.i.i, %826 ], [ %.0452.ph.i.i, %820 ], [ %.0452.ph.i.i, %813 ], [ %.0452.ph.i.i, %807 ], [ %.0452.ph.i.i, %854 ], [ %.0452.ph.i.i, %848 ], [ %.0452.ph.i.i, %841 ], [ %.0452.ph.i.i, %835 ], [ %864, %860 ], [ %1108, %1104 ], [ %2041, %2037 ], [ %2027, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %.0452.ph.i.i, %1971 ], [ %.0452.ph.i.i, %1979 ], [ %1987, %1983 ], [ %.0452.ph.i.i, %1944 ], [ %.0452.ph.i.i, %1952 ], [ %1960, %1956 ], [ %1931, %1918 ], [ %.0452.ph.i.i, %1905 ], [ %1917, %1914 ], [ %.0452.ph.i.i, %1872 ], [ %.0452.ph.i.i, %1889 ], [ %1888, %1886 ], [ %1868, %1855 ], [ %.0452.ph.i.i, %1842 ]
+  %.0449.ph.i.i.be = phi i32 [ %1771, %1851 ], [ %1409, %1809 ], [ %1409, %1826 ], [ %1771, %1823 ], [ -3, %1233 ], [ %1249, %1239 ], [ -3, %1218 ], [ %1178, %1215 ], [ %1178, %1206 ], [ %1264, %1254 ], [ %935, %932 ], [ %931, %926 ], [ %924, %919 ], [ %918, %913 ], [ %963, %960 ], [ %959, %954 ], [ %952, %947 ], [ %946, %941 ], [ %976, %966 ], [ %829, %826 ], [ %825, %820 ], [ %818, %813 ], [ %812, %807 ], [ %857, %854 ], [ %853, %848 ], [ %846, %841 ], [ %840, %835 ], [ %870, %860 ], [ %1114, %1104 ], [ %2047, %2037 ], [ %2026, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %1409, %1971 ], [ %1409, %1979 ], [ %1993, %1983 ], [ %1409, %1944 ], [ %1409, %1952 ], [ %1966, %1956 ], [ %1771, %1918 ], [ %1409, %1905 ], [ %1771, %1914 ], [ %1409, %1872 ], [ %1409, %1889 ], [ %1771, %1886 ], [ %1771, %1855 ], [ %1409, %1842 ]
+  %.0445.ph.i.i.be = phi i32 [ %1852, %1851 ], [ %1821, %1809 ], [ %1832, %1826 ], [ %.0445.ph.i.i, %1823 ], [ %.0445.ph.i.i, %1233 ], [ %1240, %1239 ], [ %1224, %1218 ], [ %.0445.ph.i.i, %1215 ], [ %1212, %1206 ], [ %1255, %1254 ], [ %908, %932 ], [ %908, %926 ], [ %908, %919 ], [ %908, %913 ], [ %.1446.i.i, %960 ], [ %.1446.i.i, %954 ], [ %.1446.i.i, %947 ], [ %.1446.i.i, %941 ], [ %967, %966 ], [ %802, %826 ], [ %802, %820 ], [ %802, %813 ], [ %802, %807 ], [ %.1446.i.i, %854 ], [ %.1446.i.i, %848 ], [ %.1446.i.i, %841 ], [ %.1446.i.i, %835 ], [ %861, %860 ], [ %1105, %1104 ], [ %2038, %2037 ], [ %.0445.ph.i.i, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %1977, %1971 ], [ %.0445.ph.i.i, %1979 ], [ %1984, %1983 ], [ %1950, %1944 ], [ %.0445.ph.i.i, %1952 ], [ %1957, %1956 ], [ %1929, %1918 ], [ %1912, %1905 ], [ %1915, %1914 ], [ %1884, %1872 ], [ %1895, %1889 ], [ %.0445.ph.i.i, %1886 ], [ %1866, %1855 ], [ %1849, %1842 ]
+  %.0.ph.i.i.be = phi i32 [ %.0.ph.i.i, %1851 ], [ %.0.ph.i.i, %1809 ], [ %.0.ph.i.i, %1826 ], [ %.0.ph.i.i, %1823 ], [ %.0.ph.i.i, %1233 ], [ %1251, %1239 ], [ %.0.ph.i.i, %1218 ], [ %.0.ph.i.i, %1215 ], [ %.0.ph.i.i, %1206 ], [ %1266, %1254 ], [ %.1.i.i311, %932 ], [ %.1.i.i311, %926 ], [ %.1.i.i311, %919 ], [ %.1.i.i311, %913 ], [ %.1.i.i311, %960 ], [ %.1.i.i311, %954 ], [ %.1.i.i311, %947 ], [ %.1.i.i311, %941 ], [ %978, %966 ], [ %.1.i.i311, %826 ], [ %.1.i.i311, %820 ], [ %.1.i.i311, %813 ], [ %.1.i.i311, %807 ], [ %.1.i.i311, %854 ], [ %.1.i.i311, %848 ], [ %.1.i.i311, %841 ], [ %.1.i.i311, %835 ], [ %872, %860 ], [ %1116, %1104 ], [ %2049, %2037 ], [ %.0.ph.i.i, %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i ], [ %.0.ph.i.i, %1971 ], [ %.0.ph.i.i, %1979 ], [ %1995, %1983 ], [ %.0.ph.i.i, %1944 ], [ %.0.ph.i.i, %1952 ], [ %1968, %1956 ], [ %.0.ph.i.i, %1918 ], [ %.0.ph.i.i, %1905 ], [ %.0.ph.i.i, %1914 ], [ %.0.ph.i.i, %1872 ], [ %.0.ph.i.i, %1889 ], [ %.0.ph.i.i, %1886 ], [ %.0.ph.i.i, %1855 ], [ %.0.ph.i.i, %1842 ]
   br label %.outer.i.i, !llvm.loop !37
 
 _ZN11duckdb_zstdL12tr_introsortEPiPKiS0_S0_S0_PNS_11_trbudget_tE.exit.i: ; preds = %2035, %1981, %1954, %1252, %1237, %_ZN11duckdb_zstdL7tr_copyEPiPKiS0_S0_S0_S0_i.exit.i.i, %964, %858
@@ -4117,9 +4117,9 @@ _ZN11duckdb_zstdL12tr_introsortEPiPKiS0_S0_S0_PNS_11_trbudget_tE.exit.i: ; preds
   br label %.thread158.i
 
 .thread158.i:                                     ; preds = %.thread.i, %2061, %2060
-  %.sroa.9.2148168.i = phi i32 [ %.sroa.9.2.i, %2061 ], [ %.sroa.9.2.i, %2060 ], [ %.sroa.9.3.i, %.thread.i ]
-  %.sroa.0.2150167.i = phi i32 [ %.sroa.0.2.i, %2061 ], [ %.sroa.0.2.i, %2060 ], [ %.sroa.0.3.lcssa.i, %.thread.i ]
-  %.2156166.i = phi i32 [ %.0.i, %2061 ], [ %.0.i, %2060 ], [ %2058, %.thread.i ]
+  %.sroa.9.2148168.i = phi i32 [ %.sroa.9.2.i, %2060 ], [ %.sroa.9.2.i, %2061 ], [ %.sroa.9.3.i, %.thread.i ]
+  %.sroa.0.2150167.i = phi i32 [ %.sroa.0.2.i, %2060 ], [ %.sroa.0.2.i, %2061 ], [ %.sroa.0.3.lcssa.i, %.thread.i ]
+  %.2156166.i = phi i32 [ %.0.i, %2060 ], [ %.0.i, %2061 ], [ %2058, %.thread.i ]
   %2064 = icmp eq i32 %.2156166.i, 0
   br i1 %2064, label %_ZN11duckdb_zstdL6trsortEPiS0_ii.exit, label %2065
 
@@ -4933,7 +4933,7 @@ _ZN11duckdb_zstdL13construct_BWTEPKhPiS2_S2_ii.exit: ; preds = %323, %146
   br label %347
 
 347:                                              ; preds = %345, %346, %13, %15, %7
-  %.070 = phi i32 [ -1, %7 ], [ 1, %15 ], [ 0, %13 ], [ %.169, %346 ], [ %.169, %345 ]
+  %.070 = phi i32 [ 0, %13 ], [ -1, %7 ], [ 1, %15 ], [ %.169, %346 ], [ %.169, %345 ]
   ret i32 %.070
 }
 
@@ -4964,7 +4964,7 @@ define internal fastcc void @_ZN11duckdb_zstdL13ss_mintrosortEPKhPKiPiS4_i(ptr n
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit.preheader
 
 _ZN11duckdb_zstdL6ss_ilgEi.exit.preheader:        ; preds = %10, %16
-  %.0388.ph = phi i32 [ %20, %16 ], [ %15, %10 ]
+  %.0388.ph = phi i32 [ %15, %10 ], [ %20, %16 ]
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit
 
 _ZN11duckdb_zstdL6ss_ilgEi.exit:                  ; preds = %_ZN11duckdb_zstdL6ss_ilgEi.exit.backedge, %_ZN11duckdb_zstdL6ss_ilgEi.exit.preheader
@@ -5106,7 +5106,7 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.i:  ; preds = %.lr.ph.i.i, %..thre
   br label %.critedge.thread.thread.i
 
 .critedge.thread.thread.i:                        ; preds = %.preheader.i, %81, %.critedge.thread.i
-  %.170.i = phi ptr [ %.023.i, %81 ], [ %.023.i, %.critedge.thread.i ], [ %74, %.preheader.i ]
+  %.170.i = phi ptr [ %.023.i, %.critedge.thread.i ], [ %.023.i, %81 ], [ %74, %.preheader.i ]
   %83 = getelementptr inbounds i8, ptr %.170.i, i64 -4
   store i32 %33, ptr %83, align 4, !tbaa !3
   %84 = getelementptr inbounds i8, ptr %.044.i, i64 -4
@@ -6037,8 +6037,8 @@ _ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit65.i: ; preds = %668, %_ZN11duc
   br label %_ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit
 
 _ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit:      ; preds = %408, %440, %449, %_ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit65.i, %701
-  %710 = phi i32 [ %501, %449 ], [ %410, %440 ], [ %410, %408 ], [ %553, %701 ], [ %553, %_ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit65.i ]
-  %.0.i516 = phi ptr [ %.067.i.i, %449 ], [ %spec.select28..i.i, %440 ], [ %spec.select.i.i518, %408 ], [ %spec.select28..i69.i, %701 ], [ %spec.select.i66.i515, %_ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit65.i ]
+  %710 = phi i32 [ %410, %408 ], [ %501, %449 ], [ %410, %440 ], [ %553, %701 ], [ %553, %_ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit65.i ]
+  %.0.i516 = phi ptr [ %spec.select.i.i518, %408 ], [ %.067.i.i, %449 ], [ %spec.select28..i.i, %440 ], [ %spec.select28..i69.i, %701 ], [ %spec.select.i66.i515, %_ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit65.i ]
   %711 = load i32, ptr %.0.i516, align 4, !tbaa !3
   %712 = sext i32 %711 to i64
   %713 = getelementptr inbounds i32, ptr %1, i64 %712
@@ -6107,8 +6107,8 @@ _ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit:      ; preds = %408, %440, %449, %_
   br i1 %748, label %.lr.ph, label %.critedge2, !llvm.loop !101
 
 .critedge2:                                       ; preds = %718, %746, %.lr.ph, %.preheader558, %.critedge
-  %.1420 = phi ptr [ %719, %.critedge ], [ %719, %.preheader558 ], [ %.3422, %746 ], [ %.2421600, %.lr.ph ], [ %719, %718 ]
-  %.1415 = phi ptr [ %719, %.critedge ], [ %731, %.preheader558 ], [ %747, %746 ], [ %733, %.lr.ph ], [ %719, %718 ]
+  %.1420 = phi ptr [ %719, %.critedge ], [ %.2421600, %.lr.ph ], [ %719, %.preheader558 ], [ %.3422, %746 ], [ %719, %718 ]
+  %.1415 = phi ptr [ %719, %.critedge ], [ %733, %.lr.ph ], [ %731, %.preheader558 ], [ %747, %746 ], [ %719, %718 ]
   br label %749
 
 749:                                              ; preds = %752, %.critedge2
@@ -6168,8 +6168,8 @@ _ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit:      ; preds = %408, %440, %449, %_
   br i1 %779, label %.lr.ph607, label %.critedge6, !llvm.loop !103
 
 .critedge6:                                       ; preds = %749, %777, %.lr.ph607, %.preheader, %.critedge4
-  %.1410 = phi ptr [ %750, %.critedge4 ], [ %762, %.preheader ], [ %778, %777 ], [ %764, %.lr.ph607 ], [ %750, %749 ]
-  %.0403 = phi ptr [ %750, %.critedge4 ], [ %750, %.preheader ], [ %.2405, %777 ], [ %.1404606, %.lr.ph607 ], [ %750, %749 ]
+  %.1410 = phi ptr [ %750, %.critedge4 ], [ %764, %.lr.ph607 ], [ %762, %.preheader ], [ %778, %777 ], [ %750, %749 ]
+  %.0403 = phi ptr [ %750, %.critedge4 ], [ %.1404606, %.lr.ph607 ], [ %750, %.preheader ], [ %.2405, %777 ], [ %750, %749 ]
   %780 = icmp ult ptr %.1415, %.1410
   br i1 %780, label %.lr.ph631, label %._crit_edge
 
@@ -6774,11 +6774,11 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit552:               ; preds = %1097, %1091, %1043
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit.backedge
 
 _ZN11duckdb_zstdL6ss_ilgEi.exit.backedge:         ; preds = %_ZN11duckdb_zstdL6ss_ilgEi.exit552, %_ZN11duckdb_zstdL6ss_ilgEi.exit536, %_ZN11duckdb_zstdL6ss_ilgEi.exit538, %_ZN11duckdb_zstdL6ss_ilgEi.exit530, %_ZN11duckdb_zstdL6ss_ilgEi.exit532, %967, %973, %1033, %1039, %_ZN11duckdb_zstdL6ss_ilgEi.exit512, %343, %354, %360, %389, %395, %87
-  %.0436.be = phi ptr [ %93, %87 ], [ %.0436, %_ZN11duckdb_zstdL6ss_ilgEi.exit512 ], [ %.0436, %343 ], [ %.0419.lcssa, %354 ], [ %.0419.lcssa, %360 ], [ %.0419.lcssa, %389 ], [ %.0419.lcssa, %395 ], [ %859, %_ZN11duckdb_zstdL6ss_ilgEi.exit530 ], [ %859, %_ZN11duckdb_zstdL6ss_ilgEi.exit532 ], [ %.0436, %_ZN11duckdb_zstdL6ss_ilgEi.exit536 ], [ %.0436, %_ZN11duckdb_zstdL6ss_ilgEi.exit538 ], [ %.0436, %_ZN11duckdb_zstdL6ss_ilgEi.exit552 ], [ %861, %967 ], [ %861, %973 ], [ %861, %1033 ], [ %861, %1039 ]
-  %.0433.be = phi i32 [ %95, %87 ], [ %.0433, %_ZN11duckdb_zstdL6ss_ilgEi.exit512 ], [ %.0433, %343 ], [ %352, %354 ], [ %352, %360 ], [ %387, %389 ], [ %387, %395 ], [ %.0433, %_ZN11duckdb_zstdL6ss_ilgEi.exit530 ], [ %.0433, %_ZN11duckdb_zstdL6ss_ilgEi.exit532 ], [ %.0433, %_ZN11duckdb_zstdL6ss_ilgEi.exit536 ], [ %.0433, %_ZN11duckdb_zstdL6ss_ilgEi.exit538 ], [ %1102, %_ZN11duckdb_zstdL6ss_ilgEi.exit552 ], [ %965, %967 ], [ %965, %973 ], [ %1031, %1033 ], [ %1031, %1039 ]
-  %.0426.be = phi ptr [ %91, %87 ], [ %.0419.lcssa, %_ZN11duckdb_zstdL6ss_ilgEi.exit512 ], [ %.0419.lcssa, %343 ], [ %.3429, %354 ], [ %.3429, %360 ], [ %.3429, %389 ], [ %.3429, %395 ], [ %.0426, %_ZN11duckdb_zstdL6ss_ilgEi.exit530 ], [ %.0426, %_ZN11duckdb_zstdL6ss_ilgEi.exit532 ], [ %861, %_ZN11duckdb_zstdL6ss_ilgEi.exit536 ], [ %861, %_ZN11duckdb_zstdL6ss_ilgEi.exit538 ], [ %.6432, %_ZN11duckdb_zstdL6ss_ilgEi.exit552 ], [ %905, %967 ], [ %905, %973 ], [ %905, %1033 ], [ %905, %1039 ]
-  %.0392.be = phi i32 [ %88, %87 ], [ %384, %_ZN11duckdb_zstdL6ss_ilgEi.exit512 ], [ %.0392, %343 ], [ %350, %354 ], [ %350, %360 ], [ %.0392, %389 ], [ %.0392, %395 ], [ %934, %_ZN11duckdb_zstdL6ss_ilgEi.exit530 ], [ %959, %_ZN11duckdb_zstdL6ss_ilgEi.exit532 ], [ %1000, %_ZN11duckdb_zstdL6ss_ilgEi.exit536 ], [ %1025, %_ZN11duckdb_zstdL6ss_ilgEi.exit538 ], [ %.0392, %_ZN11duckdb_zstdL6ss_ilgEi.exit552 ], [ %963, %967 ], [ %963, %973 ], [ %1029, %1033 ], [ %1029, %1039 ]
-  %.0388.be = phi i32 [ %97, %87 ], [ -1, %_ZN11duckdb_zstdL6ss_ilgEi.exit512 ], [ -1, %343 ], [ %359, %354 ], [ %363, %360 ], [ %394, %389 ], [ %398, %395 ], [ %101, %_ZN11duckdb_zstdL6ss_ilgEi.exit530 ], [ %101, %_ZN11duckdb_zstdL6ss_ilgEi.exit532 ], [ %101, %_ZN11duckdb_zstdL6ss_ilgEi.exit536 ], [ %101, %_ZN11duckdb_zstdL6ss_ilgEi.exit538 ], [ %.3391, %_ZN11duckdb_zstdL6ss_ilgEi.exit552 ], [ %972, %967 ], [ %976, %973 ], [ %1038, %1033 ], [ %1042, %1039 ]
+  %.0436.be = phi ptr [ %861, %1033 ], [ %861, %1039 ], [ %93, %87 ], [ %.0419.lcssa, %395 ], [ %.0436, %343 ], [ %.0419.lcssa, %360 ], [ %.0436, %_ZN11duckdb_zstdL6ss_ilgEi.exit512 ], [ %.0419.lcssa, %354 ], [ %.0419.lcssa, %389 ], [ %859, %_ZN11duckdb_zstdL6ss_ilgEi.exit530 ], [ %859, %_ZN11duckdb_zstdL6ss_ilgEi.exit532 ], [ %.0436, %_ZN11duckdb_zstdL6ss_ilgEi.exit552 ], [ %.0436, %_ZN11duckdb_zstdL6ss_ilgEi.exit536 ], [ %.0436, %_ZN11duckdb_zstdL6ss_ilgEi.exit538 ], [ %861, %973 ], [ %861, %967 ]
+  %.0433.be = phi i32 [ %1031, %1033 ], [ %1031, %1039 ], [ %95, %87 ], [ %387, %395 ], [ %.0433, %343 ], [ %352, %360 ], [ %.0433, %_ZN11duckdb_zstdL6ss_ilgEi.exit512 ], [ %352, %354 ], [ %387, %389 ], [ %.0433, %_ZN11duckdb_zstdL6ss_ilgEi.exit530 ], [ %.0433, %_ZN11duckdb_zstdL6ss_ilgEi.exit532 ], [ %1102, %_ZN11duckdb_zstdL6ss_ilgEi.exit552 ], [ %.0433, %_ZN11duckdb_zstdL6ss_ilgEi.exit536 ], [ %.0433, %_ZN11duckdb_zstdL6ss_ilgEi.exit538 ], [ %965, %973 ], [ %965, %967 ]
+  %.0426.be = phi ptr [ %905, %1033 ], [ %905, %1039 ], [ %91, %87 ], [ %.3429, %395 ], [ %.0419.lcssa, %343 ], [ %.3429, %360 ], [ %.0419.lcssa, %_ZN11duckdb_zstdL6ss_ilgEi.exit512 ], [ %.3429, %354 ], [ %.3429, %389 ], [ %.0426, %_ZN11duckdb_zstdL6ss_ilgEi.exit530 ], [ %.0426, %_ZN11duckdb_zstdL6ss_ilgEi.exit532 ], [ %.6432, %_ZN11duckdb_zstdL6ss_ilgEi.exit552 ], [ %861, %_ZN11duckdb_zstdL6ss_ilgEi.exit536 ], [ %861, %_ZN11duckdb_zstdL6ss_ilgEi.exit538 ], [ %905, %973 ], [ %905, %967 ]
+  %.0392.be = phi i32 [ %1029, %1033 ], [ %1029, %1039 ], [ %88, %87 ], [ %.0392, %395 ], [ %.0392, %343 ], [ %350, %360 ], [ %384, %_ZN11duckdb_zstdL6ss_ilgEi.exit512 ], [ %350, %354 ], [ %.0392, %389 ], [ %934, %_ZN11duckdb_zstdL6ss_ilgEi.exit530 ], [ %959, %_ZN11duckdb_zstdL6ss_ilgEi.exit532 ], [ %.0392, %_ZN11duckdb_zstdL6ss_ilgEi.exit552 ], [ %1000, %_ZN11duckdb_zstdL6ss_ilgEi.exit536 ], [ %1025, %_ZN11duckdb_zstdL6ss_ilgEi.exit538 ], [ %963, %973 ], [ %963, %967 ]
+  %.0388.be = phi i32 [ %1038, %1033 ], [ %1042, %1039 ], [ %97, %87 ], [ %398, %395 ], [ -1, %343 ], [ %363, %360 ], [ -1, %_ZN11duckdb_zstdL6ss_ilgEi.exit512 ], [ %359, %354 ], [ %394, %389 ], [ %101, %_ZN11duckdb_zstdL6ss_ilgEi.exit530 ], [ %101, %_ZN11duckdb_zstdL6ss_ilgEi.exit532 ], [ %.3391, %_ZN11duckdb_zstdL6ss_ilgEi.exit552 ], [ %101, %_ZN11duckdb_zstdL6ss_ilgEi.exit536 ], [ %101, %_ZN11duckdb_zstdL6ss_ilgEi.exit538 ], [ %976, %973 ], [ %972, %967 ]
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit, !llvm.loop !109
 }
 
@@ -7177,8 +7177,8 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.thread._crit_edge.i: ; preds = %75
   br label %.outer.backedge
 
 .sink.split.i:                                    ; preds = %.lr.ph.i, %.lr.ph218.i, %.preheader189.i, %.preheader.i
-  %.7156.lcssa.sink308.i = phi ptr [ %.0149.i.ph, %.preheader.i ], [ %135, %.preheader189.i ], [ %114, %.lr.ph218.i ], [ %152, %.lr.ph.i ]
-  %.11.lcssa.sink.i = phi ptr [ %106, %.preheader.i ], [ %144, %.preheader189.i ], [ %112, %.lr.ph218.i ], [ %150, %.lr.ph.i ]
+  %.7156.lcssa.sink308.i = phi ptr [ %114, %.lr.ph218.i ], [ %.0149.i.ph, %.preheader.i ], [ %135, %.preheader189.i ], [ %152, %.lr.ph.i ]
+  %.11.lcssa.sink.i = phi ptr [ %112, %.lr.ph218.i ], [ %106, %.preheader.i ], [ %144, %.preheader189.i ], [ %150, %.lr.ph.i ]
   %167 = load i32, ptr %.7156.lcssa.sink308.i, align 4, !tbaa !3
   store i32 %167, ptr %.11.lcssa.sink.i, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL16ss_mergebackwardEPKhPKiPiS4_S4_S4_i.exit
@@ -7659,9 +7659,9 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.thread.i325: ; preds = %_ZN11duckd
   br i1 %377, label %363, label %.loopexit.i, !llvm.loop !128
 
 .loopexit.i:                                      ; preds = %349, %375, %332
-  %.178.i = phi ptr [ %.077.i, %332 ], [ %367, %375 ], [ %341, %349 ]
-  %.273.i = phi ptr [ %335, %332 ], [ %360, %375 ], [ %.071.i, %349 ]
-  %.2.i329 = phi ptr [ %333, %332 ], [ %365, %375 ], [ %339, %349 ]
+  %.178.i = phi ptr [ %367, %375 ], [ %.077.i, %332 ], [ %341, %349 ]
+  %.273.i = phi ptr [ %360, %375 ], [ %335, %332 ], [ %.071.i, %349 ]
+  %.2.i329 = phi ptr [ %365, %375 ], [ %333, %332 ], [ %339, %349 ]
   br label %291, !llvm.loop !129
 
 _ZN11duckdb_zstdL15ss_mergeforwardEPKhPKiPiS4_S4_S4_i.exit: ; preds = %._crit_edge127.i, %356, %._crit_edge.i, %331, %276

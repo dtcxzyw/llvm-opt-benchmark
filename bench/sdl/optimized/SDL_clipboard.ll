@@ -223,7 +223,7 @@ SDL_FreeClipboardMimeTypes.exit38:                ; preds = %30
   br label %SDL_FreeClipboardMimeTypes.exit38.thread
 
 SDL_FreeClipboardMimeTypes.exit38.thread:         ; preds = %17, %._crit_edge.i37, %SDL_FreeClipboardMimeTypes.exit, %SDL_FreeClipboardMimeTypes.exit38
-  %.126 = phi i1 [ true, %SDL_FreeClipboardMimeTypes.exit38 ], [ true, %SDL_FreeClipboardMimeTypes.exit ], [ false, %._crit_edge.i37 ], [ false, %17 ]
+  %.126 = phi i1 [ true, %SDL_FreeClipboardMimeTypes.exit ], [ true, %SDL_FreeClipboardMimeTypes.exit38 ], [ false, %17 ], [ false, %._crit_edge.i37 ]
   ret i1 %.126
 }
 
@@ -484,8 +484,8 @@ SDL_CopyClipboardMimeTypes.exit.thread:           ; preds = %._crit_edge.i, %._c
   br label %104
 
 104:                                              ; preds = %SDL_CopyClipboardMimeTypes.exit.thread, %102, %78, %50, %15, %tailrecurse._crit_edge
-  %ret.known.tr128 = phi i1 [ %ret.known.tr147, %78 ], [ %ret.known.tr147, %15 ], [ %.not140, %tailrecurse._crit_edge ], [ %ret.known.tr147, %50 ], [ %ret.known.tr147, %102 ], [ %ret.known.tr147, %SDL_CopyClipboardMimeTypes.exit.thread ]
-  %.0 = phi i1 [ false, %78 ], [ %16, %15 ], [ %8, %tailrecurse._crit_edge ], [ false, %50 ], [ true, %102 ], [ %101, %SDL_CopyClipboardMimeTypes.exit.thread ]
+  %ret.known.tr128 = phi i1 [ %ret.known.tr147, %50 ], [ %.not140, %tailrecurse._crit_edge ], [ %ret.known.tr147, %78 ], [ %ret.known.tr147, %SDL_CopyClipboardMimeTypes.exit.thread ], [ %ret.known.tr147, %15 ], [ %ret.known.tr147, %102 ]
+  %.0 = phi i1 [ false, %50 ], [ %8, %tailrecurse._crit_edge ], [ false, %78 ], [ %101, %SDL_CopyClipboardMimeTypes.exit.thread ], [ %16, %15 ], [ true, %102 ]
   %not.ret.known.tr128 = xor i1 %ret.known.tr128, true
   %current.ret.tr120 = select i1 %not.ret.known.tr128, i1 %.0, i1 false
   ret i1 %current.ret.tr120
@@ -717,7 +717,7 @@ define hidden ptr @SDL_GetClipboardData_REAL(ptr noundef %0, ptr noundef %1) loc
   br label %SDL_GetInternalClipboardData.exit
 
 SDL_GetInternalClipboardData.exit:                ; preds = %41, %37, %33, %30, %21, %28, %27, %13, %8, %5
-  %.023 = phi ptr [ %14, %13 ], [ null, %8 ], [ null, %5 ], [ null, %27 ], [ %23, %28 ], [ null, %21 ], [ null, %30 ], [ %40, %41 ], [ null, %37 ], [ null, %33 ]
+  %.023 = phi ptr [ %14, %13 ], [ null, %5 ], [ null, %21 ], [ null, %8 ], [ null, %27 ], [ %23, %28 ], [ null, %30 ], [ %40, %41 ], [ null, %37 ], [ null, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.023
 }
@@ -821,7 +821,7 @@ define hidden zeroext i1 @SDL_HasClipboardData_REAL(ptr noundef %0) local_unname
   br i1 %34, label %SDL_HasInternalClipboardData.exit, label %26
 
 SDL_HasInternalClipboardData.exit:                ; preds = %.lr.ph.i, %26, %22, %19, %11, %6, %3
-  %.0 = phi i1 [ %12, %11 ], [ %21, %19 ], [ false, %6 ], [ false, %3 ], [ false, %22 ], [ %34, %26 ], [ %34, %.lr.ph.i ]
+  %.0 = phi i1 [ %12, %11 ], [ %21, %19 ], [ false, %3 ], [ false, %6 ], [ false, %22 ], [ %34, %26 ], [ %34, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -1217,7 +1217,7 @@ SDL_CopyClipboardMimeTypes.exit.thread:           ; preds = %._crit_edge.i, %._c
   br label %44
 
 44:                                               ; preds = %SDL_CopyClipboardMimeTypes.exit.thread, %41, %8, %3
-  %.0 = phi i1 [ %4, %3 ], [ false, %8 ], [ true, %41 ], [ %40, %SDL_CopyClipboardMimeTypes.exit.thread ]
+  %.0 = phi i1 [ false, %8 ], [ %4, %3 ], [ true, %41 ], [ %40, %SDL_CopyClipboardMimeTypes.exit.thread ]
   ret i1 %.0
 }
 
@@ -1290,7 +1290,7 @@ define hidden zeroext i1 @SDL_HasPrimarySelectionText_REAL() local_unnamed_addr 
   br label %15
 
 15:                                               ; preds = %12, %14, %7, %2
-  %.0 = phi i1 [ %8, %7 ], [ false, %14 ], [ %3, %2 ], [ true, %12 ]
+  %.0 = phi i1 [ %8, %7 ], [ %3, %2 ], [ false, %14 ], [ true, %12 ]
   ret i1 %.0
 }
 

@@ -245,7 +245,7 @@ gif_read_palette.exit.i:                          ; preds = %80
   store i32 -1, ptr %74, align 4, !tbaa !54
   br label %104
 
-gif_read_header1.exit.thread:                     ; preds = %31, %38, %75
+gif_read_header1.exit.thread:                     ; preds = %75, %31, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %gif_parse_next_image.exit.thread
 
@@ -1074,8 +1074,8 @@ gif_copy_img_rect.exit262.i.i:                    ; preds = %391, %375, %gif_cop
 gif_parse_next_image.exit.thread.loopexit139:     ; preds = %bytestream2_get_byte.exit.i
   br label %gif_parse_next_image.exit.thread
 
-gif_parse_next_image.exit.thread:                 ; preds = %488, %474, %.loopexit.i, %.lr.ph.i16.i, %bytestream2_get_byte.exit.i, %gif_parse_next_image.exit.thread.loopexit139, %128, %bytestream2_get_byte.exit.thread.i, %260, %274, %415, %205, %149, %174, %364, %gif_copy_img_rect.exit262.i.i, %gif_read_header1.exit.thread, %.loopexit, %122, %109, %104, %532, %121
-  %.0 = phi i32 [ %548, %532 ], [ -1094995529, %121 ], [ %107, %104 ], [ -12, %109 ], [ %126, %122 ], [ %530, %.loopexit ], [ -1094995529, %gif_read_header1.exit.thread ], [ -541478725, %128 ], [ -1094995529, %bytestream2_get_byte.exit.thread.i ], [ -1094995529, %260 ], [ -1094995529, %274 ], [ %413, %415 ], [ -1094995529, %205 ], [ -1094995529, %149 ], [ -1094995529, %174 ], [ -12, %364 ], [ -1094995529, %gif_copy_img_rect.exit262.i.i ], [ -541478725, %bytestream2_get_byte.exit.i ], [ -1094995529, %.lr.ph.i16.i ], [ -541478725, %.loopexit.i ], [ -1094995529, %474 ], [ -1094995529, %488 ], [ -1094995529, %gif_parse_next_image.exit.thread.loopexit139 ]
+gif_parse_next_image.exit.thread:                 ; preds = %488, %.loopexit.i, %474, %.lr.ph.i16.i, %bytestream2_get_byte.exit.i, %gif_parse_next_image.exit.thread.loopexit139, %128, %205, %149, %260, %274, %364, %415, %gif_copy_img_rect.exit262.i.i, %174, %bytestream2_get_byte.exit.thread.i, %gif_read_header1.exit.thread, %.loopexit, %122, %109, %104, %532, %121
+  %.0 = phi i32 [ -1094995529, %121 ], [ -1094995529, %gif_read_header1.exit.thread ], [ -12, %109 ], [ %126, %122 ], [ %530, %.loopexit ], [ %548, %532 ], [ %107, %104 ], [ -1094995529, %.lr.ph.i16.i ], [ -1094995529, %gif_copy_img_rect.exit262.i.i ], [ -1094995529, %174 ], [ -1094995529, %bytestream2_get_byte.exit.thread.i ], [ -541478725, %128 ], [ -541478725, %bytestream2_get_byte.exit.i ], [ -1094995529, %205 ], [ -1094995529, %149 ], [ -1094995529, %260 ], [ -1094995529, %274 ], [ -12, %364 ], [ %413, %415 ], [ -1094995529, %474 ], [ -541478725, %.loopexit.i ], [ -1094995529, %488 ], [ -1094995529, %gif_parse_next_image.exit.thread.loopexit139 ]
   ret i32 %.0
 }
 

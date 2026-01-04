@@ -497,7 +497,7 @@ define dso_local i64 @__tty_insert_flip_string_flags(ptr noundef %0, ptr noundef
   br i1 %98, label %.split.split, label %.thread, !prof !31, !llvm.loop !32
 
 .thread:                                          ; preds = %62, %.split.split.us, %.split.split, %93, %.split.us, %13
-  %.us-phi = phi i64 [ %31, %13 ], [ %7, %.split.us ], [ %96, %93 ], [ %68, %.split.split ], [ %65, %62 ], [ %36, %.split.split.us ]
+  %.us-phi = phi i64 [ %96, %93 ], [ %7, %.split.us ], [ %31, %13 ], [ %68, %.split.split ], [ %36, %.split.split.us ], [ %65, %62 ]
   ret i64 %.us-phi
 }
 
@@ -586,7 +586,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_prepare_flip_string
   br label %__tty_buffer_request_room.exit
 
 __tty_buffer_request_room.exit:                   ; preds = %28, %34, %18, %39
-  %52 = phi i32 [ %51, %39 ], [ %19, %18 ], [ %15, %34 ], [ %15, %28 ]
+  %52 = phi i32 [ %19, %18 ], [ %51, %39 ], [ %15, %34 ], [ %15, %28 ]
   %53 = sext i32 %52 to i64
   %54 = icmp eq i32 %52, 0
   br i1 %54, label %76, label %55, !prof !21
@@ -764,7 +764,7 @@ __tty_buffer_request_room.exit.thread:            ; preds = %34, %41
   br label %59
 
 __tty_buffer_request_room.exit:                   ; preds = %37, %41, %28
-  %57 = phi i32 [ %29, %28 ], [ %25, %41 ], [ %25, %37 ]
+  %57 = phi i32 [ %29, %28 ], [ %25, %37 ], [ %25, %41 ]
   %58 = sext i32 %57 to i64
   %.not = icmp eq i32 %57, 0
   br i1 %.not, label %.thread, label %59, !prof !37

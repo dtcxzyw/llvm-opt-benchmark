@@ -6242,7 +6242,7 @@ define hidden void @_ZN14cranelift_wasm19sections_translator20parse_global_secti
   br label %"_ZN4core3ptr67drop_in_place$LT$wasmparser..readers..core..operators..Operator$GT$17h698f50c823eb4e73E.exit"
 
 "_ZN4core3ptr67drop_in_place$LT$wasmparser..readers..core..operators..Operator$GT$17h698f50c823eb4e73E.exit": ; preds = %62, %66, %68, %70, %71, %73, %74, %76
-  %.sink = phi i32 [ 5, %66 ], [ 0, %68 ], [ 1, %70 ], [ 2, %71 ], [ 3, %73 ], [ 8, %74 ], [ 4, %76 ], [ 7, %62 ]
+  %.sink = phi i32 [ 5, %66 ], [ 0, %68 ], [ 1, %70 ], [ 2, %71 ], [ 3, %73 ], [ 4, %76 ], [ 8, %74 ], [ 7, %62 ]
   store i32 %.sink, ptr %8, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %77 = load ptr, ptr %36, align 8, !invariant.load !4, !nonnull !4
@@ -7244,7 +7244,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %163
   br label %172
 
 common.resume:                                    ; preds = %.thread273, %235, %.thread.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn113.i, %.thread.i ], [ %.pn281, %.thread273 ], [ %.pn281, %235 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn113.i, %.thread.i ], [ %.pn281, %235 ], [ %.pn281, %.thread273 ]
   resume { ptr, i32 } %common.resume.op
 
 .thread.i:                                        ; preds = %161, %.thread114.loopexit.split-lp.loopexit.split-lp.i, %.thread114.loopexit.split-lp.loopexit.i, %.thread114.loopexit.i

@@ -750,7 +750,7 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_15Operatio
   br label %.thread
 
 .thread:                                          ; preds = %12, %8, %.split, %7, %.thread.loopexit.split.loop.exit
-  %.us-phi = phi ptr [ %.017.ptr26.us.le, %.thread.loopexit.split.loop.exit ], [ null, %7 ], [ %.017.ptr26, %12 ], [ null, %8 ], [ %.017.ptr26, %.split ]
+  %.us-phi = phi ptr [ null, %7 ], [ %.017.ptr26.us.le, %.thread.loopexit.split.loop.exit ], [ %.017.ptr26, %12 ], [ null, %8 ], [ %.017.ptr26, %.split ]
   ret ptr %.us-phi
 }
 
@@ -1145,7 +1145,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %55,
   resume { ptr, i32 } %56
 
 .thread66:                                        ; preds = %.lr.ph, %.lr.ph82, %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.preheader69, %.thread, %.preheader, %2
-  %.042 = phi ptr [ null, %2 ], [ null, %.preheader ], [ null, %.thread ], [ null, %.preheader69 ], [ null, %28 ], [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %24, %.lr.ph82 ], [ %14, %.lr.ph ]
+  %.042 = phi ptr [ null, %2 ], [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ null, %.thread ], [ null, %.preheader ], [ %24, %.lr.ph82 ], [ null, %.preheader69 ], [ null, %28 ], [ %14, %.lr.ph ]
   ret ptr %.042
 }
 
@@ -1279,7 +1279,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %39,
   br i1 %.not, label %.thread46, label %10, !llvm.loop !46
 
 .thread46:                                        ; preds = %.thread, %.critedge37, %15, %2
-  %48 = phi ptr [ null, %2 ], [ %12, %15 ], [ %12, %.critedge37 ], [ null, %.thread ]
+  %48 = phi ptr [ null, %2 ], [ %12, %.critedge37 ], [ %12, %15 ], [ null, %.thread ]
   ret ptr %48
 }
 

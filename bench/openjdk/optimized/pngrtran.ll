@@ -1257,8 +1257,8 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   br i1 %exitcond592.not, label %.thread434, label %.preheader441.split, !llvm.loop !47
 
 .thread434:                                       ; preds = %._crit_edge490, %.split.thread, %.split.us.us.split.thread, %.split.us.us.split.us.us.thread, %189, %372, %322, %230, %201
-  %.2381437 = phi ptr [ null, %201 ], [ %.1380, %230 ], [ %.1380, %322 ], [ %.1380, %372 ], [ null, %189 ], [ %.1380, %.split.us.us.split.us.us.thread ], [ %.1380, %.split.us.us.split.thread ], [ %.1380, %.split.thread ], [ null, %._crit_edge490 ]
-  %.1372 = phi i32 [ %.0371504, %201 ], [ %.5.us.us.us.us, %230 ], [ %.5.us.us, %322 ], [ %.5, %372 ], [ %.0371504, %189 ], [ %.6.us.us, %.split.us.us.split.us.us.thread ], [ %.6.us, %.split.us.us.split.thread ], [ %.6, %.split.thread ], [ %.0371504, %._crit_edge490 ]
+  %.2381437 = phi ptr [ %.1380, %.split.thread ], [ %.1380, %230 ], [ null, %201 ], [ %.1380, %.split.us.us.split.us.us.thread ], [ %.1380, %.split.us.us.split.thread ], [ %.1380, %322 ], [ %.1380, %372 ], [ null, %189 ], [ null, %._crit_edge490 ]
+  %.1372 = phi i32 [ %.6, %.split.thread ], [ %.5.us.us.us.us, %230 ], [ %.0371504, %201 ], [ %.6.us.us, %.split.us.us.split.us.us.thread ], [ %.6.us, %.split.us.us.split.thread ], [ %.5.us.us, %322 ], [ %.5, %372 ], [ %.0371504, %189 ], [ %.0371504, %._crit_edge490 ]
   br label %375
 
 375:                                              ; preds = %.thread434, %.loopexit439
@@ -1473,8 +1473,8 @@ define hidden void @png_set_gamma_fixed(ptr noalias noundef %0, i32 noundef %1, 
   br label %translate_gamma_flags.exit
 
 translate_gamma_flags.exit:                       ; preds = %9, %11, %13
-  %14 = phi i32 [ %12, %11 ], [ %10, %13 ], [ %10, %9 ]
-  %.0.i14 = phi i32 [ 220000, %11 ], [ 151724, %13 ], [ %1, %9 ]
+  %14 = phi i32 [ %12, %11 ], [ %10, %9 ], [ %10, %13 ]
+  %.0.i14 = phi i32 [ 220000, %11 ], [ %1, %9 ], [ 151724, %13 ]
   switch i32 %2, label %translate_gamma_flags.exit16 [
     i32 -1, label %15
     i32 -100000, label %15
@@ -2094,7 +2094,7 @@ png_gamma_threshold.exit:                         ; preds = %8
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %100, %110, %.loopexit42.i
-  %112 = phi i32 [ %106, %.loopexit42.i ], [ %111, %110 ], [ %60, %100 ]
+  %112 = phi i32 [ %111, %110 ], [ %106, %.loopexit42.i ], [ %60, %100 ]
   %113 = and i32 %112, 4352
   %or.cond.not.i = icmp eq i32 %113, 4352
   br i1 %or.cond.not.i, label %114, label %png_init_palette_transformations.exit
@@ -2164,7 +2164,7 @@ png_gamma_threshold.exit:                         ; preds = %8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %139, %149, %142
-  %151 = phi i32 [ %145, %142 ], [ %150, %149 ], [ %60, %139 ]
+  %151 = phi i32 [ %150, %149 ], [ %145, %142 ], [ %60, %139 ]
   %152 = and i32 %151, 4352
   %or.cond.not32.i = icmp eq i32 %152, 4352
   %153 = and i8 %90, 2
@@ -2468,8 +2468,8 @@ png_init_palette_transformations.exit:            ; preds = %png_init_palette_tr
   br label %329
 
 329:                                              ; preds = %287, %322, %320
-  %.0382 = phi i32 [ 100000, %320 ], [ %328, %322 ], [ 100000, %287 ]
-  %.0381 = phi i32 [ %321, %320 ], [ %325, %322 ], [ 100000, %287 ]
+  %.0382 = phi i32 [ %328, %322 ], [ 100000, %320 ], [ 100000, %287 ]
+  %.0381 = phi i32 [ %325, %322 ], [ %321, %320 ], [ 100000, %287 ]
   %330 = call i32 @png_gamma_significant(i32 noundef %.0382) #13
   %.not430 = icmp eq i32 %330, 0
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 538
@@ -3299,7 +3299,7 @@ define hidden void @png_read_transform_info(ptr noalias noundef %0, ptr noalias 
   br label %73
 
 73:                                               ; preds = %.thread, %72, %.thread112, %66
-  %74 = phi i8 [ 16, %72 ], [ 8, %.thread112 ], [ %45, %66 ], [ 8, %.thread ]
+  %74 = phi i8 [ 16, %72 ], [ 8, %.thread112 ], [ 8, %.thread ], [ %45, %66 ]
   %75 = and i32 %4, 4
   %.not94 = icmp ne i32 %75, 0
   %76 = icmp ult i8 %74, 8
@@ -3614,7 +3614,7 @@ define hidden void @png_do_read_transformations(ptr noalias noundef %0, ptr noun
   br i1 %exitcond.not.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !109
 
 .thread.i:                                        ; preds = %.lr.ph.i, %.lr.ph11.i, %.lr.ph16.i, %68, %50, %34, %33
-  %.pre-phi.i = phi i64 [ 0, %68 ], [ 0, %50 ], [ 0, %34 ], [ %.pre.i, %33 ], [ %.pre.i, %.lr.ph16.i ], [ %.pre.i, %.lr.ph11.i ], [ %.pre.i, %.lr.ph.i ]
+  %.pre-phi.i = phi i64 [ %.pre.i, %.lr.ph11.i ], [ %.pre.i, %33 ], [ %.pre.i, %.lr.ph16.i ], [ 0, %34 ], [ 0, %68 ], [ 0, %50 ], [ %.pre.i, %.lr.ph.i ]
   store i8 8, ptr %30, align 1
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 19
   store i8 8, ptr %84, align 1
@@ -4231,7 +4231,7 @@ png_do_expand_palette.exit:                       ; preds = %.sink.split.i, %86,
   br i1 %exitcond265.not.i, label %.loopexit.i, label %.lr.ph244.i, !llvm.loop !118
 
 .loopexit.i:                                      ; preds = %391, %437, %239, %278, %259, %393, %.preheader234.i, %241, %.preheader.i
-  %.5.i187 = phi i32 [ 0, %241 ], [ 0, %.preheader.i ], [ 0, %393 ], [ 0, %.preheader234.i ], [ %.4.us.i, %259 ], [ %.4.i, %278 ], [ %.2.i, %239 ], [ %.9.i, %437 ], [ %.7.i185, %391 ]
+  %.5.i187 = phi i32 [ %.4.i, %278 ], [ %.9.i, %437 ], [ %.4.us.i, %259 ], [ 0, %241 ], [ %.2.i, %239 ], [ 0, %.preheader.i ], [ 0, %393 ], [ 0, %.preheader234.i ], [ %.7.i185, %391 ]
   %439 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %440 = load i8, ptr %439, align 2, !noalias !112
   %441 = add i8 %440, -2
@@ -6938,7 +6938,7 @@ png_do_chop.exit:                                 ; preds = %._crit_edge.i223, %
   br i1 %exitcond.not.i230, label %png_do_quantize.exit, label %.lr.ph.i229, !llvm.loop !165
 
 .loopexit.sink.split.i:                           ; preds = %2073, %2067, %2034, %2028
-  %.sink.i234 = phi i64 [ %2033, %2028 ], [ %2039, %2034 ], [ %2072, %2067 ], [ %2078, %2073 ]
+  %.sink.i234 = phi i64 [ %2039, %2034 ], [ %2033, %2028 ], [ %2072, %2067 ], [ %2078, %2073 ]
   %2089 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sink.i234, ptr %2089, align 8
   br label %png_do_quantize.exit
@@ -7914,9 +7914,9 @@ png_do_unpack.exit:                               ; preds = %.loopexit.i262, %23
   br i1 %exitcond269.not.i, label %.sink.split.i267, label %.lr.ph221.i, !llvm.loop !186
 
 .sink.split.i267:                                 ; preds = %.lr.ph221.i, %.lr.ph234.i, %.lr.ph247.i273, %.lr.ph260.i, %2542, %._crit_edge.i266, %2494, %._crit_edge228.i, %2457, %._crit_edge241.i, %2429, %._crit_edge254.i
-  %.sink283.i = phi i8 [ 4, %._crit_edge.i266 ], [ 4, %._crit_edge228.i ], [ 2, %._crit_edge254.i ], [ 2, %._crit_edge241.i ], [ 2, %2429 ], [ 2, %2457 ], [ 4, %2494 ], [ 4, %2542 ], [ 2, %.lr.ph260.i ], [ 2, %.lr.ph247.i273 ], [ 4, %.lr.ph234.i ], [ 4, %.lr.ph221.i ]
-  %.sink281.i = phi i8 [ 64, %._crit_edge.i266 ], [ 32, %._crit_edge228.i ], [ 16, %._crit_edge254.i ], [ 32, %._crit_edge241.i ], [ 16, %2429 ], [ 32, %2457 ], [ 32, %2494 ], [ 64, %2542 ], [ 16, %.lr.ph260.i ], [ 32, %.lr.ph247.i273 ], [ 32, %.lr.ph234.i ], [ 64, %.lr.ph221.i ]
-  %.sink.i268 = phi i32 [ 3, %._crit_edge.i266 ], [ 2, %._crit_edge228.i ], [ 1, %._crit_edge254.i ], [ 2, %._crit_edge241.i ], [ 1, %2429 ], [ 2, %2457 ], [ 2, %2494 ], [ 3, %2542 ], [ 1, %.lr.ph260.i ], [ 2, %.lr.ph247.i273 ], [ 2, %.lr.ph234.i ], [ 3, %.lr.ph221.i ]
+  %.sink283.i = phi i8 [ 4, %2494 ], [ 4, %._crit_edge.i266 ], [ 4, %._crit_edge228.i ], [ 2, %2457 ], [ 2, %2429 ], [ 2, %._crit_edge254.i ], [ 2, %._crit_edge241.i ], [ 4, %2542 ], [ 2, %.lr.ph260.i ], [ 2, %.lr.ph247.i273 ], [ 4, %.lr.ph234.i ], [ 4, %.lr.ph221.i ]
+  %.sink281.i = phi i8 [ 32, %2494 ], [ 64, %._crit_edge.i266 ], [ 32, %._crit_edge228.i ], [ 32, %2457 ], [ 16, %2429 ], [ 16, %._crit_edge254.i ], [ 32, %._crit_edge241.i ], [ 64, %2542 ], [ 16, %.lr.ph260.i ], [ 32, %.lr.ph247.i273 ], [ 32, %.lr.ph234.i ], [ 64, %.lr.ph221.i ]
+  %.sink.i268 = phi i32 [ 2, %2494 ], [ 3, %._crit_edge.i266 ], [ 2, %._crit_edge228.i ], [ 2, %2457 ], [ 1, %2429 ], [ 1, %._crit_edge254.i ], [ 2, %._crit_edge241.i ], [ 3, %2542 ], [ 1, %.lr.ph260.i ], [ 2, %.lr.ph247.i273 ], [ 2, %.lr.ph234.i ], [ 3, %.lr.ph221.i ]
   %2569 = getelementptr inbounds nuw i8, ptr %1, i64 18
   store i8 %.sink283.i, ptr %2569, align 2
   %2570 = getelementptr inbounds nuw i8, ptr %1, i64 19
@@ -8325,8 +8325,8 @@ define internal fastcc void @png_do_expand(ptr noundef captures(none) %0, ptr no
   br i1 %exitcond278.not, label %.loopexit231, label %.lr.ph247, !llvm.loop !193
 
 .loopexit231:                                     ; preds = %.lr.ph247, %.lr.ph252, %.lr.ph257, %..loopexit231_crit_edge, %60, %38, %19
-  %.pre-phi = phi i64 [ %.pre, %..loopexit231_crit_edge ], [ 0, %60 ], [ 0, %38 ], [ 0, %19 ], [ %22, %.lr.ph257 ], [ %41, %.lr.ph252 ], [ %63, %.lr.ph247 ]
-  %.1215 = phi i32 [ %14, %..loopexit231_crit_edge ], [ %62, %60 ], [ %40, %38 ], [ %21, %19 ], [ %21, %.lr.ph257 ], [ %40, %.lr.ph252 ], [ %62, %.lr.ph247 ]
+  %.pre-phi = phi i64 [ %.pre, %..loopexit231_crit_edge ], [ %41, %.lr.ph252 ], [ %22, %.lr.ph257 ], [ 0, %19 ], [ 0, %60 ], [ 0, %38 ], [ %63, %.lr.ph247 ]
+  %.1215 = phi i32 [ %14, %..loopexit231_crit_edge ], [ %40, %.lr.ph252 ], [ %21, %.lr.ph257 ], [ %21, %19 ], [ %62, %60 ], [ %40, %38 ], [ %62, %.lr.ph247 ]
   store i8 8, ptr %15, align 1
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 19
   store i8 8, ptr %79, align 1
@@ -8661,7 +8661,7 @@ define internal fastcc void @png_do_expand(ptr noundef captures(none) %0, ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %259, %263, %130, %134
-  %.sink308 = phi i64 [ %133, %130 ], [ %138, %134 ], [ %262, %259 ], [ %267, %263 ]
+  %.sink308 = phi i64 [ %138, %134 ], [ %133, %130 ], [ %262, %259 ], [ %267, %263 ]
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink308, ptr %268, align 8
   br label %269

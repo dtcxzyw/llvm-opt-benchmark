@@ -222,7 +222,7 @@ define range(i32 -3, 3) i32 @SSL_CONF_cmd(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not25.i, label %ssl_conf_cmd_lookup.exit, label %ssl_conf_cmd_skip_prefix.exit
 
 ssl_conf_cmd_skip_prefix.exit:                    ; preds = %30, %25, %22
-  %.032 = phi ptr [ %1, %25 ], [ %24, %22 ], [ %31, %30 ]
+  %.032 = phi ptr [ %24, %22 ], [ %1, %25 ], [ %31, %30 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %ssl_conf_cmd_skip_prefix.exit, %ssl_conf_cmd_allowed.exit.thread.i
@@ -397,8 +397,8 @@ ssl_conf_cmd_allowed.exit.thread.i:               ; preds = %55, %52, %50, %ssl_
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 384, ptr noundef nonnull @.str.1, ptr noundef nonnull %.032, ptr noundef nonnull %111) #7
   br label %ctrl_switch_option.exit
 
-ssl_conf_cmd_lookup.exit:                         ; preds = %ssl_conf_cmd_allowed.exit.thread.i, %28, %30, %20, %16, %9
-  %.03236 = phi ptr [ %1, %9 ], [ %1, %16 ], [ %1, %20 ], [ %1, %30 ], [ %1, %28 ], [ %.032, %ssl_conf_cmd_allowed.exit.thread.i ]
+ssl_conf_cmd_lookup.exit:                         ; preds = %ssl_conf_cmd_allowed.exit.thread.i, %30, %28, %16, %9, %20
+  %.03236 = phi ptr [ %1, %30 ], [ %1, %20 ], [ %1, %9 ], [ %1, %16 ], [ %1, %28 ], [ %.032, %ssl_conf_cmd_allowed.exit.thread.i ]
   %112 = load i32, ptr %0, align 8, !tbaa !18
   %113 = and i32 %112, 16
   %.not22 = icmp eq i32 %113, 0
@@ -411,7 +411,7 @@ ssl_conf_cmd_lookup.exit:                         ; preds = %ssl_conf_cmd_allowe
   br label %ctrl_switch_option.exit
 
 ctrl_switch_option.exit:                          ; preds = %91, %87, %84, %76, %70, %69, %ssl_conf_cmd_lookup.exit, %114, %102, %110, %107, %5
-  %.017 = phi i32 [ 0, %5 ], [ 2, %102 ], [ %.0, %110 ], [ %.0, %107 ], [ -2, %114 ], [ -2, %ssl_conf_cmd_lookup.exit ], [ 0, %69 ], [ 1, %70 ], [ 1, %76 ], [ 1, %84 ], [ 1, %87 ], [ 1, %91 ]
+  %.017 = phi i32 [ 0, %5 ], [ %.0, %107 ], [ -2, %ssl_conf_cmd_lookup.exit ], [ 2, %102 ], [ %.0, %110 ], [ -2, %114 ], [ 0, %69 ], [ 1, %70 ], [ 1, %76 ], [ 1, %84 ], [ 1, %87 ], [ 1, %91 ]
   ret i32 %.017
 }
 
@@ -491,7 +491,7 @@ define range(i32 -3, 3) i32 @SSL_CONF_cmd_argv(ptr noundef %0, ptr noundef captu
   br label %.thread29
 
 .thread29:                                        ; preds = %.thread31, %32, %25, %29, %.thread, %4, %34, %33
-  %.025 = phi i32 [ -1, %33 ], [ %23, %34 ], [ 0, %4 ], [ 0, %.thread ], [ %23, %29 ], [ %23, %25 ], [ 0, %32 ], [ 0, %.thread31 ]
+  %.025 = phi i32 [ %23, %34 ], [ 0, %4 ], [ 0, %.thread ], [ %23, %25 ], [ -1, %33 ], [ %23, %29 ], [ 0, %32 ], [ 0, %.thread31 ]
   ret i32 %.025
 }
 
@@ -561,7 +561,7 @@ define range(i32 0, 65536) i32 @SSL_CONF_cmd_value_type(ptr noundef readonly cap
   br i1 %.not25.i, label %ssl_conf_cmd_skip_prefix.exit.thread, label %ssl_conf_cmd_skip_prefix.exit
 
 ssl_conf_cmd_skip_prefix.exit:                    ; preds = %28, %23, %20
-  %.0 = phi ptr [ %1, %23 ], [ %22, %20 ], [ %29, %28 ]
+  %.0 = phi ptr [ %22, %20 ], [ %1, %23 ], [ %29, %28 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %ssl_conf_cmd_skip_prefix.exit, %ssl_conf_cmd_allowed.exit.thread.i
@@ -632,14 +632,14 @@ ssl_conf_cmd_allowed.exit.thread.i:               ; preds = %53, %50, %48, %ssl_
   %exitcond.not.i = icmp eq i64 %56, 60
   br i1 %exitcond.not.i, label %ssl_conf_cmd_skip_prefix.exit.thread, label %.preheader.i, !llvm.loop !25
 
-ssl_conf_cmd_lookup.exit:                         ; preds = %45, %53
+ssl_conf_cmd_lookup.exit:                         ; preds = %53, %45
   %58 = getelementptr inbounds nuw i8, ptr %.01627.i, i64 26
   %59 = load i16, ptr %58, align 2, !tbaa !27
   %60 = zext i16 %59 to i32
   br label %ssl_conf_cmd_skip_prefix.exit.thread
 
-ssl_conf_cmd_skip_prefix.exit.thread:             ; preds = %ssl_conf_cmd_allowed.exit.thread.i, %26, %28, %18, %14, %7, %2, %ssl_conf_cmd_lookup.exit
-  %.1 = phi i32 [ %60, %ssl_conf_cmd_lookup.exit ], [ 0, %2 ], [ 0, %7 ], [ 0, %14 ], [ 0, %18 ], [ 0, %28 ], [ 0, %26 ], [ 0, %ssl_conf_cmd_allowed.exit.thread.i ]
+ssl_conf_cmd_skip_prefix.exit.thread:             ; preds = %ssl_conf_cmd_allowed.exit.thread.i, %28, %26, %14, %7, %2, %18, %ssl_conf_cmd_lookup.exit
+  %.1 = phi i32 [ %60, %ssl_conf_cmd_lookup.exit ], [ 0, %28 ], [ 0, %18 ], [ 0, %2 ], [ 0, %7 ], [ 0, %14 ], [ 0, %26 ], [ 0, %ssl_conf_cmd_allowed.exit.thread.i ]
   ret i32 %.1
 }
 
@@ -803,7 +803,7 @@ cmd_PrivateKey.exit..critedge_crit_edge:          ; preds = %cmd_PrivateKey.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %cmd_PrivateKey.exit, %.thread57, %63
-  %.2 = phi i32 [ 1, %63 ], [ 1, %.thread57 ], [ 0, %cmd_PrivateKey.exit ]
+  %.2 = phi i32 [ 1, %.thread57 ], [ 1, %63 ], [ 0, %cmd_PrivateKey.exit ]
   ret i32 %.2
 }
 
@@ -1304,7 +1304,7 @@ define internal range(i32 0, 2) i32 @cmd_ECDHParameters(ptr noundef readonly cap
   br label %34
 
 34:                                               ; preds = %17, %14, %5, %8, %31
-  %.013 = phi i32 [ %33, %31 ], [ 1, %8 ], [ 1, %5 ], [ 1, %14 ], [ 0, %17 ]
+  %.013 = phi i32 [ %33, %31 ], [ 1, %5 ], [ 1, %14 ], [ 1, %8 ], [ 0, %17 ]
   ret i32 %.013
 }
 
@@ -1425,7 +1425,7 @@ protocol_from_string.exit.i:                      ; preds = %17
   br label %min_max_proto.exit
 
 min_max_proto.exit:                               ; preds = %15, %9, %protocol_from_string.exit.i
-  %.0.i = phi i32 [ %24, %protocol_from_string.exit.i ], [ 0, %9 ], [ 0, %15 ]
+  %.0.i = phi i32 [ 0, %9 ], [ %24, %protocol_from_string.exit.i ], [ 0, %15 ]
   ret i32 %.0.i
 }
 
@@ -1478,7 +1478,7 @@ protocol_from_string.exit.i:                      ; preds = %17
   br label %min_max_proto.exit
 
 min_max_proto.exit:                               ; preds = %15, %9, %protocol_from_string.exit.i
-  %.0.i = phi i32 [ %24, %protocol_from_string.exit.i ], [ 0, %9 ], [ 0, %15 ]
+  %.0.i = phi i32 [ 0, %9 ], [ %24, %protocol_from_string.exit.i ], [ 0, %15 ]
   ret i32 %.0.i
 }
 
@@ -1607,7 +1607,7 @@ define internal range(i32 0, 2) i32 @cmd_Certificate(ptr noundef readonly captur
   br label %.thread45
 
 .thread45:                                        ; preds = %16, %18, %41, %31, %28, %25
-  %.3 = phi i32 [ %.1, %28 ], [ %.1, %25 ], [ %spec.select, %41 ], [ 0, %31 ], [ 0, %18 ], [ 0, %16 ]
+  %.3 = phi i32 [ %.1, %25 ], [ %.1, %28 ], [ %spec.select, %41 ], [ 0, %31 ], [ 0, %18 ], [ 0, %16 ]
   %48 = icmp sgt i32 %.3, 0
   %49 = zext i1 %48 to i32
   ret i32 %49
@@ -1669,7 +1669,7 @@ define internal range(i32 0, 2) i32 @cmd_ChainCAPath(ptr noundef readonly captur
   br label %18
 
 18:                                               ; preds = %.thread61.i, %.thread63.i
-  %.04068.i.in = phi ptr [ %5, %.thread63.i ], [ %17, %.thread61.i ]
+  %.04068.i.in = phi ptr [ %17, %.thread61.i ], [ %5, %.thread63.i ]
   %.04068.i = load ptr, ptr %.04068.i.in, align 8, !tbaa !47
   %19 = getelementptr inbounds nuw i8, ptr %.04068.i, i64 112
   %20 = load ptr, ptr %19, align 8, !tbaa !138
@@ -1696,7 +1696,7 @@ define internal range(i32 0, 2) i32 @cmd_ChainCAPath(ptr noundef readonly captur
   br label %do_store.exit
 
 do_store.exit:                                    ; preds = %6, %12, %14, %22, %27, %29
-  %.1.i = phi i32 [ 1, %29 ], [ 1, %6 ], [ 0, %22 ], [ 0, %27 ], [ 0, %14 ], [ 0, %12 ]
+  %.1.i = phi i32 [ 1, %6 ], [ 1, %29 ], [ 0, %27 ], [ 0, %12 ], [ 0, %22 ], [ 0, %14 ]
   ret i32 %.1.i
 }
 
@@ -1784,7 +1784,7 @@ define internal range(i32 0, 2) i32 @cmd_ChainCAFile(ptr noundef readonly captur
   br label %do_store.exit
 
 do_store.exit:                                    ; preds = %7, %13, %15, %31, %36, %38
-  %.1.i = phi i32 [ 1, %38 ], [ 1, %7 ], [ 0, %31 ], [ 0, %36 ], [ 0, %15 ], [ 0, %13 ]
+  %.1.i = phi i32 [ 1, %7 ], [ 1, %38 ], [ 0, %13 ], [ 0, %36 ], [ 0, %31 ], [ 0, %15 ]
   ret i32 %.1.i
 }
 
@@ -1872,7 +1872,7 @@ define internal range(i32 0, 2) i32 @cmd_ChainCAStore(ptr noundef readonly captu
   br label %do_store.exit
 
 do_store.exit:                                    ; preds = %7, %13, %15, %31, %36, %38
-  %.1.i = phi i32 [ 1, %38 ], [ 1, %7 ], [ 0, %31 ], [ 0, %36 ], [ 0, %15 ], [ 0, %13 ]
+  %.1.i = phi i32 [ 1, %7 ], [ 1, %38 ], [ 0, %36 ], [ 0, %13 ], [ 0, %31 ], [ 0, %15 ]
   ret i32 %.1.i
 }
 
@@ -1914,7 +1914,7 @@ define internal range(i32 0, 2) i32 @cmd_VerifyCAPath(ptr noundef readonly captu
   br label %18
 
 18:                                               ; preds = %.thread61.i, %.thread63.i
-  %.04068.i.in = phi ptr [ %5, %.thread63.i ], [ %17, %.thread61.i ]
+  %.04068.i.in = phi ptr [ %17, %.thread61.i ], [ %5, %.thread63.i ]
   %.04068.i = load ptr, ptr %.04068.i.in, align 8, !tbaa !47
   %19 = getelementptr inbounds nuw i8, ptr %.04068.i, i64 120
   %20 = load ptr, ptr %19, align 8, !tbaa !138
@@ -1941,7 +1941,7 @@ define internal range(i32 0, 2) i32 @cmd_VerifyCAPath(ptr noundef readonly captu
   br label %do_store.exit
 
 do_store.exit:                                    ; preds = %6, %12, %14, %22, %27, %29
-  %.1.i = phi i32 [ 1, %29 ], [ 1, %6 ], [ 0, %22 ], [ 0, %27 ], [ 0, %14 ], [ 0, %12 ]
+  %.1.i = phi i32 [ 1, %6 ], [ 1, %29 ], [ 0, %27 ], [ 0, %12 ], [ 0, %22 ], [ 0, %14 ]
   ret i32 %.1.i
 }
 
@@ -2029,7 +2029,7 @@ define internal range(i32 0, 2) i32 @cmd_VerifyCAFile(ptr noundef readonly captu
   br label %do_store.exit
 
 do_store.exit:                                    ; preds = %7, %13, %15, %31, %36, %38
-  %.1.i = phi i32 [ 1, %38 ], [ 1, %7 ], [ 0, %31 ], [ 0, %36 ], [ 0, %15 ], [ 0, %13 ]
+  %.1.i = phi i32 [ 1, %7 ], [ 1, %38 ], [ 0, %13 ], [ 0, %36 ], [ 0, %31 ], [ 0, %15 ]
   ret i32 %.1.i
 }
 
@@ -2117,7 +2117,7 @@ define internal range(i32 0, 2) i32 @cmd_VerifyCAStore(ptr noundef readonly capt
   br label %do_store.exit
 
 do_store.exit:                                    ; preds = %7, %13, %15, %31, %36, %38
-  %.1.i = phi i32 [ 1, %38 ], [ 1, %7 ], [ 0, %31 ], [ 0, %36 ], [ 0, %15 ], [ 0, %13 ]
+  %.1.i = phi i32 [ 1, %7 ], [ 1, %38 ], [ 0, %36 ], [ 0, %13 ], [ 0, %31 ], [ 0, %15 ]
   ret i32 %.1.i
 }
 
@@ -2531,9 +2531,9 @@ define internal range(i32 0, 2) i32 @ssl_set_option_list(ptr noundef %0, i32 nou
   br label %14
 
 14:                                               ; preds = %6, %8, %11, %5
-  %.023 = phi i32 [ %10, %8 ], [ %13, %11 ], [ -1, %5 ], [ %1, %6 ]
-  %.022 = phi ptr [ %9, %8 ], [ %12, %11 ], [ %0, %5 ], [ %0, %6 ]
-  %.0 = phi i32 [ 1, %8 ], [ 0, %11 ], [ 1, %5 ], [ 1, %6 ]
+  %.023 = phi i32 [ %10, %8 ], [ %13, %11 ], [ %1, %6 ], [ -1, %5 ]
+  %.022 = phi ptr [ %9, %8 ], [ %12, %11 ], [ %0, %6 ], [ %0, %5 ]
+  %.0 = phi i32 [ 1, %8 ], [ 0, %11 ], [ 1, %6 ], [ 1, %5 ]
   %.023.fr = freeze i32 %.023
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %16 = load ptr, ptr %15, align 8, !tbaa !127
@@ -2663,7 +2663,7 @@ ssl_match_option.exit:                            ; preds = %.ssl_match_option.e
   br i1 %74, label %.lr.ph.split, label %ssl_match_option.exit.thread, !llvm.loop !148
 
 ssl_match_option.exit.thread:                     ; preds = %ssl_match_option.exit, %ssl_match_option.exit.us, %14, %64, %60, %57, %50, %.split.us, %3
-  %.021 = phi i32 [ 0, %3 ], [ 1, %.split.us ], [ 1, %50 ], [ 1, %57 ], [ 1, %60 ], [ 1, %64 ], [ 0, %14 ], [ 0, %ssl_match_option.exit.us ], [ 0, %ssl_match_option.exit ]
+  %.021 = phi i32 [ 1, %64 ], [ 0, %3 ], [ 1, %.split.us ], [ 1, %50 ], [ 1, %57 ], [ 1, %60 ], [ 0, %14 ], [ 0, %ssl_match_option.exit.us ], [ 0, %ssl_match_option.exit ]
   ret i32 %.021
 }
 

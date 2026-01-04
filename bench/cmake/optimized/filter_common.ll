@@ -222,7 +222,7 @@ define dso_local range(i32 0, 12) i32 @lzma_validate_chain(ptr noundef readonly 
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %.lr.ph, %30, %24, %2, %4
-  %.030 = phi i32 [ 11, %4 ], [ 11, %2 ], [ 0, %30 ], [ 8, %24 ], [ 8, %.lr.ph ], [ 8, %._crit_edge ]
+  %.030 = phi i32 [ 11, %2 ], [ 11, %4 ], [ 8, %24 ], [ 0, %30 ], [ 8, %.lr.ph ], [ 8, %._crit_edge ]
   ret i32 %.030
 }
 
@@ -373,12 +373,12 @@ lzma_validate_chain.exit:                         ; preds = %28
   br label %.thread70
 
 .thread70:                                        ; preds = %57, %.lr.ph, %41, %35, %.loopexit, %72
-  %.5 = phi i32 [ %71, %72 ], [ 0, %.loopexit ], [ 8, %35 ], [ 8, %41 ], [ 8, %.lr.ph ], [ 8, %57 ]
+  %.5 = phi i32 [ 8, %41 ], [ 0, %.loopexit ], [ %71, %72 ], [ 8, %35 ], [ 8, %.lr.ph ], [ 8, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %lzma_validate_chain.exit.thread
 
-lzma_validate_chain.exit.thread:                  ; preds = %._crit_edge.i, %.lr.ph.i, %28, %5, %8, %.thread70
-  %.1 = phi i32 [ %.5, %.thread70 ], [ 8, %28 ], [ 11, %5 ], [ 11, %8 ], [ 8, %.lr.ph.i ], [ 8, %._crit_edge.i ]
+lzma_validate_chain.exit.thread:                  ; preds = %._crit_edge.i, %.lr.ph.i, %28, %8, %5, %.thread70
+  %.1 = phi i32 [ %.5, %.thread70 ], [ 8, %.lr.ph.i ], [ 11, %5 ], [ 8, %28 ], [ 11, %8 ], [ 8, %._crit_edge.i ]
   ret i32 %.1
 }
 
@@ -483,8 +483,8 @@ lzma_validate_chain.exit:                         ; preds = %24, %45
   %50 = add i64 %.125, 32768
   br label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge.i, %.lr.ph.i, %lzma_validate_chain.exit, %40, %24, %2, %4, %49
-  %.1 = phi i64 [ %50, %49 ], [ -1, %4 ], [ -1, %2 ], [ -1, %24 ], [ -1, %40 ], [ -1, %lzma_validate_chain.exit ], [ -1, %.lr.ph.i ], [ -1, %._crit_edge.i ]
+.critedge:                                        ; preds = %._crit_edge.i, %.lr.ph.i, %lzma_validate_chain.exit, %40, %24, %4, %2, %49
+  %.1 = phi i64 [ -1, %.lr.ph.i ], [ %50, %49 ], [ -1, %lzma_validate_chain.exit ], [ -1, %2 ], [ -1, %4 ], [ -1, %24 ], [ -1, %40 ], [ -1, %._crit_edge.i ]
   ret i64 %.1
 }
 

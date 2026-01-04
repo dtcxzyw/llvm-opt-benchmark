@@ -1618,7 +1618,7 @@ _init_l___private_Std_Time_Zoned_TimeZone_0__Std_Time_reprTimeZone____x40_Std_Ti
   br label %_init_l___private_Std_Time_Zoned_TimeZone_0__Std_Time_reprTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_54____closed__21.exit
 
 _init_l___private_Std_Time_Zoned_TimeZone_0__Std_Time_reprTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_54____closed__21.exit: ; preds = %_init_l___private_Std_Time_Zoned_TimeZone_0__Std_Time_reprTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_54____closed__17.exit, %96
-  %.1.i.i = phi ptr [ %98, %96 ], [ %92, %_init_l___private_Std_Time_Zoned_TimeZone_0__Std_Time_reprTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_54____closed__17.exit ]
+  %.1.i.i = phi ptr [ %92, %_init_l___private_Std_Time_Zoned_TimeZone_0__Std_Time_reprTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_54____closed__17.exit ], [ %98, %96 ]
   store ptr %.1.i.i, ptr @l___private_Std_Time_Zoned_TimeZone_0__Std_Time_reprTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_54____closed__21, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #3
   %99 = load ptr, ptr @l___private_Std_Time_Zoned_TimeZone_0__Std_Time_reprTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_54____closed__19, align 8, !tbaa !4

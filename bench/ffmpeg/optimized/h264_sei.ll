@@ -823,7 +823,7 @@ get_bits_long.exit.i:                             ; preds = %191, %186, %174
   br i1 %216, label %174, label %.loopexit39.i, !llvm.loop !86
 
 .loopexit39.i:                                    ; preds = %get_bits_long.exit.i, %.preheader38.i, %167
-  %.promoted114 = phi i32 [ %..i.i, %.preheader38.i ], [ %..i.i, %167 ], [ %213, %get_bits_long.exit.i ]
+  %.promoted114 = phi i32 [ %..i.i, %167 ], [ %..i.i, %.preheader38.i ], [ %213, %get_bits_long.exit.i ]
   %217 = getelementptr inbounds nuw i8, ptr %164, i64 1712
   %218 = load i32, ptr %217, align 8, !tbaa !46
   %.not34.i = icmp eq i32 %218, 0
@@ -1103,7 +1103,7 @@ bytestream2_get_be16.exit41.i:                    ; preds = %331, %330
   br label %.thread
 
 decode_picture_timing.exit:                       ; preds = %165, %get_ue_golomb_long.exit.thread.i, %87, %335
-  %.039 = phi i32 [ %336, %335 ], [ -1094995529, %87 ], [ -1094995529, %get_ue_golomb_long.exit.thread.i ], [ %166, %165 ]
+  %.039 = phi i32 [ %166, %165 ], [ %336, %335 ], [ -1094995529, %87 ], [ -1094995529, %get_ue_golomb_long.exit.thread.i ]
   %.039.fr = freeze i32 %.039
   %339 = icmp slt i32 %.039.fr, 0
   %340 = icmp ne i32 %.039.fr, -1397768184
@@ -1114,8 +1114,8 @@ decode_picture_timing.exit:                       ; preds = %165, %get_ue_golomb
   %spec.select = select i1 %339, i32 %.039.fr, i32 %.042117
   br label %.thread
 
-.thread:                                          ; preds = %341, %338, %88, %146, %.loopexit.i, %bytestream2_get_byte.exit.i, %bytestream2_get_byte.exit34.i, %bytestream2_get_be16.exit41.i
-  %342 = phi i32 [ %.042117, %bytestream2_get_be16.exit41.i ], [ %.042117, %bytestream2_get_byte.exit34.i ], [ %.042117, %bytestream2_get_byte.exit.i ], [ %.042117, %.loopexit.i ], [ %.042117, %146 ], [ %.042117, %88 ], [ %.042117, %338 ], [ %spec.select, %341 ]
+.thread:                                          ; preds = %341, %338, %.loopexit.i, %88, %146, %bytestream2_get_byte.exit.i, %bytestream2_get_byte.exit34.i, %bytestream2_get_be16.exit41.i
+  %342 = phi i32 [ %.042117, %338 ], [ %spec.select, %341 ], [ %.042117, %bytestream2_get_be16.exit41.i ], [ %.042117, %bytestream2_get_byte.exit34.i ], [ %.042117, %bytestream2_get_byte.exit.i ], [ %.042117, %146 ], [ %.042117, %88 ], [ %.042117, %.loopexit.i ]
   %.val54 = load i32, ptr %27, align 8, !tbaa !66
   %.val55 = load i32, ptr %24, align 4, !tbaa !69
   %343 = sub nsw i32 %.val55, %.val54
@@ -1127,8 +1127,8 @@ decode_picture_timing.exit:                       ; preds = %165, %get_ue_golomb
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 24, ptr noundef nonnull @.str.3, i32 noundef %54, i32 noundef %346) #7
   br label %347
 
-.thread88:                                        ; preds = %bytestream2_init.exit51, %decode_picture_timing.exit, %46, %.preheader, %72
-  %.144.ph = phi i32 [ -1094995529, %72 ], [ -1094995529, %.preheader ], [ -1094995529, %46 ], [ -1094995529, %bytestream2_init.exit51 ], [ %.039.fr, %decode_picture_timing.exit ]
+.thread88:                                        ; preds = %decode_picture_timing.exit, %bytestream2_init.exit51, %46, %.preheader, %72
+  %.144.ph = phi i32 [ -1094995529, %46 ], [ -1094995529, %.preheader ], [ -1094995529, %72 ], [ %.039.fr, %decode_picture_timing.exit ], [ -1094995529, %bytestream2_init.exit51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
@@ -1218,7 +1218,7 @@ define ptr @ff_h264_sei_stereo_mode(ptr noundef readonly captures(none) %0) loca
   br label %32
 
 32:                                               ; preds = %1, %4, %27, %23, %19, %15, %11, %7, %31
-  %.0 = phi ptr [ null, %31 ], [ %.str.4..str.5, %7 ], [ %.str.6..str.7, %11 ], [ %.str.8..str.9, %15 ], [ %.str.10..str.11, %19 ], [ %.str.12..str.13, %23 ], [ %.str.14..str.15, %27 ], [ @.str.16, %4 ], [ @.str.16, %1 ]
+  %.0 = phi ptr [ %.str.14..str.15, %27 ], [ %.str.4..str.5, %7 ], [ null, %31 ], [ %.str.6..str.7, %11 ], [ @.str.16, %4 ], [ %.str.8..str.9, %15 ], [ %.str.12..str.13, %23 ], [ %.str.10..str.11, %19 ], [ @.str.16, %1 ]
   ret ptr %.0
 }
 

@@ -598,7 +598,7 @@ define internal fastcc noundef i32 @_ZL9auxresumeP9lua_StateS0_i(ptr noundef %0,
   br label %52
 
 52:                                               ; preds = %8, %51, %48, %32, %49
-  %.1 = phi i32 [ -1, %8 ], [ -1, %51 ], [ %41, %48 ], [ 0, %32 ], [ -2, %49 ]
+  %.1 = phi i32 [ -1, %8 ], [ -1, %51 ], [ 0, %32 ], [ %41, %48 ], [ -2, %49 ]
   ret i32 %.1
 }
 

@@ -254,7 +254,7 @@ pmix_obj_run_destructors.exit30:                  ; preds = %.lr.ph.i27, %72
   br label %pmix_obj_run_destructors.exit
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i23, %._crit_edge, %42, %pmix_obj_run_destructors.exit30, %81, %87
-  %.0 = phi i32 [ %63, %87 ], [ %63, %81 ], [ %63, %pmix_obj_run_destructors.exit30 ], [ %41, %42 ], [ -31, %._crit_edge ], [ %41, %.lr.ph.i23 ]
+  %.0 = phi i32 [ -31, %._crit_edge ], [ %63, %pmix_obj_run_destructors.exit30 ], [ %63, %87 ], [ %63, %81 ], [ %41, %42 ], [ %41, %.lr.ph.i23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -1158,7 +1158,7 @@ pmix_obj_run_destructors.exit217:                 ; preds = %.lr.ph.i214, %441
   br label %455
 
 455:                                              ; preds = %56, %395, %452, %454, %pmix_obj_update.exit180, %pmix_obj_update.exit177, %380, %378, %pmix_obj_update.exit176, %316, %314, %pmix_obj_update.exit175, %258, %256, %pmix_obj_update.exit174, %194, %192, %pmix_obj_update.exit, %136, %134, %37, %51, %29
-  %.0 = phi i32 [ -31, %29 ], [ %55, %51 ], [ -47, %37 ], [ %.0139221, %134 ], [ %.0139221, %136 ], [ %.0139221, %pmix_obj_update.exit ], [ %.1225, %192 ], [ %.1225, %194 ], [ %.1225, %pmix_obj_update.exit174 ], [ %.2229, %256 ], [ %.2229, %258 ], [ %.2229, %pmix_obj_update.exit175 ], [ %.3233, %314 ], [ %.3233, %316 ], [ %.3233, %pmix_obj_update.exit176 ], [ %.4237, %378 ], [ %.4237, %380 ], [ %.4237, %pmix_obj_update.exit177 ], [ -25, %pmix_obj_update.exit180 ], [ -25, %454 ], [ -25, %452 ], [ 0, %395 ], [ -25, %56 ]
+  %.0 = phi i32 [ -31, %29 ], [ -47, %37 ], [ %.0139221, %pmix_obj_update.exit ], [ %.1225, %pmix_obj_update.exit174 ], [ %.2229, %pmix_obj_update.exit175 ], [ %.3233, %pmix_obj_update.exit176 ], [ %.4237, %pmix_obj_update.exit177 ], [ 0, %395 ], [ %55, %51 ], [ %.0139221, %134 ], [ %.0139221, %136 ], [ %.1225, %192 ], [ %.1225, %194 ], [ %.2229, %256 ], [ %.2229, %258 ], [ %.3233, %314 ], [ %.3233, %316 ], [ %.4237, %378 ], [ %.4237, %380 ], [ -25, %pmix_obj_update.exit180 ], [ -25, %454 ], [ -25, %452 ], [ -25, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -1555,8 +1555,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %63, %6
   ]
 
 .sink.split:                                      ; preds = %159, %153, %126, %120, %97, %89
-  %.2121.sink = phi i32 [ %103, %97 ], [ -20, %89 ], [ %132, %126 ], [ -20, %120 ], [ %165, %159 ], [ -20, %153 ]
-  %.sink137 = phi i32 [ 80, %97 ], [ 80, %89 ], [ 91, %126 ], [ 91, %120 ], [ 99, %159 ], [ 99, %153 ]
+  %.2121.sink = phi i32 [ -20, %120 ], [ -20, %89 ], [ %103, %97 ], [ %132, %126 ], [ %165, %159 ], [ -20, %153 ]
+  %.sink137 = phi i32 [ 91, %120 ], [ 80, %89 ], [ 80, %97 ], [ 91, %126 ], [ 99, %159 ], [ 99, %153 ]
   %166 = call ptr @PMIx_Error_string(i32 noundef %.2121.sink) #11
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %166, ptr noundef nonnull @.str.5, i32 noundef %.sink137) #11
   br label %167
@@ -1883,7 +1883,7 @@ pmix_obj_run_destructors.exit24:                  ; preds = %.lr.ph.i21, %69
   br label %pmix_obj_run_destructors.exit
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i17, %._crit_edge, %42, %pmix_obj_run_destructors.exit24, %78, %84
-  %.0 = phi i32 [ %63, %84 ], [ %63, %78 ], [ %63, %pmix_obj_run_destructors.exit24 ], [ %41, %42 ], [ -31, %._crit_edge ], [ %41, %.lr.ph.i17 ]
+  %.0 = phi i32 [ -31, %._crit_edge ], [ %63, %pmix_obj_run_destructors.exit24 ], [ %63, %84 ], [ %63, %78 ], [ %41, %42 ], [ %41, %.lr.ph.i17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -2902,7 +2902,7 @@ pmix_obj_run_destructors.exit250:                 ; preds = %.lr.ph.i247, %493
   br label %pmix_obj_new_tma.exit
 
 pmix_obj_new_tma.exit:                            ; preds = %59, %447, %94, %72, %504, %506, %pmix_obj_update.exit, %pmix_obj_update.exit194, %432, %430, %pmix_obj_update.exit195, %370, %368, %pmix_obj_update.exit196, %312, %310, %pmix_obj_update.exit197, %254, %252, %pmix_obj_update.exit198, %196, %194, %123, %124, %pmix_obj_update.exit199, %40, %54, %32, %27
-  %.0 = phi i32 [ -31, %27 ], [ -27, %32 ], [ %58, %54 ], [ -47, %40 ], [ -25, %pmix_obj_update.exit199 ], [ -25, %124 ], [ -25, %123 ], [ 0, %94 ], [ %.1257, %194 ], [ %.1257, %196 ], [ %.1257, %pmix_obj_update.exit198 ], [ %.2261, %252 ], [ %.2261, %254 ], [ %.2261, %pmix_obj_update.exit197 ], [ %.3265, %310 ], [ %.3265, %312 ], [ %.3265, %pmix_obj_update.exit196 ], [ %.4269, %368 ], [ %.4269, %370 ], [ %.4269, %pmix_obj_update.exit195 ], [ %.5273, %430 ], [ %.5273, %432 ], [ %.5273, %pmix_obj_update.exit194 ], [ -25, %pmix_obj_update.exit ], [ -25, %506 ], [ -25, %504 ], [ 0, %447 ], [ -32, %72 ], [ -25, %59 ]
+  %.0 = phi i32 [ -31, %27 ], [ -27, %32 ], [ -47, %40 ], [ 0, %447 ], [ 0, %94 ], [ %.1257, %pmix_obj_update.exit198 ], [ %.2261, %pmix_obj_update.exit197 ], [ %.3265, %pmix_obj_update.exit196 ], [ %.4269, %pmix_obj_update.exit195 ], [ %.5273, %pmix_obj_update.exit194 ], [ -32, %72 ], [ %58, %54 ], [ -25, %pmix_obj_update.exit199 ], [ -25, %124 ], [ -25, %123 ], [ %.1257, %194 ], [ %.1257, %196 ], [ %.2261, %252 ], [ %.2261, %254 ], [ %.3265, %310 ], [ %.3265, %312 ], [ %.4269, %368 ], [ %.4269, %370 ], [ %.5273, %430 ], [ %.5273, %432 ], [ -25, %pmix_obj_update.exit ], [ -25, %506 ], [ -25, %504 ], [ -25, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

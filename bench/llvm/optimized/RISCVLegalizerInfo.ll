@@ -14737,7 +14737,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66: ; preds = %_ZNK4llv
   br label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
 _ZN4llvm13isPowerOf2_32Ej.exit.thread:            ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66, %142, %64
-  %.0 = phi i1 [ true, %142 ], [ false, %64 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66 ]
+  %.0 = phi i1 [ false, %64 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66 ], [ true, %142 ]
   ret i1 %.0
 }
 
@@ -14861,7 +14861,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit6: ; preds = %50, %54
   br label %55
 
 55:                                               ; preds = %23, %_ZNK4llvm5APInt12getSExtValueEv.exit, %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit6
-  %.0 = phi i1 [ %.1, %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit6 ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %23 ]
+  %.0 = phi i1 [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %.1, %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit6 ], [ false, %23 ]
   ret i1 %.0
 }
 
@@ -15449,7 +15449,7 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %43, %thread-pre-sp
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread: ; preds = %37, %33, %4, %19, %60, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
-  %.0 = phi i1 [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ false, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit ], [ true, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ true, %60 ], [ false, %19 ], [ false, %4 ], [ false, %33 ], [ false, %37 ]
+  %.0 = phi i1 [ false, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ true, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ true, %60 ], [ false, %4 ], [ false, %19 ], [ false, %33 ], [ false, %37 ]
   ret i1 %.0
 }
 
@@ -16532,7 +16532,7 @@ _ZNK4llvm3LLT14getElementTypeEv.exit14:           ; preds = %27, %32
   br label %_ZNK4llvm3LLT9isPointerEv.exit.i.i
 
 _ZNK4llvm3LLT9isPointerEv.exit.i.i:               ; preds = %35, %_ZNK4llvm3LLT14getElementTypeEv.exit14
-  %37 = phi i1 [ false, %_ZNK4llvm3LLT14getElementTypeEv.exit14 ], [ %.not1.i.i.i, %35 ]
+  %37 = phi i1 [ %.not1.i.i.i, %35 ], [ false, %_ZNK4llvm3LLT14getElementTypeEv.exit14 ]
   %38 = and i64 %.sroa.0.0.i11, 6
   %39 = icmp eq i64 %38, 2
   %or.cond.i3.i.i = and i1 %spec.select.i.i.i.i, %39
@@ -17258,7 +17258,7 @@ _ZNK4llvm14RISCVSubtarget12expandVScaleINS_12ElementCountEEET_S3_.exit262: ; pre
   br label %333
 
 333:                                              ; preds = %332, %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE17isKnownMultipleOfERKS3_.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit146, %64, %90
-  %.0 = phi i1 [ %.1, %90 ], [ true, %64 ], [ true, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit146 ], [ true, %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE17isKnownMultipleOfERKS3_.exit ], [ true, %332 ]
+  %.0 = phi i1 [ true, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit146 ], [ %.1, %90 ], [ true, %64 ], [ true, %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE17isKnownMultipleOfERKS3_.exit ], [ true, %332 ]
   ret i1 %.0
 }
 
@@ -17674,7 +17674,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %120, %122
   br label %_ZL15getRISCVWOpcodej.exit
 
 _ZL15getRISCVWOpcodej.exit:                       ; preds = %174, %186, %187, %188, %189, %190, %191, %192, %193, %194, %195, %196
-  %.0.i.neg = phi i64 [ -323, %186 ], [ -320, %187 ], [ -312, %188 ], [ -311, %189 ], [ -317, %190 ], [ -318, %191 ], [ -319, %192 ], [ -309, %193 ], [ -310, %194 ], [ -315, %195 ], [ -314, %196 ], [ -322, %174 ]
+  %.0.i.neg = phi i64 [ -314, %196 ], [ -323, %186 ], [ -320, %187 ], [ -312, %188 ], [ -311, %189 ], [ -317, %190 ], [ -318, %191 ], [ -319, %192 ], [ -309, %193 ], [ -310, %194 ], [ -315, %195 ], [ -322, %174 ]
   %197 = load ptr, ptr %183, align 8, !tbaa !688
   %198 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %197, i64 %.0.i.neg
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %198) #17
@@ -17755,7 +17755,7 @@ _ZL15getRISCVWOpcodej.exit:                       ; preds = %174, %186, %187, %1
   br label %_ZL15getRISCVWOpcodej.exit172
 
 _ZL15getRISCVWOpcodej.exit172:                    ; preds = %203, %215, %216, %217, %218, %219, %220, %221, %222, %223, %224, %225
-  %.0.i171.neg = phi i64 [ -323, %215 ], [ -320, %216 ], [ -312, %217 ], [ -311, %218 ], [ -317, %219 ], [ -318, %220 ], [ -319, %221 ], [ -309, %222 ], [ -310, %223 ], [ -315, %224 ], [ -314, %225 ], [ -322, %203 ]
+  %.0.i171.neg = phi i64 [ -314, %225 ], [ -323, %215 ], [ -320, %216 ], [ -312, %217 ], [ -311, %218 ], [ -317, %219 ], [ -318, %220 ], [ -319, %221 ], [ -309, %222 ], [ -310, %223 ], [ -315, %224 ], [ -322, %203 ]
   %226 = load ptr, ptr %212, align 8, !tbaa !688
   %227 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %226, i64 %.0.i171.neg
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %227) #17
@@ -17834,7 +17834,7 @@ _ZL15getRISCVWOpcodej.exit172:                    ; preds = %203, %215, %216, %2
   br label %_ZL15getRISCVWOpcodej.exit174
 
 _ZL15getRISCVWOpcodej.exit174:                    ; preds = %232, %244, %245, %246, %247, %248, %249, %250, %251, %252, %253, %254
-  %.0.i173.neg = phi i64 [ -323, %244 ], [ -320, %245 ], [ -312, %246 ], [ -311, %247 ], [ -317, %248 ], [ -318, %249 ], [ -319, %250 ], [ -309, %251 ], [ -310, %252 ], [ -315, %253 ], [ -314, %254 ], [ -322, %232 ]
+  %.0.i173.neg = phi i64 [ -314, %254 ], [ -323, %244 ], [ -320, %245 ], [ -312, %246 ], [ -311, %247 ], [ -317, %248 ], [ -318, %249 ], [ -319, %250 ], [ -309, %251 ], [ -310, %252 ], [ -315, %253 ], [ -322, %232 ]
   %255 = load ptr, ptr %241, align 8, !tbaa !688
   %256 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %255, i64 %.0.i173.neg
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %256) #17
@@ -17911,7 +17911,7 @@ _ZL15getRISCVWOpcodej.exit174:                    ; preds = %232, %244, %245, %2
   br label %_ZL15getRISCVWOpcodej.exit176
 
 _ZL15getRISCVWOpcodej.exit176:                    ; preds = %261, %273, %274, %275, %276, %277, %278, %279, %280, %281, %282, %283
-  %.0.i175.neg = phi i64 [ -323, %273 ], [ -320, %274 ], [ -312, %275 ], [ -311, %276 ], [ -317, %277 ], [ -318, %278 ], [ -319, %279 ], [ -309, %280 ], [ -310, %281 ], [ -315, %282 ], [ -314, %283 ], [ -322, %261 ]
+  %.0.i175.neg = phi i64 [ -314, %283 ], [ -323, %273 ], [ -320, %274 ], [ -312, %275 ], [ -311, %276 ], [ -317, %277 ], [ -318, %278 ], [ -319, %279 ], [ -309, %280 ], [ -310, %281 ], [ -315, %282 ], [ -322, %261 ]
   %284 = load ptr, ptr %270, align 8, !tbaa !688
   %285 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %284, i64 %.0.i175.neg
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %285) #17
@@ -18124,7 +18124,7 @@ _ZN4llvm16MachineIRBuilderD2Ev.exit:              ; preds = %_ZN4llvm5APIntD2Ev.
   br label %368
 
 368:                                              ; preds = %141, %_ZNK4llvm3LLT13getSizeInBitsEv.exit, %140, %140, %50, %_ZNK4llvm8Function10hasOptSizeEv.exit.thread, %4, %366, %364, %362, %360, %358, %356, %354, %352, %_ZN4llvm16MachineIRBuilderD2Ev.exit, %_ZL15getRISCVWOpcodej.exit176, %_ZL15getRISCVWOpcodej.exit174, %_ZL15getRISCVWOpcodej.exit172, %_ZL15getRISCVWOpcodej.exit, %160, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, %30
-  %.0 = phi i1 [ %32, %30 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ], [ true, %160 ], [ true, %_ZL15getRISCVWOpcodej.exit ], [ true, %_ZL15getRISCVWOpcodej.exit172 ], [ true, %_ZL15getRISCVWOpcodej.exit174 ], [ true, %_ZL15getRISCVWOpcodej.exit176 ], [ true, %_ZN4llvm16MachineIRBuilderD2Ev.exit ], [ %353, %352 ], [ true, %354 ], [ %357, %356 ], [ true, %358 ], [ true, %360 ], [ true, %362 ], [ %365, %364 ], [ %367, %366 ], [ false, %4 ], [ %52, %50 ], [ true, %_ZNK4llvm8Function10hasOptSizeEv.exit.thread ], [ %143, %141 ], [ true, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ true, %140 ], [ true, %140 ]
+  %.0 = phi i1 [ %367, %366 ], [ %32, %30 ], [ false, %4 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ], [ true, %_ZNK4llvm8Function10hasOptSizeEv.exit.thread ], [ true, %160 ], [ true, %_ZL15getRISCVWOpcodej.exit ], [ true, %_ZL15getRISCVWOpcodej.exit172 ], [ true, %_ZL15getRISCVWOpcodej.exit174 ], [ true, %_ZL15getRISCVWOpcodej.exit176 ], [ true, %_ZN4llvm16MachineIRBuilderD2Ev.exit ], [ %353, %352 ], [ true, %354 ], [ %357, %356 ], [ true, %358 ], [ true, %360 ], [ true, %362 ], [ %365, %364 ], [ %52, %50 ], [ %143, %141 ], [ true, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ true, %140 ], [ true, %140 ]
   ret i1 %.0
 }
 
@@ -19284,7 +19284,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZSt10__invoke_rIbRZL17typeIsLegalPtrVecjSt16initializer_listIN4llvm3LLTEERKNS1_14RISCVSubtargetEE3$_0JRKNS1_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 "_ZSt10__invoke_rIbRZL17typeIsLegalPtrVecjSt16initializer_listIN4llvm3LLTEERKNS1_14RISCVSubtargetEE3$_0JRKNS1_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %2, %6, %13, %17
-  %22 = phi i1 [ false, %2 ], [ %21, %17 ], [ %16, %13 ], [ true, %6 ]
+  %22 = phi i1 [ %16, %13 ], [ false, %2 ], [ true, %6 ], [ %21, %17 ]
   ret i1 %22
 }
 

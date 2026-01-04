@@ -24,7 +24,7 @@ define internal fastcc void @_ZN12regex_syntax3hir3Hir5class17h94c17dcba2836e9dE
   br label %.body
 
 .body:                                            ; preds = %16, %10, %36
-  %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %37, %36 ], [ %17, %16 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %37, %36 ], [ %11, %10 ], [ %17, %16 ]
   invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$regex_syntax..hir..Class$GT$17h7238be91b50afa0bE"(ptr noalias noundef align 8 dereferenceable(40) %1) #10
           to label %66 unwind label %64
 
@@ -698,7 +698,7 @@ _ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit: ; preds = %267, %277
           to label %122 unwind label %120
 
 120:                                              ; preds = %125, %126, %119
-  %.3 = phi i1 [ true, %125 ], [ false, %126 ], [ true, %119 ]
+  %.3 = phi i1 [ true, %119 ], [ true, %125 ], [ false, %126 ]
   %121 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..hir..ClassUnicode$GT$17h77a5b24a6d7256b2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %30) #10
@@ -751,7 +751,7 @@ _ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit: ; preds = %267, %277
   br label %_ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit
 
 133:                                              ; preds = %.thread233, %115
-  %.pn119231 = phi { ptr, i32 } [ %121, %115 ], [ %lpad.thr_comm, %.thread233 ]
+  %.pn119231 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread233 ], [ %121, %115 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..hir..ClassUnicode$GT$17h77a5b24a6d7256b2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %33) #10
           to label %common.resume unwind label %104
 
@@ -776,7 +776,7 @@ _ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit: ; preds = %267, %277
 138:                                              ; preds = %152
   br i1 %.3109, label %.body157.thread, label %common.resume
 
-.body157.thread242:                               ; preds = %160, %135, %139
+.body157.thread242:                               ; preds = %160, %139, %135
   %lpad.thr_comm240 = landingpad { ptr, i32 }
           cleanup
   br label %.body157.thread
@@ -826,7 +826,7 @@ _ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit: ; preds = %267, %277
           to label %154 unwind label %152
 
 152:                                              ; preds = %157, %158, %151
-  %.3109 = phi i1 [ true, %157 ], [ false, %158 ], [ true, %151 ]
+  %.3109 = phi i1 [ true, %151 ], [ true, %157 ], [ false, %158 ]
   %153 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$regex_syntax..hir..ClassBytes$GT$17h46ed0bdff9ec4b10E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %25) #10
@@ -879,7 +879,7 @@ _ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit: ; preds = %267, %277
   br label %_ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit
 
 .body157.thread:                                  ; preds = %147, %.body157.thread242, %138
-  %.pn117237 = phi { ptr, i32 } [ %153, %138 ], [ %lpad.thr_comm240, %.body157.thread242 ], [ %148, %147 ]
+  %.pn117237 = phi { ptr, i32 } [ %lpad.thr_comm240, %.body157.thread242 ], [ %153, %138 ], [ %148, %147 ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$regex_syntax..hir..ClassBytes$GT$17h46ed0bdff9ec4b10E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %28) #10
           to label %common.resume unwind label %104
 
@@ -1087,7 +1087,7 @@ _ZN12regex_syntax3hir3Hir10repetition17h6fa78416cf457f7aE.exit: ; preds = %225, 
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.5183.0.copyload, i64 noundef 48, i64 noundef 8) #12
   br label %.thread224
 
-.thread257:                                       ; preds = %176, %165
+.thread257:                                       ; preds = %165, %176
   %.pn115252260 = phi { ptr, i32 } [ %177, %176 ], [ %166, %165 ]
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.5183.0.copyload, i64 noundef 48, i64 noundef 8) #12
   br label %common.resume
@@ -1194,7 +1194,7 @@ _ZN12regex_syntax3hir3Hir10repetition17h6fa78416cf457f7aE.exit: ; preds = %225, 
   br label %.thread224
 
 .thread277:                                       ; preds = %239, %.thread283
-  %.pn276 = phi { ptr, i32 } [ %229, %.thread283 ], [ %240, %239 ]
+  %.pn276 = phi { ptr, i32 } [ %240, %239 ], [ %229, %.thread283 ]
   %257 = icmp eq ptr %.sroa.13.0.copyload, null
   %258 = icmp eq i64 %.sroa.15.0.copyload, 0
   %or.cond.i169 = select i1 %257, i1 true, i1 %258
@@ -1325,7 +1325,7 @@ _ZN12regex_syntax3hir3Hir10repetition17h6fa78416cf457f7aE.exit: ; preds = %225, 
   unreachable
 
 common.resume:                                    ; preds = %250, %196, %.body.i, %103, %100, %.body153.thread, %260, %.thread257, %.body157.thread, %138, %133, %115, %285
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i171, %285 ], [ %.pn119231, %133 ], [ %121, %115 ], [ %.pn117237, %.body157.thread ], [ %153, %138 ], [ %.pn115252260, %.thread257 ], [ %.pn276, %260 ], [ %92, %.body153.thread ], [ %101, %100 ], [ %101, %103 ], [ %eh.lpad-body.i, %.body.i ], [ %197, %196 ], [ %251, %250 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i171, %285 ], [ %eh.lpad-body.i, %.body.i ], [ %92, %.body153.thread ], [ %101, %100 ], [ %.pn119231, %133 ], [ %121, %115 ], [ %.pn117237, %.body157.thread ], [ %153, %138 ], [ %.pn115252260, %.thread257 ], [ %101, %103 ], [ %251, %250 ], [ %.pn276, %260 ], [ %197, %196 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17h9af6366c8c6b49b3E.exit": ; preds = %284

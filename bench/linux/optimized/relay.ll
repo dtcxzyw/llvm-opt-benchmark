@@ -469,7 +469,7 @@ define internal fastcc ptr @relay_open_buf(ptr noundef %0, i32 noundef %1) unnam
   br i1 %95, label %98, label %.sink.split, !prof !17
 
 96:                                               ; preds = %.thread11, %.thread, %26
-  %97 = phi ptr [ null, %.thread ], [ null, %26 ], [ %.pre23, %.thread11 ]
+  %97 = phi ptr [ null, %.thread ], [ %.pre23, %.thread11 ], [ null, %26 ]
   tail call void @kfree(ptr noundef %97) #15
   tail call void @kfree(ptr noundef nonnull %20) #15
   br label %.thread13
@@ -605,7 +605,7 @@ define internal fastcc ptr @relay_open_buf(ptr noundef %0, i32 noundef %1) unnam
   br label %.thread13
 
 .thread13:                                        ; preds = %18, %14, %96, %.thread15, %170, %167, %6
-  %177 = phi ptr [ %13, %6 ], [ null, %.thread15 ], [ %20, %170 ], [ %20, %167 ], [ null, %96 ], [ null, %14 ], [ null, %18 ]
+  %177 = phi ptr [ %13, %6 ], [ null, %.thread15 ], [ null, %18 ], [ %20, %170 ], [ %20, %167 ], [ null, %96 ], [ null, %14 ]
   ret ptr %177
 }
 
@@ -1045,7 +1045,7 @@ define dso_local i32 @relay_late_setup_files(ptr noundef %0, ptr noundef %1, ptr
   br i1 %116, label %60, label %.thread13, !prof !17, !llvm.loop !42
 
 .thread13:                                        ; preds = %90, %86, %64, %60, %114, %69, %85, %83
-  %118 = phi i32 [ -22, %83 ], [ -22, %85 ], [ -22, %90 ], [ -22, %86 ], [ 0, %64 ], [ 0, %60 ], [ 0, %69 ], [ %115, %114 ]
+  %118 = phi i32 [ -22, %83 ], [ -22, %85 ], [ -22, %86 ], [ 0, %60 ], [ 0, %64 ], [ -22, %90 ], [ 0, %69 ], [ %115, %114 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !43
   %119 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !44
   %120 = icmp ult i8 %119, 2
@@ -1060,7 +1060,7 @@ define dso_local i32 @relay_late_setup_files(ptr noundef %0, ptr noundef %1, ptr
   br label %.thread
 
 .thread:                                          ; preds = %34, %30, %122, %.thread13, %48, %47, %29, %9
-  %125 = phi i32 [ -17, %9 ], [ -22, %29 ], [ -22, %47 ], [ 0, %48 ], [ %118, %122 ], [ %118, %.thread13 ], [ -22, %30 ], [ -22, %34 ]
+  %125 = phi i32 [ -17, %9 ], [ -22, %29 ], [ -22, %47 ], [ 0, %48 ], [ -22, %34 ], [ %118, %122 ], [ %118, %.thread13 ], [ -22, %30 ]
   call void @mutex_unlock(ptr noundef nonnull @relay_channels_mutex) #15
   br label %126
 
@@ -1629,9 +1629,9 @@ define internal i64 @relay_file_read(ptr noundef readonly captures(none) %0, ptr
   %57 = icmp ugt i64 %56, %41
   br i1 %57, label %.critedge8, label %.critedge.thread
 
-.critedge8:                                       ; preds = %..critedge8_crit_edge, %55, %39
-  %58 = phi i64 [ %40, %55 ], [ %40, %39 ], [ %.pre15, %..critedge8_crit_edge ]
-  %59 = phi i64 [ %41, %55 ], [ %41, %39 ], [ %29, %..critedge8_crit_edge ]
+.critedge8:                                       ; preds = %..critedge8_crit_edge, %39, %55
+  %58 = phi i64 [ %40, %39 ], [ %40, %55 ], [ %.pre15, %..critedge8_crit_edge ]
+  %59 = phi i64 [ %41, %39 ], [ %41, %55 ], [ %29, %..critedge8_crit_edge ]
   %60 = load ptr, ptr %12, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i64, ptr %61, align 8

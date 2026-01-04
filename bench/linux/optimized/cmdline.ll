@@ -188,14 +188,14 @@ define dso_local ptr @get_options(ptr noundef %0, i32 noundef %1, ptr noundef ca
   br i1 %61, label %8, label %.thread12.loopexit
 
 .thread12.loopexit:                               ; preds = %30, %8, %15, %.loopexit, %.backedge
-  %.ph = phi i32 [ %9, %30 ], [ %9, %8 ], [ %9, %15 ], [ %59, %.loopexit ], [ %.be, %.backedge ]
+  %.ph = phi i32 [ %9, %30 ], [ %.be, %.backedge ], [ %59, %.loopexit ], [ %9, %15 ], [ %9, %8 ]
   %.pre = load ptr, ptr %4, align 8
   %62 = add i32 %.ph, -1
   br label %.thread12
 
 .thread12:                                        ; preds = %33, %.thread12.loopexit, %3
-  %63 = phi ptr [ %0, %3 ], [ %.pre, %.thread12.loopexit ], [ %31, %33 ]
-  %64 = phi i32 [ 0, %3 ], [ %62, %.thread12.loopexit ], [ %9, %33 ]
+  %63 = phi ptr [ %.pre, %.thread12.loopexit ], [ %0, %3 ], [ %31, %33 ]
+  %64 = phi i32 [ %62, %.thread12.loopexit ], [ 0, %3 ], [ %9, %33 ]
   store i32 %64, ptr %2, align 4
   ret ptr %63
 }

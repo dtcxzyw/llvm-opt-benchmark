@@ -298,7 +298,7 @@ RequiresSetenv.exit.thread71:                     ; preds = %65
   %.not.i.i = icmp eq ptr %97, null
   br i1 %.not.i.i, label %.critedge75, label %.lr.ph.split.split.i.i, !llvm.loop !6
 
-RequiresSetenv.exit.thread:                       ; preds = %50, %56, %53, %59
+RequiresSetenv.exit.thread:                       ; preds = %56, %50, %53, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #12
   br label %141
@@ -632,7 +632,7 @@ define hidden ptr @SplashProcAddress(ptr noundef %0) local_unnamed_addr #1 {
   br label %19
 
 19:                                               ; preds = %15, %.thread, %14, %11, %7
-  %.0 = phi ptr [ %18, %.thread ], [ null, %11 ], [ null, %14 ], [ null, %7 ], [ null, %15 ]
+  %.0 = phi ptr [ %18, %.thread ], [ null, %7 ], [ null, %11 ], [ null, %14 ], [ null, %15 ]
   ret ptr %.0
 }
 

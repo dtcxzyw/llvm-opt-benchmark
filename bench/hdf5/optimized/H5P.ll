@@ -248,8 +248,8 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pcopy(i64 noundef %0) local_un
   %78 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %.thread40
 
-79:                                               ; preds = %70, %35, %56
-  %.024.ph = phi i64 [ %71, %70 ], [ 0, %35 ], [ %57, %56 ]
+79:                                               ; preds = %70, %56, %35
+  %.024.ph = phi i64 [ %71, %70 ], [ %57, %56 ], [ 0, %35 ]
   %80 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %82
 
@@ -2284,7 +2284,7 @@ define range(i32 -1, -2147483648) i32 @H5Piterate(i64 noundef %0, ptr noundef %1
   br label %.thread43
 
 91:                                               ; preds = %78, %67
-  %.027.ph = phi i32 [ %80, %78 ], [ %69, %67 ]
+  %.027.ph = phi i32 [ %69, %67 ], [ %80, %78 ]
   %92 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %94
 

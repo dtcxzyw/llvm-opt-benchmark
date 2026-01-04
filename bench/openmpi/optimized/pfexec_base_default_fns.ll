@@ -575,7 +575,7 @@ register_nspace.exit.thread316:                   ; preds = %._crit_edge162.i
   br label %register_nspace.exit
 
 register_nspace.exit.thread.sink.split:           ; preds = %118, %116, %114, %112, %109, %104
-  %.0.i.ph.ph = phi i32 [ %108, %104 ], [ %111, %109 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %119, %118 ]
+  %.0.i.ph.ph = phi i32 [ %117, %116 ], [ %108, %104 ], [ %111, %109 ], [ %113, %112 ], [ %115, %114 ], [ %119, %118 ]
   call void @PMIx_Info_list_release(ptr noundef %107) #12
   br label %.sink.split
 
@@ -1374,7 +1374,7 @@ pmix_iof_fd_always_ready.exit89.i:                ; preds = %596, %594
   br label %648
 
 614:                                              ; preds = %440, %436, %.critedge.i
-  %.sink590 = phi i32 [ 476, %.critedge.i ], [ 482, %436 ], [ 487, %440 ]
+  %.sink590 = phi i32 [ 482, %436 ], [ 476, %.critedge.i ], [ 487, %440 ]
   %615 = getelementptr inbounds nuw i8, ptr %400, i64 128
   %616 = getelementptr inbounds nuw i8, ptr %400, i64 120
   %617 = call ptr @PMIx_Error_string(i32 noundef -330) #12
@@ -1922,7 +1922,7 @@ pmix_obj_run_destructors.exit304:                 ; preds = %.lr.ph.i300, %850
   br i1 %894, label %307, label %.loopexit331, !llvm.loop !159
 
 .loopexit331:                                     ; preds = %307, %setup_path.exit, %._crit_edge412, %.preheader330, %setup_path.exit.thread, %pmix_obj_update.exit232, %863, %861, %pmix_obj_update.exit231, %809, %807, %pmix_obj_update.exit230, %769, %767, %pmix_obj_update.exit229, %703, %701, %pmix_obj_update.exit228, %647, %645, %pmix_obj_update.exit, %267, %265, %26, %375
-  %.0186 = phi i32 [ -46, %375 ], [ -1, %26 ], [ %.0.i315, %265 ], [ %.0.i315, %267 ], [ %.0.i315, %pmix_obj_update.exit ], [ -330, %645 ], [ -330, %647 ], [ -330, %pmix_obj_update.exit228 ], [ -32, %701 ], [ -32, %703 ], [ -32, %pmix_obj_update.exit229 ], [ %736, %767 ], [ %736, %769 ], [ %736, %pmix_obj_update.exit230 ], [ %776, %807 ], [ %776, %809 ], [ %776, %pmix_obj_update.exit231 ], [ %829, %861 ], [ %829, %863 ], [ %829, %pmix_obj_update.exit232 ], [ %.0.i241.ph, %setup_path.exit.thread ], [ 0, %.preheader330 ], [ %312, %307 ], [ %395, %setup_path.exit ], [ 0, %._crit_edge412 ]
+  %.0186 = phi i32 [ %829, %pmix_obj_update.exit232 ], [ -1, %26 ], [ %829, %863 ], [ -46, %375 ], [ %.0.i241.ph, %setup_path.exit.thread ], [ %.0.i315, %pmix_obj_update.exit ], [ -330, %pmix_obj_update.exit228 ], [ -32, %pmix_obj_update.exit229 ], [ %776, %pmix_obj_update.exit231 ], [ %736, %pmix_obj_update.exit230 ], [ %.0.i315, %265 ], [ %.0.i315, %267 ], [ -330, %645 ], [ -330, %647 ], [ -32, %701 ], [ -32, %703 ], [ %736, %767 ], [ %736, %769 ], [ %776, %807 ], [ %776, %809 ], [ %829, %861 ], [ 0, %.preheader330 ], [ %395, %setup_path.exit ], [ %312, %307 ], [ 0, %._crit_edge412 ]
   %895 = call i32 @chdir(ptr noundef nonnull %14) #12
   %.not225 = icmp eq i32 %895, 0
   br i1 %.not225, label %898, label %896
@@ -2320,7 +2320,7 @@ define void @pmix_pfexec_base_signal_proc(i32 noundef %0, i16 noundef signext %1
   br label %.thread
 
 .thread:                                          ; preds = %9, %11, %3, %25
-  %.sink40 = phi i32 [ %32, %25 ], [ 0, %3 ], [ 0, %11 ], [ 0, %9 ]
+  %.sink40 = phi i32 [ %32, %25 ], [ 0, %11 ], [ 0, %3 ], [ 0, %9 ]
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %34 = load ptr, ptr %33, align 8, !tbaa !165
   store i32 %.sink40, ptr %34, align 8, !tbaa !166
@@ -2504,12 +2504,12 @@ define range(i32 -330, 1) i32 @pmix_pfexec_base_setup_child(ptr noundef captures
   store i32 -1, ptr %85, align 4, !tbaa !28
   br label %100
 
-.critedge:                                        ; preds = %41, %29, %24
+.critedge:                                        ; preds = %29, %24, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %100
 
 100:                                              ; preds = %84, %98, %95, %89, %73, %58, %.critedge
-  %.1 = phi i32 [ -330, %.critedge ], [ -330, %58 ], [ -330, %73 ], [ -330, %89 ], [ 0, %95 ], [ 0, %98 ], [ 0, %84 ]
+  %.1 = phi i32 [ -330, %58 ], [ -330, %73 ], [ -330, %89 ], [ -330, %.critedge ], [ 0, %95 ], [ 0, %98 ], [ 0, %84 ]
   ret i32 %.1
 }
 

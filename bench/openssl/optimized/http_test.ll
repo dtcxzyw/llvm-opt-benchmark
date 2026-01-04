@@ -801,7 +801,7 @@ define internal fastcc range(i32 0, 2) i32 @test_http_method(i32 noundef range(i
   br label %68
 
 68:                                               ; preds = %55, %66
-  %.2 = phi i32 [ %56, %55 ], [ %67, %66 ]
+  %.2 = phi i32 [ %67, %66 ], [ %56, %55 ]
   %69 = call i32 @BIO_free(ptr noundef nonnull %41) #9
   br label %70
 
@@ -1079,7 +1079,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @http_bio_cb_ex(ptr nound
   br label %mock_http_server.exit
 
 mock_http_server.exit:                            ; preds = %.thread91.i, %49, %52, %55, %59, %62, %66, %71, %81, %82, %92, %100, %105, %111, %114, %.thread93.i, %121, %123, %128, %134
-  %.0.i = phi i32 [ %108, %105 ], [ %122, %121 ], [ %124, %123 ], [ %139, %134 ], [ %86, %82 ], [ 0, %.thread91.i ], [ 0, %49 ], [ 0, %52 ], [ 0, %59 ], [ 0, %55 ], [ 0, %66 ], [ 0, %62 ], [ 0, %71 ], [ 0, %81 ], [ 0, %92 ], [ 0, %100 ], [ 0, %111 ], [ 0, %114 ], [ 0, %128 ], [ 0, %.thread93.i ]
+  %.0.i = phi i32 [ 0, %.thread91.i ], [ 0, %62 ], [ 0, %81 ], [ 0, %92 ], [ %108, %105 ], [ 0, %111 ], [ %122, %121 ], [ %124, %123 ], [ 0, %100 ], [ 0, %114 ], [ %139, %134 ], [ %86, %82 ], [ 0, %71 ], [ 0, %55 ], [ 0, %52 ], [ 0, %49 ], [ 0, %59 ], [ 0, %66 ], [ 0, %128 ], [ 0, %.thread93.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %140
@@ -1204,7 +1204,7 @@ define internal fastcc range(i32 0, 2) i32 @test_http_keep_alive(i8 noundef sign
   br label %36
 
 36:                                               ; preds = %27, %29, %20, %22
-  %.2.shrunk = phi i1 [ false, %20 ], [ %26, %22 ], [ false, %27 ], [ %35, %29 ]
+  %.2.shrunk = phi i1 [ %26, %22 ], [ false, %20 ], [ false, %27 ], [ %35, %29 ]
   %37 = call i32 @BIO_free(ptr noundef %18) #9
   %38 = call i64 @BIO_ctrl(ptr noundef %9, i32 noundef 1, i64 noundef 0, ptr noundef null) #9
   %39 = add nuw nsw i32 %.02834, 1

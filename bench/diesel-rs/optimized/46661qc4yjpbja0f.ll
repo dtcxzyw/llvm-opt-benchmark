@@ -115,7 +115,7 @@ define hidden void @"_ZN4core3ptr165drop_in_place$LT$$LP$diesel..connection..sta
   unreachable
 
 common.resume:                                    ; preds = %2, %7, %11
-  %common.resume.op = phi { ptr, i32 } [ %8, %11 ], [ %8, %7 ], [ %3, %2 ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %8, %11 ], [ %3, %2 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr63drop_in_place$LT$diesel..mysql..connection..stmt..Statement$GT$17h672410ee7ddfc002E.exit": ; preds = %12, %15
@@ -557,7 +557,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.exit.i.
   br label %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h5ce7d7f15ea72ffeE.exit.thread.i.i
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h5ce7d7f15ea72ffeE.exit.thread.i.i: ; preds = %61, %57
-  %.pn.i.i = phi { i64, i64 } [ %62, %61 ], [ %58, %57 ]
+  %.pn.i.i = phi { i64, i64 } [ %58, %57 ], [ %62, %61 ]
   %.sroa.11.04454.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
   %.sroa.6.04356.ph.i.i = extractvalue { i64, i64 } %.pn.i.i, 0
   br label %84
@@ -612,8 +612,8 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   br label %.preheader
 
 84:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h5ce7d7f15ea72ffeE.exit.thread.i.i, %44
-  %.sroa.5.053.ph = phi i64 [ %46, %44 ], [ %.sroa.6.04356.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h5ce7d7f15ea72ffeE.exit.thread.i.i ]
-  %.sroa.9.051.ph = phi i64 [ %.sroa.6.0.i.i3, %44 ], [ %.sroa.11.04454.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h5ce7d7f15ea72ffeE.exit.thread.i.i ]
+  %.sroa.5.053.ph = phi i64 [ %.sroa.6.04356.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h5ce7d7f15ea72ffeE.exit.thread.i.i ], [ %46, %44 ]
+  %.sroa.9.051.ph = phi i64 [ %.sroa.11.04454.ph.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17h5ce7d7f15ea72ffeE.exit.thread.i.i ], [ %.sroa.6.0.i.i3, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !73
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17h9585b2e6ec2184a7E.exit.i
 

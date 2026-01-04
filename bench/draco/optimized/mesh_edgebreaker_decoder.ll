@@ -148,7 +148,7 @@ _ZNSt10unique_ptrIN5draco35MeshEdgebreakerDecoderImplInterfaceESt14default_delet
   br label %44
 
 _ZNSt10unique_ptrIN5draco35MeshEdgebreakerDecoderImplInterfaceESt14default_deleteIS1_EED2Ev.exit.sink.split: ; preds = %32, %26, %20
-  %.sink34 = phi ptr [ %21, %20 ], [ %27, %26 ], [ %33, %32 ]
+  %.sink34 = phi ptr [ %27, %26 ], [ %21, %20 ], [ %33, %32 ]
   %36 = load ptr, ptr %.sink34, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8

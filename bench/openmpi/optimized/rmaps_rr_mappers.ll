@@ -222,10 +222,10 @@ define i32 @prte_rmaps_rr_byslot(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %98
 
 98:                                               ; preds = %80, %92, %95, %78
-  %99 = phi i32 [ %.1153241, %78 ], [ %97, %95 ], [ %94, %92 ], [ %.1153241, %80 ]
-  %.2154 = phi i32 [ %.1153241, %78 ], [ %.1153241, %95 ], [ %.1153241, %92 ], [ %spec.select, %80 ]
-  %.2150 = phi i32 [ %.1149242, %78 ], [ %.1149242, %95 ], [ %.1149242, %92 ], [ %81, %80 ]
-  %.2 = phi i32 [ %.1244, %78 ], [ %.3, %95 ], [ %.3, %92 ], [ %.1244, %80 ]
+  %99 = phi i32 [ %94, %92 ], [ %.1153241, %80 ], [ %.1153241, %78 ], [ %97, %95 ]
+  %.2154 = phi i32 [ %.1153241, %92 ], [ %spec.select, %80 ], [ %.1153241, %78 ], [ %.1153241, %95 ]
+  %.2150 = phi i32 [ %.1149242, %92 ], [ %81, %80 ], [ %.1149242, %78 ], [ %.1149242, %95 ]
+  %.2 = phi i32 [ %.3, %92 ], [ %.1244, %80 ], [ %.1244, %78 ], [ %.3, %95 ]
   %100 = load i8, ptr %59, align 1, !tbaa !33, !range !34, !noundef !35
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %107, label %102
@@ -492,8 +492,8 @@ pmix_obj_run_destructors.exit200:                 ; preds = %.lr.ph.i197, %202
   br label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %.lr.ph306, %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge308, %135, %pmix_obj_update.exit, %171, %169
-  %.4147 = phi i32 [ %146, %169 ], [ %146, %171 ], [ %146, %pmix_obj_update.exit ], [ %.1144243, %135 ], [ %146, %..critedge.loopexit_crit_edge308 ], [ %.1144243, %.lr.ph.preheader ], [ %146, %.lr.ph ], [ %.3146227305, %.lr.ph306 ]
-  %.6 = phi i32 [ -46, %169 ], [ -46, %171 ], [ -46, %pmix_obj_update.exit ], [ %.2, %135 ], [ 0, %..critedge.loopexit_crit_edge308 ], [ %.2, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ -43, %.lr.ph306 ]
+  %.4147 = phi i32 [ %146, %169 ], [ %146, %171 ], [ %146, %pmix_obj_update.exit ], [ %.1144243, %135 ], [ %.1144243, %.lr.ph.preheader ], [ %146, %..critedge.loopexit_crit_edge308 ], [ %146, %.lr.ph ], [ %.3146227305, %.lr.ph306 ]
+  %.6 = phi i32 [ -46, %169 ], [ -46, %171 ], [ -46, %pmix_obj_update.exit ], [ %.2, %135 ], [ %.2, %.lr.ph.preheader ], [ 0, %..critedge.loopexit_crit_edge308 ], [ 0, %.lr.ph ], [ -43, %.lr.ph306 ]
   %220 = load i32, ptr %21, align 8, !tbaa !26
   %221 = icmp eq i32 %.4147, %220
   br i1 %221, label %.loopexit, label %222
@@ -522,7 +522,7 @@ pmix_obj_run_destructors.exit200:                 ; preds = %.lr.ph.i197, %202
   br i1 %.0142, label %.loopexit203, label %241
 
 .loopexit203:                                     ; preds = %._crit_edge, %pmix_obj_update.exit187, %193, %191
-  %.7 = phi i32 [ %147, %191 ], [ %147, %193 ], [ %147, %pmix_obj_update.exit187 ], [ %.1.lcssa, %._crit_edge ]
+  %.7 = phi i32 [ %147, %pmix_obj_update.exit187 ], [ %147, %191 ], [ %147, %193 ], [ %.1.lcssa, %._crit_edge ]
   %.not183 = icmp eq i32 %.7, -43
   br i1 %.not183, label %.loopexit, label %226
 
@@ -593,7 +593,7 @@ pmix_obj_run_destructors.exit200:                 ; preds = %.lr.ph.i197, %202
   br label %65
 
 .loopexit:                                        ; preds = %.critedge, %87, %.loopexit203, %.thread, %28, %45
-  %.0 = phi i32 [ -43, %45 ], [ -43, %28 ], [ -43, %.thread ], [ -43, %.loopexit203 ], [ 0, %.critedge ], [ %88, %87 ]
+  %.0 = phi i32 [ -43, %.thread ], [ -43, %.loopexit203 ], [ -43, %28 ], [ -43, %45 ], [ 0, %.critedge ], [ %88, %87 ]
   ret i32 %.0
 }
 
@@ -1014,8 +1014,8 @@ pmix_obj_run_destructors.exit158:                 ; preds = %.lr.ph.i155, %177
   br label %.critedge, !llvm.loop !73
 
 .critedge:                                        ; preds = %.lr.ph245, %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge247, %110, %pmix_obj_update.exit146, %146, %144
-  %.4123 = phi i32 [ %121, %144 ], [ %121, %146 ], [ %121, %pmix_obj_update.exit146 ], [ %.1120193, %110 ], [ %121, %..critedge.loopexit_crit_edge247 ], [ %.1120193, %.lr.ph.preheader ], [ %121, %.lr.ph ], [ %.3122180244, %.lr.ph245 ]
-  %.4 = phi i32 [ -46, %144 ], [ -46, %146 ], [ -46, %pmix_obj_update.exit146 ], [ %.1195, %110 ], [ 0, %..critedge.loopexit_crit_edge247 ], [ %.1195, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ -43, %.lr.ph245 ]
+  %.4123 = phi i32 [ %121, %144 ], [ %121, %146 ], [ %121, %pmix_obj_update.exit146 ], [ %.1120193, %110 ], [ %.1120193, %.lr.ph.preheader ], [ %121, %..critedge.loopexit_crit_edge247 ], [ %121, %.lr.ph ], [ %.3122180244, %.lr.ph245 ]
+  %.4 = phi i32 [ -46, %144 ], [ -46, %146 ], [ -46, %pmix_obj_update.exit146 ], [ %.1195, %110 ], [ %.1195, %.lr.ph.preheader ], [ 0, %..critedge.loopexit_crit_edge247 ], [ 0, %.lr.ph ], [ -43, %.lr.ph245 ]
   %195 = load i32, ptr %23, align 8, !tbaa !26
   %196 = icmp eq i32 %.4123, %195
   br i1 %196, label %.loopexit, label %197
@@ -1043,7 +1043,7 @@ pmix_obj_run_destructors.exit158:                 ; preds = %.lr.ph.i155, %177
   br i1 %.0116, label %.loopexit160, label %216
 
 .loopexit160:                                     ; preds = %._crit_edge, %pmix_obj_update.exit145, %168, %166
-  %.5 = phi i32 [ %122, %166 ], [ %122, %168 ], [ %122, %pmix_obj_update.exit145 ], [ %.1.lcssa, %._crit_edge ]
+  %.5 = phi i32 [ %122, %pmix_obj_update.exit145 ], [ %122, %166 ], [ %122, %168 ], [ %.1.lcssa, %._crit_edge ]
   %.not142 = icmp eq i32 %.5, -43
   br i1 %.not142, label %.loopexit, label %201
 
@@ -1092,7 +1092,7 @@ pmix_obj_run_destructors.exit158:                 ; preds = %.lr.ph.i155, %177
   br label %65
 
 .loopexit:                                        ; preds = %.critedge, %.loopexit160, %.thread, %30, %47
-  %.0 = phi i32 [ -43, %47 ], [ -43, %30 ], [ -43, %.thread ], [ -43, %.loopexit160 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ -43, %30 ], [ -43, %.loopexit160 ], [ -43, %47 ], [ -43, %.thread ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -1286,9 +1286,9 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bycpu(ptr noundef %0, ptr noundef %1
   br label %109
 
 109:                                              ; preds = %89, %99, %106, %103, %87
-  %110 = phi i32 [ %.1170277, %87 ], [ %59, %99 ], [ %108, %106 ], [ %105, %103 ], [ %.1170277, %89 ]
-  %.2171 = phi i32 [ %.1170277, %87 ], [ %.1170277, %99 ], [ %.1170277, %106 ], [ %.1170277, %103 ], [ %spec.select, %89 ]
-  %.2167 = phi i32 [ %.1166278, %87 ], [ %.1166278, %99 ], [ %.1166278, %106 ], [ %.1166278, %103 ], [ %90, %89 ]
+  %110 = phi i32 [ %105, %103 ], [ %.1170277, %89 ], [ %.1170277, %87 ], [ %59, %99 ], [ %108, %106 ]
+  %.2171 = phi i32 [ %.1170277, %103 ], [ %spec.select, %89 ], [ %.1170277, %87 ], [ %.1170277, %99 ], [ %.1170277, %106 ]
+  %.2167 = phi i32 [ %.1166278, %103 ], [ %90, %89 ], [ %.1166278, %87 ], [ %.1166278, %99 ], [ %.1166278, %106 ]
   %111 = load i8, ptr %68, align 1, !tbaa !33, !range !34, !noundef !35
   %112 = trunc nuw i8 %111 to i1
   br i1 %112, label %118, label %113
@@ -1555,8 +1555,8 @@ pmix_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %213
   br label %.critedge, !llvm.loop !78
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %146, %pmix_obj_update.exit216, %182, %180
-  %.4164 = phi i32 [ %157, %180 ], [ %157, %182 ], [ %157, %pmix_obj_update.exit216 ], [ %.1161279, %146 ], [ %157, %..critedge.loopexit_crit_edge ], [ %.1161279, %.lr.ph.preheader ], [ %157, %.lr.ph ]
-  %.4 = phi i32 [ -46, %180 ], [ -46, %182 ], [ -46, %pmix_obj_update.exit216 ], [ %.1280, %146 ], [ 0, %..critedge.loopexit_crit_edge ], [ %.1280, %.lr.ph.preheader ], [ 0, %.lr.ph ]
+  %.4164 = phi i32 [ %157, %182 ], [ %157, %pmix_obj_update.exit216 ], [ %157, %180 ], [ %.1161279, %146 ], [ %157, %..critedge.loopexit_crit_edge ], [ %.1161279, %.lr.ph.preheader ], [ %157, %.lr.ph ]
+  %.4 = phi i32 [ -46, %182 ], [ -46, %pmix_obj_update.exit216 ], [ -46, %180 ], [ %.1280, %146 ], [ 0, %..critedge.loopexit_crit_edge ], [ %.1280, %.lr.ph.preheader ], [ 0, %.lr.ph ]
   %231 = load i32, ptr %23, align 8, !tbaa !26
   %232 = icmp eq i32 %.4164, %231
   %233 = load ptr, ptr %71, align 8, !tbaa !69
@@ -1674,7 +1674,7 @@ pmix_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %213
   br label %74
 
 .loopexit:                                        ; preds = %._crit_edge, %pmix_obj_update.exit215, %204, %202
-  %.5 = phi i32 [ %158, %202 ], [ %158, %204 ], [ %158, %pmix_obj_update.exit215 ], [ %.1.lcssa, %._crit_edge ]
+  %.5 = phi i32 [ %158, %204 ], [ %158, %pmix_obj_update.exit215 ], [ %158, %202 ], [ %.1.lcssa, %._crit_edge ]
   %.not212 = icmp eq i32 %.5, -43
   br i1 %.not212, label %.thread, label %276
 
@@ -1703,7 +1703,7 @@ pmix_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %213
   br label %286
 
 286:                                              ; preds = %.thread, %285, %239, %240, %30, %47
-  %.0 = phi i32 [ -43, %47 ], [ -43, %30 ], [ 0, %240 ], [ 0, %239 ], [ -43, %285 ], [ -43, %.thread ]
+  %.0 = phi i32 [ 0, %239 ], [ -43, %30 ], [ -43, %47 ], [ 0, %240 ], [ -43, %285 ], [ -43, %.thread ]
   ret i32 %.0
 }
 
@@ -2247,10 +2247,10 @@ pmix_obj_run_destructors.exit239:                 ; preds = %.lr.ph.i236, %255
   br label %269
 
 269:                                              ; preds = %pmix_obj_update.exit, %268, %266, %152, %157
-  %.4181 = phi i8 [ %.3180320, %157 ], [ %.3180320, %152 ], [ 0, %266 ], [ 0, %268 ], [ 0, %pmix_obj_update.exit ]
-  %.6176 = phi i8 [ %.5175321, %157 ], [ 1, %152 ], [ %.5175321, %266 ], [ %.5175321, %268 ], [ %.5175321, %pmix_obj_update.exit ]
-  %.6163 = phi i32 [ %.4161323, %157 ], [ %.4161323, %152 ], [ %164, %266 ], [ %164, %268 ], [ %164, %pmix_obj_update.exit ]
-  %.8 = phi i32 [ -2, %157 ], [ %.6324, %152 ], [ 0, %266 ], [ 0, %268 ], [ 0, %pmix_obj_update.exit ]
+  %.4181 = phi i8 [ %.3180320, %152 ], [ %.3180320, %157 ], [ 0, %266 ], [ 0, %268 ], [ 0, %pmix_obj_update.exit ]
+  %.6176 = phi i8 [ 1, %152 ], [ %.5175321, %157 ], [ %.5175321, %266 ], [ %.5175321, %268 ], [ %.5175321, %pmix_obj_update.exit ]
+  %.6163 = phi i32 [ %.4161323, %152 ], [ %.4161323, %157 ], [ %164, %266 ], [ %164, %268 ], [ %164, %pmix_obj_update.exit ]
+  %.8 = phi i32 [ %.6324, %152 ], [ -2, %157 ], [ 0, %266 ], [ 0, %268 ], [ 0, %pmix_obj_update.exit ]
   %270 = add nuw i32 %.0169322, 1
   %exitcond.not = icmp eq i32 %270, %83
   br i1 %exitcond.not, label %.critedge, label %.backedge
@@ -2282,10 +2282,10 @@ pmix_obj_run_destructors.exit239:                 ; preds = %.lr.ph.i236, %255
   br i1 %277, label %.critedge.thread, label %.backedge
 
 .critedge.thread:                                 ; preds = %275, %.critedge, %pmix_obj_update.exit213, %220, %218
-  %.3180276 = phi i8 [ %.3180320, %218 ], [ %.3180320, %220 ], [ %.3180320, %pmix_obj_update.exit213 ], [ 0, %275 ], [ %.3180.lcssa, %.critedge ]
-  %.5175271 = phi i8 [ %.5175321, %218 ], [ %.5175321, %220 ], [ %.5175321, %pmix_obj_update.exit213 ], [ 0, %275 ], [ %.5175.lcssa, %.critedge ]
-  %.7249 = phi i32 [ -46, %218 ], [ -46, %220 ], [ -46, %pmix_obj_update.exit213 ], [ %.6.lcssa, %.critedge ], [ %.6.lcssa, %275 ]
-  %.5162248 = phi i32 [ %164, %218 ], [ %164, %220 ], [ %164, %pmix_obj_update.exit213 ], [ %.4161.lcssa, %.critedge ], [ %.4161.lcssa, %275 ]
+  %.3180276 = phi i8 [ %.3180320, %220 ], [ %.3180320, %pmix_obj_update.exit213 ], [ %.3180320, %218 ], [ 0, %275 ], [ %.3180.lcssa, %.critedge ]
+  %.5175271 = phi i8 [ %.5175321, %220 ], [ %.5175321, %pmix_obj_update.exit213 ], [ %.5175321, %218 ], [ 0, %275 ], [ %.5175.lcssa, %.critedge ]
+  %.7249 = phi i32 [ -46, %220 ], [ -46, %pmix_obj_update.exit213 ], [ -46, %218 ], [ %.6.lcssa, %.critedge ], [ %.6.lcssa, %275 ]
+  %.5162248 = phi i32 [ %164, %220 ], [ %164, %pmix_obj_update.exit213 ], [ %164, %218 ], [ %.4161.lcssa, %.critedge ], [ %.4161.lcssa, %275 ]
   %278 = load ptr, ptr %66, align 8, !tbaa !69
   %.not210 = icmp eq ptr %278, null
   br i1 %.not210, label %280, label %279
@@ -2296,10 +2296,10 @@ pmix_obj_run_destructors.exit239:                 ; preds = %.lr.ph.i236, %255
   br label %280
 
 280:                                              ; preds = %pmix_obj_update.exit215, %115, %113, %.critedge.thread, %279
-  %.1178 = phi i8 [ %.3180276, %279 ], [ %.3180276, %.critedge.thread ], [ %.0177328, %113 ], [ %.0177328, %115 ], [ %.0177328, %pmix_obj_update.exit215 ]
-  %.3173 = phi i8 [ %.5175271, %279 ], [ %.5175271, %.critedge.thread ], [ 0, %113 ], [ 0, %115 ], [ 0, %pmix_obj_update.exit215 ]
-  %.2159 = phi i32 [ %.5162248, %279 ], [ %.5162248, %.critedge.thread ], [ %.1158330, %113 ], [ %.1158330, %115 ], [ %.1158330, %pmix_obj_update.exit215 ]
-  %.4 = phi i32 [ %.7249, %279 ], [ %.7249, %.critedge.thread ], [ %.2, %113 ], [ %.2, %115 ], [ %.2, %pmix_obj_update.exit215 ]
+  %.1178 = phi i8 [ %.3180276, %.critedge.thread ], [ %.3180276, %279 ], [ %.0177328, %113 ], [ %.0177328, %115 ], [ %.0177328, %pmix_obj_update.exit215 ]
+  %.3173 = phi i8 [ %.5175271, %.critedge.thread ], [ %.5175271, %279 ], [ 0, %113 ], [ 0, %115 ], [ 0, %pmix_obj_update.exit215 ]
+  %.2159 = phi i32 [ %.5162248, %.critedge.thread ], [ %.5162248, %279 ], [ %.1158330, %113 ], [ %.1158330, %115 ], [ %.1158330, %pmix_obj_update.exit215 ]
+  %.4 = phi i32 [ %.7249, %.critedge.thread ], [ %.7249, %279 ], [ %.2, %113 ], [ %.2, %115 ], [ %.2, %pmix_obj_update.exit215 ]
   %.not199 = icmp eq ptr %.0168333, %56
   br i1 %.not199, label %._crit_edge, label %.lr.ph.backedge
 
@@ -2372,7 +2372,7 @@ pmix_obj_run_destructors.exit239:                 ; preds = %.lr.ph.i236, %255
   br label %310
 
 310:                                              ; preds = %.split338, %29, %46, %.thread255, %285
-  %.0 = phi i32 [ -43, %285 ], [ -43, %.thread255 ], [ -43, %46 ], [ -43, %29 ], [ 0, %.split338 ]
+  %.0 = phi i32 [ -43, %285 ], [ -43, %.thread255 ], [ -43, %29 ], [ -43, %46 ], [ 0, %.split338 ]
   ret i32 %.0
 }
 

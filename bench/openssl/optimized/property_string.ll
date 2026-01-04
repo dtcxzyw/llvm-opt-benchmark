@@ -103,7 +103,7 @@ define ptr @ossl_property_string_data_new(ptr noundef readnone captures(none) %0
   br label %23
 
 23:                                               ; preds = %17, %1, %22
-  %.0 = phi ptr [ null, %22 ], [ null, %1 ], [ %2, %17 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %22 ], [ %2, %17 ]
   ret ptr %.0
 }
 
@@ -262,7 +262,7 @@ new_property_string.exit:                         ; preds = %31
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread56, %44, %50, %59, %58, %4, %22, %12
-  %.0 = phi i32 [ 0, %22 ], [ 0, %12 ], [ 0, %4 ], [ %61, %59 ], [ 0, %58 ], [ 0, %50 ], [ 0, %44 ], [ 0, %.thread56 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 0, %58 ], [ 0, %22 ], [ %61, %59 ], [ 0, %50 ], [ 0, %44 ], [ 0, %.thread56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -303,7 +303,7 @@ define internal fastcc ptr @ossl_property_str(i32 noundef range(i32 0, 2) %0, pt
   br label %16
 
 16:                                               ; preds = %3, %10, %9
-  %.0 = phi ptr [ %13, %10 ], [ null, %9 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %9 ], [ %13, %10 ], [ null, %3 ]
   ret ptr %.0
 }
 

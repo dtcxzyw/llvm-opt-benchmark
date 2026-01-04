@@ -368,7 +368,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt14_Function_ba
   br i1 %122, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 123:                                              ; preds = %93, %119, %91
-  %.pn50.pn.pn.pn.pn = phi { ptr, i32 } [ %92, %91 ], [ %94, %93 ], [ %lpad.phi, %119 ]
+  %.pn50.pn.pn.pn.pn = phi { ptr, i32 } [ %92, %91 ], [ %lpad.phi, %119 ], [ %94, %93 ]
   %124 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !42
   %.not.i67 = icmp eq ptr %125, null

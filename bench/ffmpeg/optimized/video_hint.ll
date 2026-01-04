@@ -26,7 +26,7 @@ define noalias ptr @av_video_hint_alloc(i64 noundef %0, ptr noundef writeonly ca
   br label %11
 
 11:                                               ; preds = %4, %2, %8
-  %.0 = phi ptr [ %7, %8 ], [ null, %2 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %2 ], [ %7, %8 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -74,7 +74,7 @@ define ptr @av_video_hint_create_side_data(ptr noundef %0, i64 noundef %1) local
   br label %av_video_hint_alloc.exit.thread
 
 av_video_hint_alloc.exit.thread:                  ; preds = %6, %2, %15, %17, %14
-  %.0 = phi ptr [ null, %17 ], [ null, %14 ], [ %9, %15 ], [ null, %2 ], [ null, %6 ]
+  %.0 = phi ptr [ %9, %15 ], [ null, %17 ], [ null, %14 ], [ null, %2 ], [ null, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0

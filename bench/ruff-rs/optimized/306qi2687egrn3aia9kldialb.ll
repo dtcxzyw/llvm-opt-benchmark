@@ -321,7 +321,7 @@ default.unreachable54:                            ; preds = %2
   unreachable
 
 common.resume:                                    ; preds = %61, %50, %54
-  %common.resume.op = phi { ptr, i32 } [ %51, %54 ], [ %51, %50 ], [ %lpad.thr_comm, %61 ]
+  %common.resume.op = phi { ptr, i32 } [ %51, %50 ], [ %51, %54 ], [ %lpad.thr_comm, %61 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$serde_json..value..ser..SerializeMap$GT$17h53222d558d8812a0E.exit": ; preds = %58, %55
@@ -1063,7 +1063,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hf2266ca87fa34adcE(ptr dea
   br i1 %65, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3c967a195fa8479E.exit105.thread", label %.lr.ph327
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3c967a195fa8479E.exit105.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit140", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit132", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit124", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit116", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit108", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit148", %.preheader287, %.preheader285, %.preheader283, %.preheader281, %.preheader279, %.preheader
-  %.sroa.27.6 = phi i64 [ %64, %.preheader ], [ %64, %.preheader279 ], [ %64, %.preheader281 ], [ %64, %.preheader283 ], [ %64, %.preheader285 ], [ %64, %.preheader287 ], [ %133, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit148" ], [ %72, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit108" ], [ %84, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit116" ], [ %97, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit124" ], [ %109, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit132" ], [ %122, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit140" ]
+  %.sroa.27.6 = phi i64 [ %97, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit124" ], [ %109, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit132" ], [ %84, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit116" ], [ %72, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit108" ], [ %133, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit148" ], [ %64, %.preheader ], [ %64, %.preheader279 ], [ %64, %.preheader281 ], [ %64, %.preheader283 ], [ %64, %.preheader285 ], [ %64, %.preheader287 ], [ %122, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2d783cf30c9e8562E.exit140" ]
   %66 = sub i64 %.sroa.01.0.i, %.sroa.27.6
   store i64 %66, ptr %55, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
@@ -1559,8 +1559,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %10 = icmp eq i8 %8, %9
   br i1 %10, label %11, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread"
 
-"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread": ; preds = %50, %46, %39, %29, %23, %12, %.backedge, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit", %.lr.ph, %18, %.preheader.split, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split ], [ false, %50 ], [ false, %46 ], [ false, %39 ], [ false, %29 ], [ false, %23 ], [ false, %12 ], [ true, %.backedge ], [ false, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit" ], [ false, %.lr.ph ], [ false, %18 ]
+"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread": ; preds = %50, %23, %29, %39, %46, %12, %.backedge, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit", %.lr.ph, %18, %.preheader.split, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split ], [ false, %50 ], [ false, %23 ], [ false, %29 ], [ false, %39 ], [ false, %46 ], [ false, %12 ], [ false, %.lr.ph ], [ false, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit" ], [ true, %.backedge ], [ false, %18 ]
   ret i1 %.sroa.0.0
 
 11:                                               ; preds = %.lr.ph
@@ -1631,8 +1631,8 @@ default.unreachable:                              ; preds = %43, %11
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
   switch i64 %21, label %default.unreachable [
     i64 0, label %46
-    i64 1, label %50
-    i64 2, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit"
+    i64 1, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit"
+    i64 2, label %50
   ]
 
 46:                                               ; preds = %43
@@ -1642,18 +1642,18 @@ default.unreachable:                              ; preds = %43, %11
   br i1 %49, label %.backedge, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread"
 
 50:                                               ; preds = %43
-  %51 = load i64, ptr %44, align 8, !alias.scope !370, !noalias !371, !noundef !4
-  %52 = load i64, ptr %45, align 8, !alias.scope !371, !noalias !370, !noundef !4
-  %53 = icmp eq i64 %51, %52
+  %51 = load double, ptr %44, align 8, !alias.scope !370, !noalias !371, !noundef !4
+  %52 = load double, ptr %45, align 8, !alias.scope !371, !noalias !370, !noundef !4
+  %53 = fcmp oeq double %51, %52
   br i1 %53, label %.backedge, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread"
 
 "_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit": ; preds = %43
-  %54 = load double, ptr %44, align 8, !alias.scope !370, !noalias !371, !noundef !4
-  %55 = load double, ptr %45, align 8, !alias.scope !371, !noalias !370, !noundef !4
-  %56 = fcmp oeq double %54, %55
+  %54 = load i64, ptr %44, align 8, !alias.scope !370, !noalias !371, !noundef !4
+  %55 = load i64, ptr %45, align 8, !alias.scope !371, !noalias !370, !noundef !4
+  %56 = icmp eq i64 %54, %55
   br i1 %56, label %.backedge, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread"
 
-.backedge:                                        ; preds = %50, %46, %39, %29, %23, %12, %11, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit"
+.backedge:                                        ; preds = %50, %23, %29, %39, %46, %12, %11, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit"
   %exitcond.not = icmp eq i64 %5, %1
   br i1 %exitcond.not, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread", label %.lr.ph
 }

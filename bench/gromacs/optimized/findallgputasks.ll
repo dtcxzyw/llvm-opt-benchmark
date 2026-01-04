@@ -281,7 +281,7 @@ _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit39: ; preds = %_ZNKSt6vec
   br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit:     ; preds = %49, %39, %29, %82, %83, %85
-  %.pn2754 = phi { ptr, i32 } [ %84, %83 ], [ %84, %85 ], [ %.pn, %49 ], [ %.pn21, %39 ], [ %.pn23, %29 ], [ %.pn25, %82 ]
+  %.pn2754 = phi { ptr, i32 } [ %84, %85 ], [ %84, %83 ], [ %.pn, %49 ], [ %.pn21, %39 ], [ %.pn23, %29 ], [ %.pn25, %82 ]
   resume { ptr, i32 } %.pn2754
 }
 
@@ -445,7 +445,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %_ZNSt6vecto
   br label %21
 
 21:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.0.i.i.i.i.i.i.idx = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %.idx.i.i.i.i.i.i.i.i, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i.idx = phi i64 [ %.idx.i.i.i.i.i.i.i.i, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %.0.i.i.i.i.i.i.ptr = getelementptr i8, ptr %18, i64 %.0.i.i.i.i.i.i.idx
   %22 = icmp samesign ugt i32 %7, 1
   br i1 %22, label %23, label %31
@@ -664,7 +664,7 @@ _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6vec
   br label %98
 
 98:                                               ; preds = %.loopexit.split-lp.i, %.loopexit4.i
-  %.pn.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit4.i ]
+  %.pn.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit4.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %.not.i.i.i25.i = icmp eq ptr %.sroa.057.3, null
   br i1 %.not.i.i.i25.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit41, label %99
 
@@ -856,7 +856,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit37:                  ; preds = %154, %155
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit41
 
 _ZNSt6vectorIiSaIiEED2Ev.exit41:                  ; preds = %.thread132, %160, %159, %99, %98
-  %.pn.pn = phi { ptr, i32 } [ %.pn.i91, %99 ], [ %.pn.i, %98 ], [ %.pn, %159 ], [ %.pn, %160 ], [ %68, %.thread132 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn.i, %98 ], [ %.pn, %160 ], [ %.pn.i91, %99 ], [ %.pn, %159 ], [ %68, %.thread132 ]
   call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %35) #17
   br label %common.resume
 }

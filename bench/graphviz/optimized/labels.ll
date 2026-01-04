@@ -364,7 +364,7 @@ agxbsizeof.exit.i81:                              ; preds = %53
   br label %agxbputc.exit88
 
 agxbputc.exit88:                                  ; preds = %120, %115, %agxbputc.exit51, %agxbputc.exit64, %agxbdisown.exit77
-  %.1 = phi ptr [ %16, %agxbdisown.exit77 ], [ %spec.select, %agxbputc.exit64 ], [ %37, %agxbputc.exit51 ], [ %16, %115 ], [ %16, %120 ]
+  %.1 = phi ptr [ %16, %agxbdisown.exit77 ], [ %37, %agxbputc.exit51 ], [ %spec.select, %agxbputc.exit64 ], [ %16, %115 ], [ %16, %120 ]
   %125 = load i8, ptr %.1, align 1, !tbaa !13
   %.not = icmp eq i8 %125, 0
   br i1 %.not, label %.critedge, label %14, !llvm.loop !17
@@ -618,10 +618,10 @@ unreachable:                                      ; preds = %gv_alloc.exit
   unreachable
 
 28:                                               ; preds = %19, %16, %13
-  %.053 = phi ptr [ %15, %13 ], [ %18, %16 ], [ %27, %19 ]
-  %.052 = phi ptr [ %0, %13 ], [ null, %16 ], [ null, %19 ]
-  %.051 = phi ptr [ null, %13 ], [ %0, %16 ], [ null, %19 ]
-  %.050 = phi ptr [ null, %13 ], [ null, %16 ], [ %0, %19 ]
+  %.053 = phi ptr [ %27, %19 ], [ %15, %13 ], [ %18, %16 ]
+  %.052 = phi ptr [ null, %19 ], [ %0, %13 ], [ null, %16 ]
+  %.051 = phi ptr [ null, %19 ], [ null, %13 ], [ %0, %16 ]
+  %.050 = phi ptr [ %0, %19 ], [ null, %13 ], [ null, %16 ]
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %4, ptr %29, align 8, !tbaa !24
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1314,7 +1314,7 @@ agxbsizeof.exit.i133:                             ; preds = %agxbput.exit, %80
   br label %agxbput.exit.backedge
 
 agxbput.exit.backedge:                            ; preds = %243, %238, %226, %221, %210, %204, %194, %189, %183, %173, %168, %162, %152, %122, %116, %106, %101, %95, %85, %232, %150, %151, %127
-  %.064.be = phi ptr [ %84, %232 ], [ %84, %151 ], [ %84, %150 ], [ %84, %127 ], [ %84, %85 ], [ %84, %95 ], [ %84, %101 ], [ %84, %106 ], [ %84, %116 ], [ %84, %122 ], [ %84, %152 ], [ %84, %162 ], [ %84, %168 ], [ %84, %173 ], [ %84, %183 ], [ %84, %189 ], [ %84, %194 ], [ %84, %204 ], [ %84, %210 ], [ %84, %221 ], [ %84, %226 ], [ %78, %238 ], [ %78, %243 ]
+  %.064.be = phi ptr [ %84, %232 ], [ %84, %226 ], [ %84, %101 ], [ %84, %151 ], [ %84, %150 ], [ %84, %127 ], [ %84, %122 ], [ %84, %168 ], [ %84, %189 ], [ %84, %210 ], [ %84, %85 ], [ %84, %95 ], [ %84, %106 ], [ %84, %116 ], [ %84, %152 ], [ %84, %162 ], [ %84, %173 ], [ %84, %183 ], [ %84, %194 ], [ %84, %204 ], [ %84, %221 ], [ %78, %238 ], [ %78, %243 ]
   br label %agxbput.exit, !llvm.loop !102
 
 249:                                              ; preds = %agxbput.exit
@@ -1610,7 +1610,7 @@ define void @emit_label(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
   br label %68
 
 68:                                               ; preds = %54, %64, %60
-  %.sroa.0.0 = phi double [ %63, %60 ], [ %67, %64 ], [ %59, %54 ]
+  %.sroa.0.0 = phi double [ %67, %64 ], [ %63, %60 ], [ %59, %54 ]
   tail call void @gvrender_textspan(ptr noundef nonnull %0, double %.sroa.0.0, double %.sroa.6.246, ptr noundef nonnull %56) #16
   %69 = load ptr, ptr %11, align 8, !tbaa !13
   %70 = getelementptr inbounds nuw %struct.textspan_t, ptr %69, i64 %.047

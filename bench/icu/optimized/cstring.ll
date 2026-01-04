@@ -324,7 +324,7 @@ define range(i32 -254, 255) i32 @uprv_strnicmp_77(ptr noundef readonly captures(
   br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %25, %17, %15, %.preheader, %13, %7, %5
-  %.016 = phi i32 [ %., %5 ], [ 1, %7 ], [ %.24, %13 ], [ 0, %.preheader ], [ 0, %25 ], [ %24, %17 ], [ 1, %15 ]
+  %.016 = phi i32 [ %., %5 ], [ 1, %7 ], [ %.24, %13 ], [ 0, %.preheader ], [ %24, %17 ], [ 0, %25 ], [ 1, %15 ]
   ret i32 %.016
 }
 
@@ -384,7 +384,7 @@ define noalias ptr @uprv_strndup_77(ptr noundef readonly captures(none) %0, i32 
   br label %uprv_strdup_77.exit
 
 uprv_strdup_77.exit:                              ; preds = %8, %4, %9, %13
-  %.0 = phi ptr [ %12, %13 ], [ null, %9 ], [ null, %4 ], [ %7, %8 ]
+  %.0 = phi ptr [ null, %9 ], [ %12, %13 ], [ null, %4 ], [ %7, %8 ]
   ret ptr %.0
 }
 

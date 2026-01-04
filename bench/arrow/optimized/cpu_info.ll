@@ -258,7 +258,7 @@ _ZN5arrow8internal12_GLOBAL__N_117LinuxGetCacheSizeEi.exit.thread11.i: ; preds =
   br label %_ZN5arrow8internal12_GLOBAL__N_117LinuxGetCacheSizeEi.exit.i
 
 _ZN5arrow8internal12_GLOBAL__N_117LinuxGetCacheSizeEi.exit.i: ; preds = %55, %52, %47, %._crit_edge.i.i19
-  %.2.i.i = phi i64 [ %.pre.i.i, %._crit_edge.i.i19 ], [ %54, %52 ], [ %57, %55 ], [ %49, %47 ]
+  %.2.i.i = phi i64 [ %49, %47 ], [ %.pre.i.i, %._crit_edge.i.i19 ], [ %54, %52 ], [ %57, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %10) #24
@@ -806,7 +806,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47.i: ; preds = %_
   br label %277
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37.i: ; preds = %244, %238, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35.i, %.loopexit.split-lp59.i, %.loopexit58.i
-  %.pn.i = phi { ptr, i32 } [ %239, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35.i ], [ %245, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38.i ], [ %lpad.loopexit60.i, %.loopexit58.i ], [ %lpad.loopexit.split-lp61.i, %.loopexit.split-lp59.i ], [ %239, %238 ], [ %245, %244 ]
+  %.pn.i = phi { ptr, i32 } [ %239, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35.i ], [ %245, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38.i ], [ %lpad.loopexit.split-lp61.i, %.loopexit.split-lp59.i ], [ %239, %238 ], [ %lpad.loopexit60.i, %.loopexit58.i ], [ %245, %244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %273 = load ptr, ptr %6, align 8, !tbaa !8
   %274 = icmp eq ptr %273, %140
@@ -819,7 +819,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37.i, %232, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32.i, %230
-  %.pn.pn.i = phi { ptr, i32 } [ %231, %230 ], [ %233, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32.i ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48.i ], [ %233, %232 ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %233, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32.i ], [ %231, %230 ], [ %.pn.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48.i ], [ %233, %232 ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %289
 
@@ -978,7 +978,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
   br i1 %337, label %.thread33.sink.split.i, label %_ZN5arrow8internal12_GLOBAL__N_122ArchParseUserSimdLevelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPl.exit
 
 .thread33.sink.split.i:                           ; preds = %335, %332, %329, %326
-  %.sink35.i = phi i64 [ -1985, %326 ], [ -6113, %329 ], [ -6129, %332 ], [ -8181, %335 ]
+  %.sink35.i = phi i64 [ -6113, %329 ], [ -6129, %332 ], [ -1985, %326 ], [ -8181, %335 ]
   %338 = load i64, ptr %0, align 8, !tbaa !37
   %339 = and i64 %338, %.sink35.i
   store i64 %339, ptr %0, align 8, !tbaa !37
@@ -1234,7 +1234,7 @@ define noundef i64 @_ZNK5arrow8internal7CpuInfo9CacheSizeENS1_10CacheLevelE(ptr 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9, %2, %11
-  %.0 = phi i64 [ %16, %11 ], [ %7, %2 ], [ 32768, %9 ]
+  %.0 = phi i64 [ %7, %2 ], [ %16, %11 ], [ 32768, %9 ]
   ret i64 %.0
 }
 

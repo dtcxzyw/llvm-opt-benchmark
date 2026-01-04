@@ -266,8 +266,8 @@ _ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit33: ; preds 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %34, %51, %70, %89, %129, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit21, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit27, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit33, %96, %103, %109, %115, %121, %._crit_edge.loopexit
-  %.010.lcssa = phi i8 [ %134, %._crit_edge.loopexit ], [ 0, %121 ], [ 0, %115 ], [ 0, %109 ], [ 0, %103 ], [ 0, %96 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit33 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit27 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit21 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ 0, %129 ], [ 0, %89 ], [ 0, %70 ], [ 0, %51 ], [ 0, %34 ], [ 0, %14 ]
-  %.lcssa = phi i1 [ %.3.v.i, %._crit_edge.loopexit ], [ false, %121 ], [ false, %115 ], [ false, %109 ], [ false, %103 ], [ false, %96 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit33 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit27 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit21 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %129 ], [ false, %89 ], [ false, %70 ], [ false, %51 ], [ false, %34 ], [ false, %14 ]
+  %.010.lcssa = phi i8 [ 0, %129 ], [ %134, %._crit_edge.loopexit ], [ 0, %121 ], [ 0, %115 ], [ 0, %109 ], [ 0, %103 ], [ 0, %34 ], [ 0, %96 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit33 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit27 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit21 ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ 0, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ 0, %89 ], [ 0, %51 ], [ 0, %70 ], [ 0, %14 ]
+  %.lcssa = phi i1 [ false, %129 ], [ %.3.v.i, %._crit_edge.loopexit ], [ false, %121 ], [ false, %115 ], [ false, %109 ], [ false, %103 ], [ false, %34 ], [ false, %96 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit33 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit27 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit21 ], [ false, %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit ], [ false, %89 ], [ false, %51 ], [ false, %70 ], [ false, %14 ]
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %136 = load float, ptr %135, align 4, !tbaa !4
   %137 = fcmp uno float %136, 0.000000e+00
@@ -307,7 +307,7 @@ _ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit33: ; preds 
   br label %_ZNK8facebook4yoga17CachedMeasurementeqES1_.exit
 
 _ZNK8facebook4yoga17CachedMeasurementeqES1_.exit: ; preds = %138, %151
-  %.0.in.i = phi i1 [ %narrow.i, %151 ], [ %147, %138 ]
+  %.0.in.i = phi i1 [ %147, %138 ], [ %narrow.i, %151 ]
   %153 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %154 = load float, ptr %153, align 4, !tbaa !27
   %155 = fcmp uno float %154, 0.000000e+00
@@ -380,7 +380,7 @@ _ZNK8facebook4yoga17CachedMeasurementeqES1_.exit: ; preds = %138, %151
   br label %191
 
 191:                                              ; preds = %179, %186, %188
-  %.2 = phi i8 [ 0, %186 ], [ %190, %188 ], [ %.1, %179 ]
+  %.2 = phi i8 [ %.1, %179 ], [ 0, %186 ], [ %190, %188 ]
   %192 = trunc nuw i8 %.2 to i1
   ret i1 %192
 }
@@ -411,7 +411,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook4yoga17CachedMeasure
   br label %20
 
 20:                                               ; preds = %2, %18
-  %.0.in = phi i1 [ %narrow, %18 ], [ %13, %2 ]
+  %.0.in = phi i1 [ %13, %2 ], [ %narrow, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = load float, ptr %21, align 4, !tbaa !27
   %23 = fcmp uno float %22, 0.000000e+00

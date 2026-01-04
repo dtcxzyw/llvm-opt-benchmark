@@ -145,7 +145,7 @@ define internal fastcc noundef zeroext i1 @PrepareThreadpool() unnamed_addr #0 {
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %12, %15, %.critedge.thread12, %.critedge.thread11.thread, %29
-  %30 = phi i1 [ false, %.critedge.thread11.thread ], [ false, %29 ], [ true, %.critedge.thread12 ], [ true, %15 ], [ true, %12 ]
+  %30 = phi i1 [ true, %.critedge.thread12 ], [ false, %.critedge.thread11.thread ], [ false, %29 ], [ true, %15 ], [ true, %12 ]
   call void @SDL_SetInitialized_REAL(ptr noundef nonnull @threadpool_init, i1 noundef zeroext %30) #8
   br label %31
 
@@ -770,7 +770,7 @@ define internal noundef i32 @AsyncIOThreadpoolWorker(ptr readnone captures(none)
   br label %66
 
 66:                                               ; preds = %.thread33.i, %.thread.i, %57, %48, %44
-  %.sink.shrunk.i = phi i1 [ %65, %.thread33.i ], [ %not..i, %44 ], [ true, %48 ], [ false, %.thread.i ], [ %60, %57 ]
+  %.sink.shrunk.i = phi i1 [ true, %48 ], [ %65, %.thread33.i ], [ %60, %57 ], [ %not..i, %44 ], [ false, %.thread.i ]
   %.sink.i = zext i1 %.sink.shrunk.i to i32
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %.sink.i, ptr %67, align 8

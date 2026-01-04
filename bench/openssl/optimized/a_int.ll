@@ -106,8 +106,8 @@ define i32 @ossl_i2c_ASN1_INTEGER(ptr noundef readonly captures(none) %0, ptr no
   br label %28
 
 28:                                               ; preds = %._crit_edge.i, %18, %16, %9
-  %.038.shrunk.i = phi i1 [ %.139.lcssa.i, %._crit_edge.i ], [ false, %18 ], [ %15, %9 ], [ true, %16 ]
-  %.0.i = phi i8 [ %27, %._crit_edge.i ], [ -1, %18 ], [ 0, %9 ], [ -1, %16 ]
+  %.038.shrunk.i = phi i1 [ true, %16 ], [ %15, %9 ], [ %.139.lcssa.i, %._crit_edge.i ], [ false, %18 ]
+  %.0.i = phi i8 [ -1, %16 ], [ 0, %9 ], [ %27, %._crit_edge.i ], [ -1, %18 ]
   %.038.i = zext i1 %.038.shrunk.i to i64
   %29 = add nsw i64 %.038.i, %6
   br label %30
@@ -240,7 +240,7 @@ define noundef ptr @ossl_c2i_ASN1_INTEGER(ptr noundef captures(address_is_null) 
   br label %38
 
 38:                                               ; preds = %35, %37, %23, %34, %13, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %13 ], [ %.025, %34 ], [ %.025, %23 ], [ null, %37 ], [ null, %35 ]
+  %.0 = phi ptr [ null, %13 ], [ null, %3 ], [ %.025, %23 ], [ %.025, %34 ], [ null, %37 ], [ null, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -325,7 +325,7 @@ define internal fastcc noundef i64 @c2i_ibuf(ptr noundef writeonly captures(addr
   br label %twos_complement.exit
 
 .thread:                                          ; preds = %20, %.thread50, %._crit_edge
-  %.03449.neg = phi i64 [ -1, %.thread50 ], [ 0, %._crit_edge ], [ 0, %20 ]
+  %.03449.neg = phi i64 [ 0, %._crit_edge ], [ -1, %.thread50 ], [ 0, %20 ]
   %32 = add i64 %.03449.neg, %3
   %.not43 = icmp eq ptr %0, null
   br i1 %.not43, label %twos_complement.exit, label %.lr.ph.preheader.i
@@ -357,7 +357,7 @@ define internal fastcc noundef i64 @c2i_ibuf(ptr noundef writeonly captures(addr
   br i1 %.not16.i, label %twos_complement.exit, label %.lr.ph.i, !llvm.loop !17
 
 twos_complement.exit:                             ; preds = %.lr.ph.i, %.thread, %14, %19, %17, %31, %6
-  %.035 = phi i64 [ 0, %6 ], [ 0, %31 ], [ 1, %17 ], [ 1, %19 ], [ 1, %14 ], [ %32, %.thread ], [ %32, %.lr.ph.i ]
+  %.035 = phi i64 [ 0, %6 ], [ 1, %14 ], [ 0, %31 ], [ 1, %17 ], [ 1, %19 ], [ %32, %.thread ], [ %32, %.lr.ph.i ]
   ret i64 %.035
 }
 
@@ -477,7 +477,7 @@ define ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, ptr noun
   br label %57
 
 53:                                               ; preds = %17, %21, %23
-  %.0 = phi i32 [ 102, %17 ], [ 115, %21 ], [ 226, %23 ]
+  %.0 = phi i32 [ 226, %23 ], [ 102, %17 ], [ 115, %21 ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 459, ptr noundef nonnull @__func__.d2i_ASN1_UINTEGER) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.0, ptr noundef null) #6
@@ -625,7 +625,7 @@ asn1_get_uint64.exit.thread12.i:                  ; preds = %.preheader.i.i
   br label %asn1_get_int64.exit
 
 asn1_get_int64.exit:                              ; preds = %35, %.thread20.i, %33, %32, %.thread.i, %19, %18, %10, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %10 ], [ 0, %33 ], [ 0, %35 ], [ 1, %.thread.i ], [ 1, %32 ], [ 1, %.thread20.i ], [ 0, %18 ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %10 ], [ 0, %35 ], [ 1, %.thread20.i ], [ 0, %33 ], [ 1, %.thread.i ], [ 1, %32 ], [ 0, %18 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -842,7 +842,7 @@ define i64 @ASN1_INTEGER_get(ptr noundef readonly captures(address_is_null) %0) 
   br label %8
 
 8:                                                ; preds = %4, %1
-  %.0 = phi i64 [ 0, %1 ], [ %spec.select, %4 ]
+  %.0 = phi i64 [ %spec.select, %4 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
@@ -1110,7 +1110,7 @@ define i64 @ASN1_ENUMERATED_get(ptr noundef readonly captures(address_is_null) %
   br label %15
 
 15:                                               ; preds = %11, %8, %4, %1
-  %.0 = phi i64 [ 0, %1 ], [ -1, %4 ], [ 4294967295, %8 ], [ %spec.select, %11 ]
+  %.0 = phi i64 [ %spec.select, %11 ], [ 0, %1 ], [ -1, %4 ], [ 4294967295, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
@@ -1168,7 +1168,7 @@ asn1_get_uint64.exit:                             ; preds = %.lr.ph.i
   br label %21
 
 21:                                               ; preds = %4, %asn1_get_uint64.exit, %11
-  %.0 = phi i32 [ 0, %11 ], [ 1, %asn1_get_uint64.exit ], [ 0, %4 ]
+  %.0 = phi i32 [ 1, %asn1_get_uint64.exit ], [ 0, %11 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1234,8 +1234,8 @@ asn1_put_uint64.exit:                             ; preds = %5
   br label %27
 
 27:                                               ; preds = %12, %15, %17, %._crit_edge.i
-  %.038.shrunk.i = phi i1 [ %.139.lcssa.i, %._crit_edge.i ], [ false, %17 ], [ %14, %12 ], [ true, %15 ]
-  %.0.i4 = phi i8 [ %26, %._crit_edge.i ], [ -1, %17 ], [ 0, %12 ], [ -1, %15 ]
+  %.038.shrunk.i = phi i1 [ true, %15 ], [ %14, %12 ], [ %.139.lcssa.i, %._crit_edge.i ], [ false, %17 ]
+  %.0.i4 = phi i8 [ -1, %15 ], [ 0, %12 ], [ %26, %._crit_edge.i ], [ -1, %17 ]
   %.038.i = zext i1 %.038.shrunk.i to i64
   %28 = add i64 %11, %.038.i
   %29 = icmp eq ptr %0, null

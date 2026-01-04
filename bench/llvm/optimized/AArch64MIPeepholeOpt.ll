@@ -730,7 +730,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i:                     ; preds = %274, %_ZN4llvm10MIM
   br label %_ZN12_GLOBAL__N_120AArch64MIPeepholeOpt11visitINSERTERN4llvm12MachineInstrE.exit
 
 _ZN12_GLOBAL__N_120AArch64MIPeepholeOpt11visitINSERTERN4llvm12MachineInstrE.exit: ; preds = %207, %215, %229, %233, %_ZN4llvm8DebugLocD2Ev.exit.i
-  %.0.i = phi i1 [ false, %207 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ false, %215 ], [ false, %233 ], [ false, %229 ]
+  %.0.i = phi i1 [ false, %207 ], [ false, %215 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ false, %233 ], [ false, %229 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %275 = or i1 %.1244, %.0.i
   br label %939
@@ -1054,7 +1054,7 @@ _ZN4llvm8DebugLocD2Ev.exit59.i:                   ; preds = %390, %_ZN4llvm10MIM
   br label %_ZN12_GLOBAL__N_120AArch64MIPeepholeOpt8visitORRERN4llvm12MachineInstrE.exit
 
 _ZN12_GLOBAL__N_120AArch64MIPeepholeOpt8visitORRERN4llvm12MachineInstrE.exit: ; preds = %294, %299, %302, %311, %326, %329, %.critedge.i, %392
-  %.0.i78 = phi i1 [ false, %294 ], [ false, %299 ], [ true, %392 ], [ false, %302 ], [ false, %329 ], [ false, %326 ], [ false, %.critedge.i ], [ false, %311 ]
+  %.0.i78 = phi i1 [ false, %299 ], [ false, %294 ], [ true, %392 ], [ false, %302 ], [ false, %326 ], [ false, %329 ], [ false, %.critedge.i ], [ false, %311 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %400 = or i1 %.1244, %.0.i78
@@ -1100,7 +1100,7 @@ _ZNSt14_Function_baseD2Ev.exit.i92:               ; preds = %409, %406
   br label %_ZN12_GLOBAL__N_120AArch64MIPeepholeOpt11visitADDSUBIjEEbjjRN4llvm12MachineInstrE.exit
 
 _ZN12_GLOBAL__N_120AArch64MIPeepholeOpt11visitADDSUBIjEEbjjRN4llvm12MachineInstrE.exit: ; preds = %401, %401, %_ZNSt14_Function_baseD2Ev.exit.i92, %412
-  %.0.i90 = phi i1 [ false, %401 ], [ %407, %_ZNSt14_Function_baseD2Ev.exit.i92 ], [ %407, %412 ], [ false, %401 ]
+  %.0.i90 = phi i1 [ false, %401 ], [ false, %401 ], [ %407, %_ZNSt14_Function_baseD2Ev.exit.i92 ], [ %407, %412 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %414 = or i1 %.1244, %.0.i90
@@ -1146,7 +1146,7 @@ _ZNSt14_Function_baseD2Ev.exit.i96:               ; preds = %423, %420
   br label %_ZN12_GLOBAL__N_120AArch64MIPeepholeOpt11visitADDSUBIjEEbjjRN4llvm12MachineInstrE.exit98
 
 _ZN12_GLOBAL__N_120AArch64MIPeepholeOpt11visitADDSUBIjEEbjjRN4llvm12MachineInstrE.exit98: ; preds = %415, %415, %_ZNSt14_Function_baseD2Ev.exit.i96, %426
-  %.0.i94 = phi i1 [ false, %415 ], [ %421, %_ZNSt14_Function_baseD2Ev.exit.i96 ], [ %421, %426 ], [ false, %415 ]
+  %.0.i94 = phi i1 [ false, %415 ], [ false, %415 ], [ %421, %_ZNSt14_Function_baseD2Ev.exit.i96 ], [ %421, %426 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %428 = or i1 %.1244, %.0.i94
@@ -1192,7 +1192,7 @@ _ZNSt14_Function_baseD2Ev.exit.i102:              ; preds = %437, %434
   br label %_ZN12_GLOBAL__N_120AArch64MIPeepholeOpt11visitADDSUBImEEbjjRN4llvm12MachineInstrE.exit
 
 _ZN12_GLOBAL__N_120AArch64MIPeepholeOpt11visitADDSUBImEEbjjRN4llvm12MachineInstrE.exit: ; preds = %429, %429, %_ZNSt14_Function_baseD2Ev.exit.i102, %440
-  %.0.i100 = phi i1 [ false, %429 ], [ %435, %_ZNSt14_Function_baseD2Ev.exit.i102 ], [ %435, %440 ], [ false, %429 ]
+  %.0.i100 = phi i1 [ false, %429 ], [ false, %429 ], [ %435, %_ZNSt14_Function_baseD2Ev.exit.i102 ], [ %435, %440 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %442 = or i1 %.1244, %.0.i100
@@ -1238,7 +1238,7 @@ _ZNSt14_Function_baseD2Ev.exit.i107:              ; preds = %451, %448
   br label %_ZN12_GLOBAL__N_120AArch64MIPeepholeOpt11visitADDSUBImEEbjjRN4llvm12MachineInstrE.exit109
 
 _ZN12_GLOBAL__N_120AArch64MIPeepholeOpt11visitADDSUBImEEbjjRN4llvm12MachineInstrE.exit109: ; preds = %443, %443, %_ZNSt14_Function_baseD2Ev.exit.i107, %454
-  %.0.i105 = phi i1 [ false, %443 ], [ %449, %_ZNSt14_Function_baseD2Ev.exit.i107 ], [ %449, %454 ], [ false, %443 ]
+  %.0.i105 = phi i1 [ false, %443 ], [ false, %443 ], [ %449, %_ZNSt14_Function_baseD2Ev.exit.i107 ], [ %449, %454 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %456 = or i1 %.1244, %.0.i105
@@ -1294,7 +1294,7 @@ _ZNSt14_Function_baseD2Ev.exit.i113:              ; preds = %466, %462
   br label %_ZN12_GLOBAL__N_120AArch64MIPeepholeOpt13visitADDSSUBSIjEEbSt4pairIjjES3_RN4llvm12MachineInstrE.exit
 
 _ZN12_GLOBAL__N_120AArch64MIPeepholeOpt13visitADDSSUBSIjEEbSt4pairIjjES3_RN4llvm12MachineInstrE.exit: ; preds = %457, %457, %_ZNSt14_Function_baseD2Ev.exit.i113, %469
-  %.0.i111 = phi i1 [ false, %457 ], [ %464, %_ZNSt14_Function_baseD2Ev.exit.i113 ], [ %464, %469 ], [ false, %457 ]
+  %.0.i111 = phi i1 [ false, %457 ], [ false, %457 ], [ %464, %_ZNSt14_Function_baseD2Ev.exit.i113 ], [ %464, %469 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %471 = or i1 %.1244, %.0.i111
@@ -1350,7 +1350,7 @@ _ZNSt14_Function_baseD2Ev.exit.i122:              ; preds = %481, %477
   br label %_ZN12_GLOBAL__N_120AArch64MIPeepholeOpt13visitADDSSUBSIjEEbSt4pairIjjES3_RN4llvm12MachineInstrE.exit124
 
 _ZN12_GLOBAL__N_120AArch64MIPeepholeOpt13visitADDSSUBSIjEEbSt4pairIjjES3_RN4llvm12MachineInstrE.exit124: ; preds = %472, %472, %_ZNSt14_Function_baseD2Ev.exit.i122, %484
-  %.0.i116 = phi i1 [ false, %472 ], [ %479, %_ZNSt14_Function_baseD2Ev.exit.i122 ], [ %479, %484 ], [ false, %472 ]
+  %.0.i116 = phi i1 [ false, %472 ], [ false, %472 ], [ %479, %_ZNSt14_Function_baseD2Ev.exit.i122 ], [ %479, %484 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %486 = or i1 %.1244, %.0.i116
@@ -1406,7 +1406,7 @@ _ZNSt14_Function_baseD2Ev.exit.i132:              ; preds = %496, %492
   br label %_ZN12_GLOBAL__N_120AArch64MIPeepholeOpt13visitADDSSUBSImEEbSt4pairIjjES3_RN4llvm12MachineInstrE.exit
 
 _ZN12_GLOBAL__N_120AArch64MIPeepholeOpt13visitADDSSUBSImEEbSt4pairIjjES3_RN4llvm12MachineInstrE.exit: ; preds = %487, %487, %_ZNSt14_Function_baseD2Ev.exit.i132, %499
-  %.0.i126 = phi i1 [ false, %487 ], [ %494, %_ZNSt14_Function_baseD2Ev.exit.i132 ], [ %494, %499 ], [ false, %487 ]
+  %.0.i126 = phi i1 [ false, %487 ], [ false, %487 ], [ %494, %_ZNSt14_Function_baseD2Ev.exit.i132 ], [ %494, %499 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %501 = or i1 %.1244, %.0.i126
@@ -1462,7 +1462,7 @@ _ZNSt14_Function_baseD2Ev.exit.i141:              ; preds = %511, %507
   br label %_ZN12_GLOBAL__N_120AArch64MIPeepholeOpt13visitADDSSUBSImEEbSt4pairIjjES3_RN4llvm12MachineInstrE.exit143
 
 _ZN12_GLOBAL__N_120AArch64MIPeepholeOpt13visitADDSSUBSImEEbSt4pairIjjES3_RN4llvm12MachineInstrE.exit143: ; preds = %502, %502, %_ZNSt14_Function_baseD2Ev.exit.i141, %514
-  %.0.i135 = phi i1 [ false, %502 ], [ %509, %_ZNSt14_Function_baseD2Ev.exit.i141 ], [ %509, %514 ], [ false, %502 ]
+  %.0.i135 = phi i1 [ false, %502 ], [ false, %502 ], [ %509, %_ZNSt14_Function_baseD2Ev.exit.i141 ], [ %509, %514 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %516 = or i1 %.1244, %.0.i135
@@ -1729,7 +1729,7 @@ _ZL27is64bitDefwithZeroHigh64bitPN4llvm12MachineInstrEPNS_19MachineRegisterInfoE
   br label %_ZN12_GLOBAL__N_120AArch64MIPeepholeOpt16visitINSvi64laneERN4llvm12MachineInstrE.exit
 
 _ZN12_GLOBAL__N_120AArch64MIPeepholeOpt16visitINSvi64laneERN4llvm12MachineInstrE.exit: ; preds = %564, %573, %580, %586, %_ZL27is64bitDefwithZeroHigh64bitPN4llvm12MachineInstrEPNS_19MachineRegisterInfoE.exit.i, %598, %603, %606, %617, %.thread49.i, %625, %630
-  %.0.i155 = phi i1 [ false, %564 ], [ false, %_ZL27is64bitDefwithZeroHigh64bitPN4llvm12MachineInstrEPNS_19MachineRegisterInfoE.exit.i ], [ false, %573 ], [ true, %630 ], [ false, %603 ], [ false, %598 ], [ false, %617 ], [ false, %625 ], [ false, %580 ], [ false, %586 ], [ false, %606 ], [ false, %.thread49.i ]
+  %.0.i155 = phi i1 [ false, %564 ], [ false, %573 ], [ false, %_ZL27is64bitDefwithZeroHigh64bitPN4llvm12MachineInstrEPNS_19MachineRegisterInfoE.exit.i ], [ true, %630 ], [ false, %598 ], [ false, %617 ], [ false, %603 ], [ false, %.thread49.i ], [ false, %625 ], [ false, %586 ], [ false, %580 ], [ false, %606 ]
   %646 = or i1 %.1244, %.0.i155
   br label %939
 
@@ -2391,7 +2391,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_12MachineInstrEEppEv.exit.i: ; preds = %.crite
   br i1 %.not96.i, label %.critedge31.i, label %.lr.ph111.i
 
 .critedge31.i:                                    ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit62.i, %_ZNK4llvm12MachineInstr10isFullCopyEv.exit.i, %818, %_ZN4llvm19SmallPtrSetIteratorIPNS_12MachineInstrEEppEv.exit.i, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit.i, %"_ZZN12_GLOBAL__N_120AArch64MIPeepholeOpt9visitCopyERN4llvm12MachineInstrEENK3$_1clEPS2_.exit.i", %901, %898, %892, %887, %882, %879, %873, %868, %863, %"_ZZN12_GLOBAL__N_120AArch64MIPeepholeOpt9visitCopyERN4llvm12MachineInstrEENK3$_0clEPS2_.exit.i", %858, %853, %.critedge.i183, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit.i
-  %.1.i = phi i1 [ false, %"_ZZN12_GLOBAL__N_120AArch64MIPeepholeOpt9visitCopyERN4llvm12MachineInstrEENK3$_1clEPS2_.exit.i" ], [ false, %868 ], [ false, %863 ], [ false, %882 ], [ false, %879 ], [ false, %873 ], [ false, %887 ], [ false, %901 ], [ false, %898 ], [ false, %892 ], [ false, %"_ZZN12_GLOBAL__N_120AArch64MIPeepholeOpt9visitCopyERN4llvm12MachineInstrEENK3$_0clEPS2_.exit.i" ], [ false, %858 ], [ false, %853 ], [ false, %.critedge.i183 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit.i ], [ false, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit.i ], [ true, %_ZN4llvm19SmallPtrSetIteratorIPNS_12MachineInstrEEppEv.exit.i ], [ false, %818 ], [ false, %_ZNK4llvm12MachineInstr10isFullCopyEv.exit.i ], [ false, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit62.i ]
+  %.1.i = phi i1 [ true, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit.i ], [ false, %853 ], [ false, %"_ZZN12_GLOBAL__N_120AArch64MIPeepholeOpt9visitCopyERN4llvm12MachineInstrEENK3$_1clEPS2_.exit.i" ], [ false, %.critedge.i183 ], [ false, %887 ], [ false, %868 ], [ false, %863 ], [ false, %882 ], [ false, %879 ], [ false, %873 ], [ false, %901 ], [ false, %898 ], [ false, %892 ], [ false, %"_ZZN12_GLOBAL__N_120AArch64MIPeepholeOpt9visitCopyERN4llvm12MachineInstrEENK3$_0clEPS2_.exit.i" ], [ false, %858 ], [ false, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit.i ], [ true, %_ZN4llvm19SmallPtrSetIteratorIPNS_12MachineInstrEEppEv.exit.i ], [ false, %818 ], [ false, %_ZNK4llvm12MachineInstr10isFullCopyEv.exit.i ], [ false, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit62.i ]
   %934 = load i8, ptr %92, align 4, !tbaa !257, !range !262, !noundef !266
   %935 = trunc nuw i8 %934 to i1
   br i1 %935, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, label %936
@@ -3213,7 +3213,7 @@ _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit: ; preds = %.lr.ph.i
   br i1 %.not1.i.i.i.i.i.i.i49, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %.lr.ph.i.i.i.preheader.i.i44, !llvm.loop !339
 
 _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50: ; preds = %.preheader.i.i.i.i, %86, %.preheader.i.i.i.i36, %108, %.lr.ph.i.i.i.preheader.i.i44, %59, %90, %63, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit, %51, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread, %37
-  %.0 = phi i1 [ false, %37 ], [ false, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread ], [ false, %51 ], [ true, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit ], [ false, %63 ], [ false, %90 ], [ false, %59 ], [ %.not.i.i.i.i.i.i.i48, %.lr.ph.i.i.i.preheader.i.i44 ], [ %.not.i.i.i.i.i.i.i48, %108 ], [ false, %.preheader.i.i.i.i36 ], [ false, %86 ], [ false, %.preheader.i.i.i.i ]
+  %.0 = phi i1 [ false, %51 ], [ false, %86 ], [ true, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit ], [ false, %59 ], [ false, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread ], [ false, %37 ], [ %.not.i.i.i.i.i.i.i48, %108 ], [ false, %63 ], [ false, %.preheader.i.i.i.i36 ], [ false, %90 ], [ %.not.i.i.i.i.i.i.i48, %.lr.ph.i.i.i.preheader.i.i44 ], [ false, %.preheader.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -3626,12 +3626,12 @@ _ZN4llvm16isShiftedMask_64Em.exit56.i.i64.i.i.i.i: ; preds = %_ZN4llvm16isShifte
   br label %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit68.i.i.i.i
 
 _ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit68.i.i.i.i: ; preds = %202, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i64.i.i.i.i, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i61.i.i.i.i, %157, %155
-  %.0.i52.i.i.i.i = phi i32 [ 0, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i61.i.i.i.i ], [ %214, %202 ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i64.i.i.i.i ], [ 0, %157 ], [ 0, %155 ]
+  %.0.i52.i.i.i.i = phi i32 [ 0, %155 ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i61.i.i.i.i ], [ %214, %202 ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i64.i.i.i.i ], [ 0, %157 ]
   store i32 %.0.i52.i.i.i.i, ptr %4, align 4, !tbaa !196
   br label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit34.thread.i.i.i.i
 
 _ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit34.thread.i.i.i.i: ; preds = %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit68.i.i.i.i, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i33.i.i.i.i, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i30.i.i.i.i, %61, %58, %48, %42
-  %.1.i.i.i.i = phi i1 [ false, %42 ], [ true, %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit68.i.i.i.i ], [ false, %61 ], [ false, %58 ], [ false, %48 ], [ false, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i33.i.i.i.i ], [ false, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i30.i.i.i.i ]
+  %.1.i.i.i.i = phi i1 [ false, %42 ], [ true, %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit68.i.i.i.i ], [ false, %48 ], [ false, %61 ], [ false, %58 ], [ false, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i33.i.i.i.i ], [ false, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i30.i.i.i.i ]
   %215 = load ptr, ptr %6, align 8, !tbaa !187
   %216 = icmp eq ptr %215, %43
   br i1 %216, label %_ZL15splitBitmaskImmIjEbT_jRS0_S1_.exit.i.i.i, label %217
@@ -4549,12 +4549,12 @@ _ZN4llvm16isShiftedMask_64Em.exit56.i.i64.i.i.i.i: ; preds = %_ZN4llvm16isShifte
   br label %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit68.i.i.i.i
 
 _ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit68.i.i.i.i: ; preds = %204, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i64.i.i.i.i, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i61.i.i.i.i, %159, %157
-  %.0.i52.i.i.i.i = phi i64 [ 0, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i61.i.i.i.i ], [ %217, %204 ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i64.i.i.i.i ], [ 0, %159 ], [ 0, %157 ]
+  %.0.i52.i.i.i.i = phi i64 [ 0, %157 ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i61.i.i.i.i ], [ %217, %204 ], [ 0, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i64.i.i.i.i ], [ 0, %159 ]
   store i64 %.0.i52.i.i.i.i, ptr %4, align 8, !tbaa !11
   br label %_ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit34.thread.i.i.i.i
 
 _ZN4llvm10AArch64_AML18isLogicalImmediateEmj.exit34.thread.i.i.i.i: ; preds = %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit68.i.i.i.i, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i33.i.i.i.i, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i30.i.i.i.i, %62, %59, %48, %42
-  %.1.i.i.i.i = phi i1 [ false, %42 ], [ true, %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit68.i.i.i.i ], [ false, %62 ], [ false, %59 ], [ false, %48 ], [ false, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i33.i.i.i.i ], [ false, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i30.i.i.i.i ]
+  %.1.i.i.i.i = phi i1 [ false, %42 ], [ true, %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit68.i.i.i.i ], [ false, %48 ], [ false, %62 ], [ false, %59 ], [ false, %_ZN4llvm16isShiftedMask_64Em.exit56.i.i33.i.i.i.i ], [ false, %_ZN4llvm16isShiftedMask_64Em.exit.thread.i.i30.i.i.i.i ]
   %218 = load ptr, ptr %6, align 8, !tbaa !187
   %219 = icmp eq ptr %218, %43
   br i1 %219, label %_ZL15splitBitmaskImmImEbT_jRS0_S1_.exit.i.i.i, label %220
@@ -5823,8 +5823,8 @@ _ZL14splitAddSubImmIjEbT_jRS0_S1_.exit14.i.i.i:   ; preds = %42, %39
   br label %_ZSt10__invoke_rISt8optionalISt4pairIjjEERZN12_GLOBAL__N_120AArch64MIPeepholeOpt13visitADDSSUBSIjEEbS2_S2_RN4llvm12MachineInstrEEUljjRjSA_E_JjjSA_SA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit
 
 _ZSt10__invoke_rISt8optionalISt4pairIjjEERZN12_GLOBAL__N_120AArch64MIPeepholeOpt13visitADDSSUBSIjEEbS2_S2_RN4llvm12MachineInstrEEUljjRjSA_E_JjjSA_SA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit: ; preds = %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit.thread.i.i.i, %28, %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit14.i.i.i, %45, %63
-  %.sroa.015.0.i.i.i = phi i64 [ undef, %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit14.i.i.i ], [ %.sroa.0.0.insert.insert.i.i.i, %63 ], [ undef, %45 ], [ undef, %28 ], [ undef, %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit.thread.i.i.i ]
-  %.sroa.2.0.i.i.i = phi i8 [ 0, %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit14.i.i.i ], [ 1, %63 ], [ 0, %45 ], [ 0, %28 ], [ 0, %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit.thread.i.i.i ]
+  %.sroa.015.0.i.i.i = phi i64 [ undef, %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit14.i.i.i ], [ undef, %45 ], [ %.sroa.0.0.insert.insert.i.i.i, %63 ], [ undef, %28 ], [ undef, %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit.thread.i.i.i ]
+  %.sroa.2.0.i.i.i = phi i8 [ 0, %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit14.i.i.i ], [ 0, %45 ], [ 1, %63 ], [ 0, %28 ], [ 0, %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit.thread.i.i.i ]
   %.fca.0.insert.i.i.i = insertvalue { i64, i8 } poison, i64 %.sroa.015.0.i.i.i, 0
   %.fca.1.insert.i.i.i = insertvalue { i64, i8 } %.fca.0.insert.i.i.i, i8 %.sroa.2.0.i.i.i, 1
   ret { i64, i8 } %.fca.1.insert.i.i.i
@@ -6272,8 +6272,8 @@ _ZL14splitAddSubImmImEbT_jRS0_S1_.exit14.i.i.i:   ; preds = %40, %37
   br label %_ZSt10__invoke_rISt8optionalISt4pairIjjEERZN12_GLOBAL__N_120AArch64MIPeepholeOpt13visitADDSSUBSImEEbS2_S2_RN4llvm12MachineInstrEEUlmjRmSA_E_JmjSA_SA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit
 
 _ZSt10__invoke_rISt8optionalISt4pairIjjEERZN12_GLOBAL__N_120AArch64MIPeepholeOpt13visitADDSSUBSImEEbS2_S2_RN4llvm12MachineInstrEEUlmjRmSA_E_JmjSA_SA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit: ; preds = %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit.thread.i.i.i, %27, %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit14.i.i.i, %43, %61
-  %.sroa.015.0.i.i.i = phi i64 [ undef, %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit14.i.i.i ], [ %.sroa.0.0.insert.insert.i.i.i, %61 ], [ undef, %43 ], [ undef, %27 ], [ undef, %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit.thread.i.i.i ]
-  %.sroa.2.0.i.i.i = phi i8 [ 0, %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit14.i.i.i ], [ 1, %61 ], [ 0, %43 ], [ 0, %27 ], [ 0, %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit.thread.i.i.i ]
+  %.sroa.015.0.i.i.i = phi i64 [ undef, %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit14.i.i.i ], [ undef, %43 ], [ %.sroa.0.0.insert.insert.i.i.i, %61 ], [ undef, %27 ], [ undef, %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit.thread.i.i.i ]
+  %.sroa.2.0.i.i.i = phi i8 [ 0, %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit14.i.i.i ], [ 0, %43 ], [ 1, %61 ], [ 0, %27 ], [ 0, %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit.thread.i.i.i ]
   %.fca.0.insert.i.i.i = insertvalue { i64, i8 } poison, i64 %.sroa.015.0.i.i.i, 0
   %.fca.1.insert.i.i.i = insertvalue { i64, i8 } %.fca.0.insert.i.i.i, i8 %.sroa.2.0.i.i.i, 1
   ret { i64, i8 } %.fca.1.insert.i.i.i
@@ -6795,10 +6795,10 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %3, %._crit_edge.i
   br label %31
 
 31:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread
-  %.fca.0.extract14 = phi ptr [ %.sink18, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %.fca.1.insert.merged.i12 = phi i8 [ %.sink17, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %30, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %32 = phi ptr [ %.ph, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.pre5, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %33 = phi i32 [ %23, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %spec.select, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
+  %.fca.0.extract14 = phi ptr [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %.sink18, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
+  %.fca.1.insert.merged.i12 = phi i8 [ %30, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %.sink17, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
+  %32 = phi ptr [ %.pre5, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %.ph, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
+  %33 = phi i32 [ %spec.select, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %23, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
   %.v.i5.i = zext i32 %33 to i64
   %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %.v.i5.i
   %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract14, %34

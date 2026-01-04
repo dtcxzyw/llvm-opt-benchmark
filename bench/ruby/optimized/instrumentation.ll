@@ -182,7 +182,7 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
   unreachable
 
 event_symbol.exit:                                ; preds = %.lr.ph.i28.i, %.lr.ph.i22.i, %.lr.ph.i16.i, %.lr.ph.i10.i, %.lr.ph.i.i, %19, %21, %23, %25, %27
-  %.lcssa.i27.sink.i = phi i64 [ %.pr.i.i, %19 ], [ %.pr.i7.i, %21 ], [ %.pr.i13.i, %23 ], [ %.pr.i19.i, %25 ], [ %.pr.i25.i, %27 ], [ %20, %.lr.ph.i.i ], [ %22, %.lr.ph.i10.i ], [ %24, %.lr.ph.i16.i ], [ %26, %.lr.ph.i22.i ], [ %28, %.lr.ph.i28.i ]
+  %.lcssa.i27.sink.i = phi i64 [ %22, %.lr.ph.i10.i ], [ %20, %.lr.ph.i.i ], [ %26, %.lr.ph.i22.i ], [ %24, %.lr.ph.i16.i ], [ %.pr.i.i, %19 ], [ %.pr.i7.i, %21 ], [ %.pr.i13.i, %23 ], [ %.pr.i19.i, %25 ], [ %.pr.i25.i, %27 ], [ %28, %.lr.ph.i28.i ]
   %30 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i27.sink.i) #7
   %31 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %30) #7
   %32 = tail call i64 @rb_ary_push(i64 noundef %8, i64 noundef %10) #7
@@ -244,7 +244,7 @@ define internal range(i64 0, 21) i64 @thread_register_and_unregister_callback(i6
   br label %25
 
 25:                                               ; preds = %21, %17, %13, %10, %3
-  %.04 = phi i64 [ 0, %3 ], [ 0, %10 ], [ 0, %13 ], [ 0, %17 ], [ %., %21 ]
+  %.04 = phi i64 [ 0, %17 ], [ %., %21 ], [ 0, %13 ], [ 0, %10 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.04
 }

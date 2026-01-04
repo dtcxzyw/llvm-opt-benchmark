@@ -1226,7 +1226,7 @@ _ZN15XPhysicalMemory14commit_segmentEim.exit:     ; preds = %27
   br i1 %.not, label %7, label %_ZN15XPhysicalMemory14commit_segmentEim.exit.thread, !llvm.loop !16
 
 _ZN15XPhysicalMemory14commit_segmentEim.exit.thread: ; preds = %37, %2, %27, %_ZN15XPhysicalMemory14commit_segmentEim.exit
-  %40 = phi i1 [ false, %27 ], [ false, %_ZN15XPhysicalMemory14commit_segmentEim.exit ], [ true, %2 ], [ true, %37 ]
+  %40 = phi i1 [ false, %_ZN15XPhysicalMemory14commit_segmentEim.exit ], [ false, %27 ], [ true, %2 ], [ true, %37 ]
   ret i1 %40
 }
 
@@ -1306,7 +1306,7 @@ _ZN15XPhysicalMemory16uncommit_segmentEim.exit:   ; preds = %27
   br i1 %.not, label %7, label %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.thread, !llvm.loop !17
 
 _ZN15XPhysicalMemory16uncommit_segmentEim.exit.thread: ; preds = %37, %2, %27, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit
-  %40 = phi i1 [ false, %27 ], [ false, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit ], [ true, %2 ], [ true, %37 ]
+  %40 = phi i1 [ false, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit ], [ false, %27 ], [ true, %2 ], [ true, %37 ]
   ret i1 %40
 }
 
@@ -1812,7 +1812,7 @@ _ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit.sink.split: ; pr
   br label %_ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit
 
 _ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit: ; preds = %_ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit.sink.split, %._crit_edge.i30, %._crit_edge.i
-  %.05.lcssa.i39 = phi i64 [ %.05.lcssa.i4143, %._crit_edge.i ], [ %.05.lcssa.i4046, %._crit_edge.i30 ], [ %.05.lcssa.i39.ph, %_ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit.sink.split ]
+  %.05.lcssa.i39 = phi i64 [ %.05.lcssa.i4046, %._crit_edge.i30 ], [ %.05.lcssa.i4143, %._crit_edge.i ], [ %.05.lcssa.i39.ph, %_ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %132 = load i64, ptr @XAddressOffsetMask, align 8
   %133 = and i64 %132, %1

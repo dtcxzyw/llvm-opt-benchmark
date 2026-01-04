@@ -729,7 +729,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread253
 
 .thread253:                                       ; preds = %315, %311, %.thread253.sink.split, %.thread249, %74
-  %.0 = phi i32 [ 0, %74 ], [ 0, %.thread249 ], [ 0, %.thread253.sink.split ], [ -12, %311 ], [ %327, %315 ]
+  %.0 = phi i32 [ 0, %.thread249 ], [ 0, %.thread253.sink.split ], [ 0, %74 ], [ %327, %315 ], [ -12, %311 ]
   call void @av_frame_free(ptr noundef nonnull %3) #5
   ret i32 %.0
 }
@@ -803,7 +803,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef %0) #1 {
   br label %47
 
 47:                                               ; preds = %25, %20, %15, %1, %31
-  %.0 = phi i32 [ 0, %31 ], [ -12, %1 ], [ -12, %15 ], [ -12, %20 ], [ %29, %25 ]
+  %.0 = phi i32 [ -12, %20 ], [ 0, %31 ], [ -12, %15 ], [ -12, %1 ], [ %29, %25 ]
   ret i32 %.0
 }
 

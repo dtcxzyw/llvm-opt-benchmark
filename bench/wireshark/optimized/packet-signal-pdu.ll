@@ -2181,7 +2181,7 @@ define internal noundef zeroext i1 @update_spdu_signal_value_name(ptr noundef re
   br i1 %18, label %.sink.split, label %20
 
 .sink.split:                                      ; preds = %15, %9, %2, %6
-  %.str.244.sink = phi ptr [ @.str.242, %6 ], [ @.str.242, %2 ], [ @.str.243, %9 ], [ @.str.244, %15 ]
+  %.str.244.sink = phi ptr [ @.str.243, %9 ], [ @.str.242, %2 ], [ @.str.242, %6 ], [ @.str.244, %15 ]
   %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull %.str.244.sink)
   store ptr %19, ptr %1, align 8
   br label %20
@@ -3300,7 +3300,7 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   br label %124
 
 124:                                              ; preds = %120, %116, %112, %108, %104, %100, %96, %92, %88
-  %.sink270.i = phi i32 [ 1, %88 ], [ 2, %92 ], [ 3, %96 ], [ 4, %104 ], [ 4, %100 ], [ 5, %112 ], [ 5, %108 ], [ 6, %116 ], [ %spec.select.i, %120 ]
+  %.sink270.i = phi i32 [ 1, %88 ], [ 3, %96 ], [ 5, %108 ], [ 6, %116 ], [ 4, %100 ], [ 2, %92 ], [ 4, %104 ], [ 5, %112 ], [ %spec.select.i, %120 ]
   %125 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store i32 %.sink270.i, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -5736,7 +5736,7 @@ get_message_name.exit:                            ; preds = %5
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %26, %5, %33, %29, %23, %get_message_name.exit
-  %.not102 = phi i1 [ true, %get_message_name.exit ], [ false, %23 ], [ false, %29 ], [ false, %33 ], [ true, %5 ], [ false, %26 ]
+  %.not102 = phi i1 [ false, %33 ], [ true, %get_message_name.exit ], [ false, %23 ], [ false, %29 ], [ true, %5 ], [ false, %26 ]
   %37 = load ptr, ptr @data_spdu_signal_list, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %get_parameter_config.exit, label %39
@@ -6075,7 +6075,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %121
   br i1 %.not74.i.i, label %dissect_shifted_and_shortened_uint.exit.i, label %.lr.ph69.split.i.i
 
 dissect_shifted_and_shortened_uint.exit.i:        ; preds = %196, %.lr.ph.split.us.i.i, %.lr.ph69.split.i.i, %.lr.ph69.split.us.i.i, %.lr.ph69.split.i.preheader.i, %.preheader.i.i, %.preheader61.i.i
-  %.2.i.i = phi i64 [ 0, %.preheader.i.i ], [ 0, %.preheader61.i.i ], [ 0, %.lr.ph69.split.i.preheader.i ], [ %184, %.lr.ph69.split.us.i.i ], [ %203, %.lr.ph69.split.i.i ], [ %169, %.lr.ph.split.us.i.i ], [ %.155.i.i, %196 ]
+  %.2.i.i = phi i64 [ %184, %.lr.ph69.split.us.i.i ], [ 0, %.preheader.i.i ], [ %203, %.lr.ph69.split.i.i ], [ 0, %.preheader61.i.i ], [ %169, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph69.split.i.preheader.i ], [ %.155.i.i, %196 ]
   %205 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %206 = load i32, ptr %205, align 8
   switch i32 %206, label %proto_item_set_hidden.exit.i [
@@ -6535,8 +6535,8 @@ get_or_create_aggregation_data.exit.i:            ; preds = %361, %356
   br label %dissect_spdu_payload_signal.exit
 
 dissect_spdu_payload_signal.exit:                 ; preds = %134, %444
-  %.5 = phi i32 [ %.1, %444 ], [ %.099129, %134 ]
-  %.0.i98 = phi i32 [ %447, %444 ], [ %135, %134 ]
+  %.5 = phi i32 [ %.099129, %134 ], [ %.1, %444 ]
+  %.0.i98 = phi i32 [ %135, %134 ], [ %447, %444 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %448 = icmp eq i32 %.0.i98, -1
   br i1 %448, label %.loopexit, label %449
@@ -6582,7 +6582,7 @@ dissect_spdu_payload_signal.exit:                 ; preds = %134, %444
   br label %.loopexit
 
 .loopexit:                                        ; preds = %dissect_spdu_payload_signal.exit, %.critedge.thread, %dissect_spdu_payload_signal.exit.thread, %.critedge, %467, %.thread179, %get_parameter_config.exit, %66, %53, %48
-  %.082 = phi i32 [ %56, %53 ], [ %67, %66 ], [ %50, %48 ], [ 0, %get_parameter_config.exit ], [ %.083.lcssa178182, %.thread179 ], [ %451, %467 ], [ %451, %.critedge ], [ %.083131, %dissect_spdu_payload_signal.exit.thread ], [ 0, %.critedge.thread ], [ %.083131, %dissect_spdu_payload_signal.exit ]
+  %.082 = phi i32 [ %50, %48 ], [ %56, %53 ], [ 0, %get_parameter_config.exit ], [ %67, %66 ], [ %.083.lcssa178182, %.thread179 ], [ %451, %467 ], [ %451, %.critedge ], [ %.083131, %dissect_spdu_payload_signal.exit.thread ], [ 0, %.critedge.thread ], [ %.083131, %dissect_spdu_payload_signal.exit ]
   ret i32 %.082
 }
 

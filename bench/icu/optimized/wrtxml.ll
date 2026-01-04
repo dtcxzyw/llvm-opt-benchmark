@@ -289,7 +289,7 @@ define dso_local void @_Z13res_write_xmlP9SResourcePKcS2_aP10UErrorCode(ptr noun
   br i1 %.not.not.i.i, label %.lr.ph.i.i, label %_ZL10write_tabsP11_FileStream.exit.loopexit.i, !llvm.loop !23
 
 common.resume:                                    ; preds = %594, %612, %623, %435, %445, %457, %468, %489, %499, %564, %575, %586, %251, %293, %335, %364, %369, %143, %182, %192, %86, %125, %135, %658, %641
-  %common.resume.op = phi { ptr, i32 } [ %642, %641 ], [ %659, %658 ], [ %87, %86 ], [ %126, %125 ], [ %.pn.i, %135 ], [ %144, %143 ], [ %183, %182 ], [ %.pn.i43, %192 ], [ %252, %251 ], [ %294, %293 ], [ %336, %335 ], [ %365, %364 ], [ %.pn.pn.i, %369 ], [ %436, %435 ], [ %446, %445 ], [ %458, %457 ], [ %469, %468 ], [ %490, %489 ], [ %500, %499 ], [ %565, %564 ], [ %576, %575 ], [ %.pn65.i, %586 ], [ %595, %594 ], [ %613, %612 ], [ %.pn.i87, %623 ]
+  %common.resume.op = phi { ptr, i32 } [ %659, %658 ], [ %.pn.i, %135 ], [ %.pn.i43, %192 ], [ %.pn.pn.i, %369 ], [ %.pn65.i, %586 ], [ %642, %641 ], [ %87, %86 ], [ %126, %125 ], [ %144, %143 ], [ %183, %182 ], [ %252, %251 ], [ %294, %293 ], [ %336, %335 ], [ %365, %364 ], [ %436, %435 ], [ %446, %445 ], [ %458, %457 ], [ %469, %468 ], [ %490, %489 ], [ %500, %499 ], [ %565, %564 ], [ %576, %575 ], [ %595, %594 ], [ %613, %612 ], [ %.pn.i87, %623 ]
   resume { ptr, i32 } %common.resume.op
 
 86:                                               ; preds = %.lr.ph.i.i
@@ -332,7 +332,7 @@ _ZL10write_tabsP11_FileStream.exit.i:             ; preds = %_ZL10write_tabsP11_
   br label %_ZNK18StringBaseResource9getBufferEv.exit.i
 
 _ZNK18StringBaseResource9getBufferEv.exit.i:      ; preds = %97, %95, %89
-  %.0.i.i.i = phi ptr [ %96, %95 ], [ %99, %97 ], [ null, %89 ]
+  %.0.i.i.i = phi ptr [ %99, %97 ], [ %96, %95 ], [ null, %89 ]
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i.i.i) #13, !srcloc !24
   %100 = load i16, ptr %90, align 8, !tbaa !11
   %101 = icmp slt i16 %100, 0
@@ -510,7 +510,7 @@ _ZL10write_tabsP11_FileStream.exit.i41:           ; preds = %_ZL10write_tabsP11_
   br label %_ZNK18StringBaseResource9getBufferEv.exit.i45
 
 _ZNK18StringBaseResource9getBufferEv.exit.i45:    ; preds = %154, %152, %146
-  %.0.i.i.i46 = phi ptr [ %153, %152 ], [ %156, %154 ], [ null, %146 ]
+  %.0.i.i.i46 = phi ptr [ %156, %154 ], [ %153, %152 ], [ null, %146 ]
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i.i.i46) #13, !srcloc !24
   %157 = load i16, ptr %147, align 8, !tbaa !11
   %158 = icmp slt i16 %157, 0
@@ -1215,7 +1215,7 @@ _ZL19intvector_write_xmlP17IntVectorResourcePKcS2_P10UErrorCode.exit: ; preds = 
   br label %428
 
 428:                                              ; preds = %427, %424, %418, %415, %412, %409, %406, %403, %400, %397
-  %.055.i = phi ptr [ @.str.73, %427 ], [ @.str.78, %424 ], [ @.str.64, %403 ], [ @.str.64, %400 ], [ @.str.64, %397 ], [ @.str.67, %409 ], [ @.str.67, %406 ], [ @.str.71, %418 ], [ @.str.71, %415 ], [ @.str.71, %412 ]
+  %.055.i = phi ptr [ @.str.78, %424 ], [ @.str.64, %397 ], [ @.str.67, %406 ], [ @.str.73, %427 ], [ @.str.64, %403 ], [ @.str.64, %400 ], [ @.str.67, %409 ], [ @.str.71, %418 ], [ @.str.71, %415 ], [ @.str.71, %412 ]
   %429 = call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, ptr noundef nonnull %.055.i, ptr noundef readonly %1, ptr noundef nonnull %4)
   %430 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -2936,7 +2936,7 @@ define internal fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713Unicode
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %2, %10, %12
-  %.0.i = phi ptr [ %11, %10 ], [ %14, %12 ], [ null, %2 ]
+  %.0.i = phi ptr [ %14, %12 ], [ %11, %10 ], [ null, %2 ]
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i) #13, !srcloc !24
   %15 = load i16, ptr %5, align 8, !tbaa !11
   %16 = icmp slt i16 %15, 0
@@ -2971,7 +2971,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %2, %10, %12
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit7
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit7:     ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit, %31, %33
-  %.0.i5 = phi ptr [ %32, %31 ], [ %35, %33 ], [ null, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
+  %.0.i5 = phi ptr [ %35, %33 ], [ %32, %31 ], [ null, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i5) #13, !srcloc !24
   %36 = load i16, ptr %5, align 8, !tbaa !11
   %37 = icmp slt i16 %36, 0
@@ -3154,7 +3154,7 @@ define internal fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P1
   br i1 %.not.not.i, label %.lr.ph.i, label %_ZL10write_tabsP11_FileStream.exit, !llvm.loop !23
 
 common.resume:                                    ; preds = %49, %51, %143, %133, %.body.i, %28
-  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %134, %133 ], [ %.pn.i, %.body.i ], [ %144, %143 ], [ %52, %51 ], [ %50, %49 ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %28 ], [ %.pn.i, %.body.i ], [ %134, %133 ], [ %144, %143 ], [ %52, %51 ], [ %50, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 28:                                               ; preds = %.lr.ph.i
@@ -3622,7 +3622,7 @@ define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCod
   br label %58
 
 58:                                               ; preds = %49, %51, %53
-  %59 = phi i32 [ 2, %49 ], [ %57, %53 ], [ 3, %51 ]
+  %59 = phi i32 [ 3, %51 ], [ 2, %49 ], [ %57, %53 ]
   %60 = add nsw i32 %59, %.014316
   %61 = icmp slt i32 %60, %.113817
   br i1 %61, label %92, label %158
@@ -3836,10 +3836,10 @@ define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCod
   tail call void @uprv_free_77(ptr noundef %.114715)
   br label %.critedge
 
-.critedge:                                        ; preds = %134, %114, %97, %87, %80, %76, %72, %68, %64, %164
-  %.2148 = phi ptr [ %.114715, %87 ], [ %.114715, %64 ], [ %.114715, %68 ], [ %.114715, %72 ], [ %.114715, %76 ], [ %.114715, %80 ], [ %161, %164 ], [ %.114715, %97 ], [ %.114715, %114 ], [ %.114715, %134 ]
-  %.2145 = phi i32 [ %89, %87 ], [ %67, %64 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %83, %80 ], [ 0, %164 ], [ %106, %97 ], [ %128, %114 ], [ %153, %134 ]
-  %.2139 = phi i32 [ %.113817, %87 ], [ %.113817, %64 ], [ %.113817, %68 ], [ %.113817, %72 ], [ %.113817, %76 ], [ %.113817, %80 ], [ %159, %164 ], [ %.113817, %97 ], [ %.113817, %114 ], [ %.113817, %134 ]
+.critedge:                                        ; preds = %114, %97, %134, %87, %80, %76, %72, %68, %64, %164
+  %.2148 = phi ptr [ %.114715, %87 ], [ %.114715, %64 ], [ %.114715, %68 ], [ %.114715, %72 ], [ %.114715, %76 ], [ %.114715, %80 ], [ %161, %164 ], [ %.114715, %134 ], [ %.114715, %97 ], [ %.114715, %114 ]
+  %.2145 = phi i32 [ %89, %87 ], [ %67, %64 ], [ %71, %68 ], [ %75, %72 ], [ %79, %76 ], [ %83, %80 ], [ 0, %164 ], [ %153, %134 ], [ %106, %97 ], [ %128, %114 ]
+  %.2139 = phi i32 [ %.113817, %87 ], [ %.113817, %64 ], [ %.113817, %68 ], [ %.113817, %72 ], [ %.113817, %76 ], [ %.113817, %80 ], [ %159, %164 ], [ %.113817, %134 ], [ %.113817, %97 ], [ %.113817, %114 ]
   %166 = icmp slt i32 %.2151, %3
   br i1 %166, label %.lr.ph, label %._crit_edge, !llvm.loop !68
 
@@ -3850,7 +3850,7 @@ define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCod
   br label %167
 
 167:                                              ; preds = %155, %5, %7, %._crit_edge, %163, %84, %44, %20
-  %.0 = phi ptr [ null, %20 ], [ null, %44 ], [ null, %84 ], [ null, %155 ], [ null, %163 ], [ %.1147.lcssa, %._crit_edge ], [ null, %7 ], [ null, %5 ]
+  %.0 = phi ptr [ %.1147.lcssa, %._crit_edge ], [ null, %20 ], [ null, %44 ], [ null, %84 ], [ null, %155 ], [ null, %163 ], [ null, %7 ], [ null, %5 ]
   ret ptr %.0
 }
 

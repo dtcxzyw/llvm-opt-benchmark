@@ -100,7 +100,7 @@ switch.lookup:                                    ; preds = %9
   br label %ml_kem_get_codec.exit
 
 ml_kem_get_codec.exit:                            ; preds = %9, %21, %18, %switch.lookup, %15, %5, %26
-  %.0 = phi ptr [ null, %26 ], [ null, %5 ], [ null, %15 ], [ null, %switch.lookup ], [ null, %18 ], [ %19, %21 ], [ null, %9 ]
+  %.0 = phi ptr [ null, %26 ], [ null, %5 ], [ null, %switch.lookup ], [ null, %18 ], [ %19, %21 ], [ null, %15 ], [ null, %9 ]
   ret ptr %.0
 }
 
@@ -418,9 +418,9 @@ switch.lookup:                                    ; preds = %14
   br label %153
 
 153:                                              ; preds = %139, %147, %122, %120, %112, %106, %102, %92, %88, %38, %26, %22, %20, %145, %137, %.thread, %36
-  %.081 = phi ptr [ null, %22 ], [ null, %26 ], [ %31, %36 ], [ %31, %38 ], [ %31, %.thread ], [ %31, %88 ], [ %31, %102 ], [ %31, %112 ], [ %31, %120 ], [ %31, %122 ], [ %31, %145 ], [ %31, %137 ], [ %31, %106 ], [ %31, %92 ], [ null, %20 ], [ %31, %147 ], [ %31, %139 ]
-  %.080 = phi ptr [ null, %22 ], [ null, %26 ], [ null, %36 ], [ null, %38 ], [ null, %.thread ], [ null, %88 ], [ null, %102 ], [ null, %112 ], [ null, %120 ], [ null, %122 ], [ %123, %145 ], [ %123, %137 ], [ null, %106 ], [ null, %92 ], [ null, %20 ], [ %123, %147 ], [ %123, %139 ]
-  %.079 = phi ptr [ null, %22 ], [ null, %26 ], [ null, %36 ], [ null, %38 ], [ null, %.thread ], [ null, %88 ], [ null, %102 ], [ null, %112 ], [ null, %120 ], [ null, %122 ], [ null, %145 ], [ null, %137 ], [ null, %106 ], [ null, %92 ], [ null, %20 ], [ %123, %147 ], [ %123, %139 ]
+  %.081 = phi ptr [ null, %22 ], [ null, %26 ], [ %31, %36 ], [ %31, %38 ], [ %31, %.thread ], [ %31, %88 ], [ %31, %102 ], [ %31, %112 ], [ %31, %120 ], [ %31, %122 ], [ %31, %145 ], [ null, %20 ], [ %31, %137 ], [ %31, %106 ], [ %31, %92 ], [ %31, %147 ], [ %31, %139 ]
+  %.080 = phi ptr [ null, %22 ], [ null, %26 ], [ null, %36 ], [ null, %38 ], [ null, %.thread ], [ null, %88 ], [ null, %102 ], [ null, %112 ], [ null, %120 ], [ null, %122 ], [ %123, %145 ], [ null, %20 ], [ %123, %137 ], [ null, %106 ], [ null, %92 ], [ %123, %147 ], [ %123, %139 ]
+  %.079 = phi ptr [ null, %22 ], [ null, %26 ], [ null, %36 ], [ null, %38 ], [ null, %.thread ], [ null, %88 ], [ null, %102 ], [ null, %112 ], [ null, %120 ], [ null, %122 ], [ null, %145 ], [ null, %20 ], [ null, %137 ], [ null, %106 ], [ null, %92 ], [ %123, %147 ], [ %123, %139 ]
   call void @CRYPTO_free(ptr noundef %.081, ptr noundef nonnull @.str, i32 noundef 272) #7
   call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %18) #7
   %154 = icmp eq ptr %.079, null
@@ -431,7 +431,7 @@ switch.lookup:                                    ; preds = %14
   br label %ml_kem_get_codec.exit
 
 ml_kem_get_codec.exit:                            ; preds = %14, %153, %155, %switch.lookup, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %switch.lookup ], [ null, %155 ], [ %.079, %153 ], [ null, %14 ]
+  %.0 = phi ptr [ null, %switch.lookup ], [ null, %5 ], [ %.079, %153 ], [ null, %155 ], [ null, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -510,7 +510,7 @@ define noundef i32 @ossl_ml_kem_i2d_pubkey(ptr noundef %0, ptr noundef captures(
   br label %21
 
 21:                                               ; preds = %8, %19, %15, %5
-  %.0 = phi i32 [ %20, %19 ], [ 0, %15 ], [ 0, %5 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %5 ], [ %20, %19 ], [ 0, %15 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -804,13 +804,13 @@ switch.lookup:                                    ; preds = %3
   store ptr %54, ptr %1, align 8, !tbaa !14
   br label %134
 
-.thread116:                                       ; preds = %.loopexit, %52, %69, %87, %110, %125, %130
-  %.084.ph = phi ptr [ %54, %130 ], [ %54, %125 ], [ %54, %110 ], [ %54, %87 ], [ %54, %69 ], [ null, %52 ], [ null, %.loopexit ]
+.thread116:                                       ; preds = %.loopexit, %130, %52, %69, %87, %110, %125
+  %.084.ph = phi ptr [ %54, %125 ], [ %54, %110 ], [ %54, %87 ], [ %54, %69 ], [ null, %52 ], [ %54, %130 ], [ null, %.loopexit ]
   tail call void @CRYPTO_free(ptr noundef nonnull %19, ptr noundef nonnull @.str, i32 noundef 424) #7
   br label %136
 
 134:                                              ; preds = %47, %133
-  %.084 = phi ptr [ %54, %133 ], [ null, %47 ]
+  %.084 = phi ptr [ null, %47 ], [ %54, %133 ]
   tail call void @CRYPTO_free(ptr noundef nonnull %19, ptr noundef nonnull @.str, i32 noundef 424) #7
   %135 = icmp eq i32 %50, 0
   br i1 %135, label %136, label %ml_kem_get_codec.exit
@@ -821,7 +821,7 @@ switch.lookup:                                    ; preds = %3
   br label %ml_kem_get_codec.exit
 
 ml_kem_get_codec.exit:                            ; preds = %3, %134, %136, %13, %10
-  %.082 = phi i32 [ 0, %10 ], [ 0, %13 ], [ 0, %136 ], [ %50, %134 ], [ 0, %3 ]
+  %.082 = phi i32 [ 0, %10 ], [ %50, %134 ], [ 0, %13 ], [ 0, %136 ], [ 0, %3 ]
   ret i32 %.082
 }
 
@@ -909,9 +909,9 @@ define range(i32 0, 2) i32 @ossl_ml_kem_key_to_text(ptr noundef %0, ptr noundef 
   br i1 %.not56, label %.thread, label %41
 
 41:                                               ; preds = %32, %39, %19, %8
-  %.039 = phi ptr [ null, %19 ], [ null, %8 ], [ %35, %39 ], [ null, %32 ]
-  %42 = phi i1 [ true, %19 ], [ true, %8 ], [ false, %39 ], [ false, %32 ]
-  %.0 = phi i32 [ 0, %19 ], [ 0, %8 ], [ 1, %39 ], [ 1, %32 ]
+  %.039 = phi ptr [ null, %8 ], [ null, %19 ], [ %35, %39 ], [ null, %32 ]
+  %42 = phi i1 [ true, %8 ], [ true, %19 ], [ false, %39 ], [ false, %32 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %19 ], [ 1, %39 ], [ 1, %32 ]
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %44 = load ptr, ptr %43, align 8, !tbaa !48
   %.not57 = icmp eq ptr %44, null
@@ -954,9 +954,9 @@ define range(i32 0, 2) i32 @ossl_ml_kem_key_to_text(ptr noundef %0, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %57, %59, %60, %49, %55, %46, %39, %37, %30, %28
-  %.042 = phi ptr [ null, %46 ], [ null, %49 ], [ null, %60 ], [ null, %59 ], [ %53, %55 ], [ null, %39 ], [ null, %37 ], [ null, %30 ], [ null, %28 ], [ %53, %57 ]
-  %.140 = phi ptr [ %.039, %46 ], [ %.039, %49 ], [ %.039, %60 ], [ %.039, %59 ], [ %.039, %55 ], [ %35, %39 ], [ %35, %37 ], [ null, %30 ], [ null, %28 ], [ %.039, %57 ]
-  %.1 = phi i32 [ 0, %46 ], [ %.0, %49 ], [ 0, %60 ], [ 1, %59 ], [ %.0, %55 ], [ 0, %39 ], [ 0, %37 ], [ 0, %30 ], [ 0, %28 ], [ %spec.select, %57 ]
+  %.042 = phi ptr [ null, %46 ], [ null, %49 ], [ null, %60 ], [ null, %59 ], [ %53, %57 ], [ %53, %55 ], [ null, %39 ], [ null, %37 ], [ null, %30 ], [ null, %28 ]
+  %.140 = phi ptr [ %.039, %46 ], [ %.039, %49 ], [ %.039, %60 ], [ %.039, %59 ], [ %.039, %57 ], [ %.039, %55 ], [ %35, %39 ], [ %35, %37 ], [ null, %30 ], [ null, %28 ]
+  %.1 = phi i32 [ 0, %46 ], [ %.0, %49 ], [ 0, %60 ], [ 1, %59 ], [ %spec.select, %57 ], [ %.0, %55 ], [ 0, %39 ], [ 0, %37 ], [ 0, %30 ], [ 0, %28 ]
   call void @CRYPTO_free(ptr noundef %.042, ptr noundef nonnull @.str, i32 noundef 488) #7
   call void @CRYPTO_free(ptr noundef %.140, ptr noundef nonnull @.str, i32 noundef 489) #7
   br label %61

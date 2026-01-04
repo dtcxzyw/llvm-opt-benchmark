@@ -463,7 +463,7 @@ _ZN7QStringD2Ev.exit47:                           ; preds = %143, %_ZN17QArrayDa
   br label %154
 
 154:                                              ; preds = %149, %150, %152, %_ZN7QStringD2Ev.exit47, %_ZN7QStringD2Ev.exit30, %74
-  %.pn23.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7QStringD2Ev.exit47 ], [ %75, %74 ], [ %77, %_ZN7QStringD2Ev.exit30 ], [ %151, %150 ], [ %153, %152 ], [ %.pn21, %149 ]
+  %.pn23.pn = phi { ptr, i32 } [ %77, %_ZN7QStringD2Ev.exit30 ], [ %.pn.pn, %_ZN7QStringD2Ev.exit47 ], [ %75, %74 ], [ %151, %150 ], [ %153, %152 ], [ %.pn21, %149 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %24) #16
   br label %155
 
@@ -1068,7 +1068,7 @@ _ZN7QStringD2Ev.exit119:                          ; preds = %183, %_ZN17QArrayDa
   br label %189
 
 189:                                              ; preds = %_ZN7QStringD2Ev.exit119, %181, %_ZN7QStringD2Ev.exit115, %173, %_ZN7QStringD2Ev.exit111, %165, %_ZN7QStringD2Ev.exit107, %157, %_ZN7QStringD2Ev.exit103, %149, %_ZN7QStringD2Ev.exit99, %141, %_ZN7QStringD2Ev.exit95, %133, %_ZN7QStringD2Ev.exit43
-  %.pn = phi { ptr, i32 } [ %184, %_ZN7QStringD2Ev.exit119 ], [ %182, %181 ], [ %176, %_ZN7QStringD2Ev.exit115 ], [ %174, %173 ], [ %168, %_ZN7QStringD2Ev.exit111 ], [ %166, %165 ], [ %160, %_ZN7QStringD2Ev.exit107 ], [ %158, %157 ], [ %152, %_ZN7QStringD2Ev.exit103 ], [ %150, %149 ], [ %144, %_ZN7QStringD2Ev.exit99 ], [ %142, %141 ], [ %136, %_ZN7QStringD2Ev.exit95 ], [ %134, %133 ], [ %33, %_ZN7QStringD2Ev.exit43 ]
+  %.pn = phi { ptr, i32 } [ %184, %_ZN7QStringD2Ev.exit119 ], [ %182, %181 ], [ %176, %_ZN7QStringD2Ev.exit115 ], [ %174, %173 ], [ %33, %_ZN7QStringD2Ev.exit43 ], [ %168, %_ZN7QStringD2Ev.exit111 ], [ %166, %165 ], [ %160, %_ZN7QStringD2Ev.exit107 ], [ %158, %157 ], [ %152, %_ZN7QStringD2Ev.exit103 ], [ %150, %149 ], [ %144, %_ZN7QStringD2Ev.exit99 ], [ %142, %141 ], [ %136, %_ZN7QStringD2Ev.exit95 ], [ %134, %133 ]
   resume { ptr, i32 } %.pn
 }
 

@@ -1458,8 +1458,8 @@ _ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6d
   br i1 %130, label %._crit_edge.thread.i.i, label %.thread
 
 ._crit_edge.thread.i.i:                           ; preds = %127, %._crit_edge.i.i, %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6detachEv.exit.i.i
-  %.018.lcssa35.i.i = phi i1 [ %126, %127 ], [ %126, %._crit_edge.i.i ], [ true, %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6detachEv.exit.i.i ]
-  %.022.lcssa34.i.i = phi ptr [ %.027.i.i, %127 ], [ %.027.i.i, %._crit_edge.i.i ], [ %123, %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6detachEv.exit.i.i ]
+  %.018.lcssa35.i.i = phi i1 [ %126, %._crit_edge.i.i ], [ %126, %127 ], [ true, %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6detachEv.exit.i.i ]
+  %.022.lcssa34.i.i = phi ptr [ %.027.i.i, %._crit_edge.i.i ], [ %.027.i.i, %127 ], [ %123, %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6detachEv.exit.i.i ]
   %131 = invoke noundef ptr @_ZN12QMapDataBase10createNodeEiiP12QMapNodeBaseb(ptr noundef nonnull align 8 dereferenceable(40) %122, i32 noundef 40, i32 noundef 8, ptr noundef nonnull %.022.lcssa34.i.i, i1 noundef zeroext %.018.lcssa35.i.i)
           to label %.noexc19 unwind label %142
 
@@ -1613,8 +1613,8 @@ _ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6d
   br i1 %34, label %._crit_edge.thread.i, label %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6insertERKS1_RKS3_.exit.sink.split
 
 ._crit_edge.thread.i:                             ; preds = %31, %._crit_edge.i, %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6detachEv.exit.i
-  %.018.lcssa35.i = phi i1 [ %30, %31 ], [ %30, %._crit_edge.i ], [ true, %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6detachEv.exit.i ]
-  %.022.lcssa34.i = phi ptr [ %.027.i, %31 ], [ %.027.i, %._crit_edge.i ], [ %25, %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6detachEv.exit.i ]
+  %.018.lcssa35.i = phi i1 [ %30, %._crit_edge.i ], [ %30, %31 ], [ true, %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6detachEv.exit.i ]
+  %.022.lcssa34.i = phi ptr [ %.027.i, %._crit_edge.i ], [ %.027.i, %31 ], [ %25, %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6detachEv.exit.i ]
   %35 = tail call noundef ptr @_ZN12QMapDataBase10createNodeEiiP12QMapNodeBaseb(ptr noundef nonnull align 8 dereferenceable(40) %24, i32 noundef 40, i32 noundef 8, ptr noundef nonnull %.022.lcssa34.i, i1 noundef zeroext %.018.lcssa35.i)
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %1, align 8
@@ -3016,7 +3016,7 @@ define noundef ptr @_ZN26MLRenderingParametersFrame7factoryEP17MLRenderingAction
   br label %40
 
 39:                                               ; preds = %33, %35, %29, %23, %17, %11, %5
-  %.021 = phi ptr [ %6, %5 ], [ %12, %11 ], [ %18, %17 ], [ %24, %23 ], [ %30, %29 ], [ %36, %35 ], [ null, %33 ]
+  %.021 = phi ptr [ %36, %35 ], [ %6, %5 ], [ %12, %11 ], [ %18, %17 ], [ %24, %23 ], [ %30, %29 ], [ null, %33 ]
   ret ptr %.021
 
 40:                                               ; preds = %37, %31, %25, %19, %13, %7
@@ -3789,12 +3789,12 @@ _ZN7QWidget14setMinimumSizeERK5QSize.exit:        ; preds = %229
   br label %289
 
 289:                                              ; preds = %284, %269, %254, %287, %285, %278, %276, %274, %272, %270, %263, %261, %259, %257, %255, %248, %246, %244, %242
-  %.pn29 = phi { ptr, i32 } [ %243, %242 ], [ %288, %287 ], [ %286, %285 ], [ %.pn27, %284 ], [ %279, %278 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ %271, %270 ], [ %.pn25, %269 ], [ %264, %263 ], [ %262, %261 ], [ %260, %259 ], [ %258, %257 ], [ %256, %255 ], [ %.pn23, %254 ], [ %249, %248 ], [ %247, %246 ], [ %245, %244 ]
+  %.pn29 = phi { ptr, i32 } [ %243, %242 ], [ %288, %287 ], [ %286, %285 ], [ %.pn27, %284 ], [ %249, %248 ], [ %279, %278 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ %271, %270 ], [ %.pn25, %269 ], [ %247, %246 ], [ %264, %263 ], [ %262, %261 ], [ %260, %259 ], [ %258, %257 ], [ %256, %255 ], [ %.pn23, %254 ], [ %245, %244 ]
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #24
   br label %290
 
 290:                                              ; preds = %241, %289, %235, %233
-  %.pn29.pn = phi { ptr, i32 } [ %.pn29, %289 ], [ %.pn, %241 ], [ %236, %235 ], [ %234, %233 ]
+  %.pn29.pn = phi { ptr, i32 } [ %.pn29, %289 ], [ %.pn, %241 ], [ %234, %233 ], [ %236, %235 ]
   resume { ptr, i32 } %.pn29.pn
 }
 
@@ -5767,12 +5767,12 @@ _ZN7QWidget14setMinimumSizeERK5QSize.exit:        ; preds = %184
   br label %234
 
 234:                                              ; preds = %229, %220, %207, %232, %230, %223, %221, %214, %212, %210, %208, %201, %199, %197
-  %.pn31 = phi { ptr, i32 } [ %198, %197 ], [ %233, %232 ], [ %231, %230 ], [ %.pn29, %229 ], [ %224, %223 ], [ %222, %221 ], [ %.pn27, %220 ], [ %215, %214 ], [ %213, %212 ], [ %211, %210 ], [ %209, %208 ], [ %.pn25, %207 ], [ %202, %201 ], [ %200, %199 ]
+  %.pn31 = phi { ptr, i32 } [ %198, %197 ], [ %233, %232 ], [ %231, %230 ], [ %.pn29, %229 ], [ %200, %199 ], [ %224, %223 ], [ %222, %221 ], [ %.pn27, %220 ], [ %202, %201 ], [ %215, %214 ], [ %213, %212 ], [ %211, %210 ], [ %209, %208 ], [ %.pn25, %207 ]
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #24
   br label %235
 
 235:                                              ; preds = %196, %234, %190, %188
-  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %234 ], [ %.pn, %196 ], [ %191, %190 ], [ %189, %188 ]
+  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %234 ], [ %.pn, %196 ], [ %189, %188 ], [ %191, %190 ]
   resume { ptr, i32 } %.pn31.pn
 }
 
@@ -7401,12 +7401,12 @@ _ZN7QWidget14setMinimumSizeERK5QSize.exit:        ; preds = %191
   br label %243
 
 243:                                              ; preds = %238, %229, %216, %241, %239, %232, %230, %223, %221, %219, %217, %210, %208, %206, %204
-  %.pn31 = phi { ptr, i32 } [ %205, %204 ], [ %242, %241 ], [ %240, %239 ], [ %.pn29, %238 ], [ %233, %232 ], [ %231, %230 ], [ %.pn27, %229 ], [ %224, %223 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %.pn25, %216 ], [ %211, %210 ], [ %209, %208 ], [ %207, %206 ]
+  %.pn31 = phi { ptr, i32 } [ %205, %204 ], [ %242, %241 ], [ %240, %239 ], [ %.pn29, %238 ], [ %211, %210 ], [ %233, %232 ], [ %231, %230 ], [ %.pn27, %229 ], [ %209, %208 ], [ %224, %223 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %.pn25, %216 ], [ %207, %206 ]
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #24
   br label %244
 
 244:                                              ; preds = %203, %243, %197, %195
-  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %243 ], [ %.pn, %203 ], [ %198, %197 ], [ %196, %195 ]
+  %.pn31.pn = phi { ptr, i32 } [ %.pn31, %243 ], [ %.pn, %203 ], [ %196, %195 ], [ %198, %197 ]
   resume { ptr, i32 } %.pn31.pn
 }
 
@@ -8339,7 +8339,7 @@ _ZN7QWidget14setMinimumSizeERK5QSize.exit:        ; preds = %87
   br label %115
 
 115:                                              ; preds = %110, %113, %111, %104, %102, %100, %98
-  %.pn17 = phi { ptr, i32 } [ %99, %98 ], [ %114, %113 ], [ %112, %111 ], [ %.pn15, %110 ], [ %105, %104 ], [ %103, %102 ], [ %101, %100 ]
+  %.pn17 = phi { ptr, i32 } [ %99, %98 ], [ %114, %113 ], [ %112, %111 ], [ %.pn15, %110 ], [ %101, %100 ], [ %105, %104 ], [ %103, %102 ]
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #24
   br label %116
 
@@ -9343,7 +9343,7 @@ _ZN7QWidget14setMinimumSizeERK5QSize.exit:        ; preds = %164
   br label %217
 
 217:                                              ; preds = %212, %203, %194, %185, %215, %213, %206, %204, %197, %195, %188, %186, %179, %177, %175
-  %.pn45 = phi { ptr, i32 } [ %176, %175 ], [ %216, %215 ], [ %214, %213 ], [ %.pn43, %212 ], [ %207, %206 ], [ %205, %204 ], [ %.pn41, %203 ], [ %198, %197 ], [ %196, %195 ], [ %.pn39, %194 ], [ %189, %188 ], [ %187, %186 ], [ %.pn37, %185 ], [ %180, %179 ], [ %178, %177 ]
+  %.pn45 = phi { ptr, i32 } [ %176, %175 ], [ %216, %215 ], [ %214, %213 ], [ %.pn43, %212 ], [ %.pn37, %185 ], [ %207, %206 ], [ %205, %204 ], [ %.pn41, %203 ], [ %178, %177 ], [ %198, %197 ], [ %196, %195 ], [ %.pn39, %194 ], [ %180, %179 ], [ %189, %188 ], [ %187, %186 ]
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #24
   br label %218
 
@@ -10318,7 +10318,7 @@ _ZN7QWidget14setMinimumSizeERK5QSize.exit:        ; preds = %71
   br label %97
 
 97:                                               ; preds = %92, %95, %93, %86, %84, %82
-  %.pn21 = phi { ptr, i32 } [ %83, %82 ], [ %96, %95 ], [ %94, %93 ], [ %.pn19, %92 ], [ %87, %86 ], [ %85, %84 ]
+  %.pn21 = phi { ptr, i32 } [ %83, %82 ], [ %96, %95 ], [ %94, %93 ], [ %.pn19, %92 ], [ %85, %84 ], [ %87, %86 ]
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #24
   br label %98
 
@@ -11035,8 +11035,8 @@ _ZN4QMapI7QStringP26MLRenderingParametersFrameE6detachEv.exit.i44: ; preds = %.n
   br i1 %141, label %.thread.i, label %.sink.split
 
 .thread.i:                                        ; preds = %139, %138, %_ZN4QMapI7QStringP26MLRenderingParametersFrameE6detachEv.exit.i44
-  %.018.lcssa35.i = phi i1 [ %.119.le.i, %139 ], [ %.119.le.i, %138 ], [ true, %_ZN4QMapI7QStringP26MLRenderingParametersFrameE6detachEv.exit.i44 ]
-  %.022.lcssa34.i = phi ptr [ %.027.i, %139 ], [ %.027.i, %138 ], [ %135, %_ZN4QMapI7QStringP26MLRenderingParametersFrameE6detachEv.exit.i44 ]
+  %.018.lcssa35.i = phi i1 [ %.119.le.i, %138 ], [ %.119.le.i, %139 ], [ true, %_ZN4QMapI7QStringP26MLRenderingParametersFrameE6detachEv.exit.i44 ]
+  %.022.lcssa34.i = phi ptr [ %.027.i, %138 ], [ %.027.i, %139 ], [ %135, %_ZN4QMapI7QStringP26MLRenderingParametersFrameE6detachEv.exit.i44 ]
   %142 = load ptr, ptr %58, align 8
   %143 = invoke noundef ptr @_ZN12QMapDataBase10createNodeEiiP12QMapNodeBaseb(ptr noundef nonnull align 8 dereferenceable(40) %142, i32 noundef 40, i32 noundef 8, ptr noundef nonnull %.022.lcssa34.i, i1 noundef zeroext %.018.lcssa35.i)
           to label %.noexc51 unwind label %180
@@ -13487,8 +13487,8 @@ _ZN7QStringD2Ev.exit33:                           ; preds = %_ZN9QtPrivate8RefCo
   ret void
 
 55:                                               ; preds = %51, %53, %47, %49
-  %.sink = phi ptr [ %3, %49 ], [ %3, %47 ], [ %5, %53 ], [ %5, %51 ]
-  %.pn12.pn = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ], [ %54, %53 ], [ %52, %51 ]
+  %.sink = phi ptr [ %3, %47 ], [ %3, %49 ], [ %5, %53 ], [ %5, %51 ]
+  %.pn12.pn = phi { ptr, i32 } [ %48, %47 ], [ %50, %49 ], [ %54, %53 ], [ %52, %51 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #24
   resume { ptr, i32 } %.pn12.pn
 }
@@ -14216,7 +14216,7 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %114, %_ZN9QtPrivate
   br label %190
 
 190:                                              ; preds = %187, %173, %155, %141, %131, %188, %178, %176, %174, %164, %162, %160, %158, %156, %146, %144, %142, %132, %122
-  %.pn67 = phi { ptr, i32 } [ %189, %188 ], [ %.pn64.pn, %187 ], [ %179, %178 ], [ %177, %176 ], [ %175, %174 ], [ %.pn61.pn, %173 ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %157, %156 ], [ %.pn58.pn, %155 ], [ %147, %146 ], [ %145, %144 ], [ %143, %142 ], [ %.pn55.pn, %141 ], [ %133, %132 ], [ %.pn.pn, %131 ], [ %123, %122 ]
+  %.pn67 = phi { ptr, i32 } [ %189, %188 ], [ %.pn64.pn, %187 ], [ %123, %122 ], [ %179, %178 ], [ %177, %176 ], [ %175, %174 ], [ %.pn61.pn, %173 ], [ %133, %132 ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %157, %156 ], [ %.pn58.pn, %155 ], [ %.pn.pn, %131 ], [ %147, %146 ], [ %145, %144 ], [ %143, %142 ], [ %.pn55.pn, %141 ]
   resume { ptr, i32 } %.pn67
 }
 
@@ -14711,7 +14711,7 @@ _Z12qobject_castIP31MLRenderingZeroOrOneActionGroupET_P7QObject.exit: ; preds = 
   br i1 %.not, label %.critedge, label %29, !llvm.loop !144
 
 _ZN9QtPrivate17QForeachContainerI5QListIP17MLRenderingActionEED2Ev.exit46: ; preds = %.loopexit, %.loopexit.split-lp, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i41, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i42, %101
-  %.pn = phi { ptr, i32 } [ %102, %101 ], [ %102, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i42 ], [ %102, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i41 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %102, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i41 ], [ %102, %101 ], [ %102, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i42 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %129 = load atomic i32, ptr %5 monotonic, align 4
   switch i32 %129, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i49 [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i48
@@ -15368,7 +15368,7 @@ _ZN5QListIP23MLRenderingGlobalActionED2Ev.exit74: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit42
 
 _ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit42: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i37, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i38, %_ZN9QtPrivate17QForeachContainerI5QListIP17MLRenderingActionEED2Ev.exit33, %236, %191, %42
-  %.pn.pn = phi { ptr, i32 } [ %237, %236 ], [ %43, %42 ], [ %192, %191 ], [ %.pn, %_ZN9QtPrivate17QForeachContainerI5QListIP17MLRenderingActionEED2Ev.exit33 ], [ %.pn, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i38 ], [ %.pn, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i37 ]
+  %.pn.pn = phi { ptr, i32 } [ %192, %191 ], [ %237, %236 ], [ %43, %42 ], [ %.pn, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i37 ], [ %.pn, %_ZN9QtPrivate17QForeachContainerI5QListIP17MLRenderingActionEED2Ev.exit33 ], [ %.pn, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i38 ]
   %238 = load ptr, ptr %4, align 8
   %239 = load atomic i32, ptr %238 monotonic, align 4
   switch i32 %239, label %_ZN9QtPrivate8RefCount5derefEv.exit.i76 [

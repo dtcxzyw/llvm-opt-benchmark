@@ -719,7 +719,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$deltalake_mount..file..Local
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h042b6de1e7b644f8E.exit"
 
 common.resume:                                    ; preds = %150, %110, %118, %127, %139, %102, %75, %83, %91, %58, %66
-  %common.resume.op = phi { ptr, i32 } [ %59, %66 ], [ %59, %58 ], [ %84, %91 ], [ %84, %83 ], [ %140, %139 ], [ %76, %75 ], [ %103, %102 ], [ %128, %127 ], [ %111, %118 ], [ %111, %110 ], [ %151, %150 ]
+  %common.resume.op = phi { ptr, i32 } [ %111, %110 ], [ %59, %58 ], [ %84, %83 ], [ %128, %127 ], [ %59, %66 ], [ %84, %91 ], [ %140, %139 ], [ %76, %75 ], [ %103, %102 ], [ %111, %118 ], [ %151, %150 ]
   resume { ptr, i32 } %common.resume.op
 
 75:                                               ; preds = %22, %18
@@ -1187,7 +1187,7 @@ define hidden void @_ZN5tokio7runtime4task3raw21drop_join_handle_slow17h5a6caa56
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %20, %18, %.body.i.i.i.i.i.i.i
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %21, %20 ], [ %19, %18 ], [ %15, %.body.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %21, %20 ], [ %15, %.body.i.i.i.i.i.i.i ], [ %19, %18 ]
   %22 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 0
   %23 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %22)
           to label %26 unwind label %24, !noalias !233
@@ -1444,7 +1444,7 @@ default.unreachable:                              ; preds = %124, %1
   br label %.body.i.i.i.i.i.i.i.i
 
 .body.i.i.i.i.i.i.i.i:                            ; preds = %58, %56, %.body.i3.i.i.i.i.i.i.i.i
-  %eh.lpad-body.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ], [ %53, %.body.i3.i.i.i.i.i.i.i.i ]
+  %eh.lpad-body.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %59, %58 ], [ %53, %.body.i3.i.i.i.i.i.i.i.i ], [ %57, %56 ]
   %60 = and i32 %45, 6
   %switch.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 6
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %.body.i.i.i.i.i.i.i, label %61
@@ -1608,7 +1608,7 @@ _ZN3std9panicking3try17habd4ed2eebe96cd8E.exit.i.i.i: ; preds = %62, %.noexc2.i.
   br label %.body.i18.i.i.i
 
 .body.i18.i.i.i:                                  ; preds = %93, %91, %.body.i.i.i.i.i19.i.i.i
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %94, %93 ], [ %92, %91 ], [ %88, %.body.i.i.i.i.i19.i.i.i ]
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %94, %93 ], [ %88, %.body.i.i.i.i.i19.i.i.i ], [ %92, %91 ]
   %95 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i.i, 0
   %96 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %95)
           to label %99 unwind label %97, !noalias !278
@@ -2019,7 +2019,7 @@ define hidden void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h
   unreachable
 
 .thread:                                          ; preds = %.body, %14
-  %.pn5 = phi { ptr, i32 } [ %15, %14 ], [ %11, %.body ]
+  %.pn5 = phi { ptr, i32 } [ %11, %.body ], [ %15, %14 ]
   resume { ptr, i32 } %.pn5
 
 14:                                               ; preds = %2
@@ -2100,7 +2100,7 @@ define internal fastcc void @_ZN5tokio7runtime4task7harness11cancel_task17he8e40
   br label %.body.i
 
 .body.i:                                          ; preds = %18, %16, %.body.i.i.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %13, %.body.i.i.i.i.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %19, %18 ], [ %13, %.body.i.i.i.i.i.i ], [ %17, %16 ]
   %20 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %21 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %20)
           to label %__rust_try.llvm.1572246609963143282.exit.i unwind label %22
@@ -2165,7 +2165,7 @@ _ZN3std9panicking3try17h723979b8b611ecf2E.exit:   ; preds = %__rust_try.llvm.157
   unreachable
 
 .thread.i:                                        ; preds = %40, %.body.i10
-  %.pn5.i = phi { ptr, i32 } [ %41, %40 ], [ %37, %.body.i10 ]
+  %.pn5.i = phi { ptr, i32 } [ %37, %.body.i10 ], [ %41, %40 ]
   resume { ptr, i32 } %.pn5.i
 
 40:                                               ; preds = %_ZN3std9panicking3try17h723979b8b611ecf2E.exit
@@ -2331,7 +2331,7 @@ define internal fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$G
   br label %.body.i
 
 .body.i:                                          ; preds = %24, %18, %.body.i.i.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %25, %24 ], [ %19, %18 ], [ %15, %.body.i.i.i.i.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %25, %24 ], [ %15, %.body.i.i.i.i.i.i ], [ %19, %18 ]
   %26 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
   %27 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %26)
           to label %30 unwind label %28, !noalias !421
@@ -2744,7 +2744,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   store i8 %.sroa.5.0.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 77), align 1
   br label %23
 
-.thread23:                                        ; preds = %8, %.critedge.i.i.i, %23
+.thread23:                                        ; preds = %23, %.critedge.i.i.i, %8
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread

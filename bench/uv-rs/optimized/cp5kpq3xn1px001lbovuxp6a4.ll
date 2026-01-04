@@ -5970,7 +5970,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(312) ptr @"_ZN5al
   unreachable
 
 "_ZN4core3ptr100drop_in_place$LT$alloc..sync..Weak$LT$uv_pep508..marker..environment..MarkerEnvironmentInner$GT$$GT$17h8439782565b4428eE.exit": ; preds = %.thread, %39, %36, %33, %.thread33
-  %.pn6.pn = phi { ptr, i32 } [ %eh.lpad-body36, %.thread33 ], [ %34, %33 ], [ %34, %36 ], [ %34, %39 ], [ %171, %.thread ]
+  %.pn6.pn = phi { ptr, i32 } [ %eh.lpad-body36, %.thread33 ], [ %171, %.thread ], [ %34, %33 ], [ %34, %36 ], [ %34, %39 ]
   resume { ptr, i32 } %.pn6.pn
 
 56:                                               ; preds = %27
@@ -6834,11 +6834,11 @@ define internal fastcc void @_ZN9uv_pep4407version7Version12only_release17h7ed8a
   br label %.body.i
 
 55:                                               ; preds = %14, %17, %29, %32, %37, %44
-  %.sroa.07.0.i = phi i64 [ 5, %17 ], [ 1, %29 ], [ 2, %32 ], [ 3, %37 ], [ 4, %44 ], [ 0, %14 ]
-  %.sroa.7.0.i = phi i64 [ %23, %17 ], [ %31, %29 ], [ %34, %32 ], [ %39, %37 ], [ %46, %44 ], [ undef, %14 ]
-  %.sroa.12.0.i = phi i64 [ %22, %17 ], [ undef, %29 ], [ %36, %32 ], [ %41, %37 ], [ %48, %44 ], [ undef, %14 ]
-  %.sroa.16.0.i = phi i64 [ undef, %17 ], [ undef, %29 ], [ undef, %32 ], [ %43, %37 ], [ %50, %44 ], [ undef, %14 ]
-  %.sroa.18.0.i = phi i64 [ undef, %17 ], [ undef, %29 ], [ undef, %32 ], [ undef, %37 ], [ %52, %44 ], [ undef, %14 ]
+  %.sroa.07.0.i = phi i64 [ 5, %17 ], [ 4, %44 ], [ 1, %29 ], [ 2, %32 ], [ 3, %37 ], [ 0, %14 ]
+  %.sroa.7.0.i = phi i64 [ %23, %17 ], [ %46, %44 ], [ %31, %29 ], [ %34, %32 ], [ %39, %37 ], [ undef, %14 ]
+  %.sroa.12.0.i = phi i64 [ %22, %17 ], [ %48, %44 ], [ undef, %29 ], [ %36, %32 ], [ %41, %37 ], [ undef, %14 ]
+  %.sroa.16.0.i = phi i64 [ undef, %17 ], [ %50, %44 ], [ undef, %29 ], [ undef, %32 ], [ %43, %37 ], [ undef, %14 ]
+  %.sroa.18.0.i = phi i64 [ undef, %17 ], [ %52, %44 ], [ undef, %29 ], [ undef, %32 ], [ undef, %37 ], [ undef, %14 ]
   store i64 %.sroa.07.0.i, ptr %10, align 8, !alias.scope !1670, !noalias !1673
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !1670, !noalias !1673
@@ -6958,11 +6958,11 @@ define internal fastcc void @_ZN9uv_pep4407version7Version12only_release17h7ed8a
   br label %98
 
 98:                                               ; preds = %89, %82, %77, %74, %65, %63
-  %.sroa.07.0.i.i = phi i64 [ 5, %65 ], [ 1, %74 ], [ 2, %77 ], [ 3, %82 ], [ 4, %89 ], [ 0, %63 ]
-  %.sroa.7.0.i.i = phi i64 [ %71, %65 ], [ %76, %74 ], [ %79, %77 ], [ %84, %82 ], [ %91, %89 ], [ undef, %63 ]
-  %.sroa.12.0.i.i = phi i64 [ %70, %65 ], [ undef, %74 ], [ %81, %77 ], [ %86, %82 ], [ %93, %89 ], [ undef, %63 ]
-  %.sroa.16.0.i.i = phi i64 [ undef, %65 ], [ undef, %74 ], [ undef, %77 ], [ %88, %82 ], [ %95, %89 ], [ undef, %63 ]
-  %.sroa.18.0.i.i = phi i64 [ undef, %65 ], [ undef, %74 ], [ undef, %77 ], [ undef, %82 ], [ %97, %89 ], [ undef, %63 ]
+  %.sroa.07.0.i.i = phi i64 [ 5, %65 ], [ 4, %89 ], [ 1, %74 ], [ 2, %77 ], [ 3, %82 ], [ 0, %63 ]
+  %.sroa.7.0.i.i = phi i64 [ %71, %65 ], [ %91, %89 ], [ %76, %74 ], [ %79, %77 ], [ %84, %82 ], [ undef, %63 ]
+  %.sroa.12.0.i.i = phi i64 [ %70, %65 ], [ %93, %89 ], [ undef, %74 ], [ %81, %77 ], [ %86, %82 ], [ undef, %63 ]
+  %.sroa.16.0.i.i = phi i64 [ undef, %65 ], [ %95, %89 ], [ undef, %74 ], [ undef, %77 ], [ %88, %82 ], [ undef, %63 ]
+  %.sroa.18.0.i.i = phi i64 [ undef, %65 ], [ %97, %89 ], [ undef, %74 ], [ undef, %77 ], [ undef, %82 ], [ undef, %63 ]
   store i64 %.sroa.07.0.i.i, ptr %6, align 8, !alias.scope !1687, !noalias !1691
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.7.0.i.i, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !1687, !noalias !1691
@@ -7067,7 +7067,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; 
   br i1 %142, label %._crit_edge.i, label %.lr.ph.i
 
 .body.i:                                          ; preds = %104, %53
-  %.pn.i = phi { ptr, i32 } [ %105, %104 ], [ %54, %53 ]
+  %.pn.i = phi { ptr, i32 } [ %54, %53 ], [ %105, %104 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1702)
   call void @llvm.experimental.noalias.scope.decl(metadata !1705)
   %143 = load i8, ptr %.sroa.53.0..sroa_idx, align 1, !alias.scope !1708, !noalias !1676, !noundef !8
@@ -7156,7 +7156,7 @@ define noundef nonnull ptr @"_ZN157_$LT$uv_pypi_types..marker_environment..Resol
           to label %30 unwind label %.body.thread132
 
 .body:                                            ; preds = %.thread109, %194, %122, %126, %99
-  %.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %99 ], [ %.pn.pn.i88, %126 ], [ %.pn.pn.i88, %122 ], [ %.pn112, %194 ], [ %.pn112, %.thread109 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn.pn.i88, %122 ], [ %lpad.thr_comm.split-lp, %99 ], [ %.pn.pn.i88, %126 ], [ %.pn112, %194 ], [ %.pn112, %.thread109 ]
   br i1 %.sroa.034.2, label %195, label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17hc939dcbcd31df3f0E.exit104"
 
 .body.thread132:                                  ; preds = %27, %38, %68, %.thread, %85, %86
@@ -7692,11 +7692,11 @@ define noundef nonnull ptr @"_ZN157_$LT$uv_pypi_types..marker_environment..Resol
           to label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102" unwind label %189
 
 "_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17hc939dcbcd31df3f0E.exit104": ; preds = %.body, %54, %50, %203, %207, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102"
-  %.pn85140 = phi { ptr, i32 } [ %.pn85147, %203 ], [ %.pn85147, %207 ], [ %.pn.pn137, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102" ], [ %.pn.pn.i, %50 ], [ %.pn.pn.i, %54 ], [ %.pn.pn, %.body ]
+  %.pn85140 = phi { ptr, i32 } [ %.pn.pn137, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102" ], [ %.pn85147, %203 ], [ %.pn85147, %207 ], [ %.pn.pn.i, %50 ], [ %.pn.pn.i, %54 ], [ %.pn.pn, %.body ]
   resume { ptr, i32 } %.pn85140
 
 203:                                              ; preds = %.thread150, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102"
-  %.pn85147 = phi { ptr, i32 } [ %.pn.pn137, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102" ], [ %lpad.thr_comm148, %.thread150 ]
+  %.pn85147 = phi { ptr, i32 } [ %lpad.thr_comm148, %.thread150 ], [ %.pn.pn137, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hdb843d84b070c9dfE.exit102" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1811)
   call void @llvm.experimental.noalias.scope.decl(metadata !1814)
   call void @llvm.experimental.noalias.scope.decl(metadata !1817)

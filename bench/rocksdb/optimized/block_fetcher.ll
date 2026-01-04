@@ -1607,12 +1607,12 @@ _ZTWN7rocksdb10perf_levelE.exit213:               ; preds = %644, %645
   br i1 %.not.i214, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %649, %643, %637
-  %.sink603.ph = phi i64 [ 88, %637 ], [ 96, %643 ], [ 72, %649 ]
+  %.sink603.ph = phi i64 [ 96, %643 ], [ 88, %637 ], [ 72, %649 ]
   call void @_ZTHN7rocksdb12perf_contextE()
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %649, %643, %637
-  %.sink603 = phi i64 [ 88, %637 ], [ 96, %643 ], [ 72, %649 ], [ %.sink603.ph, %.sink.split.sink.split ]
+  %.sink603 = phi i64 [ 96, %643 ], [ 72, %649 ], [ 88, %637 ], [ %.sink603.ph, %.sink.split.sink.split ]
   %650 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %651 = getelementptr inbounds nuw i8, ptr %650, i64 %.sink603
   %652 = load i64, ptr %651, align 8, !tbaa !195
@@ -1840,7 +1840,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br i1 %744, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !214
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %741, %739, %735, %731, %722
-  %.0.i.i228 = phi i32 [ %732, %731 ], [ %736, %735 ], [ %740, %739 ], [ 1, %722 ], [ %743, %741 ]
+  %.0.i.i228 = phi i32 [ %740, %739 ], [ %732, %731 ], [ %736, %735 ], [ 1, %722 ], [ %743, %741 ]
   %745 = zext i32 %.0.i.i228 to i64
   %746 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %746, ptr %29, align 8, !tbaa !208, !alias.scope !211
@@ -2117,7 +2117,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
   br i1 %866, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i246, label %.lr.ph.i.i243, !llvm.loop !214
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i246: ; preds = %863, %861, %857, %853, %846
-  %.0.i.i247 = phi i32 [ %854, %853 ], [ %858, %857 ], [ %862, %861 ], [ 1, %846 ], [ %865, %863 ]
+  %.0.i.i247 = phi i32 [ %862, %861 ], [ %854, %853 ], [ %858, %857 ], [ 1, %846 ], [ %865, %863 ]
   %867 = zext i32 %.0.i.i247 to i64
   %868 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %868, ptr %30, align 8, !tbaa !208, !alias.scope !223
@@ -2394,7 +2394,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
   br i1 %988, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i281, label %.lr.ph.i.i278, !llvm.loop !214
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i281: ; preds = %985, %983, %979, %975, %968
-  %.0.i.i282 = phi i32 [ %976, %975 ], [ %980, %979 ], [ %984, %983 ], [ 1, %968 ], [ %987, %985 ]
+  %.0.i.i282 = phi i32 [ %984, %983 ], [ %976, %975 ], [ %980, %979 ], [ 1, %968 ], [ %987, %985 ]
   %989 = zext i32 %.0.i.i282 to i64
   %990 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %990, ptr %31, align 8, !tbaa !208, !alias.scope !232
@@ -4848,7 +4848,7 @@ _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14de
   br label %_ZN7rocksdb8IOStatusaSERKS0_.exit
 
 _ZN7rocksdb8IOStatusaSERKS0_.exit:                ; preds = %38, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i, %.thread, %51
-  %75 = phi i1 [ true, %51 ], [ false, %.thread ], [ false, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i ], [ false, %38 ]
+  %75 = phi i1 [ true, %51 ], [ false, %38 ], [ false, %.thread ], [ false, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit.i ]
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !97
   %.not.i.i14 = icmp eq ptr %77, null
@@ -6315,7 +6315,7 @@ _ZN7rocksdb6StatusD2Ev.exit44:                    ; preds = %_ZN7rocksdb6StatusD
           to label %_ZN7rocksdb8IOStatusC2EOS0_.exit unwind label %60
 
 _ZN7rocksdb8IOStatusC2EOS0_.exit:                 ; preds = %.invoke, %_ZN7rocksdb6StatusD2Ev.exit26, %92, %96, %40, %44
-  %215 = phi i1 [ false, %44 ], [ false, %40 ], [ false, %96 ], [ false, %92 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit26 ], [ false, %.invoke ]
+  %215 = phi i1 [ false, %40 ], [ false, %92 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit26 ], [ false, %.invoke ], [ false, %44 ], [ false, %96 ]
   %216 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %217 = load ptr, ptr %216, align 8, !tbaa !97
   %.not.i.i48 = icmp eq ptr %217, null

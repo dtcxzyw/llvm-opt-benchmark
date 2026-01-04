@@ -1282,7 +1282,7 @@ define internal i32 @dissect_nan_beacon(ptr noundef %0, ptr noundef %1, ptr noun
   br label %15
 
 15:                                               ; preds = %12, %10, %.critedge
-  %.str.745.sink = phi ptr [ @.str.746, %.critedge ], [ @.str.743, %10 ], [ @.str.745, %12 ]
+  %.str.745.sink = phi ptr [ @.str.743, %10 ], [ @.str.746, %.critedge ], [ @.str.745, %12 ]
   %16 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull %.str.745.sink)
   %17 = load i32, ptr @proto_nan, align 4

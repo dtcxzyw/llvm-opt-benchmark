@@ -529,8 +529,8 @@ _ZL12invertBufferPDsijii.exit375:                 ; preds = %.lr.ph.i370, %172, 
   store i32 15, ptr %5, align 4, !tbaa !3
   br label %.thread380
 
-.thread380:                                       ; preds = %190, %119, %118, %128, %127, %.thread
-  %.3.ph = phi i32 [ 0, %.thread ], [ 0, %127 ], [ 0, %128 ], [ %.0304, %118 ], [ %.0304, %119 ], [ %.1302, %190 ]
+.thread380:                                       ; preds = %.thread, %190, %127, %118, %119, %128
+  %.3.ph = phi i32 [ 0, %128 ], [ %.0304, %119 ], [ %.0304, %118 ], [ 0, %127 ], [ %.1302, %190 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -644,7 +644,7 @@ _ZL12invertBufferPDsijii.exit375:                 ; preds = %.lr.ph.i370, %172, 
   br label %229
 
 229:                                              ; preds = %.thread380, %6, %15, %.loopexit, %194, %62, %51, %44, %41, %39
-  %.0287 = phi i32 [ 0, %39 ], [ %52, %51 ], [ 0, %62 ], [ %228, %.loopexit ], [ %.0298, %194 ], [ 0, %44 ], [ 0, %41 ], [ 0, %15 ], [ 0, %6 ], [ %.3.ph, %.thread380 ]
+  %.0287 = phi i32 [ 0, %41 ], [ 0, %39 ], [ %52, %51 ], [ 0, %62 ], [ %228, %.loopexit ], [ %.3.ph, %.thread380 ], [ %.0298, %194 ], [ 0, %44 ], [ 0, %15 ], [ 0, %6 ]
   ret i32 %.0287
 }
 
@@ -708,7 +708,7 @@ define internal fastcc noundef zeroext i16 @_ZL7getLinkDs(i16 noundef zeroext %0
   br label %29
 
 29:                                               ; preds = %21, %11, %9, %23, %15, %3
-  %.0 = phi i16 [ %8, %3 ], [ %20, %15 ], [ %28, %23 ], [ 3, %9 ], [ 4, %11 ], [ 0, %21 ]
+  %.0 = phi i16 [ %8, %3 ], [ 4, %11 ], [ 3, %9 ], [ %20, %15 ], [ %28, %23 ], [ 0, %21 ]
   ret i16 %.0
 }
 
@@ -818,7 +818,7 @@ _ZL10isAlefCharDs.exit70.thread:                  ; preds = %29, %29, %29, %29, 
   br i1 %exitcond99.not, label %.loopexit78, label %24, !llvm.loop !18
 
 .loopexit78:                                      ; preds = %23, %.thread, %3
-  %.045 = phi i32 [ %1, %3 ], [ %.4, %.thread ], [ %.247, %23 ]
+  %.045 = phi i32 [ %.4, %.thread ], [ %1, %3 ], [ %.247, %23 ]
   %35 = and i32 %2, 65563
   %or.cond67 = icmp eq i32 %35, 16
   %36 = icmp sgt i32 %1, 0
@@ -843,7 +843,7 @@ _ZL10isAlefCharDs.exit70.thread:                  ; preds = %29, %29, %29, %29, 
   br i1 %exitcond104.not, label %.loopexit, label %.lr.ph89, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph89, %.preheader77, %.preheader79, %.loopexit78
-  %.5 = phi i32 [ %.045, %.loopexit78 ], [ %1, %.preheader79 ], [ %1, %.preheader77 ], [ %spec.select, %.lr.ph89 ]
+  %.5 = phi i32 [ %.045, %.loopexit78 ], [ %1, %.preheader77 ], [ %1, %.preheader79 ], [ %spec.select, %.lr.ph89 ]
   ret i32 %.5
 }
 
@@ -909,8 +909,8 @@ define internal fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShap
   %7 = and i32 %2, 32768
   %8 = icmp eq i32 %7, 0
   %9 = icmp sgt i32 %1, 0
-  %or.cond300 = and i1 %8, %9
-  br i1 %or.cond300, label %.lr.ph.preheader, label %.loopexit
+  %or.cond301 = and i1 %8, %9
+  br i1 %or.cond301, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %6
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -1008,33 +1008,33 @@ define internal fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShap
   br label %_ZL7getLinkDs.exit
 
 _ZL7getLinkDs.exit:                               ; preds = %32, %38, %40, %44, %50, %52
-  %.0.i = phi i16 [ %37, %32 ], [ %49, %44 ], [ %57, %52 ], [ 3, %38 ], [ 4, %40 ], [ 0, %50 ]
+  %.0.i = phi i16 [ %37, %32 ], [ 4, %40 ], [ 3, %38 ], [ %49, %44 ], [ %57, %52 ], [ 0, %50 ]
   %.not280 = icmp eq i32 %1, 0
-  br i1 %.not280, label %_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit.thread, label %.lr.ph294
+  br i1 %.not280, label %_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit.thread, label %.lr.ph295
 
-.lr.ph294:                                        ; preds = %_ZL7getLinkDs.exit
+.lr.ph295:                                        ; preds = %_ZL7getLinkDs.exit
   %58 = icmp eq i32 %4, 1
   %59 = icmp eq i32 %4, 2
   %60 = icmp ne i32 %4, 2
   br label %61
 
-61:                                               ; preds = %.lr.ph294, %_ZL7getLinkDs.exit245
-  %.1150293 = phi i32 [ %27, %.lr.ph294 ], [ %237, %_ZL7getLinkDs.exit245 ]
-  %.0151291 = phi i32 [ %27, %.lr.ph294 ], [ %.1152, %_ZL7getLinkDs.exit245 ]
-  %.0153290 = phi i16 [ 0, %.lr.ph294 ], [ %.1154, %_ZL7getLinkDs.exit245 ]
-  %.0157289 = phi i16 [ %.0.i, %.lr.ph294 ], [ %.3160, %_ZL7getLinkDs.exit245 ]
-  %.0161288 = phi i16 [ 0, %.lr.ph294 ], [ %.3164, %_ZL7getLinkDs.exit245 ]
-  %.0165286 = phi i16 [ 0, %.lr.ph294 ], [ %.1166, %_ZL7getLinkDs.exit245 ]
-  %.0167285 = phi i32 [ 0, %.lr.ph294 ], [ %.1168, %_ZL7getLinkDs.exit245 ]
-  %.0169284 = phi i32 [ 0, %.lr.ph294 ], [ %.1170, %_ZL7getLinkDs.exit245 ]
-  %.0172283 = phi i32 [ 0, %.lr.ph294 ], [ %.1173, %_ZL7getLinkDs.exit245 ]
-  %.0175282 = phi i32 [ 0, %.lr.ph294 ], [ %.1176, %_ZL7getLinkDs.exit245 ]
-  %.0181281 = phi i32 [ -2, %.lr.ph294 ], [ %.4185, %_ZL7getLinkDs.exit245 ]
-  %.not191 = icmp ult i16 %.0157289, 256
+61:                                               ; preds = %.lr.ph295, %_ZL7getLinkDs.exit245
+  %.1150294 = phi i32 [ %27, %.lr.ph295 ], [ %237, %_ZL7getLinkDs.exit245 ]
+  %.0151292 = phi i32 [ %27, %.lr.ph295 ], [ %.1152, %_ZL7getLinkDs.exit245 ]
+  %.0153291 = phi i16 [ 0, %.lr.ph295 ], [ %.1154, %_ZL7getLinkDs.exit245 ]
+  %.0157290 = phi i16 [ %.0.i, %.lr.ph295 ], [ %.3160, %_ZL7getLinkDs.exit245 ]
+  %.0161289 = phi i16 [ 0, %.lr.ph295 ], [ %.3164, %_ZL7getLinkDs.exit245 ]
+  %.0165287 = phi i16 [ 0, %.lr.ph295 ], [ %.1166, %_ZL7getLinkDs.exit245 ]
+  %.0167285 = phi i32 [ 0, %.lr.ph295 ], [ %.1168, %_ZL7getLinkDs.exit245 ]
+  %.0169284 = phi i32 [ 0, %.lr.ph295 ], [ %.1170, %_ZL7getLinkDs.exit245 ]
+  %.0172283 = phi i32 [ 0, %.lr.ph295 ], [ %.1173, %_ZL7getLinkDs.exit245 ]
+  %.0175282 = phi i32 [ 0, %.lr.ph295 ], [ %.1176, %_ZL7getLinkDs.exit245 ]
+  %.0181281 = phi i32 [ -2, %.lr.ph295 ], [ %.4185, %_ZL7getLinkDs.exit245 ]
+  %.not191 = icmp ult i16 %.0157290, 256
   br i1 %.not191, label %62, label %_ZL7getLinkDs.exit223.thread257
 
 62:                                               ; preds = %61
-  %63 = sext i32 %.1150293 to i64
+  %63 = sext i32 %.1150294 to i64
   %64 = getelementptr inbounds i16, ptr %0, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !9
   %66 = add i16 %65, -1570
@@ -1095,7 +1095,7 @@ _ZL7getLinkDs.exit223.thread257:                  ; preds = %75, %_ZL7getLinkDs.
   br i1 %94, label %.lr.ph278.preheader, label %._crit_edge
 
 .lr.ph278.preheader:                              ; preds = %_ZL7getLinkDs.exit223.thread257
-  %95 = add nsw i32 %.1150293, -1
+  %95 = add nsw i32 %.1150294, -1
   br label %.lr.ph278
 
 .lr.ph278:                                        ; preds = %.lr.ph278.preheader, %_ZL7getLinkDs.exit229.thread
@@ -1127,10 +1127,10 @@ _ZL7getLinkDs.exit223.thread257:                  ; preds = %75, %_ZL7getLinkDs.
 110:                                              ; preds = %108
   %111 = add i16 %100, -8301
   %or.cond5.i225 = icmp ult i16 %111, 3
-  br i1 %or.cond5.i225, label %_ZL7getLinkDs.exit229.thread352, label %112
+  br i1 %or.cond5.i225, label %_ZL7getLinkDs.exit229.thread353, label %112
 
-_ZL7getLinkDs.exit229.thread352:                  ; preds = %110
-  %spec.select216354 = add nsw i32 %.0179277, -1
+_ZL7getLinkDs.exit229.thread353:                  ; preds = %110
+  %spec.select216355 = add nsw i32 %.0179277, -1
   br label %_ZL7getLinkDs.exit229.thread
 
 112:                                              ; preds = %110
@@ -1165,28 +1165,28 @@ _ZL7getLinkDs.exit229:                            ; preds = %102, %114, %122
   %129 = icmp ne i16 %128, 0
   %130 = sext i1 %129 to i32
   %spec.select216 = add nsw i32 %.0179277, %130
-  %spec.select358 = select i1 %129, i32 %.2183276, i32 %.0179277
+  %spec.select359 = select i1 %129, i32 %.2183276, i32 %.0179277
   br label %_ZL7getLinkDs.exit229.thread
 
-_ZL7getLinkDs.exit229.thread:                     ; preds = %_ZL7getLinkDs.exit229, %120, %108, %_ZL7getLinkDs.exit229.thread352
-  %.3184 = phi i32 [ %.2183276, %_ZL7getLinkDs.exit229.thread352 ], [ %.0179277, %108 ], [ %.0179277, %120 ], [ %spec.select358, %_ZL7getLinkDs.exit229 ]
-  %.1180 = phi i32 [ %spec.select216354, %_ZL7getLinkDs.exit229.thread352 ], [ %.0179277, %108 ], [ %.0179277, %120 ], [ %spec.select216, %_ZL7getLinkDs.exit229 ]
-  %.3156 = phi i16 [ 4, %_ZL7getLinkDs.exit229.thread352 ], [ 3, %108 ], [ 0, %120 ], [ %.0.i228, %_ZL7getLinkDs.exit229 ]
+_ZL7getLinkDs.exit229.thread:                     ; preds = %_ZL7getLinkDs.exit229, %120, %108, %_ZL7getLinkDs.exit229.thread353
+  %.3184 = phi i32 [ %spec.select359, %_ZL7getLinkDs.exit229 ], [ %.0179277, %120 ], [ %.2183276, %_ZL7getLinkDs.exit229.thread353 ], [ %.0179277, %108 ]
+  %.1180 = phi i32 [ %spec.select216, %_ZL7getLinkDs.exit229 ], [ %.0179277, %120 ], [ %spec.select216355, %_ZL7getLinkDs.exit229.thread353 ], [ %.0179277, %108 ]
+  %.3156 = phi i16 [ %.0.i228, %_ZL7getLinkDs.exit229 ], [ 0, %120 ], [ 4, %_ZL7getLinkDs.exit229.thread353 ], [ 3, %108 ]
   %131 = icmp slt i32 %.3184, 0
   br i1 %131, label %.lr.ph278, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph278, %_ZL7getLinkDs.exit229.thread, %_ZL7getLinkDs.exit223.thread257
   %.2183.lcssa = phi i32 [ %.0181281, %_ZL7getLinkDs.exit223.thread257 ], [ 3000, %.lr.ph278 ], [ %.3184, %_ZL7getLinkDs.exit229.thread ]
-  %.2155.lcssa = phi i16 [ %.0153290, %_ZL7getLinkDs.exit223.thread257 ], [ 0, %.lr.ph278 ], [ %.3156, %_ZL7getLinkDs.exit229.thread ]
-  %132 = and i16 %.0157289, 32
+  %.2155.lcssa = phi i16 [ %.0153291, %_ZL7getLinkDs.exit223.thread257 ], [ 0, %.lr.ph278 ], [ %.3156, %_ZL7getLinkDs.exit229.thread ]
+  %132 = and i16 %.0157290, 32
   %.not193 = icmp eq i16 %132, 0
-  %133 = and i16 %.0161288, 16
+  %133 = and i16 %.0161289, 16
   %.not194 = icmp eq i16 %133, 0
   %or.cond210 = select i1 %.not193, i1 true, i1 %.not194
   br i1 %or.cond210, label %_ZL7getLinkDs.exit236, label %134
 
 134:                                              ; preds = %._crit_edge
-  %135 = sext i32 %.1150293 to i64
+  %135 = sext i32 %.1150294 to i64
   %136 = getelementptr inbounds i16, ptr %0, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !9
   %switch.tableidx = add i16 %137, -1570
@@ -1202,7 +1202,7 @@ switch.lookup:                                    ; preds = %134
   %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables, i64 %139
   %switch.load = load i16, ptr %switch.gep, align 2
   store i16 -1, ptr %136, align 2, !tbaa !9
-  %140 = sext i32 %.0151291 to i64
+  %140 = sext i32 %.0151292 to i64
   %141 = getelementptr inbounds i16, ptr %0, i64 %140
   store i16 %switch.load, ptr %141, align 2, !tbaa !9
   %narrow = add nuw nsw i16 %switch.load, 30
@@ -1214,9 +1214,9 @@ switch.lookup:                                    ; preds = %134
 
 _ZL7getLinkDs.exit236:                            ; preds = %134, %switch.lookup, %._crit_edge
   %.2177 = phi i32 [ %.0175282, %._crit_edge ], [ 1, %switch.lookup ], [ 1, %134 ]
-  %.2163 = phi i16 [ %.0161288, %._crit_edge ], [ %.0165286, %switch.lookup ], [ %.0165286, %134 ]
-  %.2159 = phi i16 [ %.0157289, %._crit_edge ], [ %145, %switch.lookup ], [ 0, %134 ]
-  %.3 = phi i32 [ %.1150293, %._crit_edge ], [ %.0151291, %switch.lookup ], [ %.1150293, %134 ]
+  %.2163 = phi i16 [ %.0161289, %._crit_edge ], [ %.0165287, %switch.lookup ], [ %.0165287, %134 ]
+  %.2159 = phi i16 [ %.0157290, %._crit_edge ], [ %145, %switch.lookup ], [ 0, %134 ]
+  %.3 = phi i32 [ %.1150294, %._crit_edge ], [ %.0151292, %switch.lookup ], [ %.1150294, %134 ]
   %146 = icmp sgt i32 %.3, 0
   br i1 %146, label %147, label %158
 
@@ -1255,8 +1255,8 @@ _ZL7getLinkDs.exit236:                            ; preds = %134, %switch.lookup
   br label %.thread
 
 .thread:                                          ; preds = %147, %163, %156, %160, %153, %158
-  %.2174 = phi i32 [ %.0172283, %158 ], [ 1, %153 ], [ %.0172283, %156 ], [ 1, %160 ], [ %.0172283, %163 ], [ %.0172283, %147 ]
-  %.2171 = phi i32 [ %.0169284, %158 ], [ %.0169284, %153 ], [ %spec.select, %156 ], [ %.0169284, %160 ], [ %spec.select211, %163 ], [ %.0169284, %147 ]
+  %.2174 = phi i32 [ %.0172283, %158 ], [ 1, %153 ], [ %.0172283, %163 ], [ %.0172283, %156 ], [ 1, %160 ], [ %.0172283, %147 ]
+  %.2171 = phi i32 [ %.0169284, %158 ], [ %.0169284, %153 ], [ %spec.select211, %163 ], [ %spec.select, %156 ], [ %.0169284, %160 ], [ %.0169284, %147 ]
   %165 = zext i16 %.2155.lcssa to i32
   %166 = and i32 %165, 3
   %167 = zext nneg i32 %166 to i64
@@ -1278,7 +1278,7 @@ _ZL7getLinkDs.exit236:                            ; preds = %134, %switch.lookup
   %181 = and i32 %178, 1
   %.pre = sext i32 %.3 to i64
   %.phi.trans.insert = getelementptr inbounds i16, ptr %0, i64 %.pre
-  %.pre303 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !9
+  %.pre304 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !9
   br label %.thread271
 
 182:                                              ; preds = %.thread
@@ -1317,16 +1317,16 @@ _ZL7getLinkDs.exit236:                            ; preds = %134, %switch.lookup
 198:                                              ; preds = %190, %188
   %199 = icmp eq i16 %185, 1617
   %or.cond272 = and i1 %59, %199
-  br i1 %or.cond272, label %.thread336, label %.thread271
+  br i1 %or.cond272, label %.thread337, label %.thread271
 
-.thread336:                                       ; preds = %198
+.thread337:                                       ; preds = %198
   %200 = getelementptr inbounds i16, ptr %0, i64 %183
   br label %210
 
 .thread271:                                       ; preds = %198, %193, %195, %182, %180
-  %201 = phi i16 [ %185, %195 ], [ %185, %182 ], [ %.pre303, %180 ], [ %185, %193 ], [ %185, %198 ]
-  %.pre-phi = phi i64 [ %183, %195 ], [ %183, %182 ], [ %.pre, %180 ], [ %183, %193 ], [ %183, %198 ]
-  %.0178 = phi i32 [ %spec.select217, %195 ], [ %178, %182 ], [ %181, %180 ], [ 0, %193 ], [ 0, %198 ]
+  %201 = phi i16 [ %.pre304, %180 ], [ %185, %195 ], [ %185, %182 ], [ %185, %193 ], [ %185, %198 ]
+  %.pre-phi = phi i64 [ %.pre, %180 ], [ %183, %195 ], [ %183, %182 ], [ %183, %193 ], [ %183, %198 ]
+  %.0178 = phi i32 [ %181, %180 ], [ %spec.select217, %195 ], [ %178, %182 ], [ 0, %193 ], [ 0, %198 ]
   %202 = getelementptr inbounds i16, ptr %0, i64 %.pre-phi
   %203 = xor i16 %201, 1536
   %204 = icmp ult i16 %203, 256
@@ -1346,16 +1346,16 @@ _ZL7getLinkDs.exit236:                            ; preds = %134, %switch.lookup
   store i16 -2, ptr %202, align 2, !tbaa !9
   br label %_ZL7getLinkDs.exit223.thread
 
-210:                                              ; preds = %.thread336, %208
-  %211 = phi ptr [ %200, %.thread336 ], [ %202, %208 ]
-  %.0178332335340 = phi i32 [ 1, %.thread336 ], [ %.0178, %208 ]
-  %212 = phi i16 [ 1617, %.thread336 ], [ %201, %208 ]
+210:                                              ; preds = %.thread337, %208
+  %211 = phi ptr [ %200, %.thread337 ], [ %202, %208 ]
+  %.0178333336341 = phi i32 [ 1, %.thread337 ], [ %.0178, %208 ]
+  %212 = phi i16 [ 1617, %.thread337 ], [ %201, %208 ]
   %213 = zext nneg i16 %212 to i64
   %214 = getelementptr i8, ptr @_ZL13IrrelevantPos, i64 %213
   %215 = getelementptr i8, ptr %214, i64 -1611
   %216 = load i8, ptr %215, align 1, !tbaa !16
   %217 = zext i8 %216 to i32
-  %218 = add nuw nsw i32 %.0178332335340, 65136
+  %218 = add nuw nsw i32 %.0178333336341, 65136
   %219 = add nuw nsw i32 %218, %217
   %220 = trunc i32 %219 to i16
   store i16 %220, ptr %211, align 2, !tbaa !9
@@ -1389,27 +1389,27 @@ _ZL7getLinkDs.exit236:                            ; preds = %134, %switch.lookup
   br label %_ZL7getLinkDs.exit223.thread
 
 _ZL7getLinkDs.exit223.thread:                     ; preds = %85, %73, %.thread271, %224, %231, %228, %209, %210, %_ZL7getLinkDs.exit223
-  %.1182 = phi i32 [ %.2183.lcssa, %209 ], [ %.2183.lcssa, %210 ], [ %.2183.lcssa, %224 ], [ %.2183.lcssa, %231 ], [ %.2183.lcssa, %228 ], [ %.2183.lcssa, %.thread271 ], [ %.0181281, %_ZL7getLinkDs.exit223 ], [ %.0181281, %73 ], [ %.0181281, %85 ]
-  %.1176 = phi i32 [ %.2177, %209 ], [ %.2177, %210 ], [ %.2177, %224 ], [ %.2177, %231 ], [ %.2177, %228 ], [ %.2177, %.thread271 ], [ %.0175282, %_ZL7getLinkDs.exit223 ], [ %.0175282, %73 ], [ %.0175282, %85 ]
-  %.1173 = phi i32 [ %.2174, %209 ], [ %.2174, %210 ], [ %.2174, %224 ], [ %.2174, %231 ], [ %.2174, %228 ], [ %.2174, %.thread271 ], [ %.0172283, %_ZL7getLinkDs.exit223 ], [ %.0172283, %73 ], [ %.0172283, %85 ]
-  %.1170 = phi i32 [ %.2171, %209 ], [ %.2171, %210 ], [ %.2171, %224 ], [ %.2171, %231 ], [ %.2171, %228 ], [ %.2171, %.thread271 ], [ %.0169284, %_ZL7getLinkDs.exit223 ], [ %.0169284, %73 ], [ %.0169284, %85 ]
-  %.1168 = phi i32 [ 1, %209 ], [ %.0167285, %210 ], [ %.0167285, %224 ], [ %.0167285, %231 ], [ %.0167285, %228 ], [ %.0167285, %.thread271 ], [ %.0167285, %_ZL7getLinkDs.exit223 ], [ %.0167285, %73 ], [ %.0167285, %85 ]
-  %.1162 = phi i16 [ %.2163, %209 ], [ %.2163, %210 ], [ %.2163, %224 ], [ %.2163, %231 ], [ %.2163, %228 ], [ %.2163, %.thread271 ], [ %.0161288, %_ZL7getLinkDs.exit223 ], [ %.0161288, %73 ], [ %.0161288, %85 ]
-  %.1158 = phi i16 [ %.2159, %209 ], [ %.2159, %210 ], [ %.2159, %224 ], [ %.2159, %231 ], [ %.2159, %228 ], [ %.2159, %.thread271 ], [ %.0157289, %_ZL7getLinkDs.exit223 ], [ %.0157289, %73 ], [ %.0157289, %85 ]
-  %.1154 = phi i16 [ %.2155.lcssa, %209 ], [ %.2155.lcssa, %210 ], [ %.2155.lcssa, %224 ], [ %.2155.lcssa, %231 ], [ %.2155.lcssa, %228 ], [ %.2155.lcssa, %.thread271 ], [ %.0153290, %_ZL7getLinkDs.exit223 ], [ %.0153290, %73 ], [ %.0153290, %85 ]
-  %.2 = phi i32 [ %.3, %209 ], [ %.3, %210 ], [ %.3, %224 ], [ %.3, %231 ], [ %.3, %228 ], [ %.3, %.thread271 ], [ %.1150293, %_ZL7getLinkDs.exit223 ], [ %.1150293, %73 ], [ %.1150293, %85 ]
+  %.1182 = phi i32 [ %.2183.lcssa, %209 ], [ %.2183.lcssa, %210 ], [ %.2183.lcssa, %224 ], [ %.2183.lcssa, %231 ], [ %.0181281, %_ZL7getLinkDs.exit223 ], [ %.2183.lcssa, %228 ], [ %.2183.lcssa, %.thread271 ], [ %.0181281, %73 ], [ %.0181281, %85 ]
+  %.1176 = phi i32 [ %.2177, %209 ], [ %.2177, %210 ], [ %.2177, %224 ], [ %.2177, %231 ], [ %.0175282, %_ZL7getLinkDs.exit223 ], [ %.2177, %228 ], [ %.2177, %.thread271 ], [ %.0175282, %73 ], [ %.0175282, %85 ]
+  %.1173 = phi i32 [ %.2174, %209 ], [ %.2174, %210 ], [ %.2174, %224 ], [ %.2174, %231 ], [ %.0172283, %_ZL7getLinkDs.exit223 ], [ %.2174, %228 ], [ %.2174, %.thread271 ], [ %.0172283, %73 ], [ %.0172283, %85 ]
+  %.1170 = phi i32 [ %.2171, %209 ], [ %.2171, %210 ], [ %.2171, %224 ], [ %.2171, %231 ], [ %.0169284, %_ZL7getLinkDs.exit223 ], [ %.2171, %228 ], [ %.2171, %.thread271 ], [ %.0169284, %73 ], [ %.0169284, %85 ]
+  %.1168 = phi i32 [ 1, %209 ], [ %.0167285, %210 ], [ %.0167285, %224 ], [ %.0167285, %231 ], [ %.0167285, %_ZL7getLinkDs.exit223 ], [ %.0167285, %228 ], [ %.0167285, %.thread271 ], [ %.0167285, %73 ], [ %.0167285, %85 ]
+  %.1162 = phi i16 [ %.2163, %209 ], [ %.2163, %210 ], [ %.2163, %224 ], [ %.2163, %231 ], [ %.0161289, %_ZL7getLinkDs.exit223 ], [ %.2163, %228 ], [ %.2163, %.thread271 ], [ %.0161289, %73 ], [ %.0161289, %85 ]
+  %.1158 = phi i16 [ %.2159, %209 ], [ %.2159, %210 ], [ %.2159, %224 ], [ %.2159, %231 ], [ %.0157290, %_ZL7getLinkDs.exit223 ], [ %.2159, %228 ], [ %.2159, %.thread271 ], [ %.0157290, %73 ], [ %.0157290, %85 ]
+  %.1154 = phi i16 [ %.2155.lcssa, %209 ], [ %.2155.lcssa, %210 ], [ %.2155.lcssa, %224 ], [ %.2155.lcssa, %231 ], [ %.0153291, %_ZL7getLinkDs.exit223 ], [ %.2155.lcssa, %228 ], [ %.2155.lcssa, %.thread271 ], [ %.0153291, %73 ], [ %.0153291, %85 ]
+  %.2 = phi i32 [ %.3, %209 ], [ %.3, %210 ], [ %.3, %224 ], [ %.3, %231 ], [ %.1150294, %_ZL7getLinkDs.exit223 ], [ %.3, %228 ], [ %.3, %.thread271 ], [ %.1150294, %73 ], [ %.1150294, %85 ]
   %235 = and i16 %.1158, 4
   %236 = icmp eq i16 %235, 0
-  %.1166 = select i1 %236, i16 %.1162, i16 %.0165286
+  %.1166 = select i1 %236, i16 %.1162, i16 %.0165287
   %.3164 = select i1 %236, i16 %.1158, i16 %.1162
-  %.1152 = select i1 %236, i32 %.2, i32 %.0151291
+  %.1152 = select i1 %236, i32 %.2, i32 %.0151292
   %237 = add nsw i32 %.2, -1
   %238 = icmp eq i32 %237, %.1182
   br i1 %238, label %_ZL7getLinkDs.exit245, label %239
 
 239:                                              ; preds = %_ZL7getLinkDs.exit223.thread
   %.not208 = icmp eq i32 %.2, 0
-  br i1 %.not208, label %._crit_edge295, label %240
+  br i1 %.not208, label %._crit_edge296, label %240
 
 240:                                              ; preds = %239
   %241 = sext i32 %237 to i64
@@ -1463,12 +1463,12 @@ _ZL7getLinkDs.exit223.thread:                     ; preds = %85, %73, %.thread27
   br label %_ZL7getLinkDs.exit245
 
 _ZL7getLinkDs.exit245:                            ; preds = %265, %263, %257, %253, %251, %245, %_ZL7getLinkDs.exit223.thread
-  %.4185 = phi i32 [ -2, %_ZL7getLinkDs.exit223.thread ], [ %.1182, %245 ], [ %.1182, %251 ], [ %.1182, %253 ], [ %.1182, %257 ], [ %.1182, %263 ], [ %.1182, %265 ]
-  %.3160 = phi i16 [ %.1154, %_ZL7getLinkDs.exit223.thread ], [ %250, %245 ], [ 3, %251 ], [ 4, %253 ], [ %262, %257 ], [ 0, %263 ], [ %270, %265 ]
+  %.4185 = phi i32 [ %.1182, %265 ], [ -2, %_ZL7getLinkDs.exit223.thread ], [ %.1182, %245 ], [ %.1182, %251 ], [ %.1182, %253 ], [ %.1182, %257 ], [ %.1182, %263 ]
+  %.3160 = phi i16 [ %270, %265 ], [ %.1154, %_ZL7getLinkDs.exit223.thread ], [ %250, %245 ], [ 3, %251 ], [ 4, %253 ], [ %262, %257 ], [ 0, %263 ]
   %.not = icmp eq i32 %.2, 0
-  br i1 %.not, label %._crit_edge295, label %61, !llvm.loop !24
+  br i1 %.not, label %._crit_edge296, label %61, !llvm.loop !24
 
-._crit_edge295:                                   ; preds = %239, %_ZL7getLinkDs.exit245
+._crit_edge296:                                   ; preds = %239, %_ZL7getLinkDs.exit245
   %271 = icmp ne i32 %.1176, 0
   %272 = icmp ne i32 %.1168, 0
   %273 = select i1 %271, i1 true, i1 %272
@@ -1477,7 +1477,7 @@ _ZL7getLinkDs.exit245:                            ; preds = %265, %263, %257, %2
   %276 = select i1 %274, i1 true, i1 %275
   br i1 %273, label %277, label %_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit
 
-277:                                              ; preds = %._crit_edge295
+277:                                              ; preds = %._crit_edge296
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !7
   %.sroa.3252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1692,11 +1692,11 @@ _ZL7getLinkDs.exit245:                            ; preds = %265, %263, %257, %2
   %345 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv231.i
   %346 = load i16, ptr %345, align 2, !tbaa !9
   %347 = icmp eq i16 %346, -1
-  %or.cond360 = select i1 %341, i1 %347, i1 false
+  %or.cond361 = select i1 %341, i1 %347, i1 false
   %348 = icmp eq i16 %346, -2
   %or.cond269.i = select i1 %340, i1 %348, i1 false
-  %or.cond361 = select i1 %or.cond360, i1 true, i1 %or.cond269.i
-  br i1 %or.cond361, label %349, label %._crit_edge247.i
+  %or.cond362 = select i1 %or.cond361, i1 true, i1 %or.cond269.i
+  br i1 %or.cond362, label %349, label %._crit_edge247.i
 
 349:                                              ; preds = %.lr.ph191.i
   %350 = add nsw i32 %.3136189.i, 1
@@ -1773,11 +1773,11 @@ _ZL7getLinkDs.exit245:                            ; preds = %265, %263, %257, %2
   %370 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv239.i
   %371 = load i16, ptr %370, align 2, !tbaa !9
   %372 = icmp eq i16 %371, -1
-  %or.cond362 = select i1 %368, i1 %372, i1 false
+  %or.cond363 = select i1 %368, i1 %372, i1 false
   %373 = icmp eq i16 %371, -2
   %or.cond270.i = select i1 %367, i1 %373, i1 false
-  %or.cond363 = select i1 %or.cond362, i1 true, i1 %or.cond270.i
-  br i1 %or.cond363, label %374, label %._crit_edge248.i
+  %or.cond364 = select i1 %or.cond363, i1 true, i1 %or.cond270.i
+  br i1 %or.cond364, label %374, label %._crit_edge248.i
 
 374:                                              ; preds = %.lr.ph201.i
   %375 = add nsw i32 %.5138199.i, 1
@@ -1816,16 +1816,16 @@ _ZL7getLinkDs.exit245:                            ; preds = %265, %263, %257, %2
   tail call void @uprv_free_77(ptr noundef nonnull %288)
   br i1 %276, label %384, label %_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit.thread
 
-_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit: ; preds = %._crit_edge295
+_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit: ; preds = %._crit_edge296
   br i1 %276, label %384, label %_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit.thread
 
-384:                                              ; preds = %383, %290, %283, %_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit
-  %.0349 = phi i32 [ 0, %283 ], [ %1, %_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit ], [ 0, %290 ], [ %.3156.i, %383 ]
-  %385 = tail call fastcc noundef i32 @_ZL18expandCompositCharPDsiijP10UErrorCodei15uShapeVariables(ptr noundef %0, i32 noundef %1, i32 noundef %.0349, i32 noundef %2, ptr noundef %3, i32 noundef 0, ptr noundef nonnull byval(%struct.uShapeVariables) align 8 %5)
+384:                                              ; preds = %290, %383, %283, %_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit
+  %.0350 = phi i32 [ 0, %283 ], [ %1, %_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit ], [ %.3156.i, %383 ], [ 0, %290 ]
+  %385 = tail call fastcc noundef i32 @_ZL18expandCompositCharPDsiijP10UErrorCodei15uShapeVariables(ptr noundef %0, i32 noundef %1, i32 noundef %.0350, i32 noundef %2, ptr noundef %3, i32 noundef 0, ptr noundef nonnull byval(%struct.uShapeVariables) align 8 %5)
   br label %_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit.thread
 
-_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit.thread: ; preds = %_ZL7getLinkDs.exit, %383, %290, %283, %_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit, %384
-  %.1 = phi i32 [ %385, %384 ], [ %1, %_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit ], [ 0, %283 ], [ 0, %290 ], [ %.3156.i, %383 ], [ 0, %_ZL7getLinkDs.exit ]
+_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit.thread: ; preds = %_ZL7getLinkDs.exit, %290, %383, %283, %_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit, %384
+  %.1 = phi i32 [ %385, %384 ], [ %1, %_ZL21handleGeneratedSpacesPDsiijP10UErrorCode15uShapeVariables.exit ], [ 0, %290 ], [ 0, %283 ], [ %.3156.i, %383 ], [ 0, %_ZL7getLinkDs.exit ]
   ret i32 %.1
 }
 
@@ -1885,7 +1885,7 @@ _ZL22isIsolatedTashkeelCharDs.exit:               ; preds = %switch.early.test.i
   br i1 %or.cond14, label %16, label %.sink.split
 
 .sink.split:                                      ; preds = %_ZL22isIsolatedTashkeelCharDs.exit, %switch.early.test.i23, %switch.early.test.i, %7, %_ZL23isTashkeelOnTatweelCharDs.exit
-  %.sink = phi i16 [ 1600, %_ZL23isTashkeelOnTatweelCharDs.exit ], [ -387, %7 ], [ %5, %switch.early.test.i ], [ %5, %switch.early.test.i23 ], [ 32, %_ZL22isIsolatedTashkeelCharDs.exit ]
+  %.sink = phi i16 [ 1600, %_ZL23isTashkeelOnTatweelCharDs.exit ], [ %5, %switch.early.test.i23 ], [ -387, %7 ], [ %5, %switch.early.test.i ], [ 32, %_ZL22isIsolatedTashkeelCharDs.exit ]
   store i16 %.sink, ptr %4, align 2, !tbaa !9
   br label %16
 
@@ -2067,12 +2067,12 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.us:       ; preds = %_ZL20isSeenTailFami
   br i1 %.not66.us, label %78, label %.sink.split
 
 .sink.split:                                      ; preds = %72, %_ZL20isSeenTailFamilyCharDs.exit.us, %67
-  %.sink = phi i16 [ %71, %67 ], [ 32, %_ZL20isSeenTailFamilyCharDs.exit.us ], [ %77, %72 ]
+  %.sink = phi i16 [ 32, %_ZL20isSeenTailFamilyCharDs.exit.us ], [ %71, %67 ], [ %77, %72 ]
   store i16 %.sink, ptr %52, align 2, !tbaa !9
   br label %78
 
 78:                                               ; preds = %.sink.split, %72, %_ZL20isSeenTailFamilyCharDs.exit.thread.us
-  %79 = phi i16 [ %53, %72 ], [ %53, %_ZL20isSeenTailFamilyCharDs.exit.thread.us ], [ %.sink, %.sink.split ]
+  %79 = phi i16 [ %53, %_ZL20isSeenTailFamilyCharDs.exit.thread.us ], [ %53, %72 ], [ %.sink, %.sink.split ]
   %80 = add i16 %79, 259
   %81 = icmp ult i16 %80, -8
   %spec.select.us = select i1 %81, i32 %.05974.us, i32 1
@@ -2205,7 +2205,7 @@ _ZL20isSeenTailFamilyCharDs.exit.thread:          ; preds = %.lr.ph.split.split
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %125, %106, %78, %48
-  %.059.lcssa = phi i32 [ %spec.select.us.us, %48 ], [ %spec.select.us, %78 ], [ %spec.select.us83, %106 ], [ %spec.select, %125 ]
+  %.059.lcssa = phi i32 [ %spec.select.us.us, %48 ], [ %spec.select.us83, %106 ], [ %spec.select.us, %78 ], [ %spec.select, %125 ]
   %.not = icmp eq i32 %.059.lcssa, 0
   br i1 %.not, label %._crit_edge.thread, label %129
 
@@ -2413,7 +2413,7 @@ _ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit: ; pred
   br i1 %.not, label %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit.thread, label %55
 
 _ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit.thread: ; preds = %14, %20, %26, %28, %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit
-  %.0103139 = phi i32 [ %.0103, %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit ], [ %1, %28 ], [ %.1104.ph, %26 ], [ %21, %20 ], [ %15, %14 ]
+  %.0103139 = phi i32 [ %.0103, %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit ], [ %1, %28 ], [ %.1104.ph, %26 ], [ %15, %14 ], [ %21, %20 ]
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !38
   %46 = icmp eq i32 %8, %45
@@ -2848,7 +2848,7 @@ _ZL20isSeenTailFamilyCharDs.exit.thread.thread.i: ; preds = %_ZL20isSeenTailFami
   br i1 %exitcond.not.i, label %_ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit128, label %.lr.ph.split.split.split.i, !llvm.loop !37
 
 _ZL24expandCompositCharAtNearPDsiiP10UErrorCodeiii15uShapeVariables.exit128: ; preds = %_ZL20isSeenTailFamilyCharDs.exit.thread.us13.thread.i, %218, %_ZL20isSeenTailFamilyCharDs.exit.thread.us6.us.i, %151, %108, %79, %.lr.ph.split.us.split.us.i, %64, %.thread145
-  %.4 = phi i32 [ %.3147, %.thread145 ], [ %1, %64 ], [ %1, %.lr.ph.split.us.split.us.i ], [ %1, %79 ], [ %1, %108 ], [ %1, %151 ], [ %1, %_ZL20isSeenTailFamilyCharDs.exit.thread.us6.us.i ], [ %1, %218 ], [ %1, %_ZL20isSeenTailFamilyCharDs.exit.thread.us13.thread.i ]
+  %.4 = phi i32 [ %.3147, %.thread145 ], [ %1, %64 ], [ %1, %.lr.ph.split.us.split.us.i ], [ %1, %218 ], [ %1, %108 ], [ %1, %_ZL20isSeenTailFamilyCharDs.exit.thread.us6.us.i ], [ %1, %151 ], [ %1, %79 ], [ %1, %_ZL20isSeenTailFamilyCharDs.exit.thread.us13.thread.i ]
   %219 = icmp eq i32 %8, 0
   %or.cond115 = and i1 %219, %.not
   br i1 %or.cond115, label %220, label %.thread148
@@ -2955,7 +2955,7 @@ _ZL10isAlefCharDs.exit70.thread.i:                ; preds = %248, %245, %245, %2
   br i1 %exitcond99.not.i, label %.loopexit78.i, label %240, !llvm.loop !18
 
 .loopexit78.i:                                    ; preds = %239, %.thread.i, %220
-  %.045.i = phi i32 [ %1, %220 ], [ %.4.i, %.thread.i ], [ %.247.i, %239 ]
+  %.045.i = phi i32 [ %.4.i, %.thread.i ], [ %1, %220 ], [ %.247.i, %239 ]
   %251 = and i32 %3, 24
   %or.cond67.i = icmp eq i32 %251, 16
   %252 = icmp sgt i32 %1, 0
@@ -2980,7 +2980,7 @@ _ZL10isAlefCharDs.exit70.thread.i:                ; preds = %248, %245, %245, %2
   br i1 %exitcond104.not.i, label %_ZL13calculateSizePKDsiij.exit, label %.lr.ph89.i, !llvm.loop !19
 
 _ZL13calculateSizePKDsiij.exit:                   ; preds = %.lr.ph89.i, %.preheader79.i, %.preheader77.i, %.loopexit78.i
-  %.5.i = phi i32 [ %.045.i, %.loopexit78.i ], [ %1, %.preheader79.i ], [ %1, %.preheader77.i ], [ %spec.select.i, %.lr.ph89.i ]
+  %.5.i = phi i32 [ %.045.i, %.loopexit78.i ], [ %1, %.preheader77.i ], [ %1, %.preheader79.i ], [ %spec.select.i, %.lr.ph89.i ]
   %258 = shl i32 %.5.i, 1
   %259 = add i32 %258, 2
   %260 = sext i32 %259 to i64
@@ -3133,7 +3133,7 @@ define internal fastcc noundef i32 @_ZL23expandCompositCharAtEndPDsiiP10UErrorCo
   br label %.thread
 
 .thread:                                          ; preds = %43, %28, %49
-  %50 = phi i16 [ %30, %28 ], [ %46, %49 ], [ %46, %43 ]
+  %50 = phi i16 [ %46, %43 ], [ %30, %28 ], [ %46, %49 ]
   %51 = zext nneg i32 %.05769 to i64
   %52 = getelementptr inbounds nuw i16, ptr %7, i64 %51
   store i16 %50, ptr %52, align 2, !tbaa !9
@@ -3267,7 +3267,7 @@ define internal fastcc noundef i32 @_ZL25expandCompositCharAtBeginPDsiiP10UError
   br label %.thread
 
 .thread:                                          ; preds = %35, %20, %41
-  %42 = phi i16 [ %22, %20 ], [ %38, %41 ], [ %38, %35 ]
+  %42 = phi i16 [ %38, %35 ], [ %22, %20 ], [ %38, %41 ]
   %43 = zext nneg i32 %.03949 to i64
   %44 = getelementptr inbounds nuw i16, ptr %7, i64 %43
   store i16 %42, ptr %44, align 2, !tbaa !9

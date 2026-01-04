@@ -896,7 +896,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit44:                  ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit46
 
 _ZNSt6vectorIiSaIiEED2Ev.exit46:                  ; preds = %.loopexit, %.loopexit.split-lp, %94, %91
-  %.pn29 = phi { ptr, i32 } [ %92, %91 ], [ %92, %94 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn29 = phi { ptr, i32 } [ %92, %94 ], [ %92, %91 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %99 = load ptr, ptr %6, align 8
   %.not.i.i.i47 = icmp eq ptr %99, null
   br i1 %.not.i.i.i47, label %_ZNSt6vectorIiSaIiEED2Ev.exit48, label %100
@@ -1008,8 +1008,8 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %.noexc60
 
 .noexc60:                                         ; preds = %118, %146, %136, %122
-  %.033.i = phi i64 [ %127, %122 ], [ %144, %136 ], [ %164, %146 ], [ %119, %118 ]
-  %.032.i = phi i64 [ %133, %122 ], [ ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64), %136 ], [ ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64), %146 ], [ ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64), %118 ]
+  %.033.i = phi i64 [ %164, %146 ], [ %127, %122 ], [ %144, %136 ], [ %119, %118 ]
+  %.032.i = phi i64 [ ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64), %146 ], [ %133, %122 ], [ ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64), %136 ], [ ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64), %118 ]
   %165 = add i64 %.032.i, %.033.i
   %166 = zext i64 %165 to i128
   %167 = mul nuw i128 %166, 11376068507788127593
@@ -1019,7 +1019,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %.noexc49
 
 .noexc49:                                         ; preds = %.noexc60, %145, %116
-  %.0.i = phi i64 [ %170, %.noexc60 ], [ ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64), %145 ], [ %117, %116 ]
+  %.0.i = phi i64 [ ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64), %145 ], [ %170, %.noexc60 ], [ %117, %116 ]
   %171 = add i64 %.0.i, %110
   %172 = zext i64 %171 to i128
   %173 = mul nuw i128 %172, 11376068507788127593

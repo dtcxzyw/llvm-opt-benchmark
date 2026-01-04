@@ -77,7 +77,7 @@ define i32 @ff_mov_iso639_to_lang(ptr noundef readonly captures(none) %0, i32 no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %10, %.loopexit.loopexit44, %.critedge
-  %.027 = phi i32 [ -1, %.critedge ], [ %19, %.loopexit.loopexit44 ], [ %18, %14 ], [ -1, %10 ]
+  %.027 = phi i32 [ %19, %.loopexit.loopexit44 ], [ -1, %.critedge ], [ -1, %10 ], [ %18, %14 ]
   ret i32 %.027
 }
 
@@ -122,7 +122,7 @@ define range(i32 0, 2) i32 @ff_mov_lang_to_iso639(i32 noundef %0, ptr noundef wr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %12, %10, %16
-  %.014 = phi i32 [ 1, %16 ], [ 0, %10 ], [ 0, %12 ], [ 1, %.preheader ]
+  %.014 = phi i32 [ 0, %10 ], [ 0, %12 ], [ 1, %16 ], [ 1, %.preheader ]
   ret i32 %.014
 }
 
@@ -402,7 +402,7 @@ ff_mp4_read_descr.exit:                           ; preds = %20, %21
   br label %94
 
 94:                                               ; preds = %.sink.split, %ff_mp4_read_descr.exit, %37, %33, %31, %29
-  %.049 = phi i32 [ 0, %29 ], [ -1094995529, %31 ], [ %35, %33 ], [ 0, %37 ], [ 0, %ff_mp4_read_descr.exit ], [ %.049.ph, %.sink.split ]
+  %.049 = phi i32 [ 0, %37 ], [ 0, %29 ], [ -1094995529, %31 ], [ %35, %33 ], [ 0, %ff_mp4_read_descr.exit ], [ %.049.ph, %.sink.split ]
   ret i32 %.049
 }
 

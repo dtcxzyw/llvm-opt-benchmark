@@ -491,7 +491,7 @@ switch.lookup:                                    ; preds = %4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %7, %7, %22, %26, %13, %17, %31
-  %.sink.shrunk = phi i1 [ false, %31 ], [ true, %13 ], [ %21, %17 ], [ false, %22 ], [ %30, %26 ], [ true, %7 ], [ true, %7 ], [ %switch.masked, %switch.lookup ]
+  %.sink.shrunk = phi i1 [ %21, %17 ], [ false, %31 ], [ %30, %26 ], [ %switch.masked, %switch.lookup ], [ true, %7 ], [ true, %7 ], [ true, %13 ], [ false, %22 ]
   %.sink = zext i1 %.sink.shrunk to i8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i8 %.sink, ptr %32, align 8, !tbaa !53
@@ -1401,7 +1401,7 @@ define void @_ZN6icu_7716RBBITableBuilder15buildStateTableEv(ptr noundef nonnull
   store i32 7, ptr %14, align 4, !tbaa !17
   br label %.thread157
 
-.thread170:                                       ; preds = %.thread154.thread.thread, %27, %32, %.thread126, %.thread164
+.thread170:                                       ; preds = %.thread154.thread.thread, %.thread126, %27, %32, %.thread164
   tail call void @_ZN6icu_7719RBBIStateDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #13
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %12) #13
   br label %.thread157
@@ -1916,7 +1916,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %37, %44
   ret void
 
 66:                                               ; preds = %.loopexit22, %.loopexit.split-lp, %52, %54
-  %.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %53, %52 ], [ %lpad.loopexit, %.loopexit22 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %55, %54 ], [ %lpad.loopexit, %.loopexit22 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_777UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn
@@ -2811,7 +2811,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit40.us.us: ; preds = %48, %_ZNK6icu_779UV
   br i1 %74, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !111
 
 .loopexit:                                        ; preds = %.critedge.split, %.critedge.split.us.us, %._crit_edge.us.us, %2
-  %75 = phi i1 [ false, %2 ], [ true, %._crit_edge.us.us ], [ false, %.critedge.split.us.us ], [ false, %.critedge.split ]
+  %75 = phi i1 [ true, %._crit_edge.us.us ], [ false, %2 ], [ false, %.critedge.split.us.us ], [ false, %.critedge.split ]
   ret i1 %75
 }
 
@@ -3050,7 +3050,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit54.us.us: ; preds = %47, %_ZNK6icu_779UV
   br i1 %99, label %.lr.ph.split, label %.thread, !llvm.loop !113
 
 .thread:                                          ; preds = %._crit_edge.split, %94, %._crit_edge.split.us.us, %65, %2
-  %100 = phi i1 [ false, %2 ], [ true, %65 ], [ false, %._crit_edge.split.us.us ], [ true, %94 ], [ false, %._crit_edge.split ]
+  %100 = phi i1 [ false, %._crit_edge.split.us.us ], [ true, %65 ], [ false, %2 ], [ true, %94 ], [ false, %._crit_edge.split ]
   ret i1 %100
 }
 
@@ -3206,7 +3206,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48:       ; preds = %_ZNK6icu_7713Unicod
   br i1 %exitcond.not, label %.critedge52, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, !llvm.loop !119
 
 .thread:                                          ; preds = %81, %76, %55, %60
-  %85 = phi i32 [ %53, %60 ], [ %53, %55 ], [ %74, %76 ], [ %74, %81 ]
+  %85 = phi i32 [ %53, %55 ], [ %53, %60 ], [ %74, %76 ], [ %74, %81 ]
   %storemerge.in73 = phi i32 [ %56, %55 ], [ %61, %60 ], [ %82, %81 ], [ %77, %76 ]
   %storemerge = add nsw i32 %storemerge.in73, 1
   store i32 %storemerge, ptr %10, align 4, !tbaa !109
@@ -3221,7 +3221,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48:       ; preds = %_ZNK6icu_7713Unicod
   br i1 %87, label %11, label %.critedge52, !llvm.loop !121
 
 .critedge52:                                      ; preds = %.critedge, %.lr.ph110, %84, %63, %2
-  %88 = phi i1 [ false, %2 ], [ true, %63 ], [ true, %84 ], [ true, %.lr.ph110 ], [ false, %.critedge ]
+  %88 = phi i1 [ true, %.lr.ph110 ], [ true, %63 ], [ true, %84 ], [ false, %2 ], [ false, %.critedge ]
   ret i1 %88
 }
 
@@ -4131,7 +4131,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %72, %69, %._crit_ed
   ret void
 
 _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit117: ; preds = %74, %156, %162, %124, %106, %99, %93, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit113, %.split.us.split.us.split.us, %.split145.us.split.us.split.us, %.split148.us.split.us.split.us, %65
-  %.pn104.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %62, %.split148.us.split.us.split.us ], [ %61, %.split145.us.split.us.split.us ], [ %60, %.split.us.split.us.split.us ], [ %75, %74 ], [ %107, %106 ], [ %125, %124 ], [ %163, %162 ], [ %100, %99 ], [ %157, %156 ], [ %95, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit113 ], [ %94, %93 ]
+  %.pn104.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %60, %.split.us.split.us.split.us ], [ %62, %.split148.us.split.us.split.us ], [ %61, %.split145.us.split.us.split.us ], [ %75, %74 ], [ %94, %93 ], [ %157, %156 ], [ %107, %106 ], [ %125, %124 ], [ %100, %99 ], [ %163, %162 ], [ %95, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit113 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn104.pn.pn

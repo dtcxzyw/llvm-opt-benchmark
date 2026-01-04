@@ -426,7 +426,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i: ; preds = %_ZNKS
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25.i: ; preds = %125, %120, %116, %111, %109
-  %.pn.i = phi { ptr, i32 } [ %110, %109 ], [ %112, %111 ], [ %112, %116 ], [ %121, %120 ], [ %121, %125 ]
+  %.pn.i = phi { ptr, i32 } [ %112, %116 ], [ %110, %109 ], [ %112, %111 ], [ %121, %120 ], [ %121, %125 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %140
 

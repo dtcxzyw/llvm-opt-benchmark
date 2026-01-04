@@ -229,7 +229,7 @@ define internal fastcc void @mi_segment_cache_purge(i1 noundef zeroext %0, ptr n
   br i1 %53, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %52, %.split
-  %.252 = phi i64 [ %.057, %.split ], [ %41, %52 ]
+  %.252 = phi i64 [ %41, %52 ], [ %.057, %.split ]
   %54 = add nuw nsw i64 %.03755, 1
   %55 = add i64 %spec.store.select, 1
   %exitcond.not = icmp eq i64 %54, %6
@@ -564,7 +564,7 @@ define hidden zeroext i1 @mi_is_in_heap_region(ptr noundef %0) local_unnamed_add
   br label %mi_is_valid_pointer.exit
 
 mi_is_valid_pointer.exit:                         ; preds = %1, %6, %15, %20, %28, %29, %40
-  %.0.i.i = phi i1 [ false, %1 ], [ true, %6 ], [ false, %15 ], [ false, %20 ], [ false, %29 ], [ %.not51.i.i, %40 ], [ false, %28 ]
+  %.0.i.i = phi i1 [ false, %1 ], [ false, %15 ], [ true, %6 ], [ %.not51.i.i, %40 ], [ false, %28 ], [ false, %20 ], [ false, %29 ]
   ret i1 %.0.i.i
 }
 

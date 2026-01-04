@@ -820,7 +820,7 @@ _ZN7QStringD2Ev.exit132:                          ; preds = %200, %_ZN17QArrayDa
   unreachable
 
 215:                                              ; preds = %176, %172, %166, %199, %170, %._crit_edge
-  %.048 = phi ptr [ %125, %._crit_edge ], [ %171, %170 ], [ %194, %199 ], [ %167, %166 ], [ %173, %172 ], [ %177, %176 ]
+  %.048 = phi ptr [ %173, %172 ], [ %194, %199 ], [ %125, %._crit_edge ], [ %177, %176 ], [ %171, %170 ], [ %167, %166 ]
   %.not69 = icmp eq ptr %.048, null
   br i1 %.not69, label %.thread, label %216
 
@@ -829,11 +829,11 @@ _ZN7QStringD2Ev.exit132:                          ; preds = %200, %_ZN17QArrayDa
   br label %.thread
 
 .thread:                                          ; preds = %93, %26, %4, %4, %215, %216, %112, %_ZN7QStringD2Ev.exit85
-  %.0 = phi ptr [ %40, %_ZN7QStringD2Ev.exit85 ], [ %111, %112 ], [ %.048, %216 ], [ null, %215 ], [ null, %4 ], [ null, %4 ], [ null, %26 ], [ null, %93 ]
+  %.0 = phi ptr [ %40, %_ZN7QStringD2Ev.exit85 ], [ %111, %112 ], [ %.048, %216 ], [ null, %215 ], [ null, %26 ], [ null, %93 ], [ null, %4 ], [ null, %4 ]
   ret ptr %.0
 
 217:                                              ; preds = %140, %_ZN7QStringD2Ev.exit121, %213, %178, %174, %168, %123, %_ZN7QStringD2Ev.exit97
-  %.pn72.pn.pn = phi { ptr, i32 } [ %.pn72.pn, %_ZN7QStringD2Ev.exit97 ], [ %.pn67, %123 ], [ %169, %168 ], [ %175, %174 ], [ %179, %178 ], [ %.pn.pn.pn, %213 ], [ %eh.lpad-body, %_ZN7QStringD2Ev.exit121 ], [ %141, %140 ]
+  %.pn72.pn.pn = phi { ptr, i32 } [ %.pn72.pn, %_ZN7QStringD2Ev.exit97 ], [ %.pn67, %123 ], [ %.pn.pn.pn, %213 ], [ %169, %168 ], [ %175, %174 ], [ %179, %178 ], [ %eh.lpad-body, %_ZN7QStringD2Ev.exit121 ], [ %141, %140 ]
   resume { ptr, i32 } %.pn72.pn.pn
 }
 

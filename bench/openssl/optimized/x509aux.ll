@@ -66,7 +66,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %8
 
 8:                                                ; preds = %3, %6, %2
-  %.0 = phi i32 [ 1, %6 ], [ 0, %2 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 

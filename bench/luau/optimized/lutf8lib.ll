@@ -183,13 +183,13 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
   br i1 %67, label %.preheader47, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %63, %.critedge2, %.critedge2.thread, %.preheader48
-  %.036 = phi i32 [ %.23851, %.preheader48 ], [ %48, %.critedge2.thread ], [ %54, %.critedge2 ], [ %.238, %63 ]
-  %.1 = phi i32 [ %23, %.preheader48 ], [ 0, %.critedge2.thread ], [ %indvars.le, %.critedge2 ], [ %64, %63 ]
+  %.036 = phi i32 [ %48, %.critedge2.thread ], [ %54, %.critedge2 ], [ %.23851, %.preheader48 ], [ %.238, %63 ]
+  %.1 = phi i32 [ 0, %.critedge2.thread ], [ %indvars.le, %.critedge2 ], [ %23, %.preheader48 ], [ %64, %63 ]
   %68 = icmp eq i32 %.036, 0
   br i1 %68, label %.critedge.thread, label %.critedge.thread84
 
-.critedge.thread:                                 ; preds = %31, %.lr.ph, %.preheader, %.critedge
-  %.183 = phi i32 [ %.1, %.critedge ], [ 0, %.preheader ], [ 0, %31 ], [ %.059, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %31, %.preheader, %.critedge
+  %.183 = phi i32 [ %.1, %.critedge ], [ 0, %.preheader ], [ %.059, %.lr.ph ], [ 0, %31 ]
   %69 = add nuw nsw i32 %.183, 1
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %69)
   br label %70

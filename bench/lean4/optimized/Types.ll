@@ -2182,7 +2182,7 @@ lean_alloc_ctor.exit212:                          ; preds = %l___private_Lean_La
   br label %346
 
 346:                                              ; preds = %lean_alloc_ctor.exit212, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit180, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit, %lean_dec.exit119, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %0, %lean_dec.exit119 ], [ %53, %lean_alloc_ctor.exit ], [ %340, %lean_alloc_ctor.exit212 ], [ %0, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit180 ], [ %0, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit ]
+  %.1 = phi ptr [ %53, %lean_alloc_ctor.exit ], [ %0, %lean_dec.exit119 ], [ %340, %lean_alloc_ctor.exit212 ], [ %0, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit180 ], [ %0, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit ]
   ret ptr %.1
 }
 
@@ -3111,7 +3111,7 @@ lean_alloc_ctor.exit220:                          ; preds = %l___private_Lean_La
   br label %342
 
 342:                                              ; preds = %lean_alloc_ctor.exit220, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit188, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit, %lean_dec.exit123, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %1, %lean_dec.exit123 ], [ %52, %lean_alloc_ctor.exit ], [ %336, %lean_alloc_ctor.exit220 ], [ %1, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit188 ], [ %1, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit ]
+  %.1 = phi ptr [ %52, %lean_alloc_ctor.exit ], [ %1, %lean_dec.exit123 ], [ %336, %lean_alloc_ctor.exit220 ], [ %1, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit188 ], [ %1, %l___private_Lean_Language_Lean_Types_0__Lean_Language_Lean_pushOpt___rarg.exit ]
   ret ptr %.1
 }
 

@@ -1034,7 +1034,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %60
   br label %79
 
 79:                                               ; preds = %33, %46, %78, %69
-  %.pn28.pn.pn = phi { ptr, i32 } [ %.pn.pn, %78 ], [ %70, %69 ], [ %.pn28, %46 ], [ %34, %33 ]
+  %.pn28.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %.pn.pn, %78 ], [ %.pn28, %46 ], [ %34, %33 ]
   %80 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #26
   resume { ptr, i32 } %.pn28.pn.pn
 
@@ -2744,8 +2744,8 @@ define void @_ZN7Imf_3_49InputFile4Data10fillBufferENS_11FrameBuffer13ConstItera
   %59 = select i1 %49, i16 0, i16 %54
   %60 = or disjoint i16 %23, %59
   %spec.select = or disjoint i16 %60, 31744
-  %spec.select.. = select i1 %39, i16 %spec.select, i16 %., !prof !107
   %spec.select69 = select i1 %25, i16 %23, i16 %spec.select56
+  %spec.select.. = select i1 %39, i16 %spec.select, i16 %., !prof !107
   %.0.i.i = select i1 %24, i16 %spec.select.., i16 %spec.select69
   br label %66
 
@@ -3424,7 +3424,7 @@ _ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4less
           to label %60 unwind label %73
 
 60:                                               ; preds = %58, %56, %53, %48, %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43
-  %.sink12.i.i36 = phi ptr [ %40, %48 ], [ %40, %53 ], [ %40, %56 ], [ %40, %58 ], [ %59, %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43 ]
+  %.sink12.i.i36 = phi ptr [ %40, %58 ], [ %40, %48 ], [ %40, %53 ], [ %40, %56 ], [ %59, %_ZNSt8_Rb_treeIN7Imf_3_44NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43 ]
   %61 = getelementptr inbounds nuw i8, ptr %.050, i64 32
   %62 = getelementptr inbounds nuw i8, ptr %.sink12.i.i36, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %62, ptr noundef nonnull align 8 dereferenceable(312) %61, i64 312, i1 false)

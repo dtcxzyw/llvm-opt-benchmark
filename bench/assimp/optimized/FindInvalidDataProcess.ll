@@ -591,7 +591,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %104, %105
   ret void
 
 109:                                              ; preds = %95, %87, %82, %80, %72
-  %.merged48 = phi { ptr, i32 } [ %73, %72 ], [ %83, %82 ], [ %88, %87 ], [ %81, %80 ], [ %96, %95 ]
+  %.merged48 = phi { ptr, i32 } [ %96, %95 ], [ %73, %72 ], [ %83, %82 ], [ %81, %80 ], [ %88, %87 ]
   %.not.i.i.i50 = icmp eq ptr %19, null
   br i1 %.not.i.i.i50, label %_ZNSt6vectorIjSaIjEED2Ev.exit51, label %110
 
@@ -811,7 +811,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i:  ; preds = %_ZNK10aiVector3tIfE
   br label %99
 
 99:                                               ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us.i, %87
-  %.237.us.us.i = phi i1 [ %.03552.us.us.i, %87 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i ], [ %.03552.us.us.i, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us.i ]
+  %.237.us.us.i = phi i1 [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i ], [ %.03552.us.us.i, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us.i ], [ %.03552.us.us.i, %87 ]
   %indvars.iv.next184.i = add nuw nsw i64 %indvars.iv183.i, 1
   %exitcond186.not.i = icmp eq i64 %indvars.iv.next184.i, %wide.trip.count185.i
   br i1 %exitcond186.not.i, label %.thread.i, label %.lr.ph.split.us.split.us.i, !llvm.loop !11
@@ -880,8 +880,8 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i:  ; preds = %_ZNK10aiVector3tIfE
   br label %134
 
 134:                                              ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i, %122, %.lr.ph.split.split.us.i
-  %.237.us110.i = phi i1 [ %.03552.us101.i, %.lr.ph.split.split.us.i ], [ %.03552.us101.i, %122 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i ], [ %.03552.us101.i, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i ]
-  %.234.us111.i = phi i32 [ %.03253.us100.i, %.lr.ph.split.split.us.i ], [ %107, %122 ], [ %107, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i ], [ %107, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i ]
+  %.237.us110.i = phi i1 [ %.03552.us101.i, %.lr.ph.split.split.us.i ], [ %.03552.us101.i, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i ], [ %.03552.us101.i, %122 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i ]
+  %.234.us111.i = phi i32 [ %.03253.us100.i, %.lr.ph.split.split.us.i ], [ %107, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i ], [ %107, %122 ], [ %107, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i ]
   %indvars.iv.next176.i = add nuw nsw i64 %indvars.iv175.i, 1
   %exitcond178.not.i = icmp eq i64 %indvars.iv.next176.i, %wide.trip.count185.i
   br i1 %exitcond178.not.i, label %.thread.i, label %.lr.ph.split.split.us.i, !llvm.loop !11
@@ -894,7 +894,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i:  ; preds = %_ZNK10aiVector3tIfE
   br i1 %or.cond.i, label %.thread.i.thread, label %.loopexit313
 
 .loopexit313:                                     ; preds = %117, %112, %106, %.lr.ph.split.us.split.us.i, %77, %82, %.thread.i
-  %.ph = phi ptr [ @.str.22, %.thread.i ], [ @.str.20, %82 ], [ @.str.20, %77 ], [ @.str.20, %.lr.ph.split.us.split.us.i ], [ @.str.20, %106 ], [ @.str.20, %112 ], [ @.str.20, %117 ]
+  %.ph = phi ptr [ @.str.20, %.lr.ph.split.us.split.us.i ], [ @.str.22, %.thread.i ], [ @.str.20, %82 ], [ @.str.20, %77 ], [ @.str.20, %106 ], [ @.str.20, %112 ], [ @.str.20, %117 ]
   store ptr %.ph, ptr %12, align 8
   %136 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
           to label %.noexc98 unwind label %143
@@ -1025,7 +1025,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i176: ; preds = %_ZNK10aiVector3tI
   br label %191
 
 191:                                              ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i176, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us.i171, %179
-  %.237.us.us.i173 = phi i1 [ %.03552.us.us.i168, %179 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i176 ], [ %.03552.us.us.i168, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us.i171 ]
+  %.237.us.us.i173 = phi i1 [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i176 ], [ %.03552.us.us.i168, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us.i171 ], [ %.03552.us.us.i168, %179 ]
   %indvars.iv.next184.i174 = add nuw nsw i64 %indvars.iv183.i167, 1
   %exitcond186.not.i175 = icmp eq i64 %indvars.iv.next184.i174, %wide.trip.count185.i143
   br i1 %exitcond186.not.i175, label %.thread.i155, label %.lr.ph.split.us.split.us.i166, !llvm.loop !11
@@ -1094,8 +1094,8 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i164: ; preds = %_ZNK10aiVector3tI
   br label %226
 
 226:                                              ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i164, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i162, %214, %.lr.ph.split.split.us.i145
-  %.237.us110.i151 = phi i1 [ %.03552.us101.i148, %.lr.ph.split.split.us.i145 ], [ %.03552.us101.i148, %214 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i164 ], [ %.03552.us101.i148, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i162 ]
-  %.234.us111.i152 = phi i32 [ %.03253.us100.i147, %.lr.ph.split.split.us.i145 ], [ %199, %214 ], [ %199, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i164 ], [ %199, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i162 ]
+  %.237.us110.i151 = phi i1 [ %.03552.us101.i148, %.lr.ph.split.split.us.i145 ], [ %.03552.us101.i148, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i162 ], [ %.03552.us101.i148, %214 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i164 ]
+  %.234.us111.i152 = phi i32 [ %.03253.us100.i147, %.lr.ph.split.split.us.i145 ], [ %199, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i162 ], [ %199, %214 ], [ %199, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i164 ]
   %indvars.iv.next176.i153 = add nuw nsw i64 %indvars.iv175.i146, 1
   %exitcond178.not.i154 = icmp eq i64 %indvars.iv.next176.i153, %wide.trip.count185.i143
   br i1 %exitcond178.not.i154, label %.thread.i155, label %.lr.ph.split.split.us.i145, !llvm.loop !11
@@ -1108,7 +1108,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i164: ; preds = %_ZNK10aiVector3tI
   br i1 %or.cond.i158, label %.thread.i155.thread, label %.loopexit309
 
 .loopexit309:                                     ; preds = %209, %204, %198, %.lr.ph.split.us.split.us.i166, %169, %174, %.thread.i155
-  %.ph264 = phi ptr [ @.str.22, %.thread.i155 ], [ @.str.20, %174 ], [ @.str.20, %169 ], [ @.str.20, %.lr.ph.split.us.split.us.i166 ], [ @.str.20, %198 ], [ @.str.20, %204 ], [ @.str.20, %209 ]
+  %.ph264 = phi ptr [ @.str.20, %.lr.ph.split.us.split.us.i166 ], [ @.str.22, %.thread.i155 ], [ @.str.20, %174 ], [ @.str.20, %169 ], [ @.str.20, %198 ], [ @.str.20, %204 ], [ @.str.20, %209 ]
   store ptr %.ph264, ptr %10, align 8
   %228 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
           to label %.noexc102 unwind label %234
@@ -1381,7 +1381,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i214: ; preds = %_ZNK10aiVector3tI
   br label %341
 
 341:                                              ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i214, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us.i209, %329
-  %.237.us.us.i211 = phi i1 [ %.03552.us.us.i206, %329 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i214 ], [ %.03552.us.us.i206, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us.i209 ]
+  %.237.us.us.i211 = phi i1 [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i214 ], [ %.03552.us.us.i206, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us.i209 ], [ %.03552.us.us.i206, %329 ]
   %indvars.iv.next184.i212 = add nuw nsw i64 %indvars.iv183.i205, 1
   %exitcond186.not.i213 = icmp eq i64 %indvars.iv.next184.i212, %wide.trip.count185.i181
   br i1 %exitcond186.not.i213, label %.thread.i193, label %.lr.ph.split.us.split.us.i204, !llvm.loop !11
@@ -1450,8 +1450,8 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i202: ; preds = %_ZNK10aiVector3tI
   br label %376
 
 376:                                              ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i202, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i200, %364, %.lr.ph.split.split.us.i183
-  %.237.us110.i189 = phi i1 [ %.03552.us101.i186, %.lr.ph.split.split.us.i183 ], [ %.03552.us101.i186, %364 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i202 ], [ %.03552.us101.i186, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i200 ]
-  %.234.us111.i190 = phi i32 [ %.03253.us100.i185, %.lr.ph.split.split.us.i183 ], [ %349, %364 ], [ %349, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i202 ], [ %349, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i200 ]
+  %.237.us110.i189 = phi i1 [ %.03552.us101.i186, %.lr.ph.split.split.us.i183 ], [ %.03552.us101.i186, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i200 ], [ %.03552.us101.i186, %364 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i202 ]
+  %.234.us111.i190 = phi i32 [ %.03253.us100.i185, %.lr.ph.split.split.us.i183 ], [ %349, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i200 ], [ %349, %364 ], [ %349, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i202 ]
   %indvars.iv.next176.i191 = add nuw nsw i64 %indvars.iv175.i184, 1
   %exitcond178.not.i192 = icmp eq i64 %indvars.iv.next176.i191, %wide.trip.count185.i181
   br i1 %exitcond178.not.i192, label %.thread.i193, label %.lr.ph.split.split.us.i183, !llvm.loop !11
@@ -1464,7 +1464,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i202: ; preds = %_ZNK10aiVector3tI
   br i1 %or.cond.i196, label %.thread.i193.thread, label %.loopexit304
 
 .loopexit304:                                     ; preds = %359, %354, %348, %.lr.ph.split.us.split.us.i204, %319, %324, %.thread.i193
-  %.ph271 = phi ptr [ @.str.22, %.thread.i193 ], [ @.str.20, %324 ], [ @.str.20, %319 ], [ @.str.20, %.lr.ph.split.us.split.us.i204 ], [ @.str.20, %348 ], [ @.str.20, %354 ], [ @.str.20, %359 ]
+  %.ph271 = phi ptr [ @.str.20, %.lr.ph.split.us.split.us.i204 ], [ @.str.22, %.thread.i193 ], [ @.str.20, %324 ], [ @.str.20, %319 ], [ @.str.20, %348 ], [ @.str.20, %354 ], [ @.str.20, %359 ]
   store ptr %.ph271, ptr %6, align 8
   %378 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
           to label %.noexc120 unwind label %143
@@ -1584,7 +1584,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i252: ; preds = %_ZNK10aiVector3tI
   br label %428
 
 428:                                              ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i252, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us.i247, %416
-  %.237.us.us.i249 = phi i1 [ %.03552.us.us.i244, %416 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i252 ], [ %.03552.us.us.i244, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us.i247 ]
+  %.237.us.us.i249 = phi i1 [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us.i252 ], [ %.03552.us.us.i244, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us.i247 ], [ %.03552.us.us.i244, %416 ]
   %indvars.iv.next184.i250 = add nuw nsw i64 %indvars.iv183.i243, 1
   %exitcond186.not.i251 = icmp eq i64 %indvars.iv.next184.i250, %wide.trip.count185.i219
   br i1 %exitcond186.not.i251, label %.thread.i231, label %.lr.ph.split.us.split.us.i242, !llvm.loop !11
@@ -1653,8 +1653,8 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i240: ; preds = %_ZNK10aiVector3tI
   br label %463
 
 463:                                              ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i240, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i238, %451, %.lr.ph.split.split.us.i221
-  %.237.us110.i227 = phi i1 [ %.03552.us101.i224, %.lr.ph.split.split.us.i221 ], [ %.03552.us101.i224, %451 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i240 ], [ %.03552.us101.i224, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i238 ]
-  %.234.us111.i228 = phi i32 [ %.03253.us100.i223, %.lr.ph.split.split.us.i221 ], [ %436, %451 ], [ %436, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i240 ], [ %436, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i238 ]
+  %.237.us110.i227 = phi i1 [ %.03552.us101.i224, %.lr.ph.split.split.us.i221 ], [ %.03552.us101.i224, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i238 ], [ %.03552.us101.i224, %451 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i240 ]
+  %.234.us111.i228 = phi i32 [ %.03253.us100.i223, %.lr.ph.split.split.us.i221 ], [ %436, %_ZNK10aiVector3tIfEneERKS0_.exit.us107.i238 ], [ %436, %451 ], [ %436, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i240 ]
   %indvars.iv.next176.i229 = add nuw nsw i64 %indvars.iv175.i222, 1
   %exitcond178.not.i230 = icmp eq i64 %indvars.iv.next176.i229, %wide.trip.count185.i219
   br i1 %exitcond178.not.i230, label %.thread.i231, label %.lr.ph.split.split.us.i221, !llvm.loop !11
@@ -1667,7 +1667,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us109.i240: ; preds = %_ZNK10aiVector3tI
   br i1 %or.cond.i234, label %.thread.i231.thread, label %.loopexit
 
 .loopexit:                                        ; preds = %446, %441, %435, %.lr.ph.split.us.split.us.i242, %406, %411, %.thread.i231
-  %.ph278 = phi ptr [ @.str.22, %.thread.i231 ], [ @.str.20, %411 ], [ @.str.20, %406 ], [ @.str.20, %.lr.ph.split.us.split.us.i242 ], [ @.str.20, %435 ], [ @.str.20, %441 ], [ @.str.20, %446 ]
+  %.ph278 = phi ptr [ @.str.20, %.lr.ph.split.us.split.us.i242 ], [ @.str.22, %.thread.i231 ], [ @.str.20, %411 ], [ @.str.20, %406 ], [ @.str.20, %435 ], [ @.str.20, %441 ], [ @.str.20, %446 ]
   store ptr %.ph278, ptr %4, align 8
   %465 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
           to label %.noexc125 unwind label %143
@@ -1729,7 +1729,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %474, %476
   ret i32 %.0
 
 484:                                              ; preds = %234, %143
-  %.pn92 = phi { ptr, i32 } [ %144, %143 ], [ %235, %234 ]
+  %.pn92 = phi { ptr, i32 } [ %235, %234 ], [ %144, %143 ]
   %485 = load ptr, ptr %13, align 8
   %.not.i.i129 = icmp eq ptr %485, null
   br i1 %.not.i.i129, label %.body, label %486
@@ -2336,7 +2336,7 @@ _Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit:       ; preds = %.preheader29.i, %.p
   br label %.thread
 
 .thread:                                          ; preds = %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i, %35, %25, %_ZNK11aiVectorKeyneERKS_.exit.i, %58, %50, %2, %8, %12, %_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit
-  %.0 = phi i32 [ 1, %_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit ], [ 0, %12 ], [ 0, %8 ], [ 0, %2 ], [ 0, %50 ], [ 0, %58 ], [ 0, %_ZNK11aiVectorKeyneERKS_.exit.i ], [ 0, %25 ], [ 0, %35 ], [ 0, %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i ]
+  %.0 = phi i32 [ 1, %_Z12AllIdenticalI11aiVectorKeyEbPT_jf.exit ], [ 0, %8 ], [ 0, %2 ], [ 0, %12 ], [ 0, %_ZNK11aiVectorKeyneERKS_.exit.i ], [ 0, %50 ], [ 0, %58 ], [ 0, %25 ], [ 0, %35 ], [ 0, %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i ]
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 1040
   %71 = load i32, ptr %70, align 8
   %72 = icmp ugt i32 %71, 1
@@ -2452,7 +2452,7 @@ _Z12AllIdenticalI9aiQuatKeyEbPT_jf.exit:          ; preds = %.preheader29.i35, %
   br label %_Z12AllIdenticalI9aiQuatKeyEbPT_jf.exit.thread
 
 _Z12AllIdenticalI9aiQuatKeyEbPT_jf.exit.thread:   ; preds = %_Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f.exit.i, %100, %92, %80, %_ZNK9aiQuatKeyneERKS_.exit.i, %129, %123, %113, %_Z12AllIdenticalI9aiQuatKeyEbPT_jf.exit, %.thread
-  %.1 = phi i32 [ 1, %_Z12AllIdenticalI9aiQuatKeyEbPT_jf.exit ], [ %.0, %.thread ], [ %.0, %113 ], [ %.0, %123 ], [ %.0, %129 ], [ %.0, %_ZNK9aiQuatKeyneERKS_.exit.i ], [ %.0, %80 ], [ %.0, %92 ], [ %.0, %100 ], [ %.0, %_Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f.exit.i ]
+  %.1 = phi i32 [ 1, %_Z12AllIdenticalI9aiQuatKeyEbPT_jf.exit ], [ %.0, %.thread ], [ %.0, %_ZNK9aiQuatKeyneERKS_.exit.i ], [ %.0, %113 ], [ %.0, %123 ], [ %.0, %129 ], [ %.0, %80 ], [ %.0, %92 ], [ %.0, %100 ], [ %.0, %_Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f.exit.i ]
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 1056
   %140 = load i32, ptr %139, align 8
   %141 = icmp ugt i32 %140, 1
@@ -2984,8 +2984,8 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
   resume { ptr, i32 } %47
 
 _ZNKSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS2_EEPNS4_10_Hash_nodeIS2_Lb0EEEmRKT_m.exit: ; preds = %33, %19, %.critedge, %28
-  %.sroa.031.1 = phi ptr [ %29, %28 ], [ %46, %.critedge ], [ %.sroa.028.0, %19 ], [ %35, %33 ]
-  %.sroa.432.1 = phi i8 [ 0, %28 ], [ 1, %.critedge ], [ 0, %19 ], [ 0, %33 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.0, %19 ], [ %46, %.critedge ], [ %29, %28 ], [ %35, %33 ]
+  %.sroa.432.1 = phi i8 [ 0, %19 ], [ 1, %.critedge ], [ 0, %28 ], [ 0, %33 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -3285,7 +3285,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us:    ; preds = %_ZNK10aiVector3tIfE
   br label %44
 
 44:                                               ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us, %31
-  %.237.us.us = phi i1 [ %.03552.us.us, %31 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us ], [ %.03552.us.us, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us ]
+  %.237.us.us = phi i1 [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us ], [ %.03552.us.us, %_ZNK10aiVector3tIfEneERKS0_.exit.us.us ], [ %.03552.us.us, %31 ]
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count185
   br i1 %exitcond186.not, label %.thread, label %.lr.ph.split.us.split.us, !llvm.loop !11
@@ -3350,7 +3350,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us:       ; preds = %_ZNK10aiVector3tIfE
   br label %76
 
 76:                                               ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us, %_ZNK10aiVector3tIfEneERKS0_.exit.us, %63
-  %.237.us = phi i1 [ %.03552.us, %63 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us ], [ %.03552.us, %_ZNK10aiVector3tIfEneERKS0_.exit.us ]
+  %.237.us = phi i1 [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us ], [ %.03552.us, %_ZNK10aiVector3tIfEneERKS0_.exit.us ], [ %.03552.us, %63 ]
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count185
   br i1 %exitcond182.not, label %.thread, label %.lr.ph.split.us.split, !llvm.loop !11
@@ -3423,8 +3423,8 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread.us109:    ; preds = %_ZNK10aiVector3tIfE
   br label %112
 
 112:                                              ; preds = %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109, %_ZNK10aiVector3tIfEneERKS0_.exit.us107, %99, %.lr.ph.split.split.us
-  %.237.us110 = phi i1 [ %.03552.us101, %.lr.ph.split.split.us ], [ %.03552.us101, %99 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109 ], [ %.03552.us101, %_ZNK10aiVector3tIfEneERKS0_.exit.us107 ]
-  %.234.us111 = phi i32 [ %.03253.us100, %.lr.ph.split.split.us ], [ %84, %99 ], [ %84, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109 ], [ %84, %_ZNK10aiVector3tIfEneERKS0_.exit.us107 ]
+  %.237.us110 = phi i1 [ %.03552.us101, %.lr.ph.split.split.us ], [ %.03552.us101, %_ZNK10aiVector3tIfEneERKS0_.exit.us107 ], [ %.03552.us101, %99 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109 ]
+  %.234.us111 = phi i32 [ %.03253.us100, %.lr.ph.split.split.us ], [ %84, %_ZNK10aiVector3tIfEneERKS0_.exit.us107 ], [ %84, %99 ], [ %84, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us109 ]
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count185
   br i1 %exitcond178.not, label %.thread, label %.lr.ph.split.split.us, !llvm.loop !11
@@ -3502,8 +3502,8 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread:          ; preds = %140, %145, %_ZNK10a
   br label %152
 
 152:                                              ; preds = %139, %_ZNK10aiVector3tIfEneERKS0_.exit, %_ZNK10aiVector3tIfEneERKS0_.exit.thread, %.lr.ph.split.split
-  %.237 = phi i1 [ %.03552, %.lr.ph.split.split ], [ %.03552, %139 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread ], [ %.03552, %_ZNK10aiVector3tIfEneERKS0_.exit ]
-  %.234 = phi i32 [ %.03253, %.lr.ph.split.split ], [ %120, %139 ], [ %120, %_ZNK10aiVector3tIfEneERKS0_.exit.thread ], [ %120, %_ZNK10aiVector3tIfEneERKS0_.exit ]
+  %.237 = phi i1 [ %.03552, %.lr.ph.split.split ], [ %.03552, %_ZNK10aiVector3tIfEneERKS0_.exit ], [ %.03552, %139 ], [ true, %_ZNK10aiVector3tIfEneERKS0_.exit.thread ]
+  %.234 = phi i32 [ %.03253, %.lr.ph.split.split ], [ %120, %_ZNK10aiVector3tIfEneERKS0_.exit ], [ %120, %139 ], [ %120, %_ZNK10aiVector3tIfEneERKS0_.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count185
   br i1 %exitcond.not, label %.thread, label %.lr.ph.split.split, !llvm.loop !11
@@ -3517,8 +3517,8 @@ _ZNK10aiVector3tIfEneERKS0_.exit.thread:          ; preds = %140, %145, %_ZNK10a
   %..str.22 = select i1 %or.cond4, ptr null, ptr @.str.22
   br label %.loopexit
 
-.loopexit:                                        ; preds = %135, %119, %125, %130, %83, %89, %94, %54, %49, %.lr.ph.split.us.split, %59, %26, %21, %.lr.ph.split.us.split.us, %.thread
-  %154 = phi ptr [ %..str.22, %.thread ], [ @.str.20, %.lr.ph.split.us.split.us ], [ @.str.20, %21 ], [ @.str.20, %26 ], [ @.str.21, %59 ], [ @.str.20, %.lr.ph.split.us.split ], [ @.str.20, %49 ], [ @.str.20, %54 ], [ @.str.20, %94 ], [ @.str.20, %89 ], [ @.str.20, %83 ], [ @.str.20, %130 ], [ @.str.20, %125 ], [ @.str.20, %119 ], [ @.str.21, %135 ]
+.loopexit:                                        ; preds = %135, %125, %130, %119, %89, %83, %94, %.lr.ph.split.us.split, %54, %49, %59, %.lr.ph.split.us.split.us, %26, %21, %.thread
+  %154 = phi ptr [ %..str.22, %.thread ], [ @.str.20, %.lr.ph.split.us.split.us ], [ @.str.20, %.lr.ph.split.us.split ], [ @.str.20, %89 ], [ @.str.20, %21 ], [ @.str.20, %26 ], [ @.str.21, %59 ], [ @.str.20, %49 ], [ @.str.20, %54 ], [ @.str.20, %94 ], [ @.str.20, %83 ], [ @.str.20, %119 ], [ @.str.20, %130 ], [ @.str.21, %135 ], [ @.str.20, %125 ]
   ret ptr %154
 }
 

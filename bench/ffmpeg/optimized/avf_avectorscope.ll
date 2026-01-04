@@ -115,7 +115,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   br label %15
 
 15:                                               ; preds = %11, %8, %3
-  %.0 = phi i32 [ %6, %3 ], [ %9, %8 ], [ %., %11 ]
+  %.0 = phi i32 [ %9, %8 ], [ %6, %3 ], [ %., %11 ]
   ret i32 %.0
 }
 
@@ -338,7 +338,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph234.i, !llvm.loop !68
 
 .loopexit.i:                                      ; preds = %.lr.ph234.i, %.lr.ph237.i, %.preheader.i, %.preheader228.i, %96
-  %.1189.i = phi nsz float [ 0.000000e+00, %96 ], [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader228.i ], [ %..0188.i, %.lr.ph237.i ], [ %121, %.lr.ph234.i ]
+  %.1189.i = phi nsz float [ 0.000000e+00, %96 ], [ %..0188.i, %.lr.ph237.i ], [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader228.i ], [ %121, %.lr.ph234.i ]
   %122 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %123 = load i32, ptr %122, align 8, !tbaa !69
   switch i32 %123, label %132 [
@@ -1118,7 +1118,7 @@ filter_frame.exit:                                ; preds = %59, %89, %._crit_ed
   br label %622
 
 622:                                              ; preds = %617, %15, %.critedge34, %.critedge, %621, %614, %filter_frame.exit
-  %.125 = phi i32 [ %.0.i, %filter_frame.exit ], [ 0, %614 ], [ 0, %621 ], [ 0, %617 ], [ 0, %15 ], [ %18, %.critedge ], [ -1497649742, %.critedge34 ]
+  %.125 = phi i32 [ 0, %15 ], [ %.0.i, %filter_frame.exit ], [ 0, %614 ], [ 0, %621 ], [ %18, %.critedge ], [ 0, %617 ], [ -1497649742, %.critedge34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.125
 }

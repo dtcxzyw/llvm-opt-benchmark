@@ -80,7 +80,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
   unreachable
 
 common.resume:                                    ; preds = %42, %29, %48, %22
-  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %43, %42 ], [ %30, %29 ], [ %43, %48 ]
+  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %43, %48 ], [ %43, %42 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h00d3d7638698e9ffE.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h1774aaa6362465c8E.exit"
@@ -188,7 +188,7 @@ default.unreachable15:                            ; preds = %22, %8
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %10
-  %.sroa.6.0 = phi i64 [ %12, %10 ], [ 1, %8 ]
+  %.sroa.6.0 = phi i64 [ 1, %8 ], [ %12, %10 ]
   %13 = tail call noundef i64 @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3len17h682c8f28e584a57eE"(ptr noundef nonnull align 128 %1)
   %14 = sub i64 %.sroa.6.0, %13
   %.0.sroa.speculated.i = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.umin.i64(i64 range(i64 1, -9223372036854775808) %7, i64 %14)
@@ -284,7 +284,7 @@ define hidden noundef nonnull ptr @_ZN14async_executor8Executor5spawn17hf84ee7fa
 9:                                                ; preds = %"_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h41e61eb678c80758E.exit"
   br i1 %.2, label %.body.thread, label %120
 
-.body.thread34:                                   ; preds = %2, %15, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit, %19, %_ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exit.i
+.body.thread34:                                   ; preds = %19, %_ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exit.i, %15, %2, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -358,8 +358,8 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
           to label %39 unwind label %37
 
 "_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h41e61eb678c80758E.exit": ; preds = %117, %44, %118, %116, %37
-  %.2 = phi i1 [ false, %116 ], [ false, %118 ], [ false, %44 ], [ true, %37 ], [ false, %117 ]
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body22, %116 ], [ %119, %118 ], [ %45, %44 ], [ %38, %37 ], [ %eh.lpad-body22, %117 ]
+  %.2 = phi i1 [ true, %37 ], [ false, %116 ], [ false, %118 ], [ false, %44 ], [ false, %117 ]
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %eh.lpad-body22, %116 ], [ %119, %118 ], [ %45, %44 ], [ %eh.lpad-body22, %117 ]
   invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$std..sync..mutex..MutexGuard$LT$slab..Slab$LT$core..task..wake..Waker$GT$$GT$$GT$17h0933420ef6e14d74E"(ptr nonnull %12, i8 %.0.i.i.i) #18
           to label %9 unwind label %114
 
@@ -585,11 +585,11 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %110, %_ZN
           to label %"_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h41e61eb678c80758E.exit" unwind label %114
 
 120:                                              ; preds = %.body.thread, %9
-  %.pn1130 = phi { ptr, i32 } [ %.pn1131, %.body.thread ], [ %.pn, %9 ]
+  %.pn1130 = phi { ptr, i32 } [ %.pn, %9 ], [ %.pn1131, %.body.thread ]
   resume { ptr, i32 } %.pn1130
 
 .body.thread:                                     ; preds = %28, %.body.thread34, %9
-  %.pn1131 = phi { ptr, i32 } [ %.pn, %9 ], [ %lpad.thr_comm, %.body.thread34 ], [ %29, %28 ]
+  %.pn1131 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread34 ], [ %.pn, %9 ], [ %29, %28 ]
   invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$async_process..driver..$u7b$$u7b$closure$u7d$$u7d$$GT$17h05edc3988c341cf1E"(ptr noundef nonnull align 8 %1) #18
           to label %120 unwind label %114
 }

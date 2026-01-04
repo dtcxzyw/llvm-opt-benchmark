@@ -149,7 +149,7 @@ define noundef ptr @fdt_get_string(ptr noundef %0, i32 noundef %1, ptr noundef w
   br label %109
 
 109:                                              ; preds = %86, %107, %47
-  %.039.in = phi i32 [ %27, %47 ], [ %spec.select, %107 ], [ %spec.select54, %86 ]
+  %.039.in = phi i32 [ %spec.select, %107 ], [ %spec.select54, %86 ], [ %27, %47 ]
   %.039 = zext nneg i32 %.039.in to i64
   %110 = zext nneg i32 %23 to i64
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 %110
@@ -169,7 +169,7 @@ define noundef ptr @fdt_get_string(ptr noundef %0, i32 noundef %1, ptr noundef w
   br label %.sink.split
 
 119:                                              ; preds = %26, %109, %88, %90, %67, %45, %25, %3
-  %.040 = phi i32 [ %4, %3 ], [ -4, %25 ], [ -4, %45 ], [ -4, %67 ], [ -4, %88 ], [ -4, %90 ], [ -8, %109 ], [ -13, %26 ]
+  %.040 = phi i32 [ %4, %3 ], [ -4, %25 ], [ -4, %45 ], [ -4, %67 ], [ -13, %26 ], [ -4, %88 ], [ -4, %90 ], [ -8, %109 ]
   %.not53 = icmp eq ptr %2, null
   br i1 %.not53, label %120, label %.sink.split
 
@@ -225,7 +225,7 @@ define range(i32 -2147483648, 1) i32 @fdt_find_max_phandle(ptr noundef %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %10, %11
-  %.2 = phi i32 [ 0, %11 ], [ 0, %10 ], [ %.lcssa, %._crit_edge ]
+  %.2 = phi i32 [ 0, %10 ], [ 0, %11 ], [ %.lcssa, %._crit_edge ]
   ret i32 %.2
 }
 
@@ -443,7 +443,7 @@ fdt_find_max_phandle.exit.thread15:               ; preds = %._crit_edge.i.threa
   br label %fdt_find_max_phandle.exit.thread
 
 fdt_find_max_phandle.exit.thread:                 ; preds = %._crit_edge.i, %._crit_edge.i.thread, %fdt_find_max_phandle.exit.thread15, %12, %fdt_find_max_phandle.exit
-  %.0 = phi i32 [ -17, %fdt_find_max_phandle.exit ], [ 0, %12 ], [ 0, %fdt_find_max_phandle.exit.thread15 ], [ %3, %._crit_edge.i.thread ], [ %9, %._crit_edge.i ]
+  %.0 = phi i32 [ -17, %fdt_find_max_phandle.exit ], [ 0, %fdt_find_max_phandle.exit.thread15 ], [ 0, %12 ], [ %3, %._crit_edge.i.thread ], [ %9, %._crit_edge.i ]
   ret i32 %.0
 }
 
@@ -595,7 +595,7 @@ define range(i32 -2147483648, 1) i32 @fdt_get_mem_rsv(ptr noundef %0, i32 nounde
   br label %fdt_mem_rsv.exit.thread
 
 fdt_mem_rsv.exit.thread:                          ; preds = %29, %7, %4, %51
-  %.1 = phi i32 [ 0, %51 ], [ %5, %4 ], [ -4, %7 ], [ -4, %29 ]
+  %.1 = phi i32 [ 0, %51 ], [ %5, %4 ], [ -4, %29 ], [ -4, %7 ]
   ret i32 %.1
 }
 
@@ -826,7 +826,7 @@ fdt_nodename_eq_.exit.thread:                     ; preds = %22, %42, %62, %69, 
   br label %fdt_nodename_eq_.exit.thread17
 
 fdt_nodename_eq_.exit.thread17:                   ; preds = %70, %fdt_nodename_eq_.exit, %8, %._crit_edge.loopexit, %4
-  %.1 = phi i32 [ %6, %4 ], [ %1, %8 ], [ %81, %._crit_edge.loopexit ], [ %.01323, %fdt_nodename_eq_.exit ], [ %.01323, %70 ]
+  %.1 = phi i32 [ %6, %4 ], [ %81, %._crit_edge.loopexit ], [ %1, %8 ], [ %.01323, %fdt_nodename_eq_.exit ], [ %.01323, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
@@ -977,7 +977,7 @@ fdt_get_alias_namelen.exit:                       ; preds = %15
   br i1 %87, label %.thread, label %72, !llvm.loop !14
 
 .thread:                                          ; preds = %79, %72, %76, %11, %fdt_get_alias_namelen.exit, %3
-  %.148 = phi i32 [ %7, %3 ], [ -5, %fdt_get_alias_namelen.exit ], [ -5, %11 ], [ %.252, %76 ], [ %86, %79 ], [ %.252, %72 ]
+  %.148 = phi i32 [ -5, %11 ], [ %7, %3 ], [ %.252, %76 ], [ -5, %fdt_get_alias_namelen.exit ], [ %86, %79 ], [ %.252, %72 ]
   ret i32 %.148
 }
 
@@ -1333,7 +1333,7 @@ fdt_get_property_by_offset_.exit.sink.split:      ; preds = %27, %50, %23
   br label %fdt_get_property_by_offset_.exit
 
 fdt_get_property_by_offset_.exit:                 ; preds = %fdt_get_property_by_offset_.exit.sink.split, %28, %27, %23
-  %.0 = phi ptr [ null, %23 ], [ null, %27 ], [ %49, %28 ], [ %.0.ph, %fdt_get_property_by_offset_.exit.sink.split ]
+  %.0 = phi ptr [ null, %23 ], [ %49, %28 ], [ null, %27 ], [ %.0.ph, %fdt_get_property_by_offset_.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -1573,7 +1573,7 @@ fdt_next_property_offset.exit:                    ; preds = %94
   br label %.thread54.thread
 
 .thread54.thread:                                 ; preds = %30, %89, %88, %.thread54, %.thread54.thread60
-  %.2 = phi ptr [ null, %.thread54.thread60 ], [ null, %.thread54 ], [ %48, %89 ], [ %48, %88 ], [ null, %30 ]
+  %.2 = phi ptr [ null, %.thread54 ], [ null, %.thread54.thread60 ], [ %48, %89 ], [ %48, %88 ], [ null, %30 ]
   ret ptr %.2
 }
 
@@ -1854,7 +1854,7 @@ fdt_get_property_by_offset_.exit.thread29:        ; preds = %9, %fdt_get_propert
   br label %fdt_get_property_by_offset_.exit.thread
 
 fdt_get_property_by_offset_.exit.thread:          ; preds = %8, %.thread, %fdt_get_property_by_offset_.exit.thread33, %116, %114
-  %.0 = phi ptr [ %115, %114 ], [ %117, %116 ], [ null, %fdt_get_property_by_offset_.exit.thread33 ], [ null, %.thread ], [ null, %8 ]
+  %.0 = phi ptr [ %115, %114 ], [ %117, %116 ], [ null, %.thread ], [ null, %fdt_get_property_by_offset_.exit.thread33 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -2191,7 +2191,7 @@ define range(i32 -2147483648, 1) i32 @fdt_get_path(ptr noundef %0, i32 noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %52, %72, %10, %99, %._crit_edge70, %90, %8, %4, %92
-  %.1 = phi i32 [ 0, %92 ], [ %6, %4 ], [ -3, %8 ], [ -3, %90 ], [ -4, %._crit_edge70 ], [ %..042, %99 ], [ -4, %10 ], [ %50, %32 ], [ %53, %52 ], [ -11, %72 ]
+  %.1 = phi i32 [ %6, %4 ], [ -3, %8 ], [ 0, %92 ], [ -4, %._crit_edge70 ], [ -3, %90 ], [ %..042, %99 ], [ -4, %10 ], [ %53, %52 ], [ -11, %72 ], [ %50, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
@@ -2253,7 +2253,7 @@ define i32 @fdt_supernode_atdepth_offset(ptr noundef %0, i32 noundef %1, i32 nou
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %10, %21, %._crit_edge, %17, %8, %4
-  %.1 = phi i32 [ %6, %4 ], [ -1, %8 ], [ %.spec.select, %17 ], [ -4, %._crit_edge ], [ %..025, %21 ], [ -4, %10 ]
+  %.1 = phi i32 [ %6, %4 ], [ %.spec.select, %17 ], [ -1, %8 ], [ -4, %._crit_edge ], [ %..025, %21 ], [ -4, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
@@ -2300,8 +2300,8 @@ define i32 @fdt_node_depth(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %..025.i = select i1 %16, i32 -11, i32 %14
   br label %fdt_supernode_atdepth_offset.exit.thread
 
-fdt_supernode_atdepth_offset.exit.thread:         ; preds = %2, %._crit_edge.i, %15, %6, %11
-  %.1.i.ph = phi i32 [ -4, %6 ], [ %..025.i, %15 ], [ -4, %._crit_edge.i ], [ %4, %2 ], [ -1, %11 ]
+fdt_supernode_atdepth_offset.exit.thread:         ; preds = %2, %6, %._crit_edge.i, %15, %11
+  %.1.i.ph = phi i32 [ %4, %2 ], [ %..025.i, %15 ], [ -4, %._crit_edge.i ], [ -4, %6 ], [ -1, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 
@@ -2362,7 +2362,7 @@ define i32 @fdt_parent_offset(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %fdt_supernode_atdepth_offset.exit.thread.i
 
 fdt_supernode_atdepth_offset.exit.thread.i:       ; preds = %16, %._crit_edge.i.i, %12, %7, %2
-  %.1.i.ph.i = phi i32 [ -4, %7 ], [ %..025.i.i, %16 ], [ -4, %._crit_edge.i.i ], [ %5, %2 ], [ -1, %12 ]
+  %.1.i.ph.i = phi i32 [ %5, %2 ], [ %..025.i.i, %16 ], [ -4, %._crit_edge.i.i ], [ -4, %7 ], [ -1, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %fdt_node_depth.exit.thread
 
@@ -2415,7 +2415,7 @@ fdt_node_depth.exit:                              ; preds = %fdt_supernode_atdep
   br label %fdt_supernode_atdepth_offset.exit
 
 fdt_supernode_atdepth_offset.exit:                ; preds = %fdt_node_depth.exit, %26, %._crit_edge.i, %30
-  %.1.i = phi i32 [ %.mux, %fdt_node_depth.exit ], [ %.spec.select.i, %26 ], [ -4, %._crit_edge.i ], [ %..025.i, %30 ]
+  %.1.i = phi i32 [ %.mux, %fdt_node_depth.exit ], [ %.spec.select.i, %26 ], [ %..025.i, %30 ], [ -4, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %fdt_node_depth.exit.thread
 
@@ -2823,7 +2823,7 @@ define i32 @fdt_stringlist_search(ptr noundef %0, i32 noundef %1, ptr noundef re
   br i1 %79, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph, %75, %77, %56, %54
-  %.0 = phi i32 [ %55, %54 ], [ -1, %56 ], [ -15, %.lr.ph ], [ %.02026, %75 ], [ -1, %77 ]
+  %.0 = phi i32 [ %55, %54 ], [ -1, %56 ], [ %.02026, %75 ], [ -15, %.lr.ph ], [ -1, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -2952,8 +2952,8 @@ define noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not31, label %81, label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %79, %76, %56
-  %.sink61 = phi i32 [ %57, %56 ], [ -15, %76 ], [ %80, %79 ], [ -1, %._crit_edge ]
-  %.0.ph = phi ptr [ null, %56 ], [ null, %76 ], [ %.02443, %79 ], [ null, %._crit_edge ]
+  %.sink61 = phi i32 [ %80, %79 ], [ -15, %76 ], [ %57, %56 ], [ -1, %._crit_edge ]
+  %.0.ph = phi ptr [ %.02443, %79 ], [ null, %76 ], [ null, %56 ], [ null, %._crit_edge ]
   store i32 %.sink61, ptr %4, align 4, !tbaa !6
   br label %81
 
@@ -3104,7 +3104,7 @@ define i32 @fdt_node_offset_by_compatible(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %12, %6, %3
-  %.1 = phi i32 [ %4, %3 ], [ %7, %6 ], [ %9, %.lr.ph ], [ %.01921, %10 ], [ %13, %12 ]
+  %.1 = phi i32 [ %4, %3 ], [ %7, %6 ], [ %.01921, %10 ], [ %9, %.lr.ph ], [ %13, %12 ]
   ret i32 %.1
 }
 
@@ -3283,7 +3283,7 @@ fdt_num_mem_rsv.exit:                             ; preds = %.fdt_num_mem_rsv.ex
   br i1 %115, label %fdt_num_mem_rsv.exit.thread, label %.lr.ph
 
 fdt_num_mem_rsv.exit.thread:                      ; preds = %.split.i, %92, %fdt_num_mem_rsv.exit, %101, %104, %.lr.ph, %fdt_num_mem_rsv.exit.preheader, %100, %9, %7, %2, %110
-  %.0 = phi i32 [ %111, %110 ], [ -8, %2 ], [ %8, %7 ], [ -8, %9 ], [ %., %100 ], [ %90, %fdt_num_mem_rsv.exit.preheader ], [ %114, %fdt_num_mem_rsv.exit ], [ -11, %101 ], [ -11, %104 ], [ -13, %.lr.ph ], [ -8, %92 ], [ -8, %.split.i ]
+  %.0 = phi i32 [ %111, %110 ], [ -8, %2 ], [ %8, %7 ], [ -8, %9 ], [ %., %100 ], [ %90, %fdt_num_mem_rsv.exit.preheader ], [ -13, %.lr.ph ], [ -11, %104 ], [ %114, %fdt_num_mem_rsv.exit ], [ -11, %101 ], [ -8, %92 ], [ -8, %.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -1539,15 +1539,15 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %138 = and i8 %84, 15
   br label %.loopexit910.thread
 
-.loopexit910.thread:                              ; preds = %99, %.loopexit910.loopexit
-  %.0795.ph.in.in = phi i8 [ %84, %.loopexit910.loopexit ], [ %101, %99 ]
-  %.0792.ph = phi i8 [ %138, %.loopexit910.loopexit ], [ %84, %99 ]
+.loopexit910.thread:                              ; preds = %.loopexit910.loopexit, %99
+  %.0795.ph.in.in = phi i8 [ %101, %99 ], [ %84, %.loopexit910.loopexit ]
+  %.0792.ph = phi i8 [ %84, %99 ], [ %138, %.loopexit910.loopexit ]
   %.0795.ph.in = lshr i8 %.0795.ph.in.in, 4
   %.0795.ph = and i8 %.0795.ph.in, 3
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 336
   br label %175
 
-.loopexit910.thread983:                           ; preds = %98, %131
+.loopexit910.thread983:                           ; preds = %131, %98
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 336
   br label %145
 
@@ -1981,8 +1981,8 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   br i1 %.not843, label %431, label %.sink.split
 
 .sink.split:                                      ; preds = %426, %418, %416
-  %.sroa.0172.2.sink = phi i8 [ %.sroa.0172.0, %416 ], [ %.sroa.0172.0, %418 ], [ %.sroa.0172.2, %426 ]
-  %.sink1007 = phi i32 [ 5, %416 ], [ %421, %418 ], [ 5, %426 ]
+  %.sroa.0172.2.sink = phi i8 [ %.sroa.0172.0, %418 ], [ %.sroa.0172.0, %416 ], [ %.sroa.0172.2, %426 ]
+  %.sink1007 = phi i32 [ %421, %418 ], [ 5, %416 ], [ 5, %426 ]
   %428 = sub nsw i8 0, %.sroa.0172.2.sink
   %429 = and i8 %428, 48
   %430 = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -1990,7 +1990,7 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   br label %431
 
 431:                                              ; preds = %.sink.split, %426, %414
-  %.sroa.0172.1 = phi i8 [ %.sroa.0172.0, %414 ], [ %.sroa.0172.2, %426 ], [ %429, %.sink.split ]
+  %.sroa.0172.1 = phi i8 [ %.sroa.0172.2, %426 ], [ %.sroa.0172.0, %414 ], [ %429, %.sink.split ]
   %432 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %433 = load ptr, ptr %432, align 8, !tbaa !69
   %.not846 = icmp eq ptr %433, null
@@ -2205,9 +2205,9 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   br label %546
 
 546:                                              ; preds = %501, %528, %504, %467
-  %547 = phi i8 [ %.pre959, %501 ], [ %538, %528 ], [ %517, %504 ], [ %475, %467 ]
-  %548 = phi i8 [ %.pre957, %501 ], [ %534, %528 ], [ %512, %504 ], [ %472, %467 ]
-  %549 = phi i8 [ %.pre955, %501 ], [ %531, %528 ], [ %508, %504 ], [ %470, %467 ]
+  %547 = phi i8 [ %.pre959, %501 ], [ %538, %528 ], [ %475, %467 ], [ %517, %504 ]
+  %548 = phi i8 [ %.pre957, %501 ], [ %534, %528 ], [ %472, %467 ], [ %512, %504 ]
+  %549 = phi i8 [ %.pre955, %501 ], [ %531, %528 ], [ %470, %467 ], [ %508, %504 ]
   %550 = icmp eq i8 %549, 3
   %551 = icmp eq i8 %548, 3
   %or.cond = select i1 %550, i1 true, i1 %551
@@ -2980,7 +2980,7 @@ define void @stbvox_make_mesh_for_column(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %.not174, label %159, label %.critedge, !llvm.loop !84
 
 .critedge.sink.split:                             ; preds = %80, %144, %181
-  %indvars.iv227.lcssa.sink = phi i64 [ %indvars.iv227, %181 ], [ %indvars.iv224, %144 ], [ %indvars.iv, %80 ]
+  %indvars.iv227.lcssa.sink = phi i64 [ %indvars.iv224, %144 ], [ %indvars.iv227, %181 ], [ %indvars.iv, %80 ]
   %189 = trunc nsw i64 %indvars.iv227.lcssa.sink to i32
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 %189, ptr %190, align 8, !tbaa !85
@@ -3153,7 +3153,7 @@ stbvox_bring_up_to_date.exit._crit_edge:          ; preds = %stbvox_bring_up_to_
   br i1 %65, label %.lr.ph53.split, label %.loopexit, !llvm.loop !97
 
 .loopexit:                                        ; preds = %35, %._crit_edge, %.lr.ph53, %39, %stbvox_bring_up_to_date.exit._crit_edge, %56
-  %.042 = phi i32 [ 0, %56 ], [ 0, %stbvox_bring_up_to_date.exit._crit_edge ], [ 1, %39 ], [ 1, %.lr.ph53 ], [ 1, %._crit_edge ], [ 0, %35 ]
+  %.042 = phi i32 [ 1, %39 ], [ 0, %stbvox_bring_up_to_date.exit._crit_edge ], [ 0, %56 ], [ 1, %.lr.ph53 ], [ 1, %._crit_edge ], [ 0, %35 ]
   ret i32 %.042
 }
 

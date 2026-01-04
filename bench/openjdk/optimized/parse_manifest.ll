@@ -108,7 +108,7 @@ define hidden range(i32 -2, 1) i32 @JLI_ParseManifest(ptr noundef readonly captu
   br label %48
 
 48:                                               ; preds = %._crit_edge, %2, %19, %14
-  %.0 = phi i32 [ -2, %14 ], [ -2, %19 ], [ -1, %2 ], [ %., %._crit_edge ]
+  %.0 = phi i32 [ -1, %2 ], [ -2, %14 ], [ -2, %19 ], [ %., %._crit_edge ]
   ret i32 %.0
 }
 
@@ -454,7 +454,7 @@ find_positions.exit.thread.sink.split:            ; preds = %80, %44, %41
   br i1 %234, label %.lr.ph, label %.sink.split, !llvm.loop !9
 
 .sink.split:                                      ; preds = %217, %._crit_edge102, %104, %.preheader, %163, %160, %147, %88, %84, %find_positions.exit, %9, %12, %30, %33, %38, %find_positions.exit.thread.sink.split, %178
-  %.0.ph = phi i32 [ 0, %178 ], [ -1, %find_positions.exit.thread.sink.split ], [ -1, %38 ], [ -1, %33 ], [ -1, %30 ], [ -1, %12 ], [ -1, %9 ], [ -1, %find_positions.exit ], [ -1, %84 ], [ -1, %88 ], [ -1, %147 ], [ -1, %160 ], [ -1, %163 ], [ -1, %.preheader ], [ -1, %104 ], [ -1, %._crit_edge102 ], [ -1, %217 ]
+  %.0.ph = phi i32 [ -1, %160 ], [ 0, %178 ], [ -1, %147 ], [ -1, %9 ], [ -1, %.preheader ], [ -1, %88 ], [ -1, %84 ], [ -1, %find_positions.exit ], [ -1, %163 ], [ -1, %find_positions.exit.thread.sink.split ], [ -1, %38 ], [ -1, %33 ], [ -1, %30 ], [ -1, %12 ], [ -1, %104 ], [ -1, %._crit_edge102 ], [ -1, %217 ]
   tail call void @free(ptr noundef %7) #14
   br label %235
 
@@ -596,7 +596,7 @@ define internal fastcc noundef ptr @inflate_file(i32 noundef range(i32 0, -1) %0
   br label %69
 
 69:                                               ; preds = %64, %65, %29, %33, %16, %11, %3, %8, %68, %63, %55, %48, %42, %25
-  %.0 = phi ptr [ null, %25 ], [ null, %42 ], [ null, %48 ], [ null, %55 ], [ null, %63 ], [ null, %68 ], [ null, %8 ], [ null, %3 ], [ null, %11 ], [ null, %16 ], [ %19, %33 ], [ %19, %29 ], [ %46, %65 ], [ %46, %64 ]
+  %.0 = phi ptr [ null, %68 ], [ null, %3 ], [ null, %11 ], [ null, %25 ], [ null, %16 ], [ null, %42 ], [ null, %48 ], [ null, %55 ], [ null, %63 ], [ %19, %29 ], [ null, %8 ], [ %19, %33 ], [ %46, %65 ], [ %46, %64 ]
   ret ptr %.0
 }
 
@@ -719,7 +719,7 @@ define internal fastcc range(i32 -1, 2) i32 @parse_nv_pair(ptr noundef nonnull c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %42, %38, %3, %3, %3, %45
-  %.037 = phi i32 [ 1, %45 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ -1, %38 ], [ -1, %42 ], [ -1, %22 ]
+  %.037 = phi i32 [ 0, %3 ], [ -1, %42 ], [ -1, %38 ], [ 1, %45 ], [ 0, %3 ], [ 0, %3 ], [ -1, %22 ]
   ret i32 %.037
 }
 
@@ -820,7 +820,7 @@ define range(i32 -2, 1) i32 @JLI_ManifestIterate(ptr noundef readonly captures(n
   br label %29
 
 29:                                               ; preds = %3, %._crit_edge, %17, %12
-  %.0 = phi i32 [ -2, %12 ], [ -2, %17 ], [ %28, %._crit_edge ], [ -1, %3 ]
+  %.0 = phi i32 [ %28, %._crit_edge ], [ -2, %12 ], [ -2, %17 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -994,7 +994,7 @@ is_zip64_endhdr.exit:                             ; preds = %125
   %.not50 = icmp eq i8 %128, 0
   br i1 %.not50, label %is_zip64_endhdr.exit.thread, label %152
 
-is_zip64_endhdr.exit.thread:                      ; preds = %68, %125, %122, %83, %is_zip64_endhdr.exit
+is_zip64_endhdr.exit.thread:                      ; preds = %68, %83, %122, %125, %is_zip64_endhdr.exit
   %129 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %130 = load i16, ptr %129, align 16
   %131 = zext i16 %130 to i64
@@ -1221,7 +1221,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @is_zip64_endhdr(i32 noundef ra
   br label %86
 
 86:                                               ; preds = %6, %84, %21, %78, %81
-  %.0 = phi i8 [ %85, %84 ], [ 0, %21 ], [ 0, %78 ], [ 0, %81 ], [ 0, %6 ]
+  %.0 = phi i8 [ %85, %84 ], [ 0, %81 ], [ 0, %78 ], [ 0, %21 ], [ 0, %6 ]
   ret i8 %.0
 }
 
@@ -1321,7 +1321,7 @@ readAt.exit14:                                    ; preds = %45
   br label %readAt.exit.thread
 
 readAt.exit.thread:                               ; preds = %32, %45, %11, %13, %9, %64, %49, %readAt.exit14, %17, %readAt.exit, %4
-  %71 = phi i8 [ 0, %4 ], [ 1, %9 ], [ 0, %49 ], [ 0, %readAt.exit14 ], [ 0, %17 ], [ 0, %readAt.exit ], [ %70, %64 ], [ 0, %13 ], [ 0, %11 ], [ 0, %45 ], [ 0, %32 ]
+  %71 = phi i8 [ 0, %4 ], [ 1, %9 ], [ 0, %49 ], [ 0, %readAt.exit14 ], [ 0, %17 ], [ 0, %readAt.exit ], [ %70, %64 ], [ 0, %11 ], [ 0, %13 ], [ 0, %45 ], [ 0, %32 ]
   ret i8 %71
 }
 

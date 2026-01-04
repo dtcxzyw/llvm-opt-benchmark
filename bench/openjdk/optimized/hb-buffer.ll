@@ -1022,7 +1022,7 @@ _ZN11hb_buffer_t13shift_forwardEj.exit.thread:    ; preds = %_ZN11hb_buffer_t6en
   br label %_ZN11hb_buffer_t13make_room_forEjj.exit
 
 _ZN11hb_buffer_t13make_room_forEjj.exit:          ; preds = %_ZN11hb_buffer_t6ensureEj.exit.i23, %_ZN11hb_buffer_t6ensureEj.exit.i, %39, %96, %55, %8, %6
-  %.0 = phi i1 [ true, %6 ], [ false, %8 ], [ true, %55 ], [ true, %96 ], [ true, %39 ], [ false, %_ZN11hb_buffer_t6ensureEj.exit.i ], [ false, %_ZN11hb_buffer_t6ensureEj.exit.i23 ]
+  %.0 = phi i1 [ false, %_ZN11hb_buffer_t6ensureEj.exit.i ], [ false, %8 ], [ true, %39 ], [ true, %6 ], [ true, %55 ], [ true, %96 ], [ false, %_ZN11hb_buffer_t6ensureEj.exit.i23 ]
   ret i1 %.0
 }
 
@@ -1409,7 +1409,7 @@ _ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit: ; preds = %63, %64
   br i1 %70, label %53, label %.critedge4, !llvm.loop !29
 
 .critedge4:                                       ; preds = %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit, %53, %.critedge2.thread, %.critedge2
-  %.033.lcssa80 = phi i32 [ %.033.lcssa81, %.critedge2.thread ], [ %.033.lcssa, %.critedge2 ], [ %.033.lcssa81, %53 ], [ %.033.lcssa81, %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit ]
+  %.033.lcssa80 = phi i32 [ %.033.lcssa, %.critedge2 ], [ %.033.lcssa81, %.critedge2.thread ], [ %.033.lcssa81, %53 ], [ %.033.lcssa81, %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit ]
   %71 = icmp ult i32 %.034, %.033.lcssa80
   br i1 %71, label %.lr.ph56.preheader, label %.loopexit
 
@@ -1640,8 +1640,8 @@ _ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit: ; preds = %36
   br label %.critedge
 
 .critedge:                                        ; preds = %36, %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit, %.thread, %47, %25, %19, %58
-  %indvars.iv.next55.pre-phi = phi i64 [ %17, %.thread ], [ %17, %47 ], [ %17, %25 ], [ %17, %19 ], [ %.pre, %58 ], [ %17, %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit ], [ %17, %36 ]
-  %.1 = phi i32 [ 0, %.thread ], [ 0, %47 ], [ %.03550, %25 ], [ %.03550, %19 ], [ %59, %58 ], [ %.03550, %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit ], [ %.03550, %36 ]
+  %indvars.iv.next55.pre-phi = phi i64 [ %17, %19 ], [ %.pre, %58 ], [ %17, %.thread ], [ %17, %47 ], [ %17, %25 ], [ %17, %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit ], [ %17, %36 ]
+  %.1 = phi i32 [ %.03550, %19 ], [ %59, %58 ], [ 0, %.thread ], [ 0, %47 ], [ %.03550, %25 ], [ %.03550, %_ZN11hb_buffer_t11set_clusterER15hb_glyph_info_tjj.exit ], [ %.03550, %36 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next55.pre-phi, %7
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !33
 
@@ -1948,7 +1948,7 @@ _ZL17hb_object_destroyI11hb_buffer_tEbPT_.exit:   ; preds = %10, %7
   tail call void @free(ptr noundef nonnull %0) #27
   br label %_ZL17hb_object_destroyI11hb_buffer_tEbPT_.exit.thread
 
-_ZL17hb_object_destroyI11hb_buffer_tEbPT_.exit.thread: ; preds = %1, %5, %2, %25
+_ZL17hb_object_destroyI11hb_buffer_tEbPT_.exit.thread: ; preds = %1, %2, %5, %25
   ret void
 }
 
@@ -2005,7 +2005,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_set_user_data(ptr noundef captures(
   br label %_ZL23hb_object_set_user_dataI11hb_buffer_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit
 
 _ZL23hb_object_set_user_dataI11hb_buffer_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit: ; preds = %.lr.ph.i, %5, %6, %.split.loop.exit.i
-  %.015.i = phi i32 [ %22, %.split.loop.exit.i ], [ 0, %6 ], [ 0, %5 ], [ 0, %.lr.ph.i ]
+  %.015.i = phi i32 [ 0, %5 ], [ %22, %.split.loop.exit.i ], [ 0, %6 ], [ 0, %.lr.ph.i ]
   ret i32 %.015.i
 }
 
@@ -2061,7 +2061,7 @@ _ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i: ; preds = %17, %18, 
   br label %_ZL23hb_object_get_user_dataIK11hb_buffer_tEPvPT_P18hb_user_data_key_t.exit
 
 _ZL23hb_object_get_user_dataIK11hb_buffer_tEPvPT_P18hb_user_data_key_t.exit: ; preds = %2, %3, %5, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
-  %.0.i = phi ptr [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %2 ], [ null, %5 ]
+  %.0.i = phi ptr [ null, %2 ], [ %21, %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i ], [ null, %3 ], [ null, %5 ]
   ret ptr %.0.i
 }
 
@@ -3179,8 +3179,8 @@ _ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge: ; preds = %_ZN11h
   br label %_ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i
 
 _ZN13hb_utf16_xe_tItE4prevEPKtS2_Pjj.exit.i:      ; preds = %50, %44, %41, %35
-  %.sink.i.i = phi i32 [ %53, %50 ], [ %38, %35 ], [ %7, %44 ], [ %7, %41 ]
-  %.0.i.i = phi ptr [ %45, %50 ], [ %36, %35 ], [ %36, %44 ], [ %36, %41 ]
+  %.sink.i.i = phi i32 [ %38, %35 ], [ %53, %50 ], [ %7, %44 ], [ %7, %41 ]
+  %.0.i.i = phi ptr [ %36, %35 ], [ %45, %50 ], [ %36, %44 ], [ %36, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %54, ptr %31, align 8
@@ -5037,7 +5037,7 @@ define hidden range(i32 0, 256) i32 @hb_buffer_diff(ptr noundef readonly capture
   br i1 %exitcond112.not, label %.loopexit, label %77, !llvm.loop !78
 
 .loopexit:                                        ; preds = %109, %15, %.thread126, %.thread, %._crit_edge.loopexit108, %.split101.us, %107, %25, %12
-  %.064 = phi i32 [ 1, %12 ], [ 0, %25 ], [ %108, %107 ], [ %.us-phi102, %.split101.us ], [ 2, %15 ], [ %24, %._crit_edge.loopexit108 ], [ 0, %.thread ], [ 2, %.thread126 ], [ %.us-phi102, %109 ]
+  %.064 = phi i32 [ 1, %12 ], [ 2, %.thread126 ], [ 0, %25 ], [ %108, %107 ], [ %.us-phi102, %.split101.us ], [ 2, %15 ], [ %24, %._crit_edge.loopexit108 ], [ 0, %.thread ], [ %.us-phi102, %109 ]
   ret i32 %.064
 }
 
@@ -5557,7 +5557,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
   br i1 %exitcond.not.i83, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %.lr.ph.i78, !llvm.loop !83
 
 _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds = %.lr.ph.i78, %209, %195, %200, %191, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56, %.loopexit.thread, %.preheader55.i77, %.preheader.i84
-  %.013.i57129 = phi i32 [ %.013.i57.ph182, %.loopexit.thread ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.013.i57.ph182, %191 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %195 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
+  %.013.i57129 = phi i32 [ %.sroa.speculated.i, %195 ], [ %.013.i57.ph182, %.loopexit.thread ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i57.ph182, %191 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
   %215 = load ptr, ptr %122, align 8
   %216 = load i32, ptr %124, align 4
   %217 = icmp eq i32 %216, %.sroa.speculated
@@ -5800,9 +5800,9 @@ _ZN11hb_buffer_t13reverse_rangeEjj.exit:          ; preds = %.lr.ph.i10.i, %37, 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3, %._crit_edge.loopexit
-  %52 = phi i32 [ %48, %._crit_edge.loopexit ], [ %11, %3 ]
-  %.016.lcssa = phi i32 [ %.1, %._crit_edge.loopexit ], [ 0, %3 ]
-  %.0.lcssa = phi i32 [ %51, %._crit_edge.loopexit ], [ %11, %3 ]
+  %52 = phi i32 [ %11, %3 ], [ %48, %._crit_edge.loopexit ]
+  %.016.lcssa = phi i32 [ 0, %3 ], [ %.1, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ %11, %3 ], [ %51, %._crit_edge.loopexit ]
   %53 = sub i32 %.0.lcssa, %.016.lcssa
   %54 = icmp ugt i32 %53, 1
   %or.cond46.not = select i1 %2, i1 %54, i1 false
@@ -6264,7 +6264,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EE
   br label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
 
 _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %19, %17, %20, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
-  %.0 = phi ptr [ null, %20 ], [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ %16, %17 ], [ %16, %19 ]
+  %.0 = phi ptr [ %.0.i, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit ], [ null, %20 ], [ %16, %17 ], [ %16, %19 ]
   %43 = load i32, ptr %0, align 8
   %44 = icmp slt i32 %43, 0
   %45 = select i1 %44, ptr null, ptr %.0
@@ -6395,8 +6395,8 @@ define linkonce_odr hidden noundef ptr @_ZN9hb_utf8_t4nextEPKhS1_Pjj(ptr noundef
   br label %89
 
 89:                                               ; preds = %78, %50, %14, %12, %43, %37, %32, %27, %72, %66, %61, %54, %4, %19
-  %storemerge = phi i32 [ %22, %19 ], [ %7, %4 ], [ %3, %54 ], [ %3, %61 ], [ %3, %66 ], [ %3, %72 ], [ %3, %27 ], [ %3, %32 ], [ %3, %37 ], [ %3, %43 ], [ %3, %12 ], [ %3, %14 ], [ %spec.select, %50 ], [ %spec.select53, %78 ]
-  %.0 = phi ptr [ %23, %19 ], [ %5, %4 ], [ %5, %54 ], [ %5, %61 ], [ %5, %66 ], [ %5, %72 ], [ %5, %27 ], [ %5, %32 ], [ %5, %37 ], [ %5, %43 ], [ %5, %12 ], [ %5, %14 ], [ %spec.select52, %50 ], [ %spec.select54, %78 ]
+  %storemerge = phi i32 [ %7, %4 ], [ %22, %19 ], [ %3, %14 ], [ %3, %12 ], [ %3, %54 ], [ %3, %61 ], [ %3, %66 ], [ %3, %72 ], [ %spec.select53, %78 ], [ %3, %27 ], [ %3, %32 ], [ %3, %37 ], [ %3, %43 ], [ %spec.select, %50 ]
+  %.0 = phi ptr [ %5, %4 ], [ %23, %19 ], [ %5, %14 ], [ %5, %12 ], [ %5, %54 ], [ %5, %61 ], [ %5, %66 ], [ %5, %72 ], [ %spec.select54, %78 ], [ %5, %27 ], [ %5, %32 ], [ %5, %37 ], [ %5, %43 ], [ %spec.select52, %50 ]
   store i32 %storemerge, ptr %2, align 4
   ret ptr %.0
 }

@@ -104,7 +104,7 @@ define ptr @ossl_ackm_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br label %35
 
 35:                                               ; preds = %5, %._crit_edge, %23
-  %.0 = phi ptr [ null, %._crit_edge ], [ %6, %23 ], [ null, %5 ]
+  %.0 = phi ptr [ %6, %23 ], [ null, %._crit_edge ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -289,7 +289,7 @@ define range(i32 0, 2) i32 @ossl_ackm_on_tx_packet(ptr noundef captures(none) %0
   br label %tx_pkt_history_add.exit.thread
 
 tx_pkt_history_add.exit.thread:                   ; preds = %29, %32, %24, %20, %46, %70, %15, %2, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %2 ], [ 0, %15 ], [ 1, %70 ], [ 1, %46 ], [ 0, %20 ], [ 0, %24 ], [ 0, %32 ], [ 0, %29 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %2 ], [ 0, %29 ], [ 1, %46 ], [ 0, %10 ], [ 1, %70 ], [ 0, %20 ], [ 0, %24 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -2143,7 +2143,7 @@ range_contains.exit.thread.i.i:                   ; preds = %range_contains.exit
   br i1 %exitcond.not.i.i, label %ackm_is_missing.exit, label %.lr.ph.i.i, !llvm.loop !98
 
 ackm_is_missing.exit:                             ; preds = %range_contains.exit.i.i, %range_contains.exit.thread.i.i, %33, %39
-  %48 = phi i1 [ false, %39 ], [ false, %33 ], [ true, %range_contains.exit.thread.i.i ], [ false, %range_contains.exit.i.i ]
+  %48 = phi i1 [ false, %39 ], [ false, %33 ], [ false, %range_contains.exit.i.i ], [ true, %range_contains.exit.thread.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %34, ptr %5, align 8, !tbaa !79
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2380,7 +2380,7 @@ default.unreachable60:                            ; preds = %ackm_on_rx_ack_elic
   unreachable
 
 ossl_ackm_is_rx_pn_processable.exit.thread:       ; preds = %2, %rx_pkt_history_add_pn.exit, %138, %145, %152, %ackm_on_rx_ack_eliciting.exit, %ossl_ackm_is_rx_pn_processable.exit
-  %.0 = phi i32 [ 1, %ossl_ackm_is_rx_pn_processable.exit ], [ 0, %rx_pkt_history_add_pn.exit ], [ 1, %ackm_on_rx_ack_eliciting.exit ], [ 1, %152 ], [ 1, %145 ], [ 1, %138 ], [ 1, %2 ]
+  %.0 = phi i32 [ 0, %rx_pkt_history_add_pn.exit ], [ 1, %ossl_ackm_is_rx_pn_processable.exit ], [ 1, %ackm_on_rx_ack_eliciting.exit ], [ 1, %152 ], [ 1, %145 ], [ 1, %138 ], [ 1, %2 ]
   ret i32 %.0
 }
 

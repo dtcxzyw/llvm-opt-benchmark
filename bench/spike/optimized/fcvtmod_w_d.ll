@@ -211,8 +211,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32i_fcvtmod_w_
   br label %77
 
 77:                                               ; preds = %67, %58, %64, %69
-  %.163 = phi i64 [ %66, %64 ], [ %76, %69 ], [ 0, %58 ], [ 0, %67 ]
-  %.161 = phi i1 [ false, %64 ], [ %73, %69 ], [ false, %58 ], [ true, %67 ]
+  %.163 = phi i64 [ 0, %58 ], [ %66, %64 ], [ %76, %69 ], [ 0, %67 ]
+  %.161 = phi i1 [ false, %58 ], [ false, %64 ], [ %73, %69 ], [ true, %67 ]
   %78 = icmp samesign ult i32 %54, 1055
   %79 = select i1 %.not68, i64 2147483647, i64 2147483648
   %80 = icmp ule i64 %.163, %79
@@ -395,8 +395,8 @@ define noundef i64 @_Z22fast_rv64i_fcvtmod_w_dP11processor_t6insn_tm(ptr noundef
   br label %61
 
 61:                                               ; preds = %51, %42, %48, %53
-  %.159 = phi i64 [ %50, %48 ], [ %60, %53 ], [ 0, %42 ], [ 0, %51 ]
-  %.157 = phi i1 [ false, %48 ], [ %57, %53 ], [ false, %42 ], [ true, %51 ]
+  %.159 = phi i64 [ 0, %42 ], [ %50, %48 ], [ %60, %53 ], [ 0, %51 ]
+  %.157 = phi i1 [ false, %42 ], [ false, %48 ], [ %57, %53 ], [ true, %51 ]
   %62 = icmp samesign ult i32 %38, 1055
   %63 = select i1 %.not, i64 2147483647, i64 2147483648
   %64 = icmp ule i64 %.159, %63
@@ -587,8 +587,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32i_fcvtmod_
   br label %78
 
 78:                                               ; preds = %68, %59, %65, %70
-  %.166 = phi i64 [ %67, %65 ], [ %77, %70 ], [ 0, %59 ], [ 0, %68 ]
-  %.164 = phi i1 [ false, %65 ], [ %74, %70 ], [ false, %59 ], [ true, %68 ]
+  %.166 = phi i64 [ 0, %59 ], [ %67, %65 ], [ %77, %70 ], [ 0, %68 ]
+  %.164 = phi i1 [ false, %59 ], [ false, %65 ], [ %74, %70 ], [ true, %68 ]
   %79 = icmp samesign ult i32 %55, 1055
   %80 = select i1 %.not71, i64 2147483647, i64 2147483648
   %81 = icmp ule i64 %.166, %80
@@ -709,7 +709,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   br label %.thread.i
 
 .thread.i:                                        ; preds = %23, %21
-  %28 = phi i1 [ true, %21 ], [ %27, %23 ]
+  %28 = phi i1 [ %27, %23 ], [ true, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !41
@@ -847,8 +847,8 @@ define noundef i64 @_Z24logged_rv64i_fcvtmod_w_dP11processor_t6insn_tm(ptr nound
   br label %62
 
 62:                                               ; preds = %52, %43, %49, %54
-  %.162 = phi i1 [ false, %49 ], [ %58, %54 ], [ false, %43 ], [ true, %52 ]
-  %.1 = phi i64 [ %51, %49 ], [ %61, %54 ], [ 0, %43 ], [ 0, %52 ]
+  %.162 = phi i1 [ false, %43 ], [ false, %49 ], [ %58, %54 ], [ true, %52 ]
+  %.1 = phi i64 [ 0, %43 ], [ %51, %49 ], [ %61, %54 ], [ 0, %52 ]
   %63 = icmp samesign ult i32 %39, 1055
   %64 = select i1 %.not, i64 2147483647, i64 2147483648
   %65 = icmp ule i64 %.1, %64
@@ -1064,8 +1064,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32e_fcvtmod_w_
   br label %85
 
 85:                                               ; preds = %75, %66, %72, %77
-  %.173 = phi i64 [ %74, %72 ], [ %84, %77 ], [ 0, %66 ], [ 0, %75 ]
-  %.170 = phi i1 [ false, %72 ], [ %81, %77 ], [ false, %66 ], [ true, %75 ]
+  %.173 = phi i64 [ 0, %66 ], [ %74, %72 ], [ %84, %77 ], [ 0, %75 ]
+  %.170 = phi i1 [ false, %66 ], [ false, %72 ], [ %81, %77 ], [ true, %75 ]
   %86 = icmp samesign ult i32 %62, 1055
   %87 = select i1 %.not78, i64 2147483647, i64 2147483648
   %88 = icmp ule i64 %.173, %87
@@ -1244,8 +1244,8 @@ define noundef i64 @_Z22fast_rv64e_fcvtmod_w_dP11processor_t6insn_tm(ptr noundef
   br label %61
 
 61:                                               ; preds = %51, %42, %48, %53
-  %.161 = phi i64 [ %50, %48 ], [ %60, %53 ], [ 0, %42 ], [ 0, %51 ]
-  %.159 = phi i1 [ false, %48 ], [ %57, %53 ], [ false, %42 ], [ true, %51 ]
+  %.161 = phi i64 [ 0, %42 ], [ %50, %48 ], [ %60, %53 ], [ 0, %51 ]
+  %.159 = phi i1 [ false, %42 ], [ false, %48 ], [ %57, %53 ], [ true, %51 ]
   %62 = icmp samesign ult i32 %38, 1055
   %63 = select i1 %.not, i64 2147483647, i64 2147483648
   %64 = icmp ule i64 %.161, %63
@@ -1469,8 +1469,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32e_fcvtmod_
   br label %86
 
 86:                                               ; preds = %76, %67, %73, %78
-  %.176 = phi i64 [ %75, %73 ], [ %85, %78 ], [ 0, %67 ], [ 0, %76 ]
-  %.173 = phi i1 [ false, %73 ], [ %82, %78 ], [ false, %67 ], [ true, %76 ]
+  %.176 = phi i64 [ 0, %67 ], [ %75, %73 ], [ %85, %78 ], [ 0, %76 ]
+  %.173 = phi i1 [ false, %67 ], [ false, %73 ], [ %82, %78 ], [ true, %76 ]
   %87 = icmp samesign ult i32 %63, 1055
   %88 = select i1 %.not81, i64 2147483647, i64 2147483648
   %89 = icmp ule i64 %.176, %88
@@ -1659,8 +1659,8 @@ define noundef i64 @_Z24logged_rv64e_fcvtmod_w_dP11processor_t6insn_tm(ptr nound
   br label %62
 
 62:                                               ; preds = %52, %43, %49, %54
-  %.162 = phi i1 [ false, %49 ], [ %58, %54 ], [ false, %43 ], [ true, %52 ]
-  %.1 = phi i64 [ %51, %49 ], [ %61, %54 ], [ 0, %43 ], [ 0, %52 ]
+  %.162 = phi i1 [ false, %43 ], [ false, %49 ], [ %58, %54 ], [ true, %52 ]
+  %.1 = phi i64 [ 0, %43 ], [ %51, %49 ], [ %61, %54 ], [ 0, %52 ]
   %63 = icmp samesign ult i32 %39, 1055
   %64 = select i1 %.not, i64 2147483647, i64 2147483648
   %65 = icmp ule i64 %.1, %64
@@ -2008,8 +2008,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
-  %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.070.0 = phi ptr [ null, %63 ], [ %spec.select, %46 ], [ null, %9 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %39, %37 ], [ %1, %61 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i, %28 ], [ %spec.select.i21, %58 ], [ %spec.select.i41, %86 ], [ null, %._crit_edge.thread.i47 ]
+  %.sroa.12.0 = phi ptr [ %65, %63 ], [ %spec.select71, %46 ], [ %11, %9 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %39, %37 ], [ null, %61 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i, %28 ], [ %spec.select21.i22, %58 ], [ %spec.select21.i42, %86 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

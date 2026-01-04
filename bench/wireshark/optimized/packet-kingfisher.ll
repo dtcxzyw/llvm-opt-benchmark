@@ -387,7 +387,7 @@ kingfisher_checksum.exit:                         ; preds = %48, %33
   br label %116
 
 116:                                              ; preds = %kingfisher_checksum.exit, %27, %22, %19, %8, %112, %10
-  %.0 = phi i32 [ 1, %10 ], [ 1, %112 ], [ 0, %8 ], [ 0, %19 ], [ 0, %22 ], [ 0, %27 ], [ 0, %kingfisher_checksum.exit ]
+  %.0 = phi i32 [ 1, %112 ], [ 1, %10 ], [ 0, %8 ], [ 0, %19 ], [ 0, %22 ], [ 0, %27 ], [ 0, %kingfisher_checksum.exit ]
   ret i32 %.0
 }
 

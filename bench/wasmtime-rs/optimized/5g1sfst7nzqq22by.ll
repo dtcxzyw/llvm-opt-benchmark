@@ -958,7 +958,7 @@ define void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$27bulk_
   unreachable
 
 .thread:                                          ; preds = %22, %26
-  %.pn7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %23, %22 ]
+  %.pn7 = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %.pn7
 
 26:                                               ; preds = %10, %2
@@ -1023,7 +1023,7 @@ define void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$27bulk_
   unreachable
 
 .thread:                                          ; preds = %22, %26
-  %.pn7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %23, %22 ]
+  %.pn7 = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %.pn7
 
 26:                                               ; preds = %10, %2
@@ -1088,7 +1088,7 @@ define void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$27bulk_
   unreachable
 
 .thread:                                          ; preds = %22, %26
-  %.pn7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %23, %22 ]
+  %.pn7 = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %.pn7
 
 26:                                               ; preds = %10, %2
@@ -1153,7 +1153,7 @@ define void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$27bulk_
   unreachable
 
 .thread:                                          ; preds = %22, %26
-  %.pn7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %23, %22 ]
+  %.pn7 = phi { ptr, i32 } [ %23, %22 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %.pn7
 
 26:                                               ; preds = %10, %2
@@ -2079,7 +2079,7 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
           to label %59 unwind label %.loopexit.split-lp120
 
 58:                                               ; preds = %.loopexit119, %.loopexit.split-lp120, %87, %80, %74
-  %.pn = phi { ptr, i32 } [ %88, %87 ], [ %81, %80 ], [ %75, %74 ], [ %lpad.loopexit121, %.loopexit119 ], [ %lpad.loopexit.split-lp122, %.loopexit.split-lp120 ]
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %88, %87 ], [ %81, %80 ], [ %lpad.loopexit121, %.loopexit119 ], [ %lpad.loopexit.split-lp122, %.loopexit.split-lp120 ]
   invoke void @"_ZN4core3ptr120drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$u16$C$alloc..collections..btree..set_val..SetValZST$GT$$GT$17h0c6f68c2b7be9a68E"(ptr nonnull align 8 %10) #10
           to label %103 unwind label %54
 

@@ -173,7 +173,7 @@ lv_obj_get_screen.exit:                           ; preds = %.preheader8.i, %2
   br i1 %.not21, label %.thread, label %.preheader24, !llvm.loop !34
 
 .thread:                                          ; preds = %._crit_edge, %14, %lv_obj_get_screen.exit
-  %.01827 = phi ptr [ null, %lv_obj_get_screen.exit ], [ %.01831, %14 ], [ null, %._crit_edge ]
+  %.01827 = phi ptr [ %.01831, %14 ], [ null, %lv_obj_get_screen.exit ], [ null, %._crit_edge ]
   ret ptr %.01827
 }
 
@@ -386,7 +386,7 @@ lv_obj_get_screen.exit.i:                         ; preds = %73
   br i1 %.not21.i, label %lv_obj_get_display.exit, label %.preheader24.i, !llvm.loop !34
 
 lv_obj_get_display.exit:                          ; preds = %._crit_edge.i, %83, %lv_obj_get_screen.exit.i
-  %.01827.i = phi ptr [ null, %lv_obj_get_screen.exit.i ], [ %.01831.i, %83 ], [ null, %._crit_edge.i ]
+  %.01827.i = phi ptr [ %.01831.i, %83 ], [ null, %lv_obj_get_screen.exit.i ], [ null, %._crit_edge.i ]
   %88 = getelementptr inbounds nuw i8, ptr %.01827.i, i64 832
   %89 = load i32, ptr %88, align 8, !tbaa !15
   %.not129 = icmp eq i32 %89, 0
@@ -626,8 +626,8 @@ define void @lv_obj_clean(ptr noundef %0) local_unnamed_addr #0 {
   %.not.i25 = icmp eq i16 %28, 0
   br i1 %.not.i25, label %.lr.ph.loopexit, label %22
 
-._crit_edge:                                      ; preds = %10, %.lr.ph.loopexit, %.lr.ph61, %22, %.lr.ph.preheader, %2, %6
-  %.0.i35.shrunk45.shrunk = phi i16 [ 0, %6 ], [ 0, %2 ], [ %8, %.lr.ph.preheader ], [ %8, %22 ], [ %8, %.lr.ph61 ], [ %8, %.lr.ph.loopexit ], [ %8, %10 ]
+._crit_edge:                                      ; preds = %10, %.lr.ph.loopexit, %.lr.ph61, %22, %.lr.ph.preheader, %6, %2
+  %.0.i35.shrunk45.shrunk = phi i16 [ 0, %6 ], [ %8, %.lr.ph.preheader ], [ 0, %2 ], [ %8, %22 ], [ %8, %.lr.ph.loopexit ], [ %8, %.lr.ph61 ], [ %8, %10 ]
   %.0.i35.shrunk45 = zext i16 %.0.i35.shrunk45.shrunk to i32
   tail call void @lv_obj_scroll_to(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #6
   %29 = load ptr, ptr %3, align 8, !tbaa !37
@@ -1059,7 +1059,7 @@ lv_obj_get_parent.exit:                           ; preds = %2
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !67
 
 .loopexit:                                        ; preds = %39, %34, %.preheader50
-  %43 = phi ptr [ %.pre, %.preheader50 ], [ %31, %34 ], [ %.pre, %39 ]
+  %43 = phi ptr [ %31, %34 ], [ %.pre, %.preheader50 ], [ %.pre, %39 ]
   %44 = zext nneg i32 %spec.select to i64
   %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
   store ptr %0, ptr %45, align 8, !tbaa !33
@@ -1357,7 +1357,7 @@ define noundef ptr @lv_obj_get_child_by_type(ptr noundef readonly captures(addre
   br i1 %37, label %27, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %36, %32, %22, %18, %23, %.preheader33, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %.preheader33 ], [ null, %23 ], [ null, %22 ], [ %15, %18 ], [ null, %36 ], [ %29, %32 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %23 ], [ null, %.preheader33 ], [ %15, %18 ], [ null, %22 ], [ %29, %32 ], [ null, %36 ]
   ret ptr %.0
 }
 
@@ -1554,7 +1554,7 @@ lv_obj_get_index_by_type.exit.thread:             ; preds = %.preheader27.i
   br i1 %exitcond.not.i18, label %lv_obj_get_child_by_type.exit, label %34, !llvm.loop !69
 
 lv_obj_get_child_by_type.exit:                    ; preds = %43, %39, %lv_obj_get_index_by_type.exit.thread27, %lv_obj_get_index_by_type.exit.thread, %.preheader33.i, %.thread, %lv_obj_get_index_by_type.exit
-  %.0 = phi ptr [ null, %lv_obj_get_index_by_type.exit ], [ null, %.thread ], [ null, %.preheader33.i ], [ null, %lv_obj_get_index_by_type.exit.thread ], [ null, %lv_obj_get_index_by_type.exit.thread27 ], [ %36, %39 ], [ null, %43 ]
+  %.0 = phi ptr [ null, %lv_obj_get_index_by_type.exit ], [ null, %.thread ], [ null, %.preheader33.i ], [ null, %lv_obj_get_index_by_type.exit.thread27 ], [ null, %lv_obj_get_index_by_type.exit.thread ], [ %36, %39 ], [ null, %43 ]
   ret ptr %.0
 }
 
@@ -1740,7 +1740,7 @@ lv_obj_get_child.exit:                            ; preds = %lv_obj_get_child_co
   br label %.loopexit
 
 .loopexit:                                        ; preds = %lv_obj_get_child.exit, %._crit_edge, %5, %19, %.critedge
-  %.027 = phi i32 [ 0, %.critedge ], [ %20, %19 ], [ 2, %5 ], [ 2, %._crit_edge ], [ 2, %lv_obj_get_child.exit ]
+  %.027 = phi i32 [ %20, %19 ], [ 2, %5 ], [ 0, %.critedge ], [ 2, %._crit_edge ], [ 2, %lv_obj_get_child.exit ]
   ret i32 %.027
 }
 

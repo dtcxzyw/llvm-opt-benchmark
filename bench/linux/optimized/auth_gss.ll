@@ -1459,7 +1459,7 @@ gss_find_downcall.exit.thread:                    ; preds = %60, %32, %gss_find_
   br label %gss_put_ctx.exit
 
 gss_put_ctx.exit:                                 ; preds = %99, %98, %96, %28, %26, %.thread, %12
-  %101 = phi i64 [ -14, %12 ], [ %25, %.thread ], [ -22, %26 ], [ -12, %28 ], [ %93, %96 ], [ %93, %98 ], [ %93, %99 ]
+  %101 = phi i64 [ -14, %12 ], [ %25, %.thread ], [ -12, %28 ], [ -22, %26 ], [ %93, %96 ], [ %93, %98 ], [ %93, %99 ]
   tail call void @kfree(ptr noundef nonnull %10) #18
   br label %102
 
@@ -1818,7 +1818,7 @@ define internal fastcc ptr @gss_fill_context(ptr noundef %0, ptr noundef readnon
   br label %.thread
 
 .thread:                                          ; preds = %68, %41, %58, %50, %30, %12, %4, %95, %91, %86, %77, %73, %65, %37, %35, %24, %10
-  %102 = phi ptr [ %6, %10 ], [ %20, %24 ], [ %31, %35 ], [ %66, %65 ], [ %69, %73 ], [ %88, %86 ], [ %96, %95 ], [ %93, %91 ], [ %40, %37 ], [ inttoptr (i64 -14 to ptr), %77 ], [ inttoptr (i64 -14 to ptr), %4 ], [ inttoptr (i64 -14 to ptr), %12 ], [ inttoptr (i64 -14 to ptr), %30 ], [ inttoptr (i64 -12 to ptr), %58 ], [ inttoptr (i64 -14 to ptr), %50 ], [ inttoptr (i64 -14 to ptr), %41 ], [ inttoptr (i64 -14 to ptr), %68 ]
+  %102 = phi ptr [ %6, %10 ], [ %20, %24 ], [ %31, %35 ], [ %66, %65 ], [ %69, %73 ], [ %88, %86 ], [ %96, %95 ], [ %93, %91 ], [ %40, %37 ], [ inttoptr (i64 -14 to ptr), %77 ], [ inttoptr (i64 -14 to ptr), %41 ], [ inttoptr (i64 -14 to ptr), %4 ], [ inttoptr (i64 -14 to ptr), %12 ], [ inttoptr (i64 -14 to ptr), %30 ], [ inttoptr (i64 -14 to ptr), %50 ], [ inttoptr (i64 -12 to ptr), %58 ], [ inttoptr (i64 -14 to ptr), %68 ]
   ret ptr %102
 }
 
@@ -4003,7 +4003,7 @@ gss_wrap_req_integ.exit:                          ; preds = %32, %37, %44, %55, 
   br label %gss_wrap_req_priv.exit
 
 gss_wrap_req_priv.exit:                           ; preds = %258, %254, %241, %240, %222, %192, %.loopexit.i, %123, %.thread.i, %86, %81, %gss_wrap_req_integ.exit, %30, %27, %25
-  %261 = phi i32 [ %26, %25 ], [ %80, %gss_wrap_req_integ.exit ], [ %31, %30 ], [ -5, %27 ], [ 0, %222 ], [ -5, %86 ], [ 0, %192 ], [ -5, %81 ], [ -5, %240 ], [ -5, %241 ], [ -5, %254 ], [ -5, %258 ], [ -11, %123 ], [ -11, %.loopexit.i ], [ -11, %.thread.i ]
+  %261 = phi i32 [ %26, %25 ], [ -5, %27 ], [ %80, %gss_wrap_req_integ.exit ], [ %31, %30 ], [ 0, %222 ], [ -5, %86 ], [ -5, %258 ], [ 0, %192 ], [ -5, %81 ], [ -5, %240 ], [ -5, %241 ], [ -5, %254 ], [ -11, %123 ], [ -11, %.loopexit.i ], [ -11, %.thread.i ]
   %262 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, i32 -1, ptr elementtype(i32) %10) #18, !srcloc !10
   %263 = icmp eq i32 %262, 1
   br i1 %263, label %267, label %264
@@ -4551,11 +4551,11 @@ gss_unwrap_resp_integ.exit:                       ; preds = %112, %.critedge.i, 
   br label %gss_unwrap_resp_priv.exit
 
 gss_unwrap_resp_priv.exit:                        ; preds = %296, %gss_unwrap_resp_integ.exit
-  %299 = phi i32 [ %160, %gss_unwrap_resp_integ.exit ], [ %298, %296 ]
+  %299 = phi i32 [ %298, %296 ], [ %160, %gss_unwrap_resp_integ.exit ]
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %gss_unwrap_resp_priv.exit.thread6, label %gss_unwrap_resp_priv.exit.thread
 
-gss_unwrap_resp_priv.exit.thread6:                ; preds = %226, %213, %204, %191, %58, %54, %41, %36, %29, %gss_unwrap_resp_priv.exit, %22
+gss_unwrap_resp_priv.exit.thread6:                ; preds = %226, %213, %204, %191, %54, %41, %36, %29, %58, %gss_unwrap_resp_priv.exit, %22
   %301 = tail call i32 @rpcauth_unwrap_resp_decode(ptr noundef %0, ptr noundef %1) #18
   br label %gss_unwrap_resp_priv.exit.thread
 

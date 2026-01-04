@@ -1129,7 +1129,7 @@ JNU_ClassString.exit.thread56:                    ; preds = %9, %JNU_ClassString
   store ptr %123, ptr @String_value_ID, align 8
   br label %JNU_ThrowInternalError.exit
 
-JNU_ThrowInternalError.exit:                      ; preds = %18, %12, %97, %92, %119, %113, %107, %.loopexit, %JNU_ClassString.exit, %2, %.split65.us, %.split.us
+JNU_ThrowInternalError.exit:                      ; preds = %12, %18, %97, %92, %119, %113, %107, %.loopexit, %JNU_ClassString.exit, %2, %.split65.us, %.split.us
   ret void
 }
 
@@ -1169,7 +1169,7 @@ define ptr @JNU_ClassString(ptr noundef %0) local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %1, %16, %10, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %10 ], [ %.pre, %16 ], [ %2, %1 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %4 ], [ %.pre, %16 ], [ %2, %1 ]
   ret ptr %.0
 }
 
@@ -1286,7 +1286,7 @@ define ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %newSizedString8859_1.exit.i
 
 newSizedString8859_1.exit.i:                      ; preds = %53, %._crit_edge.i.i, %38, %33, %._crit_edge.thread.i
-  %.020.i.i = phi ptr [ null, %._crit_edge.thread.i ], [ %52, %53 ], [ %52, %._crit_edge.i.i ], [ null, %33 ], [ null, %38 ]
+  %.020.i.i = phi ptr [ null, %._crit_edge.thread.i ], [ %52, %._crit_edge.i.i ], [ %52, %53 ], [ null, %33 ], [ null, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %newStringUTF8.exit
 
@@ -1366,7 +1366,7 @@ newSizedString8859_1.exit.i:                      ; preds = %53, %._crit_edge.i.
   br label %newString8859_1.exit
 
 newString8859_1.exit:                             ; preds = %56, %71, %76, %._crit_edge.i.i13, %91
-  %.020.i.i17 = phi ptr [ null, %56 ], [ %90, %91 ], [ %90, %._crit_edge.i.i13 ], [ null, %71 ], [ null, %76 ]
+  %.020.i.i17 = phi ptr [ null, %56 ], [ %90, %._crit_edge.i.i13 ], [ %90, %91 ], [ null, %71 ], [ null, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %newStringUTF8.exit
 
@@ -1444,7 +1444,7 @@ newString8859_1.exit:                             ; preds = %56, %71, %76, %._cr
   br label %newString646_US.exit
 
 newString646_US.exit:                             ; preds = %92, %107, %112, %._crit_edge.i26, %127
-  %.0.i = phi ptr [ null, %92 ], [ %126, %127 ], [ %126, %._crit_edge.i26 ], [ null, %107 ], [ null, %112 ]
+  %.0.i = phi ptr [ null, %92 ], [ %126, %._crit_edge.i26 ], [ %126, %127 ], [ null, %107 ], [ null, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %newStringUTF8.exit
 
@@ -1536,7 +1536,7 @@ newString646_US.exit:                             ; preds = %92, %107, %112, %._
   br label %newStringCp1252.exit
 
 newStringCp1252.exit:                             ; preds = %128, %143, %148, %._crit_edge.i29, %171
-  %.0.i31 = phi ptr [ null, %128 ], [ %170, %171 ], [ %170, %._crit_edge.i29 ], [ null, %143 ], [ null, %148 ]
+  %.0.i31 = phi ptr [ null, %128 ], [ %170, %._crit_edge.i29 ], [ %170, %171 ], [ null, %143 ], [ null, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %newStringUTF8.exit
 
@@ -1562,7 +1562,7 @@ newStringCp1252.exit:                             ; preds = %128, %143, %148, %.
   br label %newStringUTF8.exit
 
 newStringUTF8.exit:                               ; preds = %177, %172, %54, %newSizedString8859_1.exit.i, %182, %newStringCp1252.exit, %newString646_US.exit, %newString8859_1.exit
-  %.0 = phi ptr [ %.020.i.i17, %newString8859_1.exit ], [ %.0.i, %newString646_US.exit ], [ %.0.i31, %newStringCp1252.exit ], [ %185, %182 ], [ %.020.i.i, %newSizedString8859_1.exit.i ], [ %55, %54 ], [ null, %172 ], [ null, %177 ]
+  %.0 = phi ptr [ %185, %182 ], [ %.020.i.i17, %newString8859_1.exit ], [ %.0.i, %newString646_US.exit ], [ %.0.i31, %newStringCp1252.exit ], [ %55, %54 ], [ %.020.i.i, %newSizedString8859_1.exit.i ], [ null, %172 ], [ null, %177 ]
   ret ptr %.0
 }
 
@@ -2274,7 +2274,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
   br label %getStringUTF8.exit
 
 getStringUTF8.exit:                               ; preds = %312, %307, %._crit_edge.i63, %258, %250, %241, %.thread.i66, %216, %._crit_edge.i45, %203, %195, %187, %.thread.i54, %158, %._crit_edge.i28, %145, %137, %129, %.thread.i32, %100, %._crit_edge87.i, %74, %.thread.i, %54, %46, %29, %22, %16, %14, %317
-  %.0 = phi ptr [ %318, %317 ], [ %15, %14 ], [ %65, %._crit_edge87.i ], [ null, %16 ], [ null, %22 ], [ null, %29 ], [ null, %46 ], [ null, %54 ], [ null, %.thread.i ], [ null, %74 ], [ %115, %._crit_edge.i28 ], [ null, %100 ], [ null, %.thread.i32 ], [ null, %129 ], [ null, %137 ], [ null, %145 ], [ %173, %._crit_edge.i45 ], [ null, %158 ], [ null, %.thread.i54 ], [ null, %187 ], [ null, %195 ], [ null, %203 ], [ %231, %._crit_edge.i63 ], [ null, %216 ], [ null, %.thread.i66 ], [ null, %241 ], [ null, %250 ], [ null, %258 ], [ null, %307 ], [ null, %312 ]
+  %.0 = phi ptr [ %318, %317 ], [ null, %74 ], [ null, %145 ], [ null, %203 ], [ null, %258 ], [ %15, %14 ], [ %65, %._crit_edge87.i ], [ null, %16 ], [ null, %22 ], [ null, %29 ], [ null, %54 ], [ null, %46 ], [ null, %.thread.i ], [ %115, %._crit_edge.i28 ], [ null, %100 ], [ null, %129 ], [ null, %.thread.i32 ], [ null, %137 ], [ %173, %._crit_edge.i45 ], [ null, %158 ], [ null, %187 ], [ null, %.thread.i54 ], [ null, %195 ], [ %231, %._crit_edge.i63 ], [ null, %216 ], [ null, %241 ], [ null, %.thread.i66 ], [ null, %250 ], [ null, %307 ], [ null, %312 ]
   ret ptr %.0
 }
 
@@ -2379,7 +2379,7 @@ define range(i32 -1, 256) i32 @JNU_IsInstanceOfByName(ptr noundef %0, ptr nounde
   br label %23
 
 23:                                               ; preds = %9, %3, %14
-  %.0 = phi i32 [ %19, %14 ], [ -1, %3 ], [ -1, %9 ]
+  %.0 = phi i32 [ -1, %3 ], [ %19, %14 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -3151,8 +3151,8 @@ JNU_ClassString.exit.thread24:                    ; preds = %14, %JNU_ClassStrin
   tail call void %48(ptr noundef nonnull %0, ptr noundef nonnull %13) #10
   br label %JNU_ClassString.exit.thread
 
-JNU_ClassString.exit.thread:                      ; preds = %23, %17, %9, %JNU_ClassString.exit, %3, %JNU_ClassString.exit.thread24
-  %.0 = phi ptr [ %45, %JNU_ClassString.exit.thread24 ], [ null, %3 ], [ null, %JNU_ClassString.exit ], [ null, %9 ], [ null, %17 ], [ null, %23 ]
+JNU_ClassString.exit.thread:                      ; preds = %17, %23, %9, %JNU_ClassString.exit, %3, %JNU_ClassString.exit.thread24
+  %.0 = phi ptr [ null, %JNU_ClassString.exit ], [ null, %3 ], [ %45, %JNU_ClassString.exit.thread24 ], [ null, %9 ], [ null, %23 ], [ null, %17 ]
   ret ptr %.0
 }
 
@@ -3262,7 +3262,7 @@ JNU_ThrowIllegalArgumentException.exit:           ; preds = %52, %57
   br label %.sink.split
 
 .sink.split:                                      ; preds = %48, %16, %JNU_ThrowIllegalArgumentException.exit, %41, %36, %.thread
-  %.040.ph = phi ptr [ null, %.thread ], [ null, %36 ], [ null, %16 ], [ null, %JNU_ThrowIllegalArgumentException.exit ], [ %30, %41 ], [ %30, %48 ]
+  %.040.ph = phi ptr [ null, %36 ], [ null, %.thread ], [ null, %16 ], [ null, %JNU_ThrowIllegalArgumentException.exit ], [ %30, %41 ], [ %30, %48 ]
   %62 = load ptr, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 184
   %64 = load ptr, ptr %63, align 8
@@ -3270,7 +3270,7 @@ JNU_ThrowIllegalArgumentException.exit:           ; preds = %52, %57
   br label %65
 
 65:                                               ; preds = %.sink.split, %9, %3
-  %.040 = phi ptr [ null, %3 ], [ null, %9 ], [ %.040.ph, %.sink.split ]
+  %.040 = phi ptr [ null, %9 ], [ null, %3 ], [ %.040.ph, %.sink.split ]
   ret ptr %.040
 }
 

@@ -617,7 +617,7 @@ Abc_TtPrintHexArrayRev.exit495:                   ; preds = %.lr.ph.i490, %Abc_T
   br label %272
 
 272:                                              ; preds = %156, %.lr.ph559, %270
-  %.val478 = phi i32 [ %.val478624, %.lr.ph559 ], [ %.val478.pre, %270 ], [ %.val478624, %156 ]
+  %.val478 = phi i32 [ %.val478624, %156 ], [ %.val478624, %.lr.ph559 ], [ %.val478.pre, %270 ]
   %indvars.iv.next599 = add nuw nsw i64 %indvars.iv598, 1
   %273 = sext i32 %.val478 to i64
   %274 = icmp slt i64 %indvars.iv.next599, %273
@@ -908,7 +908,7 @@ Wlc_ObjCo2PoFo.exit518:                           ; preds = %395, %399
   br i1 %409, label %387, label %.critedge8.preheader, !llvm.loop !42
 
 .critedge10.preheader:                            ; preds = %.critedge8, %.critedge6, %.critedge8.preheader
-  %.val432580646 = phi i32 [ %.val430, %.critedge8.preheader ], [ %.val430568, %.critedge6 ], [ %.val431, %.critedge8 ]
+  %.val432580646 = phi i32 [ %.val430568, %.critedge6 ], [ %.val430, %.critedge8.preheader ], [ %.val431, %.critedge8 ]
   %.val428576 = load i32, ptr %89, align 4, !tbaa !3
   %410 = icmp sgt i32 %.val428576, 0
   br i1 %410, label %.lr.ph579, label %.critedge12.preheader

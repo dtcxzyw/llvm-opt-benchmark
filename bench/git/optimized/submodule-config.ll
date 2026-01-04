@@ -350,7 +350,7 @@ skip_prefix.exit28.i:                             ; preds = %37
   br i1 %.not16.i, label %.critedge, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %21, %skip_prefix.exit.i, %skip_prefix.exit20.i, %skip_prefix.exit24.i, %47, %45, %43, %skip_prefix.exit28.i
-  %.030.ph = phi ptr [ %0, %skip_prefix.exit28.i ], [ %0, %43 ], [ %0, %45 ], [ %0, %47 ], [ %scevgep.i, %skip_prefix.exit24.i ], [ %scevgep39.i, %skip_prefix.exit20.i ], [ %scevgep37.i, %skip_prefix.exit.i ], [ %scevgep.i, %21 ]
+  %.030.ph = phi ptr [ %scevgep.i, %skip_prefix.exit24.i ], [ %0, %skip_prefix.exit28.i ], [ %0, %43 ], [ %0, %45 ], [ %0, %47 ], [ %scevgep37.i, %skip_prefix.exit.i ], [ %scevgep39.i, %skip_prefix.exit20.i ], [ %scevgep.i, %21 ]
   %49 = tail call ptr @url_normalize(ptr noundef %.030.ph, ptr noundef null) #16
   %.not24 = icmp eq ptr %49, null
   br i1 %.not24, label %.critedge, label %50
@@ -365,7 +365,7 @@ skip_prefix.exit28.i:                             ; preds = %37
   br label %.critedge
 
 .critedge:                                        ; preds = %submodule_url_is_relative.exit.thread, %17, %47, %count_leading_dotdots.exit, %50, %.sink.split.i, %1
-  %.0 = phi i32 [ -1, %1 ], [ %spec.select, %50 ], [ -1, %.sink.split.i ], [ 0, %count_leading_dotdots.exit ], [ 0, %47 ], [ %19, %17 ], [ -1, %submodule_url_is_relative.exit.thread ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %.sink.split.i ], [ %19, %17 ], [ %spec.select, %50 ], [ 0, %count_leading_dotdots.exit ], [ 0, %47 ], [ -1, %submodule_url_is_relative.exit.thread ]
   ret i32 %.0
 }
 
@@ -452,7 +452,7 @@ define dso_local range(i32 -1, 3) i32 @parse_fetch_recurse_submodules_arg(ptr no
   unreachable
 
 parse_fetch_recurse.exit:                         ; preds = %2, %4, %5
-  %.0.i = phi i32 [ 0, %4 ], [ 2, %2 ], [ -1, %5 ]
+  %.0.i = phi i32 [ -1, %5 ], [ 2, %2 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -493,7 +493,7 @@ define dso_local range(i32 -1, 1) i32 @option_fetch_parse_recurse_submodules(ptr
   unreachable
 
 .sink.split:                                      ; preds = %7, %13, %12, %8, %6
-  %.sink = phi i32 [ 0, %6 ], [ 0, %12 ], [ 2, %8 ], [ -1, %13 ], [ 2, %7 ]
+  %.sink = phi i32 [ 0, %6 ], [ 0, %12 ], [ -1, %13 ], [ 2, %8 ], [ 2, %7 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !26
   br label %16
 
@@ -554,7 +554,7 @@ define dso_local range(i32 -5, 1) i32 @parse_push_recurse_submodules_arg(ptr nou
   unreachable
 
 parse_push_recurse.exit:                          ; preds = %2, %5, %7, %9
-  %.0.i = phi i32 [ %3, %2 ], [ -1, %5 ], [ -4, %7 ], [ -5, %9 ]
+  %.0.i = phi i32 [ %3, %2 ], [ -4, %7 ], [ -1, %5 ], [ -5, %9 ]
   ret i32 %.0.i
 }
 
@@ -1004,7 +1004,7 @@ cache_lookup_path.exit:                           ; preds = %67, %74
   br label %77
 
 77:                                               ; preds = %cache_lookup_path.exit, %cache_lookup_name.exit
-  %.128 = phi ptr [ %.0.i, %cache_lookup_name.exit ], [ %.0.i38, %cache_lookup_path.exit ]
+  %.128 = phi ptr [ %.0.i38, %cache_lookup_path.exit ], [ %.0.i, %cache_lookup_name.exit ]
   %.not35 = icmp eq ptr %.128, null
   br i1 %.not35, label %78, label %123
 
@@ -1110,7 +1110,7 @@ cache_lookup_path.exit44:                         ; preds = %113, %120
   br label %124
 
 124:                                              ; preds = %123, %cache_lookup_path.exit44, %cache_lookup_name.exit41, %27
-  %.1 = phi ptr [ %.027, %123 ], [ %.0.i40, %cache_lookup_name.exit41 ], [ %.0.i43, %cache_lookup_path.exit44 ], [ %.0, %27 ]
+  %.1 = phi ptr [ %.027, %123 ], [ %.0, %27 ], [ %.0.i40, %cache_lookup_name.exit41 ], [ %.0.i43, %cache_lookup_path.exit44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -1470,7 +1470,7 @@ parse_submodule_fetchjobs.exit:                   ; preds = %14, %15
   unreachable
 
 parse_fetch_recurse_submodules_arg.exit:          ; preds = %23, %25, %26
-  %.0.i.i = phi i32 [ 0, %25 ], [ 2, %23 ], [ -1, %26 ]
+  %.0.i.i = phi i32 [ -1, %26 ], [ 2, %23 ], [ 0, %25 ]
   %29 = load ptr, ptr %21, align 8, !tbaa !110
   store i32 %.0.i.i, ptr %29, align 4, !tbaa !26
   br label %30
@@ -1971,7 +1971,7 @@ warn_multiple_config.exit:                        ; preds = %153, %158
   unreachable
 
 parse_fetch_recurse.exit:                         ; preds = %163, %160, %162
-  %.0.i125 = phi i32 [ 0, %162 ], [ 2, %160 ], [ %.mux, %163 ]
+  %.0.i125 = phi i32 [ %.mux, %163 ], [ 2, %160 ], [ 0, %162 ]
   %166 = getelementptr inbounds nuw i8, ptr %.0.i119, i64 24
   store i32 %.0.i125, ptr %166, align 8, !tbaa !117
   br label %282
@@ -2224,7 +2224,7 @@ warn_command_line_option.exit130:                 ; preds = %204, %206
   br label %282
 
 282:                                              ; preds = %warn_multiple_config.exit, %parse_fetch_recurse.exit, %warn_command_line_option.exit130, %._crit_edge134, %214, %200, %260, %255, %266, %._crit_edge, %274, %263, %225, %242, %233, %170, %191, %193, %178, %95, %108, %.thread, %warn_command_line_option.exit
-  %.083 = phi i32 [ 0, %263 ], [ 0, %._crit_edge ], [ 0, %274 ], [ -1, %266 ], [ 0, %260 ], [ 0, %255 ], [ 0, %242 ], [ 0, %233 ], [ -1, %225 ], [ 0, %warn_command_line_option.exit130 ], [ 0, %._crit_edge134 ], [ 0, %214 ], [ -1, %200 ], [ 0, %191 ], [ 0, %193 ], [ 0, %178 ], [ -1, %170 ], [ 0, %warn_command_line_option.exit ], [ 0, %.thread ], [ 0, %108 ], [ -1, %95 ], [ 0, %parse_fetch_recurse.exit ], [ 0, %warn_multiple_config.exit ]
+  %.083 = phi i32 [ 0, %263 ], [ 0, %._crit_edge ], [ 0, %274 ], [ -1, %266 ], [ 0, %260 ], [ 0, %255 ], [ 0, %242 ], [ 0, %233 ], [ -1, %225 ], [ 0, %warn_command_line_option.exit130 ], [ 0, %._crit_edge134 ], [ 0, %214 ], [ -1, %200 ], [ 0, %191 ], [ 0, %193 ], [ 0, %178 ], [ -1, %170 ], [ -1, %95 ], [ 0, %warn_command_line_option.exit ], [ 0, %.thread ], [ 0, %108 ], [ 0, %parse_fetch_recurse.exit ], [ 0, %warn_multiple_config.exit ]
   call void @strbuf_release(ptr noundef nonnull %12) #16
   call void @strbuf_release(ptr noundef nonnull %13) #16
   br label %283

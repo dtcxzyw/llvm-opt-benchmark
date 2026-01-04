@@ -1163,7 +1163,7 @@ RB_SYMBOL_P.exit.thread40:                        ; preds = %76, %RB_SYMBOL_P.ex
   unreachable
 
 105:                                              ; preds = %.thread, %96, %54, %71, %45
-  %.2 = phi ptr [ %46, %45 ], [ %56, %54 ], [ %66, %71 ], [ %98, %96 ], [ %52, %.thread ]
+  %.2 = phi ptr [ %66, %71 ], [ %46, %45 ], [ %56, %54 ], [ %98, %96 ], [ %52, %.thread ]
   %106 = inttoptr i64 %2 to ptr
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store ptr %.2, ptr %107, align 8, !tbaa !19
@@ -1485,7 +1485,7 @@ define internal i64 @ossl_ec_group_get_point_conversion_form(i64 noundef %0) #0 
   unreachable
 
 12:                                               ; preds = %6, %9, %8
-  %.0.in = phi ptr [ @ID_compressed, %8 ], [ @ID_hybrid, %9 ], [ @ID_uncompressed, %6 ]
+  %.0.in = phi ptr [ @ID_hybrid, %9 ], [ @ID_compressed, %8 ], [ @ID_uncompressed, %6 ]
   %.0 = load i64, ptr %.0.in, align 8, !tbaa !6
   %13 = tail call i64 @rb_id2sym(i64 noundef %.0) #8
   ret i64 %13
@@ -1524,7 +1524,7 @@ define internal noundef i64 @ossl_ec_group_set_point_conversion_form(i64 noundef
   unreachable
 
 parse_point_conversion_form_symbol.exit:          ; preds = %7, %11, %14
-  %.0.i = phi i32 [ 4, %7 ], [ 2, %11 ], [ 6, %14 ]
+  %.0.i = phi i32 [ 2, %11 ], [ 4, %7 ], [ 6, %14 ]
   tail call void @EC_GROUP_set_point_conversion_form(ptr noundef nonnull %3, i32 noundef %.0.i) #8
   ret i64 %1
 }
@@ -2179,7 +2179,7 @@ define internal i64 @ossl_ec_point_to_octet_string(i64 noundef %0, i64 noundef %
   unreachable
 
 parse_point_conversion_form_symbol.exit:          ; preds = %14, %18, %21
-  %.0.i = phi i32 [ 4, %14 ], [ 2, %18 ], [ 6, %21 ]
+  %.0.i = phi i32 [ 2, %18 ], [ 4, %14 ], [ 6, %21 ]
   %26 = tail call ptr @ossl_bn_ctx_get() #8
   %27 = tail call i64 @EC_POINT_point2oct(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef %.0.i, ptr noundef null, i64 noundef 0, ptr noundef %26) #8
   %.not = icmp eq i64 %27, 0

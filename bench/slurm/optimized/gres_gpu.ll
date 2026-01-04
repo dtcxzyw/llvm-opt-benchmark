@@ -1268,7 +1268,7 @@ define internal i32 @_sort_gpu_by_file(ptr noundef readonly captures(none) %0, p
   br label %_sort_string_null_last.exit
 
 _sort_string_null_last.exit:                      ; preds = %2, %11, %12, %14
-  %.0.i = phi i32 [ %15, %14 ], [ 1, %2 ], [ -1, %11 ], [ 0, %12 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %15, %14 ], [ -1, %11 ], [ 0, %12 ]
   ret i32 %.0.i
 }
 
@@ -1355,7 +1355,7 @@ define internal range(i32 0, 2) i32 @_find_nonnull_type_in_gres_list(ptr noundef
   br label %9
 
 9:                                                ; preds = %6, %2, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %2 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 1, %6 ]
   ret i32 %.0
 }
 
@@ -1425,7 +1425,7 @@ define internal i32 @_sort_gpu_by_type_name(ptr noundef readonly captures(none) 
   br label %_sort_string_null_last.exit
 
 _sort_string_null_last.exit:                      ; preds = %11, %13, %36, %34, %33, %26, %20, %12
-  %.017 = phi i32 [ 1, %12 ], [ %24, %20 ], [ %37, %36 ], [ 1, %26 ], [ -1, %33 ], [ 0, %34 ], [ %18, %13 ], [ %spec.select, %11 ]
+  %.017 = phi i32 [ %18, %13 ], [ 1, %12 ], [ %spec.select, %11 ], [ 0, %34 ], [ %24, %20 ], [ 1, %26 ], [ %37, %36 ], [ -1, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.017
@@ -1451,7 +1451,7 @@ define internal range(i32 0, 2) i32 @_find_type_in_gres_list(ptr noundef readonl
   br label %11
 
 11:                                               ; preds = %7, %3, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %3 ], [ %., %7 ]
+  %.0 = phi i32 [ 0, %2 ], [ %., %7 ], [ 0, %3 ]
   ret i32 %.0
 }
 

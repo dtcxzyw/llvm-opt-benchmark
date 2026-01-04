@@ -686,7 +686,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info1(ptr noundef %0, i32 noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -819,7 +819,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info2(ptr noundef %0, i32 noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %32, label %28
 
@@ -949,7 +949,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_StorageInfo(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %32, label %28
 
@@ -1032,7 +1032,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info3(ptr noundef %0, i32 noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %32, label %28
 
@@ -1119,7 +1119,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info4(ptr noundef %0, i32 noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not72 = icmp eq ptr %3, null
   br i1 %.not72, label %32, label %28
 
@@ -1255,7 +1255,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info5(ptr noundef %0, i32 noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not78 = icmp eq ptr %3, null
   br i1 %.not78, label %32, label %28
 
@@ -1435,7 +1435,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_StorageInfo2(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -1516,7 +1516,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info6(ptr noundef %0, i32 noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not84 = icmp eq ptr %3, null
   br i1 %.not84, label %32, label %28
 
@@ -1664,7 +1664,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info100(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -1955,7 +1955,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info105(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not60 = icmp eq ptr %3, null
   br i1 %.not60, label %32, label %28
 
@@ -2097,7 +2097,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info200(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %32, label %28
 
@@ -2206,7 +2206,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_Info300(ptr noundef %0, i32 noundef
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %27, %25 ], [ %1, %23 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %33, label %29
 
@@ -2290,7 +2290,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray1(ptr noundef %0, i32 noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -2371,7 +2371,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray2(ptr noundef %0, i32 noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -2452,7 +2452,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray3(ptr noundef %0, i32 noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -2533,7 +2533,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray4(ptr noundef %0, i32 noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -2614,7 +2614,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray200(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -2695,7 +2695,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumArray300(ptr noundef %0, i32 no
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -2778,7 +2778,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumStruct(ptr noundef %0, i32 noun
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %28, %26 ], [ %1, %24 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %34, label %30
 
@@ -2841,7 +2841,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_EnumStruct(ptr noundef %0, i32 noun
   br label %60
 
 60:                                               ; preds = %57, %55, %52, %50
-  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %42, %55 ], [ %59, %57 ]
+  %.0.i.i = phi i32 [ %42, %50 ], [ %54, %52 ], [ %59, %57 ], [ %42, %55 ]
   %61 = load i32, ptr %10, align 4
   switch i32 %61, label %netdfs_dissect_element_dfs_EnumStruct_e.exit [
     i32 1, label %62
@@ -2952,7 +2952,7 @@ define hidden i32 @netdfs_dissect_struct_dfs_UnknownStruct(ptr noundef %0, i32 n
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %26, %24 ], [ %1, %22 ]
   %.not42 = icmp eq ptr %3, null
   br i1 %.not42, label %32, label %28
 
@@ -4621,7 +4621,7 @@ define internal fastcc i32 @netdfs_dissect_dfs_Info(ptr noundef %0, i32 noundef 
   br label %33
 
 33:                                               ; preds = %28, %30, %23, %25
-  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %14, %28 ], [ %32, %30 ]
+  %.0 = phi i32 [ %14, %23 ], [ %27, %25 ], [ %32, %30 ], [ %14, %28 ]
   %34 = load i32, ptr %9, align 4
   switch i32 %34, label %80 [
     i32 0, label %35

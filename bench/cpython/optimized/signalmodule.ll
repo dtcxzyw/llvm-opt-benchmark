@@ -1524,7 +1524,7 @@ compare_handler.exit15.thread:                    ; preds = %18, %compare_handle
   br label %trip_signal.exit
 
 trip_signal.exit:                                 ; preds = %33, %compare_handler.exit15.thread, %compare_handler.exit, %compare_handler.exit15, %1
-  %.0 = phi i32 [ -1, %1 ], [ 0, %compare_handler.exit15 ], [ 0, %compare_handler.exit ], [ 0, %compare_handler.exit15.thread ], [ 0, %33 ]
+  %.0 = phi i32 [ -1, %1 ], [ 0, %compare_handler.exit ], [ 0, %compare_handler.exit15 ], [ 0, %compare_handler.exit15.thread ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -1589,7 +1589,7 @@ define hidden range(i32 -1, 1) i32 @_PySignal_Init(i32 noundef %0) local_unnamed
   br label %signal_install_handlers.exit
 
 signal_install_handlers.exit:                     ; preds = %18, %15, %13, %7, %9, %4, %1
-  %.08 = phi i32 [ -1, %1 ], [ -1, %4 ], [ -1, %9 ], [ 0, %7 ], [ 0, %13 ], [ 0, %15 ], [ 0, %18 ]
+  %.08 = phi i32 [ -1, %9 ], [ -1, %1 ], [ -1, %4 ], [ 0, %7 ], [ 0, %13 ], [ 0, %15 ], [ 0, %18 ]
   ret i32 %.08
 }
 
@@ -2359,7 +2359,7 @@ define internal ptr @signal_set_wakeup_fd(ptr readnone captures(none) %0, ptr no
   br label %signal_set_wakeup_fd_impl.exit
 
 signal_set_wakeup_fd_impl.exit:                   ; preds = %26, %37, %40, %42, %46, %49
-  %.0.i = phi ptr [ null, %26 ], [ %52, %49 ], [ null, %37 ], [ null, %42 ], [ null, %40 ], [ null, %46 ]
+  %.0.i = phi ptr [ null, %26 ], [ %52, %49 ], [ null, %37 ], [ null, %46 ], [ null, %40 ], [ null, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %53
 
@@ -2470,7 +2470,7 @@ define internal noundef ptr @signal_siginterrupt(ptr readnone captures(none) %0,
   br label %signal_siginterrupt_impl.exit
 
 signal_siginterrupt_impl.exit:                    ; preds = %48, %36, %32, %20, %33, %12, %6
-  %.0 = phi ptr [ null, %12 ], [ null, %33 ], [ null, %6 ], [ null, %20 ], [ %.1.i, %32 ], [ null, %36 ], [ %.1.i17, %48 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %33 ], [ null, %6 ], [ %.1.i, %32 ], [ null, %20 ], [ null, %36 ], [ %.1.i17, %48 ]
   ret ptr %.0
 }
 
@@ -2574,7 +2574,7 @@ define internal noundef ptr @signal_pidfd_send_signal(ptr readnone captures(none
   br i1 %.not24, label %33, label %signal_pidfd_send_signal_impl.exit
 
 33:                                               ; preds = %26, %31, %22
-  %.0 = phi i32 [ 0, %22 ], [ -1, %31 ], [ %29, %26 ]
+  %.0 = phi i32 [ %29, %26 ], [ 0, %22 ], [ -1, %31 ]
   %.not.i = icmp eq ptr %24, @_Py_NoneStruct
   br i1 %.not.i, label %.thread, label %34
 
@@ -2595,7 +2595,7 @@ define internal noundef ptr @signal_pidfd_send_signal(ptr readnone captures(none
   br label %signal_pidfd_send_signal_impl.exit
 
 signal_pidfd_send_signal_impl.exit:               ; preds = %38, %.thread, %34, %31, %18, %11, %5
-  %.019 = phi ptr [ null, %11 ], [ null, %18 ], [ null, %31 ], [ null, %5 ], [ null, %34 ], [ null, %38 ], [ @_Py_NoneStruct, %.thread ]
+  %.019 = phi ptr [ null, %11 ], [ null, %18 ], [ null, %5 ], [ null, %31 ], [ null, %34 ], [ null, %38 ], [ @_Py_NoneStruct, %.thread ]
   ret ptr %.019
 }
 
@@ -2645,7 +2645,7 @@ define internal noundef ptr @signal_pthread_kill(ptr readnone captures(none) %0,
   br label %22
 
 22:                                               ; preds = %.split, %.split12, %19, %4, %11
-  %.0 = phi ptr [ null, %19 ], [ null, %11 ], [ null, %4 ], [ %18, %.split ], [ %21, %.split12 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %4 ], [ null, %11 ], [ %18, %.split ], [ %21, %.split12 ]
   ret ptr %.0
 }
 
@@ -3033,12 +3033,12 @@ select.unfold.i:                                  ; preds = %PyErr_CheckSignals.
   br label %62
 
 62:                                               ; preds = %select.unfold.i, %.thread.i
-  %.4.i = phi ptr [ %61, %select.unfold.i ], [ %.2.ph.i, %.thread.i ]
+  %.4.i = phi ptr [ %.2.ph.i, %.thread.i ], [ %61, %select.unfold.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %signal_sigtimedwait_impl.exit
 
 signal_sigtimedwait_impl.exit:                    ; preds = %14, %22, %62
-  %.0.i = phi ptr [ null, %22 ], [ %.4.i, %62 ], [ null, %14 ]
+  %.0.i = phi ptr [ %.4.i, %62 ], [ null, %22 ], [ null, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %63
@@ -3164,7 +3164,7 @@ define internal fastcc ptr @itimer_retval(ptr noundef nonnull readonly captures(
   br label %Py_DECREF.exit16
 
 Py_DECREF.exit16:                                 ; preds = %31, %28, %26, %17, %14, %12, %1, %32
-  %.0 = phi ptr [ %2, %32 ], [ null, %1 ], [ null, %12 ], [ null, %14 ], [ null, %17 ], [ null, %26 ], [ null, %28 ], [ null, %31 ]
+  %.0 = phi ptr [ null, %1 ], [ %2, %32 ], [ null, %17 ], [ null, %12 ], [ null, %14 ], [ null, %26 ], [ null, %28 ], [ null, %31 ]
   ret ptr %.0
 }
 
@@ -3255,7 +3255,7 @@ compare_handler.exit34.thread:                    ; preds = %29, %compare_handle
   br label %52
 
 33:                                               ; preds = %compare_handler.exit34, %compare_handler.exit, %17
-  %.021 = phi ptr [ @signal_handler, %17 ], [ inttoptr (i64 1 to ptr), %compare_handler.exit ], [ null, %compare_handler.exit34 ]
+  %.021 = phi ptr [ inttoptr (i64 1 to ptr), %compare_handler.exit ], [ @signal_handler, %17 ], [ null, %compare_handler.exit34 ]
   %34 = tail call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %4)
   %.not27 = icmp eq i32 %34, 0
   br i1 %.not27, label %35, label %52
@@ -3293,7 +3293,7 @@ _Py_NewRef.exit:                                  ; preds = %41, %49
   br label %52
 
 52:                                               ; preds = %_Py_NewRef.exit, %33, %38, %compare_handler.exit34.thread, %15, %11
-  %.0 = phi ptr [ null, %15 ], [ null, %38 ], [ null, %compare_handler.exit34.thread ], [ null, %11 ], [ null, %33 ], [ %_Py_NoneStruct., %_Py_NewRef.exit ]
+  %.0 = phi ptr [ null, %15 ], [ null, %11 ], [ null, %38 ], [ %_Py_NoneStruct., %_Py_NewRef.exit ], [ null, %33 ], [ null, %compare_handler.exit34.thread ]
   ret ptr %.0
 }
 
@@ -3494,7 +3494,7 @@ PyErr_CheckSignals.exit.thread:                   ; preds = %19, %PyErr_CheckSig
   br label %27
 
 27:                                               ; preds = %PyErr_CheckSignals.exit.thread, %PyErr_CheckSignals.exit, %2, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %2 ], [ @_Py_NoneStruct, %PyErr_CheckSignals.exit.thread ], [ null, %PyErr_CheckSignals.exit ]
+  %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ @_Py_NoneStruct, %PyErr_CheckSignals.exit.thread ], [ null, %PyErr_CheckSignals.exit ]
   ret ptr %.0
 }
 
@@ -3591,7 +3591,7 @@ Py_DECREF.exit21.sink.split:                      ; preds = %24, %11
   br label %Py_DECREF.exit21
 
 Py_DECREF.exit21:                                 ; preds = %Py_DECREF.exit, %Py_DECREF.exit21.sink.split, %24, %Py_DECREF.exit19, %11, %9, %1
-  %.013 = phi ptr [ null, %1 ], [ null, %9 ], [ null, %11 ], [ null, %Py_DECREF.exit19 ], [ null, %24 ], [ null, %Py_DECREF.exit21.sink.split ], [ %2, %Py_DECREF.exit ]
+  %.013 = phi ptr [ null, %1 ], [ null, %24 ], [ null, %Py_DECREF.exit21.sink.split ], [ null, %9 ], [ null, %11 ], [ null, %Py_DECREF.exit19 ], [ %2, %Py_DECREF.exit ]
   ret ptr %.013
 }
 
@@ -3667,7 +3667,7 @@ define internal fastcc ptr @fill_siginfo(ptr %.24.val, ptr noundef nonnull reado
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %34, %31, %29, %3, %1
-  %.0 = phi ptr [ null, %1 ], [ %2, %3 ], [ null, %29 ], [ null, %31 ], [ null, %34 ]
+  %.0 = phi ptr [ %2, %3 ], [ null, %1 ], [ null, %29 ], [ null, %31 ], [ null, %34 ]
   ret ptr %.0
 }
 
@@ -4058,8 +4058,8 @@ Py_DECREF.exit.i:                                 ; preds = %203, %200, %197
   %204 = tail call ptr @PyOS_setsig(i32 noundef 2, ptr noundef nonnull @signal_handler) #15
   br label %signal_get_set_handlers.exit
 
-signal_get_set_handlers.exit:                     ; preds = %168, %Py_DECREF.exit.i, %137, %134, %131, %126, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %162, %195, %142, %147, %151, %155, %159, %signal_add_constants.exit, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %signal_add_constants.exit ], [ -1, %142 ], [ -1, %147 ], [ -1, %151 ], [ -1, %155 ], [ -1, %159 ], [ -1, %195 ], [ 0, %162 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ -1, %28 ], [ -1, %31 ], [ -1, %34 ], [ -1, %37 ], [ -1, %40 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %52 ], [ -1, %55 ], [ -1, %58 ], [ -1, %61 ], [ -1, %64 ], [ -1, %67 ], [ -1, %70 ], [ -1, %73 ], [ -1, %76 ], [ -1, %79 ], [ -1, %82 ], [ -1, %85 ], [ -1, %88 ], [ -1, %91 ], [ -1, %94 ], [ -1, %97 ], [ -1, %100 ], [ -1, %103 ], [ -1, %106 ], [ -1, %109 ], [ -1, %112 ], [ -1, %115 ], [ -1, %118 ], [ -1, %121 ], [ -1, %126 ], [ -1, %131 ], [ -1, %134 ], [ -1, %137 ], [ 0, %Py_DECREF.exit.i ], [ 0, %168 ]
+signal_get_set_handlers.exit:                     ; preds = %168, %Py_DECREF.exit.i, %134, %131, %126, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %137, %162, %195, %142, %147, %151, %155, %159, %signal_add_constants.exit, %1
+  %.0 = phi i32 [ -1, %signal_add_constants.exit ], [ -1, %1 ], [ -1, %159 ], [ -1, %142 ], [ -1, %147 ], [ -1, %151 ], [ -1, %155 ], [ -1, %195 ], [ 0, %162 ], [ -1, %134 ], [ -1, %137 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ -1, %28 ], [ -1, %31 ], [ -1, %34 ], [ -1, %37 ], [ -1, %40 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %52 ], [ -1, %55 ], [ -1, %58 ], [ -1, %61 ], [ -1, %64 ], [ -1, %67 ], [ -1, %70 ], [ -1, %73 ], [ -1, %76 ], [ -1, %79 ], [ -1, %82 ], [ -1, %85 ], [ -1, %88 ], [ -1, %91 ], [ -1, %94 ], [ -1, %97 ], [ -1, %100 ], [ -1, %103 ], [ -1, %106 ], [ -1, %109 ], [ -1, %112 ], [ -1, %115 ], [ -1, %118 ], [ -1, %121 ], [ -1, %126 ], [ -1, %131 ], [ 0, %Py_DECREF.exit.i ], [ 0, %168 ]
   ret i32 %.0
 }
 

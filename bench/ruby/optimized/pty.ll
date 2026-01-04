@@ -549,7 +549,7 @@ no_mesg.exit.thread:                              ; preds = %25, %no_mesg.exit
   unreachable
 
 36:                                               ; preds = %33, %30
-  %.022 = phi i32 [ 0, %30 ], [ -1, %33 ]
+  %.022 = phi i32 [ -1, %33 ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.022

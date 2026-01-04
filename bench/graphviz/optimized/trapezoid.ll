@@ -83,7 +83,7 @@ gv_calloc.exit44:                                 ; preds = %gv_calloc.exit
   br label %_max.exit.i
 
 _max.exit.i:                                      ; preds = %38, %34, %gv_calloc.exit44
-  %.sink.i.i = phi ptr [ %21, %gv_calloc.exit44 ], [ %..i.i, %38 ], [ %27, %34 ]
+  %.sink.i.i = phi ptr [ %..i.i, %38 ], [ %21, %gv_calloc.exit44 ], [ %27, %34 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %.sink.i.i, i64 16, i1 false)
   %43 = call fastcc i32 @newnode(ptr noundef nonnull %5)
   %44 = load ptr, ptr %6, align 8, !tbaa !11
@@ -123,7 +123,7 @@ _max.exit.i:                                      ; preds = %38, %34, %gv_calloc
   br label %init_query_structure.exit
 
 init_query_structure.exit:                        ; preds = %_max.exit.i, %60, %64
-  %.sink.i171.i = phi ptr [ %21, %_max.exit.i ], [ %..i170.i, %64 ], [ %27, %60 ]
+  %.sink.i171.i = phi ptr [ %..i170.i, %64 ], [ %21, %_max.exit.i ], [ %27, %60 ]
   %68 = getelementptr inbounds nuw i8, ptr %55, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %.sink.i171.i, i64 16, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %55, i64 28
@@ -1051,7 +1051,7 @@ is_left_of.exit:                                  ; preds = %341, %368
   %379 = fcmp ogt double %.0.i600, 0.000000e+00
   br i1 %379, label %is_left_of.exit.thread, label %is_left_of.exit.thread630
 
-is_left_of.exit.thread:                           ; preds = %364, %356, %338, %329, %is_left_of.exit
+is_left_of.exit.thread:                           ; preds = %356, %364, %338, %329, %is_left_of.exit
   %380 = getelementptr inbounds nuw i8, ptr %288, i64 48
   %381 = load i32, ptr %380, align 8, !tbaa !34
   %382 = sext i32 %381 to i64
@@ -1065,7 +1065,7 @@ is_left_of.exit.thread:                           ; preds = %364, %356, %338, %3
   store i32 -1, ptr %387, align 4, !tbaa !35
   br label %413
 
-is_left_of.exit.thread630:                        ; preds = %364, %356, %338, %329, %is_left_of.exit, %305
+is_left_of.exit.thread630:                        ; preds = %356, %364, %338, %329, %is_left_of.exit, %305
   %388 = getelementptr inbounds %struct.trap_t, ptr %287, i64 %247
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 48
   %390 = load i32, ptr %389, align 8, !tbaa !34
@@ -1250,7 +1250,7 @@ is_left_of.exit606:                               ; preds = %470, %497
   %508 = fcmp ogt double %.0.i602, 0.000000e+00
   br i1 %508, label %is_left_of.exit606.thread, label %is_left_of.exit606.thread639
 
-is_left_of.exit606.thread:                        ; preds = %493, %485, %467, %458, %is_left_of.exit606
+is_left_of.exit606.thread:                        ; preds = %485, %493, %467, %458, %is_left_of.exit606
   %509 = getelementptr inbounds nuw i8, ptr %417, i64 52
   %510 = load i32, ptr %509, align 4, !tbaa !35
   %511 = sext i32 %510 to i64
@@ -1264,7 +1264,7 @@ is_left_of.exit606.thread:                        ; preds = %493, %485, %467, %4
   store i32 -1, ptr %516, align 4, !tbaa !35
   br label %542
 
-is_left_of.exit606.thread639:                     ; preds = %493, %485, %467, %458, %is_left_of.exit606, %434
+is_left_of.exit606.thread639:                     ; preds = %485, %493, %467, %458, %is_left_of.exit606, %434
   %517 = getelementptr inbounds %struct.trap_t, ptr %416, i64 %247
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 52
   %519 = load i32, ptr %518, align 4, !tbaa !35
@@ -1658,8 +1658,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %29 = fcmp ogt double %27, %28
   br i1 %29, label %tailrecurse.backedge, label %31
 
-tailrecurse.backedge:                             ; preds = %26, %16, %is_left_of.exit99, %171, %180, %196, %204, %is_left_of.exit, %106, %115, %132, %140, %86, %31, %35, %46, %41, %49, %is_left_of.exit.thread105, %is_left_of.exit99.thread113
-  %.sink = phi i64 [ 32, %49 ], [ 36, %is_left_of.exit.thread105 ], [ 36, %is_left_of.exit99.thread113 ], [ 36, %41 ], [ 36, %46 ], [ 32, %35 ], [ 32, %31 ], [ %., %86 ], [ 32, %140 ], [ 32, %132 ], [ 32, %115 ], [ 32, %106 ], [ 32, %is_left_of.exit ], [ 32, %204 ], [ 32, %196 ], [ 32, %180 ], [ 32, %171 ], [ 32, %is_left_of.exit99 ], [ 36, %16 ], [ 36, %26 ]
+tailrecurse.backedge:                             ; preds = %26, %16, %is_left_of.exit99, %171, %180, %204, %196, %is_left_of.exit, %106, %115, %140, %132, %86, %31, %35, %46, %41, %49, %is_left_of.exit.thread105, %is_left_of.exit99.thread113
+  %.sink = phi i64 [ 32, %is_left_of.exit99 ], [ 36, %is_left_of.exit99.thread113 ], [ 32, %49 ], [ 36, %46 ], [ %., %86 ], [ 32, %31 ], [ 32, %35 ], [ 36, %is_left_of.exit.thread105 ], [ 32, %is_left_of.exit ], [ 36, %41 ], [ 32, %132 ], [ 32, %140 ], [ 32, %115 ], [ 32, %106 ], [ 32, %196 ], [ 32, %204 ], [ 32, %180 ], [ 32, %171 ], [ 36, %16 ], [ 36, %26 ]
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink
   %.tr116.be = load i32, ptr %30, align 4, !tbaa !12
   br label %tailrecurse
@@ -1844,7 +1844,7 @@ is_left_of.exit:                                  ; preds = %118, %144
   %155 = fcmp ogt double %.0.i, 0.000000e+00
   br i1 %155, label %tailrecurse.backedge, label %is_left_of.exit.thread105
 
-is_left_of.exit.thread105:                        ; preds = %140, %132, %115, %106, %is_left_of.exit
+is_left_of.exit.thread105:                        ; preds = %132, %140, %115, %106, %is_left_of.exit
   br label %tailrecurse.backedge
 
 156:                                              ; preds = %73, %67
@@ -1940,7 +1940,7 @@ is_left_of.exit99:                                ; preds = %183, %208
   %218 = fcmp ogt double %.0.i95, 0.000000e+00
   br i1 %218, label %tailrecurse.backedge, label %is_left_of.exit99.thread113
 
-is_left_of.exit99.thread113:                      ; preds = %204, %196, %180, %171, %is_left_of.exit99
+is_left_of.exit99.thread113:                      ; preds = %196, %204, %180, %171, %is_left_of.exit99
   br label %tailrecurse.backedge
 
 219:                                              ; preds = %tailrecurse
@@ -2162,7 +2162,7 @@ is_left_of.exit:                                  ; preds = %107, %130
   %139 = fcmp ogt double %.0.i, 0.000000e+00
   br i1 %139, label %is_left_of.exit.thread, label %is_left_of.exit.thread6
 
-is_left_of.exit.thread6:                          ; preds = %128, %120, %105, %97, %is_left_of.exit
+is_left_of.exit.thread6:                          ; preds = %120, %128, %105, %97, %is_left_of.exit
   store i32 -1, ptr %6, align 8, !tbaa !33
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 -1, ptr %140, align 4, !tbaa !36
@@ -2178,7 +2178,7 @@ is_left_of.exit.thread6:                          ; preds = %128, %120, %105, %9
   store i32 %2, ptr %148, align 4, !tbaa !35
   br label %160
 
-is_left_of.exit.thread:                           ; preds = %128, %120, %105, %97, %is_left_of.exit, %70
+is_left_of.exit.thread:                           ; preds = %120, %128, %105, %97, %is_left_of.exit, %70
   %149 = sext i32 %2 to i64
   %150 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %149
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
@@ -2283,7 +2283,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
   br i1 %48, label %.thread, label %.thread115.backedge
 
 .thread115.backedge:                              ; preds = %43, %59, %.thread, %68
-  %.098118.be = phi i32 [ %.1100112, %68 ], [ %.1100112, %.thread ], [ %57, %59 ], [ %41, %43 ]
+  %.098118.be = phi i32 [ %57, %59 ], [ %41, %43 ], [ %.1100112, %.thread ], [ %.1100112, %68 ]
   br label %.thread115, !llvm.loop !65
 
 49:                                               ; preds = %_greater_than_equal_to.exit.thread

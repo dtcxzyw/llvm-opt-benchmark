@@ -157,7 +157,7 @@ ogg_find_stream.exit.thread:                      ; preds = %68, %57
   br label %78
 
 78:                                               ; preds = %2, %46, %39, %76, %77, %53, %55, %28, %._crit_edge, %75, %ogg_find_stream.exit.thread, %34
-  %.0 = phi i32 [ 1, %ogg_find_stream.exit.thread ], [ 1, %75 ], [ -1, %34 ], [ -1, %._crit_edge ], [ -1, %28 ], [ -1, %55 ], [ 1, %53 ], [ 1, %77 ], [ 1, %76 ], [ 1, %39 ], [ 1, %46 ], [ 1, %2 ]
+  %.0 = phi i32 [ -1, %34 ], [ 1, %2 ], [ -1, %55 ], [ -1, %28 ], [ 1, %ogg_find_stream.exit.thread ], [ 1, %75 ], [ -1, %._crit_edge ], [ 1, %53 ], [ 1, %77 ], [ 1, %76 ], [ 1, %39 ], [ 1, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

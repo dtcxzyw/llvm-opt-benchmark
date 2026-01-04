@@ -513,7 +513,7 @@ define dso_local range(i32 1, 0) i32 @platform_get_irq_optional(ptr noundef %0, 
   br label %.thread9
 
 .thread9:                                         ; preds = %43, %37, %63, %61, %65, %71, %67
-  %72 = phi i32 [ -22, %71 ], [ %69, %67 ], [ -6, %43 ], [ -22, %37 ], [ -6, %63 ], [ -6, %61 ], [ -6, %65 ]
+  %72 = phi i32 [ %69, %67 ], [ -22, %71 ], [ -6, %43 ], [ -22, %37 ], [ -6, %63 ], [ -6, %61 ], [ -6, %65 ]
   ret i32 %72
 }
 
@@ -1351,7 +1351,7 @@ select.unfold.fold.split:                         ; preds = %49
   br label %select.unfold
 
 select.unfold:                                    ; preds = %49, %select.unfold.fold.split, %45
-  %.ph = phi ptr [ @iomem_resource, %49 ], [ %47, %45 ], [ @ioport_resource, %select.unfold.fold.split ]
+  %.ph = phi ptr [ %47, %45 ], [ @iomem_resource, %49 ], [ @ioport_resource, %select.unfold.fold.split ]
   %53 = tail call i32 @insert_resource(ptr noundef nonnull %.ph, ptr noundef %34) #15
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %66
@@ -1633,7 +1633,7 @@ define dso_local ptr @platform_device_register_full(ptr noundef readonly capture
   br i1 %83, label %91, label %84
 
 84:                                               ; preds = %66, %53, %81, %78
-  %85 = phi i32 [ %79, %78 ], [ %82, %81 ], [ -12, %53 ], [ -12, %66 ]
+  %85 = phi i32 [ %82, %81 ], [ -12, %53 ], [ %79, %78 ], [ -12, %66 ]
   tail call void @set_primary_fwnode(ptr noundef nonnull %14, ptr noundef null) #15
   %86 = icmp ugt ptr %8, inttoptr (i64 -4096 to ptr)
   br i1 %86, label %88, label %87
@@ -1908,7 +1908,7 @@ define dso_local ptr @__platform_create_bundle(ptr noundef %0, ptr noundef %1, p
   br i1 %96, label %.preheader, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %92, %45, %34, %80, %72, %48
-  %97 = phi i32 [ %52, %48 ], [ %.ph, %72 ], [ %.ph, %80 ], [ -12, %34 ], [ -12, %45 ], [ %.ph, %92 ]
+  %97 = phi i32 [ -12, %45 ], [ -12, %34 ], [ %52, %48 ], [ %.ph, %72 ], [ %.ph, %80 ], [ %.ph, %92 ]
   %98 = icmp ugt ptr %12, inttoptr (i64 -4096 to ptr)
   br i1 %98, label %100, label %99
 

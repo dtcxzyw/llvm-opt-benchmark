@@ -3205,8 +3205,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %140, %146, %114, %120, %88, %94, %62, %68, %36, %42
-  %.sink = phi ptr [ %15, %42 ], [ %15, %36 ], [ %12, %68 ], [ %12, %62 ], [ %9, %94 ], [ %9, %88 ], [ %6, %120 ], [ %6, %114 ], [ %3, %146 ], [ %3, %140 ]
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %42 ], [ %37, %36 ], [ %.pn.i, %68 ], [ %63, %62 ], [ %.pn.i8, %94 ], [ %89, %88 ], [ %.pn.i15, %120 ], [ %115, %114 ], [ %.pn.i22, %146 ], [ %141, %140 ]
+  %.sink = phi ptr [ %6, %114 ], [ %9, %88 ], [ %12, %62 ], [ %15, %36 ], [ %15, %42 ], [ %12, %68 ], [ %9, %94 ], [ %6, %120 ], [ %3, %146 ], [ %3, %140 ]
+  %common.resume.op = phi { ptr, i32 } [ %115, %114 ], [ %89, %88 ], [ %63, %62 ], [ %37, %36 ], [ %.pn.pn.i, %42 ], [ %.pn.i, %68 ], [ %.pn.i8, %94 ], [ %.pn.i15, %120 ], [ %.pn.i22, %146 ], [ %141, %140 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #17
   resume { ptr, i32 } %common.resume.op
 

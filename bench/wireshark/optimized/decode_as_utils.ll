@@ -237,14 +237,14 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   br i1 %85, label %.thread189, label %86
 
 .thread189:                                       ; preds = %65, %84, %78, %80, %68, %74, %60
-  %.str.6.sink = phi ptr [ @.str.6, %60 ], [ @.str.7, %74 ], [ @.str.7, %68 ], [ @.str.7, %80 ], [ @.str.7, %78 ], [ @.str.7, %84 ], [ @.str.6, %65 ]
+  %.str.6.sink = phi ptr [ @.str.7, %78 ], [ @.str.7, %84 ], [ @.str.6, %60 ], [ @.str.7, %68 ], [ @.str.7, %74 ], [ @.str.7, %80 ], [ @.str.6, %65 ]
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull %.str.6.sink, ptr noundef %45)
   call void @g_free(ptr noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %143
 
 86:                                               ; preds = %80, %84, %65
-  %.1146 = phi i64 [ %70, %80 ], [ %70, %84 ], [ 0, %65 ]
+  %.1146 = phi i64 [ %70, %80 ], [ 0, %65 ], [ %70, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread183
 
@@ -447,7 +447,7 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   br label %143
 
 143:                                              ; preds = %.thread189, %.loopexit, %.thread195, %91, %88, %87, %36
-  %.0 = phi i1 [ false, %91 ], [ true, %.loopexit ], [ false, %.thread195 ], [ false, %87 ], [ false, %88 ], [ false, %36 ], [ false, %.thread189 ]
+  %.0 = phi i1 [ false, %91 ], [ true, %.loopexit ], [ false, %.thread195 ], [ false, %.thread189 ], [ false, %87 ], [ false, %88 ], [ false, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }

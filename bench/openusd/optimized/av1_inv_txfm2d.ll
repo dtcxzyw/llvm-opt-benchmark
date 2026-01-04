@@ -545,8 +545,8 @@ define hidden void @av1_gen_inv_stage_range(ptr noundef writeonly captures(none)
   br label %8
 
 8:                                                ; preds = %5, %6, %7
-  %.040 = phi i8 [ 16, %6 ], [ 18, %7 ], [ 16, %5 ]
-  %.0 = phi i8 [ 18, %6 ], [ 20, %7 ], [ 16, %5 ]
+  %.040 = phi i8 [ 18, %7 ], [ 16, %6 ], [ 16, %5 ]
+  %.0 = phi i8 [ 20, %7 ], [ 18, %6 ], [ 16, %5 ]
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
@@ -667,7 +667,7 @@ set_flip_cfg.exit.i:
   br label %get_rect_tx_log_ratio.exit.i
 
 get_rect_tx_log_ratio.exit.i:                     ; preds = %58, %55, %set_flip_cfg.exit.i
-  %61 = phi i1 [ false, %set_flip_cfg.exit.i ], [ %57, %55 ], [ %60, %58 ]
+  %61 = phi i1 [ %57, %55 ], [ false, %set_flip_cfg.exit.i ], [ %60, %58 ]
   switch i32 %6, label %63 [
     i32 8, label %64
     i32 10, label %62
@@ -680,8 +680,8 @@ get_rect_tx_log_ratio.exit.i:                     ; preds = %58, %55, %set_flip_
   br label %64
 
 64:                                               ; preds = %63, %62, %get_rect_tx_log_ratio.exit.i
-  %.040.i.i = phi i8 [ 16, %62 ], [ 18, %63 ], [ 16, %get_rect_tx_log_ratio.exit.i ]
-  %.0.i133.i = phi i8 [ 18, %62 ], [ 20, %63 ], [ 16, %get_rect_tx_log_ratio.exit.i ]
+  %.040.i.i = phi i8 [ 18, %63 ], [ 16, %62 ], [ 16, %get_rect_tx_log_ratio.exit.i ]
+  %.0.i133.i = phi i8 [ 20, %63 ], [ 18, %62 ], [ 16, %get_rect_tx_log_ratio.exit.i ]
   %65 = icmp sgt i8 %47, 0
   br i1 %65, label %.lr.ph.i.preheader.i, label %.preheader.i.i
 

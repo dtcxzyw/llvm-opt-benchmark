@@ -339,7 +339,7 @@ define dso_local void @_ZNK9Stockfish8Position3fenB5cxx11Ev(ptr dead_on_unwind n
   br label %27
 
 27:                                               ; preds = %.thread62, %.thread
-  %.1.lcssa5761 = phi i32 [ %17, %.thread ], [ 8, %.thread62 ]
+  %.1.lcssa5761 = phi i32 [ 8, %.thread62 ], [ %17, %.thread ]
   %28 = add nsw i32 %.1.lcssa5761, 1
   %29 = icmp slt i32 %.1.lcssa5761, 7
   br i1 %29, label %.preheader, label %30, !llvm.loop !10
@@ -908,7 +908,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %3
   %.not29 = icmp eq i64 %236, 0
   br i1 %.not29, label %239, label %.critedge35
 
-.critedge35:                                      ; preds = %182, %175, %.critedge2, %216, %189, %226
+.critedge35:                                      ; preds = %.critedge2, %182, %175, %216, %189, %226
   %237 = load ptr, ptr %9, align 8
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 36
   store i32 64, ptr %238, align 4
@@ -2346,7 +2346,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %113, %263, %272, %._crit_edge, %168, %10, %58, %184
-  %.0 = phi i1 [ %.not33, %184 ], [ false, %10 ], [ %.not38, %58 ], [ true, %._crit_edge ], [ %.not35, %168 ], [ true, %263 ], [ %285, %272 ], [ false, %113 ]
+  %.0 = phi i1 [ %.not35, %168 ], [ %.not38, %58 ], [ %285, %272 ], [ %.not33, %184 ], [ false, %10 ], [ true, %._crit_edge ], [ true, %263 ], [ false, %113 ]
   ret i1 %.0
 }
 
@@ -2478,7 +2478,7 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit
 
 _ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit: ; preds = %29, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105, %49, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %60
-  %.028.i.i.i.i = phi ptr [ %22, %60 ], [ %.029.lcssa.i.i.i.i, %49 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %61, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %62, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103 ], [ %63, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105 ], [ %.02946.i.i.i.i, %29 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %22, %60 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %49 ], [ %63, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105 ], [ %61, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %62, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103 ], [ %.02946.i.i.i.i, %29 ]
   %64 = icmp ne ptr %.028.i.i.i.i, %22
   br label %268
 
@@ -2585,7 +2585,7 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit
 
 _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit111, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit113, %94, %._crit_edge._crit_edge.i.i.i.i54, %._crit_edge._crit_edge52.i.i.i.i51, %105
-  %.028.i.i.i.i53 = phi ptr [ %67, %105 ], [ %.029.lcssa.i.i.i.i50, %94 ], [ %.1.i.i.i.i55, %._crit_edge._crit_edge.i.i.i.i54 ], [ %.2.i.i.i.i52, %._crit_edge._crit_edge52.i.i.i.i51 ], [ %106, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %107, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit111 ], [ %108, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit113 ], [ %.02946.i.i.i.i59, %74 ]
+  %.028.i.i.i.i53 = phi ptr [ %.1.i.i.i.i55, %._crit_edge._crit_edge.i.i.i.i54 ], [ %67, %105 ], [ %.2.i.i.i.i52, %._crit_edge._crit_edge52.i.i.i.i51 ], [ %.029.lcssa.i.i.i.i50, %94 ], [ %108, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit113 ], [ %106, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %107, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit111 ], [ %.02946.i.i.i.i59, %74 ]
   %109 = icmp ne ptr %.028.i.i.i.i53, %67
   br label %268
 
@@ -2810,7 +2810,7 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %167, %183,
   br label %268
 
 268:                                              ; preds = %256, %246, %243, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit, %145, %149, %154, %158, %124, %113, %110, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit, %267
-  %.0 = phi i1 [ true, %267 ], [ %64, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit ], [ %109, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit ], [ false, %110 ], [ false, %113 ], [ false, %124 ], [ false, %158 ], [ false, %154 ], [ false, %149 ], [ false, %145 ], [ false, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit ], [ false, %243 ], [ false, %246 ], [ false, %256 ]
+  %.0 = phi i1 [ false, %145 ], [ %109, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit ], [ false, %110 ], [ false, %113 ], [ false, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit ], [ true, %267 ], [ false, %243 ], [ false, %246 ], [ false, %124 ], [ %64, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit ], [ false, %256 ], [ false, %158 ], [ false, %154 ], [ false, %149 ]
   ret i1 %.0
 }
 
@@ -3063,7 +3063,7 @@ default.unreachable:                              ; preds = %44, %42
   br label %201
 
 201:                                              ; preds = %29, %42, %2, %190, %126, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
-  %.0 = phi i1 [ %200, %190 ], [ %125, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit ], [ %189, %126 ], [ true, %2 ], [ false, %42 ], [ %spec.select, %29 ]
+  %.0 = phi i1 [ %189, %126 ], [ true, %2 ], [ %200, %190 ], [ false, %42 ], [ %125, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit ], [ %spec.select, %29 ]
   ret i1 %.0
 }
 
@@ -4400,7 +4400,7 @@ define dso_local noundef i64 @_ZNK9Stockfish8Position9key_afterENS_4MoveE(ptr no
   br label %_ZNK9Stockfish8Position12adjust_key50ILb1EEEmm.exit
 
 _ZNK9Stockfish8Position12adjust_key50ILb1EEEmm.exit: ; preds = %47, %43, %18, %32
-  %54 = phi i64 [ %40, %32 ], [ %31, %18 ], [ %53, %47 ], [ %40, %43 ]
+  %54 = phi i64 [ %31, %18 ], [ %40, %32 ], [ %53, %47 ], [ %40, %43 ]
   ret i64 %54
 }
 
@@ -4700,7 +4700,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position6see_geENS_4MoveEi(p
   br i1 %.not92, label %._crit_edge.loopexit, label %114, !llvm.loop !53
 
 ._crit_edge.loopexit:                             ; preds = %192, %175, %158, %149, %132, %124, %220
-  %.1.ph = phi i32 [ %130, %220 ], [ %.0112, %124 ], [ %130, %132 ], [ %130, %149 ], [ %130, %158 ], [ %130, %175 ], [ %130, %192 ]
+  %.1.ph = phi i32 [ %130, %220 ], [ %.0112, %124 ], [ %130, %132 ], [ %130, %192 ], [ %130, %175 ], [ %130, %158 ], [ %130, %149 ]
   %227 = icmp ne i32 %.1.ph, 0
   br label %._crit_edge
 
@@ -4879,7 +4879,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position14has_game_cycleEi(p
   br i1 %.not, label %.loopexit, label %20, !llvm.loop !55
 
 .loopexit:                                        ; preds = %65, %62, %52, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %65 ], [ true, %62 ], [ true, %52 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %65 ], [ true, %52 ], [ true, %62 ]
   ret i1 %.0
 }
 

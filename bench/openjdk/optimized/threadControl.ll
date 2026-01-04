@@ -345,9 +345,9 @@ threadState.exit:                                 ; preds = %46, %51
   br label %.sink.split
 
 .sink.split:                                      ; preds = %67, %44, %39, %.thread55
-  %.sink69 = phi i16 [ 16, %.thread55 ], [ 4, %39 ], [ 8, %44 ], [ 8, %67 ]
-  %.ph = phi i16 [ 32, %.thread55 ], [ 0, %39 ], [ 0, %44 ], [ 32, %67 ]
-  %.039.ph = phi ptr [ %spec.select, %.thread55 ], [ %1, %39 ], [ %1, %44 ], [ %spec.select, %67 ]
+  %.sink69 = phi i16 [ 8, %44 ], [ 16, %.thread55 ], [ 4, %39 ], [ 8, %67 ]
+  %.ph = phi i16 [ 0, %44 ], [ 32, %.thread55 ], [ 0, %39 ], [ 32, %67 ]
+  %.039.ph = phi ptr [ %1, %44 ], [ %spec.select, %.thread55 ], [ %1, %39 ], [ %spec.select, %67 ]
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %72 = load i16, ptr %71, align 8
   %73 = or i16 %72, %.sink69
@@ -355,8 +355,8 @@ threadState.exit:                                 ; preds = %46, %51
   br label %74
 
 74:                                               ; preds = %.sink.split, %70, %.loopexit
-  %75 = phi i16 [ 32, %70 ], [ 0, %.loopexit ], [ %.ph, %.sink.split ]
-  %.039 = phi ptr [ %spec.select, %70 ], [ %1, %.loopexit ], [ %.039.ph, %.sink.split ]
+  %75 = phi i16 [ 0, %.loopexit ], [ 32, %70 ], [ %.ph, %.sink.split ]
+  %.039 = phi ptr [ %1, %.loopexit ], [ %spec.select, %70 ], [ %.039.ph, %.sink.split ]
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %76, align 4
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -540,7 +540,7 @@ define internal fastcc i32 @commonSuspend(ptr noundef %0, ptr noundef %1, i8 nou
   br label %deferredSuspendThreadByNode.exit
 
 deferredSuspendThreadByNode.exit:                 ; preds = %43, %32, %27, %23, %13
-  %.010 = phi i32 [ %.0.i, %23 ], [ 0, %13 ], [ 0, %32 ], [ %.014.i, %43 ], [ 0, %27 ]
+  %.010 = phi i32 [ 0, %13 ], [ %.0.i, %23 ], [ %.014.i, %43 ], [ 0, %32 ], [ 0, %27 ]
   ret i32 %.010
 }
 
@@ -712,7 +712,7 @@ threadState.exit:                                 ; preds = %14, %19
   br label %33
 
 33:                                               ; preds = %29, %12, %.thread
-  %.sink = phi i32 [ %11, %.thread ], [ 0, %12 ], [ %spec.select, %29 ]
+  %.sink = phi i32 [ %spec.select, %29 ], [ 0, %12 ], [ %11, %.thread ]
   store i32 %.sink, ptr %1, align 4
   %34 = load ptr, ptr @threadLock, align 8
   call void @debugMonitorExit(ptr noundef %34) #5
@@ -901,7 +901,7 @@ nonTlsSearch.exit60:                              ; preds = %.lr.ph.i54
   br label %nonTlsSearch.exit69
 
 nonTlsSearch.exit69:                              ; preds = %.lr.ph.i63, %50, %46, %nonTlsSearch.exit51.thread, %43, %nonTlsSearch.exit60, %63, %52, %getThreadLocalStorage.exit
-  %.0 = phi ptr [ %65, %63 ], [ %.1, %52 ], [ %.1, %nonTlsSearch.exit60 ], [ %.1, %43 ], [ %.1, %nonTlsSearch.exit51.thread ], [ %19, %getThreadLocalStorage.exit ], [ %.1, %46 ], [ %.1, %50 ], [ %.010.i64, %.lr.ph.i63 ]
+  %.0 = phi ptr [ %65, %63 ], [ %.1, %50 ], [ %19, %getThreadLocalStorage.exit ], [ %.1, %52 ], [ %.1, %nonTlsSearch.exit60 ], [ %.1, %nonTlsSearch.exit51.thread ], [ %.1, %43 ], [ %.1, %46 ], [ %.010.i64, %.lr.ph.i63 ]
   %66 = icmp ne ptr %.0, null
   %67 = icmp ne ptr %0, null
   %or.cond7 = and i1 %67, %66
@@ -915,7 +915,7 @@ nonTlsSearch.exit69:                              ; preds = %.lr.ph.i63, %50, %4
   br label %nonTlsSearch.exit69.thread76
 
 nonTlsSearch.exit69.thread76:                     ; preds = %68, %.loopexit, %nonTlsSearch.exit69
-  %.028 = phi ptr [ %.0, %nonTlsSearch.exit69 ], [ null, %.loopexit ], [ %spec.select, %68 ]
+  %.028 = phi ptr [ %spec.select, %68 ], [ null, %.loopexit ], [ %.0, %nonTlsSearch.exit69 ]
   ret ptr %.028
 }
 
@@ -1282,7 +1282,7 @@ suspendAllHelper.exit.thread:                     ; preds = %.lr.ph.i32
   br label %enumerateOverThreadList.exit39
 
 enumerateOverThreadList.exit39:                   ; preds = %.lr.ph.i32, %.loopexit.loopexit.i.us, %enumerateOverThreadList.exit, %.loopexit, %commonSuspendList.exit
-  %.0 = phi i32 [ %.0.i, %commonSuspendList.exit ], [ 0, %.loopexit ], [ 188, %enumerateOverThreadList.exit ], [ %135, %.loopexit.loopexit.i.us ], [ %139, %.lr.ph.i32 ]
+  %.0 = phi i32 [ 188, %enumerateOverThreadList.exit ], [ %.0.i, %commonSuspendList.exit ], [ 0, %.loopexit ], [ %135, %.loopexit.loopexit.i.us ], [ %139, %.lr.ph.i32 ]
   call void @jvmtiDeallocate(ptr noundef %35) #5
   %142 = load ptr, ptr @gdata, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 528
@@ -1447,8 +1447,8 @@ excludeCopyHelper.exit:                           ; preds = %48, %44
   br label %excludeCopyHelper.exit
 
 enumerateOverThreadList.exit29:                   ; preds = %excludeCopyHelper.exit, %9, %33, %enumerateOverThreadList.exit
-  %.15355 = phi i32 [ 0, %enumerateOverThreadList.exit ], [ %.2, %33 ], [ 0, %9 ], [ %.2, %excludeCopyHelper.exit ]
-  %.0 = phi ptr [ null, %enumerateOverThreadList.exit ], [ %27, %33 ], [ null, %9 ], [ %27, %excludeCopyHelper.exit ]
+  %.15355 = phi i32 [ 0, %9 ], [ 0, %enumerateOverThreadList.exit ], [ %.2, %33 ], [ %.2, %excludeCopyHelper.exit ]
+  %.0 = phi ptr [ null, %9 ], [ null, %enumerateOverThreadList.exit ], [ %27, %33 ], [ %27, %excludeCopyHelper.exit ]
   %51 = load ptr, ptr @gdata, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 528
   %53 = load i32, ptr %52, align 8
@@ -3039,7 +3039,7 @@ processDeferredEventModes.exit:                   ; preds = %153, %103, %109, %.
   br label %169
 
 169:                                              ; preds = %.thread68, %165, %168, %35, %42
-  %.0 = phi ptr [ null, %42 ], [ null, %35 ], [ %160, %168 ], [ %160, %165 ], [ %160, %.thread68 ]
+  %.0 = phi ptr [ null, %35 ], [ null, %42 ], [ %160, %168 ], [ %160, %165 ], [ %160, %.thread68 ]
   ret ptr %.0
 }
 
@@ -3413,7 +3413,7 @@ define hidden zeroext range(i8 0, 2) i8 @threadControl_cmpCLEInfo(ptr noundef %0
   br label %24
 
 24:                                               ; preds = %20, %16, %12, %9, %5
-  %.0 = phi i8 [ 0, %16 ], [ 0, %12 ], [ 0, %9 ], [ 0, %5 ], [ %spec.select, %20 ]
+  %.0 = phi i8 [ 0, %5 ], [ %spec.select, %20 ], [ 0, %16 ], [ 0, %12 ], [ 0, %9 ]
   %25 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorExit(ptr noundef %25) #5
   ret i8 %.0
@@ -4150,7 +4150,7 @@ define internal fastcc i32 @resumeThreadByNode(ptr noundef captures(none) %0) un
   br label %23
 
 23:                                               ; preds = %17, %22
-  %24 = phi ptr [ %18, %17 ], [ %.pre, %22 ]
+  %24 = phi ptr [ %.pre, %22 ], [ %18, %17 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 528
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 8
@@ -4204,7 +4204,7 @@ define internal fastcc i32 @resumeThreadByNode(ptr noundef captures(none) %0) un
   br label %51
 
 51:                                               ; preds = %49, %5, %35, %14, %9, %1
-  %.013 = phi i32 [ 0, %1 ], [ %42, %35 ], [ 0, %14 ], [ 0, %9 ], [ 0, %5 ], [ %spec.select, %49 ]
+  %.013 = phi i32 [ 0, %1 ], [ %spec.select, %49 ], [ 0, %5 ], [ %42, %35 ], [ 0, %14 ], [ 0, %9 ]
   ret i32 %.013
 }
 

@@ -314,7 +314,7 @@ _ZNK3euf5enode8get_declEv.exit15.i.us:            ; preds = %103, %_ZNK3euf5enod
   br i1 %.not14.i.us, label %135, label %_ZNK3euf5enode9congruentEPS0_.exit.us, !llvm.loop !41
 
 _ZNK3euf5enode9congruentEPS0_.exit.us:            ; preds = %135, %136, %123, %107, %_ZNK3euf5enode8get_declEv.exit15.i.us
-  %.011.i.us = phi i1 [ false, %_ZNK3euf5enode8get_declEv.exit15.i.us ], [ false, %107 ], [ true, %123 ], [ %.not13.i.us, %136 ], [ %.not13.i.us, %135 ]
+  %.011.i.us = phi i1 [ true, %123 ], [ false, %_ZNK3euf5enode8get_declEv.exit15.i.us ], [ false, %107 ], [ %.not13.i.us, %136 ], [ %.not13.i.us, %135 ]
   %146 = or i1 %.052116.us, %.011.i.us
   %147 = getelementptr inbounds nuw i8, ptr %.050117.us, i64 8
   %.not62.us = icmp eq ptr %147, %85
@@ -399,7 +399,7 @@ _ZNK3euf5enode8get_declEv.exit15.i.thread:        ; preds = %_ZNK3euf5enode8get_
   br i1 %.not14.i, label %184, label %_ZNK3euf5enode9congruentEPS0_.exit, !llvm.loop !41
 
 _ZNK3euf5enode9congruentEPS0_.exit:               ; preds = %184, %185, %_ZNK3euf5enode8get_declEv.exit15.i, %_ZNK3euf5enode8get_declEv.exit15.i.thread, %172
-  %.011.i = phi i1 [ false, %_ZNK3euf5enode8get_declEv.exit15.i ], [ false, %_ZNK3euf5enode8get_declEv.exit15.i.thread ], [ true, %172 ], [ %.not13.i, %185 ], [ %.not13.i, %184 ]
+  %.011.i = phi i1 [ true, %172 ], [ false, %_ZNK3euf5enode8get_declEv.exit15.i ], [ false, %_ZNK3euf5enode8get_declEv.exit15.i.thread ], [ %.not13.i, %185 ], [ %.not13.i, %184 ]
   %195 = or i1 %.052116, %.011.i
   %196 = getelementptr inbounds nuw i8, ptr %.050117, i64 8
   %.not62 = icmp eq ptr %196, %85
@@ -529,7 +529,7 @@ _ZNK3euf5enode8get_declEv.exit15:                 ; preds = %_ZNK3euf5enode8get_
   br i1 %.not14, label %54, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %54, %55, %40, %21, %_ZNK3euf5enode8get_declEv.exit15
-  %.011 = phi i1 [ false, %_ZNK3euf5enode8get_declEv.exit15 ], [ false, %21 ], [ true, %40 ], [ %.not13, %55 ], [ %.not13, %54 ]
+  %.011 = phi i1 [ true, %40 ], [ false, %_ZNK3euf5enode8get_declEv.exit15 ], [ false, %21 ], [ %.not13, %55 ], [ %.not13, %54 ]
   ret i1 %.011
 }
 

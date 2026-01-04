@@ -405,7 +405,7 @@ thread-pre-split:                                 ; preds = %35
   br label %.backedge.sink.split
 
 .loopexit:                                        ; preds = %.critedge, %.backedge, %38, %60, %46
-  %.1 = phi i1 [ false, %46 ], [ true, %60 ], [ false, %.critedge ], [ false, %38 ], [ true, %.backedge ]
+  %.1 = phi i1 [ true, %60 ], [ false, %46 ], [ false, %38 ], [ false, %.critedge ], [ true, %.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %103
 
@@ -499,7 +499,7 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget9PrintKeysEv(ptr n
   br label %.thread15
 
 .thread15:                                        ; preds = %1, %4, %14
-  %.0 = phi i1 [ true, %14 ], [ false, %4 ], [ false, %1 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %14 ], [ false, %1 ]
   ret i1 %.0
 }
 

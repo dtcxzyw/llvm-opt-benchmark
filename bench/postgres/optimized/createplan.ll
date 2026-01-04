@@ -740,8 +740,8 @@ list_head.exit200.i:                              ; preds = %326, %list_head.exi
   br label %390
 
 373:                                              ; preds = %364, %363
-  %.0148.i = phi ptr [ %365, %364 ], [ null, %363 ]
-  %.0146.i = phi ptr [ %367, %364 ], [ null, %363 ]
+  %.0148.i = phi ptr [ null, %363 ], [ %365, %364 ]
+  %.0146.i = phi ptr [ null, %363 ], [ %367, %364 ]
   br i1 %.not.i199.i, label %.critedge195.i, label %.lr.ph200
 
 .lr.ph200:                                        ; preds = %373
@@ -783,9 +783,9 @@ list_head.exit200.i:                              ; preds = %326, %list_head.exi
   unreachable
 
 390:                                              ; preds = %.thread, %.critedge195.i
-  %.0145.i150 = phi i1 [ false, %.critedge195.i ], [ true, %.thread ]
-  %.1167.i149 = phi ptr [ %.0166.i226431, %.critedge195.i ], [ %..i201.i, %.thread ]
-  %.1149.i = phi ptr [ %.3.i, %.critedge195.i ], [ %365, %.thread ]
+  %.0145.i150 = phi i1 [ true, %.thread ], [ false, %.critedge195.i ]
+  %.1167.i149 = phi ptr [ %..i201.i, %.thread ], [ %.0166.i226431, %.critedge195.i ]
+  %.1149.i = phi ptr [ %365, %.thread ], [ %.3.i, %.critedge195.i ]
   %391 = getelementptr inbounds nuw i8, ptr %.1156.i, i64 16
   %392 = load i32, ptr %391, align 8
   %393 = getelementptr inbounds nuw i8, ptr %.1149.i, i64 16
@@ -1097,13 +1097,13 @@ list_length.exit.i:                               ; preds = %519
   br i1 %588, label %.lr.ph192, label %.critedge.i101
 
 .critedge.i101:                                   ; preds = %.lr.ph192, %519, %.lr.ph
-  %.073.i396 = phi i32 [ %.073.i.ph, %.lr.ph ], [ 0, %519 ], [ %.073.i.ph, %.lr.ph192 ]
-  %.075.i394 = phi i8 [ %.075.i.ph, %.lr.ph ], [ 0, %519 ], [ %.075.i.ph, %.lr.ph192 ]
-  %.078.i392 = phi i16 [ %.078.i.ph, %.lr.ph ], [ 0, %519 ], [ %.078.i.ph, %.lr.ph192 ]
-  %.071.i.lcssa = phi ptr [ null, %.lr.ph ], [ null, %519 ], [ %580, %.lr.ph192 ]
-  %.070.i.lcssa = phi ptr [ null, %.lr.ph ], [ null, %519 ], [ %585, %.lr.ph192 ]
-  %.069.i.lcssa = phi ptr [ null, %.lr.ph ], [ null, %519 ], [ %575, %.lr.ph192 ]
-  %.0.i100.lcssa = phi ptr [ null, %.lr.ph ], [ null, %519 ], [ %572, %.lr.ph192 ]
+  %.073.i396 = phi i32 [ 0, %519 ], [ %.073.i.ph, %.lr.ph ], [ %.073.i.ph, %.lr.ph192 ]
+  %.075.i394 = phi i8 [ 0, %519 ], [ %.075.i.ph, %.lr.ph ], [ %.075.i.ph, %.lr.ph192 ]
+  %.078.i392 = phi i16 [ 0, %519 ], [ %.078.i.ph, %.lr.ph ], [ %.078.i.ph, %.lr.ph192 ]
+  %.071.i.lcssa = phi ptr [ null, %519 ], [ null, %.lr.ph ], [ %580, %.lr.ph192 ]
+  %.070.i.lcssa = phi ptr [ null, %519 ], [ null, %.lr.ph ], [ %585, %.lr.ph192 ]
+  %.069.i.lcssa = phi ptr [ null, %519 ], [ null, %.lr.ph ], [ %575, %.lr.ph192 ]
+  %.0.i100.lcssa = phi ptr [ null, %519 ], [ null, %.lr.ph ], [ %572, %.lr.ph192 ]
   %589 = call noundef ptr @palloc0(i64 noundef 128) #11
   store i32 369, ptr %589, align 4
   %590 = getelementptr inbounds nuw i8, ptr %492, i64 48
@@ -1568,8 +1568,8 @@ list_length.exit113:                              ; preds = %800, %802
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %870, %.thread153, %864, %861
-  %.086.i156.ph = phi i1 [ true, %870 ], [ %860, %.thread153 ], [ true, %861 ], [ true, %864 ]
-  %.ph = phi i1 [ %873, %870 ], [ false, %.thread153 ], [ false, %861 ], [ false, %864 ]
+  %.086.i156.ph = phi i1 [ true, %870 ], [ true, %861 ], [ %860, %.thread153 ], [ true, %864 ]
+  %.ph = phi i1 [ %873, %870 ], [ false, %861 ], [ false, %.thread153 ], [ false, %864 ]
   %.pr397 = load ptr, ptr %810, align 8
   %.not95.i = icmp eq ptr %.pr397, null
   br i1 %.not95.i, label %.critedge.i, label %.lr.ph269
@@ -2090,7 +2090,7 @@ list_length.exit115:                              ; preds = %list_length.exit117
   br label %common.ret468
 
 common.ret468:                                    ; preds = %753, %1156, %1153, %create_gating_plan.exit, %get_gating_quals.exit, %1571, %1573, %1337, %1339, %1164, %1168, %1170, %1166, %create_limit_plan.exit, %make_modifytable.exit, %make_recursive_union.exit, %make_setop.exit, %create_windowagg_plan.exit, %list_length.exit123, %create_incrementalsort_plan.exit, %create_sort_plan.exit, %make_memoize.exit, %create_append_plan.exit, %58, %2281, %1923, %1341, %1205, %1172
-  %common.ret468.op = phi ptr [ %1177, %1172 ], [ %1210, %1205 ], [ %1351, %1341 ], [ %1931, %1923 ], [ %2288, %2281 ], [ %59, %58 ], [ %.0.i75, %create_append_plan.exit ], [ %1165, %1164 ], [ %1167, %1166 ], [ %1169, %1168 ], [ %1171, %1170 ], [ %1293, %make_memoize.exit ], [ %1338, %1337 ], [ %1340, %1339 ], [ %1411, %create_sort_plan.exit ], [ %1478, %create_incrementalsort_plan.exit ], [ %1536, %list_length.exit123 ], [ %1572, %1571 ], [ %1574, %1573 ], [ %1680, %create_windowagg_plan.exit ], [ %1746, %make_setop.exit ], [ %1855, %make_recursive_union.exit ], [ %1999, %make_modifytable.exit ], [ %2244, %create_limit_plan.exit ], [ %773, %create_gating_plan.exit ], [ %.0.i, %get_gating_quals.exit ], [ %1161, %1156 ], [ %1012, %1153 ], [ %.0.i, %753 ]
+  %common.ret468.op = phi ptr [ %2288, %2281 ], [ %1177, %1172 ], [ %1210, %1205 ], [ %1351, %1341 ], [ %1931, %1923 ], [ %1999, %make_modifytable.exit ], [ %773, %create_gating_plan.exit ], [ %1855, %make_recursive_union.exit ], [ %1746, %make_setop.exit ], [ %1680, %create_windowagg_plan.exit ], [ %59, %58 ], [ %2244, %create_limit_plan.exit ], [ %.0.i75, %create_append_plan.exit ], [ %1012, %1153 ], [ %1165, %1164 ], [ %1167, %1166 ], [ %1169, %1168 ], [ %1171, %1170 ], [ %.0.i, %753 ], [ %1161, %1156 ], [ %1293, %make_memoize.exit ], [ %1338, %1337 ], [ %1340, %1339 ], [ %.0.i, %get_gating_quals.exit ], [ %1411, %create_sort_plan.exit ], [ %1478, %create_incrementalsort_plan.exit ], [ %1536, %list_length.exit123 ], [ %1572, %1571 ], [ %1574, %1573 ]
   ret ptr %common.ret468.op
 
 1172:                                             ; preds = %3
@@ -3621,8 +3621,8 @@ make_recursive_union.exit:                        ; preds = %list_length.exit.i1
   br label %.thread167.thread.i
 
 .thread167.i:                                     ; preds = %2154, %2153, %2148, %2145, %2143, %2139, %2136, %2133, %2130
-  %.1175.i = phi i1 [ false, %2154 ], [ %.0206.i276, %2130 ], [ %.0206.i276, %2133 ], [ %.0206.i276, %2136 ], [ %.0206.i276, %2139 ], [ true, %2153 ], [ %.0206.i276, %2145 ], [ %.0206.i276, %2143 ], [ true, %2148 ]
-  %.1130174.i = phi i1 [ true, %2154 ], [ %.0129205.i277, %2130 ], [ %.0129205.i277, %2133 ], [ %.0129205.i277, %2136 ], [ %.0129205.i277, %2139 ], [ true, %2153 ], [ %.0129205.i277, %2145 ], [ %.0129205.i277, %2143 ], [ true, %2148 ]
+  %.1175.i = phi i1 [ false, %2154 ], [ %.0206.i276, %2143 ], [ %.0206.i276, %2145 ], [ %.0206.i276, %2130 ], [ %.0206.i276, %2133 ], [ %.0206.i276, %2136 ], [ %.0206.i276, %2139 ], [ true, %2153 ], [ true, %2148 ]
+  %.1130174.i = phi i1 [ true, %2154 ], [ %.0129205.i277, %2143 ], [ %.0129205.i277, %2145 ], [ %.0129205.i277, %2130 ], [ %.0129205.i277, %2133 ], [ %.0129205.i277, %2136 ], [ %.0129205.i277, %2139 ], [ true, %2153 ], [ true, %2148 ]
   %2158 = getelementptr inbounds nuw i8, ptr %.0135.i, i64 88
   %2159 = load ptr, ptr %2158, align 8
   %.not157.i = icmp eq ptr %2159, null
@@ -3633,10 +3633,10 @@ make_recursive_union.exit:                        ; preds = %list_length.exit.i1
   br label %.thread167.thread.i
 
 .thread167.thread.i:                              ; preds = %2160, %.thread167.i, %.thread176.i, %2129, %2088, %2083
-  %.1138186.i = phi ptr [ %.0137203.i279, %2160 ], [ %.0137203.i279, %.thread167.i ], [ %2157, %.thread176.i ], [ %.0137203.i279, %2129 ], [ %.0137203.i279, %2083 ], [ %.0137203.i279, %2088 ]
-  %.1130174185.i = phi i1 [ %.1130174.i, %2160 ], [ %.1130174.i, %.thread167.i ], [ true, %.thread176.i ], [ %.0129205.i277, %2129 ], [ %.0129205.i277, %2083 ], [ %.0129205.i277, %2088 ]
-  %.1175184.i = phi i1 [ %.1175.i, %2160 ], [ %.1175.i, %.thread167.i ], [ false, %.thread176.i ], [ %.0206.i276, %2129 ], [ %.0206.i276, %2083 ], [ %.0206.i276, %2088 ]
-  %.0134.i = phi ptr [ %2161, %2160 ], [ null, %.thread167.i ], [ null, %.thread176.i ], [ null, %2129 ], [ null, %2083 ], [ null, %2088 ]
+  %.1138186.i = phi ptr [ %.0137203.i279, %2160 ], [ %.0137203.i279, %.thread167.i ], [ %.0137203.i279, %2088 ], [ %2157, %.thread176.i ], [ %.0137203.i279, %2129 ], [ %.0137203.i279, %2083 ]
+  %.1130174185.i = phi i1 [ %.1130174.i, %2160 ], [ %.1130174.i, %.thread167.i ], [ %.0129205.i277, %2088 ], [ true, %.thread176.i ], [ %.0129205.i277, %2129 ], [ %.0129205.i277, %2083 ]
+  %.1175184.i = phi i1 [ %.1175.i, %2160 ], [ %.1175.i, %.thread167.i ], [ %.0206.i276, %2088 ], [ false, %.thread176.i ], [ %.0206.i276, %2129 ], [ %.0206.i276, %2083 ]
+  %.0134.i = phi ptr [ %2161, %2160 ], [ null, %.thread167.i ], [ null, %2088 ], [ null, %.thread176.i ], [ null, %2129 ], [ null, %2083 ]
   %2162 = tail call ptr @lappend(ptr noundef %.0132204.i278, ptr noundef %.0134.i) #11
   %2163 = add nuw nsw i32 %.sroa.6.0202.i280, 1
   %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i138275, 1
@@ -3757,10 +3757,10 @@ create_limit_plan.exit.loopexit:                  ; preds = %.lr.ph294
   br label %create_limit_plan.exit
 
 create_limit_plan.exit:                           ; preds = %create_limit_plan.exit.loopexit, %list_length.exit144, %.lr.ph286, %2192
-  %.039.i = phi ptr [ null, %2192 ], [ %2213, %.lr.ph286 ], [ %2213, %list_length.exit144 ], [ %2213, %create_limit_plan.exit.loopexit ]
-  %.038.i = phi ptr [ null, %2192 ], [ %2212, %.lr.ph286 ], [ %2212, %list_length.exit144 ], [ %2212, %create_limit_plan.exit.loopexit ]
-  %.037.i = phi ptr [ null, %2192 ], [ %2210, %.lr.ph286 ], [ %2210, %list_length.exit144 ], [ %2210, %create_limit_plan.exit.loopexit ]
-  %.0.i90 = phi i32 [ 0, %2192 ], [ 0, %.lr.ph286 ], [ 0, %list_length.exit144 ], [ %2238, %create_limit_plan.exit.loopexit ]
+  %.039.i = phi ptr [ null, %2192 ], [ %2213, %list_length.exit144 ], [ %2213, %.lr.ph286 ], [ %2213, %create_limit_plan.exit.loopexit ]
+  %.038.i = phi ptr [ null, %2192 ], [ %2212, %list_length.exit144 ], [ %2212, %.lr.ph286 ], [ %2212, %create_limit_plan.exit.loopexit ]
+  %.037.i = phi ptr [ null, %2192 ], [ %2210, %list_length.exit144 ], [ %2210, %.lr.ph286 ], [ %2210, %create_limit_plan.exit.loopexit ]
+  %.0.i90 = phi i32 [ 0, %2192 ], [ 0, %list_length.exit144 ], [ 0, %.lr.ph286 ], [ %2238, %create_limit_plan.exit.loopexit ]
   %2239 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %2240 = load ptr, ptr %2239, align 8
   %2241 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -4035,7 +4035,7 @@ define dso_local zeroext i1 @is_projection_capable_plan(ptr noundef readonly cap
   br label %8
 
 8:                                                ; preds = %3, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %7
-  %.0 = phi i1 [ true, %7 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ %.not, %3 ]
+  %.0 = phi i1 [ true, %7 ], [ false, %1 ], [ %.not, %3 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -4415,7 +4415,7 @@ define dso_local zeroext i1 @is_projection_capable_path(ptr noundef readonly cap
   br label %16
 
 16:                                               ; preds = %8, %11, %4, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %15
-  %.0 = phi i1 [ true, %15 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ %.not, %4 ], [ false, %8 ], [ %14, %11 ]
+  %.0 = phi i1 [ true, %15 ], [ %14, %11 ], [ %.not, %4 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -4548,7 +4548,7 @@ get_gating_quals.exit:                            ; preds = %get_gating_quals.ex
   br label %67
 
 67:                                               ; preds = %get_gating_quals.exit, %65, %58, %62, %60, %45, %52
-  %.0112 = phi ptr [ %50, %52 ], [ %50, %45 ], [ %59, %58 ], [ %56, %62 ], [ %56, %60 ], [ %66, %65 ], [ null, %get_gating_quals.exit ]
+  %.0112 = phi ptr [ %66, %65 ], [ %50, %52 ], [ %50, %45 ], [ %59, %58 ], [ %56, %62 ], [ %56, %60 ], [ null, %get_gating_quals.exit ]
   %68 = load i32, ptr %10, align 4
   switch i32 %68, label %1093 [
     i32 338, label %69
@@ -4839,7 +4839,7 @@ bitmap_subplan_mark_shared.exit.i:                ; preds = %tailrecurse.i.i
   br label %220
 
 220:                                              ; preds = %218, %215, %211, %206, %.lr.ph49.i
-  %.1.i = phi ptr [ %219, %218 ], [ %.04347.i, %.lr.ph49.i ], [ %.04347.i, %206 ], [ %.04347.i, %211 ], [ %.04347.i, %215 ]
+  %.1.i = phi ptr [ %.04347.i, %211 ], [ %.04347.i, %.lr.ph49.i ], [ %.04347.i, %206 ], [ %219, %218 ], [ %.04347.i, %215 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %221 = load i32, ptr %187, align 4
   %222 = sext i32 %221 to i64
@@ -6308,7 +6308,7 @@ create_worktablescan_plan.exit:                   ; preds = %875, %879
   unreachable
 
 create_foreignscan_plan.exit:                     ; preds = %1086, %.critedge.i193, %.loopexit, %1008, %create_worktablescan_plan.exit, %create_resultscan_plan.exit, %create_namedtuplestorescan_plan.exit, %create_ctescan_plan.exit, %create_valuesscan_plan.exit, %create_tablefuncscan_plan.exit, %create_functionscan_plan.exit, %create_subqueryscan_plan.exit, %create_tidrangescan_plan.exit, %create_tidscan_plan.exit, %create_bitmap_scan_plan.exit, %165, %163, %create_samplescan_plan.exit, %create_seqscan_plan.exit
-  %.0111 = phi ptr [ %78, %create_seqscan_plan.exit ], [ %134, %create_samplescan_plan.exit ], [ %164, %163 ], [ %166, %165 ], [ %228, %create_bitmap_scan_plan.exit ], [ %300, %create_tidscan_plan.exit ], [ %360, %create_tidrangescan_plan.exit ], [ %405, %create_subqueryscan_plan.exit ], [ %465, %create_functionscan_plan.exit ], [ %523, %create_tablefuncscan_plan.exit ], [ %580, %create_valuesscan_plan.exit ], [ %711, %create_ctescan_plan.exit ], [ %768, %create_namedtuplestorescan_plan.exit ], [ %803, %create_resultscan_plan.exit ], [ %882, %create_worktablescan_plan.exit ], [ %945, %1008 ], [ %945, %.loopexit ], [ %1057, %.critedge.i193 ], [ %1057, %1086 ]
+  %.0111 = phi ptr [ %78, %create_seqscan_plan.exit ], [ %134, %create_samplescan_plan.exit ], [ %164, %163 ], [ %166, %165 ], [ %228, %create_bitmap_scan_plan.exit ], [ %300, %create_tidscan_plan.exit ], [ %360, %create_tidrangescan_plan.exit ], [ %405, %create_subqueryscan_plan.exit ], [ %465, %create_functionscan_plan.exit ], [ %523, %create_tablefuncscan_plan.exit ], [ %580, %create_valuesscan_plan.exit ], [ %711, %create_ctescan_plan.exit ], [ %768, %create_namedtuplestorescan_plan.exit ], [ %803, %create_resultscan_plan.exit ], [ %882, %create_worktablescan_plan.exit ], [ %945, %.loopexit ], [ %945, %1008 ], [ %1057, %.critedge.i193 ], [ %1057, %1086 ]
   br i1 %.not120, label %1136, label %1097
 
 1097:                                             ; preds = %create_foreignscan_plan.exit
@@ -8228,7 +8228,7 @@ define internal fastcc noundef zeroext i1 @use_physical_tlist(ptr noundef readon
   br i1 %109, label %.lr.ph154, label %.critedge112
 
 .critedge112:                                     ; preds = %30, %49, %68, %106, %95, %94, %98, %78, %.lr.ph138, %.critedge110, %73, %15, %13, %10, %7, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %15 ], [ true, %73 ], [ true, %.critedge110 ], [ true, %78 ], [ true, %.lr.ph138 ], [ true, %106 ], [ false, %95 ], [ false, %94 ], [ false, %98 ], [ false, %68 ], [ false, %49 ], [ false, %30 ]
+  %.0 = phi i1 [ false, %49 ], [ false, %3 ], [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %15 ], [ false, %98 ], [ false, %68 ], [ true, %.critedge110 ], [ true, %73 ], [ true, %78 ], [ true, %.lr.ph138 ], [ false, %94 ], [ false, %95 ], [ true, %106 ], [ false, %30 ]
   ret i1 %.0
 }
 
@@ -8304,7 +8304,7 @@ define internal fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef readonl
   br i1 %.not25, label %34, label %32
 
 .critedge:                                        ; preds = %34, %20, %.lr.ph.split.us.split, %.lr.ph.split.split, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph.split.us.split ], [ null, %.lr.ph.split.split ], [ %23, %20 ], [ %41, %34 ]
+  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph.split.split ], [ null, %.lr.ph.split.us.split ], [ %23, %20 ], [ %41, %34 ]
   ret ptr %.0.lcssa
 
 32:                                               ; preds = %.lr.ph45
@@ -8519,7 +8519,7 @@ fix_indexorderby_references.exit:                 ; preds = %65, %70, %fix_index
   br label %107
 
 107:                                              ; preds = %101, %95, %.lr.ph145, %105
-  %.1 = phi ptr [ %106, %105 ], [ %.094137143, %.lr.ph145 ], [ %.094137143, %95 ], [ %.094137143, %101 ]
+  %.1 = phi ptr [ %.094137143, %95 ], [ %.094137143, %.lr.ph145 ], [ %106, %105 ], [ %.094137143, %101 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %108 = load i32, ptr %81, align 4
   %109 = sext i32 %108 to i64
@@ -8803,7 +8803,7 @@ list_length.exit:                                 ; preds = %2
   br label %35
 
 35:                                               ; preds = %15, %28, %32
-  %.sink = phi i32 [ %34, %32 ], [ 0, %28 ], [ 0, %15 ]
+  %.sink = phi i32 [ 0, %28 ], [ %34, %32 ], [ 0, %15 ]
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 %.sink, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8944,7 +8944,7 @@ define internal ptr @replace_nestloop_params_mutator(ptr noundef %0, ptr noundef
   br i1 %22, label %29, label %23
 
 common.ret29:                                     ; preds = %29, %14, %10, %6, %2, %31, %23
-  %common.ret29.op = phi ptr [ %24, %23 ], [ %32, %31 ], [ null, %2 ], [ %15, %14 ], [ %0, %10 ], [ %0, %6 ], [ %30, %29 ]
+  %common.ret29.op = phi ptr [ %24, %23 ], [ %30, %29 ], [ %32, %31 ], [ null, %2 ], [ %0, %6 ], [ %15, %14 ], [ %0, %10 ]
   ret ptr %common.ret29.op
 
 23:                                               ; preds = %16
@@ -9442,14 +9442,14 @@ list_length.exit:                                 ; preds = %.critedge180
   %92 = getelementptr i8, ptr %68, i64 16
   %.0144.val = load ptr, ptr %92, align 8
   %93 = load ptr, ptr %.0144.val, align 8
-  br i1 %72, label %124, label %117
+  br i1 %72, label %117, label %118
 
 .critedge180.thread:                              ; preds = %.lr.ph237, %57, %list_length.exit, %.critedge180
-  %.0144.lcssa340 = phi ptr [ null, %.critedge180 ], [ %68, %list_length.exit ], [ null, %57 ], [ null, %.lr.ph237 ]
-  %.0154.lcssa339 = phi ptr [ %.1155, %.critedge180 ], [ %.1155, %list_length.exit ], [ null, %57 ], [ null, %.lr.ph237 ]
-  %.0156.lcssa337 = phi ptr [ %.1157, %.critedge180 ], [ %.1157, %list_length.exit ], [ null, %57 ], [ null, %.lr.ph237 ]
-  %.0158.lcssa335 = phi i1 [ %72, %.critedge180 ], [ %72, %list_length.exit ], [ false, %57 ], [ false, %.lr.ph237 ]
-  %.0160.lcssa333 = phi i1 [ %73, %.critedge180 ], [ %73, %list_length.exit ], [ false, %57 ], [ false, %.lr.ph237 ]
+  %.0144.lcssa340 = phi ptr [ %68, %list_length.exit ], [ null, %.critedge180 ], [ null, %57 ], [ null, %.lr.ph237 ]
+  %.0154.lcssa339 = phi ptr [ %.1155, %list_length.exit ], [ %.1155, %.critedge180 ], [ null, %57 ], [ null, %.lr.ph237 ]
+  %.0156.lcssa337 = phi ptr [ %.1157, %list_length.exit ], [ %.1157, %.critedge180 ], [ null, %57 ], [ null, %.lr.ph237 ]
+  %.0158.lcssa335 = phi i1 [ %72, %list_length.exit ], [ %72, %.critedge180 ], [ false, %57 ], [ false, %.lr.ph237 ]
+  %.0160.lcssa333 = phi i1 [ %73, %list_length.exit ], [ %73, %.critedge180 ], [ false, %57 ], [ false, %.lr.ph237 ]
   %94 = tail call noundef ptr @palloc0(i64 noundef 120) #11
   store i32 337, ptr %94, align 4
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 48
@@ -9482,9 +9482,16 @@ list_length.exit:                                 ; preds = %.critedge180
   %115 = load i8, ptr %114, align 1, !range !4, !noundef !5
   %116 = getelementptr inbounds nuw i8, ptr %94, i64 37
   store i8 %115, ptr %116, align 1
-  br i1 %.0158.lcssa335, label %124, label %117
+  br i1 %.0158.lcssa335, label %117, label %118
 
 117:                                              ; preds = %91, %.critedge180.thread
+  %.1350 = phi ptr [ %93, %91 ], [ %94, %.critedge180.thread ]
+  %.0160.lcssa332347 = phi i1 [ %73, %91 ], [ %.0160.lcssa333, %.critedge180.thread ]
+  %.0156.lcssa336344 = phi ptr [ %.1157, %91 ], [ %.0156.lcssa337, %.critedge180.thread ]
+  store ptr null, ptr %2, align 8
+  br i1 %.0160.lcssa332347, label %list_length.exit188.thread, label %125
+
+118:                                              ; preds = %91, %.critedge180.thread
   %.1349 = phi ptr [ %93, %91 ], [ %94, %.critedge180.thread ]
   %.0160.lcssa332346 = phi i1 [ %73, %91 ], [ %.0160.lcssa333, %.critedge180.thread ]
   %.0156.lcssa336343 = phi ptr [ %.1157, %91 ], [ %.0156.lcssa337, %.critedge180.thread ]
@@ -9492,32 +9499,25 @@ list_length.exit:                                 ; preds = %.critedge180
   %.not.i185 = icmp eq ptr %.0154.lcssa338341, null
   br i1 %.not.i185, label %list_length.exit186.thread, label %list_length.exit186
 
-list_length.exit186:                              ; preds = %117
-  %118 = getelementptr inbounds nuw i8, ptr %.0154.lcssa338341, i64 4
-  %119 = load i32, ptr %118, align 4
-  %120 = icmp slt i32 %119, 2
-  br i1 %120, label %list_length.exit186.thread, label %121
+list_length.exit186:                              ; preds = %118
+  %119 = getelementptr inbounds nuw i8, ptr %.0154.lcssa338341, i64 4
+  %120 = load i32, ptr %119, align 4
+  %121 = icmp slt i32 %120, 2
+  br i1 %121, label %list_length.exit186.thread, label %122
 
-list_length.exit186.thread:                       ; preds = %117, %list_length.exit186
+list_length.exit186.thread:                       ; preds = %118, %list_length.exit186
   store ptr %.0154.lcssa338341, ptr %2, align 8
   br i1 %.0160.lcssa332346, label %list_length.exit188.thread, label %125
 
-121:                                              ; preds = %list_length.exit186
-  %122 = tail call ptr @make_orclause(ptr noundef nonnull %.0154.lcssa338341) #11
-  %123 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %122) #11
-  store ptr %123, ptr %2, align 8
+122:                                              ; preds = %list_length.exit186
+  %123 = tail call ptr @make_orclause(ptr noundef nonnull %.0154.lcssa338341) #11
+  %124 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %123) #11
+  store ptr %124, ptr %2, align 8
   br i1 %.0160.lcssa332346, label %list_length.exit188.thread, label %125
 
-124:                                              ; preds = %.critedge180.thread, %91
-  %.1350 = phi ptr [ %93, %91 ], [ %94, %.critedge180.thread ]
-  %.0160.lcssa332347 = phi i1 [ %73, %91 ], [ %.0160.lcssa333, %.critedge180.thread ]
-  %.0156.lcssa336344 = phi ptr [ %.1157, %91 ], [ %.0156.lcssa337, %.critedge180.thread ]
-  store ptr null, ptr %2, align 8
-  br i1 %.0160.lcssa332347, label %list_length.exit188.thread, label %125
-
-125:                                              ; preds = %121, %list_length.exit186.thread, %124
-  %.0156.lcssa336342354 = phi ptr [ %.0156.lcssa336343, %list_length.exit186.thread ], [ %.0156.lcssa336344, %124 ], [ %.0156.lcssa336343, %121 ]
-  %.1348352 = phi ptr [ %.1349, %list_length.exit186.thread ], [ %.1350, %124 ], [ %.1349, %121 ]
+125:                                              ; preds = %117, %list_length.exit186.thread, %122
+  %.0156.lcssa336342354 = phi ptr [ %.0156.lcssa336343, %list_length.exit186.thread ], [ %.0156.lcssa336343, %122 ], [ %.0156.lcssa336344, %117 ]
+  %.1348352 = phi ptr [ %.1349, %list_length.exit186.thread ], [ %.1349, %122 ], [ %.1350, %117 ]
   %.not.i187 = icmp eq ptr %.0156.lcssa336342354, null
   br i1 %.not.i187, label %list_length.exit188.thread, label %list_length.exit188
 
@@ -9680,10 +9680,10 @@ list_length.exit188:                              ; preds = %125
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3531, ptr noundef nonnull @__func__.create_bitmap_subplan) #11
   unreachable
 
-list_length.exit188.thread:                       ; preds = %129, %121, %list_length.exit186.thread, %124, %125, %list_length.exit188, %.critedge184, %.critedge
-  %.0156.lcssa336342354.sink.sink = phi ptr [ %.1150.lcssa, %.critedge184 ], [ %.0141.lcssa, %.critedge ], [ %131, %129 ], [ null, %121 ], [ null, %list_length.exit186.thread ], [ null, %124 ], [ %.0156.lcssa336342354, %125 ], [ %.0156.lcssa336342354, %list_length.exit188 ]
-  %.sink = phi ptr [ %.0147.lcssa, %.critedge184 ], [ %.0142.lcssa, %.critedge ], [ null, %129 ], [ null, %121 ], [ null, %list_length.exit186.thread ], [ null, %124 ], [ null, %125 ], [ null, %list_length.exit188 ]
-  %.0 = phi ptr [ %142, %.critedge184 ], [ %34, %.critedge ], [ %.1348352, %129 ], [ %.1349, %121 ], [ %.1349, %list_length.exit186.thread ], [ %.1350, %124 ], [ %.1348352, %125 ], [ %.1348352, %list_length.exit188 ]
+list_length.exit188.thread:                       ; preds = %129, %117, %list_length.exit186.thread, %122, %125, %list_length.exit188, %.critedge184, %.critedge
+  %.0156.lcssa336342354.sink.sink = phi ptr [ %.0141.lcssa, %.critedge ], [ %.1150.lcssa, %.critedge184 ], [ null, %122 ], [ %131, %129 ], [ null, %117 ], [ null, %list_length.exit186.thread ], [ %.0156.lcssa336342354, %125 ], [ %.0156.lcssa336342354, %list_length.exit188 ]
+  %.sink = phi ptr [ %.0142.lcssa, %.critedge ], [ %.0147.lcssa, %.critedge184 ], [ null, %122 ], [ null, %129 ], [ null, %117 ], [ null, %list_length.exit186.thread ], [ null, %125 ], [ null, %list_length.exit188 ]
+  %.0 = phi ptr [ %34, %.critedge ], [ %142, %.critedge184 ], [ %.1349, %122 ], [ %.1348352, %129 ], [ %.1350, %117 ], [ %.1349, %list_length.exit186.thread ], [ %.1348352, %125 ], [ %.1348352, %list_length.exit188 ]
   store ptr %.0156.lcssa336342354.sink.sink, ptr %3, align 8
   store ptr %.sink, ptr %4, align 8
   ret ptr %.0
@@ -9952,7 +9952,7 @@ list_length.exit:                                 ; preds = %10, %13
   %.not122 = icmp eq ptr %72, null
   br i1 %.not122, label %.critedge126.thread, label %.critedge126.thread134
 
-.critedge126.thread:                              ; preds = %60, %.preheader, %.lr.ph, %53, %49, %.critedge126
+.critedge126.thread:                              ; preds = %60, %.preheader, %.lr.ph, %49, %53, %.critedge126
   %79 = tail call ptr @find_computable_ec_member(ptr noundef null, ptr noundef %32, ptr noundef %.095160221, ptr noundef %2, i1 noundef zeroext false) #11
   %.not123 = icmp eq ptr %79, null
   br i1 %.not123, label %80, label %83
@@ -10194,7 +10194,7 @@ tailrecurse:                                      ; preds = %30, %2
   br label %.thread
 
 .thread:                                          ; preds = %tailrecurse, %27, %18, %25, %15, %7, %9, %4, %33
-  %.1 = phi i1 [ true, %33 ], [ false, %4 ], [ false, %9 ], [ false, %7 ], [ false, %15 ], [ false, %25 ], [ false, %18 ], [ false, %27 ], [ false, %tailrecurse ]
+  %.1 = phi i1 [ false, %18 ], [ false, %15 ], [ true, %33 ], [ false, %7 ], [ false, %25 ], [ false, %4 ], [ false, %9 ], [ false, %27 ], [ false, %tailrecurse ]
   ret i1 %.1
 }
 

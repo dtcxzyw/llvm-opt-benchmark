@@ -462,9 +462,9 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
   br i1 %237, label %231, label %.loopexit29.us, !llvm.loop !24
 
 .loopexit29.us:                                   ; preds = %231, %217, %215, %162
-  %.ph.us = phi i8 [ %216, %215 ], [ %145, %162 ], [ %145, %217 ], [ 1, %231 ]
-  %.ph20.us = phi ptr [ %147, %215 ], [ %173, %162 ], [ %147, %217 ], [ %147, %231 ]
-  %.ph21.us = phi i32 [ %146, %215 ], [ %167, %162 ], [ %146, %217 ], [ %146, %231 ]
+  %.ph.us = phi i8 [ %145, %217 ], [ %216, %215 ], [ %145, %162 ], [ 1, %231 ]
+  %.ph20.us = phi ptr [ %147, %217 ], [ %147, %215 ], [ %173, %162 ], [ %147, %231 ]
+  %.ph21.us = phi i32 [ %146, %217 ], [ %146, %215 ], [ %167, %162 ], [ %146, %231 ]
   %238 = icmp sgt i32 %.ph21.us, %143
   br i1 %238, label %.preheader31.us, label %.loopexit32.us, !llvm.loop !21
 
@@ -596,8 +596,8 @@ default.unreachable:                              ; preds = %259
   unreachable
 
 .thread25:                                        ; preds = %306, %.loopexit32.us, %78, %75, %191, %188, %160
-  %308 = phi i8 [ %145, %160 ], [ %145, %188 ], [ %145, %191 ], [ %49, %75 ], [ %49, %78 ], [ %239, %.loopexit32.us ], [ %299, %306 ]
-  %309 = phi i32 [ -12, %160 ], [ -12, %188 ], [ -12, %191 ], [ -12, %75 ], [ -12, %78 ], [ -12, %.loopexit32.us ], [ 0, %306 ]
+  %308 = phi i8 [ %145, %191 ], [ %49, %78 ], [ %145, %160 ], [ %145, %188 ], [ %49, %75 ], [ %239, %.loopexit32.us ], [ %299, %306 ]
+  %309 = phi i32 [ -12, %191 ], [ -12, %78 ], [ -12, %160 ], [ -12, %188 ], [ -12, %75 ], [ -12, %.loopexit32.us ], [ 0, %306 ]
   %310 = icmp eq i8 %308, 0
   br i1 %310, label %.thread28, label %311
 
@@ -608,7 +608,7 @@ default.unreachable:                              ; preds = %259
   br label %.thread28
 
 .thread28:                                        ; preds = %27, %24, %311, %.thread25
-  %313 = phi i32 [ %309, %311 ], [ %309, %.thread25 ], [ 0, %27 ], [ -22, %24 ]
+  %313 = phi i32 [ %309, %.thread25 ], [ %309, %311 ], [ 0, %27 ], [ -22, %24 ]
   call void @put_pages_list(ptr noundef nonnull %11) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %313
@@ -745,7 +745,7 @@ fetch_pte.exit:                                   ; preds = %.loopexit2.i, %66
   br i1 %90, label %15, label %fetch_pte.exit.thread, !llvm.loop !38
 
 fetch_pte.exit.thread:                            ; preds = %15, %81, %fetch_pte.exit, %46, %.preheader.i, %10
-  %91 = phi i64 [ 0, %10 ], [ %16, %.preheader.i ], [ %16, %46 ], [ %16, %15 ], [ %89, %81 ], [ %16, %fetch_pte.exit ]
+  %91 = phi i64 [ 0, %10 ], [ %16, %46 ], [ %16, %.preheader.i ], [ %16, %15 ], [ %89, %81 ], [ %16, %fetch_pte.exit ]
   ret i64 %91
 }
 
@@ -1040,7 +1040,7 @@ fetch_pte.exit:                                   ; preds = %.loopexit2.i, %59
   br label %.thread
 
 .thread:                                          ; preds = %.preheader.i, %42, %fetch_pte.exit, %74, %12, %.loopexit, %100, %109, %113
-  %114 = phi i64 [ %.2, %113 ], [ %.2, %109 ], [ %.2, %100 ], [ %.2, %.loopexit ], [ 4096, %12 ], [ %.2, %fetch_pte.exit ], [ %.2, %74 ], [ %.1, %42 ], [ %.1, %.preheader.i ]
+  %114 = phi i64 [ %.2, %.loopexit ], [ %.2, %113 ], [ %.2, %109 ], [ %.2, %100 ], [ 4096, %12 ], [ %.2, %fetch_pte.exit ], [ %.2, %74 ], [ %.1, %42 ], [ %.1, %.preheader.i ]
   %115 = add i64 %114, %13
   %116 = icmp ult i64 %115, %7
   br i1 %116, label %12, label %117, !llvm.loop !42

@@ -282,7 +282,7 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
   br label %.thread.i
 
 .thread.i:                                        ; preds = %97, %96
-  %.14.i = phi ptr [ %.110.i, %97 ], [ %.1.i, %96 ]
+  %.14.i = phi ptr [ %.1.i, %96 ], [ %.110.i, %97 ]
   %99 = icmp eq ptr %.14.i, null
   br i1 %99, label %.thread.thread21.i, label %H5O__fill_old_decode.exit
 
@@ -300,7 +300,7 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
   br label %H5O__fill_old_decode.exit
 
 H5O__fill_old_decode.exit:                        ; preds = %.thread.i, %95, %18, %104, %22, %6
-  %.0 = phi ptr [ null, %18 ], [ %16, %22 ], [ null, %104 ], [ null, %6 ], [ %.14.i, %.thread.i ], [ %28, %95 ]
+  %.0 = phi ptr [ null, %18 ], [ %16, %22 ], [ null, %104 ], [ null, %6 ], [ %28, %95 ], [ %.14.i, %.thread.i ]
   ret ptr %.0
 }
 
@@ -370,7 +370,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_shared_encode(ptr noundef %0, i1
   br label %H5O__fill_old_encode.exit
 
 H5O__fill_old_encode.exit:                        ; preds = %43, %25, %21, %18, %5
-  %.0 = phi i32 [ -1, %21 ], [ 0, %18 ], [ 0, %5 ], [ 0, %25 ], [ 0, %43 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %18 ], [ -1, %21 ], [ 0, %25 ], [ 0, %43 ]
   ret i32 %.0
 }
 
@@ -553,7 +553,7 @@ define internal noundef ptr @H5O__fill_copy(ptr noundef readonly captures(none) 
   br label %.thread110.thread
 
 .thread:                                          ; preds = %93, %81, %98, %97
-  %.168 = phi ptr [ %.065, %98 ], [ %.065, %97 ], [ null, %81 ], [ null, %93 ]
+  %.168 = phi ptr [ %.065, %98 ], [ %.065, %97 ], [ null, %93 ], [ null, %81 ]
   %.not94 = icmp eq ptr %.372, null
   br i1 %.not94, label %.thread110, label %102
 
@@ -572,7 +572,7 @@ define internal noundef ptr @H5O__fill_copy(ptr noundef readonly captures(none) 
   %109 = icmp eq ptr %.168, null
   br i1 %109, label %.thread110.thread133, label %.thread110.thread
 
-.thread110.thread133:                             ; preds = %.thread.thread, %24, %40, %51, %105, %.thread110
+.thread110.thread133:                             ; preds = %24, %40, %51, %.thread.thread, %105, %.thread110
   %110 = getelementptr inbounds nuw i8, ptr %.065, i64 64
   %111 = load ptr, ptr %110, align 8, !tbaa !24
   %.not95 = icmp eq ptr %111, null
@@ -599,8 +599,8 @@ define internal noundef ptr @H5O__fill_copy(ptr noundef readonly captures(none) 
   %121 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_fill_t_reg_free_list, ptr noundef nonnull %.065) #11
   br label %.thread110.thread
 
-.thread110.thread:                                ; preds = %13, %44, %100, %55, %2, %119, %120, %.thread110
-  %.067 = phi ptr [ null, %119 ], [ null, %120 ], [ %.168, %.thread110 ], [ null, %2 ], [ null, %13 ], [ %.065, %44 ], [ %.065, %100 ], [ %.065, %55 ]
+.thread110.thread:                                ; preds = %13, %100, %44, %55, %2, %119, %120, %.thread110
+  %.067 = phi ptr [ null, %119 ], [ null, %120 ], [ %.168, %.thread110 ], [ null, %2 ], [ null, %13 ], [ %.065, %100 ], [ %.065, %44 ], [ %.065, %55 ]
   ret ptr %.067
 }
 
@@ -828,7 +828,7 @@ define internal noundef ptr @H5O__fill_shared_copy_file(ptr noundef %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %17, %21, %24, %7
-  %.0 = phi ptr [ null, %24 ], [ null, %7 ], [ %15, %21 ], [ null, %17 ]
+  %.0 = phi ptr [ null, %24 ], [ null, %17 ], [ null, %7 ], [ %15, %21 ]
   ret ptr %.0
 }
 
@@ -891,7 +891,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_shared_debug(ptr readnone captur
   br label %22
 
 22:                                               ; preds = %21, %17, %5
-  %.0 = phi i32 [ -1, %17 ], [ 0, %21 ], [ 0, %5 ]
+  %.0 = phi i32 [ -1, %17 ], [ 0, %5 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -1204,8 +1204,8 @@ H5O__fill_new_decode.exit:                        ; preds = %.thread.i, %30
   %194 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.H5O__fill_new_shared_decode, i32 noundef 75, i64 noundef %192, i64 noundef %193, ptr noundef nonnull @.str.13) #11
   br label %H5O__fill_new_decode.exit.thread
 
-H5O__fill_new_decode.exit.thread:                 ; preds = %184, %186, %143, %114, %113, %80, %18, %H5O__fill_new_decode.exit, %22, %6
-  %.0 = phi ptr [ null, %18 ], [ %16, %22 ], [ null, %H5O__fill_new_decode.exit ], [ null, %6 ], [ %28, %80 ], [ %28, %113 ], [ %28, %114 ], [ %28, %143 ], [ %28, %186 ], [ %28, %184 ]
+H5O__fill_new_decode.exit.thread:                 ; preds = %186, %143, %114, %113, %80, %184, %18, %H5O__fill_new_decode.exit, %22, %6
+  %.0 = phi ptr [ null, %18 ], [ %16, %22 ], [ null, %H5O__fill_new_decode.exit ], [ null, %6 ], [ %28, %184 ], [ %28, %80 ], [ %28, %113 ], [ %28, %114 ], [ %28, %143 ], [ %28, %186 ]
   ret ptr %.0
 }
 
@@ -1362,7 +1362,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_encode(ptr noundef %0
   br label %H5O__fill_new_encode.exit
 
 H5O__fill_new_encode.exit:                        ; preds = %103, %82, %79, %67, %64, %44, %34, %21, %18, %5
-  %.0 = phi i32 [ -1, %21 ], [ 0, %18 ], [ 0, %5 ], [ 0, %34 ], [ 0, %44 ], [ 0, %64 ], [ 0, %67 ], [ 0, %79 ], [ 0, %82 ], [ 0, %103 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %18 ], [ -1, %21 ], [ 0, %34 ], [ 0, %44 ], [ 0, %64 ], [ 0, %67 ], [ 0, %79 ], [ 0, %82 ], [ 0, %103 ]
   ret i32 %.0
 }
 
@@ -1428,7 +1428,7 @@ define internal i64 @H5O__fill_new_shared_size(ptr noundef %0, i1 noundef zeroex
   br label %H5O__fill_new_size.exit
 
 H5O__fill_new_size.exit:                          ; preds = %35, %31, %27, %19, %16, %3
-  %.0 = phi i64 [ 0, %19 ], [ %17, %16 ], [ 0, %3 ], [ %spec.select.i, %31 ], [ 4, %27 ], [ %spec.select11.i, %35 ]
+  %.0 = phi i64 [ %spec.select11.i, %35 ], [ 0, %3 ], [ 0, %19 ], [ %17, %16 ], [ %spec.select.i, %31 ], [ 4, %27 ]
   ret i64 %.0
 }
 
@@ -1529,7 +1529,7 @@ define internal noundef ptr @H5O__fill_new_shared_copy_file(ptr noundef %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %17, %21, %24, %7
-  %.0 = phi ptr [ null, %24 ], [ null, %7 ], [ %15, %21 ], [ null, %17 ]
+  %.0 = phi ptr [ null, %24 ], [ null, %17 ], [ null, %7 ], [ %15, %21 ]
   ret ptr %.0
 }
 
@@ -1592,7 +1592,7 @@ define internal range(i32 -1, 1) i32 @H5O__fill_new_shared_debug(ptr readnone ca
   br label %22
 
 22:                                               ; preds = %21, %17, %5
-  %.0 = phi i32 [ -1, %17 ], [ 0, %21 ], [ 0, %5 ]
+  %.0 = phi i32 [ -1, %17 ], [ 0, %5 ], [ 0, %21 ]
   ret i32 %.0
 }
 

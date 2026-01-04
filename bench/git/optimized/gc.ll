@@ -749,7 +749,7 @@ _.exit.sink.split:                                ; preds = %192
   br label %_.exit
 
 _.exit:                                           ; preds = %192, %_.exit.sink.split
-  %.0.i55.sink = phi ptr [ %197, %_.exit.sink.split ], [ %.str.40..str.41, %192 ]
+  %.0.i55.sink = phi ptr [ %.str.40..str.41, %192 ], [ %197, %_.exit.sink.split ]
   %198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef %.0.i55.sink) #23
   %199 = load ptr, ptr @stderr, align 8, !tbaa !40
   %200 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
@@ -805,7 +805,7 @@ _.exit59:                                         ; preds = %_.exit, %201
   br label %220
 
 220:                                              ; preds = %219, %213, %.lr.ph.split.us.i
-  %.1.us.i = phi ptr [ %.01625.us.i, %219 ], [ %.026.us.i, %213 ], [ %.026.us.i, %.lr.ph.split.us.i ]
+  %.1.us.i = phi ptr [ %.026.us.i, %.lr.ph.split.us.i ], [ %.01625.us.i, %219 ], [ %.026.us.i, %213 ]
   %221 = getelementptr inbounds nuw i8, ptr %.01625.us.i, i64 16
   %222 = load ptr, ptr %221, align 8, !tbaa !45
   %.not.us.i = icmp eq ptr %222, null
@@ -954,7 +954,7 @@ report_last_gc_error.exit.thread:                 ; preds = %249, %258
   br label %279
 
 report_last_gc_error.exit:                        ; preds = %_.exit.i, %278
-  %.0.i75 = phi i32 [ %257, %_.exit.i ], [ %.1.i, %278 ]
+  %.0.i75 = phi i32 [ %.1.i, %278 ], [ %257, %_.exit.i ]
   call void @free(ptr noundef %247) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1009,7 +1009,7 @@ report_last_gc_error.exit:                        ; preds = %_.exit.i, %278
   br label %.thread87
 
 .thread87:                                        ; preds = %.thread, %297, %296
-  %.08689 = phi i1 [ false, %297 ], [ true, %296 ], [ true, %.thread ]
+  %.08689 = phi i1 [ true, %296 ], [ false, %297 ], [ true, %.thread ]
   call fastcc void @gc_before_repack(ptr noundef %14, ptr noundef %15)
   %303 = load i32, ptr @repository_format_precious_objects, align 4, !tbaa !4
   %.not40 = icmp eq i32 %303, 0
@@ -1638,7 +1638,7 @@ find_base_packs.exit:                             ; preds = %find_base_packs.exi
   br label %56
 
 56:                                               ; preds = %55, %49, %.lr.ph.split.us.i27
-  %.1.us.i31 = phi ptr [ %.01625.us.i29, %55 ], [ %.026.us.i28, %49 ], [ %.026.us.i28, %.lr.ph.split.us.i27 ]
+  %.1.us.i31 = phi ptr [ %.026.us.i28, %.lr.ph.split.us.i27 ], [ %.01625.us.i29, %55 ], [ %.026.us.i28, %49 ]
   %57 = getelementptr inbounds nuw i8, ptr %.01625.us.i29, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !45
   %.not.us.i32 = icmp eq ptr %58, null
@@ -1681,7 +1681,7 @@ find_base_packs.exit:                             ; preds = %find_base_packs.exi
   br label %74
 
 74:                                               ; preds = %73, %67, %.lr.ph.split.us.i40
-  %.1.us.i44 = phi ptr [ %.01625.us.i42, %73 ], [ %.026.us.i41, %67 ], [ %.026.us.i41, %.lr.ph.split.us.i40 ]
+  %.1.us.i44 = phi ptr [ %.026.us.i41, %.lr.ph.split.us.i40 ], [ %.01625.us.i42, %73 ], [ %.026.us.i41, %67 ]
   %75 = getelementptr inbounds nuw i8, ptr %.01625.us.i42, i64 16
   %76 = load ptr, ptr %75, align 8, !tbaa !45
   %.not.us.i45 = icmp eq ptr %76, null
@@ -1697,7 +1697,7 @@ find_base_packs.exit:                             ; preds = %find_base_packs.exi
   br label %find_base_packs.exit50
 
 find_base_packs.exit50:                           ; preds = %62, %._crit_edge.i46, %77
-  %.0.lcssa33.i48 = phi ptr [ %.1.us.i44, %77 ], [ null, %._crit_edge.i46 ], [ null, %62 ]
+  %.0.lcssa33.i48 = phi ptr [ null, %._crit_edge.i46 ], [ %.1.us.i44, %77 ], [ null, %62 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %80 = call i32 @sysinfo(ptr noundef nonnull %2) #21
   %.not.i51 = icmp eq i32 %80, 0
@@ -1769,7 +1769,7 @@ too_many_packs.exit.thread:                       ; preds = %7, %too_many_packs.
   br label %115
 
 115:                                              ; preds = %112, %too_many_packs.exit.thread, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %too_many_packs.exit.thread ], [ %., %112 ]
+  %.0 = phi i32 [ 0, %1 ], [ %., %112 ], [ 0, %too_many_packs.exit.thread ]
   ret i32 %.0
 }
 
@@ -1995,7 +1995,7 @@ define internal fastcc noundef ptr @lock_repo_for_gc(i32 noundef %0, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge, %54
-  %.0.ph = phi ptr [ @lock_repo_for_gc.locking_host, %54 ], [ null, %.critedge ]
+  %.0.ph = phi ptr [ null, %.critedge ], [ @lock_repo_for_gc.locking_host, %54 ]
   call void @free(ptr noundef %15) #21
   br label %66
 
@@ -2238,7 +2238,7 @@ define internal fastcc range(i32 0, 2) i32 @too_many_loose_objects(ptr noundef r
   br i1 %exitcond.not, label %.loopexit, label %.outer, !llvm.loop !113
 
 .loopexit:                                        ; preds = %25, %.outer, %23
-  %.011 = phi i32 [ 0, %23 ], [ 0, %.outer ], [ 1, %25 ]
+  %.011 = phi i32 [ 0, %23 ], [ 1, %25 ], [ 0, %.outer ]
   %27 = tail call i32 @closedir(ptr noundef nonnull %8)
   br label %28
 
@@ -2644,7 +2644,7 @@ strbuf_setlen.exit10.i:                           ; preds = %140, %138
   br label %parse_schedule.exit.i
 
 parse_schedule.exit.i:                            ; preds = %151, %149, %147, %145
-  %.0.i.i = phi i32 [ 0, %145 ], [ 3, %147 ], [ 2, %149 ], [ %..i.i, %151 ]
+  %.0.i.i = phi i32 [ 2, %149 ], [ %..i.i, %151 ], [ 3, %147 ], [ 0, %145 ]
   %153 = getelementptr inbounds nuw i8, ptr %125, i64 28
   store i32 %.0.i.i, ptr %153, align 4, !tbaa !120
   call void @free(ptr noundef %146) #21
@@ -3515,8 +3515,8 @@ parse_schedule.exit.thread8:                      ; preds = %6
   %.not6.i = icmp eq i32 %12, 0
   br i1 %.not6.i, label %parse_schedule.exit.thread, label %parse_schedule.exit
 
-parse_schedule.exit.thread:                       ; preds = %9, %11
-  %.0.i.ph = phi i32 [ 2, %11 ], [ 3, %9 ]
+parse_schedule.exit.thread:                       ; preds = %11, %9
+  %.0.i.ph = phi i32 [ 3, %9 ], [ 2, %11 ]
   store i32 %.0.i.ph, ptr %8, align 4, !tbaa !4
   br label %16
 
@@ -3752,7 +3752,7 @@ prune_packed.exit:                                ; preds = %2, %10
   br label %pack_loose.exit
 
 pack_loose.exit:                                  ; preds = %13, %38, %.sink.split.i
-  %.05.i = phi i32 [ 0, %13 ], [ 0, %38 ], [ 1, %.sink.split.i ]
+  %.05.i = phi i32 [ 0, %38 ], [ 0, %13 ], [ 1, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %55
@@ -3788,7 +3788,7 @@ define internal i32 @loose_object_auto_condition(ptr readnone captures(none) %0)
   br label %16
 
 16:                                               ; preds = %6, %1, %8
-  %.0 = phi i32 [ %15, %8 ], [ 0, %1 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %1 ], [ %15, %8 ], [ 1, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -4018,7 +4018,7 @@ define internal range(i32 0, 2) i32 @incremental_repack_auto_condition(ptr readn
   br label %30
 
 30:                                               ; preds = %10, %7, %1, %._crit_edge
-  %.07 = phi i32 [ %29, %._crit_edge ], [ 0, %1 ], [ 0, %7 ], [ 1, %10 ]
+  %.07 = phi i32 [ 0, %7 ], [ %29, %._crit_edge ], [ 0, %1 ], [ 1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.07
 }
@@ -4128,7 +4128,7 @@ define internal i32 @should_write_commit_graph(ptr readnone captures(none) %0) #
   br label %14
 
 14:                                               ; preds = %7, %1, %9
-  %.0 = phi i32 [ %12, %9 ], [ 0, %1 ], [ 1, %7 ]
+  %.0 = phi i32 [ 0, %1 ], [ %12, %9 ], [ 1, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -4340,7 +4340,7 @@ define internal range(i32 0, 2) i32 @dfs_on_ref(ptr readnone captures(none) %0, 
   br label %52
 
 52:                                               ; preds = %20, %15, %18, %12, %5, %._crit_edge47
-  %.025 = phi i32 [ %.024.lcssa, %._crit_edge47 ], [ 0, %5 ], [ 0, %12 ], [ 0, %18 ], [ 0, %15 ], [ 1, %20 ]
+  %.025 = phi i32 [ 0, %5 ], [ 0, %12 ], [ 0, %15 ], [ %.024.lcssa, %._crit_edge47 ], [ 0, %18 ], [ 1, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.025
@@ -4433,8 +4433,8 @@ define internal range(i32 -1, 1) i32 @maintenance_opt_scheduler(ptr noundef read
   %.not15.i = icmp eq i32 %21, 0
   br i1 %.not15.i, label %parse_scheduler.exit.thread, label %22
 
-parse_scheduler.exit.thread:                      ; preds = %8, %12, %10, %16, %14, %18, %20
-  %.0.i.ph = phi i32 [ 3, %18 ], [ 2, %14 ], [ 2, %16 ], [ 1, %10 ], [ 1, %12 ], [ 0, %8 ], [ 4, %20 ]
+parse_scheduler.exit.thread:                      ; preds = %18, %14, %10, %8, %12, %16, %20
+  %.0.i.ph = phi i32 [ 3, %18 ], [ 2, %16 ], [ 1, %12 ], [ 0, %8 ], [ 1, %10 ], [ 2, %14 ], [ 4, %20 ]
   store i32 %.0.i.ph, ptr %7, align 4, !tbaa !4
   br label %27
 
@@ -4795,7 +4795,7 @@ xstrdup_or_null.exit:                             ; preds = %3
   br label %45
 
 45:                                               ; preds = %8, %9, %44
-  %.022 = phi i32 [ 1, %44 ], [ 0, %9 ], [ 0, %8 ]
+  %.022 = phi i32 [ 0, %8 ], [ 1, %44 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.022
 }
@@ -4940,7 +4940,7 @@ _.exit45:                                         ; preds = %39, %41
   br label %54
 
 54:                                               ; preds = %.critedge, %50, %.critedge38
-  %.1 = phi i32 [ 0, %.critedge38 ], [ 1, %50 ], [ %.mux, %.critedge ]
+  %.1 = phi i32 [ %.mux, %.critedge ], [ 0, %.critedge38 ], [ 1, %50 ]
   %55 = call i32 @strbuf_getline_lf(ptr noundef nonnull %7, ptr noundef %45) #21
   %.not30 = icmp eq i32 %55, 0
   br i1 %.not30, label %48, label %._crit_edge, !llvm.loop !171
@@ -5352,7 +5352,7 @@ define internal range(i32 0, 2) i32 @schtasks_update_schedule(i32 noundef %0, i3
   br label %schtasks_schedule_tasks.exit
 
 schtasks_schedule_tasks.exit:                     ; preds = %30, %25, %20, %17, %15, %12
-  %.0.shrunk = phi i1 [ true, %15 ], [ true, %12 ], [ %19, %17 ], [ true, %25 ], [ true, %20 ], [ %35, %30 ]
+  %.0.shrunk = phi i1 [ %19, %17 ], [ true, %15 ], [ true, %12 ], [ true, %25 ], [ true, %20 ], [ %35, %30 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -5591,8 +5591,8 @@ _.exit13:                                         ; preds = %55, %57
   br label %60
 
 60:                                               ; preds = %.critedge, %52, %_.exit13, %_.exit
-  %61 = phi ptr [ %44, %_.exit ], [ %44, %_.exit13 ], [ %44, %52 ], [ null, %.critedge ]
-  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit13 ], [ 0, %52 ], [ -1, %.critedge ]
+  %61 = phi ptr [ null, %.critedge ], [ %44, %_.exit ], [ %44, %_.exit13 ], [ %44, %52 ]
+  %.0 = phi i32 [ -1, %.critedge ], [ -1, %_.exit ], [ -1, %_.exit13 ], [ 0, %52 ]
   call void @free(ptr noundef %61) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

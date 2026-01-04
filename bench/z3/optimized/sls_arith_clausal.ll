@@ -310,7 +310,7 @@ _ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE8var_infoELb1EjE3endEv.exit: 
   br label %60
 
 60:                                               ; preds = %56, %46, %.critedge
-  %.sink = phi i64 [ 0, %.critedge ], [ %48, %46 ], [ %58, %56 ]
+  %.sink = phi i64 [ %48, %46 ], [ 0, %.critedge ], [ %58, %56 ]
   %61 = getelementptr inbounds nuw i8, ptr %.022, i64 16
   store i64 %.sink, ptr %61, align 8, !tbaa !81
   %62 = getelementptr inbounds nuw i8, ptr %.022, i64 152
@@ -2300,7 +2300,7 @@ _ZN3sls13arith_clausalI13checked_int64ILb1EEE20update_best_solutionEv.exit: ; pr
   br label %200
 
 200:                                              ; preds = %_ZN3sls13arith_clausalI13checked_int64ILb1EEE20update_best_solutionEv.exit, %_ZN3sls13arith_clausalI13checked_int64ILb1EEE20update_best_solutionEv.exit.thread
-  %201 = phi i32 [ 0, %_ZN3sls13arith_clausalI13checked_int64ILb1EEE20update_best_solutionEv.exit.thread ], [ %spec.select, %_ZN3sls13arith_clausalI13checked_int64ILb1EEE20update_best_solutionEv.exit ]
+  %201 = phi i32 [ %spec.select, %_ZN3sls13arith_clausalI13checked_int64ILb1EEE20update_best_solutionEv.exit ], [ 0, %_ZN3sls13arith_clausalI13checked_int64ILb1EEE20update_best_solutionEv.exit.thread ]
   store i32 %201, ptr %25, align 8, !tbaa !3
   %202 = load ptr, ptr %0, align 8, !tbaa !82
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
@@ -2691,7 +2691,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZgtRK8rationali(ptr noundef nonn
           to label %_ZgtRK8rationalS1_.exit unwind label %43
 
 _ZgtRK8rationalS1_.exit:                          ; preds = %.noexc, %30, %37
-  %.0.i.i.i = phi i1 [ %33, %30 ], [ %36, %.noexc ], [ %38, %37 ]
+  %.0.i.i.i = phi i1 [ %36, %.noexc ], [ %33, %30 ], [ %38, %37 ]
   %39 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !209
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc.i unwind label %40
@@ -2783,7 +2783,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZltRK8rationali(ptr noundef nonn
           to label %_ZltRK8rationalS1_.exit unwind label %43
 
 _ZltRK8rationalS1_.exit:                          ; preds = %.noexc, %30, %37
-  %.0.i.i = phi i1 [ %33, %30 ], [ %36, %.noexc ], [ %38, %37 ]
+  %.0.i.i = phi i1 [ %36, %.noexc ], [ %33, %30 ], [ %38, %37 ]
   %39 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !209
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc.i unwind label %40
@@ -4212,7 +4212,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 _ZltRK8rationalS1_.exit:                          ; preds = %168
   br i1 %169, label %176, label %170
 
-170:                                              ; preds = %.noexc31, %161, %_ZltRK8rationalS1_.exit
+170:                                              ; preds = %161, %.noexc31, %_ZltRK8rationalS1_.exit
   %171 = invoke noundef zeroext i1 @_ZeqRK8rationalS1_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %132)
           to label %172 unwind label %127
 
@@ -4223,7 +4223,7 @@ _ZltRK8rationalS1_.exit:                          ; preds = %168
   %or.cond = select i1 %171, i1 %175, i1 false
   br i1 %or.cond, label %176, label %_ZN8rationalaSERKS_.exit40
 
-176:                                              ; preds = %.noexc31, %161, %172, %_ZltRK8rationalS1_.exit, %134, %129
+176:                                              ; preds = %161, %.noexc31, %172, %_ZltRK8rationalS1_.exit, %134, %129
   store double %75, ptr %122, align 8, !tbaa !228
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %1, ptr %177, align 8, !tbaa !234
@@ -5712,7 +5712,7 @@ _ZN3sls13arith_clausalI8rationalE20update_best_solutionEv.exit: ; preds = %179
   br label %200
 
 200:                                              ; preds = %_ZN3sls13arith_clausalI8rationalE20update_best_solutionEv.exit, %_ZN3sls13arith_clausalI8rationalE20update_best_solutionEv.exit.thread
-  %201 = phi i32 [ 0, %_ZN3sls13arith_clausalI8rationalE20update_best_solutionEv.exit.thread ], [ %spec.select, %_ZN3sls13arith_clausalI8rationalE20update_best_solutionEv.exit ]
+  %201 = phi i32 [ %spec.select, %_ZN3sls13arith_clausalI8rationalE20update_best_solutionEv.exit ], [ 0, %_ZN3sls13arith_clausalI8rationalE20update_best_solutionEv.exit.thread ]
   store i32 %201, ptr %25, align 8, !tbaa !170
   %202 = load ptr, ptr %0, align 8, !tbaa !213
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
@@ -6081,7 +6081,7 @@ _ZSt24__merge_sort_with_bufferIPN3sls10arith_baseI13checked_int64ILb1EEE10var_ch
   br i1 %27, label %.lr.ph.i37, label %_ZSt24__merge_sort_with_bufferIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEEvSD_SD_SG_T1_.exit39, !llvm.loop !263
 
 _ZSt24__merge_sort_with_bufferIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEEvSD_SD_SG_T1_.exit39: ; preds = %.lr.ph.i37, %_ZSt24__merge_sort_with_bufferIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEEvSD_SD_SG_T1_.exit, %13
-  %.pre-phi43 = phi i64 [ %22, %_ZSt24__merge_sort_with_bufferIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEEvSD_SD_SG_T1_.exit ], [ %.pre42, %13 ], [ %22, %.lr.ph.i37 ]
+  %.pre-phi43 = phi i64 [ %.pre42, %13 ], [ %22, %_ZSt24__merge_sort_with_bufferIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEEvSD_SD_SG_T1_.exit ], [ %22, %.lr.ph.i37 ]
   tail call void @_ZSt16__merge_adaptiveIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEEvSD_SD_SD_SG_SG_T1_SG_T2_(ptr noundef %0, ptr noundef %11, ptr noundef %1, i64 noundef %10, i64 noundef %.pre-phi43, ptr noundef %2, i64 noundef %3)
   ret void
 }
@@ -6198,8 +6198,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE
   br label %.thread21.i
 
 .thread21.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i, %45, %.thread.i
-  %53 = phi i64 [ %38, %45 ], [ %44, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i ]
-  %54 = phi ptr [ %.027.i, %45 ], [ %42, %.thread.i ], [ %spec.select25.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i ]
+  %53 = phi i64 [ %38, %45 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i ], [ %44, %.thread.i ]
+  %54 = phi ptr [ %.027.i, %45 ], [ %spec.select25.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i ], [ %42, %.thread.i ]
   %55 = icmp sgt i64 %53, 0
   br i1 %55, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit, !llvm.loop !264
 
@@ -6263,8 +6263,8 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE
   br label %.thread.i50
 
 .thread.i50:                                      ; preds = %79, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i, %.thread21.i49, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i46
-  %83 = phi i64 [ %75, %.thread21.i49 ], [ %67, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i46 ], [ %67, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i ], [ %81, %79 ]
-  %84 = phi ptr [ %73, %.thread21.i49 ], [ %.026.i, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i46 ], [ %.026.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i ], [ %82, %79 ]
+  %83 = phi i64 [ %75, %.thread21.i49 ], [ %81, %79 ], [ %67, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i46 ], [ %67, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i ]
+  %84 = phi ptr [ %73, %.thread21.i49 ], [ %82, %79 ], [ %.026.i, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i46 ], [ %.026.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i ]
   %85 = icmp sgt i64 %83, 0
   br i1 %85, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i46, label %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit, !llvm.loop !265
 
@@ -6397,7 +6397,7 @@ _ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9_
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !269
 
 _ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit: ; preds = %._crit_edge90.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i, %88, %90
-  %.041.i.i = phi ptr [ %.061, %88 ], [ %.062, %90 ], [ %.tr6677, %.lr.ph.i.i.i ], [ %106, %._crit_edge.i.i ], [ %106, %._crit_edge90.i.i ]
+  %.041.i.i = phi ptr [ %.062, %90 ], [ %.061, %88 ], [ %.tr6677, %.lr.ph.i.i.i ], [ %106, %._crit_edge.i.i ], [ %106, %._crit_edge90.i.i ]
   tail call void @_ZSt22__merge_without_bufferIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEEvSD_SD_SD_SG_SG_T1_(ptr noundef %.tr76, ptr noundef %.062, ptr noundef %.041.i.i, i64 noundef %.0, i64 noundef %.036)
   %128 = sub nsw i64 %.tr6878, %.0
   %129 = sub nsw i64 %.tr6979, %.036
@@ -6632,8 +6632,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE
   br label %.thread21.i
 
 .thread21.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i, %85, %.thread.i
-  %93 = phi i64 [ %78, %85 ], [ %84, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i ]
-  %94 = phi ptr [ %.027.i, %85 ], [ %82, %.thread.i ], [ %spec.select25.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i ]
+  %93 = phi i64 [ %78, %85 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i ], [ %84, %.thread.i ]
+  %94 = phi ptr [ %.027.i, %85 ], [ %spec.select25.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS5_E10var_changeEKSJ_EEbS8_RSB_.exit.i ], [ %82, %.thread.i ]
   %95 = icmp sgt i64 %93, 0
   br i1 %95, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit, !llvm.loop !264
 
@@ -6697,8 +6697,8 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE
   br label %.thread.i92
 
 .thread.i92:                                      ; preds = %119, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i, %.thread21.i91, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i87
-  %123 = phi i64 [ %115, %.thread21.i91 ], [ %107, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i87 ], [ %107, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i ], [ %121, %119 ]
-  %124 = phi ptr [ %113, %.thread21.i91 ], [ %.026.i88, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i87 ], [ %.026.i88, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i ], [ %122, %119 ]
+  %123 = phi i64 [ %115, %.thread21.i91 ], [ %121, %119 ], [ %107, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i87 ], [ %107, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i ]
+  %124 = phi ptr [ %113, %.thread21.i91 ], [ %122, %119 ], [ %.026.i88, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i87 ], [ %.026.i88, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EEE24critical_move_on_updatesENS6_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS5_E10var_changeEPSJ_EEbRS8_SB_.exit.i ]
   %125 = icmp sgt i64 %123, 0
   br i1 %125, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.i87, label %_ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit.loopexit, !llvm.loop !265
 
@@ -7330,7 +7330,7 @@ _ZSt13move_backwardIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !269
 
 _ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit: ; preds = %._crit_edge.i.i, %._crit_edge90.i.i, %.lr.ph.i.i.i, %39, %37, %25, %12, %_ZSt13move_backwardIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0_T_S8_S7_.exit46, %_ZSt4moveIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0_T_S8_S7_.exit38
-  %.0 = phi ptr [ %23, %_ZSt4moveIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0_T_S8_S7_.exit38 ], [ %36, %_ZSt13move_backwardIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0_T_S8_S7_.exit46 ], [ %0, %12 ], [ %2, %25 ], [ %2, %37 ], [ %0, %39 ], [ %1, %.lr.ph.i.i.i ], [ %55, %._crit_edge90.i.i ], [ %55, %._crit_edge.i.i ]
+  %.0 = phi ptr [ %23, %_ZSt4moveIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0_T_S8_S7_.exit38 ], [ %2, %25 ], [ %36, %_ZSt13move_backwardIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0_T_S8_S7_.exit46 ], [ %0, %12 ], [ %0, %39 ], [ %2, %37 ], [ %1, %.lr.ph.i.i.i ], [ %55, %._crit_edge90.i.i ], [ %55, %._crit_edge.i.i ]
   ret ptr %.0
 }
 
@@ -7885,7 +7885,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPN3sls10arith_baseI8rati
   %33 = load i32, ptr %28, align 8
   %34 = icmp eq i32 %33, 1
   %35 = select i1 %32, i1 %34, i1 false
-  br i1 %35, label %36, label %56
+  br i1 %35, label %36, label %55
 
 36:                                               ; preds = %25
   %37 = load i8, ptr %7, align 4
@@ -7894,37 +7894,37 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPN3sls10arith_baseI8rati
   %40 = load i32, ptr %6, align 8
   %41 = icmp eq i32 %40, 1
   %42 = select i1 %39, i1 %41, i1 false
-  br i1 %42, label %43, label %56
+  br i1 %42, label %43, label %55
 
 43:                                               ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %.pn20, i64 60
   %45 = load i8, ptr %44, align 4
   %46 = and i8 %45, 1
   %47 = icmp eq i8 %46, 0
-  br i1 %47, label %48, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+  br i1 %47, label %48, label %52
 
 48:                                               ; preds = %43
   %49 = load i8, ptr %8, align 4
   %50 = and i8 %49, 1
   %51 = icmp eq i8 %50, 0
-  br i1 %51, label %52, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+  br i1 %51, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit, label %52
 
-52:                                               ; preds = %48
-  %53 = load i32, ptr %26, align 8, !tbaa !211
-  %54 = load i32, ptr %5, align 8, !tbaa !211
-  %55 = icmp slt i32 %53, %54
-  br i1 %55, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread17
+52:                                               ; preds = %48, %43
+  %53 = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %27, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %54 = icmp slt i32 %53, 0
+  br i1 %54, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread17
 
-56:                                               ; preds = %36, %25
-  %57 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %27, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  br i1 %57, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread17
+55:                                               ; preds = %36, %25
+  %56 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %27, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  br i1 %56, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread17
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit: ; preds = %43, %48
-  %58 = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %27, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  %59 = icmp slt i32 %58, 0
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit: ; preds = %48
+  %57 = load i32, ptr %26, align 8, !tbaa !211
+  %58 = load i32, ptr %5, align 8, !tbaa !211
+  %59 = icmp slt i32 %57, %58
   br i1 %59, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread17
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread: ; preds = %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit, %56, %52
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread: ; preds = %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit, %52, %55
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %60 = load i32, ptr %.021, align 8, !tbaa !230
   store i32 %60, ptr %3, align 8, !tbaa !230
@@ -8020,7 +8020,7 @@ _ZN3sls10arith_baseI8rationalE10var_changeD2Ev.exit: ; preds = %.noexc.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %115
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread17: ; preds = %23, %52, %56, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread17: ; preds = %23, %55, %52, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
   call void @_ZSt25__unguarded_linear_insertIPN3sls10arith_baseI8rationalE10var_changeEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEEvSC_SF_(ptr noundef nonnull %.021)
   br label %115
 
@@ -8071,7 +8071,7 @@ define linkonce_odr hidden void @_ZSt22__merge_without_bufferIPN3sls10arith_base
   %25 = load i32, ptr %20, align 8
   %26 = icmp eq i32 %25, 1
   %27 = select i1 %24, i1 %26, i1 false
-  br i1 %27, label %28, label %51
+  br i1 %27, label %28, label %50
 
 28:                                               ; preds = %16
   %29 = getelementptr inbounds nuw i8, ptr %.tr66, i64 24
@@ -8082,38 +8082,38 @@ define linkonce_odr hidden void @_ZSt22__merge_without_bufferIPN3sls10arith_base
   %34 = load i32, ptr %29, align 8
   %35 = icmp eq i32 %34, 1
   %36 = select i1 %33, i1 %35, i1 false
-  br i1 %36, label %37, label %51
+  br i1 %36, label %37, label %50
 
 37:                                               ; preds = %28
   %38 = getelementptr inbounds nuw i8, ptr %.tr5767, i64 12
   %39 = load i8, ptr %38, align 4
   %40 = and i8 %39, 1
   %41 = icmp eq i8 %40, 0
-  br i1 %41, label %42, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+  br i1 %41, label %42, label %47
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %.tr66, i64 12
   %44 = load i8, ptr %43, align 4
   %45 = and i8 %44, 1
   %46 = icmp eq i8 %45, 0
-  br i1 %46, label %47, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+  br i1 %46, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit, label %47
 
-47:                                               ; preds = %42
-  %48 = load i32, ptr %17, align 8, !tbaa !211
-  %49 = load i32, ptr %18, align 8, !tbaa !211
-  %50 = icmp slt i32 %48, %49
-  br i1 %50, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread54
+47:                                               ; preds = %42, %37
+  %48 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %19, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  %49 = icmp slt i32 %48, 0
+  br i1 %49, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread54
 
-51:                                               ; preds = %28, %16
-  %52 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %19, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
-  br i1 %52, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread54
+50:                                               ; preds = %28, %16
+  %51 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %19, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  br i1 %51, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread54
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit: ; preds = %37, %42
-  %53 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %19, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
-  %54 = icmp slt i32 %53, 0
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit: ; preds = %42
+  %52 = load i32, ptr %17, align 8, !tbaa !211
+  %53 = load i32, ptr %18, align 8, !tbaa !211
+  %54 = icmp slt i32 %52, %53
   br i1 %54, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread54
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread: ; preds = %10, %47, %51, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread: ; preds = %10, %50, %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
   tail call void @_ZSt4swapIN3sls10arith_baseI8rationalE10var_changeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS8_ESt18is_move_assignableIS8_EEE5valueEvE4typeERS8_SH_(ptr noundef nonnull align 8 dereferenceable(48) %.tr66, ptr noundef nonnull align 8 dereferenceable(48) %.tr5767) #19
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread54
 
@@ -8155,7 +8155,7 @@ tailrecurse:                                      ; preds = %_ZSt7advanceIPN3sls
   %or.cond = or i1 %74, %75
   br i1 %or.cond, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread54, label %.lr.ph
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread54: ; preds = %tailrecurse, %5, %14, %47, %51, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread54: ; preds = %tailrecurse, %5, %14, %50, %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread
   ret void
 }
 
@@ -8520,96 +8520,85 @@ _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph: ; p
   br label %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit
 
 _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit: ; preds = %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph, %.thread
-  %.032 = phi ptr [ %0, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %65, %.thread ]
-  %.01131 = phi i64 [ %8, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %64, %.thread ]
-  %13 = lshr i64 %.01131, 1
-  %14 = getelementptr inbounds nuw %"struct.sls::arith_base<rational>::var_change", ptr %.032, i64 %13
+  %.030 = phi ptr [ %0, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %58, %.thread ]
+  %.01129 = phi i64 [ %8, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %57, %.thread ]
+  %13 = lshr i64 %.01129, 1
+  %14 = getelementptr inbounds nuw %"struct.sls::arith_base<rational>::var_change", ptr %.030, i64 %13
   %15 = load i32, ptr %14, align 8, !tbaa !230
   %16 = load i32, ptr %2, align 8, !tbaa !230
   %17 = icmp ult i32 %15, %16
-  br i1 %17, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit.thread, label %21
+  br i1 %17, label %.thread26, label %18
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit.thread: ; preds = %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %19 = xor i64 %13, -1
-  %20 = add nsw i64 %.01131, %19
-  br label %.thread
+18:                                               ; preds = %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit
+  %19 = icmp eq i32 %15, %16
+  br i1 %19, label %20, label %.thread
 
-21:                                               ; preds = %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit
-  %22 = icmp eq i32 %15, %16
-  br i1 %22, label %23, label %.thread
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %22 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !209
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 28
+  %25 = load i8, ptr %24, align 4
+  %26 = and i8 %25, 1
+  %27 = icmp eq i8 %26, 0
+  %28 = load i32, ptr %23, align 8
+  %29 = icmp eq i32 %28, 1
+  %30 = select i1 %27, i1 %29, i1 false
+  br i1 %30, label %31, label %50
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %25 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !209
-  %26 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %27 = getelementptr inbounds nuw i8, ptr %14, i64 28
-  %28 = load i8, ptr %27, align 4
-  %29 = and i8 %28, 1
-  %30 = icmp eq i8 %29, 0
-  %31 = load i32, ptr %26, align 8
-  %32 = icmp eq i32 %31, 1
-  %33 = select i1 %30, i1 %32, i1 false
-  br i1 %33, label %34, label %54
+31:                                               ; preds = %20
+  %32 = load i8, ptr %11, align 4
+  %33 = and i8 %32, 1
+  %34 = icmp eq i8 %33, 0
+  %35 = load i32, ptr %10, align 8
+  %36 = icmp eq i32 %35, 1
+  %37 = select i1 %34, i1 %36, i1 false
+  br i1 %37, label %38, label %50
 
-34:                                               ; preds = %23
-  %35 = load i8, ptr %11, align 4
-  %36 = and i8 %35, 1
-  %37 = icmp eq i8 %36, 0
-  %38 = load i32, ptr %10, align 8
-  %39 = icmp eq i32 %38, 1
-  %40 = select i1 %37, i1 %39, i1 false
-  br i1 %40, label %41, label %54
+38:                                               ; preds = %31
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %40 = load i8, ptr %39, align 4
+  %41 = and i8 %40, 1
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %43, label %47
 
-41:                                               ; preds = %34
-  %42 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %43 = load i8, ptr %42, align 4
-  %44 = and i8 %43, 1
-  %45 = icmp eq i8 %44, 0
-  br i1 %45, label %46, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit
+43:                                               ; preds = %38
+  %44 = load i8, ptr %12, align 4
+  %45 = and i8 %44, 1
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit, label %47
 
-46:                                               ; preds = %41
-  %47 = load i8, ptr %12, align 4
-  %48 = and i8 %47, 1
-  %49 = icmp eq i8 %48, 0
-  br i1 %49, label %50, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit
+47:                                               ; preds = %43, %38
+  %48 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %22, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %49 = icmp slt i32 %48, 0
+  br i1 %49, label %.thread26, label %.thread
 
-50:                                               ; preds = %46
-  %51 = load i32, ptr %24, align 8, !tbaa !211
-  %52 = load i32, ptr %9, align 8, !tbaa !211
-  %.fr = freeze i32 %51
-  %.fr29 = freeze i32 %52
-  %53 = icmp slt i32 %.fr, %.fr29
-  br i1 %53, label %61, label %.thread
+50:                                               ; preds = %31, %20
+  %51 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %22, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  br i1 %51, label %.thread26, label %.thread
 
-54:                                               ; preds = %34, %23
-  %55 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %25, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  %56 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %57 = xor i64 %13, -1
-  %58 = add nsw i64 %.01131, %57
-  %spec.select = select i1 %55, i64 %58, i64 %13
-  %spec.select30 = select i1 %55, ptr %56, ptr %.032
-  br label %.thread
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit: ; preds = %43
+  %52 = load i32, ptr %21, align 8, !tbaa !211
+  %53 = load i32, ptr %9, align 8, !tbaa !211
+  %.fr = freeze i32 %52
+  %.fr28 = freeze i32 %53
+  %54 = icmp slt i32 %.fr, %.fr28
+  br i1 %54, label %.thread26, label %.thread
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit: ; preds = %41, %46
-  %59 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %25, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  %60 = icmp slt i32 %59, 0
-  br i1 %60, label %61, label %.thread
-
-61:                                               ; preds = %50, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit
-  %62 = getelementptr inbounds nuw i8, ptr %14, i64 48
+.thread26:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit, %50, %47
+  %55 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %.pn = xor i64 %13, -1
-  %63 = add nsw i64 %.01131, %.pn
+  %56 = add nsw i64 %.01129, %.pn
   br label %.thread
 
-.thread:                                          ; preds = %54, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit.thread, %61, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit, %50, %21
-  %64 = phi i64 [ %13, %21 ], [ %13, %50 ], [ %13, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit ], [ %63, %61 ], [ %20, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit.thread ], [ %spec.select, %54 ]
-  %65 = phi ptr [ %.032, %21 ], [ %.032, %50 ], [ %.032, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit ], [ %62, %61 ], [ %18, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit.thread ], [ %spec.select30, %54 ]
-  %66 = icmp sgt i64 %64, 0
-  br i1 %66, label %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit, label %._crit_edge, !llvm.loop !286
+.thread:                                          ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit, %18, %50, %47, %.thread26
+  %57 = phi i64 [ %56, %.thread26 ], [ %13, %50 ], [ %13, %18 ], [ %13, %47 ], [ %13, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit ]
+  %58 = phi ptr [ %55, %.thread26 ], [ %.030, %50 ], [ %.030, %18 ], [ %.030, %47 ], [ %.030, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeEKSI_EEbS7_RSA_.exit ]
+  %59 = icmp sgt i64 %57, 0
+  br i1 %59, label %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit, label %._crit_edge, !llvm.loop !286
 
 ._crit_edge:                                      ; preds = %.thread, %3
-  %.0.lcssa = phi ptr [ %0, %3 ], [ %65, %.thread ]
+  %.0.lcssa = phi ptr [ %0, %3 ], [ %58, %.thread ]
   ret ptr %.0.lcssa
 }
 
@@ -8630,14 +8619,14 @@ _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph: ; p
   br label %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit
 
 _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit: ; preds = %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph, %.thread
-  %.032 = phi ptr [ %0, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %65, %.thread ]
-  %.01131 = phi i64 [ %8, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %64, %.thread ]
-  %13 = lshr i64 %.01131, 1
-  %14 = getelementptr inbounds nuw %"struct.sls::arith_base<rational>::var_change", ptr %.032, i64 %13
+  %.031 = phi ptr [ %0, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %69, %.thread ]
+  %.01130 = phi i64 [ %8, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %68, %.thread ]
+  %13 = lshr i64 %.01130, 1
+  %14 = getelementptr inbounds nuw %"struct.sls::arith_base<rational>::var_change", ptr %.031, i64 %13
   %15 = load i32, ptr %2, align 8, !tbaa !230
   %16 = load i32, ptr %14, align 8, !tbaa !230
   %17 = icmp ult i32 %15, %16
-  br i1 %17, label %.thread28, label %18
+  br i1 %17, label %.thread27, label %18
 
 18:                                               ; preds = %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit
   %19 = icmp eq i32 %15, %16
@@ -8646,7 +8635,7 @@ _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit: ; preds =
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit.thread17: ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %21 = xor i64 %13, -1
-  %22 = add nsw i64 %.01131, %21
+  %22 = add nsw i64 %.01130, %21
   br label %.thread
 
 23:                                               ; preds = %18
@@ -8658,7 +8647,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_m
   %29 = load i32, ptr %10, align 8
   %30 = icmp eq i32 %29, 1
   %31 = select i1 %28, i1 %30, i1 false
-  br i1 %31, label %32, label %54
+  br i1 %31, label %32, label %56
 
 32:                                               ; preds = %23
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -8669,58 +8658,61 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_m
   %38 = load i32, ptr %33, align 8
   %39 = icmp eq i32 %38, 1
   %40 = select i1 %37, i1 %39, i1 false
-  br i1 %40, label %41, label %54
+  br i1 %40, label %41, label %56
 
 41:                                               ; preds = %32
   %42 = load i8, ptr %12, align 4
   %43 = and i8 %42, 1
   %44 = icmp eq i8 %43, 0
-  br i1 %44, label %45, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit
+  br i1 %44, label %45, label %50
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %47 = load i8, ptr %46, align 4
   %48 = and i8 %47, 1
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %50, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit
+  br i1 %49, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit, label %50
 
-50:                                               ; preds = %45
-  %51 = load i32, ptr %9, align 8, !tbaa !211
-  %52 = load i32, ptr %24, align 8, !tbaa !211
-  %.fr = freeze i32 %51
-  %.fr30 = freeze i32 %52
-  %53 = icmp slt i32 %.fr, %.fr30
-  br i1 %53, label %.thread28, label %61
+50:                                               ; preds = %45, %41
+  %51 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %25, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %52 = icmp slt i32 %51, 0
+  %53 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %54 = xor i64 %13, -1
+  %55 = add nsw i64 %.01130, %54
+  br i1 %52, label %.thread27, label %.thread
 
-54:                                               ; preds = %32, %23
-  %55 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %25, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %24)
-  %56 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %57 = xor i64 %13, -1
-  %58 = add nsw i64 %.01131, %57
-  br i1 %55, label %.thread28, label %.thread
+56:                                               ; preds = %32, %23
+  %57 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %25, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %58 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %59 = xor i64 %13, -1
+  %60 = add nsw i64 %.01130, %59
+  br i1 %57, label %.thread27, label %.thread
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit: ; preds = %41, %45
-  %59 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %25, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %24)
-  %60 = icmp slt i32 %59, 0
-  br i1 %60, label %.thread28, label %61
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit: ; preds = %45
+  %61 = load i32, ptr %9, align 8, !tbaa !211
+  %62 = load i32, ptr %24, align 8, !tbaa !211
+  %.fr = freeze i32 %61
+  %.fr29 = freeze i32 %62
+  %63 = icmp slt i32 %.fr, %.fr29
+  br i1 %63, label %.thread27, label %64
 
-61:                                               ; preds = %50, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit
-  %62 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %.pn = xor i64 %13, -1
-  %63 = add nsw i64 %.01131, %.pn
+64:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit
+  %65 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %66 = xor i64 %13, -1
+  %67 = add nsw i64 %.01130, %66
   br label %.thread
 
-.thread28:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit, %50, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit, %54
+.thread27:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit, %56, %50
   br label %.thread
 
-.thread:                                          ; preds = %61, %54, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit.thread17, %.thread28
-  %64 = phi i64 [ %13, %.thread28 ], [ %63, %61 ], [ %58, %54 ], [ %22, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit.thread17 ]
-  %65 = phi ptr [ %.032, %.thread28 ], [ %62, %61 ], [ %56, %54 ], [ %20, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit.thread17 ]
-  %66 = icmp sgt i64 %64, 0
-  br i1 %66, label %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit, label %._crit_edge, !llvm.loop !287
+.thread:                                          ; preds = %64, %56, %50, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit.thread17, %.thread27
+  %68 = phi i64 [ %13, %.thread27 ], [ %67, %64 ], [ %22, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit.thread17 ], [ %60, %56 ], [ %55, %50 ]
+  %69 = phi ptr [ %.031, %.thread27 ], [ %65, %64 ], [ %20, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIKNS2_10arith_baseIS4_E10var_changeEPSI_EEbRS7_SA_.exit.thread17 ], [ %58, %56 ], [ %53, %50 ]
+  %70 = icmp sgt i64 %68, 0
+  br i1 %70, label %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit, label %._crit_edge, !llvm.loop !287
 
 ._crit_edge:                                      ; preds = %.thread, %3
-  %.0.lcssa = phi ptr [ %0, %3 ], [ %65, %.thread ]
+  %.0.lcssa = phi ptr [ %0, %3 ], [ %69, %.thread ]
   ret ptr %.0.lcssa
 }
 
@@ -8972,7 +8964,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3_V28__rotateIPN3sls10arith_baseI8r
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !291
 
 _ZSt11swap_rangesIPN3sls10arith_baseI8rationalE10var_changeES5_ET0_T_S7_S6_.exit: ; preds = %._crit_edge, %._crit_edge90, %.lr.ph.i, %5, %3
-  %.041 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge90 ], [ %21, %._crit_edge ]
+  %.041 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge90 ], [ %21, %._crit_edge ]
   ret ptr %.041
 }
 
@@ -9165,7 +9157,7 @@ define linkonce_odr hidden noundef ptr @_ZSt12__move_mergeIPN3sls10arith_baseI8r
   %23 = load i32, ptr %18, align 8
   %24 = icmp eq i32 %23, 1
   %25 = select i1 %22, i1 %24, i1 false
-  br i1 %25, label %26, label %49
+  br i1 %25, label %26, label %48
 
 26:                                               ; preds = %14
   %27 = getelementptr inbounds nuw i8, ptr %.01823, i64 24
@@ -9176,38 +9168,38 @@ define linkonce_odr hidden noundef ptr @_ZSt12__move_mergeIPN3sls10arith_baseI8r
   %32 = load i32, ptr %27, align 8
   %33 = icmp eq i32 %32, 1
   %34 = select i1 %31, i1 %33, i1 false
-  br i1 %34, label %35, label %49
+  br i1 %34, label %35, label %48
 
 35:                                               ; preds = %26
   %36 = getelementptr inbounds nuw i8, ptr %.01922, i64 12
   %37 = load i8, ptr %36, align 4
   %38 = and i8 %37, 1
   %39 = icmp eq i8 %38, 0
-  br i1 %39, label %40, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+  br i1 %39, label %40, label %45
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %.01823, i64 12
   %42 = load i8, ptr %41, align 4
   %43 = and i8 %42, 1
   %44 = icmp eq i8 %43, 0
-  br i1 %44, label %45, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+  br i1 %44, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit, label %45
 
-45:                                               ; preds = %40
-  %46 = load i32, ptr %15, align 8, !tbaa !211
-  %47 = load i32, ptr %16, align 8, !tbaa !211
-  %48 = icmp slt i32 %46, %47
-  br i1 %48, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread21
+45:                                               ; preds = %40, %35
+  %46 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %17, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread21
 
-49:                                               ; preds = %26, %14
-  %50 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %17, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-  br i1 %50, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread21
+48:                                               ; preds = %26, %14
+  %49 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %17, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  br i1 %49, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread21
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit: ; preds = %35, %40
-  %51 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %17, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-  %52 = icmp slt i32 %51, 0
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit: ; preds = %40
+  %50 = load i32, ptr %15, align 8, !tbaa !211
+  %51 = load i32, ptr %16, align 8, !tbaa !211
+  %52 = icmp slt i32 %50, %51
   br i1 %52, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread21
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread: ; preds = %.lr.ph, %45, %49, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread: ; preds = %.lr.ph, %48, %45, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
   %53 = load i32, ptr %.01922, align 8, !tbaa !230
   store i32 %53, ptr %.024, align 8, !tbaa !230
   %54 = getelementptr inbounds nuw i8, ptr %.024, i64 8
@@ -9287,7 +9279,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_
   %111 = getelementptr inbounds nuw i8, ptr %.01922, i64 48
   br label %171
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread21: ; preds = %12, %45, %49, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread21: ; preds = %12, %48, %45, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
   %112 = load i32, ptr %.01823, align 8, !tbaa !230
   store i32 %112, ptr %.024, align 8, !tbaa !230
   %113 = getelementptr inbounds nuw i8, ptr %.024, i64 8
@@ -9520,7 +9512,7 @@ define linkonce_odr hidden void @_ZSt21__move_merge_adaptiveIPN3sls10arith_baseI
   %23 = load i32, ptr %18, align 8
   %24 = icmp eq i32 %23, 1
   %25 = select i1 %22, i1 %24, i1 false
-  br i1 %25, label %26, label %49
+  br i1 %25, label %26, label %48
 
 26:                                               ; preds = %14
   %27 = getelementptr inbounds nuw i8, ptr %.01824, i64 24
@@ -9531,38 +9523,38 @@ define linkonce_odr hidden void @_ZSt21__move_merge_adaptiveIPN3sls10arith_baseI
   %32 = load i32, ptr %27, align 8
   %33 = icmp eq i32 %32, 1
   %34 = select i1 %31, i1 %33, i1 false
-  br i1 %34, label %35, label %49
+  br i1 %34, label %35, label %48
 
 35:                                               ; preds = %26
   %36 = getelementptr inbounds nuw i8, ptr %.01923, i64 12
   %37 = load i8, ptr %36, align 4
   %38 = and i8 %37, 1
   %39 = icmp eq i8 %38, 0
-  br i1 %39, label %40, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+  br i1 %39, label %40, label %45
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %.01824, i64 12
   %42 = load i8, ptr %41, align 4
   %43 = and i8 %42, 1
   %44 = icmp eq i8 %43, 0
-  br i1 %44, label %45, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+  br i1 %44, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit, label %45
 
-45:                                               ; preds = %40
-  %46 = load i32, ptr %15, align 8, !tbaa !211
-  %47 = load i32, ptr %16, align 8, !tbaa !211
-  %48 = icmp slt i32 %46, %47
-  br i1 %48, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread22
+45:                                               ; preds = %40, %35
+  %46 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %17, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread22
 
-49:                                               ; preds = %26, %14
-  %50 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %17, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-  br i1 %50, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread22
+48:                                               ; preds = %26, %14
+  %49 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %17, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  br i1 %49, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread22
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit: ; preds = %35, %40
-  %51 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %17, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-  %52 = icmp slt i32 %51, 0
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit: ; preds = %40
+  %50 = load i32, ptr %15, align 8, !tbaa !211
+  %51 = load i32, ptr %16, align 8, !tbaa !211
+  %52 = icmp slt i32 %50, %51
   br i1 %52, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread22
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread: ; preds = %.lr.ph, %45, %49, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread: ; preds = %.lr.ph, %48, %45, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
   %53 = load i32, ptr %.01923, align 8, !tbaa !230
   store i32 %53, ptr %.025, align 8, !tbaa !230
   %54 = getelementptr inbounds nuw i8, ptr %.025, i64 8
@@ -9642,7 +9634,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_
   %111 = getelementptr inbounds nuw i8, ptr %.01923, i64 48
   br label %171
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread22: ; preds = %12, %45, %49, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread22: ; preds = %12, %48, %45, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
   %112 = load i32, ptr %.01824, align 8, !tbaa !230
   store i32 %112, ptr %.025, align 8, !tbaa !230
   %113 = getelementptr inbounds nuw i8, ptr %.025, i64 8
@@ -9796,7 +9788,7 @@ define linkonce_odr hidden void @_ZSt30__move_merge_adaptive_backwardIPN3sls10ar
   %31 = load i32, ptr %26, align 8
   %32 = icmp eq i32 %31, 1
   %33 = select i1 %30, i1 %32, i1 false
-  br i1 %33, label %34, label %54
+  br i1 %33, label %34, label %53
 
 34:                                               ; preds = %23
   %35 = load i8, ptr %15, align 4
@@ -9805,37 +9797,37 @@ define linkonce_odr hidden void @_ZSt30__move_merge_adaptive_backwardIPN3sls10ar
   %38 = load i32, ptr %14, align 8
   %39 = icmp eq i32 %38, 1
   %40 = select i1 %37, i1 %39, i1 false
-  br i1 %40, label %41, label %54
+  br i1 %40, label %41, label %53
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %.024, i64 12
   %43 = load i8, ptr %42, align 4
   %44 = and i8 %43, 1
   %45 = icmp eq i8 %44, 0
-  br i1 %45, label %46, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+  br i1 %45, label %46, label %50
 
 46:                                               ; preds = %41
   %47 = load i8, ptr %16, align 4
   %48 = and i8 %47, 1
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %50, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+  br i1 %49, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit, label %50
 
-50:                                               ; preds = %46
-  %51 = load i32, ptr %24, align 8, !tbaa !211
-  %52 = load i32, ptr %13, align 8, !tbaa !211
-  %53 = icmp slt i32 %51, %52
-  br i1 %53, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread32
+50:                                               ; preds = %46, %41
+  %51 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %25, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread32
 
-54:                                               ; preds = %34, %23
-  %55 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %25, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %13)
-  br i1 %55, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread32
+53:                                               ; preds = %34, %23
+  %54 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %25, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  br i1 %54, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread32
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit: ; preds = %41, %46
-  %56 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %25, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %13)
-  %57 = icmp slt i32 %56, 0
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit: ; preds = %46
+  %55 = load i32, ptr %24, align 8, !tbaa !211
+  %56 = load i32, ptr %13, align 8, !tbaa !211
+  %57 = icmp slt i32 %55, %56
   br i1 %57, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread32
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread: ; preds = %17, %50, %54, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread: ; preds = %17, %53, %50, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
   %58 = getelementptr inbounds i8, ptr %.0, i64 -48
   %59 = load i32, ptr %.026.ph, align 8, !tbaa !230
   store i32 %59, ptr %58, align 8, !tbaa !230
@@ -9921,7 +9913,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_
   %120 = tail call noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPN3sls10arith_baseI8rationalE10var_changeES8_EET0_T_SA_S9_(ptr noundef %2, ptr noundef nonnull %119, ptr noundef nonnull %58)
   br label %.loopexit
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread32: ; preds = %21, %50, %54, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit.thread32: ; preds = %21, %53, %50, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_move_on_updatesENS5_6move_tEEUlRKT_RKT0_E_EclIPNS2_10arith_baseIS4_E10var_changeESJ_EEbS7_SA_.exit
   %121 = getelementptr inbounds i8, ptr %.0, i64 -48
   %122 = load i32, ptr %.024, align 8, !tbaa !230
   store i32 %122, ptr %121, align 8, !tbaa !230
@@ -10046,7 +10038,7 @@ define linkonce_odr hidden noundef ptr @_ZSt17__rotate_adaptiveIPN3sls10arith_ba
   br label %22
 
 22:                                               ; preds = %15, %9, %20, %16, %10
-  %.0 = phi ptr [ %13, %10 ], [ %19, %16 ], [ %21, %20 ], [ %0, %9 ], [ %2, %15 ]
+  %.0 = phi ptr [ %13, %10 ], [ %21, %20 ], [ %19, %16 ], [ %0, %9 ], [ %2, %15 ]
   ret ptr %.0
 }
 

@@ -296,7 +296,7 @@ _ZNK6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE11lower_boundIS3_EEP
   br label %_ZN6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE9find_implIRKS8_S3_EEDaOT_RKT0_.exit
 
 _ZN6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE9find_implIRKS8_S3_EEDaOT_RKT0_.exit: ; preds = %_ZNK6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i, %_ZNK6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread.i
-  %.0.i = phi ptr [ %39, %_ZNK6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i ], [ %spec.select.i, %_ZNK6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread.i ]
+  %.0.i = phi ptr [ %spec.select.i, %_ZNK6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread.i ], [ %39, %_ZNK6frozen3mapIN4LIEF2PE10CODE_PAGESEPKcLm140ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i ]
   ret ptr %.0.i
 }
 

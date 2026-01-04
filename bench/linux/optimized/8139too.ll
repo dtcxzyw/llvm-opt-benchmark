@@ -683,7 +683,7 @@ define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly captu
   br label %.thread25
 
 .thread25:                                        ; preds = %257, %301, %296, %294
-  %308 = phi i32 [ %273, %301 ], [ %273, %296 ], [ %273, %294 ], [ 0, %257 ]
+  %308 = phi i32 [ %273, %294 ], [ %273, %301 ], [ %273, %296 ], [ 0, %257 ]
   %309 = getelementptr i8, ptr %195, i64 3032
   %310 = load i8, ptr %309, align 8
   %311 = and i8 %310, 1

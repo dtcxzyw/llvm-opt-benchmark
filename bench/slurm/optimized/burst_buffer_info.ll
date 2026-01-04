@@ -110,7 +110,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_load_burst_buffer_stat(i32 noundef 
   br label %29
 
 29:                                               ; preds = %16, %26, %3, %27, %24
-  %.0 = phi i32 [ -1, %27 ], [ -1, %24 ], [ -1, %3 ], [ 0, %26 ], [ 0, %16 ]
+  %.0 = phi i32 [ -1, %24 ], [ -1, %27 ], [ -1, %3 ], [ 0, %26 ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -180,7 +180,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_load_burst_buffer_info(ptr noundef 
   br label %24
 
 24:                                               ; preds = %1, %23, %21, %19
-  %.0 = phi i32 [ -1, %21 ], [ 0, %23 ], [ -1, %19 ], [ -1, %1 ]
+  %.0 = phi i32 [ -1, %19 ], [ -1, %21 ], [ 0, %23 ], [ -1, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

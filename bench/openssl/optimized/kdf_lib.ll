@@ -165,7 +165,7 @@ EVP_KDF_CTX_free.exit:                            ; preds = %19
   br label %31
 
 31:                                               ; preds = %.sink.split, %19, %12, %1, %3, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %3 ], [ null, %1 ], [ null, %12 ], [ %13, %19 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ %13, %19 ], [ null, %12 ], [ null, %7 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -299,7 +299,7 @@ define i64 @EVP_KDF_CTX_get_kdf_size(ptr noundef readonly captures(address_is_nu
   br label %22
 
 22:                                               ; preds = %19, %15, %1, %13
-  %.0 = phi i64 [ %14, %13 ], [ 0, %1 ], [ 0, %15 ], [ %spec.select, %19 ]
+  %.0 = phi i64 [ 0, %1 ], [ %14, %13 ], [ 0, %15 ], [ %spec.select, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0

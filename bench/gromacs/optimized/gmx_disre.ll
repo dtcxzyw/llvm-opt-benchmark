@@ -2453,7 +2453,7 @@ _ZNSt10_HashtableIiSt4pairIKibESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body.i
 
 .loopexit177.i:                                   ; preds = %865, %.noexc.i365, %860
-  %.pn.i.i.i = phi ptr [ %861, %860 ], [ %876, %.noexc.i365 ], [ %867, %865 ]
+  %.pn.i.i.i = phi ptr [ %876, %.noexc.i365 ], [ %861, %860 ], [ %867, %865 ]
   %.1.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 12
   %878 = load i8, ptr %.1.i.i.i, align 1, !tbaa !280, !range !241, !noundef !242
   %879 = trunc nuw i8 %878 to i1
@@ -2643,7 +2643,7 @@ _ZNSt10_HashtableIiSt4pairIKibESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br label %.body.i
 
 .loopexit.i:                                      ; preds = %964, %.noexc97.i, %959
-  %.pn.i.i95.i = phi ptr [ %960, %959 ], [ %975, %.noexc97.i ], [ %966, %964 ]
+  %.pn.i.i95.i = phi ptr [ %975, %.noexc97.i ], [ %960, %959 ], [ %966, %964 ]
   %.1.i.i96.i = getelementptr inbounds nuw i8, ptr %.pn.i.i95.i, i64 12
   %977 = fadd double %.069254.i, %952
   %978 = fadd double %.071253.i, %950
@@ -4356,7 +4356,7 @@ _ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atom
   br label %1762
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %1388, %1393, %1631, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183.i, %815, %824, %.body.i, %1272, %681, %657
-  %.pn178.pn = phi { ptr, i32 } [ %.pn178, %657 ], [ %.pn176, %1272 ], [ %.pn173, %681 ], [ %816, %815 ], [ %825, %824 ], [ %.pn.pn.i, %.body.i ], [ %1389, %1388 ], [ %1394, %1393 ], [ %.pn.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183.i ], [ %1632, %1631 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit498, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit502, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit505, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp506, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn178.pn = phi { ptr, i32 } [ %.pn178, %657 ], [ %.pn173, %681 ], [ %.pn176, %1272 ], [ %.pn.pn.i, %.body.i ], [ %1632, %1631 ], [ %816, %815 ], [ %825, %824 ], [ %1389, %1388 ], [ %1394, %1393 ], [ %.pn.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit498, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit502, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit505, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp506, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt10unique_ptrIN3gmx7MDAtomsESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %71) #24
   %.pre684.pre = load i8, ptr %366, align 8, !tbaa !203, !range !241
   br label %1750
@@ -4368,8 +4368,8 @@ _ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atom
   br label %1751
 
 1751:                                             ; preds = %.loopexit.split-lp510, %1750
-  %1752 = phi i8 [ %.pre684, %1750 ], [ %431, %.loopexit.split-lp510 ]
-  %.pn182 = phi { ptr, i32 } [ %.pn178.pn.pn, %1750 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp510 ]
+  %1752 = phi i8 [ %431, %.loopexit.split-lp510 ], [ %.pre684, %1750 ]
+  %.pn182 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp510 ], [ %.pn178.pn.pn, %1750 ]
   %1753 = trunc nuw i8 %1752 to i1
   br i1 %1753, label %1754, label %_ZNSt14_Optional_baseI13t_cluster_ndxLb0ELb0EED2Ev.exit435
 
@@ -4378,8 +4378,8 @@ _ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atom
   call void @_ZNSt22_Optional_payload_baseI13t_cluster_ndxE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %53) #24
   br label %_ZNSt14_Optional_baseI13t_cluster_ndxLb0ELb0EED2Ev.exit435
 
-_ZNSt14_Optional_baseI13t_cluster_ndxLb0ELb0EED2Ev.exit435: ; preds = %555, %568, %581, %594, %432, %1751, %1754
-  %.pn182869 = phi { ptr, i32 } [ %.pn182, %1751 ], [ %.pn182872, %1754 ], [ %.pn154.pn.pn, %555 ], [ %.pn158.pn.pn, %568 ], [ %.pn162.pn.pn, %581 ], [ %.pn166.pn.pn, %594 ], [ %433, %432 ]
+_ZNSt14_Optional_baseI13t_cluster_ndxLb0ELb0EED2Ev.exit435: ; preds = %568, %581, %594, %432, %555, %1751, %1754
+  %.pn182869 = phi { ptr, i32 } [ %.pn182872, %1754 ], [ %.pn182, %1751 ], [ %.pn158.pn.pn, %568 ], [ %.pn162.pn.pn, %581 ], [ %.pn166.pn.pn, %594 ], [ %433, %432 ], [ %.pn154.pn.pn, %555 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %1755
 
@@ -5974,7 +5974,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
   br i1 %46, label %.lr.ph.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIP8t_toppoplS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_T0_SA_T1_T2_.exit.us.i.i.i", !llvm.loop !366
 
 "_ZSt13__adjust_heapIP8t_toppoplS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_T0_SA_T1_T2_.exit.us.i.i.i": ; preds = %43, %.lr.ph.i.i.us.i.i.i, %.split.us.i.i.i
-  %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.015.us.i.i.i, %.split.us.i.i.i ], [ %.0134.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ], [ %.059.i.i.us.i.i.i, %43 ]
+  %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.015.us.i.i.i, %.split.us.i.i.i ], [ %.059.i.i.us.i.i.i, %43 ], [ %.0134.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ]
   %47 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
   store i64 %.sroa.02.0.copyload.us.i.i.i, ptr %47, align 4
   %.not.us.i.i.i = icmp eq i64 %.015.us.i.i.i, 0

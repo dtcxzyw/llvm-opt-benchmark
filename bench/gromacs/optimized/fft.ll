@@ -38,7 +38,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
   %indvars.iv273 = phi i64 [ 0, %.preheader253.us.preheader ], [ %indvars.iv.next274, %._crit_edge.us ]
   %17 = mul nuw nsw i64 %indvars.iv273, %16
   %invariant.gep = getelementptr inbounds nuw %struct.t_complex, ptr %0, i64 %17
-  %invariant.gep309 = getelementptr inbounds nuw %struct.t_complex, ptr %1, i64 %indvars.iv273
+  %invariant.gep310 = getelementptr inbounds nuw %struct.t_complex, ptr %1, i64 %indvars.iv273
   br label %18
 
 18:                                               ; preds = %.preheader253.us, %18
@@ -46,11 +46,11 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
   %gep = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep, i64 %indvars.iv
   %19 = load float, ptr %gep, align 4, !tbaa !4
   %20 = mul nuw nsw i64 %indvars.iv, %15
-  %gep310 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep309, i64 %20
-  store float %19, ptr %gep310, align 4, !tbaa !4
+  %gep311 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep310, i64 %20
+  store float %19, ptr %gep311, align 4, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %gep, i64 4
   %22 = load float, ptr %21, align 4, !tbaa !9
-  %23 = getelementptr inbounds nuw i8, ptr %gep310, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %gep311, i64 4
   store float %22, ptr %23, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
@@ -91,24 +91,24 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
 
 .lr.ph263:                                        ; preds = %.lr.ph265
   %31 = mul nuw nsw i64 %indvars.iv291, %28
-  %invariant.gep311 = getelementptr inbounds nuw %struct.t_complex, ptr %0, i64 %31
-  %invariant.gep313 = getelementptr inbounds nuw %struct.t_complex, ptr %0, i64 %indvars.iv291
+  %invariant.gep312 = getelementptr inbounds nuw %struct.t_complex, ptr %0, i64 %31
+  %invariant.gep314 = getelementptr inbounds nuw %struct.t_complex, ptr %0, i64 %indvars.iv291
   br label %32
 
 32:                                               ; preds = %.lr.ph263, %32
   %indvars.iv286 = phi i64 [ %indvars.iv284, %.lr.ph263 ], [ %indvars.iv.next287, %32 ]
-  %gep312 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep311, i64 %indvars.iv286
-  %33 = load float, ptr %gep312, align 4, !tbaa !4
-  %34 = getelementptr inbounds nuw i8, ptr %gep312, i64 4
+  %gep313 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep312, i64 %indvars.iv286
+  %33 = load float, ptr %gep313, align 4, !tbaa !4
+  %34 = getelementptr inbounds nuw i8, ptr %gep313, i64 4
   %35 = load float, ptr %34, align 4, !tbaa !9
   %36 = mul nuw nsw i64 %indvars.iv286, %28
-  %gep314 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep313, i64 %36
-  %37 = load float, ptr %gep314, align 4, !tbaa !4
-  store float %37, ptr %gep312, align 4, !tbaa !4
-  %38 = getelementptr inbounds nuw i8, ptr %gep314, i64 4
+  %gep315 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep314, i64 %36
+  %37 = load float, ptr %gep315, align 4, !tbaa !4
+  store float %37, ptr %gep313, align 4, !tbaa !4
+  %38 = getelementptr inbounds nuw i8, ptr %gep315, i64 4
   %39 = load float, ptr %38, align 4, !tbaa !9
   store float %39, ptr %34, align 4, !tbaa !9
-  store float %33, ptr %gep314, align 4, !tbaa !4
+  store float %33, ptr %gep315, align 4, !tbaa !4
   store float %35, ptr %38, align 4, !tbaa !9
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next287, %28
@@ -137,7 +137,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
   %50 = zext nneg i32 %49 to i64
   br label %.loopexit266
 
-.loopexit266.loopexit:                            ; preds = %._crit_edge, %126
+.loopexit266.loopexit:                            ; preds = %124, %.loopexit305
   br label %.loopexit266
 
 .loopexit266:                                     ; preds = %.loopexit266.loopexit, %47
@@ -250,14 +250,14 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
 
 110:                                              ; preds = %.critedge
   %111 = icmp sgt i64 %indvars.iv281, 498
-  br i1 %111, label %.preheader250, label %126
+  br i1 %111, label %.preheader250, label %124
 
 .preheader250:                                    ; preds = %110
   %112 = sext i32 %spec.select to i64
   %113 = icmp slt i64 %indvars.iv.next282, %112
   %114 = icmp sgt i64 %106, %112
   %115 = select i1 %113, i1 %114, i1 false
-  br i1 %115, label %.lr.ph, label %._crit_edge
+  br i1 %115, label %.lr.ph, label %.loopexit305
 
 .lr.ph:                                           ; preds = %.preheader250, %.lr.ph
   %.0205260 = phi i32 [ %119, %.lr.ph ], [ %spec.select, %.preheader250 ]
@@ -269,21 +269,21 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
   %121 = icmp slt i64 %indvars.iv.next282, %120
   %122 = icmp sgt i64 %106, %120
   %123 = select i1 %121, i1 %122, i1 false
-  br i1 %123, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %123, label %.lr.ph, label %.loopexit305, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader250
-  %.0205.lcssa = phi i32 [ %spec.select, %.preheader250 ], [ %119, %.lr.ph ]
-  %124 = zext i32 %.0205.lcssa to i64
-  %125 = icmp eq i64 %indvars.iv.next282, %124
-  br i1 %125, label %.loopexit266.loopexit, label %.critedge.backedge, !llvm.loop !18
-
-126:                                              ; preds = %110
-  %127 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.next282
-  %128 = load i8, ptr %127, align 1, !tbaa !13
-  %.not229 = icmp eq i8 %128, 0
+124:                                              ; preds = %110
+  %125 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.next282
+  %126 = load i8, ptr %125, align 1, !tbaa !13
+  %.not229 = icmp eq i8 %126, 0
   br i1 %.not229, label %.loopexit266.loopexit, label %.critedge.backedge, !llvm.loop !18
 
-.critedge.backedge:                               ; preds = %._crit_edge, %126, %.critedge
+.loopexit305:                                     ; preds = %.lr.ph, %.preheader250
+  %.0205.lcssa = phi i32 [ %spec.select, %.preheader250 ], [ %119, %.lr.ph ]
+  %127 = zext i32 %.0205.lcssa to i64
+  %128 = icmp eq i64 %indvars.iv.next282, %127
+  br i1 %128, label %.loopexit266.loopexit, label %.critedge.backedge, !llvm.loop !18
+
+.critedge.backedge:                               ; preds = %124, %.loopexit305, %.critedge
   br label %.critedge, !llvm.loop !19
 
 .thread246:                                       ; preds = %._crit_edge.us, %99, %.loopexit, %8, %9

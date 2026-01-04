@@ -106,7 +106,7 @@ define dso_local noundef range(i32 -5, 1) i32 @e1000_set_mac_type(ptr noundef ca
   br label %.thread12
 
 .thread9:                                         ; preds = %1, %1, %1, %12, %13, %14
-  %16 = phi i32 [ 14, %14 ], [ 13, %13 ], [ 12, %12 ], [ 11, %1 ], [ 11, %1 ], [ 11, %1 ]
+  %16 = phi i32 [ 12, %12 ], [ 13, %13 ], [ 14, %14 ], [ 11, %1 ], [ 11, %1 ], [ 11, %1 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %16, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -121,7 +121,7 @@ define dso_local noundef range(i32 -5, 1) i32 @e1000_set_mac_type(ptr noundef ca
   br label %26
 
 .thread12:                                        ; preds = %15, %11, %10, %9, %8, %1, %1, %1, %1, %1
-  %.ph2.ph.ph = phi i32 [ 6, %8 ], [ 7, %9 ], [ 8, %10 ], [ 10, %11 ], [ 9, %15 ], [ 5, %1 ], [ 5, %1 ], [ 5, %1 ], [ 5, %1 ], [ 5, %1 ]
+  %.ph2.ph.ph = phi i32 [ 9, %15 ], [ 6, %8 ], [ 7, %9 ], [ 8, %10 ], [ 10, %11 ], [ 5, %1 ], [ 5, %1 ], [ 5, %1 ], [ 5, %1 ], [ 5, %1 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.ph2.ph.ph, ptr %21, align 8
   br label %24
@@ -1528,7 +1528,7 @@ define dso_local range(i32 -3, 7) i32 @e1000_setup_link(ptr noundef %0) local_un
   br label %124
 
 124:                                              ; preds = %120, %114
-  %125 = phi i1 [ true, %114 ], [ %122, %120 ]
+  %125 = phi i1 [ %122, %120 ], [ true, %114 ]
   %126 = and i1 %113, %125
   br i1 %126, label %select.unfold, label %.thread90
 
@@ -1658,7 +1658,7 @@ thread-pre-split:                                 ; preds = %152, %135
   br label %178
 
 176:                                              ; preds = %154, %.thread90
-  %177 = phi i32 [ %155, %154 ], [ %.ph, %.thread90 ]
+  %177 = phi i32 [ %.ph, %.thread90 ], [ %155, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread119
 
@@ -1802,13 +1802,13 @@ thread-pre-split97:                               ; preds = %200
   br i1 %249, label %250, label %.thread104
 
 .thread104.sink.split:                            ; preds = %244, %229, %211
-  %.sink = phi i64 [ %208, %211 ], [ %226, %229 ], [ %241, %244 ]
-  %.ph103.ph = phi i32 [ %212, %211 ], [ %230, %229 ], [ %245, %244 ]
+  %.sink = phi i64 [ %226, %229 ], [ %208, %211 ], [ %241, %244 ]
+  %.ph103.ph = phi i32 [ %230, %229 ], [ %212, %211 ], [ %245, %244 ]
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @e1000_phy_lock, i64 noundef %.sink) #7
   br label %.thread104
 
 .thread104:                                       ; preds = %.thread104.sink.split, %200, %214, %220, %232, %235, %247
-  %.ph103 = phi i32 [ %248, %247 ], [ %236, %235 ], [ %233, %232 ], [ %221, %220 ], [ %215, %214 ], [ %201, %200 ], [ %.ph103.ph, %.thread104.sink.split ]
+  %.ph103 = phi i32 [ %221, %220 ], [ %215, %214 ], [ %201, %200 ], [ %248, %247 ], [ %236, %235 ], [ %233, %232 ], [ %.ph103.ph, %.thread104.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread111
 
@@ -1987,8 +1987,8 @@ thread-pre-split97:                               ; preds = %200
   %342 = icmp eq i32 %341, 0
   br i1 %342, label %343, label %.thread111
 
-.thread111:                                       ; preds = %339, %185, %251, %280, %.thread104, %.thread105, %303, %306, %311, %314, %319
-  %.ph110 = phi i32 [ %278, %.thread105 ], [ %.ph103, %.thread104 ], [ %281, %280 ], [ %252, %251 ], [ %186, %185 ], [ %341, %339 ], [ %320, %319 ], [ %317, %314 ], [ %312, %311 ], [ %309, %306 ], [ %304, %303 ]
+.thread111:                                       ; preds = %339, %185, %.thread104, %251, %280, %.thread105, %303, %306, %311, %314, %319
+  %.ph110 = phi i32 [ %341, %339 ], [ %278, %.thread105 ], [ %281, %280 ], [ %252, %251 ], [ %.ph103, %.thread104 ], [ %186, %185 ], [ %320, %319 ], [ %317, %314 ], [ %312, %311 ], [ %309, %306 ], [ %304, %303 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread119
 
@@ -2504,7 +2504,7 @@ thread-pre-split97:                               ; preds = %200
   br label %.thread129
 
 .thread129:                                       ; preds = %570, %574, %597, %600, %.thread129.sink.split, %484, %528, %540, %545, %557, %560, %587, %605, %608, %613, %616, %631
-  %.ph128 = phi i32 [ %632, %631 ], [ %619, %616 ], [ %614, %613 ], [ %611, %608 ], [ %606, %605 ], [ %588, %587 ], [ %563, %560 ], [ %558, %557 ], [ %546, %545 ], [ %541, %540 ], [ %529, %528 ], [ %488, %484 ], [ %.ph128.ph, %.thread129.sink.split ], [ %598, %597 ], [ %601, %600 ], [ %572, %570 ], [ %575, %574 ]
+  %.ph128 = phi i32 [ %546, %545 ], [ %601, %600 ], [ %541, %540 ], [ %.ph128.ph, %.thread129.sink.split ], [ %529, %528 ], [ %488, %484 ], [ %632, %631 ], [ %619, %616 ], [ %614, %613 ], [ %611, %608 ], [ %606, %605 ], [ %588, %587 ], [ %563, %560 ], [ %558, %557 ], [ %598, %597 ], [ %572, %570 ], [ %575, %574 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2547,7 +2547,7 @@ thread-pre-split97:                               ; preds = %200
   br i1 %650, label %.thread119, label %635, !llvm.loop !21
 
 .thread119:                                       ; preds = %648, %639, %635, %178, %413, %410, %.thread129, %.thread124, %.thread115, %.thread111, %176, %646, %407
-  %651 = phi i32 [ %177, %176 ], [ %408, %407 ], [ %647, %646 ], [ %.ph110, %.thread111 ], [ %.ph114, %.thread115 ], [ %.ph123, %.thread124 ], [ %.ph128, %.thread129 ], [ 6, %178 ], [ %433, %413 ], [ %411, %410 ], [ 0, %648 ], [ %640, %639 ], [ %637, %635 ]
+  %651 = phi i32 [ %177, %176 ], [ %.ph110, %.thread111 ], [ %408, %407 ], [ %.ph114, %.thread115 ], [ %.ph123, %.thread124 ], [ %.ph128, %.thread129 ], [ %647, %646 ], [ 6, %178 ], [ %433, %413 ], [ %411, %410 ], [ 0, %648 ], [ %640, %639 ], [ %637, %635 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %784
 
@@ -2708,7 +2708,7 @@ thread-pre-split97:                               ; preds = %200
   br label %.thread139
 
 .thread139:                                       ; preds = %.thread139.sink.split, %687, %698, %701, %713, %716, %719, %722
-  %.ph138 = phi i32 [ %725, %722 ], [ %720, %719 ], [ %717, %716 ], [ %714, %713 ], [ %702, %701 ], [ %699, %698 ], [ %688, %687 ], [ %.ph138.ph, %.thread139.sink.split ]
+  %.ph138 = phi i32 [ %699, %698 ], [ %688, %687 ], [ %725, %722 ], [ %720, %719 ], [ %717, %716 ], [ %714, %713 ], [ %702, %701 ], [ %.ph138.ph, %.thread139.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %784
@@ -2755,7 +2755,7 @@ thread-pre-split97:                               ; preds = %200
   br label %748
 
 748:                                              ; preds = %747, %746, %731
-  %749 = phi i32 [ -2147483360, %747 ], [ -2147483232, %746 ], [ -2147483616, %731 ]
+  %749 = phi i32 [ -2147483616, %731 ], [ -2147483360, %747 ], [ -2147483232, %746 ]
   %750 = load ptr, ptr %0, align 8
   %751 = getelementptr i8, ptr %750, i64 376
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %749, ptr elementtype(i32) %751) #7, !srcloc !6
@@ -3103,7 +3103,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_read_eeprom(ptr noundef rea
   br label %135
 
 135:                                              ; preds = %.thread, %.loopexit, %23, %21, %17, %9
-  %136 = phi i32 [ 0, %9 ], [ 0, %.loopexit ], [ -1, %21 ], [ -1, %17 ], [ -1, %23 ], [ -1, %.thread ]
+  %136 = phi i32 [ 0, %9 ], [ 0, %.loopexit ], [ -1, %.thread ], [ -1, %21 ], [ -1, %17 ], [ -1, %23 ]
   tail call void @mutex_unlock(ptr noundef nonnull @e1000_eeprom_lock) #7
   ret i32 %136
 }
@@ -3582,7 +3582,7 @@ define dso_local noundef range(i32 -3, 1) i32 @e1000_check_for_link(ptr noundef 
   br label %122
 
 25:                                               ; preds = %15, %1
-  %26 = phi i32 [ %19, %15 ], [ %12, %1 ]
+  %26 = phi i32 [ %12, %1 ], [ %19, %15 ]
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %122
 
@@ -4087,13 +4087,13 @@ define internal fastcc noundef range(i32 -2, 1) i32 @e1000_polarity_reversal_wor
   br i1 %80, label %.loopexit, label %.preheader, !llvm.loop !31
 
 .loopexit.sink.split:                             ; preds = %50, %27, %17, %7
-  %.sink = phi i64 [ %3, %7 ], [ %14, %17 ], [ %24, %27 ], [ %47, %50 ]
-  %.ph = phi i32 [ %8, %7 ], [ %18, %17 ], [ %28, %27 ], [ %51, %50 ]
+  %.sink = phi i64 [ %24, %27 ], [ %14, %17 ], [ %3, %7 ], [ %47, %50 ]
+  %.ph = phi i32 [ %28, %27 ], [ %18, %17 ], [ %8, %7 ], [ %51, %50 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @e1000_phy_lock, i64 noundef %.sink) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %.preheader21, %78, %74, %71, %.preheader, %.loopexit.sink.split, %65, %62, %59, %56, %53, %30, %20, %10
-  %81 = phi i32 [ %11, %10 ], [ %21, %20 ], [ %31, %30 ], [ %54, %53 ], [ %57, %56 ], [ %60, %59 ], [ %63, %62 ], [ %66, %65 ], [ %.ph, %.loopexit.sink.split ], [ 0, %78 ], [ 0, %74 ], [ %72, %71 ], [ %69, %.preheader ], [ %37, %36 ], [ %34, %.preheader21 ]
+  %81 = phi i32 [ %11, %10 ], [ %21, %20 ], [ %31, %30 ], [ %54, %53 ], [ %57, %56 ], [ %60, %59 ], [ %63, %62 ], [ %66, %65 ], [ 0, %74 ], [ %.ph, %.loopexit.sink.split ], [ %72, %71 ], [ %69, %.preheader ], [ 0, %78 ], [ %34, %.preheader21 ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %81
 }
@@ -4228,8 +4228,8 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_config_dsp_after_link_change(
   %75 = icmp samesign ult i16 %74, %73
   br i1 %75, label %.preheader37, label %.loopexit, !llvm.loop !33
 
-.thread33:                                        ; preds = %.preheader37, %.preheader, %48, %20, %.thread, %53, %67
-  %.ph32 = phi i32 [ %46, %.thread ], [ %21, %20 ], [ %69, %67 ], [ %54, %53 ], [ %37, %.preheader ], [ %50, %48 ], [ %59, %.preheader37 ]
+.thread33:                                        ; preds = %.preheader37, %.preheader, %48, %.thread, %20, %53, %67
+  %.ph32 = phi i32 [ %69, %67 ], [ %54, %53 ], [ %21, %20 ], [ %46, %.thread ], [ %50, %48 ], [ %37, %.preheader ], [ %59, %.preheader37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4400,7 +4400,7 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_config_dsp_after_link_change(
   br label %.loopexit40
 
 .loopexit40:                                      ; preds = %115, %.preheader39, %17, %127, %157, %.loopexit, %.thread36, %.thread35, %.thread34, %.thread33, %153, %150, %147, %144, %141, %131, %122, %119, %93, %90, %80, %14, %2
-  %158 = phi i32 [ 0, %2 ], [ %15, %14 ], [ %81, %80 ], [ %91, %90 ], [ %94, %93 ], [ %120, %119 ], [ %124, %122 ], [ %132, %131 ], [ %142, %141 ], [ %145, %144 ], [ %148, %147 ], [ %151, %150 ], [ %155, %153 ], [ %.ph32, %.thread33 ], [ %88, %.thread34 ], [ %113, %.thread35 ], [ %139, %.thread36 ], [ 0, %.loopexit ], [ 0, %157 ], [ 0, %127 ], [ 0, %17 ], [ %117, %115 ], [ %103, %.preheader39 ]
+  %158 = phi i32 [ %139, %.thread36 ], [ 0, %2 ], [ %15, %14 ], [ %.ph32, %.thread33 ], [ %81, %80 ], [ %91, %90 ], [ %94, %93 ], [ %120, %119 ], [ %124, %122 ], [ %132, %131 ], [ %142, %141 ], [ %145, %144 ], [ %148, %147 ], [ %151, %150 ], [ %155, %153 ], [ 0, %127 ], [ 0, %17 ], [ %88, %.thread34 ], [ %113, %.thread35 ], [ 0, %.loopexit ], [ 0, %157 ], [ %117, %115 ], [ %103, %.preheader39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -4735,7 +4735,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @e1000_config_fc_after_link_
   br label %112
 
 112:                                              ; preds = %21, %.thread7, %109, %101, %58, %55, %48, %.thread8.thread
-  %113 = phi i32 [ 0, %.thread7 ], [ %46, %.thread8.thread ], [ %49, %48 ], [ %56, %55 ], [ %59, %58 ], [ %102, %101 ], [ %110, %109 ], [ -3, %21 ]
+  %113 = phi i32 [ 0, %.thread7 ], [ %110, %109 ], [ %46, %.thread8.thread ], [ %49, %48 ], [ %56, %55 ], [ %59, %58 ], [ %102, %101 ], [ -3, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4825,7 +4825,7 @@ define dso_local noundef range(i32 -2, 1) i32 @e1000_get_speed_and_duplex(ptr no
   br label %51
 
 51:                                               ; preds = %42, %50, %46, %40, %37, %30, %26, %21
-  %52 = phi i32 [ %31, %30 ], [ %38, %37 ], [ 0, %46 ], [ 0, %26 ], [ 0, %21 ], [ 0, %40 ], [ 0, %50 ], [ 0, %42 ]
+  %52 = phi i32 [ %31, %30 ], [ %38, %37 ], [ 0, %46 ], [ 0, %50 ], [ 0, %26 ], [ 0, %21 ], [ 0, %40 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %52
 }

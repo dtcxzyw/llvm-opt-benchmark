@@ -74,7 +74,7 @@ define ptr @av_video_enc_params_create_side_data(ptr noundef %0, i32 noundef %1,
   br label %av_video_enc_params_alloc.exit.thread
 
 av_video_enc_params_alloc.exit.thread:            ; preds = %3, %16, %18, %15
-  %.0 = phi ptr [ null, %18 ], [ null, %15 ], [ %9, %16 ], [ null, %3 ]
+  %.0 = phi ptr [ %9, %16 ], [ null, %18 ], [ null, %15 ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0

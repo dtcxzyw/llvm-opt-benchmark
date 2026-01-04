@@ -221,7 +221,7 @@ define internal i32 @dissect_brdwlk(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %54
 
 54:                                               ; preds = %50, %44
-  %.0 = phi i64 [ %spec.select103, %50 ], [ 0, %44 ]
+  %.0 = phi i64 [ 0, %44 ], [ %spec.select103, %50 ]
   %55 = load i32, ptr @hf_brdwlk_drop, align 4
   %56 = tail call ptr @proto_tree_add_boolean(ptr noundef %21, i32 noundef %55, ptr noundef %0, i32 noundef %37, i32 noundef 0, i64 noundef %.0)
   %.not.i = icmp eq ptr %56, null
@@ -268,8 +268,8 @@ proto_item_set_hidden.exit:                       ; preds = %54, %57, %60
   br label %81
 
 81:                                               ; preds = %31, %75, %proto_item_set_hidden.exit, %16
-  %.094 = phi i32 [ %27, %16 ], [ %35, %75 ], [ %35, %proto_item_set_hidden.exit ], [ %32, %31 ]
-  %.093 = phi i32 [ %26, %16 ], [ %34, %75 ], [ %34, %proto_item_set_hidden.exit ], [ %spec.select, %31 ]
+  %.094 = phi i32 [ %27, %16 ], [ %35, %proto_item_set_hidden.exit ], [ %32, %31 ], [ %35, %75 ]
+  %.093 = phi i32 [ %26, %16 ], [ %34, %proto_item_set_hidden.exit ], [ %spec.select, %31 ], [ %34, %75 ]
   store i32 34990, ptr %5, align 4
   %82 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 2, i32 noundef %.093, i32 noundef %.094)
   %83 = load ptr, ptr @fc_dissector_handle, align 8

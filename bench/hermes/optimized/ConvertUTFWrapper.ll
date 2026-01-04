@@ -270,7 +270,7 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ %cmp33.not, %cleanup ], [ %cmp33.not, %if.then.i.i.i ]
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %entry ], [ %cmp33.not, %cleanup ], [ %cmp33.not, %if.then.i.i.i ]
   ret i1 %retval.0
 }
 

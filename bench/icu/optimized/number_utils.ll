@@ -173,7 +173,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -552,7 +552,7 @@ switch.lookup:                                    ; preds = %4
   br label %32
 
 32:                                               ; preds = %29, %22, %25, %17
-  %.1 = phi ptr [ @.str.5, %17 ], [ %16, %25 ], [ %16, %22 ], [ %spec.select, %29 ]
+  %.1 = phi ptr [ %spec.select, %29 ], [ @.str.5, %17 ], [ %16, %25 ], [ %16, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %33
 
@@ -883,8 +883,8 @@ _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i
   br label %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i
 
 _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i: ; preds = %._ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i_crit_edge, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i, %.noexc
-  %26 = phi ptr [ %.pre7, %.noexc ], [ %20, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ %.pre, %._ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i_crit_edge ]
-  %.sink.i = phi i32 [ %2, %.noexc ], [ %2, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ 34, %._ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i_crit_edge ]
+  %26 = phi ptr [ %20, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ %.pre7, %.noexc ], [ %.pre, %._ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i_crit_edge ]
+  %.sink.i = phi i32 [ %2, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ %2, %.noexc ], [ 34, %._ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i_crit_edge ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.sink.i, ptr %27, align 8, !tbaa !35
   %28 = invoke ptr @uprv_decNumberFromString_77(ptr noundef %26, ptr noundef %16, ptr noundef nonnull %27)
@@ -944,7 +944,7 @@ _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i: 
   br label %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit
 
 _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit: ; preds = %4, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i, %6
-  %.sink = phi i32 [ %2, %6 ], [ %2, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i ], [ 34, %4 ]
+  %.sink = phi i32 [ %2, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i ], [ %2, %6 ], [ 34, %4 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.sink, ptr %15, align 8, !tbaa !35
   %16 = load ptr, ptr %0, align 8, !tbaa !24
@@ -1007,8 +1007,8 @@ _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i
   br label %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i
 
 _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i: ; preds = %._ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i_crit_edge, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i, %7
-  %15 = phi ptr [ %.pre4, %7 ], [ %9, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ %.pre, %._ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i_crit_edge ]
-  %.sink.i = phi i32 [ %5, %7 ], [ %5, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ 34, %._ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i_crit_edge ]
+  %15 = phi ptr [ %9, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ %.pre4, %7 ], [ %.pre, %._ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i_crit_edge ]
+  %.sink.i = phi i32 [ %5, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ %5, %7 ], [ 34, %._ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i_crit_edge ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.sink.i, ptr %16, align 8, !tbaa !35
   %17 = tail call ptr @uprv_decNumberFromString_77(ptr noundef %15, ptr noundef nonnull %1, ptr noundef nonnull %16)
@@ -1089,8 +1089,8 @@ _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i
   br label %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i
 
 _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i: ; preds = %._ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i_crit_edge, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i, %14
-  %22 = phi ptr [ %.pre8, %14 ], [ %16, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ %.pre, %._ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i_crit_edge ]
-  %.sink.i = phi i32 [ %12, %14 ], [ %12, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ 34, %._ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i_crit_edge ]
+  %22 = phi ptr [ %16, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ %.pre8, %14 ], [ %.pre, %._ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i_crit_edge ]
+  %.sink.i = phi i32 [ %12, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i.i ], [ %12, %14 ], [ 34, %._ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit.i_crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.sink.i, ptr %23, align 8, !tbaa !35
   %24 = call ptr @uprv_decNumberFromString_77(ptr noundef %22, ptr noundef nonnull %4, ptr noundef nonnull %23)
@@ -1171,7 +1171,7 @@ _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i: 
   br label %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit
 
 _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit: ; preds = %6, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i, %8
-  %.sink = phi i32 [ %2, %8 ], [ %2, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i ], [ 34, %6 ]
+  %.sink = phi i32 [ %2, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE13releaseMemoryEv.exit.i ], [ %2, %8 ], [ 34, %6 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.sink, ptr %17, align 8, !tbaa !35
   %18 = add i32 %2, -1000000000
@@ -1201,7 +1201,7 @@ _ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit: ; preds =
   br i1 %.not, label %32, label %.sink.split
 
 .sink.split:                                      ; preds = %24, %19, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit
-  %.sink24 = phi i32 [ 16, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit ], [ 16, %19 ], [ 5, %24 ]
+  %.sink24 = phi i32 [ 16, %19 ], [ 16, %_ZN6icu_7724MaybeStackHeaderAndArrayI9decNumbercLi34EE6resizeEii.exit ], [ 5, %24 ]
   store i32 %.sink24, ptr %5, align 4, !tbaa !13
   br label %32
 

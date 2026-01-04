@@ -135,7 +135,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
   br label %.body19
 
 .body19:                                          ; preds = %70, %60, %63, %34
-  %eh.lpad-body20 = phi { ptr, i32 } [ %35, %34 ], [ %61, %63 ], [ %61, %60 ], [ %71, %70 ]
+  %eh.lpad-body20 = phi { ptr, i32 } [ %61, %60 ], [ %35, %34 ], [ %61, %63 ], [ %71, %70 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$wasm_bindgen..JsValue$GT$$GT$17h9363c71cc1bf36c7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #16
           to label %.thread29 unwind label %81
 
@@ -294,7 +294,7 @@ define hidden { ptr, i64 } @_ZN12wasm_bindgen7convert5impls24js_value_vector_fro
           to label %.thread unwind label %81
 
 .thread:                                          ; preds = %51, %.thread29, %83
-  %.pn.pn28 = phi { ptr, i32 } [ %84, %83 ], [ %.pn33, %.thread29 ], [ %lpad.thr_comm.i12, %51 ]
+  %.pn.pn28 = phi { ptr, i32 } [ %84, %83 ], [ %lpad.thr_comm.i12, %51 ], [ %.pn33, %.thread29 ]
   resume { ptr, i32 } %.pn.pn28
 
 83:                                               ; preds = %25, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hb06c211f984a301fE.exit"
@@ -1337,7 +1337,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hbead5fc2b997ca6bE.exit.i", %9
+14:                                               ; preds = %9, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hbead5fc2b997ca6bE.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$wasm_bindgen..JsValue$GT$$GT$17he57575234e5b3a46E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #16
@@ -1393,7 +1393,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hbead5fc2b997ca6bE.exit.i", %9
+14:                                               ; preds = %9, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17hbead5fc2b997ca6bE.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17haddfca1f4c251f3aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #16

@@ -226,7 +226,7 @@ fd_read.exit:                                     ; preds = %9
   br i1 %22, label %9, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %18, %20, %fd_read.exit, %.preheader, %bio_fd_should_retry.exit.i, %14
-  %.01315 = phi ptr [ %.01316, %bio_fd_should_retry.exit.i ], [ %.01316, %14 ], [ %1, %.preheader ], [ %.01316, %18 ], [ %21, %20 ], [ %.01316, %fd_read.exit ]
+  %.01315 = phi ptr [ %.01316, %14 ], [ %.01316, %bio_fd_should_retry.exit.i ], [ %1, %.preheader ], [ %.01316, %18 ], [ %21, %20 ], [ %.01316, %fd_read.exit ]
   store i8 0, ptr %.01315, align 1, !tbaa !17
   %23 = ptrtoint ptr %.01315 to i64
   %24 = ptrtoint ptr %1 to i64
@@ -354,7 +354,7 @@ fd_free.exit:                                     ; preds = %20, %22, %32
   br label %52
 
 52:                                               ; preds = %fd_free.exit, %44, %48, %51, %9, %6, %16, %13, %38, %4, %._crit_edge
-  %.0 = phi i64 [ %43, %._crit_edge ], [ 0, %51 ], [ %12, %9 ], [ 0, %6 ], [ %19, %16 ], [ 0, %13 ], [ 1, %fd_free.exit ], [ %47, %44 ], [ 1, %48 ], [ -1, %38 ], [ 1, %4 ]
+  %.0 = phi i64 [ %43, %._crit_edge ], [ 0, %51 ], [ %12, %9 ], [ 0, %6 ], [ %19, %16 ], [ 0, %13 ], [ 1, %fd_free.exit ], [ -1, %38 ], [ %47, %44 ], [ 1, %48 ], [ 1, %4 ]
   ret i64 %.0
 }
 

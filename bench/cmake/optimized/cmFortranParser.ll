@@ -580,8 +580,8 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
 
 _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit: ; preds = %215, %229, %.sink.split.i, %235, %23, %233
-  %.3288 = phi ptr [ %.0354, %233 ], [ %.0354, %23 ], [ %.0354, %235 ], [ %.0354, %.sink.split.i ], [ %.5290, %229 ], [ %.0354, %215 ]
-  %.6 = phi i32 [ %.3, %233 ], [ 257, %23 ], [ -2, %235 ], [ -2, %.sink.split.i ], [ %.3, %229 ], [ %.3, %215 ]
+  %.3288 = phi ptr [ %.0354, %233 ], [ %.0354, %.sink.split.i ], [ %.0354, %215 ], [ %.0354, %23 ], [ %.0354, %235 ], [ %.5290, %229 ]
+  %.6 = phi i32 [ %.3, %233 ], [ -2, %.sink.split.i ], [ %.3, %215 ], [ 257, %23 ], [ -2, %235 ], [ %.3, %229 ]
   br label %237
 
 237:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit273, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
@@ -648,11 +648,11 @@ _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit273: ; preds = %25
   br label %.loopexit337
 
 .loopexit337:                                     ; preds = %9, %248, %262
-  %.6291 = phi ptr [ %.2287, %262 ], [ %.3288, %248 ], [ %.0354, %9 ]
-  %.0236 = phi i32 [ 2, %262 ], [ 1, %248 ], [ 0, %9 ]
-  %.4233 = phi ptr [ %.0229.lcssa, %262 ], [ %.3232, %248 ], [ %.0229355, %9 ]
-  %.4227 = phi ptr [ %.0223.ptr.lcssa, %262 ], [ %3, %248 ], [ %.0223.ptr361, %9 ]
-  %.9 = phi i32 [ %.2, %262 ], [ %.6, %248 ], [ %.0212360, %9 ]
+  %.6291 = phi ptr [ %.3288, %248 ], [ %.2287, %262 ], [ %.0354, %9 ]
+  %.0236 = phi i32 [ 1, %248 ], [ 2, %262 ], [ 0, %9 ]
+  %.4233 = phi ptr [ %.3232, %248 ], [ %.0229.lcssa, %262 ], [ %.0229355, %9 ]
+  %.4227 = phi ptr [ %3, %248 ], [ %.0223.ptr.lcssa, %262 ], [ %.0223.ptr361, %9 ]
+  %.9 = phi i32 [ %.6, %248 ], [ %.2, %262 ], [ %.0212360, %9 ]
   %or.cond11 = icmp ult i32 %.9, 296
   br i1 %or.cond11, label %.thread310, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit277
 
@@ -676,10 +676,10 @@ _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit273: ; preds = %25
   br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit277
 
 _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit277: ; preds = %.sink.split.i276, %.thread310, %.loopexit337
-  %.4227308 = phi ptr [ %.4227, %.loopexit337 ], [ %.4227307319, %.thread310 ], [ %.4227307319, %.sink.split.i276 ]
-  %.4233306 = phi ptr [ %.4233, %.loopexit337 ], [ %.4233305321, %.thread310 ], [ %.4233305321, %.sink.split.i276 ]
-  %.0236304 = phi i32 [ %.0236, %.loopexit337 ], [ %.0236303323, %.thread310 ], [ %.0236303323, %.sink.split.i276 ]
-  %.6291302 = phi ptr [ %.6291, %.loopexit337 ], [ %.6291301325, %.thread310 ], [ %.6291301325, %.sink.split.i276 ]
+  %.4227308 = phi ptr [ %.4227, %.loopexit337 ], [ %.4227307319, %.sink.split.i276 ], [ %.4227307319, %.thread310 ]
+  %.4233306 = phi ptr [ %.4233, %.loopexit337 ], [ %.4233305321, %.sink.split.i276 ], [ %.4233305321, %.thread310 ]
+  %.0236304 = phi i32 [ %.0236, %.loopexit337 ], [ %.0236303323, %.sink.split.i276 ], [ %.0236303323, %.thread310 ]
+  %.6291302 = phi ptr [ %.6291, %.loopexit337 ], [ %.6291301325, %.sink.split.i276 ], [ %.6291301325, %.thread310 ]
   %.not262362 = icmp eq ptr %.4227308, %3
   br i1 %.not262362, label %._crit_edge, label %.lr.ph
 
@@ -860,8 +860,8 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit: ; preds 
   br label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: ; preds = %24, %.critedge.thread.i.i, %1, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit, %35, %34, %33, %32
-  %.1.i5 = phi i32 [ 5, %35 ], [ 2, %32 ], [ 3, %33 ], [ 4, %34 ], [ %31, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %1 ], [ 1, %.critedge.thread.i.i ], [ 1, %24 ]
-  %.046 = phi ptr [ @.str.12, %35 ], [ @.str.9, %32 ], [ @.str.10, %33 ], [ @.str.11, %34 ], [ @.str.2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ @.str.2, %1 ], [ @.str.8, %.critedge.thread.i.i ], [ @.str.8, %24 ]
+  %.1.i5 = phi i32 [ 4, %34 ], [ 5, %35 ], [ 1, %.critedge.thread.i.i ], [ 2, %32 ], [ 3, %33 ], [ %31, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %1 ], [ 1, %24 ]
+  %.046 = phi ptr [ @.str.11, %34 ], [ @.str.12, %35 ], [ @.str.8, %.critedge.thread.i.i ], [ @.str.9, %32 ], [ @.str.10, %33 ], [ @.str.2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ @.str.2, %1 ], [ @.str.8, %24 ]
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #11
   %37 = shl nsw i32 %.1.i5, 1
   %38 = sext i32 %37 to i64
@@ -1006,15 +1006,15 @@ _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us
   br label %_ZL9yytnamerrPcPKc.exit68
 
 _ZL9yytnamerrPcPKc.exit68:                        ; preds = %62, %.preheader, %.thread.thread.i, %.split.us.thread.i
-  %.sink30 = phi i64 [ %89, %.thread.thread.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
-  %.sink = phi i64 [ 2, %.thread.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
-  %.1 = phi i32 [ %68, %.thread.thread.i ], [ %68, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %62 ]
+  %.sink30 = phi i64 [ %.020.i, %.split.us.thread.i ], [ %89, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
+  %.sink = phi i64 [ 2, %.split.us.thread.i ], [ 2, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
+  %.1 = phi i32 [ %68, %.split.us.thread.i ], [ %68, %.thread.thread.i ], [ %.0, %.preheader ], [ %.0, %62 ]
   %90 = getelementptr inbounds i8, ptr %.039, i64 %.sink30
   %91 = getelementptr inbounds nuw i8, ptr %.147, i64 %.sink
   br label %.preheader, !llvm.loop !24
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: ; preds = %_ZL9yytnamerrPcPKc.exit, %.preheader, %.critedge.i.i, %59, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit
-  %.041 = phi i32 [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ -1, %59 ], [ %.2.i.i, %.critedge.i.i ], [ 0, %.preheader ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
+  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %.preheader ], [ -1, %59 ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.041
 }

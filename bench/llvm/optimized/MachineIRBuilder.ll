@@ -1327,7 +1327,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5D
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %12, %14, %16, %21, %27
-  %.sroa.0.0.i = phi i64 [ %13, %12 ], [ %29, %27 ], [ 0, %3 ], [ %26, %21 ], [ 0, %16 ], [ 0, %14 ]
+  %.sroa.0.0.i = phi i64 [ %29, %27 ], [ %13, %12 ], [ 0, %3 ], [ %26, %21 ], [ 0, %16 ], [ 0, %14 ]
   %31 = and i64 %.sroa.0.0.i, 2
   %.not.i.i = icmp ne i64 %31, 0
   %32 = and i64 %.sroa.0.0.i, -7
@@ -1395,7 +1395,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder19buildMaskLowPtrBitsER
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %4, %13, %15, %17, %22, %28
-  %.sroa.0.0.i = phi i64 [ %14, %13 ], [ %30, %28 ], [ 0, %4 ], [ %27, %22 ], [ 0, %17 ], [ 0, %15 ]
+  %.sroa.0.0.i = phi i64 [ %30, %28 ], [ %14, %13 ], [ 0, %4 ], [ %27, %22 ], [ 0, %17 ], [ 0, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %32 = and i64 %.sroa.0.0.i, -7
   %spec.select.i.i.i = icmp ne i64 %32, 0
@@ -1520,7 +1520,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder31buildPadVectorWithUnd
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %10, %12, %14, %19, %25
-  %.sroa.0.0.i = phi i64 [ %11, %10 ], [ %27, %25 ], [ 0, %3 ], [ %24, %19 ], [ 0, %14 ], [ 0, %12 ]
+  %.sroa.0.0.i = phi i64 [ %27, %25 ], [ %11, %10 ], [ 0, %3 ], [ %24, %19 ], [ 0, %14 ], [ 0, %12 ]
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !236
   %31 = icmp eq i32 %30, 1
@@ -1565,7 +1565,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds 
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %32, %34, %39, %47, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i
-  %.sroa.04.0.i = phi i64 [ 0, %34 ], [ 0, %32 ], [ 0, %47 ], [ 0, %39 ], [ %56, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
+  %.sroa.04.0.i = phi i64 [ 0, %32 ], [ 0, %47 ], [ 0, %34 ], [ 0, %39 ], [ %56, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %57, ptr %5, align 8, !tbaa !277
@@ -1654,7 +1654,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   br label %_ZNK4llvm3LLT14getElementTypeEv.exit35
 
 _ZNK4llvm3LLT14getElementTypeEv.exit35:           ; preds = %._crit_edge, %.thread
-  %.sroa.03.0 = phi i64 [ %.sroa.04.0.i, %.thread ], [ %spec.select, %._crit_edge ]
+  %.sroa.03.0 = phi i64 [ %spec.select, %._crit_edge ], [ %.sroa.04.0.i, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.03.0, ptr %4, align 8
   %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1783,7 +1783,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds 
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %12, %14, %19, %27, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i
-  %.sroa.04.0.i = phi i64 [ 0, %14 ], [ 0, %12 ], [ 0, %27 ], [ 0, %19 ], [ %36, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
+  %.sroa.04.0.i = phi i64 [ 0, %12 ], [ 0, %27 ], [ 0, %14 ], [ 0, %19 ], [ %36, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
   %37 = and i64 %.sroa.04.0.i, -7
   %spec.select.i.i.i = icmp ne i64 %37, 0
   %38 = and i64 %.sroa.04.0.i, 2
@@ -1909,7 +1909,7 @@ _ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i: ; preds = %_ZNK4llvm3LLT1
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm11SmallVectorINS_5DstOpELj8EEC2EmRKS1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !287
 
 _ZN4llvm11SmallVectorINS_5DstOpELj8EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %_ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %storemerge.in = phi i64 [ %71, %_ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i ], [ %72, %.lr.ph.i.i.i.i.i.i ], [ %71, %.lr.ph.i.i.i.i.i ]
+  %storemerge.in = phi i64 [ %72, %.lr.ph.i.i.i.i.i.i ], [ %71, %_ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i ], [ %71, %.lr.ph.i.i.i.i.i ]
   %storemerge = trunc i64 %storemerge.in to i32
   store i32 %storemerge, ptr %74, align 8, !tbaa !276
   %82 = load ptr, ptr %6, align 8, !tbaa !277
@@ -2089,7 +2089,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i: ; pred
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i: ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i, %62, %54, %49, %47
-  %.sroa.04.0.i.i = phi i64 [ 0, %49 ], [ 0, %47 ], [ 0, %62 ], [ 0, %54 ], [ %71, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i ]
+  %.sroa.04.0.i.i = phi i64 [ 0, %47 ], [ 0, %62 ], [ 0, %49 ], [ 0, %54 ], [ %71, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i ]
   %72 = and i64 %.sroa.04.0.i.i, -7
   %spec.select.i.i2.i = icmp ne i64 %72, 0
   %73 = and i64 %.sroa.04.0.i.i, 4
@@ -2166,7 +2166,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder33buildDeleteTrailingVe
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %10, %12, %14, %19, %25
-  %.sroa.0.0.i = phi i64 [ %11, %10 ], [ %27, %25 ], [ 0, %3 ], [ %24, %19 ], [ 0, %14 ], [ 0, %12 ]
+  %.sroa.0.0.i = phi i64 [ %27, %25 ], [ %11, %10 ], [ 0, %3 ], [ %24, %19 ], [ 0, %14 ], [ 0, %12 ]
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !236
   %31 = icmp eq i32 %30, 1
@@ -2223,8 +2223,8 @@ _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %34, %47
   %storemerge.i.i.i.i = or disjoint i64 %62, 2
   br label %_ZNK4llvm3LLT14getElementTypeEv.exit
 
-_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.thread: ; preds = %39, %47, %32, %34, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
-  %.sroa.04.0.i23 = phi i64 [ %56, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit ], [ 0, %34 ], [ 0, %32 ], [ 0, %47 ], [ 0, %39 ]
+_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.thread: ; preds = %39, %34, %47, %32, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
+  %.sroa.04.0.i23 = phi i64 [ %56, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit ], [ 0, %32 ], [ 0, %47 ], [ 0, %34 ], [ 0, %39 ]
   %.0.in.i4.i = and i64 %.sroa.04.0.i23, -4294967296
   %storemerge.i.i.i6.i = or disjoint i64 %.0.in.i4.i, 1
   br label %_ZNK4llvm3LLT14getElementTypeEv.exit
@@ -2629,7 +2629,7 @@ _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %20, %2
   br label %_ZNK4llvm3LLT13getScalarTypeEv.exit
 
 _ZNK4llvm3LLT13getScalarTypeEv.exit:              ; preds = %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit, %34, %35
-  %.sroa.0.0.i8 = phi i64 [ %storemerge.i.i.i.i.i, %34 ], [ %storemerge.i.i.i6.i.i, %35 ], [ %.sroa.0.0.i, %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit ]
+  %.sroa.0.0.i8 = phi i64 [ %storemerge.i.i.i6.i.i, %35 ], [ %storemerge.i.i.i.i.i, %34 ], [ %.sroa.0.0.i, %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit ]
   %36 = and i64 %.sroa.0.0.i, 12
   %37 = icmp eq i64 %36, 4
   %38 = and i1 %spec.select.i.i.i, %37
@@ -2996,7 +2996,7 @@ _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %20, %2
   br label %_ZNK4llvm3LLT13getScalarTypeEv.exit
 
 _ZNK4llvm3LLT13getScalarTypeEv.exit:              ; preds = %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit, %34, %35
-  %.sroa.0.0.i8 = phi i64 [ %storemerge.i.i.i.i.i, %34 ], [ %storemerge.i.i.i6.i.i, %35 ], [ %.sroa.0.0.i, %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit ]
+  %.sroa.0.0.i8 = phi i64 [ %storemerge.i.i.i6.i.i, %35 ], [ %storemerge.i.i.i.i.i, %34 ], [ %.sroa.0.0.i, %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit ]
   %36 = and i64 %.sroa.0.0.i, 12
   %37 = icmp eq i64 %36, 4
   %38 = and i1 %spec.select.i.i.i, %37
@@ -3210,7 +3210,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildFConstantERKNS_5
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %9, %11, %13, %18, %24
-  %.sroa.0.0.i = phi i64 [ %10, %9 ], [ %26, %24 ], [ 0, %3 ], [ %23, %18 ], [ 0, %13 ], [ 0, %11 ]
+  %.sroa.0.0.i = phi i64 [ %26, %24 ], [ %10, %9 ], [ 0, %3 ], [ %23, %18 ], [ 0, %13 ], [ 0, %11 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !3
   %30 = load ptr, ptr %29, align 8, !tbaa !282
@@ -3495,7 +3495,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildLoadERKNS_5DstOpE
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %7, %12, %14, %16, %21, %27
-  %.sroa.0.0.i = phi i64 [ %13, %12 ], [ %29, %27 ], [ 0, %7 ], [ %26, %21 ], [ 0, %16 ], [ 0, %14 ]
+  %.sroa.0.0.i = phi i64 [ %29, %27 ], [ %13, %12 ], [ 0, %7 ], [ %26, %21 ], [ 0, %16 ], [ 0, %14 ]
   %31 = or i16 %5, 1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !3
@@ -3615,7 +3615,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder19buildLoadFromOffsetER
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %5, %15, %17, %19, %24, %30
-  %.sroa.0.0.i = phi i64 [ %16, %15 ], [ %32, %30 ], [ 0, %5 ], [ %29, %24 ], [ 0, %19 ], [ 0, %17 ]
+  %.sroa.0.0.i = phi i64 [ %32, %30 ], [ %16, %15 ], [ 0, %5 ], [ %29, %24 ], [ 0, %19 ], [ 0, %17 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !3
   %36 = tail call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandEPKNS_17MachineMemOperandElNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(1065) %35, ptr noundef nonnull %3, i64 noundef %4, i64 %.sroa.0.0.i) #12
@@ -3672,7 +3672,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds 
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %45, %47, %52, %60, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i
-  %.sroa.04.0.i = phi i64 [ 0, %47 ], [ 0, %45 ], [ 0, %60 ], [ 0, %52 ], [ %69, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
+  %.sroa.04.0.i = phi i64 [ 0, %45 ], [ 0, %60 ], [ 0, %47 ], [ 0, %52 ], [ %69, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %70 = and i64 %.sroa.04.0.i, -7
   %spec.select.i.i.i = icmp ne i64 %70, 0
@@ -3865,7 +3865,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds 
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %13, %15, %20, %28, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i
-  %.sroa.04.0.i = phi i64 [ 0, %15 ], [ 0, %13 ], [ 0, %28 ], [ 0, %20 ], [ %37, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
+  %.sroa.04.0.i = phi i64 [ 0, %13 ], [ 0, %28 ], [ 0, %15 ], [ 0, %20 ], [ %37, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
   %38 = or i16 %5, 2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !3
@@ -4098,7 +4098,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildZExtInRegERKNS_5
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %4, %13, %15, %17, %22, %28
-  %.sroa.0.0.i = phi i64 [ %14, %13 ], [ %30, %28 ], [ 0, %4 ], [ %27, %22 ], [ 0, %17 ], [ 0, %15 ]
+  %.sroa.0.0.i = phi i64 [ %30, %28 ], [ %14, %13 ], [ 0, %4 ], [ %27, %22 ], [ 0, %17 ], [ 0, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.i, ptr %7, align 8, !tbaa !167
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -4257,7 +4257,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildExtOrTruncEjRKNS
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %4, %13, %15, %17, %22, %28
-  %.sroa.0.0.i = phi i64 [ %14, %13 ], [ %30, %28 ], [ 0, %4 ], [ %27, %22 ], [ 0, %17 ], [ 0, %15 ]
+  %.sroa.0.0.i = phi i64 [ %30, %28 ], [ %14, %13 ], [ 0, %4 ], [ %27, %22 ], [ 0, %17 ], [ 0, %15 ]
   %32 = and i64 %.sroa.0.0.i, -7
   %spec.select.i.i.i = icmp ne i64 %32, 0
   %33 = and i64 %.sroa.0.0.i, 2
@@ -4343,7 +4343,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds 
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %53, %55, %60, %68, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i
-  %.sroa.04.0.i = phi i64 [ 0, %55 ], [ 0, %53 ], [ 0, %68 ], [ 0, %60 ], [ %77, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
+  %.sroa.04.0.i = phi i64 [ 0, %53 ], [ 0, %68 ], [ 0, %55 ], [ 0, %60 ], [ %77, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
   %78 = and i64 %.sroa.04.0.i, -7
   %spec.select.i.i.i22 = icmp ne i64 %78, 0
   %79 = and i64 %.sroa.04.0.i, 2
@@ -4432,7 +4432,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit36:            ; preds = %84, %86
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit39: ; preds = %96, %99, %101, %103, %108, %114
-  %.sroa.0.0.i37 = phi i64 [ %100, %99 ], [ %116, %114 ], [ 0, %96 ], [ %113, %108 ], [ 0, %103 ], [ 0, %101 ]
+  %.sroa.0.0.i37 = phi i64 [ %116, %114 ], [ %100, %99 ], [ 0, %96 ], [ %113, %108 ], [ 0, %103 ], [ 0, %101 ]
   %118 = and i64 %.sroa.0.0.i37, -7
   %spec.select.i.i.i40 = icmp ne i64 %118, 0
   %119 = and i64 %.sroa.0.0.i37, 2
@@ -4517,7 +4517,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i57: ; pred
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit59
 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit59: ; preds = %138, %140, %145, %153, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i57
-  %.sroa.04.0.i56 = phi i64 [ 0, %140 ], [ 0, %138 ], [ 0, %153 ], [ 0, %145 ], [ %162, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i57 ]
+  %.sroa.04.0.i56 = phi i64 [ 0, %138 ], [ 0, %153 ], [ 0, %140 ], [ 0, %145 ], [ %162, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i57 ]
   %163 = and i64 %.sroa.04.0.i56, -7
   %spec.select.i.i.i60 = icmp ne i64 %163, 0
   %164 = and i64 %.sroa.04.0.i56, 2
@@ -4564,7 +4564,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit74:            ; preds = %169, %171
   br label %181
 
 181:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit74, %_ZNK4llvm3LLT13getSizeInBitsEv.exit36
-  %.0 = phi i32 [ %1, %_ZNK4llvm3LLT13getSizeInBitsEv.exit36 ], [ %spec.select, %_ZNK4llvm3LLT13getSizeInBitsEv.exit74 ]
+  %.0 = phi i32 [ %spec.select, %_ZNK4llvm3LLT13getSizeInBitsEv.exit74 ], [ %1, %_ZNK4llvm3LLT13getSizeInBitsEv.exit36 ]
   %182 = load ptr, ptr %0, align 8, !tbaa !143
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 32
   %184 = load ptr, ptr %183, align 8
@@ -4638,7 +4638,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds 
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %9, %11, %16, %24, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i
-  %.sroa.04.0.i = phi i64 [ 0, %11 ], [ 0, %9 ], [ 0, %24 ], [ 0, %16 ], [ %33, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
+  %.sroa.04.0.i = phi i64 [ 0, %9 ], [ 0, %24 ], [ 0, %11 ], [ 0, %16 ], [ %33, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !220
   switch i32 %35, label %54 [
@@ -4681,7 +4681,7 @@ _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %9, %11, %1
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit, %36, %38, %40, %45, %51
-  %.sroa.0.0.i = phi i64 [ %37, %36 ], [ %53, %51 ], [ 0, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit ], [ %50, %45 ], [ 0, %40 ], [ 0, %38 ]
+  %.sroa.0.0.i = phi i64 [ %53, %51 ], [ %37, %36 ], [ 0, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit ], [ %50, %45 ], [ 0, %40 ], [ 0, %38 ]
   %spec.select.i = icmp eq i64 %.sroa.04.0.i, %.sroa.0.0.i
   br i1 %spec.select.i, label %63, label %55
 
@@ -4761,7 +4761,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds 
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %12, %14, %19, %27, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i
-  %.sroa.04.0.i = phi i64 [ 0, %14 ], [ 0, %12 ], [ 0, %27 ], [ 0, %19 ], [ %36, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
+  %.sroa.04.0.i = phi i64 [ 0, %12 ], [ 0, %27 ], [ 0, %14 ], [ 0, %19 ], [ %36, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load i32, ptr %37, align 8, !tbaa !220
   switch i32 %38, label %57 [
@@ -4804,7 +4804,7 @@ _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %12, %14, %
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit, %39, %41, %43, %48, %54
-  %.sroa.0.0.i = phi i64 [ %40, %39 ], [ %56, %54 ], [ 0, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit ], [ %53, %48 ], [ 0, %43 ], [ 0, %41 ]
+  %.sroa.0.0.i = phi i64 [ %56, %54 ], [ %40, %39 ], [ 0, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit ], [ %53, %48 ], [ 0, %43 ], [ 0, %41 ]
   %58 = and i64 %.sroa.0.0.i, -7
   %spec.select.i.i.i = icmp ne i64 %58, 0
   %59 = and i64 %.sroa.0.0.i, 2
@@ -5116,7 +5116,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds 
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %32, %34, %39, %47, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i
-  %.sroa.04.0.i = phi i64 [ 0, %34 ], [ 0, %32 ], [ 0, %47 ], [ 0, %39 ], [ %56, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
+  %.sroa.04.0.i = phi i64 [ 0, %32 ], [ 0, %47 ], [ 0, %34 ], [ 0, %39 ], [ %56, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
   %57 = and i64 %.sroa.04.0.i, -7
   %spec.select.i.i2 = icmp ne i64 %57, 0
   %58 = and i64 %.sroa.04.0.i, 4
@@ -5224,7 +5224,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i: ; pred
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i: ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i, %47, %39, %34, %32
-  %.sroa.04.0.i.i = phi i64 [ 0, %34 ], [ 0, %32 ], [ 0, %47 ], [ 0, %39 ], [ %56, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i ]
+  %.sroa.04.0.i.i = phi i64 [ 0, %32 ], [ 0, %47 ], [ 0, %34 ], [ 0, %39 ], [ %56, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i ]
   %57 = and i64 %.sroa.04.0.i.i, -7
   %spec.select.i.i2.i = icmp ne i64 %57, 0
   %58 = and i64 %.sroa.04.0.i.i, 4
@@ -5368,7 +5368,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds 
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %13, %15, %20, %28, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i
-  %.sroa.04.0.i = phi i64 [ 0, %15 ], [ 0, %13 ], [ 0, %28 ], [ 0, %20 ], [ %37, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
+  %.sroa.04.0.i = phi i64 [ 0, %13 ], [ 0, %28 ], [ 0, %15 ], [ 0, %20 ], [ %37, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = and i64 %.sroa.04.0.i, -7
   %spec.select.i.i.i = icmp ne i64 %38, 0
@@ -5499,7 +5499,7 @@ _ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i: ; preds = %_ZNK4llvm3LLT1
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm11SmallVectorINS_5DstOpELj8EEC2EmRKS1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !287
 
 _ZN4llvm11SmallVectorINS_5DstOpELj8EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %_ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %storemerge.in = phi i64 [ %72, %_ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i ], [ %73, %.lr.ph.i.i.i.i.i.i ], [ %72, %.lr.ph.i.i.i.i.i ]
+  %storemerge.in = phi i64 [ %73, %.lr.ph.i.i.i.i.i.i ], [ %72, %_ZSt6fill_nIPN4llvm5DstOpEmS1_ET_S3_T0_RKT1_.exit.i.i ], [ %72, %.lr.ph.i.i.i.i.i ]
   %storemerge = trunc i64 %storemerge.in to i32
   store i32 %storemerge, ptr %75, align 8, !tbaa !276
   %83 = load ptr, ptr %7, align 8, !tbaa !277
@@ -5948,7 +5948,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds 
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %25, %27, %32, %40, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i
-  %.sroa.04.0.i = phi i64 [ 0, %27 ], [ 0, %25 ], [ 0, %40 ], [ 0, %32 ], [ %49, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
+  %.sroa.04.0.i = phi i64 [ 0, %25 ], [ 0, %40 ], [ 0, %27 ], [ 0, %32 ], [ %49, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
   %50 = and i64 %.sroa.04.0.i, -7
   %spec.select.i.i.i = icmp ne i64 %50, 0
   %51 = and i64 %.sroa.04.0.i, 2
@@ -6156,7 +6156,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder17buildShuffleSplatERKN
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %16, %18, %20, %25, %31
-  %.sroa.0.0.i = phi i64 [ %17, %16 ], [ %33, %31 ], [ 0, %3 ], [ %30, %25 ], [ 0, %20 ], [ 0, %18 ]
+  %.sroa.0.0.i = phi i64 [ %33, %31 ], [ %17, %16 ], [ 0, %3 ], [ %30, %25 ], [ 0, %20 ], [ 0, %18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %.sroa.0.0.i, ptr %8, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -6489,7 +6489,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildInsertERKNS_5Dst
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %5, %11, %13, %15, %20, %26
-  %.sroa.0.0.i = phi i64 [ %12, %11 ], [ %28, %26 ], [ 0, %5 ], [ %25, %20 ], [ 0, %15 ], [ 0, %13 ]
+  %.sroa.0.0.i = phi i64 [ %28, %26 ], [ %12, %11 ], [ 0, %5 ], [ %25, %20 ], [ 0, %15 ], [ 0, %13 ]
   %30 = and i64 %.sroa.0.0.i, -7
   %spec.select.i.i.i = icmp ne i64 %30, 0
   %31 = and i64 %.sroa.0.0.i, 2
@@ -6569,7 +6569,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i: ; preds 
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %49, %51, %56, %64, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i
-  %.sroa.04.0.i = phi i64 [ 0, %51 ], [ 0, %49 ], [ 0, %64 ], [ 0, %56 ], [ %73, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
+  %.sroa.04.0.i = phi i64 [ 0, %49 ], [ 0, %64 ], [ 0, %51 ], [ 0, %56 ], [ %73, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i ]
   %74 = and i64 %.sroa.04.0.i, -7
   %spec.select.i.i.i16 = icmp ne i64 %74, 0
   %75 = and i64 %.sroa.04.0.i, 2
@@ -6904,7 +6904,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildVScaleERKNS_5Dst
   unreachable
 
 _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit: ; preds = %3, %12, %14, %16, %21, %27
-  %.sroa.0.0.i = phi i64 [ %13, %12 ], [ %29, %27 ], [ 0, %3 ], [ %26, %21 ], [ 0, %16 ], [ 0, %14 ]
+  %.sroa.0.0.i = phi i64 [ %29, %27 ], [ %13, %12 ], [ 0, %3 ], [ %26, %21 ], [ 0, %16 ], [ 0, %14 ]
   %31 = and i64 %.sroa.0.0.i, 2
   %.not.i.i = icmp ne i64 %31, 0
   %32 = and i64 %.sroa.0.0.i, -7

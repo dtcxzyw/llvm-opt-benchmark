@@ -226,14 +226,14 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_reg_prop(ptr noundef %0) #0 {
   br i1 %52, label %.sink.split, label %56
 
 .sink.split:                                      ; preds = %50, %47, %44, %41, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11, %8
-  %.sink = phi i32 [ 216, %8 ], [ 222, %11 ], [ 228, %14 ], [ 234, %17 ], [ 240, %20 ], [ 247, %23 ], [ 253, %26 ], [ 257, %29 ], [ 261, %32 ], [ 267, %35 ], [ 271, %38 ], [ 277, %41 ], [ 283, %44 ], [ 290, %47 ], [ 297, %50 ]
+  %.sink = phi i32 [ 290, %47 ], [ 216, %8 ], [ 222, %11 ], [ 228, %14 ], [ 234, %17 ], [ 240, %20 ], [ 247, %23 ], [ 253, %26 ], [ 257, %29 ], [ 261, %32 ], [ 267, %35 ], [ 271, %38 ], [ 277, %41 ], [ 283, %44 ], [ 297, %50 ]
   %53 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
   %54 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !10
   %55 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5P__fcrt_reg_prop, i32 noundef %.sink, i64 noundef %53, i64 noundef %54, ptr noundef nonnull @.str.68) #9
   br label %56
 
 56:                                               ; preds = %.sink.split, %50, %1
-  %.0 = phi i32 [ 0, %50 ], [ 0, %1 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %50 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 

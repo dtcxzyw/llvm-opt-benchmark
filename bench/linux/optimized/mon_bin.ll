@@ -736,7 +736,7 @@ mon_bin_flush.exit:                               ; preds = %118, %141, %107
   br i1 %203, label %mon_bin_flush.exit15, label %178, !llvm.loop !13
 
 mon_bin_flush.exit15:                             ; preds = %178, %201
-  %204 = phi i32 [ %180, %178 ], [ %168, %201 ]
+  %204 = phi i32 [ %168, %201 ], [ %180, %178 ]
   call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %172) #12
   %205 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %205, align 4
@@ -870,7 +870,7 @@ mon_bin_flush.exit15:                             ; preds = %178, %201
   br label %292
 
 292:                                              ; preds = %.thread24, %.thread20, %32, %.thread18, %282, %.loopexit29, %226, %3
-  %293 = phi i64 [ %291, %.thread18 ], [ -14, %282 ], [ -14, %226 ], [ -25, %3 ], [ -14, %.loopexit29 ], [ -22, %32 ], [ %.ph, %.thread20 ], [ %.ph23, %.thread24 ]
+  %293 = phi i64 [ %291, %.thread18 ], [ -14, %282 ], [ -14, %226 ], [ %.ph, %.thread20 ], [ -14, %.loopexit29 ], [ -25, %3 ], [ -22, %32 ], [ %.ph23, %.thread24 ]
   ret i64 %293
 }
 
@@ -985,7 +985,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_compat_ioctl(ptr
   br i1 %70, label %mon_bin_flush.exit, label %45, !llvm.loop !13
 
 mon_bin_flush.exit:                               ; preds = %45, %68
-  %71 = phi i32 [ %47, %45 ], [ %35, %68 ]
+  %71 = phi i32 [ %35, %68 ], [ %47, %45 ]
   call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %39) #12
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %72, align 4
@@ -2024,7 +2024,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   br label %119
 
 119:                                              ; preds = %117, %112, %110, %109
-  %120 = phi i32 [ %86, %109 ], [ %86, %110 ], [ %114, %117 ], [ %114, %112 ]
+  %120 = phi i32 [ %114, %112 ], [ %114, %117 ], [ %86, %110 ], [ %86, %109 ]
   %121 = icmp eq i32 %120, -1
   br i1 %121, label %.thread, label %125
 

@@ -570,7 +570,7 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
   br label %144
 
 .loopexit:                                        ; preds = %90, %98, %110, %101, %107
-  %.ph = phi i32 [ -16, %110 ], [ -16, %101 ], [ -16, %107 ], [ -22, %98 ], [ -22, %90 ]
+  %.ph = phi i32 [ -16, %101 ], [ -16, %107 ], [ -16, %110 ], [ -22, %98 ], [ -22, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %72, align 8
   %141 = icmp eq ptr %.pre, null

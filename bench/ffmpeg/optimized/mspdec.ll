@@ -201,7 +201,7 @@ define internal range(i32 -2147483648, 1) i32 @msp_read_packet(ptr noundef reado
   br label %.thread
 
 .thread:                                          ; preds = %19, %2, %._crit_edge, %37
-  %.026 = phi i32 [ 0, %37 ], [ %35, %._crit_edge ], [ %11, %2 ], [ -1094995529, %19 ]
+  %.026 = phi i32 [ %35, %._crit_edge ], [ 0, %37 ], [ %11, %2 ], [ -1094995529, %19 ]
   ret i32 %.026
 }
 

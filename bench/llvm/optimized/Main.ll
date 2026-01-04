@@ -2438,7 +2438,7 @@ _ZN4llvm7TGTimer15stopPhaseTimingEv.exit:         ; preds = %517, %_ZNKSt14defau
   br label %525
 
 525:                                              ; preds = %_ZL20createDependencyFileRKN4llvm8TGParserEPKc.exit.thread, %520, %_ZN4llvm14ToolOutputFileD2Ev.exit, %_ZN4llvm7TGTimer15stopPhaseTimingEv.exit, %_ZNKSt8functionIFbRN4llvm11raw_ostreamERKNS0_12RecordKeeperEEEclES2_S5_.exit, %.critedge37, %_ZL20createDependencyFileRKN4llvm8TGParserEPKc.exit
-  %.3 = phi i32 [ 1, %_ZL20createDependencyFileRKN4llvm8TGParserEPKc.exit ], [ 1, %.critedge37 ], [ 1, %_ZNKSt8functionIFbRN4llvm11raw_ostreamERKNS0_12RecordKeeperEEEclES2_S5_.exit ], [ 1, %520 ], [ 1, %_ZN4llvm14ToolOutputFileD2Ev.exit ], [ 0, %_ZN4llvm7TGTimer15stopPhaseTimingEv.exit ], [ 1, %_ZL20createDependencyFileRKN4llvm8TGParserEPKc.exit.thread ]
+  %.3 = phi i32 [ 1, %_ZL20createDependencyFileRKN4llvm8TGParserEPKc.exit ], [ 1, %_ZNKSt8functionIFbRN4llvm11raw_ostreamERKNS0_12RecordKeeperEEEclES2_S5_.exit ], [ 1, %.critedge37 ], [ 1, %520 ], [ 1, %_ZN4llvm14ToolOutputFileD2Ev.exit ], [ 0, %_ZN4llvm7TGTimer15stopPhaseTimingEv.exit ], [ 1, %_ZL20createDependencyFileRKN4llvm8TGParserEPKc.exit.thread ]
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %526 = load ptr, ptr %26, align 8, !tbaa !48
@@ -2456,7 +2456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100: ; preds = %52
   br label %530
 
 530:                                              ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100, %_ZN4llvmplERKNS_5TwineES2_.exit
-  %.2 = phi i32 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ %.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ 1, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit ]
+  %.2 = phi i32 [ %.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ 1, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit ]
   call void @_ZN4llvm8TGParserD2Ev(ptr noundef nonnull align 8 dereferenceable(450) %24) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %531

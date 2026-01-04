@@ -405,7 +405,7 @@ switch.lookup:                                    ; preds = %.thread
   br label %add_service_name.exit
 
 add_service_name.exit:                            ; preds = %.thread, %switch.lookup, %39, %31, %.critedge
-  %.027 = phi ptr [ %8, %.critedge ], [ %.0.i, %31 ], [ %.0.i, %39 ], [ %8, %switch.lookup ], [ %8, %.thread ]
+  %.027 = phi ptr [ %.0.i, %39 ], [ %8, %.critedge ], [ %.0.i, %31 ], [ %8, %switch.lookup ], [ %8, %.thread ]
   %.not31 = icmp eq ptr %2, null
   br i1 %.not31, label %41, label %40
 
@@ -445,7 +445,7 @@ add_service_name.exit:                            ; preds = %.thread, %switch.lo
   br label %55
 
 55:                                               ; preds = %43, %41, %52, %49, %46, %44
-  %.024 = phi ptr [ %45, %44 ], [ %48, %46 ], [ %51, %49 ], [ %54, %52 ], [ null, %41 ], [ null, %43 ]
+  %.024 = phi ptr [ %54, %52 ], [ null, %41 ], [ %45, %44 ], [ %48, %46 ], [ %51, %49 ], [ null, %43 ]
   ret ptr %.024
 }
 
@@ -809,7 +809,7 @@ define noundef zeroext i1 @add_hosts_file(ptr noundef %0) local_unnamed_addr #2 
   br label %19
 
 19:                                               ; preds = %._crit_edge, %1, %._crit_edge.thread
-  %.09 = phi i1 [ %18, %._crit_edge.thread ], [ false, %1 ], [ true, %._crit_edge ]
+  %.09 = phi i1 [ false, %1 ], [ %18, %._crit_edge.thread ], [ true, %._crit_edge ]
   ret i1 %.09
 }
 
@@ -963,7 +963,7 @@ fgetline.exit:                                    ; preds = %fgetline.exit.lr.ph
   br i1 %.not.i18, label %fgetline.exit.thread, label %fgetline.exit.lr.ph, !llvm.loop !15
 
 fgetline.exit.thread:                             ; preds = %.outer, %fgetline.exit, %.backedge, %.outer.us, %fgetline.exit.us, %.backedge.us, %.preheader
-  %.0.ph.lcssa = phi i1 [ false, %.preheader ], [ %.0.ph22.us, %.backedge.us ], [ %.0.ph22.us, %fgetline.exit.us ], [ true, %.outer.us ], [ %.0.ph22, %.backedge ], [ %.0.ph22, %fgetline.exit ], [ true, %.outer ]
+  %.0.ph.lcssa = phi i1 [ %.0.ph22, %fgetline.exit ], [ true, %.outer.us ], [ false, %.preheader ], [ %.0.ph22.us, %fgetline.exit.us ], [ %.0.ph22.us, %.backedge.us ], [ %.0.ph22, %.backedge ], [ true, %.outer ]
   %53 = call i32 @fclose(ptr noundef nonnull %5)
   br label %54
 
@@ -1235,7 +1235,7 @@ host_lookup_ss7pc.exit:                           ; preds = %2, %13
   br label %30
 
 30:                                               ; preds = %27, %23, %host_lookup_ss7pc.exit
-  %.0 = phi ptr [ %20, %host_lookup_ss7pc.exit ], [ %20, %23 ], [ %., %27 ]
+  %.0 = phi ptr [ %., %27 ], [ %20, %host_lookup_ss7pc.exit ], [ %20, %23 ]
   ret ptr %.0
 }
 
@@ -3615,7 +3615,7 @@ define hidden ptr @get_ether_name_if_known(ptr noundef %0) local_unnamed_addr #2
   br label %10
 
 10:                                               ; preds = %4, %1
-  %.0 = phi ptr [ null, %1 ], [ %spec.select, %4 ]
+  %.0 = phi ptr [ %spec.select, %4 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -4406,7 +4406,7 @@ define zeroext i1 @get_host_ipaddr(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %41
 
 41:                                               ; preds = %2, %36, %27, %30, %13, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %13 ], [ false, %30 ], [ false, %27 ], [ %40, %36 ], [ true, %2 ]
+  %.0 = phi i1 [ false, %30 ], [ false, %8 ], [ false, %13 ], [ %40, %36 ], [ false, %27 ], [ true, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4533,7 +4533,7 @@ define zeroext i1 @get_host_ipaddr6(ptr noundef %0, ptr noundef %1) local_unname
   br label %41
 
 41:                                               ; preds = %36, %27, %30, %13, %8, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %8 ], [ false, %13 ], [ false, %30 ], [ false, %27 ], [ %40, %36 ]
+  %.0 = phi i1 [ true, %2 ], [ false, %8 ], [ false, %13 ], [ %40, %36 ], [ false, %27 ], [ false, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4678,8 +4678,8 @@ define hidden noundef zeroext i1 @str_to_eth(ptr noundef %0, ptr noundef %1) loc
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %parse_ether_address.exit.thread, label %6, !llvm.loop !53
 
-parse_ether_address.exit.thread:                  ; preds = %27, %26, %12, %6, %17, %28, %21, %23
-  %.054.i.ph = phi i1 [ false, %21 ], [ true, %23 ], [ true, %28 ], [ false, %27 ], [ false, %26 ], [ false, %12 ], [ false, %6 ], [ false, %17 ]
+parse_ether_address.exit.thread:                  ; preds = %17, %12, %6, %27, %26, %28, %21, %23
+  %.054.i.ph = phi i1 [ false, %21 ], [ true, %23 ], [ false, %17 ], [ false, %12 ], [ false, %6 ], [ false, %27 ], [ false, %26 ], [ true, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
@@ -4856,7 +4856,7 @@ define internal fastcc noundef zeroext i1 @parse_ether_address(ptr noundef %0, p
   br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !53
 
 .loopexit:                                        ; preds = %74, %73, %72, %13, %7, %.lr.ph89.preheader, %._crit_edge, %62, %68, %69, %66, %67, %64, %42, %36, %30, %23, %22, %65
-  %.054 = phi i1 [ true, %65 ], [ false, %22 ], [ false, %23 ], [ false, %30 ], [ false, %36 ], [ false, %42 ], [ false, %64 ], [ true, %67 ], [ true, %66 ], [ true, %69 ], [ true, %68 ], [ false, %62 ], [ true, %._crit_edge ], [ true, %.lr.ph89.preheader ], [ true, %74 ], [ false, %73 ], [ false, %72 ], [ false, %13 ], [ false, %7 ]
+  %.054 = phi i1 [ false, %62 ], [ true, %67 ], [ false, %23 ], [ false, %36 ], [ false, %42 ], [ false, %30 ], [ false, %22 ], [ true, %._crit_edge ], [ true, %65 ], [ true, %69 ], [ false, %64 ], [ true, %66 ], [ true, %68 ], [ true, %.lr.ph89.preheader ], [ false, %7 ], [ false, %73 ], [ false, %72 ], [ true, %74 ], [ false, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.054
 }
@@ -6161,7 +6161,7 @@ parse_ipxnets_line.exit:                          ; preds = %18, %27, %30, %.thr
   br i1 %.not.i, label %fgetline.exit.thread, label %fgetline.exit, !llvm.loop !64
 
 fgetline.exit.thread:                             ; preds = %fgetline.exit, %parse_ipxnets_line.exit, %.preheader, %parse_ipxnets_line.exit.thread, %0
-  %.0 = phi ptr [ null, %0 ], [ @get_ipxnetent.ipxnet, %parse_ipxnets_line.exit.thread ], [ null, %.preheader ], [ null, %parse_ipxnets_line.exit ], [ null, %fgetline.exit ]
+  %.0 = phi ptr [ @get_ipxnetent.ipxnet, %parse_ipxnets_line.exit.thread ], [ null, %0 ], [ null, %.preheader ], [ null, %parse_ipxnets_line.exit ], [ null, %fgetline.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -6530,7 +6530,7 @@ fgetline.exit:                                    ; preds = %.split5
   br i1 %39, label %40, label %.sink.split.i
 
 40:                                               ; preds = %37, %34, %31, %.lr.ph.i
-  %.0.i8 = phi i32 [ 2, %.lr.ph.i ], [ 3, %31 ], [ 1, %34 ], [ 4, %37 ]
+  %.0.i8 = phi i32 [ 1, %34 ], [ 2, %.lr.ph.i ], [ 3, %31 ], [ 4, %37 ]
   store ptr %17, ptr %2, align 8
   store i32 %.0.i8, ptr %13, align 8
   %41 = load ptr, ptr %3, align 8
@@ -6934,7 +6934,7 @@ parse_ether_line.exit:                            ; preds = %12, %12, %20, %158,
   br i1 %.not.i, label %fgetline.exit.thread, label %fgetline.exit, !llvm.loop !68
 
 fgetline.exit.thread:                             ; preds = %fgetline.exit, %parse_ether_line.exit, %.preheader, %parse_ether_line.exit.thread, %2
-  %.0 = phi ptr [ null, %2 ], [ @get_ethent.eth, %parse_ether_line.exit.thread ], [ null, %.preheader ], [ null, %parse_ether_line.exit ], [ null, %fgetline.exit ]
+  %.0 = phi ptr [ @get_ethent.eth, %parse_ether_line.exit.thread ], [ null, %2 ], [ null, %.preheader ], [ null, %parse_ether_line.exit ], [ null, %fgetline.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -7291,7 +7291,7 @@ fgetline.exit:                                    ; preds = %.preheader, %.backe
   br label %67
 
 67:                                               ; preds = %62, %.thread.i
-  %.2.i = phi ptr [ %64, %62 ], [ %61, %.thread.i ]
+  %.2.i = phi ptr [ %61, %.thread.i ], [ %64, %62 ]
   %68 = getelementptr inbounds nuw i8, ptr %.2.i, i64 8
   store ptr null, ptr %68, align 8
   store i32 %40, ptr %.2.i, align 8

@@ -1218,7 +1218,7 @@ _ZNSt16allocator_traitsISaISt10shared_ptrIN4cvc58internal9ProofNodeEEEE9construc
   br label %_ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE9push_backERKS4_.exit
 
 _ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE9push_backERKS4_.exit: ; preds = %42, %_ZNSt16allocator_traitsISaISt10shared_ptrIN4cvc58internal9ProofNodeEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i, %8, %15, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %15 ], [ false, %8 ], [ true, %_ZNSt16allocator_traitsISaISt10shared_ptrIN4cvc58internal9ProofNodeEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i ], [ true, %42 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %4 ], [ false, %15 ], [ true, %_ZNSt16allocator_traitsISaISt10shared_ptrIN4cvc58internal9ProofNodeEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i ], [ true, %42 ]
   ret i1 %.0
 }
 
@@ -1299,7 +1299,7 @@ _ZNSt16allocator_traitsISaISt10shared_ptrIN4cvc58internal9ProofNodeEEEE9construc
   br label %_ZN4cvc58internal3smt19ProofPostprocessDsl12shouldUpdateESt10shared_ptrINS0_9ProofNodeEERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EERb.exit
 
 _ZN4cvc58internal3smt19ProofPostprocessDsl12shouldUpdateESt10shared_ptrINS0_9ProofNodeEERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EERb.exit: ; preds = %4, %8, %15, %_ZNSt16allocator_traitsISaISt10shared_ptrIN4cvc58internal9ProofNodeEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i.i, %42
-  %.0.i = phi i1 [ false, %4 ], [ false, %15 ], [ false, %8 ], [ true, %_ZNSt16allocator_traitsISaISt10shared_ptrIN4cvc58internal9ProofNodeEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i.i ], [ true, %42 ]
+  %.0.i = phi i1 [ false, %8 ], [ false, %4 ], [ false, %15 ], [ true, %_ZNSt16allocator_traitsISaISt10shared_ptrIN4cvc58internal9ProofNodeEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i.i ], [ true, %42 ]
   ret i1 %.0.i
 }
 
@@ -2245,7 +2245,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit137: ; preds = %_ZN4cvc58internal1
   br label %.body
 
 .body:                                            ; preds = %247, %244, %402
-  %.pn30 = phi { ptr, i32 } [ %403, %402 ], [ %245, %247 ], [ %245, %244 ]
+  %.pn30 = phi { ptr, i32 } [ %403, %402 ], [ %245, %244 ], [ %245, %247 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #21
   br label %.loopexit
 
@@ -2393,7 +2393,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit151: ; preds = %468, %_ZN9__gnu_cx
   ret i1 %165
 
 469:                                              ; preds = %399, %.loopexit, %404, %440, %96, %87, %85
-  %.pn33.pn = phi { ptr, i32 } [ %88, %87 ], [ %86, %85 ], [ %97, %96 ], [ %441, %440 ], [ %405, %404 ], [ %.pn30.pn, %.loopexit ], [ %.pn, %399 ]
+  %.pn33.pn = phi { ptr, i32 } [ %97, %96 ], [ %88, %87 ], [ %86, %85 ], [ %441, %440 ], [ %405, %404 ], [ %.pn30.pn, %.loopexit ], [ %.pn, %399 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %470

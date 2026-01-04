@@ -333,7 +333,7 @@ select.unfold.i.i21:                              ; preds = %31, %._crit_edge.th
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i23
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_IRKmNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i23: ; preds = %35, %select.unfold.i.i21
-  %39 = phi i1 [ true, %select.unfold.i.i21 ], [ %38, %35 ]
+  %39 = phi i1 [ %38, %35 ], [ true, %select.unfold.i.i21 ]
   %40 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store i64 %1, ptr %41, align 8, !tbaa !34
@@ -512,7 +512,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit.i16:    ; preds = %51, %40
   br label %_ZN4toku8treenode23lock_and_rebalance_leftEv.exit
 
 _ZN4toku8treenode23lock_and_rebalance_leftEv.exit: ; preds = %_ZN4toku8treenode9child_ptr3setEPS0_.exit.i16, %_ZN4toku8treenode9child_ptr3setEPS0_.exit.i
-  %.0 = phi ptr [ %28, %_ZN4toku8treenode9child_ptr3setEPS0_.exit.i ], [ %50, %_ZN4toku8treenode9child_ptr3setEPS0_.exit.i16 ]
+  %.0 = phi ptr [ %50, %_ZN4toku8treenode9child_ptr3setEPS0_.exit.i16 ], [ %28, %_ZN4toku8treenode9child_ptr3setEPS0_.exit.i ]
   %59 = icmp eq ptr %.0, null
   br i1 %59, label %_ZN4toku8treenode23lock_and_rebalance_leftEv.exit.thread, label %60
 
@@ -537,7 +537,7 @@ _ZN4toku8treenode23lock_and_rebalance_leftEv.exit: ; preds = %_ZN4toku8treenode9
   br label %_ZN4toku8treenode23lock_and_rebalance_leftEv.exit.thread
 
 _ZN4toku8treenode23lock_and_rebalance_leftEv.exit.thread: ; preds = %37, %15, %_ZN4toku8treenode23lock_and_rebalance_leftEv.exit, %67, %65
-  %.012 = phi ptr [ %0, %65 ], [ %69, %67 ], [ %0, %_ZN4toku8treenode23lock_and_rebalance_leftEv.exit ], [ %0, %15 ], [ %0, %37 ]
+  %.012 = phi ptr [ %69, %67 ], [ %0, %65 ], [ %0, %_ZN4toku8treenode23lock_and_rebalance_leftEv.exit ], [ %0, %15 ], [ %0, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.012
 }
@@ -714,7 +714,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit:        ; preds = %11, %_ZN4toku8treen
   br label %common.ret42
 
 common.ret42:                                     ; preds = %4, %_ZN4toku8treenode9child_ptr3setEPS0_.exit34, %_ZN4toku8treenode9child_ptr3setEPS0_.exit, %103, %94, %48
-  %common.ret42.op = phi i1 [ true, %48 ], [ true, %94 ], [ %104, %103 ], [ true, %_ZN4toku8treenode9child_ptr3setEPS0_.exit ], [ true, %_ZN4toku8treenode9child_ptr3setEPS0_.exit34 ], [ true, %4 ]
+  %common.ret42.op = phi i1 [ true, %94 ], [ true, %48 ], [ true, %_ZN4toku8treenode9child_ptr3setEPS0_.exit34 ], [ %104, %103 ], [ true, %4 ], [ true, %_ZN4toku8treenode9child_ptr3setEPS0_.exit ]
   ret i1 %common.ret42.op
 
 48:                                               ; preds = %14
@@ -1348,7 +1348,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit31:      ; preds = %_ZN4toku8treenode9c
   unreachable
 
 74:                                               ; preds = %3, %.split, %_ZN4toku8treenode9child_ptr3setEPS0_.exit, %.split19, %_ZN4toku8treenode9child_ptr3setEPS0_.exit31, %33, %_ZN4toku8treenode19remove_shared_ownerEm.exit
-  %.0 = phi ptr [ %0, %_ZN4toku8treenode19remove_shared_ownerEm.exit ], [ %34, %33 ], [ %0, %_ZN4toku8treenode9child_ptr3setEPS0_.exit31 ], [ %0, %.split19 ], [ %0, %_ZN4toku8treenode9child_ptr3setEPS0_.exit ], [ %0, %.split ], [ %0, %3 ]
+  %.0 = phi ptr [ %34, %33 ], [ %0, %_ZN4toku8treenode19remove_shared_ownerEm.exit ], [ %0, %_ZN4toku8treenode9child_ptr3setEPS0_.exit31 ], [ %0, %.split19 ], [ %0, %_ZN4toku8treenode9child_ptr3setEPS0_.exit ], [ %0, %.split ], [ %0, %3 ]
   ret ptr %.0
 }
 
@@ -1533,7 +1533,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit49:      ; preds = %_ZN4toku8treenode9c
   br label %.thread
 
 .thread:                                          ; preds = %86, %43, %92, %91
-  %.057 = phi ptr [ %.0, %92 ], [ %.0, %91 ], [ %55, %86 ], [ %12, %43 ]
+  %.057 = phi ptr [ %.0, %91 ], [ %.0, %92 ], [ %12, %43 ], [ %55, %86 ]
   %.not34 = icmp eq ptr %0, %.057
   br i1 %.not34, label %.thread.thread, label %94
 
@@ -1542,7 +1542,7 @@ _ZN4toku8treenode9child_ptr3setEPS0_.exit49:      ; preds = %_ZN4toku8treenode9c
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %48, %94, %.thread
-  %.05760 = phi ptr [ %.057, %94 ], [ %.057, %.thread ], [ %0, %48 ]
+  %.05760 = phi ptr [ %.057, %.thread ], [ %.057, %94 ], [ %0, %48 ]
   ret ptr %.05760
 }
 
@@ -1679,8 +1679,8 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_n
   br i1 %.not.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit, label %6, !llvm.loop !61
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE11equal_rangeERKm.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i
-  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
-  %.sroa.3.0.i = phi ptr [ %.02243.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %4, %2 ], [ %.19.i28.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
+  %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
+  %.sroa.3.0.i = phi ptr [ %.19.i28.i, %.lr.ph.i25.i ], [ %.02243.i, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i ], [ %4, %2 ], [ %.123.i, %23 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !46
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1725,7 +1725,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE5clearEv.exit.i: ; preds = %31
   br i1 %.not.i3, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE12_M_erase_auxESt23_Rb_tree_const_iteratorImES7_.exit, label %.lr.ph.i2, !llvm.loop !62
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE12_M_erase_auxESt23_Rb_tree_const_iteratorImES7_.exit: ; preds = %.lr.ph.i2, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE5clearEv.exit.i, %.critedge.i
-  %40 = phi i64 [ 0, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE5clearEv.exit.i ], [ %26, %.critedge.i ], [ %39, %.lr.ph.i2 ]
+  %40 = phi i64 [ %26, %.critedge.i ], [ 0, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE5clearEv.exit.i ], [ %39, %.lr.ph.i2 ]
   %41 = sub i64 %26, %40
   ret i64 %41
 }

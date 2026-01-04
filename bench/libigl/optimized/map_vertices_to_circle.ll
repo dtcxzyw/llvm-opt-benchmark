@@ -66,12 +66,12 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %_ZNKSt6vector
   br label %.body.thread279
 
 _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %3, %19
-  %.sroa.0209.1241 = phi ptr [ %9, %19 ], [ null, %3 ]
-  %.sroa.17218.1240 = phi ptr [ %14, %19 ], [ null, %3 ]
-  %.sroa.0197.0 = phi ptr [ %18, %19 ], [ null, %3 ]
-  %.sroa.19205.0 = phi i64 [ %25, %19 ], [ 0, %3 ]
-  %.sroa.25.0 = phi i64 [ %24, %19 ], [ 0, %3 ]
-  %.sroa.31206.0 = phi ptr [ %21, %19 ], [ null, %3 ]
+  %.sroa.0209.1241 = phi ptr [ null, %3 ], [ %9, %19 ]
+  %.sroa.17218.1240 = phi ptr [ null, %3 ], [ %14, %19 ]
+  %.sroa.0197.0 = phi ptr [ null, %3 ], [ %18, %19 ]
+  %.sroa.19205.0 = phi i64 [ 0, %3 ], [ %25, %19 ]
+  %.sroa.25.0 = phi i64 [ 0, %3 ], [ %24, %19 ]
+  %.sroa.31206.0 = phi ptr [ null, %3 ], [ %21, %19 ]
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !13
   %29 = icmp sgt i64 %28, 0
@@ -488,13 +488,13 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1E
   br i1 %exitcond344.not, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKd.exit, !llvm.loop !42
 
 209:                                              ; preds = %104, %_ZNSt6vectorIdSaIdEED2Ev.exit107
-  %.pn67.pn = phi { ptr, i32 } [ %190, %_ZNSt6vectorIdSaIdEED2Ev.exit107 ], [ %105, %104 ]
+  %.pn67.pn = phi { ptr, i32 } [ %105, %104 ], [ %190, %_ZNSt6vectorIdSaIdEED2Ev.exit107 ]
   %.not.i.i108 = icmp eq ptr %.sroa.0197.0, null
   br i1 %.not.i.i108, label %.body, label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %.thread.loopexit.split-lp, %209
-  %.sroa.13.2308 = phi ptr [ %.sroa.13.2.lcssa, %209 ], [ %.sroa.9225.0313, %.thread.loopexit ], [ %.sroa.9225.0313, %.thread.loopexit.split-lp ]
-  %.sroa.0221.2303 = phi ptr [ %.sroa.0221.2.lcssa, %209 ], [ %.sroa.0221.2314, %.thread.loopexit ], [ %.sroa.0221.2314, %.thread.loopexit.split-lp ]
+  %.sroa.13.2307 = phi ptr [ %.sroa.13.2.lcssa, %209 ], [ %.sroa.9225.0313, %.thread.loopexit ], [ %.sroa.9225.0313, %.thread.loopexit.split-lp ]
+  %.sroa.0221.2302 = phi ptr [ %.sroa.0221.2.lcssa, %209 ], [ %.sroa.0221.2314, %.thread.loopexit ], [ %.sroa.0221.2314, %.thread.loopexit.split-lp ]
   %.pn67.pn256 = phi { ptr, i32 } [ %.pn67.pn, %209 ], [ %lpad.loopexit, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
   %210 = ptrtoint ptr %.sroa.31206.0 to i64
   %211 = sub i64 %210, %31
@@ -505,16 +505,16 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1E
   br label %.body
 
 .body:                                            ; preds = %209, %.thread
-  %.sroa.13.2307 = phi ptr [ %.sroa.13.2.lcssa, %209 ], [ %.sroa.13.2308, %.thread ]
-  %.sroa.0221.2302 = phi ptr [ %.sroa.0221.2.lcssa, %209 ], [ %.sroa.0221.2303, %.thread ]
-  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %.pn67.pn, %209 ], [ %.pn67.pn256, %.thread ]
+  %.sroa.13.2308 = phi ptr [ %.sroa.13.2307, %.thread ], [ %.sroa.13.2.lcssa, %209 ]
+  %.sroa.0221.2303 = phi ptr [ %.sroa.0221.2302, %.thread ], [ %.sroa.0221.2.lcssa, %209 ]
+  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %.pn67.pn256, %.thread ], [ %.pn67.pn, %209 ]
   %.not.i.i.i113 = icmp eq ptr %.sroa.0209.1241, null
   br i1 %.not.i.i.i113, label %_ZNSt6vectorIiSaIiEED2Ev.exit114, label %.body.thread279
 
 .body.thread279:                                  ; preds = %.body.thread267, %.body
   %.pn67.pn.pn.pn278 = phi { ptr, i32 } [ %26, %.body.thread267 ], [ %.pn67.pn.pn.pn, %.body ]
-  %.sroa.0221.0277 = phi ptr [ null, %.body.thread267 ], [ %.sroa.0221.2302, %.body ]
-  %.sroa.13.0276 = phi ptr [ null, %.body.thread267 ], [ %.sroa.13.2307, %.body ]
+  %.sroa.0221.0277 = phi ptr [ null, %.body.thread267 ], [ %.sroa.0221.2303, %.body ]
+  %.sroa.13.0276 = phi ptr [ null, %.body.thread267 ], [ %.sroa.13.2308, %.body ]
   %.sroa.0209.0275 = phi ptr [ %9, %.body.thread267 ], [ %.sroa.0209.1241, %.body ]
   %.sroa.17218.0274 = phi ptr [ %14, %.body.thread267 ], [ %.sroa.17218.1240, %.body ]
   %215 = ptrtoint ptr %.sroa.17218.0274 to i64
@@ -524,9 +524,9 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1E
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit114
 
 _ZNSt6vectorIiSaIiEED2Ev.exit114:                 ; preds = %.body, %.body.thread279
-  %.pn67.pn.pn.pn266 = phi { ptr, i32 } [ %.pn67.pn.pn.pn, %.body ], [ %.pn67.pn.pn.pn278, %.body.thread279 ]
-  %.sroa.0221.0265 = phi ptr [ %.sroa.0221.2302, %.body ], [ %.sroa.0221.0277, %.body.thread279 ]
-  %.sroa.13.0264 = phi ptr [ %.sroa.13.2307, %.body ], [ %.sroa.13.0276, %.body.thread279 ]
+  %.pn67.pn.pn.pn266 = phi { ptr, i32 } [ %.pn67.pn.pn.pn278, %.body.thread279 ], [ %.pn67.pn.pn.pn, %.body ]
+  %.sroa.0221.0265 = phi ptr [ %.sroa.0221.0277, %.body.thread279 ], [ %.sroa.0221.2303, %.body ]
+  %.sroa.13.0264 = phi ptr [ %.sroa.13.0276, %.body.thread279 ], [ %.sroa.13.2308, %.body ]
   %.not.i.i.i115 = icmp eq ptr %.sroa.0221.0265, null
   br i1 %.not.i.i.i115, label %_ZNSt6vectorIiSaIiEED2Ev.exit116, label %218
 

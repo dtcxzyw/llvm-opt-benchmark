@@ -383,7 +383,7 @@ find_active_timeout.exit:                         ; preds = %.lr.ph.i
   br i1 %.not.i, label %26, label %find_active_timeout.exit.thread
 
 find_active_timeout.exit.thread:                  ; preds = %18, %10, %find_active_timeout.exit
-  %.06.i28 = phi i32 [ %21, %find_active_timeout.exit ], [ -1, %10 ], [ -1, %18 ]
+  %.06.i28 = phi i32 [ -1, %10 ], [ %21, %find_active_timeout.exit ], [ -1, %18 ]
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #10
   %23 = load volatile i32, ptr @num_active_timeouts, align 4
   %24 = add i32 %23, -1
@@ -634,7 +634,7 @@ find_active_timeout.exit:                         ; preds = %.lr.ph.i
   br i1 %.not.i, label %24, label %find_active_timeout.exit.thread
 
 find_active_timeout.exit.thread:                  ; preds = %16, %8, %find_active_timeout.exit
-  %.06.i8 = phi i32 [ %19, %find_active_timeout.exit ], [ -1, %8 ], [ -1, %16 ]
+  %.06.i8 = phi i32 [ -1, %8 ], [ %19, %find_active_timeout.exit ], [ -1, %16 ]
   %20 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #10
   %21 = load volatile i32, ptr @num_active_timeouts, align 4
   %22 = add i32 %21, -1
@@ -747,7 +747,7 @@ find_active_timeout.exit:                         ; preds = %.lr.ph.i
   br i1 %.not.i, label %27, label %find_active_timeout.exit.thread
 
 find_active_timeout.exit.thread:                  ; preds = %11, %find_active_timeout.exit, %19
-  %.06.i13 = phi i32 [ -1, %19 ], [ -1, %11 ], [ %22, %find_active_timeout.exit ]
+  %.06.i13 = phi i32 [ -1, %19 ], [ %22, %find_active_timeout.exit ], [ -1, %11 ]
   %23 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #10
   %24 = load volatile i32, ptr @num_active_timeouts, align 4
   %25 = add i32 %24, -1

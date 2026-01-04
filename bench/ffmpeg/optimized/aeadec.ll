@@ -71,7 +71,7 @@ define internal range(i32 0, 101) i32 @aea_read_probe(ptr noundef readonly captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %14, %.critedge.loopexit, %5, %10, %1
-  %.023 = phi i32 [ 0, %1 ], [ 0, %10 ], [ 0, %5 ], [ 25, %14 ], [ %33, %.critedge.loopexit ], [ 0, %.lr.ph ]
+  %.023 = phi i32 [ 0, %10 ], [ 0, %1 ], [ 0, %5 ], [ %33, %.critedge.loopexit ], [ 25, %14 ], [ 0, %.lr.ph ]
   ret i32 %.023
 }
 
@@ -143,7 +143,7 @@ define internal range(i32 -2147483648, 1) i32 @aea_read_header(ptr noundef %0) #
   br label %40
 
 40:                                               ; preds = %4, %1, %33, %32
-  %.0 = phi i32 [ -1094995529, %32 ], [ 0, %33 ], [ -12, %1 ], [ %9, %4 ]
+  %.0 = phi i32 [ -12, %1 ], [ -1094995529, %32 ], [ 0, %33 ], [ %9, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

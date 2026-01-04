@@ -700,7 +700,7 @@ define ptr @H5A__create(ptr noundef readonly captures(none) %0, ptr noundef %1, 
   br label %.thread96
 
 .thread96:                                        ; preds = %34, %47, %40, %28, %21, %239, %.thread, %247, %5
-  %.083 = phi ptr [ null, %247 ], [ null, %.thread ], [ null, %5 ], [ %45, %239 ], [ null, %34 ], [ null, %47 ], [ null, %40 ], [ null, %28 ], [ null, %21 ]
+  %.083 = phi ptr [ null, %247 ], [ null, %.thread ], [ null, %21 ], [ null, %5 ], [ %45, %239 ], [ null, %34 ], [ null, %47 ], [ null, %40 ], [ null, %28 ]
   %251 = load i64, ptr %7, align 8, !tbaa !10
   call void @H5AC_tag(i64 noundef %251, ptr noundef null) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1030,7 +1030,7 @@ define ptr @H5A__open(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   br label %.thread
 
 .thread:                                          ; preds = %13, %17, %26, %20, %2
-  %.0 = phi ptr [ null, %26 ], [ null, %20 ], [ null, %2 ], [ %11, %17 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %26 ], [ null, %20 ], [ null, %13 ], [ null, %2 ], [ %11, %17 ]
   ret ptr %.0
 }
 
@@ -1456,7 +1456,7 @@ define range(i32 -1, 1) i32 @H5A__read(ptr noundef readonly captures(none) %0, p
   br label %.thread82
 
 106:                                              ; preds = %95, %99
-  %.1 = phi i32 [ -1, %95 ], [ 0, %99 ]
+  %.1 = phi i32 [ 0, %99 ], [ -1, %95 ]
   %107 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_attr_buf_blk_free_list, ptr noundef nonnull %66) #12
   %.not75 = icmp eq ptr %.265, null
   br i1 %.not75, label %.thread82, label %108
@@ -1465,8 +1465,8 @@ define range(i32 -1, 1) i32 @H5A__read(ptr noundef readonly captures(none) %0, p
   %109 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_attr_buf_blk_free_list, ptr noundef nonnull %.265) #12
   br label %.thread82
 
-.thread82:                                        ; preds = %23, %33, %57, %101, %50, %37, %68, %.thread86, %106, %108, %3
-  %.061 = phi i32 [ %.1, %108 ], [ %.1, %106 ], [ 0, %3 ], [ -1, %.thread86 ], [ -1, %68 ], [ 0, %37 ], [ 0, %50 ], [ 0, %101 ], [ -1, %57 ], [ -1, %33 ], [ -1, %23 ]
+.thread82:                                        ; preds = %23, %33, %57, %101, %37, %50, %68, %.thread86, %106, %108, %3
+  %.061 = phi i32 [ %.1, %108 ], [ %.1, %106 ], [ 0, %3 ], [ -1, %.thread86 ], [ -1, %68 ], [ 0, %50 ], [ 0, %37 ], [ 0, %101 ], [ -1, %57 ], [ -1, %33 ], [ -1, %23 ]
   %110 = load i64, ptr %4, align 8, !tbaa !10
   call void @H5AC_tag(i64 noundef %110, ptr noundef null) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1717,8 +1717,8 @@ define range(i32 -1, 1) i32 @H5A__write(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.thread107
 
 .thread107:                                       ; preds = %123, %126, %133
-  %.1113 = phi i32 [ -1, %133 ], [ 0, %123 ], [ -1, %126 ]
-  %.073112 = phi ptr [ %.174.ph.ph, %133 ], [ %.376, %123 ], [ %.376, %126 ]
+  %.1113 = phi i32 [ -1, %133 ], [ -1, %126 ], [ 0, %123 ]
+  %.073112 = phi ptr [ %.174.ph.ph, %133 ], [ %.376, %126 ], [ %.376, %123 ]
   %.not90 = icmp eq ptr %.073112, null
   br i1 %.not90, label %.thread107.thread, label %135
 
@@ -1823,7 +1823,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5A_get_space(ptr noundef readon
   br label %.thread
 
 .thread:                                          ; preds = %15, %19, %22, %28, %1
-  %.0 = phi i64 [ -1, %28 ], [ -1, %22 ], [ -1, %1 ], [ %20, %19 ], [ -1, %15 ]
+  %.0 = phi i64 [ -1, %28 ], [ -1, %22 ], [ -1, %15 ], [ -1, %1 ], [ %20, %19 ]
   ret i64 %.0
 }
 
@@ -1933,7 +1933,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5A__get_type(ptr noundef readon
   br label %.thread
 
 .thread:                                          ; preds = %27, %17, %54, %47, %64, %61, %1
-  %.0 = phi i64 [ -1, %64 ], [ -1, %61 ], [ -1, %1 ], [ %55, %54 ], [ %48, %47 ], [ -1, %27 ], [ -1, %17 ]
+  %.0 = phi i64 [ -1, %64 ], [ -1, %61 ], [ -1, %17 ], [ -1, %1 ], [ %55, %54 ], [ %48, %47 ], [ -1, %27 ]
   ret i64 %.0
 }
 
@@ -2512,7 +2512,7 @@ define range(i32 -1, 1) i32 @H5A__compact_build_table(ptr noundef %0, ptr nounde
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %45, %44, %43, %42
-  %H5A__attr_cmp_name_dec.sink.i = phi ptr [ @H5A__attr_cmp_name_dec, %43 ], [ @H5A__attr_cmp_corder_dec, %45 ], [ @H5A__attr_cmp_name_inc, %42 ], [ @H5A__attr_cmp_corder_inc, %44 ]
+  %H5A__attr_cmp_name_dec.sink.i = phi ptr [ @H5A__attr_cmp_name_dec, %43 ], [ @H5A__attr_cmp_name_inc, %42 ], [ @H5A__attr_cmp_corder_dec, %45 ], [ @H5A__attr_cmp_corder_inc, %44 ]
   %46 = load ptr, ptr %15, align 8, !tbaa !79
   call void @qsort(ptr noundef %46, i64 noundef %32, i64 noundef 8, ptr noundef nonnull %H5A__attr_cmp_name_dec.sink.i) #12
   br label %H5A__attr_sort_table.exit.thread
@@ -2578,8 +2578,8 @@ define range(i32 -1, 1) i32 @H5A__compact_build_table(ptr noundef %0, ptr nounde
   %80 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5A__compact_build_table, i32 noundef 1589, i64 noundef %78, i64 noundef %79, ptr noundef nonnull @.str.61) #12
   br label %H5A__attr_sort_table.exit.thread
 
-H5A__attr_sort_table.exit.thread:                 ; preds = %._crit_edge.i, %52, %59, %31, %33, %42, %44, %.sink.split.i, %47, %74, %5
-  %.0 = phi i32 [ -1, %74 ], [ -1, %47 ], [ 0, %5 ], [ 0, %.sink.split.i ], [ 0, %44 ], [ 0, %42 ], [ 0, %33 ], [ 0, %31 ], [ -1, %59 ], [ -1, %52 ], [ -1, %._crit_edge.i ]
+H5A__attr_sort_table.exit.thread:                 ; preds = %._crit_edge.i, %59, %52, %31, %33, %42, %44, %.sink.split.i, %47, %74, %5
+  %.0 = phi i32 [ -1, %74 ], [ 0, %31 ], [ -1, %47 ], [ 0, %5 ], [ 0, %.sink.split.i ], [ 0, %44 ], [ 0, %42 ], [ 0, %33 ], [ -1, %52 ], [ -1, %59 ], [ -1, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -2728,7 +2728,7 @@ define range(i32 -1, 1) i32 @H5A__attr_release_table(ptr noundef captures(none) 
   br label %30
 
 30:                                               ; preds = %1, %8, %._crit_edge, %19
-  %.014 = phi i32 [ 0, %8 ], [ 0, %1 ], [ -1, %19 ], [ 0, %._crit_edge ]
+  %.014 = phi i32 [ 0, %1 ], [ 0, %8 ], [ -1, %19 ], [ 0, %._crit_edge ]
   ret i32 %.014
 }
 
@@ -2832,7 +2832,7 @@ define range(i32 -1, 1) i32 @H5A__dense_build_table(ptr noundef %0, ptr noundef 
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %58, %57, %56, %55
-  %H5A__attr_cmp_name_dec.sink.i = phi ptr [ @H5A__attr_cmp_name_dec, %56 ], [ @H5A__attr_cmp_corder_dec, %58 ], [ @H5A__attr_cmp_name_inc, %55 ], [ @H5A__attr_cmp_corder_inc, %57 ]
+  %H5A__attr_cmp_name_dec.sink.i = phi ptr [ @H5A__attr_cmp_name_dec, %56 ], [ @H5A__attr_cmp_name_inc, %55 ], [ @H5A__attr_cmp_corder_dec, %58 ], [ @H5A__attr_cmp_corder_inc, %57 ]
   %59 = load ptr, ptr %30, align 8, !tbaa !79
   %60 = load i64, ptr %4, align 8, !tbaa !76
   call void @qsort(ptr noundef %59, i64 noundef %60, i64 noundef 8, ptr noundef nonnull %H5A__attr_cmp_name_dec.sink.i) #12
@@ -2855,7 +2855,7 @@ H5A__attr_sort_table.exit:                        ; preds = %.sink.split.i, %57,
   br label %74
 
 67:                                               ; preds = %H5A__attr_sort_table.exit, %61, %22
-  %.1.ph = phi i32 [ 0, %61 ], [ %.2, %H5A__attr_sort_table.exit ], [ -1, %22 ]
+  %.1.ph = phi i32 [ %.2, %H5A__attr_sort_table.exit ], [ 0, %61 ], [ -1, %22 ]
   %68 = call i32 @H5B2_close(ptr noundef nonnull %17) #12
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %74
@@ -3115,7 +3115,7 @@ H5A__get_info.exit:                               ; preds = %28, %.sink.split.i
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %18, %.thread52, %.thread, %6, %._crit_edge, %104, %90
-  %.042 = phi i32 [ -1, %90 ], [ %.4, %104 ], [ %.4, %._crit_edge ], [ 0, %6 ], [ -1, %.thread ], [ -1, %.thread52 ], [ 0, %18 ]
+  %.042 = phi i32 [ 0, %6 ], [ -1, %90 ], [ -1, %.thread ], [ -1, %.thread52 ], [ %.4, %104 ], [ %.4, %._crit_edge ], [ 0, %18 ]
   ret i32 %.042
 }
 
@@ -3210,7 +3210,7 @@ define range(i32 -1, -2147483648) i32 @H5A__get_ainfo(ptr noundef %0, ptr nounde
   br label %.thread
 
 54:                                               ; preds = %47, %44
-  %.1 = phi i32 [ -1, %47 ], [ %14, %44 ]
+  %.1 = phi i32 [ %14, %44 ], [ -1, %47 ]
   %55 = call i32 @H5B2_close(ptr noundef nonnull %38) #12
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %.thread
@@ -3759,12 +3759,12 @@ define ptr @H5A__attr_copy_file(ptr noundef readonly captures(none) %0, ptr noun
   br label %342
 
 342:                                              ; preds = %.thread, %336, %341, %332
-  %.0167 = phi ptr [ %.1168, %332 ], [ %.1168, %341 ], [ %.1168, %336 ], [ %.2169.ph, %.thread ]
-  %.0164 = phi ptr [ %.1165, %332 ], [ %.1165, %341 ], [ %.1165, %336 ], [ %.2166.ph, %.thread ]
-  %.1162 = phi ptr [ null, %332 ], [ %13, %341 ], [ %13, %336 ], [ null, %.thread ]
-  %.0158 = phi ptr [ %.1159, %332 ], [ %.1159, %341 ], [ %.1159, %336 ], [ %.2160.ph, %.thread ]
-  %.0156 = phi ptr [ %.1157, %332 ], [ %.1157, %341 ], [ %.1157, %336 ], [ %.2.ph, %.thread ]
-  %.0155 = phi ptr [ %.1, %332 ], [ %.1, %341 ], [ %.1, %336 ], [ %177, %.thread ]
+  %.0167 = phi ptr [ %.2169.ph, %.thread ], [ %.1168, %341 ], [ %.1168, %332 ], [ %.1168, %336 ]
+  %.0164 = phi ptr [ %.2166.ph, %.thread ], [ %.1165, %341 ], [ %.1165, %332 ], [ %.1165, %336 ]
+  %.1162 = phi ptr [ null, %.thread ], [ %13, %341 ], [ null, %332 ], [ %13, %336 ]
+  %.0158 = phi ptr [ %.2160.ph, %.thread ], [ %.1159, %341 ], [ %.1159, %332 ], [ %.1159, %336 ]
+  %.0156 = phi ptr [ %.2.ph, %.thread ], [ %.1157, %341 ], [ %.1157, %332 ], [ %.1157, %336 ]
+  %.0155 = phi ptr [ %177, %.thread ], [ %.1, %341 ], [ %.1, %332 ], [ %.1, %336 ]
   %.not197 = icmp eq ptr %.0155, null
   br i1 %.not197, label %350, label %343
 
@@ -3824,7 +3824,7 @@ define ptr @H5A__attr_copy_file(ptr noundef readonly captures(none) %0, ptr noun
   %367 = icmp eq ptr %.4, null
   br i1 %367, label %.thread247.thread267, label %374
 
-.thread247.thread267:                             ; preds = %74, %163, %147, %137, %107, %97, %87, %59, %51, %22, %.thread247
+.thread247.thread267:                             ; preds = %163, %147, %137, %107, %97, %87, %59, %51, %22, %74, %.thread247
   %368 = call i32 @H5A__close(ptr noundef nonnull %13)
   %369 = icmp slt i32 %368, 0
   br i1 %369, label %370, label %374
@@ -4693,7 +4693,7 @@ define internal range(i32 -1, 2) i32 @H5A__attr_cmp_corder_inc(ptr noundef reado
   br label %23
 
 23:                                               ; preds = %21, %9, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %9 ], [ %., %21 ]
+  %.0 = phi i32 [ 0, %2 ], [ %., %21 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -4727,7 +4727,7 @@ define internal range(i32 -1, 2) i32 @H5A__attr_cmp_corder_dec(ptr noundef reado
   br label %23
 
 23:                                               ; preds = %21, %9, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %9 ], [ %., %21 ]
+  %.0 = phi i32 [ 0, %2 ], [ %., %21 ], [ 1, %9 ]
   ret i32 %.0
 }
 

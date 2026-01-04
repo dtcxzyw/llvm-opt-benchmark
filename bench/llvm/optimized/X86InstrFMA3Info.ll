@@ -44,7 +44,7 @@ define dso_local noundef ptr @_ZN4llvm12getFMA3GroupEjm(i32 noundef %0, i64 noun
   br label %19
 
 19:                                               ; preds = %10, %16
-  %20 = phi i1 [ %18, %16 ], [ true, %10 ]
+  %20 = phi i1 [ true, %10 ], [ %18, %16 ]
   %21 = and i64 %1, 4096
   %22 = icmp eq i64 %21, 0
   %or.cond7 = and i1 %11, %20
@@ -83,7 +83,7 @@ _ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i: ; preds = %_ZSt7adv
   br i1 %36, label %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit", !llvm.loop !7
 
 "_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit": ; preds = %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i, %13, %19
-  %.0 = phi ptr [ null, %19 ], [ null, %13 ], [ %.1.i.i, %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i ]
+  %.0 = phi ptr [ null, %13 ], [ null, %19 ], [ %.1.i.i, %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i ]
   ret ptr %.0
 }
 

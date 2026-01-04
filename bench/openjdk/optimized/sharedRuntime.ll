@@ -828,7 +828,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %97, %87, %81
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit29.thread
 
 _ZN12methodHandleC2EP6ThreadP6Method.exit29.thread: ; preds = %_ZNK5frame6senderEP11RegisterMap.exit, %_ZNK7oopDesc5klassEv.exit, %_ZN12methodHandleC2EP6ThreadP6Method.exit29
-  %cond = phi ptr [ %55, %_ZN12methodHandleC2EP6ThreadP6Method.exit29 ], [ %100, %_ZNK7oopDesc5klassEv.exit ], [ %55, %_ZNK5frame6senderEP11RegisterMap.exit ]
+  %cond = phi ptr [ %100, %_ZNK7oopDesc5klassEv.exit ], [ %55, %_ZN12methodHandleC2EP6ThreadP6Method.exit29 ], [ %55, %_ZNK5frame6senderEP11RegisterMap.exit ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #20
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %102 = load i32, ptr %101, align 8
@@ -1880,7 +1880,7 @@ _ZN7nmethod14is_deopt_entryEPh.exit.thread3.i:    ; preds = %22
 _ZN7nmethod11is_deopt_pcEPh.exit:                 ; preds = %_ZN7nmethod14is_deopt_entryEPh.exit.thread3.i
   br i1 %32, label %53, label %_ZN7nmethod11is_deopt_pcEPh.exit.thread
 
-_ZN7nmethod11is_deopt_pcEPh.exit.thread:          ; preds = %22, %14, %33, %_ZN7nmethod11is_deopt_pcEPh.exit
+_ZN7nmethod11is_deopt_pcEPh.exit.thread:          ; preds = %14, %22, %33, %_ZN7nmethod11is_deopt_pcEPh.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %37 = tail call noundef zeroext i1 @_ZN13StackOverflow23reguard_stack_if_neededEv(ptr noundef nonnull align 8 dereferenceable(56) %36) #20
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1240
@@ -2043,7 +2043,7 @@ define hidden noundef ptr @_ZN13SharedRuntime13get_poll_stubEPh(ptr noundef %0) 
   br label %15
 
 15:                                               ; preds = %11, %9
-  %_ZN13SharedRuntime44_polling_page_vectors_safepoint_handler_blobE.sink = phi ptr [ @_ZN13SharedRuntime33_polling_page_return_handler_blobE, %9 ], [ %_ZN13SharedRuntime36_polling_page_safepoint_handler_blobE._ZN13SharedRuntime44_polling_page_vectors_safepoint_handler_blobE, %11 ]
+  %_ZN13SharedRuntime44_polling_page_vectors_safepoint_handler_blobE.sink = phi ptr [ %_ZN13SharedRuntime36_polling_page_safepoint_handler_blobE._ZN13SharedRuntime44_polling_page_vectors_safepoint_handler_blobE, %11 ], [ @_ZN13SharedRuntime33_polling_page_return_handler_blobE, %9 ]
   %16 = load ptr, ptr %_ZN13SharedRuntime44_polling_page_vectors_safepoint_handler_blobE.sink, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %18 = load i32, ptr %17, align 4
@@ -4034,7 +4034,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %3, %_ZN19TemplateIn
   br label %89
 
 89:                                               ; preds = %49, %81, %85, %46, %27, %72, %65, %.critedge, %44, %38, %22, %18, %16, %14
-  %.0 = phi ptr [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %22 ], [ %43, %38 ], [ %45, %44 ], [ %67, %65 ], [ %74, %72 ], [ %53, %.critedge ], [ null, %27 ], [ null, %46 ], [ %86, %85 ], [ %82, %81 ], [ null, %49 ]
+  %.0 = phi ptr [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %22 ], [ null, %46 ], [ %43, %38 ], [ %45, %44 ], [ null, %27 ], [ %67, %65 ], [ %74, %72 ], [ null, %49 ], [ %53, %.critedge ], [ %86, %85 ], [ %82, %81 ]
   ret ptr %.0
 }
 
@@ -5368,7 +5368,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %181, %_ZN26Gr
   br label %213
 
 213:                                              ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %177, %146, %88, %.critedge48, %173, %152
-  %.sroa.064.1 = phi ptr [ null, %152 ], [ null, %173 ], [ %212, %.critedge48 ], [ null, %88 ], [ null, %146 ], [ null, %177 ], [ null, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit ]
+  %.sroa.064.1 = phi ptr [ null, %177 ], [ null, %88 ], [ null, %152 ], [ null, %173 ], [ null, %146 ], [ %212, %.critedge48 ], [ null, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #20
   br label %214
 
@@ -6766,9 +6766,9 @@ define hidden noundef ptr @_ZN13SharedRuntime27generate_class_cast_messageEP5Kla
   br label %30
 
 30:                                               ; preds = %.thread, %27, %25
-  %.031 = phi ptr [ %26, %25 ], [ %28, %27 ], [ %14, %.thread ]
-  %.030 = phi ptr [ @.str.43, %25 ], [ %29, %27 ], [ @.str.43, %.thread ]
-  %.029 = phi ptr [ @.str.43, %25 ], [ @.str.44, %27 ], [ @.str.43, %.thread ]
+  %.031 = phi ptr [ %26, %25 ], [ %14, %.thread ], [ %28, %27 ]
+  %.030 = phi ptr [ @.str.43, %25 ], [ @.str.43, %.thread ], [ %29, %27 ]
+  %.029 = phi ptr [ @.str.43, %25 ], [ @.str.43, %.thread ], [ @.str.44, %27 ]
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.031) #22
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.030) #22
   %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.029) #22
@@ -7486,7 +7486,7 @@ define hidden noundef ptr @_ZN21AdapterHandlerLibrary18get_simple_adapterERK12me
   br label %50
 
 50:                                               ; preds = %33, %35, %18, %7, %48, %46, %31, %29, %16, %12, %5
-  %.0 = phi ptr [ %6, %5 ], [ %13, %12 ], [ %30, %29 ], [ %32, %31 ], [ %17, %16 ], [ %47, %46 ], [ %49, %48 ], [ null, %7 ], [ null, %18 ], [ null, %35 ], [ null, %33 ]
+  %.0 = phi ptr [ %6, %5 ], [ %13, %12 ], [ %49, %48 ], [ %30, %29 ], [ %32, %31 ], [ %17, %16 ], [ %47, %46 ], [ null, %7 ], [ null, %18 ], [ null, %35 ], [ null, %33 ]
   ret ptr %.0
 }
 
@@ -7572,7 +7572,7 @@ define hidden noundef ptr @_ZN21AdapterHandlerLibrary11get_adapterERK12methodHan
   br label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit
 
 _ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit: ; preds = %29, %29, %15, %15, %13, %8, %1, %26, %40
-  %.0.i.in = phi ptr [ @_ZN21AdapterHandlerLibrary16_int_arg_handlerE, %26 ], [ @_ZN21AdapterHandlerLibrary20_obj_int_arg_handlerE, %40 ], [ @_ZN21AdapterHandlerLibrary24_abstract_method_handlerE, %1 ], [ @_ZN21AdapterHandlerLibrary15_no_arg_handlerE, %8 ], [ @_ZN21AdapterHandlerLibrary16_obj_arg_handlerE, %13 ], [ @_ZN21AdapterHandlerLibrary16_obj_arg_handlerE, %15 ], [ @_ZN21AdapterHandlerLibrary16_obj_arg_handlerE, %15 ], [ @_ZN21AdapterHandlerLibrary20_obj_obj_arg_handlerE, %29 ], [ @_ZN21AdapterHandlerLibrary20_obj_obj_arg_handlerE, %29 ]
+  %.0.i.in = phi ptr [ @_ZN21AdapterHandlerLibrary16_obj_arg_handlerE, %15 ], [ @_ZN21AdapterHandlerLibrary24_abstract_method_handlerE, %1 ], [ @_ZN21AdapterHandlerLibrary20_obj_int_arg_handlerE, %40 ], [ @_ZN21AdapterHandlerLibrary16_obj_arg_handlerE, %13 ], [ @_ZN21AdapterHandlerLibrary16_int_arg_handlerE, %26 ], [ @_ZN21AdapterHandlerLibrary15_no_arg_handlerE, %8 ], [ @_ZN21AdapterHandlerLibrary16_obj_arg_handlerE, %15 ], [ @_ZN21AdapterHandlerLibrary20_obj_obj_arg_handlerE, %29 ], [ @_ZN21AdapterHandlerLibrary20_obj_obj_arg_handlerE, %29 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %_ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit._ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread_crit_edge, label %_ZN12ResourceMarkD2Ev.exit
@@ -7928,7 +7928,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFing
   br label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread.i
 
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread.i: ; preds = %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.i, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us21.i, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us.i, %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread8.i, %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit.i.i
-  %.0.i26 = phi ptr [ %192, %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread8.i ], [ null, %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit.i.i ], [ null, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us.i ], [ null, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us21.i ], [ null, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.i ]
+  %.0.i26 = phi ptr [ %192, %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE3getESA_.exit.thread8.i ], [ null, %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit.i.i ], [ null, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us21.i ], [ null, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.us.i ], [ null, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i.i.i ]
   %193 = icmp sgt i32 %.fr26.i, 0
   br i1 %193, label %194, label %_ZL6lookupiP9BasicType.exit
 
@@ -9038,7 +9038,7 @@ define hidden noundef zeroext i1 @_ZN21AdapterHandlerLibrary8containsEPK8CodeBlo
   br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary8containsEPK8CodeBlobE3$_0EEvT_.exit", !llvm.loop !89
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary8containsEPK8CodeBlobE3$_0EEvT_.exit": ; preds = %._crit_edge.i, %.lr.ph.i, %1
-  %.2 = phi i1 [ false, %1 ], [ false, %.lr.ph.i ], [ %.1, %._crit_edge.i ]
+  %.2 = phi i1 [ false, %.lr.ph.i ], [ false, %1 ], [ %.1, %._crit_edge.i ]
   ret i1 %.2
 }
 
@@ -9349,8 +9349,8 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %44, %_ZNK5frame20is
   call void @_ZN8JfrEventI28EventReservedStackActivationE11write_eventEv(ptr noundef nonnull align 8 dereferenceable(19) %5)
   br label %_ZN8JfrEventI28EventReservedStackActivationE13should_commitEv.exit
 
-_ZN8JfrEventI28EventReservedStackActivationE13should_commitEv.exit: ; preds = %57, %68, %_ZNK5frame20is_interpreted_frameEv.exit.thread, %64, %55, %84, %80, %.loopexit, %_ZNK5frame14is_first_frameEv.exit.thread
-  %.120 = phi i32 [ %.019, %.loopexit ], [ %.019, %_ZNK5frame14is_first_frameEv.exit.thread ], [ %82, %80 ], [ %82, %84 ], [ %.019, %55 ], [ %.019, %64 ], [ %.019, %_ZNK5frame20is_interpreted_frameEv.exit.thread ], [ %.019, %68 ], [ %.019, %57 ]
+_ZN8JfrEventI28EventReservedStackActivationE13should_commitEv.exit: ; preds = %57, %68, %64, %55, %_ZNK5frame20is_interpreted_frameEv.exit.thread, %84, %80, %.loopexit, %_ZNK5frame14is_first_frameEv.exit.thread
+  %.120 = phi i32 [ %82, %80 ], [ %82, %84 ], [ %.019, %.loopexit ], [ %.019, %_ZNK5frame14is_first_frameEv.exit.thread ], [ %.019, %68 ], [ %.019, %64 ], [ %.019, %55 ], [ %.019, %_ZNK5frame20is_interpreted_frameEv.exit.thread ], [ %.019, %57 ]
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %6, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %4)
   %86 = load i8, ptr %28, align 1, !noalias !93
   %87 = trunc i8 %86 to i1
@@ -9789,7 +9789,7 @@ _ZNK5frame14is_first_frameEv.exit.thread14:       ; preds = %86, %97, %_ZNK5fram
   br label %102
 
 102:                                              ; preds = %_ZNK5frame14is_first_frameEv.exit.thread, %97, %25, %79, %_ZNK5frame14is_first_frameEv.exit.thread14, %.critedge, %13
-  %.0 = phi i1 [ true, %13 ], [ true, %.critedge ], [ true, %_ZNK5frame14is_first_frameEv.exit.thread14 ], [ true, %79 ], [ true, %25 ], [ false, %97 ], [ false, %_ZNK5frame14is_first_frameEv.exit.thread ]
+  %.0 = phi i1 [ true, %13 ], [ true, %25 ], [ true, %.critedge ], [ true, %_ZNK5frame14is_first_frameEv.exit.thread14 ], [ true, %79 ], [ false, %97 ], [ false, %_ZNK5frame14is_first_frameEv.exit.thread ]
   ret i1 %.0
 }
 
@@ -11154,7 +11154,7 @@ _ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i: ; preds = %62
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i.i: ; preds = %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i, %61
-  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 1, %61 ]
+  %.pn.i.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i.i ], [ 1, %61 ]
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.pn.i.i.i
   store ptr %66, ptr %35, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_.exit
@@ -11612,7 +11612,7 @@ _ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i: ; preds = %93
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEPhPKT_mSE_.exit.i: ; preds = %87, %85, %78, %71, %64, %57, %50, %43, %38, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i
-  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.thread.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeImEEmT_Ph.exit.i.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
   %98 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.pn.i.i
   store ptr %98, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvPKT_m.exit
@@ -11819,7 +11819,7 @@ _ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i: ; preds = %93
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIlEEPhPKT_mSE_.exit.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIlEEPhPKT_mSE_.exit.i: ; preds = %87, %85, %78, %71, %64, %57, %50, %43, %38, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i
-  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %.pn.i.i = phi i64 [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.thread.i.i.i ], [ 8, %_ZN20BigEndianEncoderImpl6encodeIlEEmT_Ph.exit.i.i.i.i ], [ 9, %87 ], [ 8, %85 ], [ 7, %78 ], [ 6, %71 ], [ 5, %64 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
   %98 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.pn.i.i
   store ptr %98, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIlEEvPKT_m.exit
@@ -11922,7 +11922,7 @@ _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i: ; preds = %38
   br label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit: ; preds = %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i, %41, %30, %28, %37, %38, %25
-  %.0 = phi i64 [ %23, %25 ], [ 0, %37 ], [ %23, %38 ], [ %23, %28 ], [ %23, %30 ], [ %23, %41 ], [ %23, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i ]
+  %.0 = phi i64 [ %23, %38 ], [ %23, %25 ], [ 0, %37 ], [ %23, %30 ], [ %23, %28 ], [ %23, %41 ], [ %23, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i14 = icmp eq ptr %48, null
@@ -12240,7 +12240,7 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i
-  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ], [ 5, %59 ]
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvPKT_m.exit

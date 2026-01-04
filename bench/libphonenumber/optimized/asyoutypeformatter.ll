@@ -1466,7 +1466,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31.i: ; preds = %9
   br label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit32.i
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit32.i: ; preds = %120, %117, %115, %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31.i
-  %.pn17.pn.i = phi { ptr, i32 } [ %.pn13.pn.pn.i, %114 ], [ %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31.i ], [ %116, %115 ], [ %118, %117 ], [ %118, %120 ]
+  %.pn17.pn.i = phi { ptr, i32 } [ %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31.i ], [ %.pn13.pn.pn.i, %114 ], [ %116, %115 ], [ %118, %117 ], [ %118, %120 ]
   %124 = load ptr, ptr %5, align 8, !tbaa !58
   %125 = icmp eq ptr %124, %23
   br i1 %125, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33.i
@@ -3024,7 +3024,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
   ret i1 %50
 
 172:                                              ; preds = %136, %134, %133
-  %.pn30.pn.pn = phi { ptr, i32 } [ %135, %134 ], [ %.pn.pn.pn.pn.pn.pn, %133 ], [ %137, %136 ]
+  %.pn30.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %133 ], [ %135, %134 ], [ %137, %136 ]
   %173 = icmp eq ptr %21, null
   br i1 %173, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit59, label %.thread67
 
@@ -5002,7 +5002,7 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers18AsYouTypeFormatter
   br label %16
 
 16:                                               ; preds = %12, %7, %1
-  %17 = phi i1 [ false, %7 ], [ false, %1 ], [ %spec.select, %12 ]
+  %17 = phi i1 [ %spec.select, %12 ], [ false, %7 ], [ false, %1 ]
   ret i1 %17
 }
 

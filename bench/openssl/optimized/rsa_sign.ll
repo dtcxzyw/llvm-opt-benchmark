@@ -270,8 +270,8 @@ ossl_rsa_digestinfo_encoding.exit:                ; preds = %5
   br label %27
 
 21:                                               ; preds = %5, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %.sink.split.i
-  %.019.ph = phi i64 [ 14, %.sink.split.i ], [ 18, %7 ], [ 15, %8 ], [ 18, %9 ], [ 15, %10 ], [ 19, %11 ], [ 19, %12 ], [ 19, %13 ], [ 19, %14 ], [ 19, %15 ], [ 19, %16 ], [ 19, %17 ], [ 19, %18 ], [ 19, %19 ], [ 19, %20 ], [ 18, %5 ]
-  %.0.i.ph = phi ptr [ @digestinfo_mdc2_der, %.sink.split.i ], [ @digestinfo_md5_der, %7 ], [ @digestinfo_ripemd160_der, %8 ], [ @digestinfo_sm3_der, %9 ], [ @digestinfo_sha1_der, %10 ], [ @digestinfo_sha224_der, %11 ], [ @digestinfo_sha256_der, %12 ], [ @digestinfo_sha384_der, %13 ], [ @digestinfo_sha512_der, %14 ], [ @digestinfo_sha512_224_der, %15 ], [ @digestinfo_sha512_256_der, %16 ], [ @digestinfo_sha3_224_der, %17 ], [ @digestinfo_sha3_256_der, %18 ], [ @digestinfo_sha3_384_der, %19 ], [ @digestinfo_sha3_512_der, %20 ], [ @digestinfo_md4_der, %5 ]
+  %.019.ph = phi i64 [ 14, %.sink.split.i ], [ 19, %20 ], [ 18, %7 ], [ 15, %8 ], [ 18, %9 ], [ 15, %10 ], [ 19, %11 ], [ 19, %12 ], [ 19, %13 ], [ 19, %14 ], [ 19, %15 ], [ 19, %16 ], [ 19, %17 ], [ 19, %18 ], [ 19, %19 ], [ 18, %5 ]
+  %.0.i.ph = phi ptr [ @digestinfo_mdc2_der, %.sink.split.i ], [ @digestinfo_sha3_512_der, %20 ], [ @digestinfo_md5_der, %7 ], [ @digestinfo_ripemd160_der, %8 ], [ @digestinfo_sm3_der, %9 ], [ @digestinfo_sha1_der, %10 ], [ @digestinfo_sha224_der, %11 ], [ @digestinfo_sha256_der, %12 ], [ @digestinfo_sha384_der, %13 ], [ @digestinfo_sha512_der, %14 ], [ @digestinfo_sha512_224_der, %15 ], [ @digestinfo_sha512_256_der, %16 ], [ @digestinfo_sha3_224_der, %17 ], [ @digestinfo_sha3_256_der, %18 ], [ @digestinfo_sha3_384_der, %19 ], [ @digestinfo_md4_der, %5 ]
   %22 = add nuw nsw i64 %.019.ph, %4
   %23 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %22, ptr noundef nonnull @.str, i32 noundef 276) #6
   %24 = icmp eq ptr %23, null
@@ -458,8 +458,8 @@ define range(i32 0, 2) i32 @ossl_rsa_verify(i32 noundef %0, ptr noundef readonly
 56:                                               ; preds = %51, %51
   br label %57
 
-57:                                               ; preds = %52, %53, %54, %55, %56, %51, %51, %51
-  %.0.i.ph = phi i32 [ 16, %51 ], [ 16, %51 ], [ 16, %51 ], [ 64, %56 ], [ 48, %55 ], [ 32, %54 ], [ 28, %53 ], [ 20, %52 ]
+57:                                               ; preds = %56, %51, %51, %51, %52, %53, %54, %55
+  %.0.i.ph = phi i32 [ 48, %55 ], [ 32, %54 ], [ 28, %53 ], [ 16, %51 ], [ 20, %52 ], [ 16, %51 ], [ 16, %51 ], [ 64, %56 ]
   %58 = icmp samesign ugt i32 %.0.i.ph, %19
   br i1 %58, label %59, label %60
 
@@ -510,8 +510,8 @@ define range(i32 0, 2) i32 @ossl_rsa_verify(i32 noundef %0, ptr noundef readonly
   br label %digest_sz_from_nid.exit
 
 digest_sz_from_nid.exit:                          ; preds = %51, %30, %27, %71, %72, %43, %47, %._crit_edge, %17, %14, %70, %59, %49, %46, %31, %29, %25
-  %73 = phi i64 [ 0, %14 ], [ 0, %17 ], [ 0, %25 ], [ 0, %29 ], [ 0, %31 ], [ 0, %46 ], [ 0, %49 ], [ 0, %59 ], [ %.pre, %70 ], [ %.pre, %._crit_edge ], [ 0, %47 ], [ 0, %43 ], [ %22, %72 ], [ %22, %71 ], [ 0, %27 ], [ 0, %30 ], [ 0, %51 ]
-  %.054 = phi i32 [ 0, %14 ], [ 0, %17 ], [ 0, %25 ], [ 0, %29 ], [ 0, %31 ], [ 0, %46 ], [ 0, %49 ], [ 0, %59 ], [ 0, %70 ], [ 0, %._crit_edge ], [ 1, %47 ], [ 1, %43 ], [ 1, %72 ], [ 1, %71 ], [ 1, %27 ], [ 1, %30 ], [ 0, %51 ]
+  %73 = phi i64 [ 0, %14 ], [ 0, %17 ], [ 0, %25 ], [ %.pre, %._crit_edge ], [ 0, %29 ], [ 0, %31 ], [ 0, %46 ], [ 0, %49 ], [ 0, %30 ], [ 0, %59 ], [ %.pre, %70 ], [ 0, %47 ], [ 0, %43 ], [ %22, %72 ], [ %22, %71 ], [ 0, %27 ], [ 0, %51 ]
+  %.054 = phi i32 [ 0, %14 ], [ 0, %17 ], [ 0, %25 ], [ 0, %._crit_edge ], [ 0, %29 ], [ 0, %31 ], [ 0, %46 ], [ 0, %49 ], [ 1, %30 ], [ 0, %59 ], [ 0, %70 ], [ 1, %47 ], [ 1, %43 ], [ 1, %72 ], [ 1, %71 ], [ 1, %27 ], [ 0, %51 ]
   %74 = load ptr, ptr %10, align 8, !tbaa !7
   tail call void @CRYPTO_clear_free(ptr noundef %74, i64 noundef %73, ptr noundef nonnull @.str, i32 noundef 456) #6
   tail call void @CRYPTO_clear_free(ptr noundef %15, i64 noundef %6, ptr noundef nonnull @.str, i32 noundef 457) #6

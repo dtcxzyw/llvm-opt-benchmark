@@ -912,7 +912,7 @@ remote_default_branch.exit.thread:                ; preds = %_.exit33.i, %_.exit
   br label %206
 
 remote_default_branch.exit:                       ; preds = %176, %199
-  %.3.i = phi ptr [ %200, %199 ], [ %177, %176 ]
+  %.3.i = phi ptr [ %177, %176 ], [ %200, %199 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %.3.i, ptr %5, align 8, !tbaa !4
@@ -1684,8 +1684,8 @@ _.exit46:                                         ; preds = %80, %82
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %.thread.sink.split.sink.split, %78, %76
-  %.0.i42.sink = phi ptr [ @.str.167, %76 ], [ @.str.168, %78 ], [ %96, %.thread.sink.split.sink.split ]
-  call void (ptr, ...) @warning(ptr noundef %.0.i42.sink, ptr noundef %42) #18
+  %.0.i39.sink = phi ptr [ @.str.167, %76 ], [ @.str.168, %78 ], [ %96, %.thread.sink.split.sink.split ]
+  call void (ptr, ...) @warning(ptr noundef %.0.i39.sink, ptr noundef %42) #18
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %95
@@ -2329,17 +2329,17 @@ start_fsmonitor_daemon.exit:                      ; preds = %27
   br i1 %.not4.i15, label %have_fsmonitor_support.exit.thread.sink.split, label %have_fsmonitor_support.exit.thread.sink.split.sink.split
 
 have_fsmonitor_support.exit.thread.sink.split.sink.split: ; preds = %30, %15, %12
-  %.str.125.sink = phi ptr [ @.str.122, %12 ], [ @.str.123, %15 ], [ @.str.125, %30 ]
+  %.str.125.sink = phi ptr [ @.str.123, %15 ], [ @.str.122, %12 ], [ @.str.125, %30 ]
   %32 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.125.sink, i32 noundef 5) #18
   br label %have_fsmonitor_support.exit.thread.sink.split
 
 have_fsmonitor_support.exit.thread.sink.split:    ; preds = %have_fsmonitor_support.exit.thread.sink.split.sink.split, %30, %15, %12
-  %.0.i16.sink = phi ptr [ @.str.122, %12 ], [ @.str.123, %15 ], [ @.str.125, %30 ], [ %32, %have_fsmonitor_support.exit.thread.sink.split.sink.split ]
+  %.0.i16.sink = phi ptr [ @.str.123, %15 ], [ @.str.122, %12 ], [ @.str.125, %30 ], [ %32, %have_fsmonitor_support.exit.thread.sink.split.sink.split ]
   %33 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i16.sink) #18
   br label %have_fsmonitor_support.exit.thread
 
 have_fsmonitor_support.exit.thread:               ; preds = %have_fsmonitor_support.exit.thread.sink.split, %27, %23, %have_fsmonitor_support.exit, %start_fsmonitor_daemon.exit
-  %.0 = phi i32 [ 0, %start_fsmonitor_daemon.exit ], [ 0, %have_fsmonitor_support.exit ], [ 0, %23 ], [ 0, %27 ], [ -1, %have_fsmonitor_support.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %have_fsmonitor_support.exit ], [ 0, %23 ], [ 0, %27 ], [ 0, %start_fsmonitor_daemon.exit ], [ -1, %have_fsmonitor_support.exit.thread.sink.split ]
   ret i32 %.0
 }
 

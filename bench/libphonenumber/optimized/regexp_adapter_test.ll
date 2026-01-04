@@ -13175,7 +13175,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %558
 
 558:                                              ; preds = %.thread385, %.thread383, %.thread
-  %.pn113.pn.pn.pn.pn.pn381 = phi { ptr, i32 } [ %.pn113.pn.pn.pn.pn, %.thread ], [ %.pn106.pn.pn.pn.pn, %.thread383 ], [ %402, %.thread385 ]
+  %.pn113.pn.pn.pn.pn.pn381 = phi { ptr, i32 } [ %.pn113.pn.pn.pn.pn, %.thread ], [ %402, %.thread385 ], [ %.pn106.pn.pn.pn.pn, %.thread383 ]
   %559 = load ptr, ptr %377, align 8, !tbaa !4
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 8
   %561 = load ptr, ptr %560, align 8
@@ -13183,7 +13183,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit353
 
 _ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit353: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283, %558, %394, %310, %227, %154
-  %.pn113.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn96.pn.pn.pn.pn, %394 ], [ %.pn89.pn.pn.pn.pn.pn, %310 ], [ %.pn81.pn.pn.pn.pn, %227 ], [ %.pn74.pn.pn.pn.pn.pn, %154 ], [ %396, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283 ], [ %.pn113.pn.pn.pn.pn.pn381, %558 ]
+  %.pn113.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn, %154 ], [ %.pn96.pn.pn.pn.pn, %394 ], [ %.pn89.pn.pn.pn.pn.pn, %310 ], [ %.pn81.pn.pn.pn.pn, %227 ], [ %396, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283 ], [ %.pn113.pn.pn.pn.pn.pn381, %558 ]
   %562 = load ptr, ptr %2, align 8, !tbaa !34
   %563 = icmp eq ptr %562, %38
   br i1 %563, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit356, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i354
@@ -13214,7 +13214,7 @@ _ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit360: ; preds = %_ZN
   br i1 %572, label %.loopexit.sink.split, label %.loopexit.sink.split.sink.split
 
 .loopexit.sink.split.sink.split:                  ; preds = %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit360, %.critedge132, %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit
-  %.sink = phi ptr [ %519, %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit ], [ %566, %.critedge132 ], [ %571, %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit360 ]
+  %.sink = phi ptr [ %566, %.critedge132 ], [ %519, %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit ], [ %571, %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit360 ]
   %573 = load i64, ptr %38, align 8, !tbaa !33
   %574 = add i64 %573, 1
   call void @_ZdlPvm(ptr noundef %.sink, i64 noundef %574) #20
@@ -18131,29 +18131,29 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %_ZNSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EED2Ev.exit
 
 42:                                               ; preds = %_ZNKSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i, %23, %9, %._crit_edge.i.i
-  %.0 = phi i1 [ true, %9 ], [ true, %._crit_edge.i.i ], [ false, %23 ], [ false, %_ZNKSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.0 = phi i1 [ false, %_ZNKSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ true, %9 ], [ true, %._crit_edge.i.i ], [ false, %23 ]
   %43 = landingpad { ptr, i32 }
           cleanup
   %44 = load ptr, ptr %2, align 8, !tbaa !34
   %45 = icmp eq ptr %44, %5
-  br i1 %45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13
+  br i1 %45, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12: ; preds = %42
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.0, label %48, label %49
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %42
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11: ; preds = %42
   %46 = load i64, ptr %5, align 8, !tbaa !33
   %47 = add i64 %46, 1
   call void @_ZdlPvm(ptr noundef %44, i64 noundef %47) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.0, label %48, label %49
 
-48:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %42
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br i1 %.0, label %48, label %49
+
+48:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 80) #20
   br label %49
 
-49:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13, %48
+49:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13, %48
   %.pr = load ptr, ptr %3, align 8, !tbaa !252
   %.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EED2Ev.exit, label %50

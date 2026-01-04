@@ -1876,7 +1876,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
   ret i8 %.1
 
 42:                                               ; preds = %_ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E.exit, %9, %2
-  %.0 = phi i8 [ 0, %2 ], [ 1, %9 ], [ 2, %_ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E.exit ]
+  %.0 = phi i8 [ 1, %9 ], [ 0, %2 ], [ 2, %_ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !103
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he16c77f2b6b4d94eE.llvm.1938814379164664089"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2176,12 +2176,12 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.12270)
   ret ptr %.0
 
-.body.thread322.loopexit:                         ; preds = %125, %119, %118, %"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$3get17h9976badcc25bb6a8E.exit", %106, %100, %97, %96, %"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$9get_range17h5f19fd97a3087a56E.exit", %86
+.body.thread322.loopexit:                         ; preds = %125, %119, %97, %86, %"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$9get_range17h5f19fd97a3087a56E.exit", %96, %100, %106, %"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$3get17h9976badcc25bb6a8E.exit", %118
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.body.thread322.loopexit.split-lp:                ; preds = %129, %.loopexit, %135
+.body.thread322.loopexit.split-lp:                ; preds = %.loopexit, %129, %135
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -2577,7 +2577,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
   br label %169
 
 "_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wiggle..GuestPtr$LT$u8$GT$$GT$$C$wiggle..error..GuestError$GT$$GT$17h1152e41d8769ae20E.exit": ; preds = %147, %164, %171, %169
-  %.4422 = phi ptr [ %.4.ph, %169 ], [ %.4.ph, %171 ], [ %165, %164 ], [ %148, %147 ]
+  %.4422 = phi ptr [ %.4.ph, %171 ], [ %.4.ph, %169 ], [ %165, %164 ], [ %148, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.loopexit880
 
@@ -2591,11 +2591,11 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
   br label %"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$wiggle..GuestPtr$LT$wiggle..GuestPtr$LT$u8$GT$$GT$$C$wiggle..error..GuestError$GT$$GT$17h1152e41d8769ae20E.exit"
 
 .body.thread318:                                  ; preds = %.body.thread, %173, %142
-  %eh.lpad-body316 = phi { ptr, i32 } [ %143, %142 ], [ %eh.lpad-body317, %173 ], [ %eh.lpad-body317, %.body.thread ]
+  %eh.lpad-body316 = phi { ptr, i32 } [ %143, %142 ], [ %eh.lpad-body317, %.body.thread ], [ %eh.lpad-body317, %173 ]
   resume { ptr, i32 } %eh.lpad-body316
 
 .body.thread:                                     ; preds = %.body.thread322.loopexit, %.body.thread322.loopexit.split-lp, %110, %90
-  %eh.lpad-body317 = phi { ptr, i32 } [ %91, %90 ], [ %111, %110 ], [ %lpad.loopexit, %.body.thread322.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread322.loopexit.split-lp ]
+  %eh.lpad-body317 = phi { ptr, i32 } [ %111, %110 ], [ %91, %90 ], [ %lpad.loopexit, %.body.thread322.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread322.loopexit.split-lp ]
   %172 = icmp eq i32 %.sroa.6266.0..sroa.6266.0..sroa.6266.0..sroa.6266.8., 11
   br i1 %172, label %.body.thread318, label %173
 
@@ -5299,7 +5299,7 @@ common.ret:                                       ; preds = %39, %7
   br label %20
 
 .body:                                            ; preds = %41, %35, %13, %27
-  %.pn9 = phi { ptr, i32 } [ %14, %13 ], [ %28, %27 ], [ %42, %41 ], [ %36, %35 ]
+  %.pn9 = phi { ptr, i32 } [ %36, %35 ], [ %14, %13 ], [ %28, %27 ], [ %42, %41 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn9
 
@@ -5469,7 +5469,7 @@ common.ret:                                       ; preds = %39, %7
   br label %20
 
 .body:                                            ; preds = %41, %35, %13, %27
-  %.pn9 = phi { ptr, i32 } [ %14, %13 ], [ %28, %27 ], [ %42, %41 ], [ %36, %35 ]
+  %.pn9 = phi { ptr, i32 } [ %36, %35 ], [ %14, %13 ], [ %28, %27 ], [ %42, %41 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn9
 
@@ -5639,7 +5639,7 @@ common.ret:                                       ; preds = %39, %7
   br label %20
 
 .body:                                            ; preds = %41, %35, %13, %27
-  %.pn9 = phi { ptr, i32 } [ %14, %13 ], [ %28, %27 ], [ %42, %41 ], [ %36, %35 ]
+  %.pn9 = phi { ptr, i32 } [ %36, %35 ], [ %14, %13 ], [ %28, %27 ], [ %42, %41 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn9
 
@@ -5809,7 +5809,7 @@ common.ret:                                       ; preds = %39, %7
   br label %20
 
 .body:                                            ; preds = %41, %35, %13, %27
-  %.pn9 = phi { ptr, i32 } [ %14, %13 ], [ %28, %27 ], [ %42, %41 ], [ %36, %35 ]
+  %.pn9 = phi { ptr, i32 } [ %36, %35 ], [ %14, %13 ], [ %28, %27 ], [ %42, %41 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn9
 
@@ -5979,7 +5979,7 @@ common.ret:                                       ; preds = %39, %7
   br label %20
 
 .body:                                            ; preds = %41, %35, %13, %27
-  %.pn9 = phi { ptr, i32 } [ %14, %13 ], [ %28, %27 ], [ %42, %41 ], [ %36, %35 ]
+  %.pn9 = phi { ptr, i32 } [ %36, %35 ], [ %14, %13 ], [ %28, %27 ], [ %42, %41 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn9
 
@@ -6149,7 +6149,7 @@ common.ret:                                       ; preds = %39, %7
   br label %20
 
 .body:                                            ; preds = %41, %35, %13, %27
-  %.pn9 = phi { ptr, i32 } [ %14, %13 ], [ %28, %27 ], [ %42, %41 ], [ %36, %35 ]
+  %.pn9 = phi { ptr, i32 } [ %36, %35 ], [ %14, %13 ], [ %28, %27 ], [ %42, %41 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn9
 
@@ -6319,7 +6319,7 @@ common.ret:                                       ; preds = %39, %7
   br label %20
 
 .body:                                            ; preds = %41, %35, %13, %27
-  %.pn9 = phi { ptr, i32 } [ %14, %13 ], [ %28, %27 ], [ %42, %41 ], [ %36, %35 ]
+  %.pn9 = phi { ptr, i32 } [ %36, %35 ], [ %14, %13 ], [ %28, %27 ], [ %42, %41 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn9
 
@@ -9919,7 +9919,7 @@ _ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit: ; preds = %s
   unreachable
 
 common.resume:                                    ; preds = %21, %58, %48
-  %common.resume.op = phi { ptr, i32 } [ %49, %48 ], [ %59, %58 ], [ %22, %21 ]
+  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %49, %48 ], [ %22, %21 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr53drop_in_place$LT$cap_std..fs..dir_entry..DirEntry$GT$17h4f585bd149dca946E.exit64": ; preds = %53, %"_ZN4core3ptr55drop_in_place$LT$rustix..backend..fs..dir..DirEntry$GT$17h02b16fa2d9100e07E.llvm.1938814379164664089.exit.i.i.i", %19, %"_ZN4core3ptr55drop_in_place$LT$rustix..backend..fs..dir..DirEntry$GT$17h02b16fa2d9100e07E.llvm.1938814379164664089.exit.i.i.i63", %63

@@ -183,7 +183,7 @@ define hidden noundef ptr @_ZN2os24fetch_frame_from_contextEPKvPPlS3_(ptr nounde
   br label %20
 
 20:                                               ; preds = %.sink.split, %19, %12
-  %.0 = phi ptr [ %7, %12 ], [ null, %19 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ null, %19 ], [ %7, %12 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1072,7 +1072,7 @@ thread-pre-split:                                 ; preds = %.thread, %82, %4, %
   br label %119
 
 119:                                              ; preds = %111, %32, %18, %116
-  %.0 = phi i1 [ true, %116 ], [ false, %18 ], [ true, %32 ], [ false, %111 ]
+  %.0 = phi i1 [ true, %32 ], [ false, %18 ], [ true, %116 ], [ false, %111 ]
   ret i1 %.0
 }
 
@@ -1418,8 +1418,8 @@ define hidden void @_ZN2os19print_register_infoEP12outputStreamPKvRi(ptr noundef
   br label %.loopexit
 
 .sink.split:                                      ; preds = %23, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38
-  %.str.30.sink = phi ptr [ @.str.31, %25 ], [ @.str.32, %26 ], [ @.str.33, %27 ], [ @.str.34, %28 ], [ @.str.35, %29 ], [ @.str.36, %30 ], [ @.str.37, %31 ], [ @.str.38, %32 ], [ @.str.39, %33 ], [ @.str.40, %34 ], [ @.str.41, %35 ], [ @.str.42, %36 ], [ @.str.43, %37 ], [ @.str.44, %38 ], [ @.str.30, %23 ]
-  %.sink.in = phi ptr [ %21, %25 ], [ %20, %26 ], [ %19, %27 ], [ %18, %28 ], [ %17, %29 ], [ %16, %30 ], [ %15, %31 ], [ %14, %32 ], [ %13, %33 ], [ %12, %34 ], [ %11, %35 ], [ %10, %36 ], [ %9, %37 ], [ %8, %38 ], [ %22, %23 ]
+  %.str.30.sink = phi ptr [ @.str.44, %38 ], [ @.str.31, %25 ], [ @.str.32, %26 ], [ @.str.33, %27 ], [ @.str.34, %28 ], [ @.str.35, %29 ], [ @.str.36, %30 ], [ @.str.37, %31 ], [ @.str.38, %32 ], [ @.str.39, %33 ], [ @.str.40, %34 ], [ @.str.41, %35 ], [ @.str.42, %36 ], [ @.str.43, %37 ], [ @.str.30, %23 ]
+  %.sink.in = phi ptr [ %8, %38 ], [ %21, %25 ], [ %20, %26 ], [ %19, %27 ], [ %18, %28 ], [ %17, %29 ], [ %16, %30 ], [ %15, %31 ], [ %14, %32 ], [ %13, %33 ], [ %12, %34 ], [ %11, %35 ], [ %10, %36 ], [ %9, %37 ], [ %22, %23 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %.str.30.sink) #12
   %.sink = load i64, ptr %.sink.in, align 8
   tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef nonnull %0, i64 noundef %.sink, i1 noundef zeroext false) #12

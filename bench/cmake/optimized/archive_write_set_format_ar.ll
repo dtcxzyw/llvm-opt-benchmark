@@ -612,7 +612,7 @@ format_decimal.exit128:                           ; preds = %177, %.preheader32.
   br label %210
 
 210:                                              ; preds = %200, %206, %203, %198, %format_decimal.exit128, %176, %172, %format_decimal.exit120, %format_decimal.exit112, %format_decimal.exit, %92, %80, %73, %65, %60, %ar_basename.exit, %13
-  %.080 = phi i32 [ -20, %13 ], [ -20, %format_decimal.exit ], [ -20, %format_decimal.exit112 ], [ -20, %format_decimal.exit120 ], [ -20, %172 ], [ -20, %176 ], [ -20, %format_decimal.exit128 ], [ -20, %ar_basename.exit ], [ -20, %60 ], [ -30, %65 ], [ -20, %73 ], [ -20, %80 ], [ -20, %92 ], [ %199, %198 ], [ %205, %203 ], [ 0, %206 ], [ 0, %200 ]
+  %.080 = phi i32 [ -20, %13 ], [ -20, %format_decimal.exit ], [ -20, %format_decimal.exit112 ], [ -20, %format_decimal.exit120 ], [ -20, %172 ], [ -20, %176 ], [ -20, %format_decimal.exit128 ], [ -20, %92 ], [ %199, %198 ], [ %205, %203 ], [ -20, %ar_basename.exit ], [ -20, %60 ], [ -30, %65 ], [ -20, %73 ], [ -20, %80 ], [ 0, %206 ], [ 0, %200 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.080
 }
@@ -753,7 +753,7 @@ define internal i32 @archive_write_ar_finish_entry(ptr noundef %0) #0 {
   br label %12
 
 12:                                               ; preds = %6, %10, %9, %5
-  %.0 = phi i32 [ -20, %5 ], [ -20, %9 ], [ %11, %10 ], [ 0, %6 ]
+  %.0 = phi i32 [ -20, %5 ], [ %11, %10 ], [ -20, %9 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -837,7 +837,7 @@ define internal fastcc range(i32 -1, 1) i32 @format_decimal(i64 noundef %0, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader32.preheader, %.lr.ph.preheader, %.preheader.preheader, %20
-  %.0 = phi i32 [ 0, %20 ], [ -1, %.preheader.preheader ], [ 0, %.lr.ph.preheader ], [ -1, %.preheader32.preheader ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %.lr.ph.preheader ], [ -1, %.preheader.preheader ], [ -1, %.preheader32.preheader ]
   ret i32 %.0
 }
 

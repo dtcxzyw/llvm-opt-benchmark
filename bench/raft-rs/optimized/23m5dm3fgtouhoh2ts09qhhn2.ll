@@ -1365,7 +1365,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$slog_term..TermDecorator$GT$
   br label %common.resume.i.i.i
 
 common.resume.i.i.i:                              ; preds = %51, %43, %27, %19
-  %common.resume.op.i.i.i = phi { ptr, i32 } [ %20, %27 ], [ %20, %19 ], [ %44, %51 ], [ %44, %43 ]
+  %common.resume.op.i.i.i = phi { ptr, i32 } [ %20, %19 ], [ %20, %27 ], [ %44, %51 ], [ %44, %43 ]
   resume { ptr, i32 } %common.resume.op.i.i.i
 
 28:                                               ; preds = %1
@@ -3490,7 +3490,7 @@ define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$slog_term..CompactF
   br label %.body
 
 .body:                                            ; preds = %34, %26, %"_ZN4core3ptr132drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$RP$$GT$$GT$$GT$17he0739e88d2c13423E.exit"
-  %.pn2 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr132drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$RP$$GT$$GT$$GT$17he0739e88d2c13423E.exit" ], [ %27, %34 ], [ %27, %26 ]
+  %.pn2 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr132drop_in_place$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$RP$$GT$$GT$$GT$17he0739e88d2c13423E.exit" ], [ %27, %26 ], [ %27, %34 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val9 = load ptr, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3546,7 +3546,7 @@ define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$slog_term..CompactF
   br label %common.resume
 
 common.resume:                                    ; preds = %.body, %51, %59
-  %common.resume.op = phi { ptr, i32 } [ %52, %59 ], [ %52, %51 ], [ %.pn2, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %52, %59 ], [ %.pn2, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr165drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$slog_term..ThreadSafeHeaderFn$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$$GT$17h249afbff6173a283E.exit": ; preds = %42, %50

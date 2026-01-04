@@ -1111,7 +1111,7 @@ get_op.exit:                                      ; preds = %21
   br label %get_op.exit.thread
 
 get_op.exit.thread:                               ; preds = %19, %45, %52, %49, %get_op.exit, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %get_op.exit ], [ %48, %45 ], [ %54, %52 ], [ 0, %49 ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %4 ], [ 0, %get_op.exit ], [ 0, %12 ], [ %48, %45 ], [ %54, %52 ], [ 0, %49 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -1214,7 +1214,7 @@ get_op.exit:                                      ; preds = %20
   br label %get_op.exit.thread
 
 get_op.exit.thread:                               ; preds = %18, %46, %53, %50, %get_op.exit, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %get_op.exit ], [ %49, %46 ], [ %55, %53 ], [ 0, %50 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 0, %9 ], [ 0, %get_op.exit ], [ %49, %46 ], [ %55, %53 ], [ 0, %50 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -1305,7 +1305,7 @@ get_err.exit:                                     ; preds = %20
   br label %get_err.exit.thread
 
 get_err.exit.thread:                              ; preds = %18, %46, %43, %get_err.exit, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %get_err.exit ], [ %48, %46 ], [ 0, %43 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 0, %9 ], [ 0, %get_err.exit ], [ 0, %43 ], [ %48, %46 ], [ 0, %18 ]
   ret i32 %.0
 }
 

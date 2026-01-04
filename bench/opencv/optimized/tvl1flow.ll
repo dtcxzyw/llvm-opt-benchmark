@@ -1182,7 +1182,7 @@ _ZNK2cv11_InputArray6getMatEi.exit304:            ; preds = %311, %314
   br i1 %332, label %.loopexit514, label %329
 
 .loopexit514:                                     ; preds = %329, %.loopexit514.loopexit531, %.thread
-  %.pn162.pn = phi { ptr, i32 } [ %306, %.thread ], [ %322, %.loopexit514.loopexit531 ], [ %.pn162, %329 ]
+  %.pn162.pn = phi { ptr, i32 } [ %322, %.loopexit514.loopexit531 ], [ %306, %.thread ], [ %.pn162, %329 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %810
 
@@ -1860,7 +1860,7 @@ _ZN2cv4Mat_IfE6createENS_5Size_IiEE.exit484:      ; preds = %615, %_ZN2cv4Mat_If
   br i1 %627, label %538, label %.loopexit513, !llvm.loop !79
 
 .loopexit513:                                     ; preds = %_ZN2cv4Mat_IfE6createENS_5Size_IiEE.exit484, %_ZN2cv4Mat_IfE6createENS_5Size_IiEE.exit466.preheader, %559
-  %628 = phi i32 [ %495, %_ZN2cv4Mat_IfE6createENS_5Size_IiEE.exit466.preheader ], [ %560, %559 ], [ %625, %_ZN2cv4Mat_IfE6createENS_5Size_IiEE.exit484 ]
+  %628 = phi i32 [ %560, %559 ], [ %495, %_ZN2cv4Mat_IfE6createENS_5Size_IiEE.exit466.preheader ], [ %625, %_ZN2cv4Mat_IfE6createENS_5Size_IiEE.exit484 ]
   %629 = load i8, ptr %126, align 8, !tbaa !39, !range !58, !noundef !59
   %630 = trunc nuw i8 %629 to i1
   br i1 %630, label %657, label %631
@@ -2309,12 +2309,12 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %795, %798
   br i1 %809, label %.loopexit, label %806
 
 .loopexit:                                        ; preds = %806, %.loopexit.loopexit530, %.thread510
-  %.pn211 = phi { ptr, i32 } [ %784, %.thread510 ], [ %802, %.loopexit.loopexit530 ], [ %804, %806 ]
+  %.pn211 = phi { ptr, i32 } [ %802, %.loopexit.loopexit530 ], [ %784, %.thread510 ], [ %804, %806 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %810
 
 810:                                              ; preds = %143, %145, %296, %298, %300, %.loopexit514, %653, %655, %669, %.loopexit, %613, %593, %591, %589, %587, %563, %561, %781, %779, %766, %764, %762, %724, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn211.pn.pn = phi { ptr, i32 } [ %.pn156, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251 ], [ %.pn154, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248 ], [ %.pn150, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241 ], [ %.pn148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn211, %.loopexit ], [ %670, %669 ], [ %656, %655 ], [ %654, %653 ], [ %297, %296 ], [ %.pn162.pn, %.loopexit514 ], [ %301, %300 ], [ %299, %298 ], [ %614, %613 ], [ %594, %593 ], [ %592, %591 ], [ %590, %589 ], [ %588, %587 ], [ %564, %563 ], [ %562, %561 ], [ %782, %781 ], [ %780, %779 ], [ %767, %766 ], [ %765, %764 ], [ %763, %762 ], [ %725, %724 ], [ %146, %145 ], [ %144, %143 ]
+  %.pn211.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn156, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251 ], [ %.pn154, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248 ], [ %725, %724 ], [ %.pn150, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit241 ], [ %.pn148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238 ], [ %144, %143 ], [ %.pn211, %.loopexit ], [ %562, %561 ], [ %670, %669 ], [ %656, %655 ], [ %654, %653 ], [ %299, %298 ], [ %297, %296 ], [ %.pn162.pn, %.loopexit514 ], [ %301, %300 ], [ %614, %613 ], [ %594, %593 ], [ %592, %591 ], [ %590, %589 ], [ %588, %587 ], [ %564, %563 ], [ %782, %781 ], [ %780, %779 ], [ %767, %766 ], [ %765, %764 ], [ %763, %762 ], [ %146, %145 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #22
   br label %811
 
@@ -4654,7 +4654,7 @@ _ZN2cv4Mat_IfEaSERKS1_.exit28.i:                  ; preds = %_ZN2cv4Mat_IfEaSERK
   br i1 %or.cond225, label %.lr.ph, label %.critedge2, !llvm.loop !115
 
 .body268:                                         ; preds = %853, %1007, %858, %730, %772, %791, %793, %783, %781, %779
-  %.pn187.pn = phi { ptr, i32 } [ %784, %783 ], [ %782, %781 ], [ %780, %779 ], [ %794, %793 ], [ %792, %791 ], [ %.pn.i266, %730 ], [ %.pn.i270, %772 ], [ %.pn.i274, %853 ], [ %859, %858 ], [ %.pn.i282, %1007 ]
+  %.pn187.pn = phi { ptr, i32 } [ %780, %779 ], [ %792, %791 ], [ %784, %783 ], [ %782, %781 ], [ %.pn.i270, %772 ], [ %794, %793 ], [ %.pn.i266, %730 ], [ %.pn.i282, %1007 ], [ %.pn.i274, %853 ], [ %859, %858 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %81) #22
   br label %1013
 
@@ -4712,7 +4712,7 @@ _ZN2cv4Mat_IfEaSERKS1_.exit28.i:                  ; preds = %_ZN2cv4Mat_IfEaSERK
   br label %1022
 
 1022:                                             ; preds = %499, %508, %1021, %497, %495, %493, %491
-  %.pn187.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %498, %497 ], [ %496, %495 ], [ %494, %493 ], [ %492, %491 ], [ %.pn187.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1021 ], [ %509, %508 ], [ %500, %499 ]
+  %.pn187.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %492, %491 ], [ %498, %497 ], [ %496, %495 ], [ %494, %493 ], [ %.pn187.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1021 ], [ %509, %508 ], [ %500, %499 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %51) #22
   br label %1023
 
@@ -5450,9 +5450,9 @@ define hidden void @_ZNK2cv7optflow13EstimateVBodyclERKNS_5RangeE(ptr noundef no
   br label %123
 
 123:                                              ; preds = %116, %114
-  %.088.us = phi float [ %119, %116 ], [ 0.000000e+00, %114 ]
-  %.087.us = phi float [ %120, %116 ], [ 0.000000e+00, %114 ]
-  %.086.us = phi float [ %.1.us, %116 ], [ 0.000000e+00, %114 ]
+  %.088.us = phi float [ 0.000000e+00, %114 ], [ %119, %116 ]
+  %.087.us = phi float [ 0.000000e+00, %114 ], [ %120, %116 ]
+  %.086.us = phi float [ 0.000000e+00, %114 ], [ %.1.us, %116 ]
   %124 = fadd float %.088.us, %90
   %125 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv
   store float %124, ptr %125, align 4, !tbaa !100

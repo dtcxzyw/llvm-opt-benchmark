@@ -247,7 +247,7 @@ define ptr @ossl_x509_pubkey_hash(ptr noundef %0) local_unnamed_addr #1 {
   br label %32
 
 32:                                               ; preds = %12, %10, %31, %30, %20, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %20 ], [ %18, %30 ], [ null, %31 ], [ null, %10 ], [ null, %12 ]
+  %.0 = phi ptr [ null, %9 ], [ null, %10 ], [ null, %20 ], [ %18, %30 ], [ null, %31 ], [ null, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -554,7 +554,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   unreachable
 
 .body.i:                                          ; preds = %56, %53
-  %eh.lpad-body.i = phi { ptr, i32 } [ %54, %53 ], [ %57, %56 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %57, %56 ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$i64$GT$$GT$17h123c020a1b39b2ceE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8) #24
           to label %.body unwind label %60, !noalias !8
 
@@ -601,7 +601,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   ret { ptr, ptr } %73
 
 .body:                                            ; preds = %74, %77, %67, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %68, %67 ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 74:                                               ; preds = %33, %34
@@ -777,7 +777,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   unreachable
 
 .body.i:                                          ; preds = %56, %53
-  %eh.lpad-body.i = phi { ptr, i32 } [ %54, %53 ], [ %57, %56 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %57, %56 ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$u64$GT$$GT$17hf3ab7928c39f80c8E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8) #24
           to label %.body unwind label %60, !noalias !37
 
@@ -824,7 +824,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   ret { ptr, ptr } %73
 
 .body:                                            ; preds = %74, %77, %67, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %68, %67 ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 74:                                               ; preds = %33, %34
@@ -1000,7 +1000,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   unreachable
 
 .body.i:                                          ; preds = %56, %53
-  %eh.lpad-body.i = phi { ptr, i32 } [ %54, %53 ], [ %57, %56 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %57, %56 ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$i8$GT$$GT$17h2360f9d0a7bcf70aE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8) #24
           to label %.body unwind label %60, !noalias !64
 
@@ -1047,7 +1047,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   ret { ptr, ptr } %73
 
 .body:                                            ; preds = %74, %77, %67, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %68, %67 ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 74:                                               ; preds = %33, %34
@@ -1223,7 +1223,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   unreachable
 
 .body.i:                                          ; preds = %56, %53
-  %eh.lpad-body.i = phi { ptr, i32 } [ %54, %53 ], [ %57, %56 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %57, %56 ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$i32$GT$$GT$17hed7a9f3c7d5e7367E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8) #24
           to label %.body unwind label %60, !noalias !91
 
@@ -1270,7 +1270,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   ret { ptr, ptr } %73
 
 .body:                                            ; preds = %74, %77, %67, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %68, %67 ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 74:                                               ; preds = %33, %34
@@ -1446,7 +1446,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   unreachable
 
 .body.i:                                          ; preds = %56, %53
-  %eh.lpad-body.i = phi { ptr, i32 } [ %54, %53 ], [ %57, %56 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %57, %56 ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$f64$GT$$GT$17h3edd4db83a4a24daE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8) #24
           to label %.body unwind label %60, !noalias !118
 
@@ -1493,7 +1493,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   ret { ptr, ptr } %73
 
 .body:                                            ; preds = %74, %77, %67, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %68, %67 ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 74:                                               ; preds = %33, %34
@@ -1669,7 +1669,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   unreachable
 
 .body.i:                                          ; preds = %56, %53
-  %eh.lpad-body.i = phi { ptr, i32 } [ %54, %53 ], [ %57, %56 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %57, %56 ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$u32$GT$$GT$17h5b1ef5400308eff8E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8) #24
           to label %.body unwind label %60, !noalias !145
 
@@ -1716,7 +1716,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   ret { ptr, ptr } %73
 
 .body:                                            ; preds = %74, %77, %67, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %68, %67 ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 74:                                               ; preds = %33, %34
@@ -1892,7 +1892,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   unreachable
 
 .body.i:                                          ; preds = %56, %53
-  %eh.lpad-body.i = phi { ptr, i32 } [ %54, %53 ], [ %57, %56 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %57, %56 ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr107drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$polars_arrow..types..native..f16$GT$$GT$17h96c5d623711c7d95E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8) #24
           to label %.body unwind label %60, !noalias !172
 
@@ -1939,7 +1939,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   ret { ptr, ptr } %73
 
 .body:                                            ; preds = %74, %77, %67, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %68, %67 ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 74:                                               ; preds = %33, %34
@@ -2115,7 +2115,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   unreachable
 
 .body.i:                                          ; preds = %56, %53
-  %eh.lpad-body.i = phi { ptr, i32 } [ %54, %53 ], [ %57, %56 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %57, %56 ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$u16$GT$$GT$17hc2a8d3e7cd647c80E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8) #24
           to label %.body unwind label %60, !noalias !199
 
@@ -2162,7 +2162,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   ret { ptr, ptr } %73
 
 .body:                                            ; preds = %74, %77, %67, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %68, %67 ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 74:                                               ; preds = %33, %34
@@ -2338,7 +2338,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   unreachable
 
 .body.i:                                          ; preds = %56, %53
-  %eh.lpad-body.i = phi { ptr, i32 } [ %54, %53 ], [ %57, %56 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %57, %56 ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$f32$GT$$GT$17hea43541ffb18adeeE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8) #24
           to label %.body unwind label %60, !noalias !226
 
@@ -2385,7 +2385,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   ret { ptr, ptr } %73
 
 .body:                                            ; preds = %74, %77, %67, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %68, %67 ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 74:                                               ; preds = %33, %34
@@ -2561,7 +2561,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   unreachable
 
 .body.i:                                          ; preds = %56, %53
-  %eh.lpad-body.i = phi { ptr, i32 } [ %54, %53 ], [ %57, %56 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %57, %56 ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$i16$GT$$GT$17h6013b5f9c0e0c2ddE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8) #24
           to label %.body unwind label %60, !noalias !253
 
@@ -2608,7 +2608,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   ret { ptr, ptr } %73
 
 .body:                                            ; preds = %74, %77, %67, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %68, %67 ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 74:                                               ; preds = %33, %34
@@ -2784,7 +2784,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   unreachable
 
 .body.i:                                          ; preds = %56, %53
-  %eh.lpad-body.i = phi { ptr, i32 } [ %54, %53 ], [ %57, %56 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %57, %56 ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$i128$GT$$GT$17h6c739b2aa865e37aE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8) #24
           to label %.body unwind label %60, !noalias !280
 
@@ -2831,7 +2831,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   ret { ptr, ptr } %73
 
 .body:                                            ; preds = %74, %77, %67, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %68, %67 ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 74:                                               ; preds = %33, %34
@@ -3007,7 +3007,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   unreachable
 
 .body.i:                                          ; preds = %56, %53
-  %eh.lpad-body.i = phi { ptr, i32 } [ %54, %53 ], [ %57, %56 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %57, %56 ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$u8$GT$$GT$17h40a3fb1a46610812E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8) #24
           to label %.body unwind label %60, !noalias !307
 
@@ -3054,7 +3054,7 @@ define internal { ptr, ptr } @"_ZN102_$LT$polars_arrow..array..primitive..Primit
   ret { ptr, ptr } %73
 
 .body:                                            ; preds = %74, %77, %67, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %68, %67 ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %68, %67 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %77 ], [ %eh.lpad-body.ph, %74 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 74:                                               ; preds = %33, %34
@@ -7735,7 +7735,7 @@ define internal { ptr, ptr } @"_ZN103_$LT$polars_arrow..array..fixed_size_list..
   unreachable
 
 .body.i:                                          ; preds = %54, %51
-  %eh.lpad-body.i = phi { ptr, i32 } [ %52, %51 ], [ %55, %54 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %55, %54 ], [ %52, %51 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$polars_arrow..array..fixed_size_list..FixedSizeListArray$GT$17h3920ff8a2bc5b366E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %7) #24
           to label %.body unwind label %58, !noalias !586
 
@@ -7782,7 +7782,7 @@ define internal { ptr, ptr } @"_ZN103_$LT$polars_arrow..array..fixed_size_list..
   ret { ptr, ptr } %71
 
 .body:                                            ; preds = %72, %75, %65, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %66, %65 ], [ %eh.lpad-body.ph, %75 ], [ %eh.lpad-body.ph, %72 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %66, %65 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %75 ], [ %eh.lpad-body.ph, %72 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 72:                                               ; preds = %15, %30
@@ -8266,7 +8266,7 @@ define internal { ptr, ptr } @"_ZN104_$LT$polars_arrow..array..dictionary..Dicti
   ret { ptr, ptr } %17
 
 .body.thread:                                     ; preds = %18, %22, %11
-  %eh.lpad-body5 = phi { ptr, i32 } [ %12, %11 ], [ %19, %22 ], [ %19, %18 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %19, %18 ], [ %12, %11 ], [ %19, %22 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 18:                                               ; preds = %2
@@ -8335,7 +8335,7 @@ define internal { ptr, ptr } @"_ZN104_$LT$polars_arrow..array..dictionary..Dicti
   ret { ptr, ptr } %17
 
 .body.thread:                                     ; preds = %18, %22, %11
-  %eh.lpad-body5 = phi { ptr, i32 } [ %12, %11 ], [ %19, %22 ], [ %19, %18 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %19, %18 ], [ %12, %11 ], [ %19, %22 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 18:                                               ; preds = %2
@@ -8404,7 +8404,7 @@ define internal { ptr, ptr } @"_ZN104_$LT$polars_arrow..array..dictionary..Dicti
   ret { ptr, ptr } %17
 
 .body.thread:                                     ; preds = %18, %22, %11
-  %eh.lpad-body5 = phi { ptr, i32 } [ %12, %11 ], [ %19, %22 ], [ %19, %18 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %19, %18 ], [ %12, %11 ], [ %19, %22 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 18:                                               ; preds = %2
@@ -8473,7 +8473,7 @@ define internal { ptr, ptr } @"_ZN104_$LT$polars_arrow..array..dictionary..Dicti
   ret { ptr, ptr } %17
 
 .body.thread:                                     ; preds = %18, %22, %11
-  %eh.lpad-body5 = phi { ptr, i32 } [ %12, %11 ], [ %19, %22 ], [ %19, %18 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %19, %18 ], [ %12, %11 ], [ %19, %22 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 18:                                               ; preds = %2
@@ -8542,7 +8542,7 @@ define internal { ptr, ptr } @"_ZN104_$LT$polars_arrow..array..dictionary..Dicti
   ret { ptr, ptr } %17
 
 .body.thread:                                     ; preds = %18, %22, %11
-  %eh.lpad-body5 = phi { ptr, i32 } [ %12, %11 ], [ %19, %22 ], [ %19, %18 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %19, %18 ], [ %12, %11 ], [ %19, %22 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 18:                                               ; preds = %2
@@ -8611,7 +8611,7 @@ define internal { ptr, ptr } @"_ZN104_$LT$polars_arrow..array..dictionary..Dicti
   ret { ptr, ptr } %17
 
 .body.thread:                                     ; preds = %18, %22, %11
-  %eh.lpad-body5 = phi { ptr, i32 } [ %12, %11 ], [ %19, %22 ], [ %19, %18 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %19, %18 ], [ %12, %11 ], [ %19, %22 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 18:                                               ; preds = %2
@@ -8680,7 +8680,7 @@ define internal { ptr, ptr } @"_ZN104_$LT$polars_arrow..array..dictionary..Dicti
   ret { ptr, ptr } %17
 
 .body.thread:                                     ; preds = %18, %22, %11
-  %eh.lpad-body5 = phi { ptr, i32 } [ %12, %11 ], [ %19, %22 ], [ %19, %18 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %19, %18 ], [ %12, %11 ], [ %19, %22 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 18:                                               ; preds = %2
@@ -8749,7 +8749,7 @@ define internal { ptr, ptr } @"_ZN104_$LT$polars_arrow..array..dictionary..Dicti
   ret { ptr, ptr } %17
 
 .body.thread:                                     ; preds = %18, %22, %11
-  %eh.lpad-body5 = phi { ptr, i32 } [ %12, %11 ], [ %19, %22 ], [ %19, %18 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %19, %18 ], [ %12, %11 ], [ %19, %22 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 18:                                               ; preds = %2
@@ -8818,7 +8818,7 @@ define internal { ptr, ptr } @"_ZN104_$LT$polars_arrow..array..dictionary..Dicti
   ret { ptr, ptr } %17
 
 .body.thread:                                     ; preds = %18, %22, %11
-  %eh.lpad-body5 = phi { ptr, i32 } [ %12, %11 ], [ %19, %22 ], [ %19, %18 ]
+  %eh.lpad-body5 = phi { ptr, i32 } [ %19, %18 ], [ %12, %11 ], [ %19, %22 ]
   resume { ptr, i32 } %eh.lpad-body5
 
 18:                                               ; preds = %2
@@ -11368,8 +11368,8 @@ define internal fastcc void @"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iter
   br label %19
 
 ._crit_edge.sink.split:                           ; preds = %._crit_edge148, %84, %80, %74, %.thread86
-  %.lcssa110.sink = phi i64 [ %22, %.thread86 ], [ %22, %74 ], [ %22, %80 ], [ %72, %84 ], [ %.lcssa128, %._crit_edge148 ]
-  %.lcssa111.sink = phi i64 [ %23, %.thread86 ], [ %23, %74 ], [ %23, %80 ], [ %71, %84 ], [ %.lcssa132, %._crit_edge148 ]
+  %.lcssa110.sink = phi i64 [ %22, %74 ], [ %72, %84 ], [ %22, %.thread86 ], [ %22, %80 ], [ %.lcssa128, %._crit_edge148 ]
+  %.lcssa111.sink = phi i64 [ %23, %74 ], [ %71, %84 ], [ %23, %.thread86 ], [ %23, %80 ], [ %.lcssa132, %._crit_edge148 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.lcssa110.sink, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11377,7 +11377,7 @@ define internal fastcc void @"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iter
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.sink.split, %2, %._crit_edge148, %84
-  %.sink = phi i64 [ 0, %84 ], [ 0, %._crit_edge148 ], [ 0, %2 ], [ 1, %._crit_edge.sink.split ]
+  %.sink = phi i64 [ 0, %84 ], [ 0, %2 ], [ 0, %._crit_edge148 ], [ 1, %._crit_edge.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
@@ -11461,13 +11461,13 @@ define internal fastcc void @"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iter
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.sink.split, %67, %39, %56
-  %47 = phi i8 [ %27, %56 ], [ %27, %39 ], [ %69, %67 ], [ %.ph, %.backedge.sink.split ]
-  %48 = phi ptr [ %26, %56 ], [ %26, %39 ], [ %26, %67 ], [ %21, %.backedge.sink.split ]
-  %49 = phi i8 [ 1, %56 ], [ 0, %39 ], [ %70, %67 ], [ %.ph113, %.backedge.sink.split ]
-  %50 = phi i8 [ 1, %56 ], [ 1, %39 ], [ %68, %67 ], [ %.ph114, %.backedge.sink.split ]
-  %51 = phi i64 [ %.sroa.0.0.sroa.speculated.i17, %56 ], [ %.sroa.0.0.sroa.speculated.i, %39 ], [ %71, %67 ], [ %.ph115, %.backedge.sink.split ]
-  %52 = phi i64 [ %22, %56 ], [ %22, %39 ], [ %72, %67 ], [ %.ph116, %.backedge.sink.split ]
-  %53 = phi ptr [ %21, %56 ], [ %21, %39 ], [ %21, %67 ], [ %46, %.backedge.sink.split ]
+  %47 = phi i8 [ %69, %67 ], [ %27, %56 ], [ %27, %39 ], [ %.ph, %.backedge.sink.split ]
+  %48 = phi ptr [ %26, %67 ], [ %26, %56 ], [ %26, %39 ], [ %21, %.backedge.sink.split ]
+  %49 = phi i8 [ %70, %67 ], [ 1, %56 ], [ 0, %39 ], [ %.ph113, %.backedge.sink.split ]
+  %50 = phi i8 [ %68, %67 ], [ 1, %56 ], [ 1, %39 ], [ %.ph114, %.backedge.sink.split ]
+  %51 = phi i64 [ %71, %67 ], [ %.sroa.0.0.sroa.speculated.i17, %56 ], [ %.sroa.0.0.sroa.speculated.i, %39 ], [ %.ph115, %.backedge.sink.split ]
+  %52 = phi i64 [ %72, %67 ], [ %22, %56 ], [ %22, %39 ], [ %.ph116, %.backedge.sink.split ]
+  %53 = phi ptr [ %21, %67 ], [ %21, %56 ], [ %21, %39 ], [ %46, %.backedge.sink.split ]
   %54 = add i64 %51, %52
   %55 = icmp eq i64 %54, %9
   br i1 %55, label %._crit_edge148, label %19
@@ -11793,7 +11793,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap10new_zeroed17h7442c20f6c736165E.exit: 
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret void
 
-93:                                               ; preds = %61, %67, %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h918c0b23a71568beE.exit.i", %74
+93:                                               ; preds = %74, %61, %67, %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h918c0b23a71568beE.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %94 = icmp ne ptr %56, null
@@ -11826,7 +11826,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap10new_zeroed17h7442c20f6c736165E.exit: 
           to label %.thread unwind label %95
 
 .thread:                                          ; preds = %87, %.body.thread, %99, %100
-  %.pn.pn.pn22 = phi { ptr, i32 } [ %eh.lpad-body10, %100 ], [ %.pn.pn.ph, %.body.thread ], [ %.pn.pn.ph, %99 ], [ %88, %87 ]
+  %.pn.pn.pn22 = phi { ptr, i32 } [ %eh.lpad-body10, %100 ], [ %.pn.pn.ph, %99 ], [ %.pn.pn.ph, %.body.thread ], [ %88, %87 ]
   resume { ptr, i32 } %.pn.pn.pn22
 
 100:                                              ; preds = %25, %20
@@ -17192,7 +17192,7 @@ define internal fastcc void @_ZN12polars_arrow5array7boolean12BooleanArray15slic
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -17229,7 +17229,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload7, %49 ], [ null, %.thread.i ]
+  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload7, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !861
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -17370,7 +17370,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 .body:                                            ; preds = %21, %24
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$i32$GT$$GT$17hed7a9f3c7d5e7367E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #24
           to label %31 unwind label %29
 
@@ -17452,7 +17452,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 .body:                                            ; preds = %21, %24
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$i8$GT$$GT$17h2360f9d0a7bcf70aE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #24
           to label %31 unwind label %29
 
@@ -17534,7 +17534,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 .body:                                            ; preds = %21, %24
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr107drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$polars_arrow..types..native..f16$GT$$GT$17h96c5d623711c7d95E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #24
           to label %31 unwind label %29
 
@@ -17616,7 +17616,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 .body:                                            ; preds = %21, %24
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$f32$GT$$GT$17hea43541ffb18adeeE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #24
           to label %31 unwind label %29
 
@@ -17698,7 +17698,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 .body:                                            ; preds = %21, %24
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$i16$GT$$GT$17h6013b5f9c0e0c2ddE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #24
           to label %31 unwind label %29
 
@@ -17780,7 +17780,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 .body:                                            ; preds = %21, %24
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$u16$GT$$GT$17hc2a8d3e7cd647c80E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #24
           to label %31 unwind label %29
 
@@ -17862,7 +17862,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 .body:                                            ; preds = %21, %24
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$i128$GT$$GT$17h6c739b2aa865e37aE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #24
           to label %31 unwind label %29
 
@@ -17944,7 +17944,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 .body:                                            ; preds = %21, %24
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$i64$GT$$GT$17h123c020a1b39b2ceE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #24
           to label %31 unwind label %29
 
@@ -18026,7 +18026,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 .body:                                            ; preds = %21, %24
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$u32$GT$$GT$17h5b1ef5400308eff8E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #24
           to label %31 unwind label %29
 
@@ -18108,7 +18108,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 .body:                                            ; preds = %21, %24
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$u64$GT$$GT$17hf3ab7928c39f80c8E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #24
           to label %31 unwind label %29
 
@@ -18190,7 +18190,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 .body:                                            ; preds = %21, %24
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$f64$GT$$GT$17h3edd4db83a4a24daE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #24
           to label %31 unwind label %29
 
@@ -18272,7 +18272,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 .body:                                            ; preds = %21, %24
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %21 ], [ %25, %24 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %25, %24 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$u8$GT$$GT$17h40a3fb1a46610812E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #24
           to label %31 unwind label %29
 
@@ -18388,7 +18388,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -18425,7 +18425,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
+  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !989
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -18541,7 +18541,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -18578,7 +18578,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
+  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1006
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -18694,7 +18694,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -18731,7 +18731,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
+  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1023
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -18847,7 +18847,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -18884,7 +18884,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
+  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1040
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -19000,7 +19000,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -19037,7 +19037,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
+  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1057
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -19153,7 +19153,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -19190,7 +19190,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
+  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1074
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -19306,7 +19306,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -19343,7 +19343,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
+  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1091
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -19459,7 +19459,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -19496,7 +19496,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
+  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1108
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -19612,7 +19612,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -19649,7 +19649,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
+  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1125
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -19765,7 +19765,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -19802,7 +19802,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
+  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1142
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -19918,7 +19918,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -19955,7 +19955,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
+  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1159
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -20071,7 +20071,7 @@ define internal fastcc void @"_ZN12polars_arrow5array9primitive23PrimitiveArray$
   unreachable
 
 common.resume:                                    ; preds = %46, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %47, %46 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %41, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %7, %.sink.split.i.i
@@ -20108,7 +20108,7 @@ common.resume:                                    ; preds = %46, %40
   unreachable
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit.sink.split": ; preds = %49, %.thread.i
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.0.copyload6, %49 ], [ null, %.thread.i ]
+  %.sroa.0.0.ph = phi ptr [ null, %.thread.i ], [ %.sroa.0.0.copyload6, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1176
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit"
 
@@ -21232,7 +21232,7 @@ _ZN12polars_arrow5array12static_array11StaticArray13get_unchecked17h58c54a49e8c7
           cleanup
   br label %179
 
-120:                                              ; preds = %_ZN12polars_arrow5array12static_array11StaticArray13get_unchecked17h58c54a49e8c779daE.exit.i.i, %._crit_edge.i.i
+120:                                              ; preds = %._crit_edge.i.i, %_ZN12polars_arrow5array12static_array11StaticArray13get_unchecked17h58c54a49e8c779daE.exit.i.i
   %121 = icmp ne i8 %.sroa.0.0.i.i2.i, 2
   %122 = load i64, ptr %19, align 8, !noundef !6
   %123 = add i64 %122, 1
@@ -23532,7 +23532,7 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$polars_arrow..datatypes..f
   br i1 %brmerge, label %36, label %37
 
 36:                                               ; preds = %30, %37, %2, %22, %24, %39
-  %.sroa.0.0.shrunk = phi i1 [ %42, %39 ], [ false, %24 ], [ false, %22 ], [ false, %2 ], [ true, %37 ], [ %.mux, %30 ]
+  %.sroa.0.0.shrunk = phi i1 [ %.mux, %30 ], [ %42, %39 ], [ false, %2 ], [ true, %37 ], [ false, %24 ], [ false, %22 ]
   ret i1 %.sroa.0.0.shrunk
 
 37:                                               ; preds = %30
@@ -23574,7 +23574,7 @@ define internal fastcc noundef zeroext i1 @"_ZN79_$LT$polars_arrow..datatypes..A
   ]
 
 7:                                                ; preds = %14, %138, %126, %108, %114, %96, %72, %8, %6, %2, %144, %132, %120, %102, %78, %20, %156, %150, %90, %84, %66, %60, %54, %48, %42, %36
-  %.sroa.0.0.shrunk = phi i1 [ %35, %20 ], [ %41, %36 ], [ %47, %42 ], [ %53, %48 ], [ %59, %54 ], [ %65, %60 ], [ %71, %66 ], [ %83, %78 ], [ %89, %84 ], [ %95, %90 ], [ %107, %102 ], [ %125, %120 ], [ %137, %132 ], [ %149, %144 ], [ %155, %150 ], [ %161, %156 ], [ false, %2 ], [ true, %6 ], [ false, %8 ], [ false, %72 ], [ false, %96 ], [ false, %114 ], [ false, %108 ], [ false, %126 ], [ false, %138 ], [ %.mux, %14 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ %35, %20 ], [ false, %8 ], [ false, %114 ], [ true, %6 ], [ %41, %36 ], [ %47, %42 ], [ %53, %48 ], [ %59, %54 ], [ %65, %60 ], [ %71, %66 ], [ %83, %78 ], [ %.mux, %14 ], [ %89, %84 ], [ %95, %90 ], [ %107, %102 ], [ false, %72 ], [ %125, %120 ], [ false, %96 ], [ %137, %132 ], [ false, %108 ], [ %149, %144 ], [ false, %126 ], [ %155, %150 ], [ %161, %156 ], [ false, %138 ]
   ret i1 %.sroa.0.0.shrunk
 
 8:                                                ; preds = %6
@@ -23838,7 +23838,7 @@ define internal fastcc noundef zeroext i1 @"_ZN79_$LT$polars_arrow..datatypes..E
   br i1 %brmerge, label %30, label %31
 
 30:                                               ; preds = %24, %2, %22, %31
-  %.sroa.0.0.shrunk = phi i1 [ %46, %31 ], [ false, %22 ], [ false, %2 ], [ %.mux, %24 ]
+  %.sroa.0.0.shrunk = phi i1 [ %46, %31 ], [ false, %2 ], [ %.mux, %24 ], [ false, %22 ]
   ret i1 %.sroa.0.0.shrunk
 
 31:                                               ; preds = %24
@@ -24666,7 +24666,7 @@ define internal { ptr, ptr } @"_ZN88_$LT$polars_arrow..array..struct_..StructArr
   unreachable
 
 .body.i:                                          ; preds = %45, %42
-  %eh.lpad-body.i = phi { ptr, i32 } [ %43, %42 ], [ %46, %45 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %46, %45 ], [ %43, %42 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$polars_arrow..array..struct_..StructArray$GT$17h456d6b397af06cfdE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %8) #24
           to label %.body unwind label %49, !noalias !1469
 
@@ -24713,7 +24713,7 @@ define internal { ptr, ptr } @"_ZN88_$LT$polars_arrow..array..struct_..StructArr
   ret { ptr, ptr } %62
 
 .body:                                            ; preds = %63, %66, %56, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %57, %56 ], [ %eh.lpad-body.ph, %66 ], [ %eh.lpad-body.ph, %63 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %57, %56 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %66 ], [ %eh.lpad-body.ph, %63 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 63:                                               ; preds = %11, %25
@@ -25227,7 +25227,7 @@ define internal { ptr, ptr } @"_ZN89_$LT$polars_arrow..array..boolean..BooleanAr
   unreachable
 
 .body.i:                                          ; preds = %45, %42
-  %eh.lpad-body.i = phi { ptr, i32 } [ %43, %42 ], [ %46, %45 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %46, %45 ], [ %43, %42 ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$polars_arrow..array..boolean..BooleanArray$GT$17h07c3fb0ecd0b6c6aE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %8) #24
           to label %.body unwind label %49, !noalias !1512
 
@@ -25274,7 +25274,7 @@ define internal { ptr, ptr } @"_ZN89_$LT$polars_arrow..array..boolean..BooleanAr
   ret { ptr, ptr } %62
 
 .body:                                            ; preds = %63, %66, %56, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %57, %56 ], [ %eh.lpad-body.ph, %66 ], [ %eh.lpad-body.ph, %63 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %57, %56 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %66 ], [ %eh.lpad-body.ph, %63 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 63:                                               ; preds = %11, %23
@@ -25856,7 +25856,7 @@ define internal { ptr, ptr } @"_ZN92_$LT$polars_arrow..array..list..ListArray$LT
   unreachable
 
 .body.i:                                          ; preds = %28, %25
-  %eh.lpad-body.i = phi { ptr, i32 } [ %26, %25 ], [ %29, %28 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %29, %28 ], [ %26, %25 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_arrow..array..list..ListArray$LT$i64$GT$$GT$17h6e291e38512bc704E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %5) #24
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit" unwind label %32, !noalias !1558
 
@@ -25903,7 +25903,7 @@ define internal { ptr, ptr } @"_ZN92_$LT$polars_arrow..array..list..ListArray$LT
   ret { ptr, ptr } %45
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit": ; preds = %39, %.body.i, %46, %50
-  %eh.lpad-body8 = phi { ptr, i32 } [ %47, %50 ], [ %47, %46 ], [ %eh.lpad-body.i, %.body.i ], [ %40, %39 ]
+  %eh.lpad-body8 = phi { ptr, i32 } [ %47, %46 ], [ %47, %50 ], [ %eh.lpad-body.i, %.body.i ], [ %40, %39 ]
   resume { ptr, i32 } %eh.lpad-body8
 
 46:                                               ; preds = %2
@@ -26002,7 +26002,7 @@ define internal { ptr, ptr } @"_ZN92_$LT$polars_arrow..array..list..ListArray$LT
   unreachable
 
 .body.i:                                          ; preds = %28, %25
-  %eh.lpad-body.i = phi { ptr, i32 } [ %26, %25 ], [ %29, %28 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %29, %28 ], [ %26, %25 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_arrow..array..list..ListArray$LT$i32$GT$$GT$17hbac4b70d807de38fE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %5) #24
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit" unwind label %32, !noalias !1585
 
@@ -26049,7 +26049,7 @@ define internal { ptr, ptr } @"_ZN92_$LT$polars_arrow..array..list..ListArray$LT
   ret { ptr, ptr } %45
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit": ; preds = %39, %.body.i, %46, %50
-  %eh.lpad-body8 = phi { ptr, i32 } [ %47, %50 ], [ %47, %46 ], [ %eh.lpad-body.i, %.body.i ], [ %40, %39 ]
+  %eh.lpad-body8 = phi { ptr, i32 } [ %47, %46 ], [ %47, %50 ], [ %eh.lpad-body.i, %.body.i ], [ %40, %39 ]
   resume { ptr, i32 } %eh.lpad-body8
 
 46:                                               ; preds = %2
@@ -26709,7 +26709,7 @@ define internal { ptr, ptr } @"_ZN96_$LT$polars_arrow..array..binary..BinaryArra
   unreachable
 
 .body.i:                                          ; preds = %28, %25
-  %eh.lpad-body.i = phi { ptr, i32 } [ %26, %25 ], [ %29, %28 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %29, %28 ], [ %26, %25 ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$polars_arrow..array..binary..BinaryArray$LT$i64$GT$$GT$17h32bafe70a694ba71E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %5) #24
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit" unwind label %32, !noalias !1642
 
@@ -26756,7 +26756,7 @@ define internal { ptr, ptr } @"_ZN96_$LT$polars_arrow..array..binary..BinaryArra
   ret { ptr, ptr } %45
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h787f44530e921c54E.exit": ; preds = %39, %.body.i, %46, %50
-  %eh.lpad-body8 = phi { ptr, i32 } [ %47, %50 ], [ %47, %46 ], [ %eh.lpad-body.i, %.body.i ], [ %40, %39 ]
+  %eh.lpad-body8 = phi { ptr, i32 } [ %47, %46 ], [ %47, %50 ], [ %eh.lpad-body.i, %.body.i ], [ %40, %39 ]
   resume { ptr, i32 } %eh.lpad-body8
 
 46:                                               ; preds = %2
@@ -28714,8 +28714,8 @@ _ZN14allocator_api26stable5alloc6global6Global10alloc_impl17h8a6228f21be844a3E.e
   br label %62
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h41355c394c2688a6E.exit.thread: ; preds = %46, %40
-  %.sroa.7.010 = phi i64 [ 16, %46 ], [ 0, %40 ]
-  %.sroa.11.09 = phi i64 [ %35, %46 ], [ undef, %40 ]
+  %.sroa.7.010 = phi i64 [ 0, %40 ], [ 16, %46 ]
+  %.sroa.11.09 = phi i64 [ undef, %40 ], [ %35, %46 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7.010, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -29210,8 +29210,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -29683,8 +29683,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -30156,8 +30156,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -30629,8 +30629,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -31102,8 +31102,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -31575,8 +31575,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -32048,8 +32048,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -32521,8 +32521,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -32994,8 +32994,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -33467,8 +33467,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -33940,8 +33940,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -34413,8 +34413,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -34886,8 +34886,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -35359,8 +35359,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -35832,8 +35832,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -36305,8 +36305,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -36778,8 +36778,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -37251,8 +37251,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -37724,8 +37724,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -38197,8 +38197,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -38670,8 +38670,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -39143,8 +39143,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -39616,8 +39616,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -40089,8 +40089,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -40562,8 +40562,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -41035,8 +41035,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -41508,8 +41508,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -41981,8 +41981,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -42454,8 +42454,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -42927,8 +42927,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -43400,8 +43400,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -43873,8 +43873,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -44346,8 +44346,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -44819,8 +44819,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -45292,8 +45292,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -45765,8 +45765,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -46238,8 +46238,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -46711,8 +46711,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -47184,8 +47184,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -47657,8 +47657,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -48130,8 +48130,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -48603,8 +48603,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -49076,8 +49076,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -49549,8 +49549,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -50022,8 +50022,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -50495,8 +50495,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -50968,8 +50968,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -51441,8 +51441,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -51914,8 +51914,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -52387,8 +52387,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -52860,8 +52860,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -53333,8 +53333,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -53806,8 +53806,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -54279,8 +54279,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -54752,8 +54752,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -55225,8 +55225,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -55698,8 +55698,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -56171,8 +56171,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -56644,8 +56644,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -57117,8 +57117,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -57590,8 +57590,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -58063,8 +58063,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -58536,8 +58536,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -59009,8 +59009,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -59482,8 +59482,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -59955,8 +59955,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -60428,8 +60428,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -60934,8 +60934,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %32, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %23, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %23 ], [ %31, %32 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %23 ], [ %29, %32 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %23 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %31, %32 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %23 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %29, %32 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %242 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %243 = insertvalue { i64, i64 } %242, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %243
@@ -61407,8 +61407,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -61880,8 +61880,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -62353,8 +62353,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -62826,8 +62826,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -63299,8 +63299,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -63772,8 +63772,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -64245,8 +64245,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -64718,8 +64718,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -65191,8 +65191,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -65664,8 +65664,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -66137,8 +66137,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -66610,8 +66610,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -67083,8 +67083,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -67556,8 +67556,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -68029,8 +68029,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -68502,8 +68502,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -68975,8 +68975,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -69448,8 +69448,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -69921,8 +69921,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -70394,8 +70394,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -70867,8 +70867,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -71340,8 +71340,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -71813,8 +71813,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -72286,8 +72286,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -72759,8 +72759,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -73232,8 +73232,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -73705,8 +73705,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -74178,8 +74178,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -74651,8 +74651,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -75124,8 +75124,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -75597,8 +75597,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -76070,8 +76070,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -76543,8 +76543,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -77016,8 +77016,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -77489,8 +77489,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -77962,8 +77962,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -78435,8 +78435,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -78908,8 +78908,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -79381,8 +79381,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -79854,8 +79854,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -80327,8 +80327,8 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i: ; 
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h2eb8f3f271349053E.exit: ; preds = %31, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit", %22, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i
-  %.sroa.4.0.i = phi i64 [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ undef, %22 ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
-  %.sroa.0.0.i = phi i64 [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ 0, %22 ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.4.0.i = phi i64 [ undef, %22 ], [ undef, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %30, %31 ], [ undef, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
+  %.sroa.0.0.i = phi i64 [ 0, %22 ], [ -9223372036854775807, %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc641d3737e4abd95E.exit.i ], [ %28, %31 ], [ -9223372036854775807, %"_ZN4core3ptr221drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$allocator_api2..stable..alloc..global..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h27a65f7935961e02E.exit" ]
   %214 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %215 = insertvalue { i64, i64 } %214, i64 %.sroa.4.0.i, 1
   ret { i64, i64 } %215
@@ -80584,7 +80584,7 @@ define hidden void @_ZN14polars_compute4cast9binary_to23binary_to_primitive_dyn1
           to label %common.resume unwind label %49, !noalias !6541
 
 common.resume:                                    ; preds = %71, %51, %57, %60, %63
-  %common.resume.op = phi { ptr, i32 } [ %48, %51 ], [ %54, %57 ], [ %54, %60 ], [ %64, %63 ], [ %72, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %54, %60 ], [ %48, %51 ], [ %54, %57 ], [ %72, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17he20c69a958a7f20dE.exit.i.i: ; preds = %.noexc.i.i.i
@@ -80820,7 +80820,7 @@ define hidden void @_ZN14polars_compute4cast9binary_to23binary_to_primitive_dyn1
           to label %common.resume unwind label %49, !noalias !6575
 
 common.resume:                                    ; preds = %71, %51, %57, %60, %63
-  %common.resume.op = phi { ptr, i32 } [ %48, %51 ], [ %54, %57 ], [ %54, %60 ], [ %64, %63 ], [ %72, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %54, %60 ], [ %48, %51 ], [ %54, %57 ], [ %72, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17h6dd223501e418776E.exit.i.i: ; preds = %.noexc.i.i.i
@@ -81056,7 +81056,7 @@ define hidden void @_ZN14polars_compute4cast9binary_to23binary_to_primitive_dyn1
           to label %common.resume unwind label %49, !noalias !6609
 
 common.resume:                                    ; preds = %71, %51, %57, %60, %63
-  %common.resume.op = phi { ptr, i32 } [ %48, %51 ], [ %54, %57 ], [ %54, %60 ], [ %64, %63 ], [ %72, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %54, %60 ], [ %48, %51 ], [ %54, %57 ], [ %72, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17h3c6eb315019ceeb9E.exit.i.i: ; preds = %.noexc.i.i.i
@@ -81292,7 +81292,7 @@ define hidden void @_ZN14polars_compute4cast9binary_to23binary_to_primitive_dyn1
           to label %common.resume unwind label %49, !noalias !6643
 
 common.resume:                                    ; preds = %71, %51, %57, %60, %63
-  %common.resume.op = phi { ptr, i32 } [ %48, %51 ], [ %54, %57 ], [ %54, %60 ], [ %64, %63 ], [ %72, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %54, %60 ], [ %48, %51 ], [ %54, %57 ], [ %72, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17h05bff2f37918ff1cE.exit.i.i: ; preds = %.noexc.i.i.i
@@ -81528,7 +81528,7 @@ define hidden void @_ZN14polars_compute4cast9binary_to23binary_to_primitive_dyn1
           to label %common.resume unwind label %49, !noalias !6677
 
 common.resume:                                    ; preds = %71, %51, %57, %60, %63
-  %common.resume.op = phi { ptr, i32 } [ %48, %51 ], [ %54, %57 ], [ %54, %60 ], [ %64, %63 ], [ %72, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %54, %60 ], [ %48, %51 ], [ %54, %57 ], [ %72, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17h26fe8e86f09b397dE.exit.i.i: ; preds = %.noexc.i.i.i
@@ -81764,7 +81764,7 @@ define hidden void @_ZN14polars_compute4cast9binary_to23binary_to_primitive_dyn1
           to label %common.resume unwind label %49, !noalias !6711
 
 common.resume:                                    ; preds = %71, %51, %57, %60, %63
-  %common.resume.op = phi { ptr, i32 } [ %48, %51 ], [ %54, %57 ], [ %54, %60 ], [ %64, %63 ], [ %72, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %54, %60 ], [ %48, %51 ], [ %54, %57 ], [ %72, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17he80c74c816972714E.exit.i.i: ; preds = %.noexc.i.i.i
@@ -82000,7 +82000,7 @@ define hidden void @_ZN14polars_compute4cast9binary_to23binary_to_primitive_dyn1
           to label %common.resume unwind label %49, !noalias !6745
 
 common.resume:                                    ; preds = %71, %51, %57, %60, %63
-  %common.resume.op = phi { ptr, i32 } [ %48, %51 ], [ %54, %57 ], [ %54, %60 ], [ %64, %63 ], [ %72, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %54, %60 ], [ %48, %51 ], [ %54, %57 ], [ %72, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17hfe04a783568bf3bdE.exit.i.i: ; preds = %.noexc.i.i.i
@@ -82236,7 +82236,7 @@ define hidden void @_ZN14polars_compute4cast9binary_to23binary_to_primitive_dyn1
           to label %common.resume unwind label %49, !noalias !6779
 
 common.resume:                                    ; preds = %71, %51, %57, %60, %63
-  %common.resume.op = phi { ptr, i32 } [ %48, %51 ], [ %54, %57 ], [ %54, %60 ], [ %64, %63 ], [ %72, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %54, %60 ], [ %48, %51 ], [ %54, %57 ], [ %72, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17hce4c404d7ee864f2E.exit.i.i: ; preds = %.noexc.i.i.i
@@ -82472,7 +82472,7 @@ define hidden void @_ZN14polars_compute4cast9binary_to23binary_to_primitive_dyn1
           to label %common.resume unwind label %49, !noalias !6813
 
 common.resume:                                    ; preds = %71, %51, %57, %60, %63
-  %common.resume.op = phi { ptr, i32 } [ %48, %51 ], [ %54, %57 ], [ %54, %60 ], [ %64, %63 ], [ %72, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %54, %60 ], [ %48, %51 ], [ %54, %57 ], [ %72, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17h5d44247dfca57275E.exit.i.i: ; preds = %.noexc.i.i.i
@@ -82708,7 +82708,7 @@ define hidden void @_ZN14polars_compute4cast9binary_to23binary_to_primitive_dyn1
           to label %common.resume unwind label %49, !noalias !6847
 
 common.resume:                                    ; preds = %71, %51, %57, %60, %63
-  %common.resume.op = phi { ptr, i32 } [ %48, %51 ], [ %54, %57 ], [ %54, %60 ], [ %64, %63 ], [ %72, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %54, %60 ], [ %48, %51 ], [ %54, %57 ], [ %72, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17h0cd129fe0e8641a0E.exit.i.i: ; preds = %.noexc.i.i.i
@@ -82944,7 +82944,7 @@ define hidden void @_ZN14polars_compute4cast9binary_to23binary_to_primitive_dyn1
           to label %common.resume unwind label %49, !noalias !6881
 
 common.resume:                                    ; preds = %71, %51, %57, %60, %63
-  %common.resume.op = phi { ptr, i32 } [ %48, %51 ], [ %54, %57 ], [ %54, %60 ], [ %64, %63 ], [ %72, %71 ]
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %54, %60 ], [ %48, %51 ], [ %54, %57 ], [ %72, %71 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17h66754a3a505a5e17E.exit.i.i: ; preds = %.noexc.i.i.i
@@ -86649,7 +86649,7 @@ define hidden void @_ZN14polars_compute4cast10binview_to14view_to_binary17hae6b3
   unreachable
 
 .body.i:                                          ; preds = %83, %80
-  %eh.lpad-body.i = phi { ptr, i32 } [ %81, %80 ], [ %84, %83 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %84, %83 ], [ %81, %80 ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$polars_arrow..array..binary..BinaryArray$LT$i64$GT$$GT$17h32bafe70a694ba71E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %6) #24
           to label %.thread unwind label %87, !noalias !7054
 
@@ -86680,7 +86680,7 @@ define hidden void @_ZN14polars_compute4cast10binview_to14view_to_binary17hae6b3
   unreachable
 
 .thread:                                          ; preds = %.body.i, %90, %94
-  %.pn14 = phi { ptr, i32 } [ %lpad.thr_comm, %94 ], [ %91, %90 ], [ %eh.lpad-body.i, %.body.i ]
+  %.pn14 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %lpad.thr_comm, %94 ], [ %91, %90 ]
   resume { ptr, i32 } %.pn14
 
 94:                                               ; preds = %45, %56
@@ -86956,7 +86956,7 @@ define hidden void @_ZN14polars_compute4cast10binview_to24binview_to_primitive_d
           to label %common.resume unwind label %48, !noalias !7071
 
 common.resume:                                    ; preds = %70, %50, %56, %59, %62
-  %common.resume.op = phi { ptr, i32 } [ %47, %50 ], [ %53, %56 ], [ %53, %59 ], [ %63, %62 ], [ %71, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %53, %59 ], [ %47, %50 ], [ %53, %56 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17ha155b4d298f3b5e4E.exit.i.i: ; preds = %.noexc.i.i.i
@@ -87191,7 +87191,7 @@ define hidden void @_ZN14polars_compute4cast10binview_to24binview_to_primitive_d
           to label %common.resume unwind label %48, !noalias !7105
 
 common.resume:                                    ; preds = %70, %50, %56, %59, %62
-  %common.resume.op = phi { ptr, i32 } [ %47, %50 ], [ %53, %56 ], [ %53, %59 ], [ %63, %62 ], [ %71, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %53, %59 ], [ %47, %50 ], [ %53, %56 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17h4834c4ca07db36aeE.exit.i.i: ; preds = %.noexc.i.i.i
@@ -87426,7 +87426,7 @@ define hidden void @_ZN14polars_compute4cast10binview_to24binview_to_primitive_d
           to label %common.resume unwind label %48, !noalias !7139
 
 common.resume:                                    ; preds = %70, %50, %56, %59, %62
-  %common.resume.op = phi { ptr, i32 } [ %47, %50 ], [ %53, %56 ], [ %53, %59 ], [ %63, %62 ], [ %71, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %53, %59 ], [ %47, %50 ], [ %53, %56 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17h19876b71c38df008E.exit.i.i: ; preds = %.noexc.i.i.i
@@ -87661,7 +87661,7 @@ define hidden void @_ZN14polars_compute4cast10binview_to24binview_to_primitive_d
           to label %common.resume unwind label %48, !noalias !7173
 
 common.resume:                                    ; preds = %70, %50, %56, %59, %62
-  %common.resume.op = phi { ptr, i32 } [ %47, %50 ], [ %53, %56 ], [ %53, %59 ], [ %63, %62 ], [ %71, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %53, %59 ], [ %47, %50 ], [ %53, %56 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17h0c7dfd0292a3cdc1E.exit.i.i: ; preds = %.noexc.i.i.i
@@ -87896,7 +87896,7 @@ define hidden void @_ZN14polars_compute4cast10binview_to24binview_to_primitive_d
           to label %common.resume unwind label %48, !noalias !7207
 
 common.resume:                                    ; preds = %70, %50, %56, %59, %62
-  %common.resume.op = phi { ptr, i32 } [ %47, %50 ], [ %53, %56 ], [ %53, %59 ], [ %63, %62 ], [ %71, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %53, %59 ], [ %47, %50 ], [ %53, %56 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17h7e58b67d66ba846eE.exit.i.i: ; preds = %.noexc.i.i.i
@@ -88131,7 +88131,7 @@ define hidden void @_ZN14polars_compute4cast10binview_to24binview_to_primitive_d
           to label %common.resume unwind label %48, !noalias !7241
 
 common.resume:                                    ; preds = %70, %50, %56, %59, %62
-  %common.resume.op = phi { ptr, i32 } [ %47, %50 ], [ %53, %56 ], [ %53, %59 ], [ %63, %62 ], [ %71, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %53, %59 ], [ %47, %50 ], [ %53, %56 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17hf7c5c84215eca300E.exit.i.i: ; preds = %.noexc.i.i.i
@@ -88366,7 +88366,7 @@ define hidden void @_ZN14polars_compute4cast10binview_to24binview_to_primitive_d
           to label %common.resume unwind label %48, !noalias !7275
 
 common.resume:                                    ; preds = %70, %50, %56, %59, %62
-  %common.resume.op = phi { ptr, i32 } [ %47, %50 ], [ %53, %56 ], [ %53, %59 ], [ %63, %62 ], [ %71, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %53, %59 ], [ %47, %50 ], [ %53, %56 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17h81bd056d773340e5E.exit.i.i: ; preds = %.noexc.i.i.i
@@ -88601,7 +88601,7 @@ define hidden void @_ZN14polars_compute4cast10binview_to24binview_to_primitive_d
           to label %common.resume unwind label %48, !noalias !7309
 
 common.resume:                                    ; preds = %70, %50, %56, %59, %62
-  %common.resume.op = phi { ptr, i32 } [ %47, %50 ], [ %53, %56 ], [ %53, %59 ], [ %63, %62 ], [ %71, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %53, %59 ], [ %47, %50 ], [ %53, %56 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17ha9b6f30e5b15b985E.exit.i.i: ; preds = %.noexc.i.i.i
@@ -88836,7 +88836,7 @@ define hidden void @_ZN14polars_compute4cast10binview_to24binview_to_primitive_d
           to label %common.resume unwind label %48, !noalias !7343
 
 common.resume:                                    ; preds = %70, %50, %56, %59, %62
-  %common.resume.op = phi { ptr, i32 } [ %47, %50 ], [ %53, %56 ], [ %53, %59 ], [ %63, %62 ], [ %71, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %53, %59 ], [ %47, %50 ], [ %53, %56 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17h8545e7768a6f6addE.exit.i.i: ; preds = %.noexc.i.i.i
@@ -89071,7 +89071,7 @@ define hidden void @_ZN14polars_compute4cast10binview_to24binview_to_primitive_d
           to label %common.resume unwind label %48, !noalias !7377
 
 common.resume:                                    ; preds = %70, %50, %56, %59, %62
-  %common.resume.op = phi { ptr, i32 } [ %47, %50 ], [ %53, %56 ], [ %53, %59 ], [ %63, %62 ], [ %71, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %53, %59 ], [ %47, %50 ], [ %53, %56 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17hd11690c8e19d09c4E.exit.i.i: ; preds = %.noexc.i.i.i
@@ -89306,7 +89306,7 @@ define hidden void @_ZN14polars_compute4cast10binview_to24binview_to_primitive_d
           to label %common.resume unwind label %48, !noalias !7411
 
 common.resume:                                    ; preds = %70, %50, %56, %59, %62
-  %common.resume.op = phi { ptr, i32 } [ %47, %50 ], [ %53, %56 ], [ %53, %59 ], [ %63, %62 ], [ %71, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %63, %62 ], [ %53, %59 ], [ %47, %50 ], [ %53, %56 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow5array9primitive7mutable17trusted_len_unzip17he0a0f5e42397ba8cE.exit.i.i: ; preds = %.noexc.i.i.i
@@ -89571,7 +89571,7 @@ _ZN14polars_compute4cast8temporal26chrono_tz_utf_to_timestamp17h76cc48308414b180
   unreachable
 
 .thread:                                          ; preds = %50, %.body, %58
-  %.pn9 = phi { ptr, i32 } [ %59, %58 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %50 ]
+  %.pn9 = phi { ptr, i32 } [ %eh.lpad-body, %50 ], [ %59, %58 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn9
 
 58:                                               ; preds = %6
@@ -94440,7 +94440,7 @@ define { ptr, ptr } @_ZN14polars_compute6filter18filter_with_bitmap17h57cfd34f58
           to label %109 unwind label %107
 
 .body195:                                         ; preds = %219, %227, %154, %162, %107, %.critedge
-  %.pn116 = phi { ptr, i32 } [ %.pn112, %.critedge ], [ %108, %107 ], [ %155, %162 ], [ %155, %154 ], [ %220, %227 ], [ %220, %219 ]
+  %.pn116 = phi { ptr, i32 } [ %.pn112, %.critedge ], [ %155, %154 ], [ %108, %107 ], [ %155, %162 ], [ %220, %227 ], [ %220, %219 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$polars_arrow..bitmap..immutable..Bitmap$GT$17hce9122253bbababcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %105) #24
           to label %926 unwind label %232
 
@@ -94468,7 +94468,7 @@ define { ptr, ptr } @_ZN14polars_compute6filter18filter_with_bitmap17h57cfd34f58
           to label %124 unwind label %122
 
 .critedge:                                        ; preds = %782, %775, %757, %772, %726, %.thread324, %803, %788, %791, %679, %683, %674, %.body163, %646, %650, %641, %.body147, %613, %617, %608, %.body, %580, %584, %575, %.body159, %547, %551, %542, %.body161, %514, %518, %509, %.body165, %481, %485, %476, %.body171, %448, %452, %443, %.body151, %415, %419, %410, %.body155, %382, %386, %377, %.body167, %349, %353, %344, %.body153, %316, %320, %310, %.body149, %.thread, %921, %735, %.noexc253, %.noexc, %122
-  %.pn112 = phi { ptr, i32 } [ %123, %122 ], [ %lpad.phi, %921 ], [ %lpad.thr_comm.split-lp359, %803 ], [ %lpad.thr_comm.split-lp, %.noexc ], [ %306, %.body149 ], [ %340, %.body153 ], [ %373, %.body167 ], [ %406, %.body155 ], [ %439, %.body151 ], [ %472, %.body171 ], [ %505, %.body165 ], [ %538, %.body161 ], [ %571, %.body159 ], [ %604, %.body ], [ %637, %.body147 ], [ %670, %.body163 ], [ %.pn84323, %735 ], [ %.pn84323, %.noexc253 ], [ %lpad.thr_comm, %.thread ], [ %311, %310 ], [ %317, %320 ], [ %317, %316 ], [ %345, %344 ], [ %350, %353 ], [ %350, %349 ], [ %378, %377 ], [ %383, %386 ], [ %383, %382 ], [ %411, %410 ], [ %416, %419 ], [ %416, %415 ], [ %444, %443 ], [ %449, %452 ], [ %449, %448 ], [ %477, %476 ], [ %482, %485 ], [ %482, %481 ], [ %510, %509 ], [ %515, %518 ], [ %515, %514 ], [ %543, %542 ], [ %548, %551 ], [ %548, %547 ], [ %576, %575 ], [ %581, %584 ], [ %581, %580 ], [ %609, %608 ], [ %614, %617 ], [ %614, %613 ], [ %642, %641 ], [ %647, %650 ], [ %647, %646 ], [ %675, %674 ], [ %680, %683 ], [ %680, %679 ], [ %lpad.thr_comm345, %791 ], [ %lpad.thr_comm345, %788 ], [ %lpad.thr_comm.split-lp334, %.thread324 ], [ %727, %726 ], [ %lpad.thr_comm.split-lp346, %757 ], [ %773, %772 ], [ %776, %775 ], [ %783, %782 ]
+  %.pn112 = phi { ptr, i32 } [ %123, %122 ], [ %lpad.phi, %921 ], [ %lpad.thr_comm.split-lp359, %803 ], [ %lpad.thr_comm.split-lp, %.noexc ], [ %lpad.thr_comm, %.thread ], [ %311, %310 ], [ %306, %.body149 ], [ %345, %344 ], [ %340, %.body153 ], [ %378, %377 ], [ %373, %.body167 ], [ %411, %410 ], [ %406, %.body155 ], [ %444, %443 ], [ %439, %.body151 ], [ %477, %476 ], [ %472, %.body171 ], [ %510, %509 ], [ %505, %.body165 ], [ %543, %542 ], [ %538, %.body161 ], [ %576, %575 ], [ %571, %.body159 ], [ %609, %608 ], [ %604, %.body ], [ %642, %641 ], [ %637, %.body147 ], [ %675, %674 ], [ %670, %.body163 ], [ %.pn84323, %735 ], [ %.pn84323, %.noexc253 ], [ %lpad.thr_comm345, %788 ], [ %727, %726 ], [ %317, %320 ], [ %317, %316 ], [ %350, %353 ], [ %350, %349 ], [ %383, %386 ], [ %383, %382 ], [ %416, %419 ], [ %416, %415 ], [ %449, %452 ], [ %449, %448 ], [ %482, %485 ], [ %482, %481 ], [ %515, %518 ], [ %515, %514 ], [ %548, %551 ], [ %548, %547 ], [ %581, %584 ], [ %581, %580 ], [ %614, %617 ], [ %614, %613 ], [ %647, %650 ], [ %647, %646 ], [ %680, %683 ], [ %680, %679 ], [ %lpad.thr_comm345, %791 ], [ %lpad.thr_comm.split-lp334, %.thread324 ], [ %lpad.thr_comm.split-lp346, %757 ], [ %773, %772 ], [ %776, %775 ], [ %783, %782 ]
   %121 = icmp ne ptr %119, null
   call void @llvm.assume(i1 %121)
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %118, ptr nonnull %119) #24
@@ -96048,7 +96048,7 @@ define { ptr, ptr } @_ZN14polars_compute6filter18filter_with_bitmap17h57cfd34f58
           to label %754 unwind label %122
 
 .invoke:                                          ; preds = %741, %689, %656, %623, %590, %557, %524, %491, %458, %425, %392, %359, %326, %292, %187
-  %753 = phi ptr [ @anon.ea237b04ddb17f09807800ed703f3a93.393, %187 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %292 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %326 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %359 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %392 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %425 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %458 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %491 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %524 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %557 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %590 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %623 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %656 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.398, %689 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.400, %741 ]
+  %753 = phi ptr [ @anon.ea237b04ddb17f09807800ed703f3a93.398, %689 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %656 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %623 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %590 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %557 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %524 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %491 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %458 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %425 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %392 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %359 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %326 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.394, %292 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.393, %187 ], [ @anon.ea237b04ddb17f09807800ed703f3a93.400, %741 ]
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %753) #26
           to label %.cont unwind label %122
 
@@ -96317,18 +96317,18 @@ define { ptr, ptr } @_ZN14polars_compute6filter18filter_with_bitmap17h57cfd34f58
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.thread82.i, %876, %867, %.backedge.sink.split.i, %842
-  %853 = phi ptr [ %830, %867 ], [ %830, %842 ], [ %830, %876 ], [ %820, %.backedge.sink.split.i ], [ %830, %.thread82.i ]
-  %854 = phi ptr [ %829, %867 ], [ %829, %842 ], [ %829, %876 ], [ %852, %.backedge.sink.split.i ], [ %829, %.thread82.i ]
-  %855 = phi i8 [ %828, %867 ], [ %828, %842 ], [ %877, %876 ], [ %849, %.backedge.sink.split.i ], [ 1, %.thread82.i ]
-  %856 = phi i64 [ %827, %867 ], [ %827, %842 ], [ %878, %876 ], [ %850, %.backedge.sink.split.i ], [ %819, %.thread82.i ]
-  %857 = phi i8 [ %826, %867 ], [ %826, %842 ], [ %879, %876 ], [ %851, %.backedge.sink.split.i ], [ 2, %.thread82.i ]
-  %858 = phi i8 [ %825, %867 ], [ %825, %842 ], [ %880, %876 ], [ %.ph.i, %.backedge.sink.split.i ], [ 1, %.thread82.i ]
-  %859 = phi ptr [ %824, %867 ], [ %824, %842 ], [ %824, %876 ], [ %820, %.backedge.sink.split.i ], [ %824, %.thread82.i ]
-  %860 = phi i8 [ 1, %867 ], [ 0, %842 ], [ %881, %876 ], [ %.ph113.i, %.backedge.sink.split.i ], [ 1, %.thread82.i ]
-  %861 = phi i8 [ 1, %867 ], [ 1, %842 ], [ %879, %876 ], [ %.ph114.i, %.backedge.sink.split.i ], [ 2, %.thread82.i ]
-  %862 = phi i64 [ %.sroa.0.0.sroa.speculated.i17.i, %867 ], [ %.sroa.0.0.sroa.speculated.i.i, %842 ], [ %882, %876 ], [ %.ph115.i, %.backedge.sink.split.i ], [ 1, %.thread82.i ]
-  %863 = phi i64 [ %821, %867 ], [ %821, %842 ], [ %883, %876 ], [ %.ph116.i, %.backedge.sink.split.i ], [ %819, %.thread82.i ]
-  %864 = phi ptr [ %820, %867 ], [ %820, %842 ], [ %820, %876 ], [ %852, %.backedge.sink.split.i ], [ %820, %.thread82.i ]
+  %853 = phi ptr [ %830, %876 ], [ %830, %867 ], [ %830, %842 ], [ %820, %.backedge.sink.split.i ], [ %830, %.thread82.i ]
+  %854 = phi ptr [ %829, %876 ], [ %829, %867 ], [ %829, %842 ], [ %852, %.backedge.sink.split.i ], [ %829, %.thread82.i ]
+  %855 = phi i8 [ %877, %876 ], [ %828, %867 ], [ %828, %842 ], [ %849, %.backedge.sink.split.i ], [ 1, %.thread82.i ]
+  %856 = phi i64 [ %878, %876 ], [ %827, %867 ], [ %827, %842 ], [ %850, %.backedge.sink.split.i ], [ %819, %.thread82.i ]
+  %857 = phi i8 [ %879, %876 ], [ %826, %867 ], [ %826, %842 ], [ %851, %.backedge.sink.split.i ], [ 2, %.thread82.i ]
+  %858 = phi i8 [ %880, %876 ], [ %825, %867 ], [ %825, %842 ], [ %.ph.i, %.backedge.sink.split.i ], [ 1, %.thread82.i ]
+  %859 = phi ptr [ %824, %876 ], [ %824, %867 ], [ %824, %842 ], [ %820, %.backedge.sink.split.i ], [ %824, %.thread82.i ]
+  %860 = phi i8 [ %881, %876 ], [ 1, %867 ], [ 0, %842 ], [ %.ph113.i, %.backedge.sink.split.i ], [ 1, %.thread82.i ]
+  %861 = phi i8 [ %879, %876 ], [ 1, %867 ], [ 1, %842 ], [ %.ph114.i, %.backedge.sink.split.i ], [ 2, %.thread82.i ]
+  %862 = phi i64 [ %882, %876 ], [ %.sroa.0.0.sroa.speculated.i17.i, %867 ], [ %.sroa.0.0.sroa.speculated.i.i, %842 ], [ %.ph115.i, %.backedge.sink.split.i ], [ 1, %.thread82.i ]
+  %863 = phi i64 [ %883, %876 ], [ %821, %867 ], [ %821, %842 ], [ %.ph116.i, %.backedge.sink.split.i ], [ %819, %.thread82.i ]
+  %864 = phi ptr [ %820, %876 ], [ %820, %867 ], [ %820, %842 ], [ %852, %.backedge.sink.split.i ], [ %820, %.thread82.i ]
   %865 = add i64 %863, %862
   %866 = icmp eq i64 %865, %811
   br i1 %866, label %._crit_edge, label %.lr.ph
@@ -96401,8 +96401,8 @@ define { ptr, ptr } @_ZN14polars_compute6filter18filter_with_bitmap17h57cfd34f58
   br i1 %896, label %.lr.ph.i, label %.loopexit396
 
 .lr.ph.i:                                         ; preds = %895, %891, %885, %.thread86.i, %._crit_edge
-  %.lcssa110.sink.i = phi i64 [ %821, %.thread86.i ], [ %821, %885 ], [ %821, %891 ], [ %883, %895 ], [ %.lcssa404, %._crit_edge ]
-  %.lcssa111.sink.i = phi i64 [ %.sroa.0.0.sroa.speculated.i17.i431450, %.thread86.i ], [ %.sroa.0.0.sroa.speculated.i17.i431450, %885 ], [ %.sroa.0.0.sroa.speculated.i17.i431450, %891 ], [ %882, %895 ], [ %.lcssa408, %._crit_edge ]
+  %.lcssa110.sink.i = phi i64 [ %821, %885 ], [ %883, %895 ], [ %821, %.thread86.i ], [ %821, %891 ], [ %.lcssa404, %._crit_edge ]
+  %.lcssa111.sink.i = phi i64 [ %.sroa.0.0.sroa.speculated.i17.i431450, %885 ], [ %882, %895 ], [ %.sroa.0.0.sroa.speculated.i17.i431450, %.thread86.i ], [ %.sroa.0.0.sroa.speculated.i17.i431450, %891 ], [ %.lcssa408, %._crit_edge ]
   %897 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.lcssa110.sink.i, ptr %897, align 8, !alias.scope !7654, !noalias !7661
   %898 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -96433,7 +96433,7 @@ define { ptr, ptr } @_ZN14polars_compute6filter18filter_with_bitmap17h57cfd34f58
   %909 = trunc nuw i64 %908 to i1
   br i1 %909, label %905, label %.loopexit396
 
-.loopexit396:                                     ; preds = %.noexc261, %804, %._crit_edge, %895
+.loopexit396:                                     ; preds = %.noexc261, %._crit_edge, %804, %895
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !7650
   %910 = icmp ne ptr %797, null
   call void @llvm.assume(i1 %910)
@@ -96605,7 +96605,7 @@ define internal fastcc void @_ZN14polars_compute6gather14generic_binary11take_va
 45:                                               ; preds = %46
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$13get_unchecked17h8b81e9af74e7ffeeE.exit.i", %28
+.loopexit:                                        ; preds = %28, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$13get_unchecked17h8b81e9af74e7ffeeE.exit.i"
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %46
@@ -97180,7 +97180,7 @@ _ZN12polars_arrow6bitmap7mutable19get_chunk_unchecked17h15b7a20ecbf8bde9E.exit.i
   unreachable
 
 common.resume:                                    ; preds = %.thread, %162, %157, %.loopexit.split-lp.i
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %158, %157 ], [ %163, %162 ], [ %.pn853, %.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %163, %162 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %158, %157 ], [ %.pn853, %.thread ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked17h14dae16abe21c35cE.exit: ; preds = %._crit_edge.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i"
@@ -97264,7 +97264,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap31from_trusted_len_iter_unchecked
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.411) #26
   unreachable
 
-.thread54:                                        ; preds = %168, %179
+.thread54:                                        ; preds = %179, %168
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -97648,7 +97648,7 @@ define hidden void @_ZN14polars_compute6gather14generic_binary21take_indices_val
   unreachable
 
 .body:                                            ; preds = %109, %90, %.thread.i, %110
-  %.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %91, %90 ], [ %lpad.thr_comm.split-lp.i, %.thread.i ], [ %105, %109 ]
+  %.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %lpad.thr_comm.split-lp.i, %.thread.i ], [ %91, %90 ], [ %105, %109 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i64$GT$$GT$17h41bee859ae098926E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #24
           to label %112 unwind label %107
 
@@ -97762,7 +97762,7 @@ define hidden void @_ZN14polars_compute6gather14generic_binary28take_values_indi
 20:                                               ; preds = %.body
   br i1 %.sroa.04.2, label %227, label %226
 
-.thread:                                          ; preds = %22, %3, %24, %34
+.thread:                                          ; preds = %34, %22, %3, %24
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %227
@@ -97830,8 +97830,8 @@ define hidden void @_ZN14polars_compute6gather14generic_binary28take_values_indi
           to label %49 unwind label %47
 
 .body:                                            ; preds = %223, %.thread.i, %47, %224
-  %.sroa.04.2 = phi i1 [ true, %224 ], [ true, %47 ], [ true, %.thread.i ], [ false, %223 ]
-  %.pn.pn = phi { ptr, i32 } [ %225, %224 ], [ %48, %47 ], [ %.pn29.i, %.thread.i ], [ %217, %223 ]
+  %.sroa.04.2 = phi i1 [ true, %224 ], [ true, %.thread.i ], [ true, %47 ], [ false, %223 ]
+  %.pn.pn = phi { ptr, i32 } [ %225, %224 ], [ %.pn29.i, %.thread.i ], [ %48, %47 ], [ %217, %223 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i64$GT$$GT$17h41bee859ae098926E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #24
           to label %20 unwind label %221
 
@@ -98305,11 +98305,11 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
           to label %.body unwind label %221
 
 226:                                              ; preds = %227, %20
-  %.pn1135 = phi { ptr, i32 } [ %.pn1136, %227 ], [ %.pn.pn, %20 ]
+  %.pn1135 = phi { ptr, i32 } [ %.pn.pn, %20 ], [ %.pn1136, %227 ]
   resume { ptr, i32 } %.pn1135
 
 227:                                              ; preds = %.thread, %20
-  %.pn1136 = phi { ptr, i32 } [ %.pn.pn, %20 ], [ %lpad.thr_comm, %.thread ]
+  %.pn1136 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %.pn.pn, %20 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17h1bce6210ed303053E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %16) #24
           to label %226 unwind label %221
 }
@@ -98436,7 +98436,7 @@ define { ptr, ptr } @_ZN14polars_compute6gather14take_unchecked17h649b837e002f84
   unreachable
 
 common.resume:                                    ; preds = %446, %434, %419, %404, %394, %387, %380, %373, %366, %359, %352, %345, %338, %331, %324, %314, %156, %60
-  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %157, %156 ], [ %315, %314 ], [ %325, %324 ], [ %332, %331 ], [ %339, %338 ], [ %346, %345 ], [ %353, %352 ], [ %360, %359 ], [ %367, %366 ], [ %374, %373 ], [ %381, %380 ], [ %388, %387 ], [ %395, %394 ], [ %405, %404 ], [ %420, %419 ], [ %435, %434 ], [ %447, %446 ]
+  %common.resume.op = phi { ptr, i32 } [ %435, %434 ], [ %61, %60 ], [ %157, %156 ], [ %315, %314 ], [ %325, %324 ], [ %332, %331 ], [ %339, %338 ], [ %346, %345 ], [ %353, %352 ], [ %360, %359 ], [ %367, %366 ], [ %374, %373 ], [ %381, %380 ], [ %388, %387 ], [ %395, %394 ], [ %405, %404 ], [ %420, %419 ], [ %447, %446 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h8839de9c0808cdeaE.exit": ; preds = %53
@@ -99579,7 +99579,7 @@ define { ptr, ptr } @_ZN14polars_compute18horizontal_flatten28horizontal_flatten
   unreachable
 
 common.resume:                                    ; preds = %.body36, %.body16, %.body22, %.body42, %.body24, %.body18, %.body48, %.body38, %.body32, %.body30, %.body, %.body14, %.body34, %.body40, %.body20, %.body26, %.body44, %.body46, %.body28, %123
-  %common.resume.op = phi { ptr, i32 } [ %124, %123 ], [ %eh.lpad-body37, %.body36 ], [ %eh.lpad-body17, %.body16 ], [ %eh.lpad-body23, %.body22 ], [ %eh.lpad-body43, %.body42 ], [ %eh.lpad-body25, %.body24 ], [ %eh.lpad-body19, %.body18 ], [ %eh.lpad-body49, %.body48 ], [ %eh.lpad-body39, %.body38 ], [ %eh.lpad-body33, %.body32 ], [ %eh.lpad-body31, %.body30 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body15, %.body14 ], [ %eh.lpad-body35, %.body34 ], [ %eh.lpad-body41, %.body40 ], [ %eh.lpad-body21, %.body20 ], [ %eh.lpad-body27, %.body26 ], [ %eh.lpad-body45, %.body44 ], [ %eh.lpad-body47, %.body46 ], [ %eh.lpad-body29, %.body28 ]
+  %common.resume.op = phi { ptr, i32 } [ %124, %123 ], [ %eh.lpad-body29, %.body28 ], [ %eh.lpad-body47, %.body46 ], [ %eh.lpad-body37, %.body36 ], [ %eh.lpad-body17, %.body16 ], [ %eh.lpad-body23, %.body22 ], [ %eh.lpad-body43, %.body42 ], [ %eh.lpad-body25, %.body24 ], [ %eh.lpad-body19, %.body18 ], [ %eh.lpad-body49, %.body48 ], [ %eh.lpad-body39, %.body38 ], [ %eh.lpad-body33, %.body32 ], [ %eh.lpad-body31, %.body30 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body15, %.body14 ], [ %eh.lpad-body35, %.body34 ], [ %eh.lpad-body41, %.body40 ], [ %eh.lpad-body21, %.body20 ], [ %eh.lpad-body27, %.body26 ], [ %eh.lpad-body45, %.body44 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h8839de9c0808cdeaE.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7fcc6a8125b70c66E.exit"
@@ -100689,20 +100689,20 @@ define void @"_ZN14polars_compute12if_then_else5array133_$LT$impl$u20$polars_com
   br i1 %85, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i", label %._crit_edge.i
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i": ; preds = %.thread.i.i, %84, %76, %.lr.ph.i._crit_edge.i
-  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.20.180.i, %84 ], [ %spec.select.i, %76 ], [ %.sroa.20.180.i, %.thread.i.i ]
-  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.16.2.i, %84 ], [ %29, %76 ], [ %29, %.thread.i.i ]
-  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %84 ], [ 1, %76 ], [ 1, %.thread.i.i ]
-  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.23.3.i, %84 ], [ %53, %76 ], [ 2, %.thread.i.i ]
-  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ true, %84 ], [ false, %76 ], [ false, %.thread.i.i ]
-  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.30.2.i, %84 ], [ 0, %76 ], [ 0, %.thread.i.i ]
-  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.021.185.i, %84 ], [ %spec.select39.i, %76 ], [ %.sroa.021.185.i, %.thread.i.i ]
-  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %74, %84 ], [ %31, %76 ], [ %31, %.thread.i.i ]
-  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %84 ], [ %.sroa.8.182.i, %76 ], [ %.sroa.8.182.i, %.thread.i.i ]
+  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select.i, %76 ], [ %.sroa.20.180.i, %84 ], [ %.sroa.20.180.i, %.thread.i.i ]
+  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %29, %76 ], [ %.sroa.16.2.i, %84 ], [ %29, %.thread.i.i ]
+  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 1, %76 ], [ %.sroa.8.2.i, %84 ], [ 1, %.thread.i.i ]
+  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %53, %76 ], [ %.sroa.23.3.i, %84 ], [ 2, %.thread.i.i ]
+  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ false, %76 ], [ true, %84 ], [ false, %.thread.i.i ]
+  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 0, %76 ], [ %.sroa.30.2.i, %84 ], [ 0, %.thread.i.i ]
+  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select39.i, %76 ], [ %.sroa.021.185.i, %84 ], [ %.sroa.021.185.i, %.thread.i.i ]
+  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %31, %76 ], [ %74, %84 ], [ %31, %.thread.i.i ]
+  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.182.i, %76 ], [ %.sroa.8.2.i, %84 ], [ %.sroa.8.182.i, %.thread.i.i ]
   %.not17.i = icmp eq i64 %.lcssa110.sink.i.i, %.sroa.07.0100.i
   br i1 %.not17.i, label %.noexc7, label %89
 
 ._crit_edge.i:                                    ; preds = %.noexc8, %84, %.lr.ph.i._crit_edge.i, %.noexc
-  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %91, %.noexc8 ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.07.0100.i, %84 ]
+  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %91, %.noexc8 ], [ %.sroa.07.0100.i, %84 ]
   %86 = load i64, ptr %16, align 8, !noalias !7878, !noundef !6
   %.not.i = icmp eq i64 %.sroa.07.0.lcssa.i, %86
   br i1 %.not.i, label %92, label %87
@@ -100738,7 +100738,7 @@ define void @"_ZN14polars_compute12if_then_else5array133_$LT$impl$u20$polars_com
   %.pn = phi { ptr, i32 } [ %lpad.phi, %94 ], [ %98, %97 ]
   resume { ptr, i32 } %.pn
 
-.loopexit:                                        ; preds = %.noexc7, %89
+.loopexit:                                        ; preds = %89, %.noexc7
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %94
@@ -101044,20 +101044,20 @@ define void @"_ZN14polars_compute12if_then_else5array133_$LT$impl$u20$polars_com
   br i1 %101, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i", label %._crit_edge.i
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i": ; preds = %.thread.i.i, %100, %92, %.lr.ph.i._crit_edge.i
-  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.20.180.i, %100 ], [ %spec.select.i, %92 ], [ %.sroa.20.180.i, %.thread.i.i ]
-  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.16.2.i, %100 ], [ %45, %92 ], [ %45, %.thread.i.i ]
-  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %100 ], [ 1, %92 ], [ 1, %.thread.i.i ]
-  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.23.3.i, %100 ], [ %69, %92 ], [ 2, %.thread.i.i ]
-  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ true, %100 ], [ false, %92 ], [ false, %.thread.i.i ]
-  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.30.2.i, %100 ], [ 0, %92 ], [ 0, %.thread.i.i ]
-  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.021.185.i, %100 ], [ %spec.select39.i, %92 ], [ %.sroa.021.185.i, %.thread.i.i ]
-  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %90, %100 ], [ %47, %92 ], [ %47, %.thread.i.i ]
-  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %100 ], [ %.sroa.8.182.i, %92 ], [ %.sroa.8.182.i, %.thread.i.i ]
+  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select.i, %92 ], [ %.sroa.20.180.i, %100 ], [ %.sroa.20.180.i, %.thread.i.i ]
+  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %45, %92 ], [ %.sroa.16.2.i, %100 ], [ %45, %.thread.i.i ]
+  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 1, %92 ], [ %.sroa.8.2.i, %100 ], [ 1, %.thread.i.i ]
+  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %69, %92 ], [ %.sroa.23.3.i, %100 ], [ 2, %.thread.i.i ]
+  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ false, %92 ], [ true, %100 ], [ false, %.thread.i.i ]
+  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 0, %92 ], [ %.sroa.30.2.i, %100 ], [ 0, %.thread.i.i ]
+  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select39.i, %92 ], [ %.sroa.021.185.i, %100 ], [ %.sroa.021.185.i, %.thread.i.i ]
+  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %47, %92 ], [ %90, %100 ], [ %47, %.thread.i.i ]
+  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.182.i, %92 ], [ %.sroa.8.2.i, %100 ], [ %.sroa.8.182.i, %.thread.i.i ]
   %.not17.i = icmp eq i64 %.lcssa110.sink.i.i, %.sroa.07.0100.i
   br i1 %.not17.i, label %.noexc10, label %105
 
 ._crit_edge.i:                                    ; preds = %.noexc11, %100, %.lr.ph.i._crit_edge.i, %.noexc
-  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %107, %.noexc11 ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.07.0100.i, %100 ]
+  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %107, %.noexc11 ], [ %.sroa.07.0100.i, %100 ]
   %102 = load i64, ptr %31, align 8, !noalias !7885, !noundef !6
   %.not.i = icmp eq i64 %.sroa.07.0.lcssa.i, %102
   br i1 %.not.i, label %108, label %103
@@ -101094,7 +101094,7 @@ define void @"_ZN14polars_compute12if_then_else5array133_$LT$impl$u20$polars_com
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
-.loopexit:                                        ; preds = %.noexc10, %105
+.loopexit:                                        ; preds = %105, %.noexc10
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %110
@@ -101410,20 +101410,20 @@ define void @"_ZN14polars_compute12if_then_else5array133_$LT$impl$u20$polars_com
   br i1 %101, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i", label %._crit_edge.i
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i": ; preds = %.thread.i.i, %100, %92, %.lr.ph.i._crit_edge.i
-  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.20.180.i, %100 ], [ %spec.select.i, %92 ], [ %.sroa.20.180.i, %.thread.i.i ]
-  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.16.2.i, %100 ], [ %45, %92 ], [ %45, %.thread.i.i ]
-  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %100 ], [ 1, %92 ], [ 1, %.thread.i.i ]
-  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.23.3.i, %100 ], [ %69, %92 ], [ 2, %.thread.i.i ]
-  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ true, %100 ], [ false, %92 ], [ false, %.thread.i.i ]
-  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.30.2.i, %100 ], [ 0, %92 ], [ 0, %.thread.i.i ]
-  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.021.185.i, %100 ], [ %spec.select39.i, %92 ], [ %.sroa.021.185.i, %.thread.i.i ]
-  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %90, %100 ], [ %47, %92 ], [ %47, %.thread.i.i ]
-  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %100 ], [ %.sroa.8.182.i, %92 ], [ %.sroa.8.182.i, %.thread.i.i ]
+  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select.i, %92 ], [ %.sroa.20.180.i, %100 ], [ %.sroa.20.180.i, %.thread.i.i ]
+  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %45, %92 ], [ %.sroa.16.2.i, %100 ], [ %45, %.thread.i.i ]
+  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 1, %92 ], [ %.sroa.8.2.i, %100 ], [ 1, %.thread.i.i ]
+  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %69, %92 ], [ %.sroa.23.3.i, %100 ], [ 2, %.thread.i.i ]
+  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ false, %92 ], [ true, %100 ], [ false, %.thread.i.i ]
+  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 0, %92 ], [ %.sroa.30.2.i, %100 ], [ 0, %.thread.i.i ]
+  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select39.i, %92 ], [ %.sroa.021.185.i, %100 ], [ %.sroa.021.185.i, %.thread.i.i ]
+  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %47, %92 ], [ %90, %100 ], [ %47, %.thread.i.i ]
+  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.182.i, %92 ], [ %.sroa.8.2.i, %100 ], [ %.sroa.8.182.i, %.thread.i.i ]
   %.not17.i = icmp eq i64 %.lcssa110.sink.i.i, %.sroa.07.0100.i
   br i1 %.not17.i, label %.noexc10, label %105
 
 ._crit_edge.i:                                    ; preds = %.noexc11, %100, %.lr.ph.i._crit_edge.i, %.noexc
-  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %107, %.noexc11 ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.07.0100.i, %100 ]
+  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %107, %.noexc11 ], [ %.sroa.07.0100.i, %100 ]
   %102 = load i64, ptr %31, align 8, !noalias !7892, !noundef !6
   %.not.i = icmp eq i64 %.sroa.07.0.lcssa.i, %102
   br i1 %.not.i, label %108, label %103
@@ -101460,7 +101460,7 @@ define void @"_ZN14polars_compute12if_then_else5array133_$LT$impl$u20$polars_com
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
-.loopexit:                                        ; preds = %.noexc10, %105
+.loopexit:                                        ; preds = %105, %.noexc10
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %110
@@ -101808,20 +101808,20 @@ define void @"_ZN14polars_compute12if_then_else5array133_$LT$impl$u20$polars_com
   br i1 %114, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i", label %._crit_edge.i
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit.i": ; preds = %.thread.i.i, %113, %105, %.lr.ph.i._crit_edge.i
-  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.20.180.i, %113 ], [ %spec.select.i, %105 ], [ %.sroa.20.180.i, %.thread.i.i ]
-  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.16.2.i, %113 ], [ %58, %105 ], [ %58, %.thread.i.i ]
-  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %113 ], [ 1, %105 ], [ 1, %.thread.i.i ]
-  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.23.3.i, %113 ], [ %82, %105 ], [ 2, %.thread.i.i ]
-  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ true, %113 ], [ false, %105 ], [ false, %.thread.i.i ]
-  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.30.2.i, %113 ], [ 0, %105 ], [ 0, %.thread.i.i ]
-  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.021.185.i, %113 ], [ %spec.select39.i, %105 ], [ %.sroa.021.185.i, %.thread.i.i ]
-  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %103, %113 ], [ %60, %105 ], [ %60, %.thread.i.i ]
-  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.2.i, %113 ], [ %.sroa.8.182.i, %105 ], [ %.sroa.8.182.i, %.thread.i.i ]
+  %.sroa.20.3.i = phi ptr [ %.sroa.20.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select.i, %105 ], [ %.sroa.20.180.i, %113 ], [ %.sroa.20.180.i, %.thread.i.i ]
+  %.sroa.16.5.i = phi i64 [ %.sroa.16.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %58, %105 ], [ %.sroa.16.2.i, %113 ], [ %58, %.thread.i.i ]
+  %.sroa.8.5.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 1, %105 ], [ %.sroa.8.2.i, %113 ], [ 1, %.thread.i.i ]
+  %.sroa.23.6.i = phi i8 [ %.sroa.23.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %82, %105 ], [ %.sroa.23.3.i, %113 ], [ 2, %.thread.i.i ]
+  %.sroa.27.1.i = phi i1 [ true, %.lr.ph.i._crit_edge.i ], [ false, %105 ], [ true, %113 ], [ false, %.thread.i.i ]
+  %.sroa.30.5.i = phi i8 [ %.sroa.30.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ 0, %105 ], [ %.sroa.30.2.i, %113 ], [ 0, %.thread.i.i ]
+  %.sroa.021.3.i = phi ptr [ %.sroa.021.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %spec.select39.i, %105 ], [ %.sroa.021.185.i, %113 ], [ %.sroa.021.185.i, %.thread.i.i ]
+  %.lcssa110.sink.i.i = phi i64 [ %.lcssa48.i, %.lr.ph.i._crit_edge.i ], [ %60, %105 ], [ %103, %113 ], [ %60, %.thread.i.i ]
+  %.lcssa111.sink.i.i = phi i64 [ %.sroa.8.1.lcssa.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.8.182.i, %105 ], [ %.sroa.8.2.i, %113 ], [ %.sroa.8.182.i, %.thread.i.i ]
   %.not17.i = icmp eq i64 %.lcssa110.sink.i.i, %.sroa.07.0100.i
   br i1 %.not17.i, label %.noexc18, label %118
 
 ._crit_edge.i:                                    ; preds = %.noexc19, %113, %.lr.ph.i._crit_edge.i, %.noexc
-  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %120, %.noexc19 ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %.sroa.07.0100.i, %113 ]
+  %.sroa.07.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %.sroa.07.0100.i, %.lr.ph.i._crit_edge.i ], [ %120, %.noexc19 ], [ %.sroa.07.0100.i, %113 ]
   %115 = load i64, ptr %44, align 8, !noalias !7899, !noundef !6
   %.not.i = icmp eq i64 %.sroa.07.0.lcssa.i, %115
   br i1 %.not.i, label %121, label %116
@@ -101882,7 +101882,7 @@ define void @"_ZN14polars_compute12if_then_else5array133_$LT$impl$u20$polars_com
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17hbcf7f2f317a6d6b7E"(ptr noalias noundef align 8 dereferenceable(32) %1)
   ret void
 
-.loopexit:                                        ; preds = %.noexc18, %118
+.loopexit:                                        ; preds = %118, %.noexc18
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %130
@@ -102122,20 +102122,20 @@ define hidden void @_ZN14polars_compute12if_then_else19if_then_else_extend17h73e
   br i1 %65, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit", label %._crit_edge
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit": ; preds = %.thread.i, %56, %64, %.lr.ph.i._crit_edge
-  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.20.180, %64 ], [ %spec.select, %56 ], [ %.sroa.20.180, %.thread.i ]
-  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.16.2, %64 ], [ %9, %56 ], [ %9, %.thread.i ]
-  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ 1, %56 ], [ 1, %.thread.i ]
-  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.23.3, %64 ], [ %33, %56 ], [ 2, %.thread.i ]
-  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ true, %64 ], [ false, %56 ], [ false, %.thread.i ]
-  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.30.2, %64 ], [ 0, %56 ], [ 0, %.thread.i ]
-  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.021.185, %64 ], [ %spec.select39, %56 ], [ %.sroa.021.185, %.thread.i ]
-  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %54, %64 ], [ %11, %56 ], [ %11, %.thread.i ]
-  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %56 ], [ %.sroa.8.182, %.thread.i ]
+  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select, %56 ], [ %.sroa.20.180, %64 ], [ %.sroa.20.180, %.thread.i ]
+  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %9, %56 ], [ %.sroa.16.2, %64 ], [ %9, %.thread.i ]
+  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ 1, %56 ], [ %.sroa.8.2, %64 ], [ 1, %.thread.i ]
+  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %33, %56 ], [ %.sroa.23.3, %64 ], [ 2, %.thread.i ]
+  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ false, %56 ], [ true, %64 ], [ false, %.thread.i ]
+  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ 0, %56 ], [ %.sroa.30.2, %64 ], [ 0, %.thread.i ]
+  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select39, %56 ], [ %.sroa.021.185, %64 ], [ %.sroa.021.185, %.thread.i ]
+  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %11, %56 ], [ %54, %64 ], [ %11, %.thread.i ]
+  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.182, %56 ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %.thread.i ]
   %.not17 = icmp eq i64 %.lcssa110.sink.i, %.sroa.07.0100
   br i1 %.not17, label %73, label %71
 
-._crit_edge:                                      ; preds = %73, %.lr.ph.i._crit_edge, %64, %4
-  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ], [ %74, %73 ]
+._crit_edge:                                      ; preds = %.lr.ph.i._crit_edge, %73, %64, %4
+  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %74, %73 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ]
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load i64, ptr %66, align 8, !noundef !6
   %.not = icmp eq i64 %.sroa.07.0.lcssa, %67
@@ -102347,20 +102347,20 @@ define hidden void @_ZN14polars_compute12if_then_else19if_then_else_extend17hdde
   br i1 %65, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit", label %._crit_edge
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit": ; preds = %.thread.i, %56, %64, %.lr.ph.i._crit_edge
-  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.20.180, %64 ], [ %spec.select, %56 ], [ %.sroa.20.180, %.thread.i ]
-  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.16.2, %64 ], [ %9, %56 ], [ %9, %.thread.i ]
-  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ 1, %56 ], [ 1, %.thread.i ]
-  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.23.3, %64 ], [ %33, %56 ], [ 2, %.thread.i ]
-  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ true, %64 ], [ false, %56 ], [ false, %.thread.i ]
-  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.30.2, %64 ], [ 0, %56 ], [ 0, %.thread.i ]
-  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.021.185, %64 ], [ %spec.select39, %56 ], [ %.sroa.021.185, %.thread.i ]
-  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %54, %64 ], [ %11, %56 ], [ %11, %.thread.i ]
-  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %56 ], [ %.sroa.8.182, %.thread.i ]
+  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select, %56 ], [ %.sroa.20.180, %64 ], [ %.sroa.20.180, %.thread.i ]
+  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %9, %56 ], [ %.sroa.16.2, %64 ], [ %9, %.thread.i ]
+  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ 1, %56 ], [ %.sroa.8.2, %64 ], [ 1, %.thread.i ]
+  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %33, %56 ], [ %.sroa.23.3, %64 ], [ 2, %.thread.i ]
+  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ false, %56 ], [ true, %64 ], [ false, %.thread.i ]
+  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ 0, %56 ], [ %.sroa.30.2, %64 ], [ 0, %.thread.i ]
+  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select39, %56 ], [ %.sroa.021.185, %64 ], [ %.sroa.021.185, %.thread.i ]
+  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %11, %56 ], [ %54, %64 ], [ %11, %.thread.i ]
+  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.182, %56 ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %.thread.i ]
   %.not17 = icmp eq i64 %.lcssa110.sink.i, %.sroa.07.0100
   br i1 %.not17, label %73, label %71
 
-._crit_edge:                                      ; preds = %73, %.lr.ph.i._crit_edge, %64, %4
-  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ], [ %74, %73 ]
+._crit_edge:                                      ; preds = %.lr.ph.i._crit_edge, %73, %64, %4
+  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %74, %73 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ]
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load i64, ptr %66, align 8, !noundef !6
   %.not = icmp eq i64 %.sroa.07.0.lcssa, %67
@@ -102572,20 +102572,20 @@ define hidden void @_ZN14polars_compute12if_then_else19if_then_else_extend17hf48
   br i1 %65, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit", label %._crit_edge
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit": ; preds = %.thread.i, %56, %64, %.lr.ph.i._crit_edge
-  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.20.180, %64 ], [ %spec.select, %56 ], [ %.sroa.20.180, %.thread.i ]
-  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.16.2, %64 ], [ %9, %56 ], [ %9, %.thread.i ]
-  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ 1, %56 ], [ 1, %.thread.i ]
-  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.23.3, %64 ], [ %33, %56 ], [ 2, %.thread.i ]
-  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ true, %64 ], [ false, %56 ], [ false, %.thread.i ]
-  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.30.2, %64 ], [ 0, %56 ], [ 0, %.thread.i ]
-  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.021.185, %64 ], [ %spec.select39, %56 ], [ %.sroa.021.185, %.thread.i ]
-  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %54, %64 ], [ %11, %56 ], [ %11, %.thread.i ]
-  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %56 ], [ %.sroa.8.182, %.thread.i ]
+  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select, %56 ], [ %.sroa.20.180, %64 ], [ %.sroa.20.180, %.thread.i ]
+  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %9, %56 ], [ %.sroa.16.2, %64 ], [ %9, %.thread.i ]
+  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ 1, %56 ], [ %.sroa.8.2, %64 ], [ 1, %.thread.i ]
+  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %33, %56 ], [ %.sroa.23.3, %64 ], [ 2, %.thread.i ]
+  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ false, %56 ], [ true, %64 ], [ false, %.thread.i ]
+  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ 0, %56 ], [ %.sroa.30.2, %64 ], [ 0, %.thread.i ]
+  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select39, %56 ], [ %.sroa.021.185, %64 ], [ %.sroa.021.185, %.thread.i ]
+  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %11, %56 ], [ %54, %64 ], [ %11, %.thread.i ]
+  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.182, %56 ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %.thread.i ]
   %.not17 = icmp eq i64 %.lcssa110.sink.i, %.sroa.07.0100
   br i1 %.not17, label %73, label %71
 
-._crit_edge:                                      ; preds = %73, %.lr.ph.i._crit_edge, %64, %4
-  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ], [ %74, %73 ]
+._crit_edge:                                      ; preds = %.lr.ph.i._crit_edge, %73, %64, %4
+  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %74, %73 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ]
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load i64, ptr %66, align 8, !noundef !6
   %.not = icmp eq i64 %.sroa.07.0.lcssa, %67
@@ -102797,20 +102797,20 @@ define hidden void @_ZN14polars_compute12if_then_else19if_then_else_extend17hfdb
   br i1 %65, label %"_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit", label %._crit_edge
 
 "_ZN118_$LT$polars_arrow..bitmap..utils..slice_iterator..SlicesIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c12af9511f07d40E.exit": ; preds = %.thread.i, %56, %64, %.lr.ph.i._crit_edge
-  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.20.180, %64 ], [ %spec.select, %56 ], [ %.sroa.20.180, %.thread.i ]
-  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.16.2, %64 ], [ %9, %56 ], [ %9, %.thread.i ]
-  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ 1, %56 ], [ 1, %.thread.i ]
-  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.23.3, %64 ], [ %33, %56 ], [ 2, %.thread.i ]
-  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ true, %64 ], [ false, %56 ], [ false, %.thread.i ]
-  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.30.2, %64 ], [ 0, %56 ], [ 0, %.thread.i ]
-  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.021.185, %64 ], [ %spec.select39, %56 ], [ %.sroa.021.185, %.thread.i ]
-  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %54, %64 ], [ %11, %56 ], [ %11, %.thread.i ]
-  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %56 ], [ %.sroa.8.182, %.thread.i ]
+  %.sroa.20.3 = phi ptr [ %.sroa.20.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select, %56 ], [ %.sroa.20.180, %64 ], [ %.sroa.20.180, %.thread.i ]
+  %.sroa.16.5 = phi i64 [ %.sroa.16.1.lcssa, %.lr.ph.i._crit_edge ], [ %9, %56 ], [ %.sroa.16.2, %64 ], [ %9, %.thread.i ]
+  %.sroa.8.5 = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ 1, %56 ], [ %.sroa.8.2, %64 ], [ 1, %.thread.i ]
+  %.sroa.23.6 = phi i8 [ %.sroa.23.1.lcssa, %.lr.ph.i._crit_edge ], [ %33, %56 ], [ %.sroa.23.3, %64 ], [ 2, %.thread.i ]
+  %.sroa.27.1 = phi i1 [ true, %.lr.ph.i._crit_edge ], [ false, %56 ], [ true, %64 ], [ false, %.thread.i ]
+  %.sroa.30.5 = phi i8 [ %.sroa.30.1.lcssa, %.lr.ph.i._crit_edge ], [ 0, %56 ], [ %.sroa.30.2, %64 ], [ 0, %.thread.i ]
+  %.sroa.021.3 = phi ptr [ %.sroa.021.1.lcssa, %.lr.ph.i._crit_edge ], [ %spec.select39, %56 ], [ %.sroa.021.185, %64 ], [ %.sroa.021.185, %.thread.i ]
+  %.lcssa110.sink.i = phi i64 [ %.lcssa48, %.lr.ph.i._crit_edge ], [ %11, %56 ], [ %54, %64 ], [ %11, %.thread.i ]
+  %.lcssa111.sink.i = phi i64 [ %.sroa.8.1.lcssa, %.lr.ph.i._crit_edge ], [ %.sroa.8.182, %56 ], [ %.sroa.8.2, %64 ], [ %.sroa.8.182, %.thread.i ]
   %.not17 = icmp eq i64 %.lcssa110.sink.i, %.sroa.07.0100
   br i1 %.not17, label %73, label %71
 
-._crit_edge:                                      ; preds = %73, %.lr.ph.i._crit_edge, %64, %4
-  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ], [ %74, %73 ]
+._crit_edge:                                      ; preds = %.lr.ph.i._crit_edge, %73, %64, %4
+  %.sroa.07.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.07.0100, %64 ], [ %74, %73 ], [ %.sroa.07.0100, %.lr.ph.i._crit_edge ]
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load i64, ptr %66, align 8, !noundef !6
   %.not = icmp eq i64 %.sroa.07.0.lcssa, %67
@@ -103510,8 +103510,8 @@ define hidden { i8, i8 } @_ZN14polars_compute7min_max12MinMaxKernel28min_max_pro
   br label %6
 
 6:                                                ; preds = %3, %1
-  %.sroa.4.0 = phi i8 [ undef, %1 ], [ %5, %3 ]
-  %.sroa.0.1 = phi i8 [ 2, %1 ], [ %spec.select10, %3 ]
+  %.sroa.4.0 = phi i8 [ %5, %3 ], [ undef, %1 ]
+  %.sroa.0.1 = phi i8 [ %spec.select10, %3 ], [ 2, %1 ]
   %7 = insertvalue { i8, i8 } poison, i8 %.sroa.0.1, 0
   %8 = insertvalue { i8, i8 } %7, i8 %.sroa.4.0, 1
   ret { i8, i8 } %8
@@ -103634,7 +103634,7 @@ define { ptr, ptr } @_ZN14polars_compute15propagate_nulls15propagate_nulls17hf0c
   unreachable
 
 common.resume:                                    ; preds = %86, %76, %66, %56
-  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %67, %66 ], [ %77, %76 ], [ %87, %86 ]
+  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %57, %56 ], [ %67, %66 ], [ %87, %86 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17he510b4053e854f79E.exit": ; preds = %51
@@ -103797,7 +103797,7 @@ define void @_ZN14polars_compute15propagate_nulls19propagate_nulls_fsl17h1b4c625
           to label %"_ZN14polars_compute15propagate_nulls19propagate_nulls_fsl28_$u7b$$u7b$closure$u7d$$u7d$17hdb5063342880c7e1E.exit" unwind label %32, !noalias !7963
 
 common.resume:                                    ; preds = %55, %.thread93, %280, %288, %297, %296, %32
-  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %.pn33.pn100, %.thread93 ], [ %lpad.phi210, %55 ], [ %281, %280 ], [ %281, %288 ], [ %298, %297 ], [ %295, %296 ]
+  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %.pn33.pn100, %.thread93 ], [ %281, %280 ], [ %lpad.phi210, %55 ], [ %281, %288 ], [ %298, %297 ], [ %295, %296 ]
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %29
@@ -104399,9 +104399,9 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask7get_u3217hf50314037013d373E.exit.i.i: ;
   call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull align 1 %189, i64 noundef range(i64 1, -9223372036854775808) %283, i64 noundef range(i64 1, -9223372036854775807) %285) #27
   br label %common.resume
 
-289:                                              ; preds = %272, %279, %266
-  %.sroa.3.0.i64.ph = phi ptr [ %190, %266 ], [ %268, %279 ], [ %268, %272 ]
-  %.sroa.0.0.i65.ph = phi ptr [ %189, %266 ], [ %267, %279 ], [ %267, %272 ]
+289:                                              ; preds = %279, %272, %266
+  %.sroa.3.0.i64.ph = phi ptr [ %190, %266 ], [ %268, %272 ], [ %268, %279 ]
+  %.sroa.0.0.i65.ph = phi ptr [ %189, %266 ], [ %267, %272 ], [ %267, %279 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef readonly align 8 dereferenceable(32) %1)
           to label %290 unwind label %297
@@ -104452,9 +104452,9 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask7get_u3217hf50314037013d373E.exit.i.i: ;
   br label %39
 
 .thread93:                                        ; preds = %249, %258, %198, %262, %.thread112
-  %.pn33.pn100 = phi { ptr, i32 } [ %191, %.thread112 ], [ %lpad.thr_comm.split-lp, %198 ], [ %lpad.phi, %262 ], [ %250, %249 ], [ %259, %258 ]
-  %.sroa.0.399 = phi ptr [ %.sroa.0.1, %.thread112 ], [ null, %198 ], [ null, %262 ], [ null, %249 ], [ null, %258 ]
-  %.sroa.13.298 = phi ptr [ %.sroa.13.0, %.thread112 ], [ undef, %198 ], [ undef, %262 ], [ undef, %249 ], [ undef, %258 ]
+  %.pn33.pn100 = phi { ptr, i32 } [ %191, %.thread112 ], [ %lpad.phi, %262 ], [ %lpad.thr_comm.split-lp, %198 ], [ %259, %258 ], [ %250, %249 ]
+  %.sroa.0.399 = phi ptr [ %.sroa.0.1, %.thread112 ], [ null, %262 ], [ null, %198 ], [ null, %258 ], [ null, %249 ]
+  %.sroa.13.298 = phi ptr [ %.sroa.13.0, %.thread112 ], [ undef, %262 ], [ undef, %198 ], [ undef, %258 ], [ undef, %249 ]
   invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$$GT$17h3c803b28b552b883E"(ptr %.sroa.0.399, ptr %.sroa.13.298) #24
           to label %common.resume unwind label %260
 }
@@ -104683,9 +104683,9 @@ define void @_ZN14polars_compute15propagate_nulls22propagate_nulls_struct17h45c3
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull align 1 %.sroa.0.0177, i64 noundef range(i64 1, -9223372036854775808) %102, i64 noundef range(i64 1, -9223372036854775807) %104) #27
   br label %.thread104
 
-108:                                              ; preds = %91, %98, %85
-  %.sroa.3.0.i.ph = phi ptr [ %.sroa.8.0.le, %85 ], [ %87, %98 ], [ %87, %91 ]
-  %.sroa.0.0.i59.ph = phi ptr [ %.sroa.0.0177, %85 ], [ %86, %98 ], [ %86, %91 ]
+108:                                              ; preds = %98, %91, %85
+  %.sroa.3.0.i.ph = phi ptr [ %.sroa.8.0.le, %85 ], [ %87, %91 ], [ %87, %98 ]
+  %.sroa.0.0.i59.ph = phi ptr [ %.sroa.0.0177, %85 ], [ %86, %91 ], [ %86, %98 ]
   %109 = invoke { ptr, i64 } @_ZN12polars_arrow5array7struct_11StructArray6values17h5dbb5a2c7e2955b6E(ptr noundef nonnull align 8 %1)
           to label %110 unwind label %163
 
@@ -104848,11 +104848,11 @@ define void @_ZN14polars_compute15propagate_nulls22propagate_nulls_struct17h45c3
           to label %.thread104 unwind label %159
 
 .critedge:                                        ; preds = %161, %.thread136, %.thread104
-  %.pn43.pn = phi { ptr, i32 } [ %.pn43.ph, %.thread104 ], [ %.pn139, %.thread136 ], [ %158, %161 ]
+  %.pn43.pn = phi { ptr, i32 } [ %.pn43.ph, %.thread104 ], [ %158, %161 ], [ %.pn139, %.thread136 ]
   resume { ptr, i32 } %.pn43.pn
 
 .thread104:                                       ; preds = %.loopexit, %.loopexit.split-lp, %99, %107, %127, %163, %167
-  %.pn43.ph = phi { ptr, i32 } [ %168, %167 ], [ %164, %163 ], [ %128, %127 ], [ %100, %107 ], [ %100, %99 ], [ %lpad.loopexit158, %.loopexit ], [ %lpad.loopexit.split-lp159, %.loopexit.split-lp ]
+  %.pn43.ph = phi { ptr, i32 } [ %128, %127 ], [ %168, %167 ], [ %100, %99 ], [ %164, %163 ], [ %100, %107 ], [ %lpad.loopexit158, %.loopexit ], [ %lpad.loopexit.split-lp159, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$$GT$17he714f9a5f5c9e5b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #24
           to label %.critedge unwind label %159
 
@@ -105029,7 +105029,7 @@ define void @_ZN14polars_compute15propagate_nulls22propagate_nulls_struct17h45c3
           to label %.thread136 unwind label %159
 
 .thread136:                                       ; preds = %.thread144.loopexit, %.thread144.loopexit.split-lp, %208, %236
-  %.pn139 = phi { ptr, i32 } [ %237, %236 ], [ %209, %208 ], [ %lpad.loopexit, %.thread144.loopexit ], [ %lpad.loopexit.split-lp, %.thread144.loopexit.split-lp ]
+  %.pn139 = phi { ptr, i32 } [ %209, %208 ], [ %237, %236 ], [ %lpad.loopexit, %.thread144.loopexit ], [ %lpad.loopexit.split-lp, %.thread144.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$$GT$17he714f9a5f5c9e5b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #24
           to label %.critedge unwind label %159
 }

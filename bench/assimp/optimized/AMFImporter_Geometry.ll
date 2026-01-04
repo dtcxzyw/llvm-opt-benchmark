@@ -271,8 +271,8 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit:           ; preds = %_ZNK4pugi8xml_node4
   br label %_ZNK4pugi8xml_node5childEPKc.exit.thread
 
 _ZNK4pugi8xml_node5childEPKc.exit.thread:         ; preds = %43, %36, %34, %45
-  %46 = phi ptr [ %.pre, %45 ], [ %35, %34 ], [ %35, %36 ], [ %35, %43 ]
-  %47 = phi i1 [ true, %45 ], [ false, %34 ], [ false, %36 ], [ false, %43 ]
+  %46 = phi ptr [ %.pre, %45 ], [ %35, %36 ], [ %35, %34 ], [ %35, %43 ]
+  %47 = phi i1 [ true, %45 ], [ false, %36 ], [ false, %34 ], [ false, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i16 = icmp eq ptr %46, null
   br i1 %.not.i16, label %.loopexit, label %48
@@ -852,7 +852,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
           to label %120 unwind label %91
 
 120:                                              ; preds = %.invoke, %109, %113, %117
-  %.121 = phi i1 [ %.02081, %113 ], [ %.02081, %117 ], [ true, %109 ], [ %.02081, %.invoke ]
+  %.121 = phi i1 [ %.02081, %117 ], [ %.02081, %113 ], [ true, %109 ], [ %.02081, %.invoke ]
   %121 = load ptr, ptr %7, align 8
   %122 = icmp eq ptr %121, %56
   br i1 %122, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44
@@ -949,7 +949,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
   ret void
 
 160:                                              ; preds = %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49, %60, %58
-  %.pn27.pn = phi { ptr, i32 } [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ]
+  %.pn27.pn = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ], [ %63, %62 ], [ %.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49 ]
   %161 = load ptr, ptr %5, align 8
   %162 = icmp eq ptr %161, %14
   br i1 %162, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59
@@ -1337,7 +1337,7 @@ _ZNK4pugi8xml_text5_dataEv.exit.i.i:              ; preds = %.lr.ph.i.i.i, %55, 
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i
 
 _ZNK4pugi8xml_text8as_floatEf.exit.i:             ; preds = %65, %69, %_ZNK4pugi8xml_text5_dataEv.exit.i.i, %58
-  %.0.i.i = phi float [ %71, %69 ], [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i ], [ 0.000000e+00, %58 ], [ 0.000000e+00, %65 ]
+  %.0.i.i = phi float [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i ], [ %71, %69 ], [ 0.000000e+00, %58 ], [ 0.000000e+00, %65 ]
   store float %.0.i.i, ptr %18, align 4
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE14getValueAsRealERS2_Rf.exit
 
@@ -1399,7 +1399,7 @@ _ZNK4pugi8xml_text5_dataEv.exit.i.i35:            ; preds = %.lr.ph.i.i.i29, %84
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i33
 
 _ZNK4pugi8xml_text8as_floatEf.exit.i33:           ; preds = %94, %98, %_ZNK4pugi8xml_text5_dataEv.exit.i.i35, %87
-  %.0.i.i34 = phi float [ %100, %98 ], [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i35 ], [ 0.000000e+00, %87 ], [ 0.000000e+00, %94 ]
+  %.0.i.i34 = phi float [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i35 ], [ %100, %98 ], [ 0.000000e+00, %87 ], [ 0.000000e+00, %94 ]
   store float %.0.i.i34, ptr %19, align 4
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE14getValueAsRealERS2_Rf.exit
 
@@ -1461,7 +1461,7 @@ _ZNK4pugi8xml_text5_dataEv.exit.i.i49:            ; preds = %.lr.ph.i.i.i43, %11
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i47
 
 _ZNK4pugi8xml_text8as_floatEf.exit.i47:           ; preds = %123, %127, %_ZNK4pugi8xml_text5_dataEv.exit.i.i49, %116
-  %.0.i.i48 = phi float [ %129, %127 ], [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i49 ], [ 0.000000e+00, %116 ], [ 0.000000e+00, %123 ]
+  %.0.i.i48 = phi float [ 0.000000e+00, %_ZNK4pugi8xml_text5_dataEv.exit.i.i49 ], [ %129, %127 ], [ 0.000000e+00, %116 ], [ 0.000000e+00, %123 ]
   store float %.0.i.i48, ptr %20, align 4
   br label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE14getValueAsRealERS2_Rf.exit
 
@@ -1818,7 +1818,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br label %114
 
 114:                                              ; preds = %.invoke, %80, %92, %105, %110, %101
-  %.124 = phi i1 [ %.02365, %92 ], [ %.02365, %101 ], [ %.02365, %110 ], [ %.02365, %105 ], [ true, %80 ], [ %.02365, %.invoke ]
+  %.124 = phi i1 [ %.02365, %105 ], [ true, %80 ], [ %.02365, %.invoke ], [ %.02365, %92 ], [ %.02365, %101 ], [ %.02365, %110 ]
   %115 = load ptr, ptr %6, align 8
   %116 = icmp eq ptr %115, %30
   br i1 %116, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41
@@ -2757,7 +2757,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit56, %.loopexit.loopexit.split.loop.exit58, %44, %._crit_edge, %38, %32
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.031.0.lcssa, %32 ], [ %.sroa.031.1, %38 ], [ %1, %._crit_edge ], [ %spec.select, %44 ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ %49, %.loopexit.loopexit.split.loop.exit56 ], [ %50, %.loopexit.loopexit.split.loop.exit58 ], [ %.sroa.031.050, %.lr.ph ]
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.031.1, %38 ], [ %spec.select, %44 ], [ %1, %._crit_edge ], [ %.sroa.031.0.lcssa, %32 ], [ %50, %.loopexit.loopexit.split.loop.exit58 ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ %49, %.loopexit.loopexit.split.loop.exit56 ], [ %.sroa.031.050, %.lr.ph ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 
@@ -2906,7 +2906,7 @@ define linkonce_odr hidden void @_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %78, %70, %59, %50, %38, %30, %22
-  %.sink = phi i64 [ %.cast17, %38 ], [ %.cast16, %30 ], [ %.cast, %22 ], [ %47, %50 ], [ %61, %59 ], [ %72, %70 ], [ %.pre, %78 ], [ %46, %._crit_edge ], [ %10, %.lr.ph ]
+  %.sink = phi i64 [ %72, %70 ], [ %61, %59 ], [ %47, %50 ], [ %46, %._crit_edge ], [ %.cast17, %38 ], [ %.cast16, %30 ], [ %.cast, %22 ], [ %.pre, %78 ], [ %10, %.lr.ph ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }

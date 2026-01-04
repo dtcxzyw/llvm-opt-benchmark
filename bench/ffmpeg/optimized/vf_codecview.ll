@@ -645,7 +645,7 @@ tailrecurse.i._crit_edge:                         ; preds = %tailrecurse.ithread
   store i32 %13, ptr %.tr37.i.lcssa, align 4, !tbaa !46
   br label %48
 
-48:                                               ; preds = %35, %32
+48:                                               ; preds = %32, %35
   %.0..0..0..pre.i77 = load i32, ptr %10, align 4, !tbaa !46
   br label %tailrecurse.i78
 
@@ -710,7 +710,7 @@ tailrecurse.i78:                                  ; preds = %tailrecurse.i78, %4
   store i32 %53, ptr %.tr37.i81, align 4, !tbaa !46
   br label %85
 
-85:                                               ; preds = %72, %69
+85:                                               ; preds = %69, %72
   %.0..0..0.109 = load i32, ptr %9, align 4, !tbaa !46
   %86 = icmp slt i32 %.0..0..0.109, 0
   %..i74 = tail call i32 @llvm.smin.i32(i32 %.0..0..0.109, i32 %13)

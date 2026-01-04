@@ -233,8 +233,8 @@ Py_XDECREF.exit:                                  ; preds = %31, %34, %37
   tail call void @_Py_Dealloc(ptr noundef nonnull %39) #4
   br label %Py_XDECREF.exit45.thread
 
-Py_XDECREF.exit45.thread:                         ; preds = %.lr.ph, %Py_XDECREF.exit, %Py_DECREF.exit, %._crit_edge, %7, %47, %44, %41
-  %.0276165 = phi ptr [ %42, %41 ], [ %42, %44 ], [ %42, %47 ], [ null, %7 ], [ null, %._crit_edge ], [ null, %Py_DECREF.exit ], [ null, %Py_XDECREF.exit ], [ null, %.lr.ph ]
+Py_XDECREF.exit45.thread:                         ; preds = %.lr.ph, %Py_XDECREF.exit, %Py_DECREF.exit, %._crit_edge, %7, %44, %41, %47
+  %.0276165 = phi ptr [ %42, %44 ], [ null, %Py_DECREF.exit ], [ %42, %47 ], [ %42, %41 ], [ null, %7 ], [ null, %._crit_edge ], [ null, %Py_XDECREF.exit ], [ null, %.lr.ph ]
   %48 = load i32, ptr %5, align 8, !tbaa !3
   %.not.i.i47 = icmp sgt i32 %48, -1
   br i1 %.not.i.i47, label %49, label %Py_XDECREF.exit48
@@ -249,8 +249,8 @@ Py_XDECREF.exit45.thread:                         ; preds = %.lr.ph, %Py_XDECREF
   tail call void @_Py_Dealloc(ptr noundef nonnull %5) #4
   br label %Py_XDECREF.exit48
 
-Py_XDECREF.exit48:                                ; preds = %4, %1, %52, %49, %Py_XDECREF.exit45.thread
-  %.0 = phi ptr [ %.0276165, %Py_XDECREF.exit45.thread ], [ %.0276165, %49 ], [ %.0276165, %52 ], [ null, %1 ], [ null, %4 ]
+Py_XDECREF.exit48:                                ; preds = %1, %4, %52, %49, %Py_XDECREF.exit45.thread
+  %.0 = phi ptr [ null, %1 ], [ %.0276165, %Py_XDECREF.exit45.thread ], [ %.0276165, %49 ], [ %.0276165, %52 ], [ null, %4 ]
   ret ptr %.0
 }
 

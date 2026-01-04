@@ -33,7 +33,7 @@ define internal noalias ptr @rsakem_newctx(ptr noundef %0) #0 {
   br label %9
 
 9:                                                ; preds = %3, %1, %6
-  %.0 = phi ptr [ %4, %6 ], [ null, %1 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %1 ], [ %4, %6 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -181,7 +181,7 @@ rsasve_gen_rand_bytes.exit.thread.critedge.i:     ; preds = %46, %44, %42, %39, 
   br label %rsasve_generate.exit
 
 rsasve_generate.exit:                             ; preds = %rsasve_gen_rand_bytes.exit.thread.critedge.i, %56, %55, %54, %rsasve_gen_rand_bytes.exit.i, %31, %30, %25, %24, %19, %18, %7, %5
-  %.0 = phi i32 [ 0, %5 ], [ -2, %7 ], [ 0, %18 ], [ 0, %30 ], [ 0, %19 ], [ 1, %25 ], [ 1, %24 ], [ 0, %rsasve_gen_rand_bytes.exit.i ], [ 1, %55 ], [ 1, %54 ], [ 0, %56 ], [ 0, %31 ], [ 0, %rsasve_gen_rand_bytes.exit.thread.critedge.i ]
+  %.0 = phi i32 [ -2, %7 ], [ 0, %5 ], [ 0, %18 ], [ 1, %24 ], [ 0, %19 ], [ 0, %30 ], [ 0, %rsasve_gen_rand_bytes.exit.i ], [ 1, %25 ], [ 1, %55 ], [ 1, %54 ], [ 0, %56 ], [ 0, %31 ], [ 0, %rsasve_gen_rand_bytes.exit.thread.critedge.i ]
   ret i32 %.0
 }
 
@@ -268,7 +268,7 @@ define internal range(i32 -2, 2) i32 @rsakem_recover(ptr noundef readonly captur
   br label %rsasve_recover.exit
 
 rsasve_recover.exit:                              ; preds = %35, %27, %21, %19, %18, %7, %5
-  %.0 = phi i32 [ 0, %5 ], [ -2, %7 ], [ 0, %18 ], [ 1, %19 ], [ 0, %21 ], [ 0, %27 ], [ %36, %35 ]
+  %.0 = phi i32 [ -2, %7 ], [ 0, %5 ], [ 0, %18 ], [ 1, %19 ], [ 0, %21 ], [ 0, %27 ], [ %36, %35 ]
   ret i32 %.0
 }
 
@@ -309,7 +309,7 @@ define internal ptr @rsakem_dupctx(ptr noundef readonly captures(none) %0) #0 {
   br label %12
 
 12:                                               ; preds = %6, %9, %3, %1, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %1 ], [ null, %3 ], [ %4, %9 ], [ %4, %6 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ null, %11 ], [ %4, %9 ], [ %4, %6 ]
   ret ptr %.0
 }
 
@@ -367,7 +367,7 @@ rsakem_opname2id.exit:                            ; preds = %.preheader.i.i
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %.preheader.i.i, %12, %4, %7, %rsakem_opname2id.exit, %9, %ossl_param_is_empty.exit, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %9 ], [ 1, %rsakem_opname2id.exit ], [ 1, %7 ], [ 1, %4 ], [ 0, %12 ], [ 0, %.preheader.i.i ]
+  %.0 = phi i32 [ 1, %4 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %9 ], [ 1, %rsakem_opname2id.exit ], [ 1, %7 ], [ 0, %12 ], [ 0, %.preheader.i.i ]
   ret i32 %.0
 }
 
@@ -447,8 +447,8 @@ rsakem_opname2id.exit.i:                          ; preds = %.preheader.i.i.i
   store i32 0, ptr %30, align 8, !tbaa !11
   br label %rsakem_set_ctx_params.exit
 
-rsakem_set_ctx_params.exit:                       ; preds = %.preheader.i.i.i, %14, %19, %rsakem_opname2id.exit.i, %ossl_param_is_empty.exit.i, %24, %21, %12, %10, %7, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %10 ], [ 0, %12 ], [ 0, %24 ], [ 0, %21 ], [ 1, %ossl_param_is_empty.exit.i ], [ 1, %rsakem_opname2id.exit.i ], [ 1, %19 ], [ 1, %14 ], [ 0, %.preheader.i.i.i ]
+rsakem_set_ctx_params.exit:                       ; preds = %.preheader.i.i.i, %19, %rsakem_opname2id.exit.i, %ossl_param_is_empty.exit.i, %14, %24, %21, %12, %10, %7, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %7 ], [ 0, %10 ], [ 0, %21 ], [ 1, %19 ], [ 0, %24 ], [ 1, %14 ], [ 1, %ossl_param_is_empty.exit.i ], [ 1, %rsakem_opname2id.exit.i ], [ 0, %.preheader.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

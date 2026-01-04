@@ -310,7 +310,7 @@ _ZNK2dd3bdd8cnf_sizeEv.exit35:                    ; preds = %105
   br label %119
 
 119:                                              ; preds = %12, %118, %24, %_ZN3sat9elim_vars8mark_varEj.exit, %80, %82, %84, %19, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %12 ], [ false, %19 ], [ %.4, %118 ], [ false, %24 ], [ false, %_ZN3sat9elim_vars8mark_varEj.exit ], [ false, %80 ], [ false, %82 ], [ false, %84 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %12 ], [ false, %19 ], [ false, %24 ], [ %.4, %118 ], [ false, %82 ], [ false, %80 ], [ false, %_ZN3sat9elim_vars8mark_varEj.exit ], [ false, %84 ]
   ret i1 %.0
 }
 
@@ -4702,7 +4702,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPjN9__gnu_cxx5__ops15_Iter_co
   br i1 %59, label %49, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat9elim_vars11compare_occEEEEvT_T0_S9_T1_T2_.exit.us, !llvm.loop !294
 
 _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat9elim_vars11compare_occEEEEvT_T0_S9_T1_T2_.exit.us: ; preds = %49, %57, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.014.us, %.split.us ], [ %.018.i.i.us, %57 ], [ %.01317.i.i.us, %49 ]
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.014.us, %.split.us ], [ %.01317.i.i.us, %49 ], [ %.018.i.i.us, %57 ]
   %60 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.us
   store i32 %22, ptr %60, align 4, !tbaa !80
   %.not.us = icmp eq i64 %.014.us, 0

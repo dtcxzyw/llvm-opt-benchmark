@@ -109,10 +109,10 @@ define dso_local void @transform_MERGE_to_join(ptr noundef captures(none) %0) lo
   %spec.select176 = select i1 %26, i32 %., i32 %.175
   br label %.thread171
 
-.thread171:                                       ; preds = %.split134.us, %5, %.split
-  %28 = phi i1 [ false, %.split ], [ false, %5 ], [ %spec.select, %.split134.us ]
-  %29 = phi i1 [ false, %.split ], [ false, %5 ], [ %27, %.split134.us ]
-  %30 = phi i32 [ 0, %.split ], [ 0, %5 ], [ %spec.select176, %.split134.us ]
+.thread171:                                       ; preds = %.split134.us, %.split, %5
+  %28 = phi i1 [ false, %5 ], [ false, %.split ], [ %spec.select, %.split134.us ]
+  %29 = phi i1 [ false, %5 ], [ false, %.split ], [ %27, %.split134.us ]
+  %30 = phi i32 [ 0, %5 ], [ 0, %.split ], [ %spec.select176, %.split134.us ]
   %31 = tail call noundef ptr @palloc0(i64 noundef 224) #6
   store i32 101, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -1033,8 +1033,8 @@ pull_up_simple_values.exit:                       ; preds = %.critedge.i, %175
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.ret147
 
-is_simple_values.exit.thread:                     ; preds = %is_safe_append_member.exit.thread114.thread, %141, %131, %list_length.exit10.i, %136, %138, %list_length.exit.i100, %is_simple_values.exit, %is_safe_append_member.exit.thread114
-  %189 = phi i1 [ %126, %is_safe_append_member.exit.thread114.thread ], [ %130, %141 ], [ %130, %131 ], [ %130, %list_length.exit10.i ], [ %130, %136 ], [ %130, %138 ], [ %130, %list_length.exit.i100 ], [ %130, %is_simple_values.exit ], [ %130, %is_safe_append_member.exit.thread114 ]
+is_simple_values.exit.thread:                     ; preds = %is_safe_append_member.exit.thread114.thread, %141, %131, %138, %136, %list_length.exit.i100, %list_length.exit10.i, %is_simple_values.exit, %is_safe_append_member.exit.thread114
+  %189 = phi i1 [ %126, %is_safe_append_member.exit.thread114.thread ], [ %130, %141 ], [ %130, %131 ], [ %130, %138 ], [ %130, %136 ], [ %130, %list_length.exit.i100 ], [ %130, %list_length.exit10.i ], [ %130, %is_simple_values.exit ], [ %130, %is_safe_append_member.exit.thread114 ]
   %190 = load i32, ptr %25, align 8
   %191 = icmp eq i32 %190, 3
   br i1 %191, label %192, label %common.ret147
@@ -1191,8 +1191,8 @@ pull_up_constant_function.exit:                   ; preds = %192, %197, %list_le
     i32 3, label %283
   ]
 
-common.ret147:                                    ; preds = %.split, %.split89, %pull_up_constant_function.exit, %pull_up_simple_values.exit, %pull_up_simple_union_all.exit, %is_simple_values.exit.thread, %.lr.ph, %245, %.lr.ph122, %283, %276, %269, %262
-  %common.ret147.op = phi ptr [ %1, %262 ], [ %1, %269 ], [ %1, %276 ], [ %1, %283 ], [ %1, %is_simple_values.exit.thread ], [ %58, %.split89 ], [ %34, %.split ], [ %1, %pull_up_constant_function.exit ], [ %1, %pull_up_simple_values.exit ], [ %1, %pull_up_simple_union_all.exit ], [ %1, %.lr.ph ], [ %1, %245 ], [ %1, %.lr.ph122 ]
+common.ret147:                                    ; preds = %.split89, %pull_up_constant_function.exit, %pull_up_simple_values.exit, %pull_up_simple_union_all.exit, %.split, %is_simple_values.exit.thread, %.lr.ph, %245, %.lr.ph122, %283, %276, %269, %262
+  %common.ret147.op = phi ptr [ %1, %283 ], [ %1, %262 ], [ %1, %269 ], [ %1, %276 ], [ %58, %.split89 ], [ %1, %.lr.ph ], [ %1, %245 ], [ %1, %pull_up_simple_union_all.exit ], [ %1, %pull_up_constant_function.exit ], [ %1, %is_simple_values.exit.thread ], [ %1, %pull_up_simple_values.exit ], [ %34, %.split ], [ %1, %.lr.ph122 ]
   ret ptr %common.ret147.op
 
 262:                                              ; preds = %259
@@ -1901,7 +1901,7 @@ define internal fastcc void @reduce_outer_joins_pass2(ptr noundef captures(addre
   %106 = load ptr, ptr %105, align 8
   br label %.thread151.thread169
 
-.thread151.thread169:                             ; preds = %80, %68, %.thread156
+.thread151.thread169:                             ; preds = %68, %80, %.thread156
   %.0127163 = phi ptr [ %104, %.thread156 ], [ %67, %68 ], [ %67, %80 ]
   %.0128161 = phi ptr [ %106, %.thread156 ], [ %65, %68 ], [ %65, %80 ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1914,9 +1914,9 @@ define internal fastcc void @reduce_outer_joins_pass2(ptr noundef captures(addre
   br label %.thread151.thread
 
 .thread151.thread:                                ; preds = %57, %57, %57, %68, %71, %87, %79, %.thread151.thread169
-  %.0127162 = phi ptr [ %.0127163, %.thread151.thread169 ], [ %67, %79 ], [ %67, %87 ], [ %67, %71 ], [ %67, %68 ], [ %67, %57 ], [ %67, %57 ], [ %67, %57 ]
-  %.0128160 = phi ptr [ %.0128161, %.thread151.thread169 ], [ %65, %79 ], [ %65, %87 ], [ %65, %71 ], [ %65, %68 ], [ %65, %57 ], [ %65, %57 ], [ %65, %57 ]
-  %.2 = phi i32 [ %spec.select144, %.thread151.thread169 ], [ 0, %79 ], [ 2, %87 ], [ 0, %71 ], [ 0, %68 ], [ %61, %57 ], [ %61, %57 ], [ %61, %57 ]
+  %.0127162 = phi ptr [ %.0127163, %.thread151.thread169 ], [ %67, %57 ], [ %67, %79 ], [ %67, %87 ], [ %67, %71 ], [ %67, %68 ], [ %67, %57 ], [ %67, %57 ]
+  %.0128160 = phi ptr [ %.0128161, %.thread151.thread169 ], [ %65, %57 ], [ %65, %79 ], [ %65, %87 ], [ %65, %71 ], [ %65, %68 ], [ %65, %57 ], [ %65, %57 ]
+  %.2 = phi i32 [ %spec.select144, %.thread151.thread169 ], [ %61, %57 ], [ 0, %79 ], [ 2, %87 ], [ 0, %71 ], [ 0, %68 ], [ %61, %57 ], [ %61, %57 ]
   %.not = icmp eq i32 %59, 0
   br i1 %.not, label %130, label %113
 
@@ -2018,7 +2018,7 @@ define internal fastcc void @reduce_outer_joins_pass2(ptr noundef captures(addre
   unreachable
 
 .sink.split:                                      ; preds = %43, %38, %156, %160, %16
-  %.0124.sink = phi ptr [ %20, %16 ], [ %.0124, %160 ], [ %.0124, %156 ], [ %20, %38 ], [ %20, %43 ]
+  %.0124.sink = phi ptr [ %.0124, %160 ], [ %20, %16 ], [ %.0124, %156 ], [ %20, %38 ], [ %20, %43 ]
   tail call void @bms_free(ptr noundef %.0124.sink) #6
   br label %167
 
@@ -2159,7 +2159,7 @@ list_length.exit:                                 ; preds = %16
   br i1 %26, label %29, label %list_length.exit.thread
 
 .critedge:                                        ; preds = %12, %list_length.exit.thread
-  %.0133.lcssa = phi ptr [ %.0133213, %12 ], [ %.1134, %list_length.exit.thread ]
+  %.0133.lcssa = phi ptr [ %.1134, %list_length.exit.thread ], [ %.0133213, %12 ]
   %.not157 = icmp eq ptr %.0133.lcssa, null
   br i1 %.not157, label %.loopexit, label %.preheader
 
@@ -2204,10 +2204,10 @@ list_length.exit:                                 ; preds = %16
   %51 = tail call ptr @bms_add_member(ptr noundef %.0133213, i32 noundef %34) #6
   br label %list_length.exit.thread
 
-list_length.exit.thread:                          ; preds = %32, %29, %16, %47, %45, %list_length.exit
-  %.sroa.064.1 = phi ptr [ %.sroa.064.0211, %45 ], [ %50, %47 ], [ %.sroa.064.0211, %list_length.exit ], [ %.sroa.064.0211, %16 ], [ %.sroa.064.0211, %29 ], [ %.sroa.064.0211, %32 ]
-  %.sroa.7.1 = phi i32 [ %.sroa.7.0212, %45 ], [ %49, %47 ], [ %.sroa.7.0212, %list_length.exit ], [ %.sroa.7.0212, %16 ], [ %.sroa.7.0212, %29 ], [ %.sroa.7.0212, %32 ]
-  %.1134 = phi ptr [ %.0133213, %45 ], [ %51, %47 ], [ %.0133213, %list_length.exit ], [ %.0133213, %16 ], [ %.0133213, %29 ], [ %.0133213, %32 ]
+list_length.exit.thread:                          ; preds = %29, %32, %16, %47, %45, %list_length.exit
+  %.sroa.064.1 = phi ptr [ %.sroa.064.0211, %45 ], [ %50, %47 ], [ %.sroa.064.0211, %29 ], [ %.sroa.064.0211, %list_length.exit ], [ %.sroa.064.0211, %16 ], [ %.sroa.064.0211, %32 ]
+  %.sroa.7.1 = phi i32 [ %.sroa.7.0212, %45 ], [ %49, %47 ], [ %.sroa.7.0212, %29 ], [ %.sroa.7.0212, %list_length.exit ], [ %.sroa.7.0212, %16 ], [ %.sroa.7.0212, %32 ]
+  %.1134 = phi ptr [ %.0133213, %45 ], [ %51, %47 ], [ %.0133213, %29 ], [ %.0133213, %list_length.exit ], [ %.0133213, %16 ], [ %.0133213, %32 ]
   %52 = add i32 %.sroa.7.1, 1
   %.not155 = icmp eq ptr %.sroa.064.1, null
   br i1 %.not155, label %.critedge, label %12, !llvm.loop !12
@@ -2350,8 +2350,8 @@ list_length.exit164:                              ; preds = %.loopexit
   %127 = load ptr, ptr %88, align 8
   br label %list_length.exit164.thread
 
-get_result_relid.exit169.thread:                  ; preds = %97, %93, %111
-  %128 = phi ptr [ %91, %97 ], [ %91, %93 ], [ %.pre, %111 ]
+get_result_relid.exit169.thread:                  ; preds = %93, %97, %111
+  %128 = phi ptr [ %91, %93 ], [ %91, %97 ], [ %.pre, %111 ]
   %129 = load i32, ptr %128, align 4
   %130 = icmp eq i32 %129, 63
   br i1 %130, label %131, label %list_length.exit164.thread
@@ -2547,8 +2547,8 @@ find_dependent_phvs.exit:                         ; preds = %187
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3817, ptr noundef nonnull @__func__.remove_useless_results_recurse) #6
   unreachable
 
-list_length.exit164.thread:                       ; preds = %7, %205, %202, %164, %161, %131, %get_result_relid.exit169.thread, %.loopexit, %find_dependent_phvs.exit.thread, %73, %64, %59, %list_length.exit164, %4, %77, %77, %233, %224, %find_dependent_phvs.exit, %195, %126, %117, %150, %159
-  %.1 = phi ptr [ %1, %4 ], [ %154, %150 ], [ %160, %159 ], [ %121, %117 ], [ %127, %126 ], [ %201, %195 ], [ %1, %find_dependent_phvs.exit ], [ %228, %224 ], [ %234, %233 ], [ %1, %77 ], [ %1, %77 ], [ %76, %73 ], [ %1, %64 ], [ %1, %59 ], [ %1, %list_length.exit164 ], [ %1, %find_dependent_phvs.exit.thread ], [ %1, %.loopexit ], [ %1, %get_result_relid.exit169.thread ], [ %1, %131 ], [ %1, %161 ], [ %1, %164 ], [ %1, %202 ], [ %1, %205 ], [ %1, %7 ]
+list_length.exit164.thread:                       ; preds = %7, %202, %205, %161, %164, %get_result_relid.exit169.thread, %131, %.loopexit, %find_dependent_phvs.exit.thread, %73, %64, %59, %list_length.exit164, %4, %77, %77, %233, %224, %find_dependent_phvs.exit, %195, %126, %117, %150, %159
+  %.1 = phi ptr [ %1, %77 ], [ %1, %4 ], [ %154, %150 ], [ %160, %159 ], [ %1, %202 ], [ %121, %117 ], [ %127, %126 ], [ %201, %195 ], [ %1, %find_dependent_phvs.exit ], [ %1, %205 ], [ %228, %224 ], [ %234, %233 ], [ %1, %164 ], [ %1, %77 ], [ %76, %73 ], [ %1, %64 ], [ %1, %59 ], [ %1, %list_length.exit164 ], [ %1, %161 ], [ %1, %.loopexit ], [ %1, %get_result_relid.exit169.thread ], [ %1, %find_dependent_phvs.exit.thread ], [ %1, %131 ], [ %1, %7 ]
   ret ptr %.1
 }
 
@@ -2641,7 +2641,7 @@ define dso_local ptr @get_relids_in_jointree(ptr noundef readonly captures(addre
   unreachable
 
 .critedge:                                        ; preds = %.lr.ph50, %11, %.lr.ph, %7, %41, %40, %44, %43, %26, %3
-  %.0 = phi ptr [ null, %3 ], [ %10, %7 ], [ %42, %41 ], [ %33, %40 ], [ %45, %44 ], [ %33, %43 ], [ %33, %26 ], [ null, %11 ], [ null, %.lr.ph ], [ %22, %.lr.ph50 ]
+  %.0 = phi ptr [ null, %3 ], [ %10, %7 ], [ %33, %26 ], [ %42, %41 ], [ %33, %40 ], [ %45, %44 ], [ %33, %43 ], [ null, %11 ], [ null, %.lr.ph ], [ %22, %.lr.ph50 ]
   ret ptr %.0
 }
 
@@ -2746,8 +2746,8 @@ define internal fastcc ptr @find_jointree_node_for_rel(ptr noundef readonly capt
 .thread55:                                        ; preds = %16, %9, %.lr.ph, %32, %6
   br label %.thread60
 
-.thread60:                                        ; preds = %.lr.ph67, %32, %28, %24, %6, %2, %.thread55
-  %.0 = phi ptr [ null, %.thread55 ], [ %0, %6 ], [ null, %2 ], [ %35, %32 ], [ %31, %28 ], [ %0, %24 ], [ %23, %.lr.ph67 ]
+.thread60:                                        ; preds = %.lr.ph67, %32, %24, %28, %6, %2, %.thread55
+  %.0 = phi ptr [ null, %2 ], [ null, %.thread55 ], [ %0, %6 ], [ %31, %28 ], [ %35, %32 ], [ %0, %24 ], [ %23, %.lr.ph67 ]
   ret ptr %.0
 }
 
@@ -2871,7 +2871,7 @@ define internal fastcc ptr @pull_up_sublinks_qual_recurse(ptr noundef %0, ptr no
   br label %65
 
 65:                                               ; preds = %28, %27, %52, %53, %12, %55, %42, %30, %17
-  %.1 = phi ptr [ null, %17 ], [ null, %30 ], [ null, %42 ], [ null, %55 ], [ %1, %12 ], [ %1, %53 ], [ %1, %52 ], [ %1, %27 ], [ %1, %28 ]
+  %.1 = phi ptr [ null, %17 ], [ null, %30 ], [ null, %55 ], [ null, %42 ], [ %1, %12 ], [ %1, %53 ], [ %1, %52 ], [ %1, %27 ], [ %1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %is_andclause.exit.thread
 
@@ -2946,7 +2946,7 @@ is_notclause.exit:                                ; preds = %10
   br label %96
 
 96:                                               ; preds = %.sink.split, %68, %71, %83, %84, %74
-  %.2 = phi ptr [ %1, %74 ], [ %1, %84 ], [ %1, %83 ], [ %1, %71 ], [ %1, %68 ], [ null, %.sink.split ]
+  %.2 = phi ptr [ %1, %71 ], [ %1, %68 ], [ %1, %74 ], [ %1, %84 ], [ %1, %83 ], [ null, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %is_andclause.exit.thread
 
@@ -3006,7 +3006,7 @@ list_length.exit:                                 ; preds = %.critedge
   br label %is_andclause.exit.thread
 
 is_andclause.exit.thread:                         ; preds = %is_notclause.exit, %.lr.ph, %97, %10, %118, %121, %.critedge, %6, %96, %65
-  %.0 = phi ptr [ %.1, %65 ], [ %.2, %96 ], [ null, %6 ], [ %120, %118 ], [ %122, %121 ], [ null, %.critedge ], [ %1, %10 ], [ null, %97 ], [ null, %.lr.ph ], [ %1, %is_notclause.exit ]
+  %.0 = phi ptr [ null, %.critedge ], [ %.1, %65 ], [ %.2, %96 ], [ null, %6 ], [ %122, %121 ], [ %120, %118 ], [ %1, %is_notclause.exit ], [ %1, %10 ], [ null, %97 ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -3165,7 +3165,7 @@ define internal fastcc zeroext i1 @is_simple_subquery(ptr noundef %0, ptr nounde
   br label %.thread50
 
 .thread50:                                        ; preds = %.thread, %65, %73, %.thread48, %56, %16, %20, %24, %28, %31, %34, %37, %40, %43, %46, %49, %53, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %53 ], [ false, %49 ], [ false, %46 ], [ false, %43 ], [ false, %40 ], [ false, %37 ], [ false, %34 ], [ false, %31 ], [ false, %28 ], [ false, %24 ], [ false, %20 ], [ false, %16 ], [ false, %56 ], [ %not., %.thread48 ], [ false, %73 ], [ false, %65 ], [ false, %.thread ]
+  %.0 = phi i1 [ false, %20 ], [ false, %13 ], [ false, %16 ], [ %not., %.thread48 ], [ false, %56 ], [ false, %53 ], [ false, %49 ], [ false, %46 ], [ false, %43 ], [ false, %40 ], [ false, %37 ], [ false, %34 ], [ false, %31 ], [ false, %28 ], [ false, %24 ], [ false, %73 ], [ false, %65 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -3695,7 +3695,7 @@ list_length.exit136:                              ; preds = %272
   br label %is_safe_append_member.exit
 
 is_safe_append_member.exit:                       ; preds = %list_length.exit.i, %106, %103, %101, %272, %fix_append_rel_relids.exit, %list_length.exit136, %preprocess_function_rtes.exit, %278
-  %.0 = phi ptr [ %280, %278 ], [ %1, %preprocess_function_rtes.exit ], [ %268, %list_length.exit136 ], [ %268, %fix_append_rel_relids.exit ], [ %268, %272 ], [ %1, %101 ], [ %1, %103 ], [ %1, %106 ], [ %1, %list_length.exit.i ]
+  %.0 = phi ptr [ %280, %278 ], [ %268, %272 ], [ %1, %preprocess_function_rtes.exit ], [ %268, %fix_append_rel_relids.exit ], [ %268, %list_length.exit136 ], [ %1, %101 ], [ %1, %103 ], [ %1, %106 ], [ %1, %list_length.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }
@@ -3781,7 +3781,7 @@ define internal fastcc noundef zeroext i1 @jointree_contains_lateral_outer_refs(
   %43 = tail call zeroext i1 @bms_is_subset(ptr noundef %42, ptr noundef %spec.select) #6
   br i1 %43, label %48, label %.thread52
 
-.thread52:                                        ; preds = %28, %34, %39
+.thread52:                                        ; preds = %34, %28, %39
   br label %48
 
 44:                                               ; preds = %6
@@ -3792,7 +3792,7 @@ define internal fastcc noundef zeroext i1 @jointree_contains_lateral_outer_refs(
   unreachable
 
 48:                                               ; preds = %.critedge, %23, %38, %39, %.thread52, %.thread, %6, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %6 ], [ true, %.thread ], [ true, %.thread52 ], [ false, %39 ], [ false, %38 ], [ false, %23 ], [ false, %.critedge ]
+  %.0 = phi i1 [ true, %.thread52 ], [ false, %4 ], [ false, %6 ], [ true, %.thread ], [ false, %39 ], [ false, %38 ], [ false, %23 ], [ false, %.critedge ]
   ret i1 %.0
 }
 
@@ -4810,7 +4810,7 @@ thread-pre-split:                                 ; preds = %18, %13, %7
   br label %37
 
 37:                                               ; preds = %2, %35, %28
-  %.0 = phi i1 [ %32, %28 ], [ %36, %35 ], [ false, %2 ]
+  %.0 = phi i1 [ %36, %35 ], [ %32, %28 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -4874,7 +4874,7 @@ define internal fastcc noundef zeroext i1 @find_dependent_phvs_in_jointree(ptr n
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %find_dependent_phvs_walker.exit
+  br i1 %20, label %21, label %.thread.thread.i
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4889,9 +4889,13 @@ define internal fastcc noundef zeroext i1 @find_dependent_phvs_in_jointree(ptr n
 .thread.i:                                        ; preds = %..thread_crit_edge.i, %14
   %25 = phi i32 [ %15, %14 ], [ %.pr.pre.i, %..thread_crit_edge.i ]
   %26 = icmp eq i32 %25, 67
-  br i1 %26, label %27, label %find_dependent_phvs_walker.exit
+  br i1 %26, label %find_dependent_phvs_walker.exit, label %.thread.thread.i
 
-27:                                               ; preds = %.thread.i
+.thread.thread.i:                                 ; preds = %.thread.i, %17
+  %27 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %1, ptr noundef nonnull @find_dependent_phvs_walker, ptr noundef nonnull %4) #6
+  br i1 %27, label %find_dependent_phvs_walker.exit.thread, label %find_dependent_phvs_walker.exit.thread15
+
+find_dependent_phvs_walker.exit:                  ; preds = %.thread.i
   store i32 1, ptr %12, align 8
   %28 = call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %1, ptr noundef nonnull @find_dependent_phvs_walker, ptr noundef nonnull %4, i32 noundef 0) #6
   %29 = load i32, ptr %12, align 8
@@ -4899,50 +4903,46 @@ define internal fastcc noundef zeroext i1 @find_dependent_phvs_in_jointree(ptr n
   store i32 %30, ptr %12, align 8
   br i1 %28, label %find_dependent_phvs_walker.exit.thread, label %find_dependent_phvs_walker.exit.thread15
 
-find_dependent_phvs_walker.exit:                  ; preds = %17, %.thread.i
-  %31 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %1, ptr noundef nonnull @find_dependent_phvs_walker, ptr noundef nonnull %4) #6
-  br i1 %31, label %find_dependent_phvs_walker.exit.thread, label %find_dependent_phvs_walker.exit.thread15
-
-find_dependent_phvs_walker.exit.thread15:         ; preds = %10, %27, %find_dependent_phvs_walker.exit
-  %32 = call ptr @get_relids_in_jointree(ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext false)
-  %33 = call i32 @bms_next_member(ptr noundef %32, i32 noundef -1) #6
-  %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %.lr.ph, label %find_dependent_phvs_walker.exit.thread
+find_dependent_phvs_walker.exit.thread15:         ; preds = %10, %.thread.thread.i, %find_dependent_phvs_walker.exit
+  %31 = call ptr @get_relids_in_jointree(ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext false)
+  %32 = call i32 @bms_next_member(ptr noundef %31, i32 noundef -1) #6
+  %33 = icmp sgt i32 %32, -1
+  br i1 %33, label %.lr.ph, label %find_dependent_phvs_walker.exit.thread
 
 .lr.ph:                                           ; preds = %find_dependent_phvs_walker.exit.thread15
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %36
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %35
 
-36:                                               ; preds = %.lr.ph, %.critedge
-  %37 = phi i32 [ %33, %.lr.ph ], [ %51, %.critedge ]
-  %38 = load ptr, ptr %35, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr i8, ptr %40, i64 16
-  %.val = load ptr, ptr %41, align 8
-  %42 = zext nneg i32 %37 to i64
-  %43 = getelementptr %union.ListCell, ptr %.val, i64 %42
-  %44 = getelementptr i8, ptr %43, i64 -8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 208
-  %47 = load i8, ptr %46, align 8, !range !4, !noundef !8
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %.critedge
+35:                                               ; preds = %.lr.ph, %.critedge
+  %36 = phi i32 [ %32, %.lr.ph ], [ %50, %.critedge ]
+  %37 = load ptr, ptr %34, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr i8, ptr %39, i64 16
+  %.val = load ptr, ptr %40, align 8
+  %41 = zext nneg i32 %36 to i64
+  %42 = getelementptr %union.ListCell, ptr %.val, i64 %41
+  %43 = getelementptr i8, ptr %42, i64 -8
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 208
+  %46 = load i8, ptr %45, align 8, !range !4, !noundef !8
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %.critedge
 
-49:                                               ; preds = %36
-  %50 = call zeroext i1 @range_table_entry_walker_impl(ptr noundef nonnull %45, ptr noundef nonnull @find_dependent_phvs_walker, ptr noundef nonnull %4, i32 noundef 0) #6
-  br i1 %50, label %.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge, label %.critedge, !llvm.loop !18
+48:                                               ; preds = %35
+  %49 = call zeroext i1 @range_table_entry_walker_impl(ptr noundef nonnull %44, ptr noundef nonnull @find_dependent_phvs_walker, ptr noundef nonnull %4, i32 noundef 0) #6
+  br i1 %49, label %.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge, label %.critedge, !llvm.loop !18
 
-.critedge:                                        ; preds = %49, %36
-  %51 = call i32 @bms_next_member(ptr noundef %32, i32 noundef %37) #6
-  %52 = icmp sgt i32 %51, -1
-  br i1 %52, label %36, label %find_dependent_phvs_walker.exit.thread
+.critedge:                                        ; preds = %48, %35
+  %50 = call i32 @bms_next_member(ptr noundef %31, i32 noundef %36) #6
+  %51 = icmp sgt i32 %50, -1
+  br i1 %51, label %35, label %find_dependent_phvs_walker.exit.thread
 
-.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge: ; preds = %49
+.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge: ; preds = %48
   br label %find_dependent_phvs_walker.exit.thread, !llvm.loop !18
 
-find_dependent_phvs_walker.exit.thread:           ; preds = %.critedge, %find_dependent_phvs_walker.exit.thread15, %.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge, %21, %27, %find_dependent_phvs_walker.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %find_dependent_phvs_walker.exit ], [ true, %27 ], [ true, %21 ], [ true, %.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge ], [ false, %find_dependent_phvs_walker.exit.thread15 ], [ false, %.critedge ]
+find_dependent_phvs_walker.exit.thread:           ; preds = %.critedge, %find_dependent_phvs_walker.exit.thread15, %.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge, %21, %.thread.thread.i, %find_dependent_phvs_walker.exit, %3
+  %.0 = phi i1 [ true, %.thread.thread.i ], [ false, %3 ], [ true, %find_dependent_phvs_walker.exit ], [ true, %21 ], [ false, %find_dependent_phvs_walker.exit.thread15 ], [ true, %.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge ], [ false, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -5088,7 +5088,7 @@ define internal zeroext i1 @find_dependent_phvs_walker(ptr noundef %0, ptr nound
   br label %28
 
 28:                                               ; preds = %13, %2, %.thread.thread, %20
-  %.0 = phi i1 [ %24, %20 ], [ %27, %.thread.thread ], [ false, %2 ], [ true, %13 ]
+  %.0 = phi i1 [ false, %2 ], [ %24, %20 ], [ %27, %.thread.thread ], [ true, %13 ]
   ret i1 %.0
 }
 

@@ -1068,7 +1068,7 @@ define dso_local noundef range(i32 -1, 1) i32 @netpoll_parse_options(ptr noundef
   br label %110
 
 40:                                               ; preds = %36, %29
-  %41 = phi i8 [ 0, %29 ], [ 1, %36 ]
+  %41 = phi i8 [ 1, %36 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %41, ptr %42, align 8
@@ -1167,7 +1167,7 @@ define dso_local noundef range(i32 -1, 1) i32 @netpoll_parse_options(ptr noundef
   br label %110
 
 95:                                               ; preds = %91, %84
-  %96 = phi i8 [ 0, %84 ], [ 1, %91 ]
+  %96 = phi i8 [ 1, %91 ], [ 0, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %18, label %101, label %97
 
@@ -1195,7 +1195,7 @@ define dso_local noundef range(i32 -1, 1) i32 @netpoll_parse_options(ptr noundef
   br label %115
 
 110:                                              ; preds = %.critedge2, %.critedge, %106, %97, %72, %68, %59, %48, %19, %10, %7
-  %111 = phi ptr [ %1, %7 ], [ %1, %10 ], [ %16, %19 ], [ %45, %48 ], [ %56, %59 ], [ %56, %68 ], [ %74, %72 ], [ %74, %97 ], [ %103, %106 ], [ %16, %.critedge ], [ %74, %.critedge2 ]
+  %111 = phi ptr [ %1, %7 ], [ %1, %10 ], [ %16, %19 ], [ %16, %.critedge ], [ %45, %48 ], [ %56, %59 ], [ %56, %68 ], [ %74, %72 ], [ %74, %.critedge2 ], [ %74, %97 ], [ %103, %106 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %113 = load ptr, ptr %112, align 8
   %114 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef %113, ptr noundef %111) #17

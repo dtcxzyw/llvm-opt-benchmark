@@ -44,7 +44,7 @@ define range(i32 0, 27) i32 @cli_uuencode(ptr noundef %0, ptr noundef %1) local_
   br label %16
 
 16:                                               ; preds = %.sink.split, %13, %10, %2
-  %.0 = phi i32 [ 0, %2 ], [ 20, %10 ], [ 0, %13 ], [ 26, %.sink.split ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %13 ], [ 20, %10 ], [ 26, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -116,7 +116,7 @@ define range(i32 -1, 2) i32 @uudecodeFile(ptr noundef %0, ptr noundef %1, ptr no
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %.thread, label %36
 
-.thread:                                          ; preds = %19, %25, %28, %33
+.thread:                                          ; preds = %28, %19, %25, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
@@ -132,7 +132,7 @@ define range(i32 -1, 2) i32 @uudecodeFile(ptr noundef %0, ptr noundef %1, ptr no
   br label %39
 
 39:                                               ; preds = %5, %.loopexit, %13
-  %.0 = phi i32 [ -1, %13 ], [ 1, %.loopexit ], [ -1, %5 ]
+  %.0 = phi i32 [ 1, %.loopexit ], [ -1, %13 ], [ -1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

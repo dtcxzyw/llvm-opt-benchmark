@@ -2120,8 +2120,8 @@ Vec_StrGrow.exit.i22:                             ; preds = %65, %63
   br label %Vec_StrPush.exit
 
 Vec_StrPush.exit:                                 ; preds = %76, %Vec_StrGrow.exit.i22, %.Vec_StrGrow.exit10_crit_edge.i17, %56, %Vec_StrGrow.exit.i15, %.Vec_StrGrow.exit10_crit_edge.i10, %31, %Vec_StrGrow.exit.i, %.Vec_StrGrow.exit10_crit_edge.i
-  %.sink46 = phi ptr [ %.pre.i, %.Vec_StrGrow.exit10_crit_edge.i ], [ %32, %31 ], [ %22, %Vec_StrGrow.exit.i ], [ %.pre.i12, %.Vec_StrGrow.exit10_crit_edge.i10 ], [ %57, %56 ], [ %47, %Vec_StrGrow.exit.i15 ], [ %.pre.i19, %.Vec_StrGrow.exit10_crit_edge.i17 ], [ %77, %76 ], [ %67, %Vec_StrGrow.exit.i22 ]
-  %.sink = phi i8 [ 45, %.Vec_StrGrow.exit10_crit_edge.i ], [ 45, %31 ], [ 45, %Vec_StrGrow.exit.i ], [ 49, %.Vec_StrGrow.exit10_crit_edge.i10 ], [ 49, %56 ], [ 49, %Vec_StrGrow.exit.i15 ], [ 48, %.Vec_StrGrow.exit10_crit_edge.i17 ], [ 48, %76 ], [ 48, %Vec_StrGrow.exit.i22 ]
+  %.sink46 = phi ptr [ %22, %Vec_StrGrow.exit.i ], [ %47, %Vec_StrGrow.exit.i15 ], [ %.pre.i, %.Vec_StrGrow.exit10_crit_edge.i ], [ %32, %31 ], [ %.pre.i12, %.Vec_StrGrow.exit10_crit_edge.i10 ], [ %57, %56 ], [ %.pre.i19, %.Vec_StrGrow.exit10_crit_edge.i17 ], [ %77, %76 ], [ %67, %Vec_StrGrow.exit.i22 ]
+  %.sink = phi i8 [ 45, %Vec_StrGrow.exit.i ], [ 49, %Vec_StrGrow.exit.i15 ], [ 45, %.Vec_StrGrow.exit10_crit_edge.i ], [ 45, %31 ], [ 49, %.Vec_StrGrow.exit10_crit_edge.i10 ], [ 49, %56 ], [ 48, %.Vec_StrGrow.exit10_crit_edge.i17 ], [ 48, %76 ], [ 48, %Vec_StrGrow.exit.i22 ]
   %78 = load i32, ptr %4, align 4, !tbaa !79
   %79 = add nsw i32 %78, 1
   store i32 %79, ptr %4, align 4, !tbaa !79
@@ -2313,8 +2313,8 @@ Vec_WrdAlloc.exit:                                ; preds = %Abc_Base10Log.exit,
   br label %Vec_WrdPush.exit
 
 Vec_WrdPush.exit:                                 ; preds = %50, %52, %42, %44, %35
-  %.pre.i119 = phi ptr [ %24, %35 ], [ %43, %42 ], [ %45, %44 ], [ %51, %50 ], [ %53, %52 ]
-  %54 = phi i32 [ %25, %35 ], [ 16, %42 ], [ 16, %44 ], [ %47, %50 ], [ %47, %52 ]
+  %.pre.i119 = phi ptr [ %24, %35 ], [ %45, %44 ], [ %43, %42 ], [ %51, %50 ], [ %53, %52 ]
+  %54 = phi i32 [ %25, %35 ], [ 16, %44 ], [ 16, %42 ], [ %47, %50 ], [ %47, %52 ]
   %55 = add nuw nsw i32 %26, 1
   %56 = zext nneg i32 %26 to i64
   %57 = getelementptr inbounds nuw i64, ptr %.pre.i119, i64 %56
@@ -2371,8 +2371,8 @@ Vec_WrdPush.exit:                                 ; preds = %50, %52, %42, %44, 
   br label %Vec_WrdPush.exit91
 
 Vec_WrdPush.exit91:                               ; preds = %81, %83, %73, %75, %64
-  %.pre.i87120 = phi ptr [ %90, %64 ], [ %74, %73 ], [ %76, %75 ], [ %82, %81 ], [ %84, %83 ]
-  %85 = phi i32 [ %91, %64 ], [ 16, %73 ], [ 16, %75 ], [ %78, %81 ], [ %78, %83 ]
+  %.pre.i87120 = phi ptr [ %90, %64 ], [ %76, %75 ], [ %74, %73 ], [ %82, %81 ], [ %84, %83 ]
+  %85 = phi i32 [ %91, %64 ], [ 16, %75 ], [ 16, %73 ], [ %78, %81 ], [ %78, %83 ]
   %86 = add nsw i32 %92, 1
   %87 = sext i32 %92 to i64
   %88 = getelementptr inbounds i64, ptr %.pre.i87120, i64 %87
@@ -3110,8 +3110,8 @@ Vec_IntPush.exit135:                              ; preds = %Vec_IntPush.exit135
   br label %Vec_IntPush.exit142.sink.split
 
 Vec_IntPush.exit142.sink.split:                   ; preds = %89, %91, %81, %83
-  %.sink297 = phi ptr [ %82, %81 ], [ %84, %83 ], [ %90, %89 ], [ %92, %91 ]
-  %.sink296 = phi i32 [ 16, %81 ], [ 16, %83 ], [ %86, %89 ], [ %86, %91 ]
+  %.sink297 = phi ptr [ %84, %83 ], [ %82, %81 ], [ %90, %89 ], [ %92, %91 ]
+  %.sink296 = phi i32 [ 16, %83 ], [ 16, %81 ], [ %86, %89 ], [ %86, %91 ]
   store ptr %.sink297, ptr %36, align 8, !tbaa !70
   store i32 %.sink296, ptr %29, align 8, !tbaa !118
   br label %Vec_IntPush.exit142
@@ -3921,7 +3921,7 @@ Mini_AigNodeIsAnd.exit:                           ; preds = %Mini_AigNodeIsPo.ex
   br label %Mini_AigNodeIsAnd.exit.thread
 
 Mini_AigNodeIsAnd.exit.thread:                    ; preds = %35, %34, %31, %Mini_AigNodeIsAnd.exit, %41
-  %.1 = phi i32 [ %.06198, %31 ], [ %.06198, %35 ], [ %.06198, %34 ], [ %47, %41 ], [ %.06198, %Mini_AigNodeIsAnd.exit ]
+  %.1 = phi i32 [ %.06198, %31 ], [ %.06198, %35 ], [ %.06198, %34 ], [ %.06198, %Mini_AigNodeIsAnd.exit ], [ %47, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !133
@@ -4244,7 +4244,7 @@ define void @Abc_GenGraph(ptr noundef readonly captures(none) %0, i32 noundef %1
   br label %44
 
 44:                                               ; preds = %41, %38
-  %.4.us.us.us = phi i32 [ %.3138.us.us.us, %38 ], [ %spec.select.us.us.us, %41 ]
+  %.4.us.us.us = phi i32 [ %spec.select.us.us.us, %41 ], [ %.3138.us.us.us, %38 ]
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count193
   br i1 %exitcond184.not, label %..loopexit_crit_edge.us.us.us, label %38, !llvm.loop !145
@@ -4306,8 +4306,8 @@ define void @Abc_GenGraph(ptr noundef readonly captures(none) %0, i32 noundef %1
   br i1 %.not107.us, label %72, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader122, %._crit_edge.split, %._crit_edge
-  %63 = phi i8 [ %47, %._crit_edge ], [ %32, %._crit_edge.split ], [ %33, %.preheader122 ]
-  %64 = phi i8 [ %47, %._crit_edge ], [ %32, %._crit_edge.split ], [ %32, %.preheader122 ]
+  %63 = phi i8 [ %32, %._crit_edge.split ], [ %47, %._crit_edge ], [ %33, %.preheader122 ]
+  %64 = phi i8 [ %32, %._crit_edge.split ], [ %47, %._crit_edge ], [ %32, %.preheader122 ]
   %65 = and i32 %.089151, 31
   %66 = shl nuw i32 1, %65
   %67 = lshr i32 %.089151, 5
@@ -6568,8 +6568,8 @@ Vec_WecPush.exit226:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond325.not, label %.critedge14, label %293, !llvm.loop !207
 
 .critedge14:                                      ; preds = %.critedge10, %._crit_edge258, %.critedge10.preheader
-  %.0153.lcssa371 = phi i32 [ %.1154.lcssa, %.critedge10.preheader ], [ 0, %._crit_edge258 ], [ %.1154.lcssa, %.critedge10 ]
-  %.0157.lcssa370 = phi i32 [ %.1158.lcssa, %.critedge10.preheader ], [ 0, %._crit_edge258 ], [ %.1158.lcssa, %.critedge10 ]
+  %.0153.lcssa371 = phi i32 [ 0, %._crit_edge258 ], [ %.1154.lcssa, %.critedge10.preheader ], [ %.1154.lcssa, %.critedge10 ]
+  %.0157.lcssa370 = phi i32 [ 0, %._crit_edge258 ], [ %.1158.lcssa, %.critedge10.preheader ], [ %.1158.lcssa, %.critedge10 ]
   %304 = tail call i64 @fwrite(ptr nonnull @.str.223, i64 6, i64 1, ptr %91)
   tail call void @Abc_WriteHalfAdder(ptr noundef %91)
   tail call void @Abc_WriteFullAdder(ptr noundef %91)
@@ -8779,10 +8779,10 @@ Vec_IntPush.exit529:                              ; preds = %Vec_IntPush.exit529
   br i1 %933, label %.critedge12, label %.critedge14, !llvm.loop !224
 
 .critedge14:                                      ; preds = %Vec_WecFree.exit, %.critedge12, %._crit_edge590, %.critedge12.preheader
-  %.0281974 = phi ptr [ %.0281979, %.critedge12.preheader ], [ %15, %._crit_edge590 ], [ %.0281979, %.critedge12 ], [ %146, %Vec_WecFree.exit ]
-  %.0254969 = phi i32 [ %.0254983, %.critedge12.preheader ], [ 0, %._crit_edge590 ], [ %.0254983, %.critedge12 ], [ %.1255.lcssa, %Vec_WecFree.exit ]
-  %.7.lcssa889 = phi i32 [ %.8, %.critedge12.preheader ], [ 0, %._crit_edge590 ], [ %.8, %.critedge12 ], [ %.1265.lcssa, %Vec_WecFree.exit ]
-  %.4263.lcssa = phi i32 [ %.0259982, %.critedge12.preheader ], [ 0, %._crit_edge590 ], [ %930, %.critedge12 ], [ %.1260.lcssa, %Vec_WecFree.exit ]
+  %.0281974 = phi ptr [ %.0281979, %.critedge12.preheader ], [ %.0281979, %.critedge12 ], [ %15, %._crit_edge590 ], [ %146, %Vec_WecFree.exit ]
+  %.0254969 = phi i32 [ %.0254983, %.critedge12.preheader ], [ %.0254983, %.critedge12 ], [ 0, %._crit_edge590 ], [ %.1255.lcssa, %Vec_WecFree.exit ]
+  %.7.lcssa889 = phi i32 [ %.8, %.critedge12.preheader ], [ %.8, %.critedge12 ], [ 0, %._crit_edge590 ], [ %.1265.lcssa, %Vec_WecFree.exit ]
+  %.4263.lcssa = phi i32 [ %.0259982, %.critedge12.preheader ], [ %930, %.critedge12 ], [ 0, %._crit_edge590 ], [ %.1260.lcssa, %Vec_WecFree.exit ]
   %934 = tail call i64 @fwrite(ptr nonnull @.str.223, i64 6, i64 1, ptr %91)
   tail call void @Abc_WriteFullAdder(ptr noundef %91)
   %.not298 = icmp eq i32 %.0254969, 0

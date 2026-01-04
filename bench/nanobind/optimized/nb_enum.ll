@@ -2843,12 +2843,12 @@ define noundef zeroext i1 @_ZN8nanobind6detail16enum_from_pythonEPKSt9type_infoP
   br i1 %.not98, label %.thread88, label %.thread88.sink.split
 
 .thread88.sink.split:                             ; preds = %.loopexit, %.loopexit99, %34, %38, %27, %31, %73
-  %.sink = phi i64 [ %75, %73 ], [ %26, %31 ], [ %26, %27 ], [ %33, %38 ], [ %33, %34 ], [ %82, %.loopexit99 ], [ %119, %.loopexit ]
+  %.sink = phi i64 [ %82, %.loopexit99 ], [ %33, %34 ], [ %75, %73 ], [ %26, %27 ], [ %26, %31 ], [ %33, %38 ], [ %119, %.loopexit ]
   store i64 %.sink, ptr %2, align 8
   br label %.thread88
 
 .thread88:                                        ; preds = %.invoke, %.thread88.sink.split, %.loopexit, %.loopexit99, %76, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %76 ], [ false, %.loopexit99 ], [ false, %.loopexit ], [ true, %.thread88.sink.split ], [ false, %.invoke ]
+  %.0 = phi i1 [ false, %7 ], [ false, %.loopexit99 ], [ false, %.loopexit ], [ false, %.invoke ], [ false, %76 ], [ true, %.thread88.sink.split ]
   ret i1 %.0
 
 155:                                              ; preds = %.invoke, %122, %118, %85, %81, %36, %32, %29, %25, %18, %4
@@ -3048,7 +3048,7 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit: ; preds = %_ZNKR8nanobind
           to label %_ZN8nanobind6objectD2Ev.exit35 unwind label %82
 
 _ZN8nanobind6objectD2Ev.exit35:                   ; preds = %.invoke, %39, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit, %70, %73, %6
-  %.0 = phi ptr [ null, %6 ], [ %42, %39 ], [ %69, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit ], [ %69, %70 ], [ %69, %73 ], [ null, %.invoke ]
+  %.0 = phi ptr [ null, %6 ], [ %42, %39 ], [ %69, %73 ], [ null, %.invoke ], [ %69, %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit ], [ %69, %70 ]
   ret ptr %.0
 
 82:                                               ; preds = %.invoke, %_ZNKR8nanobind6handle7inc_refEv.exit.i, %_ZN8nanobind6objectD2Ev.exit.i, %55, %53, %2

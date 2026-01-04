@@ -131,7 +131,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
   br label %41
 
 .loopexit:                                        ; preds = %5, %10, %9
-  %.1 = phi i32 [ %.020, %9 ], [ %.020, %5 ], [ %15, %10 ]
+  %.1 = phi i32 [ %.020, %9 ], [ %15, %10 ], [ %.020, %5 ]
   tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.5)
   tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.6)
   tail call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 noundef -2, ptr noundef nonnull @.str.7, i32 noundef %.1)

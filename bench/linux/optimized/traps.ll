@@ -865,7 +865,7 @@ define dso_local void @exc_debug(ptr noundef %0) local_unnamed_addr #2 section "
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %37, %31
-  %39 = phi i64 [ %38, %37 ], [ %4, %31 ]
+  %39 = phi i64 [ %4, %31 ], [ %38, %37 ]
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %50, label %thread-pre-split.thread
 

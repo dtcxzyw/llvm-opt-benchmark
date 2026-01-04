@@ -684,7 +684,7 @@ define internal fastcc i32 @do_alloc_pages(ptr noundef %0, i32 noundef %1, ptr n
   br label %33
 
 33:                                               ; preds = %6, %31
-  %34 = phi i32 [ %14, %31 ], [ -12, %6 ]
+  %34 = phi i32 [ -12, %6 ], [ %14, %31 ]
   tail call void @mutex_unlock(ptr noundef nonnull %7) #8
   br label %35
 

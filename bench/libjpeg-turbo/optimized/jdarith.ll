@@ -999,7 +999,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   %.not82 = icmp eq i32 %127, 0
   br i1 %.not82, label %._crit_edge, label %.lr.ph98, !llvm.loop !83
 
-._crit_edge:                                      ; preds = %.lr.ph98, %101, %105, %.loopexit
+._crit_edge:                                      ; preds = %.lr.ph98, %105, %101, %.loopexit
   %.062.lcssa = phi i32 [ %115, %.loopexit ], [ 0, %101 ], [ 1, %105 ], [ %spec.select, %.lr.ph98 ]
   %128 = add nsw i32 %.062.lcssa, 1
   %.not83 = icmp eq i32 %102, 0
@@ -1838,7 +1838,7 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   %.not166 = icmp eq i32 %205, 0
   br i1 %.not166, label %._crit_edge200, label %.lr.ph199, !llvm.loop !92
 
-._crit_edge200:                                   ; preds = %.lr.ph199, %179, %183, %.loopexit
+._crit_edge200:                                   ; preds = %.lr.ph199, %183, %179, %.loopexit
   %.3130.lcssa = phi i32 [ %193, %.loopexit ], [ 0, %179 ], [ 1, %183 ], [ %spec.select170, %.lr.ph199 ]
   br i1 %.not160, label %215, label %206
 

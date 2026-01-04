@@ -886,7 +886,7 @@ if.then4.i.i:                                     ; preds = %if.then
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %call, %if.then4.i.i ]
+  %phi.call.i = phi ptr [ %call, %if.then4.i.i ], [ %call3.i.i, %if.then.i.i ]
   %3 = load ptr, ptr %argv, align 8
   %tobool.i.not.i = icmp eq ptr %3, null
   br i1 %tobool.i.not.i, label %_ZN4llvh11raw_ostreamlsEPKc.exit31, label %cond.true.i.split.i
@@ -919,7 +919,7 @@ if.then4.i.i26:                                   ; preds = %if.end.i.i24
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit31
 
 _ZN4llvh11raw_ostreamlsEPKc.exit31:               ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i.i29, %if.end.i.i24, %if.then4.i.i26
-  %phi.call.i28 = phi ptr [ %call3.i.i30, %if.then.i.i29 ], [ %phi.call.i, %if.then4.i.i26 ], [ %phi.call.i, %if.end.i.i24 ], [ %phi.call.i, %_ZN4llvh11raw_ostreamlsEPKc.exit ]
+  %phi.call.i28 = phi ptr [ %phi.call.i, %if.end.i.i24 ], [ %call3.i.i30, %if.then.i.i29 ], [ %phi.call.i, %if.then4.i.i26 ], [ %phi.call.i, %_ZN4llvh11raw_ostreamlsEPKc.exit ]
   %OutBufEnd.i5.i34 = getelementptr inbounds nuw i8, ptr %phi.call.i28, i64 16
   %7 = load ptr, ptr %OutBufEnd.i5.i34, align 8
   %OutBufCur.i6.i35 = getelementptr inbounds nuw i8, ptr %phi.call.i28, i64 24
@@ -1151,7 +1151,7 @@ if.then4.i.i40.i:                                 ; preds = %for.body.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit45.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit45.i:             ; preds = %if.then4.i.i40.i, %if.then.i.i43.i
-  %phi.call.i42.i = phi ptr [ %call3.i.i44.i, %if.then.i.i43.i ], [ %call11.i, %if.then4.i.i40.i ]
+  %phi.call.i42.i = phi ptr [ %call11.i, %if.then4.i.i40.i ], [ %call3.i.i44.i, %if.then.i.i43.i ]
   call void @_ZNK9TreeClass8enumNameB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.079.i)
   %call.i.i112 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
   %call2.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
@@ -1296,7 +1296,7 @@ if.then4.i.i.i.i:                                 ; preds = %if.end3.i.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit.i.i:             ; preds = %if.then4.i.i.i.i, %if.then.i.i.i.i
-  %phi.call.i.i.i = phi ptr [ %call3.i.i.i.i, %if.then.i.i.i.i ], [ %call4.i.i, %if.then4.i.i.i.i ]
+  %phi.call.i.i.i = phi ptr [ %call4.i.i, %if.then4.i.i.i.i ], [ %call3.i.i.i.i, %if.then.i.i.i.i ]
   %call.i.i2.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.027.i) #17
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.027.i) #17
   %call3.i.i3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i.i.i, ptr noundef %call.i.i2.i, i64 noundef %call2.i.i.i) #17
@@ -1349,7 +1349,7 @@ if.then4.i.i32.i.i:                               ; preds = %for.body.i.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit37.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit37.i.i:           ; preds = %if.then4.i.i32.i.i, %if.then.i.i35.i.i
-  %phi.call.i34.i.i = phi ptr [ %call3.i.i36.i.i, %if.then.i.i35.i.i ], [ %call14.i.i, %if.then4.i.i32.i.i ]
+  %phi.call.i34.i.i = phi ptr [ %call14.i.i, %if.then4.i.i32.i.i ], [ %call3.i.i36.i.i, %if.then.i.i35.i.i ]
   %call.i38.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.027.i) #17
   %call2.i39.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.027.i) #17
   %call3.i40.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i34.i.i, ptr noundef %call.i38.i.i, i64 noundef %call2.i39.i.i) #17
@@ -1372,7 +1372,7 @@ if.then4.i.i50.i.i:                               ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit55.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit55.i.i:           ; preds = %if.then4.i.i50.i.i, %if.then.i.i53.i.i
-  %phi.call.i52.i.i = phi ptr [ %call3.i.i54.i.i, %if.then.i.i53.i.i ], [ %call3.i40.i.i, %if.then4.i.i50.i.i ]
+  %phi.call.i52.i.i = phi ptr [ %call3.i40.i.i, %if.then4.i.i50.i.i ], [ %call3.i.i54.i.i, %if.then.i.i53.i.i ]
   %name19.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.04.i.i, i64 8
   %call.i56.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name19.i.i) #17
   %call2.i57.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %name19.i.i) #17
@@ -1636,7 +1636,7 @@ if.then4.i.i.i.i192:                              ; preds = %if.end5.i.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit.i.i194
 
 _ZN4llvh11raw_ostreamlsEPKc.exit.i.i194:          ; preds = %if.then4.i.i.i.i192, %if.then.i.i.i.i202
-  %phi.call.i.i.i195 = phi ptr [ %call3.i.i.i.i203, %if.then.i.i.i.i202 ], [ %call6.i.i, %if.then4.i.i.i.i192 ]
+  %phi.call.i.i.i195 = phi ptr [ %call6.i.i, %if.then4.i.i.i.i192 ], [ %call3.i.i.i.i203, %if.then.i.i.i.i202 ]
   %call.i.i32.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.082.i) #17
   %call2.i.i.i196 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.082.i) #17
   %call3.i.i33.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i.i.i195, ptr noundef %call.i.i32.i, i64 noundef %call2.i.i.i196) #17
@@ -1694,7 +1694,7 @@ if.then4.i.i66.i.i:                               ; preds = %for.body.i.i198
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit71.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit71.i.i:           ; preds = %if.then4.i.i66.i.i, %if.then.i.i69.i.i
-  %phi.call.i68.i.i = phi ptr [ %call3.i.i70.i.i, %if.then.i.i69.i.i ], [ %call16.i.i, %if.then4.i.i66.i.i ]
+  %phi.call.i68.i.i = phi ptr [ %call16.i.i, %if.then4.i.i66.i.i ], [ %call3.i.i70.i.i, %if.then.i.i69.i.i ]
   call void @_ZNK5Field8rustNameB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(41) %__begin2.sroa.0.06.i.i)
   %call.i72.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
   %call2.i73.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #17
@@ -1756,8 +1756,8 @@ if.then4.i.i99.i.i:                               ; preds = %sw.bb.i.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit104.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit104.i.i:          ; preds = %if.then4.i.i99.i.i, %if.then.i.i102.i.i
-  %119 = phi ptr [ %.pre14.i.i, %if.then.i.i102.i.i ], [ %add.ptr.i.i100.i.i, %if.then4.i.i99.i.i ]
-  %phi.call.i101.i.i = phi ptr [ %call3.i.i103.i.i, %if.then.i.i102.i.i ], [ %call20.i.i, %if.then4.i.i99.i.i ]
+  %119 = phi ptr [ %add.ptr.i.i100.i.i, %if.then4.i.i99.i.i ], [ %.pre14.i.i, %if.then.i.i102.i.i ]
+  %phi.call.i101.i.i = phi ptr [ %call20.i.i, %if.then4.i.i99.i.i ], [ %call3.i.i103.i.i, %if.then.i.i102.i.i ]
   %optional.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.06.i.i, i64 40
   %120 = load i8, ptr %optional.i.i, align 8
   %tobool.i.i = trunc i8 %120 to i1
@@ -1789,8 +1789,8 @@ if.then4.i.i114.i.i:                              ; preds = %if.end.i.i112.i.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit119.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit119.i.i:          ; preds = %if.then4.i.i114.i.i, %if.end.i.i112.i.i, %if.then.i.i117.i.i
-  %123 = phi ptr [ %.pre15.i.i, %if.then.i.i117.i.i ], [ %add.ptr.i.i115.i.i, %if.then4.i.i114.i.i ], [ %119, %if.end.i.i112.i.i ]
-  %phi.call.i116.i.i = phi ptr [ %call3.i.i118.i.i, %if.then.i.i117.i.i ], [ %phi.call.i101.i.i, %if.then4.i.i114.i.i ], [ %phi.call.i101.i.i, %if.end.i.i112.i.i ]
+  %123 = phi ptr [ %119, %if.end.i.i112.i.i ], [ %.pre15.i.i, %if.then.i.i117.i.i ], [ %add.ptr.i.i115.i.i, %if.then4.i.i114.i.i ]
+  %phi.call.i116.i.i = phi ptr [ %phi.call.i101.i.i, %if.end.i.i112.i.i ], [ %call3.i.i118.i.i, %if.then.i.i117.i.i ], [ %phi.call.i101.i.i, %if.then4.i.i114.i.i ]
   %OutBufEnd.i5.i121.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i116.i.i, i64 16
   %124 = load ptr, ptr %OutBufEnd.i5.i121.i.i, align 8
   %sub.ptr.lhs.cast.i7.i123.i.i = ptrtoint ptr %124 to i64
@@ -2003,8 +2003,8 @@ if.then4.i.i211.i.i:                              ; preds = %if.else.i.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit216.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit216.i.i:          ; preds = %if.then4.i.i211.i.i, %if.then.i.i214.i.i
-  %132 = phi ptr [ %.pre12.i.i, %if.then.i.i214.i.i ], [ %add.ptr.i.i212.i.i, %if.then4.i.i211.i.i ]
-  %phi.call.i213.i.i = phi ptr [ %call3.i.i215.i.i, %if.then.i.i214.i.i ], [ %call103.i.i, %if.then4.i.i211.i.i ]
+  %132 = phi ptr [ %add.ptr.i.i212.i.i, %if.then4.i.i211.i.i ], [ %.pre12.i.i, %if.then.i.i214.i.i ]
+  %phi.call.i213.i.i = phi ptr [ %call103.i.i, %if.then4.i.i211.i.i ], [ %call3.i.i215.i.i, %if.then.i.i214.i.i ]
   %optional105.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.06.i.i, i64 40
   %133 = load i8, ptr %optional105.i.i, align 8
   %tobool106.i.i = trunc i8 %133 to i1
@@ -2036,8 +2036,8 @@ if.then4.i.i226.i.i:                              ; preds = %if.end.i.i224.i.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit231.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit231.i.i:          ; preds = %if.then4.i.i226.i.i, %if.end.i.i224.i.i, %if.then.i.i229.i.i
-  %136 = phi ptr [ %.pre13.i.i, %if.then.i.i229.i.i ], [ %add.ptr.i.i227.i.i, %if.then4.i.i226.i.i ], [ %132, %if.end.i.i224.i.i ]
-  %phi.call.i228.i.i = phi ptr [ %call3.i.i230.i.i, %if.then.i.i229.i.i ], [ %phi.call.i213.i.i, %if.then4.i.i226.i.i ], [ %phi.call.i213.i.i, %if.end.i.i224.i.i ]
+  %136 = phi ptr [ %132, %if.end.i.i224.i.i ], [ %.pre13.i.i, %if.then.i.i229.i.i ], [ %add.ptr.i.i227.i.i, %if.then4.i.i226.i.i ]
+  %phi.call.i228.i.i = phi ptr [ %phi.call.i213.i.i, %if.end.i.i224.i.i ], [ %call3.i.i230.i.i, %if.then.i.i229.i.i ], [ %phi.call.i213.i.i, %if.then4.i.i226.i.i ]
   %OutBufEnd.i5.i233.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i228.i.i, i64 16
   %137 = load ptr, ptr %OutBufEnd.i5.i233.i.i, align 8
   %sub.ptr.lhs.cast.i7.i235.i.i = ptrtoint ptr %137 to i64
@@ -2084,8 +2084,8 @@ if.then4.i.i256.i.i:                              ; preds = %sw.bb112.i.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit261.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit261.i.i:          ; preds = %if.then4.i.i256.i.i, %if.then.i.i259.i.i
-  %142 = phi ptr [ %.pre.i.i201, %if.then.i.i259.i.i ], [ %add.ptr.i.i257.i.i, %if.then4.i.i256.i.i ]
-  %phi.call.i258.i.i = phi ptr [ %call3.i.i260.i.i, %if.then.i.i259.i.i ], [ %call113.i.i, %if.then4.i.i256.i.i ]
+  %142 = phi ptr [ %add.ptr.i.i257.i.i, %if.then4.i.i256.i.i ], [ %.pre.i.i201, %if.then.i.i259.i.i ]
+  %phi.call.i258.i.i = phi ptr [ %call113.i.i, %if.then4.i.i256.i.i ], [ %call3.i.i260.i.i, %if.then.i.i259.i.i ]
   %optional115.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.06.i.i, i64 40
   %143 = load i8, ptr %optional115.i.i, align 8
   %tobool116.i.i = trunc i8 %143 to i1
@@ -2117,8 +2117,8 @@ if.then4.i.i271.i.i:                              ; preds = %if.end.i.i269.i.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit276.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit276.i.i:          ; preds = %if.then4.i.i271.i.i, %if.end.i.i269.i.i, %if.then.i.i274.i.i
-  %146 = phi ptr [ %.pre9.i.i, %if.then.i.i274.i.i ], [ %add.ptr.i.i272.i.i, %if.then4.i.i271.i.i ], [ %142, %if.end.i.i269.i.i ]
-  %phi.call.i273.i.i = phi ptr [ %call3.i.i275.i.i, %if.then.i.i274.i.i ], [ %phi.call.i258.i.i, %if.then4.i.i271.i.i ], [ %phi.call.i258.i.i, %if.end.i.i269.i.i ]
+  %146 = phi ptr [ %142, %if.end.i.i269.i.i ], [ %.pre9.i.i, %if.then.i.i274.i.i ], [ %add.ptr.i.i272.i.i, %if.then4.i.i271.i.i ]
+  %phi.call.i273.i.i = phi ptr [ %phi.call.i258.i.i, %if.end.i.i269.i.i ], [ %call3.i.i275.i.i, %if.then.i.i274.i.i ], [ %phi.call.i258.i.i, %if.then4.i.i271.i.i ]
   %OutBufEnd.i5.i278.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i273.i.i, i64 16
   %147 = load ptr, ptr %OutBufEnd.i5.i278.i.i, align 8
   %sub.ptr.lhs.cast.i7.i280.i.i = ptrtoint ptr %147 to i64
@@ -2165,8 +2165,8 @@ if.then4.i.i301.i.i:                              ; preds = %sw.bb120.i.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit306.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit306.i.i:          ; preds = %if.then4.i.i301.i.i, %if.then.i.i304.i.i
-  %152 = phi ptr [ %.pre10.i.i, %if.then.i.i304.i.i ], [ %add.ptr.i.i302.i.i, %if.then4.i.i301.i.i ]
-  %phi.call.i303.i.i = phi ptr [ %call3.i.i305.i.i, %if.then.i.i304.i.i ], [ %call121.i.i, %if.then4.i.i301.i.i ]
+  %152 = phi ptr [ %add.ptr.i.i302.i.i, %if.then4.i.i301.i.i ], [ %.pre10.i.i, %if.then.i.i304.i.i ]
+  %phi.call.i303.i.i = phi ptr [ %call121.i.i, %if.then4.i.i301.i.i ], [ %call3.i.i305.i.i, %if.then.i.i304.i.i ]
   %optional123.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.06.i.i, i64 40
   %153 = load i8, ptr %optional123.i.i, align 8
   %tobool124.i.i = trunc i8 %153 to i1
@@ -2198,8 +2198,8 @@ if.then4.i.i316.i.i:                              ; preds = %if.end.i.i314.i.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit321.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit321.i.i:          ; preds = %if.then4.i.i316.i.i, %if.end.i.i314.i.i, %if.then.i.i319.i.i
-  %156 = phi ptr [ %.pre11.i.i, %if.then.i.i319.i.i ], [ %add.ptr.i.i317.i.i, %if.then4.i.i316.i.i ], [ %152, %if.end.i.i314.i.i ]
-  %phi.call.i318.i.i = phi ptr [ %call3.i.i320.i.i, %if.then.i.i319.i.i ], [ %phi.call.i303.i.i, %if.then4.i.i316.i.i ], [ %phi.call.i303.i.i, %if.end.i.i314.i.i ]
+  %156 = phi ptr [ %152, %if.end.i.i314.i.i ], [ %.pre11.i.i, %if.then.i.i319.i.i ], [ %add.ptr.i.i317.i.i, %if.then4.i.i316.i.i ]
+  %phi.call.i318.i.i = phi ptr [ %phi.call.i303.i.i, %if.end.i.i314.i.i ], [ %call3.i.i320.i.i, %if.then.i.i319.i.i ], [ %phi.call.i303.i.i, %if.then4.i.i316.i.i ]
   %OutBufEnd.i5.i323.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i318.i.i, i64 16
   %157 = load ptr, ptr %OutBufEnd.i5.i323.i.i, align 8
   %sub.ptr.lhs.cast.i7.i325.i.i = ptrtoint ptr %157 to i64
@@ -2244,7 +2244,7 @@ if.then4.i.i346.i.i:                              ; preds = %sw.epilog.i.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit351.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit351.i.i:          ; preds = %if.then4.i.i346.i.i, %if.then.i.i349.i.i
-  %phi.call.i348.i.i = phi ptr [ %call3.i.i350.i.i, %if.then.i.i349.i.i ], [ %call128.i.i, %if.then4.i.i346.i.i ]
+  %phi.call.i348.i.i = phi ptr [ %call128.i.i, %if.then4.i.i346.i.i ], [ %call3.i.i350.i.i, %if.then.i.i349.i.i ]
   %call.i352.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.082.i) #17
   %call2.i353.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.082.i) #17
   %call3.i354.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i348.i.i, ptr noundef %call.i352.i.i, i64 noundef %call2.i353.i.i) #17
@@ -2267,7 +2267,7 @@ if.then4.i.i364.i.i:                              ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit369.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit369.i.i:          ; preds = %if.then4.i.i364.i.i, %if.then.i.i367.i.i
-  %phi.call.i366.i.i = phi ptr [ %call3.i.i368.i.i, %if.then.i.i367.i.i ], [ %call3.i354.i.i, %if.then4.i.i364.i.i ]
+  %phi.call.i366.i.i = phi ptr [ %call3.i354.i.i, %if.then4.i.i364.i.i ], [ %call3.i.i368.i.i, %if.then.i.i367.i.i ]
   %name133.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.06.i.i, i64 8
   %call.i370.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name133.i.i) #17
   %call2.i371.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %name133.i.i) #17
@@ -2317,7 +2317,7 @@ if.then4.i.i397.i.i:                              ; preds = %if.then137.critedge
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit402.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit402.i.i:          ; preds = %if.then4.i.i397.i.i, %if.then.i.i400.i.i
-  %phi.call.i399.i.i = phi ptr [ %call3.i.i401.i.i, %if.then.i.i400.i.i ], [ %call128.c.i.i, %if.then4.i.i397.i.i ]
+  %phi.call.i399.i.i = phi ptr [ %call128.c.i.i, %if.then4.i.i397.i.i ], [ %call3.i.i401.i.i, %if.then.i.i400.i.i ]
   %call.i403.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.082.i) #17
   %call2.i404.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.082.i) #17
   %call3.i405.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i399.i.i, ptr noundef %call.i403.i.i, i64 noundef %call2.i404.i.i) #17
@@ -2340,7 +2340,7 @@ if.then4.i.i415.i.i:                              ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit420.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit420.i.i:          ; preds = %if.then4.i.i415.i.i, %if.then.i.i418.i.i
-  %phi.call.i417.i.i = phi ptr [ %call3.i.i419.i.i, %if.then.i.i418.i.i ], [ %call3.i405.i.i, %if.then4.i.i415.i.i ]
+  %phi.call.i417.i.i = phi ptr [ %call3.i405.i.i, %if.then4.i.i415.i.i ], [ %call3.i.i419.i.i, %if.then.i.i418.i.i ]
   %name133.c.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.06.i.i, i64 8
   %call.i421.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name133.c.i.i) #17
   %call2.i422.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %name133.c.i.i) #17
@@ -2438,7 +2438,7 @@ if.then4.i.i478.i.i:                              ; preds = %for.end.i.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit483.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit483.i.i:          ; preds = %if.then4.i.i478.i.i, %if.then.i.i481.i.i
-  %phi.call.i480.i.i = phi ptr [ %call3.i.i482.i.i, %if.then.i.i481.i.i ], [ %call144.i.i, %if.then4.i.i478.i.i ]
+  %phi.call.i480.i.i = phi ptr [ %call144.i.i, %if.then4.i.i478.i.i ], [ %call3.i.i482.i.i, %if.then.i.i481.i.i ]
   %call.i484.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.082.i) #17
   %call2.i485.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.082.i) #17
   %call3.i486.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i480.i.i, ptr noundef %call.i484.i.i, i64 noundef %call2.i485.i.i) #17
@@ -2466,8 +2466,8 @@ if.then4.i.i496.i.i:                              ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit501.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit501.i.i:          ; preds = %if.then4.i.i496.i.i, %if.then.i.i499.i.i
-  %189 = phi ptr [ %.pre16.i.i, %if.then.i.i499.i.i ], [ %add.ptr.i.i497.i.i, %if.then4.i.i496.i.i ]
-  %phi.call.i498.i.i = phi ptr [ %call3.i.i500.i.i, %if.then.i.i499.i.i ], [ %call3.i486.i.i, %if.then4.i.i496.i.i ]
+  %189 = phi ptr [ %add.ptr.i.i497.i.i, %if.then4.i.i496.i.i ], [ %.pre16.i.i, %if.then.i.i499.i.i ]
+  %phi.call.i498.i.i = phi ptr [ %call3.i486.i.i, %if.then4.i.i496.i.i ], [ %call3.i.i500.i.i, %if.then.i.i499.i.i ]
   %OutBufEnd.i5.i503.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i498.i.i, i64 16
   %190 = load ptr, ptr %OutBufEnd.i5.i503.i.i, align 8
   %sub.ptr.lhs.cast.i7.i505.i.i = ptrtoint ptr %190 to i64
@@ -2519,7 +2519,7 @@ if.then4.i.i528.i.i:                              ; preds = %for.body160.i.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit533.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit533.i.i:          ; preds = %if.then4.i.i528.i.i, %if.then.i.i531.i.i
-  %phi.call.i530.i.i = phi ptr [ %call3.i.i532.i.i, %if.then.i.i531.i.i ], [ %call163.i.i, %if.then4.i.i528.i.i ]
+  %phi.call.i530.i.i = phi ptr [ %call163.i.i, %if.then4.i.i528.i.i ], [ %call3.i.i532.i.i, %if.then.i.i531.i.i ]
   call void @_ZNK5Field8rustNameB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp165.i.i, ptr noundef nonnull align 8 dereferenceable(41) %__begin2152.sroa.0.08.i.i)
   %call.i534.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp165.i.i) #17
   %call2.i535.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp165.i.i) #17
@@ -2577,8 +2577,8 @@ if.then4.i.i562.i.i:                              ; preds = %for.end170.i.i
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit567.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit567.i.i:          ; preds = %if.then4.i.i562.i.i, %if.then.i.i565.i.i
-  %203 = phi ptr [ %.pre17.i.i, %if.then.i.i565.i.i ], [ %add.ptr.i.i563.i.i, %if.then4.i.i562.i.i ]
-  %phi.call.i564.i.i = phi ptr [ %call3.i.i566.i.i, %if.then.i.i565.i.i ], [ %call171.i.i, %if.then4.i.i562.i.i ]
+  %203 = phi ptr [ %add.ptr.i.i563.i.i, %if.then4.i.i562.i.i ], [ %.pre17.i.i, %if.then.i.i565.i.i ]
+  %phi.call.i564.i.i = phi ptr [ %call171.i.i, %if.then4.i.i562.i.i ], [ %call3.i.i566.i.i, %if.then.i.i565.i.i ]
   %OutBufEnd.i5.i569.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i564.i.i, i64 16
   %204 = load ptr, ptr %OutBufEnd.i5.i569.i.i, align 8
   %sub.ptr.lhs.cast.i7.i571.i.i = ptrtoint ptr %204 to i64
@@ -2600,7 +2600,7 @@ if.then4.i.i577.i.i:                              ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit582.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit582.i.i:          ; preds = %if.then4.i.i577.i.i, %if.then.i.i580.i.i
-  %phi.call.i579.i.i = phi ptr [ %call3.i.i581.i.i, %if.then.i.i580.i.i ], [ %phi.call.i564.i.i, %if.then4.i.i577.i.i ]
+  %phi.call.i579.i.i = phi ptr [ %phi.call.i564.i.i, %if.then4.i.i577.i.i ], [ %call3.i.i581.i.i, %if.then.i.i580.i.i ]
   %call.i583.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.082.i) #17
   %call2.i584.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(96) %__begin1.sroa.0.082.i) #17
   %call3.i585.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i579.i.i, ptr noundef %call.i583.i.i, i64 noundef %call2.i584.i.i) #17
@@ -2628,8 +2628,8 @@ if.then4.i.i595.i.i:                              ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit600.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit600.i.i:          ; preds = %if.then4.i.i595.i.i, %if.then.i.i598.i.i
-  %209 = phi ptr [ %.pre18.i.i, %if.then.i.i598.i.i ], [ %add.ptr.i.i596.i.i, %if.then4.i.i595.i.i ]
-  %phi.call.i597.i.i = phi ptr [ %call3.i.i599.i.i, %if.then.i.i598.i.i ], [ %call3.i585.i.i, %if.then4.i.i595.i.i ]
+  %209 = phi ptr [ %add.ptr.i.i596.i.i, %if.then4.i.i595.i.i ], [ %.pre18.i.i, %if.then.i.i598.i.i ]
+  %phi.call.i597.i.i = phi ptr [ %call3.i585.i.i, %if.then4.i.i595.i.i ], [ %call3.i.i599.i.i, %if.then.i.i598.i.i ]
   %OutBufEnd.i5.i602.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i597.i.i, i64 16
   %210 = load ptr, ptr %OutBufEnd.i5.i602.i.i, align 8
   %sub.ptr.lhs.cast.i7.i604.i.i = ptrtoint ptr %210 to i64
@@ -2753,7 +2753,7 @@ if.then4.i.i216:                                  ; preds = %if.else25
   br label %return
 
 return:                                           ; preds = %if.then4.i.i216, %if.then.i.i219, %if.then4.i.i73.i, %if.then.i.i76.i, %if.then4.i.i18.i, %if.then.i.i21.i, %if.then4.i.i42, %if.then.i.i45
-  %retval.0 = phi i32 [ 1, %if.then.i.i45 ], [ 1, %if.then4.i.i42 ], [ 0, %if.then.i.i21.i ], [ 0, %if.then4.i.i18.i ], [ 0, %if.then.i.i76.i ], [ 0, %if.then4.i.i73.i ], [ 1, %if.then.i.i219 ], [ 1, %if.then4.i.i216 ]
+  %retval.0 = phi i32 [ 1, %if.then4.i.i42 ], [ 0, %if.then4.i.i73.i ], [ 0, %if.then4.i.i18.i ], [ 1, %if.then.i.i45 ], [ 1, %if.then4.i.i216 ], [ 0, %if.then.i.i21.i ], [ 0, %if.then.i.i76.i ], [ 1, %if.then.i.i219 ]
   ret i32 %retval.0
 }
 
@@ -15378,7 +15378,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -15651,7 +15651,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -15917,7 +15917,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -16182,7 +16182,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -16574,7 +16574,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -17601,7 +17601,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -17866,7 +17866,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -18131,7 +18131,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -18688,7 +18688,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -18954,7 +18954,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -19219,7 +19219,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -19484,7 +19484,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -20088,7 +20088,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -20480,7 +20480,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -21174,7 +21174,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -21906,7 +21906,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -22511,7 +22511,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -22940,7 +22940,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -23380,7 +23380,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -24240,7 +24240,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -24797,7 +24797,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -25062,7 +25062,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -25327,7 +25327,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -25592,7 +25592,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -25857,7 +25857,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8
@@ -26541,7 +26541,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %lor.rhs.i.i, %if.then
-  %2 = phi i1 [ true, %if.then ], [ %cmp.i.i.i.i, %lor.rhs.i.i ]
+  %2 = phi i1 [ %cmp.i.i.i.i, %lor.rhs.i.i ], [ true, %if.then ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %2, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %_M_node_count.i.i, align 8

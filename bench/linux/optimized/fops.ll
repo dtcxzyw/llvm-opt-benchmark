@@ -235,8 +235,8 @@ define internal i64 @blkdev_read_iter(ptr noundef %0, ptr noundef %1) #0 align 1
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %19, %23, %2
-  %24 = phi i64 [ %20, %23 ], [ %14, %2 ], [ %14, %19 ]
-  %25 = phi i64 [ %21, %23 ], [ 0, %2 ], [ %21, %19 ]
+  %24 = phi i64 [ %14, %2 ], [ %20, %23 ], [ %14, %19 ]
+  %25 = phi i64 [ 0, %2 ], [ %21, %23 ], [ %21, %19 ]
   %26 = icmp eq i64 %24, 0
   br i1 %26, label %60, label %27
 
@@ -1534,7 +1534,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__blkdev_direct_I
   br i1 %183, label %.thread12, label %184
 
 .thread12:                                        ; preds = %181, %165, %117, %126
-  %.us-phi20 = phi ptr [ %100, %126 ], [ %100, %117 ], [ %145, %165 ], [ %145, %181 ]
+  %.us-phi20 = phi ptr [ %100, %117 ], [ %100, %126 ], [ %145, %165 ], [ %145, %181 ]
   call void @submit_bio(ptr noundef %.us-phi20) #9
   br label %197
 

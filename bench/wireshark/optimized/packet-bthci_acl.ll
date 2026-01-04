@@ -403,8 +403,8 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread513
 
 .thread513:                                       ; preds = %133, %.thread513.fold.split589, %131, %.thread513.fold.split, %129, %135
-  %.1377 = phi i32 [ 1, %135 ], [ %134, %133 ], [ 2, %131 ], [ 0, %129 ], [ 0, %.thread513.fold.split ], [ 0, %.thread513.fold.split589 ]
-  %.1375 = phi i32 [ 2, %135 ], [ 1, %133 ], [ %132, %131 ], [ 0, %129 ], [ 0, %.thread513.fold.split ], [ 0, %.thread513.fold.split589 ]
+  %.1377 = phi i32 [ 0, %129 ], [ 1, %135 ], [ 0, %.thread513.fold.split ], [ %134, %133 ], [ 2, %131 ], [ 0, %.thread513.fold.split589 ]
+  %.1375 = phi i32 [ 0, %129 ], [ 2, %135 ], [ 0, %.thread513.fold.split ], [ 1, %133 ], [ %132, %131 ], [ 0, %.thread513.fold.split589 ]
   %136 = getelementptr inbounds nuw i8, ptr %128, i64 4
   %137 = load i32, ptr %136, align 4
   br label %.thread510
@@ -471,15 +471,15 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   br label %162
 
 162:                                              ; preds = %.thread508, %.fold.split459, %159, %.fold.split, %.thread514, %161
-  %.1396 = phi ptr [ @dissect_bthci_acl.unknown_bd_addr, %161 ], [ @dissect_bthci_acl.unknown_bd_addr, %159 ], [ %95, %.thread514 ], [ @dissect_bthci_acl.unknown_bd_addr, %.fold.split ], [ @dissect_bthci_acl.unknown_bd_addr, %.thread508 ], [ @dissect_bthci_acl.unknown_bd_addr, %.fold.split459 ]
-  %.1393 = phi ptr [ @.str.71, %161 ], [ @.str.71, %159 ], [ %.0367, %.thread514 ], [ @.str.71, %.fold.split ], [ @.str.71, %.thread508 ], [ @.str.71, %.fold.split459 ]
-  %.1390 = phi ptr [ @.str.71, %161 ], [ @.str.71, %159 ], [ %155, %.thread514 ], [ @.str.71, %.fold.split ], [ @.str.76, %.thread508 ], [ @.str.71, %.fold.split459 ]
-  %.1387 = phi ptr [ @dissect_bthci_acl.unknown_bd_addr, %161 ], [ %95, %159 ], [ @dissect_bthci_acl.unknown_bd_addr, %.thread514 ], [ @dissect_bthci_acl.unknown_bd_addr, %.fold.split ], [ @dissect_bthci_acl.unknown_bd_addr, %.thread508 ], [ @dissect_bthci_acl.unknown_bd_addr, %.fold.split459 ]
-  %.1384 = phi ptr [ @.str.71, %161 ], [ %.0367, %159 ], [ @.str.71, %.thread514 ], [ @.str.71, %.fold.split ], [ @.str.71, %.thread508 ], [ @.str.71, %.fold.split459 ]
-  %.1381 = phi ptr [ @.str.76, %161 ], [ %155, %159 ], [ @.str.71, %.thread514 ], [ @.str.71, %.fold.split ], [ @.str.71, %.thread508 ], [ @.str.71, %.fold.split459 ]
-  %.2378 = phi i32 [ 0, %161 ], [ %.0376, %159 ], [ %.0376, %.thread514 ], [ %.0376, %.fold.split ], [ 0, %.thread508 ], [ 0, %.fold.split459 ]
-  %.2 = phi i32 [ 0, %161 ], [ %.0374, %159 ], [ %.0374, %.thread514 ], [ %.0374, %.fold.split ], [ 0, %.thread508 ], [ 0, %.fold.split459 ]
-  %.1 = phi i32 [ 0, %161 ], [ %.0373, %159 ], [ %.0373, %.thread514 ], [ %.0373, %.fold.split ], [ 0, %.thread508 ], [ 0, %.fold.split459 ]
+  %.1396 = phi ptr [ @dissect_bthci_acl.unknown_bd_addr, %.thread508 ], [ @dissect_bthci_acl.unknown_bd_addr, %.fold.split ], [ @dissect_bthci_acl.unknown_bd_addr, %161 ], [ %95, %.thread514 ], [ @dissect_bthci_acl.unknown_bd_addr, %159 ], [ @dissect_bthci_acl.unknown_bd_addr, %.fold.split459 ]
+  %.1393 = phi ptr [ @.str.71, %.thread508 ], [ @.str.71, %.fold.split ], [ @.str.71, %161 ], [ %.0367, %.thread514 ], [ @.str.71, %159 ], [ @.str.71, %.fold.split459 ]
+  %.1390 = phi ptr [ @.str.76, %.thread508 ], [ @.str.71, %.fold.split ], [ @.str.71, %161 ], [ %155, %.thread514 ], [ @.str.71, %159 ], [ @.str.71, %.fold.split459 ]
+  %.1387 = phi ptr [ @dissect_bthci_acl.unknown_bd_addr, %.thread508 ], [ @dissect_bthci_acl.unknown_bd_addr, %.fold.split ], [ @dissect_bthci_acl.unknown_bd_addr, %161 ], [ @dissect_bthci_acl.unknown_bd_addr, %.thread514 ], [ %95, %159 ], [ @dissect_bthci_acl.unknown_bd_addr, %.fold.split459 ]
+  %.1384 = phi ptr [ @.str.71, %.thread508 ], [ @.str.71, %.fold.split ], [ @.str.71, %161 ], [ @.str.71, %.thread514 ], [ %.0367, %159 ], [ @.str.71, %.fold.split459 ]
+  %.1381 = phi ptr [ @.str.71, %.thread508 ], [ @.str.71, %.fold.split ], [ @.str.76, %161 ], [ @.str.71, %.thread514 ], [ %155, %159 ], [ @.str.71, %.fold.split459 ]
+  %.2378 = phi i32 [ 0, %.thread508 ], [ %.0376, %.fold.split ], [ 0, %161 ], [ %.0376, %.thread514 ], [ %.0376, %159 ], [ 0, %.fold.split459 ]
+  %.2 = phi i32 [ 0, %.thread508 ], [ %.0374, %.fold.split ], [ 0, %161 ], [ %.0374, %.thread514 ], [ %.0374, %159 ], [ 0, %.fold.split459 ]
+  %.1 = phi i32 [ 0, %.thread508 ], [ %.0373, %.fold.split ], [ 0, %161 ], [ %.0373, %.thread514 ], [ %.0373, %159 ], [ 0, %.fold.split459 ]
   store i32 1, ptr %5, align 16
   store ptr %6, ptr %53, align 8
   store i32 1, ptr %54, align 16
@@ -554,12 +554,12 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   br label %194
 
 194:                                              ; preds = %.thread518, %.fold.split460, %193
-  %.2397 = phi ptr [ %13, %193 ], [ %.1396, %.thread518 ], [ %.1396, %.fold.split460 ]
-  %.2394 = phi ptr [ %.0372, %193 ], [ %.1393, %.thread518 ], [ %.1393, %.fold.split460 ]
-  %.2391 = phi ptr [ %189, %193 ], [ %.1390, %.thread518 ], [ %.1390, %.fold.split460 ]
-  %.2388 = phi ptr [ %.1387, %193 ], [ %13, %.thread518 ], [ %.1387, %.fold.split460 ]
-  %.2385 = phi ptr [ %.1384, %193 ], [ %.0372, %.thread518 ], [ %.1384, %.fold.split460 ]
-  %.2382 = phi ptr [ %.1381, %193 ], [ %189, %.thread518 ], [ %.1381, %.fold.split460 ]
+  %.2397 = phi ptr [ %.1396, %.thread518 ], [ %13, %193 ], [ %.1396, %.fold.split460 ]
+  %.2394 = phi ptr [ %.1393, %.thread518 ], [ %.0372, %193 ], [ %.1393, %.fold.split460 ]
+  %.2391 = phi ptr [ %.1390, %.thread518 ], [ %189, %193 ], [ %.1390, %.fold.split460 ]
+  %.2388 = phi ptr [ %13, %.thread518 ], [ %.1387, %193 ], [ %.1387, %.fold.split460 ]
+  %.2385 = phi ptr [ %.0372, %.thread518 ], [ %.1384, %193 ], [ %.1384, %.fold.split460 ]
+  %.2382 = phi ptr [ %189, %.thread518 ], [ %.1381, %193 ], [ %.1381, %.fold.split460 ]
   store i32 1, ptr %5, align 16
   store ptr %6, ptr %53, align 8
   store i32 1, ptr %54, align 16

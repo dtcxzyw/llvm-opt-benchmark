@@ -47,7 +47,7 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN8WasmEdge16convertCharToHexEc(i8 n
   br label %10
 
 10:                                               ; preds = %1, %7, %5
-  %.0 = phi i8 [ %6, %5 ], [ %spec.select, %7 ], [ %2, %1 ]
+  %.0 = phi i8 [ %spec.select, %7 ], [ %6, %5 ], [ %2, %1 ]
   ret i8 %.0
 }
 
@@ -426,7 +426,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br label %_ZN8WasmEdge16convertCharToHexEc.exit
 
 _ZN8WasmEdge16convertCharToHexEc.exit:            ; preds = %.lr.ph80, %79, %81
-  %.0.i = phi i8 [ %80, %79 ], [ %spec.select.i, %81 ], [ %76, %.lr.ph80 ]
+  %.0.i = phi i8 [ %spec.select.i, %81 ], [ %80, %79 ], [ %76, %.lr.ph80 ]
   %84 = getelementptr inbounds i8, ptr %73, i64 -2
   %85 = load i8, ptr %84, align 1
   %86 = add i8 %85, -48
@@ -450,7 +450,7 @@ _ZN8WasmEdge16convertCharToHexEc.exit:            ; preds = %.lr.ph80, %79, %81
   br label %_ZN8WasmEdge16convertCharToHexEc.exit31
 
 _ZN8WasmEdge16convertCharToHexEc.exit31:          ; preds = %_ZN8WasmEdge16convertCharToHexEc.exit, %89, %91
-  %.0.i30 = phi i8 [ %90, %89 ], [ %spec.select.i29, %91 ], [ %86, %_ZN8WasmEdge16convertCharToHexEc.exit ]
+  %.0.i30 = phi i8 [ %spec.select.i29, %91 ], [ %90, %89 ], [ %86, %_ZN8WasmEdge16convertCharToHexEc.exit ]
   %94 = shl nuw i8 %.0.i30, 4
   %95 = add nuw nsw i8 %94, %.0.i
   %96 = load ptr, ptr %16, align 8
@@ -553,7 +553,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit:           ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZN8WasmEdge16convertCharToHexEc.exit40
 
 _ZN8WasmEdge16convertCharToHexEc.exit40:          ; preds = %.lr.ph, %129, %131
-  %.0.i39 = phi i8 [ %130, %129 ], [ %spec.select.i38, %131 ], [ %126, %.lr.ph ]
+  %.0.i39 = phi i8 [ %spec.select.i38, %131 ], [ %130, %129 ], [ %126, %.lr.ph ]
   %134 = shl nuw i8 %.0.i39, 4
   %135 = getelementptr inbounds nuw i8, ptr %.sroa.060.076, i64 1
   %136 = load i8, ptr %135, align 1
@@ -578,7 +578,7 @@ _ZN8WasmEdge16convertCharToHexEc.exit40:          ; preds = %.lr.ph, %129, %131
   br label %_ZN8WasmEdge16convertCharToHexEc.exit46
 
 _ZN8WasmEdge16convertCharToHexEc.exit46:          ; preds = %_ZN8WasmEdge16convertCharToHexEc.exit40, %140, %142
-  %.0.i45 = phi i8 [ %141, %140 ], [ %spec.select.i44, %142 ], [ %137, %_ZN8WasmEdge16convertCharToHexEc.exit40 ]
+  %.0.i45 = phi i8 [ %spec.select.i44, %142 ], [ %141, %140 ], [ %137, %_ZN8WasmEdge16convertCharToHexEc.exit40 ]
   %145 = add nuw nsw i8 %.0.i45, %134
   %146 = load ptr, ptr %16, align 8
   %147 = load ptr, ptr %56, align 8

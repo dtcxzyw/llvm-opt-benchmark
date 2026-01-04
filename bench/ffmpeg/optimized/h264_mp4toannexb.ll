@@ -467,13 +467,13 @@ count_or_copy.exit202:                            ; preds = %._crit_edge.i200, %
   %177 = add i64 %.pre-phi25.i199, %.4262
   br label %.thread286
 
-.thread286:                                       ; preds = %134, %140, %141, %count_or_copy.exit, %137, %151, %170, %count_or_copy.exit202, %156, %154
-  %.5141292 = phi i8 [ %.2138, %156 ], [ %.2138, %170 ], [ %.2138, %count_or_copy.exit202 ], [ %.2138, %154 ], [ %.lobit, %151 ], [ 1, %137 ], [ 1, %count_or_copy.exit ], [ 1, %141 ], [ 1, %140 ], [ 1, %134 ]
-  %178 = phi i1 [ false, %156 ], [ false, %170 ], [ false, %count_or_copy.exit202 ], [ %150, %154 ], [ true, %151 ], [ false, %137 ], [ false, %count_or_copy.exit ], [ false, %141 ], [ false, %140 ], [ false, %134 ]
-  %.4270 = phi ptr [ %.1267, %156 ], [ %.5271, %170 ], [ %.12, %count_or_copy.exit202 ], [ %.1267, %154 ], [ %.1267, %151 ], [ %.1267, %137 ], [ %.10, %count_or_copy.exit ], [ %.1267, %141 ], [ %.1267, %140 ], [ %.1267, %134 ]
-  %.3261 = phi i64 [ %.0258, %156 ], [ %.4262, %170 ], [ %177, %count_or_copy.exit202 ], [ %.0258, %154 ], [ %.0258, %151 ], [ %.0258, %137 ], [ %147, %count_or_copy.exit ], [ %.0258, %141 ], [ %.0258, %140 ], [ %.0258, %134 ]
-  %.5156 = phi i8 [ %.2153, %156 ], [ %.6157, %170 ], [ %.6157, %count_or_copy.exit202 ], [ %.2153, %154 ], [ %.2153, %151 ], [ %.2153, %137 ], [ 1, %count_or_copy.exit ], [ 0, %141 ], [ 0, %140 ], [ 1, %134 ]
-  %.5149 = phi i8 [ %.2146, %156 ], [ 0, %170 ], [ 1, %count_or_copy.exit202 ], [ %.2146, %154 ], [ %.2146, %151 ], [ 1, %137 ], [ 1, %count_or_copy.exit ], [ 1, %141 ], [ 1, %140 ], [ %.2146, %134 ]
+.thread286:                                       ; preds = %140, %141, %count_or_copy.exit, %137, %134, %151, %170, %count_or_copy.exit202, %156, %154
+  %.5141292 = phi i8 [ %.2138, %156 ], [ %.2138, %170 ], [ %.2138, %count_or_copy.exit202 ], [ %.2138, %154 ], [ %.lobit, %151 ], [ 1, %134 ], [ 1, %137 ], [ 1, %count_or_copy.exit ], [ 1, %141 ], [ 1, %140 ]
+  %178 = phi i1 [ false, %156 ], [ false, %170 ], [ false, %count_or_copy.exit202 ], [ %150, %154 ], [ true, %151 ], [ false, %134 ], [ false, %137 ], [ false, %count_or_copy.exit ], [ false, %141 ], [ false, %140 ]
+  %.4270 = phi ptr [ %.1267, %156 ], [ %.5271, %170 ], [ %.12, %count_or_copy.exit202 ], [ %.1267, %154 ], [ %.1267, %151 ], [ %.1267, %134 ], [ %.1267, %137 ], [ %.10, %count_or_copy.exit ], [ %.1267, %141 ], [ %.1267, %140 ]
+  %.3261 = phi i64 [ %.0258, %156 ], [ %.4262, %170 ], [ %177, %count_or_copy.exit202 ], [ %.0258, %154 ], [ %.0258, %151 ], [ %.0258, %134 ], [ %.0258, %137 ], [ %147, %count_or_copy.exit ], [ %.0258, %141 ], [ %.0258, %140 ]
+  %.5156 = phi i8 [ %.2153, %156 ], [ %.6157, %170 ], [ %.6157, %count_or_copy.exit202 ], [ %.2153, %154 ], [ %.2153, %151 ], [ 1, %134 ], [ %.2153, %137 ], [ 1, %count_or_copy.exit ], [ 0, %141 ], [ 0, %140 ]
+  %.5149 = phi i8 [ %.2146, %156 ], [ 0, %170 ], [ 1, %count_or_copy.exit202 ], [ %.2146, %154 ], [ %.2146, %151 ], [ %.2146, %134 ], [ 1, %137 ], [ 1, %count_or_copy.exit ], [ 1, %141 ], [ 1, %140 ]
   %179 = icmp ne i8 %.5141292, 0
   %or.cond9 = and i1 %179, %178
   %or.cond9.not = xor i1 %or.cond9, true
@@ -570,9 +570,9 @@ count_or_copy.exit217:                            ; preds = %._crit_edge.i215, %
   br label %209
 
 209:                                              ; preds = %190, %count_or_copy.exit212, %198, %count_or_copy.exit217
-  %.7273 = phi ptr [ %.4270, %198 ], [ %.15, %count_or_copy.exit217 ], [ %.6272, %190 ], [ %.14, %count_or_copy.exit212 ]
-  %.6264 = phi i64 [ %.3261, %198 ], [ %208, %count_or_copy.exit217 ], [ %.5263, %190 ], [ %197, %count_or_copy.exit212 ]
-  %.6 = phi i8 [ %.5141292, %198 ], [ %.5141292, %count_or_copy.exit217 ], [ 0, %190 ], [ 0, %count_or_copy.exit212 ]
+  %.7273 = phi ptr [ %.4270, %198 ], [ %.14, %count_or_copy.exit212 ], [ %.6272, %190 ], [ %.15, %count_or_copy.exit217 ]
+  %.6264 = phi i64 [ %.3261, %198 ], [ %197, %count_or_copy.exit212 ], [ %.5263, %190 ], [ %208, %count_or_copy.exit217 ]
+  %.6 = phi i8 [ %.5141292, %198 ], [ 0, %count_or_copy.exit212 ], [ 0, %190 ], [ %.5141292, %count_or_copy.exit217 ]
   %210 = add nsw i8 %136, -7
   %or.cond24 = icmp ult i8 %210, 2
   br i1 %or.cond24, label %.split160, label %.split
@@ -742,8 +742,8 @@ h264_mp4toannexb_filter_ps.exit:                  ; preds = %250
   %258 = icmp slt i32 %257, 0
   br i1 %258, label %.thread350, label %.sink.split
 
-.thread350:                                       ; preds = %._crit_edge.i, %._crit_edge.thread.i, %._crit_edge.thread.i.us, %250, %248, %._crit_edge, %._crit_edge.thread, %15, %255
-  %.0134353 = phi i32 [ %257, %255 ], [ %18, %15 ], [ -1094995529, %._crit_edge.thread ], [ -1094995529, %._crit_edge ], [ -1094995529, %248 ], [ %252, %250 ], [ -1094995529, %._crit_edge.thread.i.us ], [ -1094995529, %._crit_edge.thread.i ], [ -1094995529, %._crit_edge.i ]
+.thread350:                                       ; preds = %._crit_edge.i, %._crit_edge.thread.i, %._crit_edge.thread.i.us, %248, %250, %._crit_edge, %._crit_edge.thread, %15, %255
+  %.0134353 = phi i32 [ %257, %255 ], [ %252, %250 ], [ %18, %15 ], [ -1094995529, %._crit_edge ], [ -1094995529, %._crit_edge.thread.i.us ], [ -1094995529, %._crit_edge.thread ], [ -1094995529, %248 ], [ -1094995529, %._crit_edge.thread.i ], [ -1094995529, %._crit_edge.i ]
   call void @av_packet_unref(ptr noundef %1) #7
   br label %.sink.split
 
@@ -989,7 +989,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h264_extradata_to_annexb(p
   br label %107
 
 107:                                              ; preds = %.thread128, %.thread127, %38, %92, %36, %8
-  %.0 = phi i32 [ -1094995529, %8 ], [ -1094995529, %36 ], [ 0, %92 ], [ %41, %38 ], [ -12, %.thread127 ], [ -12, %.thread128 ]
+  %.0 = phi i32 [ -1094995529, %8 ], [ -1094995529, %36 ], [ -12, %.thread127 ], [ 0, %92 ], [ -12, %.thread128 ], [ %41, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

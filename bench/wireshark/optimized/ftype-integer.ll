@@ -213,7 +213,7 @@ define internal noundef zeroext i1 @uint8_from_sinteger64(ptr noundef writeonly 
   br label %_uint64_from_sinteger64.exit
 
 _uint64_from_sinteger64.exit:                     ; preds = %6, %7, %10, %11, %13
-  %.0.i = phi i1 [ false, %7 ], [ false, %6 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %7 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
   ret i1 %.0.i
 }
 
@@ -424,12 +424,12 @@ define internal i32 @uint64_cmp_order(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %7, %9, %13, %16
-  %.sink = phi i32 [ -1, %16 ], [ %15, %13 ], [ 0, %9 ], [ 1, %7 ]
+  %.sink = phi i32 [ 0, %9 ], [ -1, %16 ], [ %15, %13 ], [ 1, %7 ]
   store i32 %.sink, ptr %2, align 4
   br label %17
 
 17:                                               ; preds = %.sink.split, %7, %3
-  %.0 = phi i32 [ %6, %3 ], [ %8, %7 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ %8, %7 ], [ %6, %3 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -568,7 +568,7 @@ define internal range(i32 0, 5) i32 @uint64_subtract(ptr noundef writeonly captu
   br label %_sint64_subtract.exit
 
 _sint64_subtract.exit:                            ; preds = %24, %22, %14, %12
-  %.0 = phi i32 [ 4, %12 ], [ 0, %24 ], [ 4, %22 ], [ 0, %14 ]
+  %.0 = phi i32 [ 4, %12 ], [ 0, %24 ], [ 0, %14 ], [ 4, %22 ]
   ret i32 %.0
 }
 
@@ -769,7 +769,7 @@ define internal noundef zeroext i1 @uint16_from_sinteger64(ptr noundef writeonly
   br label %_uint64_from_sinteger64.exit
 
 _uint64_from_sinteger64.exit:                     ; preds = %6, %7, %10, %11, %13
-  %.0.i = phi i1 [ false, %7 ], [ false, %6 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %7 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
   ret i1 %.0.i
 }
 
@@ -829,7 +829,7 @@ define internal noundef zeroext i1 @uint24_from_sinteger64(ptr noundef writeonly
   br label %_uint64_from_sinteger64.exit
 
 _uint64_from_sinteger64.exit:                     ; preds = %6, %7, %10, %11, %13
-  %.0.i = phi i1 [ false, %7 ], [ false, %6 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %7 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
   ret i1 %.0.i
 }
 
@@ -889,7 +889,7 @@ define internal noundef zeroext i1 @uint32_from_sinteger64(ptr noundef writeonly
   br label %_uint64_from_sinteger64.exit
 
 _uint64_from_sinteger64.exit:                     ; preds = %6, %7, %10, %11, %13
-  %.0.i = phi i1 [ false, %7 ], [ false, %6 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %7 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
   ret i1 %.0.i
 }
 
@@ -956,7 +956,7 @@ define internal noundef zeroext i1 @uint40_from_sinteger64(ptr noundef writeonly
   br label %_uint64_from_sinteger64.exit
 
 _uint64_from_sinteger64.exit:                     ; preds = %6, %7, %10, %11, %13
-  %.0.i = phi i1 [ false, %7 ], [ false, %6 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %7 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
   ret i1 %.0.i
 }
 
@@ -1030,7 +1030,7 @@ define internal noundef zeroext i1 @uint48_from_sinteger64(ptr noundef writeonly
   br label %_uint64_from_sinteger64.exit
 
 _uint64_from_sinteger64.exit:                     ; preds = %6, %7, %10, %11, %13
-  %.0.i = phi i1 [ false, %7 ], [ false, %6 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %7 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
   ret i1 %.0.i
 }
 
@@ -1090,7 +1090,7 @@ define internal noundef zeroext i1 @uint56_from_sinteger64(ptr noundef writeonly
   br label %_uint64_from_sinteger64.exit
 
 _uint64_from_sinteger64.exit:                     ; preds = %6, %7, %10, %11, %13
-  %.0.i = phi i1 [ false, %7 ], [ false, %6 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %7 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
   ret i1 %.0.i
 }
 
@@ -1164,7 +1164,7 @@ define internal noundef zeroext i1 @sint8_from_uinteger64(ptr noundef writeonly 
   br label %_sint64_from_uinteger64.exit
 
 _sint64_from_uinteger64.exit:                     ; preds = %6, %7, %10, %11, %13
-  %.0.i = phi i1 [ false, %7 ], [ false, %6 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %7 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
   ret i1 %.0.i
 }
 
@@ -1201,7 +1201,7 @@ define internal noundef zeroext i1 @sint8_from_sinteger64(ptr noundef writeonly 
   br label %_sint64_from_sinteger64.exit
 
 _sint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %14
-  %.0.i = phi i1 [ true, %14 ], [ false, %7 ], [ false, %6 ], [ false, %12 ], [ false, %11 ]
+  %.0.i = phi i1 [ true, %14 ], [ false, %6 ], [ false, %7 ], [ false, %12 ], [ false, %11 ]
   ret i1 %.0.i
 }
 
@@ -1308,12 +1308,12 @@ define internal i32 @sint64_cmp_order(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %7, %9, %13, %16
-  %.sink = phi i32 [ -1, %16 ], [ %15, %13 ], [ 0, %9 ], [ 1, %7 ]
+  %.sink = phi i32 [ 0, %9 ], [ -1, %16 ], [ %15, %13 ], [ 1, %7 ]
   store i32 %.sink, ptr %2, align 4
   br label %17
 
 17:                                               ; preds = %.sink.split, %7, %3
-  %.0 = phi i32 [ %6, %3 ], [ %8, %7 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ %8, %7 ], [ %6, %3 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1545,7 +1545,7 @@ define internal noundef zeroext i1 @sint16_from_uinteger64(ptr noundef writeonly
   br label %_sint64_from_uinteger64.exit
 
 _sint64_from_uinteger64.exit:                     ; preds = %6, %7, %10, %11, %13
-  %.0.i = phi i1 [ false, %7 ], [ false, %6 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %7 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
   ret i1 %.0.i
 }
 
@@ -1582,7 +1582,7 @@ define internal noundef zeroext i1 @sint16_from_sinteger64(ptr noundef writeonly
   br label %_sint64_from_sinteger64.exit
 
 _sint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %14
-  %.0.i = phi i1 [ true, %14 ], [ false, %7 ], [ false, %6 ], [ false, %12 ], [ false, %11 ]
+  %.0.i = phi i1 [ true, %14 ], [ false, %6 ], [ false, %7 ], [ false, %12 ], [ false, %11 ]
   ret i1 %.0.i
 }
 
@@ -1619,7 +1619,7 @@ define internal noundef zeroext i1 @sint24_from_uinteger64(ptr noundef writeonly
   br label %_sint64_from_uinteger64.exit
 
 _sint64_from_uinteger64.exit:                     ; preds = %6, %7, %10, %11, %13
-  %.0.i = phi i1 [ false, %7 ], [ false, %6 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %7 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
   ret i1 %.0.i
 }
 
@@ -1656,7 +1656,7 @@ define internal noundef zeroext i1 @sint24_from_sinteger64(ptr noundef writeonly
   br label %_sint64_from_sinteger64.exit
 
 _sint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %14
-  %.0.i = phi i1 [ true, %14 ], [ false, %7 ], [ false, %6 ], [ false, %12 ], [ false, %11 ]
+  %.0.i = phi i1 [ true, %14 ], [ false, %6 ], [ false, %7 ], [ false, %12 ], [ false, %11 ]
   ret i1 %.0.i
 }
 
@@ -1693,7 +1693,7 @@ define internal noundef zeroext i1 @sint32_from_uinteger64(ptr noundef writeonly
   br label %_sint64_from_uinteger64.exit
 
 _sint64_from_uinteger64.exit:                     ; preds = %6, %7, %10, %11, %13
-  %.0.i = phi i1 [ false, %7 ], [ false, %6 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %7 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
   ret i1 %.0.i
 }
 
@@ -1730,7 +1730,7 @@ define internal noundef zeroext i1 @sint32_from_sinteger64(ptr noundef writeonly
   br label %_sint64_from_sinteger64.exit
 
 _sint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %14
-  %.0.i = phi i1 [ true, %14 ], [ false, %7 ], [ false, %6 ], [ false, %12 ], [ false, %11 ]
+  %.0.i = phi i1 [ true, %14 ], [ false, %6 ], [ false, %7 ], [ false, %12 ], [ false, %11 ]
   ret i1 %.0.i
 }
 
@@ -1767,7 +1767,7 @@ define internal noundef zeroext i1 @sint40_from_uinteger64(ptr noundef writeonly
   br label %_sint64_from_uinteger64.exit
 
 _sint64_from_uinteger64.exit:                     ; preds = %6, %7, %10, %11, %13
-  %.0.i = phi i1 [ false, %7 ], [ false, %6 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %7 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
   ret i1 %.0.i
 }
 
@@ -1804,7 +1804,7 @@ define internal noundef zeroext i1 @sint40_from_sinteger64(ptr noundef writeonly
   br label %_sint64_from_sinteger64.exit
 
 _sint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %14
-  %.0.i = phi i1 [ true, %14 ], [ false, %7 ], [ false, %6 ], [ false, %12 ], [ false, %11 ]
+  %.0.i = phi i1 [ true, %14 ], [ false, %6 ], [ false, %7 ], [ false, %12 ], [ false, %11 ]
   ret i1 %.0.i
 }
 
@@ -1855,7 +1855,7 @@ define internal noundef zeroext i1 @sint48_from_uinteger64(ptr noundef writeonly
   br label %_sint64_from_uinteger64.exit
 
 _sint64_from_uinteger64.exit:                     ; preds = %6, %7, %10, %11, %13
-  %.0.i = phi i1 [ false, %7 ], [ false, %6 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %7 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
   ret i1 %.0.i
 }
 
@@ -1892,7 +1892,7 @@ define internal noundef zeroext i1 @sint48_from_sinteger64(ptr noundef writeonly
   br label %_sint64_from_sinteger64.exit
 
 _sint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %14
-  %.0.i = phi i1 [ true, %14 ], [ false, %7 ], [ false, %6 ], [ false, %12 ], [ false, %11 ]
+  %.0.i = phi i1 [ true, %14 ], [ false, %6 ], [ false, %7 ], [ false, %12 ], [ false, %11 ]
   ret i1 %.0.i
 }
 
@@ -1929,7 +1929,7 @@ define internal noundef zeroext i1 @sint56_from_uinteger64(ptr noundef writeonly
   br label %_sint64_from_uinteger64.exit
 
 _sint64_from_uinteger64.exit:                     ; preds = %6, %7, %10, %11, %13
-  %.0.i = phi i1 [ false, %7 ], [ false, %6 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
+  %.0.i = phi i1 [ false, %6 ], [ false, %7 ], [ false, %10 ], [ false, %11 ], [ true, %13 ]
   ret i1 %.0.i
 }
 
@@ -1966,7 +1966,7 @@ define internal noundef zeroext i1 @sint56_from_sinteger64(ptr noundef writeonly
   br label %_sint64_from_sinteger64.exit
 
 _sint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %14
-  %.0.i = phi i1 [ true, %14 ], [ false, %7 ], [ false, %6 ], [ false, %12 ], [ false, %11 ]
+  %.0.i = phi i1 [ true, %14 ], [ false, %6 ], [ false, %7 ], [ false, %12 ], [ false, %11 ]
   ret i1 %.0.i
 }
 
@@ -2092,10 +2092,10 @@ define internal i32 @boolean_cmp_order(ptr noundef readonly captures(none) %0, p
 .sink.split:                                      ; preds = %3
   %.not10 = icmp eq i64 %6, 0
   %8 = load i64, ptr %4, align 8
-  %.not11 = icmp eq i64 %8, 0
-  %. = zext i1 %.not11 to i32
+  %.not11 = icmp ne i64 %8, 0
+  %.13 = sext i1 %.not11 to i32
   %not..not11 = xor i1 %.not11, true
-  %.13 = sext i1 %not..not11 to i32
+  %. = zext i1 %not..not11 to i32
   %.sink = select i1 %.not10, i32 %.13, i32 %.
   store i32 %.sink, ptr %2, align 4
   br label %9

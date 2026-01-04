@@ -365,7 +365,7 @@ define range(i32 0, 2) i32 @X509_REQ_add_extensions_nid(ptr noundef %0, ptr noun
   br label %X509_REQ_add1_attr_by_NID.exit
 
 X509_REQ_add1_attr_by_NID.exit:                   ; preds = %31, %34
-  %.0.i = phi i32 [ 1, %34 ], [ 0, %31 ]
+  %.0.i = phi i32 [ 0, %31 ], [ 1, %34 ]
   %36 = load ptr, ptr %4, align 8, !tbaa !52
   call void @CRYPTO_free(ptr noundef %36, ptr noundef nonnull @.str, i32 noundef 200) #8
   br label %37
@@ -377,7 +377,7 @@ X509_REQ_add1_attr_by_NID.exit:                   ; preds = %31, %34
   br label %39
 
 39:                                               ; preds = %12, %3, %37
-  %.0 = phi i32 [ %.019, %37 ], [ 1, %3 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %12 ], [ 1, %3 ], [ %.019, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

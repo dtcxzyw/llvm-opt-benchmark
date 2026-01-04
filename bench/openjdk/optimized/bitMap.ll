@@ -935,7 +935,7 @@ define hidden noundef zeroext i1 @_ZN6BitMap10par_at_putEmb(ptr noundef nonnull 
   br i1 %23, label %_ZN6BitMap11par_set_bitEm19atomic_memory_order.exit, label %19, !llvm.loop !11
 
 _ZN6BitMap11par_set_bitEm19atomic_memory_order.exit: ; preds = %21, %19, %13, %11
-  %24 = phi i1 [ %.not.not.not.i.not.not.not, %11 ], [ %.not.not.not.i.not.not.not, %13 ], [ %.not.not.not.i4.not.not.not, %19 ], [ %.not.not.not.i4.not.not.not, %21 ]
+  %24 = phi i1 [ %.not.not.not.i.not.not.not, %13 ], [ %.not.not.not.i.not.not.not, %11 ], [ %.not.not.not.i4.not.not.not, %19 ], [ %.not.not.not.i4.not.not.not, %21 ]
   ret i1 %24
 }
 
@@ -1396,7 +1396,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap8containsERKS_(ptr noundef nonnull 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %18
-  %.0 = phi i1 [ true, %._crit_edge ], [ %26, %18 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %26, %18 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1443,7 +1443,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap10intersectsERKS_(ptr noundef nonnu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %16
-  %.0 = phi i1 [ false, %._crit_edge ], [ %24, %16 ], [ true, %.lr.ph ]
+  %.0 = phi i1 [ %24, %16 ], [ false, %._crit_edge ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1915,7 +1915,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap7is_sameERKS_(ptr noundef nonnull r
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %16
-  %.0 = phi i1 [ true, %._crit_edge ], [ %24, %16 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %24, %16 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1954,7 +1954,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap7is_fullEv(ptr noundef nonnull read
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %12
-  %.0 = phi i1 [ true, %._crit_edge ], [ %15, %12 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %15, %12 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1994,7 +1994,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap8is_emptyEv(ptr noundef nonnull rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %12
-  %.0 = phi i1 [ true, %._crit_edge ], [ %17, %12 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ %17, %12 ], [ true, %._crit_edge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

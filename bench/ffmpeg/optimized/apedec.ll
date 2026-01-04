@@ -222,8 +222,8 @@ define internal range(i32 -1163346256, 1) i32 @ape_decode_init(ptr noundef %0) #
   br label %82
 
 82:                                               ; preds = %79, %81, %76
-  %predictor_decode_mono_3930.sink = phi ptr [ @predictor_decode_mono_3950, %81 ], [ @predictor_decode_mono_3800, %76 ], [ @predictor_decode_mono_3930, %79 ]
-  %predictor_decode_stereo_3930.sink = phi ptr [ @predictor_decode_stereo_3950, %81 ], [ @predictor_decode_stereo_3800, %76 ], [ @predictor_decode_stereo_3930, %79 ]
+  %predictor_decode_mono_3930.sink = phi ptr [ @predictor_decode_mono_3800, %76 ], [ @predictor_decode_mono_3950, %81 ], [ @predictor_decode_mono_3930, %79 ]
+  %predictor_decode_stereo_3930.sink = phi ptr [ @predictor_decode_stereo_3800, %76 ], [ @predictor_decode_stereo_3950, %81 ], [ @predictor_decode_stereo_3930, %79 ]
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 7600
   store ptr %predictor_decode_mono_3930.sink, ptr %83, align 8, !tbaa !59
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 7608
@@ -252,7 +252,7 @@ define internal range(i32 -1163346256, 1) i32 @ape_decode_init(ptr noundef %0) #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %88, %89, %47, %20, %12, %9
-  %.0 = phi i32 [ -22, %9 ], [ -22, %12 ], [ -1163346256, %20 ], [ -1094995529, %47 ], [ 0, %89 ], [ 0, %88 ], [ -12, %59 ]
+  %.0 = phi i32 [ -22, %9 ], [ -22, %12 ], [ -1163346256, %20 ], [ -1094995529, %47 ], [ 0, %88 ], [ 0, %89 ], [ -12, %59 ]
   ret i32 %.0
 }
 
@@ -850,8 +850,8 @@ ape_unpack_mono.exit.thread:                      ; preds = %148, %170, %ape_unp
   %271 = load i32, ptr %270, align 8, !tbaa !66
   br label %.thread
 
-.thread:                                          ; preds = %63, %24, %17, %88, %84, %60, %56, %20, %264, %269, %267, %127, %114, %ape_unpack_mono.exit.thread, %113, %94
-  %.2 = phi i32 [ %111, %113 ], [ -1094995529, %ape_unpack_mono.exit.thread ], [ %96, %94 ], [ -12, %114 ], [ -12, %127 ], [ %271, %269 ], [ 0, %267 ], [ -1094995529, %264 ], [ -1094995529, %63 ], [ -12, %24 ], [ 0, %17 ], [ -1094995529, %88 ], [ -1094995529, %84 ], [ -1094995529, %60 ], [ -1094995529, %56 ], [ -1094995529, %20 ]
+.thread:                                          ; preds = %63, %17, %24, %88, %84, %60, %56, %20, %264, %269, %267, %127, %114, %ape_unpack_mono.exit.thread, %113, %94
+  %.2 = phi i32 [ %111, %113 ], [ -1094995529, %ape_unpack_mono.exit.thread ], [ -12, %127 ], [ 0, %267 ], [ -12, %114 ], [ -1094995529, %264 ], [ %96, %94 ], [ %271, %269 ], [ -1094995529, %63 ], [ 0, %17 ], [ -12, %24 ], [ -1094995529, %88 ], [ -1094995529, %84 ], [ -1094995529, %60 ], [ -1094995529, %56 ], [ -1094995529, %20 ]
   ret i32 %.2
 }
 
@@ -1312,7 +1312,7 @@ define internal void @predictor_decode_mono_3800(ptr noundef %0, i32 noundef %1)
   br i1 %exitcond94.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !119
 
 .loopexit.i:                                      ; preds = %.preheader66.i, %.preheader64.i, %.preheader.i
-  %.157.i = phi i32 [ %46, %.preheader.i ], [ %28, %.preheader64.i ], [ %37, %.preheader66.i ]
+  %.157.i = phi i32 [ %28, %.preheader64.i ], [ %46, %.preheader.i ], [ %37, %.preheader66.i ]
   %47 = ashr i32 %.157.i, 9
   %48 = sub i32 %20, %47
   store i32 %48, ptr %19, align 4, !tbaa !61
@@ -1420,7 +1420,7 @@ long_filter_high_3800.exit:                       ; preds = %55, %16
   br i1 %exitcond94.not.i73, label %.loopexit.i59, label %.preheader.i69, !llvm.loop !119
 
 .loopexit.i59:                                    ; preds = %.preheader66.i54, %.preheader64.i64, %.preheader.i69
-  %.157.i60 = phi i32 [ %89, %.preheader.i69 ], [ %71, %.preheader64.i64 ], [ %80, %.preheader66.i54 ]
+  %.157.i60 = phi i32 [ %71, %.preheader64.i64 ], [ %89, %.preheader.i69 ], [ %80, %.preheader66.i54 ]
   %90 = ashr i32 %.157.i60, 11
   %91 = sub i32 %63, %90
   store i32 %91, ptr %62, align 4, !tbaa !61
@@ -1580,7 +1580,7 @@ long_filter_ehigh_3830.exit:                      ; preds = %.preheader.i81
   br i1 %exitcond94.not.i109, label %.loopexit.i95, label %.preheader.i105, !llvm.loop !119
 
 .loopexit.i95:                                    ; preds = %.preheader66.i90, %.preheader64.i100, %.preheader.i105
-  %.157.i96 = phi i32 [ %148, %.preheader.i105 ], [ %130, %.preheader64.i100 ], [ %139, %.preheader66.i90 ]
+  %.157.i96 = phi i32 [ %130, %.preheader64.i100 ], [ %148, %.preheader.i105 ], [ %139, %.preheader66.i90 ]
   %149 = ashr i32 %.157.i96, 12
   %150 = sub i32 %122, %149
   store i32 %150, ptr %121, align 4, !tbaa !61
@@ -1900,7 +1900,7 @@ long_filter_high_3800.exit.thread:                ; preds = %26
   br i1 %exitcond94.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !119
 
 .loopexit.i:                                      ; preds = %.preheader66.i, %.preheader64.i, %.preheader.i
-  %.157.i = phi i32 [ %56, %.preheader.i ], [ %38, %.preheader64.i ], [ %47, %.preheader66.i ]
+  %.157.i = phi i32 [ %38, %.preheader64.i ], [ %56, %.preheader.i ], [ %47, %.preheader66.i ]
   %57 = ashr i32 %.157.i, 9
   %58 = sub i32 %30, %57
   store i32 %58, ptr %29, align 4, !tbaa !61
@@ -1994,7 +1994,7 @@ long_filter_high_3800.exit:                       ; preds = %65
   br i1 %exitcond94.not.i104, label %.loopexit.i90, label %.preheader.i100, !llvm.loop !119
 
 .loopexit.i90:                                    ; preds = %.preheader66.i85, %.preheader64.i95, %.preheader.i100
-  %.157.i91 = phi i32 [ %95, %.preheader.i100 ], [ %77, %.preheader64.i95 ], [ %86, %.preheader66.i85 ]
+  %.157.i91 = phi i32 [ %77, %.preheader64.i95 ], [ %95, %.preheader.i100 ], [ %86, %.preheader66.i85 ]
   %96 = ashr i32 %.157.i91, 9
   %97 = sub i32 %69, %96
   store i32 %97, ptr %68, align 4, !tbaa !61
@@ -2109,7 +2109,7 @@ long_filter_high_3800.exit133.thread:             ; preds = %.split69
   br i1 %exitcond94.not.i132, label %.loopexit.i118, label %.preheader.i128, !llvm.loop !119
 
 .loopexit.i118:                                   ; preds = %.preheader66.i113, %.preheader64.i123, %.preheader.i128
-  %.157.i119 = phi i32 [ %138, %.preheader.i128 ], [ %120, %.preheader64.i123 ], [ %129, %.preheader66.i113 ]
+  %.157.i119 = phi i32 [ %120, %.preheader64.i123 ], [ %138, %.preheader.i128 ], [ %129, %.preheader66.i113 ]
   %139 = ashr i32 %.157.i119, 11
   %140 = sub i32 %112, %139
   store i32 %140, ptr %111, align 4, !tbaa !61
@@ -2203,7 +2203,7 @@ long_filter_high_3800.exit133:                    ; preds = %147
   br i1 %exitcond94.not.i160, label %.loopexit.i146, label %.preheader.i156, !llvm.loop !119
 
 .loopexit.i146:                                   ; preds = %.preheader66.i141, %.preheader64.i151, %.preheader.i156
-  %.157.i147 = phi i32 [ %177, %.preheader.i156 ], [ %159, %.preheader64.i151 ], [ %168, %.preheader66.i141 ]
+  %.157.i147 = phi i32 [ %159, %.preheader64.i151 ], [ %177, %.preheader.i156 ], [ %168, %.preheader66.i141 ]
   %178 = ashr i32 %.157.i147, 11
   %179 = sub i32 %151, %178
   store i32 %179, ptr %150, align 4, !tbaa !61
@@ -2412,7 +2412,7 @@ long_filter_ehigh_3830.exit184:                   ; preds = %.preheader.i181
   br i1 %exitcond94.not.i211, label %.loopexit.i197, label %.preheader.i207, !llvm.loop !119
 
 .loopexit.i197:                                   ; preds = %.preheader66.i192, %.preheader64.i202, %.preheader.i207
-  %.157.i198 = phi i32 [ %254, %.preheader.i207 ], [ %236, %.preheader64.i202 ], [ %245, %.preheader66.i192 ]
+  %.157.i198 = phi i32 [ %236, %.preheader64.i202 ], [ %254, %.preheader.i207 ], [ %245, %.preheader66.i192 ]
   %255 = ashr i32 %.157.i198, 12
   %256 = sub i32 %228, %255
   store i32 %256, ptr %227, align 4, !tbaa !61
@@ -2506,7 +2506,7 @@ long_filter_high_3800.exit212:                    ; preds = %263
   br i1 %exitcond94.not.i239, label %.loopexit.i225, label %.preheader.i235, !llvm.loop !119
 
 .loopexit.i225:                                   ; preds = %.preheader66.i220, %.preheader64.i230, %.preheader.i235
-  %.157.i226 = phi i32 [ %293, %.preheader.i235 ], [ %275, %.preheader64.i230 ], [ %284, %.preheader66.i220 ]
+  %.157.i226 = phi i32 [ %275, %.preheader64.i230 ], [ %293, %.preheader.i235 ], [ %284, %.preheader66.i220 ]
   %294 = ashr i32 %.157.i226, 12
   %295 = sub i32 %267, %294
   store i32 %295, ptr %266, align 4, !tbaa !61
@@ -4175,7 +4175,7 @@ get_rice_ook.exit92:                              ; preds = %get_unary.exit.i, %
   br i1 %exitcond.not.i.i116, label %get_unary.exit.i107, label %138, !llvm.loop !137
 
 get_unary.exit.i107:                              ; preds = %149, %138
-  %.0.lcssa.i.i108 = phi i32 [ %131, %149 ], [ %.05.i.i113, %138 ]
+  %.0.lcssa.i.i108 = phi i32 [ %.05.i.i113, %138 ], [ %131, %149 ]
   %.not.i109 = icmp eq i32 %135, 0
   br i1 %.not.i109, label %get_rice_ook.exit117, label %151
 
@@ -4334,7 +4334,7 @@ define internal fastcc i32 @ape_decode_value_3860(ptr noundef captures(none) %0,
   br i1 %exitcond.not.i, label %get_unary.exit, label %11, !llvm.loop !137
 
 get_unary.exit:                                   ; preds = %11, %22
-  %.0.lcssa.i = phi i32 [ %6, %22 ], [ %.05.i, %11 ]
+  %.0.lcssa.i = phi i32 [ %.05.i, %11 ], [ %6, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %25 = load i32, ptr %24, align 4, !tbaa !48
   %26 = icmp sgt i32 %25, 3880
@@ -5934,8 +5934,8 @@ init_predictor_decoder.exit:                      ; preds = %102, %109
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %init_entropy_decoder.exit.thread, label %120, !llvm.loop !160
 
-init_entropy_decoder.exit.thread:                 ; preds = %126, %120, %58, %5
-  %.0 = phi i32 [ -1094995529, %5 ], [ -1094995529, %58 ], [ 0, %120 ], [ 0, %126 ]
+init_entropy_decoder.exit.thread:                 ; preds = %126, %120, %5, %58
+  %.0 = phi i32 [ -1094995529, %58 ], [ -1094995529, %5 ], [ 0, %120 ], [ 0, %126 ]
   ret i32 %.0
 }
 

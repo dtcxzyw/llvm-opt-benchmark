@@ -173,7 +173,7 @@ lean_nat_eq.exit49:                               ; preds = %lean_dec.exit40
   br i1 %65, label %lean_dec.exit.backedge, label %76
 
 lean_dec.exit.backedge:                           ; preds = %lean_nat_eq.exit49, %72, %74, %75, %29, %33, %35, %36, %lean_alloc_ctor.exit, %37
-  %.036.be = phi ptr [ %.0, %37 ], [ %77, %lean_alloc_ctor.exit ], [ %.036, %36 ], [ %.036, %35 ], [ %.036, %33 ], [ %.036, %29 ], [ %.036, %75 ], [ %.036, %74 ], [ %.036, %72 ], [ %.036, %lean_nat_eq.exit49 ]
+  %.036.be = phi ptr [ %.0, %37 ], [ %77, %lean_alloc_ctor.exit ], [ %.036, %29 ], [ %.036, %36 ], [ %.036, %35 ], [ %.036, %33 ], [ %.036, %75 ], [ %.036, %74 ], [ %.036, %72 ], [ %.036, %lean_nat_eq.exit49 ]
   br label %lean_dec.exit
 
 lean_nat_eq.exit49.thread:                        ; preds = %lean_dec.exit40
@@ -831,7 +831,7 @@ lean_nat_abs.exit:                                ; preds = %lean_int_neg.exit.i
   br label %lean_dec.exit32
 
 lean_dec.exit32:                                  ; preds = %24, %54, %53, %51, %lean_nat_abs.exit
-  %.0.i4060 = phi ptr [ %.0.i40, %lean_nat_abs.exit ], [ %.0.i40, %51 ], [ %.0.i40, %53 ], [ %.0.i40, %54 ], [ %18, %24 ]
+  %.0.i4060 = phi ptr [ %.0.i40, %54 ], [ %.0.i40, %lean_nat_abs.exit ], [ %.0.i40, %51 ], [ %.0.i40, %53 ], [ %18, %24 ]
   store ptr %.029, ptr %19, align 8, !tbaa !9
   store ptr %.0.i4060, ptr %17, align 8, !tbaa !9
   br label %.backedge
@@ -991,7 +991,7 @@ lean_nat_abs.exit58:                              ; preds = %lean_int_neg.exit.i
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %79, %109, %108, %106, %lean_nat_abs.exit58
-  %.0.i5162 = phi ptr [ %.0.i51, %lean_nat_abs.exit58 ], [ %.0.i51, %106 ], [ %.0.i51, %108 ], [ %.0.i51, %109 ], [ %18, %79 ]
+  %.0.i5162 = phi ptr [ %.0.i51, %109 ], [ %.0.i51, %lean_nat_abs.exit58 ], [ %.0.i51, %106 ], [ %.0.i51, %108 ], [ %18, %79 ]
   tail call void @lean_inc_heartbeat() #4
   %110 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %111 = icmp eq ptr %110, null

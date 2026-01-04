@@ -509,7 +509,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %150, %160, %72, %82, %94, %109, %121, %168, %53, %133, %20, %13, %._crit_edge194
-  %.1 = phi ptr [ %15, %13 ], [ %19, %._crit_edge194 ], [ %21, %20 ], [ null, %94 ], [ %.2151, %168 ], [ null, %109 ], [ null, %121 ], [ null, %72 ], [ null, %82 ], [ null, %53 ], [ null, %133 ], [ null, %160 ], [ null, %150 ]
+  %.1 = phi ptr [ %21, %20 ], [ %19, %._crit_edge194 ], [ %15, %13 ], [ null, %82 ], [ null, %94 ], [ %.2151, %168 ], [ null, %53 ], [ null, %109 ], [ null, %121 ], [ null, %72 ], [ null, %133 ], [ null, %160 ], [ null, %150 ]
   ret ptr %.1
 }
 
@@ -854,7 +854,7 @@ define ptr @extraZddGetSymmetricVars(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %174, %164, %154, %103, %113, %131, %141, %182, %84, %23, %20, %18
-  %.0 = phi ptr [ %19, %18 ], [ %22, %20 ], [ %24, %23 ], [ null, %131 ], [ null, %141 ], [ %.2147, %182 ], [ null, %103 ], [ null, %113 ], [ null, %84 ], [ null, %154 ], [ null, %164 ], [ null, %174 ]
+  %.0 = phi ptr [ %19, %18 ], [ %22, %20 ], [ %24, %23 ], [ null, %113 ], [ null, %131 ], [ null, %141 ], [ %.2147, %182 ], [ null, %84 ], [ null, %103 ], [ null, %154 ], [ null, %164 ], [ null, %174 ]
   ret ptr %.0
 }
 
@@ -948,7 +948,7 @@ define ptr @extraZddGetSingletons(ptr noundef %0, ptr noundef %1) #0 {
   br label %47
 
 47:                                               ; preds = %27, %37, %38, %8, %6, %2
-  %.0 = phi ptr [ %4, %2 ], [ %7, %6 ], [ null, %27 ], [ null, %37 ], [ %35, %38 ], [ null, %8 ]
+  %.0 = phi ptr [ %7, %6 ], [ %4, %2 ], [ %35, %38 ], [ null, %27 ], [ null, %37 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -1132,7 +1132,7 @@ define ptr @extraBddReduceVarSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %.critedge98
 
 .critedge98:                                      ; preds = %65, %94, %53, %86, %76, %13, %3, %9
-  %.0 = phi ptr [ %1, %9 ], [ %1, %3 ], [ %14, %13 ], [ null, %65 ], [ %.074, %94 ], [ null, %53 ], [ null, %86 ], [ null, %76 ]
+  %.0 = phi ptr [ %14, %13 ], [ %1, %3 ], [ %1, %9 ], [ null, %53 ], [ null, %65 ], [ %.074, %94 ], [ null, %86 ], [ null, %76 ]
   ret ptr %.0
 }
 
@@ -1525,7 +1525,7 @@ define ptr @extraBddCheckVarsSymmetric(ptr noundef %0, ptr noundef %1, ptr nound
   br label %137
 
 137:                                              ; preds = %119, %99, %112, %105, %88, %76, %65, %135, %130, %127, %72
-  %.098 = phi ptr [ %73, %72 ], [ %129, %127 ], [ %134, %130 ], [ %136, %135 ], [ %70, %65 ], [ %86, %76 ], [ %97, %88 ], [ %110, %105 ], [ %117, %112 ], [ %spec.select, %99 ], [ %spec.select126, %119 ]
+  %.098 = phi ptr [ %136, %135 ], [ %73, %72 ], [ %70, %65 ], [ %86, %76 ], [ %134, %130 ], [ %97, %88 ], [ %spec.select126, %119 ], [ %110, %105 ], [ %spec.select, %99 ], [ %117, %112 ], [ %129, %127 ]
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddCheckVarsSymmetric, ptr noundef %1, ptr noundef %2, ptr noundef %.098) #10
   br label %138
 
@@ -1921,7 +1921,7 @@ define ptr @extraZddTuplesFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %79
 
 79:                                               ; preds = %34, %32, %28, %70, %69, %57, %25
-  %.050 = phi ptr [ %27, %25 ], [ null, %69 ], [ %67, %70 ], [ null, %57 ], [ %30, %28 ], [ %33, %32 ], [ null, %34 ]
+  %.050 = phi ptr [ %27, %25 ], [ null, %57 ], [ %30, %28 ], [ %33, %32 ], [ null, %69 ], [ %67, %70 ], [ null, %34 ]
   ret ptr %.050
 }
 
@@ -1992,7 +1992,7 @@ define ptr @extraZddSelectOneSubset(ptr noundef %0, ptr noundef %1) #0 {
   br label %40
 
 40:                                               ; preds = %35, %39, %16, %19, %10, %6, %2
-  %.0 = phi ptr [ %4, %2 ], [ %8, %6 ], [ %11, %10 ], [ %.033, %39 ], [ null, %35 ], [ null, %16 ], [ null, %19 ]
+  %.0 = phi ptr [ %11, %10 ], [ %4, %2 ], [ %8, %6 ], [ null, %35 ], [ %.033, %39 ], [ null, %16 ], [ null, %19 ]
   ret ptr %.0
 }
 

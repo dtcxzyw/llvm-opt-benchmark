@@ -1235,8 +1235,8 @@ Min_CubesDistOne.exit:                            ; preds = %51, %52
   br i1 %.not78, label %._crit_edge168, label %.lr.ph.i99, !llvm.loop !39
 
 .loopexit131:                                     ; preds = %.thread.i, %._crit_edge.thread.i, %._crit_edge.i
-  %.069152 = phi ptr [ %.069153, %._crit_edge.thread.i ], [ %.069165, %._crit_edge.i ], [ %.069165, %.thread.i ]
-  %.274147 = phi ptr [ %.274148, %._crit_edge.thread.i ], [ %.274166, %._crit_edge.i ], [ %.274166, %.thread.i ]
+  %.069152 = phi ptr [ %.069165, %._crit_edge.i ], [ %.069153, %._crit_edge.thread.i ], [ %.069165, %.thread.i ]
+  %.274147 = phi ptr [ %.274166, %._crit_edge.i ], [ %.274148, %._crit_edge.thread.i ], [ %.274166, %.thread.i ]
   %61 = load ptr, ptr %.274147, align 8, !tbaa !15
   store ptr %61, ptr %.069152, align 8, !tbaa !14
   %62 = load i32, ptr %5, align 8
@@ -1957,8 +1957,8 @@ define ptr @Min_SopComplement(ptr noundef %0, ptr noundef readonly captures(addr
   br label %Vec_IntPush.exit.i.sink.split
 
 Vec_IntPush.exit.i.sink.split:                    ; preds = %80, %82, %72, %74
-  %.sink110 = phi ptr [ %73, %72 ], [ %75, %74 ], [ %81, %80 ], [ %83, %82 ]
-  %.sink = phi i32 [ 16, %72 ], [ 16, %74 ], [ %77, %80 ], [ %77, %82 ]
+  %.sink110 = phi ptr [ %75, %74 ], [ %73, %72 ], [ %81, %80 ], [ %83, %82 ]
+  %.sink = phi i32 [ 16, %74 ], [ 16, %72 ], [ %77, %80 ], [ %77, %82 ]
   store ptr %.sink110, ptr %7, align 8, !tbaa !59
   store i32 %.sink, ptr %4, align 8, !tbaa !58
   br label %Vec_IntPush.exit.i
@@ -2314,7 +2314,7 @@ Min_CubeIsContained.exit:                         ; preds = %38, %30
   br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !69
 
 .loopexit:                                        ; preds = %._crit_edge, %31, %37, %1
-  %.025 = phi i32 [ 0, %1 ], [ 1, %37 ], [ 1, %31 ], [ 0, %._crit_edge ]
+  %.025 = phi i32 [ 0, %1 ], [ 1, %31 ], [ 1, %37 ], [ 0, %._crit_edge ]
   %.val = load ptr, ptr %2, align 8, !tbaa !31
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %.val, ptr noundef nonnull %4) #10
   ret i32 %.025

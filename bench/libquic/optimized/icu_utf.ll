@@ -202,15 +202,15 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   br label %.thread101.sink.split
 
 .thread101.sink.split:                            ; preds = %88, %86, %100, %79
-  %.sink130 = phi i64 [ %82, %79 ], [ %102, %100 ], [ %57, %86 ], [ %57, %88 ]
-  %.684.ph = phi i32 [ %.482.lcssa, %79 ], [ %.785.lcssa, %100 ], [ %.07898, %86 ], [ %.07898, %88 ]
+  %.sink130 = phi i64 [ %102, %100 ], [ %82, %79 ], [ %57, %86 ], [ %57, %88 ]
+  %.684.ph = phi i32 [ %.785.lcssa, %100 ], [ %.482.lcssa, %79 ], [ %.07898, %86 ], [ %.07898, %88 ]
   %103 = getelementptr inbounds i32, ptr @_ZN8base_icuL15utf8_errorValueE, i64 %.sink130
   %104 = load i32, ptr %103, align 4, !tbaa !3
   br label %.thread101
 
 .thread101:                                       ; preds = %.thread101.sink.split, %88, %83, %.critedge, %.critedge8
-  %.684 = phi i32 [ %.785.lcssa, %.critedge8 ], [ %.482.lcssa, %.critedge ], [ %.07898, %83 ], [ %.07898, %88 ], [ %.684.ph, %.thread101.sink.split ]
-  %.6 = phi i32 [ -1, %.critedge8 ], [ -1, %.critedge ], [ %.07199, %83 ], [ %.07199, %88 ], [ %104, %.thread101.sink.split ]
+  %.684 = phi i32 [ %.07898, %83 ], [ %.785.lcssa, %.critedge8 ], [ %.07898, %88 ], [ %.482.lcssa, %.critedge ], [ %.684.ph, %.thread101.sink.split ]
+  %.6 = phi i32 [ %.07199, %83 ], [ -1, %.critedge8 ], [ %.07199, %88 ], [ -1, %.critedge ], [ %104, %.thread101.sink.split ]
   store i32 %.684, ptr %1, align 4, !tbaa !3
   br label %105
 

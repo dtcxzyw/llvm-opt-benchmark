@@ -590,7 +590,7 @@ _ZNSt8functionIFvvEED2Ev.exit71:                  ; preds = %179, %_ZNSt8functio
   br label %_ZNSt8functionIFvvEED2Ev.exit60
 
 _ZNSt8functionIFvvEED2Ev.exit60:                  ; preds = %.body48, %153, %186, %162, %160, %158, %53, %51, %49, %47
-  %.pn32 = phi { ptr, i32 } [ %48, %47 ], [ %187, %186 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %.pn30, %.body48 ], [ %.pn.pn.pn, %153 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ]
+  %.pn32 = phi { ptr, i32 } [ %48, %47 ], [ %50, %49 ], [ %187, %186 ], [ %54, %53 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %.pn30, %.body48 ], [ %52, %51 ], [ %.pn.pn.pn, %153 ]
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %189 = load ptr, ptr %188, align 8
   %.not.i.i74 = icmp eq ptr %189, null

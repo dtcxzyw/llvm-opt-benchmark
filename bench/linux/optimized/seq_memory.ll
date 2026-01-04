@@ -98,7 +98,7 @@ define internal fastcc i32 @dump_var_event(ptr noundef readonly captures(none) %
   br i1 %35, label %.lr.ph, label %.thread12, !llvm.loop !7
 
 .thread12:                                        ; preds = %32, %.lr.ph, %29, %20
-  %36 = phi i32 [ 0, %20 ], [ %30, %29 ], [ -14, %.lr.ph ], [ 0, %32 ]
+  %36 = phi i32 [ 0, %20 ], [ -14, %.lr.ph ], [ %30, %29 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
@@ -136,7 +136,7 @@ define internal fastcc i32 @dump_var_event(ptr noundef readonly captures(none) %
   br i1 %58, label %.preheader, label %.thread, !llvm.loop !10
 
 .thread:                                          ; preds = %.preheader, %52, %4, %43, %41, %.thread12, %10
-  %59 = phi i32 [ %36, %.thread12 ], [ %42, %41 ], [ 0, %10 ], [ 0, %43 ], [ -22, %4 ], [ %50, %.preheader ], [ 0, %52 ]
+  %59 = phi i32 [ %36, %.thread12 ], [ %42, %41 ], [ 0, %10 ], [ -22, %4 ], [ 0, %43 ], [ 0, %52 ], [ %50, %.preheader ]
   ret i32 %59
 }
 
@@ -250,7 +250,7 @@ define dso_local i32 @snd_seq_expand_var_event(ptr noundef readonly captures(non
   br label %.critedge
 
 .critedge:                                        ; preds = %5, %.thread6, %52, %64, %58, %34, %21
-  %65 = phi i32 [ %22, %64 ], [ -11, %21 ], [ %36, %34 ], [ -14, %58 ], [ -14, %52 ], [ %.ph, %.thread6 ], [ -22, %5 ]
+  %65 = phi i32 [ %22, %64 ], [ -22, %5 ], [ -11, %21 ], [ %36, %34 ], [ -14, %58 ], [ -14, %52 ], [ %.ph, %.thread6 ]
   ret i32 %65
 }
 
@@ -365,7 +365,7 @@ define dso_local i32 @snd_seq_expand_var_event_at(ptr noundef readonly captures(
   br label %.thread
 
 .thread:                                          ; preds = %63, %29, %21, %43, %38, %4, %.thread15, %9
-  %72 = phi i32 [ 0, %9 ], [ -14, %.thread15 ], [ -22, %4 ], [ %16, %38 ], [ %16, %43 ], [ %16, %21 ], [ %16, %29 ], [ %16, %63 ]
+  %72 = phi i32 [ %16, %21 ], [ 0, %9 ], [ %16, %29 ], [ -22, %4 ], [ %16, %43 ], [ -14, %.thread15 ], [ %16, %38 ], [ %16, %63 ]
   ret i32 %72
 }
 
@@ -747,7 +747,7 @@ define dso_local noundef range(i32 -512, 1) i32 @snd_seq_event_dup(ptr noundef %
   br label %163
 
 .loopexit:                                        ; preds = %128, %155, %116, %122, %94, %65, %40, %.critedge
-  %.ph = phi i32 [ -14, %.critedge ], [ %44, %40 ], [ %69, %65 ], [ %99, %94 ], [ %126, %122 ], [ -14, %116 ], [ %133, %128 ], [ -14, %155 ]
+  %.ph = phi i32 [ -14, %.critedge ], [ %44, %40 ], [ %69, %65 ], [ %99, %94 ], [ -14, %116 ], [ %126, %122 ], [ -14, %155 ], [ %133, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   tail call void @snd_seq_cell_free(ptr noundef %29)
   br label %163
@@ -904,8 +904,8 @@ define internal fastcc noundef range(i32 -512, 1) i32 @snd_seq_cell_alloc(ptr no
   br label %.critedge
 
 .critedge:                                        ; preds = %49, %43, %40, %34, %28, %25, %73, %.split9, %7
-  %75 = phi i32 [ %74, %73 ], [ -22, %7 ], [ -12, %.split9 ], [ -12, %25 ], [ -512, %28 ], [ -512, %34 ], [ -12, %40 ], [ -512, %43 ], [ -512, %49 ]
-  %76 = phi i64 [ %.us-phi, %73 ], [ %13, %7 ], [ %.us-phi, %.split9 ], [ %23, %25 ], [ %30, %28 ], [ %30, %34 ], [ %38, %40 ], [ %45, %43 ], [ %45, %49 ]
+  %75 = phi i32 [ %74, %73 ], [ -22, %7 ], [ -12, %.split9 ], [ -512, %34 ], [ -12, %25 ], [ -512, %28 ], [ -12, %40 ], [ -512, %43 ], [ -512, %49 ]
+  %76 = phi i64 [ %.us-phi, %73 ], [ %13, %7 ], [ %.us-phi, %.split9 ], [ %30, %34 ], [ %23, %25 ], [ %30, %28 ], [ %38, %40 ], [ %45, %43 ], [ %45, %49 ]
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %12, i64 noundef %76) #12
   br label %77
 

@@ -679,7 +679,7 @@ define internal i32 @io_readline(ptr noundef %0) #0 {
   br label %31
 
 31:                                               ; preds = %24, %26, %._crit_edge, %20, %9
-  %.025 = phi i32 [ %10, %9 ], [ %23, %20 ], [ %15, %._crit_edge ], [ 0, %26 ], [ 0, %24 ]
+  %.025 = phi i32 [ %10, %9 ], [ %15, %._crit_edge ], [ %23, %20 ], [ 0, %26 ], [ 0, %24 ]
   ret i32 %.025
 }
 
@@ -956,8 +956,8 @@ test2.exit21.thread.i:                            ; preds = %94, %test2.exit25.i
   br label %test2.exit29.thread.i
 
 test2.exit29.thread.i:                            ; preds = %136, %119, %test2.exit21.thread.i
-  %.pre47.i = phi i32 [ %.pre47.pre.i, %136 ], [ %112, %119 ], [ %112, %test2.exit21.thread.i ]
-  %.1.i = phi i32 [ %139, %136 ], [ %111, %119 ], [ %111, %test2.exit21.thread.i ]
+  %.pre47.i = phi i32 [ %.pre47.pre.i, %136 ], [ %112, %test2.exit21.thread.i ], [ %112, %119 ]
+  %.1.i = phi i32 [ %139, %136 ], [ %111, %test2.exit21.thread.i ], [ %111, %119 ]
   %140 = icmp sgt i32 %.1.i, 0
   br i1 %140, label %141, label %readdigits.exit.i
 
@@ -1114,7 +1114,7 @@ readdigits.exit.i.sink.split:                     ; preds = %.lr.ph18.i.i, %150
   br label %readdigits.exit.i
 
 readdigits.exit.i:                                ; preds = %218, %readdigits.exit.i.sink.split, %test2.exit37.i, %145, %test2.exit29.thread.i
-  %225 = phi i32 [ %.pre47.i, %145 ], [ %192, %test2.exit37.i ], [ %.pre47.i, %test2.exit29.thread.i ], [ %.ph, %readdigits.exit.i.sink.split ], [ %220, %218 ]
+  %225 = phi i32 [ %.pre47.i, %test2.exit29.thread.i ], [ %192, %test2.exit37.i ], [ %.pre47.i, %145 ], [ %.ph, %readdigits.exit.i.sink.split ], [ %220, %218 ]
   %226 = load ptr, ptr %5, align 8, !tbaa !24
   %227 = call i32 @ungetc(i32 noundef %225, ptr noundef %226)
   call void @funlockfile(ptr noundef %226) #9
@@ -1167,7 +1167,7 @@ read_all.exit:                                    ; preds = %238
   br label %258
 
 .thread:                                          ; preds = %read_number.exit, %233, %235, %read_all.exit, %30, %36
-  %.4 = phi i32 [ %35, %30 ], [ %42, %36 ], [ 1, %read_all.exit ], [ %236, %235 ], [ %234, %233 ], [ %.010.i, %read_number.exit ]
+  %.4 = phi i32 [ %42, %36 ], [ %35, %30 ], [ 1, %read_all.exit ], [ %236, %235 ], [ %234, %233 ], [ %.010.i, %read_number.exit ]
   %246 = add nuw nsw i32 %.15265, 1
   %247 = add nsw i32 %24, -1
   %248 = icmp ne i32 %24, 0
@@ -1470,7 +1470,7 @@ nextc.exit.thread:                                ; preds = %.lr.ph, %.lr.ph18
   br i1 %.not6, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %60, %32, %.split.us, %.split, %nextc.exit.thread
-  %.011 = phi i32 [ %.us-phi12, %nextc.exit.thread ], [ 0, %.split.us ], [ 0, %.split ], [ %34, %32 ], [ %62, %60 ]
+  %.011 = phi i32 [ %.us-phi12, %nextc.exit.thread ], [ %34, %32 ], [ 0, %.split.us ], [ 0, %.split ], [ %62, %60 ]
   ret i32 %.011
 }
 

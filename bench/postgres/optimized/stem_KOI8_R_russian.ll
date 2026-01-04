@@ -323,8 +323,8 @@ r_mark_regions.exit:                              ; preds = %24, %32, %39, %44, 
   %88 = icmp sgt i32 %87, -1
   br i1 %88, label %.thread266, label %.critedge.thread
 
-r_perfective_gerund.exit.thread:                  ; preds = %.r_perfective_gerund.exit.thread_crit_edge, %77, %75, %59, %60, %67
-  %89 = phi i32 [ %.pre, %.r_perfective_gerund.exit.thread_crit_edge ], [ %76, %77 ], [ %76, %75 ], [ %57, %59 ], [ %57, %60 ], [ %57, %67 ]
+r_perfective_gerund.exit.thread:                  ; preds = %.r_perfective_gerund.exit.thread_crit_edge, %75, %77, %60, %67, %59
+  %89 = phi i32 [ %.pre, %.r_perfective_gerund.exit.thread_crit_edge ], [ %76, %75 ], [ %76, %77 ], [ %57, %60 ], [ %57, %67 ], [ %57, %59 ]
   %90 = load i32, ptr %5, align 4
   store i32 %90, ptr %2, align 8
   store i32 %90, ptr %6, align 8
@@ -363,8 +363,8 @@ r_perfective_gerund.exit.thread:                  ; preds = %.r_perfective_gerun
   %.pre308 = load i32, ptr %2, align 8
   br label %105
 
-103:                                              ; preds = %._crit_edge, %92, %r_perfective_gerund.exit.thread
-  %104 = phi i32 [ %.pre305, %._crit_edge ], [ %90, %92 ], [ %90, %r_perfective_gerund.exit.thread ]
+103:                                              ; preds = %._crit_edge, %r_perfective_gerund.exit.thread, %92
+  %104 = phi i32 [ %.pre305, %._crit_edge ], [ %90, %r_perfective_gerund.exit.thread ], [ %90, %92 ]
   store i32 %104, ptr %2, align 8
   br label %105
 
@@ -476,8 +476,8 @@ r_adjective.exit.i:                               ; preds = %123
   %157 = icmp sgt i32 %156, -1
   br i1 %157, label %.thread266, label %.critedge.thread
 
-r_adjectival.exit.thread:                         ; preds = %.r_adjectival.exit.thread_crit_edge, %117, %111, %105
-  %158 = phi i32 [ %.pre309, %.r_adjectival.exit.thread_crit_edge ], [ %107, %117 ], [ %107, %111 ], [ %107, %105 ]
+r_adjectival.exit.thread:                         ; preds = %.r_adjectival.exit.thread_crit_edge, %105, %117, %111
+  %158 = phi i32 [ %.pre309, %.r_adjectival.exit.thread_crit_edge ], [ %107, %105 ], [ %107, %117 ], [ %107, %111 ]
   %159 = sub i32 %158, %108
   store i32 %159, ptr %2, align 8
   %160 = tail call fastcc i32 @r_verb(ptr noundef nonnull %0)
@@ -575,7 +575,7 @@ r_adjectival.exit.thread:                         ; preds = %.r_adjectival.exit.
   %196 = icmp sgt i32 %195, -1
   br i1 %196, label %select.unfold280, label %.critedge.thread
 
-select.unfold280:                                 ; preds = %194, %192, %184, %.thread276, %190
+select.unfold280:                                 ; preds = %194, %.thread276, %190, %192, %184
   %197 = load i32, ptr %5, align 4
   %198 = add i32 %197, %.neg184
   store i32 %198, ptr %2, align 8
@@ -682,13 +682,13 @@ select.unfold280:                                 ; preds = %194, %192, %184, %.
   %249 = icmp sgt i32 %248, -1
   br i1 %249, label %250, label %.critedge.thread
 
-250:                                              ; preds = %213, %233, %244, %247, %207, %200, %select.unfold280, %211, %221, %218, %228, %227, %238, %236
+250:                                              ; preds = %213, %233, %244, %247, %select.unfold280, %211, %218, %227, %207, %200, %221, %228, %238, %236
   store i32 %29, ptr %53, align 8
   store i32 %29, ptr %2, align 8
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %20, %86, %83, %152, %155, %123, %168, %247, %244, %233, %215, %194, %99, %r_mark_regions.exit, %177, %250
-  %.3 = phi i32 [ 1, %250 ], [ 0, %r_mark_regions.exit ], [ %178, %177 ], [ %101, %99 ], [ %195, %194 ], [ %234, %233 ], [ %216, %215 ], [ %245, %244 ], [ %248, %247 ], [ %.10, %168 ], [ %125, %123 ], [ %156, %155 ], [ %153, %152 ], [ %87, %86 ], [ %84, %83 ], [ %22, %20 ]
+  %.3 = phi i32 [ 1, %250 ], [ %245, %244 ], [ %101, %99 ], [ 0, %r_mark_regions.exit ], [ %178, %177 ], [ %195, %194 ], [ %156, %155 ], [ %234, %233 ], [ %216, %215 ], [ %248, %247 ], [ %84, %83 ], [ %.10, %168 ], [ %125, %123 ], [ %153, %152 ], [ %87, %86 ], [ %22, %20 ]
   ret i32 %.3
 }
 
@@ -768,7 +768,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_verb(ptr noundef initial
   br label %.thread53
 
 .thread53:                                        ; preds = %25, %23, %18, %1, %7, %14, %31, %34, %37
-  %.0 = phi i32 [ 1, %37 ], [ %32, %31 ], [ %35, %34 ], [ 0, %14 ], [ 0, %7 ], [ 0, %1 ], [ 0, %18 ], [ 0, %23 ], [ 0, %25 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %37 ], [ 0, %18 ], [ %32, %31 ], [ %35, %34 ], [ 0, %14 ], [ 0, %7 ], [ 0, %25 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -816,7 +816,7 @@ define internal fastcc i32 @r_noun(ptr noundef initializes((24, 28)) %0) unnamed
   br label %25
 
 25:                                               ; preds = %20, %18, %1, %7, %14
-  %.015 = phi i32 [ 0, %14 ], [ 0, %7 ], [ 0, %1 ], [ 0, %18 ], [ %spec.select, %20 ]
+  %.015 = phi i32 [ 0, %1 ], [ 0, %18 ], [ %spec.select, %20 ], [ 0, %14 ], [ 0, %7 ]
   ret i32 %.015
 }
 

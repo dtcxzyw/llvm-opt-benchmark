@@ -130,7 +130,7 @@ define ptr @OSSL_HTTP_REQ_CTX_new(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %24
 
 24:                                               ; preds = %7, %22, %21, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %21 ], [ %8, %22 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %6 ], [ %8, %22 ], [ null, %21 ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -341,7 +341,7 @@ define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_set_request_line(ptr noundef captu
   br i1 %44, label %51, label %45
 
 45:                                               ; preds = %32, %37, %41, %39
-  %.0 = phi ptr [ %4, %37 ], [ %4, %41 ], [ %4, %39 ], [ @.str.6, %32 ]
+  %.0 = phi ptr [ %4, %39 ], [ %4, %37 ], [ %4, %41 ], [ @.str.6, %32 ]
   %46 = load ptr, ptr %9, align 8, !tbaa !19
   %47 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %46, ptr noundef nonnull @.str.8, ptr noundef nonnull %.0) #9
   %48 = icmp slt i32 %47, 1
@@ -354,7 +354,7 @@ define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_set_request_line(ptr noundef captu
   br label %51
 
 51:                                               ; preds = %45, %41, %28, %23, %15, %8, %49, %38, %7
-  %.022 = phi i32 [ 0, %7 ], [ 1, %49 ], [ 0, %38 ], [ 0, %8 ], [ 0, %15 ], [ 0, %23 ], [ 0, %28 ], [ 0, %41 ], [ 0, %45 ]
+  %.022 = phi i32 [ 0, %7 ], [ 0, %28 ], [ 0, %8 ], [ 0, %15 ], [ 0, %23 ], [ 0, %41 ], [ 1, %49 ], [ 0, %38 ], [ 0, %45 ]
   ret i32 %.022
 }
 
@@ -666,7 +666,7 @@ define internal fastcc range(i32 0, 2) i32 @set1_content(ptr noundef captures(ad
   br label %67
 
 67:                                               ; preds = %64, %59, %32, %15, %13, %66, %22, %9
-  %.027 = phi i32 [ 0, %9 ], [ 1, %66 ], [ 0, %22 ], [ 0, %13 ], [ 1, %15 ], [ 0, %32 ], [ 0, %59 ], [ 0, %64 ]
+  %.027 = phi i32 [ 0, %9 ], [ 0, %13 ], [ 0, %32 ], [ 1, %66 ], [ 0, %59 ], [ 1, %15 ], [ 0, %22 ], [ 0, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.027
 }
@@ -1242,8 +1242,8 @@ check_max_len.exit.thread:                        ; preds = %162
   br label %parse_http_line1.exit
 
 .critedge.thread.i:                               ; preds = %187, %194, %200, %203, %.critedge4.i, %.critedge2.i, %.critedge.i, %180, %177
-  %.5272 = phi i32 [ %183, %180 ], [ %183, %.critedge.i ], [ %183, %.critedge2.i ], [ %183, %.critedge4.i ], [ %183, %203 ], [ %.3270.ph, %177 ], [ %183, %200 ], [ %183, %194 ], [ %183, %187 ]
-  %.056.i = phi ptr [ %137, %180 ], [ %137, %.critedge.i ], [ %137, %.critedge2.i ], [ %137, %.critedge4.i ], [ %137, %203 ], [ %35, %177 ], [ %137, %200 ], [ %137, %194 ], [ %137, %187 ]
+  %.5272 = phi i32 [ %183, %180 ], [ %183, %200 ], [ %183, %.critedge.i ], [ %183, %.critedge2.i ], [ %.3270.ph, %177 ], [ %183, %.critedge4.i ], [ %183, %203 ], [ %183, %194 ], [ %183, %187 ]
+  %.056.i = phi ptr [ %137, %180 ], [ %137, %200 ], [ %137, %.critedge.i ], [ %137, %.critedge2.i ], [ %35, %177 ], [ %137, %.critedge4.i ], [ %137, %203 ], [ %137, %194 ], [ %137, %187 ]
   br label %226
 
 226:                                              ; preds = %233, %.critedge.thread.i
@@ -1304,8 +1304,8 @@ parse_http_line1.exit:                            ; preds = %.critedge6.thread.i
   br label %check_max_len.exit.outer.backedge
 
 check_max_len.exit.outer.backedge:                ; preds = %parse_http_line1.exit.thread, %238, %239, %236, %parse_http_line1.exit
-  %.sink = phi i32 [ 2, %parse_http_line1.exit ], [ 4, %236 ], [ 3, %238 ], [ 3, %parse_http_line1.exit.thread ], [ %spec.select, %239 ]
-  %.3270.ph.be = phi i32 [ %183, %parse_http_line1.exit ], [ %183, %236 ], [ %183, %238 ], [ %.5272, %parse_http_line1.exit.thread ], [ %183, %239 ]
+  %.sink = phi i32 [ 4, %236 ], [ 2, %parse_http_line1.exit ], [ %spec.select, %239 ], [ 3, %parse_http_line1.exit.thread ], [ 3, %238 ]
+  %.3270.ph.be = phi i32 [ %183, %236 ], [ %183, %parse_http_line1.exit ], [ %183, %239 ], [ %.5272, %parse_http_line1.exit.thread ], [ %183, %238 ]
   store i32 %.sink, ptr %0, align 8, !tbaa !3
   br label %check_max_len.exit.outer
 
@@ -1410,7 +1410,7 @@ check_max_len.exit.outer.backedge:                ; preds = %parse_http_line1.ex
   br label %.loopexit
 
 .thread293:                                       ; preds = %272, %285, %266, %270, %263
-  %.5202 = phi i32 [ %.3200.ph.ph, %270 ], [ %.3200.ph.ph, %266 ], [ %.3200.ph.ph, %263 ], [ 1, %285 ], [ 1, %272 ]
+  %.5202 = phi i32 [ %.3200.ph.ph, %263 ], [ %.3200.ph.ph, %270 ], [ %.3200.ph.ph, %266 ], [ 1, %285 ], [ 1, %272 ]
   %289 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %35, ptr noundef nonnull @.str.16) #9
   %290 = icmp eq i32 %289, 0
   br i1 %290, label %291, label %297
@@ -1454,8 +1454,8 @@ check_max_len.exit.outer.backedge:                ; preds = %parse_http_line1.ex
   br i1 %.not243.not, label %.loopexit, label %.thread289
 
 .thread289:                                       ; preds = %251, %294, %241, %291, %306, %297
-  %.4271 = phi i32 [ %.3270.ph, %306 ], [ %.3270.ph, %297 ], [ 1, %291 ], [ %.3270.ph, %241 ], [ %spec.select300, %294 ], [ %.3270.ph, %251 ]
-  %.4201 = phi i32 [ %.5202, %306 ], [ %.5202, %297 ], [ %.5202, %291 ], [ %.3200.ph.ph, %241 ], [ %.5202, %294 ], [ %.3200.ph.ph, %251 ]
+  %.4271 = phi i32 [ 1, %291 ], [ %.3270.ph, %241 ], [ %spec.select300, %294 ], [ %.3270.ph, %306 ], [ %.3270.ph, %297 ], [ %.3270.ph, %251 ]
+  %.4201 = phi i32 [ %.5202, %291 ], [ %.3200.ph.ph, %241 ], [ %.5202, %294 ], [ %.5202, %306 ], [ %.5202, %297 ], [ %.3200.ph.ph, %251 ]
   %308 = load ptr, ptr %23, align 8, !tbaa !13
   br label %309
 
@@ -1635,10 +1635,10 @@ check_max_len.exit.outer.backedge:                ; preds = %parse_http_line1.ex
   br i1 %376, label %.backedge.backedge, label %377
 
 .backedge.backedge:                               ; preds = %373, %377, %122, %131, %145, %155, %339, %351, %97
-  %.0267.be = phi i32 [ %.0267, %97 ], [ %.0267, %131 ], [ %.0267, %122 ], [ %.3270.ph, %145 ], [ %.3270.ph, %155 ], [ %.1268, %339 ], [ %.1268, %351 ], [ %.2269, %377 ], [ %.2269, %373 ]
-  %.0204.be = phi i64 [ %.0204, %97 ], [ %.0204, %131 ], [ %.0204, %122 ], [ %.3207, %145 ], [ %.3207, %155 ], [ %.1205, %339 ], [ %.1205, %351 ], [ %.2206, %377 ], [ %.2206, %373 ]
-  %.0197.be = phi i32 [ %.0197, %97 ], [ %.0197, %131 ], [ %.0197, %122 ], [ %.3200.ph.ph, %145 ], [ %.3200.ph.ph, %155 ], [ %.1198, %339 ], [ %.1198, %351 ], [ %.2199, %377 ], [ %.2199, %373 ]
-  %.0191.be = phi i64 [ %.0191, %97 ], [ %.0191, %131 ], [ %.0191, %122 ], [ %.3194.ph, %145 ], [ %.3194.ph, %155 ], [ %.1192, %339 ], [ %.1192, %351 ], [ %.2193, %377 ], [ %.2193, %373 ]
+  %.0267.be = phi i32 [ %.1268, %351 ], [ %.0267, %97 ], [ %.0267, %131 ], [ %.0267, %122 ], [ %.3270.ph, %145 ], [ %.3270.ph, %155 ], [ %.1268, %339 ], [ %.2269, %377 ], [ %.2269, %373 ]
+  %.0204.be = phi i64 [ %.1205, %351 ], [ %.0204, %97 ], [ %.0204, %131 ], [ %.0204, %122 ], [ %.3207, %145 ], [ %.3207, %155 ], [ %.1205, %339 ], [ %.2206, %377 ], [ %.2206, %373 ]
+  %.0197.be = phi i32 [ %.1198, %351 ], [ %.0197, %97 ], [ %.0197, %131 ], [ %.0197, %122 ], [ %.3200.ph.ph, %145 ], [ %.3200.ph.ph, %155 ], [ %.1198, %339 ], [ %.2199, %377 ], [ %.2199, %373 ]
+  %.0191.be = phi i64 [ %.1192, %351 ], [ %.0191, %97 ], [ %.0191, %131 ], [ %.0191, %122 ], [ %.3194.ph, %145 ], [ %.3194.ph, %155 ], [ %.1192, %339 ], [ %.2193, %377 ], [ %.2193, %373 ]
   br label %.backedge
 
 377:                                              ; preds = %373
@@ -1651,7 +1651,7 @@ check_max_len.exit.outer.backedge:                ; preds = %parse_http_line1.ex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %370, %72, %69, %306, %.thread297, %287, %check_max_len.exit.thread, %.thread, %132, %118, %65, %380, %356, %347, %337, %334, %330, %323, %319, %260, %174, %170, %158, %148, %135, %121, %77, %68, %63, %20, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %20 ], [ 0, %63 ], [ 0, %68 ], [ 1, %380 ], [ 0, %77 ], [ 0, %135 ], [ 0, %121 ], [ 0, %148 ], [ 0, %158 ], [ 0, %170 ], [ 0, %174 ], [ 0, %260 ], [ 0, %323 ], [ 0, %334 ], [ 0, %347 ], [ 0, %356 ], [ 1, %337 ], [ 0, %330 ], [ 0, %319 ], [ 0, %287 ], [ -1, %65 ], [ -1, %118 ], [ -1, %132 ], [ %.4.ph, %.thread ], [ 0, %check_max_len.exit.thread ], [ 0, %.thread297 ], [ 0, %306 ], [ 0, %69 ], [ 0, %72 ], [ 0, %370 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %20 ], [ 0, %63 ], [ 0, %287 ], [ 0, %68 ], [ -1, %65 ], [ 0, %.thread297 ], [ 1, %380 ], [ 0, %77 ], [ %.4.ph, %.thread ], [ -1, %118 ], [ 0, %135 ], [ 0, %306 ], [ 0, %121 ], [ 0, %148 ], [ 0, %158 ], [ -1, %132 ], [ 0, %170 ], [ 0, %174 ], [ 0, %260 ], [ 0, %323 ], [ 0, %334 ], [ 0, %347 ], [ 0, %356 ], [ 0, %check_max_len.exit.thread ], [ 1, %337 ], [ 0, %330 ], [ 0, %319 ], [ 0, %69 ], [ 0, %72 ], [ 0, %370 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -1826,7 +1826,7 @@ define ptr @OSSL_HTTP_REQ_CTX_exchange(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %14, %23, %22, %24, %6
-  %.0 = phi ptr [ null, %6 ], [ %27, %24 ], [ null, %22 ], [ null, %23 ], [ null, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %14 ], [ %27, %24 ], [ null, %22 ], [ null, %23 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -1967,7 +1967,7 @@ define ptr @OSSL_HTTP_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br label %explict_or_default_port.exit.i
 
 explict_or_default_port.exit.i:                   ; preds = %47, %37
-  %.1.i.i = phi ptr [ %.016.i, %37 ], [ %spec.select.i.i, %47 ]
+  %.1.i.i = phi ptr [ %spec.select.i.i, %47 ], [ %.016.i, %37 ]
   %48 = call ptr @BIO_new_connect(ptr noundef nonnull %.017.i) #9
   %49 = icmp ne ptr %48, null
   %50 = icmp ne ptr %.1.i.i, null
@@ -2032,7 +2032,7 @@ http_new_bio.exit:                                ; preds = %explict_or_default_
   br label %75
 
 75:                                               ; preds = %.split, %.split69
-  %.060 = phi ptr [ %66, %.split ], [ %74, %.split69 ]
+  %.060 = phi ptr [ %74, %.split69 ], [ %66, %.split ]
   %.not83 = icmp eq ptr %.060, null
   br i1 %.not83, label %.thread105, label %76
 
@@ -2133,7 +2133,7 @@ define internal fastcc ptr @http_req_ctx_new(i32 noundef range(i32 0, 2) %0, ptr
   br label %43
 
 43:                                               ; preds = %11, %42, %39
-  %.0 = phi ptr [ null, %42 ], [ %12, %39 ], [ null, %11 ]
+  %.0 = phi ptr [ %12, %39 ], [ null, %42 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -2173,7 +2173,7 @@ define range(i32 0, 2) i32 @OSSL_HTTP_set1_request(ptr noundef captures(address_
   br label %add1_headers.exit.thread
 
 .thread29:                                        ; preds = %19, %13, %16
-  %24 = phi ptr [ null, %16 ], [ null, %13 ], [ %21, %19 ]
+  %24 = phi ptr [ null, %13 ], [ null, %16 ], [ %21, %19 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %7, ptr %25, align 8, !tbaa !17
   %.in = icmp ne ptr %4, null
@@ -2253,7 +2253,7 @@ add1_headers.exit:                                ; preds = %57, %._crit_edge.i
   br label %add1_headers.exit.thread
 
 add1_headers.exit.thread:                         ; preds = %51, %57, %.thread29, %add1_headers.exit, %60, %23, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %23 ], [ 0, %add1_headers.exit ], [ 0, %.thread29 ], [ %61, %60 ], [ 0, %57 ], [ 0, %51 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %23 ], [ 0, %add1_headers.exit ], [ %61, %60 ], [ 0, %.thread29 ], [ 0, %57 ], [ 0, %51 ]
   ret i32 %.0
 }
 
@@ -2517,7 +2517,7 @@ redirection_ok.exit:                              ; preds = %49, %57
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink4.i, ptr noundef nonnull @__func__.redirection_ok) #9
   br label %103
 
-60:                                               ; preds = %51, %57, %54
+60:                                               ; preds = %57, %54, %51
   %61 = call i64 @time(ptr noundef null) #9
   br i1 %.not.i, label %68, label %62
 
@@ -2673,7 +2673,7 @@ OSSL_HTTP_close.exit67.thread:                    ; preds = %117, %108, %.loopex
   br label %122
 
 122:                                              ; preds = %.thread87, %28, %.loopexit93, %27
-  %.036 = phi ptr [ null, %27 ], [ %.139.ph, %.loopexit93 ], [ null, %28 ], [ null, %.thread87 ]
+  %.036 = phi ptr [ null, %27 ], [ %.139.ph, %.loopexit93 ], [ null, %.thread87 ], [ null, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -2745,7 +2745,7 @@ OSSL_HTTP_is_alive.exit:                          ; preds = %27
   br i1 %.not56, label %.thread51, label %45
 
 .thread51:                                        ; preds = %.thread45, %27, %OSSL_HTTP_is_alive.exit
-  %.153 = phi ptr [ %28, %OSSL_HTTP_is_alive.exit ], [ null, %27 ], [ null, %.thread45 ]
+  %.153 = phi ptr [ null, %27 ], [ %28, %OSSL_HTTP_is_alive.exit ], [ null, %.thread45 ]
   %32 = getelementptr inbounds nuw i8, ptr %.03450, i64 40
   %33 = load ptr, ptr %32, align 8, !tbaa !53
   %.not14.i = icmp eq ptr %33, null
@@ -2776,8 +2776,8 @@ OSSL_HTTP_close.exit.thread:                      ; preds = %42, %.thread51
   br label %45
 
 45:                                               ; preds = %OSSL_HTTP_close.exit.thread, %43, %OSSL_HTTP_is_alive.exit, %.thread
-  %.135 = phi ptr [ %.03450, %OSSL_HTTP_is_alive.exit ], [ null, %.thread ], [ null, %43 ], [ null, %OSSL_HTTP_close.exit.thread ]
-  %.0 = phi ptr [ %28, %OSSL_HTTP_is_alive.exit ], [ null, %.thread ], [ null, %43 ], [ %.153, %OSSL_HTTP_close.exit.thread ]
+  %.135 = phi ptr [ null, %.thread ], [ %.03450, %OSSL_HTTP_is_alive.exit ], [ null, %43 ], [ null, %OSSL_HTTP_close.exit.thread ]
+  %.0 = phi ptr [ null, %.thread ], [ %28, %OSSL_HTTP_is_alive.exit ], [ null, %43 ], [ %.153, %OSSL_HTTP_close.exit.thread ]
   br i1 %21, label %47, label %46
 
 46:                                               ; preds = %45
@@ -3035,7 +3035,7 @@ sub_0132:                                         ; preds = %.tail
   br i1 %.not118, label %126, label %.thread126
 
 .thread126:                                       ; preds = %.preheader, %82, %97, %.tail.thread, %46, %base64encode.exit.thread, %.loopexit
-  %.097129 = phi i32 [ 0, %.loopexit ], [ 0, %base64encode.exit.thread ], [ 0, %46 ], [ 0, %97 ], [ 0, %.tail.thread ], [ 0, %82 ], [ 1, %.preheader ]
+  %.097129 = phi i32 [ 0, %.loopexit ], [ 0, %base64encode.exit.thread ], [ 0, %46 ], [ 0, %82 ], [ 0, %.tail.thread ], [ 0, %97 ], [ 1, %.preheader ]
   %123 = tail call i64 @BIO_ctrl(ptr noundef nonnull %11, i32 noundef 11, i64 noundef 0, ptr noundef null) #9
   %124 = tail call ptr @BIO_pop(ptr noundef nonnull %11) #9
   %125 = tail call i32 @BIO_free(ptr noundef nonnull %11) #9

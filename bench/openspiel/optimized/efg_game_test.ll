@@ -590,7 +590,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %common.resume
 
 common.resume:                                    ; preds = %2025, %2069, %.body.i189, %2016, %2019, %.body.i139, %1780, %1783, %1398, %1517, %.body.i77, %1388, %1391, %.body.i37, %1121, %1124, %.body.i18, %854, %857, %.body.i, %662, %665, %333, %452, %283, %327
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %327 ], [ %284, %283 ], [ %.pn5.i, %452 ], [ %334, %333 ], [ %.pn.i9, %.body.i ], [ %.pn26.pn.i, %662 ], [ %.pn26.pn.i, %665 ], [ %.pn.i19, %.body.i18 ], [ %.pn23.pn.i, %854 ], [ %.pn23.pn.i, %857 ], [ %.pn.i38, %.body.i37 ], [ %.pn26.pn.i44, %1121 ], [ %.pn26.pn.i44, %1124 ], [ %.pn.i78, %.body.i77 ], [ %.pn26.pn.i85, %1388 ], [ %.pn26.pn.i85, %1391 ], [ %.pn5.i129, %1517 ], [ %1399, %1398 ], [ %.pn.i140, %.body.i139 ], [ %.pn26.pn.i147, %1780 ], [ %.pn26.pn.i147, %1783 ], [ %.pn.i190, %.body.i189 ], [ %.pn34.pn.i, %2016 ], [ %.pn34.pn.i, %2019 ], [ %.pn.i214, %2069 ], [ %2026, %2025 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn34.pn.i, %2019 ], [ %284, %283 ], [ %334, %333 ], [ %.pn26.pn.i, %665 ], [ %.pn23.pn.i, %857 ], [ %.pn26.pn.i44, %1124 ], [ %.pn26.pn.i85, %1391 ], [ %1399, %1398 ], [ %.pn26.pn.i147, %1783 ], [ %.pn.i, %327 ], [ %.pn5.i, %452 ], [ %.pn.i9, %.body.i ], [ %.pn26.pn.i, %662 ], [ %.pn.i19, %.body.i18 ], [ %.pn23.pn.i, %854 ], [ %.pn.i38, %.body.i37 ], [ %.pn26.pn.i44, %1121 ], [ %.pn.i78, %.body.i77 ], [ %.pn26.pn.i85, %1388 ], [ %.pn5.i129, %1517 ], [ %.pn.i140, %.body.i139 ], [ %.pn26.pn.i147, %1780 ], [ %.pn.i190, %.body.i189 ], [ %.pn34.pn.i, %2016 ], [ %.pn.i214, %2069 ], [ %2026, %2025 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10open_spiel8efg_game12_GLOBAL__N_129EFGGameSimTestsSampleFromDataEv.exit: ; preds = %290, %309, %322, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -2966,7 +2966,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   unreachable
 
 _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit50.i: ; preds = %1111, %1108, %1016, %1003, %990, %981, %972, %963, %961
-  %.pn24.i66 = phi { ptr, i32 } [ %1017, %1016 ], [ %962, %961 ], [ %1004, %1003 ], [ %991, %990 ], [ %982, %981 ], [ %973, %972 ], [ %964, %963 ], [ %1109, %1108 ], [ %1109, %1111 ]
+  %.pn24.i66 = phi { ptr, i32 } [ %964, %963 ], [ %1017, %1016 ], [ %962, %961 ], [ %1004, %1003 ], [ %991, %990 ], [ %982, %981 ], [ %973, %972 ], [ %1109, %1108 ], [ %1109, %1111 ]
   call void @_ZN10open_spiel8GameTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(146) %163) #17
   br label %1116
 
@@ -3777,7 +3777,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   unreachable
 
 _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit50.i107: ; preds = %1378, %1375, %1283, %1270, %1257, %1248, %1239, %1230, %1228
-  %.pn24.i108 = phi { ptr, i32 } [ %1284, %1283 ], [ %1229, %1228 ], [ %1271, %1270 ], [ %1258, %1257 ], [ %1249, %1248 ], [ %1240, %1239 ], [ %1231, %1230 ], [ %1376, %1375 ], [ %1376, %1378 ]
+  %.pn24.i108 = phi { ptr, i32 } [ %1231, %1230 ], [ %1284, %1283 ], [ %1229, %1228 ], [ %1271, %1270 ], [ %1258, %1257 ], [ %1249, %1248 ], [ %1240, %1239 ], [ %1376, %1375 ], [ %1376, %1378 ]
   call void @_ZN10open_spiel8GameTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(146) %123) #17
   br label %1383
 
@@ -4970,7 +4970,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   unreachable
 
 _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit50.i169: ; preds = %1770, %1767, %1675, %1662, %1649, %1640, %1631, %1622, %1620
-  %.pn24.i170 = phi { ptr, i32 } [ %1676, %1675 ], [ %1621, %1620 ], [ %1663, %1662 ], [ %1650, %1649 ], [ %1641, %1640 ], [ %1632, %1631 ], [ %1623, %1622 ], [ %1768, %1767 ], [ %1768, %1770 ]
+  %.pn24.i170 = phi { ptr, i32 } [ %1623, %1622 ], [ %1676, %1675 ], [ %1621, %1620 ], [ %1663, %1662 ], [ %1650, %1649 ], [ %1641, %1640 ], [ %1632, %1631 ], [ %1768, %1767 ], [ %1768, %1770 ]
   call void @_ZN10open_spiel8GameTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(146) %54) #17
   br label %1775
 
@@ -5733,7 +5733,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   unreachable
 
 _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit58.i: ; preds = %2007, %2004, %1920, %1912, %1904, %1902
-  %.pn32.i = phi { ptr, i32 } [ %1921, %1920 ], [ %1903, %1902 ], [ %1913, %1912 ], [ %1905, %1904 ], [ %2005, %2004 ], [ %2005, %2007 ]
+  %.pn32.i = phi { ptr, i32 } [ %1905, %1904 ], [ %1921, %1920 ], [ %1903, %1902 ], [ %1913, %1912 ], [ %2005, %2004 ], [ %2005, %2007 ]
   call void @_ZN10open_spiel8GameTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(146) %26) #17
   br label %2012
 
@@ -7324,7 +7324,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE10_M_insert_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE10_M_insert_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_EPSt18_Rb_tree_node_baseSO_OT_RT0_.exit: ; preds = %8, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
-  %18 = phi i1 [ true, %8 ], [ %17, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ]
+  %18 = phi i1 [ %17, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ true, %8 ]
   %19 = load ptr, ptr %3, align 8
   %20 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #20
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(144) %2)
@@ -7650,8 +7650,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48, %._crit_edge.thread.i55, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24, %._crit_edge.thread.i31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i, %._crit_edge.thread.i, %100, %59, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34, %88, %47, %18
-  %.sroa.078.0 = phi ptr [ null, %18 ], [ %49, %47 ], [ null, %88 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select, %59 ], [ %spec.select80, %100 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ null, %._crit_edge.thread.i31 ], [ %spec.select.i25, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ null, %._crit_edge.thread.i55 ], [ %spec.select.i49, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
-  %.sroa.12.0 = phi ptr [ %19, %18 ], [ %49, %47 ], [ %90, %88 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select79, %59 ], [ %spec.select81, %100 ], [ %.020.lcssa33.i, %._crit_edge.thread.i ], [ %spec.select22.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %.020.lcssa33.i32, %._crit_edge.thread.i31 ], [ %spec.select22.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %.020.lcssa33.i56, %._crit_edge.thread.i55 ], [ %spec.select22.i50, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
+  %.sroa.078.0 = phi ptr [ %spec.select, %59 ], [ null, %18 ], [ null, %._crit_edge.thread.i31 ], [ %49, %47 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ null, %._crit_edge.thread.i ], [ %spec.select80, %100 ], [ null, %88 ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %spec.select.i25, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %spec.select.i49, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ], [ null, %._crit_edge.thread.i55 ]
+  %.sroa.12.0 = phi ptr [ %spec.select79, %59 ], [ %19, %18 ], [ %.020.lcssa33.i32, %._crit_edge.thread.i31 ], [ %49, %47 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %.020.lcssa33.i, %._crit_edge.thread.i ], [ %spec.select81, %100 ], [ %90, %88 ], [ %spec.select22.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %spec.select22.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %spec.select22.i50, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ], [ %.020.lcssa33.i56, %._crit_edge.thread.i55 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.078.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

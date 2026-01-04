@@ -1151,7 +1151,7 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i87.i.i:     ; preds = %443
   br i1 %.not.i.i.i88.i.i, label %_ZNK4llvm12LiveRegUnits9availableEt.exit.thread141.i.i, label %443
 
 _ZNK4llvm12LiveRegUnits9availableEt.exit.thread141.i.i: ; preds = %391, %419, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i87.i.i, %443, %284, %310, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i53.i.i, %335, %.loopexit151.i.i, %371, %366, %.loopexit.i.i, %264
-  %.sroa.020.4.ph.i.i = phi ptr [ %storemerge164.i.i, %.loopexit151.i.i ], [ %202, %371 ], [ %202, %366 ], [ %storemerge164.i.i, %.loopexit.i.i ], [ %202, %264 ], [ %202, %335 ], [ %storemerge164.i.i, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i53.i.i ], [ %202, %310 ], [ %202, %284 ], [ %202, %443 ], [ %storemerge164.i.i, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i87.i.i ], [ %202, %419 ], [ %202, %391 ]
+  %.sroa.020.4.ph.i.i = phi ptr [ %storemerge164.i.i, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i87.i.i ], [ %storemerge164.i.i, %.loopexit151.i.i ], [ %202, %310 ], [ %202, %284 ], [ %202, %366 ], [ %storemerge164.i.i, %.loopexit.i.i ], [ %202, %335 ], [ %202, %264 ], [ %202, %419 ], [ %202, %371 ], [ %storemerge164.i.i, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i53.i.i ], [ %202, %443 ], [ %202, %391 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN12_GLOBAL__N_114RISCVMoveMerge16findMatchingInstERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEjRKNS1_14DestSourcePairE.exit.i
 

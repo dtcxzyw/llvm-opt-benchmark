@@ -321,7 +321,7 @@ CMS_ContentInfo_new_ex.exit:                      ; preds = %8, %5
   br label %CMS_set_detached.exit
 
 CMS_set_detached.exit:                            ; preds = %2, %11, %25, %.thread.i, %CMS_ContentInfo_new_ex.exit
-  %.0.i9 = phi ptr [ %4, %CMS_ContentInfo_new_ex.exit ], [ %4, %.thread.i ], [ %4, %25 ], [ null, %11 ], [ null, %2 ]
+  %.0.i9 = phi ptr [ %4, %25 ], [ %4, %CMS_ContentInfo_new_ex.exit ], [ %4, %.thread.i ], [ null, %11 ], [ null, %2 ]
   ret ptr %.0.i9
 }
 
@@ -368,7 +368,7 @@ define range(i32 0, 2) i32 @CMS_set_detached(ptr noundef captures(address) %0, i
   br label %17
 
 17:                                               ; preds = %2, %16, %.thread, %7
-  %.0 = phi i32 [ 1, %7 ], [ 1, %.thread ], [ 0, %16 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %16 ], [ 1, %7 ], [ 1, %.thread ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -407,7 +407,7 @@ define ptr @ossl_cms_content_bio(ptr noundef captures(address) %0) local_unnamed
   br label %22
 
 22:                                               ; preds = %1, %17, %14, %7
-  %.0 = phi ptr [ %9, %7 ], [ %16, %14 ], [ %21, %17 ], [ null, %1 ]
+  %.0 = phi ptr [ %21, %17 ], [ %9, %7 ], [ %16, %14 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -493,7 +493,7 @@ define ptr @CMS_get0_content(ptr noundef readonly captures(ret: address, provena
   br label %47
 
 47:                                               ; preds = %1, %46, %44, %35, %30, %25, %20, %15, %10, %5
-  %.0 = phi ptr [ %45, %44 ], [ null, %46 ], [ %9, %5 ], [ %14, %10 ], [ %19, %15 ], [ %24, %20 ], [ %29, %25 ], [ %34, %30 ], [ %39, %35 ], [ %4, %1 ]
+  %.0 = phi ptr [ %45, %44 ], [ null, %46 ], [ %39, %35 ], [ %9, %5 ], [ %14, %10 ], [ %19, %15 ], [ %24, %20 ], [ %29, %25 ], [ %34, %30 ], [ %4, %1 ]
   ret ptr %.0
 }
 
@@ -544,7 +544,7 @@ define ptr @CMS_dataInit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %ossl_cms_content_bio.exit
 
 ossl_cms_content_bio.exit:                        ; preds = %19, %16, %9
-  %.0 = phi ptr [ %11, %9 ], [ %18, %16 ], [ %23, %19 ]
+  %.0 = phi ptr [ %18, %16 ], [ %23, %19 ], [ %11, %9 ]
   %.not20 = icmp eq ptr %.0, null
   br i1 %.not20, label %ossl_cms_content_bio.exit.thread, label %ossl_cms_content_bio.exit.thread24
 
@@ -610,7 +610,7 @@ ossl_cms_content_bio.exit.thread24:               ; preds = %2, %ossl_cms_conten
   br label %43
 
 43:                                               ; preds = %40, %41, %ossl_cms_content_bio.exit.thread24, %38, %ossl_cms_content_bio.exit.thread
-  %.018 = phi ptr [ %39, %38 ], [ null, %ossl_cms_content_bio.exit.thread ], [ %.027, %ossl_cms_content_bio.exit.thread24 ], [ null, %41 ], [ null, %40 ]
+  %.018 = phi ptr [ %.027, %ossl_cms_content_bio.exit.thread24 ], [ null, %ossl_cms_content_bio.exit.thread ], [ %39, %38 ], [ null, %41 ], [ null, %40 ]
   ret ptr %.018
 }
 
@@ -726,7 +726,7 @@ define i32 @ossl_cms_DataFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br label %38
 
 38:                                               ; preds = %.thread, %26, %26, %26, %4, %37, %35, %33, %31, %29
-  %.0 = phi i32 [ 0, %37 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ 0, %4 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %.thread ], [ 0, %37 ], [ 0, %4 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ]
   ret i32 %.0
 }
 
@@ -1100,7 +1100,7 @@ cms_get0_certificate_choices.exit:                ; preds = %1, %1
   br label %21
 
 21:                                               ; preds = %cms_get0_certificate_choices.exit.thread, %16, %.thread, %11, %cms_get0_certificate_choices.exit, %19
-  %.0 = phi ptr [ null, %19 ], [ null, %cms_get0_certificate_choices.exit ], [ null, %11 ], [ null, %.thread ], [ %15, %16 ], [ null, %cms_get0_certificate_choices.exit.thread ]
+  %.0 = phi ptr [ null, %11 ], [ null, %cms_get0_certificate_choices.exit ], [ null, %.thread ], [ null, %19 ], [ %15, %16 ], [ null, %cms_get0_certificate_choices.exit.thread ]
   ret ptr %.0
 }
 
@@ -1181,7 +1181,7 @@ cms_get0_certificate_choices.exit:                ; preds = %2, %2
   br label %34
 
 34:                                               ; preds = %cms_get0_certificate_choices.exit.thread, %._crit_edge, %cms_get0_certificate_choices.exit, %32, %25
-  %.016 = phi i32 [ 1, %25 ], [ 1, %32 ], [ 0, %cms_get0_certificate_choices.exit ], [ 0, %._crit_edge ], [ 0, %cms_get0_certificate_choices.exit.thread ]
+  %.016 = phi i32 [ 0, %cms_get0_certificate_choices.exit ], [ 1, %25 ], [ 1, %32 ], [ 0, %._crit_edge ], [ 0, %cms_get0_certificate_choices.exit.thread ]
   ret i32 %.016
 }
 
@@ -1205,7 +1205,7 @@ define range(i32 0, 2) i32 @CMS_add1_cert(ptr noundef readonly captures(none) %0
   br label %7
 
 7:                                                ; preds = %4, %2, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %2 ], [ 1, %4 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %6 ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -1252,7 +1252,7 @@ define ptr @CMS_add0_RevocationInfoChoice(ptr noundef readonly captures(none) %0
   br label %cms_get0_revocation_choices.exit.thread
 
 cms_get0_revocation_choices.exit:                 ; preds = %4, %8, %15
-  %.0.i = phi ptr [ %7, %4 ], [ %14, %8 ], [ %21, %15 ]
+  %.0.i = phi ptr [ %21, %15 ], [ %7, %4 ], [ %14, %8 ]
   %23 = load ptr, ptr %.0.i, align 8, !tbaa !66
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %.thread
@@ -1281,7 +1281,7 @@ cms_get0_revocation_choices.exit:                 ; preds = %4, %8, %15
   br label %cms_get0_revocation_choices.exit.thread
 
 cms_get0_revocation_choices.exit.thread:          ; preds = %15, %8, %22, %31, %.thread, %25, %34
-  %.0 = phi ptr [ null, %34 ], [ null, %25 ], [ null, %.thread ], [ %29, %31 ], [ null, %22 ], [ null, %8 ], [ null, %15 ]
+  %.0 = phi ptr [ null, %34 ], [ %29, %31 ], [ null, %25 ], [ null, %.thread ], [ null, %22 ], [ null, %8 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -1330,7 +1330,7 @@ CMS_add0_crl.exit:                                ; preds = %4
   br label %9
 
 9:                                                ; preds = %CMS_add0_crl.exit, %2, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %2 ], [ 1, %CMS_add0_crl.exit ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 1, %CMS_add0_crl.exit ]
   ret i32 %.0
 }
 
@@ -1439,7 +1439,7 @@ cms_get0_certificate_choices.exit:                ; preds = %4, %4
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !71
 
 .loopexit:                                        ; preds = %28, %.preheader, %cms_get0_certificate_choices.exit.thread, %11, %cms_get0_certificate_choices.exit, %2, %26
-  %.0 = phi i32 [ 0, %26 ], [ 0, %2 ], [ 0, %cms_get0_certificate_choices.exit ], [ 0, %11 ], [ 0, %cms_get0_certificate_choices.exit.thread ], [ 1, %.preheader ], [ 1, %28 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %2 ], [ 0, %cms_get0_certificate_choices.exit ], [ 0, %26 ], [ 0, %cms_get0_certificate_choices.exit.thread ], [ 1, %.preheader ], [ 1, %28 ]
   ret i32 %.0
 }
 
@@ -1524,7 +1524,7 @@ define range(i32 0, 2) i32 @ossl_cms_get1_crls_ex(ptr noundef readonly captures(
   br label %cms_get0_revocation_choices.exit.thread
 
 cms_get0_revocation_choices.exit:                 ; preds = %7, %11, %18
-  %.0.i = phi ptr [ %10, %7 ], [ %17, %11 ], [ %24, %18 ]
+  %.0.i = phi ptr [ %24, %18 ], [ %10, %7 ], [ %17, %11 ]
   %26 = load ptr, ptr %.0.i, align 8, !tbaa !66
   %27 = tail call i32 @OPENSSL_sk_num(ptr noundef %26) #5
   %28 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef %27) #5
@@ -1570,7 +1570,7 @@ cms_get0_revocation_choices.exit:                 ; preds = %7, %11, %18
   br i1 %exitcond.not, label %cms_get0_revocation_choices.exit.thread, label %.lr.ph, !llvm.loop !75
 
 cms_get0_revocation_choices.exit.thread:          ; preds = %45, %.preheader, %18, %11, %25, %cms_get0_revocation_choices.exit, %2, %43
-  %.0 = phi i32 [ 0, %43 ], [ 0, %2 ], [ 0, %cms_get0_revocation_choices.exit ], [ 0, %25 ], [ 0, %11 ], [ 0, %18 ], [ 1, %.preheader ], [ 1, %45 ]
+  %.0 = phi i32 [ 0, %cms_get0_revocation_choices.exit ], [ 0, %2 ], [ 0, %18 ], [ 0, %43 ], [ 0, %25 ], [ 0, %11 ], [ 1, %.preheader ], [ 1, %45 ]
   ret i32 %.0
 }
 
@@ -1654,8 +1654,8 @@ define range(i32 0, 2) i32 @ossl_cms_set1_ias(ptr noundef captures(none) %0, ptr
   br label %18
 
 16:                                               ; preds = %8, %5, %2
-  %.sink13 = phi i32 [ 736, %2 ], [ 740, %5 ], [ 744, %8 ]
-  %.sink = phi i32 [ 524301, %2 ], [ 524299, %5 ], [ 524301, %8 ]
+  %.sink13 = phi i32 [ 740, %5 ], [ 736, %2 ], [ 744, %8 ]
+  %.sink = phi i32 [ 524299, %5 ], [ 524301, %2 ], [ 524301, %8 ]
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink13, ptr noundef nonnull @__func__.ossl_cms_set1_ias) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #5

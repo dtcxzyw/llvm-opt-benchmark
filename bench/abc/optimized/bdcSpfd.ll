@@ -2076,8 +2076,8 @@ Bdc_SpfdHashLookup.exit:                          ; preds = %Bdc_SpfdHashLookup.
   br label %Vec_WrdPush.exit.sink.split
 
 Vec_WrdPush.exit.sink.split:                      ; preds = %81, %83, %73, %75
-  %.sink343 = phi ptr [ %74, %73 ], [ %76, %75 ], [ %82, %81 ], [ %84, %83 ]
-  %.sink = phi i32 [ 16, %73 ], [ 16, %75 ], [ %78, %81 ], [ %78, %83 ]
+  %.sink343 = phi ptr [ %76, %75 ], [ %74, %73 ], [ %82, %81 ], [ %84, %83 ]
+  %.sink = phi i32 [ 16, %75 ], [ 16, %73 ], [ %78, %81 ], [ %78, %83 ]
   store ptr %.sink343, ptr %24, align 8, !tbaa !56
   store i32 %.sink, ptr %22, align 8, !tbaa !53
   br label %Vec_WrdPush.exit
@@ -2945,8 +2945,8 @@ Bdc_SpfdComputeCost.exit:                         ; preds = %17, %42
   br label %._crit_edge80
 
 ._crit_edge80:                                    ; preds = %11, %Bdc_SpfdComputeCost.exit, %50
-  %.155 = phi i32 [ %.05477, %Bdc_SpfdComputeCost.exit ], [ %.0.i, %50 ], [ %.05477, %11 ]
-  %.1 = phi i32 [ %.078, %Bdc_SpfdComputeCost.exit ], [ %51, %50 ], [ %.078, %11 ]
+  %.155 = phi i32 [ %.0.i, %50 ], [ %.05477, %Bdc_SpfdComputeCost.exit ], [ %.05477, %11 ]
+  %.1 = phi i32 [ %51, %50 ], [ %.078, %Bdc_SpfdComputeCost.exit ], [ %.078, %11 ]
   %52 = icmp eq i64 %16, 0
   br i1 %52, label %53, label %88
 
@@ -3054,8 +3054,8 @@ Bdc_SpfdComputeCost.exit72:                       ; preds = %93, %118
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %88, %Bdc_SpfdComputeCost.exit72, %126
-  %.357 = phi i32 [ %.256, %Bdc_SpfdComputeCost.exit72 ], [ %.0.i71, %126 ], [ %.256, %88 ]
-  %.3 = phi i32 [ %.2, %Bdc_SpfdComputeCost.exit72 ], [ %127, %126 ], [ %.2, %88 ]
+  %.357 = phi i32 [ %.0.i71, %126 ], [ %.256, %Bdc_SpfdComputeCost.exit72 ], [ %.256, %88 ]
+  %.3 = phi i32 [ %127, %126 ], [ %.2, %Bdc_SpfdComputeCost.exit72 ], [ %.2, %88 ]
   %128 = icmp eq i64 %92, 0
   br i1 %128, label %129, label %164
 
@@ -3294,8 +3294,8 @@ define void @Bdc_SpfdDecomposeTest3() local_unnamed_addr #3 {
   br label %Vec_WrdPush.exit.sink.split
 
 Vec_WrdPush.exit.sink.split:                      ; preds = %27, %29, %19, %21
-  %.sink103 = phi ptr [ %20, %19 ], [ %22, %21 ], [ %28, %27 ], [ %30, %29 ]
-  %.sink = phi i32 [ 16, %19 ], [ 16, %21 ], [ %24, %27 ], [ %24, %29 ]
+  %.sink103 = phi ptr [ %22, %21 ], [ %20, %19 ], [ %28, %27 ], [ %30, %29 ]
+  %.sink = phi i32 [ 16, %21 ], [ 16, %19 ], [ %24, %27 ], [ %24, %29 ]
   store ptr %.sink103, ptr %9, align 8, !tbaa !56
   store i32 %.sink, ptr %6, align 8, !tbaa !53
   br label %Vec_WrdPush.exit
@@ -3357,8 +3357,8 @@ Vec_WrdPush.exit:                                 ; preds = %Vec_WrdPush.exit.si
   br label %Vec_WrdPush.exit51
 
 Vec_WrdPush.exit51:                               ; preds = %55, %57, %47, %49, %38
-  %59 = phi ptr [ %39, %38 ], [ %48, %47 ], [ %50, %49 ], [ %56, %55 ], [ %58, %57 ]
-  %60 = phi i32 [ %40, %38 ], [ 16, %47 ], [ 16, %49 ], [ %52, %55 ], [ %52, %57 ]
+  %59 = phi ptr [ %39, %38 ], [ %50, %49 ], [ %48, %47 ], [ %56, %55 ], [ %58, %57 ]
+  %60 = phi i32 [ %40, %38 ], [ 16, %49 ], [ 16, %47 ], [ %52, %55 ], [ %52, %57 ]
   %61 = add nuw nsw i32 %41, 1
   %62 = zext nneg i32 %41 to i64
   %63 = getelementptr inbounds nuw i64, ptr %59, i64 %62
@@ -3797,8 +3797,8 @@ define void @Bdc_SpfdDecomposeTest() local_unnamed_addr #3 {
   br label %Vec_WrdPush.exit.sink.split
 
 Vec_WrdPush.exit.sink.split:                      ; preds = %27, %29, %19, %21
-  %.sink131 = phi ptr [ %20, %19 ], [ %22, %21 ], [ %28, %27 ], [ %30, %29 ]
-  %.sink = phi i32 [ 16, %19 ], [ 16, %21 ], [ %24, %27 ], [ %24, %29 ]
+  %.sink131 = phi ptr [ %22, %21 ], [ %20, %19 ], [ %28, %27 ], [ %30, %29 ]
+  %.sink = phi i32 [ 16, %21 ], [ 16, %19 ], [ %24, %27 ], [ %24, %29 ]
   store ptr %.sink131, ptr %9, align 8, !tbaa !56
   store i32 %.sink, ptr %6, align 8, !tbaa !53
   br label %Vec_WrdPush.exit
@@ -3860,8 +3860,8 @@ Vec_WrdPush.exit:                                 ; preds = %Vec_WrdPush.exit.si
   br label %Vec_WrdPush.exit66
 
 Vec_WrdPush.exit66:                               ; preds = %55, %57, %47, %49, %38
-  %.val57 = phi ptr [ %39, %38 ], [ %48, %47 ], [ %50, %49 ], [ %56, %55 ], [ %58, %57 ]
-  %59 = phi i32 [ %40, %38 ], [ 16, %47 ], [ 16, %49 ], [ %52, %55 ], [ %52, %57 ]
+  %.val57 = phi ptr [ %39, %38 ], [ %50, %49 ], [ %48, %47 ], [ %56, %55 ], [ %58, %57 ]
+  %59 = phi i32 [ %40, %38 ], [ 16, %49 ], [ 16, %47 ], [ %52, %55 ], [ %52, %57 ]
   %60 = add nuw nsw i32 %41, 1
   %61 = zext nneg i32 %41 to i64
   %62 = getelementptr inbounds nuw i64, ptr %.val57, i64 %61

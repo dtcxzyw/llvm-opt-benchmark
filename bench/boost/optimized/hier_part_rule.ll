@@ -400,8 +400,8 @@ _ZNKR5boost6system6resultINS_4urls15pct_string_viewENS0_10error_codeEE5errorEv.e
   br label %.backedge
 
 .loopexit:                                        ; preds = %.backedge, %105, %.thread64
-  %.pre-phi = phi i64 [ %21, %105 ], [ %.pre80, %.thread64 ], [ %21, %.backedge ]
-  %.269 = phi i64 [ %.0, %105 ], [ %.272, %.thread64 ], [ %.2.be, %.backedge ]
+  %.pre-phi = phi i64 [ %.pre80, %.thread64 ], [ %21, %105 ], [ %21, %.backedge ]
+  %.269 = phi i64 [ %.272, %.thread64 ], [ %.0, %105 ], [ %.2.be, %.backedge ]
   %133 = ptrtoint ptr %74 to i64
   %134 = sub i64 %.pre-phi, %133
   store ptr %74, ptr %14, align 8

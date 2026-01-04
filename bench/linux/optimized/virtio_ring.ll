@@ -1480,7 +1480,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   br label %.loopexit99
 
 .thread87:                                        ; preds = %664, %522, %718, %599
-  %838 = phi i32 [ %590, %599 ], [ %699, %718 ], [ %513, %522 ], [ %645, %664 ]
+  %838 = phi i32 [ %590, %599 ], [ %513, %522 ], [ %699, %718 ], [ %645, %664 ]
   %839 = select i1 %487, i32 %457, i32 0
   %840 = icmp eq i32 %839, %838
   br i1 %840, label %.loopexit, label %843
@@ -1590,7 +1590,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   br label %.loopexit99
 
 .loopexit99:                                      ; preds = %427, %51, %179, %.thread88, %.loopexit, %836, %807, %567, %566, %448, %395, %369, %237, %22
-  %909 = phi i32 [ 0, %369 ], [ -5, %22 ], [ -28, %237 ], [ -5, %395 ], [ -5, %448 ], [ -28, %567 ], [ -28, %566 ], [ 0, %836 ], [ 0, %807 ], [ -12, %.thread88 ], [ -12, %.loopexit ], [ -28, %51 ], [ 0, %179 ], [ -5, %427 ]
+  %909 = phi i32 [ 0, %369 ], [ -5, %22 ], [ -12, %.loopexit ], [ -28, %237 ], [ -5, %395 ], [ 0, %179 ], [ -5, %448 ], [ -28, %567 ], [ -28, %566 ], [ 0, %836 ], [ 0, %807 ], [ -12, %.thread88 ], [ -28, %51 ], [ -5, %427 ]
   ret i32 %909
 }
 
@@ -1780,7 +1780,7 @@ define dso_local noundef zeroext i1 @virtqueue_kick(ptr noundef %0) #0 align 16 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %6 = load i8, ptr %5, align 2, !range !9, !noundef !10
   %7 = icmp eq i8 %6, 0
-  br i1 %4, label %41, label %8
+  br i1 %4, label %36, label %8
 
 8:                                                ; preds = %1
   br i1 %7, label %10, label %9
@@ -1820,68 +1820,68 @@ define dso_local noundef zeroext i1 @virtqueue_kick(ptr noundef %0) #0 align 16 
   %28 = load i8, ptr %27, align 8, !range !9, !noundef !10
   %29 = zext nneg i8 %28 to i32
   %30 = icmp eq i32 %26, %29
-  br i1 %30, label %36, label %31
+  br i1 %30, label %66, label %31
 
 31:                                               ; preds = %22
   %32 = load i32, ptr %12, align 8
   %33 = and i32 %20, 32767
   %34 = sub i32 %33, %32
   %35 = trunc i32 %34 to i16
-  br label %36
+  br label %66
 
-36:                                               ; preds = %31, %22
-  %37 = phi i16 [ %35, %31 ], [ %25, %22 ]
-  %38 = xor i16 %37, -1
-  %39 = add i16 %14, %38
-  %40 = icmp ult i16 %39, %17
-  br i1 %40, label %71, label %80
+36:                                               ; preds = %1
+  br i1 %7, label %38, label %37
 
-41:                                               ; preds = %1
-  br i1 %7, label %43, label %42
-
-42:                                               ; preds = %41
+37:                                               ; preds = %36
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !49
-  br label %44
+  br label %39
 
-43:                                               ; preds = %41
+38:                                               ; preds = %36
   tail call void asm sideeffect "mfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !50
-  br label %44
+  br label %39
 
-44:                                               ; preds = %43, %42
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 122
-  %46 = load i16, ptr %45, align 2
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %48 = load i32, ptr %47, align 4
-  store i32 0, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 69
-  %50 = load i8, ptr %49, align 1, !range !9, !noundef !10
-  %51 = icmp eq i8 %50, 0
-  br i1 %51, label %65, label %52
+39:                                               ; preds = %38, %37
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 122
+  %41 = load i16, ptr %40, align 2
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %43 = load i32, ptr %42, align 4
+  store i32 0, ptr %42, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 69
+  %45 = load i8, ptr %44, align 1, !range !9, !noundef !10
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %60, label %47
 
-52:                                               ; preds = %44
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %54 = trunc i32 %48 to i16
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %58 = load i32, ptr %53, align 8
-  %59 = zext i32 %58 to i64
-  %60 = getelementptr %struct.vring_used_elem, ptr %57, i64 %59
-  %61 = load i16, ptr %60, align 4
-  %62 = xor i16 %61, -1
-  %63 = add i16 %46, %62
-  %64 = icmp ult i16 %63, %54
-  br i1 %64, label %71, label %80
+47:                                               ; preds = %39
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %49 = trunc i32 %43 to i16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %53 = load i32, ptr %48, align 8
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr %struct.vring_used_elem, ptr %52, i64 %54
+  %56 = load i16, ptr %55, align 4
+  %57 = xor i16 %56, -1
+  %58 = add i16 %41, %57
+  %59 = icmp ult i16 %58, %49
+  br i1 %59, label %71, label %80
 
-65:                                               ; preds = %44
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %67 = load ptr, ptr %66, align 8
-  %68 = load i16, ptr %67, align 4
-  %69 = and i16 %68, 1
-  %70 = icmp eq i16 %69, 0
+60:                                               ; preds = %39
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %62 = load ptr, ptr %61, align 8
+  %63 = load i16, ptr %62, align 4
+  %64 = and i16 %63, 1
+  %65 = icmp eq i16 %64, 0
+  br i1 %65, label %71, label %80
+
+66:                                               ; preds = %22, %31
+  %67 = phi i16 [ %35, %31 ], [ %25, %22 ]
+  %68 = xor i16 %67, -1
+  %69 = add i16 %14, %68
+  %70 = icmp ult i16 %69, %17
   br i1 %70, label %71, label %80
 
-71:                                               ; preds = %11, %52, %36, %65
+71:                                               ; preds = %11, %47, %60, %66
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 67
   %73 = load i8, ptr %72, align 1, !range !9, !noundef !10
   %74 = icmp eq i8 %73, 0
@@ -1897,8 +1897,8 @@ define dso_local noundef zeroext i1 @virtqueue_kick(ptr noundef %0) #0 align 16 
   store i8 1, ptr %72, align 1
   br label %80
 
-80:                                               ; preds = %11, %52, %36, %79, %75, %71, %65
-  %81 = phi i1 [ true, %65 ], [ false, %79 ], [ false, %71 ], [ true, %75 ], [ true, %36 ], [ true, %52 ], [ true, %11 ]
+80:                                               ; preds = %11, %47, %60, %79, %75, %71, %66
+  %81 = phi i1 [ true, %66 ], [ false, %79 ], [ false, %71 ], [ true, %75 ], [ true, %11 ], [ true, %60 ], [ true, %47 ]
   ret i1 %81
 }
 
@@ -5379,8 +5379,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vring_alloc_queue_split(pt
   br i1 %71, label %.critedge, label %.thread17
 
 .thread17.sink.split:                             ; preds = %51, %64, %29
-  %.us-phi27.sink62 = phi ptr [ %32, %29 ], [ %67, %64 ], [ %54, %51 ]
-  %.ph56 = phi i32 [ %2, %29 ], [ %.ph, %64 ], [ %46, %51 ]
+  %.us-phi27.sink62 = phi ptr [ %67, %64 ], [ %32, %29 ], [ %54, %51 ]
+  %.ph56 = phi i32 [ %.ph, %64 ], [ %2, %29 ], [ %46, %51 ]
   %72 = ptrtoint ptr %.us-phi27.sink62 to i64
   %73 = add i64 %72, 2147483648
   %74 = icmp ugt ptr %.us-phi27.sink62, inttoptr (i64 -2147483649 to ptr)
@@ -5437,7 +5437,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vring_alloc_queue_split(pt
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %26, %29, %64, %.thread17, %69, %34
-  %113 = phi i32 [ 0, %.thread17 ], [ -22, %34 ], [ -12, %69 ], [ -12, %64 ], [ -12, %29 ], [ -12, %26 ], [ -12, %.thread ]
+  %113 = phi i32 [ 0, %.thread17 ], [ -22, %34 ], [ -12, %64 ], [ -12, %69 ], [ -12, %26 ], [ -12, %29 ], [ -12, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %113
 }

@@ -2212,7 +2212,7 @@ static_protections.exit:                          ; preds = %461, %465
   br label %static_protections.exit.thread
 
 static_protections.exit.thread:                   ; preds = %static_protections.exit, %474, %472, %.split
-  %476 = phi i64 [ %385, %.split ], [ %385, %472 ], [ %385, %474 ], [ %469, %static_protections.exit ]
+  %476 = phi i64 [ %385, %474 ], [ %385, %.split ], [ %385, %472 ], [ %469, %static_protections.exit ]
   %477 = shl i64 %405, 12
   %478 = and i64 %477, 4503599627366400
   %479 = load i64, ptr @__supported_pte_mask, align 8
@@ -2320,7 +2320,7 @@ static_protections.exit.thread:                   ; preds = %static_protections.
   br i1 %534, label %._crit_edge, label %.lr.ph
 
 535:                                              ; preds = %.loopexit, %99, %._crit_edge
-  %536 = phi i32 [ %100, %99 ], [ %94, %._crit_edge ], [ %316, %.loopexit ]
+  %536 = phi i32 [ %100, %99 ], [ %316, %.loopexit ], [ %94, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_raw_spin_unlock(ptr noundef nonnull @cpa_lock) #11
   %537 = icmp eq i32 %536, 0
@@ -2507,7 +2507,7 @@ static_protections.exit.thread:                   ; preds = %static_protections.
   br i1 %645, label %.loopexit31, label %42, !llvm.loop !57
 
 .loopexit31:                                      ; preds = %641, %535, %635, %.thread27, %28
-  %646 = phi i32 [ 0, %28 ], [ %598, %635 ], [ -12, %.thread27 ], [ 0, %641 ], [ %536, %535 ]
+  %646 = phi i32 [ 0, %28 ], [ -12, %.thread27 ], [ %598, %635 ], [ 0, %641 ], [ %536, %535 ]
   store i64 %16, ptr %15, align 8
   br label %647
 
@@ -3029,7 +3029,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   br label %.critedge
 
 .critedge:                                        ; preds = %226, %.loopexit26, %123
-  %.in = phi i64 [ %124, %123 ], [ %199, %.loopexit26 ], [ %spec.select, %226 ]
+  %.in = phi i64 [ %124, %123 ], [ %spec.select, %226 ], [ %199, %.loopexit26 ]
   %232 = trunc i64 %.in to i32
   %233 = icmp slt i32 %232, 0
   br i1 %233, label %.critedge.thread, label %272
@@ -3670,7 +3670,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr noundef c
   br i1 %267, label %.split19, label %.critedge, !llvm.loop !73
 
 .critedge:                                        ; preds = %133, %.split19, %.split19.us, %40, %209, %197, %.loopexit, %.loopexit17
-  %268 = phi i64 [ %113, %.loopexit17 ], [ %114, %.loopexit ], [ %114, %209 ], [ -1, %197 ], [ -1, %40 ], [ %114, %.split19.us ], [ %114, %.split19 ], [ -1, %133 ]
+  %268 = phi i64 [ %114, %.split19.us ], [ %113, %.loopexit17 ], [ %114, %.loopexit ], [ %114, %209 ], [ -1, %197 ], [ -1, %40 ], [ %114, %.split19 ], [ -1, %133 ]
   ret i64 %268
 }
 

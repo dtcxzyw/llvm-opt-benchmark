@@ -284,8 +284,8 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
   br i1 %134, label %.loopexit53.split, label %.lr.ph104, !llvm.loop !10
 
 .loopexit53.split:                                ; preds = %.loopexit, %.lr.ph, %.split, %98
-  %.331 = phi i32 [ %.129, %98 ], [ %.129, %.split ], [ %130, %.lr.ph ], [ %.533, %.loopexit ]
-  %.4 = phi i32 [ %.2, %98 ], [ %.2, %.split ], [ 0, %.lr.ph ], [ %.6, %.loopexit ]
+  %.331 = phi i32 [ %.129, %98 ], [ %130, %.lr.ph ], [ %.129, %.split ], [ %.533, %.loopexit ]
+  %.4 = phi i32 [ %.2, %98 ], [ 0, %.lr.ph ], [ %.2, %.split ], [ %.6, %.loopexit ]
   %135 = load ptr, ptr %7, align 8
   %136 = call i32 @snd_ctl_close(ptr noundef %135) #12
   br label %137
@@ -298,7 +298,7 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
   br i1 %139, label %.loopexit55, label %.preheader54.split, !llvm.loop !7
 
 .loopexit55:                                      ; preds = %137, %.preheader54.split, %.preheader54.split.us.split, %66, %.preheader54.split.us, %.thread
-  %.735 = phi i32 [ %.028, %.thread ], [ %.028, %.preheader54.split.us ], [ %.129.us, %.preheader54.split.us.split ], [ %.230.us, %66 ], [ %.129, %.preheader54.split ], [ %.230, %137 ]
+  %.735 = phi i32 [ %.028, %.thread ], [ %.230.us, %66 ], [ %.028, %.preheader54.split.us ], [ %.129.us, %.preheader54.split.us.split ], [ %.129, %.preheader54.split ], [ %.230, %137 ]
   %140 = load ptr, ptr %10, align 8
   call void @snd_ctl_card_info_free(ptr noundef %140) #12
   %141 = load ptr, ptr %9, align 8
@@ -567,7 +567,7 @@ getMidiDeviceID.exit:                             ; preds = %26, %28
   br i1 %33, label %.thread, label %43
 
 .thread:                                          ; preds = %getMidiDeviceID.exit, %.thread34, %29
-  %.02533 = phi i32 [ %30, %29 ], [ %32, %.thread34 ], [ -11114, %getMidiDeviceID.exit ]
+  %.02533 = phi i32 [ %32, %.thread34 ], [ %30, %29 ], [ -11114, %getMidiDeviceID.exit ]
   %34 = load ptr, ptr %2, align 8
   call void @free(ptr noundef %34) #12
   store ptr null, ptr %2, align 8

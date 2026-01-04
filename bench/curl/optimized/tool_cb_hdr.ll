@@ -498,12 +498,12 @@ parse_filename.exit:                              ; preds = %144, %143
   store ptr null, ptr %187, align 8, !tbaa !12
   br label %.thread279
 
-.thread283:                                       ; preds = %43, %175, %178, %85, %.critedge10, %57, %75
+.thread283:                                       ; preds = %178, %85, %43, %175, %57, %.critedge10, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %194
 
-.thread279:                                       ; preds = %192, %189, %164, %157, %154, %149, %169, %71, %193, %172
-  %.8 = phi i64 [ 4294967295, %172 ], [ 4294967295, %193 ], [ 4294967295, %71 ], [ 4294967295, %169 ], [ 4294967295, %149 ], [ 4294967295, %154 ], [ 4294967295, %157 ], [ 4294967295, %164 ], [ %12, %189 ], [ 4294967295, %192 ]
+.thread279:                                       ; preds = %192, %189, %164, %154, %157, %149, %169, %71, %193, %172
+  %.8 = phi i64 [ 4294967295, %164 ], [ 4294967295, %71 ], [ 4294967295, %172 ], [ 4294967295, %193 ], [ 4294967295, %169 ], [ 4294967295, %149 ], [ 4294967295, %157 ], [ 4294967295, %154 ], [ %12, %189 ], [ 4294967295, %192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
@@ -676,9 +676,9 @@ parse_filename.exit:                              ; preds = %144, %143
   br i1 %.not66.i, label %.critedge5.i, label %.lr.ph100.i, !llvm.loop !69
 
 .critedge5.i:                                     ; preds = %.critedge3.i, %.critedge7.i, %.lr.ph100.i, %262
-  %.054.lcssa114.i = phi i32 [ 0, %262 ], [ %.05491.i, %.lr.ph100.i ], [ %.05491.i, %.critedge7.i ], [ %263, %.critedge3.i ]
-  %.057.lcssa113.i = phi ptr [ %254, %262 ], [ %.05789.i, %.lr.ph100.i ], [ %.05789.i, %.critedge7.i ], [ %scevgep.i, %.critedge3.i ]
-  %.156.lcssa.i = phi i64 [ 0, %262 ], [ 0, %.critedge7.i ], [ %.15699.i, %.lr.ph100.i ], [ 0, %.critedge3.i ]
+  %.054.lcssa114.i = phi i32 [ %.05491.i, %.critedge7.i ], [ 0, %262 ], [ %.05491.i, %.lr.ph100.i ], [ %263, %.critedge3.i ]
+  %.057.lcssa113.i = phi ptr [ %.05789.i, %.critedge7.i ], [ %254, %262 ], [ %.05789.i, %.lr.ph100.i ], [ %scevgep.i, %.critedge3.i ]
+  %.156.lcssa.i = phi i64 [ 0, %.critedge7.i ], [ 0, %262 ], [ %.15699.i, %.lr.ph100.i ], [ 0, %.critedge3.i ]
   %272 = call ptr @curl_url() #13
   %.not67.i = icmp eq ptr %272, null
   br i1 %.not67.i, label %302, label %273
@@ -782,8 +782,8 @@ write_linked_location.exit:                       ; preds = %302, %304
   %314 = call i64 @fwrite(ptr noundef %0, i64 noundef %12, i64 noundef 1, ptr noundef %313)
   br label %.thread
 
-.thread:                                          ; preds = %.thread287, %307, %write_linked_location.exit, %22, %27, %213, %217, %230, %.thread279, %4
-  %.0 = phi i64 [ %.8, %.thread279 ], [ 4294967295, %4 ], [ 4294967295, %230 ], [ %12, %217 ], [ %12, %213 ], [ %23, %22 ], [ 4294967295, %27 ], [ %12, %write_linked_location.exit ], [ %12, %307 ], [ %12, %.thread287 ]
+.thread:                                          ; preds = %.thread287, %307, %write_linked_location.exit, %27, %22, %213, %217, %230, %.thread279, %4
+  %.0 = phi i64 [ 4294967295, %230 ], [ 4294967295, %4 ], [ %.8, %.thread279 ], [ %12, %213 ], [ %23, %22 ], [ %12, %217 ], [ 4294967295, %27 ], [ %12, %write_linked_location.exit ], [ %12, %307 ], [ %12, %.thread287 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.0
 }

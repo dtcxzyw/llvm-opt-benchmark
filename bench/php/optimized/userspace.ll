@@ -420,7 +420,7 @@ zend_hash_find_ptr.exit.thread:                   ; preds = %19, %zend_hash_find
   br label %.sink.split
 
 .sink.split:                                      ; preds = %zend_hash_find_ptr.exit.thread, %12, %24, %32
-  %.sink = phi i32 [ 2, %32 ], [ 3, %24 ], [ 2, %12 ], [ 3, %zend_hash_find_ptr.exit.thread ]
+  %.sink = phi i32 [ 2, %12 ], [ 2, %32 ], [ 3, %24 ], [ 3, %zend_hash_find_ptr.exit.thread ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink, ptr %35, align 8, !tbaa !22
   br label %36
@@ -704,7 +704,7 @@ try_convert_to_string.exit.thread:                ; preds = %29, %try_convert_to
   br label %79
 
 79:                                               ; preds = %29, %3, %78, %59, %33, %22
-  %.0 = phi i64 [ -1, %22 ], [ -1, %59 ], [ %.032, %78 ], [ -1, %33 ], [ -1, %3 ], [ -1, %29 ]
+  %.0 = phi i64 [ -1, %33 ], [ -1, %22 ], [ -1, %3 ], [ -1, %59 ], [ %.032, %78 ], [ -1, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1013,7 +1013,7 @@ define internal i32 @php_userstreamop_cast(ptr noundef readonly captures(address
   br label %54
 
 54:                                               ; preds = %44, %45, %34, %35, %28, %20, %21, %52
-  %.0 = phi i32 [ -1, %21 ], [ -1, %20 ], [ %53, %52 ], [ -1, %35 ], [ -1, %34 ], [ -1, %28 ], [ -1, %45 ], [ -1, %44 ]
+  %.0 = phi i32 [ -1, %21 ], [ -1, %20 ], [ -1, %28 ], [ %53, %52 ], [ -1, %35 ], [ -1, %34 ], [ -1, %45 ], [ -1, %44 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #12
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #12
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #12
@@ -1236,7 +1236,7 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
   br label %73
 
 73:                                               ; preds = %56, %64, %46, %66, %61
-  %.2 = phi i32 [ %63, %61 ], [ -1, %66 ], [ -2, %46 ], [ 0, %64 ], [ -2, %56 ]
+  %.2 = phi i32 [ %63, %61 ], [ -2, %46 ], [ -1, %66 ], [ 0, %64 ], [ -2, %56 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #12
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #12
   br label %.sink.split79
@@ -1426,8 +1426,8 @@ default.unreachable:                              ; preds = %115
   br label %.sink.split79
 
 .sink.split79:                                    ; preds = %74, %82, %86, %114, %35, %73, %150
-  %.sink = phi ptr [ %5, %150 ], [ %7, %73 ], [ %5, %35 ], [ %5, %114 ], [ %5, %86 ], [ %5, %82 ], [ %5, %74 ]
-  %.0.ph = phi i32 [ %.6, %150 ], [ %.2, %73 ], [ %.1, %35 ], [ %.4, %114 ], [ -1, %86 ], [ %., %82 ], [ -2, %74 ]
+  %.sink = phi ptr [ %5, %150 ], [ %5, %35 ], [ %7, %73 ], [ %5, %114 ], [ %5, %86 ], [ %5, %82 ], [ %5, %74 ]
+  %.0.ph = phi i32 [ %.6, %150 ], [ %.1, %35 ], [ %.2, %73 ], [ %.4, %114 ], [ -1, %86 ], [ %., %82 ], [ -2, %74 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %.sink) #12
   br label %151
 

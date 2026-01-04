@@ -936,7 +936,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_md5_self_test(i32 noundef %0) local_u
   br label %.critedge
 
 .critedge:                                        ; preds = %.split.us, %.split21.us, %.split23.us, %17
-  %.014 = phi i32 [ 0, %17 ], [ 0, %.split23.us ], [ 1, %.split21.us ], [ 1, %.split.us ]
+  %.014 = phi i32 [ 0, %.split23.us ], [ 0, %17 ], [ 1, %.split21.us ], [ 1, %.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.014
 }

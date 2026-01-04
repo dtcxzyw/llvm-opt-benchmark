@@ -4592,7 +4592,7 @@ default.unreachable:                              ; preds = %switch.lookup
   br label %105
 
 105:                                              ; preds = %103, %101, %98, %95, %94
-  %.sink.i = phi i32 [ %104, %103 ], [ %102, %101 ], [ %100, %98 ], [ %97, %95 ], [ 0, %94 ]
+  %.sink.i = phi i32 [ %97, %95 ], [ %104, %103 ], [ %102, %101 ], [ %100, %98 ], [ 0, %94 ]
   store i32 %.sink.i, ptr %11, align 4
   %106 = call ptr @try_val_to_str(i32 noundef %.sink.i, ptr noundef nonnull @usb_hid_item_usage_page_vals)
   %.not.i.i = icmp eq ptr %106, null
@@ -4877,8 +4877,8 @@ dissect_usb_hid_report_localitem_data.exit:       ; preds = %181, %191, %196, %2
   br label %.thread
 
 .thread:                                          ; preds = %236, %dissect_usb_hid_report_localitem_data.exit, %dissect_usb_hid_report_globalitem_data.exit, %240, %242
-  %.sink.i16 = phi i32 [ %.sink.i15, %242 ], [ %.sink.i15, %240 ], [ %.sink.i15, %dissect_usb_hid_report_localitem_data.exit ], [ %.sink.i17, %dissect_usb_hid_report_globalitem_data.exit ], [ %.sink.i15, %236 ]
-  %.3 = phi i32 [ %244, %242 ], [ %241, %240 ], [ %235, %dissect_usb_hid_report_localitem_data.exit ], [ %176, %dissect_usb_hid_report_globalitem_data.exit ], [ %239, %236 ]
+  %.sink.i16 = phi i32 [ %.sink.i15, %242 ], [ %.sink.i15, %240 ], [ %.sink.i17, %dissect_usb_hid_report_globalitem_data.exit ], [ %.sink.i15, %236 ], [ %.sink.i15, %dissect_usb_hid_report_localitem_data.exit ]
+  %.3 = phi i32 [ %244, %242 ], [ %241, %240 ], [ %176, %dissect_usb_hid_report_globalitem_data.exit ], [ %239, %236 ], [ %235, %dissect_usb_hid_report_localitem_data.exit ]
   %247 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.3)
   %248 = icmp sgt i32 %247, 0
   br i1 %248, label %switch.lookup, label %.loopexit, !llvm.loop !14
@@ -5448,7 +5448,7 @@ define internal noundef i32 @dissect_usb_hid_boot_keyboard_output_report(ptr nou
   br i1 %.not61, label %.sink.split, label %79
 
 .sink.split:                                      ; preds = %77, %75, %73
-  %.str.3381.sink = phi ptr [ @.str.3381, %73 ], [ @.str.3381, %75 ], [ @.str.3382, %77 ]
+  %.str.3381.sink = phi ptr [ @.str.3381, %75 ], [ @.str.3381, %73 ], [ @.str.3382, %77 ]
   %78 = load ptr, ptr %19, align 8
   tail call void @col_append_str(ptr noundef %78, i32 noundef 25, ptr noundef nonnull %.str.3381.sink)
   br label %79
@@ -5811,7 +5811,7 @@ define internal i32 @dissect_usb_hid_control(ptr noundef %0, ptr noundef %1, ptr
   br label %dissect_usb_hid_control_std_intf.exit
 
 dissect_usb_hid_control_std_intf.exit:            ; preds = %.lr.ph, %78, %53, %43, %25, %23, %5, %4, %80
-  %.0 = phi i32 [ %81, %80 ], [ 0, %4 ], [ 0, %5 ], [ 0, %23 ], [ 7, %25 ], [ %54, %53 ], [ 0, %43 ], [ %79, %78 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %43 ], [ %81, %80 ], [ 0, %4 ], [ 0, %23 ], [ 7, %25 ], [ %54, %53 ], [ %79, %78 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -6024,7 +6024,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %120
 
 120:                                              ; preds = %114, %109
-  %.170.ph.i = phi i32 [ %.010.i.i.i, %114 ], [ %111, %109 ]
+  %.170.ph.i = phi i32 [ %111, %109 ], [ %.010.i.i.i, %114 ]
   %121 = load i32, ptr %104, align 4
   %.not.i.i = icmp slt i32 %.170.ph.i, %121
   br i1 %.not.i.i, label %.critedge.i, label %122
@@ -6161,7 +6161,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %186
 
 186:                                              ; preds = %180, %175
-  %.09.ph.i.i.i.i = phi i32 [ %.010.i.i.i.i.i.i, %180 ], [ %177, %175 ]
+  %.09.ph.i.i.i.i = phi i32 [ %177, %175 ], [ %.010.i.i.i.i.i.i, %180 ]
   %187 = load i32, ptr %72, align 8
   %188 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %54, i32 noundef %172, ptr noundef %0, i32 noundef %.282.i, i32 noundef %187, i32 noundef %.09.ph.i.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3401, i32 noundef %.09.ph.i.i.i.i)
   br label %dissect_hid_variable.exit.i
@@ -6192,7 +6192,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %204
 
 204:                                              ; preds = %198, %193
-  %.09.ph.i63.i.i.i = phi i32 [ %.010.i.i.i62.i.i.i, %198 ], [ %195, %193 ]
+  %.09.ph.i63.i.i.i = phi i32 [ %195, %193 ], [ %.010.i.i.i62.i.i.i, %198 ]
   %205 = load i32, ptr %72, align 8
   %206 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %54, i32 noundef %190, ptr noundef %0, i32 noundef %.282.i, i32 noundef %205, i32 noundef %.09.ph.i63.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3401, i32 noundef %.09.ph.i63.i.i.i)
   br label %dissect_hid_variable.exit.i
@@ -6223,7 +6223,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %222
 
 222:                                              ; preds = %216, %211
-  %.09.ph.i70.i.i.i = phi i32 [ %.010.i.i.i69.i.i.i, %216 ], [ %213, %211 ]
+  %.09.ph.i70.i.i.i = phi i32 [ %213, %211 ], [ %.010.i.i.i69.i.i.i, %216 ]
   %223 = load i32, ptr %72, align 8
   %224 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %54, i32 noundef %208, ptr noundef %0, i32 noundef %.282.i, i32 noundef %223, i32 noundef %.09.ph.i70.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3401, i32 noundef %.09.ph.i70.i.i.i)
   br label %dissect_hid_variable.exit.i
@@ -6254,7 +6254,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %240
 
 240:                                              ; preds = %234, %229
-  %.09.ph.i77.i.i.i = phi i32 [ %.010.i.i.i76.i.i.i, %234 ], [ %231, %229 ]
+  %.09.ph.i77.i.i.i = phi i32 [ %231, %229 ], [ %.010.i.i.i76.i.i.i, %234 ]
   %241 = load i32, ptr %72, align 8
   %242 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %54, i32 noundef %226, ptr noundef %0, i32 noundef %.282.i, i32 noundef %241, i32 noundef %.09.ph.i77.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3401, i32 noundef %.09.ph.i77.i.i.i)
   br label %dissect_hid_variable.exit.i
@@ -6285,7 +6285,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %258
 
 258:                                              ; preds = %252, %247
-  %.09.ph.i84.i.i.i = phi i32 [ %.010.i.i.i83.i.i.i, %252 ], [ %249, %247 ]
+  %.09.ph.i84.i.i.i = phi i32 [ %249, %247 ], [ %.010.i.i.i83.i.i.i, %252 ]
   %259 = load i32, ptr %72, align 8
   %260 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %54, i32 noundef %244, ptr noundef %0, i32 noundef %.282.i, i32 noundef %259, i32 noundef %.09.ph.i84.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3401, i32 noundef %.09.ph.i84.i.i.i)
   br label %dissect_hid_variable.exit.i
@@ -6316,7 +6316,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %276
 
 276:                                              ; preds = %270, %265
-  %.09.ph.i91.i.i.i = phi i32 [ %.010.i.i.i90.i.i.i, %270 ], [ %267, %265 ]
+  %.09.ph.i91.i.i.i = phi i32 [ %267, %265 ], [ %.010.i.i.i90.i.i.i, %270 ]
   %277 = load i32, ptr %72, align 8
   %278 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %54, i32 noundef %262, ptr noundef %0, i32 noundef %.282.i, i32 noundef %277, i32 noundef %.09.ph.i91.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3401, i32 noundef %.09.ph.i91.i.i.i)
   br label %dissect_hid_variable.exit.i
@@ -6347,7 +6347,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %294
 
 294:                                              ; preds = %288, %283
-  %.09.ph.i98.i.i.i = phi i32 [ %.010.i.i.i97.i.i.i, %288 ], [ %285, %283 ]
+  %.09.ph.i98.i.i.i = phi i32 [ %285, %283 ], [ %.010.i.i.i97.i.i.i, %288 ]
   %295 = load i32, ptr %72, align 8
   %296 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %54, i32 noundef %280, ptr noundef %0, i32 noundef %.282.i, i32 noundef %295, i32 noundef %.09.ph.i98.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3401, i32 noundef %.09.ph.i98.i.i.i)
   br label %dissect_hid_variable.exit.i
@@ -6378,7 +6378,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %312
 
 312:                                              ; preds = %306, %301
-  %.09.ph.i105.i.i.i = phi i32 [ %.010.i.i.i104.i.i.i, %306 ], [ %303, %301 ]
+  %.09.ph.i105.i.i.i = phi i32 [ %303, %301 ], [ %.010.i.i.i104.i.i.i, %306 ]
   %313 = load i32, ptr %72, align 8
   %314 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %54, i32 noundef %298, ptr noundef %0, i32 noundef %.282.i, i32 noundef %313, i32 noundef %.09.ph.i105.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3401, i32 noundef %.09.ph.i105.i.i.i)
   br label %dissect_hid_variable.exit.i
@@ -6409,7 +6409,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %330
 
 330:                                              ; preds = %324, %319
-  %.09.ph.i112.i.i.i = phi i32 [ %.010.i.i.i111.i.i.i, %324 ], [ %321, %319 ]
+  %.09.ph.i112.i.i.i = phi i32 [ %321, %319 ], [ %.010.i.i.i111.i.i.i, %324 ]
   %331 = load i32, ptr %72, align 8
   %332 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %54, i32 noundef %316, ptr noundef %0, i32 noundef %.282.i, i32 noundef %331, i32 noundef %.09.ph.i112.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3401, i32 noundef %.09.ph.i112.i.i.i)
   br label %dissect_hid_variable.exit.i
@@ -6440,7 +6440,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %348
 
 348:                                              ; preds = %342, %337
-  %.09.ph.i119.i.i.i = phi i32 [ %.010.i.i.i118.i.i.i, %342 ], [ %339, %337 ]
+  %.09.ph.i119.i.i.i = phi i32 [ %339, %337 ], [ %.010.i.i.i118.i.i.i, %342 ]
   %349 = load i32, ptr %72, align 8
   %350 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %54, i32 noundef %334, ptr noundef %0, i32 noundef %.282.i, i32 noundef %349, i32 noundef %.09.ph.i119.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3401, i32 noundef %.09.ph.i119.i.i.i)
   br label %dissect_hid_variable.exit.i
@@ -6471,7 +6471,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %366
 
 366:                                              ; preds = %360, %355
-  %.09.ph.i126.i.i.i = phi i32 [ %.010.i.i.i125.i.i.i, %360 ], [ %357, %355 ]
+  %.09.ph.i126.i.i.i = phi i32 [ %357, %355 ], [ %.010.i.i.i125.i.i.i, %360 ]
   %367 = load i32, ptr %72, align 8
   %368 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %54, i32 noundef %352, ptr noundef %0, i32 noundef %.282.i, i32 noundef %367, i32 noundef %.09.ph.i126.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3401, i32 noundef %.09.ph.i126.i.i.i)
   br label %dissect_hid_variable.exit.i
@@ -6502,7 +6502,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %384
 
 384:                                              ; preds = %378, %373
-  %.09.ph.i133.i.i.i = phi i32 [ %.010.i.i.i132.i.i.i, %378 ], [ %375, %373 ]
+  %.09.ph.i133.i.i.i = phi i32 [ %375, %373 ], [ %.010.i.i.i132.i.i.i, %378 ]
   %385 = load i32, ptr %72, align 8
   %386 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %54, i32 noundef %370, ptr noundef %0, i32 noundef %.282.i, i32 noundef %385, i32 noundef %.09.ph.i133.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3401, i32 noundef %.09.ph.i133.i.i.i)
   br label %dissect_hid_variable.exit.i
@@ -6533,7 +6533,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %402
 
 402:                                              ; preds = %396, %391
-  %.09.ph.i140.i.i.i = phi i32 [ %.010.i.i.i139.i.i.i, %396 ], [ %393, %391 ]
+  %.09.ph.i140.i.i.i = phi i32 [ %393, %391 ], [ %.010.i.i.i139.i.i.i, %396 ]
   %403 = load i32, ptr %72, align 8
   %404 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %54, i32 noundef %388, ptr noundef %0, i32 noundef %.282.i, i32 noundef %403, i32 noundef %.09.ph.i140.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3401, i32 noundef %.09.ph.i140.i.i.i)
   br label %dissect_hid_variable.exit.i
@@ -6564,7 +6564,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %420
 
 420:                                              ; preds = %414, %409
-  %.09.ph.i147.i.i.i = phi i32 [ %.010.i.i.i146.i.i.i, %414 ], [ %411, %409 ]
+  %.09.ph.i147.i.i.i = phi i32 [ %411, %409 ], [ %.010.i.i.i146.i.i.i, %414 ]
   %421 = load i32, ptr %72, align 8
   %422 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %54, i32 noundef %406, ptr noundef %0, i32 noundef %.282.i, i32 noundef %421, i32 noundef %.09.ph.i147.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3401, i32 noundef %.09.ph.i147.i.i.i)
   br label %dissect_hid_variable.exit.i
@@ -6594,7 +6594,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %437
 
 437:                                              ; preds = %431, %426
-  %.02.ph.i.i.i = phi i32 [ %.010.i.i.i.i.i, %431 ], [ %428, %426 ]
+  %.02.ph.i.i.i = phi i32 [ %428, %426 ], [ %.010.i.i.i.i.i, %431 ]
   %.mask.i37.i.i = and i32 %159, -65536
   %438 = icmp eq i32 %.mask.i37.i.i, 458752
   br i1 %438, label %440, label %439
@@ -6649,7 +6649,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   br label %466
 
 466:                                              ; preds = %460, %455
-  %.02.ph.i44.i.i = phi i32 [ %.010.i.i.i43.i.i, %460 ], [ %457, %455 ]
+  %.02.ph.i44.i.i = phi i32 [ %457, %455 ], [ %.010.i.i.i43.i.i, %460 ]
   %467 = load i32, ptr @hf_usbhid_button, align 4
   %468 = load i32, ptr %72, align 8
   %469 = sext i32 %.02.ph.i44.i.i to i64
@@ -6703,7 +6703,7 @@ switch.lookup:                                    ; preds = %466
   br label %496
 
 496:                                              ; preds = %490, %485
-  %.049.ph.i.i = phi i32 [ %.010.i.i.i.i, %490 ], [ %487, %485 ]
+  %.049.ph.i.i = phi i32 [ %487, %485 ], [ %.010.i.i.i.i, %490 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %482, ptr noundef nonnull @.str.3397, i32 noundef %.049.ph.i.i)
   br label %dissect_hid_variable.exit.i
 
@@ -6734,7 +6734,7 @@ dissect_hid_variable.exit.i:                      ; preds = %496, %476, %474, %4
   br label %dissect_hid_field.exit
 
 dissect_hid_field.exit:                           ; preds = %145, %502, %._crit_edge.i, %95, %79, %86
-  %.2 = phi i32 [ %89, %86 ], [ %.157, %79 ], [ %508, %502 ], [ %.2.lcssa.i, %._crit_edge.i ], [ %.157, %95 ], [ %147, %145 ]
+  %.2 = phi i32 [ %.157, %79 ], [ %89, %86 ], [ %.2.lcssa.i, %._crit_edge.i ], [ %508, %502 ], [ %.157, %95 ], [ %147, %145 ]
   %509 = add nuw i32 %.04856, 1
   %510 = call i32 @wmem_array_get_count(ptr noundef %.049)
   %511 = icmp ult i32 %509, %510
@@ -7058,12 +7058,12 @@ define internal fastcc noalias ptr @get_usage_page_item_string(ptr noundef %0, i
   br label %77
 
 75:                                               ; preds = %26, %20, %53, %3
-  %.0 = phi ptr [ @.str.308, %53 ], [ @.str.307, %3 ], [ @.str.304, %20 ], [ @.str.305, %26 ]
+  %.0 = phi ptr [ @.str.307, %3 ], [ @.str.304, %20 ], [ @.str.308, %53 ], [ @.str.305, %26 ]
   %76 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef %2)
   br label %79
 
-77:                                               ; preds = %4, %6, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %54, %56, %58, %60, %62, %64, %66, %68, %70, %72
-  %.049.ph = phi ptr [ %spec.select, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %spec.store.select2, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+77:                                               ; preds = %72, %4, %6, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %33, %70, %35, %37, %39, %41, %43, %45, %47, %49, %51, %54, %56, %58, %60, %62, %64, %66, %68
+  %.049.ph = phi ptr [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %71, %70 ], [ %34, %33 ], [ %spec.store.select2, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ %spec.select, %72 ]
   %.not58 = icmp eq ptr %.049.ph, null
   %spec.store.select = select i1 %.not58, ptr @.str.120, ptr %.049.ph
   %78 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull @.str.242, ptr noundef nonnull %spec.store.select)

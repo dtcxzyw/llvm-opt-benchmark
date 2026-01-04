@@ -569,7 +569,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit25.i: ; p
   br label %common.resume
 
 common.resume:                                    ; preds = %.body.i49, %847, %.body.i31, %685, %.body.i11, %532, %.body.i, %232, %.body.i1
-  %common.resume.op = phi { ptr, i32 } [ %.pn11.pn.pn.i, %.body.i1 ], [ %.pn9.pn.pn.pn.pn.i, %232 ], [ %.pn.i, %.body.i ], [ %.pn11.pn.pn.i16, %532 ], [ %.pn.i12, %.body.i11 ], [ %.pn14.pn.pn.i, %685 ], [ %.pn.i32, %.body.i31 ], [ %.pn14.pn.pn.i55, %847 ], [ %.pn.i50, %.body.i49 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i32, %.body.i31 ], [ %.pn11.pn.pn.i, %.body.i1 ], [ %.pn.i, %.body.i ], [ %.pn.i12, %.body.i11 ], [ %.pn9.pn.pn.pn.pn.i, %232 ], [ %.pn11.pn.pn.i16, %532 ], [ %.pn14.pn.pn.i, %685 ], [ %.pn14.pn.pn.i55, %847 ], [ %.pn.i50, %.body.i49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN10open_spiel7mancala12_GLOBAL__N_122BasicSerializationTestEv.exit: ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit19.i, %202, %215, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -1055,8 +1055,8 @@ _ZNSt8functionIFvRKN10open_spiel5StateEEED2Ev.exit40.i: ; preds = %401, %398
   br label %.body.i1
 
 .body.i1:                                         ; preds = %406, %394, %393, %387, %385, %383, %.body75, %.body78, %.body81
-  %.sink.i = phi ptr [ %93, %383 ], [ %93, %.body81 ], [ %93, %385 ], [ %96, %387 ], [ %96, %.body78 ], [ %96, %393 ], [ %99, %394 ], [ %99, %.body75 ], [ %99, %406 ]
-  %.pn11.pn.pn.i = phi { ptr, i32 } [ %384, %383 ], [ %241, %.body81 ], [ %386, %385 ], [ %388, %387 ], [ %251, %.body78 ], [ %.pn8.i, %393 ], [ %395, %394 ], [ %299, %.body75 ], [ %.pn11.i, %406 ]
+  %.sink.i = phi ptr [ %96, %393 ], [ %93, %385 ], [ %93, %383 ], [ %93, %.body81 ], [ %96, %387 ], [ %96, %.body78 ], [ %99, %394 ], [ %99, %.body75 ], [ %99, %406 ]
+  %.pn11.pn.pn.i = phi { ptr, i32 } [ %.pn8.i, %393 ], [ %386, %385 ], [ %384, %383 ], [ %241, %.body81 ], [ %388, %387 ], [ %251, %.body78 ], [ %395, %394 ], [ %299, %.body75 ], [ %.pn11.i, %406 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #15
   br label %common.resume
 

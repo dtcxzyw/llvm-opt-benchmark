@@ -138,7 +138,7 @@ define internal range(i32 -1, 2) i32 @cmpitems(ptr noundef readonly captures(non
   br label %48
 
 48:                                               ; preds = %46, %40, %38, %32, %30, %24, %22, %16, %14, %8, %6, %2
-  %.0 = phi i32 [ 1, %2 ], [ -1, %6 ], [ 1, %8 ], [ -1, %14 ], [ 1, %16 ], [ -1, %22 ], [ 1, %24 ], [ -1, %30 ], [ 1, %32 ], [ -1, %38 ], [ 1, %40 ], [ %., %46 ]
+  %.0 = phi i32 [ 1, %40 ], [ 1, %2 ], [ -1, %6 ], [ 1, %8 ], [ -1, %14 ], [ 1, %16 ], [ -1, %22 ], [ 1, %24 ], [ -1, %30 ], [ 1, %32 ], [ -1, %38 ], [ %., %46 ]
   ret i32 %.0
 }
 
@@ -476,8 +476,8 @@ gv_calloc.exit.split.us.split.us.split.us:        ; preds = %gv_calloc.exit.spli
   br label %92
 
 92:                                               ; preds = %91, %90, %89, %gv_calloc.exit.split.us.split.us.split.us
-  %.0272.us.us.us = phi double [ %.sroa.13.0351, %91 ], [ %87, %90 ], [ %87, %89 ], [ %.sroa.13.0351, %gv_calloc.exit.split.us.split.us.split.us ]
-  %.0271.us.us.us = phi double [ %88, %91 ], [ %88, %90 ], [ %.sroa.068.0352, %89 ], [ %.sroa.068.0352, %gv_calloc.exit.split.us.split.us.split.us ]
+  %.0272.us.us.us = phi double [ %87, %89 ], [ %.sroa.13.0351, %91 ], [ %87, %90 ], [ %.sroa.13.0351, %gv_calloc.exit.split.us.split.us.split.us ]
+  %.0271.us.us.us = phi double [ %.sroa.068.0352, %89 ], [ %88, %91 ], [ %88, %90 ], [ %.sroa.068.0352, %gv_calloc.exit.split.us.split.us.split.us ]
   %93 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269353, i64 %.0270325.us.us.us
   %94 = load double, ptr %93, align 8, !tbaa !60
   %95 = fadd double %.0271.us.us.us, %94
@@ -880,7 +880,7 @@ gv_calloc.exit308:                                ; preds = %gv_alloc.exit307
   br label %.loopexit
 
 .loopexit:                                        ; preds = %166, %136, %113, %92, %.loopexit.sink.split, %3
-  %.0 = phi ptr [ null, %3 ], [ %.0.ph, %.loopexit.sink.split ], [ %8, %92 ], [ %8, %113 ], [ %8, %136 ], [ %8, %166 ]
+  %.0 = phi ptr [ null, %3 ], [ %8, %113 ], [ %.0.ph, %.loopexit.sink.split ], [ %8, %92 ], [ %8, %136 ], [ %8, %166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1693,7 +1693,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %17
   br label %.loopexit175
 
 .loopexit175:                                     ; preds = %._crit_edge183, %62, %109, %111
-  %.0136.shrunk = phi i1 [ true, %111 ], [ %7, %109 ], [ %7, %62 ], [ %7, %._crit_edge183 ]
+  %.0136.shrunk = phi i1 [ %7, %109 ], [ true, %111 ], [ %7, %62 ], [ %7, %._crit_edge183 ]
   %.0136.shrunk.fr = freeze i1 %.0136.shrunk
   %112 = call ptr @agfstnode(ptr noundef %0) #20
   %.not149201 = icmp eq ptr %112, null
@@ -2009,7 +2009,7 @@ makePolyline.exit:                                ; preds = %.lr.ph191.split, %2
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph191.split, !llvm.loop !131
 
 .loopexit:                                        ; preds = %makePolyline.exit, %.lr.ph191.split.us, %219, %.thread172, %182, %189, %.lr.ph198._crit_edge, %216
-  %.3133 = phi ptr [ %.6, %216 ], [ %.1131193, %.lr.ph198._crit_edge ], [ %.1131193, %182 ], [ %.1131193, %189 ], [ %.1131193, %.thread172 ], [ %.4134, %219 ], [ %.4134, %.lr.ph191.split.us ], [ %.4134, %makePolyline.exit ]
+  %.3133 = phi ptr [ %.1131193, %.lr.ph198._crit_edge ], [ %.6, %216 ], [ %.1131193, %182 ], [ %.1131193, %189 ], [ %.1131193, %.thread172 ], [ %.4134, %219 ], [ %.4134, %.lr.ph191.split.us ], [ %.4134, %makePolyline.exit ]
   %264 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.1123194) #20
   %.not151 = icmp eq ptr %264, null
   br i1 %.not151, label %._crit_edge199.split, label %.lr.ph198, !llvm.loop !126
@@ -2536,7 +2536,7 @@ scaleEdge.exit.i:                                 ; preds = %230, %226, %223, %.
   br label %_neato_set_aspect.exit
 
 _neato_set_aspect.exit:                           ; preds = %1, %4, %30, %35, %56, %60, %._crit_edge120.i
-  %.080.i = phi i1 [ true, %._crit_edge120.i ], [ false, %1 ], [ %.086.i, %35 ], [ %.086.i, %56 ], [ %.086.i, %60 ], [ %.086.i, %30 ], [ false, %4 ]
+  %.080.i = phi i1 [ %.086.i, %30 ], [ false, %1 ], [ true, %._crit_edge120.i ], [ %.086.i, %35 ], [ %.086.i, %56 ], [ %.086.i, %60 ], [ false, %4 ]
   %250 = tail call ptr @agfstnode(ptr noundef nonnull %0) #20
   %.not10 = icmp eq ptr %250, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph

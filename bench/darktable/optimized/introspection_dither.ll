@@ -332,7 +332,7 @@ tpdf.exit.us.i:                                   ; preds = %63, %59
   br label %79
 
 79:                                               ; preds = %78, %76, %70
-  %80 = phi reassoc nsz arcp contract afn float [ %74, %78 ], [ 1.000000e+00, %76 ], [ 0.000000e+00, %70 ]
+  %80 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %76 ], [ %74, %78 ], [ 0.000000e+00, %70 ]
   %81 = getelementptr inbounds nuw float, ptr %32, i64 %71
   store float %80, ptr %81, align 4, !tbaa !76
   %82 = add nuw nsw i64 %.02.us.i, 1
@@ -554,8 +554,8 @@ _clipnan_pixel.exit.i:                            ; preds = %167
   br i1 %exitcond.not.i45, label %_process_floyd_steinberg.exit, label %.lr.ph.i42
 
 _get_dither_parameters.exit.thread.i:             ; preds = %switch.lookup, %152, %148, %146, %145, %141, %139, %138, %137, %132, %127, %105
-  %.0.i5.i = phi i1 [ %switch.selectcmp45.i.i, %switch.lookup ], [ false, %146 ], [ false, %148 ], [ false, %139 ], [ false, %141 ], [ true, %105 ], [ true, %152 ], [ true, %145 ], [ true, %138 ], [ false, %137 ], [ true, %132 ], [ false, %127 ]
-  %.14.i = phi i32 [ %switch.load, %switch.lookup ], [ 64, %146 ], [ %151, %148 ], [ 16, %139 ], [ %144, %141 ], [ 65536, %105 ], [ 256, %152 ], [ 16, %145 ], [ 4, %138 ], [ 4, %137 ], [ %136, %132 ], [ %131, %127 ]
+  %.0.i5.i = phi i1 [ %switch.selectcmp45.i.i, %switch.lookup ], [ false, %146 ], [ false, %148 ], [ false, %141 ], [ true, %152 ], [ false, %139 ], [ true, %145 ], [ true, %105 ], [ true, %138 ], [ false, %137 ], [ true, %132 ], [ false, %127 ]
+  %.14.i = phi i32 [ %switch.load, %switch.lookup ], [ 64, %146 ], [ %151, %148 ], [ %144, %141 ], [ 256, %152 ], [ 16, %139 ], [ 16, %145 ], [ 65536, %105 ], [ 4, %138 ], [ 4, %137 ], [ %136, %132 ], [ %131, %127 ]
   %178 = add nsw i32 %.14.i, -1
   %179 = uitofp nneg i32 %178 to float
   %180 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %179
@@ -2612,9 +2612,9 @@ _diffuse_error.exit616.i:                         ; preds = %1209
   br i1 %exitcond171.not.i, label %_diffuse_error.exit581._crit_edge.i, label %.lr.ph97.i
 
 .lr.ph119.i:                                      ; preds = %932, %_diffuse_error.exit594.i, %._crit_edge.i
-  %factor.op.fmul116.pre-phi.i = phi float [ %factor.op.fmul46.i, %._crit_edge.i ], [ %factor.op.fmul102.i, %_diffuse_error.exit594.i ], [ %factor.op.fmul46.i, %932 ]
-  %factor.op.fmul114.pre-phi.i = phi float [ %factor.op.fmul44.i, %._crit_edge.i ], [ %factor.op.fmul100.i, %_diffuse_error.exit594.i ], [ %factor.op.fmul44.i, %932 ]
-  %factor.op.fmul112.pre-phi.i = phi float [ %factor.op.fmul42.i, %._crit_edge.i ], [ %factor.op.fmul98.i, %_diffuse_error.exit594.i ], [ %factor.op.fmul42.i, %932 ]
+  %factor.op.fmul116.pre-phi.i = phi float [ %factor.op.fmul102.i, %_diffuse_error.exit594.i ], [ %factor.op.fmul46.i, %._crit_edge.i ], [ %factor.op.fmul46.i, %932 ]
+  %factor.op.fmul114.pre-phi.i = phi float [ %factor.op.fmul100.i, %_diffuse_error.exit594.i ], [ %factor.op.fmul44.i, %._crit_edge.i ], [ %factor.op.fmul44.i, %932 ]
+  %factor.op.fmul112.pre-phi.i = phi float [ %factor.op.fmul98.i, %_diffuse_error.exit594.i ], [ %factor.op.fmul42.i, %._crit_edge.i ], [ %factor.op.fmul42.i, %932 ]
   %1217 = add nsw i32 %114, -1
   %1218 = zext nneg i32 %1217 to i64
   %1219 = shl nuw nsw i64 %wide.trip.count152.i, 2
@@ -2994,7 +2994,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %27
 
 27:                                               ; preds = %24, %2, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %spec.select, %24 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %24 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -3039,7 +3039,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %15
 
 15:                                               ; preds = %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ %., %13 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ %., %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

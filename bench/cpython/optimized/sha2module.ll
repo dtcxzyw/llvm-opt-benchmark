@@ -432,7 +432,7 @@ update_256.exit32.i:                              ; preds = %66
   br label %_sha2_sha256_impl.exit
 
 _sha2_sha256_impl.exit:                           ; preds = %30, %34, %36, %43, %49, %50, %Py_DECREF.exit.i, %64, %65, %86
-  %.0.i = phi ptr [ null, %30 ], [ null, %43 ], [ null, %34 ], [ null, %36 ], [ null, %50 ], [ null, %49 ], [ null, %64 ], [ null, %Py_DECREF.exit.i ], [ %48, %86 ], [ %48, %65 ]
+  %.0.i = phi ptr [ null, %30 ], [ null, %34 ], [ null, %43 ], [ null, %36 ], [ null, %Py_DECREF.exit.i ], [ null, %49 ], [ null, %50 ], [ null, %64 ], [ %48, %86 ], [ %48, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %87
 
@@ -641,7 +641,7 @@ update_256.exit32.i:                              ; preds = %65
   br label %_sha2_sha224_impl.exit
 
 _sha2_sha224_impl.exit:                           ; preds = %30, %34, %36, %43, %48, %49, %Py_DECREF.exit.i, %63, %64, %85
-  %.0.i = phi ptr [ null, %30 ], [ null, %43 ], [ null, %34 ], [ null, %36 ], [ null, %49 ], [ null, %48 ], [ null, %63 ], [ null, %Py_DECREF.exit.i ], [ %47, %85 ], [ %47, %64 ]
+  %.0.i = phi ptr [ null, %30 ], [ null, %34 ], [ null, %43 ], [ null, %36 ], [ null, %Py_DECREF.exit.i ], [ null, %48 ], [ null, %49 ], [ null, %63 ], [ %47, %85 ], [ %47, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %86
 
@@ -862,7 +862,7 @@ update_512.exit32.i:                              ; preds = %70
   br label %_sha2_sha512_impl.exit
 
 _sha2_sha512_impl.exit:                           ; preds = %33, %37, %39, %46, %48, %53, %Py_DECREF.exit.i, %68, %69, %90
-  %.0.i = phi ptr [ null, %33 ], [ null, %46 ], [ null, %37 ], [ null, %39 ], [ null, %53 ], [ null, %68 ], [ null, %Py_DECREF.exit.i ], [ %55, %90 ], [ %55, %69 ], [ null, %48 ]
+  %.0.i = phi ptr [ null, %33 ], [ null, %37 ], [ null, %46 ], [ null, %39 ], [ %55, %69 ], [ null, %Py_DECREF.exit.i ], [ null, %53 ], [ null, %68 ], [ %55, %90 ], [ null, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %91
 
@@ -1083,7 +1083,7 @@ update_512.exit32.i:                              ; preds = %70
   br label %_sha2_sha384_impl.exit
 
 _sha2_sha384_impl.exit:                           ; preds = %33, %37, %39, %46, %48, %53, %Py_DECREF.exit.i, %68, %69, %90
-  %.0.i = phi ptr [ null, %33 ], [ null, %46 ], [ null, %37 ], [ null, %39 ], [ null, %53 ], [ null, %68 ], [ null, %Py_DECREF.exit.i ], [ %55, %90 ], [ %55, %69 ], [ null, %48 ]
+  %.0.i = phi ptr [ null, %33 ], [ null, %37 ], [ null, %46 ], [ null, %39 ], [ %55, %69 ], [ null, %Py_DECREF.exit.i ], [ null, %53 ], [ null, %68 ], [ %55, %90 ], [ null, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %91
 
@@ -1184,7 +1184,7 @@ define internal range(i32 -1, 1) i32 @sha2_exec(ptr noundef %0) #0 {
   br label %32
 
 32:                                               ; preds = %29, %25, %21, %17, %13, %9, %5, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %5 ], [ -1, %9 ], [ -1, %13 ], [ -1, %17 ], [ -1, %21 ], [ -1, %25 ], [ %.lobit, %29 ]
+  %.0 = phi i32 [ -1, %25 ], [ -1, %1 ], [ -1, %5 ], [ -1, %9 ], [ -1, %13 ], [ -1, %17 ], [ -1, %21 ], [ %.lobit, %29 ]
   ret i32 %.0
 }
 
@@ -1335,7 +1335,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %30, %26, %newSHA256
   br label %SHA256Type_copy_impl.exit
 
 SHA256Type_copy_impl.exit:                        ; preds = %42, %38, %_PyMutex_Lock.exit.i, %19, %17, %9
-  %.0 = phi ptr [ null, %9 ], [ %.sink7.i, %_PyMutex_Lock.exit.i ], [ %.sink7.i, %38 ], [ %.sink7.i, %42 ], [ null, %17 ], [ null, %19 ]
+  %.0 = phi ptr [ null, %9 ], [ %.sink7.i, %42 ], [ null, %17 ], [ %.sink7.i, %_PyMutex_Lock.exit.i ], [ %.sink7.i, %38 ], [ null, %19 ]
   ret ptr %.0
 }
 
@@ -1566,7 +1566,7 @@ update_256.exit23:                                ; preds = %.lr.ph.i20, %51
   br label %63
 
 63:                                               ; preds = %13, %62, %20, %11, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %20 ], [ @_Py_NoneStruct, %62 ], [ null, %11 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %11 ], [ null, %20 ], [ @_Py_NoneStruct, %62 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -1732,7 +1732,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %31, %27, %newSHA512
   br label %SHA512Type_copy_impl.exit
 
 SHA512Type_copy_impl.exit:                        ; preds = %43, %39, %_PyMutex_Lock.exit.i, %19, %17, %9
-  %.0 = phi ptr [ null, %9 ], [ %.sink7.i, %_PyMutex_Lock.exit.i ], [ %.sink7.i, %39 ], [ %.sink7.i, %43 ], [ null, %17 ], [ null, %19 ]
+  %.0 = phi ptr [ null, %9 ], [ %.sink7.i, %43 ], [ null, %17 ], [ %.sink7.i, %_PyMutex_Lock.exit.i ], [ %.sink7.i, %39 ], [ null, %19 ]
   ret ptr %.0
 }
 
@@ -1963,7 +1963,7 @@ update_512.exit23:                                ; preds = %.lr.ph.i20, %51
   br label %63
 
 63:                                               ; preds = %13, %62, %20, %11, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %20 ], [ @_Py_NoneStruct, %62 ], [ null, %11 ], [ null, %13 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %11 ], [ null, %20 ], [ @_Py_NoneStruct, %62 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

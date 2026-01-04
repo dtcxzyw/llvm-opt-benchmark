@@ -193,7 +193,7 @@ _trim.exit:                                       ; preds = %.lr.ph.i, %23, %.cr
   br i1 %91, label %.lr.ph.i38, label %_trim.exit41, !llvm.loop !11
 
 _trim.exit41:                                     ; preds = %.lr.ph.i38, %.critedge.i35, %70
-  %92 = phi ptr [ %62, %.critedge.i35 ], [ %62, %70 ], [ %82, %.lr.ph.i38 ]
+  %92 = phi ptr [ %62, %70 ], [ %62, %.critedge.i35 ], [ %82, %.lr.ph.i38 ]
   br label %93
 
 93:                                               ; preds = %93, %_trim.exit41
@@ -329,8 +329,8 @@ _trim.exit.i:                                     ; preds = %._crit_edge.i
   br i1 %161, label %_trim.exit.thread.i, label %_trim.exit51.i
 
 _trim.exit.thread.i:                              ; preds = %.lr.ph.i.i, %_trim.exit.i, %139, %.critedge.i.i, %129
-  %.02769.i = phi ptr [ null, %_trim.exit.i ], [ %.015.i.i, %139 ], [ %.015.i.i, %.critedge.i.i ], [ null, %129 ], [ %.015.i.i, %.lr.ph.i.i ]
-  %.03067.i = phi i32 [ 0, %_trim.exit.i ], [ 1, %139 ], [ 1, %.critedge.i.i ], [ 1, %129 ], [ 1, %.lr.ph.i.i ]
+  %.02769.i = phi ptr [ null, %_trim.exit.i ], [ null, %129 ], [ %.015.i.i, %139 ], [ %.015.i.i, %.critedge.i.i ], [ %.015.i.i, %.lr.ph.i.i ]
+  %.03067.i = phi i32 [ 0, %_trim.exit.i ], [ 1, %129 ], [ 1, %139 ], [ 1, %.critedge.i.i ], [ 1, %.lr.ph.i.i ]
   %162 = add nuw nsw i32 %.03067.i, 1
   %163 = zext nneg i32 %.03067.i to i64
   %164 = getelementptr inbounds nuw ptr, ptr %3, i64 %163

@@ -68,7 +68,7 @@ define void @_ZN4base14OffsetAdjuster13AdjustOffsetsERKSt6vectorINS0_10Adjustmen
   %.sroa.010.020.i = phi ptr [ %26, %20 ], [ %4, %.lr.ph ]
   %14 = load i64, ptr %.sroa.010.020.i, align 8, !tbaa !3
   %.not.i = icmp ugt i64 %12, %14
-  br i1 %.not.i, label %15, label %._crit_edge.i
+  br i1 %.not.i, label %15, label %.critedge.i
 
 15:                                               ; preds = %.lr.ph.i
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.010.020.i, i64 8
@@ -85,16 +85,16 @@ define void @_ZN4base14OffsetAdjuster13AdjustOffsetsERKSt6vectorINS0_10Adjustmen
   %25 = add nsw i32 %.0921.i, %24
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.010.020.i, i64 24
   %.not17.i = icmp eq ptr %26, %6
-  br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not17.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !16
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %20
+.critedge.i:                                      ; preds = %.lr.ph.i, %20
   %.09.lcssa.ph.i = phi i32 [ %25, %20 ], [ %.0921.i, %.lr.ph.i ]
   %27 = sext i32 %.09.lcssa.ph.i to i64
   %28 = sub i64 %12, %27
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %15, %._crit_edge.i
-  %.sink.i = phi i64 [ %28, %._crit_edge.i ], [ -1, %15 ]
+.sink.split.i:                                    ; preds = %15, %.critedge.i
+  %.sink.i = phi i64 [ %28, %.critedge.i ], [ -1, %15 ]
   store i64 %.sink.i, ptr %.sroa.05.010, align 8, !tbaa !15
   br label %_ZN4base14OffsetAdjuster12AdjustOffsetERKSt6vectorINS0_10AdjustmentESaIS2_EEPm.exit
 
@@ -118,14 +118,14 @@ define void @_ZN4base14OffsetAdjuster12AdjustOffsetERKSt6vectorINS0_10Adjustment
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %.not1719 = icmp eq ptr %6, %8
-  br i1 %.not1719, label %._crit_edge, label %.lr.ph
+  br i1 %.not1719, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %15
   %.0921 = phi i32 [ %20, %15 ], [ 0, %5 ]
   %.sroa.010.020 = phi ptr [ %21, %15 ], [ %6, %5 ]
   %9 = load i64, ptr %.sroa.010.020, align 8, !tbaa !3
   %.not = icmp ugt i64 %3, %9
-  br i1 %.not, label %10, label %._crit_edge.loopexit
+  br i1 %.not, label %10, label %.critedge.loopexit
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 8
@@ -142,20 +142,20 @@ define void @_ZN4base14OffsetAdjuster12AdjustOffsetERKSt6vectorINS0_10Adjustment
   %20 = add nsw i32 %.0921, %19
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 24
   %.not17 = icmp eq ptr %21, %8
-  br i1 %.not17, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not17, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !16
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %15
+.critedge.loopexit:                               ; preds = %.lr.ph, %15
   %.09.lcssa.ph = phi i32 [ %20, %15 ], [ %.0921, %.lr.ph ]
   %22 = sext i32 %.09.lcssa.ph to i64
-  br label %._crit_edge
+  br label %.critedge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
-  %.09.lcssa = phi i64 [ 0, %5 ], [ %22, %._crit_edge.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %5
+  %.09.lcssa = phi i64 [ 0, %5 ], [ %22, %.critedge.loopexit ]
   %23 = sub i64 %3, %.09.lcssa
   br label %.sink.split
 
-.sink.split:                                      ; preds = %10, %._crit_edge
-  %.sink = phi i64 [ %23, %._crit_edge ], [ -1, %10 ]
+.sink.split:                                      ; preds = %10, %.critedge
+  %.sink = phi i64 [ %23, %.critedge ], [ -1, %10 ]
   store i64 %.sink, ptr %1, align 8, !tbaa !15
   br label %24
 
@@ -217,7 +217,7 @@ define void @_ZN4base14OffsetAdjuster15UnadjustOffsetsERKSt6vectorINS0_10Adjustm
   br i1 %30, label %.sink.split.i, label %14
 
 .sink.split.i:                                    ; preds = %19, %.lr.ph.i, %14
-  %.sink.i = phi i64 [ %28, %14 ], [ %17, %.lr.ph.i ], [ -1, %19 ]
+  %.sink.i = phi i64 [ %17, %.lr.ph.i ], [ %28, %14 ], [ -1, %19 ]
   store i64 %.sink.i, ptr %.sroa.05.010, align 8, !tbaa !15
   br label %_ZN4base14OffsetAdjuster14UnadjustOffsetERKSt6vectorINS0_10AdjustmentESaIS2_EEPm.exit
 
@@ -804,7 +804,7 @@ _ZN4base26UTF8ToUTF16WithAdjustmentsERKNS_16BasicStringPieceINSt7__cxx1112basic_
   %.sroa.010.020.i.i = phi ptr [ %44, %38 ], [ %23, %.lr.ph.i12 ]
   %32 = load i64, ptr %.sroa.010.020.i.i, align 8, !tbaa !3
   %.not.i.i = icmp ugt i64 %30, %32
-  br i1 %.not.i.i, label %33, label %._crit_edge.i.i
+  br i1 %.not.i.i, label %33, label %.critedge.i.i
 
 33:                                               ; preds = %.lr.ph.i.i
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.010.020.i.i, i64 8
@@ -821,16 +821,16 @@ _ZN4base26UTF8ToUTF16WithAdjustmentsERKNS_16BasicStringPieceINSt7__cxx1112basic_
   %43 = add nsw i32 %.0921.i.i, %42
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.010.020.i.i, i64 24
   %.not17.i.i = icmp eq ptr %44, %25
-  br i1 %.not17.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not17.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !16
 
-._crit_edge.i.i:                                  ; preds = %38, %.lr.ph.i.i
+.critedge.i.i:                                    ; preds = %38, %.lr.ph.i.i
   %.09.lcssa.ph.i.i = phi i32 [ %43, %38 ], [ %.0921.i.i, %.lr.ph.i.i ]
   %45 = sext i32 %.09.lcssa.ph.i.i to i64
   %46 = sub i64 %30, %45
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %33, %._crit_edge.i.i
-  %.sink.i.i = phi i64 [ %46, %._crit_edge.i.i ], [ -1, %33 ]
+.sink.split.i.i:                                  ; preds = %33, %.critedge.i.i
+  %.sink.i.i = phi i64 [ %46, %.critedge.i.i ], [ -1, %33 ]
   store i64 %.sink.i.i, ptr %.sroa.05.010.i, align 8, !tbaa !15
   br label %_ZN4base14OffsetAdjuster12AdjustOffsetERKSt6vectorINS0_10AdjustmentESaIS2_EEPm.exit.i
 
@@ -943,7 +943,7 @@ _ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEN4base11LimitO
   %.sroa.010.020.i.i = phi ptr [ %44, %38 ], [ %23, %.lr.ph.i15 ]
   %32 = load i64, ptr %.sroa.010.020.i.i, align 8, !tbaa !3
   %.not.i.i = icmp ugt i64 %30, %32
-  br i1 %.not.i.i, label %33, label %._crit_edge.i.i
+  br i1 %.not.i.i, label %33, label %.critedge.i.i
 
 33:                                               ; preds = %.lr.ph.i.i
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.010.020.i.i, i64 8
@@ -960,16 +960,16 @@ _ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEN4base11LimitO
   %43 = add nsw i32 %.0921.i.i, %42
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.010.020.i.i, i64 24
   %.not17.i.i = icmp eq ptr %44, %25
-  br i1 %.not17.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not17.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !16
 
-._crit_edge.i.i:                                  ; preds = %38, %.lr.ph.i.i
+.critedge.i.i:                                    ; preds = %38, %.lr.ph.i.i
   %.09.lcssa.ph.i.i = phi i32 [ %43, %38 ], [ %.0921.i.i, %.lr.ph.i.i ]
   %45 = sext i32 %.09.lcssa.ph.i.i to i64
   %46 = sub i64 %30, %45
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %33, %._crit_edge.i.i
-  %.sink.i.i = phi i64 [ %46, %._crit_edge.i.i ], [ -1, %33 ]
+.sink.split.i.i:                                  ; preds = %33, %.critedge.i.i
+  %.sink.i.i = phi i64 [ %46, %.critedge.i.i ], [ -1, %33 ]
   store i64 %.sink.i.i, ptr %.sroa.05.010.i, align 8, !tbaa !15
   br label %_ZN4base14OffsetAdjuster12AdjustOffsetERKSt6vectorINS0_10AdjustmentESaIS2_EEPm.exit.i
 

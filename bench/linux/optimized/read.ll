@@ -1455,7 +1455,7 @@ define dso_local void @nfs_readahead(ptr noundef captures(none) %0) local_unname
   br label %93
 
 93:                                               ; preds = %90, %83
-  %94 = phi i32 [ %92, %90 ], [ 1, %83 ]
+  %94 = phi i32 [ 1, %83 ], [ %92, %90 ]
   store i32 %94, ptr %70, align 4
   %95 = icmp eq ptr %86, null
   br i1 %95, label %.loopexit, label %96

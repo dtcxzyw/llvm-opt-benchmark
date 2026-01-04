@@ -135,7 +135,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIP
   br label %58
 
 58:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i.i
-  %59 = phi i64 [ %53, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i.i ], [ %spec.select.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i.i ]
+  %59 = phi i64 [ %spec.select.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i.i ], [ %53, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i.i ]
   %60 = getelementptr inbounds nuw ptr, ptr %16, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !12
   %62 = getelementptr inbounds nuw ptr, ptr %16, i64 %.032.i.i.i.i
@@ -286,7 +286,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIP
   br label %124
 
 124:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i83.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i85.i
-  %125 = phi i64 [ %119, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i85.i ], [ %spec.select.i.i.i84.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i83.i ]
+  %125 = phi i64 [ %spec.select.i.i.i84.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i83.i ], [ %119, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i85.i ]
   %126 = getelementptr inbounds nuw ptr, ptr %16, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !12
   %128 = getelementptr inbounds nuw ptr, ptr %16, i64 %.032.i.i.i78.i
@@ -401,7 +401,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIP
   br label %181
 
 181:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i106.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i108.i
-  %182 = phi i64 [ %176, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i108.i ], [ %spec.select.i.i.i107.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i106.i ]
+  %182 = phi i64 [ %spec.select.i.i.i107.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i106.i ], [ %176, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_412_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i108.i ]
   %183 = getelementptr inbounds nuw ptr, ptr %16, i64 %182
   %184 = load ptr, ptr %183, align 8, !tbaa !12
   %185 = getelementptr inbounds nuw ptr, ptr %16, i64 %.032.i.i.i101.i
@@ -740,7 +740,7 @@ _ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit.i: ; preds = %_ZN7Imf_3_412
   br i1 %329, label %.lr.ph.i28.i, label %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit98.i, !llvm.loop !29
 
 .critedge.i:                                      ; preds = %._crit_edge.i35, %.lr.ph92.i
-  %.1.i = phi i32 [ %.02190.i, %.lr.ph92.i ], [ %.2.lcssa.ph.i, %._crit_edge.i35 ]
+  %.1.i = phi i32 [ %.2.lcssa.ph.i, %._crit_edge.i35 ], [ %.02190.i, %.lr.ph92.i ]
   %330 = shl i64 %.05988.i, 6
   %331 = add i32 %.089.i, 6
   %332 = or disjoint i64 %276, %330
@@ -776,10 +776,10 @@ _ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit98.i: ; preds = %
   br label %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.i
 
 _ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.i: ; preds = %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit98.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit97.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit.i, %.critedge.i, %316, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit.i
-  %.366.i = phi ptr [ %.669.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit.i ], [ %.06387.i, %316 ], [ %.06387.i, %.critedge.i ], [ %338, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit.i ], [ %313, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit97.i ], [ %327, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit98.i ]
-  %.362.i = phi i64 [ %307, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit.i ], [ %321, %316 ], [ %332, %.critedge.i ], [ %332, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit.i ], [ %307, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit97.i ], [ %321, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit98.i ]
-  %.358.i = phi i32 [ %306, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit.i ], [ %320, %316 ], [ %331, %.critedge.i ], [ %341, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit.i ], [ %342, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit97.i ], [ %343, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit98.i ]
-  %.3.i = phi i32 [ %.2.lcssa.ph.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit.i ], [ %.2.lcssa.ph.i, %316 ], [ %.1.i, %.critedge.i ], [ %.1.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit.i ], [ %.2.lcssa.ph.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit97.i ], [ %.2.lcssa.ph.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit98.i ]
+  %.366.i = phi ptr [ %.06387.i, %316 ], [ %.669.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit.i ], [ %338, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit.i ], [ %313, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit97.i ], [ %.06387.i, %.critedge.i ], [ %327, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit98.i ]
+  %.362.i = phi i64 [ %321, %316 ], [ %307, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit.i ], [ %332, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit.i ], [ %307, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit97.i ], [ %332, %.critedge.i ], [ %321, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit98.i ]
+  %.358.i = phi i32 [ %320, %316 ], [ %306, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit.i ], [ %341, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit.i ], [ %342, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit97.i ], [ %331, %.critedge.i ], [ %343, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit98.i ]
+  %.3.i = phi i32 [ %.2.lcssa.ph.i, %316 ], [ %.2.lcssa.ph.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit.i ], [ %.1.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit.i ], [ %.2.lcssa.ph.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit97.i ], [ %.1.i, %.critedge.i ], [ %.2.lcssa.ph.i, %_ZN7Imf_3_412_GLOBAL__N_110outputBitsEimRmRiRPc.exit27.loopexit98.i ]
   %344 = add nsw i32 %.3.i, 1
   %.not.not.i.not = icmp sgt i32 %.3.i, %.2
   br i1 %.not.not.i.not, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !30
@@ -967,9 +967,9 @@ _ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.loopexit.i: ; preds = %.lr.ph
   br label %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.i
 
 _ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.i: ; preds = %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.i, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.loopexit.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.i, %.preheader.i.i37
-  %.10.i = phi ptr [ %.598.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.i ], [ %.093.lcssa.i, %.preheader.i.i37 ], [ %409, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.loopexit.i ], [ %.396.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.i ]
-  %.390.i = phi i64 [ %401, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.i ], [ %.087.lcssa.i, %.preheader.i.i37 ], [ %403, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.loopexit.i ], [ %417, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.i ]
-  %.3.i38 = phi i32 [ %400, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.i ], [ %.085.lcssa.i, %.preheader.i.i37 ], [ %425, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.loopexit.i ], [ %.2.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.i ]
+  %.10.i = phi ptr [ %.093.lcssa.i, %.preheader.i.i37 ], [ %.598.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.i ], [ %409, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.loopexit.i ], [ %.396.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.i ]
+  %.390.i = phi i64 [ %.087.lcssa.i, %.preheader.i.i37 ], [ %401, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.i ], [ %403, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.loopexit.i ], [ %417, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.i ]
+  %.3.i38 = phi i32 [ %.085.lcssa.i, %.preheader.i.i37 ], [ %400, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i.i ], [ %425, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit.loopexit.i ], [ %.2.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i.i ]
   %.not.i39 = icmp eq i32 %.3.i38, 0
   br i1 %.not.i39, label %_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit, label %507
 
@@ -1146,10 +1146,10 @@ _ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.loopexit.i: ; preds = %.lr.
   br label %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.i
 
 _ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.i: ; preds = %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.loopexit.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i, %.preheader.i25.i, %431
-  %.194.i = phi ptr [ %.093119.i, %431 ], [ %.14.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i ], [ %.093119.i, %.preheader.i25.i ], [ %490, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.loopexit.i ], [ %.12.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i ]
-  %.188.i = phi i64 [ %.087120.i, %431 ], [ %482, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i ], [ %.087120.i, %.preheader.i25.i ], [ %484, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.loopexit.i ], [ %498, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i ]
-  %.186.i = phi i32 [ %.085121.i, %431 ], [ %481, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i ], [ %.085121.i, %.preheader.i25.i ], [ %506, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.loopexit.i ], [ %.4.i52, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i ]
-  %.1.i49 = phi i32 [ %432, %431 ], [ 0, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i ], [ 0, %.preheader.i25.i ], [ 0, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.loopexit.i ], [ 0, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i ]
+  %.194.i = phi ptr [ %.093119.i, %431 ], [ %.093119.i, %.preheader.i25.i ], [ %.14.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i ], [ %490, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.loopexit.i ], [ %.12.i, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i ]
+  %.188.i = phi i64 [ %.087120.i, %431 ], [ %.087120.i, %.preheader.i25.i ], [ %482, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i ], [ %484, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.loopexit.i ], [ %498, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i ]
+  %.186.i = phi i32 [ %.085121.i, %431 ], [ %.085121.i, %.preheader.i25.i ], [ %481, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i ], [ %506, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.loopexit.i ], [ %.4.i52, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i ]
+  %.1.i49 = phi i32 [ %432, %431 ], [ 0, %.preheader.i25.i ], [ 0, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit22.i34.i ], [ 0, %_ZN7Imf_3_412_GLOBAL__N_18sendCodeEmimRmRiRPc.exit45.loopexit.i ], [ 0, %_ZN7Imf_3_412_GLOBAL__N_110outputCodeEmRmRiRPc.exit25.i29.i ]
   %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
   %.023.in.i = load i16, ptr %427, align 2, !tbaa !3
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next160.i, %wide.trip.count.i47
@@ -1199,7 +1199,7 @@ _ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit:        ; preds = %507, %_ZN7Imf_3_412
   br label %_ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit55
 
 _ZN7Imf_3_49AutoArrayImLi65537EED2Ev.exit55:      ; preds = %532, %_ZN7Imf_3_49AutoArrayIiLi65537EED2Ev.exit112.i
-  %.pn.pn = phi { ptr, i32 } [ %533, %532 ], [ %.pn.pn.pn.pn.i, %_ZN7Imf_3_49AutoArrayIiLi65537EED2Ev.exit112.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %_ZN7Imf_3_49AutoArrayIiLi65537EED2Ev.exit112.i ], [ %533, %532 ]
   tail call void @_ZdaPv(ptr noundef nonnull %7) #12
   resume { ptr, i32 } %.pn.pn
 
@@ -1513,7 +1513,7 @@ _ZN7Imf_3_412_GLOBAL__N_17getBitsEiRmRiRPKc.exit42.i: ; preds = %.lr.ph.i41.i, %
           to label %.invoke unwind label %144
 
 .invoke:                                          ; preds = %141, %130, %99, %72
-  %143 = phi ptr [ %73, %72 ], [ %100, %99 ], [ %131, %130 ], [ %142, %141 ]
+  %143 = phi ptr [ %131, %130 ], [ %100, %99 ], [ %73, %72 ], [ %142, %141 ]
   invoke void @__cxa_throw(ptr nonnull %143, ptr nonnull @_ZTIN7Iex_3_48InputExcE, ptr nonnull @_ZN7Iex_3_48InputExcD1Ev) #14
           to label %.cont unwind label %188
 
@@ -1614,7 +1614,7 @@ _ZN7Imf_3_412_GLOBAL__N_17getBitsEiRmRiRPKc.exit42.i: ; preds = %.lr.ph.i41.i, %
           to label %.invoke225 unwind label %184
 
 .invoke225:                                       ; preds = %181, %502, %493, %489, %476, %469, %445, %.thread.thread.i, %419, %406, %399, %348, %341, %328, %321, %297, %265, %219, %207
-  %183 = phi ptr [ %208, %207 ], [ %220, %219 ], [ %266, %265 ], [ %298, %297 ], [ %322, %321 ], [ %329, %328 ], [ %342, %341 ], [ %349, %348 ], [ %400, %399 ], [ %407, %406 ], [ %420, %419 ], [ %425, %.thread.thread.i ], [ %446, %445 ], [ %470, %469 ], [ %477, %476 ], [ %490, %489 ], [ %494, %493 ], [ %503, %502 ], [ %182, %181 ]
+  %183 = phi ptr [ %503, %502 ], [ %494, %493 ], [ %208, %207 ], [ %220, %219 ], [ %266, %265 ], [ %298, %297 ], [ %322, %321 ], [ %329, %328 ], [ %342, %341 ], [ %349, %348 ], [ %400, %399 ], [ %407, %406 ], [ %420, %419 ], [ %425, %.thread.thread.i ], [ %446, %445 ], [ %470, %469 ], [ %477, %476 ], [ %490, %489 ], [ %182, %181 ]
   invoke void @__cxa_throw(ptr nonnull %183, ptr nonnull @_ZTIN7Iex_3_48InputExcE, ptr nonnull @_ZN7Iex_3_48InputExcD1Ev) #14
           to label %.cont226 unwind label %.loopexit.split-lp
 
@@ -2179,11 +2179,11 @@ common.resume.i95:                                ; preds = %504, %495, %491, %4
   br i1 %exitcond.not.i105, label %.thread.thread.i, label %.lr.ph312.i, !llvm.loop !49
 
 .thread.i:                                        ; preds = %.lr.ph322.i, %416, %410, %.preheader.i
-  %.0170222.i = phi i32 [ %380, %416 ], [ %380, %410 ], [ 0, %.preheader.i ], [ %380, %.lr.ph322.i ]
-  %.5160.i = phi i32 [ %373, %416 ], [ %392, %410 ], [ %.1156324.i, %.preheader.i ], [ %392, %.lr.ph322.i ]
-  %.5146.i = phi i64 [ %.6147.lcssa.i, %416 ], [ %.7148.i, %410 ], [ %.1142325.i, %.preheader.i ], [ %.7148.i, %.lr.ph322.i ]
-  %.5134.i = phi ptr [ %418, %416 ], [ %.1130326.i, %410 ], [ %.1130326.i, %.preheader.i ], [ %413, %.lr.ph322.i ]
-  %.5.i = phi ptr [ %.6.lcssa.i, %416 ], [ %.7.i, %410 ], [ %.1327.i, %.preheader.i ], [ %.7.i, %.lr.ph322.i ]
+  %.0170222.i = phi i32 [ %380, %410 ], [ %380, %416 ], [ 0, %.preheader.i ], [ %380, %.lr.ph322.i ]
+  %.5160.i = phi i32 [ %392, %410 ], [ %373, %416 ], [ %.1156324.i, %.preheader.i ], [ %392, %.lr.ph322.i ]
+  %.5146.i = phi i64 [ %.7148.i, %410 ], [ %.6147.lcssa.i, %416 ], [ %.1142325.i, %.preheader.i ], [ %.7148.i, %.lr.ph322.i ]
+  %.5134.i = phi ptr [ %.1130326.i, %410 ], [ %418, %416 ], [ %.1130326.i, %.preheader.i ], [ %413, %.lr.ph322.i ]
+  %.5.i = phi ptr [ %.7.i, %410 ], [ %.6.lcssa.i, %416 ], [ %.1327.i, %.preheader.i ], [ %.7.i, %.lr.ph322.i ]
   %424 = icmp eq i32 %.0170222.i, %346
   br i1 %424, label %.thread.thread.i, label %.loopexit209.i
 
@@ -2198,10 +2198,10 @@ common.resume.i95:                                ; preds = %504, %495, %491, %4
   br label %common.resume.i95
 
 .loopexit209.i:                                   ; preds = %.lr.ph.i100, %.thread.i, %338, %332
-  %.3158.i = phi i32 [ %295, %338 ], [ %.5160.i, %.thread.i ], [ %314, %332 ], [ %314, %.lr.ph.i100 ]
-  %.3144.i = phi i64 [ %.1142325.i, %338 ], [ %.5146.i, %.thread.i ], [ %.2143.i, %332 ], [ %.2143.i, %.lr.ph.i100 ]
-  %.3132.i = phi ptr [ %340, %338 ], [ %.5134.i, %.thread.i ], [ %.1130326.i, %332 ], [ %335, %.lr.ph.i100 ]
-  %.3.i = phi ptr [ %.1327.i, %338 ], [ %.5.i, %.thread.i ], [ %.2.i99, %332 ], [ %.2.i99, %.lr.ph.i100 ]
+  %.3158.i = phi i32 [ %.5160.i, %.thread.i ], [ %295, %338 ], [ %314, %332 ], [ %314, %.lr.ph.i100 ]
+  %.3144.i = phi i64 [ %.5146.i, %.thread.i ], [ %.1142325.i, %338 ], [ %.2143.i, %332 ], [ %.2143.i, %.lr.ph.i100 ]
+  %.3132.i = phi ptr [ %.5134.i, %.thread.i ], [ %340, %338 ], [ %.1130326.i, %332 ], [ %335, %.lr.ph.i100 ]
+  %.3.i = phi ptr [ %.5.i, %.thread.i ], [ %.1327.i, %338 ], [ %.2.i99, %332 ], [ %.2.i99, %.lr.ph.i100 ]
   %428 = icmp sgt i32 %.3158.i, 13
   br i1 %428, label %.lr.ph329.i, label %.loopexit210.i, !llvm.loop !50
 

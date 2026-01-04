@@ -445,7 +445,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17hcf89595deae72817E.exit.i.i.i.
           to label %.body.i.i unwind label %154, !noalias !18
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %..loopexit_crit_edge.i.i.i.i.i.i.i, %132, %115
-  %.0.i.i.i.i.i.i = phi i64 [ %129, %115 ], [ %139, %..loopexit_crit_edge.i.i.i.i.i.i.i ], [ %129, %132 ]
+  %.0.i.i.i.i.i.i = phi i64 [ %129, %132 ], [ %129, %115 ], [ %139, %..loopexit_crit_edge.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !18
   %160 = getelementptr inbounds nuw i8, ptr %90, i64 648
   %161 = load ptr, ptr %160, align 8, !noalias !18, !nonnull !5, !noundef !5
@@ -656,7 +656,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %.critedge
   br i1 %237, label %71, label %315
 
 .noexc24.i.i:                                     ; preds = %234, %.loopexit, %153, %78
-  %.0.i.ph.i.i.i.i = phi ptr [ %230, %.loopexit ], [ %86, %153 ], [ %80, %78 ], [ %230, %234 ]
+  %.0.i.ph.i.i.i.i = phi ptr [ %80, %78 ], [ %230, %.loopexit ], [ %86, %153 ], [ %230, %234 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %.0.i.ph.i.i.i.i, ptr %11, align 8
   call void @llvm.assume(i1 %68)
@@ -669,7 +669,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %.critedge
   br label %.body.i.i.i.i
 
 .body.i.i.i.i:                                    ; preds = %286, %281, %268, %261, %238
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %239, %238 ], [ %262, %261 ], [ %282, %281 ], [ %269, %268 ], [ %282, %286 ]
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %239, %238 ], [ %262, %261 ], [ %282, %286 ], [ %282, %281 ], [ %269, %268 ]
   invoke void @"_ZN81_$LT$async_task..runnable..Runnable$LT$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h44e99bd8560b2683E.llvm.14408593437386099104"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
           to label %.body.i.i unwind label %291
 
@@ -829,7 +829,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i.i.i: ; preds = 
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i, %.body.i.i.i.i, %159, %.loopexit.i.i.i.i.i, %151, %107, %101
-  %.pn.pn.i.i = phi { ptr, i32 } [ %102, %107 ], [ %102, %101 ], [ %152, %151 ], [ %lpad.phi.i.i.i.i.i, %159 ], [ %lpad.phi.i.i.i.i.i, %.loopexit.i.i.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ], [ %lpad.phi.i.i.i.i.i, %159 ], [ %152, %151 ], [ %102, %107 ], [ %lpad.phi.i.i.i.i.i, %.loopexit.i.i.i.i.i ], [ %102, %101 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   store i8 2, ptr %66, align 8
   br label %"_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h41e61eb678c80758E.exit.i"
 
@@ -913,7 +913,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i.i.i: ; preds = 
   br label %.body
 
 .body:                                            ; preds = %313, %"_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h41e61eb678c80758E.exit.i", %20, %322
-  %.pn24.pn = phi { ptr, i32 } [ %323, %322 ], [ %21, %20 ], [ %314, %313 ], [ %.pn26.pn.i, %"_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h41e61eb678c80758E.exit.i" ]
+  %.pn24.pn = phi { ptr, i32 } [ %21, %20 ], [ %323, %322 ], [ %314, %313 ], [ %.pn26.pn.i, %"_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h41e61eb678c80758E.exit.i" ]
   store i8 2, ptr %13, align 8
   resume { ptr, i32 } %.pn24.pn
 }

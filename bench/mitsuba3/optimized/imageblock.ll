@@ -637,7 +637,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit81.sink.split: ; preds = %123, %117
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit81
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit81:            ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit81.sink.split, %123, %117
-  %.pn70.pn = phi { ptr, i32 } [ %118, %117 ], [ %124, %123 ], [ %.pn70.pn.ph, %_ZN5drjit12DynamicArrayIfED2Ev.exit81.sink.split ]
+  %.pn70.pn = phi { ptr, i32 } [ %124, %123 ], [ %118, %117 ], [ %.pn70.pn.ph, %_ZN5drjit12DynamicArrayIfED2Ev.exit81.sink.split ]
   resume { ptr, i32 } %.pn70.pn
 }
 
@@ -2450,7 +2450,7 @@ _ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjTnNSt3__19
   br label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIfLm2EEEE4all_Ev.exit.thread
 
 _ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIfLm2EEEE4all_Ev.exit.thread: ; preds = %_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.critedge, %.preheader845
-  %71 = phi i1 [ %70, %.preheader845 ], [ false, %_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.critedge ]
+  %71 = phi i1 [ false, %_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.critedge ], [ %70, %.preheader845 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %73 = load i32, ptr %72, align 4
   %.not890 = icmp eq i32 %73, 0
@@ -2979,7 +2979,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit37.sink.split: ; preds = %114, %108
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit37
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit37:            ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit37.sink.split, %114, %108
-  %.pn26.pn = phi { ptr, i32 } [ %109, %108 ], [ %115, %114 ], [ %.pn26.pn.ph, %_ZN5drjit12DynamicArrayIfED2Ev.exit37.sink.split ]
+  %.pn26.pn = phi { ptr, i32 } [ %115, %114 ], [ %109, %108 ], [ %.pn26.pn.ph, %_ZN5drjit12DynamicArrayIfED2Ev.exit37.sink.split ]
   resume { ptr, i32 } %.pn26.pn
 }
 
@@ -4457,7 +4457,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -5486,7 +5486,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -5561,7 +5561,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
   ret ptr %.069
 }
 

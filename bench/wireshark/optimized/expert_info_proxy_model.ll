@@ -692,11 +692,11 @@ _ZN7QStringD2Ev.exit124:                          ; preds = %237, %_ZN17QArrayDa
   br label %_ZN7QStringD2Ev.exit132
 
 _ZN7QStringD2Ev.exit132:                          ; preds = %.critedge59, %239, %_ZN7QStringD2Ev.exit120, %183, %_ZN7QStringD2Ev.exit99, %138, %_ZN7QStringD2Ev.exit79, %240, %81
-  %.042 = phi i1 [ %245, %240 ], [ %82, %81 ], [ true, %_ZN7QStringD2Ev.exit79 ], [ false, %138 ], [ true, %_ZN7QStringD2Ev.exit99 ], [ false, %183 ], [ true, %_ZN7QStringD2Ev.exit120 ], [ false, %239 ], [ %246, %.critedge59 ]
+  %.042 = phi i1 [ %245, %240 ], [ false, %239 ], [ %82, %81 ], [ true, %_ZN7QStringD2Ev.exit120 ], [ true, %_ZN7QStringD2Ev.exit79 ], [ false, %138 ], [ true, %_ZN7QStringD2Ev.exit99 ], [ false, %183 ], [ %246, %.critedge59 ]
   ret i1 %.042
 
 _ZN7QStringD2Ev.exit140:                          ; preds = %_ZN7QStringD2Ev.exit124, %_ZN7QStringD2Ev.exit103, %_ZN7QStringD2Ev.exit83, %64
-  %.pn56 = phi { ptr, i32 } [ %.pn52, %_ZN7QStringD2Ev.exit83 ], [ %.pn49, %_ZN7QStringD2Ev.exit103 ], [ %.pn47, %_ZN7QStringD2Ev.exit124 ], [ %.pn, %64 ]
+  %.pn56 = phi { ptr, i32 } [ %.pn, %64 ], [ %.pn52, %_ZN7QStringD2Ev.exit83 ], [ %.pn49, %_ZN7QStringD2Ev.exit103 ], [ %.pn47, %_ZN7QStringD2Ev.exit124 ]
   resume { ptr, i32 } %.pn56
 }
 
@@ -1291,7 +1291,7 @@ _ZNK11QModelIndex7isValidEv.exit68:               ; preds = %_ZNK11QModelIndex6p
   call void @_ZNK21QSortFilterProxyModel4dataERK11QModelIndexi(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %0, ptr noundef align 8 dereferenceable_or_null(16) %1, ptr noundef align 8 dereferenceable(24) %2, i32 noundef %3)
   br label %.critedge47
 
-.critedge47:                                      ; preds = %99, %108, %47, %56, %60, %64, %68, %72, %228, %._crit_edge, %_ZNK11QModelIndex7siblingEii.exit65, %_ZNK11QModelIndex7siblingEii.exit63, %_ZNK11QModelIndex7siblingEii.exit, %139, %133, %_ZNK11QModelIndex7isValidEv.exit57.thread, %114, %94, %42
+.critedge47:                                      ; preds = %99, %108, %47, %72, %56, %60, %64, %68, %228, %._crit_edge, %_ZNK11QModelIndex7siblingEii.exit65, %_ZNK11QModelIndex7siblingEii.exit63, %_ZNK11QModelIndex7siblingEii.exit, %139, %133, %_ZNK11QModelIndex7isValidEv.exit57.thread, %114, %94, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
@@ -1690,7 +1690,7 @@ _ZN7QStringD2Ev.exit45:                           ; preds = %134, %_ZN17QArrayDa
   br label %137
 
 136:                                              ; preds = %_ZN7QStringD2Ev.exit41, %_ZN7QStringD2Ev.exit30, %_ZN7QStringD2Ev.exit, %34
-  %.112 = phi i1 [ false, %34 ], [ true, %_ZN7QStringD2Ev.exit ], [ true, %_ZN7QStringD2Ev.exit30 ], [ %122, %_ZN7QStringD2Ev.exit41 ]
+  %.112 = phi i1 [ false, %34 ], [ true, %_ZN7QStringD2Ev.exit ], [ %122, %_ZN7QStringD2Ev.exit41 ], [ true, %_ZN7QStringD2Ev.exit30 ]
   call void @_ZN18QRegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %138
@@ -2919,7 +2919,7 @@ _ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.ex
   br label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit
 
 _ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit: ; preds = %13, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit31, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit33, %33, %39, %45
-  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %33 ], [ %.sroa.034.1.i.i.i, %39 ], [ %spec.select.i.i.i, %45 ], [ %49, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit31 ], [ %51, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit33 ], [ %.sroa.034.051.i.i.i, %13 ]
+  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.1.i.i.i, %39 ], [ %spec.select.i.i.i, %45 ], [ %.sroa.034.0.lcssa.i.i.i, %33 ], [ %51, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit33 ], [ %50, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit31 ], [ %49, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.loopexit.split.loop.exit ], [ %.sroa.034.051.i.i.i, %13 ]
   %52 = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i, %7
   br i1 %52, label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.thread, label %53
 
@@ -2976,7 +2976,7 @@ _ZN5QListIiE5eraseENS0_14const_iteratorE.exit:    ; preds = %67, %._crit_edge.i.
   br label %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.thread
 
 _ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit.thread: ; preds = %._crit_edge.i.i.i, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit, %_ZN5QListIiE5eraseENS0_14const_iteratorE.exit
-  %.0 = phi i1 [ false, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit ], [ true, %_ZN5QListIiE5eraseENS0_14const_iteratorE.exit ], [ false, %._crit_edge.i.i.i ]
+  %.0 = phi i1 [ true, %_ZN5QListIiE5eraseENS0_14const_iteratorE.exit ], [ false, %_ZSt4findIN5QListIiE14const_iteratorEiET_S3_S3_RKT0_.exit ], [ false, %._crit_edge.i.i.i ]
   ret i1 %.0
 }
 

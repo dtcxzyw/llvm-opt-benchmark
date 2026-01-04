@@ -250,7 +250,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dcreate1(i64 noundef %0, ptr n
   %107 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %109
 
-.thread69:                                        ; preds = %16, %29, %36, %.thread78, %.thread74
+.thread69:                                        ; preds = %29, %36, %16, %.thread78, %.thread74
   %108 = call i32 @H5E_dump_api_stack() #4
   br label %109
 
@@ -440,7 +440,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dopen1(i64 noundef %0, ptr nou
   %85 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %87
 
-.thread57:                                        ; preds = %13, %26, %33, %.thread66, %.thread62
+.thread57:                                        ; preds = %33, %13, %26, %.thread66, %.thread62
   %86 = call i32 @H5E_dump_api_stack() #4
   br label %87
 
@@ -642,8 +642,8 @@ define range(i32 -1, 1) i32 @H5Dextend(i64 noundef %0, ptr noundef readonly capt
   br label %.thread53
 
 .thread53:                                        ; preds = %94, %103, %98, %78, %71
-  %.062 = phi i1 [ true, %71 ], [ true, %78 ], [ true, %94 ], [ true, %103 ], [ false, %98 ]
-  %.03560 = phi i32 [ -1, %71 ], [ -1, %78 ], [ -1, %94 ], [ -1, %103 ], [ 0, %98 ]
+  %.062 = phi i1 [ true, %78 ], [ true, %71 ], [ false, %98 ], [ true, %94 ], [ true, %103 ]
+  %.03560 = phi i32 [ -1, %78 ], [ -1, %71 ], [ 0, %98 ], [ -1, %94 ], [ -1, %103 ]
   %107 = call i32 @H5I_dec_app_ref(i64 noundef %62) #4
   %108 = icmp slt i32 %107, 0
   br i1 %108, label %.thread84, label %114, !prof !14
@@ -664,7 +664,7 @@ define range(i32 -1, 1) i32 @H5Dextend(i64 noundef %0, ptr noundef readonly capt
   br i1 %.062, label %.thread76, label %117, !prof !29
 
 .thread76:                                        ; preds = %35, %28, %15, %.thread84, %.thread81, %114
-  %.1366880 = phi i32 [ %.03560, %114 ], [ -1, %.thread81 ], [ -1, %.thread84 ], [ -1, %15 ], [ -1, %28 ], [ -1, %35 ]
+  %.1366880 = phi i32 [ -1, %.thread84 ], [ %.03560, %114 ], [ -1, %.thread81 ], [ -1, %15 ], [ -1, %28 ], [ -1, %35 ]
   %116 = call i32 @H5E_dump_api_stack() #4
   br label %117
 

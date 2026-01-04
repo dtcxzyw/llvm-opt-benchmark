@@ -130,7 +130,7 @@ _ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread16.i.i: ; preds = %.
   br i1 %.not12.i.i, label %48, label %46
 
 _ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread.i.i: ; preds = %.preheader.i.i.i, %35, %_ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit._ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread.loopexit20_crit_edge.i.i
-  %45 = phi i64 [ %.pre46.pre.i.i, %_ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit._ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread.loopexit20_crit_edge.i.i ], [ %21, %35 ], [ %21, %.preheader.i.i.i ]
+  %45 = phi i64 [ %21, %35 ], [ %.pre46.pre.i.i, %_ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit._ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread.loopexit20_crit_edge.i.i ], [ %21, %.preheader.i.i.i ]
   store i64 %45, ptr %.sroa.337.sroa.3.0..sroa.337.0..sroa_idx.sroa_idx, align 8, !alias.scope !8, !noalias !11
   br label %.loopexit.i
 
@@ -196,15 +196,15 @@ _ZN4core5slice6memchr6memchr17h2cbc5c3ccb35b62bE.exit.thread.i.i: ; preds = %.pr
   br label %68
 
 68:                                               ; preds = %._crit_edge.i.i, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8b55eca284de6ec9E.exit.i"
-  %.sroa.4.0.i = phi i64 [ %59, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8b55eca284de6ec9E.exit.i" ], [ %66, %._crit_edge.i.i ]
-  %.sroa.0.0.i = phi ptr [ %60, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8b55eca284de6ec9E.exit.i" ], [ %67, %._crit_edge.i.i ]
+  %.sroa.4.0.i = phi i64 [ %66, %._crit_edge.i.i ], [ %59, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8b55eca284de6ec9E.exit.i" ]
+  %.sroa.0.0.i = phi ptr [ %67, %._crit_edge.i.i ], [ %60, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h8b55eca284de6ec9E.exit.i" ]
   %69 = call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17hd19c13bc214b08efE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.4.0.i)
   %70 = extractvalue { ptr, i64 } %69, 0
   %71 = extractvalue { ptr, i64 } %69, 1
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %75, label %76
 
-._crit_edge:                                      ; preds = %63, %.loopexit.i, %107
+._crit_edge:                                      ; preds = %.loopexit.i, %63, %107
   %.pre = load i32, ptr %9, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8

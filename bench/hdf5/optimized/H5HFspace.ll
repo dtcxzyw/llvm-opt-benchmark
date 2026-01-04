@@ -131,7 +131,7 @@ define range(i32 -1, 1) i32 @H5HF__space_start(ptr noundef %0, i1 noundef zeroex
   br label %44
 
 44:                                               ; preds = %2, %14, %24, %20, %43
-  %.016 = phi i32 [ -1, %20 ], [ 0, %14 ], [ %.1, %43 ], [ 0, %24 ], [ 0, %2 ]
+  %.016 = phi i32 [ -1, %20 ], [ 0, %14 ], [ 0, %2 ], [ %.1, %43 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.016
 }
@@ -267,7 +267,7 @@ define range(i32 -1, -2147483648) i32 @H5HF__space_find(ptr noundef %0, i64 noun
   br label %39
 
 39:                                               ; preds = %29, %.thread, %22, %35, %3
-  %.0 = phi i32 [ -1, %35 ], [ -1, %22 ], [ -1, %3 ], [ %33, %.thread ], [ 0, %29 ]
+  %.0 = phi i32 [ -1, %35 ], [ -1, %3 ], [ -1, %22 ], [ %33, %.thread ], [ 0, %29 ]
   ret i32 %.0
 }
 
@@ -608,7 +608,7 @@ define range(i32 -1, 1) i32 @H5HF__space_close(ptr noundef captures(none) %0) lo
   br label %43
 
 43:                                               ; preds = %1, %9, %42
-  %.013 = phi i32 [ %.1, %42 ], [ 0, %9 ], [ 0, %1 ]
+  %.013 = phi i32 [ 0, %1 ], [ %.1, %42 ], [ 0, %9 ]
   ret i32 %.013
 }
 

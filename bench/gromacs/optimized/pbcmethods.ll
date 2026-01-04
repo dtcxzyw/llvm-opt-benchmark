@@ -116,8 +116,8 @@ define void @_Z16calc_pbc_clusteriiP10t_topology7PbcTypePA3_fPKiS3_(i32 noundef 
   %52 = icmp slt i32 %.0154..us, %..0156.us
   br i1 %52, label %34, label %._crit_edge.us, !llvm.loop !30
 
-._crit_edge.us:                                   ; preds = %40, %34, %44
-  %.1155.us330 = phi i32 [ %.0154..us, %44 ], [ %.0156207.us, %40 ], [ %.0154208.us, %34 ]
+._crit_edge.us:                                   ; preds = %34, %40, %44
+  %.1155.us330 = phi i32 [ %.0154..us, %44 ], [ %.0154208.us, %34 ], [ %.0156207.us, %40 ]
   %53 = zext nneg i32 %.1155.us330 to i64
   %54 = getelementptr inbounds nuw i8, ptr %18, i64 %53
   store i8 1, ptr %54, align 1, !tbaa !29

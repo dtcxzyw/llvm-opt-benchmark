@@ -198,7 +198,7 @@ _ZNSt10_HashtableImSt4pairIKmN7rocksdb16BlobGarbageMeter13BlobInOutFlowEESaIS5_E
   br label %.body
 
 .loopexit:                                        ; preds = %54, %49, %.noexc
-  %.pn.i.i = phi ptr [ %50, %49 ], [ %64, %.noexc ], [ %56, %54 ]
+  %.pn.i.i = phi ptr [ %64, %.noexc ], [ %50, %49 ], [ %56, %54 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
   %66 = load i64, ptr %7, align 8, !tbaa !4
   %67 = load i64, ptr %.1.i.i, align 8, !tbaa !51
@@ -479,14 +479,14 @@ _ZN7rocksdb6StatusC2ERKS0_.exit:                  ; preds = %11, %31
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %64
   br label %.loopexit, !llvm.loop !45
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %44, %49, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %44, %..loopexit_crit_edge21.i.i.i.i, %49
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %68, align 8, !tbaa !30, !alias.scope !81
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !81
   br label %77
 
 _ZNSt13unordered_mapImN7rocksdb16BlobGarbageMeter13BlobInOutFlowESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE4findERS8_.exit: ; preds = %61, %45, %56
-  %.sroa.06.1.i.i = phi ptr [ %57, %56 ], [ %.sroa.06.0.i.i, %45 ], [ %63, %61 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %45 ], [ %57, %56 ], [ %63, %61 ]
   %69 = load i64, ptr %7, align 8, !tbaa !4
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 32
   %71 = load i64, ptr %70, align 8, !tbaa !51

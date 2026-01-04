@@ -285,7 +285,7 @@ define dso_local noundef zeroext i1 @topology_p_generate_node_ranking() local_un
   br i1 %39, label %.lr.ph21, label %._crit_edge22, !llvm.loop !13
 
 40:                                               ; preds = %3, %0, %._crit_edge22
-  %.014 = phi i1 [ true, %._crit_edge22 ], [ false, %0 ], [ false, %3 ]
+  %.014 = phi i1 [ false, %0 ], [ true, %._crit_edge22 ], [ false, %3 ]
   ret i1 %.014
 }
 
@@ -1233,7 +1233,7 @@ define dso_local range(i32 -1, 1) i32 @topology_p_get(i32 noundef %0, ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %3, %56, %55, %53
-  %.0 = phi i32 [ -1, %56 ], [ 0, %53 ], [ 0, %55 ], [ 0, %3 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ -1, %56 ], [ 0, %55 ], [ 0, %53 ], [ 0, %3 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -1507,7 +1507,7 @@ define dso_local noundef i32 @topology_p_topology_print(ptr noundef readonly cap
   br label %56
 
 56:                                               ; preds = %50, %37, %43, %52
-  %.142 = phi i32 [ %53, %52 ], [ %.04151, %43 ], [ %.04151, %37 ], [ %.04151, %50 ]
+  %.142 = phi i32 [ %.04151, %37 ], [ %53, %52 ], [ %.04151, %43 ], [ %.04151, %50 ]
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %57 = load i32, ptr %0, align 8
   %58 = zext i32 %57 to i64

@@ -66,7 +66,7 @@ define internal range(i32 0, 101) i32 @msnwc_tcp_probe(ptr noundef readonly capt
   br i1 %.not, label %.loopexit, label %6, !llvm.loop !13
 
 .loopexit:                                        ; preds = %25, %1, %23, %22
-  %.2 = phi i32 [ %., %23 ], [ 100, %22 ], [ 0, %1 ], [ 0, %25 ]
+  %.2 = phi i32 [ 100, %22 ], [ %., %23 ], [ 0, %1 ], [ 0, %25 ]
   ret i32 %.2
 }
 
@@ -158,7 +158,7 @@ define internal range(i32 25, 24) i32 @msnwc_tcp_read_packet(ptr noundef readonl
   br label %29
 
 29:                                               ; preds = %13, %2, %27
-  %.0 = phi i32 [ %28, %27 ], [ -1094995529, %2 ], [ %14, %13 ]
+  %.0 = phi i32 [ -1094995529, %2 ], [ %28, %27 ], [ %14, %13 ]
   ret i32 %.0
 }
 

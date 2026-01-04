@@ -74,7 +74,7 @@ define i32 @EVP_add_digest(ptr noundef %0) local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %11, %14, %20, %16, %6, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %6 ], [ 0, %16 ], [ %23, %20 ], [ %9, %14 ], [ %9, %11 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %1 ], [ 0, %6 ], [ %23, %20 ], [ %9, %14 ], [ %9, %11 ]
   ret i32 %.0
 }
 
@@ -122,7 +122,7 @@ define ptr @evp_get_cipherbyname_ex(ptr noundef %0, ptr noundef %1) local_unname
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %._crit_edge, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ %6, %5 ], [ %spec.select, %._crit_edge ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ null, %2 ], [ %spec.select, %._crit_edge ], [ %6, %5 ], [ null, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -204,7 +204,7 @@ define ptr @evp_get_digestbyname_ex(ptr noundef %0, ptr noundef %1) local_unname
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %._crit_edge, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ %6, %5 ], [ %spec.select, %._crit_edge ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ null, %2 ], [ %spec.select, %._crit_edge ], [ %6, %5 ], [ null, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

@@ -83,7 +83,7 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   br label %33
 
 33:                                               ; preds = %29, %26, %25, %21
-  %.sroa.3.0.i.ph.i = phi i8 [ %spec.select.i.i, %29 ], [ 1, %26 ], [ 1, %21 ], [ 0, %25 ]
+  %.sroa.3.0.i.ph.i = phi i8 [ 1, %26 ], [ 0, %25 ], [ 1, %21 ], [ %spec.select.i.i, %29 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !17
   store i8 %.sroa.3.0.i.ph.i, ptr %6, align 1, !noalias !17
   %34 = call noundef i64 @_ZN16ruff_source_file8newlines10LineEnding3len17ha337f21575292d8cE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %6), !noalias !17

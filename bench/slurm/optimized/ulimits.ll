@@ -328,7 +328,7 @@ rlim_to_string.exit16.i:                          ; preds = %126
   br label %_set_limit.exit
 
 _set_limit.exit:                                  ; preds = %50, %53, %55, %64, %71, %72, %120, %123, %130, %132, %135
-  %.sink.i = phi ptr [ %8, %53 ], [ %8, %50 ], [ %9, %120 ], [ %9, %130 ], [ %9, %123 ], [ %9, %132 ], [ %9, %135 ], [ %9, %71 ], [ %9, %72 ], [ %9, %55 ], [ %9, %64 ]
+  %.sink.i = phi ptr [ %8, %50 ], [ %8, %53 ], [ %9, %120 ], [ %9, %130 ], [ %9, %123 ], [ %9, %132 ], [ %9, %135 ], [ %9, %71 ], [ %9, %72 ], [ %9, %55 ], [ %9, %64 ]
   call void @slurm_xfree(ptr noundef nonnull %.sink.i) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

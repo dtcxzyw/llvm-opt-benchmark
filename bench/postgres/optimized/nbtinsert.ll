@@ -79,8 +79,8 @@ define dso_local noundef zeroext i1 @_bt_doinsert(ptr noundef %0, ptr noundef %1
   br label %19
 
 19:                                               ; preds = %13, %17, %5
-  %.064 = phi i1 [ false, %17 ], [ false, %5 ], [ true, %13 ]
-  %.0.shrunk = phi i1 [ true, %17 ], [ false, %5 ], [ false, %13 ]
+  %.064 = phi i1 [ false, %5 ], [ false, %17 ], [ true, %13 ]
+  %.0.shrunk = phi i1 [ false, %5 ], [ true, %17 ], [ false, %13 ]
   store ptr %1, ptr %11, align 8
   %20 = getelementptr i8, ptr %1, i64 6
   %.val = load i16, ptr %20, align 2
@@ -340,8 +340,8 @@ BufferGetPage.exit.i51:                           ; preds = %110, %104
   br label %145
 
 145:                                              ; preds = %.critedge.i55, %141
-  %.2123194.i = phi ptr [ %131, %141 ], [ %.0121.i, %.critedge.i55 ]
-  %.2119.i = phi ptr [ %144, %141 ], [ %.0117.i, %.critedge.i55 ]
+  %.2123194.i = phi ptr [ %.0121.i, %.critedge.i55 ], [ %131, %141 ]
+  %.2119.i = phi ptr [ %.0117.i, %.critedge.i55 ], [ %144, %141 ]
   %146 = getelementptr inbounds nuw i8, ptr %.2119.i, i64 6
   %147 = load i16, ptr %146, align 2
   %148 = and i16 %147, 8192
@@ -372,10 +372,10 @@ BTreeTupleIsPosting.exit.i:                       ; preds = %145
   br label %BTreeTupleIsPosting.exit.thread.i
 
 BTreeTupleIsPosting.exit.thread.i:                ; preds = %159, %152, %BTreeTupleIsPosting.exit.i, %145
-  %.sink.i = phi ptr [ %161, %159 ], [ %.2119.i, %145 ], [ %.2119.i, %BTreeTupleIsPosting.exit.i ], [ %158, %152 ]
-  %.3145.i = phi i1 [ true, %159 ], [ %.0142.i, %145 ], [ %.0142.i, %BTreeTupleIsPosting.exit.i ], [ true, %152 ]
-  %.3140.i = phi i1 [ %.0137.i, %159 ], [ %.0137.i, %145 ], [ %.0137.i, %BTreeTupleIsPosting.exit.i ], [ true, %152 ]
-  %.3134.i = phi i32 [ %.0131.i, %159 ], [ %.0131.i, %145 ], [ %.0131.i, %BTreeTupleIsPosting.exit.i ], [ 0, %152 ]
+  %.sink.i = phi ptr [ %.2119.i, %BTreeTupleIsPosting.exit.i ], [ %161, %159 ], [ %.2119.i, %145 ], [ %158, %152 ]
+  %.3145.i = phi i1 [ %.0142.i, %BTreeTupleIsPosting.exit.i ], [ true, %159 ], [ %.0142.i, %145 ], [ true, %152 ]
+  %.3140.i = phi i1 [ %.0137.i, %BTreeTupleIsPosting.exit.i ], [ %.0137.i, %159 ], [ %.0137.i, %145 ], [ true, %152 ]
+  %.3134.i = phi i32 [ %.0131.i, %BTreeTupleIsPosting.exit.i ], [ %.0131.i, %159 ], [ %.0131.i, %145 ], [ 0, %152 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %7, ptr noundef nonnull align 2 dereferenceable(6) %.sink.i, i64 6, i1 false)
   br i1 %32, label %162, label %165
 
@@ -506,7 +506,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %159, %152, %BTreeTu
   br label %218
 
 215:                                              ; preds = %.sink.split.i, %199, %162
-  %.4152.i = phi i8 [ %.0148.i, %199 ], [ 1, %162 ], [ %.0148.i, %.sink.split.i ]
+  %.4152.i = phi i8 [ 1, %162 ], [ %.0148.i, %199 ], [ %.0148.i, %.sink.split.i ]
   %216 = load i8, ptr %8, align 1, !range !4, !noundef !5
   %217 = trunc nuw i8 %216 to i1
   %.3145.not.i = xor i1 %.3145.i, true
@@ -529,10 +529,10 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %159, %152, %BTreeTu
   br i1 %223, label %.outer.split.i, label %.thread218.i
 
 .thread218.i:                                     ; preds = %218, %215, %135, %.outer.i
-  %.us-phi.i = phi ptr [ %.0117.ph.i, %.outer.i ], [ %.0117.i, %135 ], [ %.2119.i, %215 ], [ %.2119.i, %218 ]
-  %.us-phi276.i = phi ptr [ %.0121.ph.i, %.outer.i ], [ %131, %135 ], [ %.2123194.i, %215 ], [ %.2123194.i, %218 ]
-  %.us-phi277.i = phi i1 [ %.0137.ph.i, %.outer.i ], [ %.0137.i, %135 ], [ %spec.select.i, %215 ], [ %spec.select316.i, %218 ]
-  %.us-phi278.i = phi i8 [ %.0148.ph.i, %.outer.i ], [ %.0148.i, %135 ], [ %.4152.i, %215 ], [ %.4152315.i, %218 ]
+  %.us-phi.i = phi ptr [ %.0117.ph.i, %.outer.i ], [ %.2119.i, %215 ], [ %.0117.i, %135 ], [ %.2119.i, %218 ]
+  %.us-phi276.i = phi ptr [ %.0121.ph.i, %.outer.i ], [ %.2123194.i, %215 ], [ %131, %135 ], [ %.2123194.i, %218 ]
+  %.us-phi277.i = phi i1 [ %.0137.ph.i, %.outer.i ], [ %spec.select.i, %215 ], [ %.0137.i, %135 ], [ %spec.select316.i, %218 ]
+  %.us-phi278.i = phi i8 [ %.0148.ph.i, %.outer.i ], [ %.4152.i, %215 ], [ %.0148.i, %135 ], [ %.4152315.i, %218 ]
   %225 = icmp ult i16 %.0124.ph.i, %.0165.ph.i.ph
   br i1 %225, label %226, label %228
 
@@ -703,7 +703,7 @@ _bt_check_unique.exit.thread:                     ; preds = %.thread245.i, %292,
   br label %.thread
 
 .thread:                                          ; preds = %_bt_search_insert.exit, %_bt_check_unique.exit.thread, %303
-  %.266 = phi i1 [ %.472, %303 ], [ %.472, %_bt_check_unique.exit.thread ], [ %.064, %_bt_search_insert.exit ]
+  %.266 = phi i1 [ %.472, %_bt_check_unique.exit.thread ], [ %.472, %303 ], [ %.064, %_bt_search_insert.exit ]
   %305 = load i32, ptr %27, align 8
   br i1 %32, label %455, label %306
 
@@ -1421,9 +1421,9 @@ _bt_pgaddtup.exit.i:                              ; preds = %261, %259
   br label %272
 
 272:                                              ; preds = %270, %257, %244, %234
-  %.2275.i = phi i16 [ %.1274333.i, %257 ], [ %271, %270 ], [ %.1274333.i, %244 ], [ %.1274333.i, %234 ]
-  %.1270.i = phi i16 [ %258, %257 ], [ %.0269335.i, %270 ], [ %.0269335.i, %244 ], [ %.0269335.i, %234 ]
-  %.0263.i = phi ptr [ %242, %257 ], [ %242, %270 ], [ %242, %244 ], [ %.0148, %234 ]
+  %.2275.i = phi i16 [ %.1274333.i, %244 ], [ %.1274333.i, %257 ], [ %271, %270 ], [ %.1274333.i, %234 ]
+  %.1270.i = phi i16 [ %.0269335.i, %244 ], [ %258, %257 ], [ %.0269335.i, %270 ], [ %.0269335.i, %234 ]
+  %.0263.i = phi ptr [ %242, %244 ], [ %242, %257 ], [ %242, %270 ], [ %.0148, %234 ]
   %273 = icmp ult i16 %.0272334.i, %118
   br i1 %273, label %274, label %284
 
@@ -2031,7 +2031,7 @@ BufferGetPage.exit162:                            ; preds = %518, %524
   br label %.thread
 
 .thread:                                          ; preds = %556, %555
-  %.0140.ph = phi i8 [ 16, %555 ], [ 32, %556 ]
+  %.0140.ph = phi i8 [ 32, %556 ], [ 16, %555 ]
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %3, i8 noundef zeroext 8) #8
   br label %580
 
@@ -3475,7 +3475,7 @@ bsearch.exit77.thread.i:                          ; preds = %234, %bsearch.exit7
   br i1 %exitcond.not.i, label %bsearch.exit.thread.i, label %.lr.ph.i70.preheader.i, !llvm.loop !17
 
 bsearch.exit.thread.i:                            ; preds = %bsearch.exit77.thread.i, %196, %.lr.ph.i, %209, %bsearch.exit.i, %BTreeTupleIsPosting.exit.thread.i
-  %250 = phi i32 [ %166, %209 ], [ %166, %BTreeTupleIsPosting.exit.thread.i ], [ %208, %bsearch.exit.i ], [ %166, %.lr.ph.i ], [ %166, %196 ], [ %249, %bsearch.exit77.thread.i ]
+  %250 = phi i32 [ %166, %196 ], [ %208, %bsearch.exit.i ], [ %166, %.lr.ph.i ], [ %166, %209 ], [ %166, %BTreeTupleIsPosting.exit.thread.i ], [ %249, %bsearch.exit77.thread.i ]
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %indvars.i = trunc i64 %indvars.iv.next99.i to i16
   %.not.i = icmp ult i16 %.0.i, %indvars.i

@@ -1672,7 +1672,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %425, %_ZNSt6vectorI
   br i1 %368, label %367, label %.loopexit481, !llvm.loop !141
 
 451:                                              ; preds = %.loopexit358, %.loopexit.split-lp359, %.loopexit, %.loopexit.split-lp
-  %.pn122 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit360, %.loopexit358 ], [ %lpad.loopexit.split-lp361, %.loopexit.split-lp359 ]
+  %.pn122 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit360, %.loopexit358 ], [ %lpad.loopexit.split-lp361, %.loopexit.split-lp359 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %615
 
@@ -2177,7 +2177,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EED2Ev.exit274:   ; preds = %_ZSt8_DestroyIPN2cv
   br label %.body163
 
 .body163:                                         ; preds = %.thread342, %615
-  %.pn122.pn.pn.pn = phi { ptr, i32 } [ %.pn122.pn.pn, %615 ], [ %.pn122.pn.pn345, %.thread342 ]
+  %.pn122.pn.pn.pn = phi { ptr, i32 } [ %.pn122.pn.pn345, %.thread342 ], [ %.pn122.pn.pn, %615 ]
   %.not.i.i280 = icmp eq ptr %173, null
   br i1 %.not.i.i280, label %.body, label %622
 
@@ -2195,7 +2195,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EED2Ev.exit274:   ; preds = %_ZSt8_DestroyIPN2cv
   br label %.body
 
 .body:                                            ; preds = %622, %.body163, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit291
-  %.pn122.pn.pn.pn.pn = phi { ptr, i32 } [ %161, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit291 ], [ %.pn122.pn.pn.pn, %.body163 ], [ %.pn122.pn.pn.pn349, %622 ]
+  %.pn122.pn.pn.pn.pn = phi { ptr, i32 } [ %161, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit291 ], [ %.pn122.pn.pn.pn349, %622 ], [ %.pn122.pn.pn.pn, %.body163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %631 = load ptr, ptr %18, align 8, !tbaa !22
   %.not.i.i.i285 = icmp eq ptr %631, null
@@ -3103,7 +3103,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit311: ; preds = %.noexc309, %3
   br label %383
 
 383:                                              ; preds = %.loopexit722, %.loopexit.split-lp723, %.loopexit717, %.loopexit.split-lp718, %381, %379, %166
-  %.pn239.pn = phi { ptr, i32 } [ %167, %166 ], [ %382, %381 ], [ %380, %379 ], [ %lpad.loopexit719, %.loopexit717 ], [ %lpad.loopexit.split-lp720, %.loopexit.split-lp718 ], [ %lpad.loopexit724, %.loopexit722 ], [ %lpad.loopexit.split-lp725, %.loopexit.split-lp723 ]
+  %.pn239.pn = phi { ptr, i32 } [ %380, %379 ], [ %167, %166 ], [ %382, %381 ], [ %lpad.loopexit.split-lp720, %.loopexit.split-lp718 ], [ %lpad.loopexit719, %.loopexit717 ], [ %lpad.loopexit724, %.loopexit722 ], [ %lpad.loopexit.split-lp725, %.loopexit.split-lp723 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #25
@@ -3943,7 +3943,7 @@ _ZNSt6vectorIN2cv8tracking4impl3tld11TLDDetector12LabeledPatchESaIS5_EE9push_bac
   br i1 %722, label %573, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, !llvm.loop !253
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit415: ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit711, %.loopexit.split-lp712, %681, %479, %383, %164
-  %.pn239.pn.pn = phi { ptr, i32 } [ %.pn239.pn, %383 ], [ %165, %164 ], [ %480, %479 ], [ %682, %681 ], [ %lpad.loopexit713, %.loopexit711 ], [ %lpad.loopexit.split-lp714, %.loopexit.split-lp712 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn239.pn.pn = phi { ptr, i32 } [ %.pn239.pn, %383 ], [ %165, %164 ], [ %480, %479 ], [ %lpad.loopexit.split-lp714, %.loopexit.split-lp712 ], [ %682, %681 ], [ %lpad.loopexit713, %.loopexit711 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not4.i.i.i.i416 = icmp eq ptr %.sroa.0530.0, %.0.lcssa.i.i.i.i.i272
   br i1 %.not4.i.i.i.i416, label %_ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i424, label %.lr.ph.i.i.i.i417
 

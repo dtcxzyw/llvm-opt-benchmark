@@ -731,7 +731,7 @@ define dso_local i32 @onigenc_unicode_mbc_case_fold(ptr noundef readonly capture
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph61, !llvm.loop !22
 
 .loopexit:                                        ; preds = %34, %.lr.ph61, %45, %20, %._crit_edge
-  %.0 = phi i32 [ %27, %._crit_edge ], [ -400, %20 ], [ %11, %45 ], [ %11, %.lr.ph61 ], [ %41, %34 ]
+  %.0 = phi i32 [ %27, %._crit_edge ], [ %11, %45 ], [ -400, %20 ], [ %11, %.lr.ph61 ], [ %41, %34 ]
   ret i32 %.0
 }
 
@@ -916,7 +916,7 @@ apply_case_fold2.exit55:                          ; preds = %41, %50, %.thread.i
   br label %60
 
 60:                                               ; preds = %apply_case_fold2.exit55, %apply_case_fold2.exit, %58, %11, %9, %3
-  %.0 = phi i32 [ %8, %3 ], [ %10, %9 ], [ 0, %11 ], [ %.237.ph.i, %apply_case_fold2.exit ], [ %.237.ph.i40, %apply_case_fold2.exit55 ], [ %59, %58 ]
+  %.0 = phi i32 [ %.237.ph.i40, %apply_case_fold2.exit55 ], [ %8, %3 ], [ %10, %9 ], [ 0, %11 ], [ %.237.ph.i, %apply_case_fold2.exit ], [ %59, %58 ]
   ret i32 %.0
 }
 
@@ -1079,8 +1079,8 @@ select.unfold.us.us.us:                           ; preds = %35
   %.not57 = icmp eq i32 %65, 0
   br i1 %.not57, label %select.unfold, label %.thread
 
-.thread:                                          ; preds = %63, %60, %.lr.ph.us.us, %35
-  %.us-phi = phi i32 [ %37, %35 ], [ %34, %.lr.ph.us.us ], [ %65, %63 ], [ %62, %60 ]
+.thread:                                          ; preds = %60, %63, %.lr.ph.us.us, %35
+  %.us-phi = phi i32 [ %37, %35 ], [ %34, %.lr.ph.us.us ], [ %62, %60 ], [ %65, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread64
 
@@ -1091,7 +1091,7 @@ select.unfold:                                    ; preds = %63, %.lr.ph
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .thread64:                                        ; preds = %51, %54, %23, %28, %.thread
-  %.3.ph = phi i32 [ %.us-phi, %.thread ], [ %27, %23 ], [ %30, %28 ], [ %53, %51 ], [ %56, %54 ]
+  %.3.ph = phi i32 [ %.us-phi, %.thread ], [ %30, %28 ], [ %27, %23 ], [ %53, %51 ], [ %56, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit72.sink.split
 
@@ -1119,7 +1119,7 @@ select.unfold:                                    ; preds = %63, %.lr.ph
   br label %.loopexit72
 
 .loopexit72:                                      ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.loopexit72.sink.split, %5
-  %.6 = phi i32 [ 0, %5 ], [ %.6.ph, %.loopexit72.sink.split ], [ 0, %._crit_edge.split.us.us ], [ 0, %._crit_edge.split ]
+  %.6 = phi i32 [ %.6.ph, %.loopexit72.sink.split ], [ 0, %._crit_edge.split.us.us ], [ 0, %5 ], [ 0, %._crit_edge.split ]
   ret i32 %.6
 }
 
@@ -2125,7 +2125,7 @@ define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef rea
   br i1 %exitcond591.not, label %.thread, label %393, !llvm.loop !53
 
 .thread:                                          ; preds = %._crit_edge399.split.us.us.us, %._crit_edge422.us, %256, %403, %._crit_edge451.us, %._crit_edge482.split.us.us.us, %.preheader383.lr.ph, %.preheader378.lr.ph, %.preheader372.lr.ph, %.preheader369.lr.ph, %.preheader384, %.preheader379, %240, %386, %.preheader373, %.preheader370, %257, %383, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %257 ], [ 0, %383 ], [ %.1312.lcssa, %.preheader370 ], [ %.7.lcssa, %.preheader373 ], [ 0, %386 ], [ %.11, %240 ], [ %.14.lcssa, %.preheader379 ], [ %.18.lcssa, %.preheader384 ], [ %.1312.lcssa, %.preheader369.lr.ph ], [ %.7.lcssa, %.preheader372.lr.ph ], [ %.14.lcssa, %.preheader378.lr.ph ], [ %.18.lcssa, %.preheader383.lr.ph ], [ %.us-phi495.us.us, %._crit_edge482.split.us.us.us ], [ %.us-phi453.us, %._crit_edge451.us ], [ %.26, %403 ], [ %.13, %256 ], [ %296, %._crit_edge422.us ], [ %359, %._crit_edge399.split.us.us.us ]
+  %.0 = phi i32 [ 0, %5 ], [ %.1312.lcssa, %.preheader369.lr.ph ], [ %296, %._crit_edge422.us ], [ %.us-phi495.us.us, %._crit_edge482.split.us.us.us ], [ %.13, %256 ], [ 0, %257 ], [ 0, %383 ], [ %.26, %403 ], [ %.1312.lcssa, %.preheader370 ], [ %.7.lcssa, %.preheader372.lr.ph ], [ %.18.lcssa, %.preheader383.lr.ph ], [ %.7.lcssa, %.preheader373 ], [ %.14.lcssa, %.preheader378.lr.ph ], [ 0, %386 ], [ %.11, %240 ], [ %.14.lcssa, %.preheader379 ], [ %.us-phi453.us, %._crit_edge451.us ], [ %.18.lcssa, %.preheader384 ], [ %359, %._crit_edge399.split.us.us.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2433,7 +2433,7 @@ wb_get_type.exit288:                              ; preds = %51, %53, %57
   br i1 %112, label %._crit_edge358.thread, label %.thread293
 
 .thread293:                                       ; preds = %.lr.ph339, %89, %97, %._crit_edge340, %103
-  %.6 = phi ptr [ %107, %._crit_edge340 ], [ %.3255, %103 ], [ %.3255, %97 ], [ %.1253, %89 ], [ %107, %.lr.ph339 ]
+  %.6 = phi ptr [ %107, %._crit_edge340 ], [ %.3255, %103 ], [ %.1253, %89 ], [ %.3255, %97 ], [ %107, %.lr.ph339 ]
   %113 = icmp eq i32 %60, 14
   br i1 %113, label %114, label %.thread293.thread
 
@@ -2476,7 +2476,7 @@ wb_get_type.exit288:                              ; preds = %51, %53, %57
   br i1 %124, label %._crit_edge358.thread, label %.thread293.thread
 
 .thread293.thread:                                ; preds = %.lr.ph348, %115, %90, %114, %._crit_edge349, %.thread293
-  %.9 = phi ptr [ %117, %._crit_edge349 ], [ %.6, %.thread293 ], [ %.6, %114 ], [ %.1253, %90 ], [ %.6, %115 ], [ %117, %.lr.ph348 ]
+  %.9 = phi ptr [ %117, %._crit_edge349 ], [ %.6, %114 ], [ %.6, %.thread293 ], [ %.6, %115 ], [ %.1253, %90 ], [ %117, %.lr.ph348 ]
   %125 = icmp eq i32 %.0250, 14
   br i1 %125, label %126, label %132
 
@@ -2563,7 +2563,7 @@ wb_get_type.exit288:                              ; preds = %51, %53, %57
   br label %._crit_edge358.thread
 
 ._crit_edge358.thread:                            ; preds = %.lr.ph332, %.lr.ph332, %.lr.ph339, %.lr.ph348, %.preheader, %126, %126, %114, %114, %114, %84, %84, %142, %142, %142, %142, %.thread297, %132, %127, %._crit_edge349, %._crit_edge340, %98, %97, %._crit_edge, %._crit_edge, %87, %87, %.thread, %.thread, %.thread, %72, %70, %67, %67, %67, %66, %66, %66, %63, %12, %5, %._crit_edge358, %.thread299
-  %.0247 = phi i32 [ 1, %.thread299 ], [ 0, %._crit_edge358 ], [ 1, %5 ], [ 1, %12 ], [ 0, %63 ], [ 1, %66 ], [ 1, %66 ], [ 1, %66 ], [ 1, %67 ], [ 1, %67 ], [ 1, %67 ], [ 0, %70 ], [ 0, %72 ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %84 ], [ 0, %84 ], [ 0, %87 ], [ 0, %87 ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ 0, %97 ], [ 0, %98 ], [ 0, %._crit_edge340 ], [ 0, %114 ], [ 0, %._crit_edge349 ], [ 0, %126 ], [ 0, %126 ], [ 0, %127 ], [ 0, %132 ], [ 0, %.thread297 ], [ 0, %142 ], [ 0, %142 ], [ 0, %142 ], [ 0, %142 ], [ 0, %114 ], [ 0, %114 ], [ 0, %.preheader ], [ 0, %.lr.ph348 ], [ 0, %.lr.ph339 ], [ 0, %.lr.ph332 ], [ 0, %.lr.ph332 ]
+  %.0247 = phi i32 [ 0, %._crit_edge358 ], [ 1, %5 ], [ 0, %142 ], [ 1, %.thread299 ], [ 1, %12 ], [ 0, %63 ], [ 1, %66 ], [ 1, %67 ], [ 0, %70 ], [ 0, %72 ], [ 0, %.thread ], [ 0, %84 ], [ 0, %87 ], [ 0, %._crit_edge ], [ 0, %97 ], [ 0, %98 ], [ 0, %._crit_edge340 ], [ 0, %114 ], [ 0, %114 ], [ 0, %._crit_edge349 ], [ 0, %126 ], [ 0, %127 ], [ 0, %132 ], [ 0, %.thread297 ], [ 1, %66 ], [ 1, %66 ], [ 1, %67 ], [ 1, %67 ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %84 ], [ 0, %87 ], [ 0, %._crit_edge ], [ 0, %114 ], [ 0, %126 ], [ 0, %142 ], [ 0, %142 ], [ 0, %142 ], [ 0, %.preheader ], [ 0, %.lr.ph339 ], [ 0, %.lr.ph348 ], [ 0, %.lr.ph332 ], [ 0, %.lr.ph332 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0247
@@ -2903,15 +2903,15 @@ egcb_get_type.exit61.i:                           ; preds = %62, %58, %56
 88:                                               ; preds = %87
   %89 = tail call i32 @onig_is_in_code_range(ptr noundef nonnull @CR_Extended_Pictographic, i32 noundef %18) #10
   %.not.i = icmp eq i32 %89, 0
-  br i1 %.not.i, label %unicode_egcb_is_break_2code.exit.thread69, label %.critedge
+  br i1 %.not.i, label %unicode_egcb_is_break_2code.exit.thread69, label %unicode_egcb_is_break_2code.exit
 
 90:                                               ; preds = %87
   %91 = icmp eq i32 %45, 6
   %92 = icmp eq i32 %65, 6
   %or.cond21.i = select i1 %91, i1 %92, i1 false
-  br i1 %or.cond21.i, label %unicode_egcb_is_break_2code.exit.preheader, label %unicode_egcb_is_break_2code.exit.thread69
+  br i1 %or.cond21.i, label %.critedge.preheader, label %unicode_egcb_is_break_2code.exit.thread69
 
-unicode_egcb_is_break_2code.exit.preheader:       ; preds = %90
+.critedge.preheader:                              ; preds = %90
   %93 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.043) #10
   %.not5274 = icmp eq ptr %93, null
   br i1 %.not5274, label %unicode_egcb_is_break_2code.exit.thread, label %.lr.ph
@@ -2919,13 +2919,13 @@ unicode_egcb_is_break_2code.exit.preheader:       ; preds = %90
 unicode_egcb_is_break_2code.exit.thread69:        ; preds = %egcb_get_type.exit61.i, %83, %88, %90, %71
   br label %unicode_egcb_is_break_2code.exit.thread
 
-.critedge:                                        ; preds = %88, %egcb_get_type.exit
+unicode_egcb_is_break_2code.exit:                 ; preds = %88, %egcb_get_type.exit
   %.144 = phi ptr [ %94, %egcb_get_type.exit ], [ %.043, %88 ]
   %94 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.144) #10
   %.not55 = icmp eq ptr %94, null
   br i1 %.not55, label %egcb_get_type.exit.thread, label %95
 
-95:                                               ; preds = %.critedge
+95:                                               ; preds = %unicode_egcb_is_break_2code.exit
   %96 = load ptr, ptr %14, align 8, !tbaa !9
   %97 = tail call i32 %96(ptr noundef nonnull %94, ptr noundef %4) #10
   %98 = tail call i32 @onig_is_in_code_range(ptr noundef nonnull @CR_Extended_Pictographic, i32 noundef %97) #10
@@ -2963,11 +2963,11 @@ egcb_get_type.exit:                               ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %115 = load i32, ptr %114, align 4, !tbaa !58
   %.not57 = icmp eq i32 %115, 4
-  br i1 %.not57, label %.critedge, label %egcb_get_type.exit.thread, !llvm.loop !67
+  br i1 %.not57, label %unicode_egcb_is_break_2code.exit, label %egcb_get_type.exit.thread, !llvm.loop !67
 
-.lr.ph:                                           ; preds = %unicode_egcb_is_break_2code.exit.preheader, %unicode_egcb_is_break_2code.exit
-  %116 = phi ptr [ %138, %unicode_egcb_is_break_2code.exit ], [ %93, %unicode_egcb_is_break_2code.exit.preheader ]
-  %.075 = phi i32 [ %137, %unicode_egcb_is_break_2code.exit ], [ 0, %unicode_egcb_is_break_2code.exit.preheader ]
+.lr.ph:                                           ; preds = %.critedge.preheader, %.critedge
+  %116 = phi ptr [ %138, %.critedge ], [ %93, %.critedge.preheader ]
+  %.075 = phi i32 [ %137, %.critedge ], [ 0, %.critedge.preheader ]
   %117 = load ptr, ptr %14, align 8, !tbaa !9
   %118 = tail call i32 %117(ptr noundef nonnull %116, ptr noundef %4) #10
   br label %119
@@ -3003,25 +3003,25 @@ egcb_get_type.exit66:                             ; preds = %131
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %136 = load i32, ptr %135, align 4, !tbaa !58
   %.not53 = icmp eq i32 %136, 6
-  br i1 %.not53, label %unicode_egcb_is_break_2code.exit, label %egcb_get_type.exit66.thread
+  br i1 %.not53, label %.critedge, label %egcb_get_type.exit66.thread
 
-unicode_egcb_is_break_2code.exit:                 ; preds = %egcb_get_type.exit66
+.critedge:                                        ; preds = %egcb_get_type.exit66
   %137 = add nuw nsw i32 %.075, 1
   %138 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %116) #10
   %.not52 = icmp eq ptr %138, null
   br i1 %.not52, label %egcb_get_type.exit66.thread, label %.lr.ph, !llvm.loop !68
 
-egcb_get_type.exit66.thread:                      ; preds = %unicode_egcb_is_break_2code.exit, %egcb_get_type.exit66, %131, %129
-  %.0.lcssa.ph = phi i32 [ %137, %unicode_egcb_is_break_2code.exit ], [ %.075, %egcb_get_type.exit66 ], [ %.075, %131 ], [ %.075, %129 ]
+egcb_get_type.exit66.thread:                      ; preds = %.critedge, %egcb_get_type.exit66, %131, %129
+  %.0.lcssa.ph = phi i32 [ %137, %.critedge ], [ %.075, %egcb_get_type.exit66 ], [ %.075, %131 ], [ %.075, %129 ]
   %139 = and i32 %.0.lcssa.ph, 1
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %unicode_egcb_is_break_2code.exit.thread, label %egcb_get_type.exit.thread
 
-egcb_get_type.exit.thread:                        ; preds = %108, %110, %.critedge, %egcb_get_type.exit, %egcb_get_type.exit66.thread
+egcb_get_type.exit.thread:                        ; preds = %108, %110, %unicode_egcb_is_break_2code.exit, %egcb_get_type.exit, %egcb_get_type.exit66.thread
   br label %unicode_egcb_is_break_2code.exit.thread
 
-unicode_egcb_is_break_2code.exit.thread:          ; preds = %95, %unicode_egcb_is_break_2code.exit.preheader, %87, %86, %86, %86, %83, %81, %77, %68, %10, %5, %egcb_get_type.exit66.thread, %egcb_get_type.exit.thread, %unicode_egcb_is_break_2code.exit.thread69, %22
-  %.042 = phi i32 [ 1, %egcb_get_type.exit.thread ], [ 1, %unicode_egcb_is_break_2code.exit.thread69 ], [ 0, %egcb_get_type.exit66.thread ], [ %26, %22 ], [ 1, %5 ], [ 1, %10 ], [ 0, %68 ], [ 0, %77 ], [ 0, %81 ], [ 0, %83 ], [ 0, %86 ], [ 0, %86 ], [ 0, %86 ], [ 0, %87 ], [ 0, %unicode_egcb_is_break_2code.exit.preheader ], [ 0, %95 ]
+unicode_egcb_is_break_2code.exit.thread:          ; preds = %95, %.critedge.preheader, %87, %86, %86, %86, %83, %81, %77, %68, %10, %5, %egcb_get_type.exit66.thread, %egcb_get_type.exit.thread, %unicode_egcb_is_break_2code.exit.thread69, %22
+  %.042 = phi i32 [ %26, %22 ], [ 1, %5 ], [ 0, %86 ], [ 1, %egcb_get_type.exit.thread ], [ 1, %10 ], [ 1, %unicode_egcb_is_break_2code.exit.thread69 ], [ 0, %87 ], [ 0, %egcb_get_type.exit66.thread ], [ 0, %68 ], [ 0, %77 ], [ 0, %81 ], [ 0, %83 ], [ 0, %86 ], [ 0, %86 ], [ 0, %.critedge.preheader ], [ 0, %95 ]
   ret i32 %.042
 }
 
@@ -3132,7 +3132,7 @@ define dso_local range(i32 -2147483648, 1) i32 @onig_unicode_define_user_propert
   br label %45
 
 45:                                               ; preds = %32, %9, %5, %2, %42, %31, %17
-  %.0 = phi i32 [ -223, %17 ], [ -5, %31 ], [ 0, %42 ], [ -404, %2 ], [ -405, %5 ], [ -5, %9 ], [ %40, %32 ]
+  %.0 = phi i32 [ 0, %42 ], [ -404, %2 ], [ -405, %5 ], [ -223, %17 ], [ -5, %31 ], [ -5, %9 ], [ %40, %32 ]
   ret i32 %.0
 }
 
@@ -3453,7 +3453,7 @@ unicode_lookup_property_name.exit:                ; preds = %gperf_case_strncmp.
   br label %unicode_lookup_property_name.exit.thread
 
 unicode_lookup_property_name.exit.thread:         ; preds = %13, %8, %hash.exit.i, %99, %104, %gperf_case_strncmp.exit.i, %gperf_case_strncmp.exit.thread.i, %33, %31, %unicode_lookup_property_name.exit
-  %.025 = phi i32 [ %129, %unicode_lookup_property_name.exit ], [ %32, %31 ], [ -223, %33 ], [ -223, %gperf_case_strncmp.exit.thread.i ], [ -223, %gperf_case_strncmp.exit.i ], [ -223, %104 ], [ -223, %99 ], [ -223, %hash.exit.i ], [ -223, %8 ], [ -223, %13 ]
+  %.025 = phi i32 [ %32, %31 ], [ -223, %99 ], [ %129, %unicode_lookup_property_name.exit ], [ -223, %hash.exit.i ], [ -223, %33 ], [ -223, %gperf_case_strncmp.exit.thread.i ], [ -223, %gperf_case_strncmp.exit.i ], [ -223, %104 ], [ -223, %8 ], [ -223, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.025
 }

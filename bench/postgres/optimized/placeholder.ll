@@ -386,7 +386,7 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
   unreachable
 
 .sink.split:                                      ; preds = %58, %34, %.lr.ph.i27, %38, %.lr.ph.i, %.critedge
-  %.sink = phi ptr [ %21, %.critedge ], [ %21, %.lr.ph.i ], [ %45, %38 ], [ %45, %.lr.ph.i27 ], [ %21, %34 ], [ %45, %58 ]
+  %.sink = phi ptr [ %21, %.lr.ph.i ], [ %45, %.lr.ph.i27 ], [ %21, %.critedge ], [ %21, %34 ], [ %45, %38 ], [ %45, %58 ]
   tail call void @list_free(ptr noundef %.sink) #4
   br label %66
 
@@ -714,7 +714,7 @@ define dso_local zeroext i1 @contain_placeholder_references_to(ptr noundef reado
   br label %contain_placeholder_references_walker.exit
 
 contain_placeholder_references_walker.exit:       ; preds = %.thread.i, %23, %19, %10, %3
-  %.0 = phi i1 [ false, %3 ], [ %25, %.thread.i ], [ %22, %19 ], [ %24, %23 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %3 ], [ %24, %23 ], [ %25, %.thread.i ], [ %22, %19 ], [ false, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -762,7 +762,7 @@ define internal zeroext i1 @contain_placeholder_references_walker(ptr noundef %0
   br label %25
 
 25:                                               ; preds = %12, %2, %.thread, %17
-  %.0 = phi i1 [ %24, %.thread ], [ %16, %12 ], [ %21, %17 ], [ false, %2 ]
+  %.0 = phi i1 [ %21, %17 ], [ %24, %.thread ], [ %16, %12 ], [ false, %2 ]
   ret i1 %.0
 }
 

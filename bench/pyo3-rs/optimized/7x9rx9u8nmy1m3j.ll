@@ -2152,7 +2152,7 @@ _ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit: ; p
           to label %441 unwind label %367
 
 .thread:                                          ; preds = %174, %161, %.thread81, %157
-  %.pn7079 = phi { ptr, i32 } [ %.pn68, %157 ], [ %lpad.thr_comm, %.thread81 ], [ %175, %174 ], [ %162, %161 ]
+  %.pn7079 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread81 ], [ %.pn68, %157 ], [ %175, %174 ], [ %162, %161 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %43) #6
           to label %83 unwind label %147
 
@@ -2899,7 +2899,7 @@ define hidden void @_ZN19pyo3_macros_backend6params22impl_regular_arg_param17hcb
           to label %.thread64 unwind label %93
 
 .thread60:                                        ; preds = %.invoke76, %.invoke, %102, %216, %214, %212, %331, %329, %270
-  %.sroa.05.0.ph = phi i1 [ true, %270 ], [ true, %329 ], [ true, %331 ], [ true, %212 ], [ true, %214 ], [ true, %216 ], [ true, %102 ], [ false, %.invoke ], [ true, %.invoke76 ]
+  %.sroa.05.0.ph = phi i1 [ true, %270 ], [ true, %329 ], [ true, %331 ], [ true, %102 ], [ false, %.invoke ], [ true, %212 ], [ true, %214 ], [ true, %216 ], [ true, %.invoke76 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -3983,8 +3983,8 @@ define hidden void @_ZN19pyo3_macros_backend6params22impl_regular_arg_param17hcb
   ret void
 
 .thread:                                          ; preds = %333, %218, %167, %.thread60
-  %.pn4458 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread60 ], [ %.pn13.pn, %333 ], [ %.pn29.pn, %218 ], [ %.pn35, %167 ]
-  %.sroa.05.257 = phi i1 [ %.sroa.05.0.ph, %.thread60 ], [ true, %333 ], [ true, %218 ], [ true, %167 ]
+  %.pn4458 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread60 ], [ %.pn13.pn, %333 ], [ %.pn35, %167 ], [ %.pn29.pn, %218 ]
+  %.sroa.05.257 = phi i1 [ %.sroa.05.0.ph, %.thread60 ], [ true, %333 ], [ true, %167 ], [ true, %218 ]
   %380 = load i64, ptr %65, align 8
   %381 = icmp ne i64 %380, -9223372036854775807
   %or.cond3 = and i1 %.sroa.05.257, %381

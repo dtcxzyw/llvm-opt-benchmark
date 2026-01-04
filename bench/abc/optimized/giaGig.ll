@@ -820,7 +820,7 @@ define noalias noundef ptr @Gls_ManCount(ptr noundef captures(none) %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.loopexit.loopexit, %30, %.fold.split40, %26, %.fold.split39, %22, %.fold.split38, %18, %.fold.split, %25, %33, %29, %21
-  %.128 = phi i32 [ 8, %21 ], [ 3, %25 ], [ 4, %29 ], [ 5, %33 ], [ 7, %18 ], [ %.02747, %.fold.split ], [ 2, %22 ], [ %.02747, %.fold.split38 ], [ 9, %26 ], [ %.02747, %.fold.split39 ], [ 6, %30 ], [ %.02747, %.fold.split40 ], [ %.02747, %.loopexit.loopexit ], [ 10, %14 ]
+  %.128 = phi i32 [ %.02747, %.fold.split40 ], [ 8, %21 ], [ 7, %18 ], [ %.02747, %.fold.split ], [ 3, %25 ], [ 2, %22 ], [ %.02747, %.fold.split38 ], [ 4, %29 ], [ 9, %26 ], [ %.02747, %.fold.split39 ], [ 5, %33 ], [ 6, %30 ], [ %.02747, %.loopexit.loopexit ], [ 10, %14 ]
   %34 = trunc i32 %.128 to i8
   %35 = load i32, ptr %5, align 4, !tbaa !12
   %36 = load i32, ptr %4, align 8, !tbaa !16
@@ -944,8 +944,8 @@ define i32 @Gls_ManParseOne(ptr noundef captures(none) %0) local_unnamed_addr #8
   br label %.fold.split
 
 .fold.split:                                      ; preds = %3, %.fold.split.loopexit36, %.fold.split.loopexit, %7
-  %.018 = phi i32 [ %10, %7 ], [ -1, %.fold.split.loopexit ], [ 0, %.fold.split.loopexit36 ], [ 1, %3 ]
-  %.1 = phi ptr [ %8, %7 ], [ %.0, %.fold.split.loopexit ], [ %.0, %.fold.split.loopexit36 ], [ %.0, %3 ]
+  %.018 = phi i32 [ %10, %7 ], [ 0, %.fold.split.loopexit36 ], [ -1, %.fold.split.loopexit ], [ 1, %3 ]
+  %.1 = phi ptr [ %8, %7 ], [ %.0, %.fold.split.loopexit36 ], [ %.0, %.fold.split.loopexit ], [ %.0, %3 ]
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge, %.fold.split
@@ -1707,8 +1707,8 @@ Vec_IntPush.exit183:                              ; preds = %.Vec_IntGrow.exit10
   br label %.fold.split.i186
 
 .fold.split.i186:                                 ; preds = %.preheader, %.fold.split.i186.loopexit, %.fold.split.i186.loopexit537, %319
-  %.018.i187 = phi i32 [ %322, %319 ], [ 1, %.fold.split.i186.loopexit537 ], [ -1, %.fold.split.i186.loopexit ], [ 0, %.preheader ]
-  %.1.i188 = phi ptr [ %320, %319 ], [ %.0.i184, %.fold.split.i186.loopexit537 ], [ %.0.i184, %.fold.split.i186.loopexit ], [ %.0.i184, %.preheader ]
+  %.018.i187 = phi i32 [ %322, %319 ], [ -1, %.fold.split.i186.loopexit ], [ 1, %.fold.split.i186.loopexit537 ], [ 0, %.preheader ]
+  %.1.i188 = phi ptr [ %320, %319 ], [ %.0.i184, %.fold.split.i186.loopexit ], [ %.0.i184, %.fold.split.i186.loopexit537 ], [ %.0.i184, %.preheader ]
   br label %.critedge.i189
 
 .critedge.i189:                                   ; preds = %.critedge.i189, %.fold.split.i186
@@ -2065,8 +2065,8 @@ Vec_IntPush.exit224:                              ; preds = %.Vec_IntGrow.exit10
   br label %.fold.split.i227
 
 .fold.split.i227:                                 ; preds = %.preheader369, %.fold.split.i227.loopexit, %.fold.split.i227.loopexit538, %476
-  %.018.i228 = phi i32 [ %479, %476 ], [ 1, %.fold.split.i227.loopexit538 ], [ -1, %.fold.split.i227.loopexit ], [ 0, %.preheader369 ]
-  %.1.i229 = phi ptr [ %477, %476 ], [ %.0.i225, %.fold.split.i227.loopexit538 ], [ %.0.i225, %.fold.split.i227.loopexit ], [ %.0.i225, %.preheader369 ]
+  %.018.i228 = phi i32 [ %479, %476 ], [ -1, %.fold.split.i227.loopexit ], [ 1, %.fold.split.i227.loopexit538 ], [ 0, %.preheader369 ]
+  %.1.i229 = phi ptr [ %477, %476 ], [ %.0.i225, %.fold.split.i227.loopexit ], [ %.0.i225, %.fold.split.i227.loopexit538 ], [ %.0.i225, %.preheader369 ]
   br label %.critedge.i230
 
 .critedge.i230:                                   ; preds = %.critedge.i230, %.fold.split.i227
@@ -2930,8 +2930,8 @@ Vec_IntPush.exit314:                              ; preds = %.Vec_IntGrow.exit10
   br label %.fold.split.i317
 
 .fold.split.i317:                                 ; preds = %.preheader371, %.fold.split.i317.loopexit, %.fold.split.i317.loopexit540, %865
-  %.018.i318 = phi i32 [ %868, %865 ], [ 1, %.fold.split.i317.loopexit540 ], [ -1, %.fold.split.i317.loopexit ], [ 0, %.preheader371 ]
-  %.1.i319 = phi ptr [ %866, %865 ], [ %.0.i315, %.fold.split.i317.loopexit540 ], [ %.0.i315, %.fold.split.i317.loopexit ], [ %.0.i315, %.preheader371 ]
+  %.018.i318 = phi i32 [ %868, %865 ], [ -1, %.fold.split.i317.loopexit ], [ 1, %.fold.split.i317.loopexit540 ], [ 0, %.preheader371 ]
+  %.1.i319 = phi ptr [ %866, %865 ], [ %.0.i315, %.fold.split.i317.loopexit ], [ %.0.i315, %.fold.split.i317.loopexit540 ], [ %.0.i315, %.preheader371 ]
   br label %.critedge.i320
 
 .critedge.i320:                                   ; preds = %.critedge.i320, %.fold.split.i317
@@ -3275,9 +3275,9 @@ define internal fastcc void @Abc_TtReadHex(ptr noundef nonnull captures(none) %0
   br label %.sink.split
 
 .lr.ph57.preheader:                               ; preds = %21, %.lr.ph.preheader.i
-  %.0.lcssa74 = phi i32 [ 1, %21 ], [ %indvars, %.lr.ph.preheader.i ]
-  %.fr = phi i32 [ 2, %21 ], [ %31, %.lr.ph.preheader.i ]
-  %37 = phi i64 [ 8, %21 ], [ %36, %.lr.ph.preheader.i ]
+  %.0.lcssa74 = phi i32 [ %indvars, %.lr.ph.preheader.i ], [ 1, %21 ]
+  %.fr = phi i32 [ %31, %.lr.ph.preheader.i ], [ 2, %21 ]
+  %37 = phi i64 [ %36, %.lr.ph.preheader.i ], [ 8, %21 ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %0, i8 0, i64 %37, i1 false), !tbaa !61
   %38 = sext i32 %.0.lcssa74 to i64
   %wide.trip.count = zext i32 %.0.lcssa74 to i64
@@ -3352,7 +3352,7 @@ Abc_TtReadHexDigit.exit:                          ; preds = %45, %49, %51
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread83, %63, %22, %25
-  %.sink = phi i64 [ %27, %25 ], [ %24, %22 ], [ 0, %.thread83 ], [ %75, %63 ]
+  %.sink = phi i64 [ %24, %22 ], [ %27, %25 ], [ 0, %.thread83 ], [ %75, %63 ]
   store i64 %.sink, ptr %0, align 8, !tbaa !61
   br label %76
 

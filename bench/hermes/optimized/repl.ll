@@ -639,7 +639,7 @@ if.then4.i.i:                                     ; preds = %if.then85
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %call86, %if.then4.i.i ]
+  %phi.call.i = phi ptr [ %call86, %if.then4.i.i ], [ %call3.i.i, %if.then.i.i ]
   %vtable.i65 = load ptr, ptr %call.i.i58, align 8, !noalias !5
   %vfn.i66 = getelementptr inbounds nuw i8, ptr %vtable.i65, i64 32
   %48 = load ptr, ptr %vfn.i66, align 8, !noalias !5
@@ -905,7 +905,7 @@ switch.lookup:                                    ; preds = %sw.epilog.i
   br label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.exit.i.backedge"
 
 "_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.exit.i.backedge": ; preds = %switch.lookup, %sw.epilog.i
-  %not.call5.i.be = phi i32 [ %switch.load, %switch.lookup ], [ 1, %sw.epilog.i ]
+  %not.call5.i.be = phi i32 [ 1, %sw.epilog.i ], [ %switch.load, %switch.lookup ]
   br label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.exit.i"
 
 "_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.exit.i": ; preds = %if.end.i112, %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.exit.i.backedge"
@@ -952,7 +952,7 @@ sw.bb3.i.i:                                       ; preds = %while.body.i
   br label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.exit.i"
 
 "_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.exit.i": ; preds = %sw.bb3.i.i, %sw.bb2.i.i, %while.body.i
-  %retval.0.i8.i = phi i32 [ 53, %sw.bb2.i.i ], [ 55, %sw.bb3.i.i ], [ 49, %while.body.i ]
+  %retval.0.i8.i = phi i32 [ 55, %sw.bb3.i.i ], [ 53, %sw.bb2.i.i ], [ 49, %while.body.i ]
   %80 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %81 = load ptr, ptr %_M_start.i.i.i.i.i, align 8
   %cmp.i.i.i.i116 = icmp eq ptr %80, %81
@@ -1008,7 +1008,7 @@ while.end.i:                                      ; preds = %while.body.i, %"_ZZ
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.thread.i, %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.i, %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.exit.i", %while.end.i, %if.end.i112, %_ZN6hermes6parser7JSLexerC2EN4llvh9StringRefERNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb.exit.i
-  %retval.0.i117 = phi i1 [ %cmp.i.i.i22.i, %while.end.i ], [ false, %_ZN6hermes6parser7JSLexerC2EN4llvh9StringRefERNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb.exit.i ], [ true, %if.end.i112 ], [ false, %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.exit.i" ], [ false, %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.i ], [ false, %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.thread.i ]
+  %retval.0.i117 = phi i1 [ true, %if.end.i112 ], [ false, %_ZN6hermes6parser7JSLexerC2EN4llvh9StringRefERNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb.exit.i ], [ %cmp.i.i.i22.i, %while.end.i ], [ false, %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_1clEN6hermes6parser9TokenKindE.exit.i" ], [ false, %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.i ], [ false, %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEE3topEv.exit.thread.i ]
   %93 = load ptr, ptr %stack.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %93, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt5stackIN6hermes6parser9TokenKindESt5dequeIS2_SaIS2_EEED2Ev.exit.i, label %if.then.i.i.i23.i
@@ -1653,7 +1653,7 @@ cleanup:                                          ; preds = %_ZN4llvh11raw_ostre
   br label %return
 
 return:                                           ; preds = %if.then4, %entry, %cleanup, %if.end10
-  %retval.0 = phi i32 [ 0, %if.end10 ], [ %retval.1, %cleanup ], [ 2, %entry ], [ 1, %if.then4 ]
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 0, %if.end10 ], [ 2, %entry ], [ 1, %if.then4 ]
   ret i32 %retval.0
 }
 
@@ -2614,7 +2614,7 @@ _ZSt4copyIPPN6hermes6parser9TokenKindES4_ET0_T_S6_S5_.exit30: ; preds = %_ZNSt11
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPN6hermes6parser9TokenKindES4_ET0_T_S6_S5_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN6hermes6parser9TokenKindES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN6hermes6parser9TokenKindES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2841,7 +2841,7 @@ lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i
   br label %if.end, !llvm.loop !44
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
+  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %5, %if.end.i.i.i.i ], [ %7, %for.cond.i.i.i.i ]
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 8
   %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
   %9 = load ptr, ptr %second, align 8
@@ -2933,7 +2933,7 @@ _ZNSt13unordered_mapIjSt14_List_iteratorISt4pairIjPN6hermes2vm8CallableEEESt4has
   store i64 %dec.i.i.i.i, ptr %_M_element_count.i.i.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i, %_ZNSt13unordered_mapIjSt14_List_iteratorISt4pairIjPN6hermes2vm8CallableEEESt4hashIjESt8equal_toIjESaIS1_IKjS7_EEE5eraseENSt8__detail14_Node_iteratorISD_Lb0ELb0EEE.exit
+if.end:                                           ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %_ZNSt13unordered_mapIjSt14_List_iteratorISt4pairIjPN6hermes2vm8CallableEEESt4hashIjESt8equal_toIjESaIS1_IKjS7_EEE5eraseENSt8__detail14_Node_iteratorISD_Lb0ELb0EEE.exit
   ret void
 }
 

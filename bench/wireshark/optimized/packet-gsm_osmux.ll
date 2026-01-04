@@ -588,7 +588,7 @@ amr_ft_to_bytes.exit:                             ; preds = %61, %87
   br label %102
 
 102:                                              ; preds = %.thread, %._crit_edge
-  %.2 = phi i32 [ %101, %._crit_edge ], [ %60, %.thread ]
+  %.2 = phi i32 [ %60, %.thread ], [ %101, %._crit_edge ]
   ret i32 %.2
 }
 

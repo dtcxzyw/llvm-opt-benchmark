@@ -1040,7 +1040,7 @@ _ZNSt10unique_ptrIN6google8protobuf2io20ZeroCopyOutputStreamESt14default_deleteI
   br label %if.end149
 
 ehcleanup141:                                     ; preds = %_ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.i91, %lpad135, %lpad.i66, %invoke.cont13.i.i.i.i69, %lpad.i.i, %if.then.i.i.i2.i.i, %lpad.i48, %invoke.cont13.i.i.i.i, %lpad52, %ehcleanup81, %cleanup.action83
-  %.pn4 = phi { ptr, i32 } [ %.pn.pn114, %cleanup.action83 ], [ %.pn, %ehcleanup81 ], [ %39, %lpad52 ], [ %47, %invoke.cont13.i.i.i.i ], [ %47, %lpad.i48 ], [ %61, %if.then.i.i.i2.i.i ], [ %61, %lpad.i.i ], [ %66, %invoke.cont13.i.i.i.i69 ], [ %66, %lpad.i66 ], [ %77, %lpad135 ], [ %77, %_ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.i91 ]
+  %.pn4 = phi { ptr, i32 } [ %66, %lpad.i66 ], [ %.pn, %ehcleanup81 ], [ %.pn.pn114, %cleanup.action83 ], [ %61, %lpad.i.i ], [ %47, %lpad.i48 ], [ %39, %lpad52 ], [ %47, %invoke.cont13.i.i.i.i ], [ %61, %if.then.i.i.i2.i.i ], [ %66, %invoke.cont13.i.i.i.i69 ], [ %77, %lpad135 ], [ %77, %_ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.i91 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %info_full_path) #23
   br label %ehcleanup142
 
@@ -2055,12 +2055,12 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
   ret void
 
 ehcleanup110:                                     ; preds = %lpad33.loopexit, %lpad33.loopexit.split-lp, %lpad.i137, %invoke.cont13.i.i.i.i140, %lpad.i117, %invoke.cont13.i.i.i.i120, %lpad.i100, %invoke.cont13.i.i.i.i103, %ehcleanup84
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup84 ], [ %57, %invoke.cont13.i.i.i.i103 ], [ %57, %lpad.i100 ], [ %63, %invoke.cont13.i.i.i.i120 ], [ %63, %lpad.i117 ], [ %73, %invoke.cont13.i.i.i.i140 ], [ %73, %lpad.i137 ], [ %lpad.loopexit, %lpad33.loopexit ], [ %lpad.loopexit.split-lp, %lpad33.loopexit.split-lp ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup84 ], [ %63, %lpad.i117 ], [ %57, %lpad.i100 ], [ %73, %lpad.i137 ], [ %57, %invoke.cont13.i.i.i.i103 ], [ %63, %invoke.cont13.i.i.i.i120 ], [ %73, %invoke.cont13.i.i.i.i140 ], [ %lpad.loopexit, %lpad33.loopexit ], [ %lpad.loopexit.split-lp, %lpad33.loopexit.split-lp ]
   call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %dependencies) #23
   br label %ehcleanup111
 
 ehcleanup111:                                     ; preds = %lpad2.loopexit, %lpad2.loopexit.split-lp, %lpad.i71, %invoke.cont13.i.i.i.i74, %lpad.i51, %invoke.cont13.i.i.i.i54, %invoke.cont13.i.i.i.i, %lpad.i, %lpad.i33, %invoke.cont13.i.i.i.i36, %ehcleanup110, %ehcleanup
-  %.pn25.pn = phi { ptr, i32 } [ %.pn25, %ehcleanup ], [ %.pn.pn.pn.pn, %ehcleanup110 ], [ %3, %invoke.cont13.i.i.i.i ], [ %3, %lpad.i ], [ %11, %invoke.cont13.i.i.i.i36 ], [ %11, %lpad.i33 ], [ %16, %invoke.cont13.i.i.i.i54 ], [ %16, %lpad.i51 ], [ %25, %invoke.cont13.i.i.i.i74 ], [ %25, %lpad.i71 ], [ %lpad.loopexit152, %lpad2.loopexit ], [ %lpad.loopexit.split-lp153, %lpad2.loopexit.split-lp ]
+  %.pn25.pn = phi { ptr, i32 } [ %.pn25, %ehcleanup ], [ %.pn.pn.pn.pn, %ehcleanup110 ], [ %3, %lpad.i ], [ %3, %invoke.cont13.i.i.i.i ], [ %11, %lpad.i33 ], [ %11, %invoke.cont13.i.i.i.i36 ], [ %16, %lpad.i51 ], [ %25, %lpad.i71 ], [ %16, %invoke.cont13.i.i.i.i54 ], [ %25, %invoke.cont13.i.i.i.i74 ], [ %lpad.loopexit152, %lpad2.loopexit ], [ %lpad.loopexit.split-lp153, %lpad2.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_data) #23
   br label %ehcleanup112
 
@@ -3581,8 +3581,8 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
-  %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
-  %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
+  %7 = phi ptr [ %1, %land.lhs.true ], [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ]
+  %target.sroa.0.0 = phi i64 [ %0, %land.lhs.true ], [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ]
   %compressed_tuple_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1

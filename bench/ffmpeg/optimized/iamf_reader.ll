@@ -79,7 +79,7 @@ define i32 @ff_iamf_read_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %or.cond74, label %41, label %43
 
 41:                                               ; preds = %36, %33
-  %42 = phi i32 [ -1094995529, %36 ], [ %34, %33 ]
+  %42 = phi i32 [ %34, %33 ], [ -1094995529, %36 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str) #7
   br label %.thread
 
@@ -630,8 +630,8 @@ parameter_block_obu.exit.thread88:                ; preds = %283, %.loopexit227.
   br label %290
 
 parameter_block_obu.exit:                         ; preds = %137, %153, %118, %270
-  %.0151217.i = phi ptr [ %156, %270 ], [ null, %118 ], [ null, %153 ], [ null, %137 ]
-  %.0157216.i = phi i32 [ -1094995529, %270 ], [ %spec.select, %118 ], [ -1094995529, %137 ], [ -12, %153 ]
+  %.0151217.i = phi ptr [ null, %118 ], [ %156, %270 ], [ null, %153 ], [ null, %137 ]
+  %.0157216.i = phi i32 [ %spec.select, %118 ], [ -1094995529, %270 ], [ -1094995529, %137 ], [ -12, %153 ]
   call void @av_free(ptr noundef %.0151217.i) #7
   call void @av_free(ptr noundef nonnull %115) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -687,8 +687,8 @@ parameter_block_obu.exit:                         ; preds = %137, %153, %118, %2
   %299 = icmp slt i32 %298, 0
   br i1 %299, label %.thread, label %28
 
-.thread:                                          ; preds = %293, %295, %28, %32, %290, %parameter_block_obu.exit.thread, %audio_frame_obu.exit, %find_stream_by_id.exit.i, %77, %80, %86, %94, %102, %find_stream_by_id.exit.thread.i, %parameter_block_obu.exit, %41, %6, %.thread.loopexit.split.loop.exit159
-  %.4 = phi i32 [ -12, %parameter_block_obu.exit.thread ], [ %75, %find_stream_by_id.exit.i ], [ -1094995529, %77 ], [ -12, %80 ], [ -12, %86 ], [ -12, %94 ], [ -12, %102 ], [ -1094995529, %find_stream_by_id.exit.thread.i ], [ %47, %audio_frame_obu.exit ], [ %.0157216.i, %parameter_block_obu.exit ], [ %42, %41 ], [ %294, %.thread.loopexit.split.loop.exit159 ], [ %17, %6 ], [ -1094995529, %290 ], [ -1094995529, %32 ], [ %30, %28 ], [ %298, %295 ], [ %47, %293 ]
+.thread:                                          ; preds = %293, %295, %28, %290, %32, %parameter_block_obu.exit.thread, %audio_frame_obu.exit, %find_stream_by_id.exit.thread.i, %find_stream_by_id.exit.i, %94, %80, %86, %102, %77, %parameter_block_obu.exit, %41, %6, %.thread.loopexit.split.loop.exit159
+  %.4 = phi i32 [ %294, %.thread.loopexit.split.loop.exit159 ], [ -12, %parameter_block_obu.exit.thread ], [ -1094995529, %find_stream_by_id.exit.thread.i ], [ %75, %find_stream_by_id.exit.i ], [ -12, %94 ], [ -12, %80 ], [ -12, %86 ], [ -12, %102 ], [ -1094995529, %77 ], [ %47, %audio_frame_obu.exit ], [ %.0157216.i, %parameter_block_obu.exit ], [ %42, %41 ], [ %17, %6 ], [ %298, %295 ], [ %30, %28 ], [ -1094995529, %290 ], [ -1094995529, %32 ], [ %47, %293 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

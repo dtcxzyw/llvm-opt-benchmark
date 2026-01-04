@@ -327,7 +327,7 @@ list_length.exit.thread:                          ; preds = %.list_length.exit.t
   br i1 %exitcond.not.i, label %sql_fn_resolve_param_name.exit, label %.lr.ph.i, !llvm.loop !8
 
 sql_fn_resolve_param_name.exit:                   ; preds = %66, %34, %.preheader.i, %48, %65
-  %.012.i = phi ptr [ null, %34 ], [ %51, %48 ], [ %51, %65 ], [ null, %.preheader.i ], [ null, %66 ]
+  %.012.i = phi ptr [ null, %34 ], [ %51, %65 ], [ %51, %48 ], [ null, %.preheader.i ], [ null, %66 ]
   %67 = load ptr, ptr %7, align 8
   %68 = getelementptr i8, ptr %67, i64 16
   %.val54 = load ptr, ptr %68, align 8
@@ -487,9 +487,9 @@ sql_fn_resolve_param_name.exit68:                 ; preds = %.loopexit, %sql_fn_
   %.not49 = icmp eq ptr %.041, null
   br i1 %.not49, label %sql_fn_resolve_param_name.exit68.thread92, label %sql_fn_resolve_param_name.exit68.thread85
 
-sql_fn_resolve_param_name.exit68.thread85:        ; preds = %140, %123, %sql_fn_resolve_param_name.exit68
-  %.04190 = phi ptr [ %.041, %sql_fn_resolve_param_name.exit68 ], [ %126, %140 ], [ %126, %123 ]
-  %.14489 = phi ptr [ %.144, %sql_fn_resolve_param_name.exit68 ], [ %.043, %140 ], [ %.043, %123 ]
+sql_fn_resolve_param_name.exit68.thread85:        ; preds = %123, %140, %sql_fn_resolve_param_name.exit68
+  %.04190 = phi ptr [ %.041, %sql_fn_resolve_param_name.exit68 ], [ %126, %123 ], [ %126, %140 ]
+  %.14489 = phi ptr [ %.144, %sql_fn_resolve_param_name.exit68 ], [ %.043, %123 ], [ %.043, %140 ]
   %.not50 = icmp eq ptr %.14489, null
   br i1 %.not50, label %sql_fn_resolve_param_name.exit68.thread92, label %142
 
@@ -503,8 +503,8 @@ sql_fn_resolve_param_name.exit68.thread85:        ; preds = %140, %123, %sql_fn_
   %149 = tail call ptr @ParseFuncOrColumn(ptr noundef %0, ptr noundef %143, ptr noundef %144, ptr noundef %146, ptr noundef null, i1 noundef zeroext false, i32 noundef %148) #10
   br label %sql_fn_resolve_param_name.exit68.thread92
 
-sql_fn_resolve_param_name.exit68.thread92:        ; preds = %141, %89, %106, %.preheader.i69, %109, %sql_fn_resolve_param_name.exit68.thread85, %142, %sql_fn_resolve_param_name.exit68, %31, %list_length.exit, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %list_length.exit ], [ null, %31 ], [ null, %sql_fn_resolve_param_name.exit68 ], [ %149, %142 ], [ %.04190, %sql_fn_resolve_param_name.exit68.thread85 ], [ null, %109 ], [ null, %.preheader.i69 ], [ %92, %106 ], [ %92, %89 ], [ null, %141 ]
+sql_fn_resolve_param_name.exit68.thread92:        ; preds = %141, %106, %89, %109, %.preheader.i69, %sql_fn_resolve_param_name.exit68.thread85, %142, %sql_fn_resolve_param_name.exit68, %31, %list_length.exit, %3
+  %.0 = phi ptr [ null, %31 ], [ null, %3 ], [ null, %list_length.exit ], [ null, %sql_fn_resolve_param_name.exit68 ], [ %149, %142 ], [ %.04190, %sql_fn_resolve_param_name.exit68.thread85 ], [ null, %.preheader.i69 ], [ %92, %106 ], [ null, %109 ], [ %92, %89 ], [ null, %141 ]
   ret ptr %.0
 }
 
@@ -559,7 +559,7 @@ define internal noundef ptr @sql_fn_param_ref(ptr noundef readonly captures(none
   br label %sql_fn_make_param.exit
 
 sql_fn_make_param.exit:                           ; preds = %31, %12, %2, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %2 ], [ %15, %12 ], [ %15, %31 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ %15, %12 ], [ %15, %31 ]
   ret ptr %.0
 }
 
@@ -807,7 +807,7 @@ define dso_local i64 @fmgr_sql(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %141, label %.lr.ph130.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph119.i, %.lr.ph130.i, %.lr.ph122.i, %125, %.lr.ph.i, %112
-  %.1.i = phi ptr [ null, %125 ], [ null, %.lr.ph122.i ], [ null, %112 ], [ null, %.lr.ph.i ], [ %138, %.lr.ph130.i ], [ %121, %.lr.ph119.i ]
+  %.1.i = phi ptr [ %138, %.lr.ph130.i ], [ null, %125 ], [ null, %.lr.ph122.i ], [ null, %112 ], [ null, %.lr.ph.i ], [ %121, %.lr.ph119.i ]
   call void @check_sql_fn_statements(ptr noundef %.1.i)
   %142 = load i32, ptr %2, align 4
   %143 = load ptr, ptr %3, align 8
@@ -1079,7 +1079,7 @@ define dso_local i64 @fmgr_sql(ptr noundef %0) local_unnamed_addr #0 {
   br label %init_sql_fcache.exit
 
 init_sql_fcache.exit:                             ; preds = %179, %.lr.ph104.i.i, %.critedge.i.i, %261, %264, %266, %272, %276
-  %.0.lcssa120.i.i = phi ptr [ %197, %264 ], [ %197, %266 ], [ %197, %272 ], [ %197, %276 ], [ %197, %261 ], [ %197, %.critedge.i.i ], [ null, %179 ], [ null, %.lr.ph104.i.i ]
+  %.0.lcssa120.i.i = phi ptr [ %197, %.critedge.i.i ], [ %197, %264 ], [ %197, %266 ], [ %197, %272 ], [ %197, %276 ], [ %197, %261 ], [ null, %179 ], [ null, %.lr.ph104.i.i ]
   %279 = getelementptr inbounds nuw i8, ptr %61, i64 64
   store ptr %.0.lcssa120.i.i, ptr %279, align 8
   %280 = load ptr, ptr @MyProc, align 8
@@ -1228,8 +1228,8 @@ init_sql_fcache.exit:                             ; preds = %179, %.lr.ph104.i.i
   br label %postquel_sub_params.exit
 
 postquel_sub_params.exit:                         ; preds = %.critedge180, %341, %289, %.lr.ph, %347, %.critedge
-  %.1137209 = phi ptr [ %.2138, %.critedge ], [ %.2138, %347 ], [ null, %.lr.ph ], [ null, %289 ], [ %.2138, %341 ], [ null, %.critedge180 ]
-  %.0143203208 = phi ptr [ %301, %.critedge ], [ %301, %347 ], [ null, %.lr.ph ], [ null, %289 ], [ %301, %341 ], [ null, %.critedge180 ]
+  %.1137209 = phi ptr [ %.2138, %347 ], [ %.2138, %.critedge ], [ %.2138, %341 ], [ null, %289 ], [ null, %.lr.ph ], [ null, %.critedge180 ]
+  %.0143203208 = phi ptr [ %301, %347 ], [ %301, %.critedge ], [ %301, %341 ], [ null, %289 ], [ null, %.lr.ph ], [ null, %.critedge180 ]
   %349 = getelementptr inbounds nuw i8, ptr %.1, i64 48
   %350 = load ptr, ptr %349, align 8
   %.not167 = icmp eq ptr %350, null
@@ -2180,7 +2180,7 @@ define dso_local noundef zeroext i1 @check_sql_fn_retval(ptr noundef readonly ca
   %.not198 = icmp eq ptr %44, null
   br i1 %.not198, label %.critedge211, label %50
 
-.critedge211:                                     ; preds = %.lr.ph250, %.preheader224, %41, %.critedge, %42
+.critedge211:                                     ; preds = %.preheader224, %.lr.ph250, %41, %.critedge, %42
   %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %46 = tail call i32 @errcode(i32 noundef 50724996) #10
   %47 = tail call ptr @format_type_be(i32 noundef %1) #10
@@ -2409,10 +2409,10 @@ list_length.exit218.us:                           ; preds = %125, %.lr.ph309
   br i1 %164, label %.preheader.split, label %.split277.us, !llvm.loop !16
 
 .split277.us:                                     ; preds = %101, %142, %160
-  %.us-phi278 = phi i8 [ %133, %142 ], [ 1, %160 ], [ %.promoted271, %101 ]
-  %.us-phi279 = phi ptr [ %134, %142 ], [ %163, %160 ], [ %.promoted, %101 ]
-  %.us-phi280 = phi ptr [ %149, %160 ], [ %149, %142 ], [ %108, %101 ]
-  %.us-phi281 = phi i32 [ %135, %160 ], [ %135, %142 ], [ %99, %101 ]
+  %.us-phi278 = phi i8 [ 1, %160 ], [ %133, %142 ], [ %.promoted271, %101 ]
+  %.us-phi279 = phi ptr [ %163, %160 ], [ %134, %142 ], [ %.promoted, %101 ]
+  %.us-phi280 = phi ptr [ %149, %142 ], [ %149, %160 ], [ %108, %101 ]
+  %.us-phi281 = phi i32 [ %135, %142 ], [ %135, %160 ], [ %99, %101 ]
   store ptr %.us-phi279, ptr %7, align 8
   store i8 %.us-phi278, ptr %8, align 1
   %165 = add i32 %.0178284421, 1
@@ -2488,7 +2488,7 @@ list_length.exit218.us:                           ; preds = %125, %.lr.ph309
   br label %.thread221
 
 .thread221:                                       ; preds = %.thread221.loopexit, %80, %60
-  %.1162 = phi i1 [ false, %60 ], [ false, %80 ], [ true, %.thread221.loopexit ]
+  %.1162 = phi i1 [ false, %80 ], [ false, %60 ], [ true, %.thread221.loopexit ]
   %204 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %205 = trunc nuw i8 %204 to i1
   br i1 %205, label %206, label %256
@@ -2600,7 +2600,7 @@ list_length.exit218.us:                           ; preds = %125, %.lr.ph309
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %86, %256, %10
-  %.0 = phi i1 [ false, %10 ], [ %.1162, %256 ], [ true, %86 ], [ %.0.ph, %.thread.sink.split ]
+  %.0 = phi i1 [ %.1162, %256 ], [ false, %10 ], [ true, %86 ], [ %.0.ph, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
@@ -2677,7 +2677,7 @@ list_length.exit:                                 ; preds = %26, %28
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %11, %list_length.exit
-  %.0 = phi i1 [ true, %list_length.exit ], [ false, %11 ], [ false, %19 ]
+  %.0 = phi i1 [ false, %19 ], [ true, %list_length.exit ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -2810,7 +2810,7 @@ define internal fastcc noundef ptr @sql_fn_resolve_param_name(ptr noundef readon
   br i1 %exitcond.not, label %sql_fn_make_param.exit, label %.lr.ph, !llvm.loop !8
 
 sql_fn_make_param.exit:                           ; preds = %33, %.preheader, %32, %15, %3
-  %.012 = phi ptr [ null, %3 ], [ %18, %15 ], [ %18, %32 ], [ null, %.preheader ], [ null, %33 ]
+  %.012 = phi ptr [ null, %3 ], [ %18, %32 ], [ %18, %15 ], [ null, %.preheader ], [ null, %33 ]
   ret ptr %.012
 }
 

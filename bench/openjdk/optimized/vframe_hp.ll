@@ -308,7 +308,7 @@ _ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackValueCollection.exit.s
   br label %_ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackValueCollection.exit
 
 _ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackValueCollection.exit: ; preds = %.critedge.i, %118, %_ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackValueCollection.exit.sink.split, %.preheader, %_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit, %_ZNK11RegisterMap7in_contEv.exit, %_ZNK11RegisterMap7in_contEv.exit.thread
-  %.020 = phi ptr [ %10, %_ZNK11RegisterMap7in_contEv.exit.thread ], [ %10, %_ZNK11RegisterMap7in_contEv.exit ], [ %10, %_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit ], [ %10, %.preheader ], [ %126, %_ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackValueCollection.exit.sink.split ], [ %10, %118 ], [ %10, %.critedge.i ]
+  %.020 = phi ptr [ %126, %_ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackValueCollection.exit.sink.split ], [ %10, %118 ], [ %10, %_ZNK11RegisterMap7in_contEv.exit.thread ], [ %10, %_ZNK11RegisterMap7in_contEv.exit ], [ %10, %.preheader ], [ %10, %_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit ], [ %10, %.critedge.i ]
   ret ptr %.020
 }
 
@@ -377,7 +377,7 @@ define hidden noundef zeroext i1 @_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6
   br label %17
 
 17:                                               ; preds = %11, %2, %.critedge
-  %.0 = phi i1 [ false, %.critedge ], [ false, %2 ], [ true, %11 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %.critedge ], [ true, %11 ]
   ret i1 %.0
 }
 
@@ -1287,7 +1287,7 @@ _ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackValueCollection.exit.si
   br label %_ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackValueCollection.exit
 
 _ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackValueCollection.exit: ; preds = %.critedge.i, %123, %_ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackValueCollection.exit.sink.split, %.preheader, %_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit, %_ZNK11RegisterMap7in_contEv.exit, %_ZNK11RegisterMap7in_contEv.exit.thread
-  %.020 = phi ptr [ %10, %_ZNK11RegisterMap7in_contEv.exit.thread ], [ %10, %_ZNK11RegisterMap7in_contEv.exit ], [ %10, %_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit ], [ %10, %.preheader ], [ %131, %_ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackValueCollection.exit.sink.split ], [ %10, %123 ], [ %10, %.critedge.i ]
+  %.020 = phi ptr [ %131, %_ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackValueCollection.exit.sink.split ], [ %10, %123 ], [ %10, %_ZNK11RegisterMap7in_contEv.exit.thread ], [ %10, %_ZNK11RegisterMap7in_contEv.exit ], [ %10, %.preheader ], [ %10, %_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit ], [ %10, %.critedge.i ]
   ret ptr %.020
 }
 
@@ -1767,7 +1767,7 @@ _ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit: ; preds = %181
   br i1 %235, label %169, label %_ZN29jvmtiDeferredLocalVariableSet15update_monitorsEP13GrowableArrayIP11MonitorInfoE.exit, !llvm.loop !20
 
 _ZN29jvmtiDeferredLocalVariableSet15update_monitorsEP13GrowableArrayIP11MonitorInfoE.exit: ; preds = %.critedge.i, %228, %.preheader, %_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit, %._crit_edge, %46, %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.exit, %16
-  %.038 = phi ptr [ %13, %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %13, %16 ], [ %45, %46 ], [ %45, %._crit_edge ], [ %45, %_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit ], [ %45, %.preheader ], [ %45, %228 ], [ %45, %.critedge.i ]
+  %.038 = phi ptr [ %13, %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %13, %16 ], [ %45, %46 ], [ %45, %.preheader ], [ %45, %._crit_edge ], [ %45, %_ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit ], [ %45, %228 ], [ %45, %.critedge.i ]
   ret ptr %.038
 }
 

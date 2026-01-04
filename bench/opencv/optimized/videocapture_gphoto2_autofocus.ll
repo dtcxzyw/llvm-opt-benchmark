@@ -1423,7 +1423,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit.i: ; preds = %.n
           to label %_ZL16findMinFocusStepRN2cv12VideoCaptureEji.exit unwind label %.loopexit.split-lp346.loopexit.split-lp.loopexit.split-lp
 
 _ZL16findMinFocusStepRN2cv12VideoCaptureEji.exit: ; preds = %_ZL8showHelpPKcb.exit, %.noexc96, %.noexc90
-  %.sroa.26.0 = phi i32 [ %.1.i, %.noexc90 ], [ %.1.i, %.noexc96 ], [ %400, %_ZL8showHelpPKcb.exit ]
+  %.sroa.26.0 = phi i32 [ %.1.i, %.noexc96 ], [ %.1.i, %.noexc90 ], [ %400, %_ZL8showHelpPKcb.exit ]
   br label %447
 
 447:                                              ; preds = %.noexc98, %_ZL16findMinFocusStepRN2cv12VideoCaptureEji.exit
@@ -1631,9 +1631,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit.i102: ; preds = 
   br label %_ZL12correctFocusbR10FocusStated.exit
 
 ._crit_edge48.i:                                  ; preds = %513, %504, %518, %508, %501
-  %.sroa.0297.4 = phi i32 [ %512, %508 ], [ %.sroa.0297.0, %518 ], [ %503, %501 ], [ 1024, %504 ], [ %.sroa.0297.0, %513 ]
-  %.sroa.16.3 = phi i32 [ %509, %508 ], [ %.sroa.16.0, %518 ], [ %502, %501 ], [ %.sroa.16.0, %504 ], [ %.sroa.16.0, %513 ]
-  %.sroa.36.4 = phi i32 [ 0, %508 ], [ %.sroa.36.3, %518 ], [ 0, %501 ], [ %.sroa.36.3, %504 ], [ %.sroa.36.3, %513 ]
+  %.sroa.0297.4 = phi i32 [ %503, %501 ], [ %512, %508 ], [ %.sroa.0297.0, %518 ], [ 1024, %504 ], [ %.sroa.0297.0, %513 ]
+  %.sroa.16.3 = phi i32 [ %502, %501 ], [ %509, %508 ], [ %.sroa.16.0, %518 ], [ %.sroa.16.0, %504 ], [ %.sroa.16.0, %513 ]
+  %.sroa.36.4 = phi i32 [ 0, %501 ], [ 0, %508 ], [ %.sroa.36.3, %518 ], [ %.sroa.36.3, %504 ], [ %.sroa.36.3, %513 ]
   %528 = mul nsw i32 %.sroa.16.3, %.sroa.0297.4
   %529 = sub nsw i32 %.sroa.45.3, %528
   br label %_ZL12correctFocusbR10FocusStated.exit
@@ -1807,14 +1807,14 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i215: ; preds = %.noexc218, %
           to label %_ZNSolsEPFRSoS_E.exit114 unwind label %.loopexit335
 
 _ZNSolsEPFRSoS_E.exit114:                         ; preds = %.noexc220, %568, %560, %535, %.noexc209, %561
-  %.sroa.0297.2 = phi i32 [ %.sroa.0297.0, %561 ], [ %.sroa.0297.5, %535 ], [ %.sroa.0297.5, %560 ], [ %540, %.noexc209 ], [ %.sroa.0297.0, %568 ], [ %.sroa.0297.0, %.noexc220 ]
-  %.sroa.16.1 = phi i32 [ %.sroa.16.0, %561 ], [ %.sroa.16.4, %535 ], [ %.sroa.16.4, %560 ], [ %.sroa.16.4, %.noexc209 ], [ %.sroa.16.0, %568 ], [ %.sroa.16.0, %.noexc220 ]
-  %.sroa.36.1 = phi i32 [ %.sroa.36.0, %561 ], [ %.sroa.36.5, %535 ], [ %.sroa.36.5, %560 ], [ %.sroa.36.5, %.noexc209 ], [ %.sroa.36.0, %568 ], [ %.sroa.36.0, %.noexc220 ]
-  %.sroa.45.1 = phi i32 [ %.sroa.45.0, %561 ], [ %.sroa.45.4, %535 ], [ %.sroa.45.4, %560 ], [ %.sroa.45.4, %.noexc209 ], [ %.sroa.45.0, %568 ], [ %.sroa.45.0, %.noexc220 ]
-  %.sroa.60.1 = phi double [ %.sroa.60.0, %561 ], [ %.sroa.60.3, %535 ], [ %.sroa.60.3, %560 ], [ %.sroa.60.3, %.noexc209 ], [ %.sroa.60.0, %568 ], [ %.sroa.60.0, %.noexc220 ]
-  %.sroa.55.1 = phi double [ %.sroa.55.0, %561 ], [ %472, %535 ], [ %472, %560 ], [ %472, %.noexc209 ], [ %.sroa.55.0, %568 ], [ %.sroa.55.0, %.noexc220 ]
-  %.241 = phi i8 [ %.039, %561 ], [ 1, %535 ], [ 1, %560 ], [ 0, %.noexc209 ], [ %.039, %568 ], [ %.039, %.noexc220 ]
-  %.138 = phi i1 [ %.037, %561 ], [ %532, %535 ], [ true, %560 ], [ %532, %.noexc209 ], [ %.037, %568 ], [ %.037, %.noexc220 ]
+  %.sroa.0297.2 = phi i32 [ %540, %.noexc209 ], [ %.sroa.0297.0, %561 ], [ %.sroa.0297.5, %560 ], [ %.sroa.0297.5, %535 ], [ %.sroa.0297.0, %568 ], [ %.sroa.0297.0, %.noexc220 ]
+  %.sroa.16.1 = phi i32 [ %.sroa.16.4, %.noexc209 ], [ %.sroa.16.0, %561 ], [ %.sroa.16.4, %560 ], [ %.sroa.16.4, %535 ], [ %.sroa.16.0, %568 ], [ %.sroa.16.0, %.noexc220 ]
+  %.sroa.36.1 = phi i32 [ %.sroa.36.5, %.noexc209 ], [ %.sroa.36.0, %561 ], [ %.sroa.36.5, %560 ], [ %.sroa.36.5, %535 ], [ %.sroa.36.0, %568 ], [ %.sroa.36.0, %.noexc220 ]
+  %.sroa.45.1 = phi i32 [ %.sroa.45.4, %.noexc209 ], [ %.sroa.45.0, %561 ], [ %.sroa.45.4, %560 ], [ %.sroa.45.4, %535 ], [ %.sroa.45.0, %568 ], [ %.sroa.45.0, %.noexc220 ]
+  %.sroa.60.1 = phi double [ %.sroa.60.3, %.noexc209 ], [ %.sroa.60.0, %561 ], [ %.sroa.60.3, %560 ], [ %.sroa.60.3, %535 ], [ %.sroa.60.0, %568 ], [ %.sroa.60.0, %.noexc220 ]
+  %.sroa.55.1 = phi double [ %472, %.noexc209 ], [ %.sroa.55.0, %561 ], [ %472, %560 ], [ %472, %535 ], [ %.sroa.55.0, %568 ], [ %.sroa.55.0, %.noexc220 ]
+  %.241 = phi i8 [ 0, %.noexc209 ], [ %.039, %561 ], [ 1, %560 ], [ 1, %535 ], [ %.039, %568 ], [ %.039, %.noexc220 ]
+  %.138 = phi i1 [ %532, %.noexc209 ], [ %.037, %561 ], [ true, %560 ], [ %532, %535 ], [ %.037, %568 ], [ %.037, %.noexc220 ]
   %593 = trunc nuw i8 %.241 to i1
   %594 = load i8, ptr getelementptr inbounds nuw (i8, ptr @GlobalArgs, i64 76), align 4, !range !55
   %595 = trunc nuw i8 %594 to i1
@@ -2133,7 +2133,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %701, %.loopexit340, %.loopexit.split-lp341, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i147
-  %.pn49.pn = phi { ptr, i32 } [ %702, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i147 ], [ %lpad.loopexit342, %.loopexit340 ], [ %lpad.loopexit.split-lp343, %.loopexit.split-lp341 ], [ %702, %701 ]
+  %.pn49.pn = phi { ptr, i32 } [ %702, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i147 ], [ %lpad.loopexit.split-lp343, %.loopexit.split-lp341 ], [ %lpad.loopexit342, %.loopexit340 ], [ %702, %701 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.loopexit.split-lp346
 
@@ -2173,14 +2173,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %70
   br label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit151
 
 _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit151:  ; preds = %.noexc152, %.noexc150, %.invoke429, %717, %716, %699
-  %.sroa.0297.3 = phi i32 [ %.sroa.0297.2, %699 ], [ 1024, %716 ], [ %.sroa.0297.2, %717 ], [ %.sroa.0297.2, %.invoke429 ], [ %.sroa.0297.2, %.noexc150 ], [ %.sroa.0297.2, %.noexc152 ]
-  %.sroa.16.2 = phi i32 [ %.sroa.16.1, %699 ], [ 1, %716 ], [ %.sroa.16.1, %717 ], [ %.sroa.16.1, %.invoke429 ], [ %.sroa.16.1, %.noexc150 ], [ %.sroa.16.1, %.noexc152 ]
-  %.sroa.26.2 = phi i32 [ %.sroa.26.1, %699 ], [ 0, %716 ], [ %.sroa.26.1, %717 ], [ %.sroa.26.1, %.invoke429 ], [ %.sroa.26.1, %.noexc150 ], [ %.sroa.26.1, %.noexc152 ]
-  %.sroa.36.2 = phi i32 [ %.sroa.36.1, %699 ], [ 0, %716 ], [ %.sroa.36.1, %717 ], [ %.sroa.36.1, %.invoke429 ], [ %.sroa.36.1, %.noexc150 ], [ %.sroa.36.1, %.noexc152 ]
-  %.sroa.45.2 = phi i32 [ %.sroa.45.1, %699 ], [ 0, %716 ], [ %.sroa.45.1, %717 ], [ %.sroa.45.1, %.invoke429 ], [ %.sroa.45.1, %.noexc150 ], [ %.sroa.45.1, %.noexc152 ]
-  %.sroa.60.2 = phi double [ %.sroa.60.1, %699 ], [ 0.000000e+00, %716 ], [ %.sroa.60.1, %717 ], [ %.sroa.60.1, %.invoke429 ], [ %.sroa.60.1, %.noexc150 ], [ %.sroa.60.1, %.noexc152 ]
-  %.sroa.55.2 = phi double [ %.sroa.55.1, %699 ], [ 0.000000e+00, %716 ], [ %.sroa.55.1, %717 ], [ %.sroa.55.1, %.invoke429 ], [ %.sroa.55.1, %.noexc150 ], [ %.sroa.55.1, %.noexc152 ]
-  %.342 = phi i8 [ %.241, %699 ], [ 1, %716 ], [ %718, %717 ], [ %.241, %.invoke429 ], [ %.241, %.noexc150 ], [ %.241, %.noexc152 ]
+  %.sroa.0297.3 = phi i32 [ %.sroa.0297.2, %699 ], [ %.sroa.0297.2, %.invoke429 ], [ %.sroa.0297.2, %.noexc150 ], [ %.sroa.0297.2, %717 ], [ 1024, %716 ], [ %.sroa.0297.2, %.noexc152 ]
+  %.sroa.16.2 = phi i32 [ %.sroa.16.1, %699 ], [ %.sroa.16.1, %.invoke429 ], [ %.sroa.16.1, %.noexc150 ], [ %.sroa.16.1, %717 ], [ 1, %716 ], [ %.sroa.16.1, %.noexc152 ]
+  %.sroa.26.2 = phi i32 [ %.sroa.26.1, %699 ], [ %.sroa.26.1, %.invoke429 ], [ %.sroa.26.1, %.noexc150 ], [ %.sroa.26.1, %717 ], [ 0, %716 ], [ %.sroa.26.1, %.noexc152 ]
+  %.sroa.36.2 = phi i32 [ %.sroa.36.1, %699 ], [ %.sroa.36.1, %.invoke429 ], [ %.sroa.36.1, %.noexc150 ], [ %.sroa.36.1, %717 ], [ 0, %716 ], [ %.sroa.36.1, %.noexc152 ]
+  %.sroa.45.2 = phi i32 [ %.sroa.45.1, %699 ], [ %.sroa.45.1, %.invoke429 ], [ %.sroa.45.1, %.noexc150 ], [ %.sroa.45.1, %717 ], [ 0, %716 ], [ %.sroa.45.1, %.noexc152 ]
+  %.sroa.60.2 = phi double [ %.sroa.60.1, %699 ], [ %.sroa.60.1, %.invoke429 ], [ %.sroa.60.1, %.noexc150 ], [ %.sroa.60.1, %717 ], [ 0.000000e+00, %716 ], [ %.sroa.60.1, %.noexc152 ]
+  %.sroa.55.2 = phi double [ %.sroa.55.1, %699 ], [ %.sroa.55.1, %.invoke429 ], [ %.sroa.55.1, %.noexc150 ], [ %.sroa.55.1, %717 ], [ 0.000000e+00, %716 ], [ %.sroa.55.1, %.noexc152 ]
+  %.342 = phi i8 [ %.241, %699 ], [ %.241, %.invoke429 ], [ %.241, %.noexc150 ], [ %718, %717 ], [ 1, %716 ], [ %.241, %.noexc152 ]
   br label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit, !llvm.loop !67
 
 719:                                              ; preds = %568, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit, %461
@@ -2363,7 +2363,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i281: ; preds = %.noexc284, %
           to label %_ZNSolsEPFRSoS_E.exit65 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZNSolsEPFRSoS_E.exit65:                          ; preds = %.noexc286, %_ZNSolsEPFRSoS_E.exit80, %.noexc187, %719
-  %.2 = phi i32 [ 0, %719 ], [ -2, %.noexc187 ], [ -1, %_ZNSolsEPFRSoS_E.exit80 ], [ 0, %.noexc286 ]
+  %.2 = phi i32 [ -2, %.noexc187 ], [ 0, %719 ], [ -1, %_ZNSolsEPFRSoS_E.exit80 ], [ 0, %.noexc286 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZN2cv11VideoWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #19
@@ -2371,7 +2371,7 @@ _ZNSolsEPFRSoS_E.exit65:                          ; preds = %.noexc286, %_ZNSols
   br label %798
 
 .loopexit.split-lp346:                            ; preds = %.loopexit335, %.loopexit.split-lp336, %.loopexit330, %.loopexit.split-lp331, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit345, %.loopexit.split-lp346.loopexit.split-lp.loopexit, %.loopexit.split-lp346.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp346.loopexit, %393, %395, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68
-  %.pn55 = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %.pn49.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149 ], [ %396, %395 ], [ %394, %393 ], [ %lpad.loopexit347, %.loopexit345 ], [ %lpad.loopexit350, %.loopexit.split-lp346.loopexit ], [ %lpad.loopexit354, %.loopexit.split-lp346.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp355, %.loopexit.split-lp346.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit324, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit328, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit332, %.loopexit330 ], [ %lpad.loopexit.split-lp333, %.loopexit.split-lp331 ], [ %lpad.loopexit337, %.loopexit335 ], [ %lpad.loopexit.split-lp338, %.loopexit.split-lp336 ]
+  %.pn55 = phi { ptr, i32 } [ %394, %393 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp355, %.loopexit.split-lp346.loopexit.split-lp.loopexit.split-lp ], [ %.pn49.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149 ], [ %lpad.loopexit.split-lp333, %.loopexit.split-lp331 ], [ %396, %395 ], [ %lpad.loopexit347, %.loopexit345 ], [ %lpad.loopexit350, %.loopexit.split-lp346.loopexit ], [ %lpad.loopexit354, %.loopexit.split-lp346.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit324, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit328, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit332, %.loopexit330 ], [ %lpad.loopexit337, %.loopexit335 ], [ %lpad.loopexit.split-lp338, %.loopexit.split-lp336 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZN2cv11VideoWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #19
@@ -2758,7 +2758,7 @@ _ZN2cv12MatIterator_IhEppEv.exit:                 ; preds = %._ZN2cv12MatIterato
   ret double %99
 
 100:                                              ; preds = %88, %94
-  %.pn28.pn = phi { ptr, i32 } [ %89, %88 ], [ %.pn26, %94 ]
+  %.pn28.pn = phi { ptr, i32 } [ %.pn26, %94 ], [ %89, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %101
 

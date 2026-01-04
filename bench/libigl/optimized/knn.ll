@@ -1703,7 +1703,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br label %260
 
 .loopexit89:                                      ; preds = %.loopexit, %_ZNKSt6vectorIiSaIiEE2atEm.exit, %83, %51
-  %.1 = phi i32 [ %59, %51 ], [ %.017104, %83 ], [ %.017104, %_ZNKSt6vectorIiSaIiEE2atEm.exit ], [ %.017104, %.loopexit ]
+  %.1 = phi i32 [ %59, %51 ], [ %.017104, %_ZNKSt6vectorIiSaIiEE2atEm.exit ], [ %.017104, %83 ], [ %.017104, %.loopexit ]
   %250 = sext i32 %.1 to i64
   %251 = load ptr, ptr %36, align 8, !tbaa !110
   %252 = load i64, ptr %251, align 8, !tbaa !4
@@ -1729,7 +1729,7 @@ _ZNSt14priority_queueIiSt6vectorIiSaIiEEZZN3igl3knnIN5Eigen6MatrixIdLin1ELin1ELi
   ret void
 
 260:                                              ; preds = %.loopexit90, %.loopexit.split-lp, %.loopexit91, %.loopexit.split-lp92, %62, %60
-  %.pn28.pn = phi { ptr, i32 } [ %61, %60 ], [ %63, %62 ], [ %lpad.loopexit93, %.loopexit91 ], [ %lpad.loopexit.split-lp94, %.loopexit.split-lp92 ], [ %lpad.loopexit, %.loopexit90 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn28.pn = phi { ptr, i32 } [ %61, %60 ], [ %63, %62 ], [ %lpad.loopexit.split-lp94, %.loopexit.split-lp92 ], [ %lpad.loopexit93, %.loopexit91 ], [ %lpad.loopexit, %.loopexit90 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %261 = load ptr, ptr %4, align 8, !tbaa !124
   %.not.i.i.i.i46 = icmp eq ptr %261, null
   br i1 %.not.i.i.i.i46, label %_ZNSt6vectorIiSaIiEED2Ev.exit33, label %262
@@ -4167,7 +4167,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br label %260
 
 .loopexit89:                                      ; preds = %.loopexit, %_ZNKSt6vectorIiSaIiEE2atEm.exit, %83, %51
-  %.1 = phi i32 [ %59, %51 ], [ %.017104, %83 ], [ %.017104, %_ZNKSt6vectorIiSaIiEE2atEm.exit ], [ %.017104, %.loopexit ]
+  %.1 = phi i32 [ %59, %51 ], [ %.017104, %_ZNKSt6vectorIiSaIiEE2atEm.exit ], [ %.017104, %83 ], [ %.017104, %.loopexit ]
   %250 = sext i32 %.1 to i64
   %251 = load ptr, ptr %36, align 8, !tbaa !241
   %252 = load i64, ptr %251, align 8, !tbaa !4
@@ -4193,7 +4193,7 @@ _ZNSt14priority_queueIiSt6vectorIiSaIiEEZZN3igl3knnIN5Eigen6MatrixIdLin1ELin1ELi
   ret void
 
 260:                                              ; preds = %.loopexit90, %.loopexit.split-lp, %.loopexit91, %.loopexit.split-lp92, %62, %60
-  %.pn28.pn = phi { ptr, i32 } [ %61, %60 ], [ %63, %62 ], [ %lpad.loopexit93, %.loopexit91 ], [ %lpad.loopexit.split-lp94, %.loopexit.split-lp92 ], [ %lpad.loopexit, %.loopexit90 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn28.pn = phi { ptr, i32 } [ %61, %60 ], [ %63, %62 ], [ %lpad.loopexit.split-lp94, %.loopexit.split-lp92 ], [ %lpad.loopexit93, %.loopexit91 ], [ %lpad.loopexit, %.loopexit90 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %261 = load ptr, ptr %4, align 8, !tbaa !124
   %.not.i.i.i.i46 = icmp eq ptr %261, null
   br i1 %.not.i.i.i.i46, label %_ZNSt6vectorIiSaIiEED2Ev.exit33, label %262

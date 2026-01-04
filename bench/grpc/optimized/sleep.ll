@@ -535,7 +535,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %_ZTWN9grpc_core9Tim
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %60, %57, %54, %49, %.thread.i, %45, %44
-  %.sroa.04.0.i = phi i64 [ 9223372036854775807, %44 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %49 ], [ %61, %60 ], [ 9223372036854775807, %54 ], [ -9223372036854775808, %57 ], [ %spec.select.i, %45 ]
+  %.sroa.04.0.i = phi i64 [ %spec.select.i, %45 ], [ 9223372036854775807, %44 ], [ -9223372036854775808, %49 ], [ 9223372036854775807, %.thread.i ], [ -9223372036854775808, %57 ], [ %61, %60 ], [ 9223372036854775807, %54 ]
   store i64 %.sroa.04.0.i, ptr %3, align 8
   %62 = invoke i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %63 unwind label %75

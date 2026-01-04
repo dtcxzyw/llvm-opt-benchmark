@@ -546,7 +546,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   br label %.thread304
 
 .thread297:                                       ; preds = %228, %230, %243, %237, %256, %258
-  %.9 = phi i64 [ %250, %258 ], [ %250, %256 ], [ %240, %237 ], [ %240, %243 ], [ %.4202334, %230 ], [ %.4202334, %228 ]
+  %.9 = phi i64 [ %250, %258 ], [ %250, %256 ], [ %240, %243 ], [ %240, %237 ], [ %.4202334, %230 ], [ %.4202334, %228 ]
   %266 = call i64 @H5F_get_alignment(ptr noundef nonnull %0) #6
   %.not264 = icmp eq i64 %266, 0
   br i1 %.not264, label %.thread304, label %267
@@ -555,8 +555,8 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %268 = call i64 @H5F_get_threshold(ptr noundef nonnull %0) #6
   br label %.thread304
 
-.thread304:                                       ; preds = %197, %187, %179, %147, %139, %123, %116, %87, %79, %233, %224, %.thread300, %5, %.thread297, %262, %252, %17, %267
-  %.0198 = phi i64 [ -1, %17 ], [ -1, %252 ], [ -1, %262 ], [ %.9, %267 ], [ %.9, %.thread297 ], [ -1, %5 ], [ -1, %.thread300 ], [ -1, %224 ], [ -1, %233 ], [ -1, %79 ], [ -1, %87 ], [ -1, %116 ], [ -1, %123 ], [ -1, %139 ], [ -1, %147 ], [ -1, %179 ], [ -1, %187 ], [ -1, %197 ]
+.thread304:                                       ; preds = %197, %187, %179, %147, %139, %116, %123, %87, %79, %233, %224, %.thread300, %5, %.thread297, %262, %252, %17, %267
+  %.0198 = phi i64 [ -1, %17 ], [ -1, %252 ], [ -1, %262 ], [ %.9, %267 ], [ %.9, %.thread297 ], [ -1, %.thread300 ], [ -1, %5 ], [ -1, %224 ], [ -1, %233 ], [ -1, %79 ], [ -1, %87 ], [ -1, %123 ], [ -1, %116 ], [ -1, %139 ], [ -1, %147 ], [ -1, %179 ], [ -1, %187 ], [ -1, %197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0198
@@ -669,7 +669,7 @@ define range(i32 -1, -2147483648) i32 @H5MF__aggr_try_extend(ptr noundef %0, ptr
   br label %69
 
 69:                                               ; preds = %50, %54, %56, %5, %12, %21, %65, %66, %42, %28
-  %.048 = phi i32 [ 0, %21 ], [ 0, %12 ], [ 0, %5 ], [ -1, %28 ], [ 1, %42 ], [ 1, %66 ], [ 0, %65 ], [ -1, %50 ], [ %48, %54 ], [ 1, %56 ]
+  %.048 = phi i32 [ 0, %5 ], [ 0, %12 ], [ 0, %21 ], [ -1, %28 ], [ 1, %42 ], [ 1, %66 ], [ 0, %65 ], [ -1, %50 ], [ %48, %54 ], [ 1, %56 ]
   ret i32 %.048
 }
 
@@ -728,7 +728,7 @@ define range(i32 0, 2) i32 @H5MF__aggr_can_absorb(ptr noundef readonly captures(
   br label %29
 
 29:                                               ; preds = %._crit_edge22, %._crit_edge, %11, %4
-  %.0 = phi i32 [ 1, %._crit_edge22 ], [ 0, %._crit_edge ], [ 0, %11 ], [ 0, %4 ]
+  %.0 = phi i32 [ 1, %._crit_edge22 ], [ 0, %4 ], [ 0, %._crit_edge ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -945,7 +945,7 @@ H5MF__aggr_query.exit26.thread:                   ; preds = %29, %21, %H5MF__agg
   %52 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_free_aggrs, i32 noundef 790, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.7) #6
   br label %H5MF__aggr_reset.exit32.thread
 
-53:                                               ; preds = %H5MF__aggr_query.exit26.thread, %43, %40, %34
+53:                                               ; preds = %34, %H5MF__aggr_query.exit26.thread, %43, %40
   %54 = load i8, ptr @H5MF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %55 = trunc nuw i8 %54 to i1
   %56 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -995,8 +995,8 @@ H5MF__aggr_query.exit26.thread:                   ; preds = %29, %21, %H5MF__agg
   %86 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_free_aggrs, i32 noundef 792, i64 noundef %84, i64 noundef %85, ptr noundef nonnull @.str.8) #6
   br label %H5MF__aggr_reset.exit32.thread
 
-H5MF__aggr_reset.exit32.thread:                   ; preds = %68, %74, %77, %53, %60, %46, %80, %7
-  %.0 = phi i32 [ -1, %46 ], [ -1, %80 ], [ 0, %7 ], [ 0, %60 ], [ 0, %53 ], [ 0, %77 ], [ 0, %74 ], [ 0, %68 ]
+H5MF__aggr_reset.exit32.thread:                   ; preds = %68, %74, %77, %60, %53, %46, %80, %7
+  %.0 = phi i32 [ 0, %7 ], [ -1, %80 ], [ -1, %46 ], [ 0, %53 ], [ 0, %60 ], [ 0, %77 ], [ 0, %74 ], [ 0, %68 ]
   ret i32 %.0
 }
 
@@ -1077,7 +1077,7 @@ define range(i32 -1, 2) i32 @H5MF__aggrs_try_shrink_eoa(ptr noundef %0) local_un
   br label %.thread35
 
 .thread:                                          ; preds = %27, %42, %16, %13
-  %.0.i.ph30 = phi i32 [ 0, %13 ], [ 0, %16 ], [ 1, %42 ], [ 1, %27 ]
+  %.0.i.ph30 = phi i32 [ 1, %27 ], [ 0, %16 ], [ 0, %13 ], [ 1, %42 ]
   %51 = load ptr, ptr %9, align 8, !tbaa !11
   %52 = load i8, ptr @H5MF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %53 = trunc nuw i8 %52 to i1
@@ -1152,7 +1152,7 @@ define range(i32 -1, 2) i32 @H5MF__aggrs_try_shrink_eoa(ptr noundef %0) local_un
   br label %.thread35
 
 .thread35:                                        ; preds = %.thread, %61, %64, %90, %75, %20, %44, %68, %92, %1
-  %.0 = phi i32 [ -1, %20 ], [ -1, %44 ], [ -1, %68 ], [ -1, %92 ], [ -1, %1 ], [ %.0.i.ph30, %.thread ], [ %.0.i.ph30, %61 ], [ %.0.i.ph30, %64 ], [ 1, %90 ], [ 1, %75 ]
+  %.0 = phi i32 [ -1, %20 ], [ -1, %44 ], [ -1, %68 ], [ -1, %92 ], [ -1, %1 ], [ 1, %75 ], [ %.0.i.ph30, %64 ], [ %.0.i.ph30, %.thread ], [ %.0.i.ph30, %61 ], [ 1, %90 ]
   ret i32 %.0
 }
 

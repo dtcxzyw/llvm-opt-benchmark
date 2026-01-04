@@ -273,7 +273,7 @@ _ZN5clang12Preprocessor9LookAheadEj.exit3:        ; preds = %40, %44
   br label %72
 
 72:                                               ; preds = %66, %49, %69
-  %.1 = phi i1 [ %71, %69 ], [ true, %49 ], [ true, %66 ]
+  %.1 = phi i1 [ true, %49 ], [ %71, %69 ], [ true, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %73 = load ptr, ptr %61, align 8, !tbaa !308
   %74 = icmp eq ptr %73, %62
@@ -337,7 +337,7 @@ _ZN5clang6Parser31RevertingTentativeParsingActionD2Ev.exit: ; preds = %_ZN5clang
   br label %92
 
 92:                                               ; preds = %_ZN5clang12Preprocessor9LookAheadEj.exit, %_ZN5clang12Preprocessor9LookAheadEj.exit, %_ZN5clang12Preprocessor9LookAheadEj.exit, %8, %1, %_ZN5clang6Parser31RevertingTentativeParsingActionD2Ev.exit, %_ZN5clang12Preprocessor9LookAheadEj.exit3, %30, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %30 ], [ %.1, %_ZN5clang6Parser31RevertingTentativeParsingActionD2Ev.exit ], [ %48, %_ZN5clang12Preprocessor9LookAheadEj.exit3 ], [ false, %1 ], [ true, %8 ], [ false, %_ZN5clang12Preprocessor9LookAheadEj.exit ], [ false, %_ZN5clang12Preprocessor9LookAheadEj.exit ], [ false, %_ZN5clang12Preprocessor9LookAheadEj.exit ]
+  %.0 = phi i1 [ %48, %_ZN5clang12Preprocessor9LookAheadEj.exit3 ], [ true, %7 ], [ true, %30 ], [ true, %8 ], [ %.1, %_ZN5clang6Parser31RevertingTentativeParsingActionD2Ev.exit ], [ false, %1 ], [ false, %_ZN5clang12Preprocessor9LookAheadEj.exit ], [ false, %_ZN5clang12Preprocessor9LookAheadEj.exit ], [ false, %_ZN5clang12Preprocessor9LookAheadEj.exit ]
   ret i1 %.0
 }
 
@@ -853,7 +853,7 @@ _ZN5clang6Parser14ConsumeBracketEv.exit:          ; preds = %_ZN5clang24Balanced
   br label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit
 
 _ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit: ; preds = %_ZN5clang6Parser14ConsumeBracketEv.exit, %242
-  %.sroa.0.0.copyload.i136 = phi i32 [ %.sroa.01.0.copyload.i368, %_ZN5clang6Parser14ConsumeBracketEv.exit ], [ %.sroa.0.0.copyload.i136.pre, %242 ]
+  %.sroa.0.0.copyload.i136 = phi i32 [ %.sroa.0.0.copyload.i136.pre, %242 ], [ %.sroa.01.0.copyload.i368, %_ZN5clang6Parser14ConsumeBracketEv.exit ]
   %244 = load ptr, ptr %147, align 8, !tbaa !11
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 56
   %246 = load ptr, ptr %245, align 8, !tbaa !87
@@ -1322,7 +1322,7 @@ _ZNK5clang10Designator14setRBracketLocENS_14SourceLocationE.exit: ; preds = %437
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.critedge102
 
-.critedge100:                                     ; preds = %337, %329, %339, %321
+.critedge100:                                     ; preds = %337, %339, %321, %329
   %.sroa.0235.6 = phi i64 [ %324, %321 ], [ %340, %339 ], [ 1, %337 ], [ 1, %329 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.critedge102
@@ -1534,7 +1534,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i180: ; preds = %
   br label %.critedge96
 
 .critedge102:                                     ; preds = %.thread245, %.critedge100, %.critedge98, %347, %356, %282
-  %.sroa.0235.7 = phi i64 [ 1, %347 ], [ %360, %356 ], [ %.sroa.0235.6, %.critedge100 ], [ %285, %282 ], [ %.sroa.0235.5, %.critedge98 ], [ 1, %.thread245 ]
+  %.sroa.0235.7 = phi i64 [ 1, %347 ], [ 1, %.thread245 ], [ %360, %356 ], [ %.sroa.0235.6, %.critedge100 ], [ %285, %282 ], [ %.sroa.0235.5, %.critedge98 ]
   %534 = load i8, ptr %138, align 8, !tbaa !412, !range !354, !noundef !355
   %535 = load ptr, ptr %19, align 8, !tbaa !1068
   store i8 %534, ptr %535, align 1, !tbaa !310
@@ -1543,7 +1543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i180: ; preds = %
   br label %.critedge96
 
 .critedge96:                                      ; preds = %533, %530, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i180, %205, %202, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i119, %_ZN5clang6Parser13cutOffParsingEv.exit, %.critedge102, %_ZN5clang6Parser16ParseInitializerEv.exit383, %461, %_ZN5clang6Parser16ParseInitializerEv.exit173
-  %.sroa.0235.2 = phi i64 [ 1, %_ZN5clang6Parser13cutOffParsingEv.exit ], [ %.sroa.0235.7, %.critedge102 ], [ %454, %_ZN5clang6Parser16ParseInitializerEv.exit173 ], [ %511, %_ZN5clang6Parser16ParseInitializerEv.exit383 ], [ %466, %461 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i119 ], [ 1, %202 ], [ 1, %205 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i180 ], [ 1, %530 ], [ 1, %533 ]
+  %.sroa.0235.2 = phi i64 [ 1, %_ZN5clang6Parser13cutOffParsingEv.exit ], [ %466, %461 ], [ %.sroa.0235.7, %.critedge102 ], [ %454, %_ZN5clang6Parser16ParseInitializerEv.exit173 ], [ %511, %_ZN5clang6Parser16ParseInitializerEv.exit383 ], [ 1, %205 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i119 ], [ 1, %202 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i180 ], [ 1, %530 ], [ 1, %533 ]
   %536 = load ptr, ptr %17, align 8, !tbaa !308
   %537 = icmp eq ptr %536, %133
   br i1 %537, label %_ZN5clang11DesignationD2Ev.exit185, label %538
@@ -2325,7 +2325,7 @@ _ZN5clang32EnterExpressionEvaluationContextC2ERNS_4SemaENS0_11InitListTagEb.exit
   br label %_ZNK5clang20PreferredTypeBuilder3getENS_14SourceLocationE.exit
 
 _ZNK5clang20PreferredTypeBuilder3getENS_14SourceLocationE.exit: ; preds = %_ZN5clang32EnterExpressionEvaluationContextC2ERNS_4SemaENS0_11InitListTagEb.exit, %140, %142, %145
-  %.sroa.01.0.i = phi i64 [ %148, %145 ], [ 0, %_ZN5clang32EnterExpressionEvaluationContextC2ERNS_4SemaENS0_11InitListTagEb.exit ], [ %.0.copyload.i.i.i.i.i, %140 ], [ 0, %142 ]
+  %.sroa.01.0.i = phi i64 [ 0, %_ZN5clang32EnterExpressionEvaluationContextC2ERNS_4SemaENS0_11InitListTagEb.exit ], [ %148, %145 ], [ %.0.copyload.i.i.i.i.i, %140 ], [ 0, %142 ]
   store i64 %.sroa.01.0.i, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !310
@@ -3189,7 +3189,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit23:          ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNK5clang20PreferredTypeBuilder3getENS_14SourceLocationE.exit
 
 _ZNK5clang20PreferredTypeBuilder3getENS_14SourceLocationE.exit: ; preds = %198, %205, %207, %210
-  %.sroa.01.0.i = phi i64 [ %213, %210 ], [ 0, %198 ], [ %.0.copyload.i.i.i.i.i, %205 ], [ 0, %207 ]
+  %.sroa.01.0.i = phi i64 [ 0, %198 ], [ %213, %210 ], [ %.0.copyload.i.i.i.i.i, %205 ], [ 0, %207 ]
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 40

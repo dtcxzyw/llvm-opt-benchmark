@@ -378,7 +378,7 @@ define noalias noundef ptr @dt_bilateral_init(i32 noundef %0, i32 noundef %1, fl
   br label %76
 
 76:                                               ; preds = %67, %71, %4, %66
-  %.0 = phi ptr [ null, %66 ], [ null, %4 ], [ %5, %71 ], [ %5, %67 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %66 ], [ %5, %71 ], [ %5, %67 ]
   ret ptr %.0
 }
 

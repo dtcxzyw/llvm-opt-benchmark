@@ -179,8 +179,8 @@ initIDs.exit:                                     ; preds = %29, %6
   call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %31) #6
   br label %initIDs.exit.thread
 
-initIDs.exit.thread:                              ; preds = %23, %17, %11, %initIDs.exit, %98
-  %.0 = phi i8 [ %.058, %98 ], [ 0, %initIDs.exit ], [ 0, %11 ], [ 0, %17 ], [ 0, %23 ]
+initIDs.exit.thread:                              ; preds = %17, %11, %23, %initIDs.exit, %98
+  %.0 = phi i8 [ 0, %initIDs.exit ], [ %.058, %98 ], [ 0, %23 ], [ 0, %11 ], [ 0, %17 ]
   ret i8 %.0
 }
 
@@ -229,7 +229,7 @@ define internal fastcc ptr @findJniFunction(ptr noundef %0, ptr noundef %1, ptr 
   br label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %16, %.split, %.loopexit.loopexit, %.split30.us
-  %.1 = phi ptr [ null, %.split30.us ], [ %9, %.loopexit.loopexit ], [ null, %.split ], [ %17, %16 ]
+  %.1 = phi ptr [ null, %.split30.us ], [ %9, %.loopexit.loopexit ], [ %17, %16 ], [ null, %.split ]
   ret ptr %.1
 }
 
@@ -314,7 +314,7 @@ initIDs.exit:                                     ; preds = %27, %5
   call void @JNU_ReleaseStringPlatformChars(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %29) #6
   br label %initIDs.exit.thread
 
-initIDs.exit.thread:                              ; preds = %21, %15, %9, %initIDs.exit, %43
+initIDs.exit.thread:                              ; preds = %15, %9, %21, %initIDs.exit, %43
   ret void
 }
 
@@ -420,7 +420,7 @@ findJniFunction.exit:                             ; preds = %31
   br label %34
 
 34:                                               ; preds = %6, %.loopexit, %findJniFunction.exit, %18, %13, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %13 ], [ null, %18 ], [ %33, %findJniFunction.exit ], [ null, %.loopexit ], [ null, %6 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %.loopexit ], [ null, %13 ], [ null, %18 ], [ %33, %findJniFunction.exit ], [ null, %6 ]
   ret ptr %.0
 }
 

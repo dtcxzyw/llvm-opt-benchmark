@@ -1252,7 +1252,7 @@ lean_dec.exit.i:                                  ; preds = %36, %35, %33, %27
   br label %lean_array_get.exit.thread
 
 lean_array_get.exit.thread:                       ; preds = %46, %45, %43, %lean_dec.exit.i, %lean_array_get.exit.thread27, %52, %54, %55
-  %.1.i26 = phi ptr [ %26, %lean_array_get.exit.thread27 ], [ %49, %52 ], [ %49, %54 ], [ %49, %55 ], [ %38, %lean_dec.exit.i ], [ %38, %43 ], [ %38, %45 ], [ %38, %46 ]
+  %.1.i26 = phi ptr [ %49, %55 ], [ %26, %lean_array_get.exit.thread27 ], [ %49, %52 ], [ %49, %54 ], [ %38, %lean_dec.exit.i ], [ %38, %43 ], [ %38, %45 ], [ %38, %46 ]
   %56 = tail call ptr @lean_array_push(ptr noundef %.01934, ptr noundef %.1.i26) #4
   %57 = add nuw i64 %.01735, 1
   %exitcond.not = icmp eq i64 %57, %4
@@ -1502,8 +1502,8 @@ lean_nat_add.exit.thread75:                       ; preds = %.thread72
   br label %lean_dec.exit50.backedge
 
 lean_dec.exit50.backedge:                         ; preds = %114, %118, %95, %99, %72, %76, %lean_nat_add.exit.thread75, %120, %122, %123, %lean_nat_add.exit44.thread70, %101, %103, %104, %lean_nat_add.exit47.thread67, %82, %84, %85
-  %.035.be = phi ptr [ %67, %lean_nat_add.exit47.thread67 ], [ %79, %82 ], [ %79, %84 ], [ %79, %85 ], [ %89, %lean_nat_add.exit44.thread70 ], [ %45, %101 ], [ %45, %103 ], [ %45, %104 ], [ %108, %lean_nat_add.exit.thread75 ], [ %34, %120 ], [ %34, %122 ], [ %34, %123 ], [ %77, %76 ], [ %75, %72 ], [ %100, %99 ], [ %98, %95 ], [ %119, %118 ], [ %117, %114 ]
-  %.033.be = phi ptr [ %62, %lean_nat_add.exit47.thread67 ], [ %62, %82 ], [ %62, %84 ], [ %62, %85 ], [ %.033, %lean_nat_add.exit44.thread70 ], [ %.033, %101 ], [ %.033, %103 ], [ %.033, %104 ], [ %.033, %lean_nat_add.exit.thread75 ], [ %.033, %120 ], [ %.033, %122 ], [ %.033, %123 ], [ %62, %76 ], [ %62, %72 ], [ %.033, %99 ], [ %.033, %95 ], [ %.033, %118 ], [ %.033, %114 ]
+  %.035.be = phi ptr [ %79, %85 ], [ %45, %104 ], [ %98, %95 ], [ %108, %lean_nat_add.exit.thread75 ], [ %34, %120 ], [ %34, %122 ], [ %34, %123 ], [ %45, %103 ], [ %67, %lean_nat_add.exit47.thread67 ], [ %79, %82 ], [ %79, %84 ], [ %75, %72 ], [ %89, %lean_nat_add.exit44.thread70 ], [ %45, %101 ], [ %77, %76 ], [ %100, %99 ], [ %119, %118 ], [ %117, %114 ]
+  %.033.be = phi ptr [ %62, %85 ], [ %.033, %104 ], [ %.033, %95 ], [ %.033, %lean_nat_add.exit.thread75 ], [ %.033, %120 ], [ %.033, %122 ], [ %.033, %123 ], [ %.033, %103 ], [ %62, %lean_nat_add.exit47.thread67 ], [ %62, %82 ], [ %62, %84 ], [ %62, %72 ], [ %.033, %lean_nat_add.exit44.thread70 ], [ %.033, %101 ], [ %62, %76 ], [ %.033, %99 ], [ %.033, %118 ], [ %.033, %114 ]
   br label %lean_dec.exit50
 
 118:                                              ; preds = %109
@@ -2805,7 +2805,7 @@ _init_l___private_Lean_Elab_PreDefinition_Structural_RecArgInfo_0__Lean_Elab_Str
   br label %_init_l___private_Lean_Elab_PreDefinition_Structural_RecArgInfo_0__Lean_Elab_Structural_reprRecArgInfo____x40_Lean_Elab_PreDefinition_Structural_RecArgInfo___hyg_71____closed__26.exit
 
 _init_l___private_Lean_Elab_PreDefinition_Structural_RecArgInfo_0__Lean_Elab_Structural_reprRecArgInfo____x40_Lean_Elab_PreDefinition_Structural_RecArgInfo___hyg_71____closed__26.exit: ; preds = %_init_l___private_Lean_Elab_PreDefinition_Structural_RecArgInfo_0__Lean_Elab_Structural_reprRecArgInfo____x40_Lean_Elab_PreDefinition_Structural_RecArgInfo___hyg_71____closed__23.exit, %164
-  %.1.i.i = phi ptr [ %166, %164 ], [ %160, %_init_l___private_Lean_Elab_PreDefinition_Structural_RecArgInfo_0__Lean_Elab_Structural_reprRecArgInfo____x40_Lean_Elab_PreDefinition_Structural_RecArgInfo___hyg_71____closed__23.exit ]
+  %.1.i.i = phi ptr [ %160, %_init_l___private_Lean_Elab_PreDefinition_Structural_RecArgInfo_0__Lean_Elab_Structural_reprRecArgInfo____x40_Lean_Elab_PreDefinition_Structural_RecArgInfo___hyg_71____closed__23.exit ], [ %166, %164 ]
   store ptr %.1.i.i, ptr @l___private_Lean_Elab_PreDefinition_Structural_RecArgInfo_0__Lean_Elab_Structural_reprRecArgInfo____x40_Lean_Elab_PreDefinition_Structural_RecArgInfo___hyg_71____closed__26, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #4
   %167 = load ptr, ptr @l___private_Lean_Elab_PreDefinition_Structural_RecArgInfo_0__Lean_Elab_Structural_reprRecArgInfo____x40_Lean_Elab_PreDefinition_Structural_RecArgInfo___hyg_71____closed__24, align 8, !tbaa !4
@@ -2902,7 +2902,7 @@ _init_l_Lean_Elab_Structural_instReprRecArgInfo___closed__1.exit: ; preds = %_in
   br label %198
 
 198:                                              ; preds = %.sink.split, %lean_dec_ref.exit19, %lean_dec_ref.exit17, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %.sink57, %.sink.split ]
+  %.0 = phi ptr [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink57, %.sink.split ]
   ret ptr %.0
 }
 

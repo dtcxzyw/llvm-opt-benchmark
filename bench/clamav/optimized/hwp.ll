@@ -416,7 +416,7 @@ define range(i32 0, 21) i32 @cli_hwp5header(ptr noundef readonly captures(addres
   br label %.thread
 
 .thread:                                          ; preds = %79, %82, %5, %14, %23, %2
-  %.037 = phi i32 [ 2, %2 ], [ 20, %23 ], [ 20, %14 ], [ 0, %5 ], [ 0, %82 ], [ 0, %79 ]
+  %.037 = phi i32 [ 20, %14 ], [ 2, %2 ], [ 20, %23 ], [ 0, %5 ], [ 0, %82 ], [ 0, %79 ]
   ret i32 %.037
 }
 
@@ -564,7 +564,7 @@ sub_1:                                            ; preds = %sub_0
   br label %62
 
 62:                                               ; preds = %57, %60, %46, %29, %8
-  %.0 = phi i32 [ 2, %8 ], [ %61, %60 ], [ %30, %29 ], [ %.1, %46 ], [ 21, %57 ]
+  %.0 = phi i32 [ 2, %8 ], [ %61, %60 ], [ %.1, %46 ], [ %30, %29 ], [ 21, %57 ]
   ret i32 %.0
 }
 
@@ -1055,8 +1055,8 @@ parsehwp3_docsummary.exit:                        ; preds = %68, %9, %parsehwp3_
   %103 = call i32 @hwp3_cb(ptr noundef nonnull %2, i32 noundef 0, ptr poison, ptr noundef %0)
   br label %parsehwp3_docinfo.exit.thread
 
-parsehwp3_docinfo.exit.thread:                    ; preds = %convert_hstr_to_utf8.exit.i30, %81, %99, %102, %.thread.i, %convert_hstr_to_utf8.exit.thread.i32, %62, %67, %convert_hstr_to_utf8.exit66.thread.i, %convert_hstr_to_utf8.exit.thread.i, %28, %31, %convert_hstr_to_utf8.exit.i, %convert_hstr_to_utf8.exit66.i, %8, %94, %87
-  %.0 = phi i32 [ 0, %87 ], [ 27, %94 ], [ 20, %convert_hstr_to_utf8.exit66.thread.i ], [ 20, %convert_hstr_to_utf8.exit.thread.i ], [ 20, %28 ], [ 20, %31 ], [ 20, %convert_hstr_to_utf8.exit.i ], [ 20, %convert_hstr_to_utf8.exit66.i ], [ 19, %8 ], [ 20, %.thread.i ], [ 20, %convert_hstr_to_utf8.exit.thread.i32 ], [ 19, %62 ], [ 20, %67 ], [ %101, %99 ], [ %103, %102 ], [ %86, %81 ], [ 20, %convert_hstr_to_utf8.exit.i30 ]
+parsehwp3_docinfo.exit.thread:                    ; preds = %convert_hstr_to_utf8.exit.i30, %81, %99, %102, %67, %convert_hstr_to_utf8.exit.thread.i32, %.thread.i, %62, %convert_hstr_to_utf8.exit66.thread.i, %convert_hstr_to_utf8.exit.thread.i, %31, %convert_hstr_to_utf8.exit.i, %convert_hstr_to_utf8.exit66.i, %8, %28, %94, %87
+  %.0 = phi i32 [ 20, %28 ], [ 19, %62 ], [ 0, %87 ], [ 27, %94 ], [ 20, %convert_hstr_to_utf8.exit66.thread.i ], [ 20, %convert_hstr_to_utf8.exit.thread.i ], [ 20, %31 ], [ 20, %convert_hstr_to_utf8.exit.i ], [ 20, %convert_hstr_to_utf8.exit66.i ], [ 19, %8 ], [ %101, %99 ], [ %103, %102 ], [ 20, %67 ], [ 20, %convert_hstr_to_utf8.exit.thread.i32 ], [ 20, %.thread.i ], [ %86, %81 ], [ 20, %convert_hstr_to_utf8.exit.i30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1676,14 +1676,14 @@ thread-pre-split140.i:                            ; preds = %167
   %260 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %.174, i64 noundef %168, i64 noundef %176, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #10
   br label %parsehwp3_infoblk_1.exit
 
-.critedge3.thread:                                ; preds = %126, %129, %150, %215, %190, %180, %fmap_readn.exit125.thread.i, %fmap_readn.exit.thread.i
-  %.0.i105.ph = phi i32 [ 20, %126 ], [ 20, %129 ], [ 20, %150 ], [ 26, %215 ], [ 26, %190 ], [ 12, %180 ], [ 12, %fmap_readn.exit125.thread.i ], [ 12, %fmap_readn.exit.thread.i ]
+.critedge3.thread:                                ; preds = %129, %150, %215, %190, %180, %fmap_readn.exit125.thread.i, %126, %fmap_readn.exit.thread.i
+  %.0.i105.ph = phi i32 [ 20, %129 ], [ 20, %150 ], [ 26, %215 ], [ 26, %190 ], [ 12, %180 ], [ 12, %fmap_readn.exit125.thread.i ], [ 20, %126 ], [ 12, %fmap_readn.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge3
 
-.critedge3.thread258:                             ; preds = %184, %188
+.critedge3.thread258:                             ; preds = %188, %184
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1692,8 +1692,8 @@ thread-pre-split140.i:                            ; preds = %167
   br label %.critedge3
 
 parsehwp3_infoblk_1.exit:                         ; preds = %.lr.ph.i, %197, %198, %209, %210, %223, %226, %230, %240, %241, %246, %250, %252, %256, %258, %259, %155, %159
-  %263 = phi i64 [ %144, %159 ], [ %144, %155 ], [ %177, %259 ], [ %177, %258 ], [ %177, %256 ], [ %177, %252 ], [ %177, %250 ], [ %177, %246 ], [ %177, %241 ], [ %177, %240 ], [ %177, %230 ], [ %177, %226 ], [ %177, %223 ], [ %177, %210 ], [ %177, %209 ], [ %177, %198 ], [ %177, %197 ], [ %177, %.lr.ph.i ]
-  %.0.i105 = phi i32 [ 0, %159 ], [ 0, %155 ], [ %260, %259 ], [ 0, %258 ], [ 0, %256 ], [ 0, %252 ], [ 0, %250 ], [ 0, %246 ], [ %245, %241 ], [ 0, %240 ], [ 0, %230 ], [ 0, %226 ], [ 0, %223 ], [ %211, %210 ], [ 0, %209 ], [ %202, %198 ], [ 0, %197 ], [ %225, %.lr.ph.i ]
+  %263 = phi i64 [ %177, %198 ], [ %144, %155 ], [ %144, %159 ], [ %177, %197 ], [ %177, %209 ], [ %177, %259 ], [ %177, %258 ], [ %177, %256 ], [ %177, %252 ], [ %177, %250 ], [ %177, %246 ], [ %177, %241 ], [ %177, %240 ], [ %177, %230 ], [ %177, %226 ], [ %177, %223 ], [ %177, %210 ], [ %177, %.lr.ph.i ]
+  %.0.i105 = phi i32 [ %202, %198 ], [ 0, %155 ], [ 0, %159 ], [ 0, %197 ], [ 0, %209 ], [ %260, %259 ], [ 0, %258 ], [ 0, %256 ], [ 0, %252 ], [ 0, %250 ], [ 0, %246 ], [ %245, %241 ], [ 0, %240 ], [ 0, %230 ], [ 0, %226 ], [ 0, %223 ], [ %211, %210 ], [ %225, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1712,7 +1712,7 @@ parsehwp3_infoblk_1.exit:                         ; preds = %.lr.ph.i, %197, %19
   br label %267
 
 267:                                              ; preds = %.thread118, %.thread111, %.critedge3, %264, %104, %105, %92, %94, %fmap_readn.exit103.thread, %73, %18
-  %.0 = phi i32 [ 2, %18 ], [ 12, %73 ], [ 12, %fmap_readn.exit103.thread ], [ 27, %94 ], [ 27, %92 ], [ %100, %105 ], [ %100, %104 ], [ %.270, %264 ], [ %.270, %.critedge3 ], [ %.1.ph, %.thread111 ], [ %.4.ph, %.thread118 ]
+  %.0 = phi i32 [ 2, %18 ], [ %.4.ph, %.thread118 ], [ %.1.ph, %.thread111 ], [ 12, %fmap_readn.exit103.thread ], [ 27, %92 ], [ %100, %104 ], [ 12, %73 ], [ 27, %94 ], [ %100, %105 ], [ %.270, %264 ], [ %.270, %.critedge3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1974,7 +1974,7 @@ define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef
   br label %hwpml_scan_cb.exit
 
 .thread118:                                       ; preds = %6, %.thread92, %73
-  %.153121 = phi i32 [ %0, %73 ], [ %70, %.thread92 ], [ %0, %6 ]
+  %.153121 = phi i32 [ %70, %.thread92 ], [ %0, %73 ], [ %0, %6 ]
   %88 = load i32, ptr %7, align 4, !tbaa !26
   %89 = icmp eq i32 %.153121, %88
   %90 = icmp sgt i32 %.153121, -1
@@ -1998,7 +1998,7 @@ define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef
   br label %hwpml_scan_cb.exit
 
 hwpml_scan_cb.exit:                               ; preds = %97, %96, %93, %92, %72, %87
-  %.155 = phi i32 [ %.256, %87 ], [ 14, %72 ], [ %95, %93 ], [ 2, %92 ], [ %98, %97 ], [ 2, %96 ]
+  %.155 = phi i32 [ 14, %72 ], [ %.256, %87 ], [ 2, %92 ], [ %95, %93 ], [ %98, %97 ], [ 2, %96 ]
   %99 = load i32, ptr %7, align 4, !tbaa !26
   %.not77 = icmp eq i32 %99, 0
   br i1 %.not77, label %111, label %100
@@ -2023,7 +2023,7 @@ hwpml_scan_cb.exit:                               ; preds = %97, %96, %93, %92, 
   br label %111
 
 111:                                              ; preds = %.thread, %hwpml_scan_cb.exit, %109, %31
-  %.0 = phi i32 [ %32, %31 ], [ %.155, %109 ], [ %.155, %hwpml_scan_cb.exit ], [ %.1.ph, %.thread ]
+  %.0 = phi i32 [ %32, %31 ], [ %.1.ph, %.thread ], [ %.155, %109 ], [ %.155, %hwpml_scan_cb.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -2756,7 +2756,7 @@ default.unreachable438:                           ; preds = %91
   br label %255
 
 255:                                              ; preds = %248, %123, %107, %124, %126, %128, %130, %187, %213, %215, %217, %219, %221, %223, %225, %227, %229, %231, %249, %251, %186, %164, %.critedge12, %.critedge14, %.critedge16, %253
-  %.16 = phi i32 [ %.0142361517, %107 ], [ %.0142361517, %123 ], [ %.0142361517, %124 ], [ %.0142361517, %126 ], [ %.0142361517, %128 ], [ %.0142361517, %130 ], [ %159, %164 ], [ %181, %186 ], [ %.0142361517, %187 ], [ %192, %.critedge12 ], [ %200, %.critedge14 ], [ %208, %.critedge16 ], [ %.0142361517, %213 ], [ %.0142361517, %215 ], [ %.0142361517, %217 ], [ %.0142361517, %219 ], [ %.0142361517, %221 ], [ %.0142361517, %223 ], [ %.0142361517, %225 ], [ %.0142361517, %227 ], [ %.0142361517, %229 ], [ %.0142361517, %231 ], [ %.0142361517, %248 ], [ %.0142361517, %249 ], [ %.0142361517, %251 ], [ %.0142361517, %253 ]
+  %.16 = phi i32 [ %.0142361517, %107 ], [ %.0142361517, %123 ], [ %.0142361517, %124 ], [ %.0142361517, %126 ], [ %.0142361517, %128 ], [ %.0142361517, %130 ], [ %159, %164 ], [ %181, %186 ], [ %.0142361517, %253 ], [ %.0142361517, %187 ], [ %192, %.critedge12 ], [ %200, %.critedge14 ], [ %208, %.critedge16 ], [ %.0142361517, %213 ], [ %.0142361517, %215 ], [ %.0142361517, %217 ], [ %.0142361517, %219 ], [ %.0142361517, %221 ], [ %.0142361517, %223 ], [ %.0142361517, %225 ], [ %.0142361517, %227 ], [ %.0142361517, %229 ], [ %.0142361517, %231 ], [ %.0142361517, %248 ], [ %.0142361517, %249 ], [ %.0142361517, %251 ]
   %256 = load i64, ptr %7, align 8, !tbaa !71
   %257 = load i64, ptr %23, align 8, !tbaa !23
   %258 = icmp ult i64 %256, %257
@@ -2773,7 +2773,7 @@ default.unreachable438:                           ; preds = %91
   br label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread:                           ; preds = %65, %.preheader, %.lr.ph519, %.critedge16, %.critedge14, %.critedge12, %fmap_readn.exit234, %164, %186, %46, %43, %39, %36, %32, %fmap_readn.exit, %25, %22, %.thread318, %.thread311, %.thread304, %.thread298, %.thread, %fmap_readn.exit219, %fmap_readn.exit214, %6, %.critedge, %72, %60, %51
-  %.0162 = phi i32 [ 0, %51 ], [ 27, %60 ], [ 27, %72 ], [ 0, %.critedge ], [ 23, %6 ], [ 12, %fmap_readn.exit214 ], [ 12, %fmap_readn.exit219 ], [ %.2164.ph, %.thread ], [ %.3165.ph, %.thread298 ], [ %.4166.ph, %.thread304 ], [ %.5167.ph, %.thread311 ], [ %.6168.ph, %.thread318 ], [ 12, %22 ], [ 12, %25 ], [ 12, %fmap_readn.exit ], [ 12, %32 ], [ 12, %36 ], [ 12, %39 ], [ 12, %43 ], [ 12, %46 ], [ 12, %.lr.ph519 ], [ %209, %.critedge16 ], [ %201, %.critedge14 ], [ %193, %.critedge12 ], [ 12, %fmap_readn.exit234 ], [ %182, %186 ], [ %160, %164 ], [ 12, %.preheader ], [ 12, %65 ]
+  %.0162 = phi i32 [ 12, %32 ], [ 23, %6 ], [ 12, %25 ], [ 12, %fmap_readn.exit214 ], [ 12, %fmap_readn.exit219 ], [ 0, %51 ], [ 27, %60 ], [ 12, %36 ], [ 12, %39 ], [ 27, %72 ], [ 0, %.critedge ], [ 12, %43 ], [ %.6168.ph, %.thread318 ], [ %.2164.ph, %.thread ], [ %.3165.ph, %.thread298 ], [ 12, %46 ], [ 12, %.lr.ph519 ], [ %.4166.ph, %.thread304 ], [ 12, %22 ], [ 12, %fmap_readn.exit ], [ %.5167.ph, %.thread311 ], [ %209, %.critedge16 ], [ %193, %.critedge12 ], [ 12, %fmap_readn.exit234 ], [ %182, %186 ], [ %160, %164 ], [ %201, %.critedge14 ], [ 12, %.preheader ], [ 12, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

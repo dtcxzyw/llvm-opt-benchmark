@@ -252,7 +252,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -710,7 +710,7 @@ define noundef i32 @_ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS
   br label %.thread12
 
 .thread12:                                        ; preds = %5, %12, %26, %19
-  %.114 = phi i32 [ 0, %26 ], [ %24, %19 ], [ %17, %12 ], [ %10, %5 ]
+  %.114 = phi i32 [ %24, %19 ], [ 0, %26 ], [ %17, %12 ], [ %10, %5 ]
   ret i32 %.114
 }
 
@@ -1158,8 +1158,8 @@ define void @_ZNK6icu_775units15UnitPreferences17getPreferencesForENS_11StringPi
   store i8 0, ptr %48, align 4, !tbaa !56
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !13
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %.sink.sroa.gep249 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %.sink.sroa.gep249 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sink.sroa.gep250 = getelementptr inbounds nuw i8, ptr %42, i64 8
   invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull @.str.3)
           to label %49 unwind label %103
@@ -1252,7 +1252,7 @@ _ZN6icu_775units15getKeyWordValueERKNS_6LocaleENS_11StringPieceER10UErrorCode.ex
   br label %.thread
 
 _ZN6icu_775units15getKeyWordValueERKNS_6LocaleENS_11StringPieceER10UErrorCode.exit: ; preds = %_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode.exit.i, %.noexc
-  %78 = phi i32 [ %70, %_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode.exit.i ], [ %.pre, %.noexc ]
+  %78 = phi i32 [ %.pre, %.noexc ], [ %70, %_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode.exit.i ]
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %.thread, label %80
 
@@ -1574,7 +1574,7 @@ _ZN6icu_775units15getKeyWordValueERKNS_6LocaleENS_11StringPieceER10UErrorCode.ex
   br label %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit148.thread185
 
 _ZN6icu_775units15getKeyWordValueERKNS_6LocaleENS_11StringPieceER10UErrorCode.exit142: ; preds = %_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode.exit.i135, %.noexc138
-  %193 = phi i32 [ %185, %_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode.exit.i135 ], [ %.pre213, %.noexc138 ]
+  %193 = phi i32 [ %.pre213, %.noexc138 ], [ %185, %_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode.exit.i135 ]
   %194 = icmp sgt i32 %193, 0
   br i1 %194, label %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit148.thread185, label %195
 
@@ -2039,8 +2039,8 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread187: ; preds = %382, %
           to label %.invoke unwind label %380
 
 .invoke:                                          ; preds = %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread187, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit156.thread
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit156.thread ], [ %.sink.sroa.gep249, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread ], [ %.sink.sroa.gep250, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread187 ]
-  %.sink = phi ptr [ %39, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit156.thread ], [ %41, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread ], [ %42, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread187 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread ], [ %.sink.sroa.gep249, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit156.thread ], [ %.sink.sroa.gep250, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread187 ]
+  %.sink = phi ptr [ %41, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread ], [ %39, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit156.thread ], [ %42, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread187 ]
   %393 = load ptr, ptr %.sink, align 8
   %394 = load i32, ptr %.sink.sroa.phi, align 8
   %395 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %23, ptr noundef %393, i32 noundef %394, ptr noundef nonnull align 4 dereferenceable(4) %7)
@@ -2367,9 +2367,9 @@ define internal fastcc noundef range(i32 -1, 1073741824) i32 @_ZN6icu_775units12
   br i1 %50, label %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62, label %_ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i
 
 _ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i: ; preds = %46, %41, %29
-  %51 = phi i8 [ 1, %46 ], [ %30, %41 ], [ %30, %29 ]
-  %52 = phi i8 [ 1, %46 ], [ 1, %41 ], [ %31, %29 ]
-  %.114.i.i = phi i32 [ %49, %46 ], [ %44, %41 ], [ %39, %29 ]
+  %51 = phi i8 [ 1, %46 ], [ %30, %29 ], [ %30, %41 ]
+  %52 = phi i8 [ 1, %46 ], [ %31, %29 ], [ 1, %41 ]
+  %.114.i.i = phi i32 [ %49, %46 ], [ %39, %29 ], [ %44, %41 ]
   %53 = icmp slt i32 %.114.i.i, 0
   %54 = add nuw nsw i32 %33, 1
   %spec.select.i = select i1 %53, i32 %.02511.i, i32 %33
@@ -2485,8 +2485,8 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %78
   br i1 %110, label %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62, label %_ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i52
 
 _ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i52: ; preds = %106, %101, %90
-  %111 = phi i8 [ 1, %106 ], [ %91, %101 ], [ %91, %90 ]
-  %.114.i.i53 = phi i32 [ %109, %106 ], [ %104, %101 ], [ %99, %90 ]
+  %111 = phi i8 [ 1, %106 ], [ %91, %90 ], [ %91, %101 ]
+  %.114.i.i53 = phi i32 [ %109, %106 ], [ %99, %90 ], [ %104, %101 ]
   %112 = icmp slt i32 %.114.i.i53, 0
   %113 = add nuw nsw i32 %93, 1
   %spec.select.i54 = select i1 %112, i32 %.02511.i51, i32 %93
@@ -2529,12 +2529,12 @@ _ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitP
   br i1 %129, label %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62, label %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62.sink.split
 
 _ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62.sink.split: ; preds = %72, %127, %._crit_edge.thread, %.thread, %18
-  %.sink = phi i32 [ 1, %18 ], [ 1, %.thread ], [ 2, %._crit_edge.thread ], [ 2, %127 ], [ 2, %72 ]
+  %.sink = phi i32 [ 1, %.thread ], [ 2, %127 ], [ 1, %18 ], [ 2, %._crit_edge.thread ], [ 2, %72 ]
   store i32 %.sink, ptr %6, align 4, !tbaa !13
   br label %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62
 
 _ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62: ; preds = %46, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit, %106, %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62.sink.split, %16, %127
-  %.1 = phi i32 [ %128, %127 ], [ -1, %16 ], [ -1, %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62.sink.split ], [ %93, %106 ], [ -1, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit ], [ %33, %46 ]
+  %.1 = phi i32 [ -1, %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62.sink.split ], [ -1, %16 ], [ %128, %127 ], [ %93, %106 ], [ -1, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit ], [ %33, %46 ]
   %130 = getelementptr inbounds nuw i8, ptr %11, i64 136
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %130) #18
   %131 = getelementptr inbounds nuw i8, ptr %11, i64 72
@@ -3260,7 +3260,7 @@ _ZN6icu_775units12_GLOBAL__N_110trimSpacesERNS_10CharStringER10UErrorCode.exit: 
           to label %225 unwind label %174
 
 .sink.split:                                      ; preds = %_ZN6icu_7716MaybeStackVectorINS_5units18ConversionRateInfoELi8EE11emplaceBackIJEEEPS2_DpOT_.exit, %162, %168
-  %.sink = phi i32 [ 2, %168 ], [ 2, %162 ], [ 7, %_ZN6icu_7716MaybeStackVectorINS_5units18ConversionRateInfoELi8EE11emplaceBackIJEEEPS2_DpOT_.exit ]
+  %.sink = phi i32 [ 2, %162 ], [ 2, %168 ], [ 7, %_ZN6icu_7716MaybeStackVectorINS_5units18ConversionRateInfoELi8EE11emplaceBackIJEEEPS2_DpOT_.exit ]
   store i32 %.sink, ptr %4, align 4, !tbaa !13
   br label %225
 
@@ -3281,7 +3281,7 @@ _ZN6icu_775units12_GLOBAL__N_110trimSpacesERNS_10CharStringER10UErrorCode.exit: 
   br i1 %.155, label %50, label %._crit_edge
 
 .body82:                                          ; preds = %.body100, %.body96, %.body92, %.body88, %.body85, %72, %196, %174, %65
-  %.pn.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %eh.lpad-body86, %.body85 ], [ %eh.lpad-body89, %.body88 ], [ %eh.lpad-body93, %.body92 ], [ %eh.lpad-body97, %.body96 ], [ %eh.lpad-body101, %.body100 ], [ %73, %72 ], [ %175, %174 ], [ %197, %196 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %73, %72 ], [ %eh.lpad-body86, %.body85 ], [ %eh.lpad-body89, %.body88 ], [ %eh.lpad-body93, %.body92 ], [ %eh.lpad-body97, %.body96 ], [ %eh.lpad-body101, %.body100 ], [ %175, %174 ], [ %197, %196 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %25) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.body79
@@ -4100,7 +4100,7 @@ _ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit: ; preds = %251
   %.not82 = icmp eq i8 %270, 0
   br i1 %.not82, label %._crit_edge193, label %.lr.ph192, !llvm.loop !160
 
-.loopexit:                                        ; preds = %109, %.lr.ph187, %.critedge95, %.critedge, %_ZN6icu_7710MemoryPoolINS_5units22UnitPreferenceMetadataELi8EE6createIJRPKcS7_S7_RiS8_R10UErrorCodeEEEPS2_DpOT_.exit.thread, %150
+.loopexit:                                        ; preds = %109, %.lr.ph187, %.critedge95, %.critedge, %150, %_ZN6icu_7710MemoryPoolINS_5units22UnitPreferenceMetadataELi8EE6createIJRPKcS7_S7_RiS8_R10UErrorCodeEEEPS2_DpOT_.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -4197,7 +4197,7 @@ define internal fastcc noundef range(i32 -1, 1073741824) i32 @_ZN6icu_775units12
   br label %.loopexit
 
 _ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit: ; preds = %18, %28, %33
-  %.114.i = phi i32 [ %36, %33 ], [ %31, %28 ], [ %26, %18 ]
+  %.114.i = phi i32 [ %36, %33 ], [ %26, %18 ], [ %31, %28 ]
   %38 = icmp slt i32 %.114.i, 0
   %39 = add nuw nsw i32 %20, 1
   %spec.select = select i1 %38, i32 %.02511, i32 %20

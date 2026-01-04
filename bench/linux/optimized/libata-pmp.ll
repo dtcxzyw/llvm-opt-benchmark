@@ -562,7 +562,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread28
   br label %314
 
 switch.lookup:                                    ; preds = %169, %163, %216, %230, %242, %252, %sata_pmp_read_gscr.exit
-  %298 = phi i32 [ -5, %sata_pmp_read_gscr.exit ], [ %253, %252 ], [ -19, %242 ], [ -19, %230 ], [ -19, %216 ], [ -19, %163 ], [ -19, %169 ]
+  %298 = phi i32 [ -5, %sata_pmp_read_gscr.exit ], [ %253, %252 ], [ -19, %163 ], [ -19, %242 ], [ -19, %230 ], [ -19, %216 ], [ -19, %169 ]
   %299 = load ptr, ptr %13, align 64
   %300 = load ptr, ptr %299, align 64
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 36
@@ -622,7 +622,7 @@ switch.lookup:                                    ; preds = %169, %163, %216, %2
   br i1 %336, label %379, label %342
 
 337:                                              ; preds = %139, %144, %324
-  %338 = phi i32 [ %315, %324 ], [ %125, %144 ], [ %125, %139 ]
+  %338 = phi i32 [ %315, %324 ], [ %125, %139 ], [ %125, %144 ]
   call fastcc void @sata_pmp_detach(ptr noundef nonnull %13)
   %339 = icmp eq i32 %338, 0
   br i1 %339, label %341, label %340

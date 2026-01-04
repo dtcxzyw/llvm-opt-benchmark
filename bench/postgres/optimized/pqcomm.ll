@@ -350,7 +350,7 @@ pq_getkeepalivesidle.exit.thread:                 ; preds = %19, %pq_getkeepaliv
   br label %48
 
 48:                                               ; preds = %44, %42, %pq_getkeepalivesidle.exit.thread, %10, %2, %6, %46
-  %.0 = phi i32 [ 0, %46 ], [ 0, %6 ], [ 0, %2 ], [ 0, %10 ], [ %., %pq_getkeepalivesidle.exit.thread ], [ -1, %42 ], [ -1, %44 ]
+  %.0 = phi i32 [ 0, %46 ], [ 0, %2 ], [ %., %pq_getkeepalivesidle.exit.thread ], [ 0, %10 ], [ 0, %6 ], [ -1, %42 ], [ -1, %44 ]
   ret i32 %.0
 }
 
@@ -459,7 +459,7 @@ pq_getkeepalivesinterval.exit.thread:             ; preds = %19, %pq_getkeepaliv
   br label %48
 
 48:                                               ; preds = %44, %42, %pq_getkeepalivesinterval.exit.thread, %10, %2, %6, %46
-  %.0 = phi i32 [ 0, %46 ], [ 0, %6 ], [ 0, %2 ], [ 0, %10 ], [ %., %pq_getkeepalivesinterval.exit.thread ], [ -1, %42 ], [ -1, %44 ]
+  %.0 = phi i32 [ 0, %46 ], [ 0, %2 ], [ %., %pq_getkeepalivesinterval.exit.thread ], [ 0, %10 ], [ 0, %6 ], [ -1, %42 ], [ -1, %44 ]
   ret i32 %.0
 }
 
@@ -568,7 +568,7 @@ pq_getkeepalivescount.exit.thread:                ; preds = %19, %pq_getkeepaliv
   br label %48
 
 48:                                               ; preds = %44, %42, %pq_getkeepalivescount.exit.thread, %10, %2, %6, %46
-  %.0 = phi i32 [ 0, %46 ], [ 0, %6 ], [ 0, %2 ], [ 0, %10 ], [ %., %pq_getkeepalivescount.exit.thread ], [ -1, %42 ], [ -1, %44 ]
+  %.0 = phi i32 [ 0, %46 ], [ 0, %2 ], [ %., %pq_getkeepalivescount.exit.thread ], [ 0, %10 ], [ 0, %6 ], [ -1, %42 ], [ -1, %44 ]
   ret i32 %.0
 }
 
@@ -677,7 +677,7 @@ pq_gettcpusertimeout.exit.thread:                 ; preds = %19, %pq_gettcpusert
   br label %48
 
 48:                                               ; preds = %44, %42, %pq_gettcpusertimeout.exit.thread, %10, %2, %6, %46
-  %.0 = phi i32 [ 0, %46 ], [ 0, %6 ], [ 0, %2 ], [ 0, %10 ], [ %., %pq_gettcpusertimeout.exit.thread ], [ -1, %42 ], [ -1, %44 ]
+  %.0 = phi i32 [ 0, %46 ], [ 0, %2 ], [ %., %pq_gettcpusertimeout.exit.thread ], [ 0, %10 ], [ 0, %6 ], [ -1, %42 ], [ -1, %44 ]
   ret i32 %.0
 }
 
@@ -1081,7 +1081,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 776, ptr noundef nonnull @__func__.Setup_AF_UNIX) #20
   br label %185
 
-185:                                              ; preds = %180, %182, %.thread19.i
+185:                                              ; preds = %.thread19.i, %182, %180
   %186 = call i32 @close(i32 noundef %83) #20
   br label %.loopexit
 
@@ -1150,7 +1150,7 @@ Setup_AF_UNIX.exit:                               ; preds = %176, %143, %140
   br i1 %.not102, label %.loopexit, label %58, !llvm.loop !4
 
 .loopexit:                                        ; preds = %215, %66, %68, %185
-  %.095121 = phi i32 [ %.095129, %66 ], [ %.095129, %68 ], [ %.095129, %185 ], [ %.1, %215 ]
+  %.095121 = phi i32 [ %.095129, %185 ], [ %.095129, %66 ], [ %.095129, %68 ], [ %.1, %215 ]
   %218 = load i32, ptr %17, align 4
   %219 = load ptr, ptr %12, align 8
   call void @pg_freeaddrinfo_all(i32 noundef %218, ptr noundef %219) #20
@@ -1159,7 +1159,7 @@ Setup_AF_UNIX.exit:                               ; preds = %176, %143, %140
   br label %220
 
 220:                                              ; preds = %.loopexit, %54, %56, %25, %27
-  %.0 = phi i32 [ -1, %27 ], [ -1, %25 ], [ -1, %56 ], [ -1, %54 ], [ %., %.loopexit ]
+  %.0 = phi i32 [ %., %.loopexit ], [ -1, %25 ], [ -1, %54 ], [ -1, %27 ], [ -1, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1420,7 +1420,7 @@ socket_set_nonblocking.exit:                      ; preds = %12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %35, %33, %40, %38
-  %.1.ph = phi i32 [ -1, %38 ], [ 0, %40 ], [ -1, %33 ], [ -1, %35 ], [ -1, %31 ]
+  %.1.ph = phi i32 [ -1, %38 ], [ 0, %40 ], [ -1, %35 ], [ -1, %33 ], [ -1, %31 ]
   ret i32 %.1.ph
 }
 
@@ -1517,7 +1517,7 @@ socket_set_nonblocking.exit:                      ; preds = %10
   br label %33
 
 33:                                               ; preds = %31, %30, %23, %23, %5
-  %.05 = phi i32 [ 1, %5 ], [ -1, %30 ], [ %spec.store.select, %31 ], [ 0, %23 ], [ 0, %23 ]
+  %.05 = phi i32 [ 1, %5 ], [ %spec.store.select, %31 ], [ -1, %30 ], [ 0, %23 ], [ 0, %23 ]
   ret i32 %.05
 }
 
@@ -1776,7 +1776,7 @@ pq_getbytes.exit20:                               ; preds = %46
   br label %75
 
 75:                                               ; preds = %pq_getbytes.exit20, %68, %28, %30, %19, %21, %74
-  %.0 = phi i32 [ 0, %74 ], [ -1, %21 ], [ -1, %19 ], [ -1, %30 ], [ -1, %28 ], [ -1, %68 ], [ -1, %pq_getbytes.exit20 ]
+  %.0 = phi i32 [ 0, %74 ], [ -1, %19 ], [ -1, %28 ], [ -1, %21 ], [ -1, %30 ], [ -1, %68 ], [ -1, %pq_getbytes.exit20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1970,7 +1970,7 @@ socket_set_nonblocking.exit19._crit_edge29:       ; preds = %socket_set_nonblock
   br i1 %.not, label %socket_set_nonblocking.exit19._crit_edge, label %.lr.ph, !llvm.loop !12
 
 socket_set_nonblocking.exit19._crit_edge:         ; preds = %socket_set_nonblocking.exit, %40, %socket_set_nonblocking.exit19, %2
-  %.112 = phi i32 [ 0, %2 ], [ -1, %socket_set_nonblocking.exit19 ], [ 0, %40 ], [ -1, %socket_set_nonblocking.exit ]
+  %.112 = phi i32 [ 0, %2 ], [ 0, %40 ], [ -1, %socket_set_nonblocking.exit19 ], [ -1, %socket_set_nonblocking.exit ]
   ret i32 %.112
 }
 
@@ -2029,7 +2029,7 @@ define dso_local i32 @pq_getkeepalivesidle(ptr noundef %0) local_unnamed_addr #0
   br label %25
 
 25:                                               ; preds = %11, %24, %8, %1, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %1 ], [ %10, %8 ], [ %.pre, %24 ], [ %13, %11 ]
+  %.0 = phi i32 [ %10, %8 ], [ 0, %1 ], [ 0, %4 ], [ %.pre, %24 ], [ %13, %11 ]
   ret i32 %.0
 }
 
@@ -2091,7 +2091,7 @@ define dso_local i32 @pq_getkeepalivesinterval(ptr noundef %0) local_unnamed_add
   br label %25
 
 25:                                               ; preds = %11, %24, %8, %1, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %1 ], [ %10, %8 ], [ %.pre, %24 ], [ %13, %11 ]
+  %.0 = phi i32 [ %10, %8 ], [ 0, %1 ], [ 0, %4 ], [ %.pre, %24 ], [ %13, %11 ]
   ret i32 %.0
 }
 
@@ -2150,7 +2150,7 @@ define dso_local i32 @pq_getkeepalivescount(ptr noundef %0) local_unnamed_addr #
   br label %25
 
 25:                                               ; preds = %11, %24, %8, %1, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %1 ], [ %10, %8 ], [ %.pre, %24 ], [ %13, %11 ]
+  %.0 = phi i32 [ %10, %8 ], [ 0, %1 ], [ 0, %4 ], [ %.pre, %24 ], [ %13, %11 ]
   ret i32 %.0
 }
 
@@ -2209,7 +2209,7 @@ define dso_local i32 @pq_gettcpusertimeout(ptr noundef %0) local_unnamed_addr #0
   br label %25
 
 25:                                               ; preds = %11, %24, %8, %1, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %1 ], [ %10, %8 ], [ %.pre, %24 ], [ %13, %11 ]
+  %.0 = phi i32 [ %10, %8 ], [ 0, %1 ], [ 0, %4 ], [ %.pre, %24 ], [ %13, %11 ]
   ret i32 %.0
 }
 
@@ -2276,7 +2276,7 @@ define dso_local noundef nonnull ptr @show_tcp_keepalives_idle() local_unnamed_a
   br label %pq_getkeepalivesidle.exit
 
 pq_getkeepalivesidle.exit:                        ; preds = %0, %4, %8, %11, %24
-  %.0.i = phi i32 [ 0, %4 ], [ 0, %0 ], [ %10, %8 ], [ %.pre.i, %24 ], [ %13, %11 ]
+  %.0.i = phi i32 [ %10, %8 ], [ 0, %0 ], [ 0, %4 ], [ %.pre.i, %24 ], [ %13, %11 ]
   %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @show_tcp_keepalives_idle.nbuf, i64 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %.0.i) #20
   ret ptr @show_tcp_keepalives_idle.nbuf
 }
@@ -2344,7 +2344,7 @@ define dso_local noundef nonnull ptr @show_tcp_keepalives_interval() local_unnam
   br label %pq_getkeepalivesinterval.exit
 
 pq_getkeepalivesinterval.exit:                    ; preds = %0, %4, %8, %11, %24
-  %.0.i = phi i32 [ 0, %4 ], [ 0, %0 ], [ %10, %8 ], [ %.pre.i, %24 ], [ %13, %11 ]
+  %.0.i = phi i32 [ %10, %8 ], [ 0, %0 ], [ 0, %4 ], [ %.pre.i, %24 ], [ %13, %11 ]
   %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @show_tcp_keepalives_interval.nbuf, i64 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %.0.i) #20
   ret ptr @show_tcp_keepalives_interval.nbuf
 }
@@ -2412,7 +2412,7 @@ define dso_local noundef nonnull ptr @show_tcp_keepalives_count() local_unnamed_
   br label %pq_getkeepalivescount.exit
 
 pq_getkeepalivescount.exit:                       ; preds = %0, %4, %8, %11, %24
-  %.0.i = phi i32 [ 0, %4 ], [ 0, %0 ], [ %10, %8 ], [ %.pre.i, %24 ], [ %13, %11 ]
+  %.0.i = phi i32 [ %10, %8 ], [ 0, %0 ], [ 0, %4 ], [ %.pre.i, %24 ], [ %13, %11 ]
   %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @show_tcp_keepalives_count.nbuf, i64 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %.0.i) #20
   ret ptr @show_tcp_keepalives_count.nbuf
 }
@@ -2480,7 +2480,7 @@ define dso_local noundef nonnull ptr @show_tcp_user_timeout() local_unnamed_addr
   br label %pq_gettcpusertimeout.exit
 
 pq_gettcpusertimeout.exit:                        ; preds = %0, %4, %8, %11, %24
-  %.0.i = phi i32 [ 0, %4 ], [ 0, %0 ], [ %10, %8 ], [ %.pre.i, %24 ], [ %13, %11 ]
+  %.0.i = phi i32 [ %10, %8 ], [ 0, %0 ], [ 0, %4 ], [ %.pre.i, %24 ], [ %13, %11 ]
   %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @show_tcp_user_timeout.nbuf, i64 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %.0.i) #20
   ret ptr @show_tcp_user_timeout.nbuf
 }
@@ -2529,7 +2529,7 @@ define dso_local noundef zeroext i1 @pq_check_connection() local_unnamed_addr #0
   br i1 %19, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %15, %7, %8, %0
-  %.lcssa = phi i1 [ true, %0 ], [ %.not, %8 ], [ %.not, %7 ], [ true, %15 ]
+  %.lcssa = phi i1 [ %.not, %7 ], [ true, %0 ], [ %.not, %8 ], [ true, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.lcssa
 }

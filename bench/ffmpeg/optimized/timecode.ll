@@ -649,7 +649,7 @@ check_timecode.exit:                              ; preds = %.preheader.i, %35
   br label %check_timecode.exit.thread
 
 check_timecode.exit.thread:                       ; preds = %30, %26, %check_timecode.exit, %43
-  %.0 = phi i32 [ 0, %43 ], [ 0, %check_timecode.exit ], [ -22, %26 ], [ -22, %30 ]
+  %.0 = phi i32 [ 0, %check_timecode.exit ], [ 0, %43 ], [ -22, %26 ], [ -22, %30 ]
   ret i32 %.0
 }
 

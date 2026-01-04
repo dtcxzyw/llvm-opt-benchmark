@@ -602,7 +602,7 @@ hash_filespec.exit.i.i:                           ; preds = %189, %180
   br label %basename_same.exit.i.i
 
 basename_same.exit.i.i:                           ; preds = %217, %231, %230, %224
-  %.2.i.i.i = phi i32 [ %.mux.i.i.i, %224 ], [ 1, %230 ], [ %237, %231 ], [ %.1.i.i.i, %217 ]
+  %.2.i.i.i = phi i32 [ %237, %231 ], [ %.mux.i.i.i, %224 ], [ 1, %230 ], [ %.1.i.i.i, %217 ]
   %238 = add nsw i32 %.2.i.i.i, %204
   %239 = icmp sgt i32 %238, %.03469.i.i
   br i1 %239, label %240, label %242
@@ -619,15 +619,15 @@ basename_same.exit.i.i:                           ; preds = %217, %231, %230, %2
   br i1 %.not47.i.i, label %select.unfold.i.i, label %244
 
 244:                                              ; preds = %242, %205, %196, %193
-  %.239.ph.i.i = phi ptr [ %.3.i.i, %242 ], [ %.03767.i.i, %205 ], [ %.03767.i.i, %193 ], [ %.03767.i.i, %196 ]
-  %.136.ph.i.i = phi i32 [ %243, %242 ], [ %.03568.i.i, %205 ], [ %.03568.i.i, %193 ], [ %.03568.i.i, %196 ]
-  %.1.ph.i.i = phi i32 [ %.2.i.i, %242 ], [ %.03469.i.i, %205 ], [ %.03469.i.i, %193 ], [ %.03469.i.i, %196 ]
+  %.239.ph.i.i = phi ptr [ %.03767.i.i, %193 ], [ %.3.i.i, %242 ], [ %.03767.i.i, %205 ], [ %.03767.i.i, %196 ]
+  %.136.ph.i.i = phi i32 [ %.03568.i.i, %193 ], [ %243, %242 ], [ %.03568.i.i, %205 ], [ %.03568.i.i, %196 ]
+  %.1.ph.i.i = phi i32 [ %.03469.i.i, %193 ], [ %.2.i.i, %242 ], [ %.03469.i.i, %205 ], [ %.03469.i.i, %196 ]
   %245 = call ptr @hashmap_get_next(ptr noundef nonnull %19, ptr noundef nonnull %.03370.i.i) #14
   %.not.i.i238 = icmp eq ptr %245, null
   br i1 %.not.i.i238, label %select.unfold.i.i, label %193, !llvm.loop !105
 
 select.unfold.i.i:                                ; preds = %244, %242, %240
-  %.138.i.i = phi ptr [ %.239.ph.i.i, %244 ], [ %.03370.i.i, %240 ], [ %.3.i.i, %242 ]
+  %.138.i.i = phi ptr [ %.03370.i.i, %240 ], [ %.239.ph.i.i, %244 ], [ %.3.i.i, %242 ]
   %.not48.i.i = icmp eq ptr %.138.i.i, null
   br i1 %.not48.i.i, label %find_identical_files.exit.i, label %246
 
@@ -1780,9 +1780,9 @@ too_many_rename_candidates.exit:                  ; preds = %st_mult.exit39.i
   store i32 1, ptr %767, align 4, !tbaa !140
   br label %too_many_rename_candidates.exit.thread
 
-too_many_rename_candidates.exit.thread:           ; preds = %st_mult.exit31.i, %742, %too_many_rename_candidates.exit
-  %.not203 = phi i1 [ false, %too_many_rename_candidates.exit ], [ true, %742 ], [ true, %st_mult.exit31.i ]
-  %.0184 = phi i32 [ 1, %too_many_rename_candidates.exit ], [ 0, %742 ], [ 0, %st_mult.exit31.i ]
+too_many_rename_candidates.exit.thread:           ; preds = %742, %st_mult.exit31.i, %too_many_rename_candidates.exit
+  %.not203 = phi i1 [ false, %too_many_rename_candidates.exit ], [ true, %st_mult.exit31.i ], [ true, %742 ]
+  %.0184 = phi i32 [ 1, %too_many_rename_candidates.exit ], [ 0, %st_mult.exit31.i ], [ 0, %742 ]
   %768 = load ptr, ptr %30, align 8, !tbaa !40
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 1567, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef %768) #14
   %769 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -1967,7 +1967,7 @@ st_mult.exit:                                     ; preds = %789
   br label %basename_same.exit
 
 basename_same.exit:                               ; preds = %837, %844, %850, %851
-  %.2.i = phi i32 [ %.mux.i, %844 ], [ 1, %850 ], [ %857, %851 ], [ %.1.i, %837 ]
+  %.2.i = phi i32 [ %857, %851 ], [ %.mux.i, %844 ], [ 1, %850 ], [ %.1.i, %837 ]
   br label %858
 
 858:                                              ; preds = %score_compare.exit.thread.i, %basename_same.exit
@@ -2017,7 +2017,7 @@ basename_same.exit:                               ; preds = %837, %844, %850, %8
   br label %score_compare.exit.i
 
 score_compare.exit.i:                             ; preds = %886, %878, %867
-  %.0.i.i294 = phi i32 [ %869, %867 ], [ %885, %878 ], [ %889, %886 ]
+  %.0.i.i294 = phi i32 [ %869, %867 ], [ %889, %886 ], [ %885, %878 ]
   %.0.i.fr.i = freeze i32 %.0.i.i294
   %890 = icmp sgt i32 %.0.i.fr.i, 0
   %891 = trunc nuw nsw i64 %indvars.iv.i293 to i32
@@ -2213,7 +2213,7 @@ too_many_rename_candidates.exit.thread319:        ; preds = %st_mult.exit39.i, %
   br label %strintmap_get.exit.i301
 
 strintmap_get.exit.i301:                          ; preds = %970, %967
-  %975 = phi i32 [ %974, %970 ], [ %969, %967 ]
+  %975 = phi i32 [ %969, %967 ], [ %974, %970 ]
   %.fr.i = freeze i32 %975
   %976 = icmp eq i32 %.fr.i, -1
   %977 = load ptr, ptr @rename_dst, align 8
@@ -2286,7 +2286,7 @@ free_filespec_data.exit.i:                        ; preds = %995, %990
   call void @diff_free_filespec_data(ptr noundef nonnull %997) #14
   br label %pool_diff_free_filepair.exit
 
-pool_diff_free_filepair.exit:                     ; preds = %957, %select.unfold322, %987, %947, %1001, %free_filespec_data.exit.i, %989
+pool_diff_free_filepair.exit:                     ; preds = %select.unfold322, %987, %957, %947, %1001, %free_filespec_data.exit.i, %989
   %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391, 1
   %1002 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !53
   %1003 = sext i32 %1002 to i64
@@ -2752,7 +2752,7 @@ define internal fastcc void @remove_unneeded_paths_from_src(i32 noundef range(i3
   br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %64, %47, %26, %.lr.ph.split, %.preheader
-  %.016.lcssa = phi i32 [ 0, %.preheader ], [ %6, %.lr.ph.split ], [ %.1.us.us, %26 ], [ %.1.us, %47 ], [ %.1.us27, %64 ]
+  %.016.lcssa = phi i32 [ 0, %.preheader ], [ %.1.us, %47 ], [ %6, %.lr.ph.split ], [ %.1.us.us, %26 ], [ %.1.us27, %64 ]
   store i32 %.016.lcssa, ptr @rename_src_nr, align 4, !tbaa !81
   br label %65
 
@@ -2968,7 +2968,7 @@ define internal fastcc i32 @estimate_similarity(ptr noundef %0, ptr noundef %1, 
   br label %61
 
 61:                                               ; preds = %55, %53, %51, %49, %45, %27, %25, %20, %5, %11
-  %.041 = phi i32 [ 0, %11 ], [ 0, %5 ], [ 0, %20 ], [ 0, %25 ], [ 0, %27 ], [ 0, %45 ], [ 0, %49 ], [ 0, %51 ], [ %60, %55 ], [ 0, %53 ]
+  %.041 = phi i32 [ 0, %25 ], [ 0, %49 ], [ 0, %51 ], [ 0, %45 ], [ 0, %27 ], [ 0, %20 ], [ 0, %5 ], [ 0, %11 ], [ %60, %55 ], [ 0, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.041
@@ -3023,7 +3023,7 @@ define internal range(i32 -65535, 65536) i32 @score_compare(ptr noundef readonly
   br label %31
 
 31:                                               ; preds = %11, %27, %19, %8
-  %.0 = phi i32 [ %10, %8 ], [ %26, %19 ], [ %30, %27 ], [ -1, %11 ]
+  %.0 = phi i32 [ %10, %8 ], [ %30, %27 ], [ %26, %19 ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -3152,8 +3152,8 @@ record_rename_pair.exit:                          ; preds = %41, %65
   tail call fastcc void @update_dir_rename_counts(ptr noundef %4, ptr noundef %5, ptr noundef %76, ptr noundef %84)
   br label %85
 
-85:                                               ; preds = %record_rename_pair.exit, %19, %26
-  %.2.ph = phi i32 [ %.02838, %26 ], [ %.02838, %19 ], [ %69, %record_rename_pair.exit ]
+85:                                               ; preds = %19, %record_rename_pair.exit, %26
+  %.2.ph = phi i32 [ %.02838, %26 ], [ %69, %record_rename_pair.exit ], [ %.02838, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !171
@@ -3343,7 +3343,7 @@ increment_count.exit:                             ; preds = %47, %50
   %.not49 = icmp eq i8 %60, 0
   br i1 %.not49, label %.thread, label %14
 
-.thread:                                          ; preds = %59, %31, %26, %28, %18, %55, %57
+.thread:                                          ; preds = %59, %31, %28, %26, %18, %57, %55
   tail call void @free(ptr noundef nonnull %9) #14
   tail call void @free(ptr noundef %10) #14
   br label %61

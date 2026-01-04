@@ -1292,7 +1292,7 @@ define hidden zeroext i1 @SDL_DBus_ScreensaverInhibit(i1 noundef zeroext %0) loc
   br label %.sink.split
 
 .sink.split:                                      ; preds = %56, %59, %30, %.loopexit
-  %.1.ph = phi i1 [ false, %.loopexit ], [ false, %30 ], [ true, %59 ], [ false, %56 ]
+  %.1.ph = phi i1 [ false, %30 ], [ false, %.loopexit ], [ true, %59 ], [ false, %56 ]
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 312), align 8
   call void %62(ptr noundef nonnull %29) #6
   br label %63
@@ -1361,7 +1361,7 @@ define hidden zeroext i1 @SDL_DBus_ScreensaverInhibit(i1 noundef zeroext %0) loc
   br label %.thread61
 
 .thread61:                                        ; preds = %80, %76, %67, %82, %.thread57, %.thread, %16, %17
-  %.0 = phi i1 [ true, %17 ], [ true, %16 ], [ false, %.thread ], [ %.2.ph, %.thread57 ], [ true, %82 ], [ true, %67 ], [ false, %80 ], [ %.3, %76 ]
+  %.0 = phi i1 [ true, %16 ], [ false, %.thread ], [ %.2.ph, %.thread57 ], [ true, %67 ], [ true, %17 ], [ true, %82 ], [ false, %80 ], [ %.3, %76 ]
   ret i1 %.0
 }
 
@@ -1820,7 +1820,7 @@ select.unfold:                                    ; preds = %13, %8
   br label %SDL_DBus_GetContext.exit
 
 SDL_DBus_GetContext.exit:                         ; preds = %13, %128, %134, %91, %54, %0, %118
-  %.0 = phi i32 [ %119, %118 ], [ -2, %0 ], [ -2, %54 ], [ -2, %91 ], [ -1, %134 ], [ -1, %128 ], [ -2, %13 ]
+  %.0 = phi i32 [ -2, %0 ], [ -2, %91 ], [ -2, %54 ], [ %119, %118 ], [ -1, %128 ], [ -1, %134 ], [ -2, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1897,7 +1897,7 @@ define internal range(i32 0, 2) i32 @SDL_DBus_CameraPortalMessageHandler(ptr rea
   br label %38
 
 38:                                               ; preds = %24, %29, %16, %19, %32, %22, %14
-  %.0 = phi i32 [ 0, %22 ], [ 1, %14 ], [ 0, %32 ], [ 1, %19 ], [ 1, %16 ], [ 1, %29 ], [ 1, %24 ]
+  %.0 = phi i32 [ 1, %16 ], [ 0, %22 ], [ 1, %14 ], [ 0, %32 ], [ 1, %19 ], [ 1, %29 ], [ 1, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

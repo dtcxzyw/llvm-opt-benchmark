@@ -1226,7 +1226,7 @@ define internal void @obj_flag_observer_cb(ptr noundef readonly captures(none) %
   br label %28
 
 28:                                               ; preds = %22, %16, %10
-  %.0.shrunk = phi i1 [ %15, %10 ], [ %21, %16 ], [ %27, %22 ]
+  %.0.shrunk = phi i1 [ %27, %22 ], [ %15, %10 ], [ %21, %16 ]
   %29 = trunc i8 %6 to i1
   %spec.select = xor i1 %.0.shrunk, %29
   br i1 %spec.select, label %30, label %34
@@ -1329,7 +1329,7 @@ define internal void @obj_state_observer_cb(ptr noundef readonly captures(none) 
   br label %28
 
 28:                                               ; preds = %22, %16, %10
-  %.0.shrunk = phi i1 [ %15, %10 ], [ %21, %16 ], [ %27, %22 ]
+  %.0.shrunk = phi i1 [ %27, %22 ], [ %15, %10 ], [ %21, %16 ]
   %29 = trunc i8 %6 to i1
   %spec.select = xor i1 %.0.shrunk, %29
   br i1 %spec.select, label %30, label %35
@@ -1491,7 +1491,7 @@ define ptr @lv_label_bind_text(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br label %lv_subject_add_observer_obj.exit
 
 lv_subject_add_observer_obj.exit:                 ; preds = %22, %14, %11, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %11 ], [ %13, %14 ], [ %13, %22 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %11 ], [ %13, %22 ], [ %13, %14 ]
   ret ptr %.0
 }
 

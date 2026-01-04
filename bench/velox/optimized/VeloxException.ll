@@ -1393,8 +1393,8 @@ if.end139:                                        ; preds = %if.then132, %if.els
   ret void
 
 eh.resume:                                        ; preds = %lpad68, %lpad71, %lpad, %lpad59
-  %ref.tmp66.sink = phi ptr [ %ref.tmp56, %lpad59 ], [ %ref.tmp56, %lpad ], [ %ref.tmp66, %lpad71 ], [ %ref.tmp66, %lpad68 ]
-  %.pn4.pn = phi { ptr, i32 } [ %2, %lpad59 ], [ %1, %lpad ], [ %4, %lpad71 ], [ %3, %lpad68 ]
+  %ref.tmp66.sink = phi ptr [ %ref.tmp56, %lpad ], [ %ref.tmp56, %lpad59 ], [ %ref.tmp66, %lpad71 ], [ %ref.tmp66, %lpad68 ]
+  %.pn4.pn = phi { ptr, i32 } [ %1, %lpad ], [ %2, %lpad59 ], [ %4, %lpad71 ], [ %3, %lpad68 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66.sink) #17
   resume { ptr, i32 } %.pn4.pn
 }

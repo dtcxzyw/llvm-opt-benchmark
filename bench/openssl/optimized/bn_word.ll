@@ -49,7 +49,7 @@ define i64 @BN_mod_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br i1 %26, label %17, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %17, %11, %9, %6, %2
-  %.0 = phi i64 [ -1, %2 ], [ %10, %9 ], [ -1, %6 ], [ 0, %11 ], [ %25, %17 ]
+  %.0 = phi i64 [ -1, %6 ], [ -1, %2 ], [ %10, %9 ], [ 0, %11 ], [ %25, %17 ]
   ret i64 %.0
 }
 
@@ -125,8 +125,8 @@ thread-pre-split.thread:                          ; preds = %27
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %13, %35, %._crit_edge
-  %.032.lcssa46 = phi i64 [ %22, %35 ], [ %22, %._crit_edge ], [ 0, %13 ]
-  %37 = phi i32 [ %36, %35 ], [ %.pre41, %._crit_edge ], [ %14, %13 ]
+  %.032.lcssa46 = phi i64 [ %22, %._crit_edge ], [ %22, %35 ], [ 0, %13 ]
+  %37 = phi i32 [ %.pre41, %._crit_edge ], [ %36, %35 ], [ %14, %13 ]
   %38 = lshr i64 %.032.lcssa46, %10
   %.not37 = icmp eq i32 %37, 0
   br i1 %.not37, label %39, label %41
@@ -137,7 +137,7 @@ thread-pre-split:                                 ; preds = %13, %35, %._crit_ed
   br label %41
 
 41:                                               ; preds = %thread-pre-split.thread, %thread-pre-split, %39, %7, %3, %2
-  %.0 = phi i64 [ -1, %2 ], [ 0, %3 ], [ -1, %7 ], [ %38, %39 ], [ %38, %thread-pre-split ], [ %34, %thread-pre-split.thread ]
+  %.0 = phi i64 [ -1, %2 ], [ -1, %7 ], [ 0, %3 ], [ %38, %39 ], [ %38, %thread-pre-split ], [ %34, %thread-pre-split.thread ]
   ret i64 %.0
 }
 
@@ -227,7 +227,7 @@ define i32 @BN_add_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br label %.critedge42
 
 .critedge42:                                      ; preds = %19, %.critedge, %30, %26, %12, %15, %2, %5
-  %.033 = phi i32 [ %6, %5 ], [ 1, %2 ], [ %13, %15 ], [ %13, %12 ], [ 0, %26 ], [ 1, %30 ], [ 1, %.critedge ], [ 1, %19 ]
+  %.033 = phi i32 [ %6, %5 ], [ 1, %2 ], [ %13, %12 ], [ 0, %26 ], [ %13, %15 ], [ 1, %.critedge ], [ 1, %30 ], [ 1, %19 ]
   ret i32 %.033
 }
 
@@ -324,7 +324,7 @@ define i32 @BN_sub_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32, %5, %7, %2, %18, %11
-  %.039 = phi i32 [ %12, %11 ], [ 1, %18 ], [ 1, %2 ], [ %6, %7 ], [ 0, %5 ], [ 1, %32 ], [ 1, %._crit_edge ]
+  %.039 = phi i32 [ 1, %2 ], [ %12, %11 ], [ 1, %18 ], [ 0, %5 ], [ %6, %7 ], [ 1, %32 ], [ 1, %._crit_edge ]
   ret i32 %.039
 }
 

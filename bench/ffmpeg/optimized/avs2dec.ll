@@ -91,10 +91,10 @@ switch.early.test:                                ; preds = %15
   br label %33
 
 33:                                               ; preds = %switch.early.test, %._crit_edge83, %31, %29, %.lr.ph
-  %.2 = phi i32 [ %.3, %29 ], [ %.3, %31 ], [ %.06572, %switch.early.test ], [ %.06572, %.lr.ph ], [ %.3, %._crit_edge83 ]
-  %.164 = phi i32 [ %.06373, %29 ], [ %32, %31 ], [ %.06373, %switch.early.test ], [ %.06373, %.lr.ph ], [ %.06373, %._crit_edge83 ]
-  %.162 = phi i32 [ %30, %29 ], [ %.06174, %31 ], [ %.06174, %switch.early.test ], [ %.06174, %.lr.ph ], [ %.06174, %._crit_edge83 ]
-  %.1 = phi ptr [ %11, %29 ], [ %.076, %31 ], [ %.076, %switch.early.test ], [ %.076, %.lr.ph ], [ %.076, %._crit_edge83 ]
+  %.2 = phi i32 [ %.3, %29 ], [ %.3, %31 ], [ %.3, %._crit_edge83 ], [ %.06572, %switch.early.test ], [ %.06572, %.lr.ph ]
+  %.164 = phi i32 [ %.06373, %29 ], [ %32, %31 ], [ %.06373, %._crit_edge83 ], [ %.06373, %switch.early.test ], [ %.06373, %.lr.ph ]
+  %.162 = phi i32 [ %30, %29 ], [ %.06174, %31 ], [ %.06174, %._crit_edge83 ], [ %.06174, %switch.early.test ], [ %.06174, %.lr.ph ]
+  %.1 = phi ptr [ %11, %29 ], [ %.076, %31 ], [ %.076, %._crit_edge83 ], [ %.076, %switch.early.test ], [ %.076, %.lr.ph ]
   %34 = icmp ult ptr %11, %8
   br i1 %34, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
 
@@ -111,7 +111,7 @@ switch.early.test:                                ; preds = %15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %._crit_edge.loopexit, %1
-  %.059 = phi i32 [ 0, %1 ], [ %40, %._crit_edge.loopexit ], [ 0, %25 ]
+  %.059 = phi i32 [ %40, %._crit_edge.loopexit ], [ 0, %1 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.059
 }

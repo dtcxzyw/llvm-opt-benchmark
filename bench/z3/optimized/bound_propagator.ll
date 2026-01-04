@@ -1598,8 +1598,8 @@ _ZNK6vectorIcLb0EjE8capacityEv.exit.i.i21:        ; preds = %_ZNK6vectorIcLb0EjE
   br i1 %38, label %_ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i24, label %40
 
 _ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i24: ; preds = %_ZNK6vectorIcLb0EjE4sizeEv.exit.i26, %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i21, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i28
-  %.0.i17.i.i20130 = phi i32 [ %.0.i17.ph.i.i19, %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i21 ], [ %.0.i17.ph.i.i19, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i28 ], [ 0, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i26 ]
-  %39 = phi ptr [ %34, %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i21 ], [ %34, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i28 ], [ %23, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i26 ]
+  %.0.i17.i.i20130 = phi i32 [ %.0.i17.ph.i.i19, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i28 ], [ %.0.i17.ph.i.i19, %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i21 ], [ 0, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i26 ]
+  %39 = phi ptr [ %34, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i28 ], [ %34, %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i21 ], [ %23, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i26 ]
   tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %39)
   %.pr.pre.i.i25 = load ptr, ptr %39, align 8, !tbaa !73
   br label %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i28, !llvm.loop !83
@@ -1709,8 +1709,8 @@ _ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.i.i44: ; preds = %
   br i1 %80, label %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.thread.i.i50, label %82
 
 _ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.thread.i.i50: ; preds = %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i52, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.i.i44, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i54
-  %.0.i17.i.i43132 = phi i32 [ %.0.i17.ph.i.i42, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.i.i44 ], [ %.0.i17.ph.i.i42, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i54 ], [ 0, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i52 ]
-  %81 = phi ptr [ %76, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.i.i44 ], [ %76, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i54 ], [ %65, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i52 ]
+  %.0.i17.i.i43132 = phi i32 [ %.0.i17.ph.i.i42, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i54 ], [ %.0.i17.ph.i.i42, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.i.i44 ], [ 0, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i52 ]
+  %81 = phi ptr [ %76, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i54 ], [ %76, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.i.i44 ], [ %65, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i52 ]
   tail call void @_ZN6vectorIPN16bound_propagator5boundELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %81)
   %.pr.pre.i.i51 = load ptr, ptr %81, align 8, !tbaa !72
   br label %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i54, !llvm.loop !84
@@ -1821,8 +1821,8 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.i.i73:        ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %123, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i79, label %125
 
 _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i79: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i81, %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i73, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83
-  %.0.i17.i.i72134 = phi i32 [ %.0.i17.ph.i.i71, %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i73 ], [ %.0.i17.ph.i.i71, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83 ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i81 ]
-  %124 = phi ptr [ %119, %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i73 ], [ %119, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83 ], [ %108, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i81 ]
+  %.0.i17.i.i72134 = phi i32 [ %.0.i17.ph.i.i71, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83 ], [ %.0.i17.ph.i.i71, %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i73 ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i81 ]
+  %124 = phi ptr [ %119, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83 ], [ %119, %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i73 ], [ %108, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i81 ]
   tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %124)
   %.pr.pre.i.i80 = load ptr, ptr %124, align 8, !tbaa !65
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83, !llvm.loop !85
@@ -2185,7 +2185,7 @@ define hidden noundef zeroext i1 @_ZN16bound_propagator9propagateEj(ptr noundef 
   br label %11
 
 11:                                               ; preds = %2, %9
-  %.0 = phi i1 [ %10, %9 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %2 ], [ %10, %9 ]
   ret i1 %.0
 }
 
@@ -2533,7 +2533,7 @@ _ZN16bound_propagator9propagateEj.exit.thread:    ; preds = %.lr.ph.split, %90, 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %_ZN16bound_propagator9propagateEj.exit.thread, %_ZN16bound_propagator9propagateEj.exit.thread.us, %_ZNK6vectorIjLb0EjE4sizeEv.exit
-  %.023.lcssa.ph = phi i32 [ %60, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %60, %_ZN16bound_propagator9propagateEj.exit.thread.us ], [ %.1, %_ZN16bound_propagator9propagateEj.exit.thread ]
+  %.023.lcssa.ph = phi i32 [ %60, %_ZN16bound_propagator9propagateEj.exit.thread.us ], [ %60, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %.1, %_ZN16bound_propagator9propagateEj.exit.thread ]
   %.pr = load ptr, ptr %64, align 8, !tbaa !65
   %.not.i26 = icmp eq ptr %.pr, null
   br i1 %.not.i26, label %_ZN6vectorIjLb0EjE6shrinkEj.exit, label %95
@@ -2613,7 +2613,7 @@ define hidden noundef zeroext i1 @_ZN16bound_propagator17assert_lower_coreEjR3mp
   %44 = load i32, ptr %39, align 8
   %45 = icmp eq i32 %44, 1
   %46 = select i1 %43, i1 %45, i1 false
-  br i1 %46, label %47, label %70
+  br i1 %46, label %47, label %69
 
 47:                                               ; preds = %37
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2624,38 +2624,38 @@ define hidden noundef zeroext i1 @_ZN16bound_propagator17assert_lower_coreEjR3mp
   %53 = load i32, ptr %48, align 8
   %54 = icmp eq i32 %53, 1
   %55 = select i1 %52, i1 %54, i1 false
-  br i1 %55, label %56, label %70
+  br i1 %55, label %56, label %69
 
 56:                                               ; preds = %47
   %57 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %58 = load i8, ptr %57, align 4
   %59 = and i8 %58, 1
   %60 = icmp eq i8 %59, 0
-  br i1 %60, label %61, label %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit
+  br i1 %60, label %61, label %66
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %63 = load i8, ptr %62, align 4
   %64 = and i8 %63, 1
   %65 = icmp eq i8 %64, 0
-  br i1 %65, label %66, label %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit
+  br i1 %65, label %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit, label %66
 
-66:                                               ; preds = %61
-  %67 = load i32, ptr %36, align 8, !tbaa !3
-  %68 = load i32, ptr %2, align 8, !tbaa !3
-  %69 = icmp slt i32 %67, %68
-  br i1 %69, label %.critedge, label %74
+66:                                               ; preds = %61, %56
+  %67 = call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %38, ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %68 = icmp slt i32 %67, 0
+  br i1 %68, label %.critedge, label %74
 
-70:                                               ; preds = %47, %37
-  %71 = call noundef zeroext i1 @_ZN11mpq_managerILb0EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %38, ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  br i1 %71, label %.critedge, label %74
+69:                                               ; preds = %47, %37
+  %70 = call noundef zeroext i1 @_ZN11mpq_managerILb0EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %38, ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  br i1 %70, label %.critedge, label %74
 
-_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit:         ; preds = %56, %61
-  %72 = call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %38, ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %73 = icmp slt i32 %72, 0
+_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit:         ; preds = %61
+  %71 = load i32, ptr %36, align 8, !tbaa !3
+  %72 = load i32, ptr %2, align 8, !tbaa !3
+  %73 = icmp slt i32 %71, %72
   br i1 %73, label %.critedge, label %74
 
-74:                                               ; preds = %66, %70, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit
+74:                                               ; preds = %66, %69, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit
   %75 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %76 = load i32, ptr %75, align 8
   %77 = and i32 %76, 2
@@ -2695,23 +2695,23 @@ _ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i:       ; preds = %85, %79
   %99 = load i8, ptr %98, align 4
   %100 = and i8 %99, 1
   %101 = icmp eq i8 %100, 0
-  br i1 %101, label %102, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
+  br i1 %101, label %102, label %106
 
 102:                                              ; preds = %96
   %103 = load i8, ptr %40, align 4
   %104 = and i8 %103, 1
   %105 = icmp eq i8 %104, 0
-  br i1 %105, label %106, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
+  br i1 %105, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, label %106
 
-106:                                              ; preds = %102
-  %107 = load i32, ptr %97, align 8, !tbaa !3
-  %108 = load i32, ptr %39, align 8, !tbaa !3
-  %109 = icmp eq i32 %107, %108
-  br i1 %109, label %.critedge, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
+106:                                              ; preds = %102, %96
+  %107 = call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %80, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(16) %39)
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %.critedge, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
 
-_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %96, %102
-  %110 = call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %80, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(16) %39)
-  %111 = icmp eq i32 %110, 0
+_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %102
+  %109 = load i32, ptr %97, align 8, !tbaa !3
+  %110 = load i32, ptr %39, align 8, !tbaa !3
+  %111 = icmp eq i32 %109, %110
   br i1 %111, label %.critedge, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
 
 _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread:  ; preds = %90, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i, %74, %106, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
@@ -2725,7 +2725,7 @@ _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread:  ; preds = %90, %_ZN11mpq_manag
   store i32 %116, ptr %114, align 8, !tbaa !64
   br label %214
 
-.critedge:                                        ; preds = %106, %66, %70, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit, %32
+.critedge:                                        ; preds = %106, %66, %69, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit, %32
   %117 = icmp eq i32 %4, 2
   br i1 %117, label %118, label %122
 
@@ -2940,7 +2940,7 @@ define hidden void @_ZN16bound_propagator17check_feasibilityEj(ptr noundef nonnu
   %24 = load i32, ptr %19, align 8
   %25 = icmp eq i32 %24, 1
   %26 = select i1 %23, i1 %25, i1 false
-  br i1 %26, label %27, label %50
+  br i1 %26, label %27, label %49
 
 27:                                               ; preds = %17
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2951,38 +2951,38 @@ define hidden void @_ZN16bound_propagator17check_feasibilityEj(ptr noundef nonnu
   %33 = load i32, ptr %28, align 8
   %34 = icmp eq i32 %33, 1
   %35 = select i1 %32, i1 %34, i1 false
-  br i1 %35, label %36, label %50
+  br i1 %35, label %36, label %49
 
 36:                                               ; preds = %27
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %38 = load i8, ptr %37, align 4
   %39 = and i8 %38, 1
   %40 = icmp eq i8 %39, 0
-  br i1 %40, label %41, label %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
+  br i1 %40, label %41, label %46
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %43 = load i8, ptr %42, align 4
   %44 = and i8 %43, 1
   %45 = icmp eq i8 %44, 0
-  br i1 %45, label %46, label %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
+  br i1 %45, label %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit, label %46
 
-46:                                               ; preds = %41
-  %47 = load i32, ptr %10, align 8, !tbaa !3
-  %48 = load i32, ptr %14, align 8, !tbaa !3
-  %49 = icmp slt i32 %47, %48
-  br i1 %49, label %98, label %54
+46:                                               ; preds = %41, %36
+  %47 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %18, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %48 = icmp slt i32 %47, 0
+  br i1 %48, label %98, label %54
 
-50:                                               ; preds = %27, %17
-  %51 = tail call noundef zeroext i1 @_ZN11mpq_managerILb0EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %18, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %14)
-  br i1 %51, label %98, label %54
+49:                                               ; preds = %27, %17
+  %50 = tail call noundef zeroext i1 @_ZN11mpq_managerILb0EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %18, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  br i1 %50, label %98, label %54
 
-_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit:         ; preds = %36, %41
-  %52 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %18, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %14)
-  %53 = icmp slt i32 %52, 0
+_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit:         ; preds = %41
+  %51 = load i32, ptr %10, align 8, !tbaa !3
+  %52 = load i32, ptr %14, align 8, !tbaa !3
+  %53 = icmp slt i32 %51, %52
   br i1 %53, label %98, label %54
 
-54:                                               ; preds = %46, %50, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
+54:                                               ; preds = %46, %49, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %56 = load i32, ptr %55, align 8
   %57 = and i32 %56, 2
@@ -3055,7 +3055,7 @@ _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread:  ; preds = %73, %_ZN11mpq_manag
   store i32 %97, ptr %95, align 8, !tbaa !62
   br label %98
 
-98:                                               ; preds = %89, %46, %50, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread, %5, %2
+98:                                               ; preds = %89, %46, %49, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread, %5, %2
   ret void
 }
 
@@ -3125,7 +3125,7 @@ define hidden noundef zeroext i1 @_ZN16bound_propagator17assert_upper_coreEjR3mp
   %44 = load i32, ptr %39, align 8
   %45 = icmp eq i32 %44, 1
   %46 = select i1 %43, i1 %45, i1 false
-  br i1 %46, label %47, label %70
+  br i1 %46, label %47, label %69
 
 47:                                               ; preds = %37
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -3136,38 +3136,38 @@ define hidden noundef zeroext i1 @_ZN16bound_propagator17assert_upper_coreEjR3mp
   %53 = load i32, ptr %48, align 8
   %54 = icmp eq i32 %53, 1
   %55 = select i1 %52, i1 %54, i1 false
-  br i1 %55, label %56, label %70
+  br i1 %55, label %56, label %69
 
 56:                                               ; preds = %47
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %58 = load i8, ptr %57, align 4
   %59 = and i8 %58, 1
   %60 = icmp eq i8 %59, 0
-  br i1 %60, label %61, label %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
+  br i1 %60, label %61, label %66
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %63 = load i8, ptr %62, align 4
   %64 = and i8 %63, 1
   %65 = icmp eq i8 %64, 0
-  br i1 %65, label %66, label %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
+  br i1 %65, label %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit, label %66
 
-66:                                               ; preds = %61
-  %67 = load i32, ptr %2, align 8, !tbaa !3
-  %68 = load i32, ptr %36, align 8, !tbaa !3
-  %69 = icmp slt i32 %67, %68
-  br i1 %69, label %.critedge, label %74
+66:                                               ; preds = %61, %56
+  %67 = call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %38, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %36)
+  %68 = icmp slt i32 %67, 0
+  br i1 %68, label %.critedge, label %74
 
-70:                                               ; preds = %47, %37
-  %71 = call noundef zeroext i1 @_ZN11mpq_managerILb0EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %38, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %36)
-  br i1 %71, label %.critedge, label %74
+69:                                               ; preds = %47, %37
+  %70 = call noundef zeroext i1 @_ZN11mpq_managerILb0EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %38, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %36)
+  br i1 %70, label %.critedge, label %74
 
-_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit:         ; preds = %56, %61
-  %72 = call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %38, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %36)
-  %73 = icmp slt i32 %72, 0
+_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit:         ; preds = %61
+  %71 = load i32, ptr %2, align 8, !tbaa !3
+  %72 = load i32, ptr %36, align 8, !tbaa !3
+  %73 = icmp slt i32 %71, %72
   br i1 %73, label %.critedge, label %74
 
-74:                                               ; preds = %66, %70, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
+74:                                               ; preds = %66, %69, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit
   %75 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %76 = load i32, ptr %75, align 8
   %77 = and i32 %76, 2
@@ -3206,24 +3206,24 @@ _ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i:       ; preds = %85, %79
   %98 = load i8, ptr %40, align 4
   %99 = and i8 %98, 1
   %100 = icmp eq i8 %99, 0
-  br i1 %100, label %101, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
+  br i1 %100, label %101, label %106
 
 101:                                              ; preds = %96
   %102 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %103 = load i8, ptr %102, align 4
   %104 = and i8 %103, 1
   %105 = icmp eq i8 %104, 0
-  br i1 %105, label %106, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
+  br i1 %105, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, label %106
 
-106:                                              ; preds = %101
-  %107 = load i32, ptr %39, align 8, !tbaa !3
-  %108 = load i32, ptr %97, align 8, !tbaa !3
-  %109 = icmp eq i32 %107, %108
-  br i1 %109, label %.critedge, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
+106:                                              ; preds = %101, %96
+  %107 = call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %80, ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %97)
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %.critedge, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
 
-_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %96, %101
-  %110 = call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %80, ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %97)
-  %111 = icmp eq i32 %110, 0
+_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %101
+  %109 = load i32, ptr %39, align 8, !tbaa !3
+  %110 = load i32, ptr %97, align 8, !tbaa !3
+  %111 = icmp eq i32 %109, %110
   br i1 %111, label %.critedge, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
 
 _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread:  ; preds = %90, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i, %74, %106, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
@@ -3237,7 +3237,7 @@ _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread:  ; preds = %90, %_ZN11mpq_manag
   store i32 %116, ptr %114, align 8, !tbaa !64
   br label %216
 
-.critedge:                                        ; preds = %106, %66, %70, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit, %32
+.critedge:                                        ; preds = %106, %66, %69, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit, %32
   %117 = icmp eq i32 %4, 2
   br i1 %117, label %118, label %122
 
@@ -3524,7 +3524,7 @@ _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i: ; preds = %._ZNK16bound_pr
   br label %_ZNK16bound_propagator14relevant_boundILb1EEEbjd.exit
 
 _ZNK16bound_propagator14relevant_boundILb1EEEbjd.exit: ; preds = %3, %26, %37, %40, %44
-  %.015.i = phi i1 [ true, %3 ], [ %51, %44 ], [ false, %26 ], [ false, %37 ], [ true, %40 ]
+  %.015.i = phi i1 [ true, %3 ], [ false, %26 ], [ false, %37 ], [ %51, %44 ], [ true, %40 ]
   ret i1 %.015.i
 }
 
@@ -3602,7 +3602,7 @@ _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i: ; preds = %10, %15
   br label %_ZNK16bound_propagator14relevant_boundILb0EEEbjd.exit
 
 _ZNK16bound_propagator14relevant_boundILb0EEEbjd.exit: ; preds = %3, %23, %34, %37, %41
-  %.015.i = phi i1 [ true, %3 ], [ %48, %41 ], [ false, %23 ], [ false, %34 ], [ true, %37 ]
+  %.015.i = phi i1 [ true, %3 ], [ false, %23 ], [ false, %34 ], [ %48, %41 ], [ true, %37 ]
   ret i1 %.015.i
 }
 
@@ -3969,9 +3969,9 @@ define hidden noundef zeroext i1 @_ZN16bound_propagator12propagate_eqEj(ptr noun
   br label %41
 
 41:                                               ; preds = %33, %36, %30
-  %.2154 = phi double [ %.0152340, %30 ], [ %40, %36 ], [ %.0152340, %33 ]
-  %.2146 = phi i8 [ 1, %30 ], [ 0, %36 ], [ %.0144., %33 ]
-  %.2139 = phi i32 [ %.0137344, %30 ], [ %.0137344, %36 ], [ %.0160..0137, %33 ]
+  %.2154 = phi double [ %.0152340, %30 ], [ %.0152340, %33 ], [ %40, %36 ]
+  %.2146 = phi i8 [ 1, %30 ], [ %.0144., %33 ], [ 0, %36 ]
+  %.2139 = phi i32 [ %.0137344, %30 ], [ %.0160..0137, %33 ], [ %.0137344, %36 ]
   %42 = trunc nuw i8 %.0149341 to i1
   br i1 %42, label %66, label %43
 
@@ -4007,9 +4007,9 @@ define hidden noundef zeroext i1 @_ZN16bound_propagator12propagate_eqEj(ptr noun
   br label %59
 
 59:                                               ; preds = %51, %54, %48
-  %.4156 = phi double [ %.0152340, %48 ], [ %58, %54 ], [ %.0152340, %51 ]
-  %.4148 = phi i8 [ 1, %48 ], [ 0, %54 ], [ %.0144.181, %51 ]
-  %.4 = phi i32 [ %.0137344, %48 ], [ %.0137344, %54 ], [ %.0160..0137182, %51 ]
+  %.4156 = phi double [ %.0152340, %48 ], [ %.0152340, %51 ], [ %58, %54 ]
+  %.4148 = phi i8 [ 1, %48 ], [ %.0144.181, %51 ], [ 0, %54 ]
+  %.4 = phi i32 [ %.0137344, %48 ], [ %.0160..0137182, %51 ], [ %.0137344, %54 ]
   %60 = trunc nuw i8 %.0149341 to i1
   br i1 %60, label %66, label %61
 
@@ -4024,11 +4024,11 @@ define hidden noundef zeroext i1 @_ZN16bound_propagator12propagate_eqEj(ptr noun
   br label %66
 
 66:                                               ; preds = %63, %45, %59, %41
-  %.3155 = phi double [ %.2154, %41 ], [ %.4156, %59 ], [ %.2154, %45 ], [ %.4156, %63 ]
-  %.2151.shrunk = phi i1 [ true, %41 ], [ true, %59 ], [ %46, %45 ], [ %64, %63 ]
-  %.3147 = phi i8 [ %.2146, %41 ], [ %.4148, %59 ], [ %.2146, %45 ], [ %.4148, %63 ]
-  %.2143 = phi i32 [ %.0141343, %41 ], [ %.0141343, %59 ], [ %.0160..0141, %45 ], [ %.0160..0141184, %63 ]
-  %.3140 = phi i32 [ %.2139, %41 ], [ %.4, %59 ], [ %.2139, %45 ], [ %.4, %63 ]
+  %.3155 = phi double [ %.2154, %41 ], [ %.2154, %45 ], [ %.4156, %59 ], [ %.4156, %63 ]
+  %.2151.shrunk = phi i1 [ true, %41 ], [ %46, %45 ], [ true, %59 ], [ %64, %63 ]
+  %.3147 = phi i8 [ %.2146, %41 ], [ %.2146, %45 ], [ %.4148, %59 ], [ %.4148, %63 ]
+  %.2143 = phi i32 [ %.0141343, %41 ], [ %.0160..0141, %45 ], [ %.0141343, %59 ], [ %.0160..0141184, %63 ]
+  %.3140 = phi i32 [ %.2139, %41 ], [ %.2139, %45 ], [ %.4, %59 ], [ %.4, %63 ]
   %.2151 = zext i1 %.2151.shrunk to i8
   %67 = trunc nuw i8 %.3147 to i1
   %or.cond = select i1 %67, i1 %.2151.shrunk, i1 false
@@ -4213,7 +4213,7 @@ _ZNK16bound_propagator14relevant_upperEjd.exit.thread: ; preds = %158, %136, %_Z
   br label %_ZNK16bound_propagator14relevant_lowerEjd.exit.thread300
 
 _ZNK16bound_propagator14relevant_lowerEjd.exit.thread300: ; preds = %155, %146, %123, %114, %_ZNK16bound_propagator14relevant_upperEjd.exit.thread, %_ZNK16bound_propagator14relevant_lowerEjd.exit.thread, %_ZNK16bound_propagator14relevant_upperEjd.exit, %_ZNK16bound_propagator14relevant_lowerEjd.exit, %86
-  %.2165 = phi i1 [ %.1164351, %86 ], [ %.1164351, %_ZNK16bound_propagator14relevant_lowerEjd.exit ], [ %spec.select, %_ZNK16bound_propagator14relevant_lowerEjd.exit.thread ], [ %.1164351, %_ZNK16bound_propagator14relevant_upperEjd.exit ], [ %spec.select185, %_ZNK16bound_propagator14relevant_upperEjd.exit.thread ], [ %.1164351, %114 ], [ %.1164351, %123 ], [ %.1164351, %146 ], [ %.1164351, %155 ]
+  %.2165 = phi i1 [ %.1164351, %86 ], [ %spec.select185, %_ZNK16bound_propagator14relevant_upperEjd.exit.thread ], [ %.1164351, %_ZNK16bound_propagator14relevant_lowerEjd.exit ], [ %spec.select, %_ZNK16bound_propagator14relevant_lowerEjd.exit.thread ], [ %.1164351, %_ZNK16bound_propagator14relevant_upperEjd.exit ], [ %.1164351, %123 ], [ %.1164351, %114 ], [ %.1164351, %146 ], [ %.1164351, %155 ]
   br i1 %75, label %168, label %_ZNK16bound_propagator14relevant_upperEjd.exit214.thread308
 
 168:                                              ; preds = %_ZNK16bound_propagator14relevant_lowerEjd.exit.thread300
@@ -4375,7 +4375,7 @@ _ZNK16bound_propagator14relevant_lowerEjd.exit227.thread: ; preds = %249, %213, 
   br label %_ZNK16bound_propagator14relevant_upperEjd.exit214.thread308
 
 _ZNK16bound_propagator14relevant_upperEjd.exit214.thread308: ; preds = %246, %236, %200, %190, %_ZNK16bound_propagator14relevant_lowerEjd.exit227.thread, %_ZNK16bound_propagator14relevant_upperEjd.exit214.thread, %_ZNK16bound_propagator14relevant_lowerEjd.exit227, %_ZNK16bound_propagator14relevant_upperEjd.exit214, %_ZNK16bound_propagator14relevant_lowerEjd.exit.thread300
-  %.5 = phi i1 [ %.2165, %_ZNK16bound_propagator14relevant_lowerEjd.exit.thread300 ], [ %.2165, %_ZNK16bound_propagator14relevant_upperEjd.exit214 ], [ %spec.select186, %_ZNK16bound_propagator14relevant_upperEjd.exit214.thread ], [ %.2165, %_ZNK16bound_propagator14relevant_lowerEjd.exit227 ], [ %spec.select187, %_ZNK16bound_propagator14relevant_lowerEjd.exit227.thread ], [ %.2165, %190 ], [ %.2165, %200 ], [ %.2165, %236 ], [ %.2165, %246 ]
+  %.5 = phi i1 [ %.2165, %_ZNK16bound_propagator14relevant_lowerEjd.exit.thread300 ], [ %spec.select187, %_ZNK16bound_propagator14relevant_lowerEjd.exit227.thread ], [ %.2165, %_ZNK16bound_propagator14relevant_upperEjd.exit214 ], [ %spec.select186, %_ZNK16bound_propagator14relevant_upperEjd.exit214.thread ], [ %.2165, %_ZNK16bound_propagator14relevant_lowerEjd.exit227 ], [ %.2165, %200 ], [ %.2165, %190 ], [ %.2165, %236 ], [ %.2165, %246 ]
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %exitcond358.not = icmp eq i64 %indvars.iv.next356, %wide.trip.count357
   br i1 %exitcond358.not, label %.loopexit, label %86, !llvm.loop !114
@@ -4559,7 +4559,7 @@ _ZNK16bound_propagator14relevant_upperEjd.exit252.thread: ; preds = %353, %320, 
   br label %_ZNK16bound_propagator14relevant_lowerEjd.exit240.thread316
 
 _ZNK16bound_propagator14relevant_lowerEjd.exit240.thread316: ; preds = %350, %339, %305, %294, %_ZNK16bound_propagator14relevant_upperEjd.exit252.thread, %_ZNK16bound_propagator14relevant_lowerEjd.exit240.thread, %_ZNK16bound_propagator14relevant_lowerEjd.exit240, %_ZNK16bound_propagator14relevant_upperEjd.exit252, %.loopexit
-  %.8 = phi i1 [ %.0163, %.loopexit ], [ %.0163, %_ZNK16bound_propagator14relevant_lowerEjd.exit240 ], [ %.0163, %_ZNK16bound_propagator14relevant_upperEjd.exit252 ], [ %spec.select188, %_ZNK16bound_propagator14relevant_lowerEjd.exit240.thread ], [ %spec.select189, %_ZNK16bound_propagator14relevant_upperEjd.exit252.thread ], [ %.0163, %294 ], [ %.0163, %305 ], [ %.0163, %339 ], [ %.0163, %350 ]
+  %.8 = phi i1 [ %.0163, %.loopexit ], [ %.0163, %_ZNK16bound_propagator14relevant_upperEjd.exit252 ], [ %spec.select189, %_ZNK16bound_propagator14relevant_upperEjd.exit252.thread ], [ %.0163, %_ZNK16bound_propagator14relevant_lowerEjd.exit240 ], [ %spec.select188, %_ZNK16bound_propagator14relevant_lowerEjd.exit240.thread ], [ %.0163, %305 ], [ %.0163, %294 ], [ %.0163, %339 ], [ %.0163, %350 ]
   %or.cond9.not = select i1 %73, i1 true, i1 %75
   br i1 %or.cond9.not, label %.thread291, label %365
 
@@ -4737,7 +4737,7 @@ _ZNK16bound_propagator14relevant_lowerEjd.exit277.thread: ; preds = %459, %423, 
   br label %.thread291
 
 .thread291:                                       ; preds = %66, %2, %_ZNK16bound_propagator14relevant_lowerEjd.exit240.thread316, %_ZNK16bound_propagator14relevant_lowerEjd.exit277, %_ZNK16bound_propagator14relevant_upperEjd.exit264, %_ZNK16bound_propagator14relevant_upperEjd.exit264.thread, %_ZNK16bound_propagator14relevant_lowerEjd.exit277.thread, %397, %408, %445, %456
-  %.3 = phi i1 [ %.8, %_ZNK16bound_propagator14relevant_lowerEjd.exit240.thread316 ], [ %.8, %_ZNK16bound_propagator14relevant_upperEjd.exit264 ], [ %.8, %_ZNK16bound_propagator14relevant_lowerEjd.exit277 ], [ %spec.select190, %_ZNK16bound_propagator14relevant_upperEjd.exit264.thread ], [ %spec.select191, %_ZNK16bound_propagator14relevant_lowerEjd.exit277.thread ], [ %.8, %397 ], [ %.8, %408 ], [ %.8, %445 ], [ %.8, %456 ], [ false, %2 ], [ false, %66 ]
+  %.3 = phi i1 [ %.8, %456 ], [ %.8, %_ZNK16bound_propagator14relevant_lowerEjd.exit240.thread316 ], [ %.8, %_ZNK16bound_propagator14relevant_lowerEjd.exit277 ], [ %spec.select191, %_ZNK16bound_propagator14relevant_lowerEjd.exit277.thread ], [ %.8, %_ZNK16bound_propagator14relevant_upperEjd.exit264 ], [ %spec.select190, %_ZNK16bound_propagator14relevant_upperEjd.exit264.thread ], [ %.8, %408 ], [ %.8, %397 ], [ %.8, %445 ], [ false, %2 ], [ false, %66 ]
   ret i1 %.3
 }
 

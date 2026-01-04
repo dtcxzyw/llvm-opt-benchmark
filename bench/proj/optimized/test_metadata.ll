@@ -24049,7 +24049,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit654: ; preds = %46
           cleanup
   br label %534
 
-473:                                              ; preds = %452, %449, %.critedge
+473:                                              ; preds = %449, %452, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %474 unwind label %482
@@ -24398,7 +24398,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit680: ; preds = %59
           cleanup
   br label %666
 
-605:                                              ; preds = %584, %581, %.critedge605
+605:                                              ; preds = %581, %584, %.critedge605
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %606 unwind label %614
@@ -24747,7 +24747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit710: ; preds = %72
           cleanup
   br label %798
 
-737:                                              ; preds = %716, %713, %.critedge608
+737:                                              ; preds = %713, %716, %.critedge608
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23)
           to label %738 unwind label %746
@@ -25096,7 +25096,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit740: ; preds = %85
           cleanup
   br label %930
 
-869:                                              ; preds = %848, %845, %.critedge611
+869:                                              ; preds = %845, %848, %.critedge611
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29)
           to label %870 unwind label %878
@@ -25445,7 +25445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit770: ; preds = %98
           cleanup
   br label %1047
 
-1001:                                             ; preds = %980, %977, %.critedge614
+1001:                                             ; preds = %977, %980, %.critedge614
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35)
           to label %1002 unwind label %1010
@@ -36965,7 +36965,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %103
           cleanup
   br label %139
 
-115:                                              ; preds = %94, %91, %.critedge
+115:                                              ; preds = %91, %94, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %116 unwind label %124
@@ -37146,8 +37146,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5osgeo4proj8metadata8Cita
   br label %_ZNSt10shared_ptrIN5osgeo4proj4util10BaseObjectEEC2INS1_8metadata8CitationEEERKS_IT_EPS3_.exit.i
 
 _ZNSt10shared_ptrIN5osgeo4proj4util10BaseObjectEEC2INS1_8metadata8CitationEEERKS_IT_EPS3_.exit.i: ; preds = %27, %24
-  %29 = phi ptr [ %15, %24 ], [ %.pre6.i, %27 ]
-  %30 = phi ptr [ %18, %24 ], [ %.pre.i, %27 ]
+  %29 = phi ptr [ %.pre6.i, %27 ], [ %15, %24 ]
+  %30 = phi ptr [ %.pre.i, %27 ], [ %18, %24 ]
   store ptr %30, ptr %2, align 8, !tbaa !240
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %22, align 8, !tbaa !50
@@ -37946,7 +37946,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %103
           cleanup
   br label %139
 
-115:                                              ; preds = %94, %91, %.critedge
+115:                                              ; preds = %91, %94, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %116 unwind label %124

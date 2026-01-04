@@ -222,7 +222,7 @@ define dso_local i32 @next_demotion_node(i32 noundef %0) local_unnamed_addr #0 a
   br label %37
 
 37:                                               ; preds = %11, %13, %.loopexit, %20, %17, %5
-  %38 = phi i32 [ -1, %5 ], [ 64, %17 ], [ %36, %.loopexit ], [ 64, %20 ], [ %16, %13 ], [ 64, %11 ]
+  %38 = phi i32 [ 64, %20 ], [ -1, %5 ], [ 64, %17 ], [ %36, %.loopexit ], [ %16, %13 ], [ 64, %11 ]
   call void @__rcu_read_unlock() #12
   br label %39
 

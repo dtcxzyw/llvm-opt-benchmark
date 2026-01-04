@@ -693,7 +693,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188: ; preds = %_ZN4cor
   br label %95
 
 95:                                               ; preds = %71, %58, %51, %44, %33, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit182, %83, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i171, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i
-  %.sroa.0.0 = phi i1 [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i171 ], [ %94, %83 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit182 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188 ], [ true, %33 ], [ true, %44 ], [ true, %51 ], [ true, %58 ], [ true, %71 ]
+  %.sroa.0.0 = phi i1 [ %94, %83 ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i171 ], [ true, %58 ], [ true, %51 ], [ true, %44 ], [ true, %33 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit182 ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i ], [ true, %71 ]
   ret i1 %.sroa.0.0
 }
 

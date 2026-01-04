@@ -393,7 +393,7 @@ define range(i32 0, 2) i32 @isMatrixNUnitary(ptr noundef readonly byval(%struct.
   br i1 %exitcond79.not, label %.loopexit, label %.preheader51.us
 
 .loopexit:                                        ; preds = %..critedge_crit_edge.split.us.us, %._crit_edge.us.us, %.split
-  %.not5054 = phi i32 [ 1, %.split ], [ 0, %._crit_edge.us.us ], [ 1, %..critedge_crit_edge.split.us.us ]
+  %.not5054 = phi i32 [ 0, %._crit_edge.us.us ], [ 1, %.split ], [ 1, %..critedge_crit_edge.split.us.us ]
   ret i32 %.not5054
 }
 
@@ -641,7 +641,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captur
   br i1 %exitcond129.not, label %.loopexit, label %.preheader75.us.us
 
 .loopexit:                                        ; preds = %..critedge_crit_edge.split.us.split.us.us.us, %._crit_edge86.split.us.us.us.us.us, %.preheader75.lr.ph, %.split
-  %.not7378 = phi i32 [ 1, %.split ], [ 0, %.preheader75.lr.ph ], [ 0, %._crit_edge86.split.us.us.us.us.us ], [ 1, %..critedge_crit_edge.split.us.split.us.us.us ]
+  %.not7378 = phi i32 [ 0, %.preheader75.lr.ph ], [ 0, %._crit_edge86.split.us.us.us.us.us ], [ 1, %.split ], [ 1, %..critedge_crit_edge.split.us.split.us.us.us ]
   ret i32 %.not7378
 }
 

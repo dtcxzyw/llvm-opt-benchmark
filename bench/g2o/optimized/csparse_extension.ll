@@ -280,7 +280,7 @@ define noundef ptr @_ZN3g2o17csparse_extension17cs_chol_workspaceEPK12cs_di_spar
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge175, %32, %25, %._crit_edge179
-  %.sink = phi i32 [ 1, %._crit_edge179 ], [ 0, %25 ], [ 0, %32 ], [ 0, %._crit_edge175 ]
+  %.sink = phi i32 [ 0, %32 ], [ 1, %._crit_edge179 ], [ 0, %25 ], [ 0, %._crit_edge175 ]
   %117 = tail call ptr @cs_di_ndone(ptr noundef %19, ptr noundef %26, ptr noundef null, ptr noundef null, i32 noundef %.sink)
   br label %118
 

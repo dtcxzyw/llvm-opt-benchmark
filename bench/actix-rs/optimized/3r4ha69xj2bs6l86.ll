@@ -580,7 +580,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.i.
   unreachable
 
 common.resume:                                    ; preds = %463, %382, %273, %129
-  %common.resume.op = phi { ptr, i32 } [ %130, %129 ], [ %274, %273 ], [ %383, %382 ], [ %464, %463 ]
+  %common.resume.op = phi { ptr, i32 } [ %383, %382 ], [ %130, %129 ], [ %274, %273 ], [ %464, %463 ]
   resume { ptr, i32 } %common.resume.op
 
 217:                                              ; preds = %.critedge
@@ -2321,7 +2321,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.i.
   unreachable
 
 common.resume:                                    ; preds = %463, %382, %273, %129
-  %common.resume.op = phi { ptr, i32 } [ %130, %129 ], [ %274, %273 ], [ %383, %382 ], [ %464, %463 ]
+  %common.resume.op = phi { ptr, i32 } [ %383, %382 ], [ %130, %129 ], [ %274, %273 ], [ %464, %463 ]
   resume { ptr, i32 } %common.resume.op
 
 217:                                              ; preds = %.critedge
@@ -4218,8 +4218,8 @@ define hidden { i64, ptr } @_ZN2h25proto9ping_pong8PingPong17send_pending_ping17
   br label %26
 
 26:                                               ; preds = %12, %42, %3, %37, %10, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit28", %33
-  %.sroa.6.0 = phi ptr [ null, %33 ], [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit28" ], [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ], [ null, %10 ], [ undef, %37 ], [ null, %3 ], [ %.mux, %12 ], [ %43, %42 ]
-  %.sroa.0.0 = phi i64 [ 0, %33 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit28" ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ], [ 0, %10 ], [ 1, %37 ], [ 0, %3 ], [ %.mux33, %12 ], [ 0, %42 ]
+  %.sroa.6.0 = phi ptr [ %43, %42 ], [ %.mux, %12 ], [ undef, %37 ], [ null, %10 ], [ null, %33 ], [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit28" ], [ null, %3 ], [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ]
+  %.sroa.0.0 = phi i64 [ 0, %42 ], [ %.mux33, %12 ], [ 1, %37 ], [ 0, %10 ], [ 0, %33 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit28" ], [ 0, %3 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ]
   %27 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %28 = insertvalue { i64, ptr } %27, ptr %.sroa.6.0, 1
   ret { i64, ptr } %28
@@ -4331,8 +4331,8 @@ define hidden { i64, ptr } @_ZN2h25proto9ping_pong8PingPong17send_pending_ping17
   br label %26
 
 26:                                               ; preds = %12, %42, %3, %37, %10, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit28", %33
-  %.sroa.6.0 = phi ptr [ null, %33 ], [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit28" ], [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ], [ null, %10 ], [ undef, %37 ], [ null, %3 ], [ %.mux, %12 ], [ %43, %42 ]
-  %.sroa.0.0 = phi i64 [ 0, %33 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit28" ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ], [ 0, %10 ], [ 1, %37 ], [ 0, %3 ], [ %.mux33, %12 ], [ 0, %42 ]
+  %.sroa.6.0 = phi ptr [ %43, %42 ], [ %.mux, %12 ], [ undef, %37 ], [ null, %10 ], [ null, %33 ], [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit28" ], [ null, %3 ], [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ]
+  %.sroa.0.0 = phi i64 [ 0, %42 ], [ %.mux33, %12 ], [ 1, %37 ], [ 0, %10 ], [ 0, %33 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit28" ], [ 0, %3 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ]
   %27 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %28 = insertvalue { i64, ptr } %27, ptr %.sroa.6.0, 1
   ret { i64, ptr } %28
@@ -4434,8 +4434,8 @@ define hidden { i64, ptr } @_ZN2h25proto9ping_pong8PingPong17send_pending_pong17
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit": ; preds = %13, %16, %21, %3
-  %.sroa.4.0 = phi ptr [ null, %3 ], [ undef, %21 ], [ null, %16 ], [ %14, %13 ]
-  %.sroa.0.0 = phi i64 [ 0, %3 ], [ 1, %21 ], [ 0, %16 ], [ 0, %13 ]
+  %.sroa.4.0 = phi ptr [ null, %3 ], [ null, %16 ], [ undef, %21 ], [ %14, %13 ]
+  %.sroa.0.0 = phi i64 [ 0, %3 ], [ 0, %16 ], [ 1, %21 ], [ 0, %13 ]
   %22 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %23 = insertvalue { i64, ptr } %22, ptr %.sroa.4.0, 1
   ret { i64, ptr } %23
@@ -4488,8 +4488,8 @@ define hidden { i64, ptr } @_ZN2h25proto9ping_pong8PingPong17send_pending_pong17
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit": ; preds = %13, %16, %21, %3
-  %.sroa.4.0 = phi ptr [ null, %3 ], [ undef, %21 ], [ null, %16 ], [ %14, %13 ]
-  %.sroa.0.0 = phi i64 [ 0, %3 ], [ 1, %21 ], [ 0, %16 ], [ 0, %13 ]
+  %.sroa.4.0 = phi ptr [ null, %3 ], [ null, %16 ], [ undef, %21 ], [ %14, %13 ]
+  %.sroa.0.0 = phi i64 [ 0, %3 ], [ 0, %16 ], [ 1, %21 ], [ 0, %13 ]
   %22 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %23 = insertvalue { i64, ptr } %22, ptr %.sroa.4.0, 1
   ret { i64, ptr } %23
@@ -5294,7 +5294,7 @@ define internal fastcc void @"_ZN4core3ptr985drop_in_place$LT$awc..connect..Conn
   unreachable
 
 common.resume:                                    ; preds = %.body, %54, %41, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %42, %41 ], [ %55, %54 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %55, %54 ], [ %11, %10 ], [ %42, %41 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr472drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$actix_http..responses..head..ResponseHead$C$actix_codec..framed..Framed$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$actix_http..h1..client..ClientCodec$GT$$RP$$C$awc..client..error..SendRequestError$GT$$GT$$GT$$GT$17h360a6abe2891b68fE.exit": ; preds = %4
@@ -6050,8 +6050,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr52drop
   br label %"_ZN64_$LT$http..uri..scheme..Scheme$u20$as$u20$core..clone..Clone$GT$5clone17h8779313f18d6d102E.exit"
 
 "_ZN64_$LT$http..uri..scheme..Scheme$u20$as$u20$core..clone..Clone$GT$5clone17h8779313f18d6d102E.exit": ; preds = %2, %8, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h64e9602d54205377E.exit.i"
-  %.sroa.71.0.i = phi ptr [ undef, %8 ], [ %13, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h64e9602d54205377E.exit.i" ], [ undef, %2 ]
-  %.sroa.6.0.i = phi i8 [ %10, %8 ], [ undef, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h64e9602d54205377E.exit.i" ], [ undef, %2 ]
+  %.sroa.71.0.i = phi ptr [ %13, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h64e9602d54205377E.exit.i" ], [ undef, %8 ], [ undef, %2 ]
+  %.sroa.6.0.i = phi i8 [ undef, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h64e9602d54205377E.exit.i" ], [ %10, %8 ], [ undef, %2 ]
   store i8 %7, ptr %6, align 8, !alias.scope !427, !noalias !430
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx.i, align 1, !alias.scope !427, !noalias !430
@@ -8279,8 +8279,8 @@ default.unreachable:                              ; preds = %110, %60
   br label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hbad0984cafa4259aE.exit"
 
 "_ZN58_$LT$http..method..Inner$u20$as$u20$core..clone..Clone$GT$5clone17hdd2e5f4f9a112acfE.exit": ; preds = %60, %60, %60, %60, %60, %60, %60, %60, %.noexc20, %63, %60
-  %.sroa.16.0 = phi i64 [ %.sroa.16.16.insert.ext, %63 ], [ %78, %.noexc20 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ]
-  %.sroa.15.0 = phi ptr [ %.sroa.15.1.copyload, %63 ], [ %77, %.noexc20 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ]
+  %.sroa.16.0 = phi i64 [ %78, %.noexc20 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ %.sroa.16.16.insert.ext, %63 ], [ undef, %60 ]
+  %.sroa.15.0 = phi ptr [ %77, %.noexc20 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ undef, %60 ], [ %.sroa.15.1.copyload, %63 ], [ undef, %60 ]
   store i8 %62, ptr %17, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14, i64 7, i1 false)
@@ -8469,9 +8469,9 @@ default.unreachable:                              ; preds = %110, %60
   br label %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hbad0984cafa4259aE.exit42"
 
 "_ZN58_$LT$http..method..Inner$u20$as$u20$core..clone..Clone$GT$5clone17hdd2e5f4f9a112acfE.exit30": ; preds = %110, %110, %110, %110, %110, %110, %110, %110, %.noexc29, %114, %110
-  %133 = phi ptr [ %111, %114 ], [ %.pre, %.noexc29 ], [ %111, %110 ], [ %111, %110 ], [ %111, %110 ], [ %111, %110 ], [ %111, %110 ], [ %111, %110 ], [ %111, %110 ], [ %111, %110 ], [ %111, %110 ]
-  %.sroa.1551.0 = phi ptr [ %.sroa.1551.1.copyload, %114 ], [ %128, %.noexc29 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ]
-  %.sroa.1652.0 = phi i64 [ %.sroa.1652.16.insert.ext, %114 ], [ %129, %.noexc29 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ]
+  %133 = phi ptr [ %.pre, %.noexc29 ], [ %111, %110 ], [ %111, %110 ], [ %111, %110 ], [ %111, %110 ], [ %111, %110 ], [ %111, %110 ], [ %111, %110 ], [ %111, %110 ], [ %111, %114 ], [ %111, %110 ]
+  %.sroa.1551.0 = phi ptr [ %128, %.noexc29 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ %.sroa.1551.1.copyload, %114 ], [ undef, %110 ]
+  %.sroa.1652.0 = phi i64 [ %129, %.noexc29 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ undef, %110 ], [ %.sroa.1652.16.insert.ext, %114 ], [ undef, %110 ]
   store i8 %113, ptr %15, align 8
   %.sroa.1450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1450.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1450, i64 7, i1 false)
@@ -9198,8 +9198,8 @@ default.unreachable:                              ; preds = %153
   br label %"_ZN58_$LT$http..method..Inner$u20$as$u20$core..clone..Clone$GT$5clone17hdd2e5f4f9a112acfE.exit"
 
 "_ZN58_$LT$http..method..Inner$u20$as$u20$core..clone..Clone$GT$5clone17hdd2e5f4f9a112acfE.exit": ; preds = %153, %153, %153, %153, %153, %153, %153, %153, %.noexc165, %155, %153
-  %.sroa.15.0 = phi ptr [ %.sroa.15.1.copyload, %155 ], [ %169, %.noexc165 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ]
-  %.sroa.16191.0 = phi i64 [ %.sroa.16191.16.insert.ext, %155 ], [ %170, %.noexc165 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ]
+  %.sroa.15.0 = phi ptr [ %169, %.noexc165 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ %.sroa.15.1.copyload, %155 ], [ undef, %153 ]
+  %.sroa.16191.0 = phi i64 [ %170, %.noexc165 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ undef, %153 ], [ %.sroa.16191.16.insert.ext, %155 ], [ undef, %153 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.039.sroa.5, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14190, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14190)
   %172 = getelementptr inbounds nuw i8, ptr %18, i64 120

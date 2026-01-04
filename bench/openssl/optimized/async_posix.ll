@@ -82,7 +82,7 @@ define range(i32 0, 2) i32 @ASYNC_set_mem_functions(ptr noundef %0, ptr noundef 
   br label %13
 
 13:                                               ; preds = %6, %11, %12, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %12 ], [ 1, %11 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %11 ], [ 1, %12 ], [ 0, %6 ]
   ret i32 %.0
 }
 

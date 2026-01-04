@@ -1183,7 +1183,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %75, %95
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i, %75 ], [ %96, %95 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit12, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %96, %95 ], [ %lpad.phi.i.i, %75 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit12, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..routing..address..Address$GT$$GT$17h1f248556739a4174E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #28
           to label %102 unwind label %100
 
@@ -7723,7 +7723,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
           to label %682 unwind label %.loopexit.split-lp1435.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %276, %266, %240, %217, %206
-  %.pn1199 = phi { ptr, i32 } [ %241, %240 ], [ %.pn1195, %217 ], [ %.pn1195, %206 ], [ %.pn1192, %276 ], [ %.pn1192, %266 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit1406, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1407, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn1199 = phi { ptr, i32 } [ %.pn1192, %266 ], [ %241, %240 ], [ %.pn1195, %217 ], [ %.pn1195, %206 ], [ %.pn1192, %276 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit1406, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1407, %.loopexit.split-lp.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %107) #28
           to label %282 unwind label %214
 
@@ -8191,7 +8191,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
   br label %246
 
 282:                                              ; preds = %.loopexit.split-lp1435, %.loopexit.split-lp1426, %.loopexit.split-lp1417, %446, %417, %391, %362, %335, %306, %.loopexit.split-lp
-  %.pn1199.pn = phi { ptr, i32 } [ %.pn1199, %.loopexit.split-lp ], [ %307, %306 ], [ %336, %335 ], [ %363, %362 ], [ %392, %391 ], [ %418, %417 ], [ %447, %446 ], [ %.pn1179, %.loopexit.split-lp1417 ], [ %.pn1169, %.loopexit.split-lp1426 ], [ %.pn1159, %.loopexit.split-lp1435 ]
+  %.pn1199.pn = phi { ptr, i32 } [ %.pn1199, %.loopexit.split-lp ], [ %307, %306 ], [ %.pn1159, %.loopexit.split-lp1435 ], [ %336, %335 ], [ %.pn1169, %.loopexit.split-lp1426 ], [ %363, %362 ], [ %.pn1179, %.loopexit.split-lp1417 ], [ %392, %391 ], [ %447, %446 ], [ %418, %417 ]
   resume { ptr, i32 } %.pn1199.pn
 
 283:                                              ; preds = %133
@@ -8892,7 +8892,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
   br label %791
 
 .loopexit.split-lp1417:                           ; preds = %.loopexit1416, %.loopexit.split-lp1417.loopexit.split-lp, %.loopexit.split-lp1417.loopexit, %567, %557, %531, %508, %499
-  %.pn1179 = phi { ptr, i32 } [ %532, %531 ], [ %.pn1175, %508 ], [ %.pn1175, %499 ], [ %.pn1172, %567 ], [ %.pn1172, %557 ], [ %lpad.loopexit1418, %.loopexit1416 ], [ %lpad.loopexit1421, %.loopexit.split-lp1417.loopexit ], [ %lpad.loopexit.split-lp1422, %.loopexit.split-lp1417.loopexit.split-lp ]
+  %.pn1179 = phi { ptr, i32 } [ %.pn1172, %557 ], [ %532, %531 ], [ %.pn1175, %508 ], [ %.pn1175, %499 ], [ %.pn1172, %567 ], [ %lpad.loopexit1418, %.loopexit1416 ], [ %lpad.loopexit1421, %.loopexit.split-lp1417.loopexit ], [ %lpad.loopexit.split-lp1422, %.loopexit.split-lp1417.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9401a6ea1a11e749E"(ptr noalias noundef align 8 dereferenceable(24) %61) #28
           to label %282 unwind label %214
 
@@ -9354,7 +9354,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
   br label %537
 
 .loopexit.split-lp1426:                           ; preds = %.loopexit1425, %.loopexit.split-lp1426.loopexit.split-lp, %.loopexit.split-lp1426.loopexit, %676, %666, %648, %625, %616
-  %.pn1169 = phi { ptr, i32 } [ %649, %648 ], [ %.pn1165, %625 ], [ %.pn1165, %616 ], [ %.pn1162, %676 ], [ %.pn1162, %666 ], [ %lpad.loopexit1427, %.loopexit1425 ], [ %lpad.loopexit1430, %.loopexit.split-lp1426.loopexit ], [ %lpad.loopexit.split-lp1431, %.loopexit.split-lp1426.loopexit.split-lp ]
+  %.pn1169 = phi { ptr, i32 } [ %.pn1162, %666 ], [ %649, %648 ], [ %.pn1165, %625 ], [ %.pn1165, %616 ], [ %.pn1162, %676 ], [ %lpad.loopexit1427, %.loopexit1425 ], [ %lpad.loopexit1430, %.loopexit.split-lp1426.loopexit ], [ %lpad.loopexit.split-lp1431, %.loopexit.split-lp1426.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %45) #28
           to label %282 unwind label %214
 
@@ -9773,7 +9773,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
   br label %654
 
 .loopexit.split-lp1435:                           ; preds = %.loopexit1434, %.loopexit.split-lp1435.loopexit.split-lp, %.loopexit.split-lp1435.loopexit, %785, %775, %757, %734, %725
-  %.pn1159 = phi { ptr, i32 } [ %758, %757 ], [ %.pn1155, %734 ], [ %.pn1155, %725 ], [ %.pn, %785 ], [ %.pn, %775 ], [ %lpad.loopexit1436, %.loopexit1434 ], [ %lpad.loopexit1439, %.loopexit.split-lp1435.loopexit ], [ %lpad.loopexit.split-lp1440, %.loopexit.split-lp1435.loopexit.split-lp ]
+  %.pn1159 = phi { ptr, i32 } [ %.pn, %775 ], [ %758, %757 ], [ %.pn1155, %734 ], [ %.pn1155, %725 ], [ %.pn, %785 ], [ %lpad.loopexit1436, %.loopexit1434 ], [ %lpad.loopexit1439, %.loopexit.split-lp1435.loopexit ], [ %lpad.loopexit.split-lp1440, %.loopexit.split-lp1435.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$ockam_node..storage..database..migrations..node_migrations..rust..migration_20240111100002_delete_trust_context..Expr$GT$$GT$$GT$17h80582e916eb945deE"(ptr noalias noundef align 8 dereferenceable(24) %29) #28
           to label %282 unwind label %214
 

@@ -1189,8 +1189,8 @@ _ZN4llvm14SmallBitVector3setEv.exit.i.i.i.i:      ; preds = %_ZN4llvm14SmallBitV
   br label %63
 
 _ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang4ento9CallEventEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i: ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i, %72, %77, %70, %111, %_ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i, %95
-  %.sroa.0215.1.i = phi i64 [ %.sroa.0215.0.i, %_ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i ], [ %.sroa.0215.0.i, %111 ], [ %101, %95 ], [ %.sroa.0215.0.i, %70 ], [ %.sroa.0215.0.i, %77 ], [ %.sroa.0215.0.i, %72 ], [ %.sroa.0215.0.i, %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i ]
-  %158 = phi i64 [ %64, %_ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i ], [ %64, %111 ], [ %101, %95 ], [ %64, %70 ], [ %64, %77 ], [ %64, %72 ], [ %64, %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i ]
+  %.sroa.0215.1.i = phi i64 [ %.sroa.0215.0.i, %70 ], [ %.sroa.0215.0.i, %_ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i ], [ %.sroa.0215.0.i, %111 ], [ %101, %95 ], [ %.sroa.0215.0.i, %77 ], [ %.sroa.0215.0.i, %72 ], [ %.sroa.0215.0.i, %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i ]
+  %158 = phi i64 [ %64, %70 ], [ %64, %_ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i ], [ %64, %111 ], [ %101, %95 ], [ %64, %77 ], [ %64, %72 ], [ %64, %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i ]
   %159 = load ptr, ptr %1, align 8, !tbaa !7, !noalias !68
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 144
   %161 = load ptr, ptr %160, align 8, !noalias !68
@@ -1677,7 +1677,7 @@ switch.lookup:                                    ; preds = %399
   br label %_ZN4llvm16getOrdinalSuffixEj.exit.i.i
 
 _ZN4llvm16getOrdinalSuffixEj.exit.i.i:            ; preds = %399, %switch.lookup, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ @.str.7, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i ], [ %switch.load, %switch.lookup ], [ @.str.7, %399 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.7, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i ], [ @.str.7, %399 ]
   %403 = getelementptr inbounds nuw i8, ptr %396, i64 24
   %404 = load ptr, ptr %403, align 8, !tbaa !165, !noalias !150
   %405 = getelementptr inbounds nuw i8, ptr %396, i64 32
@@ -1987,7 +1987,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit147.i: ; pred
   br i1 %.5270.i, label %.thread271.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit159.i
 
 .thread271.i:                                     ; preds = %343, %524, %_ZNK5clang4ento4SVal5getAsINS0_11DefinedSValEEESt8optionalIT_Ev.exit95.thread.i, %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.i, %332, %327, %321, %320, %308, %_ZNK4llvm14SmallBitVector4testEj.exit.i
-  %.sroa.0211.1282.i = phi ptr [ %.sroa.0211.3268.i, %524 ], [ %.sroa.0211.0333.i, %_ZNK4llvm14SmallBitVector4testEj.exit.i ], [ %.sroa.0211.0333.i, %_ZNK5clang4ento4SVal5getAsINS0_11DefinedSValEEESt8optionalIT_Ev.exit95.thread.i ], [ %.sroa.0211.0333.i, %320 ], [ %.sroa.0211.0333.i, %308 ], [ %.sroa.0211.0333.i, %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.i ], [ %.sroa.0211.0333.i, %321 ], [ %.sroa.0211.0333.i, %327 ], [ %.sroa.0211.0333.i, %332 ], [ %.sroa.0211.0333.i, %343 ]
+  %.sroa.0211.1282.i = phi ptr [ %.sroa.0211.3268.i, %524 ], [ %.sroa.0211.0333.i, %_ZNK4llvm14SmallBitVector4testEj.exit.i ], [ %.sroa.0211.0333.i, %_ZNK5clang4ento4SVal5getAsINS0_11DefinedSValEEESt8optionalIT_Ev.exit95.thread.i ], [ %.sroa.0211.0333.i, %320 ], [ %.sroa.0211.0333.i, %308 ], [ %.sroa.0211.0333.i, %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.i ], [ %.sroa.0211.0333.i, %321 ], [ %.sroa.0211.0333.i, %332 ], [ %.sroa.0211.0333.i, %327 ], [ %.sroa.0211.0333.i, %343 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge.i, label %280, !llvm.loop !204
@@ -2329,7 +2329,7 @@ define internal void @_ZN5clang4ento5check13BeginFunction19_checkBeginFunctionIN
   br label %_ZNK5clang7AnyCall10param_sizeEv.exit.i.i
 
 _ZNK5clang7AnyCall10param_sizeEv.exit.i.i:        ; preds = %45, %42, %38
-  %.sroa.8.0.shrunk.i.i.i.i = phi i32 [ %47, %45 ], [ %44, %42 ], [ %39, %38 ]
+  %.sroa.8.0.shrunk.i.i.i.i = phi i32 [ %39, %38 ], [ %44, %42 ], [ %47, %45 ]
   %.sroa.8.0.i.i.i.i = zext nneg i32 %.sroa.8.0.shrunk.i.i.i.i to i64
   %48 = icmp ult i32 %.sroa.8.0.shrunk.i.i.i.i, 58
   br i1 %48, label %_ZNK5clang7AnyCall10param_sizeEv.exit.thread.i.i, label %51
@@ -2592,8 +2592,8 @@ _ZN4llvm14SmallBitVector3setEv.exit.i.i.i.i:      ; preds = %_ZN4llvm14SmallBitV
   br label %77
 
 _ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i: ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i, %86, %91, %84, %125, %_ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i, %109
-  %.sroa.09.3.i = phi i64 [ %.sroa.09.0.i, %_ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i ], [ %.sroa.09.0.i, %125 ], [ %115, %109 ], [ %.sroa.09.0.i, %84 ], [ %.sroa.09.0.i, %91 ], [ %.sroa.09.0.i, %86 ], [ %.sroa.09.0.i, %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i ]
-  %172 = phi i64 [ %78, %_ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i ], [ %78, %125 ], [ %115, %109 ], [ %78, %84 ], [ %78, %91 ], [ %78, %86 ], [ %78, %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i ]
+  %.sroa.09.3.i = phi i64 [ %.sroa.09.0.i, %84 ], [ %.sroa.09.0.i, %_ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i ], [ %.sroa.09.0.i, %125 ], [ %115, %109 ], [ %.sroa.09.0.i, %91 ], [ %.sroa.09.0.i, %86 ], [ %.sroa.09.0.i, %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i ]
+  %172 = phi i64 [ %78, %84 ], [ %78, %_ZN4llvm9BitVector10init_wordsEb.exit.i.i.i.i.i.i ], [ %78, %125 ], [ %115, %109 ], [ %78, %91 ], [ %78, %86 ], [ %78, %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i.i ]
   br i1 %.not16.i.i, label %._crit_edge.i, label %173
 
 173:                                              ; preds = %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i
@@ -2631,8 +2631,8 @@ _ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_R
   br label %_ZNK5clang7AnyCall10parametersEv.exit.i.i.i.i
 
 _ZNK5clang7AnyCall10parametersEv.exit.i.i.i.i:    ; preds = %189, %184, %178
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %191, %189 ], [ %186, %184 ], [ %180, %178 ]
-  %.sroa.8.0.shrunk.i.i.i.i.i = phi i32 [ %193, %189 ], [ %188, %184 ], [ %181, %178 ]
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %180, %178 ], [ %186, %184 ], [ %191, %189 ]
+  %.sroa.8.0.shrunk.i.i.i.i.i = phi i32 [ %181, %178 ], [ %188, %184 ], [ %193, %189 ]
   %.sroa.8.0.i.i.i.i.i = zext i32 %.sroa.8.0.shrunk.i.i.i.i.i to i64
   %.idx.i5.i.i.i = shl nuw nsw i64 %.sroa.8.0.i.i.i.i.i, 3
   %194 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 %.idx.i5.i.i.i
@@ -2751,7 +2751,7 @@ _ZN4llvm14SmallBitVector3setEj.exit.i10.i.i.i:    ; preds = %230, %244, %233, %_
   br i1 %.not.i11.i.i.i, label %_ZN12_GLOBAL__N_115getNonNullAttrsERKN5clang7AnyCallE.exit.thread.i, label %.lr.ph.i7.i.i.i
 
 _ZN12_GLOBAL__N_115getNonNullAttrsERKN5clang7AnyCallE.exit.thread.i: ; preds = %_ZN4llvm14SmallBitVector3setEj.exit.i10.i.i.i, %_ZNK4llvm14SmallBitVector4sizeEv.exit.i8.i.i.i, %_ZNK5clang7AnyCall10parametersEv.exit.i.i.i.i, %182
-  %.sroa.09.624.i = phi i64 [ %.sroa.09.3.i, %182 ], [ %.sroa.09.3.i, %_ZNK5clang7AnyCall10parametersEv.exit.i.i.i.i ], [ %.sroa.09.4.i, %_ZNK4llvm14SmallBitVector4sizeEv.exit.i8.i.i.i ], [ %.sroa.09.5.i, %_ZN4llvm14SmallBitVector3setEj.exit.i10.i.i.i ]
+  %.sroa.09.624.i = phi i64 [ %.sroa.09.3.i, %_ZNK5clang7AnyCall10parametersEv.exit.i.i.i.i ], [ %.sroa.09.3.i, %182 ], [ %.sroa.09.5.i, %_ZN4llvm14SmallBitVector3setEj.exit.i10.i.i.i ], [ %.sroa.09.4.i, %_ZNK4llvm14SmallBitVector4sizeEv.exit.i8.i.i.i ]
   %257 = load i32, ptr %23, align 4
   %258 = and i32 %257, 126
   %259 = add nsw i32 %258, -38
@@ -2786,8 +2786,8 @@ _ZN12_GLOBAL__N_115getNonNullAttrsERKN5clang7AnyCallE.exit.thread.i: ; preds = %
   br label %_ZNK5clang7AnyCall10parametersEv.exit.i
 
 _ZNK5clang7AnyCall10parametersEv.exit.i:          ; preds = %272, %267, %261
-  %.sroa.0.0.i.i = phi ptr [ %274, %272 ], [ %269, %267 ], [ %263, %261 ]
-  %.sroa.8.0.shrunk.i.i = phi i32 [ %276, %272 ], [ %271, %267 ], [ %264, %261 ]
+  %.sroa.0.0.i.i = phi ptr [ %263, %261 ], [ %269, %267 ], [ %274, %272 ]
+  %.sroa.8.0.shrunk.i.i = phi i32 [ %264, %261 ], [ %271, %267 ], [ %276, %272 ]
   %.sroa.8.0.i.i = zext i32 %.sroa.8.0.shrunk.i.i to i64
   %.idx.i = shl nuw nsw i64 %.sroa.8.0.i.i, 3
   %277 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %.idx.i
@@ -3011,7 +3011,7 @@ _ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i: ; pred
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit50.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit50.i: ; preds = %365, %364, %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i
-  %.sroa.011.138.i = phi ptr [ %363, %364 ], [ %363, %365 ], [ %.sroa.011.056.i, %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i ]
+  %.sroa.011.138.i = phi ptr [ %363, %365 ], [ %363, %364 ], [ %.sroa.011.056.i, %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %366
 

@@ -1802,7 +1802,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15:    ; preds = %33
   br label %.body
 
 .body:                                            ; preds = %37, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15, %33, %31, %15, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i23, %19
-  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %16, %15 ], [ %16, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i23 ], [ %16, %19 ], [ %34, %33 ], [ %34, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15 ], [ %34, %37 ]
+  %.pn = phi { ptr, i32 } [ %16, %19 ], [ %32, %31 ], [ %16, %15 ], [ %16, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i23 ], [ %34, %33 ], [ %34, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15 ], [ %34, %37 ]
   %39 = load ptr, ptr %6, align 8
   %.not.i.i.i18 = icmp eq ptr %39, null
   br i1 %.not.i.i.i18, label %_ZN7QStringD2Ev.exit21, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i19

@@ -30,7 +30,7 @@ define hidden i32 @png_get_valid(ptr noalias noundef readonly captures(address_i
   br label %16
 
 16:                                               ; preds = %3, %8, %12
-  %.0 = phi i32 [ %15, %12 ], [ 0, %8 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %8 ], [ %15, %12 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -352,7 +352,7 @@ define hidden i32 @png_get_pixel_aspect_ratio_fixed(ptr noalias noundef readnone
   br label %21
 
 21:                                               ; preds = %18, %2, %6, %10, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %10 ], [ 0, %6 ], [ 0, %2 ], [ %spec.select, %18 ]
+  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %18 ], [ 0, %13 ], [ 0, %10 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -992,7 +992,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone cap
   br label %65
 
 65:                                               ; preds = %10, %13, %59, %60
-  %.0 = phi i32 [ 4, %60 ], [ 4, %59 ], [ 0, %13 ], [ 0, %10 ]
+  %.0 = phi i32 [ 4, %59 ], [ 4, %60 ], [ 0, %13 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -1119,7 +1119,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone
   br label %72
 
 72:                                               ; preds = %11, %14, %66, %67
-  %.0 = phi i32 [ 4, %67 ], [ 4, %66 ], [ 0, %14 ], [ 0, %11 ]
+  %.0 = phi i32 [ 4, %66 ], [ 4, %67 ], [ 0, %14 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -1228,7 +1228,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM_XYZ_fixed(ptr noalias noundef re
   br label %54
 
 54:                                               ; preds = %11, %14, %50, %51
-  %.0 = phi i32 [ 4, %51 ], [ 4, %50 ], [ 0, %14 ], [ 0, %11 ]
+  %.0 = phi i32 [ 4, %50 ], [ 4, %51 ], [ 0, %14 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -1327,7 +1327,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM_fixed(ptr noalias noundef readno
   br label %49
 
 49:                                               ; preds = %10, %13, %45, %46
-  %.0 = phi i32 [ 4, %46 ], [ 4, %45 ], [ 0, %13 ], [ 0, %10 ]
+  %.0 = phi i32 [ 4, %45 ], [ 4, %46 ], [ 0, %13 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -1468,7 +1468,7 @@ define hidden range(i32 0, 4097) i32 @png_get_iCCP(ptr noalias noundef readnone 
   br label %40
 
 40:                                               ; preds = %6, %9, %17, %39
-  %.0 = phi i32 [ 4096, %39 ], [ 4096, %17 ], [ 0, %9 ], [ 0, %6 ]
+  %.0 = phi i32 [ 4096, %17 ], [ 4096, %39 ], [ 0, %9 ], [ 0, %6 ]
   ret i32 %.0
 }
 

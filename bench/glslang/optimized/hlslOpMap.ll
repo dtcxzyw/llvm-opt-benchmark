@@ -71,7 +71,7 @@ define noundef range(i32 0, 157) i32 @_ZN7glslang9HlslOpMap8preUnaryENS_15EHlslT
   br label %8
 
 8:                                                ; preds = %1, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 0, %7 ], [ 8, %2 ], [ 9, %3 ], [ 11, %4 ], [ 14, %5 ], [ 15, %6 ], [ 156, %1 ]
+  %.0 = phi i32 [ 0, %7 ], [ 15, %6 ], [ 8, %2 ], [ 9, %3 ], [ 11, %4 ], [ 14, %5 ], [ 156, %1 ]
   ret i32 %.0
 }
 
@@ -101,7 +101,7 @@ define noundef range(i32 0, 188) i32 @_ZN7glslang9HlslOpMap9postUnaryENS_15EHlsl
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 0, %6 ], [ 183, %2 ], [ 12, %3 ], [ 13, %4 ], [ 187, %5 ], [ 184, %1 ]
+  %.0 = phi i32 [ 0, %6 ], [ 187, %5 ], [ 183, %2 ], [ 12, %3 ], [ 13, %4 ], [ 184, %1 ]
   ret i32 %.0
 }
 

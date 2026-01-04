@@ -273,7 +273,7 @@ define dso_local noundef ptr @pack_slurmdbd_msg(ptr noundef readonly captures(no
   unreachable
 
 _pack_cond_msg.exit:                              ; preds = %34, %34, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46, %47, %48, %49, %50
-  %.0.i = phi ptr [ @slurmdb_pack_tres_cond, %37 ], [ @slurmdb_pack_assoc_cond, %38 ], [ @slurmdb_pack_cluster_cond, %39 ], [ @slurmdb_pack_federation_cond, %40 ], [ @slurmdb_pack_job_cond, %41 ], [ @slurmdb_pack_qos_cond, %42 ], [ @slurmdb_pack_res_cond, %43 ], [ @slurmdb_pack_wckey_cond, %44 ], [ @slurmdb_pack_user_cond, %45 ], [ @slurmdb_pack_txn_cond, %46 ], [ @slurmdb_pack_archive_cond, %47 ], [ @slurmdb_pack_reservation_cond, %48 ], [ @slurmdb_pack_event_cond, %49 ], [ @slurmdb_pack_instance_cond, %50 ], [ @slurmdb_pack_account_cond, %34 ], [ @slurmdb_pack_account_cond, %34 ]
+  %.0.i = phi ptr [ @slurmdb_pack_instance_cond, %50 ], [ @slurmdb_pack_tres_cond, %37 ], [ @slurmdb_pack_assoc_cond, %38 ], [ @slurmdb_pack_cluster_cond, %39 ], [ @slurmdb_pack_federation_cond, %40 ], [ @slurmdb_pack_job_cond, %41 ], [ @slurmdb_pack_qos_cond, %42 ], [ @slurmdb_pack_res_cond, %43 ], [ @slurmdb_pack_wckey_cond, %44 ], [ @slurmdb_pack_user_cond, %45 ], [ @slurmdb_pack_txn_cond, %46 ], [ @slurmdb_pack_archive_cond, %47 ], [ @slurmdb_pack_reservation_cond, %48 ], [ @slurmdb_pack_event_cond, %49 ], [ @slurmdb_pack_account_cond, %34 ], [ @slurmdb_pack_account_cond, %34 ]
   %52 = load ptr, ptr %36, align 8
   tail call void %.0.i(ptr noundef %52, i16 noundef zeroext %1, ptr noundef %12) #5
   br label %132
@@ -301,7 +301,7 @@ _pack_cond_msg.exit:                              ; preds = %34, %34, %37, %38, 
   unreachable
 
 slurmdbd_pack_usage_msg.exit:                     ; preds = %53, %53, %56, %57
-  %.0.i89 = phi ptr [ @slurmdb_pack_cluster_rec, %56 ], [ @slurmdb_pack_wckey_rec, %57 ], [ @slurmdb_pack_assoc_rec, %53 ], [ @slurmdb_pack_assoc_rec, %53 ]
+  %.0.i89 = phi ptr [ @slurmdb_pack_wckey_rec, %57 ], [ @slurmdb_pack_cluster_rec, %56 ], [ @slurmdb_pack_assoc_rec, %53 ], [ @slurmdb_pack_assoc_rec, %53 ]
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %60 = load ptr, ptr %59, align 8
   tail call void %.0.i89(ptr noundef %60, i16 noundef zeroext %1, ptr noundef %12) #5, !callees !8
@@ -396,8 +396,8 @@ slurmdbd_pack_usage_msg.exit:                     ; preds = %53, %53, %56, %57
   unreachable
 
 _pack_modify_msg.exit:                            ; preds = %82, %85, %86, %87, %88, %89, %90, %91, %92, %93
-  %.08.i = phi ptr [ @slurmdb_pack_assoc_cond, %85 ], [ @slurmdb_pack_cluster_cond, %86 ], [ @slurmdb_pack_federation_cond, %87 ], [ @slurmdb_pack_job_cond, %88 ], [ @slurmdb_pack_qos_cond, %89 ], [ @slurmdb_pack_res_cond, %90 ], [ @slurmdb_pack_user_cond, %91 ], [ @slurmdb_pack_add_assoc_cond, %92 ], [ @slurmdb_pack_add_assoc_cond, %93 ], [ @slurmdb_pack_account_cond, %82 ]
-  %.0.i90 = phi ptr [ @slurmdb_pack_assoc_rec, %85 ], [ @slurmdb_pack_cluster_rec, %86 ], [ @slurmdb_pack_federation_rec, %87 ], [ @slurmdb_pack_job_rec, %88 ], [ @slurmdb_pack_qos_rec, %89 ], [ @slurmdb_pack_res_rec, %90 ], [ @slurmdb_pack_user_rec, %91 ], [ @slurmdb_pack_account_rec, %92 ], [ @slurmdb_pack_user_rec, %93 ], [ @slurmdb_pack_account_rec, %82 ]
+  %.08.i = phi ptr [ @slurmdb_pack_add_assoc_cond, %93 ], [ @slurmdb_pack_assoc_cond, %85 ], [ @slurmdb_pack_cluster_cond, %86 ], [ @slurmdb_pack_federation_cond, %87 ], [ @slurmdb_pack_job_cond, %88 ], [ @slurmdb_pack_qos_cond, %89 ], [ @slurmdb_pack_res_cond, %90 ], [ @slurmdb_pack_user_cond, %91 ], [ @slurmdb_pack_add_assoc_cond, %92 ], [ @slurmdb_pack_account_cond, %82 ]
+  %.0.i90 = phi ptr [ @slurmdb_pack_user_rec, %93 ], [ @slurmdb_pack_assoc_rec, %85 ], [ @slurmdb_pack_cluster_rec, %86 ], [ @slurmdb_pack_federation_rec, %87 ], [ @slurmdb_pack_job_rec, %88 ], [ @slurmdb_pack_qos_rec, %89 ], [ @slurmdb_pack_res_rec, %90 ], [ @slurmdb_pack_user_rec, %91 ], [ @slurmdb_pack_account_rec, %92 ], [ @slurmdb_pack_account_rec, %82 ]
   %95 = load ptr, ptr %84, align 8
   tail call void %.08.i(ptr noundef %95, i16 noundef zeroext %1, ptr noundef %12) #5
   %96 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -473,7 +473,7 @@ _pack_modify_msg.exit:                            ; preds = %82, %85, %86, %87, 
   br label %132
 
 132:                                              ; preds = %15, %18, %21, %25, %28, %31, %_pack_cond_msg.exit, %slurmdbd_pack_usage_msg.exit, %64, %67, %70, %73, %76, %79, %_pack_modify_msg.exit, %98, %101, %104, %107, %110, %113, %124, %11, %11, %11, %11, %125, %131, %5
-  %.084 = phi ptr [ null, %5 ], [ null, %131 ], [ null, %125 ], [ %12, %11 ], [ %12, %11 ], [ %12, %11 ], [ %12, %11 ], [ %12, %124 ], [ %12, %113 ], [ %12, %110 ], [ %12, %107 ], [ %12, %104 ], [ %12, %101 ], [ %12, %98 ], [ %12, %_pack_modify_msg.exit ], [ %12, %79 ], [ %12, %76 ], [ %12, %73 ], [ %12, %70 ], [ %12, %67 ], [ %12, %64 ], [ %12, %slurmdbd_pack_usage_msg.exit ], [ %12, %_pack_cond_msg.exit ], [ %12, %31 ], [ %12, %28 ], [ %12, %25 ], [ %12, %21 ], [ %12, %18 ], [ %12, %15 ]
+  %.084 = phi ptr [ null, %5 ], [ null, %125 ], [ null, %131 ], [ %12, %11 ], [ %12, %11 ], [ %12, %11 ], [ %12, %11 ], [ %12, %124 ], [ %12, %113 ], [ %12, %110 ], [ %12, %107 ], [ %12, %104 ], [ %12, %101 ], [ %12, %98 ], [ %12, %_pack_modify_msg.exit ], [ %12, %79 ], [ %12, %76 ], [ %12, %73 ], [ %12, %70 ], [ %12, %67 ], [ %12, %64 ], [ %12, %slurmdbd_pack_usage_msg.exit ], [ %12, %_pack_cond_msg.exit ], [ %12, %31 ], [ %12, %28 ], [ %12, %25 ], [ %12, %21 ], [ %12, %18 ], [ %12, %15 ]
   ret ptr %.084
 }
 
@@ -725,7 +725,7 @@ define dso_local i32 @unpack_slurmdbd_msg(ptr noundef %0, i16 noundef zeroext %1
   unreachable
 
 63:                                               ; preds = %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %45, %45
-  %.0.i = phi ptr [ @slurmdb_unpack_tres_cond, %48 ], [ @slurmdb_unpack_assoc_cond, %49 ], [ @slurmdb_unpack_cluster_cond, %50 ], [ @slurmdb_unpack_federation_cond, %51 ], [ @slurmdb_unpack_job_cond, %52 ], [ @slurmdb_unpack_qos_cond, %53 ], [ @slurmdb_unpack_res_cond, %54 ], [ @slurmdb_unpack_wckey_cond, %55 ], [ @slurmdb_unpack_user_cond, %56 ], [ @slurmdb_unpack_txn_cond, %57 ], [ @slurmdb_unpack_archive_cond, %58 ], [ @slurmdb_unpack_reservation_cond, %59 ], [ @slurmdb_unpack_event_cond, %60 ], [ @slurmdb_unpack_instance_cond, %61 ], [ @slurmdb_unpack_account_cond, %45 ], [ @slurmdb_unpack_account_cond, %45 ]
+  %.0.i = phi ptr [ @slurmdb_unpack_instance_cond, %61 ], [ @slurmdb_unpack_tres_cond, %48 ], [ @slurmdb_unpack_assoc_cond, %49 ], [ @slurmdb_unpack_cluster_cond, %50 ], [ @slurmdb_unpack_federation_cond, %51 ], [ @slurmdb_unpack_job_cond, %52 ], [ @slurmdb_unpack_qos_cond, %53 ], [ @slurmdb_unpack_res_cond, %54 ], [ @slurmdb_unpack_wckey_cond, %55 ], [ @slurmdb_unpack_user_cond, %56 ], [ @slurmdb_unpack_txn_cond, %57 ], [ @slurmdb_unpack_archive_cond, %58 ], [ @slurmdb_unpack_reservation_cond, %59 ], [ @slurmdb_unpack_event_cond, %60 ], [ @slurmdb_unpack_account_cond, %45 ], [ @slurmdb_unpack_account_cond, %45 ]
   %64 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 343, ptr noundef nonnull @__func__._unpack_cond_msg) #5
   store ptr %64, ptr %46, align 8
   %65 = tail call i32 %.0.i(ptr noundef %64, i16 noundef zeroext %1, ptr noundef %2) #5
@@ -836,7 +836,7 @@ define dso_local i32 @unpack_slurmdbd_msg(ptr noundef %0, i16 noundef zeroext %1
   br label %_unpack_cond_msg.exit
 
 _unpack_cond_msg.exit:                            ; preds = %67, %63, %3, %19, %27, %32, %36, %39, %42, %68, %72, %75, %78, %81, %84, %87, %90, %94, %97, %100, %103, %106, %109, %113, %117, %17, %17, %17, %17, %120, %11
-  %.085 = phi i32 [ -1, %11 ], [ -1, %120 ], [ %23, %19 ], [ %31, %27 ], [ %35, %32 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ %71, %68 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %93, %90 ], [ %96, %94 ], [ %99, %97 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %112, %109 ], [ %.04.i, %113 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ], [ %119, %117 ], [ -1, %3 ], [ -1, %67 ], [ 0, %63 ]
+  %.085 = phi i32 [ %119, %117 ], [ -1, %11 ], [ -1, %120 ], [ %23, %19 ], [ %31, %27 ], [ %35, %32 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ -1, %3 ], [ %71, %68 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %83, %81 ], [ %86, %84 ], [ %89, %87 ], [ %93, %90 ], [ %96, %94 ], [ %99, %97 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %112, %109 ], [ %.04.i, %113 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ], [ 0, %17 ], [ -1, %67 ], [ 0, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.085
 }
@@ -950,7 +950,7 @@ define dso_local void @slurmdbd_pack_usage_msg(ptr noundef readonly captures(non
   unreachable
 
 8:                                                ; preds = %4, %4, %4, %4, %6, %5
-  %.0 = phi ptr [ @slurmdb_pack_cluster_rec, %5 ], [ @slurmdb_pack_wckey_rec, %6 ], [ @slurmdb_pack_assoc_rec, %4 ], [ @slurmdb_pack_assoc_rec, %4 ], [ @slurmdb_pack_assoc_rec, %4 ], [ @slurmdb_pack_assoc_rec, %4 ]
+  %.0 = phi ptr [ @slurmdb_pack_wckey_rec, %6 ], [ @slurmdb_pack_cluster_rec, %5 ], [ @slurmdb_pack_assoc_rec, %4 ], [ @slurmdb_pack_assoc_rec, %4 ], [ @slurmdb_pack_assoc_rec, %4 ], [ @slurmdb_pack_assoc_rec, %4 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %.0(ptr noundef %10, i16 noundef zeroext %1, ptr noundef %3) #5, !callees !8
@@ -999,7 +999,7 @@ define dso_local range(i32 -1, 1) i32 @slurmdbd_unpack_usage_msg(ptr noundef wri
   unreachable
 
 9:                                                ; preds = %4, %4, %4, %4, %7, %6
-  %.0 = phi ptr [ @slurmdb_unpack_cluster_rec, %6 ], [ @slurmdb_unpack_wckey_rec, %7 ], [ @slurmdb_unpack_assoc_rec, %4 ], [ @slurmdb_unpack_assoc_rec, %4 ], [ @slurmdb_unpack_assoc_rec, %4 ], [ @slurmdb_unpack_assoc_rec, %4 ]
+  %.0 = phi ptr [ @slurmdb_unpack_wckey_rec, %7 ], [ @slurmdb_unpack_cluster_rec, %6 ], [ @slurmdb_unpack_assoc_rec, %4 ], [ @slurmdb_unpack_assoc_rec, %4 ], [ @slurmdb_unpack_assoc_rec, %4 ], [ @slurmdb_unpack_assoc_rec, %4 ]
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = tail call i32 %.0(ptr noundef nonnull %10, i16 noundef zeroext %1, ptr noundef %3) #5, !callees !9
   %12 = icmp eq i32 %11, -1
@@ -1169,7 +1169,7 @@ define dso_local void @slurmdbd_pack_list_msg(ptr noundef captures(none) %0, i16
   unreachable
 
 29:                                               ; preds = %4, %4, %27, %26, %25, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5
-  %.0 = phi ptr [ @slurmdb_pack_tres_rec, %5 ], [ @slurmdb_pack_assoc_rec, %6 ], [ @slurmdb_pack_cluster_rec, %7 ], [ @slurmdb_pack_federation_rec, %8 ], [ @pack_config_key_pair, %9 ], [ @slurmdb_pack_job_rec, %10 ], [ @packstr_func, %11 ], [ @slurmdb_pack_qos_rec, %12 ], [ @slurmdb_pack_reservation_rec, %13 ], [ @slurmdb_pack_res_rec, %14 ], [ @slurmdb_pack_wckey_rec, %15 ], [ @slurmdb_pack_user_rec, %16 ], [ @slurmdb_pack_txn_rec, %17 ], [ @slurmdb_pack_event_rec, %18 ], [ @slurmdb_pack_instance_rec, %19 ], [ @slurmdbd_pack_id_rc_msg, %25 ], [ @_pack_job_heavy_msg, %26 ], [ @_pack_buffer, %27 ], [ @slurmdb_pack_account_rec, %4 ], [ @slurmdb_pack_account_rec, %4 ]
+  %.0 = phi ptr [ @_pack_buffer, %27 ], [ @slurmdb_pack_tres_rec, %5 ], [ @slurmdb_pack_assoc_rec, %6 ], [ @slurmdb_pack_cluster_rec, %7 ], [ @slurmdb_pack_federation_rec, %8 ], [ @pack_config_key_pair, %9 ], [ @slurmdb_pack_job_rec, %10 ], [ @packstr_func, %11 ], [ @slurmdb_pack_qos_rec, %12 ], [ @slurmdb_pack_reservation_rec, %13 ], [ @slurmdb_pack_res_rec, %14 ], [ @slurmdb_pack_wckey_rec, %15 ], [ @slurmdb_pack_user_rec, %16 ], [ @slurmdb_pack_txn_rec, %17 ], [ @slurmdb_pack_event_rec, %18 ], [ @slurmdb_pack_instance_rec, %19 ], [ @slurmdbd_pack_id_rc_msg, %25 ], [ @_pack_job_heavy_msg, %26 ], [ @slurmdb_pack_account_rec, %4 ], [ @slurmdb_pack_account_rec, %4 ]
   %30 = load ptr, ptr %0, align 8
   %31 = tail call i32 @slurm_pack_list(ptr noundef %30, ptr noundef nonnull %.0, ptr noundef %3, i16 noundef zeroext %1) #5
   %.not = icmp eq i32 %31, 0
@@ -2917,8 +2917,8 @@ define dso_local range(i32 -1, 1) i32 @slurmdbd_unpack_list_msg(ptr noundef writ
   unreachable
 
 25:                                               ; preds = %4, %4, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5
-  %.012 = phi ptr [ @slurmdb_unpack_tres_rec, %5 ], [ @slurmdb_unpack_assoc_rec, %6 ], [ @slurmdb_unpack_cluster_rec, %7 ], [ @slurmdb_unpack_federation_rec, %8 ], [ @unpack_config_key_pair, %9 ], [ @slurmdb_unpack_job_rec, %10 ], [ @safe_unpackstr_func, %11 ], [ @slurmdb_unpack_qos_rec, %12 ], [ @slurmdb_unpack_reservation_rec, %13 ], [ @slurmdb_unpack_res_rec, %14 ], [ @slurmdb_unpack_wckey_rec, %15 ], [ @slurmdb_unpack_user_rec, %16 ], [ @slurmdb_unpack_txn_rec, %17 ], [ @slurmdb_unpack_event_rec, %18 ], [ @slurmdb_unpack_instance_rec, %19 ], [ @_unpack_job_start_msg, %20 ], [ @slurmdbd_unpack_id_rc_msg, %21 ], [ @_unpack_job_heavy_msg, %22 ], [ @_unpack_buffer, %23 ], [ @slurmdb_unpack_account_rec, %4 ], [ @slurmdb_unpack_account_rec, %4 ]
-  %.0 = phi ptr [ @slurmdb_destroy_tres_rec, %5 ], [ @slurmdb_destroy_assoc_rec, %6 ], [ @slurmdb_destroy_cluster_rec, %7 ], [ @slurmdb_destroy_federation_rec, %8 ], [ @destroy_config_key_pair, %9 ], [ @slurmdb_destroy_job_rec, %10 ], [ @xfree_ptr, %11 ], [ @slurmdb_destroy_qos_rec, %12 ], [ @slurmdb_destroy_reservation_rec, %13 ], [ @slurmdb_destroy_res_rec, %14 ], [ @slurmdb_destroy_wckey_rec, %15 ], [ @slurmdb_destroy_user_rec, %16 ], [ @slurmdb_destroy_txn_rec, %17 ], [ @slurmdb_destroy_event_rec, %18 ], [ @slurmdb_destroy_instance_rec, %19 ], [ @slurmdbd_free_job_start_msg, %20 ], [ @slurmdbd_free_id_rc_msg, %21 ], [ @slurmdbd_free_job_heavy_msg, %22 ], [ @slurmdbd_free_buffer, %23 ], [ @slurmdb_destroy_account_rec, %4 ], [ @slurmdb_destroy_account_rec, %4 ]
+  %.012 = phi ptr [ @_unpack_buffer, %23 ], [ @slurmdb_unpack_tres_rec, %5 ], [ @slurmdb_unpack_assoc_rec, %6 ], [ @slurmdb_unpack_cluster_rec, %7 ], [ @slurmdb_unpack_federation_rec, %8 ], [ @unpack_config_key_pair, %9 ], [ @slurmdb_unpack_job_rec, %10 ], [ @safe_unpackstr_func, %11 ], [ @slurmdb_unpack_qos_rec, %12 ], [ @slurmdb_unpack_reservation_rec, %13 ], [ @slurmdb_unpack_res_rec, %14 ], [ @slurmdb_unpack_wckey_rec, %15 ], [ @slurmdb_unpack_user_rec, %16 ], [ @slurmdb_unpack_txn_rec, %17 ], [ @slurmdb_unpack_event_rec, %18 ], [ @slurmdb_unpack_instance_rec, %19 ], [ @_unpack_job_start_msg, %20 ], [ @slurmdbd_unpack_id_rc_msg, %21 ], [ @_unpack_job_heavy_msg, %22 ], [ @slurmdb_unpack_account_rec, %4 ], [ @slurmdb_unpack_account_rec, %4 ]
+  %.0 = phi ptr [ @slurmdbd_free_buffer, %23 ], [ @slurmdb_destroy_tres_rec, %5 ], [ @slurmdb_destroy_assoc_rec, %6 ], [ @slurmdb_destroy_cluster_rec, %7 ], [ @slurmdb_destroy_federation_rec, %8 ], [ @destroy_config_key_pair, %9 ], [ @slurmdb_destroy_job_rec, %10 ], [ @xfree_ptr, %11 ], [ @slurmdb_destroy_qos_rec, %12 ], [ @slurmdb_destroy_reservation_rec, %13 ], [ @slurmdb_destroy_res_rec, %14 ], [ @slurmdb_destroy_wckey_rec, %15 ], [ @slurmdb_destroy_user_rec, %16 ], [ @slurmdb_destroy_txn_rec, %17 ], [ @slurmdb_destroy_event_rec, %18 ], [ @slurmdb_destroy_instance_rec, %19 ], [ @slurmdbd_free_job_start_msg, %20 ], [ @slurmdbd_free_id_rc_msg, %21 ], [ @slurmdbd_free_job_heavy_msg, %22 ], [ @slurmdb_destroy_account_rec, %4 ], [ @slurmdb_destroy_account_rec, %4 ]
   %26 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1700, ptr noundef nonnull @__func__.slurmdbd_unpack_list_msg) #5
   store ptr %26, ptr %0, align 8
   %27 = tail call i32 @slurm_unpack_list(ptr noundef %26, ptr noundef nonnull %.012, ptr noundef nonnull %.0, ptr noundef %3, i16 noundef zeroext %1) #5
@@ -4383,7 +4383,7 @@ define internal range(i32 -1, 1) i32 @_unpack_job_start_msg(ptr noundef writeonl
   br label %642
 
 642:                                              ; preds = %638, %508, %369, %229, %641
-  %.0463 = phi i32 [ -1, %641 ], [ 0, %369 ], [ 0, %638 ], [ 0, %508 ], [ 0, %229 ]
+  %.0463 = phi i32 [ 0, %229 ], [ -1, %641 ], [ 0, %508 ], [ 0, %638 ], [ 0, %369 ]
   ret i32 %.0463
 }
 
@@ -4437,7 +4437,7 @@ define internal range(i32 -1, 1) i32 @_unpack_job_heavy_msg(ptr noundef writeonl
   br label %22
 
 22:                                               ; preds = %18, %21
-  %.017 = phi i32 [ -1, %21 ], [ 0, %18 ]
+  %.017 = phi i32 [ 0, %18 ], [ -1, %21 ]
   ret i32 %.017
 }
 
@@ -5361,7 +5361,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_cluster_tres_msg(ptr nounde
   br label %17
 
 17:                                               ; preds = %13, %3, %16
-  %.013 = phi i32 [ -1, %16 ], [ 0, %13 ], [ 0, %3 ]
+  %.013 = phi i32 [ 0, %3 ], [ -1, %16 ], [ 0, %13 ]
   ret i32 %.013
 }
 
@@ -5500,7 +5500,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_complete_msg(ptr nounde
   br label %64
 
 64:                                               ; preds = %60, %63
-  %.046 = phi i32 [ -1, %63 ], [ 0, %60 ]
+  %.046 = phi i32 [ 0, %60 ], [ -1, %63 ]
   ret i32 %.046
 }
 
@@ -5606,8 +5606,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_modify_msg(ptr noundef writ
   unreachable
 
 16:                                               ; preds = %4, %14, %13, %12, %11, %10, %9, %8, %7, %6
-  %.014 = phi ptr [ @slurmdb_unpack_assoc_cond, %6 ], [ @slurmdb_unpack_cluster_cond, %7 ], [ @slurmdb_unpack_federation_cond, %8 ], [ @slurmdb_unpack_job_cond, %9 ], [ @slurmdb_unpack_qos_cond, %10 ], [ @slurmdb_unpack_res_cond, %11 ], [ @slurmdb_unpack_user_cond, %12 ], [ @slurmdb_unpack_add_assoc_cond, %13 ], [ @slurmdb_unpack_add_assoc_cond, %14 ], [ @slurmdb_unpack_account_cond, %4 ]
-  %.0 = phi ptr [ @slurmdb_unpack_assoc_rec, %6 ], [ @slurmdb_unpack_cluster_rec, %7 ], [ @slurmdb_unpack_federation_rec, %8 ], [ @slurmdb_unpack_job_rec, %9 ], [ @slurmdb_unpack_qos_rec, %10 ], [ @slurmdb_unpack_res_rec, %11 ], [ @slurmdb_unpack_user_rec, %12 ], [ @slurmdb_unpack_account_rec, %13 ], [ @slurmdb_unpack_user_rec, %14 ], [ @slurmdb_unpack_account_rec, %4 ]
+  %.014 = phi ptr [ @slurmdb_unpack_add_assoc_cond, %14 ], [ @slurmdb_unpack_assoc_cond, %6 ], [ @slurmdb_unpack_cluster_cond, %7 ], [ @slurmdb_unpack_federation_cond, %8 ], [ @slurmdb_unpack_job_cond, %9 ], [ @slurmdb_unpack_qos_cond, %10 ], [ @slurmdb_unpack_res_cond, %11 ], [ @slurmdb_unpack_user_cond, %12 ], [ @slurmdb_unpack_add_assoc_cond, %13 ], [ @slurmdb_unpack_account_cond, %4 ]
+  %.0 = phi ptr [ @slurmdb_unpack_user_rec, %14 ], [ @slurmdb_unpack_assoc_rec, %6 ], [ @slurmdb_unpack_cluster_rec, %7 ], [ @slurmdb_unpack_federation_rec, %8 ], [ @slurmdb_unpack_job_rec, %9 ], [ @slurmdb_unpack_qos_rec, %10 ], [ @slurmdb_unpack_res_rec, %11 ], [ @slurmdb_unpack_user_rec, %12 ], [ @slurmdb_unpack_account_rec, %13 ], [ @slurmdb_unpack_account_rec, %4 ]
   %17 = tail call i32 %.014(ptr noundef %5, i16 noundef zeroext %1, ptr noundef %3) #5
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %23, label %19
@@ -5719,7 +5719,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_state_msg(ptr noundef 
   br label %42
 
 42:                                               ; preds = %38, %3, %41
-  %.032 = phi i32 [ -1, %41 ], [ 0, %38 ], [ 0, %3 ]
+  %.032 = phi i32 [ 0, %3 ], [ -1, %41 ], [ 0, %38 ]
   ret i32 %.032
 }
 
@@ -6093,7 +6093,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_step_start_msg(ptr noundef 
   br label %130
 
 130:                                              ; preds = %120, %68, %129
-  %.091 = phi i32 [ -1, %129 ], [ 0, %120 ], [ 0, %68 ]
+  %.091 = phi i32 [ -1, %129 ], [ 0, %68 ], [ 0, %120 ]
   ret i32 %.091
 }
 
@@ -6149,7 +6149,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_register_ctld_msg(ptr nound
   %.not24 = icmp eq i32 %26, 0
   br i1 %.not24, label %27, label %.thread
 
-.thread:                                          ; preds = %17, %19, %22, %24
+.thread:                                          ; preds = %22, %17, %19, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 

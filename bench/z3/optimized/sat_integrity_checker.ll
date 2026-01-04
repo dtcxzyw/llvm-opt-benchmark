@@ -1537,12 +1537,12 @@ _ZNK8uint_set8containsEj.exit.thread:             ; preds = %_ZNK6vectorIjLb0EjE
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %.lr.ph47, %.critedge, %.critedge.thread76
-  %.not30.lcssa75 = phi i1 [ true, %.critedge ], [ %.not30.lcssa79, %.critedge.thread76 ], [ true, %.lr.ph47 ]
+  %.not30.lcssa75 = phi i1 [ %.not30.lcssa79, %.critedge.thread76 ], [ true, %.critedge ], [ true, %.lr.ph47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.not30.lcssa75
 
 .body:                                            ; preds = %103, %79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i
-  %.pn32.pn = phi { ptr, i32 } [ %104, %103 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %80, %79 ]
+  %.pn32.pn = phi { ptr, i32 } [ %80, %79 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %104, %103 ]
   call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn32.pn

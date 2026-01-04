@@ -212,7 +212,7 @@ define internal range(i32 0, 2) i32 @test_qlog() #0 {
   br label %48
 
 48:                                               ; preds = %45, %42, %37, %21, %17, %12, %0
-  %.0 = phi i32 [ 0, %42 ], [ 0, %37 ], [ 0, %21 ], [ 0, %17 ], [ 0, %12 ], [ 0, %0 ], [ %spec.select, %45 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %45 ], [ 0, %42 ], [ 0, %37 ], [ 0, %21 ], [ 0, %17 ], [ 0, %12 ]
   call void @ossl_qlog_free(ptr noundef %10) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)

@@ -202,7 +202,7 @@ get_riff.exit:                                    ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %guess_ni_flag.exit
 
-41:                                               ; preds = %40, %36
+41:                                               ; preds = %36, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %42 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %43 = load i32, ptr %42, align 8, !tbaa !35
@@ -411,7 +411,7 @@ get_riff.exit:                                    ; preds = %33
   br label %142
 
 142:                                              ; preds = %141, %136, %135, %118
-  %.0.i = phi ptr [ @.str.41, %135 ], [ @.str.42, %141 ], [ @.str.42, %136 ], [ @.str.40, %118 ]
+  %.0.i = phi ptr [ @.str.42, %136 ], [ @.str.42, %141 ], [ @.str.41, %135 ], [ @.str.40, %118 ]
   %143 = call i32 @av_dict_set(ptr noundef nonnull %56, ptr noundef nonnull %.0.i, ptr noundef nonnull %9, i32 noundef 0) #15
   br label %.critedge39.i
 
@@ -753,7 +753,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   br label %312
 
 312:                                              ; preds = %298, %311, %310, %309, %305
-  %.2562 = phi i32 [ %.0560810, %311 ], [ 0, %305 ], [ 3, %309 ], [ 2, %310 ], [ 1, %298 ]
+  %.2562 = phi i32 [ %.0560810, %311 ], [ 0, %305 ], [ 2, %310 ], [ 3, %309 ], [ 1, %298 ]
   %313 = load i32, ptr %300, align 4, !tbaa !69
   %314 = icmp slt i32 %313, 0
   br i1 %314, label %315, label %319
@@ -986,7 +986,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   br label %430
 
 430:                                              ; preds = %428, %417
-  %.0574 = phi ptr [ %425, %417 ], [ %spec.select692, %428 ]
+  %.0574 = phi ptr [ %spec.select692, %428 ], [ %425, %417 ]
   %431 = icmp sgt i32 %., 3
   br i1 %431, label %.lr.ph, label %._crit_edge
 
@@ -1294,7 +1294,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   br label %558
 
 558:                                              ; preds = %553, %557, %554
-  %559 = phi i32 [ %.pr, %553 ], [ %.pre900, %557 ], [ %.pr, %554 ]
+  %559 = phi i32 [ %.pr, %554 ], [ %.pr, %553 ], [ %.pre900, %557 ]
   switch i32 %559, label %.thread736 [
     i32 86018, label %560
     i32 86017, label %568
@@ -1355,7 +1355,7 @@ avi_metadata_creation_time.exit:                  ; preds = %176, %177, %182
   br label %avi_read_nikon.exit
 
 .loopexit754:                                     ; preds = %519, %.thread726, %397, %503
-  %.4 = phi i32 [ %500, %503 ], [ %520, %519 ], [ -1094995529, %.thread726 ], [ %401, %397 ]
+  %.4 = phi i32 [ %500, %503 ], [ -1094995529, %.thread726 ], [ %520, %519 ], [ %401, %397 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %guess_ni_flag.exit
 
@@ -1653,14 +1653,14 @@ avi_read_tag.exit:                                ; preds = %712
   br label %avi_read_nikon.exit
 
 avi_read_nikon.exit:                              ; preds = %.critedge2.i, %.lr.ph41.i, %639, %640, %bytestream2_get_le32.exit.i, %avi_extract_stream_metadata.exit, %avi_extract_stream_metadata.exit.thread740, %.thread736, %257, %97, %341, %73, %avi_read_tag.exit, %599, %346, %93, %733, %693, %661, %336, %210, %190, %184, %avi_metadata_creation_time.exit
-  %.1590 = phi i64 [ %.0589797, %733 ], [ %76, %93 ], [ %.0589797, %avi_metadata_creation_time.exit ], [ %.0589797, %184 ], [ %.0589797, %190 ], [ %.0589797, %210 ], [ %.0589797, %257 ], [ %.0589797, %336 ], [ %.0589797, %346 ], [ %.0589797, %599 ], [ %.0589797, %661 ], [ %.0589797, %693 ], [ %.0589797, %avi_read_tag.exit ], [ %76, %73 ], [ %.0589797, %341 ], [ %76, %97 ], [ %.0589797, %.thread736 ], [ %.0589797, %avi_extract_stream_metadata.exit.thread740 ], [ %.0589797, %avi_extract_stream_metadata.exit ], [ %.0589797, %bytestream2_get_le32.exit.i ], [ %.0589797, %640 ], [ %.0589797, %639 ], [ %76, %.lr.ph41.i ], [ %76, %.critedge2.i ]
-  %.2588 = phi i32 [ %.0586799, %733 ], [ %.0586799, %93 ], [ %.0586799, %avi_metadata_creation_time.exit ], [ %.0586799, %184 ], [ %.1587, %190 ], [ %.0586799, %210 ], [ %.0586799, %257 ], [ %.0586799, %336 ], [ %.0586799, %346 ], [ %.0586799, %599 ], [ %.0586799, %661 ], [ %.0586799, %693 ], [ %.0586799, %avi_read_tag.exit ], [ %.0586799, %73 ], [ %.0586799, %341 ], [ %.0586799, %97 ], [ %.0586799, %.thread736 ], [ %.0586799, %avi_extract_stream_metadata.exit.thread740 ], [ %.0586799, %avi_extract_stream_metadata.exit ], [ %.0586799, %bytestream2_get_le32.exit.i ], [ %.0586799, %640 ], [ %.0586799, %639 ], [ %.0586799, %.lr.ph41.i ], [ %.0586799, %.critedge2.i ]
-  %.1581 = phi i32 [ %.0580801, %733 ], [ %.0580801, %93 ], [ %.0580801, %avi_metadata_creation_time.exit ], [ %.0580801, %184 ], [ %202, %190 ], [ %.0580801, %210 ], [ %.0580801, %257 ], [ %.0580801, %336 ], [ %.0580801, %346 ], [ %.0580801, %599 ], [ %.0580801, %661 ], [ %.0580801, %693 ], [ %.0580801, %avi_read_tag.exit ], [ %.0580801, %73 ], [ %.0580801, %341 ], [ %.0580801, %97 ], [ %.0580801, %.thread736 ], [ %.0580801, %avi_extract_stream_metadata.exit.thread740 ], [ %.0580801, %avi_extract_stream_metadata.exit ], [ %.0580801, %bytestream2_get_le32.exit.i ], [ %.0580801, %640 ], [ %.0580801, %639 ], [ %.0580801, %.lr.ph41.i ], [ %.0580801, %.critedge2.i ]
-  %.1579 = phi i32 [ %.0578803, %733 ], [ %.0578803, %93 ], [ %.0578803, %avi_metadata_creation_time.exit ], [ %.0578803, %184 ], [ %201, %190 ], [ %.0578803, %210 ], [ %.0578803, %257 ], [ %.0578803, %336 ], [ %.0578803, %346 ], [ %.0578803, %599 ], [ %.0578803, %661 ], [ %.0578803, %693 ], [ %.0578803, %avi_read_tag.exit ], [ %.0578803, %73 ], [ %.0578803, %341 ], [ %.0578803, %97 ], [ %.0578803, %.thread736 ], [ %.0578803, %avi_extract_stream_metadata.exit.thread740 ], [ %.0578803, %avi_extract_stream_metadata.exit ], [ %.0578803, %bytestream2_get_le32.exit.i ], [ %.0578803, %640 ], [ %.0578803, %639 ], [ %.0578803, %.lr.ph41.i ], [ %.0578803, %.critedge2.i ]
-  %.1576 = phi ptr [ %.0575805, %733 ], [ %.0575805, %93 ], [ %.0575805, %avi_metadata_creation_time.exit ], [ %.0575805, %184 ], [ %.0575805, %190 ], [ %.0575805, %210 ], [ %232, %257 ], [ %219, %336 ], [ %.0575805, %346 ], [ %.0575805, %599 ], [ %.0575805, %661 ], [ %.0575805, %693 ], [ %.0575805, %avi_read_tag.exit ], [ %.0575805, %73 ], [ %.0575805, %341 ], [ %.0575805, %97 ], [ %.0575805, %.thread736 ], [ %.0575805, %avi_extract_stream_metadata.exit.thread740 ], [ %.0575805, %avi_extract_stream_metadata.exit ], [ %.0575805, %bytestream2_get_le32.exit.i ], [ %.0575805, %640 ], [ %.0575805, %639 ], [ %.0575805, %.lr.ph41.i ], [ %.0575805, %.critedge2.i ]
-  %.1567 = phi i32 [ %.0566807, %733 ], [ %.0566807, %93 ], [ %.0566807, %avi_metadata_creation_time.exit ], [ %.0566807, %184 ], [ %191, %190 ], [ %.0566807, %210 ], [ %.0566807, %257 ], [ %.0566807, %336 ], [ %.0566807, %346 ], [ %.0566807, %599 ], [ %.0566807, %661 ], [ %.0566807, %693 ], [ %.0566807, %avi_read_tag.exit ], [ %.0566807, %73 ], [ %.0566807, %341 ], [ %.0566807, %97 ], [ %.0566807, %.thread736 ], [ %.0566807, %avi_extract_stream_metadata.exit.thread740 ], [ %.0566807, %avi_extract_stream_metadata.exit ], [ %.0566807, %bytestream2_get_le32.exit.i ], [ %.0566807, %640 ], [ %.0566807, %639 ], [ %.0566807, %.lr.ph41.i ], [ %.0566807, %.critedge2.i ]
-  %.1564 = phi i32 [ %.0563809, %733 ], [ %.0563809, %93 ], [ %.0563809, %avi_metadata_creation_time.exit ], [ %.0563809, %184 ], [ %.0563809, %190 ], [ %.0563809, %210 ], [ %259, %257 ], [ %215, %336 ], [ %.0563809, %346 ], [ %.0563809, %599 ], [ %.0563809, %661 ], [ %.0563809, %693 ], [ %.0563809, %avi_read_tag.exit ], [ %.0563809, %73 ], [ %.0563809, %341 ], [ %.0563809, %97 ], [ %.0563809, %.thread736 ], [ %.0563809, %avi_extract_stream_metadata.exit.thread740 ], [ %.0563809, %avi_extract_stream_metadata.exit ], [ %.0563809, %bytestream2_get_le32.exit.i ], [ %.0563809, %640 ], [ %.0563809, %639 ], [ %.0563809, %.lr.ph41.i ], [ %.0563809, %.critedge2.i ]
-  %.1561 = phi i32 [ %.0560810, %733 ], [ %.0560810, %93 ], [ %.0560810, %avi_metadata_creation_time.exit ], [ %.0560810, %184 ], [ %.0560810, %190 ], [ %.0560810, %210 ], [ %.0560810, %257 ], [ %.2562, %336 ], [ %.0560810, %346 ], [ %.0560810, %599 ], [ %.0560810, %661 ], [ %.0560810, %693 ], [ %.0560810, %avi_read_tag.exit ], [ %.0560810, %73 ], [ %.0560810, %341 ], [ %.0560810, %97 ], [ %.0560810, %.thread736 ], [ %.0560810, %avi_extract_stream_metadata.exit.thread740 ], [ %.0560810, %avi_extract_stream_metadata.exit ], [ %.0560810, %bytestream2_get_le32.exit.i ], [ %.0560810, %640 ], [ %.0560810, %639 ], [ %.0560810, %.lr.ph41.i ], [ %.0560810, %.critedge2.i ]
+  %.1590 = phi i64 [ %.0589797, %733 ], [ %76, %93 ], [ %.0589797, %avi_read_tag.exit ], [ %76, %73 ], [ %.0589797, %avi_metadata_creation_time.exit ], [ %.0589797, %184 ], [ %.0589797, %190 ], [ %.0589797, %210 ], [ %.0589797, %257 ], [ %.0589797, %336 ], [ %.0589797, %346 ], [ %.0589797, %.thread736 ], [ %.0589797, %640 ], [ %.0589797, %341 ], [ %.0589797, %599 ], [ %.0589797, %639 ], [ %.0589797, %661 ], [ %.0589797, %693 ], [ %76, %97 ], [ %.0589797, %avi_extract_stream_metadata.exit.thread740 ], [ %.0589797, %avi_extract_stream_metadata.exit ], [ %.0589797, %bytestream2_get_le32.exit.i ], [ %76, %.lr.ph41.i ], [ %76, %.critedge2.i ]
+  %.2588 = phi i32 [ %.0586799, %733 ], [ %.0586799, %93 ], [ %.0586799, %avi_read_tag.exit ], [ %.0586799, %73 ], [ %.0586799, %avi_metadata_creation_time.exit ], [ %.0586799, %184 ], [ %.1587, %190 ], [ %.0586799, %210 ], [ %.0586799, %257 ], [ %.0586799, %336 ], [ %.0586799, %346 ], [ %.0586799, %.thread736 ], [ %.0586799, %640 ], [ %.0586799, %341 ], [ %.0586799, %599 ], [ %.0586799, %639 ], [ %.0586799, %661 ], [ %.0586799, %693 ], [ %.0586799, %97 ], [ %.0586799, %avi_extract_stream_metadata.exit.thread740 ], [ %.0586799, %avi_extract_stream_metadata.exit ], [ %.0586799, %bytestream2_get_le32.exit.i ], [ %.0586799, %.lr.ph41.i ], [ %.0586799, %.critedge2.i ]
+  %.1581 = phi i32 [ %.0580801, %733 ], [ %.0580801, %93 ], [ %.0580801, %avi_read_tag.exit ], [ %.0580801, %73 ], [ %.0580801, %avi_metadata_creation_time.exit ], [ %.0580801, %184 ], [ %202, %190 ], [ %.0580801, %210 ], [ %.0580801, %257 ], [ %.0580801, %336 ], [ %.0580801, %346 ], [ %.0580801, %.thread736 ], [ %.0580801, %640 ], [ %.0580801, %341 ], [ %.0580801, %599 ], [ %.0580801, %639 ], [ %.0580801, %661 ], [ %.0580801, %693 ], [ %.0580801, %97 ], [ %.0580801, %avi_extract_stream_metadata.exit.thread740 ], [ %.0580801, %avi_extract_stream_metadata.exit ], [ %.0580801, %bytestream2_get_le32.exit.i ], [ %.0580801, %.lr.ph41.i ], [ %.0580801, %.critedge2.i ]
+  %.1579 = phi i32 [ %.0578803, %733 ], [ %.0578803, %93 ], [ %.0578803, %avi_read_tag.exit ], [ %.0578803, %73 ], [ %.0578803, %avi_metadata_creation_time.exit ], [ %.0578803, %184 ], [ %201, %190 ], [ %.0578803, %210 ], [ %.0578803, %257 ], [ %.0578803, %336 ], [ %.0578803, %346 ], [ %.0578803, %.thread736 ], [ %.0578803, %640 ], [ %.0578803, %341 ], [ %.0578803, %599 ], [ %.0578803, %639 ], [ %.0578803, %661 ], [ %.0578803, %693 ], [ %.0578803, %97 ], [ %.0578803, %avi_extract_stream_metadata.exit.thread740 ], [ %.0578803, %avi_extract_stream_metadata.exit ], [ %.0578803, %bytestream2_get_le32.exit.i ], [ %.0578803, %.lr.ph41.i ], [ %.0578803, %.critedge2.i ]
+  %.1576 = phi ptr [ %.0575805, %733 ], [ %.0575805, %93 ], [ %.0575805, %avi_read_tag.exit ], [ %.0575805, %73 ], [ %.0575805, %avi_metadata_creation_time.exit ], [ %.0575805, %184 ], [ %.0575805, %190 ], [ %.0575805, %210 ], [ %232, %257 ], [ %219, %336 ], [ %.0575805, %346 ], [ %.0575805, %.thread736 ], [ %.0575805, %640 ], [ %.0575805, %341 ], [ %.0575805, %599 ], [ %.0575805, %639 ], [ %.0575805, %661 ], [ %.0575805, %693 ], [ %.0575805, %97 ], [ %.0575805, %avi_extract_stream_metadata.exit.thread740 ], [ %.0575805, %avi_extract_stream_metadata.exit ], [ %.0575805, %bytestream2_get_le32.exit.i ], [ %.0575805, %.lr.ph41.i ], [ %.0575805, %.critedge2.i ]
+  %.1567 = phi i32 [ %.0566807, %733 ], [ %.0566807, %93 ], [ %.0566807, %avi_read_tag.exit ], [ %.0566807, %73 ], [ %.0566807, %avi_metadata_creation_time.exit ], [ %.0566807, %184 ], [ %191, %190 ], [ %.0566807, %210 ], [ %.0566807, %257 ], [ %.0566807, %336 ], [ %.0566807, %346 ], [ %.0566807, %.thread736 ], [ %.0566807, %640 ], [ %.0566807, %341 ], [ %.0566807, %599 ], [ %.0566807, %639 ], [ %.0566807, %661 ], [ %.0566807, %693 ], [ %.0566807, %97 ], [ %.0566807, %avi_extract_stream_metadata.exit.thread740 ], [ %.0566807, %avi_extract_stream_metadata.exit ], [ %.0566807, %bytestream2_get_le32.exit.i ], [ %.0566807, %.lr.ph41.i ], [ %.0566807, %.critedge2.i ]
+  %.1564 = phi i32 [ %.0563809, %733 ], [ %.0563809, %93 ], [ %.0563809, %avi_read_tag.exit ], [ %.0563809, %73 ], [ %.0563809, %avi_metadata_creation_time.exit ], [ %.0563809, %184 ], [ %.0563809, %190 ], [ %.0563809, %210 ], [ %259, %257 ], [ %215, %336 ], [ %.0563809, %346 ], [ %.0563809, %.thread736 ], [ %.0563809, %640 ], [ %.0563809, %341 ], [ %.0563809, %599 ], [ %.0563809, %639 ], [ %.0563809, %661 ], [ %.0563809, %693 ], [ %.0563809, %97 ], [ %.0563809, %avi_extract_stream_metadata.exit.thread740 ], [ %.0563809, %avi_extract_stream_metadata.exit ], [ %.0563809, %bytestream2_get_le32.exit.i ], [ %.0563809, %.lr.ph41.i ], [ %.0563809, %.critedge2.i ]
+  %.1561 = phi i32 [ %.0560810, %733 ], [ %.0560810, %93 ], [ %.0560810, %avi_read_tag.exit ], [ %.0560810, %73 ], [ %.0560810, %avi_metadata_creation_time.exit ], [ %.0560810, %184 ], [ %.0560810, %190 ], [ %.0560810, %210 ], [ %.0560810, %257 ], [ %.2562, %336 ], [ %.0560810, %346 ], [ %.0560810, %.thread736 ], [ %.0560810, %640 ], [ %.0560810, %341 ], [ %.0560810, %599 ], [ %.0560810, %639 ], [ %.0560810, %661 ], [ %.0560810, %693 ], [ %.0560810, %97 ], [ %.0560810, %avi_extract_stream_metadata.exit.thread740 ], [ %.0560810, %avi_extract_stream_metadata.exit ], [ %.0560810, %bytestream2_get_le32.exit.i ], [ %.0560810, %.lr.ph41.i ], [ %.0560810, %.critedge2.i ]
   %738 = call i32 @avio_feof(ptr noundef %22) #15
   %.not = icmp eq i32 %738, 0
   br i1 %.not, label %68, label %guess_ni_flag.exit
@@ -2275,7 +2275,7 @@ calculate_bitrate.exit:                           ; preds = %._crit_edge107.thre
   br label %guess_ni_flag.exit
 
 guess_ni_flag.exit:                               ; preds = %avi_read_nikon.exit, %214, %217, %658, %avi_read_tag.exit, %619, %226, %227, %51, %234, %923, %avi_read_tag.exit.thread, %.loopexit754, %get_riff.exit, %739, %723, %.thread752, %318
-  %.0 = phi i32 [ 0, %.thread752 ], [ -1094995529, %318 ], [ %.4, %.loopexit754 ], [ -1094995529, %get_riff.exit ], [ -1094995529, %723 ], [ -1094995529, %739 ], [ %.0.i702.ph, %avi_read_tag.exit.thread ], [ -12, %923 ], [ -12, %234 ], [ -1094995529, %51 ], [ -1094995529, %avi_read_nikon.exit ], [ -12, %214 ], [ -12, %217 ], [ -1094995529, %658 ], [ %719, %avi_read_tag.exit ], [ %621, %619 ], [ -1094995529, %226 ], [ -1094995529, %227 ]
+  %.0 = phi i32 [ -12, %234 ], [ -1094995529, %get_riff.exit ], [ %.4, %.loopexit754 ], [ -1094995529, %723 ], [ -1094995529, %739 ], [ 0, %.thread752 ], [ -12, %923 ], [ -1094995529, %318 ], [ %.0.i702.ph, %avi_read_tag.exit.thread ], [ -1094995529, %51 ], [ %621, %619 ], [ -1094995529, %226 ], [ %719, %avi_read_tag.exit ], [ -12, %214 ], [ -1094995529, %avi_read_nikon.exit ], [ -1094995529, %658 ], [ -12, %217 ], [ -1094995529, %227 ]
   ret i32 %.0
 }
 
@@ -2550,8 +2550,8 @@ define internal i32 @avi_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br label %155
 
 155:                                              ; preds = %148, %145, %142, %133
-  %.134.i = phi ptr [ %.0332.i, %145 ], [ %.0332.i, %142 ], [ %.0332.i, %133 ], [ %spec.select.i, %148 ]
-  %.1.i = phi i64 [ %.03.i, %145 ], [ %.03.i, %142 ], [ %.03.i, %133 ], [ %spec.select43.i, %148 ]
+  %.134.i = phi ptr [ %.0332.i, %142 ], [ %.0332.i, %133 ], [ %spec.select.i, %148 ], [ %.0332.i, %145 ]
+  %.1.i = phi i64 [ %.03.i, %142 ], [ %.03.i, %133 ], [ %spec.select43.i, %148 ], [ %.03.i, %145 ]
   %indvars.iv.next.i171 = add nuw nsw i64 %indvars.iv.i170, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i171, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i172, label %133, !llvm.loop !134
@@ -2980,7 +2980,7 @@ read_gab2_sub.exit.thread:                        ; preds = %read_gab2_sub.exit.
   br label %get_duration.exit
 
 get_duration.exit:                                ; preds = %365, %368, %371
-  %.0.i178 = phi i32 [ %377, %371 ], [ %366, %365 ], [ 1, %368 ]
+  %.0.i178 = phi i32 [ %366, %365 ], [ %377, %371 ], [ 1, %368 ]
   %378 = sext i32 %.0.i178 to i64
   %379 = load i64, ptr %127, align 8, !tbaa !72
   %380 = add nsw i64 %379, %378
@@ -3068,8 +3068,8 @@ get_duration.exit:                                ; preds = %365, %368, %371
   %422 = icmp slt i32 %421, 0
   br i1 %422, label %ni_prepare_read.exit.thread, label %.backedge.backedge
 
-ni_prepare_read.exit.thread:                      ; preds = %171, %420, %168, %156, %396, %398, %404, %416, %419, %415, %20, %81, %69, %78, %._crit_edge.i, %14
-  %.1 = phi i32 [ %15, %14 ], [ -541478725, %._crit_edge.i ], [ -541478725, %78 ], [ -541478725, %69 ], [ -541478725, %81 ], [ -541478725, %20 ], [ 0, %168 ], [ 0, %156 ], [ 0, %396 ], [ 0, %398 ], [ 0, %404 ], [ 0, %416 ], [ 0, %419 ], [ 0, %415 ], [ %181, %171 ], [ %421, %420 ]
+ni_prepare_read.exit.thread:                      ; preds = %171, %420, %168, %156, %398, %404, %416, %419, %415, %396, %20, %81, %._crit_edge.i, %69, %78, %14
+  %.1 = phi i32 [ -541478725, %20 ], [ 0, %396 ], [ %15, %14 ], [ -541478725, %78 ], [ -541478725, %69 ], [ -541478725, %._crit_edge.i ], [ -541478725, %81 ], [ 0, %168 ], [ 0, %156 ], [ 0, %398 ], [ 0, %404 ], [ 0, %416 ], [ 0, %419 ], [ 0, %415 ], [ %181, %171 ], [ %421, %420 ]
   ret i32 %.1
 }
 
@@ -3346,7 +3346,7 @@ define internal range(i32 -1094995529, 1) i32 @avi_read_seek(ptr noundef %0, i32
   br label %seek_subtitle.exit
 
 seek_subtitle.exit:                               ; preds = %105, %101, %109, %113
-  %.1121 = phi i64 [ %132, %113 ], [ %.0120146, %109 ], [ %.0120146, %101 ], [ %.0120146, %105 ]
+  %.1121 = phi i64 [ %.0120146, %109 ], [ %132, %113 ], [ %.0120146, %101 ], [ %.0120146, %105 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %133 = load i32, ptr %78, align 4, !tbaa !54
   %134 = zext i32 %133 to i64
@@ -3431,7 +3431,7 @@ seek_subtitle.exit:                               ; preds = %105, %101, %109, %1
   br i1 %181, label %136, label %._crit_edge, !llvm.loop !156
 
 ._crit_edge:                                      ; preds = %178, %74, %.preheader
-  %.0120.lcssa171 = phi i64 [ %.1121, %.preheader ], [ %57, %74 ], [ %.1121, %178 ]
+  %.0120.lcssa171 = phi i64 [ %57, %74 ], [ %.1121, %.preheader ], [ %.1121, %178 ]
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %183 = load ptr, ptr %182, align 8, !tbaa !29
   %184 = tail call i64 @avio_seek(ptr noundef %183, i64 noundef %.0120.lcssa171, i32 noundef 0) #15
@@ -3450,7 +3450,7 @@ seek_subtitle.exit:                               ; preds = %105, %101, %109, %1
   br label %190
 
 190:                                              ; preds = %61, %39, %43, %187, %186, %66
-  %.0 = phi i32 [ 0, %66 ], [ -1, %186 ], [ 0, %187 ], [ -1094995529, %43 ], [ -1094995529, %39 ], [ -1, %61 ]
+  %.0 = phi i32 [ 0, %187 ], [ -1094995529, %39 ], [ 0, %66 ], [ -1, %186 ], [ -1094995529, %43 ], [ -1, %61 ]
   ret i32 %.0
 }
 
@@ -3676,7 +3676,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_odml_index(ptr nounde
   br label %.thread.us
 
 .thread.us:                                       ; preds = %94, %92, %90
-  %.0.i.us = phi i32 [ %100, %94 ], [ %75, %90 ], [ 1, %92 ]
+  %.0.i.us = phi i32 [ %75, %90 ], [ %100, %94 ], [ 1, %92 ]
   %101 = sext i32 %.0.i.us to i64
   %102 = load i64, ptr %55, align 8, !tbaa !66
   %103 = add nsw i64 %102, %101
@@ -3768,8 +3768,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_odml_index(ptr nounde
   store i32 2, ptr %148, align 8, !tbaa !104
   br label %.thread143
 
-.thread143:                                       ; preds = %142, %112, %116, %129, %69, %65, %141, %128, %42, %46, %35, %25, %2, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -1094995529, %2 ], [ -1094995529, %25 ], [ -1094995529, %35 ], [ -1094995529, %46 ], [ -1094995529, %42 ], [ -1, %141 ], [ -1094995529, %128 ], [ -1094995529, %65 ], [ -1094995529, %69 ], [ -1094995529, %116 ], [ -1, %129 ], [ -1094995529, %112 ], [ %136, %142 ]
+.thread143:                                       ; preds = %142, %112, %129, %116, %69, %65, %141, %128, %42, %46, %35, %25, %2, %._crit_edge
+  %.0 = phi i32 [ -1094995529, %128 ], [ -1094995529, %2 ], [ -1094995529, %25 ], [ -1094995529, %35 ], [ -1094995529, %42 ], [ -1094995529, %46 ], [ -1, %141 ], [ 0, %._crit_edge ], [ -1094995529, %69 ], [ -1094995529, %65 ], [ -1, %129 ], [ -1094995529, %116 ], [ -1094995529, %112 ], [ %136, %142 ]
   ret i32 %.0
 }
 
@@ -3990,7 +3990,7 @@ define internal fastcc void @avi_load_index(ptr noundef %0) unnamed_addr #1 {
   br label %get_duration.exit.i
 
 get_duration.exit.i:                              ; preds = %119, %116, %113
-  %.0.i.i = phi i32 [ %125, %119 ], [ %74, %113 ], [ 1, %116 ]
+  %.0.i.i = phi i32 [ %74, %113 ], [ %125, %119 ], [ 1, %116 ]
   %126 = sext i32 %.0.i.i to i64
   %127 = load i64, ptr %100, align 8, !tbaa !66
   %128 = add nsw i64 %127, %126
@@ -4000,11 +4000,11 @@ get_duration.exit.i:                              ; preds = %119, %116, %113
   br label %131
 
 131:                                              ; preds = %get_duration.exit.i, %82, %69
-  %.193.i = phi i32 [ %.092111.i, %69 ], [ %.294.i, %get_duration.exit.i ], [ %.092111.i, %82 ]
-  %.191.i = phi i64 [ %.090112.i, %69 ], [ %99, %get_duration.exit.i ], [ %.090112.i, %82 ]
-  %.188.i = phi i32 [ %.087113.i, %69 ], [ %.289.i, %get_duration.exit.i ], [ %.087113.i, %82 ]
-  %.2.i = phi i64 [ %.183115.i, %69 ], [ %.3.i, %get_duration.exit.i ], [ %.183115.i, %82 ]
-  %.1.i = phi i32 [ %.081116.i, %69 ], [ %130, %get_duration.exit.i ], [ %.081116.i, %82 ]
+  %.193.i = phi i32 [ %.092111.i, %69 ], [ %.092111.i, %82 ], [ %.294.i, %get_duration.exit.i ]
+  %.191.i = phi i64 [ %.090112.i, %69 ], [ %.090112.i, %82 ], [ %99, %get_duration.exit.i ]
+  %.188.i = phi i32 [ %.087113.i, %69 ], [ %.087113.i, %82 ], [ %.289.i, %get_duration.exit.i ]
+  %.2.i = phi i64 [ %.183115.i, %69 ], [ %.183115.i, %82 ], [ %.3.i, %get_duration.exit.i ]
+  %.1.i = phi i32 [ %.081116.i, %69 ], [ %.081116.i, %82 ], [ %130, %get_duration.exit.i ]
   %132 = add nuw nsw i32 %.086114.i, 1
   %exitcond.not.i = icmp eq i32 %132, %smax.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %67, !llvm.loop !161
@@ -4046,7 +4046,7 @@ get_duration.exit.i:                              ; preds = %119, %116, %113
   %149 = icmp samesign ult i64 %indvars.iv.next.i, %148
   br i1 %149, label %.lr.ph118.i, label %.loopexit, !llvm.loop !162
 
-.loopexit:                                        ; preds = %146, %._crit_edge.i, %.preheader.i
+.loopexit:                                        ; preds = %146, %.preheader.i, %._crit_edge.i
   store i32 2, ptr %15, align 8, !tbaa !104
   br label %157
 
@@ -4373,8 +4373,8 @@ define internal fastcc i32 @avi_sync(ptr noundef %0, i32 noundef range(i32 0, 2)
   br label %.thread221
 
 .thread:                                          ; preds = %83, %91, %88
-  %96 = phi i1 [ true, %91 ], [ %90, %88 ], [ false, %83 ]
-  %97 = phi i1 [ true, %91 ], [ %89, %88 ], [ false, %83 ]
+  %96 = phi i1 [ %90, %88 ], [ true, %91 ], [ false, %83 ]
+  %97 = phi i1 [ %89, %88 ], [ true, %91 ], [ false, %83 ]
   %98 = load ptr, ptr %14, align 8, !tbaa !58
   %99 = icmp ne ptr %98, null
   %100 = icmp ne i32 %.0.i214, 0
@@ -4583,7 +4583,7 @@ define internal fastcc i32 @avi_sync(ptr noundef %0, i32 noundef range(i32 0, 2)
   br label %get_duration.exit
 
 get_duration.exit:                                ; preds = %196, %199, %202
-  %.0.i219 = phi i32 [ %208, %202 ], [ %24, %196 ], [ 1, %199 ]
+  %.0.i219 = phi i32 [ %24, %196 ], [ %208, %202 ], [ 1, %199 ]
   %209 = sext i32 %.0.i219 to i64
   %210 = load i64, ptr %.0179, align 8, !tbaa !72
   %211 = add nsw i64 %210, %209
@@ -4649,8 +4649,8 @@ get_duration.exit:                                ; preds = %196, %199, %202
   %. = select i1 %.not195, i32 -541478725, i32 %240
   br label %.thread221.thread
 
-.thread221.thread:                                ; preds = %177, %226, %232, %213, %._crit_edge
-  %.5 = phi i32 [ %., %._crit_edge ], [ 0, %213 ], [ 0, %232 ], [ 0, %226 ], [ 0, %177 ]
+.thread221.thread:                                ; preds = %177, %213, %226, %232, %._crit_edge
+  %.5 = phi i32 [ %., %._crit_edge ], [ 0, %232 ], [ 0, %226 ], [ 0, %213 ], [ 0, %177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.5
 }

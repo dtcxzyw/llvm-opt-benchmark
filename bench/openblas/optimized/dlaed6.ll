@@ -206,8 +206,8 @@ define void @dlaed6_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %152, label %153, label %.sink.split
 
 .sink.split:                                      ; preds = %127, %114, %121, %124
-  %.2375.ph = phi double [ %.1374, %124 ], [ %.1374, %121 ], [ %.1374, %114 ], [ %.1374., %127 ]
-  %.2.ph = phi double [ %.1, %124 ], [ %.1, %121 ], [ %.1, %114 ], [ %..1, %127 ]
+  %.2375.ph = phi double [ %.1374, %114 ], [ %.1374, %124 ], [ %.1374, %121 ], [ %.1374., %127 ]
+  %.2.ph = phi double [ %.1, %114 ], [ %.1, %124 ], [ %.1, %121 ], [ %..1, %127 ]
   store double 0.000000e+00, ptr %6, align 8, !tbaa !7
   br label %153
 
@@ -522,7 +522,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %153, %16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %321, %336, %300, %221, %343
-  %344 = phi double [ %205, %221 ], [ %storemerge, %343 ], [ %storemerge, %300 ], [ %storemerge, %336 ], [ %storemerge, %321 ]
+  %344 = phi double [ %storemerge, %300 ], [ %storemerge, %343 ], [ %205, %221 ], [ %storemerge, %336 ], [ %storemerge, %321 ]
   br i1 %188, label %347, label %345
 
 345:                                              ; preds = %.loopexit

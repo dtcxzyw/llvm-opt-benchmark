@@ -381,7 +381,7 @@ define hidden i32 @sharkd_load_cap_file() local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %9, %0
-  %12 = phi i1 [ true, %0 ], [ %10, %9 ]
+  %12 = phi i1 [ %10, %9 ], [ true, %0 ]
   %13 = load ptr, ptr @cfile, align 8
   %14 = tail call ptr @epan_dissect_new(ptr noundef %13, i1 noundef zeroext %12, i1 noundef zeroext false)
   %.fr.i = freeze ptr %14
@@ -636,7 +636,7 @@ define hidden range(i32 0, 3) i32 @sharkd_dissect_request(i32 noundef %0, i32 no
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22, %29, %30
-  %32 = phi i1 [ false, %29 ], [ %31, %30 ], [ true, %22 ]
+  %32 = phi i1 [ %31, %30 ], [ false, %29 ], [ true, %22 ]
   %33 = load ptr, ptr @cfile, align 8
   call void @epan_dissect_init(ptr noundef nonnull %11, ptr noundef %33, i1 noundef zeroext %32, i1 noundef zeroext %24)
   %.not40 = icmp eq i32 %.pre, 0
@@ -694,7 +694,7 @@ define hidden range(i32 0, 3) i32 @sharkd_dissect_request(i32 noundef %0, i32 no
   br label %60
 
 60:                                               ; preds = %20, %21, %10, %52
-  %.0 = phi i32 [ 0, %52 ], [ 1, %10 ], [ 2, %21 ], [ 2, %20 ]
+  %.0 = phi i32 [ 1, %10 ], [ 0, %52 ], [ 2, %21 ], [ 2, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }

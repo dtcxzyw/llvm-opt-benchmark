@@ -137,7 +137,7 @@ define dso_local void @get_parallel_checkout_configs(ptr noundef %0, ptr noundef
   br i1 %.not16, label %34, label %.sink.split20
 
 .sink.split20:                                    ; preds = %31, %18, %21
-  %.sink21 = phi i32 [ 0, %21 ], [ 0, %18 ], [ 100, %31 ]
+  %.sink21 = phi i32 [ 0, %18 ], [ 0, %21 ], [ 100, %31 ]
   store i32 %.sink21, ptr %1, align 4, !tbaa !15
   br label %34
 
@@ -456,7 +456,7 @@ reset_fd.exit.thread.i:                           ; preds = %60, %48
   %84 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.17, ptr noundef %49) #17
   br label %close_and_clear.exit
 
-close_and_clear.exit:                             ; preds = %83, %66, %reset_fd.exit.i
+close_and_clear.exit:                             ; preds = %reset_fd.exit.i, %83, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -921,7 +921,7 @@ assert_pc_item_result_size.exit.i.i:              ; preds = %142, %140
   unreachable
 
 parse_and_save_result.exit.i:                     ; preds = %173, %171, %164, %162, %160, %133
-  %.5.i = phi i32 [ %172, %171 ], [ %.267.i, %173 ], [ %134, %133 ], [ %.267.i, %160 ], [ %.267.i, %162 ], [ %.267.i, %164 ]
+  %.5.i = phi i32 [ %.267.i, %173 ], [ %172, %171 ], [ %134, %133 ], [ %.267.i, %160 ], [ %.267.i, %162 ], [ %.267.i, %164 ]
   %176 = add nsw i32 %.03966.i, -1
   br label %177
 
@@ -1090,7 +1090,7 @@ write_items_sequentially.exit:                    ; preds = %advance_progress_me
   unreachable
 
 advance_progress_meter.exit.i29:                  ; preds = %240, %232, %229, %226, %.lr.ph31.i
-  %.1.i = phi i32 [ %.030.i, %229 ], [ %.030.i, %226 ], [ -1, %.lr.ph31.i ], [ %238, %232 ], [ %238, %240 ]
+  %.1.i = phi i32 [ %.030.i, %229 ], [ %.030.i, %226 ], [ -1, %.lr.ph31.i ], [ %238, %240 ], [ %238, %232 ]
   %246 = add nuw i64 %.12029.i, 1
   %247 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 16), align 8, !tbaa !23
   %248 = icmp ult i64 %246, %247
@@ -1110,7 +1110,7 @@ advance_progress_meter.exit.thread.i:             ; preds = %.lr.ph31.i
   br label %handle_results.exit
 
 handle_results.exit:                              ; preds = %14, %write_items_sequentially.exit, %.preheader.i28, %._crit_edge.i, %._crit_edge.thread51.i
-  %.0.lcssa46.i = phi i32 [ %.15054.i, %._crit_edge.thread51.i ], [ %.1.i, %._crit_edge.i ], [ 0, %.preheader.i28 ], [ 0, %write_items_sequentially.exit ], [ 0, %14 ]
+  %.0.lcssa46.i = phi i32 [ %.1.i, %._crit_edge.i ], [ %.15054.i, %._crit_edge.thread51.i ], [ 0, %.preheader.i28 ], [ 0, %write_items_sequentially.exit ], [ 0, %14 ]
   %252 = load i32, ptr @parallel_checkout, align 8, !tbaa !4
   %253 = icmp eq i32 %252, 0
   br i1 %253, label %254, label %finish_parallel_checkout.exit

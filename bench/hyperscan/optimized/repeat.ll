@@ -237,7 +237,7 @@ mmbit_iterate_bounded.exit.thread194:             ; preds = %get_flat_masks.exit
   br label %get_flat_masks.exit144
 
 get_flat_masks.exit144:                           ; preds = %.lr.ph, %88
-  %.0.i143 = phi i64 [ %92, %88 ], [ %87, %.lr.ph ]
+  %.0.i143 = phi i64 [ %87, %.lr.ph ], [ %92, %88 ]
   %93 = and i64 %.0.i143, %83
   %.not.i97 = icmp eq i64 %93, 0
   br i1 %.not.i97, label %96, label %.thread163
@@ -322,7 +322,7 @@ mmbit_get_flat_block.exit131:                     ; preds = %119, %111, %108, %1
   br label %get_flat_masks.exit148
 
 get_flat_masks.exit148:                           ; preds = %mmbit_get_flat_block.exit131, %131
-  %.0.i146 = phi i64 [ %136, %131 ], [ %130, %mmbit_get_flat_block.exit131 ]
+  %.0.i146 = phi i64 [ %130, %mmbit_get_flat_block.exit131 ], [ %136, %131 ]
   %137 = and i64 %.0.i146, %.0.i129
   %.not58.i95 = icmp eq i64 %137, 0
   br i1 %.not58.i95, label %mmbit_iterate_bounded.exit.thread, label %mmbit_iterate_bounded.exit.thread294
@@ -437,7 +437,7 @@ mmbit_iterate_bounded.exit:                       ; preds = %184, %.thread163
   %. = tail call i64 @llvm.umax.i64(i64 %7, i64 %207)
   br label %mmbit_iterate_bounded.exit88.thread
 
-mmbit_iterate_bounded.exit.thread:                ; preds = %191, %mmbit_get_flat_block.exit, %get_flat_masks.exit148, %._crit_edge, %get_flat_masks.exit, %27, %mmbit_iterate_bounded.exit
+mmbit_iterate_bounded.exit.thread:                ; preds = %191, %mmbit_get_flat_block.exit, %get_flat_masks.exit148, %get_flat_masks.exit, %._crit_edge, %27, %mmbit_iterate_bounded.exit
   %208 = icmp eq i16 %.val2.i, 0
   %or.cond.i85 = or i1 %.not.i, %208
   %or.cond = or i1 %or.cond.i85, %.not79
@@ -699,8 +699,8 @@ mmbit_iterate_bounded.exit88:                     ; preds = %343
   %.not82 = icmp eq i32 %359, -1
   br i1 %.not82, label %mmbit_iterate_bounded.exit88.thread, label %mmbit_iterate_bounded.exit88.thread297
 
-mmbit_iterate_bounded.exit88.thread297:           ; preds = %.thread201, %296, %mmbit_iterate_bounded.exit88.thread233, %mmbit_iterate_bounded.exit88
-  %.013.i87236 = phi i32 [ %243, %mmbit_iterate_bounded.exit88.thread233 ], [ %359, %mmbit_iterate_bounded.exit88 ], [ %258, %.thread201 ], [ %299, %296 ]
+mmbit_iterate_bounded.exit88.thread297:           ; preds = %296, %.thread201, %mmbit_iterate_bounded.exit88.thread233, %mmbit_iterate_bounded.exit88
+  %.013.i87236 = phi i32 [ %243, %mmbit_iterate_bounded.exit88.thread233 ], [ %359, %mmbit_iterate_bounded.exit88 ], [ %299, %296 ], [ %258, %.thread201 ]
   %360 = trunc i64 %spec.select to i32
   %361 = add i32 %6, %360
   %362 = sub i32 %361, %.065
@@ -711,8 +711,8 @@ mmbit_iterate_bounded.exit88.thread297:           ; preds = %.thread201, %296, %
   %.83 = tail call i64 @llvm.umax.i64(i64 %7, i64 %366)
   br label %mmbit_iterate_bounded.exit88.thread
 
-mmbit_iterate_bounded.exit88.thread:              ; preds = %350, %mmbit_get_flat_block.exit139, %._crit_edge260, %mmbit_get_flat_block.exit135, %201, %mmbit_iterate_bounded.exit88.thread297, %mmbit_iterate_bounded.exit88, %mmbit_iterate_bounded.exit.thread, %13, %._crit_edge268
-  %.0 = phi i64 [ %12, %._crit_edge268 ], [ 0, %13 ], [ %., %201 ], [ %.83, %mmbit_iterate_bounded.exit88.thread297 ], [ 0, %mmbit_iterate_bounded.exit88 ], [ 0, %mmbit_iterate_bounded.exit.thread ], [ 0, %mmbit_get_flat_block.exit135 ], [ 0, %._crit_edge260 ], [ 0, %mmbit_get_flat_block.exit139 ], [ 0, %350 ]
+mmbit_iterate_bounded.exit88.thread:              ; preds = %350, %mmbit_get_flat_block.exit139, %mmbit_get_flat_block.exit135, %._crit_edge260, %201, %mmbit_iterate_bounded.exit88.thread297, %mmbit_iterate_bounded.exit88, %mmbit_iterate_bounded.exit.thread, %13, %._crit_edge268
+  %.0 = phi i64 [ %12, %._crit_edge268 ], [ 0, %13 ], [ %., %201 ], [ %.83, %mmbit_iterate_bounded.exit88.thread297 ], [ 0, %mmbit_iterate_bounded.exit88 ], [ 0, %mmbit_iterate_bounded.exit.thread ], [ 0, %mmbit_get_flat_block.exit139 ], [ 0, %._crit_edge260 ], [ 0, %mmbit_get_flat_block.exit135 ], [ 0, %350 ]
   ret i64 %.0
 }
 
@@ -756,7 +756,7 @@ define hidden i64 @repeatNextMatchRange(ptr noundef readonly captures(none) %0, 
   br i1 %.not29, label %.thread, label %13
 
 .thread:                                          ; preds = %21, %13, %14, %4
-  %spec.select = phi i64 [ 0, %4 ], [ %19, %14 ], [ 0, %13 ], [ %12, %21 ]
+  %spec.select = phi i64 [ 0, %4 ], [ 0, %13 ], [ %19, %14 ], [ %12, %21 ]
   ret i64 %spec.select
 }
 
@@ -840,7 +840,7 @@ define hidden i64 @repeatNextMatchTrailer(ptr noundef readonly captures(none) %0
   br label %27
 
 27:                                               ; preds = %15, %23, %3, %13
-  %.0 = phi i64 [ %14, %13 ], [ 0, %3 ], [ %26, %23 ], [ %9, %15 ]
+  %.0 = phi i64 [ 0, %3 ], [ %14, %13 ], [ %26, %23 ], [ %9, %15 ]
   ret i64 %.0
 }
 
@@ -1037,7 +1037,7 @@ storeInitialRingTop.exit:                         ; preds = %.thread.i, %.lr.ph.
   br label %get_flat_masks.exit38.i82
 
 get_flat_masks.exit38.i82:                        ; preds = %106, %.lr.ph
-  %.0.i36.i83 = phi i64 [ %110, %106 ], [ %105, %.lr.ph ]
+  %.0.i36.i83 = phi i64 [ %105, %.lr.ph ], [ %110, %106 ]
   %111 = xor i64 %.0.i36.i83, -1
   %112 = and i64 %101, %111
   store i64 %112, ptr %100, align 1
@@ -1111,7 +1111,7 @@ mmbit_get_flat_block.exit.i75:                    ; preds = %121, %124, %127, %1
   br label %get_flat_masks.exit.i78
 
 get_flat_masks.exit.i78:                          ; preds = %147, %mmbit_get_flat_block.exit.i75
-  %.0.i34.i79 = phi i64 [ %152, %147 ], [ %146, %mmbit_get_flat_block.exit.i75 ]
+  %.0.i34.i79 = phi i64 [ %146, %mmbit_get_flat_block.exit.i75 ], [ %152, %147 ]
   %153 = xor i64 %.0.i34.i79, -1
   %154 = and i64 %.0.i.i76, %153
   switch i32 %120, label %mmbit_unset_range.exit [
@@ -1784,7 +1784,7 @@ mmbit_unset_range.exit72.thread:                  ; preds = %._crit_edge295, %mm
   br i1 %.not.i164, label %mmbit_set_i.exit, label %504
 
 mmbit_set_i.exit:                                 ; preds = %.thread239, %.lr.ph307, %522, %mmbit_unset_range.exit72.thread
-  %.0396 = phi i32 [ %.0, %522 ], [ %.0397, %mmbit_unset_range.exit72.thread ], [ %.0, %.lr.ph307 ], [ %.0, %.thread239 ]
+  %.0396 = phi i32 [ %.0, %.lr.ph307 ], [ %.0397, %mmbit_unset_range.exit72.thread ], [ %.0, %522 ], [ %.0, %.thread239 ]
   %545 = trunc i32 %.0396 to i16
   %546 = add i16 %545, 1
   %547 = zext i16 %546 to i32
@@ -2318,7 +2318,7 @@ get_flat_masks.exit113.i:                         ; preds = %106, %mmbit_get_fla
   br label %get_flat_masks.exit117.i
 
 get_flat_masks.exit117.i:                         ; preds = %132, %.lr.ph.i
-  %.0.i115.i = phi i64 [ %136, %132 ], [ %131, %.lr.ph.i ]
+  %.0.i115.i = phi i64 [ %131, %.lr.ph.i ], [ %136, %132 ]
   %137 = and i64 %.0.i115.i, %127
   %.not.i50.i = icmp eq i64 %137, 0
   br i1 %.not.i50.i, label %140, label %.thread3.i
@@ -2403,7 +2403,7 @@ mmbit_get_flat_block.exit100.i:                   ; preds = %163, %155, %152, %1
   br label %get_flat_masks.exit121.i
 
 get_flat_masks.exit121.i:                         ; preds = %175, %mmbit_get_flat_block.exit100.i
-  %.0.i119.i = phi i64 [ %180, %175 ], [ %174, %mmbit_get_flat_block.exit100.i ]
+  %.0.i119.i = phi i64 [ %174, %mmbit_get_flat_block.exit100.i ], [ %180, %175 ]
   %181 = and i64 %.0.i119.i, %.0.i98.i
   %.not58.i.i = icmp ne i64 %181, 0
   %brmerge133.i = or i1 %75, %.not58.i.i
@@ -2757,15 +2757,15 @@ get_lowhi_masks.exit.i:                           ; preds = %383, %325
   br label %get_lowhi_masks.exit.i
 
 ringHasMatch.exit:                                ; preds = %get_flat_masks.exit113.i, %get_flat_masks.exit121.i, %mmbit_iterate_bounded.exit49.i
-  %.0.i43.in = phi i1 [ %.not42.i, %mmbit_iterate_bounded.exit49.i ], [ %.0.i111.i, %get_flat_masks.exit113.i ], [ %.not58.i.i, %get_flat_masks.exit121.i ]
+  %.0.i43.in = phi i1 [ %.0.i111.i, %get_flat_masks.exit113.i ], [ %.not42.i, %mmbit_iterate_bounded.exit49.i ], [ %.not58.i.i, %get_flat_masks.exit121.i ]
   %.0.i43.in.fr = freeze i1 %.0.i43.in
   br i1 %.0.i43.in.fr, label %ringHasMatch.exit.thread48, label %ringHasMatch.exit.thread
 
-ringHasMatch.exit.thread:                         ; preds = %376, %52, %mmbit_get_flat_block.exit92.i, %mmbit_get_flat_block.exit.i, %.thread56.i, %35, %._crit_edge94.i, %243, %mmbit_iterate_bounded.exit49.thread.i, %ringHasMatch.exit
+ringHasMatch.exit.thread:                         ; preds = %376, %52, %35, %mmbit_get_flat_block.exit92.i, %mmbit_get_flat_block.exit.i, %.thread56.i, %._crit_edge94.i, %243, %mmbit_iterate_bounded.exit49.thread.i, %ringHasMatch.exit
   br label %ringHasMatch.exit.thread48
 
-ringHasMatch.exit.thread48:                       ; preds = %get_flat_masks.exit105.i, %71, %mmbit_get_flat_block.exit92.i, %mmbit_get_flat_block.exit.i, %.thread56.i, %35, %ringHasMatch.exit.thread, %ringHasMatch.exit, %25, %13, %4
-  %.0 = phi i32 [ 0, %4 ], [ 2, %13 ], [ 0, %25 ], [ 0, %ringHasMatch.exit.thread ], [ 1, %ringHasMatch.exit ], [ 1, %35 ], [ 1, %.thread56.i ], [ 1, %mmbit_get_flat_block.exit.i ], [ 1, %mmbit_get_flat_block.exit92.i ], [ 1, %71 ], [ 1, %get_flat_masks.exit105.i ]
+ringHasMatch.exit.thread48:                       ; preds = %get_flat_masks.exit105.i, %71, %35, %mmbit_get_flat_block.exit92.i, %mmbit_get_flat_block.exit.i, %.thread56.i, %ringHasMatch.exit.thread, %ringHasMatch.exit, %25, %13, %4
+  %.0 = phi i32 [ 2, %13 ], [ 0, %4 ], [ 0, %25 ], [ 0, %ringHasMatch.exit.thread ], [ 1, %ringHasMatch.exit ], [ 1, %35 ], [ 1, %71 ], [ 1, %.thread56.i ], [ 1, %mmbit_get_flat_block.exit.i ], [ 1, %mmbit_get_flat_block.exit92.i ], [ 1, %get_flat_masks.exit105.i ]
   ret i32 %.0
 }
 
@@ -2827,7 +2827,7 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchRange(ptr noundef readonly capt
   br i1 %or.cond, label %29, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %30, %29, %26, %11, %25, %4
-  %.030 = phi i32 [ 0, %4 ], [ 2, %11 ], [ 1, %25 ], [ 0, %26 ], [ 1, %30 ], [ 0, %29 ]
+  %.030 = phi i32 [ 0, %4 ], [ 1, %25 ], [ 2, %11 ], [ 0, %26 ], [ 1, %30 ], [ 0, %29 ]
   ret i32 %.030
 }
 
@@ -2881,7 +2881,7 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchBitmap(ptr noundef readonly cap
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %24, %.preheader, %6, %23, %13, %3
-  %.0 = phi i32 [ 2, %3 ], [ 0, %6 ], [ 2, %13 ], [ 1, %23 ], [ 1, %24 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ 2, %3 ], [ 0, %6 ], [ 1, %23 ], [ 2, %13 ], [ 0, %.preheader ], [ 1, %24 ]
   ret i32 %.0
 }
 
@@ -2923,7 +2923,7 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchTrailer(ptr noundef readonly ca
   br label %26
 
 26:                                               ; preds = %13, %3, %17, %25
-  %.0 = phi i32 [ 0, %25 ], [ 1, %17 ], [ 2, %3 ], [ 1, %13 ]
+  %.0 = phi i32 [ 1, %17 ], [ 2, %3 ], [ 0, %25 ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -3644,7 +3644,7 @@ define hidden void @repeatUnpack(ptr noundef readonly %0, ptr noundef readonly c
   br label %loadPackedRelative.exit.i
 
 loadPackedRelative.exit.i:                        ; preds = %56, %53, %45, %42, %34, %26, %13, %11, %6
-  %.0.i.i.i = phi i64 [ %12, %11 ], [ %25, %13 ], [ %33, %26 ], [ %41, %34 ], [ %44, %42 ], [ %52, %45 ], [ %55, %53 ], [ %58, %56 ], [ 0, %6 ]
+  %.0.i.i.i = phi i64 [ %58, %56 ], [ %12, %11 ], [ %25, %13 ], [ %33, %26 ], [ %41, %34 ], [ %44, %42 ], [ %52, %45 ], [ %55, %53 ], [ 0, %6 ]
   %59 = sub i64 %2, %.0.i.i.i
   store i64 %59, ptr %3, align 8
   %60 = zext i32 %10 to i64
@@ -3755,7 +3755,7 @@ repeatUnpackRing.exit:                            ; preds = %62, %67
   br label %loadPackedRelative.exit.i28
 
 loadPackedRelative.exit.i28:                      ; preds = %122, %119, %111, %108, %100, %92, %79, %77, %75
-  %.0.i.i.i29 = phi i64 [ %78, %77 ], [ %91, %79 ], [ %99, %92 ], [ %107, %100 ], [ %110, %108 ], [ %118, %111 ], [ %121, %119 ], [ %124, %122 ], [ 0, %75 ]
+  %.0.i.i.i29 = phi i64 [ %124, %122 ], [ %78, %77 ], [ %91, %79 ], [ %99, %92 ], [ %107, %100 ], [ %110, %108 ], [ %118, %111 ], [ %121, %119 ], [ 0, %75 ]
   %125 = sub i64 %2, %.0.i.i.i29
   br label %repeatUnpackOffset.exit
 
@@ -3843,7 +3843,7 @@ repeatUnpackOffset.exit:                          ; preds = %75, %loadPackedRela
   br label %repeatUnpackRange.exit
 
 repeatUnpackRange.exit:                           ; preds = %126, %129, %131, %144, %152, %160, %163, %171, %174
-  %.0.i.i.i31 = phi i64 [ %130, %129 ], [ %143, %131 ], [ %151, %144 ], [ %159, %152 ], [ %162, %160 ], [ %170, %163 ], [ %173, %171 ], [ %176, %174 ], [ 0, %126 ]
+  %.0.i.i.i31 = phi i64 [ %176, %174 ], [ %130, %129 ], [ %143, %131 ], [ %151, %144 ], [ %159, %152 ], [ %162, %160 ], [ %170, %163 ], [ %173, %171 ], [ 0, %126 ]
   %177 = sub i64 %2, %.0.i.i.i31
   store i64 %177, ptr %3, align 8
   %178 = load i32, ptr %127, align 4
@@ -3939,7 +3939,7 @@ repeatUnpackRange.exit:                           ; preds = %126, %129, %131, %1
   br label %repeatUnpackBitmap.exit
 
 repeatUnpackBitmap.exit:                          ; preds = %184, %190, %192, %205, %213, %221, %224, %232, %235
-  %.0.i.i = phi i64 [ %191, %190 ], [ %204, %192 ], [ %212, %205 ], [ %220, %213 ], [ %223, %221 ], [ %231, %224 ], [ %234, %232 ], [ %237, %235 ], [ 0, %184 ]
+  %.0.i.i = phi i64 [ %237, %235 ], [ %191, %190 ], [ %204, %192 ], [ %212, %205 ], [ %220, %213 ], [ %223, %221 ], [ %231, %224 ], [ %234, %232 ], [ 0, %184 ]
   %238 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.0.i.i, ptr %238, align 8
   br label %343
@@ -4028,7 +4028,7 @@ repeatUnpackBitmap.exit:                          ; preds = %184, %190, %192, %2
   br label %loadPackedRelative.exit.i33
 
 loadPackedRelative.exit.i33:                      ; preds = %289, %286, %278, %275, %267, %259, %246, %244, %239
-  %.0.i.i.i34 = phi i64 [ %245, %244 ], [ %258, %246 ], [ %266, %259 ], [ %274, %267 ], [ %277, %275 ], [ %285, %278 ], [ %288, %286 ], [ %291, %289 ], [ 0, %239 ]
+  %.0.i.i.i34 = phi i64 [ %291, %289 ], [ %245, %244 ], [ %258, %246 ], [ %266, %259 ], [ %274, %267 ], [ %277, %275 ], [ %285, %278 ], [ %288, %286 ], [ 0, %239 ]
   %292 = sub i64 %2, %.0.i.i.i34
   store i64 %292, ptr %3, align 8
   %293 = zext i32 %243 to i64
@@ -4263,7 +4263,7 @@ define internal fastcc i64 @sparseLastTop(ptr noundef %0, ptr noundef readonly c
   br label %partial_load_u64a.exit
 
 partial_load_u64a.exit:                           ; preds = %3, %26, %28, %41, %49, %57, %60, %68, %71
-  %.0.i = phi i64 [ %27, %26 ], [ %40, %28 ], [ %48, %41 ], [ %56, %49 ], [ %59, %57 ], [ %67, %60 ], [ %70, %68 ], [ %73, %71 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %73, %71 ], [ %27, %26 ], [ %40, %28 ], [ %48, %41 ], [ %56, %49 ], [ %59, %57 ], [ %67, %60 ], [ %70, %68 ], [ 0, %3 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %75 = ptrtoint ptr %74 to i64
   %76 = add i64 %75, 7
@@ -4479,7 +4479,7 @@ get_flat_masks.exit358:                           ; preds = %mmbit_get_flat_bloc
   br label %get_flat_masks.exit362
 
 get_flat_masks.exit362:                           ; preds = %.lr.ph, %104
-  %.0.i360 = phi i64 [ %108, %104 ], [ %103, %.lr.ph ]
+  %.0.i360 = phi i64 [ %103, %.lr.ph ], [ %108, %104 ]
   %109 = and i64 %.0.i360, %99
   %.not.i189 = icmp eq i64 %109, 0
   br i1 %.not.i189, label %112, label %.thread387
@@ -4564,7 +4564,7 @@ mmbit_get_flat_block.exit322:                     ; preds = %135, %127, %124, %1
   br label %get_flat_masks.exit366
 
 get_flat_masks.exit366:                           ; preds = %mmbit_get_flat_block.exit322, %147
-  %.0.i364 = phi i64 [ %152, %147 ], [ %146, %mmbit_get_flat_block.exit322 ]
+  %.0.i364 = phi i64 [ %146, %mmbit_get_flat_block.exit322 ], [ %152, %147 ]
   %153 = and i64 %.0.i364, %.0.i320
   %.not58.i = icmp eq i64 %153, 0
   br i1 %.not58.i, label %.thread458, label %154
@@ -4669,8 +4669,8 @@ mmbit_iterate_bounded.exit186:                    ; preds = %202, %.thread387
   %.not160589 = icmp eq i32 %218, -1
   br i1 %.not160589, label %.thread458, label %.lr.ph594
 
-.lr.ph594:                                        ; preds = %154, %86, %mmbit_iterate_bounded.exit186
-  %.013.i185683 = phi i32 [ %218, %mmbit_iterate_bounded.exit186 ], [ %157, %154 ], [ %88, %86 ]
+.lr.ph594:                                        ; preds = %86, %154, %mmbit_iterate_bounded.exit186
+  %.013.i185683 = phi i32 [ %218, %mmbit_iterate_bounded.exit186 ], [ %88, %86 ], [ %157, %154 ]
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %220 = ptrtoint ptr %219 to i64
   %221 = add i64 %220, 7
@@ -4811,7 +4811,7 @@ mmbit_iterate_bounded.exit186:                    ; preds = %202, %.thread387
   br label %partial_load_u64a.exit
 
 partial_load_u64a.exit:                           ; preds = %274, %276, %289, %297, %305, %308, %316, %319
-  %.0.i = phi i64 [ %275, %274 ], [ %288, %276 ], [ %296, %289 ], [ %304, %297 ], [ %307, %305 ], [ %315, %308 ], [ %318, %316 ], [ %321, %319 ]
+  %.0.i = phi i64 [ %321, %319 ], [ %275, %274 ], [ %288, %276 ], [ %296, %289 ], [ %304, %297 ], [ %307, %305 ], [ %315, %308 ], [ %318, %316 ]
   %.not163 = icmp eq i64 %.0.i, 0
   br i1 %.not163, label %partial_load_u64a.exit.thread.thread, label %322
 
@@ -4939,7 +4939,7 @@ mmbit_get_flat_block.exit310:                     ; preds = %343, %346, %349, %3
   br label %get_flat_masks.exit350
 
 get_flat_masks.exit350:                           ; preds = %.lr.ph587, %373
-  %.0.i348 = phi i64 [ %377, %373 ], [ %372, %.lr.ph587 ]
+  %.0.i348 = phi i64 [ %372, %.lr.ph587 ], [ %377, %373 ]
   %378 = and i64 %.0.i348, %368
   %.not.i197 = icmp eq i64 %378, 0
   br i1 %.not.i197, label %382, label %.thread428
@@ -5002,7 +5002,7 @@ mmbit_get_flat_block.exit314:                     ; preds = %393, %390, %387, %3
   br label %get_flat_masks.exit354
 
 get_flat_masks.exit354:                           ; preds = %mmbit_get_flat_block.exit314, %395
-  %.0.i352 = phi i64 [ %400, %395 ], [ %248, %mmbit_get_flat_block.exit314 ]
+  %.0.i352 = phi i64 [ %248, %mmbit_get_flat_block.exit314 ], [ %400, %395 ]
   %401 = and i64 %.0.i352, %.0.i312
   %.not58.i195 = icmp eq i64 %401, 0
   br i1 %.not58.i195, label %.thread458, label %402
@@ -5100,7 +5100,7 @@ get_lowhi_masks.exit368:                          ; preds = %459, %406
   br label %get_lowhi_masks.exit368
 
 mmbit_iterate_bounded.exit181:                    ; preds = %.thread444, %359, %.thread428, %402
-  %.013.i180 = phi i32 [ %361, %359 ], [ %405, %402 ], [ %381, %.thread428 ], [ %449, %.thread444 ]
+  %.013.i180 = phi i32 [ %381, %.thread428 ], [ %405, %402 ], [ %449, %.thread444 ], [ %361, %359 ]
   %.not160 = icmp eq i32 %.013.i180, -1
   br i1 %.not160, label %.thread458, label %270
 
@@ -5118,7 +5118,7 @@ mmbit_iterate_bounded.exit181:                    ; preds = %.thread444, %359, %
   %. = tail call i64 @llvm.umax.i64(i64 %5, i64 %468)
   br label %.thread536
 
-.thread458:                                       ; preds = %209, %get_flat_masks.exit354, %._crit_edge588, %mmbit_get_flat_block.exit310, %partial_load_u64a.exit.thread.thread, %mmbit_iterate_bounded.exit181, %452, %mmbit_get_flat_block.exit318, %get_flat_masks.exit366, %._crit_edge, %get_flat_masks.exit358, %32, %mmbit_iterate_bounded.exit186
+.thread458:                                       ; preds = %209, %get_flat_masks.exit354, %mmbit_get_flat_block.exit310, %._crit_edge588, %partial_load_u64a.exit.thread.thread, %mmbit_iterate_bounded.exit181, %452, %mmbit_get_flat_block.exit318, %get_flat_masks.exit366, %get_flat_masks.exit358, %._crit_edge, %32, %mmbit_iterate_bounded.exit186
   %469 = icmp eq i16 %45, 0
   %or.cond764 = or i1 %.not159, %469
   br i1 %or.cond764, label %.thread536, label %470
@@ -5380,8 +5380,8 @@ mmbit_iterate_bounded.exit176:                    ; preds = %606
   %.not166604 = icmp eq i32 %622, -1
   br i1 %.not166604, label %.thread536, label %.lr.ph608
 
-.lr.ph608:                                        ; preds = %.thread468, %558, %503, %mmbit_iterate_bounded.exit176
-  %.013.i175699 = phi i32 [ %622, %mmbit_iterate_bounded.exit176 ], [ %520, %.thread468 ], [ %561, %558 ], [ %505, %503 ]
+.lr.ph608:                                        ; preds = %503, %558, %.thread468, %mmbit_iterate_bounded.exit176
+  %.013.i175699 = phi i32 [ %622, %mmbit_iterate_bounded.exit176 ], [ %505, %503 ], [ %561, %558 ], [ %520, %.thread468 ]
   %623 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %624 = ptrtoint ptr %623 to i64
   %625 = add i64 %624, 7
@@ -5520,7 +5520,7 @@ mmbit_iterate_bounded.exit176:                    ; preds = %606
   br label %partial_load_u64a.exit188
 
 partial_load_u64a.exit188:                        ; preds = %679, %681, %694, %702, %710, %713, %721, %724
-  %.0.i187 = phi i64 [ %680, %679 ], [ %693, %681 ], [ %701, %694 ], [ %709, %702 ], [ %712, %710 ], [ %720, %713 ], [ %723, %721 ], [ %726, %724 ]
+  %.0.i187 = phi i64 [ %726, %724 ], [ %680, %679 ], [ %693, %681 ], [ %701, %694 ], [ %709, %702 ], [ %712, %710 ], [ %720, %713 ], [ %723, %721 ]
   %.not167 = icmp eq i64 %.0.i187, 0
   %brmerge = select i1 %.not167, i1 true, i1 %.not21.i372
   br i1 %brmerge, label %partial_load_u64a.exit188.thread.thread, label %.lr.ph.i373
@@ -5643,7 +5643,7 @@ mmbit_get_flat_block.exit:                        ; preds = %746, %749, %752, %7
   br label %get_flat_masks.exit327
 
 get_flat_masks.exit327:                           ; preds = %.lr.ph602, %776
-  %.0.i326 = phi i64 [ %780, %776 ], [ %775, %.lr.ph602 ]
+  %.0.i326 = phi i64 [ %775, %.lr.ph602 ], [ %780, %776 ]
   %781 = and i64 %.0.i326, %771
   %.not.i219 = icmp eq i64 %781, 0
   br i1 %.not.i219, label %785, label %.thread506
@@ -5706,7 +5706,7 @@ mmbit_get_flat_block.exit298:                     ; preds = %796, %793, %790, %7
   br label %get_flat_masks.exit331
 
 get_flat_masks.exit331:                           ; preds = %mmbit_get_flat_block.exit298, %798
-  %.0.i329 = phi i64 [ %803, %798 ], [ %652, %mmbit_get_flat_block.exit298 ]
+  %.0.i329 = phi i64 [ %652, %mmbit_get_flat_block.exit298 ], [ %803, %798 ]
   %804 = and i64 %.0.i329, %.0.i296
   %.not58.i217 = icmp eq i64 %804, 0
   br i1 %.not58.i217, label %.thread536, label %805
@@ -5804,7 +5804,7 @@ get_lowhi_masks.exit:                             ; preds = %862, %809
   br label %get_lowhi_masks.exit
 
 mmbit_iterate_bounded.exit:                       ; preds = %.thread522, %762, %.thread506, %805
-  %.013.i = phi i32 [ %764, %762 ], [ %808, %805 ], [ %784, %.thread506 ], [ %852, %.thread522 ]
+  %.013.i = phi i32 [ %784, %.thread506 ], [ %808, %805 ], [ %852, %.thread522 ], [ %764, %762 ]
   %.not166 = icmp eq i32 %.013.i, -1
   br i1 %.not166, label %.thread536, label %675
 
@@ -5822,8 +5822,8 @@ mmbit_iterate_bounded.exit:                       ; preds = %.thread522, %762, %
   %.171 = tail call i64 @llvm.umax.i64(i64 %5, i64 %874)
   br label %.thread536
 
-.thread536:                                       ; preds = %613, %get_flat_masks.exit331, %._crit_edge603, %mmbit_get_flat_block.exit, %partial_load_u64a.exit188.thread.thread, %mmbit_iterate_bounded.exit, %855, %mmbit_get_flat_block.exit306, %._crit_edge598, %mmbit_get_flat_block.exit302, %mmbit_iterate_bounded.exit176, %.thread458, %864, %461, %29, %17
-  %.0 = phi i64 [ 0, %17 ], [ 0, %29 ], [ %.171, %864 ], [ %., %461 ], [ 0, %.thread458 ], [ 0, %mmbit_iterate_bounded.exit176 ], [ 0, %mmbit_get_flat_block.exit302 ], [ 0, %._crit_edge598 ], [ 0, %mmbit_get_flat_block.exit306 ], [ 0, %855 ], [ 0, %mmbit_iterate_bounded.exit ], [ 0, %partial_load_u64a.exit188.thread.thread ], [ 0, %mmbit_get_flat_block.exit ], [ 0, %._crit_edge603 ], [ 0, %get_flat_masks.exit331 ], [ 0, %613 ]
+.thread536:                                       ; preds = %613, %get_flat_masks.exit331, %mmbit_get_flat_block.exit, %._crit_edge603, %partial_load_u64a.exit188.thread.thread, %mmbit_iterate_bounded.exit, %855, %mmbit_get_flat_block.exit306, %mmbit_get_flat_block.exit302, %._crit_edge598, %mmbit_iterate_bounded.exit176, %.thread458, %864, %461, %29, %17
+  %.0 = phi i64 [ 0, %17 ], [ 0, %29 ], [ %., %461 ], [ %.171, %864 ], [ 0, %.thread458 ], [ 0, %mmbit_iterate_bounded.exit176 ], [ 0, %mmbit_get_flat_block.exit306 ], [ 0, %855 ], [ 0, %get_flat_masks.exit331 ], [ 0, %._crit_edge598 ], [ 0, %mmbit_get_flat_block.exit302 ], [ 0, %mmbit_iterate_bounded.exit ], [ 0, %partial_load_u64a.exit188.thread.thread ], [ 0, %._crit_edge603 ], [ 0, %mmbit_get_flat_block.exit ], [ 0, %613 ]
   ret i64 %.0
 }
 
@@ -6086,7 +6086,7 @@ storeInitialRingTopPatch.exit:                    ; preds = %mmbit_set_i.exit.i,
   br label %get_flat_masks.exit38.i
 
 get_flat_masks.exit38.i:                          ; preds = %137, %.lr.ph
-  %.0.i36.i = phi i64 [ %141, %137 ], [ %136, %.lr.ph ]
+  %.0.i36.i = phi i64 [ %136, %.lr.ph ], [ %141, %137 ]
   %142 = xor i64 %.0.i36.i, -1
   %143 = and i64 %132, %142
   store i64 %143, ptr %131, align 1
@@ -6160,7 +6160,7 @@ mmbit_get_flat_block.exit.i:                      ; preds = %152, %155, %158, %1
   br label %get_flat_masks.exit.i
 
 get_flat_masks.exit.i:                            ; preds = %178, %mmbit_get_flat_block.exit.i
-  %.0.i34.i = phi i64 [ %183, %178 ], [ %177, %mmbit_get_flat_block.exit.i ]
+  %.0.i34.i = phi i64 [ %177, %mmbit_get_flat_block.exit.i ], [ %183, %178 ]
   %184 = xor i64 %.0.i34.i, -1
   %185 = and i64 %.0.i.i, %184
   switch i32 %151, label %mmbit_unset_range.exit125 [
@@ -7005,7 +7005,7 @@ partial_load_u64a.exit.thread549:                 ; preds = %522
   br label %get_flat_masks.exit38.i149
 
 get_flat_masks.exit38.i149:                       ; preds = %713, %.lr.ph645
-  %.0.i36.i150 = phi i64 [ %717, %713 ], [ %712, %.lr.ph645 ]
+  %.0.i36.i150 = phi i64 [ %712, %.lr.ph645 ], [ %717, %713 ]
   %718 = xor i64 %.0.i36.i150, -1
   %719 = and i64 %708, %718
   store i64 %719, ptr %707, align 1
@@ -7079,7 +7079,7 @@ mmbit_get_flat_block.exit.i142:                   ; preds = %728, %731, %734, %7
   br label %get_flat_masks.exit.i145
 
 get_flat_masks.exit.i145:                         ; preds = %754, %mmbit_get_flat_block.exit.i142
-  %.0.i34.i146 = phi i64 [ %759, %754 ], [ %753, %mmbit_get_flat_block.exit.i142 ]
+  %.0.i34.i146 = phi i64 [ %753, %mmbit_get_flat_block.exit.i142 ], [ %759, %754 ]
   %760 = xor i64 %.0.i34.i146, -1
   %761 = and i64 %.0.i.i143, %760
   switch i32 %727, label %mmbit_unset_range.exit121 [
@@ -7666,7 +7666,7 @@ mmbit_unset_big.exit:                             ; preds = %.lr.ph946, %1052, %
   br i1 %1095, label %partial_load_u64a.exit.sink.split, label %994
 
 partial_load_u64a.exit.sink.split:                ; preds = %mmbit_unset_big.exit366, %.thread437, %418, %467, %mmbit_unset_big.exit, %.thread505, %994, %1043, %mmbit_unset_range.exit121, %._crit_edge654, %mmbit_get_flat_block.exit.i155, %962, %963, %971, %976, %981, %983, %988, %991, %mmbit_unset_range.exit125, %._crit_edge636, %mmbit_get_flat_block.exit.i129, %386, %387, %395, %400, %405, %407, %412, %415
-  %.2.sink = phi i32 [ %105, %mmbit_unset_range.exit125 ], [ %319, %._crit_edge636 ], [ %319, %mmbit_get_flat_block.exit.i129 ], [ %319, %386 ], [ %319, %387 ], [ %319, %395 ], [ %319, %400 ], [ %319, %405 ], [ %319, %407 ], [ %319, %412 ], [ %319, %415 ], [ %681, %mmbit_unset_range.exit121 ], [ %895, %._crit_edge654 ], [ %895, %mmbit_get_flat_block.exit.i155 ], [ %895, %962 ], [ %895, %963 ], [ %895, %971 ], [ %895, %976 ], [ %895, %981 ], [ %895, %983 ], [ %895, %988 ], [ %895, %991 ], [ %895, %1043 ], [ %895, %994 ], [ %895, %.thread505 ], [ %895, %mmbit_unset_big.exit ], [ %319, %467 ], [ %319, %418 ], [ %319, %.thread437 ], [ %319, %mmbit_unset_big.exit366 ]
+  %.2.sink = phi i32 [ %895, %981 ], [ %105, %mmbit_unset_range.exit125 ], [ %319, %412 ], [ %895, %mmbit_unset_big.exit ], [ %319, %415 ], [ %319, %._crit_edge636 ], [ %319, %mmbit_get_flat_block.exit.i129 ], [ %319, %386 ], [ %319, %387 ], [ %319, %395 ], [ %319, %400 ], [ %319, %405 ], [ %319, %407 ], [ %895, %983 ], [ %319, %467 ], [ %681, %mmbit_unset_range.exit121 ], [ %895, %988 ], [ %895, %1043 ], [ %895, %991 ], [ %895, %._crit_edge654 ], [ %895, %mmbit_get_flat_block.exit.i155 ], [ %895, %962 ], [ %895, %963 ], [ %895, %971 ], [ %895, %976 ], [ %895, %994 ], [ %895, %.thread505 ], [ %319, %418 ], [ %319, %.thread437 ], [ %319, %mmbit_unset_big.exit366 ]
   %1096 = trunc i32 %.2.sink to i16
   %1097 = add i16 %1096, 1
   %1098 = zext i16 %1097 to i32
@@ -7959,7 +7959,7 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchSparseOptimalP(ptr noundef %0, 
   br label %52
 
 52:                                               ; preds = %18, %48, %37, %51, %11, %4
-  %.0 = phi i32 [ 0, %4 ], [ 2, %11 ], [ 0, %18 ], [ 0, %51 ], [ 1, %37 ], [ 1, %48 ]
+  %.0 = phi i32 [ 2, %11 ], [ 0, %4 ], [ 0, %18 ], [ 1, %37 ], [ 0, %51 ], [ 1, %48 ]
   ret i32 %.0
 }
 
@@ -8117,7 +8117,7 @@ mmbit_isset.exit.thread114:                       ; preds = %51, %mmbit_isset.ex
   br label %partial_load_u64a.exit62
 
 partial_load_u64a.exit62:                         ; preds = %mmbit_isset.exit.thread114, %63, %65, %78, %86, %94, %97, %105, %108
-  %.0.i61 = phi i64 [ %64, %63 ], [ %77, %65 ], [ %85, %78 ], [ %93, %86 ], [ %96, %94 ], [ %104, %97 ], [ %107, %105 ], [ %110, %108 ], [ 0, %mmbit_isset.exit.thread114 ]
+  %.0.i61 = phi i64 [ %110, %108 ], [ %64, %63 ], [ %77, %65 ], [ %85, %78 ], [ %93, %86 ], [ %96, %94 ], [ %104, %97 ], [ %107, %105 ], [ 0, %mmbit_isset.exit.thread114 ]
   %111 = icmp eq i32 %12, %11
   br i1 %111, label %112, label %getSparseOptimalTargetValue.exit
 
@@ -8281,7 +8281,7 @@ get_flat_masks.exit:                              ; preds = %mmbit_get_flat_bloc
   br label %get_flat_masks.exit78
 
 get_flat_masks.exit78:                            ; preds = %.lr.ph, %190
-  %.0.i77 = phi i64 [ %194, %190 ], [ %189, %.lr.ph ]
+  %.0.i77 = phi i64 [ %189, %.lr.ph ], [ %194, %190 ]
   %195 = and i64 %.0.i77, %185
   %.not.i63 = icmp eq i64 %195, 0
   br i1 %.not.i63, label %198, label %.thread119
@@ -8366,7 +8366,7 @@ mmbit_get_flat_block.exit73:                      ; preds = %221, %213, %210, %2
   br label %get_flat_masks.exit82
 
 get_flat_masks.exit82:                            ; preds = %mmbit_get_flat_block.exit73, %233
-  %.0.i80 = phi i64 [ %238, %233 ], [ %232, %mmbit_get_flat_block.exit73 ]
+  %.0.i80 = phi i64 [ %232, %mmbit_get_flat_block.exit73 ], [ %238, %233 ]
   %239 = and i64 %.0.i80, %.0.i71
   %.not58.i = icmp eq i64 %239, 0
   br i1 %.not58.i, label %mmbit_iterate_bounded.exit.thread, label %mmbit_iterate_bounded.exit.thread150
@@ -8608,7 +8608,7 @@ mmbit_isset.exit87.thread155:                     ; preds = %331, %mmbit_isset.e
   br label %partial_load_u64a.exit
 
 partial_load_u64a.exit:                           ; preds = %mmbit_isset.exit87.thread155, %343, %345, %358, %366, %374, %377, %385, %388
-  %.0.i = phi i64 [ %344, %343 ], [ %357, %345 ], [ %365, %358 ], [ %373, %366 ], [ %376, %374 ], [ %384, %377 ], [ %387, %385 ], [ %390, %388 ], [ 0, %mmbit_isset.exit87.thread155 ]
+  %.0.i = phi i64 [ %390, %388 ], [ %344, %343 ], [ %357, %345 ], [ %365, %358 ], [ %373, %366 ], [ %376, %374 ], [ %384, %377 ], [ %387, %385 ], [ 0, %mmbit_isset.exit87.thread155 ]
   %.neg = add i32 %3, 1
   %391 = add i32 %.neg, %6
   %392 = add i32 %391, %.neg59
@@ -8653,7 +8653,7 @@ getSparseOptimalTargetValue.exit107:              ; preds = %406, %partial_load_
   br label %mmbit_iterate_bounded.exit.thread150
 
 mmbit_iterate_bounded.exit.thread150:             ; preds = %312, %get_flat_masks.exit82, %mmbit_iterate_bounded.exit.thread.thread, %get_flat_masks.exit, %mmbit_iterate_bounded.exit, %mmbit_iterate_bounded.exit.thread, %mmbit_isset.exit87, %getSparseOptimalTargetValue.exit107, %mmbit_isset.exit.thread, %getSparseOptimalTargetValue.exit
-  %.0 = phi i8 [ 1, %getSparseOptimalTargetValue.exit ], [ 0, %mmbit_isset.exit.thread ], [ 1, %mmbit_iterate_bounded.exit ], [ 0, %mmbit_iterate_bounded.exit.thread ], [ 0, %mmbit_isset.exit87 ], [ %., %getSparseOptimalTargetValue.exit107 ], [ 1, %get_flat_masks.exit ], [ 0, %mmbit_iterate_bounded.exit.thread.thread ], [ 1, %get_flat_masks.exit82 ], [ 0, %312 ]
+  %.0 = phi i8 [ 0, %mmbit_isset.exit.thread ], [ 1, %getSparseOptimalTargetValue.exit ], [ 0, %mmbit_iterate_bounded.exit.thread ], [ 1, %mmbit_iterate_bounded.exit ], [ %., %getSparseOptimalTargetValue.exit107 ], [ 0, %mmbit_isset.exit87 ], [ 0, %mmbit_iterate_bounded.exit.thread.thread ], [ 1, %get_flat_masks.exit ], [ 1, %get_flat_masks.exit82 ], [ 0, %312 ]
   ret i8 %.0
 }
 

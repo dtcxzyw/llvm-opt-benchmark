@@ -176,7 +176,7 @@ define range(i32 0, 2) i32 @ossl_cms_SignerIdentifier_get0_signer_id(ptr noundef
   br label %18
 
 18:                                               ; preds = %.sink.split, %11, %15, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %15 ], [ 1, %11 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 1, %11 ], [ 1, %15 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -640,8 +640,8 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 524303, ptr noundef null) #7
   br label %ossl_cms_set1_SignerIdentifier.exit.thread
 
-ossl_cms_set1_SignerIdentifier.exit.thread:       ; preds = %132, %127, %122, %43, %38, %114, %.thread172, %162, %159, %153, %144, %137, %135, %13, %185, %173, %150, %105, %96, %91, %87, %31, %18
-  %.0118 = phi ptr [ %17, %31 ], [ %17, %87 ], [ %17, %153 ], [ %17, %159 ], [ %17, %162 ], [ %17, %185 ], [ %17, %173 ], [ %17, %150 ], [ %17, %144 ], [ %17, %137 ], [ %17, %135 ], [ %17, %114 ], [ %17, %105 ], [ %17, %96 ], [ %17, %91 ], [ null, %18 ], [ null, %13 ], [ %17, %.thread172 ], [ %17, %38 ], [ %17, %43 ], [ %17, %122 ], [ %17, %127 ], [ %17, %132 ]
+ossl_cms_set1_SignerIdentifier.exit.thread:       ; preds = %132, %127, %122, %38, %43, %114, %.thread172, %162, %159, %153, %144, %137, %135, %13, %185, %173, %150, %105, %96, %91, %87, %31, %18
+  %.0118 = phi ptr [ %17, %31 ], [ %17, %87 ], [ %17, %153 ], [ %17, %159 ], [ %17, %162 ], [ %17, %185 ], [ %17, %173 ], [ %17, %150 ], [ %17, %144 ], [ %17, %137 ], [ %17, %135 ], [ %17, %38 ], [ %17, %114 ], [ %17, %105 ], [ %17, %96 ], [ %17, %91 ], [ %17, %.thread172 ], [ null, %13 ], [ null, %18 ], [ %17, %43 ], [ %17, %122 ], [ %17, %127 ], [ %17, %132 ]
   %186 = call ptr @CMS_SignerInfo_it() #7
   call void @ASN1_item_free(ptr noundef %.0118, ptr noundef %186) #7
   br label %187
@@ -995,7 +995,7 @@ cms_add_cipher_smcap.exit37.thread:               ; preds = %cms_add_cipher_smca
   br label %cms_add_cipher_smcap.exit.thread
 
 cms_add_cipher_smcap.exit.thread:                 ; preds = %82, %73, %67, %58, %52, %43, %37, %28, %16, %7, %89, %cms_add_cipher_smcap.exit, %18, %20, %cms_add_cipher_smcap.exit37, %cms_add_cipher_smcap.exit37.thread, %87
-  %.0 = phi i32 [ 0, %87 ], [ 0, %cms_add_cipher_smcap.exit37.thread ], [ 0, %cms_add_cipher_smcap.exit37 ], [ 0, %20 ], [ 0, %18 ], [ 0, %cms_add_cipher_smcap.exit ], [ %90, %89 ], [ 0, %7 ], [ 0, %16 ], [ 0, %28 ], [ 0, %37 ], [ 0, %43 ], [ 0, %52 ], [ 0, %58 ], [ 0, %67 ], [ 0, %73 ], [ 0, %82 ]
+  %.0 = phi i32 [ 0, %cms_add_cipher_smcap.exit ], [ %90, %89 ], [ 0, %87 ], [ 0, %cms_add_cipher_smcap.exit37.thread ], [ 0, %cms_add_cipher_smcap.exit37 ], [ 0, %67 ], [ 0, %52 ], [ 0, %37 ], [ 0, %16 ], [ 0, %20 ], [ 0, %18 ], [ 0, %7 ], [ 0, %28 ], [ 0, %43 ], [ 0, %58 ], [ 0, %73 ], [ 0, %82 ]
   ret i32 %.0
 }
 
@@ -1063,7 +1063,7 @@ define internal fastcc i32 @ossl_cms_add1_signing_cert(ptr noundef nonnull %0, p
   br label %18
 
 18:                                               ; preds = %2, %6, %16, %15
-  %.0 = phi i32 [ %17, %16 ], [ 0, %15 ], [ 0, %6 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %15 ], [ %17, %16 ], [ 0, %6 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1110,7 +1110,7 @@ define internal fastcc i32 @ossl_cms_add1_signing_cert_v2(ptr noundef nonnull %0
   br label %18
 
 18:                                               ; preds = %2, %6, %16, %15
-  %.0 = phi i32 [ %17, %16 ], [ 0, %15 ], [ 0, %6 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %15 ], [ %17, %16 ], [ 0, %6 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1350,7 +1350,7 @@ cms_add1_signingTime.exit:                        ; preds = %24
   br label %78
 
 78:                                               ; preds = %1, %75, %68
-  %.0 = phi i32 [ 0, %75 ], [ 1, %68 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %68 ], [ 0, %75 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1621,7 +1621,7 @@ define range(i32 0, 2) i32 @CMS_SignerInfo_get0_signer_id(ptr noundef readonly c
   br label %ossl_cms_SignerIdentifier_get0_signer_id.exit
 
 ossl_cms_SignerIdentifier_get0_signer_id.exit:    ; preds = %4, %13, %17, %.sink.split.i
-  %.0.i = phi i32 [ 0, %4 ], [ 1, %17 ], [ 1, %13 ], [ 1, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %4 ], [ 1, %13 ], [ 1, %17 ], [ 1, %.sink.split.i ]
   ret i32 %.0.i
 }
 
@@ -2157,15 +2157,15 @@ cms_SignerInfo_content_sign.exit:                 ; preds = %56, %76, %97
   store i32 0, ptr %108, align 8, !tbaa !20
   br label %109
 
-.critedge:                                        ; preds = %32, %39, %.thread77.i, %.thread74.i, %.thread.i, %31
-  %.048.i.ph = phi ptr [ null, %.thread77.i ], [ %58, %.thread74.i ], [ null, %.thread.i ], [ null, %31 ], [ null, %39 ], [ null, %32 ]
+.critedge:                                        ; preds = %39, %32, %.thread77.i, %.thread74.i, %.thread.i, %31
+  %.048.i.ph = phi ptr [ null, %31 ], [ null, %.thread77.i ], [ %58, %.thread74.i ], [ null, %.thread.i ], [ null, %32 ], [ null, %39 ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %24) #7
   call void @EVP_PKEY_CTX_free(ptr noundef %.048.i.ph) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %109
 
 109:                                              ; preds = %.critedge, %cms_SignerInfo_content_sign.exit.thread, %._crit_edge
-  %.012 = phi i32 [ 1, %._crit_edge ], [ 0, %cms_SignerInfo_content_sign.exit.thread ], [ 0, %.critedge ]
+  %.012 = phi i32 [ 1, %._crit_edge ], [ 0, %.critedge ], [ 0, %cms_SignerInfo_content_sign.exit.thread ]
   ret i32 %.012
 }
 
@@ -2328,8 +2328,8 @@ define i32 @CMS_SignerInfo_verify(ptr noundef %0) local_unnamed_addr #0 {
   br label %74
 
 74:                                               ; preds = %59, %64, %73, %51, %49, %48, %37
-  %.041 = phi i32 [ -1, %37 ], [ -1, %48 ], [ -1, %51 ], [ %71, %73 ], [ %71, %64 ], [ -1, %49 ], [ -1, %59 ]
-  %.040 = phi ptr [ null, %37 ], [ %39, %48 ], [ %39, %51 ], [ %39, %73 ], [ %39, %64 ], [ %39, %49 ], [ %39, %59 ]
+  %.041 = phi i32 [ -1, %37 ], [ -1, %48 ], [ -1, %51 ], [ -1, %49 ], [ %71, %73 ], [ %71, %64 ], [ -1, %59 ]
+  %.040 = phi ptr [ null, %37 ], [ %39, %48 ], [ %39, %51 ], [ %39, %49 ], [ %39, %73 ], [ %39, %64 ], [ %39, %59 ]
   call void @EVP_MD_free(ptr noundef %20) #7
   %75 = call i32 @EVP_MD_CTX_reset(ptr noundef %.040) #7
   br label %76
@@ -2966,7 +2966,7 @@ define internal fastcc range(i32 0, 2) i32 @cms_add_digest_smcap(ptr noundef cap
   br label %CMS_add_simple_smimecap.exit
 
 CMS_add_simple_smimecap.exit:                     ; preds = %17, %.thread.i, %8, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %8 ], [ 0, %17 ], [ 1, %.thread.i ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %.thread.i ], [ 0, %8 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -3030,7 +3030,7 @@ define internal fastcc i32 @cms_generic_sign(ptr noundef readonly captures(none)
   br label %31
 
 31:                                               ; preds = %25, %16, %4, %13, %27
-  %.1 = phi i32 [ %30, %27 ], [ -1, %13 ], [ -1, %4 ], [ -1, %16 ], [ -1, %25 ]
+  %.1 = phi i32 [ -1, %16 ], [ -1, %4 ], [ %30, %27 ], [ -1, %13 ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 

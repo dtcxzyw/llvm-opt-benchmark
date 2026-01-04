@@ -1596,7 +1596,7 @@ write_to_child.exit.i:                            ; preds = %100
   br i1 %.not41.not.i, label %inflate_request.exit, label %thread-pre-split.i, !llvm.loop !61
 
 inflate_request.exit:                             ; preds = %write_to_child.exit.i, %write_to_child.exit.us.us.i, %write_to_child.exit.us.i
-  %105 = phi ptr [ null, %write_to_child.exit.us.i ], [ null, %write_to_child.exit.us.us.i ], [ %.pre.i43, %write_to_child.exit.i ]
+  %105 = phi ptr [ null, %write_to_child.exit.us.us.i ], [ null, %write_to_child.exit.us.i ], [ %.pre.i43, %write_to_child.exit.i ]
   call void @git_inflate_end(ptr noundef nonnull %5) #19
   %106 = call i32 @close(i32 noundef %62) #19
   call void @free(ptr noundef %105) #19
@@ -1842,7 +1842,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @read_request(ptr
   br label %read_request_eof.exit
 
 read_request_eof.exit:                            ; preds = %38, %37, %15, %._crit_edge.i
-  %.0 = phi i64 [ %13, %15 ], [ -1, %._crit_edge.i ], [ -1, %37 ], [ %35, %38 ]
+  %.0 = phi i64 [ -1, %._crit_edge.i ], [ %13, %15 ], [ -1, %37 ], [ %35, %38 ]
   ret i64 %.0
 }
 

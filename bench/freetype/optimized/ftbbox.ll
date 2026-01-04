@@ -127,7 +127,7 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly captures(a
   br label %39
 
 39:                                               ; preds = %38, %37, %.critedge, %4, %2, %12
-  %.0 = phi i32 [ 0, %12 ], [ 6, %2 ], [ 20, %4 ], [ %36, %.critedge ], [ 0, %37 ], [ 0, %38 ]
+  %.0 = phi i32 [ 0, %12 ], [ 20, %4 ], [ %36, %.critedge ], [ 6, %2 ], [ 0, %37 ], [ 0, %38 ]
   ret i32 %.0
 }
 

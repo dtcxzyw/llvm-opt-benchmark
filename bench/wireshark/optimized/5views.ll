@@ -101,7 +101,7 @@ define hidden range(i32 -1, 2) i32 @_5views_open(ptr noundef %0, ptr noundef %1,
   br label %37
 
 37:                                               ; preds = %23, %9, %7, %29, %27, %20, %14
-  %.0 = phi i32 [ -1, %20 ], [ 1, %29 ], [ -1, %27 ], [ -1, %14 ], [ %., %7 ], [ 0, %9 ], [ -1, %23 ]
+  %.0 = phi i32 [ %., %7 ], [ -1, %20 ], [ 1, %29 ], [ 0, %9 ], [ -1, %27 ], [ -1, %14 ], [ -1, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -277,7 +277,7 @@ _5views_read_header.exit:                         ; preds = %16, %11
   br label %44
 
 44:                                               ; preds = %_5views_read_header.exit, %39, %5, %40
-  %.0 = phi i1 [ %43, %40 ], [ false, %5 ], [ false, %39 ], [ false, %_5views_read_header.exit ]
+  %.0 = phi i1 [ false, %5 ], [ %43, %40 ], [ false, %39 ], [ false, %_5views_read_header.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -493,7 +493,7 @@ define internal zeroext i1 @_5views_dump_finish(ptr noundef %0, ptr noundef %1, 
   br label %34
 
 34:                                               ; preds = %9, %3
-  %.0 = phi i1 [ false, %3 ], [ %33, %9 ]
+  %.0 = phi i1 [ %33, %9 ], [ false, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }

@@ -204,7 +204,7 @@ define i32 @ARKBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 
   br label %103
 
 103:                                              ; preds = %4, %98, %83, %75, %62, %54, %44, %35, %21, %17
-  %.0 = phi i32 [ -3, %17 ], [ -4, %21 ], [ -4, %35 ], [ -4, %44 ], [ -4, %54 ], [ -12, %83 ], [ %102, %98 ], [ -4, %75 ], [ -4, %62 ], [ %7, %4 ]
+  %.0 = phi i32 [ -4, %62 ], [ -3, %17 ], [ -4, %21 ], [ -4, %35 ], [ -4, %44 ], [ -4, %54 ], [ -12, %83 ], [ %102, %98 ], [ -4, %75 ], [ %7, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -627,7 +627,7 @@ ARKBandPDQJac.exit.thread46:                      ; preds = %25, %ARKBandPDQJac.
   br label %209
 
 209:                                              ; preds = %ARKBandPDQJac.exit, %197, %24, %18, %204, %203, %196, %ARKBandPDQJac.exit.thread46, %23, %17
-  %.0 = phi i32 [ -1, %17 ], [ -1, %203 ], [ %208, %204 ], [ -1, %23 ], [ -1, %ARKBandPDQJac.exit.thread46 ], [ -1, %196 ], [ 1, %18 ], [ 1, %24 ], [ 1, %197 ], [ 1, %ARKBandPDQJac.exit ]
+  %.0 = phi i32 [ -1, %17 ], [ 1, %197 ], [ -1, %203 ], [ %208, %204 ], [ -1, %23 ], [ 1, %18 ], [ -1, %ARKBandPDQJac.exit.thread46 ], [ 1, %24 ], [ -1, %196 ], [ 1, %ARKBandPDQJac.exit ]
   ret i32 %.0
 }
 
@@ -777,7 +777,7 @@ define i32 @ARKBandPrecGetWorkSpace(ptr noundef %0, ptr noundef captures(none) %
   br label %86
 
 86:                                               ; preds = %69, %79, %76, %3, %16
-  %.0 = phi i32 [ -5, %16 ], [ %10, %3 ], [ 0, %76 ], [ 0, %79 ], [ 0, %69 ]
+  %.0 = phi i32 [ %10, %3 ], [ -5, %16 ], [ 0, %76 ], [ 0, %79 ], [ 0, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -822,7 +822,7 @@ define i32 @ARKBandPrecGetNumRhsEvals(ptr noundef %0, ptr noundef writeonly capt
   br label %16
 
 16:                                               ; preds = %2, %13, %11
-  %.0 = phi i32 [ -5, %11 ], [ 0, %13 ], [ %5, %2 ]
+  %.0 = phi i32 [ 0, %13 ], [ -5, %11 ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

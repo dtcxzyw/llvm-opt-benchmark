@@ -331,7 +331,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @do_setitimer(i32 noundef %
   br label %.split
 
 .split4.us:                                       ; preds = %.split, %.lr.ph, %.split.us
-  %.us-phi = phi ptr [ %15, %.split.us ], [ %21, %.lr.ph ], [ %26, %.split ]
+  %.us-phi = phi ptr [ %21, %.lr.ph ], [ %15, %.split.us ], [ %26, %.split ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24

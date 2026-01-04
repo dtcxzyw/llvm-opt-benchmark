@@ -300,8 +300,8 @@ define dso_local i32 @kobject_synth_uevent(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %132, label %139, label %.thread33
 
 .thread33:                                        ; preds = %33, %41, %.thread23, %50, %3, %11, %.thread22, %130
-  %133 = phi ptr [ @.str.5, %130 ], [ @.str.5, %.thread22 ], [ @.str.1, %11 ], [ @.str.1, %3 ], [ @.str.2, %50 ], [ @.str.2, %.thread23 ], [ @.str.2, %41 ], [ @.str.1, %33 ]
-  %134 = phi i32 [ %131, %130 ], [ -12, %.thread22 ], [ -22, %11 ], [ -22, %3 ], [ -22, %50 ], [ -22, %.thread23 ], [ -22, %41 ], [ -22, %33 ]
+  %133 = phi ptr [ @.str.5, %130 ], [ @.str.5, %.thread22 ], [ @.str.1, %3 ], [ @.str.1, %11 ], [ @.str.2, %41 ], [ @.str.2, %50 ], [ @.str.2, %.thread23 ], [ @.str.1, %33 ]
+  %134 = phi i32 [ %131, %130 ], [ -12, %.thread22 ], [ -22, %3 ], [ -22, %11 ], [ -22, %41 ], [ -22, %50 ], [ -22, %.thread23 ], [ -22, %33 ]
   %135 = call ptr @kobject_get_path(ptr noundef %0, i32 noundef 3264) #12
   %136 = icmp eq ptr %135, null
   %137 = select i1 %136, ptr @.str.4, ptr %135
@@ -494,7 +494,7 @@ define dso_local i32 @kobject_uevent_env(ptr noundef %0, i32 noundef %1, ptr nou
   br label %.loopexit18
 
 .loopexit18:                                      ; preds = %17, %.loopexit, %48, %45, %33, %21
-  %101 = phi i32 [ %100, %.loopexit ], [ 0, %21 ], [ 0, %33 ], [ 0, %45 ], [ -12, %48 ], [ -22, %17 ]
+  %101 = phi i32 [ %100, %.loopexit ], [ -12, %48 ], [ 0, %21 ], [ 0, %33 ], [ 0, %45 ], [ -22, %17 ]
   ret i32 %101
 }
 

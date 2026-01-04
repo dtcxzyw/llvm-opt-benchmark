@@ -99,7 +99,7 @@ BIO_pop.exit:                                     ; preds = %7, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph, %19, %1
-  %.1 = phi i32 [ 1, %1 ], [ 1, %19 ], [ 0, %.lr.ph ], [ %9, %7 ]
+  %.1 = phi i32 [ 1, %1 ], [ 0, %.lr.ph ], [ 1, %19 ], [ %9, %7 ]
   ret i32 %.1
 }
 
@@ -300,7 +300,7 @@ define internal fastcc i32 @bio_io(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %.thread46
 
 .thread46:                                        ; preds = %24, %30, %27
-  %.03248 = phi i32 [ %28, %30 ], [ %28, %27 ], [ 0, %24 ]
+  %.03248 = phi i32 [ %28, %27 ], [ %28, %30 ], [ 0, %24 ]
   %34 = load ptr, ptr %14, align 8, !tbaa !20
   %.not44 = icmp eq ptr %34, null
   br i1 %.not44, label %40, label %35
@@ -392,7 +392,7 @@ define hidden i32 @BIO_flush(ptr noundef %0) local_unnamed_addr #0 {
   br label %BIO_ctrl.exit
 
 BIO_ctrl.exit:                                    ; preds = %1, %10, %14, %17, %21
-  %.024.i = phi i64 [ -2, %10 ], [ 0, %1 ], [ %15, %14 ], [ %22, %21 ], [ %19, %17 ]
+  %.024.i = phi i64 [ %15, %14 ], [ -2, %10 ], [ 0, %1 ], [ %22, %21 ], [ %19, %17 ]
   %23 = trunc i64 %.024.i to i32
   ret i32 %23
 }
@@ -446,7 +446,7 @@ define hidden i64 @BIO_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr 
   br label %26
 
 26:                                               ; preds = %20, %24, %17, %4, %13
-  %.024 = phi i64 [ -2, %13 ], [ 0, %4 ], [ %18, %17 ], [ %25, %24 ], [ %22, %20 ]
+  %.024 = phi i64 [ %18, %17 ], [ -2, %13 ], [ 0, %4 ], [ %25, %24 ], [ %22, %20 ]
   ret i64 %.024
 }
 
@@ -502,13 +502,13 @@ define hidden ptr @BIO_ptr_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %BIO_ctrl.exit
 
 BIO_ctrl.exit:                                    ; preds = %20, %24
-  %.024.i = phi i64 [ %25, %24 ], [ %22, %20 ]
+  %.024.i = phi i64 [ %22, %20 ], [ %25, %24 ]
   %.024.i.fr = freeze i64 %.024.i
   %26 = icmp slt i64 %.024.i.fr, 1
   %27 = load ptr, ptr %4, align 8
   br i1 %26, label %BIO_ctrl.exit.thread, label %28
 
-BIO_ctrl.exit.thread:                             ; preds = %17, %3, %13, %BIO_ctrl.exit
+BIO_ctrl.exit.thread:                             ; preds = %3, %13, %17, %BIO_ctrl.exit
   br label %28
 
 28:                                               ; preds = %BIO_ctrl.exit, %BIO_ctrl.exit.thread
@@ -569,7 +569,7 @@ define hidden i64 @BIO_int_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, 
   br label %BIO_ctrl.exit
 
 BIO_ctrl.exit:                                    ; preds = %4, %14, %18, %21, %25
-  %.024.i = phi i64 [ -2, %14 ], [ 0, %4 ], [ %19, %18 ], [ %26, %25 ], [ %23, %21 ]
+  %.024.i = phi i64 [ %19, %18 ], [ -2, %14 ], [ 0, %4 ], [ %26, %25 ], [ %23, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.024.i
 }
@@ -623,7 +623,7 @@ define hidden i32 @BIO_reset(ptr noundef %0) local_unnamed_addr #0 {
   br label %BIO_ctrl.exit
 
 BIO_ctrl.exit:                                    ; preds = %1, %10, %14, %17, %21
-  %.024.i = phi i64 [ -2, %10 ], [ 0, %1 ], [ %15, %14 ], [ %22, %21 ], [ %19, %17 ]
+  %.024.i = phi i64 [ %15, %14 ], [ -2, %10 ], [ 0, %1 ], [ %22, %21 ], [ %19, %17 ]
   %23 = trunc i64 %.024.i to i32
   ret i32 %23
 }
@@ -806,7 +806,7 @@ define hidden i64 @BIO_callback_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %24
 
 24:                                               ; preds = %.thread, %21, %18, %3, %13
-  %.0 = phi i64 [ 0, %13 ], [ 0, %3 ], [ %19, %18 ], [ %23, %21 ], [ %17, %.thread ]
+  %.0 = phi i64 [ %19, %18 ], [ 0, %13 ], [ 0, %3 ], [ %23, %21 ], [ %17, %.thread ]
   ret i64 %.0
 }
 
@@ -859,7 +859,7 @@ define hidden i64 @BIO_pending(ptr noundef %0) local_unnamed_addr #0 {
   br label %BIO_ctrl.exit
 
 BIO_ctrl.exit:                                    ; preds = %1, %10, %14, %17, %21
-  %.024.i = phi i64 [ -2, %10 ], [ 0, %1 ], [ %15, %14 ], [ %22, %21 ], [ %19, %17 ]
+  %.024.i = phi i64 [ %15, %14 ], [ -2, %10 ], [ 0, %1 ], [ %22, %21 ], [ %19, %17 ]
   ret i64 %.024.i
 }
 
@@ -912,7 +912,7 @@ define hidden i64 @BIO_ctrl_pending(ptr noundef %0) local_unnamed_addr #0 {
   br label %BIO_pending.exit
 
 BIO_pending.exit:                                 ; preds = %1, %10, %14, %17, %21
-  %.024.i.i = phi i64 [ -2, %10 ], [ 0, %1 ], [ %15, %14 ], [ %22, %21 ], [ %19, %17 ]
+  %.024.i.i = phi i64 [ %15, %14 ], [ -2, %10 ], [ 0, %1 ], [ %22, %21 ], [ %19, %17 ]
   ret i64 %.024.i.i
 }
 
@@ -965,7 +965,7 @@ define hidden i64 @BIO_wpending(ptr noundef %0) local_unnamed_addr #0 {
   br label %BIO_ctrl.exit
 
 BIO_ctrl.exit:                                    ; preds = %1, %10, %14, %17, %21
-  %.024.i = phi i64 [ -2, %10 ], [ 0, %1 ], [ %15, %14 ], [ %22, %21 ], [ %19, %17 ]
+  %.024.i = phi i64 [ %15, %14 ], [ -2, %10 ], [ 0, %1 ], [ %22, %21 ], [ %19, %17 ]
   ret i64 %.024.i
 }
 
@@ -1019,7 +1019,7 @@ define hidden i32 @BIO_set_close(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br label %BIO_ctrl.exit
 
 BIO_ctrl.exit:                                    ; preds = %2, %12, %16, %19, %23
-  %.024.i = phi i64 [ -2, %12 ], [ 0, %2 ], [ %17, %16 ], [ %24, %23 ], [ %21, %19 ]
+  %.024.i = phi i64 [ %17, %16 ], [ -2, %12 ], [ 0, %2 ], [ %24, %23 ], [ %21, %19 ]
   %25 = trunc i64 %.024.i to i32
   ret i32 %25
 }
@@ -1141,7 +1141,7 @@ define hidden noundef ptr @BIO_find_type(ptr noundef readonly captures(address_i
   br i1 %.not20, label %.loopexit, label %.split, !llvm.loop !39
 
 .loopexit:                                        ; preds = %13, %16, %9, %6, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %9 ], [ %.013.us, %6 ], [ null, %16 ], [ %.013, %13 ]
+  %.0 = phi ptr [ null, %2 ], [ %.013.us, %6 ], [ null, %9 ], [ null, %16 ], [ %.013, %13 ]
   ret ptr %.0
 }
 
@@ -1399,8 +1399,8 @@ bio_read_all.exit:                                ; preds = %._crit_edge
   call void @free(ptr noundef %97) #18
   br label %bio_read_all.exit.thread
 
-bio_read_all.exit.thread:                         ; preds = %.thread72.i, %.split81.us.i, %.split79.us.i, %.split.us.i, %28, %26, %._crit_edge, %69, %67, %8, %92, %89, %85, %bio_read_all.exit, %96, %4
-  %.058 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %96 ], [ 0, %bio_read_all.exit ], [ 0, %85 ], [ 0, %89 ], [ 1, %92 ], [ 1, %.split79.us.i ], [ 0, %.split81.us.i ], [ 0, %.thread72.i ], [ 0, %.split.us.i ], [ 0, %28 ], [ 0, %26 ], [ 0, %._crit_edge ], [ 0, %69 ], [ 0, %67 ]
+bio_read_all.exit.thread:                         ; preds = %.thread72.i, %.split81.us.i, %.split79.us.i, %.split.us.i, %28, %26, %67, %69, %._crit_edge, %8, %92, %89, %85, %bio_read_all.exit, %96, %4
+  %.058 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %bio_read_all.exit ], [ 0, %._crit_edge ], [ 0, %96 ], [ 0, %89 ], [ 0, %85 ], [ 1, %92 ], [ 1, %.split79.us.i ], [ 0, %.split81.us.i ], [ 0, %.thread72.i ], [ 0, %.split.us.i ], [ 0, %26 ], [ 0, %28 ], [ 0, %67 ], [ 0, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.058
 }

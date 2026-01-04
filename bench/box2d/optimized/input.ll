@@ -1135,7 +1135,7 @@ thread-pre-split:                                 ; preds = %99, %101
   br i1 %exitcond.not, label %.loopexit, label %.preheader94
 
 .loopexit:                                        ; preds = %140, %103, %123, %133, %118, %135
-  %142 = phi ptr [ %105, %103 ], [ %.pre, %123 ], [ %.pre, %133 ], [ %.pre, %118 ], [ %96, %135 ], [ %storemerge, %140 ]
+  %142 = phi ptr [ %96, %135 ], [ %105, %103 ], [ %.pre, %123 ], [ %.pre, %133 ], [ %.pre, %118 ], [ %storemerge, %140 ]
   %143 = tail call i64 @strcspn(ptr noundef %142, ptr noundef nonnull @.str.428) #13
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 %143
   store ptr %144, ptr %3, align 8, !tbaa !151
@@ -1347,7 +1347,7 @@ isValidElementForJoystick.exit25:                 ; preds = %50, %45, %39, %36
   br i1 %exitcond44.not, label %.critedge, label %36
 
 .critedge:                                        ; preds = %6, %31, %26, %20, %50, %45, %39, %isValidElementForJoystick.exit25, %1
-  %.116 = phi ptr [ null, %1 ], [ null, %50 ], [ null, %45 ], [ null, %39 ], [ %8, %isValidElementForJoystick.exit25 ], [ null, %20 ], [ null, %26 ], [ null, %31 ], [ null, %6 ]
+  %.116 = phi ptr [ null, %1 ], [ null, %31 ], [ %8, %isValidElementForJoystick.exit25 ], [ null, %50 ], [ null, %45 ], [ null, %39 ], [ null, %20 ], [ null, %26 ], [ null, %6 ]
   ret ptr %.116
 }
 
@@ -1665,7 +1665,7 @@ define ptr @glfwGetKeyName(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0
   br label %18
 
 18:                                               ; preds = %9, %15, %8, %4
-  %.016 = phi ptr [ null, %8 ], [ %17, %15 ], [ null, %4 ], [ null, %9 ]
+  %.016 = phi ptr [ null, %8 ], [ null, %4 ], [ %17, %15 ], [ null, %9 ]
   ret ptr %.016
 }
 
@@ -2387,7 +2387,7 @@ initJoysticks.exit.thread:                        ; preds = %8
   br label %20
 
 20:                                               ; preds = %initJoysticks.exit.thread, %12, %17, %5, %3
-  %.0 = phi i32 [ 0, %5 ], [ %19, %17 ], [ 0, %3 ], [ 0, %12 ], [ 0, %initJoysticks.exit.thread ]
+  %.0 = phi i32 [ 0, %5 ], [ %19, %17 ], [ 0, %initJoysticks.exit.thread ], [ 0, %3 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -2450,7 +2450,7 @@ initJoysticks.exit.thread:                        ; preds = %9
   br label %26
 
 26:                                               ; preds = %initJoysticks.exit.thread, %18, %13, %21, %6, %4
-  %.0 = phi ptr [ null, %6 ], [ %25, %21 ], [ null, %4 ], [ null, %13 ], [ null, %18 ], [ null, %initJoysticks.exit.thread ]
+  %.0 = phi ptr [ null, %6 ], [ %25, %21 ], [ null, %13 ], [ null, %initJoysticks.exit.thread ], [ null, %4 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -2526,7 +2526,7 @@ initJoysticks.exit.thread:                        ; preds = %9
   br label %33
 
 33:                                               ; preds = %initJoysticks.exit.thread, %18, %13, %30, %6, %4
-  %.0 = phi ptr [ null, %6 ], [ %32, %30 ], [ null, %4 ], [ null, %13 ], [ null, %18 ], [ null, %initJoysticks.exit.thread ]
+  %.0 = phi ptr [ null, %6 ], [ %32, %30 ], [ null, %13 ], [ null, %initJoysticks.exit.thread ], [ null, %4 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -2589,7 +2589,7 @@ initJoysticks.exit.thread:                        ; preds = %9
   br label %26
 
 26:                                               ; preds = %initJoysticks.exit.thread, %18, %13, %21, %6, %4
-  %.0 = phi ptr [ null, %6 ], [ %25, %21 ], [ null, %4 ], [ null, %13 ], [ null, %18 ], [ null, %initJoysticks.exit.thread ]
+  %.0 = phi ptr [ null, %6 ], [ %25, %21 ], [ null, %13 ], [ null, %initJoysticks.exit.thread ], [ null, %4 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -2645,7 +2645,7 @@ initJoysticks.exit.thread:                        ; preds = %8
   br label %21
 
 21:                                               ; preds = %initJoysticks.exit.thread, %17, %12, %5, %3
-  %.0 = phi ptr [ null, %5 ], [ null, %3 ], [ null, %12 ], [ %spec.select, %17 ], [ null, %initJoysticks.exit.thread ]
+  %.0 = phi ptr [ null, %5 ], [ %spec.select, %17 ], [ null, %12 ], [ null, %initJoysticks.exit.thread ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -2701,7 +2701,7 @@ initJoysticks.exit.thread:                        ; preds = %8
   br label %21
 
 21:                                               ; preds = %initJoysticks.exit.thread, %17, %12, %5, %3
-  %.0 = phi ptr [ null, %5 ], [ null, %3 ], [ null, %12 ], [ %spec.select, %17 ], [ null, %initJoysticks.exit.thread ]
+  %.0 = phi ptr [ null, %5 ], [ %spec.select, %17 ], [ null, %12 ], [ null, %initJoysticks.exit.thread ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -3014,7 +3014,7 @@ initJoysticks.exit.thread:                        ; preds = %8
   br label %25
 
 25:                                               ; preds = %initJoysticks.exit.thread, %17, %12, %20, %5, %3
-  %.0 = phi i32 [ 0, %5 ], [ %24, %20 ], [ 0, %3 ], [ 0, %12 ], [ 0, %17 ], [ 0, %initJoysticks.exit.thread ]
+  %.0 = phi i32 [ 0, %5 ], [ %24, %20 ], [ 0, %12 ], [ 0, %initJoysticks.exit.thread ], [ 0, %3 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -3073,7 +3073,7 @@ initJoysticks.exit.thread:                        ; preds = %8
   br label %23
 
 23:                                               ; preds = %initJoysticks.exit.thread, %20, %17, %12, %5, %3
-  %.0 = phi ptr [ null, %5 ], [ null, %3 ], [ null, %12 ], [ null, %17 ], [ %22, %20 ], [ null, %initJoysticks.exit.thread ]
+  %.0 = phi ptr [ null, %5 ], [ null, %17 ], [ %22, %20 ], [ null, %12 ], [ null, %initJoysticks.exit.thread ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -3214,7 +3214,7 @@ initJoysticks.exit.thread:                        ; preds = %9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %58, %56, %54, %70
-  %.sink = phi i8 [ %76, %70 ], [ 1, %54 ], [ 1, %56 ], [ 1, %58 ]
+  %.sink = phi i8 [ 1, %56 ], [ %76, %70 ], [ 1, %54 ], [ 1, %58 ]
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %.sink, ptr %77, align 1, !tbaa !3
   br label %78
@@ -3299,7 +3299,7 @@ initJoysticks.exit.thread:                        ; preds = %9
   br i1 %exitcond88.not, label %.loopexit, label %79
 
 .loopexit:                                        ; preds = %126, %initJoysticks.exit.thread, %21, %18, %13, %6, %4
-  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %13 ], [ 0, %18 ], [ 0, %21 ], [ 0, %initJoysticks.exit.thread ], [ 1, %126 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %21 ], [ 0, %18 ], [ 0, %13 ], [ 0, %initJoysticks.exit.thread ], [ 0, %4 ], [ 1, %126 ]
   ret i32 %.0
 }
 

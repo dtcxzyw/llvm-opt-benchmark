@@ -744,8 +744,8 @@ to_words52.exit258:                               ; preds = %get_digit.exit40.i2
   br label %394
 
 394:                                              ; preds = %393, %392, %383
-  %.0213.i = phi i32 [ 24, %392 ], [ 32, %393 ], [ 16, %383 ]
-  %.0210.i = phi i32 [ 32, %392 ], [ 40, %393 ], [ 20, %383 ]
+  %.0213.i = phi i32 [ 32, %393 ], [ 24, %392 ], [ 16, %383 ]
+  %.0210.i = phi i32 [ 40, %393 ], [ 32, %392 ], [ 20, %383 ]
   %395 = mul nuw nsw i32 %.0210.i, 68
   %396 = or disjoint i32 %.0213.i, 1
   %397 = shl nuw nsw i32 %396, 1
@@ -1161,7 +1161,7 @@ bn_reduce_once_in_place.exit.thread:              ; preds = %from_words52.exit29
   br i1 %exitcond.not.i.i297, label %RSAZ_mod_exp_x2_ifma256.exit.thread, label %610, !llvm.loop !18
 
 RSAZ_mod_exp_x2_ifma256.exit.thread:              ; preds = %610, %394, %383, %to_words52.exit258, %bn_reduce_once_in_place.exit.thread
-  %.0.ph = phi i32 [ 1, %bn_reduce_once_in_place.exit.thread ], [ 0, %to_words52.exit258 ], [ 0, %383 ], [ 0, %394 ], [ 1, %610 ]
+  %.0.ph = phi i32 [ 0, %394 ], [ 1, %bn_reduce_once_in_place.exit.thread ], [ 0, %to_words52.exit258 ], [ 0, %383 ], [ 1, %610 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %37, i64 noundef %36) #6
   call void @CRYPTO_free(ptr noundef nonnull %37, ptr noundef nonnull @.str, i32 noundef 312) #6
   br label %bn_reduce_once_in_place.exit298

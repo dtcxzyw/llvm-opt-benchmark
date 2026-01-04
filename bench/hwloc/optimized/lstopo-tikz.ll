@@ -93,8 +93,8 @@ tikz_get_font_family.exit:                        ; preds = %20
   %26 = tail call i32 @fclose(ptr noundef nonnull %5)
   br label %58
 
-select.unfold:                                    ; preds = %20, %14, %12, %16, %18
-  %.0.i.ph = phi ptr [ @.str.18, %18 ], [ @.str.16, %16 ], [ @.str.14, %12 ], [ @.str.14, %14 ], [ @.str.20, %20 ]
+select.unfold:                                    ; preds = %20, %18, %16, %12, %14
+  %.0.i.ph = phi ptr [ @.str.18, %18 ], [ @.str.14, %14 ], [ @.str.14, %12 ], [ @.str.16, %16 ], [ @.str.20, %20 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %27, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1600

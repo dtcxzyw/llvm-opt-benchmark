@@ -47,7 +47,7 @@ define hidden noundef signext i8 @nfaExecLimEx64_queueCompressState(ptr noundef 
   br label %queue_prev_byte.exit
 
 queue_prev_byte.exit:                             ; preds = %12, %17, %24
-  %.0.i = phi i8 [ %23, %17 ], [ %29, %24 ], [ 0, %12 ]
+  %.0.i = phi i8 [ %29, %24 ], [ %23, %17 ], [ 0, %12 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i64, ptr %31, align 8
@@ -350,7 +350,7 @@ define hidden noundef signext i8 @nfaExecLimEx64_expandState(ptr noundef %0, ptr
   br label %partial_load_u64a.exit
 
 partial_load_u64a.exit:                           ; preds = %12, %15, %17, %30, %38, %46, %49, %57, %60
-  %.0.i9 = phi i64 [ %16, %15 ], [ %29, %17 ], [ %37, %30 ], [ %45, %38 ], [ %48, %46 ], [ %56, %49 ], [ %59, %57 ], [ %62, %60 ], [ 0, %12 ]
+  %.0.i9 = phi i64 [ %62, %60 ], [ %16, %15 ], [ %29, %17 ], [ %37, %30 ], [ %45, %38 ], [ %48, %46 ], [ %56, %49 ], [ %59, %57 ], [ 0, %12 ]
   store i64 %.0.i9, ptr %1, align 8
   br label %moNfaExpandState64.exit
 
@@ -987,7 +987,7 @@ moNfaReportCurrent64.exit:                        ; preds = %8, %15
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %153, %160, %162, %164, %166, %168, %170
-  %.0.i87 = phi i64 [ %161, %160 ], [ %163, %162 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %171, %170 ], [ 0, %153 ]
+  %.0.i87 = phi i64 [ %171, %170 ], [ %161, %160 ], [ %163, %162 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ 0, %153 ]
   %172 = load i64, ptr %133, align 32
   %173 = and i64 %172, %146
   %.not37.i = icmp eq i64 %173, 0
@@ -1033,7 +1033,7 @@ repeatLastTop.exit:                               ; preds = %153, %160, %162, %1
   br i1 %196, label %135, label %limexExpireExtendedState64.exit
 
 limexExpireExtendedState64.exit:                  ; preds = %192, %._crit_edge, %125
-  %197 = phi i64 [ %.pre118, %._crit_edge ], [ %.pre118, %125 ], [ %193, %192 ]
+  %197 = phi i64 [ %.pre118, %125 ], [ %.pre118, %._crit_edge ], [ %193, %192 ]
   %198 = load ptr, ptr %41, align 8
   store i64 %197, ptr %198, align 8
   %199 = load i32, ptr %35, align 8
@@ -1058,12 +1058,12 @@ limexExpireExtendedState64.exit:                  ; preds = %192, %._crit_edge, 
   br label %.thread
 
 .thread:                                          ; preds = %90, %94, %207, %201
-  %.5 = phi i8 [ 1, %201 ], [ %209, %207 ], [ 0, %90 ], [ 1, %94 ]
+  %.5 = phi i8 [ %209, %207 ], [ 1, %201 ], [ 0, %90 ], [ 1, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %210
 
 210:                                              ; preds = %moNfaReportCurrent64.exit.thread, %34, %.thread
-  %.2 = phi i8 [ %.5, %.thread ], [ 1, %34 ], [ 0, %moNfaReportCurrent64.exit.thread ]
+  %.2 = phi i8 [ 0, %moNfaReportCurrent64.exit.thread ], [ %.5, %.thread ], [ 1, %34 ]
   ret i8 %.2
 }
 
@@ -1440,13 +1440,13 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_CB(ptr n
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %191, %212, %214, %216, %218
-  %.0.i119 = phi i32 [ %192, %191 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ], [ %219, %218 ]
+  %.0.i119 = phi i32 [ %217, %216 ], [ %192, %191 ], [ %219, %218 ], [ %215, %214 ], [ %213, %212 ]
   switch i32 %.0.i119, label %repeatHasMatch.exit.thread [
     i32 1, label %repeatHasMatch.exit.thread329
     i32 2, label %repeatHasMatch.exit.thread331
   ]
 
-repeatHasMatch.exit.thread329:                    ; preds = %207, %189, %193, %repeatHasMatch.exit
+repeatHasMatch.exit.thread329:                    ; preds = %189, %193, %207, %repeatHasMatch.exit
   %220 = getelementptr inbounds nuw i8, ptr %161, i64 32
   %221 = load i32, ptr %220, align 4
   %222 = icmp eq i32 %221, 65535
@@ -1459,9 +1459,9 @@ repeatHasMatch.exit.thread331:                    ; preds = %207, %repeatHasMatc
   %224 = and i64 %223, %.9284
   br label %repeatHasMatch.exit.thread
 
-.critedge.i67.thread:                             ; preds = %repeatHasMatch.exit.thread329, %188, %187, %186, %185, %184, %181, %174, %182, %183, %146
-  %.3309 = phi i32 [ %.1307, %146 ], [ 2, %188 ], [ 2, %187 ], [ 2, %186 ], [ 2, %185 ], [ 2, %184 ], [ 2, %181 ], [ 2, %174 ], [ 2, %182 ], [ 2, %183 ], [ %spec.select, %repeatHasMatch.exit.thread329 ]
-  %.sroa.0238.9 = phi i8 [ %.sroa.0238.6, %146 ], [ %.sroa.0238.6, %188 ], [ %.sroa.0238.6, %187 ], [ %.sroa.0238.6, %186 ], [ %.sroa.0238.6, %185 ], [ %.sroa.0238.6, %184 ], [ %.sroa.0238.6, %181 ], [ %.sroa.0238.6, %174 ], [ %.sroa.0238.6, %182 ], [ %.sroa.0238.6, %183 ], [ %spec.select538, %repeatHasMatch.exit.thread329 ]
+.critedge.i67.thread:                             ; preds = %repeatHasMatch.exit.thread329, %187, %186, %185, %184, %181, %174, %182, %183, %188, %146
+  %.3309 = phi i32 [ %.1307, %146 ], [ %spec.select, %repeatHasMatch.exit.thread329 ], [ 2, %187 ], [ 2, %186 ], [ 2, %185 ], [ 2, %184 ], [ 2, %181 ], [ 2, %174 ], [ 2, %182 ], [ 2, %183 ], [ 2, %188 ]
+  %.sroa.0238.9 = phi i8 [ %.sroa.0238.6, %146 ], [ %spec.select538, %repeatHasMatch.exit.thread329 ], [ %.sroa.0238.6, %187 ], [ %.sroa.0238.6, %186 ], [ %.sroa.0238.6, %185 ], [ %.sroa.0238.6, %184 ], [ %.sroa.0238.6, %181 ], [ %.sroa.0238.6, %174 ], [ %.sroa.0238.6, %182 ], [ %.sroa.0238.6, %183 ], [ %.sroa.0238.6, %188 ]
   %225 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %226 = load i32, ptr %225, align 8
   %.not70.i = icmp eq i32 %226, -1
@@ -1511,8 +1511,8 @@ limexRunReports.exit.i71:                         ; preds = %234, %228
   br label %.thread
 
 .thread:                                          ; preds = %242, %240, %limexRunReports.exit.i71, %.critedge.i67.thread
-  %.5311 = phi i32 [ %.3309, %.critedge.i67.thread ], [ %.3309, %limexRunReports.exit.i71 ], [ %spec.select539, %240 ], [ %spec.select558, %242 ]
-  %.sroa.5240.9 = phi ptr [ %.sroa.5240.6, %.critedge.i67.thread ], [ %.sroa.5240.6, %limexRunReports.exit.i71 ], [ %spec.select540, %240 ], [ %.sroa.5240.6, %242 ]
+  %.5311 = phi i32 [ %.3309, %.critedge.i67.thread ], [ %spec.select558, %242 ], [ %spec.select539, %240 ], [ %.3309, %limexRunReports.exit.i71 ]
+  %.sroa.5240.9 = phi ptr [ %.sroa.5240.6, %.critedge.i67.thread ], [ %.sroa.5240.6, %242 ], [ %spec.select540, %240 ], [ %.sroa.5240.6, %limexRunReports.exit.i71 ]
   %244 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %245 = load i64, ptr %244, align 8
   %246 = or i64 %245, %.1292
@@ -1530,12 +1530,12 @@ limexRunReports.exit.i71:                         ; preds = %234, %228
   %spec.select541 = select i1 %252, i32 0, i32 %.5311
   br label %repeatHasMatch.exit.thread
 
-repeatHasMatch.exit.thread:                       ; preds = %249, %193, %189, %200, %.thread, %repeatHasMatch.exit, %repeatHasMatch.exit.thread331
-  %.6312.ph = phi i32 [ 2, %repeatHasMatch.exit ], [ 2, %repeatHasMatch.exit.thread331 ], [ %.5311, %.thread ], [ 2, %200 ], [ 2, %189 ], [ 2, %193 ], [ %spec.select541, %249 ]
-  %.sroa.5240.10.ph = phi ptr [ %.sroa.5240.6, %repeatHasMatch.exit ], [ %.sroa.5240.6, %repeatHasMatch.exit.thread331 ], [ %.sroa.5240.9, %.thread ], [ %.sroa.5240.6, %200 ], [ %.sroa.5240.6, %189 ], [ %.sroa.5240.6, %193 ], [ %.sroa.5240.9, %249 ]
-  %.sroa.0238.10.ph = phi i8 [ %.sroa.0238.6, %repeatHasMatch.exit ], [ %.sroa.0238.6, %repeatHasMatch.exit.thread331 ], [ %.sroa.0238.9, %.thread ], [ %.sroa.0238.6, %200 ], [ %.sroa.0238.6, %189 ], [ %.sroa.0238.6, %193 ], [ %.sroa.0238.9, %249 ]
-  %.2293.ph = phi i64 [ %.1292, %repeatHasMatch.exit ], [ %.1292, %repeatHasMatch.exit.thread331 ], [ %246, %.thread ], [ %.1292, %200 ], [ %.1292, %189 ], [ %.1292, %193 ], [ %246, %249 ]
-  %.14289.ph = phi i64 [ %.9284, %repeatHasMatch.exit ], [ %224, %repeatHasMatch.exit.thread331 ], [ %.9284, %.thread ], [ %.9284, %200 ], [ %.9284, %189 ], [ %.9284, %193 ], [ %251, %249 ]
+repeatHasMatch.exit.thread:                       ; preds = %249, %193, %189, %200, %repeatHasMatch.exit.thread331, %.thread, %repeatHasMatch.exit
+  %.6312.ph = phi i32 [ 2, %repeatHasMatch.exit ], [ %.5311, %.thread ], [ 2, %repeatHasMatch.exit.thread331 ], [ %spec.select541, %249 ], [ 2, %193 ], [ 2, %200 ], [ 2, %189 ]
+  %.sroa.5240.10.ph = phi ptr [ %.sroa.5240.6, %repeatHasMatch.exit ], [ %.sroa.5240.9, %.thread ], [ %.sroa.5240.6, %repeatHasMatch.exit.thread331 ], [ %.sroa.5240.9, %249 ], [ %.sroa.5240.6, %193 ], [ %.sroa.5240.6, %200 ], [ %.sroa.5240.6, %189 ]
+  %.sroa.0238.10.ph = phi i8 [ %.sroa.0238.6, %repeatHasMatch.exit ], [ %.sroa.0238.9, %.thread ], [ %.sroa.0238.6, %repeatHasMatch.exit.thread331 ], [ %.sroa.0238.9, %249 ], [ %.sroa.0238.6, %193 ], [ %.sroa.0238.6, %200 ], [ %.sroa.0238.6, %189 ]
+  %.2293.ph = phi i64 [ %.1292, %repeatHasMatch.exit ], [ %246, %.thread ], [ %.1292, %repeatHasMatch.exit.thread331 ], [ %246, %249 ], [ %.1292, %193 ], [ %.1292, %200 ], [ %.1292, %189 ]
+  %.14289.ph = phi i64 [ %.9284, %repeatHasMatch.exit ], [ %.9284, %.thread ], [ %224, %repeatHasMatch.exit.thread331 ], [ %251, %249 ], [ %.9284, %193 ], [ %.9284, %200 ], [ %.9284, %189 ]
   %.not54.i53 = icmp eq i64 %149, 0
   br i1 %.not54.i53, label %253, label %146
 
@@ -1566,8 +1566,8 @@ repeatHasMatch.exit.thread:                       ; preds = %249, %193, %189, %2
   store i64 0, ptr %56, align 16
   br label %processExceptional64.exit66.thread
 
-processExceptional64.exit66.thread:               ; preds = %135, %131, %256, %257, %259, %254, %126, %120
-  %.7282.ph = phi i64 [ %.1276, %120 ], [ %128, %126 ], [ %255, %254 ], [ %255, %259 ], [ %255, %257 ], [ %255, %256 ], [ %128, %131 ], [ %128, %135 ]
+processExceptional64.exit66.thread:               ; preds = %135, %131, %259, %254, %256, %257, %126, %120
+  %.7282.ph = phi i64 [ %128, %126 ], [ %.1276, %120 ], [ %255, %259 ], [ %255, %257 ], [ %255, %256 ], [ %255, %254 ], [ %128, %131 ], [ %128, %135 ]
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 %.058.i8594
   %261 = load i8, ptr %260, align 1
   %262 = zext i8 %261 to i64
@@ -1914,13 +1914,13 @@ processExceptional64.exit66.thread:               ; preds = %135, %131, %256, %2
   br label %repeatHasMatch.exit121
 
 repeatHasMatch.exit121:                           ; preds = %425, %446, %448, %450, %452
-  %.0.i120 = phi i32 [ %426, %425 ], [ %447, %446 ], [ %449, %448 ], [ %451, %450 ], [ %453, %452 ]
+  %.0.i120 = phi i32 [ %451, %450 ], [ %426, %425 ], [ %453, %452 ], [ %449, %448 ], [ %447, %446 ]
   switch i32 %.0.i120, label %repeatHasMatch.exit121.thread [
     i32 1, label %repeatHasMatch.exit121.thread401
     i32 2, label %repeatHasMatch.exit121.thread403
   ]
 
-repeatHasMatch.exit121.thread401:                 ; preds = %441, %423, %427, %repeatHasMatch.exit121
+repeatHasMatch.exit121.thread401:                 ; preds = %423, %427, %441, %repeatHasMatch.exit121
   %454 = getelementptr inbounds nuw i8, ptr %395, i64 32
   %455 = load i32, ptr %454, align 4
   %456 = icmp eq i32 %455, 65535
@@ -1933,9 +1933,9 @@ repeatHasMatch.exit121.thread403:                 ; preds = %441, %repeatHasMatc
   %458 = and i64 %457, %.9269
   br label %repeatHasMatch.exit121.thread
 
-.critedge.i75.thread:                             ; preds = %repeatHasMatch.exit121.thread401, %422, %421, %420, %419, %418, %415, %408, %416, %417, %380
-  %.sroa.0220.9 = phi i8 [ %.sroa.0220.6, %380 ], [ %.sroa.0220.6, %422 ], [ %.sroa.0220.6, %421 ], [ %.sroa.0220.6, %420 ], [ %.sroa.0220.6, %419 ], [ %.sroa.0220.6, %418 ], [ %.sroa.0220.6, %415 ], [ %.sroa.0220.6, %408 ], [ %.sroa.0220.6, %416 ], [ %.sroa.0220.6, %417 ], [ %spec.select542, %repeatHasMatch.exit121.thread401 ]
-  %.3318 = phi i32 [ %.1316, %380 ], [ 2, %422 ], [ 2, %421 ], [ 2, %420 ], [ 2, %419 ], [ 2, %418 ], [ 2, %415 ], [ 2, %408 ], [ 2, %416 ], [ 2, %417 ], [ %spec.select543, %repeatHasMatch.exit121.thread401 ]
+.critedge.i75.thread:                             ; preds = %repeatHasMatch.exit121.thread401, %421, %420, %419, %418, %415, %408, %416, %417, %422, %380
+  %.sroa.0220.9 = phi i8 [ %.sroa.0220.6, %380 ], [ %spec.select542, %repeatHasMatch.exit121.thread401 ], [ %.sroa.0220.6, %421 ], [ %.sroa.0220.6, %420 ], [ %.sroa.0220.6, %419 ], [ %.sroa.0220.6, %418 ], [ %.sroa.0220.6, %415 ], [ %.sroa.0220.6, %408 ], [ %.sroa.0220.6, %416 ], [ %.sroa.0220.6, %417 ], [ %.sroa.0220.6, %422 ]
+  %.3318 = phi i32 [ %.1316, %380 ], [ %spec.select543, %repeatHasMatch.exit121.thread401 ], [ 2, %421 ], [ 2, %420 ], [ 2, %419 ], [ 2, %418 ], [ 2, %415 ], [ 2, %408 ], [ 2, %416 ], [ 2, %417 ], [ 2, %422 ]
   %459 = getelementptr inbounds nuw i8, ptr %388, i64 16
   %460 = load i32, ptr %459, align 8
   %.not70.i78 = icmp eq i32 %460, -1
@@ -1985,8 +1985,8 @@ limexRunReports.exit.i82:                         ; preds = %468, %462
   br label %.thread417
 
 .thread417:                                       ; preds = %476, %474, %limexRunReports.exit.i82, %.critedge.i75.thread
-  %.sroa.5222.9 = phi ptr [ %.sroa.5222.6, %.critedge.i75.thread ], [ %.sroa.5222.6, %limexRunReports.exit.i82 ], [ %spec.select544, %474 ], [ %.sroa.5222.6, %476 ]
-  %.5320 = phi i32 [ %.3318, %.critedge.i75.thread ], [ %.3318, %limexRunReports.exit.i82 ], [ %spec.select545, %474 ], [ %spec.select559, %476 ]
+  %.sroa.5222.9 = phi ptr [ %.sroa.5222.6, %.critedge.i75.thread ], [ %.sroa.5222.6, %476 ], [ %spec.select544, %474 ], [ %.sroa.5222.6, %limexRunReports.exit.i82 ]
+  %.5320 = phi i32 [ %.3318, %.critedge.i75.thread ], [ %spec.select559, %476 ], [ %spec.select545, %474 ], [ %.3318, %limexRunReports.exit.i82 ]
   %478 = getelementptr inbounds nuw i8, ptr %388, i64 8
   %479 = load i64, ptr %478, align 8
   %480 = or i64 %479, %.1323
@@ -2004,12 +2004,12 @@ limexRunReports.exit.i82:                         ; preds = %468, %462
   %spec.select548 = select i1 %486, i32 0, i32 %.5320
   br label %repeatHasMatch.exit121.thread
 
-repeatHasMatch.exit121.thread:                    ; preds = %483, %427, %423, %434, %.thread417, %repeatHasMatch.exit121, %repeatHasMatch.exit121.thread403
-  %.2324.ph = phi i64 [ %.1323, %repeatHasMatch.exit121.thread403 ], [ %.1323, %repeatHasMatch.exit121 ], [ %480, %.thread417 ], [ %.1323, %434 ], [ %.1323, %423 ], [ %.1323, %427 ], [ %480, %483 ]
-  %.sroa.0220.10.ph = phi i8 [ %.sroa.0220.6, %repeatHasMatch.exit121.thread403 ], [ %.sroa.0220.6, %repeatHasMatch.exit121 ], [ %.sroa.0220.9, %.thread417 ], [ %.sroa.0220.6, %434 ], [ %.sroa.0220.6, %423 ], [ %.sroa.0220.6, %427 ], [ %.sroa.0220.9, %483 ]
-  %.sroa.5222.10.ph = phi ptr [ %.sroa.5222.6, %repeatHasMatch.exit121.thread403 ], [ %.sroa.5222.6, %repeatHasMatch.exit121 ], [ %.sroa.5222.9, %.thread417 ], [ %.sroa.5222.6, %434 ], [ %.sroa.5222.6, %423 ], [ %.sroa.5222.6, %427 ], [ %.sroa.5222.9, %483 ]
-  %.6321.ph = phi i32 [ 2, %repeatHasMatch.exit121.thread403 ], [ 2, %repeatHasMatch.exit121 ], [ %.5320, %.thread417 ], [ 2, %434 ], [ 2, %423 ], [ 2, %427 ], [ %spec.select548, %483 ]
-  %.14274.ph = phi i64 [ %458, %repeatHasMatch.exit121.thread403 ], [ %.9269, %repeatHasMatch.exit121 ], [ %.9269, %.thread417 ], [ %.9269, %434 ], [ %.9269, %423 ], [ %.9269, %427 ], [ %485, %483 ]
+repeatHasMatch.exit121.thread:                    ; preds = %483, %427, %423, %434, %repeatHasMatch.exit121.thread403, %.thread417, %repeatHasMatch.exit121
+  %.2324.ph = phi i64 [ %.1323, %repeatHasMatch.exit121 ], [ %480, %.thread417 ], [ %.1323, %repeatHasMatch.exit121.thread403 ], [ %480, %483 ], [ %.1323, %427 ], [ %.1323, %434 ], [ %.1323, %423 ]
+  %.sroa.0220.10.ph = phi i8 [ %.sroa.0220.6, %repeatHasMatch.exit121 ], [ %.sroa.0220.9, %.thread417 ], [ %.sroa.0220.6, %repeatHasMatch.exit121.thread403 ], [ %.sroa.0220.9, %483 ], [ %.sroa.0220.6, %427 ], [ %.sroa.0220.6, %434 ], [ %.sroa.0220.6, %423 ]
+  %.sroa.5222.10.ph = phi ptr [ %.sroa.5222.6, %repeatHasMatch.exit121 ], [ %.sroa.5222.9, %.thread417 ], [ %.sroa.5222.6, %repeatHasMatch.exit121.thread403 ], [ %.sroa.5222.9, %483 ], [ %.sroa.5222.6, %427 ], [ %.sroa.5222.6, %434 ], [ %.sroa.5222.6, %423 ]
+  %.6321.ph = phi i32 [ 2, %repeatHasMatch.exit121 ], [ %.5320, %.thread417 ], [ 2, %repeatHasMatch.exit121.thread403 ], [ %spec.select548, %483 ], [ 2, %427 ], [ 2, %434 ], [ 2, %423 ]
+  %.14274.ph = phi i64 [ %.9269, %repeatHasMatch.exit121 ], [ %.9269, %.thread417 ], [ %458, %repeatHasMatch.exit121.thread403 ], [ %485, %483 ], [ %.9269, %427 ], [ %.9269, %434 ], [ %.9269, %423 ]
   %.not54.i36 = icmp eq i64 %383, 0
   br i1 %.not54.i36, label %487, label %380
 
@@ -2040,8 +2040,8 @@ repeatHasMatch.exit121.thread:                    ; preds = %483, %427, %423, %4
   store i64 0, ptr %288, align 16
   br label %processExceptional64.exit49.thread
 
-processExceptional64.exit49.thread:               ; preds = %369, %365, %490, %491, %493, %488, %360, %354
-  %.7267.ph = phi i64 [ %.1261, %354 ], [ %362, %360 ], [ %489, %488 ], [ %489, %493 ], [ %489, %491 ], [ %489, %490 ], [ %362, %365 ], [ %362, %369 ]
+processExceptional64.exit49.thread:               ; preds = %369, %365, %493, %488, %490, %491, %360, %354
+  %.7267.ph = phi i64 [ %362, %360 ], [ %.1261, %354 ], [ %489, %493 ], [ %489, %491 ], [ %489, %490 ], [ %489, %488 ], [ %362, %365 ], [ %362, %369 ]
   %494 = getelementptr inbounds nuw i8, ptr %1, i64 %.058.i605
   %495 = load i8, ptr %494, align 1
   %496 = zext i8 %495 to i64
@@ -2056,9 +2056,9 @@ processExceptional64.exit49.thread:               ; preds = %369, %365, %490, %4
   br i1 %.not.i4, label %nfaExecLimEx64_Loop_No_Accel.exit14, label %296
 
 nfaExecLimEx64_Loop_No_Accel.exit14:              ; preds = %processExceptional64.exit66.thread, %processExceptional64.exit49.thread, %296, %38, %270, %5
-  %.0253 = phi i64 [ %25, %5 ], [ %.3256, %270 ], [ %.3256, %38 ], [ %502, %processExceptional64.exit49.thread ], [ 0, %296 ], [ %268, %processExceptional64.exit66.thread ]
-  %.0248 = phi i64 [ 0, %5 ], [ %.2250, %270 ], [ %.2250, %38 ], [ %.0111.i, %processExceptional64.exit49.thread ], [ %.058.i605, %296 ], [ %.0111.i, %processExceptional64.exit66.thread ]
-  %.1112.i = phi i64 [ 0, %5 ], [ %.2250, %270 ], [ %.2250, %38 ], [ %.0111.i, %296 ], [ %.0111.i, %processExceptional64.exit49.thread ], [ %.0111.i, %processExceptional64.exit66.thread ]
+  %.0253 = phi i64 [ %.3256, %38 ], [ %25, %5 ], [ 0, %296 ], [ %.3256, %270 ], [ %502, %processExceptional64.exit49.thread ], [ %268, %processExceptional64.exit66.thread ]
+  %.0248 = phi i64 [ %.2250, %38 ], [ 0, %5 ], [ %.058.i605, %296 ], [ %.2250, %270 ], [ %.0111.i, %processExceptional64.exit49.thread ], [ %.0111.i, %processExceptional64.exit66.thread ]
+  %.1112.i = phi i64 [ %.2250, %38 ], [ 0, %5 ], [ %.0111.i, %processExceptional64.exit49.thread ], [ %.2250, %270 ], [ %.0111.i, %296 ], [ %.0111.i, %processExceptional64.exit66.thread ]
   %.not125.i618 = icmp eq i64 %.0248, %2
   br i1 %.not125.i618, label %.loopexit, label %.lr.ph621
 
@@ -2414,13 +2414,13 @@ nfaExecLimEx64_Loop_No_Accel.exit14:              ; preds = %processExceptional6
   br label %repeatHasMatch.exit123
 
 repeatHasMatch.exit123:                           ; preds = %668, %689, %691, %693, %695
-  %.0.i122 = phi i32 [ %669, %668 ], [ %690, %689 ], [ %692, %691 ], [ %694, %693 ], [ %696, %695 ]
+  %.0.i122 = phi i32 [ %694, %693 ], [ %669, %668 ], [ %696, %695 ], [ %692, %691 ], [ %690, %689 ]
   switch i32 %.0.i122, label %repeatHasMatch.exit123.thread [
     i32 1, label %repeatHasMatch.exit123.thread475
     i32 2, label %repeatHasMatch.exit123.thread477
   ]
 
-repeatHasMatch.exit123.thread475:                 ; preds = %684, %666, %670, %repeatHasMatch.exit123
+repeatHasMatch.exit123.thread475:                 ; preds = %666, %670, %684, %repeatHasMatch.exit123
   %697 = getelementptr inbounds nuw i8, ptr %638, i64 32
   %698 = load i32, ptr %697, align 4
   %699 = icmp eq i32 %698, 65535
@@ -2433,9 +2433,9 @@ repeatHasMatch.exit123.thread477:                 ; preds = %684, %repeatHasMatc
   %701 = and i64 %700, %.9
   br label %repeatHasMatch.exit123.thread
 
-.critedge.i90.thread:                             ; preds = %repeatHasMatch.exit123.thread475, %665, %664, %663, %662, %661, %658, %651, %659, %660, %623
-  %.sroa.0203.8 = phi i8 [ %.sroa.0203.5, %623 ], [ %.sroa.0203.5, %665 ], [ %.sroa.0203.5, %664 ], [ %.sroa.0203.5, %663 ], [ %.sroa.0203.5, %662 ], [ %.sroa.0203.5, %661 ], [ %.sroa.0203.5, %658 ], [ %.sroa.0203.5, %651 ], [ %.sroa.0203.5, %659 ], [ %.sroa.0203.5, %660 ], [ %spec.select550, %repeatHasMatch.exit123.thread475 ]
-  %.3297 = phi i32 [ %.1295, %623 ], [ 2, %665 ], [ 2, %664 ], [ 2, %663 ], [ 2, %662 ], [ 2, %661 ], [ 2, %658 ], [ 2, %651 ], [ 2, %659 ], [ 2, %660 ], [ %spec.select551, %repeatHasMatch.exit123.thread475 ]
+.critedge.i90.thread:                             ; preds = %repeatHasMatch.exit123.thread475, %664, %663, %662, %661, %658, %651, %659, %660, %665, %623
+  %.sroa.0203.8 = phi i8 [ %.sroa.0203.5, %623 ], [ %spec.select550, %repeatHasMatch.exit123.thread475 ], [ %.sroa.0203.5, %664 ], [ %.sroa.0203.5, %663 ], [ %.sroa.0203.5, %662 ], [ %.sroa.0203.5, %661 ], [ %.sroa.0203.5, %658 ], [ %.sroa.0203.5, %651 ], [ %.sroa.0203.5, %659 ], [ %.sroa.0203.5, %660 ], [ %.sroa.0203.5, %665 ]
+  %.3297 = phi i32 [ %.1295, %623 ], [ %spec.select551, %repeatHasMatch.exit123.thread475 ], [ 2, %664 ], [ 2, %663 ], [ 2, %662 ], [ 2, %661 ], [ 2, %658 ], [ 2, %651 ], [ 2, %659 ], [ 2, %660 ], [ 2, %665 ]
   %702 = getelementptr inbounds nuw i8, ptr %631, i64 16
   %703 = load i32, ptr %702, align 8
   %.not70.i93 = icmp eq i32 %703, -1
@@ -2485,8 +2485,8 @@ limexRunReports.exit.i97:                         ; preds = %711, %705
   br label %.thread491
 
 .thread491:                                       ; preds = %719, %717, %limexRunReports.exit.i97, %.critedge.i90.thread
-  %.sroa.5204.8 = phi ptr [ %.sroa.5204.5, %.critedge.i90.thread ], [ %.sroa.5204.5, %limexRunReports.exit.i97 ], [ %spec.select552, %717 ], [ %.sroa.5204.5, %719 ]
-  %.5299 = phi i32 [ %.3297, %.critedge.i90.thread ], [ %.3297, %limexRunReports.exit.i97 ], [ %spec.select553, %717 ], [ %spec.select560, %719 ]
+  %.sroa.5204.8 = phi ptr [ %.sroa.5204.5, %.critedge.i90.thread ], [ %.sroa.5204.5, %719 ], [ %spec.select552, %717 ], [ %.sroa.5204.5, %limexRunReports.exit.i97 ]
+  %.5299 = phi i32 [ %.3297, %.critedge.i90.thread ], [ %spec.select560, %719 ], [ %spec.select553, %717 ], [ %.3297, %limexRunReports.exit.i97 ]
   %721 = getelementptr inbounds nuw i8, ptr %631, i64 8
   %722 = load i64, ptr %721, align 8
   %723 = or i64 %722, %.1302
@@ -2504,12 +2504,12 @@ limexRunReports.exit.i97:                         ; preds = %711, %705
   %spec.select556 = select i1 %729, i32 0, i32 %.5299
   br label %repeatHasMatch.exit123.thread
 
-repeatHasMatch.exit123.thread:                    ; preds = %726, %670, %666, %677, %.thread491, %repeatHasMatch.exit123, %repeatHasMatch.exit123.thread477
-  %.2303.ph = phi i64 [ %.1302, %repeatHasMatch.exit123.thread477 ], [ %.1302, %repeatHasMatch.exit123 ], [ %723, %.thread491 ], [ %.1302, %677 ], [ %.1302, %666 ], [ %.1302, %670 ], [ %723, %726 ]
-  %.sroa.0203.9.ph = phi i8 [ %.sroa.0203.5, %repeatHasMatch.exit123.thread477 ], [ %.sroa.0203.5, %repeatHasMatch.exit123 ], [ %.sroa.0203.8, %.thread491 ], [ %.sroa.0203.5, %677 ], [ %.sroa.0203.5, %666 ], [ %.sroa.0203.5, %670 ], [ %.sroa.0203.8, %726 ]
-  %.sroa.5204.9.ph = phi ptr [ %.sroa.5204.5, %repeatHasMatch.exit123.thread477 ], [ %.sroa.5204.5, %repeatHasMatch.exit123 ], [ %.sroa.5204.8, %.thread491 ], [ %.sroa.5204.5, %677 ], [ %.sroa.5204.5, %666 ], [ %.sroa.5204.5, %670 ], [ %.sroa.5204.8, %726 ]
-  %.6300.ph = phi i32 [ 2, %repeatHasMatch.exit123.thread477 ], [ 2, %repeatHasMatch.exit123 ], [ %.5299, %.thread491 ], [ 2, %677 ], [ 2, %666 ], [ 2, %670 ], [ %spec.select556, %726 ]
-  %.14.ph = phi i64 [ %701, %repeatHasMatch.exit123.thread477 ], [ %.9, %repeatHasMatch.exit123 ], [ %.9, %.thread491 ], [ %.9, %677 ], [ %.9, %666 ], [ %.9, %670 ], [ %728, %726 ]
+repeatHasMatch.exit123.thread:                    ; preds = %726, %670, %666, %677, %repeatHasMatch.exit123.thread477, %.thread491, %repeatHasMatch.exit123
+  %.2303.ph = phi i64 [ %.1302, %repeatHasMatch.exit123 ], [ %723, %.thread491 ], [ %.1302, %repeatHasMatch.exit123.thread477 ], [ %723, %726 ], [ %.1302, %670 ], [ %.1302, %677 ], [ %.1302, %666 ]
+  %.sroa.0203.9.ph = phi i8 [ %.sroa.0203.5, %repeatHasMatch.exit123 ], [ %.sroa.0203.8, %.thread491 ], [ %.sroa.0203.5, %repeatHasMatch.exit123.thread477 ], [ %.sroa.0203.8, %726 ], [ %.sroa.0203.5, %670 ], [ %.sroa.0203.5, %677 ], [ %.sroa.0203.5, %666 ]
+  %.sroa.5204.9.ph = phi ptr [ %.sroa.5204.5, %repeatHasMatch.exit123 ], [ %.sroa.5204.8, %.thread491 ], [ %.sroa.5204.5, %repeatHasMatch.exit123.thread477 ], [ %.sroa.5204.8, %726 ], [ %.sroa.5204.5, %670 ], [ %.sroa.5204.5, %677 ], [ %.sroa.5204.5, %666 ]
+  %.6300.ph = phi i32 [ 2, %repeatHasMatch.exit123 ], [ %.5299, %.thread491 ], [ 2, %repeatHasMatch.exit123.thread477 ], [ %spec.select556, %726 ], [ 2, %670 ], [ 2, %677 ], [ 2, %666 ]
+  %.14.ph = phi i64 [ %.9, %repeatHasMatch.exit123 ], [ %.9, %.thread491 ], [ %701, %repeatHasMatch.exit123.thread477 ], [ %728, %726 ], [ %.9, %670 ], [ %.9, %677 ], [ %.9, %666 ]
   %.not54.i = icmp eq i64 %626, 0
   br i1 %.not54.i, label %730, label %623
 
@@ -2540,8 +2540,8 @@ repeatHasMatch.exit123.thread:                    ; preds = %726, %670, %666, %6
   store i64 0, ptr %522, align 16
   br label %processExceptional64.exit.thread
 
-processExceptional64.exit.thread:                 ; preds = %612, %608, %733, %734, %736, %731, %603, %597
-  %.7.ph = phi i64 [ %.1, %597 ], [ %605, %603 ], [ %732, %731 ], [ %732, %736 ], [ %732, %734 ], [ %732, %733 ], [ %605, %608 ], [ %605, %612 ]
+processExceptional64.exit.thread:                 ; preds = %612, %608, %736, %731, %733, %734, %603, %597
+  %.7.ph = phi i64 [ %605, %603 ], [ %.1, %597 ], [ %732, %736 ], [ %732, %734 ], [ %732, %733 ], [ %732, %731 ], [ %605, %608 ], [ %605, %612 ]
   %737 = getelementptr inbounds nuw i8, ptr %1, i64 %.1249620
   %738 = load i8, ptr %737, align 1
   %739 = zext i8 %738 to i64
@@ -2585,7 +2585,7 @@ processExceptional64.exit.thread:                 ; preds = %612, %608, %733, %7
   br label %nfaExecLimEx64_Stream.exit
 
 nfaExecLimEx64_Stream.exit:                       ; preds = %.lr.ph591, %.lr.ph, %.lr.ph602, %.lr.ph599, %.lr.ph617, %.lr.ph614, %753, %.loopexit, %749
-  %.3.i = phi i8 [ 1, %749 ], [ 1, %.loopexit ], [ %spec.select557, %753 ], [ 0, %.lr.ph614 ], [ 0, %.lr.ph617 ], [ 0, %.lr.ph599 ], [ 0, %.lr.ph602 ], [ 0, %.lr.ph ], [ 0, %.lr.ph591 ]
+  %.3.i = phi i8 [ 1, %.loopexit ], [ 0, %.lr.ph617 ], [ 0, %.lr.ph614 ], [ 0, %.lr.ph599 ], [ 1, %749 ], [ %spec.select557, %753 ], [ 0, %.lr.ph602 ], [ 0, %.lr.ph ], [ 0, %.lr.ph591 ]
   ret i8 %.3.i
 }
 
@@ -2943,7 +2943,7 @@ moNfaReportCurrent64.exit:                        ; preds = %10, %17
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %191, %198, %200, %202, %204, %206, %208
-  %.0.i124 = phi i64 [ %199, %198 ], [ %201, %200 ], [ %203, %202 ], [ %205, %204 ], [ %207, %206 ], [ %209, %208 ], [ 0, %191 ]
+  %.0.i124 = phi i64 [ %209, %208 ], [ %199, %198 ], [ %201, %200 ], [ %203, %202 ], [ %205, %204 ], [ %207, %206 ], [ 0, %191 ]
   %210 = load i64, ptr %171, align 32
   %211 = and i64 %210, %184
   %.not37.i = icmp eq i64 %211, 0
@@ -2989,7 +2989,7 @@ repeatLastTop.exit:                               ; preds = %191, %198, %200, %2
   br i1 %234, label %173, label %limexExpireExtendedState64.exit
 
 limexExpireExtendedState64.exit:                  ; preds = %230, %._crit_edge, %163
-  %235 = phi i64 [ %.pre165, %._crit_edge ], [ %.pre165, %163 ], [ %231, %230 ]
+  %235 = phi i64 [ %.pre165, %163 ], [ %.pre165, %._crit_edge ], [ %231, %230 ]
   %236 = load ptr, ptr %43, align 8
   store i64 %235, ptr %236, align 8
   %237 = load i32, ptr %37, align 8
@@ -3014,12 +3014,12 @@ limexExpireExtendedState64.exit:                  ; preds = %230, %._crit_edge, 
   br label %.thread131
 
 .thread131:                                       ; preds = %.thread, %116, %133, %245, %239
-  %.7 = phi i8 [ 1, %239 ], [ %247, %245 ], [ 2, %.thread ], [ 2, %116 ], [ 1, %133 ]
+  %.7 = phi i8 [ %247, %245 ], [ 1, %239 ], [ 2, %.thread ], [ 2, %116 ], [ 1, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %248
 
 248:                                              ; preds = %moNfaReportCurrent64.exit.thread, %36, %.thread131
-  %.2 = phi i8 [ %.7, %.thread131 ], [ 1, %36 ], [ 0, %moNfaReportCurrent64.exit.thread ]
+  %.2 = phi i8 [ 0, %moNfaReportCurrent64.exit.thread ], [ %.7, %.thread131 ], [ 1, %36 ]
   ret i8 %.2
 }
 
@@ -3373,13 +3373,13 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_First(pt
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %181, %202, %204, %206, %208
-  %.0.i94 = phi i32 [ %182, %181 ], [ %203, %202 ], [ %205, %204 ], [ %207, %206 ], [ %209, %208 ]
+  %.0.i94 = phi i32 [ %207, %206 ], [ %182, %181 ], [ %209, %208 ], [ %205, %204 ], [ %203, %202 ]
   switch i32 %.0.i94, label %runException64.exit [
     i32 1, label %repeatHasMatch.exit.thread292
     i32 2, label %repeatHasMatch.exit.thread294
   ]
 
-repeatHasMatch.exit.thread292:                    ; preds = %197, %179, %183, %repeatHasMatch.exit
+repeatHasMatch.exit.thread292:                    ; preds = %179, %183, %197, %repeatHasMatch.exit
   %210 = getelementptr inbounds nuw i8, ptr %151, i64 32
   %211 = load i32, ptr %210, align 4
   %212 = icmp eq i32 %211, 65535
@@ -3392,9 +3392,9 @@ repeatHasMatch.exit.thread294:                    ; preds = %197, %repeatHasMatc
   %214 = and i64 %213, %.9251
   br label %runException64.exit
 
-.critedge.i60.thread:                             ; preds = %repeatHasMatch.exit.thread292, %178, %177, %176, %175, %174, %171, %164, %172, %173, %136
-  %.3264 = phi i32 [ %.1262, %136 ], [ 2, %178 ], [ 2, %177 ], [ 2, %176 ], [ 2, %175 ], [ 2, %174 ], [ 2, %171 ], [ 2, %164 ], [ 2, %172 ], [ 2, %173 ], [ %spec.select, %repeatHasMatch.exit.thread292 ]
-  %.sroa.0206.9 = phi i8 [ %.sroa.0206.6, %136 ], [ %.sroa.0206.6, %178 ], [ %.sroa.0206.6, %177 ], [ %.sroa.0206.6, %176 ], [ %.sroa.0206.6, %175 ], [ %.sroa.0206.6, %174 ], [ %.sroa.0206.6, %171 ], [ %.sroa.0206.6, %164 ], [ %.sroa.0206.6, %172 ], [ %.sroa.0206.6, %173 ], [ %spec.select370, %repeatHasMatch.exit.thread292 ]
+.critedge.i60.thread:                             ; preds = %repeatHasMatch.exit.thread292, %177, %176, %175, %174, %171, %164, %172, %173, %178, %136
+  %.3264 = phi i32 [ %.1262, %136 ], [ %spec.select, %repeatHasMatch.exit.thread292 ], [ 2, %177 ], [ 2, %176 ], [ 2, %175 ], [ 2, %174 ], [ 2, %171 ], [ 2, %164 ], [ 2, %172 ], [ 2, %173 ], [ 2, %178 ]
+  %.sroa.0206.9 = phi i8 [ %.sroa.0206.6, %136 ], [ %spec.select370, %repeatHasMatch.exit.thread292 ], [ %.sroa.0206.6, %177 ], [ %.sroa.0206.6, %176 ], [ %.sroa.0206.6, %175 ], [ %.sroa.0206.6, %174 ], [ %.sroa.0206.6, %171 ], [ %.sroa.0206.6, %164 ], [ %.sroa.0206.6, %172 ], [ %.sroa.0206.6, %173 ], [ %.sroa.0206.6, %178 ]
   %215 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %216 = load i32, ptr %215, align 8
   %.not70.i = icmp ne i32 %216, -1
@@ -3420,10 +3420,10 @@ repeatHasMatch.exit.thread294:                    ; preds = %197, %repeatHasMatc
   br label %runException64.exit
 
 runException64.exit:                              ; preds = %223, %183, %179, %190, %.critedge.i60.thread, %repeatHasMatch.exit, %repeatHasMatch.exit.thread294
-  %.5266 = phi i32 [ %.4265, %.critedge.i60.thread ], [ 2, %repeatHasMatch.exit.thread294 ], [ 2, %repeatHasMatch.exit ], [ 2, %190 ], [ 2, %179 ], [ 2, %183 ], [ %spec.select371, %223 ]
-  %.sroa.0206.10 = phi i8 [ %.sroa.0206.9, %.critedge.i60.thread ], [ %.sroa.0206.6, %repeatHasMatch.exit.thread294 ], [ %.sroa.0206.6, %repeatHasMatch.exit ], [ %.sroa.0206.6, %190 ], [ %.sroa.0206.6, %179 ], [ %.sroa.0206.6, %183 ], [ %.sroa.0206.9, %223 ]
-  %.2260 = phi i64 [ %220, %.critedge.i60.thread ], [ %.1259, %repeatHasMatch.exit.thread294 ], [ %.1259, %repeatHasMatch.exit ], [ %.1259, %190 ], [ %.1259, %179 ], [ %.1259, %183 ], [ %220, %223 ]
-  %.14256 = phi i64 [ %.9251, %.critedge.i60.thread ], [ %214, %repeatHasMatch.exit.thread294 ], [ %.9251, %repeatHasMatch.exit ], [ %.9251, %190 ], [ %.9251, %179 ], [ %.9251, %183 ], [ %225, %223 ]
+  %.5266 = phi i32 [ %.4265, %.critedge.i60.thread ], [ 2, %183 ], [ %spec.select371, %223 ], [ 2, %repeatHasMatch.exit.thread294 ], [ 2, %repeatHasMatch.exit ], [ 2, %190 ], [ 2, %179 ]
+  %.sroa.0206.10 = phi i8 [ %.sroa.0206.9, %.critedge.i60.thread ], [ %.sroa.0206.6, %183 ], [ %.sroa.0206.9, %223 ], [ %.sroa.0206.6, %repeatHasMatch.exit.thread294 ], [ %.sroa.0206.6, %repeatHasMatch.exit ], [ %.sroa.0206.6, %190 ], [ %.sroa.0206.6, %179 ]
+  %.2260 = phi i64 [ %220, %.critedge.i60.thread ], [ %.1259, %183 ], [ %220, %223 ], [ %.1259, %repeatHasMatch.exit.thread294 ], [ %.1259, %repeatHasMatch.exit ], [ %.1259, %190 ], [ %.1259, %179 ]
+  %.14256 = phi i64 [ %.9251, %.critedge.i60.thread ], [ %.9251, %183 ], [ %225, %223 ], [ %214, %repeatHasMatch.exit.thread294 ], [ %.9251, %repeatHasMatch.exit ], [ %.9251, %190 ], [ %.9251, %179 ]
   %.not54.i51 = icmp eq i64 %139, 0
   br i1 %.not54.i51, label %227, label %136
 
@@ -3456,7 +3456,7 @@ runException64.exit:                              ; preds = %223, %183, %179, %1
   br label %235
 
 235:                                              ; preds = %229, %231, %232, %234, %120, %129
-  %.7249.ph = phi i64 [ %131, %129 ], [ %.1243, %120 ], [ %230, %234 ], [ %230, %232 ], [ %230, %231 ], [ %230, %229 ]
+  %.7249.ph = phi i64 [ %.1243, %120 ], [ %131, %129 ], [ %230, %234 ], [ %230, %232 ], [ %230, %231 ], [ %230, %229 ]
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 %.058.i9397
   %237 = load i8, ptr %236, align 1
   %238 = zext i8 %237 to i64
@@ -3784,13 +3784,13 @@ nfaExecLimEx64_Loop_No_Accel.exit15.thread:       ; preds = %124
   br label %repeatHasMatch.exit96
 
 repeatHasMatch.exit96:                            ; preds = %390, %411, %413, %415, %417
-  %.0.i95 = phi i32 [ %391, %390 ], [ %412, %411 ], [ %414, %413 ], [ %416, %415 ], [ %418, %417 ]
+  %.0.i95 = phi i32 [ %416, %415 ], [ %391, %390 ], [ %418, %417 ], [ %414, %413 ], [ %412, %411 ]
   switch i32 %.0.i95, label %runException64.exit70 [
     i32 1, label %repeatHasMatch.exit96.thread321
     i32 2, label %repeatHasMatch.exit96.thread323
   ]
 
-repeatHasMatch.exit96.thread321:                  ; preds = %406, %388, %392, %repeatHasMatch.exit96
+repeatHasMatch.exit96.thread321:                  ; preds = %388, %392, %406, %repeatHasMatch.exit96
   %419 = getelementptr inbounds nuw i8, ptr %360, i64 32
   %420 = load i32, ptr %419, align 4
   %421 = icmp eq i32 %420, 65535
@@ -3803,9 +3803,9 @@ repeatHasMatch.exit96.thread323:                  ; preds = %406, %repeatHasMatc
   %423 = and i64 %422, %.9236
   br label %runException64.exit70
 
-.critedge.i64.thread:                             ; preds = %repeatHasMatch.exit96.thread321, %387, %386, %385, %384, %383, %380, %373, %381, %382, %345
-  %.3286 = phi i32 [ %.1284, %345 ], [ 2, %387 ], [ 2, %386 ], [ 2, %385 ], [ 2, %384 ], [ 2, %383 ], [ 2, %380 ], [ 2, %373 ], [ 2, %381 ], [ 2, %382 ], [ %spec.select372, %repeatHasMatch.exit96.thread321 ]
-  %.sroa.0190.9 = phi i8 [ %.sroa.0190.6, %345 ], [ %.sroa.0190.6, %387 ], [ %.sroa.0190.6, %386 ], [ %.sroa.0190.6, %385 ], [ %.sroa.0190.6, %384 ], [ %.sroa.0190.6, %383 ], [ %.sroa.0190.6, %380 ], [ %.sroa.0190.6, %373 ], [ %.sroa.0190.6, %381 ], [ %.sroa.0190.6, %382 ], [ %spec.select373, %repeatHasMatch.exit96.thread321 ]
+.critedge.i64.thread:                             ; preds = %repeatHasMatch.exit96.thread321, %386, %385, %384, %383, %380, %373, %381, %382, %387, %345
+  %.3286 = phi i32 [ %.1284, %345 ], [ %spec.select372, %repeatHasMatch.exit96.thread321 ], [ 2, %386 ], [ 2, %385 ], [ 2, %384 ], [ 2, %383 ], [ 2, %380 ], [ 2, %373 ], [ 2, %381 ], [ 2, %382 ], [ 2, %387 ]
+  %.sroa.0190.9 = phi i8 [ %.sroa.0190.6, %345 ], [ %spec.select373, %repeatHasMatch.exit96.thread321 ], [ %.sroa.0190.6, %386 ], [ %.sroa.0190.6, %385 ], [ %.sroa.0190.6, %384 ], [ %.sroa.0190.6, %383 ], [ %.sroa.0190.6, %380 ], [ %.sroa.0190.6, %373 ], [ %.sroa.0190.6, %381 ], [ %.sroa.0190.6, %382 ], [ %.sroa.0190.6, %387 ]
   %424 = getelementptr inbounds nuw i8, ptr %353, i64 16
   %425 = load i32, ptr %424, align 8
   %.not70.i67 = icmp ne i32 %425, -1
@@ -3831,10 +3831,10 @@ repeatHasMatch.exit96.thread323:                  ; preds = %406, %repeatHasMatc
   br label %runException64.exit70
 
 runException64.exit70:                            ; preds = %432, %392, %388, %399, %.critedge.i64.thread, %repeatHasMatch.exit96, %repeatHasMatch.exit96.thread323
-  %.5288 = phi i32 [ %.4287, %.critedge.i64.thread ], [ 2, %repeatHasMatch.exit96.thread323 ], [ 2, %repeatHasMatch.exit96 ], [ 2, %399 ], [ 2, %388 ], [ 2, %392 ], [ %spec.select376, %432 ]
-  %.sroa.0190.10 = phi i8 [ %.sroa.0190.9, %.critedge.i64.thread ], [ %.sroa.0190.6, %repeatHasMatch.exit96.thread323 ], [ %.sroa.0190.6, %repeatHasMatch.exit96 ], [ %.sroa.0190.6, %399 ], [ %.sroa.0190.6, %388 ], [ %.sroa.0190.6, %392 ], [ %.sroa.0190.9, %432 ]
-  %.2282 = phi i64 [ %429, %.critedge.i64.thread ], [ %.1281, %repeatHasMatch.exit96.thread323 ], [ %.1281, %repeatHasMatch.exit96 ], [ %.1281, %399 ], [ %.1281, %388 ], [ %.1281, %392 ], [ %429, %432 ]
-  %.14241 = phi i64 [ %.9236, %.critedge.i64.thread ], [ %423, %repeatHasMatch.exit96.thread323 ], [ %.9236, %repeatHasMatch.exit96 ], [ %.9236, %399 ], [ %.9236, %388 ], [ %.9236, %392 ], [ %434, %432 ]
+  %.5288 = phi i32 [ %.4287, %.critedge.i64.thread ], [ 2, %392 ], [ %spec.select376, %432 ], [ 2, %repeatHasMatch.exit96.thread323 ], [ 2, %repeatHasMatch.exit96 ], [ 2, %399 ], [ 2, %388 ]
+  %.sroa.0190.10 = phi i8 [ %.sroa.0190.9, %.critedge.i64.thread ], [ %.sroa.0190.6, %392 ], [ %.sroa.0190.9, %432 ], [ %.sroa.0190.6, %repeatHasMatch.exit96.thread323 ], [ %.sroa.0190.6, %repeatHasMatch.exit96 ], [ %.sroa.0190.6, %399 ], [ %.sroa.0190.6, %388 ]
+  %.2282 = phi i64 [ %429, %.critedge.i64.thread ], [ %.1281, %392 ], [ %429, %432 ], [ %.1281, %repeatHasMatch.exit96.thread323 ], [ %.1281, %repeatHasMatch.exit96 ], [ %.1281, %399 ], [ %.1281, %388 ]
+  %.14241 = phi i64 [ %.9236, %.critedge.i64.thread ], [ %.9236, %392 ], [ %434, %432 ], [ %423, %repeatHasMatch.exit96.thread323 ], [ %.9236, %repeatHasMatch.exit96 ], [ %.9236, %399 ], [ %.9236, %388 ]
   %.not54.i39 = icmp eq i64 %348, 0
   br i1 %.not54.i39, label %436, label %345
 
@@ -3867,7 +3867,7 @@ runException64.exit70:                            ; preds = %432, %392, %388, %3
   br label %444
 
 444:                                              ; preds = %438, %440, %441, %443, %329, %338
-  %.7234.ph = phi i64 [ %340, %338 ], [ %.1228, %329 ], [ %439, %443 ], [ %439, %441 ], [ %439, %440 ], [ %439, %438 ]
+  %.7234.ph = phi i64 [ %.1228, %329 ], [ %340, %338 ], [ %439, %443 ], [ %439, %441 ], [ %439, %440 ], [ %439, %438 ]
   %445 = getelementptr inbounds nuw i8, ptr %1, i64 %.058.i401
   %446 = load i8, ptr %445, align 1
   %447 = zext i8 %446 to i64
@@ -3886,9 +3886,9 @@ nfaExecLimEx64_Loop_No_Accel.exit:                ; preds = %333
   br label %nfaExecLimEx64_Stream.exit
 
 nfaExecLimEx64_Loop_No_Accel.exit15:              ; preds = %235, %271, %444, %39, %246, %6
-  %.0220 = phi i64 [ %26, %6 ], [ %.3223, %246 ], [ %.3223, %39 ], [ 0, %271 ], [ %453, %444 ], [ %244, %235 ]
-  %.0215 = phi i64 [ 0, %6 ], [ %.2217, %246 ], [ %.2217, %39 ], [ %.058.i401, %271 ], [ %.0111.i, %444 ], [ %.0111.i, %235 ]
-  %.1112.i = phi i64 [ 0, %6 ], [ %.2217, %246 ], [ %.2217, %39 ], [ %.0111.i, %444 ], [ %.0111.i, %271 ], [ %.0111.i, %235 ]
+  %.0220 = phi i64 [ %.3223, %39 ], [ %26, %6 ], [ %453, %444 ], [ %.3223, %246 ], [ 0, %271 ], [ %244, %235 ]
+  %.0215 = phi i64 [ %.2217, %39 ], [ 0, %6 ], [ %.0111.i, %444 ], [ %.2217, %246 ], [ %.058.i401, %271 ], [ %.0111.i, %235 ]
+  %.1112.i = phi i64 [ %.2217, %39 ], [ 0, %6 ], [ %.0111.i, %271 ], [ %.2217, %246 ], [ %.0111.i, %444 ], [ %.0111.i, %235 ]
   %.not125.i408 = icmp eq i64 %.0215, %2
   br i1 %.not125.i408, label %.loopexit, label %.lr.ph412
 
@@ -4221,13 +4221,13 @@ nfaExecLimEx64_Loop_No_Accel.exit15:              ; preds = %235, %271, %444, %3
   br label %repeatHasMatch.exit98
 
 repeatHasMatch.exit98:                            ; preds = %608, %629, %631, %633, %635
-  %.0.i97 = phi i32 [ %609, %608 ], [ %630, %629 ], [ %632, %631 ], [ %634, %633 ], [ %636, %635 ]
+  %.0.i97 = phi i32 [ %634, %633 ], [ %609, %608 ], [ %636, %635 ], [ %632, %631 ], [ %630, %629 ]
   switch i32 %.0.i97, label %runException64.exit78 [
     i32 1, label %repeatHasMatch.exit98.thread350
     i32 2, label %repeatHasMatch.exit98.thread352
   ]
 
-repeatHasMatch.exit98.thread350:                  ; preds = %624, %606, %610, %repeatHasMatch.exit98
+repeatHasMatch.exit98.thread350:                  ; preds = %606, %610, %624, %repeatHasMatch.exit98
   %637 = getelementptr inbounds nuw i8, ptr %578, i64 32
   %638 = load i32, ptr %637, align 4
   %639 = icmp eq i32 %638, 65535
@@ -4240,9 +4240,9 @@ repeatHasMatch.exit98.thread352:                  ; preds = %624, %repeatHasMatc
   %641 = and i64 %640, %.9
   br label %runException64.exit78
 
-.critedge.i72.thread:                             ; preds = %repeatHasMatch.exit98.thread350, %605, %604, %603, %602, %601, %598, %591, %599, %600, %563
-  %.sroa.0175.8 = phi i8 [ %.sroa.0175.5, %563 ], [ %.sroa.0175.5, %605 ], [ %.sroa.0175.5, %604 ], [ %.sroa.0175.5, %603 ], [ %.sroa.0175.5, %602 ], [ %.sroa.0175.5, %601 ], [ %.sroa.0175.5, %598 ], [ %.sroa.0175.5, %591 ], [ %.sroa.0175.5, %599 ], [ %.sroa.0175.5, %600 ], [ %spec.select378, %repeatHasMatch.exit98.thread350 ]
-  %.3270 = phi i32 [ %.1268, %563 ], [ 2, %605 ], [ 2, %604 ], [ 2, %603 ], [ 2, %602 ], [ 2, %601 ], [ 2, %598 ], [ 2, %591 ], [ 2, %599 ], [ 2, %600 ], [ %spec.select379, %repeatHasMatch.exit98.thread350 ]
+.critedge.i72.thread:                             ; preds = %repeatHasMatch.exit98.thread350, %604, %603, %602, %601, %598, %591, %599, %600, %605, %563
+  %.sroa.0175.8 = phi i8 [ %.sroa.0175.5, %563 ], [ %spec.select378, %repeatHasMatch.exit98.thread350 ], [ %.sroa.0175.5, %604 ], [ %.sroa.0175.5, %603 ], [ %.sroa.0175.5, %602 ], [ %.sroa.0175.5, %601 ], [ %.sroa.0175.5, %598 ], [ %.sroa.0175.5, %591 ], [ %.sroa.0175.5, %599 ], [ %.sroa.0175.5, %600 ], [ %.sroa.0175.5, %605 ]
+  %.3270 = phi i32 [ %.1268, %563 ], [ %spec.select379, %repeatHasMatch.exit98.thread350 ], [ 2, %604 ], [ 2, %603 ], [ 2, %602 ], [ 2, %601 ], [ 2, %598 ], [ 2, %591 ], [ 2, %599 ], [ 2, %600 ], [ 2, %605 ]
   %642 = getelementptr inbounds nuw i8, ptr %571, i64 16
   %643 = load i32, ptr %642, align 8
   %.not70.i75 = icmp ne i32 %643, -1
@@ -4268,10 +4268,10 @@ repeatHasMatch.exit98.thread352:                  ; preds = %624, %repeatHasMatc
   br label %runException64.exit78
 
 runException64.exit78:                            ; preds = %650, %610, %606, %617, %.critedge.i72.thread, %repeatHasMatch.exit98, %repeatHasMatch.exit98.thread352
-  %.2276 = phi i64 [ %647, %.critedge.i72.thread ], [ %.1275, %repeatHasMatch.exit98 ], [ %.1275, %repeatHasMatch.exit98.thread352 ], [ %.1275, %617 ], [ %.1275, %606 ], [ %.1275, %610 ], [ %647, %650 ]
-  %.sroa.0175.9 = phi i8 [ %.sroa.0175.8, %.critedge.i72.thread ], [ %.sroa.0175.5, %repeatHasMatch.exit98 ], [ %.sroa.0175.5, %repeatHasMatch.exit98.thread352 ], [ %.sroa.0175.5, %617 ], [ %.sroa.0175.5, %606 ], [ %.sroa.0175.5, %610 ], [ %.sroa.0175.8, %650 ]
-  %.5272 = phi i32 [ %.4271, %.critedge.i72.thread ], [ 2, %repeatHasMatch.exit98 ], [ 2, %repeatHasMatch.exit98.thread352 ], [ 2, %617 ], [ 2, %606 ], [ 2, %610 ], [ %spec.select382, %650 ]
-  %.14 = phi i64 [ %.9, %.critedge.i72.thread ], [ %.9, %repeatHasMatch.exit98 ], [ %641, %repeatHasMatch.exit98.thread352 ], [ %.9, %617 ], [ %.9, %606 ], [ %.9, %610 ], [ %652, %650 ]
+  %.2276 = phi i64 [ %647, %.critedge.i72.thread ], [ %.1275, %610 ], [ %647, %650 ], [ %.1275, %repeatHasMatch.exit98.thread352 ], [ %.1275, %repeatHasMatch.exit98 ], [ %.1275, %617 ], [ %.1275, %606 ]
+  %.sroa.0175.9 = phi i8 [ %.sroa.0175.8, %.critedge.i72.thread ], [ %.sroa.0175.5, %610 ], [ %.sroa.0175.8, %650 ], [ %.sroa.0175.5, %repeatHasMatch.exit98.thread352 ], [ %.sroa.0175.5, %repeatHasMatch.exit98 ], [ %.sroa.0175.5, %617 ], [ %.sroa.0175.5, %606 ]
+  %.5272 = phi i32 [ %.4271, %.critedge.i72.thread ], [ 2, %610 ], [ %spec.select382, %650 ], [ 2, %repeatHasMatch.exit98.thread352 ], [ 2, %repeatHasMatch.exit98 ], [ 2, %617 ], [ 2, %606 ]
+  %.14 = phi i64 [ %.9, %.critedge.i72.thread ], [ %.9, %610 ], [ %652, %650 ], [ %641, %repeatHasMatch.exit98.thread352 ], [ %.9, %repeatHasMatch.exit98 ], [ %.9, %617 ], [ %.9, %606 ]
   %.not54.i = icmp eq i64 %566, 0
   br i1 %.not54.i, label %654, label %563
 
@@ -4304,7 +4304,7 @@ runException64.exit78:                            ; preds = %650, %610, %606, %6
   br label %662
 
 662:                                              ; preds = %656, %658, %659, %661, %547, %556
-  %.7.ph = phi i64 [ %558, %556 ], [ %.1, %547 ], [ %657, %661 ], [ %657, %659 ], [ %657, %658 ], [ %657, %656 ]
+  %.7.ph = phi i64 [ %.1, %547 ], [ %558, %556 ], [ %657, %661 ], [ %657, %659 ], [ %657, %658 ], [ %657, %656 ]
   %663 = getelementptr inbounds nuw i8, ptr %1, i64 %.1216410
   %664 = load i8, ptr %663, align 1
   %665 = zext i8 %664 to i64
@@ -4596,7 +4596,7 @@ nfaExecLimEx64_HandleEvent.exit:                  ; preds = %nfaExecLimEx64_Hand
   br label %repeatLastTop.exit
 
 repeatLastTop.exit:                               ; preds = %125, %132, %134, %136, %138, %140, %142
-  %.0.i79 = phi i64 [ %133, %132 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ 0, %125 ]
+  %.0.i79 = phi i64 [ %143, %142 ], [ %133, %132 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ 0, %125 ]
   %144 = load i64, ptr %105, align 32
   %145 = and i64 %144, %118
   %.not37.i = icmp eq i64 %145, 0
@@ -4642,7 +4642,7 @@ repeatLastTop.exit:                               ; preds = %125, %132, %134, %1
   br i1 %168, label %107, label %limexExpireExtendedState64.exit
 
 limexExpireExtendedState64.exit:                  ; preds = %164, %._crit_edge, %97
-  %169 = phi i64 [ %.pre, %._crit_edge ], [ %.pre, %97 ], [ %165, %164 ]
+  %169 = phi i64 [ %.pre, %97 ], [ %.pre, %._crit_edge ], [ %165, %164 ]
   %170 = load ptr, ptr %12, align 8
   store i64 %169, ptr %170, align 8
   %171 = load ptr, ptr %15, align 16
@@ -4746,7 +4746,7 @@ limexExpireExtendedState64.exit:                  ; preds = %164, %._crit_edge, 
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %201, %222, %224, %226, %228
-  %.0.i75 = phi i32 [ %202, %201 ], [ %223, %222 ], [ %225, %224 ], [ %227, %226 ], [ %229, %228 ]
+  %.0.i75 = phi i32 [ %225, %224 ], [ %202, %201 ], [ %227, %226 ], [ %229, %228 ], [ %223, %222 ]
   %.not20.i = icmp eq i32 %.0.i75, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread96, label %repeatHasMatch.exit.thread
 
@@ -4755,8 +4755,8 @@ repeatHasMatch.exit.thread:                       ; preds = %217, %203, %193, %2
   %231 = and i64 %.089116, %230
   br label %repeatHasMatch.exit.thread96
 
-repeatHasMatch.exit.thread96:                     ; preds = %217, %193, %203, %repeatHasMatch.exit.thread, %repeatHasMatch.exit, %181
-  %.190 = phi i64 [ %.089116, %181 ], [ %.089116, %repeatHasMatch.exit ], [ %231, %repeatHasMatch.exit.thread ], [ %.089116, %203 ], [ %.089116, %193 ], [ %.089116, %217 ]
+repeatHasMatch.exit.thread96:                     ; preds = %193, %203, %217, %repeatHasMatch.exit.thread, %repeatHasMatch.exit, %181
+  %.190 = phi i64 [ %.089116, %181 ], [ %.089116, %repeatHasMatch.exit ], [ %231, %repeatHasMatch.exit.thread ], [ %.089116, %217 ], [ %.089116, %203 ], [ %.089116, %193 ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %232 = load i32, ptr %95, align 4
   %233 = zext i32 %232 to i64
@@ -5171,13 +5171,13 @@ define internal fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef %0, ptr no
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %176, %197, %199, %201, %203
-  %.0.i91 = phi i32 [ %177, %176 ], [ %198, %197 ], [ %200, %199 ], [ %202, %201 ], [ %204, %203 ]
+  %.0.i91 = phi i32 [ %202, %201 ], [ %177, %176 ], [ %204, %203 ], [ %200, %199 ], [ %198, %197 ]
   switch i32 %.0.i91, label %runException64.exit [
     i32 1, label %repeatHasMatch.exit.thread288
     i32 2, label %repeatHasMatch.exit.thread290
   ]
 
-repeatHasMatch.exit.thread288:                    ; preds = %192, %174, %178, %repeatHasMatch.exit
+repeatHasMatch.exit.thread288:                    ; preds = %174, %178, %192, %repeatHasMatch.exit
   %205 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %206 = load i32, ptr %205, align 4
   %207 = icmp eq i32 %206, 65535
@@ -5190,9 +5190,9 @@ repeatHasMatch.exit.thread290:                    ; preds = %192, %repeatHasMatc
   %209 = and i64 %208, %.9246
   br label %runException64.exit
 
-.critedge.i57.thread:                             ; preds = %repeatHasMatch.exit.thread288, %173, %172, %171, %170, %169, %166, %159, %167, %168, %131
-  %.3266 = phi i32 [ %.1264, %131 ], [ 2, %173 ], [ 2, %172 ], [ 2, %171 ], [ 2, %170 ], [ 2, %169 ], [ 2, %166 ], [ 2, %159 ], [ 2, %167 ], [ 2, %168 ], [ %spec.select, %repeatHasMatch.exit.thread288 ]
-  %.sroa.0202.9 = phi i8 [ %.sroa.0202.6, %131 ], [ %.sroa.0202.6, %173 ], [ %.sroa.0202.6, %172 ], [ %.sroa.0202.6, %171 ], [ %.sroa.0202.6, %170 ], [ %.sroa.0202.6, %169 ], [ %.sroa.0202.6, %166 ], [ %.sroa.0202.6, %159 ], [ %.sroa.0202.6, %167 ], [ %.sroa.0202.6, %168 ], [ %spec.select338, %repeatHasMatch.exit.thread288 ]
+.critedge.i57.thread:                             ; preds = %repeatHasMatch.exit.thread288, %172, %171, %170, %169, %166, %159, %167, %168, %173, %131
+  %.3266 = phi i32 [ %.1264, %131 ], [ %spec.select, %repeatHasMatch.exit.thread288 ], [ 2, %172 ], [ 2, %171 ], [ 2, %170 ], [ 2, %169 ], [ 2, %166 ], [ 2, %159 ], [ 2, %167 ], [ 2, %168 ], [ 2, %173 ]
+  %.sroa.0202.9 = phi i8 [ %.sroa.0202.6, %131 ], [ %spec.select338, %repeatHasMatch.exit.thread288 ], [ %.sroa.0202.6, %172 ], [ %.sroa.0202.6, %171 ], [ %.sroa.0202.6, %170 ], [ %.sroa.0202.6, %169 ], [ %.sroa.0202.6, %166 ], [ %.sroa.0202.6, %159 ], [ %.sroa.0202.6, %167 ], [ %.sroa.0202.6, %168 ], [ %.sroa.0202.6, %173 ]
   %210 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %211 = load i32, ptr %210, align 8
   %.not70.i = icmp ne i32 %211, -1
@@ -5218,10 +5218,10 @@ repeatHasMatch.exit.thread290:                    ; preds = %192, %repeatHasMatc
   br label %runException64.exit
 
 runException64.exit:                              ; preds = %218, %178, %174, %185, %.critedge.i57.thread, %repeatHasMatch.exit, %repeatHasMatch.exit.thread290
-  %.5268 = phi i32 [ %.4267, %.critedge.i57.thread ], [ 2, %repeatHasMatch.exit.thread290 ], [ 2, %repeatHasMatch.exit ], [ 2, %185 ], [ 2, %174 ], [ 2, %178 ], [ %spec.select339, %218 ]
-  %.sroa.0202.10 = phi i8 [ %.sroa.0202.9, %.critedge.i57.thread ], [ %.sroa.0202.6, %repeatHasMatch.exit.thread290 ], [ %.sroa.0202.6, %repeatHasMatch.exit ], [ %.sroa.0202.6, %185 ], [ %.sroa.0202.6, %174 ], [ %.sroa.0202.6, %178 ], [ %.sroa.0202.9, %218 ]
-  %.2256 = phi i64 [ %215, %.critedge.i57.thread ], [ %.1255, %repeatHasMatch.exit.thread290 ], [ %.1255, %repeatHasMatch.exit ], [ %.1255, %185 ], [ %.1255, %174 ], [ %.1255, %178 ], [ %215, %218 ]
-  %.14251 = phi i64 [ %.9246, %.critedge.i57.thread ], [ %209, %repeatHasMatch.exit.thread290 ], [ %.9246, %repeatHasMatch.exit ], [ %.9246, %185 ], [ %.9246, %174 ], [ %.9246, %178 ], [ %220, %218 ]
+  %.5268 = phi i32 [ %.4267, %.critedge.i57.thread ], [ 2, %178 ], [ %spec.select339, %218 ], [ 2, %repeatHasMatch.exit.thread290 ], [ 2, %repeatHasMatch.exit ], [ 2, %185 ], [ 2, %174 ]
+  %.sroa.0202.10 = phi i8 [ %.sroa.0202.9, %.critedge.i57.thread ], [ %.sroa.0202.6, %178 ], [ %.sroa.0202.9, %218 ], [ %.sroa.0202.6, %repeatHasMatch.exit.thread290 ], [ %.sroa.0202.6, %repeatHasMatch.exit ], [ %.sroa.0202.6, %185 ], [ %.sroa.0202.6, %174 ]
+  %.2256 = phi i64 [ %215, %.critedge.i57.thread ], [ %.1255, %178 ], [ %215, %218 ], [ %.1255, %repeatHasMatch.exit.thread290 ], [ %.1255, %repeatHasMatch.exit ], [ %.1255, %185 ], [ %.1255, %174 ]
+  %.14251 = phi i64 [ %.9246, %.critedge.i57.thread ], [ %.9246, %178 ], [ %220, %218 ], [ %209, %repeatHasMatch.exit.thread290 ], [ %.9246, %repeatHasMatch.exit ], [ %.9246, %185 ], [ %.9246, %174 ]
   %.not54.i48 = icmp eq i64 %134, 0
   br i1 %.not54.i48, label %222, label %131
 
@@ -5568,13 +5568,13 @@ nfaExecLimEx64_Run_Exceptions.exit:               ; preds = %224, %226, %227, %2
   br label %repeatHasMatch.exit93
 
 repeatHasMatch.exit93:                            ; preds = %380, %401, %403, %405, %407
-  %.0.i92 = phi i32 [ %381, %380 ], [ %402, %401 ], [ %404, %403 ], [ %406, %405 ], [ %408, %407 ]
+  %.0.i92 = phi i32 [ %406, %405 ], [ %381, %380 ], [ %408, %407 ], [ %404, %403 ], [ %402, %401 ]
   switch i32 %.0.i92, label %runException64.exit67 [
     i32 1, label %repeatHasMatch.exit93.thread306
     i32 2, label %repeatHasMatch.exit93.thread308
   ]
 
-repeatHasMatch.exit93.thread306:                  ; preds = %396, %378, %382, %repeatHasMatch.exit93
+repeatHasMatch.exit93.thread306:                  ; preds = %378, %382, %396, %repeatHasMatch.exit93
   %409 = getelementptr inbounds nuw i8, ptr %350, i64 32
   %410 = load i32, ptr %409, align 4
   %411 = icmp eq i32 %410, 65535
@@ -5587,9 +5587,9 @@ repeatHasMatch.exit93.thread308:                  ; preds = %396, %repeatHasMatc
   %413 = and i64 %412, %.9231
   br label %runException64.exit67
 
-.critedge.i61.thread:                             ; preds = %repeatHasMatch.exit93.thread306, %377, %376, %375, %374, %373, %370, %363, %371, %372, %335
-  %.sroa.0186.9 = phi i8 [ %.sroa.0186.6, %335 ], [ %.sroa.0186.6, %377 ], [ %.sroa.0186.6, %376 ], [ %.sroa.0186.6, %375 ], [ %.sroa.0186.6, %374 ], [ %.sroa.0186.6, %373 ], [ %.sroa.0186.6, %370 ], [ %.sroa.0186.6, %363 ], [ %.sroa.0186.6, %371 ], [ %.sroa.0186.6, %372 ], [ %spec.select340, %repeatHasMatch.exit93.thread306 ]
-  %.3282 = phi i32 [ %.1280, %335 ], [ 2, %377 ], [ 2, %376 ], [ 2, %375 ], [ 2, %374 ], [ 2, %373 ], [ 2, %370 ], [ 2, %363 ], [ 2, %371 ], [ 2, %372 ], [ %spec.select341, %repeatHasMatch.exit93.thread306 ]
+.critedge.i61.thread:                             ; preds = %repeatHasMatch.exit93.thread306, %376, %375, %374, %373, %370, %363, %371, %372, %377, %335
+  %.sroa.0186.9 = phi i8 [ %.sroa.0186.6, %335 ], [ %spec.select340, %repeatHasMatch.exit93.thread306 ], [ %.sroa.0186.6, %376 ], [ %.sroa.0186.6, %375 ], [ %.sroa.0186.6, %374 ], [ %.sroa.0186.6, %373 ], [ %.sroa.0186.6, %370 ], [ %.sroa.0186.6, %363 ], [ %.sroa.0186.6, %371 ], [ %.sroa.0186.6, %372 ], [ %.sroa.0186.6, %377 ]
+  %.3282 = phi i32 [ %.1280, %335 ], [ %spec.select341, %repeatHasMatch.exit93.thread306 ], [ 2, %376 ], [ 2, %375 ], [ 2, %374 ], [ 2, %373 ], [ 2, %370 ], [ 2, %363 ], [ 2, %371 ], [ 2, %372 ], [ 2, %377 ]
   %414 = getelementptr inbounds nuw i8, ptr %343, i64 16
   %415 = load i32, ptr %414, align 8
   %.not70.i64 = icmp ne i32 %415, -1
@@ -5615,10 +5615,10 @@ repeatHasMatch.exit93.thread308:                  ; preds = %396, %repeatHasMatc
   br label %runException64.exit67
 
 runException64.exit67:                            ; preds = %422, %382, %378, %389, %.critedge.i61.thread, %repeatHasMatch.exit93, %repeatHasMatch.exit93.thread308
-  %.sroa.0186.10 = phi i8 [ %.sroa.0186.9, %.critedge.i61.thread ], [ %.sroa.0186.6, %repeatHasMatch.exit93.thread308 ], [ %.sroa.0186.6, %repeatHasMatch.exit93 ], [ %.sroa.0186.6, %389 ], [ %.sroa.0186.6, %378 ], [ %.sroa.0186.6, %382 ], [ %.sroa.0186.9, %422 ]
-  %.5284 = phi i32 [ %.4283, %.critedge.i61.thread ], [ 2, %repeatHasMatch.exit93.thread308 ], [ 2, %repeatHasMatch.exit93 ], [ 2, %389 ], [ 2, %378 ], [ 2, %382 ], [ %spec.select344, %422 ]
-  %.2278 = phi i64 [ %419, %.critedge.i61.thread ], [ %.1277, %repeatHasMatch.exit93.thread308 ], [ %.1277, %repeatHasMatch.exit93 ], [ %.1277, %389 ], [ %.1277, %378 ], [ %.1277, %382 ], [ %419, %422 ]
-  %.14236 = phi i64 [ %.9231, %.critedge.i61.thread ], [ %413, %repeatHasMatch.exit93.thread308 ], [ %.9231, %repeatHasMatch.exit93 ], [ %.9231, %389 ], [ %.9231, %378 ], [ %.9231, %382 ], [ %424, %422 ]
+  %.sroa.0186.10 = phi i8 [ %.sroa.0186.9, %.critedge.i61.thread ], [ %.sroa.0186.6, %382 ], [ %.sroa.0186.9, %422 ], [ %.sroa.0186.6, %repeatHasMatch.exit93.thread308 ], [ %.sroa.0186.6, %repeatHasMatch.exit93 ], [ %.sroa.0186.6, %389 ], [ %.sroa.0186.6, %378 ]
+  %.5284 = phi i32 [ %.4283, %.critedge.i61.thread ], [ 2, %382 ], [ %spec.select344, %422 ], [ 2, %repeatHasMatch.exit93.thread308 ], [ 2, %repeatHasMatch.exit93 ], [ 2, %389 ], [ 2, %378 ]
+  %.2278 = phi i64 [ %419, %.critedge.i61.thread ], [ %.1277, %382 ], [ %419, %422 ], [ %.1277, %repeatHasMatch.exit93.thread308 ], [ %.1277, %repeatHasMatch.exit93 ], [ %.1277, %389 ], [ %.1277, %378 ]
+  %.14236 = phi i64 [ %.9231, %.critedge.i61.thread ], [ %.9231, %382 ], [ %424, %422 ], [ %413, %repeatHasMatch.exit93.thread308 ], [ %.9231, %repeatHasMatch.exit93 ], [ %.9231, %389 ], [ %.9231, %378 ]
   %.not54.i36 = icmp eq i64 %338, 0
   br i1 %.not54.i36, label %426, label %335
 
@@ -5666,9 +5666,9 @@ nfaExecLimEx64_Run_Exceptions.exit23:             ; preds = %428, %430, %431, %4
   br i1 %.not.i4, label %nfaExecLimEx64_Loop_No_Accel.exit14, label %264
 
 nfaExecLimEx64_Loop_No_Accel.exit14:              ; preds = %nfaExecLimEx64_Run_Exceptions.exit, %nfaExecLimEx64_Run_Exceptions.exit23, %264, %38, %240, %5
-  %.0215 = phi i64 [ %25, %5 ], [ %.3218, %240 ], [ %.3218, %38 ], [ %442, %nfaExecLimEx64_Run_Exceptions.exit23 ], [ 0, %264 ], [ %238, %nfaExecLimEx64_Run_Exceptions.exit ]
-  %.0210 = phi i64 [ 0, %5 ], [ %.2212, %240 ], [ %.2212, %38 ], [ %.0111.i, %nfaExecLimEx64_Run_Exceptions.exit23 ], [ %.058.i363, %264 ], [ %.0111.i, %nfaExecLimEx64_Run_Exceptions.exit ]
-  %.1112.i = phi i64 [ 0, %5 ], [ %.2212, %240 ], [ %.2212, %38 ], [ %.0111.i, %264 ], [ %.0111.i, %nfaExecLimEx64_Run_Exceptions.exit23 ], [ %.0111.i, %nfaExecLimEx64_Run_Exceptions.exit ]
+  %.0215 = phi i64 [ %.3218, %38 ], [ %25, %5 ], [ 0, %264 ], [ %.3218, %240 ], [ %442, %nfaExecLimEx64_Run_Exceptions.exit23 ], [ %238, %nfaExecLimEx64_Run_Exceptions.exit ]
+  %.0210 = phi i64 [ %.2212, %38 ], [ 0, %5 ], [ %.058.i363, %264 ], [ %.2212, %240 ], [ %.0111.i, %nfaExecLimEx64_Run_Exceptions.exit23 ], [ %.0111.i, %nfaExecLimEx64_Run_Exceptions.exit ]
+  %.1112.i = phi i64 [ %.2212, %38 ], [ 0, %5 ], [ %.0111.i, %nfaExecLimEx64_Run_Exceptions.exit23 ], [ %.2212, %240 ], [ %.0111.i, %264 ], [ %.0111.i, %nfaExecLimEx64_Run_Exceptions.exit ]
   %.not125.i370 = icmp eq i64 %.0210, %2
   br i1 %.not125.i370, label %nfaExecLimEx64_Stream.exit, label %.lr.ph373
 
@@ -5991,13 +5991,13 @@ nfaExecLimEx64_Loop_No_Accel.exit14:              ; preds = %nfaExecLimEx64_Run_
   br label %repeatHasMatch.exit95
 
 repeatHasMatch.exit95:                            ; preds = %593, %614, %616, %618, %620
-  %.0.i94 = phi i32 [ %594, %593 ], [ %615, %614 ], [ %617, %616 ], [ %619, %618 ], [ %621, %620 ]
+  %.0.i94 = phi i32 [ %619, %618 ], [ %594, %593 ], [ %621, %620 ], [ %617, %616 ], [ %615, %614 ]
   switch i32 %.0.i94, label %runException64.exit75 [
     i32 1, label %repeatHasMatch.exit95.thread324
     i32 2, label %repeatHasMatch.exit95.thread326
   ]
 
-repeatHasMatch.exit95.thread324:                  ; preds = %609, %591, %595, %repeatHasMatch.exit95
+repeatHasMatch.exit95.thread324:                  ; preds = %591, %595, %609, %repeatHasMatch.exit95
   %622 = getelementptr inbounds nuw i8, ptr %563, i64 32
   %623 = load i32, ptr %622, align 4
   %624 = icmp eq i32 %623, 65535
@@ -6010,9 +6010,9 @@ repeatHasMatch.exit95.thread326:                  ; preds = %609, %repeatHasMatc
   %626 = and i64 %625, %.9
   br label %runException64.exit75
 
-.critedge.i69.thread:                             ; preds = %repeatHasMatch.exit95.thread324, %590, %589, %588, %587, %586, %583, %576, %584, %585, %548
-  %.sroa.0171.8 = phi i8 [ %.sroa.0171.5, %548 ], [ %.sroa.0171.5, %590 ], [ %.sroa.0171.5, %589 ], [ %.sroa.0171.5, %588 ], [ %.sroa.0171.5, %587 ], [ %.sroa.0171.5, %586 ], [ %.sroa.0171.5, %583 ], [ %.sroa.0171.5, %576 ], [ %.sroa.0171.5, %584 ], [ %.sroa.0171.5, %585 ], [ %spec.select346, %repeatHasMatch.exit95.thread324 ]
-  %.3260 = phi i32 [ %.1258, %548 ], [ 2, %590 ], [ 2, %589 ], [ 2, %588 ], [ 2, %587 ], [ 2, %586 ], [ 2, %583 ], [ 2, %576 ], [ 2, %584 ], [ 2, %585 ], [ %spec.select347, %repeatHasMatch.exit95.thread324 ]
+.critedge.i69.thread:                             ; preds = %repeatHasMatch.exit95.thread324, %589, %588, %587, %586, %583, %576, %584, %585, %590, %548
+  %.sroa.0171.8 = phi i8 [ %.sroa.0171.5, %548 ], [ %spec.select346, %repeatHasMatch.exit95.thread324 ], [ %.sroa.0171.5, %589 ], [ %.sroa.0171.5, %588 ], [ %.sroa.0171.5, %587 ], [ %.sroa.0171.5, %586 ], [ %.sroa.0171.5, %583 ], [ %.sroa.0171.5, %576 ], [ %.sroa.0171.5, %584 ], [ %.sroa.0171.5, %585 ], [ %.sroa.0171.5, %590 ]
+  %.3260 = phi i32 [ %.1258, %548 ], [ %spec.select347, %repeatHasMatch.exit95.thread324 ], [ 2, %589 ], [ 2, %588 ], [ 2, %587 ], [ 2, %586 ], [ 2, %583 ], [ 2, %576 ], [ 2, %584 ], [ 2, %585 ], [ 2, %590 ]
   %627 = getelementptr inbounds nuw i8, ptr %556, i64 16
   %628 = load i32, ptr %627, align 8
   %.not70.i72 = icmp ne i32 %628, -1
@@ -6038,10 +6038,10 @@ repeatHasMatch.exit95.thread326:                  ; preds = %609, %repeatHasMatc
   br label %runException64.exit75
 
 runException64.exit75:                            ; preds = %635, %595, %591, %602, %.critedge.i69.thread, %repeatHasMatch.exit95, %repeatHasMatch.exit95.thread326
-  %.2271 = phi i64 [ %632, %.critedge.i69.thread ], [ %.1270, %repeatHasMatch.exit95 ], [ %.1270, %repeatHasMatch.exit95.thread326 ], [ %.1270, %602 ], [ %.1270, %591 ], [ %.1270, %595 ], [ %632, %635 ]
-  %.sroa.0171.9 = phi i8 [ %.sroa.0171.8, %.critedge.i69.thread ], [ %.sroa.0171.5, %repeatHasMatch.exit95 ], [ %.sroa.0171.5, %repeatHasMatch.exit95.thread326 ], [ %.sroa.0171.5, %602 ], [ %.sroa.0171.5, %591 ], [ %.sroa.0171.5, %595 ], [ %.sroa.0171.8, %635 ]
-  %.5262 = phi i32 [ %.4261, %.critedge.i69.thread ], [ 2, %repeatHasMatch.exit95 ], [ 2, %repeatHasMatch.exit95.thread326 ], [ 2, %602 ], [ 2, %591 ], [ 2, %595 ], [ %spec.select350, %635 ]
-  %.14 = phi i64 [ %.9, %.critedge.i69.thread ], [ %.9, %repeatHasMatch.exit95 ], [ %626, %repeatHasMatch.exit95.thread326 ], [ %.9, %602 ], [ %.9, %591 ], [ %.9, %595 ], [ %637, %635 ]
+  %.2271 = phi i64 [ %632, %.critedge.i69.thread ], [ %.1270, %595 ], [ %632, %635 ], [ %.1270, %repeatHasMatch.exit95.thread326 ], [ %.1270, %repeatHasMatch.exit95 ], [ %.1270, %602 ], [ %.1270, %591 ]
+  %.sroa.0171.9 = phi i8 [ %.sroa.0171.8, %.critedge.i69.thread ], [ %.sroa.0171.5, %595 ], [ %.sroa.0171.8, %635 ], [ %.sroa.0171.5, %repeatHasMatch.exit95.thread326 ], [ %.sroa.0171.5, %repeatHasMatch.exit95 ], [ %.sroa.0171.5, %602 ], [ %.sroa.0171.5, %591 ]
+  %.5262 = phi i32 [ %.4261, %.critedge.i69.thread ], [ 2, %595 ], [ %spec.select350, %635 ], [ 2, %repeatHasMatch.exit95.thread326 ], [ 2, %repeatHasMatch.exit95 ], [ 2, %602 ], [ 2, %591 ]
+  %.14 = phi i64 [ %.9, %.critedge.i69.thread ], [ %.9, %595 ], [ %637, %635 ], [ %626, %repeatHasMatch.exit95.thread326 ], [ %.9, %repeatHasMatch.exit95 ], [ %.9, %602 ], [ %.9, %591 ]
   %.not54.i = icmp eq i64 %551, 0
   br i1 %.not54.i, label %639, label %548
 
@@ -6205,7 +6205,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_testEOD(ptr noundef %0, 
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %44, %65, %67, %69, %71
-  %.0.i12 = phi i32 [ %45, %44 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ]
+  %.0.i12 = phi i32 [ %68, %67 ], [ %45, %44 ], [ %70, %69 ], [ %72, %71 ], [ %66, %65 ]
   %.not20.i = icmp eq i32 %.0.i12, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread25, label %repeatHasMatch.exit.thread
 
@@ -6214,8 +6214,8 @@ repeatHasMatch.exit.thread:                       ; preds = %60, %46, %36, %53, 
   %74 = and i64 %.028, %73
   br label %repeatHasMatch.exit.thread25
 
-repeatHasMatch.exit.thread25:                     ; preds = %60, %36, %46, %repeatHasMatch.exit.thread, %repeatHasMatch.exit, %24
-  %.1 = phi i64 [ %.028, %24 ], [ %.028, %repeatHasMatch.exit ], [ %74, %repeatHasMatch.exit.thread ], [ %.028, %46 ], [ %.028, %36 ], [ %.028, %60 ]
+repeatHasMatch.exit.thread25:                     ; preds = %36, %46, %60, %repeatHasMatch.exit.thread, %repeatHasMatch.exit, %24
+  %.1 = phi i64 [ %.028, %24 ], [ %.028, %repeatHasMatch.exit ], [ %74, %repeatHasMatch.exit.thread ], [ %.028, %60 ], [ %.028, %46 ], [ %.028, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %21, align 4
   %76 = zext i32 %75 to i64
@@ -6399,7 +6399,7 @@ define hidden noundef signext i8 @nfaExecLimEx64_B_Reverse(ptr noundef %0, i64 n
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %58, %60, %62, %64, %66
-  %.0.i31 = phi i32 [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ]
+  %.0.i31 = phi i32 [ %63, %62 ], [ %59, %58 ], [ %65, %64 ], [ %67, %66 ], [ %61, %60 ]
   %.not20.i = icmp eq i32 %.0.i31, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread46, label %repeatHasMatch.exit.thread
 
@@ -6673,8 +6673,8 @@ limexRunReports.exit.i83:                         ; preds = %135, %129
   br label %.thread
 
 .thread:                                          ; preds = %141, %limexRunReports.exit.i83, %118
-  %.3124 = phi i32 [ %.1122, %118 ], [ 0, %limexRunReports.exit.i83 ], [ %spec.select, %141 ]
-  %.sroa.4105.6 = phi ptr [ %.sroa.4105.3, %118 ], [ %.sroa.4105.3, %limexRunReports.exit.i83 ], [ %spec.select183, %141 ]
+  %.3124 = phi i32 [ %.1122, %118 ], [ %spec.select, %141 ], [ 0, %limexRunReports.exit.i83 ]
+  %.sroa.4105.6 = phi ptr [ %.sroa.4105.3, %118 ], [ %spec.select183, %141 ], [ %.sroa.4105.3, %limexRunReports.exit.i83 ]
   %143 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %144 = load i64, ptr %143, align 8
   %145 = or i64 %144, %.1119
@@ -6693,8 +6693,8 @@ limexRunReports.exit.i83:                         ; preds = %135, %129
   br label %152
 
 152:                                              ; preds = %148, %.thread
-  %.4125.ph = phi i32 [ %.3124, %.thread ], [ %spec.select184, %148 ]
-  %.12.ph = phi i64 [ %.9, %.thread ], [ %150, %148 ]
+  %.4125.ph = phi i32 [ %spec.select184, %148 ], [ %.3124, %.thread ]
+  %.12.ph = phi i64 [ %150, %148 ], [ %.9, %.thread ]
   %.not54.i = icmp eq i64 %121, 0
   br i1 %.not54.i, label %153, label %118
 
@@ -6715,7 +6715,7 @@ limexRunReports.exit.i83:                         ; preds = %135, %129
   br label %processExceptional64.exit.thread
 
 processExceptional64.exit.thread:                 ; preds = %108, %104, %156, %154, %100, %95
-  %.7.ph = phi i64 [ %.6, %95 ], [ %102, %100 ], [ %155, %154 ], [ %155, %156 ], [ %102, %104 ], [ %102, %108 ]
+  %.7.ph = phi i64 [ %102, %100 ], [ %.6, %95 ], [ %155, %156 ], [ %155, %154 ], [ %102, %104 ], [ %102, %108 ]
   %157 = getelementptr i8, ptr %1, i64 %.072196
   %158 = getelementptr i8, ptr %157, i64 -1
   %159 = load i8, ptr %158, align 1
@@ -6879,7 +6879,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_inAccept(ptr noundef %0,
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %54, %75, %77, %79, %81
-  %.0.i14 = phi i32 [ %55, %54 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ]
+  %.0.i14 = phi i32 [ %78, %77 ], [ %55, %54 ], [ %80, %79 ], [ %82, %81 ], [ %76, %75 ]
   %.not20.i = icmp eq i32 %.0.i14, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread31, label %repeatHasMatch.exit.thread
 
@@ -6888,8 +6888,8 @@ repeatHasMatch.exit.thread:                       ; preds = %70, %56, %46, %63, 
   %84 = and i64 %.02640, %83
   br label %repeatHasMatch.exit.thread31
 
-repeatHasMatch.exit.thread31:                     ; preds = %70, %46, %56, %repeatHasMatch.exit.thread, %repeatHasMatch.exit, %34
-  %.1 = phi i64 [ %.02640, %34 ], [ %.02640, %repeatHasMatch.exit ], [ %84, %repeatHasMatch.exit.thread ], [ %.02640, %56 ], [ %.02640, %46 ], [ %.02640, %70 ]
+repeatHasMatch.exit.thread31:                     ; preds = %46, %56, %70, %repeatHasMatch.exit.thread, %repeatHasMatch.exit, %34
+  %.1 = phi i64 [ %.02640, %34 ], [ %.02640, %repeatHasMatch.exit ], [ %84, %repeatHasMatch.exit.thread ], [ %.02640, %70 ], [ %.02640, %56 ], [ %.02640, %46 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load i32, ptr %31, align 4
   %86 = zext i32 %85 to i64
@@ -6950,7 +6950,7 @@ limexAcceptHasReport.exit:                        ; preds = %.critedge.preheader
   br i1 %.not10.i, label %.critedge.backedge, label %106
 
 limexInAccept64.exit:                             ; preds = %.critedge.backedge, %limexAcceptHasReport.exit, %106, %lazyTug64.exit, %3
-  %.0.i = phi i8 [ 0, %3 ], [ 0, %lazyTug64.exit ], [ 1, %106 ], [ 0, %.critedge.backedge ], [ 1, %limexAcceptHasReport.exit ]
+  %.0.i = phi i8 [ 0, %3 ], [ 0, %lazyTug64.exit ], [ 1, %106 ], [ 1, %limexAcceptHasReport.exit ], [ 0, %.critedge.backedge ]
   ret i8 %.0.i
 }
 
@@ -7077,7 +7077,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx64_inAnyAccept(ptr noundef 
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %53, %74, %76, %78, %80
-  %.0.i12 = phi i32 [ %54, %53 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ]
+  %.0.i12 = phi i32 [ %77, %76 ], [ %54, %53 ], [ %79, %78 ], [ %81, %80 ], [ %75, %74 ]
   %.not20.i = icmp eq i32 %.0.i12, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread22, label %repeatHasMatch.exit.thread
 
@@ -7086,8 +7086,8 @@ repeatHasMatch.exit.thread:                       ; preds = %69, %55, %45, %62, 
   %83 = and i64 %.025, %82
   br label %repeatHasMatch.exit.thread22
 
-repeatHasMatch.exit.thread22:                     ; preds = %69, %45, %55, %repeatHasMatch.exit.thread, %repeatHasMatch.exit, %33
-  %.1 = phi i64 [ %.025, %33 ], [ %.025, %repeatHasMatch.exit ], [ %83, %repeatHasMatch.exit.thread ], [ %.025, %55 ], [ %.025, %45 ], [ %.025, %69 ]
+repeatHasMatch.exit.thread22:                     ; preds = %45, %55, %69, %repeatHasMatch.exit.thread, %repeatHasMatch.exit, %33
+  %.1 = phi i64 [ %.025, %33 ], [ %.025, %repeatHasMatch.exit ], [ %83, %repeatHasMatch.exit.thread ], [ %.025, %69 ], [ %.025, %55 ], [ %.025, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = load i32, ptr %30, align 4
   %85 = zext i32 %84 to i64
@@ -7215,7 +7215,7 @@ define hidden range(i32 0, 2) i32 @nfaExecLimEx64_zombie_status(ptr noundef %0, 
   br label %repeatHasMatch.exit
 
 repeatHasMatch.exit:                              ; preds = %44, %65, %67, %69, %71
-  %.0.i15 = phi i32 [ %45, %44 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ]
+  %.0.i15 = phi i32 [ %68, %67 ], [ %45, %44 ], [ %70, %69 ], [ %72, %71 ], [ %66, %65 ]
   %.not20.i = icmp eq i32 %.0.i15, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread25, label %repeatHasMatch.exit.thread
 
@@ -7224,8 +7224,8 @@ repeatHasMatch.exit.thread:                       ; preds = %60, %46, %36, %53, 
   %74 = and i64 %.128, %73
   br label %repeatHasMatch.exit.thread25
 
-repeatHasMatch.exit.thread25:                     ; preds = %60, %36, %46, %repeatHasMatch.exit.thread, %repeatHasMatch.exit, %24
-  %.2 = phi i64 [ %.128, %24 ], [ %.128, %repeatHasMatch.exit ], [ %74, %repeatHasMatch.exit.thread ], [ %.128, %46 ], [ %.128, %36 ], [ %.128, %60 ]
+repeatHasMatch.exit.thread25:                     ; preds = %36, %46, %60, %repeatHasMatch.exit.thread, %repeatHasMatch.exit, %24
+  %.2 = phi i64 [ %.128, %24 ], [ %.128, %repeatHasMatch.exit ], [ %74, %repeatHasMatch.exit.thread ], [ %.128, %60 ], [ %.128, %46 ], [ %.128, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %9, align 4
   %76 = zext i32 %75 to i64
@@ -7303,7 +7303,7 @@ limexRunAccept.exit.thread8:                      ; preds = %22, %18, %limexRunA
   br i1 %.not.i, label %moProcessAcceptsImpl64.exit, label %.preheader
 
 moProcessAcceptsImpl64.exit:                      ; preds = %limexRunAccept.exit.thread8, %limexRunAccept.exit, %.lr.ph, %5
-  %.035.i17 = phi i8 [ 0, %5 ], [ 1, %.lr.ph ], [ 0, %limexRunAccept.exit.thread8 ], [ 1, %limexRunAccept.exit ]
+  %.035.i17 = phi i8 [ 1, %.lr.ph ], [ 0, %5 ], [ 0, %limexRunAccept.exit.thread8 ], [ 1, %limexRunAccept.exit ]
   ret i8 %.035.i17
 }
 
@@ -7365,7 +7365,7 @@ limexRunAccept.exit.thread10:                     ; preds = %22, %limexRunAccept
   br i1 %.not.i, label %moProcessAcceptsImpl64.exit, label %.preheader
 
 moProcessAcceptsImpl64.exit:                      ; preds = %limexRunAccept.exit.thread10, %limexRunAccept.exit, %.lr.ph, %5
-  %.035.i22 = phi i8 [ 0, %5 ], [ 1, %.lr.ph ], [ 0, %limexRunAccept.exit.thread10 ], [ 1, %limexRunAccept.exit ]
+  %.035.i22 = phi i8 [ 1, %.lr.ph ], [ 0, %5 ], [ 0, %limexRunAccept.exit.thread10 ], [ 1, %limexRunAccept.exit ]
   ret i8 %.035.i22
 }
 

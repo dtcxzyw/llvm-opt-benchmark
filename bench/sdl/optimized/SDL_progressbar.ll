@@ -217,7 +217,7 @@ GetDBUSObjectPath.exit:                           ; preds = %._crit_edge.i, %32
   br label %GetDBUSObjectPath.exit.thread
 
 GetDBUSObjectPath.exit.thread:                    ; preds = %18, %GetDBUSObjectPath.exit, %105, %43, %2, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %2 ], [ false, %GetDBUSObjectPath.exit ], [ %.not.i43, %105 ], [ false, %43 ], [ false, %18 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %16 ], [ false, %GetDBUSObjectPath.exit ], [ %.not.i43, %105 ], [ false, %43 ], [ false, %18 ]
   ret i1 %.0
 }
 

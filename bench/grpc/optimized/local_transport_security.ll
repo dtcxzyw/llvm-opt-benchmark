@@ -170,7 +170,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi48EEERS2_RAT__Kc.exit.i: ; 
   br label %_ZN12_GLOBAL__N_124create_handshaker_resultEPKhmPP21tsi_handshaker_result.exit
 
 _ZN12_GLOBAL__N_124create_handshaker_resultEPKhmPP21tsi_handshaker_result.exit: ; preds = %30, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi48EEERS2_RAT__Kc.exit.i, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit, %14
-  %.0 = phi i32 [ 2, %14 ], [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit ], [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi48EEERS2_RAT__Kc.exit.i ], [ 0, %30 ]
+  %.0 = phi i32 [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit ], [ 2, %14 ], [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi48EEERS2_RAT__Kc.exit.i ], [ 0, %30 ]
   ret i32 %.0
 }
 

@@ -166,7 +166,7 @@ lor.rhs:                                          ; preds = %do.body
   br label %lor.end
 
 lor.end:                                          ; preds = %do.body, %lor.rhs
-  %lnot = phi i1 [ %.not, %lor.rhs ], [ false, %do.body ]
+  %lnot = phi i1 [ false, %do.body ], [ %.not, %lor.rhs ]
   %inc = add i32 %Count.0, 1
   %cmp8 = icmp ult i32 %inc, %PadTo
   %or.cond21 = select i1 %lnot, i1 true, i1 %cmp8

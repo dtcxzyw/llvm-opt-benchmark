@@ -449,9 +449,9 @@ _Z16checkOverlapRectPKfS0_S0_S0_.exit:            ; preds = %30
   br label %49
 
 45:                                               ; preds = %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread, %_Z16checkOverlapRectPKfS0_S0_S0_.exit
-  %46 = phi i1 [ %40, %_Z16checkOverlapRectPKfS0_S0_S0_.exit ], [ %37, %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread ]
-  %47 = phi ptr [ %38, %_Z16checkOverlapRectPKfS0_S0_S0_.exit ], [ %35, %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread ]
-  %48 = phi i1 [ %25, %_Z16checkOverlapRectPKfS0_S0_S0_.exit ], [ false, %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread ]
+  %46 = phi i1 [ %37, %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread ], [ %40, %_Z16checkOverlapRectPKfS0_S0_S0_.exit ]
+  %47 = phi ptr [ %35, %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread ], [ %38, %_Z16checkOverlapRectPKfS0_S0_S0_.exit ]
+  %48 = phi i1 [ false, %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread ], [ %25, %_Z16checkOverlapRectPKfS0_S0_S0_.exit ]
   %or.cond3 = or i1 %46, %48
   br i1 %or.cond3, label %49, label %51
 

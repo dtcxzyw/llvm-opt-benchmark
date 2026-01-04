@@ -639,7 +639,7 @@ define hidden i32 @packet_range_check(ptr noundef readonly captures(none) %0) lo
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %1, %3, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 0, %1 ], [ %12, %.thread.sink.split ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %3 ], [ 0, %7 ], [ %12, %.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -915,7 +915,7 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr noundef captu
   br label %packet_range_process_packet_include_depends.exit
 
 packet_range_process_packet_include_depends.exit: ; preds = %86, %81, %77, %66, %62, %51, %47, %36, %32, %20, %127, %117, %106, %98, %93, %88, %6, %132
-  %.0 = phi i32 [ 0, %132 ], [ 1, %6 ], [ 1, %88 ], [ 1, %93 ], [ 2, %98 ], [ 1, %106 ], [ 1, %117 ], [ 1, %127 ], [ 0, %86 ], [ 1, %20 ], [ 1, %32 ], [ 1, %36 ], [ 1, %47 ], [ 1, %51 ], [ 1, %62 ], [ 1, %66 ], [ 1, %77 ], [ 1, %81 ]
+  %.0 = phi i32 [ 1, %106 ], [ 1, %127 ], [ 1, %117 ], [ 0, %132 ], [ 1, %6 ], [ 1, %88 ], [ 1, %93 ], [ 2, %98 ], [ 1, %77 ], [ 0, %86 ], [ 1, %20 ], [ 1, %32 ], [ 1, %36 ], [ 1, %47 ], [ 1, %51 ], [ 1, %62 ], [ 1, %66 ], [ 1, %81 ]
   ret i32 %.0
 }
 

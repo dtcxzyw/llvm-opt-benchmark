@@ -314,7 +314,7 @@ define hidden void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$ser
   unreachable
 
 common.resume:                                    ; preds = %19, %36, %24
-  %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %37, %36 ], [ %20, %19 ]
+  %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %25, %24 ], [ %20, %19 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17hc540cf75f33ab1a7E.exit": ; preds = %26
@@ -573,7 +573,7 @@ _ZN5serde2de9SeqAccess12next_element17h8c0294c810352590E.exit.thread: ; preds = 
   unreachable
 
 common.resume:                                    ; preds = %20, %33, %25
-  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %34, %33 ], [ %21, %20 ]
+  %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %26, %25 ], [ %21, %20 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr57drop_in_place$LT$toml_edit..de..array..ArraySeqAccess$GT$17hc540cf75f33ab1a7E.exit": ; preds = %27

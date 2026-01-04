@@ -2609,7 +2609,7 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
   br i1 %154, label %.thread13, label %23, !llvm.loop !54
 
 .thread13:                                        ; preds = %.thread14, %139, %145, %149, %136
-  %155 = phi i32 [ 0, %136 ], [ 0, %149 ], [ 0, %145 ], [ 0, %139 ], [ -2, %.thread14 ]
+  %155 = phi i32 [ 0, %139 ], [ 0, %145 ], [ 0, %136 ], [ 0, %149 ], [ -2, %.thread14 ]
   call void @__rcu_read_unlock() #16
   ret i32 %155
 }

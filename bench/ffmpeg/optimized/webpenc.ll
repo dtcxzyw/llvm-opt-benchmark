@@ -90,8 +90,8 @@ is_animated_webp_packet.exit:                     ; preds = %.thread.i, %21
   store i32 %43, ptr %41, align 8, !tbaa !38
   br label %is_animated_webp_packet.exit.thread
 
-is_animated_webp_packet.exit.thread:              ; preds = %9, %7, %2, %40
-  %.0 = phi i32 [ 0, %40 ], [ 0, %2 ], [ -1094995529, %7 ], [ -1094995529, %9 ]
+is_animated_webp_packet.exit.thread:              ; preds = %7, %9, %2, %40
+  %.0 = phi i32 [ 0, %2 ], [ 0, %40 ], [ -1094995529, %9 ], [ -1094995529, %7 ]
   ret i32 %.0
 }
 
@@ -242,8 +242,8 @@ define internal fastcc range(i32 0, 2) i32 @flush(ptr noundef readonly captures(
   br label %43
 
 40:                                               ; preds = %._crit_edge, %33
-  %41 = phi i32 [ %38, %33 ], [ %.pre, %._crit_edge ]
-  %.0128 = phi ptr [ %36, %33 ], [ %4, %._crit_edge ]
+  %41 = phi i32 [ %.pre, %._crit_edge ], [ %38, %33 ]
+  %.0128 = phi ptr [ %4, %._crit_edge ], [ %36, %33 ]
   %42 = icmp eq i32 %41, 1
   br i1 %42, label %43, label %.thread142
 

@@ -380,7 +380,7 @@ edata_cache_fast_try_fill_from_fallback.exit:     ; preds = %malloc_mutex_lock.e
   br label %edata_list_inactive_remove.exit
 
 edata_list_inactive_remove.exit:                  ; preds = %101, %.thread.i24, %30, %.thread.i, %102, %5
-  %.019 = phi ptr [ %8, %5 ], [ %106, %102 ], [ %.val, %.thread.i ], [ %.val, %30 ], [ %.val23, %.thread.i24 ], [ %.val23, %101 ]
+  %.019 = phi ptr [ %8, %5 ], [ %106, %102 ], [ %.val, %30 ], [ %.val, %.thread.i ], [ %.val23, %.thread.i24 ], [ %.val23, %101 ]
   ret ptr %.019
 }
 

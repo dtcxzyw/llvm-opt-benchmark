@@ -301,7 +301,7 @@ define hidden void @_ZN2cv12WorkerThread11thread_bodyEv(ptr noundef nonnull alig
   br label %137
 
 74:                                               ; preds = %67, %66, %59
-  %.5 = phi i1 [ true, %66 ], [ %spec.select, %59 ], [ %69, %67 ]
+  %.5 = phi i1 [ %spec.select, %59 ], [ %69, %67 ], [ true, %66 ]
   %75 = icmp eq i32 %63, %62
   br i1 %75, label %76, label %112
 
@@ -376,7 +376,7 @@ _ZN2cv3PtrINS_11ParallelJobEE7releaseEv.exit:     ; preds = %76, %86, %_ZN9__gnu
   br label %112
 
 112:                                              ; preds = %44, %46, %_ZN2cv3PtrINS_11ParallelJobEE7releaseEv.exit, %102, %74, %40
-  %.3 = phi i1 [ %spec.select, %40 ], [ %spec.select, %46 ], [ %spec.select, %44 ], [ %.5, %_ZN2cv3PtrINS_11ParallelJobEE7releaseEv.exit ], [ %.5, %102 ], [ %.5, %74 ]
+  %.3 = phi i1 [ %spec.select, %40 ], [ %spec.select, %44 ], [ %spec.select, %46 ], [ %.5, %_ZN2cv3PtrINS_11ParallelJobEE7releaseEv.exit ], [ %.5, %102 ], [ %.5, %74 ]
   %113 = load ptr, ptr %13, align 8, !tbaa !30
   %.not.i.i = icmp eq ptr %113, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv11ParallelJobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %114
@@ -2610,7 +2610,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit110: ; preds
   ret void
 
 249:                                              ; preds = %174, %246, %97, %169, %19, %91
-  %.pn63.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn63.pn.pn, %91 ], [ %20, %19 ], [ %.pn57.pn.pn, %169 ], [ %98, %97 ], [ %.pn.pn.pn, %246 ], [ %175, %174 ]
+  %.pn63.pn.pn.pn.pn = phi { ptr, i32 } [ %98, %97 ], [ %20, %19 ], [ %.pn63.pn.pn, %91 ], [ %.pn57.pn.pn, %169 ], [ %.pn.pn.pn, %246 ], [ %175, %174 ]
   call void @_ZNSt12__shared_ptrIN2cv11ParallelJobELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #4
   resume { ptr, i32 } %.pn63.pn.pn.pn.pn
 }
@@ -2989,7 +2989,7 @@ _ZN2cv3PtrINS_11ParallelJobEEC2IS1_EEPT_.exit:    ; preds = %35
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i: ; preds = %71, %70
-  %73 = phi ptr [ %67, %70 ], [ %.pr.pre.i.i.i.i, %71 ]
+  %73 = phi ptr [ %.pr.pre.i.i.i.i, %71 ], [ %67, %70 ]
   %.not8.i.i.i.i = icmp eq ptr %73, null
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %74
 
@@ -3767,7 +3767,7 @@ define hidden void @_ZN2cv33parallel_pthreads_set_threads_numEi(i32 noundef %0) 
   br label %common.resume
 
 common.resume:                                    ; preds = %28, %30, %13, %15
-  %common.resume.op = phi { ptr, i32 } [ %16, %15 ], [ %14, %13 ], [ %31, %30 ], [ %29, %28 ]
+  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %16, %15 ], [ %31, %30 ], [ %29, %28 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cv10ThreadPool8instanceEvE8instance) #4
   resume { ptr, i32 } %common.resume.op
 

@@ -256,7 +256,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN65_$LT$ty_ide..NavigationTarget$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb5423cfdb4b2d862E.exit"
 
 "_ZN65_$LT$ty_ide..NavigationTarget$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb5423cfdb4b2d862E.exit": ; preds = %2, %6, %12, %18, %24
-  %.sroa.0.0.i = phi i1 [ %29, %24 ], [ false, %6 ], [ false, %12 ], [ false, %2 ], [ false, %18 ]
+  %.sroa.0.0.i = phi i1 [ %29, %24 ], [ false, %2 ], [ false, %6 ], [ false, %12 ], [ false, %18 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -734,7 +734,7 @@ define hidden void @"_ZN119_$LT$ty_ide..NavigationTargets$u20$as$u20$core..iter.
   unreachable
 
 common.resume.i:                                  ; preds = %103, %100, %77, %27, %18
-  %common.resume.op.i = phi { ptr, i32 } [ %19, %18 ], [ %eh.lpad-body.i, %103 ], [ %eh.lpad-body.i, %27 ], [ %lpad.thr_comm.i, %100 ], [ %.pn.ph.i.i.i.i.i, %77 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %19, %18 ], [ %eh.lpad-body.i, %27 ], [ %eh.lpad-body.i, %103 ], [ %.pn.ph.i.i.i.i.i, %77 ], [ %lpad.thr_comm.i, %100 ]
   resume { ptr, i32 } %common.resume.op.i
 
 _ZN4core4iter6traits8iterator8Iterator7collect17he5aba02e3c28438fE.exit.i: ; preds = %2

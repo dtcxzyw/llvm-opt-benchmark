@@ -401,7 +401,7 @@ SRP_user_pwd_set1_ids.exit.thread97:              ; preds = %89, %SRP_user_pwd_s
   store ptr null, ptr %96, align 8, !tbaa !10
   br label %SRP_user_pwd_set_sv.exit.thread
 
-SRP_user_pwd_set_sv.exit.thread:                  ; preds = %SRP_user_pwd_set1_ids.exit.thread97, %100, %109
+SRP_user_pwd_set_sv.exit.thread:                  ; preds = %100, %SRP_user_pwd_set1_ids.exit.thread97, %109
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread108.thread124
 
@@ -472,8 +472,8 @@ SRP_get_gN_by_id.exit.thread:                     ; preds = %124, %SRP_get_gN_by
   call void @CRYPTO_free(ptr noundef nonnull %38, ptr noundef nonnull @.str, i32 noundef 502) #7
   br label %SRP_user_pwd_free.exit
 
-.thread108.thread124:                             ; preds = %86, %SRP_user_pwd_set1_ids.exit, %111, %SRP_user_pwd_set_sv.exit.thread
-  %.056116128 = phi i32 [ 2, %SRP_user_pwd_set_sv.exit.thread ], [ 4, %86 ], [ 4, %SRP_user_pwd_set1_ids.exit ], [ 2, %111 ]
+.thread108.thread124:                             ; preds = %SRP_user_pwd_set1_ids.exit, %86, %111, %SRP_user_pwd_set_sv.exit.thread
+  %.056116128 = phi i32 [ 2, %SRP_user_pwd_set_sv.exit.thread ], [ 4, %SRP_user_pwd_set1_ids.exit ], [ 4, %86 ], [ 2, %111 ]
   %142 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !3
   call void @BN_free(ptr noundef %143) #7
@@ -488,9 +488,9 @@ SRP_get_gN_by_id.exit.thread:                     ; preds = %124, %SRP_get_gN_by
   call void @CRYPTO_free(ptr noundef nonnull %71, ptr noundef nonnull @.str, i32 noundef 187) #7
   br label %SRP_user_pwd_free.exit
 
-SRP_user_pwd_free.exit:                           ; preds = %37, %70, %SRP_get_gN_by_id.exit, %SRP_get_gN_by_id.exit.thread, %._crit_edge, %140, %2, %10, %11, %13, %17, %.thread108.thread124
-  %.057115121 = phi ptr [ %18, %.thread108.thread124 ], [ null, %2 ], [ null, %10 ], [ null, %11 ], [ null, %13 ], [ null, %17 ], [ %18, %140 ], [ %18, %._crit_edge ], [ %18, %SRP_get_gN_by_id.exit.thread ], [ %18, %SRP_get_gN_by_id.exit ], [ %18, %70 ], [ %18, %37 ]
-  %.056116120 = phi i32 [ %.056116128, %.thread108.thread124 ], [ 4, %2 ], [ 3, %10 ], [ 3, %11 ], [ 3, %13 ], [ 1, %17 ], [ %.1154, %140 ], [ 0, %._crit_edge ], [ 0, %SRP_get_gN_by_id.exit.thread ], [ 2, %SRP_get_gN_by_id.exit ], [ %.1154, %37 ], [ 4, %70 ]
+SRP_user_pwd_free.exit:                           ; preds = %37, %70, %SRP_get_gN_by_id.exit, %SRP_get_gN_by_id.exit.thread, %._crit_edge, %140, %10, %11, %13, %17, %2, %.thread108.thread124
+  %.057115121 = phi ptr [ %18, %.thread108.thread124 ], [ %18, %SRP_get_gN_by_id.exit ], [ null, %2 ], [ null, %10 ], [ null, %11 ], [ null, %13 ], [ null, %17 ], [ %18, %140 ], [ %18, %._crit_edge ], [ %18, %SRP_get_gN_by_id.exit.thread ], [ %18, %70 ], [ %18, %37 ]
+  %.056116120 = phi i32 [ %.056116128, %.thread108.thread124 ], [ 2, %SRP_get_gN_by_id.exit ], [ 4, %2 ], [ 3, %10 ], [ 3, %11 ], [ 3, %13 ], [ 1, %17 ], [ %.1154, %140 ], [ 0, %._crit_edge ], [ 0, %SRP_get_gN_by_id.exit.thread ], [ %.1154, %37 ], [ 4, %70 ]
   call void @TXT_DB_free(ptr noundef %.057115121) #7
   call void @BIO_free_all(ptr noundef %6) #7
   call void @OPENSSL_sk_free(ptr noundef %4) #7
@@ -575,7 +575,7 @@ define internal fastcc ptr @SRP_gN_place_bn(ptr noundef %0, ptr noundef %1) unna
   call void @CRYPTO_free(ptr noundef nonnull %16, ptr noundef nonnull @.str, i32 noundef 333) #7
   br label %SRP_gN_new_init.exit.thread
 
-SRP_gN_new_init.exit.thread:                      ; preds = %28, %._crit_edge
+SRP_gN_new_init.exit.thread:                      ; preds = %._crit_edge, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %37
 
@@ -916,7 +916,7 @@ SRP_user_pwd_free.exit:                           ; preds = %73, %95, %81, %84, 
   br label %srp_user_pwd_dup.exit
 
 srp_user_pwd_dup.exit:                            ; preds = %63, %SRP_user_pwd_free.exit.i, %SRP_user_pwd_set1_ids.exit.thread19.i, %find_user.exit, %95, %.loopexit, %55, %59, %2, %SRP_user_pwd_free.exit
-  %.032 = phi ptr [ null, %SRP_user_pwd_free.exit ], [ null, %2 ], [ null, %59 ], [ null, %55 ], [ null, %.loopexit ], [ %64, %95 ], [ null, %SRP_user_pwd_free.exit.i ], [ %19, %SRP_user_pwd_set1_ids.exit.thread19.i ], [ null, %find_user.exit ], [ null, %63 ]
+  %.032 = phi ptr [ null, %find_user.exit ], [ %64, %95 ], [ null, %2 ], [ null, %.loopexit ], [ null, %SRP_user_pwd_free.exit ], [ null, %59 ], [ null, %55 ], [ null, %SRP_user_pwd_free.exit.i ], [ %19, %SRP_user_pwd_set1_ids.exit.thread19.i ], [ null, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.032
@@ -1002,11 +1002,11 @@ define ptr @SRP_create_verifier_ex(ptr noundef %0, ptr noundef %1, ptr noundef c
   br label %38
 
 38:                                               ; preds = %.thread, %27
-  %.060 = phi ptr [ %22, %27 ], [ %34, %.thread ]
-  %.058 = phi ptr [ %28, %27 ], [ %36, %.thread ]
-  %.157 = phi ptr [ %22, %27 ], [ null, %.thread ]
-  %.155 = phi ptr [ %28, %27 ], [ null, %.thread ]
-  %.052 = phi ptr [ @.str.2, %27 ], [ %37, %.thread ]
+  %.060 = phi ptr [ %34, %.thread ], [ %22, %27 ]
+  %.058 = phi ptr [ %36, %.thread ], [ %28, %27 ]
+  %.157 = phi ptr [ null, %.thread ], [ %22, %27 ]
+  %.155 = phi ptr [ null, %.thread ], [ %28, %27 ]
+  %.052 = phi ptr [ %37, %.thread ], [ @.str.2, %27 ]
   %39 = load ptr, ptr %2, align 8, !tbaa !30
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %44
@@ -1085,11 +1085,11 @@ define ptr @SRP_create_verifier_ex(ptr noundef %0, ptr noundef %1, ptr noundef c
   br label %.thread91
 
 .thread91:                                        ; preds = %72, %77, %30, %64, %56, %52, %50, %47, %44, %41, %27, %24, %21, %18, %8, %79
-  %.063 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ null, %41 ], [ null, %47 ], [ null, %52 ], [ null, %56 ], [ %.052, %79 ], [ null, %64 ], [ null, %50 ], [ null, %44 ], [ null, %30 ], [ null, %77 ], [ null, %72 ]
-  %.062 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ null, %41 ], [ null, %47 ], [ null, %52 ], [ null, %56 ], [ null, %79 ], [ %62, %64 ], [ null, %50 ], [ null, %44 ], [ null, %30 ], [ %62, %77 ], [ %62, %72 ]
-  %.056 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ %22, %24 ], [ %22, %27 ], [ %.157, %41 ], [ %.157, %47 ], [ %.157, %52 ], [ %.157, %56 ], [ %.157, %79 ], [ %.157, %64 ], [ %.157, %50 ], [ %.157, %44 ], [ null, %30 ], [ %.157, %77 ], [ %.157, %72 ]
-  %.054 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ %.155, %41 ], [ %.155, %47 ], [ %.155, %52 ], [ %.155, %56 ], [ %.155, %79 ], [ %.155, %64 ], [ %.155, %50 ], [ %.155, %44 ], [ null, %30 ], [ %.155, %77 ], [ %.155, %72 ]
-  %.051 = phi i32 [ 0, %8 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %27 ], [ 0, %41 ], [ 0, %47 ], [ 0, %52 ], [ %60, %56 ], [ %60, %79 ], [ %60, %64 ], [ 0, %50 ], [ 0, %44 ], [ 0, %30 ], [ %60, %77 ], [ %60, %72 ]
+  %.063 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ null, %41 ], [ null, %47 ], [ null, %52 ], [ null, %56 ], [ %.052, %79 ], [ null, %30 ], [ null, %64 ], [ null, %50 ], [ null, %44 ], [ null, %77 ], [ null, %72 ]
+  %.062 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ null, %41 ], [ null, %47 ], [ null, %52 ], [ null, %56 ], [ null, %79 ], [ null, %30 ], [ %62, %64 ], [ null, %50 ], [ null, %44 ], [ %62, %77 ], [ %62, %72 ]
+  %.056 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ %22, %24 ], [ %22, %27 ], [ %.157, %41 ], [ %.157, %47 ], [ %.157, %52 ], [ %.157, %56 ], [ %.157, %79 ], [ null, %30 ], [ %.157, %64 ], [ %.157, %50 ], [ %.157, %44 ], [ %.157, %77 ], [ %.157, %72 ]
+  %.054 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ %.155, %41 ], [ %.155, %47 ], [ %.155, %52 ], [ %.155, %56 ], [ %.155, %79 ], [ null, %30 ], [ %.155, %64 ], [ %.155, %50 ], [ %.155, %44 ], [ %.155, %77 ], [ %.155, %72 ]
+  %.051 = phi i32 [ 0, %8 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %27 ], [ 0, %41 ], [ 0, %47 ], [ 0, %52 ], [ %60, %56 ], [ %60, %79 ], [ 0, %30 ], [ %60, %64 ], [ 0, %50 ], [ 0, %44 ], [ %60, %77 ], [ %60, %72 ]
   call void @BN_free(ptr noundef %.056) #7
   call void @BN_free(ptr noundef %.054) #7
   %80 = sext i32 %.051 to i64
@@ -1193,7 +1193,7 @@ define internal fastcc i32 @t_fromb64(ptr noundef nonnull %0, ptr noundef %1) un
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %25, %21, %18, %41
-  %.sink = phi i32 [ %45, %41 ], [ -1, %18 ], [ -1, %21 ], [ -1, %25 ], [ -1, %39 ]
+  %.sink = phi i32 [ %45, %41 ], [ -1, %25 ], [ -1, %21 ], [ -1, %18 ], [ -1, %39 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !45
   br label %46
 

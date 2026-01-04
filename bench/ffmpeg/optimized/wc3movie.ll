@@ -35,7 +35,7 @@ define internal range(i32 0, 101) i32 @wc3_probe(ptr noundef readonly captures(n
   br label %12
 
 12:                                               ; preds = %9, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ %spec.select, %9 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %spec.select, %9 ]
   ret i32 %.0
 }
 
@@ -220,7 +220,7 @@ define internal range(i32 -1094995529, 1) i32 @wc3_read_header(ptr noundef %0) #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %54, %52, %1, %66, %44, %32
-  %.0 = phi i32 [ -1094995529, %44 ], [ 0, %66 ], [ -5, %32 ], [ -12, %1 ], [ -12, %52 ], [ -12, %54 ], [ %.0.ph, %.loopexit.loopexit ]
+  %.0 = phi i32 [ -1094995529, %44 ], [ -12, %1 ], [ 0, %66 ], [ -12, %52 ], [ -12, %54 ], [ -5, %32 ], [ %.0.ph, %.loopexit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -419,7 +419,7 @@ av_strnlen.exit97:                                ; preds = %.lr.ph.i92, %70
   br i1 %.not78, label %.lr.ph, label %av_strnlen.exit.thread, !llvm.loop !65
 
 av_strnlen.exit.thread:                           ; preds = %88, %63, %av_strnlen.exit97, %49, %av_strnlen.exit90, %40, %av_strnlen.exit, %47, %61, %79, %2, %81, %25, %86
-  %.173 = phi i32 [ %82, %81 ], [ %spec.store.select, %25 ], [ -1094995529, %86 ], [ -5, %2 ], [ -1094995529, %79 ], [ -1094995529, %61 ], [ -1094995529, %47 ], [ -1094995529, %av_strnlen.exit ], [ -1094995529, %40 ], [ -1094995529, %av_strnlen.exit90 ], [ -1094995529, %49 ], [ -1094995529, %av_strnlen.exit97 ], [ -1094995529, %63 ], [ -5, %88 ]
+  %.173 = phi i32 [ -1094995529, %61 ], [ -1094995529, %47 ], [ -1094995529, %86 ], [ -1094995529, %79 ], [ %82, %81 ], [ %spec.store.select, %25 ], [ -5, %2 ], [ -1094995529, %40 ], [ -1094995529, %av_strnlen.exit90 ], [ -1094995529, %49 ], [ -1094995529, %av_strnlen.exit97 ], [ -1094995529, %63 ], [ -5, %88 ], [ -1094995529, %av_strnlen.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.173
 }

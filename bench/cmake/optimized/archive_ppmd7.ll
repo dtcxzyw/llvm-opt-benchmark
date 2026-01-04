@@ -134,7 +134,7 @@ define internal range(i32 0, 2) i32 @Ppmd7_Alloc(ptr noundef captures(none) %0, 
   br label %22
 
 22:                                               ; preds = %6, %21, %11, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %11 ], [ 1, %21 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %11 ], [ 0, %9 ], [ 1, %21 ], [ 1, %6 ]
   ret i32 %.0
 }
 
@@ -875,7 +875,7 @@ Ppmd7_Update2.exit:                               ; preds = %376, %386
   br label %.thread206
 
 .thread206:                                       ; preds = %391, %.thread206.loopexit, %Ppmd7_Update2.exit
-  %.5.ph = phi i32 [ %390, %Ppmd7_Update2.exit ], [ -1, %.thread206.loopexit ], [ -2, %391 ]
+  %.5.ph = phi i32 [ -1, %.thread206.loopexit ], [ %390, %Ppmd7_Update2.exit ], [ -2, %391 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
@@ -885,7 +885,7 @@ Ppmd7_Update2.exit:                               ; preds = %376, %386
   br label %270
 
 .thread:                                          ; preds = %126, %Ppmd7_Update1.exit, %Ppmd7_Update1_0.exit, %.thread206, %.thread203
-  %.1 = phi i32 [ %245, %.thread203 ], [ %.5.ph, %.thread206 ], [ -2, %126 ], [ %123, %Ppmd7_Update1.exit ], [ %68, %Ppmd7_Update1_0.exit ]
+  %.1 = phi i32 [ %.5.ph, %.thread206 ], [ %245, %.thread203 ], [ %68, %Ppmd7_Update1_0.exit ], [ -2, %126 ], [ %123, %Ppmd7_Update1.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
@@ -2716,8 +2716,8 @@ SplitBlock.exit.i:                                ; preds = %148, %._crit_edge.i
   br label %ShrinkUnits.exit
 
 ShrinkUnits.exit:                                 ; preds = %.ShrinkUnits.exit_crit_edge, %119, %SplitBlock.exit.i
-  %173 = phi ptr [ %104, %119 ], [ %167, %SplitBlock.exit.i ], [ %.pre, %.ShrinkUnits.exit_crit_edge ]
-  %.034.i = phi ptr [ %106, %119 ], [ %9, %SplitBlock.exit.i ], [ %9, %.ShrinkUnits.exit_crit_edge ]
+  %173 = phi ptr [ %167, %SplitBlock.exit.i ], [ %104, %119 ], [ %.pre, %.ShrinkUnits.exit_crit_edge ]
+  %.034.i = phi ptr [ %9, %SplitBlock.exit.i ], [ %106, %119 ], [ %9, %.ShrinkUnits.exit_crit_edge ]
   %174 = ptrtoint ptr %.034.i to i64
   %175 = ptrtoint ptr %173 to i64
   %176 = sub i64 %174, %175
@@ -3081,7 +3081,7 @@ AllocUnits.exit.thread:                           ; preds = %159
   br label %AllocUnits.exit
 
 AllocUnits.exit:                                  ; preds = %179, %182
-  %.0.i = phi ptr [ %174, %179 ], [ %183, %182 ]
+  %.0.i = phi ptr [ %183, %182 ], [ %174, %179 ]
   %.not198.not = icmp eq ptr %.0.i, null
   br i1 %.not198.not, label %.thread214, label %AllocUnits.exit._crit_edge
 
@@ -3189,7 +3189,7 @@ AllocUnits.exit207.thread:                        ; preds = %224
   br label %AllocUnits.exit207
 
 AllocUnits.exit207:                               ; preds = %239, %242
-  %.0.i205 = phi ptr [ %234, %239 ], [ %243, %242 ]
+  %.0.i205 = phi ptr [ %243, %242 ], [ %234, %239 ]
   %.not196.not = icmp eq ptr %.0.i205, null
   br i1 %.not196.not, label %.thread221, label %244
 

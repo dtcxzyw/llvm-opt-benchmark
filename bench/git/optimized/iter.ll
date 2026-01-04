@@ -474,8 +474,8 @@ select.unfold:                                    ; preds = %indexed_table_ref_i
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %indexed_table_ref_iter_next_block.exit.thread, label %16
 
-indexed_table_ref_iter_next_block.exit.thread:    ; preds = %34, %indexed_table_ref_iter_next_block.exit, %select.unfold, %22, %32, %37, %indexed_table_ref_iter_next_block.exit.thread45, %2
-  %.1.ph = phi i32 [ %8, %2 ], [ 1, %indexed_table_ref_iter_next_block.exit.thread45 ], [ 0, %37 ], [ -3, %32 ], [ %30, %22 ], [ %38, %select.unfold ], [ 1, %indexed_table_ref_iter_next_block.exit ], [ 0, %34 ]
+indexed_table_ref_iter_next_block.exit.thread:    ; preds = %indexed_table_ref_iter_next_block.exit, %select.unfold, %34, %22, %32, %37, %indexed_table_ref_iter_next_block.exit.thread45, %2
+  %.1.ph = phi i32 [ %8, %2 ], [ 1, %indexed_table_ref_iter_next_block.exit.thread45 ], [ -3, %32 ], [ %30, %22 ], [ %38, %select.unfold ], [ 0, %34 ], [ 0, %37 ], [ 1, %indexed_table_ref_iter_next_block.exit ]
   ret i32 %.1.ph
 }
 

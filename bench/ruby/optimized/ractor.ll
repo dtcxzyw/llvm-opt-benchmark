@@ -787,8 +787,8 @@ ractor_queue_advance.exit.i.i:                    ; preds = %48, %42
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !110
 
-.loopexit:                                        ; preds = %.lr.ph.i.i, %ractor_queue_advance.exit.i.i, %28
-  %51 = phi i32 [ %29, %28 ], [ %31, %.lr.ph.i.i ], [ %49, %ractor_queue_advance.exit.i.i ]
+.loopexit:                                        ; preds = %ractor_queue_advance.exit.i.i, %.lr.ph.i.i, %28
+  %51 = phi i32 [ %29, %28 ], [ %49, %ractor_queue_advance.exit.i.i ], [ %31, %.lr.ph.i.i ]
   %52 = icmp eq i32 %.val4.i.i, 7
   br i1 %52, label %53, label %75
 
@@ -3127,7 +3127,7 @@ frozen_shareable_p.exit:                          ; preds = %32, %rbimpl_RB_TYPE
   br label %rb_ractor_shareable_p.exit.thread
 
 rb_ractor_shareable_p.exit.thread:                ; preds = %8, %1, %40, %rb_ractor_shareable_p.exit.thread14, %51, %rb_ractor_shareable_p.exit, %53
-  %.0 = phi i32 [ 0, %53 ], [ 1, %rb_ractor_shareable_p.exit ], [ 1, %40 ], [ 1, %51 ], [ 1, %rb_ractor_shareable_p.exit.thread14 ], [ 1, %1 ], [ 1, %8 ]
+  %.0 = phi i32 [ 1, %rb_ractor_shareable_p.exit ], [ 0, %53 ], [ 1, %40 ], [ 1, %51 ], [ 1, %rb_ractor_shareable_p.exit.thread14 ], [ 1, %1 ], [ 1, %8 ]
   ret i32 %.0
 }
 
@@ -3346,7 +3346,7 @@ define dso_local zeroext i1 @rb_ractor_shareable_p_continue(i64 noundef %0) loca
   br label %rb_obj_traverse.exit
 
 rb_obj_traverse.exit:                             ; preds = %1, %7, %9
-  %.0.i = phi i1 [ %15, %9 ], [ false, %1 ], [ true, %7 ]
+  %.0.i = phi i1 [ false, %1 ], [ %15, %9 ], [ true, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0.i
 }
@@ -3413,7 +3413,7 @@ frozen_shareable_p.exit.thread:                   ; preds = %rbimpl_RB_TYPE_P_fa
   br label %frozen_shareable_p.exit
 
 frozen_shareable_p.exit:                          ; preds = %23, %rbimpl_RB_TYPE_P_fastpath.exit13.thread, %.thread18, %18, %frozen_shareable_p.exit.thread, %1, %13
-  %.0 = phi i32 [ 1, %13 ], [ 1, %1 ], [ 0, %frozen_shareable_p.exit.thread ], [ 2, %18 ], [ 2, %.thread18 ], [ 2, %rbimpl_RB_TYPE_P_fastpath.exit13.thread ], [ 2, %23 ]
+  %.0 = phi i32 [ 0, %frozen_shareable_p.exit.thread ], [ 1, %13 ], [ 1, %1 ], [ 2, %rbimpl_RB_TYPE_P_fastpath.exit13.thread ], [ 2, %18 ], [ 2, %.thread18 ], [ 2, %23 ]
   ret i32 %.0
 }
 
@@ -3597,7 +3597,7 @@ rb_current_ractor.exit.i:                         ; preds = %rb_ractor_main_p.ex
   br label %ractor_local_ref.exit
 
 ractor_local_ref.exit:                            ; preds = %rb_ractor_main_p.exit.thread.i, %17, %20, %23
-  %.0.i = phi i1 [ true, %17 ], [ false, %rb_ractor_main_p.exit.thread.i ], [ false, %23 ], [ true, %20 ]
+  %.0.i = phi i1 [ false, %rb_ractor_main_p.exit.thread.i ], [ true, %17 ], [ false, %23 ], [ true, %20 ]
   ret i1 %.0.i
 }
 
@@ -3704,7 +3704,7 @@ rb_current_ractor.exit.i:                         ; preds = %rb_ractor_main_p.ex
   br label %ractor_local_ref.exit
 
 ractor_local_ref.exit:                            ; preds = %19, %rb_ractor_main_p.exit.thread.i, %rb_current_ractor.exit.i
-  %22 = phi ptr [ null, %rb_current_ractor.exit.i ], [ %spec.select, %rb_ractor_main_p.exit.thread.i ], [ %spec.select5, %19 ]
+  %22 = phi ptr [ %spec.select, %rb_ractor_main_p.exit.thread.i ], [ null, %rb_current_ractor.exit.i ], [ %spec.select5, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %22
 }
@@ -5914,8 +5914,8 @@ rb_ractor_shareable_p.exit:                       ; preds = %21
   unreachable
 
 ractor_copy.exit:                                 ; preds = %13, %4, %42, %31, %rb_ractor_shareable_p.exit.thread11, %rb_ractor_shareable_p.exit
-  %.08 = phi i64 [ %0, %rb_ractor_shareable_p.exit ], [ %0, %rb_ractor_shareable_p.exit.thread11 ], [ %37, %31 ], [ %49, %42 ], [ %0, %4 ], [ %0, %13 ]
-  %.0 = phi i32 [ 1, %rb_ractor_shareable_p.exit ], [ 1, %rb_ractor_shareable_p.exit.thread11 ], [ 2, %31 ], [ 3, %42 ], [ 1, %4 ], [ 1, %13 ]
+  %.08 = phi i64 [ %0, %rb_ractor_shareable_p.exit.thread11 ], [ %37, %31 ], [ %0, %rb_ractor_shareable_p.exit ], [ %49, %42 ], [ %0, %4 ], [ %0, %13 ]
+  %.0 = phi i32 [ 1, %rb_ractor_shareable_p.exit.thread11 ], [ 2, %31 ], [ 1, %rb_ractor_shareable_p.exit ], [ 3, %42 ], [ 1, %4 ], [ 1, %13 ]
   store volatile i64 %.08, ptr %2, align 8, !tbaa !80
   store i32 %.0, ptr %3, align 4, !tbaa !12
   ret void
@@ -6710,7 +6710,7 @@ rb_obj_write.exit210:                             ; preds = %217, %219, %224
   unreachable
 
 .critedge180:                                     ; preds = %rb_obj_write.exit207, %rb_obj_write.exit202, %RSTRUCT_CONST_PTR.exit, %ROBJECT_IVPTR.exit, %228, %230, %235, %205, %207, %212, %166, %239, %95, %88, %88, %88, %88, %88, %88, %.critedge183, %92
-  %248 = phi i64 [ %50, %RSTRUCT_CONST_PTR.exit ], [ %50, %ROBJECT_IVPTR.exit ], [ %50, %228 ], [ %50, %230 ], [ %50, %235 ], [ %50, %205 ], [ %50, %207 ], [ %50, %212 ], [ %50, %166 ], [ %50, %239 ], [ %50, %95 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %.pre244, %.critedge183 ], [ %50, %92 ], [ %50, %rb_obj_write.exit202 ], [ %50, %rb_obj_write.exit207 ]
+  %248 = phi i64 [ %50, %rb_obj_write.exit202 ], [ %50, %92 ], [ %50, %RSTRUCT_CONST_PTR.exit ], [ %50, %ROBJECT_IVPTR.exit ], [ %50, %228 ], [ %50, %230 ], [ %50, %235 ], [ %50, %205 ], [ %50, %207 ], [ %50, %212 ], [ %50, %166 ], [ %50, %239 ], [ %50, %95 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %.pre244, %.critedge183 ], [ %50, %rb_obj_write.exit207 ]
   %249 = load i64, ptr %4, align 8, !tbaa !80
   store i64 %249, ptr %21, align 8, !tbaa !175
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6729,7 +6729,7 @@ rb_obj_write.exit210:                             ; preds = %217, %219, %224
   br label %.critedge192
 
 .critedge192:                                     ; preds = %.lr.ph224, %135, %.lr.ph227, %rb_obj_write.exit210, %213, %rb_obj_write.exit208, %190, %.critedge180, %88, %.critedge187, %.critedge185, %.critedge, %16, %95, %32, %19, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %32 ], [ 1, %95 ], [ 1, %.critedge ], [ 1, %19 ], [ 0, %16 ], [ 1, %.critedge185 ], [ 1, %.critedge187 ], [ 1, %88 ], [ %., %.critedge180 ], [ 1, %190 ], [ 1, %rb_obj_write.exit208 ], [ 1, %213 ], [ 1, %rb_obj_write.exit210 ], [ 1, %.lr.ph227 ], [ 1, %135 ], [ 1, %.lr.ph224 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %32 ], [ %., %.critedge180 ], [ 1, %88 ], [ 1, %95 ], [ 1, %rb_obj_write.exit210 ], [ 0, %16 ], [ 1, %135 ], [ 1, %190 ], [ 1, %rb_obj_write.exit208 ], [ 1, %.lr.ph227 ], [ 1, %.critedge185 ], [ 1, %.critedge187 ], [ 1, %213 ], [ 1, %.critedge ], [ 1, %19 ], [ 1, %.lr.ph224 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -6974,7 +6974,7 @@ define internal fastcc i64 @rb_class_of(i64 noundef %0) unnamed_addr #25 {
   br label %17
 
 17:                                               ; preds = %14, %12, %9, %11, %10, %6
-  %.0.in = phi ptr [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ %8, %6 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select, %14 ]
+  %.0.in = phi ptr [ %8, %6 ], [ @rb_cNilClass, %10 ], [ @rb_cTrueClass, %11 ], [ @rb_cFalseClass, %9 ], [ @rb_cInteger, %12 ], [ %spec.select, %14 ]
   %.0 = load i64, ptr %.0.in, align 8, !tbaa !80
   ret i64 %.0
 }
@@ -7198,7 +7198,7 @@ ractor_queue_advance.exit.i.i:                    ; preds = %49, %43
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %56, ptr noundef nonnull @.str.71) #27
   unreachable
 
-.loopexit:                                        ; preds = %31, %ractor_queue_advance.exit.i.i, %26
+.loopexit:                                        ; preds = %ractor_queue_advance.exit.i.i, %31, %26
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull %9) #18
   %57 = call fastcc i64 @ractor_basket_accept(ptr noundef %3)
   br label %58
@@ -7799,7 +7799,7 @@ ractor_sleeping_by.exit.i:                        ; preds = %56
   tail call void @rb_ractor_sched_wakeup(ptr noundef nonnull %0) #18
   br label %ractor_wakeup.exit.thread
 
-ractor_wakeup.exit.thread:                        ; preds = %ractor_queue_enq.exit, %10, %ractor_take_will.exit.thread, %56, %ractor_sleeping_by.exit.i, %63
+ractor_wakeup.exit.thread:                        ; preds = %ractor_take_will.exit.thread, %10, %ractor_queue_enq.exit, %56, %ractor_sleeping_by.exit.i, %63
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull %6) #18
   br label %66
 
@@ -7905,7 +7905,7 @@ ractor_sleeping_by.exit.i:                        ; preds = %27
   br label %ractor_take_will.exit
 
 ractor_take_will.exit:                            ; preds = %34, %ractor_sleeping_by.exit.i, %27, %16, %14, %21, %11, %24
-  %.0 = phi i32 [ 1, %24 ], [ 0, %11 ], [ 0, %21 ], [ 1, %14 ], [ 1, %16 ], [ 0, %27 ], [ 0, %ractor_sleeping_by.exit.i ], [ 0, %34 ]
+  %.0 = phi i32 [ 0, %21 ], [ 1, %16 ], [ 1, %24 ], [ 0, %11 ], [ 1, %14 ], [ 0, %27 ], [ 0, %ractor_sleeping_by.exit.i ], [ 0, %34 ]
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull %8) #18
   br label %35
 
@@ -8186,12 +8186,12 @@ rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter_nb
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %46, %.critedge, %86, %82, %78, %74, %49, %25, %53, %rb_vm_lock_leave.exit
-  %.1 = phi i32 [ 1, %53 ], [ 1, %rb_vm_lock_leave.exit ], [ 1, %25 ], [ 1, %49 ], [ 1, %74 ], [ 1, %78 ], [ 1, %82 ], [ 1, %86 ], [ %., %.critedge ], [ 1, %46 ], [ 1, %.lr.ph ]
+  %.1 = phi i32 [ 1, %rb_vm_lock_leave.exit ], [ %., %.critedge ], [ 1, %86 ], [ 1, %82 ], [ 1, %25 ], [ 1, %53 ], [ 1, %46 ], [ 1, %49 ], [ 1, %74 ], [ 1, %78 ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %103
 
 103:                                              ; preds = %obj_traverse_rec.exit, %11, %2, %.loopexit, %14
-  %.051 = phi i32 [ %.1, %.loopexit ], [ 1, %14 ], [ 0, %2 ], [ 0, %11 ], [ 0, %obj_traverse_rec.exit ]
+  %.051 = phi i32 [ 0, %2 ], [ 0, %11 ], [ %.1, %.loopexit ], [ 1, %14 ], [ 0, %obj_traverse_rec.exit ]
   ret i32 %.051
 }
 

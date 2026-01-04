@@ -2435,7 +2435,7 @@ ehcleanup378:                                     ; preds = %ehcleanup377, %if.t
   br label %ehcleanup383
 
 ehcleanup383:                                     ; preds = %ehcleanup378, %ehcleanup334, %ehcleanup318, %lpad304, %ehcleanup301
-  %.pn487.pn.pn = phi { ptr, i32 } [ %.pn487, %ehcleanup378 ], [ %181, %lpad304 ], [ %.pn485, %ehcleanup334 ], [ %.pn483, %ehcleanup318 ], [ %179, %ehcleanup301 ]
+  %.pn487.pn.pn = phi { ptr, i32 } [ %.pn487, %ehcleanup378 ], [ %181, %lpad304 ], [ %179, %ehcleanup301 ], [ %.pn485, %ehcleanup334 ], [ %.pn483, %ehcleanup318 ]
   %212 = load ptr, ptr %fnd290, align 8, !tbaa !11
   %cmp.i.i.i.i1002 = icmp eq ptr %212, %165
   br i1 %cmp.i.i.i.i1002, label %ehcleanup384, label %ehcleanup384.sink.split
@@ -2447,7 +2447,7 @@ ehcleanup384.sink.split:                          ; preds = %ehcleanup383, %lpad
   br label %ehcleanup384
 
 ehcleanup384:                                     ; preds = %ehcleanup384.sink.split, %ehcleanup383, %lpad.i80
-  %.pn487.pn.pn.pn = phi { ptr, i32 } [ %166, %lpad.i80 ], [ %.pn487.pn.pn, %ehcleanup383 ], [ %.pn487.pn.pn.pn.ph, %ehcleanup384.sink.split ]
+  %.pn487.pn.pn.pn = phi { ptr, i32 } [ %.pn487.pn.pn, %ehcleanup383 ], [ %166, %lpad.i80 ], [ %.pn487.pn.pn.pn.ph, %ehcleanup384.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %fnd290)
   br label %ehcleanup385
 
@@ -4842,7 +4842,7 @@ if.then.i.i7.i:                                   ; preds = %lpad2.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad2.i, %lpad, %if.then.i.i8.i, %if.then.i.i7.i
-  %common.resume.op = phi { ptr, i32 } [ %17, %lpad ], [ %2, %if.then.i.i7.i ], [ %13, %if.then.i.i8.i ], [ %2, %lpad2.i ], [ %13, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %lpad ], [ %2, %if.then.i.i7.i ], [ %2, %lpad2.i ], [ %13, %if.then.i.i8.i ], [ %13, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -4997,7 +4997,7 @@ if.then.i.i7.i:                                   ; preds = %lpad2.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad2.i, %if.then.i.i8.i, %if.then.i.i7.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %if.then.i.i7.i ], [ %13, %if.then.i.i8.i ], [ %2, %lpad2.i ], [ %13, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %if.then.i.i7.i ], [ %2, %lpad2.i ], [ %13, %if.then.i.i8.i ], [ %13, %lpad.i ]
   resume { ptr, i32 } %common.resume.op
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -6616,7 +6616,7 @@ if.then.i.i8.i:                                   ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i30, %lpad.i, %lpad, %if.then.i.i8.i32, %if.then.i.i8.i
-  %common.resume.op = phi { ptr, i32 } [ %39, %lpad ], [ %11, %if.then.i.i8.i ], [ %22, %if.then.i.i8.i32 ], [ %11, %lpad.i ], [ %22, %lpad.i30 ]
+  %common.resume.op = phi { ptr, i32 } [ %39, %lpad ], [ %11, %if.then.i.i8.i ], [ %11, %lpad.i ], [ %22, %if.then.i.i8.i32 ], [ %22, %lpad.i30 ]
   resume { ptr, i32 } %common.resume.op
 
 if.end:                                           ; preds = %entry
@@ -7376,7 +7376,7 @@ if.then.i.i8.i:                                   ; preds = %lpad.i
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i27, %lpad.i, %lpad5, %lpad, %if.then.i.i8.i29, %if.then.i.i8.i
-  %common.resume.op = phi { ptr, i32 } [ %11, %if.then.i.i8.i ], [ %22, %if.then.i.i8.i29 ], [ %36, %lpad5 ], [ %35, %lpad ], [ %11, %lpad.i ], [ %22, %lpad.i27 ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %if.then.i.i8.i ], [ %35, %lpad ], [ %22, %if.then.i.i8.i29 ], [ %11, %lpad.i ], [ %36, %lpad5 ], [ %22, %lpad.i27 ]
   resume { ptr, i32 } %common.resume.op
 
 if.end:                                           ; preds = %entry
@@ -8041,7 +8041,7 @@ for.inc:                                          ; preds = %if.end23, %land.rhs
   br i1 %or.cond, label %cleanup29, label %if.end6, !llvm.loop !159
 
 cleanup29:                                        ; preds = %land.lhs.true, %for.inc, %for.inc.us20, %land.rhs.i.us13, %for.inc.us, %if.then17.us, %if.end, %entry
-  %retval.1 = phi i1 [ true, %entry ], [ false, %if.end ], [ true, %if.then17.us ], [ false, %for.inc.us ], [ true, %land.rhs.i.us13 ], [ false, %for.inc.us20 ], [ true, %land.lhs.true ], [ false, %for.inc ]
+  %retval.1 = phi i1 [ true, %entry ], [ false, %if.end ], [ false, %for.inc.us20 ], [ false, %for.inc.us ], [ true, %if.then17.us ], [ true, %land.rhs.i.us13 ], [ true, %land.lhs.true ], [ false, %for.inc ]
   ret i1 %retval.1
 }
 
@@ -10234,7 +10234,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP13InventoryListSt6vectorIS3_SaIS
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP13InventoryListSt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SD_SD_T0_.exit.i.i
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP13InventoryListSt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SD_SD_T0_.exit.i.i: ; preds = %for.body.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP13InventoryListSt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SD_SD_T0_.exit.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP13InventoryListSt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SD_SD_T0_.exit.i.i.loopexit.split.loop.exit214, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP13InventoryListSt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SD_SD_T0_.exit.i.i.loopexit.split.loop.exit216, %sw.bb38.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP13InventoryListSt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SD_SD_T0_.exit.i.i.loopexit.split.loop.exit ], [ %incdec.ptr.i56.i.i.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP13InventoryListSt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SD_SD_T0_.exit.i.i.loopexit.split.loop.exit214 ], [ %incdec.ptr.i58.i.i.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP13InventoryListSt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SD_SD_T0_.exit.i.i.loopexit.split.loop.exit216 ], [ %__first.sroa.0.091.i.i.i.i, %for.body.i.i.i.i ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i58.i.i.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP13InventoryListSt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SD_SD_T0_.exit.i.i.loopexit.split.loop.exit216 ], [ %incdec.ptr.i.i.i.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP13InventoryListSt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SD_SD_T0_.exit.i.i.loopexit.split.loop.exit ], [ %incdec.ptr.i56.i.i.i.i.le, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPP13InventoryListSt6vectorIS3_SaIS3_EEEENS0_5__ops16_Iter_equals_valIKDnEEET_SD_SD_T0_.exit.i.i.loopexit.split.loop.exit214 ], [ %__first.sroa.0.091.i.i.i.i, %for.body.i.i.i.i ]
   %cmp.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %17
   %__first.sroa.0.045.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, i64 8
   %cmp.i22.not46.i.i = icmp eq ptr %__first.sroa.0.045.i.i, %17
@@ -10377,8 +10377,8 @@ invoke.cont30.loopexit.split.loop.exit208:        ; preds = %if.end.i.i.i
   br label %invoke.cont30
 
 invoke.cont30:                                    ; preds = %for.body.i.i.i, %invoke.cont30.loopexit.split.loop.exit, %invoke.cont30.loopexit.split.loop.exit206, %invoke.cont30.loopexit.split.loop.exit208, %sw.bb38.i.i.i, %sw.bb31.i.i.i, %sw.bb.i.i.i
-  %42 = phi ptr [ %36, %sw.bb.i.i.i ], [ %38, %sw.bb31.i.i.i ], [ %40, %sw.bb38.i.i.i ], [ %31, %invoke.cont30.loopexit.split.loop.exit208 ], [ %31, %invoke.cont30.loopexit.split.loop.exit206 ], [ %31, %invoke.cont30.loopexit.split.loop.exit ], [ %31, %for.body.i.i.i ]
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont30.loopexit.split.loop.exit208 ], [ %incdec.ptr.i56.i.i.i.le, %invoke.cont30.loopexit.split.loop.exit206 ], [ %incdec.ptr.i58.i.i.i.le, %invoke.cont30.loopexit.split.loop.exit ], [ %__first.sroa.0.097.i.i.i, %for.body.i.i.i ]
+  %42 = phi ptr [ %36, %sw.bb.i.i.i ], [ %38, %sw.bb31.i.i.i ], [ %40, %sw.bb38.i.i.i ], [ %31, %invoke.cont30.loopexit.split.loop.exit ], [ %31, %invoke.cont30.loopexit.split.loop.exit208 ], [ %31, %invoke.cont30.loopexit.split.loop.exit206 ], [ %31, %for.body.i.i.i ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i58.i.i.i.le, %invoke.cont30.loopexit.split.loop.exit ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont30.loopexit.split.loop.exit208 ], [ %incdec.ptr.i56.i.i.i.le, %invoke.cont30.loopexit.split.loop.exit206 ], [ %__first.sroa.0.097.i.i.i, %for.body.i.i.i ]
   %cmp.i221.not = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %new_lists.sroa.13.1684
   br i1 %cmp.i221.not, label %if.end, label %cleanup
 
@@ -11587,7 +11587,7 @@ for.inc:                                          ; preds = %land.rhs.i, %for.bo
   br i1 %cmp.not, label %for.body, label %cleanup, !llvm.loop !188
 
 cleanup:                                          ; preds = %land.rhs.i, %for.inc, %for.inc.us, %for.body.us, %entry
-  %spec.select = phi i32 [ -1, %entry ], [ %i.012.us, %for.body.us ], [ -1, %for.inc.us ], [ -1, %for.inc ], [ %i.012, %land.rhs.i ]
+  %spec.select = phi i32 [ -1, %entry ], [ -1, %for.inc.us ], [ %i.012.us, %for.body.us ], [ -1, %for.inc ], [ %i.012, %land.rhs.i ]
   ret i32 %spec.select
 }
 

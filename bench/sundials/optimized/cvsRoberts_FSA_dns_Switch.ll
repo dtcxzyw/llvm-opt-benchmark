@@ -711,7 +711,7 @@ switch.lookup:                                    ; preds = %21
   br label %PrintHeader.exit
 
 PrintHeader.exit:                                 ; preds = %3, %28
-  %str.2.sink.i = phi ptr [ @str, %3 ], [ %spec.select.i, %28 ]
+  %str.2.sink.i = phi ptr [ %spec.select.i, %28 ], [ @str, %3 ]
   %puts10.i = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.2.sink.i)
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %35 = load double, ptr %34, align 8, !tbaa !11

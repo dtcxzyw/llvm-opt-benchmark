@@ -219,7 +219,7 @@ define hidden void @_ZNK8rawspeed23AbstractDngDecompressor16decompressThreadILi1
   br label %45
 
 45:                                               ; preds = %40, %29, %29, %29
-  %.035.shrunk = phi i1 [ %38, %29 ], [ %38, %29 ], [ %38, %29 ], [ %spec.select, %40 ]
+  %.035.shrunk = phi i1 [ %38, %29 ], [ %spec.select, %40 ], [ %38, %29 ], [ %38, %29 ]
   %46 = load ptr, ptr %0, align 8, !tbaa !34
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 584
   %48 = load i32, ptr %47, align 8, !tbaa !100

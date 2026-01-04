@@ -509,8 +509,8 @@ define ptr @get_utf_16_string(ptr noundef %0, ptr noundef readonly captures(none
   br label %73
 
 73:                                               ; preds = %.lr.ph.split, %63, %67, %72
-  %.sink94 = phi i32 [ %71, %67 ], [ %58, %72 ], [ 65533, %63 ], [ 65533, %.lr.ph.split ]
-  %.3 = phi i32 [ %61, %67 ], [ %.173, %72 ], [ %61, %63 ], [ %.173, %.lr.ph.split ]
+  %.sink94 = phi i32 [ 65533, %63 ], [ %71, %67 ], [ %58, %72 ], [ 65533, %.lr.ph.split ]
+  %.3 = phi i32 [ %61, %63 ], [ %61, %67 ], [ %.173, %72 ], [ %.173, %.lr.ph.split ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef %.sink94)
   %74 = add i32 %.3, 2
   %75 = add i32 %.3, 3
@@ -770,8 +770,8 @@ GSM_to_UNICHAR.exit:                              ; preds = %6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %GSM_to_UNICHAR.exit, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17
-  %.0.sink = phi i32 [ %21, %GSM_to_UNICHAR.exit ], [ 65533, %17 ], [ 94, %8 ], [ 123, %9 ], [ 125, %10 ], [ 92, %11 ], [ 91, %12 ], [ 126, %13 ], [ 93, %14 ], [ 124, %15 ], [ 8364, %16 ], [ 12, %7 ], [ 65533, %5 ]
-  %.08.ph = phi i1 [ false, %GSM_to_UNICHAR.exit ], [ false, %17 ], [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ false, %13 ], [ false, %14 ], [ false, %15 ], [ false, %16 ], [ false, %7 ], [ %2, %5 ]
+  %.0.sink = phi i32 [ 12, %7 ], [ %21, %GSM_to_UNICHAR.exit ], [ 65533, %17 ], [ 8364, %16 ], [ 94, %8 ], [ 123, %9 ], [ 125, %10 ], [ 92, %11 ], [ 91, %12 ], [ 126, %13 ], [ 93, %14 ], [ 124, %15 ], [ 65533, %5 ]
+  %.08.ph = phi i1 [ false, %7 ], [ false, %GSM_to_UNICHAR.exit ], [ false, %17 ], [ false, %16 ], [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ false, %13 ], [ false, %14 ], [ false, %15 ], [ %2, %5 ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %0, i32 noundef %.0.sink)
   br label %22
 
@@ -934,7 +934,7 @@ define ptr @get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr noundef reado
   br i1 %exitcond.not, label %get_ucs_2_string.exit, label %.lr.ph.split, !llvm.loop !16
 
 get_ucs_2_string.exit:                            ; preds = %67, %56, %32, %46, %40, %27, %._crit_edge.i, %30, %5
-  %.sink80 = phi ptr [ %31, %30 ], [ %6, %5 ], [ %14, %._crit_edge.i ], [ %14, %27 ], [ %39, %40 ], [ %39, %46 ], [ %39, %32 ], [ %39, %56 ], [ %39, %67 ]
+  %.sink80 = phi ptr [ %39, %32 ], [ %14, %._crit_edge.i ], [ %39, %56 ], [ %39, %46 ], [ %39, %40 ], [ %14, %27 ], [ %31, %30 ], [ %6, %5 ], [ %39, %67 ]
   %69 = tail call ptr @wmem_strbuf_finalize(ptr noundef %.sink80)
   ret ptr %69
 }
@@ -1269,7 +1269,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %
   br label %49
 
 49:                                               ; preds = %39, %44, %27
-  %.sink66 = phi i16 [ %48, %44 ], [ %29, %27 ], [ %43, %39 ]
+  %.sink66 = phi i16 [ %29, %27 ], [ %48, %44 ], [ %43, %39 ]
   %50 = zext i16 %.sink66 to i32
   tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %50)
   %51 = add nsw i32 %.050, 1
@@ -1316,7 +1316,7 @@ define ptr @get_dect_standard_8bits_string(ptr noundef %0, ptr noundef readonly 
   br label %14
 
 14:                                               ; preds = %.lr.ph, %9
-  %.sink = phi i32 [ %13, %9 ], [ 65533, %.lr.ph ]
+  %.sink = phi i32 [ 65533, %.lr.ph ], [ %13, %9 ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %.sink)
   %15 = getelementptr i8, ptr %.01316, i64 1
   %16 = add nuw nsw i32 %.017, 1

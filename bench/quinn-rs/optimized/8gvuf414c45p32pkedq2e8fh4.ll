@@ -1505,7 +1505,7 @@ define void @_ZN5quinn8incoming8Incoming11accept_with17h9bc377090298a6a7E(ptr de
           to label %31 unwind label %25
 
 27:                                               ; preds = %.thread, %12
-  %.pn16 = phi { ptr, i32 } [ %22, %12 ], [ %11, %.thread ]
+  %.pn16 = phi { ptr, i32 } [ %11, %.thread ], [ %22, %12 ]
   %28 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !118
   %29 = icmp eq i64 %28, 1
   br i1 %29, label %30, label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$quinn_proto..config..ServerConfig$GT$$GT$17h1463692935303afaE.exit"

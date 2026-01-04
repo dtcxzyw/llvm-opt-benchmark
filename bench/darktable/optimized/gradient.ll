@@ -1038,7 +1038,7 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
   br label %315
 
 315:                                              ; preds = %_gradient_get_area.exit.thread, %130, %77, %300, %303, %._crit_edge279, %207
-  %.0 = phi i32 [ 0, %130 ], [ 0, %77 ], [ 0, %207 ], [ 0, %300 ], [ 1, %303 ], [ 1, %._crit_edge279 ], [ 0, %_gradient_get_area.exit.thread ]
+  %.0 = phi i32 [ 0, %_gradient_get_area.exit.thread ], [ 0, %130 ], [ 0, %77 ], [ 0, %207 ], [ 0, %300 ], [ 1, %303 ], [ 1, %._crit_edge279 ]
   ret i32 %.0
 }
 
@@ -1989,7 +1989,7 @@ _gradient_get_distance.exit:                      ; preds = %.critedge71.i, %132
   br label %249
 
 249:                                              ; preds = %246, %243
-  %.2 = phi i32 [ 0, %243 ], [ %., %246 ]
+  %.2 = phi i32 [ %., %246 ], [ 0, %243 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %251
@@ -1999,7 +1999,7 @@ _gradient_get_distance.exit:                      ; preds = %.critedge71.i, %132
   br label %251
 
 251:                                              ; preds = %71, %59, %250, %249, %21, %19
-  %.0 = phi i32 [ 1, %19 ], [ 1, %21 ], [ 1, %250 ], [ %.2, %249 ], [ 1, %71 ], [ 0, %59 ]
+  %.0 = phi i32 [ 1, %19 ], [ 1, %21 ], [ %.2, %249 ], [ 1, %250 ], [ 1, %71 ], [ 0, %59 ]
   ret i32 %.0
 }
 
@@ -2236,7 +2236,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_scrolled(ptr noundef
   br label %139
 
 139:                                              ; preds = %69, %86, %117, %132, %105, %67
-  %.0 = phi i32 [ 1, %67 ], [ 1, %105 ], [ 1, %132 ], [ 1, %117 ], [ 1, %86 ], [ 0, %69 ]
+  %.0 = phi i32 [ 1, %67 ], [ 1, %86 ], [ 1, %105 ], [ 1, %132 ], [ 1, %117 ], [ 0, %69 ]
   ret i32 %.0
 }
 
@@ -2350,7 +2350,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_button_pressed(ptr noundef
   br label %.thread52
 
 .thread52:                                        ; preds = %34, %59, %41, %38, %31, %28, %11, %58, %15
-  %.0 = phi i32 [ 1, %15 ], [ 1, %58 ], [ 0, %11 ], [ 1, %31 ], [ 0, %28 ], [ 1, %41 ], [ 0, %38 ], [ 0, %59 ], [ 0, %34 ]
+  %.0 = phi i32 [ 1, %15 ], [ 1, %58 ], [ 0, %38 ], [ 0, %28 ], [ 0, %11 ], [ 1, %31 ], [ 1, %41 ], [ 0, %59 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -2745,7 +2745,7 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
   br label %239
 
 239:                                              ; preds = %165, %192, %229, %205, %102, %98, %159, %71, %59
-  %.0 = phi i32 [ 1, %59 ], [ 1, %71 ], [ 1, %159 ], [ 1, %102 ], [ 0, %98 ], [ 1, %205 ], [ 1, %229 ], [ 1, %192 ], [ 0, %165 ]
+  %.0 = phi i32 [ 1, %59 ], [ 1, %71 ], [ 1, %192 ], [ 1, %159 ], [ 0, %98 ], [ 1, %102 ], [ 1, %205 ], [ 1, %229 ], [ 0, %165 ]
   ret i32 %.0
 }
 
@@ -3333,7 +3333,7 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_pts_border(ptr noundef
   br i1 %exitcond.not, label %.loopexit, label %114
 
 .loopexit:                                        ; preds = %114, %99, %84, %107, %92, %62, %106
-  %.1108 = phi i32 [ 0, %106 ], [ 0, %62 ], [ 0, %92 ], [ 0, %107 ], [ 1, %84 ], [ 1, %99 ], [ 1, %114 ]
+  %.1108 = phi i32 [ 0, %106 ], [ 1, %99 ], [ 1, %84 ], [ 0, %62 ], [ 0, %92 ], [ 0, %107 ], [ 1, %114 ]
   %121 = load ptr, ptr %9, align 8, !tbaa !115
   tail call void @free(ptr noundef %121) #15
   %122 = load ptr, ptr %10, align 8, !tbaa !115
@@ -3694,7 +3694,7 @@ _gradient_is_canonical.exit.thread:               ; preds = %35
   br label %.critedge
 
 .critedge:                                        ; preds = %60, %.critedge.loopexit.split.loop.exit, %.critedge.loopexit.split.loop.exit77, %44
-  %.1.lcssa = phi i32 [ %.159, %44 ], [ %63, %.critedge.loopexit.split.loop.exit ], [ %64, %.critedge.loopexit.split.loop.exit77 ], [ %15, %60 ]
+  %.1.lcssa = phi i32 [ %.159, %44 ], [ %64, %.critedge.loopexit.split.loop.exit77 ], [ %63, %.critedge.loopexit.split.loop.exit ], [ %15, %60 ]
   tail call void @dt_masks_line_stroke(ptr noundef %1, i32 noundef %0, i32 noundef 0, i32 noundef %2, float noundef %3) #15
   br label %.backedge
 

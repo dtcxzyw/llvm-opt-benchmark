@@ -53,7 +53,7 @@ define hidden noundef ptr @pj_nsper(ptr noundef %0) local_unnamed_addr #0 {
   br label %_Z34pj_projection_specific_setup_nsperP8PJconsts.exit
 
 _Z34pj_projection_specific_setup_nsperP8PJconsts.exit: ; preds = %7, %5, %10, %13
-  %.0 = phi ptr [ %11, %13 ], [ null, %10 ], [ %6, %5 ], [ %9, %7 ]
+  %.0 = phi ptr [ null, %10 ], [ %11, %13 ], [ %6, %5 ], [ %9, %7 ]
   ret ptr %.0
 }
 

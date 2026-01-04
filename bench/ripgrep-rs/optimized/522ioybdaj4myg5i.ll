@@ -1031,7 +1031,7 @@ default.unreachable67:                            ; preds = %.lr.ph.split
   br label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit
 
 _ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit: ; preds = %.split, %11, %13
-  %.0.i10 = phi i8 [ %15, %13 ], [ 1, %.split ], [ 0, %11 ]
+  %.0.i10 = phi i8 [ 0, %11 ], [ 1, %.split ], [ %15, %13 ]
   store i8 %.0.i10, ptr %0, align 1, !alias.scope !214
   br label %.loopexit
 
@@ -1182,7 +1182,7 @@ define internal fastcc void @_ZN10grep_regex3ast11AstAnalysis23from_ast_class_se
   br label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit
 
 _ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit: ; preds = %12, %15, %17
-  %.0.i8 = phi i8 [ %19, %17 ], [ 1, %12 ], [ 0, %15 ]
+  %.0.i8 = phi i8 [ 0, %15 ], [ 1, %12 ], [ %19, %17 ]
   store i8 %.0.i8, ptr %0, align 1, !alias.scope !219
   br label %.loopexit
 
@@ -1206,7 +1206,7 @@ _ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit: ; p
   br label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit12
 
 _ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit12: ; preds = %23, %25
-  %.0.i11 = phi i8 [ %27, %25 ], [ 0, %23 ]
+  %.0.i11 = phi i8 [ 0, %23 ], [ %27, %25 ]
   store i8 %.0.i11, ptr %0, align 1, !alias.scope !222
   tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
   store i8 1, ptr %3, align 1, !alias.scope !225
@@ -1226,7 +1226,7 @@ _ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit12: ;
   br label %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit16
 
 _ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit16: ; preds = %20, %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit12, %30, %32
-  %.0.i15 = phi i8 [ %34, %32 ], [ 1, %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit12 ], [ 0, %30 ], [ 1, %20 ]
+  %.0.i15 = phi i8 [ 0, %30 ], [ 1, %_ZN10grep_regex3ast11AstAnalysis16from_ast_literal17h0c75c5833a5303efE.exit12 ], [ %34, %32 ], [ 1, %20 ]
   store i8 %.0.i15, ptr %0, align 1, !alias.scope !225
   br label %.loopexit
 

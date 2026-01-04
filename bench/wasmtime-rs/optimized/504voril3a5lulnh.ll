@@ -698,7 +698,7 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit.thread: ;
     i32 11, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread25
     i32 1, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread21
     i32 13, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread21
-    i32 2, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19.invoke
+    i32 2, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27.invoke
     i32 22, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27
     i32 17, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread23
   ]
@@ -723,9 +723,9 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit.thread: ;
   br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
 
 _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit: ; preds = %28, %25, %21
-  %.0.i = phi i8 [ %spec.select.i.i.i, %21 ], [ %27, %25 ], [ %30, %28 ]
+  %.0.i = phi i8 [ %30, %28 ], [ %spec.select.i.i.i, %21 ], [ %27, %25 ]
   switch i8 %.0.i, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread [
-    i8 0, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19.invoke
+    i8 0, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27.invoke
     i8 1, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread21
     i8 12, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread23
     i8 13, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread25
@@ -747,29 +747,29 @@ _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread: ; preds = %18, %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
-_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19.invoke: ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit, %18, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread25, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread23, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread21
-  %35 = phi i8 [ 63, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread21 ], [ 20, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread23 ], [ 6, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread25 ], [ 28, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27 ], [ 44, %18 ], [ 44, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit ]
-  %36 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hef1ee2547ce057e8E"(i8 noundef %35)
-          to label %38 unwind label %44
-
 _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread21: ; preds = %18, %18, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
-  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19.invoke
+  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27.invoke
 
 _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread23: ; preds = %18, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
-  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19.invoke
+  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27.invoke
 
 _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread25: ; preds = %18, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
-  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19.invoke
+  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27.invoke
 
 _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27: ; preds = %18, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
-  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19.invoke
+  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27.invoke
+
+_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27.invoke: ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit, %18, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread25, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread23, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread21, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27
+  %35 = phi i8 [ 28, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27 ], [ 6, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread25 ], [ 63, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread21 ], [ 20, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread23 ], [ 44, %18 ], [ 44, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit ]
+  %36 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hef1ee2547ce057e8E"(i8 noundef %35)
+          to label %38 unwind label %44
 
 37:                                               ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit"
   %.031 = phi ptr [ %.0.ph, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit" ], [ %34, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread ]
   ret ptr %.031
 
-38:                                               ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19.invoke, %15
-  %.0.ph = phi ptr [ %14, %15 ], [ %36, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19.invoke ]
+38:                                               ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27.invoke, %15
+  %.0.ph = phi ptr [ %36, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27.invoke ], [ %14, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !24
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h818a02e413cc4ce9E.llvm.1938814379164664089(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %0), !noalias !24
   %39 = load i8, ptr %2, align 8, !range !31, !alias.scope !32, !noalias !24, !noundef !5
@@ -788,7 +788,7 @@ _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27: ; preds = %18, %_
 43:                                               ; preds = %44
   resume { ptr, i32 } %lpad.thr_comm
 
-44:                                               ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19.invoke, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit.thread
+44:                                               ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread27.invoke, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit.thread
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #20
@@ -5310,7 +5310,7 @@ define noundef zeroext i1 @"_ZN87_$LT$wasi_common..snapshots..preview_1..types..
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -8779,7 +8779,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasi_common..snapshots..preview_1..types..
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -9531,7 +9531,7 @@ define noundef zeroext i1 @"_ZN89_$LT$wasi_common..snapshots..preview_1..types..
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -9774,7 +9774,7 @@ define noundef zeroext i1 @"_ZN92_$LT$wasi_common..snapshots..preview_1..types..
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -10016,7 +10016,7 @@ define noundef zeroext i1 @"_ZN87_$LT$wasi_common..snapshots..preview_1..types..
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -11704,7 +11704,7 @@ define noundef zeroext i1 @"_ZN93_$LT$wasi_common..snapshots..preview_1..types..
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -12855,7 +12855,7 @@ define noundef zeroext i1 @"_ZN94_$LT$wasi_common..snapshots..preview_1..types..
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -17881,7 +17881,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasi_common..snapshots..preview_1..types..
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -18124,7 +18124,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasi_common..snapshots..preview_1..types..
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -18367,7 +18367,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasi_common..snapshots..preview_1..types..
   br label %17
 
 17:                                               ; preds = %12, %15, %10, %8, %6, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %6 ], [ true, %8 ], [ true, %10 ], [ %16, %15 ], [ true, %12 ]
+  %.0 = phi i1 [ true, %10 ], [ %16, %15 ], [ true, %2 ], [ true, %8 ], [ true, %6 ], [ true, %12 ]
   ret i1 %.0
 }
 

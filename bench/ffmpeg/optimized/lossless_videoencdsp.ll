@@ -121,7 +121,7 @@ define internal void @diff_bytes_c(ptr noundef writeonly captures(none) %0, ptr 
   br i1 %.not75, label %.loopexit, label %.lr.ph81, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph81, %.preheader76, %.preheader
-  %.1 = phi i64 [ 0, %.preheader ], [ 0, %.preheader76 ], [ %81, %.lr.ph81 ], [ %66, %.lr.ph ]
+  %.1 = phi i64 [ %81, %.lr.ph81 ], [ 0, %.preheader ], [ 0, %.preheader76 ], [ %66, %.lr.ph ]
   %82 = icmp slt i64 %.1, %3
   br i1 %82, label %.lr.ph84, label %._crit_edge
 
@@ -189,7 +189,7 @@ define internal void @sub_median_pred_c(ptr noundef writeonly captures(none) %0,
   br label %mid_pred.exit
 
 mid_pred.exit:                                    ; preds = %18, %20, %21, %23
-  %.0.i = phi i32 [ %15, %18 ], [ %15, %21 ], [ %..i, %20 ], [ %.20.i, %23 ]
+  %.0.i = phi i32 [ %..i, %20 ], [ %15, %21 ], [ %15, %18 ], [ %.20.i, %23 ]
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1, !tbaa !11
   %26 = trunc nuw i32 %.0.i to i8

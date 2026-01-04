@@ -1244,7 +1244,7 @@ switch.lookup:                                    ; preds = %31
   unreachable
 
 129:                                              ; preds = %78, %126, %127, %117, %118, %89, %98, %107, %122, %121, %120, %119
-  %.0571 = phi i1 [ true, %89 ], [ true, %98 ], [ true, %107 ], [ true, %117 ], [ true, %118 ], [ false, %119 ], [ false, %120 ], [ false, %121 ], [ false, %122 ], [ false, %126 ], [ false, %127 ], [ false, %78 ]
+  %.0571 = phi i1 [ true, %89 ], [ true, %98 ], [ true, %107 ], [ true, %117 ], [ true, %118 ], [ false, %127 ], [ false, %119 ], [ false, %120 ], [ false, %121 ], [ false, %122 ], [ false, %126 ], [ false, %78 ]
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = call i32 @wtap_block_count_option(ptr noundef %131, i32 noundef 1)

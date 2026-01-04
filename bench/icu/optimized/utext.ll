@@ -134,7 +134,7 @@ utext_next32_77.exit.thread.sink.split:           ; preds = %18, %50
   store i32 %57, ptr %6, align 8, !tbaa !3
   br label %utext_next32_77.exit.thread
 
-utext_next32_77.exit.thread:                      ; preds = %utext_next32_77.exit.thread.sink.split, %50, %43, %35
+utext_next32_77.exit.thread:                      ; preds = %utext_next32_77.exit.thread.sink.split, %50, %35, %43
   %58 = add nsw i32 %.0, -1
   %59 = icmp sgt i32 %.0, 1
   br i1 %59, label %9, label %utext_next32_77.exit, !llvm.loop !20
@@ -246,13 +246,13 @@ utext_previous32_77.exit.thread.sink.split:       ; preds = %75, %110
   store i32 %117, ptr %64, align 8, !tbaa !3
   br label %utext_previous32_77.exit.thread
 
-utext_previous32_77.exit.thread:                  ; preds = %utext_previous32_77.exit.thread.sink.split, %110, %103, %93
+utext_previous32_77.exit.thread:                  ; preds = %utext_previous32_77.exit.thread.sink.split, %110, %93, %103
   %118 = add nsw i32 %.1, 1
   %exitcond.not = icmp eq i32 %118, 0
   br i1 %exitcond.not, label %utext_next32_77.exit, label %66, !llvm.loop !23
 
 utext_next32_77.exit:                             ; preds = %86, %utext_previous32_77.exit.thread, %69, %28, %utext_next32_77.exit.thread, %12, %60
-  %.023 = phi i8 [ 1, %60 ], [ 0, %28 ], [ 1, %utext_next32_77.exit.thread ], [ 0, %12 ], [ 0, %86 ], [ 1, %utext_previous32_77.exit.thread ], [ 0, %69 ]
+  %.023 = phi i8 [ 1, %60 ], [ 0, %12 ], [ 1, %utext_next32_77.exit.thread ], [ 0, %28 ], [ 0, %69 ], [ 0, %86 ], [ 1, %utext_previous32_77.exit.thread ]
   ret i8 %.023
 }
 
@@ -335,7 +335,7 @@ define range(i32 -1, 10559488) i32 @utext_next32_77(ptr noundef %0) local_unname
   br label %49
 
 49:                                               ; preds = %44, %36, %27, %15, %6
-  %.0 = phi i32 [ -1, %6 ], [ %23, %15 ], [ %23, %27 ], [ %47, %44 ], [ %23, %36 ]
+  %.0 = phi i32 [ %23, %27 ], [ -1, %6 ], [ %23, %15 ], [ %47, %44 ], [ %23, %36 ]
   ret i32 %.0
 }
 
@@ -417,7 +417,7 @@ thread-pre-split:                                 ; preds = %5
   br label %48
 
 48:                                               ; preds = %43, %35, %26, %14, %5
-  %.0 = phi i32 [ -1, %5 ], [ %22, %14 ], [ %22, %26 ], [ %46, %43 ], [ %22, %35 ]
+  %.0 = phi i32 [ %22, %26 ], [ -1, %5 ], [ %22, %14 ], [ %46, %43 ], [ %22, %35 ]
   ret i32 %.0
 }
 
@@ -781,7 +781,7 @@ utext_previous32_77.exit:                         ; preds = %.thread38, %38, %48
   br label %utext_next32_77.exit
 
 utext_next32_77.exit:                             ; preds = %thread-pre-split, %20, %16, %121, %114, %105, %94, %85
-  %.1 = phi i64 [ %82, %85 ], [ %82, %94 ], [ %82, %105 ], [ %82, %114 ], [ %82, %121 ], [ %25, %20 ], [ %19, %16 ], [ 0, %thread-pre-split ]
+  %.1 = phi i64 [ %82, %121 ], [ 0, %thread-pre-split ], [ %82, %85 ], [ %82, %94 ], [ %82, %105 ], [ %82, %114 ], [ %19, %16 ], [ %25, %20 ]
   ret i64 %.1
 }
 
@@ -877,7 +877,7 @@ define range(i32 -1, 10559488) i32 @utext_current32_77(ptr noundef %0) local_unn
   br label %62
 
 62:                                               ; preds = %56, %49, %16, %7
-  %.0 = phi i32 [ -1, %7 ], [ %23, %16 ], [ %.032, %56 ], [ -1, %49 ]
+  %.0 = phi i32 [ %23, %16 ], [ -1, %7 ], [ %.032, %56 ], [ -1, %49 ]
   ret i32 %.0
 }
 
@@ -1081,7 +1081,7 @@ utext_setNativeIndex_77.exit:                     ; preds = %43, %49, %66, %69, 
   br label %utext_current32_77.exit
 
 utext_current32_77.exit:                          ; preds = %122, %115, %utext_setNativeIndex_77.exit, %81, %84, %11
-  %.023 = phi i32 [ %20, %11 ], [ %90, %84 ], [ %.032, %81 ], [ %.032, %utext_setNativeIndex_77.exit ], [ %.032.i, %122 ], [ -1, %115 ]
+  %.023 = phi i32 [ %20, %11 ], [ %.032, %utext_setNativeIndex_77.exit ], [ %90, %84 ], [ %.032, %81 ], [ %.032.i, %122 ], [ -1, %115 ]
   ret i32 %.023
 }
 
@@ -1313,7 +1313,7 @@ utext_setNativeIndex_77.exit:                     ; preds = %64, %69, %85, %88, 
   br label %utext_next32_77.exit
 
 utext_next32_77.exit:                             ; preds = %137, %129, %120, %109, %100, %28, %9
-  %.024 = phi i32 [ -1, %9 ], [ %37, %28 ], [ -1, %100 ], [ %116, %109 ], [ %116, %120 ], [ %140, %137 ], [ %116, %129 ]
+  %.024 = phi i32 [ -1, %9 ], [ %37, %28 ], [ %116, %120 ], [ -1, %100 ], [ %116, %109 ], [ %140, %137 ], [ %116, %129 ]
   ret i32 %.024
 }
 
@@ -1479,7 +1479,7 @@ define range(i32 -1, 10559488) i32 @utext_previous32From_77(ptr noundef %0, i64 
   br label %utext_setNativeIndex_77.exit
 
 utext_setNativeIndex_77.exit:                     ; preds = %72, %77, %104
-  %106 = phi i32 [ %105, %104 ], [ %73, %77 ], [ %73, %72 ]
+  %106 = phi i32 [ %105, %104 ], [ %73, %72 ], [ %73, %77 ]
   %107 = icmp slt i32 %106, 1
   br i1 %107, label %utext_setNativeIndex_77.exit.thread, label %utext_setNativeIndex_77.exit.thread46
 
@@ -1551,7 +1551,7 @@ utext_setNativeIndex_77.exit.thread46:            ; preds = %96, %thread-pre-spl
   br label %utext_previous32_77.exit
 
 utext_previous32_77.exit:                         ; preds = %141, %133, %125, %utext_setNativeIndex_77.exit.thread46, %utext_setNativeIndex_77.exit.thread, %36, %31, %9
-  %.029 = phi i32 [ -1, %9 ], [ -1, %31 ], [ %45, %36 ], [ -1, %utext_setNativeIndex_77.exit.thread ], [ %121, %utext_setNativeIndex_77.exit.thread46 ], [ %121, %125 ], [ %144, %141 ], [ %121, %133 ]
+  %.029 = phi i32 [ -1, %31 ], [ -1, %9 ], [ %45, %36 ], [ %121, %125 ], [ -1, %utext_setNativeIndex_77.exit.thread ], [ %121, %utext_setNativeIndex_77.exit.thread46 ], [ %144, %141 ], [ %121, %133 ]
   ret i32 %.029
 }
 
@@ -1649,7 +1649,7 @@ utext_getNativeIndex_77.exit19:                   ; preds = %37, %42
   br label %47
 
 47:                                               ; preds = %utext_getNativeIndex_77.exit19, %14, %9, %2, %5, %7
-  %.0 = phi i8 [ 0, %7 ], [ 0, %5 ], [ 0, %2 ], [ 0, %9 ], [ 0, %14 ], [ %., %utext_getNativeIndex_77.exit19 ]
+  %.0 = phi i8 [ 0, %14 ], [ 0, %2 ], [ 0, %9 ], [ %., %utext_getNativeIndex_77.exit19 ], [ 0, %7 ], [ 0, %5 ]
   ret i8 %.0
 }
 
@@ -1708,7 +1708,7 @@ define noundef i32 @utext_replace_77(ptr noundef %0, i64 noundef %1, i64 noundef
   br label %21
 
 21:                                               ; preds = %6, %15, %14
-  %.0 = phi i32 [ 0, %14 ], [ %20, %15 ], [ 0, %6 ]
+  %.0 = phi i32 [ %20, %15 ], [ 0, %14 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -1888,7 +1888,7 @@ define ptr @utext_setup_77(ptr noundef %0, i32 noundef %1, ptr noundef captures(
   br label %.thread
 
 .thread:                                          ; preds = %13, %16, %34, %50
-  %.063.ph = phi ptr [ %11, %13 ], [ %11, %16 ], [ %0, %34 ], [ %0, %50 ]
+  %.063.ph = phi ptr [ %11, %13 ], [ %11, %16 ], [ %0, %50 ], [ %0, %34 ]
   %.pr = load i32, ptr %2, align 4, !tbaa !32
   %53 = icmp sgt i32 %.pr, 0
   br i1 %53, label %70, label %54
@@ -1923,7 +1923,7 @@ define ptr @utext_setup_77(ptr noundef %0, i32 noundef %1, ptr noundef captures(
   br label %70
 
 70:                                               ; preds = %.thread.thread, %20, %.thread, %68, %64, %54, %3, %23
-  %.062 = phi ptr [ null, %20 ], [ %0, %23 ], [ %0, %3 ], [ %.063.ph, %54 ], [ %.063.ph, %64 ], [ %.063.ph, %68 ], [ %.063.ph, %.thread ], [ %0, %.thread.thread ]
+  %.062 = phi ptr [ %0, %23 ], [ %0, %3 ], [ null, %20 ], [ %.063.ph, %54 ], [ %.063.ph, %64 ], [ %.063.ph, %68 ], [ %.063.ph, %.thread ], [ %0, %.thread.thread ]
   ret ptr %.062
 }
 
@@ -2001,7 +2001,7 @@ define noundef ptr @utext_close_77(ptr noundef %0) local_unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %26, %29, %1, %3, %5
-  %.019 = phi ptr [ %0, %5 ], [ %0, %3 ], [ null, %1 ], [ null, %29 ], [ %0, %26 ]
+  %.019 = phi ptr [ null, %1 ], [ %0, %5 ], [ %0, %3 ], [ null, %29 ], [ %0, %26 ]
   ret ptr %.019
 }
 
@@ -2064,7 +2064,7 @@ define ptr @utext_openUTF8_77(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   br label %35
 
 35:                                               ; preds = %14, %4, %29, %13
-  %.0 = phi ptr [ null, %13 ], [ %15, %29 ], [ null, %4 ], [ %15, %14 ]
+  %.0 = phi ptr [ %15, %29 ], [ null, %13 ], [ null, %4 ], [ %15, %14 ]
   ret ptr %.0
 }
 
@@ -2112,7 +2112,7 @@ define ptr @utext_openReplaceable_77(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %25
 
 25:                                               ; preds = %9, %3, %22, %8
-  %.0 = phi ptr [ null, %8 ], [ %10, %22 ], [ null, %3 ], [ %10, %9 ]
+  %.0 = phi ptr [ %10, %22 ], [ null, %8 ], [ null, %3 ], [ %10, %9 ]
   ret ptr %.0
 }
 
@@ -2208,7 +2208,7 @@ utext_openUChars_77.exit:                         ; preds = %10, %14
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %26, %35, %37
-  %.0.i26 = phi ptr [ %36, %35 ], [ %39, %37 ], [ null, %26 ]
+  %.0.i26 = phi ptr [ %39, %37 ], [ %36, %35 ], [ null, %26 ]
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr %.0.i26, ptr %40, align 8, !tbaa !17
   %41 = load i16, ptr %30, align 8, !tbaa !53
@@ -2289,7 +2289,7 @@ define ptr @utext_openUChars_77(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br label %32
 
 32:                                               ; preds = %14, %18, %4, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %4 ], [ %15, %18 ], [ %15, %14 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %13 ], [ %15, %18 ], [ %15, %14 ]
   ret ptr %.0
 }
 
@@ -2353,7 +2353,7 @@ define ptr @utext_openCharacterIterator_77(ptr noundef %0, ptr noundef %1, ptr n
   br label %36
 
 36:                                               ; preds = %11, %15, %3, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ %12, %15 ], [ %12, %11 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %10 ], [ %12, %15 ], [ %12, %11 ]
   ret ptr %.0
 }
 
@@ -2499,8 +2499,8 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   br label %31
 
 31:                                               ; preds = %11, %.critedge, %27, %13, %3
-  %.1391 = phi i32 [ %.lcssa, %27 ], [ %.0390, %.critedge ], [ %.0390, %13 ], [ %.0390, %3 ], [ %8, %11 ]
-  %32 = phi i32 [ %.lcssa, %27 ], [ %8, %.critedge ], [ %8, %13 ], [ %8, %3 ], [ %8, %11 ]
+  %.1391 = phi i32 [ %.0390, %3 ], [ %.lcssa, %27 ], [ %.0390, %.critedge ], [ %.0390, %13 ], [ %8, %11 ]
+  %32 = phi i32 [ %8, %3 ], [ %.lcssa, %27 ], [ %8, %.critedge ], [ %8, %13 ], [ %8, %11 ]
   %.not444 = icmp eq i8 %2, 0
   %33 = sext i32 %.1391 to i64
   br i1 %.not444, label %89, label %34
@@ -3286,7 +3286,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   br label %473
 
 473:                                              ; preds = %364, %372, %377, %376, %198, %199, %121, %.critedge5, %137, %95, %74, %62, %40
-  %.0388 = phi i8 [ 0, %40 ], [ 1, %137 ], [ 0, %62 ], [ 1, %74 ], [ 0, %95 ], [ 1, %.critedge5 ], [ %., %121 ], [ 0, %199 ], [ 0, %198 ], [ 1, %376 ], [ 1, %377 ], [ 1, %372 ], [ 1, %364 ]
+  %.0388 = phi i8 [ 0, %40 ], [ 1, %.critedge5 ], [ 1, %137 ], [ 0, %62 ], [ %., %121 ], [ 0, %198 ], [ 1, %74 ], [ 0, %95 ], [ 0, %199 ], [ 1, %376 ], [ 1, %377 ], [ 1, %372 ], [ 1, %364 ]
   ret i8 %.0388
 }
 
@@ -3373,7 +3373,7 @@ _ZL8pinIndexRll.exit:                             ; preds = %12
   br label %.loopexit62
 
 .loopexit62:                                      ; preds = %42, %.loopexit62.loopexit.split.loop.exit, %.loopexit62.loopexit.split.loop.exit96, %27
-  %.050 = phi i32 [ %21, %27 ], [ %44, %.loopexit62.loopexit.split.loop.exit ], [ %45, %.loopexit62.loopexit.split.loop.exit96 ], [ %34, %42 ]
+  %.050 = phi i32 [ %21, %27 ], [ %45, %.loopexit62.loopexit.split.loop.exit96 ], [ %44, %.loopexit62.loopexit.split.loop.exit ], [ %34, %42 ]
   %46 = sext i32 %24 to i64
   %47 = icmp sgt i64 %32, %46
   br i1 %47, label %.preheader.preheader, label %.loopexit
@@ -3412,7 +3412,7 @@ _ZL8pinIndexRll.exit:                             ; preds = %12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit101, %.loopexit62
-  %.048 = phi i32 [ %24, %.loopexit62 ], [ %58, %.loopexit.loopexit.split.loop.exit ], [ %59, %.loopexit.loopexit.split.loop.exit101 ], [ %48, %56 ]
+  %.048 = phi i32 [ %24, %.loopexit62 ], [ %59, %.loopexit.loopexit.split.loop.exit101 ], [ %58, %.loopexit.loopexit.split.loop.exit ], [ %48, %56 ]
   %60 = sext i32 %.050 to i64
   %61 = getelementptr inbounds i8, ptr %29, i64 %60
   %62 = sub nsw i32 %.048, %.050
@@ -3536,7 +3536,7 @@ _ZL17utext_strFromUTF8PDsiPiPKciP10UErrorCode.exit: ; preds = %117, %._crit_edge
   br label %129
 
 129:                                              ; preds = %26, %_ZL17utext_strFromUTF8PDsiPiPKciP10UErrorCode.exit, %6, %15
-  %.046 = phi i32 [ 0, %15 ], [ 0, %6 ], [ 0, %26 ], [ %125, %_ZL17utext_strFromUTF8PDsiPiPKciP10UErrorCode.exit ]
+  %.046 = phi i32 [ 0, %6 ], [ 0, %15 ], [ 0, %26 ], [ %125, %_ZL17utext_strFromUTF8PDsiPiPKciP10UErrorCode.exit ]
   ret i32 %.046
 }
 
@@ -4199,7 +4199,7 @@ _ZL8pinIndexRll.exit:                             ; preds = %22
   br label %48
 
 48:                                               ; preds = %40, %33, %_ZL8pinIndexRll.exit
-  %.045 = phi i32 [ %28, %33 ], [ %28, %_ZL8pinIndexRll.exit ], [ %spec.select, %40 ]
+  %.045 = phi i32 [ %28, %_ZL8pinIndexRll.exit ], [ %spec.select, %40 ], [ %28, %33 ]
   %49 = icmp slt i32 %31, %13
   br i1 %49, label %50, label %65
 
@@ -4224,7 +4224,7 @@ _ZL8pinIndexRll.exit:                             ; preds = %22
   br label %65
 
 65:                                               ; preds = %57, %50, %48
-  %.044 = phi i32 [ %31, %50 ], [ %31, %48 ], [ %spec.select52, %57 ]
+  %.044 = phi i32 [ %31, %48 ], [ %spec.select52, %57 ], [ %31, %50 ]
   %66 = sub nsw i32 %.044, %.045
   %67 = icmp sgt i32 %66, %4
   %68 = add nsw i32 %.045, %4
@@ -4259,7 +4259,7 @@ _ZL8pinIndexRll.exit:                             ; preds = %22
   resume { ptr, i32 } %79
 
 80:                                               ; preds = %6, %77, %24
-  %.0 = phi i32 [ 0, %24 ], [ %76, %77 ], [ 0, %6 ]
+  %.0 = phi i32 [ %76, %77 ], [ 0, %24 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -4331,7 +4331,7 @@ _ZL8pinIndexRll.exit:                             ; preds = %17
   br label %48
 
 48:                                               ; preds = %40, %32, %_ZL8pinIndexRll.exit
-  %.046 = phi i32 [ %27, %32 ], [ %27, %_ZL8pinIndexRll.exit ], [ %spec.select, %40 ]
+  %.046 = phi i32 [ %27, %_ZL8pinIndexRll.exit ], [ %spec.select, %40 ], [ %27, %32 ]
   %49 = icmp slt i32 %30, %21
   br i1 %49, label %50, label %66
 
@@ -4357,7 +4357,7 @@ _ZL8pinIndexRll.exit:                             ; preds = %17
   br label %66
 
 66:                                               ; preds = %58, %50, %48
-  %.051 = phi i32 [ %30, %50 ], [ %30, %48 ], [ %spec.select59, %58 ]
+  %.051 = phi i32 [ %30, %48 ], [ %spec.select59, %58 ], [ %30, %50 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.lobit = lshr i32 %4, 31
   %67 = trunc nuw nsw i32 %.lobit to i8
@@ -4439,7 +4439,7 @@ _ZNK6icu_7711Replaceable6lengthEv.exit:           ; preds = %73
   resume { ptr, i32 } %.pn.pn.pn
 
 101:                                              ; preds = %6, %96, %23, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %23 ], [ %78, %96 ], [ 0, %6 ]
+  %.0 = phi i32 [ %78, %96 ], [ 0, %16 ], [ 0, %23 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -4757,7 +4757,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %46
   br label %53
 
 53:                                               ; preds = %6, %50, %28
-  %.0 = phi i32 [ 0, %28 ], [ %43, %50 ], [ 0, %6 ]
+  %.0 = phi i32 [ %43, %50 ], [ 0, %28 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -4854,7 +4854,7 @@ _ZN6icu_7713UnicodeString7replaceEiiNS_14ConstChar16PtrEi.exit: ; preds = %40
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %_ZN6icu_7713UnicodeString7replaceEiiNS_14ConstChar16PtrEi.exit, %52, %54
-  %.0.i = phi ptr [ %53, %52 ], [ %56, %54 ], [ null, %_ZN6icu_7713UnicodeString7replaceEiiNS_14ConstChar16PtrEi.exit ]
+  %.0.i = phi ptr [ %56, %54 ], [ %53, %52 ], [ null, %_ZN6icu_7713UnicodeString7replaceEiiNS_14ConstChar16PtrEi.exit ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.0.i, ptr %57, align 8, !tbaa !17
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -4877,7 +4877,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %_ZN6icu_7713Unicode
   resume { ptr, i32 } %66
 
 67:                                               ; preds = %6, %_ZNK6icu_7713UnicodeString9getBufferEv.exit, %17
-  %.0 = phi i32 [ 0, %17 ], [ %62, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ], [ 0, %6 ]
+  %.0 = phi i32 [ %62, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ], [ 0, %17 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -4983,7 +4983,7 @@ _ZN6icu_7713UnicodeString6removeEii.exit:         ; preds = %47, %43, %49
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %_ZN6icu_7713UnicodeString6removeEii.exit, %57, %59
-  %.0.i61 = phi ptr [ %58, %57 ], [ %61, %59 ], [ null, %_ZN6icu_7713UnicodeString6removeEii.exit ]
+  %.0.i61 = phi ptr [ %61, %59 ], [ %58, %57 ], [ null, %_ZN6icu_7713UnicodeString6removeEii.exit ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.0.i61, ptr %62, align 8, !tbaa !17
   br i1 %.not53, label %71, label %63
@@ -5323,7 +5323,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL15ucstrTextAccessP5UTextla
   br label %88
 
 88:                                               ; preds = %17, %53, %77, %71, %23, %3, %11
-  %.5 = phi i64 [ %1, %11 ], [ 0, %3 ], [ %spec.select, %17 ], [ %25, %23 ], [ %.084, %53 ], [ %spec.select94, %71 ], [ %.2, %77 ]
+  %.5 = phi i64 [ %25, %23 ], [ 0, %3 ], [ %.2, %77 ], [ %1, %11 ], [ %spec.select, %17 ], [ %.084, %53 ], [ %spec.select94, %71 ]
   %89 = trunc i64 %.5 to i32
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %89, ptr %90, align 8, !tbaa !3
@@ -5468,9 +5468,9 @@ _ZL8pinIndexRll.exit87:                           ; preds = %16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split.split.us, %.loopexit.loopexit114, %.loopexit.loopexit, %33, %.split.us
-  %.174 = phi i32 [ %51, %.split.us ], [ 0, %33 ], [ %38, %.loopexit.loopexit ], [ %38, %.loopexit.loopexit114 ], [ %38, %.lr.ph.split.split.us ]
-  %.1 = phi i32 [ %52, %.split.us ], [ %21, %33 ], [ %56, %.loopexit.loopexit ], [ %57, %.loopexit.loopexit114 ], [ %.071, %.lr.ph.split.split.us ]
-  %.0 = phi i32 [ %52, %.split.us ], [ %24, %33 ], [ %24, %.loopexit.loopexit ], [ %24, %.loopexit.loopexit114 ], [ %24, %.lr.ph.split.split.us ]
+  %.174 = phi i32 [ %51, %.split.us ], [ %38, %.loopexit.loopexit114 ], [ 0, %33 ], [ %38, %.loopexit.loopexit ], [ %38, %.lr.ph.split.split.us ]
+  %.1 = phi i32 [ %52, %.split.us ], [ %57, %.loopexit.loopexit114 ], [ %21, %33 ], [ %56, %.loopexit.loopexit ], [ %.071, %.lr.ph.split.split.us ]
+  %.0 = phi i32 [ %52, %.split.us ], [ %24, %.loopexit.loopexit114 ], [ %24, %33 ], [ %24, %.loopexit.loopexit ], [ %24, %.lr.ph.split.split.us ]
   %58 = icmp sgt i32 %.1, 0
   br i1 %58, label %59, label %78
 
@@ -5508,8 +5508,8 @@ _ZL8pinIndexRll.exit87:                           ; preds = %16
   br label %78
 
 78:                                               ; preds = %76, %66, %59, %.loopexit
-  %.275 = phi i32 [ %.3, %76 ], [ %.174, %66 ], [ %.174, %59 ], [ %.174, %.loopexit ]
-  %.2 = phi i32 [ %77, %76 ], [ %.1, %66 ], [ %.1, %59 ], [ %.1, %.loopexit ]
+  %.275 = phi i32 [ %.3, %76 ], [ %.174, %66 ], [ %.174, %.loopexit ], [ %.174, %59 ]
+  %.2 = phi i32 [ %77, %76 ], [ %.1, %66 ], [ %.1, %.loopexit ], [ %.1, %59 ]
   %79 = sext i32 %.2 to i64
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %81 = load i64, ptr %80, align 8, !tbaa !13
@@ -5529,7 +5529,7 @@ _ZL8pinIndexRll.exit87:                           ; preds = %16
   br label %87
 
 87:                                               ; preds = %6, %85, %15
-  %.070 = phi i32 [ 0, %15 ], [ %.275, %85 ], [ 0, %6 ]
+  %.070 = phi i32 [ %.275, %85 ], [ 0, %15 ], [ 0, %6 ]
   ret i32 %.070
 }
 
@@ -5743,7 +5743,7 @@ utext_getNativeIndex_77.exit:                     ; preds = %52, %57
   br label %.thread
 
 .thread:                                          ; preds = %23, %22, %9, %114, %4, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %4 ], [ %24, %114 ], [ %24, %23 ], [ null, %9 ], [ null, %22 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %24, %114 ], [ null, %9 ], [ %24, %23 ], [ null, %22 ]
   ret ptr %.0
 }
 
@@ -6036,7 +6036,7 @@ _ZL8pinIndexRll.exit:                             ; preds = %11
   br label %66
 
 66:                                               ; preds = %6, %._crit_edge, %15
-  %.0 = phi i32 [ 0, %15 ], [ %.045.lcssa, %._crit_edge ], [ 0, %6 ]
+  %.0 = phi i32 [ %.045.lcssa, %._crit_edge ], [ 0, %15 ], [ 0, %6 ]
   ret i32 %.0
 }
 

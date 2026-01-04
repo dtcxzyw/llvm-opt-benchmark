@@ -1246,7 +1246,7 @@ _ZN4core4hash6Hasher11write_isize17hdfc3d9f617f96267E.llvm.16046706290494260226.
   br i1 %147, label %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h7dafea821947fdd0E.exit", label %.lr.ph.i.i.i20
 
 "_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h7dafea821947fdd0E.exit": ; preds = %.lr.ph.i.i.i20, %.lr.ph.i.i.i.i, %131, %_ZN4core4hash6Hasher11write_isize17hdfc3d9f617f96267E.llvm.16046706290494260226.exit6.i.i, %132, %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h57e9554c38fa59bcE.exit"
-  %.sroa.0.0 = phi i64 [ %104, %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h57e9554c38fa59bcE.exit" ], [ %122, %_ZN4core4hash6Hasher11write_isize17hdfc3d9f617f96267E.llvm.16046706290494260226.exit6.i.i ], [ %113, %131 ], [ %113, %132 ], [ %137, %.lr.ph.i.i.i.i ], [ %145, %.lr.ph.i.i.i20 ]
+  %.sroa.0.0 = phi i64 [ %104, %"_ZN64_$LT$http..header..name..HdrName$u20$as$u20$core..hash..Hash$GT$4hash17h57e9554c38fa59bcE.exit" ], [ %122, %_ZN4core4hash6Hasher11write_isize17hdfc3d9f617f96267E.llvm.16046706290494260226.exit6.i.i ], [ %113, %131 ], [ %137, %.lr.ph.i.i.i.i ], [ %113, %132 ], [ %145, %.lr.ph.i.i.i20 ]
   %148 = trunc i64 %.sroa.0.0 to i16
   %149 = and i16 %148, 32767
   ret i16 %149
@@ -1439,7 +1439,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMap$LT$T$GT
   invoke void @"_ZN105_$LT$http..header..name..HeaderName$u20$as$u20$core..convert..From$LT$http..header..name..HdrName$GT$$GT$4from17he0e8a0db64169128E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10)
           to label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h83e5fc88bf1f8b3fE.exit42" unwind label %202
 
-"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.thread": ; preds = %100, %107, %94, %89, %88, %90, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit", %73
+"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.thread": ; preds = %100, %107, %94, %88, %89, %90, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit", %73
   %79 = add nuw nsw i64 %.sroa.012.0.ph, 1
   %80 = add i64 %.sroa.018.0, 1
   br label %.outer142
@@ -1736,10 +1736,10 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMap$LT$T$GT
   br label %_ZN4http6header3map12append_value17hff2e637b90bb195bE.exit
 
 _ZN4http6header3map12append_value17hff2e637b90bb195bE.exit: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf508585d8cec959dE.exit.i", %172, %201, %200, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h83e5fc88bf1f8b3fE.exit", %37, %67
-  %.sroa.0.2 = phi i8 [ 2, %37 ], [ 0, %67 ], [ 2, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h83e5fc88bf1f8b3fE.exit" ], [ 0, %201 ], [ 2, %200 ], [ 1, %172 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf508585d8cec959dE.exit.i" ]
+  %.sroa.0.2 = phi i8 [ 0, %67 ], [ 2, %37 ], [ 2, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h83e5fc88bf1f8b3fE.exit" ], [ 2, %200 ], [ 0, %201 ], [ 1, %172 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf508585d8cec959dE.exit.i" ]
   ret i8 %.sroa.0.2
 
-202:                                              ; preds = %110, %3, %61, %75
+202:                                              ; preds = %75, %110, %61, %3
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !411)
@@ -1763,7 +1763,7 @@ _ZN4http6header3map12append_value17hff2e637b90bb195bE.exit: ; preds = %"_ZN5allo
   unreachable
 
 .body.thread:                                     ; preds = %202, %156, %127
-  %eh.lpad-body48 = phi { ptr, i32 } [ %128, %127 ], [ %157, %156 ], [ %lpad.thr_comm, %202 ]
+  %eh.lpad-body48 = phi { ptr, i32 } [ %lpad.thr_comm, %202 ], [ %157, %156 ], [ %128, %127 ]
   resume { ptr, i32 } %eh.lpad-body48
 }
 
@@ -1894,7 +1894,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_insert217h201d
   unreachable
 
 77:                                               ; preds = %.thread, %164, %71
-  %.sroa.2.0 = phi i8 [ %.sroa.4.0.copyload, %164 ], [ 2, %71 ], [ 2, %.thread ]
+  %.sroa.2.0 = phi i8 [ 2, %71 ], [ %.sroa.4.0.copyload, %164 ], [ 2, %.thread ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.015, i64 32, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.sroa.2.0, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1917,7 +1917,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_insert217h201d
   invoke void @"_ZN105_$LT$http..header..name..HeaderName$u20$as$u20$core..convert..From$LT$http..header..name..HdrName$GT$$GT$4from17he0e8a0db64169128E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11)
           to label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h83e5fc88bf1f8b3fE.exit43" unwind label %194
 
-"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.thread": ; preds = %105, %112, %99, %94, %93, %95, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit", %78
+"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.thread": ; preds = %105, %112, %99, %93, %94, %95, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit", %78
   %84 = add nuw nsw i64 %.sroa.011.0.ph, 1
   %85 = add i64 %.sroa.022.0, 1
   br label %.outer146
@@ -2207,7 +2207,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_insert217h201d
 193:                                              ; preds = %38, %69, %191, %77
   ret void
 
-194:                                              ; preds = %115, %4, %63, %80
+194:                                              ; preds = %80, %4, %115, %63
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !508)
@@ -2231,7 +2231,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_insert217h201d
   unreachable
 
 .body.thread:                                     ; preds = %194, %120
-  %eh.lpad-body48 = phi { ptr, i32 } [ %lpad.phi.i, %120 ], [ %lpad.thr_comm, %194 ]
+  %eh.lpad-body48 = phi { ptr, i32 } [ %lpad.thr_comm, %194 ], [ %lpad.phi.i, %120 ]
   resume { ptr, i32 } %eh.lpad-body48
 }
 
@@ -3079,7 +3079,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
   unreachable
 
 common.resume:                                    ; preds = %70, %72, %40, %27
-  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %41, %40 ], [ %71, %72 ], [ %71, %70 ]
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %28, %27 ], [ %71, %72 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h5472d66d654227e8E.exit": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h4719d0f9c12944eeE.exit.i"
@@ -3602,9 +3602,9 @@ define hidden void @_ZN4http6header3map18remove_extra_value17h18ae616c17d2a0f0E.
   br label %95
 
 .invoke:                                          ; preds = %119, %117, %105, %103, %96
-  %130 = phi i64 [ %4, %96 ], [ %102, %103 ], [ %102, %105 ], [ %100, %117 ], [ %100, %119 ]
-  %131 = phi i64 [ %82, %96 ], [ %2, %103 ], [ %82, %105 ], [ %2, %117 ], [ %82, %119 ]
-  %132 = phi ptr [ @anon.0bd33c656aa4414a26a3d80e3383d99f.94, %96 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.95, %103 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.97, %105 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.98, %117 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.100, %119 ]
+  %130 = phi i64 [ %100, %117 ], [ %102, %105 ], [ %102, %103 ], [ %4, %96 ], [ %100, %119 ]
+  %131 = phi i64 [ %2, %117 ], [ %82, %105 ], [ %2, %103 ], [ %82, %96 ], [ %82, %119 ]
+  %132 = phi ptr [ @anon.0bd33c656aa4414a26a3d80e3383d99f.98, %117 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.97, %105 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.95, %103 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.94, %96 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.100, %119 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %130, i64 noundef %131, ptr noalias noundef readonly align 8 dereferenceable(24) %132) #31
           to label %.cont unwind label %69
 
@@ -3780,8 +3780,8 @@ define hidden void @_ZN4http6header4name7HdrName10from_bytes17hfe4af09ee3ac6cd3E
 
 "_ZN69_$LT$$RF$str$u20$as$u20$http..header..map..as_header_name..Sealed$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h0b200acb866c948dE.exit": ; preds = %64, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.i.i", %39, %42, %.preheader.i.i.i.i, %11
   %.sroa.4.0 = phi i64 [ undef, %11 ], [ %.sroa.03.0.i.i, %.preheader.i.i.i.i ], [ %.sroa.03.0.i.i, %42 ], [ %.sroa.03.0.i.i, %39 ], [ %.sroa.03.0.i.i, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.i.i" ], [ %.sroa.03.0.i.i, %64 ]
-  %.sroa.5.0 = phi i64 [ undef, %11 ], [ %43, %.preheader.i.i.i.i ], [ %43, %64 ], [ %43, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.i.i" ], [ undef, %39 ], [ undef, %42 ]
-  %.sink.i.i = phi i64 [ 0, %11 ], [ 1, %.preheader.i.i.i.i ], [ 1, %64 ], [ 1, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.i.i" ], [ 0, %39 ], [ 0, %42 ]
+  %.sroa.5.0 = phi i64 [ undef, %11 ], [ %43, %.preheader.i.i.i.i ], [ %43, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.i.i" ], [ undef, %39 ], [ undef, %42 ], [ %43, %64 ]
+  %.sink.i.i = phi i64 [ 0, %11 ], [ 1, %.preheader.i.i.i.i ], [ 1, %"_ZN106_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$http..header..name..HdrName$GT$$GT$2eq17h5e8acf25d92f5742E.exit.i.i" ], [ 0, %39 ], [ 0, %42 ], [ 1, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 %.sink.i.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3842,7 +3842,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN4http6header4name7HdrName11from_stat
 "_ZN4core3ptr172drop_in_place$LT$$LT$$RF$str$u20$as$u20$http..header..map..into_header_name..Sealed$GT$..try_append$LT$http..header..value..HeaderValue$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf6ef4d26414a0857E.llvm.16046706290494260226.exit": ; preds = %16
   resume { ptr, i32 } %lpad.thr_comm
 
-16:                                               ; preds = %3, %13
+16:                                               ; preds = %13, %3
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !796)
@@ -3910,7 +3910,7 @@ define hidden void @_ZN4http6header4name7HdrName11from_static17h9ac84b3281fa9a76
 "_ZN4core3ptr172drop_in_place$LT$$LT$$RF$str$u20$as$u20$http..header..map..into_header_name..Sealed$GT$..try_insert$LT$http..header..value..HeaderValue$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0a56e47b744b1c63E.llvm.16046706290494260226.exit": ; preds = %16
   resume { ptr, i32 } %lpad.thr_comm
 
-16:                                               ; preds = %4, %14
+16:                                               ; preds = %14, %4
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !821)
@@ -4353,8 +4353,8 @@ define hidden { i32, i32 } @_ZN4rkyv6string14ArchivedString18serialize_from_str1
   br label %21
 
 21:                                               ; preds = %"_ZN4rkyv5impls4core73_$LT$impl$u20$rkyv..traits..SerializeUnsized$LT$S$GT$$u20$for$u20$str$GT$17serialize_unsized17hd0d7a6ea3742811eE.exit", %5, %3
-  %.sroa.5.0 = phi i32 [ 0, %3 ], [ undef, %5 ], [ %20, %"_ZN4rkyv5impls4core73_$LT$impl$u20$rkyv..traits..SerializeUnsized$LT$S$GT$$u20$for$u20$str$GT$17serialize_unsized17hd0d7a6ea3742811eE.exit" ]
-  %.sroa.0.0 = phi i32 [ 0, %3 ], [ 1, %5 ], [ 0, %"_ZN4rkyv5impls4core73_$LT$impl$u20$rkyv..traits..SerializeUnsized$LT$S$GT$$u20$for$u20$str$GT$17serialize_unsized17hd0d7a6ea3742811eE.exit" ]
+  %.sroa.5.0 = phi i32 [ 0, %3 ], [ %20, %"_ZN4rkyv5impls4core73_$LT$impl$u20$rkyv..traits..SerializeUnsized$LT$S$GT$$u20$for$u20$str$GT$17serialize_unsized17hd0d7a6ea3742811eE.exit" ], [ undef, %5 ]
+  %.sroa.0.0 = phi i32 [ 0, %3 ], [ 0, %"_ZN4rkyv5impls4core73_$LT$impl$u20$rkyv..traits..SerializeUnsized$LT$S$GT$$u20$for$u20$str$GT$17serialize_unsized17hd0d7a6ea3742811eE.exit" ], [ 1, %5 ]
   %22 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %23 = insertvalue { i32, i32 } %22, i32 %.sroa.5.0, 1
   ret { i32, i32 } %23
@@ -4465,7 +4465,7 @@ _ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i.i.i.i: ; preds = %.lr.p
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1089
   br i1 %trunc.i.i.i.i, label %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit.thread", label %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit"
 
-"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit.thread": ; preds = %8, %"_ZN4rkyv6string6verify85_$LT$impl$u20$bytecheck..Verify$LT$C$GT$$u20$for$u20$rkyv..string..ArchivedString$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17ha191d5983442288aE.exit.i.i", %27
+"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit.thread": ; preds = %"_ZN4rkyv6string6verify85_$LT$impl$u20$bytecheck..Verify$LT$C$GT$$u20$for$u20$rkyv..string..ArchivedString$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17ha191d5983442288aE.exit.i.i", %8, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1083
   br label %66
 
@@ -4474,7 +4474,7 @@ _ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i.i.i.i: ; preds = %.lr.p
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1083
   br i1 %54, label %66, label %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit.thread"
 
-"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit.thread": ; preds = %.preheader.i.i, %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i, %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit", %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit"
+"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit.thread": ; preds = %_ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.i, %.preheader.i.i, %"_ZN54_$LT$str$u20$as$u20$bytecheck..CheckBytes$LT$C$GT$$GT$11check_bytes17h8ae0424cd2668d2cE.exit", %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h0065bc97114711aeE.exit"
   br label %66
 
 .lr.ph.i.i12:                                     ; preds = %2, %56
@@ -6669,7 +6669,7 @@ define hidden noundef zeroext i1 @"_ZN75_$LT$C$u20$as$u20$rkyv..validation..arch
   br label %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$14in_subtree_raw17h39152302735e933aE.llvm.16046706290494260226.exit"
 
 "_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$14in_subtree_raw17h39152302735e933aE.llvm.16046706290494260226.exit": ; preds = %7, %16, %20
-  %.sroa.0.0.i = phi i1 [ true, %7 ], [ %25, %20 ], [ true, %16 ]
+  %.sroa.0.0.i = phi i1 [ %25, %20 ], [ true, %7 ], [ true, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %26
 
@@ -6737,7 +6737,7 @@ define hidden noundef zeroext i1 @"_ZN75_$LT$C$u20$as$u20$rkyv..validation..arch
   br label %"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$14in_subtree_raw17hfeb975c5b2b69d5eE.llvm.16046706290494260226.exit"
 
 "_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$14in_subtree_raw17hfeb975c5b2b69d5eE.llvm.16046706290494260226.exit": ; preds = %3, %13, %17, %22
-  %.sroa.0.0.i = phi i1 [ true, %3 ], [ true, %17 ], [ %24, %22 ], [ true, %13 ]
+  %.sroa.0.0.i = phi i1 [ %24, %22 ], [ true, %17 ], [ true, %3 ], [ true, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.sroa.0.0.i
 }
@@ -6778,7 +6778,7 @@ define hidden noundef zeroext i1 @"_ZN75_$LT$C$u20$as$u20$rkyv..validation..arch
   br label %25
 
 25:                                               ; preds = %15, %19, %5
-  %.sroa.0.0 = phi i1 [ true, %5 ], [ %24, %19 ], [ true, %15 ]
+  %.sroa.0.0 = phi i1 [ %24, %19 ], [ true, %5 ], [ true, %15 ]
   ret i1 %.sroa.0.0
 }
 
@@ -6854,7 +6854,7 @@ define hidden noundef zeroext i1 @"_ZN75_$LT$C$u20$as$u20$rkyv..validation..arch
   br label %"_ZN4rkyv3vec6verify88_$LT$impl$u20$bytecheck..Verify$LT$C$GT$$u20$for$u20$rkyv..vec..ArchivedVec$LT$T$GT$$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17h87e55b877557d96eE.exit"
 
 "_ZN4rkyv3vec6verify88_$LT$impl$u20$bytecheck..Verify$LT$C$GT$$u20$for$u20$rkyv..vec..ArchivedVec$LT$T$GT$$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17h87e55b877557d96eE.exit": ; preds = %"_ZN92_$LT$uv_client..httpcache..ArchivedVaryField$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17hba2a1b7f0a31fd71E.exit.i.i", %"_ZN81_$LT$rkyv..string..ArchivedString$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17hd066a351a6e1c9d0E.exit.i.i.i", %"_ZN4rkyv6string4repr1_99_$LT$impl$u20$bytecheck..CheckBytes$LT$C$GT$$u20$for$u20$rkyv..string..repr..ArchivedStringRepr$GT$11check_bytes17h95a36a8d3473f8cdE.exit.i.i.i.i", %15, %"_ZN4rkyv3vec6verify88_$LT$impl$u20$bytecheck..Verify$LT$C$GT$$u20$for$u20$rkyv..vec..ArchivedVec$LT$T$GT$$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17h87e55b877557d96eE.exit.thread", %5
-  %.sroa.0.0 = phi i1 [ true, %5 ], [ %40, %"_ZN4rkyv3vec6verify88_$LT$impl$u20$bytecheck..Verify$LT$C$GT$$u20$for$u20$rkyv..vec..ArchivedVec$LT$T$GT$$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17h87e55b877557d96eE.exit.thread" ], [ true, %15 ], [ true, %"_ZN4rkyv6string4repr1_99_$LT$impl$u20$bytecheck..CheckBytes$LT$C$GT$$u20$for$u20$rkyv..string..repr..ArchivedStringRepr$GT$11check_bytes17h95a36a8d3473f8cdE.exit.i.i.i.i" ], [ true, %"_ZN81_$LT$rkyv..string..ArchivedString$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17hd066a351a6e1c9d0E.exit.i.i.i" ], [ true, %"_ZN92_$LT$uv_client..httpcache..ArchivedVaryField$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17hba2a1b7f0a31fd71E.exit.i.i" ]
+  %.sroa.0.0 = phi i1 [ %40, %"_ZN4rkyv3vec6verify88_$LT$impl$u20$bytecheck..Verify$LT$C$GT$$u20$for$u20$rkyv..vec..ArchivedVec$LT$T$GT$$GT$6verify28_$u7b$$u7b$closure$u7d$$u7d$17h87e55b877557d96eE.exit.thread" ], [ true, %15 ], [ true, %5 ], [ true, %"_ZN4rkyv6string4repr1_99_$LT$impl$u20$bytecheck..CheckBytes$LT$C$GT$$u20$for$u20$rkyv..string..repr..ArchivedStringRepr$GT$11check_bytes17h95a36a8d3473f8cdE.exit.i.i.i.i" ], [ true, %"_ZN81_$LT$rkyv..string..ArchivedString$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17hd066a351a6e1c9d0E.exit.i.i.i" ], [ true, %"_ZN92_$LT$uv_client..httpcache..ArchivedVaryField$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17hba2a1b7f0a31fd71E.exit.i.i" ]
   ret i1 %.sroa.0.0
 }
 
@@ -6899,7 +6899,7 @@ define hidden noundef zeroext i1 @"_ZN75_$LT$C$u20$as$u20$rkyv..validation..arch
   br label %27
 
 27:                                               ; preds = %15, %24, %19, %5
-  %.sroa.0.0 = phi i1 [ true, %5 ], [ true, %19 ], [ %26, %24 ], [ true, %15 ]
+  %.sroa.0.0 = phi i1 [ %26, %24 ], [ true, %19 ], [ true, %5 ], [ true, %15 ]
   ret i1 %.sroa.0.0
 }
 
@@ -7925,7 +7925,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h9377a4b1b2bc14e7E.exit29.
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h55b1392703fe9b61E.exit.i.i
 
 108:                                              ; preds = %90, %89, %88, %87, %86, %.thread.i.i, %69
-  %.sroa.02.0.i.i.i = phi ptr [ @anon.0bd33c656aa4414a26a3d80e3383d99f.21, %86 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.22, %87 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.23, %88 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.24, %89 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.25, %90 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.18, %.thread.i.i ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.19, %69 ]
+  %.sroa.02.0.i.i.i = phi ptr [ @anon.0bd33c656aa4414a26a3d80e3383d99f.25, %90 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.18, %.thread.i.i ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.19, %69 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.21, %86 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.22, %87 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.23, %88 ], [ @anon.0bd33c656aa4414a26a3d80e3383d99f.24, %89 ]
   %109 = load i64, ptr %.val, align 8, !range !25, !alias.scope !2855, !noalias !2866, !noundef !9
   %110 = sub i64 %109, %70
   %111 = icmp ult i64 %110, 2
@@ -8209,7 +8209,7 @@ default.unreachable32:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1, %56, %35
-  %.sroa.0.0 = phi ptr [ %36, %35 ], [ %57, %56 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %57, %56 ], [ %36, %35 ], [ null, %1 ]
   ret ptr %.sroa.0.0
 
 4:                                                ; preds = %1

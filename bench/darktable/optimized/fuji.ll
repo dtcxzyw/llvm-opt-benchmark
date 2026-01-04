@@ -175,9 +175,9 @@ define void @_ZN6LibRaw22parseAdobeRAFMakernoteEv(ptr noundef nonnull align 8 de
   br label %19
 
 19:                                               ; preds = %1, %6, %8, %10, %12, %16, %18
-  %.0339 = phi nsz double [ 0x3FE86CAB5CFBDEA7, %18 ], [ 1.000000e+00, %16 ], [ 0x3FECD42EA3025F49, %12 ], [ 0x3FECD42EA3025F49, %10 ], [ 0x3FECD42EA3025F49, %8 ], [ 0x3FECD42EA3025F49, %6 ], [ 0x3FECD42EA3025F49, %1 ]
-  %.0338 = phi nsz double [ 0x3FEB7E327A9A88A9, %18 ], [ 1.000000e+00, %16 ], [ 0x3FEC518EB9C518EC, %12 ], [ 0x3FEC518EB9C518EC, %10 ], [ 0x3FEC518EB9C518EC, %8 ], [ 0x3FEC518EB9C518EC, %6 ], [ 0x3FEC518EB9C518EC, %1 ]
-  %.not551 = phi i1 [ false, %18 ], [ true, %16 ], [ false, %12 ], [ false, %10 ], [ false, %8 ], [ false, %6 ], [ false, %1 ]
+  %.0339 = phi nsz double [ 1.000000e+00, %16 ], [ 0x3FE86CAB5CFBDEA7, %18 ], [ 0x3FECD42EA3025F49, %12 ], [ 0x3FECD42EA3025F49, %10 ], [ 0x3FECD42EA3025F49, %8 ], [ 0x3FECD42EA3025F49, %6 ], [ 0x3FECD42EA3025F49, %1 ]
+  %.0338 = phi nsz double [ 1.000000e+00, %16 ], [ 0x3FEB7E327A9A88A9, %18 ], [ 0x3FEC518EB9C518EC, %12 ], [ 0x3FEC518EB9C518EC, %10 ], [ 0x3FEC518EB9C518EC, %8 ], [ 0x3FEC518EB9C518EC, %6 ], [ 0x3FEC518EB9C518EC, %1 ]
+  %.not551 = phi i1 [ true, %16 ], [ false, %18 ], [ false, %12 ], [ false, %10 ], [ false, %8 ], [ false, %6 ], [ false, %1 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 5460
   %21 = load i32, ptr %20, align 4, !tbaa !72
   %22 = icmp ne i32 %21, 0
@@ -325,7 +325,7 @@ define void @_ZN6LibRaw22parseAdobeRAFMakernoteEv(ptr noundef nonnull align 8 de
   br label %88
 
 88:                                               ; preds = %85, %80
-  %.0300 = phi i32 [ %spec.select562, %85 ], [ %74, %80 ]
+  %.0300 = phi i32 [ %74, %80 ], [ %spec.select562, %85 ]
   %89 = add i32 %.0300, 4
   %90 = invoke noundef i32 @_ZN16checked_buffer_t5sget4Ei(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %89)
           to label %91 unwind label %.loopexit.split-lp708.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1775,12 +1775,12 @@ _ZN6LibRaw23guess_RAFDataGenerationEPh.exit:      ; preds = %333, %336, %337, %3
 638:                                              ; preds = %635
   br i1 %637, label %.thread674, label %639
 
-639:                                              ; preds = %638, %626, %620, %614, %606, %594, %588, %582, %577, %572, %567, %561, %552, %546, %541, %536, %527, %522, %517, %512, %507, %502, %497, %491, %484, %478, %472, %466, %461, %456, %450, %444, %439, %434, %425, %422, %408, %406, %627, %414, %411
+639:                                              ; preds = %461, %541, %491, %546, %450, %552, %497, %561, %466, %567, %502, %572, %444, %577, %507, %582, %472, %588, %512, %594, %456, %517, %606, %478, %614, %522, %620, %439, %626, %527, %638, %434, %484, %425, %422, %408, %406, %536, %627, %414, %411
   %.not540 = icmp eq i32 %.0309764, 0
   br i1 %.not540, label %.thread, label %.thread674
 
-.thread674:                                       ; preds = %638, %626, %620, %614, %606, %594, %588, %582, %577, %572, %567, %561, %552, %546, %541, %536, %527, %522, %517, %512, %507, %502, %497, %491, %484, %478, %472, %466, %461, %456, %450, %444, %439, %434, %425, %422, %408, %406, %413, %414, %410, %411, %427, %634, %630, %628, %629, %622, %616, %608, %609, %610, %602, %597, %598, %596, %557, %532, %426, %424, %418, %412, %409, %407, %402, %383, %429, %428, %423, %397, %396, %395, %394, %393, %392, %391, %390, %389, %388, %387, %386, %385, %384, %639
-  %.2677 = phi i32 [ %.0309764, %639 ], [ %spec.select603, %427 ], [ 4736, %634 ], [ 4820, %630 ], [ 4736, %628 ], [ 4736, %629 ], [ 4740, %622 ], [ 5004, %616 ], [ 5028, %608 ], [ 5028, %609 ], [ 5028, %610 ], [ 6632, %602 ], [ 6640, %597 ], [ 6640, %598 ], [ 6632, %596 ], [ 8648, %557 ], [ 8376, %532 ], [ 3186, %426 ], [ 8670, %424 ], [ 8648, %418 ], [ 8312, %412 ], [ 8424, %409 ], [ 5156, %407 ], [ 8376, %402 ], [ 5036, %383 ], [ 6208, %429 ], [ 3246, %428 ], [ 2880, %423 ], [ 8212, %397 ], [ 5148, %396 ], [ 5156, %395 ], [ 4976, %394 ], [ 5084, %393 ], [ 4956, %392 ], [ 6068, %391 ], [ 6180, %390 ], [ 5188, %389 ], [ 5296, %388 ], [ 5140, %387 ], [ 5248, %386 ], [ 5236, %385 ], [ 5136, %384 ], [ 8456, %411 ], [ 8456, %410 ], [ 8524, %414 ], [ 8524, %413 ], [ 8392, %406 ], [ 8420, %408 ], [ 8652, %422 ], [ 2878, %425 ], [ 4956, %434 ], [ 4976, %439 ], [ 5036, %444 ], [ 5084, %450 ], [ 5136, %456 ], [ 5140, %461 ], [ 5148, %466 ], [ 5156, %472 ], [ 8524, %478 ], [ 5188, %484 ], [ 5236, %491 ], [ 5248, %497 ], [ 5296, %502 ], [ 6068, %507 ], [ 6180, %512 ], [ 6208, %517 ], [ 8212, %522 ], [ 8312, %527 ], [ 8392, %536 ], [ 8420, %541 ], [ 8424, %546 ], [ 8456, %552 ], [ 8652, %561 ], [ 8652, %567 ], [ 8670, %572 ], [ 2878, %577 ], [ 2880, %582 ], [ 3186, %588 ], [ 3246, %594 ], [ 6640, %606 ], [ 5028, %614 ], [ 5004, %620 ], [ 4740, %626 ], [ 4820, %638 ]
+.thread674:                                       ; preds = %461, %541, %491, %546, %450, %552, %497, %561, %466, %567, %502, %572, %444, %577, %507, %582, %472, %588, %512, %594, %456, %517, %606, %478, %614, %522, %620, %439, %626, %527, %638, %434, %484, %425, %422, %408, %406, %536, %413, %414, %410, %411, %532, %557, %596, %602, %597, %608, %616, %622, %628, %634, %630, %426, %427, %429, %428, %598, %424, %610, %423, %609, %418, %412, %409, %402, %383, %407, %629, %397, %396, %395, %394, %393, %392, %391, %390, %389, %388, %387, %386, %385, %384, %639
+  %.2677 = phi i32 [ %.0309764, %639 ], [ 8420, %541 ], [ 5236, %491 ], [ 8424, %546 ], [ 5084, %450 ], [ 8456, %552 ], [ 5248, %497 ], [ 8652, %561 ], [ 5148, %466 ], [ 8652, %567 ], [ 5296, %502 ], [ 8670, %572 ], [ 5036, %444 ], [ 2878, %577 ], [ 6068, %507 ], [ 2880, %582 ], [ 5156, %472 ], [ 3186, %588 ], [ 6180, %512 ], [ 3246, %594 ], [ 5136, %456 ], [ 6208, %517 ], [ 6640, %606 ], [ 8524, %478 ], [ 5028, %614 ], [ 8212, %522 ], [ 5004, %620 ], [ 4976, %439 ], [ 4740, %626 ], [ 8312, %527 ], [ 4820, %638 ], [ 4956, %434 ], [ 5188, %484 ], [ 2878, %425 ], [ 8652, %422 ], [ 8420, %408 ], [ 8392, %406 ], [ 8392, %536 ], [ 8524, %413 ], [ 8376, %532 ], [ 8648, %557 ], [ 6632, %596 ], [ 6632, %602 ], [ 6640, %597 ], [ 5028, %608 ], [ 5004, %616 ], [ 4740, %622 ], [ 4736, %628 ], [ 4736, %634 ], [ 4820, %630 ], [ 3186, %426 ], [ %spec.select603, %427 ], [ 6208, %429 ], [ 3246, %428 ], [ 6640, %598 ], [ 8670, %424 ], [ 5028, %610 ], [ 2880, %423 ], [ 5028, %609 ], [ 8648, %418 ], [ 8312, %412 ], [ 8424, %409 ], [ 8456, %410 ], [ 5136, %384 ], [ 8376, %402 ], [ 5036, %383 ], [ 5156, %407 ], [ 4736, %629 ], [ 8212, %397 ], [ 5148, %396 ], [ 5156, %395 ], [ 4976, %394 ], [ 5084, %393 ], [ 4956, %392 ], [ 6068, %391 ], [ 6180, %390 ], [ 5188, %389 ], [ 5296, %388 ], [ 5140, %387 ], [ 5248, %386 ], [ 5236, %385 ], [ 8456, %411 ], [ 8524, %414 ], [ 5140, %461 ]
   %640 = add i32 %.2677, %121
   %641 = invoke noundef zeroext i1 @_ZN24fuji_wb_checked_buffer_t4isWBEj(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %640)
           to label %642 unwind label %.loopexit.split-lp699
@@ -2237,7 +2237,7 @@ _ZNK21libraw_static_table_tixEj.exit631:          ; preds = %840, %842, %843
   br i1 %exitcond829.not, label %788, label %789, !llvm.loop !118
 
 .thread:                                          ; preds = %291, %265, %230, %748, %781, %123, %184, %270, %639, %642, %165, %.loopexit686, %283, %314, %788, %302
-  %.1310 = phi i32 [ %.0309764, %283 ], [ %.0309764, %302 ], [ %.0309764, %788 ], [ %.0309764, %314 ], [ %.0309764, %.loopexit686 ], [ %.0309764, %165 ], [ %.2677, %642 ], [ 0, %639 ], [ %.0309764, %270 ], [ %.0309764, %184 ], [ %.0309764, %123 ], [ %.5, %781 ], [ %.2677, %748 ], [ %.0309764, %230 ], [ %.0309764, %265 ], [ %.0309764, %291 ]
+  %.1310 = phi i32 [ %.0309764, %314 ], [ %.2677, %748 ], [ %.0309764, %265 ], [ %.0309764, %184 ], [ %.0309764, %283 ], [ %.0309764, %302 ], [ %.0309764, %230 ], [ %.0309764, %788 ], [ %.0309764, %.loopexit686 ], [ %.0309764, %165 ], [ 0, %639 ], [ %.2677, %642 ], [ %.5, %781 ], [ %.0309764, %270 ], [ %.0309764, %123 ], [ %.0309764, %291 ]
   %852 = add i32 %121, %120
   %.not358 = icmp eq i32 %113, 0
   br i1 %.not358, label %._crit_edge768, label %112, !llvm.loop !119
@@ -2249,7 +2249,7 @@ _ZNK21libraw_static_table_tixEj.exit631:          ; preds = %840, %842, %843
   br i1 %.not.i.i.i.i, label %.sink.split, label %.sink.split.sink.split
 
 .loopexit.split-lp708:                            ; preds = %.loopexit698, %.loopexit.split-lp699, %.loopexit683, %.loopexit.split-lp, %.loopexit687, %.loopexit.split-lp688, %.loopexit707, %.loopexit.split-lp708.loopexit.split-lp.loopexit, %.loopexit.split-lp708.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp708.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp708.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp708.loopexit, %821, %192, %312, %310, %741, %746, %784, %665, %53
-  %.pn557.pn = phi { ptr, i32 } [ %54, %53 ], [ %822, %821 ], [ %193, %192 ], [ %313, %312 ], [ %311, %310 ], [ %666, %665 ], [ %785, %784 ], [ %747, %746 ], [ %742, %741 ], [ %lpad.loopexit709, %.loopexit707 ], [ %lpad.loopexit713, %.loopexit.split-lp708.loopexit ], [ %lpad.loopexit718, %.loopexit.split-lp708.loopexit.split-lp.loopexit ], [ %lpad.loopexit721, %.loopexit.split-lp708.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit724, %.loopexit.split-lp708.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp725, %.loopexit.split-lp708.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit689, %.loopexit687 ], [ %lpad.loopexit.split-lp690, %.loopexit.split-lp688 ], [ %lpad.loopexit, %.loopexit683 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit700, %.loopexit698 ], [ %lpad.loopexit.split-lp701, %.loopexit.split-lp699 ]
+  %.pn557.pn = phi { ptr, i32 } [ %54, %53 ], [ %lpad.loopexit.split-lp725, %.loopexit.split-lp708.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %822, %821 ], [ %742, %741 ], [ %193, %192 ], [ %311, %310 ], [ %lpad.loopexit.split-lp690, %.loopexit.split-lp688 ], [ %313, %312 ], [ %666, %665 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %785, %784 ], [ %747, %746 ], [ %lpad.loopexit709, %.loopexit707 ], [ %lpad.loopexit713, %.loopexit.split-lp708.loopexit ], [ %lpad.loopexit718, %.loopexit.split-lp708.loopexit.split-lp.loopexit ], [ %lpad.loopexit721, %.loopexit.split-lp708.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit724, %.loopexit.split-lp708.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit689, %.loopexit687 ], [ %lpad.loopexit, %.loopexit683 ], [ %lpad.loopexit700, %.loopexit698 ], [ %lpad.loopexit.split-lp701, %.loopexit.split-lp699 ]
   %855 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %856 = load ptr, ptr %855, align 8, !tbaa !120
   %.not.i.i.i.i632 = icmp eq ptr %856, null
@@ -2268,7 +2268,7 @@ _ZN16checked_buffer_tD2Ev.exit633:                ; preds = %.loopexit.split-lp7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn557.pn
 
-.critedge:                                        ; preds = %91, %93
+.critedge:                                        ; preds = %93, %91
   %863 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %864 = load ptr, ptr %863, align 8, !tbaa !120
   %.not.i.i.i.i634 = icmp eq ptr %864, null
@@ -3090,9 +3090,9 @@ define void @_ZN6LibRaw10parse_fujiEi(ptr noundef nonnull align 8 dereferenceabl
   br label %36
 
 36:                                               ; preds = %17, %23, %25, %27, %29, %33, %35
-  %.0191 = phi nsz double [ 0x3FEB7E327A9A88A9, %35 ], [ 1.000000e+00, %33 ], [ 0x3FEC518EB9C518EC, %29 ], [ 0x3FEC518EB9C518EC, %27 ], [ 0x3FEC518EB9C518EC, %25 ], [ 0x3FEC518EB9C518EC, %23 ], [ 0x3FEC518EB9C518EC, %17 ]
-  %.0190 = phi nsz double [ 0x3FE86CAB5CFBDEA7, %35 ], [ 1.000000e+00, %33 ], [ 0x3FECD42EA3025F49, %29 ], [ 0x3FECD42EA3025F49, %27 ], [ 0x3FECD42EA3025F49, %25 ], [ 0x3FECD42EA3025F49, %23 ], [ 0x3FECD42EA3025F49, %17 ]
-  %.not213 = phi i1 [ false, %35 ], [ true, %33 ], [ false, %29 ], [ false, %27 ], [ false, %25 ], [ false, %23 ], [ false, %17 ]
+  %.0191 = phi nsz double [ 1.000000e+00, %33 ], [ 0x3FEB7E327A9A88A9, %35 ], [ 0x3FEC518EB9C518EC, %29 ], [ 0x3FEC518EB9C518EC, %27 ], [ 0x3FEC518EB9C518EC, %25 ], [ 0x3FEC518EB9C518EC, %23 ], [ 0x3FEC518EB9C518EC, %17 ]
+  %.0190 = phi nsz double [ 1.000000e+00, %33 ], [ 0x3FE86CAB5CFBDEA7, %35 ], [ 0x3FECD42EA3025F49, %29 ], [ 0x3FECD42EA3025F49, %27 ], [ 0x3FECD42EA3025F49, %25 ], [ 0x3FECD42EA3025F49, %23 ], [ 0x3FECD42EA3025F49, %17 ]
+  %.not213 = phi i1 [ true, %33 ], [ false, %35 ], [ false, %29 ], [ false, %27 ], [ false, %25 ], [ false, %23 ], [ false, %17 ]
   %.not211271 = icmp eq i32 %15, 0
   br i1 %.not211271, label %._crit_edge, label %.lr.ph
 
@@ -3844,7 +3844,7 @@ _ZNK21libraw_static_table_tixEj.exit224:          ; preds = %407, %409, %410
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.preheader247, %.preheader245, %167, %130, %324, %241, %191, %287, %172, %111, %214, %222, %223, %218, %106, %108, %109, %107, %100, %90, %115, %230, %95, %84, %.thread, %275, %.loopexit236, %419
-  %.1186227 = phi i16 [ %.0185272, %.thread ], [ %.0185272, %275 ], [ %.0185272, %.loopexit236 ], [ %.0185272, %419 ], [ 1, %84 ], [ 1, %90 ], [ 1, %95 ], [ %.0185272, %115 ], [ %.0185272, %230 ], [ 1, %100 ], [ 1, %107 ], [ 1, %109 ], [ 1, %108 ], [ 1, %106 ], [ %.0185272, %111 ], [ %.0185272, %218 ], [ %.0185272, %223 ], [ %.0185272, %222 ], [ %.0185272, %214 ], [ %.0185272, %172 ], [ %.0185272, %287 ], [ %.0185272, %191 ], [ %.0185272, %241 ], [ %.0185272, %324 ], [ %.0185272, %130 ], [ %.0185272, %167 ], [ %.0185272, %.preheader245 ], [ %.0185272, %.preheader247 ]
+  %.1186227 = phi i16 [ %.0185272, %.thread ], [ %.0185272, %287 ], [ %.0185272, %172 ], [ %.0185272, %275 ], [ %.0185272, %.loopexit236 ], [ %.0185272, %419 ], [ 1, %84 ], [ 1, %90 ], [ 1, %95 ], [ 1, %106 ], [ %.0185272, %214 ], [ %.0185272, %115 ], [ %.0185272, %111 ], [ %.0185272, %230 ], [ 1, %100 ], [ 1, %107 ], [ 1, %109 ], [ 1, %108 ], [ %.0185272, %218 ], [ %.0185272, %223 ], [ %.0185272, %222 ], [ %.0185272, %.preheader245 ], [ %.0185272, %241 ], [ %.0185272, %191 ], [ %.0185272, %324 ], [ %.0185272, %130 ], [ %.0185272, %167 ], [ %.0185272, %.preheader247 ]
   %420 = load ptr, ptr %5, align 8, !tbaa !74
   %421 = add i32 %82, %76
   %422 = zext i32 %421 to i64

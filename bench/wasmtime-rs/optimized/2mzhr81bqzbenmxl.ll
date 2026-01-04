@@ -145,7 +145,7 @@ define void @_ZN15wiggle_generate6config6Config5build17h9e45fa39e4fa40dfE(ptr wr
           to label %28 unwind label %.loopexit
 
 27:                                               ; preds = %.loopexit, %.loopexit.split-lp, %.thread135, %.thread133, %.thread131, %.thread129, %135, %126, %118, %110
-  %.pn106 = phi { ptr, i32 } [ %111, %110 ], [ %119, %118 ], [ %127, %126 ], [ %136, %135 ], [ %108, %.thread129 ], [ %116, %.thread131 ], [ %124, %.thread133 ], [ %133, %.thread135 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn106 = phi { ptr, i32 } [ %133, %.thread135 ], [ %111, %110 ], [ %108, %.thread129 ], [ %119, %118 ], [ %116, %.thread131 ], [ %127, %126 ], [ %124, %.thread133 ], [ %136, %135 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle_generate..config..ConfigField$GT$$GT$17h54b853ac3723ce40E"(ptr nonnull align 8 %21) #6
           to label %36 unwind label %74
 
@@ -672,7 +672,7 @@ define void @_ZN15wiggle_generate6config6Config5build17hfc1dc74f1a9b659eE(ptr wr
           to label %28 unwind label %.loopexit
 
 27:                                               ; preds = %.loopexit, %.loopexit.split-lp, %.thread135, %.thread133, %.thread131, %.thread129, %135, %126, %118, %110
-  %.pn106 = phi { ptr, i32 } [ %111, %110 ], [ %119, %118 ], [ %127, %126 ], [ %136, %135 ], [ %108, %.thread129 ], [ %116, %.thread131 ], [ %124, %.thread133 ], [ %133, %.thread135 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn106 = phi { ptr, i32 } [ %133, %.thread135 ], [ %111, %110 ], [ %108, %.thread129 ], [ %119, %118 ], [ %116, %.thread131 ], [ %127, %126 ], [ %124, %.thread133 ], [ %136, %135 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr96drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$wiggle_generate..config..ConfigField$GT$$GT$17h7c6918ab34aced54E"(ptr nonnull align 8 %21) #6
           to label %36 unwind label %74
 
@@ -1216,7 +1216,7 @@ define void @_ZN15wiggle_generate6config14WasmtimeConfig5build17h486b432c996a254
           to label %20 unwind label %.loopexit
 
 19:                                               ; preds = %.loopexit, %.loopexit.split-lp, %.thread93, %58
-  %.pn62 = phi { ptr, i32 } [ %59, %58 ], [ %56, %.thread93 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn62 = phi { ptr, i32 } [ %56, %.thread93 ], [ %59, %58 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr98drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle_generate..config..WasmtimeConfigField$GT$$GT$17he264acba0e07dfd4E"(ptr nonnull align 8 %14) #6
           to label %.thread unwind label %35
 

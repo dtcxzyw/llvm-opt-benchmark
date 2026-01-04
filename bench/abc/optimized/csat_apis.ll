@@ -653,7 +653,7 @@ define range(i32 0, 2) i32 @ABC_AddGate(ptr noundef readonly captures(none) %0, 
   br label %152
 
 152:                                              ; preds = %147, %150, %141, %129, %119, %111, %103, %99, %90, %86, %77, %68, %59, %50, %41, %34, %16
-  %.076 = phi i32 [ 0, %150 ], [ 0, %16 ], [ 0, %34 ], [ 0, %41 ], [ 0, %50 ], [ 0, %59 ], [ 0, %68 ], [ 0, %77 ], [ 0, %86 ], [ 0, %90 ], [ 0, %99 ], [ 0, %103 ], [ 0, %111 ], [ 0, %119 ], [ 0, %129 ], [ 0, %141 ], [ 1, %147 ]
+  %.076 = phi i32 [ 0, %150 ], [ 0, %141 ], [ 0, %16 ], [ 0, %34 ], [ 0, %41 ], [ 0, %50 ], [ 0, %59 ], [ 0, %68 ], [ 0, %77 ], [ 0, %86 ], [ 0, %90 ], [ 0, %99 ], [ 0, %103 ], [ 0, %111 ], [ 0, %119 ], [ 0, %129 ], [ 1, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.076
 }
@@ -1268,7 +1268,7 @@ define i32 @ABC_Solve(ptr noundef %0) local_unnamed_addr #0 {
   br label %62
 
 62:                                               ; preds = %18, %29, %._crit_edge.thread, %._crit_edge
-  %63 = phi ptr [ %19, %29 ], [ %60, %._crit_edge.thread ], [ %19, %._crit_edge ], [ %19, %18 ]
+  %63 = phi ptr [ %19, %18 ], [ %19, %29 ], [ %60, %._crit_edge.thread ], [ %19, %._crit_edge ]
   call void @Abc_NtkDelete(ptr noundef nonnull %63) #15
   store ptr null, ptr %4, align 8, !tbaa !52
   %64 = load ptr, ptr %28, align 8, !tbaa !43

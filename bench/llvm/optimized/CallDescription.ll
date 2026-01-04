@@ -475,7 +475,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento15CallDescription11matchesIm
   br label %81
 
 81:                                               ; preds = %60, %79, %5, %33, %25, %50, %42, %68, %70, %4
-  %.0 = phi i1 [ false, %4 ], [ %67, %60 ], [ %80, %79 ], [ false, %5 ], [ false, %25 ], [ %41, %33 ], [ false, %50 ], [ false, %42 ], [ false, %68 ], [ true, %70 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %5 ], [ true, %70 ], [ %41, %33 ], [ %67, %60 ], [ %80, %79 ], [ false, %68 ], [ false, %42 ], [ false, %25 ], [ false, %50 ]
   ret i1 %.0
 }
 
@@ -803,7 +803,7 @@ _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %49
   br label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmneENS_9StringRefES0_.exit, %_ZNK5clang9NamedDecl7getNameEv.exit.thread, %49, %_ZNK5clang9NamedDecl7getNameEv.exit
-  %.sroa.017.1 = phi ptr [ %.sroa.017.036, %_ZNK5clang9NamedDecl7getNameEv.exit ], [ %43, %49 ], [ %spec.select, %_ZNK5clang9NamedDecl7getNameEv.exit.thread ], [ %spec.select32, %_ZN4llvmneENS_9StringRefES0_.exit ]
+  %.sroa.017.1 = phi ptr [ %43, %49 ], [ %spec.select32, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %spec.select, %_ZNK5clang9NamedDecl7getNameEv.exit.thread ], [ %.sroa.017.036, %_ZNK5clang9NamedDecl7getNameEv.exit ]
   %51 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %.037) #14
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %52, align 8
@@ -857,7 +857,7 @@ _ZNK5clang11DeclContext9getParentEv.exit.i11:     ; preds = %73, %66
   br i1 %.not52, label %.critedge, label %.lr.ph, !llvm.loop !458
 
 .critedge:                                        ; preds = %_ZNK5clang11DeclContext9getParentEv.exit.i, %_ZNK5clang11DeclContext9getParentEv.exit, %"_ZZNK5clang4ento15CallDescription23matchQualifiedNamePartsEPKNS_4DeclEENK3$_0clEPKNS_11DeclContextE.exit15", %_ZNK5clang11DeclContext9getParentEv.exit.i11, %_ZNK5clang4Decl14getDeclContextEv.exit, %"_ZZNK5clang4ento15CallDescription23matchQualifiedNamePartsEPKNS_4DeclEENK3$_0clEPKNS_11DeclContextE.exit"
-  %.sroa.017.0.lcssa = phi ptr [ %5, %"_ZZNK5clang4ento15CallDescription23matchQualifiedNamePartsEPKNS_4DeclEENK3$_0clEPKNS_11DeclContextE.exit" ], [ %5, %_ZNK5clang4Decl14getDeclContextEv.exit ], [ %.sroa.017.1, %_ZNK5clang11DeclContext9getParentEv.exit.i11 ], [ %.sroa.017.1, %"_ZZNK5clang4ento15CallDescription23matchQualifiedNamePartsEPKNS_4DeclEENK3$_0clEPKNS_11DeclContextE.exit15" ], [ %.sroa.017.1, %_ZNK5clang11DeclContext9getParentEv.exit ], [ %5, %_ZNK5clang11DeclContext9getParentEv.exit.i ]
+  %.sroa.017.0.lcssa = phi ptr [ %5, %"_ZZNK5clang4ento15CallDescription23matchQualifiedNamePartsEPKNS_4DeclEENK3$_0clEPKNS_11DeclContextE.exit" ], [ %.sroa.017.1, %_ZNK5clang11DeclContext9getParentEv.exit ], [ %.sroa.017.1, %_ZNK5clang11DeclContext9getParentEv.exit.i11 ], [ %5, %_ZNK5clang4Decl14getDeclContextEv.exit ], [ %.sroa.017.1, %"_ZZNK5clang4ento15CallDescription23matchQualifiedNamePartsEPKNS_4DeclEENK3$_0clEPKNS_11DeclContextE.exit15" ], [ %5, %_ZNK5clang11DeclContext9getParentEv.exit.i ]
   %75 = icmp eq ptr %.sroa.017.0.lcssa, %7
   ret i1 %75
 }

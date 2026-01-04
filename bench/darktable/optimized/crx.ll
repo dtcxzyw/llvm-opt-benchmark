@@ -686,7 +686,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit114:  ; preds = %_ZL13crxFillBufferP
   br label %_Z17crxDecodeSymbolL1P12CrxBandParamii.exit
 
 _Z17crxDecodeSymbolL1P12CrxBandParamii.exit:      ; preds = %.loopexit311, %_ZL13crxFillBufferP12CrxBitstream.exit185, %281, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit114
-  %.0.i = phi i32 [ %393, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit114 ], [ %.139.i159284, %281 ], [ %227, %_ZL13crxFillBufferP12CrxBitstream.exit185 ], [ %278, %.loopexit311 ]
+  %.0.i = phi i32 [ %.139.i159284, %281 ], [ %393, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit114 ], [ %227, %_ZL13crxFillBufferP12CrxBitstream.exit185 ], [ %278, %.loopexit311 ]
   %394 = and i32 %.0.i, 1
   %395 = sub nsw i32 0, %394
   %396 = lshr i32 %.0.i, 1
@@ -1939,7 +1939,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit98:   ; preds = %_ZL13crxFillBufferP
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit90
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit90:   ; preds = %.loopexit301, %_ZL13crxFillBufferP12CrxBitstream.exit233, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit98, %1017
-  %.0.i66 = phi i32 [ %1129, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit98 ], [ %.139.i143287, %1017 ], [ %963, %_ZL13crxFillBufferP12CrxBitstream.exit233 ], [ %1014, %.loopexit301 ]
+  %.0.i66 = phi i32 [ %.139.i143287, %1017 ], [ %1129, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit98 ], [ %963, %_ZL13crxFillBufferP12CrxBitstream.exit233 ], [ %1014, %.loopexit301 ]
   %1130 = and i32 %.0.i66, 1
   %1131 = sub nsw i32 0, %1130
   %1132 = lshr i32 %.0.i66, 1
@@ -2640,7 +2640,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit82:   ; preds = %_ZL13crxFillBufferP
   br label %_Z17crxDecodeSymbolL1P12CrxBandParamii.exit72
 
 _Z17crxDecodeSymbolL1P12CrxBandParamii.exit72:    ; preds = %.loopexit, %_ZL13crxFillBufferP12CrxBitstream.exit257, %1428, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit82
-  %.0.i70 = phi i32 [ %1551, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit82 ], [ %.139.i289, %1428 ], [ %1374, %_ZL13crxFillBufferP12CrxBitstream.exit257 ], [ %1425, %.loopexit ]
+  %.0.i70 = phi i32 [ %.139.i289, %1428 ], [ %1551, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit82 ], [ %1374, %_ZL13crxFillBufferP12CrxBitstream.exit257 ], [ %1425, %.loopexit ]
   %1552 = and i32 %.0.i70, 1
   %1553 = sub nsw i32 0, %1552
   %1554 = lshr i32 %.0.i70, 1
@@ -3343,7 +3343,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i:   ; preds = %.loopexit461, %_ZL1
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit64.i
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit64.i: ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit270, %.loopexit459, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i, %289
-  %.048.i = phi i32 [ %401, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i ], [ %.139.i242427, %289 ], [ %235, %_ZL13crxFillBufferP12CrxBitstream.exit270 ], [ %286, %.loopexit459 ]
+  %.048.i = phi i32 [ %.139.i242427, %289 ], [ %401, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i ], [ %235, %_ZL13crxFillBufferP12CrxBitstream.exit270 ], [ %286, %.loopexit459 ]
   %402 = and i32 %.048.i, 1
   %403 = sub nsw i32 0, %402
   %404 = lshr i32 %.048.i, 1
@@ -4029,7 +4029,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i114: ; preds = %.loopexit465, %_ZL
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit64.i124
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit64.i124: ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit294, %.loopexit463, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i114, %698
-  %.048.i116 = phi i32 [ %810, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i114 ], [ %.139.i226429, %698 ], [ %644, %_ZL13crxFillBufferP12CrxBitstream.exit294 ], [ %695, %.loopexit463 ]
+  %.048.i116 = phi i32 [ %.139.i226429, %698 ], [ %810, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i114 ], [ %644, %_ZL13crxFillBufferP12CrxBitstream.exit294 ], [ %695, %.loopexit463 ]
   %811 = and i32 %.048.i116, 1
   %812 = sub nsw i32 0, %811
   %813 = lshr i32 %.048.i116, 1
@@ -5305,7 +5305,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i134: ; preds = %.loopexit469, %_ZL
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit64.i144
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit64.i144: ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit342, %.loopexit467, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i134, %1450
-  %.048.i136 = phi i32 [ %1562, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i134 ], [ %.139.i210434, %1450 ], [ %1396, %_ZL13crxFillBufferP12CrxBitstream.exit342 ], [ %1447, %.loopexit467 ]
+  %.048.i136 = phi i32 [ %.139.i210434, %1450 ], [ %1562, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i134 ], [ %1396, %_ZL13crxFillBufferP12CrxBitstream.exit342 ], [ %1447, %.loopexit467 ]
   %1563 = and i32 %.048.i136, 1
   %1564 = sub nsw i32 0, %1563
   %1565 = lshr i32 %.048.i136, 1
@@ -5966,7 +5966,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i154: ; preds = %.loopexit473, %_ZL
   br label %_Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169
 
 _Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169: ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit366, %.loopexit471, %1852, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i154
-  %.048.i156 = phi i32 [ %1964, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i154 ], [ %.139.i194436, %1852 ], [ %1798, %_ZL13crxFillBufferP12CrxBitstream.exit366 ], [ %1849, %.loopexit471 ]
+  %.048.i156 = phi i32 [ %.139.i194436, %1852 ], [ %1964, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i154 ], [ %1798, %_ZL13crxFillBufferP12CrxBitstream.exit366 ], [ %1849, %.loopexit471 ]
   %1965 = and i32 %.048.i156, 1
   %1966 = sub nsw i32 0, %1965
   %1967 = lshr i32 %.048.i156, 1
@@ -5997,8 +5997,8 @@ _Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169: ; preds = %_ZL13crxFillBu
   store ptr %1975, ptr %9, align 8, !tbaa !20
   br label %.thread981
 
-.thread981:                                       ; preds = %_Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169, %1617
-  %.275.ph = phi i32 [ %1215, %1617 ], [ 1, %_Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169 ]
+.thread981:                                       ; preds = %1617, %_Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169
+  %.275.ph = phi i32 [ 1, %_Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit169 ], [ %1215, %1617 ]
   %1989 = add nsw i32 %.275.ph, -1
   br label %._crit_edge658.loopexit
 
@@ -6654,7 +6654,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i174: ; preds = %.loopexit455, %_ZL
   br label %_Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit189
 
 _Z24crxDecodeSymbolL1RoundedP12CrxBandParamii.exit189: ; preds = %_ZL13crxFillBufferP12CrxBitstream.exit390, %.loopexit, %2255, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i174
-  %.048.i176 = phi i32 [ %2378, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i174 ], [ %.139.i438, %2255 ], [ %2201, %_ZL13crxFillBufferP12CrxBitstream.exit390 ], [ %2252, %.loopexit ]
+  %.048.i176 = phi i32 [ %.139.i438, %2255 ], [ %2378, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit.i174 ], [ %2201, %_ZL13crxFillBufferP12CrxBitstream.exit390 ], [ %2252, %.loopexit ]
   %2379 = and i32 %.048.i176, 1
   %2380 = sub nsw i32 0, %2379
   %2381 = lshr i32 %.048.i176, 1
@@ -7328,7 +7328,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit246:  ; preds = %_ZL13crxFillBufferP
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit254
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit254:  ; preds = %.loopexit491, %_ZL13crxFillBufferP12CrxBitstream.exit318, %265, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit246
-  %.0140 = phi i32 [ %377, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit246 ], [ %.139.i447, %265 ], [ %211, %_ZL13crxFillBufferP12CrxBitstream.exit318 ], [ %262, %.loopexit491 ]
+  %.0140 = phi i32 [ %.139.i447, %265 ], [ %377, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit246 ], [ %211, %_ZL13crxFillBufferP12CrxBitstream.exit318 ], [ %262, %.loopexit491 ]
   %378 = and i32 %.0140, 1
   %379 = sub nsw i32 0, %378
   %380 = lshr i32 %.0140, 1
@@ -8598,7 +8598,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit206:  ; preds = %_ZL13crxFillBufferP
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit214
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit214:  ; preds = %.loopexit481, %_ZL13crxFillBufferP12CrxBitstream.exit366, %1006, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit206
-  %.0137 = phi i32 [ %1118, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit206 ], [ %.139.i259453, %1006 ], [ %952, %_ZL13crxFillBufferP12CrxBitstream.exit366 ], [ %1003, %.loopexit481 ]
+  %.0137 = phi i32 [ %.139.i259453, %1006 ], [ %1118, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit206 ], [ %952, %_ZL13crxFillBufferP12CrxBitstream.exit366 ], [ %1003, %.loopexit481 ]
   %1119 = add i32 %.0137, 1
   %1120 = and i32 %1119, 1
   %1121 = sub nsw i32 0, %1120
@@ -9214,7 +9214,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit190:  ; preds = %_ZL13crxFillBufferP
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit198
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit198:  ; preds = %.loopexit477, %_ZL13crxFillBufferP12CrxBitstream.exit390, %1374, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit190
-  %.0136 = phi i32 [ %1486, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit190 ], [ %.139.i275455, %1374 ], [ %1320, %_ZL13crxFillBufferP12CrxBitstream.exit390 ], [ %1371, %.loopexit477 ]
+  %.0136 = phi i32 [ %.139.i275455, %1374 ], [ %1486, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit190 ], [ %1320, %_ZL13crxFillBufferP12CrxBitstream.exit390 ], [ %1371, %.loopexit477 ]
   %1487 = add i32 %.0136, 1
   %1488 = and i32 %1487, 1
   %1489 = sub nsw i32 0, %1488
@@ -9255,23 +9255,23 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit198:  ; preds = %.loopexit477, %_ZL1
   br label %.thread456.sink.split
 
 .thread456.sink.split:                            ; preds = %1513, %401, %403, %1515
-  %.sink1023 = phi i32 [ %1516, %1515 ], [ %404, %403 ], [ 15, %401 ], [ 15, %1513 ]
-  %.ph = phi ptr [ %1508, %1515 ], [ %396, %403 ], [ %396, %401 ], [ %1508, %1513 ]
-  %.1142.ph = phi i32 [ %.3144, %1515 ], [ %.0141653, %403 ], [ %.0141653, %401 ], [ %.3144, %1513 ]
+  %.sink1023 = phi i32 [ %1516, %1515 ], [ 15, %401 ], [ %404, %403 ], [ 15, %1513 ]
+  %.ph = phi ptr [ %1508, %1515 ], [ %396, %401 ], [ %396, %403 ], [ %1508, %1513 ]
+  %.1142.ph = phi i32 [ %.3144, %1515 ], [ %.0141653, %401 ], [ %.0141653, %403 ], [ %.3144, %1513 ]
   store i32 %.sink1023, ptr %16, align 4, !tbaa !37
   br label %.thread456
 
 .thread456:                                       ; preds = %.thread456.sink.split, %1513, %401
-  %1517 = phi ptr [ %396, %401 ], [ %1508, %1513 ], [ %.ph, %.thread456.sink.split ]
-  %1518 = phi i32 [ %395, %401 ], [ %1507, %1513 ], [ %.sink1023, %.thread456.sink.split ]
-  %.1142 = phi i32 [ %.0141653, %401 ], [ %.3144, %1513 ], [ %.1142.ph, %.thread456.sink.split ]
+  %1517 = phi ptr [ %1508, %1513 ], [ %396, %401 ], [ %.ph, %.thread456.sink.split ]
+  %1518 = phi i32 [ %1507, %1513 ], [ %395, %401 ], [ %.sink1023, %.thread456.sink.split ]
+  %.1142 = phi i32 [ %.3144, %1513 ], [ %.0141653, %401 ], [ %.1142.ph, %.thread456.sink.split ]
   %1519 = sext i32 %.1142 to i64
   %1520 = getelementptr inbounds i32, ptr %1517, i64 %1519
   store i32 %1518, ptr %1520, align 4, !tbaa !19
   br label %1521
 
 1521:                                             ; preds = %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit214, %773, %.thread456
-  %.4145 = phi i32 [ %.1142, %.thread456 ], [ %.3144, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit214 ], [ %.3144, %773 ]
+  %.4145 = phi i32 [ %.1142, %.thread456 ], [ %.3144, %773 ], [ %.3144, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit214 ]
   %1522 = add nsw i32 %.4145, 1
   %1523 = load i16, ptr %2, align 8, !tbaa !6
   %1524 = sext i16 %1523 to i32
@@ -9891,7 +9891,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit:     ; preds = %_ZL13crxFillBufferP
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit182
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit182:  ; preds = %.loopexit, %_ZL13crxFillBufferP12CrxBitstream.exit414, %1767, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit
-  %.0 = phi i32 [ %1890, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit ], [ %.139.i291464, %1767 ], [ %1713, %_ZL13crxFillBufferP12CrxBitstream.exit414 ], [ %1764, %.loopexit ]
+  %.0 = phi i32 [ %.139.i291464, %1767 ], [ %1890, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit ], [ %1713, %_ZL13crxFillBufferP12CrxBitstream.exit414 ], [ %1764, %.loopexit ]
   %1891 = and i32 %.0, 1
   %1892 = sub nsw i32 0, %1891
   %1893 = ashr i32 %.0, 1
@@ -9925,7 +9925,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit182:  ; preds = %.loopexit, %_ZL13cr
   br label %.thread460
 
 .thread460:                                       ; preds = %761, %756, %._crit_edge656, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit182
-  %.3149 = phi i32 [ 0, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit182 ], [ 0, %._crit_edge656 ], [ -1, %756 ], [ -1, %761 ]
+  %.3149 = phi i32 [ 0, %._crit_edge656 ], [ 0, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit182 ], [ -1, %756 ], [ -1, %761 ]
   ret i32 %.3149
 }
 
@@ -11173,7 +11173,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit115:  ; preds = %_ZL13crxFillBufferP
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit123
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit123:  ; preds = %.loopexit268, %_ZL13crxFillBufferP12CrxBitstream.exit201, %605, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit115
-  %.072 = phi i32 [ %717, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit115 ], [ %.139.i152255, %605 ], [ %551, %_ZL13crxFillBufferP12CrxBitstream.exit201 ], [ %602, %.loopexit268 ]
+  %.072 = phi i32 [ %.139.i152255, %605 ], [ %717, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit115 ], [ %551, %_ZL13crxFillBufferP12CrxBitstream.exit201 ], [ %602, %.loopexit268 ]
   %718 = and i32 %.072, 1
   %719 = sub nsw i32 0, %718
   %720 = lshr i32 %.072, 1
@@ -11818,7 +11818,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit:     ; preds = %_ZL13crxFillBufferP
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit107
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit107:  ; preds = %.loopexit, %_ZL13crxFillBufferP12CrxBitstream.exit225, %984, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit
-  %.0 = phi i32 [ %1107, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit ], [ %.139.i259, %984 ], [ %930, %_ZL13crxFillBufferP12CrxBitstream.exit225 ], [ %981, %.loopexit ]
+  %.0 = phi i32 [ %.139.i259, %984 ], [ %1107, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit ], [ %930, %_ZL13crxFillBufferP12CrxBitstream.exit225 ], [ %981, %.loopexit ]
   %1108 = and i32 %.0, 1
   %1109 = sub nsw i32 0, %1108
   %1110 = lshr i32 %.0, 1
@@ -11848,7 +11848,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit107:  ; preds = %.loopexit, %_ZL13cr
   br label %.thread256
 
 .thread256:                                       ; preds = %372, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit107, %._crit_edge341
-  %1130 = phi ptr [ %1113, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit107 ], [ %741, %._crit_edge341 ], [ %.pre390, %372 ]
+  %1130 = phi ptr [ %741, %._crit_edge341 ], [ %1113, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit107 ], [ %.pre390, %372 ]
   %1131 = load i32, ptr %1130, align 4, !tbaa !19
   %1132 = add nsw i32 %1131, 1
   %1133 = getelementptr inbounds nuw i8, ptr %1130, i64 4
@@ -12506,7 +12506,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit135:  ; preds = %_ZL13crxFillBufferP
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit151, %._crit_edge, %.thread
-  %376 = phi i32 [ %369, %._crit_edge ], [ %369, %.thread ], [ %.080341, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit151 ]
+  %376 = phi i32 [ %369, %.thread ], [ %369, %._crit_edge ], [ %.080341, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit151 ]
   %377 = icmp slt i32 %376, 1
   %.pre391 = load ptr, ptr %2, align 8, !tbaa !20
   br i1 %377, label %.thread259, label %.thread254
@@ -13101,7 +13101,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit119:  ; preds = %_ZL13crxFillBufferP
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit127
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit127:  ; preds = %.loopexit271, %_ZL13crxFillBufferP12CrxBitstream.exit205, %609, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit119
-  %.084 = phi i32 [ %721, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit119 ], [ %.139.i156258, %609 ], [ %555, %_ZL13crxFillBufferP12CrxBitstream.exit205 ], [ %606, %.loopexit271 ]
+  %.084 = phi i32 [ %.139.i156258, %609 ], [ %721, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit119 ], [ %555, %_ZL13crxFillBufferP12CrxBitstream.exit205 ], [ %606, %.loopexit271 ]
   %722 = and i32 %.084, 1
   %723 = sub nsw i32 0, %722
   %724 = lshr i32 %.084, 1
@@ -13747,7 +13747,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit:     ; preds = %_ZL13crxFillBufferP
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit111
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit111:  ; preds = %.loopexit, %_ZL13crxFillBufferP12CrxBitstream.exit229, %990, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit
-  %.079 = phi i32 [ %1113, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit ], [ %.139.i262, %990 ], [ %936, %_ZL13crxFillBufferP12CrxBitstream.exit229 ], [ %987, %.loopexit ]
+  %.079 = phi i32 [ %.139.i262, %990 ], [ %1113, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit ], [ %936, %_ZL13crxFillBufferP12CrxBitstream.exit229 ], [ %987, %.loopexit ]
   %1114 = and i32 %.079, 1
   %1115 = sub nsw i32 0, %1114
   %1116 = lshr i32 %.079, 1
@@ -13782,7 +13782,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit111:  ; preds = %.loopexit, %_ZL13cr
   br label %.thread259
 
 .thread259:                                       ; preds = %.thread.thread, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit111, %._crit_edge344
-  %1141 = phi ptr [ %1124, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit111 ], [ %749, %._crit_edge344 ], [ %.pre391, %.thread.thread ]
+  %1141 = phi ptr [ %749, %._crit_edge344 ], [ %1124, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit111 ], [ %.pre391, %.thread.thread ]
   %1142 = load i32, ptr %1141, align 4, !tbaa !19
   %1143 = add nsw i32 %1142, 1
   %1144 = getelementptr inbounds nuw i8, ptr %1141, i64 4
@@ -15029,7 +15029,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit148:  ; preds = %_ZL13crxFillBufferP
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit164, %._crit_edge445, %.thread
-  %721 = phi i32 [ %712, %._crit_edge445 ], [ %712, %.thread ], [ %.091464, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit164 ]
+  %721 = phi i32 [ %712, %.thread ], [ %712, %._crit_edge445 ], [ %.091464, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit164 ]
   %722 = icmp slt i32 %721, 1
   br i1 %722, label %.thread337.loopexit, label %723
 
@@ -15618,14 +15618,14 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit132:  ; preds = %_ZL13crxFillBufferP
   br label %.thread334
 
 .thread334:                                       ; preds = %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit132, %954, %_ZL13crxFillBufferP12CrxBitstream.exit275, %.loopexit351
-  %.087 = phi i32 [ %1066, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit132 ], [ %.139.i185330, %954 ], [ %900, %_ZL13crxFillBufferP12CrxBitstream.exit275 ], [ %951, %.loopexit351 ]
+  %.087 = phi i32 [ %.139.i185330, %954 ], [ %1066, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit132 ], [ %900, %_ZL13crxFillBufferP12CrxBitstream.exit275 ], [ %951, %.loopexit351 ]
   %1067 = add i32 %.087, 1
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit180
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit180:  ; preds = %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit172, %254, %_ZL13crxFillBufferP12CrxBitstream.exit227, %.loopexit360, %.thread334
-  %.sink764 = phi i32 [ %1067, %.thread334 ], [ %366, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit172 ], [ %.139.i201327, %254 ], [ %200, %_ZL13crxFillBufferP12CrxBitstream.exit227 ], [ %251, %.loopexit360 ]
-  %.087.sink753 = phi i32 [ %.087, %.thread334 ], [ %366, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit172 ], [ %.139.i201327, %254 ], [ %200, %_ZL13crxFillBufferP12CrxBitstream.exit227 ], [ %251, %.loopexit360 ]
-  %.293 = phi i32 [ %721, %.thread334 ], [ %.091464, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit172 ], [ %.091464, %254 ], [ %.091464, %_ZL13crxFillBufferP12CrxBitstream.exit227 ], [ %.091464, %.loopexit360 ]
+  %.sink764 = phi i32 [ %1067, %.thread334 ], [ %.139.i201327, %254 ], [ %366, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit172 ], [ %200, %_ZL13crxFillBufferP12CrxBitstream.exit227 ], [ %251, %.loopexit360 ]
+  %.087.sink753 = phi i32 [ %.087, %.thread334 ], [ %.139.i201327, %254 ], [ %366, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit172 ], [ %200, %_ZL13crxFillBufferP12CrxBitstream.exit227 ], [ %251, %.loopexit360 ]
+  %.293 = phi i32 [ %721, %.thread334 ], [ %.091464, %254 ], [ %.091464, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit172 ], [ %.091464, %_ZL13crxFillBufferP12CrxBitstream.exit227 ], [ %.091464, %.loopexit360 ]
   %1068 = and i32 %.sink764, 1
   %1069 = sub nsw i32 0, %1068
   %1070 = lshr i32 %.sink764, 1
@@ -16270,7 +16270,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit:     ; preds = %_ZL13crxFillBufferP
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit124
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit124:  ; preds = %.loopexit, %_ZL13crxFillBufferP12CrxBitstream.exit299, %1333, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit
-  %.0 = phi i32 [ %1456, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit ], [ %.139.i340, %1333 ], [ %1279, %_ZL13crxFillBufferP12CrxBitstream.exit299 ], [ %1330, %.loopexit ]
+  %.0 = phi i32 [ %.139.i340, %1333 ], [ %1456, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit ], [ %1279, %_ZL13crxFillBufferP12CrxBitstream.exit299 ], [ %1330, %.loopexit ]
   %1457 = and i32 %.0, 1
   %1458 = sub nsw i32 0, %1457
   %1459 = lshr i32 %.0, 1
@@ -16465,8 +16465,8 @@ define noundef range(i32 -1, 1) i32 @_Z13crxDecodeLineP12CrxBandParamPh(ptr noun
   br i1 %.not131.not, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %89, %87, %58, %43, %.loopexit, %26
-  %.160.sink = phi ptr [ %31, %26 ], [ %40, %.loopexit ], [ %51, %43 ], [ %.158, %58 ], [ %.160, %87 ], [ %.160, %89 ]
-  %.sink166.in = phi ptr [ %13, %26 ], [ %13, %.loopexit ], [ %13, %43 ], [ %59, %58 ], [ %77, %87 ], [ %77, %89 ]
+  %.160.sink = phi ptr [ %.160, %87 ], [ %.158, %58 ], [ %51, %43 ], [ %40, %.loopexit ], [ %31, %26 ], [ %.160, %89 ]
+  %.sink166.in = phi ptr [ %77, %87 ], [ %59, %58 ], [ %13, %43 ], [ %13, %.loopexit ], [ %13, %26 ], [ %77, %89 ]
   %91 = getelementptr inbounds nuw i8, ptr %.160.sink, i64 4
   %.sink166 = load i16, ptr %.sink166.in, align 8, !tbaa !6
   %92 = sext i16 %.sink166 to i64
@@ -16478,7 +16478,7 @@ define noundef range(i32 -1, 1) i32 @_Z13crxDecodeLineP12CrxBandParamPh(ptr noun
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %89, %87, %58, %26, %.loopexit, %43, %5, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %5 ], [ -1, %43 ], [ -1, %.loopexit ], [ -1, %26 ], [ -1, %58 ], [ -1, %87 ], [ -1, %89 ], [ 0, %.critedge.sink.split ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %89 ], [ -1, %5 ], [ -1, %58 ], [ -1, %87 ], [ -1, %26 ], [ -1, %43 ], [ -1, %.loopexit ], [ 0, %.critedge.sink.split ]
   ret i32 %.0
 }
 
@@ -16717,7 +16717,7 @@ _ZL13crxFillBufferP12CrxBitstream.exit34:         ; preds = %84, %88, %119
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %5, %133
-  %.139.i = phi i32 [ %6, %5 ], [ %spec.select.i, %133 ]
+  %.139.i = phi i32 [ %spec.select.i, %133 ], [ %6, %5 ]
   %137 = icmp ugt i32 %.139.i, 22
   br i1 %137, label %138, label %256
 
@@ -17113,7 +17113,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit:     ; preds = %_ZL13crxFillBufferP
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit25
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit25:   ; preds = %.loopexit, %_ZL13crxFillBufferP12CrxBitstream.exit38, %256, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit
-  %.0 = phi i32 [ %381, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit ], [ %.139.i, %256 ], [ %201, %_ZL13crxFillBufferP12CrxBitstream.exit38 ], [ %253, %.loopexit ]
+  %.0 = phi i32 [ %.139.i, %256 ], [ %381, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit ], [ %201, %_ZL13crxFillBufferP12CrxBitstream.exit38 ], [ %253, %.loopexit ]
   %382 = and i32 %.0, 1
   %383 = sub nsw i32 0, %382
   %384 = lshr i32 %.0, 1
@@ -17374,7 +17374,7 @@ _Z13getSubbandRowP10CrxSubbandi.exit:             ; preds = %29, %47, %50
   br i1 %exitcond115.not, label %.loopexit, label %150, !llvm.loop !91
 
 .loopexit:                                        ; preds = %124, %150, %._crit_edge, %137, %23, %18, %16, %5
-  %.074 = phi i32 [ 0, %5 ], [ -1, %16 ], [ -1, %18 ], [ 0, %23 ], [ 0, %137 ], [ 0, %._crit_edge ], [ 0, %150 ], [ 0, %124 ]
+  %.074 = phi i32 [ -1, %16 ], [ -1, %18 ], [ 0, %23 ], [ 0, %5 ], [ 0, %137 ], [ 0, %._crit_edge ], [ 0, %150 ], [ 0, %124 ]
   ret i32 %.074
 }
 
@@ -17730,7 +17730,7 @@ define noundef range(i32 -1, 1) i32 @_Z21crxIdwt53FilterDecodeP12CrxPlaneCompiP8
   br label %56
 
 56:                                               ; preds = %55, %32, %35, %37, %41, %44, %52, %49, %46, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %55 ], [ -1, %32 ], [ -1, %35 ], [ -1, %37 ], [ -1, %41 ], [ -1, %44 ], [ -1, %52 ], [ -1, %49 ], [ -1, %46 ]
+  %.0 = phi i32 [ 0, %3 ], [ -1, %37 ], [ -1, %44 ], [ 0, %55 ], [ -1, %41 ], [ -1, %32 ], [ -1, %35 ], [ -1, %52 ], [ -1, %49 ], [ -1, %46 ]
   ret i32 %.0
 }
 
@@ -18876,8 +18876,8 @@ define noundef range(i32 -1, 1) i32 @_Z25crxIdwt53FilterInitializeP12CrxPlaneCom
   %exitcond295.not = icmp eq i64 %indvars.iv.next288, %wide.trip.count294
   br i1 %exitcond295.not, label %.critedge228, label %9, !llvm.loop !119
 
-.critedge228:                                     ; preds = %271, %182, %73, %68, %.loopexit, %48, %49, %54, %29, %.preheader, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ 0, %271 ], [ -1, %182 ], [ -1, %73 ], [ -1, %68 ], [ -1, %.loopexit ], [ -1, %48 ], [ -1, %49 ], [ -1, %54 ], [ -1, %29 ]
+.critedge228:                                     ; preds = %271, %68, %.loopexit, %49, %54, %48, %182, %73, %29, %.preheader, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ -1, %73 ], [ -1, %182 ], [ -1, %48 ], [ -1, %54 ], [ -1, %49 ], [ -1, %.loopexit ], [ -1, %68 ], [ 0, %271 ], [ -1, %29 ]
   ret i32 %.0
 }
 
@@ -19388,7 +19388,7 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %31
   br label %_ZL13crxFillBufferP12CrxBitstream.exit
 
 _ZL13crxFillBufferP12CrxBitstream.exit:           ; preds = %8, %83, %_ZN13libraw_memmgr6callocEmm.exit
-  %.0 = phi i32 [ 0, %_ZN13libraw_memmgr6callocEmm.exit ], [ 0, %83 ], [ -1, %8 ]
+  %.0 = phi i32 [ 0, %83 ], [ -1, %8 ], [ 0, %_ZN13libraw_memmgr6callocEmm.exit ]
   ret i32 %.0
 }
 
@@ -19930,7 +19930,7 @@ define noundef range(i32 -1, 1) i32 @_ZN6LibRaw14crxDecodePlaneEPvj(ptr nonnull 
   br i1 %.not98, label %.preheader116, label %.critedge, !llvm.loop !178
 
 .critedge:                                        ; preds = %.thread107, %37, %.lr.ph134, %46, %95, %3, %89
-  %spec.select = phi i32 [ 0, %89 ], [ 0, %3 ], [ -1, %95 ], [ -1, %46 ], [ -1, %.lr.ph134 ], [ -1, %37 ], [ 0, %.thread107 ]
+  %spec.select = phi i32 [ -1, %46 ], [ -1, %37 ], [ 0, %89 ], [ 0, %3 ], [ -1, %95 ], [ -1, %.lr.ph134 ], [ 0, %.thread107 ]
   ret i32 %spec.select
 }
 
@@ -20165,9 +20165,9 @@ _ZL13crxFillBufferP12CrxBitstream.exit25:         ; preds = %84, %88, %119
   br label %_Z20crxBitstreamGetZerosP12CrxBitstream.exit
 
 _Z20crxBitstreamGetZerosP12CrxBitstream.exit:     ; preds = %5, %133
-  %137 = phi i32 [ %9, %5 ], [ %storemerge50.i, %133 ]
-  %138 = phi i32 [ %12, %5 ], [ %.sink, %133 ]
-  %.139.i = phi i32 [ %6, %5 ], [ %spec.select.i, %133 ]
+  %137 = phi i32 [ %storemerge50.i, %133 ], [ %9, %5 ]
+  %138 = phi i32 [ %.sink, %133 ], [ %12, %5 ]
+  %.139.i = phi i32 [ %spec.select.i, %133 ], [ %6, %5 ]
   %139 = icmp ugt i32 %.139.i, 22
   br i1 %139, label %140, label %254
 
@@ -20552,7 +20552,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit:     ; preds = %_ZL13crxFillBufferP
   br label %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit17
 
 _Z19crxBitstreamGetBitsP12CrxBitstreami.exit17:   ; preds = %.loopexit, %_ZL13crxFillBufferP12CrxBitstream.exit29, %254, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit
-  %.0 = phi i32 [ %372, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit ], [ %.139.i, %254 ], [ %199, %_ZL13crxFillBufferP12CrxBitstream.exit29 ], [ %251, %.loopexit ]
+  %.0 = phi i32 [ %.139.i, %254 ], [ %372, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit ], [ %199, %_ZL13crxFillBufferP12CrxBitstream.exit29 ], [ %251, %.loopexit ]
   ret i32 %.0
 }
 
@@ -21069,7 +21069,7 @@ _ZN13libraw_memmgr6mallocEm.exit:                 ; preds = %42
   br i1 %exitcond265.not, label %.loopexit, label %.preheader.us, !llvm.loop !187
 
 .loopexit:                                        ; preds = %._crit_edge.us209, %140, %_ZN13libraw_memmgr6mallocEm.exit.thread, %_ZN13libraw_memmgr6mallocEm.exit, %4
-  %.0135 = phi i32 [ -1, %4 ], [ 0, %_ZN13libraw_memmgr6mallocEm.exit ], [ -1, %_ZN13libraw_memmgr6mallocEm.exit.thread ], [ 0, %140 ], [ 0, %._crit_edge.us209 ]
+  %.0135 = phi i32 [ -1, %4 ], [ -1, %_ZN13libraw_memmgr6mallocEm.exit.thread ], [ 0, %_ZN13libraw_memmgr6mallocEm.exit ], [ 0, %140 ], [ 0, %._crit_edge.us209 ]
   ret i32 %.0135
 }
 
@@ -21434,7 +21434,7 @@ _Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130: 
   br label %206
 
 206:                                              ; preds = %201, %202
-  %.0114 = phi i32 [ %205, %202 ], [ 0, %201 ]
+  %.0114 = phi i32 [ 0, %201 ], [ %205, %202 ]
   %207 = add i32 %.1113, %.us-phi229
   %208 = trunc i32 %207 to i16
   %209 = getelementptr inbounds nuw i8, ptr %.us-phi148233, i64 24
@@ -21739,8 +21739,8 @@ _ZN6LibRaw5sgetnEiPh.exit112:                     ; preds = %.lr.ph.i108, %_ZN6L
   %exitcond.not = icmp eq i32 %139, %12
   br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !196
 
-.critedge:                                        ; preds = %_ZN6LibRaw5sgetnEiPh.exit112, %13, %_ZN6LibRaw5sgetnEiPh.exit97, %_ZN6LibRaw5sgetnEiPh.exit92, %38, %_ZN6LibRaw5sgetnEiPh.exit77, %54, %6
-  %.0 = phi i32 [ 0, %6 ], [ -1, %54 ], [ 0, %_ZN6LibRaw5sgetnEiPh.exit112 ], [ -1, %13 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit97 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit92 ], [ -1, %38 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit77 ]
+.critedge:                                        ; preds = %_ZN6LibRaw5sgetnEiPh.exit112, %13, %_ZN6LibRaw5sgetnEiPh.exit97, %_ZN6LibRaw5sgetnEiPh.exit92, %_ZN6LibRaw5sgetnEiPh.exit77, %38, %54, %6
+  %.0 = phi i32 [ 0, %6 ], [ -1, %54 ], [ 0, %_ZN6LibRaw5sgetnEiPh.exit112 ], [ -1, %13 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit97 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit92 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit77 ], [ -1, %38 ]
   ret i32 %.0
 }
 
@@ -21900,7 +21900,7 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %38
   br label %90
 
 90:                                               ; preds = %.sink.split, %83, %77
-  %91 = phi i8 [ 0, %83 ], [ 0, %77 ], [ %spec.store.select.sink, %.sink.split ]
+  %91 = phi i8 [ 0, %77 ], [ 0, %83 ], [ %spec.store.select.sink, %.sink.split ]
   %92 = icmp slt i64 %indvars.iv, %66
   br i1 %92, label %93, label %99
 
@@ -21934,7 +21934,7 @@ _ZN13libraw_memmgr6callocEmm.exit:                ; preds = %38
   br label %107
 
 107:                                              ; preds = %.sink.split543, %99, %93, %97
-  %108 = phi i8 [ %91, %99 ], [ %91, %93 ], [ %98, %97 ], [ %106, %.sink.split543 ]
+  %108 = phi i8 [ %91, %99 ], [ %98, %97 ], [ %91, %93 ], [ %106, %.sink.split543 ]
   br i1 %.not268, label %.loopexit364, label %109
 
 109:                                              ; preds = %107
@@ -22688,8 +22688,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit349:                 ; preds = %.loopexit, %.loopex
   %exitcond493.not = icmp eq i32 %442, %15
   br i1 %exitcond493.not, label %.thread, label %327, !llvm.loop !211
 
-.thread:                                          ; preds = %_ZN6LibRaw5sgetnEiPh.exit315, %_ZN6LibRaw5sgetnEiPh.exit305, %_ZN6LibRaw5sgetnEiPh.exit300, %175, %161, %159, %160, %._crit_edge, %137, %_ZN6LibRaw5sgetnEiPh.exit335, %260, %_ZN6LibRaw5sgetnEiPh.exit340, %304, %298, %_ZNSt6vectorIiSaIiEED2Ev.exit, %441, %.critedge288, %.critedge286
-  %.8 = phi i32 [ 0, %.critedge286 ], [ -1, %.critedge288 ], [ -1, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ 0, %441 ], [ -1, %298 ], [ -1, %304 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit340 ], [ -1, %260 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit335 ], [ -1, %137 ], [ -1, %._crit_edge ], [ -1, %160 ], [ -1, %159 ], [ -1, %161 ], [ -1, %175 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit300 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit305 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit315 ]
+.thread:                                          ; preds = %175, %_ZN6LibRaw5sgetnEiPh.exit305, %_ZN6LibRaw5sgetnEiPh.exit300, %_ZN6LibRaw5sgetnEiPh.exit315, %160, %159, %161, %._crit_edge, %137, %_ZN6LibRaw5sgetnEiPh.exit335, %260, %_ZN6LibRaw5sgetnEiPh.exit340, %304, %298, %_ZNSt6vectorIiSaIiEED2Ev.exit, %441, %.critedge288, %.critedge286
+  %.8 = phi i32 [ -1, %_ZN6LibRaw5sgetnEiPh.exit335 ], [ 0, %.critedge286 ], [ -1, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ -1, %.critedge288 ], [ 0, %441 ], [ -1, %298 ], [ -1, %304 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit340 ], [ -1, %260 ], [ -1, %137 ], [ -1, %._crit_edge ], [ -1, %161 ], [ -1, %159 ], [ -1, %160 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit315 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit300 ], [ -1, %_ZN6LibRaw5sgetnEiPh.exit305 ], [ -1, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %444
@@ -22925,7 +22925,7 @@ define noundef range(i32 -1, 1) i32 @_Z17crxSetupImageDataP17crx_data_header_tP8
   br label %143
 
 143:                                              ; preds = %100, %30, %47, %7, %22, %26, %141
-  %.0 = phi i32 [ %142, %141 ], [ -1, %26 ], [ -1, %22 ], [ -1, %7 ], [ -1, %47 ], [ -1, %30 ], [ -1, %100 ]
+  %.0 = phi i32 [ -1, %30 ], [ -1, %7 ], [ %142, %141 ], [ -1, %26 ], [ -1, %22 ], [ -1, %47 ], [ -1, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -23126,8 +23126,8 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %44
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
 
 _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %57, %.noexc11, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %54, %.noexc11 ], [ %54, %57 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.015.0 = phi ptr [ %53, %.noexc11 ], [ %53, %57 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %54, %57 ], [ %54, %.noexc11 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.015.0 = phi ptr [ %53, %57 ], [ %53, %.noexc11 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %59 = load ptr, ptr %26, align 8, !tbaa !28
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 104
   %61 = load ptr, ptr %60, align 8
@@ -23610,7 +23610,7 @@ _ZN6LibRaw5sgetnEiPh.exit117:                     ; preds = %.lr.ph.i113
   br label %129
 
 129:                                              ; preds = %128, %.thread, %110, %112, %111, %114, %117, %116, %119, %4
-  %.073 = phi i32 [ -1, %4 ], [ -1, %.thread ], [ -1, %110 ], [ -1, %112 ], [ -1, %111 ], [ -1, %114 ], [ -1, %117 ], [ -1, %116 ], [ -1, %119 ], [ 0, %128 ]
+  %.073 = phi i32 [ -1, %4 ], [ -1, %.thread ], [ -1, %111 ], [ -1, %110 ], [ -1, %114 ], [ -1, %119 ], [ -1, %116 ], [ 0, %128 ], [ -1, %117 ], [ -1, %112 ]
   ret i32 %.073
 }
 

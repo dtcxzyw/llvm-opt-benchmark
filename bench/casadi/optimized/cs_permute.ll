@@ -369,7 +369,7 @@ define ptr @cs_permute(ptr noundef readonly captures(address_is_null) %0, ptr no
   br i1 %exitcond.not, label %._crit_edge76, label %.lr.ph75.split.split.split, !llvm.loop !17
 
 ._crit_edge76:                                    ; preds = %._crit_edge.split.split, %._crit_edge.split.split.us, %._crit_edge.split.split.us.us, %._crit_edge.split.us.split.us80, %._crit_edge.split.us.split.us80.us, %._crit_edge.split.us.split.us.us.us, %30
-  %.053.lcssa = phi i32 [ 0, %30 ], [ %.1.lcssa.us.us, %._crit_edge.split.us.split.us.us.us ], [ %.1.lcssa.us.us98, %._crit_edge.split.us.split.us80.us ], [ %.1.lcssa.us, %._crit_edge.split.us.split.us80 ], [ %.1.lcssa.us86, %._crit_edge.split.split.us.us ], [ %.1.lcssa.us91, %._crit_edge.split.split.us ], [ %.1.lcssa, %._crit_edge.split.split ]
+  %.053.lcssa = phi i32 [ 0, %30 ], [ %.1.lcssa.us91, %._crit_edge.split.split.us ], [ %.1.lcssa.us, %._crit_edge.split.us.split.us80 ], [ %.1.lcssa.us86, %._crit_edge.split.split.us.us ], [ %.1.lcssa.us.us, %._crit_edge.split.us.split.us.us.us ], [ %.1.lcssa.us.us98, %._crit_edge.split.us.split.us80.us ], [ %.1.lcssa, %._crit_edge.split.split ]
   %169 = getelementptr inbounds i32, ptr %32, i64 %20
   store i32 %.053.lcssa, ptr %169, align 4, !tbaa !16
   %170 = tail call ptr @cs_done(ptr noundef nonnull %27, ptr noundef null, ptr noundef null, i32 noundef 1) #2

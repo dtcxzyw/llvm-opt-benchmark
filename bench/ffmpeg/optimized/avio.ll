@@ -92,7 +92,7 @@ define ptr @ffio_geturlcontext(ptr noundef readonly captures(address_is_null) %0
   br label %10
 
 10:                                               ; preds = %5, %1, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %1 ], [ %4, %5 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %9 ], [ %4, %5 ]
   ret ptr %.0
 }
 
@@ -193,7 +193,7 @@ ff_check_interrupt.exit.thread.i:                 ; preds = %ff_check_interrupt.
   br i1 %.not49.i, label %.outer.split.i, label %retry_transfer_wrapper.exit, !llvm.loop !24
 
 retry_transfer_wrapper.exit:                      ; preds = %.outer.i, %39, %33, %.split.i, %25, %ff_check_interrupt.exit.i, %3
-  %.0 = phi i32 [ -5, %3 ], [ -1414092869, %ff_check_interrupt.exit.i ], [ %21, %39 ], [ -5, %33 ], [ %21, %.split.i ], [ %.041.i, %.outer.i ], [ %21, %25 ]
+  %.0 = phi i32 [ -5, %3 ], [ -1414092869, %ff_check_interrupt.exit.i ], [ -5, %33 ], [ %21, %39 ], [ %21, %.split.i ], [ %21, %25 ], [ %.041.i, %.outer.i ]
   ret i32 %.0
 }
 
@@ -888,7 +888,7 @@ select.unfold.i:                                  ; preds = %70
   br label %url_alloc_for_protocol.exit
 
 url_alloc_for_protocol.exit:                      ; preds = %12, %19, %26, %82, %84, %87
-  %.0.i = phi i32 [ 0, %82 ], [ -5, %26 ], [ -5, %19 ], [ -5, %12 ], [ %.05092.i, %87 ], [ %.05092.i, %84 ]
+  %.0.i = phi i32 [ -5, %12 ], [ 0, %82 ], [ -5, %19 ], [ -5, %26 ], [ %.05092.i, %87 ], [ %.05092.i, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %89
 
@@ -1008,7 +1008,7 @@ define internal fastcc noundef ptr @url_find_protocol(ptr noundef %0) unnamed_ad
   br label %43
 
 43:                                               ; preds = %28, %35, %40, %42, %22
-  %.0 = phi ptr [ null, %22 ], [ null, %42 ], [ null, %40 ], [ %25, %35 ], [ %25, %28 ]
+  %.0 = phi ptr [ null, %40 ], [ null, %22 ], [ null, %42 ], [ %25, %28 ], [ %25, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1133,7 +1133,7 @@ define i32 @ffurl_open_whitelist(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %65
 
 65:                                               ; preds = %60, %8, %63
-  %.037 = phi i32 [ %.0, %63 ], [ %10, %8 ], [ 0, %60 ]
+  %.037 = phi i32 [ %10, %8 ], [ %.0, %63 ], [ 0, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.037
 }
@@ -1339,7 +1339,7 @@ ff_check_interrupt.exit.thread.us.us.i:           ; preds = %ff_check_interrupt.
   br label %retry_transfer_wrapper.exit
 
 retry_transfer_wrapper.exit:                      ; preds = %.split.us.us.i, %.outer.us.i, %33, %27, %ff_check_interrupt.exit.us.us.i, %.split63.us.i, %11, %7, %3
-  %.0 = phi i32 [ -5, %3 ], [ -5, %7 ], [ %52, %.split63.us.i ], [ 0, %11 ], [ -1414092869, %ff_check_interrupt.exit.us.us.i ], [ %48, %33 ], [ -5, %27 ], [ %48, %.split.us.us.i ], [ %36, %.outer.us.i ]
+  %.0 = phi i32 [ -5, %3 ], [ -5, %7 ], [ %52, %.split63.us.i ], [ -1414092869, %ff_check_interrupt.exit.us.us.i ], [ 0, %11 ], [ %48, %33 ], [ %36, %.outer.us.i ], [ -5, %27 ], [ %48, %.split.us.us.i ]
   ret i32 %.0
 }
 
@@ -1423,7 +1423,7 @@ define range(i32 -2147483648, 1) i32 @ffio_open_whitelist(ptr noundef captures(n
   br label %19
 
 19:                                               ; preds = %12, %7, %16
-  %.0 = phi i32 [ %14, %16 ], [ %10, %7 ], [ 0, %12 ]
+  %.0 = phi i32 [ %10, %7 ], [ %14, %16 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -1461,7 +1461,7 @@ define range(i32 -2147483648, 1) i32 @avio_open2(ptr noundef captures(none) init
   br label %ffio_open_whitelist.exit
 
 ffio_open_whitelist.exit:                         ; preds = %5, %10, %14
-  %.0.i = phi i32 [ %12, %14 ], [ %8, %5 ], [ 0, %10 ]
+  %.0.i = phi i32 [ %8, %5 ], [ %12, %14 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
 }
@@ -1491,7 +1491,7 @@ define range(i32 -2147483648, 1) i32 @avio_open(ptr noundef captures(none) initi
   br label %avio_open2.exit
 
 avio_open2.exit:                                  ; preds = %3, %8, %12
-  %.0.i.i = phi i32 [ %10, %12 ], [ %6, %3 ], [ 0, %8 ]
+  %.0.i.i = phi i32 [ %6, %3 ], [ %10, %12 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i.i
 }
@@ -1608,7 +1608,7 @@ ff_check_interrupt.exit.thread.i:                 ; preds = %ff_check_interrupt.
   br i1 %45, label %.outer.split.i, label %retry_transfer_wrapper.exit, !llvm.loop !24
 
 retry_transfer_wrapper.exit:                      ; preds = %.outer.i, %41, %34, %.split.i, %ff_check_interrupt.exit.i, %.split63.us.i, %7, %3
-  %.0 = phi i32 [ -5, %3 ], [ %40, %.split63.us.i ], [ 0, %7 ], [ -1414092869, %ff_check_interrupt.exit.i ], [ %22, %41 ], [ -5, %34 ], [ %22, %.split.i ], [ %44, %.outer.i ]
+  %.0 = phi i32 [ -5, %3 ], [ %40, %.split63.us.i ], [ -1414092869, %ff_check_interrupt.exit.i ], [ 0, %7 ], [ %22, %.split.i ], [ %22, %41 ], [ -5, %34 ], [ %44, %.outer.i ]
   ret i32 %.0
 }
 
@@ -1666,7 +1666,7 @@ define i32 @avio_close(ptr noundef %0) local_unnamed_addr #3 {
   br label %25
 
 25:                                               ; preds = %20, %1
-  %.0 = phi i32 [ 0, %1 ], [ %., %20 ]
+  %.0 = phi i32 [ %., %20 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -1789,7 +1789,7 @@ define i32 @ffurl_move(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   br label %31
 
 31:                                               ; preds = %2, %28, %14
-  %.07 = phi i32 [ %11, %14 ], [ %.0, %28 ], [ %8, %2 ]
+  %.07 = phi i32 [ %.0, %28 ], [ %11, %14 ], [ %8, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.07
@@ -1966,7 +1966,7 @@ define i32 @avio_read_dir(ptr noundef readonly captures(address_is_null) %0, ptr
   br label %avio_free_directory_entry.exit
 
 avio_free_directory_entry.exit:                   ; preds = %14, %12, %5, %2, %3
-  %.0 = phi i32 [ -22, %3 ], [ -22, %2 ], [ %10, %5 ], [ %10, %12 ], [ %10, %14 ]
+  %.0 = phi i32 [ -22, %2 ], [ -22, %3 ], [ %10, %5 ], [ %10, %14 ], [ %10, %12 ]
   ret i32 %.0
 }
 
@@ -2077,7 +2077,7 @@ ffurl_seek.exit17:                                ; preds = %ffurl_seek.exit14
   br label %ffurl_seek.exit20
 
 ffurl_seek.exit20:                                ; preds = %1, %ffurl_seek.exit.thread, %ffurl_seek.exit14, %16, %11, %ffurl_seek.exit, %ffurl_seek.exit17
-  %.09 = phi i64 [ %9, %ffurl_seek.exit17 ], [ %6, %ffurl_seek.exit ], [ %12, %11 ], [ %12, %16 ], [ -38, %ffurl_seek.exit14 ], [ -38, %ffurl_seek.exit.thread ], [ -38, %1 ]
+  %.09 = phi i64 [ %9, %ffurl_seek.exit17 ], [ %12, %16 ], [ %6, %ffurl_seek.exit ], [ %12, %11 ], [ -38, %ffurl_seek.exit14 ], [ -38, %ffurl_seek.exit.thread ], [ -38, %1 ]
   ret i64 %.09
 }
 
@@ -2151,7 +2151,7 @@ define i32 @ffurl_get_multi_file_handle(ptr noundef %0, ptr noundef %1, ptr noun
   br label %23
 
 23:                                               ; preds = %13, %10, %3, %4, %21, %15
-  %.0 = phi i32 [ %22, %21 ], [ 0, %15 ], [ -38, %4 ], [ -38, %3 ], [ -38, %10 ], [ -12, %13 ]
+  %.0 = phi i32 [ %22, %21 ], [ 0, %15 ], [ -38, %10 ], [ -38, %3 ], [ -38, %4 ], [ -12, %13 ]
   ret i32 %.0
 }
 

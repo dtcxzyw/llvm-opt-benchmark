@@ -242,7 +242,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19hasLessThanNumFusedERKNS_5SUnitEj
   br i1 %15, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit, label %8
 
 _ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread: ; preds = %21, %8, %2
-  %.0613 = phi i32 [ 1, %2 ], [ %.0618, %8 ], [ %23, %21 ]
+  %.0613 = phi i32 [ %.0618, %8 ], [ 1, %2 ], [ %23, %21 ]
   %16 = icmp ult i32 %.0613, %1
   br label %.loopexit
 
@@ -591,7 +591,7 @@ _ZNK4llvm5SUnit6isSuccEPKS0_.exit:                ; preds = %.lr.ph.i135, %106, 
   br i1 %.not149, label %.loopexit, label %139
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph160, %146, %132, %.loopexit152, %._crit_edge179, %._crit_edge161
-  %.3 = phi i1 [ false, %._crit_edge161 ], [ true, %._crit_edge179 ], [ true, %.loopexit152 ], [ true, %132 ], [ true, %146 ], [ false, %.lr.ph160 ], [ false, %.lr.ph ]
+  %.3 = phi i1 [ false, %._crit_edge161 ], [ false, %.lr.ph160 ], [ true, %132 ], [ true, %.loopexit152 ], [ true, %._crit_edge179 ], [ true, %146 ], [ false, %.lr.ph ]
   ret i1 %.3
 }
 
@@ -926,7 +926,7 @@ _ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread: ; preds = %38, %_ZL16
   %or.cond = select i1 %65, i1 true, i1 %.not.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph.backedge
 
-_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread61: ; preds = %57, %27, %.lr.ph, %32, %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread, %_ZN4llvm19hasLessThanNumFusedERKNS_5SUnitEj.exit, %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i
+_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread61: ; preds = %57, %.lr.ph, %27, %32, %_ZN4llvm19hasLessThanNumFusedERKNS_5SUnitEj.exit, %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread, %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i
   %.old = getelementptr inbounds nuw i8, ptr %.03548, i64 16
   %.not.not.old = icmp eq ptr %.old, %20
   br i1 %.not.not.old, label %.loopexit, label %.lr.ph.backedge
@@ -1033,7 +1033,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111MacroFusion22shoul
   br label %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21", %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit23", %._crit_edge.i.i.i.i.i.i, %29, %._crit_edge._crit_edge.i.i.i.i.i.i, %._crit_edge._crit_edge55.i.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %29 ], [ %.sroa.025.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.16.val, %._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %._crit_edge._crit_edge55.i.i.i.i.i.i ], [ %40, %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %41, %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21" ], [ %42, %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit23" ], [ %.sroa.025.044.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.025.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %._crit_edge._crit_edge55.i.i.i.i.i.i ], [ %.16.val, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.025.0.lcssa.i.i.i.i.i.i, %29 ], [ %42, %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit23" ], [ %40, %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %41, %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21" ], [ %.sroa.025.044.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %43 = icmp ne ptr %.16.val, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   ret i1 %43
 }

@@ -62,7 +62,7 @@ define range(i32 0, 2) i32 @evp_keymgmt_util_try_import(ptr noundef %0, ptr noun
   br label %22
 
 22:                                               ; preds = %14, %19, %10, %9
-  %.013 = phi i32 [ 0, %9 ], [ 1, %10 ], [ %.mux, %14 ], [ 0, %19 ]
+  %.013 = phi i32 [ 0, %9 ], [ %.mux, %14 ], [ 1, %10 ], [ 0, %19 ]
   ret i32 %.013
 }
 
@@ -470,7 +470,7 @@ evp_keymgmt_util_clear_operation_cache.exit:      ; preds = %evp_keymgmt_util_fi
   br label %134
 
 134:                                              ; preds = %10, %20, %evp_keymgmt_util_export.exit, %73, %evp_keymgmt_util_find_operation_cache.exit.thread, %26, %6, %3, %129, %125, %115, %84, %evp_keymgmt_util_find_operation_cache.exit
-  %.0 = phi ptr [ %64, %evp_keymgmt_util_find_operation_cache.exit ], [ %114, %115 ], [ %133, %129 ], [ null, %125 ], [ null, %84 ], [ null, %3 ], [ null, %6 ], [ null, %26 ], [ null, %evp_keymgmt_util_find_operation_cache.exit.thread ], [ null, %73 ], [ null, %evp_keymgmt_util_export.exit ], [ %8, %20 ], [ %8, %10 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %3 ], [ null, %evp_keymgmt_util_export.exit ], [ %64, %evp_keymgmt_util_find_operation_cache.exit ], [ null, %26 ], [ %114, %115 ], [ %133, %129 ], [ null, %125 ], [ null, %84 ], [ null, %73 ], [ null, %evp_keymgmt_util_find_operation_cache.exit.thread ], [ %8, %20 ], [ %8, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -597,7 +597,7 @@ define range(i32 0, 2) i32 @evp_keymgmt_util_cache_keydata(ptr noundef captures(
   br label %23
 
 23:                                               ; preds = %.sink.split, %4, %19, %12, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %12 ], [ 1, %19 ], [ 1, %4 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %19 ], [ 0, %9 ], [ 0, %12 ], [ 1, %4 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -781,9 +781,9 @@ define i32 @evp_keymgmt_util_match(ptr noundef captures(address_is_null) %0, ptr
   br label %36
 
 36:                                               ; preds = %34, %30, %29
-  %.071 = phi ptr [ null, %29 ], [ %9, %30 ], [ %9, %34 ]
-  %.067 = phi ptr [ %13, %29 ], [ %13, %30 ], [ %spec.select, %34 ]
-  %.060 = phi ptr [ %15, %29 ], [ %15, %30 ], [ %spec.select139, %34 ]
+  %.071 = phi ptr [ %9, %34 ], [ null, %29 ], [ %9, %30 ]
+  %.067 = phi ptr [ %spec.select, %34 ], [ %13, %29 ], [ %13, %30 ]
+  %.060 = phi ptr [ %spec.select139, %34 ], [ %15, %29 ], [ %15, %30 ]
   %.not92 = icmp eq ptr %.071, %.067
   br i1 %.not92, label %.thread128, label %44
 
@@ -810,7 +810,7 @@ define i32 @evp_keymgmt_util_match(ptr noundef captures(address_is_null) %0, ptr
   br label %44
 
 44:                                               ; preds = %39, %.thread128, %36, %.critedge, %6, %42
-  %.075 = phi i32 [ %43, %42 ], [ %., %6 ], [ -1, %.critedge ], [ -2, %36 ], [ 1, %.thread128 ], [ 0, %39 ]
+  %.075 = phi i32 [ %., %6 ], [ -1, %.critedge ], [ %43, %42 ], [ -2, %36 ], [ 1, %.thread128 ], [ 0, %39 ]
   ret i32 %.075
 }
 
@@ -911,7 +911,7 @@ evp_keymgmt_util_export.exit:                     ; preds = %28
   br label %46
 
 46:                                               ; preds = %25, %3, %10, %evp_keymgmt_util_export.exit, %45, %44, %38
-  %.037 = phi i32 [ 1, %45 ], [ 0, %44 ], [ 0, %evp_keymgmt_util_export.exit ], [ 0, %38 ], [ 0, %10 ], [ 0, %3 ], [ 0, %25 ]
+  %.037 = phi i32 [ 0, %38 ], [ 0, %3 ], [ 1, %45 ], [ 0, %44 ], [ 0, %evp_keymgmt_util_export.exit ], [ 0, %10 ], [ 0, %25 ]
   ret i32 %.037
 }
 

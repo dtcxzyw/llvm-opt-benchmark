@@ -597,8 +597,8 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17h8
   br label %42
 
 42:                                               ; preds = %59, %64, %68, %40, %23, %1, %57, %37
-  %.sroa.7.0 = phi ptr [ undef, %37 ], [ undef, %57 ], [ undef, %1 ], [ %33, %40 ], [ %33, %23 ], [ %55, %68 ], [ %55, %64 ], [ %., %59 ]
-  %.sroa.0.0 = phi ptr [ null, %37 ], [ null, %57 ], [ null, %1 ], [ %32, %40 ], [ %32, %23 ], [ %54, %68 ], [ %54, %64 ], [ %.32, %59 ]
+  %.sroa.7.0 = phi ptr [ %33, %23 ], [ undef, %37 ], [ undef, %1 ], [ undef, %57 ], [ %55, %64 ], [ %33, %40 ], [ %., %59 ], [ %55, %68 ]
+  %.sroa.0.0 = phi ptr [ %32, %23 ], [ null, %37 ], [ null, %1 ], [ null, %57 ], [ %54, %64 ], [ %32, %40 ], [ %.32, %59 ], [ %54, %68 ]
   %43 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %44 = insertvalue { ptr, ptr } %43, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %44
@@ -1235,7 +1235,7 @@ define hidden void @"_ZN182_$LT$uv_distribution..archive.._..$LT$impl$u20$serde.
   br label %12
 
 12:                                               ; preds = %7, %91, %64, %33, %11
-  %.sink = phi i8 [ 4, %11 ], [ 1, %33 ], [ 2, %64 ], [ 3, %91 ], [ 0, %7 ]
+  %.sink = phi i8 [ 2, %64 ], [ 1, %33 ], [ 4, %11 ], [ 3, %91 ], [ 0, %7 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink, ptr %13, align 1
   store i8 9, ptr %0, align 8
@@ -1398,7 +1398,7 @@ define hidden void @"_ZN182_$LT$uv_distribution..archive.._..$LT$impl$u20$serde.
   br label %8
 
 8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit12", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit8", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit4", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit12.thread"
-  %.sink = phi i8 [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit12.thread" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit4" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit8" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit12" ]
+  %.sink = phi i8 [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit8" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit12.thread" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit4" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbcad14b3153bca0aE.exit12" ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink, ptr %9, align 1
   store i8 9, ptr %0, align 8
@@ -1492,7 +1492,7 @@ default.unreachable11:                            ; preds = %2
   br i1 %.not10.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfe4eda01de4f56edE.llvm.14237793921444769281.exit", label %.lr.ph.i.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfe4eda01de4f56edE.llvm.14237793921444769281.exit": ; preds = %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281.exit.loopexit.i", %38, %12, %10, %.lr.ph.i, %17, %2
-  %.sroa.0.0.shrunk = phi i1 [ true, %2 ], [ false, %17 ], [ false, %.lr.ph.i ], [ %.not.not.not.i.not.not.not, %10 ], [ %.not.not.not.i.not.not.not, %12 ], [ true, %38 ], [ false, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281.exit.loopexit.i" ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %.lr.ph.i ], [ true, %2 ], [ true, %38 ], [ %.not.not.not.i.not.not.not, %12 ], [ false, %17 ], [ %.not.not.not.i.not.not.not, %10 ], [ false, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281.exit.loopexit.i" ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -3619,8 +3619,8 @@ _ZN3std4sync6poison4once4Once9call_once17h67ae1693053449fdE.exit24: ; preds = %"
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %10, %_ZN3std4sync6poison4once4Once9call_once17h67ae1693053449fdE.exit24
-  %.sroa.4.0 = phi i64 [ %spec.select21, %_ZN3std4sync6poison4once4Once9call_once17h67ae1693053449fdE.exit24 ], [ %.val22, %10 ], [ 1, %15 ]
-  %.sroa.0.0 = phi ptr [ %spec.select, %_ZN3std4sync6poison4once4Once9call_once17h67ae1693053449fdE.exit24 ], [ %.val, %10 ], [ @anon.a7fedee988a4c8ff7d9e324ace39d4e4.18, %15 ]
+  %.sroa.4.0 = phi i64 [ %.val22, %10 ], [ %spec.select21, %_ZN3std4sync6poison4once4Once9call_once17h67ae1693053449fdE.exit24 ], [ 1, %15 ]
+  %.sroa.0.0 = phi ptr [ %.val, %10 ], [ %spec.select, %_ZN3std4sync6poison4once4Once9call_once17h67ae1693053449fdE.exit24 ], [ @anon.a7fedee988a4c8ff7d9e324ace39d4e4.18, %15 ]
   %27 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %28 = insertvalue { ptr, i64 } %27, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %28
@@ -4554,7 +4554,7 @@ define internal void @"_ZN4core3ptr101drop_in_place$LT$uv_pep508..Pep508ErrorSou
   unreachable
 
 common.resume.i:                                  ; preds = %174, %142, %84
-  %common.resume.op.i = phi { ptr, i32 } [ %85, %84 ], [ %143, %142 ], [ %175, %174 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %143, %142 ], [ %85, %84 ], [ %175, %174 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN4core3ptr51drop_in_place$LT$uv_git_types..GitUrlParseError$GT$17hddc7d267b3a3d1e3E.exit.i": ; preds = %92, %87
@@ -6866,8 +6866,8 @@ define hidden { ptr, ptr } @"_ZN65_$LT$alloc..boxed..Box$LT$E$GT$$u20$as$u20$cor
   br label %_ZN4core5error5Error5cause17hd764579ec80bda8dE.exit
 
 _ZN4core5error5Error5cause17hd764579ec80bda8dE.exit: ; preds = %1, %7, %8, %10, %12, %14
-  %.sroa.11.0.i.i = phi ptr [ undef, %7 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %8 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %10 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %12 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.339.llvm.3020970440203120126, %14 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.337.llvm.3020970440203120126, %1 ]
-  %.sroa.0.0.i.i = phi ptr [ null, %7 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %2, %1 ]
+  %.sroa.11.0.i.i = phi ptr [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %12 ], [ undef, %7 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.337.llvm.3020970440203120126, %1 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %8 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %10 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.339.llvm.3020970440203120126, %14 ]
+  %.sroa.0.0.i.i = phi ptr [ %13, %12 ], [ null, %7 ], [ %2, %1 ], [ %9, %8 ], [ %11, %10 ], [ %15, %14 ]
   %16 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i.i, 0
   %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.11.0.i.i, 1
   ret { ptr, ptr } %17
@@ -6915,8 +6915,8 @@ define hidden { ptr, ptr } @"_ZN65_$LT$alloc..boxed..Box$LT$E$GT$$u20$as$u20$cor
   br label %"_ZN74_$LT$uv_installer..compile..CompileError$u20$as$u20$core..error..Error$GT$6source17h95c5fcdef158b84eE.exit"
 
 "_ZN74_$LT$uv_installer..compile..CompileError$u20$as$u20$core..error..Error$GT$6source17h95c5fcdef158b84eE.exit": ; preds = %1, %7, %8, %10, %12, %14
-  %.sroa.11.0.i = phi ptr [ undef, %7 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %8 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %10 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %12 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.339.llvm.3020970440203120126, %14 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.337.llvm.3020970440203120126, %1 ]
-  %.sroa.0.0.i = phi ptr [ null, %7 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %2, %1 ]
+  %.sroa.11.0.i = phi ptr [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %12 ], [ undef, %7 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.337.llvm.3020970440203120126, %1 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %8 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.29.llvm.3020970440203120126, %10 ], [ @anon.381f4748dbb996f3e8f202cd01f95d1c.339.llvm.3020970440203120126, %14 ]
+  %.sroa.0.0.i = phi ptr [ %13, %12 ], [ null, %7 ], [ %2, %1 ], [ %9, %8 ], [ %11, %10 ], [ %15, %14 ]
   %16 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.11.0.i, 1
   ret { ptr, ptr } %17
@@ -8277,7 +8277,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28a889ab0e602f28E.llvm.14237793921444769281.exit", label %.lr.ph.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28a889ab0e602f28E.llvm.14237793921444769281.exit": ; preds = %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281.exit.loopexit", %19, %3, %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28a889ab0e602f28E.llvm.14237793921444769281.exit.loopexit7_crit_edge.split.us"
-  %21 = phi i1 [ false, %3 ], [ false, %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28a889ab0e602f28E.llvm.14237793921444769281.exit.loopexit7_crit_edge.split.us" ], [ true, %19 ], [ false, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281.exit.loopexit" ]
+  %21 = phi i1 [ true, %19 ], [ false, %3 ], [ false, %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28a889ab0e602f28E.llvm.14237793921444769281.exit.loopexit7_crit_edge.split.us" ], [ false, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281.exit.loopexit" ]
   ret i1 %21
 }
 

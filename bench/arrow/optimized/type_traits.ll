@@ -100,7 +100,7 @@ switch.lookup:                                    ; preds = %8
   br label %27
 
 27:                                               ; preds = %switch.lookup, %7, %2, %_ZN5arrow6StatusD2Ev.exit
-  %.0 = phi i32 [ 1, %_ZN5arrow6StatusD2Ev.exit ], [ 4, %2 ], [ 1, %7 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 4, %2 ], [ 1, %_ZN5arrow6StatusD2Ev.exit ], [ 1, %7 ]
   ret i32 %.0
 }
 

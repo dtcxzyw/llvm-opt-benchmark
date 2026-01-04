@@ -1199,7 +1199,7 @@ _ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i: ; preds = %_ZNKSt14default_d
   br label %.sink.split
 
 "_ZN4entt7processINS_15process_adaptorIZN28ProcessAdaptor_Resolved_Test8TestBodyEvE3$_0mEEmE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEmPv.exit": ; preds = %_ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i, %1
-  %54 = phi i8 [ %.pr, %_ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i ], [ %7, %1 ]
+  %54 = phi i8 [ %7, %1 ], [ %.pr, %_ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i ]
   %switch.tableidx = add i8 %54, -3
   %55 = icmp ult i8 %switch.tableidx, 3
   br i1 %55, label %switch.lookup, label %57
@@ -1212,7 +1212,7 @@ switch.lookup:                                    ; preds = %"_ZN4entt7processIN
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %"_ZN4entt7processINS_15process_adaptorIZN28ProcessAdaptor_Resolved_Test8TestBodyEvE3$_0mEEmE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEmPv.exit.thread1", %1
-  %.sink = phi i8 [ 1, %1 ], [ 6, %"_ZN4entt7processINS_15process_adaptorIZN28ProcessAdaptor_Resolved_Test8TestBodyEvE3$_0mEEmE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEmPv.exit.thread1" ], [ %switch.masked, %switch.lookup ]
+  %.sink = phi i8 [ 1, %1 ], [ %switch.masked, %switch.lookup ], [ 6, %"_ZN4entt7processINS_15process_adaptorIZN28ProcessAdaptor_Resolved_Test8TestBodyEvE3$_0mEEmE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEmPv.exit.thread1" ]
   store i8 %.sink, ptr %6, align 8, !tbaa !42
   br label %57
 
@@ -1694,7 +1694,7 @@ _ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i: ; preds = %_ZNKSt14default_d
   br label %.sink.split
 
 "_ZN4entt7processINS_15process_adaptorIZN28ProcessAdaptor_Rejected_Test8TestBodyEvE3$_0mEEmE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEmPv.exit": ; preds = %_ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i, %1
-  %54 = phi i8 [ %.pr, %_ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i ], [ %7, %1 ]
+  %54 = phi i8 [ %7, %1 ], [ %.pr, %_ZN7testing15AssertionResultD2Ev.exit.thread.i.i.i ]
   %switch.tableidx = add i8 %54, -3
   %55 = icmp ult i8 %switch.tableidx, 3
   br i1 %55, label %switch.lookup, label %57
@@ -1707,7 +1707,7 @@ switch.lookup:                                    ; preds = %"_ZN4entt7processIN
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %1, %"_ZN4entt7processINS_15process_adaptorIZN28ProcessAdaptor_Rejected_Test8TestBodyEvE3$_0mEEmE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEmPv.exit.thread1"
-  %.sink = phi i8 [ 7, %"_ZN4entt7processINS_15process_adaptorIZN28ProcessAdaptor_Rejected_Test8TestBodyEvE3$_0mEEmE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEmPv.exit.thread1" ], [ 1, %1 ], [ %switch.masked, %switch.lookup ]
+  %.sink = phi i8 [ 1, %1 ], [ %switch.masked, %switch.lookup ], [ 7, %"_ZN4entt7processINS_15process_adaptorIZN28ProcessAdaptor_Rejected_Test8TestBodyEvE3$_0mEEmE4nextIS4_EEDTcmcldtclsr3stdE7declvalIT_EE6updatefp0_fp1_Ecvv_EESt17integral_constantINS5_5stateELSA_1EEmPv.exit.thread1" ]
   store i8 %.sink, ptr %6, align 8, !tbaa !48
   br label %57
 

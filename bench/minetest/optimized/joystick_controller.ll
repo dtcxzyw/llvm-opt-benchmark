@@ -3030,7 +3030,7 @@ common.resume.sink.split:                         ; preds = %lpad.i, %lpad.i25
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad.i25, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %29, %lpad.i25 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %lpad.i25 ], [ %3, %lpad.i ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i

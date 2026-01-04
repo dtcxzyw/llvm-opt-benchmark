@@ -723,8 +723,8 @@ refreshSearchResult.exit.i:                       ; preds = %.critedge.i.i, %103
   br label %abAppend.exit77.i.sink.split
 
 abAppend.exit77.i.sink.split:                     ; preds = %abAppend.exit76.i, %.preheader.i, %146, %159
-  %.lcssa99.i.sink = phi ptr [ %157, %159 ], [ %144, %146 ], [ %.promoted98.i, %.preheader.i ], [ %98, %abAppend.exit76.i ]
-  %.lcssa101.i.sink = phi i32 [ %155, %159 ], [ %142, %146 ], [ %.promoted100.i, %.preheader.i ], [ %97, %abAppend.exit76.i ]
+  %.lcssa99.i.sink = phi ptr [ %144, %146 ], [ %157, %159 ], [ %.promoted98.i, %.preheader.i ], [ %98, %abAppend.exit76.i ]
+  %.lcssa101.i.sink = phi i32 [ %142, %146 ], [ %155, %159 ], [ %.promoted100.i, %.preheader.i ], [ %97, %abAppend.exit76.i ]
   store ptr %.lcssa99.i.sink, ptr %6, align 8
   store i32 %.lcssa101.i.sink, ptr %37, align 8
   br label %abAppend.exit77.i
@@ -1594,8 +1594,8 @@ define dso_local ptr @linenoise(ptr noundef %0) local_unnamed_addr #9 {
   br label %39
 
 39:                                               ; preds = %35, %33
-  %.135.i = phi i64 [ %.034.i, %33 ], [ %38, %35 ]
-  %.4.i = phi ptr [ %.131.i, %33 ], [ %.0.i, %35 ]
+  %.135.i = phi i64 [ %38, %35 ], [ %.034.i, %33 ]
+  %.4.i = phi ptr [ %.0.i, %35 ], [ %.131.i, %33 ]
   switch i32 %29, label %.preheader [
     i32 -1, label %linenoiseNoTTY.exit
     i32 10, label %linenoiseNoTTY.exit
@@ -1837,7 +1837,7 @@ getCursorPosition.exit34.i.i.i:                   ; preds = %119
   br label %getColumns.exit.i.i
 
 getColumns.exit.i.i:                              ; preds = %131, %126, %124, %getCursorPosition.exit34.i.i.i, %getCursorPosition.exit34.thread.i.i.i, %102, %getCursorPosition.exit.i.i.i, %getCursorPosition.exit.thread.i.i.i, %66
-  %.1.i.i.i = phi i32 [ %132, %131 ], [ %122, %126 ], [ %122, %124 ], [ 80, %66 ], [ 80, %getCursorPosition.exit.i.i.i ], [ 80, %102 ], [ 80, %getCursorPosition.exit34.i.i.i ], [ 80, %getCursorPosition.exit.thread.i.i.i ], [ 80, %getCursorPosition.exit34.thread.i.i.i ]
+  %.1.i.i.i = phi i32 [ %122, %126 ], [ %132, %131 ], [ %122, %124 ], [ 80, %66 ], [ 80, %getCursorPosition.exit34.i.i.i ], [ 80, %getCursorPosition.exit.i.i.i ], [ 80, %102 ], [ 80, %getCursorPosition.exit.thread.i.i.i ], [ 80, %getCursorPosition.exit34.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %133 = sext i32 %.1.i.i.i to i64
   %134 = getelementptr inbounds nuw i8, ptr %12, i64 72
@@ -2608,7 +2608,7 @@ disableReverseSearchMode.exit69.i.i:              ; preds = %257, %256
   br i1 %.not22.i89.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %.lr.ph28.i.i.i, !llvm.loop !43
 
 linenoiseEditDeletePrevWord.exit.i.i:             ; preds = %415, %421, %.lr.ph28.i.i.i, %408
-  %.lcssa.i.i.i = phi i64 [ 0, %408 ], [ 0, %421 ], [ %417, %.lr.ph28.i.i.i ], [ 0, %415 ]
+  %.lcssa.i.i.i = phi i64 [ 0, %408 ], [ %417, %.lr.ph28.i.i.i ], [ 0, %421 ], [ 0, %415 ]
   %.neg.i.i.i = sub i64 %.lcssa.i.i.i, %409
   %423 = getelementptr inbounds nuw i8, ptr %.pre.i.pre.i.i, i64 %.lcssa.i.i.i
   %424 = getelementptr inbounds nuw i8, ptr %.pre.i.pre.i.i, i64 %409
@@ -2623,7 +2623,7 @@ linenoiseEditDeletePrevWord.exit.i.i:             ; preds = %415, %421, %.lr.ph2
   br label %linenoiseEditBackspace.exit.i.i
 
 .thread.i.i:                                      ; preds = %393, %299, %267, %261, %.loopexit.i.i, %._crit_edge.i.i
-  %.2.ph.i.i = phi i32 [ %231, %.loopexit.i.i ], [ -1, %299 ], [ -1, %267 ], [ %263, %261 ], [ %155, %._crit_edge.i.i ], [ -1, %393 ]
+  %.2.ph.i.i = phi i32 [ %155, %._crit_edge.i.i ], [ %231, %.loopexit.i.i ], [ -1, %299 ], [ -1, %267 ], [ %263, %261 ], [ -1, %393 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %429 = icmp eq i32 %.2.ph.i.i, -1
@@ -2641,7 +2641,7 @@ linenoiseEditBackspace.exit.i.i:                  ; preds = %linenoiseEditDelete
   br i1 %433, label %._crit_edge.i.i, label %156
 
 linenoiseEdit.exit.i:                             ; preds = %.thread.i.i, %getColumns.exit.i.i
-  %.0.i.i = phi i1 [ true, %getColumns.exit.i.i ], [ %429, %.thread.i.i ]
+  %.0.i.i = phi i1 [ %429, %.thread.i.i ], [ true, %getColumns.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.b.i6.i = load i1, ptr @rawmode, align 4
   br i1 %.b.i6.i, label %434, label %linenoiseRaw.exit
@@ -2664,7 +2664,7 @@ linenoiseRaw.exit:                                ; preds = %linenoiseEdit.exit.
   br label %linenoiseNoTTY.exit
 
 linenoiseNoTTY.exit:                              ; preds = %39, %39, %isUnsupportedTerm.exit.thread, %.thread.sink.split.i, %26, %linenoiseRaw.exit, %.critedge, %isUnsupportedTerm.exit, %437
-  %.010 = phi ptr [ %438, %437 ], [ %63, %.critedge ], [ null, %isUnsupportedTerm.exit ], [ null, %linenoiseRaw.exit ], [ null, %26 ], [ null, %.thread.sink.split.i ], [ null, %isUnsupportedTerm.exit.thread ], [ %.4.i, %39 ], [ %.4.i, %39 ]
+  %.010 = phi ptr [ null, %linenoiseRaw.exit ], [ null, %isUnsupportedTerm.exit ], [ %438, %437 ], [ %63, %.critedge ], [ null, %26 ], [ null, %.thread.sink.split.i ], [ null, %isUnsupportedTerm.exit.thread ], [ %.4.i, %39 ], [ %.4.i, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret ptr %.010
 }
@@ -2765,7 +2765,7 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistoryAdd(ptr noundef readonly c
   br label %43
 
 43:                                               ; preds = %25, %19, %6, %37, %14
-  %.0 = phi i32 [ 0, %14 ], [ 1, %37 ], [ 0, %6 ], [ 0, %19 ], [ 0, %25 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %19 ], [ 0, %14 ], [ 1, %37 ], [ 0, %25 ]
   ret i32 %.0
 }
 
@@ -2775,7 +2775,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 ; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i32 0, 2) i32 @linenoiseHistorySetMaxLen(i32 noundef %0) local_unnamed_addr #18 {
   %2 = icmp slt i32 %0, 1
-  br i1 %2, label %.critedge, label %3
+  br i1 %2, label %31, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @history, align 8, !tbaa !40
@@ -2788,7 +2788,7 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistorySetMaxLen(i32 noundef %0) 
   %7 = shl nuw nsw i64 %6, 3
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #27
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.critedge, label %10
+  br i1 %9, label %31, label %10
 
 10:                                               ; preds = %5
   %11 = shl nuw nsw i64 %6, 2
@@ -2798,16 +2798,16 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistorySetMaxLen(i32 noundef %0) 
 
 14:                                               ; preds = %10
   tail call void @free(ptr noundef nonnull %8) #25
-  br label %.critedge
+  br label %31
 
 15:                                               ; preds = %10
   %16 = icmp slt i32 %0, %.pre
-  br i1 %16, label %.preheader, label %.loopexit
+  br i1 %16, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %15
   %17 = sub nsw i32 %.pre, %0
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph.preheader, label %.loopexit
+  br i1 %18, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %17 to i64
@@ -2820,9 +2820,9 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistorySetMaxLen(i32 noundef %0) 
   tail call void @free(ptr noundef %20) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !66
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !66
 
-.loopexit:                                        ; preds = %.lr.ph, %15, %.preheader
+.critedge:                                        ; preds = %.lr.ph, %15, %.preheader
   %.pre-phi = phi i32 [ %17, %.preheader ], [ 0, %15 ], [ %17, %.lr.ph ]
   %.028 = phi i32 [ %0, %.preheader ], [ %.pre, %15 ], [ %0, %.lr.ph ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %7, i1 false)
@@ -2842,17 +2842,17 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistorySetMaxLen(i32 noundef %0) 
   store ptr %12, ptr @history_sensitive, align 8, !tbaa !64
   br label %28
 
-28:                                               ; preds = %.loopexit, %3
+28:                                               ; preds = %.critedge, %3
   store i32 %0, ptr @history_max_len, align 4, !tbaa !4
   %29 = icmp sgt i32 %.pre, %0
-  br i1 %29, label %30, label %.critedge
+  br i1 %29, label %30, label %31
 
 30:                                               ; preds = %28
   store i32 %0, ptr @history_len, align 4, !tbaa !4
-  br label %.critedge
+  br label %31
 
-.critedge:                                        ; preds = %14, %5, %28, %30, %1
-  %.030 = phi i32 [ 0, %1 ], [ 1, %30 ], [ 1, %28 ], [ 0, %5 ], [ 0, %14 ]
+31:                                               ; preds = %28, %30, %14, %5, %1
+  %.030 = phi i32 [ 0, %1 ], [ 0, %14 ], [ 0, %5 ], [ 1, %30 ], [ 1, %28 ]
   ret i32 %.030
 }
 
@@ -3099,9 +3099,9 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
   br label %.split29.us
 
 .split29.us:                                      ; preds = %.split29.us.loopexit53, %.split29.us.loopexit51, %.split29.us.loopexit49, %.split29.us.loopexit, %.split, %.split.us
-  %.us-phi = phi i32 [ %6, %.split.us ], [ %37, %.split ], [ %51, %.split29.us.loopexit ], [ %52, %.split29.us.loopexit49 ], [ %53, %.split29.us.loopexit51 ], [ %54, %.split29.us.loopexit53 ]
-  %.us-phi30 = phi ptr [ %13, %.split.us ], [ %41, %.split ], [ %22, %.split29.us.loopexit ], [ %30, %.split29.us.loopexit49 ], [ %48, %.split29.us.loopexit51 ], [ %69, %.split29.us.loopexit53 ]
-  %.us-phi31 = phi ptr [ %14, %.split.us ], [ %42, %.split ], [ %23, %.split29.us.loopexit ], [ %31, %.split29.us.loopexit49 ], [ %49, %.split29.us.loopexit51 ], [ %70, %.split29.us.loopexit53 ]
+  %.us-phi = phi i32 [ %51, %.split29.us.loopexit ], [ %6, %.split.us ], [ %53, %.split29.us.loopexit51 ], [ %37, %.split ], [ %52, %.split29.us.loopexit49 ], [ %54, %.split29.us.loopexit53 ]
+  %.us-phi30 = phi ptr [ %22, %.split29.us.loopexit ], [ %13, %.split.us ], [ %48, %.split29.us.loopexit51 ], [ %41, %.split ], [ %30, %.split29.us.loopexit49 ], [ %69, %.split29.us.loopexit53 ]
+  %.us-phi31 = phi ptr [ %23, %.split29.us.loopexit ], [ %14, %.split.us ], [ %49, %.split29.us.loopexit51 ], [ %42, %.split ], [ %31, %.split29.us.loopexit49 ], [ %70, %.split29.us.loopexit53 ]
   %55 = ptrtoint ptr %.us-phi31 to i64
   %56 = ptrtoint ptr %.us-phi30 to i64
   %57 = sub i64 %55, %56

@@ -1600,7 +1600,7 @@ define nonnull ptr @lv_table_get_cell_value(ptr noundef readonly captures(addres
   br label %20
 
 20:                                               ; preds = %10, %7, %4
-  %.0 = phi ptr [ @.str.1, %4 ], [ @.str.1, %7 ], [ %spec.select, %10 ]
+  %.0 = phi ptr [ @.str.1, %7 ], [ @.str.1, %4 ], [ %spec.select, %10 ]
   ret ptr %.0
 }
 
@@ -1697,7 +1697,7 @@ define zeroext i1 @lv_table_has_cell_ctrl(ptr noundef readonly captures(address_
   br label %24
 
 24:                                               ; preds = %20, %11, %8, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %8 ], [ %23, %20 ], [ false, %11 ]
+  %.0 = phi i1 [ false, %8 ], [ false, %5 ], [ %23, %20 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -1751,7 +1751,7 @@ define ptr @lv_table_get_cell_user_data(ptr noundef readonly captures(address_is
   br label %24
 
 24:                                               ; preds = %21, %12, %8, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %23, %21 ], [ null, %12 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %4 ], [ %23, %21 ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -2071,10 +2071,10 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %170, %154, %._crit_edge.loopexit267.split.loop.exit, %._crit_edge.loopexit267.split.loop.exit271, %._crit_edge.loopexit.split.loop.exit, %._crit_edge.loopexit.split.loop.exit281, %.thread, %126
-  %179 = phi i32 [ %128, %126 ], [ %138, %.thread ], [ %128, %._crit_edge.loopexit.split.loop.exit281 ], [ %128, %._crit_edge.loopexit.split.loop.exit ], [ %159, %._crit_edge.loopexit267.split.loop.exit ], [ %159, %._crit_edge.loopexit267.split.loop.exit271 ], [ %128, %154 ], [ %174, %170 ]
-  %180 = phi i32 [ %132, %126 ], [ %134, %.thread ], [ %143, %._crit_edge.loopexit.split.loop.exit281 ], [ %143, %._crit_edge.loopexit.split.loop.exit ], [ %134, %._crit_edge.loopexit267.split.loop.exit ], [ %134, %._crit_edge.loopexit267.split.loop.exit271 ], [ %158, %154 ], [ %134, %170 ]
-  %.0150.lcssa = phi i32 [ 0, %126 ], [ 0, %.thread ], [ %145, %._crit_edge.loopexit.split.loop.exit281 ], [ %145, %._crit_edge.loopexit.split.loop.exit ], [ %161, %._crit_edge.loopexit267.split.loop.exit ], [ %161, %._crit_edge.loopexit267.split.loop.exit271 ], [ %142, %154 ], [ %140, %170 ]
-  %.lcssa = phi i32 [ %.0142216, %126 ], [ %.0142216, %.thread ], [ %176, %._crit_edge.loopexit.split.loop.exit281 ], [ %175, %._crit_edge.loopexit.split.loop.exit ], [ %177, %._crit_edge.loopexit267.split.loop.exit ], [ %178, %._crit_edge.loopexit267.split.loop.exit271 ], [ %124, %154 ], [ %124, %170 ]
+  %179 = phi i32 [ %128, %126 ], [ %138, %.thread ], [ %128, %._crit_edge.loopexit.split.loop.exit ], [ %128, %154 ], [ %128, %._crit_edge.loopexit.split.loop.exit281 ], [ %159, %._crit_edge.loopexit267.split.loop.exit271 ], [ %159, %._crit_edge.loopexit267.split.loop.exit ], [ %174, %170 ]
+  %180 = phi i32 [ %132, %126 ], [ %134, %.thread ], [ %143, %._crit_edge.loopexit.split.loop.exit ], [ %158, %154 ], [ %143, %._crit_edge.loopexit.split.loop.exit281 ], [ %134, %._crit_edge.loopexit267.split.loop.exit271 ], [ %134, %._crit_edge.loopexit267.split.loop.exit ], [ %134, %170 ]
+  %.0150.lcssa = phi i32 [ 0, %126 ], [ 0, %.thread ], [ %145, %._crit_edge.loopexit.split.loop.exit ], [ %142, %154 ], [ %145, %._crit_edge.loopexit.split.loop.exit281 ], [ %161, %._crit_edge.loopexit267.split.loop.exit271 ], [ %161, %._crit_edge.loopexit267.split.loop.exit ], [ %140, %170 ]
+  %.lcssa = phi i32 [ %.0142216, %126 ], [ %.0142216, %.thread ], [ %175, %._crit_edge.loopexit.split.loop.exit ], [ %124, %154 ], [ %176, %._crit_edge.loopexit.split.loop.exit281 ], [ %178, %._crit_edge.loopexit267.split.loop.exit271 ], [ %177, %._crit_edge.loopexit267.split.loop.exit ], [ %124, %170 ]
   %181 = load i32, ptr %43, align 4, !tbaa !51
   %182 = load i32, ptr %67, align 4, !tbaa !50
   %183 = icmp slt i32 %181, %182
@@ -2190,7 +2190,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %242 = icmp eq i16 %.3154, 0
   br i1 %242, label %.thread188, label %.thread190
 
-.thread188:                                       ; preds = %228, %232, %241
+.thread188:                                       ; preds = %232, %228, %241
   %243 = call ptr @lv_memcpy(ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef 144) #9
   %244 = call ptr @lv_memcpy(ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef 144) #9
   br label %249
@@ -2464,9 +2464,9 @@ define internal fastcc i32 @get_row_height(ptr noundef readonly captures(none) %
   br label %.thread
 
 .thread:                                          ; preds = %48, %.thread.loopexit.split.loop.exit, %.thread.loopexit.split.loop.exit103, %30
-  %.068.lcssa = phi i32 [ %34, %30 ], [ %.06880, %.thread.loopexit.split.loop.exit ], [ %.06880, %.thread.loopexit.split.loop.exit103 ], [ %52, %48 ]
-  %.067.lcssa = phi i32 [ 0, %30 ], [ %39, %.thread.loopexit.split.loop.exit ], [ %39, %.thread.loopexit.split.loop.exit103 ], [ %37, %48 ]
-  %.lcssa = phi i32 [ %.06492, %30 ], [ %53, %.thread.loopexit.split.loop.exit ], [ %54, %.thread.loopexit.split.loop.exit103 ], [ %35, %48 ]
+  %.068.lcssa = phi i32 [ %34, %30 ], [ %.06880, %.thread.loopexit.split.loop.exit103 ], [ %.06880, %.thread.loopexit.split.loop.exit ], [ %52, %48 ]
+  %.067.lcssa = phi i32 [ 0, %30 ], [ %39, %.thread.loopexit.split.loop.exit103 ], [ %39, %.thread.loopexit.split.loop.exit ], [ %37, %48 ]
+  %.lcssa = phi i32 [ %.06492, %30 ], [ %54, %.thread.loopexit.split.loop.exit103 ], [ %53, %.thread.loopexit.split.loop.exit ], [ %35, %48 ]
   %55 = load i32, ptr %28, align 8, !tbaa !41
   %56 = and i32 %55, 2
   %.not75 = icmp eq i32 %56, 0

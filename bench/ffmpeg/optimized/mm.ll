@@ -58,7 +58,7 @@ define internal range(i32 0, 51) i32 @probe(ptr noundef readonly captures(none) 
   br label %29
 
 29:                                               ; preds = %24, %12, %9, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 0, %9 ], [ 0, %12 ], [ %., %24 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %1 ], [ 0, %5 ], [ 0, %9 ], [ %., %24 ]
   ret i32 %.0
 }
 
@@ -130,7 +130,7 @@ define internal range(i32 -1094995529, 1) i32 @read_header(ptr noundef %0) #1 {
   br label %36
 
 36:                                               ; preds = %18, %28, %26, %8, %1
-  %.0 = phi i32 [ -1094995529, %1 ], [ -12, %8 ], [ -12, %26 ], [ 0, %28 ], [ 0, %18 ]
+  %.0 = phi i32 [ -1094995529, %1 ], [ -12, %26 ], [ -12, %8 ], [ 0, %28 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -249,7 +249,7 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %9, %.loopexit.sink.split, %2, %40, %36, %20, %15
-  %.0 = phi i32 [ %18, %15 ], [ %25, %20 ], [ -1094995529, %36 ], [ %43, %40 ], [ -541478725, %2 ], [ 0, %.loopexit.sink.split ], [ -541478725, %51 ], [ %10, %9 ]
+  %.0 = phi i32 [ -541478725, %2 ], [ -1094995529, %36 ], [ %43, %40 ], [ %18, %15 ], [ 0, %.loopexit.sink.split ], [ %25, %20 ], [ -541478725, %51 ], [ %10, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

@@ -638,7 +638,7 @@ default.unreachable:                              ; preds = %311, %1
           to label %.thread.i.i.i.i.i unwind label %40, !noalias !153
 
 "_ZN4core3ptr141drop_in_place$LT$async_process..driver..CallOnDrop$LT$async_process..driver..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd1345a5bbe4c4b99E.exit.i.i.i.i.i": ; preds = %407, %.body32.i.i.i.i.i, %40
-  %.pn28.pn.pn.i.i.i.i.i = phi { ptr, i32 } [ %41, %40 ], [ %.pn26.i.i.i.i.i, %.body32.i.i.i.i.i ], [ %.pn28.i.i.i.i.i, %407 ]
+  %.pn28.pn.pn.i.i.i.i.i = phi { ptr, i32 } [ %.pn26.i.i.i.i.i, %.body32.i.i.i.i.i ], [ %41, %40 ], [ %.pn28.i.i.i.i.i, %407 ]
   store i8 2, ptr %35, align 8, !noalias !155
   br label %.body.i.i.i.i
 
@@ -662,7 +662,7 @@ default.unreachable:                              ; preds = %311, %1
   br label %53
 
 .body32.i.i.i.i.i:                                ; preds = %.body.i.i.i.i.i, %89, %85
-  %.pn26.i.i.i.i.i = phi { ptr, i32 } [ %.pn24.i.i.i.i.i, %.body.i.i.i.i.i ], [ %90, %89 ], [ %86, %85 ]
+  %.pn26.i.i.i.i.i = phi { ptr, i32 } [ %86, %85 ], [ %.pn24.i.i.i.i.i, %.body.i.i.i.i.i ], [ %90, %89 ]
   %48 = getelementptr inbounds nuw i8, ptr %.val, i64 160
   invoke void @"_ZN13async_process6driver28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2006cc3cc234ee1eE.llvm.14408593437386099104"(ptr noalias noundef nonnull align 8 dereferenceable(8) %48)
           to label %"_ZN4core3ptr141drop_in_place$LT$async_process..driver..CallOnDrop$LT$async_process..driver..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd1345a5bbe4c4b99E.exit.i.i.i.i.i" unwind label %93, !noalias !153
@@ -817,8 +817,8 @@ default.unreachable:                              ; preds = %311, %1
   unreachable
 
 .body.i.i.i.i.i:                                  ; preds = %77, %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h890ed78022cf18d5E.exit.i.i.i.i.i.i.i.i.i"
-  %95 = phi ptr [ %72, %77 ], [ %56, %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h890ed78022cf18d5E.exit.i.i.i.i.i.i.i.i.i" ]
-  %.pn24.i.i.i.i.i = phi { ptr, i32 } [ %78, %77 ], [ %eh.lpad-body.i.i.i.i.i.i.i, %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h890ed78022cf18d5E.exit.i.i.i.i.i.i.i.i.i" ]
+  %95 = phi ptr [ %56, %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h890ed78022cf18d5E.exit.i.i.i.i.i.i.i.i.i" ], [ %72, %77 ]
+  %.pn24.i.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i.i.i, %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h890ed78022cf18d5E.exit.i.i.i.i.i.i.i.i.i" ], [ %78, %77 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$async_lock..mutex..Lock$LT$$LP$$RP$$GT$$GT$17h6d7bc27325e53b61E"(ptr noundef nonnull align 8 %95) #18
           to label %.body32.i.i.i.i.i unwind label %93, !noalias !153
 
@@ -1351,9 +1351,9 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i123.i.i.i.i.i.i: ; pre
   br label %.thread.i.i.i.i.i.i
 
 .body128.i.i.i.i.i.i:                             ; preds = %397, %.body137.i.i.i.i.i.i, %357, %341, %319, %305
-  %302 = phi ptr [ %398, %397 ], [ %173, %305 ], [ %324, %357 ], [ %324, %.body137.i.i.i.i.i.i ], [ %.phi.trans.insert110.i.i.i.i.i, %341 ], [ %324, %319 ]
-  %303 = phi ptr [ %399, %397 ], [ %174, %305 ], [ %325, %357 ], [ %325, %.body137.i.i.i.i.i.i ], [ %97, %341 ], [ %325, %319 ]
-  %.pn78.pn.pn.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn78.pn.i.i.i.i.i.i, %397 ], [ %306, %305 ], [ %358, %357 ], [ %.pn56.i.i.i.i.i.i, %.body137.i.i.i.i.i.i ], [ %342, %341 ], [ %.pn11.i.i.i.i.i.i.i, %319 ]
+  %302 = phi ptr [ %398, %397 ], [ %173, %305 ], [ %324, %.body137.i.i.i.i.i.i ], [ %324, %357 ], [ %.phi.trans.insert110.i.i.i.i.i, %341 ], [ %324, %319 ]
+  %303 = phi ptr [ %399, %397 ], [ %174, %305 ], [ %325, %.body137.i.i.i.i.i.i ], [ %325, %357 ], [ %97, %341 ], [ %325, %319 ]
+  %.pn78.pn.pn.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn78.pn.i.i.i.i.i.i, %397 ], [ %306, %305 ], [ %.pn56.i.i.i.i.i.i, %.body137.i.i.i.i.i.i ], [ %358, %357 ], [ %342, %341 ], [ %.pn11.i.i.i.i.i.i.i, %319 ]
   %304 = getelementptr inbounds nuw i8, ptr %.val, i64 200
   %.val105.i.i.i.i.i.i = load ptr, ptr %304, align 8, !noalias !170, !nonnull !7, !align !30, !noundef !7
   invoke fastcc void @"_ZN4core3ptr66drop_in_place$LT$async_lock..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17h05b62416625566fbE"(ptr nonnull %.val105.i.i.i.i.i.i) #18
@@ -1629,9 +1629,9 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i142.i.i.i.i.i.i: ; pre
   br label %"_ZN4core3ptr99drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$$GT$17hec0e3a7d844a1a0cE.exit.i.i.i.i.i.i"
 
 397:                                              ; preds = %394, %300, %279, %.body116.i.i.i.i.i.i, %193, %171, %150, %.body.i.i.i.i.i.i, %112
-  %398 = phi ptr [ %324, %394 ], [ %108, %112 ], [ %108, %171 ], [ %108, %150 ], [ %108, %.body.i.i.i.i.i.i ], [ %173, %193 ], [ %173, %300 ], [ %173, %279 ], [ %173, %.body116.i.i.i.i.i.i ]
-  %399 = phi ptr [ %325, %394 ], [ %109, %112 ], [ %109, %171 ], [ %109, %150 ], [ %109, %.body.i.i.i.i.i.i ], [ %174, %193 ], [ %174, %300 ], [ %174, %279 ], [ %174, %.body116.i.i.i.i.i.i ]
-  %.pn78.pn.i.i.i.i.i.i = phi { ptr, i32 } [ %395, %394 ], [ %113, %112 ], [ %172, %171 ], [ %151, %150 ], [ %.pn74.i.i.i.i.i.i, %.body.i.i.i.i.i.i ], [ %.pn63.i.i.i.i.i.i, %193 ], [ %301, %300 ], [ %280, %279 ], [ %.pn66.i.i.i.i.i.i, %.body116.i.i.i.i.i.i ]
+  %398 = phi ptr [ %173, %.body116.i.i.i.i.i.i ], [ %324, %394 ], [ %173, %193 ], [ %173, %300 ], [ %108, %.body.i.i.i.i.i.i ], [ %173, %279 ], [ %108, %112 ], [ %108, %171 ], [ %108, %150 ]
+  %399 = phi ptr [ %174, %.body116.i.i.i.i.i.i ], [ %325, %394 ], [ %174, %193 ], [ %174, %300 ], [ %109, %.body.i.i.i.i.i.i ], [ %174, %279 ], [ %109, %112 ], [ %109, %171 ], [ %109, %150 ]
+  %.pn78.pn.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn66.i.i.i.i.i.i, %.body116.i.i.i.i.i.i ], [ %395, %394 ], [ %.pn63.i.i.i.i.i.i, %193 ], [ %301, %300 ], [ %.pn74.i.i.i.i.i.i, %.body.i.i.i.i.i.i ], [ %280, %279 ], [ %113, %112 ], [ %172, %171 ], [ %151, %150 ]
   %400 = getelementptr inbounds nuw i8, ptr %.val, i64 224
   invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$17hac679f854dfff4b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %400) #18
           to label %.body128.i.i.i.i.i.i unwind label %248, !noalias !153
@@ -1652,8 +1652,8 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i142.i.i.i.i.i.i: ; pre
   br label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hcc2fa8a6d880296aE.exit"
 
 .body40.i.i.i.i.i:                                ; preds = %402, %401
-  %406 = phi ptr [ %97, %402 ], [ %303, %401 ]
-  %.pn28.i.i.i.i.i = phi { ptr, i32 } [ %403, %402 ], [ %.pn78.pn.pn.i.i.i.i.i.i, %401 ]
+  %406 = phi ptr [ %303, %401 ], [ %97, %402 ]
+  %.pn28.i.i.i.i.i = phi { ptr, i32 } [ %.pn78.pn.pn.i.i.i.i.i.i, %401 ], [ %403, %402 ]
   invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$async_process..Reaper..reap..$u7b$$u7b$closure$u7d$$u7d$$GT$17hca8c3e5d2375fe22E"(ptr noundef nonnull align 8 %406) #18
           to label %407 unwind label %93, !noalias !153
 
@@ -1673,7 +1673,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i142.i.i.i.i.i.i: ; pre
           to label %30 unwind label %28, !noalias !153
 
 .body.i.i.i.i:                                    ; preds = %409, %"_ZN4core3ptr141drop_in_place$LT$async_process..driver..CallOnDrop$LT$async_process..driver..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd1345a5bbe4c4b99E.exit.i.i.i.i.i"
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %410, %409 ], [ %.pn28.pn.pn.i.i.i.i.i, %"_ZN4core3ptr141drop_in_place$LT$async_process..driver..CallOnDrop$LT$async_process..driver..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd1345a5bbe4c4b99E.exit.i.i.i.i.i" ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %.pn28.pn.pn.i.i.i.i.i, %"_ZN4core3ptr141drop_in_place$LT$async_process..driver..CallOnDrop$LT$async_process..driver..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd1345a5bbe4c4b99E.exit.i.i.i.i.i" ], [ %410, %409 ]
   invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$async_process..driver..$u7b$$u7b$closure$u7d$$u7d$$GT$17h05edc3988c341cf1E"(ptr noundef nonnull align 8 %34) #18
           to label %411 unwind label %28, !noalias !153
 

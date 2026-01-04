@@ -2288,8 +2288,8 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZN4ncnnL17intersection_areaERKNS_21Yolov3DetectionOutput8BBoxRectES3_.exit, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %78
-  %95 = phi ptr [ %88, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %19, %78 ], [ %19, %_ZN4ncnnL17intersection_areaERKNS_21Yolov3DetectionOutput8BBoxRectES3_.exit ]
-  %96 = phi ptr [ %92, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %79, %78 ], [ %20, %_ZN4ncnnL17intersection_areaERKNS_21Yolov3DetectionOutput8BBoxRectES3_.exit ]
+  %95 = phi ptr [ %19, %78 ], [ %88, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %19, %_ZN4ncnnL17intersection_areaERKNS_21Yolov3DetectionOutput8BBoxRectES3_.exit ]
+  %96 = phi ptr [ %79, %78 ], [ %92, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %20, %_ZN4ncnnL17intersection_areaERKNS_21Yolov3DetectionOutput8BBoxRectES3_.exit ]
   %97 = add nuw i64 %storemerge36, 1
   %exitcond39.not = icmp eq i64 %97, %16
   br i1 %exitcond39.not, label %._crit_edge, label %18, !llvm.loop !91
@@ -2453,9 +2453,9 @@ _ZN4ncnn3MatD2Ev.exit.loopexit:                   ; preds = %._crit_edge293
   br label %_ZN4ncnn3MatD2Ev.exit
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %.preheader270.lr.ph, %_ZN4ncnn3MatD2Ev.exit.loopexit, %.noexc142
-  %108 = phi i32 [ %.pre328, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %35, %.noexc142 ], [ %35, %.preheader270.lr.ph ]
-  %109 = phi i32 [ %115, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %36, %.noexc142 ], [ %36, %.preheader270.lr.ph ]
-  %110 = phi i32 [ %115, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %37, %.noexc142 ], [ %37, %.preheader270.lr.ph ]
+  %108 = phi i32 [ %35, %.noexc142 ], [ %.pre328, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %35, %.preheader270.lr.ph ]
+  %109 = phi i32 [ %36, %.noexc142 ], [ %115, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %36, %.preheader270.lr.ph ]
+  %110 = phi i32 [ %37, %.noexc142 ], [ %115, %_ZN4ncnn3MatD2Ev.exit.loopexit ], [ %37, %.preheader270.lr.ph ]
   %indvars.iv.next325 = add nsw i64 %indvars.iv324, 1
   %111 = sext i32 %108 to i64
   %.not.not = icmp slt i64 %indvars.iv324, %111

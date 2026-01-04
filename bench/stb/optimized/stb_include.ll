@@ -308,9 +308,9 @@ stb_include_isspace.exit116.thread:               ; preds = %stb_include_isspace
   br label %.loopexit119
 
 .loopexit119:                                     ; preds = %6, %.critedge118, %20, %20, %20, %.loopexit119.sink.split, %37, %stb_include_isspace.exit
-  %.292 = phi ptr [ %.3, %stb_include_isspace.exit ], [ %.3, %37 ], [ %.6.lcssa.sink, %.loopexit119.sink.split ], [ %19, %20 ], [ %19, %20 ], [ %19, %20 ], [ %.4, %.critedge118 ], [ %.191, %6 ]
-  %.188 = phi i32 [ %.087130, %stb_include_isspace.exit ], [ %.087130, %37 ], [ %43, %.loopexit119.sink.split ], [ %.087130, %20 ], [ %.087130, %20 ], [ %.087130, %20 ], [ %.087130, %.critedge118 ], [ %.087130, %6 ]
-  %.1 = phi ptr [ %.086131, %stb_include_isspace.exit ], [ %.086131, %37 ], [ %53, %.loopexit119.sink.split ], [ %.086131, %20 ], [ %.086131, %20 ], [ %.086131, %20 ], [ %.086131, %.critedge118 ], [ %.086131, %6 ]
+  %.292 = phi ptr [ %19, %20 ], [ %.4, %.critedge118 ], [ %.6.lcssa.sink, %.loopexit119.sink.split ], [ %.3, %37 ], [ %.3, %stb_include_isspace.exit ], [ %19, %20 ], [ %19, %20 ], [ %.191, %6 ]
+  %.188 = phi i32 [ %.087130, %20 ], [ %.087130, %.critedge118 ], [ %43, %.loopexit119.sink.split ], [ %.087130, %37 ], [ %.087130, %stb_include_isspace.exit ], [ %.087130, %20 ], [ %.087130, %20 ], [ %.087130, %6 ]
+  %.1 = phi ptr [ %.086131, %20 ], [ %.086131, %.critedge118 ], [ %53, %.loopexit119.sink.split ], [ %.086131, %37 ], [ %.086131, %stb_include_isspace.exit ], [ %.086131, %20 ], [ %.086131, %20 ], [ %.086131, %6 ]
   br label %59
 
 59:                                               ; preds = %61, %.loopexit119
@@ -594,7 +594,7 @@ stb_include_itoa.exit73:                          ; preds = %57
   br i1 %exitcond.not.i79, label %.thread, label %.lr.ph.i76, !llvm.loop !16
 
 .thread:                                          ; preds = %.lr.ph.i, %.lr.ph.i76, %._crit_edge
-  %.3 = phi ptr [ %77, %._crit_edge ], [ %77, %.lr.ph.i76 ], [ null, %.lr.ph.i ]
+  %.3 = phi ptr [ %77, %.lr.ph.i76 ], [ %77, %._crit_edge ], [ null, %.lr.ph.i ]
   call void @free(ptr noundef %.pre) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

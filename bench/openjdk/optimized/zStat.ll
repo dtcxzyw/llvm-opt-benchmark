@@ -6171,7 +6171,7 @@ define linkonce_odr hidden void @_ZN19ZStatSamplerHistory3addERK16ZStatSamplerDa
   br i1 %exitcond.not.i17, label %.loopexit.i15, label %128, !llvm.loop !110
 
 .loopexit.i15:                                    ; preds = %135, %125, %124
-  %138 = phi i64 [ %122, %125 ], [ %111, %124 ], [ %136, %135 ]
+  %138 = phi i64 [ %111, %124 ], [ %122, %125 ], [ %136, %135 ]
   %139 = load i64, ptr %97, align 8
   %140 = add i64 %139, 1
   store i64 %140, ptr %97, align 8

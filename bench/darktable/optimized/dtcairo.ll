@@ -925,7 +925,7 @@ dt_XYZ_to_sRGB.exit.i.us:                         ; preds = %174
   br label %185
 
 185:                                              ; preds = %184, %182, %178
-  %186 = phi reassoc nsz arcp contract afn float [ %180, %184 ], [ 1.000000e+00, %182 ], [ 0.000000e+00, %178 ]
+  %186 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %182 ], [ %180, %184 ], [ 0.000000e+00, %178 ]
   %187 = getelementptr inbounds nuw float, ptr %19, i64 %.08.i.us
   store float %186, ptr %187, align 4, !tbaa !17
   %188 = add nuw nsw i64 %.08.i.us, 1

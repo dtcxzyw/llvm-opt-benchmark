@@ -89,7 +89,7 @@ define hidden i64 @lexbor_conv_long_to_data(i64 noundef %0, ptr noundef writeonl
   br i1 %.not46.i, label %lexbor_conv_int64_to_data.exit, label %.lr.ph57.i
 
 lexbor_conv_int64_to_data.exit:                   ; preds = %.lr.ph57.i, %8, %9, %19
-  %.036.i = phi i64 [ 1, %9 ], [ 0, %8 ], [ %.lobit.i, %19 ], [ %.2.i, %.lr.ph57.i ]
+  %.036.i = phi i64 [ 0, %8 ], [ 1, %9 ], [ %.lobit.i, %19 ], [ %.2.i, %.lr.ph57.i ]
   ret i64 %.036.i
 }
 
@@ -168,7 +168,7 @@ define hidden i64 @lexbor_conv_int64_to_data(i64 noundef %0, ptr noundef writeon
   br i1 %.not46, label %.loopexit, label %.lr.ph57
 
 .loopexit:                                        ; preds = %.lr.ph57, %19, %8, %9
-  %.036 = phi i64 [ 1, %9 ], [ 0, %8 ], [ %.lobit, %19 ], [ %.2, %.lr.ph57 ]
+  %.036 = phi i64 [ 0, %8 ], [ 1, %9 ], [ %.lobit, %19 ], [ %.2, %.lr.ph57 ]
   ret i64 %.036
 }
 
@@ -269,7 +269,7 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
   br i1 %35, label %.lr.ph106, label %.critedge
 
 .critedge:                                        ; preds = %21, %.lr.ph106, %34, %10, %.preheader, %24
-  %.07893 = phi i32 [ %.07894, %24 ], [ %.07894, %.preheader ], [ 0, %10 ], [ %.07894, %34 ], [ %.07894, %.lr.ph106 ], [ %.179, %21 ]
+  %.07893 = phi i32 [ %.07894, %24 ], [ %.07894, %.preheader ], [ 0, %10 ], [ %.07894, %.lr.ph106 ], [ %.07894, %34 ], [ %.179, %21 ]
   %.275 = phi ptr [ %.073.ptr.ptr97, %24 ], [ %.376.ptr101, %.preheader ], [ %3, %10 ], [ %.376.ptr105, %.lr.ph106 ], [ %.376.ptr, %34 ], [ %.073.ptr.ptr, %21 ]
   %.165 = phi ptr [ %.06496, %24 ], [ %.266100, %.preheader ], [ %11, %10 ], [ %.266104, %.lr.ph106 ], [ %.266, %34 ], [ %22, %21 ]
   %.0 = phi i32 [ 0, %24 ], [ 0, %.preheader ], [ 0, %10 ], [ %.1103, %.lr.ph106 ], [ %.2, %34 ], [ 0, %21 ]
@@ -303,8 +303,8 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
   br label %46
 
 46:                                               ; preds = %43, %.fold.split, %45, %40
-  %.070 = phi i1 [ false, %45 ], [ false, %40 ], [ true, %43 ], [ false, %.fold.split ]
-  %.068 = phi ptr [ %41, %45 ], [ %36, %40 ], [ %41, %43 ], [ %36, %.fold.split ]
+  %.070 = phi i1 [ false, %40 ], [ false, %45 ], [ true, %43 ], [ false, %.fold.split ]
+  %.068 = phi ptr [ %36, %40 ], [ %41, %45 ], [ %41, %43 ], [ %36, %.fold.split ]
   %47 = load i8, ptr %.068, align 1, !tbaa !4
   %48 = add i8 %47, -48
   %49 = icmp ult i8 %48, 10
@@ -341,8 +341,8 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
   br label %64
 
 64:                                               ; preds = %38, %46, %._crit_edge, %.critedge
-  %.367 = phi ptr [ %.4.lcssa, %._crit_edge ], [ %.165, %46 ], [ %.165, %.critedge ], [ %.165, %38 ]
-  %.3 = phi i32 [ %63, %._crit_edge ], [ %.0, %46 ], [ %.0, %.critedge ], [ %.0, %38 ]
+  %.367 = phi ptr [ %.4.lcssa, %._crit_edge ], [ %.165, %46 ], [ %.165, %38 ], [ %.165, %.critedge ]
+  %.3 = phi i32 [ %63, %._crit_edge ], [ %.0, %46 ], [ %.0, %38 ], [ %.0, %.critedge ]
   store ptr %.367, ptr %0, align 8, !tbaa !7
   %65 = add nsw i32 %.3, %.07893
   %66 = ptrtoint ptr %.275 to i64
@@ -529,7 +529,7 @@ define hidden i64 @lexbor_conv_dec_to_hex(i32 noundef %0, ptr noundef writeonly 
   br i1 %.not22, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %6, %7
-  %.016 = phi i64 [ 1, %7 ], [ 0, %6 ], [ %4, %.preheader ]
+  %.016 = phi i64 [ 0, %6 ], [ 1, %7 ], [ %4, %.preheader ]
   ret i64 %.016
 }
 

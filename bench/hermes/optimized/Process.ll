@@ -468,7 +468,7 @@ sw.bb27.i.i.i.i.i.i:                              ; preds = %if.end25.i.i.i.i.i.
   br i1 %34, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end12
 
 "_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit": ; preds = %for.body.i.i.i.i.i.i, %if.end.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i, %sw.bb27.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i.i, %sw.bb27.i.i.i.i.i.i ], [ %incdec.ptr9.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i ], [ %incdec.ptr5.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %__first.addr.0112.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i ], [ %__first.addr.0.lcssa.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i.i, %sw.bb27.i.i.i.i.i.i ], [ %incdec.ptr5.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %__first.addr.0112.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %incdec.ptr9.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i ]
   %cmp.i.i.i.not = icmp eq ptr %add.ptr.i.i.i.i.i8, %retval.0.i.i.i.i.i.i
   br i1 %cmp.i.i.i.not, label %if.end12, label %for.inc
 
@@ -877,10 +877,10 @@ for.end:                                          ; preds = %for.inc
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end, %if.then28, %if.then7
-  %FDC.sroa.2.033 = phi i1 [ %FDC.sroa.2.1, %for.end ], [ %FDC.sroa.2.044, %if.then28 ], [ %FDC.sroa.2.044, %if.then7 ]
-  %NullFD.1 = phi i32 [ %NullFD.2, %for.end ], [ %NullFD.3, %if.then28 ], [ %NullFD.043, %if.then7 ]
-  %retval.sroa.0.0 = phi i32 [ 0, %for.end ], [ %5, %if.then28 ], [ %2, %if.then7 ]
-  %retval.sroa.5.0 = phi ptr [ %call.i15, %for.end ], [ %call30, %if.then28 ], [ %call9, %if.then7 ]
+  %FDC.sroa.2.033 = phi i1 [ %FDC.sroa.2.1, %for.end ], [ %FDC.sroa.2.044, %if.then7 ], [ %FDC.sroa.2.044, %if.then28 ]
+  %NullFD.1 = phi i32 [ %NullFD.2, %for.end ], [ %NullFD.043, %if.then7 ], [ %NullFD.3, %if.then28 ]
+  %retval.sroa.0.0 = phi i32 [ 0, %for.end ], [ %2, %if.then7 ], [ %5, %if.then28 ]
+  %retval.sroa.5.0 = phi ptr [ %call.i15, %for.end ], [ %call9, %if.then7 ], [ %call30, %if.then28 ]
   %cmp.i16 = icmp slt i32 %NullFD.1, 0
   %or.cond.not = select i1 %FDC.sroa.2.033, i1 true, i1 %cmp.i16
   br i1 %or.cond.not, label %_ZN12_GLOBAL__N_18FDCloserD2Ev.exit, label %if.then.i
@@ -946,7 +946,7 @@ if.end11:                                         ; preds = %if.end6
   br label %return
 
 return:                                           ; preds = %if.end11, %if.end11.thread, %if.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %0, %if.then ], [ %call3, %if.end ], [ %call137, %if.end11.thread ], [ %spec.select, %if.end11 ]
+  %retval.sroa.0.0 = phi i32 [ %0, %if.then ], [ %spec.select, %if.end11 ], [ %call3, %if.end ], [ %call137, %if.end11.thread ]
   %call18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #20
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %call18, 1
@@ -1118,7 +1118,7 @@ if.end.i.i.i:                                     ; preds = %_ZN4llvh12StringSwi
   br i1 %3, label %if.then.i118.i, label %if.end.i.i202.i
 
 _ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i: ; preds = %if.end.i177.i, %if.end.i168.i, %if.end.i160.i
-  %ref.tmp.sroa.28.3.ph.i = phi i8 [ 1, %if.end.i168.i ], [ 1, %if.end.i177.i ], [ %spec.select.i, %if.end.i160.i ]
+  %ref.tmp.sroa.28.3.ph.i = phi i8 [ 1, %if.end.i177.i ], [ 1, %if.end.i168.i ], [ %spec.select.i, %if.end.i160.i ]
   %cmp.i198.not153.i = icmp samesign ult i64 %call.i.i, 5
   br label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i
 
@@ -1128,8 +1128,8 @@ if.end.i.i202.i:                                  ; preds = %if.end.i.i.i, %if.e
   br i1 %4, label %if.then.i118.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i
 
 _ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i: ; preds = %if.end.i.i202.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i
-  %cmp.i198.not120.i = phi i1 [ false, %if.end.i.i202.i ], [ %cmp.i198.not153.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i ]
-  %ref.tmp.sroa.28.4.i = phi i8 [ 0, %if.end.i.i202.i ], [ %ref.tmp.sroa.28.3.ph.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i ]
+  %cmp.i198.not120.i = phi i1 [ %cmp.i198.not153.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i ], [ false, %if.end.i.i202.i ]
+  %ref.tmp.sroa.28.4.i = phi i8 [ %ref.tmp.sroa.28.3.ph.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i ], [ 0, %if.end.i.i202.i ]
   %tobool.i62.i = trunc nuw i8 %ref.tmp.sroa.28.4.i to i1
   %or.cond36.i = select i1 %tobool.i62.i, i1 true, i1 %cmp.i198.not120.i
   br i1 %or.cond36.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i, label %if.end.i.i221.i
@@ -1140,9 +1140,9 @@ if.end.i.i221.i:                                  ; preds = %_ZN4llvh12StringSwi
   br i1 %5, label %if.then.i118.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i
 
 _ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i: ; preds = %if.end.i.i221.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i
-  %tobool.i62163.i = phi i1 [ false, %if.end.i.i221.i ], [ %tobool.i62.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ false, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
-  %ref.tmp.sroa.28.4162.i = phi i8 [ 0, %if.end.i.i221.i ], [ %ref.tmp.sroa.28.4.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ 0, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
-  %cmp.i198.not120161.i = phi i1 [ false, %if.end.i.i221.i ], [ %cmp.i198.not120.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ true, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
+  %tobool.i62163.i = phi i1 [ %tobool.i62.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ false, %if.end.i.i221.i ], [ false, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
+  %ref.tmp.sroa.28.4162.i = phi i8 [ %ref.tmp.sroa.28.4.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ 0, %if.end.i.i221.i ], [ 0, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
+  %cmp.i198.not120161.i = phi i1 [ %cmp.i198.not120.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ false, %if.end.i.i221.i ], [ true, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
   %cmp.i236.not.i = icmp ult i64 %call.i.i, 4
   %or.cond37.i = or i1 %cmp.i236.not.i, %tobool.i62163.i
   br i1 %or.cond37.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.i, label %if.end.i.i240.i
@@ -1172,7 +1172,7 @@ if.then.i118.i:                                   ; preds = %_ZN4llvh12StringSwi
   br label %land.end
 
 land.end:                                         ; preds = %if.then.i118.i, %_ZN4llvh12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i, %if.end.i.i259.i, %land.rhs, %entry
-  %8 = phi i1 [ false, %entry ], [ true, %if.then.i118.i ], [ false, %_ZN4llvh12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i ], [ false, %land.rhs ], [ false, %if.end.i.i259.i ]
+  %8 = phi i1 [ false, %entry ], [ false, %_ZN4llvh12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i ], [ true, %if.then.i118.i ], [ false, %land.rhs ], [ false, %if.end.i.i259.i ]
   ret i1 %8
 }
 
@@ -1846,7 +1846,7 @@ for.cond.backedge:                                ; preds = %for.end57, %if.end3
   br label %for.cond, !llvm.loop !21
 
 return:                                           ; preds = %for.end57, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit
-  %retval.0 = phi ptr [ %add.ptr, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %add.ptr, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %__last, %entry ], [ %__first, %if.else ], [ %__middle, %for.body.i ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end57 ]
+  %retval.0 = phi ptr [ %add.ptr, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %__last, %entry ], [ %__middle, %for.body.i ], [ %add.ptr, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end57 ]
   ret ptr %retval.0
 }
 

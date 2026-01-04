@@ -1755,8 +1755,8 @@ Abc_NodeSetTravIdPrevious.exit:                   ; preds = %Vec_PtrPushUnique.e
   br i1 %.not107, label %430, label %.critedge8
 
 430:                                              ; preds = %Abc_NodeSetTravIdPrevious.exit, %.critedge10, %246, %244, %Abc_NodeIsTravIdPrevious.exit
-  %431 = phi i32 [ %182, %Abc_NodeIsTravIdPrevious.exit ], [ %182, %244 ], [ %182, %.critedge10 ], [ %336, %Abc_NodeSetTravIdPrevious.exit ], [ %182, %246 ]
-  %.val130233 = phi i32 [ %.val130234, %Abc_NodeIsTravIdPrevious.exit ], [ %.val130234, %244 ], [ %.val130234, %.critedge10 ], [ %338, %Abc_NodeSetTravIdPrevious.exit ], [ %.val130234, %246 ]
+  %431 = phi i32 [ %182, %Abc_NodeIsTravIdPrevious.exit ], [ %182, %244 ], [ %182, %246 ], [ %182, %.critedge10 ], [ %336, %Abc_NodeSetTravIdPrevious.exit ]
+  %.val130233 = phi i32 [ %.val130234, %Abc_NodeIsTravIdPrevious.exit ], [ %.val130234, %244 ], [ %.val130234, %246 ], [ %.val130234, %.critedge10 ], [ %338, %Abc_NodeSetTravIdPrevious.exit ]
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %.val121 = load i32, ptr %178, align 4, !tbaa !42
   %432 = sext i32 %.val121 to i64

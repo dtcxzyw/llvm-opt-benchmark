@@ -249,8 +249,8 @@ define hidden ptr @X11_GLES_GetVisual(ptr noundef readonly captures(none) %0, pt
   %.not103 = icmp slt i64 %indvars.iv.next, %67
   br i1 %.not103, label %.lr.ph, label %.thread121, !llvm.loop !3
 
-.thread121:                                       ; preds = %.thread143, %58, %32, %32, %32, %32, %36, %36, %36, %36, %41, %.thread117, %4
-  %.0 = phi ptr [ null, %4 ], [ %25, %41 ], [ %44, %.thread117 ], [ %25, %36 ], [ %25, %36 ], [ %25, %36 ], [ %25, %36 ], [ %25, %32 ], [ %25, %32 ], [ %25, %32 ], [ %25, %32 ], [ %65, %58 ], [ %44, %.thread143 ]
+.thread121:                                       ; preds = %.thread143, %58, %36, %36, %36, %36, %32, %32, %32, %32, %41, %.thread117, %4
+  %.0 = phi ptr [ null, %4 ], [ %25, %36 ], [ %25, %41 ], [ %44, %.thread117 ], [ %25, %32 ], [ %25, %32 ], [ %25, %32 ], [ %25, %32 ], [ %25, %36 ], [ %25, %36 ], [ %25, %36 ], [ %65, %58 ], [ %44, %.thread143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

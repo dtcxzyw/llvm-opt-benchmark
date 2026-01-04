@@ -930,7 +930,7 @@ define align 8 ptr @"_ZN80_$LT$yara_x_proto..yara..ModuleOptions$u20$as$u20$prot
   resume { ptr, i32 } %.pn
 
 .loopexit:                                        ; preds = %39, %35, %31, %25, %18, %27, %._crit_edge
-  %.sroa.0.0 = phi ptr [ %17, %._crit_edge ], [ %30, %27 ], [ %26, %25 ], [ null, %18 ], [ %34, %31 ], [ %38, %35 ], [ %42, %39 ]
+  %.sroa.0.0 = phi ptr [ %17, %._crit_edge ], [ %38, %35 ], [ %30, %27 ], [ null, %18 ], [ %34, %31 ], [ %26, %25 ], [ %42, %39 ]
   ret ptr %.sroa.0.0
 
 50:                                               ; preds = %31
@@ -1120,7 +1120,7 @@ define align 8 ptr @"_ZN80_$LT$yara_x_proto..yara..ModuleOptions$u20$as$u20$prot
   br i1 %.not44, label %38, label %32
 
 31:                                               ; preds = %38, %32, %22, %13, %4
-  %.sroa.0.0 = phi ptr [ %9, %4 ], [ %18, %13 ], [ %27, %22 ], [ %37, %32 ], [ %40, %38 ]
+  %.sroa.0.0 = phi ptr [ %40, %38 ], [ %9, %4 ], [ %18, %13 ], [ %27, %22 ], [ %37, %32 ]
   ret ptr %.sroa.0.0
 
 32:                                               ; preds = %28
@@ -2089,7 +2089,7 @@ define align 8 ptr @"_ZN79_$LT$yara_x_proto..yara..FieldOptions$u20$as$u20$proto
   resume { ptr, i32 } %.pn
 
 .loopexit:                                        ; preds = %42, %33, %54, %50, %46, %28, %35, %65, %._crit_edge
-  %.sroa.0.0 = phi ptr [ %27, %._crit_edge ], [ %67, %65 ], [ %38, %35 ], [ %34, %33 ], [ %57, %54 ], [ %53, %50 ], [ %49, %46 ], [ null, %28 ], [ %45, %42 ]
+  %.sroa.0.0 = phi ptr [ %27, %._crit_edge ], [ %67, %65 ], [ %57, %54 ], [ %38, %35 ], [ %34, %33 ], [ %53, %50 ], [ %49, %46 ], [ null, %28 ], [ %45, %42 ]
   ret ptr %.sroa.0.0
 
 65:                                               ; preds = %39
@@ -2270,7 +2270,7 @@ define align 8 ptr @"_ZN79_$LT$yara_x_proto..yara..FieldOptions$u20$as$u20$proto
   br i1 %.not55, label %17, label %14
 
 .loopexit:                                        ; preds = %25, %51, %45, %36, %30, %14, %5
-  %.sroa.0.0 = phi ptr [ %10, %5 ], [ %16, %14 ], [ %32, %30 ], [ %41, %36 ], [ %50, %45 ], [ %53, %51 ], [ %26, %25 ]
+  %.sroa.0.0 = phi ptr [ %50, %45 ], [ %10, %5 ], [ %53, %51 ], [ %16, %14 ], [ %32, %30 ], [ %41, %36 ], [ %26, %25 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %11
@@ -3023,7 +3023,7 @@ define align 8 ptr @"_ZN75_$LT$yara_x_proto..yara..AclEntry$u20$as$u20$protobuf.
   resume { ptr, i32 } %.pn
 
 .loopexit:                                        ; preds = %41, %37, %33, %27, %20, %29, %._crit_edge
-  %.sroa.0.0 = phi ptr [ %19, %._crit_edge ], [ %32, %29 ], [ %28, %27 ], [ null, %20 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ]
+  %.sroa.0.0 = phi ptr [ %19, %._crit_edge ], [ %40, %37 ], [ %32, %29 ], [ null, %20 ], [ %36, %33 ], [ %28, %27 ], [ %44, %41 ]
   ret ptr %.sroa.0.0
 
 52:                                               ; preds = %33
@@ -3183,7 +3183,7 @@ define align 8 ptr @"_ZN75_$LT$yara_x_proto..yara..AclEntry$u20$as$u20$protobuf.
   br i1 %.not44, label %20, label %14
 
 .loopexit:                                        ; preds = %28, %42, %48, %14, %5
-  %.sroa.0.0 = phi ptr [ %10, %5 ], [ %19, %14 ], [ %50, %48 ], [ %47, %42 ], [ %33, %28 ]
+  %.sroa.0.0 = phi ptr [ %47, %42 ], [ %10, %5 ], [ %19, %14 ], [ %50, %48 ], [ %33, %28 ]
   ret ptr %.sroa.0.0
 
 14:                                               ; preds = %11
@@ -4614,7 +4614,7 @@ define align 8 ptr @"_ZN83_$LT$yara_x_proto..yara..EnumValueOptions$u20$as$u20$p
   br i1 %31, label %._crit_edge, label %13
 
 .loopexit:                                        ; preds = %18, %20, %13, %32, %._crit_edge
-  %.sroa.0.0 = phi ptr [ %12, %._crit_edge ], [ %33, %32 ], [ %19, %18 ], [ %23, %20 ], [ null, %13 ]
+  %.sroa.0.0 = phi ptr [ %12, %._crit_edge ], [ %33, %32 ], [ %19, %18 ], [ null, %13 ], [ %23, %20 ]
   ret ptr %.sroa.0.0
 
 32:                                               ; preds = %25
@@ -4684,7 +4684,7 @@ define align 8 ptr @"_ZN83_$LT$yara_x_proto..yara..EnumValueOptions$u20$as$u20$p
   br i1 %.not16, label %4, label %15
 
 15:                                               ; preds = %7, %11, %4
-  %.sroa.0.0 = phi ptr [ %6, %4 ], [ %14, %11 ], [ %10, %7 ]
+  %.sroa.0.0 = phi ptr [ %14, %11 ], [ %10, %7 ], [ %6, %4 ]
   ret ptr %.sroa.0.0
 }
 
@@ -4857,7 +4857,7 @@ define hidden zeroext i1 @"_ZN74_$LT$yara_x_proto..yara..ModuleOptions$u20$as$u2
   br i1 %brmerge, label %46, label %47
 
 46:                                               ; preds = %40, %38, %28, %18, %8, %7, %17, %27, %37, %6, %16, %26, %36, %47
-  %.sroa.0.0.shrunk = phi i1 [ %48, %47 ], [ false, %36 ], [ false, %26 ], [ false, %16 ], [ false, %6 ], [ false, %37 ], [ false, %27 ], [ false, %17 ], [ false, %7 ], [ false, %8 ], [ false, %18 ], [ false, %28 ], [ false, %38 ], [ %.mux, %40 ]
+  %.sroa.0.0.shrunk = phi i1 [ %48, %47 ], [ false, %7 ], [ false, %38 ], [ false, %36 ], [ false, %26 ], [ false, %16 ], [ false, %6 ], [ false, %37 ], [ false, %27 ], [ false, %17 ], [ %.mux, %40 ], [ false, %8 ], [ false, %18 ], [ false, %28 ]
   ret i1 %.sroa.0.0.shrunk
 
 47:                                               ; preds = %40
@@ -5138,7 +5138,7 @@ define hidden zeroext i1 @"_ZN73_$LT$yara_x_proto..yara..FieldOptions$u20$as$u20
   br i1 %brmerge, label %58, label %59
 
 58:                                               ; preds = %52, %50, %40, %10, %9, %19, %21, %30, %39, %49, %8, %17, %28, %38, %48, %59
-  %.sroa.0.0.shrunk = phi i1 [ %60, %59 ], [ false, %48 ], [ false, %38 ], [ false, %28 ], [ false, %17 ], [ false, %8 ], [ false, %49 ], [ false, %39 ], [ false, %30 ], [ false, %21 ], [ false, %19 ], [ false, %9 ], [ false, %10 ], [ false, %40 ], [ false, %50 ], [ %.mux, %52 ]
+  %.sroa.0.0.shrunk = phi i1 [ %60, %59 ], [ false, %9 ], [ false, %40 ], [ false, %48 ], [ false, %38 ], [ false, %28 ], [ false, %17 ], [ false, %8 ], [ false, %49 ], [ false, %39 ], [ false, %30 ], [ false, %21 ], [ false, %19 ], [ %.mux, %52 ], [ false, %10 ], [ false, %50 ]
   ret i1 %.sroa.0.0.shrunk
 
 59:                                               ; preds = %52
@@ -5412,7 +5412,7 @@ define hidden zeroext i1 @"_ZN69_$LT$yara_x_proto..yara..AclEntry$u20$as$u20$cor
   br i1 %brmerge, label %34, label %35
 
 34:                                               ; preds = %28, %20, %10, %9, %19, %22, %24, %8, %18, %35
-  %.sroa.0.0.shrunk = phi i1 [ %36, %35 ], [ false, %18 ], [ false, %8 ], [ false, %24 ], [ false, %22 ], [ false, %19 ], [ false, %9 ], [ false, %10 ], [ false, %20 ], [ %.mux, %28 ]
+  %.sroa.0.0.shrunk = phi i1 [ %36, %35 ], [ false, %9 ], [ false, %20 ], [ false, %18 ], [ false, %8 ], [ false, %24 ], [ false, %22 ], [ false, %19 ], [ %.mux, %28 ], [ false, %10 ]
   ret i1 %.sroa.0.0.shrunk
 
 35:                                               ; preds = %28
@@ -5595,7 +5595,7 @@ define hidden zeroext i1 @"_ZN75_$LT$yara_x_proto..yara..MessageOptions$u20$as$u
   br i1 %brmerge, label %16, label %17
 
 16:                                               ; preds = %10, %8, %7, %6, %17
-  %.sroa.0.0.shrunk = phi i1 [ %18, %17 ], [ false, %6 ], [ false, %7 ], [ false, %8 ], [ %.mux, %10 ]
+  %.sroa.0.0.shrunk = phi i1 [ %18, %17 ], [ false, %7 ], [ false, %8 ], [ false, %6 ], [ %.mux, %10 ]
   ret i1 %.sroa.0.0.shrunk
 
 17:                                               ; preds = %10
@@ -5711,7 +5711,7 @@ define hidden zeroext i1 @"_ZN72_$LT$yara_x_proto..yara..EnumOptions$u20$as$u20$
   br i1 %brmerge, label %25, label %26
 
 25:                                               ; preds = %19, %8, %7, %17, %6, %15, %26
-  %.sroa.0.0.shrunk = phi i1 [ %27, %26 ], [ false, %15 ], [ false, %6 ], [ false, %17 ], [ false, %7 ], [ false, %8 ], [ %.mux, %19 ]
+  %.sroa.0.0.shrunk = phi i1 [ %27, %26 ], [ false, %7 ], [ false, %8 ], [ false, %15 ], [ false, %6 ], [ false, %17 ], [ %.mux, %19 ]
   ret i1 %.sroa.0.0.shrunk
 
 26:                                               ; preds = %19
@@ -5800,31 +5800,31 @@ define hidden zeroext i1 @"_ZN77_$LT$yara_x_proto..yara..EnumValueOptions$u20$as
 
 5:                                                ; preds = %2
   %6 = icmp eq i64 %3, %4
-  br i1 %6, label %9, label %27
+  br i1 %6, label %13, label %27
 
 7:                                                ; preds = %2
   %8 = icmp eq i64 %4, 2
   br i1 %8, label %21, label %27
 
-9:                                                ; preds = %5
-  %10 = trunc nuw i64 %3 to i1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %10, label %13, label %17
+9:                                                ; preds = %13
+  %10 = load i64, ptr %15, align 8
+  %11 = load i64, ptr %16, align 8
+  %12 = icmp eq i64 %10, %11
+  br i1 %12, label %21, label %27
 
-13:                                               ; preds = %9
-  %14 = load double, ptr %11, align 8
-  %15 = load double, ptr %12, align 8
-  %16 = fcmp oeq double %14, %15
-  br i1 %16, label %21, label %27
+13:                                               ; preds = %5
+  %14 = trunc nuw i64 %3 to i1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br i1 %14, label %17, label %9
 
-17:                                               ; preds = %9
-  %18 = load i64, ptr %11, align 8
-  %19 = load i64, ptr %12, align 8
-  %20 = icmp eq i64 %18, %19
+17:                                               ; preds = %13
+  %18 = load double, ptr %15, align 8
+  %19 = load double, ptr %16, align 8
+  %20 = fcmp oeq double %18, %19
   br i1 %20, label %21, label %27
 
-21:                                               ; preds = %17, %13, %7
+21:                                               ; preds = %7, %17, %9
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not3 = icmp eq ptr %23, null
@@ -5835,8 +5835,8 @@ define hidden zeroext i1 @"_ZN77_$LT$yara_x_proto..yara..EnumValueOptions$u20$as
   %.mux = select i1 %.not3, i1 %26, i1 false
   br i1 %brmerge, label %27, label %28
 
-27:                                               ; preds = %21, %17, %13, %7, %5, %28
-  %.sroa.0.0.shrunk = phi i1 [ %29, %28 ], [ false, %5 ], [ false, %7 ], [ false, %13 ], [ false, %17 ], [ %.mux, %21 ]
+27:                                               ; preds = %21, %7, %17, %9, %5, %28
+  %.sroa.0.0.shrunk = phi i1 [ %29, %28 ], [ false, %9 ], [ false, %7 ], [ false, %5 ], [ %.mux, %21 ], [ false, %17 ]
   ret i1 %.sroa.0.0.shrunk
 
 28:                                               ; preds = %21

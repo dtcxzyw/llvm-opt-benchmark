@@ -434,7 +434,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   br i1 %180, label %.loopexit33, label %.thread30, !llvm.loop !25
 
 .loopexit33:                                      ; preds = %.thread30, %165, %.loopexit34
-  %.v = phi ptr [ %8, %165 ], [ %.split21, %.loopexit34 ], [ %8, %.thread30 ]
+  %.v = phi ptr [ %.split21, %.loopexit34 ], [ %8, %165 ], [ %8, %.thread30 ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %183
@@ -1131,7 +1131,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr noundef readonly captures(none) %0, 
   br label %.thread
 
 .thread:                                          ; preds = %42, %106, %17, %119, %116, %109, %64, %50, %46, %2
-  %123 = phi i32 [ 0, %119 ], [ 0, %2 ], [ 0, %46 ], [ -16, %50 ], [ 0, %64 ], [ -22, %109 ], [ %117, %116 ], [ 0, %17 ], [ -22, %106 ], [ 0, %42 ]
+  %123 = phi i32 [ 0, %119 ], [ 0, %2 ], [ 0, %46 ], [ -22, %106 ], [ -16, %50 ], [ 0, %64 ], [ -22, %109 ], [ %117, %116 ], [ 0, %17 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %123
@@ -1379,7 +1379,7 @@ define internal void @hdmi_cea_alloc_to_tlv_chmap(ptr readnone captures(none) %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %6, %.loopexit1.loopexit
-  %20 = phi i32 [ 3, %6 ], [ %19, %.loopexit1.loopexit ], [ 0, %.preheader ]
+  %20 = phi i32 [ %19, %.loopexit1.loopexit ], [ 3, %6 ], [ 0, %.preheader ]
   %21 = add i32 %8, 1
   %22 = sext i32 %8 to i64
   %23 = getelementptr i32, ptr %2, i64 %22

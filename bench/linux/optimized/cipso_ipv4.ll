@@ -653,8 +653,8 @@ define dso_local noundef range(i32 -22, 1) i32 @cipso_v4_doi_add(ptr noundef %0,
   br label %.loopexit4
 
 .loopexit4:                                       ; preds = %20, %.split.split.us, %.split.us.split, %12, %28, %.split.split, %54, %2
-  %57 = phi i32 [ 0, %2 ], [ %55, %54 ], [ 0, %.split.split ], [ 0, %28 ], [ 0, %12 ], [ 0, %.split.us.split ], [ 0, %.split.split.us ], [ 0, %20 ]
-  %58 = phi i32 [ -22, %2 ], [ %56, %54 ], [ -22, %.split.split ], [ -22, %28 ], [ -22, %12 ], [ -22, %.split.us.split ], [ -22, %.split.split.us ], [ -22, %20 ]
+  %57 = phi i32 [ 0, %2 ], [ %55, %54 ], [ 0, %.split.us.split ], [ 0, %28 ], [ 0, %.split.split ], [ 0, %12 ], [ 0, %.split.split.us ], [ 0, %20 ]
+  %58 = phi i32 [ -22, %2 ], [ %56, %54 ], [ -22, %.split.us.split ], [ -22, %28 ], [ -22, %.split.split ], [ -22, %12 ], [ -22, %.split.split.us ], [ -22, %20 ]
   %59 = tail call ptr @netlbl_audit_start(i32 noundef 1407, ptr noundef %1) #15
   %60 = icmp eq ptr %59, null
   br i1 %60, label %67, label %61
@@ -1408,7 +1408,7 @@ define dso_local range(i32 0, 256) i32 @cipso_v4_validate(ptr noundef readonly c
   br i1 %211, label %35, label %.thread, !llvm.loop !26
 
 .thread:                                          ; preds = %22, %.loopexit17, %197, %196, %59, %48, %44, %8, %205, %.loopexit18, %161, %143, %.loopexit, %114, %96, %92, %83, %62, %57, %25
-  %212 = phi i8 [ %58, %57 ], [ %206, %205 ], [ %144, %143 ], [ %162, %161 ], [ %195, %.loopexit18 ], [ %97, %96 ], [ %115, %114 ], [ %140, %.loopexit ], [ %63, %62 ], [ %84, %83 ], [ %93, %92 ], [ 2, %25 ], [ 2, %8 ], [ %37, %44 ], [ 0, %.loopexit17 ], [ %37, %48 ], [ %37, %197 ], [ %37, %196 ], [ %37, %59 ], [ 2, %22 ]
+  %212 = phi i8 [ %58, %57 ], [ %206, %205 ], [ %144, %143 ], [ %162, %161 ], [ %195, %.loopexit18 ], [ %97, %96 ], [ %115, %114 ], [ %140, %.loopexit ], [ %63, %62 ], [ %84, %83 ], [ %93, %92 ], [ 2, %25 ], [ %37, %44 ], [ %37, %59 ], [ 2, %8 ], [ 0, %.loopexit17 ], [ %37, %48 ], [ %37, %197 ], [ %37, %196 ], [ 2, %22 ]
   tail call void @__rcu_read_unlock() #15
   %213 = zext i8 %212 to i32
   br label %214
@@ -1973,7 +1973,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
   br label %.thread
 
 .thread52:                                        ; preds = %161, %214, %165
-  %217 = phi i32 [ %185, %165 ], [ %185, %214 ], [ 0, %161 ]
+  %217 = phi i32 [ %185, %214 ], [ %185, %165 ], [ 0, %161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %218 = add nuw nsw i32 %217, 4
   br label %.loopexit61
@@ -2001,7 +2001,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
   br label %.thread55
 
 .thread:                                          ; preds = %.preheader57, %68, %63, %61, %146, %143, %102, %99, %27, %24, %.thread49, %222, %151, %139, %107, %95, %32, %20
-  %228 = phi i32 [ -1, %20 ], [ -1, %32 ], [ -1, %95 ], [ -1, %107 ], [ -1, %139 ], [ -1, %151 ], [ -1, %222 ], [ %.ph48, %.thread49 ], [ -1, %27 ], [ -22, %24 ], [ -1, %102 ], [ -22, %99 ], [ -1, %146 ], [ -22, %143 ], [ -1, %61 ], [ -1, %63 ], [ -28, %68 ], [ -28, %.preheader57 ]
+  %228 = phi i32 [ -1, %222 ], [ -1, %20 ], [ -1, %32 ], [ -22, %24 ], [ -1, %61 ], [ -1, %95 ], [ -1, %107 ], [ -1, %146 ], [ -22, %99 ], [ -1, %139 ], [ -1, %151 ], [ -22, %143 ], [ %.ph48, %.thread49 ], [ -1, %27 ], [ -1, %102 ], [ -1, %63 ], [ -28, %68 ], [ -28, %.preheader57 ]
   %exitcond.not = icmp eq i64 %17, 4
   br i1 %exitcond.not, label %.loopexit, label %229
 
@@ -2013,7 +2013,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
   br i1 %233, label %.loopexit, label %16, !llvm.loop !34
 
 .thread55:                                        ; preds = %226, %.loopexit61, %.loopexit62, %.loopexit63
-  %234 = phi i32 [ 6, %226 ], [ %219, %.loopexit61 ], [ %136, %.loopexit62 ], [ %92, %.loopexit63 ]
+  %234 = phi i32 [ %92, %.loopexit63 ], [ 6, %226 ], [ %219, %.loopexit61 ], [ %136, %.loopexit62 ]
   store i8 -122, ptr %0, align 1
   %235 = trunc nuw nsw i32 %234 to i8
   %236 = add nuw nsw i8 %235, 6
@@ -2557,7 +2557,7 @@ define dso_local i32 @cipso_v4_getattr(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %173, label %152, label %select.unfold, !llvm.loop !39
 
 select.unfold:                                    ; preds = %163, %165, %170, %158
-  %.ph36 = phi i32 [ -14, %158 ], [ -1, %163 ], [ -1, %165 ], [ %172, %170 ]
+  %.ph36 = phi i32 [ -14, %158 ], [ -1, %165 ], [ %172, %170 ], [ -1, %163 ]
   %174 = load ptr, ptr %130, align 8
   %175 = icmp eq ptr %174, null
   br i1 %175, label %.thread, label %.preheader
@@ -2762,7 +2762,7 @@ select.unfold:                                    ; preds = %163, %165, %170, %1
   br label %.thread
 
 .thread:                                          ; preds = %100, %.preheader53, %.preheader51, %.preheader, %240, %232, %191, %183, %117, %109, %282, %246, %225, %197, %select.unfold, %123, %106, %86, %299, %103
-  %301 = phi i32 [ 0, %299 ], [ -42, %103 ], [ -42, %86 ], [ %280, %282 ], [ -1, %246 ], [ %223, %225 ], [ -1, %197 ], [ %.ph36, %select.unfold ], [ -1, %123 ], [ -42, %106 ], [ -1, %117 ], [ -22, %109 ], [ -1, %191 ], [ -22, %183 ], [ -1, %240 ], [ -22, %232 ], [ %.ph36, %.preheader ], [ %223, %.preheader51 ], [ %280, %.preheader53 ], [ -42, %100 ]
+  %301 = phi i32 [ 0, %299 ], [ %280, %.preheader53 ], [ -42, %103 ], [ -42, %86 ], [ -22, %183 ], [ -22, %109 ], [ -42, %106 ], [ %223, %.preheader51 ], [ %.ph36, %.preheader ], [ -22, %232 ], [ %280, %282 ], [ -1, %246 ], [ %223, %225 ], [ -1, %197 ], [ %.ph36, %select.unfold ], [ -1, %123 ], [ -1, %117 ], [ -1, %191 ], [ -1, %240 ], [ -42, %100 ]
   tail call void @__rcu_read_unlock() #15
   br label %302
 

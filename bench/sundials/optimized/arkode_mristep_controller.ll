@@ -62,7 +62,7 @@ define ptr @SUNAdaptController_MRIStep(ptr noundef %0, ptr noundef %1) local_unn
   br label %30
 
 30:                                               ; preds = %9, %7, %5, %2, %26, %24
-  %.0 = phi ptr [ null, %24 ], [ %12, %26 ], [ null, %2 ], [ null, %5 ], [ null, %7 ], [ null, %9 ]
+  %.0 = phi ptr [ %12, %26 ], [ null, %2 ], [ null, %5 ], [ null, %7 ], [ null, %24 ], [ null, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

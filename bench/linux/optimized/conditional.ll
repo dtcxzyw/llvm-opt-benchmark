@@ -50,7 +50,7 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
   br label %24
 
 20:                                               ; preds = %31, %46, %54, %65, %76, %87, %99
-  %21 = phi i32 [ %100, %99 ], [ %88, %87 ], [ %77, %76 ], [ %66, %65 ], [ %55, %54 ], [ %26, %46 ], [ %32, %31 ]
+  %21 = phi i32 [ %32, %31 ], [ %100, %99 ], [ %88, %87 ], [ %77, %76 ], [ %66, %65 ], [ %55, %54 ], [ %26, %46 ]
   %22 = add nuw nsw i64 %25, 1
   %23 = icmp eq i64 %22, %19
   br i1 %23, label %109, label %24, !llvm.loop !6
@@ -455,8 +455,8 @@ define dso_local i32 @cond_read_bool(ptr noundef readnone captures(none) %0, ptr
   br i1 %39, label %42, label %.thread7
 
 .thread7:                                         ; preds = %29, %7, %33, %25, %22, %11
-  %40 = phi ptr [ null, %22 ], [ %27, %33 ], [ null, %25 ], [ null, %11 ], [ null, %7 ], [ %27, %29 ]
-  %41 = phi i32 [ -22, %22 ], [ %38, %33 ], [ -12, %25 ], [ -22, %11 ], [ -22, %7 ], [ -22, %29 ]
+  %40 = phi ptr [ null, %11 ], [ null, %22 ], [ null, %7 ], [ %27, %33 ], [ null, %25 ], [ %27, %29 ]
+  %41 = phi i32 [ -22, %11 ], [ -22, %22 ], [ -22, %7 ], [ %38, %33 ], [ -12, %25 ], [ -22, %29 ]
   tail call void @kfree(ptr noundef %40) #14
   tail call void @kfree(ptr noundef nonnull %5) #14
   br label %42
@@ -718,7 +718,7 @@ cond_read_av_list.exit.thread:                    ; preds = %90, %.loopexit21, %
   br label %.thread16
 
 .thread16:                                        ; preds = %36, %42, %.preheader20, %cond_read_av_list.exit.thread, %78, %.thread19, %18
-  %138 = phi i32 [ %22, %18 ], [ %.ph18, %.thread19 ], [ %.ph, %cond_read_av_list.exit.thread ], [ -22, %78 ], [ -22, %.preheader20 ], [ -12, %42 ], [ -22, %36 ]
+  %138 = phi i32 [ %22, %18 ], [ %.ph18, %.thread19 ], [ -22, %78 ], [ -22, %.preheader20 ], [ %.ph, %cond_read_av_list.exit.thread ], [ -12, %42 ], [ -22, %36 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %140 = load i32, ptr %139, align 8
   %141 = icmp eq i32 %140, 0
@@ -751,7 +751,7 @@ cond_read_av_list.exit.thread:                    ; preds = %90, %.loopexit21, %
   br label %.loopexit24
 
 .loopexit24:                                      ; preds = %33, %2, %.loopexit, %24, %8
-  %156 = phi i32 [ %138, %.loopexit ], [ -12, %8 ], [ 0, %24 ], [ -22, %2 ], [ 0, %33 ]
+  %156 = phi i32 [ %138, %.loopexit ], [ -22, %2 ], [ -12, %8 ], [ 0, %24 ], [ 0, %33 ]
   ret i32 %156
 }
 
@@ -800,7 +800,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cond_write_bool(ptr noundef read
   br label %29
 
 29:                                               ; preds = %3, %24, %9
-  %30 = phi i32 [ 0, %24 ], [ -22, %9 ], [ -22, %3 ]
+  %30 = phi i32 [ -22, %9 ], [ 0, %24 ], [ -22, %3 ]
   ret i32 %30
 }
 
@@ -994,8 +994,8 @@ thread-pre-split17:                               ; preds = %76
 ..thread21.loopexit26_crit_edge:                  ; preds = %.loopexit
   br label %.thread21, !llvm.loop !16
 
-.thread21:                                        ; preds = %thread-pre-split, %.lr.ph30, %thread-pre-split13, %87, %.preheader24, %thread-pre-split10, %.preheader22, %.preheader, %16, %..thread21.loopexit26_crit_edge, %2, %7
-  %112 = phi i32 [ 0, %7 ], [ -22, %2 ], [ 0, %..thread21.loopexit26_crit_edge ], [ -22, %16 ], [ %110, %.preheader ], [ %85, %.preheader22 ], [ -22, %thread-pre-split10 ], [ -22, %.preheader24 ], [ -22, %87 ], [ -22, %thread-pre-split13 ], [ -22, %.lr.ph30 ], [ -22, %thread-pre-split ]
+.thread21:                                        ; preds = %.lr.ph30, %thread-pre-split, %thread-pre-split13, %87, %.preheader24, %thread-pre-split10, %.preheader22, %.preheader, %16, %..thread21.loopexit26_crit_edge, %2, %7
+  %112 = phi i32 [ -22, %2 ], [ 0, %7 ], [ 0, %..thread21.loopexit26_crit_edge ], [ -22, %thread-pre-split10 ], [ -22, %16 ], [ %110, %.preheader ], [ %85, %.preheader22 ], [ -22, %.preheader24 ], [ -22, %87 ], [ -22, %thread-pre-split13 ], [ -22, %thread-pre-split ], [ -22, %.lr.ph30 ]
   ret i32 %112
 }
 

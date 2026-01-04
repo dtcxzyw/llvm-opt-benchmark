@@ -405,9 +405,9 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   %218 = add nuw nsw i32 %215, 135
   br label %decode_skip_count.exit.thread
 
-decode_skip_count.exit.thread:                    ; preds = %175, %197, %186, %176, %208
-  %.1126326 = phi i32 [ %207, %197 ], [ %196, %186 ], [ -1, %176 ], [ %218, %208 ], [ %.0125382, %175 ]
-  %.sroa.20.5324 = phi i32 [ %206, %197 ], [ %195, %186 ], [ %.sroa.20.4377, %176 ], [ %217, %208 ], [ %.sroa.20.4377, %175 ]
+decode_skip_count.exit.thread:                    ; preds = %175, %197, %208, %186, %176
+  %.1126326 = phi i32 [ %.0125382, %175 ], [ %207, %197 ], [ %218, %208 ], [ %196, %186 ], [ -1, %176 ]
+  %.sroa.20.5324 = phi i32 [ %.sroa.20.4377, %175 ], [ %206, %197 ], [ %217, %208 ], [ %195, %186 ], [ %.sroa.20.4377, %176 ]
   %.not.i174 = icmp eq ptr %.0130380, null
   br i1 %.not.i174, label %.preheader.i178, label %.preheader14.i
 
@@ -432,7 +432,7 @@ decode_skip_count.exit.thread:                    ; preds = %175, %197, %186, %1
   br i1 %exitcond23.not.i, label %copy_superblock.exit, label %.preheader.i178, !llvm.loop !47
 
 decode_skip_count.exit.thread327:                 ; preds = %175, %177
-  %.sroa.20.5331 = phi i32 [ %spec.select.i.i, %177 ], [ %.sroa.20.4377, %175 ]
+  %.sroa.20.5331 = phi i32 [ %.sroa.20.4377, %175 ], [ %spec.select.i.i, %177 ]
   %.not.i179 = icmp eq ptr %.0130380, null
   br i1 %.not.i179, label %.preheader.i184.preheader, label %.preheader14.i180
 
@@ -918,8 +918,8 @@ decode_macroblock.exit225:                        ; preds = %480, %483, %486
   br i1 %505, label %.lr.ph365, label %.critedge2, !llvm.loop !58
 
 .critedge2:                                       ; preds = %.lr.ph365, %decode_macroblock.exit225, %420, %421
-  %.sroa.20.13 = phi i32 [ %spec.select.i195, %421 ], [ %.sroa.20.12, %420 ], [ %spec.select.i212, %.lr.ph365 ], [ %498, %decode_macroblock.exit225 ]
-  %.5 = phi i32 [ %.2309.lcssa, %421 ], [ %.4, %420 ], [ %.6364, %.lr.ph365 ], [ %.9, %decode_macroblock.exit225 ]
+  %.sroa.20.13 = phi i32 [ %.sroa.20.12, %420 ], [ %spec.select.i195, %421 ], [ %498, %decode_macroblock.exit225 ], [ %spec.select.i212, %.lr.ph365 ]
+  %.5 = phi i32 [ %.4, %420 ], [ %.2309.lcssa, %421 ], [ %.9, %decode_macroblock.exit225 ], [ %.6364, %.lr.ph365 ]
   br label %.preheader14.i230
 
 .preheader14.i230:                                ; preds = %.critedge2, %.preheader14.i230
@@ -969,8 +969,8 @@ copy_superblock.exit:                             ; preds = %.preheader14.i230, 
   store i32 1, ptr %2, align 4, !tbaa !39
   br label %.thread
 
-.thread:                                          ; preds = %94, %98, %65, %93, %149, %._crit_edge, %151, %48, %45, %20, %4, %522
-  %.0 = phi i32 [ -12, %149 ], [ 0, %522 ], [ -1094995529, %4 ], [ -1094995529, %20 ], [ -1094995529, %45 ], [ %., %48 ], [ %152, %151 ], [ %520, %._crit_edge ], [ -1094995529, %93 ], [ -1094995529, %65 ], [ -1094995529, %98 ], [ -1094995529, %94 ]
+.thread:                                          ; preds = %98, %94, %65, %93, %149, %._crit_edge, %151, %48, %45, %20, %4, %522
+  %.0 = phi i32 [ -1094995529, %20 ], [ -1094995529, %4 ], [ -12, %149 ], [ -1094995529, %45 ], [ %152, %151 ], [ 0, %522 ], [ %., %48 ], [ %520, %._crit_edge ], [ -1094995529, %93 ], [ -1094995529, %65 ], [ -1094995529, %94 ], [ -1094995529, %98 ]
   ret i32 %.0
 }
 

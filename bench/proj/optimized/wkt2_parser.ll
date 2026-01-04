@@ -414,7 +414,7 @@ define hidden i32 @pj_wkt2_lex(ptr noundef readnone captures(none) %0, ptr nound
   br i1 %49, label %.preheader.backedge, label %51
 
 .preheader.backedge:                              ; preds = %46, %.preheader
-  %.066.pn.be = phi ptr [ %.2, %.preheader ], [ %47, %46 ]
+  %.066.pn.be = phi ptr [ %47, %46 ], [ %.2, %.preheader ]
   br label %.preheader, !llvm.loop !27
 
 50:                                               ; preds = %.preheader

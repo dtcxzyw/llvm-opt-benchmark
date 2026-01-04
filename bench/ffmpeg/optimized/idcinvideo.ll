@@ -341,7 +341,7 @@ define internal fastcc i32 @huff_smallest_node(ptr noundef captures(none) %0, i3
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge, %13
-  %.0.lcssa29 = phi i32 [ -1, %._crit_edge ], [ %.1, %13 ], [ -1, %2 ]
+  %.0.lcssa29 = phi i32 [ %.1, %13 ], [ -1, %._crit_edge ], [ -1, %2 ]
   ret i32 %.0.lcssa29
 }
 

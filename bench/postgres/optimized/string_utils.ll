@@ -684,7 +684,7 @@ define dso_local zeroext i1 @appendShellStringNoError(ptr noundef %0, ptr nounde
   br label %14
 
 14:                                               ; preds = %10, %10, %12, %13
-  %.1 = phi i1 [ %.018, %12 ], [ %.018, %13 ], [ false, %10 ], [ false, %10 ]
+  %.1 = phi i1 [ %.018, %13 ], [ %.018, %12 ], [ false, %10 ], [ false, %10 ]
   %15 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %10, !llvm.loop !12
 
@@ -810,7 +810,7 @@ define dso_local void @appendPsqlMetaConnect(ptr noundef %0, ptr noundef %1) loc
   br label %15
 
 15:                                               ; preds = %13, %13, %9, %14
-  %.1 = phi i1 [ %.0, %13 ], [ true, %14 ], [ %.0, %9 ], [ %.0, %13 ]
+  %.1 = phi i1 [ %.0, %9 ], [ true, %14 ], [ %.0, %13 ], [ %.0, %13 ]
   %16 = getelementptr inbounds nuw i8, ptr %.022, i64 1
   br label %4, !llvm.loop !15
 
@@ -968,7 +968,7 @@ define dso_local noundef zeroext i1 @parsePGArray(ptr noundef readonly captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %27, %33, %.preheader, %46, %14, %3, %7, %9, %49
-  %.042 = phi i1 [ true, %49 ], [ false, %9 ], [ false, %7 ], [ false, %3 ], [ false, %14 ], [ false, %46 ], [ false, %.preheader ], [ false, %33 ], [ false, %27 ], [ false, %22 ]
+  %.042 = phi i1 [ true, %49 ], [ false, %3 ], [ false, %14 ], [ false, %33 ], [ false, %27 ], [ false, %7 ], [ false, %46 ], [ false, %9 ], [ false, %.preheader ], [ false, %22 ]
   ret i1 %.042
 }
 

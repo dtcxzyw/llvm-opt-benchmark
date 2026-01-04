@@ -562,7 +562,7 @@ if.else8.i64.i:                                   ; preds = %if.else.i60.i
   br i1 %cmp12.i66.i, label %if.end17.i68.i, label %if.else
 
 if.end17.i68.i:                                   ; preds = %if.else8.i64.i, %if.else.i60.i
-  %.sink.i69.i = phi i8 [ 64, %if.else.i60.i ], [ 32, %if.else8.i64.i ]
+  %.sink.i69.i = phi i8 [ 32, %if.else8.i64.i ], [ 64, %if.else.i60.i ]
   store i8 %.sink.i69.i, ptr %op_.i.i, align 2
   store i32 1, ptr %segment_len_.i.i, align 4
   %49 = add i8 %14, -65

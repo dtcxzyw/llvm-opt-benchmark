@@ -464,7 +464,7 @@ _ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit: ; preds = %28
   br i1 %.not13.old, label %.critedge, label %13
 
 .critedge:                                        ; preds = %_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit, %..critedge.loopexit_crit_edge, %_ZN14VrmlTranslator6Buffer7CanSeekEv.exit, %2
-  %40 = phi i32 [ %10, %_ZN14VrmlTranslator6Buffer7CanSeekEv.exit ], [ %5, %2 ], [ %.pre23.pre, %..critedge.loopexit_crit_edge ], [ %39, %_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit ]
+  %40 = phi i32 [ %5, %2 ], [ %10, %_ZN14VrmlTranslator6Buffer7CanSeekEv.exit ], [ %.pre23.pre, %..critedge.loopexit_crit_edge ], [ %39, %_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit ]
   %41 = icmp slt i32 %1, 0
   %42 = icmp sgt i32 %1, %40
   %or.cond19 = select i1 %41, i1 true, i1 %42
@@ -644,7 +644,7 @@ _ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit.thread.sink.split: ; pred
   br label %_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit.thread
 
 _ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit.thread: ; preds = %_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit.thread.sink.split, %45, %24, %_ZN14VrmlTranslator6Buffer7CanSeekEv.exit
-  %.0 = phi i32 [ 65536, %_ZN14VrmlTranslator6Buffer7CanSeekEv.exit ], [ 65536, %24 ], [ 65536, %45 ], [ %63, %_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit.thread.sink.split ]
+  %.0 = phi i32 [ 65536, %24 ], [ 65536, %_ZN14VrmlTranslator6Buffer7CanSeekEv.exit ], [ 65536, %45 ], [ %63, %_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -3468,7 +3468,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit14:      ; preds = %108, %134, %139
   br i1 %144, label %._crit_edge, label %101, !llvm.loop !26
 
 _ZN14VrmlTranslator7Scanner6NextChEv.exit10:      ; preds = %101, %98, %92, %62
-  %145 = phi i1 [ true, %98 ], [ true, %92 ], [ true, %62 ], [ false, %101 ]
+  %145 = phi i1 [ true, %62 ], [ true, %98 ], [ true, %92 ], [ false, %101 ]
   ret i1 %145
 }
 
@@ -4134,7 +4134,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge: ; preds = %155, %182, %187
   br label %_Z16coco_string_hashPKw.exit.i
 
 _Z16coco_string_hashPKw.exit.i:                   ; preds = %._crit_edge.loopexit.i.i, %190
-  %.09.i.i = phi i64 [ 0, %190 ], [ %215, %._crit_edge.loopexit.i.i ]
+  %.09.i.i = phi i64 [ %215, %._crit_edge.loopexit.i.i ], [ 0, %190 ]
   %216 = getelementptr inbounds nuw ptr, ptr %206, i64 %.09.i.i
   %.09.i236 = load ptr, ptr %216, align 8
   %cond10.i237 = icmp eq ptr %.09.i236, null

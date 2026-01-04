@@ -720,7 +720,7 @@ define dso_local range(i32 0, 2) i32 @ww_mutex_trylock(ptr noundef %0, ptr nound
   br label %.thread3
 
 .thread3:                                         ; preds = %41, %12, %18, %63, %56
-  %65 = phi i32 [ 1, %56 ], [ 1, %63 ], [ 0, %12 ], [ 1, %18 ], [ 0, %41 ]
+  %65 = phi i32 [ 1, %18 ], [ 1, %63 ], [ 1, %56 ], [ 0, %12 ], [ 0, %41 ]
   ret i32 %65
 }
 
@@ -976,7 +976,7 @@ define dso_local noundef range(i32 0, 2) i32 @atomic_dec_and_mutex_lock(ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %31, %26, %22
-  %32 = phi i32 [ 1, %22 ], [ 0, %26 ], [ 0, %31 ], [ 0, %.lr.ph ]
+  %32 = phi i32 [ 0, %31 ], [ 1, %22 ], [ 0, %26 ], [ 0, %.lr.ph ]
   ret i32 %32
 }
 
@@ -1366,7 +1366,7 @@ define internal fastcc range(i32 -4, 1) i32 @__mutex_lock(ptr noundef %0, i32 no
   tail call void @osq_unlock(ptr noundef nonnull %64) #12
   br label %.thread30
 
-.loopexit60:                                      ; preds = %92, %103, %.split.us.i
+.loopexit60:                                      ; preds = %92, %.split.us.i, %103
   tail call void @osq_unlock(ptr noundef nonnull %64) #12
   br label %.critedge
 
@@ -1821,7 +1821,7 @@ define internal fastcc range(i32 -4, 1) i32 @__mutex_lock(ptr noundef %0, i32 no
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !37
   br label %312
 
-.loopexit:                                        ; preds = %339, %350, %.split.us.i27
+.loopexit:                                        ; preds = %339, %.split.us.i27, %350
   %353 = load volatile i64, ptr %49, align 8
   %354 = and i64 %353, 8
   %355 = icmp eq i64 %354, 0
@@ -1955,7 +1955,7 @@ define internal fastcc range(i32 -4, 1) i32 @__mutex_lock(ptr noundef %0, i32 no
   %413 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %412) #12, !srcloc !50
   br label %449
 
-414:                                              ; preds = %257, %252, %253
+414:                                              ; preds = %252, %257, %253
   store volatile i32 0, ptr %192, align 8
   %415 = load ptr, ptr %187, align 8
   %416 = load ptr, ptr %3, align 8
@@ -2354,7 +2354,7 @@ define internal fastcc range(i32 -114, 1) i32 @__ww_mutex_lock(ptr noundef %0, i
   tail call void @osq_unlock(ptr noundef nonnull %77) #12
   br label %.thread43
 
-.loopexit84:                                      ; preds = %108, %140, %133, %130, %.split.split.us.i, %120, %.split.us.i
+.loopexit84:                                      ; preds = %108, %.split.split.us.i, %140, %133, %130, %120, %.split.us.i
   tail call void @osq_unlock(ptr noundef nonnull %77) #12
   br label %.critedge
 
@@ -3077,7 +3077,7 @@ define internal fastcc range(i32 -114, 1) i32 @__ww_mutex_lock(ptr noundef %0, i
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !37
   br label %500
 
-.loopexit:                                        ; preds = %527, %542, %555, %552, %.split.split.i, %539, %.split.us.i40
+.loopexit:                                        ; preds = %527, %555, %542, %552, %.split.split.i, %539, %.split.us.i40
   %561 = load volatile i64, ptr %62, align 8
   %562 = and i64 %561, 8
   %563 = icmp eq i64 %562, 0
@@ -3241,7 +3241,7 @@ __ww_mutex_check_waiters.exit:                    ; preds = %259, %.loopexit.sin
   br label %669
 
 .loopexit80.loopexit111:                          ; preds = %445, %440, %425, %429
-  %.ph71.ph = phi i32 [ -35, %445 ], [ -35, %440 ], [ -4, %425 ], [ -4, %429 ]
+  %.ph71.ph = phi i32 [ -35, %440 ], [ -4, %429 ], [ -4, %425 ], [ -35, %445 ]
   %.pre = load ptr, ptr %399, align 8
   br label %.loopexit80
 
@@ -3264,7 +3264,7 @@ __ww_mutex_check_waiters.exit:                    ; preds = %259, %.loopexit.sin
   br label %640
 
 640:                                              ; preds = %301, %639, %.loopexit80
-  %641 = phi i32 [ %.ph71, %.loopexit80 ], [ %.ph71, %639 ], [ -35, %301 ]
+  %641 = phi i32 [ %.ph71, %639 ], [ %.ph71, %.loopexit80 ], [ -35, %301 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_contention_end, i64 8), i32 2) #12
           to label %662 [label %642], !srcloc !29
 

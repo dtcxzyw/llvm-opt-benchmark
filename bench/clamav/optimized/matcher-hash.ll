@@ -59,7 +59,7 @@ define i32 @hm_addhash_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br label %24
 
 18:                                               ; preds = %12, %16, %15
-  %.015 = phi i32 [ 1, %15 ], [ 2, %16 ], [ 0, %12 ]
+  %.015 = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %12 ]
   %sext = shl i64 %13, 32
   %19 = ashr exact i64 %sext, 32
   %20 = call i32 @cli_hex2str_to(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef %19) #8
@@ -229,7 +229,7 @@ define i32 @hm_addhash_bin(ptr noundef %0, ptr noundef readonly captures(none) %
   br label %79
 
 79:                                               ; preds = %.thread, %15, %66, %62, %49
-  %.057 = phi i32 [ 0, %66 ], [ 20, %62 ], [ 20, %49 ], [ %18, %15 ], [ %.1.ph, %.thread ]
+  %.057 = phi i32 [ 0, %66 ], [ 20, %62 ], [ 20, %49 ], [ %.1.ph, %.thread ], [ %18, %15 ]
   ret i32 %.057
 }
 
@@ -624,7 +624,7 @@ hm_cmp.exit.thread.i:                             ; preds = %hm_cmp.exit.i, %41
   br i1 %.not38.i, label %hm_scan.exit, label %35
 
 hm_scan.exit:                                     ; preds = %55, %hm_cmp.exit.thread.i, %50, %49, %21, %18, %16, %5, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %5 ], [ 0, %16 ], [ 0, %21 ], [ 0, %18 ], [ 1, %50 ], [ 1, %49 ], [ 0, %hm_cmp.exit.thread.i ], [ 0, %55 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %5 ], [ 0, %10 ], [ 1, %49 ], [ 0, %18 ], [ 0, %21 ], [ 1, %50 ], [ 0, %hm_cmp.exit.thread.i ], [ 0, %55 ]
   ret i32 %.0
 }
 
@@ -710,7 +710,7 @@ hm_cmp.exit.thread.i:                             ; preds = %hm_cmp.exit.i, %30
   br i1 %.not38.i, label %hm_scan.exit, label %24
 
 hm_scan.exit:                                     ; preds = %44, %hm_cmp.exit.thread.i, %39, %38, %4, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 1, %39 ], [ 1, %38 ], [ 0, %hm_cmp.exit.thread.i ], [ 0, %44 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 1, %38 ], [ 1, %39 ], [ 0, %hm_cmp.exit.thread.i ], [ 0, %44 ]
   ret i32 %.0
 }
 

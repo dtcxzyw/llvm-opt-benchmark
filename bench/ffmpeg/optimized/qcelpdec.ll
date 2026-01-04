@@ -180,7 +180,7 @@ define internal i32 @qcelp_decode_frame(ptr noundef %0, ptr noundef initializes(
   br label %51
 
 51:                                               ; preds = %50, %49, %48, %47, %25
-  %.0.i21.ph.i = phi i32 [ 0, %50 ], [ 1, %49 ], [ 2, %48 ], [ 3, %47 ], [ 4, %25 ]
+  %.0.i21.ph.i = phi i32 [ 4, %25 ], [ 1, %49 ], [ 2, %48 ], [ 3, %47 ], [ 0, %50 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.10) #10
   br label %52
 
@@ -334,7 +334,7 @@ determine_bitrate.exit:                           ; preds = %52
   %136 = icmp samesign ugt i32 %135, 12
   br i1 %136, label %137, label %122
 
-137:                                              ; preds = %123, %133
+137:                                              ; preds = %133, %123
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %139 = load i64, ptr %138, align 8, !tbaa !49
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.12, i64 noundef %139, ptr noundef nonnull @.str.5) #10
@@ -394,7 +394,7 @@ codebook_sanity_check_for_rate_quarter.exit:      ; preds = %122, %118
   br i1 %162, label %.thread114, label %168
 
 .thread114:                                       ; preds = %150, %137, %115, %160, %157, %64, %determine_bitrate.exit.thread
-  %163 = phi ptr [ %154, %160 ], [ %154, %157 ], [ %58, %64 ], [ %55, %determine_bitrate.exit.thread ], [ %58, %115 ], [ %58, %137 ], [ %58, %150 ]
+  %163 = phi ptr [ %154, %160 ], [ %154, %157 ], [ %55, %determine_bitrate.exit.thread ], [ %58, %64 ], [ %58, %115 ], [ %58, %137 ], [ %58, %150 ]
   store i32 -1, ptr %163, align 8, !tbaa !48
   %164 = getelementptr inbounds nuw i8, ptr %21, i64 107
   %165 = load i8, ptr %164, align 1, !tbaa !67
@@ -634,7 +634,7 @@ postfilter.exit:                                  ; preds = %242
   br label %263
 
 263:                                              ; preds = %69, %4, %postfilter.exit
-  %.0 = phi i32 [ %19, %postfilter.exit ], [ %23, %4 ], [ -1094995529, %69 ]
+  %.0 = phi i32 [ %23, %4 ], [ %19, %postfilter.exit ], [ -1094995529, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1422,7 +1422,7 @@ define internal fastcc range(i32 -1, 1) i32 @decode_lspf(ptr noundef %0, ptr nou
   br i1 %142, label %.loopexit, label %134
 
 .loopexit:                                        ; preds = %134, %.preheader119, %122, %.preheader, %85, %131, %119
-  %.0 = phi i32 [ -1, %119 ], [ -1, %131 ], [ 0, %85 ], [ 0, %122 ], [ -1, %.preheader ], [ 0, %134 ], [ -1, %.preheader119 ]
+  %.0 = phi i32 [ 0, %85 ], [ -1, %131 ], [ -1, %119 ], [ -1, %.preheader ], [ 0, %122 ], [ 0, %134 ], [ -1, %.preheader119 ]
   ret i32 %.0
 }
 

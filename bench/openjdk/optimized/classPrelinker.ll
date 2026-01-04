@@ -485,7 +485,7 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit23:   ; preds = %53
   br label %78
 
 78:                                               ; preds = %40, %74, %_ZNK12ConstantPool17resolved_klass_atEi.exit23, %.critedge, %_ZNK12ConstantPool17resolved_klass_atEi.exit, %28
-  %.0 = phi i1 [ false, %_ZNK12ConstantPool17resolved_klass_atEi.exit ], [ %31, %28 ], [ false, %.critedge ], [ false, %_ZNK12ConstantPool17resolved_klass_atEi.exit23 ], [ %77, %74 ], [ false, %40 ]
+  %.0 = phi i1 [ false, %_ZNK12ConstantPool17resolved_klass_atEi.exit ], [ %31, %28 ], [ false, %_ZNK12ConstantPool17resolved_klass_atEi.exit23 ], [ %77, %74 ], [ false, %.critedge ], [ false, %40 ]
   ret i1 %.0
 }
 
@@ -614,7 +614,7 @@ _ZN14ClassPrelinker11is_vm_classEP13InstanceKlass.exit.thread: ; preds = %57, %3
   br label %_ZNK5Klass13is_subtype_ofEPS_.exit.thread
 
 _ZNK5Klass13is_subtype_ofEPS_.exit.thread:        ; preds = %57, %11, %64, %_ZNK5Klass12class_loaderEv.exit17, %_ZNK5Klass13is_subtype_ofEPS_.exit, %9, %_ZN14ClassPrelinker11is_vm_classEP13InstanceKlass.exit.thread
-  %.0 = phi i1 [ false, %_ZN14ClassPrelinker11is_vm_classEP13InstanceKlass.exit.thread ], [ false, %9 ], [ true, %_ZNK5Klass13is_subtype_ofEPS_.exit ], [ %.not, %_ZNK5Klass12class_loaderEv.exit17 ], [ true, %64 ], [ true, %11 ], [ true, %57 ]
+  %.0 = phi i1 [ false, %9 ], [ %.not, %_ZNK5Klass12class_loaderEv.exit17 ], [ true, %_ZNK5Klass13is_subtype_ofEPS_.exit ], [ false, %_ZN14ClassPrelinker11is_vm_classEP13InstanceKlass.exit.thread ], [ true, %64 ], [ true, %11 ], [ true, %57 ]
   ret i1 %.0
 }
 
@@ -1339,14 +1339,14 @@ _ZN9Bytecodes9length_atEP6MethodPh.exit.thread.i: ; preds = %_ZN9Bytecodes9lengt
   store i8 1, ptr %44, align 8
   br label %_ZN14BytecodeStream4nextEv.exit
 
-_ZN14BytecodeStream4nextEv.exit.thread:           ; preds = %116, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread.i, %_ZN9Bytecodes9length_atEP6MethodPh.exit.i, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i
+_ZN14BytecodeStream4nextEv.exit.thread:           ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit.i, %116, %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread.i, %_ZN9Bytecodes9length_atEP6MethodPh.exit.i
   store i32 -1, ptr %45, align 4
   store i32 -1, ptr %46, align 4
   br label %166
 
 _ZN14BytecodeStream4nextEv.exit:                  ; preds = %119, %122
-  %.015.i = phi i32 [ %125, %122 ], [ %89, %119 ]
-  %.014.i = phi i32 [ %125, %122 ], [ %86, %119 ]
+  %.015.i = phi i32 [ %89, %119 ], [ %125, %122 ]
+  %.014.i = phi i32 [ %86, %119 ], [ %125, %122 ]
   store i32 %.014.i, ptr %45, align 4
   store i32 %.015.i, ptr %46, align 4
   switch i32 %.014.i, label %166 [
@@ -1920,7 +1920,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -2081,7 +2081,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -2259,7 +2259,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 

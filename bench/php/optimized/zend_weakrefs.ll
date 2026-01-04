@@ -1636,7 +1636,7 @@ i_zend_is_true.exit.loopexit:                     ; preds = %.preheader
   br label %i_zend_is_true.exit
 
 i_zend_is_true.exit:                              ; preds = %.preheader, %i_zend_is_true.exit.loopexit, %53, %51, %44, %40, %39, %36, %35, %29, %26, %24, %13, %60
-  %.1.shrunk = phi i1 [ %63, %60 ], [ false, %13 ], [ true, %29 ], [ false, %26 ], [ true, %39 ], [ false, %36 ], [ false, %35 ], [ %52, %51 ], [ %.not16.i, %24 ], [ %.not13.i, %40 ], [ true, %44 ], [ %.not.i, %53 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %.preheader ]
+  %.1.shrunk = phi i1 [ false, %13 ], [ %63, %60 ], [ %.not13.i, %40 ], [ false, %i_zend_is_true.exit.loopexit ], [ %52, %51 ], [ %.not.i, %53 ], [ true, %29 ], [ false, %26 ], [ true, %39 ], [ false, %36 ], [ false, %35 ], [ %.not16.i, %24 ], [ true, %44 ], [ true, %.preheader ]
   %.1 = zext i1 %.1.shrunk to i32
   br label %64
 

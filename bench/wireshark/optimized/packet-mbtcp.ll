@@ -1589,7 +1589,7 @@ define internal i32 @dissect_mbtcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_mbtcp_common.exit
 
 dissect_mbtcp_common.exit:                        ; preds = %4, %6, %8, %11
-  %.0.i = phi i32 [ %14, %11 ], [ 0, %4 ], [ 0, %6 ], [ 0, %8 ]
+  %.0.i = phi i32 [ 0, %4 ], [ 0, %6 ], [ %14, %11 ], [ 0, %8 ]
   ret i32 %.0.i
 }
 
@@ -1616,7 +1616,7 @@ define internal i32 @dissect_mbtls(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_mbtcp_common.exit
 
 dissect_mbtcp_common.exit:                        ; preds = %4, %6, %8, %11
-  %.0.i = phi i32 [ %14, %11 ], [ 0, %4 ], [ 0, %6 ], [ 0, %8 ]
+  %.0.i = phi i32 [ 0, %4 ], [ 0, %6 ], [ %14, %11 ], [ 0, %8 ]
   ret i32 %.0.i
 }
 
@@ -1638,7 +1638,7 @@ define internal i32 @dissect_mbrtu(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %13
 
 13:                                               ; preds = %6, %4, %9
-  %.0 = phi i32 [ %12, %9 ], [ 0, %4 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %4 ], [ %12, %9 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -1669,7 +1669,7 @@ define internal i32 @dissect_mbudp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %18
 
 18:                                               ; preds = %8, %6, %4, %11
-  %.0 = phi i32 [ %17, %11 ], [ 0, %4 ], [ 0, %6 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ %17, %11 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -2553,7 +2553,7 @@ define internal i32 @get_mbrtu_pdu_len(ptr noundef readonly captures(none) %0, p
   br label %25
 
 25:                                               ; preds = %16, %16, %16, %16, %15, %8, %8, %8, %8, %8, %8, %23, %21, %17, %13, %9
-  %.0 = phi i32 [ %24, %23 ], [ %14, %13 ], [ %12, %9 ], [ %22, %21 ], [ %20, %17 ], [ 8, %8 ], [ 8, %8 ], [ 8, %8 ], [ 8, %8 ], [ 8, %8 ], [ 8, %8 ], [ 5, %15 ], [ 8, %16 ], [ 8, %16 ], [ 8, %16 ], [ 8, %16 ]
+  %.0 = phi i32 [ %24, %23 ], [ %14, %13 ], [ 5, %15 ], [ %12, %9 ], [ 8, %8 ], [ %22, %21 ], [ %20, %17 ], [ 8, %8 ], [ 8, %8 ], [ 8, %8 ], [ 8, %8 ], [ 8, %8 ], [ 8, %16 ], [ 8, %16 ], [ 8, %16 ], [ 8, %16 ]
   ret i32 %.0
 }
 
@@ -2628,7 +2628,7 @@ define internal fastcc range(i32 0, 3) i32 @classify_mbrtu_packet(ptr noundef re
   br label %34
 
 34:                                               ; preds = %21, %31, %28, %22, %25, %20, %16, %9
-  %.0 = phi i32 [ 1, %9 ], [ 0, %16 ], [ 1, %20 ], [ %., %25 ], [ 1, %22 ], [ %.16, %28 ], [ %.17, %31 ], [ 2, %21 ]
+  %.0 = phi i32 [ 0, %16 ], [ %.17, %31 ], [ %., %25 ], [ 1, %20 ], [ 1, %9 ], [ %.16, %28 ], [ 1, %22 ], [ 2, %21 ]
   ret i32 %.0
 }
 

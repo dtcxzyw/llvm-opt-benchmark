@@ -177,7 +177,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i": ; preds = %17, %12
-  %.sroa.06.0.i.i.pn.i = phi ptr [ %16, %12 ], [ %19, %17 ]
+  %.sroa.06.0.i.i.pn.i = phi ptr [ %19, %17 ], [ %16, %12 ]
   %20 = icmp eq ptr %.sroa.06.0.i.i.pn.i, null
   br i1 %20, label %21, label %22
 
@@ -204,8 +204,8 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amorti
   br label %25
 
 25:                                               ; preds = %3, %24, %22
-  %.sroa.4.0 = phi i64 [ undef, %22 ], [ %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.16., %24 ], [ undef, %3 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %22 ], [ %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.8.21, %24 ], [ 0, %3 ]
+  %.sroa.4.0 = phi i64 [ %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.16., %24 ], [ undef, %22 ], [ undef, %3 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.8.21, %24 ], [ -9223372036854775807, %22 ], [ 0, %3 ]
   %26 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %27 = insertvalue { i64, i64 } %26, i64 %.sroa.4.0, 1
   ret { i64, i64 } %27
@@ -310,7 +310,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i": ; preds = %17, %12
-  %.sroa.06.0.i.i.pn.i.i = phi ptr [ %16, %12 ], [ %19, %17 ]
+  %.sroa.06.0.i.i.pn.i.i = phi ptr [ %19, %17 ], [ %16, %12 ]
   %20 = icmp eq ptr %.sroa.06.0.i.i.pn.i.i, null
   br i1 %20, label %21, label %24
 
@@ -384,7 +384,7 @@ define hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h679fd35d4
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i": ; preds = %14, %9
-  %.sroa.06.0.i.i.pn.i.i = phi ptr [ %13, %9 ], [ %16, %14 ]
+  %.sroa.06.0.i.i.pn.i.i = phi ptr [ %16, %14 ], [ %13, %9 ]
   %17 = icmp eq ptr %.sroa.06.0.i.i.pn.i.i, null
   br i1 %17, label %18, label %21
 

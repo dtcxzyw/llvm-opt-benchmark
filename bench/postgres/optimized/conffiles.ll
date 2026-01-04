@@ -204,8 +204,8 @@ AbsoluteConfigLocation.exit:                      ; preds = %20, %27
   br label %67
 
 67:                                               ; preds = %60, %50, %46, %43, %.lr.ph
-  %.266 = phi ptr [ %.16590, %.lr.ph ], [ %.16590, %43 ], [ %.16590, %46 ], [ %.367, %60 ], [ %.16590, %50 ]
-  %.1 = phi i32 [ %.06391, %.lr.ph ], [ %.06391, %43 ], [ %.06391, %46 ], [ %.2, %60 ], [ %.06391, %50 ]
+  %.266 = phi ptr [ %.16590, %46 ], [ %.16590, %.lr.ph ], [ %.16590, %43 ], [ %.16590, %50 ], [ %.367, %60 ]
+  %.1 = phi i32 [ %.06391, %46 ], [ %.06391, %.lr.ph ], [ %.06391, %43 ], [ %.06391, %50 ], [ %.2, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %68 = call ptr @ReadDir(ptr noundef nonnull %29, ptr noundef %.0.i) #5
   %.not = icmp eq ptr %68, null
@@ -228,7 +228,7 @@ AbsoluteConfigLocation.exit:                      ; preds = %20, %27
   br label %77
 
 75:                                               ; preds = %.thread, %._crit_edge, %71
-  %.064.ph = phi ptr [ null, %.thread ], [ %.165.lcssa, %._crit_edge ], [ %.165.lcssa, %71 ]
+  %.064.ph = phi ptr [ %.165.lcssa, %._crit_edge ], [ %.165.lcssa, %71 ], [ null, %.thread ]
   %76 = call i32 @FreeDir(ptr noundef nonnull %29) #5
   br label %77
 

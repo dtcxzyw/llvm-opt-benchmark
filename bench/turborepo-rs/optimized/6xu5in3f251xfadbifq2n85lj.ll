@@ -208,7 +208,7 @@ _RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTReBQ_EE7reserveNCINvNtB8_
   br label %115
 
 96:                                               ; preds = %82, %78
-  %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %78 ], [ %88, %82 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %88, %82 ], [ %.sroa.6.1.i.i, %78 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %97 = load ptr, ptr %0, align 8, !alias.scope !85, !noalias !88, !nonnull !4, !noundef !4
   %98 = getelementptr inbounds i8, ptr %97, i64 %.sroa.3.0.i.ph.i

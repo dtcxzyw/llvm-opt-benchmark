@@ -354,12 +354,12 @@ parse_ansi_color.exit.i:                          ; preds = %match_word.exit25.t
   %135 = trunc nuw i64 %113 to i8
   br label %136
 
-136:                                              ; preds = %124, %129, %134, %.critedge.i, %match_word.exit.thread, %get_hex_color.exit.i, %110, %120
-  %.sroa.19.0.ph = phi i8 [ 0, %120 ], [ 0, %110 ], [ 0, %get_hex_color.exit.i ], [ 0, %match_word.exit.thread ], [ %97, %.critedge.i ], [ 0, %134 ], [ 0, %129 ], [ 0, %124 ]
-  %.sroa.18.1.ph = phi i8 [ %.sroa.18.0, %120 ], [ %.sroa.18.0, %110 ], [ %.sroa.18.0, %get_hex_color.exit.i ], [ 0, %match_word.exit.thread ], [ %82, %.critedge.i ], [ %.sroa.18.0, %134 ], [ %.sroa.18.0, %129 ], [ %.sroa.18.0, %124 ]
-  %.sroa.17.1.ph = phi i8 [ %.sroa.17.0, %120 ], [ %.sroa.17.0, %110 ], [ %.sroa.17.0, %get_hex_color.exit.i ], [ 0, %match_word.exit.thread ], [ %66, %.critedge.i ], [ %.sroa.17.0, %134 ], [ %.sroa.17.0, %129 ], [ %.sroa.17.0, %124 ]
-  %.sroa.13.0.ph = phi i8 [ 0, %120 ], [ %112, %110 ], [ 39, %get_hex_color.exit.i ], [ 0, %match_word.exit.thread ], [ 0, %.critedge.i ], [ %135, %134 ], [ %131, %129 ], [ %126, %124 ]
-  %.sroa.0.1.ph = phi i32 [ 1, %120 ], [ 2, %110 ], [ 2, %get_hex_color.exit.i ], [ 1, %match_word.exit.thread ], [ 4, %.critedge.i ], [ 3, %134 ], [ 2, %129 ], [ 2, %124 ]
+136:                                              ; preds = %.critedge.i, %match_word.exit.thread, %110, %124, %129, %134, %get_hex_color.exit.i, %120
+  %.sroa.19.0.ph = phi i8 [ 0, %120 ], [ 0, %get_hex_color.exit.i ], [ 0, %134 ], [ 0, %129 ], [ 0, %124 ], [ 0, %110 ], [ 0, %match_word.exit.thread ], [ %97, %.critedge.i ]
+  %.sroa.18.1.ph = phi i8 [ %.sroa.18.0, %120 ], [ %.sroa.18.0, %get_hex_color.exit.i ], [ %.sroa.18.0, %134 ], [ %.sroa.18.0, %129 ], [ %.sroa.18.0, %124 ], [ %.sroa.18.0, %110 ], [ 0, %match_word.exit.thread ], [ %82, %.critedge.i ]
+  %.sroa.17.1.ph = phi i8 [ %.sroa.17.0, %120 ], [ %.sroa.17.0, %get_hex_color.exit.i ], [ %.sroa.17.0, %134 ], [ %.sroa.17.0, %129 ], [ %.sroa.17.0, %124 ], [ %.sroa.17.0, %110 ], [ 0, %match_word.exit.thread ], [ %66, %.critedge.i ]
+  %.sroa.13.0.ph = phi i8 [ 0, %120 ], [ 39, %get_hex_color.exit.i ], [ %135, %134 ], [ %131, %129 ], [ %126, %124 ], [ %112, %110 ], [ 0, %match_word.exit.thread ], [ 0, %.critedge.i ]
+  %.sroa.0.1.ph = phi i32 [ 1, %120 ], [ 2, %get_hex_color.exit.i ], [ 3, %134 ], [ 2, %129 ], [ 2, %124 ], [ 2, %110 ], [ 1, %match_word.exit.thread ], [ 4, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %137 = icmp eq i32 %.sroa.0161.0267, 0
   br i1 %137, label %162, label %138, !llvm.loop !11
@@ -395,9 +395,9 @@ parse_ansi_color.exit.i:                          ; preds = %match_word.exit25.t
   br label %skip_prefix_mem.exit17.i
 
 skip_prefix_mem.exit17.i:                         ; preds = %146, %145, %142, %141, %140
-  %.0.i27.i = phi i64 [ 20, %142 ], [ 20, %145 ], [ 20, %146 ], [ 16, %141 ], [ 16, %140 ]
-  %.021.i = phi ptr [ %143, %142 ], [ %143, %145 ], [ %147, %146 ], [ %.193276, %141 ], [ %.193276, %140 ]
-  %.020.i = phi i64 [ 0, %142 ], [ %144, %145 ], [ %148, %146 ], [ %41, %141 ], [ %41, %140 ]
+  %.0.i27.i = phi i64 [ 20, %146 ], [ 20, %142 ], [ 20, %145 ], [ 16, %141 ], [ 16, %140 ]
+  %.021.i = phi ptr [ %147, %146 ], [ %143, %142 ], [ %143, %145 ], [ %.193276, %141 ], [ %.193276, %140 ]
+  %.020.i = phi i64 [ %148, %146 ], [ 0, %142 ], [ %144, %145 ], [ %41, %141 ], [ %41, %140 ]
   br label %149
 
 149:                                              ; preds = %156, %skip_prefix_mem.exit17.i
@@ -431,18 +431,18 @@ parse_attr.exit:                                  ; preds = %154
   br label %162
 
 162:                                              ; preds = %138, %136, %.critedge4, %159
-  %.sroa.12167.1 = phi i8 [ %.sroa.12167.0263, %159 ], [ %.sroa.12167.0263, %.critedge4 ], [ %.sroa.19.0.ph, %136 ], [ %.sroa.12167.0263, %138 ]
-  %.sroa.11166.1 = phi i8 [ %.sroa.11166.0264, %159 ], [ %.sroa.11166.0264, %.critedge4 ], [ %.sroa.18.1.ph, %136 ], [ %.sroa.11166.0264, %138 ]
-  %.sroa.10165.1 = phi i8 [ %.sroa.10165.0265, %159 ], [ %.sroa.10165.0265, %.critedge4 ], [ %.sroa.17.1.ph, %136 ], [ %.sroa.10165.0265, %138 ]
-  %.sroa.8163.1 = phi i8 [ %.sroa.8163.0266, %159 ], [ %.sroa.8163.0266, %.critedge4 ], [ %.sroa.13.0.ph, %136 ], [ %.sroa.8163.0266, %138 ]
-  %.sroa.0161.1 = phi i32 [ %.sroa.0161.0267, %159 ], [ %.sroa.0161.0267, %.critedge4 ], [ %.sroa.0.1.ph, %136 ], [ %.sroa.0161.0267, %138 ]
-  %.sroa.12.1 = phi i8 [ %.sroa.12.0268, %159 ], [ %.sroa.12.0268, %.critedge4 ], [ %.sroa.12.0268, %136 ], [ %.sroa.19.0.ph, %138 ]
-  %.sroa.11.1 = phi i8 [ %.sroa.11.0269, %159 ], [ %.sroa.11.0269, %.critedge4 ], [ %.sroa.11.0269, %136 ], [ %.sroa.18.1.ph, %138 ]
-  %.sroa.10.1 = phi i8 [ %.sroa.10.0270, %159 ], [ %.sroa.10.0270, %.critedge4 ], [ %.sroa.10.0270, %136 ], [ %.sroa.17.1.ph, %138 ]
-  %.sroa.8.1 = phi i8 [ %.sroa.8.0271, %159 ], [ %.sroa.8.0271, %.critedge4 ], [ %.sroa.8.0271, %136 ], [ %.sroa.13.0.ph, %138 ]
-  %.sroa.0158.1 = phi i32 [ %.sroa.0158.0272, %159 ], [ %.sroa.0158.0272, %.critedge4 ], [ %.sroa.0158.0272, %136 ], [ %.sroa.0.1.ph, %138 ]
-  %.1101 = phi i32 [ %.0100274, %159 ], [ 1, %.critedge4 ], [ %.0100274, %136 ], [ %.0100274, %138 ]
-  %.197 = phi i32 [ %161, %159 ], [ %.096275, %.critedge4 ], [ %.096275, %136 ], [ %.096275, %138 ]
+  %.sroa.12167.1 = phi i8 [ %.sroa.12167.0263, %159 ], [ %.sroa.19.0.ph, %136 ], [ %.sroa.12167.0263, %.critedge4 ], [ %.sroa.12167.0263, %138 ]
+  %.sroa.11166.1 = phi i8 [ %.sroa.11166.0264, %159 ], [ %.sroa.18.1.ph, %136 ], [ %.sroa.11166.0264, %.critedge4 ], [ %.sroa.11166.0264, %138 ]
+  %.sroa.10165.1 = phi i8 [ %.sroa.10165.0265, %159 ], [ %.sroa.17.1.ph, %136 ], [ %.sroa.10165.0265, %.critedge4 ], [ %.sroa.10165.0265, %138 ]
+  %.sroa.8163.1 = phi i8 [ %.sroa.8163.0266, %159 ], [ %.sroa.13.0.ph, %136 ], [ %.sroa.8163.0266, %.critedge4 ], [ %.sroa.8163.0266, %138 ]
+  %.sroa.0161.1 = phi i32 [ %.sroa.0161.0267, %159 ], [ %.sroa.0.1.ph, %136 ], [ %.sroa.0161.0267, %.critedge4 ], [ %.sroa.0161.0267, %138 ]
+  %.sroa.12.1 = phi i8 [ %.sroa.12.0268, %159 ], [ %.sroa.12.0268, %136 ], [ %.sroa.12.0268, %.critedge4 ], [ %.sroa.19.0.ph, %138 ]
+  %.sroa.11.1 = phi i8 [ %.sroa.11.0269, %159 ], [ %.sroa.11.0269, %136 ], [ %.sroa.11.0269, %.critedge4 ], [ %.sroa.18.1.ph, %138 ]
+  %.sroa.10.1 = phi i8 [ %.sroa.10.0270, %159 ], [ %.sroa.10.0270, %136 ], [ %.sroa.10.0270, %.critedge4 ], [ %.sroa.17.1.ph, %138 ]
+  %.sroa.8.1 = phi i8 [ %.sroa.8.0271, %159 ], [ %.sroa.8.0271, %136 ], [ %.sroa.8.0271, %.critedge4 ], [ %.sroa.13.0.ph, %138 ]
+  %.sroa.0158.1 = phi i32 [ %.sroa.0158.0272, %159 ], [ %.sroa.0158.0272, %136 ], [ %.sroa.0158.0272, %.critedge4 ], [ %.sroa.0.1.ph, %138 ]
+  %.1101 = phi i32 [ %.0100274, %159 ], [ %.0100274, %136 ], [ 1, %.critedge4 ], [ %.0100274, %138 ]
+  %.197 = phi i32 [ %161, %159 ], [ %.096275, %136 ], [ %.096275, %.critedge4 ], [ %.096275, %138 ]
   %163 = icmp sgt i32 %.3105.lcssa, 0
   br i1 %163, label %.preheader, label %._crit_edge.loopexit
 
@@ -595,8 +595,8 @@ default.unreachable:                              ; preds = %199
   unreachable
 
 color_output.exit:                                ; preds = %208, %205, %202, %._crit_edge298
-  %.391.idx = phi i64 [ %.088.idx.lcssa, %._crit_edge298 ], [ %.4.add201, %208 ], [ %.4.add200, %205 ], [ %.4.add, %202 ]
-  %.3 = phi i32 [ %.1.lcssa, %._crit_edge298 ], [ %194, %208 ], [ %194, %205 ], [ %194, %202 ]
+  %.391.idx = phi i64 [ %.088.idx.lcssa, %._crit_edge298 ], [ %.4.add, %202 ], [ %.4.add201, %208 ], [ %.4.add200, %205 ]
+  %.3 = phi i32 [ %.1.lcssa, %._crit_edge298 ], [ %194, %202 ], [ %194, %208 ], [ %194, %205 ]
   %.391.ptr.ptr = getelementptr inbounds i8, ptr %2, i64 %.391.idx
   br i1 %175, label %211, label %color_output.exit131
 
@@ -692,7 +692,7 @@ _.exit:                                           ; preds = %parse_attr.exit.thr
   br label %240
 
 240:                                              ; preds = %_.exit, %.thread195, %.critedge.thread
-  %.0 = phi i32 [ -1, %_.exit ], [ 0, %.thread195 ], [ 0, %.critedge.thread ]
+  %.0 = phi i32 [ 0, %.critedge.thread ], [ -1, %_.exit ], [ 0, %.thread195 ]
   ret i32 %.0
 }
 
@@ -737,7 +737,7 @@ define dso_local range(i32 -1, 3) i32 @git_config_colorbool(ptr noundef %0, ptr 
   br label %12
 
 12:                                               ; preds = %10, %9, %7, %5, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %5 ], [ 2, %7 ], [ -1, %9 ], [ %., %10 ]
+  %.0 = phi i32 [ -1, %9 ], [ %., %10 ], [ 2, %7 ], [ 1, %5 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -848,7 +848,7 @@ define dso_local noundef i32 @git_color_config(ptr noundef %0, ptr noundef %1, p
   br label %git_config_colorbool.exit
 
 git_config_colorbool.exit:                        ; preds = %6, %8, %10, %12
-  %.0.i = phi i32 [ 0, %6 ], [ 1, %8 ], [ 2, %10 ], [ %..i, %12 ]
+  %.0.i = phi i32 [ 0, %6 ], [ %..i, %12 ], [ 2, %10 ], [ 1, %8 ]
   store i32 %.0.i, ptr @git_use_color_default, align 4, !tbaa !22
   br label %14
 

@@ -156,8 +156,8 @@ define internal range(i32 0, 52) i32 @shn_probe(ptr noundef readonly captures(no
   br label %get_ur_golomb_shorten.exit
 
 get_ur_golomb_shorten.exit:                       ; preds = %.lr.ph.i.i, %37, %69, %80
-  %storemerge123.i.i = phi i32 [ %..i.i, %37 ], [ %78, %69 ], [ %67, %80 ], [ %.0110130.i.i, %.lr.ph.i.i ]
-  %.0106.i.i = phi i32 [ %41, %37 ], [ %79, %69 ], [ %.125.i.i, %80 ], [ -1, %.lr.ph.i.i ]
+  %storemerge123.i.i = phi i32 [ %..i.i, %37 ], [ %67, %80 ], [ %78, %69 ], [ %.0110130.i.i, %.lr.ph.i.i ]
+  %.0106.i.i = phi i32 [ %41, %37 ], [ %.125.i.i, %80 ], [ %79, %69 ], [ -1, %.lr.ph.i.i ]
   %82 = lshr i32 %storemerge123.i.i, 3
   %83 = zext nneg i32 %82 to i64
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 %83
@@ -603,9 +603,9 @@ get_ur_golomb_shorten.exit140:                    ; preds = %271, %305
   br label %get_ur_golomb_shorten.exit62
 
 get_ur_golomb_shorten.exit62:                     ; preds = %.lr.ph.i.i58, %126, %99, %._crit_edge.i.i48, %319
-  %.029 = phi i32 [ %178, %319 ], [ %.0106.i.i, %._crit_edge.i.i48 ], [ %.0106.i.i, %99 ], [ %.0106.i.i, %126 ], [ %.0106.i.i, %.lr.ph.i.i58 ]
-  %.027 = phi i32 [ %249, %319 ], [ %.1.lcssa.i.i50, %._crit_edge.i.i48 ], [ %101, %99 ], [ %.125.i.i51, %126 ], [ -1, %.lr.ph.i.i58 ]
-  %.026 = phi i32 [ %323, %319 ], [ 51, %._crit_edge.i.i48 ], [ 51, %99 ], [ 51, %126 ], [ 51, %.lr.ph.i.i58 ]
+  %.029 = phi i32 [ %178, %319 ], [ %.0106.i.i, %126 ], [ %.0106.i.i, %._crit_edge.i.i48 ], [ %.0106.i.i, %99 ], [ %.0106.i.i, %.lr.ph.i.i58 ]
+  %.027 = phi i32 [ %249, %319 ], [ %.125.i.i51, %126 ], [ %.1.lcssa.i.i50, %._crit_edge.i.i48 ], [ %101, %99 ], [ -1, %.lr.ph.i.i58 ]
+  %.026 = phi i32 [ %323, %319 ], [ 51, %126 ], [ 51, %._crit_edge.i.i48 ], [ 51, %99 ], [ 51, %.lr.ph.i.i58 ]
   switch i32 %.029, label %.critedge [
     i32 5, label %324
     i32 3, label %324
@@ -619,7 +619,7 @@ get_ur_golomb_shorten.exit62:                     ; preds = %.lr.ph.i.i58, %126,
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i.i84, %210, %281, %316, %245, %174, %324, %get_ur_golomb_shorten.exit88, %get_ur_golomb_shorten.exit114, %get_ur_golomb_shorten.exit140, %get_ur_golomb_shorten.exit62, %6, %1
-  %.031 = phi i32 [ 0, %1 ], [ 0, %6 ], [ 0, %get_ur_golomb_shorten.exit62 ], [ 0, %get_ur_golomb_shorten.exit140 ], [ 0, %get_ur_golomb_shorten.exit114 ], [ 0, %get_ur_golomb_shorten.exit88 ], [ %spec.select, %324 ], [ 0, %174 ], [ 0, %245 ], [ 0, %316 ], [ 0, %281 ], [ 0, %210 ], [ 0, %.lr.ph.i.i84 ]
+  %.031 = phi i32 [ %spec.select, %324 ], [ 0, %1 ], [ 0, %6 ], [ 0, %get_ur_golomb_shorten.exit62 ], [ 0, %245 ], [ 0, %get_ur_golomb_shorten.exit140 ], [ 0, %get_ur_golomb_shorten.exit114 ], [ 0, %get_ur_golomb_shorten.exit88 ], [ 0, %174 ], [ 0, %281 ], [ 0, %210 ], [ 0, %316 ], [ 0, %.lr.ph.i.i84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.031
 }
@@ -785,8 +785,8 @@ define internal fastcc i32 @get_ur_golomb_shorten(ptr noundef nonnull captures(n
   br label %get_ur_golomb_jpegls.exit
 
 get_ur_golomb_jpegls.exit:                        ; preds = %39, %28, %95, %98
-  %storemerge123.i = phi i32 [ %..i, %28 ], [ %.2.i, %95 ], [ %61, %98 ], [ %.0110130.i, %39 ]
-  %.0106.i = phi i32 [ %32, %28 ], [ %97, %95 ], [ %.125.i, %98 ], [ -1, %39 ]
+  %storemerge123.i = phi i32 [ %..i, %28 ], [ %61, %98 ], [ %.2.i, %95 ], [ %.0110130.i, %39 ]
+  %.0106.i = phi i32 [ %32, %28 ], [ %.125.i, %98 ], [ %97, %95 ], [ -1, %39 ]
   store i32 %storemerge123.i, ptr %3, align 8, !tbaa !21
   ret i32 %.0106.i
 }

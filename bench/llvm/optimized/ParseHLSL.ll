@@ -1026,7 +1026,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit20.i:        ; preds = %433, %431, %_ZNSt7_
   br label %_ZN4llvm3isaIN5clang13CXXRecordDeclENS1_10RecordDeclEJNS1_12FunctionDeclENS1_7VarDeclEEPNS1_4DeclEEEbRKT2_.exit.thread.i
 
 _ZN4llvm3isaIN5clang13CXXRecordDeclENS1_10RecordDeclEJNS1_12FunctionDeclENS1_7VarDeclEEPNS1_4DeclEEEbRKT2_.exit.thread.i: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit20.i, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i, %_ZN4llvm3isaIN5clang13CXXRecordDeclENS1_10RecordDeclEJNS1_12FunctionDeclENS1_7VarDeclEEPNS1_4DeclEEEbRKT2_.exit.i, %.lr.ph.i
-  %.1.i = phi i1 [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i ], [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit20.i ], [ %.0948.i, %_ZN4llvm3isaIN5clang13CXXRecordDeclENS1_10RecordDeclEJNS1_12FunctionDeclENS1_7VarDeclEEPNS1_4DeclEEEbRKT2_.exit.i ], [ %.0948.i, %.lr.ph.i ]
+  %.1.i = phi i1 [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit20.i ], [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i ], [ %.0948.i, %_ZN4llvm3isaIN5clang13CXXRecordDeclENS1_10RecordDeclEJNS1_12FunctionDeclENS1_7VarDeclEEPNS1_4DeclEEEbRKT2_.exit.i ], [ %.0948.i, %.lr.ph.i ]
   %434 = getelementptr inbounds nuw i8, ptr %.01047.i, i64 8
   %.not.i39 = icmp eq ptr %434, %.0.i11.i
   br i1 %.not.i39, label %_ZL29validateDeclsInsideHLSLBufferN5clang9OpaquePtrINS_12DeclGroupRefEEENS_14SourceLocationEbRNS_6ParserE.exit, label %.lr.ph.i, !llvm.loop !996

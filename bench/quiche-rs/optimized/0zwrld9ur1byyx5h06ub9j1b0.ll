@@ -763,7 +763,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$alloc..collections..vec_deq
   br label %.body.i
 
 .body.i:                                          ; preds = %"_ZN4core3ptr51drop_in_place$LT$quiche..cid..ConnectionIdEntry$GT$17hab8eefc1126a996cE.exit9.i.i", %"_ZN4core3ptr51drop_in_place$LT$quiche..cid..ConnectionIdEntry$GT$17hab8eefc1126a996cE.exit9.i9.i", %47, %29, %7
-  %eh.lpad-body.i = phi { ptr, i32 } [ %8, %7 ], [ %30, %29 ], [ %48, %47 ], [ %48, %"_ZN4core3ptr51drop_in_place$LT$quiche..cid..ConnectionIdEntry$GT$17hab8eefc1126a996cE.exit9.i9.i" ], [ %30, %"_ZN4core3ptr51drop_in_place$LT$quiche..cid..ConnectionIdEntry$GT$17hab8eefc1126a996cE.exit9.i.i" ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %30, %29 ], [ %8, %7 ], [ %48, %"_ZN4core3ptr51drop_in_place$LT$quiche..cid..ConnectionIdEntry$GT$17hab8eefc1126a996cE.exit9.i9.i" ], [ %48, %47 ], [ %30, %"_ZN4core3ptr51drop_in_place$LT$quiche..cid..ConnectionIdEntry$GT$17hab8eefc1126a996cE.exit9.i.i" ]
   invoke fastcc void @"_ZN4core3ptr196drop_in_place$LT$$LT$alloc..collections..vec_deque..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$quiche..cid..ConnectionIdEntry$C$alloc..alloc..Global$GT$$GT$17hfb7dea93f1f55462E"(ptr nonnull align 8 dereferenceable(40) %0) #23
           to label %60 unwind label %58
 
@@ -1616,7 +1616,7 @@ define hidden void @"_ZN4core3ptr123drop_in_place$LT$alloc..collections..vec_deq
   br label %.body.i
 
 .body.i:                                          ; preds = %27, %41, %7
-  %eh.lpad-body.i = phi { ptr, i32 } [ %8, %7 ], [ %44, %41 ], [ %30, %27 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %44, %41 ], [ %8, %7 ], [ %30, %27 ]
   invoke fastcc void @"_ZN4core3ptr217drop_in_place$LT$$LT$alloc..collections..vec_deque..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$quiche..recovery..gcongestion..recovery..SentPacket$C$alloc..alloc..Global$GT$$GT$17h87f50d1126c9b353E"(ptr nonnull align 8 dereferenceable(40) %0) #23
           to label %52 unwind label %50
 
@@ -2682,7 +2682,7 @@ define internal fastcc void @"_ZN4core3ptr193drop_in_place$LT$$LT$alloc..collect
   br i1 %41, label %common.resume.i, label %.lr.ph12.i.i
 
 common.resume.i:                                  ; preds = %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h7e82a75bdba22c89E.exit8.i.i", %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h7e82a75bdba22c89E.exit8.i12.i", %52, %32
-  %common.resume.op.i = phi { ptr, i32 } [ %33, %32 ], [ %53, %52 ], [ %53, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h7e82a75bdba22c89E.exit8.i12.i" ], [ %33, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h7e82a75bdba22c89E.exit8.i.i" ]
+  %common.resume.op.i = phi { ptr, i32 } [ %33, %32 ], [ %53, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h7e82a75bdba22c89E.exit8.i12.i" ], [ %53, %52 ], [ %33, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h7e82a75bdba22c89E.exit8.i.i" ]
   resume { ptr, i32 } %common.resume.op.i
 
 42:                                               ; preds = %40
@@ -2863,7 +2863,7 @@ define internal fastcc void @"_ZN4core3ptr196drop_in_place$LT$$LT$alloc..collect
   br i1 %39, label %common.resume.i, label %.lr.ph13.i.i
 
 common.resume.i:                                  ; preds = %"_ZN4core3ptr51drop_in_place$LT$quiche..cid..ConnectionIdEntry$GT$17hab8eefc1126a996cE.exit9.i.i", %"_ZN4core3ptr51drop_in_place$LT$quiche..cid..ConnectionIdEntry$GT$17hab8eefc1126a996cE.exit9.i13.i", %49, %31
-  %common.resume.op.i = phi { ptr, i32 } [ %32, %31 ], [ %50, %49 ], [ %50, %"_ZN4core3ptr51drop_in_place$LT$quiche..cid..ConnectionIdEntry$GT$17hab8eefc1126a996cE.exit9.i13.i" ], [ %32, %"_ZN4core3ptr51drop_in_place$LT$quiche..cid..ConnectionIdEntry$GT$17hab8eefc1126a996cE.exit9.i.i" ]
+  %common.resume.op.i = phi { ptr, i32 } [ %32, %31 ], [ %50, %"_ZN4core3ptr51drop_in_place$LT$quiche..cid..ConnectionIdEntry$GT$17hab8eefc1126a996cE.exit9.i13.i" ], [ %50, %49 ], [ %32, %"_ZN4core3ptr51drop_in_place$LT$quiche..cid..ConnectionIdEntry$GT$17hab8eefc1126a996cE.exit9.i.i" ]
   resume { ptr, i32 } %common.resume.op.i
 
 40:                                               ; preds = %38
@@ -4134,7 +4134,7 @@ define hidden void @"_ZN4core3ptr39drop_in_place$LT$quiche..Connection$GT$17h18c
   br label %.body75
 
 .body75:                                          ; preds = %169, %161, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E.exit"
-  %.pn34 = phi { ptr, i32 } [ %.pn32, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E.exit" ], [ %162, %169 ], [ %162, %161 ]
+  %.pn34 = phi { ptr, i32 } [ %.pn32, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E.exit" ], [ %162, %161 ], [ %162, %169 ]
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 14096
   %171 = load i64, ptr %170, align 16, !range !513, !alias.scope !554, !noundef !7
   %172 = icmp eq i64 %171, 3
@@ -5928,7 +5928,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$qlog..streamer..QlogStreamer
   br label %.body
 
 .body:                                            ; preds = %29, %21, %2
-  %.pn = phi { ptr, i32 } [ %3, %2 ], [ %22, %29 ], [ %22, %21 ]
+  %.pn = phi { ptr, i32 } [ %3, %2 ], [ %22, %21 ], [ %22, %29 ]
   invoke fastcc void @"_ZN4core3ptr34drop_in_place$LT$qlog..QlogSeq$GT$17h1fcc52d389c29371E"(ptr noalias noundef align 8 dereferenceable(328) %0) #23
           to label %32 unwind label %30
 
@@ -6115,7 +6115,7 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$qlog..events..quic.
   unreachable
 
 common.resume:                                    ; preds = %85, %80, %31, %35, %39
-  %common.resume.op = phi { ptr, i32 } [ %32, %39 ], [ %32, %35 ], [ %32, %31 ], [ %81, %80 ], [ %81, %85 ]
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %32, %39 ], [ %32, %35 ], [ %81, %80 ], [ %81, %85 ]
   resume { ptr, i32 } %common.resume.op
 
 49:                                               ; preds = %1
@@ -12521,7 +12521,7 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$alloc..collections..vec_dequ
   br label %.body.i
 
 .body.i:                                          ; preds = %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h7e82a75bdba22c89E.exit8.i.i", %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h7e82a75bdba22c89E.exit8.i8.i", %50, %30, %7
-  %eh.lpad-body.i = phi { ptr, i32 } [ %8, %7 ], [ %31, %30 ], [ %51, %50 ], [ %51, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h7e82a75bdba22c89E.exit8.i8.i" ], [ %31, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h7e82a75bdba22c89E.exit8.i.i" ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %31, %30 ], [ %8, %7 ], [ %51, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h7e82a75bdba22c89E.exit8.i8.i" ], [ %51, %50 ], [ %31, %"_ZN4core3ptr48drop_in_place$LT$quiche..range_buf..RangeBuf$GT$17h7e82a75bdba22c89E.exit8.i.i" ]
   invoke fastcc void @"_ZN4core3ptr193drop_in_place$LT$$LT$alloc..collections..vec_deque..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$quiche..range_buf..RangeBuf$C$alloc..alloc..Global$GT$$GT$17hd62b210a9416a3a8E"(ptr nonnull align 8 dereferenceable(40) %0) #23
           to label %64 unwind label %62
 
@@ -12943,8 +12943,8 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17h6e1184c8c06c1e58E(
   br i1 %15, label %153, label %154
 
 .outer._crit_edge:                                ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h219bc7d2101000acE.exit", %297, %7
-  %.sroa.0.0.ph.lcssa113 = phi ptr [ %0, %7 ], [ %.sroa.0.0.ph122, %297 ], [ %290, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h219bc7d2101000acE.exit" ]
-  %.sroa.12.0.lcssa = phi i64 [ %1, %7 ], [ %.sroa.27.2.lcssa.i, %297 ], [ %281, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h219bc7d2101000acE.exit" ]
+  %.sroa.0.0.ph.lcssa113 = phi ptr [ %.sroa.0.0.ph122, %297 ], [ %0, %7 ], [ %290, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h219bc7d2101000acE.exit" ]
+  %.sroa.12.0.lcssa = phi i64 [ %.sroa.27.2.lcssa.i, %297 ], [ %1, %7 ], [ %281, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h219bc7d2101000acE.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1990)
   call void @llvm.experimental.noalias.scope.decl(metadata !1993)
   %16 = icmp samesign ult i64 %.sroa.12.0.lcssa, 2
@@ -13732,7 +13732,7 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$9insert_at17hf37e50f0bc072de6E"(ptr 
   br label %34
 
 .thread17:                                        ; preds = %17, %21, %43
-  %.pn915 = phi { ptr, i32 } [ %44, %43 ], [ %18, %21 ], [ %18, %17 ]
+  %.pn915 = phi { ptr, i32 } [ %18, %17 ], [ %44, %43 ], [ %18, %21 ]
   resume { ptr, i32 } %.pn915
 
 43:                                               ; preds = %29

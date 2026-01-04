@@ -186,8 +186,8 @@ define internal ptr @_group_setup_mouse_actions(ptr noundef readonly captures(no
   br label %23
 
 23:                                               ; preds = %12, %15, %18, %.lr.ph, %6
-  %.118 = phi i32 [ %.01729, %6 ], [ %.01729, %.lr.ph ], [ %22, %18 ], [ %.01729, %15 ], [ %.01729, %12 ]
-  %.1 = phi ptr [ %.030, %6 ], [ %.030, %.lr.ph ], [ %20, %18 ], [ %.030, %15 ], [ %.030, %12 ]
+  %.118 = phi i32 [ %.01729, %.lr.ph ], [ %.01729, %6 ], [ %22, %18 ], [ %.01729, %15 ], [ %.01729, %12 ]
+  %.1 = phi ptr [ %.030, %.lr.ph ], [ %.030, %6 ], [ %20, %18 ], [ %.030, %15 ], [ %.030, %12 ]
   %24 = getelementptr inbounds nuw i8, ptr %.02031, i64 8
   %.020 = load ptr, ptr %24, align 8, !tbaa !6
   %.not = icmp eq ptr %.020, null
@@ -852,7 +852,7 @@ dt_get_debug_wtime.exit:                          ; preds = %176, %178
   br label %.thread.us.us.us
 
 .thread.us.us.us:                                 ; preds = %255, %246, %243, %239
-  %storemerge479.us.us.us = phi float [ %258, %255 ], [ 0.000000e+00, %239 ], [ 0.000000e+00, %243 ], [ 0.000000e+00, %246 ]
+  %storemerge479.us.us.us = phi float [ %258, %255 ], [ 0.000000e+00, %246 ], [ 0.000000e+00, %243 ], [ 0.000000e+00, %239 ]
   store float %storemerge479.us.us.us, ptr %gep, align 4, !tbaa !97
   %indvars.iv.next619 = add nuw nsw i64 %indvars.iv618, 1
   %exitcond622.not = icmp eq i64 %indvars.iv.next619, %160
@@ -1918,7 +1918,7 @@ _is_handling_form.exit.thread:                    ; preds = %45, %48, %51, %54, 
   br label %.thread
 
 .thread:                                          ; preds = %79, %_is_handling_form.exit.thread, %141, %._crit_edge.thread, %37, %87
-  %.2 = phi i32 [ %.lobit, %87 ], [ 1, %37 ], [ %146, %141 ], [ 0, %._crit_edge.thread ], [ 1, %79 ], [ 0, %_is_handling_form.exit.thread ]
+  %.2 = phi i32 [ 1, %37 ], [ %.lobit, %87 ], [ %146, %141 ], [ 0, %._crit_edge.thread ], [ 1, %79 ], [ 0, %_is_handling_form.exit.thread ]
   ret i32 %.2
 }
 
@@ -2025,7 +2025,7 @@ define internal i32 @_group_events_button_pressed(ptr noundef %0, float noundef 
   br label %.thread
 
 .thread:                                          ; preds = %31, %40, %29, %37, %16
-  %.038 = phi i32 [ 1, %16 ], [ 0, %37 ], [ 0, %29 ], [ 0, %31 ], [ %46, %40 ]
+  %.038 = phi i32 [ 1, %16 ], [ 0, %29 ], [ 0, %37 ], [ 0, %31 ], [ %46, %40 ]
   ret i32 %.038
 }
 

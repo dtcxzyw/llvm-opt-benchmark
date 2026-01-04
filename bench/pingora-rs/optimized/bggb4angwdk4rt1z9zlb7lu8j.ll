@@ -183,7 +183,7 @@ define void @_ZN14pingora_ketama9Continuum3new17h4c06efabe3c73940E(ptr dead_on_u
   unreachable
 
 .thread61:                                        ; preds = %101, %104, %190, %59
-  %.pn26 = phi { ptr, i32 } [ %.pn.pn53, %190 ], [ %.pn.ph, %59 ], [ %102, %104 ], [ %102, %101 ]
+  %.pn26 = phi { ptr, i32 } [ %102, %101 ], [ %.pn.pn53, %190 ], [ %.pn.ph, %59 ], [ %102, %104 ]
   resume { ptr, i32 } %.pn26
 
 59:                                               ; preds = %189
@@ -261,7 +261,7 @@ define void @_ZN14pingora_ketama9Continuum3new17h4c06efabe3c73940E(ptr dead_on_u
   br label %189
 
 .loopexit.split-lp66:                             ; preds = %92, %93, %94, %95, %118
-  %.sroa.06.1.ph = phi i1 [ true, %118 ], [ true, %92 ], [ true, %93 ], [ true, %94 ], [ false, %95 ]
+  %.sroa.06.1.ph = phi i1 [ true, %94 ], [ false, %95 ], [ true, %92 ], [ true, %118 ], [ true, %93 ]
   %lpad.loopexit.split-lp68 = landingpad { ptr, i32 }
           cleanup
   br label %189
@@ -385,7 +385,7 @@ define void @_ZN14pingora_ketama9Continuum3new17h4c06efabe3c73940E(ptr dead_on_u
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %149, %141, %133
-  %eh.lpad-body = phi { ptr, i32 } [ %134, %133 ], [ %142, %141 ], [ %150, %149 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %142, %141 ], [ %134, %133 ], [ %150, %149 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h7c2da41c6842b9bcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #16
           to label %189 unwind label %57
 

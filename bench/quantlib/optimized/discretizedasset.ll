@@ -217,13 +217,9 @@ if.end.i.i:                                       ; preds = %_ZNK5boost10shared_
   %cmp1.i.i = fcmp oeq double %8, 0.000000e+00
   %cmp2.i.i = fcmp oeq double %9, 0.000000e+00
   %or.cond.i.i = or i1 %cmp1.i.i, %cmp2.i.i
-  br i1 %or.cond.i.i, label %if.then3.i.i, label %_ZN8QuantLib12close_enoughEdd.exit.i
+  br i1 %or.cond.i.i, label %_ZN8QuantLib12close_enoughEdd.exit.i, label %if.end5.i.i
 
-if.then3.i.i:                                     ; preds = %if.end.i.i
-  %cmp4.i.i = fcmp olt double %10, 0x3A1B900000000000
-  br i1 %cmp4.i.i, label %_ZN8QuantLib16DiscretizedAsset15preAdjustValuesEv.exit, label %if.then.i
-
-_ZN8QuantLib12close_enoughEdd.exit.i:             ; preds = %if.end.i.i
+if.end5.i.i:                                      ; preds = %if.end.i.i
   %11 = tail call double @llvm.fabs.f64(double %8)
   %mul.i.i = fmul double %11, 0x3D05000000000000
   %cmp6.i.i = fcmp ole double %10, %mul.i.i
@@ -233,7 +229,11 @@ _ZN8QuantLib12close_enoughEdd.exit.i:             ; preds = %if.end.i.i
   %13 = or i1 %cmp6.i.i, %cmp8.i.i
   br i1 %13, label %_ZN8QuantLib16DiscretizedAsset15preAdjustValuesEv.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %_ZN8QuantLib12close_enoughEdd.exit.i, %if.then3.i.i
+_ZN8QuantLib12close_enoughEdd.exit.i:             ; preds = %if.end.i.i
+  %cmp4.i.i = fcmp olt double %10, 0x3A1B900000000000
+  br i1 %cmp4.i.i, label %_ZN8QuantLib16DiscretizedAsset15preAdjustValuesEv.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %_ZN8QuantLib12close_enoughEdd.exit.i, %if.end5.i.i
   %vtable.i12 = load ptr, ptr %7, align 8, !tbaa !14
   %vfn.i13 = getelementptr inbounds nuw i8, ptr %vtable.i12, i64 32
   %14 = load ptr, ptr %vfn.i13, align 8
@@ -242,7 +242,7 @@ if.then.i:                                        ; preds = %_ZN8QuantLib12close
   store double %15, ptr %latestPreAdjustment_.i, align 8, !tbaa !25
   br label %_ZN8QuantLib16DiscretizedAsset15preAdjustValuesEv.exit
 
-_ZN8QuantLib16DiscretizedAsset15preAdjustValuesEv.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEptEv.exit11, %if.then3.i.i, %_ZN8QuantLib12close_enoughEdd.exit.i, %if.then.i
+_ZN8QuantLib16DiscretizedAsset15preAdjustValuesEv.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEptEv.exit11, %if.end5.i.i, %_ZN8QuantLib12close_enoughEdd.exit.i, %if.then.i
   %exerciseType_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %16 = load i32, ptr %exerciseType_, align 8, !tbaa !34
   switch i32 %16, label %do.body [
@@ -375,23 +375,23 @@ if.end.i.i23:                                     ; preds = %_ZNK5boost10shared_
   %cmp1.i.i25 = fcmp oeq double %45, 0.000000e+00
   %cmp2.i.i26 = fcmp oeq double %46, 0.000000e+00
   %or.cond.i.i27 = or i1 %cmp1.i.i25, %cmp2.i.i26
-  br i1 %or.cond.i.i27, label %if.then3.i.i33, label %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit
+  br i1 %or.cond.i.i27, label %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit, label %if.end5.i.i28
 
-if.then3.i.i33:                                   ; preds = %if.end.i.i23
+if.end5.i.i28:                                    ; preds = %if.end.i.i23
+  %48 = tail call double @llvm.fabs.f64(double %45)
+  %mul.i.i29 = fmul double %48, 0x3D05000000000000
+  %cmp6.i.i30 = fcmp ole double %47, %mul.i.i29
+  %49 = tail call double @llvm.fabs.f64(double %46)
+  %mul7.i.i31 = fmul double %49, 0x3D05000000000000
+  %cmp8.i.i32 = fcmp ole double %47, %mul7.i.i31
+  %50 = or i1 %cmp6.i.i30, %cmp8.i.i32
+  br i1 %50, label %if.then19, label %if.end20
+
+_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit:  ; preds = %if.end.i.i23
   %cmp4.i.i34 = fcmp olt double %47, 0x3A1B900000000000
   br i1 %cmp4.i.i34, label %if.then19, label %if.end20
 
-_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit:  ; preds = %if.end.i.i23
-  %48 = tail call double @llvm.fabs.f64(double %45)
-  %mul.i.i28 = fmul double %48, 0x3D05000000000000
-  %cmp6.i.i29 = fcmp ole double %47, %mul.i.i28
-  %49 = tail call double @llvm.fabs.f64(double %46)
-  %mul7.i.i30 = fmul double %49, 0x3D05000000000000
-  %cmp8.i.i31 = fcmp ole double %47, %mul7.i.i30
-  %50 = or i1 %cmp6.i.i29, %cmp8.i.i31
-  br i1 %50, label %if.then19, label %if.end20
-
-if.then19:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib7LatticeEEptEv.exit.i, %if.then3.i.i33, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit
+if.then19:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib7LatticeEEptEv.exit.i, %if.end5.i.i28, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit
   %51 = load i64, ptr %n_.i.i38, align 8, !tbaa !43
   %cmp7.not.i39 = icmp eq i64 %51, 0
   br i1 %cmp7.not.i39, label %if.end20, label %for.body.lr.ph.i40
@@ -450,7 +450,7 @@ _ZNK5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEptEv.exit.i54: ; preds = %c
   %cmp.i60 = icmp ult i64 %inc.i59, %61
   br i1 %cmp.i60, label %for.body.i51, label %if.end20, !llvm.loop !47
 
-if.end20:                                         ; preds = %for.body.us.i44, %_ZNK5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEptEv.exit.i54, %if.then19, %if.then3.i.i33, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit, %for.body
+if.end20:                                         ; preds = %for.body.us.i44, %_ZNK5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEptEv.exit.i54, %if.then19, %if.end5.i.i28, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit, %for.body
   %inc = add nuw i64 %i.0128, 1
   %68 = load ptr, ptr %_M_finish.i, align 8, !tbaa !49
   %69 = load ptr, ptr %exerciseTimes_11, align 8, !tbaa !42
@@ -544,7 +544,7 @@ ehcleanup35:                                      ; preds = %ehcleanup, %if.then
   %80 = load ptr, ptr %ref.tmp, align 8, !tbaa !10
   %81 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i73 = icmp eq ptr %80, %81
-  br i1 %cmp.i.i.i73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i76, label %ehcleanup39
+  br i1 %cmp.i.i.i73, label %ehcleanup39, label %if.then.i.i74
 
 ehcleanup35.thread:                               ; preds = %invoke.cont24
   %82 = landingpad { ptr, i32 }
@@ -554,20 +554,15 @@ ehcleanup35.thread:                               ; preds = %invoke.cont24
   %83 = load ptr, ptr %ref.tmp, align 8, !tbaa !10
   %84 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i73107 = icmp eq ptr %83, %84
-  br i1 %cmp.i.i.i73107, label %cleanup.action.sink.split, label %ehcleanup39.thread116
+  br i1 %cmp.i.i.i73107, label %cleanup.action.sink.split, label %if.then.i.i74.thread
 
-ehcleanup39.thread116:                            ; preds = %ehcleanup35.thread
+if.then.i.i74.thread:                             ; preds = %ehcleanup35.thread
   %85 = load i64, ptr %84, align 8, !tbaa !12
   %add.i.i.i75119 = add i64 %85, 1
   call void @_ZdlPvm(ptr noundef %83, i64 noundef %add.i.i.i75119) #17
   br label %cleanup.action.sink.split
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i76: ; preds = %ehcleanup35
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp22)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup43
-
-ehcleanup39:                                      ; preds = %ehcleanup35
+if.then.i.i74:                                    ; preds = %ehcleanup35
   %86 = load i64, ptr %81, align 8, !tbaa !12
   %add.i.i.i75 = add i64 %86, 1
   call void @_ZdlPvm(ptr noundef %80, i64 noundef %add.i.i.i75) #17
@@ -575,19 +570,24 @@ ehcleanup39:                                      ; preds = %ehcleanup35
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup43
 
-cleanup.action.sink.split:                        ; preds = %ehcleanup35.thread, %ehcleanup39.thread, %ehcleanup39.thread116
-  %.pn.pn.pn104.ph = phi { ptr, i32 } [ %82, %ehcleanup39.thread116 ], [ %71, %ehcleanup39.thread ], [ %82, %ehcleanup35.thread ]
+ehcleanup39:                                      ; preds = %ehcleanup35
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup43
+
+cleanup.action.sink.split:                        ; preds = %ehcleanup35.thread, %ehcleanup39.thread, %if.then.i.i74.thread
+  %.pn.pn.pn104.ph = phi { ptr, i32 } [ %82, %if.then.i.i74.thread ], [ %71, %ehcleanup39.thread ], [ %82, %ehcleanup35.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp22)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %cleanup.action
 
-cleanup.action:                                   ; preds = %cleanup.action.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i76, %ehcleanup39
-  %.pn.pn.pn104 = phi { ptr, i32 } [ %.pn, %ehcleanup39 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i76 ], [ %.pn.pn.pn104.ph, %cleanup.action.sink.split ]
+cleanup.action:                                   ; preds = %cleanup.action.sink.split, %if.then.i.i74, %ehcleanup39
+  %.pn.pn.pn104 = phi { ptr, i32 } [ %.pn, %if.then.i.i74 ], [ %.pn, %ehcleanup39 ], [ %.pn.pn.pn104.ph, %cleanup.action.sink.split ]
   call void @__cxa_free_exception(ptr %exception) #15
   br label %ehcleanup43
 
-ehcleanup43:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i76, %ehcleanup39, %cleanup.action, %lpad
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn104, %cleanup.action ], [ %.pn, %ehcleanup39 ], [ %70, %lpad ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i76 ]
+ehcleanup43:                                      ; preds = %if.then.i.i74, %ehcleanup39, %cleanup.action, %lpad
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn104, %cleanup.action ], [ %.pn, %ehcleanup39 ], [ %70, %lpad ], [ %.pn, %if.then.i.i74 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %_ql_msg_stream)
   resume { ptr, i32 } %.pn.pn.pn.pn
@@ -617,13 +617,9 @@ if.end.i.i86:                                     ; preds = %_ZNK5boost10shared_
   %cmp1.i.i88 = fcmp oeq double %89, 0.000000e+00
   %cmp2.i.i89 = fcmp oeq double %90, 0.000000e+00
   %or.cond.i.i90 = or i1 %cmp1.i.i88, %cmp2.i.i89
-  br i1 %or.cond.i.i90, label %if.then3.i.i99, label %_ZN8QuantLib12close_enoughEdd.exit.i91
+  br i1 %or.cond.i.i90, label %_ZN8QuantLib12close_enoughEdd.exit.i99, label %if.end5.i.i91
 
-if.then3.i.i99:                                   ; preds = %if.end.i.i86
-  %cmp4.i.i100 = fcmp olt double %91, 0x3A1B900000000000
-  br i1 %cmp4.i.i100, label %_ZN8QuantLib16DiscretizedAsset16postAdjustValuesEv.exit, label %if.then.i96
-
-_ZN8QuantLib12close_enoughEdd.exit.i91:           ; preds = %if.end.i.i86
+if.end5.i.i91:                                    ; preds = %if.end.i.i86
   %92 = tail call double @llvm.fabs.f64(double %89)
   %mul.i.i92 = fmul double %92, 0x3D05000000000000
   %cmp6.i.i93 = fcmp ole double %91, %mul.i.i92
@@ -633,7 +629,11 @@ _ZN8QuantLib12close_enoughEdd.exit.i91:           ; preds = %if.end.i.i86
   %94 = or i1 %cmp6.i.i93, %cmp8.i.i95
   br i1 %94, label %_ZN8QuantLib16DiscretizedAsset16postAdjustValuesEv.exit, label %if.then.i96
 
-if.then.i96:                                      ; preds = %_ZN8QuantLib12close_enoughEdd.exit.i91, %if.then3.i.i99
+_ZN8QuantLib12close_enoughEdd.exit.i99:           ; preds = %if.end.i.i86
+  %cmp4.i.i100 = fcmp olt double %91, 0x3A1B900000000000
+  br i1 %cmp4.i.i100, label %_ZN8QuantLib16DiscretizedAsset16postAdjustValuesEv.exit, label %if.then.i96
+
+if.then.i96:                                      ; preds = %_ZN8QuantLib12close_enoughEdd.exit.i99, %if.end5.i.i91
   %vtable.i97 = load ptr, ptr %88, align 8, !tbaa !14
   %vfn.i98 = getelementptr inbounds nuw i8, ptr %vtable.i97, i64 40
   %95 = load ptr, ptr %vfn.i98, align 8
@@ -642,7 +642,7 @@ if.then.i96:                                      ; preds = %_ZN8QuantLib12close
   store double %96, ptr %latestPostAdjustment_.i, align 8, !tbaa !51
   br label %_ZN8QuantLib16DiscretizedAsset16postAdjustValuesEv.exit
 
-_ZN8QuantLib16DiscretizedAsset16postAdjustValuesEv.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEptEv.exit83, %if.then3.i.i99, %_ZN8QuantLib12close_enoughEdd.exit.i91, %if.then.i96
+_ZN8QuantLib16DiscretizedAsset16postAdjustValuesEv.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEptEv.exit83, %if.end5.i.i91, %_ZN8QuantLib12close_enoughEdd.exit.i99, %if.then.i96
   ret void
 
 unreachable:                                      ; preds = %invoke.cont33
