@@ -49490,9 +49490,9 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   %45 = sub i64 %44, %5
   %46 = add i64 %45, %.sroa.18.0
   %47 = add nsw i32 %.sroa.4.0.i.ph.i.i.i.i, -123
-  %switch.and.i.i.i = and i32 %47, -3
-  %switch.selectcmp.i.not.i.i = icmp eq i32 %switch.and.i.i.i, 0
-  br i1 %switch.selectcmp.i.not.i.i, label %4, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h7a5e26b28ad954cfE.exit"
+  %switch.and.i.i.i.i.i = and i32 %47, -3
+  %switch.selectcmp.i.i.i.not.i.i = icmp eq i32 %switch.and.i.i.i.i.i, 0
+  br i1 %switch.selectcmp.i.i.i.not.i.i, label %4, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h7a5e26b28ad954cfE.exit"
 
 "_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h7a5e26b28ad954cfE.exit": ; preds = %4, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h87f1d5c76d58b289E.exit.i.i"
   %.sroa.4.219 = phi ptr [ %.sroa.4.1, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h87f1d5c76d58b289E.exit.i.i" ], [ %3, %4 ]
@@ -49573,9 +49573,9 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   %91 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i.i.i, 1114112
   tail call void @llvm.assume(i1 %91)
   %92 = add nsw i32 %.sroa.4.1.i.ph.i.i.i.i, -123
-  %switch.and.i.i.i4 = and i32 %92, -3
-  %switch.selectcmp.i.not.i.i5 = icmp eq i32 %switch.and.i.i.i4, 0
-  br i1 %switch.selectcmp.i.not.i.i5, label %48, label %93
+  %switch.and.i.i.i.i.i4 = and i32 %92, -3
+  %switch.selectcmp.i.i.i.not.i.i5 = icmp eq i32 %switch.and.i.i.i.i.i4, 0
+  br i1 %switch.selectcmp.i.i.i.not.i.i5, label %48, label %93
 
 93:                                               ; preds = %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h33c28194d2ddb103E.exit.i.i"
   %94 = ptrtoint ptr %49 to i64

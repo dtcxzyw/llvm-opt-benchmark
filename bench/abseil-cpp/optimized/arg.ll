@@ -3810,13 +3810,13 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
   %5 = alloca %"class.absl::str_format_internal::FormatConversionSpecImpl", align 8
   %6 = and i64 %1, 255
   %7 = icmp eq i64 %6, 19
-  br i1 %7, label %22, label %8, !prof !36
+  br i1 %7, label %23, label %8, !prof !36
 
 8:                                                ; preds = %4
   %9 = shl nuw i64 2, %6
   %10 = and i64 %9, 654848
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %22, label %11, !prof !36
+  br i1 %.not, label %23, label %11, !prof !36
 
 11:                                               ; preds = %8
   %12 = ptrtoint ptr %0 to i64
@@ -3832,24 +3832,24 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
 
 .thread.i.i:                                      ; preds = %11
   store i8 12, ptr %5, align 8, !tbaa !42
-  br label %19
+  br label %20
 
 17:                                               ; preds = %11
   %18 = and i8 %15, -8
-  %or.cond13.i.i.i = icmp eq i8 %18, 8
-  br i1 %or.cond13.i.i.i, label %19, label %_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
+  %19 = icmp eq i8 %18, 8
+  br i1 %19, label %20, label %_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
-19:                                               ; preds = %17, %.thread.i.i
-  %20 = call noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEfRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(float noundef %14, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef %3)
+20:                                               ; preds = %17, %.thread.i.i
+  %21 = call noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEfRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(float noundef %14, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef %3)
   br label %_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
-_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %17, %19
-  %21 = phi i1 [ false, %17 ], [ %20, %19 ]
+_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %17, %20
+  %22 = phi i1 [ false, %17 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %22
+  br label %23
 
-22:                                               ; preds = %4, %8, %_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
-  %.0 = phi i1 [ false, %8 ], [ %21, %_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit ], [ false, %4 ]
+23:                                               ; preds = %4, %8, %_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
+  %.0 = phi i1 [ false, %8 ], [ %22, %_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -3866,22 +3866,22 @@ define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvert
 
 .thread.i:                                        ; preds = %4
   store i8 12, ptr %5, align 8, !tbaa !42
-  br label %10
+  br label %11
 
 8:                                                ; preds = %4
   %9 = and i8 %6, -8
-  %or.cond13.i.i = icmp eq i8 %9, 8
-  br i1 %or.cond13.i.i, label %10, label %_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIfEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
+  %10 = icmp eq i8 %9, 8
+  br i1 %10, label %11, label %_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIfEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
-10:                                               ; preds = %8, %.thread.i
-  %11 = call noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEfRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(float noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef %3)
-  %12 = zext i1 %11 to i8
+11:                                               ; preds = %8, %.thread.i
+  %12 = call noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEfRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(float noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef %3)
+  %13 = zext i1 %12 to i8
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIfEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
-_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIfEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %8, %10
-  %13 = phi i8 [ 0, %8 ], [ %12, %10 ]
+_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIfEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %8, %11
+  %14 = phi i8 [ 0, %8 ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i8 %13
+  ret i8 %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3889,13 +3889,13 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
   %5 = alloca %"class.absl::str_format_internal::FormatConversionSpecImpl", align 8
   %6 = and i64 %1, 255
   %7 = icmp eq i64 %6, 19
-  br i1 %7, label %21, label %8, !prof !36
+  br i1 %7, label %22, label %8, !prof !36
 
 8:                                                ; preds = %4
   %9 = shl nuw i64 2, %6
   %10 = and i64 %9, 654848
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %21, label %11, !prof !36
+  br i1 %.not, label %22, label %11, !prof !36
 
 11:                                               ; preds = %8
   %12 = ptrtoint ptr %0 to i64
@@ -3910,24 +3910,24 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
 
 .thread.i.i:                                      ; preds = %11
   store i8 12, ptr %5, align 8, !tbaa !42
-  br label %18
+  br label %19
 
 16:                                               ; preds = %11
   %17 = and i8 %14, -8
-  %or.cond13.i.i.i = icmp eq i8 %17, 8
-  br i1 %or.cond13.i.i.i, label %18, label %_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
+  %18 = icmp eq i8 %17, 8
+  br i1 %18, label %19, label %_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
-18:                                               ; preds = %16, %.thread.i.i
-  %19 = call noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEdRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(double noundef %13, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef %3)
+19:                                               ; preds = %16, %.thread.i.i
+  %20 = call noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEdRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(double noundef %13, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef %3)
   br label %_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
-_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %16, %18
-  %20 = phi i1 [ false, %16 ], [ %19, %18 ]
+_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %16, %19
+  %21 = phi i1 [ false, %16 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %21
+  br label %22
 
-21:                                               ; preds = %4, %8, %_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
-  %.0 = phi i1 [ false, %8 ], [ %20, %_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit ], [ false, %4 ]
+22:                                               ; preds = %4, %8, %_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
+  %.0 = phi i1 [ false, %8 ], [ %21, %_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -3944,22 +3944,22 @@ define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvert
 
 .thread.i:                                        ; preds = %4
   store i8 12, ptr %5, align 8, !tbaa !42
-  br label %10
+  br label %11
 
 8:                                                ; preds = %4
   %9 = and i8 %6, -8
-  %or.cond13.i.i = icmp eq i8 %9, 8
-  br i1 %or.cond13.i.i, label %10, label %_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIdEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
+  %10 = icmp eq i8 %9, 8
+  br i1 %10, label %11, label %_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIdEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
-10:                                               ; preds = %8, %.thread.i
-  %11 = call noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEdRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(double noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef %3)
-  %12 = zext i1 %11 to i8
+11:                                               ; preds = %8, %.thread.i
+  %12 = call noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEdRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(double noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef %3)
+  %13 = zext i1 %12 to i8
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIdEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
-_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIdEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %8, %10
-  %13 = phi i8 [ 0, %8 ], [ %12, %10 ]
+_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIdEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %8, %11
+  %14 = phi i8 [ 0, %8 ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i8 %13
+  ret i8 %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3967,13 +3967,13 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
   %5 = alloca %"class.absl::str_format_internal::FormatConversionSpecImpl", align 8
   %6 = and i64 %1, 255
   %7 = icmp eq i64 %6, 19
-  br i1 %7, label %20, label %8, !prof !36
+  br i1 %7, label %21, label %8, !prof !36
 
 8:                                                ; preds = %4
   %9 = shl nuw i64 2, %6
   %10 = and i64 %9, 654848
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %20, label %11, !prof !36
+  br i1 %.not, label %21, label %11, !prof !36
 
 11:                                               ; preds = %8
   %12 = load x86_fp80, ptr %0, align 16, !tbaa !47
@@ -3987,24 +3987,24 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
 
 .thread.i.i:                                      ; preds = %11
   store i8 12, ptr %5, align 8, !tbaa !42
-  br label %17
+  br label %18
 
 15:                                               ; preds = %11
   %16 = and i8 %13, -8
-  %or.cond13.i.i.i = icmp eq i8 %16, 8
-  br i1 %or.cond13.i.i.i, label %17, label %_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
+  %17 = icmp eq i8 %16, 8
+  br i1 %17, label %18, label %_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
-17:                                               ; preds = %15, %.thread.i.i
-  %18 = call noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEeRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(x86_fp80 noundef %12, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef %3)
+18:                                               ; preds = %15, %.thread.i.i
+  %19 = call noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEeRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(x86_fp80 noundef %12, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef %3)
   br label %_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
-_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %15, %17
-  %19 = phi i1 [ false, %15 ], [ %18, %17 ]
+_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %15, %18
+  %20 = phi i1 [ false, %15 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %20
+  br label %21
 
-20:                                               ; preds = %4, %8, %_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
-  %.0 = phi i1 [ false, %8 ], [ %19, %_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit ], [ false, %4 ]
+21:                                               ; preds = %4, %8, %_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
+  %.0 = phi i1 [ false, %8 ], [ %20, %_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -4021,22 +4021,22 @@ define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvert
 
 .thread.i:                                        ; preds = %4
   store i8 12, ptr %5, align 8, !tbaa !42
-  br label %10
+  br label %11
 
 8:                                                ; preds = %4
   %9 = and i8 %6, -8
-  %or.cond13.i.i = icmp eq i8 %9, 8
-  br i1 %or.cond13.i.i, label %10, label %_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIeEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
+  %10 = icmp eq i8 %9, 8
+  br i1 %10, label %11, label %_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIeEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
-10:                                               ; preds = %8, %.thread.i
-  %11 = call noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEeRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(x86_fp80 noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef %3)
-  %12 = zext i1 %11 to i8
+11:                                               ; preds = %8, %.thread.i
+  %12 = call noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEeRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(x86_fp80 noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef %3)
+  %13 = zext i1 %12 to i8
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIeEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
-_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIeEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %8, %10
-  %13 = phi i8 [ 0, %8 ], [ %12, %10 ]
+_ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIeEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %8, %11
+  %14 = phi i8 [ 0, %8 ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i8 %13
+  ret i8 %14
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -492,11 +492,18 @@ define dso_local noundef zeroext i1 @_ZN4llvm13CSEConfigFull12shouldCSEOpcEj(ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm21CSEConfigConstantOnly12shouldCSEOpcEj(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #2 align 2 {
-  %3 = add i32 %1, -133
-  %or.cond = icmp ult i32 %3, 2
-  %4 = icmp eq i32 %1, 67
-  %spec.select = or i1 %4, %or.cond
-  ret i1 %spec.select
+  switch i32 %1, label %ret.false [
+    i32 134, label %switch.return
+    i32 133, label %switch.return
+    i32 67, label %switch.return
+  ]
+
+ret.false:                                        ; preds = %2
+  br label %switch.return
+
+switch.return:                                    ; preds = %2, %2, %2, %ret.false
+  %3 = phi i1 [ false, %ret.false ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

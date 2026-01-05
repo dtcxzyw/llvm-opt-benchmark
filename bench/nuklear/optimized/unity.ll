@@ -59914,14 +59914,32 @@ define range(i32 0, 2) i32 @nk_filter_decimal(ptr readnone captures(none) %0, i3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 0, 2) i32 @nk_filter_hex(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = add i32 %1, -48
-  %or.cond = icmp ult i32 %3, 10
-  %4 = and i32 %1, -33
-  %5 = add i32 %4, -65
-  %6 = icmp ult i32 %5, 6
-  %or.cond13.not = or i1 %or.cond, %6
-  %.0 = zext i1 %or.cond13.not to i32
-  ret i32 %.0
+  %3 = add i32 %1, -58
+  %or.cond = icmp ult i32 %3, -10
+  br i1 %or.cond, label %switch.early.test, label %ret.false
+
+switch.early.test:                                ; preds = %2
+  switch i32 %1, label %switch.return [
+    i32 102, label %ret.false
+    i32 101, label %ret.false
+    i32 100, label %ret.false
+    i32 99, label %ret.false
+    i32 98, label %ret.false
+    i32 97, label %ret.false
+    i32 70, label %ret.false
+    i32 69, label %ret.false
+    i32 68, label %ret.false
+    i32 67, label %ret.false
+    i32 66, label %ret.false
+    i32 65, label %ret.false
+  ]
+
+ret.false:                                        ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %2
+  br label %switch.return
+
+switch.return:                                    ; preds = %switch.early.test, %ret.false
+  %4 = phi i32 [ 1, %ret.false ], [ 0, %switch.early.test ]
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

@@ -237,6 +237,7 @@ $_ZTV37LateInlineVectorReboxingCallGenerator = comdat any
 @.str.21 = private unnamed_addr constant [41 x i8] c"src/hotspot/share/opto/callGenerator.hpp\00", align 1
 @.str.22 = private unnamed_addr constant [32 x i8] c"unique id only for late inlines\00", align 1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
+@switch.table._ZN20VirtualCallGenerator8generateEP8JVMState = private unnamed_addr constant [4 x i32] [i32 1, i32 1, i32 0, i32 1], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK13CallGenerator2tfEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
@@ -886,16 +887,23 @@ define hidden noundef ptr @_ZN20VirtualCallGenerator8generateEP8JVMState(ptr nou
   %59 = call noundef i32 @_ZNK8GraphKit7java_bcEv(ptr noundef nonnull align 8 dereferenceable(84) %9) #8
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %61 = load i32, ptr %60, align 8
-  %62 = and i32 %59, -2
-  %or.cond.i.i = icmp eq i32 %62, 182
-  %63 = icmp eq i32 %59, 185
-  %spec.select.i.i = or i1 %63, %or.cond.i.i
-  %64 = zext i1 %spec.select.i.i to i32
-  %65 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %66 = load i32, ptr %65, align 8
-  %67 = add i32 %66, %61
-  %68 = add i32 %67, %64
-  store i32 %68, ptr %65, align 8
+  %switch.tableidx = add i32 %59, -182
+  %62 = icmp ult i32 %switch.tableidx, 4
+  br i1 %62, label %switch.lookup, label %_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit
+
+switch.lookup:                                    ; preds = %53
+  %63 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN20VirtualCallGenerator8generateEP8JVMState, i64 %63
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit
+
+_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit: ; preds = %53, %switch.lookup
+  %64 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %53 ]
+  %65 = add nsw i32 %64, %61
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %67 = load i32, ptr %66, align 8
+  %68 = add nsw i32 %65, %67
+  store i32 %68, ptr %66, align 8
   %69 = call noundef ptr @_ZN8GraphKit13uncommon_trapEiP7ciKlassPKcbb(ptr noundef nonnull align 8 dereferenceable(84) %9, i32 noundef -9, ptr noundef null, ptr noundef nonnull @.str.5, i1 noundef zeroext false, i1 noundef zeroext false) #8
   br label %212
 
@@ -1113,7 +1121,7 @@ _ZN13CallGenerator34is_inlined_method_handle_intrinsicEP8JVMStateP8ciMethod.exit
   %211 = call noundef ptr @_ZN8GraphKit13cast_not_nullEP4Nodeb(ptr noundef nonnull align 8 dereferenceable(84) %9, ptr noundef %.020, i1 noundef zeroext true) #8
   br label %212
 
-212:                                              ; preds = %87, %_ZN13CallGenerator34is_inlined_method_handle_intrinsicEP8JVMStateP8ciMethod.exit.thread, %53
+212:                                              ; preds = %87, %_ZN13CallGenerator34is_inlined_method_handle_intrinsicEP8JVMStateP8ciMethod.exit.thread, %_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit
   %213 = call noundef ptr @_ZN8GraphKit29transfer_exceptions_into_jvmsEv(ptr noundef nonnull align 8 dereferenceable(84) %9) #8
   ret ptr %213
 }

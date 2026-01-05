@@ -1961,7 +1961,7 @@ eh.resume:                                        ; preds = %lpad
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox9functions17jsonExtractScalarB5cxx11EN5folly5RangeIPKcEES6_(ptr noalias sret(%"class.folly::Optional.14") align 8 %agg.result, ptr %json.coerce0, ptr %json.coerce1, ptr %path.coerce0, ptr %path.coerce1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
-invoke.cont:
+entry:
   %res = alloca %"class.folly::Optional", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::allocator.5", align 1
@@ -1970,11 +1970,11 @@ invoke.cont:
   call void @_ZN8facebook5velox9functions11jsonExtractEN5folly5RangeIPKcEES6_(ptr nonnull sret(%"class.folly::Optional") align 8 %res, ptr %json.coerce0, ptr %json.coerce1, ptr %path.coerce0, ptr %path.coerce1)
   %0 = getelementptr inbounds nuw i8, ptr %res, i64 40
   %res.val3 = load i8, ptr %0, align 8
-  %res.val3.fr = freeze i8 %res.val3
-  %tobool.i.i = trunc i8 %res.val3.fr to i1
-  br i1 %tobool.i.i, label %switch.early.test, label %if.end
+  %json.40.val.fr.i = freeze i8 %res.val3
+  %tobool.i.i = trunc i8 %json.40.val.fr.i to i1
+  br i1 %tobool.i.i, label %switch.early.test.i, label %if.end
 
-switch.early.test:                                ; preds = %invoke.cont
+switch.early.test.i:                              ; preds = %entry
   %res.val = load i32, ptr %res, align 8
   switch i32 %res.val, label %invoke.cont28 [
     i32 5, label %if.end
@@ -1983,7 +1983,7 @@ switch.early.test:                                ; preds = %invoke.cont
     i32 2, label %invoke.cont9
   ]
 
-invoke.cont9:                                     ; preds = %switch.early.test
+invoke.cont9:                                     ; preds = %switch.early.test.i
   %u_.i.i.i6.i.i = getelementptr inbounds nuw i8, ptr %res, i64 8
   %1 = load i8, ptr %u_.i.i.i6.i.i, align 8
   %tobool.i.i.i9 = trunc i8 %1 to i1
@@ -2068,7 +2068,7 @@ cleanup.action25:                                 ; preds = %lpad12, %lpad.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #1
   br label %ehcleanup31
 
-invoke.cont28:                                    ; preds = %switch.early.test
+invoke.cont28:                                    ; preds = %switch.early.test.i
   invoke void @_ZNK5folly7dynamic6asImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_v(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(40) %res)
           to label %invoke.cont30 unwind label %lpad
 
@@ -2080,7 +2080,7 @@ invoke.cont30:                                    ; preds = %invoke.cont28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #1
   br label %cleanup
 
-if.end:                                           ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %invoke.cont
+if.end:                                           ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %entry
   %hasValue.i.i29 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasValue.i.i29, align 8
   br label %cleanup

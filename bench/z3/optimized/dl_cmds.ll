@@ -3290,7 +3290,7 @@ _ZNK4decl13get_family_idEv.exit:                  ; preds = %3
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %55
+  br label %54
 
 _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %3, %_ZNK4decl13get_family_idEv.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3311,18 +3311,18 @@ _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %3, %_ZNK4decl13get_
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i
   %28 = zext i32 %22 to i64
   %29 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %25, i64 %28
-  %.not34.i.i = icmp eq i32 %24, %22
-  br i1 %.not34.i.i, label %.preheader.i.i, label %.lr.ph.i.i
+  %.not33.i.i = icmp eq i32 %24, %22
+  br i1 %.not33.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
 .preheader.i.i:                                   ; preds = %38, %_ZNK4decl13get_family_idEv.exit.thread
-  %.not2736.i.i = icmp eq i32 %24, 0
-  br i1 %.not2736.i.i, label %.loopexit, label %.lr.ph38.i.i
+  %.not2735.i.i = icmp eq i32 %24, 0
+  br i1 %.not2735.i.i, label %.loopexit, label %.lr.ph37.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK4decl13get_family_idEv.exit.thread, %38
-  %.035.i.i = phi ptr [ %39, %38 ], [ %27, %_ZNK4decl13get_family_idEv.exit.thread ]
-  %30 = load ptr, ptr %.035.i.i, align 8, !tbaa !450
-  %.not.i = icmp ult ptr %30, inttoptr (i64 2 to ptr)
-  br i1 %.not.i, label %36, label %31
+  %.034.i.i = phi ptr [ %39, %38 ], [ %27, %_ZNK4decl13get_family_idEv.exit.thread ]
+  %30 = load ptr, ptr %.034.i.i, align 8, !tbaa !450
+  %.not29.i.not.i = icmp ult ptr %30, inttoptr (i64 2 to ptr)
+  br i1 %.not29.i.not.i, label %36, label %31
 
 31:                                               ; preds = %.lr.ph.i.i
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 12
@@ -3337,60 +3337,60 @@ _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %3, %_ZNK4decl13get_
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %36, %31
-  %39 = getelementptr inbounds nuw i8, ptr %.035.i.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.034.i.i, i64 8
   %.not.i.i = icmp eq ptr %39, %29
   br i1 %.not.i.i, label %.preheader.i.i, label %.lr.ph.i.i, !llvm.loop !452
 
-.lr.ph38.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph38.i.i.backedge
-  %.137.i.i = phi ptr [ %.137.i.i.be, %.lr.ph38.i.i.backedge ], [ %25, %.preheader.i.i ]
-  %40 = load ptr, ptr %.137.i.i, align 8, !tbaa !450
-  %41 = icmp ult ptr %40, inttoptr (i64 2 to ptr)
-  br i1 %41, label %47, label %42
+.lr.ph37.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph37.i.i.backedge
+  %.136.i.i = phi ptr [ %.136.i.i.be, %.lr.ph37.i.i.backedge ], [ %25, %.preheader.i.i ]
+  %40 = load ptr, ptr %.136.i.i, align 8, !tbaa !450
+  %.not30.i.i = icmp ult ptr %40, inttoptr (i64 2 to ptr)
+  br i1 %.not30.i.i, label %46, label %41
 
-42:                                               ; preds = %.lr.ph38.i.i
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  %44 = load i32, ptr %43, align 4, !tbaa !445
-  %45 = icmp eq i32 %44, %20
-  %46 = icmp eq ptr %40, %2
-  %or.cond31.i.i = and i1 %46, %45
-  br i1 %or.cond31.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %50
+41:                                               ; preds = %.lr.ph37.i.i
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 12
+  %43 = load i32, ptr %42, align 4, !tbaa !445
+  %44 = icmp eq i32 %43, %20
+  %45 = icmp eq ptr %40, %2
+  %or.cond28.i.i = and i1 %45, %44
+  br i1 %or.cond28.i.i, label %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %49
 
-47:                                               ; preds = %.lr.ph38.i.i
-  %48 = icmp eq ptr %40, null
-  %49 = getelementptr inbounds nuw i8, ptr %.137.i.i, i64 8
-  %.not27.i.i = icmp eq ptr %49, %27
-  %or.cond43.i.i = select i1 %48, i1 true, i1 %.not27.i.i
-  br i1 %or.cond43.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
+46:                                               ; preds = %.lr.ph37.i.i
+  %47 = icmp eq ptr %40, null
+  %48 = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 8
+  %.not27.i.i = icmp eq ptr %48, %27
+  %or.cond42.i.i = select i1 %47, i1 true, i1 %.not27.i.i
+  br i1 %or.cond42.i.i, label %.loopexit, label %.lr.ph37.i.i.backedge
 
-50:                                               ; preds = %42
-  %.old.i.i = getelementptr inbounds nuw i8, ptr %.137.i.i, i64 8
+49:                                               ; preds = %41
+  %.old.i.i = getelementptr inbounds nuw i8, ptr %.136.i.i, i64 8
   %.not27.old.i.i = icmp eq ptr %.old.i.i, %27
-  br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph38.i.i.backedge
+  br i1 %.not27.old.i.i, label %.loopexit, label %.lr.ph37.i.i.backedge
 
-.lr.ph38.i.i.backedge:                            ; preds = %50, %47
-  %.137.i.i.be = phi ptr [ %49, %47 ], [ %.old.i.i, %50 ]
-  br label %.lr.ph38.i.i, !llvm.loop !454
+.lr.ph37.i.i.backedge:                            ; preds = %49, %46
+  %.136.i.i.be = phi ptr [ %48, %46 ], [ %.old.i.i, %49 ]
+  br label %.lr.ph37.i.i, !llvm.loop !454
 
-.loopexit:                                        ; preds = %36, %50, %47, %.preheader.i.i
-  %51 = tail call ptr @__cxa_allocate_exception(i64 48) #20
-  invoke void @_ZN13cmd_exceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef nonnull @.str.19)
-          to label %52 unwind label %53
+.loopexit:                                        ; preds = %36, %49, %46, %.preheader.i.i
+  %50 = tail call ptr @__cxa_allocate_exception(i64 48) #20
+  invoke void @_ZN13cmd_exceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef nonnull @.str.19)
+          to label %51 unwind label %52
 
-52:                                               ; preds = %.loopexit
-  tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI13cmd_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
+51:                                               ; preds = %.loopexit
+  tail call void @__cxa_throw(ptr nonnull %50, ptr nonnull @_ZTI13cmd_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #23
   unreachable
 
-53:                                               ; preds = %.loopexit
-  %54 = landingpad { ptr, i32 }
+52:                                               ; preds = %.loopexit
+  %53 = landingpad { ptr, i32 }
           cleanup
-  br label %55
+  br label %54
 
-_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %31, %42
+_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %31, %41
   ret void
 
-55:                                               ; preds = %53, %12
-  %.sink = phi ptr [ %51, %53 ], [ %10, %12 ]
-  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %13, %12 ]
+54:                                               ; preds = %52, %12
+  %.sink = phi ptr [ %50, %52 ], [ %10, %12 ]
+  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %13, %12 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #20
   resume { ptr, i32 } %.pn
 }

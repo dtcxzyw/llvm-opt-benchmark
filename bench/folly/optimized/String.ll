@@ -176,7 +176,7 @@ $_ZTVN5folly15ConversionErrorE = comdat any
 define { ptr, ptr } @_ZN5folly15ltrimWhitespaceENS_5RangeIPKcEE(ptr %0, ptr %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %.critedge.thread, label %.lr.ph
+  br i1 %4, label %_ZN5follyL11is_oddspaceEc.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %10
   %.sroa.0.013 = phi ptr [ %11, %10 ], [ %0, %2 ]
@@ -185,7 +185,7 @@ define { ptr, ptr } @_ZN5folly15ltrimWhitespaceENS_5RangeIPKcEE(ptr %0, ptr %1) 
 5:                                                ; preds = %.lr.ph, %7
   %.sroa.0.110 = phi ptr [ %.sroa.0.013, %.lr.ph ], [ %8, %7 ]
   %6 = load i8, ptr %.sroa.0.110, align 1, !tbaa !7
-  switch i8 %6, label %.critedge.thread [
+  switch i8 %6, label %_ZN5follyL11is_oddspaceEc.exit [
     i8 32, label %7
     i8 13, label %10
     i8 10, label %10
@@ -195,22 +195,22 @@ define { ptr, ptr } @_ZN5folly15ltrimWhitespaceENS_5RangeIPKcEE(ptr %0, ptr %1) 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.110, i64 1
   %9 = icmp eq ptr %8, %1
-  br i1 %9, label %.critedge.thread.loopexit, label %5, !llvm.loop !10
+  br i1 %9, label %_ZN5follyL11is_oddspaceEc.exit.loopexit, label %5, !llvm.loop !10
 
 10:                                               ; preds = %5, %5, %5
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.110, i64 1
   %12 = icmp eq ptr %11, %1
-  br i1 %12, label %.critedge.thread, label %.lr.ph, !llvm.loop !12
+  br i1 %12, label %_ZN5follyL11is_oddspaceEc.exit, label %.lr.ph, !llvm.loop !12
 
-.critedge.thread.loopexit:                        ; preds = %7
+_ZN5follyL11is_oddspaceEc.exit.loopexit:          ; preds = %7
   %scevgep.le = getelementptr i8, ptr %.sroa.0.013, i64 %3
   %.sroa.0.01317.le = ptrtoint ptr %.sroa.0.013 to i64
   %13 = sub i64 0, %.sroa.0.01317.le
   %scevgep18.le = getelementptr i8, ptr %scevgep.le, i64 %13
-  br label %.critedge.thread
+  br label %_ZN5follyL11is_oddspaceEc.exit
 
-.critedge.thread:                                 ; preds = %10, %5, %.critedge.thread.loopexit, %2
-  %.sroa.0.19 = phi ptr [ %0, %2 ], [ %scevgep18.le, %.critedge.thread.loopexit ], [ %.sroa.0.110, %5 ], [ %11, %10 ]
+_ZN5follyL11is_oddspaceEc.exit:                   ; preds = %10, %5, %_ZN5follyL11is_oddspaceEc.exit.loopexit, %2
+  %.sroa.0.19 = phi ptr [ %0, %2 ], [ %scevgep18.le, %_ZN5follyL11is_oddspaceEc.exit.loopexit ], [ %.sroa.0.110, %5 ], [ %11, %10 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.19, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %1, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -234,27 +234,27 @@ define { ptr, ptr } @_ZN5folly15rtrimWhitespaceENS_5RangeIPKcEE(ptr %0, ptr %1) 
 5:                                                ; preds = %7, %4
   %.sroa.4.1 = phi ptr [ %.sroa.4.0, %4 ], [ %8, %7 ]
   %6 = icmp eq ptr %0, %.sroa.4.1
-  br i1 %6, label %.critedge.thread.loopexit, label %7
+  br i1 %6, label %_ZN5follyL11is_oddspaceEc.exit.loopexit, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %.sroa.4.1, i64 -1
   %9 = load i8, ptr %8, align 1, !tbaa !7
-  switch i8 %9, label %.critedge.thread [
+  switch i8 %9, label %_ZN5follyL11is_oddspaceEc.exit [
     i8 32, label %5
     i8 13, label %.loopexit
     i8 10, label %.loopexit
     i8 9, label %.loopexit
   ], !llvm.loop !13
 
-.critedge.thread.loopexit:                        ; preds = %5
+_ZN5follyL11is_oddspaceEc.exit.loopexit:          ; preds = %5
   %scevgep.le = getelementptr i8, ptr %.sroa.4.0, i64 %3
   %.sroa.4.013.le = ptrtoint ptr %.sroa.4.0 to i64
   %10 = sub i64 0, %.sroa.4.013.le
   %scevgep14.le = getelementptr i8, ptr %scevgep.le, i64 %10
-  br label %.critedge.thread
+  br label %_ZN5follyL11is_oddspaceEc.exit
 
-.critedge.thread:                                 ; preds = %7, %.critedge.thread.loopexit
-  %.sroa.4.112 = phi ptr [ %scevgep14.le, %.critedge.thread.loopexit ], [ %.sroa.4.1, %7 ]
+_ZN5follyL11is_oddspaceEc.exit:                   ; preds = %7, %_ZN5follyL11is_oddspaceEc.exit.loopexit
+  %.sroa.4.112 = phi ptr [ %scevgep14.le, %_ZN5follyL11is_oddspaceEc.exit.loopexit ], [ %.sroa.4.1, %7 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.112, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -6092,16 +6092,35 @@ define hidden noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$
   %2 = load i32, ptr %0, align 4, !range !905, !noundef !15
   %3 = add nsw i32 %2, -33
   %.0 = icmp ult i32 %3, 15
-  %4 = add nsw i32 %2, -58
-  %.04 = icmp ult i32 %4, 7
-  %5 = add nsw i32 %2, -91
-  %.05 = icmp ult i32 %5, 6
-  %6 = add nsw i32 %2, -123
-  %.06 = icmp ult i32 %6, 4
-  %7 = or i1 %.0, %.04
-  %8 = or i1 %.05, %7
-  %9 = or i1 %.06, %8
-  ret i1 %9
+  br i1 %.0, label %switch.return, label %switch.early.test
+
+switch.early.test:                                ; preds = %1
+  switch i32 %2, label %ret.false [
+    i32 126, label %switch.return
+    i32 125, label %switch.return
+    i32 124, label %switch.return
+    i32 123, label %switch.return
+    i32 96, label %switch.return
+    i32 95, label %switch.return
+    i32 94, label %switch.return
+    i32 93, label %switch.return
+    i32 92, label %switch.return
+    i32 91, label %switch.return
+    i32 64, label %switch.return
+    i32 63, label %switch.return
+    i32 62, label %switch.return
+    i32 61, label %switch.return
+    i32 60, label %switch.return
+    i32 59, label %switch.return
+    i32 58, label %switch.return
+  ]
+
+ret.false:                                        ; preds = %switch.early.test
+  br label %switch.return
+
+switch.return:                                    ; preds = %1, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %ret.false
+  %4 = phi i1 [ false, %ret.false ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %1 ]
+  ret i1 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -21155,37 +21174,17 @@ define hidden void @"_ZN91_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN10tokenizers14pre_tokenizers11punctuation7is_punc17heda7ddf708529f4fE(i32 noundef %0) unnamed_addr #2 {
-  %2 = add i32 %0, -33
-  %.0.i = icmp ult i32 %2, 15
-  br i1 %.0.i, label %5, label %switch.early.test
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  %3 = call noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.787574339177529159"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2)
+  br i1 %3, label %6, label %4
 
-switch.early.test:                                ; preds = %1
-  switch i32 %0, label %3 [
-    i32 126, label %5
-    i32 125, label %5
-    i32 124, label %5
-    i32 123, label %5
-    i32 96, label %5
-    i32 95, label %5
-    i32 94, label %5
-    i32 93, label %5
-    i32 92, label %5
-    i32 91, label %5
-    i32 64, label %5
-    i32 63, label %5
-    i32 62, label %5
-    i32 61, label %5
-    i32 60, label %5
-    i32 59, label %5
-    i32 58, label %5
-  ]
+4:                                                ; preds = %1
+  %5 = tail call noundef zeroext i1 @_ZN18unicode_categories17UnicodeCategories14is_punctuation17he7d2a917fef1699eE.llvm.787574339177529159(i32 noundef %0)
+  br label %6
 
-3:                                                ; preds = %switch.early.test
-  %4 = tail call noundef zeroext i1 @_ZN18unicode_categories17UnicodeCategories14is_punctuation17he7d2a917fef1699eE.llvm.787574339177529159(i32 noundef %0)
-  br label %5
-
-5:                                                ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %1, %3
-  %.0 = phi i1 [ %4, %3 ], [ true, %switch.early.test ], [ true, %1 ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ]
+6:                                                ; preds = %1, %4
+  %.0 = phi i1 [ %5, %4 ], [ true, %1 ]
   ret i1 %.0
 }
 

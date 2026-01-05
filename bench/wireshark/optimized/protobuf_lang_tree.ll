@@ -1609,227 +1609,233 @@ define hidden noundef ptr @pbl_create_field_node(ptr noundef %0, i32 noundef %1,
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store ptr %21, ptr %22, align 8
   %23 = tail call i32 @str_to_val(ptr noundef %3, ptr noundef nonnull @protobuf_field_type, i32 noundef 0)
-  %24 = and i32 %23, -2
-  %or.cond.i = icmp eq i32 %24, 10
-  %25 = icmp eq i32 %23, 14
-  %or.cond3.i = or i1 %25, %or.cond.i
-  %spec.store.select.i = select i1 %or.cond3.i, i32 0, i32 %23
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 68
-  store i32 %spec.store.select.i, ptr %26, align 4
-  %27 = tail call i32 @g_strcmp0(ptr noundef %2, ptr noundef nonnull @.str.8)
-  %28 = icmp eq i32 %27, 0
-  %29 = getelementptr inbounds nuw i8, ptr %9, i64 89
-  %30 = zext i1 %28 to i8
-  store i8 %30, ptr %29, align 1
-  %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %pbl_get_option_by_name.exit.thread, label %31
+  switch i32 %23, label %ret.false.i [
+    i32 14, label %pbl_get_simple_type_enum_value_by_typename.exit
+    i32 11, label %pbl_get_simple_type_enum_value_by_typename.exit
+    i32 10, label %pbl_get_simple_type_enum_value_by_typename.exit
+  ]
 
-31:                                               ; preds = %7
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %33 = load ptr, ptr %32, align 8
-  %.not7.i = icmp eq ptr %33, null
+ret.false.i:                                      ; preds = %7
+  br label %pbl_get_simple_type_enum_value_by_typename.exit
+
+pbl_get_simple_type_enum_value_by_typename.exit:  ; preds = %7, %7, %7, %ret.false.i
+  %24 = phi i32 [ %23, %ret.false.i ], [ 0, %7 ], [ 0, %7 ], [ 0, %7 ]
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 68
+  store i32 %24, ptr %25, align 4
+  %26 = tail call i32 @g_strcmp0(ptr noundef %2, ptr noundef nonnull @.str.8)
+  %27 = icmp eq i32 %26, 0
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 89
+  %29 = zext i1 %27 to i8
+  store i8 %29, ptr %28, align 1
+  %.not.i = icmp eq ptr %6, null
+  br i1 %.not.i, label %pbl_get_option_by_name.exit.thread, label %30
+
+30:                                               ; preds = %pbl_get_simple_type_enum_value_by_typename.exit
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %32 = load ptr, ptr %31, align 8
+  %.not7.i = icmp eq ptr %32, null
   br i1 %.not7.i, label %pbl_get_option_by_name.exit.thread, label %pbl_get_option_by_name.exit
 
-pbl_get_option_by_name.exit:                      ; preds = %31
-  %34 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %33, ptr noundef nonnull @.str.9)
-  %.not = icmp eq ptr %34, null
-  br i1 %.not, label %pbl_get_option_by_name.exit.thread, label %35
+pbl_get_option_by_name.exit:                      ; preds = %30
+  %33 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %32, ptr noundef nonnull @.str.9)
+  %.not = icmp eq ptr %33, null
+  br i1 %.not, label %pbl_get_option_by_name.exit.thread, label %34
 
-35:                                               ; preds = %pbl_get_option_by_name.exit
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 64
-  %37 = load ptr, ptr %36, align 8
-  %.not53 = icmp eq ptr %37, null
-  br i1 %.not53, label %pbl_get_option_by_name.exit.thread, label %38
+34:                                               ; preds = %pbl_get_option_by_name.exit
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 64
+  %36 = load ptr, ptr %35, align 8
+  %.not53 = icmp eq ptr %36, null
+  br i1 %.not53, label %pbl_get_option_by_name.exit.thread, label %37
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %9, i64 90
-  store i8 1, ptr %39, align 2
-  %40 = tail call noalias ptr @g_strdup(ptr noundef nonnull %37)
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  store ptr %40, ptr %41, align 8
-  switch i32 %spec.store.select.i, label %pbl_get_option_by_name.exit.thread [
-    i32 5, label %42
-    i32 17, label %42
-    i32 15, label %42
-    i32 3, label %45
-    i32 18, label %45
-    i32 16, label %45
-    i32 13, label %48
-    i32 7, label %48
-    i32 4, label %51
-    i32 6, label %51
-    i32 8, label %54
-    i32 1, label %59
-    i32 2, label %62
-    i32 9, label %66
-    i32 12, label %66
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 90
+  store i8 1, ptr %38, align 2
+  %39 = tail call noalias ptr @g_strdup(ptr noundef nonnull %36)
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  store ptr %39, ptr %40, align 8
+  switch i32 %24, label %pbl_get_option_by_name.exit.thread [
+    i32 5, label %41
+    i32 17, label %41
+    i32 15, label %41
+    i32 3, label %44
+    i32 18, label %44
+    i32 16, label %44
+    i32 13, label %47
+    i32 7, label %47
+    i32 4, label %50
+    i32 6, label %50
+    i32 8, label %53
+    i32 1, label %58
+    i32 2, label %61
+    i32 9, label %65
+    i32 12, label %65
   ]
 
-42:                                               ; preds = %38, %38, %38
-  %43 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  %44 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %40, ptr noundef nonnull @.str.10, ptr noundef nonnull %43) #14
+41:                                               ; preds = %37, %37, %37
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  %43 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %39, ptr noundef nonnull @.str.10, ptr noundef nonnull %42) #14
   br label %pbl_get_option_by_name.exit.thread
 
-45:                                               ; preds = %38, %38, %38
-  %46 = tail call i64 @g_ascii_strtoll(ptr noundef %40, ptr noundef null, i32 noundef 10)
-  %47 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  store i64 %46, ptr %47, align 8
+44:                                               ; preds = %37, %37, %37
+  %45 = tail call i64 @g_ascii_strtoll(ptr noundef %39, ptr noundef null, i32 noundef 10)
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  store i64 %45, ptr %46, align 8
   br label %pbl_get_option_by_name.exit.thread
 
-48:                                               ; preds = %38, %38
-  %49 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  %50 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %40, ptr noundef nonnull @.str.11, ptr noundef nonnull %49) #14
+47:                                               ; preds = %37, %37
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  %49 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %39, ptr noundef nonnull @.str.11, ptr noundef nonnull %48) #14
   br label %pbl_get_option_by_name.exit.thread
 
-51:                                               ; preds = %38, %38
-  %52 = tail call i64 @g_ascii_strtoull(ptr noundef %40, ptr noundef null, i32 noundef 10)
-  %53 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  store i64 %52, ptr %53, align 8
+50:                                               ; preds = %37, %37
+  %51 = tail call i64 @g_ascii_strtoull(ptr noundef %39, ptr noundef null, i32 noundef 10)
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  store i64 %51, ptr %52, align 8
   br label %pbl_get_option_by_name.exit.thread
 
-54:                                               ; preds = %38
-  %55 = tail call i32 @g_strcmp0(ptr noundef %40, ptr noundef nonnull @.str.5)
-  %56 = icmp eq i32 %55, 0
-  %57 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  %58 = zext i1 %56 to i8
-  store i8 %58, ptr %57, align 8
+53:                                               ; preds = %37
+  %54 = tail call i32 @g_strcmp0(ptr noundef %39, ptr noundef nonnull @.str.5)
+  %55 = icmp eq i32 %54, 0
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  %57 = zext i1 %55 to i8
+  store i8 %57, ptr %56, align 8
   br label %pbl_get_option_by_name.exit.thread
 
-59:                                               ; preds = %38
-  %60 = tail call double @g_ascii_strtod(ptr noundef %40, ptr noundef null)
-  %61 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  store double %60, ptr %61, align 8
+58:                                               ; preds = %37
+  %59 = tail call double @g_ascii_strtod(ptr noundef %39, ptr noundef null)
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  store double %59, ptr %60, align 8
   br label %pbl_get_option_by_name.exit.thread
 
-62:                                               ; preds = %38
-  %63 = tail call double @g_ascii_strtod(ptr noundef %40, ptr noundef null)
-  %64 = fptrunc double %63 to float
-  %65 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  store float %64, ptr %65, align 8
+61:                                               ; preds = %37
+  %62 = tail call double @g_ascii_strtod(ptr noundef %39, ptr noundef null)
+  %63 = fptrunc double %62 to float
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  store float %63, ptr %64, align 8
   br label %pbl_get_option_by_name.exit.thread
 
-66:                                               ; preds = %38, %38
-  %67 = getelementptr inbounds nuw i8, ptr %9, i64 104
+65:                                               ; preds = %37, %37
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 104
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %.not58 = icmp eq ptr %40, null
-  br i1 %.not58, label %protobuf_string_unescape.exit, label %68
+  %.not57 = icmp eq ptr %39, null
+  br i1 %.not57, label %protobuf_string_unescape.exit, label %67
 
-68:                                               ; preds = %66
-  %69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #15
-  %70 = and i64 %69, 4294967295
-  %.not.i55 = icmp eq i64 %70, 0
-  br i1 %.not.i55, label %protobuf_string_unescape.exit, label %71
+67:                                               ; preds = %65
+  %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #15
+  %69 = and i64 %68, 4294967295
+  %.not.i54 = icmp eq i64 %69, 0
+  br i1 %.not.i54, label %protobuf_string_unescape.exit, label %70
 
-71:                                               ; preds = %68
-  %72 = shl i64 %69, 32
-  %sext.i = add i64 %72, 4294967296
-  %73 = ashr exact i64 %sext.i, 32
-  %74 = tail call noalias ptr @g_malloc0(i64 noundef %73) #13
-  %75 = ashr exact i64 %72, 32
-  %76 = getelementptr i8, ptr %40, i64 %75
-  %77 = icmp ult ptr %40, %76
-  br i1 %77, label %.lr.ph.i, label %.critedge.i
+70:                                               ; preds = %67
+  %71 = shl i64 %68, 32
+  %sext.i = add i64 %71, 4294967296
+  %72 = ashr exact i64 %sext.i, 32
+  %73 = tail call noalias ptr @g_malloc0(i64 noundef %72) #13
+  %74 = ashr exact i64 %71, 32
+  %75 = getelementptr i8, ptr %39, i64 %74
+  %76 = icmp ult ptr %39, %75
+  br i1 %76, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %71, %.backedge.i
-  %78 = phi ptr [ %87, %.backedge.i ], [ %40, %71 ]
-  %.034.i = phi ptr [ %.0.be.i, %.backedge.i ], [ %74, %71 ]
-  %79 = load i8, ptr %78, align 1
-  switch i8 %79, label %102 [
+.lr.ph.i:                                         ; preds = %70, %.backedge.i
+  %77 = phi ptr [ %86, %.backedge.i ], [ %39, %70 ]
+  %.034.i = phi ptr [ %.0.be.i, %.backedge.i ], [ %73, %70 ]
+  %78 = load i8, ptr %77, align 1
+  switch i8 %78, label %101 [
     i8 0, label %.critedge.i
-    i8 92, label %80
+    i8 92, label %79
   ]
 
-80:                                               ; preds = %.lr.ph.i
-  %81 = getelementptr i8, ptr %78, i64 1
-  store ptr %81, ptr %8, align 8
-  %82 = load i8, ptr %81, align 1
-  switch i8 %82, label %89 [
-    i8 120, label %83
-    i8 88, label %83
+79:                                               ; preds = %.lr.ph.i
+  %80 = getelementptr i8, ptr %77, i64 1
+  store ptr %80, ptr %8, align 8
+  %81 = load i8, ptr %80, align 1
+  switch i8 %81, label %88 [
+    i8 120, label %82
+    i8 88, label %82
   ]
 
-83:                                               ; preds = %80, %80
-  %84 = getelementptr i8, ptr %78, i64 2
-  %85 = call i64 @strtol(ptr noundef %84, ptr noundef nonnull %8, i32 noundef 16) #14
-  %86 = trunc i64 %85 to i8
-  store i8 %86, ptr %.034.i, align 1
+82:                                               ; preds = %79, %79
+  %83 = getelementptr i8, ptr %77, i64 2
+  %84 = call i64 @strtol(ptr noundef %83, ptr noundef nonnull %8, i32 noundef 16) #14
+  %85 = trunc i64 %84 to i8
+  store i8 %85, ptr %.034.i, align 1
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %102, %91, %83
+.backedge.i:                                      ; preds = %101, %90, %82
   %.0.be.i = getelementptr i8, ptr %.034.i, i64 1
-  %87 = load ptr, ptr %8, align 8
-  %88 = icmp ult ptr %87, %76
-  br i1 %88, label %.lr.ph.i, label %.critedge.i, !llvm.loop !22
+  %86 = load ptr, ptr %8, align 8
+  %87 = icmp ult ptr %86, %75
+  br i1 %87, label %.lr.ph.i, label %.critedge.i, !llvm.loop !22
 
-89:                                               ; preds = %80
-  %90 = and i8 %82, -8
-  %or.cond33.i = icmp eq i8 %90, 48
-  br i1 %or.cond33.i, label %91, label %94
+88:                                               ; preds = %79
+  %89 = and i8 %81, -8
+  %or.cond33.i = icmp eq i8 %89, 48
+  br i1 %or.cond33.i, label %90, label %93
 
-91:                                               ; preds = %89
-  %92 = call i64 @strtol(ptr noundef %81, ptr noundef nonnull %8, i32 noundef 8) #14
-  %93 = trunc i64 %92 to i8
-  store i8 %93, ptr %.034.i, align 1
+90:                                               ; preds = %88
+  %91 = call i64 @strtol(ptr noundef %80, ptr noundef nonnull %8, i32 noundef 8) #14
+  %92 = trunc i64 %91 to i8
+  store i8 %92, ptr %.034.i, align 1
   br label %.backedge.i
 
-94:                                               ; preds = %89
-  switch i8 %82, label %101 [
-    i8 97, label %102
-    i8 98, label %95
-    i8 102, label %96
-    i8 110, label %97
-    i8 114, label %98
-    i8 116, label %99
-    i8 118, label %100
+93:                                               ; preds = %88
+  switch i8 %81, label %100 [
+    i8 97, label %101
+    i8 98, label %94
+    i8 102, label %95
+    i8 110, label %96
+    i8 114, label %97
+    i8 116, label %98
+    i8 118, label %99
   ]
 
-95:                                               ; preds = %94
-  br label %102
+94:                                               ; preds = %93
+  br label %101
 
-96:                                               ; preds = %94
-  br label %102
+95:                                               ; preds = %93
+  br label %101
 
-97:                                               ; preds = %94
-  br label %102
+96:                                               ; preds = %93
+  br label %101
 
-98:                                               ; preds = %94
-  br label %102
+97:                                               ; preds = %93
+  br label %101
 
-99:                                               ; preds = %94
-  br label %102
+98:                                               ; preds = %93
+  br label %101
 
-100:                                              ; preds = %94
-  br label %102
+99:                                               ; preds = %93
+  br label %101
 
-101:                                              ; preds = %94
-  br label %102
+100:                                              ; preds = %93
+  br label %101
 
-102:                                              ; preds = %101, %100, %99, %98, %97, %96, %95, %94, %.lr.ph.i
-  %.sink.i = phi i8 [ 7, %94 ], [ 8, %95 ], [ 12, %96 ], [ 10, %97 ], [ 13, %98 ], [ 9, %99 ], [ 11, %100 ], [ %82, %101 ], [ %79, %.lr.ph.i ]
-  %103 = phi ptr [ %81, %94 ], [ %81, %95 ], [ %81, %96 ], [ %81, %97 ], [ %81, %98 ], [ %81, %99 ], [ %81, %100 ], [ %81, %101 ], [ %78, %.lr.ph.i ]
+101:                                              ; preds = %100, %99, %98, %97, %96, %95, %94, %93, %.lr.ph.i
+  %.sink.i = phi i8 [ 7, %93 ], [ 8, %94 ], [ 12, %95 ], [ 10, %96 ], [ 13, %97 ], [ 9, %98 ], [ 11, %99 ], [ %81, %100 ], [ %78, %.lr.ph.i ]
+  %102 = phi ptr [ %80, %93 ], [ %80, %94 ], [ %80, %95 ], [ %80, %96 ], [ %80, %97 ], [ %80, %98 ], [ %80, %99 ], [ %80, %100 ], [ %77, %.lr.ph.i ]
   store i8 %.sink.i, ptr %.034.i, align 1
-  %104 = getelementptr i8, ptr %103, i64 1
-  store ptr %104, ptr %8, align 8
+  %103 = getelementptr i8, ptr %102, i64 1
+  store ptr %103, ptr %8, align 8
   br label %.backedge.i
 
-.critedge.i:                                      ; preds = %.backedge.i, %.lr.ph.i, %71
-  %.0.lcssa.i = phi ptr [ %74, %71 ], [ %.0.be.i, %.backedge.i ], [ %.034.i, %.lr.ph.i ]
+.critedge.i:                                      ; preds = %.backedge.i, %.lr.ph.i, %70
+  %.0.lcssa.i = phi ptr [ %73, %70 ], [ %.0.be.i, %.backedge.i ], [ %.034.i, %.lr.ph.i ]
   store i8 0, ptr %.0.lcssa.i, align 1
-  %105 = ptrtoint ptr %.0.lcssa.i to i64
-  %106 = ptrtoint ptr %74 to i64
-  %107 = sub i64 %105, %106
-  %108 = trunc i64 %107 to i32
-  store i32 %108, ptr %67, align 4
+  %104 = ptrtoint ptr %.0.lcssa.i to i64
+  %105 = ptrtoint ptr %73 to i64
+  %106 = sub i64 %104, %105
+  %107 = trunc i64 %106 to i32
+  store i32 %107, ptr %66, align 4
   br label %protobuf_string_unescape.exit
 
-protobuf_string_unescape.exit:                    ; preds = %66, %68, %.critedge.i
-  %.024.i = phi ptr [ %74, %.critedge.i ], [ null, %68 ], [ null, %66 ]
+protobuf_string_unescape.exit:                    ; preds = %65, %67, %.critedge.i
+  %.024.i = phi ptr [ %73, %.critedge.i ], [ null, %67 ], [ null, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %109 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  store ptr %.024.i, ptr %109, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  store ptr %.024.i, ptr %108, align 8
   br label %pbl_get_option_by_name.exit.thread
 
-pbl_get_option_by_name.exit.thread:               ; preds = %7, %31, %42, %45, %48, %51, %54, %59, %62, %protobuf_string_unescape.exit, %38, %35, %pbl_get_option_by_name.exit
+pbl_get_option_by_name.exit.thread:               ; preds = %pbl_get_simple_type_enum_value_by_typename.exit, %30, %41, %44, %47, %50, %53, %58, %61, %protobuf_string_unescape.exit, %37, %34, %pbl_get_option_by_name.exit
   ret ptr %9
 }
 

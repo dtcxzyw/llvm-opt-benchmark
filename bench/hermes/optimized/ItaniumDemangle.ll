@@ -2764,11 +2764,12 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %K.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i8, ptr %K.i.i, align 8
-  %cmp.i = icmp ne i8 %1, 18
-  %2 = and i8 %1, -2
-  %3 = icmp ne i8 %2, 20
-  %4 = and i1 %cmp.i, %3
-  ret i1 %4
+  %2 = icmp ugt i8 %1, 21
+  %switch.cast = zext nneg i8 %1 to i22
+  %switch.downshift = lshr i22 786431, %switch.cast
+  %switch.masked = trunc i22 %switch.downshift to i1
+  %3 = select i1 %2, i1 true, i1 %switch.masked
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

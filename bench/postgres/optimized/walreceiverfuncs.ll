@@ -177,7 +177,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #3
 declare void @ConditionVariableBroadcast(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @WalRcvStreaming() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @WalRcvStreaming() local_unnamed_addr #0 {
   %1 = load ptr, ptr @WalRcv, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 2226
   %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #8, !srcloc !7
@@ -195,49 +195,51 @@ define dso_local zeroext i1 @WalRcvStreaming() local_unnamed_addr #0 {
   %10 = load i64, ptr %9, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
   store i8 0, ptr %2, align 2
-  %11 = icmp eq i32 %8, 1
-  br i1 %11, label %12, label %26
+  switch i32 %8, label %ret.false [
+    i32 1, label %11
+    i32 4, label %switch.return
+    i32 2, label %switch.return
+  ]
 
-12:                                               ; preds = %6
-  %13 = tail call i64 @time(ptr noundef null) #8
-  %14 = sub i64 %13, %10
-  %15 = icmp sgt i64 %14, 10
-  br i1 %15, label %16, label %26
+11:                                               ; preds = %6
+  %12 = tail call i64 @time(ptr noundef null) #8
+  %13 = sub i64 %12, %10
+  %14 = icmp sgt i64 %13, 10
+  br i1 %14, label %15, label %switch.return
 
-16:                                               ; preds = %12
-  %17 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #8, !srcloc !7
-  %.not25 = icmp eq i8 %17, 0
-  br i1 %.not25, label %20, label %18
+15:                                               ; preds = %11
+  %16 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #8, !srcloc !7
+  %.not25 = icmp eq i8 %16, 0
+  br i1 %.not25, label %19, label %17
 
-18:                                               ; preds = %16
-  %19 = tail call i32 @s_lock(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @__func__.WalRcvStreaming) #8
-  br label %20
+17:                                               ; preds = %15
+  %18 = tail call i32 @s_lock(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @__func__.WalRcvStreaming) #8
+  br label %19
 
-20:                                               ; preds = %16, %18
-  %21 = load i32, ptr %7, align 8
-  %22 = icmp eq i32 %21, 1
-  br i1 %22, label %24, label %23
+19:                                               ; preds = %15, %17
+  %20 = load i32, ptr %7, align 8
+  %21 = icmp eq i32 %20, 1
+  br i1 %21, label %.thread30, label %22
 
-23:                                               ; preds = %20
+22:                                               ; preds = %19
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   store i8 0, ptr %2, align 2
-  br label %26
+  br label %switch.return
 
-24:                                               ; preds = %20
+.thread30:                                        ; preds = %19
   store i32 0, ptr %7, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   store i8 0, ptr %2, align 2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  tail call void @ConditionVariableBroadcast(ptr noundef nonnull %25) #8
-  br label %26
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  tail call void @ConditionVariableBroadcast(ptr noundef nonnull %23) #8
+  br label %ret.false
 
-26:                                               ; preds = %23, %12, %24, %6
-  %.022 = phi i32 [ %8, %6 ], [ 1, %12 ], [ 0, %24 ], [ 1, %23 ]
-  %27 = add i32 %.022, -1
-  %or.cond = icmp ult i32 %27, 2
-  %28 = icmp eq i32 %.022, 4
-  %or.cond3 = or i1 %28, %or.cond
-  ret i1 %or.cond3
+ret.false:                                        ; preds = %6, %.thread30
+  br label %switch.return
+
+switch.return:                                    ; preds = %6, %6, %22, %11, %ret.false
+  %24 = phi i1 [ false, %ret.false ], [ true, %22 ], [ true, %6 ], [ true, %6 ], [ true, %11 ]
+  ret i1 %24
 }
 
 ; Function Attrs: nounwind uwtable

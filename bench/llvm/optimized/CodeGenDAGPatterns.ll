@@ -46162,11 +46162,24 @@ declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN4llvm3MVTEEZNS0_15TypeSetByHwMode9intersectERNS0_19MachineValueTypeSetERKS4_E3$_0E9_M_invokeERKSt9_Any_dataOS1_"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(2) %1) #25 align 2 {
   %.val = load i16, ptr %1, align 2, !tbaa !22
-  %3 = add i16 %.val, -2
-  %spec.select.i.i.i.i = icmp ult i16 %3, 8
-  %4 = icmp eq i16 %.val, 510
-  %spec.select.i.i.i = or i1 %4, %spec.select.i.i.i.i
-  ret i1 %spec.select.i.i.i
+  switch i16 %.val, label %ret.false.i.i.i [
+    i16 510, label %"_ZSt10__invoke_rIbRZN4llvm15TypeSetByHwMode9intersectERNS0_19MachineValueTypeSetERKS2_E3$_0JNS0_3MVTEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+    i16 9, label %"_ZSt10__invoke_rIbRZN4llvm15TypeSetByHwMode9intersectERNS0_19MachineValueTypeSetERKS2_E3$_0JNS0_3MVTEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+    i16 8, label %"_ZSt10__invoke_rIbRZN4llvm15TypeSetByHwMode9intersectERNS0_19MachineValueTypeSetERKS2_E3$_0JNS0_3MVTEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+    i16 7, label %"_ZSt10__invoke_rIbRZN4llvm15TypeSetByHwMode9intersectERNS0_19MachineValueTypeSetERKS2_E3$_0JNS0_3MVTEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+    i16 6, label %"_ZSt10__invoke_rIbRZN4llvm15TypeSetByHwMode9intersectERNS0_19MachineValueTypeSetERKS2_E3$_0JNS0_3MVTEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+    i16 5, label %"_ZSt10__invoke_rIbRZN4llvm15TypeSetByHwMode9intersectERNS0_19MachineValueTypeSetERKS2_E3$_0JNS0_3MVTEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+    i16 4, label %"_ZSt10__invoke_rIbRZN4llvm15TypeSetByHwMode9intersectERNS0_19MachineValueTypeSetERKS2_E3$_0JNS0_3MVTEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+    i16 3, label %"_ZSt10__invoke_rIbRZN4llvm15TypeSetByHwMode9intersectERNS0_19MachineValueTypeSetERKS2_E3$_0JNS0_3MVTEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+    i16 2, label %"_ZSt10__invoke_rIbRZN4llvm15TypeSetByHwMode9intersectERNS0_19MachineValueTypeSetERKS2_E3$_0JNS0_3MVTEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+  ]
+
+ret.false.i.i.i:                                  ; preds = %2
+  br label %"_ZSt10__invoke_rIbRZN4llvm15TypeSetByHwMode9intersectERNS0_19MachineValueTypeSetERKS2_E3$_0JNS0_3MVTEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+
+"_ZSt10__invoke_rIbRZN4llvm15TypeSetByHwMode9intersectERNS0_19MachineValueTypeSetERKS2_E3$_0JNS0_3MVTEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %ret.false.i.i.i
+  %3 = phi i1 [ false, %ret.false.i.i.i ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

@@ -6301,21 +6301,23 @@ define linkonce_odr hidden void @_ZN8nanobind6detail18make_iterator_implINS0_19i
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail14iterator_stateINS1_19iterator_key_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESE_SE_RSC_JEEEEENS_6objectEOT_SG_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %or.cond.i = icmp ult i32 %2, 2
-  %4 = add i32 %2, -5
-  %5 = icmp ult i32 %4, 2
-  %or.cond5.i = or i1 %or.cond.i, %5
-  %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %2
-  %6 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_19iterator_key_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESD_SD_RSB_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #20
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %8
+_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESE_SE_RSC_JEEEEESG_SG_.exit:
+  %3 = icmp ult i32 %2, 7
+  %switch.maskindex = trunc i32 %2 to i8
+  %switch.shifted = lshr i8 99, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %4 = select i1 %or.cond, i32 4, i32 %2
+  %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_19iterator_key_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESD_SD_RSB_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %4, ptr noundef null, ptr noundef null) #20
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %7
 
-7:                                                ; preds = %3
+6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESE_SE_RSC_JEEEEESG_SG_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #26
   unreachable
 
-8:                                                ; preds = %3
-  store ptr %6, ptr %0, align 8
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESE_SE_RSC_JEEEEESG_SG_.exit
+  store ptr %5, ptr %0, align 8
   ret void
 }
 
@@ -8218,21 +8220,23 @@ define linkonce_odr hidden void @_ZN8nanobind6detail18make_iterator_implINS0_15i
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail14iterator_stateINS1_15iterator_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESE_SE_RSD_JEEEEENS_6objectEOT_SG_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %or.cond.i = icmp ult i32 %2, 2
-  %4 = add i32 %2, -5
-  %5 = icmp ult i32 %4, 2
-  %or.cond5.i = or i1 %or.cond.i, %5
-  %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %2
-  %6 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_15iterator_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESD_SD_RSC_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #20
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %8
+_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESE_SE_RSD_JEEEEESG_SG_.exit:
+  %3 = icmp ult i32 %2, 7
+  %switch.maskindex = trunc i32 %2 to i8
+  %switch.shifted = lshr i8 99, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %4 = select i1 %or.cond, i32 4, i32 %2
+  %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_15iterator_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESD_SD_RSC_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %4, ptr noundef null, ptr noundef null) #20
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %7
 
-7:                                                ; preds = %3
+6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESE_SE_RSD_JEEEEESG_SG_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #26
   unreachable
 
-8:                                                ; preds = %3
-  store ptr %6, ptr %0, align 8
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESE_SE_RSD_JEEEEESG_SG_.exit
+  store ptr %5, ptr %0, align 8
   ret void
 }
 
@@ -8814,21 +8818,23 @@ define linkonce_odr hidden void @_ZN8nanobind6detail18make_iterator_implINS0_21i
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail14iterator_stateINS1_21iterator_value_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESE_SE_RdJEEEEENS_6objectEOT_SG_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %or.cond.i = icmp ult i32 %2, 2
-  %4 = add i32 %2, -5
-  %5 = icmp ult i32 %4, 2
-  %or.cond5.i = or i1 %or.cond.i, %5
-  %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %2
-  %6 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_21iterator_value_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESD_SD_RdJEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #20
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %8
+_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESE_SE_RdJEEEEESG_SG_.exit:
+  %3 = icmp ult i32 %2, 7
+  %switch.maskindex = trunc i32 %2 to i8
+  %switch.shifted = lshr i8 99, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %4 = select i1 %or.cond, i32 4, i32 %2
+  %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_21iterator_value_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESD_SD_RdJEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %4, ptr noundef null, ptr noundef null) #20
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %7
 
-7:                                                ; preds = %3
+6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESE_SE_RdJEEEEESG_SG_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #26
   unreachable
 
-8:                                                ; preds = %3
-  store ptr %6, ptr %0, align 8
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEEEELNS_9rv_policyE1ESE_SE_RdJEEEEESG_SG_.exit
+  store ptr %5, ptr %0, align 8
   ret void
 }
 
@@ -9943,21 +9949,23 @@ define linkonce_odr hidden void @_ZN8nanobind6detail18make_iterator_implINS0_19i
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail14iterator_stateINS1_19iterator_key_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEENS_6objectEOT_SH_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %or.cond.i = icmp ult i32 %2, 2
-  %4 = add i32 %2, -5
-  %5 = icmp ult i32 %4, 2
-  %or.cond5.i = or i1 %or.cond.i, %5
-  %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %2
-  %6 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_19iterator_key_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESE_SE_RSC_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #20
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %8
+_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEESH_SH_.exit:
+  %3 = icmp ult i32 %2, 7
+  %switch.maskindex = trunc i32 %2 to i8
+  %switch.shifted = lshr i8 99, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %4 = select i1 %or.cond, i32 4, i32 %2
+  %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_19iterator_key_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESE_SE_RSC_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %4, ptr noundef null, ptr noundef null) #20
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %7
 
-7:                                                ; preds = %3
+6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEESH_SH_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #26
   unreachable
 
-8:                                                ; preds = %3
-  store ptr %6, ptr %0, align 8
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEESH_SH_.exit
+  store ptr %5, ptr %0, align 8
   ret void
 }
 
@@ -11664,21 +11672,23 @@ define linkonce_odr hidden void @_ZN8nanobind6detail18make_iterator_implINS0_15i
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail14iterator_stateINS1_15iterator_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSE_JEEEEENS_6objectEOT_SH_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %or.cond.i = icmp ult i32 %2, 2
-  %4 = add i32 %2, -5
-  %5 = icmp ult i32 %4, 2
-  %or.cond5.i = or i1 %or.cond.i, %5
-  %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %2
-  %6 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_15iterator_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESE_SE_RSD_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #20
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %8
+_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSE_JEEEEESH_SH_.exit:
+  %3 = icmp ult i32 %2, 7
+  %switch.maskindex = trunc i32 %2 to i8
+  %switch.shifted = lshr i8 99, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %4 = select i1 %or.cond, i32 4, i32 %2
+  %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_15iterator_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESE_SE_RSD_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %4, ptr noundef null, ptr noundef null) #20
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %7
 
-7:                                                ; preds = %3
+6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSE_JEEEEESH_SH_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #26
   unreachable
 
-8:                                                ; preds = %3
-  store ptr %6, ptr %0, align 8
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSE_JEEEEESH_SH_.exit
+  store ptr %5, ptr %0, align 8
   ret void
 }
 
@@ -12178,21 +12188,23 @@ define linkonce_odr hidden void @_ZN8nanobind6detail18make_iterator_implINS0_21i
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail14iterator_stateINS1_21iterator_value_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RdJEEEEENS_6objectEOT_SH_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %or.cond.i = icmp ult i32 %2, 2
-  %4 = add i32 %2, -5
-  %5 = icmp ult i32 %4, 2
-  %or.cond5.i = or i1 %or.cond.i, %5
-  %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %2
-  %6 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_21iterator_value_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESE_SE_RdJEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #20
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %8
+_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RdJEEEEESH_SH_.exit:
+  %3 = icmp ult i32 %2, 7
+  %switch.maskindex = trunc i32 %2 to i8
+  %switch.shifted = lshr i8 99, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %4 = select i1 %or.cond, i32 4, i32 %2
+  %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_21iterator_value_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESE_SE_RdJEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %4, ptr noundef null, ptr noundef null) #20
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %7
 
-7:                                                ; preds = %3
+6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RdJEEEEESH_SH_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #26
   unreachable
 
-8:                                                ; preds = %3
-  store ptr %6, ptr %0, align 8
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RdJEEEEESH_SH_.exit
+  store ptr %5, ptr %0, align 8
   ret void
 }
 
@@ -13136,21 +13148,23 @@ define linkonce_odr hidden void @_ZN8nanobind6detail18make_iterator_implINS0_19i
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail14iterator_stateINS1_19iterator_key_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESF_SF_RSC_JEEEEENS_6objectEOT_SH_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %or.cond.i = icmp ult i32 %2, 2
-  %4 = add i32 %2, -5
-  %5 = icmp ult i32 %4, 2
-  %or.cond5.i = or i1 %or.cond.i, %5
-  %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %2
-  %6 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_19iterator_key_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESE_SE_RSB_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #20
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %8
+_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESF_SF_RSC_JEEEEESH_SH_.exit:
+  %3 = icmp ult i32 %2, 7
+  %switch.maskindex = trunc i32 %2 to i8
+  %switch.shifted = lshr i8 99, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %4 = select i1 %or.cond, i32 4, i32 %2
+  %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_19iterator_key_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESE_SE_RSB_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %4, ptr noundef null, ptr noundef null) #20
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %7
 
-7:                                                ; preds = %3
+6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESF_SF_RSC_JEEEEESH_SH_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #26
   unreachable
 
-8:                                                ; preds = %3
-  store ptr %6, ptr %0, align 8
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESF_SF_RSC_JEEEEESH_SH_.exit
+  store ptr %5, ptr %0, align 8
   ret void
 }
 
@@ -14878,21 +14892,23 @@ define linkonce_odr hidden void @_ZN8nanobind6detail18make_iterator_implINS0_15i
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail14iterator_stateINS1_15iterator_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESF_SF_RSE_JEEEEENS_6objectEOT_SH_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %or.cond.i = icmp ult i32 %2, 2
-  %4 = add i32 %2, -5
-  %5 = icmp ult i32 %4, 2
-  %or.cond5.i = or i1 %or.cond.i, %5
-  %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %2
-  %6 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_15iterator_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESE_SE_RSD_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #20
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %8
+_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESF_SF_RSE_JEEEEESH_SH_.exit:
+  %3 = icmp ult i32 %2, 7
+  %switch.maskindex = trunc i32 %2 to i8
+  %switch.shifted = lshr i8 99, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %4 = select i1 %or.cond, i32 4, i32 %2
+  %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_15iterator_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESE_SE_RSD_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %4, ptr noundef null, ptr noundef null) #20
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %7
 
-7:                                                ; preds = %3
+6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESF_SF_RSE_JEEEEESH_SH_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #26
   unreachable
 
-8:                                                ; preds = %3
-  store ptr %6, ptr %0, align 8
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESF_SF_RSE_JEEEEESH_SH_.exit
+  store ptr %5, ptr %0, align 8
   ret void
 }
 
@@ -15471,21 +15487,23 @@ define linkonce_odr hidden void @_ZN8nanobind6detail18make_iterator_implINS0_21i
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail14iterator_stateINS1_21iterator_value_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEENS_6objectEOT_SH_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %or.cond.i = icmp ult i32 %2, 2
-  %4 = add i32 %2, -5
-  %5 = icmp ult i32 %4, 2
-  %or.cond5.i = or i1 %or.cond.i, %5
-  %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %2
-  %6 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_21iterator_value_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESE_SE_RSC_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #20
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %8
+_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEESH_SH_.exit:
+  %3 = icmp ult i32 %2, 7
+  %switch.maskindex = trunc i32 %2 to i8
+  %switch.shifted = lshr i8 99, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %4 = select i1 %or.cond, i32 4, i32 %2
+  %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_21iterator_value_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESE_SE_RSC_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %4, ptr noundef null, ptr noundef null) #20
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %7
 
-7:                                                ; preds = %3
+6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEESH_SH_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #26
   unreachable
 
-8:                                                ; preds = %3
-  store ptr %6, ptr %0, align 8
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEESH_SH_.exit
+  store ptr %5, ptr %0, align 8
   ret void
 }
 
@@ -16555,21 +16573,23 @@ define linkonce_odr hidden void @_ZN8nanobind6detail18make_iterator_implINS0_19i
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail14iterator_stateINS1_19iterator_key_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESG_SG_RSD_JEEEEENS_6objectEOT_SI_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %or.cond.i = icmp ult i32 %2, 2
-  %4 = add i32 %2, -5
-  %5 = icmp ult i32 %4, 2
-  %or.cond5.i = or i1 %or.cond.i, %5
-  %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %2
-  %6 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_19iterator_key_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSC_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #20
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %8
+_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESG_SG_RSD_JEEEEESI_SI_.exit:
+  %3 = icmp ult i32 %2, 7
+  %switch.maskindex = trunc i32 %2 to i8
+  %switch.shifted = lshr i8 99, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %4 = select i1 %or.cond, i32 4, i32 %2
+  %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_19iterator_key_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSC_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %4, ptr noundef null, ptr noundef null) #20
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %7
 
-7:                                                ; preds = %3
+6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESG_SG_RSD_JEEEEESI_SI_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #26
   unreachable
 
-8:                                                ; preds = %3
-  store ptr %6, ptr %0, align 8
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESG_SG_RSD_JEEEEESI_SI_.exit
+  store ptr %5, ptr %0, align 8
   ret void
 }
 
@@ -18348,21 +18368,23 @@ define linkonce_odr hidden void @_ZN8nanobind6detail18make_iterator_implINS0_15i
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail14iterator_stateINS1_15iterator_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESG_SG_RSF_JEEEEENS_6objectEOT_SI_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %or.cond.i = icmp ult i32 %2, 2
-  %4 = add i32 %2, -5
-  %5 = icmp ult i32 %4, 2
-  %or.cond5.i = or i1 %or.cond.i, %5
-  %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %2
-  %6 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_15iterator_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSE_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #20
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %8
+_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESG_SG_RSF_JEEEEESI_SI_.exit:
+  %3 = icmp ult i32 %2, 7
+  %switch.maskindex = trunc i32 %2 to i8
+  %switch.shifted = lshr i8 99, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %4 = select i1 %or.cond, i32 4, i32 %2
+  %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_15iterator_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSE_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %4, ptr noundef null, ptr noundef null) #20
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %7
 
-7:                                                ; preds = %3
+6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESG_SG_RSF_JEEEEESI_SI_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #26
   unreachable
 
-8:                                                ; preds = %3
-  store ptr %6, ptr %0, align 8
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESG_SG_RSF_JEEEEESI_SI_.exit
+  store ptr %5, ptr %0, align 8
   ret void
 }
 
@@ -18862,21 +18884,23 @@ define linkonce_odr hidden void @_ZN8nanobind6detail18make_iterator_implINS0_21i
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail14iterator_stateINS1_21iterator_value_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESG_SG_RSE_JEEEEENS_6objectEOT_SI_(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %or.cond.i = icmp ult i32 %2, 2
-  %4 = add i32 %2, -5
-  %5 = icmp ult i32 %4, 2
-  %or.cond5.i = or i1 %or.cond.i, %5
-  %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %2
-  %6 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_21iterator_value_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSD_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #20
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %8
+_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESG_SG_RSE_JEEEEESI_SI_.exit:
+  %3 = icmp ult i32 %2, 7
+  %switch.maskindex = trunc i32 %2 to i8
+  %switch.shifted = lshr i8 99, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %4 = select i1 %or.cond, i32 4, i32 %2
+  %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_21iterator_value_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSD_JEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %4, ptr noundef null, ptr noundef null) #20
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %7
 
-7:                                                ; preds = %3
+6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESG_SG_RSE_JEEEEESI_SI_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #26
   unreachable
 
-8:                                                ; preds = %3
-  store ptr %6, ptr %0, align 8
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessINSt8__detail14_Node_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKdELb0ELb1EEEEELNS_9rv_policyE1ESG_SG_RSE_JEEEEESI_SI_.exit
+  store ptr %5, ptr %0, align 8
   ret void
 }
 

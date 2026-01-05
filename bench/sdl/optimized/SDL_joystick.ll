@@ -8312,13 +8312,14 @@ define hidden noundef zeroext i1 @SDL_IsJoystickDualSenseEdge(i16 noundef zeroex
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_IsJoystickNintendoSwitchPro(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #1 {
-  %3 = zext i16 %0 to i32
-  %4 = zext i16 %1 to i32
-  %5 = tail call i32 @GuessControllerType(i32 noundef %3, i32 noundef %4) #13
-  %6 = icmp eq i32 %5, 38
-  %7 = icmp eq i32 %5, 42
-  %8 = or i1 %6, %7
-  ret i1 %8
+switch.return:
+  %2 = zext i16 %0 to i32
+  %3 = zext i16 %1 to i32
+  %4 = tail call i32 @GuessControllerType(i32 noundef %2, i32 noundef %3) #13
+  %5 = add i32 %4, -38
+  %switch.and = and i32 %5, -5
+  %switch.selectcmp = icmp eq i32 %switch.and, 0
+  ret i1 %switch.selectcmp
 }
 
 ; Function Attrs: nounwind uwtable

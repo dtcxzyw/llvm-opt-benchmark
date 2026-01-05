@@ -1482,8 +1482,8 @@ define hidden void @je_large_prof_info_get(ptr noundef %0, ptr noundef %1, ptr n
   %.0.i.i = inttoptr i64 %6 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i.i, ptr %7, align 8, !tbaa !125
-  %8 = icmp ult i64 %6, 2
-  br i1 %8, label %14, label %9
+  %8 = icmp ugt i64 %6, 1
+  br i1 %8, label %9, label %14
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1498,7 +1498,7 @@ define hidden void @je_large_prof_info_get(ptr noundef %0, ptr noundef %1, ptr n
   tail call void @je_prof_recent_alloc_reset(ptr noundef %0, ptr noundef nonnull %1) #11
   br label %14
 
-14:                                               ; preds = %4, %9, %13
+14:                                               ; preds = %9, %13, %4
   ret void
 }
 

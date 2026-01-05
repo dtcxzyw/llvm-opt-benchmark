@@ -4577,7 +4577,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12MemIntrinsicENS_5ValueEEEDaPT0_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define dso_local noundef ptr @LLVMIsAMemCpyInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
+define dso_local ptr @LLVMIsAMemCpyInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10MemCpyInstENS_5ValueEEEDaPT0_.exit, label %2
 
@@ -4615,16 +4615,14 @@ _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i: ; p
 _ZN4llvm14CastIsPossibleINS_10MemCpyInstEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i.i: ; preds = %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %20 = load i32, ptr %19, align 4, !tbaa !252
-  switch i32 %20, label %_ZN4llvm16dyn_cast_or_nullINS_10MemCpyInstENS_5ValueEEEDaPT0_.exit [
-    i32 240, label %21
-    i32 238, label %21
-  ]
-
-21:                                               ; preds = %_ZN4llvm14CastIsPossibleINS_10MemCpyInstEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i.i, %_ZN4llvm14CastIsPossibleINS_10MemCpyInstEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i.i
+  %21 = add i32 %20, -238
+  %switch.and.i.i.i.i.i.i.i.i.i.i = and i32 %21, -3
+  %switch.selectcmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %switch.and.i.i.i.i.i.i.i.i.i.i, 0
+  %spec.select.i.i.i = select i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i.i, ptr %0, ptr null
   br label %_ZN4llvm16dyn_cast_or_nullINS_10MemCpyInstENS_5ValueEEEDaPT0_.exit
 
-_ZN4llvm16dyn_cast_or_nullINS_10MemCpyInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, %2, %5, %8, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i, %_ZN4llvm14CastIsPossibleINS_10MemCpyInstEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i.i, %21
-  %.0.i.i = phi ptr [ null, %1 ], [ %0, %21 ], [ null, %_ZN4llvm14CastIsPossibleINS_10MemCpyInstEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i.i ], [ null, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i ], [ null, %2 ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %5 ], [ null, %8 ]
+_ZN4llvm16dyn_cast_or_nullINS_10MemCpyInstENS_5ValueEEEDaPT0_.exit: ; preds = %1, %2, %5, %8, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i, %_ZN4llvm14CastIsPossibleINS_10MemCpyInstEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i.i
+  %.0.i.i = phi ptr [ null, %1 ], [ null, %8 ], [ %spec.select.i.i.i, %_ZN4llvm14CastIsPossibleINS_10MemCpyInstEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i.i ], [ null, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i ], [ null, %2 ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %5 ]
   ret ptr %.0.i.i
 }
 

@@ -119,10 +119,11 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers11isStrictCTTENS2_11CegTermTypeE(i32 noundef %0) local_unnamed_addr #3 {
-  %2 = icmp eq i32 %0, 3
-  %3 = icmp eq i32 %0, 5
-  %4 = or i1 %2, %3
-  ret i1 %4
+switch.return:
+  %1 = add i32 %0, -3
+  %switch.and = and i32 %1, -3
+  %switch.selectcmp = icmp eq i32 %switch.and, 0
+  ret i1 %switch.selectcmp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

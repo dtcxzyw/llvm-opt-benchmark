@@ -8760,7 +8760,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %14, %11
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 2, 6) i32 @exec_command_shell_escape(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 4, ptr noundef null, i1 noundef zeroext false) #17
-  br i1 %1, label %4, label %18
+  br i1 %1, label %4, label %16
 
 4:                                                ; preds = %2
   %5 = tail call i32 @fflush(ptr noundef null)
@@ -8783,29 +8783,32 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_shell_escape(ptr nounde
 13:                                               ; preds = %11, %6
   %.010.i = phi i32 [ %12, %11 ], [ %10, %6 ]
   tail call void @SetShellResultVariables(i32 noundef %.010.i) #17
-  switch i32 %.010.i, label %do_shell.exit [
-    i32 -1, label %14
-    i32 127, label %14
+  switch i32 %.010.i, label %do_shell.exit.thread [
+    i32 -1, label %do_shell.exit
+    i32 127, label %do_shell.exit
   ]
 
-14:                                               ; preds = %13, %13
+do_shell.exit.thread:                             ; preds = %13
+  tail call void @free(ptr noundef %3) #17
+  br label %15
+
+do_shell.exit:                                    ; preds = %13, %13
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.302) #17
-  br label %do_shell.exit
-
-do_shell.exit:                                    ; preds = %13, %14
-  %15 = icmp ne i32 %.010.i, 127
-  %16 = icmp ne i32 %.010.i, -1
-  %or.cond.not.i = and i1 %15, %16
+  %14 = add nsw i32 %.010.i, 1
+  %switch.and.i = and i32 %14, -129
+  %switch.selectcmp.i.not = icmp eq i32 %switch.and.i, 0
   tail call void @free(ptr noundef %3) #17
-  %17 = select i1 %or.cond.not.i, i32 2, i32 5
-  br label %19
+  br i1 %switch.selectcmp.i.not, label %17, label %15
 
-18:                                               ; preds = %2
+15:                                               ; preds = %do_shell.exit.thread, %do_shell.exit
+  br label %17
+
+16:                                               ; preds = %2
   tail call void @free(ptr noundef %3) #17
-  br label %19
+  br label %17
 
-19:                                               ; preds = %18, %do_shell.exit
-  %.0 = phi i32 [ %17, %do_shell.exit ], [ 2, %18 ]
+17:                                               ; preds = %15, %do_shell.exit, %16
+  %.0 = phi i32 [ 2, %16 ], [ 2, %15 ], [ 5, %do_shell.exit ]
   ret i32 %.0
 }
 

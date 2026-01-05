@@ -9486,11 +9486,10 @@ declare noundef zeroext i1 @_ZNK2cv4gapi8GBackend4Priv11allowsMergeERKN3ade10Typ
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_115GCPUBackendImpl13supportsConstEN2cv6GShapeE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #18 align 2 {
-  %3 = and i32 %1, -3
-  %or.cond = icmp eq i32 %3, 1
-  %4 = icmp eq i32 %1, 2
-  %spec.select = or i1 %4, %or.cond
-  ret i1 %spec.select
+switch.return:
+  %2 = add i32 %1, -1
+  %3 = icmp ult i32 %2, 3
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

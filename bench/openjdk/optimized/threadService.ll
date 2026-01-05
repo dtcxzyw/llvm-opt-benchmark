@@ -1626,11 +1626,10 @@ _ZN13DeadlockCycle10add_threadEP10JavaThread.exit: ; preds = %.critedge, %111
 133:                                              ; preds = %132
   %134 = getelementptr inbounds nuw i8, ptr %.075175, i64 64
   %135 = load volatile ptr, ptr %134, align 8
-  %magicptr = ptrtoint ptr %135 to i64
-  switch i64 %magicptr, label %136 [
-    i64 2, label %.thread
-    i64 0, label %.thread
-  ]
+  %magicptr.i = ptrtoint ptr %135 to i64
+  %switch.and.i = and i64 %magicptr.i, -3
+  %switch.selectcmp.i.not = icmp eq i64 %switch.and.i, 0
+  br i1 %switch.selectcmp.i.not, label %.thread, label %136
 
 136:                                              ; preds = %133
   %137 = tail call noundef ptr @_ZN7Threads26owning_thread_from_monitorEP11ThreadsListP13ObjectMonitor(ptr noundef %0, ptr noundef nonnull %.075175) #13
@@ -1723,8 +1722,8 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassE
   %181 = icmp eq ptr %180, null
   br i1 %181, label %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread, label %.thread
 
-.thread:                                          ; preds = %127, %133, %133, %152, %136, %125, %179
-  %.189150 = phi ptr [ %180, %179 ], [ %.087174, %152 ], [ %.087174, %133 ], [ %137, %136 ], [ %.087174, %125 ], [ %.087174, %133 ], [ %spec.select, %127 ]
+.thread:                                          ; preds = %127, %152, %133, %136, %125, %179
+  %.189150 = phi ptr [ %180, %179 ], [ %.087174, %152 ], [ %.087174, %133 ], [ %137, %136 ], [ %.087174, %125 ], [ %spec.select, %127 ]
   %182 = tail call noundef ptr @_ZNK10JavaThread9threadObjEv(ptr noundef nonnull align 8 dereferenceable(1800) %.189150) #13
   %.not.i120 = icmp eq ptr %182, null
   br i1 %.not.i120, label %_ZNK7oopDesc4is_aEP5Klass.exit.thread9.i124, label %183

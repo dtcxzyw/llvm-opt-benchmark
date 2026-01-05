@@ -33358,11 +33358,11 @@ declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24Tra
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN5clang12ast_matchers22MatchDescendantVisitor12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(110) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_9BlockDeclEJNS1_14ObjCMethodDeclEEPNS1_4DeclEEEbRKT2_.exit.thread, label %3
+  br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %2
   %4 = tail call noundef zeroext i1 @_ZN5clang12ast_matchers22MatchDescendantVisitor5matchINS_4DeclEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(110) %0, ptr noundef nonnull align 8 dereferenceable(33) %1)
-  br i1 %4, label %5, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_9BlockDeclEJNS1_14ObjCMethodDeclEEPNS1_4DeclEEEbRKT2_.exit.thread
+  br i1 %4, label %5, label %16
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -33370,21 +33370,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang12ast_matchers22MatchDes
   %8 = and i32 %7, 126
   %9 = add nsw i32 %8, -32
   %10 = icmp ult i32 %9, 6
-  br i1 %10, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_9BlockDeclEJNS1_14ObjCMethodDeclEEPNS1_4DeclEEEbRKT2_.exit.thread, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_9BlockDeclEJNS1_14ObjCMethodDeclEEPNS1_4DeclEEEbRKT2_.exit
-
-_ZN4llvm3isaIN5clang12FunctionDeclENS1_9BlockDeclEJNS1_14ObjCMethodDeclEEPNS1_4DeclEEEbRKT2_.exit: ; preds = %5
   %11 = and i32 %7, 127
-  switch i32 %11, label %12 [
-    i32 16, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_9BlockDeclEJNS1_14ObjCMethodDeclEEPNS1_4DeclEEEbRKT2_.exit.thread
-    i32 8, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_9BlockDeclEJNS1_14ObjCMethodDeclEEPNS1_4DeclEEEbRKT2_.exit.thread
-  ]
+  %12 = add nsw i32 %11, -8
+  %switch.and.i.i = and i32 %12, -9
+  %switch.selectcmp.i.i = icmp eq i32 %switch.and.i.i, 0
+  %13 = select i1 %10, i1 true, i1 %switch.selectcmp.i.i
+  br i1 %13, label %16, label %14
 
-12:                                               ; preds = %_ZN4llvm3isaIN5clang12FunctionDeclENS1_9BlockDeclEJNS1_14ObjCMethodDeclEEPNS1_4DeclEEEbRKT2_.exit
-  %13 = tail call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #27
-  br label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_9BlockDeclEJNS1_14ObjCMethodDeclEEPNS1_4DeclEEEbRKT2_.exit.thread
+14:                                               ; preds = %5
+  %15 = tail call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #27
+  br label %16
 
-_ZN4llvm3isaIN5clang12FunctionDeclENS1_9BlockDeclEJNS1_14ObjCMethodDeclEEPNS1_4DeclEEEbRKT2_.exit.thread: ; preds = %_ZN4llvm3isaIN5clang12FunctionDeclENS1_9BlockDeclEJNS1_14ObjCMethodDeclEEPNS1_4DeclEEEbRKT2_.exit, %_ZN4llvm3isaIN5clang12FunctionDeclENS1_9BlockDeclEJNS1_14ObjCMethodDeclEEPNS1_4DeclEEEbRKT2_.exit, %5, %3, %2, %12
-  %.0 = phi i1 [ false, %3 ], [ %13, %12 ], [ true, %2 ], [ true, %_ZN4llvm3isaIN5clang12FunctionDeclENS1_9BlockDeclEJNS1_14ObjCMethodDeclEEPNS1_4DeclEEEbRKT2_.exit ], [ true, %5 ], [ true, %_ZN4llvm3isaIN5clang12FunctionDeclENS1_9BlockDeclEJNS1_14ObjCMethodDeclEEPNS1_4DeclEEEbRKT2_.exit ]
+16:                                               ; preds = %5, %3, %2, %14
+  %.0 = phi i1 [ false, %3 ], [ %15, %14 ], [ true, %2 ], [ true, %5 ]
   ret i1 %.0
 }
 

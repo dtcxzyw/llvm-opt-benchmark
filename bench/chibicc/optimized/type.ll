@@ -36,13 +36,15 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [17 x i8] c"pointer expected\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @is_integer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !7
-  %3 = add i32 %2, -1
-  %or.cond7 = icmp ult i32 %3, 5
-  %4 = icmp eq i32 %2, 9
-  %spec.select = or i1 %4, %or.cond7
-  ret i1 %spec.select
+define dso_local noundef zeroext i1 @is_integer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+switch.return:
+  %1 = load i32, ptr %0, align 8, !tbaa !7
+  %2 = icmp ult i32 %1, 10
+  %switch.cast = trunc i32 %1 to i10
+  %switch.downshift = lshr i10 -450, %switch.cast
+  %switch.masked = trunc i10 %switch.downshift to i1
+  %3 = select i1 %2, i1 %switch.masked, i1 false
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -63,16 +65,16 @@ define dso_local noundef zeroext i1 @is_numeric(ptr noundef readonly captures(no
   %switch.shifted = lshr i16 287, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %or.cond = select i1 %3, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup, label %4
+  br i1 %or.cond, label %is_integer.exit.thread, label %is_integer.exit
 
-4:                                                ; preds = %1
+is_integer.exit:                                  ; preds = %1
   %.off.i = add i32 %2, -6
   %switch.i = icmp ult i32 %.off.i, 3
-  br label %switch.lookup
+  br label %is_integer.exit.thread
 
-switch.lookup:                                    ; preds = %1, %4
-  %5 = phi i1 [ %switch.i, %4 ], [ true, %1 ]
-  ret i1 %5
+is_integer.exit.thread:                           ; preds = %1, %is_integer.exit
+  %4 = phi i1 [ %switch.i, %is_integer.exit ], [ true, %1 ]
+  ret i1 %4
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

@@ -116823,33 +116823,33 @@ define { ptr, i64 } @_ZN5typst4text10smartquote11SmartQuoter5quote17h59f2d6bdb47
 20:                                               ; preds = %16
   %21 = add i32 %., -33
   %.0.i = icmp ult i32 %21, 15
-  br i1 %.0.i, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread, label %switch.early.test
+  br i1 %.0.i, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread", label %switch.early.test.i
 
-switch.early.test:                                ; preds = %20
+switch.early.test.i:                              ; preds = %20
   switch i32 %., label %25 [
-    i32 126, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 125, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 124, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 123, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 96, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 95, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 94, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 93, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 92, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 91, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 64, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 63, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 62, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 61, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 60, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 59, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 58, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 32, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 13, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 12, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 11, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 10, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 9, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
+    i32 126, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 125, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 124, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 123, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 96, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 95, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 94, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 93, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 92, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 91, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 64, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 63, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 62, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 61, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 60, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 59, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 58, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 32, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 13, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 12, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 11, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 10, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 9, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
   ]
 
 _ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit: ; preds = %.critedge6.i, %16
@@ -116858,7 +116858,7 @@ _ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %49, label %48
 
-25:                                               ; preds = %switch.early.test
+25:                                               ; preds = %switch.early.test.i
   %26 = icmp ugt i32 %., 127
   br i1 %26, label %27, label %.critedge6.i
 
@@ -116899,20 +116899,20 @@ _ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855
 _ZN4core7unicode12unicode_data11white_space6lookup17h8b10c0607161acb4E.llvm.16978709814855407318.exit.i: ; preds = %40, %35, %32, %29
   %.0.i.i = phi i8 [ %34, %32 ], [ %39, %35 ], [ %31, %29 ], [ %45, %40 ]
   %46 = trunc i8 %.0.i.i to i1
-  br i1 %46, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread, label %.critedge6.i
+  br i1 %46, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread", label %.critedge6.i
 
 .critedge6.i:                                     ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h8b10c0607161acb4E.llvm.16978709814855407318.exit.i, %27, %25
   switch i32 %3, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit [
-    i32 10, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 11, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 12, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 13, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 133, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 8232, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
-    i32 8233, label %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread
+    i32 10, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 11, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 12, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 13, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 133, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 8232, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
+    i32 8233, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread"
   ]
 
-_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread: ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %20, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h8b10c0607161acb4E.llvm.16978709814855407318.exit.i
+"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread": ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %.critedge6.i, %_ZN4core7unicode12unicode_data11white_space6lookup17h8b10c0607161acb4E.llvm.16978709814855407318.exit.i, %20
   %47 = add i64 %15, -1
   store i64 %47, ptr %0, align 8
   %.sroa.3.0.in.v.i10 = select i1 %2, i64 56, i64 24
@@ -116932,9 +116932,9 @@ _ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855
   %anon.43c633cc9d0c07b847282a0596e0d119.1061.anon.43c633cc9d0c07b847282a0596e0d119.1060.i = select i1 %2, ptr @anon.43c633cc9d0c07b847282a0596e0d119.1061, ptr @anon.43c633cc9d0c07b847282a0596e0d119.1060
   br label %50
 
-50:                                               ; preds = %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread, %49, %48, %17
-  %.sroa.5.0 = phi i64 [ %.sroa.3.0.i, %17 ], [ %.sroa.3.0.i14, %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread ], [ 3, %49 ], [ %..i, %48 ]
-  %.sroa.0.0.i.pn = phi ptr [ %.sroa.0.0.i, %17 ], [ %.sroa.0.0.i13, %_ZN5typst4text10smartquote12is_ignorable17hd62510065d4ab5aeE.llvm.16978709814855407318.exit.thread ], [ %anon.43c633cc9d0c07b847282a0596e0d119.1061.anon.43c633cc9d0c07b847282a0596e0d119.1060.i, %49 ], [ %anon.43c633cc9d0c07b847282a0596e0d119.1062.anon.43c633cc9d0c07b847282a0596e0d119.1021.i, %48 ]
+50:                                               ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread", %49, %48, %17
+  %.sroa.5.0 = phi i64 [ %.sroa.3.0.i, %17 ], [ %.sroa.3.0.i14, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread" ], [ 3, %49 ], [ %..i, %48 ]
+  %.sroa.0.0.i.pn = phi ptr [ %.sroa.0.0.i, %17 ], [ %.sroa.0.0.i13, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17h23a9a1c7f9a13358E.exit.thread" ], [ %anon.43c633cc9d0c07b847282a0596e0d119.1061.anon.43c633cc9d0c07b847282a0596e0d119.1060.i, %49 ], [ %anon.43c633cc9d0c07b847282a0596e0d119.1062.anon.43c633cc9d0c07b847282a0596e0d119.1021.i, %48 ]
   %.pn17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.pn, 0
   %51 = insertvalue { ptr, i64 } %.pn17, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %51

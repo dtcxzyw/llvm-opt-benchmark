@@ -5606,12 +5606,14 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN17cranelift_codegen8machinst7helpers25ty_has_int_representation17h8c3afe63d37b70b6E(i16 noundef %0) unnamed_addr #11 {
-  %.off.i = add i16 %0, -118
-  %switch.i = icmp ult i16 %.off.i, 5
-  %2 = and i16 %0, -2
-  %switch.i1 = icmp eq i16 %2, 126
-  %.0 = or i1 %switch.i, %switch.i1
-  ret i1 %.0
+switch.return:
+  %switch.tableidx = add i16 %0, -118
+  %1 = icmp ult i16 %switch.tableidx, 10
+  %switch.cast = trunc i16 %switch.tableidx to i10
+  %switch.downshift = lshr i10 -225, %switch.cast
+  %switch.masked = trunc i10 %switch.downshift to i1
+  %2 = select i1 %1, i1 %switch.masked, i1 false
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

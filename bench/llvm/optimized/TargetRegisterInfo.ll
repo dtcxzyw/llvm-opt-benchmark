@@ -3756,24 +3756,22 @@ define dso_local i32 @_ZNK4llvm18TargetRegisterInfo16lookThruCopyLikeENS_8Regist
   %5 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %2, i32 %.sroa.07.0) #26
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %7 = load i16, ptr %6, align 4, !tbaa !211
-  switch i16 %7, label %14 [
-    i16 20, label %9
-    i16 12, label %8
-  ]
+  %8 = add i16 %7, -12
+  %switch.and.i = and i16 %8, -9
+  %switch.selectcmp.i = icmp eq i16 %switch.and.i, 0
+  br i1 %switch.selectcmp.i, label %9, label %15
 
-8:                                                ; preds = %4
-  br label %9
+9:                                                ; preds = %4
+  %10 = icmp eq i16 %7, 20
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %12 = load ptr, ptr %11, align 8, !tbaa !360
+  %. = select i1 %10, i64 36, i64 68
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.
+  %storemerge = load i32, ptr %13, align 4, !tbaa !270
+  %14 = icmp slt i32 %storemerge, 0
+  br i1 %14, label %4, label %15
 
-9:                                                ; preds = %4, %8
-  %.sink16 = phi i64 [ 68, %8 ], [ 36, %4 ]
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !360
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink16
-  %storemerge = load i32, ptr %12, align 4, !tbaa !270
-  %13 = icmp slt i32 %storemerge, 0
-  br i1 %13, label %4, label %14
-
-14:                                               ; preds = %4, %9
+15:                                               ; preds = %9, %4
   %.sroa.0.0.ph = phi i32 [ %.sroa.07.0, %4 ], [ %storemerge, %9 ]
   ret i32 %.sroa.0.0.ph
 }
@@ -3784,39 +3782,37 @@ declare noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(pt
 define dso_local i32 @_ZNK4llvm18TargetRegisterInfo26lookThruSingleUseCopyChainENS_8RegisterEPKNS_19MachineRegisterInfoE(ptr nonnull readnone align 8 captures(none) %0, i32 %1, ptr noundef %2) unnamed_addr #0 align 2 {
   br label %4
 
-4:                                                ; preds = %16, %3
-  %.sroa.011.0 = phi i32 [ %1, %3 ], [ %storemerge, %16 ]
+4:                                                ; preds = %17, %3
+  %.sroa.011.0 = phi i32 [ %1, %3 ], [ %storemerge, %17 ]
   %5 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %2, i32 %.sroa.011.0) #26
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %7 = load i16, ptr %6, align 4, !tbaa !211
-  switch i16 %7, label %8 [
-    i16 20, label %11
-    i16 12, label %10
-  ]
+  %8 = add i16 %7, -12
+  %switch.and.i = and i16 %8, -9
+  %switch.selectcmp.i = icmp eq i16 %switch.and.i, 0
+  br i1 %switch.selectcmp.i, label %11, label %9
 
-8:                                                ; preds = %4
-  %9 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %2, i32 %.sroa.011.0) #26
-  %spec.select = select i1 %9, i32 %.sroa.011.0, i32 0
+9:                                                ; preds = %4
+  %10 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %2, i32 %.sroa.011.0) #26
+  %spec.select = select i1 %10, i32 %.sroa.011.0, i32 0
   br label %.loopexit
 
-10:                                               ; preds = %4
-  br label %11
+11:                                               ; preds = %4
+  %12 = icmp eq i16 %7, 20
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %14 = load ptr, ptr %13, align 8, !tbaa !360
+  %. = select i1 %12, i64 36, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.
+  %storemerge = load i32, ptr %15, align 4, !tbaa !270
+  %16 = icmp slt i32 %storemerge, 0
+  br i1 %16, label %17, label %.loopexit
 
-11:                                               ; preds = %4, %10
-  %.sink24 = phi i64 [ 68, %10 ], [ 36, %4 ]
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !360
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.sink24
-  %storemerge = load i32, ptr %14, align 4, !tbaa !270
-  %15 = icmp slt i32 %storemerge, 0
-  br i1 %15, label %16, label %.loopexit
+17:                                               ; preds = %11
+  %18 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %2, i32 %storemerge) #26
+  br i1 %18, label %4, label %.loopexit
 
-16:                                               ; preds = %11
-  %17 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %2, i32 %storemerge) #26
-  br i1 %17, label %4, label %.loopexit
-
-.loopexit:                                        ; preds = %16, %11, %8
-  %.sroa.016.1.ph = phi i32 [ %spec.select, %8 ], [ 0, %11 ], [ 0, %16 ]
+.loopexit:                                        ; preds = %17, %11, %9
+  %.sroa.016.1.ph = phi i32 [ %spec.select, %9 ], [ 0, %11 ], [ 0, %17 ]
   ret i32 %.sroa.016.1.ph
 }
 

@@ -75,7 +75,7 @@ define dso_local range(i32 333, 332) i32 @filtered_base_yylex() local_unnamed_ad
 
 base_yylex_location.exit:                         ; preds = %17, %10, %7, %1
   %.022 = phi i32 [ %2, %1 ], [ %6, %7 ], [ %6, %10 ], [ %6, %17 ]
-  switch i32 %.022, label %84 [
+  switch i32 %.022, label %83 [
     i32 500, label %20
     i32 618, label %20
     i32 625, label %20
@@ -140,7 +140,7 @@ base_yylex_location.exit36:                       ; preds = %base_yylex_location
   store ptr %21, ptr @base_yylloc, align 8
   store ptr %22, ptr @base_yytext, align 8
   store i1 true, ptr @have_lookahead, align 1
-  switch i32 %.022, label %84 [
+  switch i32 %.022, label %83 [
     i32 500, label %39
     i32 618, label %40
     i32 625, label %42
@@ -153,10 +153,10 @@ base_yylex_location.exit36:                       ; preds = %base_yylex_location
 39:                                               ; preds = %base_yylex_location.exit36
   %cond1 = icmp eq i32 %23, 554
   %spec.select = select i1 %cond1, i32 838, i32 500
-  br label %84
+  br label %83
 
 40:                                               ; preds = %base_yylex_location.exit36
-  switch i32 %23, label %84 [
+  switch i32 %23, label %83 [
     i32 377, label %41
     i32 527, label %41
     i32 578, label %41
@@ -165,30 +165,30 @@ base_yylex_location.exit36:                       ; preds = %base_yylex_location
   ]
 
 41:                                               ; preds = %40, %40, %40, %40, %40
-  br label %84
+  br label %83
 
 42:                                               ; preds = %base_yylex_location.exit36
   %switch.selectcmp.case1 = icmp eq i32 %23, 494
   %switch.selectcmp.case2 = icmp eq i32 %23, 571
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   %43 = select i1 %switch.selectcmp, i32 840, i32 625
-  br label %84
+  br label %83
 
 44:                                               ; preds = %base_yylex_location.exit36
   %switch.selectcmp.case124 = icmp eq i32 %23, 770
   %switch.selectcmp.case225 = icmp eq i32 %23, 641
   %switch.selectcmp26 = or i1 %switch.selectcmp.case124, %switch.selectcmp.case225
   %45 = select i1 %switch.selectcmp26, i32 841, i32 817
-  br label %84
+  br label %83
 
 46:                                               ; preds = %base_yylex_location.exit36
   %cond = icmp eq i32 %23, 770
   %spec.select27 = select i1 %cond, i32 842, i32 819
-  br label %84
+  br label %83
 
 47:                                               ; preds = %base_yylex_location.exit36, %base_yylex_location.exit36
   %48 = icmp eq i32 %23, 784
-  br i1 %48, label %49, label %80
+  br i1 %48, label %49, label %79
 
 49:                                               ; preds = %47
   %50 = tail call i32 @base_yylex() #6
@@ -256,7 +256,7 @@ base_yylex_location.exit45.thread:                ; preds = %54, %base_yylex_loc
   br i1 %.not.i46, label %switch.early.test.i, label %check_uescapechar.exit.thread
 
 switch.early.test.i:                              ; preds = %67
-  switch i8 %69, label %76 [
+  switch i8 %69, label %check_uescapechar.exit [
     i8 43, label %check_uescapechar.exit.thread
     i8 39, label %check_uescapechar.exit.thread
     i8 34, label %check_uescapechar.exit.thread
@@ -269,31 +269,31 @@ switch.early.test.i:                              ; preds = %67
 
 check_uescapechar.exit.thread:                    ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %67, %64
   tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.1) #6
-  br label %76
+  br label %check_uescapechar.exit
 
-76:                                               ; preds = %switch.early.test.i, %check_uescapechar.exit.thread
+check_uescapechar.exit:                           ; preds = %switch.early.test.i, %check_uescapechar.exit.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @base_yylval, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, i64 48, i1 false)
   store ptr %21, ptr @base_yylloc, align 8
   store ptr %22, ptr @base_yytext, align 8
-  %77 = load ptr, ptr @base_yylval, align 8
-  %78 = tail call ptr @make3_str(ptr noundef %77, ptr noundef nonnull @.str.2, ptr noundef nonnull %65) #6
-  store ptr %78, ptr @base_yylval, align 8
-  %79 = tail call ptr @loc_strdup(ptr noundef %78) #6
-  store ptr %79, ptr @base_yylloc, align 8
+  %76 = load ptr, ptr @base_yylval, align 8
+  %77 = tail call ptr @make3_str(ptr noundef %76, ptr noundef nonnull @.str.2, ptr noundef nonnull %65) #6
+  store ptr %77, ptr @base_yylval, align 8
+  %78 = tail call ptr @loc_strdup(ptr noundef %77) #6
+  store ptr %78, ptr @base_yylloc, align 8
   store i1 false, ptr @have_lookahead, align 1
-  br label %80
+  br label %79
 
-80:                                               ; preds = %76, %47
-  %81 = icmp eq i32 %.022, 329
-  br i1 %81, label %84, label %82
+79:                                               ; preds = %check_uescapechar.exit, %47
+  %80 = icmp eq i32 %.022, 329
+  br i1 %80, label %83, label %81
 
-82:                                               ; preds = %80
-  %83 = icmp eq i32 %.022, 332
-  %spec.store.select = select i1 %83, i32 331, i32 %.022
-  br label %84
+81:                                               ; preds = %79
+  %82 = icmp eq i32 %.022, 332
+  %spec.store.select = select i1 %82, i32 331, i32 %.022
+  br label %83
 
-84:                                               ; preds = %46, %39, %base_yylex_location.exit36, %41, %40, %82, %42, %44, %80, %base_yylex_location.exit
-  %.0 = phi i32 [ %.022, %base_yylex_location.exit ], [ %.022, %base_yylex_location.exit36 ], [ %spec.store.select, %82 ], [ 328, %80 ], [ 618, %40 ], [ 839, %41 ], [ %spec.select, %39 ], [ %43, %42 ], [ %spec.select27, %46 ], [ %45, %44 ]
+83:                                               ; preds = %46, %39, %base_yylex_location.exit36, %41, %40, %81, %42, %44, %79, %base_yylex_location.exit
+  %.0 = phi i32 [ %.022, %base_yylex_location.exit ], [ %.022, %base_yylex_location.exit36 ], [ %spec.store.select, %81 ], [ 328, %79 ], [ 618, %40 ], [ 839, %41 ], [ %spec.select, %39 ], [ %43, %42 ], [ %spec.select27, %46 ], [ %45, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   ret i32 %.0
 }

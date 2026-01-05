@@ -548,6 +548,7 @@ $_ZTV14LibraryCallKit = comdat any
 @_ZTV16OverflowMulLNode = external unnamed_addr constant { [30 x ptr] }, align 8
 @llvm.global_ctors = appending global [5 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.130, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.131, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.132, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.133, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.134, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE65ELS1_60ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }]
 @llvm.used = appending global [5 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE65ELS1_60ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
+@switch.table._ZN14LibraryCallKitC2EP8JVMStateP16LibraryIntrinsic = private unnamed_addr constant [4 x i32] [i32 1, i32 1, i32 0, i32 1], align 4
 @switch.table._ZN14LibraryCallKit19inline_unsafe_fenceE13vmIntrinsicID = private unnamed_addr constant [4 x i32] [i32 214, i32 218, i32 219, i32 221], align 4
 @switch.table._ZN14LibraryCallKit17inline_fp_min_maxE13vmIntrinsicID = private unnamed_addr constant [16 x i32] [i32 1, i32 1, i32 2, i32 2, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 1, i32 1, i32 2, i32 2], align 4
 @switch.table._ZN14LibraryCallKit28mo_decorator_for_access_kindENS_10AccessKindE = private unnamed_addr constant [5 x i64] [i64 64, i64 128, i64 1024, i64 256, i64 512], align 8
@@ -1107,19 +1108,26 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %45 = load i32, ptr %44, align 4
   %46 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %47 = load i32, ptr %46, align 8
-  %48 = and i32 %45, -2
-  %or.cond.i.i = icmp eq i32 %48, 182
-  %49 = icmp eq i32 %45, 185
-  %spec.select.i.i = or i1 %49, %or.cond.i.i
-  %50 = zext i1 %spec.select.i.i to i32
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %52 = load i32, ptr %51, align 8
-  %53 = add i32 %52, %47
-  %54 = add i32 %53, %50
+  %switch.tableidx = add i32 %45, -182
+  %48 = icmp ult i32 %switch.tableidx, 4
+  br i1 %48, label %switch.lookup, label %_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit
+
+switch.lookup:                                    ; preds = %_ZN8ciMethod16java_code_at_bciEi.exit
+  %49 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN14LibraryCallKitC2EP8JVMStateP16LibraryIntrinsic, i64 %49
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit
+
+_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit: ; preds = %_ZN8ciMethod16java_code_at_bciEi.exit, %switch.lookup
+  %50 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %_ZN8ciMethod16java_code_at_bciEi.exit ]
+  %51 = add nsw i32 %50, %47
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %53 = load i32, ptr %52, align 8
+  %54 = add nsw i32 %51, %53
   br label %55
 
-55:                                               ; preds = %_ZN8ciMethod16java_code_at_bciEi.exit, %10
-  %.sink = phi i32 [ %54, %_ZN8ciMethod16java_code_at_bciEi.exit ], [ %12, %10 ]
+55:                                               ; preds = %_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit, %10
+  %.sink = phi i32 [ %54, %_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit ], [ %12, %10 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %.sink, ptr %56, align 8
   ret void
@@ -7097,17 +7105,17 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit17inline_array_sortEv(ptr n
 
 68:                                               ; preds = %66
   %69 = add i8 %63, -7
-  %switch.and.i.i = and i8 %69, -5
-  %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
-  br label %_ZN7Matcher18supports_simd_sortE9BasicType.exit.i
-
-_ZN7Matcher18supports_simd_sortE9BasicType.exit.i: ; preds = %68, %61
-  %.0.i.i = phi i1 [ false, %61 ], [ %switch.selectcmp.i.i, %68 ]
+  %switch.and.i.i.i = and i8 %69, -5
+  %switch.selectcmp.i.i.i = icmp eq i8 %switch.and.i.i.i, 0
   %70 = icmp eq ptr %23, null
-  %or.cond.i = or i1 %70, %.0.i.i
+  %or.cond.i = or i1 %70, %switch.selectcmp.i.i.i
   br i1 %or.cond.i, label %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit.thread, label %71
 
-71:                                               ; preds = %_ZN7Matcher18supports_simd_sortE9BasicType.exit.i
+_ZN7Matcher18supports_simd_sortE9BasicType.exit.i: ; preds = %61
+  %.old.i = icmp eq ptr %23, null
+  br i1 %.old.i, label %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit.thread, label %71
+
+71:                                               ; preds = %_ZN7Matcher18supports_simd_sortE9BasicType.exit.i, %68
   %72 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -7160,8 +7168,8 @@ _ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit: ; pre
   %111 = tail call noundef ptr @_ZN8GraphKit17make_runtime_callEiPK8TypeFuncPhPKcPK7TypePtrP4NodeSA_SA_SA_SA_SA_SA_SA_(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef 1, ptr noundef %109, ptr noundef nonnull %3, ptr noundef nonnull @.str.67, ptr noundef %110, ptr noundef %105, ptr noundef %108, ptr noundef %31, ptr noundef %35, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #13
   br label %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit.thread
 
-_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit.thread: ; preds = %66, %71, %37, %75, %_ZN7Matcher18supports_simd_sortE9BasicType.exit.i, %41, %5, %58, %96, %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit, %1, %104
-  %.0 = phi i1 [ false, %1 ], [ false, %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit ], [ true, %104 ], [ true, %96 ], [ false, %58 ], [ false, %5 ], [ false, %41 ], [ false, %_ZN7Matcher18supports_simd_sortE9BasicType.exit.i ], [ false, %75 ], [ false, %37 ], [ false, %71 ], [ false, %66 ]
+_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit.thread: ; preds = %68, %66, %71, %37, %75, %_ZN7Matcher18supports_simd_sortE9BasicType.exit.i, %41, %5, %58, %96, %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit, %1, %104
+  %.0 = phi i1 [ false, %1 ], [ false, %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit ], [ true, %104 ], [ true, %96 ], [ false, %58 ], [ false, %5 ], [ false, %41 ], [ false, %_ZN7Matcher18supports_simd_sortE9BasicType.exit.i ], [ false, %75 ], [ false, %37 ], [ false, %71 ], [ false, %66 ], [ false, %68 ]
   ret i1 %.0
 }
 
@@ -7261,17 +7269,17 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit22inline_array_partitionEv(
 
 77:                                               ; preds = %75
   %78 = add i8 %72, -7
-  %switch.and.i.i = and i8 %78, -5
-  %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
-  br label %_ZN7Matcher18supports_simd_sortE9BasicType.exit.i
-
-_ZN7Matcher18supports_simd_sortE9BasicType.exit.i: ; preds = %77, %70
-  %.0.i.i = phi i1 [ false, %70 ], [ %switch.selectcmp.i.i, %77 ]
+  %switch.and.i.i.i = and i8 %78, -5
+  %switch.selectcmp.i.i.i = icmp eq i8 %switch.and.i.i.i, 0
   %79 = icmp eq ptr %24, null
-  %or.cond.i = or i1 %79, %.0.i.i
+  %or.cond.i = or i1 %79, %switch.selectcmp.i.i.i
   br i1 %or.cond.i, label %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit.thread, label %80
 
-80:                                               ; preds = %_ZN7Matcher18supports_simd_sortE9BasicType.exit.i
+_ZN7Matcher18supports_simd_sortE9BasicType.exit.i: ; preds = %70
+  %.old.i = icmp eq ptr %24, null
+  br i1 %.old.i, label %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit.thread, label %80
+
+80:                                               ; preds = %_ZN7Matcher18supports_simd_sortE9BasicType.exit.i, %77
   %81 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
@@ -7361,8 +7369,8 @@ _ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit: ; pre
   store ptr %125, ptr %144, align 8
   br label %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit.thread
 
-_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit.thread: ; preds = %75, %80, %46, %84, %_ZN7Matcher18supports_simd_sortE9BasicType.exit.i, %50, %6, %67, %129, %143, %105, %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit ], [ true, %105 ], [ true, %143 ], [ true, %129 ], [ false, %67 ], [ false, %6 ], [ false, %50 ], [ false, %_ZN7Matcher18supports_simd_sortE9BasicType.exit.i ], [ false, %84 ], [ false, %46 ], [ false, %80 ], [ false, %75 ]
+_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit.thread: ; preds = %77, %75, %80, %46, %84, %_ZN7Matcher18supports_simd_sortE9BasicType.exit.i, %50, %6, %67, %129, %143, %105, %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit ], [ true, %105 ], [ true, %143 ], [ true, %129 ], [ false, %67 ], [ false, %6 ], [ false, %50 ], [ false, %_ZN7Matcher18supports_simd_sortE9BasicType.exit.i ], [ false, %84 ], [ false, %46 ], [ false, %80 ], [ false, %75 ], [ false, %77 ]
   ret i1 %.0
 }
 
@@ -56241,17 +56249,17 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit26check_array_sort_argument
 
 37:                                               ; preds = %35
   %38 = add i8 %32, -7
-  %switch.and.i = and i8 %38, -5
-  %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
-  br label %_ZN7Matcher18supports_simd_sortE9BasicType.exit
-
-_ZN7Matcher18supports_simd_sortE9BasicType.exit:  ; preds = %30, %37
-  %.0.i = phi i1 [ false, %30 ], [ %switch.selectcmp.i, %37 ]
+  %switch.and.i.i = and i8 %38, -5
+  %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
   %39 = icmp eq ptr %2, null
-  %or.cond = or i1 %39, %.0.i
+  %or.cond = or i1 %39, %switch.selectcmp.i.i
   br i1 %or.cond, label %_ZN7Matcher18supports_simd_sortE9BasicType.exit.thread, label %40
 
-40:                                               ; preds = %_ZN7Matcher18supports_simd_sortE9BasicType.exit
+_ZN7Matcher18supports_simd_sortE9BasicType.exit:  ; preds = %30
+  %.old = icmp eq ptr %2, null
+  br i1 %.old, label %_ZN7Matcher18supports_simd_sortE9BasicType.exit.thread, label %40
+
+40:                                               ; preds = %37, %_ZN7Matcher18supports_simd_sortE9BasicType.exit
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
@@ -56284,8 +56292,8 @@ _ZN7Matcher18supports_simd_sortE9BasicType.exit:  ; preds = %30, %37
   %66 = icmp ne ptr %64, %65
   br label %_ZN7Matcher18supports_simd_sortE9BasicType.exit.thread
 
-_ZN7Matcher18supports_simd_sortE9BasicType.exit.thread: ; preds = %35, %60, %44, %40, %_ZN7Matcher18supports_simd_sortE9BasicType.exit, %27, %10, %4, %6
-  %.0 = phi i1 [ false, %27 ], [ false, %4 ], [ false, %10 ], [ false, %_ZN7Matcher18supports_simd_sortE9BasicType.exit ], [ false, %44 ], [ %66, %60 ], [ false, %6 ], [ false, %40 ], [ false, %35 ]
+_ZN7Matcher18supports_simd_sortE9BasicType.exit.thread: ; preds = %37, %35, %60, %44, %40, %_ZN7Matcher18supports_simd_sortE9BasicType.exit, %27, %10, %4, %6
+  %.0 = phi i1 [ false, %27 ], [ false, %4 ], [ false, %10 ], [ false, %_ZN7Matcher18supports_simd_sortE9BasicType.exit ], [ false, %44 ], [ %66, %60 ], [ false, %6 ], [ false, %40 ], [ false, %35 ], [ false, %37 ]
   ret i1 %.0
 }
 

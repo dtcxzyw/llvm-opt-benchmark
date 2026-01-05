@@ -455,19 +455,22 @@ declare i32 @get_log_level() local_unnamed_addr #1
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local zeroext i1 @launch_common_step_retry_errno(i32 noundef %0) local_unnamed_addr #6 {
-  %2 = icmp eq i32 %0, 11
-  %3 = icmp eq i32 %0, 2037
-  %or.cond = or i1 %2, %3
-  %4 = icmp eq i32 %0, 2079
-  %or.cond3 = or i1 %4, %or.cond
-  %5 = icmp eq i32 %0, 2016
-  %or.cond5 = or i1 %5, %or.cond3
-  %6 = icmp eq i32 %0, 2059
-  %or.cond7 = or i1 %6, %or.cond5
-  %7 = icmp eq i32 %0, 5004
-  %or.cond9 = or i1 %7, %or.cond7
-  ret i1 %or.cond9
+define dso_local noundef zeroext i1 @launch_common_step_retry_errno(i32 noundef %0) local_unnamed_addr #6 {
+  switch i32 %0, label %ret.false [
+    i32 5004, label %switch.return
+    i32 2079, label %switch.return
+    i32 2059, label %switch.return
+    i32 2037, label %switch.return
+    i32 2016, label %switch.return
+    i32 11, label %switch.return
+  ]
+
+ret.false:                                        ; preds = %1
+  br label %switch.return
+
+switch.return:                                    ; preds = %1, %1, %1, %1, %1, %1, %ret.false
+  %2 = phi i1 [ false, %ret.false ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
+  ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable

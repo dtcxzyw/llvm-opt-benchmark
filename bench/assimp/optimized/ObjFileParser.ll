@@ -2187,68 +2187,67 @@ _ZN6Assimp9IsLineEndIcEEbT_.exit:                 ; preds = %6, %8, %12, %_ZN6As
 21:                                               ; preds = %.critedge.i.i
   %22 = add i8 %20, -48
   %or.cond.i = icmp ult i8 %22, 10
-  br i1 %or.cond.i, label %_ZN6AssimpL10isNanOrInfEPKc.exit, label %switch.early.test
+  %23 = add i8 %20, -43
+  %switch.and.i = and i8 %23, -3
+  %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
+  %24 = or i1 %or.cond.i, %switch.selectcmp.i
+  br i1 %24, label %_ZN6AssimpL10isNanOrInfEPKc.exit, label %25
 
-switch.early.test:                                ; preds = %21
-  switch i8 %20, label %_ZN6AssimpL10isNanOrInfEPKc.exit.fold.split [
-    i8 45, label %_ZN6AssimpL10isNanOrInfEPKc.exit
-    i8 43, label %_ZN6AssimpL10isNanOrInfEPKc.exit
-    i8 78, label %23
-    i8 110, label %23
-    i8 73, label %27
-    i8 105, label %27
+25:                                               ; preds = %21
+  switch i8 %20, label %_ZN6AssimpL10isNanOrInfEPKc.exit [
+    i8 78, label %26
+    i8 110, label %26
+    i8 73, label %30
+    i8 105, label %30
   ]
 
-23:                                               ; preds = %switch.early.test, %switch.early.test
-  %24 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.0.lcssa.i.i, ptr noundef nonnull @.str.21, i64 noundef 3) #33
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %_ZN6AssimpL10isNanOrInfEPKc.exit, label %26
+26:                                               ; preds = %25, %25
+  %27 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.0.lcssa.i.i, ptr noundef nonnull @.str.21, i64 noundef 3) #33
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %_ZN6AssimpL10isNanOrInfEPKc.exit, label %29
 
-26:                                               ; preds = %23
+29:                                               ; preds = %26
   %cond.i = icmp eq i8 %20, 105
-  br i1 %cond.i, label %27, label %_ZN6AssimpL10isNanOrInfEPKc.exit
+  br i1 %cond.i, label %30, label %_ZN6AssimpL10isNanOrInfEPKc.exit
 
-27:                                               ; preds = %switch.early.test, %switch.early.test, %26
-  %28 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.0.lcssa.i.i, ptr noundef nonnull @.str.22, i64 noundef 3) #33
-  %29 = icmp eq i32 %28, 0
-  %30 = zext i1 %29 to i64
+30:                                               ; preds = %29, %25, %25
+  %31 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.0.lcssa.i.i, ptr noundef nonnull @.str.22, i64 noundef 3) #33
+  %32 = icmp eq i32 %31, 0
+  %33 = zext i1 %32 to i64
   br label %_ZN6AssimpL10isNanOrInfEPKc.exit
 
-_ZN6AssimpL10isNanOrInfEPKc.exit.fold.split:      ; preds = %switch.early.test
-  br label %_ZN6AssimpL10isNanOrInfEPKc.exit
+_ZN6AssimpL10isNanOrInfEPKc.exit:                 ; preds = %30, %29, %26, %25, %21
+  %34 = phi i64 [ 1, %21 ], [ 1, %26 ], [ 0, %29 ], [ %33, %30 ], [ 0, %25 ]
+  %35 = ptrtoint ptr %.0.lcssa.i.i to i64
+  %36 = sub i64 %5, %35
+  %scevgep.i.i.i = getelementptr i8, ptr %.0.lcssa.i.i, i64 %36
+  br label %37
 
-_ZN6AssimpL10isNanOrInfEPKc.exit:                 ; preds = %switch.early.test, %switch.early.test, %_ZN6AssimpL10isNanOrInfEPKc.exit.fold.split, %21, %27, %26, %23
-  %31 = phi i64 [ 1, %switch.early.test ], [ 1, %23 ], [ 0, %26 ], [ %30, %27 ], [ 1, %switch.early.test ], [ 1, %21 ], [ 0, %_ZN6AssimpL10isNanOrInfEPKc.exit.fold.split ]
-  %32 = ptrtoint ptr %.0.lcssa.i.i to i64
-  %33 = sub i64 %5, %32
-  %scevgep.i.i.i = getelementptr i8, ptr %.0.lcssa.i.i, i64 %33
-  br label %34
-
-34:                                               ; preds = %37, %_ZN6AssimpL10isNanOrInfEPKc.exit
-  %35 = phi i8 [ %20, %_ZN6AssimpL10isNanOrInfEPKc.exit ], [ %.pre, %37 ]
-  %.0.i.i.i = phi ptr [ %.0.lcssa.i.i, %_ZN6AssimpL10isNanOrInfEPKc.exit ], [ %38, %37 ]
-  switch i8 %35, label %.critedge.i.i.i.preheader [
-    i8 32, label %36
-    i8 9, label %36
+37:                                               ; preds = %40, %_ZN6AssimpL10isNanOrInfEPKc.exit
+  %38 = phi i8 [ %20, %_ZN6AssimpL10isNanOrInfEPKc.exit ], [ %.pre, %40 ]
+  %.0.i.i.i = phi ptr [ %.0.lcssa.i.i, %_ZN6AssimpL10isNanOrInfEPKc.exit ], [ %41, %40 ]
+  switch i8 %38, label %.critedge.i.i.i.preheader [
+    i8 32, label %39
+    i8 9, label %39
   ]
 
-.critedge.i.i.i.preheader:                        ; preds = %36, %34
-  %storemerge.i.ph = phi ptr [ %scevgep.i.i.i, %36 ], [ %.0.i.i.i, %34 ]
+.critedge.i.i.i.preheader:                        ; preds = %39, %37
+  %storemerge.i.ph = phi ptr [ %scevgep.i.i.i, %39 ], [ %.0.i.i.i, %37 ]
   br label %.critedge.i.i.i
 
-36:                                               ; preds = %34, %34
+39:                                               ; preds = %37, %37
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %4
-  br i1 %.not.i.i.i, label %.critedge.i.i.i.preheader, label %37
+  br i1 %.not.i.i.i, label %.critedge.i.i.i.preheader, label %40
 
-37:                                               ; preds = %36
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
-  %.pre = load i8, ptr %38, align 1
-  br label %34, !llvm.loop !21
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
+  %.pre = load i8, ptr %41, align 1
+  br label %37, !llvm.loop !21
 
 .critedge.i.i.i:                                  ; preds = %.critedge.i.i.i.preheader, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit.i
-  %storemerge.i = phi ptr [ %40, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit.i ], [ %storemerge.i.ph, %.critedge.i.i.i.preheader ]
-  %39 = load i8, ptr %storemerge.i, align 1
-  switch i8 %39, label %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit.i [
+  %storemerge.i = phi ptr [ %43, %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit.i ], [ %storemerge.i.ph, %.critedge.i.i.i.preheader ]
+  %42 = load i8, ptr %storemerge.i, align 1
+  switch i8 %42, label %_ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit.i [
     i8 32, label %_ZN6Assimp9SkipTokenERPKcS1_.exit
     i8 9, label %_ZN6Assimp9SkipTokenERPKcS1_.exit
     i8 13, label %_ZN6Assimp9SkipTokenERPKcS1_.exit
@@ -2258,41 +2257,41 @@ _ZN6AssimpL10isNanOrInfEPKc.exit:                 ; preds = %switch.early.test, 
   ]
 
 _ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit.i:       ; preds = %.critedge.i.i.i
-  %40 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 1
   br label %.critedge.i.i.i, !llvm.loop !22
 
 _ZN6Assimp9SkipTokenERPKcS1_.exit:                ; preds = %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i
-  %spec.select8 = add i64 %31, %.05
-  %41 = ptrtoint ptr %storemerge.i to i64
-  %42 = sub i64 %5, %41
-  %scevgep.i.i10 = getelementptr i8, ptr %storemerge.i, i64 %42
-  br label %43
+  %spec.select8 = add i64 %34, %.05
+  %44 = ptrtoint ptr %storemerge.i to i64
+  %45 = sub i64 %5, %44
+  %scevgep.i.i10 = getelementptr i8, ptr %storemerge.i, i64 %45
+  br label %46
 
-43:                                               ; preds = %46, %_ZN6Assimp9SkipTokenERPKcS1_.exit
-  %44 = phi i8 [ %39, %_ZN6Assimp9SkipTokenERPKcS1_.exit ], [ %.pre40, %46 ]
-  %.0.i.i11 = phi ptr [ %storemerge.i, %_ZN6Assimp9SkipTokenERPKcS1_.exit ], [ %47, %46 ]
-  switch i8 %44, label %.critedge.i.i13 [
-    i8 32, label %45
-    i8 9, label %45
+46:                                               ; preds = %49, %_ZN6Assimp9SkipTokenERPKcS1_.exit
+  %47 = phi i8 [ %42, %_ZN6Assimp9SkipTokenERPKcS1_.exit ], [ %.pre40, %49 ]
+  %.0.i.i11 = phi ptr [ %storemerge.i, %_ZN6Assimp9SkipTokenERPKcS1_.exit ], [ %50, %49 ]
+  switch i8 %47, label %.critedge.i.i13 [
+    i8 32, label %48
+    i8 9, label %48
   ]
 
-45:                                               ; preds = %43, %43
+48:                                               ; preds = %46, %46
   %.not.i.i12 = icmp eq ptr %.0.i.i11, %4
-  br i1 %.not.i.i12, label %.critedge.i.i13thread-pre-split, label %46
+  br i1 %.not.i.i12, label %.critedge.i.i13thread-pre-split, label %49
 
-46:                                               ; preds = %45
-  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i11, i64 1
-  %.pre40 = load i8, ptr %47, align 1
-  br label %43, !llvm.loop !21
+49:                                               ; preds = %48
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i11, i64 1
+  %.pre40 = load i8, ptr %50, align 1
+  br label %46, !llvm.loop !21
 
-.critedge.i.i13thread-pre-split:                  ; preds = %45
+.critedge.i.i13thread-pre-split:                  ; preds = %48
   %.pr27 = load i8, ptr %scevgep.i.i10, align 1
   br label %.critedge.i.i13
 
-.critedge.i.i13:                                  ; preds = %43, %.critedge.i.i13thread-pre-split
-  %48 = phi i8 [ %.pr27, %.critedge.i.i13thread-pre-split ], [ %44, %43 ]
-  %.0.lcssa.i.i14 = phi ptr [ %scevgep.i.i10, %.critedge.i.i13thread-pre-split ], [ %.0.i.i11, %43 ]
-  switch i8 %48, label %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit15 [
+.critedge.i.i13:                                  ; preds = %46, %.critedge.i.i13thread-pre-split
+  %51 = phi i8 [ %.pr27, %.critedge.i.i13thread-pre-split ], [ %47, %46 ]
+  %.0.lcssa.i.i14 = phi ptr [ %scevgep.i.i10, %.critedge.i.i13thread-pre-split ], [ %.0.i.i11, %46 ]
+  switch i8 %51, label %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit15 [
     i8 13, label %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit
     i8 10, label %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit
     i8 0, label %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit

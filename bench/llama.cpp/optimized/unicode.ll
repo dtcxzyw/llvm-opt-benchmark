@@ -52354,13 +52354,19 @@ _ZNKSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIwEELb0ELb1ELb1EEclEw.exit
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFbwENSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIwEELb1ELb0ELb0EEEE9_M_invokeERKSt9_Any_dataOw(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #2 comdat align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !201
-  %.not.i.i.i.i = icmp ne i32 %3, 10
-  %.not9.i.i.i.i = icmp ne i32 %3, 13
-  %or.cond.not12.i.i.i.i = and i1 %.not.i.i.i.i, %.not9.i.i.i.i
-  %4 = add i32 %3, -8234
-  %5 = icmp ult i32 %4, -2
-  %spec.select.i.i.i.i = and i1 %or.cond.not12.i.i.i.i, %5
-  ret i1 %spec.select.i.i.i.i
+  switch i32 %3, label %ret.false.i.i.i.i [
+    i32 8232, label %_ZSt10__invoke_rIbRNSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIwEELb1ELb0ELb0EEEJwEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit
+    i32 13, label %_ZSt10__invoke_rIbRNSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIwEELb1ELb0ELb0EEEJwEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit
+    i32 10, label %_ZSt10__invoke_rIbRNSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIwEELb1ELb0ELb0EEEJwEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit
+    i32 8233, label %_ZSt10__invoke_rIbRNSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIwEELb1ELb0ELb0EEEJwEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit
+  ]
+
+ret.false.i.i.i.i:                                ; preds = %2
+  br label %_ZSt10__invoke_rIbRNSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIwEELb1ELb0ELb0EEEJwEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit
+
+_ZSt10__invoke_rIbRNSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIwEELb1ELb0ELb0EEEJwEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit: ; preds = %2, %2, %2, %2, %ret.false.i.i.i.i
+  %4 = phi i1 [ true, %ret.false.i.i.i.i ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -52391,13 +52397,19 @@ _ZNSt14_Function_base13_Base_managerINSt8__detail11_AnyMatcherINSt7__cxx1112rege
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFbwENSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIwEELb1ELb0ELb1EEEE9_M_invokeERKSt9_Any_dataOw(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #2 comdat align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !201
-  %.not.i.i.i.i = icmp ne i32 %3, 10
-  %.not9.i.i.i.i = icmp ne i32 %3, 13
-  %or.cond.not12.i.i.i.i = and i1 %.not.i.i.i.i, %.not9.i.i.i.i
-  %4 = add i32 %3, -8234
-  %5 = icmp ult i32 %4, -2
-  %spec.select.i.i.i.i = and i1 %or.cond.not12.i.i.i.i, %5
-  ret i1 %spec.select.i.i.i.i
+  switch i32 %3, label %ret.false.i.i.i.i [
+    i32 8232, label %_ZSt10__invoke_rIbRNSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIwEELb1ELb0ELb1EEEJwEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit
+    i32 13, label %_ZSt10__invoke_rIbRNSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIwEELb1ELb0ELb1EEEJwEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit
+    i32 10, label %_ZSt10__invoke_rIbRNSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIwEELb1ELb0ELb1EEEJwEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit
+    i32 8233, label %_ZSt10__invoke_rIbRNSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIwEELb1ELb0ELb1EEEJwEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit
+  ]
+
+ret.false.i.i.i.i:                                ; preds = %2
+  br label %_ZSt10__invoke_rIbRNSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIwEELb1ELb0ELb1EEEJwEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit
+
+_ZSt10__invoke_rIbRNSt8__detail11_AnyMatcherINSt7__cxx1112regex_traitsIwEELb1ELb0ELb1EEEJwEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit: ; preds = %2, %2, %2, %2, %ret.false.i.i.i.i
+  %4 = phi i1 [ true, %ret.false.i.i.i.i ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -129,14 +129,13 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN17duckdb_libpgquery15scanner_isspaceEc(i8 noundef signext %0) local_unnamed_addr #6 {
-  %2 = icmp eq i8 %0, 32
-  %3 = add i8 %0, -9
-  %4 = icmp ult i8 %3, 2
-  %or.cond5 = or i1 %2, %4
-  %5 = and i8 %0, -2
-  %6 = icmp eq i8 %5, 12
-  %or.cond11 = or i1 %6, %or.cond5
-  ret i1 %or.cond11
+switch.return:
+  %1 = icmp ult i8 %0, 33
+  %switch.cast = zext nneg i8 %0 to i33
+  %switch.downshift = lshr i33 -4294953472, %switch.cast
+  %switch.masked = trunc i33 %switch.downshift to i1
+  %2 = select i1 %1, i1 %switch.masked, i1 false
+  ret i1 %2
 }
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -17292,59 +17292,61 @@ define hidden void @_ZN6Assimp13ColladaLoader10AddTextureER10aiMaterialRKNS_13Co
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
-  %.not5052 = icmp samesign eq i64 %39, 0
-  br i1 %.not5052, label %thread-pre-split.thread, label %.lr.ph
+  %.not5053 = icmp samesign eq i64 %39, 0
+  br i1 %.not5053, label %thread-pre-split.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %35, %50
-  %.sroa.046.053 = phi ptr [ %51, %50 ], [ %37, %35 ]
-  %41 = load i8, ptr %.sroa.046.053, align 1
-  %.fr = freeze i8 %41
-  %42 = add i8 %.fr, -48
+.lr.ph:                                           ; preds = %35, %54
+  %.sroa.046.054 = phi ptr [ %55, %54 ], [ %37, %35 ]
+  %41 = load i8, ptr %.sroa.046.054, align 1
+  %42 = add i8 %41, -48
   %or.cond.i = icmp ult i8 %42, 10
-  br i1 %or.cond.i, label %.lr.ph.i, label %switch.early.test
+  %43 = add i8 %41, -43
+  %switch.and.i = and i8 %43, -3
+  %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
+  %44 = or i1 %or.cond.i, %switch.selectcmp.i
+  br i1 %44, label %45, label %54
 
-switch.early.test:                                ; preds = %.lr.ph
-  switch i8 %.fr, label %50 [
-    i8 45, label %.sink.split
-    i8 43, label %.sink.split
-  ]
+45:                                               ; preds = %.lr.ph
+  %46 = add i8 %41, -58
+  %or.cond11.i = icmp ult i8 %46, -10
+  br i1 %or.cond11.i, label %.sink.split, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
-  %43 = phi i8 [ %48, %.lr.ph.i ], [ %.fr, %.lr.ph ]
-  %.013.i = phi i32 [ %46, %.lr.ph.i ], [ 0, %.lr.ph ]
-  %.0812.i = phi ptr [ %47, %.lr.ph.i ], [ %.sroa.046.053, %.lr.ph ]
-  %44 = mul i32 %.013.i, 10
-  %narrow.i = add nsw i8 %43, -48
-  %45 = zext nneg i8 %narrow.i to i32
-  %46 = add i32 %44, %45
-  %47 = getelementptr inbounds nuw i8, ptr %.0812.i, i64 1
-  %48 = load i8, ptr %47, align 1
-  %49 = add i8 %48, -58
-  %or.cond.i45 = icmp ult i8 %49, -10
+.lr.ph.i:                                         ; preds = %45, %.lr.ph.i
+  %47 = phi i8 [ %52, %.lr.ph.i ], [ %41, %45 ]
+  %.013.i = phi i32 [ %50, %.lr.ph.i ], [ 0, %45 ]
+  %.0812.i = phi ptr [ %51, %.lr.ph.i ], [ %.sroa.046.054, %45 ]
+  %48 = mul i32 %.013.i, 10
+  %narrow.i = add nsw i8 %47, -48
+  %49 = zext nneg i8 %narrow.i to i32
+  %50 = add i32 %48, %49
+  %51 = getelementptr inbounds nuw i8, ptr %.0812.i, i64 1
+  %52 = load i8, ptr %51, align 1
+  %53 = add i8 %52, -58
+  %or.cond.i45 = icmp ult i8 %53, -10
   br i1 %or.cond.i45, label %thread-pre-split, label %.lr.ph.i, !llvm.loop !149
 
-50:                                               ; preds = %switch.early.test
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.046.053, i64 1
-  %.not50 = icmp eq ptr %51, %40
+54:                                               ; preds = %.lr.ph
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.046.054, i64 1
+  %.not50 = icmp eq ptr %55, %40
   br i1 %.not50, label %thread-pre-split.thread, label %.lr.ph, !llvm.loop !150
 
 thread-pre-split:                                 ; preds = %.lr.ph.i
-  store i32 %46, ptr %9, align 4
-  %52 = icmp eq i32 %46, -1
-  br i1 %52, label %thread-pre-split.thread, label %54
+  store i32 %50, ptr %9, align 4
+  %56 = icmp eq i32 %50, -1
+  br i1 %56, label %thread-pre-split.thread, label %58
 
-thread-pre-split.thread:                          ; preds = %50, %35, %thread-pre-split
-  %53 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  call void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %53, ptr noundef nonnull @.str.61)
+thread-pre-split.thread:                          ; preds = %54, %35, %thread-pre-split
+  %57 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+  call void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %57, ptr noundef nonnull @.str.61)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %switch.early.test, %switch.early.test, %7, %thread-pre-split.thread
-  %.sink = phi i32 [ %34, %7 ], [ 0, %thread-pre-split.thread ], [ 0, %switch.early.test ], [ 0, %switch.early.test ]
+.sink.split:                                      ; preds = %45, %7, %thread-pre-split.thread
+  %.sink = phi i32 [ %34, %7 ], [ 0, %thread-pre-split.thread ], [ 0, %45 ]
   store i32 %.sink, ptr %9, align 4
-  br label %54
+  br label %58
 
-54:                                               ; preds = %.sink.split, %thread-pre-split
-  %55 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %9, i32 noundef 4, ptr noundef nonnull @.str.62, i32 noundef %5, i32 noundef %6, i32 noundef 4)
+58:                                               ; preds = %.sink.split, %thread-pre-split
+  %59 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %9, i32 noundef 4, ptr noundef nonnull @.str.62, i32 noundef %5, i32 noundef %6, i32 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void

@@ -2882,11 +2882,10 @@ define hidden void @_ZN18ObjectSynchronizer22owned_monitors_iterateEP14MonitorCl
   %5 = load volatile ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i, i64 64
   %7 = load volatile ptr, ptr %6, align 8
-  %magicptr.i.i.i = ptrtoint ptr %7 to i64
-  switch i64 %magicptr.i.i.i, label %8 [
-    i64 2, label %"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureP10JavaThreadE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES8_.exit.i.i"
-    i64 0, label %"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureP10JavaThreadE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES8_.exit.i.i"
-  ]
+  %magicptr.i.i.i.i = ptrtoint ptr %7 to i64
+  %switch.and.i.i.i.i = and i64 %magicptr.i.i.i.i, -3
+  %switch.selectcmp.i.not.i.i.i = icmp eq i64 %switch.and.i.i.i.i, 0
+  br i1 %switch.selectcmp.i.not.i.i.i, label %"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureP10JavaThreadE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES8_.exit.i.i", label %8
 
 8:                                                ; preds = %.lr.ph.i.i
   %9 = load volatile ptr, ptr %6, align 8
@@ -2899,7 +2898,7 @@ define hidden void @_ZN18ObjectSynchronizer22owned_monitors_iterateEP14MonitorCl
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.sroa.0.04.i.i) #19
   br label %"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureP10JavaThreadE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES8_.exit.i.i"
 
-"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureP10JavaThreadE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES8_.exit.i.i": ; preds = %11, %8, %.lr.ph.i.i, %.lr.ph.i.i
+"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureP10JavaThreadE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES8_.exit.i.i": ; preds = %11, %8, %.lr.ph.i.i
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %"_ZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureP10JavaThreadE3$_0EEvS2_T_.exit", label %.lr.ph.i.i, !llvm.loop !39
 
@@ -2920,11 +2919,10 @@ define hidden void @_ZN18ObjectSynchronizer22owned_monitors_iterateEP14MonitorCl
   %4 = load volatile ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i, i64 64
   %6 = load volatile ptr, ptr %5, align 8
-  %magicptr.i.i.i = ptrtoint ptr %6 to i64
-  switch i64 %magicptr.i.i.i, label %7 [
-    i64 2, label %"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES6_.exit.i.i"
-    i64 0, label %"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES6_.exit.i.i"
-  ]
+  %magicptr.i.i.i.i = ptrtoint ptr %6 to i64
+  %switch.and.i.i.i.i = and i64 %magicptr.i.i.i.i, -3
+  %switch.selectcmp.i.not.i.i.i = icmp eq i64 %switch.and.i.i.i.i, 0
+  br i1 %switch.selectcmp.i.not.i.i.i, label %"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES6_.exit.i.i", label %7
 
 7:                                                ; preds = %.lr.ph.i.i
   %8 = load volatile ptr, ptr %5, align 8
@@ -2933,7 +2931,7 @@ define hidden void @_ZN18ObjectSynchronizer22owned_monitors_iterateEP14MonitorCl
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.sroa.0.04.i.i) #19
   br label %"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES6_.exit.i.i"
 
-"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES6_.exit.i.i": ; preds = %7, %.lr.ph.i.i, %.lr.ph.i.i
+"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES6_.exit.i.i": ; preds = %7, %.lr.ph.i.i
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %"_ZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureE3$_0EEvS2_T_.exit", label %.lr.ph.i.i, !llvm.loop !40
 
@@ -4613,11 +4611,10 @@ define hidden void @_ZN18ObjectSynchronizer32release_monitors_owned_by_threadEP1
   %6 = load volatile ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i.i, i64 64
   %8 = load volatile ptr, ptr %7, align 8
-  %magicptr.i.i.i.i = ptrtoint ptr %8 to i64
-  switch i64 %magicptr.i.i.i.i, label %9 [
-    i64 2, label %"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureP10JavaThreadE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES8_.exit.i.i.i"
-    i64 0, label %"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureP10JavaThreadE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES8_.exit.i.i.i"
-  ]
+  %magicptr.i.i.i.i.i = ptrtoint ptr %8 to i64
+  %switch.and.i.i.i.i.i = and i64 %magicptr.i.i.i.i.i, -3
+  %switch.selectcmp.i.not.i.i.i.i = icmp eq i64 %switch.and.i.i.i.i.i, 0
+  br i1 %switch.selectcmp.i.not.i.i.i.i, label %"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureP10JavaThreadE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES8_.exit.i.i.i", label %9
 
 9:                                                ; preds = %.lr.ph.i.i.i
   %10 = load volatile ptr, ptr %7, align 8
@@ -4630,7 +4627,7 @@ define hidden void @_ZN18ObjectSynchronizer32release_monitors_owned_by_threadEP1
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %.sroa.0.04.i.i.i) #19
   br label %"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureP10JavaThreadE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES8_.exit.i.i.i"
 
-"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureP10JavaThreadE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES8_.exit.i.i.i": ; preds = %12, %9, %.lr.ph.i.i.i, %.lr.ph.i.i.i
+"_ZZN18ObjectSynchronizer31owned_monitors_iterate_filteredIZNS_22owned_monitors_iterateEP14MonitorClosureP10JavaThreadE3$_0EEvS2_T_ENKUlP13ObjectMonitorE_clES8_.exit.i.i.i": ; preds = %12, %9, %.lr.ph.i.i.i
   %.not.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i, label %_ZN18ObjectSynchronizer22owned_monitors_iterateEP14MonitorClosureP10JavaThread.exit, label %.lr.ph.i.i.i, !llvm.loop !39
 
@@ -4886,13 +4883,12 @@ define hidden void @_ZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outpu
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i, i64 64
   %13 = load volatile ptr, ptr %12, align 8
-  %magicptr.i.i.i = ptrtoint ptr %13 to i64
-  switch i64 %magicptr.i.i.i, label %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.exit.thread.i.i" [
-    i64 2, label %14
-    i64 0, label %14
-  ]
+  %magicptr.i.i.i.i = ptrtoint ptr %13 to i64
+  %switch.and.i.i.i.i = and i64 %magicptr.i.i.i.i, -3
+  %switch.selectcmp.i.not.i.i.i = icmp eq i64 %switch.and.i.i.i.i, 0
+  br i1 %switch.selectcmp.i.not.i.i.i, label %14, label %"_ZZN18ObjectSynchronizer26log_in_use_monitor_detailsEP12outputStreambENK3$_1clEP13ObjectMonitor.exit.thread.i.i"
 
-14:                                               ; preds = %11, %11
+14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i, i64 192
   %16 = load volatile i32, ptr %15, align 8
   %17 = sext i32 %16 to i64

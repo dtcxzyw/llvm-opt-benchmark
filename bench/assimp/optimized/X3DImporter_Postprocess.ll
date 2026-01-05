@@ -475,30 +475,13 @@ define hidden noundef zeroext i1 @_ZNK6Assimp11X3DImporter35PostprocessHelper_El
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZNK6Assimp11X3DImporter31PostprocessHelper_ElementIsMeshE11X3DElemType(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = add i32 %1, -15
-  %4 = icmp ult i32 %3, 3
-  %5 = add i32 %1, -7
-  %6 = icmp ult i32 %5, 4
-  %or.cond11 = or i1 %6, %4
-  %7 = add i32 %1, -19
-  %8 = icmp ult i32 %7, 2
-  %or.cond15 = or i1 %8, %or.cond11
-  %9 = add i32 %1, -24
-  %10 = icmp ult i32 %9, 7
-  %or.cond29 = or i1 %10, %or.cond15
-  %11 = add i32 %1, -11
-  %12 = icmp ult i32 %11, 3
-  %or.cond35 = or i1 %12, %or.cond29
-  %13 = icmp eq i32 %1, 18
-  %or.cond37 = or i1 %13, %or.cond35
-  %14 = add i32 %1, -31
-  %15 = icmp ult i32 %14, 2
-  %or.cond41 = or i1 %15, %or.cond37
-  %16 = icmp eq i32 %1, 14
-  %or.cond43 = or i1 %16, %or.cond41
-  %17 = icmp eq i32 %1, 33
-  %or.cond45 = or i1 %17, %or.cond43
-  ret i1 %or.cond45
+switch.return:
+  %2 = icmp ult i32 %1, 34
+  %switch.cast = zext nneg i32 %1 to i34
+  %switch.downshift = lshr i34 -14680192, %switch.cast
+  %switch.masked = trunc i34 %switch.downshift to i1
+  %3 = select i1 %2, i1 %switch.masked, i1 false
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable

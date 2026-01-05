@@ -180,6 +180,7 @@ $_ZTV8GraphKit = comdat any
 @_ZTV8AddINode = external unnamed_addr constant { [31 x ptr] }, align 8
 @type2field = external local_unnamed_addr global [20 x i8], align 16
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
+@switch.table._ZN8GraphKit41record_profiled_arguments_for_speculationEP8ciMethodN9Bytecodes4CodeE = private unnamed_addr constant [4 x i32] [i32 1, i32 1, i32 0, i32 1], align 4
 
 @_ZN8GraphKitC1EP8JVMState = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN8GraphKitC2EP8JVMState
 @_ZN8GraphKitC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN8GraphKitC2Ev
@@ -5460,12 +5461,19 @@ _ZN7ciField4typeEv.exit:                          ; preds = %65, %72
   %93 = load ptr, ptr %6, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %95 = load i32, ptr %94, align 8
-  %96 = and i32 %.045, -2
-  %or.cond.i.i = icmp eq i32 %96, 182
-  %97 = icmp eq i32 %.045, 185
-  %spec.select.i.i = or i1 %97, %or.cond.i.i
-  %98 = zext i1 %spec.select.i.i to i32
-  %99 = add nsw i32 %95, %98
+  %switch.tableidx = add i32 %.045, -182
+  %96 = icmp ult i32 %switch.tableidx, 4
+  br i1 %96, label %switch.lookup, label %_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit
+
+switch.lookup:                                    ; preds = %89
+  %97 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8GraphKit41record_profiled_arguments_for_speculationEP8ciMethodN9Bytecodes4CodeE, i64 %97
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit
+
+_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit: ; preds = %89, %switch.lookup
+  %98 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %89 ]
+  %99 = add nsw i32 %98, %95
   store i32 %99, ptr %1, align 4
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 40
   %101 = load ptr, ptr %100, align 8
@@ -5607,8 +5615,8 @@ _ZN16ciBytecodeStream4nextEv.exit:                ; preds = %_ZN16ciBytecodeStre
   store i32 %173, ptr %1, align 4
   br label %.thread50
 
-.thread50:                                        ; preds = %3, %50, %56, %57, %58, %59, %60, %61, %62, %63, %64, %89, %_ZN16ciBytecodeStream4nextEv.exit, %161, %163, %"_ZZN8GraphKit21compute_stack_effectsERiS0_ENK3$_0clEv.exit", %86, %84
-  %.0 = phi i1 [ false, %3 ], [ true, %84 ], [ true, %86 ], [ true, %"_ZZN8GraphKit21compute_stack_effectsERiS0_ENK3$_0clEv.exit" ], [ true, %163 ], [ true, %161 ], [ true, %_ZN16ciBytecodeStream4nextEv.exit ], [ true, %89 ], [ true, %64 ], [ true, %63 ], [ true, %62 ], [ true, %61 ], [ true, %60 ], [ true, %59 ], [ true, %58 ], [ true, %57 ], [ true, %56 ], [ false, %50 ]
+.thread50:                                        ; preds = %3, %50, %56, %57, %58, %59, %60, %61, %62, %63, %64, %_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit, %_ZN16ciBytecodeStream4nextEv.exit, %161, %163, %"_ZZN8GraphKit21compute_stack_effectsERiS0_ENK3$_0clEv.exit", %86, %84
+  %.0 = phi i1 [ false, %3 ], [ true, %84 ], [ true, %86 ], [ true, %"_ZZN8GraphKit21compute_stack_effectsERiS0_ENK3$_0clEv.exit" ], [ true, %163 ], [ true, %161 ], [ true, %_ZN16ciBytecodeStream4nextEv.exit ], [ true, %_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit ], [ true, %64 ], [ true, %63 ], [ true, %62 ], [ true, %61 ], [ true, %60 ], [ true, %59 ], [ true, %58 ], [ true, %57 ], [ true, %56 ], [ false, %50 ]
   ret i1 %.0
 }
 
@@ -13896,30 +13904,36 @@ define hidden void @_ZN8GraphKit41record_profiled_arguments_for_speculationEP8ci
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, -5
-  %15 = and i32 %2, -2
-  %or.cond.i = icmp eq i32 %15, 182
-  %16 = icmp eq i32 %2, 185
-  %spec.select.i = or i1 %16, %or.cond.i
-  %17 = zext i1 %spec.select.i to i32
-  %18 = icmp sgt i32 %14, %17
+  %switch.tableidx = add i32 %2, -182
+  %15 = icmp ult i32 %switch.tableidx, 4
+  br i1 %15, label %switch.lookup, label %_ZN9Bytecodes12has_receiverENS_4CodeE.exit
+
+switch.lookup:                                    ; preds = %8
+  %16 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8GraphKit41record_profiled_arguments_for_speculationEP8ciMethodN9Bytecodes4CodeE, i64 %16
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %_ZN9Bytecodes12has_receiverENS_4CodeE.exit
+
+_ZN9Bytecodes12has_receiverENS_4CodeE.exit:       ; preds = %8, %switch.lookup
+  %17 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %8 ]
+  %18 = icmp slt i32 %17, %14
   %19 = load i32, ptr @TypeProfileArgsLimit, align 4
   %20 = icmp sgt i32 %19, 0
   %21 = select i1 %18, i1 %20, i1 false
   br i1 %21, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %8
+.lr.ph:                                           ; preds = %_ZN9Bytecodes12has_receiverENS_4CodeE.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = or i1 %or.cond.i, %16
-  %umax = zext i1 %25 to i64
+  %25 = zext nneg i32 %17 to i64
   %sext = zext nneg i32 %14 to i64
   br label %26
 
 26:                                               ; preds = %.lr.ph, %_Z17is_reference_type9BasicTypeb.exit
   %27 = phi i32 [ %19, %.lr.ph ], [ %66, %_Z17is_reference_type9BasicTypeb.exit ]
-  %indvars.iv = phi i64 [ %umax, %.lr.ph ], [ %indvars.iv.next, %_Z17is_reference_type9BasicTypeb.exit ]
-  %.01416 = phi i32 [ 0, %.lr.ph ], [ %.1, %_Z17is_reference_type9BasicTypeb.exit ]
+  %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %_Z17is_reference_type9BasicTypeb.exit ]
+  %.01415 = phi i32 [ 0, %.lr.ph ], [ %.1, %_Z17is_reference_type9BasicTypeb.exit ]
   %28 = load ptr, ptr %10, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
@@ -13933,15 +13947,15 @@ define hidden void @_ZN8GraphKit41record_profiled_arguments_for_speculationEP8ci
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i8, ptr %38, align 4
   %40 = and i8 %39, -2
-  %or.cond.i15 = icmp eq i8 %40, 12
-  br i1 %or.cond.i15, label %41, label %_Z17is_reference_type9BasicTypeb.exit
+  %or.cond.i = icmp eq i8 %40, 12
+  br i1 %or.cond.i, label %41, label %_Z17is_reference_type9BasicTypeb.exit
 
 41:                                               ; preds = %26
   store i32 2, ptr %4, align 4
   store ptr null, ptr %5, align 8
   %42 = load ptr, ptr %22, align 8
   %43 = load i32, ptr %23, align 8
-  %44 = call noundef zeroext i1 @_ZN8ciMethod22argument_profiled_typeEiiRP7ciKlassR14ProfilePtrKind(ptr noundef nonnull align 8 dereferenceable(160) %42, i32 noundef %43, i32 noundef %.01416, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %4) #14
+  %44 = call noundef zeroext i1 @_ZN8ciMethod22argument_profiled_typeEiiRP7ciKlassR14ProfilePtrKind(ptr noundef nonnull align 8 dereferenceable(160) %42, i32 noundef %43, i32 noundef %.01415, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %4) #14
   br i1 %44, label %45, label %64
 
 45:                                               ; preds = %41
@@ -13966,20 +13980,20 @@ define hidden void @_ZN8GraphKit41record_profiled_arguments_for_speculationEP8ci
   br label %64
 
 64:                                               ; preds = %45, %41
-  %65 = add nsw i32 %.01416, 1
+  %65 = add nsw i32 %.01415, 1
   %.pre = load i32, ptr @TypeProfileArgsLimit, align 4
   br label %_Z17is_reference_type9BasicTypeb.exit
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %26, %64
   %66 = phi i32 [ %.pre, %64 ], [ %27, %26 ]
-  %.1 = phi i32 [ %65, %64 ], [ %.01416, %26 ]
+  %.1 = phi i32 [ %65, %64 ], [ %.01415, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = icmp samesign ult i64 %indvars.iv.next, %sext
   %68 = icmp slt i32 %.1, %66
   %69 = select i1 %67, i1 %68, i1 false
   br i1 %69, label %26, label %.loopexit, !llvm.loop !38
 
-.loopexit:                                        ; preds = %_Z17is_reference_type9BasicTypeb.exit, %8, %3
+.loopexit:                                        ; preds = %_Z17is_reference_type9BasicTypeb.exit, %_ZN9Bytecodes12has_receiverENS_4CodeE.exit, %3
   ret void
 }
 

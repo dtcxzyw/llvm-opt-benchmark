@@ -477,21 +477,23 @@ declare ptr @PyDict_GetItem(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr hidden void @_ZN8nanobind4castI13callback_dataEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind noalias writable sret(%"class.nanobind::object") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %or.cond.i = icmp ult i32 %2, 2
-  %4 = add i32 %2, -5
-  %5 = icmp ult i32 %4, 2
-  %or.cond5.i = or i1 %or.cond.i, %5
-  %spec.store.select.i = select i1 %or.cond5.i, i32 4, i32 %2
-  %6 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTI13callback_data, ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef null) #18
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %8
+_ZN8nanobind6detail12infer_policyI13callback_dataEENS_9rv_policyES3_.exit:
+  %3 = icmp ult i32 %2, 7
+  %switch.maskindex = trunc i32 %2 to i8
+  %switch.shifted = lshr i8 99, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %4 = select i1 %or.cond, i32 4, i32 %2
+  %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTI13callback_data, ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef %4, ptr noundef null, ptr noundef null) #18
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %7
 
-7:                                                ; preds = %3
+6:                                                ; preds = %_ZN8nanobind6detail12infer_policyI13callback_dataEENS_9rv_policyES3_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #20
   unreachable
 
-8:                                                ; preds = %3
-  store ptr %6, ptr %0, align 8
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyI13callback_dataEENS_9rv_policyES3_.exit
+  store ptr %5, ptr %0, align 8
   ret void
 }
 

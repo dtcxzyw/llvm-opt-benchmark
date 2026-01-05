@@ -1669,11 +1669,14 @@ _ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit: ; p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef zeroext i1 @_ZN5clang37isOpenMPTargetDataManagementDirectiveEN4llvm3omp9DirectiveE(i32 noundef %0) local_unnamed_addr #4 {
-  %2 = add i32 %0, -70
-  %or.cond3 = icmp ult i32 %2, 3
-  %3 = icmp eq i32 %0, 86
-  %spec.select = or i1 %3, %or.cond3
-  ret i1 %spec.select
+switch.return:
+  %switch.tableidx = add i32 %0, -70
+  %1 = icmp ult i32 %switch.tableidx, 17
+  %switch.cast = trunc i32 %switch.tableidx to i17
+  %switch.downshift = lshr i17 -65529, %switch.cast
+  %switch.masked = trunc i17 %switch.downshift to i1
+  %2 = select i1 %1, i1 %switch.masked, i1 false
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

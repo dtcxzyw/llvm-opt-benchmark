@@ -2016,26 +2016,24 @@ declare void @_ZNK5clang4Decl5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyEj
 define dso_local noundef zeroext i1 @_ZN5clang4ento9CallEvent10isCallStmtEPKNS_4StmtE(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 align 2 {
   %2 = load i16, ptr %0, align 8
   %3 = and i16 %2, 511
-  %switch.tableidx = add nsw i16 %3, -35
-  %4 = icmp ult i16 %switch.tableidx, 61
-  br i1 %4, label %switch.hole_check, label %5
+  %4 = add nsw i16 %3, -91
+  %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i16 %4, 5
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %_ZN4llvm3isaIN5clang8CallExprENS1_15ObjCMessageExprEJNS1_16CXXConstructExprENS1_10CXXNewExprEEPKNS1_4StmtEEEbRKT2_.exit, label %5
 
-5:                                                ; preds = %switch.hole_check, %1
-  %6 = add nsw i16 %3, -115
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i = icmp ult i16 %6, 2
-  %7 = icmp eq i16 %3, 108
-  %spec.select.i.i.i = or i1 %7, %spec.select.i.i.i.i.i.i.i.i.i.i.i
+5:                                                ; preds = %1
+  switch i16 %3, label %ret.false.i.i.i [
+    i16 35, label %_ZN4llvm3isaIN5clang8CallExprENS1_15ObjCMessageExprEJNS1_16CXXConstructExprENS1_10CXXNewExprEEPKNS1_4StmtEEEbRKT2_.exit
+    i16 116, label %_ZN4llvm3isaIN5clang8CallExprENS1_15ObjCMessageExprEJNS1_16CXXConstructExprENS1_10CXXNewExprEEPKNS1_4StmtEEEbRKT2_.exit
+    i16 115, label %_ZN4llvm3isaIN5clang8CallExprENS1_15ObjCMessageExprEJNS1_16CXXConstructExprENS1_10CXXNewExprEEPKNS1_4StmtEEEbRKT2_.exit
+    i16 108, label %_ZN4llvm3isaIN5clang8CallExprENS1_15ObjCMessageExprEJNS1_16CXXConstructExprENS1_10CXXNewExprEEPKNS1_4StmtEEEbRKT2_.exit
+  ]
+
+ret.false.i.i.i:                                  ; preds = %5
   br label %_ZN4llvm3isaIN5clang8CallExprENS1_15ObjCMessageExprEJNS1_16CXXConstructExprENS1_10CXXNewExprEEPKNS1_4StmtEEEbRKT2_.exit
 
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = zext nneg i16 %switch.tableidx to i64
-  %switch.shifted = lshr i64 2233785415175766017, %switch.maskindex
-  %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZN4llvm3isaIN5clang8CallExprENS1_15ObjCMessageExprEJNS1_16CXXConstructExprENS1_10CXXNewExprEEPKNS1_4StmtEEEbRKT2_.exit, label %5
-
-_ZN4llvm3isaIN5clang8CallExprENS1_15ObjCMessageExprEJNS1_16CXXConstructExprENS1_10CXXNewExprEEPKNS1_4StmtEEEbRKT2_.exit: ; preds = %switch.hole_check, %5
-  %8 = phi i1 [ %spec.select.i.i.i, %5 ], [ true, %switch.hole_check ]
-  ret i1 %8
+_ZN4llvm3isaIN5clang8CallExprENS1_15ObjCMessageExprEJNS1_16CXXConstructExprENS1_10CXXNewExprEEPKNS1_4StmtEEEbRKT2_.exit: ; preds = %1, %5, %5, %5, %5, %ret.false.i.i.i
+  %6 = phi i1 [ true, %1 ], [ true, %5 ], [ false, %ret.false.i.i.i ], [ true, %5 ], [ true, %5 ], [ true, %5 ]
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

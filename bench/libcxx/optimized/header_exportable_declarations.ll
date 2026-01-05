@@ -4589,7 +4589,6 @@ _ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclEKNS1_9NamedDeclEEEDaPT0_.exit.i: 
 28:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclEKNS1_9NamedDeclEEEDaPT0_.exit.i
   switch i32 %15, label %.critedge39 [
     i32 62, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit.thread116
-    i32 73, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit.thread116
     i32 46, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit.thread116
     i32 45, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit.thread116
     i32 44, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit.thread116
@@ -4597,6 +4596,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclEKNS1_9NamedDeclEEEDaPT0_.exit.i: 
     i32 42, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit.thread116
     i32 41, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit.thread116
     i32 40, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit.thread116
+    i32 73, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit.thread116
     i32 81, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit.thread116
     i32 66, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit.thread116
     i32 65, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit.thread116
@@ -4609,7 +4609,7 @@ _ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit: ; preds = %26
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit.thread116, label %.critedge39
 
-_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit.thread116: ; preds = %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %18, %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit
+_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit.thread116: ; preds = %18, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @_ZN6libcppL18get_qualified_nameB5cxx11ERKN5clang9NamedDeclE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %9)
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -5129,7 +5129,6 @@ _ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclEKNS1_9NamedDeclEEEDaPT0_.exit.i64
 215:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclEKNS1_9NamedDeclEEEDaPT0_.exit.i64
   switch i32 %202, label %.critedge39 [
     i32 62, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67.thread125
-    i32 73, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67.thread125
     i32 46, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67.thread125
     i32 45, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67.thread125
     i32 44, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67.thread125
@@ -5137,6 +5136,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang10RecordDeclEKNS1_9NamedDeclEEEDaPT0_.exit.i64
     i32 42, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67.thread125
     i32 41, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67.thread125
     i32 40, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67.thread125
+    i32 73, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67.thread125
     i32 81, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67.thread125
     i32 66, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67.thread125
     i32 65, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67.thread125
@@ -5149,7 +5149,7 @@ _ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67: ; preds = %213
   %.not.i66 = icmp eq i32 %217, 0
   br i1 %.not.i66, label %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67.thread125, label %.critedge39
 
-_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67.thread125: ; preds = %215, %215, %215, %215, %215, %215, %215, %215, %215, %215, %215, %215, %215, %205, %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67
+_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67.thread125: ; preds = %205, %215, %215, %215, %215, %215, %215, %215, %215, %215, %215, %215, %215, %215, %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call fastcc void @_ZN6libcppL18get_qualified_nameB5cxx11ERKN5clang9NamedDeclE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %184)
   %218 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -5311,7 +5311,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %.c
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge39
 
-.critedge39:                                      ; preds = %215, %28, %213, %209, %201, %197, %26, %22, %14, %10, %_ZNK5clang4Decl14getDeclContextEv.exit, %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55, %183, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111, %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit
+.critedge39:                                      ; preds = %215, %213, %209, %201, %197, %28, %26, %22, %14, %10, %_ZNK5clang4Decl14getDeclContextEv.exit, %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55, %183, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111, %_ZN6libcppL21is_viable_declarationEPKN5clang9NamedDeclE.exit
   ret void
 
 270:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61

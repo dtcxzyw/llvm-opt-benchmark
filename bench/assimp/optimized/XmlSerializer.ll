@@ -8663,7 +8663,7 @@ define internal fastcc noundef zeroext i1 @_ZN6Assimp4D3MF12_GLOBAL__N_110parseC
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %81, label %12
+  br i1 %11, label %82, label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -8704,112 +8704,112 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %1
   store i8 0, ptr %25, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.val = load i64, ptr %23, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = icmp eq ptr %26, %13
-  br i1 %27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %26 = add i64 %.val, -7
+  %switch.and.i = and i64 %26, -3
+  %switch.selectcmp.i = icmp eq i64 %switch.and.i, 0
+  %27 = load ptr, ptr %4, align 8
+  %28 = icmp eq ptr %27, %13
+  br i1 %28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
-  %28 = icmp ult i64 %.val, 16
-  call void @llvm.assume(i1 %28)
+  %29 = icmp ult i64 %.val, 16
+  call void @llvm.assume(i1 %29)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
-  %29 = load i64, ptr %13, align 8
-  %30 = add i64 %29, 1
-  call void @_ZdlPvm(ptr noundef %26, i64 noundef %30) #27
+  %30 = load i64, ptr %13, align 8
+  %31 = add i64 %30, 1
+  call void @_ZdlPvm(ptr noundef %27, i64 noundef %31) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  switch i64 %.val, label %81 [
-    i64 9, label %31
-    i64 7, label %31
-  ]
+  br i1 %switch.selectcmp.i, label %32, label %82
 
-31:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %32 = load ptr, ptr %0, align 8
-  %33 = load i8, ptr %32, align 1
-  %.not = icmp eq i8 %33, 35
-  br i1 %.not, label %34, label %81
+32:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %33 = load ptr, ptr %0, align 8
+  %34 = load i8, ptr %33, align 1
+  %.not = icmp eq i8 %34, 35
+  br i1 %.not, label %35, label %82
 
-34:                                               ; preds = %31
+35:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  %36 = load i8, ptr %35, align 1
-  store i8 %36, ptr %5, align 1
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %38 = getelementptr inbounds nuw i8, ptr %32, i64 2
-  %39 = load i8, ptr %38, align 1
-  store i8 %39, ptr %37, align 1
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 0, ptr %40, align 1
-  %41 = call i64 @strtol(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #28
-  %42 = sitofp i64 %41 to float
-  %43 = fdiv float %42, 2.550000e+02
-  store float %43, ptr %1, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  %37 = load i8, ptr %36, align 1
+  store i8 %37, ptr %5, align 1
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 2
+  %40 = load i8, ptr %39, align 1
+  store i8 %40, ptr %38, align 1
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i8 0, ptr %41, align 1
+  %42 = call i64 @strtol(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 16) #28
+  %43 = sitofp i64 %42 to float
+  %44 = fdiv float %43, 2.550000e+02
+  store float %44, ptr %1, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 3
-  %46 = load i8, ptr %45, align 1
-  store i8 %46, ptr %6, align 1
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %49 = load i8, ptr %48, align 1
-  store i8 %49, ptr %47, align 1
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 0, ptr %50, align 1
-  %51 = call i64 @strtol(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 16) #28
-  %52 = sitofp i64 %51 to float
-  %53 = fdiv float %52, 2.550000e+02
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %53, ptr %54, align 4
+  %45 = load ptr, ptr %0, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 3
+  %47 = load i8, ptr %46, align 1
+  store i8 %47, ptr %6, align 1
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %50 = load i8, ptr %49, align 1
+  store i8 %50, ptr %48, align 1
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  store i8 0, ptr %51, align 1
+  %52 = call i64 @strtol(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 16) #28
+  %53 = sitofp i64 %52 to float
+  %54 = fdiv float %53, 2.550000e+02
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store float %54, ptr %55, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 5
-  %57 = load i8, ptr %56, align 1
-  store i8 %57, ptr %7, align 1
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 6
-  %60 = load i8, ptr %59, align 1
-  store i8 %60, ptr %58, align 1
-  %61 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i8 0, ptr %61, align 1
-  %62 = call i64 @strtol(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 16) #28
-  %63 = sitofp i64 %62 to float
-  %64 = fdiv float %63, 2.550000e+02
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %64, ptr %65, align 4
-  %66 = load i64, ptr %9, align 8
-  %67 = icmp eq i64 %66, 7
-  br i1 %67, label %80, label %68
+  %56 = load ptr, ptr %0, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 5
+  %58 = load i8, ptr %57, align 1
+  store i8 %58, ptr %7, align 1
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 6
+  %61 = load i8, ptr %60, align 1
+  store i8 %61, ptr %59, align 1
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  store i8 0, ptr %62, align 1
+  %63 = call i64 @strtol(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 16) #28
+  %64 = sitofp i64 %63 to float
+  %65 = fdiv float %64, 2.550000e+02
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store float %65, ptr %66, align 4
+  %67 = load i64, ptr %9, align 8
+  %68 = icmp eq i64 %67, 7
+  br i1 %68, label %81, label %69
 
-68:                                               ; preds = %34
+69:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 7
-  %71 = load i8, ptr %70, align 1
-  store i8 %71, ptr %8, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %74 = load i8, ptr %73, align 1
-  store i8 %74, ptr %72, align 1
-  %75 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 0, ptr %75, align 1
-  %76 = call i64 @strtol(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 16) #28
-  %77 = sitofp i64 %76 to float
-  %78 = fdiv float %77, 2.550000e+02
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store float %78, ptr %79, align 4
+  %70 = load ptr, ptr %0, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 7
+  %72 = load i8, ptr %71, align 1
+  store i8 %72, ptr %8, align 1
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %75 = load i8, ptr %74, align 1
+  store i8 %75, ptr %73, align 1
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i8 0, ptr %76, align 1
+  %77 = call i64 @strtol(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 16) #28
+  %78 = sitofp i64 %77 to float
+  %79 = fdiv float %78, 2.550000e+02
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store float %79, ptr %80, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %80
+  br label %81
 
-80:                                               ; preds = %34, %68
+81:                                               ; preds = %35, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %81
+  br label %82
 
-81:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %31, %2, %80
-  %.0 = phi i1 [ true, %80 ], [ false, %2 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %31 ]
+82:                                               ; preds = %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %2, %81
+  %.0 = phi i1 [ true, %81 ], [ false, %2 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %32 ]
   ret i1 %.0
 }
 

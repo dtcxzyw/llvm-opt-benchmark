@@ -166163,12 +166163,12 @@ define void @"_ZN94_$LT$typst..visualize..color..ChromaComponent$u20$as$u20$typs
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN94_$LT$typst..visualize..color..ChromaComponent$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h7d85124c68bd73d2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #22 {
-  %2 = load i8, ptr %0, align 8, !range !8861, !alias.scope !35989, !noundef !4
-  %.off.i = add nsw i8 %2, -3
-  %switch.i = icmp ult i8 %.off.i, 2
-  %3 = icmp eq i8 %2, 7
-  %spec.select = or i1 %switch.i, %3
-  ret i1 %spec.select
+switch.lookup:
+  %1 = load i8, ptr %0, align 8, !range !8861, !alias.scope !35989, !noundef !4
+  %switch.cast = zext nneg i8 %1 to i30
+  %switch.downshift = lshr i30 152, %switch.cast
+  %switch.masked = trunc i30 %switch.downshift to i1
+  ret i1 %switch.masked
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -166881,12 +166881,12 @@ define void @"_ZN85_$LT$typst..visualize..color..Weight$u20$as$u20$typst..founda
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN85_$LT$typst..visualize..color..Weight$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h382b7ec143f8fc06E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #22 {
-  %2 = load i8, ptr %0, align 8, !range !8861, !alias.scope !36147, !noundef !4
-  %.off.i = add nsw i8 %2, -3
-  %switch.i = icmp ult i8 %.off.i, 2
-  %3 = icmp eq i8 %2, 7
-  %spec.select = or i1 %switch.i, %3
-  ret i1 %spec.select
+switch.lookup:
+  %1 = load i8, ptr %0, align 8, !range !8861, !alias.scope !36147, !noundef !4
+  %switch.cast = zext nneg i8 %1 to i30
+  %switch.downshift = lshr i30 152, %switch.cast
+  %switch.masked = trunc i30 %switch.downshift to i1
+  ret i1 %switch.masked
 }
 
 ; Function Attrs: nonlazybind uwtable
