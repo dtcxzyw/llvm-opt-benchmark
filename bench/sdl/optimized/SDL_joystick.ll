@@ -8313,7 +8313,7 @@ define hidden noundef zeroext i1 @SDL_IsJoystickDualSenseEdge(i16 noundef zeroex
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_IsJoystickNintendoSwitchPro(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #1 {
 switch.return:
-  %2 = zext i16 %0 to i32
+  %4 = zext i16 %0 to i32
   %3 = zext i16 %1 to i32
   %4 = tail call i32 @GuessControllerType(i32 noundef %2, i32 noundef %3) #13
   %5 = add i32 %4, -38

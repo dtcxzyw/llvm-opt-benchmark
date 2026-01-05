@@ -476,7 +476,7 @@ define hidden noundef zeroext i1 @_ZNK6Assimp11X3DImporter35PostprocessHelper_El
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZNK6Assimp11X3DImporter31PostprocessHelper_ElementIsMeshE11X3DElemType(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
 switch.return:
-  %2 = icmp ult i32 %1, 34
+  %4 = icmp ult i32 %1, 34
   %switch.cast = zext nneg i32 %1 to i34
   %switch.downshift = lshr i34 -14680192, %switch.cast
   %switch.masked = trunc i34 %switch.downshift to i1

@@ -1109,10 +1109,10 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %46 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %47 = load i32, ptr %46, align 8
   %switch.tableidx = add i32 %45, -182
-  %48 = icmp ult i32 %switch.tableidx, 4
+  %or.cond.i.i = icmp ult i32 %switch.tableidx, 4
   br i1 %48, label %switch.lookup, label %_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit
 
-switch.lookup:                                    ; preds = %_ZN8ciMethod16java_code_at_bciEi.exit
+switch.lookup:; preds = %_ZN8ciMethod16java_code_at_bciEi.exit
   %49 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN14LibraryCallKitC2EP8JVMStateP16LibraryIntrinsic, i64 %49
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -7105,13 +7105,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit17inline_array_sortEv(ptr n
 
 68:                                               ; preds = %66
   %69 = add i8 %63, -7
-  %switch.and.i.i.i = and i8 %69, -5
-  %switch.selectcmp.i.i.i = icmp eq i8 %switch.and.i.i.i, 0
+  %switch.and.i.i = and i8 %69, -5
+  %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
   %70 = icmp eq ptr %23, null
-  %or.cond.i = or i1 %70, %switch.selectcmp.i.i.i
+  %or.cond.i = or i1 %70, %switch.selectcmp.i.i
   br i1 %or.cond.i, label %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit.thread, label %71
 
-_ZN7Matcher18supports_simd_sortE9BasicType.exit.i: ; preds = %61
+_ZN7Matcher18supports_simd_sortE9BasicType.exit.i:; preds = %61
   %.old.i = icmp eq ptr %23, null
   br i1 %.old.i, label %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit.thread, label %71
 
@@ -7269,13 +7269,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit22inline_array_partitionEv(
 
 77:                                               ; preds = %75
   %78 = add i8 %72, -7
-  %switch.and.i.i.i = and i8 %78, -5
-  %switch.selectcmp.i.i.i = icmp eq i8 %switch.and.i.i.i, 0
+  %switch.and.i.i = and i8 %78, -5
+  %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
   %79 = icmp eq ptr %24, null
-  %or.cond.i = or i1 %79, %switch.selectcmp.i.i.i
+  %or.cond.i = or i1 %79, %switch.selectcmp.i.i
   br i1 %or.cond.i, label %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit.thread, label %80
 
-_ZN7Matcher18supports_simd_sortE9BasicType.exit.i: ; preds = %70
+_ZN7Matcher18supports_simd_sortE9BasicType.exit.i:; preds = %70
   %.old.i = icmp eq ptr %24, null
   br i1 %.old.i, label %_ZN14LibraryCallKit26check_array_sort_argumentsEP4NodeS1_R9BasicType.exit.thread, label %80
 
@@ -56249,13 +56249,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit26check_array_sort_argument
 
 37:                                               ; preds = %35
   %38 = add i8 %32, -7
-  %switch.and.i.i = and i8 %38, -5
-  %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
+  %switch.and.i = and i8 %38, -5
+  %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
   %39 = icmp eq ptr %2, null
-  %or.cond = or i1 %39, %switch.selectcmp.i.i
+  %or.cond = or i1 %39, %switch.selectcmp.i
   br i1 %or.cond, label %_ZN7Matcher18supports_simd_sortE9BasicType.exit.thread, label %40
 
-_ZN7Matcher18supports_simd_sortE9BasicType.exit:  ; preds = %30
+_ZN7Matcher18supports_simd_sortE9BasicType.exit:; preds = %30
   %.old = icmp eq ptr %2, null
   br i1 %.old, label %_ZN7Matcher18supports_simd_sortE9BasicType.exit.thread, label %40
 

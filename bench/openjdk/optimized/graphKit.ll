@@ -5462,10 +5462,10 @@ _ZN7ciField4typeEv.exit:                          ; preds = %65, %72
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %95 = load i32, ptr %94, align 8
   %switch.tableidx = add i32 %.045, -182
-  %96 = icmp ult i32 %switch.tableidx, 4
-  br i1 %96, label %switch.lookup, label %_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit
+  %or.cond.i.i = icmp ult i32 %switch.tableidx, 4
+  br i1 %or.cond.i.i, label %switch.lookup, label %_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit
 
-switch.lookup:                                    ; preds = %89
+switch.lookup:; preds = %89
   %97 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8GraphKit41record_profiled_arguments_for_speculationEP8ciMethodN9Bytecodes4CodeE, i64 %97
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -13905,10 +13905,10 @@ define hidden void @_ZN8GraphKit41record_profiled_arguments_for_speculationEP8ci
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, -5
   %switch.tableidx = add i32 %2, -182
-  %15 = icmp ult i32 %switch.tableidx, 4
+  %or.cond.i = icmp ult i32 %switch.tableidx, 4
   br i1 %15, label %switch.lookup, label %_ZN9Bytecodes12has_receiverENS_4CodeE.exit
 
-switch.lookup:                                    ; preds = %8
+switch.lookup:; preds = %8
   %16 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8GraphKit41record_profiled_arguments_for_speculationEP8ciMethodN9Bytecodes4CodeE, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -13933,7 +13933,7 @@ _ZN9Bytecodes12has_receiverENS_4CodeE.exit:       ; preds = %8, %switch.lookup
 26:                                               ; preds = %.lr.ph, %_Z17is_reference_type9BasicTypeb.exit
   %27 = phi i32 [ %19, %.lr.ph ], [ %66, %_Z17is_reference_type9BasicTypeb.exit ]
   %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %_Z17is_reference_type9BasicTypeb.exit ]
-  %.01415 = phi i32 [ 0, %.lr.ph ], [ %.1, %_Z17is_reference_type9BasicTypeb.exit ]
+  %.01416 = phi i32 [ 0, %.lr.ph ], [ %.1, %_Z17is_reference_type9BasicTypeb.exit ]
   %28 = load ptr, ptr %10, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
@@ -13947,15 +13947,15 @@ _ZN9Bytecodes12has_receiverENS_4CodeE.exit:       ; preds = %8, %switch.lookup
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i8, ptr %38, align 4
   %40 = and i8 %39, -2
-  %or.cond.i = icmp eq i8 %40, 12
-  br i1 %or.cond.i, label %41, label %_Z17is_reference_type9BasicTypeb.exit
+  %or.cond.i15 = icmp eq i8 %40, 12
+  br i1 %or.cond.i15, label %41, label %_Z17is_reference_type9BasicTypeb.exit
 
 41:                                               ; preds = %26
   store i32 2, ptr %4, align 4
   store ptr null, ptr %5, align 8
   %42 = load ptr, ptr %22, align 8
   %43 = load i32, ptr %23, align 8
-  %44 = call noundef zeroext i1 @_ZN8ciMethod22argument_profiled_typeEiiRP7ciKlassR14ProfilePtrKind(ptr noundef nonnull align 8 dereferenceable(160) %42, i32 noundef %43, i32 noundef %.01415, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %4) #14
+  %44 = call noundef zeroext i1 @_ZN8ciMethod22argument_profiled_typeEiiRP7ciKlassR14ProfilePtrKind(ptr noundef nonnull align 8 dereferenceable(160) %42, i32 noundef %43, i32 noundef %.01416, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %4) #14
   br i1 %44, label %45, label %64
 
 45:                                               ; preds = %41
@@ -13980,13 +13980,13 @@ _ZN9Bytecodes12has_receiverENS_4CodeE.exit:       ; preds = %8, %switch.lookup
   br label %64
 
 64:                                               ; preds = %45, %41
-  %65 = add nsw i32 %.01415, 1
+  %65 = add nsw i32 %.01416, 1
   %.pre = load i32, ptr @TypeProfileArgsLimit, align 4
   br label %_Z17is_reference_type9BasicTypeb.exit
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %26, %64
   %66 = phi i32 [ %.pre, %64 ], [ %27, %26 ]
-  %.1 = phi i32 [ %65, %64 ], [ %.01415, %26 ]
+  %.1 = phi i32 [ %65, %64 ], [ %.01416, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = icmp samesign ult i64 %indvars.iv.next, %sext
   %68 = icmp slt i32 %.1, %66

@@ -10511,18 +10511,18 @@ define linkonce_odr dso_local void @_ZN11flatbuffers3php12PhpGenerator17GenStruc
   %switch.selectcmp.i.i = icmp eq i32 %switch.and.i.i, 0
   br i1 %switch.selectcmp.i.i, label %35, label %40
 
-35:                                               ; preds = %32
+34:                                               ; preds = %32
   tail call void @_ZN11flatbuffers3php12PhpGenerator12GetVectorLenERKNS_8FieldDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(312) %2, ptr noundef %3)
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 204
-  %37 = load i32, ptr %36, align 4, !tbaa !360
-  %38 = icmp eq i32 %37, 4
-  br i1 %38, label %39, label %40
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 204
+  %36 = load i32, ptr %35, align 4, !tbaa !360
+  %37 = icmp eq i32 %36, 4
+  br i1 %37, label %38, label %39
 
-39:                                               ; preds = %35
+38:                                               ; preds = %34
   tail call void @_ZN11flatbuffers3php12PhpGenerator8GetUByteERKNS_8FieldDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(312) %2, ptr noundef %3)
-  br label %40
+  br label %39
 
-40:                                               ; preds = %35, %39, %32
+39:                                               ; preds = %35, %39, %32
   ret void
 }
 
@@ -11564,17 +11564,17 @@ define linkonce_odr dso_local void @_ZN11flatbuffers3php12PhpGenerator16GenTable
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %36
 
-._crit_edge:                                      ; preds = %273, %3
+._crit_edge:                                      ; preds = %272, %3
   call void @_ZN11flatbuffers3php12PhpGenerator19GetEndOffsetOnTableERKNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef %2)
   ret void
 
-36:                                               ; preds = %.lr.ph, %273
-  %.sroa.0131.0342 = phi ptr [ %16, %.lr.ph ], [ %274, %273 ]
+36:                                               ; preds = %.lr.ph, %272
+  %.sroa.0131.0342 = phi ptr [ %16, %.lr.ph ], [ %273, %273 ]
   %37 = load ptr, ptr %.sroa.0131.0342, align 8, !tbaa !266
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 272
   %39 = load i8, ptr %38, align 8, !tbaa !268, !range !62, !noundef !63
   %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %273, label %41
+  br i1 %40, label %272, label %41
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %15, align 8, !tbaa !265
@@ -12369,14 +12369,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %26
   %switch.selectcmp.i.i = icmp eq i32 %switch.and.i.i, 0
   br i1 %switch.selectcmp.i.i, label %272, label %273
 
-272:                                              ; preds = %269
+271:                                              ; preds = %269
   call void @_ZN11flatbuffers3php12PhpGenerator18BuildVectorOfTableERKNS_8FieldDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(312) %37, ptr noundef %2)
-  br label %273
+  br label %272
 
-273:                                              ; preds = %269, %272, %36
-  %274 = getelementptr inbounds nuw i8, ptr %.sroa.0131.0342, i64 8
-  %275 = load ptr, ptr %17, align 8, !tbaa !265
-  %.not = icmp eq ptr %274, %275
+272:                                              ; preds = %269, %271, %36
+  %273 = getelementptr inbounds nuw i8, ptr %.sroa.0131.0342, i64 8
+  %274 = load ptr, ptr %17, align 8, !tbaa !265
+  %.not = icmp eq ptr %273, %274
   br i1 %.not, label %._crit_edge, label %36, !llvm.loop !400
 }
 

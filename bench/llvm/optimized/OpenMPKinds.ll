@@ -1671,7 +1671,7 @@ _ZN4llvm12is_containedINS_8ArrayRefINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit: ; p
 define dso_local noundef zeroext i1 @_ZN5clang37isOpenMPTargetDataManagementDirectiveEN4llvm3omp9DirectiveE(i32 noundef %0) local_unnamed_addr #4 {
 switch.return:
   %switch.tableidx = add i32 %0, -70
-  %1 = icmp ult i32 %switch.tableidx, 17
+  %3 = icmp ult i32 %switch.tableidx, 17
   %switch.cast = trunc i32 %switch.tableidx to i17
   %switch.downshift = lshr i17 -65529, %switch.cast
   %switch.masked = trunc i17 %switch.downshift to i1

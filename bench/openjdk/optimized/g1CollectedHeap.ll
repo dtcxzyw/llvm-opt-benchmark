@@ -5454,11 +5454,11 @@ define hidden noundef zeroext i1 @_ZN15G1CollectedHeap18try_collect_fullgcEN7GCC
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV16VM_G1CollectFull, i64 16), ptr %4, align 8
   store i8 0, ptr %13, align 1
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #23
-  %.old.us33 = load i8, ptr %13, align 1
-  %.old23.us34 = trunc i8 %.old.us33 to i1
-  br i1 %.old23.us34, label %.loopexit, label %.lr.ph35
+  %.pre = load i8, ptr %13, align 1
+  %.pre23 = trunc i8 %.pre to i1
+  br i1 %.pre23, label %.loopexit, label %.lr.ph35
 
-.lr.ph35:                                         ; preds = %.split.us, %_ZN11MutexLockerD2Ev.exit.us
+.split.us:                                        ; preds = %.split.us, %_ZN11MutexLockerD2Ev.exit.us
   %17 = load ptr, ptr @Heap_lock, align 8
   %.not.i.i.us = icmp eq ptr %17, null
   br i1 %.not.i.i.us, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us, label %18
@@ -5474,8 +5474,8 @@ define hidden noundef zeroext i1 @_ZN15G1CollectedHeap18try_collect_fullgcEN7GCC
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us: ; preds = %.lr.ph35
   %21 = load i32, ptr %5, align 4
   %22 = load i32, ptr %14, align 4
-  %.not14.us = icmp eq i32 %21, %22
-  br i1 %.not14.us, label %_ZN11MutexLockerD2Ev.exit.us, label %.loopexit
+  %.not11.us = icmp eq i32 %21, %22
+  br i1 %.not11.us, label %_ZN11MutexLockerD2Ev.exit.us, label %.loopexit
 
 _ZN11MutexLockerD2Ev.exit.us:                     ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us, %18
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %4) #23
@@ -5491,9 +5491,9 @@ _ZN11MutexLockerD2Ev.exit.us:                     ; preds = %_ZN11MutexLockerC2E
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV16VM_G1CollectFull, i64 16), ptr %4, align 8
   store i8 0, ptr %13, align 1
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #23
-  %.old.us = load i8, ptr %13, align 1
-  %.old23.us = trunc i8 %.old.us to i1
-  br i1 %.old23.us, label %.loopexit, label %.lr.ph35
+  %25 = load i8, ptr %13, align 1
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %.loopexit, label %.lr.ph35
 
 .split:                                           ; preds = %3
   %25 = icmp ne i32 %1, 9

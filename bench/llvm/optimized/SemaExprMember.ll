@@ -394,8 +394,8 @@ _ZNK5clang9NamedDecl16isCXXClassMemberEv.exit:    ; preds = %_ZNK5clang4Decl14ge
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
-  %or.cond14 = select i1 %.not2.i.i, i1 %39, i1 false
-  br i1 %or.cond14, label %40, label %.critedge
+  %or.cond15 = select i1 %.not2.i.i, i1 %39, i1 false
+  br i1 %or.cond15, label %40, label %.critedge
 
 40:                                               ; preds = %31
   %41 = load i32, ptr %2, align 8, !tbaa !680
@@ -424,11 +424,11 @@ _ZNK5clang9NamedDecl16isCXXClassMemberEv.exit:    ; preds = %_ZNK5clang4Decl14ge
   %50 = tail call noundef ptr @_ZN5clang9NamedDecl21getUnderlyingDeclImplEv(ptr noundef nonnull align 8 dereferenceable(48) %45) #19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %50, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  %.pre15 = and i32 %.pre, 127
+  %.pre16 = and i32 %.pre, 127
   br label %_ZNK5clang12LookupResult12getFoundDeclEv.exit
 
 _ZNK5clang12LookupResult12getFoundDeclEv.exit:    ; preds = %42, %49
-  %.pre-phi = phi i32 [ %48, %42 ], [ %.pre15, %49 ]
+  %.pre-phi = phi i32 [ %48, %42 ], [ %.pre16, %49 ]
   %51 = add nsw i32 %.pre-phi, -47
   %52 = icmp ult i32 %51, 3
   %53 = add nsw i32 %.pre-phi, -30

@@ -4577,7 +4577,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12MemIntrinsicENS_5ValueEEEDaPT0_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define dso_local ptr @LLVMIsAMemCpyInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
+define dso_local noundef ptr @LLVMIsAMemCpyInst(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #14 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_10MemCpyInstENS_5ValueEEEDaPT0_.exit, label %2
 

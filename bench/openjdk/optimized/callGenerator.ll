@@ -888,10 +888,10 @@ define hidden noundef ptr @_ZN20VirtualCallGenerator8generateEP8JVMState(ptr nou
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %61 = load i32, ptr %60, align 8
   %switch.tableidx = add i32 %59, -182
-  %62 = icmp ult i32 %switch.tableidx, 4
+  %or.cond.i.i = icmp ult i32 %switch.tableidx, 4
   br i1 %62, label %switch.lookup, label %_ZN11ciSignature15arg_size_for_bcEN9Bytecodes4CodeE.exit
 
-switch.lookup:                                    ; preds = %53
+switch.lookup:; preds = %53
   %63 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN20VirtualCallGenerator8generateEP8JVMState, i64 %63
   %switch.load = load i32, ptr %switch.gep, align 4

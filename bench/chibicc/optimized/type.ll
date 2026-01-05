@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef zeroext i1 @is_integer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
 switch.return:
   %1 = load i32, ptr %0, align 8, !tbaa !7
-  %2 = icmp ult i32 %1, 10
+  %or.cond7 = icmp ult i32 %1, 10
   %switch.cast = trunc i32 %1 to i10
   %switch.downshift = lshr i10 -450, %switch.cast
   %switch.masked = trunc i10 %switch.downshift to i1
@@ -65,16 +65,16 @@ define dso_local noundef zeroext i1 @is_numeric(ptr noundef readonly captures(no
   %switch.shifted = lshr i16 287, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %or.cond = select i1 %3, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %is_integer.exit.thread, label %is_integer.exit
+  br i1 %or.cond, label %switch.lookup, label %4
 
-is_integer.exit:                                  ; preds = %1
+4:                                                ; preds = %1
   %.off.i = add i32 %2, -6
   %switch.i = icmp ult i32 %.off.i, 3
-  br label %is_integer.exit.thread
+  br label %switch.lookup
 
-is_integer.exit.thread:                           ; preds = %1, %is_integer.exit
-  %4 = phi i1 [ %switch.i, %is_integer.exit ], [ true, %1 ]
-  ret i1 %4
+switch.lookup:                                    ; preds = %1, %4
+  %5 = phi i1 [ %switch.i, %is_integer.exit ], [ true, %1 ]
+  ret i1 %5
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

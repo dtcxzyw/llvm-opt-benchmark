@@ -465,7 +465,7 @@ define dso_local noundef zeroext i1 @launch_common_step_retry_errno(i32 noundef 
     i32 11, label %switch.return
   ]
 
-ret.false:                                        ; preds = %1
+ret.false:; preds = %1
   br label %switch.return
 
 switch.return:                                    ; preds = %1, %1, %1, %1, %1, %1, %ret.false

@@ -3093,19 +3093,19 @@ define internal fastcc range(i32 -16, 1) i32 @set_gss_proxy(ptr noundef %0) unna
 switch.return:
   %1 = load i32, ptr @sunrpc_net_id, align 4
   tail call void @__rcu_read_lock() #24
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2536
-  %3 = load volatile ptr, ptr %2, align 8
-  %4 = zext i32 %1 to i64
-  %5 = getelementptr ptr, ptr %3, i64 %4
-  %6 = load ptr, ptr %5, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
+  %4 = load volatile ptr, ptr %3, align 8
+  %5 = zext i32 %1 to i64
+  %6 = getelementptr ptr, ptr %4, i64 %5
+  %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #24
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 184
-  %8 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 1, i32 -1, ptr nonnull elementtype(i32) %7) #24, !srcloc !53
-  %9 = add i32 %8, 1
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 184
+  %9 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8, i32 1, i32 -1, ptr nonnull elementtype(i32) %8) #24, !srcloc !53
+  %9 = add i32 %9, 1
   %switch.and = and i32 %9, -3
   %switch.selectcmp = icmp eq i32 %switch.and, 0
-  %10 = select i1 %switch.selectcmp, i32 0, i32 -16
-  ret i32 %10
+  %13 = select i1 %switch.selectcmp, i32 0, i32 -16
+  ret i32 %13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

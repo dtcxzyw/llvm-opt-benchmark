@@ -488,11 +488,11 @@ _ZN8nanobind6detail12infer_policyI13callback_dataEENS_9rv_policyES3_.exit:
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
 
-6:                                                ; preds = %_ZN8nanobind6detail12infer_policyI13callback_dataEENS_9rv_policyES3_.exit
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyI13callback_dataEENS_9rv_policyES3_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #20
   unreachable
 
-7:                                                ; preds = %_ZN8nanobind6detail12infer_policyI13callback_dataEENS_9rv_policyES3_.exit
+8:                                                ; preds = %_ZN8nanobind6detail12infer_policyI13callback_dataEENS_9rv_policyES3_.exit
   store ptr %5, ptr %0, align 8
   ret void
 }

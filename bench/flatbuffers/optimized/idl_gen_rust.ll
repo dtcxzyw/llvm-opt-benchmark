@@ -37254,7 +37254,7 @@ define internal fastcc noundef range(i32 0, 20) i32 @_ZN11flatbuffers12_GLOBAL__
   %3 = alloca %"struct.flatbuffers::Type", align 8
   %4 = load i32, ptr %0, align 8, !tbaa !549
   switch i32 %4, label %11 [
-    i32 13, label %67
+    i32 13, label %63
     i32 15, label %5
   ]
 
@@ -37265,7 +37265,7 @@ define internal fastcc noundef range(i32 0, 20) i32 @_ZN11flatbuffers12_GLOBAL__
   %9 = load i8, ptr %8, align 8, !tbaa !322, !range !134, !noundef !135
   %10 = trunc nuw i8 %9 to i1
   %. = select i1 %10, i32 3, i32 4
-  br label %67
+  br label %63
 
 11:                                               ; preds = %1
   %12 = add i32 %4, -14
@@ -37273,61 +37273,61 @@ define internal fastcc noundef range(i32 0, 20) i32 @_ZN11flatbuffers12_GLOBAL__
   %switch.selectcmp.i.i = icmp eq i32 %switch.and.i.i, 0
   br i1 %switch.selectcmp.i.i, label %13, label %28
 
-13:                                               ; preds = %11
+11:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !594)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !597, !noalias !594
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !593, !noalias !594
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !598, !noalias !594
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load i16, ptr %20, align 8, !tbaa !599, !noalias !594
-  store i32 %15, ptr %2, align 8, !tbaa !549, !alias.scope !594
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %22, align 4, !tbaa !597, !alias.scope !594
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %17, ptr %23, align 8, !tbaa !593, !alias.scope !594
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %19, ptr %24, align 8, !tbaa !598, !alias.scope !594
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i16 %21, ptr %25, align 8, !tbaa !599, !alias.scope !594
-  %26 = call fastcc noundef i32 @_ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(26) %2)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %13 = load i32, ptr %12, align 4, !tbaa !597, !noalias !594
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !593, !noalias !594
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !598, !noalias !594
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %19 = load i16, ptr %18, align 8, !tbaa !599, !noalias !594
+  store i32 %13, ptr %2, align 8, !tbaa !549, !alias.scope !594
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 0, ptr %20, align 4, !tbaa !597, !alias.scope !594
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %15, ptr %21, align 8, !tbaa !593, !alias.scope !594
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %17, ptr %22, align 8, !tbaa !598, !alias.scope !594
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i16 %19, ptr %23, align 8, !tbaa !599, !alias.scope !594
+  %24 = call fastcc noundef i32 @_ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(26) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %27 = icmp samesign ult i32 %26, 9
-  br i1 %27, label %switch.lookup, label %64
+  %25 = icmp samesign ult i32 %24, 9
+  br i1 %25, label %switch.lookup, label %64
 
-28:                                               ; preds = %11
+26:                                               ; preds = %11
   %29 = icmp eq i32 %4, 17
   br i1 %29, label %30, label %45
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !600)
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !597, !noalias !600
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !593, !noalias !600
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !598, !noalias !600
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %38 = load i16, ptr %37, align 8, !tbaa !599, !noalias !600
-  store i32 %32, ptr %3, align 8, !tbaa !549, !alias.scope !600
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 0, ptr %39, align 4, !tbaa !597, !alias.scope !600
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %34, ptr %40, align 8, !tbaa !593, !alias.scope !600
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %36, ptr %41, align 8, !tbaa !598, !alias.scope !600
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i16 %38, ptr %42, align 8, !tbaa !599, !alias.scope !600
-  %43 = call fastcc noundef i32 @_ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(26) %3)
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %28 = load i32, ptr %27, align 4, !tbaa !597, !noalias !600
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !593, !noalias !600
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = load ptr, ptr %31, align 8, !tbaa !598, !noalias !600
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %34 = load i16, ptr %33, align 8, !tbaa !599, !noalias !600
+  store i32 %28, ptr %3, align 8, !tbaa !549, !alias.scope !600
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 0, ptr %35, align 4, !tbaa !597, !alias.scope !600
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %30, ptr %36, align 8, !tbaa !593, !alias.scope !600
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %32, ptr %37, align 8, !tbaa !598, !alias.scope !600
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i16 %34, ptr %38, align 8, !tbaa !599, !alias.scope !600
+  %39 = call fastcc noundef i32 @_ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(26) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %44 = icmp samesign ult i32 %43, 6
-  br i1 %44, label %switch.lookup20, label %64
+  %40 = icmp samesign ult i32 %39, 6
+  br i1 %40, label %switch.lookup20, label %64
 
-45:                                               ; preds = %28
+60:                                               ; preds = %26
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !598
   %.not = icmp eq ptr %47, null
@@ -37365,19 +37365,19 @@ define internal fastcc noundef range(i32 0, 20) i32 @_ZN11flatbuffers12_GLOBAL__
 64:                                               ; preds = %30, %13, %57, %54
   br label %67
 
-switch.lookup:                                    ; preds = %13
-  %65 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE, i64 %65
+switch.lookup:                                    ; preds = %11
+  %61 = zext nneg i32 %24 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE, i64 %61
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %67
+  br label %63
 
 switch.lookup20:                                  ; preds = %30
-  %66 = zext nneg i32 %43 to i64
-  %switch.gep21 = getelementptr inbounds nuw i32, ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE.58, i64 %66
+  %62 = zext nneg i32 %39 to i64
+  %switch.gep21 = getelementptr inbounds nuw i32, ptr @switch.table._ZN11flatbuffers12_GLOBAL__N_111GetFullTypeERKNS_4TypeE.58, i64 %62
   %switch.load22 = load i32, ptr %switch.gep21, align 4
-  br label %67
+  br label %63
 
-67:                                               ; preds = %switch.lookup20, %switch.lookup, %62, %1, %60, %48, %54, %52, %5, %64
+63:                                               ; preds = %switch.lookup20, %switch.lookup, %62, %1, %60, %48, %54, %52, %5, %64
   %.0 = phi i32 [ %spec.select, %62 ], [ %., %5 ], [ 8, %1 ], [ 2, %64 ], [ 2, %60 ], [ %switch.load22, %switch.lookup20 ], [ %switch.load, %switch.lookup ], [ 5, %48 ], [ 6, %54 ], [ 7, %52 ]
   ret i32 %.0
 }

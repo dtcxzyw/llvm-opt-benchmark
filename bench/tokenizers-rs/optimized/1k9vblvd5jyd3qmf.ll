@@ -6094,7 +6094,7 @@ define hidden noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$
   %.0 = icmp ult i32 %3, 15
   br i1 %.0, label %switch.return, label %switch.early.test
 
-switch.early.test:                                ; preds = %1
+switch.early.test:; preds = %1
   switch i32 %2, label %ret.false [
     i32 126, label %switch.return
     i32 125, label %switch.return
@@ -21176,14 +21176,14 @@ define hidden void @"_ZN91_$LT$tokenizers..pre_tokenizers..metaspace..Metaspace$
 define hidden noundef zeroext i1 @_ZN10tokenizers14pre_tokenizers11punctuation7is_punc17heda7ddf708529f4fE(i32 noundef %0) unnamed_addr #2 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %3 = call noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.787574339177529159"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2)
+  %3 = call noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.787574339177529159"(ptr noalias noundef nonnull readonly align 4 dereferenceable(switch.early.test) %2)
   br i1 %3, label %6, label %4
 
-4:                                                ; preds = %1
+switch.early.test:                                ; preds = %1
   %5 = tail call noundef zeroext i1 @_ZN18unicode_categories17UnicodeCategories14is_punctuation17he7d2a917fef1699eE.llvm.787574339177529159(i32 noundef %0)
-  br label %6
+  br label %5
 
-6:                                                ; preds = %1, %4
+5:                                                ; preds = %1, %4
   %.0 = phi i1 [ %5, %4 ], [ true, %1 ]
   ret i1 %.0
 }

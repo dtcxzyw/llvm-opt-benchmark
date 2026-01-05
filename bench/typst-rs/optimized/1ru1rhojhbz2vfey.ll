@@ -63490,7 +63490,7 @@ define hidden noundef zeroext i1 @"_ZN5typst11foundations4auto14Smart$LT$T$GT$13
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @"_ZN5typst11foundations4auto14Smart$LT$T$GT$13is_custom_and17h274076d902ea3d77E"(i8 noundef %0) unnamed_addr #2 personality ptr @rust_eh_personality {
 switch.return:
-  %1 = icmp ugt i8 %0, 4
+  %switch.i.i = icmp ugt i8 %0, 4
   %switch.cast = trunc i8 %0 to i5
   %switch.downshift = lshr i5 12, %switch.cast
   %switch.masked = trunc i5 %switch.downshift to i1

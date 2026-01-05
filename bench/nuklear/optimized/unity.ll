@@ -59918,7 +59918,7 @@ define range(i32 0, 2) i32 @nk_filter_hex(ptr noundef readnone captures(none) %0
   %or.cond = icmp ult i32 %3, -10
   br i1 %or.cond, label %switch.early.test, label %ret.false
 
-switch.early.test:                                ; preds = %2
+switch.early.test:; preds = %2
   switch i32 %1, label %switch.return [
     i32 102, label %ret.false
     i32 101, label %ret.false

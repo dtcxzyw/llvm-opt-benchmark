@@ -5632,7 +5632,7 @@ _ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessIN9_
   %switch.maskindex = trunc i32 %2 to i8
   %switch.shifted = lshr i8 99, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %spec.store.select.i = select i1 %3, i1 %switch.lobit, i1 false
   %4 = select i1 %or.cond, i32 4, i32 %2
   %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_15iterator_accessIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEELNS_9rv_policyE1ES9_S9_RjJEEE, ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %4, ptr noundef null, ptr noundef null) #26
   %.not = icmp eq ptr %5, null
@@ -5642,7 +5642,7 @@ _ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessIN9_
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #30
   unreachable
 
-7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEELNS_9rv_policyE1ESA_SA_RjJEEEEESC_SC_.exit
+8:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEELNS_9rv_policyE1ESA_SA_RjJEEEEESC_SC_.exit
   store ptr %5, ptr %0, align 8
   ret void
 }
@@ -8753,7 +8753,7 @@ _ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessISt1
   %switch.maskindex = trunc i32 %2 to i8
   %switch.shifted = lshr i8 99, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %spec.store.select.i = select i1 %3, i1 %switch.lobit, i1 false
   %4 = select i1 %or.cond, i32 4, i32 %2
   %5 = tail call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIN8nanobind6detail14iterator_stateINS0_15iterator_accessISt13_Bit_iteratorEELNS_9rv_policyE1ES3_S3_bJEEE, ptr noundef nonnull align 8 dereferenceable(33) %1, i32 noundef %4, ptr noundef null, ptr noundef null) #26
   %.not = icmp eq ptr %5, null
@@ -8763,7 +8763,7 @@ _ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessISt1
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #30
   unreachable
 
-7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessISt13_Bit_iteratorEELNS_9rv_policyE1ES4_S4_bJEEEEES6_S6_.exit
+8:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessISt13_Bit_iteratorEELNS_9rv_policyE1ES4_S4_bJEEEEES6_S6_.exit
   store ptr %5, ptr %0, align 8
   ret void
 }
@@ -13043,11 +13043,11 @@ _ZZN8nanobind11bind_vectorISt6vectorIZL38nanobind_init_test_stl_bind_vector_extR
   %40 = getelementptr inbounds i8, ptr %39, i64 -4
   store ptr %40, ptr %22, align 8, !tbaa !243
   store i32 %.sroa.01.0.copyload.i, ptr %7, align 4
-  %41 = icmp ult i32 %3, 7
+  %or.cond.i = icmp ult i32 %3, 7
   %switch.maskindex = trunc i32 %3 to i8
   %switch.shifted = lshr i8 99, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %41, i1 %switch.lobit, i1 false
+  %spec.store.select.i = select i1 %or.cond.i, i1 %switch.lobit, i1 false
   %42 = select i1 %or.cond, i32 4, i32 %3
   %43 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2El, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef %42, ptr noundef %4, ptr noundef null) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -15497,12 +15497,12 @@ _ZZN8nanobind11bind_vectorISt6vectorIS1_IZL38nanobind_init_test_stl_bind_vector_
   store ptr %38, ptr %42, align 8, !tbaa !243, !alias.scope !394
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %40, ptr %43, align 8, !tbaa !244, !alias.scope !394
-  %44 = icmp ult i32 %3, 7
+  %or.cond.i = icmp ult i32 %3, 7
   %switch.maskindex = trunc i32 %3 to i8
   %switch.shifted = lshr i8 99, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %44, i1 %switch.lobit, i1 false
-  %45 = select i1 %or.cond, i32 4, i32 %3
+  %spec.store.select.i = select i1 %or.cond.i, i1 %switch.lobit, i1 false
+  %45 = select i1 %spec.store.select.i, i32 4, i32 %3
   %46 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTISt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE2ElSaIS3_EE, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %45, ptr noundef %4, ptr noundef null) #26
   %.val = load ptr, ptr %7, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
@@ -20946,11 +20946,11 @@ _ZNSt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE4E_n
   br label %"_ZZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EENK3$_0clEi.exit"
 
 "_ZZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EENK3$_0clEi.exit": ; preds = %"_ZZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EENK3$_0clEi.exit.loopexit", %11
-  %47 = icmp ult i32 %3, 7
+  %or.cond.i = icmp ult i32 %3, 7
   %switch.maskindex = trunc i32 %3 to i8
   %switch.shifted = lshr i8 99, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %47, i1 %switch.lobit, i1 false
+  %spec.store.select.i = select i1 %or.cond.i, i1 %switch.lobit, i1 false
   %48 = select i1 %or.cond, i32 4, i32 %3
   %49 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTISt6vectorIZL38nanobind_init_test_stl_bind_vector_extRN8nanobind7module_EE4E_ncSaIS3_EE, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %48, ptr noundef %4, ptr noundef null) #26
   %.val = load ptr, ptr %7, align 8

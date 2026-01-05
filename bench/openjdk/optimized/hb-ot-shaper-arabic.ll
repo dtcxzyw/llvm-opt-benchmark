@@ -977,7 +977,7 @@ _ZL14arabic_joiningP11hb_buffer_t.exit:           ; preds = %_ZL14arabic_joining
   %wide.trip.count.i14 = zext i32 %.pre33 to i64
   br label %.lr.ph.i15
 
-.lr.ph.i15:                                       ; preds = %_ZL12hb_in_rangesIjJjjEEbT_S0_S0_DpT0_.exit.i, %.lr.ph.preheader.i
+.lr.ph.i15:                                       ; preds = %203, %.lr.ph.preheader.i
   %indvars.iv.i16 = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i17, %_ZL12hb_in_rangesIjJjjEEbT_S0_S0_DpT0_.exit.i ]
   %197 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.pre35, i64 %indvars.iv.i16
   %198 = load i32, ptr %197, align 4
@@ -993,40 +993,40 @@ _ZL14arabic_joiningP11hb_buffer_t.exit:           ; preds = %_ZL14arabic_joining
   %201 = load i8, ptr %200, align 1
   %202 = getelementptr inbounds nuw i8, ptr %197, i64 19
   store i8 %201, ptr %202, align 1
-  br label %_ZL12hb_in_rangesIjJjjEEbT_S0_S0_DpT0_.exit.i
+  br label %203
 
-_ZL12hb_in_rangesIjJjjEEbT_S0_S0_DpT0_.exit.i:    ; preds = %199, %.lr.ph.i15
+203:                                              ; preds = %199, %.lr.ph.i15
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, %wide.trip.count.i14
   br i1 %exitcond.not.i18, label %_ZL29mongolian_variation_selectorsP11hb_buffer_t.exit.loopexit, label %.lr.ph.i15, !llvm.loop !16
 
-_ZL29mongolian_variation_selectorsP11hb_buffer_t.exit.loopexit: ; preds = %_ZL12hb_in_rangesIjJjjEEbT_S0_S0_DpT0_.exit.i
+_ZL29mongolian_variation_selectorsP11hb_buffer_t.exit.loopexit: ; preds = %203
   %.pre = load i32, ptr %7, align 8
   %.pre34 = load ptr, ptr %9, align 8
   br label %_ZL29mongolian_variation_selectorsP11hb_buffer_t.exit
 
 _ZL29mongolian_variation_selectorsP11hb_buffer_t.exit: ; preds = %_ZL29mongolian_variation_selectorsP11hb_buffer_t.exit.loopexit, %_ZL14arabic_joiningP11hb_buffer_t.exit
-  %203 = phi ptr [ %.pre34, %_ZL29mongolian_variation_selectorsP11hb_buffer_t.exit.loopexit ], [ %.pre35, %_ZL14arabic_joiningP11hb_buffer_t.exit ]
-  %204 = phi i32 [ %.pre, %_ZL29mongolian_variation_selectorsP11hb_buffer_t.exit.loopexit ], [ %.pre33, %_ZL14arabic_joiningP11hb_buffer_t.exit ]
-  %.not = icmp eq i32 %204, 0
+  %204 = phi ptr [ %.pre34, %_ZL29mongolian_variation_selectorsP11hb_buffer_t.exit.loopexit ], [ %.pre35, %_ZL14arabic_joiningP11hb_buffer_t.exit ]
+  %205 = phi i32 [ %.pre, %_ZL29mongolian_variation_selectorsP11hb_buffer_t.exit.loopexit ], [ %.pre33, %_ZL14arabic_joiningP11hb_buffer_t.exit ]
+  %.not = icmp eq i32 %205, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZL29mongolian_variation_selectorsP11hb_buffer_t.exit
-  %wide.trip.count = zext i32 %204 to i64
+  %wide.trip.count = zext i32 %205 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %205 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %203, i64 %indvars.iv
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 19
-  %207 = load i8, ptr %206, align 1
-  %208 = zext i8 %207 to i64
-  %209 = getelementptr inbounds nuw i32, ptr %0, i64 %208
-  %210 = load i32, ptr %209, align 4
-  %211 = getelementptr inbounds nuw i8, ptr %205, i64 4
-  %212 = load i32, ptr %211, align 4
-  %213 = or i32 %212, %210
-  store i32 %213, ptr %211, align 4
+  %206 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %204, i64 %indvars.iv
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 19
+  %208 = load i8, ptr %207, align 1
+  %209 = zext i8 %208 to i64
+  %210 = getelementptr inbounds nuw i32, ptr %0, i64 %209
+  %211 = load i32, ptr %210, align 4
+  %212 = getelementptr inbounds nuw i8, ptr %206, i64 4
+  %213 = load i32, ptr %212, align 4
+  %214 = or i32 %213, %211
+  store i32 %214, ptr %212, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17

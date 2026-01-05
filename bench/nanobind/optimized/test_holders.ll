@@ -6578,17 +6578,17 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nano
   %8 = load ptr, ptr %1, align 8, !tbaa !115
   %9 = load i8, ptr %2, align 1, !tbaa !37
   %10 = call noundef zeroext i1 @_ZN8nanobind6detail11nb_type_getEPKSt9type_infoP7_objecthPNS0_12cleanup_listEPPv(ptr noundef nonnull @_ZTI9ExampleST, ptr noundef %8, i8 noundef zeroext %9, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %6) #26
-  br i1 %10, label %_ZN8nanobind6detail12infer_policyI15SharedWrapperSTEENS_9rv_policyES3_.exit, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_holders_extRNS_7module_EE4$_1215SharedWrapperSTJP9ExampleSTEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSB_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESP_SQ_SR_SS_SU_.exit"
+  br i1 %10, label %11, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_holders_extRNS_7module_EE4$_1215SharedWrapperSTJP9ExampleSTEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSB_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESP_SQ_SR_SS_SU_.exit"
 
-_ZN8nanobind6detail12infer_policyI15SharedWrapperSTEENS_9rv_policyES3_.exit: ; preds = %5
+11:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %11 = load ptr, ptr %6, align 8, !tbaa !211
-  call void @_ZNSt12__shared_ptrI9ExampleSTLN9__gnu_cxx12_Lock_policyE2EEC2IS0_vEERKSt10__weak_ptrIT_LS2_2EE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %11) #25
-  %12 = icmp ult i32 %3, 7
+  %12 = load ptr, ptr %6, align 8, !tbaa !211
+  call void @_ZNSt12__shared_ptrI9ExampleSTLN9__gnu_cxx12_Lock_policyE2EEC2IS0_vEERKSt10__weak_ptrIT_LS2_2EE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %12) #25
+  %or.cond.i = icmp ult i32 %3, 7
   %switch.maskindex = trunc i32 %3 to i8
   %switch.shifted = lshr i8 99, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %12, i1 %switch.lobit, i1 false
+  %spec.store.select.i = select i1 %or.cond.i, i1 %switch.lobit, i1 false
   %13 = select i1 %or.cond, i32 4, i32 %3
   %14 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTI15SharedWrapperST, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %13, ptr noundef %4, ptr noundef null) #26
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -6596,7 +6596,7 @@ _ZN8nanobind6detail12infer_policyI15SharedWrapperSTEENS_9rv_policyES3_.exit: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_holders_extRNS_7module_EE4$_1215SharedWrapperSTJP9ExampleSTEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSB_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESP_SQ_SR_SS_SU_.exit"
 
-"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_holders_extRNS_7module_EE4$_1215SharedWrapperSTJP9ExampleSTEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSB_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESP_SQ_SR_SS_SU_.exit": ; preds = %5, %_ZN8nanobind6detail12infer_policyI15SharedWrapperSTEENS_9rv_policyES3_.exit
+"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_holders_extRNS_7module_EE4$_1215SharedWrapperSTJP9ExampleSTEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSB_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESP_SQ_SR_SS_SU_.exit": ; preds = %5, %11
   %.0.i = phi ptr [ %14, %_ZN8nanobind6detail12infer_policyI15SharedWrapperSTEENS_9rv_policyES3_.exit ], [ inttoptr (i64 1 to ptr), %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0.i
@@ -6644,11 +6644,11 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nano
   br label %"_ZZL30nanobind_init_test_holders_extRN8nanobind7module_EENK4$_13clER15SharedWrapperST.exit"
 
 "_ZZL30nanobind_init_test_holders_extRN8nanobind7module_EENK4$_13clER15SharedWrapperST.exit": ; preds = %11, %19, %22
-  %24 = icmp ult i32 %3, 7
+  %or.cond.i.i = icmp ult i32 %3, 7
   %switch.maskindex = trunc i32 %3 to i8
   %switch.shifted = lshr i8 99, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %24, i1 %switch.lobit, i1 false
+  %spec.store.select.i.i = select i1 %or.cond.i.i, i1 %switch.lobit, i1 false
   %25 = select i1 %or.cond, i32 4, i32 %3
   %26 = call noundef ptr @_ZN8nanobind6detail11nb_type_putEPKSt9type_infoPvNS_9rv_policyEPNS0_12cleanup_listEPb(ptr noundef nonnull @_ZTI15SharedWrapperST, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %25, ptr noundef %4, ptr noundef null) #26
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #26

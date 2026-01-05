@@ -8788,26 +8788,26 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_shell_escape(ptr nounde
     i32 127, label %do_shell.exit
   ]
 
-do_shell.exit.thread:                             ; preds = %13
+14:                                               ; preds = %13
   tail call void @free(ptr noundef %3) #17
   br label %15
 
 do_shell.exit:                                    ; preds = %13, %13
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.302) #17
   %14 = add nsw i32 %.010.i, 1
-  %switch.and.i = and i32 %14, -129
+  %or.cond.not.i = and i32 %14, -129
   %switch.selectcmp.i.not = icmp eq i32 %switch.and.i, 0
   tail call void @free(ptr noundef %3) #17
   br i1 %switch.selectcmp.i.not, label %17, label %15
 
-15:                                               ; preds = %do_shell.exit.thread, %do_shell.exit
+18:                                               ; preds = %14, %do_shell.exit
   br label %17
 
 16:                                               ; preds = %2
   tail call void @free(ptr noundef %3) #17
-  br label %17
+  br label %19
 
-17:                                               ; preds = %15, %do_shell.exit, %16
+19:                                               ; preds = %18, %do_shell.exit, %16
   %.0 = phi i32 [ 2, %16 ], [ 2, %15 ], [ 5, %do_shell.exit ]
   ret i32 %.0
 }

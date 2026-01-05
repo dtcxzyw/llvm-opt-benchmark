@@ -17292,21 +17292,21 @@ define hidden void @_ZN6Assimp13ColladaLoader10AddTextureER10aiMaterialRKNS_13Co
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
-  %.not5053 = icmp samesign eq i64 %39, 0
-  br i1 %.not5053, label %thread-pre-split.thread, label %.lr.ph
+  %.not5052 = icmp samesign eq i64 %39, 0
+  br i1 %.not5052, label %thread-pre-split.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %35, %54
-  %.sroa.046.054 = phi ptr [ %55, %54 ], [ %37, %35 ]
-  %41 = load i8, ptr %.sroa.046.054, align 1
+.lr.ph.i:                                         ; preds = %35, %54
+  %43 = phi ptr [ %55, %54 ], [ %37, %35 ]
+  %41 = load i8, ptr %.sroa.046.050, align 1
   %42 = add i8 %41, -48
   %or.cond.i = icmp ult i8 %42, 10
-  %43 = add i8 %41, -43
-  %switch.and.i = and i8 %43, -3
+  %narrow.i = add i8 %41, -43
+  %switch.and.i = and i8 %narrow.i, -3
   %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
   %44 = or i1 %or.cond.i, %switch.selectcmp.i
   br i1 %44, label %45, label %54
 
-45:                                               ; preds = %.lr.ph
+45:; preds = %.lr.ph
   %46 = add i8 %41, -58
   %or.cond11.i = icmp ult i8 %46, -10
   br i1 %or.cond11.i, label %.sink.split, label %.lr.ph.i
@@ -17325,28 +17325,28 @@ define hidden void @_ZN6Assimp13ColladaLoader10AddTextureER10aiMaterialRKNS_13Co
   %or.cond.i45 = icmp ult i8 %53, -10
   br i1 %or.cond.i45, label %thread-pre-split, label %.lr.ph.i, !llvm.loop !149
 
-54:                                               ; preds = %.lr.ph
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.046.054, i64 1
-  %.not50 = icmp eq ptr %55, %40
+50:                                               ; preds = %.lr.ph
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.046.054, i64 1
+  %.not50 = icmp eq ptr %51, %40
   br i1 %.not50, label %thread-pre-split.thread, label %.lr.ph, !llvm.loop !150
 
 thread-pre-split:                                 ; preds = %.lr.ph.i
   store i32 %50, ptr %9, align 4
-  %56 = icmp eq i32 %50, -1
-  br i1 %56, label %thread-pre-split.thread, label %58
+  %52 = icmp eq i32 %50, -1
+  br i1 %52, label %thread-pre-split.thread, label %54
 
-thread-pre-split.thread:                          ; preds = %54, %35, %thread-pre-split
-  %57 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  call void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %57, ptr noundef nonnull @.str.61)
+thread-pre-split.thread:                          ; preds = %50, %35, %thread-pre-split
+  %53 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+  call void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %53, ptr noundef nonnull @.str.61)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %45, %7, %thread-pre-split.thread
   %.sink = phi i32 [ %34, %7 ], [ 0, %thread-pre-split.thread ], [ 0, %45 ]
   store i32 %.sink, ptr %9, align 4
-  br label %58
+  br label %54
 
-58:                                               ; preds = %.sink.split, %thread-pre-split
-  %59 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %9, i32 noundef 4, ptr noundef nonnull @.str.62, i32 noundef %5, i32 noundef %6, i32 noundef 4)
+54:                                               ; preds = %.sink.split, %thread-pre-split
+  %55 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %9, i32 noundef 4, ptr noundef nonnull @.str.62, i32 noundef %5, i32 noundef %6, i32 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void

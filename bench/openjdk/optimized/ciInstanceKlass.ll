@@ -1412,15 +1412,15 @@ _ZNK15ciInstanceKlass14box_klass_typeEv.exit:     ; preds = %6, %_ZNK10ciMetadat
   %18 = add nsw i8 %14, -7
   %switch.and.i.i = and i8 %18, -5
   %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
-  %19 = load i32, ptr @_ZN23java_lang_boxing_object18_long_value_offsetE, align 4
-  %20 = load i32, ptr @_ZN23java_lang_boxing_object13_value_offsetE, align 4
-  %21 = select i1 %switch.selectcmp.i.i, i32 %19, i32 %20
-  %22 = icmp eq i32 %1, %21
+  %21 = load i32, ptr @_ZN23java_lang_boxing_object18_long_value_offsetE, align 4
+  %22 = load i32, ptr @_ZN23java_lang_boxing_object13_value_offsetE, align 4
+  %23 = select i1 %switch.selectcmp.i.i, i32 %21, i32 %22
+  %24 = icmp eq i32 %1, %23
   br label %_ZNK15ciInstanceKlass14box_klass_typeEv.exit.thread
 
 _ZNK15ciInstanceKlass14box_klass_typeEv.exit.thread: ; preds = %2, %_ZNK10ciMetadata9is_loadedEv.exit.i, %17, %_ZNK15ciInstanceKlass14box_klass_typeEv.exit
-  %23 = phi i1 [ false, %_ZNK15ciInstanceKlass14box_klass_typeEv.exit ], [ %22, %17 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ false, %2 ]
-  ret i1 %23
+  %25 = phi i1 [ false, %_ZNK15ciInstanceKlass14box_klass_typeEv.exit ], [ %24, %17 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ false, %2 ]
+  ret i1 %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

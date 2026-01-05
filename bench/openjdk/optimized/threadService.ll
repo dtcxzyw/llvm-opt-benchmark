@@ -1626,8 +1626,8 @@ _ZN13DeadlockCycle10add_threadEP10JavaThread.exit: ; preds = %.critedge, %111
 133:                                              ; preds = %132
   %134 = getelementptr inbounds nuw i8, ptr %.075175, i64 64
   %135 = load volatile ptr, ptr %134, align 8
-  %magicptr.i = ptrtoint ptr %135 to i64
-  %switch.and.i = and i64 %magicptr.i, -3
+  %magicptr = ptrtoint ptr %135 to i64
+  %switch.and.i = and i64 %magicptr, -3
   %switch.selectcmp.i.not = icmp eq i64 %switch.and.i, 0
   br i1 %switch.selectcmp.i.not, label %.thread, label %136
 

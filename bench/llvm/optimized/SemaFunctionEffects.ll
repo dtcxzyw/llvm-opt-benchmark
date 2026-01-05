@@ -11428,16 +11428,16 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_18Analyzer22FunctionBodyASTV
   %4 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 6
   %5 = add nsw i64 %4, -2
   %switch.selectcmp.i = icmp ult i64 %5, 4
-  br i1 %switch.selectcmp.i, label %6, label %7
+  br i1 %switch.selectcmp.i, label %5, label %7
 
-6:                                                ; preds = %2
+5:                                                ; preds = %2
   store i64 2, ptr %3, align 8
-  br label %7
+  br label %6
 
-7:                                                ; preds = %6, %2
-  %8 = tail call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #21
+6:                                                ; preds = %6, %2
+  %7 = tail call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE30TraverseConstructorInitializerEPNS_18CXXCtorInitializerE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #21
   store i64 %.sroa.0.0.copyload, ptr %3, align 8, !tbaa !43
-  ret i1 %8
+  ret i1 %7
 }
 
 declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE24TraverseCXXBaseSpecifierERKNS_16CXXBaseSpecifierE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1

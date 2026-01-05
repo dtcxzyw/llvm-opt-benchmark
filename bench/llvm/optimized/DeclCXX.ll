@@ -16012,38 +16012,38 @@ _ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit: ; preds = %9, %13
   %.0.i = phi ptr [ %21, %13 ], [ %12, %9 ]
   %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %.sroa.0.0.copyload.i = load i32, ptr %22, align 8, !tbaa !460
-  br label %35
+  br label %34
 
 23:                                               ; preds = %1
   %24 = add nsw i64 %8, -2
   %switch.selectcmp.i = icmp ult i64 %24, 4
-  br i1 %switch.selectcmp.i, label %25, label %27
+  br i1 %switch.selectcmp.i, label %24, label %27
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.0.0.copyload.i5 = load i32, ptr %26, align 8, !tbaa !460
-  br label %35
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.0.0.copyload.i5 = load i32, ptr %25, align 8, !tbaa !460
+  br label %34
 
-27:                                               ; preds = %23
-  %28 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %.not.not = icmp eq i64 %28, 0
-  br i1 %.not.not, label %35, label %29
+26:                                               ; preds = %23
+  %27 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
+  %.not.not = icmp eq i64 %27, 0
+  br i1 %.not.not, label %34, label %28
 
-29:                                               ; preds = %27
-  %30 = inttoptr i64 %28 to ptr
+28:                                               ; preds = %26
+  %29 = inttoptr i64 %27 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %.sroa.0.0.copyload.i6 = load i64, ptr %30, align 8, !tbaa !34
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = inttoptr i64 %.sroa.0.0.copyload.i6 to ptr
-  store ptr %32, ptr %2, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %31, ptr %33, align 8
-  %34 = call i32 @_ZNK5clang7TypeLoc11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
+  %.sroa.0.0.copyload.i6 = load i64, ptr %29, align 8, !tbaa !34
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = inttoptr i64 %.sroa.0.0.copyload.i6 to ptr
+  store ptr %31, ptr %2, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %30, ptr %32, align 8
+  %33 = call i32 @_ZNK5clang7TypeLoc11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %35
+  br label %34
 
-35:                                               ; preds = %27, %29, %25, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit
-  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload.i, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit ], [ %.sroa.0.0.copyload.i5, %25 ], [ %34, %29 ], [ 0, %27 ]
+34:                                               ; preds = %26, %28, %24, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit
+  %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload.i, %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit ], [ %.sroa.0.0.copyload.i5, %25 ], [ %33, %29 ], [ 0, %27 ]
   ret i32 %.sroa.0.0
 }
 
@@ -16094,35 +16094,35 @@ _ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit: ; preds = %9, %13
 25:                                               ; preds = %1
   %26 = add nsw i64 %8, -2
   %switch.selectcmp.i.i = icmp ult i64 %26, 4
-  br i1 %switch.selectcmp.i.i, label %27, label %29
+  br i1 %switch.selectcmp.i.i, label %26, label %29
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.0.0.copyload.i5.i = load i32, ptr %28, align 8, !tbaa !460
+26:                                               ; preds = %25
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.0.0.copyload.i5.i = load i32, ptr %27, align 8, !tbaa !460
   br label %_ZNK5clang18CXXCtorInitializer17getSourceLocationEv.exit
 
-29:                                               ; preds = %25
-  %30 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %.not.not.i = icmp eq i64 %30, 0
-  br i1 %.not.not.i, label %_ZNK5clang18CXXCtorInitializer17getSourceLocationEv.exit, label %31
+28:                                               ; preds = %25
+  %29 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
+  %.not.not.i = icmp eq i64 %29, 0
+  br i1 %.not.not.i, label %_ZNK5clang18CXXCtorInitializer17getSourceLocationEv.exit, label %30
 
-31:                                               ; preds = %29
-  %32 = inttoptr i64 %30 to ptr
+30:                                               ; preds = %28
+  %31 = inttoptr i64 %29 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %.sroa.0.0.copyload.i6.i = load i64, ptr %32, align 8, !tbaa !34
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = inttoptr i64 %.sroa.0.0.copyload.i6.i to ptr
-  store ptr %34, ptr %2, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %33, ptr %35, align 8
-  %36 = call i32 @_ZNK5clang7TypeLoc11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
+  %.sroa.0.0.copyload.i6.i = load i64, ptr %31, align 8, !tbaa !34
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = inttoptr i64 %.sroa.0.0.copyload.i6.i to ptr
+  store ptr %33, ptr %2, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %32, ptr %34, align 8
+  %35 = call i32 @_ZNK5clang7TypeLoc11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK5clang18CXXCtorInitializer17getSourceLocationEv.exit
 
-_ZNK5clang18CXXCtorInitializer17getSourceLocationEv.exit: ; preds = %27, %29, %31
-  %.sroa.0.0.i = phi i32 [ 0, %29 ], [ %.sroa.0.0.copyload.i5.i, %27 ], [ %36, %31 ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.0.0.copyload.i = load i32, ptr %37, align 8, !tbaa !460
+_ZNK5clang18CXXCtorInitializer17getSourceLocationEv.exit: ; preds = %26, %28, %30
+  %.sroa.0.0.i = phi i32 [ 0, %29 ], [ %.sroa.0.0.copyload.i5.i, %27 ], [ %35, %30 ]
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.0.0.copyload.i = load i32, ptr %36, align 8, !tbaa !460
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit, %23, %_ZNK5clang18CXXCtorInitializer17getSourceLocationEv.exit

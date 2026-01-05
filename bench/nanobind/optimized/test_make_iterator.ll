@@ -2655,11 +2655,11 @@ _ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_access
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
 
-6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessINSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEESH_SH_.exit
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessINSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEESH_SH_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #24
   unreachable
 
-7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessINSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEESH_SH_.exit
+8:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_19iterator_key_accessINSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEESH_SH_.exit
   store ptr %5, ptr %0, align 8
   ret void
 }
@@ -2964,11 +2964,11 @@ _ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINSt
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
 
-6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RKSE_JEEEEESH_SH_.exit
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RKSE_JEEEEESH_SH_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #24
   unreachable
 
-7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RKSE_JEEEEESH_SH_.exit
+8:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RKSE_JEEEEESH_SH_.exit
   store ptr %5, ptr %0, align 8
   ret void
 }
@@ -3368,11 +3368,11 @@ _ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_acce
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
 
-6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessINSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEESH_SH_.exit
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessINSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEESH_SH_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #24
   unreachable
 
-7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessINSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEESH_SH_.exit
+8:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_21iterator_value_accessINSt8__detail20_Node_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_ELb0ELb1EEEEELNS_9rv_policyE1ESF_SF_RSD_JEEEEESH_SH_.exit
   store ptr %5, ptr %0, align 8
   ret void
 }
@@ -3818,11 +3818,11 @@ _ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINS_
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
 
-6:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINS_8iteratorEEELNS_9rv_policyE1ES4_S4_NS_6handleEJEEEEES6_S6_.exit
+7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINS_8iteratorEEELNS_9rv_policyE1ES4_S4_NS_6handleEJEEEEES6_S6_.exit
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #24
   unreachable
 
-7:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINS_8iteratorEEELNS_9rv_policyE1ES4_S4_NS_6handleEJEEEEES6_S6_.exit
+8:                                                ; preds = %_ZN8nanobind6detail12infer_policyINS0_14iterator_stateINS0_15iterator_accessINS_8iteratorEEELNS_9rv_policyE1ES4_S4_NS_6handleEJEEEEES6_S6_.exit
   store ptr %5, ptr %0, align 8
   ret void
 }

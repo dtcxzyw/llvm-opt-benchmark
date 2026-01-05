@@ -2764,7 +2764,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %K.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i8, ptr %K.i.i, align 8
-  %2 = icmp ugt i8 %1, 21
+  %cmp.i = icmp ugt i8 %1, 21
   %switch.cast = zext nneg i8 %1 to i22
   %switch.downshift = lshr i22 786431, %switch.cast
   %switch.masked = trunc i22 %switch.downshift to i1
