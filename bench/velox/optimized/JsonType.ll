@@ -162,6 +162,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::array.740" = type { [14 x i8] }
 %"struct.std::array.899" = type { [12 x %"union.std::aligned_storage<4, 4>::type"] }
 %"union.std::aligned_storage<4, 4>::type" = type { [4 x i8] }
+%struct._Guard.955 = type { ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -418,7 +419,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::detail::ScopeGuardImpl.926" = type { %"class.folly::detail::ScopeGuardImplBase", %class.anon.927 }
 %class.anon.927 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._Guard = type { ptr }
-%struct._Guard.955 = type { ptr }
 
 $_ZN8facebook5velox16JsonCastOperatorD2Ev = comdat any
 
@@ -17514,6 +17514,7 @@ sw.epilog:                                        ; preds = %_ZN8facebook5velox1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox16registerJsonTypeEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
+  %__guard.i = alloca %struct._Guard.955, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator.43", align 1
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
@@ -17526,16 +17527,37 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4))
-          to label %invoke.cont unwind label %lpad.i
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i)
+  %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+          to label %if.end.i unwind label %terminate.lpad.i.i
 
-lpad.i:                                           ; preds = %.noexc
+terminate.lpad.i.i:                               ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
+          catch ptr null
+  %1 = extractvalue { ptr, i32 } %0, 0
+  call void @__clang_call_terminate(ptr %1) #38
+  unreachable
+
+if.end.i:                                         ; preds = %.noexc
+  store ptr %ref.tmp, ptr %__guard.i, align 8
+  %call4.i = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+          to label %invoke.cont.i unwind label %lpad.i22
+
+invoke.cont.i:                                    ; preds = %if.end.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4)) #36
+  store ptr null, ptr %__guard.i, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef 4)
+          to label %invoke.cont unwind label %lpad.i22
+
+lpad.i22:                                         ; preds = %invoke.cont.i, %if.end.i
+  %2 = landingpad { ptr, i32 }
           cleanup
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard.i) #36
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #36
   br label %ehcleanup7
 
-invoke.cont:                                      ; preds = %.noexc
+invoke.cont:                                      ; preds = %invoke.cont.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i)
   %call.i5 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #39
           to label %invoke.cont4 unwind label %lpad3
 
@@ -17546,15 +17568,15 @@ invoke.cont4:                                     ; preds = %invoke.cont
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %1 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i = icmp eq ptr %1, null
+  %3 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIKN8facebook5velox17JsonTypeFactoriesESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIKN8facebook5velox19CustomTypeFactoriesEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIKN8facebook5velox19CustomTypeFactoriesEEclEPS3_.exit.i: ; preds = %invoke.cont6
-  %vtable.i.i = load ptr, ptr %1, align 8
+  %vtable.i.i = load ptr, ptr %3, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %2 = load ptr, ptr %vfn.i.i, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #36
+  %4 = load ptr, ptr %vfn.i.i, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #36
   br label %_ZNSt10unique_ptrIKN8facebook5velox17JsonTypeFactoriesESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN8facebook5velox17JsonTypeFactoriesESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIKN8facebook5velox19CustomTypeFactoriesEEclEPS3_.exit.i, %invoke.cont6
@@ -17564,27 +17586,27 @@ _ZNSt10unique_ptrIKN8facebook5velox17JsonTypeFactoriesESt14default_deleteIS3_EED
   ret void
 
 lpad:                                             ; preds = %call.i.noexc, %entry
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup7
 
 lpad3:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont4
-  %5 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i9 = icmp eq ptr %6, null
+  %8 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i9 = icmp eq ptr %8, null
   br i1 %cmp.not.i9, label %_ZNSt10unique_ptrIKN8facebook5velox17JsonTypeFactoriesESt14default_deleteIS3_EED2Ev.exit18, label %_ZNKSt14default_deleteIKN8facebook5velox19CustomTypeFactoriesEEclEPS3_.exit.i10
 
 _ZNKSt14default_deleteIKN8facebook5velox19CustomTypeFactoriesEEclEPS3_.exit.i10: ; preds = %lpad5
-  %vtable.i.i11 = load ptr, ptr %6, align 8
+  %vtable.i.i11 = load ptr, ptr %8, align 8
   %vfn.i.i12 = getelementptr inbounds nuw i8, ptr %vtable.i.i11, i64 8
-  %7 = load ptr, ptr %vfn.i.i12, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #36
+  %9 = load ptr, ptr %vfn.i.i12, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #36
   br label %_ZNSt10unique_ptrIKN8facebook5velox17JsonTypeFactoriesESt14default_deleteIS3_EED2Ev.exit18
 
 _ZNSt10unique_ptrIKN8facebook5velox17JsonTypeFactoriesESt14default_deleteIS3_EED2Ev.exit18: ; preds = %_ZNKSt14default_deleteIKN8facebook5velox19CustomTypeFactoriesEEclEPS3_.exit.i10, %lpad5
@@ -17592,12 +17614,12 @@ _ZNSt10unique_ptrIKN8facebook5velox17JsonTypeFactoriesESt14default_deleteIS3_EED
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIKN8facebook5velox17JsonTypeFactoriesESt14default_deleteIS3_EED2Ev.exit18, %lpad3
-  %.pn = phi { ptr, i32 } [ %5, %_ZNSt10unique_ptrIKN8facebook5velox17JsonTypeFactoriesESt14default_deleteIS3_EED2Ev.exit18 ], [ %4, %lpad3 ]
+  %.pn = phi { ptr, i32 } [ %7, %_ZNSt10unique_ptrIKN8facebook5velox17JsonTypeFactoriesESt14default_deleteIS3_EED2Ev.exit18 ], [ %6, %lpad3 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #36
   br label %ehcleanup7
 
-ehcleanup7:                                       ; preds = %lpad, %lpad.i, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad ], [ %0, %lpad.i ]
+ehcleanup7:                                       ; preds = %lpad, %lpad.i22, %ehcleanup
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %5, %lpad ], [ %2, %lpad.i22 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #36
   resume { ptr, i32 } %.pn.pn
 }

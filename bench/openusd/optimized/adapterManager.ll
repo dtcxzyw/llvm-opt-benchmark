@@ -2873,7 +2873,6 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store ptr null, ptr %102, align 8
   store ptr %103, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager26_ComputeWrappedPrimAdapterERKNS_7TfTokenEE15basePrimAdapter, i64 8), align 8
   store ptr null, ptr %5, align 8
-  call fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEED2Ev(ptr null) #20
   %104 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdImagingAPISchemaAdapterEED2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager26_ComputeWrappedPrimAdapterERKNS_7TfTokenEE15basePrimAdapter, ptr nonnull @__dso_handle) #20
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager26_ComputeWrappedPrimAdapterERKNS_7TfTokenEE15basePrimAdapter) #20
   br label %105
@@ -3217,83 +3216,6 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i.i.i.i.thread.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i.i.i.i.i.i, %19, %21
   store ptr %3, ptr %8, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEED2Ev(ptr %.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %.not.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
-
-1:                                                ; preds = %0
-  %2 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %3 = load atomic i64, ptr %2 acquire, align 8
-  %4 = icmp eq i64 %3, 4294967297
-  %5 = trunc i64 %3 to i32
-  br i1 %4, label %6, label %11
-
-6:                                                ; preds = %1
-  store i32 0, ptr %2, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %.8.val, i64 12
-  store i32 0, ptr %7, align 4
-  %8 = load ptr, ptr %.8.val, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #20
-  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
-
-11:                                               ; preds = %1
-  %12 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i.i, label %15, label %13
-
-13:                                               ; preds = %11
-  %14 = add nsw i32 %5, -1
-  store i32 %14, ptr %2, align 4
-  br label %17
-
-15:                                               ; preds = %11
-  %16 = atomicrmw volatile add ptr %2, i32 -1 acq_rel, align 4
-  br label %17
-
-17:                                               ; preds = %15, %13
-  %.0.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
-  %18 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-
-19:                                               ; preds = %17
-  %20 = load ptr, ptr %.8.val, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #20
-  %23 = getelementptr inbounds nuw i8, ptr %.8.val, i64 12
-  %24 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %24, 0
-  br i1 %.not.i.i.i.i.i, label %28, label %25
-
-25:                                               ; preds = %19
-  %26 = load i32, ptr %23, align 4
-  %27 = add nsw i32 %26, -1
-  store i32 %27, ptr %23, align 4
-  br label %30
-
-28:                                               ; preds = %19
-  %29 = atomicrmw volatile add ptr %23, i32 -1 acq_rel, align 4
-  br label %30
-
-30:                                               ; preds = %28, %25
-  %.0.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
-  %31 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %30, %6
-  %32 = load ptr, ptr %.8.val, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #20
-  br label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-
-_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
   ret void
 }
 

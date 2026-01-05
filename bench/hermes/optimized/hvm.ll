@@ -1105,8 +1105,7 @@ if.end26:                                         ; preds = %if.end8.sink.split.
   store i32 0, ptr %ref.tmp30, align 8
   %InitHeapSize_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 4
   store i32 33554432, ptr %InitHeapSize_.i.i, align 4
-  %MaxHeapSize_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 8
-  store i32 -1073741824, ptr %MaxHeapSize_.i.i, align 8
+  store i32 -1073741824, ptr %49, align 8
   %OccupancyTarget_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 16
   store double 5.000000e-01, ptr %OccupancyTarget_.i.i, align 8
   %EffectiveOOMThreshold_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 24
@@ -1150,7 +1149,7 @@ if.end26:                                         ; preds = %if.end8.sink.split.
   %InitHeapSizeExplicit_.i = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 201
   store i8 1, ptr %InitHeapSizeExplicit_.i, align 1
   %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL11MaxHeapSizeE, i64 152), align 8
-  store i32 %51, ptr %MaxHeapSize_.i.i, align 8
+  store i32 %51, ptr %49, align 8
   %MaxHeapSizeExplicit_.i = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 202
   store i8 1, ptr %MaxHeapSizeExplicit_.i, align 2
   %52 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL14GCSanitizeRateE, i64 152), align 8
@@ -1170,7 +1169,10 @@ if.end26:                                         ; preds = %if.end8.sink.split.
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp45) #18
   %call.i43 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp44) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp44, ptr noundef %call.i43, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp45) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp44, ptr noundef nonnull @.str.80, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.80, i64 3))
+  %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp44) #18
+  %call4.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp44) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.80, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.80, i64 3)) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp44, i64 noundef 3) #18
   %call.i46 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp44) #18
   %NameExplicit_.i = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 208
   store i8 1, ptr %NameExplicit_.i, align 8

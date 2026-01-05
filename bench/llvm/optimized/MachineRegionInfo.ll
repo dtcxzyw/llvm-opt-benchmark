@@ -4922,11 +4922,7 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_17MachineRegionNodeENS_23df_iterat
   %177 = load ptr, ptr %9, align 8, !tbaa !96
   %178 = load ptr, ptr %10, align 8, !tbaa !96
   %.not92104 = icmp eq ptr %177, %178
-  br i1 %.not92104, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm13MachineRegionESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.thread, label %.lr.ph
-
-_ZSt8_DestroyIPSt10unique_ptrIN4llvm13MachineRegionESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.thread: ; preds = %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_17MachineRegionNodeENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEED2Ev.exit
-  call void @_ZNSt6vectorISt10unique_ptrIN4llvm13MachineRegionESt14default_deleteIS2_EESaIS5_EE15_M_range_insertISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS5_S7_EEEEEvSD_T_SF_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %177, ptr null, ptr null)
-  br label %_ZNSt6vectorISt10unique_ptrIN4llvm13MachineRegionESt14default_deleteIS2_EESaIS5_EED2Ev.exit
+  br i1 %.not92104, label %_ZNSt6vectorISt10unique_ptrIN4llvm13MachineRegionESt14default_deleteIS2_EESaIS5_EED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_17MachineRegionNodeENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEED2Ev.exit
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -5180,7 +5176,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13MachineRegionESt14default_deleteIS2_EESaIS5_
   %.not92 = icmp eq ptr %261, %178
   br i1 %.not92, label %._crit_edge, label %223
 
-_ZNSt6vectorISt10unique_ptrIN4llvm13MachineRegionESt14default_deleteIS2_EESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm13MachineRegionESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.thread, %220, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm13MachineRegionESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, %_ZNSt10unique_ptrIN4llvm13MachineRegionESt14default_deleteIS1_EED2Ev.exit
+_ZNSt6vectorISt10unique_ptrIN4llvm13MachineRegionESt14default_deleteIS2_EESaIS5_EED2Ev.exit: ; preds = %_ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_17MachineRegionNodeENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEED2Ev.exit, %220, %_ZSt8_DestroyIPSt10unique_ptrIN4llvm13MachineRegionESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, %_ZNSt10unique_ptrIN4llvm13MachineRegionESt14default_deleteIS1_EED2Ev.exit
   ret void
 }
 

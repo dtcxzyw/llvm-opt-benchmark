@@ -24111,7 +24111,6 @@ define internal void @_ZN12_GLOBAL__N_143ConstIntSpan_InitializerListConversion_
 _ZNSt6vectorIiSaIiEED2Ev.exit:
   %1 = alloca [1 x i32], align 4
   %2 = alloca [3 x i32], align 4
-  tail call fastcc void @_ZN12_GLOBAL__N_119TestInitializerListEN4absl4SpanIKiEERKSt6vectorIiSaIiEE(ptr null, i64 0, ptr null, ptr null)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 1, ptr %1, align 4, !tbaa !266
   %3 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #31

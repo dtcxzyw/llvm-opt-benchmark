@@ -1692,7 +1692,6 @@ _ZN2cv4cuda6GpuMatD2Ev.exit:                      ; preds = %_ZNSt12__shared_ptr
   %191 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN2cv8superres11FrameSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #33
-  call fastcc void @_ZNSt12__shared_ptrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr null) #33
   br label %192
 
 192:                                              ; preds = %190, %188
@@ -2109,7 +2108,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i93: ; preds = %306, %30
   %340 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN2cv8superres11FrameSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #33
-  call fastcc void @_ZNSt12__shared_ptrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr null) #33
   br label %.body89
 
 .body89:                                          ; preds = %337, %.body.i.i.i.i.i.i, %339
@@ -9046,59 +9044,6 @@ define internal noalias noundef ptr @_ZNSt15_Sp_counted_ptrIPN11opencv_test12_GL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt12__shared_ptrIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr %.8.val) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
-  %.not.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
-
-1:                                                ; preds = %0
-  %2 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %3 = load atomic i64, ptr %2 acquire, align 8
-  %4 = icmp eq i64 %3, 4294967297
-  %5 = trunc i64 %3 to i32
-  br i1 %4, label %6, label %14
-
-6:                                                ; preds = %1
-  store i32 0, ptr %2, align 8, !tbaa !86
-  %7 = getelementptr inbounds nuw i8, ptr %.8.val, i64 12
-  store i32 0, ptr %7, align 4, !tbaa !88
-  %8 = load ptr, ptr %.8.val, align 8, !tbaa !19
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #33
-  %11 = load ptr, ptr %.8.val, align 8, !tbaa !19
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #33
-  br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-
-14:                                               ; preds = %1
-  %15 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14
-  %.not.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i, label %18, label %16
-
-16:                                               ; preds = %14
-  %17 = add nsw i32 %5, -1
-  store i32 %17, ptr %2, align 4, !tbaa !73
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-
-18:                                               ; preds = %14
-  %19 = atomicrmw volatile add ptr %2, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %18, %16
-  %.0.i.i.i = phi i32 [ %5, %16 ], [ %19, %18 ]
-  %20 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %20, label %21, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !117
-
-21:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #33
-  br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-
-_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %21
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN11opencv_test12_GLOBAL__N_119OneFrameSource_CUDAESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #14 align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #32
   ret void
@@ -9327,59 +9272,6 @@ _ZN2cv4cuda6GpuMatD2Ev.exit:                      ; preds = %_ZN2cv4cuda6GpuMatC
 
 61:                                               ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit, %2
   ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt12__shared_ptrIN11opencv_test12_GLOBAL__N_118OneFrameSource_CPUELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr %.8.val) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
-  %.not.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
-
-1:                                                ; preds = %0
-  %2 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %3 = load atomic i64, ptr %2 acquire, align 8
-  %4 = icmp eq i64 %3, 4294967297
-  %5 = trunc i64 %3 to i32
-  br i1 %4, label %6, label %14
-
-6:                                                ; preds = %1
-  store i32 0, ptr %2, align 8, !tbaa !86
-  %7 = getelementptr inbounds nuw i8, ptr %.8.val, i64 12
-  store i32 0, ptr %7, align 4, !tbaa !88
-  %8 = load ptr, ptr %.8.val, align 8, !tbaa !19
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #33
-  %11 = load ptr, ptr %.8.val, align 8, !tbaa !19
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #33
-  br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-
-14:                                               ; preds = %1
-  %15 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !14
-  %.not.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i, label %18, label %16
-
-16:                                               ; preds = %14
-  %17 = add nsw i32 %5, -1
-  store i32 %17, ptr %2, align 4, !tbaa !73
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-
-18:                                               ; preds = %14
-  %19 = atomicrmw volatile add ptr %2, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %18, %16
-  %.0.i.i.i = phi i32 [ %5, %16 ], [ %19, %18 ]
-  %20 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %20, label %21, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !117
-
-21:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #33
-  br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-
-_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %6, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %21
-  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -9007,9 +9007,9 @@ define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatche
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @_ZZN7testing8internal11MatcherBaseIRKSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS7_EEE9GetVTableINSC_11ValuePolicyIPKNS_16MatcherInterfaceISB_EELb1EEEEEPKNSC_6VTableEvE7kVTable, ptr %29, align 8, !tbaa !76, !alias.scope !256
   %31 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
-          to label %.lr.ph.i.i.i.i10.i.preheader.i.i.i.i unwind label %36, !noalias !256
+          to label %.lr.ph.i.i.i.i10.preheader.i.i.i.i.i unwind label %36, !noalias !256
 
-.lr.ph.i.i.i.i10.i.preheader.i.i.i.i:             ; preds = %28
+.lr.ph.i.i.i.i10.preheader.i.i.i.i.i:             ; preds = %28
   store i32 1, ptr %31, align 4, !tbaa !79, !noalias !256
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = ptrtoint ptr %26 to i64
@@ -9018,14 +9018,14 @@ define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatche
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIRKSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS6_EEEE, i64 16), ptr %8, align 8, !tbaa !4, !alias.scope !256
   br label %.lr.ph.i.i.i.i10.i.i.i.i.i
 
-.lr.ph.i.i.i.i10.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i10.i.i.i.i.i, %.lr.ph.i.i.i.i10.i.preheader.i.i.i.i
-  %.05.i.i.i.i11.i.idx.i.i.i.i = phi i64 [ %.05.i.i.i.i11.i.add.i.i.i.i, %.lr.ph.i.i.i.i10.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i10.i.preheader.i.i.i.i ]
-  %.05.i.i.i.i11.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 %.05.i.i.i.i11.i.idx.i.i.i.i
-  %34 = load ptr, ptr %.05.i.i.i.i11.i.ptr.i.i.i.i, align 8, !tbaa !4, !noalias !256
+.lr.ph.i.i.i.i10.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i10.i.i.i.i.i, %.lr.ph.i.i.i.i10.preheader.i.i.i.i.i
+  %.05.i.i.i.i11.idx.i.i.i.i.i = phi i64 [ %.05.i.i.i.i11.add.i.i.i.i.i, %.lr.ph.i.i.i.i10.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i10.preheader.i.i.i.i.i ]
+  %.05.i.i.i.i11.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 %.05.i.i.i.i11.idx.i.i.i.i.i
+  %34 = load ptr, ptr %.05.i.i.i.i11.ptr.i.i.i.i.i, align 8, !tbaa !4, !noalias !256
   %35 = load ptr, ptr %34, align 8, !noalias !256
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i.i11.i.ptr.i.i.i.i) #21, !noalias !256
-  %.05.i.i.i.i11.i.add.i.i.i.i = add nuw nsw i64 %.05.i.i.i.i11.i.idx.i.i.i.i, 24
-  %.not.i.i.i.i12.i.i.i.i.i = icmp eq i64 %.05.i.i.i.i11.i.add.i.i.i.i, 48
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i.i11.ptr.i.i.i.i.i) #21, !noalias !256
+  %.05.i.i.i.i11.add.i.i.i.i.i = add nuw nsw i64 %.05.i.i.i.i11.idx.i.i.i.i.i, 24
+  %.not.i.i.i.i12.i.i.i.i.i = icmp eq i64 %.05.i.i.i.i11.add.i.i.i.i.i, 48
   br i1 %.not.i.i.i.i12.i.i.i.i.i, label %_ZN7testing15SafeMatcherCastIRKSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS6_EENS_8internal18ElementsAreMatcherISt5tupleIJPNS3_12_GLOBAL__N_124CordzHandleDeleteTrackerEPNS3_13CordzSnapshotEEEEEEENS_7MatcherIT_EERKT0_.exit, label %.lr.ph.i.i.i.i10.i.i.i.i.i, !llvm.loop !197
 
 36:                                               ; preds = %28, %15, %2

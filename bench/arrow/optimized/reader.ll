@@ -45537,9 +45537,9 @@ _ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i.i.i.i: ; preds = %_ZNKSt14de
   %102 = getelementptr inbounds nuw i8, ptr %.val12.i.i.i.i, i64 8
   %103 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !80, !noalias !1336
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %103, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEERZNS0_3ipc12_GLOBAL__N_117DecompressBuffersENS0_11Compression4typeERKNS8_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS0_9ArrayDataEESaISI_EEE3$_0RiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESQ_JDpT0_EE4typeEOSQ_DpOSR_.exit.i.i.i.i", label %.thread.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEERZNS0_3ipc12_GLOBAL__N_117DecompressBuffersENS0_11Compression4typeERKNS8_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS0_9ArrayDataEESaISI_EEE3$_0RiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESQ_JDpT0_EE4typeEOSQ_DpOSR_.exit.i.i.i.i", label %.thread.i.i.i.i
 
-.thread.i.i.i:                                    ; preds = %101
+.thread.i.i.i.i:                                  ; preds = %101
   %104 = load i32, ptr %102, align 4, !tbaa !81, !noalias !1339
   %105 = add nsw i32 %104, 1
   store i32 %105, ptr %102, align 4, !tbaa !81, !noalias !1339
@@ -45554,15 +45554,15 @@ _ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i.i.i.i: ; preds = %_ZNKSt14de
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5arrow10WeakFutureINS_8internal5EmptyEEC2ERKNS_6FutureIS2_EE.exit.i.i.i.i, label %108
 
 108:                                              ; preds = %"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEERZNS0_3ipc12_GLOBAL__N_117DecompressBuffersENS0_11Compression4typeERKNS8_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS0_9ArrayDataEESaISI_EEE3$_0RiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESQ_JDpT0_EE4typeEOSQ_DpOSR_.exit.i.i.i.i"
-  %.pre.i.i.i = load i8, ptr @__libc_single_threaded, align 1, !tbaa !80, !noalias !1328
-  %109 = icmp eq i8 %.pre.i.i.i, 0
+  %.pre98.i.i.i.i = load i8, ptr @__libc_single_threaded, align 1, !tbaa !80, !noalias !1328
+  %109 = icmp eq i8 %.pre98.i.i.i.i, 0
   %110 = getelementptr inbounds nuw i8, ptr %.pre80.i.i.i.i, i64 12
   br i1 %109, label %117, label %111
 
-111:                                              ; preds = %108, %.thread.i.i.i
-  %112 = phi ptr [ %106, %.thread.i.i.i ], [ %110, %108 ]
-  %113 = phi ptr [ %.val12.i.i.i.i, %.thread.i.i.i ], [ %.pre80.i.i.i.i, %108 ]
-  %114 = phi ptr [ %.val.i.i.i.i, %.thread.i.i.i ], [ %.pre.i.i.i.i, %108 ]
+111:                                              ; preds = %108, %.thread.i.i.i.i
+  %112 = phi ptr [ %106, %.thread.i.i.i.i ], [ %110, %108 ]
+  %113 = phi ptr [ %.val12.i.i.i.i, %.thread.i.i.i.i ], [ %.pre80.i.i.i.i, %108 ]
+  %114 = phi ptr [ %.val.i.i.i.i, %.thread.i.i.i.i ], [ %.pre.i.i.i.i, %108 ]
   %115 = load i32, ptr %112, align 4, !tbaa !81, !noalias !1334
   %116 = add nsw i32 %115, 1
   store i32 %116, ptr %112, align 4, !tbaa !81, !noalias !1334

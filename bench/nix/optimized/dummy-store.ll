@@ -688,8 +688,6 @@ $_ZNSt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock
 
 $_ZNSt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info = comdat any
 
-$_ZSt10_ConstructIN3nix16DummyStoreConfigEJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEEEvPT_DpOT0_ = comdat any
-
 $_ZNSt6vectorIN3nix12StoreFactoryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ = comdat any
 
 $_ZN3nix12StoreFactoryC2ERKS0_ = comdat any
@@ -17072,65 +17070,94 @@ _ZNSt14_Function_base13_Base_managerIZN3nix15Implementations3addINS1_10DummyStor
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZZN3nix15Implementations3addINS_10DummyStoreENS_16DummyStoreConfigEEEvvENKUlvE_clEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.242") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::map", align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %4, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %4, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i64 0, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull dereferenceable(1200) ptr @_Znwm(i64 noundef 1200) #27
-          to label %.noexc unwind label %23
+  %4 = alloca %"class.std::map", align 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr null, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %5, ptr %7, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %5, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i64 0, ptr %9, align 8
+  %10 = invoke noalias noundef nonnull dereferenceable(1200) ptr @_Znwm(i64 noundef 1200) #27
+          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i unwind label %35
 
-.noexc:                                           ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 1, ptr %10, align 8, !noalias !115
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 1, ptr %11, align 4, !noalias !115
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8, !noalias !115
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  invoke void @_ZSt10_ConstructIN3nix16DummyStoreConfigEJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEEEvPT_DpOT0_(ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %_ZNSt10shared_ptrIN3nix16DummyStoreConfigEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !115
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i: ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i32 1, ptr %11, align 8, !noalias !115
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  store i32 1, ptr %12, align 4, !noalias !115
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !noalias !115
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %14, align 8, !noalias !115
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr null, ptr %15, align 8, !noalias !115
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %14, ptr %16, align 8, !noalias !115
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %14, ptr %17, align 8, !noalias !115
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i64 0, ptr %18, align 8, !noalias !115
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  invoke void @_ZN3nix11StoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(1176) %19, ptr noundef nonnull %3)
+          to label %20 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.body, !noalias !115
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %.noexc
-  %13 = landingpad { ptr, i32 }
+20:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix16DummyStoreConfigE, i64 24), ptr %13, align 8, !noalias !115
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix16DummyStoreConfigE, i64 152), ptr %19, align 8, !noalias !115
+  %21 = load ptr, ptr %15, align 8, !noalias !115
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %21)
+          to label %_ZNSt10shared_ptrIN3nix16DummyStoreConfigEED2Ev.exit unwind label %22, !noalias !115
+
+22:                                               ; preds = %20
+  %23 = landingpad { ptr, i32 }
+          catch ptr null
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #28, !noalias !115
+  unreachable
+
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.body: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i
+  %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %9) #29, !noalias !115
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #26, !noalias !115
+  call void @_ZdlPv(ptr noundef nonnull %10) #29, !noalias !115
   br label %.body3
 
-_ZNSt10shared_ptrIN3nix16DummyStoreConfigEED2Ev.exit: ; preds = %.noexc
-  %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr i8, ptr %14, i64 -24
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 %16
-  store ptr %17, ptr %0, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %18, align 8
-  %19 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %19)
-          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit unwind label %20
+_ZNSt10shared_ptrIN3nix16DummyStoreConfigEED2Ev.exit: ; preds = %20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %26 = load ptr, ptr %13, align 8
+  %27 = getelementptr i8, ptr %26, i64 -24
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %13, i64 %28
+  store ptr %29, ptr %0, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %10, ptr %30, align 8
+  %31 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %31)
+          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit unwind label %32
 
-20:                                               ; preds = %_ZNSt10shared_ptrIN3nix16DummyStoreConfigEED2Ev.exit
-  %21 = landingpad { ptr, i32 }
+32:                                               ; preds = %_ZNSt10shared_ptrIN3nix16DummyStoreConfigEED2Ev.exit
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #28
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #28
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN3nix16DummyStoreConfigEED2Ev.exit
   ret void
 
-23:                                               ; preds = %2
-  %24 = landingpad { ptr, i32 }
+35:                                               ; preds = %2
+  %36 = landingpad { ptr, i32 }
           cleanup
   br label %.body3
 
-.body3:                                           ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, %23
-  %eh.lpad-body4 = phi { ptr, i32 } [ %24, %23 ], [ %13, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i ]
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #26
+.body3:                                           ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.body, %35
+  %eh.lpad-body4 = phi { ptr, i32 } [ %36, %35 ], [ %25, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.body ]
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #26
   resume { ptr, i32 } %eh.lpad-body4
 }
 
@@ -17191,82 +17218,6 @@ _ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %5, %_ZNKSt9type_inf
 _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_infoeqERKS_.exit.thread, %_ZNKSt9type_infoeqERKS_.exit, %2
   %.0 = phi ptr [ %3, %2 ], [ %3, %_ZNKSt9type_infoeqERKS_.exit.thread ], [ null, %_ZNKSt9type_infoeqERKS_.exit ], [ null, %9 ]
   ret ptr %.0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt10_ConstructIN3nix16DummyStoreConfigEJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEEEEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::map", align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  %.not.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i, label %20, label %7
-
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i32, ptr %8, align 8
-  store i32 %9, ptr %4, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %6, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %4, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %19 = load i64, ptr %18, align 8
-  store ptr null, ptr %5, align 8
-  store ptr %8, ptr %11, align 8
-  store ptr %8, ptr %14, align 8
-  store i64 0, ptr %18, align 8
-  br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit
-
-20:                                               ; preds = %2
-  store i32 0, ptr %4, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %4, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %4, ptr %23, align 8
-  br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit
-
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit: ; preds = %7, %20
-  %.sink = phi i64 [ 0, %20 ], [ %19, %7 ]
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i64 %.sink, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @_ZN3nix11StoreConfigCI2NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(1176) %25, ptr noundef nonnull %3)
-          to label %26 unwind label %32
-
-26:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix16DummyStoreConfigE, i64 24), ptr %0, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix16DummyStoreConfigE, i64 152), ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %28 = load ptr, ptr %27, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %28)
-          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit unwind label %29
-
-29:                                               ; preds = %26
-  %30 = landingpad { ptr, i32 }
-          catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #28
-  unreachable
-
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %26
-  ret void
-
-32:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit
-  %33 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #26
-  resume { ptr, i32 } %33
 }
 
 ; Function Attrs: mustprogress uwtable

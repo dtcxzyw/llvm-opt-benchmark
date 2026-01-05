@@ -177,8 +177,6 @@ $_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel
 
 $_ZN7LogImplILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz = comdat any
 
-$_ZN22ShenandoahAllocRequest11type_stringEv = comdat any
-
 $_ZN28ShenandoahRetireGCLABClosure9do_threadEP6Thread = comdat any
 
 $_ZN20BlockLocationPrinterI14ShenandoahHeapE14print_locationEP12outputStreamPv = comdat any
@@ -1222,7 +1220,7 @@ $_ZTV28ShenandoahObjectToOopClosureI30ShenandoahSTWUpdateRefsClosureE = comdat a
 @_ZTV28ShenandoahObjectToOopClosureI30ShenandoahSTWUpdateRefsClosureE = linkonce_odr hidden unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr null, ptr @_ZN28ShenandoahObjectToOopClosureI30ShenandoahSTWUpdateRefsClosureE9do_objectEP7oopDesc] }, comdat, align 8
 @llvm.global_ctors = appending global [12 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.78, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.79, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.80, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.81, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.82, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.83, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_146ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.84, ptr @_ZN21OopOopIterateDispatchI28ObjectIterateScanRootClosureE6_tableE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.85, ptr @_ZN21OopOopIterateDispatchI37ShenandoahObjectIterateParScanClosureE6_tableE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.86, ptr @_ZN28OopOopIterateBoundedDispatchI31ShenandoahConcUpdateRefsClosureE6_tableE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.87, ptr @_ZN21OopOopIterateDispatchI31ShenandoahConcUpdateRefsClosureE6_tableE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.88, ptr @_ZN28OopOopIterateBoundedDispatchI30ShenandoahSTWUpdateRefsClosureE6_tableE }, { i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.89, ptr @_ZN21OopOopIterateDispatchI30ShenandoahSTWUpdateRefsClosureE6_tableE }]
 @llvm.used = appending global [12 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_146ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN21OopOopIterateDispatchI28ObjectIterateScanRootClosureE6_tableE, ptr @_ZN21OopOopIterateDispatchI30ShenandoahSTWUpdateRefsClosureE6_tableE, ptr @_ZN21OopOopIterateDispatchI31ShenandoahConcUpdateRefsClosureE6_tableE, ptr @_ZN21OopOopIterateDispatchI37ShenandoahObjectIterateParScanClosureE6_tableE, ptr @_ZN28OopOopIterateBoundedDispatchI30ShenandoahSTWUpdateRefsClosureE6_tableE, ptr @_ZN28OopOopIterateBoundedDispatchI31ShenandoahConcUpdateRefsClosureE6_tableE], section "llvm.metadata"
-@switch.table._ZN22ShenandoahAllocRequest11type_stringEv = private unnamed_addr constant [4 x ptr] [ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102], align 8
+@switch.table._ZN14ShenandoahHeap15allocate_memoryER22ShenandoahAllocRequest = private unnamed_addr constant [4 x ptr] [ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102], align 8
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm331878ES1_EELNS_11BarrierTypeE2ELm331878EE18oop_access_barrierEPv], align 8
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm331846EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.11 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm331846ES1_EELNS_11BarrierTypeE2ELm331846EE18oop_access_barrierEPv], align 8
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm299110ES1_EELNS_11BarrierTypeE2ELm299110EE18oop_access_barrierEPv], align 8
@@ -3630,7 +3628,7 @@ _ZN22ShenandoahAllocRequest12is_lab_allocEv.exit: ; preds = %.thread, %.thread
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   %58 = load ptr, ptr %57, align 8
   call void @_ZN20ShenandoahController20handle_alloc_failureER22ShenandoahAllocRequestb(ptr noundef nonnull align 8 dereferenceable(1728) %58, ptr noundef nonnull align 8 dereferenceable(28) %1, i1 noundef zeroext false) #26
-  br label %169
+  br label %173
 
 _ZN22ShenandoahAllocRequest12is_lab_allocEv.exit.thread: ; preds = %.thread, %.thread, %_ZN22ShenandoahAllocRequest12is_lab_allocEv.exit
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1632
@@ -3724,141 +3722,154 @@ _ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit
   %106 = load i64, ptr %105, align 8
   %107 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not61 = icmp eq ptr %107, null
-  br i1 %.not61, label %118, label %108
+  br i1 %.not61, label %122, label %108
 
 108:                                              ; preds = %94
   %109 = load ptr, ptr %96, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 168
   %111 = load ptr, ptr %110, align 8
   %112 = call noundef ptr %111(ptr noundef nonnull align 8 dereferenceable(888) %96) #26
-  %113 = call noundef ptr @_ZN22ShenandoahAllocRequest11type_stringEv(ptr noundef nonnull align 8 dereferenceable(28) %1)
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %117 = load volatile i64, ptr %116, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.63, ptr noundef %112, i64 noundef %magicptr65, ptr noundef %113, i64 noundef %115, i64 noundef %65, i64 noundef %117)
-  br label %118
+  %113 = load i32, ptr %4, align 8
+  %114 = icmp ult i32 %113, 4
+  br i1 %114, label %switch.lookup, label %115
 
-118:                                              ; preds = %94, %108
-  %119 = load ptr, ptr %100, align 8
-  %.not.i.i.i.i = icmp eq ptr %119, null
-  br i1 %.not.i.i.i.i, label %121, label %120
+115:                                              ; preds = %108
+  %116 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %116, align 1
+  call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.98, i32 noundef 51) #27
+  unreachable
 
-120:                                              ; preds = %118
+switch.lookup:                                    ; preds = %108
+  %117 = zext nneg i32 %113 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN14ShenandoahHeap15allocate_memoryER22ShenandoahAllocRequest, i64 %117
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %119 = load i64, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %121 = load volatile i64, ptr %120, align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.63, ptr noundef %112, i64 noundef %magicptr65, ptr noundef nonnull %switch.load, i64 noundef %119, i64 noundef %65, i64 noundef %121)
+  br label %122
+
+122:                                              ; preds = %94, %switch.lookup
+  %123 = load ptr, ptr %100, align 8
+  %.not.i.i.i.i = icmp eq ptr %123, null
+  br i1 %.not.i.i.i.i, label %125, label %124
+
+124:                                              ; preds = %122
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %98, i64 noundef %106) #26
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %100) #26
-  br label %121
+  br label %125
 
-121:                                              ; preds = %120, %118
-  %122 = load ptr, ptr %101, align 8
-  %.not8.i.i.i.i = icmp eq ptr %122, %102
-  br i1 %.not8.i.i.i.i, label %.critedge39, label %123
+125:                                              ; preds = %124, %122
+  %126 = load ptr, ptr %101, align 8
+  %.not8.i.i.i.i = icmp eq ptr %126, %102
+  br i1 %.not8.i.i.i.i, label %.critedge39, label %127
 
-123:                                              ; preds = %121
+127:                                              ; preds = %125
   store ptr %100, ptr %99, align 8
   store ptr %102, ptr %101, align 8
   store ptr %104, ptr %103, align 8
   br label %.critedge39
 
 _ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit.i46: ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %125 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %124) #26, !srcloc !11
-  %.not.i.i.i49 = icmp eq i32 %125, 0
-  br i1 %.not.i.i.i49, label %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit50, label %126
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %129 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %128) #26, !srcloc !11
+  %.not.i.i.i49 = icmp eq i32 %129, 0
+  br i1 %.not.i.i.i49, label %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit50, label %130
 
-126:                                              ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit.i46
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void @_ZN14ShenandoahLock14contended_lockEb(ptr noundef nonnull align 8 dereferenceable(208) %127, i1 noundef zeroext false) #26
+130:                                              ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit.i46
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  tail call void @_ZN14ShenandoahLock14contended_lockEb(ptr noundef nonnull align 8 dereferenceable(208) %131, i1 noundef zeroext false) #26
   br label %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit50
 
-_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit50: ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit.i46, %126
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 1656
-  %129 = load ptr, ptr %128, align 8
-  %130 = call noundef ptr @_ZN17ShenandoahFreeSet8allocateER22ShenandoahAllocRequestRb(ptr noundef nonnull align 8 dereferenceable(224) %129, ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 1 dereferenceable(1) %3) #26
+_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit50: ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit.i46, %130
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 1656
+  %133 = load ptr, ptr %132, align 8
+  %134 = call noundef ptr @_ZN17ShenandoahFreeSet8allocateER22ShenandoahAllocRequestRb(ptr noundef nonnull align 8 dereferenceable(224) %133, ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 1 dereferenceable(1) %3) #26
   call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !13
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
-  store volatile i32 0, ptr %124, align 8
+  store volatile i32 0, ptr %128, align 8
   br label %.critedge39
 
-.critedge39:                                      ; preds = %123, %121, %43, %.critedge, %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit50
-  %.2 = phi ptr [ %130, %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit50 ], [ %.13469, %.critedge ], [ %46, %43 ], [ %.13469, %121 ], [ %.13469, %123 ]
-  %.1 = phi i64 [ 0, %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit50 ], [ %.032, %.critedge ], [ %.032, %43 ], [ %.032, %121 ], [ %.032, %123 ]
-  %131 = load i8, ptr %3, align 1
-  %132 = trunc i8 %131 to i1
-  br i1 %132, label %133, label %_ZN14ShenandoahHeap19notify_heap_changedEv.exit
+.critedge39:                                      ; preds = %127, %125, %43, %.critedge, %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit50
+  %.2 = phi ptr [ %134, %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit50 ], [ %.13469, %.critedge ], [ %46, %43 ], [ %.13469, %125 ], [ %.13469, %127 ]
+  %.1 = phi i64 [ 0, %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit50 ], [ %.032, %.critedge ], [ %.032, %43 ], [ %.032, %125 ], [ %.032, %127 ]
+  %135 = load i8, ptr %3, align 1
+  %136 = trunc i8 %135 to i1
+  br i1 %136, label %137, label %_ZN14ShenandoahHeap19notify_heap_changedEv.exit
 
-133:                                              ; preds = %.critedge39
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 1688
-  %135 = load ptr, ptr %134, align 8
-  call void @_ZN27ShenandoahMonitoringSupport19notify_heap_changedEv(ptr noundef nonnull align 8 dereferenceable(336) %135) #26
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 898
-  %137 = load volatile i8, ptr %136, align 2
+137:                                              ; preds = %.critedge39
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 1688
+  %139 = load ptr, ptr %138, align 8
+  call void @_ZN27ShenandoahMonitoringSupport19notify_heap_changedEv(ptr noundef nonnull align 8 dereferenceable(336) %139) #26
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 898
+  %141 = load volatile i8, ptr %140, align 2
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
-  %138 = icmp eq i8 %137, 1
-  br i1 %138, label %_ZN14ShenandoahHeap19notify_heap_changedEv.exit, label %139
+  %142 = icmp eq i8 %141, 1
+  br i1 %142, label %_ZN14ShenandoahHeap19notify_heap_changedEv.exit, label %143
 
-139:                                              ; preds = %133
-  %140 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 1, i8 0, ptr nonnull %136) #26, !srcloc !20
+143:                                              ; preds = %137
+  %144 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 1, i8 0, ptr nonnull %140) #26, !srcloc !20
   br label %_ZN14ShenandoahHeap19notify_heap_changedEv.exit
 
-_ZN14ShenandoahHeap19notify_heap_changedEv.exit:  ; preds = %139, %133, %.critedge39
+_ZN14ShenandoahHeap19notify_heap_changedEv.exit:  ; preds = %143, %137, %.critedge39
   %.not37 = icmp eq ptr %.2, null
-  br i1 %.not37, label %169, label %141
+  br i1 %.not37, label %173, label %145
 
-141:                                              ; preds = %_ZN14ShenandoahHeap19notify_heap_changedEv.exit
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %143 = load i64, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %145 = load i64, ptr %144, align 8
-  %146 = load i32, ptr %4, align 8
-  %147 = icmp ult i32 %146, 4
-  br i1 %147, label %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53, label %148
+145:                                              ; preds = %_ZN14ShenandoahHeap19notify_heap_changedEv.exit
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %147 = load i64, ptr %146, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %149 = load i64, ptr %148, align 8
+  %150 = load i32, ptr %4, align 8
+  %151 = icmp ult i32 %150, 4
+  br i1 %151, label %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53, label %152
 
-148:                                              ; preds = %141
-  %149 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %149, align 1
+152:                                              ; preds = %145
+  %153 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %153, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.98, i32 noundef 129) #27
   unreachable
 
-_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53: ; preds = %141
-  %switch.idx.cast.i51 = trunc i32 %146 to i1
-  %150 = shl i64 %145, 3
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %152 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %150, ptr nonnull %151) #26
-  br i1 %switch.idx.cast.i51, label %169, label %153
+_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53: ; preds = %145
+  %switch.idx.cast.i51 = trunc i32 %150 to i1
+  %154 = shl i64 %149, 3
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %156 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %154, ptr nonnull %155) #26
+  br i1 %switch.idx.cast.i51, label %173, label %157
 
-153:                                              ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %155 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %150, ptr nonnull %154) #26, !srcloc !17
-  %156 = load i8, ptr @ShenandoahPacing, align 1
-  %157 = trunc i8 %156 to i1
-  br i1 %157, label %158, label %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit
+157:                                              ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %159 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %154, ptr nonnull %158) #26, !srcloc !17
+  %160 = load i8, ptr @ShenandoahPacing, align 1
+  %161 = trunc i8 %160 to i1
+  br i1 %161, label %162, label %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit
 
-158:                                              ; preds = %153
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 1624
-  %160 = load ptr, ptr %159, align 8
-  call void @_ZN20ShenandoahController19pacing_notify_allocEm(ptr noundef nonnull align 8 dereferenceable(1728) %160, i64 noundef %145) #26
+162:                                              ; preds = %157
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 1624
+  %164 = load ptr, ptr %163, align 8
+  call void @_ZN20ShenandoahController19pacing_notify_allocEm(ptr noundef nonnull align 8 dereferenceable(1728) %164, i64 noundef %149) #26
   %.pre = load i8, ptr @ShenandoahPacing, align 1
   br label %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit
 
-_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit: ; preds = %153, %158
-  %161 = phi i8 [ %156, %153 ], [ %.pre, %158 ]
-  %162 = trunc i8 %161 to i1
-  %163 = icmp sgt i64 %.1, 0
-  %or.cond = and i1 %163, %162
-  %164 = icmp ugt i64 %143, %145
-  %or.cond40 = and i1 %164, %or.cond
-  br i1 %or.cond40, label %165, label %169
+_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit: ; preds = %157, %162
+  %165 = phi i8 [ %160, %157 ], [ %.pre, %162 ]
+  %166 = trunc i8 %165 to i1
+  %167 = icmp sgt i64 %.1, 0
+  %or.cond = and i1 %167, %166
+  %168 = icmp ugt i64 %147, %149
+  %or.cond40 = and i1 %168, %or.cond
+  br i1 %or.cond40, label %169, label %173
 
-165:                                              ; preds = %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 1664
-  %167 = load ptr, ptr %166, align 8
-  %168 = sub nuw i64 %143, %145
-  call void @_ZN15ShenandoahPacer16unpace_for_allocElm(ptr noundef nonnull align 8 dereferenceable(480) %167, i64 noundef %.1, i64 noundef %168) #26
-  br label %169
+169:                                              ; preds = %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 1664
+  %171 = load ptr, ptr %170, align 8
+  %172 = sub nuw i64 %147, %149
+  call void @_ZN15ShenandoahPacer16unpace_for_allocElm(ptr noundef nonnull align 8 dereferenceable(480) %171, i64 noundef %.1, i64 noundef %172) #26
+  br label %173
 
-169:                                              ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53, %_ZN14ShenandoahHeap19notify_heap_changedEv.exit, %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit, %165, %56
-  %.0 = phi ptr [ null, %56 ], [ null, %_ZN14ShenandoahHeap19notify_heap_changedEv.exit ], [ %.2, %165 ], [ %.2, %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit ], [ %.2, %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53 ]
+173:                                              ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53, %_ZN14ShenandoahHeap19notify_heap_changedEv.exit, %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit, %169, %56
+  %.0 = phi ptr [ null, %56 ], [ null, %_ZN14ShenandoahHeap19notify_heap_changedEv.exit ], [ %.2, %169 ], [ %.2, %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit ], [ %.2, %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53 ]
   ret ptr %.0
 }
 
@@ -3944,26 +3955,6 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0
   call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 2, ptr noundef %0, ptr noundef nonnull %2) #26
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZN22ShenandoahAllocRequest11type_stringEv(ptr noundef nonnull align 8 dereferenceable(28) %0) local_unnamed_addr #1 comdat align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i32, ptr %2, align 8
-  %4 = icmp ult i32 %3, 4
-  br i1 %4, label %switch.lookup, label %5
-
-5:                                                ; preds = %1
-  %6 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %6, align 1
-  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.98, i32 noundef 51) #27
-  unreachable
-
-switch.lookup:                                    ; preds = %1
-  %7 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN22ShenandoahAllocRequest11type_stringEv, i64 %7
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  ret ptr %switch.load
 }
 
 declare void @_ZN15ShenandoahPacer16unpace_for_allocElm(ptr noundef nonnull align 8 dereferenceable(480), i64 noundef, i64 noundef) local_unnamed_addr #2

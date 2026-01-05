@@ -12560,48 +12560,6 @@ _ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_112OldPickFirst13HealthWatcherEEc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_112OldPickFirst6PickerEED2Ev(ptr %.0.val) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
-  %.not = icmp eq ptr %.0.val, null
-  br i1 %.not, label %_ZN9grpc_core14DualRefCountedINS_19LoadBalancingPolicy16SubchannelPickerENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv.exit, label %1
-
-1:                                                ; preds = %0
-  %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %3 = atomicrmw add ptr %2, i64 -4294967295 acq_rel, align 8
-  %.mask.i = and i64 %3, -4294967296
-  %4 = icmp eq i64 %.mask.i, 4294967296
-  br i1 %4, label %5, label %.noexc, !prof !35
-
-5:                                                ; preds = %1
-  %6 = load ptr, ptr %.0.val, align 8, !tbaa !6
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %.0.val)
-          to label %.noexc unwind label %15
-
-.noexc:                                           ; preds = %5, %1
-  %9 = atomicrmw sub ptr %2, i64 1 acq_rel, align 8
-  %10 = icmp eq i64 %9, 1
-  br i1 %10, label %11, label %_ZN9grpc_core14DualRefCountedINS_19LoadBalancingPolicy16SubchannelPickerENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv.exit, !prof !35
-
-11:                                               ; preds = %.noexc
-  %12 = load ptr, ptr %.0.val, align 8, !tbaa !6
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %.0.val) #37
-  br label %_ZN9grpc_core14DualRefCountedINS_19LoadBalancingPolicy16SubchannelPickerENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv.exit
-
-_ZN9grpc_core14DualRefCountedINS_19LoadBalancingPolicy16SubchannelPickerENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv.exit: ; preds = %11, %.noexc, %0
-  ret void
-
-15:                                               ; preds = %5
-  %16 = landingpad { ptr, i32 }
-          catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #40
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_112OldPickFirst13HealthWatcherD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(48) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !406
@@ -12976,7 +12934,6 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %_ZN9grpc_core13RefC
   %110 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #37
-  call fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_112OldPickFirst6PickerEED2Ev(ptr null) #37
   br label %.body
 
 .body:                                            ; preds = %107, %56, %109
@@ -21556,48 +21513,6 @@ _ZNKSt14default_deleteIN9grpc_core12_GLOBAL__N_19PickFirst13HealthWatcherEEclEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_19PickFirst6PickerEED2Ev(ptr %.0.val) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
-  %.not = icmp eq ptr %.0.val, null
-  br i1 %.not, label %_ZN9grpc_core14DualRefCountedINS_19LoadBalancingPolicy16SubchannelPickerENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv.exit, label %1
-
-1:                                                ; preds = %0
-  %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %3 = atomicrmw add ptr %2, i64 -4294967295 acq_rel, align 8
-  %.mask.i = and i64 %3, -4294967296
-  %4 = icmp eq i64 %.mask.i, 4294967296
-  br i1 %4, label %5, label %.noexc, !prof !35
-
-5:                                                ; preds = %1
-  %6 = load ptr, ptr %.0.val, align 8, !tbaa !6
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %.0.val)
-          to label %.noexc unwind label %15
-
-.noexc:                                           ; preds = %5, %1
-  %9 = atomicrmw sub ptr %2, i64 1 acq_rel, align 8
-  %10 = icmp eq i64 %9, 1
-  br i1 %10, label %11, label %_ZN9grpc_core14DualRefCountedINS_19LoadBalancingPolicy16SubchannelPickerENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv.exit, !prof !35
-
-11:                                               ; preds = %.noexc
-  %12 = load ptr, ptr %.0.val, align 8, !tbaa !6
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %.0.val) #37
-  br label %_ZN9grpc_core14DualRefCountedINS_19LoadBalancingPolicy16SubchannelPickerENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv.exit
-
-_ZN9grpc_core14DualRefCountedINS_19LoadBalancingPolicy16SubchannelPickerENS_19PolymorphicRefCountENS_11UnrefDeleteEE5UnrefEv.exit: ; preds = %11, %.noexc, %0
-  ret void
-
-15:                                               ; preds = %5
-  %16 = landingpad { ptr, i32 }
-          catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #40
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_19PickFirst13HealthWatcherD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(48) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !517
@@ -21972,7 +21887,6 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %_ZN9grpc_core13RefC
   %109 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #37
-  call fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_19PickFirst6PickerEED2Ev(ptr null) #37
   br label %.body
 
 .body:                                            ; preds = %106, %55, %108

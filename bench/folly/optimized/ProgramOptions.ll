@@ -1035,7 +1035,7 @@ _ZSt11make_sharedIN5folly12_GLOBAL__N_19GFlagInfoIbEEJN6google19CommandLineFlagI
 182:                                              ; preds = %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit.invoke
   %183 = landingpad { ptr, i32 }
           cleanup
-  br label %294
+  br label %293
 
 184:                                              ; preds = %173
   %185 = load ptr, ptr %7, align 8, !tbaa !18
@@ -1261,7 +1261,7 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIbEELN9__gnu_cxx12_Lock_polic
 272:                                              ; preds = %198, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
   %273 = landingpad { ptr, i32 }
           cleanup
-  br label %293
+  br label %292
 
 274:                                              ; preds = %208
   %275 = landingpad { ptr, i32 }
@@ -1296,7 +1296,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.sink.split, %280, %229
   %.pn = phi { ptr, i32 } [ %230, %229 ], [ %281, %280 ], [ %.pn.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call fastcc void @_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIbEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr null) #35
   %.pre84 = load ptr, ptr %10, align 8, !tbaa !18
   br label %286
 
@@ -1318,38 +1317,33 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %286
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %292
 
-292:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70, %274
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70 ], [ %275, %274 ]
-  call fastcc void @_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIbEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr null) #35
+292:                                              ; preds = %274, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70, %272
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %273, %272 ], [ %.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70 ], [ %275, %274 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %293
 
-293:                                              ; preds = %292, %272
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %273, %272 ], [ %.pn.pn.pn.pn.pn, %292 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %294
+293:                                              ; preds = %292, %182
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %292 ], [ %183, %182 ]
+  %294 = load ptr, ptr %8, align 8, !tbaa !18
+  %295 = icmp eq ptr %294, %178
+  br i1 %295, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71
 
-294:                                              ; preds = %293, %182
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %293 ], [ %183, %182 ]
-  %295 = load ptr, ptr %8, align 8, !tbaa !18
-  %296 = icmp eq ptr %295, %178
-  br i1 %296, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71: ; preds = %294
-  %297 = load i64, ptr %178, align 8, !tbaa !25
-  %298 = add i64 %297, 1
-  call void @_ZdlPvm(ptr noundef %295, i64 noundef %298) #34
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71: ; preds = %293
+  %296 = load i64, ptr %178, align 8, !tbaa !25
+  %297 = add i64 %296, 1
+  call void @_ZdlPvm(ptr noundef %294, i64 noundef %297) #34
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %294, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %293, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %299 = load ptr, ptr %7, align 8, !tbaa !18
-  %300 = icmp eq ptr %299, %162
-  br i1 %300, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74
+  %298 = load ptr, ptr %7, align 8, !tbaa !18
+  %299 = icmp eq ptr %298, %162
+  br i1 %299, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73
-  %301 = load i64, ptr %162, align 8, !tbaa !25
-  %302 = add i64 %301, 1
-  call void @_ZdlPvm(ptr noundef %299, i64 noundef %302) #34
+  %300 = load i64, ptr %162, align 8, !tbaa !25
+  %301 = add i64 %300, 1
+  call void @_ZdlPvm(ptr noundef %298, i64 noundef %301) #34
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74, %180
@@ -1899,7 +1893,6 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIiEELN9__gnu_cxx12_Lock_polic
 225:                                              ; preds = %196
   %226 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIiEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr null) #35
   br label %227
 
 227:                                              ; preds = %225, %223
@@ -2460,7 +2453,6 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIlEELN9__gnu_cxx12_Lock_polic
 225:                                              ; preds = %196
   %226 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIlEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr null) #35
   br label %227
 
 227:                                              ; preds = %225, %223
@@ -3021,7 +3013,6 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIjEELN9__gnu_cxx12_Lock_polic
 225:                                              ; preds = %196
   %226 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIjEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr null) #35
   br label %227
 
 227:                                              ; preds = %225, %223
@@ -3582,7 +3573,6 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoImEELN9__gnu_cxx12_Lock_polic
 225:                                              ; preds = %196
   %226 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoImEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr null) #35
   br label %227
 
 227:                                              ; preds = %225, %223
@@ -4143,7 +4133,6 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIdEELN9__gnu_cxx12_Lock_polic
 225:                                              ; preds = %196
   %226 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIdEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr null) #35
   br label %227
 
 227:                                              ; preds = %225, %223
@@ -4704,7 +4693,6 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoINSt7__cxx1112basic_stringIcS
 225:                                              ; preds = %196
   %226 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr null) #35
   br label %227
 
 227:                                              ; preds = %225, %223

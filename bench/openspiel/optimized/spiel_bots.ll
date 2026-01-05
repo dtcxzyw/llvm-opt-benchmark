@@ -8017,10 +8017,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_spiel_bots.cc() #16 section ".text.startup" personality ptr @__gxx_personality_v0 {
-  %1 = alloca %struct._Guard, align 8
-  %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %3 = alloca %"class.std::allocator", align 1
-  %4 = alloca %"class.std::unique_ptr.10", align 8
+  %1 = alloca %"class.std::__cxx11::basic_string", align 8
+  %2 = alloca %"class.std::allocator", align 1
+  %3 = alloca %"class.std::unique_ptr.10", align 8
+  %4 = alloca %struct._Guard, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::unique_ptr.10", align 8
@@ -8038,7 +8038,7 @@ define internal void @_GLOBAL__sub_I_spiel_bots.cc() #16 section ".text.startup"
           to label %.noexc5.i unwind label %25
 
 .noexc5.i:                                        ; preds = %.noexc.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %14 unwind label %11
 
@@ -8050,25 +8050,25 @@ define internal void @_GLOBAL__sub_I_spiel_bots.cc() #16 section ".text.startup"
   unreachable
 
 14:                                               ; preds = %.noexc5.i
-  store ptr %5, ptr %1, align 8
+  store ptr %5, ptr %4, align 8
   %15 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %16 unwind label %.body
+          to label %16 unwind label %.body17.i
 
 16:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 14)) #24
-  store ptr null, ptr %1, align 8
+  store ptr null, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 14)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body17.i
 
-.body:                                            ; preds = %16, %14
+.body17.i:                                        ; preds = %16, %14
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #24
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   br label %common.resume
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %16
-  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %18 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
           to label %19 unwind label %27
 
@@ -8123,9 +8123,9 @@ _ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_123UniformRandomBotFactoryESt14defau
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   br label %common.resume
 
-common.resume:                                    ; preds = %37, %46, %56, %.body, %25, %35
-  %.sink = phi ptr [ %6, %.body ], [ %6, %35 ], [ %6, %25 ], [ %3, %56 ], [ %3, %46 ], [ %3, %37 ]
-  %common.resume.op = phi { ptr, i32 } [ %17, %.body ], [ %.pn.i, %35 ], [ %26, %25 ], [ %.pn.i6, %56 ], [ %47, %46 ], [ %38, %37 ]
+common.resume:                                    ; preds = %37, %46, %56, %.body17.i, %25, %35
+  %.sink = phi ptr [ %6, %.body17.i ], [ %6, %35 ], [ %6, %25 ], [ %2, %56 ], [ %2, %46 ], [ %2, %37 ]
+  %common.resume.op = phi { ptr, i32 } [ %17, %.body17.i ], [ %.pn.i, %35 ], [ %26, %25 ], [ %.pn.i6, %56 ], [ %47, %46 ], [ %38, %37 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #24
   resume { ptr, i32 } %common.resume.op
 
@@ -8136,25 +8136,25 @@ __cxx_global_var_init.1.exit:                     ; preds = %20, %_ZNKSt14defaul
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
-  %36 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #24
+  %36 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc.i3 unwind label %46
 
 .noexc.i3:                                        ; preds = %__cxx_global_var_init.1.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %36, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %36, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %.noexc5.i4 unwind label %46
 
 .noexc5.i4:                                       ; preds = %.noexc.i3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 23))
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 23))
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i5 unwind label %37
 
 37:                                               ; preds = %.noexc5.i4
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
   br label %common.resume
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i5: ; preds = %.noexc5.i4
@@ -8163,12 +8163,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i5: ;
 
 40:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i5
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel12_GLOBAL__N_128FixedActionPreferenceFactoryE, i64 16), ptr %39, align 8, !noalias !110
-  store ptr %39, ptr %4, align 8
-  invoke void @_ZN10open_spiel13BotRegistererC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS_10BotFactoryESt14default_deleteISA_EE(ptr noundef nonnull align 1 dereferenceable(1) @_ZN10open_spiel12_GLOBAL__N_14bot1E, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %4)
+  store ptr %39, ptr %3, align 8
+  invoke void @_ZN10open_spiel13BotRegistererC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS_10BotFactoryESt14default_deleteISA_EE(ptr noundef nonnull align 1 dereferenceable(1) @_ZN10open_spiel12_GLOBAL__N_14bot1E, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %3)
           to label %41 unwind label %50
 
 41:                                               ; preds = %40
-  %42 = load ptr, ptr %4, align 8
+  %42 = load ptr, ptr %3, align 8
   %.not.i.i9 = icmp eq ptr %42, null
   br i1 %.not.i.i9, label %__cxx_global_var_init.2.exit, label %_ZNKSt14default_deleteIN10open_spiel10BotFactoryEEclEPS1_.exit.i.i10
 
@@ -8192,7 +8192,7 @@ _ZNKSt14default_deleteIN10open_spiel10BotFactoryEEclEPS1_.exit.i.i10: ; preds = 
 50:                                               ; preds = %40
   %51 = landingpad { ptr, i32 }
           cleanup
-  %52 = load ptr, ptr %4, align 8
+  %52 = load ptr, ptr %3, align 8
   %.not.i8.i7 = icmp eq ptr %52, null
   br i1 %.not.i8.i7, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_128FixedActionPreferenceFactoryESt14default_deleteIS2_EED2Ev.exit13.i, label %_ZNKSt14default_deleteIN10open_spiel10BotFactoryEEclEPS1_.exit.i9.i8
 
@@ -8204,21 +8204,21 @@ _ZNKSt14default_deleteIN10open_spiel10BotFactoryEEclEPS1_.exit.i9.i8: ; preds = 
   br label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_128FixedActionPreferenceFactoryESt14default_deleteIS2_EED2Ev.exit13.i
 
 _ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_128FixedActionPreferenceFactoryESt14default_deleteIS2_EED2Ev.exit13.i: ; preds = %_ZNKSt14default_deleteIN10open_spiel10BotFactoryEEclEPS1_.exit.i9.i8, %50
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %3, align 8
   br label %56
 
 56:                                               ; preds = %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_128FixedActionPreferenceFactoryESt14default_deleteIS2_EED2Ev.exit13.i, %48
   %.pn.i6 = phi { ptr, i32 } [ %51, %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_128FixedActionPreferenceFactoryESt14default_deleteIS2_EED2Ev.exit13.i ], [ %49, %48 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
   br label %common.resume
 
 __cxx_global_var_init.2.exit:                     ; preds = %41, %_ZNKSt14default_deleteIN10open_spiel10BotFactoryEEclEPS1_.exit.i.i10
-  store ptr null, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
+  store ptr null, ptr %3, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 

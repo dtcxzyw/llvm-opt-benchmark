@@ -972,8 +972,6 @@ $_ZNSt17_Function_handlerIFSt10shared_ptrIN3nix11StoreConfigEEvEZNS1_15Implement
 
 $_ZZN3nix15Implementations3addINS_14LegacySSHStoreENS_20LegacySSHStoreConfigEEEvvENKUlvE_clEv = comdat any
 
-$_ZNSt23_Sp_counted_ptr_inplaceIN3nix20LegacySSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEEEES2_DpOT_ = comdat any
-
 $_ZNSt23_Sp_counted_ptr_inplaceIN3nix20LegacySSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt23_Sp_counted_ptr_inplaceIN3nix20LegacySSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
@@ -29115,142 +29113,92 @@ _ZNSt14_Function_base13_Base_managerIZN3nix15Implementations3addINS1_14LegacySSH
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZZN3nix15Implementations3addINS_14LegacySSHStoreENS_20LegacySSHStoreConfigEEEvvENKUlvE_clEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.451") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::map", align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %4, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %4, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i64 0, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull dereferenceable(2320) ptr @_Znwm(i64 noundef 2320) #33
-          to label %.noexc unwind label %21
+  %4 = alloca %"class.std::map", align 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr null, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %5, ptr %7, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %5, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i64 0, ptr %9, align 8
+  %10 = invoke noalias noundef nonnull dereferenceable(2320) ptr @_Znwm(i64 noundef 2320) #33
+          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i.i.i unwind label %34
 
-.noexc:                                           ; preds = %2
-  invoke void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix20LegacySSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEEEES2_DpOT_(ptr noundef nonnull align 8 dereferenceable(2320) %9, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %_ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix20LegacySSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, !noalias !188
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i.i.i: ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i32 1, ptr %11, align 8, !noalias !188
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  store i32 1, ptr %12, align 4, !noalias !188
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix20LegacySSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !noalias !188
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !188
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %14, align 8, !noalias !188
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr null, ptr %15, align 8, !noalias !188
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %14, ptr %16, align 8, !noalias !188
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %14, ptr %17, align 8, !noalias !188
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i64 0, ptr %18, align 8, !noalias !188
+  invoke void @_ZN3nix20LegacySSHStoreConfigCI1NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(352) %13, ptr noundef nonnull %3)
+          to label %19 unwind label %.body.i, !noalias !188
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix20LegacySSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %.noexc
-  %10 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZdlPv(ptr noundef nonnull %9) #34, !noalias !188
-  br label %.body3
+19:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i.i.i
+  %20 = load ptr, ptr %15, align 8, !noalias !188
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %20)
+          to label %_ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit unwind label %21, !noalias !188
 
-_ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit: ; preds = %.noexc
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr i8, ptr %12, i64 -32
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 %14
-  store ptr %15, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %16, align 8
-  %17 = load ptr, ptr %5, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %17)
-          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit unwind label %18
-
-18:                                               ; preds = %_ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit
-  %19 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #35
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #35, !noalias !188
   unreachable
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit
-  ret void
-
-21:                                               ; preds = %2
-  %22 = landingpad { ptr, i32 }
+.body.i:                                          ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i.i.i
+  %24 = landingpad { ptr, i32 }
           cleanup
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #31, !noalias !188
+  call void @_ZdlPv(ptr noundef nonnull %10) #34, !noalias !188
   br label %.body3
 
-.body3:                                           ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix20LegacySSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, %21
-  %eh.lpad-body4 = phi { ptr, i32 } [ %22, %21 ], [ %10, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix20LegacySSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i ]
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #31
-  resume { ptr, i32 } %eh.lpad-body4
-}
+_ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit: ; preds = %19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !188
+  %25 = load ptr, ptr %13, align 8
+  %26 = getelementptr i8, ptr %25, i64 -32
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %13, i64 %27
+  store ptr %28, ptr %0, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %10, ptr %29, align 8
+  %30 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %30)
+          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit unwind label %31
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix20LegacySSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEEEES2_DpOT_(ptr noundef nonnull align 8 dereferenceable(2320) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::map", align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 1, ptr %5, align 4
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix20LegacySSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i.i.i, label %23, label %10
-
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i32, ptr %11, align 8
-  store i32 %12, ptr %7, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %9, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %7, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %22 = load i64, ptr %21, align 8
-  store ptr null, ptr %8, align 8
-  store ptr %11, ptr %14, align 8
-  store ptr %11, ptr %17, align 8
-  store i64 0, ptr %21, align 8
-  br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i.i
-
-23:                                               ; preds = %2
-  store i32 0, ptr %7, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %7, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %7, ptr %26, align 8
-  br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i.i
-
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i.i: ; preds = %23, %10
-  %.sink.i.i = phi i64 [ 0, %23 ], [ %22, %10 ]
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i64 %.sink.i.i, ptr %27, align 8
-  invoke void @_ZN3nix20LegacySSHStoreConfigCI1NS_6ConfigEESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(352) %6, ptr noundef nonnull %3)
-          to label %28 unwind label %.body
-
-28:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %30 = load ptr, ptr %29, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %30)
-          to label %35 unwind label %31
-
-31:                                               ; preds = %28
+31:                                               ; preds = %_ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
   call void @__clang_call_terminate(ptr %33) #35
   unreachable
 
-.body:                                            ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i.i
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #31
-  resume { ptr, i32 } %34
-
-35:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit
   ret void
+
+34:                                               ; preds = %2
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body3
+
+.body3:                                           ; preds = %.body.i, %34
+  %eh.lpad-body4 = phi { ptr, i32 } [ %35, %34 ], [ %24, %.body.i ]
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #31
+  resume { ptr, i32 } %eh.lpad-body4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -68495,7 +68495,6 @@ _ZN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN12_GLOBAL__N_126Expl
           cleanup
   %.val74 = load i64, ptr %7, align 8, !tbaa !29
   call fastcc void @_ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_126ExplicitConstructibleFromAEED2Ev(i64 %.val74) #30
-  call fastcc void @_ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_11AEED2Ev(i64 1) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call fastcc void @_ZN7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJNS_18PolymorphicMatcherINS0_12FieldMatcherIN12_GLOBAL__N_126ExplicitConstructibleFromAEiEEEENS3_INS4_IS6_bEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #30
   br label %236
@@ -69256,7 +69255,6 @@ _ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_11AEED2Ev.exit165: ; pre
 532:                                              ; preds = %_ZN7testing7MessageD2Ev.exit158, %498
   %.pn59.pn.pn = phi { ptr, i32 } [ %.pn59.pn, %_ZN7testing7MessageD2Ev.exit158 ], [ %.pn52.pn.pn.pn.pn.pn, %498 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  call fastcc void @_ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_11AEED2Ev(i64 1) #30
   br label %533
 
 533:                                              ; preds = %532, %481
@@ -74342,7 +74340,6 @@ _ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_117ConvertibleToBoolEED2
   %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl17internal_statusor12StatusOrDataIbED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %4) #30
-  call fastcc void @_ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_117ConvertibleToBoolEED2Ev(i64 1) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %78
@@ -74494,7 +74491,6 @@ _ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_117ConvertibleToBoolEED2
   %80 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl17internal_statusor12StatusOrDataIbED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %9) #30
-  call fastcc void @_ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_117ConvertibleToBoolEED2Ev(i64 1) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %196
@@ -74819,7 +74815,6 @@ _ZN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN12_GLOBAL__N_129Impl
           cleanup
   %.val60 = load i64, ptr %16, align 8, !tbaa !29
   call fastcc void @_ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_129ImplicitConstructibleFromBoolEED2Ev(i64 %.val60) #30
-  call fastcc void @_ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_129ImplicitConstructibleFromBoolEED2Ev(i64 1) #30
   call void @_ZN4absl17internal_statusor12StatusOrDataIbED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %17) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)

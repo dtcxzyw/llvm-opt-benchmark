@@ -6899,7 +6899,57 @@ _ZN9grpc_core11HPackParser6String12StringResultD2Ev.exit: ; preds = %414, %418, 
 
 _ZN9grpc_core16HpackParseResultD2Ev.exit58:       ; preds = %144, %147, %151, %96, %92, %.body, %89, %157, %155, %413, %_ZN9grpc_core16HpackParseResultD2Ev.exit95
   %.pn50.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn50.pn.pn.pn, %413 ], [ %.pn45.pn, %_ZN9grpc_core16HpackParseResultD2Ev.exit95 ], [ %90, %89 ], [ %145, %147 ], [ %145, %144 ], [ %158, %157 ], [ %69, %96 ], [ %156, %155 ], [ %69, %.body ], [ %69, %92 ], [ %145, %151 ]
-  call void @_ZN9grpc_core11HPackParser6String12StringResultD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #33
+  %439 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %440 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %441 = load i8, ptr %440, align 8, !tbaa !3
+  switch i8 %441, label %462 [
+    i8 -1, label %_ZN9grpc_core11HPackParser6String12StringResultD2Ev.exit169
+    i8 0, label %442
+    i8 1, label %_ZN9grpc_core11HPackParser6String12StringResultD2Ev.exit169
+    i8 2, label %454
+  ], !prof !43
+
+442:                                              ; preds = %_ZN9grpc_core16HpackParseResultD2Ev.exit58
+  %443 = load ptr, ptr %439, align 8, !tbaa !7
+  %444 = icmp ugt ptr %443, inttoptr (i64 1 to ptr)
+  br i1 %444, label %445, label %_ZN9grpc_core11HPackParser6String12StringResultD2Ev.exit169
+
+445:                                              ; preds = %442
+  %446 = atomicrmw sub ptr %443, i64 1 acq_rel, align 8
+  %447 = icmp eq i64 %446, 1
+  br i1 %447, label %448, label %_ZN9grpc_core11HPackParser6String12StringResultD2Ev.exit169
+
+448:                                              ; preds = %445
+  %449 = getelementptr inbounds nuw i8, ptr %443, i64 8
+  %450 = load ptr, ptr %449, align 8, !tbaa !44
+  invoke void %450(ptr noundef nonnull align 8 dereferenceable(16) %443)
+          to label %_ZN9grpc_core11HPackParser6String12StringResultD2Ev.exit169 unwind label %451
+
+451:                                              ; preds = %448
+  %452 = landingpad { ptr, i32 }
+          catch ptr null
+  %453 = extractvalue { ptr, i32 } %452, 0
+  call void @__clang_call_terminate(ptr %453) #34
+  unreachable
+
+454:                                              ; preds = %_ZN9grpc_core16HpackParseResultD2Ev.exit58
+  %455 = load ptr, ptr %439, align 8, !tbaa !16
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i168 = icmp eq ptr %455, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i168, label %_ZN9grpc_core11HPackParser6String12StringResultD2Ev.exit169, label %456
+
+456:                                              ; preds = %454
+  %457 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %458 = load ptr, ptr %457, align 8, !tbaa !48
+  %459 = ptrtoint ptr %458 to i64
+  %460 = ptrtoint ptr %455 to i64
+  %461 = sub i64 %459, %460
+  call void @_ZdlPvm(ptr noundef nonnull %455, i64 noundef %461) #35
+  br label %_ZN9grpc_core11HPackParser6String12StringResultD2Ev.exit169
+
+462:                                              ; preds = %_ZN9grpc_core16HpackParseResultD2Ev.exit58
+  unreachable
+
+_ZN9grpc_core11HPackParser6String12StringResultD2Ev.exit169: ; preds = %_ZN9grpc_core16HpackParseResultD2Ev.exit58, %442, %445, %448, %454, %456, %_ZN9grpc_core16HpackParseResultD2Ev.exit58
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn50.pn.pn.pn.pn
 }

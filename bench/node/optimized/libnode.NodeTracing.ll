@@ -715,6 +715,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteI
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node9inspector8protocol11NodeTracing8Frontend13dataCollectedESt10unique_ptrINS1_5ArrayINS1_15DictionaryValueEEESt14default_deleteIS7_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef captures(none) %value) local_unnamed_addr #0 align 2 {
 entry:
+  %__dnew.i = alloca i64, align 8
   %agg.tmp3 = alloca %"class.std::unique_ptr.51", align 8
   %ref.tmp4 = alloca %"class.std::unique_ptr.59", align 8
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -736,51 +737,61 @@ if.end:                                           ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #14
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.7, i64 25))
+  call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i)
+  store i64 25, ptr %__dnew.i, align 8
+  %call2.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i, i64 noundef 0) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef %call2.i) #14
+  %4 = load i64, ptr %__dnew.i, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, i64 noundef %4) #14
+  %call4.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.7, i64 25)) #14
+  %5 = load i64, ptr %__dnew.i, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, i64 noundef %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i)
   store ptr %call.i.i, ptr %agg.tmp7, align 8
   call void @_ZN4node9inspector8protocol16InternalResponse18createNotificationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE(ptr nonnull sret(%"class.std::unique_ptr.59") align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull %agg.tmp7) #14
-  %4 = load ptr, ptr %ref.tmp4, align 8
+  %6 = load ptr, ptr %ref.tmp4, align 8
   store ptr null, ptr %ref.tmp4, align 8
-  store ptr %4, ptr %agg.tmp3, align 8
+  store ptr %6, ptr %agg.tmp3, align 8
   %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
-  %5 = load ptr, ptr %vfn, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %agg.tmp3) #14
-  %6 = load ptr, ptr %agg.tmp3, align 8
-  %cmp.not.i3 = icmp eq ptr %6, null
+  %7 = load ptr, ptr %vfn, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %agg.tmp3) #14
+  %8 = load ptr, ptr %agg.tmp3, align 8
+  %cmp.not.i3 = icmp eq ptr %8, null
   br i1 %cmp.not.i3, label %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i: ; preds = %if.end
-  %vtable.i.i = load ptr, ptr %6, align 8
+  %vtable.i.i = load ptr, ptr %8, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 24
-  %7 = load ptr, ptr %vfn.i.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
+  %9 = load ptr, ptr %vfn.i.i, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #14
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
   store ptr null, ptr %agg.tmp3, align 8
-  %8 = load ptr, ptr %ref.tmp4, align 8
-  %cmp.not.i4 = icmp eq ptr %8, null
+  %10 = load ptr, ptr %ref.tmp4, align 8
+  %cmp.not.i4 = icmp eq ptr %10, null
   br i1 %cmp.not.i4, label %_ZNSt10unique_ptrIN4node9inspector8protocol16InternalResponseESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol16InternalResponseEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN4node9inspector8protocol16InternalResponseEEclEPS3_.exit.i: ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit
-  %vtable.i.i5 = load ptr, ptr %8, align 8
+  %vtable.i.i5 = load ptr, ptr %10, align 8
   %vfn.i.i6 = getelementptr inbounds nuw i8, ptr %vtable.i.i5, i64 24
-  %9 = load ptr, ptr %vfn.i.i6, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(56) %8) #14
+  %11 = load ptr, ptr %vfn.i.i6, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(56) %10) #14
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol16InternalResponseESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector8protocol16InternalResponseESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIN4node9inspector8protocol16InternalResponseEEclEPS3_.exit.i
   store ptr null, ptr %ref.tmp4, align 8
-  %10 = load ptr, ptr %agg.tmp7, align 8
-  %cmp.not.i7 = icmp eq ptr %10, null
+  %12 = load ptr, ptr %agg.tmp7, align 8
+  %cmp.not.i7 = icmp eq ptr %12, null
   br i1 %cmp.not.i7, label %_ZNSt10unique_ptrIN4node9inspector8protocol11NodeTracing25DataCollectedNotificationESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i8
 
 _ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i8: ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol16InternalResponseESt14default_deleteIS3_EED2Ev.exit
-  %vtable.i.i9 = load ptr, ptr %10, align 8
+  %vtable.i.i9 = load ptr, ptr %12, align 8
   %vfn.i.i10 = getelementptr inbounds nuw i8, ptr %vtable.i.i9, i64 24
-  %11 = load ptr, ptr %vfn.i.i10, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #14
+  %13 = load ptr, ptr %vfn.i.i10, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #14
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol11NodeTracing25DataCollectedNotificationESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector8protocol11NodeTracing25DataCollectedNotificationESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i8, %_ZNSt10unique_ptrIN4node9inspector8protocol16InternalResponseESt14default_deleteIS3_EED2Ev.exit
@@ -1424,7 +1435,10 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #14
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @_ZN4node9inspector8protocol11NodeTracing8Metainfo10domainNameE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4node9inspector8protocol11NodeTracing8Metainfo10domainNameE, i64 11))
+  %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
+  %call4.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @_ZN4node9inspector8protocol11NodeTracing8Metainfo10domainNameE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN4node9inspector8protocol11NodeTracing8Metainfo10domainNameE, i64 11)) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef 11) #14
   store ptr %call, ptr %agg.tmp, align 8
   call void @_ZN4node9inspector8protocol14UberDispatcher15registerBackendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_14DispatcherBaseESt14default_deleteISC_EE(ptr noundef nonnull align 8 dereferenceable(128) %uber, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %agg.tmp) #14
   %1 = load ptr, ptr %agg.tmp, align 8

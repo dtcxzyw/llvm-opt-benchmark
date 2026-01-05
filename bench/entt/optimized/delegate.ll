@@ -11282,29 +11282,9 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %30, %_ZNKSt14defaul
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28Delegate_DeductionGuide_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca %"class.testing::AssertionResult", align 8
-  %3 = alloca %"class.testing::AssertionResult", align 8
-  %4 = alloca %"class.testing::AssertionResult", align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store i8 1, ptr %2, align 8, !tbaa !25
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %5, align 8, !tbaa !57
-  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i8 1, ptr %3, align 8, !tbaa !25
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %6, align 8, !tbaa !57
-  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i8 1, ptr %4, align 8, !tbaa !25
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %7, align 8, !tbaa !57
-  call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #27
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define hidden void @_ZN28Delegate_DeductionGuide_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+_ZN7testing15AssertionResultD2Ev.exit509:
   ret void
 }
 

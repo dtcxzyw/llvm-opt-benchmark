@@ -10088,10 +10088,6 @@ _ZN4core3ops8function6FnOnce9call_once17h65dde83566e07db4E.exit.i.i.i: ; preds =
   %69 = icmp eq i8 %68, 0
   br i1 %69, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h6f97d2e368747d34E.exit.i", label %"_ZN4core6option15Option$LT$T$GT$7or_else17h6f97d2e368747d34E.exit.sink.split.i"
 
-common.resume:                                    ; preds = %145, %135, %138, %114
-  %common.resume.op = phi { ptr, i32 } [ %115, %114 ], [ %136, %138 ], [ %136, %135 ], [ %146, %145 ]
-  resume { ptr, i32 } %common.resume.op
-
 70:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9993772341007493287.exit.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !1642)
   %71 = getelementptr inbounds nuw i8, ptr %21, i64 120
@@ -10200,6 +10196,10 @@ common.resume:                                    ; preds = %145, %135, %138, %1
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #29
   unreachable
+
+common.resume:                                    ; preds = %145, %135, %138, %114
+  %common.resume.op = phi { ptr, i32 } [ %115, %114 ], [ %136, %138 ], [ %136, %135 ], [ %146, %145 ]
+  resume { ptr, i32 } %common.resume.op
 
 120:                                              ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
