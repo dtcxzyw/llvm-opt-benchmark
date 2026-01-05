@@ -113,7 +113,7 @@ define internal range(i32 -22, 1) i32 @decode_init(ptr noundef %0) #0 {
   %.not61 = icmp eq ptr %42, null
   br i1 %.not61, label %56, label %44
 
-44:                                               ; preds = %29
+44:; preds = %29
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 2108
   store i32 %38, ptr %45, align 4, !tbaa !44
   %46 = sext i32 %23 to i64
@@ -121,18 +121,18 @@ define internal range(i32 -22, 1) i32 @decode_init(ptr noundef %0) #0 {
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 2064
   store ptr %48, ptr %49, align 8, !tbaa !45
-  %50 = getelementptr inbounds i32, ptr %48, i64 %41
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 2088
-  store ptr %50, ptr %51, align 8, !tbaa !46
-  %52 = getelementptr inbounds i32, ptr %50, i64 %41
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 2072
-  store ptr %52, ptr %53, align 8, !tbaa !47
-  %54 = getelementptr inbounds i32, ptr %52, i64 %41
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 2096
-  store ptr %54, ptr %55, align 8, !tbaa !48
+  %51 = getelementptr inbounds i32, ptr %48, i64 %41
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 2088
+  store ptr %51, ptr %52, align 8, !tbaa !46
+  %53 = getelementptr inbounds i32, ptr %51, i64 %41
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 2072
+  store ptr %53, ptr %54, align 8, !tbaa !47
+  %55 = getelementptr inbounds i32, ptr %53, i64 %41
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 2096
+  store ptr %55, ptr %56, align 8, !tbaa !48
   br label %56
 
-56:                                               ; preds = %29, %20, %15, %11, %44, %10
+56:; preds = %29, %20, %15, %11, %44, %10
   %.0 = phi i32 [ -22, %10 ], [ 0, %44 ], [ -12, %20 ], [ -12, %15 ], [ -12, %11 ], [ -12, %29 ]
   ret i32 %.0
 }

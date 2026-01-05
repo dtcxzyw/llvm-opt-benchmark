@@ -282,7 +282,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeDMATIN5Eigen6MatrixId
   %8 = load ptr, ptr @stderr, align 8, !tbaa !12
   %9 = load ptr, ptr %0, align 8, !tbaa !4
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef %9) #12
-  br label %57
+  br label %58
 
 11:                                               ; preds = %3
   br i1 %2, label %12, label %25
@@ -353,38 +353,38 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i33: ; preds = %33
 
 .lr.ph.i.i.i.i.i.i.i.preheader:                   ; preds = %43
   %45 = and i64 %31, 2305843009213693950
-  %46 = tail call i64 @llvm.usub.sat.i64(i64 %45, i64 2)
-  %47 = shl nuw i64 %46, 3
-  %48 = add nuw i64 %47, 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %37, ptr noundef nonnull align 16 dereferenceable(1) %44, i64 %48, i1 false), !tbaa !39
+  %umax = tail call i64 @llvm.usub.sat.i64(i64 %45, i64 2)
+  %46 = shl nuw i64 %umax, 3
+  %47 = add nuw i64 %46, 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %37, ptr noundef nonnull align 16 dereferenceable(1) %44, i64 %47, i1 false), !tbaa !39
   br label %._crit_edge.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.preheader, %.thread, %43
-  %49 = phi i64 [ %42, %.thread ], [ 0, %43 ], [ %45, %.lr.ph.i.i.i.i.i.i.i.preheader ]
-  %50 = phi ptr [ %40, %.thread ], [ %44, %43 ], [ %44, %.lr.ph.i.i.i.i.i.i.i.preheader ]
+  %50 = phi i64 [ %42, %.thread ], [ 0, %43 ], [ %45, %.lr.ph.i.i.i.i.i.i.i.preheader ]
+  %51 = phi ptr [ %40, %.thread ], [ %44, %43 ], [ %44, %.lr.ph.i.i.i.i.i.i.i.preheader ]
   %.sroa.0.355 = phi ptr [ null, %.thread ], [ %37, %43 ], [ %37, %.lr.ph.i.i.i.i.i.i.i.preheader ]
-  %51 = icmp slt i64 %49, %31
-  br i1 %51, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit
+  %52 = icmp slt i64 %50, %31
+  br i1 %52, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %52 = shl i64 %49, 3
-  %scevgep = getelementptr i8, ptr %.sroa.0.355, i64 %52
-  %scevgep58 = getelementptr i8, ptr %50, i64 %52
-  %53 = sub i64 %31, %49
-  %54 = shl i64 %53, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep58, i64 %54, i1 false), !tbaa !24
+  %53 = shl i64 %50, 3
+  %scevgep = getelementptr i8, ptr %.sroa.0.355, i64 %53
+  %scevgep58 = getelementptr i8, ptr %51, i64 %53
+  %54 = sub i64 %31, %50
+  %55 = shl i64 %54, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep58, i64 %55, i1 false), !tbaa !24
   br label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit
 
 _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %._crit_edge.i.i.i.i.i.i.i
-  %55 = tail call i64 @fwrite(ptr noundef %.sroa.0.355, i64 noundef 8, i64 noundef %31, ptr noundef nonnull %5)
+  %56 = tail call i64 @fwrite(ptr noundef %.sroa.0.355, i64 noundef 8, i64 noundef %31, ptr noundef nonnull %5)
   tail call void @free(ptr noundef %.sroa.0.355) #13
   br label %.loopexit56
 
 .loopexit56:                                      ; preds = %.lr.ph, %12, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit
-  %56 = tail call i32 @fclose(ptr noundef nonnull %5)
-  br label %57
+  %57 = tail call i32 @fclose(ptr noundef nonnull %5)
+  br label %58
 
-57:                                               ; preds = %.loopexit56, %7
+58:                                               ; preds = %.loopexit56, %7
   ret i1 %6
 }
 

@@ -100,7 +100,7 @@ define dso_local ptr @ipt_alloc_initial_table(ptr noundef %0) #0 align 16 {
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
 
-10:                                               ; preds = %1
+10:; preds = %1
   %11 = getelementptr i8, ptr %8, i64 %6
   %12 = getelementptr i8, ptr %11, i64 96
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56

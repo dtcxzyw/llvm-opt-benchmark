@@ -3374,7 +3374,7 @@ define internal fastcc void @"_ZN4core3ptr355drop_in_place$LT$hashbrown..scopegu
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h020f5b8f74e276f2E.exit", label %4
 
-4:                                                ; preds = %0
+4:; preds = %0
   %5 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %5)
   %.neg.i.i.i = mul i64 %.8.val, -48
@@ -7898,7 +7898,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12free_buckets17hd5
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.2700039803678404653.exit", label %6
 
-6:                                                ; preds = %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$15allocation_info17h86eb1bd3df6c5d40E.llvm.2700039803678404653.exit"
+6:; preds = %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$15allocation_info17h86eb1bd3df6c5d40E.llvm.2700039803678404653.exit"
   %7 = load ptr, ptr %0, align 8, !alias.scope !1129, !noalias !1132, !nonnull !10, !noundef !10
   %8 = shl i64 %2, 5
   %9 = sub nuw nsw i64 -32, %8
@@ -7920,7 +7920,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12free_buckets17he6
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.2700039803678404653.exit", label %6
 
-6:                                                ; preds = %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$15allocation_info17h86eb1bd3df6c5d40E.llvm.2700039803678404653.exit"
+6:; preds = %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$15allocation_info17h86eb1bd3df6c5d40E.llvm.2700039803678404653.exit"
   %7 = load ptr, ptr %0, align 8, !alias.scope !1134, !noalias !1137, !nonnull !10, !noundef !10
   %8 = shl i64 %2, 5
   %9 = sub nuw nsw i64 -32, %8
@@ -7942,7 +7942,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12free_buckets17hf3
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.2700039803678404653.exit", label %6
 
-6:                                                ; preds = %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$15allocation_info17h86eb1bd3df6c5d40E.llvm.2700039803678404653.exit"
+6:; preds = %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$15allocation_info17h86eb1bd3df6c5d40E.llvm.2700039803678404653.exit"
   %7 = load ptr, ptr %0, align 8, !alias.scope !1139, !noalias !1142, !nonnull !10, !noundef !10
   %.neg = mul i64 %2, -48
   %8 = getelementptr i8, ptr %7, i64 %.neg

@@ -904,36 +904,36 @@ tailrecurse:                                      ; preds = %_ZN6google8protobuf
   %.not.i = icmp ugt i64 %15, %20
   br i1 %.not.i, label %21, label %23, !prof !39
 
-21:                                               ; preds = %.thread
-  %22 = tail call noundef ptr @_ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %15)
+22:                                               ; preds = %.thread
+  %23 = tail call noundef ptr @_ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %15)
   %.pre17 = load ptr, ptr %4, align 8, !tbaa !53
   br label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
 
-23:                                               ; preds = %.thread
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 %15
-  store ptr %24, ptr %6, align 8, !tbaa !49
+24:                                               ; preds = %.thread
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 %15
+  store ptr %25, ptr %6, align 8, !tbaa !49
   br label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
 
-_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit: ; preds = %21, %23
-  %25 = phi ptr [ %.pre17, %21 ], [ %9, %23 ]
-  %.0.i = phi ptr [ %22, %21 ], [ %17, %23 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  store ptr %25, ptr %26, align 8, !tbaa !55
+_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit: ; preds = %22, %24
+  %26 = phi ptr [ %.pre17, %21 ], [ %9, %23 ]
+  %.0.i = phi ptr [ %23, %21 ], [ %17, %23 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  store ptr %26, ptr %27, align 8, !tbaa !55
   store i64 %13, ptr %.0.i, align 8, !tbaa !62
   store ptr %.0.i, ptr %4, align 8, !tbaa !53
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  store ptr %27, ptr %7, align 8, !tbaa !54
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %14
-  store ptr %28, ptr %8, align 8, !tbaa !69
-  %29 = icmp eq i64 %13, 0
-  br i1 %29, label %tailrecurse, label %_ZN6google8protobuf8internal11SerialArena10AddCleanupEPvPFvS3_E.exit, !prof !39
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  store ptr %28, ptr %7, align 8, !tbaa !54
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %14
+  store ptr %29, ptr %8, align 8, !tbaa !69
+  %30 = icmp eq i64 %13, 0
+  br i1 %30, label %tailrecurse, label %_ZN6google8protobuf8internal11SerialArena10AddCleanupEPvPFvS3_E.exit, !prof !39
 
 _ZN6google8protobuf8internal11SerialArena10AddCleanupEPvPFvS3_E.exit: ; preds = %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
-  store ptr %1, ptr %27, align 8, !tbaa !59
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  store ptr %2, ptr %30, align 8, !tbaa !57
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
-  store ptr %31, ptr %7, align 8, !tbaa !54
+  store ptr %1, ptr %28, align 8, !tbaa !59
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
+  store ptr %2, ptr %31, align 8, !tbaa !57
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
+  store ptr %32, ptr %7, align 8, !tbaa !54
   ret void
 }
 

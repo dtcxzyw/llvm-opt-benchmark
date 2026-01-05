@@ -993,28 +993,28 @@ define i32 @ossl_curve448_point_decode_like_eddsa_and_mul_by_ratio(ptr noundef %
   %22 = xor i64 %21, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @gf_sub(ptr noundef nonnull %3, ptr noundef nonnull @ZERO, ptr noundef %0) #7
-  %23 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %22) #8, !srcloc !23
-  %24 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %21) #8, !srcloc !23
-  br label %25
+  %24 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %22) #8, !srcloc !23
+  %25 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %21) #8, !srcloc !23
+  br label %26
 
-25:                                               ; preds = %25, %2
-  %.08.i.i = phi i64 [ 0, %2 ], [ %33, %25 ]
-  %26 = getelementptr inbounds nuw i64, ptr %3, i64 %.08.i.i
-  %27 = load i64, ptr %26, align 8, !tbaa !3
-  %28 = getelementptr inbounds nuw i64, ptr %0, i64 %.08.i.i
-  %29 = load i64, ptr %28, align 8, !tbaa !3
-  %30 = and i64 %27, %23
-  %31 = and i64 %29, %24
-  %32 = or i64 %31, %30
-  store i64 %32, ptr %28, align 8, !tbaa !3
-  %33 = add nuw nsw i64 %.08.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %33, 8
-  br i1 %exitcond.not.i.i, label %gf_cond_neg.exit, label %25, !llvm.loop !24
+26:                                               ; preds = %26, %2
+  %.08.i.i = phi i64 [ 0, %2 ], [ %34, %25 ]
+  %27 = getelementptr inbounds nuw i64, ptr %3, i64 %.08.i.i
+  %28 = load i64, ptr %27, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw i64, ptr %0, i64 %.08.i.i
+  %30 = load i64, ptr %29, align 8, !tbaa !3
+  %31 = and i64 %28, %24
+  %32 = and i64 %30, %25
+  %33 = or i64 %32, %31
+  store i64 %33, ptr %29, align 8, !tbaa !3
+  %34 = add nuw nsw i64 %.08.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %34, 8
+  br i1 %exitcond.not.i.i, label %gf_cond_neg.exit, label %26, !llvm.loop !24
 
-gf_cond_neg.exit:                                 ; preds = %25
+gf_cond_neg.exit:                                 ; preds = %26
   %isneg = icmp eq i8 %16, 0
-  %34 = select i1 %isneg, i64 %15, i64 0
-  %35 = and i64 %19, %34
+  %35 = select i1 %isneg, i64 %15, i64 0
+  %36 = and i64 %19, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %17, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1044,9 +1044,9 @@ gf_cond_neg.exit:                                 ; preds = %25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 57) #7
-  %36 = trunc i64 %35 to i32
+  %37 = trunc i64 %36 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %36
+  ret i32 %37
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

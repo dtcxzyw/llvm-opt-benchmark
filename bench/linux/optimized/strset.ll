@@ -511,18 +511,18 @@ define internal i32 @strset_reply_size(ptr noundef readonly captures(none) %0, p
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %.split8.us, label %.thread.us
 
-.thread.us:                                       ; preds = %44, %21
+.thread.us:; preds = %44, %21
   %47 = phi i32 [ %45, %44 ], [ %28, %21 ]
   %48 = add i32 %47, %9
   br label %49
 
-49:                                               ; preds = %.thread.us, %17, %13
+49:; preds = %.thread.us, %17, %13
   %.ph.us = phi i32 [ %48, %.thread.us ], [ %9, %13 ], [ %9, %17 ]
   %50 = add nuw nsw i64 %8, 1
   %51 = icmp eq i64 %50, 21
   br i1 %51, label %.split8.us, label %.split.us, !llvm.loop !21
 
-.split:                                           ; preds = %2, %86
+.split:; preds = %2, %86
   %52 = phi i64 [ %87, %86 ], [ 0, %2 ]
   %53 = phi i32 [ %.ph, %86 ], [ 4, %2 ]
   %54 = trunc i64 %52 to i32
@@ -531,7 +531,7 @@ define internal i32 @strset_reply_size(ptr noundef readonly captures(none) %0, p
   %.not = icmp eq i32 %56, 0
   br i1 %.not, label %86, label %57
 
-57:                                               ; preds = %.split
+57:; preds = %.split
   %58 = getelementptr %struct.strset_info, ptr %6, i64 %52
   %59 = load i8, ptr %7, align 4, !range !15, !noundef !16
   %60 = icmp ne i8 %59, 0
@@ -540,15 +540,15 @@ define internal i32 @strset_reply_size(ptr noundef readonly captures(none) %0, p
   %63 = icmp eq i32 %62, 0
   %64 = or i1 %60, %63
   %65 = select i1 %63, i32 0, i32 20
-  br i1 %64, label %.thread, label %66
+  br i1 %64, label %86, label %66
 
-66:                                               ; preds = %57
+66:; preds = %57
   %67 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = zext i32 %62 to i64
   br label %70
 
-70:                                               ; preds = %70, %66
+70:; preds = %70, %66
   %71 = phi i64 [ 0, %66 ], [ %79, %70 ]
   %72 = phi i32 [ 0, %66 ], [ %78, %70 ]
   %73 = getelementptr [32 x i8], ptr %68, i64 %71
@@ -561,23 +561,23 @@ define internal i32 @strset_reply_size(ptr noundef readonly captures(none) %0, p
   %80 = icmp eq i64 %79, %69
   br i1 %80, label %81, label %70, !llvm.loop !20
 
-81:                                               ; preds = %70
-  %82 = add i32 %78, 24
-  %83 = icmp slt i32 %82, 0
-  br i1 %83, label %.split8.us, label %.thread
+81:; preds = %70
+  %84 = add i32 %78, 24
+  %85 = icmp slt i32 %84, 0
+  br i1 %85, label %.split8.us, label %86
 
-.thread:                                          ; preds = %57, %81
+86:                                               ; preds = %57, %81
   %84 = phi i32 [ %82, %81 ], [ %65, %57 ]
   %85 = add i32 %84, %53
   br label %86
 
-86:                                               ; preds = %.thread, %.split
+86:; preds = %86, %.split
   %.ph = phi i32 [ %53, %.split ], [ %85, %.thread ]
   %87 = add nuw nsw i64 %52, 1
   %88 = icmp eq i64 %87, 21
   br i1 %88, label %.split8.us, label %.split, !llvm.loop !21
 
-.split8.us:                                       ; preds = %86, %81, %44, %49
+.split8.us:; preds = %86, %81, %44, %49
   %.us-phi = phi i32 [ %45, %44 ], [ %.ph.us, %49 ], [ %.ph, %86 ], [ %82, %81 ]
   ret i32 %.us-phi
 }

@@ -439,13 +439,13 @@ define internal i64 @EA_get_flat_size(ptr noundef captures(none) %0) #0 {
   %5 = load i32, ptr %3, align 4
   %6 = lshr i32 %5, 2
   %7 = zext nneg i32 %6 to i64
-  br label %95
+  br label %94
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load i64, ptr %9, align 8
   %.not63 = icmp eq i64 %10, 0
-  br i1 %.not63, label %11, label %95
+  br i1 %.not63, label %11, label %94
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -583,7 +583,7 @@ define internal i64 @EA_get_flat_size(ptr noundef captures(none) %0) #0 {
   %.not64 = icmp eq ptr %19, null
   %83 = sext i32 %15 to i64
   %84 = shl nsw i64 %83, 3
-  br i1 %.not64, label %92, label %85
+  br i1 %.not64, label %91, label %85
 
 85:                                               ; preds = %._crit_edge
   %86 = add i32 %13, 7
@@ -594,17 +594,17 @@ define internal i64 @EA_get_flat_size(ptr noundef captures(none) %0) #0 {
   %91 = and i64 %90, -8
   br label %94
 
-92:                                               ; preds = %._crit_edge
-  %93 = add nsw i64 %84, 16
-  br label %94
+91:                                               ; preds = %._crit_edge
+  %92 = add nsw i64 %84, 16
+  br label %93
 
-94:                                               ; preds = %92, %85
-  %.pn = phi i64 [ %91, %85 ], [ %93, %92 ]
+93:                                               ; preds = %91, %85
+  %.pn.in = phi i64 [ %91, %85 ], [ %92, %92 ]
   %.2 = add i64 %.pn, %.054.lcssa
   store i64 %.2, ptr %9, align 8
-  br label %95
+  br label %94
 
-95:                                               ; preds = %8, %94, %4
+94:                                               ; preds = %8, %93, %4
   %.055 = phi i64 [ %7, %4 ], [ %.2, %94 ], [ %10, %8 ]
   ret i64 %.055
 }

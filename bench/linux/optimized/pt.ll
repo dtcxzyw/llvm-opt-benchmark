@@ -954,7 +954,7 @@ define internal fastcc void @pt_config_buffer(ptr noundef nonnull readonly captu
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %5 = load i8, ptr %4, align 1, !range !12, !noundef !13
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %15, label %7
+  br i1 %6, label %16, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -966,19 +966,19 @@ define internal fastcc void @pt_config_buffer(ptr noundef nonnull readonly captu
   %14 = add i64 %13, -128
   br label %23
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr i8, ptr %17, i64 -4056
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load i32, ptr %19, align 8
-  %21 = zext i32 %20 to i64
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr i8, ptr %18, i64 -4056
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %21 = load i32, ptr %20, align 8
+  %22 = zext i32 %21 to i64
   %22 = shl nuw nsw i64 %21, 7
   br label %23
 
-23:                                               ; preds = %15, %7
+23:                                               ; preds = %16, %7
   %24 = phi i64 [ %14, %7 ], [ %22, %15 ]
-  %25 = phi ptr [ %10, %7 ], [ %18, %15 ]
+  %25 = phi ptr [ %10, %7 ], [ %19, %15 ]
   %26 = ptrtoint ptr %25 to i64
   %27 = add i64 %26, 2147483648
   %28 = icmp ugt ptr %25, inttoptr (i64 -2147483649 to ptr)
@@ -1025,11 +1025,11 @@ define internal fastcc void @pt_config_buffer(ptr noundef nonnull readonly captu
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #20
           to label %56 [label %55], !srcloc !9
 
-55:                                               ; preds = %51
+56:                                               ; preds = %51
   tail call void @do_trace_write_msr(i32 noundef 1377, i64 noundef %47, i32 noundef 0) #20
-  br label %56
+  br label %57
 
-56:                                               ; preds = %55, %51, %42
+57:                                               ; preds = %56, %51, %42
   ret void
 }
 

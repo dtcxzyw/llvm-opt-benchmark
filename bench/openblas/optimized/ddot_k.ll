@@ -214,9 +214,9 @@ ddot_kernel_8.exit:                               ; preds = %.lr.ph88.i, %._crit
   %.idx79 = mul i64 %2, 24
   %96 = shl nsw i64 %2, 2
   %97 = shl nsw i64 %4, 2
-  br label %100
+  br label %102
 
-.preheader.loopexit:                              ; preds = %100
+.preheader.loopexit:                              ; preds = %102
   %98 = and i64 %0, 9223372036854775804
   br label %.preheader
 
@@ -226,16 +226,16 @@ ddot_kernel_8.exit:                               ; preds = %.lr.ph88.i, %._crit
   %.070.lcssa = phi i64 [ 0, %94 ], [ %122, %.preheader.loopexit ]
   %.068.lcssa = phi i64 [ 0, %94 ], [ %121, %.preheader.loopexit ]
   %.1.lcssa = phi i64 [ 0, %94 ], [ %98, %.preheader.loopexit ]
-  %99 = icmp samesign ult i64 %.1.lcssa, %0
-  br i1 %99, label %.lr.ph103, label %._crit_edge
+  %101 = icmp samesign ult i64 %.1.lcssa, %0
+  br i1 %101, label %.lr.ph103, label %._crit_edge
 
-100:                                              ; preds = %.lr.ph, %100
+102:                                              ; preds = %.lr.ph, %102
   %.194 = phi i64 [ 0, %.lr.ph ], [ %127, %100 ]
   %.06893 = phi i64 [ 0, %.lr.ph ], [ %121, %100 ]
   %.07092 = phi i64 [ 0, %.lr.ph ], [ %122, %100 ]
   %.07291 = phi double [ 0.000000e+00, %.lr.ph ], [ %126, %100 ]
   %.07390 = phi double [ 0.000000e+00, %.lr.ph ], [ %124, %100 ]
-  %101 = getelementptr inbounds double, ptr %3, i64 %.07092
+  %103 = getelementptr inbounds double, ptr %3, i64 %.07092
   %102 = load double, ptr %101, align 8, !tbaa !7
   %103 = getelementptr inbounds double, ptr %1, i64 %.06893
   %104 = load double, ptr %103, align 8, !tbaa !7
@@ -270,7 +270,7 @@ ddot_kernel_8.exit:                               ; preds = %.lr.ph88.i, %._crit
   %.169101 = phi i64 [ %134, %.lr.ph103 ], [ %.068.lcssa, %.preheader ]
   %.171100 = phi i64 [ %135, %.lr.ph103 ], [ %.070.lcssa, %.preheader ]
   %.17499 = phi double [ %133, %.lr.ph103 ], [ %.073.lcssa, %.preheader ]
-  %129 = getelementptr inbounds double, ptr %3, i64 %.171100
+  %131 = getelementptr inbounds double, ptr %3, i64 %.171100
   %130 = load double, ptr %129, align 8, !tbaa !7
   %131 = getelementptr inbounds double, ptr %1, i64 %.169101
   %132 = load double, ptr %131, align 8, !tbaa !7
@@ -283,11 +283,11 @@ ddot_kernel_8.exit:                               ; preds = %.lr.ph88.i, %._crit
 
 ._crit_edge:                                      ; preds = %.lr.ph103, %.preheader
   %.174.lcssa = phi double [ %.073.lcssa, %.preheader ], [ %133, %.lr.ph103 ]
-  %137 = fadd double %.072.lcssa, %.174.lcssa
+  %139 = fadd double %.072.lcssa, %.174.lcssa
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph108, %86, %5, %._crit_edge
-  %.0 = phi double [ %137, %._crit_edge ], [ 0.000000e+00, %5 ], [ %.081, %86 ], [ %91, %.lr.ph108 ]
+  %.0 = phi double [ %139, %._crit_edge ], [ 0.000000e+00, %5 ], [ %.081, %86 ], [ %91, %.lr.ph108 ]
   ret double %.0
 }
 

@@ -5952,21 +5952,21 @@ define hidden void @"_ZN5rowan3arc12Arc$LT$T$GT$9drop_slow17h1a725ea9607b1d89E"(
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h954680b50f8b6d10E.exit.i", label %13
 
-13:                                               ; preds = %8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, -7) %11, i64 noundef 8) #36
+15:                                               ; preds = %8
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, -7) %13, i64 noundef 8) #36
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h954680b50f8b6d10E.exit.i"
 
 "_ZN4core3ptr130drop_in_place$LT$rowan..arc..ArcInner$LT$rowan..arc..HeaderSlice$LT$rowan..green..token..GreenTokenHead$C$$u5b$u8$u5d$$GT$$GT$$GT$17h801b274cdfa0ef47E.exit.i": ; preds = %7, %.noexc.i
-  %14 = add i64 %4, 31
-  %15 = and i64 %14, -8
-  %16 = icmp eq i64 %15, 0
+  %16 = add i64 %4, 31
+  %17 = and i64 %16, -8
+  %16 = icmp eq i64 %17, 0
   br i1 %16, label %"_ZN4core3ptr155drop_in_place$LT$alloc..boxed..Box$LT$rowan..arc..ArcInner$LT$rowan..arc..HeaderSlice$LT$rowan..green..token..GreenTokenHead$C$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h90cfdec6a51470f5E.exit", label %17
 
-17:                                               ; preds = %"_ZN4core3ptr130drop_in_place$LT$rowan..arc..ArcInner$LT$rowan..arc..HeaderSlice$LT$rowan..green..token..GreenTokenHead$C$$u5b$u8$u5d$$GT$$GT$$GT$17h801b274cdfa0ef47E.exit.i"
+17:; preds = %"_ZN4core3ptr130drop_in_place$LT$rowan..arc..ArcInner$LT$rowan..arc..HeaderSlice$LT$rowan..green..token..GreenTokenHead$C$$u5b$u8$u5d$$GT$$GT$$GT$17h801b274cdfa0ef47E.exit.i"
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, -7) %15, i64 noundef 8) #36
   br label %"_ZN4core3ptr155drop_in_place$LT$alloc..boxed..Box$LT$rowan..arc..ArcInner$LT$rowan..arc..HeaderSlice$LT$rowan..green..token..GreenTokenHead$C$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h90cfdec6a51470f5E.exit"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h954680b50f8b6d10E.exit.i": ; preds = %13, %8
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h954680b50f8b6d10E.exit.i": ; preds = %15, %8
   resume { ptr, i32 } %9
 
 "_ZN4core3ptr155drop_in_place$LT$alloc..boxed..Box$LT$rowan..arc..ArcInner$LT$rowan..arc..HeaderSlice$LT$rowan..green..token..GreenTokenHead$C$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h90cfdec6a51470f5E.exit": ; preds = %"_ZN4core3ptr130drop_in_place$LT$rowan..arc..ArcInner$LT$rowan..arc..HeaderSlice$LT$rowan..green..token..GreenTokenHead$C$$u5b$u8$u5d$$GT$$GT$$GT$17h801b274cdfa0ef47E.exit.i", %17
@@ -5991,8 +5991,8 @@ define hidden void @"_ZN5rowan3arc12Arc$LT$T$GT$9drop_slow17h29a0efbd8d4e9d38E"(
   resume { ptr, i32 } %7
 
 "_ZN4core3ptr181drop_in_place$LT$alloc..boxed..Box$LT$rowan..arc..ArcInner$LT$rowan..arc..HeaderSlice$LT$rowan..green..node..GreenNodeHead$C$$u5b$rowan..green..node..GreenChild$u5d$$GT$$GT$$GT$$GT$17he2ce211bb17ff72eE.exit": ; preds = %1
-  %10 = shl nsw i64 %4, 4
-  %11 = add i64 %10, 24
+  %12 = shl nsw i64 %4, 4
+  %13 = add i64 %12, 24
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef range(i64 1, -7) %11, i64 noundef 8) #36
   ret void
 }

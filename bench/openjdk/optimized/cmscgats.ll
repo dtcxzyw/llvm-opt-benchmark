@@ -5841,7 +5841,7 @@ GetTable.exit:                                    ; preds = %5, %7
   %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1048
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %13, label %71
+  br i1 %.not, label %13, label %72
 
 13:                                               ; preds = %GetTable.exit
   %14 = load i32, ptr %2, align 4
@@ -5901,7 +5901,7 @@ satoi.exit:                                       ; preds = %cmsIT8GetProperty.e
 
 37:                                               ; preds = %satoi.exit.thread, %satoi.exit
   tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.149)
-  br label %71
+  br label %72
 
 38:                                               ; preds = %satoi.exit
   %39 = shl i32 %spec.select.i, 3
@@ -5922,61 +5922,61 @@ satoi.exit:                                       ; preds = %cmsIT8GetProperty.e
   %storemerge25.i = tail call i32 @llvm.umax.i32(i32 %storemerge.i, i32 %46)
   store i32 %storemerge25.i, ptr %41, align 8
   store i32 0, ptr %43, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 271736
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call ptr @_cmsMallocZero(ptr noundef %52, i32 noundef %storemerge25.i) #19
-  %.not.i.i15 = icmp eq ptr %53, null
-  br i1 %.not.i.i15, label %AllocBigBlock.exit.i, label %54
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 271736
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call ptr @_cmsMallocZero(ptr noundef %53, i32 noundef %storemerge25.i) #19
+  %.not.i.i15 = icmp eq ptr %54, null
+  br i1 %.not.i.i15, label %AllocBigBlock.exit.i, label %55
 
-54:                                               ; preds = %48
-  %55 = load ptr, ptr %51, align 8
-  %56 = tail call ptr @_cmsMallocZero(ptr noundef %55, i32 noundef 16) #19
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %60
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %52, align 8
+  %57 = tail call ptr @_cmsMallocZero(ptr noundef %56, i32 noundef 16) #19
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %61
 
-58:                                               ; preds = %54
-  %59 = load ptr, ptr %51, align 8
-  tail call void @_cmsFree(ptr noundef %59, ptr noundef nonnull %53) #19
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %52, align 8
+  tail call void @_cmsFree(ptr noundef %60, ptr noundef nonnull %54) #19
   br label %AllocBigBlock.exit.i
 
-60:                                               ; preds = %54
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store ptr %53, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 271336
-  %63 = load ptr, ptr %62, align 8
-  store ptr %63, ptr %56, align 8
-  store ptr %56, ptr %62, align 8
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store ptr %54, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 271336
+  %64 = load ptr, ptr %63, align 8
+  store ptr %64, ptr %57, align 8
+  store ptr %57, ptr %63, align 8
   br label %AllocBigBlock.exit.i
 
-AllocBigBlock.exit.i:                             ; preds = %60, %58, %48
-  %.0.i.i16 = phi ptr [ null, %58 ], [ %53, %60 ], [ null, %48 ]
+AllocBigBlock.exit.i:                             ; preds = %61, %59, %48
+  %.0.i.i16 = phi ptr [ null, %58 ], [ %54, %60 ], [ null, %48 ]
   store ptr %.0.i.i16, ptr %40, align 8
-  br label %64
+  br label %65
 
 thread-pre-split.i:                               ; preds = %38
   %.pr.i = load ptr, ptr %40, align 8
-  br label %64
+  br label %65
 
-64:                                               ; preds = %thread-pre-split.i, %AllocBigBlock.exit.i
-  %65 = phi ptr [ %.pr.i, %thread-pre-split.i ], [ %.0.i.i16, %AllocBigBlock.exit.i ]
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %AllocChunk.exit.thread, label %AllocChunk.exit
+65:                                               ; preds = %thread-pre-split.i, %AllocBigBlock.exit.i
+  %66 = phi ptr [ %.pr.i, %thread-pre-split.i ], [ %.0.i.i16, %AllocBigBlock.exit.i ]
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %AllocChunk.exit.thread, label %AllocChunk.exit
 
-AllocChunk.exit.thread:                           ; preds = %64
+AllocChunk.exit.thread:                           ; preds = %65
   store ptr null, ptr %11, align 8
   tail call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str.150)
-  br label %71
+  br label %72
 
-AllocChunk.exit:                                  ; preds = %64
-  %67 = load i32, ptr %43, align 4
-  %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 %68
-  %70 = add i32 %67, %46
-  store i32 %70, ptr %43, align 4
-  store ptr %69, ptr %11, align 8
-  br label %71
+AllocChunk.exit:                                  ; preds = %65
+  %68 = load i32, ptr %43, align 4
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 %69
+  %71 = add i32 %68, %46
+  store i32 %71, ptr %43, align 4
+  store ptr %70, ptr %11, align 8
+  br label %72
 
-71:                                               ; preds = %AllocChunk.exit, %GetTable.exit, %AllocChunk.exit.thread, %37
+72:                                               ; preds = %AllocChunk.exit, %GetTable.exit, %AllocChunk.exit.thread, %37
   %.0 = phi i32 [ 1, %GetTable.exit ], [ 0, %37 ], [ 0, %AllocChunk.exit.thread ], [ 1, %AllocChunk.exit ]
   ret i32 %.0
 }

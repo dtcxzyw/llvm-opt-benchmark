@@ -5576,20 +5576,20 @@ mi_heap_malloc_aligned_at.exit:                   ; preds = %87, %91
   %126 = lshr i64 %125, 16
   %127 = getelementptr inbounds nuw i8, ptr %119, i64 264
   %128 = getelementptr %struct.mi_page_s, ptr %127, i64 %126
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 4
-  %130 = load i32, ptr %129, align 4, !tbaa !53
-  %131 = zext i32 %130 to i64
+  %127 = getelementptr inbounds nuw i8, ptr %128, i64 4
+  %128 = load i32, ptr %127, align 4, !tbaa !53
+  %131 = zext i32 %128 to i64
   %132 = sub nsw i64 0, %131
   %133 = getelementptr i8, ptr %128, i64 %132
   br i1 %124, label %134, label %148, !prof !49
 
-134:                                              ; preds = %115
+134:; preds = %115
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 14
   %136 = load i8, ptr %135, align 2, !tbaa !54
   %137 = icmp eq i8 %136, 0
   br i1 %137, label %138, label %147, !prof !49
 
-138:                                              ; preds = %134
+138:; preds = %134
   %139 = getelementptr inbounds nuw i8, ptr %133, i64 32
   %140 = load ptr, ptr %139, align 8, !tbaa !51
   %141 = ptrtoint ptr %140 to i64
@@ -5606,15 +5606,15 @@ mi_heap_malloc_aligned_at.exit:                   ; preds = %87, %91
   tail call void @_mi_page_retire(ptr noundef %133)
   br label %mi_heap_malloc_zero_aligned_at.exit
 
-147:                                              ; preds = %134
+139:                                              ; preds = %134
   tail call void @_mi_free_generic(ptr noundef nonnull %119, ptr noundef %133, i1 noundef zeroext true, ptr noundef nonnull %1)
   br label %mi_heap_malloc_zero_aligned_at.exit
 
-148:                                              ; preds = %115
+140:                                              ; preds = %115
   tail call void @_mi_free_generic(ptr noundef nonnull %119, ptr noundef %133, i1 noundef zeroext false, ptr noundef nonnull %1)
   br label %mi_heap_malloc_zero_aligned_at.exit
 
-mi_heap_malloc_zero_aligned_at.exit:              ; preds = %83, %148, %147, %146, %138, %_mi_page_malloc.exit.i, %44, %43, %34, %12, %79, %mi_heap_malloc_aligned_at.exit, %8
+mi_heap_malloc_zero_aligned_at.exit:              ; preds = %83, %140, %139, %146, %138, %_mi_page_malloc.exit.i, %44, %43, %34, %12, %79, %mi_heap_malloc_aligned_at.exit, %8
   %.0 = phi ptr [ %9, %8 ], [ null, %mi_heap_malloc_aligned_at.exit ], [ %1, %79 ], [ %.027.i.i59, %148 ], [ %28, %34 ], [ null, %12 ], [ %48, %_mi_page_malloc.exit.i ], [ %28, %44 ], [ %28, %43 ], [ %.027.i.i59, %138 ], [ %.027.i.i59, %146 ], [ %.027.i.i59, %147 ], [ null, %83 ]
   ret ptr %.0
 }

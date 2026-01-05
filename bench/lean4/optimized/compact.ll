@@ -2403,7 +2403,7 @@ define noundef ptr @_ZN4lean16compacted_region4readEv(ptr noundef nonnull align 
   store ptr %17, ptr %4, align 8, !tbaa !106
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader, %150
+.lr.ph:                                           ; preds = %.preheader, %149
   %21 = phi ptr [ %.sink, %150 ], [ %17, %.preheader ]
   %22 = getelementptr i8, ptr %21, i64 4
   %.val = load i32, ptr %22, align 4
@@ -2442,7 +2442,7 @@ _ZN4lean16compacted_region15fix_constructorEP11lean_object.exit: ; preds = %.lr.
   %.0.i.i.i = and i64 %.biased.i.i.i, -8
   %39 = load ptr, ptr %2, align 8, !tbaa !105
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.0.i.i.i
-  br label %150
+  br label %149
 
 41:                                               ; preds = %.lr.ph
   %42 = lshr i32 %.val, 24
@@ -2504,7 +2504,7 @@ _ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30,
   %.0.i.i.i36 = and i64 %.biased.i.i.i35, -8
   %63 = load ptr, ptr %2, align 8, !tbaa !105
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.0.i.i.i36
-  br label %150
+  br label %149
 
 65:                                               ; preds = %41
   %66 = getelementptr i8, ptr %21, i64 16
@@ -2516,7 +2516,7 @@ _ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30,
   %.biased.i = add i64 %70, 31
   %.0.i37 = and i64 %.biased.i, -8
   %71 = getelementptr inbounds nuw i8, ptr %21, i64 %.0.i37
-  br label %150
+  br label %149
 
 72:                                               ; preds = %41
   %73 = getelementptr i8, ptr %21, i64 16
@@ -2524,7 +2524,7 @@ _ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30,
   %.biased.i38 = add i64 %.val25, 39
   %.0.i39 = and i64 %.biased.i38, -8
   %74 = getelementptr inbounds nuw i8, ptr %21, i64 %.0.i39
-  br label %150
+  br label %149
 
 75:                                               ; preds = %41
   %76 = load ptr, ptr %11, align 8, !tbaa !104
@@ -2552,7 +2552,7 @@ _ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30,
   %95 = and i64 %94, 1
   %.not.i.i40 = icmp eq i64 %95, 0
   %96 = load ptr, ptr %11, align 8
-  %97 = load ptr, ptr %0, align 8
+  %95 = load ptr, ptr %0, align 8
   %98 = ptrtoint ptr %97 to i64
   %99 = sub i64 %94, %98
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 %99
@@ -2570,14 +2570,14 @@ _ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30,
   %109 = and i64 %108, 1
   %.not.i.i41 = icmp eq i64 %109, 0
   %110 = load ptr, ptr %11, align 8
-  %111 = load ptr, ptr %0, align 8
-  %112 = ptrtoint ptr %111 to i64
+  %109 = load ptr, ptr %0, align 8
+  %112 = ptrtoint ptr %109 to i64
   %113 = sub i64 %108, %112
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 %113
   %.0.i.i42 = select i1 %.not.i.i41, ptr %114, ptr %107
   store ptr %.0.i.i42, ptr %106, align 8, !tbaa !76
   %115 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  br label %150
+  br label %149
 
 116:                                              ; preds = %41
   %117 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -2585,7 +2585,7 @@ _ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30,
   %119 = and i64 %118, 1
   %.not.i.i43 = icmp eq i64 %119, 0
   %120 = load ptr, ptr %11, align 8
-  %121 = load ptr, ptr %0, align 8
+  %119 = load ptr, ptr %0, align 8
   %122 = ptrtoint ptr %121 to i64
   %123 = sub i64 %118, %122
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 %123
@@ -2594,7 +2594,7 @@ _ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30,
   store atomic i64 %126, ptr %117 seq_cst, align 8
   %127 = load ptr, ptr %2, align 8, !tbaa !105
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  br label %150
+  br label %149
 
 129:                                              ; preds = %41
   %130 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -2603,19 +2603,19 @@ _ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30,
   %133 = and i64 %132, 1
   %.not.i.i44 = icmp eq i64 %133, 0
   %134 = load ptr, ptr %11, align 8
-  %135 = load ptr, ptr %0, align 8
+  %133 = load ptr, ptr %0, align 8
   %136 = ptrtoint ptr %135 to i64
   %137 = sub i64 %132, %136
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 %137
   %.0.i.i45 = select i1 %.not.i.i44, ptr %138, ptr %131
   store ptr %.0.i.i45, ptr %130, align 8, !tbaa !78
   %139 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  br label %150
+  br label %149
 
 140:                                              ; preds = %41
   %141 = tail call ptr @__cxa_allocate_exception(i64 40) #24
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  %143 = getelementptr inbounds nuw i8, ptr %141, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %141, i64 24
   store ptr %143, ptr %142, align 8, !tbaa !88
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 16
   store i64 0, ptr %144, align 8, !tbaa !91
@@ -2624,26 +2624,26 @@ _ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30,
   tail call void @__cxa_throw(ptr nonnull %141, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #27
   unreachable
 
-145:                                              ; preds = %41
-  %146 = tail call ptr @__cxa_allocate_exception(i64 40) #24
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %148 = getelementptr inbounds nuw i8, ptr %146, i64 24
-  store ptr %148, ptr %147, align 8, !tbaa !88
-  %149 = getelementptr inbounds nuw i8, ptr %146, i64 16
-  store i64 0, ptr %149, align 8, !tbaa !91
-  store i8 0, ptr %148, align 8, !tbaa !93
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %146, align 8, !tbaa !94
-  tail call void @__cxa_throw(ptr nonnull %146, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #27
+144:                                              ; preds = %41
+  %145 = tail call ptr @__cxa_allocate_exception(i64 40) #24
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 24
+  store ptr %147, ptr %146, align 8, !tbaa !88
+  %148 = getelementptr inbounds nuw i8, ptr %145, i64 16
+  store i64 0, ptr %148, align 8, !tbaa !91
+  store i8 0, ptr %147, align 8, !tbaa !93
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %145, align 8, !tbaa !94
+  tail call void @__cxa_throw(ptr nonnull %145, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #27
   unreachable
 
-150:                                              ; preds = %_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit, %65, %72, %75, %92, %105, %116, %129, %_ZN4lean16compacted_region15fix_constructorEP11lean_object.exit
+149:                                              ; preds = %_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit, %65, %72, %75, %92, %105, %116, %129, %_ZN4lean16compacted_region15fix_constructorEP11lean_object.exit
   %.sink = phi ptr [ %64, %_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit ], [ %71, %65 ], [ %74, %72 ], [ %91, %75 ], [ %104, %92 ], [ %115, %105 ], [ %128, %116 ], [ %139, %129 ], [ %40, %_ZN4lean16compacted_region15fix_constructorEP11lean_object.exit ]
   store ptr %.sink, ptr %2, align 8, !tbaa !105
-  %151 = load ptr, ptr %4, align 8, !tbaa !106
-  %152 = icmp ult ptr %.sink, %151
-  br i1 %152, label %.lr.ph, label %.loopexit, !llvm.loop !109
+  %150 = load ptr, ptr %4, align 8, !tbaa !106
+  %151 = icmp ult ptr %.sink, %150
+  br i1 %151, label %.lr.ph, label %.loopexit, !llvm.loop !109
 
-.loopexit:                                        ; preds = %150, %.preheader, %20, %1
+.loopexit:                                        ; preds = %149, %.preheader, %20, %1
   %.018 = phi ptr [ null, %1 ], [ %.0.i, %20 ], [ %.0.i, %.preheader ], [ %.0.i, %150 ]
   ret ptr %.018
 }

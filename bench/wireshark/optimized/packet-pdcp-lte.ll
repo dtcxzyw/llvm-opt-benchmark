@@ -3528,8 +3528,8 @@ define internal fastcc void @checkChannelSequenceInfo(ptr noundef %0, ptr nounde
   %33 = or disjoint i32 %32, %28
   store i32 %33, ptr getelementptr inbounds nuw (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %34 = tail call ptr @wmem_map_lookup(ptr noundef %14, ptr noundef nonnull @get_report_hash_key.key)
-  %.not100 = icmp eq ptr %34, null
-  br i1 %.not100, label %174, label %.sink.split
+  %.not99 = icmp eq ptr %34, null
+  br i1 %.not99, label %174, label %.sink.split
 
 35:                                               ; preds = %7
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -3555,8 +3555,8 @@ define internal fastcc void @checkChannelSequenceInfo(ptr noundef %0, ptr nounde
   %56 = zext nneg i32 %54 to i64
   %57 = inttoptr i64 %56 to ptr
   %58 = tail call ptr @wmem_map_lookup(ptr noundef %55, ptr noundef %57)
-  %.not108 = icmp eq ptr %58, null
-  br i1 %.not108, label %59, label %64
+  %.not107 = icmp eq ptr %58, null
+  br i1 %.not107, label %59, label %64
 
 59:                                               ; preds = %35
   %60 = tail call ptr @wmem_file_scope()
@@ -3599,9 +3599,9 @@ define internal fastcc void @checkChannelSequenceInfo(ptr noundef %0, ptr nounde
 
 75:                                               ; preds = %64, %73, %72, %71, %70
   %.090 = phi i32 [ 262144, %73 ], [ 128, %70 ], [ 4096, %71 ], [ 32768, %72 ], [ 32, %64 ]
-  br i1 %.not108, label %.thread105, label %84
+  br i1 %.not107, label %.thread104, label %84
 
-.thread105:                                       ; preds = %75
+.thread104:                                       ; preds = %75
   store i8 1, ptr %66, align 4
   %76 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %77 = load i32, ptr %76, align 4
@@ -3690,7 +3690,7 @@ define internal fastcc void @checkChannelSequenceInfo(ptr noundef %0, ptr nounde
   store i32 %125, ptr %93, align 4
   br label %126
 
-126:                                              ; preds = %.thread105, %124, %117
+126:                                              ; preds = %.thread104, %124, %117
   %127 = phi i32 [ %82, %.thread105 ], [ %121, %124 ], [ %121, %117 ]
   %128 = phi ptr [ %81, %.thread105 ], [ %120, %124 ], [ %120, %117 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3721,8 +3721,8 @@ define internal fastcc void @checkChannelSequenceInfo(ptr noundef %0, ptr nounde
   %147 = or disjoint i32 %146, %142
   store i32 %147, ptr getelementptr inbounds nuw (i8, ptr @get_report_hash_key.key, i64 4), align 4
   %148 = tail call ptr @wmem_map_lookup(ptr noundef %132, ptr noundef nonnull @get_report_hash_key.key)
-  %.not99 = icmp eq ptr %148, null
-  br i1 %.not99, label %152, label %149
+  %.not98 = icmp eq ptr %148, null
+  br i1 %.not98, label %152, label %149
 
 149:                                              ; preds = %131
   %150 = load i32, ptr %129, align 4

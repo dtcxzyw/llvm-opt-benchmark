@@ -9487,7 +9487,7 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17h9167650d51b4c451E.exit.i.i: ; 
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf00d17e36b0dbda7E.exit", label %34
 
-34:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h9167650d51b4c451E.exit.i.i
+34:; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h9167650d51b4c451E.exit.i.i
   %.neg.i = mul i64 %3, -48
   %35 = load ptr, ptr %0, align 8, !alias.scope !1045, !nonnull !3, !noundef !3
   %36 = getelementptr i8, ptr %35, i64 %.neg.i
@@ -11485,7 +11485,7 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17h177d9a135700037bE.exit.i.i: ; 
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h43c4e8b88143684cE.exit", label %34
 
-34:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h177d9a135700037bE.exit.i.i
+34:; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h177d9a135700037bE.exit.i.i
   %.neg.i = mul i64 %3, -160
   %35 = load ptr, ptr %0, align 8, !alias.scope !1221, !nonnull !3, !noundef !3
   %36 = getelementptr i8, ptr %35, i64 %.neg.i
