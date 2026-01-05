@@ -28037,14 +28037,14 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   store i64 %37, ptr %38, align 8, !noalias !5666
   store i64 0, ptr %28, align 8, !noalias !5666
   %39 = icmp eq i64 %3, %37
-  %.sink.sroa.gep.i = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sink.sroa.gep480.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.sink.sroa.gep482.i = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %.sink.sroa.gep483.i = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %.sink.sroa.gep485.i = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.sink.sroa.gep486.i = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %.sink.sroa.gep488.i = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %.sink.sroa.gep489.i = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sink.i.sroa.gep11 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sink.i.sroa.gep13 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %.sink.i.sroa.gep14 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %.sink.i.sroa.gep16 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.sink.i.sroa.gep17 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.sink.i.sroa.gep19 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %.sink.i.sroa.gep20 = getelementptr inbounds nuw i8, ptr %18, i64 24
   br i1 %39, label %42, label %41
 
 .body.i:                                          ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i275.i", %253, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i.i.i273.i", %248, %248, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i.i.i", %216, %.loopexit.split-lp.i, %.loopexit.i
@@ -28394,17 +28394,17 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %161, %155
-  %.sink.sroa.phi.i = phi ptr [ %.sink.sroa.gep.i, %161 ], [ %.sink.sroa.gep480.i, %155 ]
-  %.sink.sroa.phi481.i = phi ptr [ %.sink.sroa.gep482.i, %161 ], [ %.sink.sroa.gep483.i, %155 ]
-  %.sink.sroa.phi484.i = phi ptr [ %.sink.sroa.gep485.i, %161 ], [ %.sink.sroa.gep486.i, %155 ]
-  %.sink.sroa.phi487.i = phi ptr [ %.sink.sroa.gep488.i, %161 ], [ %.sink.sroa.gep489.i, %155 ]
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %161 ], [ %.sink.i.sroa.gep11, %155 ]
+  %.sink.i.sroa.phi12 = phi ptr [ %.sink.i.sroa.gep13, %161 ], [ %.sink.i.sroa.gep14, %155 ]
+  %.sink.i.sroa.phi15 = phi ptr [ %.sink.i.sroa.gep16, %161 ], [ %.sink.i.sroa.gep17, %155 ]
+  %.sink.i.sroa.phi18 = phi ptr [ %.sink.i.sroa.gep19, %161 ], [ %.sink.i.sroa.gep20, %155 ]
   %.sink.i = phi ptr [ %17, %161 ], [ %18, %155 ]
   %156 = phi ptr [ @anon.57e5e1f439f9c7771713c2845affd91d.394, %161 ], [ @anon.57e5e1f439f9c7771713c2845affd91d.392, %155 ]
   store ptr @anon.57e5e1f439f9c7771713c2845affd91d.226, ptr %.sink.i, align 8, !noalias !5666
-  store i64 1, ptr %.sink.sroa.phi.i, align 8, !noalias !5666
-  store ptr null, ptr %.sink.sroa.phi481.i, align 8, !noalias !5666
-  store ptr inttoptr (i64 8 to ptr), ptr %.sink.sroa.phi484.i, align 8, !noalias !5666
-  store i64 0, ptr %.sink.sroa.phi487.i, align 8, !noalias !5666
+  store i64 1, ptr %.sink.i.sroa.phi, align 8, !noalias !5666
+  store ptr null, ptr %.sink.i.sroa.phi12, align 8, !noalias !5666
+  store ptr inttoptr (i64 8 to ptr), ptr %.sink.i.sroa.phi15, align 8, !noalias !5666
+  store i64 0, ptr %.sink.i.sroa.phi18, align 8, !noalias !5666
   invoke void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %156) #47
           to label %.cont.i unwind label %.loopexit.split-lp.i, !noalias !5670
 
@@ -28596,7 +28596,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   %213 = icmp ugt i64 %212, %3
   %.not212.i = icmp eq i64 %187, -9223372036854775808
   %or.cond389.i = or i1 %213, %.not212.i
-  br i1 %or.cond389.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h920eba214feac694E.exit.thread.i", label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h96acbaf7d958de59E.llvm.17157331752085172275.exit.i.i"
+  br i1 %or.cond389.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h920eba214feac694E.exit.thread.i", label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h96acbaf7d958de59E.llvm.17157331752085172275.exit.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17h920eba214feac694E.exit.thread.i": ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hb16618b44765106dE.exit.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i3.i.i", %207
   %.sroa.0284.0458.i = phi i64 [ %187, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hb16618b44765106dE.exit.i" ], [ -9223372036854775808, %207 ], [ -9223372036854775808, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i3.i.i" ]
@@ -28625,12 +28625,12 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   invoke void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
           to label %250 unwind label %248, !noalias !5670
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h96acbaf7d958de59E.llvm.17157331752085172275.exit.i.i": ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hb16618b44765106dE.exit.i"
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h96acbaf7d958de59E.llvm.17157331752085172275.exit.i": ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$8from_raw17hb16618b44765106dE.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !5749
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$22split_at_mut_unchecked17h9d5688636184c72dE.llvm.17157331752085172275"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 1 %2, i64 noundef %212, i64 noundef %212)
           to label %219 unwind label %216, !noalias !5659
 
-216:                                              ; preds = %.split418.us.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h96acbaf7d958de59E.llvm.17157331752085172275.exit.i.i"
+216:                                              ; preds = %.split418.us.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h96acbaf7d958de59E.llvm.17157331752085172275.exit.i"
   %217 = landingpad { ptr, i32 }
           cleanup
   %218 = icmp eq i64 %187, 0
@@ -28640,7 +28640,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   call void @__rust_dealloc(ptr noundef nonnull %193, i64 noundef %187, i64 noundef 1) #49, !noalias !5757
   br label %.body.i
 
-219:                                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h96acbaf7d958de59E.llvm.17157331752085172275.exit.i.i"
+219:                                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$16inner_pixels_mut17h96acbaf7d958de59E.llvm.17157331752085172275.exit.i"
   %220 = load ptr, ptr %5, align 8, !noalias !5749, !nonnull !16, !align !464, !noundef !16
   %221 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %222 = load i64, ptr %221, align 8, !noalias !5749, !noundef !16

@@ -17113,15 +17113,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %21)
           to label %_ZNSt10shared_ptrIN3nix16DummyStoreConfigEED2Ev.exit unwind label %22, !noalias !115
 
-22:                                               ; preds = %20
+.noexc:                                           ; preds = %20
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   call void @__clang_call_terminate(ptr %24) #28, !noalias !115
   unreachable
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.body: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i
-  %25 = landingpad { ptr, i32 }
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #26, !noalias !115
   call void @_ZdlPv(ptr noundef nonnull %10) #29, !noalias !115
@@ -17140,23 +17140,23 @@ _ZNSt10shared_ptrIN3nix16DummyStoreConfigEED2Ev.exit: ; preds = %20
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %31)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit unwind label %32
 
-32:                                               ; preds = %_ZNSt10shared_ptrIN3nix16DummyStoreConfigEED2Ev.exit
+32:; preds = %_ZNSt10shared_ptrIN3nix16DummyStoreConfigEED2Ev.exit
   %33 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #28
+  %22 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %22) #28
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN3nix16DummyStoreConfigEED2Ev.exit
   ret void
 
-35:                                               ; preds = %2
-  %36 = landingpad { ptr, i32 }
+23:                                               ; preds = %2
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %.body3
 
-.body3:                                           ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.body, %35
-  %eh.lpad-body4 = phi { ptr, i32 } [ %36, %35 ], [ %25, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.body ]
+.body3:                                           ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i, %23
+  %eh.lpad-body4 = phi { ptr, i32 } [ %24, %35 ], [ %13, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix16DummyStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit8.i.i.i.i.body ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #26
   resume { ptr, i32 } %eh.lpad-body4
 }

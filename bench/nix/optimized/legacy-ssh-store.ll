@@ -29127,11 +29127,11 @@ define linkonce_odr void @_ZZN3nix15Implementations3addINS_14LegacySSHStoreENS_2
   %10 = invoke noalias noundef nonnull dereferenceable(2320) ptr @_Znwm(i64 noundef 2320) #33
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i.i.i unwind label %34
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i.i.i: ; preds = %2
+_ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit: ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1, ptr %11, align 8, !noalias !188
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 1, ptr %12, align 4, !noalias !188
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  store i32 1, ptr %13, align 4, !noalias !188
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix20LegacySSHStoreConfigESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %10, align 8, !noalias !188
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !188
@@ -29153,21 +29153,21 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %20)
           to label %_ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit unwind label %21, !noalias !188
 
-21:                                               ; preds = %19
-  %22 = landingpad { ptr, i32 }
+18:                                               ; preds = %19
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #35, !noalias !188
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #35, !noalias !188
   unreachable
 
-.body.i:                                          ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEEC2EOSC_.exit.i.i.i
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit
   %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #31, !noalias !188
   call void @_ZdlPv(ptr noundef nonnull %10) #34, !noalias !188
   br label %.body3
 
-_ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit: ; preds = %19
+_ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit:; preds = %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !188
   %25 = load ptr, ptr %13, align 8
   %26 = getelementptr i8, ptr %25, i64 -32
@@ -29180,22 +29180,22 @@ _ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit: ; preds = %19
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %30)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit unwind label %31
 
-31:                                               ; preds = %_ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit
+31:                                               ; preds = %35
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
   call void @__clang_call_terminate(ptr %33) #35
   unreachable
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN3nix20LegacySSHStoreConfigEED2Ev.exit
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit:; preds = %35
   ret void
 
 34:                                               ; preds = %2
   %35 = landingpad { ptr, i32 }
           cleanup
-  br label %.body3
+  br label %35
 
-.body3:                                           ; preds = %.body.i, %34
+35:                                               ; preds = %.body.i, %34
   %eh.lpad-body4 = phi { ptr, i32 } [ %35, %34 ], [ %24, %.body.i ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #31
   resume { ptr, i32 } %eh.lpad-body4

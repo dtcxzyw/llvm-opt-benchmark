@@ -2470,11 +2470,11 @@ define linkonce_odr void @_ZN5folly7futures6detail16FutureBaseHelper26makePromis
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i64 16), ptr %7, align 16, !tbaa !7
   store ptr %7, ptr %6, align 8, !tbaa !87
   invoke void @_ZN5folly7futures6detail8CoreBase28initCopyInterruptHandlerFromERKS2_(ptr noundef nonnull align 16 dereferenceable(136) %7, ptr noundef nonnull align 16 dereferenceable(136) %1)
-          to label %16 unwind label %27
+          to label %16 unwind label %30
 
 16:                                               ; preds = %3
   %.not.i.i = icmp eq ptr %2, null
-  br i1 %.not.i.i, label %_ZN5folly7PromiseINS_4UnitEED2Ev.exit, label %_ZN5folly8Executor9KeepAliveIS0_EC2EPS0_.exit
+  br i1 %.not.i.i, label %_ZN5folly7futures6detail10FutureBaseINS_4UnitEED2Ev.exit, label %_ZN5folly8Executor9KeepAliveIS0_EC2EPS0_.exit
 
 _ZN5folly8Executor9KeepAliveIS0_EC2EPS0_.exit:    ; preds = %16
   %17 = load ptr, ptr %2, align 8, !tbaa !7, !noalias !118
@@ -2485,9 +2485,9 @@ _ZN5folly8Executor9KeepAliveIS0_EC2EPS0_.exit:    ; preds = %16
   %not..i.i = xor i1 %20, true
   %22 = zext i1 %not..i.i to i64
   %spec.select.i.i = or i64 %22, %21
-  br label %_ZN5folly7PromiseINS_4UnitEED2Ev.exit
+  br label %_ZN5folly7futures6detail10FutureBaseINS_4UnitEED2Ev.exit
 
-_ZN5folly7PromiseINS_4UnitEED2Ev.exit:            ; preds = %_ZN5folly8Executor9KeepAliveIS0_EC2EPS0_.exit, %16
+_ZN5folly7futures6detail10FutureBaseINS_4UnitEED2Ev.exit: ; preds = %_ZN5folly8Executor9KeepAliveIS0_EC2EPS0_.exit, %16
   %spec.select.i.i.sink = phi i64 [ %spec.select.i.i, %_ZN5folly8Executor9KeepAliveIS0_EC2EPS0_.exit ], [ 0, %16 ]
   store i32 1, ptr %5, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2502,12 +2502,12 @@ _ZN5folly7PromiseINS_4UnitEED2Ev.exit:            ; preds = %_ZN5folly8Executor9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-27:                                               ; preds = %3
-  %28 = landingpad { ptr, i32 }
+30:                                               ; preds = %3
+  %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5folly7PromiseINS_4UnitEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %28
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

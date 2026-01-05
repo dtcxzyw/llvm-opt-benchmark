@@ -8052,15 +8052,15 @@ define internal void @_GLOBAL__sub_I_spiel_bots.cc() #16 section ".text.startup"
 14:                                               ; preds = %.noexc5.i
   store ptr %5, ptr %4, align 8
   %15 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %16 unwind label %.body17.i
+          to label %16 unwind label %.body
 
 16:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 14)) #24
   store ptr null, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 14)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body17.i
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %.body
 
-.body17.i:                                        ; preds = %16, %14
+.body:                                            ; preds = %16, %14
   %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
@@ -8123,7 +8123,7 @@ _ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_123UniformRandomBotFactoryESt14defau
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   br label %common.resume
 
-common.resume:                                    ; preds = %37, %46, %56, %.body17.i, %25, %35
+common.resume:                                    ; preds = %37, %46, %56, %.body, %25, %35
   %.sink = phi ptr [ %6, %.body17.i ], [ %6, %35 ], [ %6, %25 ], [ %2, %56 ], [ %2, %46 ], [ %2, %37 ]
   %common.resume.op = phi { ptr, i32 } [ %17, %.body17.i ], [ %.pn.i, %35 ], [ %26, %25 ], [ %.pn.i6, %56 ], [ %47, %46 ], [ %38, %37 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #24

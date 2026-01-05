@@ -23912,7 +23912,7 @@ lpad13.split.us:                                  ; preds = %invoke.cont12.us
   br label %ehcleanup28
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont25
-  %9 = phi ptr [ %17, %invoke.cont25 ], [ %1, %for.body.lr.ph ]
+  %9 = phi ptr [ %15, %invoke.cont25 ], [ %1, %for.body.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont25 ], [ 0, %for.body.lr.ph ]
   %cmp2.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp2.not, label %if.end, label %if.then
@@ -23957,7 +23957,7 @@ call.i.noexc:                                     ; preds = %if.end
   %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20)
           to label %if.end.i unwind label %terminate.lpad.i.i
 
-terminate.lpad.i.i:                               ; preds = %.noexc
+lpad.i:                                           ; preds = %.noexc
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
@@ -23991,28 +23991,28 @@ invoke.cont25:                                    ; preds = %invoke.cont23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21) #35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load ptr, ptr %_M_finish.i, align 8
-  %17 = load ptr, ptr %exprs_, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %17 to i64
+  %14 = load ptr, ptr %_M_finish.i, align 8
+  %15 = load ptr, ptr %exprs_, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %cmp = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !286
 
 lpad22:                                           ; preds = %call.i.noexc, %if.end
-  %18 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad24:                                           ; preds = %invoke.cont23
-  %19 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #35
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad22, %lpad.i29, %lpad24
-  %.pn = phi { ptr, i32 } [ %19, %lpad24 ], [ %18, %lpad22 ], [ %15, %lpad.i29 ]
+  %.pn = phi { ptr, i32 } [ %17, %lpad24 ], [ %16, %lpad22 ], [ %15, %lpad.i29 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21) #35
   br label %ehcleanup28
 
@@ -24022,15 +24022,15 @@ for.end:                                          ; preds = %invoke.cont25, %inv
 
 invoke.cont27:                                    ; preds = %for.end
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %out) #35
-  %20 = load ptr, ptr %_M_before_begin.i.i, align 8
-  %tobool.not3.i.i.i.i = icmp eq ptr %20, null
+  %18 = load ptr, ptr %_M_before_begin.i.i, align 8
+  %tobool.not3.i.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableIPKN8facebook5velox4exec4ExprESt4pairIKS5_jESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %invoke.cont27, %while.body.i.i.i.i
-  %__n.addr.04.i.i.i.i = phi ptr [ %21, %while.body.i.i.i.i ], [ %20, %invoke.cont27 ]
-  %21 = load ptr, ptr %__n.addr.04.i.i.i.i, align 8
+  %__n.addr.04.i.i.i.i = phi ptr [ %19, %while.body.i.i.i.i ], [ %18, %invoke.cont27 ]
+  %19 = load ptr, ptr %__n.addr.04.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef nonnull %__n.addr.04.i.i.i.i) #36
-  %tobool.not.i.i.i.i = icmp eq ptr %21, null
+  %tobool.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10_HashtableIPKN8facebook5velox4exec4ExprESt4pairIKS5_jESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !287
 
 _ZNSt10_HashtableIPKN8facebook5velox4exec4ExprESt4pairIKS5_jESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i, %invoke.cont27

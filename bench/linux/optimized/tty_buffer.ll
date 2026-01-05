@@ -400,16 +400,16 @@ define dso_local i64 @__tty_insert_flip_string_flags(ptr noundef %0, ptr noundef
   %.fr4 = freeze i8 %34
   %.not23 = icmp eq i8 %.fr4, 0
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  br i1 %.not23, label %.split.split.preheader, label %.split.split.us, !prof !13
+  br i1 %.not23, label %.split.split.us, label %.split.split.us, !prof !13
 
-.split.split.preheader:                           ; preds = %.split
+.split.split.us:                                  ; preds = %.split
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 124
   br label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %65
-  %39 = phi i64 [ %68, %65 ], [ 0, %.split ]
+.split.split.us:; preds = %.split, %65
+  %39 = phi i64 [ %65, %65 ], [ 0, %.split ]
   %40 = phi ptr [ %69, %65 ], [ %1, %.split ]
   %41 = sub i64 %4, %39
   %42 = tail call i64 @llvm.umin.i64(i64 %41, i64 1792)
@@ -419,9 +419,9 @@ define dso_local i64 @__tty_insert_flip_string_flags(ptr noundef %0, ptr noundef
   %.not.us2 = icmp eq i32 %43, 0
   br i1 %.not.us2, label %.thread, label %46, !prof !21
 
-46:                                               ; preds = %.split.split.us
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %48 = load i32, ptr %47, align 8
+46:   ; preds = %.split.split.us
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %50 = load i32, ptr %49, align 8
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %50 = zext i32 %48 to i64
   %51 = getelementptr i8, ptr %49, i64 %50
@@ -431,7 +431,7 @@ define dso_local i64 @__tty_insert_flip_string_flags(ptr noundef %0, ptr noundef
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %64, label %55
 
-55:                                               ; preds = %46
+55:; preds = %46
   %56 = load i32, ptr %47, align 8
   %57 = zext i32 %56 to i64
   %58 = getelementptr i8, ptr %49, i64 %57
@@ -447,25 +447,25 @@ define dso_local i64 @__tty_insert_flip_string_flags(ptr noundef %0, ptr noundef
   tail call void asm sideeffect "366: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 366b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 366) #9, !srcloc !33
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 323, i32 2307, i64 12) #9, !srcloc !34
   tail call void asm sideeffect "367: nop\0A\09.pushsection .discard.instr_end\0A\09.long 367b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 367) #9, !srcloc !35
-  br label %65
+  br label %62
 
-65:                                               ; preds = %64, %55
-  %66 = load i32, ptr %47, align 8
-  %67 = add i32 %66, %43
-  store i32 %67, ptr %47, align 8
-  %68 = add i64 %39, %44
-  %69 = getelementptr i8, ptr %40, i64 %44
-  %70 = icmp ult i64 %68, %4
-  br i1 %70, label %.split.split.us, label %.thread, !prof !31, !llvm.loop !32
+62:                                               ; preds = %64, %55
+  %63 = load i32, ptr %47, align 8
+  %64 = add i32 %63, %43
+  store i32 %64, ptr %47, align 8
+  %65 = add i64 %39, %44
+  %66 = getelementptr i8, ptr %40, i64 %44
+  %67 = icmp ult i64 %65, %4
+  br i1 %67, label %.split.split.us, label %.thread, !prof !31, !llvm.loop !32
 
-.split.split:                                     ; preds = %.split.split.preheader, %140
-  %71 = phi i64 [ %143, %140 ], [ 0, %.split.split.preheader ]
-  %72 = phi ptr [ %144, %140 ], [ %1, %.split.split.preheader ]
-  %73 = sub i64 %4, %71
-  %74 = tail call i64 @llvm.umin.i64(i64 %73, i64 1792)
+.split.split:                                     ; preds = %.split.split.us, %140
+  %68 = phi i64 [ %143, %140 ], [ 0, %.split.split.preheader ]
+  %69 = phi ptr [ %144, %140 ], [ %1, %.split.split.preheader ]
+  %70 = sub i64 %4, %68
+  %71 = tail call i64 @llvm.umin.i64(i64 %70, i64 1792)
   %75 = load ptr, ptr %35, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 28
-  %77 = load i8, ptr %76, align 4, !range !26, !noundef !27
+  %74 = load i8, ptr %76, align 4, !range !26, !noundef !27
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 12
   %79 = load i32, ptr %78, align 4
   %80 = xor i8 %77, 1
@@ -478,22 +478,22 @@ define dso_local i64 @__tty_insert_flip_string_flags(ptr noundef %0, ptr noundef
   %87 = icmp samesign ugt i64 %74, %86
   br i1 %87, label %90, label %88
 
-88:                                               ; preds = %.split.split
+88:; preds = %.split.split
   %89 = trunc nuw nsw i64 %74 to i32
   br label %__tty_buffer_request_room.exit
 
-90:                                               ; preds = %.split.split
+90:; preds = %.split.split
   %91 = add nuw nsw i64 %74, 255
   %92 = and i64 %91, 3840
   %93 = icmp samesign ult i64 %92, 257
   br i1 %93, label %94, label %97
 
-94:                                               ; preds = %90
+94:; preds = %90
   %95 = tail call ptr @llist_del_first(ptr noundef nonnull %36) #9
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %97, label %__tty_buffer_request_room.exit.thread
+  %98 = icmp eq ptr %95, null
+  br i1 %98, label %.thread, label %__tty_buffer_request_room.exit.thread
 
-97:                                               ; preds = %94, %90
+.thread:                                          ; preds = %94, %90
   %98 = load volatile i32, ptr %37, align 4
   %99 = load i32, ptr %38, align 4
   %100 = icmp sgt i32 %98, %99

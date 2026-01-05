@@ -50640,7 +50640,7 @@ define noundef zeroext i1 @_ZN7httplib9SSLClient14initialize_sslERNS_10ClientImp
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %3
   %16 = invoke ptr @SSL_new(ptr noundef %12)
-          to label %17 unwind label %122
+          to label %17 unwind label %95
 
 17:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #51
@@ -50690,8 +50690,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %30
 37:                                               ; preds = %36
   unreachable
 
-common.resume.i:                                  ; preds = %125, %122, %88, %38
-  %common.resume.op.i = phi { ptr, i32 } [ %89, %88 ], [ %39, %38 ], [ %126, %125 ], [ %123, %122 ]
+common.resume.i:                                  ; preds = %98, %95, %88, %38
+  %common.resume.op.i = phi { ptr, i32 } [ %89, %88 ], [ %39, %38 ], [ %99, %125 ], [ %96, %122 ]
   resume { ptr, i32 } %common.resume.op.i
 
 38:                                               ; preds = %36, %30
@@ -50714,7 +50714,7 @@ _ZN7httplib9SSLClient10load_certsEv.exit.i.i:     ; preds = %_ZL14__gthread_once
 
 42:                                               ; preds = %_ZN7httplib9SSLClient10load_certsEv.exit.i.i
   store i32 9, ptr %2, align 4, !tbaa !185
-  br label %118
+  br label %91
 
 43:                                               ; preds = %_ZN7httplib9SSLClient10load_certsEv.exit.i.i
   call void @SSL_set_verify(ptr noundef nonnull %16, i32 noundef 0, ptr noundef null)
@@ -50761,7 +50761,7 @@ _ZN7httplib9SSLClient10load_certsEv.exit.i.i:     ; preds = %_ZL14__gthread_once
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i, %..critedge_crit_edge16.i.i.i, %..critedge_crit_edge.i.i.i
   store i32 8, ptr %2, align 4, !tbaa !185
-  br label %118
+  br label %91
 
 _ZN7httplib6detail33ssl_connect_or_accept_nonblockingIPFiP6ssl_stEEEbiS3_T_ll.exit.i.i: ; preds = %59, %44
   %61 = load i8, ptr %27, align 8, !tbaa !880, !range !47, !noundef !48
@@ -50789,7 +50789,7 @@ _ZN7httplib6detail33ssl_connect_or_accept_nonblockingIPFiP6ssl_stEEEbiS3_T_ll.ex
 
 71:                                               ; preds = %66
   store i32 10, ptr %2, align 4, !tbaa !185
-  br label %118
+  br label %91
 
 .thread.i.i:                                      ; preds = %66, %63
   %72 = call i64 @SSL_get_verify_result(ptr noundef nonnull %16)
@@ -50800,7 +50800,7 @@ _ZN7httplib6detail33ssl_connect_or_accept_nonblockingIPFiP6ssl_stEEEbiS3_T_ll.ex
 
 74:                                               ; preds = %.thread.i.i
   store i32 10, ptr %2, align 4, !tbaa !185
-  br label %118
+  br label %91
 
 _ZN7httplib6detail10scope_exitC2EOSt8functionIFvvEE.exit.i.i: ; preds = %.thread.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -50958,74 +50958,74 @@ _ZNKSt8functionIFvvEEclEv.exit.i30.i.i:           ; preds = %._ZNKSt8functionIFv
 _ZN7httplib6detail10scope_exitD2Ev.exit34.i.i:    ; preds = %110, %_ZNKSt8functionIFvvEEclEv.exit.i30.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %118
+  br label %91
 
-118:                                              ; preds = %_ZN7httplib6detail10scope_exitD2Ev.exit34.i.i, %74, %71, %.loopexit.i.i, %42
-  %119 = call i32 @SSL_shutdown(ptr noundef nonnull %16)
-  %120 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #51
-  %.not.i.i28.i = icmp eq i32 %120, 0
-  br i1 %.not.i.i28.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i, label %121
+91:                                               ; preds = %_ZN7httplib6detail10scope_exitD2Ev.exit34.i.i, %74, %71, %.loopexit.i.i, %42
+  %92 = call i32 @SSL_shutdown(ptr noundef nonnull %16)
+  %93 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #51
+  %.not.i.i28.i = icmp eq i32 %93, 0
+  br i1 %.not.i.i28.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i, label %94
 
-121:                                              ; preds = %118
-  call void @_ZSt20__throw_system_errori(i32 noundef %120) #50
+94:                                               ; preds = %91
+  call void @_ZSt20__throw_system_errori(i32 noundef %93) #50
   unreachable
 
-_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i:      ; preds = %118
+_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i:      ; preds = %91
   invoke void @SSL_free(ptr noundef nonnull %16)
-          to label %129 unwind label %125
+          to label %129 unwind label %98
 
-122:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %123 = landingpad { ptr, i32 }
+95:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
+  %96 = landingpad { ptr, i32 }
           cleanup
-  %124 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #51
+  %97 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #51
   br label %common.resume.i
 
-125:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i
-  %126 = landingpad { ptr, i32 }
+98:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i
+  %99 = landingpad { ptr, i32 }
           cleanup
-  %127 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #51
+  %100 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #51
   br label %common.resume.i
 
 .thread.i:                                        ; preds = %_ZN7httplib6detail10scope_exitD2Ev.exit.i.i, %66, %_ZN7httplib6detail33ssl_connect_or_accept_nonblockingIPFiP6ssl_stEEEbiS3_T_ll.exit.i.i
-  %128 = call i64 @BIO_ctrl(ptr noundef %23, i32 noundef 102, i64 noundef 0, ptr noundef null)
+  %101 = call i64 @BIO_ctrl(ptr noundef %23, i32 noundef 102, i64 noundef 0, ptr noundef null)
   br label %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
 
-129:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i
-  %130 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #51
+102:                                              ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit29.i
+  %103 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #51
   br label %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
 
-"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit": ; preds = %.thread.i, %129
+"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit": ; preds = %.thread.i, %102
   %.1.ph.i = phi ptr [ %16, %.thread.i ], [ null, %129 ]
-  %131 = call i32 (i32, i32, ...) @fcntl(i32 noundef %10, i32 noundef 3, i32 noundef 0)
-  %132 = and i32 %131, -2049
-  %133 = call i32 (i32, i32, ...) @fcntl(i32 noundef %10, i32 noundef 4, i32 noundef %132)
+  %104 = call i32 (i32, i32, ...) @fcntl(i32 noundef %10, i32 noundef 3, i32 noundef 0)
+  %105 = and i32 %104, -2049
+  %106 = call i32 (i32, i32, ...) @fcntl(i32 noundef %10, i32 noundef 4, i32 noundef %105)
   %.not.not = icmp eq ptr %.1.ph.i, null
-  br i1 %.not.not, label %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread", label %134
+  br i1 %.not.not, label %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread", label %107
 
-134:                                              ; preds = %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
-  %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %.1.ph.i, ptr %135, align 8, !tbaa !968
+107:                                              ; preds = %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %.1.ph.i, ptr %108, align 8, !tbaa !968
   br label %_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit
 
 "_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread": ; preds = %17, %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit"
-  %136 = load i32, ptr %1, align 8, !tbaa !861
-  %137 = icmp eq i32 %136, -1
-  br i1 %137, label %_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit, label %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit
+  %109 = load i32, ptr %1, align 8, !tbaa !861
+  %110 = icmp eq i32 %109, -1
+  br i1 %110, label %_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit, label %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit
 
 _ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit: ; preds = %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread"
-  %138 = call noundef i32 @shutdown(i32 noundef %136, i32 noundef 2) #51
+  %111 = call noundef i32 @shutdown(i32 noundef %109, i32 noundef 2) #51
   %.pr = load i32, ptr %1, align 8, !tbaa !861
-  %139 = icmp eq i32 %.pr, -1
-  br i1 %139, label %_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit, label %140
+  %112 = icmp eq i32 %.pr, -1
+  br i1 %112, label %_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit, label %113
 
-140:                                              ; preds = %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit
-  %141 = call noundef i32 @close(i32 noundef %.pr)
+113:                                              ; preds = %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit
+  %114 = call noundef i32 @close(i32 noundef %.pr)
   store i32 -1, ptr %1, align 8, !tbaa !861
   br label %_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit
 
-_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit: ; preds = %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread", %140, %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit, %134
-  %.not19 = phi i1 [ true, %134 ], [ false, %140 ], [ false, %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit ], [ false, %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread" ]
-  ret i1 %.not19
+_ZN7httplib10ClientImpl12close_socketERNS0_6SocketE.exit: ; preds = %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread", %113, %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit, %107
+  %.not18 = phi i1 [ true, %134 ], [ false, %140 ], [ false, %_ZNK7httplib10ClientImpl15shutdown_socketERNS0_6SocketE.exit ], [ false, %"_ZN7httplib6detail7ssl_newIZNS_9SSLClient14initialize_sslERNS_10ClientImpl6SocketERNS_5ErrorEE3$_0ZNS2_14initialize_sslES5_S7_E3$_1EEP6ssl_stiP10ssl_ctx_stRSt5mutexT_T0_.exit.thread" ]
+  ret i1 %.not18
 }
 
 ; Function Attrs: mustprogress uwtable

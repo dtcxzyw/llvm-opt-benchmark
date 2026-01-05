@@ -4012,10 +4012,10 @@ _ZNK4absl12lts_202407226Status4codeEv.exit.i.i.i: ; preds = %212, %209
   br label %"_ZN9grpc_core4LoopIZNS_16BasicMemoryQuota5StartEvE3$_0ED2Ev.exit2.i"
 
 "_ZN9grpc_core4LoopIZNS_16BasicMemoryQuota5StartEvE3$_0ED2Ev.exit2.i": ; preds = %223, %"_ZN9grpc_core4LoopIZNS_16BasicMemoryQuota5StartEvE3$_0ED2Ev.exit.i.i"
-  %.val.i = phi ptr [ null, %"_ZN9grpc_core4LoopIZNS_16BasicMemoryQuota5StartEvE3$_0ED2Ev.exit.i.i" ], [ %166, %223 ]
+  %.val6.i = phi ptr [ null, %"_ZN9grpc_core4LoopIZNS_16BasicMemoryQuota5StartEvE3$_0ED2Ev.exit.i.i" ], [ %166, %223 ]
   %.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.i.i, %"_ZN9grpc_core4LoopIZNS_16BasicMemoryQuota5StartEvE3$_0ED2Ev.exit.i.i" ], [ %224, %223 ]
   call void @_ZN9grpc_core14promise_detail20FreestandingActivityD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %175) #40, !noalias !189
-  call fastcc void @"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_16BasicMemoryQuota5StartEvE3$_0ED2Ev"(ptr %.val.i) #40, !noalias !189
+  call fastcc void @"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_16BasicMemoryQuota5StartEvE3$_0ED2Ev"(ptr %.val6.i) #40, !noalias !189
   call void @_ZdlPvm(ptr noundef nonnull %175, i64 noundef 176) #44, !noalias !189
   br label %"_ZN9grpc_core4LoopIZNS_16BasicMemoryQuota5StartEvE3$_0ED2Ev.exit8"
 

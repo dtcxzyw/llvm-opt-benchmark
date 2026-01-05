@@ -22847,28 +22847,28 @@ define weak_odr void @_ZN6casadi6MatrixIdE4callERKNS_8FunctionERKSt6vectorIS1_Sa
   %.not38 = icmp eq ptr %4, %6
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIdSaIdEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEvNS4_IPdS1_EET_SA_St20forward_iterator_tag.exit, %3
+.lr.ph:                                           ; preds = %_ZNSt6vectorIdSaIdEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEvNS4_IPdS1_EET_SA_St20forward_iterator_tag.exit, %3
   %7 = phi ptr [ null, %3 ], [ %47, %_ZNSt6vectorIdSaIdEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEvNS4_IPdS1_EET_SA_St20forward_iterator_tag.exit ]
   %8 = phi ptr [ null, %3 ], [ %48, %_ZNSt6vectorIdSaIdEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEvNS4_IPdS1_EET_SA_St20forward_iterator_tag.exit ]
   invoke void @_ZN6casadi6MatrixIdE4callERKNS_8FunctionERKSt6vectorIdSaIdEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 poison, ptr nonnull align 8 poison, ptr nonnull align 8 poison)
-          to label %.unreachable unwind label %51
+          to label %.unreachable unwind label %24
 
-.lr.ph:                                           ; preds = %3, %_ZNSt6vectorIdSaIdEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEvNS4_IPdS1_EET_SA_St20forward_iterator_tag.exit
-  %9 = phi ptr [ %47, %_ZNSt6vectorIdSaIdEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEvNS4_IPdS1_EET_SA_St20forward_iterator_tag.exit ], [ null, %3 ]
+9:                                                ; preds = %3, %_ZNSt6vectorIdSaIdEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEvNS4_IPdS1_EET_SA_St20forward_iterator_tag.exit
+  %.sroa.035.039 = phi ptr [ %47, %_ZNSt6vectorIdSaIdEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEvNS4_IPdS1_EET_SA_St20forward_iterator_tag.exit ], [ null, %3 ]
   %10 = phi ptr [ %48, %_ZNSt6vectorIdSaIdEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEvNS4_IPdS1_EET_SA_St20forward_iterator_tag.exit ], [ null, %3 ]
   %11 = phi ptr [ %49, %_ZNSt6vectorIdSaIdEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEvNS4_IPdS1_EET_SA_St20forward_iterator_tag.exit ], [ null, %3 ]
   %.sroa.035.039 = phi ptr [ %50, %_ZNSt6vectorIdSaIdEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEvNS4_IPdS1_EET_SA_St20forward_iterator_tag.exit ], [ %4, %3 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.035.039, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.035.039, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.035.039, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !17
-  %16 = ptrtoint ptr %11 to i64
+  %17 = ptrtoint ptr %11 to i64
   %17 = ptrtoint ptr %10 to i64
   %18 = sub i64 %16, %17
   %.not73.i = icmp eq ptr %13, %15
   br i1 %.not73.i, label %_ZNSt6vectorIdSaIdEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEvNS4_IPdS1_EET_SA_St20forward_iterator_tag.exit, label %19
 
-19:                                               ; preds = %.lr.ph
+20:                                               ; preds = %9
   %20 = ptrtoint ptr %15 to i64
   %21 = ptrtoint ptr %13 to i64
   %22 = sub i64 %20, %21
@@ -22878,7 +22878,7 @@ define weak_odr void @_ZN6casadi6MatrixIdE4callERKNS_8FunctionERKSt6vectorIS1_Sa
   %.not.i = icmp ult i64 %25, %22
   br i1 %.not.i, label %27, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEmEvRT_T0_.exit.i
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEmEvRT_T0_.exit.i: ; preds = %19
+22:                                               ; preds = %19
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %11, ptr align 8 %13, i64 %22, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 %22
   br label %_ZNSt6vectorIdSaIdEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEvNS4_IPdS1_EET_SA_St20forward_iterator_tag.exit
@@ -22946,7 +22946,7 @@ _ZNSt6vectorIdSaIdEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEv
 .loopexit:                                        ; preds = %36
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %53
+  br label %26
 
 .loopexit.split-lp:                               ; preds = %31
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
@@ -22956,26 +22956,26 @@ _ZNSt6vectorIdSaIdEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEv
 .unreachable:                                     ; preds = %._crit_edge
   unreachable
 
-51:                                               ; preds = %._crit_edge
-  %52 = landingpad { ptr, i32 }
+24:                                               ; preds = %._crit_edge
+  %25 = landingpad { ptr, i32 }
           cleanup
-  br label %53
+  br label %26
 
-53:                                               ; preds = %.loopexit, %.loopexit.split-lp, %51
-  %54 = phi ptr [ %7, %51 ], [ %9, %.loopexit ], [ %9, %.loopexit.split-lp ]
+26:                                               ; preds = %.loopexit, %.loopexit.split-lp, %24
+  %.pn20 = phi ptr [ %7, %51 ], [ %9, %.loopexit ], [ %9, %.loopexit.split-lp ]
   %55 = phi ptr [ %8, %51 ], [ %10, %.loopexit ], [ %10, %.loopexit.split-lp ]
-  %.pn20 = phi { ptr, i32 } [ %52, %51 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn20 = phi { ptr, i32 } [ %25, %51 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i27 = icmp eq ptr %55, null
   br i1 %.not.i.i.i27, label %_ZNSt6vectorIdSaIdEED2Ev.exit28, label %56
 
-56:                                               ; preds = %53
+28:                                               ; preds = %26
   %57 = ptrtoint ptr %54 to i64
   %58 = ptrtoint ptr %55 to i64
   %59 = sub i64 %57, %58
   tail call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %59) #31
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit28
 
-_ZNSt6vectorIdSaIdEED2Ev.exit28:                  ; preds = %53, %56
+_ZNSt6vectorIdSaIdEED2Ev.exit28:                  ; preds = %26, %28
   resume { ptr, i32 } %.pn20
 }
 

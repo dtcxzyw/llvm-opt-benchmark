@@ -17310,7 +17310,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_116CalendarDataSink15process
   store ptr %2, ptr %7, align 8, !tbaa !161
   %15 = load i32, ptr %4, align 4, !tbaa !13
   %16 = icmp slt i32 %15, 1
-  br i1 %16, label %17, label %346
+  br i1 %16, label %17, label %326
 
 17:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -17343,7 +17343,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_116CalendarDataSink15process
 
 35:                                               ; preds = %.lr.ph, %_ZN6icu_7713UnicodeString13retainBetweenEii.exit.thread248
   %.0107267 = phi ptr [ null, %.lr.ph ], [ %.1108253, %_ZN6icu_7713UnicodeString13retainBetweenEii.exit.thread248 ]
-  %.0110265 = phi i32 [ 0, %.lr.ph ], [ %344, %_ZN6icu_7713UnicodeString13retainBetweenEii.exit.thread248 ]
+  %.0110265 = phi i32 [ 0, %.lr.ph ], [ %324, %_ZN6icu_7713UnicodeString13retainBetweenEii.exit.thread248 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %36 = load ptr, ptr %7, align 8, !tbaa !161
   call void @_ZN6icu_7713UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef %36, i32 noundef -1, i32 noundef 0)
@@ -18031,9 +18031,9 @@ _ZN6icu_7713UnicodeString13retainBetweenEii.exit.thread248: ; preds = %_ZN6icu_7
   %.1108253 = phi ptr [ %.2109, %_ZN6icu_7713UnicodeString13retainBetweenEii.exit ], [ %.0107267, %261 ], [ %.0107267, %_ZN6icu_7713UnicodeString8truncateEi.exit.i200 ], [ %.0107267, %_ZNK6icu_7713UnicodeString8endsWithENS_14ConstChar16PtrEi.exit ], [ %.0107267, %_ZN6icu_7713UnicodeString8truncateEi.exit.i ], [ %.0107267, %_ZN6icu_7713UnicodeString8truncateEi.exit.i289 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %344 = add nuw nsw i32 %.0110265, 1
-  %345 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %8, i32 noundef %344, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.not153 = icmp eq i8 %345, 0
+  %324 = add nuw nsw i32 %.0110265, 1
+  %325 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %8, i32 noundef %324, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %.not153 = icmp eq i8 %325, 0
   br i1 %.not153, label %.loopexit, label %35, !llvm.loop !183
 
 .body:                                            ; preds = %241, %243, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit209, %258, %45, %72, %167, %169, %171, %309, %227, %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit190, %63, %47
@@ -18050,9 +18050,9 @@ _ZN6icu_7713UnicodeString13retainBetweenEii.exit.thread248: ; preds = %_ZN6icu_7
 
 .loopexit:                                        ; preds = %_ZN6icu_7713UnicodeString13retainBetweenEii.exit.thread248, %.loopexit.sink.split, %.preheader258, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %346
+  br label %326
 
-346:                                              ; preds = %5, %.loopexit
+326:                                              ; preds = %5, %.loopexit
   ret void
 }
 

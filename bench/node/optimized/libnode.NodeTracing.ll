@@ -750,48 +750,48 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i)
   store ptr %call.i.i, ptr %agg.tmp7, align 8
   call void @_ZN4node9inspector8protocol16InternalResponse18createNotificationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE(ptr nonnull sret(%"class.std::unique_ptr.59") align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull %agg.tmp7) #14
-  %6 = load ptr, ptr %ref.tmp4, align 8
+  %4 = load ptr, ptr %ref.tmp4, align 8
   store ptr null, ptr %ref.tmp4, align 8
-  store ptr %6, ptr %agg.tmp3, align 8
+  store ptr %4, ptr %agg.tmp3, align 8
   %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
-  %7 = load ptr, ptr %vfn, align 8
+  %5 = load ptr, ptr %vfn, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %agg.tmp3) #14
-  %8 = load ptr, ptr %agg.tmp3, align 8
-  %cmp.not.i3 = icmp eq ptr %8, null
+  %6 = load ptr, ptr %agg.tmp3, align 8
+  %cmp.not.i3 = icmp eq ptr %6, null
   br i1 %cmp.not.i3, label %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i: ; preds = %if.end
-  %vtable.i.i = load ptr, ptr %8, align 8
+  %vtable.i.i = load ptr, ptr %6, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 24
-  %9 = load ptr, ptr %vfn.i.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #14
+  %7 = load ptr, ptr %vfn.i.i, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i
   store ptr null, ptr %agg.tmp3, align 8
-  %10 = load ptr, ptr %ref.tmp4, align 8
-  %cmp.not.i4 = icmp eq ptr %10, null
+  %8 = load ptr, ptr %ref.tmp4, align 8
+  %cmp.not.i4 = icmp eq ptr %8, null
   br i1 %cmp.not.i4, label %_ZNSt10unique_ptrIN4node9inspector8protocol16InternalResponseESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol16InternalResponseEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN4node9inspector8protocol16InternalResponseEEclEPS3_.exit.i: ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit
-  %vtable.i.i5 = load ptr, ptr %10, align 8
+  %vtable.i.i5 = load ptr, ptr %8, align 8
   %vfn.i.i6 = getelementptr inbounds nuw i8, ptr %vtable.i.i5, i64 24
-  %11 = load ptr, ptr %vfn.i.i6, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(56) %10) #14
+  %9 = load ptr, ptr %vfn.i.i6, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(56) %8) #14
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol16InternalResponseESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector8protocol16InternalResponseESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIN4node9inspector8protocol16InternalResponseEEclEPS3_.exit.i
   store ptr null, ptr %ref.tmp4, align 8
-  %12 = load ptr, ptr %agg.tmp7, align 8
-  %cmp.not.i7 = icmp eq ptr %12, null
+  %10 = load ptr, ptr %agg.tmp7, align 8
+  %cmp.not.i7 = icmp eq ptr %10, null
   br i1 %cmp.not.i7, label %_ZNSt10unique_ptrIN4node9inspector8protocol11NodeTracing25DataCollectedNotificationESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i8
 
 _ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i8: ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol16InternalResponseESt14default_deleteIS3_EED2Ev.exit
-  %vtable.i.i9 = load ptr, ptr %12, align 8
+  %vtable.i.i9 = load ptr, ptr %10, align 8
   %vfn.i.i10 = getelementptr inbounds nuw i8, ptr %vtable.i.i9, i64 24
-  %13 = load ptr, ptr %vfn.i.i10, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #14
+  %11 = load ptr, ptr %vfn.i.i10, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #14
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol11NodeTracing25DataCollectedNotificationESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector8protocol11NodeTracing25DataCollectedNotificationESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol12SerializableEEclEPS3_.exit.i8, %_ZNSt10unique_ptrIN4node9inspector8protocol16InternalResponseESt14default_deleteIS3_EED2Ev.exit

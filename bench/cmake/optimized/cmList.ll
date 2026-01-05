@@ -3461,8 +3461,8 @@ define internal fastcc nonnull ptr @_ZN12_GLOBAL__N_118TransformConfigureEN6cmLi
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 56
   store ptr %35, ptr %34, align 8, !tbaa !42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %35, ptr noundef nonnull align 8 dereferenceable(6) @.str.15, i64 6, i1 false)
-  %.sroa.2.16..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 62
-  store i8 0, ptr %.sroa.2.16..sroa_idx.i.i.i.i.i.i.i, align 2
+  %.sroa.4.16..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 62
+  store i8 0, ptr %.sroa.4.16..sroa_idx.i.i.i.i.i.i, align 2
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 48
   store i64 6, ptr %36, align 8, !tbaa !43
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 72
@@ -3930,8 +3930,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_122TransformActionToLowerESt14default_deleteIS1_
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 56
   store ptr %185, ptr %184, align 8, !tbaa !42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %185, ptr noundef nonnull align 8 dereferenceable(5) @.str.19, i64 5, i1 false)
-  %.sroa.2.16..sroa_idx.i.i.i.i.i.i.i124 = getelementptr inbounds nuw i8, ptr %182, i64 61
-  store i8 0, ptr %.sroa.2.16..sroa_idx.i.i.i.i.i.i.i124, align 1
+  %.sroa.4.16..sroa_idx.i.i.i.i.i.i124 = getelementptr inbounds nuw i8, ptr %182, i64 61
+  store i8 0, ptr %.sroa.4.16..sroa_idx.i.i.i.i.i.i124, align 1
   %186 = getelementptr inbounds nuw i8, ptr %182, i64 48
   store i64 5, ptr %186, align 8, !tbaa !43
   %187 = getelementptr inbounds nuw i8, ptr %182, i64 72
@@ -4048,8 +4048,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_120TransformActionStripESt14default_deleteIS1_EE
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 56
   store ptr %222, ptr %221, align 8, !tbaa !42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %222, ptr noundef nonnull align 8 dereferenceable(11) @.str.20, i64 11, i1 false)
-  %.sroa.2.16..sroa_idx.i.i.i.i.i.i.i150 = getelementptr inbounds nuw i8, ptr %219, i64 67
-  store i8 0, ptr %.sroa.2.16..sroa_idx.i.i.i.i.i.i.i150, align 1
+  %.sroa.4.16..sroa_idx.i.i.i.i.i.i150 = getelementptr inbounds nuw i8, ptr %219, i64 67
+  store i8 0, ptr %.sroa.4.16..sroa_idx.i.i.i.i.i.i150, align 1
   %223 = getelementptr inbounds nuw i8, ptr %219, i64 48
   store i64 11, ptr %223, align 8, !tbaa !43
   %224 = getelementptr inbounds nuw i8, ptr %219, i64 72

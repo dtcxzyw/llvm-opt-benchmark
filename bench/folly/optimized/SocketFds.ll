@@ -650,42 +650,42 @@ define void @_ZN5folly9SocketFds22releaseToSendAndSeqNumEv(ptr dead_on_unwind no
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrISt7variantIJSt4pairISt6vectorIN5folly4FileESaIS4_EElES1_IS2_ISt10shared_ptrIKS4_ESaISA_EElEEESt14default_deleteISE_EE5resetEPSE_.exit, label %7
 
-7:                                                ; preds = %2
+12:                                               ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load i8, ptr %8, align 8, !tbaa !12
   %10 = icmp eq i8 %9, 1
   br i1 %10, label %_ZSt6get_ifISt4pairISt6vectorISt10shared_ptrIKN5folly4FileEESaIS6_EElEJS0_IS1_IS4_SaIS4_EElES9_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit, label %11
 
-11:                                               ; preds = %7
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str, i32 noundef 62, i32 noundef 1)
+  call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull @.str, i32 noundef 62, i32 noundef 1)
   %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %13 unwind label %23
 
-13:                                               ; preds = %11
+14:                                               ; preds = %11
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.6, i64 noundef 45)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %23
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %13
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit:; preds = %14
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %15 = load ptr, ptr %1, align 8, !tbaa !7
   store ptr null, ptr %1, align 8, !tbaa !7
-  %.not.i.i12 = icmp eq ptr %15, null
-  br i1 %.not.i.i12, label %_ZNSt10unique_ptrISt7variantIJSt4pairISt6vectorIN5folly4FileESaIS4_EElES1_IS2_ISt10shared_ptrIKS4_ESaISA_EElEEESt14default_deleteISE_EE5resetEPSE_.exit, label %16
+  %.not.i.i4 = icmp eq ptr %15, null
+  br i1 %.not.i.i4, label %_ZNSt10unique_ptrISt7variantIJSt4pairISt6vectorIN5folly4FileESaIS4_EElES1_IS2_ISt10shared_ptrIKS4_ESaISA_EElEEESt14default_deleteISE_EE5resetEPSE_.exit, label %24
 
-16:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %18 = load i8, ptr %17, align 8, !tbaa !12
-  %.not.i.i.i.i.i13 = icmp eq i8 %18, -1
-  br i1 %.not.i.i.i.i.i13, label %_ZNKSt14default_deleteISt7variantIJSt4pairISt6vectorIN5folly4FileESaIS4_EElES1_IS2_ISt10shared_ptrIKS4_ESaISA_EElEEEEclEPSE_.exit.i.i15, label %19, !prof !14
+24:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %26 = load i8, ptr %112, align 8, !tbaa !12
+  %.not.i.i.i.i.i = icmp eq i8 %26, -1
+  br i1 %.not.i.i.i.i.i, label %_ZNKSt14default_deleteISt7variantIJSt4pairISt6vectorIN5folly4FileESaIS4_EElES1_IS2_ISt10shared_ptrIKS4_ESaISA_EElEEEEclEPSE_.exit.i.i15, label %27, !prof !14
 
-19:                                               ; preds = %16
+27:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt4pairISt6vectorIN5folly4FileESaIS6_EElES3_IS4_ISt10shared_ptrIKS6_ESaISC_EElEEE8_M_resetEvEUlOT_E_JRSt7variantIJS9_SF_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(33) %15)
           to label %.noexc.i.i.i.i14 unwind label %20
 
-.noexc.i.i.i.i14:                                 ; preds = %19
+.noexc.i.i.i.i:                                   ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNKSt14default_deleteISt7variantIJSt4pairISt6vectorIN5folly4FileESaIS4_EElES1_IS2_ISt10shared_ptrIKS4_ESaISA_EElEEEEclEPSE_.exit.i.i15
 
@@ -736,11 +736,11 @@ _ZSt6get_ifISt4pairISt6vectorISt10shared_ptrIKN5folly4FileEESaIS6_EElEJS0_IS1_IS
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNKSt14default_deleteISt7variantIJSt4pairISt6vectorIN5folly4FileESaIS4_EElES1_IS2_ISt10shared_ptrIKS4_ESaISA_EElEEEEclEPSE_.exit.i.i
 
-37:                                               ; preds = %36
-  %38 = landingpad { ptr, i32 }
+312:                                               ; preds = %36
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #17
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #17
   unreachable
 
 _ZNKSt14default_deleteISt7variantIJSt4pairISt6vectorIN5folly4FileESaIS4_EElES1_IS2_ISt10shared_ptrIKS4_ESaISA_EElEEEEclEPSE_.exit.i.i: ; preds = %.noexc.i.i.i.i, %33
@@ -749,18 +749,18 @@ _ZNKSt14default_deleteISt7variantIJSt4pairISt6vectorIN5folly4FileESaIS4_EElES1_I
 
 _ZNSt4pairISt6vectorISt10shared_ptrIKN5folly4FileEESaIS5_EElED2Ev.exit: ; preds = %_ZSt6get_ifISt4pairISt6vectorISt10shared_ptrIKN5folly4FileEESaIS6_EElEJS0_IS1_IS4_SaIS4_EElES9_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit, %_ZNKSt14default_deleteISt7variantIJSt4pairISt6vectorIN5folly4FileESaIS4_EElES1_IS2_ISt10shared_ptrIKS4_ESaISA_EElEEEEclEPSE_.exit.i.i
   store ptr %25, ptr %0, align 8, !tbaa !22
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %27, ptr %40, align 8, !tbaa !19
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %29, ptr %41, align 8, !tbaa !23
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %31, ptr %42, align 8, !tbaa !35
-  br label %_ZNSt10unique_ptrISt7variantIJSt4pairISt6vectorIN5folly4FileESaIS4_EElES1_IS2_ISt10shared_ptrIKS4_ESaISA_EElEEESt14default_deleteISE_EE5resetEPSE_.exit
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %212, ptr %31, align 8, !tbaa !19
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %29, ptr %32, align 8, !tbaa !23
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %31, ptr %33, align 8, !tbaa !35
+  br label %34
 
-_ZNSt10unique_ptrISt7variantIJSt4pairISt6vectorIN5folly4FileESaIS4_EElES1_IS2_ISt10shared_ptrIKS4_ESaISA_EElEEESt14default_deleteISE_EE5resetEPSE_.exit: ; preds = %_ZNKSt14default_deleteISt7variantIJSt4pairISt6vectorIN5folly4FileESaIS4_EElES1_IS2_ISt10shared_ptrIKS4_ESaISA_EElEEEEclEPSE_.exit.i.i15, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %2, %_ZNSt4pairISt6vectorISt10shared_ptrIKN5folly4FileEESaIS5_EElED2Ev.exit
+34:                                               ; preds = %_ZNKSt14default_deleteISt7variantIJSt4pairISt6vectorIN5folly4FileESaIS4_EElES1_IS2_ISt10shared_ptrIKS4_ESaISA_EElEEEEclEPSE_.exit.i.i15, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %2, %_ZNSt4pairISt6vectorISt10shared_ptrIKN5folly4FileEESaIS5_EElED2Ev.exit
   %.sink = phi i8 [ 1, %_ZNSt4pairISt6vectorISt10shared_ptrIKN5folly4FileEESaIS5_EElED2Ev.exit ], [ 0, %2 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ], [ 0, %_ZNKSt14default_deleteISt7variantIJSt4pairISt6vectorIN5folly4FileESaIS4_EElES1_IS2_ISt10shared_ptrIKS4_ESaISA_EElEEEEclEPSE_.exit.i.i15 ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sink, ptr %43, align 8, !tbaa !63
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %.sink, ptr %35, align 8, !tbaa !63
   ret void
 }
 

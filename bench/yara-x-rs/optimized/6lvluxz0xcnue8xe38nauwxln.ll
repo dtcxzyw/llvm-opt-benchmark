@@ -22702,153 +22702,153 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9externals6global6Global3set17hd9
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %10, label %12, !prof !74
 
-9:                                                ; preds = %18
+8:                                                ; preds = %22
   resume { ptr, i32 } %19
 
 10:                                               ; preds = %3
   %11 = invoke noundef ptr @_ZN8wasmtime7runtime6values3Val17ensure_matches_ty17h5d8025859d9750e5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5)
-          to label %20 unwind label %18
+          to label %20 unwind label %22
 
-12:                                               ; preds = %3
+16:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.50173b3802231cb0b0223069ffbbcabd.516, ptr %4, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 0, ptr %16, align 8
-  %17 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h04f558eb6eb53e03E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %4)
-          to label %60 unwind label %18
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 0, ptr %20, align 8
+  %21 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h04f558eb6eb53e03E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %4)
+          to label %60 unwind label %22
 
-18:                                               ; preds = %.invoke30, %.invoke, %51, %23, %20, %12, %10
-  %19 = landingpad { ptr, i32 }
+22:                                               ; preds = %.invoke30, %.invoke, %55, %27, %24, %16, %10
+  %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$wasmtime..runtime..types..GlobalType$GT$17h7796650035b09f4bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %5) #51
-          to label %9 unwind label %61
+          to label %9 unwind label %67
 
-20:                                               ; preds = %10
-  %21 = invoke noundef ptr @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$7context17hcf0c36c8b5818cf5E"(ptr noundef %11, ptr noalias noundef nonnull readonly align 1 @anon.50173b3802231cb0b0223069ffbbcabd.511, i64 noundef 59)
-          to label %22 unwind label %18
+24:                                               ; preds = %10
+  %25 = invoke noundef ptr @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$7context17hcf0c36c8b5818cf5E"(ptr noundef %11, ptr noalias noundef nonnull readonly align 1 @anon.50173b3802231cb0b0223069ffbbcabd.511, i64 noundef 59)
+          to label %22 unwind label %22
 
-22:                                               ; preds = %20
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %23, label %"_ZN4core3ptr61drop_in_place$LT$wasmtime..runtime..store..AutoAssertNoGc$GT$17he849e68bb49afdc0E.exit21"
+26:                                               ; preds = %24
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %27, label %"_ZN4core3ptr61drop_in_place$LT$wasmtime..runtime..store..AutoAssertNoGc$GT$17he849e68bb49afdc0E.exit21"
 
-23:                                               ; preds = %22
-  %24 = invoke noundef nonnull ptr @_ZN8wasmtime7runtime9externals6global6Global10definition17h4013deb85219afe4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1)
-          to label %25 unwind label %18
+27:                                               ; preds = %26
+  %28 = invoke noundef nonnull ptr @_ZN8wasmtime7runtime9externals6global6Global10definition17h4013deb85219afe4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1)
+          to label %25 unwind label %22
 
-25:                                               ; preds = %23
-  %26 = load i8, ptr %2, align 8, !range !3325, !noundef !4
-  switch i8 %26, label %default.unreachable [
-    i8 0, label %27
-    i8 1, label %30
-    i8 2, label %33
-    i8 3, label %36
-    i8 4, label %39
-    i8 5, label %41
-    i8 6, label %52
-    i8 7, label %55
+29:                                               ; preds = %27
+  %30 = load i8, ptr %2, align 8, !range !3325, !noundef !4
+  switch i8 %30, label %default.unreachable [
+    i8 0, label %31
+    i8 1, label %34
+    i8 2, label %37
+    i8 3, label %40
+    i8 4, label %43
+    i8 5, label %45
+    i8 6, label %56
+    i8 7, label %59
   ]
 
-default.unreachable:                              ; preds = %25
+default.unreachable29:                            ; preds = %29
   unreachable
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %29 = load i32, ptr %28, align 4, !noundef !4
-  store i32 %29, ptr %24, align 4
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %33 = load i32, ptr %32, align 4, !noundef !4
+  store i32 %33, ptr %28, align 4
   br label %"_ZN4core3ptr61drop_in_place$LT$wasmtime..runtime..store..AutoAssertNoGc$GT$17he849e68bb49afdc0E.exit21"
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %32 = load i64, ptr %31, align 8, !noundef !4
-  store i64 %32, ptr %24, align 8
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %36 = load i64, ptr %35, align 8, !noundef !4
+  store i64 %36, ptr %28, align 8
   br label %"_ZN4core3ptr61drop_in_place$LT$wasmtime..runtime..store..AutoAssertNoGc$GT$17he849e68bb49afdc0E.exit21"
 
-33:                                               ; preds = %25
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %35 = load i32, ptr %34, align 4, !noundef !4
-  store i32 %35, ptr %24, align 4
+37:                                               ; preds = %29
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %39 = load i32, ptr %38, align 4, !noundef !4
+  store i32 %39, ptr %28, align 4
   br label %"_ZN4core3ptr61drop_in_place$LT$wasmtime..runtime..store..AutoAssertNoGc$GT$17he849e68bb49afdc0E.exit21"
 
-36:                                               ; preds = %25
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %38 = load i64, ptr %37, align 8, !noundef !4
-  store i64 %38, ptr %24, align 8
+40:                                               ; preds = %29
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %42 = load i64, ptr %41, align 8, !noundef !4
+  store i64 %42, ptr %28, align 8
   br label %"_ZN4core3ptr61drop_in_place$LT$wasmtime..runtime..store..AutoAssertNoGc$GT$17he849e68bb49afdc0E.exit21"
 
-39:                                               ; preds = %25
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %.sroa.06.0.copyload = load i128, ptr %40, align 1
-  store i128 %.sroa.06.0.copyload, ptr %24, align 16
+43:                                               ; preds = %29
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %.sroa.06.0.copyload = load i128, ptr %44, align 1
+  store i128 %.sroa.06.0.copyload, ptr %28, align 16
   br label %"_ZN4core3ptr61drop_in_place$LT$wasmtime..runtime..store..AutoAssertNoGc$GT$17he849e68bb49afdc0E.exit21"
 
-41:                                               ; preds = %25
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %43 = load i64, ptr %42, align 8, !noundef !4
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %.not.i = icmp eq i64 %43, 0
-  br i1 %.not.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hbcea7c0953b5ffb8E.exit", label %46
+45:                                               ; preds = %29
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %47 = load i64, ptr %46, align 8, !noundef !4
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %.not.i = icmp eq i64 %47, 0
+  br i1 %.not.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hbcea7c0953b5ffb8E.exit", label %50
 
-46:                                               ; preds = %41
-  %47 = icmp ne ptr %45, null
-  call void @llvm.assume(i1 %47)
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  %49 = load i64, ptr %48, align 8, !range !2090, !noundef !4
-  %50 = icmp eq i64 %43, %49
-  br i1 %50, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hbcea7c0953b5ffb8E.exit", label %51, !prof !74
+50:                                               ; preds = %45
+  %51 = icmp ne ptr %49, null
+  call void @llvm.assume(i1 %51)
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 352
+  %53 = load i64, ptr %52, align 8, !range !2090, !noundef !4
+  %54 = icmp eq i64 %47, %53
+  br i1 %54, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hbcea7c0953b5ffb8E.exit", label %55, !prof !74
 
-51:                                               ; preds = %46
+55:                                               ; preds = %50
   invoke void @_ZN8wasmtime7runtime5store4data17store_id_mismatch17hf4b303c7ecb8cd55E()
-          to label %"_ZN4core6option15Option$LT$T$GT$6map_or17hbcea7c0953b5ffb8E.exit" unwind label %18
+          to label %"_ZN4core6option15Option$LT$T$GT$6map_or17hbcea7c0953b5ffb8E.exit" unwind label %22
 
-52:                                               ; preds = %25
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %54 = load i64, ptr %53, align 8, !range !5, !noundef !4
-  %.not9 = icmp eq i64 %54, -9223372036854775808
+56:                                               ; preds = %29
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %58 = load i64, ptr %57, align 8, !range !5, !noundef !4
+  %.not9 = icmp eq i64 %58, -9223372036854775808
   br i1 %.not9, label %.invoke, label %.invoke30, !prof !6
 
-55:                                               ; preds = %25
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %57 = load i64, ptr %56, align 8, !range !5, !noundef !4
-  %.not8 = icmp eq i64 %57, -9223372036854775808
+59:                                               ; preds = %29
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %61 = load i64, ptr %60, align 8, !range !5, !noundef !4
+  %.not8 = icmp eq i64 %61, -9223372036854775808
   br i1 %.not8, label %.invoke, label %.invoke30, !prof !6
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hbcea7c0953b5ffb8E.exit": ; preds = %46, %41, %51
+"_ZN4core6option15Option$LT$T$GT$6map_or17hbcea7c0953b5ffb8E.exit":; preds = %50, %41, %51
   %.sroa.02.0.i = phi ptr [ null, %41 ], [ %45, %46 ], [ %45, %51 ]
   store ptr %.sroa.02.0.i, ptr %24, align 8
   br label %"_ZN4core3ptr61drop_in_place$LT$wasmtime..runtime..store..AutoAssertNoGc$GT$17he849e68bb49afdc0E.exit21"
 
-.invoke30:                                        ; preds = %55, %52
-  %58 = phi ptr [ %53, %52 ], [ %56, %55 ]
-  invoke void @_ZN8wasmtime7runtime2vm9vmcontext18VMGlobalDefinition12write_gc_ref17h5dd49183bec7e8caE(ptr noalias noundef nonnull align 16 dereferenceable(16) %24, ptr noalias noundef nonnull align 8 dereferenceable(128) %58, ptr noalias noundef readonly align 4 dereferenceable_or_null(4) null)
-          to label %"_ZN4core3ptr61drop_in_place$LT$wasmtime..runtime..store..AutoAssertNoGc$GT$17he849e68bb49afdc0E.exit21" unwind label %18
+.invoke30:                                        ; preds = %59, %56
+  %63 = phi ptr [ %57, %52 ], [ %60, %55 ]
+  invoke void @_ZN8wasmtime7runtime2vm9vmcontext18VMGlobalDefinition12write_gc_ref17h5dd49183bec7e8caE(ptr noalias noundef nonnull align 16 dereferenceable(16) %28, ptr noalias noundef nonnull align 8 dereferenceable(128) %63, ptr noalias noundef readonly align 4 dereferenceable_or_null(4) null)
+          to label %"_ZN4core3ptr61drop_in_place$LT$wasmtime..runtime..store..AutoAssertNoGc$GT$17he849e68bb49afdc0E.exit21" unwind label %22
 
-.invoke:                                          ; preds = %55, %52
-  %59 = phi ptr [ @anon.50173b3802231cb0b0223069ffbbcabd.513, %52 ], [ @anon.50173b3802231cb0b0223069ffbbcabd.514, %55 ]
-  invoke void @_ZN4core6option13expect_failed17hfe7afbd436ce9c45E(ptr noalias noundef nonnull readonly align 1 @anon.50173b3802231cb0b0223069ffbbcabd.477, i64 noundef 68, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %59) #50
-          to label %.cont unwind label %18
+.invoke:                                          ; preds = %59, %56
+  %64 = phi ptr [ @anon.50173b3802231cb0b0223069ffbbcabd.513, %52 ], [ @anon.50173b3802231cb0b0223069ffbbcabd.514, %55 ]
+  invoke void @_ZN4core6option13expect_failed17hfe7afbd436ce9c45E(ptr noalias noundef nonnull readonly align 1 @anon.50173b3802231cb0b0223069ffbbcabd.477, i64 noundef 68, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64) #50
+          to label %.cont unwind label %22
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-"_ZN4core3ptr61drop_in_place$LT$wasmtime..runtime..store..AutoAssertNoGc$GT$17he849e68bb49afdc0E.exit21": ; preds = %27, %30, %33, %36, %39, %"_ZN4core6option15Option$LT$T$GT$6map_or17hbcea7c0953b5ffb8E.exit", %.invoke30, %60, %22
+"_ZN4core3ptr61drop_in_place$LT$wasmtime..runtime..store..AutoAssertNoGc$GT$17he849e68bb49afdc0E.exit21": ; preds = %27, %30, %33, %36, %39, %62, %.invoke30, %65, %22
   %.sroa.0.1 = phi ptr [ %21, %22 ], [ %17, %60 ], [ null, %.invoke30 ], [ null, %"_ZN4core6option15Option$LT$T$GT$6map_or17hbcea7c0953b5ffb8E.exit" ], [ null, %39 ], [ null, %36 ], [ null, %33 ], [ null, %30 ], [ null, %27 ]
   call void @"_ZN4core3ptr57drop_in_place$LT$wasmtime..runtime..types..GlobalType$GT$17h7796650035b09f4bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.0.1
 
-60:                                               ; preds = %12
+65:                                               ; preds = %12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZN4core3ptr61drop_in_place$LT$wasmtime..runtime..store..AutoAssertNoGc$GT$17he849e68bb49afdc0E.exit21"
 
-61:                                               ; preds = %18
-  %62 = landingpad { ptr, i32 }
+67:                                               ; preds = %22
+  %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #53
   unreachable

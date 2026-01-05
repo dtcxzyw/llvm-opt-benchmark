@@ -2557,7 +2557,7 @@ define i32 @ff_write_chained(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %29 = load i64, ptr %27, align 8
   tail call void @av_packet_rescale_ts(ptr noundef %2, i64 %28, i64 %29) #13
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %30, label %52
+  br i1 %.not, label %30, label %32
 
 30:                                               ; preds = %5
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -2612,17 +2612,17 @@ av_write_frame.exit:                              ; preds = %36, %51
   store i64 %15, ptr %14, align 8
   br label %av_interleaved_write_frame.exit
 
-52:                                               ; preds = %5
-  %53 = tail call fastcc i32 @write_packets_common(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1)
-  %54 = icmp slt i32 %53, 0
-  br i1 %54, label %55, label %av_interleaved_write_frame.exit
+32:                                               ; preds = %5
+  %33 = tail call fastcc i32 @write_packets_common(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1)
+  %34 = icmp slt i32 %33, 0
+  br i1 %34, label %35, label %av_interleaved_write_frame.exit
 
-55:                                               ; preds = %52
+35:                                               ; preds = %32
   tail call void @av_packet_unref(ptr noundef nonnull %2) #13
   br label %av_interleaved_write_frame.exit
 
-av_interleaved_write_frame.exit:                  ; preds = %55, %52, %av_write_frame.exit
-  %.0 = phi i32 [ %.032.i, %av_write_frame.exit ], [ %53, %52 ], [ %53, %55 ]
+av_interleaved_write_frame.exit:                  ; preds = %35, %32, %av_write_frame.exit
+  %.0 = phi i32 [ %.032.i, %av_write_frame.exit ], [ %33, %52 ], [ %33, %55 ]
   ret i32 %.0
 }
 

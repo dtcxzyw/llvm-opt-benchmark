@@ -1613,29 +1613,29 @@ define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %update_synced_slots_inactive_since.exit
 
-48:                                               ; preds = %.loopexit
+48:   ; preds = %.loopexit
   %49 = load ptr, ptr @MainLWLockArray, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4736
   %51 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %50, i32 noundef 1) #14
-  %52 = load i32, ptr @max_replication_slots, align 4
-  %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %.lr.ph.preheader.i, label %._crit_edge.i
+  %1 = load i32, ptr @max_replication_slots, align 4
+  %53 = icmp sgt i32 %1, 0
+  br i1 %53, label %3, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %48
-  %.pre11.i = load ptr, ptr @ReplicationSlotCtl, align 8
+3:                                                ; preds = %48
+  %4 = load ptr, ptr @ReplicationSlotCtl, align 8
   br label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %79, %48
+._crit_edge.i:; preds = %34, %48
   %54 = load ptr, ptr @MainLWLockArray, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4736
   tail call void @LWLockRelease(ptr noundef nonnull %55) #14
-  br label %update_synced_slots_inactive_since.exit
+  br label %39
 
-.lr.ph.i:                                         ; preds = %79, %.lr.ph.preheader.i
+.lr.ph.i:; preds = %79, %.lr.ph.preheader.i
   %56 = phi i32 [ %52, %.lr.ph.preheader.i ], [ %80, %79 ]
-  %57 = phi ptr [ %.pre11.i, %.lr.ph.preheader.i ], [ %81, %79 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %79 ]
-  %.09.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %79 ]
+  %57 = phi ptr [ %4, %.lr.ph.preheader.i ], [ %36, %79 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next, %79 ]
+  %.09.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %.1, %79 ]
   %58 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %57, i64 %indvars.iv.i
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %60 = load i8, ptr %59, align 1, !range !4, !noundef !5
@@ -1662,38 +1662,38 @@ define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
   %.not.i.i = icmp eq i8 %70, 0
   br i1 %.not.i.i, label %73, label %71
 
-71:                                               ; preds = %69
+.lr.ph:                                           ; preds = %69
   %72 = tail call i32 @s_lock(ptr noundef nonnull %58, ptr noundef nonnull @.str.44, i32 noundef 239, ptr noundef nonnull @__func__.ReplicationSlotSetInactiveSince) #14
   br label %73
 
-73:                                               ; preds = %71, %69
-  %74 = getelementptr inbounds nuw i8, ptr %58, i64 112
-  %75 = load i32, ptr %74, align 8
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %ReplicationSlotSetInactiveSince.exit.i
+28:                                               ; preds = %71, %69
+  %29 = getelementptr inbounds nuw i8, ptr %58, i64 112
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %ReplicationSlotSetInactiveSince.exit
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %58, i64 272
-  store i64 %.2.i, ptr %78, align 8
-  br label %ReplicationSlotSetInactiveSince.exit.i
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %58, i64 272
+  store i64 %.2.i, ptr %33, align 8
+  br label %ReplicationSlotSetInactiveSince.exit
 
-ReplicationSlotSetInactiveSince.exit.i:           ; preds = %77, %73
+ReplicationSlotSetInactiveSince.exit:             ; preds = %32, %73
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !25
   store i8 0, ptr %58, align 8
-  %.pre.i = load ptr, ptr @ReplicationSlotCtl, align 8
-  %.pre12.i = load i32, ptr @max_replication_slots, align 4
-  br label %79
+  %.pre = load ptr, ptr @ReplicationSlotCtl, align 8
+  %.pre12 = load i32, ptr @max_replication_slots, align 4
+  br label %34
 
-79:                                               ; preds = %ReplicationSlotSetInactiveSince.exit.i, %62, %.lr.ph.i
-  %80 = phi i32 [ %.pre12.i, %ReplicationSlotSetInactiveSince.exit.i ], [ %56, %62 ], [ %56, %.lr.ph.i ]
-  %81 = phi ptr [ %.pre.i, %ReplicationSlotSetInactiveSince.exit.i ], [ %57, %62 ], [ %57, %.lr.ph.i ]
-  %.1.i = phi i64 [ %.2.i, %ReplicationSlotSetInactiveSince.exit.i ], [ %.09.i, %62 ], [ %.09.i, %.lr.ph.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %82 = sext i32 %80 to i64
-  %83 = icmp slt i64 %indvars.iv.next.i, %82
-  br i1 %83, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !26
+34:                                               ; preds = %ReplicationSlotSetInactiveSince.exit, %62, %.lr.ph.i
+  %35 = phi i32 [ %.pre12, %ReplicationSlotSetInactiveSince.exit.i ], [ %56, %62 ], [ %56, %.lr.ph.i ]
+  %36 = phi ptr [ %.pre, %ReplicationSlotSetInactiveSince.exit.i ], [ %57, %62 ], [ %57, %.lr.ph.i ]
+  %.1 = phi i64 [ %.2.i, %ReplicationSlotSetInactiveSince.exit.i ], [ %.09.i, %62 ], [ %.09.i, %.lr.ph.i ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv.i, 1
+  %37 = sext i32 %35 to i64
+  %38 = icmp slt i64 %indvars.iv.next, %37
+  br i1 %38, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !26
 
-update_synced_slots_inactive_since.exit:          ; preds = %.loopexit, %._crit_edge.i
+39:                                               ; preds = %.loopexit, %._crit_edge.i
   ret void
 }
 

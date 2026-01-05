@@ -215,7 +215,7 @@ define hidden { i64, i64 } @_ZN4core5slice5index5range17hefdbf60f009c6e03E(i64 n
   br i1 %7, label %12, label %9
 
 8:                                                ; preds = %4
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17h375f84510c422e93E(i64 noundef %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #12
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17h375f84510c422e93E(i64 noundef %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #13
   unreachable
 
 9:                                                ; preds = %6
@@ -224,7 +224,7 @@ define hidden { i64, i64 } @_ZN4core5slice5index5range17hefdbf60f009c6e03E(i64 n
   ret { i64, i64 } %11
 
 12:                                               ; preds = %6
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #12
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #13
   unreachable
 }
 
@@ -292,7 +292,7 @@ define noundef zeroext i1 @"_ZN49_$LT$ropey..Error$u20$as$u20$core..fmt..Debug$G
     i64 9, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i146
   ]
 
-default.unreachable:                              ; preds = %2
+default.unreachable206:                           ; preds = %2
   unreachable
 
 _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit: ; preds = %2
@@ -590,7 +590,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i140: ;
   %115 = getelementptr inbounds nuw i8, ptr %.val75, i64 24
   %116 = load ptr, ptr %115, align 8, !invariant.load !4, !noalias !41, !nonnull !4
   %117 = tail call noundef zeroext i1 %116(ptr noundef nonnull align 1 %.val74, ptr noalias noundef nonnull readonly align 1 @anon.e942f5b93070d75cb2a7dc08a9bb38ac.31, i64 noundef 37), !noalias !41
-  br i1 %117, label %139, label %136
+  br i1 %117, label %144, label %136
 
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i146: ; preds = %2
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -612,9 +612,9 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i146: ;
   %130 = getelementptr inbounds nuw i8, ptr %.val73, i64 24
   %131 = load ptr, ptr %130, align 8, !invariant.load !4, !noalias !44, !nonnull !4
   %132 = tail call noundef zeroext i1 %131(ptr noundef nonnull align 1 %.val72, ptr noalias noundef nonnull readonly align 1 @anon.e942f5b93070d75cb2a7dc08a9bb38ac.34, i64 noundef 37), !noalias !44
-  br i1 %132, label %143, label %140
+  br i1 %132, label %153, label %145
 
-133:                                              ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i122, %143, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit213, %139, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit207, %134, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit139, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit133, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit121, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit115, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit109, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit103, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit
+133:                                              ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i122, %153, %147, %144, %138, %134, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit139, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit133, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit121, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit115, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit109, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit103, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit
   %.sroa.0.0.shrunk = phi i1 [ %44, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit ], [ %52, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit103 ], [ %60, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit109 ], [ %68, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit115 ], [ %73, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit121 ], [ %135, %134 ], [ true, %143 ], [ %94, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit133 ], [ %102, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit139 ], [ %138, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit207 ], [ true, %139 ], [ %142, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit213 ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i122 ]
   ret i1 %.sroa.0.0.shrunk
 
@@ -624,9 +624,9 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i146: ;
 
 136:                                              ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i140
   %137 = tail call fastcc noundef zeroext i1 @_ZN5ropey11write_range17h803d94c75b0df3caE(ptr nonnull %.val74, ptr nonnull %.val75, i64 noundef %104, i64 %106, i64 noundef %108, i64 %110)
-  br i1 %137, label %139, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit207
+  br i1 %137, label %144, label %138
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit207: ; preds = %136
+138:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %15, ptr %14, align 8
   %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -647,15 +647,15 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit207: ; preds = %136
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %133
 
-139:                                              ; preds = %136, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i140
+144:                                              ; preds = %136, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i140
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %133
 
-140:                                              ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i146
-  %141 = tail call fastcc noundef zeroext i1 @_ZN5ropey11write_range17h803d94c75b0df3caE(ptr nonnull %.val72, ptr nonnull %.val73, i64 noundef %119, i64 %121, i64 noundef %123, i64 %125)
-  br i1 %141, label %143, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit213
+145:                                              ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i146
+  %146 = tail call fastcc noundef zeroext i1 @_ZN5ropey11write_range17h803d94c75b0df3caE(ptr nonnull %.val72, ptr nonnull %.val73, i64 noundef %119, i64 %121, i64 noundef %123, i64 %125)
+  br i1 %146, label %153, label %147
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit213: ; preds = %140
+147:                                              ; preds = %145
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8
   %.sroa.464.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -676,7 +676,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit213: ; preds = %140
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %133
 
-143:                                              ; preds = %140, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i146
+153:                                              ; preds = %145, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i146
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %133
 }
@@ -828,10 +828,10 @@ declare noundef zeroext i1 @"_ZN4core3fmt3num55_$LT$impl$u20$core..fmt..LowerHex
 declare noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #7
+declare void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #8
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core5slice5index22slice_index_order_fail17h375f84510c422e93E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #7
+declare void @_ZN4core5slice5index22slice_index_order_fail17h375f84510c422e93E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #8
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h294e1b58bad7a5d3E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
@@ -840,22 +840,22 @@ declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$
 declare noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hb497ec438bfc9fb1E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #10
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #10
+declare i64 @llvm.umin.i64(i64, i64) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -866,7 +866,7 @@ attributes #5 = { inlinehint mustprogress nofree norecurse nosync nounwind nonla
 attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
 attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #12 = { noreturn }
