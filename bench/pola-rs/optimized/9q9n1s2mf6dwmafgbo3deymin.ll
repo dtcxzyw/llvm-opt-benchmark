@@ -9979,7 +9979,7 @@ define hidden void @"_ZN134_$LT$polars_arrow..array..list..builder..ListArrayBui
 
 .lr.ph26.split.us:                                ; preds = %.lr.ph26, %._crit_edge.us
   %.sroa.02.024.us = phi i64 [ %35, %._crit_edge.us ], [ %2, %.lr.ph26 ]
-  %35 = add i64 %.sroa.02.024.us, 1
+  %35 = add nuw i64 %.sroa.02.024.us, 1
   %36 = load i64, ptr %12, align 8, !noundef !3
   %37 = icmp ult i64 %.sroa.02.024.us, %36
   br i1 %37, label %38, label %.split.us
@@ -10059,7 +10059,7 @@ define hidden void @"_ZN134_$LT$polars_arrow..array..list..builder..ListArrayBui
 
 70:                                               ; preds = %.lr.ph26.split, %76
   %.sroa.02.024 = phi i64 [ %2, %.lr.ph26.split ], [ %71, %76 ]
-  %71 = add i64 %.sroa.02.024, 1
+  %71 = add nuw i64 %.sroa.02.024, 1
   %72 = load i64, ptr %12, align 8, !noundef !3
   %73 = icmp ult i64 %.sroa.02.024, %72
   br i1 %73, label %74, label %.split.us

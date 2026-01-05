@@ -10718,7 +10718,6 @@ for.body.i.preheader.i.split:                     ; preds = %for.cond.cleanup.i
 for.body.i.i.preheader:                           ; preds = %for.body.i.preheader.i.split
   %54 = sext i16 %cropped.sroa.11.0 to i32
   %55 = add nsw i16 %41, 1
-  %wide.trip.count74 = sext i16 %55 to i32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.inc33.i.i.loopexit
@@ -10902,7 +10901,8 @@ for.inc28.i.i:                                    ; preds = %"_ZZN13ModApiEnvBas
 
 for.inc33.i.i.loopexit:                           ; preds = %for.inc28.i.i
   %indvars.iv.next72 = add nsw i32 %indvars.iv71, 1
-  %exitcond75 = icmp eq i32 %indvars.iv.next72, %wide.trip.count74
+  %lftr.wideiv74 = trunc i32 %indvars.iv.next72 to i16
+  %exitcond75 = icmp eq i16 %55, %lftr.wideiv74
   br i1 %exitcond75, label %invoke.cont7.loopexit.i.loopexit122, label %for.body.i.i, !llvm.loop !385
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -11067,7 +11067,6 @@ for.body.i140.i.preheader.split:                  ; preds = %invoke.cont29.i
 for.body.i140.i.preheader:                        ; preds = %for.body.i140.i.preheader.split
   %92 = sext i16 %cropped.sroa.11.0 to i32
   %93 = add nsw i16 %41, 1
-  %wide.trip.count = sext i16 %93 to i32
   br label %for.body.i140.i
 
 for.body.i140.i:                                  ; preds = %for.body.i140.i.preheader, %for.inc33.i208.i.loopexit
@@ -11262,7 +11261,8 @@ for.inc28.i204.i:                                 ; preds = %"_ZZN13ModApiEnvBas
 
 for.inc33.i208.i.loopexit:                        ; preds = %for.inc28.i204.i
   %indvars.iv.next = add nsw i32 %indvars.iv, 1
-  %exitcond = icmp eq i32 %indvars.iv.next, %wide.trip.count
+  %lftr.wideiv = trunc i32 %indvars.iv.next to i16
+  %exitcond = icmp eq i16 %93, %lftr.wideiv
   br i1 %exitcond, label %invoke.cont33.i, label %for.body.i140.i, !llvm.loop !390
 
 invoke.cont33.i:                                  ; preds = %for.inc33.i208.i.loopexit, %invoke.cont29.i.invoke.cont33.i_crit_edge, %for.body.i140.i.preheader.split

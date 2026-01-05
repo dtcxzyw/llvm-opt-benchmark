@@ -141498,7 +141498,7 @@ _ZL20GetUniformRandomUpToPSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm1
           to label %379 unwind label %381
 
 379:                                              ; preds = %_ZL20GetUniformRandomUpToPSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm.exit121
-  %380 = add nuw i32 %.026307, 1
+  %380 = add nuw nsw i32 %.026307, 1
   %exitcond.not = icmp eq i32 %380, %120
   br i1 %exitcond.not, label %383, label %121, !llvm.loop !2291
 
