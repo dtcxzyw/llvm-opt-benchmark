@@ -27617,18 +27617,17 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass26compress_fragmen
   %55 = alloca [8 x i8], align 8
   %56 = load i64, ptr %12, align 8, !noundef !6
   %57 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %11, i1 false)
-  %58 = xor i64 %57, 63
-  switch i64 %58, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit [
-    i64 8, label %.preheader
-    i64 9, label %.preheader46
-    i64 10, label %.preheader48
-    i64 11, label %.preheader50
-    i64 12, label %.preheader52
-    i64 13, label %.preheader54
-    i64 14, label %.preheader56
-    i64 15, label %.preheader58
-    i64 16, label %.preheader60
-    i64 17, label %.preheader62
+  switch i64 %57, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit [
+    i64 55, label %.preheader
+    i64 54, label %.preheader46
+    i64 53, label %.preheader48
+    i64 52, label %.preheader50
+    i64 51, label %.preheader52
+    i64 50, label %.preheader54
+    i64 49, label %.preheader56
+    i64 48, label %.preheader58
+    i64 47, label %.preheader60
+    i64 46, label %.preheader62
   ]
 
 .preheader62:                                     ; preds = %15
@@ -27636,94 +27635,94 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass26compress_fragmen
   br i1 %.not.i3574, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader62
-  %59 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %60 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  br label %214
+  %58 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  br label %213
 
 .preheader60:                                     ; preds = %15
   %.not.i3177 = icmp eq i64 %3, 0
   br i1 %.not.i3177, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %.lr.ph80
 
 .lr.ph80:                                         ; preds = %.preheader60
-  %61 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %62 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  br label %199
+  %60 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  br label %198
 
 .preheader58:                                     ; preds = %15
   %.not.i2781 = icmp eq i64 %3, 0
   br i1 %.not.i2781, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.preheader58
-  %63 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %64 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  br label %184
+  %62 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  br label %183
 
 .preheader56:                                     ; preds = %15
   %.not.i2385 = icmp eq i64 %3, 0
   br i1 %.not.i2385, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %.preheader56
-  %65 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %66 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  br label %169
+  %64 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  br label %168
 
 .preheader54:                                     ; preds = %15
   %.not.i1989 = icmp eq i64 %3, 0
   br i1 %.not.i1989, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %.lr.ph92
 
 .lr.ph92:                                         ; preds = %.preheader54
-  %67 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %68 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  br label %154
+  %66 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  br label %153
 
 .preheader52:                                     ; preds = %15
   %.not.i1593 = icmp eq i64 %3, 0
   br i1 %.not.i1593, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %.lr.ph96
 
 .lr.ph96:                                         ; preds = %.preheader52
-  %69 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %70 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  br label %139
+  %68 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  br label %138
 
 .preheader50:                                     ; preds = %15
   %.not.i1197 = icmp eq i64 %3, 0
   br i1 %.not.i1197, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %.preheader50
-  %71 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %72 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  br label %124
+  %70 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  br label %123
 
 .preheader48:                                     ; preds = %15
   %.not.i7101 = icmp eq i64 %3, 0
   br i1 %.not.i7101, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %.preheader48
-  %73 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %74 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  br label %109
+  %72 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  br label %108
 
 .preheader46:                                     ; preds = %15
   %.not.i3105 = icmp eq i64 %3, 0
   br i1 %.not.i3105, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %.lr.ph108
 
 .lr.ph108:                                        ; preds = %.preheader46
-  %75 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %76 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %94
+  %74 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  br label %93
 
 .preheader:                                       ; preds = %15
   %.not.i109 = icmp eq i64 %3, 0
   br i1 %.not.i109, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %.preheader
-  %77 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %78 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  br label %79
+  %76 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  br label %78
 
-79:                                               ; preds = %.lr.ph112, %91
-  %.sroa.0.0.i111 = phi i64 [ %3, %.lr.ph112 ], [ %93, %91 ]
-  %.sroa.04.0.i110 = phi i64 [ 0, %.lr.ph112 ], [ %92, %91 ]
+78:                                               ; preds = %.lr.ph112, %90
+  %.sroa.0.0.i111 = phi i64 [ %3, %.lr.ph112 ], [ %92, %90 ]
+  %.sroa.04.0.i110 = phi i64 [ 0, %.lr.ph112 ], [ %91, %90 ]
   %.sroa.0.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.i111, i64 131072)
   call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !2208
   store i64 0, ptr %55, align 8, !noalias !2208
@@ -27731,50 +27730,50 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass26compress_fragmen
   store i64 0, ptr %54, align 8, !noalias !2208
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !2208
   store ptr %7, ptr %53, align 8, !noalias !2208
-  store i64 %8, ptr %77, align 8, !noalias !2208
+  store i64 %8, ptr %76, align 8, !noalias !2208
   call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !2208
   store ptr %5, ptr %52, align 8, !noalias !2208
-  store i64 %6, ptr %78, align 8, !noalias !2208
+  store i64 %6, ptr %77, align 8, !noalias !2208
   call void @_ZN6brotli3enc26compress_fragment_two_pass14CreateCommands17h3e1e16e1ca753121E(i64 noundef %.sroa.04.0.i110, i64 noundef %.sroa.0.0.sroa.speculated.i, i64 noundef %.sroa.0.0.i111, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 4 %9, i64 noundef %10, i64 noundef 8, i64 noundef 4, ptr noalias noundef nonnull align 8 dereferenceable(16) %53, ptr noalias noundef nonnull align 8 dereferenceable(8) %55, ptr noalias noundef nonnull align 8 dereferenceable(16) %52, ptr noalias noundef nonnull align 8 dereferenceable(8) %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !2208
   call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !2208
-  %80 = icmp ugt i64 %.sroa.04.0.i110, %2
-  br i1 %80, label %86, label %81, !prof !30
+  %79 = icmp ugt i64 %.sroa.04.0.i110, %2
+  br i1 %79, label %85, label %80, !prof !30
 
-81:                                               ; preds = %79
-  %82 = sub nuw i64 %2, %.sroa.04.0.i110
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i110
-  %84 = load i64, ptr %55, align 8, !noalias !2208, !noundef !6
-  %85 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %83, i64 noundef %82, i64 noundef %.sroa.0.0.sroa.speculated.i, i64 noundef %84)
-  br i1 %85, label %87, label %90
+80:                                               ; preds = %78
+  %81 = sub nuw i64 %2, %.sroa.04.0.i110
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i110
+  %83 = load i64, ptr %55, align 8, !noalias !2208, !noundef !6
+  %84 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %82, i64 noundef %81, i64 noundef %.sroa.0.0.sroa.speculated.i, i64 noundef %83)
+  br i1 %84, label %86, label %89
 
-86:                                               ; preds = %79
+85:                                               ; preds = %78
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.04.0.i110, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94be3f66b0d0d495ab4504c7f93134c8.263) #33
   unreachable
 
-87:                                               ; preds = %81
+86:                                               ; preds = %80
   call void @_ZN6brotli3enc26compress_fragment_two_pass23store_meta_block_header17h7d73fae3597e2922E(i64 noundef %.sroa.0.0.sroa.speculated.i, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 13, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %88 = load i64, ptr %55, align 8, !noalias !2208, !noundef !6
-  %89 = load i64, ptr %54, align 8, !noalias !2208, !noundef !6
-  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %88, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %89, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %91
+  %87 = load i64, ptr %55, align 8, !noalias !2208, !noundef !6
+  %88 = load i64, ptr %54, align 8, !noalias !2208, !noundef !6
+  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %87, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %88, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %90
 
-90:                                               ; preds = %81
-  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %83, i64 noundef %82, i64 noundef %.sroa.0.0.sroa.speculated.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %91
+89:                                               ; preds = %80
+  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %82, i64 noundef %81, i64 noundef %.sroa.0.0.sroa.speculated.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %90
 
-91:                                               ; preds = %90, %87
-  %92 = add i64 %.sroa.0.0.sroa.speculated.i, %.sroa.04.0.i110
-  %93 = sub i64 %.sroa.0.0.i111, %.sroa.0.0.sroa.speculated.i
+90:                                               ; preds = %89, %86
+  %91 = add i64 %.sroa.0.0.sroa.speculated.i, %.sroa.04.0.i110
+  %92 = sub i64 %.sroa.0.0.i111, %.sroa.0.0.sroa.speculated.i
   call void @llvm.lifetime.end.p0(ptr nonnull %54), !noalias !2208
   call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !2208
-  %.not.i = icmp eq i64 %93, 0
-  br i1 %.not.i, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %79
+  %.not.i = icmp eq i64 %92, 0
+  br i1 %.not.i, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %78
 
-94:                                               ; preds = %.lr.ph108, %106
-  %.sroa.0.0.i2107 = phi i64 [ %3, %.lr.ph108 ], [ %108, %106 ]
-  %.sroa.04.0.i1106 = phi i64 [ 0, %.lr.ph108 ], [ %107, %106 ]
+93:                                               ; preds = %.lr.ph108, %105
+  %.sroa.0.0.i2107 = phi i64 [ %3, %.lr.ph108 ], [ %107, %105 ]
+  %.sroa.04.0.i1106 = phi i64 [ 0, %.lr.ph108 ], [ %106, %105 ]
   %.sroa.0.0.sroa.speculated.i37 = call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.i2107, i64 131072)
   call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !2217
   store i64 0, ptr %51, align 8, !noalias !2217
@@ -27782,50 +27781,50 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass26compress_fragmen
   store i64 0, ptr %50, align 8, !noalias !2217
   call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !2217
   store ptr %7, ptr %49, align 8, !noalias !2217
-  store i64 %8, ptr %75, align 8, !noalias !2217
+  store i64 %8, ptr %74, align 8, !noalias !2217
   call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !2217
   store ptr %5, ptr %48, align 8, !noalias !2217
-  store i64 %6, ptr %76, align 8, !noalias !2217
+  store i64 %6, ptr %75, align 8, !noalias !2217
   call void @_ZN6brotli3enc26compress_fragment_two_pass14CreateCommands17h3e1e16e1ca753121E(i64 noundef %.sroa.04.0.i1106, i64 noundef %.sroa.0.0.sroa.speculated.i37, i64 noundef %.sroa.0.0.i2107, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 4 %9, i64 noundef %10, i64 noundef 9, i64 noundef 4, ptr noalias noundef nonnull align 8 dereferenceable(16) %49, ptr noalias noundef nonnull align 8 dereferenceable(8) %51, ptr noalias noundef nonnull align 8 dereferenceable(16) %48, ptr noalias noundef nonnull align 8 dereferenceable(8) %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !2217
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !2217
-  %95 = icmp ugt i64 %.sroa.04.0.i1106, %2
-  br i1 %95, label %101, label %96, !prof !30
+  %94 = icmp ugt i64 %.sroa.04.0.i1106, %2
+  br i1 %94, label %100, label %95, !prof !30
 
-96:                                               ; preds = %94
-  %97 = sub nuw i64 %2, %.sroa.04.0.i1106
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i1106
-  %99 = load i64, ptr %51, align 8, !noalias !2217, !noundef !6
-  %100 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %98, i64 noundef %97, i64 noundef %.sroa.0.0.sroa.speculated.i37, i64 noundef %99)
-  br i1 %100, label %102, label %105
+95:                                               ; preds = %93
+  %96 = sub nuw i64 %2, %.sroa.04.0.i1106
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i1106
+  %98 = load i64, ptr %51, align 8, !noalias !2217, !noundef !6
+  %99 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %97, i64 noundef %96, i64 noundef %.sroa.0.0.sroa.speculated.i37, i64 noundef %98)
+  br i1 %99, label %101, label %104
 
-101:                                              ; preds = %94
+100:                                              ; preds = %93
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.04.0.i1106, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94be3f66b0d0d495ab4504c7f93134c8.263) #33
   unreachable
 
-102:                                              ; preds = %96
+101:                                              ; preds = %95
   call void @_ZN6brotli3enc26compress_fragment_two_pass23store_meta_block_header17h7d73fae3597e2922E(i64 noundef %.sroa.0.0.sroa.speculated.i37, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 13, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %103 = load i64, ptr %51, align 8, !noalias !2217, !noundef !6
-  %104 = load i64, ptr %50, align 8, !noalias !2217, !noundef !6
-  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %103, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %104, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %106
+  %102 = load i64, ptr %51, align 8, !noalias !2217, !noundef !6
+  %103 = load i64, ptr %50, align 8, !noalias !2217, !noundef !6
+  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %102, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %103, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %105
 
-105:                                              ; preds = %96
-  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %98, i64 noundef %97, i64 noundef %.sroa.0.0.sroa.speculated.i37, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %106
+104:                                              ; preds = %95
+  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %97, i64 noundef %96, i64 noundef %.sroa.0.0.sroa.speculated.i37, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %105
 
-106:                                              ; preds = %105, %102
-  %107 = add i64 %.sroa.0.0.sroa.speculated.i37, %.sroa.04.0.i1106
-  %108 = sub i64 %.sroa.0.0.i2107, %.sroa.0.0.sroa.speculated.i37
+105:                                              ; preds = %104, %101
+  %106 = add i64 %.sroa.0.0.sroa.speculated.i37, %.sroa.04.0.i1106
+  %107 = sub i64 %.sroa.0.0.i2107, %.sroa.0.0.sroa.speculated.i37
   call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !2217
   call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !2217
-  %.not.i3 = icmp eq i64 %108, 0
-  br i1 %.not.i3, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %94
+  %.not.i3 = icmp eq i64 %107, 0
+  br i1 %.not.i3, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %93
 
-109:                                              ; preds = %.lr.ph104, %121
-  %.sroa.0.0.i6103 = phi i64 [ %3, %.lr.ph104 ], [ %123, %121 ]
-  %.sroa.04.0.i5102 = phi i64 [ 0, %.lr.ph104 ], [ %122, %121 ]
+108:                                              ; preds = %.lr.ph104, %120
+  %.sroa.0.0.i6103 = phi i64 [ %3, %.lr.ph104 ], [ %122, %120 ]
+  %.sroa.04.0.i5102 = phi i64 [ 0, %.lr.ph104 ], [ %121, %120 ]
   %.sroa.0.0.sroa.speculated.i38 = call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.i6103, i64 131072)
   call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !2226
   store i64 0, ptr %47, align 8, !noalias !2226
@@ -27833,50 +27832,50 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass26compress_fragmen
   store i64 0, ptr %46, align 8, !noalias !2226
   call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !2226
   store ptr %7, ptr %45, align 8, !noalias !2226
-  store i64 %8, ptr %73, align 8, !noalias !2226
+  store i64 %8, ptr %72, align 8, !noalias !2226
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !2226
   store ptr %5, ptr %44, align 8, !noalias !2226
-  store i64 %6, ptr %74, align 8, !noalias !2226
+  store i64 %6, ptr %73, align 8, !noalias !2226
   call void @_ZN6brotli3enc26compress_fragment_two_pass14CreateCommands17h3e1e16e1ca753121E(i64 noundef %.sroa.04.0.i5102, i64 noundef %.sroa.0.0.sroa.speculated.i38, i64 noundef %.sroa.0.0.i6103, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 4 %9, i64 noundef %10, i64 noundef 10, i64 noundef 4, ptr noalias noundef nonnull align 8 dereferenceable(16) %45, ptr noalias noundef nonnull align 8 dereferenceable(8) %47, ptr noalias noundef nonnull align 8 dereferenceable(16) %44, ptr noalias noundef nonnull align 8 dereferenceable(8) %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !2226
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !2226
-  %110 = icmp ugt i64 %.sroa.04.0.i5102, %2
-  br i1 %110, label %116, label %111, !prof !30
+  %109 = icmp ugt i64 %.sroa.04.0.i5102, %2
+  br i1 %109, label %115, label %110, !prof !30
 
-111:                                              ; preds = %109
-  %112 = sub nuw i64 %2, %.sroa.04.0.i5102
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i5102
-  %114 = load i64, ptr %47, align 8, !noalias !2226, !noundef !6
-  %115 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %113, i64 noundef %112, i64 noundef %.sroa.0.0.sroa.speculated.i38, i64 noundef %114)
-  br i1 %115, label %117, label %120
+110:                                              ; preds = %108
+  %111 = sub nuw i64 %2, %.sroa.04.0.i5102
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i5102
+  %113 = load i64, ptr %47, align 8, !noalias !2226, !noundef !6
+  %114 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %112, i64 noundef %111, i64 noundef %.sroa.0.0.sroa.speculated.i38, i64 noundef %113)
+  br i1 %114, label %116, label %119
 
-116:                                              ; preds = %109
+115:                                              ; preds = %108
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.04.0.i5102, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94be3f66b0d0d495ab4504c7f93134c8.263) #33
   unreachable
 
-117:                                              ; preds = %111
+116:                                              ; preds = %110
   call void @_ZN6brotli3enc26compress_fragment_two_pass23store_meta_block_header17h7d73fae3597e2922E(i64 noundef %.sroa.0.0.sroa.speculated.i38, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 13, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %118 = load i64, ptr %47, align 8, !noalias !2226, !noundef !6
-  %119 = load i64, ptr %46, align 8, !noalias !2226, !noundef !6
-  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %118, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %119, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %121
+  %117 = load i64, ptr %47, align 8, !noalias !2226, !noundef !6
+  %118 = load i64, ptr %46, align 8, !noalias !2226, !noundef !6
+  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %117, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %118, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %120
 
-120:                                              ; preds = %111
-  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %113, i64 noundef %112, i64 noundef %.sroa.0.0.sroa.speculated.i38, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %121
+119:                                              ; preds = %110
+  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %112, i64 noundef %111, i64 noundef %.sroa.0.0.sroa.speculated.i38, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %120
 
-121:                                              ; preds = %120, %117
-  %122 = add i64 %.sroa.0.0.sroa.speculated.i38, %.sroa.04.0.i5102
-  %123 = sub i64 %.sroa.0.0.i6103, %.sroa.0.0.sroa.speculated.i38
+120:                                              ; preds = %119, %116
+  %121 = add i64 %.sroa.0.0.sroa.speculated.i38, %.sroa.04.0.i5102
+  %122 = sub i64 %.sroa.0.0.i6103, %.sroa.0.0.sroa.speculated.i38
   call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !2226
   call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !2226
-  %.not.i7 = icmp eq i64 %123, 0
-  br i1 %.not.i7, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %109
+  %.not.i7 = icmp eq i64 %122, 0
+  br i1 %.not.i7, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %108
 
-124:                                              ; preds = %.lr.ph100, %136
-  %.sroa.0.0.i1099 = phi i64 [ %3, %.lr.ph100 ], [ %138, %136 ]
-  %.sroa.04.0.i998 = phi i64 [ 0, %.lr.ph100 ], [ %137, %136 ]
+123:                                              ; preds = %.lr.ph100, %135
+  %.sroa.0.0.i1099 = phi i64 [ %3, %.lr.ph100 ], [ %137, %135 ]
+  %.sroa.04.0.i998 = phi i64 [ 0, %.lr.ph100 ], [ %136, %135 ]
   %.sroa.0.0.sroa.speculated.i39 = call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.i1099, i64 131072)
   call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !2235
   store i64 0, ptr %43, align 8, !noalias !2235
@@ -27884,50 +27883,50 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass26compress_fragmen
   store i64 0, ptr %42, align 8, !noalias !2235
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !2235
   store ptr %7, ptr %41, align 8, !noalias !2235
-  store i64 %8, ptr %71, align 8, !noalias !2235
+  store i64 %8, ptr %70, align 8, !noalias !2235
   call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !2235
   store ptr %5, ptr %40, align 8, !noalias !2235
-  store i64 %6, ptr %72, align 8, !noalias !2235
+  store i64 %6, ptr %71, align 8, !noalias !2235
   call void @_ZN6brotli3enc26compress_fragment_two_pass14CreateCommands17h3e1e16e1ca753121E(i64 noundef %.sroa.04.0.i998, i64 noundef %.sroa.0.0.sroa.speculated.i39, i64 noundef %.sroa.0.0.i1099, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 4 %9, i64 noundef %10, i64 noundef 11, i64 noundef 4, ptr noalias noundef nonnull align 8 dereferenceable(16) %41, ptr noalias noundef nonnull align 8 dereferenceable(8) %43, ptr noalias noundef nonnull align 8 dereferenceable(16) %40, ptr noalias noundef nonnull align 8 dereferenceable(8) %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !2235
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !2235
-  %125 = icmp ugt i64 %.sroa.04.0.i998, %2
-  br i1 %125, label %131, label %126, !prof !30
+  %124 = icmp ugt i64 %.sroa.04.0.i998, %2
+  br i1 %124, label %130, label %125, !prof !30
 
-126:                                              ; preds = %124
-  %127 = sub nuw i64 %2, %.sroa.04.0.i998
-  %128 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i998
-  %129 = load i64, ptr %43, align 8, !noalias !2235, !noundef !6
-  %130 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %128, i64 noundef %127, i64 noundef %.sroa.0.0.sroa.speculated.i39, i64 noundef %129)
-  br i1 %130, label %132, label %135
+125:                                              ; preds = %123
+  %126 = sub nuw i64 %2, %.sroa.04.0.i998
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i998
+  %128 = load i64, ptr %43, align 8, !noalias !2235, !noundef !6
+  %129 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %127, i64 noundef %126, i64 noundef %.sroa.0.0.sroa.speculated.i39, i64 noundef %128)
+  br i1 %129, label %131, label %134
 
-131:                                              ; preds = %124
+130:                                              ; preds = %123
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.04.0.i998, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94be3f66b0d0d495ab4504c7f93134c8.263) #33
   unreachable
 
-132:                                              ; preds = %126
+131:                                              ; preds = %125
   call void @_ZN6brotli3enc26compress_fragment_two_pass23store_meta_block_header17h7d73fae3597e2922E(i64 noundef %.sroa.0.0.sroa.speculated.i39, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 13, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %133 = load i64, ptr %43, align 8, !noalias !2235, !noundef !6
-  %134 = load i64, ptr %42, align 8, !noalias !2235, !noundef !6
-  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %133, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %134, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %136
+  %132 = load i64, ptr %43, align 8, !noalias !2235, !noundef !6
+  %133 = load i64, ptr %42, align 8, !noalias !2235, !noundef !6
+  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %132, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %133, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %135
 
-135:                                              ; preds = %126
-  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %128, i64 noundef %127, i64 noundef %.sroa.0.0.sroa.speculated.i39, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %136
+134:                                              ; preds = %125
+  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %127, i64 noundef %126, i64 noundef %.sroa.0.0.sroa.speculated.i39, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %135
 
-136:                                              ; preds = %135, %132
-  %137 = add i64 %.sroa.0.0.sroa.speculated.i39, %.sroa.04.0.i998
-  %138 = sub i64 %.sroa.0.0.i1099, %.sroa.0.0.sroa.speculated.i39
+135:                                              ; preds = %134, %131
+  %136 = add i64 %.sroa.0.0.sroa.speculated.i39, %.sroa.04.0.i998
+  %137 = sub i64 %.sroa.0.0.i1099, %.sroa.0.0.sroa.speculated.i39
   call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !2235
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !2235
-  %.not.i11 = icmp eq i64 %138, 0
-  br i1 %.not.i11, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %124
+  %.not.i11 = icmp eq i64 %137, 0
+  br i1 %.not.i11, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %123
 
-139:                                              ; preds = %.lr.ph96, %151
-  %.sroa.0.0.i1495 = phi i64 [ %3, %.lr.ph96 ], [ %153, %151 ]
-  %.sroa.04.0.i1394 = phi i64 [ 0, %.lr.ph96 ], [ %152, %151 ]
+138:                                              ; preds = %.lr.ph96, %150
+  %.sroa.0.0.i1495 = phi i64 [ %3, %.lr.ph96 ], [ %152, %150 ]
+  %.sroa.04.0.i1394 = phi i64 [ 0, %.lr.ph96 ], [ %151, %150 ]
   %.sroa.0.0.sroa.speculated.i40 = call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.i1495, i64 131072)
   call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !2244
   store i64 0, ptr %39, align 8, !noalias !2244
@@ -27935,50 +27934,50 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass26compress_fragmen
   store i64 0, ptr %38, align 8, !noalias !2244
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !2244
   store ptr %7, ptr %37, align 8, !noalias !2244
-  store i64 %8, ptr %69, align 8, !noalias !2244
+  store i64 %8, ptr %68, align 8, !noalias !2244
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !2244
   store ptr %5, ptr %36, align 8, !noalias !2244
-  store i64 %6, ptr %70, align 8, !noalias !2244
+  store i64 %6, ptr %69, align 8, !noalias !2244
   call void @_ZN6brotli3enc26compress_fragment_two_pass14CreateCommands17h3e1e16e1ca753121E(i64 noundef %.sroa.04.0.i1394, i64 noundef %.sroa.0.0.sroa.speculated.i40, i64 noundef %.sroa.0.0.i1495, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 4 %9, i64 noundef %10, i64 noundef 12, i64 noundef 4, ptr noalias noundef nonnull align 8 dereferenceable(16) %37, ptr noalias noundef nonnull align 8 dereferenceable(8) %39, ptr noalias noundef nonnull align 8 dereferenceable(16) %36, ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !2244
   call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !2244
-  %140 = icmp ugt i64 %.sroa.04.0.i1394, %2
-  br i1 %140, label %146, label %141, !prof !30
+  %139 = icmp ugt i64 %.sroa.04.0.i1394, %2
+  br i1 %139, label %145, label %140, !prof !30
 
-141:                                              ; preds = %139
-  %142 = sub nuw i64 %2, %.sroa.04.0.i1394
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i1394
-  %144 = load i64, ptr %39, align 8, !noalias !2244, !noundef !6
-  %145 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %143, i64 noundef %142, i64 noundef %.sroa.0.0.sroa.speculated.i40, i64 noundef %144)
-  br i1 %145, label %147, label %150
+140:                                              ; preds = %138
+  %141 = sub nuw i64 %2, %.sroa.04.0.i1394
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i1394
+  %143 = load i64, ptr %39, align 8, !noalias !2244, !noundef !6
+  %144 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %142, i64 noundef %141, i64 noundef %.sroa.0.0.sroa.speculated.i40, i64 noundef %143)
+  br i1 %144, label %146, label %149
 
-146:                                              ; preds = %139
+145:                                              ; preds = %138
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.04.0.i1394, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94be3f66b0d0d495ab4504c7f93134c8.263) #33
   unreachable
 
-147:                                              ; preds = %141
+146:                                              ; preds = %140
   call void @_ZN6brotli3enc26compress_fragment_two_pass23store_meta_block_header17h7d73fae3597e2922E(i64 noundef %.sroa.0.0.sroa.speculated.i40, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 13, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %148 = load i64, ptr %39, align 8, !noalias !2244, !noundef !6
-  %149 = load i64, ptr %38, align 8, !noalias !2244, !noundef !6
-  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %148, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %149, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %151
+  %147 = load i64, ptr %39, align 8, !noalias !2244, !noundef !6
+  %148 = load i64, ptr %38, align 8, !noalias !2244, !noundef !6
+  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %147, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %148, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %150
 
-150:                                              ; preds = %141
-  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %143, i64 noundef %142, i64 noundef %.sroa.0.0.sroa.speculated.i40, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %151
+149:                                              ; preds = %140
+  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %142, i64 noundef %141, i64 noundef %.sroa.0.0.sroa.speculated.i40, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %150
 
-151:                                              ; preds = %150, %147
-  %152 = add i64 %.sroa.0.0.sroa.speculated.i40, %.sroa.04.0.i1394
-  %153 = sub i64 %.sroa.0.0.i1495, %.sroa.0.0.sroa.speculated.i40
+150:                                              ; preds = %149, %146
+  %151 = add i64 %.sroa.0.0.sroa.speculated.i40, %.sroa.04.0.i1394
+  %152 = sub i64 %.sroa.0.0.i1495, %.sroa.0.0.sroa.speculated.i40
   call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !2244
   call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !2244
-  %.not.i15 = icmp eq i64 %153, 0
-  br i1 %.not.i15, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %139
+  %.not.i15 = icmp eq i64 %152, 0
+  br i1 %.not.i15, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %138
 
-154:                                              ; preds = %.lr.ph92, %166
-  %.sroa.0.0.i1891 = phi i64 [ %3, %.lr.ph92 ], [ %168, %166 ]
-  %.sroa.04.0.i1790 = phi i64 [ 0, %.lr.ph92 ], [ %167, %166 ]
+153:                                              ; preds = %.lr.ph92, %165
+  %.sroa.0.0.i1891 = phi i64 [ %3, %.lr.ph92 ], [ %167, %165 ]
+  %.sroa.04.0.i1790 = phi i64 [ 0, %.lr.ph92 ], [ %166, %165 ]
   %.sroa.0.0.sroa.speculated.i41 = call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.i1891, i64 131072)
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !2253
   store i64 0, ptr %35, align 8, !noalias !2253
@@ -27986,50 +27985,50 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass26compress_fragmen
   store i64 0, ptr %34, align 8, !noalias !2253
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !2253
   store ptr %7, ptr %33, align 8, !noalias !2253
-  store i64 %8, ptr %67, align 8, !noalias !2253
+  store i64 %8, ptr %66, align 8, !noalias !2253
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !2253
   store ptr %5, ptr %32, align 8, !noalias !2253
-  store i64 %6, ptr %68, align 8, !noalias !2253
+  store i64 %6, ptr %67, align 8, !noalias !2253
   call void @_ZN6brotli3enc26compress_fragment_two_pass14CreateCommands17h3e1e16e1ca753121E(i64 noundef %.sroa.04.0.i1790, i64 noundef %.sroa.0.0.sroa.speculated.i41, i64 noundef %.sroa.0.0.i1891, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 4 %9, i64 noundef %10, i64 noundef 13, i64 noundef 4, ptr noalias noundef nonnull align 8 dereferenceable(16) %33, ptr noalias noundef nonnull align 8 dereferenceable(8) %35, ptr noalias noundef nonnull align 8 dereferenceable(16) %32, ptr noalias noundef nonnull align 8 dereferenceable(8) %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !2253
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !2253
-  %155 = icmp ugt i64 %.sroa.04.0.i1790, %2
-  br i1 %155, label %161, label %156, !prof !30
+  %154 = icmp ugt i64 %.sroa.04.0.i1790, %2
+  br i1 %154, label %160, label %155, !prof !30
 
-156:                                              ; preds = %154
-  %157 = sub nuw i64 %2, %.sroa.04.0.i1790
-  %158 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i1790
-  %159 = load i64, ptr %35, align 8, !noalias !2253, !noundef !6
-  %160 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %158, i64 noundef %157, i64 noundef %.sroa.0.0.sroa.speculated.i41, i64 noundef %159)
-  br i1 %160, label %162, label %165
+155:                                              ; preds = %153
+  %156 = sub nuw i64 %2, %.sroa.04.0.i1790
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i1790
+  %158 = load i64, ptr %35, align 8, !noalias !2253, !noundef !6
+  %159 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %157, i64 noundef %156, i64 noundef %.sroa.0.0.sroa.speculated.i41, i64 noundef %158)
+  br i1 %159, label %161, label %164
 
-161:                                              ; preds = %154
+160:                                              ; preds = %153
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.04.0.i1790, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94be3f66b0d0d495ab4504c7f93134c8.263) #33
   unreachable
 
-162:                                              ; preds = %156
+161:                                              ; preds = %155
   call void @_ZN6brotli3enc26compress_fragment_two_pass23store_meta_block_header17h7d73fae3597e2922E(i64 noundef %.sroa.0.0.sroa.speculated.i41, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 13, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %163 = load i64, ptr %35, align 8, !noalias !2253, !noundef !6
-  %164 = load i64, ptr %34, align 8, !noalias !2253, !noundef !6
-  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %163, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %164, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %166
+  %162 = load i64, ptr %35, align 8, !noalias !2253, !noundef !6
+  %163 = load i64, ptr %34, align 8, !noalias !2253, !noundef !6
+  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %162, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %163, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %165
 
-165:                                              ; preds = %156
-  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %158, i64 noundef %157, i64 noundef %.sroa.0.0.sroa.speculated.i41, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %166
+164:                                              ; preds = %155
+  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %157, i64 noundef %156, i64 noundef %.sroa.0.0.sroa.speculated.i41, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %165
 
-166:                                              ; preds = %165, %162
-  %167 = add i64 %.sroa.0.0.sroa.speculated.i41, %.sroa.04.0.i1790
-  %168 = sub i64 %.sroa.0.0.i1891, %.sroa.0.0.sroa.speculated.i41
+165:                                              ; preds = %164, %161
+  %166 = add i64 %.sroa.0.0.sroa.speculated.i41, %.sroa.04.0.i1790
+  %167 = sub i64 %.sroa.0.0.i1891, %.sroa.0.0.sroa.speculated.i41
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !2253
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !2253
-  %.not.i19 = icmp eq i64 %168, 0
-  br i1 %.not.i19, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %154
+  %.not.i19 = icmp eq i64 %167, 0
+  br i1 %.not.i19, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %153
 
-169:                                              ; preds = %.lr.ph88, %181
-  %.sroa.0.0.i2287 = phi i64 [ %3, %.lr.ph88 ], [ %183, %181 ]
-  %.sroa.04.0.i2186 = phi i64 [ 0, %.lr.ph88 ], [ %182, %181 ]
+168:                                              ; preds = %.lr.ph88, %180
+  %.sroa.0.0.i2287 = phi i64 [ %3, %.lr.ph88 ], [ %182, %180 ]
+  %.sroa.04.0.i2186 = phi i64 [ 0, %.lr.ph88 ], [ %181, %180 ]
   %.sroa.0.0.sroa.speculated.i42 = call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.i2287, i64 131072)
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !2262
   store i64 0, ptr %31, align 8, !noalias !2262
@@ -28037,50 +28036,50 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass26compress_fragmen
   store i64 0, ptr %30, align 8, !noalias !2262
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !2262
   store ptr %7, ptr %29, align 8, !noalias !2262
-  store i64 %8, ptr %65, align 8, !noalias !2262
+  store i64 %8, ptr %64, align 8, !noalias !2262
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !2262
   store ptr %5, ptr %28, align 8, !noalias !2262
-  store i64 %6, ptr %66, align 8, !noalias !2262
+  store i64 %6, ptr %65, align 8, !noalias !2262
   call void @_ZN6brotli3enc26compress_fragment_two_pass14CreateCommands17h3e1e16e1ca753121E(i64 noundef %.sroa.04.0.i2186, i64 noundef %.sroa.0.0.sroa.speculated.i42, i64 noundef %.sroa.0.0.i2287, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 4 %9, i64 noundef %10, i64 noundef 14, i64 noundef 4, ptr noalias noundef nonnull align 8 dereferenceable(16) %29, ptr noalias noundef nonnull align 8 dereferenceable(8) %31, ptr noalias noundef nonnull align 8 dereferenceable(16) %28, ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !2262
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !2262
-  %170 = icmp ugt i64 %.sroa.04.0.i2186, %2
-  br i1 %170, label %176, label %171, !prof !30
+  %169 = icmp ugt i64 %.sroa.04.0.i2186, %2
+  br i1 %169, label %175, label %170, !prof !30
 
-171:                                              ; preds = %169
-  %172 = sub nuw i64 %2, %.sroa.04.0.i2186
-  %173 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i2186
-  %174 = load i64, ptr %31, align 8, !noalias !2262, !noundef !6
-  %175 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %173, i64 noundef %172, i64 noundef %.sroa.0.0.sroa.speculated.i42, i64 noundef %174)
-  br i1 %175, label %177, label %180
+170:                                              ; preds = %168
+  %171 = sub nuw i64 %2, %.sroa.04.0.i2186
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i2186
+  %173 = load i64, ptr %31, align 8, !noalias !2262, !noundef !6
+  %174 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %172, i64 noundef %171, i64 noundef %.sroa.0.0.sroa.speculated.i42, i64 noundef %173)
+  br i1 %174, label %176, label %179
 
-176:                                              ; preds = %169
+175:                                              ; preds = %168
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.04.0.i2186, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94be3f66b0d0d495ab4504c7f93134c8.263) #33
   unreachable
 
-177:                                              ; preds = %171
+176:                                              ; preds = %170
   call void @_ZN6brotli3enc26compress_fragment_two_pass23store_meta_block_header17h7d73fae3597e2922E(i64 noundef %.sroa.0.0.sroa.speculated.i42, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 13, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %178 = load i64, ptr %31, align 8, !noalias !2262, !noundef !6
-  %179 = load i64, ptr %30, align 8, !noalias !2262, !noundef !6
-  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %178, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %179, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %181
+  %177 = load i64, ptr %31, align 8, !noalias !2262, !noundef !6
+  %178 = load i64, ptr %30, align 8, !noalias !2262, !noundef !6
+  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %177, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %178, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %180
 
-180:                                              ; preds = %171
-  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %173, i64 noundef %172, i64 noundef %.sroa.0.0.sroa.speculated.i42, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %181
+179:                                              ; preds = %170
+  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %172, i64 noundef %171, i64 noundef %.sroa.0.0.sroa.speculated.i42, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %180
 
-181:                                              ; preds = %180, %177
-  %182 = add i64 %.sroa.0.0.sroa.speculated.i42, %.sroa.04.0.i2186
-  %183 = sub i64 %.sroa.0.0.i2287, %.sroa.0.0.sroa.speculated.i42
+180:                                              ; preds = %179, %176
+  %181 = add i64 %.sroa.0.0.sroa.speculated.i42, %.sroa.04.0.i2186
+  %182 = sub i64 %.sroa.0.0.i2287, %.sroa.0.0.sroa.speculated.i42
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !2262
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !2262
-  %.not.i23 = icmp eq i64 %183, 0
-  br i1 %.not.i23, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %169
+  %.not.i23 = icmp eq i64 %182, 0
+  br i1 %.not.i23, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %168
 
-184:                                              ; preds = %.lr.ph84, %196
-  %.sroa.0.0.i2683 = phi i64 [ %3, %.lr.ph84 ], [ %198, %196 ]
-  %.sroa.04.0.i2582 = phi i64 [ 0, %.lr.ph84 ], [ %197, %196 ]
+183:                                              ; preds = %.lr.ph84, %195
+  %.sroa.0.0.i2683 = phi i64 [ %3, %.lr.ph84 ], [ %197, %195 ]
+  %.sroa.04.0.i2582 = phi i64 [ 0, %.lr.ph84 ], [ %196, %195 ]
   %.sroa.0.0.sroa.speculated.i43 = call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.i2683, i64 131072)
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !2271
   store i64 0, ptr %27, align 8, !noalias !2271
@@ -28088,50 +28087,50 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass26compress_fragmen
   store i64 0, ptr %26, align 8, !noalias !2271
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !2271
   store ptr %7, ptr %25, align 8, !noalias !2271
-  store i64 %8, ptr %63, align 8, !noalias !2271
+  store i64 %8, ptr %62, align 8, !noalias !2271
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !2271
   store ptr %5, ptr %24, align 8, !noalias !2271
-  store i64 %6, ptr %64, align 8, !noalias !2271
+  store i64 %6, ptr %63, align 8, !noalias !2271
   call void @_ZN6brotli3enc26compress_fragment_two_pass14CreateCommands17h3e1e16e1ca753121E(i64 noundef %.sroa.04.0.i2582, i64 noundef %.sroa.0.0.sroa.speculated.i43, i64 noundef %.sroa.0.0.i2683, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 4 %9, i64 noundef %10, i64 noundef 15, i64 noundef 6, ptr noalias noundef nonnull align 8 dereferenceable(16) %25, ptr noalias noundef nonnull align 8 dereferenceable(8) %27, ptr noalias noundef nonnull align 8 dereferenceable(16) %24, ptr noalias noundef nonnull align 8 dereferenceable(8) %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !2271
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !2271
-  %185 = icmp ugt i64 %.sroa.04.0.i2582, %2
-  br i1 %185, label %191, label %186, !prof !30
+  %184 = icmp ugt i64 %.sroa.04.0.i2582, %2
+  br i1 %184, label %190, label %185, !prof !30
 
-186:                                              ; preds = %184
-  %187 = sub nuw i64 %2, %.sroa.04.0.i2582
-  %188 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i2582
-  %189 = load i64, ptr %27, align 8, !noalias !2271, !noundef !6
-  %190 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %188, i64 noundef %187, i64 noundef %.sroa.0.0.sroa.speculated.i43, i64 noundef %189)
-  br i1 %190, label %192, label %195
+185:                                              ; preds = %183
+  %186 = sub nuw i64 %2, %.sroa.04.0.i2582
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i2582
+  %188 = load i64, ptr %27, align 8, !noalias !2271, !noundef !6
+  %189 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %187, i64 noundef %186, i64 noundef %.sroa.0.0.sroa.speculated.i43, i64 noundef %188)
+  br i1 %189, label %191, label %194
 
-191:                                              ; preds = %184
+190:                                              ; preds = %183
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.04.0.i2582, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94be3f66b0d0d495ab4504c7f93134c8.263) #33
   unreachable
 
-192:                                              ; preds = %186
+191:                                              ; preds = %185
   call void @_ZN6brotli3enc26compress_fragment_two_pass23store_meta_block_header17h7d73fae3597e2922E(i64 noundef %.sroa.0.0.sroa.speculated.i43, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 13, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %193 = load i64, ptr %27, align 8, !noalias !2271, !noundef !6
-  %194 = load i64, ptr %26, align 8, !noalias !2271, !noundef !6
-  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %193, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %194, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %196
+  %192 = load i64, ptr %27, align 8, !noalias !2271, !noundef !6
+  %193 = load i64, ptr %26, align 8, !noalias !2271, !noundef !6
+  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %192, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %193, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %195
 
-195:                                              ; preds = %186
-  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %188, i64 noundef %187, i64 noundef %.sroa.0.0.sroa.speculated.i43, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %196
+194:                                              ; preds = %185
+  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %187, i64 noundef %186, i64 noundef %.sroa.0.0.sroa.speculated.i43, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %195
 
-196:                                              ; preds = %195, %192
-  %197 = add i64 %.sroa.0.0.sroa.speculated.i43, %.sroa.04.0.i2582
-  %198 = sub i64 %.sroa.0.0.i2683, %.sroa.0.0.sroa.speculated.i43
+195:                                              ; preds = %194, %191
+  %196 = add i64 %.sroa.0.0.sroa.speculated.i43, %.sroa.04.0.i2582
+  %197 = sub i64 %.sroa.0.0.i2683, %.sroa.0.0.sroa.speculated.i43
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !2271
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !2271
-  %.not.i27 = icmp eq i64 %198, 0
-  br i1 %.not.i27, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %184
+  %.not.i27 = icmp eq i64 %197, 0
+  br i1 %.not.i27, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %183
 
-199:                                              ; preds = %.lr.ph80, %211
-  %.sroa.0.0.i3079 = phi i64 [ %3, %.lr.ph80 ], [ %213, %211 ]
-  %.sroa.04.0.i2978 = phi i64 [ 0, %.lr.ph80 ], [ %212, %211 ]
+198:                                              ; preds = %.lr.ph80, %210
+  %.sroa.0.0.i3079 = phi i64 [ %3, %.lr.ph80 ], [ %212, %210 ]
+  %.sroa.04.0.i2978 = phi i64 [ 0, %.lr.ph80 ], [ %211, %210 ]
   %.sroa.0.0.sroa.speculated.i44 = call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.i3079, i64 131072)
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !2280
   store i64 0, ptr %23, align 8, !noalias !2280
@@ -28139,50 +28138,50 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass26compress_fragmen
   store i64 0, ptr %22, align 8, !noalias !2280
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !2280
   store ptr %7, ptr %21, align 8, !noalias !2280
-  store i64 %8, ptr %61, align 8, !noalias !2280
+  store i64 %8, ptr %60, align 8, !noalias !2280
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !2280
   store ptr %5, ptr %20, align 8, !noalias !2280
-  store i64 %6, ptr %62, align 8, !noalias !2280
+  store i64 %6, ptr %61, align 8, !noalias !2280
   call void @_ZN6brotli3enc26compress_fragment_two_pass14CreateCommands17h3e1e16e1ca753121E(i64 noundef %.sroa.04.0.i2978, i64 noundef %.sroa.0.0.sroa.speculated.i44, i64 noundef %.sroa.0.0.i3079, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 4 %9, i64 noundef %10, i64 noundef 16, i64 noundef 6, ptr noalias noundef nonnull align 8 dereferenceable(16) %21, ptr noalias noundef nonnull align 8 dereferenceable(8) %23, ptr noalias noundef nonnull align 8 dereferenceable(16) %20, ptr noalias noundef nonnull align 8 dereferenceable(8) %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !2280
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !2280
-  %200 = icmp ugt i64 %.sroa.04.0.i2978, %2
-  br i1 %200, label %206, label %201, !prof !30
+  %199 = icmp ugt i64 %.sroa.04.0.i2978, %2
+  br i1 %199, label %205, label %200, !prof !30
 
-201:                                              ; preds = %199
-  %202 = sub nuw i64 %2, %.sroa.04.0.i2978
-  %203 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i2978
-  %204 = load i64, ptr %23, align 8, !noalias !2280, !noundef !6
-  %205 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %203, i64 noundef %202, i64 noundef %.sroa.0.0.sroa.speculated.i44, i64 noundef %204)
-  br i1 %205, label %207, label %210
+200:                                              ; preds = %198
+  %201 = sub nuw i64 %2, %.sroa.04.0.i2978
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i2978
+  %203 = load i64, ptr %23, align 8, !noalias !2280, !noundef !6
+  %204 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %202, i64 noundef %201, i64 noundef %.sroa.0.0.sroa.speculated.i44, i64 noundef %203)
+  br i1 %204, label %206, label %209
 
-206:                                              ; preds = %199
+205:                                              ; preds = %198
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.04.0.i2978, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94be3f66b0d0d495ab4504c7f93134c8.263) #33
   unreachable
 
-207:                                              ; preds = %201
+206:                                              ; preds = %200
   call void @_ZN6brotli3enc26compress_fragment_two_pass23store_meta_block_header17h7d73fae3597e2922E(i64 noundef %.sroa.0.0.sroa.speculated.i44, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 13, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %208 = load i64, ptr %23, align 8, !noalias !2280, !noundef !6
-  %209 = load i64, ptr %22, align 8, !noalias !2280, !noundef !6
-  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %208, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %209, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %211
+  %207 = load i64, ptr %23, align 8, !noalias !2280, !noundef !6
+  %208 = load i64, ptr %22, align 8, !noalias !2280, !noundef !6
+  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %207, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %208, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %210
 
-210:                                              ; preds = %201
-  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %203, i64 noundef %202, i64 noundef %.sroa.0.0.sroa.speculated.i44, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %211
+209:                                              ; preds = %200
+  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %202, i64 noundef %201, i64 noundef %.sroa.0.0.sroa.speculated.i44, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %210
 
-211:                                              ; preds = %210, %207
-  %212 = add i64 %.sroa.0.0.sroa.speculated.i44, %.sroa.04.0.i2978
-  %213 = sub i64 %.sroa.0.0.i3079, %.sroa.0.0.sroa.speculated.i44
+210:                                              ; preds = %209, %206
+  %211 = add i64 %.sroa.0.0.sroa.speculated.i44, %.sroa.04.0.i2978
+  %212 = sub i64 %.sroa.0.0.i3079, %.sroa.0.0.sroa.speculated.i44
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !2280
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !2280
-  %.not.i31 = icmp eq i64 %213, 0
-  br i1 %.not.i31, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %199
+  %.not.i31 = icmp eq i64 %212, 0
+  br i1 %.not.i31, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %198
 
-214:                                              ; preds = %.lr.ph, %226
-  %.sroa.0.0.i3476 = phi i64 [ %3, %.lr.ph ], [ %228, %226 ]
-  %.sroa.04.0.i3375 = phi i64 [ 0, %.lr.ph ], [ %227, %226 ]
+213:                                              ; preds = %.lr.ph, %225
+  %.sroa.0.0.i3476 = phi i64 [ %3, %.lr.ph ], [ %227, %225 ]
+  %.sroa.04.0.i3375 = phi i64 [ 0, %.lr.ph ], [ %226, %225 ]
   %.sroa.0.0.sroa.speculated.i45 = call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.i3476, i64 131072)
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !2289
   store i64 0, ptr %19, align 8, !noalias !2289
@@ -28190,74 +28189,74 @@ define hidden void @_ZN6brotli3enc26compress_fragment_two_pass26compress_fragmen
   store i64 0, ptr %18, align 8, !noalias !2289
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !2289
   store ptr %7, ptr %17, align 8, !noalias !2289
-  store i64 %8, ptr %59, align 8, !noalias !2289
+  store i64 %8, ptr %58, align 8, !noalias !2289
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2289
   store ptr %5, ptr %16, align 8, !noalias !2289
-  store i64 %6, ptr %60, align 8, !noalias !2289
+  store i64 %6, ptr %59, align 8, !noalias !2289
   call void @_ZN6brotli3enc26compress_fragment_two_pass14CreateCommands17h3e1e16e1ca753121E(i64 noundef %.sroa.04.0.i3375, i64 noundef %.sroa.0.0.sroa.speculated.i45, i64 noundef %.sroa.0.0.i3476, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 4 %9, i64 noundef %10, i64 noundef 17, i64 noundef 6, ptr noalias noundef nonnull align 8 dereferenceable(16) %17, ptr noalias noundef nonnull align 8 dereferenceable(8) %19, ptr noalias noundef nonnull align 8 dereferenceable(16) %16, ptr noalias noundef nonnull align 8 dereferenceable(8) %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !2289
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !2289
-  %215 = icmp ugt i64 %.sroa.04.0.i3375, %2
-  br i1 %215, label %221, label %216, !prof !30
+  %214 = icmp ugt i64 %.sroa.04.0.i3375, %2
+  br i1 %214, label %220, label %215, !prof !30
 
-216:                                              ; preds = %214
-  %217 = sub nuw i64 %2, %.sroa.04.0.i3375
-  %218 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i3375
-  %219 = load i64, ptr %19, align 8, !noalias !2289, !noundef !6
-  %220 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %218, i64 noundef %217, i64 noundef %.sroa.0.0.sroa.speculated.i45, i64 noundef %219)
-  br i1 %220, label %222, label %225
+215:                                              ; preds = %213
+  %216 = sub nuw i64 %2, %.sroa.04.0.i3375
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.04.0.i3375
+  %218 = load i64, ptr %19, align 8, !noalias !2289, !noundef !6
+  %219 = call noundef zeroext i1 @_ZN6brotli3enc26compress_fragment_two_pass14ShouldCompress17h69c66170926fa9dbE(ptr noalias noundef nonnull readonly align 1 %217, i64 noundef %216, i64 noundef %.sroa.0.0.sroa.speculated.i45, i64 noundef %218)
+  br i1 %219, label %221, label %224
 
-221:                                              ; preds = %214
+220:                                              ; preds = %213
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.04.0.i3375, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.94be3f66b0d0d495ab4504c7f93134c8.263) #33
   unreachable
 
-222:                                              ; preds = %216
+221:                                              ; preds = %215
   call void @_ZN6brotli3enc26compress_fragment_two_pass23store_meta_block_header17h7d73fae3597e2922E(i64 noundef %.sroa.0.0.sroa.speculated.i45, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 13, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %223 = load i64, ptr %19, align 8, !noalias !2289, !noundef !6
-  %224 = load i64, ptr %18, align 8, !noalias !2289, !noundef !6
-  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %223, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %224, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %226
+  %222 = load i64, ptr %19, align 8, !noalias !2289, !noundef !6
+  %223 = load i64, ptr %18, align 8, !noalias !2289, !noundef !6
+  call fastcc void @_ZN6brotli3enc26compress_fragment_two_pass13StoreCommands17h4e30e118b3139597E(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8, i64 noundef %222, ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %223, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %225
 
-225:                                              ; preds = %216
-  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %218, i64 noundef %217, i64 noundef %.sroa.0.0.sroa.speculated.i45, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %226
+224:                                              ; preds = %215
+  call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %217, i64 noundef %216, i64 noundef %.sroa.0.0.sroa.speculated.i45, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %225
 
-226:                                              ; preds = %225, %222
-  %227 = add i64 %.sroa.0.0.sroa.speculated.i45, %.sroa.04.0.i3375
-  %228 = sub i64 %.sroa.0.0.i3476, %.sroa.0.0.sroa.speculated.i45
+225:                                              ; preds = %224, %221
+  %226 = add i64 %.sroa.0.0.sroa.speculated.i45, %.sroa.04.0.i3375
+  %227 = sub i64 %.sroa.0.0.i3476, %.sroa.0.0.sroa.speculated.i45
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !2289
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !2289
-  %.not.i35 = icmp eq i64 %228, 0
-  br i1 %.not.i35, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %214
+  %.not.i35 = icmp eq i64 %227, 0
+  br i1 %.not.i35, label %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, label %213
 
-_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit: ; preds = %226, %211, %196, %181, %166, %151, %136, %121, %106, %91, %.preheader62, %.preheader60, %.preheader58, %.preheader56, %.preheader54, %.preheader52, %.preheader50, %.preheader48, %.preheader46, %.preheader, %15
-  %229 = load i64, ptr %12, align 8, !noundef !6
-  %230 = sub i64 %229, %56
-  %231 = shl i64 %3, 3
-  %232 = add i64 %231, 31
-  %233 = icmp ugt i64 %230, %232
-  br i1 %233, label %234, label %235
+_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit: ; preds = %225, %210, %195, %180, %165, %150, %135, %120, %105, %90, %.preheader62, %.preheader60, %.preheader58, %.preheader56, %.preheader54, %.preheader52, %.preheader50, %.preheader48, %.preheader46, %.preheader, %15
+  %228 = load i64, ptr %12, align 8, !noundef !6
+  %229 = sub i64 %228, %56
+  %230 = shl i64 %3, 3
+  %231 = add i64 %230, 31
+  %232 = icmp ugt i64 %229, %231
+  br i1 %232, label %233, label %234
 
-234:                                              ; preds = %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit
+233:                                              ; preds = %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit
   call void @_ZN6brotli3enc26compress_fragment_two_pass17RewindBitPosition17h7e623bddbfb9ee64E(i64 noundef %56, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   call void @_ZN6brotli3enc26compress_fragment_two_pass25EmitUncompressedMetaBlock17h394821851b5aba8dE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %235
+  br label %234
 
-235:                                              ; preds = %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, %234
-  br i1 %4, label %237, label %236
+234:                                              ; preds = %_ZN6brotli3enc26compress_fragment_two_pass31compress_fragment_two_pass_impl17hb89f27306c58f5e1E.exit, %233
+  br i1 %4, label %236, label %235
 
-236:                                              ; preds = %237, %235
+235:                                              ; preds = %236, %234
   ret void
 
-237:                                              ; preds = %235
+236:                                              ; preds = %234
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 1, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 1, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %238 = load i64, ptr %12, align 8, !noundef !6
-  %239 = add i64 %238, 7
-  %240 = and i64 %239, 4294967288
-  store i64 %240, ptr %12, align 8
-  br label %236
+  %237 = load i64, ptr %12, align 8, !noundef !6
+  %238 = add i64 %237, 7
+  %239 = and i64 %238, 4294967288
+  store i64 %239, ptr %12, align 8
+  br label %235
 }
 
 ; Function Attrs: nonlazybind uwtable

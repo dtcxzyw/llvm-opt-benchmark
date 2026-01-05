@@ -193,6 +193,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.88db3a078925a85ce51f73b091da25e4.233 = private unnamed_addr constant [10 x i8] c"Nanosecond", align 1
 @switch.table._ZN4jiff5civil4date4Date5until17h150c9b7fd7179a09E = private unnamed_addr constant [6 x i64] [i64 11, i64 12, i64 12, i64 7, i64 7, i64 5], align 8
 @switch.table._ZN4jiff5civil4date4Date5until17h150c9b7fd7179a09E.65 = private unnamed_addr constant [6 x ptr] [ptr @anon.88db3a078925a85ce51f73b091da25e4.83, ptr @anon.88db3a078925a85ce51f73b091da25e4.82, ptr @anon.88db3a078925a85ce51f73b091da25e4.81, ptr @anon.88db3a078925a85ce51f73b091da25e4.77, ptr @anon.88db3a078925a85ce51f73b091da25e4.80, ptr @anon.88db3a078925a85ce51f73b091da25e4.79], align 8
+@switch.table._ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.66 = private unnamed_addr constant [10 x ptr] [ptr @anon.88db3a078925a85ce51f73b091da25e4.100, ptr @anon.88db3a078925a85ce51f73b091da25e4.99, ptr @anon.88db3a078925a85ce51f73b091da25e4.98, ptr @anon.88db3a078925a85ce51f73b091da25e4.97, ptr @anon.88db3a078925a85ce51f73b091da25e4.96, ptr @anon.88db3a078925a85ce51f73b091da25e4.95, ptr @anon.88db3a078925a85ce51f73b091da25e4.94, ptr @anon.88db3a078925a85ce51f73b091da25e4.93, ptr @anon.88db3a078925a85ce51f73b091da25e4.92, ptr @anon.88db3a078925a85ce51f73b091da25e4.9], align 8
 @switch.table._ZN4jiff4span9SpanTotal15total_invariant17h32000b437063b0c0E = private unnamed_addr constant [8 x i64] [i64 1, i64 1000, i64 1000000, i64 1000000000, i64 60000000000, i64 3600000000000, i64 86400000000000, i64 604800000000000], align 8
 @switch.table._ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E = private unnamed_addr constant [9 x i64] [i64 10, i64 11, i64 11, i64 6, i64 6, i64 4, i64 3, i64 4, i64 5], align 8
 @switch.table._ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E.68 = private unnamed_addr constant [9 x ptr] [ptr @anon.88db3a078925a85ce51f73b091da25e4.100, ptr @anon.88db3a078925a85ce51f73b091da25e4.99, ptr @anon.88db3a078925a85ce51f73b091da25e4.98, ptr @anon.88db3a078925a85ce51f73b091da25e4.97, ptr @anon.88db3a078925a85ce51f73b091da25e4.96, ptr @anon.88db3a078925a85ce51f73b091da25e4.95, ptr @anon.88db3a078925a85ce51f73b091da25e4.94, ptr @anon.88db3a078925a85ce51f73b091da25e4.93, ptr @anon.88db3a078925a85ce51f73b091da25e4.92], align 8
@@ -206,7 +207,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN4jiff4span20round_span_invariant17he5904995377334e2E.81 = private unnamed_addr constant [8 x ptr] [ptr @anon.88db3a078925a85ce51f73b091da25e4.83, ptr @anon.88db3a078925a85ce51f73b091da25e4.82, ptr @anon.88db3a078925a85ce51f73b091da25e4.81, ptr @anon.88db3a078925a85ce51f73b091da25e4.77, ptr @anon.88db3a078925a85ce51f73b091da25e4.80, ptr @anon.88db3a078925a85ce51f73b091da25e4.79, ptr @anon.88db3a078925a85ce51f73b091da25e4.10, ptr @anon.88db3a078925a85ce51f73b091da25e4.84], align 8
 @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE = private unnamed_addr constant [10 x i64] [i64 11, i64 12, i64 12, i64 7, i64 7, i64 5, i64 4, i64 5, i64 6, i64 5], align 8
 @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE.82 = private unnamed_addr constant [10 x ptr] [ptr @anon.88db3a078925a85ce51f73b091da25e4.83, ptr @anon.88db3a078925a85ce51f73b091da25e4.82, ptr @anon.88db3a078925a85ce51f73b091da25e4.81, ptr @anon.88db3a078925a85ce51f73b091da25e4.77, ptr @anon.88db3a078925a85ce51f73b091da25e4.80, ptr @anon.88db3a078925a85ce51f73b091da25e4.79, ptr @anon.88db3a078925a85ce51f73b091da25e4.10, ptr @anon.88db3a078925a85ce51f73b091da25e4.84, ptr @anon.88db3a078925a85ce51f73b091da25e4.19, ptr @anon.88db3a078925a85ce51f73b091da25e4.11], align 8
-@switch.table._ZN4jiff9timestamp19TimestampArithmetic11checked_add17hf55c9dec07dcbbafE.83 = private unnamed_addr constant [10 x ptr] [ptr @anon.88db3a078925a85ce51f73b091da25e4.100, ptr @anon.88db3a078925a85ce51f73b091da25e4.99, ptr @anon.88db3a078925a85ce51f73b091da25e4.98, ptr @anon.88db3a078925a85ce51f73b091da25e4.97, ptr @anon.88db3a078925a85ce51f73b091da25e4.96, ptr @anon.88db3a078925a85ce51f73b091da25e4.95, ptr @anon.88db3a078925a85ce51f73b091da25e4.94, ptr @anon.88db3a078925a85ce51f73b091da25e4.93, ptr @anon.88db3a078925a85ce51f73b091da25e4.92, ptr @anon.88db3a078925a85ce51f73b091da25e4.9], align 8
+@switch.table._ZN4jiff9timestamp19TimestampArithmetic11checked_add17hf55c9dec07dcbbafE = private unnamed_addr constant [10 x i64] [i64 4, i64 5, i64 4, i64 3, i64 4, i64 6, i64 6, i64 11, i64 11, i64 10], align 8
+@switch.table._ZN4jiff9timestamp19TimestampArithmetic11checked_add17hf55c9dec07dcbbafE.83 = private unnamed_addr constant [10 x ptr] [ptr @anon.88db3a078925a85ce51f73b091da25e4.9, ptr @anon.88db3a078925a85ce51f73b091da25e4.92, ptr @anon.88db3a078925a85ce51f73b091da25e4.93, ptr @anon.88db3a078925a85ce51f73b091da25e4.94, ptr @anon.88db3a078925a85ce51f73b091da25e4.95, ptr @anon.88db3a078925a85ce51f73b091da25e4.96, ptr @anon.88db3a078925a85ce51f73b091da25e4.97, ptr @anon.88db3a078925a85ce51f73b091da25e4.98, ptr @anon.88db3a078925a85ce51f73b091da25e4.99, ptr @anon.88db3a078925a85ce51f73b091da25e4.100], align 8
 @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E = private unnamed_addr constant [4 x i64] [i64 3, i64 4, i64 5, i64 4], align 8
 @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E.84 = private unnamed_addr constant [4 x ptr] [ptr @anon.88db3a078925a85ce51f73b091da25e4.94, ptr @anon.88db3a078925a85ce51f73b091da25e4.93, ptr @anon.88db3a078925a85ce51f73b091da25e4.92, ptr @anon.88db3a078925a85ce51f73b091da25e4.9], align 8
 @"switch.table._ZN53_$LT$jiff..span..Unit$u20$as$u20$core..fmt..Debug$GT$3fmt17h1c7b59bbf72c3a1dE" = private unnamed_addr constant [10 x i64] [i64 10, i64 11, i64 11, i64 6, i64 6, i64 4, i64 3, i64 4, i64 5, i64 4], align 8
@@ -9320,7 +9322,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN53_$LT$jiff..span..Unit$u20$as$u20$core..fmt..Debug$GT$3fmt17h1c7b59bbf72c3a1dE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff9timestamp19TimestampArithmetic11checked_add17hf55c9dec07dcbbafE.83, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.66, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -18620,14 +18622,14 @@ _ZN4jiff9timestamp9Timestamp20checked_add_duration17hce5509623f3dda43E.exit: ; p
 switch.lookup:                                    ; preds = %111
   %117 = tail call range(i16 6, 17) i16 @llvm.ctlz.i16(i16 %115, i1 true)
   %118 = trunc nuw nsw i16 %117 to i8
-  %spec.select.i.i = xor i8 %118, 15
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1307
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1307
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1307
-  %119 = zext nneg i8 %spec.select.i.i to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN53_$LT$jiff..span..Unit$u20$as$u20$core..fmt..Debug$GT$3fmt17h1c7b59bbf72c3a1dE", i64 %119
+  %switch.tableidx = add nsw i8 %118, -6
+  %119 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff9timestamp19TimestampArithmetic11checked_add17hf55c9dec07dcbbafE, i64 %119
   %switch.load = load i64, ptr %switch.gep, align 8
-  %120 = zext nneg i8 %spec.select.i.i to i64
+  %120 = zext nneg i8 %switch.tableidx to i64
   %switch.gep37 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff9timestamp19TimestampArithmetic11checked_add17hf55c9dec07dcbbafE.83, i64 %120
   %switch.load38 = load ptr, ptr %switch.gep37, align 8
   store ptr %switch.load38, ptr %5, align 8, !noalias !1307

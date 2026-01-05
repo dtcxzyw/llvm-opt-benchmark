@@ -542,9 +542,10 @@ $_ZTVN4llvm13format_objectIJfEEE = comdat any
 @.str.174 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @_ZTVN4llvm13format_objectIJlEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN4llvm18format_object_base4homeEv, ptr @_ZNK4llvm13format_objectIJlEE7snprintEPcj] }, comdat, align 8
 @_ZTVN4llvm13format_objectIJfEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN4llvm18format_object_base4homeEv, ptr @_ZNK4llvm13format_objectIJfEE7snprintEPcj] }, comdat, align 8
+@switch.table._ZN4llvm18AArch64InstPrinter13printCondCodeEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE = private unnamed_addr constant [16 x ptr] [ptr @.str.150, ptr @.str.151, ptr @.str.152, ptr @.str.153, ptr @.str.154, ptr @.str.155, ptr @.str.156, ptr @.str.157, ptr @.str.158, ptr @.str.159, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.165], align 8
 @switch.table._ZN4llvm18AArch64InstPrinter12printShifterEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE = private unnamed_addr constant [8 x ptr] [ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.145, ptr @.str.146, ptr @.str.81, ptr @.str.83, ptr @.str.147], align 8
 @switch.table._ZN4llvm18AArch64InstPrinter16printArithExtendEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE = private unnamed_addr constant [8 x ptr] [ptr @.str.81, ptr @.str.83, ptr @.str.147, ptr @.str.148, ptr @.str.80, ptr @.str.82, ptr @.str.84, ptr @.str.149], align 8
-@switch.table._ZN4llvm18AArch64InstPrinter20printInverseCondCodeEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE = private unnamed_addr constant [16 x ptr] [ptr @.str.150, ptr @.str.151, ptr @.str.152, ptr @.str.153, ptr @.str.154, ptr @.str.155, ptr @.str.156, ptr @.str.157, ptr @.str.158, ptr @.str.159, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.165], align 8
+@switch.table._ZN4llvm18AArch64InstPrinter20printInverseCondCodeEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE = private unnamed_addr constant [16 x ptr] [ptr @.str.151, ptr @.str.150, ptr @.str.153, ptr @.str.152, ptr @.str.155, ptr @.str.154, ptr @.str.157, ptr @.str.156, ptr @.str.159, ptr @.str.158, ptr @.str.161, ptr @.str.160, ptr @.str.163, ptr @.str.162, ptr @.str.165, ptr @.str.164], align 8
 @switch.table._ZN4llvm18AArch64InstPrinter13printSysAliasEPKNS_6MCInstERKNS_15MCSubtargetInfoERNS_11raw_ostreamE = private unnamed_addr constant [4 x ptr] [ptr @.str.107, ptr @.str.108, ptr @.str.109, ptr @.str.110], align 8
 @switch.table._ZL21getNextVectorRegisterN4llvm10MCRegisterEj = private unnamed_addr constant [188 x i32] [i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126, i32 127, i32 112, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 145, i32 146, i32 147, i32 148, i32 149, i32 150, i32 151, i32 152, i32 153, i32 154, i32 155, i32 156, i32 157, i32 158, i32 159, i32 160, i32 161, i32 162, i32 163, i32 164, i32 165, i32 166, i32 167, i32 168, i32 169, i32 170, i32 171, i32 172, i32 173, i32 174, i32 175, i32 144, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 269, i32 270, i32 271, i32 272, i32 273, i32 274, i32 275, i32 276, i32 277, i32 278, i32 279, i32 280, i32 281, i32 282, i32 283, i32 284, i32 285, i32 286, i32 287, i32 288, i32 289, i32 290, i32 291, i32 292, i32 293, i32 294, i32 295, i32 296, i32 297, i32 298, i32 299, i32 268], align 4
 
@@ -5469,7 +5470,7 @@ switch.lookup:
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !30
   %11 = and i64 %10, 4294967295
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm18AArch64InstPrinter20printInverseCondCodeEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE, i64 %11
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm18AArch64InstPrinter13printCondCodeEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !20
@@ -16508,32 +16509,31 @@ switch.lookup:
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !30
   %11 = and i64 %10, 4294967295
-  %12 = xor i64 %11, 1
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm18AArch64InstPrinter20printInverseCondCodeEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE, i64 %12
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm18AArch64InstPrinter20printInverseCondCodeEPKNS_6MCInstEjRKNS_15MCSubtargetInfoERNS_11raw_ostreamE, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !20
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !25
-  %17 = ptrtoint ptr %14 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %20 = icmp ult i64 %19, 2
-  br i1 %20, label %21, label %23
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %15 = load ptr, ptr %14, align 8, !tbaa !25
+  %16 = ptrtoint ptr %13 to i64
+  %17 = ptrtoint ptr %15 to i64
+  %18 = sub i64 %16, %17
+  %19 = icmp ult i64 %18, 2
+  br i1 %19, label %20, label %22
 
-21:                                               ; preds = %switch.lookup
-  %22 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %switch.load, i64 noundef 2) #23
+20:                                               ; preds = %switch.lookup
+  %21 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %switch.load, i64 noundef 2) #23
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-23:                                               ; preds = %switch.lookup
-  %24 = load i16, ptr %switch.load, align 1
-  store i16 %24, ptr %16, align 1
-  %25 = load ptr, ptr %15, align 8, !tbaa !25
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 2
-  store ptr %26, ptr %15, align 8, !tbaa !25
+22:                                               ; preds = %switch.lookup
+  %23 = load i16, ptr %switch.load, align 1
+  store i16 %23, ptr %15, align 1
+  %24 = load ptr, ptr %14, align 8, !tbaa !25
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 2
+  store ptr %25, ptr %14, align 8, !tbaa !25
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %21, %23
+_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %20, %22
   ret void
 }
 

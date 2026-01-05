@@ -61159,7 +61159,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand22addVectorRegLoOperandsERN4llvm6MCInstEj.exit
   %.val461.val = load i64, ptr %1206, align 8, !tbaa !406
   %1207 = and i64 %.val461.val, 4294967295
   %1208 = xor i64 %1207, 4294967295
-  %trunc.i = trunc nuw i64 %1208 to i32
+  %trunc.i = trunc i64 %.val461.val to i32
   %trunc.off.i = add i32 %trunc.i, -1
   %switch.i787 = icmp ult i32 %trunc.off.i, -2
   br i1 %switch.i787, label %.preheader.i794, label %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit.i788
@@ -61411,7 +61411,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand24addLogicalImmNotOperandsIlEEvRN4llvm6MCInstE
   %.val463.val = load i64, ptr %1351, align 8, !tbaa !406
   %1352 = and i64 %.val463.val, 65535
   %1353 = xor i64 %1352, 65535
-  %trunc.i832 = trunc nuw i64 %1353 to i16
+  %trunc.i832 = trunc i64 %.val463.val to i16
   %trunc.off.i833 = add i16 %trunc.i832, -1
   %switch.i834 = icmp ult i16 %trunc.off.i833, -2
   br i1 %switch.i834, label %.preheader.i841, label %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit.i835
@@ -61539,7 +61539,7 @@ _ZNK12_GLOBAL__N_114AArch64Operand24addLogicalImmNotOperandsIsEEvRN4llvm6MCInstE
   %.val464.val = load i64, ptr %1424, align 8, !tbaa !406
   %1425 = and i64 %.val464.val, 255
   %1426 = xor i64 %1425, 255
-  %trunc.i857 = trunc nuw i64 %1426 to i8
+  %trunc.i857 = trunc i64 %.val464.val to i8
   %trunc.off.i858 = add i8 %trunc.i857, -1
   %switch.i859 = icmp ult i8 %trunc.off.i858, -2
   br i1 %switch.i859, label %.preheader.i866, label %_ZN4llvm10AArch64_AML22encodeLogicalImmediateEmj.exit.i860

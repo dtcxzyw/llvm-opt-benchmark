@@ -2243,9 +2243,9 @@ define dso_local void @_ZN4llvm18ScheduleDAGSDNodes18InitNumRegDefsLeftEPNS_5SUn
 
 51:                                               ; preds = %43
   %52 = xor i32 %45, -1
-  switch i32 %52, label %_ZNK4llvm3EVTeqES0_.exit.i.i [
-    i32 10, label %53
-    i32 28, label %54
+  switch i32 %45, label %_ZNK4llvm3EVTeqES0_.exit.i.i [
+    i32 -11, label %53
+    i32 -29, label %54
   ]
 
 53:                                               ; preds = %51
@@ -2828,9 +2828,9 @@ define dso_local void @_ZN4llvm18ScheduleDAGSDNodes10RegDefIter15InitNodeNumDefs
 
 13:                                               ; preds = %4
   %14 = xor i32 %6, -1
-  switch i32 %14, label %_ZNK4llvm3EVTeqES0_.exit [
-    i32 10, label %15
-    i32 28, label %17
+  switch i32 %6, label %_ZNK4llvm3EVTeqES0_.exit [
+    i32 -11, label %15
+    i32 -29, label %17
   ]
 
 15:                                               ; preds = %13
@@ -2903,9 +2903,9 @@ define dso_local void @_ZN4llvm18ScheduleDAGSDNodes10RegDefIterC2EPKNS_5SUnitEPK
 
 15:                                               ; preds = %9
   %16 = xor i32 %11, -1
-  switch i32 %16, label %_ZNK4llvm3EVTeqES0_.exit.i [
-    i32 10, label %_ZN4llvm18ScheduleDAGSDNodes10RegDefIter15InitNodeNumDefsEv.exit
-    i32 28, label %17
+  switch i32 %11, label %_ZNK4llvm3EVTeqES0_.exit.i [
+    i32 -11, label %_ZN4llvm18ScheduleDAGSDNodes10RegDefIter15InitNodeNumDefsEv.exit
+    i32 -29, label %17
   ]
 
 17:                                               ; preds = %15
@@ -3051,9 +3051,9 @@ _ZNK4llvm6SDNode12getGluedNodeEv.exit.thread:     ; preds = %._crit_edge, %31
 
 53:                                               ; preds = %45
   %54 = xor i32 %47, -1
-  switch i32 %54, label %_ZNK4llvm3EVTeqES0_.exit.i [
-    i32 10, label %55
-    i32 28, label %56
+  switch i32 %47, label %_ZNK4llvm3EVTeqES0_.exit.i [
+    i32 -11, label %55
+    i32 -29, label %56
   ]
 
 55:                                               ; preds = %53

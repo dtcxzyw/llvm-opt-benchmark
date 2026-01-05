@@ -1376,10 +1376,10 @@ define internal i32 @dissect_ubertooth(ptr noundef %0, ptr noundef %1, ptr nound
   %22 = xor i8 %21, 1
   %not. = zext nneg i8 %22 to i32
   store i32 %not., ptr %18, align 4
-  %trunc.not = icmp eq i8 %21, 0
+  %trunc = trunc nuw i8 %21 to i1
   %23 = load ptr, ptr %15, align 8
-  %.str.872..str.871 = select i1 %trunc.not, ptr @.str.872, ptr @.str.871
-  tail call void @col_set_str(ptr noundef %23, i32 noundef 25, ptr noundef nonnull %.str.872..str.871)
+  %.str.871..str.872 = select i1 %trunc, ptr @.str.871, ptr @.str.872
+  tail call void @col_set_str(ptr noundef %23, i32 noundef 25, ptr noundef nonnull %.str.871..str.872)
   %24 = load i16, ptr %3, align 8
   %25 = zext i16 %24 to i32
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 2

@@ -5215,34 +5215,34 @@ define hidden void @_ZN4llvm12InstrEmitter15EmitMachineNodeEPNS_6SDNodeEbbRNS_13
   %13 = alloca %"class.llvm::MachineOperand", align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i32, ptr %14, align 8, !tbaa !63
-  %16 = xor i32 %15, -1
-  switch i32 %16, label %20 [
-    i32 12, label %17
-    i32 9, label %17
-    i32 8, label %17
-    i32 13, label %18
-    i32 19, label %19
-    i32 10, label %522
+  switch i32 %15, label %19 [
+    i32 -13, label %16
+    i32 -10, label %16
+    i32 -9, label %16
+    i32 -14, label %17
+    i32 -20, label %18
+    i32 -11, label %522
   ]
 
-17:                                               ; preds = %5, %5, %5
+16:                                               ; preds = %5, %5, %5
   tail call void @_ZN4llvm12InstrEmitter14EmitSubregNodeEPNS_6SDNodeERNS_13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEbb(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(392) %4, i1 noundef zeroext %2, i1 noundef zeroext %3)
   br label %522
 
-18:                                               ; preds = %5
+17:                                               ; preds = %5
   tail call void @_ZN4llvm12InstrEmitter22EmitCopyToRegClassNodeEPNS_6SDNodeERNS_13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(392) %4)
   br label %522
 
-19:                                               ; preds = %5
+18:                                               ; preds = %5
   tail call void @_ZN4llvm12InstrEmitter15EmitRegSequenceEPNS_6SDNodeERNS_13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEbb(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(392) %4, i1 noundef zeroext %2, i1 noundef zeroext %3)
   br label %522
 
-20:                                               ; preds = %5
+19:                                               ; preds = %5
+  %20 = xor i32 %15, -1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !67
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !68
-  %25 = zext i32 %16 to i64
+  %25 = zext i32 %20 to i64
   %26 = sub nsw i64 0, %25
   %27 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 66
@@ -5251,8 +5251,8 @@ define hidden void @_ZN4llvm12InstrEmitter15EmitMachineNodeEPNS_6SDNodeEbbRNS_13
   %31 = zext i16 %29 to i64
   br label %32
 
-32:                                               ; preds = %33, %20
-  %indvars.iv.i = phi i64 [ %34, %33 ], [ %31, %20 ]
+32:                                               ; preds = %33, %19
+  %indvars.iv.i = phi i64 [ %34, %33 ], [ %31, %19 ]
   %.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not.i, label %_ZN4llvm12InstrEmitter12CountResultsEPNS_6SDNodeE.exit, label %33
 
@@ -5279,10 +5279,10 @@ _ZN4llvm12InstrEmitter12CountResultsEPNS_6SDNodeE.exit: ; preds = %32, %_ZNK4llv
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %42 = load i8, ptr %41, align 4, !tbaa !73
   %43 = zext i8 %42 to i32
-  switch i32 %16, label %65 [
-    i32 28, label %44
-    i32 26, label %57
-    i32 32, label %64
+  switch i32 %15, label %65 [
+    i32 -29, label %44
+    i32 -27, label %57
+    i32 -33, label %64
   ]
 
 44:                                               ; preds = %_ZN4llvm12InstrEmitter12CountResultsEPNS_6SDNodeE.exit
@@ -6257,7 +6257,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit: ; preds = %518, %521
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %522
 
-522:                                              ; preds = %5, %_ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit, %19, %18, %17
+522:                                              ; preds = %5, %_ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit, %18, %17, %16
   ret void
 }
 

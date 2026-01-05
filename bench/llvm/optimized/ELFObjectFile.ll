@@ -1802,92 +1802,91 @@ define dso_local void @_ZNK4llvm6object17ELFObjectFileBase15getMIPSFeaturesEv(pt
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(48) %1) #21
   %7 = lshr i32 %6, 28
-  %8 = xor i32 %7, 8
-  switch i32 %8, label %19 [
-    i32 8, label %20
-    i32 9, label %9
-    i32 10, label %10
-    i32 11, label %11
-    i32 12, label %12
-    i32 13, label %13
-    i32 14, label %14
-    i32 15, label %15
-    i32 0, label %16
-    i32 1, label %17
-    i32 2, label %18
+  switch i32 %7, label %18 [
+    i32 0, label %19
+    i32 1, label %8
+    i32 2, label %9
+    i32 3, label %10
+    i32 4, label %11
+    i32 5, label %12
+    i32 6, label %13
+    i32 7, label %14
+    i32 8, label %15
+    i32 9, label %16
+    i32 10, label %17
   ]
 
-9:                                                ; preds = %2
+8:                                                ; preds = %2
   tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.30, i64 5, i1 noundef zeroext true) #21
-  br label %20
+  br label %19
+
+9:                                                ; preds = %2
+  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.31, i64 5, i1 noundef zeroext true) #21
+  br label %19
 
 10:                                               ; preds = %2
-  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.31, i64 5, i1 noundef zeroext true) #21
-  br label %20
+  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.32, i64 5, i1 noundef zeroext true) #21
+  br label %19
 
 11:                                               ; preds = %2
-  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.32, i64 5, i1 noundef zeroext true) #21
-  br label %20
+  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.33, i64 5, i1 noundef zeroext true) #21
+  br label %19
 
 12:                                               ; preds = %2
-  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.33, i64 5, i1 noundef zeroext true) #21
-  br label %20
+  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.34, i64 6, i1 noundef zeroext true) #21
+  br label %19
 
 13:                                               ; preds = %2
-  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.34, i64 6, i1 noundef zeroext true) #21
-  br label %20
+  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.35, i64 6, i1 noundef zeroext true) #21
+  br label %19
 
 14:                                               ; preds = %2
-  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.35, i64 6, i1 noundef zeroext true) #21
-  br label %20
+  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.36, i64 8, i1 noundef zeroext true) #21
+  br label %19
 
 15:                                               ; preds = %2
-  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.36, i64 8, i1 noundef zeroext true) #21
-  br label %20
+  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.37, i64 8, i1 noundef zeroext true) #21
+  br label %19
 
 16:                                               ; preds = %2
-  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.37, i64 8, i1 noundef zeroext true) #21
-  br label %20
+  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.38, i64 8, i1 noundef zeroext true) #21
+  br label %19
 
 17:                                               ; preds = %2
-  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.38, i64 8, i1 noundef zeroext true) #21
-  br label %20
+  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.39, i64 8, i1 noundef zeroext true) #21
+  br label %19
 
 18:                                               ; preds = %2
-  tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.39, i64 8, i1 noundef zeroext true) #21
-  br label %20
-
-19:                                               ; preds = %2
   unreachable
 
-20:                                               ; preds = %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %2
-  %21 = and i32 %6, 16711680
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %24, label %23
+19:                                               ; preds = %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %2
+  %20 = and i32 %6, 16711680
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %23, label %22
 
-23:                                               ; preds = %20
+22:                                               ; preds = %19
   tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.40, i64 6, i1 noundef zeroext true) #21
-  br label %24
+  br label %23
 
-24:                                               ; preds = %20, %23
-  %25 = and i32 %6, 67108864
-  %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %27, label %26
+23:                                               ; preds = %19, %22
+  %24 = and i32 %6, 67108864
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %26, label %25
 
-26:                                               ; preds = %24
+25:                                               ; preds = %23
   tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.41, i64 6, i1 noundef zeroext true) #21
-  br label %27
+  br label %26
 
-27:                                               ; preds = %26, %24
-  %28 = and i32 %6, 33554432
-  %.not5 = icmp eq i32 %28, 0
-  br i1 %.not5, label %30, label %29
+26:                                               ; preds = %25, %23
+  %27 = and i32 %6, 33554432
+  %.not5 = icmp eq i32 %27, 0
+  br i1 %.not5, label %29, label %28
 
-29:                                               ; preds = %27
+28:                                               ; preds = %26
   tail call void @_ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.42, i64 9, i1 noundef zeroext true) #21
-  br label %30
+  br label %29
 
-30:                                               ; preds = %27, %29
+29:                                               ; preds = %26, %28
   ret void
 }
 

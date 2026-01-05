@@ -525,6 +525,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.5485b7c2156bda08aef21696cf1a6063.789 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.5485b7c2156bda08aef21696cf1a6063.690, [16 x i8] c"a\00\00\00\00\00\00\00\18\06\00\00\0D\00\00\00" }>, align 8
 @anon.5485b7c2156bda08aef21696cf1a6063.790 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.5485b7c2156bda08aef21696cf1a6063.690, [16 x i8] c"a\00\00\00\00\00\00\00/\06\00\00\1E\00\00\00" }>, align 8
 @anon.5485b7c2156bda08aef21696cf1a6063.791 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.5485b7c2156bda08aef21696cf1a6063.690, [16 x i8] c"a\00\00\00\00\00\00\000\06\00\005\00\00\00" }>, align 8
+@switch.table._ZN6brotli3enc17compress_fragment22compress_fragment_fast17h5bc780674ce74f8aE = private unnamed_addr constant [7 x i64] [i64 15, i64 poison, i64 13, i64 poison, i64 11, i64 poison, i64 9], align 8
 @"switch.table._ZN6brotli3enc6encode37BrotliEncoderStateStruct$LT$Alloc$GT$11encode_data17hdc978c6ad8929e14E.178" = private unnamed_addr constant [10 x i64] [i64 24, i64 24, i64 24, i64 24, i64 40, i64 40, i64 40, i64 40, i64 40, i64 48], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -27831,13 +27832,13 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment22compress_fragmen
 
 18:                                               ; preds = %15
   %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 false)
-  %20 = xor i64 %19, 63
-  switch i64 %20, label %25 [
-    i64 9, label %.sink.split2
-    i64 11, label %.sink.split2
-    i64 13, label %.sink.split2
-    i64 15, label %.sink.split2
-  ]
+  %switch.tableidx = add nsw i64 %19, -48
+  %20 = icmp ult i64 %switch.tableidx, 7
+  %switch.maskindex = trunc i64 %switch.tableidx to i8
+  %switch.shifted = lshr i8 85, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %20, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %25
 
 .sink.split:                                      ; preds = %15, %32
   tail call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 1, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
@@ -27851,11 +27852,13 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment22compress_fragmen
 24:                                               ; preds = %.sink.split, %32
   ret void
 
-.sink.split2:                                     ; preds = %18, %18, %18, %18
-  tail call fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragment_fast_impl17h410003801edf735dE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, ptr noalias noundef nonnull align 4 %5, i64 noundef %6, i64 noundef %20, ptr noalias noundef nonnull align 1 %8, ptr noalias noundef nonnull align 2 %9, ptr noalias noundef align 8 dereferenceable(8) %10, ptr noalias noundef nonnull align 1 %11, ptr noalias noundef align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+switch.lookup:                                    ; preds = %18
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6brotli3enc17compress_fragment22compress_fragment_fast17h5bc780674ce74f8aE, i64 %switch.tableidx
+  %switch.load = load i64, ptr %switch.gep, align 8
+  tail call fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragment_fast_impl17h410003801edf735dE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, ptr noalias noundef nonnull align 4 %5, i64 noundef %6, i64 noundef %switch.load, ptr noalias noundef nonnull align 1 %8, ptr noalias noundef nonnull align 2 %9, ptr noalias noundef align 8 dereferenceable(8) %10, ptr noalias noundef nonnull align 1 %11, ptr noalias noundef align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   br label %25
 
-25:                                               ; preds = %.sink.split2, %18
+25:                                               ; preds = %18, %switch.lookup
   %26 = load i64, ptr %12, align 8, !noundef !4
   %27 = sub i64 %26, %16
   %28 = shl i64 %3, 3

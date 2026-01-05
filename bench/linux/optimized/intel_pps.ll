@@ -3588,13 +3588,13 @@ define dso_local void @assert_pps_unlocked(ptr noundef %0, i32 noundef %1) local
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1681, i32 2313, i64 12) #7, !srcloc !124
   tail call void asm sideeffect "1063: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1063b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1063) #7, !srcloc !125
   tail call void asm sideeffect "1064: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1064b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1064) #7, !srcloc !126
-  br label %117
+  br label %116
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %45, label %26
+  br i1 %25, label %44, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 3280
@@ -3606,150 +3606,149 @@ define dso_local void @assert_pps_unlocked(ptr noundef %0, i32 noundef %1) local
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 %33(ptr noundef nonnull %31, i32 %30, i1 noundef zeroext true) #7
   %35 = lshr i32 %34, 30
-  %36 = xor i32 %35, 2
-  switch i32 %36, label %default.unreachable9 [
-    i32 2, label %37
-    i32 3, label %39
-    i32 0, label %41
-    i32 1, label %43
+  switch i32 %35, label %default.unreachable9 [
+    i32 0, label %36
+    i32 1, label %38
+    i32 2, label %40
+    i32 3, label %42
   ]
 
-37:                                               ; preds = %26
-  %38 = call zeroext i1 @intel_lvds_port_enabled(ptr noundef %0, i32 921984, ptr noundef nonnull %3) #7
-  br label %78
+36:                                               ; preds = %26
+  %37 = call zeroext i1 @intel_lvds_port_enabled(ptr noundef %0, i32 921984, ptr noundef nonnull %3) #7
+  br label %77
 
-39:                                               ; preds = %26
-  %40 = call zeroext i1 @g4x_dp_port_enabled(ptr noundef %0, i32 409600, i32 noundef 0, ptr noundef nonnull %3) #7
-  br label %78
+38:                                               ; preds = %26
+  %39 = call zeroext i1 @g4x_dp_port_enabled(ptr noundef %0, i32 409600, i32 noundef 0, ptr noundef nonnull %3) #7
+  br label %77
 
-41:                                               ; preds = %26
-  %42 = call zeroext i1 @g4x_dp_port_enabled(ptr noundef %0, i32 934400, i32 noundef 2, ptr noundef nonnull %3) #7
-  br label %78
+40:                                               ; preds = %26
+  %41 = call zeroext i1 @g4x_dp_port_enabled(ptr noundef %0, i32 934400, i32 noundef 2, ptr noundef nonnull %3) #7
+  br label %77
 
-43:                                               ; preds = %26
-  %44 = call zeroext i1 @g4x_dp_port_enabled(ptr noundef %0, i32 934656, i32 noundef 3, ptr noundef nonnull %3) #7
-  br label %78
+42:                                               ; preds = %26
+  %43 = call zeroext i1 @g4x_dp_port_enabled(ptr noundef %0, i32 934656, i32 noundef 3, ptr noundef nonnull %3) #7
+  br label %77
 
 default.unreachable9:                             ; preds = %26
   unreachable
 
-45:                                               ; preds = %22
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 7184
-  %47 = load i32, ptr %46, align 4
-  %48 = and i32 %47, 18874368
-  %49 = icmp eq i32 %48, 0
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 3280
-  %51 = load i32, ptr %50, align 8
-  br i1 %49, label %56, label %52
+44:                                               ; preds = %22
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 7184
+  %46 = load i32, ptr %45, align 4
+  %47 = and i32 %46, 18874368
+  %48 = icmp eq i32 %47, 0
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 3280
+  %50 = load i32, ptr %49, align 8
+  br i1 %48, label %55, label %51
 
-52:                                               ; preds = %45
-  %53 = shl i32 %1, 8
-  %54 = or disjoint i32 %53, 4
-  %55 = add i32 %54, %51
+51:                                               ; preds = %44
+  %52 = shl i32 %1, 8
+  %53 = or disjoint i32 %52, 4
+  %54 = add i32 %53, %50
   store i32 %1, ptr %3, align 4
-  br label %78
+  br label %77
 
-56:                                               ; preds = %45
-  %57 = add i32 %51, 4
-  %58 = add i32 %51, 8
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 7368
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 7512
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call i32 %61(ptr noundef nonnull %59, i32 %58, i1 noundef zeroext true) #7
-  %63 = icmp ult i32 %62, 1073741824
-  br i1 %63, label %76, label %64, !prof !11
+55:                                               ; preds = %44
+  %56 = add i32 %50, 4
+  %57 = add i32 %50, 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 7512
+  %60 = load ptr, ptr %59, align 8
+  %61 = tail call i32 %60(ptr noundef nonnull %58, i32 %57, i1 noundef zeroext true) #7
+  %62 = icmp ult i32 %61, 1073741824
+  br i1 %62, label %75, label %63, !prof !11
 
-64:                                               ; preds = %56
+63:                                               ; preds = %55
   tail call void asm sideeffect "1069: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1069b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1069) #7, !srcloc !127
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = tail call ptr @dev_driver_string(ptr noundef %66) #7
-  %68 = load ptr, ptr %65, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 80
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %74
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = tail call ptr @dev_driver_string(ptr noundef %65) #7
+  %67 = load ptr, ptr %64, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 80
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %71, label %73
 
-72:                                               ; preds = %64
-  %73 = load ptr, ptr %68, align 8
-  br label %74
+71:                                               ; preds = %63
+  %72 = load ptr, ptr %67, align 8
+  br label %73
 
-74:                                               ; preds = %72, %64
-  %75 = phi ptr [ %73, %72 ], [ %70, %64 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %67, ptr noundef %75, ptr noundef nonnull @.str.24) #7
+73:                                               ; preds = %71, %63
+  %74 = phi ptr [ %72, %71 ], [ %69, %63 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %66, ptr noundef %74, ptr noundef nonnull @.str.24) #7
   tail call void asm sideeffect "1070: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1070b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1070) #7, !srcloc !128
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1718, i32 2313, i64 12) #7, !srcloc !129
   tail call void asm sideeffect "1071: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1071b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1071) #7, !srcloc !130
   tail call void asm sideeffect "1072: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1072b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1072) #7, !srcloc !131
-  br label %76
+  br label %75
 
-76:                                               ; preds = %74, %56
-  %77 = call zeroext i1 @intel_lvds_port_enabled(ptr noundef %0, i32 397696, ptr noundef nonnull %3) #7
-  br label %78
+75:                                               ; preds = %73, %55
+  %76 = call zeroext i1 @intel_lvds_port_enabled(ptr noundef %0, i32 397696, ptr noundef nonnull %3) #7
+  br label %77
 
-78:                                               ; preds = %76, %52, %43, %41, %39, %37
-  %79 = phi i32 [ %55, %52 ], [ %57, %76 ], [ %29, %43 ], [ %29, %41 ], [ %29, %39 ], [ %29, %37 ]
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 7368
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 7512
-  %82 = load ptr, ptr %81, align 8
-  %83 = call i32 %82(ptr noundef nonnull %80, i32 %79, i1 noundef zeroext true) #7
-  %84 = and i32 %83, 1
-  %85 = icmp ne i32 %84, 0
-  %86 = and i32 %83, -65536
-  %87 = icmp ne i32 %86, -1412628480
-  %88 = and i1 %85, %87
-  %89 = load i32, ptr %3, align 4
-  %90 = icmp eq i32 %89, %1
-  %91 = and i1 %90, %88
-  br i1 %91, label %92, label %117, !prof !5
+77:                                               ; preds = %75, %51, %42, %40, %38, %36
+  %78 = phi i32 [ %54, %51 ], [ %56, %75 ], [ %29, %42 ], [ %29, %40 ], [ %29, %38 ], [ %29, %36 ]
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 7512
+  %81 = load ptr, ptr %80, align 8
+  %82 = call i32 %81(ptr noundef nonnull %79, i32 %78, i1 noundef zeroext true) #7
+  %83 = and i32 %82, 1
+  %84 = icmp ne i32 %83, 0
+  %85 = and i32 %82, -65536
+  %86 = icmp ne i32 %85, -1412628480
+  %87 = and i1 %84, %86
+  %88 = load i32, ptr %3, align 4
+  %89 = icmp eq i32 %88, %1
+  %90 = and i1 %89, %87
+  br i1 %90, label %91, label %116, !prof !5
 
-92:                                               ; preds = %78
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 6795
-  %94 = load i8, ptr %93, align 1, !range !36, !noundef !37
-  %95 = icmp eq i8 %94, 0
-  br i1 %95, label %109, label %96, !prof !11
+91:                                               ; preds = %77
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 6795
+  %93 = load i8, ptr %92, align 1, !range !36, !noundef !37
+  %94 = icmp eq i8 %93, 0
+  br i1 %94, label %108, label %95, !prof !11
 
-96:                                               ; preds = %92
+95:                                               ; preds = %91
   call void asm sideeffect "1073: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1073b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1073) #7, !srcloc !132
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %98 = load ptr, ptr %97, align 8
-  %99 = call ptr @dev_driver_string(ptr noundef %98) #7
-  %100 = load ptr, ptr %97, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 80
-  %102 = load ptr, ptr %101, align 8
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %104, label %106
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %97 = load ptr, ptr %96, align 8
+  %98 = call ptr @dev_driver_string(ptr noundef %97) #7
+  %99 = load ptr, ptr %96, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 80
+  %101 = load ptr, ptr %100, align 8
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %103, label %105
 
-104:                                              ; preds = %96
-  %105 = load ptr, ptr %100, align 8
-  br label %106
+103:                                              ; preds = %95
+  %104 = load ptr, ptr %99, align 8
+  br label %105
 
-106:                                              ; preds = %104, %96
-  %107 = phi ptr [ %105, %104 ], [ %102, %96 ]
-  %108 = add i32 %1, 65
-  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.25, ptr noundef %99, ptr noundef %107, i32 noundef %108) #7
+105:                                              ; preds = %103, %95
+  %106 = phi ptr [ %104, %103 ], [ %101, %95 ]
+  %107 = add i32 %1, 65
+  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.25, ptr noundef %98, ptr noundef %106, i32 noundef %107) #7
   call void asm sideeffect "1074: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1074b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1074) #7, !srcloc !133
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1729, i32 2313, i64 12) #7, !srcloc !134
   call void asm sideeffect "1075: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1075b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1075) #7, !srcloc !135
   call void asm sideeffect "1076: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1076b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1076) #7, !srcloc !136
-  br label %117
+  br label %116
 
-109:                                              ; preds = %92
-  %110 = icmp eq ptr %0, null
-  br i1 %110, label %114, label %111
+108:                                              ; preds = %91
+  %109 = icmp eq ptr %0, null
+  br i1 %109, label %113, label %110
 
-111:                                              ; preds = %109
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %113 = load ptr, ptr %112, align 8
-  br label %114
+110:                                              ; preds = %108
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %112 = load ptr, ptr %111, align 8
+  br label %113
 
-114:                                              ; preds = %111, %109
-  %115 = phi ptr [ %113, %111 ], [ null, %109 ]
-  %116 = add i32 %1, 65
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %115, ptr noundef nonnull @.str.26, i32 noundef %116) #8
-  br label %117
+113:                                              ; preds = %110, %108
+  %114 = phi ptr [ %112, %110 ], [ null, %108 ]
+  %115 = add i32 %1, 65
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %114, ptr noundef nonnull @.str.26, i32 noundef %115) #8
+  br label %116
 
-117:                                              ; preds = %114, %106, %78, %20
+116:                                              ; preds = %113, %105, %77, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

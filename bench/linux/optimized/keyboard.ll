@@ -323,45 +323,44 @@ define dso_local void @vt_set_leds_compute_shiftstate() local_unnamed_addr #0 al
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %.preheader.i, label %do_compute_shiftstate.exit
 
-.preheader.i:                                     ; preds = %5, %30
-  %10 = phi i64 [ %33, %30 ], [ %7, %5 ]
+.preheader.i:                                     ; preds = %5, %29
+  %10 = phi i64 [ %32, %29 ], [ %7, %5 ]
   %11 = load ptr, ptr @key_maps, align 16
   %12 = and i64 %10, 255
   %13 = getelementptr i16, ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = lshr i16 %14, 8
   %16 = trunc nuw i16 %15 to i8
-  %17 = xor i8 %16, -16
-  switch i8 %17, label %30 [
-    i8 7, label %18
-    i8 12, label %18
+  switch i8 %16, label %29 [
+    i8 -9, label %17
+    i8 -4, label %17
   ]
 
-18:                                               ; preds = %.preheader.i, %.preheader.i
-  %19 = and i16 %14, 255
-  %20 = icmp eq i16 %19, 8
-  %21 = select i1 %20, i16 0, i16 %19
-  %22 = zext nneg i16 %21 to i64
-  %23 = getelementptr i8, ptr @shift_down, i64 %22
-  %24 = load i8, ptr %23, align 1
-  %25 = add i8 %24, 1
-  store i8 %25, ptr %23, align 1
-  %26 = shl nuw i64 1, %22
-  %27 = load i32, ptr @shift_state, align 4
-  %28 = trunc i64 %26 to i32
-  %29 = or i32 %27, %28
-  store i32 %29, ptr @shift_state, align 4
-  br label %30
+17:                                               ; preds = %.preheader.i, %.preheader.i
+  %18 = and i16 %14, 255
+  %19 = icmp eq i16 %18, 8
+  %20 = select i1 %19, i16 0, i16 %18
+  %21 = zext nneg i16 %20 to i64
+  %22 = getelementptr i8, ptr @shift_down, i64 %21
+  %23 = load i8, ptr %22, align 1
+  %24 = add i8 %23, 1
+  store i8 %24, ptr %22, align 1
+  %25 = shl nuw i64 1, %21
+  %26 = load i32, ptr @shift_state, align 4
+  %27 = trunc i64 %25 to i32
+  %28 = or i32 %26, %27
+  store i32 %28, ptr @shift_state, align 4
+  br label %29
 
-30:                                               ; preds = %18, %.preheader.i
-  %31 = add nuw nsw i64 %10, 1
-  %32 = and i64 %31, 4294967295
-  %33 = tail call i64 @_find_next_bit(ptr noundef nonnull @key_down, i64 noundef 256, i64 noundef %32) #19
-  %34 = and i64 %33, 4294967040
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %.preheader.i, label %do_compute_shiftstate.exit, !llvm.loop !7
+29:                                               ; preds = %17, %.preheader.i
+  %30 = add nuw nsw i64 %10, 1
+  %31 = and i64 %30, 4294967295
+  %32 = tail call i64 @_find_next_bit(ptr noundef nonnull @key_down, i64 noundef 256, i64 noundef %31) #19
+  %33 = and i64 %32, 4294967040
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %.preheader.i, label %do_compute_shiftstate.exit, !llvm.loop !7
 
-do_compute_shiftstate.exit:                       ; preds = %30, %5
+do_compute_shiftstate.exit:                       ; preds = %29, %5
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @kbd_event_lock, i64 noundef %6) #19
   ret void
 }
@@ -378,45 +377,44 @@ define internal fastcc void @do_compute_shiftstate() unnamed_addr #0 align 16 {
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %0, %24
-  %4 = phi i64 [ %27, %24 ], [ %1, %0 ]
+.preheader:                                       ; preds = %0, %23
+  %4 = phi i64 [ %26, %23 ], [ %1, %0 ]
   %5 = load ptr, ptr @key_maps, align 16
   %6 = and i64 %4, 255
   %7 = getelementptr i16, ptr %5, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = lshr i16 %8, 8
   %10 = trunc nuw i16 %9 to i8
-  %11 = xor i8 %10, -16
-  switch i8 %11, label %24 [
-    i8 7, label %12
-    i8 12, label %12
+  switch i8 %10, label %23 [
+    i8 -9, label %11
+    i8 -4, label %11
   ]
 
-12:                                               ; preds = %.preheader, %.preheader
-  %13 = and i16 %8, 255
-  %14 = icmp eq i16 %13, 8
-  %15 = select i1 %14, i16 0, i16 %13
-  %16 = zext nneg i16 %15 to i64
-  %17 = getelementptr i8, ptr @shift_down, i64 %16
-  %18 = load i8, ptr %17, align 1
-  %19 = add i8 %18, 1
-  store i8 %19, ptr %17, align 1
-  %20 = shl nuw i64 1, %16
-  %21 = load i32, ptr @shift_state, align 4
-  %22 = trunc i64 %20 to i32
-  %23 = or i32 %21, %22
-  store i32 %23, ptr @shift_state, align 4
-  br label %24
+11:                                               ; preds = %.preheader, %.preheader
+  %12 = and i16 %8, 255
+  %13 = icmp eq i16 %12, 8
+  %14 = select i1 %13, i16 0, i16 %12
+  %15 = zext nneg i16 %14 to i64
+  %16 = getelementptr i8, ptr @shift_down, i64 %15
+  %17 = load i8, ptr %16, align 1
+  %18 = add i8 %17, 1
+  store i8 %18, ptr %16, align 1
+  %19 = shl nuw i64 1, %15
+  %20 = load i32, ptr @shift_state, align 4
+  %21 = trunc i64 %19 to i32
+  %22 = or i32 %20, %21
+  store i32 %22, ptr @shift_state, align 4
+  br label %23
 
-24:                                               ; preds = %12, %.preheader
-  %25 = add nuw nsw i64 %4, 1
-  %26 = and i64 %25, 4294967295
-  %27 = tail call i64 @_find_next_bit(ptr noundef nonnull @key_down, i64 noundef 256, i64 noundef %26) #19
-  %28 = and i64 %27, 4294967040
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %.preheader, label %.loopexit, !llvm.loop !7
+23:                                               ; preds = %11, %.preheader
+  %24 = add nuw nsw i64 %4, 1
+  %25 = and i64 %24, 4294967295
+  %26 = tail call i64 @_find_next_bit(ptr noundef nonnull @key_down, i64 noundef 256, i64 noundef %25) #19
+  %27 = and i64 %26, 4294967040
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %.preheader, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %24, %0
+.loopexit:                                        ; preds = %23, %0
   ret void
 }
 
@@ -926,8 +924,8 @@ define dso_local noundef range(i32 -22, 1) i32 @vt_do_kdskbmode(i32 noundef %0, 
     i32 0, label %do_compute_shiftstate.exit.sink.split
     i32 2, label %6
     i32 1, label %7
-    i32 3, label %40
-    i32 4, label %74
+    i32 3, label %39
+    i32 4, label %72
   ]
 
 6:                                                ; preds = %2
@@ -945,111 +943,109 @@ define dso_local noundef range(i32 -22, 1) i32 @vt_do_kdskbmode(i32 noundef %0, 
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %.preheader.i, label %do_compute_shiftstate.exit
 
-.preheader.i:                                     ; preds = %7, %34
-  %14 = phi i64 [ %37, %34 ], [ %11, %7 ]
+.preheader.i:                                     ; preds = %7, %33
+  %14 = phi i64 [ %36, %33 ], [ %11, %7 ]
   %15 = load ptr, ptr @key_maps, align 16
   %16 = and i64 %14, 255
   %17 = getelementptr i16, ptr %15, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = lshr i16 %18, 8
   %20 = trunc nuw i16 %19 to i8
-  %21 = xor i8 %20, -16
-  switch i8 %21, label %34 [
-    i8 7, label %22
-    i8 12, label %22
+  switch i8 %20, label %33 [
+    i8 -9, label %21
+    i8 -4, label %21
   ]
 
-22:                                               ; preds = %.preheader.i, %.preheader.i
-  %23 = and i16 %18, 255
-  %24 = icmp eq i16 %23, 8
-  %25 = select i1 %24, i16 0, i16 %23
-  %26 = zext nneg i16 %25 to i64
-  %27 = getelementptr i8, ptr @shift_down, i64 %26
-  %28 = load i8, ptr %27, align 1
-  %29 = add i8 %28, 1
-  store i8 %29, ptr %27, align 1
-  %30 = shl nuw i64 1, %26
-  %31 = load i32, ptr @shift_state, align 4
-  %32 = trunc i64 %30 to i32
-  %33 = or i32 %31, %32
-  store i32 %33, ptr @shift_state, align 4
-  br label %34
+21:                                               ; preds = %.preheader.i, %.preheader.i
+  %22 = and i16 %18, 255
+  %23 = icmp eq i16 %22, 8
+  %24 = select i1 %23, i16 0, i16 %22
+  %25 = zext nneg i16 %24 to i64
+  %26 = getelementptr i8, ptr @shift_down, i64 %25
+  %27 = load i8, ptr %26, align 1
+  %28 = add i8 %27, 1
+  store i8 %28, ptr %26, align 1
+  %29 = shl nuw i64 1, %25
+  %30 = load i32, ptr @shift_state, align 4
+  %31 = trunc i64 %29 to i32
+  %32 = or i32 %30, %31
+  store i32 %32, ptr @shift_state, align 4
+  br label %33
 
-34:                                               ; preds = %22, %.preheader.i
-  %35 = add nuw nsw i64 %14, 1
-  %36 = and i64 %35, 4294967295
-  %37 = tail call i64 @_find_next_bit(ptr noundef nonnull @key_down, i64 noundef 256, i64 noundef %36) #19
-  %38 = and i64 %37, 4294967040
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %.preheader.i, label %do_compute_shiftstate.exit, !llvm.loop !7
+33:                                               ; preds = %21, %.preheader.i
+  %34 = add nuw nsw i64 %14, 1
+  %35 = and i64 %34, 4294967295
+  %36 = tail call i64 @_find_next_bit(ptr noundef nonnull @key_down, i64 noundef 256, i64 noundef %35) #19
+  %37 = and i64 %36, 4294967040
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %.preheader.i, label %do_compute_shiftstate.exit, !llvm.loop !7
 
-40:                                               ; preds = %2
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  %42 = load i8, ptr %41, align 1
-  %43 = and i8 %42, -113
-  %44 = or disjoint i8 %43, 48
-  store i8 %44, ptr %41, align 1
+39:                                               ; preds = %2
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %41 = load i8, ptr %40, align 1
+  %42 = and i8 %41, -113
+  %43 = or disjoint i8 %42, 48
+  store i8 %43, ptr %40, align 1
   store i32 0, ptr @shift_state, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) @shift_down, i8 0, i64 9, i1 false)
-  %45 = tail call i64 @_find_next_bit(ptr noundef nonnull @key_down, i64 noundef 256, i64 noundef 0) #19
-  %46 = and i64 %45, 4294967040
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %.preheader.i1, label %do_compute_shiftstate.exit
+  %44 = tail call i64 @_find_next_bit(ptr noundef nonnull @key_down, i64 noundef 256, i64 noundef 0) #19
+  %45 = and i64 %44, 4294967040
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %.preheader.i1, label %do_compute_shiftstate.exit
 
-.preheader.i1:                                    ; preds = %40, %68
-  %48 = phi i64 [ %71, %68 ], [ %45, %40 ]
-  %49 = load ptr, ptr @key_maps, align 16
-  %50 = and i64 %48, 255
-  %51 = getelementptr i16, ptr %49, i64 %50
-  %52 = load i16, ptr %51, align 2
-  %53 = lshr i16 %52, 8
-  %54 = trunc nuw i16 %53 to i8
-  %55 = xor i8 %54, -16
-  switch i8 %55, label %68 [
-    i8 7, label %56
-    i8 12, label %56
+.preheader.i1:                                    ; preds = %39, %66
+  %47 = phi i64 [ %69, %66 ], [ %44, %39 ]
+  %48 = load ptr, ptr @key_maps, align 16
+  %49 = and i64 %47, 255
+  %50 = getelementptr i16, ptr %48, i64 %49
+  %51 = load i16, ptr %50, align 2
+  %52 = lshr i16 %51, 8
+  %53 = trunc nuw i16 %52 to i8
+  switch i8 %53, label %66 [
+    i8 -9, label %54
+    i8 -4, label %54
   ]
 
-56:                                               ; preds = %.preheader.i1, %.preheader.i1
-  %57 = and i16 %52, 255
-  %58 = icmp eq i16 %57, 8
-  %59 = select i1 %58, i16 0, i16 %57
-  %60 = zext nneg i16 %59 to i64
-  %61 = getelementptr i8, ptr @shift_down, i64 %60
-  %62 = load i8, ptr %61, align 1
-  %63 = add i8 %62, 1
-  store i8 %63, ptr %61, align 1
-  %64 = shl nuw i64 1, %60
-  %65 = load i32, ptr @shift_state, align 4
-  %66 = trunc i64 %64 to i32
-  %67 = or i32 %65, %66
-  store i32 %67, ptr @shift_state, align 4
-  br label %68
+54:                                               ; preds = %.preheader.i1, %.preheader.i1
+  %55 = and i16 %51, 255
+  %56 = icmp eq i16 %55, 8
+  %57 = select i1 %56, i16 0, i16 %55
+  %58 = zext nneg i16 %57 to i64
+  %59 = getelementptr i8, ptr @shift_down, i64 %58
+  %60 = load i8, ptr %59, align 1
+  %61 = add i8 %60, 1
+  store i8 %61, ptr %59, align 1
+  %62 = shl nuw i64 1, %58
+  %63 = load i32, ptr @shift_state, align 4
+  %64 = trunc i64 %62 to i32
+  %65 = or i32 %63, %64
+  store i32 %65, ptr @shift_state, align 4
+  br label %66
 
-68:                                               ; preds = %56, %.preheader.i1
-  %69 = add nuw nsw i64 %48, 1
-  %70 = and i64 %69, 4294967295
-  %71 = tail call i64 @_find_next_bit(ptr noundef nonnull @key_down, i64 noundef 256, i64 noundef %70) #19
-  %72 = and i64 %71, 4294967040
-  %73 = icmp eq i64 %72, 0
-  br i1 %73, label %.preheader.i1, label %do_compute_shiftstate.exit, !llvm.loop !7
+66:                                               ; preds = %54, %.preheader.i1
+  %67 = add nuw nsw i64 %47, 1
+  %68 = and i64 %67, 4294967295
+  %69 = tail call i64 @_find_next_bit(ptr noundef nonnull @key_down, i64 noundef 256, i64 noundef %68) #19
+  %70 = and i64 %69, 4294967040
+  %71 = icmp eq i64 %70, 0
+  br i1 %71, label %.preheader.i1, label %do_compute_shiftstate.exit, !llvm.loop !7
 
-74:                                               ; preds = %2
+72:                                               ; preds = %2
   br label %do_compute_shiftstate.exit.sink.split
 
-do_compute_shiftstate.exit.sink.split:            ; preds = %2, %6, %74
-  %.sink8 = phi i8 [ 64, %74 ], [ 16, %6 ], [ 32, %2 ]
-  %75 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  %76 = load i8, ptr %75, align 1
-  %77 = and i8 %76, -113
-  %78 = or disjoint i8 %77, %.sink8
-  store i8 %78, ptr %75, align 1
+do_compute_shiftstate.exit.sink.split:            ; preds = %2, %6, %72
+  %.sink8 = phi i8 [ 64, %72 ], [ 16, %6 ], [ 32, %2 ]
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %74 = load i8, ptr %73, align 1
+  %75 = and i8 %74, -113
+  %76 = or disjoint i8 %75, %.sink8
+  store i8 %76, ptr %73, align 1
   br label %do_compute_shiftstate.exit
 
-do_compute_shiftstate.exit:                       ; preds = %68, %34, %do_compute_shiftstate.exit.sink.split, %40, %7, %2
-  %79 = phi i32 [ 0, %7 ], [ 0, %do_compute_shiftstate.exit.sink.split ], [ -22, %2 ], [ 0, %40 ], [ 0, %34 ], [ 0, %68 ]
+do_compute_shiftstate.exit:                       ; preds = %66, %33, %do_compute_shiftstate.exit.sink.split, %39, %7, %2
+  %77 = phi i32 [ 0, %7 ], [ 0, %do_compute_shiftstate.exit.sink.split ], [ -22, %2 ], [ 0, %39 ], [ 0, %33 ], [ 0, %66 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @kbd_event_lock, i64 noundef %5) #19
-  ret i32 %79
+  ret i32 %77
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2997,7 +2993,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
   %633 = load i8, ptr %632, align 1
   %634 = and i8 %633, 4
   %635 = icmp eq i8 %634, 0
-  br i1 %635, label %772, label %636
+  br i1 %635, label %771, label %636
 
 636:                                              ; preds = %631
   br i1 %146, label %645, label %637
@@ -3012,7 +3008,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
 642:                                              ; preds = %637
   %643 = call i32 @tty_chars_in_buffer(ptr noundef nonnull %145) #19
   %644 = icmp eq i32 %643, 0
-  br i1 %644, label %._crit_edge, label %772
+  br i1 %644, label %._crit_edge, label %771
 
 ._crit_edge:                                      ; preds = %642
   %.pre59 = load ptr, ptr @kbd, align 8
@@ -3042,7 +3038,7 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
   %664 = icmp ne i32 %663, 32769
   %665 = icmp ne ptr %662, null
   %666 = select i1 %664, i1 %665, i1 false
-  br i1 %666, label %700, label %667
+  br i1 %666, label %699, label %667
 
 667:                                              ; preds = %645
   %668 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @keyboard_notifier_list, i64 noundef 2, ptr noundef nonnull %37) #19
@@ -3053,186 +3049,185 @@ define internal void @kbd_event(ptr noundef readonly captures(none) %0, i32 noun
   %671 = icmp eq i64 %670, 0
   br i1 %671, label %.preheader.i, label %do_compute_shiftstate.exit
 
-.preheader.i:                                     ; preds = %667, %692
-  %672 = phi i64 [ %695, %692 ], [ %669, %667 ]
+.preheader.i:                                     ; preds = %667, %691
+  %672 = phi i64 [ %694, %691 ], [ %669, %667 ]
   %673 = load ptr, ptr @key_maps, align 16
   %674 = and i64 %672, 255
   %675 = getelementptr i16, ptr %673, i64 %674
   %676 = load i16, ptr %675, align 2
   %677 = lshr i16 %676, 8
   %678 = trunc nuw i16 %677 to i8
-  %679 = xor i8 %678, -16
-  switch i8 %679, label %692 [
-    i8 7, label %680
-    i8 12, label %680
+  switch i8 %678, label %691 [
+    i8 -9, label %679
+    i8 -4, label %679
   ]
 
-680:                                              ; preds = %.preheader.i, %.preheader.i
-  %681 = and i16 %676, 255
-  %682 = icmp eq i16 %681, 8
-  %683 = select i1 %682, i16 0, i16 %681
-  %684 = zext nneg i16 %683 to i64
-  %685 = getelementptr i8, ptr @shift_down, i64 %684
-  %686 = load i8, ptr %685, align 1
-  %687 = add i8 %686, 1
-  store i8 %687, ptr %685, align 1
-  %688 = shl nuw i64 1, %684
-  %689 = load i32, ptr @shift_state, align 4
-  %690 = trunc i64 %688 to i32
-  %691 = or i32 %689, %690
-  store i32 %691, ptr @shift_state, align 4
-  br label %692
+679:                                              ; preds = %.preheader.i, %.preheader.i
+  %680 = and i16 %676, 255
+  %681 = icmp eq i16 %680, 8
+  %682 = select i1 %681, i16 0, i16 %680
+  %683 = zext nneg i16 %682 to i64
+  %684 = getelementptr i8, ptr @shift_down, i64 %683
+  %685 = load i8, ptr %684, align 1
+  %686 = add i8 %685, 1
+  store i8 %686, ptr %684, align 1
+  %687 = shl nuw i64 1, %683
+  %688 = load i32, ptr @shift_state, align 4
+  %689 = trunc i64 %687 to i32
+  %690 = or i32 %688, %689
+  store i32 %690, ptr @shift_state, align 4
+  br label %691
 
-692:                                              ; preds = %680, %.preheader.i
-  %693 = add nuw nsw i64 %672, 1
-  %694 = and i64 %693, 4294967295
-  %695 = call i64 @_find_next_bit(ptr noundef nonnull @key_down, i64 noundef 256, i64 noundef %694) #19
-  %696 = and i64 %695, 4294967040
-  %697 = icmp eq i64 %696, 0
-  br i1 %697, label %.preheader.i, label %do_compute_shiftstate.exit, !llvm.loop !7
+691:                                              ; preds = %679, %.preheader.i
+  %692 = add nuw nsw i64 %672, 1
+  %693 = and i64 %692, 4294967295
+  %694 = call i64 @_find_next_bit(ptr noundef nonnull @key_down, i64 noundef 256, i64 noundef %693) #19
+  %695 = and i64 %694, 4294967040
+  %696 = icmp eq i64 %695, 0
+  br i1 %696, label %.preheader.i, label %do_compute_shiftstate.exit, !llvm.loop !7
 
-do_compute_shiftstate.exit:                       ; preds = %692, %667
-  %698 = load ptr, ptr @kbd, align 8
-  %699 = getelementptr inbounds nuw i8, ptr %698, i64 1
-  store i8 0, ptr %699, align 1
-  br label %772
+do_compute_shiftstate.exit:                       ; preds = %691, %667
+  %697 = load ptr, ptr @kbd, align 8
+  %698 = getelementptr inbounds nuw i8, ptr %697, i64 1
+  store i8 0, ptr %698, align 1
+  br label %771
 
-700:                                              ; preds = %645
-  %701 = icmp samesign ult i32 %2, 256
-  br i1 %701, label %708, label %702
+699:                                              ; preds = %645
+  %700 = icmp samesign ult i32 %2, 256
+  br i1 %700, label %707, label %701
 
-702:                                              ; preds = %700
-  %703 = add nsw i32 %2, -497
-  %704 = icmp ult i32 %703, 8
-  br i1 %704, label %.thread43, label %772
+701:                                              ; preds = %699
+  %702 = add nsw i32 %2, -497
+  %703 = icmp ult i32 %702, 8
+  br i1 %703, label %.thread43, label %771
 
-.thread43:                                        ; preds = %702
-  %705 = trunc nuw nsw i32 %2 to i16
-  %706 = add nuw nsw i16 %705, 16
-  %707 = or i16 %706, -512
-  br label %719
+.thread43:                                        ; preds = %701
+  %704 = trunc nuw nsw i32 %2 to i16
+  %705 = add nuw nsw i16 %704, 16
+  %706 = or i16 %705, -512
+  br label %718
 
-708:                                              ; preds = %700
-  %709 = getelementptr i16, ptr %662, i64 %624
-  %710 = load i16, ptr %709, align 2
-  %711 = zext i16 %710 to i32
-  %712 = icmp ult i16 %710, -4096
-  br i1 %712, label %713, label %719
+707:                                              ; preds = %699
+  %708 = getelementptr i16, ptr %662, i64 %624
+  %709 = load i16, ptr %708, align 2
+  %710 = zext i16 %709 to i32
+  %711 = icmp ult i16 %709, -4096
+  br i1 %711, label %712, label %718
 
-713:                                              ; preds = %708
-  store i32 %711, ptr %143, align 4
-  %714 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @keyboard_notifier_list, i64 noundef 3, ptr noundef nonnull %37) #19
-  %715 = icmp eq i32 %714, 32769
-  %716 = or i1 %625, %715
-  %717 = or i1 %623, %716
-  br i1 %717, label %772, label %718
+712:                                              ; preds = %707
+  store i32 %710, ptr %143, align 4
+  %713 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @keyboard_notifier_list, i64 noundef 3, ptr noundef nonnull %37) #19
+  %714 = icmp eq i32 %713, 32769
+  %715 = or i1 %625, %714
+  %716 = or i1 %623, %715
+  br i1 %716, label %771, label %717
 
-718:                                              ; preds = %713
-  call fastcc void @k_unicode(ptr noundef %139, i32 noundef %711, i8 noundef zeroext 0)
-  br label %772
+717:                                              ; preds = %712
+  call fastcc void @k_unicode(ptr noundef %139, i32 noundef %710, i8 noundef zeroext 0)
+  br label %771
 
-719:                                              ; preds = %.thread43, %708
-  %720 = phi i16 [ %707, %.thread43 ], [ %710, %708 ]
-  %721 = lshr i16 %720, 8
-  %722 = trunc nuw i16 %721 to i8
-  %723 = add nsw i8 %722, 16
-  %724 = icmp eq i8 %723, 11
-  br i1 %724, label %725, label %739
+718:                                              ; preds = %.thread43, %707
+  %719 = phi i16 [ %706, %.thread43 ], [ %709, %707 ]
+  %720 = lshr i16 %719, 8
+  %721 = trunc nuw i16 %720 to i8
+  %722 = add nsw i8 %721, 16
+  %723 = icmp eq i8 %722, 11
+  br i1 %723, label %724, label %738
 
-725:                                              ; preds = %719
-  %726 = load ptr, ptr @kbd, align 8
-  %727 = getelementptr inbounds nuw i8, ptr %726, i64 2
-  %728 = load i8, ptr %727, align 1
-  %729 = and i8 %728, 8
-  %730 = icmp eq i8 %729, 0
-  br i1 %730, label %739, label %731
+724:                                              ; preds = %718
+  %725 = load ptr, ptr @kbd, align 8
+  %726 = getelementptr inbounds nuw i8, ptr %725, i64 2
+  %727 = load i8, ptr %726, align 1
+  %728 = and i8 %727, 8
+  %729 = icmp eq i8 %728, 0
+  br i1 %729, label %738, label %730
 
-731:                                              ; preds = %725
-  %732 = xor i64 %660, 1
-  %733 = getelementptr ptr, ptr @key_maps, i64 %732
-  %734 = load ptr, ptr %733, align 8
-  %735 = icmp eq ptr %734, null
-  br i1 %735, label %739, label %736
+730:                                              ; preds = %724
+  %731 = xor i64 %660, 1
+  %732 = getelementptr ptr, ptr @key_maps, i64 %731
+  %733 = load ptr, ptr %732, align 8
+  %734 = icmp eq ptr %733, null
+  br i1 %734, label %738, label %735
 
-736:                                              ; preds = %731
-  %737 = getelementptr i16, ptr %734, i64 %624
-  %738 = load i16, ptr %737, align 2
-  br label %739
+735:                                              ; preds = %730
+  %736 = getelementptr i16, ptr %733, i64 %624
+  %737 = load i16, ptr %736, align 2
+  br label %738
 
-739:                                              ; preds = %736, %731, %725, %719
-  %740 = phi i16 [ %738, %736 ], [ %720, %731 ], [ %720, %725 ], [ %720, %719 ]
-  %741 = phi i8 [ 0, %736 ], [ 0, %731 ], [ 0, %725 ], [ %723, %719 ]
-  %742 = zext i16 %740 to i32
-  store i32 %742, ptr %143, align 4
-  %743 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @keyboard_notifier_list, i64 noundef 4, ptr noundef nonnull %37) #19
-  %744 = icmp eq i32 %743, 32769
-  br i1 %744, label %772, label %745
+738:                                              ; preds = %735, %730, %724, %718
+  %739 = phi i16 [ %737, %735 ], [ %719, %730 ], [ %719, %724 ], [ %719, %718 ]
+  %740 = phi i8 [ 0, %735 ], [ 0, %730 ], [ 0, %724 ], [ %722, %718 ]
+  %741 = zext i16 %739 to i32
+  store i32 %741, ptr %143, align 4
+  %742 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @keyboard_notifier_list, i64 noundef 4, ptr noundef nonnull %37) #19
+  %743 = icmp eq i32 %742, 32769
+  br i1 %743, label %771, label %744
 
-745:                                              ; preds = %739
-  br i1 %623, label %754, label %746
+744:                                              ; preds = %738
+  br i1 %623, label %753, label %745
 
-746:                                              ; preds = %745
-  %747 = load ptr, ptr @kbd, align 8
-  %748 = getelementptr inbounds nuw i8, ptr %747, i64 3
-  %749 = load i8, ptr %748, align 1
-  %750 = freeze i8 %749
-  %751 = and i8 %750, 112
-  %752 = icmp eq i8 %751, 64
-  br i1 %752, label %753, label %755
+745:                                              ; preds = %744
+  %746 = load ptr, ptr @kbd, align 8
+  %747 = getelementptr inbounds nuw i8, ptr %746, i64 3
+  %748 = load i8, ptr %747, align 1
+  %749 = freeze i8 %748
+  %750 = and i8 %749, 112
+  %751 = icmp eq i8 %750, 64
+  br i1 %751, label %752, label %754
 
-753:                                              ; preds = %746
-  switch i8 %741, label %772 [
-    i8 7, label %755
-    i8 2, label %755
+752:                                              ; preds = %745
+  switch i8 %740, label %771 [
+    i8 7, label %754
+    i8 2, label %754
   ]
 
-754:                                              ; preds = %745
-  switch i8 %741, label %772 [
-    i8 2, label %755
-    i8 7, label %755
+753:                                              ; preds = %744
+  switch i8 %740, label %771 [
+    i8 2, label %754
+    i8 7, label %754
   ]
 
-755:                                              ; preds = %754, %754, %753, %753, %746
-  %756 = zext nneg i8 %741 to i64
-  %757 = getelementptr ptr, ptr @k_handler, i64 %756
-  %758 = load ptr, ptr %757, align 8
-  %759 = trunc i16 %740 to i8
-  %760 = zext i1 %625 to i8
-  call void %758(ptr noundef %139, i8 noundef zeroext %759, i8 noundef zeroext %760) #19
-  %761 = load ptr, ptr @kbd, align 8
-  %762 = getelementptr inbounds nuw i8, ptr %761, i64 2
-  %763 = load i8, ptr %762, align 1
-  %764 = lshr i8 %763, 1
-  %765 = and i8 %764, 15
-  %766 = zext nneg i8 %765 to i32
-  store i32 %766, ptr %142, align 8
-  %767 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @keyboard_notifier_list, i64 noundef 5, ptr noundef nonnull %37) #19
-  %768 = icmp eq i8 %741, 12
-  br i1 %768, label %772, label %769
+754:                                              ; preds = %753, %753, %752, %752, %745
+  %755 = zext nneg i8 %740 to i64
+  %756 = getelementptr ptr, ptr @k_handler, i64 %755
+  %757 = load ptr, ptr %756, align 8
+  %758 = trunc i16 %739 to i8
+  %759 = zext i1 %625 to i8
+  call void %757(ptr noundef %139, i8 noundef zeroext %758, i8 noundef zeroext %759) #19
+  %760 = load ptr, ptr @kbd, align 8
+  %761 = getelementptr inbounds nuw i8, ptr %760, i64 2
+  %762 = load i8, ptr %761, align 1
+  %763 = lshr i8 %762, 1
+  %764 = and i8 %763, 15
+  %765 = zext nneg i8 %764 to i32
+  store i32 %765, ptr %142, align 8
+  %766 = call i32 @atomic_notifier_call_chain(ptr noundef nonnull @keyboard_notifier_list, i64 noundef 5, ptr noundef nonnull %37) #19
+  %767 = icmp eq i8 %740, 12
+  br i1 %767, label %771, label %768
 
-769:                                              ; preds = %755
-  %770 = load ptr, ptr @kbd, align 8
-  %771 = getelementptr inbounds nuw i8, ptr %770, i64 1
-  store i8 0, ptr %771, align 1
-  br label %772
+768:                                              ; preds = %754
+  %769 = load ptr, ptr @kbd, align 8
+  %770 = getelementptr inbounds nuw i8, ptr %769, i64 1
+  store i8 0, ptr %770, align 1
+  br label %771
 
-772:                                              ; preds = %769, %755, %754, %753, %739, %718, %713, %702, %do_compute_shiftstate.exit, %642, %631
+771:                                              ; preds = %768, %754, %753, %752, %738, %717, %712, %701, %do_compute_shiftstate.exit, %642, %631
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %.thread
 
-.thread:                                          ; preds = %43, %50, %55, %59, %63, %67, %105, %772, %106
+.thread:                                          ; preds = %43, %50, %55, %59, %63, %67, %105, %771, %106
   call void @_raw_spin_unlock(ptr noundef nonnull @kbd_event_lock) #19
-  %773 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 8), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 8)) #19, !srcloc !6
-  %774 = icmp ult i8 %773, 2
-  call void @llvm.assume(i1 %774)
-  %775 = icmp eq i8 %773, 0
-  br i1 %775, label %776, label %777
+  %772 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 8), i64 0, ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @keyboard_tasklet, i64 8)) #19, !srcloc !6
+  %773 = icmp ult i8 %772, 2
+  call void @llvm.assume(i1 %773)
+  %774 = icmp eq i8 %772, 0
+  br i1 %774, label %775, label %776
 
-776:                                              ; preds = %.thread
+775:                                              ; preds = %.thread
   call void @__tasklet_schedule(ptr noundef nonnull @keyboard_tasklet) #19
-  br label %777
+  br label %776
 
-777:                                              ; preds = %776, %.thread
+776:                                              ; preds = %775, %.thread
   store i32 1, ptr @do_poke_blanked_console, align 4
   call void @schedule_console_callback() #19
   ret void
@@ -5223,45 +5218,44 @@ define internal void @fn_null(ptr readnone captures(none) %0) #0 align 16 {
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %.preheader.i, label %do_compute_shiftstate.exit
 
-.preheader.i:                                     ; preds = %1, %25
-  %5 = phi i64 [ %28, %25 ], [ %2, %1 ]
+.preheader.i:                                     ; preds = %1, %24
+  %5 = phi i64 [ %27, %24 ], [ %2, %1 ]
   %6 = load ptr, ptr @key_maps, align 16
   %7 = and i64 %5, 255
   %8 = getelementptr i16, ptr %6, i64 %7
   %9 = load i16, ptr %8, align 2
   %10 = lshr i16 %9, 8
   %11 = trunc nuw i16 %10 to i8
-  %12 = xor i8 %11, -16
-  switch i8 %12, label %25 [
-    i8 7, label %13
-    i8 12, label %13
+  switch i8 %11, label %24 [
+    i8 -9, label %12
+    i8 -4, label %12
   ]
 
-13:                                               ; preds = %.preheader.i, %.preheader.i
-  %14 = and i16 %9, 255
-  %15 = icmp eq i16 %14, 8
-  %16 = select i1 %15, i16 0, i16 %14
-  %17 = zext nneg i16 %16 to i64
-  %18 = getelementptr i8, ptr @shift_down, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = add i8 %19, 1
-  store i8 %20, ptr %18, align 1
-  %21 = shl nuw i64 1, %17
-  %22 = load i32, ptr @shift_state, align 4
-  %23 = trunc i64 %21 to i32
-  %24 = or i32 %22, %23
-  store i32 %24, ptr @shift_state, align 4
-  br label %25
+12:                                               ; preds = %.preheader.i, %.preheader.i
+  %13 = and i16 %9, 255
+  %14 = icmp eq i16 %13, 8
+  %15 = select i1 %14, i16 0, i16 %13
+  %16 = zext nneg i16 %15 to i64
+  %17 = getelementptr i8, ptr @shift_down, i64 %16
+  %18 = load i8, ptr %17, align 1
+  %19 = add i8 %18, 1
+  store i8 %19, ptr %17, align 1
+  %20 = shl nuw i64 1, %16
+  %21 = load i32, ptr @shift_state, align 4
+  %22 = trunc i64 %20 to i32
+  %23 = or i32 %21, %22
+  store i32 %23, ptr @shift_state, align 4
+  br label %24
 
-25:                                               ; preds = %13, %.preheader.i
-  %26 = add nuw nsw i64 %5, 1
-  %27 = and i64 %26, 4294967295
-  %28 = tail call i64 @_find_next_bit(ptr noundef nonnull @key_down, i64 noundef 256, i64 noundef %27) #19
-  %29 = and i64 %28, 4294967040
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %.preheader.i, label %do_compute_shiftstate.exit, !llvm.loop !7
+24:                                               ; preds = %12, %.preheader.i
+  %25 = add nuw nsw i64 %5, 1
+  %26 = and i64 %25, 4294967295
+  %27 = tail call i64 @_find_next_bit(ptr noundef nonnull @key_down, i64 noundef 256, i64 noundef %26) #19
+  %28 = and i64 %27, 4294967040
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %.preheader.i, label %do_compute_shiftstate.exit, !llvm.loop !7
 
-do_compute_shiftstate.exit:                       ; preds = %25, %1
+do_compute_shiftstate.exit:                       ; preds = %24, %1
   ret void
 }
 
