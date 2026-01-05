@@ -120,7 +120,7 @@ define weak_odr void @_ZN4base6Pickle16WriteBytesStaticILm2EEEvPKv(ptr noundef n
 9:                                                ; preds = %2
   %10 = shl i64 %7, 1
   %11 = icmp ugt i64 %10, 4096
-  %12 = add i64 %10, 4095
+  %12 = add i64 %10, 4094
   %13 = and i64 %12, -4096
   %14 = add i64 %13, -64
   %.0.i.i = select i1 %11, i64 %14, i64 %10
@@ -161,7 +161,7 @@ define weak_odr void @_ZN4base6Pickle16WriteBytesStaticILm4EEEvPKv(ptr noundef n
 9:                                                ; preds = %2
   %10 = shl i64 %7, 1
   %11 = icmp ugt i64 %10, 4096
-  %12 = add i64 %10, 4095
+  %12 = add i64 %10, 4094
   %13 = and i64 %12, -4096
   %14 = add i64 %13, -64
   %.0.i.i = select i1 %11, i64 %14, i64 %10
@@ -199,7 +199,7 @@ define weak_odr void @_ZN4base6Pickle16WriteBytesStaticILm8EEEvPKv(ptr noundef n
 9:                                                ; preds = %2
   %10 = shl i64 %7, 1
   %11 = icmp ugt i64 %10, 4096
-  %12 = add i64 %10, 4095
+  %12 = add i64 %10, 4094
   %13 = and i64 %12, -4096
   %14 = add i64 %13, -64
   %.0.i.i = select i1 %11, i64 %14, i64 %10
@@ -666,7 +666,7 @@ define noundef zeroext i1 @_ZN4base14PickleIterator12ReadString16EPNSt7__cxx1112
   br label %_ZN4base14PickleIterator7ReadIntEPi.exit
 
 _ZN4base14PickleIterator24GetReadPointerAndAdvanceEim.exit: ; preds = %19
-  %22 = add nuw nsw i64 %15, 3
+  %22 = add nuw nsw i64 %15, 2
   %23 = and i64 %22, 4294967292
   %24 = icmp ult i64 %20, %23
   %25 = add i64 %23, %10
@@ -722,7 +722,7 @@ define noundef zeroext i1 @_ZN4base14PickleIterator17ReadStringPiece16EPNS_16Bas
   br label %_ZN4base14PickleIterator7ReadIntEPi.exit
 
 _ZN4base14PickleIterator24GetReadPointerAndAdvanceEim.exit: ; preds = %19
-  %22 = add nuw nsw i64 %15, 3
+  %22 = add nuw nsw i64 %15, 2
   %23 = and i64 %22, 4294967292
   %24 = icmp ult i64 %20, %23
   %25 = add i64 %23, %10
@@ -866,7 +866,7 @@ define void @_ZN4base11PickleSizer11AddString16ERKNS_16BasicStringPieceINSt7__cx
   %.tr = trunc i64 %6 to i32
   %7 = shl i32 %.tr, 1
   %8 = sext i32 %7 to i64
-  %9 = add nsw i64 %8, 3
+  %9 = add nsw i64 %8, 2
   %10 = and i64 %9, -4
   %11 = add i64 %10, %4
   store i64 %11, ptr %0, align 8, !tbaa !3
@@ -1205,7 +1205,7 @@ define noundef zeroext i1 @_ZN4base6Pickle11WriteStringERKNS_16BasicStringPieceI
 12:                                               ; preds = %2
   %13 = shl i64 %10, 1
   %14 = icmp ugt i64 %13, 4096
-  %15 = add i64 %13, 4095
+  %15 = add i64 %13, 4094
   %16 = and i64 %15, -4096
   %17 = add i64 %16, -64
   %.0.i.i.i.i.i = select i1 %14, i64 %17, i64 %13
@@ -1241,7 +1241,7 @@ define noundef zeroext i1 @_ZN4base6Pickle11WriteStringERKNS_16BasicStringPieceI
 36:                                               ; preds = %18
   %37 = shl i64 %34, 1
   %38 = icmp ugt i64 %37, 4096
-  %39 = add i64 %37, 4095
+  %39 = add i64 %37, 4094
   %40 = and i64 %39, -4096
   %41 = add i64 %40, -64
   %.0.i.i.i = select i1 %38, i64 %41, i64 %37
@@ -1283,7 +1283,7 @@ define noundef zeroext i1 @_ZN4base6Pickle10WriteBytesEPKvi(ptr noundef nonnull 
 13:                                               ; preds = %3
   %14 = shl i64 %11, 1
   %15 = icmp ugt i64 %14, 4096
-  %16 = add i64 %14, 4095
+  %16 = add i64 %14, 4094
   %17 = and i64 %16, -4096
   %18 = add i64 %17, -64
   %.0.i.i = select i1 %15, i64 %18, i64 %14
@@ -1327,7 +1327,7 @@ define noundef zeroext i1 @_ZN4base6Pickle13WriteString16ERKNS_16BasicStringPiec
 12:                                               ; preds = %2
   %13 = shl i64 %10, 1
   %14 = icmp ugt i64 %13, 4096
-  %15 = add i64 %13, 4095
+  %15 = add i64 %13, 4094
   %16 = and i64 %15, -4096
   %17 = add i64 %16, -64
   %.0.i.i.i.i.i = select i1 %14, i64 %17, i64 %13
@@ -1353,7 +1353,7 @@ define noundef zeroext i1 @_ZN4base6Pickle13WriteString16ERKNS_16BasicStringPiec
   %.tr = trunc i64 %28 to i32
   %29 = shl i32 %.tr, 1
   %30 = sext i32 %29 to i64
-  %31 = add nsw i64 %30, 3
+  %31 = add nsw i64 %30, 2
   %32 = and i64 %31, -4
   %33 = load i64, ptr %6, align 8, !tbaa !8
   %34 = add i64 %32, %33
@@ -1364,7 +1364,7 @@ define noundef zeroext i1 @_ZN4base6Pickle13WriteString16ERKNS_16BasicStringPiec
 37:                                               ; preds = %18
   %38 = shl i64 %35, 1
   %39 = icmp ugt i64 %38, 4096
-  %40 = add i64 %38, 4095
+  %40 = add i64 %38, 4094
   %41 = and i64 %40, -4096
   %42 = add i64 %41, -64
   %.0.i.i.i = select i1 %39, i64 %42, i64 %38
@@ -1407,7 +1407,7 @@ define noundef zeroext i1 @_ZN4base6Pickle9WriteDataEPKci(ptr noundef nonnull al
 12:                                               ; preds = %5
   %13 = shl i64 %10, 1
   %14 = icmp ugt i64 %13, 4096
-  %15 = add i64 %13, 4095
+  %15 = add i64 %13, 4094
   %16 = and i64 %15, -4096
   %17 = add i64 %16, -64
   %.0.i.i.i.i.i = select i1 %14, i64 %17, i64 %13
@@ -1440,7 +1440,7 @@ define noundef zeroext i1 @_ZN4base6Pickle9WriteDataEPKci(ptr noundef nonnull al
 34:                                               ; preds = %18
   %35 = shl i64 %32, 1
   %36 = icmp ugt i64 %35, 4096
-  %37 = add i64 %35, 4095
+  %37 = add i64 %35, 4094
   %38 = and i64 %37, -4096
   %39 = add i64 %38, -64
   %.0.i.i.i = select i1 %36, i64 %39, i64 %35
@@ -1539,7 +1539,7 @@ define noundef ptr @_ZN4base6Pickle10ClaimBytesEm(ptr noundef nonnull align 8 de
 12:                                               ; preds = %2
   %13 = shl i64 %10, 1
   %14 = icmp ugt i64 %13, 4096
-  %15 = add i64 %13, 4095
+  %15 = add i64 %13, 4094
   %16 = and i64 %15, -4096
   %17 = add i64 %16, -64
   %.0.i = select i1 %14, i64 %17, i64 %13

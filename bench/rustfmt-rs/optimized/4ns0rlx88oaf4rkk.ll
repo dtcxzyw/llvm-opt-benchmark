@@ -4235,7 +4235,7 @@ define hidden void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$all
 15:                                               ; preds = %11
   fence acquire
   %16 = shl nsw i64 %9, 2
-  %17 = add i64 %16, 23
+  %17 = add i64 %16, 20
   %18 = and i64 %17, -8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$$u5b$rustc_span..symbol..Symbol$u5d$$GT$$GT$17hd4f3cbda08d32fc3E.llvm.17249484671449717553.exit", label %20
@@ -28266,7 +28266,7 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$rustc_span..hygiene..ExpnDat
 16:                                               ; preds = %12
   fence acquire
   %17 = shl nsw i64 %10, 2
-  %18 = add i64 %17, 23
+  %18 = add i64 %17, 20
   %19 = and i64 %18, -8
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$$u5b$rustc_span..symbol..Symbol$u5d$$GT$$GT$$GT$17h8d8e5ea056ce72d4E.llvm.17249484671449717553.exit", label %21
@@ -30335,7 +30335,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$rustc_span..hygiene..Hygiene
 28:                                               ; preds = %24
   fence acquire
   %29 = shl nsw i64 %22, 2
-  %30 = add i64 %29, 23
+  %30 = add i64 %29, 20
   %31 = and i64 %30, -8
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$rustc_span..hygiene..ExpnData$GT$$GT$17hbf4174584a4da225E.exit.i.i.i.i", label %33
@@ -35873,7 +35873,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$$u5b$rustc_span..hygiene..Ex
 20:                                               ; preds = %16
   fence acquire
   %21 = shl nsw i64 %14, 2
-  %22 = add i64 %21, 23
+  %22 = add i64 %21, 20
   %23 = and i64 %22, -8
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %"_ZN4core3ptr50drop_in_place$LT$rustc_span..hygiene..ExpnData$GT$17h0a8b68e2e3734f73E.exit", label %25
@@ -43765,7 +43765,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$rustc_spa
 23:                                               ; preds = %19
   fence acquire
   %24 = shl nsw i64 %17, 2
-  %25 = add i64 %24, 23
+  %25 = add i64 %24, 20
   %26 = and i64 %25, -8
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %"_ZN4core3ptr50drop_in_place$LT$rustc_span..hygiene..ExpnData$GT$17h0a8b68e2e3734f73E.exit.i.i", label %28
@@ -47339,7 +47339,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$alloc..sync..Arc$LT$$u5b$rus
 13:                                               ; preds = %9
   fence acquire
   %14 = shl nsw i64 %7, 2
-  %15 = add i64 %14, 23
+  %15 = add i64 %14, 20
   %16 = and i64 %15, -8
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h058ed6634b5e5c10E.llvm.17249484671449717553.exit", label %18
@@ -53658,7 +53658,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he7bb4165b176be
 10:                                               ; preds = %6
   fence acquire
   %11 = shl nsw i64 %4, 2
-  %12 = add i64 %11, 23
+  %12 = add i64 %11, 20
   %13 = and i64 %12, -8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %"_ZN4core3ptr109drop_in_place$LT$alloc..sync..Weak$LT$$u5b$rustc_span..symbol..Symbol$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hb19b6031407fb50dE.exit", label %15
@@ -58238,7 +58238,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 23:                                               ; preds = %19
   fence acquire
   %24 = shl nsw i64 %17, 2
-  %25 = add i64 %24, 23
+  %25 = add i64 %24, 20
   %26 = and i64 %25, -8
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %"_ZN4core3ptr50drop_in_place$LT$rustc_span..hygiene..ExpnData$GT$17h0a8b68e2e3734f73E.exit.i", label %28
@@ -59507,7 +59507,7 @@ define hidden void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..op
 13:                                               ; preds = %9
   fence acquire
   %14 = shl nsw i64 %7, 2
-  %15 = add i64 %14, 23
+  %15 = add i64 %14, 20
   %16 = and i64 %15, -8
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he7bb4165b176be4fE.llvm.17249484671449717553.exit", label %18

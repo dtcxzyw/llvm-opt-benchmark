@@ -3848,9 +3848,9 @@ define i32 @wc_ecc_sign_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 12:                                               ; preds = %8
   %13 = load i32, ptr %10, align 8, !tbaa !20
   %14 = shl nsw i32 %13, 3
-  %15 = add i32 %14, 63
+  %15 = add i32 %14, 56
   %16 = icmp ult i32 %15, 64
-  %17 = lshr i32 %15, 2
+  %17 = lshr exact i32 %15, 2
   %18 = and i32 %17, 1073741808
   %narrow = add nuw nsw i32 %18, 16
   %narrow114 = select i1 %16, i32 16, i32 %narrow
@@ -3858,7 +3858,7 @@ define i32 @wc_ecc_sign_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %19 = alloca i8, i64 %.ph.ph, align 16
   %20 = load i32, ptr %10, align 8, !tbaa !20
   %21 = shl nsw i32 %20, 3
-  %22 = add i32 %21, 63
+  %22 = add i32 %21, 56
   %23 = icmp ult i32 %22, 64
   br i1 %23, label %.critedge89, label %.critedge83
 
@@ -3871,7 +3871,7 @@ define i32 @wc_ecc_sign_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   br label %.critedge89
 
 .critedge83:                                      ; preds = %12
-  %26 = lshr i32 %22, 2
+  %26 = lshr exact i32 %22, 2
   %27 = and i32 %26, 1073741808
   %narrow78 = add nuw nsw i32 %27, 16
   %28 = zext nneg i32 %narrow78 to i64
@@ -3900,7 +3900,7 @@ define i32 @wc_ecc_sign_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 41:                                               ; preds = %37
   %42 = load i32, ptr %39, align 8, !tbaa !20
   %43 = shl nsw i32 %42, 3
-  %44 = add i32 %43, 63
+  %44 = add i32 %43, 56
   %45 = icmp ult i32 %44, 64
   br i1 %45, label %.thread, label %.critedge87
 
@@ -3909,12 +3909,12 @@ define i32 @wc_ecc_sign_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   br label %53
 
 .critedge87:                                      ; preds = %41
-  %46 = lshr i32 %44, 2
+  %46 = lshr exact i32 %44, 2
   %47 = and i32 %46, 1073741808
   %narrow79 = add nuw nsw i32 %47, 16
   %48 = zext nneg i32 %narrow79 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %29, i8 0, i64 %48, i1 false)
-  %49 = lshr i32 %44, 2
+  %49 = lshr exact i32 %44, 2
   %50 = and i32 %49, 1073741808
   %narrow80 = add nuw nsw i32 %50, 16
   %51 = zext nneg i32 %narrow80 to i64
@@ -3946,7 +3946,7 @@ define i32 @wc_ecc_sign_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 62:                                               ; preds = %59
   %63 = load i32, ptr %60, align 8, !tbaa !20
   %64 = shl nsw i32 %63, 3
-  %65 = add i32 %64, 63
+  %65 = add i32 %64, 56
   %66 = lshr i32 %65, 5
   %67 = or i32 %66, 1
   br label %68
@@ -3994,12 +3994,12 @@ define i32 @wc_ecc_sign_hash_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 15:                                               ; preds = %11
   %16 = load i32, ptr %13, align 8, !tbaa !20
   %17 = shl nsw i32 %16, 3
-  %18 = add i32 %17, 63
+  %18 = add i32 %17, 56
   %19 = icmp ult i32 %18, 64
   br i1 %19, label %.critedge81, label %.critedge
 
 .critedge:                                        ; preds = %15
-  %20 = lshr i32 %18, 2
+  %20 = lshr exact i32 %18, 2
   %21 = and i32 %20, 1073741808
   %narrow = add nuw nsw i32 %21, 16
   %22 = zext nneg i32 %narrow to i64
@@ -4047,9 +4047,9 @@ define i32 @wc_ecc_sign_hash_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 43:                                               ; preds = %39
   %44 = load i32, ptr %41, align 8, !tbaa !20
   %45 = shl nsw i32 %44, 3
-  %46 = add i32 %45, 63
+  %46 = add i32 %45, 56
   %47 = icmp ult i32 %46, 64
-  %48 = lshr i32 %46, 2
+  %48 = lshr exact i32 %46, 2
   %49 = and i32 %48, 1073741808
   %narrow77 = add nuw nsw i32 %49, 16
   %narrow88 = select i1 %47, i32 16, i32 %narrow77
@@ -4144,7 +4144,7 @@ define internal fastcc i32 @ecc_sign_hash_sw(ptr noundef nonnull %0, ptr noundef
 11:                                               ; preds = %7
   %12 = load i32, ptr %9, align 8, !tbaa !20
   %13 = shl nsw i32 %12, 3
-  %14 = add i32 %13, 63
+  %14 = add i32 %13, 56
   %15 = icmp ult i32 %14, 64
   br i1 %15, label %.thread, label %.critedge112
 
@@ -4153,12 +4153,12 @@ define internal fastcc i32 @ecc_sign_hash_sw(ptr noundef nonnull %0, ptr noundef
   br label %26
 
 .critedge112:                                     ; preds = %11
-  %17 = lshr i32 %14, 2
+  %17 = lshr exact i32 %14, 2
   %18 = and i32 %17, 1073741808
   %narrow = add nuw nsw i32 %18, 16
   %19 = zext nneg i32 %narrow to i64
   %20 = alloca i8, i64 %19, align 16
-  %21 = lshr i32 %14, 2
+  %21 = lshr exact i32 %14, 2
   %22 = and i32 %21, 1073741808
   %narrow100 = add nuw nsw i32 %22, 16
   %23 = zext nneg i32 %narrow100 to i64
@@ -5164,9 +5164,9 @@ define i32 @wc_ecc_verify_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
 12:                                               ; preds = %8
   %13 = load i32, ptr %10, align 8, !tbaa !20
   %14 = shl nsw i32 %13, 3
-  %15 = add i32 %14, 63
+  %15 = add i32 %14, 56
   %16 = icmp ult i32 %15, 64
-  %17 = lshr i32 %15, 2
+  %17 = lshr exact i32 %15, 2
   %18 = and i32 %17, 1073741808
   %narrow = add nuw nsw i32 %18, 16
   %narrow118 = select i1 %16, i32 16, i32 %narrow
@@ -5174,7 +5174,7 @@ define i32 @wc_ecc_verify_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   %19 = alloca i8, i64 %.ph.ph, align 16
   %20 = load i32, ptr %10, align 8, !tbaa !20
   %21 = shl nsw i32 %20, 3
-  %22 = add i32 %21, 63
+  %22 = add i32 %21, 56
   %23 = icmp ult i32 %22, 64
   br i1 %23, label %.critedge93, label %.critedge87
 
@@ -5187,7 +5187,7 @@ define i32 @wc_ecc_verify_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br label %.critedge93
 
 .critedge87:                                      ; preds = %12
-  %26 = lshr i32 %22, 2
+  %26 = lshr exact i32 %22, 2
   %27 = and i32 %26, 1073741808
   %narrow82 = add nuw nsw i32 %27, 16
   %28 = zext nneg i32 %narrow82 to i64
@@ -5214,7 +5214,7 @@ define i32 @wc_ecc_verify_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
 39:                                               ; preds = %35
   %40 = load i32, ptr %37, align 8, !tbaa !20
   %41 = shl nsw i32 %40, 3
-  %42 = add i32 %41, 63
+  %42 = add i32 %41, 56
   %43 = icmp ult i32 %42, 64
   br i1 %43, label %.thread, label %.critedge91
 
@@ -5223,12 +5223,12 @@ define i32 @wc_ecc_verify_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br label %51
 
 .critedge91:                                      ; preds = %39
-  %44 = lshr i32 %42, 2
+  %44 = lshr exact i32 %42, 2
   %45 = and i32 %44, 1073741808
   %narrow83 = add nuw nsw i32 %45, 16
   %46 = zext nneg i32 %narrow83 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %29, i8 0, i64 %46, i1 false)
-  %47 = lshr i32 %42, 2
+  %47 = lshr exact i32 %42, 2
   %48 = and i32 %47, 1073741808
   %narrow84 = add nuw nsw i32 %48, 16
   %49 = zext nneg i32 %narrow84 to i64
@@ -5260,7 +5260,7 @@ define i32 @wc_ecc_verify_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
 60:                                               ; preds = %57
   %61 = load i32, ptr %58, align 8, !tbaa !20
   %62 = shl nsw i32 %61, 3
-  %63 = add i32 %62, 63
+  %63 = add i32 %62, 56
   %64 = lshr i32 %63, 5
   %65 = or i32 %64, 1
   br label %66
@@ -5443,9 +5443,9 @@ define internal fastcc i32 @ecc_verify_hash(ptr noundef nonnull %0, ptr noundef 
 11:                                               ; preds = %7
   %12 = load i32, ptr %9, align 8, !tbaa !20
   %13 = shl nsw i32 %12, 3
-  %14 = add i32 %13, 63
+  %14 = add i32 %13, 56
   %15 = icmp ult i32 %14, 64
-  %16 = lshr i32 %14, 2
+  %16 = lshr exact i32 %14, 2
   %17 = and i32 %16, 1073741808
   %narrow = add nuw nsw i32 %17, 16
   %narrow402 = select i1 %15, i32 16, i32 %narrow
@@ -5453,7 +5453,7 @@ define internal fastcc i32 @ecc_verify_hash(ptr noundef nonnull %0, ptr noundef 
   %18 = alloca i8, i64 %.ph400, align 16
   %19 = load i32, ptr %9, align 8, !tbaa !20
   %20 = shl nsw i32 %19, 3
-  %21 = add i32 %20, 63
+  %21 = add i32 %20, 56
   %22 = icmp ult i32 %21, 64
   br i1 %22, label %.thread, label %.critedge117
 
@@ -5462,12 +5462,12 @@ define internal fastcc i32 @ecc_verify_hash(ptr noundef nonnull %0, ptr noundef 
   br label %34
 
 .critedge117:                                     ; preds = %11
-  %24 = lshr i32 %21, 2
+  %24 = lshr exact i32 %21, 2
   %25 = and i32 %24, 1073741808
   %narrow111 = add nuw nsw i32 %25, 16
   %26 = zext nneg i32 %narrow111 to i64
   %27 = alloca i8, i64 %26, align 16
-  %28 = lshr i32 %21, 2
+  %28 = lshr exact i32 %21, 2
   %29 = and i32 %28, 1073741808
   %narrow112 = add nuw nsw i32 %29, 16
   %30 = zext nneg i32 %narrow112 to i64
@@ -5525,9 +5525,9 @@ define internal fastcc i32 @ecc_verify_hash(ptr noundef nonnull %0, ptr noundef 
 62:                                               ; preds = %59
   %63 = load i32, ptr %60, align 8, !tbaa !20
   %64 = shl nsw i32 %63, 3
-  %65 = add i32 %64, 63
+  %65 = add i32 %64, 56
   %66 = icmp ult i32 %65, 64
-  %67 = lshr i32 %65, 2
+  %67 = lshr exact i32 %65, 2
   %68 = and i32 %67, 1073741808
   %narrow113 = add nuw nsw i32 %68, 16
   %narrow403 = select i1 %66, i32 16, i32 %narrow113
@@ -5542,7 +5542,7 @@ define internal fastcc i32 @ecc_verify_hash(ptr noundef nonnull %0, ptr noundef 
 70:                                               ; preds = %62
   %71 = load i32, ptr %60, align 8, !tbaa !20
   %72 = shl nsw i32 %71, 3
-  %73 = add i32 %72, 63
+  %73 = add i32 %72, 56
   %74 = lshr i32 %73, 5
   %75 = or i32 %74, 1
   br label %.thread162

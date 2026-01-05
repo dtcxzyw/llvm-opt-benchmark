@@ -12202,9 +12202,8 @@ define hidden void @"_ZN4core3ptr118drop_in_place$LT$alloc..sync..Weak$LT$$u5b$u
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !alias.scope !2903, !noundef !3
   %11 = shl nuw nsw i64 %10, 3
-  %12 = add nuw i64 %11, 23
-  %13 = and i64 %12, -8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %13, i64 noundef range(i64 1, -9223372036854775807) 8) #39, !noalias !2903
+  %12 = add nuw i64 %11, 16
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %12, i64 noundef range(i64 1, -9223372036854775807) 8) #39, !noalias !2903
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hac8fc08af59c8269E.llvm.14234798039696082073.exit"
 
 "_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hac8fc08af59c8269E.llvm.14234798039696082073.exit": ; preds = %1, %4, %8
@@ -114745,25 +114744,24 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hac8fc08af59c8269E.llvm.14234798039696082073"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %3 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h5741e781148f9713E.llvm.14234798039696082073.exit", label %4
+  br i1 %3, label %13, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h5741e781148f9713E.llvm.14234798039696082073.exit"
+  br i1 %7, label %8, label %13
 
 8:                                                ; preds = %4
   fence acquire
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !3
   %11 = shl nuw nsw i64 %10, 3
-  %12 = add nuw i64 %11, 23
-  %13 = and i64 %12, -8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %13, i64 noundef range(i64 1, -9223372036854775807) 8) #39
-  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h5741e781148f9713E.llvm.14234798039696082073.exit"
+  %12 = add nuw i64 %11, 16
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %12, i64 noundef range(i64 1, -9223372036854775807) 8) #39
+  br label %13
 
-"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h5741e781148f9713E.llvm.14234798039696082073.exit": ; preds = %8, %1, %4
+13:                                               ; preds = %1, %8, %4
   ret void
 }
 

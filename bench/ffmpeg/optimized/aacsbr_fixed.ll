@@ -3665,9 +3665,8 @@ av_div_sf.exit215.i:                              ; preds = %.lr.ph.i199.i, %av_
   %216 = getelementptr inbounds nuw %struct.SoftFloat, ptr %171, i64 %indvars.iv286.i
   store i64 %..i214.i, ptr %216, align 8
   %217 = getelementptr inbounds nuw %struct.SoftFloat, ptr %172, i64 %indvars.iv286.i
-  %.sroa.7.0.extract.shift.i216.i = and i64 %..i214.i, -4294967296
-  %reass.sub = sub i64 %.sroa.7.0.extract.shift.i216.i, %180
-  %.sroa.2.0.insert.shift.i220.i = add i64 %reass.sub, 52076478464
+  %reass.sub = sub i64 %..i214.i, %180
+  %.sroa.2.0.insert.shift.i220.i = add i64 %reass.sub, 51539607552
   %.sroa.0.0.extract.trunc.i.i221.i = trunc i64 %..i214.i to i32
   %.sroa.5.0.extract.shift.i.i222.i = lshr i64 %.sroa.2.0.insert.shift.i220.i, 32
   %218 = add i32 %.sroa.0.0.extract.trunc.i.i221.i, 1073741824
