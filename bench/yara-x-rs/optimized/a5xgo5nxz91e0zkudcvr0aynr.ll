@@ -36652,7 +36652,7 @@ define hidden void @"_ZN78_$LT$nom..multi..ManyMN$LT$F$GT$$u20$as$u20$nom..inter
     i8 45, label %"_ZN6yara_x7modules2pe6parser2PE13parse_section28_$u7b$$u7b$closure$u7d$$u7d$17hdf2ef42627555d64E.exit.i"
   ]
 
-.lr.ph.i.i.i.preheader:                           ; preds = %.preheader.i.i.i, %284, %277
+.lr.ph.i.i.i.preheader:                           ; preds = %.loopexit.i.i.i, %284, %277
   %.sroa.03.171.i.i.i.ph = phi ptr [ %275, %277 ], [ %275, %284 ], [ %281, %.preheader.i.i.i ]
   %.sroa.149.170.i.i.i.ph = phi i64 [ 1, %277 ], [ %274, %284 ], [ %282, %.preheader.i.i.i ]
   br label %.lr.ph.i.i.i
@@ -36684,7 +36684,7 @@ define hidden void @"_ZN78_$LT$nom..multi..ManyMN$LT$F$GT$$u20$as$u20$nom..inter
   %285 = icmp ult i64 %274, 9
   br i1 %285, label %.lr.ph.i.i.i.preheader, label %.preheader60.i.i.i.preheader
 
-.preheader.i.i.i:                                 ; preds = %280
+.loopexit.i.i.i:                                  ; preds = %280
   %.not5668.i.i.i = icmp eq i64 %282, 0
   br i1 %.not5668.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.preheader
 

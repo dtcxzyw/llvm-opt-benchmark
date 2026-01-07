@@ -4940,19 +4940,19 @@ _ZNSt6vectorIN4Luau7CommentESaIS1_EE9push_backEOS1_.exit: ; preds = %27, %_ZNSt6
   %.not32 = icmp eq i64 %65, 0
   br i1 %.not32, label %.critedge3.loopexit, label %.lr.ph, !llvm.loop !283
 
-.critedge3.loopexit:                              ; preds = %.lr.ph, %64
+.critedge3.loopexit.split.loop.exit:              ; preds = %.lr.ph, %64
   %.028.lcssa.ph = phi i64 [ 0, %64 ], [ %indvars.iv, %.lr.ph ]
   %66 = and i64 %.028.lcssa.ph, 4294967295
   %67 = add nsw i64 %66, -1
   br label %.critedge3
 
-.critedge3:                                       ; preds = %.critedge3.loopexit, %58
+.critedge3:                                       ; preds = %.critedge3.loopexit.split.loop.exit, %58
   %.028.lcssa = phi i64 [ -1, %58 ], [ %67, %.critedge3.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %68 = load i8, ptr %13, align 8, !tbaa !178, !range !174, !noundef !175
-  store i8 %68, ptr %3, align 8, !tbaa !284
+  %67 = load i8, ptr %13, align 8, !tbaa !178, !range !174, !noundef !175
+  store i8 %67, ptr %3, align 8, !tbaa !284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !10
-  %69 = getelementptr inbounds nuw i8, ptr %55, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %55, i64 1
   store ptr %16, ptr %15, align 8, !tbaa !11
   store i64 0, ptr %17, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -4975,12 +4975,12 @@ _ZNSt6vectorIN4Luau7CommentESaIS1_EE9push_backEOS1_.exit: ; preds = %27, %_ZNSt6
   ]
 
 74:                                               ; preds = %._crit_edge.i.i
-  %75 = load i8, ptr %69, align 1, !tbaa !20
+  %75 = load i8, ptr %68, align 1, !tbaa !20
   store i8 %75, ptr %73, align 1, !tbaa !20
   br label %77
 
 76:                                               ; preds = %._crit_edge.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr nonnull align 1 %69, i64 %.028.lcssa, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr nonnull align 1 %68, i64 %.028.lcssa, i1 false)
   br label %77
 
 77:                                               ; preds = %76, %74, %._crit_edge.i.i

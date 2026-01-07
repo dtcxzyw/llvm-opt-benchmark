@@ -5989,7 +5989,7 @@ _ZN5serde2de7Visitor10visit_bool17hc30ed4338695c0d9E.exit.i.i.i.i: ; preds = %21
   %230 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %231
 
-231:                                              ; preds = %.backedge250, %225
+231:                                              ; preds = %.backedge249, %225
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !338
   invoke void @"_ZN86_$LT$toml_edit..de..datetime..DatetimeDeserializer$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h5db3b67350b881edE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %14, ptr noalias noundef nonnull align 4 dereferenceable(24) %31)
           to label %_ZN5serde2de9MapAccess8next_key17hfd597b64252b78d1E.exit.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i, !noalias !340
@@ -6116,7 +6116,7 @@ _ZN5serde2de9MapAccess10next_value17h7d8088d506e7ec4bE.exit.i.i.i.i.i: ; preds =
 
 "_ZN4core3ptr169drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$ty_project..metadata..pyproject..PackageName$GT$$GT$$GT$$GT$17ha68277ef755b7574E.exit.i.i.i.i.i": ; preds = %257, %255
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6.i.i.i.i.i, i64 48, i1 false), !noalias !338
-  br label %.backedge250
+  br label %.backedge249
 
 260:                                              ; preds = %243
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !338
@@ -6171,7 +6171,7 @@ _ZN5serde2de9MapAccess10next_value17h8db4a6d52c601fa7E.exit.i.i.i.i.i: ; preds =
 
 "_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version..Version$GT$$GT$$GT$$GT$17h506674220121d075E.exit.i.i.i.i.i": ; preds = %269, %267
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.628.i.i.i.i.i, i64 32, i1 false), !noalias !338
-  br label %.backedge250
+  br label %.backedge249
 
 272:                                              ; preds = %245
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !338
@@ -6226,7 +6226,7 @@ _ZN5serde2de9MapAccess10next_value17hacf4fabfd9452082E.exit.i.i.i.i.i: ; preds =
 
 "_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version_specifier..VersionSpecifiers$GT$$GT$$GT$$GT$17h3ace3bd09b0303fdE.exit.i.i.i.i.i": ; preds = %281, %279
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.637.i.i.i.i.i, i64 48, i1 false), !noalias !338
-  br label %.backedge250
+  br label %.backedge249
 
 _ZN5serde2de9MapAccess10next_value17h9ee44f54a39cda49E.exit.i.i.i.i.i: ; preds = %247
   %284 = load i64, ptr %7, align 8, !range !43, !noalias !338, !noundef !7
@@ -6242,9 +6242,9 @@ _ZN5serde2de9MapAccess10next_value17h9ee44f54a39cda49E.exit.i.i.i.i.i: ; preds =
 
 287:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17h9ee44f54a39cda49E.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !338
-  br label %.backedge250
+  br label %.backedge249
 
-.backedge250:                                     ; preds = %287, %"_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version_specifier..VersionSpecifiers$GT$$GT$$GT$$GT$17h3ace3bd09b0303fdE.exit.i.i.i.i.i", %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version..Version$GT$$GT$$GT$$GT$17h506674220121d075E.exit.i.i.i.i.i", %"_ZN4core3ptr169drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$ty_project..metadata..pyproject..PackageName$GT$$GT$$GT$$GT$17ha68277ef755b7574E.exit.i.i.i.i.i"
+.backedge249:                                     ; preds = %287, %"_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version_specifier..VersionSpecifiers$GT$$GT$$GT$$GT$17h3ace3bd09b0303fdE.exit.i.i.i.i.i", %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version..Version$GT$$GT$$GT$$GT$17h506674220121d075E.exit.i.i.i.i.i", %"_ZN4core3ptr169drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$ty_project..metadata..pyproject..PackageName$GT$$GT$$GT$$GT$17ha68277ef755b7574E.exit.i.i.i.i.i"
   br label %231
 
 288:                                              ; preds = %285, %277, %274, %265, %262, %253, %250, %236
@@ -8654,7 +8654,7 @@ _ZN5serde2de7Visitor10visit_bool17hb8f48a9161d8667aE.exit.i.i.i.i: ; preds = %19
     i64 3, label %280
   ]
 
-default.unreachable:                              ; preds = %279
+.unreachabledefault.i27.i.i.i:                    ; preds = %279
   unreachable
 
 280:                                              ; preds = %279
@@ -9871,7 +9871,7 @@ _ZN5serde2de7Visitor12visit_string17hb448dc117882ede1E.exit.i: ; preds = %133
     i64 3, label %231
   ]
 
-default.unreachable:                              ; preds = %230
+.unreachabledefault.i25:                          ; preds = %230
   unreachable
 
 231:                                              ; preds = %230
@@ -10620,7 +10620,7 @@ _ZN5serde2de7Visitor12visit_string17he69819060560b2b7E.exit.i: ; preds = %133
     i64 3, label %231
   ]
 
-default.unreachable:                              ; preds = %230
+.unreachabledefault.i25:                          ; preds = %230
   unreachable
 
 231:                                              ; preds = %230
@@ -12947,7 +12947,7 @@ _ZN5serde2de7Visitor12visit_string17h5b1d6e1fc254891bE.exit.i: ; preds = %183
     i64 3, label %281
   ]
 
-default.unreachable:                              ; preds = %280
+.unreachabledefault.i31:                          ; preds = %280
   unreachable
 
 281:                                              ; preds = %280
@@ -13696,7 +13696,7 @@ _ZN5serde2de7Visitor12visit_string17h9e45476df4353b32E.exit.i: ; preds = %133
     i64 3, label %231
   ]
 
-default.unreachable:                              ; preds = %230
+.unreachabledefault.i25:                          ; preds = %230
   unreachable
 
 231:                                              ; preds = %230
@@ -14445,7 +14445,7 @@ _ZN5serde2de7Visitor12visit_string17h236bef4e529d89deE.exit.i: ; preds = %133
     i64 3, label %231
   ]
 
-default.unreachable:                              ; preds = %230
+.unreachabledefault.i25:                          ; preds = %230
   unreachable
 
 231:                                              ; preds = %230
@@ -15194,7 +15194,7 @@ _ZN5serde2de7Visitor12visit_string17h1cab2a3f2e4291caE.exit.i: ; preds = %133
     i64 3, label %231
   ]
 
-default.unreachable:                              ; preds = %230
+.unreachabledefault.i25:                          ; preds = %230
   unreachable
 
 231:                                              ; preds = %230
@@ -15943,7 +15943,7 @@ _ZN5serde2de7Visitor12visit_string17h69109247ce859d64E.exit.i: ; preds = %133
     i64 3, label %231
   ]
 
-default.unreachable:                              ; preds = %230
+.unreachabledefault.i25:                          ; preds = %230
   unreachable
 
 231:                                              ; preds = %230
@@ -16198,7 +16198,7 @@ _ZN5serde2de9MapAccess8next_key17hf30e03570de6d0baE.exit.i: ; preds = %71
   %.not80.i = icmp eq i64 %79, -9223372036854775806
   br i1 %.not80.i, label %120, label %119
 
-.unreachabledefault:                              ; preds = %77
+default.unreachable:                              ; preds = %77
   unreachable
 
 default.unreachable:                              ; preds = %318
@@ -19188,7 +19188,7 @@ _ZN5serde2de7Visitor12visit_string17h79666d73b03afae6E.exit.i: ; preds = %133
     i64 3, label %231
   ]
 
-default.unreachable:                              ; preds = %230
+.unreachabledefault.i25:                          ; preds = %230
   unreachable
 
 231:                                              ; preds = %230
@@ -20100,7 +20100,7 @@ _ZN5serde2de7Visitor12visit_string17hb35e4504578b513aE.exit.i: ; preds = %172
     i64 3, label %270
   ]
 
-default.unreachable:                              ; preds = %269
+.unreachabledefault.i31:                          ; preds = %269
   unreachable
 
 270:                                              ; preds = %269
@@ -20849,7 +20849,7 @@ _ZN5serde2de7Visitor12visit_string17hca867d1c9fe40881E.exit.i: ; preds = %133
     i64 3, label %231
   ]
 
-default.unreachable:                              ; preds = %230
+.unreachabledefault.i25:                          ; preds = %230
   unreachable
 
 231:                                              ; preds = %230

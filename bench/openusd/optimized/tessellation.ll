@@ -1197,8 +1197,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16Parameterizatio
   %.1.us.us.i = phi i32 [ %169, %164 ], [ %163, %._crit_edge.thread.i.us.us.i ], [ %.0337.us.us.i, %159 ]
   %170 = add nuw nsw i32 %.0328.us.us.i, 1
   %.034.us.us.i = add nsw i32 %.03411.us.us.i, -2
-  %exitcond27.not.i = icmp eq i32 %170, %141
-  br i1 %exitcond27.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %159, !llvm.loop !16
+  %exitcond28.not.i = icmp eq i32 %170, %141
+  br i1 %exitcond28.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %159, !llvm.loop !16
 
 .lr.ph.split.i:                                   ; preds = %230, %.lr.ph.split.preheader.i
   %.03411.i = phi i32 [ %.034.i, %230 ], [ %.0345.i, %.lr.ph.split.preheader.i ]
@@ -1786,8 +1786,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16Parameterizatio
   %.1.us.us.i = phi i32 [ %169, %164 ], [ %163, %._crit_edge.thread.i.us.us.i ], [ %.0337.us.us.i, %159 ]
   %170 = add nuw nsw i32 %.0328.us.us.i, 1
   %.034.us.us.i = add nsw i32 %.03411.us.us.i, -2
-  %exitcond27.not.i = icmp eq i32 %170, %141
-  br i1 %exitcond27.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %159, !llvm.loop !21
+  %exitcond28.not.i = icmp eq i32 %170, %141
+  br i1 %exitcond28.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %159, !llvm.loop !21
 
 .lr.ph.split.i:                                   ; preds = %230, %.lr.ph.split.preheader.i
   %.03411.i = phi i32 [ %.034.i, %230 ], [ %.0345.i, %.lr.ph.split.preheader.i ]

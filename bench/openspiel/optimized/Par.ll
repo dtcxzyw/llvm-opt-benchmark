@@ -1561,41 +1561,41 @@ define noundef range(i32 -2147483648, 2147483642) i32 @_Z18CalcMultiContractsii(
     i32 2, label %9
   ]
 
-4:                                                ; preds = %2
+3:                                                ; preds = %2
   %switch.tableidx = add i32 %0, -1
-  %5 = icmp ult i32 %switch.tableidx, 3
-  br i1 %5, label %switch.lookup, label %13
+  %4 = icmp ult i32 %switch.tableidx, 3
+  br i1 %4, label %switch.lookup, label %14
 
-6:                                                ; preds = %2
+5:                                                ; preds = %2
   %switch.tableidx15 = add i32 %0, -1
-  %7 = icmp ult i32 %switch.tableidx15, 3
-  br i1 %7, label %switch.lookup16, label %13
+  %6 = icmp ult i32 %switch.tableidx15, 3
+  br i1 %6, label %switch.lookup16, label %14
 
-8:                                                ; preds = %2
+7:                                                ; preds = %2
   %switch.selectcmp = icmp eq i32 %0, 1
   %switch.select = select i1 %switch.selectcmp, i32 23, i32 3
   %switch.selectcmp13 = icmp eq i32 %0, 2
   %switch.select14 = select i1 %switch.selectcmp13, i32 123, i32 %switch.select
-  br label %13
+  br label %14
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   %10 = icmp eq i32 %0, 1
   %. = select i1 %10, i32 12, i32 2
   br label %13
 
-switch.lookup:                                    ; preds = %4
-  %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._Z18CalcMultiContractsii, i64 %11
+switch.lookup:                                    ; preds = %3
+  %12 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._Z18CalcMultiContractsii, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %13
+  br label %14
 
-switch.lookup16:                                  ; preds = %6
-  %12 = zext nneg i32 %switch.tableidx15 to i64
-  %switch.gep17 = getelementptr inbounds nuw i32, ptr @switch.table._Z18CalcMultiContractsii.2, i64 %12
+switch.lookup16:                                  ; preds = %5
+  %13 = zext nneg i32 %switch.tableidx15 to i64
+  %switch.gep17 = getelementptr inbounds nuw i32, ptr @switch.table._Z18CalcMultiContractsii.2, i64 %13
   %switch.load18 = load i32, ptr %switch.gep17, align 4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %6, %switch.lookup16, %4, %switch.lookup, %8, %2, %9
+14:                                               ; preds = %5, %switch.lookup16, %3, %switch.lookup, %7, %2, %10
   %.0 = phi i32 [ %., %9 ], [ %3, %2 ], [ %switch.select14, %8 ], [ %switch.load18, %switch.lookup16 ], [ 5, %4 ], [ %switch.load, %switch.lookup ], [ 4, %6 ]
   ret i32 %.0
 }

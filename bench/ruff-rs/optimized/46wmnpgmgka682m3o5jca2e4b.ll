@@ -58184,7 +58184,7 @@ _ZN5serde2de9MapAccess8next_key17h3fb3b3830bfed855E.exit.thread.i.thread: ; pred
   %.not125.i = icmp eq i64 %106, -9223372036854775807
   br i1 %.not125.i, label %187, label %186
 
-_ZN5serde2de9MapAccess8next_key17h3fb3b3830bfed855E.exit.thread.i.unreachabledefault: ; preds = %_ZN5serde2de9MapAccess8next_key17h3fb3b3830bfed855E.exit.thread.i
+default.unreachable:                              ; preds = %_ZN5serde2de9MapAccess8next_key17h3fb3b3830bfed855E.exit.thread.i
   unreachable
 
 default.unreachable:                              ; preds = %391
@@ -59671,7 +59671,7 @@ _ZN5serde2de9MapAccess8next_key17hf4d2897900736e4eE.exit.thread.i.thread: ; pred
   %.not139.i = icmp eq i64 %108, -9223372036854775808
   br i1 %.not139.i, label %179, label %178
 
-_ZN5serde2de9MapAccess8next_key17hf4d2897900736e4eE.exit.thread.i.unreachabledefault: ; preds = %_ZN5serde2de9MapAccess8next_key17hf4d2897900736e4eE.exit.thread.i
+default.unreachable:                              ; preds = %_ZN5serde2de9MapAccess8next_key17hf4d2897900736e4eE.exit.thread.i
   unreachable
 
 default.unreachable:                              ; preds = %388

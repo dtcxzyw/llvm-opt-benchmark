@@ -4989,29 +4989,29 @@ define hidden { i16, i16 } @_ZN11quinn_proto10connection4mtud12MtuDiscovery13pol
     i64 2, label %20
   ]
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %14 = load i16, ptr %13, align 8, !alias.scope !290, !noundef !3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.val.i = load i16, ptr %15, align 8, !alias.scope !290, !noundef !3
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 130
-  %.val13.i = load i16, ptr %16, align 2, !alias.scope !290, !noundef !3
-  %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i16 @llvm.umin.i16(i16 %14, i16 %9)
-  %17 = icmp ult i16 %.val.i, %.sroa.0.0.sroa.speculated.i.i.i
-  %minmaxop.i.i = select i1 %17, i16 %9, i16 %.val.i
-  %.sroa.0.0.in.sroa.speculated.i.i.i = tail call i16 @llvm.umin.i16(i16 %minmaxop.i.i, i16 %14)
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %13 = load i16, ptr %12, align 8, !alias.scope !290, !noundef !3
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.val.i = load i16, ptr %14, align 8, !alias.scope !290, !noundef !3
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 130
+  %.val13.i = load i16, ptr %15, align 2, !alias.scope !290, !noundef !3
+  %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i16 @llvm.umin.i16(i16 %13, i16 %9)
+  %16 = icmp ult i16 %.val.i, %.sroa.0.0.sroa.speculated.i.i.i
+  %minmaxop.i.i = select i1 %16, i16 %9, i16 %.val.i
+  %.sroa.0.0.in.sroa.speculated.i.i.i = tail call i16 @llvm.umin.i16(i16 %minmaxop.i.i, i16 %13)
   store i64 0, ptr %5, align 8, !alias.scope !290
   %.sroa.522.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %.sroa.522.0..sroa_idx.i, align 8, !alias.scope !290
   br label %.thread
 
-18:                                               ; preds = %7
+17:                                               ; preds = %7
   %19 = icmp ne i64 %6, 3
   tail call void @llvm.assume(i1 %19)
-  %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %.thread.i, label %_ZN11quinn_proto10connection4mtud19EnabledMtuDiscovery13poll_transmit17h9dba73a8caa37651E.exit
+  %20 = icmp eq i64 %6, 0
+  br i1 %20, label %.thread.i, label %_ZN11quinn_proto10connection4mtud19EnabledMtuDiscovery13poll_transmit17h9dba73a8caa37651E.exit
 
-20:                                               ; preds = %7
+20:; preds = %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load i64, ptr %21, align 8, !alias.scope !290, !noundef !3
   %23 = icmp eq i64 %1, %22
@@ -5022,7 +5022,7 @@ define hidden { i16, i16 } @_ZN11quinn_proto10connection4mtud12MtuDiscovery13pol
   %.sroa.010.0.i = select i1 %23, i1 %27, i1 %24
   br i1 %.sroa.010.0.i, label %_ZN11quinn_proto10connection4mtud19EnabledMtuDiscovery13poll_transmit17h9dba73a8caa37651E.exit, label %28
 
-28:                                               ; preds = %20
+28:; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %30 = load i16, ptr %29, align 8, !alias.scope !290, !noundef !3
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -5037,7 +5037,7 @@ define hidden { i16, i16 } @_ZN11quinn_proto10connection4mtud12MtuDiscovery13pol
   store i64 0, ptr %25, align 8, !alias.scope !290
   br label %.thread
 
-.thread:                                          ; preds = %28, %12
+.thread:                                          ; preds = %28, %11
   %.sroa.0.0.sroa.speculated.i.i.sink45.i = phi i16 [ %.sroa.0.0.sroa.speculated.i.i.i, %12 ], [ %.sroa.0.0.sroa.speculated.i.i16.i, %28 ]
   %.sroa.0.0.in.sroa.speculated.i.i.sink.i = phi i16 [ %.sroa.0.0.in.sroa.speculated.i.i.i, %12 ], [ %.sroa.0.0.in.sroa.speculated.i.i18.i, %28 ]
   %.val13.sink.i = phi i16 [ %.val13.i, %12 ], [ %.val15.i, %28 ]
@@ -5047,108 +5047,108 @@ define hidden { i16, i16 } @_ZN11quinn_proto10connection4mtud12MtuDiscovery13pol
   store i16 %.val13.sink.i, ptr %.sroa.825.0..sroa_idx.i, align 4, !alias.scope !290
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 94
   store i16 %.sroa.0.0.sroa.speculated.i.i.sink45.i, ptr %.sroa.9.0..sroa_idx.i, align 2, !alias.scope !290
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.phi.trans.insert5.i.i4 = getelementptr inbounds nuw i8, ptr %0, i64 90
-  br label %47
+  br label %44
 
-.thread.i:                                        ; preds = %18
+.thread.i:                                        ; preds = %17
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !alias.scope !290
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %36 = add i64 %.pre, -1
-  %or.cond.i = icmp ult i64 %36, 2
-  br i1 %or.cond.i, label %39, label %37
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %33 = add i64 %.pre, -1
+  %or.cond.i = icmp ult i64 %33, 2
+  br i1 %or.cond.i, label %36, label %34
 
-37:                                               ; preds = %.thread.i
-  %38 = icmp eq i64 %.pre, 0
+34:                                               ; preds = %.thread.i
+  %35 = icmp eq i64 %.pre, 0
   %.phi.trans.insert5.i.i = getelementptr inbounds nuw i8, ptr %0, i64 90
-  br i1 %38, label %47, label %43
+  br i1 %35, label %44, label %40
 
-39:                                               ; preds = %.thread.i
+36:                                               ; preds = %.thread.i
   store i64 1, ptr %5, align 8, !alias.scope !290
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %3, ptr %40, align 8, !alias.scope !290
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 94
-  %42 = load i16, ptr %41, align 2, !alias.scope !290, !noundef !3
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %3, ptr %37, align 8, !alias.scope !290
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 94
+  %39 = load i16, ptr %38, align 2, !alias.scope !290, !noundef !3
   br label %_ZN11quinn_proto10connection4mtud19EnabledMtuDiscovery13poll_transmit17h9dba73a8caa37651E.exit
 
-43:                                               ; preds = %37
-  store i64 0, ptr %35, align 8, !alias.scope !290
+40:                                               ; preds = %34
+  store i64 0, ptr %32, align 8, !alias.scope !290
   store i64 0, ptr %5, align 8, !alias.scope !290
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 94
-  %45 = load i16, ptr %44, align 2, !alias.scope !293, !noundef !3
-  %46 = add i16 %45, -1
-  store i16 %46, ptr %.phi.trans.insert5.i.i, align 2, !alias.scope !293
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 94
+  %42 = load i16, ptr %41, align 2, !alias.scope !293, !noundef !3
+  %43 = add i16 %42, -1
+  store i16 %43, ptr %.phi.trans.insert5.i.i, align 2, !alias.scope !293
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.pre.i.i = load i16, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !293
-  br label %52
+  br label %49
 
-47:                                               ; preds = %.thread, %37
+44:                                               ; preds = %.thread, %34
   %.phi.trans.insert5.i.i5 = phi ptr [ %.phi.trans.insert5.i.i4, %.thread ], [ %.phi.trans.insert5.i.i, %37 ]
-  %48 = phi ptr [ %34, %.thread ], [ %35, %37 ]
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 94
-  %50 = load i16, ptr %49, align 2, !alias.scope !296, !noundef !3
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i16 %50, ptr %51, align 8, !alias.scope !293
+  %45 = phi ptr [ %31, %.thread ], [ %32, %37 ]
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 94
+  %47 = load i16, ptr %46, align 2, !alias.scope !296, !noundef !3
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i16 %47, ptr %48, align 8, !alias.scope !293
   %.pre6.i.i = load i16, ptr %.phi.trans.insert5.i.i5, align 2, !alias.scope !293
-  br label %52
+  br label %49
 
-52:                                               ; preds = %47, %43
-  %53 = phi ptr [ %48, %47 ], [ %35, %43 ]
-  %54 = phi i16 [ %50, %47 ], [ %45, %43 ]
-  %55 = phi ptr [ %49, %47 ], [ %44, %43 ]
-  %56 = phi i16 [ %.pre6.i.i, %47 ], [ %46, %43 ]
-  %57 = phi i16 [ %50, %47 ], [ %.pre.i.i, %43 ]
-  %58 = zext i16 %57 to i32
-  %59 = zext i16 %56 to i32
-  %60 = add nuw nsw i32 %58, %59
-  %61 = lshr i32 %60, 1
-  %62 = zext i16 %54 to i32
-  %63 = sub nsw i32 %61, %62
-  %.sroa.01.0.i.i = tail call i32 @llvm.abs.i32(i32 %63, i1 true)
-  %64 = trunc nuw i32 %.sroa.01.0.i.i to i16
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %66 = load i16, ptr %65, align 4, !alias.scope !293, !noundef !3
-  %67 = icmp ugt i16 %66, %64
-  br i1 %67, label %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.i, label %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.thread.i
+49:                                               ; preds = %44, %40
+  %50 = phi ptr [ %45, %47 ], [ %32, %43 ]
+  %51 = phi i16 [ %47, %47 ], [ %42, %43 ]
+  %52 = phi ptr [ %46, %47 ], [ %41, %43 ]
+  %53 = phi i16 [ %.pre6.i.i, %47 ], [ %43, %43 ]
+  %54 = phi i16 [ %47, %47 ], [ %.pre.i.i, %43 ]
+  %55 = zext i16 %54 to i32
+  %56 = zext i16 %53 to i32
+  %57 = add nuw nsw i32 %55, %56
+  %58 = lshr i32 %57, 1
+  %59 = zext i16 %51 to i32
+  %60 = sub nsw i32 %58, %59
+  %.sroa.01.0.i.i = tail call i32 @llvm.abs.i32(i32 %60, i1 true)
+  %61 = trunc nuw i32 %.sroa.01.0.i.i to i16
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %63 = load i16, ptr %62, align 4, !alias.scope !293, !noundef !3
+  %64 = icmp ugt i16 %63, %61
+  br i1 %64, label %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.i, label %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.thread.i
 
-_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.thread.i: ; preds = %52
-  %68 = trunc nuw i32 %61 to i16
-  br label %70
+_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.thread.i: ; preds = %49
+  %65 = trunc nuw i32 %58 to i16
+  br label %67
 
-_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.i: ; preds = %52
-  %69 = tail call i16 @llvm.usub.sat.i16(i16 %56, i16 %54)
-  %.not.i.not.i = icmp ult i16 %69, %66
-  br i1 %.not.i.not.i, label %72, label %70
+_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.i: ; preds = %49
+  %66 = tail call i16 @llvm.usub.sat.i16(i16 %53, i16 %51)
+  %.not.i.not.i = icmp ult i16 %66, %63
+  br i1 %.not.i.not.i, label %69, label %67
 
-70:                                               ; preds = %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.i, %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.thread.i
-  %.sroa.4.0.i42.i = phi i16 [ %68, %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.thread.i ], [ %56, %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.i ]
+67:                                               ; preds = %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.i, %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.thread.i
+  %.sroa.4.0.i42.i = phi i16 [ %65, %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.thread.i ], [ %53, %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.i ]
   store i64 1, ptr %5, align 8, !alias.scope !290
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %3, ptr %71, align 8, !alias.scope !290
-  store i16 %.sroa.4.0.i42.i, ptr %55, align 2, !alias.scope !290
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %3, ptr %68, align 8, !alias.scope !290
+  store i16 %.sroa.4.0.i42.i, ptr %52, align 2, !alias.scope !290
   br label %_ZN11quinn_proto10connection4mtud19EnabledMtuDiscovery13poll_transmit17h9dba73a8caa37651E.exit
 
-72:                                               ; preds = %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.i
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %74 = load i64, ptr %73, align 8, !alias.scope !290, !noundef !3
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %76 = load i32, ptr %75, align 8, !range !66, !alias.scope !290, !noundef !3
-  %77 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17h4403347669fc18feE"(i64 noundef %1, i32 noundef range(i32 0, 1000000000) %2, i64 noundef %74, i32 noundef %76), !noalias !290
-  %78 = extractvalue { i64, i32 } %77, 0
-  %79 = extractvalue { i64, i32 } %77, 1
+69:                                               ; preds = %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.i
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %71 = load i64, ptr %70, align 8, !alias.scope !290, !noundef !3
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %73 = load i32, ptr %72, align 8, !range !66, !alias.scope !290, !noundef !3
+  %74 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17h4403347669fc18feE"(i64 noundef %1, i32 noundef range(i32 0, 1000000000) %2, i64 noundef %71, i32 noundef %73), !noalias !290
+  %75 = extractvalue { i64, i32 } %74, 0
+  %76 = extractvalue { i64, i32 } %74, 1
   store i64 4, ptr %5, align 8, !alias.scope !290
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %78, ptr %.sroa.49.0..sroa_idx.i, align 8, !alias.scope !290
-  store i32 %79, ptr %53, align 8, !alias.scope !290
+  store i64 %75, ptr %.sroa.49.0..sroa_idx.i, align 8, !alias.scope !290
+  store i32 %76, ptr %50, align 8, !alias.scope !290
   br label %_ZN11quinn_proto10connection4mtud19EnabledMtuDiscovery13poll_transmit17h9dba73a8caa37651E.exit
 
-_ZN11quinn_proto10connection4mtud19EnabledMtuDiscovery13poll_transmit17h9dba73a8caa37651E.exit: ; preds = %72, %70, %39, %20, %18, %4
-  %.sroa.3.0 = phi i16 [ undef, %4 ], [ undef, %18 ], [ %42, %39 ], [ %.sroa.4.0.i42.i, %70 ], [ undef, %72 ], [ undef, %20 ]
+_ZN11quinn_proto10connection4mtud19EnabledMtuDiscovery13poll_transmit17h9dba73a8caa37651E.exit: ; preds = %69, %67, %36, %20, %16, %4
+  %.sroa.3.0 = phi i16 [ undef, %4 ], [ undef, %18 ], [ %39, %39 ], [ %.sroa.4.0.i42.i, %70 ], [ undef, %72 ], [ undef, %20 ]
   %.sroa.0.0 = phi i16 [ 0, %4 ], [ 0, %18 ], [ 1, %39 ], [ 1, %70 ], [ 0, %72 ], [ 0, %20 ]
-  %80 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
-  %81 = insertvalue { i16, i16 } %80, i16 %.sroa.3.0, 1
-  ret { i16, i16 } %81
+  %77 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
+  %78 = insertvalue { i16, i16 } %77, i16 %.sroa.3.0, 1
+  ret { i16, i16 } %78
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

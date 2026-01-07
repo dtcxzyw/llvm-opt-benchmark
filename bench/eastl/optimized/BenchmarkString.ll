@@ -2598,7 +2598,7 @@ if.then.i90.i2638:                                ; preds = %if.else40.i2626
   store i16 %222, ptr %add.ptr.i2596, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit93.i2631
 
-if.end.i.i91.i2639:                               ; preds = %if.else40.i2626
+_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit93.i2631.thread: ; preds = %if.else40.i2626
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i2596, ptr nonnull align 16 %pReplace1_16, i64 %sub.ptr.sub44.i2629, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_moveEPDsPKDsm.exit93.i2631
 
@@ -3224,7 +3224,7 @@ if.then.i4.i.i:                                   ; preds = %call5.i.i.i.i.i.noe
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit.i.i
 
 if.end.i.i.i.i:                                   ; preds = %call5.i.i.i.i.i.noexc
-  %mul.i.i.i11.i = shl i64 %add.i.i652, 1
+  %add.i.i652 = shl i64 %add.i.i652, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i659, ptr align 2 %282, i64 %mul.i.i.i11.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit.i.i
 

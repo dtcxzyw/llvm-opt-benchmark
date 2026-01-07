@@ -1241,7 +1241,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %70, %
   br label %276
 
 75:                                               ; preds = %55, %64, %63
-  %.sink = phi i32 [ 9, %64 ], [ 8, %63 ], [ %61, %55 ]
+  %.sink344 = phi i32 [ 9, %64 ], [ 8, %63 ], [ %61, %55 ]
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 %61, ptr %76, align 8, !tbaa !198
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 60

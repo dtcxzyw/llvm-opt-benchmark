@@ -1813,58 +1813,58 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
     i32 0, label %77
   ]
 
-57:                                               ; preds = %._crit_edge
-  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 12), align 4, !tbaa !16
-  %59 = lshr i32 %58, 1
-  %60 = load i16, ptr %.2.lcssa, align 2, !tbaa !11
-  %61 = zext i16 %60 to i32
-  %62 = and i32 %59, 32767
-  %.not141 = icmp samesign ugt i32 %62, %61
-  br i1 %.not141, label %66, label %63
+56:                                               ; preds = %._crit_edge
+  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 12), align 4, !tbaa !16
+  %58 = lshr i32 %57, 1
+  %59 = load i16, ptr %.2.lcssa, align 2, !tbaa !11
+  %60 = zext i16 %59 to i32
+  %61 = and i32 %58, 32767
+  %.not141 = icmp samesign ugt i32 %61, %60
+  br i1 %.not141, label %65, label %62
 
-63:                                               ; preds = %57
-  %64 = icmp samesign ult i32 %62, %61
-  %65 = add nsw i32 %54, 5
-  %spec.select198 = select i1 %64, i32 7, i32 %65
+62:                                               ; preds = %56
+  %63 = icmp samesign ult i32 %61, %60
+  %64 = add nsw i32 %54, 5
+  %spec.select198 = select i1 %63, i32 7, i32 %64
   br label %.sink.split
 
-66:                                               ; preds = %57
-  %.not142 = icmp eq i16 %60, 0
-  br i1 %.not142, label %67, label %.sink.split
+65:                                               ; preds = %56
+  %.not142 = icmp eq i16 %59, 0
+  br i1 %.not142, label %66, label %.sink.split
 
-.sink.split:                                      ; preds = %63, %66
+.sink.split:                                      ; preds = %62, %65
   %.sink = phi i32 [ %spec.select198, %63 ], [ 3, %66 ]
   store i32 %.sink, ptr %4, align 4, !tbaa !16
-  br label %67
+  br label %66
 
-67:                                               ; preds = %.sink.split, %66
-  %68 = load i32, ptr %1, align 4, !tbaa !25
-  %69 = icmp slt i32 %68, 1
-  br i1 %69, label %.loopexit.sink.split, label %70
+66:                                               ; preds = %.sink.split, %65
+  %67 = load i32, ptr %1, align 4, !tbaa !25
+  %68 = icmp slt i32 %67, 1
+  br i1 %68, label %.loopexit.sink.split, label %69
 
-70:                                               ; preds = %67
-  store i32 %68, ptr %0, align 4, !tbaa !10
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  br label %72
+69:                                               ; preds = %66
+  store i32 %67, ptr %0, align 4, !tbaa !10
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  br label %71
 
-72:                                               ; preds = %70, %72
+71:                                               ; preds = %69, %71
   %.2.pn157 = phi ptr [ %.2.lcssa, %70 ], [ %.3, %72 ]
-  %.1119156 = phi ptr [ %71, %70 ], [ %74, %72 ]
-  %.3124155 = phi i32 [ %68, %70 ], [ %75, %72 ]
+  %.1119156 = phi ptr [ %70, %70 ], [ %73, %72 ]
+  %.3124155 = phi i32 [ %67, %70 ], [ %74, %72 ]
   %.3 = getelementptr inbounds nuw i8, ptr %.2.pn157, i64 2
-  %73 = load i16, ptr %.3, align 2, !tbaa !11
-  store i16 %73, ptr %.1119156, align 2, !tbaa !11
-  %74 = getelementptr inbounds nuw i8, ptr %.1119156, i64 2
-  %75 = add nsw i32 %.3124155, -3
-  %76 = icmp samesign ugt i32 %.3124155, 3
-  br i1 %76, label %72, label %.loopexit, !llvm.loop !34
+  %72 = load i16, ptr %.3, align 2, !tbaa !11
+  store i16 %72, ptr %.1119156, align 2, !tbaa !11
+  %73 = getelementptr inbounds nuw i8, ptr %.1119156, i64 2
+  %74 = add nsw i32 %.3124155, -3
+  %75 = icmp samesign ugt i32 %.3124155, 3
+  br i1 %75, label %71, label %.loopexit, !llvm.loop !34
 
-77:                                               ; preds = %._crit_edge
-  %78 = load i16, ptr %.2.lcssa, align 2, !tbaa !11
-  %79 = zext i16 %78 to i32
+76:                                               ; preds = %._crit_edge
+  %77 = load i16, ptr %.2.lcssa, align 2, !tbaa !11
+  %78 = zext i16 %77 to i32
   br label %92
 
-80:                                               ; preds = %._crit_edge
+79:                                               ; preds = %._crit_edge
   %81 = load i16, ptr %.2.lcssa, align 2, !tbaa !11
   %82 = zext i16 %81 to i32
   %83 = lshr i32 %82, %56
@@ -1880,9 +1880,9 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
   %spec.select = select i1 %.not140, i32 %54, i32 1
   br label %92
 
-92:                                               ; preds = %80, %77
+92:                                               ; preds = %79, %76
   %93 = phi i32 [ %54, %77 ], [ %spec.select, %80 ]
-  %.0 = phi i32 [ %79, %77 ], [ %88, %80 ]
+  %.0 = phi i32 [ %78, %77 ], [ %88, %80 ]
   %94 = mul nuw nsw i32 %.0, 6554
   %95 = lshr i32 %94, 16
   %.neg = mul nsw i32 %95, -10
@@ -1947,13 +1947,13 @@ define internal fastcc void @decSetCoeff(ptr noundef captures(address) %0, ptr n
   %137 = icmp slt i32 %136, 1
   br i1 %137, label %.loopexit, label %118
 
-.loopexit.sink.split:                             ; preds = %92, %67
+.loopexit.sink.split:                             ; preds = %92, %66
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i16 0, ptr %138, align 2, !tbaa !11
   store i32 1, ptr %0, align 4, !tbaa !10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %72, %118, %123, %.loopexit.sink.split, %104
+.loopexit:                                        ; preds = %71, %118, %123, %.loopexit.sink.split, %104
   %139 = load i32, ptr %4, align 4, !tbaa !16
   %.not143 = icmp eq i32 %139, 0
   br i1 %.not143, label %143, label %140

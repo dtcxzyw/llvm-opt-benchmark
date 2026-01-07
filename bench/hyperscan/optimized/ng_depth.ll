@@ -1277,19 +1277,19 @@ _ZN3ue2L17depthFromDistanceEi.exit.i:             ; preds = %26, %25, %_ZNSt6vec
     i32 2147483646, label %33
   ]
 
-33:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
+32:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
   br label %_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit
 
-34:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
+33:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
   %35 = icmp ugt i32 %32, 2147483646
   br i1 %35, label %36, label %_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit
 
-36:                                               ; preds = %34
+36:                                               ; preds = %33
   %37 = tail call ptr @__cxa_allocate_exception(i64 1) #27
   tail call void @__cxa_throw(ptr %37, ptr nonnull @_ZTIN3ue218DepthOverflowErrorE, ptr null) #24
   unreachable
 
-_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit:  ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i, %33, %34
+_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit:  ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i, %32, %33
   %.sroa.0.0.i3.i = phi i32 [ -2147483648, %_ZN3ue2L17depthFromDistanceEi.exit.i ], [ 2147483647, %33 ], [ %32, %34 ]
   %.sroa.2.0.insert.ext.i = zext i32 %.sroa.0.0.i3.i to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
@@ -2217,19 +2217,19 @@ _ZN3ue2L17depthFromDistanceEi.exit.i:             ; preds = %27, %26, %_ZNSt6vec
     i32 2147483646, label %34
   ]
 
-34:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
+33:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
   br label %_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit
 
-35:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
+34:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
   %36 = icmp ugt i32 %33, 2147483646
   br i1 %36, label %37, label %_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit
 
-37:                                               ; preds = %35
+37:                                               ; preds = %34
   %38 = tail call ptr @__cxa_allocate_exception(i64 1) #27
   tail call void @__cxa_throw(ptr %38, ptr nonnull @_ZTIN3ue218DepthOverflowErrorE, ptr null) #24
   unreachable
 
-_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit:  ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i, %34, %35
+_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit:  ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i, %33, %34
   %.sroa.0.0.i3.i = phi i32 [ -2147483648, %_ZN3ue2L17depthFromDistanceEi.exit.i ], [ 2147483647, %34 ], [ %33, %35 ]
   %.sroa.2.0.insert.ext.i = zext i32 %.sroa.0.0.i3.i to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
@@ -2563,19 +2563,19 @@ _ZN3ue2L17depthFromDistanceEi.exit.i:             ; preds = %26, %25, %_ZNSt6vec
     i32 2147483646, label %33
   ]
 
-33:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
+32:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
   br label %_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit
 
-34:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
+33:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
   %35 = icmp ugt i32 %32, 2147483646
   br i1 %35, label %36, label %_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit
 
-36:                                               ; preds = %34
+36:                                               ; preds = %33
   %37 = tail call ptr @__cxa_allocate_exception(i64 1) #27
   tail call void @__cxa_throw(ptr %37, ptr nonnull @_ZTIN3ue218DepthOverflowErrorE, ptr null) #24
   unreachable
 
-_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit:  ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i, %33, %34
+_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit:  ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i, %32, %33
   %.sroa.0.0.i3.i = phi i32 [ -2147483648, %_ZN3ue2L17depthFromDistanceEi.exit.i ], [ 2147483647, %33 ], [ %32, %34 ]
   %.sroa.2.0.insert.ext.i = zext i32 %.sroa.0.0.i3.i to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
@@ -2655,19 +2655,19 @@ _ZN3ue2L17depthFromDistanceEi.exit.i:             ; preds = %27, %26, %_ZNSt6vec
     i32 2147483646, label %34
   ]
 
-34:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
+33:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
   br label %_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit
 
-35:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
+34:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
   %36 = icmp ugt i32 %33, 2147483646
   br i1 %36, label %37, label %_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit
 
-37:                                               ; preds = %35
+37:                                               ; preds = %34
   %38 = tail call ptr @__cxa_allocate_exception(i64 1) #27
   tail call void @__cxa_throw(ptr %38, ptr nonnull @_ZTIN3ue218DepthOverflowErrorE, ptr null) #24
   unreachable
 
-_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit:  ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i, %34, %35
+_ZN3ue2L9getDepthsEjRKSt6vectorIiSaIiEES4_.exit:  ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i, %33, %34
   %.sroa.0.0.i3.i = phi i32 [ -2147483648, %_ZN3ue2L17depthFromDistanceEi.exit.i ], [ 2147483647, %34 ], [ %33, %35 ]
   %.sroa.2.0.insert.ext.i = zext i32 %.sroa.0.0.i3.i to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
@@ -2835,14 +2835,14 @@ _ZN3ue2L17depthFromDistanceEi.exit.i:             ; preds = %50, %49, %43
     i32 2147483646, label %55
   ]
 
-55:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
+54:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
   br label %59
 
-56:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
+55:                                               ; preds = %_ZN3ue2L17depthFromDistanceEi.exit.i
   %57 = icmp ugt i32 %54, 2147483646
   br i1 %57, label %.invoke, label %59
 
-.invoke:                                          ; preds = %56, %50
+.invoke:                                          ; preds = %55, %50
   %58 = call ptr @__cxa_allocate_exception(i64 1) #27
   invoke void @__cxa_throw(ptr %58, ptr nonnull @_ZTIN3ue218DepthOverflowErrorE, ptr null) #24
           to label %.cont unwind label %63
@@ -2850,7 +2850,7 @@ _ZN3ue2L17depthFromDistanceEi.exit.i:             ; preds = %50, %49, %43
 .cont:                                            ; preds = %.invoke
   unreachable
 
-59:                                               ; preds = %56, %55, %_ZN3ue2L17depthFromDistanceEi.exit.i
+59:                                               ; preds = %55, %54, %_ZN3ue2L17depthFromDistanceEi.exit.i
   %.sroa.0.0.i3.i = phi i32 [ -2147483648, %_ZN3ue2L17depthFromDistanceEi.exit.i ], [ 2147483647, %55 ], [ %54, %56 ]
   %.not.i.i38 = icmp ult i64 %45, %26
   br i1 %.not.i.i38, label %61, label %60

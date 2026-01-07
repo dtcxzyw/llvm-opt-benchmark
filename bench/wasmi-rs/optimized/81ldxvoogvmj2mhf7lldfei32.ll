@@ -2798,16 +2798,16 @@ define internal void @"_ZN4core3ptr53drop_in_place$LT$wast..core..types..InnerTy
     i8 1, label %8
   ]
 
-6:                                                ; preds = %8, %7, %1
+5:                                                ; preds = %7, %6, %1
   ret void
 
-7:                                                ; preds = %1
+6:                                                ; preds = %1
   tail call void @"_ZN4core3ptr52drop_in_place$LT$wast..core..types..FunctionType$GT$17h4dc6cac7e8488cf8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
-  br label %6
+  br label %5
 
-8:                                                ; preds = %1
+7:                                                ; preds = %1
   tail call void @"_ZN4core3ptr50drop_in_place$LT$wast..core..types..StructType$GT$17hc624d226c0493fdcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %6
+  br label %5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

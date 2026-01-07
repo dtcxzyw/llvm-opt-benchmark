@@ -122,18 +122,18 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   %51 = getelementptr inbounds nuw i8, ptr %.0141.i, i64 2
   %52 = load i8, ptr %51, align 1
   switch i32 %50, label %58 [
-    i32 1, label %53
-    i32 3, label %53
-    i32 4, label %53
-    i32 5, label %53
-    i32 8, label %53
-    i32 12, label %53
-    i32 13, label %53
-    i32 14, label %53
+    i32 1, label %52
+    i32 3, label %52
+    i32 4, label %52
+    i32 5, label %52
+    i32 8, label %52
+    i32 12, label %52
+    i32 13, label %52
+    i32 14, label %52
     i32 15, label %53
   ]
 
-53:                                               ; preds = %46, %46, %46, %46, %46, %46, %46, %46, %46
+52:                                               ; preds = %46, %46, %46, %46, %46, %46, %46, %46, %46
   %54 = add nuw nsw i32 %49, 319
   %55 = lshr i32 %54, 1
   %56 = lshr i32 %50, 3
@@ -158,7 +158,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0106139.i) #5
   unreachable
 
-.sink.split.i:                                    ; preds = %60, %53
+.sink.split.i:                                    ; preds = %60, %52
   %.sink188.i = phi i32 [ %62, %60 ], [ %57, %53 ]
   %65 = trunc i32 %.sink188.i to i8
   %66 = getelementptr inbounds nuw i8, ptr %.0105140.i, i64 1

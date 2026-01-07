@@ -1806,8 +1806,8 @@ get_op1_value.exit1597:                           ; preds = %94, %102, %105
   br label %284
 
 .split:                                           ; preds = %235, %234
-  %.sink1909 = phi ptr [ %.0.i1594, %234 ], [ null, %235 ]
-  %251 = call fastcc i32 @ct_eval_assign_dim(ptr noundef %4, ptr noundef nonnull %.0.i1596, ptr noundef %.sink1909)
+  %.sink1907 = phi ptr [ %.0.i1594, %234 ], [ null, %235 ]
+  %251 = call fastcc i32 @ct_eval_assign_dim(ptr noundef %4, ptr noundef nonnull %.0.i1596, ptr noundef %.sink1907)
   %252 = icmp eq i32 %251, 0
   br i1 %252, label %253, label %270
 
@@ -2643,8 +2643,8 @@ get_op1_value.exit1600:                           ; preds = %313, %321, %324
   br label %704
 
 .split1085:                                       ; preds = %667, %666
-  %.sink1910 = phi ptr [ %.0.i1594, %666 ], [ null, %667 ]
-  %677 = call fastcc i32 @ct_eval_add_array_elem(ptr noundef %4, ptr noundef nonnull %.0.i, ptr noundef %.sink1910)
+  %.sink1908 = phi ptr [ %.0.i1594, %666 ], [ null, %667 ]
+  %677 = call fastcc i32 @ct_eval_add_array_elem(ptr noundef %4, ptr noundef nonnull %.0.i, ptr noundef %.sink1908)
   %678 = icmp eq i32 %677, 0
   br i1 %678, label %679, label %691
 
@@ -5699,7 +5699,7 @@ get_op2_value.exit1627:                           ; preds = %2180, %2187, %2201
   %2214 = load i32, ptr %2213, align 8, !tbaa !41
   %2215 = zext i32 %2214 to i64
   %2216 = getelementptr inbounds nuw %struct._zval_struct, ptr %2212, i64 %2215
-  br label %.lr.ph.preheader
+  br label %get_op1_value.exit1630
 
 2217:                                             ; preds = %2205
   %2218 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5715,154 +5715,154 @@ get_op2_value.exit1627:                           ; preds = %2180, %2187, %2201
   %2228 = getelementptr inbounds %struct._zend_ssa_op, ptr %2221, i64 %2227
   %2229 = load i32, ptr %2228, align 4, !tbaa !72
   %.not.i1628 = icmp eq i32 %2229, -1
-  br i1 %.not.i1628, label %.lr.ph.preheader, label %2230
+  br i1 %.not.i1628, label %get_op1_value.exit1630, label %2230
 
 2230:                                             ; preds = %2217
   %2231 = sext i32 %2229 to i64
   %2232 = getelementptr inbounds %struct._zval_struct, ptr %2130, i64 %2231
-  br label %.lr.ph.preheader
+  br label %get_op1_value.exit1630
 
-.lr.ph.preheader:                                 ; preds = %2210, %2217, %2230
+get_op1_value.exit1630:                           ; preds = %2210, %2217, %2230
   %.0.i1629 = phi ptr [ %2216, %2210 ], [ %2232, %2230 ], [ null, %2217 ]
   store ptr %.0.i1629, ptr %10, align 16, !tbaa !126
   %wide.trip.count = zext nneg i32 %2144 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %2244
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %2245
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %2244 ]
-  %2233 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %2234 = load ptr, ptr %2233, align 8, !tbaa !126
-  %.not1280 = icmp eq ptr %2234, null
-  br i1 %.not1280, label %2235, label %2238
+  %2234 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %2235 = load ptr, ptr %2234, align 8, !tbaa !126
+  %.not1280 = icmp eq ptr %2235, null
+  br i1 %.not1280, label %2236, label %2239
 
-2235:                                             ; preds = %.lr.ph
-  %2236 = load i32, ptr %2125, align 4, !tbaa !84
-  %2237 = icmp sgt i32 %2236, -1
-  br i1 %2237, label %.critedge1299.sink.split, label %.critedge1299
+2236:                                             ; preds = %.lr.ph
+  %2237 = load i32, ptr %2125, align 4, !tbaa !84
+  %2238 = icmp sgt i32 %2237, -1
+  br i1 %2238, label %.critedge1299.sink.split, label %.critedge1299
 
-2238:                                             ; preds = %.lr.ph
-  %2239 = getelementptr inbounds nuw i8, ptr %2234, i64 8
-  %2240 = load i8, ptr %2239, align 8, !tbaa !41
-  switch i8 %2240, label %2244 [
-    i8 -2, label %2241
-    i8 -3, label %2241
+2239:                                             ; preds = %.lr.ph
+  %2240 = getelementptr inbounds nuw i8, ptr %2235, i64 8
+  %2241 = load i8, ptr %2240, align 8, !tbaa !41
+  switch i8 %2241, label %2244 [
+    i8 -2, label %2242
+    i8 -3, label %2242
     i8 -1, label %.critedge1299
   ]
 
-2241:                                             ; preds = %2238, %2238
-  %2242 = load i32, ptr %2125, align 4, !tbaa !84
-  %2243 = icmp sgt i32 %2242, -1
-  br i1 %2243, label %.critedge1299.sink.split, label %.critedge1299
+2242:                                             ; preds = %2239, %2239
+  %2243 = load i32, ptr %2125, align 4, !tbaa !84
+  %2244 = icmp sgt i32 %2243, -1
+  br i1 %2244, label %.critedge1299.sink.split, label %.critedge1299
 
-2244:                                             ; preds = %2238
+2245:                                             ; preds = %2239
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge1297, label %.lr.ph
 
-.critedge1297:                                    ; preds = %2244, %2136
-  %2245 = load ptr, ptr %0, align 8, !tbaa !130
-  %2246 = call fastcc i32 @ct_eval_func_call_ex(ptr noundef %2245, ptr noundef %4, ptr noundef %2142, i32 noundef %2144, ptr noundef %10)
-  %2247 = icmp eq i32 %2246, 0
-  %2248 = load i32, ptr %2125, align 4, !tbaa !84
-  %2249 = icmp sgt i32 %2248, -1
-  br i1 %2247, label %2250, label %2262
+.critedge1297:                                    ; preds = %2245, %2136
+  %2246 = load ptr, ptr %0, align 8, !tbaa !130
+  %2247 = call fastcc i32 @ct_eval_func_call_ex(ptr noundef %2246, ptr noundef %4, ptr noundef %2142, i32 noundef %2144, ptr noundef %10)
+  %2248 = icmp eq i32 %2247, 0
+  %2249 = load i32, ptr %2125, align 4, !tbaa !84
+  %2250 = icmp sgt i32 %2249, -1
+  br i1 %2248, label %2251, label %2263
 
-2250:                                             ; preds = %.critedge1297
-  br i1 %2249, label %2251, label %2252
+2251:                                             ; preds = %.critedge1297
+  br i1 %2250, label %2252, label %2253
 
-2251:                                             ; preds = %2250
+2252:                                             ; preds = %2251
   %.val1584 = load ptr, ptr %2129, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1584, i32 noundef %2248, ptr noundef nonnull %4)
-  br label %2252
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1584, i32 noundef %2249, ptr noundef nonnull %4)
+  br label %2253
 
-2252:                                             ; preds = %2251, %2250
-  %2253 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %2254 = load i8, ptr %2253, align 1, !tbaa !41
-  %.not.i1445 = icmp eq i8 %2254, 0
-  br i1 %.not.i1445, label %zval_ptr_dtor_nogc.exit1447, label %2255
+2253:                                             ; preds = %2252, %2251
+  %2254 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %2255 = load i8, ptr %2254, align 1, !tbaa !41
+  %.not.i1445 = icmp eq i8 %2255, 0
+  br i1 %.not.i1445, label %zval_ptr_dtor_nogc.exit1447, label %2256
 
-2255:                                             ; preds = %2252
-  %2256 = load ptr, ptr %4, align 8, !tbaa !41
-  %2257 = load i32, ptr %2256, align 4, !tbaa !67
-  %2258 = icmp ne i32 %2257, 0
-  call void @llvm.assume(i1 %2258)
-  %2259 = add i32 %2257, -1
-  store i32 %2259, ptr %2256, align 4, !tbaa !67
-  %.not3.i1446 = icmp eq i32 %2259, 0
-  br i1 %.not3.i1446, label %2260, label %zval_ptr_dtor_nogc.exit1447
+2256:                                             ; preds = %2253
+  %2257 = load ptr, ptr %4, align 8, !tbaa !41
+  %2258 = load i32, ptr %2257, align 4, !tbaa !67
+  %2259 = icmp ne i32 %2258, 0
+  call void @llvm.assume(i1 %2259)
+  %2260 = add i32 %2258, -1
+  store i32 %2260, ptr %2257, align 4, !tbaa !67
+  %.not3.i1446 = icmp eq i32 %2260, 0
+  br i1 %.not3.i1446, label %2261, label %zval_ptr_dtor_nogc.exit1447
 
-2260:                                             ; preds = %2255
-  %2261 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %2261) #13
+2261:                                             ; preds = %2256
+  %2262 = load ptr, ptr %4, align 8, !tbaa !41
+  call void @rc_dtor_func(ptr noundef %2262) #13
   br label %zval_ptr_dtor_nogc.exit1447
 
-2262:                                             ; preds = %.critedge1297
-  br i1 %2249, label %2263, label %zval_ptr_dtor_nogc.exit1447
+2263:                                             ; preds = %.critedge1297
+  br i1 %2250, label %2264, label %zval_ptr_dtor_nogc.exit1447
 
-2263:                                             ; preds = %2262
-  %2264 = getelementptr inbounds nuw i8, ptr %0, i64 128
+2264:                                             ; preds = %2263
+  %2265 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.val1585 = load ptr, ptr %2129, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1585, i32 noundef %2248, ptr noundef nonnull %2264)
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1585, i32 noundef %2249, ptr noundef nonnull %2265)
   br label %zval_ptr_dtor_nogc.exit1447
 
-zval_ptr_dtor_nogc.exit1447:                      ; preds = %2260, %2255, %2252, %2262, %2263
+zval_ptr_dtor_nogc.exit1447:                      ; preds = %2261, %2256, %2253, %2263, %2264
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge1289
 
-2265:                                             ; preds = %863
-  %2266 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
-  %2267 = load i32, ptr %2266, align 4, !tbaa !84
-  %2268 = icmp sgt i32 %2267, -1
-  br i1 %2268, label %2269, label %2272
+2266:                                             ; preds = %863
+  %2267 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
+  %2268 = load i32, ptr %2267, align 4, !tbaa !84
+  %2269 = icmp sgt i32 %2268, -1
+  br i1 %2269, label %2270, label %2273
 
-2269:                                             ; preds = %2265
-  %2270 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %2271 = getelementptr i8, ptr %0, i64 104
-  %.val1586 = load ptr, ptr %2271, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1586, i32 noundef %2267, ptr noundef nonnull %2270)
-  br label %2272
+2270:                                             ; preds = %2266
+  %2271 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %2272 = getelementptr i8, ptr %0, i64 104
+  %.val1586 = load ptr, ptr %2272, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1586, i32 noundef %2268, ptr noundef nonnull %2271)
+  br label %2273
 
-2272:                                             ; preds = %2265, %2269
-  %2273 = getelementptr inbounds nuw i8, ptr %.010771638, i64 12
-  %2274 = load i32, ptr %2273, align 4, !tbaa !86
-  %2275 = icmp sgt i32 %2274, -1
-  br i1 %2275, label %2276, label %2279
+2273:                                             ; preds = %2266, %2270
+  %2274 = getelementptr inbounds nuw i8, ptr %.010771638, i64 12
+  %2275 = load i32, ptr %2274, align 4, !tbaa !86
+  %2276 = icmp sgt i32 %2275, -1
+  br i1 %2276, label %2277, label %2280
 
-2276:                                             ; preds = %2272
-  %2277 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %2278 = getelementptr i8, ptr %0, i64 104
-  %.val1587 = load ptr, ptr %2278, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1587, i32 noundef %2274, ptr noundef nonnull %2277)
-  br label %2279
+2277:                                             ; preds = %2273
+  %2278 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %2279 = getelementptr i8, ptr %0, i64 104
+  %.val1587 = load ptr, ptr %2279, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1587, i32 noundef %2275, ptr noundef nonnull %2278)
+  br label %2280
 
-2279:                                             ; preds = %2272, %2276
-  %2280 = getelementptr inbounds nuw i8, ptr %.010771638, i64 16
-  %2281 = load i32, ptr %2280, align 4, !tbaa !87
-  %2282 = icmp sgt i32 %2281, -1
-  br i1 %2282, label %2283, label %.critedge1289
+2280:                                             ; preds = %2273, %2277
+  %2281 = getelementptr inbounds nuw i8, ptr %.010771638, i64 16
+  %2282 = load i32, ptr %2281, align 4, !tbaa !87
+  %2283 = icmp sgt i32 %2282, -1
+  br i1 %2283, label %2284, label %.critedge1289
 
-2283:                                             ; preds = %2279
-  %2284 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %2285 = getelementptr i8, ptr %0, i64 104
-  %.val1588 = load ptr, ptr %2285, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1588, i32 noundef %2281, ptr noundef nonnull %2284)
+2284:                                             ; preds = %2280
+  %2285 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %2286 = getelementptr i8, ptr %0, i64 104
+  %.val1588 = load ptr, ptr %2286, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1588, i32 noundef %2282, ptr noundef nonnull %2285)
   br label %.critedge1289
 
 .critedge1295:                                    ; preds = %2118, %2113, %2110, %2120, %2121, %2068, %2041, %2017, %._crit_edge, %2020, %2013
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge1289
 
-.critedge1299.sink.split:                         ; preds = %2241, %2235
-  %.sink1915 = phi i32 [ %2236, %2235 ], [ %2242, %2241 ]
-  %2286 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call fastcc void @set_value(ptr noundef %0, ptr %2130, i32 noundef %.sink1915, ptr noundef nonnull %2286)
+.critedge1299.sink.split:                         ; preds = %2242, %2236
+  %.sink1913 = phi i32 [ %2237, %2235 ], [ %2243, %2241 ]
+  %2287 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call fastcc void @set_value(ptr noundef %0, ptr %2130, i32 noundef %.sink1913, ptr noundef nonnull %2287)
   br label %.critedge1299
 
-.critedge1299:                                    ; preds = %2238, %.critedge1299.sink.split, %2235, %2241
+.critedge1299:                                    ; preds = %2239, %.critedge1299.sink.split, %2236, %2242
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge1289
 
-.critedge1289:                                    ; preds = %1909, %1627, %1554, %180, %.thread, %1942, %1624, %1602, %1543, %1508, %1475, %527, %369, %351, %141, %get_op1_value.exit1597, %2002, %1997, %1994, %1969, %1964, %1961, %1929, %1924, %1921, %1899, %1894, %1891, %1846, %1841, %1838, %1809, %1804, %1801, %1777, %1772, %1769, %1744, %1739, %1736, %1711, %1706, %1703, %1680, %1675, %1672, %1644, %1639, %1636, %1596, %1591, %1588, %1567, %1562, %1559, %1537, %1532, %1529, %1502, %1497, %1494, %1469, %1464, %1461, %1428, %1423, %1420, %zval_ptr_dtor_nogc.exit1387, %zval_ptr_dtor_nogc.exit1363.thread, %zval_ptr_dtor_nogc.exit1342.thread, %945, %940, %937, %893, %888, %885, %769, %796, %.thread1899, %789, %767, %762, %759, %712, %707, %704, %654, %649, %646, %598, %.thread1897, %591, %481, %476, %473, %427, %.thread1895, %420, %391, %.thread1892, %384, %292, %287, %284, %214, %209, %206, %167, %.thread1887, %160, %zval_ptr_dtor_nogc.exit1447, %496, %516, %513, %499, %344, %358, %365, %.thread1890, %.thread1891, %898, %ct_eval_binary_op.exit.thread, %1299, %1295, %1398, %1394, %1438, %1434, %1472, %1471, %1482, %1478, %1505, %1504, %1515, %1511, %1540, %1539, %1572, %ct_eval_bool_cast.exit, %1599, %1598, %1615, %1610, %1621, %1617, %1650, %1646, %1683, %1682, %1714, %1713, %1747, %1746, %1780, %1779, %1815, %1811, %1852, %1848, %1859, %1855, %1868, %switch.lookup, %1874, %1870, %1902, %1901, %1940, %1935, %1949, %1945, %1972, %1971, %2007, %ct_eval_binary_op.exit1618.thread, %2128, %2124, %2283, %2279, %.critedge1295, %.critedge1299, %.loopexit, %1979, %1975, %1931, %1905, %1876, %1823, %1819, %1788, %1784, %1754, %1750, %1721, %1717, %1690, %1686, %1657, %1653, %1575, %1441, %1401, %1307, %1303, %907, %902, %870, %866, %856, %860, %798, %732, %728, %734, %743, %739, %546, %542, %549, %554, %567, %563, %582, %616, %493, %490, %429, %432, %133, %129, %136, %151, %217, %216, %75, %71, %88, %84
+.critedge1289:                                    ; preds = %1909, %1627, %1554, %180, %.thread, %1942, %1624, %1602, %1543, %1508, %1475, %527, %369, %351, %141, %get_op1_value.exit1597, %2002, %1997, %1994, %1969, %1964, %1961, %1929, %1924, %1921, %1899, %1894, %1891, %1846, %1841, %1838, %1809, %1804, %1801, %1777, %1772, %1769, %1744, %1739, %1736, %1711, %1706, %1703, %1680, %1675, %1672, %1644, %1639, %1636, %1596, %1591, %1588, %1567, %1562, %1559, %1537, %1532, %1529, %1502, %1497, %1494, %1469, %1464, %1461, %1428, %1423, %1420, %zval_ptr_dtor_nogc.exit1387, %zval_ptr_dtor_nogc.exit1363.thread, %zval_ptr_dtor_nogc.exit1342.thread, %945, %940, %937, %893, %888, %885, %769, %796, %.thread1899, %789, %767, %762, %759, %712, %707, %704, %654, %649, %646, %598, %.thread1897, %591, %481, %476, %473, %427, %.thread1895, %420, %391, %.thread1892, %384, %292, %287, %284, %214, %209, %206, %167, %.thread1887, %160, %zval_ptr_dtor_nogc.exit1447, %496, %516, %513, %499, %344, %358, %365, %.thread1890, %.thread1891, %898, %ct_eval_binary_op.exit.thread, %1299, %1295, %1398, %1394, %1438, %1434, %1472, %1471, %1482, %1478, %1505, %1504, %1515, %1511, %1540, %1539, %1572, %ct_eval_bool_cast.exit, %1599, %1598, %1615, %1610, %1621, %1617, %1650, %1646, %1683, %1682, %1714, %1713, %1747, %1746, %1780, %1779, %1815, %1811, %1852, %1848, %1859, %1855, %1868, %switch.lookup, %1874, %1870, %1902, %1901, %1940, %1935, %1949, %1945, %1972, %1971, %2007, %ct_eval_binary_op.exit1618.thread, %2128, %2124, %2284, %2280, %.critedge1295, %.critedge1299, %.loopexit, %1979, %1975, %1931, %1905, %1876, %1823, %1819, %1788, %1784, %1754, %1750, %1721, %1717, %1690, %1686, %1657, %1653, %1575, %1441, %1401, %1307, %1303, %907, %902, %870, %866, %856, %860, %798, %732, %728, %734, %743, %739, %546, %542, %549, %554, %567, %563, %582, %616, %493, %490, %429, %432, %133, %129, %136, %151, %217, %216, %75, %71, %88, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
