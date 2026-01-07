@@ -22953,7 +22953,7 @@ _ZNSt16allocator_traitsISaIN5Yosys4Macc6port_tEEE9constructIS2_JRKS2_EEEvRS3_PT_
 _ZNSt6vectorIN5Yosys4Macc6port_tESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt16allocator_traitsISaIN5Yosys4Macc6port_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i, %1957
   call void @_ZN5Yosys4Macc6port_tD2Ev(ptr noundef nonnull align 8 dereferenceable(114) %63) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
-  %1958 = add nuw i32 %.03331461, 1
+  %1958 = add nuw nsw i32 %.03331461, 1
   %exitcond.not = icmp eq i32 %.03331461, %1779
   br i1 %exitcond.not, label %1780, label %1785, !llvm.loop !577
 
