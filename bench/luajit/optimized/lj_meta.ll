@@ -2103,28 +2103,28 @@ define hidden void @lj_meta_istype(ptr noundef initializes((40, 48)) %0, i32 nou
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %16, ptr %17, align 8, !tbaa !22
   %18 = add i32 %1, 1
-  switch i32 %2, label %23 [
-    i32 15, label %19
-    i32 5, label %21
+  %19 = add i32 %2, -1
+  switch i32 %19, label %24 [
+    i32 14, label %20
+    i32 4, label %22
   ]
 
-19:                                               ; preds = %3
-  %20 = tail call double @lj_lib_checknum(ptr noundef nonnull %0, i32 noundef %18) #7
+20:                                               ; preds = %3
+  %21 = tail call double @lj_lib_checknum(ptr noundef nonnull %0, i32 noundef %18) #7
   br label %28
 
-21:                                               ; preds = %3
-  %22 = tail call ptr @lj_lib_checkstr(ptr noundef nonnull %0, i32 noundef %18) #7
+22:                                               ; preds = %3
+  %23 = tail call ptr @lj_lib_checkstr(ptr noundef nonnull %0, i32 noundef %18) #7
   br label %28
 
-23:                                               ; preds = %3
-  %24 = add i32 %2, -1
-  %25 = zext i32 %24 to i64
+24:                                               ; preds = %3
+  %25 = zext i32 %19 to i64
   %26 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !58
   tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef %18, ptr noundef %27) #8
   unreachable
 
-28:                                               ; preds = %21, %19
+28:                                               ; preds = %22, %20
   ret void
 }
 

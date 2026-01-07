@@ -6251,9 +6251,9 @@ mallocx_arena_get.exit.thread:                    ; preds = %34, %tsd_fetch_impl
 mallocx_tcache_get.exit:                          ; preds = %mallocx_arena_get.exit.thread
   %37 = lshr exact i32 %36, 8
   %38 = add nsw i32 %37, -2
-  switch i32 %37, label %42 [
-    i32 0, label %mallocx_tcache_get.exit.thread
-    i32 1, label %tcache_get_from_ind.exit
+  switch i32 %38, label %42 [
+    i32 -2, label %mallocx_tcache_get.exit.thread
+    i32 -1, label %tcache_get_from_ind.exit
   ]
 
 mallocx_tcache_get.exit.thread:                   ; preds = %mallocx_arena_get.exit.thread, %mallocx_tcache_get.exit
@@ -8292,9 +8292,9 @@ mallocx_tcache_get.exit.thread:                   ; preds = %tsd_fetch_impl.exit
 mallocx_tcache_get.exit:                          ; preds = %tsd_fetch_impl.exit
   %15 = lshr exact i32 %14, 8
   %16 = add nsw i32 %15, -2
-  switch i32 %15, label %27 [
-    i32 0, label %17
-    i32 1, label %tcache_get_from_ind.exit
+  switch i32 %16, label %27 [
+    i32 -2, label %17
+    i32 -1, label %tcache_get_from_ind.exit
   ]
 
 17:                                               ; preds = %mallocx_tcache_get.exit
@@ -8899,9 +8899,9 @@ mallocx_tcache_get.exit.thread:                   ; preds = %aligned_usize_get.e
 mallocx_tcache_get.exit:                          ; preds = %aligned_usize_get.exit
   %89 = lshr exact i32 %88, 8
   %90 = add nsw i32 %89, -2
-  switch i32 %89, label %101 [
-    i32 0, label %91
-    i32 1, label %tcache_get_from_ind.exit
+  switch i32 %90, label %101 [
+    i32 -2, label %91
+    i32 -1, label %tcache_get_from_ind.exit
   ]
 
 91:                                               ; preds = %mallocx_tcache_get.exit
@@ -10039,9 +10039,9 @@ arena_get_from_ind.exit.thread167:                ; preds = %arena_get.exit, %ar
   ], !prof !168
 
 mallocx_tcache_get.exit:                          ; preds = %158
-  switch i32 %126, label %161 [
-    i32 0, label %mallocx_tcache_get.exit.thread
-    i32 1, label %.critedge119
+  switch i32 %127, label %161 [
+    i32 -2, label %mallocx_tcache_get.exit.thread
+    i32 -1, label %.critedge119
   ]
 
 mallocx_tcache_get.exit.thread:                   ; preds = %158, %mallocx_tcache_get.exit

@@ -16701,8 +16701,7 @@ define internal fastcc void @_ZN4jiff4span5Nudge6bubble17hcd7ce88b7fd59762E(ptr 
   br i1 %.not205, label %.outer.split.us, label %.outer.split
 
 .outer.split.us:                                  ; preds = %.outer
-  %switch.offset.i.us = add nuw nsw i8 %.sroa.0.0.ph, 1
-  %or.cond156.us = icmp ugt i8 %.sroa.0.0.ph, 6
+  %or.cond156.us = icmp samesign ugt i8 %.sroa.0.0.ph, 6
   br i1 %or.cond156.us, label %.loopexit, label %.loopexit240
 
 258:                                              ; preds = %524, %.loopexit, %46
@@ -16735,7 +16734,7 @@ define internal fastcc void @_ZN4jiff4span5Nudge6bubble17hcd7ce88b7fd59762E(ptr 
 
 .loopexit240:                                     ; preds = %261, %.outer.split.us
   %.us-phi203 = phi i8 [ 6, %.outer.split.us ], [ %.sroa.0.0, %261 ]
-  %.us-phi204 = phi i8 [ %switch.offset.i.us, %.outer.split.us ], [ %switch.offset.i, %261 ]
+  %.us-phi204 = phi i8 [ 7, %.outer.split.us ], [ %switch.offset.i, %261 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(52) %.sroa.439, i64 52, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.647, i64 3, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !1134)
@@ -17025,7 +17024,7 @@ define internal fastcc void @_ZN4jiff4span5Nudge6bubble17hcd7ce88b7fd59762E(ptr 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %40, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false), !noalias !1187
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1184
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !1139
-  %379 = icmp ugt i8 %.us-phi203, 6
+  %379 = icmp samesign ugt i8 %.us-phi203, 6
   br i1 %379, label %385, label %_ZN4jiff4span4Span13without_lower17h4baf6846fbdb43a1E.exit.thread139
 
 _ZN4jiff4span4Span13without_lower17h4baf6846fbdb43a1E.exit.thread139: ; preds = %.loopexit240
@@ -17172,10 +17171,10 @@ _ZN4jiff4span4Span16get_units_ranged17h99781e77e174371eE.exit: ; preds = %_ZN4ji
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1208
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1208
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1208
-  switch i8 %.us-phi203, label %default.unreachable [
-    i8 8, label %445
-    i8 7, label %451
-    i8 6, label %457
+  switch i8 %.us-phi204, label %default.unreachable [
+    i8 9, label %445
+    i8 8, label %451
+    i8 7, label %457
   ]
 
 default.unreachable:                              ; preds = %442
@@ -17280,7 +17279,7 @@ switch.lookup:                                    ; preds = %"_ZN96_$LT$core..re
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1219
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1219
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1219
-  %switch.tableidx = add nsw i8 %.us-phi203, -6
+  %switch.tableidx = add nsw i8 %.us-phi204, -7
   %476 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff4span5Nudge6bubble17hcd7ce88b7fd59762E, i64 %476
   %switch.load = load i64, ptr %switch.gep, align 8

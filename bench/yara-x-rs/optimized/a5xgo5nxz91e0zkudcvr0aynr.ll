@@ -36640,9 +36640,9 @@ define hidden void @"_ZN78_$LT$nom..multi..ManyMN$LT$F$GT$$u20$as$u20$nom..inter
   br i1 %273, label %276, label %"_ZN6yara_x7modules2pe6parser2PE13parse_section28_$u7b$$u7b$closure$u7d$$u7d$17hdf2ef42627555d64E.exit.i"
 
 276:                                              ; preds = %.noexc53
-  switch i64 %.sroa.3.0.i.i.i.i.i, label %279 [
-    i64 1, label %"_ZN6yara_x7modules2pe6parser2PE13parse_section28_$u7b$$u7b$closure$u7d$$u7d$17hdf2ef42627555d64E.exit.i"
-    i64 2, label %277
+  switch i64 %274, label %279 [
+    i64 0, label %"_ZN6yara_x7modules2pe6parser2PE13parse_section28_$u7b$$u7b$closure$u7d$$u7d$17hdf2ef42627555d64E.exit.i"
+    i64 1, label %277
   ]
 
 277:                                              ; preds = %276
@@ -36652,9 +36652,9 @@ define hidden void @"_ZN78_$LT$nom..multi..ManyMN$LT$F$GT$$u20$as$u20$nom..inter
     i8 45, label %"_ZN6yara_x7modules2pe6parser2PE13parse_section28_$u7b$$u7b$closure$u7d$$u7d$17hdf2ef42627555d64E.exit.i"
   ]
 
-.lr.ph.i.i.i.preheader:                           ; preds = %284, %280, %277
-  %.sroa.03.171.i.i.i.ph = phi ptr [ %281, %280 ], [ %275, %284 ], [ %275, %277 ]
-  %.sroa.149.170.i.i.i.ph = phi i64 [ %282, %280 ], [ %274, %284 ], [ 1, %277 ]
+.lr.ph.i.i.i.preheader:                           ; preds = %.preheader.i.i.i, %284, %277
+  %.sroa.03.171.i.i.i.ph = phi ptr [ %275, %277 ], [ %275, %284 ], [ %281, %.preheader.i.i.i ]
+  %.sroa.149.170.i.i.i.ph = phi i64 [ 1, %277 ], [ %274, %284 ], [ %282, %.preheader.i.i.i ]
   br label %.lr.ph.i.i.i
 
 279:                                              ; preds = %276
@@ -36666,7 +36666,7 @@ define hidden void @"_ZN78_$LT$nom..multi..ManyMN$LT$F$GT$$u20$as$u20$nom..inter
   %281 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 2
   %282 = add i64 %.sroa.3.0.i.i.i.i.i, -2
   %283 = icmp ult i64 %274, 10
-  br i1 %283, label %.lr.ph.i.i.i.preheader, label %.preheader60.i.i.i.preheader
+  br i1 %283, label %.preheader.i.i.i, label %.preheader60.i.i.i.preheader
 
 .preheader60.i.i.i.preheader:                     ; preds = %284, %280
   %.sroa.149.0.i.i.i.ph = phi i64 [ %282, %280 ], [ %274, %284 ]
@@ -36684,8 +36684,12 @@ define hidden void @"_ZN78_$LT$nom..multi..ManyMN$LT$F$GT$$u20$as$u20$nom..inter
   %285 = icmp ult i64 %274, 9
   br i1 %285, label %.lr.ph.i.i.i.preheader, label %.preheader60.i.i.i.preheader
 
-.loopexit.i.i.i:                                  ; preds = %.preheader60.i.i.i, %310
-  %.sroa.016.1.i.i.i = phi i32 [ %314, %310 ], [ %.sroa.016.0.i.i.i, %.preheader60.i.i.i ]
+.preheader.i.i.i:                                 ; preds = %280
+  %.not5668.i.i.i = icmp eq i64 %282, 0
+  br i1 %.not5668.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.preheader
+
+.loopexit.i.i.i:                                  ; preds = %.preheader60.i.i.i, %310, %.preheader.i.i.i
+  %.sroa.016.1.i.i.i = phi i32 [ %314, %310 ], [ 0, %.preheader.i.i.i ], [ %.sroa.016.0.i.i.i, %.preheader60.i.i.i ]
   %286 = zext i32 %.sroa.016.1.i.i.i to i64
   %287 = shl nuw i64 %286, 32
   br label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17hf49c603732f27312E.exit.i.i"

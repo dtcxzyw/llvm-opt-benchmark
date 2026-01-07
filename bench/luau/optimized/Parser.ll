@@ -4926,7 +4926,7 @@ _ZNSt6vectorIN4Luau7CommentESaIS1_EE9push_backEOS1_.exit: ; preds = %27, %_ZNSt6
   %61 = and i64 %indvars.iv.next, 4294967295
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !20
-  switch i8 %63, label %.critedge3.loopexit.split.loop.exit [
+  switch i8 %63, label %.critedge3.loopexit [
     i8 32, label %64
     i8 13, label %64
     i8 11, label %64
@@ -4938,26 +4938,26 @@ _ZNSt6vectorIN4Luau7CommentESaIS1_EE9push_backEOS1_.exit: ; preds = %27, %_ZNSt6
 64:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %65 = and i64 %indvars.iv.next, 4294967295
   %.not32 = icmp eq i64 %65, 0
-  br i1 %.not32, label %.critedge3, label %.lr.ph, !llvm.loop !283
+  br i1 %.not32, label %.critedge3.loopexit, label %.lr.ph, !llvm.loop !283
 
-.critedge3.loopexit.split.loop.exit:              ; preds = %.lr.ph
-  %66 = trunc nuw i64 %indvars.iv to i32
+.critedge3.loopexit:                              ; preds = %.lr.ph, %64
+  %.028.lcssa.ph = phi i64 [ 0, %64 ], [ %indvars.iv, %.lr.ph ]
+  %66 = and i64 %.028.lcssa.ph, 4294967295
+  %67 = add nsw i64 %66, -1
   br label %.critedge3
 
-.critedge3:                                       ; preds = %64, %.critedge3.loopexit.split.loop.exit, %58
-  %.028.lcssa = phi i32 [ 0, %58 ], [ %66, %.critedge3.loopexit.split.loop.exit ], [ 0, %64 ]
+.critedge3:                                       ; preds = %.critedge3.loopexit, %58
+  %.028.lcssa = phi i64 [ -1, %58 ], [ %67, %.critedge3.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %67 = load i8, ptr %13, align 8, !tbaa !178, !range !174, !noundef !175
-  store i8 %67, ptr %3, align 8, !tbaa !284
+  %68 = load i8, ptr %13, align 8, !tbaa !178, !range !174, !noundef !175
+  store i8 %68, ptr %3, align 8, !tbaa !284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !10
-  %68 = getelementptr inbounds nuw i8, ptr %55, i64 1
-  %69 = zext i32 %.028.lcssa to i64
+  %69 = getelementptr inbounds nuw i8, ptr %55, i64 1
   store ptr %16, ptr %15, align 8, !tbaa !11
   store i64 0, ptr %17, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %gepdiff = add nsw i64 %69, -1
-  store i64 %gepdiff, ptr %2, align 8, !tbaa !19
-  %70 = icmp ugt i64 %gepdiff, 15
+  store i64 %.028.lcssa, ptr %2, align 8, !tbaa !19
+  %70 = icmp ugt i64 %.028.lcssa, 15
   br i1 %70, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %.critedge3
@@ -4969,18 +4969,18 @@ _ZNSt6vectorIN4Luau7CommentESaIS1_EE9push_backEOS1_.exit: ; preds = %27, %_ZNSt6
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %.critedge3
   %73 = phi ptr [ %71, %.noexc.i ], [ %16, %.critedge3 ]
-  switch i32 %.028.lcssa, label %76 [
-    i32 2, label %74
-    i32 1, label %77
+  switch i64 %.028.lcssa, label %76 [
+    i64 1, label %74
+    i64 0, label %77
   ]
 
 74:                                               ; preds = %._crit_edge.i.i
-  %75 = load i8, ptr %68, align 1, !tbaa !20
+  %75 = load i8, ptr %69, align 1, !tbaa !20
   store i8 %75, ptr %73, align 1, !tbaa !20
   br label %77
 
 76:                                               ; preds = %._crit_edge.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr nonnull align 1 %68, i64 %gepdiff, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr nonnull align 1 %69, i64 %.028.lcssa, i1 false)
   br label %77
 
 77:                                               ; preds = %76, %74, %._crit_edge.i.i

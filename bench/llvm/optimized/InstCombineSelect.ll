@@ -11498,9 +11498,10 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_7bind_tyINS_8ConstantEEEEEbPT_RKT0_.e
 30:                                               ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7bind_tyINS_8ConstantEEEEEbPT_RKT0_.exit
   %31 = zext nneg i8 %25 to i32
   %32 = add nsw i32 %31, -29
-  %switch.tableidx = add nsw i8 %25, -48
-  %33 = icmp ult i8 %switch.tableidx, 5
-  %switch.shifted = lshr i8 27, %switch.tableidx
+  %switch.tableidx = add nsw i32 %31, -48
+  %33 = icmp ult i32 %switch.tableidx, 5
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 27, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %33, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %.critedge, label %_ZN4llvm11Instruction11isIntDivRemEj.exit
@@ -18899,9 +18900,9 @@ _ZNK4llvm5Value9hasOneUseEv.exit74:               ; preds = %25
 31:                                               ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit74
   %32 = zext i8 %15 to i32
   %33 = add nsw i32 %32, -29
-  switch i8 %15, label %.thread [
-    i8 44, label %34
-    i8 45, label %35
+  switch i32 %33, label %.thread [
+    i32 15, label %34
+    i32 16, label %35
   ]
 
 34:                                               ; preds = %31

@@ -2790,23 +2790,24 @@ define hidden void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping
 define internal void @"_ZN4core3ptr53drop_in_place$LT$wast..core..types..InnerTypeKind$GT$17hf944851fa1249037E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8, !range !48, !noundef !4
-  %4 = icmp ne i8 %3, 4
-  tail call void @llvm.assume(i1 %4)
-  switch i8 %3, label %5 [
-    i8 2, label %6
-    i8 3, label %7
+  %4 = add nsw i8 %3, -2
+  %5 = icmp ne i8 %4, 2
+  tail call void @llvm.assume(i1 %5)
+  switch i8 %4, label %6 [
+    i8 0, label %7
+    i8 1, label %8
   ]
 
-5:                                                ; preds = %7, %6, %1
+6:                                                ; preds = %8, %7, %1
   ret void
 
-6:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr52drop_in_place$LT$wast..core..types..FunctionType$GT$17h4dc6cac7e8488cf8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
-  br label %5
-
 7:                                                ; preds = %1
+  tail call void @"_ZN4core3ptr52drop_in_place$LT$wast..core..types..FunctionType$GT$17h4dc6cac7e8488cf8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  br label %6
+
+8:                                                ; preds = %1
   tail call void @"_ZN4core3ptr50drop_in_place$LT$wast..core..types..StructType$GT$17hc624d226c0493fdcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  br label %5
+  br label %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

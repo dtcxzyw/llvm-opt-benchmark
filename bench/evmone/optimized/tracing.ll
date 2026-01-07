@@ -3699,22 +3699,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit: ; pred
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #20
   %26 = load ptr, ptr %0, align 8, !tbaa !107
   %27 = load i64, ptr %3, align 8, !tbaa !110
-  switch i64 %27, label %30 [
-    i64 0, label %28
-    i64 -1, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
+  %28 = add i64 %27, 1
+  switch i64 %28, label %31 [
+    i64 1, label %29
+    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
   ]
 
-28:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit
-  %29 = load i8, ptr %26, align 1, !tbaa !88
-  store i8 %29, ptr %25, align 1, !tbaa !88
+29:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit
+  %30 = load i8, ptr %26, align 1, !tbaa !88
+  store i8 %30, ptr %25, align 1, !tbaa !88
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
 
-30:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit
-  %31 = add nuw i64 %27, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %26, i64 %31, i1 false)
+31:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr align 1 %26, i64 %28, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit, %28, %30
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit, %29, %31
   %32 = icmp eq ptr %26, %6
   br i1 %32, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit, label %33
 
@@ -3733,22 +3733,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
   br i1 %7, label %43, label %37
 
 37:                                               ; preds = %36
-  switch i64 %4, label %40 [
-    i64 0, label %38
-    i64 -1, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit8
+  %38 = add i64 %4, 1
+  switch i64 %38, label %41 [
+    i64 1, label %39
+    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit8
   ]
 
-38:                                               ; preds = %37
-  %39 = load i8, ptr %5, align 1, !tbaa !88
-  store i8 %39, ptr %6, align 8, !tbaa !88
+39:                                               ; preds = %37
+  %40 = load i8, ptr %5, align 1, !tbaa !88
+  store i8 %40, ptr %6, align 8, !tbaa !88
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit8
 
-40:                                               ; preds = %37
-  %41 = add nuw i64 %4, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %5, i64 %41, i1 false)
+41:                                               ; preds = %37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %6, ptr align 1 %5, i64 %38, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit8
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit8: ; preds = %37, %38, %40
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit8: ; preds = %37, %39, %41
   %42 = add i64 %8, 1
   tail call void @_ZdlPvm(ptr noundef %5, i64 noundef %42) #21
   store ptr %6, ptr %0, align 8, !tbaa !107

@@ -1867,7 +1867,7 @@ define linkonce_odr dso_local void @_ZN4pbrt28EnqueueWorkAfterIntersectionENS_11
   store i32 %102, ptr %103, align 8
   call void @_ZN4pbrt3SOAINS_20MediumSampleWorkItemEE16GetSetIndirectoraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(368) %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %508
+  br label %507
 
 104:                                              ; preds = %27
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 192
@@ -2281,7 +2281,7 @@ _ZNK4pbrt11Interaction8SpawnRayENS_7Vector3IfEE.exit: ; preds = %178, %188
   %331 = load ptr, ptr %330, align 8, !tbaa !122
   %332 = getelementptr inbounds float, ptr %331, i64 %211
   store float %198, ptr %332, align 4, !tbaa !59
-  br label %508
+  br label %507
 
 333:                                              ; preds = %select.unfold._crit_edge
   %334 = getelementptr inbounds nuw i8, ptr %3, i64 200
@@ -2524,78 +2524,77 @@ _ZNK4pbrt11Interaction8SpawnRayENS_7Vector3IfEE.exit: ; preds = %178, %188
   %460 = inttoptr i64 %171 to ptr
   %461 = lshr i64 %.sroa.077.0.lcssa, 57
   %462 = trunc nuw nsw i64 %461 to i32
-  switch i32 %462, label %479 [
-    i32 1, label %463
-    i32 2, label %465
-    i32 3, label %467
-    i32 4, label %469
-    i32 5, label %472
-    i32 6, label %475
-    i32 7, label %_ZNK4pbrt8Material15GetDisplacementEv.exit
-    i32 8, label %477
+  %463 = add nsw i32 %462, -1
+  switch i32 %463, label %480 [
+    i32 0, label %464
+    i32 1, label %466
+    i32 2, label %468
+    i32 3, label %470
+    i32 4, label %473
+    i32 5, label %476
+    i32 6, label %_ZNK4pbrt8Material15GetDisplacementEv.exit
+    i32 7, label %478
   ]
 
-463:                                              ; preds = %459
-  %464 = load i64, ptr %460, align 8, !tbaa !188, !noalias !213
+464:                                              ; preds = %459
+  %465 = load i64, ptr %460, align 8, !tbaa !188, !noalias !213
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-465:                                              ; preds = %459
-  %466 = load i64, ptr %460, align 8, !tbaa !188, !noalias !224
+466:                                              ; preds = %459
+  %467 = load i64, ptr %460, align 8, !tbaa !188, !noalias !224
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-467:                                              ; preds = %459
-  %468 = load i64, ptr %460, align 8, !tbaa !188, !noalias !229
+468:                                              ; preds = %459
+  %469 = load i64, ptr %460, align 8, !tbaa !188, !noalias !229
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-469:                                              ; preds = %459
-  %470 = getelementptr inbounds nuw i8, ptr %460, i64 8
-  %471 = load i64, ptr %470, align 8, !tbaa !188, !noalias !234
+470:                                              ; preds = %459
+  %471 = getelementptr inbounds nuw i8, ptr %460, i64 8
+  %472 = load i64, ptr %471, align 8, !tbaa !188, !noalias !234
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-472:                                              ; preds = %459
-  %473 = getelementptr inbounds nuw i8, ptr %460, i64 8
-  %474 = load i64, ptr %473, align 8, !tbaa !188, !noalias !239
+473:                                              ; preds = %459
+  %474 = getelementptr inbounds nuw i8, ptr %460, i64 8
+  %475 = load i64, ptr %474, align 8, !tbaa !188, !noalias !239
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-475:                                              ; preds = %459
-  %476 = load i64, ptr %460, align 8, !tbaa !188, !noalias !244
+476:                                              ; preds = %459
+  %477 = load i64, ptr %460, align 8, !tbaa !188, !noalias !244
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-477:                                              ; preds = %459
-  %478 = load i64, ptr %460, align 8, !tbaa !188, !noalias !249
+478:                                              ; preds = %459
+  %479 = load i64, ptr %460, align 8, !tbaa !188, !noalias !249
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-479:                                              ; preds = %459
-  %480 = add nsw i32 %462, -1
-  %481 = and i32 %480, -2
+480:                                              ; preds = %459
+  %481 = and i32 %463, -2
   %switch.i.i.i.i = icmp eq i32 %481, 8
   br i1 %switch.i.i.i.i, label %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i, label %482
 
-482:                                              ; preds = %479
+482:                                              ; preds = %480
   call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef 304, ptr noundef nonnull @.str.19) #30, !noalias !254
   unreachable
 
-_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i: ; preds = %479
+_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i: ; preds = %480
   %storemerge.i.i.i.i = load i64, ptr %460, align 8, !tbaa !188, !noalias !254
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-_ZNK4pbrt8Material15GetDisplacementEv.exit:       ; preds = %459, %463, %465, %467, %469, %472, %475, %477, %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i
-  %storemerge.i.sink.i.i.i = phi i64 [ %storemerge.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %478, %477 ], [ %464, %463 ], [ %476, %475 ], [ %474, %472 ], [ %471, %469 ], [ %468, %467 ], [ %466, %465 ], [ 0, %459 ]
+_ZNK4pbrt8Material15GetDisplacementEv.exit:       ; preds = %459, %464, %466, %468, %470, %473, %476, %478, %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i
+  %storemerge.i.sink.i.i.i = phi i64 [ %storemerge.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %479, %478 ], [ %465, %464 ], [ %477, %476 ], [ %475, %473 ], [ %472, %470 ], [ %469, %468 ], [ %467, %466 ], [ 0, %459 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %10, ptr %11, align 8, !tbaa !257
-  %483 = add nsw i32 %462, -1
-  %484 = call noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS_8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_EUlS5_E_bNS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialEJNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEvEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %460, i32 noundef %483)
+  %483 = call noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS_8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_EUlS5_E_bNS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialEJNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEvEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %460, i32 noundef %463)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %484, label %485, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit
+  br i1 %483, label %484, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit
 
-485:                                              ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit
-  %486 = and i64 %storemerge.i.sink.i.i.i, 144115188075855871
-  %.not108 = icmp eq i64 %486, 0
+484:                                              ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit
+  %485 = and i64 %storemerge.i.sink.i.i.i, 144115188075855871
+  %.not108 = icmp eq i64 %485, 0
   br i1 %.not108, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %485
+.lr.ph.i:                                         ; preds = %484
   %.mask.i.i25 = and i64 %storemerge.i.sink.i.i.i, -144115188075855872
   switch i64 %.mask.i.i25, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit [
     i64 864691128455135232, label %.critedge.i
@@ -2607,46 +2606,46 @@ _ZNK4pbrt8Material15GetDisplacementEv.exit:       ; preds = %459, %463, %465, %4
 .critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   br label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit
 
-_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit: ; preds = %.lr.ph.i, %.critedge.i, %_ZNK4pbrt8Material15GetDisplacementEv.exit, %485
-  %487 = phi ptr [ %8, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ %7, %485 ], [ %7, %.critedge.i ], [ %8, %.lr.ph.i ]
+_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit: ; preds = %.lr.ph.i, %.critedge.i, %_ZNK4pbrt8Material15GetDisplacementEv.exit, %484
+  %486 = phi ptr [ %8, %_ZNK4pbrt8Material15GetDisplacementEv.exit ], [ %7, %484 ], [ %7, %.critedge.i ], [ %8, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  store ptr %487, ptr %18, align 8, !tbaa !259
-  %488 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %488, ptr noundef nonnull align 8 dereferenceable(248) %3, i64 72, i1 false)
-  %489 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %490 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %491 = load i64, ptr %490, align 8, !tbaa !71
-  store i64 %491, ptr %489, align 8, !tbaa !71
-  %492 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  %493 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %492, ptr noundef nonnull align 8 dereferenceable(112) %493, i64 112, i1 false)
-  %494 = getelementptr inbounds nuw i8, ptr %18, i64 200
-  %495 = load i64, ptr %105, align 8, !tbaa !147
-  store i64 %495, ptr %494, align 8, !tbaa !147
-  %496 = getelementptr inbounds nuw i8, ptr %18, i64 208
-  %497 = load i64, ptr %334, align 8, !tbaa !148
-  store i64 %497, ptr %496, align 8, !tbaa !148
-  %498 = getelementptr inbounds nuw i8, ptr %18, i64 216
-  %499 = getelementptr inbounds nuw i8, ptr %3, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %498, ptr noundef nonnull align 8 dereferenceable(40) %499, i64 40, i1 false)
-  %500 = getelementptr inbounds nuw i8, ptr %18, i64 256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(188) %500, ptr noundef nonnull align 8 dereferenceable(188) %0, i64 28, i1 false)
-  %501 = getelementptr inbounds nuw i8, ptr %18, i64 288
-  %502 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %503 = load i64, ptr %502, align 8, !tbaa !71
-  store i64 %503, ptr %501, align 8, !tbaa !71
-  %504 = getelementptr inbounds nuw i8, ptr %18, i64 296
-  %505 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(148) %504, ptr noundef nonnull align 8 dereferenceable(148) %505, i64 148, i1 false)
-  %506 = getelementptr inbounds nuw i8, ptr %18, i64 448
-  store i64 %.sroa.085.0, ptr %506, align 8, !tbaa !71
-  %507 = getelementptr inbounds nuw i8, ptr %18, i64 456
-  store i64 %.sroa.887.0, ptr %507, align 8, !tbaa !71
-  call void @_ZN4pbrt6detail8DispatchIRZNS_28EnqueueWorkAfterIntersectionENS_11RayWorkItemENS_6MediumEfNS_18SurfaceInteractionEPNS_17MediumSampleQueueEPNS_8RayQueueEPNS_9WorkQueueINS_20HitAreaLightWorkItemEEEPNS_14MultiWorkQueueINS_8TypePackIJNS_20MaterialEvalWorkItemINS_21CoatedDiffuseMaterialEEENSF_INS_23CoatedConductorMaterialEEENSF_INS_17ConductorMaterialEEENSF_INS_18DielectricMaterialEEENSF_INS_15DiffuseMaterialEEENSF_INS_27DiffuseTransmissionMaterialEEENSF_INS_12HairMaterialEEENSF_INS_16MeasuredMaterialEEENSF_INS_18SubsurfaceMaterialEEENSF_INS_22ThinDielectricMaterialEEENSF_INS_11MixMaterialEEEEEEEES14_EUlT_E_vSG_SI_SK_SM_SO_SQ_SS_SU_JSW_SY_S10_EvEET0_OS15_Pvi(ptr noundef nonnull align 8 dereferenceable(464) %18, ptr noundef nonnull %460, i32 noundef %483)
+  store ptr %486, ptr %18, align 8, !tbaa !259
+  %487 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %487, ptr noundef nonnull align 8 dereferenceable(248) %3, i64 72, i1 false)
+  %488 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  %489 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %490 = load i64, ptr %489, align 8, !tbaa !71
+  store i64 %490, ptr %488, align 8, !tbaa !71
+  %491 = getelementptr inbounds nuw i8, ptr %18, i64 88
+  %492 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %491, ptr noundef nonnull align 8 dereferenceable(112) %492, i64 112, i1 false)
+  %493 = getelementptr inbounds nuw i8, ptr %18, i64 200
+  %494 = load i64, ptr %105, align 8, !tbaa !147
+  store i64 %494, ptr %493, align 8, !tbaa !147
+  %495 = getelementptr inbounds nuw i8, ptr %18, i64 208
+  %496 = load i64, ptr %334, align 8, !tbaa !148
+  store i64 %496, ptr %495, align 8, !tbaa !148
+  %497 = getelementptr inbounds nuw i8, ptr %18, i64 216
+  %498 = getelementptr inbounds nuw i8, ptr %3, i64 208
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %497, ptr noundef nonnull align 8 dereferenceable(40) %498, i64 40, i1 false)
+  %499 = getelementptr inbounds nuw i8, ptr %18, i64 256
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(188) %499, ptr noundef nonnull align 8 dereferenceable(188) %0, i64 28, i1 false)
+  %500 = getelementptr inbounds nuw i8, ptr %18, i64 288
+  %501 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %502 = load i64, ptr %501, align 8, !tbaa !71
+  store i64 %502, ptr %500, align 8, !tbaa !71
+  %503 = getelementptr inbounds nuw i8, ptr %18, i64 296
+  %504 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(148) %503, ptr noundef nonnull align 8 dereferenceable(148) %504, i64 148, i1 false)
+  %505 = getelementptr inbounds nuw i8, ptr %18, i64 448
+  store i64 %.sroa.085.0, ptr %505, align 8, !tbaa !71
+  %506 = getelementptr inbounds nuw i8, ptr %18, i64 456
+  store i64 %.sroa.887.0, ptr %506, align 8, !tbaa !71
+  call void @_ZN4pbrt6detail8DispatchIRZNS_28EnqueueWorkAfterIntersectionENS_11RayWorkItemENS_6MediumEfNS_18SurfaceInteractionEPNS_17MediumSampleQueueEPNS_8RayQueueEPNS_9WorkQueueINS_20HitAreaLightWorkItemEEEPNS_14MultiWorkQueueINS_8TypePackIJNS_20MaterialEvalWorkItemINS_21CoatedDiffuseMaterialEEENSF_INS_23CoatedConductorMaterialEEENSF_INS_17ConductorMaterialEEENSF_INS_18DielectricMaterialEEENSF_INS_15DiffuseMaterialEEENSF_INS_27DiffuseTransmissionMaterialEEENSF_INS_12HairMaterialEEENSF_INS_16MeasuredMaterialEEENSF_INS_18SubsurfaceMaterialEEENSF_INS_22ThinDielectricMaterialEEENSF_INS_11MixMaterialEEEEEEEES14_EUlT_E_vSG_SI_SK_SM_SO_SQ_SS_SU_JSW_SY_S10_EvEET0_OS15_Pvi(ptr noundef nonnull align 8 dereferenceable(464) %18, ptr noundef nonnull %460, i32 noundef %463)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %508
+  br label %507
 
-508:                                              ; preds = %_ZNK4pbrt11Interaction8SpawnRayENS_7Vector3IfEE.exit, %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit, %30
+507:                                              ; preds = %_ZNK4pbrt11Interaction8SpawnRayENS_7Vector3IfEE.exit, %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit, %30
   ret void
 }
 

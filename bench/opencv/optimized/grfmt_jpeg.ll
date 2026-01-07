@@ -1192,33 +1192,33 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
   %58 = load i32, ptr %1, align 8, !tbaa !138
   %59 = lshr i32 %58, 3
   %60 = and i32 %59, 511
-  %61 = icmp ne i32 %60, 0
-  switch i32 %60, label %64 [
-    i32 0, label %75
-    i32 2, label %62
+  %61 = add nuw nsw i32 %60, 1
+  %62 = icmp ne i32 %60, 0
+  switch i32 %61, label %65 [
+    i32 1, label %75
     i32 3, label %63
+    i32 4, label %64
   ]
-
-62:                                               ; preds = %55
-  br label %75
 
 63:                                               ; preds = %55
   br label %75
 
 64:                                               ; preds = %55
-  %65 = add nuw nsw i32 %60, 1
+  br label %75
+
+65:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str.4, i32 noundef %65)
+  invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str.4, i32 noundef %61)
           to label %66 unwind label %68
 
-66:                                               ; preds = %64
+66:                                               ; preds = %65
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__func__._ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEE, ptr noundef nonnull @.str.5, i32 noundef 697) #29
           to label %67 unwind label %70
 
 67:                                               ; preds = %66
   unreachable
 
-68:                                               ; preds = %64
+68:                                               ; preds = %65
   %69 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1240,11 +1240,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %70, %
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %276
 
-75:                                               ; preds = %55, %63, %62
-  %.sink344 = phi i32 [ 4, %63 ], [ 3, %62 ], [ 1, %55 ]
-  %.sink = phi i32 [ 9, %63 ], [ 8, %62 ], [ 1, %55 ]
+75:                                               ; preds = %55, %64, %63
+  %.sink = phi i32 [ 9, %64 ], [ 8, %63 ], [ %61, %55 ]
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i32 %.sink344, ptr %76, align 8, !tbaa !198
+  store i32 %61, ptr %76, align 8, !tbaa !198
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store i32 %.sink, ptr %77, align 4, !tbaa !199
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1602,7 +1601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182: ; preds = %18
 
 212:                                              ; preds = %210, %209
   %213 = icmp ne i32 %.0133.lcssa, 0
-  %or.cond = select i1 %61, i1 %213, i1 false
+  %or.cond = select i1 %62, i1 %213, i1 false
   br i1 %or.cond, label %214, label %225
 
 214:                                              ; preds = %212

@@ -10246,60 +10246,61 @@ define noundef nonnull align 8 dereferenceable(112) ptr @_ZN5wasmi5error5Error4k
 define noundef range(i8 0, 12) i8 @_ZN5wasmi5error5Error12as_trap_code17h2cfe97fc22c8a29aE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 {
   %2 = load ptr, ptr %0, align 8, !alias.scope !855, !nonnull !10, !align !44, !noundef !10
   %3 = load i8, ptr %2, align 8, !range !153, !alias.scope !858, !noundef !10
-  %4 = icmp ne i8 %3, 15
-  tail call void @llvm.assume(i1 %4)
-  switch i8 %3, label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit [
-    i8 6, label %5
-    i8 11, label %20
-    i8 13, label %8
-    i8 14, label %12
-    i8 17, label %16
+  %4 = add nsw i8 %3, -6
+  %5 = icmp ne i8 %4, 9
+  tail call void @llvm.assume(i1 %5)
+  switch i8 %4, label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit [
+    i8 0, label %6
+    i8 5, label %21
+    i8 7, label %9
+    i8 8, label %13
+    i8 11, label %17
   ]
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %7 = load i8, ptr %6, align 1, !range !861, !alias.scope !858, !noundef !10
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %8 = load i8, ptr %7, align 1, !range !861, !alias.scope !858, !noundef !10
   br label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load i64, ptr %9, align 8, !range !862, !alias.scope !858, !noundef !10
-  %switch.tableidx = add nsw i64 %10, -1
-  %11 = icmp ult i64 %switch.tableidx, 8
-  br i1 %11, label %switch.lookup, label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %11 = load i64, ptr %10, align 8, !range !862, !alias.scope !858, !noundef !10
+  %switch.tableidx = add nsw i64 %11, -1
+  %12 = icmp ult i64 %switch.tableidx, 8
+  br i1 %12, label %switch.lookup, label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = load i64, ptr %13, align 8, !range !863, !alias.scope !858, !noundef !10
-  %switch.tableidx1 = add nsw i64 %14, -4
-  %15 = icmp ult i64 %switch.tableidx1, 7
-  br i1 %15, label %switch.lookup2, label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %15 = load i64, ptr %14, align 8, !range !863, !alias.scope !858, !noundef !10
+  %switch.tableidx1 = add nsw i64 %15, -4
+  %16 = icmp ult i64 %switch.tableidx1, 7
+  br i1 %16, label %switch.lookup2, label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
-16:                                               ; preds = %1
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %18 = load i64, ptr %17, align 8, !range !11, !alias.scope !858, !noundef !10
-  %19 = trunc nuw i64 %18 to i1
-  %spec.select = select i1 %19, i8 9, i8 11
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %19 = load i64, ptr %18, align 8, !range !11, !alias.scope !858, !noundef !10
+  %20 = trunc nuw i64 %19 to i1
+  %spec.select = select i1 %20, i8 9, i8 11
   br label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
-20:                                               ; preds = %1
+21:                                               ; preds = %1
   br label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
-switch.lookup:                                    ; preds = %8
+switch.lookup:                                    ; preds = %9
   %switch.shiftamt = shl nuw nsw i64 %switch.tableidx, 3
   %switch.downshift = lshr i64 651626713142984961, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   br label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
-switch.lookup2:                                   ; preds = %12
+switch.lookup2:                                   ; preds = %13
   %switch.cast = trunc nuw i64 %switch.tableidx1 to i56
   %switch.shiftamt3 = shl nuw nsw i56 %switch.cast, 3
   %switch.downshift4 = lshr i56 2542118161744386, %switch.shiftamt3
   %switch.masked5 = trunc i56 %switch.downshift4 to i8
   br label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
-_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit: ; preds = %16, %switch.lookup2, %12, %switch.lookup, %8, %1, %5, %20
-  %.sroa.0.0.i = phi i8 [ 11, %1 ], [ %spec.select, %16 ], [ 11, %12 ], [ 11, %8 ], [ %7, %5 ], [ 9, %20 ], [ %switch.masked5, %switch.lookup2 ], [ %switch.masked, %switch.lookup ]
+_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit: ; preds = %17, %switch.lookup2, %13, %switch.lookup, %9, %1, %6, %21
+  %.sroa.0.0.i = phi i8 [ 11, %1 ], [ %spec.select, %17 ], [ 11, %13 ], [ 11, %9 ], [ %8, %6 ], [ 9, %21 ], [ %switch.masked5, %switch.lookup2 ], [ %switch.masked, %switch.lookup ]
   ret i8 %.sroa.0.0.i
 }
 
@@ -10324,84 +10325,86 @@ define { i32, i32 } @_ZN5wasmi5error5Error15i32_exit_status17h01c9e3a22c7b6a22E(
 define hidden noundef zeroext i1 @_ZN5wasmi5error5Error14is_out_of_fuel17h8d939b0720cdfed8E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 {
   %2 = load ptr, ptr %0, align 8, !alias.scope !870, !nonnull !10, !align !44, !noundef !10
   %3 = load i8, ptr %2, align 8, !range !153, !noundef !10
-  %4 = icmp ne i8 %3, 15
-  tail call void @llvm.assume(i1 %4)
-  switch i8 %3, label %22 [
-    i8 6, label %5
-    i8 11, label %9
-    i8 13, label %10
-    i8 14, label %14
-    i8 17, label %18
+  %4 = add nsw i8 %3, -6
+  %5 = icmp ne i8 %4, 9
+  tail call void @llvm.assume(i1 %5)
+  switch i8 %4, label %23 [
+    i8 0, label %6
+    i8 5, label %10
+    i8 7, label %11
+    i8 8, label %15
+    i8 11, label %19
   ]
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %7 = load i8, ptr %6, align 1, !range !861, !noundef !10
-  %8 = icmp eq i8 %7, 9
-  br label %22
-
-9:                                                ; preds = %1
-  br label %22
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %8 = load i8, ptr %7, align 1, !range !861, !noundef !10
+  %9 = icmp eq i8 %8, 9
+  br label %23
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i64, ptr %11, align 8, !range !862, !noundef !10
-  %13 = icmp eq i64 %12, 8
-  br label %22
+  br label %23
 
-14:                                               ; preds = %1
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load i64, ptr %15, align 8, !range !863, !noundef !10
-  %17 = icmp eq i64 %16, 10
-  br label %22
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %13 = load i64, ptr %12, align 8, !range !862, !noundef !10
+  %14 = icmp eq i64 %13, 8
+  br label %23
 
-18:                                               ; preds = %1
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %20 = load i64, ptr %19, align 8, !range !11, !noundef !10
-  %21 = trunc nuw i64 %20 to i1
-  br label %22
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = load i64, ptr %16, align 8, !range !863, !noundef !10
+  %18 = icmp eq i64 %17, 10
+  br label %23
 
-22:                                               ; preds = %1, %18, %14, %10, %9, %5
-  %.sroa.0.0 = phi i1 [ %21, %18 ], [ %8, %5 ], [ true, %9 ], [ %13, %10 ], [ %17, %14 ], [ false, %1 ]
+19:                                               ; preds = %1
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %21 = load i64, ptr %20, align 8, !range !11, !noundef !10
+  %22 = trunc nuw i64 %21 to i1
+  br label %23
+
+23:                                               ; preds = %1, %19, %15, %11, %10, %6
+  %.sroa.0.0 = phi i1 [ %22, %19 ], [ %9, %6 ], [ true, %10 ], [ %14, %11 ], [ %18, %15 ], [ false, %1 ]
   ret i1 %.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5wasmi5error5Error14into_resumable17hfbbdda1bc07d7848E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 8, !range !153, !noundef !10
-  %4 = icmp ne i8 %3, 15
-  tail call void @llvm.assume(i1 %4)
-  switch i8 %3, label %17 [
-    i8 17, label %9
-    i8 14, label %13
-    i8 13, label %5
-    i8 10, label %._crit_edge41
-    i8 11, label %19
+  %4 = add nsw i8 %3, -6
+  %5 = icmp ne i8 %4, 9
+  tail call void @llvm.assume(i1 %5)
+  switch i8 %4, label %18 [
+    i8 11, label %10
+    i8 8, label %14
+    i8 7, label %6
+    i8 4, label %._crit_edge41
+    i8 5, label %20
   ], !prof !873
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !range !862, !noundef !10
-  %8 = icmp eq i64 %7, 8
-  br i1 %8, label %.thread39, label %17
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i64, ptr %7, align 8, !range !862, !noundef !10
+  %9 = icmp eq i64 %8, 8
+  br i1 %9, label %.thread39, label %18
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i64, ptr %10, align 8, !range !11, !noundef !10
-  %12 = trunc nuw i64 %11 to i1
-  br i1 %12, label %.thread39, label %17
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = load i64, ptr %11, align 8, !range !11, !noundef !10
+  %13 = trunc nuw i64 %12 to i1
+  br i1 %13, label %.thread39, label %18
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load i64, ptr %14, align 8, !range !863, !noundef !10
-  %16 = icmp eq i64 %15, 10
-  br i1 %16, label %.thread39, label %17
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %16 = load i64, ptr %15, align 8, !range !863, !noundef !10
+  %17 = icmp eq i64 %16, 10
+  br i1 %17, label %.thread39, label %18
 
-17:                                               ; preds = %2, %9, %5, %13
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %18, align 8
+18:                                               ; preds = %2, %10, %6, %14
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %19, align 8
   store i64 1, ptr %0, align 8
-  br label %23
+  br label %24
 
 ._crit_edge41:                                    ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10411,47 +10414,47 @@ define void @_ZN5wasmi5error5Error14into_resumable17hfbbdda1bc07d7848E(ptr dead_
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   br label %.thread31
 
-19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.thread31
 
-.thread31:                                        ; preds = %19, %._crit_edge41
-  %.sroa.6.0.ph = phi i64 [ undef, %19 ], [ %.sroa.3.0.copyload, %._crit_edge41 ]
-  %.sroa.4.0.ph.in = phi ptr [ %20, %19 ], [ %.sroa.2.0..sroa_idx, %._crit_edge41 ]
-  %.sroa.02.0.ph = phi ptr [ null, %19 ], [ %.sroa.08.0.copyload.pre, %._crit_edge41 ]
+.thread31:                                        ; preds = %20, %._crit_edge41
+  %.sroa.6.0.ph = phi i64 [ undef, %20 ], [ %.sroa.3.0.copyload, %._crit_edge41 ]
+  %.sroa.4.0.ph.in = phi ptr [ %21, %20 ], [ %.sroa.2.0..sroa_idx, %._crit_edge41 ]
+  %.sroa.02.0.ph = phi ptr [ null, %20 ], [ %.sroa.08.0.copyload.pre, %._crit_edge41 ]
   %.sroa.4.0.ph = load i64, ptr %.sroa.4.0.ph.in, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.02.0.ph, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.02.0.ph, ptr %22, align 8
   %.sroa.4.0..sroa_idx435 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.4.0.ph, ptr %.sroa.4.0..sroa_idx435, align 8
   %.sroa.6.0..sroa_idx636 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx636, align 8
   store i64 0, ptr %0, align 8
-  br label %24
+  br label %25
 
-.thread39:                                        ; preds = %9, %13, %5
+.thread39:                                        ; preds = %10, %14, %6
   %.sroa.01.0.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.01.0 = load i64, ptr %.sroa.01.0.in, align 8, !noundef !10
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %23, align 8
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.01.0, ptr %.sroa.4.0..sroa_idx4, align 8
   store i64 0, ptr %0, align 8
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$wasmi..error..ErrorKind$GT$17h50f8d00acadb0d1aE"(ptr noalias noundef align 8 dereferenceable(112) %1)
-          to label %24 unwind label %25
+          to label %25 unwind label %26
 
-23:                                               ; preds = %24, %17
+24:                                               ; preds = %25, %18
   ret void
 
-24:                                               ; preds = %.thread31, %.thread39
+25:                                               ; preds = %.thread31, %.thread39
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %1, i64 noundef 112, i64 noundef 8) #22
-  br label %23
+  br label %24
 
-25:                                               ; preds = %.thread39
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %.thread39
+  %27 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %1, i64 noundef 112, i64 noundef 8) #22
-  resume { ptr, i32 } %26
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10464,60 +10467,61 @@ define noundef zeroext i1 @"_ZN58_$LT$wasmi..error..Error$u20$as$u20$core..fmt..
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define noundef range(i8 0, 12) i8 @_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(112) %0) unnamed_addr #15 {
   %2 = load i8, ptr %0, align 8, !range !153, !noundef !10
-  %3 = icmp ne i8 %2, 15
-  tail call void @llvm.assume(i1 %3)
-  switch i8 %2, label %20 [
-    i8 6, label %4
-    i8 11, label %19
-    i8 13, label %7
-    i8 14, label %11
-    i8 17, label %15
+  %3 = add nsw i8 %2, -6
+  %4 = icmp ne i8 %3, 9
+  tail call void @llvm.assume(i1 %4)
+  switch i8 %3, label %21 [
+    i8 0, label %5
+    i8 5, label %20
+    i8 7, label %8
+    i8 8, label %12
+    i8 11, label %16
   ]
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %6 = load i8, ptr %5, align 1, !range !861, !noundef !10
-  br label %20
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %7 = load i8, ptr %6, align 1, !range !861, !noundef !10
+  br label %21
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i64, ptr %8, align 8, !range !862, !noundef !10
-  %switch.tableidx = add nsw i64 %9, -1
-  %10 = icmp ult i64 %switch.tableidx, 8
-  br i1 %10, label %switch.lookup, label %20
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load i64, ptr %9, align 8, !range !862, !noundef !10
+  %switch.tableidx = add nsw i64 %10, -1
+  %11 = icmp ult i64 %switch.tableidx, 8
+  br i1 %11, label %switch.lookup, label %21
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !range !863, !noundef !10
-  %switch.tableidx2 = add nsw i64 %13, -4
-  %14 = icmp ult i64 %switch.tableidx2, 7
-  br i1 %14, label %switch.lookup3, label %20
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load i64, ptr %13, align 8, !range !863, !noundef !10
+  %switch.tableidx2 = add nsw i64 %14, -4
+  %15 = icmp ult i64 %switch.tableidx2, 7
+  br i1 %15, label %switch.lookup3, label %21
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i64, ptr %16, align 8, !range !11, !noundef !10
-  %18 = trunc nuw i64 %17 to i1
-  %spec.select = select i1 %18, i8 9, i8 11
-  br label %20
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = load i64, ptr %17, align 8, !range !11, !noundef !10
+  %19 = trunc nuw i64 %18 to i1
+  %spec.select = select i1 %19, i8 9, i8 11
+  br label %21
 
-19:                                               ; preds = %1
-  br label %20
+20:                                               ; preds = %1
+  br label %21
 
-switch.lookup:                                    ; preds = %7
+switch.lookup:                                    ; preds = %8
   %switch.shiftamt = shl nuw nsw i64 %switch.tableidx, 3
   %switch.downshift = lshr i64 651626713142984961, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
-  br label %20
+  br label %21
 
-switch.lookup3:                                   ; preds = %11
+switch.lookup3:                                   ; preds = %12
   %switch.cast = trunc nuw i64 %switch.tableidx2 to i56
   %switch.shiftamt4 = shl nuw nsw i56 %switch.cast, 3
   %switch.downshift5 = lshr i56 2542118161744386, %switch.shiftamt4
   %switch.masked6 = trunc i56 %switch.downshift5 to i8
-  br label %20
+  br label %21
 
-20:                                               ; preds = %15, %switch.lookup3, %11, %switch.lookup, %7, %4, %1, %19
-  %.sroa.0.0 = phi i8 [ 11, %1 ], [ %spec.select, %15 ], [ 11, %11 ], [ 11, %7 ], [ %6, %4 ], [ 9, %19 ], [ %switch.masked6, %switch.lookup3 ], [ %switch.masked, %switch.lookup ]
+21:                                               ; preds = %16, %switch.lookup3, %12, %switch.lookup, %8, %5, %1, %20
+  %.sroa.0.0 = phi i8 [ 11, %1 ], [ %spec.select, %16 ], [ 11, %12 ], [ 11, %8 ], [ %7, %5 ], [ 9, %20 ], [ %switch.masked6, %switch.lookup3 ], [ %switch.masked, %switch.lookup ]
   ret i8 %.sroa.0.0
 }
 

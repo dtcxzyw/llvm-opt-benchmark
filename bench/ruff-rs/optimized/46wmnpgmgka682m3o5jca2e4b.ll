@@ -54561,7 +54561,7 @@ _ZN5serde2de9MapAccess8next_key17hfe81454cb8a20233E.exit.thread.i: ; preds = %_Z
     i8 17, label %235
   ]
 
-default.unreachable:                              ; preds = %_ZN5serde2de9MapAccess8next_key17hfe81454cb8a20233E.exit.thread.i
+default.unreachable:                              ; preds = %_ZN5serde2de9MapAccess8next_key17hfe81454cb8a20233E.exit.thread.i, %1009
   unreachable
 
 201:                                              ; preds = %_ZN5serde2de9MapAccess8next_key17hfe81454cb8a20233E.exit.thread.i
@@ -57800,15 +57800,12 @@ _ZN5serde2de7Visitor12visit_string17h33f62990971aa189E.exit.i: ; preds = %911
   br i1 %1008, label %1015, label %1009
 
 1009:                                             ; preds = %1003
-  switch i64 %1004, label %.unreachabledefault.i28 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hb533e0236da4305bE.exit"
-    i64 9, label %1012
-    i64 10, label %1013
-    i64 11, label %1010
+  switch i64 %1005, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hb533e0236da4305bE.exit"
+    i64 1, label %1012
+    i64 2, label %1013
+    i64 3, label %1010
   ]
-
-.unreachabledefault.i28:                          ; preds = %1009
-  unreachable
 
 1010:                                             ; preds = %1009
   %1011 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58172,7 +58169,7 @@ _ZN5serde2de9MapAccess8next_key17h3fb3b3830bfed855E.exit.thread218.i: ; preds = 
 
 _ZN5serde2de9MapAccess8next_key17h3fb3b3830bfed855E.exit.thread.i: ; preds = %_ZN5serde2de9MapAccess8next_key17h3fb3b3830bfed855E.exit.thread224.i, %96, %90
   %.sroa.11.1215.i = phi i8 [ %100, %_ZN5serde2de9MapAccess8next_key17h3fb3b3830bfed855E.exit.thread224.i ], [ %97, %96 ], [ %91, %90 ]
-  switch i8 %.sroa.11.1215.i, label %default.unreachable [
+  switch i8 %.sroa.11.1215.i, label %_ZN5serde2de9MapAccess8next_key17h3fb3b3830bfed855E.exit.thread.i.unreachabledefault [
     i8 3, label %113
     i8 0, label %107
     i8 1, label %109
@@ -58187,7 +58184,10 @@ _ZN5serde2de9MapAccess8next_key17h3fb3b3830bfed855E.exit.thread.i.thread: ; pred
   %.not125.i = icmp eq i64 %106, -9223372036854775807
   br i1 %.not125.i, label %187, label %186
 
-default.unreachable:                              ; preds = %_ZN5serde2de9MapAccess8next_key17h3fb3b3830bfed855E.exit.thread.i
+_ZN5serde2de9MapAccess8next_key17h3fb3b3830bfed855E.exit.thread.i.unreachabledefault: ; preds = %_ZN5serde2de9MapAccess8next_key17h3fb3b3830bfed855E.exit.thread.i
+  unreachable
+
+default.unreachable:                              ; preds = %391
   unreachable
 
 107:                                              ; preds = %_ZN5serde2de9MapAccess8next_key17h3fb3b3830bfed855E.exit.thread.i
@@ -59291,15 +59291,12 @@ _ZN5serde2de7Visitor12visit_string17h622da542dbefac91E.exit.i: ; preds = %293
   br i1 %390, label %397, label %391
 
 391:                                              ; preds = %385
-  switch i64 %386, label %.unreachabledefault.i28 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hb533e0236da4305bE.exit"
-    i64 9, label %394
-    i64 10, label %395
-    i64 11, label %392
+  switch i64 %387, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hb533e0236da4305bE.exit"
+    i64 1, label %394
+    i64 2, label %395
+    i64 3, label %392
   ]
-
-.unreachabledefault.i28:                          ; preds = %391
-  unreachable
 
 392:                                              ; preds = %391
   %393 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59659,7 +59656,7 @@ _ZN5serde2de9MapAccess8next_key17hf4d2897900736e4eE.exit.thread223.i: ; preds = 
 
 _ZN5serde2de9MapAccess8next_key17hf4d2897900736e4eE.exit.thread.i: ; preds = %_ZN5serde2de9MapAccess8next_key17hf4d2897900736e4eE.exit.thread229.i, %99, %93
   %.sroa.11.1220.i = phi i8 [ %103, %_ZN5serde2de9MapAccess8next_key17hf4d2897900736e4eE.exit.thread229.i ], [ %100, %99 ], [ %94, %93 ]
-  switch i8 %.sroa.11.1220.i, label %default.unreachable [
+  switch i8 %.sroa.11.1220.i, label %_ZN5serde2de9MapAccess8next_key17hf4d2897900736e4eE.exit.thread.i.unreachabledefault [
     i8 3, label %115
     i8 0, label %109
     i8 1, label %111
@@ -59674,7 +59671,10 @@ _ZN5serde2de9MapAccess8next_key17hf4d2897900736e4eE.exit.thread.i.thread: ; pred
   %.not139.i = icmp eq i64 %108, -9223372036854775808
   br i1 %.not139.i, label %179, label %178
 
-default.unreachable:                              ; preds = %_ZN5serde2de9MapAccess8next_key17hf4d2897900736e4eE.exit.thread.i
+_ZN5serde2de9MapAccess8next_key17hf4d2897900736e4eE.exit.thread.i.unreachabledefault: ; preds = %_ZN5serde2de9MapAccess8next_key17hf4d2897900736e4eE.exit.thread.i
+  unreachable
+
+default.unreachable:                              ; preds = %388
   unreachable
 
 109:                                              ; preds = %_ZN5serde2de9MapAccess8next_key17hf4d2897900736e4eE.exit.thread.i
@@ -60785,15 +60785,12 @@ _ZN5serde2de7Visitor12visit_string17h6244296004b8c313E.exit.i: ; preds = %291
   br i1 %387, label %394, label %388
 
 388:                                              ; preds = %382
-  switch i64 %383, label %.unreachabledefault.i30 [
-    i64 8, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hb533e0236da4305bE.exit"
-    i64 9, label %391
-    i64 10, label %392
-    i64 11, label %389
+  switch i64 %384, label %default.unreachable [
+    i64 0, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..Item$GT$17hb533e0236da4305bE.exit"
+    i64 1, label %391
+    i64 2, label %392
+    i64 3, label %389
   ]
-
-.unreachabledefault.i30:                          ; preds = %388
-  unreachable
 
 389:                                              ; preds = %388
   %390 = getelementptr inbounds nuw i8, ptr %1, i64 8
