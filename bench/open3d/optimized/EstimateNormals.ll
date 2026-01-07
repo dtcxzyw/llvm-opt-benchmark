@@ -1340,7 +1340,7 @@ declare double @acos(double noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @cos(double noundef) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind ssp willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define internal fastcc void @_ZN6open3d12_GLOBAL__N_119ComputeEigenvector1ERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERKNS2_IdLi3ELi1ELi0ELi3ELi1EEEd(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, double noundef %3) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %2, align 8, !tbaa !29
   %6 = tail call noundef double @llvm.fabs.f64(double %5)
@@ -1355,187 +1355,187 @@ define internal fastcc void @_ZN6open3d12_GLOBAL__N_119ComputeEigenvector1ERKN5E
 
 _ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcmERKd.exit51: ; preds = %4
   %14 = tail call double @llvm.fmuladd.f64(double %5, double %5, double %13)
-  %sqrt = tail call double @llvm.sqrt.f64(double %14)
-  %15 = fdiv double 1.000000e+00, %sqrt
-  %16 = fneg double %12
-  %17 = fmul double %15, %16
-  %.sroa.0.8.vec.insert193 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %17, i64 0
-  %18 = fmul double %5, %15
-  br label %24
+  %15 = tail call double @sqrt(double noundef %14) #4, !tbaa !35
+  %16 = fdiv double 1.000000e+00, %15
+  %17 = fneg double %12
+  %18 = fmul double %16, %17
+  %.sroa.0.8.vec.insert188 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %18, i64 0
+  %19 = fmul double %5, %16
+  br label %26
 
 _ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcmERKd.exit61: ; preds = %4
-  %19 = tail call double @llvm.fmuladd.f64(double %8, double %8, double %13)
-  %sqrt178 = tail call double @llvm.sqrt.f64(double %19)
-  %20 = fdiv double 1.000000e+00, %sqrt178
-  %21 = fmul double %12, %20
-  %.sroa.0.8.vec.insert191 = insertelement <2 x double> <double 0.000000e+00, double poison>, double %21, i64 1
-  %22 = fneg double %8
-  %23 = fmul double %20, %22
-  br label %24
+  %20 = tail call double @llvm.fmuladd.f64(double %8, double %8, double %13)
+  %21 = tail call double @sqrt(double noundef %20) #4, !tbaa !35
+  %22 = fdiv double 1.000000e+00, %21
+  %23 = fmul double %12, %22
+  %.sroa.0.8.vec.insert186 = insertelement <2 x double> <double 0.000000e+00, double poison>, double %23, i64 1
+  %24 = fneg double %8
+  %25 = fmul double %22, %24
+  br label %26
 
-24:                                               ; preds = %_ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcmERKd.exit61, %_ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcmERKd.exit51
-  %.sroa.12.0 = phi double [ %18, %_ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcmERKd.exit51 ], [ %23, %_ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcmERKd.exit61 ]
-  %.sroa.0.0 = phi <2 x double> [ %.sroa.0.8.vec.insert193, %_ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcmERKd.exit51 ], [ %.sroa.0.8.vec.insert191, %_ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcmERKd.exit61 ]
+26:                                               ; preds = %_ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcmERKd.exit61, %_ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcmERKd.exit51
+  %.sroa.12.0 = phi double [ %19, %_ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcmERKd.exit51 ], [ %25, %_ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcmERKd.exit61 ]
+  %.sroa.0.0 = phi <2 x double> [ %.sroa.0.8.vec.insert188, %_ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcmERKd.exit51 ], [ %.sroa.0.8.vec.insert186, %_ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEcmERKd.exit61 ]
   %.sroa.0.8.vec.extract = extractelement <2 x double> %.sroa.0.0, i64 1
-  %25 = fneg double %.sroa.0.8.vec.extract
-  %26 = fmul double %12, %25
-  %27 = tail call double @llvm.fmuladd.f64(double %8, double %.sroa.12.0, double %26)
+  %27 = fneg double %.sroa.0.8.vec.extract
+  %28 = fmul double %12, %27
+  %29 = tail call double @llvm.fmuladd.f64(double %8, double %.sroa.12.0, double %28)
   %.sroa.0.0.vec.extract = extractelement <2 x double> %.sroa.0.0, i64 0
-  %28 = fneg double %.sroa.12.0
-  %29 = fmul double %5, %28
-  %30 = tail call double @llvm.fmuladd.f64(double %12, double %.sroa.0.0.vec.extract, double %29)
-  %31 = fneg double %.sroa.0.0.vec.extract
-  %32 = fmul double %8, %31
-  %33 = tail call double @llvm.fmuladd.f64(double %5, double %.sroa.0.8.vec.extract, double %32)
-  %.sroa.0.0.vec.insert = insertelement <2 x double> poison, double %27, i64 0
-  %.sroa.0.8.vec.insert = insertelement <2 x double> %.sroa.0.0.vec.insert, double %30, i64 1
-  %34 = load double, ptr %1, align 8, !tbaa !29
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %36 = load double, ptr %35, align 8, !tbaa !29
-  %37 = fmul double %.sroa.0.8.vec.extract, %36
-  %38 = tail call double @llvm.fmuladd.f64(double %34, double %.sroa.0.0.vec.extract, double %37)
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %40 = load double, ptr %39, align 8, !tbaa !29
-  %41 = tail call double @llvm.fmuladd.f64(double %40, double %.sroa.12.0, double %38)
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %43 = load double, ptr %42, align 8, !tbaa !29
-  %44 = fmul double %.sroa.0.8.vec.extract, %43
-  %45 = tail call double @llvm.fmuladd.f64(double %36, double %.sroa.0.0.vec.extract, double %44)
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %47 = load double, ptr %46, align 8, !tbaa !29
-  %48 = tail call double @llvm.fmuladd.f64(double %47, double %.sroa.12.0, double %45)
-  %49 = fmul double %.sroa.0.8.vec.extract, %47
-  %50 = tail call double @llvm.fmuladd.f64(double %40, double %.sroa.0.0.vec.extract, double %49)
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %52 = load double, ptr %51, align 8, !tbaa !29
-  %53 = tail call double @llvm.fmuladd.f64(double %52, double %.sroa.12.0, double %50)
-  %54 = fmul double %30, %36
-  %55 = tail call double @llvm.fmuladd.f64(double %34, double %27, double %54)
-  %56 = tail call double @llvm.fmuladd.f64(double %40, double %33, double %55)
-  %57 = fmul double %30, %43
-  %58 = tail call double @llvm.fmuladd.f64(double %36, double %27, double %57)
-  %59 = tail call double @llvm.fmuladd.f64(double %47, double %33, double %58)
-  %60 = fmul double %30, %47
-  %61 = tail call double @llvm.fmuladd.f64(double %40, double %27, double %60)
-  %62 = tail call double @llvm.fmuladd.f64(double %52, double %33, double %61)
-  %63 = fmul double %.sroa.0.8.vec.extract, %48
-  %64 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0.vec.extract, double %41, double %63)
-  %65 = tail call double @llvm.fmuladd.f64(double %.sroa.12.0, double %53, double %64)
-  %66 = fsub double %65, %3
-  %67 = fmul double %.sroa.0.8.vec.extract, %59
-  %68 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0.vec.extract, double %56, double %67)
-  %69 = tail call double @llvm.fmuladd.f64(double %.sroa.12.0, double %62, double %68)
-  %70 = fmul double %30, %59
-  %71 = tail call double @llvm.fmuladd.f64(double %27, double %56, double %70)
-  %72 = tail call double @llvm.fmuladd.f64(double %33, double %62, double %71)
-  %73 = fsub double %72, %3
-  %74 = tail call noundef double @llvm.fabs.f64(double %66)
-  %75 = tail call noundef double @llvm.fabs.f64(double %69)
-  %76 = tail call noundef double @llvm.fabs.f64(double %73)
-  %77 = fcmp ult double %74, %76
-  br i1 %77, label %104, label %78
+  %30 = fneg double %.sroa.12.0
+  %31 = fmul double %5, %30
+  %32 = tail call double @llvm.fmuladd.f64(double %12, double %.sroa.0.0.vec.extract, double %31)
+  %33 = fneg double %.sroa.0.0.vec.extract
+  %34 = fmul double %8, %33
+  %35 = tail call double @llvm.fmuladd.f64(double %5, double %.sroa.0.8.vec.extract, double %34)
+  %.sroa.0.0.vec.insert = insertelement <2 x double> poison, double %29, i64 0
+  %.sroa.0.8.vec.insert = insertelement <2 x double> %.sroa.0.0.vec.insert, double %32, i64 1
+  %36 = load double, ptr %1, align 8, !tbaa !29
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %38 = load double, ptr %37, align 8, !tbaa !29
+  %39 = fmul double %.sroa.0.8.vec.extract, %38
+  %40 = tail call double @llvm.fmuladd.f64(double %36, double %.sroa.0.0.vec.extract, double %39)
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %42 = load double, ptr %41, align 8, !tbaa !29
+  %43 = tail call double @llvm.fmuladd.f64(double %42, double %.sroa.12.0, double %40)
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %45 = load double, ptr %44, align 8, !tbaa !29
+  %46 = fmul double %.sroa.0.8.vec.extract, %45
+  %47 = tail call double @llvm.fmuladd.f64(double %38, double %.sroa.0.0.vec.extract, double %46)
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %49 = load double, ptr %48, align 8, !tbaa !29
+  %50 = tail call double @llvm.fmuladd.f64(double %49, double %.sroa.12.0, double %47)
+  %51 = fmul double %.sroa.0.8.vec.extract, %49
+  %52 = tail call double @llvm.fmuladd.f64(double %42, double %.sroa.0.0.vec.extract, double %51)
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %54 = load double, ptr %53, align 8, !tbaa !29
+  %55 = tail call double @llvm.fmuladd.f64(double %54, double %.sroa.12.0, double %52)
+  %56 = fmul double %32, %38
+  %57 = tail call double @llvm.fmuladd.f64(double %36, double %29, double %56)
+  %58 = tail call double @llvm.fmuladd.f64(double %42, double %35, double %57)
+  %59 = fmul double %32, %45
+  %60 = tail call double @llvm.fmuladd.f64(double %38, double %29, double %59)
+  %61 = tail call double @llvm.fmuladd.f64(double %49, double %35, double %60)
+  %62 = fmul double %32, %49
+  %63 = tail call double @llvm.fmuladd.f64(double %42, double %29, double %62)
+  %64 = tail call double @llvm.fmuladd.f64(double %54, double %35, double %63)
+  %65 = fmul double %.sroa.0.8.vec.extract, %50
+  %66 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0.vec.extract, double %43, double %65)
+  %67 = tail call double @llvm.fmuladd.f64(double %.sroa.12.0, double %55, double %66)
+  %68 = fsub double %67, %3
+  %69 = fmul double %.sroa.0.8.vec.extract, %61
+  %70 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0.vec.extract, double %58, double %69)
+  %71 = tail call double @llvm.fmuladd.f64(double %.sroa.12.0, double %64, double %70)
+  %72 = fmul double %32, %61
+  %73 = tail call double @llvm.fmuladd.f64(double %29, double %58, double %72)
+  %74 = tail call double @llvm.fmuladd.f64(double %35, double %64, double %73)
+  %75 = fsub double %74, %3
+  %76 = tail call noundef double @llvm.fabs.f64(double %68)
+  %77 = tail call noundef double @llvm.fabs.f64(double %71)
+  %78 = tail call noundef double @llvm.fabs.f64(double %75)
+  %79 = fcmp ult double %76, %78
+  br i1 %79, label %108, label %80
 
-78:                                               ; preds = %24
-  %79 = fcmp olt double %74, %75
-  %.sroa.speculated94 = select i1 %79, double %75, double %74
-  %80 = fcmp ogt double %.sroa.speculated94, 0.000000e+00
-  br i1 %80, label %81, label %103
+80:                                               ; preds = %26
+  %81 = fcmp olt double %76, %77
+  %.sroa.speculated94 = select i1 %81, double %77, double %76
+  %82 = fcmp ogt double %.sroa.speculated94, 0.000000e+00
+  br i1 %82, label %83, label %107
 
-81:                                               ; preds = %78
-  %82 = fcmp ult double %74, %75
-  br i1 %82, label %88, label %83
+83:                                               ; preds = %80
+  %84 = fcmp ult double %76, %77
+  br i1 %84, label %91, label %85
 
-83:                                               ; preds = %81
-  %84 = fdiv double %69, %66
-  %85 = tail call double @llvm.fmuladd.f64(double %84, double %84, double 1.000000e+00)
-  %sqrt179 = tail call double @llvm.sqrt.f64(double %85)
-  %86 = fdiv double 1.000000e+00, %sqrt179
-  %87 = fmul double %84, %86
-  br label %93
+85:                                               ; preds = %83
+  %86 = fdiv double %71, %68
+  %87 = tail call double @llvm.fmuladd.f64(double %86, double %86, double 1.000000e+00)
+  %88 = tail call double @sqrt(double noundef %87) #4, !tbaa !35
+  %89 = fdiv double 1.000000e+00, %88
+  %90 = fmul double %86, %89
+  br label %97
 
-88:                                               ; preds = %81
-  %89 = fdiv double %66, %69
-  %90 = tail call double @llvm.fmuladd.f64(double %89, double %89, double 1.000000e+00)
-  %sqrt180 = tail call double @llvm.sqrt.f64(double %90)
-  %91 = fdiv double 1.000000e+00, %sqrt180
-  %92 = fmul double %89, %91
-  br label %93
+91:                                               ; preds = %83
+  %92 = fdiv double %68, %71
+  %93 = tail call double @llvm.fmuladd.f64(double %92, double %92, double 1.000000e+00)
+  %94 = tail call double @sqrt(double noundef %93) #4, !tbaa !35
+  %95 = fdiv double 1.000000e+00, %94
+  %96 = fmul double %92, %95
+  br label %97
 
-93:                                               ; preds = %88, %83
-  %.0155 = phi double [ %91, %88 ], [ %87, %83 ]
-  %.0 = phi double [ %92, %88 ], [ %86, %83 ]
+97:                                               ; preds = %91, %85
+  %.0155 = phi double [ %95, %91 ], [ %90, %85 ]
+  %.0 = phi double [ %96, %91 ], [ %89, %85 ]
   %.sroa.3.16.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %.0155, i64 0
   %.sroa.917.48.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %.0, i64 0
-  %94 = shufflevector <2 x double> %.sroa.3.16.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %95 = fmul <2 x double> %94, %.sroa.0.0
-  %96 = shufflevector <2 x double> %.sroa.917.48.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %97 = fmul <2 x double> %.sroa.0.8.vec.insert, %96
-  %98 = fsub <2 x double> %95, %97
-  store <2 x double> %98, ptr %0, align 8, !tbaa !21
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %100 = fmul double %.sroa.12.0, %.0155
-  %101 = fmul double %33, %.0
-  %102 = fsub double %100, %101
-  store double %102, ptr %99, align 8, !tbaa !29
-  br label %130
+  %98 = shufflevector <2 x double> %.sroa.3.16.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %99 = fmul <2 x double> %98, %.sroa.0.0
+  %100 = shufflevector <2 x double> %.sroa.917.48.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %101 = fmul <2 x double> %.sroa.0.8.vec.insert, %100
+  %102 = fsub <2 x double> %99, %101
+  store <2 x double> %102, ptr %0, align 8, !tbaa !21
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %104 = fmul double %.sroa.12.0, %.0155
+  %105 = fmul double %35, %.0
+  %106 = fsub double %104, %105
+  store double %106, ptr %103, align 8, !tbaa !29
+  br label %136
 
-103:                                              ; preds = %78
+107:                                              ; preds = %80
   store <2 x double> %.sroa.0.0, ptr %0, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.sroa.12.0, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !21
-  br label %130
+  br label %136
 
-104:                                              ; preds = %24
-  %105 = fcmp olt double %76, %75
-  %.sroa.speculated = select i1 %105, double %75, double %76
-  %106 = fcmp ogt double %.sroa.speculated, 0.000000e+00
-  br i1 %106, label %107, label %129
+108:                                              ; preds = %26
+  %109 = fcmp olt double %78, %77
+  %.sroa.speculated = select i1 %109, double %77, double %78
+  %110 = fcmp ogt double %.sroa.speculated, 0.000000e+00
+  br i1 %110, label %111, label %135
 
-107:                                              ; preds = %104
-  %108 = fcmp ult double %76, %75
-  br i1 %108, label %114, label %109
+111:                                              ; preds = %108
+  %112 = fcmp ult double %78, %77
+  br i1 %112, label %119, label %113
 
-109:                                              ; preds = %107
-  %110 = fdiv double %69, %73
-  %111 = tail call double @llvm.fmuladd.f64(double %110, double %110, double 1.000000e+00)
-  %sqrt181 = tail call double @llvm.sqrt.f64(double %111)
-  %112 = fdiv double 1.000000e+00, %sqrt181
-  %113 = fmul double %110, %112
-  br label %119
+113:                                              ; preds = %111
+  %114 = fdiv double %71, %75
+  %115 = tail call double @llvm.fmuladd.f64(double %114, double %114, double 1.000000e+00)
+  %116 = tail call double @sqrt(double noundef %115) #4, !tbaa !35
+  %117 = fdiv double 1.000000e+00, %116
+  %118 = fmul double %114, %117
+  br label %125
 
-114:                                              ; preds = %107
-  %115 = fdiv double %73, %69
-  %116 = tail call double @llvm.fmuladd.f64(double %115, double %115, double 1.000000e+00)
-  %sqrt182 = tail call double @llvm.sqrt.f64(double %116)
-  %117 = fdiv double 1.000000e+00, %sqrt182
-  %118 = fmul double %115, %117
-  br label %119
+119:                                              ; preds = %111
+  %120 = fdiv double %75, %71
+  %121 = tail call double @llvm.fmuladd.f64(double %120, double %120, double 1.000000e+00)
+  %122 = tail call double @sqrt(double noundef %121) #4, !tbaa !35
+  %123 = fdiv double 1.000000e+00, %122
+  %124 = fmul double %120, %123
+  br label %125
 
-119:                                              ; preds = %114, %109
-  %.0156 = phi double [ %118, %114 ], [ %112, %109 ]
-  %.1 = phi double [ %117, %114 ], [ %113, %109 ]
+125:                                              ; preds = %119, %113
+  %.0156 = phi double [ %124, %119 ], [ %117, %113 ]
+  %.1 = phi double [ %123, %119 ], [ %118, %113 ]
   %.sroa.3.16.vec.insert.i.i.i.i.i.i63 = insertelement <2 x double> poison, double %.0156, i64 0
   %.sroa.917.48.vec.insert.i.i.i.i.i.i64 = insertelement <2 x double> poison, double %.1, i64 0
-  %120 = shufflevector <2 x double> %.sroa.3.16.vec.insert.i.i.i.i.i.i63, <2 x double> poison, <2 x i32> zeroinitializer
-  %121 = fmul <2 x double> %120, %.sroa.0.0
-  %122 = shufflevector <2 x double> %.sroa.917.48.vec.insert.i.i.i.i.i.i64, <2 x double> poison, <2 x i32> zeroinitializer
-  %123 = fmul <2 x double> %.sroa.0.8.vec.insert, %122
-  %124 = fsub <2 x double> %121, %123
-  store <2 x double> %124, ptr %0, align 8, !tbaa !21
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %126 = fmul double %.sroa.12.0, %.0156
-  %127 = fmul double %33, %.1
-  %128 = fsub double %126, %127
-  store double %128, ptr %125, align 8, !tbaa !29
-  br label %130
+  %126 = shufflevector <2 x double> %.sroa.3.16.vec.insert.i.i.i.i.i.i63, <2 x double> poison, <2 x i32> zeroinitializer
+  %127 = fmul <2 x double> %126, %.sroa.0.0
+  %128 = shufflevector <2 x double> %.sroa.917.48.vec.insert.i.i.i.i.i.i64, <2 x double> poison, <2 x i32> zeroinitializer
+  %129 = fmul <2 x double> %.sroa.0.8.vec.insert, %128
+  %130 = fsub <2 x double> %127, %129
+  store <2 x double> %130, ptr %0, align 8, !tbaa !21
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %132 = fmul double %.sroa.12.0, %.0156
+  %133 = fmul double %35, %.1
+  %134 = fsub double %132, %133
+  store double %134, ptr %131, align 8, !tbaa !29
+  br label %136
 
-129:                                              ; preds = %104
+135:                                              ; preds = %108
   store <2 x double> %.sroa.0.0, ptr %0, align 8
-  %.sroa.12.0..sroa_idx194 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %.sroa.12.0, ptr %.sroa.12.0..sroa_idx194, align 8, !tbaa !21
-  br label %130
+  %.sroa.12.0..sroa_idx189 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %.sroa.12.0, ptr %.sroa.12.0..sroa_idx189, align 8, !tbaa !21
+  br label %136
 
-130:                                              ; preds = %129, %119, %103, %93
+136:                                              ; preds = %135, %125, %107, %97
   ret void
 }
 
@@ -1653,8 +1653,8 @@ define linkonce_odr noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_impl
   %58 = select i1 %56, double %50, double %51
   %59 = fdiv double %58, %57
   %60 = tail call double @llvm.fmuladd.f64(double %59, double %59, double 1.000000e+00)
-  %sqrt.i.i.i.i = tail call double @llvm.sqrt.f64(double %60)
-  %61 = fmul double %57, %sqrt.i.i.i.i
+  %sqrt.i.i.i = tail call double @llvm.sqrt.f64(double %60)
+  %61 = fmul double %57, %sqrt.i.i.i
   br label %_ZN5Eigen6numext5hypotIdEENS_8internal12hypot_retvalINS2_36global_math_functions_filtering_baseIT_vE4typeEE4typeERKS5_SB_.exit.i
 
 _ZN5Eigen6numext5hypotIdEENS_8internal12hypot_retvalINS2_36global_math_functions_filtering_baseIT_vE4typeEE4typeERKS5_SB_.exit.i: ; preds = %55, %54, %48
@@ -1687,42 +1687,42 @@ _ZN5Eigen6numext5hypotIdEENS_8internal12hypot_retvalINS2_36global_math_functions
   br label %79
 
 79:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit.i, %.lr.ph.i
-  %.073112.i = phi i64 [ %.168.lcssa, %.lr.ph.i ], [ 1, %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit.i ]
-  %.0107111.i = phi double [ %78, %.lr.ph.i ], [ %130, %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit.i ]
-  %.0108110.i = phi double [ %72, %.lr.ph.i ], [ %.1109.i, %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit.i ]
-  %80 = fcmp oeq double %.0107111.i, 0.000000e+00
+  %.073113.i = phi i64 [ %.168.lcssa, %.lr.ph.i ], [ 1, %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit.i ]
+  %.0108112.i = phi double [ %78, %.lr.ph.i ], [ %130, %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit.i ]
+  %.0109111.i = phi double [ %72, %.lr.ph.i ], [ %.1110.i, %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit.i ]
+  %80 = fcmp oeq double %.0108112.i, 0.000000e+00
   br i1 %80, label %81, label %84
 
 81:                                               ; preds = %79
-  %82 = fcmp olt double %.0108110.i, 0.000000e+00
+  %82 = fcmp olt double %.0109111.i, 0.000000e+00
   %83 = select i1 %82, double 1.000000e+00, double -1.000000e+00
   br label %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i
 
 84:                                               ; preds = %79
-  %85 = tail call noundef double @llvm.fabs.f64(double %.0107111.i)
-  %86 = tail call noundef double @llvm.fabs.f64(double %.0108110.i)
+  %85 = tail call noundef double @llvm.fabs.f64(double %.0108112.i)
+  %86 = tail call noundef double @llvm.fabs.f64(double %.0109111.i)
   %87 = fcmp ogt double %85, %86
   br i1 %87, label %88, label %97
 
 88:                                               ; preds = %84
-  %89 = fdiv double %.0108110.i, %.0107111.i
+  %89 = fdiv double %.0109111.i, %.0108112.i
   %90 = fmul double %89, %89
   %91 = fadd double %90, 1.000000e+00
-  %sqrt.i.i.i = tail call double @llvm.sqrt.f64(double %91)
-  %92 = fcmp olt double %.0107111.i, 0.000000e+00
-  %93 = fneg double %sqrt.i.i.i
-  %.031.i.i.i = select i1 %92, double %93, double %sqrt.i.i.i
+  %sqrt.i.i76.i = tail call double @llvm.sqrt.f64(double %91)
+  %92 = fcmp olt double %.0108112.i, 0.000000e+00
+  %93 = fneg double %sqrt.i.i76.i
+  %.031.i.i.i = select i1 %92, double %93, double %sqrt.i.i76.i
   %94 = fdiv double 1.000000e+00, %.031.i.i.i
   %95 = fneg double %89
   %96 = fmul double %94, %95
   br label %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i
 
 97:                                               ; preds = %84
-  %98 = fdiv double %.0107111.i, %.0108110.i
+  %98 = fdiv double %.0108112.i, %.0109111.i
   %99 = fmul double %98, %98
   %100 = fadd double %99, 1.000000e+00
   %sqrt40.i.i.i = tail call double @llvm.sqrt.f64(double %100)
-  %101 = fcmp olt double %.0108110.i, 0.000000e+00
+  %101 = fcmp olt double %.0109111.i, 0.000000e+00
   %102 = fneg double %sqrt40.i.i.i
   %.0.i.i.i = select i1 %101, double %102, double %sqrt40.i.i.i
   %103 = fdiv double -1.000000e+00, %.0.i.i.i
@@ -1731,50 +1731,50 @@ _ZN5Eigen6numext5hypotIdEENS_8internal12hypot_retvalINS2_36global_math_functions
   br label %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i
 
 _ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i: ; preds = %97, %88, %81
-  %.sroa.077.0.i = phi double [ %105, %97 ], [ 0.000000e+00, %81 ], [ %94, %88 ]
+  %.sroa.078.0.i = phi double [ %105, %97 ], [ 0.000000e+00, %81 ], [ %94, %88 ]
   %.sroa.16.0.i = phi double [ %103, %97 ], [ %83, %81 ], [ %96, %88 ]
-  %106 = getelementptr inbounds nuw double, ptr %0, i64 %.073112.i
+  %106 = getelementptr inbounds nuw double, ptr %0, i64 %.073113.i
   %107 = load double, ptr %106, align 8, !tbaa !29
-  %108 = getelementptr inbounds nuw double, ptr %1, i64 %.073112.i
+  %108 = getelementptr inbounds nuw double, ptr %1, i64 %.073113.i
   %109 = load double, ptr %108, align 8, !tbaa !29
-  %110 = fmul double %.sroa.077.0.i, %109
+  %110 = fmul double %.sroa.078.0.i, %109
   %111 = tail call double @llvm.fmuladd.f64(double %.sroa.16.0.i, double %107, double %110)
-  %112 = add nuw nsw i64 %.073112.i, 1
+  %112 = add nuw nsw i64 %.073113.i, 1
   %113 = getelementptr inbounds nuw double, ptr %0, i64 %112
   %114 = load double, ptr %113, align 8, !tbaa !29
-  %115 = fmul double %.sroa.077.0.i, %114
+  %115 = fmul double %.sroa.078.0.i, %114
   %116 = tail call double @llvm.fmuladd.f64(double %.sroa.16.0.i, double %109, double %115)
   %117 = fneg double %109
   %118 = fmul double %.sroa.16.0.i, %117
-  %119 = tail call double @llvm.fmuladd.f64(double %.sroa.077.0.i, double %107, double %118)
+  %119 = tail call double @llvm.fmuladd.f64(double %.sroa.078.0.i, double %107, double %118)
   %120 = fneg double %114
   %121 = fmul double %.sroa.16.0.i, %120
-  %122 = tail call double @llvm.fmuladd.f64(double %.sroa.077.0.i, double %109, double %121)
+  %122 = tail call double @llvm.fmuladd.f64(double %.sroa.078.0.i, double %109, double %121)
   %123 = fneg double %122
   %124 = fmul double %.sroa.16.0.i, %123
-  %125 = tail call double @llvm.fmuladd.f64(double %.sroa.077.0.i, double %119, double %124)
+  %125 = tail call double @llvm.fmuladd.f64(double %.sroa.078.0.i, double %119, double %124)
   store double %125, ptr %106, align 8, !tbaa !29
-  %126 = fmul double %.sroa.077.0.i, %116
+  %126 = fmul double %.sroa.078.0.i, %116
   %127 = tail call double @llvm.fmuladd.f64(double %.sroa.16.0.i, double %111, double %126)
   store double %127, ptr %113, align 8, !tbaa !29
   %128 = fneg double %116
   %129 = fmul double %.sroa.16.0.i, %128
-  %130 = tail call double @llvm.fmuladd.f64(double %.sroa.077.0.i, double %111, double %129)
+  %130 = tail call double @llvm.fmuladd.f64(double %.sroa.078.0.i, double %111, double %129)
   store double %130, ptr %108, align 8, !tbaa !29
-  %131 = icmp samesign ugt i64 %.073112.i, %.168.lcssa
+  %131 = icmp samesign ugt i64 %.073113.i, %.168.lcssa
   br i1 %131, label %132, label %138
 
 132:                                              ; preds = %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i
   %133 = getelementptr i8, ptr %108, i64 -8
   %134 = load double, ptr %133, align 8, !tbaa !29
-  %135 = fneg double %.0108110.i
+  %135 = fneg double %.0109111.i
   %136 = fmul double %.sroa.16.0.i, %135
-  %137 = tail call double @llvm.fmuladd.f64(double %.sroa.077.0.i, double %134, double %136)
+  %137 = tail call double @llvm.fmuladd.f64(double %.sroa.078.0.i, double %134, double %136)
   store double %137, ptr %133, align 8, !tbaa !29
   br label %138
 
 138:                                              ; preds = %132, %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i
-  %139 = icmp samesign ult i64 %.073112.i, %28
+  %139 = icmp samesign ult i64 %.073113.i, %28
   br i1 %139, label %140, label %146
 
 140:                                              ; preds = %138
@@ -1782,17 +1782,17 @@ _ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i: ; preds = %97, %88, %8
   %142 = getelementptr inbounds nuw double, ptr %1, i64 %112
   %143 = load double, ptr %142, align 8, !tbaa !29
   %144 = fmul double %143, %141
-  %145 = fmul double %.sroa.077.0.i, %143
+  %145 = fmul double %.sroa.078.0.i, %143
   store double %145, ptr %142, align 8, !tbaa !29
   br label %146
 
 146:                                              ; preds = %140, %138
-  %.1109.i = phi double [ %144, %140 ], [ %.0108110.i, %138 ]
+  %.1110.i = phi double [ %144, %140 ], [ %.0109111.i, %138 ]
   br i1 %3, label %147, label %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit.i
 
 147:                                              ; preds = %146
   %148 = fneg double %.sroa.16.0.i
-  %149 = fcmp une double %.sroa.077.0.i, 1.000000e+00
+  %149 = fcmp une double %.sroa.078.0.i, 1.000000e+00
   %150 = fcmp une double %.sroa.16.0.i, 0.000000e+00
   %or.cond.not18.i.i.i = or i1 %149, %150
   br i1 %or.cond.not18.i.i.i, label %.lr.ph.i.i.preheader.i.i, label %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit.i
@@ -1800,7 +1800,7 @@ _ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i: ; preds = %97, %88, %8
 .lr.ph.i.i.preheader.i.i:                         ; preds = %147
   %.idx = mul nuw nsw i64 %112, 24
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %.idx94 = mul nuw nsw i64 %.073112.i, 24
+  %.idx94 = mul nuw nsw i64 %.073113.i, 24
   %152 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx94
   br label %.lr.ph.i.i.i.i
 
@@ -1811,9 +1811,9 @@ _ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i: ; preds = %97, %88, %8
   %153 = load double, ptr %.021.i.i.i.i, align 8, !tbaa !29
   %154 = load double, ptr %.01420.i.i.i.i, align 8, !tbaa !29
   %155 = fmul double %154, %148
-  %156 = tail call double @llvm.fmuladd.f64(double %.sroa.077.0.i, double %153, double %155)
+  %156 = tail call double @llvm.fmuladd.f64(double %.sroa.078.0.i, double %153, double %155)
   store double %156, ptr %.021.i.i.i.i, align 8, !tbaa !29
-  %157 = fmul double %.sroa.077.0.i, %154
+  %157 = fmul double %.sroa.078.0.i, %154
   %158 = tail call double @llvm.fmuladd.f64(double %.sroa.16.0.i, double %153, double %157)
   store double %158, ptr %.01420.i.i.i.i, align 8, !tbaa !29
   %159 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i, i64 8
@@ -1824,7 +1824,7 @@ _ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit.i: ; preds = %97, %88, %8
 
 _ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit.i: ; preds = %.lr.ph.i.i.i.i, %147, %146
   %162 = icmp samesign ult i64 %112, %.1
-  %163 = fcmp une double %.1109.i, 0.000000e+00
+  %163 = fcmp une double %.1110.i, 0.000000e+00
   %164 = select i1 %162, i1 %163, i1 false
   br i1 %164, label %79, label %_ZN5Eigen8internalL19tridiagonal_qr_stepILi0EddlEEvPT0_S3_T2_S4_PT1_S4_.exit, !llvm.loop !72
 
@@ -7055,7 +7055,7 @@ attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nounwind ssp willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #15 = { mustprogress noreturn ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

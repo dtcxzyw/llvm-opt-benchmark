@@ -864,8 +864,8 @@ define linkonce_odr noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_impl
   %44 = select i1 %42, float %36, float %37
   %45 = fdiv float %44, %43
   %46 = tail call float @llvm.fmuladd.f32(float %45, float %45, float 1.000000e+00)
-  %sqrt.i.i.i.i = tail call float @llvm.sqrt.f32(float %46)
-  %47 = fmul float %43, %sqrt.i.i.i.i
+  %sqrt.i.i.i = tail call float @llvm.sqrt.f32(float %46)
+  %47 = fmul float %43, %sqrt.i.i.i
   br label %_ZN5Eigen6numext5hypotIfEENS_8internal12hypot_retvalINS2_36global_math_functions_filtering_baseIT_vE4typeEE4typeERKS5_SB_.exit.i
 
 _ZN5Eigen6numext5hypotIfEENS_8internal12hypot_retvalINS2_36global_math_functions_filtering_baseIT_vE4typeEE4typeERKS5_SB_.exit.i: ; preds = %41, %40, %34
@@ -909,10 +909,10 @@ _ZN5Eigen6numext5hypotIfEENS_8internal12hypot_retvalINS2_36global_math_functions
   %71 = fdiv float %57, %61
   %72 = fmul float %71, %71
   %73 = fadd float %72, 1.000000e+00
-  %sqrt.i.i.i = tail call float @llvm.sqrt.f32(float %73)
+  %sqrt.i.i76.i = tail call float @llvm.sqrt.f32(float %73)
   %74 = fcmp olt float %61, 0.000000e+00
-  %75 = fneg float %sqrt.i.i.i
-  %.031.i.i.i = select i1 %74, float %75, float %sqrt.i.i.i
+  %75 = fneg float %sqrt.i.i76.i
+  %.031.i.i.i = select i1 %74, float %75, float %sqrt.i.i76.i
   %76 = fdiv float 1.000000e+00, %.031.i.i.i
   %77 = fneg float %71
   %78 = fmul float %76, %77
@@ -932,37 +932,37 @@ _ZN5Eigen6numext5hypotIfEENS_8internal12hypot_retvalINS2_36global_math_functions
   br label %88
 
 88:                                               ; preds = %79, %70, %63
-  %.sroa.077.0.i = phi float [ %87, %79 ], [ 0.000000e+00, %63 ], [ %76, %70 ]
+  %.sroa.078.0.i = phi float [ %87, %79 ], [ 0.000000e+00, %63 ], [ %76, %70 ]
   %.sroa.16.0.i = phi float [ %85, %79 ], [ %65, %63 ], [ %78, %70 ]
   %89 = load float, ptr %0, align 4, !tbaa !6
   %90 = load float, ptr %1, align 4, !tbaa !6
-  %91 = fmul float %.sroa.077.0.i, %90
+  %91 = fmul float %.sroa.078.0.i, %90
   %92 = tail call float @llvm.fmuladd.f32(float %.sroa.16.0.i, float %89, float %91)
   %93 = load float, ptr %10, align 4, !tbaa !6
-  %94 = fmul float %.sroa.077.0.i, %93
+  %94 = fmul float %.sroa.078.0.i, %93
   %95 = tail call float @llvm.fmuladd.f32(float %.sroa.16.0.i, float %90, float %94)
   %96 = fneg float %90
   %97 = fmul float %.sroa.16.0.i, %96
-  %98 = tail call float @llvm.fmuladd.f32(float %.sroa.077.0.i, float %89, float %97)
+  %98 = tail call float @llvm.fmuladd.f32(float %.sroa.078.0.i, float %89, float %97)
   %99 = fneg float %93
   %100 = fmul float %.sroa.16.0.i, %99
-  %101 = tail call float @llvm.fmuladd.f32(float %.sroa.077.0.i, float %90, float %100)
+  %101 = tail call float @llvm.fmuladd.f32(float %.sroa.078.0.i, float %90, float %100)
   %102 = fneg float %101
   %103 = fmul float %.sroa.16.0.i, %102
-  %104 = tail call float @llvm.fmuladd.f32(float %.sroa.077.0.i, float %98, float %103)
+  %104 = tail call float @llvm.fmuladd.f32(float %.sroa.078.0.i, float %98, float %103)
   store float %104, ptr %0, align 4, !tbaa !6
-  %105 = fmul float %.sroa.077.0.i, %95
+  %105 = fmul float %.sroa.078.0.i, %95
   %106 = tail call float @llvm.fmuladd.f32(float %.sroa.16.0.i, float %92, float %105)
   store float %106, ptr %10, align 4, !tbaa !6
   %107 = fneg float %95
   %108 = fmul float %.sroa.16.0.i, %107
-  %109 = tail call float @llvm.fmuladd.f32(float %.sroa.077.0.i, float %92, float %108)
+  %109 = tail call float @llvm.fmuladd.f32(float %.sroa.078.0.i, float %92, float %108)
   store float %109, ptr %1, align 4, !tbaa !6
   br i1 %3, label %110, label %_ZN5Eigen8internalL19tridiagonal_qr_stepILi0EfflEEvPT0_S3_T2_S4_PT1_S4_.exit
 
 110:                                              ; preds = %88
   %111 = fneg float %.sroa.16.0.i
-  %112 = fcmp une float %.sroa.077.0.i, 1.000000e+00
+  %112 = fcmp une float %.sroa.078.0.i, 1.000000e+00
   %113 = fcmp une float %.sroa.16.0.i, 0.000000e+00
   %or.cond.not18.i.i.i = or i1 %112, %113
   br i1 %or.cond.not18.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN5Eigen8internalL19tridiagonal_qr_stepILi0EfflEEvPT0_S3_T2_S4_PT1_S4_.exit
@@ -974,9 +974,9 @@ _ZN5Eigen6numext5hypotIfEENS_8internal12hypot_retvalINS2_36global_math_functions
   %114 = load float, ptr %.021.i.i.i.i, align 4, !tbaa !6
   %115 = load float, ptr %.01420.i.i.i.i, align 4, !tbaa !6
   %116 = fmul float %115, %111
-  %117 = tail call float @llvm.fmuladd.f32(float %.sroa.077.0.i, float %114, float %116)
+  %117 = tail call float @llvm.fmuladd.f32(float %.sroa.078.0.i, float %114, float %116)
   store float %117, ptr %.021.i.i.i.i, align 4, !tbaa !6
-  %118 = fmul float %.sroa.077.0.i, %115
+  %118 = fmul float %.sroa.078.0.i, %115
   %119 = tail call float @llvm.fmuladd.f32(float %.sroa.16.0.i, float %114, float %118)
   store float %119, ptr %.01420.i.i.i.i, align 4, !tbaa !6
   %120 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i, i64 4

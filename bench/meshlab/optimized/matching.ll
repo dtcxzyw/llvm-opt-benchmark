@@ -17515,220 +17515,213 @@ define linkonce_odr void @_ZN5Eigen9RealSchurINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEE
   br i1 %24, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit, label %25
 
 25:                                               ; preds = %4
-  %26 = tail call double @sqrt(double noundef %19) #25
+  %26 = tail call noundef double @llvm.fabs.f64(double %19)
+  %sqrt = tail call double @llvm.sqrt.f64(double %26)
   %27 = fcmp ult double %13, 0.000000e+00
   %28 = fcmp oeq double %15, 0.000000e+00
-  br i1 %27, label %61, label %29
+  br i1 %27, label %56, label %29
 
 29:                                               ; preds = %25
-  %30 = fadd double %13, %26
-  br i1 %28, label %31, label %34
+  %30 = fadd double %13, %sqrt
+  br i1 %28, label %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit, label %31
 
 31:                                               ; preds = %29
-  %32 = fcmp olt double %30, 0.000000e+00
-  %33 = select i1 %32, double -1.000000e+00, double 1.000000e+00
+  %32 = fcmp oeq double %30, 0.000000e+00
+  br i1 %32, label %33, label %36
+
+33:                                               ; preds = %31
+  %34 = fcmp olt double %15, 0.000000e+00
+  %35 = select i1 %34, double 1.000000e+00, double -1.000000e+00
   br label %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit
 
-34:                                               ; preds = %29
-  %35 = fcmp oeq double %30, 0.000000e+00
-  br i1 %35, label %36, label %39
+36:                                               ; preds = %31
+  %37 = tail call noundef double @llvm.fabs.f64(double %30)
+  %38 = tail call noundef double @llvm.fabs.f64(double %15)
+  %39 = fcmp ogt double %37, %38
+  br i1 %39, label %40, label %47
 
-36:                                               ; preds = %34
-  %37 = fcmp olt double %15, 0.000000e+00
-  %38 = select i1 %37, double 1.000000e+00, double -1.000000e+00
+40:                                               ; preds = %36
+  %41 = fdiv double %15, %30
+  %42 = fmul double %41, %41
+  %43 = fadd double %42, 1.000000e+00
+  %sqrt.i.i = tail call double @llvm.sqrt.f64(double %43)
+  %44 = fdiv double 1.000000e+00, %sqrt.i.i
+  %45 = fneg double %41
+  %46 = fmul double %44, %45
   br label %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit
 
-39:                                               ; preds = %34
-  %40 = tail call noundef double @llvm.fabs.f64(double %30)
-  %41 = tail call noundef double @llvm.fabs.f64(double %15)
-  %42 = fcmp ogt double %40, %41
-  br i1 %42, label %43, label %52
-
-43:                                               ; preds = %39
-  %44 = fdiv double %15, %30
-  %45 = fmul double %44, %44
-  %46 = fadd double %45, 1.000000e+00
-  %sqrt.i.i = tail call double @llvm.sqrt.f64(double %46)
-  %47 = fcmp olt double %30, 0.000000e+00
-  %48 = fneg double %sqrt.i.i
-  %.031.i.i = select i1 %47, double %48, double %sqrt.i.i
-  %49 = fdiv double 1.000000e+00, %.031.i.i
-  %50 = fneg double %44
-  %51 = fmul double %49, %50
+47:                                               ; preds = %36
+  %48 = fdiv double %30, %15
+  %49 = fmul double %48, %48
+  %50 = fadd double %49, 1.000000e+00
+  %sqrt40.i.i = tail call double @llvm.sqrt.f64(double %50)
+  %51 = fcmp olt double %15, 0.000000e+00
+  %52 = fneg double %sqrt40.i.i
+  %.0.i.i = select i1 %51, double %52, double %sqrt40.i.i
+  %53 = fdiv double -1.000000e+00, %.0.i.i
+  %54 = fneg double %48
+  %55 = fmul double %53, %54
   br label %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit
 
-52:                                               ; preds = %39
-  %53 = fdiv double %30, %15
-  %54 = fmul double %53, %53
-  %55 = fadd double %54, 1.000000e+00
-  %sqrt40.i.i = tail call double @llvm.sqrt.f64(double %55)
-  %56 = fcmp olt double %15, 0.000000e+00
-  %57 = fneg double %sqrt40.i.i
-  %.0.i.i = select i1 %56, double %57, double %sqrt40.i.i
-  %58 = fdiv double -1.000000e+00, %.0.i.i
-  %59 = fneg double %53
-  %60 = fmul double %58, %59
+56:                                               ; preds = %25
+  %57 = fsub double %13, %sqrt
+  br i1 %28, label %58, label %61
+
+58:                                               ; preds = %56
+  %59 = fcmp olt double %57, 0.000000e+00
+  %60 = select i1 %59, double -1.000000e+00, double 1.000000e+00
   br label %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit
 
-61:                                               ; preds = %25
-  %62 = fsub double %13, %26
-  br i1 %28, label %63, label %66
+61:                                               ; preds = %56
+  %62 = fcmp oeq double %57, 0.000000e+00
+  br i1 %62, label %63, label %66
 
 63:                                               ; preds = %61
-  %64 = fcmp olt double %62, 0.000000e+00
-  %65 = select i1 %64, double -1.000000e+00, double 1.000000e+00
+  %64 = fcmp olt double %15, 0.000000e+00
+  %65 = select i1 %64, double 1.000000e+00, double -1.000000e+00
   br label %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit
 
 66:                                               ; preds = %61
-  %67 = fcmp oeq double %62, 0.000000e+00
-  br i1 %67, label %68, label %71
+  %67 = tail call noundef double @llvm.fabs.f64(double %57)
+  %68 = tail call noundef double @llvm.fabs.f64(double %15)
+  %69 = fcmp ogt double %67, %68
+  br i1 %69, label %70, label %79
 
-68:                                               ; preds = %66
-  %69 = fcmp olt double %15, 0.000000e+00
-  %70 = select i1 %69, double 1.000000e+00, double -1.000000e+00
+70:                                               ; preds = %66
+  %71 = fdiv double %15, %57
+  %72 = fmul double %71, %71
+  %73 = fadd double %72, 1.000000e+00
+  %sqrt.i.i53 = tail call double @llvm.sqrt.f64(double %73)
+  %74 = fcmp olt double %57, 0.000000e+00
+  %75 = fneg double %sqrt.i.i53
+  %.031.i.i54 = select i1 %74, double %75, double %sqrt.i.i53
+  %76 = fdiv double 1.000000e+00, %.031.i.i54
+  %77 = fneg double %71
+  %78 = fmul double %76, %77
   br label %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit
 
-71:                                               ; preds = %66
-  %72 = tail call noundef double @llvm.fabs.f64(double %62)
-  %73 = tail call noundef double @llvm.fabs.f64(double %15)
-  %74 = fcmp ogt double %72, %73
-  br i1 %74, label %75, label %84
-
-75:                                               ; preds = %71
-  %76 = fdiv double %15, %62
-  %77 = fmul double %76, %76
-  %78 = fadd double %77, 1.000000e+00
-  %sqrt.i.i53 = tail call double @llvm.sqrt.f64(double %78)
-  %79 = fcmp olt double %62, 0.000000e+00
-  %80 = fneg double %sqrt.i.i53
-  %.031.i.i54 = select i1 %79, double %80, double %sqrt.i.i53
-  %81 = fdiv double 1.000000e+00, %.031.i.i54
-  %82 = fneg double %76
-  %83 = fmul double %81, %82
+79:                                               ; preds = %66
+  %80 = fdiv double %57, %15
+  %81 = fmul double %80, %80
+  %82 = fadd double %81, 1.000000e+00
+  %sqrt40.i.i51 = tail call double @llvm.sqrt.f64(double %82)
+  %83 = fcmp olt double %15, 0.000000e+00
+  %84 = fneg double %sqrt40.i.i51
+  %.0.i.i52 = select i1 %83, double %84, double %sqrt40.i.i51
+  %85 = fdiv double -1.000000e+00, %.0.i.i52
+  %86 = fneg double %80
+  %87 = fmul double %85, %86
   br label %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit
 
-84:                                               ; preds = %71
-  %85 = fdiv double %62, %15
-  %86 = fmul double %85, %85
-  %87 = fadd double %86, 1.000000e+00
-  %sqrt40.i.i51 = tail call double @llvm.sqrt.f64(double %87)
-  %88 = fcmp olt double %15, 0.000000e+00
-  %89 = fneg double %sqrt40.i.i51
-  %.0.i.i52 = select i1 %88, double %89, double %sqrt40.i.i51
-  %90 = fdiv double -1.000000e+00, %.0.i.i52
-  %91 = fneg double %85
-  %92 = fmul double %90, %91
-  br label %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit
-
-_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit: ; preds = %84, %75, %68, %63, %52, %43, %36, %31
-  %.sroa.079.0 = phi double [ %60, %52 ], [ %33, %31 ], [ 0.000000e+00, %36 ], [ %49, %43 ], [ %65, %63 ], [ 0.000000e+00, %68 ], [ %81, %75 ], [ %92, %84 ]
-  %.sroa.11.0 = phi double [ %58, %52 ], [ 0.000000e+00, %31 ], [ %38, %36 ], [ %51, %43 ], [ 0.000000e+00, %63 ], [ %70, %68 ], [ %83, %75 ], [ %90, %84 ]
-  %93 = sub i64 3, %1
-  %94 = fneg double %.sroa.11.0
-  %95 = fcmp une double %.sroa.079.0, 1.000000e+00
-  %96 = fcmp une double %.sroa.11.0, 0.000000e+00
-  %or.cond.not18.i.i = or i1 %95, %96
-  %97 = icmp sgt i64 %93, 0
-  %or.cond16.i.i = and i1 %97, %or.cond.not18.i.i
+_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit: ; preds = %29, %79, %70, %63, %58, %47, %40, %33
+  %.sroa.079.0 = phi double [ %55, %47 ], [ %87, %79 ], [ 0.000000e+00, %33 ], [ %44, %40 ], [ %60, %58 ], [ 0.000000e+00, %63 ], [ %76, %70 ], [ 1.000000e+00, %29 ]
+  %.sroa.11.0 = phi double [ %53, %47 ], [ %85, %79 ], [ %35, %33 ], [ %46, %40 ], [ 0.000000e+00, %58 ], [ %65, %63 ], [ %78, %70 ], [ 0.000000e+00, %29 ]
+  %88 = sub i64 3, %1
+  %89 = fneg double %.sroa.11.0
+  %90 = fcmp une double %.sroa.079.0, 1.000000e+00
+  %91 = fcmp une double %.sroa.11.0, 0.000000e+00
+  %or.cond.not18.i.i = or i1 %90, %91
+  %92 = icmp sgt i64 %88, 0
+  %or.cond16.i.i = and i1 %92, %or.cond.not18.i.i
   br i1 %or.cond16.i.i, label %.lr.ph.i.i.i, label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELin1ELb1EEEE14applyOnTheLeftIdEEvllRKNS_14JacobiRotationIT_EE.exit
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit
-  %98 = getelementptr i8, ptr %0, i64 %.idx.i44
-  %99 = getelementptr i8, ptr %98, i64 -16
-  %100 = getelementptr inbounds double, ptr %99, i64 %1
-  %101 = getelementptr inbounds double, ptr %99, i64 %5
-  br label %102
+  %93 = getelementptr i8, ptr %0, i64 %.idx.i44
+  %94 = getelementptr i8, ptr %93, i64 -16
+  %95 = getelementptr inbounds double, ptr %94, i64 %1
+  %96 = getelementptr inbounds double, ptr %94, i64 %5
+  br label %97
 
-102:                                              ; preds = %102, %.lr.ph.i.i.i
-  %.021.i.i.i = phi ptr [ %101, %.lr.ph.i.i.i ], [ %109, %102 ]
-  %.01420.i.i.i = phi ptr [ %100, %.lr.ph.i.i.i ], [ %110, %102 ]
-  %.01519.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %111, %102 ]
-  %103 = load double, ptr %.021.i.i.i, align 8
-  %104 = load double, ptr %.01420.i.i.i, align 8
-  %105 = fmul double %104, %94
-  %106 = tail call double @llvm.fmuladd.f64(double %.sroa.079.0, double %103, double %105)
-  store double %106, ptr %.021.i.i.i, align 8
-  %107 = fmul double %.sroa.079.0, %104
-  %108 = tail call double @llvm.fmuladd.f64(double %.sroa.11.0, double %103, double %107)
-  store double %108, ptr %.01420.i.i.i, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %.021.i.i.i, i64 16
-  %110 = getelementptr inbounds nuw i8, ptr %.01420.i.i.i, i64 16
-  %111 = add nuw nsw i64 %.01519.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %111, %93
-  br i1 %exitcond.not.i.i.i, label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELin1ELb1EEEE14applyOnTheLeftIdEEvllRKNS_14JacobiRotationIT_EE.exit, label %102, !llvm.loop !645
+97:                                               ; preds = %97, %.lr.ph.i.i.i
+  %.021.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i ], [ %104, %97 ]
+  %.01420.i.i.i = phi ptr [ %95, %.lr.ph.i.i.i ], [ %105, %97 ]
+  %.01519.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %106, %97 ]
+  %98 = load double, ptr %.021.i.i.i, align 8
+  %99 = load double, ptr %.01420.i.i.i, align 8
+  %100 = fmul double %99, %89
+  %101 = tail call double @llvm.fmuladd.f64(double %.sroa.079.0, double %98, double %100)
+  store double %101, ptr %.021.i.i.i, align 8
+  %102 = fmul double %.sroa.079.0, %99
+  %103 = tail call double @llvm.fmuladd.f64(double %.sroa.11.0, double %98, double %102)
+  store double %103, ptr %.01420.i.i.i, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %.021.i.i.i, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %.01420.i.i.i, i64 16
+  %106 = add nuw nsw i64 %.01519.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %106, %88
+  br i1 %exitcond.not.i.i.i, label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELin1ELb1EEEE14applyOnTheLeftIdEEvllRKNS_14JacobiRotationIT_EE.exit, label %97, !llvm.loop !645
 
-_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELin1ELb1EEEE14applyOnTheLeftIdEEvllRKNS_14JacobiRotationIT_EE.exit: ; preds = %102, %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit
-  %112 = icmp sgt i64 %1, -1
-  %or.cond16.i.i57 = and i1 %112, %or.cond.not18.i.i
+_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELin1ELb1EEEE14applyOnTheLeftIdEEvllRKNS_14JacobiRotationIT_EE.exit: ; preds = %97, %_ZN5Eigen14JacobiRotationIdE10makeGivensERKdS3_Pd.exit
+  %107 = icmp sgt i64 %1, -1
+  %or.cond16.i.i57 = and i1 %107, %or.cond.not18.i.i
   br i1 %or.cond16.i.i57, label %.lr.ph.i.i.preheader.i, label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi2ELb0EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit
 
 .lr.ph.i.i.preheader.i:                           ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELin1ELb1EEEE14applyOnTheLeftIdEEvllRKNS_14JacobiRotationIT_EE.exit
-  %113 = getelementptr inbounds i8, ptr %0, i64 %.idx.i44
-  %114 = getelementptr inbounds i8, ptr %0, i64 %.idx.i
+  %108 = getelementptr inbounds i8, ptr %0, i64 %.idx.i44
+  %109 = getelementptr inbounds i8, ptr %0, i64 %.idx.i
   br label %.lr.ph.i.i.i58
 
 .lr.ph.i.i.i58:                                   ; preds = %.lr.ph.i.i.i58, %.lr.ph.i.i.preheader.i
-  %.021.i.i.i59 = phi ptr [ %121, %.lr.ph.i.i.i58 ], [ %114, %.lr.ph.i.i.preheader.i ]
-  %.01420.i.i.i60 = phi ptr [ %122, %.lr.ph.i.i.i58 ], [ %113, %.lr.ph.i.i.preheader.i ]
-  %.01519.i.i.i61 = phi i64 [ %123, %.lr.ph.i.i.i58 ], [ 0, %.lr.ph.i.i.preheader.i ]
-  %115 = load double, ptr %.021.i.i.i59, align 8
-  %116 = load double, ptr %.01420.i.i.i60, align 8
-  %117 = fmul double %116, %94
-  %118 = tail call double @llvm.fmuladd.f64(double %.sroa.079.0, double %115, double %117)
-  store double %118, ptr %.021.i.i.i59, align 8
-  %119 = fmul double %.sroa.079.0, %116
-  %120 = tail call double @llvm.fmuladd.f64(double %.sroa.11.0, double %115, double %119)
-  store double %120, ptr %.01420.i.i.i60, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %.021.i.i.i59, i64 8
-  %122 = getelementptr inbounds nuw i8, ptr %.01420.i.i.i60, i64 8
-  %123 = add nuw nsw i64 %.01519.i.i.i61, 1
+  %.021.i.i.i59 = phi ptr [ %116, %.lr.ph.i.i.i58 ], [ %109, %.lr.ph.i.i.preheader.i ]
+  %.01420.i.i.i60 = phi ptr [ %117, %.lr.ph.i.i.i58 ], [ %108, %.lr.ph.i.i.preheader.i ]
+  %.01519.i.i.i61 = phi i64 [ %118, %.lr.ph.i.i.i58 ], [ 0, %.lr.ph.i.i.preheader.i ]
+  %110 = load double, ptr %.021.i.i.i59, align 8
+  %111 = load double, ptr %.01420.i.i.i60, align 8
+  %112 = fmul double %111, %89
+  %113 = tail call double @llvm.fmuladd.f64(double %.sroa.079.0, double %110, double %112)
+  store double %113, ptr %.021.i.i.i59, align 8
+  %114 = fmul double %.sroa.079.0, %111
+  %115 = tail call double @llvm.fmuladd.f64(double %.sroa.11.0, double %110, double %114)
+  store double %115, ptr %.01420.i.i.i60, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %.021.i.i.i59, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.01420.i.i.i60, i64 8
+  %118 = add nuw nsw i64 %.01519.i.i.i61, 1
   %exitcond.not.i.i.i62 = icmp eq i64 %.01519.i.i.i61, %1
   br i1 %exitcond.not.i.i.i62, label %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi2ELb0EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit, label %.lr.ph.i.i.i58, !llvm.loop !645
 
 _ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi2ELb0EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit: ; preds = %.lr.ph.i.i.i58, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELin1ELb1EEEE14applyOnTheLeftIdEEvllRKNS_14JacobiRotationIT_EE.exit
   store double 0.000000e+00, ptr %14, align 8
-  br i1 %2, label %124, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit
+  br i1 %2, label %119, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit
 
-124:                                              ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi2ELb0EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit
-  %125 = fcmp oeq double %.sroa.079.0, 1.000000e+00
-  %126 = fcmp oeq double %.sroa.11.0, 0.000000e+00
-  %or.cond.i.i = and i1 %125, %126
+119:                                              ; preds = %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi2ELb0EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit
+  %120 = fcmp oeq double %.sroa.079.0, 1.000000e+00
+  %121 = fcmp oeq double %.sroa.11.0, 0.000000e+00
+  %or.cond.i.i = and i1 %120, %121
   br i1 %or.cond.i.i, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit, label %.preheader.preheader.i
 
-.preheader.preheader.i:                           ; preds = %124
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %128 = getelementptr inbounds i8, ptr %127, i64 %.idx.i44
-  %129 = getelementptr inbounds i8, ptr %127, i64 %.idx.i
+.preheader.preheader.i:                           ; preds = %119
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %123 = getelementptr inbounds i8, ptr %122, i64 %.idx.i44
+  %124 = getelementptr inbounds i8, ptr %122, i64 %.idx.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
-  %.021.i.i.i66 = phi ptr [ %136, %.preheader.i ], [ %129, %.preheader.preheader.i ]
-  %.01420.i.i.i67 = phi ptr [ %137, %.preheader.i ], [ %128, %.preheader.preheader.i ]
-  %.01519.i.i.i68 = phi i64 [ %138, %.preheader.i ], [ 0, %.preheader.preheader.i ]
-  %130 = load double, ptr %.021.i.i.i66, align 8
-  %131 = load double, ptr %.01420.i.i.i67, align 8
-  %132 = fmul double %131, %94
-  %133 = tail call double @llvm.fmuladd.f64(double %.sroa.079.0, double %130, double %132)
-  store double %133, ptr %.021.i.i.i66, align 8
-  %134 = fmul double %.sroa.079.0, %131
-  %135 = tail call double @llvm.fmuladd.f64(double %.sroa.11.0, double %130, double %134)
-  store double %135, ptr %.01420.i.i.i67, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %.021.i.i.i66, i64 8
-  %137 = getelementptr inbounds nuw i8, ptr %.01420.i.i.i67, i64 8
-  %138 = add nuw nsw i64 %.01519.i.i.i68, 1
-  %exitcond.not.i.i.i69 = icmp eq i64 %138, 2
+  %.021.i.i.i66 = phi ptr [ %131, %.preheader.i ], [ %124, %.preheader.preheader.i ]
+  %.01420.i.i.i67 = phi ptr [ %132, %.preheader.i ], [ %123, %.preheader.preheader.i ]
+  %.01519.i.i.i68 = phi i64 [ %133, %.preheader.i ], [ 0, %.preheader.preheader.i ]
+  %125 = load double, ptr %.021.i.i.i66, align 8
+  %126 = load double, ptr %.01420.i.i.i67, align 8
+  %127 = fmul double %126, %89
+  %128 = tail call double @llvm.fmuladd.f64(double %.sroa.079.0, double %125, double %127)
+  store double %128, ptr %.021.i.i.i66, align 8
+  %129 = fmul double %.sroa.079.0, %126
+  %130 = tail call double @llvm.fmuladd.f64(double %.sroa.11.0, double %125, double %129)
+  store double %130, ptr %.01420.i.i.i67, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %.021.i.i.i66, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.01420.i.i.i67, i64 8
+  %133 = add nuw nsw i64 %.01519.i.i.i68, 1
+  %exitcond.not.i.i.i69 = icmp eq i64 %133, 2
   br i1 %exitcond.not.i.i.i69, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit, label %.preheader.i, !llvm.loop !228
 
-_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit: ; preds = %.preheader.i, %124, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi2ELb0EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit, %4
-  %139 = icmp sgt i64 %1, 1
-  br i1 %139, label %140, label %142
+_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit: ; preds = %.preheader.i, %119, %_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi2ELb0EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit, %4
+  %134 = icmp sgt i64 %1, 1
+  br i1 %134, label %135, label %137
 
-140:                                              ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit
-  %141 = getelementptr i8, ptr %16, i64 -32
-  store double 0.000000e+00, ptr %141, align 8
-  br label %142
+135:                                              ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit
+  %136 = getelementptr i8, ptr %16, i64 -32
+  store double 0.000000e+00, ptr %136, align 8
+  br label %137
 
-142:                                              ; preds = %140, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit
+137:                                              ; preds = %135, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE15applyOnTheRightIdEEvllRKNS_14JacobiRotationIT_EE.exit
   ret void
 }
 
@@ -20004,9 +19997,9 @@ define noundef double @_Z13MatchingErrorRK17MatchingTransformRKSt6vectorIN3vcg6P
   unreachable
 
 30:                                               ; preds = %30, %.lr.ph.i
-  %31 = phi i64 [ 0, %.lr.ph.i ], [ %52, %30 ]
-  %.019.i = phi i32 [ 0, %.lr.ph.i ], [ %51, %30 ]
-  %.01218.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %50, %30 ]
+  %31 = phi i64 [ 0, %.lr.ph.i ], [ %53, %30 ]
+  %.019.i = phi i32 [ 0, %.lr.ph.i ], [ %52, %30 ]
+  %.01218.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %51, %30 ]
   %32 = getelementptr inbounds nuw %"class.vcg::Point2", ptr %6, i64 %31
   %33 = getelementptr inbounds nuw %"class.vcg::Point2", ptr %13, i64 %31
   %34 = load double, ptr %33, align 8
@@ -20025,18 +20018,18 @@ define noundef double @_Z13MatchingErrorRK17MatchingTransformRKSt6vectorIN3vcg6P
   %47 = fsub double %46, %42
   %48 = fmul double %47, %47
   %49 = tail call double @llvm.fmuladd.f64(double %44, double %44, double %48)
-  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %49)
-  %50 = fadd double %.01218.i, %sqrt.i.i
-  %51 = add i32 %.019.i, 1
-  %52 = zext i32 %51 to i64
-  %53 = icmp ugt i64 %10, %52
-  br i1 %53, label %30, label %_Z20MatchingErrorAverageRK17MatchingTransformRKSt6vectorIN3vcg6Point2IdEESaIS5_EES9_.exit, !llvm.loop !771
+  %50 = tail call noundef double @sqrt(double noundef %49) #25
+  %51 = fadd double %.01218.i, %50
+  %52 = add i32 %.019.i, 1
+  %53 = zext i32 %52 to i64
+  %54 = icmp ugt i64 %10, %53
+  br i1 %54, label %30, label %_Z20MatchingErrorAverageRK17MatchingTransformRKSt6vectorIN3vcg6Point2IdEESaIS5_EES9_.exit, !llvm.loop !771
 
 _Z20MatchingErrorAverageRK17MatchingTransformRKSt6vectorIN3vcg6Point2IdEESaIS5_EES9_.exit: ; preds = %30, %.preheader.i
-  %.012.lcssa.i = phi double [ 0.000000e+00, %.preheader.i ], [ %50, %30 ]
-  %54 = uitofp nneg i64 %10 to double
-  %55 = fdiv double %.012.lcssa.i, %54
-  ret double %55
+  %.012.lcssa.i = phi double [ 0.000000e+00, %.preheader.i ], [ %51, %30 ]
+  %55 = uitofp nneg i64 %10 to double
+  %56 = fdiv double %.012.lcssa.i, %55
+  ret double %56
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20080,9 +20073,9 @@ define noundef double @_Z20MatchingErrorAverageRK17MatchingTransformRKSt6vectorI
   unreachable
 
 30:                                               ; preds = %.lr.ph, %30
-  %31 = phi i64 [ 0, %.lr.ph ], [ %52, %30 ]
-  %.019 = phi i32 [ 0, %.lr.ph ], [ %51, %30 ]
-  %.01218 = phi double [ 0.000000e+00, %.lr.ph ], [ %50, %30 ]
+  %31 = phi i64 [ 0, %.lr.ph ], [ %53, %30 ]
+  %.019 = phi i32 [ 0, %.lr.ph ], [ %52, %30 ]
+  %.01218 = phi double [ 0.000000e+00, %.lr.ph ], [ %51, %30 ]
   %32 = getelementptr inbounds nuw %"class.vcg::Point2", ptr %6, i64 %31
   %33 = getelementptr inbounds nuw %"class.vcg::Point2", ptr %13, i64 %31
   %34 = load double, ptr %33, align 8
@@ -20101,18 +20094,18 @@ define noundef double @_Z20MatchingErrorAverageRK17MatchingTransformRKSt6vectorI
   %47 = fsub double %46, %42
   %48 = fmul double %47, %47
   %49 = tail call double @llvm.fmuladd.f64(double %44, double %44, double %48)
-  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %49)
-  %50 = fadd double %.01218, %sqrt.i
-  %51 = add i32 %.019, 1
-  %52 = zext i32 %51 to i64
-  %53 = icmp ugt i64 %10, %52
-  br i1 %53, label %30, label %._crit_edge, !llvm.loop !771
+  %50 = tail call noundef double @sqrt(double noundef %49) #25
+  %51 = fadd double %.01218, %50
+  %52 = add i32 %.019, 1
+  %53 = zext i32 %52 to i64
+  %54 = icmp ugt i64 %10, %53
+  br i1 %54, label %30, label %._crit_edge, !llvm.loop !771
 
 ._crit_edge:                                      ; preds = %30, %.preheader
-  %.012.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %50, %30 ]
-  %54 = uitofp nneg i64 %10 to double
-  %55 = fdiv double %.012.lcssa, %54
-  ret double %55
+  %.012.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %51, %30 ]
+  %55 = uitofp nneg i64 %10 to double
+  %56 = fdiv double %.012.lcssa, %55
+  ret double %56
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20156,9 +20149,9 @@ define noundef double @_Z18MatchingErrorTotalRK17MatchingTransformRKSt6vectorIN3
   unreachable
 
 30:                                               ; preds = %.lr.ph, %30
-  %31 = phi i64 [ 0, %.lr.ph ], [ %52, %30 ]
-  %.018 = phi i32 [ 0, %.lr.ph ], [ %51, %30 ]
-  %.01117 = phi double [ 0.000000e+00, %.lr.ph ], [ %50, %30 ]
+  %31 = phi i64 [ 0, %.lr.ph ], [ %53, %30 ]
+  %.018 = phi i32 [ 0, %.lr.ph ], [ %52, %30 ]
+  %.01117 = phi double [ 0.000000e+00, %.lr.ph ], [ %51, %30 ]
   %32 = getelementptr inbounds nuw %"class.vcg::Point2", ptr %6, i64 %31
   %33 = getelementptr inbounds nuw %"class.vcg::Point2", ptr %13, i64 %31
   %34 = load double, ptr %33, align 8
@@ -20177,15 +20170,15 @@ define noundef double @_Z18MatchingErrorTotalRK17MatchingTransformRKSt6vectorIN3
   %47 = fsub double %46, %42
   %48 = fmul double %47, %47
   %49 = tail call double @llvm.fmuladd.f64(double %44, double %44, double %48)
-  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %49)
-  %50 = fadd double %.01117, %sqrt.i
-  %51 = add i32 %.018, 1
-  %52 = zext i32 %51 to i64
-  %53 = icmp ugt i64 %10, %52
-  br i1 %53, label %30, label %._crit_edge, !llvm.loop !772
+  %50 = tail call noundef double @sqrt(double noundef %49) #25
+  %51 = fadd double %.01117, %50
+  %52 = add i32 %.018, 1
+  %53 = zext i32 %52 to i64
+  %54 = icmp ugt i64 %10, %53
+  br i1 %54, label %30, label %._crit_edge, !llvm.loop !772
 
 ._crit_edge:                                      ; preds = %30, %.preheader
-  %.011.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %50, %30 ]
+  %.011.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %51, %30 ]
   ret double %.011.lcssa
 }
 

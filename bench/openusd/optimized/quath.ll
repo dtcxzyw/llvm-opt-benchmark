@@ -554,187 +554,192 @@ define i48 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuath9TransformERKNS_7GfVec
   %27 = tail call float @llvm.fmuladd.f32(float %26, float %26, float %21)
   %28 = bitcast float %27 to i32
   %29 = fcmp oeq float %27, 0.000000e+00
-  br i1 %29, label %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit, label %30
+  br i1 %29, label %30, label %33
 
 30:                                               ; preds = %2
-  %31 = lshr i32 %28, 23
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %32
-  %34 = load i16, ptr %33, align 2
-  %.not.i.i.i = icmp eq i16 %34, 0
-  br i1 %.not.i.i.i, label %44, label %35
-
-35:                                               ; preds = %30
-  %36 = and i32 %28, 8388607
-  %37 = add nuw nsw i32 %36, 4095
-  %38 = lshr i32 %28, 13
-  %39 = and i32 %38, 1
-  %40 = add nuw nsw i32 %37, %39
-  %41 = lshr i32 %40, 13
-  %42 = trunc nuw nsw i32 %41 to i16
-  %43 = add i16 %34, %42
+  %31 = lshr exact i32 %28, 16
+  %32 = trunc nuw i32 %31 to i16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit
 
-44:                                               ; preds = %30
-  %45 = tail call noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7convertEi(i32 noundef %28)
+33:                                               ; preds = %2
+  %34 = lshr i32 %28, 23
+  %35 = zext nneg i32 %34 to i64
+  %36 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %35
+  %37 = load i16, ptr %36, align 2
+  %.not.i.i.i = icmp eq i16 %37, 0
+  br i1 %.not.i.i.i, label %47, label %38
+
+38:                                               ; preds = %33
+  %39 = and i32 %28, 8388607
+  %40 = add nuw nsw i32 %39, 4095
+  %41 = lshr i32 %28, 13
+  %42 = and i32 %41, 1
+  %43 = add nuw nsw i32 %40, %42
+  %44 = lshr i32 %43, 13
+  %45 = trunc nuw nsw i32 %44 to i16
+  %46 = add i16 %37, %45
   br label %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit: ; preds = %2, %35, %44
-  %.sink.i.i.i = phi i16 [ %43, %35 ], [ %45, %44 ], [ 0, %2 ]
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %47 = load i16, ptr %46, align 2
-  %48 = zext i16 %47 to i64
-  %49 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %48
-  %50 = load float, ptr %49, align 4
-  %51 = fmul float %50, %50
-  %52 = bitcast float %51 to i32
-  %53 = fcmp oeq float %51, 0.000000e+00
-  br i1 %53, label %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit, label %54
+47:                                               ; preds = %33
+  %48 = tail call noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7convertEi(i32 noundef %28)
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit
 
-54:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit
-  %55 = lshr i32 %52, 23
-  %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %56
-  %58 = load i16, ptr %57, align 2
-  %.not.i = icmp eq i16 %58, 0
-  br i1 %.not.i, label %68, label %59
+_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit: ; preds = %30, %38, %47
+  %.sink.i.i.i = phi i16 [ %46, %38 ], [ %48, %47 ], [ %32, %30 ]
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %50 = load i16, ptr %49, align 2
+  %51 = zext i16 %50 to i64
+  %52 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %51
+  %53 = load float, ptr %52, align 4
+  %54 = fmul float %53, %53
+  %55 = bitcast float %54 to i32
+  %56 = fcmp oeq float %54, 0.000000e+00
+  br i1 %56, label %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit, label %57
 
-59:                                               ; preds = %54
-  %60 = and i32 %52, 8388607
-  %61 = add nuw nsw i32 %60, 4095
-  %62 = lshr i32 %52, 13
-  %63 = and i32 %62, 1
-  %64 = add nuw nsw i32 %61, %63
-  %65 = lshr i32 %64, 13
-  %66 = trunc nuw nsw i32 %65 to i16
-  %67 = add i16 %58, %66
+57:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit
+  %58 = lshr i32 %55, 23
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %59
+  %61 = load i16, ptr %60, align 2
+  %.not.i = icmp eq i16 %61, 0
+  br i1 %.not.i, label %71, label %62
+
+62:                                               ; preds = %57
+  %63 = and i32 %55, 8388607
+  %64 = add nuw nsw i32 %63, 4095
+  %65 = lshr i32 %55, 13
+  %66 = and i32 %65, 1
+  %67 = add nuw nsw i32 %64, %66
+  %68 = lshr i32 %67, 13
+  %69 = trunc nuw nsw i32 %68 to i16
+  %70 = add i16 %61, %69
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit
 
-68:                                               ; preds = %54
-  %69 = tail call noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7convertEi(i32 noundef %52)
+71:                                               ; preds = %57
+  %72 = tail call noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7convertEi(i32 noundef %55)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit, %59, %68
-  %.sink.i = phi i16 [ %67, %59 ], [ %69, %68 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit ]
-  %70 = load i16, ptr %0, align 2
-  %71 = zext i16 %70 to i64
-  %72 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %71
-  %73 = load float, ptr %72, align 4
-  %74 = load i16, ptr %1, align 2
-  %75 = zext i16 %74 to i64
-  %76 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %75
-  %77 = load float, ptr %76, align 4
-  %78 = load i16, ptr %15, align 2
-  %79 = zext i16 %78 to i64
-  %80 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %79
-  %81 = load float, ptr %80, align 4
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %83 = load i16, ptr %82, align 2
-  %84 = zext i16 %83 to i64
-  %85 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %84
-  %86 = load float, ptr %85, align 4
-  %87 = fmul float %81, %86
-  %88 = tail call float @llvm.fmuladd.f32(float %73, float %77, float %87)
-  %89 = load i16, ptr %22, align 2
-  %90 = zext i16 %89 to i64
-  %91 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %90
-  %92 = load float, ptr %91, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %94 = load i16, ptr %93, align 2
-  %95 = zext i16 %94 to i64
-  %96 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %95
-  %97 = load float, ptr %96, align 4
-  %98 = tail call float @llvm.fmuladd.f32(float %92, float %97, float %88)
-  %99 = bitcast float %98 to i32
-  %100 = fcmp oeq float %98, 0.000000e+00
-  br i1 %100, label %101, label %104
-
-101:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit
-  %102 = lshr exact i32 %99, 16
-  %103 = trunc nuw i32 %102 to i16
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit6
+_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit, %62, %71
+  %.sink.i = phi i16 [ %70, %62 ], [ %72, %71 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit ]
+  %73 = load i16, ptr %0, align 2
+  %74 = zext i16 %73 to i64
+  %75 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %74
+  %76 = load float, ptr %75, align 4
+  %77 = load i16, ptr %1, align 2
+  %78 = zext i16 %77 to i64
+  %79 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %78
+  %80 = load float, ptr %79, align 4
+  %81 = load i16, ptr %15, align 2
+  %82 = zext i16 %81 to i64
+  %83 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %82
+  %84 = load float, ptr %83, align 4
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %86 = load i16, ptr %85, align 2
+  %87 = zext i16 %86 to i64
+  %88 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %87
+  %89 = load float, ptr %88, align 4
+  %90 = fmul float %84, %89
+  %91 = tail call float @llvm.fmuladd.f32(float %76, float %80, float %90)
+  %92 = load i16, ptr %22, align 2
+  %93 = zext i16 %92 to i64
+  %94 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %93
+  %95 = load float, ptr %94, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %97 = load i16, ptr %96, align 2
+  %98 = zext i16 %97 to i64
+  %99 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %98
+  %100 = load float, ptr %99, align 4
+  %101 = tail call float @llvm.fmuladd.f32(float %95, float %100, float %91)
+  %102 = bitcast float %101 to i32
+  %103 = fcmp oeq float %101, 0.000000e+00
+  br i1 %103, label %104, label %107
 
 104:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit
-  %105 = lshr i32 %99, 23
-  %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %106
-  %108 = load i16, ptr %107, align 2
-  %.not.i.i.i4 = icmp eq i16 %108, 0
-  br i1 %.not.i.i.i4, label %118, label %109
-
-109:                                              ; preds = %104
-  %110 = and i32 %99, 8388607
-  %111 = add nuw nsw i32 %110, 4095
-  %112 = lshr i32 %99, 13
-  %113 = and i32 %112, 1
-  %114 = add nuw nsw i32 %111, %113
-  %115 = lshr i32 %114, 13
-  %116 = trunc nuw nsw i32 %115 to i16
-  %117 = add i16 %108, %116
+  %105 = lshr exact i32 %102, 16
+  %106 = trunc nuw i32 %105 to i16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit6
 
-118:                                              ; preds = %104
-  %119 = tail call noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7convertEi(i32 noundef %99)
+107:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit
+  %108 = lshr i32 %102, 23
+  %109 = zext nneg i32 %108 to i64
+  %110 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %109
+  %111 = load i16, ptr %110, align 2
+  %.not.i.i.i4 = icmp eq i16 %111, 0
+  br i1 %.not.i.i.i4, label %121, label %112
+
+112:                                              ; preds = %107
+  %113 = and i32 %102, 8388607
+  %114 = add nuw nsw i32 %113, 4095
+  %115 = lshr i32 %102, 13
+  %116 = and i32 %115, 1
+  %117 = add nuw nsw i32 %114, %116
+  %118 = lshr i32 %117, 13
+  %119 = trunc nuw nsw i32 %118 to i16
+  %120 = add i16 %111, %119
   br label %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit6
 
-_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit6: ; preds = %101, %109, %118
-  %.sink.i.i.i5 = phi i16 [ %117, %109 ], [ %119, %118 ], [ %103, %101 ]
-  %120 = zext i16 %.sink.i.i.i5 to i64
-  %121 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %120
-  %122 = load float, ptr %121, align 4
-  %123 = fmul float %122, 2.000000e+00
-  %124 = fpext float %123 to double
+121:                                              ; preds = %107
+  %122 = tail call noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7convertEi(i32 noundef %102)
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit6
+
+_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfVec3hES2_.exit6: ; preds = %104, %112, %121
+  %.sink.i.i.i5 = phi i16 [ %120, %112 ], [ %122, %121 ], [ %106, %104 ]
+  %123 = zext i16 %.sink.i.i.i5 to i64
+  %124 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %123
+  %125 = load float, ptr %124, align 4
+  %126 = fmul float %125, 2.000000e+00
+  %127 = fpext float %126 to double
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %8, ptr noundef nonnull align 2 dereferenceable(6) %0, i64 6, i1 false)
-  %125 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %8, double noundef %124)
-  %.sroa.0.0.copyload.i.i = load i48, ptr %125, align 2
+  %128 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %8, double noundef %127)
+  %.sroa.0.0.copyload.i.i = load i48, ptr %128, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %126 = zext i16 %.sink.i to i64
-  %127 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %126
-  %128 = load float, ptr %127, align 4
-  %129 = zext i16 %.sink.i.i.i to i64
+  %129 = zext i16 %.sink.i to i64
   %130 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %129
   %131 = load float, ptr %130, align 4
-  %132 = fsub float %128, %131
-  %133 = fpext float %132 to double
+  %132 = zext i16 %.sink.i.i.i to i64
+  %133 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %132
+  %134 = load float, ptr %133, align 4
+  %135 = fsub float %131, %134
+  %136 = fpext float %135 to double
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %7, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
-  %134 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %7, double noundef %133)
-  %.sroa.0.0.copyload.i.i7 = load i48, ptr %134, align 2
+  %137 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %7, double noundef %136)
+  %.sroa.0.0.copyload.i.i7 = load i48, ptr %137, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i48 %.sroa.0.0.copyload.i.i7, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i48 %.sroa.0.0.copyload.i.i, ptr %6, align 8
-  %135 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hpLERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %6, ptr noundef nonnull align 2 dereferenceable(6) %9)
-  %.sroa.0.0.copyload.i = load i48, ptr %135, align 2
+  %138 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hpLERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %6, ptr noundef nonnull align 2 dereferenceable(6) %9)
+  %.sroa.0.0.copyload.i = load i48, ptr %138, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %136 = load i16, ptr %46, align 2
-  %137 = zext i16 %136 to i64
-  %138 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %137
-  %139 = load float, ptr %138, align 4
-  %140 = fmul float %139, 2.000000e+00
-  %141 = fpext float %140 to double
-  %142 = call i48 @_ZN32pxrInternal_v0_24__pxrReserved__7GfCrossERKNS_7GfVec3hES2_(ptr noundef nonnull align 2 dereferenceable(6) %0, ptr noundef nonnull align 2 dereferenceable(6) %1)
+  %139 = load i16, ptr %49, align 2
+  %140 = zext i16 %139 to i64
+  %141 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %140
+  %142 = load float, ptr %141, align 4
+  %143 = fmul float %142, 2.000000e+00
+  %144 = fpext float %143 to double
+  %145 = call i48 @_ZN32pxrInternal_v0_24__pxrReserved__7GfCrossERKNS_7GfVec3hES2_(ptr noundef nonnull align 2 dereferenceable(6) %0, ptr noundef nonnull align 2 dereferenceable(6) %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i48 %142, ptr %5, align 8
-  %143 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %5, double noundef %141)
-  %.sroa.0.0.copyload.i.i8 = load i48, ptr %143, align 2
+  store i48 %145, ptr %5, align 8
+  %146 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %5, double noundef %144)
+  %.sroa.0.0.copyload.i.i8 = load i48, ptr %146, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i48 %.sroa.0.0.copyload.i.i8, ptr %10, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i48 %.sroa.0.0.copyload.i, ptr %4, align 8
-  %144 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hpLERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %4, ptr noundef nonnull align 2 dereferenceable(6) %10)
-  %.sroa.0.0.copyload.i9 = load i48, ptr %144, align 2
+  %147 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hpLERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %4, ptr noundef nonnull align 2 dereferenceable(6) %10)
+  %.sroa.0.0.copyload.i9 = load i48, ptr %147, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %145 = load float, ptr %127, align 4
-  %146 = load float, ptr %130, align 4
-  %147 = fadd float %145, %146
-  %148 = fpext float %147 to double
-  %149 = fdiv double 1.000000e+00, %148
+  %148 = load float, ptr %130, align 4
+  %149 = load float, ptr %133, align 4
+  %150 = fadd float %148, %149
+  %151 = fpext float %150 to double
+  %152 = fdiv double 1.000000e+00, %151
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i48 %.sroa.0.0.copyload.i9, ptr %3, align 8
-  %150 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %3, double noundef %149)
-  %.sroa.0.0.copyload.i.i10 = load i48, ptr %150, align 2
+  %153 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %3, double noundef %152)
+  %.sroa.0.0.copyload.i.i10 = load i48, ptr %153, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i48 %.sroa.0.0.copyload.i.i10
 }
