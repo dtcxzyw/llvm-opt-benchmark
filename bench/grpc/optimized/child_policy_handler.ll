@@ -607,6 +607,7 @@ define void @_ZN9grpc_core18ChildPolicyHandler12UpdateLockedENS_19LoadBalancingP
 
 _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEEaSERKS3_.exit: ; preds = %33, %36, %40
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  store ptr null, ptr %4, align 8, !tbaa !47
   br i1 %26, label %44, label %95
 
 44:                                               ; preds = %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEEaSERKS3_.exit

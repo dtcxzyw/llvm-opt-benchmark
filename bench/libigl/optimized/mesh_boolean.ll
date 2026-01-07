@@ -573,8 +573,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i:      ; preds = %49
   %66 = add nsw i32 %65, 1
   store atomic i32 %66, ptr %62 monotonic, align 4
   %67 = load ptr, ptr %59, align 8, !tbaa !27
-  %.not4.i.i.i = icmp eq ptr %67, null
-  br i1 %.not4.i.i.i, label %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEaSERKSE_.exit, label %.thread.i.i.i
+  %.not6.i.i.i = icmp eq ptr %67, null
+  br i1 %.not6.i.i.i, label %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEaSERKSE_.exit, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -666,8 +666,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i56:    ; preds = %95
   %114 = add nsw i32 %113, 1
   store atomic i32 %114, ptr %110 monotonic, align 4
   %115 = load ptr, ptr %107, align 8, !tbaa !27
-  %.not4.i.i.i57 = icmp eq ptr %115, null
-  br i1 %.not4.i.i.i57, label %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEaSERKSE_.exit61, label %.thread.i.i.i58
+  %.not6.i.i.i57 = icmp eq ptr %115, null
+  br i1 %.not6.i.i.i57, label %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEaSERKSE_.exit61, label %.thread.i.i.i58
 
 .thread.i.i.i58:                                  ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i56
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
@@ -1145,8 +1145,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i:      ; preds = %48
   %65 = add nsw i32 %64, 1
   store atomic i32 %65, ptr %61 monotonic, align 4
   %66 = load ptr, ptr %58, align 8, !tbaa !27
-  %.not4.i.i.i = icmp eq ptr %66, null
-  br i1 %.not4.i.i.i, label %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEaSERKSE_.exit, label %.thread.i.i.i
+  %.not6.i.i.i = icmp eq ptr %66, null
+  br i1 %.not6.i.i.i, label %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEaSERKSE_.exit, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -1238,8 +1238,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i56:    ; preds = %94
   %113 = add nsw i32 %112, 1
   store atomic i32 %113, ptr %109 monotonic, align 4
   %114 = load ptr, ptr %106, align 8, !tbaa !27
-  %.not4.i.i.i57 = icmp eq ptr %114, null
-  br i1 %.not4.i.i.i57, label %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEaSERKSE_.exit61, label %.thread.i.i.i58
+  %.not6.i.i.i57 = icmp eq ptr %114, null
+  br i1 %.not6.i.i.i57, label %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEaSERKSE_.exit61, label %.thread.i.i.i58
 
 .thread.i.i.i58:                                  ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i56
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8

@@ -892,271 +892,272 @@ define dso_local void @gdbserver_fork_end(ptr noundef %0, i32 noundef %1) local_
   %6 = load i32, ptr @gdbserver_user_state, align 8
   %7 = icmp sgt i32 %6, -1
   %or.cond.not = select i1 %5, i1 %7, i1 false
-  br i1 %or.cond.not, label %8, label %100
+  br i1 %or.cond.not, label %8, label %101
 
 8:                                                ; preds = %2
   %9 = icmp eq i32 %1, -1
-  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 156), align 4
-  br i1 %9, label %11, label %18
+  br i1 %9, label %10, label %18
 
-11:                                               ; preds = %8
-  switch i32 %10, label %12 [
-    i32 6, label %100
+10:                                               ; preds = %8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 156), align 4
+  switch i32 %11, label %12 [
+    i32 6, label %101
     i32 3, label %13
   ], !prof !18
 
-12:                                               ; preds = %11
+12:                                               ; preds = %10
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 556, ptr noundef nonnull @__func__.gdbserver_fork_end, ptr noundef nonnull @.str.12) #18
   unreachable
 
-13:                                               ; preds = %11
+13:                                               ; preds = %10
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 160), align 8
   %15 = tail call i32 @close(i32 noundef %14) #16
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 164), align 4
   %17 = tail call i32 @close(i32 noundef %16) #16
-  br label %100
+  br label %101
 
 18:                                               ; preds = %8
-  %19 = icmp eq i32 %10, 6
-  %20 = icmp eq i32 %1, 0
-  br i1 %19, label %21, label %27
+  store i8 0, ptr %3, align 1, !annotation !4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 156), align 4
+  %20 = icmp eq i32 %19, 6
+  %21 = icmp eq i32 %1, 0
+  br i1 %20, label %22, label %28
 
-21:                                               ; preds = %18
-  br i1 %20, label %22, label %100
+22:                                               ; preds = %18
+  br i1 %21, label %23, label %101
 
-22:                                               ; preds = %21
-  %23 = tail call i32 @close(i32 noundef %6) #16
+23:                                               ; preds = %22
+  %24 = tail call i32 @close(i32 noundef %6) #16
   store i32 -1, ptr @gdbserver_user_state, align 8
-  %24 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %25 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !19
-  %.not9.i = icmp eq i64 %24, 0
+  %.not9.i = icmp eq i64 %25, 0
   br i1 %.not9.i, label %disable_gdbstub.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %22, %.lr.ph.i
-  %.0.in10.i = phi i64 [ %26, %.lr.ph.i ], [ %24, %22 ]
+.lr.ph.i:                                         ; preds = %23, %.lr.ph.i
+  %.0.in10.i = phi i64 [ %27, %.lr.ph.i ], [ %25, %23 ]
   %.0.i = inttoptr i64 %.0.in10.i to ptr
   tail call void @cpu_breakpoint_remove_all(ptr noundef nonnull %.0.i, i32 noundef 16) #16
   tail call void @cpu_single_step(ptr noundef nonnull %.0.i, i32 noundef 0) #16
-  %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 560
-  %26 = load atomic i64, ptr %25 monotonic, align 16
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 560
+  %27 = load atomic i64, ptr %26 monotonic, align 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !20
-  %.not.i = icmp eq i64 %26, 0
+  %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %disable_gdbstub.exit, label %.lr.ph.i, !llvm.loop !21
 
-disable_gdbstub.exit:                             ; preds = %.lr.ph.i, %22
+disable_gdbstub.exit:                             ; preds = %.lr.ph.i, %23
   tail call void @tb_flush(ptr noundef %0) #16
-  br label %100
+  br label %101
 
-27:                                               ; preds = %18
-  br i1 %20, label %28, label %47
+28:                                               ; preds = %18
+  br i1 %21, label %29, label %48
 
-28:                                               ; preds = %27
-  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 160), align 8
-  %30 = tail call i32 @close(i32 noundef %29) #16
-  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 164), align 4
-  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
-  %.not = icmp eq i32 %32, 1
-  br i1 %.not, label %34, label %33, !prof !9
+29:                                               ; preds = %28
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 160), align 8
+  %31 = tail call i32 @close(i32 noundef %30) #16
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 164), align 4
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4168), align 8
+  %.not = icmp eq i32 %33, 1
+  br i1 %.not, label %35, label %34, !prof !9
 
-33:                                               ; preds = %28
+34:                                               ; preds = %29
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 573, ptr noundef nonnull @__func__.gdbserver_fork_end, ptr noundef nonnull @.str.13) #18
   unreachable
 
-34:                                               ; preds = %28
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
-  %36 = load i32, ptr %35, align 8
-  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 168), align 8
-  %.not34 = icmp eq i32 %36, %37
-  br i1 %.not34, label %39, label %38, !prof !9
+35:                                               ; preds = %29
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
+  %37 = load i32, ptr %36, align 8
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 168), align 8
+  %.not34 = icmp eq i32 %37, %38
+  br i1 %.not34, label %40, label %39, !prof !9
 
-38:                                               ; preds = %34
+39:                                               ; preds = %35
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 575, ptr noundef nonnull @__func__.gdbserver_fork_end, ptr noundef nonnull @.str.14) #18
   unreachable
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %41 = load i8, ptr %40, align 4, !range !7, !noundef !8
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %44, label %43, !prof !9
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %42 = load i8, ptr %41, align 4, !range !7, !noundef !8
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %45, label %44, !prof !9
 
-43:                                               ; preds = %39
+44:                                               ; preds = %40
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 576, ptr noundef nonnull @__func__.gdbserver_fork_end, ptr noundef nonnull @.str.15) #18
   unreachable
 
-44:                                               ; preds = %39
-  %45 = tail call i32 @getpid() #16
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
-  store i32 %45, ptr %46, align 8
-  br label %60
+45:                                               ; preds = %40
+  %46 = tail call i32 @getpid() #16
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4160), align 8
+  store i32 %46, ptr %47, align 8
+  br label %61
 
-47:                                               ; preds = %27
-  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 164), align 4
-  %49 = tail call i32 @close(i32 noundef %48) #16
-  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 160), align 8
+48:                                               ; preds = %28
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 164), align 4
+  %50 = tail call i32 @close(i32 noundef %49) #16
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 160), align 8
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 156), align 4
   store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 168), align 8
   store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 172), align 4
-  %51 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8, !range !7, !noundef !8
-  %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %54, label %.thread
+  %52 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8, !range !7, !noundef !8
+  %53 = trunc nuw i8 %52 to i1
+  br i1 %53, label %55, label %.thread
 
-.thread:                                          ; preds = %47
-  %53 = tail call i32 @close(i32 noundef %50) #16
-  br label %100
+.thread:                                          ; preds = %48
+  %54 = tail call i32 @close(i32 noundef %51) #16
+  br label %101
 
-54:                                               ; preds = %47
-  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
-  %56 = tail call i32 @gdb_target_sigtrap() #16
-  %57 = tail call i32 @gdb_target_signal_to_gdb(i32 noundef %56) #16
-  %58 = tail call i32 @getpid() #16
-  %59 = tail call i32 @qemu_get_thread_id() #16
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %55, ptr noundef nonnull @.str.16, i32 noundef %57, i32 noundef %1, i32 noundef %1, i32 noundef %58, i32 noundef %59) #16
+55:                                               ; preds = %48
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4176), align 8
+  %57 = tail call i32 @gdb_target_sigtrap() #16
+  %58 = tail call i32 @gdb_target_signal_to_gdb(i32 noundef %57) #16
+  %59 = tail call i32 @getpid() #16
+  %60 = tail call i32 @qemu_get_thread_id() #16
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %56, ptr noundef nonnull @.str.16, i32 noundef %58, i32 noundef %1, i32 noundef %1, i32 noundef %59, i32 noundef %60) #16
   tail call void @gdb_put_strbuf() #16
-  br label %60
+  br label %61
 
-60:                                               ; preds = %54, %44
-  %.0 = phi i32 [ %31, %44 ], [ %50, %54 ]
-  store i8 0, ptr %3, align 1, !annotation !4
+61:                                               ; preds = %55, %45
+  %.0 = phi i32 [ %32, %45 ], [ %51, %55 ]
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 32), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4200), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 16), align 8
   %.pre52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 156), align 4
-  br label %61
+  br label %62
 
-61:                                               ; preds = %.backedge, %60
-  %62 = phi i32 [ %.pre52, %60 ], [ %.be, %.backedge ]
-  switch i32 %62, label %91 [
-    i32 0, label %63
-    i32 1, label %67
-    i32 2, label %72
-    i32 3, label %75
-    i32 4, label %83
-    i32 5, label %86
-    i32 6, label %89
+62:                                               ; preds = %.backedge, %61
+  %63 = phi i32 [ %.pre52, %61 ], [ %.be, %.backedge ]
+  switch i32 %63, label %92 [
+    i32 0, label %64
+    i32 1, label %68
+    i32 2, label %73
+    i32 3, label %76
+    i32 4, label %84
+    i32 5, label %87
+    i32 6, label %90
   ]
 
-63:                                               ; preds = %61
-  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 16), align 8
-  %.not40 = icmp eq i32 %64, 0
-  br i1 %.not40, label %67, label %65
+64:                                               ; preds = %62
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 16), align 8
+  %.not40 = icmp eq i32 %65, 0
+  br i1 %.not40, label %68, label %66
 
-65:                                               ; preds = %63
-  %66 = tail call i32 @close(i32 noundef %.0) #16
-  br label %100
+66:                                               ; preds = %64
+  %67 = tail call i32 @close(i32 noundef %.0) #16
+  br label %101
 
-67:                                               ; preds = %63, %61
-  %68 = load i32, ptr @gdbserver_user_state, align 8
-  %69 = call i64 @read(i32 noundef %68, ptr noundef nonnull %3, i64 noundef 1) #16
-  %.not41 = icmp eq i64 %69, 1
-  br i1 %.not41, label %70, label %92
+68:                                               ; preds = %64, %62
+  %69 = load i32, ptr @gdbserver_user_state, align 8
+  %70 = call i64 @read(i32 noundef %69, ptr noundef nonnull %3, i64 noundef 1) #16
+  %.not41 = icmp eq i64 %70, 1
+  br i1 %.not41, label %71, label %93
 
-70:                                               ; preds = %67
-  %71 = load i8, ptr %3, align 1
-  tail call void @gdb_read_byte(i8 noundef zeroext %71) #16
+71:                                               ; preds = %68
+  %72 = load i8, ptr %3, align 1
+  tail call void @gdb_read_byte(i8 noundef zeroext %72) #16
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 156), align 4
   br label %.backedge
 
-72:                                               ; preds = %61
+73:                                               ; preds = %62
   store i8 97, ptr %3, align 1
-  %73 = call i64 @write(i32 noundef %.0, ptr noundef nonnull %3, i64 noundef 1) #16
-  %.not39 = icmp eq i64 %73, 1
-  br i1 %.not39, label %74, label %92
+  %74 = call i64 @write(i32 noundef %.0, ptr noundef nonnull %3, i64 noundef 1) #16
+  %.not39 = icmp eq i64 %74, 1
+  br i1 %.not39, label %75, label %93
 
-74:                                               ; preds = %72
+75:                                               ; preds = %73
   store i32 3, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 156), align 4
   br label %.backedge
 
-75:                                               ; preds = %61
-  %76 = call i64 @read(i32 noundef %.0, ptr noundef nonnull %3, i64 noundef 1) #16
-  %.not38 = icmp eq i64 %76, 1
-  br i1 %.not38, label %77, label %92
+76:                                               ; preds = %62
+  %77 = call i64 @read(i32 noundef %.0, ptr noundef nonnull %3, i64 noundef 1) #16
+  %.not38 = icmp eq i64 %77, 1
+  br i1 %.not38, label %78, label %93
 
-77:                                               ; preds = %75
-  %78 = load i8, ptr %3, align 1
-  switch i8 %78, label %82 [
-    i8 97, label %79
-    i8 101, label %80
-    i8 100, label %81
+78:                                               ; preds = %76
+  %79 = load i8, ptr %3, align 1
+  switch i8 %79, label %83 [
+    i8 97, label %80
+    i8 101, label %81
+    i8 100, label %82
   ]
 
-79:                                               ; preds = %77
+80:                                               ; preds = %78
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 156), align 4
   br label %.backedge
 
-.backedge:                                        ; preds = %79, %80, %81, %88, %85, %74, %70
-  %.be = phi i32 [ 1, %79 ], [ 0, %80 ], [ 6, %81 ], [ 6, %88 ], [ 0, %85 ], [ 3, %74 ], [ %.pre, %70 ]
-  br label %61
+.backedge:                                        ; preds = %80, %81, %82, %89, %86, %75, %71
+  %.be = phi i32 [ 1, %80 ], [ 0, %81 ], [ 6, %82 ], [ 6, %89 ], [ 0, %86 ], [ 3, %75 ], [ %.pre, %71 ]
+  br label %62
 
-80:                                               ; preds = %77
+81:                                               ; preds = %78
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 156), align 4
   br label %.backedge
 
-81:                                               ; preds = %77
+82:                                               ; preds = %78
   store i32 6, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 156), align 4
   br label %.backedge
 
-82:                                               ; preds = %77
+83:                                               ; preds = %78
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 634, ptr noundef nonnull @__func__.gdbserver_fork_end, ptr noundef null) #18
   unreachable
 
-83:                                               ; preds = %61
+84:                                               ; preds = %62
   store i8 100, ptr %3, align 1
-  %84 = call i64 @write(i32 noundef %.0, ptr noundef nonnull %3, i64 noundef 1) #16
-  %.not37 = icmp eq i64 %84, 1
-  br i1 %.not37, label %85, label %92
+  %85 = call i64 @write(i32 noundef %.0, ptr noundef nonnull %3, i64 noundef 1) #16
+  %.not37 = icmp eq i64 %85, 1
+  br i1 %.not37, label %86, label %93
 
-85:                                               ; preds = %83
+86:                                               ; preds = %84
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 156), align 4
   br label %.backedge
 
-86:                                               ; preds = %61
+87:                                               ; preds = %62
   store i8 101, ptr %3, align 1
-  %87 = call i64 @write(i32 noundef %.0, ptr noundef nonnull %3, i64 noundef 1) #16
-  %.not36 = icmp eq i64 %87, 1
-  br i1 %.not36, label %88, label %92
+  %88 = call i64 @write(i32 noundef %.0, ptr noundef nonnull %3, i64 noundef 1) #16
+  %.not36 = icmp eq i64 %88, 1
+  br i1 %.not36, label %89, label %93
 
-88:                                               ; preds = %86
+89:                                               ; preds = %87
   store i32 6, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 156), align 4
   br label %.backedge
 
-89:                                               ; preds = %61
-  %90 = tail call i32 @close(i32 noundef %.0) #16
+90:                                               ; preds = %62
+  %91 = tail call i32 @close(i32 noundef %.0) #16
   tail call fastcc void @disable_gdbstub(ptr noundef %0)
-  br label %100
+  br label %101
 
-91:                                               ; preds = %61
+92:                                               ; preds = %62
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 656, ptr noundef nonnull @__func__.gdbserver_fork_end, ptr noundef null) #18
   unreachable
 
-92:                                               ; preds = %86, %83, %75, %72, %67
-  %93 = tail call i32 @close(i32 noundef %.0) #16
-  br i1 %20, label %94, label %100
+93:                                               ; preds = %87, %84, %76, %73, %68
+  %94 = tail call i32 @close(i32 noundef %.0) #16
+  br i1 %21, label %95, label %101
 
-94:                                               ; preds = %92
-  %95 = load i32, ptr @gdbserver_user_state, align 8
-  %96 = tail call i32 @close(i32 noundef %95) #16
+95:                                               ; preds = %93
+  %96 = load i32, ptr @gdbserver_user_state, align 8
+  %97 = tail call i32 @close(i32 noundef %96) #16
   store i32 -1, ptr @gdbserver_user_state, align 8
-  %97 = load atomic i64, ptr @cpus_queue monotonic, align 8
+  %98 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !19
-  %.not9.i45 = icmp eq i64 %97, 0
+  %.not9.i45 = icmp eq i64 %98, 0
   br i1 %.not9.i45, label %disable_gdbstub.exit50, label %.lr.ph.i46
 
-.lr.ph.i46:                                       ; preds = %94, %.lr.ph.i46
-  %.0.in10.i47 = phi i64 [ %99, %.lr.ph.i46 ], [ %97, %94 ]
+.lr.ph.i46:                                       ; preds = %95, %.lr.ph.i46
+  %.0.in10.i47 = phi i64 [ %100, %.lr.ph.i46 ], [ %98, %95 ]
   %.0.i48 = inttoptr i64 %.0.in10.i47 to ptr
   tail call void @cpu_breakpoint_remove_all(ptr noundef nonnull %.0.i48, i32 noundef 16) #16
   tail call void @cpu_single_step(ptr noundef nonnull %.0.i48, i32 noundef 0) #16
-  %98 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 560
-  %99 = load atomic i64, ptr %98 monotonic, align 16
+  %99 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 560
+  %100 = load atomic i64, ptr %99 monotonic, align 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !20
-  %.not.i49 = icmp eq i64 %99, 0
+  %.not.i49 = icmp eq i64 %100, 0
   br i1 %.not.i49, label %disable_gdbstub.exit50, label %.lr.ph.i46, !llvm.loop !21
 
-disable_gdbstub.exit50:                           ; preds = %.lr.ph.i46, %94
+disable_gdbstub.exit50:                           ; preds = %.lr.ph.i46, %95
   tail call void @tb_flush(ptr noundef %0) #16
-  br label %100
+  br label %101
 
-100:                                              ; preds = %.thread, %11, %92, %disable_gdbstub.exit50, %21, %disable_gdbstub.exit, %13, %2, %89, %65
+101:                                              ; preds = %.thread, %10, %93, %disable_gdbstub.exit50, %22, %disable_gdbstub.exit, %13, %2, %90, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

@@ -29573,16 +29573,16 @@ define hidden void @"_ZN5rayon6result138_$LT$impl$u20$rayon..iter..FromParallelI
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.3.0.copyload = load i8, ptr %7, align 4
-  %.sroa.421.0.copyload = load i64, ptr %8, align 8
-  %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.420.sroa.3.0.copyload = load i64, ptr %8, align 8
+  %.sroa.420.sroa.4.0..sroa.420.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.not28 = icmp eq i8 %.sroa.3.0.copyload, 0
   br i1 %.not28, label %16, label %10, !prof !1046
 
 10:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4323
-  store i64 %.sroa.421.0.copyload, ptr %3, align 8, !noalias !4327
+  store i64 %.sroa.420.sroa.3.0.copyload, ptr %3, align 8, !noalias !4327
   %.sroa.7.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.522.0..sroa_idx, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.420.sroa.4.0..sroa.420.0..sroa_idx.sroa_idx, i64 56, i1 false)
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.1cbea542ae809c1039c35fdd7e48a055.200, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1cbea542ae809c1039c35fdd7e48a055.206, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1cbea542ae809c1039c35fdd7e48a055.279) #43
           to label %13 unwind label %11, !noalias !4323
 
@@ -29602,13 +29602,13 @@ define hidden void @"_ZN5rayon6result138_$LT$impl$u20$rayon..iter..FromParallelI
   unreachable
 
 16:                                               ; preds = %9
-  %.not = icmp eq i64 %.sroa.421.0.copyload, 17
+  %.not = icmp eq i64 %.sroa.420.sroa.3.0.copyload, 17
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.522.0..sroa_idx, i64 56, i1 false)
-  store i64 %.sroa.421.0.copyload, ptr %0, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.420.sroa.4.0..sroa.420.0..sroa_idx.sroa_idx, i64 56, i1 false)
+  store i64 %.sroa.420.sroa.3.0.copyload, ptr %0, align 8
   call void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$polars_core..series..Series$GT$$GT$17h7001680154e0160cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   br label %20
 
@@ -29666,16 +29666,16 @@ define hidden void @"_ZN5rayon6result138_$LT$impl$u20$rayon..iter..FromParallelI
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.3.0.copyload = load i8, ptr %7, align 4
-  %.sroa.421.0.copyload = load i64, ptr %8, align 8
-  %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.420.sroa.3.0.copyload = load i64, ptr %8, align 8
+  %.sroa.420.sroa.4.0..sroa.420.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.not28 = icmp eq i8 %.sroa.3.0.copyload, 0
   br i1 %.not28, label %16, label %10, !prof !1046
 
 10:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4328
-  store i64 %.sroa.421.0.copyload, ptr %3, align 8, !noalias !4332
+  store i64 %.sroa.420.sroa.3.0.copyload, ptr %3, align 8, !noalias !4332
   %.sroa.7.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.522.0..sroa_idx, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.420.sroa.4.0..sroa.420.0..sroa_idx.sroa_idx, i64 56, i1 false)
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.1cbea542ae809c1039c35fdd7e48a055.200, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.1cbea542ae809c1039c35fdd7e48a055.206, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1cbea542ae809c1039c35fdd7e48a055.279) #43
           to label %13 unwind label %11, !noalias !4328
 
@@ -29695,13 +29695,13 @@ define hidden void @"_ZN5rayon6result138_$LT$impl$u20$rayon..iter..FromParallelI
   unreachable
 
 16:                                               ; preds = %9
-  %.not = icmp eq i64 %.sroa.421.0.copyload, 17
+  %.not = icmp eq i64 %.sroa.420.sroa.3.0.copyload, 17
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.522.0..sroa_idx, i64 56, i1 false)
-  store i64 %.sroa.421.0.copyload, ptr %0, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.420.sroa.4.0..sroa.420.0..sroa_idx.sroa_idx, i64 56, i1 false)
+  store i64 %.sroa.420.sroa.3.0.copyload, ptr %0, align 8
   call void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$polars_core..series..Series$GT$$GT$17h7001680154e0160cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   br label %20
 

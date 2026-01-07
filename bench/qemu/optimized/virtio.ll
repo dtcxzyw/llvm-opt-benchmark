@@ -1360,6 +1360,7 @@ virtio_device_disabled.exit.i:                    ; preds = %5
   br i1 %.not.i.i, label %virtio_queue_packed_poll.exit.i, label %20, !prof !9
 
 20:                                               ; preds = %17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load atomic i64, ptr %21 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !8
@@ -1367,7 +1368,6 @@ virtio_device_disabled.exit.i:                    ; preds = %5
   br i1 %.not8.i.i, label %virtio_queue_packed_poll.exit.i, label %23
 
 23:                                               ; preds = %20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !4
   %24 = inttoptr i64 %22 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call fastcc void @vring_packed_desc_read(ptr noundef %3, ptr noundef %25, i32 noundef range(i32 0, -2147483648) %1, i1 noundef zeroext true)

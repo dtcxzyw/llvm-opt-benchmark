@@ -988,6 +988,8 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEE
   %.sroa.07.014.i = phi ptr [ %78, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit.i ], [ %19, %14 ]
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.07.014.i, i64 8
   %.val.i = load ptr, ptr %20, align 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  store ptr %.val.i, ptr %3, align 8, !alias.scope !10
   %.not.i.i.i.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i.i.i.i, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__13UsdStageCache12GetAllStagesEvENK3$_0clISt4pairIKNS_8TfRefPtrINS_8UsdStageEEENS0_2IdEEEEDaRKT_.exit.i", label %21
 

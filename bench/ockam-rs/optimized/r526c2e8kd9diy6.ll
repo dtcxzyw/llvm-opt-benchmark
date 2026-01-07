@@ -4892,7 +4892,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749f
   %11 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %12 = alloca { { { ptr, i64 }, i64 }, { i8, i8, i8, i8, { i8, [2 x i8] }, { i8, [4 x i8] } }, [4 x i8] }, align 8
   %.sroa.0 = alloca [24 x i8], align 8
-  %.sroa.7 = alloca [15 x i8], align 1
+  %.sroa.6 = alloca [15 x i8], align 1
   %13 = alloca { i64, [16 x i64] }, align 8
   %14 = alloca { { { ptr, i64 }, i64 }, { i8, i8, i8, i8, { i8, [2 x i8] }, { i8, [4 x i8] } }, [4 x i8] }, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4909,16 +4909,16 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749f
 18:                                               ; preds = %28, %4
   %.056 = phi i8 [ 0, %28 ], [ 1, %4 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7.0..sroa_idx, i64 15, i1 false)
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 201
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6.0..sroa_idx, i64 15, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 200
   store i8 2, ptr %.sroa.3.0..sroa_idx, align 8
-  %.not61 = icmp eq i8 %.sroa.6.0.copyload, 2
+  %.not61 = icmp eq i8 %.sroa.5.0.copyload, 2
   br i1 %.not61, label %63, label %34
 
 .thread84:                                        ; preds = %55, %69, %70, %66, %.thread88, %73, %23
@@ -4969,21 +4969,17 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749f
 33:                                               ; preds = %34, %42
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
-  %.sroa.6.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i8 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx111, align 8
-  %.sroa.7.0..sroa_idx114 = getelementptr inbounds nuw i8, ptr %9, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7.0..sroa_idx114, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7, i64 15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
   invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer_frame17h22a276d9c49b1604E(ptr noalias noundef align 8 captures(none) dereferenceable(136) %10, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2, ptr noalias noundef align 8 captures(none) dereferenceable(40) %9)
           to label %43 unwind label %.thread88
 
 34:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
-  %.sroa.6.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i8 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx109, align 8
-  %.sroa.7.0..sroa_idx113 = getelementptr inbounds nuw i8, ptr %12, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7.0..sroa_idx113, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7, i64 15, i1 false)
+  %.sroa.5.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i8 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx109, align 8
+  %.sroa.6.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %12, i64 25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6.0..sroa_idx111, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6, i64 15, i1 false)
   %35 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %36 = icmp ult i64 %35, 6
   tail call void @llvm.assume(i1 %36)
@@ -5034,7 +5030,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749f
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %29
 
 53:                                               ; preds = %46
@@ -5104,7 +5100,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h15b749f
 74:                                               ; preds = %63, %.thread94
   %.05397 = phi i8 [ %.15493, %.thread94 ], [ %65, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %76 = load i8, ptr %75, align 8, !range !73, !noundef !5
   %77 = icmp eq i8 %76, 0
@@ -5228,7 +5224,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c82295
   %11 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %12 = alloca { { { ptr, i64 }, i64 }, { i8, i8, i8, i8, { i8, [2 x i8] }, { i8, [4 x i8] } }, [4 x i8] }, align 8
   %.sroa.0 = alloca [24 x i8], align 8
-  %.sroa.7 = alloca [15 x i8], align 1
+  %.sroa.6 = alloca [15 x i8], align 1
   %13 = alloca { i64, [16 x i64] }, align 8
   %14 = alloca { { { ptr, i64 }, i64 }, { i8, i8, i8, i8, { i8, [2 x i8] }, { i8, [4 x i8] } }, [4 x i8] }, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -5245,16 +5241,16 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c82295
 18:                                               ; preds = %28, %4
   %.056 = phi i8 [ 0, %28 ], [ 1, %4 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7.0..sroa_idx, i64 15, i1 false)
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 201
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6.0..sroa_idx, i64 15, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 200
   store i8 2, ptr %.sroa.3.0..sroa_idx, align 8
-  %.not61 = icmp eq i8 %.sroa.6.0.copyload, 2
+  %.not61 = icmp eq i8 %.sroa.5.0.copyload, 2
   br i1 %.not61, label %63, label %34
 
 .thread84:                                        ; preds = %55, %69, %70, %66, %.thread88, %73, %23
@@ -5305,21 +5301,17 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c82295
 33:                                               ; preds = %34, %42
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
-  %.sroa.6.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i8 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx111, align 8
-  %.sroa.7.0..sroa_idx114 = getelementptr inbounds nuw i8, ptr %9, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7.0..sroa_idx114, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7, i64 15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
   invoke fastcc void @_ZN11tungstenite8protocol16WebSocketContext12buffer_frame17h893b67e236151c69E(ptr noalias noundef align 8 captures(none) dereferenceable(136) %10, ptr noalias noundef align 8 dereferenceable(256) %1, ptr noalias noundef align 8 dereferenceable(48) %2, ptr noalias noundef align 8 captures(none) dereferenceable(40) %9)
           to label %43 unwind label %.thread88
 
 34:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
-  %.sroa.6.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i8 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx109, align 8
-  %.sroa.7.0..sroa_idx113 = getelementptr inbounds nuw i8, ptr %12, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7.0..sroa_idx113, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7, i64 15, i1 false)
+  %.sroa.5.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i8 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx109, align 8
+  %.sroa.6.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %12, i64 25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6.0..sroa_idx111, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6, i64 15, i1 false)
   %35 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8
   %36 = icmp ult i64 %35, 6
   tail call void @llvm.assume(i1 %36)
@@ -5370,7 +5362,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c82295
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %29
 
 53:                                               ; preds = %46
@@ -5440,7 +5432,7 @@ define hidden void @_ZN11tungstenite8protocol16WebSocketContext6_write17h5c82295
 74:                                               ; preds = %63, %.thread94
   %.05397 = phi i8 [ %.15493, %.thread94 ], [ %65, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %76 = load i8, ptr %75, align 8, !range !73, !noundef !5
   %77 = icmp eq i8 %76, 0

@@ -46961,7 +46961,7 @@ define linkonce_odr noundef zeroext i1 @_ZN17duckdb_moodycamel15ConcurrentQueueI
   %6 = and i64 %4, 31
   %7 = icmp eq i64 %6, 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br i1 %7, label %9, label %161
+  br i1 %7, label %9, label %162
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -47273,32 +47273,33 @@ _ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_
   %.0.i.i33 = inttoptr i64 %154 to ptr
   %155 = getelementptr inbounds nuw i8, ptr %.0.i.i33, i64 8
   store atomic i64 %151, ptr %155 release, align 8
-  %156 = add i64 %151, 1
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %158 = load i64, ptr %157, align 8, !tbaa !1491
-  %159 = add i64 %158, -1
-  %160 = and i64 %159, %156
-  store i64 %160, ptr %150, align 8, !tbaa !1492
+  %156 = load i64, ptr %150, align 8, !tbaa !1492
+  %157 = add i64 %156, 1
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %159 = load i64, ptr %158, align 8, !tbaa !1491
+  %160 = add i64 %159, -1
+  %161 = and i64 %160, %157
+  store i64 %161, ptr %150, align 8, !tbaa !1492
   store atomic i64 %5, ptr %3 release, align 8
   br label %.critedge
 
-161:                                              ; preds = %2
-  %162 = load ptr, ptr %8, align 8, !tbaa !1480
-  %163 = getelementptr inbounds nuw %"class.duckdb::shared_ptr.78", ptr %162, i64 %6
-  %164 = load ptr, ptr %1, align 8, !tbaa !315
-  store ptr %164, ptr %163, align 8, !tbaa !315
-  %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  store ptr null, ptr %165, align 8, !tbaa !59
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %167 = load ptr, ptr %166, align 8, !tbaa !59
+162:                                              ; preds = %2
+  %163 = load ptr, ptr %8, align 8, !tbaa !1480
+  %164 = getelementptr inbounds nuw %"class.duckdb::shared_ptr.78", ptr %163, i64 %6
+  %165 = load ptr, ptr %1, align 8, !tbaa !315
+  store ptr %165, ptr %164, align 8, !tbaa !315
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store ptr null, ptr %166, align 8, !tbaa !59
-  store ptr %167, ptr %165, align 8, !tbaa !59
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %168 = load ptr, ptr %167, align 8, !tbaa !59
+  store ptr null, ptr %167, align 8, !tbaa !59
+  store ptr %168, ptr %166, align 8, !tbaa !59
   store ptr null, ptr %1, align 8, !tbaa !315
   store atomic i64 %5, ptr %3 release, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %117, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE16ExplicitProducer15new_block_indexEm.exit, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE5Block11reset_emptyILNS6_17InnerQueueContextE1EEEvv.exit, %_ZNK17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE5Block8is_emptyILNS6_17InnerQueueContextE1EEEbv.exit, %161
-  %.3 = phi i1 [ true, %161 ], [ true, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE5Block11reset_emptyILNS6_17InnerQueueContextE1EEEvv.exit ], [ false, %117 ], [ false, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE16ExplicitProducer15new_block_indexEm.exit ], [ false, %_ZNK17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE5Block8is_emptyILNS6_17InnerQueueContextE1EEEbv.exit ]
+.critedge:                                        ; preds = %117, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE16ExplicitProducer15new_block_indexEm.exit, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE5Block11reset_emptyILNS6_17InnerQueueContextE1EEEvv.exit, %_ZNK17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE5Block8is_emptyILNS6_17InnerQueueContextE1EEEbv.exit, %162
+  %.3 = phi i1 [ true, %162 ], [ true, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE5Block11reset_emptyILNS6_17InnerQueueContextE1EEEvv.exit ], [ false, %117 ], [ false, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE16ExplicitProducer15new_block_indexEm.exit ], [ false, %_ZNK17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE5Block8is_emptyILNS6_17InnerQueueContextE1EEEbv.exit ]
   ret i1 %.3
 }
 

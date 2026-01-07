@@ -28450,7 +28450,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4COLR11paint_glyphEP9hb_fo
   store i32 64, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %14, i64 156
   store i32 65536, ptr %95, align 4
-  %96 = mul i32 %2, -1640531535
+  %.val.i = load i32, ptr %12, align 4
+  %96 = mul i32 %.val.i, -1640531535
   %97 = invoke noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIRKjS3_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull align 4 dereferenceable(4) %12, i32 noundef %96, ptr noundef nonnull align 4 dereferenceable(4) @minus_1, i1 noundef zeroext true)
           to label %_ZN12hb_hashmap_tIjjLb1EE3addERKj.exit unwind label %.loopexit.split-lp
 

@@ -6283,12 +6283,14 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$10into_inner17h8207ab583e8841e2E"(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) initializes((0, 72)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
+  %3 = alloca [64 x i8], align 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load atomic i8, ptr %5 monotonic, align 4
   %7 = icmp ne i8 %6, 0
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull readonly align 8 dereferenceable(64) %3, i64 64, i1 false)
   %..i = zext i1 %7 to i64
   store i64 %..i, ptr %0, align 8, !alias.scope !607, !noalias !610
   ret void

@@ -20806,8 +20806,8 @@ common.resume:                                    ; preds = %19, %11
   %.sroa.5.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(35) %.sroa.2, ptr noundef nonnull align 1 dereferenceable(35) %.sroa.5.sroa.5.0..sroa_idx, i64 35, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3249
-  %.not.i.not = icmp eq i8 %.sroa.5.sroa.4.0.copyload, 0
   %.sroa.2.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2, i64 3
+  %.not.i.not = icmp eq i8 %.sroa.5.sroa.4.0.copyload, 0
   br i1 %.not.i.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h424531662ce150ecE.exit", label %18
 
 18:                                               ; preds = %17

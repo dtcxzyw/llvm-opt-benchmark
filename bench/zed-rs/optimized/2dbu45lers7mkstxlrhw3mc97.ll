@@ -19049,7 +19049,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %91, ptr %84 monotonic, align 8, !noalias !6748
   store ptr null, ptr %86, align 8, !noalias !6748
   %92 = icmp eq ptr %85, null
-  br i1 %92, label %.thread3.i, label %93
+  br i1 %92, label %.thread4.i, label %93
 
 93:                                               ; preds = %78
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 48
@@ -19057,15 +19057,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %95 = icmp eq ptr %87, null
   br i1 %95, label %98, label %.thread.i
 
-.thread3.i:                                       ; preds = %78
+.thread4.i:                                       ; preds = %78
   %96 = icmp eq ptr %87, null
-  br i1 %96, label %.thread4.i, label %.thread.i
+  br i1 %96, label %.thread5.i, label %.thread.i
 
-.thread4.i:                                       ; preds = %.thread3.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %10, align 8, !alias.scope !6748
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf4a78411be0b76b3E.exit"
 
-.thread.i:                                        ; preds = %.thread3.i, %93
+.thread.i:                                        ; preds = %.thread4.i, %93
   %97 = getelementptr inbounds nuw i8, ptr %87, i64 40
   store atomic ptr %85, ptr %97 monotonic, align 8, !noalias !6748
   br label %99
@@ -19080,7 +19080,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %83, ptr %101, align 8, !noalias !6748
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf4a78411be0b76b3E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf4a78411be0b76b3E.exit": ; preds = %.thread4.i, %99
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf4a78411be0b76b3E.exit": ; preds = %.thread5.i, %99
   %102 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %102, ptr %8, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 72
@@ -19468,7 +19468,7 @@ define hidden { i64, i8 } @"_ZN117_$LT$futures_util..stream..futures_unordered..
   store atomic ptr %88, ptr %81 monotonic, align 8, !noalias !6781
   store ptr null, ptr %83, align 8, !noalias !6781
   %89 = icmp eq ptr %82, null
-  br i1 %89, label %.thread3.i, label %90
+  br i1 %89, label %.thread4.i, label %90
 
 90:                                               ; preds = %75
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 72
@@ -19476,15 +19476,15 @@ define hidden { i64, i8 } @"_ZN117_$LT$futures_util..stream..futures_unordered..
   %92 = icmp eq ptr %84, null
   br i1 %92, label %95, label %.thread.i
 
-.thread3.i:                                       ; preds = %75
+.thread4.i:                                       ; preds = %75
   %93 = icmp eq ptr %84, null
-  br i1 %93, label %.thread4.i, label %.thread.i
+  br i1 %93, label %.thread5.i, label %.thread.i
 
-.thread4.i:                                       ; preds = %.thread3.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %8, align 8, !alias.scope !6781
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17heb5de6f74d884009E.exit"
 
-.thread.i:                                        ; preds = %.thread3.i, %90
+.thread.i:                                        ; preds = %.thread4.i, %90
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 64
   store atomic ptr %82, ptr %94 monotonic, align 8, !noalias !6781
   br label %96
@@ -19499,7 +19499,7 @@ define hidden { i64, i8 } @"_ZN117_$LT$futures_util..stream..futures_unordered..
   store i64 %80, ptr %98, align 8, !noalias !6781
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17heb5de6f74d884009E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17heb5de6f74d884009E.exit": ; preds = %.thread4.i, %96
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17heb5de6f74d884009E.exit": ; preds = %.thread5.i, %96
   %99 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %99, ptr %6, align 8
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 96
@@ -19860,7 +19860,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %91, ptr %84 monotonic, align 8, !noalias !6813
   store ptr null, ptr %86, align 8, !noalias !6813
   %92 = icmp eq ptr %85, null
-  br i1 %92, label %.thread3.i, label %93
+  br i1 %92, label %.thread4.i, label %93
 
 93:                                               ; preds = %78
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 48
@@ -19868,15 +19868,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %95 = icmp eq ptr %87, null
   br i1 %95, label %98, label %.thread.i
 
-.thread3.i:                                       ; preds = %78
+.thread4.i:                                       ; preds = %78
   %96 = icmp eq ptr %87, null
-  br i1 %96, label %.thread4.i, label %.thread.i
+  br i1 %96, label %.thread5.i, label %.thread.i
 
-.thread4.i:                                       ; preds = %.thread3.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %10, align 8, !alias.scope !6813
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h048493e354979e4dE.exit"
 
-.thread.i:                                        ; preds = %.thread3.i, %93
+.thread.i:                                        ; preds = %.thread4.i, %93
   %97 = getelementptr inbounds nuw i8, ptr %87, i64 40
   store atomic ptr %85, ptr %97 monotonic, align 8, !noalias !6813
   br label %99
@@ -19891,7 +19891,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %83, ptr %101, align 8, !noalias !6813
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h048493e354979e4dE.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h048493e354979e4dE.exit": ; preds = %.thread4.i, %99
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h048493e354979e4dE.exit": ; preds = %.thread5.i, %99
   %102 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %102, ptr %8, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 72
@@ -20279,7 +20279,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN117_$LT$futures_util..stream..futur
   store atomic ptr %87, ptr %80 monotonic, align 8, !noalias !6846
   store ptr null, ptr %82, align 8, !noalias !6846
   %88 = icmp eq ptr %81, null
-  br i1 %88, label %.thread3.i, label %89
+  br i1 %88, label %.thread4.i, label %89
 
 89:                                               ; preds = %74
   %90 = getelementptr inbounds nuw i8, ptr %81, i64 32
@@ -20287,15 +20287,15 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN117_$LT$futures_util..stream..futur
   %91 = icmp eq ptr %83, null
   br i1 %91, label %94, label %.thread.i
 
-.thread3.i:                                       ; preds = %74
+.thread4.i:                                       ; preds = %74
   %92 = icmp eq ptr %83, null
-  br i1 %92, label %.thread4.i, label %.thread.i
+  br i1 %92, label %.thread5.i, label %.thread.i
 
-.thread4.i:                                       ; preds = %.thread3.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %7, align 8, !alias.scope !6846
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h512e9365f6e1e2e1E.exit"
 
-.thread.i:                                        ; preds = %.thread3.i, %89
+.thread.i:                                        ; preds = %.thread4.i, %89
   %93 = getelementptr inbounds nuw i8, ptr %83, i64 24
   store atomic ptr %81, ptr %93 monotonic, align 8, !noalias !6846
   br label %95
@@ -20310,7 +20310,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN117_$LT$futures_util..stream..futur
   store i64 %79, ptr %97, align 8, !noalias !6846
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h512e9365f6e1e2e1E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h512e9365f6e1e2e1E.exit": ; preds = %.thread4.i, %95
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h512e9365f6e1e2e1E.exit": ; preds = %.thread5.i, %95
   %98 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %98, ptr %5, align 8
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 56
@@ -20618,7 +20618,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %91, ptr %84 monotonic, align 8, !noalias !6870
   store ptr null, ptr %86, align 8, !noalias !6870
   %92 = icmp eq ptr %85, null
-  br i1 %92, label %.thread3.i, label %93
+  br i1 %92, label %.thread4.i, label %93
 
 93:                                               ; preds = %78
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 40
@@ -20626,15 +20626,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %95 = icmp eq ptr %87, null
   br i1 %95, label %98, label %.thread.i
 
-.thread3.i:                                       ; preds = %78
+.thread4.i:                                       ; preds = %78
   %96 = icmp eq ptr %87, null
-  br i1 %96, label %.thread4.i, label %.thread.i
+  br i1 %96, label %.thread5.i, label %.thread.i
 
-.thread4.i:                                       ; preds = %.thread3.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %9, align 8, !alias.scope !6870
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17ha1a9f5137bc9edddE.exit"
 
-.thread.i:                                        ; preds = %.thread3.i, %93
+.thread.i:                                        ; preds = %.thread4.i, %93
   %97 = getelementptr inbounds nuw i8, ptr %87, i64 32
   store atomic ptr %85, ptr %97 monotonic, align 8, !noalias !6870
   br label %99
@@ -20649,7 +20649,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %83, ptr %101, align 8, !noalias !6870
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17ha1a9f5137bc9edddE.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17ha1a9f5137bc9edddE.exit": ; preds = %.thread4.i, %99
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17ha1a9f5137bc9edddE.exit": ; preds = %.thread5.i, %99
   %102 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %102, ptr %7, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 64
@@ -20978,7 +20978,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %88, ptr %81 monotonic, align 8, !noalias !6904
   store ptr null, ptr %83, align 8, !noalias !6904
   %89 = icmp eq ptr %82, null
-  br i1 %89, label %.thread3.i, label %90
+  br i1 %89, label %.thread4.i, label %90
 
 90:                                               ; preds = %75
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 40
@@ -20986,15 +20986,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %92 = icmp eq ptr %84, null
   br i1 %92, label %95, label %.thread.i
 
-.thread3.i:                                       ; preds = %75
+.thread4.i:                                       ; preds = %75
   %93 = icmp eq ptr %84, null
-  br i1 %93, label %.thread4.i, label %.thread.i
+  br i1 %93, label %.thread5.i, label %.thread.i
 
-.thread4.i:                                       ; preds = %.thread3.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %8, align 8, !alias.scope !6904
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc2927a2210ede956E.exit"
 
-.thread.i:                                        ; preds = %.thread3.i, %90
+.thread.i:                                        ; preds = %.thread4.i, %90
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 32
   store atomic ptr %82, ptr %94 monotonic, align 8, !noalias !6904
   br label %96
@@ -21009,7 +21009,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %80, ptr %98, align 8, !noalias !6904
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc2927a2210ede956E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc2927a2210ede956E.exit": ; preds = %.thread4.i, %96
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hc2927a2210ede956E.exit": ; preds = %.thread5.i, %96
   %99 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %99, ptr %6, align 8
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 64
@@ -21359,7 +21359,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %91, ptr %84 monotonic, align 8, !noalias !6936
   store ptr null, ptr %86, align 8, !noalias !6936
   %92 = icmp eq ptr %85, null
-  br i1 %92, label %.thread3.i, label %93
+  br i1 %92, label %.thread4.i, label %93
 
 93:                                               ; preds = %78
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 56
@@ -21367,15 +21367,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %95 = icmp eq ptr %87, null
   br i1 %95, label %98, label %.thread.i
 
-.thread3.i:                                       ; preds = %78
+.thread4.i:                                       ; preds = %78
   %96 = icmp eq ptr %87, null
-  br i1 %96, label %.thread4.i, label %.thread.i
+  br i1 %96, label %.thread5.i, label %.thread.i
 
-.thread4.i:                                       ; preds = %.thread3.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %10, align 8, !alias.scope !6936
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h3f2c936f2177194eE.exit"
 
-.thread.i:                                        ; preds = %.thread3.i, %93
+.thread.i:                                        ; preds = %.thread4.i, %93
   %97 = getelementptr inbounds nuw i8, ptr %87, i64 48
   store atomic ptr %85, ptr %97 monotonic, align 8, !noalias !6936
   br label %99
@@ -21390,7 +21390,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %83, ptr %101, align 8, !noalias !6936
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h3f2c936f2177194eE.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h3f2c936f2177194eE.exit": ; preds = %.thread4.i, %99
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h3f2c936f2177194eE.exit": ; preds = %.thread5.i, %99
   %102 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %102, ptr %8, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 80
@@ -24288,7 +24288,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %28 = ptrtoint ptr %27 to i64
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 1, ptr %3, align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -24463,7 +24463,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %25 = ptrtoint ptr %24 to i64
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 1, ptr %3, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -24638,7 +24638,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %25 = ptrtoint ptr %24 to i64
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 1, ptr %3, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -24997,7 +24997,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %28 = ptrtoint ptr %27 to i64
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 1, ptr %3, align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -25172,7 +25172,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %25 = ptrtoint ptr %24 to i64
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 1, ptr %3, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -25352,7 +25352,7 @@ define hidden void @"_ZN12futures_util6stream17futures_unordered27FuturesUnorder
   %28 = ptrtoint ptr %27 to i64
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 1, ptr %3, align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -25471,42 +25471,43 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %14 = load ptr, ptr %13, align 8, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store atomic ptr %15, ptr %8 monotonic, align 8
-  store ptr null, ptr %10, align 8
-  %16 = icmp eq ptr %9, null
-  br i1 %16, label %.thread3, label %17
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr null, ptr %16, align 8
+  %17 = icmp eq ptr %9, null
+  br i1 %17, label %.thread4, label %18
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr %11, ptr %18, align 8
-  %19 = icmp eq ptr %11, null
-  br i1 %19, label %22, label %.thread
-
-.thread3:                                         ; preds = %2
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store ptr %11, ptr %19, align 8
   %20 = icmp eq ptr %11, null
-  br i1 %20, label %.thread4, label %.thread
+  br i1 %20, label %23, label %.thread
 
-.thread4:                                         ; preds = %.thread3
+.thread4:                                         ; preds = %2
+  %21 = icmp eq ptr %11, null
+  br i1 %21, label %.thread5, label %.thread
+
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
-  br label %26
+  br label %27
 
-.thread:                                          ; preds = %17, %.thread3
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store atomic ptr %9, ptr %21 monotonic, align 8
-  br label %23
+.thread:                                          ; preds = %18, %.thread4
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  store atomic ptr %9, ptr %22 monotonic, align 8
+  br label %24
 
-22:                                               ; preds = %17
+23:                                               ; preds = %18
   store ptr %9, ptr %3, align 8
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %.thread
-  %24 = phi ptr [ %4, %.thread ], [ %9, %22 ]
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  store i64 %7, ptr %25, align 8
-  br label %26
+24:                                               ; preds = %23, %.thread
+  %25 = phi ptr [ %4, %.thread ], [ %9, %23 ]
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
+  store i64 %7, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %.thread4, %23
-  %27 = getelementptr inbounds i8, ptr %1, i64 -16
-  ret ptr %27
+27:                                               ; preds = %.thread5, %24
+  %28 = getelementptr inbounds i8, ptr %1, i64 -16
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -25525,42 +25526,43 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %14 = load ptr, ptr %13, align 8, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store atomic ptr %15, ptr %8 monotonic, align 8
-  store ptr null, ptr %10, align 8
-  %16 = icmp eq ptr %9, null
-  br i1 %16, label %.thread3, label %17
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store ptr null, ptr %16, align 8
+  %17 = icmp eq ptr %9, null
+  br i1 %17, label %.thread4, label %18
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store ptr %11, ptr %18, align 8
-  %19 = icmp eq ptr %11, null
-  br i1 %19, label %22, label %.thread
-
-.thread3:                                         ; preds = %2
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store ptr %11, ptr %19, align 8
   %20 = icmp eq ptr %11, null
-  br i1 %20, label %.thread4, label %.thread
+  br i1 %20, label %23, label %.thread
 
-.thread4:                                         ; preds = %.thread3
+.thread4:                                         ; preds = %2
+  %21 = icmp eq ptr %11, null
+  br i1 %21, label %.thread5, label %.thread
+
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
-  br label %26
+  br label %27
 
-.thread:                                          ; preds = %17, %.thread3
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store atomic ptr %9, ptr %21 monotonic, align 8
-  br label %23
+.thread:                                          ; preds = %18, %.thread4
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  store atomic ptr %9, ptr %22 monotonic, align 8
+  br label %24
 
-22:                                               ; preds = %17
+23:                                               ; preds = %18
   store ptr %9, ptr %3, align 8
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %.thread
-  %24 = phi ptr [ %4, %.thread ], [ %9, %22 ]
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  store i64 %7, ptr %25, align 8
-  br label %26
+24:                                               ; preds = %23, %.thread
+  %25 = phi ptr [ %4, %.thread ], [ %9, %23 ]
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  store i64 %7, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %.thread4, %23
-  %27 = getelementptr inbounds i8, ptr %1, i64 -16
-  ret ptr %27
+27:                                               ; preds = %.thread5, %24
+  %28 = getelementptr inbounds i8, ptr %1, i64 -16
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -25579,42 +25581,43 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %14 = load ptr, ptr %13, align 8, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store atomic ptr %15, ptr %8 monotonic, align 8
-  store ptr null, ptr %10, align 8
-  %16 = icmp eq ptr %9, null
-  br i1 %16, label %.thread3, label %17
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr null, ptr %16, align 8
+  %17 = icmp eq ptr %9, null
+  br i1 %17, label %.thread4, label %18
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr %11, ptr %18, align 8
-  %19 = icmp eq ptr %11, null
-  br i1 %19, label %22, label %.thread
-
-.thread3:                                         ; preds = %2
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr %11, ptr %19, align 8
   %20 = icmp eq ptr %11, null
-  br i1 %20, label %.thread4, label %.thread
+  br i1 %20, label %23, label %.thread
 
-.thread4:                                         ; preds = %.thread3
+.thread4:                                         ; preds = %2
+  %21 = icmp eq ptr %11, null
+  br i1 %21, label %.thread5, label %.thread
+
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
-  br label %26
+  br label %27
 
-.thread:                                          ; preds = %17, %.thread3
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store atomic ptr %9, ptr %21 monotonic, align 8
-  br label %23
+.thread:                                          ; preds = %18, %.thread4
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store atomic ptr %9, ptr %22 monotonic, align 8
+  br label %24
 
-22:                                               ; preds = %17
+23:                                               ; preds = %18
   store ptr %9, ptr %3, align 8
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %.thread
-  %24 = phi ptr [ %4, %.thread ], [ %9, %22 ]
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  store i64 %7, ptr %25, align 8
-  br label %26
+24:                                               ; preds = %23, %.thread
+  %25 = phi ptr [ %4, %.thread ], [ %9, %23 ]
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  store i64 %7, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %.thread4, %23
-  %27 = getelementptr inbounds i8, ptr %1, i64 -16
-  ret ptr %27
+27:                                               ; preds = %.thread5, %24
+  %28 = getelementptr inbounds i8, ptr %1, i64 -16
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -25633,42 +25636,43 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %14 = load ptr, ptr %13, align 8, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store atomic ptr %15, ptr %8 monotonic, align 8
-  store ptr null, ptr %10, align 8
-  %16 = icmp eq ptr %9, null
-  br i1 %16, label %.thread3, label %17
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store ptr null, ptr %16, align 8
+  %17 = icmp eq ptr %9, null
+  br i1 %17, label %.thread4, label %18
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr %11, ptr %18, align 8
-  %19 = icmp eq ptr %11, null
-  br i1 %19, label %22, label %.thread
-
-.thread3:                                         ; preds = %2
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store ptr %11, ptr %19, align 8
   %20 = icmp eq ptr %11, null
-  br i1 %20, label %.thread4, label %.thread
+  br i1 %20, label %23, label %.thread
 
-.thread4:                                         ; preds = %.thread3
+.thread4:                                         ; preds = %2
+  %21 = icmp eq ptr %11, null
+  br i1 %21, label %.thread5, label %.thread
+
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
-  br label %26
+  br label %27
 
-.thread:                                          ; preds = %17, %.thread3
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store atomic ptr %9, ptr %21 monotonic, align 8
-  br label %23
+.thread:                                          ; preds = %18, %.thread4
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store atomic ptr %9, ptr %22 monotonic, align 8
+  br label %24
 
-22:                                               ; preds = %17
+23:                                               ; preds = %18
   store ptr %9, ptr %3, align 8
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %.thread
-  %24 = phi ptr [ %4, %.thread ], [ %9, %22 ]
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  store i64 %7, ptr %25, align 8
-  br label %26
+24:                                               ; preds = %23, %.thread
+  %25 = phi ptr [ %4, %.thread ], [ %9, %23 ]
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  store i64 %7, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %.thread4, %23
-  %27 = getelementptr inbounds i8, ptr %1, i64 -16
-  ret ptr %27
+27:                                               ; preds = %.thread5, %24
+  %28 = getelementptr inbounds i8, ptr %1, i64 -16
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -25687,42 +25691,43 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %14 = load ptr, ptr %13, align 8, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store atomic ptr %15, ptr %8 monotonic, align 8
-  store ptr null, ptr %10, align 8
-  %16 = icmp eq ptr %9, null
-  br i1 %16, label %.thread3, label %17
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store ptr null, ptr %16, align 8
+  %17 = icmp eq ptr %9, null
+  br i1 %17, label %.thread4, label %18
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr %11, ptr %18, align 8
-  %19 = icmp eq ptr %11, null
-  br i1 %19, label %22, label %.thread
-
-.thread3:                                         ; preds = %2
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store ptr %11, ptr %19, align 8
   %20 = icmp eq ptr %11, null
-  br i1 %20, label %.thread4, label %.thread
+  br i1 %20, label %23, label %.thread
 
-.thread4:                                         ; preds = %.thread3
+.thread4:                                         ; preds = %2
+  %21 = icmp eq ptr %11, null
+  br i1 %21, label %.thread5, label %.thread
+
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
-  br label %26
+  br label %27
 
-.thread:                                          ; preds = %17, %.thread3
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store atomic ptr %9, ptr %21 monotonic, align 8
-  br label %23
+.thread:                                          ; preds = %18, %.thread4
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store atomic ptr %9, ptr %22 monotonic, align 8
+  br label %24
 
-22:                                               ; preds = %17
+23:                                               ; preds = %18
   store ptr %9, ptr %3, align 8
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %.thread
-  %24 = phi ptr [ %4, %.thread ], [ %9, %22 ]
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  store i64 %7, ptr %25, align 8
-  br label %26
+24:                                               ; preds = %23, %.thread
+  %25 = phi ptr [ %4, %.thread ], [ %9, %23 ]
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  store i64 %7, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %.thread4, %23
-  %27 = getelementptr inbounds i8, ptr %1, i64 -16
-  ret ptr %27
+27:                                               ; preds = %.thread5, %24
+  %28 = getelementptr inbounds i8, ptr %1, i64 -16
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -25741,42 +25746,43 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %14 = load ptr, ptr %13, align 8, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store atomic ptr %15, ptr %8 monotonic, align 8
-  store ptr null, ptr %10, align 8
-  %16 = icmp eq ptr %9, null
-  br i1 %16, label %.thread3, label %17
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store ptr null, ptr %16, align 8
+  %17 = icmp eq ptr %9, null
+  br i1 %17, label %.thread4, label %18
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store ptr %11, ptr %18, align 8
-  %19 = icmp eq ptr %11, null
-  br i1 %19, label %22, label %.thread
-
-.thread3:                                         ; preds = %2
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store ptr %11, ptr %19, align 8
   %20 = icmp eq ptr %11, null
-  br i1 %20, label %.thread4, label %.thread
+  br i1 %20, label %23, label %.thread
 
-.thread4:                                         ; preds = %.thread3
+.thread4:                                         ; preds = %2
+  %21 = icmp eq ptr %11, null
+  br i1 %21, label %.thread5, label %.thread
+
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
-  br label %26
+  br label %27
 
-.thread:                                          ; preds = %17, %.thread3
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store atomic ptr %9, ptr %21 monotonic, align 8
-  br label %23
+.thread:                                          ; preds = %18, %.thread4
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  store atomic ptr %9, ptr %22 monotonic, align 8
+  br label %24
 
-22:                                               ; preds = %17
+23:                                               ; preds = %18
   store ptr %9, ptr %3, align 8
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %.thread
-  %24 = phi ptr [ %4, %.thread ], [ %9, %22 ]
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
-  store i64 %7, ptr %25, align 8
-  br label %26
+24:                                               ; preds = %23, %.thread
+  %25 = phi ptr [ %4, %.thread ], [ %9, %23 ]
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
+  store i64 %7, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %.thread4, %23
-  %27 = getelementptr inbounds i8, ptr %1, i64 -16
-  ret ptr %27
+27:                                               ; preds = %.thread5, %24
+  %28 = getelementptr inbounds i8, ptr %1, i64 -16
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -25795,42 +25801,43 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %14 = load ptr, ptr %13, align 8, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store atomic ptr %15, ptr %8 monotonic, align 8
-  store ptr null, ptr %10, align 8
-  %16 = icmp eq ptr %9, null
-  br i1 %16, label %.thread3, label %17
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr null, ptr %16, align 8
+  %17 = icmp eq ptr %9, null
+  br i1 %17, label %.thread4, label %18
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr %11, ptr %18, align 8
-  %19 = icmp eq ptr %11, null
-  br i1 %19, label %22, label %.thread
-
-.thread3:                                         ; preds = %2
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store ptr %11, ptr %19, align 8
   %20 = icmp eq ptr %11, null
-  br i1 %20, label %.thread4, label %.thread
+  br i1 %20, label %23, label %.thread
 
-.thread4:                                         ; preds = %.thread3
+.thread4:                                         ; preds = %2
+  %21 = icmp eq ptr %11, null
+  br i1 %21, label %.thread5, label %.thread
+
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
-  br label %26
+  br label %27
 
-.thread:                                          ; preds = %17, %.thread3
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store atomic ptr %9, ptr %21 monotonic, align 8
-  br label %23
+.thread:                                          ; preds = %18, %.thread4
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  store atomic ptr %9, ptr %22 monotonic, align 8
+  br label %24
 
-22:                                               ; preds = %17
+23:                                               ; preds = %18
   store ptr %9, ptr %3, align 8
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %.thread
-  %24 = phi ptr [ %4, %.thread ], [ %9, %22 ]
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  store i64 %7, ptr %25, align 8
-  br label %26
+24:                                               ; preds = %23, %.thread
+  %25 = phi ptr [ %4, %.thread ], [ %9, %23 ]
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
+  store i64 %7, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %.thread4, %23
-  %27 = getelementptr inbounds i8, ptr %1, i64 -16
-  ret ptr %27
+27:                                               ; preds = %.thread5, %24
+  %28 = getelementptr inbounds i8, ptr %1, i64 -16
+  ret ptr %28
 }
 
 ; Function Attrs: nonlazybind uwtable

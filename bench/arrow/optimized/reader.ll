@@ -96000,6 +96000,7 @@ _ZNSt14_Function_baseD2Ev.exit182:                ; preds = %778, %781
 define linkonce_odr void @_ZNK5arrow3ipc25RecordBatchFileReaderImpl5statsEv(ptr dead_on_unwind noalias writable sret(%"struct.arrow::ipc::ReadStats") align 8 %0, ptr noundef nonnull align 8 dereferenceable(505) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 264
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3138)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false), !alias.scope !3138
   %4 = load atomic i64, ptr %3 monotonic, align 8, !noalias !3138
   store i64 %4, ptr %0, align 8, !tbaa !3141, !alias.scope !3138
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 272

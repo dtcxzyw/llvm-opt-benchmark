@@ -9076,6 +9076,7 @@ _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %47, %49
   %52 = call noundef i32 %.0.i.i.i(ptr noundef nonnull %7, ptr noundef null, ptr noundef null)
   %53 = load i32, ptr %7, align 4, !tbaa !23
   %54 = and i32 %53, 255
+  store i32 %54, ptr %7, align 4, !tbaa !23
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 %55
   %57 = load atomic i8, ptr %56 monotonic, align 1
@@ -19302,7 +19303,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
-  %.pre8 = load i8, ptr %9, align 8, !tbaa !343
+  %.pre9 = load i8, ptr %9, align 8, !tbaa !343
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 26:                                               ; preds = %3
@@ -19348,13 +19349,14 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   unreachable
 
 _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN5folly17AsyncServerSocket14NewConnMessageENS6_12ErrorMessageEEEC1EOS9_EUlOT_T0_E_OSt7variantIJS7_S8_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESF_SI_.exit.i.i.i.i.i.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN5folly17AsyncServerSocket14NewConnMessageENS6_12ErrorMessageEEEC1EOS9_EUlOT_T0_E_OSt7variantIJS7_S8_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESF_SI_.exit.i.i.i.i.i.i.i.i, %3
-  %44 = phi i8 [ 1, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN5folly17AsyncServerSocket14NewConnMessageENS6_12ErrorMessageEEEC1EOS9_EUlOT_T0_E_OSt7variantIJS7_S8_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESF_SI_.exit.i.i.i.i.i.i.i.i ], [ %.pre8, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN5folly17AsyncServerSocket14NewConnMessageENS6_12ErrorMessageEEEC1EOS9_EUlOT_T0_E_OSt7variantIJS7_S8_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESF_SI_.exit.i.i.i.i.i.i.i.i ], [ %10, %3 ]
+  %44 = phi i8 [ 1, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN5folly17AsyncServerSocket14NewConnMessageENS6_12ErrorMessageEEEC1EOS9_EUlOT_T0_E_OSt7variantIJS7_S8_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESF_SI_.exit.i.i.i.i.i.i.i.i ], [ %.pre9, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Move_ctor_baseILb0EJN5folly17AsyncServerSocket14NewConnMessageENS6_12ErrorMessageEEEC1EOS9_EUlOT_T0_E_OSt7variantIJS7_S8_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESF_SI_.exit.i.i.i.i.i.i.i.i ], [ %10, %3 ]
   store i8 %44, ptr %8, align 8, !tbaa !343
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %5, ptr %45, align 8, !tbaa !346
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %7, ptr %46, align 8, !tbaa !143
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store ptr null, ptr %47, align 8, !tbaa !690
   %48 = load atomic i64, ptr %0 monotonic, align 64
   %.07 = inttoptr i64 %48 to ptr
   %49 = icmp eq i64 %48, 1

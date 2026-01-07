@@ -36061,6 +36061,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   br label %.body
 
 24:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+  store ptr null, ptr %17, align 8, !tbaa !12
+  store ptr null, ptr %18, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -36098,6 +36100,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i5:         ; preds = %24
   br label %.body
 
 35:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i5
+  store ptr null, ptr %17, align 8, !tbaa !12
+  store ptr null, ptr %18, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -39593,6 +39597,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   br label %.body
 
 23:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+  store ptr null, ptr %16, align 8, !tbaa !12
+  store ptr null, ptr %17, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 64
@@ -45192,6 +45198,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   br label %.body
 
 23:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+  store ptr null, ptr %16, align 8, !tbaa !12
+  store ptr null, ptr %17, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 64
@@ -45229,6 +45237,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4:         ; preds = %23
   br label %.body
 
 34:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4
+  store ptr null, ptr %16, align 8, !tbaa !12
+  store ptr null, ptr %17, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 64
@@ -86013,6 +86023,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   br label %.body
 
 25:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+  store ptr null, ptr %18, align 8, !tbaa !12
+  store ptr null, ptr %19, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 64
@@ -86050,6 +86062,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4:         ; preds = %25
   br label %.body
 
 36:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i4
+  store ptr null, ptr %18, align 8, !tbaa !12
+  store ptr null, ptr %19, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 64
@@ -86087,6 +86101,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i10:        ; preds = %36
   br label %.body
 
 47:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i10
+  store ptr null, ptr %18, align 8, !tbaa !12
+  store ptr null, ptr %19, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 64

@@ -387,7 +387,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %17, ptr %10 monotonic, align 8, !noalias !27
   store ptr null, ptr %12, align 8, !noalias !27
   %18 = icmp eq ptr %11, null
-  br i1 %18, label %.thread3.i, label %19
+  br i1 %18, label %.thread4.i, label %19
 
 19:                                               ; preds = %.lr.ph
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -395,15 +395,15 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   %21 = icmp eq ptr %13, null
   br i1 %21, label %24, label %.thread.i
 
-.thread3.i:                                       ; preds = %.lr.ph
+.thread4.i:                                       ; preds = %.lr.ph
   %22 = icmp eq ptr %13, null
-  br i1 %22, label %.thread4.i, label %.thread.i
+  br i1 %22, label %.thread5.i, label %.thread.i
 
-.thread4.i:                                       ; preds = %.thread3.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %3, align 8, !alias.scope !27
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf26ac6cc8a32d17aE.exit"
 
-.thread.i:                                        ; preds = %.thread3.i, %19
+.thread.i:                                        ; preds = %.thread4.i, %19
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store atomic ptr %11, ptr %23 monotonic, align 8, !noalias !27
   br label %25
@@ -418,7 +418,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %9, ptr %27, align 8, !noalias !27
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf26ac6cc8a32d17aE.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf26ac6cc8a32d17aE.exit": ; preds = %.thread4.i, %25
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hf26ac6cc8a32d17aE.exit": ; preds = %.thread5.i, %25
   %28 = getelementptr inbounds i8, ptr %6, i64 -16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %28, ptr %2, align 8
@@ -512,7 +512,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %17, ptr %10 monotonic, align 8, !noalias !47
   store ptr null, ptr %12, align 8, !noalias !47
   %18 = icmp eq ptr %11, null
-  br i1 %18, label %.thread3.i, label %19
+  br i1 %18, label %.thread4.i, label %19
 
 19:                                               ; preds = %.lr.ph
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 88
@@ -520,15 +520,15 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   %21 = icmp eq ptr %13, null
   br i1 %21, label %24, label %.thread.i
 
-.thread3.i:                                       ; preds = %.lr.ph
+.thread4.i:                                       ; preds = %.lr.ph
   %22 = icmp eq ptr %13, null
-  br i1 %22, label %.thread4.i, label %.thread.i
+  br i1 %22, label %.thread5.i, label %.thread.i
 
-.thread4.i:                                       ; preds = %.thread3.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %3, align 8, !alias.scope !47
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hd430b82428c0f8ffE.exit"
 
-.thread.i:                                        ; preds = %.thread3.i, %19
+.thread.i:                                        ; preds = %.thread4.i, %19
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 80
   store atomic ptr %11, ptr %23 monotonic, align 8, !noalias !47
   br label %25
@@ -543,7 +543,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %9, ptr %27, align 8, !noalias !47
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hd430b82428c0f8ffE.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hd430b82428c0f8ffE.exit": ; preds = %.thread4.i, %25
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hd430b82428c0f8ffE.exit": ; preds = %.thread5.i, %25
   %28 = getelementptr inbounds i8, ptr %6, i64 -16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %28, ptr %2, align 8

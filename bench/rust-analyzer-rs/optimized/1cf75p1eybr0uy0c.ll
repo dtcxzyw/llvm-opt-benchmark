@@ -72739,7 +72739,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   %96 = getelementptr inbounds nuw i8, ptr %12, i64 504
   store i32 0, ptr %96, align 8, !alias.scope !21379, !noalias !21392
   %97 = getelementptr inbounds nuw i8, ptr %12, i64 552
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) @anon.17a269f1fe17e49777498bab26e06c97.63.llvm.12542172245242916373, i64 32, i1 false), !noalias !21392
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !21392
   store i64 0, ptr %12, align 8, !alias.scope !21379, !noalias !21392
   %.sroa.4.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx.i48, align 8, !alias.scope !21379, !noalias !21392
@@ -73033,7 +73033,7 @@ _ZN7hir_def7nameres10ModuleData3new17h7f9fd5cd0210223eE.exit: ; preds = %3, %22
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 504
   store i32 0, ptr %29, align 8, !alias.scope !21413, !noalias !21426
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 552
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) @anon.17a269f1fe17e49777498bab26e06c97.63.llvm.12542172245242916373, i64 32, i1 false), !noalias !21426
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !21426
   store i64 0, ptr %12, align 8, !alias.scope !21413, !noalias !21426
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !21413, !noalias !21426
@@ -74598,7 +74598,7 @@ define hidden void @_ZN7hir_def7nameres10ModuleData3new17h7f9fd5cd0210223eE(ptr 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) @anon.17a269f1fe17e49777498bab26e06c97.63.llvm.12542172245242916373, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx, align 8

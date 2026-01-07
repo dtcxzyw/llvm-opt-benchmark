@@ -10774,7 +10774,7 @@ define void @_ZN12pingora_core9protocols4http2v14body10BodyReader17parse_chunked
   br i1 %42, label %46, label %43
 
 43:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4e41c04fdf508539E.exit55", %39
-  %44 = phi i64 [ %.pr, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4e41c04fdf508539E.exit55" ], [ %.sroa.6.0.copyload, %39 ]
+  %44 = phi i64 [ %.pre, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4e41c04fdf508539E.exit55" ], [ %.sroa.6.0.copyload, %39 ]
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %70, label %86
 
@@ -10861,7 +10861,7 @@ define void @_ZN12pingora_core9protocols4http2v14body10BodyReader17parse_chunked
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4e41c04fdf508539E.exit55": ; preds = %66, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %.pr = load i64, ptr %20, align 8
+  %.pre = load i64, ptr %20, align 8
   br label %43
 
 70:                                               ; preds = %43

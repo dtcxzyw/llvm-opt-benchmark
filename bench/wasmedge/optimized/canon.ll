@@ -1975,8 +1975,8 @@ define linkonce_odr hidden void @_ZN6spdlog4warnISt17basic_string_viewIcSt11char
   br label %_ZN6spdlog6logger4warnISt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_.exit
 
 _ZN6spdlog6logger4warnISt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_.exit: ; preds = %1, %10
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2008,8 +2008,8 @@ define linkonce_odr hidden void @_ZN6spdlog5errorISt17basic_string_viewIcSt11cha
   br label %_ZN6spdlog6logger5errorISt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_.exit
 
 _ZN6spdlog6logger5errorISt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_.exit: ; preds = %1, %10
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 

@@ -13168,6 +13168,7 @@ _ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine8EndpointE
   br label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS3_EED2Ev.exit: ; preds = %108, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine8EndpointEEclEPS3_.exit.i
+  store ptr null, ptr %9, align 8, !tbaa !307
   %113 = load ptr, ptr %7, align 8, !tbaa !307
   %.not.i28 = icmp eq ptr %113, null
   br i1 %.not.i28, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS3_EED2Ev.exit30, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine8EndpointEEclEPS3_.exit.i29

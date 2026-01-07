@@ -1627,6 +1627,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecis
   store ptr null, ptr %295, align 16, !tbaa !44, !noalias !36
   %296 = getelementptr inbounds nuw i8, ptr %275, i64 40
   store i32 0, ptr %296, align 8, !tbaa !47, !noalias !36
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL17Lazy_exact_binaryIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_SD_EE, i64 16), ptr %275, align 16, !tbaa !25, !noalias !36
   %297 = getelementptr inbounds nuw i8, ptr %275, i64 48
   %298 = load ptr, ptr %278, align 8, !tbaa !21, !noalias !36
   store ptr %298, ptr %297, align 16, !tbaa !21, !noalias !36
@@ -1762,6 +1763,7 @@ _ZN4CGAL6Handle6decrefEv.exit.i.i305:             ; preds = %332, %336, %339, %3
   store ptr null, ptr %369, align 16, !tbaa !44, !noalias !50
   %370 = getelementptr inbounds nuw i8, ptr %349, i64 40
   store i32 0, ptr %370, align 8, !tbaa !47, !noalias !50
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL17Lazy_exact_binaryIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_SD_EE, i64 16), ptr %349, align 16, !tbaa !25, !noalias !50
   %371 = getelementptr inbounds nuw i8, ptr %349, i64 48
   %372 = load ptr, ptr %352, align 8, !tbaa !21, !noalias !50
   store ptr %372, ptr %371, align 16, !tbaa !21, !noalias !50
@@ -5931,6 +5933,7 @@ define linkonce_odr dso_local void @_ZN4CGALmiIN5boost14multiprecision6numberINS
   store ptr null, ptr %27, align 16, !tbaa !44
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 0, ptr %28, align 8, !tbaa !47
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL17Lazy_exact_binaryIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESD_SD_EE, i64 16), ptr %9, align 16, !tbaa !25
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %30 = load ptr, ptr %1, align 8, !tbaa !21
   store ptr %30, ptr %29, align 16, !tbaa !21
@@ -35905,6 +35908,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %1
   br label %.body
 
 18:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
+  store ptr null, ptr %11, align 8, !tbaa !332
+  store ptr null, ptr %12, align 8, !tbaa !332
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -37916,6 +37921,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   br label %.body
 
 25:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+  store ptr null, ptr %18, align 8, !tbaa !332
+  store ptr null, ptr %19, align 8, !tbaa !332
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -37953,6 +37960,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i7:         ; preds = %25
   br label %.body
 
 36:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i7
+  store ptr null, ptr %18, align 8, !tbaa !332
+  store ptr null, ptr %19, align 8, !tbaa !332
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -38821,6 +38830,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %1
   br label %.body
 
 18:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
+  store ptr null, ptr %11, align 8, !tbaa !332
+  store ptr null, ptr %12, align 8, !tbaa !332
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -39856,6 +39867,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   br label %.body
 
 24:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+  store ptr null, ptr %17, align 8, !tbaa !332
+  store ptr null, ptr %18, align 8, !tbaa !332
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -39893,6 +39906,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i5:         ; preds = %24
   br label %.body
 
 35:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i5
+  store ptr null, ptr %17, align 8, !tbaa !332
+  store ptr null, ptr %18, align 8, !tbaa !332
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -41798,6 +41813,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   br label %.body
 
 26:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+  store ptr null, ptr %19, align 8, !tbaa !332
+  store ptr null, ptr %20, align 8, !tbaa !332
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -41835,6 +41852,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i7:         ; preds = %26
   br label %.body
 
 37:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i7
+  store ptr null, ptr %19, align 8, !tbaa !332
+  store ptr null, ptr %20, align 8, !tbaa !332
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 64
@@ -45788,6 +45807,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %1
   br label %.body
 
 21:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
+  store ptr null, ptr %14, align 8, !tbaa !332
+  store ptr null, ptr %15, align 8, !tbaa !332
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -47544,8 +47565,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i.i.i: ; preds = %.lr.ph.i
   %35 = add nsw i32 %34, 1
   store atomic i32 %35, ptr %31 monotonic, align 4
   %36 = load ptr, ptr %27, align 8, !tbaa !21
-  %.not4.i.i.i.i.i.i = icmp eq ptr %36, null
-  br i1 %.not4.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEEESL_NS0_9assign_opISJ_SJ_EELi0EE11assignCoeffEl.exit.i, label %.thread.i.i.i.i.i.i
+  %.not6.i.i.i.i.i.i = icmp eq ptr %36, null
+  br i1 %.not6.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELin1ELi1ELin1ELin1EEEEESL_NS0_9assign_opISJ_SJ_EELi0EE11assignCoeffEl.exit.i, label %.thread.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i:                              ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8

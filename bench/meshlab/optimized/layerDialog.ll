@@ -9795,7 +9795,7 @@ define void @_ZN11LayerDialog15showContextMenuERK6QPoint(ptr noundef nonnull ali
   %57 = load atomic i32, ptr @_ZN9QListData11shared_nullE monotonic, align 8
   switch i32 %57, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-    i32 -1, label %.lr.ph107
+    i32 -1, label %_ZN5QListIP7QWidgetED2Ev.exit
   ]
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %43
@@ -9819,16 +9819,16 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   call void @__clang_call_terminate(ptr %62) #26
   unreachable
 
-_ZN5QListIP7QWidgetED2Ev.exit:                    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  %.pr.pr = load i32, ptr %56, align 8
-  %63 = icmp eq i32 %.pr.pr, 0
+_ZN5QListIP7QWidgetED2Ev.exit:                    ; preds = %43, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
+  %.pr = load i32, ptr %56, align 8
+  %63 = icmp eq i32 %.pr, 0
   br i1 %63, label %.critedge, label %.lr.ph107
 
-.lr.ph107:                                        ; preds = %43, %_ZN5QListIP7QWidgetED2Ev.exit
+.lr.ph107:                                        ; preds = %_ZN5QListIP7QWidgetED2Ev.exit
   %.promoted105 = load ptr, ptr %45, align 8
   %64 = load ptr, ptr %51, align 8
-  %.not97133 = icmp eq ptr %.promoted105, %64
-  br i1 %.not97133, label %.critedge, label %.lr.ph103
+  %.not97131 = icmp eq ptr %.promoted105, %64
+  br i1 %.not97131, label %.critedge, label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %.lr.ph107, %._crit_edge104
   %65 = phi ptr [ %79, %._crit_edge104 ], [ %.promoted105, %.lr.ph107 ]
@@ -9972,7 +9972,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %130 = load atomic i32, ptr @_ZN9QListData11shared_nullE monotonic, align 8
   switch i32 %130, label %_ZN9QtPrivate8RefCount5derefEv.exit.i73 [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i72
-    i32 -1, label %.lr.ph100
+    i32 -1, label %_ZN5QListIP7QWidgetED2Ev.exit77
   ]
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i73:          ; preds = %110
@@ -9996,16 +9996,16 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i72:  ; preds = %_ZN9QtPrivate8RefCo
   call void @__clang_call_terminate(ptr %135) #26
   unreachable
 
-_ZN5QListIP7QWidgetED2Ev.exit77:                  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i73, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i72
-  %.pr90.pr = load i32, ptr %129, align 8
-  %136 = icmp eq i32 %.pr90.pr, 0
+_ZN5QListIP7QWidgetED2Ev.exit77:                  ; preds = %110, %_ZN9QtPrivate8RefCount5derefEv.exit.i73, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i72
+  %.pr90 = load i32, ptr %129, align 8
+  %136 = icmp eq i32 %.pr90, 0
   br i1 %136, label %.critedge2, label %.lr.ph100
 
-.lr.ph100:                                        ; preds = %110, %_ZN5QListIP7QWidgetED2Ev.exit77
+.lr.ph100:                                        ; preds = %_ZN5QListIP7QWidgetED2Ev.exit77
   %.promoted = load ptr, ptr %118, align 8
   %137 = load ptr, ptr %124, align 8
-  %.not96132 = icmp eq ptr %.promoted, %137
-  br i1 %.not96132, label %.critedge2, label %.lr.ph
+  %.not96130 = icmp eq ptr %.promoted, %137
+  br i1 %.not96130, label %.critedge2, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph100, %._crit_edge
   %138 = phi ptr [ %152, %._crit_edge ], [ %.promoted, %.lr.ph100 ]

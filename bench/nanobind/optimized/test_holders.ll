@@ -5100,6 +5100,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
 .thread.i:                                        ; preds = %14
   %18 = load i32, ptr %15, align 4, !tbaa !69, !noalias !219
   %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %15, align 4, !tbaa !69, !noalias !219
   %20 = load atomic i32, ptr %17 monotonic, align 8
   %21 = icmp ne i32 %20, 0
   br label %27
@@ -5341,6 +5342,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nano
 .thread.i:                                        ; preds = %14
   %18 = load i32, ptr %15, align 4, !tbaa !69, !noalias !228
   %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %15, align 4, !tbaa !69, !noalias !228
   %20 = load atomic i32, ptr %17 monotonic, align 8
   %21 = sext i32 %20 to i64
   br label %27

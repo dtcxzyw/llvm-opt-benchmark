@@ -14883,7 +14883,7 @@ define hidden void @_ZN8async_io6driver8block_on17he434a172389efbe4E(ptr dead_on
   br label %185
 
 185:                                              ; preds = %170, %184
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %29, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %186 = load ptr, ptr %158, align 8, !invariant.load !5, !noalias !3419

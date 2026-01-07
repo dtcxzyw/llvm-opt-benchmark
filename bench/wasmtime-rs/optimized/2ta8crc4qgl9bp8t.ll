@@ -25920,6 +25920,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h0
   %20 = alloca { i64, i64 }, align 8
   %21 = alloca i64, align 8
   store i64 %1, ptr %21, align 8
+  store i64 %3, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %4, ptr %22, align 8
   store ptr %5, ptr %19, align 8
@@ -26322,6 +26323,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h7
   %24 = alloca { i64, i64 }, align 8
   %25 = alloca i64, align 8
   store i64 %1, ptr %25, align 8
+  store i64 %3, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %4, ptr %26, align 8
   store ptr %5, ptr %23, align 8
@@ -27082,6 +27084,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hc
   %20 = alloca { i64, i64 }, align 8
   %21 = alloca i64, align 8
   store i64 %1, ptr %21, align 8
+  store i64 %3, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %4, ptr %22, align 8
   store ptr %5, ptr %19, align 8
@@ -27484,6 +27487,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17he
   %24 = alloca { i64, i64 }, align 8
   %25 = alloca i64, align 8
   store i64 %1, ptr %25, align 8
+  store i64 %3, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %4, ptr %26, align 8
   store ptr %5, ptr %23, align 8
@@ -28241,60 +28245,58 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h344891ceb09c0
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.5.0..sroa_idx.promoted = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   br label %13
 
-13:                                               ; preds = %.lr.ph, %29
-  %14 = phi i64 [ %.sroa.5.0..sroa_idx.promoted, %.lr.ph ], [ %30, %29 ]
+13:                                               ; preds = %.lr.ph, %28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5079)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5081)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5083)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5086)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5089)
-  %15 = load ptr, ptr %9, align 8, !alias.scope !5092, !noalias !5095, !nonnull !5, !noundef !5
-  %16 = load ptr, ptr %5, align 8, !alias.scope !5092, !noalias !5095, !nonnull !5, !noundef !5
-  %17 = icmp eq ptr %16, %15
-  br i1 %17, label %"_ZN4core3ptr1265drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$rayon..vec..SliceDrain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$$RF$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$RF$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$7", label %"_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hef1300021af9c180E.exit.i.i.i.i"
+  %14 = load ptr, ptr %9, align 8, !alias.scope !5092, !noalias !5095, !nonnull !5, !noundef !5
+  %15 = load ptr, ptr %5, align 8, !alias.scope !5092, !noalias !5095, !nonnull !5, !noundef !5
+  %16 = icmp eq ptr %15, %14
+  br i1 %16, label %"_ZN4core3ptr1265drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$rayon..vec..SliceDrain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$$RF$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$RF$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$7", label %"_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hef1300021af9c180E.exit.i.i.i.i"
 
 "_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hef1300021af9c180E.exit.i.i.i.i": ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  store ptr %18, ptr %5, align 8, !alias.scope !5092, !noalias !5095
-  %.sroa.4.0..sroa_idx1.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  store ptr %17, ptr %5, align 8, !alias.scope !5092, !noalias !5095
+  %.sroa.4.0..sroa_idx1.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 56
   %.sroa.4.0.copyload2.i.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx1.i.i.i.i, align 8, !noalias !5097
-  %19 = icmp eq i8 %.sroa.4.0.copyload2.i.i.i.i, 2
-  br i1 %19, label %"_ZN4core3ptr1265drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$rayon..vec..SliceDrain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$$RF$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$RF$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$7", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea1ec98e17057465E.exit.i.i"
+  %18 = icmp eq i8 %.sroa.4.0.copyload2.i.i.i.i, 2
+  br i1 %18, label %"_ZN4core3ptr1265drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$rayon..vec..SliceDrain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$$RF$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$RF$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$7", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea1ec98e17057465E.exit.i.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea1ec98e17057465E.exit.i.i": ; preds = %"_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hef1300021af9c180E.exit.i.i.i.i"
-  %.sroa.6.0..sroa_idx3.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 57
+  %.sroa.6.0..sroa_idx3.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 57
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !5098
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %16, i64 56, i1 false), !noalias !5108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %15, i64 56, i1 false), !noalias !5108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.58.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx3.i.i.i.i, i64 7, i1 false), !noalias !5108
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5109)
   store i8 %.sroa.4.0.copyload2.i.i.i.i, ptr %.sroa.47.0..sroa_idx.i.i.i.i, align 8, !noalias !5110
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5111)
-  %20 = load ptr, ptr %10, align 8, !alias.scope !5112, !noalias !5113, !nonnull !5, !align !12, !noundef !5
+  %19 = load ptr, ptr %10, align 8, !alias.scope !5112, !noalias !5113, !nonnull !5, !align !12, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5114)
-  %21 = load ptr, ptr %20, align 8, !alias.scope !5114, !noalias !5115, !nonnull !5, !align !13, !noundef !5
-  %22 = invoke noundef align 8 ptr @"_ZN8wasmtime7runtime6module6Module8validate28_$u7b$$u7b$closure$u7d$$u7d$17h27bab12abc04be78E.llvm.3458943816331328394"(ptr noalias noundef nonnull readonly align 1 %21, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4)
+  %20 = load ptr, ptr %19, align 8, !alias.scope !5114, !noalias !5115, !nonnull !5, !align !13, !noundef !5
+  %21 = invoke noundef align 8 ptr @"_ZN8wasmtime7runtime6module6Module8validate28_$u7b$$u7b$closure$u7d$$u7d$17h27bab12abc04be78E.llvm.3458943816331328394"(ptr noalias noundef nonnull readonly align 1 %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea1ec98e17057465E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5098
-  %23 = load ptr, ptr %11, align 8, !alias.scope !5116, !noalias !5121, !nonnull !5, !align !12, !noundef !5
-  %24 = invoke noundef zeroext i1 @"_ZN5rayon6result138_$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$13from_par_iter2ok28_$u7b$$u7b$closure$u7d$$u7d$17h8ecbdbcf8c29038bE.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, ptr noalias noundef align 8 %22)
+  %22 = load ptr, ptr %11, align 8, !alias.scope !5116, !noalias !5121, !nonnull !5, !align !12, !noundef !5
+  %23 = invoke noundef zeroext i1 @"_ZN5rayon6result138_$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$13from_par_iter2ok28_$u7b$$u7b$closure$u7d$$u7d$17h8ecbdbcf8c29038bE.llvm.17514045976136648023"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %22, ptr noalias noundef align 8 %21)
           to label %.noexc3 unwind label %.loopexit
 
 .noexc3:                                          ; preds = %.noexc
   %.val.i.i = load ptr, ptr %12, align 8, !alias.scope !5124, !nonnull !5, !noundef !5
-  br i1 %24, label %"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h279092a98c721775E.exit.i.i", label %"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h279092a98c721775E.exit.thread.i.i"
+  br i1 %23, label %"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h279092a98c721775E.exit.i.i", label %"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h279092a98c721775E.exit.thread.i.i"
 
 "_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h279092a98c721775E.exit.thread.i.i": ; preds = %.noexc3
   store atomic i8 1, ptr %.val.i.i monotonic, align 1, !noalias !5124
   br label %.loopexit24
 
 "_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h279092a98c721775E.exit.i.i": ; preds = %.noexc3
-  %25 = load atomic i8, ptr %.val.i.i monotonic, align 1, !noalias !5124
-  %.not.i.i.i = icmp eq i8 %25, 0
+  %24 = load atomic i8, ptr %.val.i.i monotonic, align 1, !noalias !5124
+  %.not.i.i.i = icmp eq i8 %24, 0
   br i1 %.not.i.i.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ef01139837511b4E.exit", label %.loopexit24
 
 .loopexit24:                                      ; preds = %"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h279092a98c721775E.exit.i.i", %"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h279092a98c721775E.exit.thread.i.i"
@@ -28304,49 +28306,50 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h344891ceb09c0
 .loopexit:                                        ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea1ec98e17057465E.exit.i.i", %.noexc
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %26
+  br label %25
 
-.loopexit.split-lp:                               ; preds = %28
+.loopexit.split-lp:                               ; preds = %27
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %26
+  br label %25
 
-26:                                               ; preds = %.loopexit.split-lp, %.loopexit
+25:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN73_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4a837258c27b0fa1E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(48) %5)
-          to label %35 unwind label %33
+          to label %34 unwind label %32
 
-"_ZN4core3ptr1265drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$rayon..vec..SliceDrain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$$RF$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$RF$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$7": ; preds = %"_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hef1300021af9c180E.exit.i.i.i.i", %29, %13, %3, %.loopexit24
+"_ZN4core3ptr1265drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$rayon..vec..SliceDrain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$$RF$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$RF$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$7": ; preds = %"_ZN90_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hef1300021af9c180E.exit.i.i.i.i", %28, %13, %3, %.loopexit24
   call void @"_ZN73_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4a837258c27b0fa1E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ef01139837511b4E.exit": ; preds = %"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h279092a98c721775E.exit.i.i"
-  %27 = icmp ult i64 %14, %.sroa.4.0.copyload
-  br i1 %27, label %29, label %28
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
+  %26 = icmp ult i64 %.sroa.5.0.copyload, %.sroa.4.0.copyload
+  br i1 %26, label %28, label %27
 
-28:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ef01139837511b4E.exit"
+27:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ef01139837511b4E.exit"
   invoke void @_ZN3std9panicking11begin_panic17hf01fe2de89ca3e72E(ptr noalias noundef nonnull readonly align 1 @anon.240f3da681a3f9d10501ee2dededd8e0.42, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.240f3da681a3f9d10501ee2dededd8e0.44) #31
           to label %.noexc8 unwind label %.loopexit.split-lp
 
-.noexc8:                                          ; preds = %28
+.noexc8:                                          ; preds = %27
   unreachable
 
-29:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ef01139837511b4E.exit"
-  %30 = add nuw i64 %14, 1
-  store i64 %30, ptr %.sroa.5.0..sroa_idx, align 8
-  %31 = load i8, ptr %6, align 8, !range !85, !alias.scope !5125, !noundef !5
-  %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %"_ZN4core3ptr1265drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$rayon..vec..SliceDrain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$$RF$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$RF$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$7", label %13
+28:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ef01139837511b4E.exit"
+  %29 = add nuw i64 %.sroa.5.0.copyload, 1
+  store i64 %29, ptr %.sroa.5.0..sroa_idx, align 8
+  %30 = load i8, ptr %6, align 8, !range !85, !alias.scope !5125, !noundef !5
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %"_ZN4core3ptr1265drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$rayon..vec..SliceDrain$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$$RF$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$RF$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$7", label %13
 
-33:                                               ; preds = %26
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %25
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #33
   unreachable
 
-35:                                               ; preds = %26
+34:                                               ; preds = %25
   resume { ptr, i32 } %lpad.phi
 }
 

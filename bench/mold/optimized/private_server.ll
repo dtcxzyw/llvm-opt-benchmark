@@ -221,9 +221,9 @@ _ZN3tbb6detail2d15mutex8try_lockEv.exit.i.i:      ; preds = %28
   br i1 %38, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %35, %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.i
-  %.0915.i = phi i32 [ %42, %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.i ], [ %37, %35 ]
-  %39 = add nsw i32 %.0915.i, 1
-  %40 = cmpxchg ptr %36, i32 %.0915.i, i32 %39 seq_cst seq_cst, align 4
+  %.0912.i = phi i32 [ %42, %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.i ], [ %37, %35 ]
+  %39 = add nsw i32 %.0912.i, 1
+  %40 = cmpxchg ptr %36, i32 %.0912.i, i32 %39 seq_cst seq_cst, align 4
   %41 = extractvalue { i32, i1 } %40, 1
   br i1 %41, label %44, label %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.i
 
@@ -241,7 +241,7 @@ _ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.i: 
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.i, %44, %35
-  %.0.ph.ph.i = phi i1 [ true, %44 ], [ false, %35 ], [ false, %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.i ]
+  %.0.ph.i = phi i1 [ true, %44 ], [ false, %35 ], [ false, %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.i ]
   %47 = atomicrmw xchg ptr %30, i8 0 seq_cst, align 1
   invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %30)
           to label %_ZN3tbb6detail2r13rml14private_server25try_insert_in_asleep_listERNS2_14private_workerE.exit unwind label %48
@@ -254,7 +254,7 @@ _ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.i: 
   unreachable
 
 _ZN3tbb6detail2r13rml14private_server25try_insert_in_asleep_listERNS2_14private_workerE.exit: ; preds = %.loopexit.i
-  br i1 %.0.ph.ph.i, label %51, label %_ZN3tbb6detail2r13rml14private_server24propagate_chain_reactionEv.exit5
+  br i1 %.0.ph.i, label %51, label %_ZN3tbb6detail2r13rml14private_server24propagate_chain_reactionEv.exit5
 
 51:                                               ; preds = %_ZN3tbb6detail2r13rml14private_server25try_insert_in_asleep_listERNS2_14private_workerE.exit
   %52 = cmpxchg ptr %17, i32 0, i32 1 seq_cst seq_cst, align 4

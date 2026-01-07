@@ -1548,9 +1548,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit: ; pr
 .critedge83:                                      ; preds = %365
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #39
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %.pr = load i64, ptr %23, align 8, !tbaa !15
+  %.pre = load i64, ptr %23, align 8, !tbaa !15
+  %368 = icmp eq i64 %.pre, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %368 = icmp eq i64 %.pr, 1
   br i1 %368, label %370, label %369, !prof !72
 
 369:                                              ; preds = %.critedge83
@@ -1560,7 +1560,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit: ; pr
 .noexc122:                                        ; preds = %369
   unreachable
 
-370:                                              ; preds = %.critedge83, %.critedge83.thread
+370:                                              ; preds = %.critedge83.thread, %.critedge83
   %371 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %372 = load ptr, ptr %371, align 8, !tbaa !64
   %373 = getelementptr inbounds nuw i8, ptr %23, i64 16

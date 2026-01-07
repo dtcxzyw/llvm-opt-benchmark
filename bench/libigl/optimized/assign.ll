@@ -1726,8 +1726,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %
   %12 = add nsw i32 %11, 1
   store atomic i32 %12, ptr %8 monotonic, align 4
   %13 = load ptr, ptr %4, align 16, !tbaa !52
-  %.not4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELi8ELi3ELi0ELi8ELi3EEEEESL_NS0_9assign_opISJ_SJ_EELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.not6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
+  br i1 %.not6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELi8ELi3ELi0ELi8ELi3EEEEESL_NS0_9assign_opISJ_SJ_EELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -17232,8 +17232,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %24
   %33 = add nsw i32 %32, 1
   store atomic i32 %33, ptr %29 monotonic, align 4
   %34 = load ptr, ptr %25, align 8, !tbaa !52
-  %.not4.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %34, null
-  br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEEENS2_INS3_ISJ_Lin1ELin1ELi0ELin1ELin1EEEEENS0_9assign_opISJ_SJ_EELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i.i.i.i.i.i
+  %.not6.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %34, null
+  br i1 %.not6.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEEENS2_INS3_ISJ_Lin1ELin1ELi0ELin1ELin1EEEEENS0_9assign_opISJ_SJ_EELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -19620,8 +19620,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i
   %42 = add nsw i32 %41, 1
   store atomic i32 %42, ptr %38 monotonic, align 4
   %43 = load ptr, ptr %gep, align 8, !tbaa !52
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %43, null
-  br i1 %.not4.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEEENS2_INS3_ISJ_Lin1ELin1ELi1ELin1ELin1EEEEENS0_9assign_opISJ_SJ_EELi0EE23assignCoeffByOuterInnerEll.exit.i, label %.thread.i.i.i.i.i.i.i
+  %.not6.i.i.i.i.i.i.i = icmp eq ptr %43, null
+  br i1 %.not6.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEEENS2_INS3_ISJ_Lin1ELin1ELi1ELin1ELin1EEEEENS0_9assign_opISJ_SJ_EELi0EE23assignCoeffByOuterInnerEll.exit.i, label %.thread.i.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i.i:                            ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i.i.i.i
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -19742,8 +19742,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i
   %27 = add nsw i32 %26, 1
   store atomic i32 %27, ptr %23 monotonic, align 4
   %28 = load ptr, ptr %gep, align 8, !tbaa !52
-  %.not4.i.i.i.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not4.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEEENS2_INS3_ISJ_Lin1ELin1ELi1ELin1ELin1EEEEENS0_9assign_opISJ_SJ_EELi0EE23assignCoeffByOuterInnerEll.exit.i, label %.thread.i.i.i.i.i.i.i
+  %.not6.i.i.i.i.i.i.i = icmp eq ptr %28, null
+  br i1 %.not6.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEEENS2_INS3_ISJ_Lin1ELin1ELi1ELin1ELin1EEEEENS0_9assign_opISJ_SJ_EELi0EE23assignCoeffByOuterInnerEll.exit.i, label %.thread.i.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i.i:                            ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -21382,8 +21382,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %14
   %23 = add nsw i32 %22, 1
   store atomic i32 %23, ptr %19 monotonic, align 4
   %24 = load ptr, ptr %15, align 8, !tbaa !52
-  %.not4.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEEESL_NS0_9assign_opISJ_SJ_EELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.not6.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %24, null
+  br i1 %.not6.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEEESL_NS0_9assign_opISJ_SJ_EELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -23136,8 +23136,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i:    ; preds = %2
   %25 = add nsw i32 %24, 1
   store atomic i32 %25, ptr %16 monotonic, align 4
   %26 = load ptr, ptr %5, align 8, !tbaa !52
-  %.not4.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not4.i.i.i.i, label %50, label %.thread.i.i.i.i
+  %.not6.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not6.i.i.i.i, label %50, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -23448,8 +23448,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i:    ; preds = %2
   %25 = add nsw i32 %24, 1
   store atomic i32 %25, ptr %16 monotonic, align 4
   %26 = load ptr, ptr %5, align 8, !tbaa !52
-  %.not4.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not4.i.i.i.i, label %50, label %.thread.i.i.i.i
+  %.not6.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not6.i.i.i.i, label %50, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -24530,8 +24530,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i.i:  ; preds = %.lr.ph
   %49 = add nsw i32 %48, 1
   store atomic i32 %49, ptr %40 monotonic, align 4
   %50 = load ptr, ptr %26, align 8, !tbaa !52
-  %.not4.i.i.i.i.i = icmp eq ptr %50, null
-  br i1 %.not4.i.i.i.i.i, label %74, label %.thread.i.i.i.i.i
+  %.not6.i.i.i.i.i = icmp eq ptr %50, null
+  br i1 %.not6.i.i.i.i.i, label %74, label %.thread.i.i.i.i.i
 
 .thread.i.i.i.i.i:                                ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -25557,8 +25557,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i:    ; preds = %2
   %25 = add nsw i32 %24, 1
   store atomic i32 %25, ptr %16 monotonic, align 4
   %26 = load ptr, ptr %5, align 8, !tbaa !52
-  %.not4.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not4.i.i.i.i, label %50, label %.thread.i.i.i.i
+  %.not6.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not6.i.i.i.i, label %50, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -26637,8 +26637,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i:    ; preds = %2
   %25 = add nsw i32 %24, 1
   store atomic i32 %25, ptr %16 monotonic, align 4
   %26 = load ptr, ptr %5, align 8, !tbaa !52
-  %.not4.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not4.i.i.i.i, label %50, label %.thread.i.i.i.i
+  %.not6.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not6.i.i.i.i, label %50, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -27530,8 +27530,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i:    ; preds = %2
   %25 = add nsw i32 %24, 1
   store atomic i32 %25, ptr %16 monotonic, align 4
   %26 = load ptr, ptr %5, align 8, !tbaa !52
-  %.not4.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not4.i.i.i.i, label %50, label %.thread.i.i.i.i
+  %.not6.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not6.i.i.i.i, label %50, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -27735,8 +27735,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i:    ; preds = %2
   %26 = add nsw i32 %25, 1
   store atomic i32 %26, ptr %17 monotonic, align 4
   %27 = load ptr, ptr %5, align 8, !tbaa !52
-  %.not4.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not4.i.i.i.i, label %51, label %.thread.i.i.i.i
+  %.not6.i.i.i.i = icmp eq ptr %27, null
+  br i1 %.not6.i.i.i.i, label %51, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -28871,8 +28871,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i:    ; preds = %2
   %26 = add nsw i32 %25, 1
   store atomic i32 %26, ptr %17 monotonic, align 4
   %27 = load ptr, ptr %5, align 8, !tbaa !52
-  %.not4.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not4.i.i.i.i, label %51, label %.thread.i.i.i.i
+  %.not6.i.i.i.i = icmp eq ptr %27, null
+  br i1 %.not6.i.i.i.i, label %51, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8

@@ -4134,6 +4134,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
   store i64 1, ptr %104, align 8
   store ptr %556, ptr %209, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   call void @llvm.lifetime.start.p0(ptr nonnull %102)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %102, ptr noundef nonnull align 8 dereferenceable(208) %113, i64 208, i1 false)
   invoke void @"_ZN8flycheck7command22CommandHandle$LT$T$GT$5spawn17h9ceed663265424d9E"(ptr noalias noundef nonnull sret({ i64, [18 x i64] }) align 8 captures(none) dereferenceable(152) %103, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(208) %102, i64 noundef 1, ptr noundef nonnull %556)
@@ -4262,11 +4263,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit412
 .thread848:                                       ; preds = %594
   %606 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %103, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %101, i64 152, i1 false)
   br label %.thread841
 
 "_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$flycheck..command..CommandHandle$LT$flycheck..CargoCheckMessage$GT$$GT$$GT$17hfd783314060e9f95E.exit": ; preds = %.critedge327, %594
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %103, i64 152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %101, i64 152, i1 false)
   %607 = load i64, ptr %104, align 8, !range !728, !noundef !4
   %608 = load ptr, ptr %209, align 8
   %609 = load i64, ptr %128, align 8, !range !456, !alias.scope !729, !noundef !4
@@ -4432,6 +4433,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit437: ; preds = %623
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !795
   call void @llvm.lifetime.end.p0(ptr nonnull %112)
   call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
   call void @llvm.experimental.noalias.scope.decl(metadata !804)
   %647 = load i64, ptr %116, align 8, !range !40, !alias.scope !804, !noundef !4
   %648 = icmp eq i64 %647, -9223372036854775808

@@ -5688,7 +5688,7 @@ _ZN16wasmtime_runtime3sys4unix2vm13get_page_size17h6ec93d4509f1070eE.exit.i: ; p
   br label %_ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit
 
 _ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit: ; preds = %3, %43
-  %.0.i = phi i64 [ %36, %3 ], [ %39, %43 ]
+  %.0.i = phi i64 [ %39, %43 ], [ %36, %3 ]
   %.not = icmp ugt i64 %1, %2
   br i1 %.not, label %44, label %45
 
@@ -5699,7 +5699,7 @@ _ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit: ; preds = %3, %43
 45:                                               ; preds = %_ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %46 = add i64 %.0.i, -1
-  %47 = and i64 %46, %2
+  %47 = and i64 %2, %46
   store i64 %47, ptr %33, align 8
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %49, label %52

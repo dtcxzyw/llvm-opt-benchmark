@@ -1734,7 +1734,7 @@ declare ptr @hb_language_get_default() local_unnamed_addr #6
 define hidden nonnull ptr @hb_buffer_create() local_unnamed_addr #5 {
   %1 = tail call noalias dereferenceable_or_null(224) ptr @calloc(i64 noundef 1, i64 noundef 224) #26
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %13, label %2
+  br i1 %.not.i, label %17, label %2
 
 2:                                                ; preds = %0
   store atomic i32 1, ptr %1 monotonic, align 4
@@ -1752,13 +1752,21 @@ define hidden nonnull ptr @hb_buffer_create() local_unnamed_addr #5 {
   %9 = tail call ptr @hb_unicode_funcs_get_default()
   %10 = tail call ptr @hb_unicode_funcs_reference(ptr noundef %9)
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 65533, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store i8 1, ptr %12, align 8
-  br label %13
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 0, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store i32 0, ptr %12, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 65533, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  store i8 1, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 180
+  store i32 0, ptr %16, align 4
+  br label %17
 
-13:                                               ; preds = %0, %2
+17:                                               ; preds = %0, %2
   %.0 = phi ptr [ %1, %2 ], [ @_hb_Null_hb_buffer_t, %0 ]
   ret ptr %.0
 }
@@ -1794,41 +1802,49 @@ define hidden nonnull ptr @hb_buffer_create_similar(ptr noundef readonly capture
   %10 = tail call ptr @hb_unicode_funcs_get_default()
   %11 = tail call ptr @hb_unicode_funcs_reference(ptr noundef %10)
   store ptr %11, ptr %9, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 65533, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 1, ptr %13, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i32 0, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  store i32 0, ptr %13, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 65533, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 1, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store ptr null, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 180
+  store i32 0, ptr %17, align 4
   br label %hb_buffer_create.exit
 
 hb_buffer_create.exit:                            ; preds = %.hb_buffer_create.exit_crit_edge, %3
-  %14 = phi ptr [ %11, %3 ], [ %.pre, %.hb_buffer_create.exit_crit_edge ]
+  %18 = phi ptr [ %11, %3 ], [ %.pre, %.hb_buffer_create.exit_crit_edge ]
   %.0.i = phi ptr [ %2, %3 ], [ @_hb_Null_hb_buffer_t, %.hb_buffer_create.exit_crit_edge ]
-  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  tail call void @hb_unicode_funcs_destroy(ptr noundef %14)
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr @hb_unicode_funcs_reference(ptr noundef %17)
-  store ptr %18, ptr %15, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  store i32 %20, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
-  store i32 %23, ptr %24, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
-  store i32 %26, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
-  store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  store i32 %32, ptr %33, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  tail call void @hb_unicode_funcs_destroy(ptr noundef %18)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call ptr @hb_unicode_funcs_reference(ptr noundef %21)
+  store ptr %22, ptr %19, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = load i32, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
+  store i32 %24, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %27 = load i32, ptr %26, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
+  store i32 %27, ptr %28, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
+  store i32 %30, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %33 = load i32, ptr %32, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
+  store i32 %33, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %36 = load i32, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
+  store i32 %36, ptr %37, align 8
   ret ptr %.0.i
 }
 

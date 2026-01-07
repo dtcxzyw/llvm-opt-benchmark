@@ -191,11 +191,11 @@ _ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit: ; preds = %1
   store i8 1, ptr @__tls_guard, align 1
   %6 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @__tls_guard)
   tail call fastcc void @__cxx_global_var_init.1()
-  %.pr = load i8, ptr @__tls_guard, align 1
-  %7 = tail call noundef nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE)
-  %8 = load atomic i64, ptr %7 monotonic, align 8
-  %9 = icmp eq i8 %.pr, 0
-  br i1 %9, label %10, label %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit2, !prof !17
+  %.pre = load i8, ptr @__tls_guard, align 1
+  %7 = icmp eq i8 %.pre, 0
+  %8 = tail call noundef nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE)
+  %9 = load atomic i64, ptr %8 monotonic, align 8
+  br i1 %7, label %10, label %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit2, !prof !17
 
 10:                                               ; preds = %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit
   store i8 1, ptr @__tls_guard, align 1
@@ -204,12 +204,12 @@ _ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit: ; preds = %1
   br label %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit2
 
 _ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit2: ; preds = %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit.thread, %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit, %10
-  %.0.i.i.i4.in = phi i64 [ %5, %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit.thread ], [ %8, %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit ], [ %8, %10 ]
-  %12 = phi ptr [ %4, %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit.thread ], [ %7, %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit ], [ %7, %10 ]
-  %.0.i.i.i4 = inttoptr i64 %.0.i.i.i4.in to ptr
-  %13 = ptrtoint ptr %0 to i64
-  store atomic i64 %13, ptr %12 release, align 8
-  ret ptr %.0.i.i.i4
+  %12 = phi i64 [ %5, %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit.thread ], [ %9, %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit ], [ %9, %10 ]
+  %13 = phi ptr [ %4, %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit.thread ], [ %8, %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit ], [ %8, %10 ]
+  %.0.i.i.i = inttoptr i64 %12 to ptr
+  %14 = ptrtoint ptr %0 to i64
+  store atomic i64 %14, ptr %13 release, align 8
+  ret ptr %.0.i.i.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -235,14 +235,14 @@ _ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit: ; preds = %3
   store i8 1, ptr @__tls_guard, align 1
   %11 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @__tls_guard)
   tail call fastcc void @__cxx_global_var_init.1()
-  %.pr = load i8, ptr @__tls_guard, align 1
-  %12 = tail call noundef nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE)
-  %13 = load atomic i64, ptr %12 monotonic, align 8
-  %.0.i.i.i = inttoptr i64 %13 to ptr
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.i.i, ptr %14, align 8, !tbaa !24
-  %15 = icmp eq i8 %.pr, 0
-  br i1 %15, label %16, label %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit3, !prof !17
+  %.pre = load i8, ptr @__tls_guard, align 1
+  %12 = icmp eq i8 %.pre, 0
+  %13 = tail call noundef nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE)
+  %14 = load atomic i64, ptr %13 monotonic, align 8
+  %.0.i.i.i = inttoptr i64 %14 to ptr
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.i.i.i, ptr %15, align 8, !tbaa !24
+  br i1 %12, label %16, label %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit3, !prof !17
 
 16:                                               ; preds = %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit
   store i8 1, ptr @__tls_guard, align 1
@@ -251,7 +251,7 @@ _ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit: ; preds = %3
   br label %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit3
 
 _ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit3: ; preds = %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit.thread, %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit, %16
-  %18 = phi ptr [ %8, %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit.thread ], [ %12, %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit ], [ %12, %16 ]
+  %18 = phi ptr [ %8, %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit.thread ], [ %13, %_ZTWN5folly12_GLOBAL__N_127currentThreadAsyncStackRootE.exit ], [ %13, %16 ]
   %19 = ptrtoint ptr %0 to i64
   store atomic i64 %19, ptr %18 release, align 8
   ret void
@@ -686,6 +686,7 @@ _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %43, %45
   %48 = call noundef i32 %.0.i.i.i(ptr noundef nonnull %7, ptr noundef null, ptr noundef null)
   %49 = load i32, ptr %7, align 4, !tbaa !13
   %50 = and i32 %49, 255
+  store i32 %50, ptr %7, align 4, !tbaa !13
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 %51
   %53 = load atomic i8, ptr %52 monotonic, align 1

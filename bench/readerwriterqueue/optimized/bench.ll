@@ -7494,6 +7494,7 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE10make_blockEm.exit: ; preds = %40
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 128
+  store ptr null, ptr %60, align 8, !tbaa !146
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 136
   store i64 0, ptr %53, align 8
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 72
@@ -7541,7 +7542,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 3:                                                ; preds = %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i, %1
   %.07.i.i = phi i64 [ 0, %1 ], [ %42, %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i ]
-  %4 = load ptr, ptr %0, align 8, !tbaa !146
+  %4 = load ptr, ptr %0, align 8, !tbaa !147
   %5 = load atomic i64, ptr %4 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %5 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
@@ -7609,7 +7610,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %38 = and i64 %37, %35
   fence release
   store atomic i64 %38, ptr %.032.sink43.i.i.i monotonic, align 8
-  %39 = load ptr, ptr %2, align 8, !tbaa !148
+  %39 = load ptr, ptr %2, align 8, !tbaa !149
   %40 = load i32, ptr %39, align 4, !tbaa !4
   %41 = add nsw i32 %40, %34
   store i32 %41, ptr %39, align 4, !tbaa !4
@@ -7618,7 +7619,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i: ; preds = %29, %13
   %42 = add nuw nsw i64 %.07.i.i, 1
   %.not.i.i = icmp eq i64 %42, 2000000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE_EEvOT_.exit, label %3, !llvm.loop !149
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE_EEvOT_.exit, label %3, !llvm.loop !150
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE_EEvOT_.exit: ; preds = %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
@@ -7639,7 +7640,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !150
+  %7 = load ptr, ptr %0, align 8, !tbaa !151
   %8 = call noundef zeroext i1 @_ZN10moodycamel17ReaderWriterQueueIiLm512EE13inner_enqueueILNS1_14AllocationModeE0EJRKiEEEbDpOT0_(ptr noundef nonnull align 64 dereferenceable(80) %7, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %9 = load i32, ptr %2, align 4, !tbaa !4
   %10 = add nsw i32 %9, 1
@@ -7649,7 +7650,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 11:                                               ; preds = %6, %3
   %12 = add nuw nsw i64 %.03.i.i, 1
   %.not.i.i = icmp eq i64 %12, 1000000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE0_EEvOT_.exit, label %3, !llvm.loop !152
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE0_EEvOT_.exit, label %3, !llvm.loop !153
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE0_EEvOT_.exit: ; preds = %11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -7684,7 +7685,7 @@ define linkonce_odr dso_local noundef i32 @_ZNSt24uniform_int_distributionIiEclI
   %19 = urem i64 %18, 2147483647
   %20 = add nsw i64 %19, -1
   %.not27 = icmp ult i64 %20, %15
-  br i1 %.not27, label %21, label %16, !llvm.loop !153
+  br i1 %.not27, label %21, label %16, !llvm.loop !154
 
 21:                                               ; preds = %16
   store i64 %19, ptr %1, align 8, !tbaa !78
@@ -7720,7 +7721,7 @@ define linkonce_odr dso_local noundef i32 @_ZNSt24uniform_int_distributionIiEclI
   %36 = icmp ugt i64 %35, %10
   %37 = icmp ult i64 %35, %30
   %38 = or i1 %36, %37
-  br i1 %38, label %27, label %.loopexit.loopexit, !llvm.loop !154
+  br i1 %38, label %27, label %.loopexit.loopexit, !llvm.loop !155
 
 39:                                               ; preds = %23
   %40 = load i64, ptr %1, align 8, !tbaa !78
@@ -7760,15 +7761,15 @@ define linkonce_odr dso_local void @_ZNK7details10ArgWrapperIvvvE12callCallbackI
 
 7:                                                ; preds = %51, %2
   %.02.i = phi i64 [ 0, %2 ], [ %52, %51 ]
-  %8 = load ptr, ptr %1, align 8, !tbaa !155
-  %9 = load ptr, ptr %3, align 8, !tbaa !157
+  %8 = load ptr, ptr %1, align 8, !tbaa !156
+  %9 = load ptr, ptr %3, align 8, !tbaa !158
   %10 = tail call noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %8)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %51
 
 12:                                               ; preds = %7
-  %13 = load ptr, ptr %4, align 8, !tbaa !158
-  %14 = load ptr, ptr %5, align 8, !tbaa !159
+  %13 = load ptr, ptr %4, align 8, !tbaa !159
+  %14 = load ptr, ptr %5, align 8, !tbaa !160
   %15 = load atomic i64, ptr %13 monotonic, align 8
   %.0.i.i.i.i.i = inttoptr i64 %15 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
@@ -7840,7 +7841,7 @@ define linkonce_odr dso_local void @_ZNK7details10ArgWrapperIvvvE12callCallbackI
   br label %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i
 
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i: ; preds = %.sink.split.i.i, %23
-  %48 = load ptr, ptr %6, align 8, !tbaa !160
+  %48 = load ptr, ptr %6, align 8, !tbaa !161
   %49 = load i32, ptr %48, align 4, !tbaa !4
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 4, !tbaa !4
@@ -7849,7 +7850,7 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i: ; preds
 51:                                               ; preds = %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i, %7
   %52 = add nuw nsw i64 %.02.i, 1
   %.not.i = icmp eq i64 %52, 120000
-  br i1 %.not.i, label %_ZZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdENKUlvE1_clEv.exit, label %7, !llvm.loop !161
+  br i1 %.not.i, label %_ZZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdENKUlvE1_clEv.exit, label %7, !llvm.loop !162
 
 _ZZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdENKUlvE1_clEv.exit: ; preds = %51
   ret void
@@ -7864,14 +7865,14 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 3:                                                ; preds = %3, %1
   %.02.i.i = phi i64 [ 0, %1 ], [ %8, %3 ]
-  %4 = load ptr, ptr %0, align 8, !tbaa !162
+  %4 = load ptr, ptr %0, align 8, !tbaa !163
   %5 = call noundef zeroext i1 @_ZN10moodycamel17ReaderWriterQueueIiLm512EE13inner_enqueueILNS1_14AllocationModeE0EJRKiEEEbDpOT0_(ptr noundef nonnull align 64 dereferenceable(80) %4, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %6 = load i32, ptr %2, align 4, !tbaa !4
   %7 = add nsw i32 %6, 1
   store i32 %7, ptr %2, align 4, !tbaa !4
   %8 = add nuw nsw i64 %.02.i.i, 1
   %.not.i.i = icmp eq i64 %8, 1200000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE2_EEvOT_.exit, label %3, !llvm.loop !164
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE2_EEvOT_.exit, label %3, !llvm.loop !165
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE2_EEvOT_.exit: ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -7886,8 +7887,8 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 3:                                                ; preds = %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i, %1
   %.02.i.i = phi i64 [ 0, %1 ], [ %39, %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i ]
-  %4 = load ptr, ptr %0, align 8, !tbaa !165
-  %5 = load ptr, ptr %2, align 8, !tbaa !167
+  %4 = load ptr, ptr %0, align 8, !tbaa !166
+  %5 = load ptr, ptr %2, align 8, !tbaa !168
   %6 = load atomic i64, ptr %4 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %6 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
@@ -7961,7 +7962,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i: ; preds = %.sink.split.i.i.i, %14
   %39 = add nuw nsw i64 %.02.i.i, 1
   %.not.i.i = icmp eq i64 %39, 1200000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE3_EEvOT_.exit, label %3, !llvm.loop !168
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE3_EEvOT_.exit, label %3, !llvm.loop !169
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE3_EEvOT_.exit: ; preds = %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
@@ -7979,14 +7980,14 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 5:                                                ; preds = %15, %1
   %.02.i.i = phi i64 [ 0, %1 ], [ %16, %15 ]
-  %6 = load ptr, ptr %0, align 8, !tbaa !169
-  %7 = load ptr, ptr %3, align 8, !tbaa !171
+  %6 = load ptr, ptr %0, align 8, !tbaa !170
+  %7 = load ptr, ptr %3, align 8, !tbaa !172
   %8 = call noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %6)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr %4, align 8, !tbaa !172
+  %11 = load ptr, ptr %4, align 8, !tbaa !173
   %12 = call noundef zeroext i1 @_ZN10moodycamel17ReaderWriterQueueIiLm512EE13inner_enqueueILNS1_14AllocationModeE0EJRKiEEEbDpOT0_(ptr noundef nonnull align 64 dereferenceable(80) %11, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %13 = load i32, ptr %2, align 4, !tbaa !4
   %14 = add nsw i32 %13, 1
@@ -7996,12 +7997,12 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 15:                                               ; preds = %10, %5
   %16 = add nuw nsw i64 %.02.i.i, 1
   %.not.i.i = icmp eq i64 %16, 120000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE4_EEvOT_.exit, label %5, !llvm.loop !173
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE4_EEvOT_.exit, label %5, !llvm.loop !174
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE4_EEvOT_.exit: ; preds = %15
   %17 = load i32, ptr %2, align 4, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !174
+  %19 = load ptr, ptr %18, align 8, !tbaa !175
   store i32 %17, ptr %19, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #24
@@ -8015,8 +8016,8 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 3:                                                ; preds = %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i, %1
   %.02.i.i = phi i64 [ 0, %1 ], [ %39, %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i ]
-  %4 = load ptr, ptr %0, align 8, !tbaa !175
-  %5 = load ptr, ptr %2, align 8, !tbaa !177
+  %4 = load ptr, ptr %0, align 8, !tbaa !176
+  %5 = load ptr, ptr %2, align 8, !tbaa !178
   %6 = load atomic i64, ptr %4 monotonic, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %6 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
@@ -8090,7 +8091,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i: ; preds = %.sink.split.i.i.i, %14
   %39 = add nuw nsw i64 %.02.i.i, 1
   %.not.i.i = icmp eq i64 %39, 1000000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE5_EEvOT_.exit, label %3, !llvm.loop !178
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE5_EEvOT_.exit, label %3, !llvm.loop !179
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE5_EEvOT_.exit: ; preds = %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
@@ -8106,14 +8107,14 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 3:                                                ; preds = %3, %1
   %.02.i.i = phi i64 [ 0, %1 ], [ %8, %3 ]
-  %4 = load ptr, ptr %0, align 8, !tbaa !179
+  %4 = load ptr, ptr %0, align 8, !tbaa !180
   %5 = call noundef zeroext i1 @_ZN10moodycamel17ReaderWriterQueueIiLm512EE13inner_enqueueILNS1_14AllocationModeE0EJRKiEEEbDpOT0_(ptr noundef nonnull align 64 dereferenceable(80) %4, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %6 = load i32, ptr %2, align 4, !tbaa !4
   %7 = add nsw i32 %6, 1
   store i32 %7, ptr %2, align 4, !tbaa !4
   %8 = add nuw nsw i64 %.02.i.i, 1
   %.not.i.i = icmp eq i64 %8, 1000000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE6_EEvOT_.exit, label %3, !llvm.loop !181
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE6_EEvOT_.exit, label %3, !llvm.loop !182
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE6_EEvOT_.exit: ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -8134,7 +8135,7 @@ define linkonce_odr dso_local void @_ZNK7details10ArgWrapperIvvvE12callCallbackI
   %3 = alloca %"class.std::linear_congruential_engine", align 8
   %4 = alloca %"class.std::uniform_int_distribution", align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %5 = load ptr, ptr %1, align 8, !tbaa !182
+  %5 = load ptr, ptr %1, align 8, !tbaa !183
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = urem i32 %6, 2147483647
   %8 = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
@@ -8156,8 +8157,8 @@ define linkonce_odr dso_local void @_ZNK7details10ArgWrapperIvvvE12callCallbackI
   br i1 %15, label %16, label %55
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr %10, align 8, !tbaa !184
-  %18 = load ptr, ptr %11, align 8, !tbaa !185
+  %17 = load ptr, ptr %10, align 8, !tbaa !185
+  %18 = load ptr, ptr %11, align 8, !tbaa !186
   %19 = load atomic i64, ptr %17 monotonic, align 8
   %.0.i.i.i.i.i = inttoptr i64 %19 to ptr
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
@@ -8229,7 +8230,7 @@ define linkonce_odr dso_local void @_ZNK7details10ArgWrapperIvvvE12callCallbackI
   br label %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i
 
 _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i: ; preds = %.sink.split.i.i, %27
-  %52 = load ptr, ptr %12, align 8, !tbaa !186
+  %52 = load ptr, ptr %12, align 8, !tbaa !187
   %53 = load i32, ptr %52, align 4, !tbaa !4
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr %52, align 4, !tbaa !4
@@ -8238,7 +8239,7 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i: ; preds
 55:                                               ; preds = %_ZN10moodycamel17ReaderWriterQueueIiLm512EE11try_dequeueIiEEbRT_.exit.i, %13
   %56 = add nuw nsw i64 %.02.i, 1
   %.not.i = icmp eq i64 %56, 800000
-  br i1 %.not.i, label %_ZZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdENKUlvE7_clEv.exit, label %13, !llvm.loop !187
+  br i1 %.not.i, label %_ZZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdENKUlvE7_clEv.exit, label %13, !llvm.loop !188
 
 _ZZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdENKUlvE7_clEv.exit: ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -8252,7 +8253,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %3 = alloca %"class.std::uniform_int_distribution", align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = load ptr, ptr %0, align 8, !tbaa !188
+  %5 = load ptr, ptr %0, align 8, !tbaa !189
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = mul i32 %6, 3
   %8 = add i32 %7, -1
@@ -8276,7 +8277,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr %12, align 8, !tbaa !190
+  %17 = load ptr, ptr %12, align 8, !tbaa !191
   %18 = call noundef zeroext i1 @_ZN10moodycamel17ReaderWriterQueueIiLm512EE13inner_enqueueILNS1_14AllocationModeE0EJRKiEEEbDpOT0_(ptr noundef nonnull align 64 dereferenceable(80) %17, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %19 = load i32, ptr %4, align 4, !tbaa !4
   %20 = add nsw i32 %19, 1
@@ -8286,12 +8287,12 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 21:                                               ; preds = %16, %13
   %22 = add nuw nsw i64 %.02.i.i, 1
   %.not.i.i = icmp eq i64 %22, 800000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE8_EEvOT_.exit, label %13, !llvm.loop !191
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE8_EEvOT_.exit, label %13, !llvm.loop !192
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE8_EEvOT_.exit: ; preds = %21
   %23 = load i32, ptr %4, align 4, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !192
+  %25 = load ptr, ptr %24, align 8, !tbaa !193
   store i32 %23, ptr %25, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -8338,12 +8339,12 @@ _ZNSt10unique_ptrIN10moodycamel9spsc_sema20LightweightSemaphoreESt14default_dele
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN10moodycamel34BlockingReaderWriterCircularBufferIiEC2Em(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store i64 %1, ptr %0, align 8, !tbaa !193
+  store i64 %1, ptr %0, align 8, !tbaa !194
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
-  store i64 %1, ptr %5, align 8, !tbaa !194
+  store i64 %1, ptr %5, align 8, !tbaa !195
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %7 = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 0, i32 noundef 0) #21
@@ -8399,7 +8400,7 @@ define linkonce_odr dso_local void @_ZN10moodycamel34BlockingReaderWriterCircula
   %37 = or i64 %36, %.02124
   %38 = shl nuw nsw i64 %.025, 1
   %39 = icmp samesign ult i64 %.025, 4
-  br i1 %39, label %34, label %22, !llvm.loop !196
+  br i1 %39, label %34, label %22, !llvm.loop !197
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8444,7 +8445,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10moodycamel9spsc_sema20Lig
   fence syncscope("singlethread") acquire
   %11 = add nsw i32 %5, -1
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %12, label %4, !llvm.loop !197
+  br i1 %.not, label %12, label %4, !llvm.loop !198
 
 12:                                               ; preds = %10
   %13 = atomicrmw add ptr %0, i64 -1 acquire, align 8
@@ -8470,7 +8471,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10moodycamel9spsc_sema20Lig
   %22 = tail call ptr @__errno_location() #26
   %23 = load i32, ptr %22, align 4, !tbaa !4
   %24 = icmp eq i32 %23, 4
-  br i1 %24, label %19, label %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread, !llvm.loop !198
+  br i1 %24, label %19, label %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread, !llvm.loop !199
 
 _ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread: ; preds = %19, %21, %15
   %25 = icmp sgt i64 %1, 0
@@ -8481,23 +8482,23 @@ _ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread: ; preds = %19, %21, %15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #21
   %29 = udiv i64 %1, 1000000
-  %30 = load i64, ptr %3, align 8, !tbaa !199
+  %30 = load i64, ptr %3, align 8, !tbaa !200
   %31 = add nsw i64 %30, %29
-  store i64 %31, ptr %3, align 8, !tbaa !199
+  store i64 %31, ptr %3, align 8, !tbaa !200
   %32 = urem i64 %1, 1000000
   %33 = mul nuw nsw i64 %32, 1000
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !201
+  %35 = load i64, ptr %34, align 8, !tbaa !202
   %36 = add nsw i64 %35, %33
-  store i64 %36, ptr %34, align 8, !tbaa !201
+  store i64 %36, ptr %34, align 8, !tbaa !202
   %37 = icmp sgt i64 %36, 999999999
   br i1 %37, label %38, label %.preheader26
 
 38:                                               ; preds = %26
   %39 = add nsw i64 %36, -1000000000
-  store i64 %39, ptr %34, align 8, !tbaa !201
+  store i64 %39, ptr %34, align 8, !tbaa !202
   %40 = add nsw i64 %31, 1
-  store i64 %40, ptr %3, align 8, !tbaa !199
+  store i64 %40, ptr %3, align 8, !tbaa !200
   br label %.preheader26
 
 .preheader26:                                     ; preds = %38, %26
@@ -8512,7 +8513,7 @@ _ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread: ; preds = %19, %21, %15
   %45 = tail call ptr @__errno_location() #26
   %46 = load i32, ptr %45, align 4, !tbaa !4
   %47 = icmp eq i32 %46, 4
-  br i1 %47, label %41, label %_ZN10moodycamel9spsc_sema9Semaphore10timed_waitEm.exit.thread, !llvm.loop !202
+  br i1 %47, label %41, label %_ZN10moodycamel9spsc_sema9Semaphore10timed_waitEm.exit.thread, !llvm.loop !203
 
 _ZN10moodycamel9spsc_sema9Semaphore10timed_waitEm.exit.thread: ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -8548,12 +8549,12 @@ _ZN10moodycamel9spsc_sema9Semaphore10timed_waitEm.exit: ; preds = %41
   %58 = tail call ptr @__errno_location() #26
   %59 = load i32, ptr %58, align 4, !tbaa !4
   %60 = icmp eq i32 %59, 4
-  br i1 %60, label %.preheader, label %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread, !llvm.loop !203
+  br i1 %60, label %.preheader, label %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread, !llvm.loop !204
 
 _ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread: ; preds = %.preheader, %57, %53
   %61 = atomicrmw add ptr %0, i64 1 release, align 8
   %62 = icmp slt i64 %61, 0
-  br i1 %62, label %.loopexit, label %53, !llvm.loop !204
+  br i1 %62, label %.loopexit, label %53, !llvm.loop !205
 
 .loopexit:                                        ; preds = %19, %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread, %.preheader, %49, %_ZN10moodycamel9spsc_sema9Semaphore10timed_waitEm.exit, %12, %8
   %.08 = phi i1 [ true, %8 ], [ false, %49 ], [ true, %12 ], [ true, %.preheader ], [ true, %_ZN10moodycamel9spsc_sema9Semaphore10timed_waitEm.exit ], [ false, %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread ], [ true, %19 ]
@@ -8583,7 +8584,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 3:                                                ; preds = %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i, %1
   %.06.i.i = phi i64 [ 0, %1 ], [ %32, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i ]
-  %4 = load ptr, ptr %0, align 8, !tbaa !205
+  %4 = load ptr, ptr %0, align 8, !tbaa !206
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !88
   %7 = load atomic i64, ptr %6 monotonic, align 8
@@ -8619,7 +8620,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br i1 %28, label %26, label %.loopexit.i.i, !llvm.loop !101
 
 .loopexit.i.i:                                    ; preds = %26, %9
-  %29 = load ptr, ptr %2, align 8, !tbaa !207
+  %29 = load ptr, ptr %2, align 8, !tbaa !208
   %30 = load i32, ptr %29, align 4, !tbaa !4
   %31 = add nsw i32 %30, %20
   store i32 %31, ptr %29, align 4, !tbaa !4
@@ -8628,7 +8629,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 _ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i: ; preds = %.loopexit.i.i, %3
   %32 = add nuw nsw i64 %.06.i.i, 1
   %.not.i.i = icmp eq i64 %32, 2000000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE_EEvOT_.exit, label %3, !llvm.loop !208
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE_EEvOT_.exit, label %3, !llvm.loop !209
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE_EEvOT_.exit: ; preds = %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
@@ -8657,7 +8658,7 @@ define linkonce_odr dso_local void @_ZZ12runBenchmarkI41BlockingReaderWriterCirc
   br i1 %5, label %6, label %62
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !209
+  %7 = load ptr, ptr %0, align 8, !tbaa !210
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !88
   %10 = load atomic i64, ptr %9 monotonic, align 8
@@ -8678,7 +8679,7 @@ _ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i: ; preds = %_ZN1
   fence syncscope("singlethread") acquire
   %17 = add nsw i32 %13, -1
   %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %18, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i, !llvm.loop !197
+  br i1 %.not.i, label %18, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i, !llvm.loop !198
 
 18:                                               ; preds = %16
   %19 = atomicrmw add ptr %12, i64 -1 acquire, align 8
@@ -8700,7 +8701,7 @@ _ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i: ; preds = %_ZN1
   %26 = tail call ptr @__errno_location() #26
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = icmp eq i32 %27, 4
-  br i1 %28, label %23, label %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i, !llvm.loop !198
+  br i1 %28, label %23, label %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i, !llvm.loop !199
 
 _ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i: ; preds = %25, %23
   %29 = atomicrmw add ptr %12, i64 1 release, align 8
@@ -8723,12 +8724,12 @@ _ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i: ; preds = %25, %23
   %35 = tail call ptr @__errno_location() #26
   %36 = load i32, ptr %35, align 4, !tbaa !4
   %37 = icmp eq i32 %36, 4
-  br i1 %37, label %.preheader.i, label %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i, !llvm.loop !203
+  br i1 %37, label %.preheader.i, label %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i, !llvm.loop !204
 
 _ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i: ; preds = %34, %.preheader.i, %.lr.ph.i
   %38 = atomicrmw add ptr %12, i64 1 release, align 8
   %39 = icmp slt i64 %38, 0
-  br i1 %39, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit, label %.lr.ph.i, !llvm.loop !204
+  br i1 %39, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit, label %.lr.ph.i, !llvm.loop !205
 
 _ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit: ; preds = %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i, %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i
   %40 = load ptr, ptr %8, align 8, !tbaa !88
@@ -8776,7 +8777,7 @@ _ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit: ; preds = %5
   %.1 = phi i32 [ %61, %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit ], [ %.0412, %3 ]
   %63 = add nuw nsw i64 %.013, 1
   %.not = icmp eq i64 %63, 1000000
-  br i1 %.not, label %2, label %3, !llvm.loop !211
+  br i1 %.not, label %2, label %3, !llvm.loop !212
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8789,15 +8790,15 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 6:                                                ; preds = %41, %1
   %.02.i.i = phi i64 [ 0, %1 ], [ %42, %41 ]
-  %7 = load ptr, ptr %0, align 8, !tbaa !212
-  %8 = load ptr, ptr %2, align 8, !tbaa !214
+  %7 = load ptr, ptr %0, align 8, !tbaa !213
+  %8 = load ptr, ptr %2, align 8, !tbaa !215
   %9 = tail call noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %7)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %41
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr %3, align 8, !tbaa !215
-  %13 = load ptr, ptr %4, align 8, !tbaa !216
+  %12 = load ptr, ptr %3, align 8, !tbaa !216
+  %13 = load ptr, ptr %4, align 8, !tbaa !217
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !88
   %16 = load atomic i64, ptr %15 monotonic, align 8
@@ -8834,7 +8835,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br i1 %37, label %35, label %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i, !llvm.loop !101
 
 _ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i: ; preds = %35, %18, %11
-  %38 = load ptr, ptr %5, align 8, !tbaa !217
+  %38 = load ptr, ptr %5, align 8, !tbaa !218
   %39 = load i32, ptr %38, align 4, !tbaa !4
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 4, !tbaa !4
@@ -8843,7 +8844,7 @@ _ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit
 41:                                               ; preds = %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i, %6
   %42 = add nuw nsw i64 %.02.i.i, 1
   %.not.i.i = icmp eq i64 %42, 120000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE1_EEvOT_.exit, label %6, !llvm.loop !218
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE1_EEvOT_.exit, label %6, !llvm.loop !219
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE1_EEvOT_.exit: ; preds = %41
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #24
@@ -8867,7 +8868,7 @@ define linkonce_odr dso_local void @_ZZ12runBenchmarkI41BlockingReaderWriterCirc
 3:                                                ; preds = %1, %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit
   %.012 = phi i64 [ 0, %1 ], [ %58, %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit ]
   %indvars21 = trunc i64 %.012 to i32
-  %4 = load ptr, ptr %0, align 8, !tbaa !219
+  %4 = load ptr, ptr %0, align 8, !tbaa !220
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !88
   %7 = load atomic i64, ptr %6 monotonic, align 8
@@ -8888,7 +8889,7 @@ _ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i: ; preds = %_ZN1
   fence syncscope("singlethread") acquire
   %14 = add nsw i32 %10, -1
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %15, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i, !llvm.loop !197
+  br i1 %.not.i, label %15, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i, !llvm.loop !198
 
 15:                                               ; preds = %13
   %16 = atomicrmw add ptr %9, i64 -1 acquire, align 8
@@ -8910,7 +8911,7 @@ _ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i: ; preds = %_ZN1
   %23 = tail call ptr @__errno_location() #26
   %24 = load i32, ptr %23, align 4, !tbaa !4
   %25 = icmp eq i32 %24, 4
-  br i1 %25, label %20, label %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i, !llvm.loop !198
+  br i1 %25, label %20, label %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i, !llvm.loop !199
 
 _ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i: ; preds = %22, %20
   %26 = atomicrmw add ptr %9, i64 1 release, align 8
@@ -8933,12 +8934,12 @@ _ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i: ; preds = %22, %20
   %32 = tail call ptr @__errno_location() #26
   %33 = load i32, ptr %32, align 4, !tbaa !4
   %34 = icmp eq i32 %33, 4
-  br i1 %34, label %.preheader.i, label %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i, !llvm.loop !203
+  br i1 %34, label %.preheader.i, label %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i, !llvm.loop !204
 
 _ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i: ; preds = %31, %.preheader.i, %.lr.ph.i
   %35 = atomicrmw add ptr %9, i64 1 release, align 8
   %36 = icmp slt i64 %35, 0
-  br i1 %36, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit, label %.lr.ph.i, !llvm.loop !204
+  br i1 %36, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit, label %.lr.ph.i, !llvm.loop !205
 
 _ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit: ; preds = %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i, %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i
   %37 = load ptr, ptr %5, align 8, !tbaa !88
@@ -8981,7 +8982,7 @@ _ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit:
 _ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit: ; preds = %55, %.loopexit.i.i
   %58 = add nuw nsw i64 %.012, 1
   %.not = icmp eq i64 %58, 1200000
-  br i1 %.not, label %2, label %3, !llvm.loop !221
+  br i1 %.not, label %2, label %3, !llvm.loop !222
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8991,8 +8992,8 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 3:                                                ; preds = %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i, %1
   %.02.i.i = phi i64 [ 0, %1 ], [ %30, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i ]
-  %4 = load ptr, ptr %0, align 8, !tbaa !222
-  %5 = load ptr, ptr %2, align 8, !tbaa !224
+  %4 = load ptr, ptr %0, align 8, !tbaa !223
+  %5 = load ptr, ptr %2, align 8, !tbaa !225
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !88
   %8 = load atomic i64, ptr %7 monotonic, align 8
@@ -9031,7 +9032,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 _ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i: ; preds = %27, %10, %3
   %30 = add nuw nsw i64 %.02.i.i, 1
   %.not.i.i = icmp eq i64 %30, 1200000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE3_EEvOT_.exit, label %3, !llvm.loop !225
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE3_EEvOT_.exit, label %3, !llvm.loop !226
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE3_EEvOT_.exit: ; preds = %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
@@ -9053,21 +9054,21 @@ define linkonce_odr dso_local void @_ZZ12runBenchmarkI41BlockingReaderWriterCirc
 
 4:                                                ; preds = %68
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !226
+  %6 = load ptr, ptr %5, align 8, !tbaa !227
   store i32 %.1, ptr %6, align 4, !tbaa !4
   ret void
 
 7:                                                ; preds = %1, %68
   %.013 = phi i64 [ 0, %1 ], [ %69, %68 ]
   %.0412 = phi i32 [ 0, %1 ], [ %.1, %68 ]
-  %8 = load ptr, ptr %0, align 8, !tbaa !228
-  %9 = load ptr, ptr %2, align 8, !tbaa !229
+  %8 = load ptr, ptr %0, align 8, !tbaa !229
+  %9 = load ptr, ptr %2, align 8, !tbaa !230
   %10 = tail call noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %8)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %68
 
 12:                                               ; preds = %7
-  %13 = load ptr, ptr %3, align 8, !tbaa !230
+  %13 = load ptr, ptr %3, align 8, !tbaa !231
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !88
   %16 = load atomic i64, ptr %15 monotonic, align 8
@@ -9088,7 +9089,7 @@ _ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i: ; preds = %_ZN1
   fence syncscope("singlethread") acquire
   %23 = add nsw i32 %19, -1
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %24, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i, !llvm.loop !197
+  br i1 %.not.i, label %24, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i, !llvm.loop !198
 
 24:                                               ; preds = %22
   %25 = atomicrmw add ptr %18, i64 -1 acquire, align 8
@@ -9110,7 +9111,7 @@ _ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i: ; preds = %_ZN1
   %32 = tail call ptr @__errno_location() #26
   %33 = load i32, ptr %32, align 4, !tbaa !4
   %34 = icmp eq i32 %33, 4
-  br i1 %34, label %29, label %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i, !llvm.loop !198
+  br i1 %34, label %29, label %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i, !llvm.loop !199
 
 _ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i: ; preds = %31, %29
   %35 = atomicrmw add ptr %18, i64 1 release, align 8
@@ -9133,12 +9134,12 @@ _ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i: ; preds = %31, %29
   %41 = tail call ptr @__errno_location() #26
   %42 = load i32, ptr %41, align 4, !tbaa !4
   %43 = icmp eq i32 %42, 4
-  br i1 %43, label %.preheader.i, label %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i, !llvm.loop !203
+  br i1 %43, label %.preheader.i, label %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i, !llvm.loop !204
 
 _ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i: ; preds = %40, %.preheader.i, %.lr.ph.i
   %44 = atomicrmw add ptr %18, i64 1 release, align 8
   %45 = icmp slt i64 %44, 0
-  br i1 %45, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit, label %.lr.ph.i, !llvm.loop !204
+  br i1 %45, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit, label %.lr.ph.i, !llvm.loop !205
 
 _ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit: ; preds = %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i, %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i
   %46 = load ptr, ptr %14, align 8, !tbaa !88
@@ -9186,7 +9187,7 @@ _ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit: ; preds = %6
   %.1 = phi i32 [ %67, %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit ], [ %.0412, %7 ]
   %69 = add nuw nsw i64 %.013, 1
   %.not = icmp eq i64 %69, 120000
-  br i1 %.not, label %4, label %7, !llvm.loop !231
+  br i1 %.not, label %4, label %7, !llvm.loop !232
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9196,8 +9197,8 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 3:                                                ; preds = %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i, %1
   %.02.i.i = phi i64 [ 0, %1 ], [ %30, %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i ]
-  %4 = load ptr, ptr %0, align 8, !tbaa !232
-  %5 = load ptr, ptr %2, align 8, !tbaa !234
+  %4 = load ptr, ptr %0, align 8, !tbaa !233
+  %5 = load ptr, ptr %2, align 8, !tbaa !235
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !88
   %8 = load atomic i64, ptr %7 monotonic, align 8
@@ -9236,7 +9237,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 _ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i: ; preds = %27, %10, %3
   %30 = add nuw nsw i64 %.02.i.i, 1
   %.not.i.i = icmp eq i64 %30, 1000000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE5_EEvOT_.exit, label %3, !llvm.loop !235
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE5_EEvOT_.exit, label %3, !llvm.loop !236
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE5_EEvOT_.exit: ; preds = %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
@@ -9260,7 +9261,7 @@ define linkonce_odr dso_local void @_ZZ12runBenchmarkI41BlockingReaderWriterCirc
 3:                                                ; preds = %1, %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit
   %.012 = phi i64 [ 0, %1 ], [ %58, %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit ]
   %indvars21 = trunc i64 %.012 to i32
-  %4 = load ptr, ptr %0, align 8, !tbaa !236
+  %4 = load ptr, ptr %0, align 8, !tbaa !237
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !88
   %7 = load atomic i64, ptr %6 monotonic, align 8
@@ -9281,7 +9282,7 @@ _ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i: ; preds = %_ZN1
   fence syncscope("singlethread") acquire
   %14 = add nsw i32 %10, -1
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %15, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i, !llvm.loop !197
+  br i1 %.not.i, label %15, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i, !llvm.loop !198
 
 15:                                               ; preds = %13
   %16 = atomicrmw add ptr %9, i64 -1 acquire, align 8
@@ -9303,7 +9304,7 @@ _ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i: ; preds = %_ZN1
   %23 = tail call ptr @__errno_location() #26
   %24 = load i32, ptr %23, align 4, !tbaa !4
   %25 = icmp eq i32 %24, 4
-  br i1 %25, label %20, label %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i, !llvm.loop !198
+  br i1 %25, label %20, label %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i, !llvm.loop !199
 
 _ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i: ; preds = %22, %20
   %26 = atomicrmw add ptr %9, i64 1 release, align 8
@@ -9326,12 +9327,12 @@ _ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i: ; preds = %22, %20
   %32 = tail call ptr @__errno_location() #26
   %33 = load i32, ptr %32, align 4, !tbaa !4
   %34 = icmp eq i32 %33, 4
-  br i1 %34, label %.preheader.i, label %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i, !llvm.loop !203
+  br i1 %34, label %.preheader.i, label %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i, !llvm.loop !204
 
 _ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i: ; preds = %31, %.preheader.i, %.lr.ph.i
   %35 = atomicrmw add ptr %9, i64 1 release, align 8
   %36 = icmp slt i64 %35, 0
-  br i1 %36, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit, label %.lr.ph.i, !llvm.loop !204
+  br i1 %36, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit, label %.lr.ph.i, !llvm.loop !205
 
 _ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit: ; preds = %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i, %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i
   %37 = load ptr, ptr %5, align 8, !tbaa !88
@@ -9374,7 +9375,7 @@ _ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit:
 _ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit: ; preds = %55, %.loopexit.i.i
   %58 = add nuw nsw i64 %.012, 1
   %.not = icmp eq i64 %58, 1000000
-  br i1 %.not, label %2, label %3, !llvm.loop !238
+  br i1 %.not, label %2, label %3, !llvm.loop !239
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9382,7 +9383,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %2 = alloca %"class.std::linear_congruential_engine", align 8
   %3 = alloca %"class.std::uniform_int_distribution", align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %4 = load ptr, ptr %0, align 8, !tbaa !239
+  %4 = load ptr, ptr %0, align 8, !tbaa !240
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = urem i32 %5, 2147483647
   %7 = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
@@ -9404,8 +9405,8 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br i1 %14, label %15, label %45
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr %9, align 8, !tbaa !241
-  %17 = load ptr, ptr %10, align 8, !tbaa !242
+  %16 = load ptr, ptr %9, align 8, !tbaa !242
+  %17 = load ptr, ptr %10, align 8, !tbaa !243
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !88
   %20 = load atomic i64, ptr %19 monotonic, align 8
@@ -9442,7 +9443,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br i1 %41, label %39, label %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i, !llvm.loop !101
 
 _ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i: ; preds = %39, %22, %15
-  %42 = load ptr, ptr %11, align 8, !tbaa !243
+  %42 = load ptr, ptr %11, align 8, !tbaa !244
   %43 = load i32, ptr %42, align 4, !tbaa !4
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %42, align 4, !tbaa !4
@@ -9451,7 +9452,7 @@ _ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit
 45:                                               ; preds = %_ZN10moodycamel34BlockingReaderWriterCircularBufferIiE11try_dequeueIiEEbRT_.exit.i.i, %12
   %46 = add nuw nsw i64 %.02.i.i, 1
   %.not.i.i = icmp eq i64 %46, 800000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE7_EEvOT_.exit, label %12, !llvm.loop !244
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE7_EEvOT_.exit, label %12, !llvm.loop !245
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE7_EEvOT_.exit: ; preds = %45
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -9472,7 +9473,7 @@ define linkonce_odr dso_local void @_ZZ12runBenchmarkI41BlockingReaderWriterCirc
   %2 = alloca %"class.std::linear_congruential_engine", align 8
   %3 = alloca %"class.std::uniform_int_distribution", align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %4 = load ptr, ptr %0, align 8, !tbaa !245
+  %4 = load ptr, ptr %0, align 8, !tbaa !246
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = mul i32 %5, 3
   %7 = add i32 %6, -1
@@ -9489,7 +9490,7 @@ define linkonce_odr dso_local void @_ZZ12runBenchmarkI41BlockingReaderWriterCirc
 
 12:                                               ; preds = %74
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !247
+  %14 = load ptr, ptr %13, align 8, !tbaa !248
   store i32 %.1, ptr %14, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -9503,7 +9504,7 @@ define linkonce_odr dso_local void @_ZZ12runBenchmarkI41BlockingReaderWriterCirc
   br i1 %17, label %18, label %74
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr %11, align 8, !tbaa !248
+  %19 = load ptr, ptr %11, align 8, !tbaa !249
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !88
   %22 = load atomic i64, ptr %21 monotonic, align 8
@@ -9524,7 +9525,7 @@ _ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i: ; preds = %_ZN1
   fence syncscope("singlethread") acquire
   %29 = add nsw i32 %25, -1
   %.not.i = icmp eq i32 %25, 0
-  br i1 %.not.i, label %30, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i, !llvm.loop !197
+  br i1 %.not.i, label %30, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i, !llvm.loop !198
 
 30:                                               ; preds = %28
   %31 = atomicrmw add ptr %24, i64 -1 acquire, align 8
@@ -9546,7 +9547,7 @@ _ZN10moodycamel9spsc_sema20LightweightSemaphore4waitEv.exit.i.i: ; preds = %_ZN1
   %38 = tail call ptr @__errno_location() #26
   %39 = load i32, ptr %38, align 4, !tbaa !4
   %40 = icmp eq i32 %39, 4
-  br i1 %40, label %35, label %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i, !llvm.loop !198
+  br i1 %40, label %35, label %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i, !llvm.loop !199
 
 _ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i: ; preds = %37, %35
   %41 = atomicrmw add ptr %24, i64 1 release, align 8
@@ -9569,12 +9570,12 @@ _ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i: ; preds = %37, %35
   %47 = tail call ptr @__errno_location() #26
   %48 = load i32, ptr %47, align 4, !tbaa !4
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %.preheader.i, label %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i, !llvm.loop !203
+  br i1 %49, label %.preheader.i, label %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i, !llvm.loop !204
 
 _ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i: ; preds = %46, %.preheader.i, %.lr.ph.i
   %50 = atomicrmw add ptr %24, i64 1 release, align 8
   %51 = icmp slt i64 %50, 0
-  br i1 %51, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit, label %.lr.ph.i, !llvm.loop !204
+  br i1 %51, label %_ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit, label %.lr.ph.i, !llvm.loop !205
 
 _ZN10moodycamel9spsc_sema20LightweightSemaphore23waitWithPartialSpinningEl.exit: ; preds = %_ZN10moodycamel9spsc_sema9Semaphore8try_waitEv.exit.thread.i, %_ZN10moodycamel9spsc_sema9Semaphore4waitEv.exit.thread.i
   %52 = load ptr, ptr %20, align 8, !tbaa !88
@@ -9622,7 +9623,7 @@ _ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit: ; preds = %7
   %.1 = phi i32 [ %73, %_ZN41BlockingReaderWriterCircularBufferAdapterIiE7enqueueERKi.exit ], [ %.0412, %15 ]
   %75 = add nuw nsw i64 %.013, 1
   %.not = icmp eq i64 %75, 800000
-  br i1 %.not, label %12, label %15, !llvm.loop !249
+  br i1 %.not, label %12, label %15, !llvm.loop !250
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9632,7 +9633,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 3:                                                ; preds = %_ZN10spsc_queueIiE11try_dequeueERi.exit.i.i, %1
   %.06.i.i = phi i64 [ 0, %1 ], [ %15, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i.i ]
-  %4 = load ptr, ptr %0, align 8, !tbaa !250
+  %4 = load ptr, ptr %0, align 8, !tbaa !251
   %5 = load ptr, ptr %4, align 8, !tbaa !113
   %6 = load volatile ptr, ptr %5, align 8, !tbaa !115
   fence syncscope("singlethread") seq_cst
@@ -9646,7 +9647,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %11 = load i32, ptr %10, align 8, !tbaa !116
   fence syncscope("singlethread") seq_cst
   store volatile ptr %9, ptr %4, align 8, !tbaa !115
-  %12 = load ptr, ptr %2, align 8, !tbaa !252
+  %12 = load ptr, ptr %2, align 8, !tbaa !253
   %13 = load i32, ptr %12, align 4, !tbaa !4
   %14 = add nsw i32 %13, %11
   store i32 %14, ptr %12, align 4, !tbaa !4
@@ -9655,7 +9656,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 _ZN10spsc_queueIiE11try_dequeueERi.exit.i.i:      ; preds = %7, %3
   %15 = add nuw nsw i64 %.06.i.i, 1
   %.not.i.i = icmp eq i64 %15, 2000000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE_EEvOT_.exit, label %3, !llvm.loop !253
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE_EEvOT_.exit, label %3, !llvm.loop !254
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE_EEvOT_.exit: ; preds = %_ZN10spsc_queueIiE11try_dequeueERi.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
@@ -9674,7 +9675,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br i1 %4, label %5, label %24
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !254
+  %6 = load ptr, ptr %0, align 8, !tbaa !255
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %8 = load ptr, ptr %7, align 8, !tbaa !124
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -9721,7 +9722,7 @@ _ZN10spsc_queueIiE7enqueueEi.exit.i.i:            ; preds = %18, %16, %11
   %.1.i.i = phi i32 [ %23, %_ZN10spsc_queueIiE7enqueueEi.exit.i.i ], [ %.056.i.i, %2 ]
   %25 = add nuw nsw i64 %.07.i.i, 1
   %.not.i.i = icmp eq i64 %25, 1000000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE0_EEvOT_.exit, label %2, !llvm.loop !256
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE0_EEvOT_.exit, label %2, !llvm.loop !257
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE0_EEvOT_.exit: ; preds = %24
   tail call void @_ZdlPvm(ptr noundef %0, i64 noundef 16) #24
@@ -9738,15 +9739,15 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 6:                                                ; preds = %24, %1
   %.02.i.i = phi i64 [ 0, %1 ], [ %25, %24 ]
-  %7 = load ptr, ptr %0, align 8, !tbaa !257
-  %8 = load ptr, ptr %2, align 8, !tbaa !259
+  %7 = load ptr, ptr %0, align 8, !tbaa !258
+  %8 = load ptr, ptr %2, align 8, !tbaa !260
   %9 = tail call noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %7)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %24
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr %3, align 8, !tbaa !260
-  %13 = load ptr, ptr %4, align 8, !tbaa !261
+  %12 = load ptr, ptr %3, align 8, !tbaa !261
+  %13 = load ptr, ptr %4, align 8, !tbaa !262
   %14 = load ptr, ptr %12, align 8, !tbaa !113
   %15 = load volatile ptr, ptr %14, align 8, !tbaa !115
   fence syncscope("singlethread") seq_cst
@@ -9764,7 +9765,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br label %_ZN10spsc_queueIiE11try_dequeueERi.exit.i.i
 
 _ZN10spsc_queueIiE11try_dequeueERi.exit.i.i:      ; preds = %16, %11
-  %21 = load ptr, ptr %5, align 8, !tbaa !262
+  %21 = load ptr, ptr %5, align 8, !tbaa !263
   %22 = load i32, ptr %21, align 4, !tbaa !4
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %21, align 4, !tbaa !4
@@ -9773,7 +9774,7 @@ _ZN10spsc_queueIiE11try_dequeueERi.exit.i.i:      ; preds = %16, %11
 24:                                               ; preds = %_ZN10spsc_queueIiE11try_dequeueERi.exit.i.i, %6
   %25 = add nuw nsw i64 %.02.i.i, 1
   %.not.i.i = icmp eq i64 %25, 120000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE1_EEvOT_.exit, label %6, !llvm.loop !263
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE1_EEvOT_.exit, label %6, !llvm.loop !264
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE1_EEvOT_.exit: ; preds = %24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #24
@@ -9787,7 +9788,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 2:                                                ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i.i, %1
   %.06.i.i = phi i64 [ 0, %1 ], [ %20, %_ZN10spsc_queueIiE7enqueueEi.exit.i.i ]
   %indvars7.i.i = trunc i64 %.06.i.i to i32
-  %3 = load ptr, ptr %0, align 8, !tbaa !264
+  %3 = load ptr, ptr %0, align 8, !tbaa !265
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load ptr, ptr %4, align 8, !tbaa !124
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -9829,7 +9830,7 @@ _ZN10spsc_queueIiE7enqueueEi.exit.i.i:            ; preds = %15, %13, %8
   store ptr %.0.i.i.i.i, ptr %18, align 8, !tbaa !125
   %20 = add nuw nsw i64 %.06.i.i, 1
   %.not.i.i = icmp eq i64 %20, 1200000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE2_EEvOT_.exit, label %2, !llvm.loop !266
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE2_EEvOT_.exit, label %2, !llvm.loop !267
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE2_EEvOT_.exit: ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #24
@@ -9843,8 +9844,8 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 3:                                                ; preds = %_ZN10spsc_queueIiE11try_dequeueERi.exit.i.i, %1
   %.02.i.i = phi i64 [ 0, %1 ], [ %13, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i.i ]
-  %4 = load ptr, ptr %0, align 8, !tbaa !267
-  %5 = load ptr, ptr %2, align 8, !tbaa !269
+  %4 = load ptr, ptr %0, align 8, !tbaa !268
+  %5 = load ptr, ptr %2, align 8, !tbaa !270
   %6 = load ptr, ptr %4, align 8, !tbaa !113
   %7 = load volatile ptr, ptr %6, align 8, !tbaa !115
   fence syncscope("singlethread") seq_cst
@@ -9864,7 +9865,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 _ZN10spsc_queueIiE11try_dequeueERi.exit.i.i:      ; preds = %8, %3
   %13 = add nuw nsw i64 %.02.i.i, 1
   %.not.i.i = icmp eq i64 %13, 1200000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE3_EEvOT_.exit, label %3, !llvm.loop !270
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE3_EEvOT_.exit, label %3, !llvm.loop !271
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE3_EEvOT_.exit: ; preds = %_ZN10spsc_queueIiE11try_dequeueERi.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
@@ -9880,14 +9881,14 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 4:                                                ; preds = %28, %1
   %.07.i.i = phi i64 [ 0, %1 ], [ %29, %28 ]
   %.056.i.i = phi i32 [ 0, %1 ], [ %.1.i.i, %28 ]
-  %5 = load ptr, ptr %0, align 8, !tbaa !271
-  %6 = load ptr, ptr %2, align 8, !tbaa !273
+  %5 = load ptr, ptr %0, align 8, !tbaa !272
+  %6 = load ptr, ptr %2, align 8, !tbaa !274
   %7 = tail call noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %5)
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %28
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %3, align 8, !tbaa !274
+  %10 = load ptr, ptr %3, align 8, !tbaa !275
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8, !tbaa !124
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 88
@@ -9934,11 +9935,11 @@ _ZN10spsc_queueIiE7enqueueEi.exit.i.i:            ; preds = %22, %20, %15
   %.1.i.i = phi i32 [ %27, %_ZN10spsc_queueIiE7enqueueEi.exit.i.i ], [ %.056.i.i, %4 ]
   %29 = add nuw nsw i64 %.07.i.i, 1
   %.not.i.i = icmp eq i64 %29, 120000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE4_EEvOT_.exit, label %4, !llvm.loop !275
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE4_EEvOT_.exit, label %4, !llvm.loop !276
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE4_EEvOT_.exit: ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !276
+  %31 = load ptr, ptr %30, align 8, !tbaa !277
   store i32 %.1.i.i, ptr %31, align 4, !tbaa !4
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #24
   ret void
@@ -9951,8 +9952,8 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 3:                                                ; preds = %_ZN10spsc_queueIiE11try_dequeueERi.exit.i.i, %1
   %.02.i.i = phi i64 [ 0, %1 ], [ %13, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i.i ]
-  %4 = load ptr, ptr %0, align 8, !tbaa !277
-  %5 = load ptr, ptr %2, align 8, !tbaa !279
+  %4 = load ptr, ptr %0, align 8, !tbaa !278
+  %5 = load ptr, ptr %2, align 8, !tbaa !280
   %6 = load ptr, ptr %4, align 8, !tbaa !113
   %7 = load volatile ptr, ptr %6, align 8, !tbaa !115
   fence syncscope("singlethread") seq_cst
@@ -9972,7 +9973,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 _ZN10spsc_queueIiE11try_dequeueERi.exit.i.i:      ; preds = %8, %3
   %13 = add nuw nsw i64 %.02.i.i, 1
   %.not.i.i = icmp eq i64 %13, 1000000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE5_EEvOT_.exit, label %3, !llvm.loop !280
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE5_EEvOT_.exit, label %3, !llvm.loop !281
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE5_EEvOT_.exit: ; preds = %_ZN10spsc_queueIiE11try_dequeueERi.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
@@ -9986,7 +9987,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 2:                                                ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i.i, %1
   %.06.i.i = phi i64 [ 0, %1 ], [ %20, %_ZN10spsc_queueIiE7enqueueEi.exit.i.i ]
   %indvars7.i.i = trunc i64 %.06.i.i to i32
-  %3 = load ptr, ptr %0, align 8, !tbaa !281
+  %3 = load ptr, ptr %0, align 8, !tbaa !282
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load ptr, ptr %4, align 8, !tbaa !124
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -10028,7 +10029,7 @@ _ZN10spsc_queueIiE7enqueueEi.exit.i.i:            ; preds = %15, %13, %8
   store ptr %.0.i.i.i.i, ptr %18, align 8, !tbaa !125
   %20 = add nuw nsw i64 %.06.i.i, 1
   %.not.i.i = icmp eq i64 %20, 1000000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE6_EEvOT_.exit, label %2, !llvm.loop !283
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE6_EEvOT_.exit, label %2, !llvm.loop !284
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE6_EEvOT_.exit: ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #24
@@ -10040,7 +10041,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %2 = alloca %"class.std::linear_congruential_engine", align 8
   %3 = alloca %"class.std::uniform_int_distribution", align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %4 = load ptr, ptr %0, align 8, !tbaa !284
+  %4 = load ptr, ptr %0, align 8, !tbaa !285
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = urem i32 %5, 2147483647
   %7 = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
@@ -10062,8 +10063,8 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br i1 %14, label %15, label %28
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr %9, align 8, !tbaa !286
-  %17 = load ptr, ptr %10, align 8, !tbaa !287
+  %16 = load ptr, ptr %9, align 8, !tbaa !287
+  %17 = load ptr, ptr %10, align 8, !tbaa !288
   %18 = load ptr, ptr %16, align 8, !tbaa !113
   %19 = load volatile ptr, ptr %18, align 8, !tbaa !115
   fence syncscope("singlethread") seq_cst
@@ -10081,7 +10082,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br label %_ZN10spsc_queueIiE11try_dequeueERi.exit.i.i
 
 _ZN10spsc_queueIiE11try_dequeueERi.exit.i.i:      ; preds = %20, %15
-  %25 = load ptr, ptr %11, align 8, !tbaa !288
+  %25 = load ptr, ptr %11, align 8, !tbaa !289
   %26 = load i32, ptr %25, align 4, !tbaa !4
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %25, align 4, !tbaa !4
@@ -10090,7 +10091,7 @@ _ZN10spsc_queueIiE11try_dequeueERi.exit.i.i:      ; preds = %20, %15
 28:                                               ; preds = %_ZN10spsc_queueIiE11try_dequeueERi.exit.i.i, %12
   %29 = add nuw nsw i64 %.02.i.i, 1
   %.not.i.i = icmp eq i64 %29, 800000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE7_EEvOT_.exit, label %12, !llvm.loop !289
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE7_EEvOT_.exit, label %12, !llvm.loop !290
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE7_EEvOT_.exit: ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -10104,7 +10105,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %2 = alloca %"class.std::linear_congruential_engine", align 8
   %3 = alloca %"class.std::uniform_int_distribution", align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %4 = load ptr, ptr %0, align 8, !tbaa !290
+  %4 = load ptr, ptr %0, align 8, !tbaa !291
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = mul i32 %5, 3
   %7 = add i32 %6, -1
@@ -10127,7 +10128,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br i1 %14, label %15, label %34
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr %11, align 8, !tbaa !292
+  %16 = load ptr, ptr %11, align 8, !tbaa !293
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %18 = load ptr, ptr %17, align 8, !tbaa !124
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 88
@@ -10174,11 +10175,11 @@ _ZN10spsc_queueIiE7enqueueEi.exit.i.i:            ; preds = %28, %26, %21
   %.1.i.i = phi i32 [ %33, %_ZN10spsc_queueIiE7enqueueEi.exit.i.i ], [ %.056.i.i, %12 ]
   %35 = add nuw nsw i64 %.07.i.i, 1
   %.not.i.i = icmp eq i64 %35, 800000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE8_EEvOT_.exit, label %12, !llvm.loop !293
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE8_EEvOT_.exit, label %12, !llvm.loop !294
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE8_EEvOT_.exit: ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !294
+  %37 = load ptr, ptr %36, align 8, !tbaa !295
   store i32 %.1.i.i, ptr %37, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -10193,7 +10194,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 3:                                                ; preds = %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i, %1
   %.07.i.i = phi i64 [ 0, %1 ], [ %21, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i ]
-  %4 = load ptr, ptr %0, align 8, !tbaa !295
+  %4 = load ptr, ptr %0, align 8, !tbaa !296
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -10212,7 +10213,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %16 = getelementptr inbounds i32, ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !4
   store atomic i32 %spec.store.select.i.i.i, ptr %5 release, align 8
-  %18 = load ptr, ptr %2, align 8, !tbaa !297
+  %18 = load ptr, ptr %2, align 8, !tbaa !298
   %19 = load i32, ptr %18, align 4, !tbaa !4
   %20 = add nsw i32 %19, %17
   store i32 %20, ptr %18, align 4, !tbaa !4
@@ -10221,7 +10222,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i: ; preds = %9, %3
   %21 = add nuw nsw i64 %.07.i.i, 1
   %.not.i.i = icmp eq i64 %21, 2000000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE_EEvOT_.exit, label %3, !llvm.loop !298
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE_EEvOT_.exit, label %3, !llvm.loop !299
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE_EEvOT_.exit: ; preds = %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
@@ -10240,7 +10241,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br i1 %4, label %5, label %20
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !299
+  %6 = load ptr, ptr %0, align 8, !tbaa !300
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %8 = load atomic i32, ptr %7 monotonic, align 4
   %9 = add nsw i32 %8, 1
@@ -10269,7 +10270,7 @@ _ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i: ; preds = %14
   %.1.i.i = phi i32 [ %19, %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i ], [ %.045.i.i, %2 ]
   %21 = add nuw nsw i64 %.06.i.i, 1
   %.not.i.i = icmp eq i64 %21, 1000000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE0_EEvOT_.exit, label %2, !llvm.loop !301
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE0_EEvOT_.exit, label %2, !llvm.loop !302
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE0_EEvOT_.exit: ; preds = %20
   tail call void @_ZdlPvm(ptr noundef %0, i64 noundef 16) #24
@@ -10286,15 +10287,15 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 6:                                                ; preds = %30, %1
   %.03.i.i = phi i64 [ 0, %1 ], [ %31, %30 ]
-  %7 = load ptr, ptr %0, align 8, !tbaa !302
-  %8 = load ptr, ptr %2, align 8, !tbaa !304
+  %7 = load ptr, ptr %0, align 8, !tbaa !303
+  %8 = load ptr, ptr %2, align 8, !tbaa !305
   %9 = tail call noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %7)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %30
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr %3, align 8, !tbaa !305
-  %13 = load ptr, ptr %4, align 8, !tbaa !306
+  %12 = load ptr, ptr %3, align 8, !tbaa !306
+  %13 = load ptr, ptr %4, align 8, !tbaa !307
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load atomic i32, ptr %14 monotonic, align 4
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -10317,7 +10318,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i
 
 _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i: ; preds = %18, %11
-  %27 = load ptr, ptr %5, align 8, !tbaa !307
+  %27 = load ptr, ptr %5, align 8, !tbaa !308
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %27, align 4, !tbaa !4
@@ -10326,7 +10327,7 @@ _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i: ; preds = %18, %11
 30:                                               ; preds = %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i, %6
   %31 = add nuw nsw i64 %.03.i.i, 1
   %.not.i.i = icmp eq i64 %31, 120000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE1_EEvOT_.exit, label %6, !llvm.loop !308
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE1_EEvOT_.exit, label %6, !llvm.loop !309
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE1_EEvOT_.exit: ; preds = %30
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #24
@@ -10339,7 +10340,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 2:                                                ; preds = %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i, %1
   %.05.i.i = phi i64 [ 0, %1 ], [ %16, %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i ]
-  %3 = load ptr, ptr %0, align 8, !tbaa !309
+  %3 = load ptr, ptr %0, align 8, !tbaa !310
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %6 = add nsw i32 %5, 1
@@ -10364,7 +10365,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 _ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i: ; preds = %11, %2
   %16 = add nuw nsw i64 %.05.i.i, 1
   %.not.i.i = icmp eq i64 %16, 1200000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE2_EEvOT_.exit, label %2, !llvm.loop !311
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE2_EEvOT_.exit, label %2, !llvm.loop !312
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE2_EEvOT_.exit: ; preds = %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #24
@@ -10378,8 +10379,8 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 3:                                                ; preds = %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i, %1
   %.03.i.i = phi i64 [ 0, %1 ], [ %19, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i ]
-  %4 = load ptr, ptr %0, align 8, !tbaa !312
-  %5 = load ptr, ptr %2, align 8, !tbaa !314
+  %4 = load ptr, ptr %0, align 8, !tbaa !313
+  %5 = load ptr, ptr %2, align 8, !tbaa !315
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load atomic i32, ptr %6 monotonic, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -10404,7 +10405,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i: ; preds = %10, %3
   %19 = add nuw nsw i64 %.03.i.i, 1
   %.not.i.i = icmp eq i64 %19, 1200000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE3_EEvOT_.exit, label %3, !llvm.loop !315
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE3_EEvOT_.exit, label %3, !llvm.loop !316
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE3_EEvOT_.exit: ; preds = %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
@@ -10420,14 +10421,14 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 4:                                                ; preds = %24, %1
   %.06.i.i = phi i64 [ 0, %1 ], [ %25, %24 ]
   %.045.i.i = phi i32 [ 0, %1 ], [ %.1.i.i, %24 ]
-  %5 = load ptr, ptr %0, align 8, !tbaa !316
-  %6 = load ptr, ptr %2, align 8, !tbaa !318
+  %5 = load ptr, ptr %0, align 8, !tbaa !317
+  %6 = load ptr, ptr %2, align 8, !tbaa !319
   %7 = tail call noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %5)
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %24
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %3, align 8, !tbaa !319
+  %10 = load ptr, ptr %3, align 8, !tbaa !320
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %12 = load atomic i32, ptr %11 monotonic, align 4
   %13 = add nsw i32 %12, 1
@@ -10456,11 +10457,11 @@ _ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i: ; preds = %18
   %.1.i.i = phi i32 [ %23, %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i ], [ %.045.i.i, %4 ]
   %25 = add nuw nsw i64 %.06.i.i, 1
   %.not.i.i = icmp eq i64 %25, 120000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE4_EEvOT_.exit, label %4, !llvm.loop !320
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE4_EEvOT_.exit, label %4, !llvm.loop !321
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE4_EEvOT_.exit: ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !321
+  %27 = load ptr, ptr %26, align 8, !tbaa !322
   store i32 %.1.i.i, ptr %27, align 4, !tbaa !4
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #24
   ret void
@@ -10473,8 +10474,8 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 3:                                                ; preds = %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i, %1
   %.03.i.i = phi i64 [ 0, %1 ], [ %19, %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i ]
-  %4 = load ptr, ptr %0, align 8, !tbaa !322
-  %5 = load ptr, ptr %2, align 8, !tbaa !324
+  %4 = load ptr, ptr %0, align 8, !tbaa !323
+  %5 = load ptr, ptr %2, align 8, !tbaa !325
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load atomic i32, ptr %6 monotonic, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -10499,7 +10500,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i: ; preds = %10, %3
   %19 = add nuw nsw i64 %.03.i.i, 1
   %.not.i.i = icmp eq i64 %19, 1000000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE5_EEvOT_.exit, label %3, !llvm.loop !325
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE5_EEvOT_.exit, label %3, !llvm.loop !326
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE5_EEvOT_.exit: ; preds = %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #24
@@ -10512,7 +10513,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 
 2:                                                ; preds = %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i, %1
   %.05.i.i = phi i64 [ 0, %1 ], [ %16, %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i ]
-  %3 = load ptr, ptr %0, align 8, !tbaa !326
+  %3 = load ptr, ptr %0, align 8, !tbaa !327
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %5 = load atomic i32, ptr %4 monotonic, align 4
   %6 = add nsw i32 %5, 1
@@ -10537,7 +10538,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
 _ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i: ; preds = %11, %2
   %16 = add nuw nsw i64 %.05.i.i, 1
   %.not.i.i = icmp eq i64 %16, 1000000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE6_EEvOT_.exit, label %2, !llvm.loop !328
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE6_EEvOT_.exit, label %2, !llvm.loop !329
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE6_EEvOT_.exit: ; preds = %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #24
@@ -10549,7 +10550,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %2 = alloca %"class.std::linear_congruential_engine", align 8
   %3 = alloca %"class.std::uniform_int_distribution", align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %4 = load ptr, ptr %0, align 8, !tbaa !329
+  %4 = load ptr, ptr %0, align 8, !tbaa !330
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = urem i32 %5, 2147483647
   %7 = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
@@ -10571,8 +10572,8 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br i1 %14, label %15, label %34
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr %9, align 8, !tbaa !331
-  %17 = load ptr, ptr %10, align 8, !tbaa !332
+  %16 = load ptr, ptr %9, align 8, !tbaa !332
+  %17 = load ptr, ptr %10, align 8, !tbaa !333
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = load atomic i32, ptr %18 monotonic, align 4
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 20
@@ -10595,7 +10596,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br label %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i
 
 _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i: ; preds = %22, %15
-  %31 = load ptr, ptr %11, align 8, !tbaa !333
+  %31 = load ptr, ptr %11, align 8, !tbaa !334
   %32 = load i32, ptr %31, align 4, !tbaa !4
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %31, align 4, !tbaa !4
@@ -10604,7 +10605,7 @@ _ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i: ; preds = %22, %15
 34:                                               ; preds = %_ZN5folly21ProducerConsumerQueueIiE11try_dequeueERi.exit.i.i, %12
   %35 = add nuw nsw i64 %.03.i.i, 1
   %.not.i.i = icmp eq i64 %35, 800000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE7_EEvOT_.exit, label %12, !llvm.loop !334
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE7_EEvOT_.exit, label %12, !llvm.loop !335
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE7_EEvOT_.exit: ; preds = %34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -10618,7 +10619,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   %2 = alloca %"class.std::linear_congruential_engine", align 8
   %3 = alloca %"class.std::uniform_int_distribution", align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %4 = load ptr, ptr %0, align 8, !tbaa !335
+  %4 = load ptr, ptr %0, align 8, !tbaa !336
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = mul i32 %5, 3
   %7 = add i32 %6, -1
@@ -10641,7 +10642,7 @@ define linkonce_odr dso_local void @_ZN12SimpleThread15CallbackWrapperIZ12runBen
   br i1 %14, label %15, label %30
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr %11, align 8, !tbaa !337
+  %16 = load ptr, ptr %11, align 8, !tbaa !338
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %18 = load atomic i32, ptr %17 monotonic, align 4
   %19 = add nsw i32 %18, 1
@@ -10670,11 +10671,11 @@ _ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i: ; preds = %24
   %.1.i.i = phi i32 [ %29, %_ZN5folly21ProducerConsumerQueueIiE7enqueueIJRiEEEbDpOT_.exit.i.i ], [ %.045.i.i, %12 ]
   %31 = add nuw nsw i64 %.06.i.i, 1
   %.not.i.i = icmp eq i64 %31, 800000
-  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE8_EEvOT_.exit, label %12, !llvm.loop !338
+  br i1 %.not.i.i, label %_ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE8_EEvOT_.exit, label %12, !llvm.loop !339
 
 _ZNK7details10ArgWrapperIvvvE12callCallbackIZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE8_EEvOT_.exit: ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !339
+  %33 = load ptr, ptr %32, align 8, !tbaa !340
   store i32 %.1.i.i, ptr %33, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -10739,7 +10740,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops1
   %34 = getelementptr inbounds double, ptr %0, i64 %.029.i.i.i.i
   store double %33, ptr %34, align 8, !tbaa !10
   %35 = icmp slt i64 %spec.select.i.i.i.i, %21
-  br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !340
+  br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !341
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -10783,14 +10784,14 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops1
   %52 = getelementptr inbounds double, ptr %0, i64 %.01317.i.i.i.i.i
   store double %49, ptr %52, align 8, !tbaa !10
   %.not9.i.i.i = icmp eq i64 %.018.i.i78.i.i.i, 0
-  br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !341
+  br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !342
 
 _ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %47
   %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %47 ], [ %.01317.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %51 ]
   %53 = getelementptr inbounds double, ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store double %15, ptr %53, align 8, !tbaa !10
   %54 = icmp sgt i64 %18, 8
-  br i1 %54, label %.lr.ph.i.i, label %_ZSt14__partial_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_T0_.exit, !llvm.loop !342
+  br i1 %54, label %.lr.ph.i.i, label %_ZSt14__partial_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_T0_.exit, !llvm.loop !343
 
 55:                                               ; preds = %10
   %56 = add nsw i64 %.01219, -1
@@ -10867,14 +10868,14 @@ _ZSt22__move_median_to_firstIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_S4_T
   %84 = load double, ptr %.1.i.i, align 8, !tbaa !10
   %85 = fcmp olt double %84, %82
   %86 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %85, label %83, label %.preheader.i.i, !llvm.loop !343
+  br i1 %85, label %83, label %.preheader.i.i, !llvm.loop !344
 
 .preheader.i.i:                                   ; preds = %83, %.preheader.i.i
   %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %83 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
   %87 = load double, ptr %.114.i.i, align 8, !tbaa !10
   %88 = fcmp olt double %82, %87
-  br i1 %88, label %.preheader.i.i, label %89, !llvm.loop !344
+  br i1 %88, label %.preheader.i.i, label %89, !llvm.loop !345
 
 89:                                               ; preds = %.preheader.i.i
   %90 = icmp ult ptr %.1.i.i, %.114.i.i
@@ -10883,14 +10884,14 @@ _ZSt22__move_median_to_firstIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_S4_T
 91:                                               ; preds = %89
   store double %87, ptr %.1.i.i, align 8, !tbaa !10
   store double %84, ptr %.114.i.i, align 8, !tbaa !10
-  br label %_ZSt22__move_median_to_firstIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_S4_T0_.exit.i, !llvm.loop !345
+  br label %_ZSt22__move_median_to_firstIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_S4_T0_.exit.i, !llvm.loop !346
 
 _ZSt27__unguarded_partition_pivotIPdN9__gnu_cxx5__ops15_Iter_less_iterEET_S4_S4_T0_.exit: ; preds = %89
   tail call void @_ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.020, i64 noundef %56)
   %92 = ptrtoint ptr %.1.i.i to i64
   %93 = sub i64 %92, %5
   %94 = icmp sgt i64 %93, 128
-  br i1 %94, label %10, label %_ZSt14__partial_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_T0_.exit, !llvm.loop !346
+  br i1 %94, label %10, label %_ZSt14__partial_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_T0_.exit, !llvm.loop !347
 
 _ZSt14__partial_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPdN9__gnu_cxx5__ops15_Iter_less_iterEET_S4_S4_T0_.exit, %_ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i, %3
   ret void
@@ -10945,7 +10946,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPdN9__gnu_cxx5__ops15_Iter
   %34 = getelementptr inbounds double, ptr %0, i64 %.029.i.us
   store double %33, ptr %34, align 8, !tbaa !10
   %35 = icmp slt i64 %spec.select.i.us, %13
-  br i1 %35, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !340
+  br i1 %35, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !341
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   %36 = icmp sgt i64 %spec.select.i.us, %.013.us
@@ -10964,7 +10965,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPdN9__gnu_cxx5__ops15_Iter
   %41 = getelementptr inbounds nuw double, ptr %0, i64 %.01317.i.i.us
   store double %38, ptr %41, align 8, !tbaa !10
   %42 = icmp sgt i64 %.018.i.i.us, %.013.us
-  br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !341
+  br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !342
 
 _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %40, %.split.us, %._crit_edge.i.us
   %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.01317.i.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %40 ]
@@ -10972,7 +10973,7 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   store double %21, ptr %43, align 8, !tbaa !10
   %.not.us = icmp eq i64 %.013.us, 0
   %44 = add nsw i64 %.013.us, -1
-  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !347
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !348
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %.013 = phi i64 [ %73, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit ], [ %11, %.split.preheader ]
@@ -10998,7 +10999,7 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %59 = getelementptr inbounds double, ptr %0, i64 %.029.i
   store double %58, ptr %59, align 8, !tbaa !10
   %60 = icmp slt i64 %spec.select.i, %13
-  br i1 %60, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !340
+  br i1 %60, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !341
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %.013, %.split ], [ %spec.select.i, %.lr.ph.i ]
@@ -11028,7 +11029,7 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %70 = getelementptr inbounds nuw double, ptr %0, i64 %.01317.i.i
   store double %67, ptr %70, align 8, !tbaa !10
   %71 = icmp sgt i64 %.018.i.i, %.013
-  br i1 %71, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit, !llvm.loop !341
+  br i1 %71, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit, !llvm.loop !342
 
 _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit: ; preds = %.lr.ph.i.i, %69, %64
   %.013.lcssa.i.i = phi i64 [ %.128.i, %64 ], [ %.018.i.i, %69 ], [ %.01317.i.i, %.lr.ph.i.i ]
@@ -11036,7 +11037,7 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   store double %46, ptr %72, align 8, !tbaa !10
   %.not = icmp eq i64 %.013, 0
   %73 = add nsw i64 %.013, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !347
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !348
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit, %3
   ret void
@@ -11253,201 +11254,201 @@ attributes #26 = { nounwind willreturn memory(none) }
 !143 = !{!"_ZTSN10moodycamel17ReaderWriterQueueIiLm512EEE", !64, i64 0, !6, i64 8, !64, i64 64, !21, i64 72}
 !144 = distinct !{!144, !9}
 !145 = !{!60, !21, i64 72}
-!146 = !{!147, !76, i64 0}
-!147 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE_", !76, i64 0, !47, i64 8}
-!148 = !{!147, !47, i64 8}
-!149 = distinct !{!149, !9}
-!150 = !{!151, !76, i64 0}
-!151 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE0_", !76, i64 0}
-!152 = distinct !{!152, !9}
+!146 = !{!66, !67, i64 0}
+!147 = !{!148, !76, i64 0}
+!148 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE_", !76, i64 0, !47, i64 8}
+!149 = !{!148, !47, i64 8}
+!150 = distinct !{!150, !9}
+!151 = !{!152, !76, i64 0}
+!152 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE0_", !76, i64 0}
 !153 = distinct !{!153, !9}
 !154 = distinct !{!154, !9}
-!155 = !{!156, !85, i64 0}
-!156 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE1_", !85, i64 0, !87, i64 8, !76, i64 16, !47, i64 24, !47, i64 32}
-!157 = !{!156, !87, i64 8}
-!158 = !{!156, !76, i64 16}
-!159 = !{!156, !47, i64 24}
-!160 = !{!156, !47, i64 32}
-!161 = distinct !{!161, !9}
-!162 = !{!163, !76, i64 0}
-!163 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE2_", !76, i64 0}
-!164 = distinct !{!164, !9}
-!165 = !{!166, !76, i64 0}
-!166 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE3_", !76, i64 0, !47, i64 8}
-!167 = !{!166, !47, i64 8}
-!168 = distinct !{!168, !9}
-!169 = !{!170, !85, i64 0}
-!170 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE4_", !85, i64 0, !87, i64 8, !76, i64 16, !47, i64 24}
-!171 = !{!170, !87, i64 8}
-!172 = !{!170, !76, i64 16}
-!173 = distinct !{!173, !9}
-!174 = !{!170, !47, i64 24}
-!175 = !{!176, !76, i64 0}
-!176 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE5_", !76, i64 0, !47, i64 8}
-!177 = !{!176, !47, i64 8}
-!178 = distinct !{!178, !9}
-!179 = !{!180, !76, i64 0}
-!180 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE6_", !76, i64 0}
-!181 = distinct !{!181, !9}
-!182 = !{!183, !47, i64 0}
-!183 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE7_", !47, i64 0, !76, i64 8, !47, i64 16, !47, i64 24}
-!184 = !{!183, !76, i64 8}
-!185 = !{!183, !47, i64 16}
-!186 = !{!183, !47, i64 24}
-!187 = distinct !{!187, !9}
-!188 = !{!189, !47, i64 0}
-!189 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE8_", !47, i64 0, !76, i64 8, !47, i64 16}
-!190 = !{!189, !76, i64 8}
-!191 = distinct !{!191, !9}
-!192 = !{!189, !47, i64 16}
-!193 = !{!92, !21, i64 0}
-!194 = !{!195, !21, i64 0}
-!195 = !{!"_ZTSSt13__atomic_baseIlE", !21, i64 0}
-!196 = distinct !{!196, !9}
+!155 = distinct !{!155, !9}
+!156 = !{!157, !85, i64 0}
+!157 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE1_", !85, i64 0, !87, i64 8, !76, i64 16, !47, i64 24, !47, i64 32}
+!158 = !{!157, !87, i64 8}
+!159 = !{!157, !76, i64 16}
+!160 = !{!157, !47, i64 24}
+!161 = !{!157, !47, i64 32}
+!162 = distinct !{!162, !9}
+!163 = !{!164, !76, i64 0}
+!164 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE2_", !76, i64 0}
+!165 = distinct !{!165, !9}
+!166 = !{!167, !76, i64 0}
+!167 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE3_", !76, i64 0, !47, i64 8}
+!168 = !{!167, !47, i64 8}
+!169 = distinct !{!169, !9}
+!170 = !{!171, !85, i64 0}
+!171 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE4_", !85, i64 0, !87, i64 8, !76, i64 16, !47, i64 24}
+!172 = !{!171, !87, i64 8}
+!173 = !{!171, !76, i64 16}
+!174 = distinct !{!174, !9}
+!175 = !{!171, !47, i64 24}
+!176 = !{!177, !76, i64 0}
+!177 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE5_", !76, i64 0, !47, i64 8}
+!178 = !{!177, !47, i64 8}
+!179 = distinct !{!179, !9}
+!180 = !{!181, !76, i64 0}
+!181 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE6_", !76, i64 0}
+!182 = distinct !{!182, !9}
+!183 = !{!184, !47, i64 0}
+!184 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE7_", !47, i64 0, !76, i64 8, !47, i64 16, !47, i64 24}
+!185 = !{!184, !76, i64 8}
+!186 = !{!184, !47, i64 16}
+!187 = !{!184, !47, i64 24}
+!188 = distinct !{!188, !9}
+!189 = !{!190, !47, i64 0}
+!190 = !{!"_ZTSZ12runBenchmarkIN10moodycamel17ReaderWriterQueueIiLm512EEEEd13BenchmarkTypejRdEUlvE8_", !47, i64 0, !76, i64 8, !47, i64 16}
+!191 = !{!190, !76, i64 8}
+!192 = distinct !{!192, !9}
+!193 = !{!190, !47, i64 16}
+!194 = !{!92, !21, i64 0}
+!195 = !{!196, !21, i64 0}
+!196 = !{!"_ZTSSt13__atomic_baseIlE", !21, i64 0}
 !197 = distinct !{!197, !9}
 !198 = distinct !{!198, !9}
-!199 = !{!200, !21, i64 0}
-!200 = !{!"_ZTS8timespec", !21, i64 0, !21, i64 8}
-!201 = !{!200, !21, i64 8}
-!202 = distinct !{!202, !9}
+!199 = distinct !{!199, !9}
+!200 = !{!201, !21, i64 0}
+!201 = !{!"_ZTS8timespec", !21, i64 0, !21, i64 8}
+!202 = !{!201, !21, i64 8}
 !203 = distinct !{!203, !9}
 !204 = distinct !{!204, !9}
-!205 = !{!206, !108, i64 0}
-!206 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE_", !108, i64 0, !47, i64 8}
-!207 = !{!206, !47, i64 8}
-!208 = distinct !{!208, !9}
-!209 = !{!210, !108, i64 0}
-!210 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE0_", !108, i64 0}
-!211 = distinct !{!211, !9}
-!212 = !{!213, !85, i64 0}
-!213 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE1_", !85, i64 0, !87, i64 8, !108, i64 16, !47, i64 24, !47, i64 32}
-!214 = !{!213, !87, i64 8}
-!215 = !{!213, !108, i64 16}
-!216 = !{!213, !47, i64 24}
-!217 = !{!213, !47, i64 32}
-!218 = distinct !{!218, !9}
-!219 = !{!220, !108, i64 0}
-!220 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE2_", !108, i64 0}
-!221 = distinct !{!221, !9}
-!222 = !{!223, !108, i64 0}
-!223 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE3_", !108, i64 0, !47, i64 8}
-!224 = !{!223, !47, i64 8}
-!225 = distinct !{!225, !9}
-!226 = !{!227, !47, i64 24}
-!227 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE4_", !85, i64 0, !87, i64 8, !108, i64 16, !47, i64 24}
-!228 = !{!227, !85, i64 0}
-!229 = !{!227, !87, i64 8}
-!230 = !{!227, !108, i64 16}
-!231 = distinct !{!231, !9}
-!232 = !{!233, !108, i64 0}
-!233 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE5_", !108, i64 0, !47, i64 8}
-!234 = !{!233, !47, i64 8}
-!235 = distinct !{!235, !9}
-!236 = !{!237, !108, i64 0}
-!237 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE6_", !108, i64 0}
-!238 = distinct !{!238, !9}
-!239 = !{!240, !47, i64 0}
-!240 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE7_", !47, i64 0, !108, i64 8, !47, i64 16, !47, i64 24}
-!241 = !{!240, !108, i64 8}
-!242 = !{!240, !47, i64 16}
-!243 = !{!240, !47, i64 24}
-!244 = distinct !{!244, !9}
-!245 = !{!246, !47, i64 0}
-!246 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE8_", !47, i64 0, !108, i64 8, !47, i64 16}
-!247 = !{!246, !47, i64 16}
-!248 = !{!246, !108, i64 8}
-!249 = distinct !{!249, !9}
-!250 = !{!251, !127, i64 0}
-!251 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE_", !127, i64 0, !47, i64 8}
-!252 = !{!251, !47, i64 8}
-!253 = distinct !{!253, !9}
-!254 = !{!255, !127, i64 0}
-!255 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE0_", !127, i64 0}
-!256 = distinct !{!256, !9}
-!257 = !{!258, !85, i64 0}
-!258 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE1_", !85, i64 0, !87, i64 8, !127, i64 16, !47, i64 24, !47, i64 32}
-!259 = !{!258, !87, i64 8}
-!260 = !{!258, !127, i64 16}
-!261 = !{!258, !47, i64 24}
-!262 = !{!258, !47, i64 32}
-!263 = distinct !{!263, !9}
-!264 = !{!265, !127, i64 0}
-!265 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE2_", !127, i64 0}
-!266 = distinct !{!266, !9}
-!267 = !{!268, !127, i64 0}
-!268 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE3_", !127, i64 0, !47, i64 8}
-!269 = !{!268, !47, i64 8}
-!270 = distinct !{!270, !9}
-!271 = !{!272, !85, i64 0}
-!272 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE4_", !85, i64 0, !87, i64 8, !127, i64 16, !47, i64 24}
-!273 = !{!272, !87, i64 8}
-!274 = !{!272, !127, i64 16}
-!275 = distinct !{!275, !9}
-!276 = !{!272, !47, i64 24}
-!277 = !{!278, !127, i64 0}
-!278 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE5_", !127, i64 0, !47, i64 8}
-!279 = !{!278, !47, i64 8}
-!280 = distinct !{!280, !9}
-!281 = !{!282, !127, i64 0}
-!282 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE6_", !127, i64 0}
-!283 = distinct !{!283, !9}
-!284 = !{!285, !47, i64 0}
-!285 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE7_", !47, i64 0, !127, i64 8, !47, i64 16, !47, i64 24}
-!286 = !{!285, !127, i64 8}
-!287 = !{!285, !47, i64 16}
-!288 = !{!285, !47, i64 24}
-!289 = distinct !{!289, !9}
-!290 = !{!291, !47, i64 0}
-!291 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE8_", !47, i64 0, !127, i64 8, !47, i64 16}
-!292 = !{!291, !127, i64 8}
-!293 = distinct !{!293, !9}
-!294 = !{!291, !47, i64 16}
-!295 = !{!296, !139, i64 0}
-!296 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE_", !139, i64 0, !47, i64 8}
-!297 = !{!296, !47, i64 8}
-!298 = distinct !{!298, !9}
-!299 = !{!300, !139, i64 0}
-!300 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE0_", !139, i64 0}
-!301 = distinct !{!301, !9}
-!302 = !{!303, !85, i64 0}
-!303 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE1_", !85, i64 0, !87, i64 8, !139, i64 16, !47, i64 24, !47, i64 32}
-!304 = !{!303, !87, i64 8}
-!305 = !{!303, !139, i64 16}
-!306 = !{!303, !47, i64 24}
-!307 = !{!303, !47, i64 32}
-!308 = distinct !{!308, !9}
-!309 = !{!310, !139, i64 0}
-!310 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE2_", !139, i64 0}
-!311 = distinct !{!311, !9}
-!312 = !{!313, !139, i64 0}
-!313 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE3_", !139, i64 0, !47, i64 8}
-!314 = !{!313, !47, i64 8}
-!315 = distinct !{!315, !9}
-!316 = !{!317, !85, i64 0}
-!317 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE4_", !85, i64 0, !87, i64 8, !139, i64 16, !47, i64 24}
-!318 = !{!317, !87, i64 8}
-!319 = !{!317, !139, i64 16}
-!320 = distinct !{!320, !9}
-!321 = !{!317, !47, i64 24}
-!322 = !{!323, !139, i64 0}
-!323 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE5_", !139, i64 0, !47, i64 8}
-!324 = !{!323, !47, i64 8}
-!325 = distinct !{!325, !9}
-!326 = !{!327, !139, i64 0}
-!327 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE6_", !139, i64 0}
-!328 = distinct !{!328, !9}
-!329 = !{!330, !47, i64 0}
-!330 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE7_", !47, i64 0, !139, i64 8, !47, i64 16, !47, i64 24}
-!331 = !{!330, !139, i64 8}
-!332 = !{!330, !47, i64 16}
-!333 = !{!330, !47, i64 24}
-!334 = distinct !{!334, !9}
-!335 = !{!336, !47, i64 0}
-!336 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE8_", !47, i64 0, !139, i64 8, !47, i64 16}
-!337 = !{!336, !139, i64 8}
-!338 = distinct !{!338, !9}
-!339 = !{!336, !47, i64 16}
-!340 = distinct !{!340, !9}
+!205 = distinct !{!205, !9}
+!206 = !{!207, !108, i64 0}
+!207 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE_", !108, i64 0, !47, i64 8}
+!208 = !{!207, !47, i64 8}
+!209 = distinct !{!209, !9}
+!210 = !{!211, !108, i64 0}
+!211 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE0_", !108, i64 0}
+!212 = distinct !{!212, !9}
+!213 = !{!214, !85, i64 0}
+!214 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE1_", !85, i64 0, !87, i64 8, !108, i64 16, !47, i64 24, !47, i64 32}
+!215 = !{!214, !87, i64 8}
+!216 = !{!214, !108, i64 16}
+!217 = !{!214, !47, i64 24}
+!218 = !{!214, !47, i64 32}
+!219 = distinct !{!219, !9}
+!220 = !{!221, !108, i64 0}
+!221 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE2_", !108, i64 0}
+!222 = distinct !{!222, !9}
+!223 = !{!224, !108, i64 0}
+!224 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE3_", !108, i64 0, !47, i64 8}
+!225 = !{!224, !47, i64 8}
+!226 = distinct !{!226, !9}
+!227 = !{!228, !47, i64 24}
+!228 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE4_", !85, i64 0, !87, i64 8, !108, i64 16, !47, i64 24}
+!229 = !{!228, !85, i64 0}
+!230 = !{!228, !87, i64 8}
+!231 = !{!228, !108, i64 16}
+!232 = distinct !{!232, !9}
+!233 = !{!234, !108, i64 0}
+!234 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE5_", !108, i64 0, !47, i64 8}
+!235 = !{!234, !47, i64 8}
+!236 = distinct !{!236, !9}
+!237 = !{!238, !108, i64 0}
+!238 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE6_", !108, i64 0}
+!239 = distinct !{!239, !9}
+!240 = !{!241, !47, i64 0}
+!241 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE7_", !47, i64 0, !108, i64 8, !47, i64 16, !47, i64 24}
+!242 = !{!241, !108, i64 8}
+!243 = !{!241, !47, i64 16}
+!244 = !{!241, !47, i64 24}
+!245 = distinct !{!245, !9}
+!246 = !{!247, !47, i64 0}
+!247 = !{!"_ZTSZ12runBenchmarkI41BlockingReaderWriterCircularBufferAdapterIiEEd13BenchmarkTypejRdEUlvE8_", !47, i64 0, !108, i64 8, !47, i64 16}
+!248 = !{!247, !47, i64 16}
+!249 = !{!247, !108, i64 8}
+!250 = distinct !{!250, !9}
+!251 = !{!252, !127, i64 0}
+!252 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE_", !127, i64 0, !47, i64 8}
+!253 = !{!252, !47, i64 8}
+!254 = distinct !{!254, !9}
+!255 = !{!256, !127, i64 0}
+!256 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE0_", !127, i64 0}
+!257 = distinct !{!257, !9}
+!258 = !{!259, !85, i64 0}
+!259 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE1_", !85, i64 0, !87, i64 8, !127, i64 16, !47, i64 24, !47, i64 32}
+!260 = !{!259, !87, i64 8}
+!261 = !{!259, !127, i64 16}
+!262 = !{!259, !47, i64 24}
+!263 = !{!259, !47, i64 32}
+!264 = distinct !{!264, !9}
+!265 = !{!266, !127, i64 0}
+!266 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE2_", !127, i64 0}
+!267 = distinct !{!267, !9}
+!268 = !{!269, !127, i64 0}
+!269 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE3_", !127, i64 0, !47, i64 8}
+!270 = !{!269, !47, i64 8}
+!271 = distinct !{!271, !9}
+!272 = !{!273, !85, i64 0}
+!273 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE4_", !85, i64 0, !87, i64 8, !127, i64 16, !47, i64 24}
+!274 = !{!273, !87, i64 8}
+!275 = !{!273, !127, i64 16}
+!276 = distinct !{!276, !9}
+!277 = !{!273, !47, i64 24}
+!278 = !{!279, !127, i64 0}
+!279 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE5_", !127, i64 0, !47, i64 8}
+!280 = !{!279, !47, i64 8}
+!281 = distinct !{!281, !9}
+!282 = !{!283, !127, i64 0}
+!283 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE6_", !127, i64 0}
+!284 = distinct !{!284, !9}
+!285 = !{!286, !47, i64 0}
+!286 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE7_", !47, i64 0, !127, i64 8, !47, i64 16, !47, i64 24}
+!287 = !{!286, !127, i64 8}
+!288 = !{!286, !47, i64 16}
+!289 = !{!286, !47, i64 24}
+!290 = distinct !{!290, !9}
+!291 = !{!292, !47, i64 0}
+!292 = !{!"_ZTSZ12runBenchmarkI10spsc_queueIiEEd13BenchmarkTypejRdEUlvE8_", !47, i64 0, !127, i64 8, !47, i64 16}
+!293 = !{!292, !127, i64 8}
+!294 = distinct !{!294, !9}
+!295 = !{!292, !47, i64 16}
+!296 = !{!297, !139, i64 0}
+!297 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE_", !139, i64 0, !47, i64 8}
+!298 = !{!297, !47, i64 8}
+!299 = distinct !{!299, !9}
+!300 = !{!301, !139, i64 0}
+!301 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE0_", !139, i64 0}
+!302 = distinct !{!302, !9}
+!303 = !{!304, !85, i64 0}
+!304 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE1_", !85, i64 0, !87, i64 8, !139, i64 16, !47, i64 24, !47, i64 32}
+!305 = !{!304, !87, i64 8}
+!306 = !{!304, !139, i64 16}
+!307 = !{!304, !47, i64 24}
+!308 = !{!304, !47, i64 32}
+!309 = distinct !{!309, !9}
+!310 = !{!311, !139, i64 0}
+!311 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE2_", !139, i64 0}
+!312 = distinct !{!312, !9}
+!313 = !{!314, !139, i64 0}
+!314 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE3_", !139, i64 0, !47, i64 8}
+!315 = !{!314, !47, i64 8}
+!316 = distinct !{!316, !9}
+!317 = !{!318, !85, i64 0}
+!318 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE4_", !85, i64 0, !87, i64 8, !139, i64 16, !47, i64 24}
+!319 = !{!318, !87, i64 8}
+!320 = !{!318, !139, i64 16}
+!321 = distinct !{!321, !9}
+!322 = !{!318, !47, i64 24}
+!323 = !{!324, !139, i64 0}
+!324 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE5_", !139, i64 0, !47, i64 8}
+!325 = !{!324, !47, i64 8}
+!326 = distinct !{!326, !9}
+!327 = !{!328, !139, i64 0}
+!328 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE6_", !139, i64 0}
+!329 = distinct !{!329, !9}
+!330 = !{!331, !47, i64 0}
+!331 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE7_", !47, i64 0, !139, i64 8, !47, i64 16, !47, i64 24}
+!332 = !{!331, !139, i64 8}
+!333 = !{!331, !47, i64 16}
+!334 = !{!331, !47, i64 24}
+!335 = distinct !{!335, !9}
+!336 = !{!337, !47, i64 0}
+!337 = !{!"_ZTSZ12runBenchmarkIN5folly21ProducerConsumerQueueIiEEEd13BenchmarkTypejRdEUlvE8_", !47, i64 0, !139, i64 8, !47, i64 16}
+!338 = !{!337, !139, i64 8}
+!339 = distinct !{!339, !9}
+!340 = !{!337, !47, i64 16}
 !341 = distinct !{!341, !9}
 !342 = distinct !{!342, !9}
 !343 = distinct !{!343, !9}
@@ -11455,3 +11456,4 @@ attributes #26 = { nounwind willreturn memory(none) }
 !345 = distinct !{!345, !9}
 !346 = distinct !{!346, !9}
 !347 = distinct !{!347, !9}
+!348 = distinct !{!348, !9}

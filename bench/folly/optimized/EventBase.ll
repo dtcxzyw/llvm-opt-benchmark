@@ -1705,6 +1705,7 @@ _ZN5folly14RequestContext11saveContextEv.exit.i.i.i: ; preds = %32, %29, %.noexc
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 72
   store ptr %34, ptr %41, align 8, !tbaa !175
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 80
+  store ptr null, ptr %42, align 16, !tbaa !178
   %43 = load atomic i64, ptr %20 monotonic, align 8
   %44 = ptrtoint ptr %37 to i64
   %.010.i.i.i.i = inttoptr i64 %43 to ptr
@@ -6628,6 +6629,7 @@ _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %43, %45
   %48 = call noundef i32 %.0.i.i.i(ptr noundef nonnull %7, ptr noundef null, ptr noundef null)
   %49 = load i32, ptr %7, align 4, !tbaa !18
   %50 = and i32 %49, 255
+  store i32 %50, ptr %7, align 4, !tbaa !18
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 %51
   %53 = load atomic i8, ptr %52 monotonic, align 1
@@ -15109,6 +15111,7 @@ _ZN5folly14RequestContext11saveContextEv.exit.i.i.i: ; preds = %50, %47, %.noexc
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 72
   store ptr %52, ptr %59, align 8, !tbaa !175
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 80
+  store ptr null, ptr %60, align 16, !tbaa !178
   %61 = load atomic i64, ptr %38 monotonic, align 8
   %62 = ptrtoint ptr %55 to i64
   %.010.i.i.i.i = inttoptr i64 %61 to ptr
@@ -16957,6 +16960,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 72
   store ptr %18, ptr %31, align 8, !tbaa !175
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  store ptr null, ptr %32, align 16, !tbaa !178
   %33 = load atomic i64, ptr %0 monotonic, align 64
   %34 = ptrtoint ptr %21 to i64
   %.012.i = inttoptr i64 %33 to ptr

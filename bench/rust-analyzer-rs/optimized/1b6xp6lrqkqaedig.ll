@@ -56903,7 +56903,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit109
 236:                                              ; preds = %230
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !7883
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !7883
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false), !noalias !7893
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %18, i64 48, i1 false), !noalias !7893
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !7883
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !7883
   invoke void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
@@ -59763,7 +59763,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit109
 236:                                              ; preds = %230
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !8060
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !8060
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false), !noalias !8070
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %18, i64 48, i1 false), !noalias !8070
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !8060
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !8060
   invoke void @"_ZN87_$LT$salsa..runtime..local_state..ActiveQueryGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcfdff856d3d0e2c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)

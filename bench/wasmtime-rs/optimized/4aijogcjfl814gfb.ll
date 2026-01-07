@@ -10021,12 +10021,12 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdffa7c53ca56721eE.exit.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdffa7c53ca56721eE.exit.i": ; preds = %202, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdffa7c53ca56721eE.exit.lr.ph.i"
+  %149 = phi ptr [ %.sroa.5174.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdffa7c53ca56721eE.exit.lr.ph.i" ], [ %150, %202 ]
   %.sroa.12.0145.i = phi i64 [ %.sroa.5190.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdffa7c53ca56721eE.exit.lr.ph.i" ], [ %.sroa.556.0.copyload.i.i, %202 ]
   %.sroa.11.0144.i = phi ptr [ %.sroa.4189.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdffa7c53ca56721eE.exit.lr.ph.i" ], [ %182, %202 ]
   %.sroa.10.0143.i = phi ptr [ %.sroa.0188.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdffa7c53ca56721eE.exit.lr.ph.i" ], [ %180, %202 ]
   %.sroa.9.0142.i = phi i32 [ %.sroa.6187.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdffa7c53ca56721eE.exit.lr.ph.i" ], [ undef, %202 ]
   %.sroa.8.0141.i = phi i32 [ %.sroa.5186.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdffa7c53ca56721eE.exit.lr.ph.i" ], [ %169, %202 ]
-  %149 = phi ptr [ %.sroa.5174.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdffa7c53ca56721eE.exit.lr.ph.i" ], [ %150, %202 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1224)
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
   store ptr %150, ptr %135, align 8, !alias.scope !1227, !noalias !1228
@@ -11335,11 +11335,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64068d7c65dbd1c0E.exit.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64068d7c65dbd1c0E.exit.i": ; preds = %247, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64068d7c65dbd1c0E.exit.lr.ph.i"
+  %163 = phi ptr [ %.sroa.5174.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64068d7c65dbd1c0E.exit.lr.ph.i" ], [ %164, %247 ]
   %.sroa.9.sroa.9.0145.i = phi i64 [ %.sroa.5190.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64068d7c65dbd1c0E.exit.lr.ph.i" ], [ %.sroa.586.0.copyload.i.i, %247 ]
   %.sroa.9.sroa.839.0144.i = phi ptr [ %.sroa.4189.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64068d7c65dbd1c0E.exit.lr.ph.i" ], [ %210, %247 ]
   %.sroa.9.sroa.736.0143.i = phi ptr [ %.sroa.0188.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64068d7c65dbd1c0E.exit.lr.ph.i" ], [ %208, %247 ]
   %.sroa.8.0141.i = phi i32 [ %.sroa.5186.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64068d7c65dbd1c0E.exit.lr.ph.i" ], [ %185, %247 ]
-  %163 = phi ptr [ %.sroa.5174.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64068d7c65dbd1c0E.exit.lr.ph.i" ], [ %164, %247 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1383)
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 48
   store ptr %164, ptr %142, align 8, !alias.scope !1386, !noalias !1387
@@ -12328,14 +12328,10 @@ define void @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_
   %26 = icmp eq i64 %25, 5
   br i1 %26, label %.critedge, label %29
 
-.critedgethread-pre-split:                        ; preds = %.noexc82, %82, %.noexc84, %29
-  %.pr = load i8, ptr %24, align 1
-  br label %.critedge
-
-.critedge:                                        ; preds = %.critedgethread-pre-split, %3
-  %27 = phi i8 [ %.pr, %.critedgethread-pre-split ], [ %2, %3 ]
-  %.063 = phi i1 [ %31, %.critedgethread-pre-split ], [ false, %3 ]
-  switch i8 %27, label %default.unreachable [
+.critedge:                                        ; preds = %.noexc82, %82, %.noexc84, %3, %29
+  %.063 = phi i1 [ false, %3 ], [ false, %29 ], [ true, %.noexc84 ], [ true, %82 ], [ true, %.noexc82 ]
+  %27 = load i8, ptr %24, align 1, !range !118, !noundef !11
+  switch i8 %27, label %default.unreachable193 [
     i8 0, label %100
     i8 1, label %108
     i8 2, label %.invoke
@@ -12347,14 +12343,14 @@ define void @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_
           cleanup
   br i1 %.063, label %177, label %.thread.thread175
 
-default.unreachable:                              ; preds = %.critedge
+default.unreachable193:                           ; preds = %.critedge
   unreachable
 
 29:                                               ; preds = %3
   %30 = icmp samesign ult i64 %25, 5
   tail call void @llvm.assume(i1 %30)
   %31 = icmp samesign ult i64 %25, 3
-  br i1 %31, label %32, label %.critedgethread-pre-split
+  br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -12488,13 +12484,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
 .noexc82:                                         ; preds = %76, %79
   %80 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17hc34d931fbd1a7b40E monotonic, align 1
   %81 = icmp eq i8 %80, 0
-  br i1 %81, label %82, label %.critedgethread-pre-split
+  br i1 %81, label %82, label %.critedge
 
 82:                                               ; preds = %.noexc82
   %83 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %84 = load ptr, ptr %83, align 8, !alias.scope !1521, !noundef !11
   %.not3.i = icmp eq ptr %84, null
-  br i1 %.not3.i, label %.critedgethread-pre-split, label %.noexc83
+  br i1 %.not3.i, label %.critedge, label %.noexc83
 
 .noexc83:                                         ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1521
@@ -12526,7 +12522,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1521
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1521
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1521
-  br label %.critedgethread-pre-split
+  br label %.critedge
 
 95:                                               ; preds = %177, %.thread.thread, %54
   %96 = landingpad { ptr, i32 }
@@ -12800,33 +12796,29 @@ define void @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wasmtime_
   %32 = icmp eq i64 %31, 5
   br i1 %32, label %.critedge, label %35
 
-.critedgethread-pre-split:                        ; preds = %.noexc92, %87, %.noexc94, %35
-  %.pr = load i8, ptr %30, align 1
-  br label %.critedge
-
-.critedge:                                        ; preds = %.critedgethread-pre-split, %4
-  %33 = phi i8 [ %.pr, %.critedgethread-pre-split ], [ %2, %4 ]
-  %.073 = phi i1 [ %37, %.critedgethread-pre-split ], [ false, %4 ]
-  switch i8 %33, label %default.unreachable [
+.critedge:                                        ; preds = %.noexc92, %87, %.noexc94, %4, %35
+  %.073 = phi i1 [ false, %4 ], [ false, %35 ], [ true, %.noexc94 ], [ true, %87 ], [ true, %.noexc92 ]
+  %33 = load i8, ptr %30, align 1, !range !118, !noundef !11
+  switch i8 %33, label %default.unreachable242 [
     i8 0, label %107
     i8 1, label %115
-    i8 2, label %.invoke243
-    i8 3, label %.invoke243
+    i8 2, label %.invoke244
+    i8 3, label %.invoke244
   ]
 
-34:                                               ; preds = %.invoke243, %107, %115
+34:                                               ; preds = %.invoke244, %107, %115
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br i1 %.073, label %184, label %.thread.thread222
 
-default.unreachable:                              ; preds = %.critedge
+default.unreachable242:                           ; preds = %.critedge
   unreachable
 
 35:                                               ; preds = %4
   %36 = icmp samesign ult i64 %31, 5
   tail call void @llvm.assume(i1 %36)
   %37 = icmp samesign ult i64 %31, 3
-  br i1 %37, label %38, label %.critedgethread-pre-split
+  br i1 %37, label %38, label %.critedge
 
 38:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -12984,13 +12976,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
 .noexc92:                                         ; preds = %81, %84
   %85 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17hc34d931fbd1a7b40E monotonic, align 1
   %86 = icmp eq i8 %85, 0
-  br i1 %86, label %87, label %.critedgethread-pre-split
+  br i1 %86, label %87, label %.critedge
 
 87:                                               ; preds = %.noexc92
   %88 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %89 = load ptr, ptr %88, align 8, !alias.scope !1568, !noundef !11
   %.not3.i = icmp eq ptr %89, null
-  br i1 %.not3.i, label %.critedgethread-pre-split, label %.noexc93
+  br i1 %.not3.i, label %.critedge, label %.noexc93
 
 .noexc93:                                         ; preds = %87
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1568
@@ -13022,7 +13014,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1568
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1568
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1568
-  br label %.critedgethread-pre-split
+  br label %.critedge
 
 100:                                              ; preds = %184, %.thread.thread, %60
   %101 = landingpad { ptr, i32 }
@@ -13113,7 +13105,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
   %122 = invoke noundef i64 %121(ptr noundef nonnull align 1 %117)
           to label %136 unwind label %34
 
-.invoke243:                                       ; preds = %125, %129, %.critedge, %.critedge
+.invoke244:                                       ; preds = %125, %129, %.critedge, %.critedge
   %123 = phi i8 [ 8, %.critedge ], [ 8, %.critedge ], [ 61, %129 ], [ 61, %125 ]
   %124 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h437debc8ba700dedE"(i8 noundef %123)
           to label %"_ZN122_$LT$wasmtime_wasi..preview1..types..Error$u20$as$u20$core..convert..From$LT$wasmtime_wasi..preview1..types..Errno$GT$$GT$4from17h4b7f0793f20f1b4eE.exit" unwind label %34
@@ -13122,7 +13114,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
   %126 = extractvalue { i64, i32 } %114, 0
   %127 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %126, i64 1000000000)
   %128 = extractvalue { i64, i1 } %127, 1
-  br i1 %128, label %.invoke243, label %129
+  br i1 %128, label %.invoke244, label %129
 
 129:                                              ; preds = %125
   %130 = extractvalue { i64, i32 } %114, 1
@@ -13130,7 +13122,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
   %132 = zext i32 %130 to i64
   %133 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %131, i64 %132)
   %134 = extractvalue { i64, i1 } %133, 1
-  br i1 %134, label %.invoke243, label %"_ZN13wasmtime_wasi8preview1133_$LT$impl$u20$core..convert..TryFrom$LT$wasmtime_wasi..bindings..async_io..wasi..clocks..wall_clock..Datetime$GT$$u20$for$u20$u64$GT$8try_from17h41b0c51b5ca077f3E.exit"
+  br i1 %134, label %.invoke244, label %"_ZN13wasmtime_wasi8preview1133_$LT$impl$u20$core..convert..TryFrom$LT$wasmtime_wasi..bindings..async_io..wasi..clocks..wall_clock..Datetime$GT$$u20$for$u20$u64$GT$8try_from17h41b0c51b5ca077f3E.exit"
 
 "_ZN13wasmtime_wasi8preview1133_$LT$impl$u20$core..convert..TryFrom$LT$wasmtime_wasi..bindings..async_io..wasi..clocks..wall_clock..Datetime$GT$$u20$for$u20$u64$GT$8try_from17h41b0c51b5ca077f3E.exit": ; preds = %129
   %135 = extractvalue { i64, i1 } %133, 0
@@ -13143,7 +13135,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
   store i64 0, ptr %0, align 8
   br i1 %.073, label %139, label %162
 
-"_ZN122_$LT$wasmtime_wasi..preview1..types..Error$u20$as$u20$core..convert..From$LT$wasmtime_wasi..preview1..types..Errno$GT$$GT$4from17h4b7f0793f20f1b4eE.exit": ; preds = %.invoke243
+"_ZN122_$LT$wasmtime_wasi..preview1..types..Error$u20$as$u20$core..convert..From$LT$wasmtime_wasi..preview1..types..Errno$GT$$GT$4from17h4b7f0793f20f1b4eE.exit": ; preds = %.invoke244
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %124, ptr %138, align 8
   store i64 1, ptr %0, align 8
@@ -52660,15 +52652,11 @@ define noundef nonnull ptr @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$a
   %28 = icmp samesign ult i64 %24, 5
   tail call void @llvm.assume(i1 %28)
   %29 = icmp samesign ult i64 %24, 3
-  br i1 %29, label %32, label %.critedgethread-pre-split
+  br i1 %29, label %32, label %.critedge
 
-.critedgethread-pre-split:                        ; preds = %.noexc60, %82, %.noexc62, %27
-  %.pr = load i32, ptr %23, align 4
-  br label %.critedge
-
-.critedge:                                        ; preds = %.critedgethread-pre-split, %2
-  %30 = phi i32 [ %.pr, %.critedgethread-pre-split ], [ %1, %2 ]
-  %.3 = phi i1 [ %29, %.critedgethread-pre-split ], [ false, %2 ]
+.critedge:                                        ; preds = %.noexc60, %82, %.noexc62, %2, %27
+  %.3 = phi i1 [ false, %2 ], [ false, %27 ], [ true, %.noexc62 ], [ true, %82 ], [ true, %.noexc60 ]
+  %30 = load i32, ptr %23, align 4, !noundef !11
   %31 = icmp ugt i32 %30, 125
   br i1 %31, label %102, label %100
 
@@ -52804,13 +52792,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
 .noexc60:                                         ; preds = %76, %79
   %80 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17hc34d931fbd1a7b40E monotonic, align 1
   %81 = icmp eq i8 %80, 0
-  br i1 %81, label %82, label %.critedgethread-pre-split
+  br i1 %81, label %82, label %.critedge
 
 82:                                               ; preds = %.noexc60
   %83 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %84 = load ptr, ptr %83, align 8, !alias.scope !7155, !noundef !11
   %.not3.i = icmp eq ptr %84, null
-  br i1 %.not3.i, label %.critedgethread-pre-split, label %.noexc61
+  br i1 %.not3.i, label %.critedge, label %.noexc61
 
 .noexc61:                                         ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !7155
@@ -52842,7 +52830,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !7155
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !7155
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !7155
-  br label %.critedgethread-pre-split
+  br label %.critedge
 
 95:                                               ; preds = %151, %.thread.thread, %54
   %96 = landingpad { ptr, i32 }

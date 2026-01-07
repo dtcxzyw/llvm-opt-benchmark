@@ -16811,7 +16811,7 @@ define hidden { i64, ptr } @"_ZN92_$LT$hyper..proto..h2..PipeToSendStream$LT$S$G
   br i1 %109, label %113, label %.critedge245
 
 .critedge245:                                     ; preds = %113, %104, %117, %107, %130, %121
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.445.0..sroa_idx, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false)
   store i64 0, ptr %21, align 8
   %110 = load i8, ptr %27, align 1, !range !38, !noundef !4
   %111 = trunc nuw i8 %110 to i1

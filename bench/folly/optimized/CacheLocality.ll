@@ -6154,6 +6154,7 @@ __cxx_global_var_init.exit:                       ; preds = %0, %3
   %6 = call noundef i32 %.0.i.i.i.i.i(ptr noundef nonnull %1, ptr noundef null, ptr noundef null)
   %7 = load i32, ptr %1, align 4, !tbaa !199
   %8 = and i32 %7, 255
+  store i32 %8, ptr %1, align 4, !tbaa !199
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 65536), i64 %9
   %11 = load atomic i8, ptr %10 monotonic, align 1

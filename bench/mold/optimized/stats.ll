@@ -986,36 +986,37 @@ _mi_os_numa_node_count.exit:                      ; preds = %mi_stat_counter_pri
   %.0.i = phi i64 [ %56, %55 ], [ %54, %mi_stat_counter_print_avg.exit ]
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %6, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i64 noundef %.0.i) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %57 = load i64, ptr @mi_process_start, align 8, !tbaa !25
-  %58 = call i64 @_mi_prim_clock_now() #9
-  %59 = load i64, ptr @mi_clock_diff, align 8, !tbaa !25
-  %60 = add i64 %57, %59
-  %61 = sub i64 %58, %60
-  store i64 %61, ptr %4, align 8, !tbaa !32
-  %62 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i64 %62, ptr %63, align 8, !tbaa !34
-  %64 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
-  %65 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i64 %64, ptr %65, align 8, !tbaa !35
-  %66 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %62, ptr %66, align 8, !tbaa !36
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %64, ptr %67, align 8, !tbaa !37
-  %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %57, i8 0, i64 56, i1 false)
+  %58 = load i64, ptr @mi_process_start, align 8, !tbaa !25
+  %59 = call i64 @_mi_prim_clock_now() #9
+  %60 = load i64, ptr @mi_clock_diff, align 8, !tbaa !25
+  %61 = add i64 %58, %60
+  %62 = sub i64 %59, %61
+  store i64 %62, ptr %4, align 8, !tbaa !32
+  %63 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i64 %63, ptr %64, align 8, !tbaa !34
+  %65 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store i64 %65, ptr %66, align 8, !tbaa !35
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %63, ptr %67, align 8, !tbaa !36
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i64 %65, ptr %68, align 8, !tbaa !37
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 0, ptr %70, align 8, !tbaa !38
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
   call void @_mi_prim_process_info(ptr noundef nonnull %4) #9
   %71 = load i64, ptr %4, align 8, !tbaa !32
   %72 = call i64 @llvm.smax.i64(i64 %71, i64 0)
-  %73 = load i64, ptr %68, align 8, !tbaa !39
+  %73 = load i64, ptr %57, align 8, !tbaa !39
   %74 = call i64 @llvm.smax.i64(i64 %73, i64 0)
   %75 = load i64, ptr %69, align 8, !tbaa !40
   %76 = call i64 @llvm.smax.i64(i64 %75, i64 0)
-  %77 = load i64, ptr %67, align 8, !tbaa !37
-  %78 = load i64, ptr %65, align 8, !tbaa !35
+  %77 = load i64, ptr %68, align 8, !tbaa !37
+  %78 = load i64, ptr %66, align 8, !tbaa !35
   %79 = load i64, ptr %70, align 8, !tbaa !38
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %80 = udiv i64 %72, 1000
@@ -1082,103 +1083,105 @@ define hidden i64 @_mi_clock_end(i64 noundef %0) local_unnamed_addr #2 {
 define hidden void @mi_process_info(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #2 {
   %9 = alloca %struct.mi_process_info_s, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %10 = load i64, ptr @mi_process_start, align 8, !tbaa !25
-  %11 = tail call i64 @_mi_prim_clock_now() #9
-  %12 = load i64, ptr @mi_clock_diff, align 8, !tbaa !25
-  %13 = add i64 %10, %12
-  %14 = sub i64 %11, %13
-  store i64 %14, ptr %9, align 8, !tbaa !32
-  %15 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i64 %15, ptr %16, align 8, !tbaa !34
-  %17 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i64 %17, ptr %18, align 8, !tbaa !35
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 %15, ptr %19, align 8, !tbaa !36
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i64 %17, ptr %20, align 8, !tbaa !37
-  %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i64 0, ptr %23, align 8, !tbaa !38
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 56, i1 false)
+  %11 = load i64, ptr @mi_process_start, align 8, !tbaa !25
+  %12 = tail call i64 @_mi_prim_clock_now() #9
+  %13 = load i64, ptr @mi_clock_diff, align 8, !tbaa !25
+  %14 = add i64 %11, %13
+  %15 = sub i64 %12, %14
+  store i64 %15, ptr %9, align 8, !tbaa !32
+  %16 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store i64 %16, ptr %17, align 8, !tbaa !34
+  %18 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store i64 %18, ptr %19, align 8, !tbaa !35
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 %16, ptr %20, align 8, !tbaa !36
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i64 %18, ptr %21, align 8, !tbaa !37
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store i64 0, ptr %24, align 8, !tbaa !38
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   call void @_mi_prim_process_info(ptr noundef nonnull %9) #9
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %27, label %24
+  br i1 %.not, label %28, label %25
 
-24:                                               ; preds = %8
-  %25 = load i64, ptr %9, align 8, !tbaa !32
-  %26 = call i64 @llvm.smax.i64(i64 %25, i64 0)
-  store i64 %26, ptr %0, align 8, !tbaa !25
-  br label %27
+25:                                               ; preds = %8
+  %26 = load i64, ptr %9, align 8, !tbaa !32
+  %27 = call i64 @llvm.smax.i64(i64 %26, i64 0)
+  store i64 %27, ptr %0, align 8, !tbaa !25
+  br label %28
 
-27:                                               ; preds = %24, %8
+28:                                               ; preds = %25, %8
   %.not24 = icmp eq ptr %1, null
-  br i1 %.not24, label %31, label %28
+  br i1 %.not24, label %32, label %29
 
-28:                                               ; preds = %27
-  %29 = load i64, ptr %21, align 8, !tbaa !39
-  %30 = call i64 @llvm.smax.i64(i64 %29, i64 0)
-  store i64 %30, ptr %1, align 8, !tbaa !25
-  br label %31
+29:                                               ; preds = %28
+  %30 = load i64, ptr %22, align 8, !tbaa !39
+  %31 = call i64 @llvm.smax.i64(i64 %30, i64 0)
+  store i64 %31, ptr %1, align 8, !tbaa !25
+  br label %32
 
-31:                                               ; preds = %28, %27
+32:                                               ; preds = %29, %28
   %.not25 = icmp eq ptr %2, null
-  br i1 %.not25, label %35, label %32
+  br i1 %.not25, label %36, label %33
 
-32:                                               ; preds = %31
-  %33 = load i64, ptr %22, align 8, !tbaa !40
-  %34 = call i64 @llvm.smax.i64(i64 %33, i64 0)
-  store i64 %34, ptr %2, align 8, !tbaa !25
-  br label %35
+33:                                               ; preds = %32
+  %34 = load i64, ptr %23, align 8, !tbaa !40
+  %35 = call i64 @llvm.smax.i64(i64 %34, i64 0)
+  store i64 %35, ptr %2, align 8, !tbaa !25
+  br label %36
 
-35:                                               ; preds = %32, %31
+36:                                               ; preds = %33, %32
   %.not26 = icmp eq ptr %3, null
-  br i1 %.not26, label %38, label %36
+  br i1 %.not26, label %39, label %37
 
-36:                                               ; preds = %35
-  %37 = load i64, ptr %19, align 8, !tbaa !36
-  store i64 %37, ptr %3, align 8, !tbaa !25
-  br label %38
+37:                                               ; preds = %36
+  %38 = load i64, ptr %20, align 8, !tbaa !36
+  store i64 %38, ptr %3, align 8, !tbaa !25
+  br label %39
 
-38:                                               ; preds = %36, %35
+39:                                               ; preds = %37, %36
   %.not27 = icmp eq ptr %4, null
-  br i1 %.not27, label %41, label %39
+  br i1 %.not27, label %42, label %40
 
-39:                                               ; preds = %38
-  %40 = load i64, ptr %20, align 8, !tbaa !37
-  store i64 %40, ptr %4, align 8, !tbaa !25
-  br label %41
+40:                                               ; preds = %39
+  %41 = load i64, ptr %21, align 8, !tbaa !37
+  store i64 %41, ptr %4, align 8, !tbaa !25
+  br label %42
 
-41:                                               ; preds = %39, %38
+42:                                               ; preds = %40, %39
   %.not28 = icmp eq ptr %5, null
-  br i1 %.not28, label %44, label %42
+  br i1 %.not28, label %45, label %43
 
-42:                                               ; preds = %41
-  %43 = load i64, ptr %16, align 8, !tbaa !34
-  store i64 %43, ptr %5, align 8, !tbaa !25
-  br label %44
+43:                                               ; preds = %42
+  %44 = load i64, ptr %17, align 8, !tbaa !34
+  store i64 %44, ptr %5, align 8, !tbaa !25
+  br label %45
 
-44:                                               ; preds = %42, %41
+45:                                               ; preds = %43, %42
   %.not29 = icmp eq ptr %6, null
-  br i1 %.not29, label %47, label %45
+  br i1 %.not29, label %48, label %46
 
-45:                                               ; preds = %44
-  %46 = load i64, ptr %18, align 8, !tbaa !35
-  store i64 %46, ptr %6, align 8, !tbaa !25
-  br label %47
+46:                                               ; preds = %45
+  %47 = load i64, ptr %19, align 8, !tbaa !35
+  store i64 %47, ptr %6, align 8, !tbaa !25
+  br label %48
 
-47:                                               ; preds = %45, %44
+48:                                               ; preds = %46, %45
   %.not30 = icmp eq ptr %7, null
-  br i1 %.not30, label %50, label %48
+  br i1 %.not30, label %51, label %49
 
-48:                                               ; preds = %47
-  %49 = load i64, ptr %23, align 8, !tbaa !38
-  store i64 %49, ptr %7, align 8, !tbaa !25
-  br label %50
+49:                                               ; preds = %48
+  %50 = load i64, ptr %24, align 8, !tbaa !38
+  store i64 %50, ptr %7, align 8, !tbaa !25
+  br label %51
 
-50:                                               ; preds = %48, %47
+51:                                               ; preds = %49, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }

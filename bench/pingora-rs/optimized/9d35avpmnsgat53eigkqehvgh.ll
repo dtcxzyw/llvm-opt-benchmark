@@ -339,7 +339,7 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hf18edfa2a51bf425E(
 90:                                               ; preds = %"_ZN3std6thread7Builder16spawn_unchecked_28_$u7b$$u7b$closure$u7d$$u7d$17hb25a1818f35a298cE.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !34
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull readonly align 8 dereferenceable(24) %17, i64 24, i1 false), !noalias !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !noalias !34
   %91 = invoke noundef nonnull ptr @_ZN3std6thread6Thread3new17h0b65aecfb64ea3b3E(i64 noundef %89, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %92 unwind label %88, !noalias !34
 

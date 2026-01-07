@@ -6418,6 +6418,8 @@ _ZN17cranelift_codegen8machinst3abi21missing_struct_return17h4ca3f883cd817cbaE.e
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.062.0.copyload = load i32, ptr %67, align 8
+  %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.9, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.463.0..sroa_idx, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %.sroa.062.0.copyload, ptr %20, align 4

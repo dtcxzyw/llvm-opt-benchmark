@@ -746,8 +746,6 @@ _ZN9grpc_core6ThreadaSEOS0_.exit.thread:          ; preds = %.critedge15
   store i32 5, ptr %6, align 8, !tbaa !46
   store ptr null, ptr %.phi.trans.insert19, align 8, !tbaa !50
   store i8 1, ptr %22, align 8, !tbaa !38
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 17
-  store i8 1, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !38
   br label %_ZN9grpc_core6ThreadD2Ev.exit
 
 _ZN9grpc_core6ThreadaSEOS0_.exit:                 ; preds = %.critedge15

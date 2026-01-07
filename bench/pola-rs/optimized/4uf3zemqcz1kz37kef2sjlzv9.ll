@@ -9747,33 +9747,34 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %13 = load i64, ptr %12, align 8, !alias.scope !1814, !noalias !1819, !noundef !8
-  %.promoted.i.i.i.i.i = load i64, ptr %11, align 8, !alias.scope !1814, !noalias !1819
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val.i.i.i.i.i.i.i = load i64, ptr %14, align 8, !alias.scope !1823, !noalias !1819
   %.val2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8, !alias.scope !1823, !noalias !1819, !nonnull !8
+  %.pre.i.i.i.i.i = load i64, ptr %11, align 8, !alias.scope !1814, !noalias !1819
   %.val.i.i.i.i.i.i.i.i = load ptr, ptr %8, align 8, !alias.scope !1824, !noalias !1825, !nonnull !8
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7e0ff150ea6e0097E.exit.i.i.i.i.i"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7e0ff150ea6e0097E.exit.i.i.i.i.i": ; preds = %"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h5714d931b7fe30b8E.exit.i.i.i.i.i.i.i.i", %7
-  %15 = phi i64 [ %21, %"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h5714d931b7fe30b8E.exit.i.i.i.i.i.i.i.i" ], [ %.promoted.i.i.i.i.i, %7 ]
+  %15 = phi i64 [ %18, %"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h5714d931b7fe30b8E.exit.i.i.i.i.i.i.i.i" ], [ %.pre.i.i.i.i.i, %7 ]
   %16 = icmp ult i64 %15, %13
   br i1 %16, label %17, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h241eddc55d6e5637E.exit"
 
 17:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7e0ff150ea6e0097E.exit.i.i.i.i.i"
-  %18 = add nuw i64 %15, %.val.i.i.i.i.i.i.i
-  %19 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val2.i.i.i.i.i.i.i, i64 %15
+  %18 = add nuw i64 %15, 1
+  store i64 %18, ptr %11, align 8, !alias.scope !1814, !noalias !1819
+  %19 = add nuw i64 %15, %.val.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val2.i.i.i.i.i.i.i, i64 %15
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1826
-  call void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$F$GT$8call_mut17h10583372b0f72f54E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %18, ptr noalias noundef nonnull align 8 dereferenceable(48) %19), !noalias !1833
-  %20 = call noundef zeroext i1 @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$F$GT$8call_mut17h9ceae30c032221eeE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %2), !noalias !1834
+  call void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$F$GT$8call_mut17h10583372b0f72f54E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %20), !noalias !1833
+  %21 = call noundef zeroext i1 @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$F$GT$8call_mut17h9ceae30c032221eeE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %2), !noalias !1834
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1826
-  br i1 %20, label %"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h5714d931b7fe30b8E.exit.i.i.i.i.i.i.i.i", label %"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h5714d931b7fe30b8E.exit.thread.i.i.i.i.i.i.i.i"
+  br i1 %21, label %"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h5714d931b7fe30b8E.exit.i.i.i.i.i.i.i.i", label %"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h5714d931b7fe30b8E.exit.thread.i.i.i.i.i.i.i.i"
 
 "_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h5714d931b7fe30b8E.exit.thread.i.i.i.i.i.i.i.i": ; preds = %17
   store atomic i8 1, ptr %.val.i.i.i.i.i.i.i.i monotonic, align 1, !noalias !1834
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h241eddc55d6e5637E.exit"
 
 "_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h5714d931b7fe30b8E.exit.i.i.i.i.i.i.i.i": ; preds = %17
-  %21 = add nuw i64 %15, 1
   %22 = load atomic i8, ptr %.val.i.i.i.i.i.i.i.i monotonic, align 1, !noalias !1834
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %22, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7e0ff150ea6e0097E.exit.i.i.i.i.i", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h241eddc55d6e5637E.exit"

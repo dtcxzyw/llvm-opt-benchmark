@@ -8281,22 +8281,18 @@ define hidden { i64, ptr } @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$10poll_
   %81 = icmp ult i64 %79, 5
   call void @llvm.assume(i1 %81)
   %82 = icmp samesign ult i64 %79, 2
-  br i1 %82, label %83, label %.critedge73thread-pre-split.i
+  br i1 %82, label %83, label %.critedge73.i
 
 83:                                               ; preds = %80
   %84 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$20poll_flush_flattened10__CALLSITE17ha2c2ced9ec8aac75E", i64 16) monotonic, align 8, !noalias !664
   switch i8 %84, label %90 [
-    i8 0, label %.critedge73thread-pre-split.i
+    i8 0, label %.critedge73.i
     i8 1, label %.thread.i
     i8 2, label %.thread.i
   ], !prof !557
 
-.critedge73thread-pre-split.i:                    ; preds = %101, %.thread.i, %90, %83, %80
-  %.pr.i = load i64, ptr %15, align 8, !noalias !664
-  br label %.critedge73.i
-
-.critedge73.i:                                    ; preds = %.critedge73thread-pre-split.i, %.critedge.i
-  %85 = phi i64 [ %.pr.i, %.critedge73thread-pre-split.i ], [ %78, %.critedge.i ]
+.critedge73.i:                                    ; preds = %101, %.thread.i, %90, %83, %80, %.critedge.i
+  %85 = load i64, ptr %15, align 8, !noalias !664, !noundef !3
   %86 = load i64, ptr %42, align 8, !alias.scope !661, !noalias !666, !noundef !3
   %87 = add i64 %86, %85
   store i64 %87, ptr %42, align 8, !alias.scope !661, !noalias !666
@@ -8307,13 +8303,13 @@ define hidden { i64, ptr } @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$10poll_
 90:                                               ; preds = %83
   %91 = call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$20poll_flush_flattened10__CALLSITE17ha2c2ced9ec8aac75E")
   %92 = icmp eq i8 %91, 0
-  br i1 %92, label %.critedge73thread-pre-split.i, label %.thread.i
+  br i1 %92, label %.critedge73.i, label %.thread.i
 
 .thread.i:                                        ; preds = %83, %90, %83
   %.sroa.09.077.i = phi i8 [ %91, %90 ], [ %84, %83 ], [ %84, %83 ]
   %93 = load ptr, ptr @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$20poll_flush_flattened10__CALLSITE17ha2c2ced9ec8aac75E", align 8, !noalias !664, !nonnull !3, !align !4, !noundef !3
   %94 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %93, i8 noundef %.sroa.09.077.i)
-  br i1 %94, label %95, label %.critedge73thread-pre-split.i
+  br i1 %94, label %95, label %.critedge73.i
 
 95:                                               ; preds = %.thread.i
   %96 = load ptr, ptr @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$20poll_flush_flattened10__CALLSITE17ha2c2ced9ec8aac75E", align 8, !noalias !664, !nonnull !3, !align !4, !noundef !3
@@ -8356,7 +8352,7 @@ define hidden { i64, ptr } @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$10poll_
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !664
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !664
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !664
-  br label %.critedge73thread-pre-split.i
+  br label %.critedge73.i
 
 .thread80.i:                                      ; preds = %100, %95
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.ad4612a719371f11c5addc366f012f45.51, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ad4612a719371f11c5addc366f012f45.88) #22
@@ -8923,22 +8919,18 @@ define hidden { i64, ptr } @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$10poll_
   %88 = icmp ult i64 %86, 5
   call void @llvm.assume(i1 %88)
   %89 = icmp samesign ult i64 %86, 2
-  br i1 %89, label %90, label %.critedge73thread-pre-split.i
+  br i1 %89, label %90, label %.critedge73.i
 
 90:                                               ; preds = %87
   %91 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$20poll_flush_flattened10__CALLSITE17ha2c2ced9ec8aac75E", i64 16) monotonic, align 8, !noalias !679
   switch i8 %91, label %97 [
-    i8 0, label %.critedge73thread-pre-split.i
+    i8 0, label %.critedge73.i
     i8 1, label %.thread.i
     i8 2, label %.thread.i
   ], !prof !557
 
-.critedge73thread-pre-split.i:                    ; preds = %108, %.thread.i, %97, %90, %87
-  %.pr.i = load i64, ptr %15, align 8, !noalias !679
-  br label %.critedge73.i
-
-.critedge73.i:                                    ; preds = %.critedge73thread-pre-split.i, %.critedge.i
-  %92 = phi i64 [ %.pr.i, %.critedge73thread-pre-split.i ], [ %85, %.critedge.i ]
+.critedge73.i:                                    ; preds = %108, %.thread.i, %97, %90, %87, %.critedge.i
+  %92 = load i64, ptr %15, align 8, !noalias !679, !noundef !3
   %93 = load i64, ptr %42, align 8, !alias.scope !676, !noalias !681, !noundef !3
   %94 = add i64 %93, %92
   store i64 %94, ptr %42, align 8, !alias.scope !676, !noalias !681
@@ -8949,13 +8941,13 @@ define hidden { i64, ptr } @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$10poll_
 97:                                               ; preds = %90
   %98 = call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$20poll_flush_flattened10__CALLSITE17ha2c2ced9ec8aac75E")
   %99 = icmp eq i8 %98, 0
-  br i1 %99, label %.critedge73thread-pre-split.i, label %.thread.i
+  br i1 %99, label %.critedge73.i, label %.thread.i
 
 .thread.i:                                        ; preds = %90, %97, %90
   %.sroa.09.077.i = phi i8 [ %98, %97 ], [ %91, %90 ], [ %91, %90 ]
   %100 = load ptr, ptr @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$20poll_flush_flattened10__CALLSITE17ha2c2ced9ec8aac75E", align 8, !noalias !679, !nonnull !3, !align !4, !noundef !3
   %101 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %100, i8 noundef %.sroa.09.077.i)
-  br i1 %101, label %102, label %.critedge73thread-pre-split.i
+  br i1 %101, label %102, label %.critedge73.i
 
 102:                                              ; preds = %.thread.i
   %103 = load ptr, ptr @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$20poll_flush_flattened10__CALLSITE17ha2c2ced9ec8aac75E", align 8, !noalias !679, !nonnull !3, !align !4, !noundef !3
@@ -8998,7 +8990,7 @@ define hidden { i64, ptr } @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$10poll_
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !679
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !679
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !679
-  br label %.critedge73thread-pre-split.i
+  br label %.critedge73.i
 
 .thread80.i:                                      ; preds = %107, %102
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.ad4612a719371f11c5addc366f012f45.51, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ad4612a719371f11c5addc366f012f45.88) #22
@@ -9578,22 +9570,18 @@ define hidden { i64, ptr } @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$10poll_
   %88 = icmp ult i64 %86, 5
   call void @llvm.assume(i1 %88)
   %89 = icmp samesign ult i64 %86, 2
-  br i1 %89, label %90, label %.critedge73thread-pre-split.i
+  br i1 %89, label %90, label %.critedge73.i
 
 90:                                               ; preds = %87
   %91 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$20poll_flush_flattened10__CALLSITE17ha2c2ced9ec8aac75E", i64 16) monotonic, align 8, !noalias !691
   switch i8 %91, label %97 [
-    i8 0, label %.critedge73thread-pre-split.i
+    i8 0, label %.critedge73.i
     i8 1, label %.thread.i
     i8 2, label %.thread.i
   ], !prof !557
 
-.critedge73thread-pre-split.i:                    ; preds = %108, %.thread.i, %97, %90, %87
-  %.pr.i = load i64, ptr %15, align 8, !noalias !691
-  br label %.critedge73.i
-
-.critedge73.i:                                    ; preds = %.critedge73thread-pre-split.i, %.critedge.i
-  %92 = phi i64 [ %.pr.i, %.critedge73thread-pre-split.i ], [ %85, %.critedge.i ]
+.critedge73.i:                                    ; preds = %108, %.thread.i, %97, %90, %87, %.critedge.i
+  %92 = load i64, ptr %15, align 8, !noalias !691, !noundef !3
   %93 = load i64, ptr %42, align 8, !alias.scope !688, !noalias !693, !noundef !3
   %94 = add i64 %93, %92
   store i64 %94, ptr %42, align 8, !alias.scope !688, !noalias !693
@@ -9604,13 +9592,13 @@ define hidden { i64, ptr } @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$10poll_
 97:                                               ; preds = %90
   %98 = call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$20poll_flush_flattened10__CALLSITE17ha2c2ced9ec8aac75E")
   %99 = icmp eq i8 %98, 0
-  br i1 %99, label %.critedge73thread-pre-split.i, label %.thread.i
+  br i1 %99, label %.critedge73.i, label %.thread.i
 
 .thread.i:                                        ; preds = %90, %97, %90
   %.sroa.09.077.i = phi i8 [ %98, %97 ], [ %91, %90 ], [ %91, %90 ]
   %100 = load ptr, ptr @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$20poll_flush_flattened10__CALLSITE17ha2c2ced9ec8aac75E", align 8, !noalias !691, !nonnull !3, !align !4, !noundef !3
   %101 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %100, i8 noundef %.sroa.09.077.i)
-  br i1 %101, label %102, label %.critedge73thread-pre-split.i
+  br i1 %101, label %102, label %.critedge73.i
 
 102:                                              ; preds = %.thread.i
   %103 = load ptr, ptr @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$20poll_flush_flattened10__CALLSITE17ha2c2ced9ec8aac75E", align 8, !noalias !691, !nonnull !3, !align !4, !noundef !3
@@ -9653,7 +9641,7 @@ define hidden { i64, ptr } @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$10poll_
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !691
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !691
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !691
-  br label %.critedge73thread-pre-split.i
+  br label %.critedge73.i
 
 .thread80.i:                                      ; preds = %107, %102
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.ad4612a719371f11c5addc366f012f45.51, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ad4612a719371f11c5addc366f012f45.88) #22

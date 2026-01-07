@@ -2916,24 +2916,27 @@ _ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %130, %128
   br label %154
 
 154:                                              ; preds = %.lr.ph.preheader.i.i33, %.thread48
-  %.not.i.i.i.i34 = icmp eq ptr %127, %125
-  br i1 %.not.i.i.i.i34, label %_ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i35, label %155
+  %155 = load ptr, ptr %86, align 8, !tbaa !406
+  %156 = load ptr, ptr %87, align 8, !tbaa !405
+  %.not.i.i.i.i34 = icmp eq ptr %156, %155
+  br i1 %.not.i.i.i.i34, label %_ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i35, label %157
 
-155:                                              ; preds = %154
-  store ptr %125, ptr %87, align 8, !tbaa !405
+157:                                              ; preds = %154
+  store ptr %155, ptr %87, align 8, !tbaa !405
   br label %_ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i35
 
-_ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i35:  ; preds = %155, %154
-  %.not.i.i.i1.i36 = icmp eq ptr %125, null
-  br i1 %.not.i.i.i1.i36, label %_ZN7rocksdb10autovectorImLm8EED2Ev.exit38, label %156
+_ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i35:  ; preds = %157, %154
+  %.not.i.i.i1.i36 = icmp eq ptr %155, null
+  br i1 %.not.i.i.i1.i36, label %_ZN7rocksdb10autovectorImLm8EED2Ev.exit38, label %158
 
-156:                                              ; preds = %_ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i35
-  %157 = ptrtoint ptr %126 to i64
-  %158 = sub i64 %157, %138
-  call void @_ZdlPvm(ptr noundef nonnull %125, i64 noundef %158) #37
+158:                                              ; preds = %_ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i35
+  %159 = ptrtoint ptr %126 to i64
+  %160 = ptrtoint ptr %155 to i64
+  %161 = sub i64 %159, %160
+  call void @_ZdlPvm(ptr noundef nonnull %155, i64 noundef %161) #37
   br label %_ZN7rocksdb10autovectorImLm8EED2Ev.exit38
 
-_ZN7rocksdb10autovectorImLm8EED2Ev.exit38:        ; preds = %_ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i35, %156
+_ZN7rocksdb10autovectorImLm8EED2Ev.exit38:        ; preds = %_ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i35, %158
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.3
 }

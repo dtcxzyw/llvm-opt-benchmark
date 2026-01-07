@@ -5615,7 +5615,7 @@ common.resume:                                    ; preds = %126, %136, %140
   store atomic ptr %109, ptr %102 monotonic, align 8, !noalias !745
   store ptr null, ptr %104, align 8, !noalias !745
   %110 = icmp eq ptr %103, null
-  br i1 %110, label %.thread3.i.i, label %111
+  br i1 %110, label %.thread4.i.i, label %111
 
 111:                                              ; preds = %95
   %112 = getelementptr inbounds nuw i8, ptr %103, i64 32
@@ -5623,15 +5623,15 @@ common.resume:                                    ; preds = %126, %136, %140
   %113 = icmp eq ptr %105, null
   br i1 %113, label %116, label %.thread.i.i
 
-.thread3.i.i:                                     ; preds = %95
+.thread4.i.i:                                     ; preds = %95
   %114 = icmp eq ptr %105, null
-  br i1 %114, label %.thread4.i.i, label %.thread.i.i
+  br i1 %114, label %.thread5.i.i, label %.thread.i.i
 
-.thread4.i.i:                                     ; preds = %.thread3.i.i
+.thread5.i.i:                                     ; preds = %.thread4.i.i
   store ptr null, ptr %28, align 8, !alias.scope !744, !noalias !733
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h9c0fcfd7b1b10ae9E.exit.i"
 
-.thread.i.i:                                      ; preds = %.thread3.i.i, %111
+.thread.i.i:                                      ; preds = %.thread4.i.i, %111
   %115 = getelementptr inbounds nuw i8, ptr %105, i64 24
   store atomic ptr %103, ptr %115 monotonic, align 8, !noalias !745
   br label %117
@@ -5646,7 +5646,7 @@ common.resume:                                    ; preds = %126, %136, %140
   store i64 %101, ptr %119, align 8, !noalias !745
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h9c0fcfd7b1b10ae9E.exit.i"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h9c0fcfd7b1b10ae9E.exit.i": ; preds = %117, %.thread4.i.i
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h9c0fcfd7b1b10ae9E.exit.i": ; preds = %117, %.thread5.i.i
   %120 = getelementptr inbounds i8, ptr %.sroa.09.0.i.i, i64 -16
   store ptr %120, ptr %4, align 8, !noalias !734
   %121 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i, i64 56
@@ -6242,42 +6242,43 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store atomic ptr %15, ptr %8 monotonic, align 8
-  store ptr null, ptr %10, align 8
-  %16 = icmp eq ptr %9, null
-  br i1 %16, label %.thread3, label %17
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr null, ptr %16, align 8
+  %17 = icmp eq ptr %9, null
+  br i1 %17, label %.thread4, label %18
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr %11, ptr %18, align 8
-  %19 = icmp eq ptr %11, null
-  br i1 %19, label %22, label %.thread
-
-.thread3:                                         ; preds = %2
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr %11, ptr %19, align 8
   %20 = icmp eq ptr %11, null
-  br i1 %20, label %.thread4, label %.thread
+  br i1 %20, label %23, label %.thread
 
-.thread4:                                         ; preds = %.thread3
+.thread4:                                         ; preds = %2
+  %21 = icmp eq ptr %11, null
+  br i1 %21, label %.thread5, label %.thread
+
+.thread5:                                         ; preds = %.thread4
   store ptr %9, ptr %3, align 8
-  br label %26
+  br label %27
 
-.thread:                                          ; preds = %17, %.thread3
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store atomic ptr %9, ptr %21 monotonic, align 8
-  br label %23
+.thread:                                          ; preds = %18, %.thread4
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store atomic ptr %9, ptr %22 monotonic, align 8
+  br label %24
 
-22:                                               ; preds = %17
+23:                                               ; preds = %18
   store ptr %9, ptr %3, align 8
-  br label %23
+  br label %24
 
-23:                                               ; preds = %22, %.thread
-  %24 = phi ptr [ %4, %.thread ], [ %9, %22 ]
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  store i64 %7, ptr %25, align 8
-  br label %26
+24:                                               ; preds = %23, %.thread
+  %25 = phi ptr [ %4, %.thread ], [ %9, %23 ]
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  store i64 %7, ptr %26, align 8
+  br label %27
 
-26:                                               ; preds = %.thread4, %23
-  %27 = getelementptr inbounds i8, ptr %1, i64 -16
-  ret ptr %27
+27:                                               ; preds = %.thread5, %24
+  %28 = getelementptr inbounds i8, ptr %1, i64 -16
+  ret ptr %28
 }
 
 ; Function Attrs: nonlazybind uwtable

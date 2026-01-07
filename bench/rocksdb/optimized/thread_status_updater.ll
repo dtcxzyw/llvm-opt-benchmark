@@ -453,48 +453,48 @@ define void @_ZN7rocksdb19ThreadStatusUpdater17ResetThreadStatusEv(ptr noundef n
 5:                                                ; preds = %1
   %6 = load atomic i8, ptr %3 monotonic, align 1
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i, label %9
+  br i1 %7, label %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i, label %_ZN7rocksdb19ThreadStatusUpdater16ClearThreadStateEv.exit
 
 _ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i: ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store atomic i32 0, ptr %8 monotonic, align 4
-  br label %9
+  br label %_ZN7rocksdb19ThreadStatusUpdater16ClearThreadStateEv.exit
 
-9:                                                ; preds = %5, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i
-  %10 = load atomic i8, ptr %3 monotonic, align 1
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit.thread
+_ZN7rocksdb19ThreadStatusUpdater16ClearThreadStateEv.exit: ; preds = %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i, %5
+  %9 = load atomic i8, ptr %3 monotonic, align 1
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit.thread
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
+11:                                               ; preds = %_ZN7rocksdb19ThreadStatusUpdater16ClearThreadStateEv.exit
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store atomic i32 0, ptr %12 monotonic, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store atomic i32 0, ptr %13 monotonic, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store atomic i32 0, ptr %14 monotonic, align 4
-  %15 = load atomic i8, ptr %3 monotonic, align 4
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i.i, label %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit.thread
+  %14 = load atomic i8, ptr %3 monotonic, align 4
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i.i, label %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit.thread
 
-_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i.i: ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 56
+_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i.i: ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 56
   br label %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i.i
 
 _ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i.i: ; preds = %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i.i, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i.i ]
-  %18 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %17, i64 %indvars.iv.i.i
-  store atomic i64 0, ptr %18 monotonic, align 8
+  %17 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %16, i64 %indvars.iv.i.i
+  store atomic i64 0, ptr %17 monotonic, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
   br i1 %exitcond.not.i.i, label %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit, label %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i.i, !llvm.loop !18
 
 _ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit: ; preds = %_ZN7rocksdb19ThreadStatusUpdater20GetLocalThreadStatusEv.exit.i.i
-  %.pr.pre = load ptr, ptr %2, align 8, !tbaa !13
-  %19 = icmp eq ptr %.pr.pre, null
-  br i1 %19, label %_ZN7rocksdb19ThreadStatusUpdater22SetColumnFamilyInfoKeyEPKv.exit, label %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit.thread
+  %.pr1.pre = load ptr, ptr %2, align 8, !tbaa !13
+  %18 = icmp eq ptr %.pr1.pre, null
+  br i1 %18, label %_ZN7rocksdb19ThreadStatusUpdater22SetColumnFamilyInfoKeyEPKv.exit, label %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit.thread
 
-_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit.thread: ; preds = %12, %9, %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit
-  %.pr3 = phi ptr [ %.pr.pre, %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit ], [ %3, %9 ], [ %3, %12 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.pr3, i64 24
-  store atomic i64 0, ptr %20 monotonic, align 8
+_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit.thread: ; preds = %11, %_ZN7rocksdb19ThreadStatusUpdater16ClearThreadStateEv.exit, %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit
+  %.pr14 = phi ptr [ %.pr1.pre, %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit ], [ %3, %_ZN7rocksdb19ThreadStatusUpdater16ClearThreadStateEv.exit ], [ %3, %11 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.pr14, i64 24
+  store atomic i64 0, ptr %19 monotonic, align 8
   br label %_ZN7rocksdb19ThreadStatusUpdater22SetColumnFamilyInfoKeyEPKv.exit
 
 _ZN7rocksdb19ThreadStatusUpdater22SetColumnFamilyInfoKeyEPKv.exit: ; preds = %1, %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit, %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit.thread
