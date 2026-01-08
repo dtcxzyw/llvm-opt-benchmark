@@ -33,28 +33,28 @@ define hidden range(i32 0, 2) i32 @opj_event_msg(ptr noundef readonly captures(a
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !3
   %.015.in = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   %.015 = load ptr, ptr %.015.in, align 8, !tbaa !3
-  %12 = icmp eq ptr %.015, null
-  br i1 %12, label %.thread, label %13
+  %16 = icmp eq ptr %.015, null
+  br i1 %16, label %.thread, label %17
 
-13:                                               ; preds = %11
+17:                                               ; preds = %11
   %.not19 = icmp eq ptr %2, null
-  br i1 %.not19, label %.thread, label %14
+  br i1 %.not19, label %.thread, label %18
 
-14:                                               ; preds = %13
+18:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %15 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 512, ptr noundef nonnull %2, ptr noundef nonnull %4) #7
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 511
-  store i8 0, ptr %16, align 1, !tbaa !7
+  %19 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 512, ptr noundef nonnull %2, ptr noundef nonnull %4) #7
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 511
+  store i8 0, ptr %20, align 1, !tbaa !7
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void %.015(ptr noundef nonnull %5, ptr noundef %.0) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
-.thread:                                          ; preds = %6, %13, %14, %3, %11
+.thread:                                          ; preds = %6, %17, %18, %3, %11
   %.016 = phi i32 [ 0, %11 ], [ 0, %3 ], [ 1, %14 ], [ 1, %13 ], [ 0, %6 ]
   ret i32 %.016
 }

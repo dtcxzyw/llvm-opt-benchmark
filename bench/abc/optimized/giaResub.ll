@@ -16230,7 +16230,7 @@ Abc_ReadPla.exit.thread94:                        ; preds = %Abc_RDataStart.exit
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %116, %111, %107
-  %.pn.i.i = phi i64 [ 24, %111 ], [ 24, %116 ], [ 16, %107 ]
+  %.sink109.in.i.i = phi i64 [ 24, %111 ], [ 24, %116 ], [ 16, %107 ]
   %.sink108.i.i = phi i32 [ %115, %111 ], [ %121, %116 ], [ %109, %107 ]
   %.3.ph.i.i = phi i32 [ %.283.i.i, %111 ], [ %.283.i.i, %116 ], [ %105, %107 ]
   %.sink109.in.i.i = getelementptr inbounds nuw i8, ptr %35, i64 %.pn.i.i
@@ -16281,8 +16281,8 @@ Abc_ReadPla.exit.thread94:                        ; preds = %Abc_RDataStart.exit
 
 142:                                              ; preds = %140, %140
   %143 = icmp eq i8 %141, 97
-  %..i.i = select i1 %143, i64 40, i64 32
-  %.in.i.i = getelementptr inbounds nuw i8, ptr %35, i64 %..i.i
+  %.in.v.i.i = select i1 %143, i64 40, i64 32
+  %.in.i.i = getelementptr inbounds nuw i8, ptr %35, i64 %.in.v.i.i
   %144 = load ptr, ptr %.in.i.i, align 8, !tbaa !69
   %145 = getelementptr i8, ptr %144, i64 4
   %.val.i.i = load i32, ptr %145, align 4, !tbaa !28

@@ -37042,9 +37042,9 @@ define { i64, i64 } @_ZN4fish8termsize17TermsizeContainer4last17h07141e237fb67ba
   br i1 %28, label %29, label %_ZN4fish8termsize12TermsizeData7current17h6a8c373ff8c92e6fE.exit
 
 29:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haa3a8f59f12c1d38E.exit"
-  %.pn11.i = select i1 %25, i64 8, i64 32
+  %.sroa.4.0.in.v.i = select i1 %25, i64 8, i64 32
   %.pn.i = select i1 %25, i64 16, i64 40
-  %.sroa.4.0.in.i = getelementptr inbounds nuw i8, ptr %24, i64 %.pn11.i
+  %.sroa.5.0.in.i = getelementptr inbounds nuw i8, ptr %24, i64 %.pn11.i
   %.sroa.4.0.i = load i64, ptr %.sroa.4.0.in.i, align 8, !alias.scope !5691
   %.sroa.5.0.in.i = getelementptr inbounds nuw i8, ptr %24, i64 %.pn.i
   %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !5691
@@ -37171,7 +37171,7 @@ common.resume:                                    ; preds = %38, %22
   %39 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr93drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..termsize..TermsizeData$GT$$GT$17h858dfe2c76d3ee7eE"(ptr nonnull %28, i8 %30) #34
-          to label %common.resume unwind label %67
+          to label %common.resume unwind label %65
 
 40:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haa3a8f59f12c1d38E.exit"
   %41 = load atomic i32, ptr @_ZN4fish8termsize22TTY_TERMSIZE_GEN_COUNT17habc791a068fcd705E monotonic, align 4
@@ -37196,55 +37196,55 @@ common.resume:                                    ; preds = %38, %22
   br i1 %48, label %49, label %_ZN4fish8termsize12TermsizeData7current17h6a8c373ff8c92e6fE.exit
 
 49:                                               ; preds = %44
-  %spec.select = select i1 %46, i64 8, i64 32
+  %. = select i1 %46, i64 8, i64 32
   %spec.select31 = select i1 %46, i64 16, i64 40
   br label %50
 
 50:                                               ; preds = %49, %.thread27
-  %51 = phi i64 [ 32, %.thread27 ], [ %spec.select, %49 ]
+  %.sink = phi i64 [ 32, %.thread27 ], [ %., %49 ]
   %52 = phi i64 [ 40, %.thread27 ], [ %spec.select31, %49 ]
-  %53 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %.sroa.4.0.in.i = getelementptr inbounds nuw i8, ptr %53, i64 %51
+  %51 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %.sroa.5.0.in.i = getelementptr inbounds nuw i8, ptr %51, i64 %.sink
   %.sroa.4.0.i = load i64, ptr %.sroa.4.0.in.i, align 8, !alias.scope !5703
   %.sroa.5.0.in.i = getelementptr inbounds nuw i8, ptr %53, i64 %52
   %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !5703
-  %54 = insertvalue { i64, i64 } poison, i64 %.sroa.4.0.i, 0
-  %55 = insertvalue { i64, i64 } %54, i64 %.sroa.5.0.i, 1
+  %52 = insertvalue { i64, i64 } poison, i64 %.sroa.4.0.i, 0
+  %53 = insertvalue { i64, i64 } %52, i64 %.sroa.5.0.i, 1
   br label %_ZN4fish8termsize12TermsizeData7current17h6a8c373ff8c92e6fE.exit
 
 _ZN4fish8termsize12TermsizeData7current17h6a8c373ff8c92e6fE.exit: ; preds = %50, %44
-  %.merged.i = phi { i64, i64 } [ %55, %50 ], [ { i64 80, i64 24 }, %44 ]
-  %56 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  br i1 %31, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i, label %57
+  %.merged.i = phi { i64, i64 } [ %53, %50 ], [ { i64 80, i64 24 }, %44 ]
+  %54 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  br i1 %31, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i, label %55
 
-57:                                               ; preds = %_ZN4fish8termsize12TermsizeData7current17h6a8c373ff8c92e6fE.exit
-  %58 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hbe50f93f4fcd319cE monotonic, align 8
-  %59 = and i64 %58, 9223372036854775807
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i, label %61, !prof !409
+55:                                               ; preds = %_ZN4fish8termsize12TermsizeData7current17h6a8c373ff8c92e6fE.exit
+  %56 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hbe50f93f4fcd319cE monotonic, align 8
+  %57 = and i64 %56, 9223372036854775807
+  %58 = icmp eq i64 %57, 0
+  br i1 %58, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i, label %59, !prof !409
 
-61:                                               ; preds = %57
-  %62 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h1c1768a2b70327b8E()
-  br i1 %62, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i, label %63
+59:                                               ; preds = %55
+  %60 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h1c1768a2b70327b8E()
+  br i1 %60, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i, label %61
 
-63:                                               ; preds = %61
-  store atomic i8 1, ptr %56 monotonic, align 4
+61:                                               ; preds = %59
+  store atomic i8 1, ptr %54 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i
 
-_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %63, %61, %57, %_ZN4fish8termsize12TermsizeData7current17h6a8c373ff8c92e6fE.exit
-  %64 = atomicrmw xchg ptr %28, i32 0 release, align 4
-  %65 = icmp eq i32 %64, 2
-  br i1 %65, label %66, label %"_ZN4core3ptr93drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..termsize..TermsizeData$GT$$GT$17h858dfe2c76d3ee7eE.exit", !prof !33
+_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %61, %59, %55, %_ZN4fish8termsize12TermsizeData7current17h6a8c373ff8c92e6fE.exit
+  %62 = atomicrmw xchg ptr %28, i32 0 release, align 4
+  %63 = icmp eq i32 %62, 2
+  br i1 %63, label %64, label %"_ZN4core3ptr93drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..termsize..TermsizeData$GT$$GT$17h858dfe2c76d3ee7eE.exit", !prof !33
 
-66:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i
+64:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17hd721f493096dd565E(ptr noundef nonnull align 4 %28)
   br label %"_ZN4core3ptr93drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..termsize..TermsizeData$GT$$GT$17h858dfe2c76d3ee7eE.exit"
 
-"_ZN4core3ptr93drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..termsize..TermsizeData$GT$$GT$17h858dfe2c76d3ee7eE.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i, %66
+"_ZN4core3ptr93drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..termsize..TermsizeData$GT$$GT$17h858dfe2c76d3ee7eE.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i, %64
   ret { i64, i64 } %.merged.i
 
-67:                                               ; preds = %38
-  %68 = landingpad { ptr, i32 }
+65:                                               ; preds = %38
+  %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #35
   unreachable
@@ -37296,7 +37296,7 @@ define { i64, i64 } @_ZN4fish8termsize17TermsizeContainer8updating17hbdeb51a52a8
   unreachable
 
 common.resume:                                    ; preds = %38, %20, %91
-  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %.pn.i15, %91 ], [ %39, %38 ]
+  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %.pn.i, %91 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haa3a8f59f12c1d38E.exit": ; preds = %2
@@ -37316,9 +37316,9 @@ common.resume:                                    ; preds = %38, %20, %91
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haa3a8f59f12c1d38E.exit"
-  %.pn11.i = select i1 %31, i64 8, i64 32
+  %.sroa.4.0.in.v.i = select i1 %31, i64 8, i64 32
   %.pn.i = select i1 %31, i64 16, i64 40
-  %.sroa.4.0.in.i = getelementptr inbounds nuw i8, ptr %30, i64 %.pn11.i
+  %.sroa.5.0.in.i = getelementptr inbounds nuw i8, ptr %30, i64 %.pn11.i
   %.sroa.4.0.i = load i64, ptr %.sroa.4.0.in.i, align 8, !alias.scope !5712
   %.sroa.5.0.in.i = getelementptr inbounds nuw i8, ptr %30, i64 %.pn.i
   %.sroa.5.0.i = load i64, ptr %.sroa.5.0.in.i, align 8, !alias.scope !5712
@@ -37350,13 +37350,13 @@ common.resume:                                    ; preds = %38, %20, %91
           to label %53 unwind label %38
 
 48:                                               ; preds = %40, %53
-  %.pre-phi22 = phi i1 [ %33, %40 ], [ %.pre21, %53 ]
+  %.pre-phi21 = phi i1 [ %33, %40 ], [ %.pre20, %53 ]
   %.pre-phi = phi i1 [ %31, %40 ], [ %.pre, %53 ]
-  %49 = select i1 %.pre-phi, i1 true, i1 %.pre-phi22
+  %49 = select i1 %.pre-phi, i1 true, i1 %.pre-phi21
   br i1 %49, label %50, label %_ZN4fish8termsize12TermsizeData7current17h6a8c373ff8c92e6fE.exit14
 
 50:                                               ; preds = %48
-  %.pn11.i8 = select i1 %.pre-phi, i64 8, i64 32
+  %.sroa.4.0.in.v.i8 = select i1 %.pre-phi, i64 8, i64 32
   %.pn.i9 = select i1 %.pre-phi, i64 16, i64 40
   %.sroa.4.0.in.i10 = getelementptr inbounds nuw i8, ptr %30, i64 %.pn11.i8
   %.sroa.4.0.i11 = load i64, ptr %.sroa.4.0.in.i10, align 8, !alias.scope !5715
@@ -37372,7 +37372,7 @@ common.resume:                                    ; preds = %38, %20, %91
   %.sroa.01.0.copyload.i5.pre = load i64, ptr %30, align 8, !alias.scope !5715
   %.sroa.08.0.copyload.i6.pre = load i64, ptr %32, align 8, !alias.scope !5715
   %.pre = trunc nuw i64 %.sroa.01.0.copyload.i5.pre to i1
-  %.pre21 = trunc nuw i64 %.sroa.08.0.copyload.i6.pre to i1
+  %.pre20 = trunc nuw i64 %.sroa.08.0.copyload.i6.pre to i1
   br label %48
 
 _ZN4fish8termsize12TermsizeData7current17h6a8c373ff8c92e6fE.exit14: ; preds = %50, %48
@@ -37470,7 +37470,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %63, %61, 
 
 91:                                               ; preds = %89, %78
   %.sink.i = phi ptr [ %85, %89 ], [ %74, %78 ]
-  %.pn.i15 = phi { ptr, i32 } [ %90, %89 ], [ %79, %78 ]
+  %.pn.i = phi { ptr, i32 } [ %90, %89 ], [ %79, %78 ]
   call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sink.i, i64 noundef 24, i64 noundef 8) #36
   br label %common.resume
 

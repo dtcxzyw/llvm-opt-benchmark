@@ -358,7 +358,7 @@ if.then131.i.i:                                   ; preds = %if.else68.i.i
   unreachable
 
 _ZN6hermes19_decodeUTF8SlowPathILb1EZNS_32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorISt6vectorIDsSaIDsEEEEET_S7_PKcS9_EUlRKN4llvh5TwineEE_EEjRS9_T0_.exit.i: ; preds = %if.else68.i.i, %if.then19.i.i, %if.then.i28.i
-  %.pn.i = phi i64 [ 2, %if.then.i28.i ], [ 3, %if.then19.i.i ], [ 4, %if.else68.i.i ]
+  %begin8.addr.i.2.i = phi i64 [ 2, %if.then.i28.i ], [ 3, %if.then19.i.i ], [ 4, %if.else68.i.i ]
   %retval.0.i.i = phi i32 [ %or.i.i, %if.then.i28.i ], [ %or52.i.i, %if.then19.i.i ], [ %or123.i.i, %if.else68.i.i ]
   %begin8.addr.i.2.i = getelementptr inbounds nuw i8, ptr %begin8.addr.i.0.i, i64 %.pn.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp132.i.i)
@@ -4450,7 +4450,7 @@ if.then131.i.i:                                   ; preds = %if.else68.i.i
   unreachable
 
 _ZN6hermes19_decodeUTF8SlowPathILb1EZNS_32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorISt6vectorIDsSaIDsEEEEET_S7_PKcS9_EUlRKN4llvh5TwineEE_EEjRS9_T0_.exit.i: ; preds = %if.else68.i.i, %if.then19.i.i, %if.then.i28.i
-  %.pn.i = phi i64 [ 2, %if.then.i28.i ], [ 3, %if.then19.i.i ], [ 4, %if.else68.i.i ]
+  %begin8.addr.i.2.i = phi i64 [ 2, %if.then.i28.i ], [ 3, %if.then19.i.i ], [ 4, %if.else68.i.i ]
   %retval.0.i.i = phi i32 [ %or.i.i, %if.then.i28.i ], [ %or52.i.i, %if.then19.i.i ], [ %or123.i.i, %if.else68.i.i ]
   %begin8.addr.i.2.i = getelementptr inbounds nuw i8, ptr %begin8.addr.i.0.i, i64 %.pn.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp132.i.i)
@@ -4781,7 +4781,7 @@ if.then131.i.i:                                   ; preds = %if.else68.i.i
   unreachable
 
 _ZN6hermes19_decodeUTF8SlowPathILb1EZNS_32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorISt6vectorIDsSaIDsEEEEET_S7_PKcS9_EUlRKN4llvh5TwineEE_EEjRS9_T0_.exit.i: ; preds = %if.else68.i.i, %if.then19.i.i, %if.then.i21.i
-  %.pn.i = phi i64 [ 2, %if.then.i21.i ], [ 3, %if.then19.i.i ], [ 4, %if.else68.i.i ]
+  %begin8.addr.i.2.i = phi i64 [ 2, %if.then.i21.i ], [ 3, %if.then19.i.i ], [ 4, %if.else68.i.i ]
   %retval.0.i.i = phi i32 [ %or.i.i, %if.then.i21.i ], [ %or52.i.i, %if.then19.i.i ], [ %or123.i.i, %if.else68.i.i ]
   %begin8.addr.i.2.i = getelementptr inbounds nuw i8, ptr %begin8.addr.i.0.i, i64 %.pn.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp132.i.i)

@@ -4540,7 +4540,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_26d
   store i8 46, ptr %14, align 1, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %.012, i64 3
   store i8 48, ptr %15, align 1, !tbaa !17
-  br label %85
+  br label %88
 
 17:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -4632,7 +4632,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_26d
   %.023.i.i = getelementptr i8, ptr %.pn.i, i64 3
   store i8 %storemerge.i.i, ptr %60, align 1, !tbaa !17
   %62 = icmp samesign ult i32 %.0.i.i, 10
-  br i1 %62, label %63, label %67
+  br i1 %62, label %63, label %68
 
 63:                                               ; preds = %59
   %64 = getelementptr i8, ptr %.pn.i, i64 4
@@ -4642,18 +4642,18 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_26d
   store i8 %66, ptr %64, align 1, !tbaa !17
   br label %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl15append_exponentEPci.exit.i
 
-67:                                               ; preds = %59
-  %68 = icmp samesign ult i32 %.0.i.i, 100
-  %69 = getelementptr i8, ptr %.pn.i, i64 4
-  br i1 %68, label %70, label %75
+68:                                               ; preds = %59
+  %69 = icmp samesign ult i32 %.0.i.i, 100
+  %70 = getelementptr i8, ptr %.pn.i, i64 4
+  br i1 %69, label %71, label %75
 
-70:                                               ; preds = %67
+71:                                               ; preds = %68
   %.lhs.trunc.i.i = trunc nuw nsw i32 %.0.i.i to i8
-  %71 = udiv i8 %.lhs.trunc.i.i, 10
-  %72 = or disjoint i8 %71, 48
-  store i8 %72, ptr %.023.i.i, align 1, !tbaa !17
-  %73 = urem i8 %.lhs.trunc.i.i, 10
-  %74 = or disjoint i8 %73, 48
+  %72 = udiv i8 %.lhs.trunc.i.i, 10
+  %73 = or disjoint i8 %72, 48
+  store i8 %73, ptr %.023.i.i, align 1, !tbaa !17
+  %74 = urem i8 %.lhs.trunc.i.i, 10
+  %75 = or disjoint i8 %74, 48
   store i8 %74, ptr %69, align 1, !tbaa !17
   br label %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl15append_exponentEPci.exit.i
 
@@ -4682,9 +4682,9 @@ _ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl13format_bufferEPciiii.exit: ; pr
   %.0.i = phi ptr [ %28, %21 ], [ %39, %32 ], [ %50, %42 ], [ %.1.i.i, %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl15append_exponentEPci.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %85
+  br label %88
 
-85:                                               ; preds = %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl13format_bufferEPciiii.exit, %13
+88:                                               ; preds = %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl13format_bufferEPciiii.exit, %13
   %.0 = phi ptr [ %16, %13 ], [ %.0.i, %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl13format_bufferEPciiii.exit ]
   ret ptr %.0
 }

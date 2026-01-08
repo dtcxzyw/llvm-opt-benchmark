@@ -18865,7 +18865,7 @@ define internal fastcc void @"_ZN4core3ptr257drop_in_place$LT$$LP$tokio..sync..o
   %4 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$tokio..sync..notify..Notified$GT$17hcd3ae51fb2301cedE"(ptr noundef nonnull align 8 %0) #18
-          to label %6 unwind label %34
+          to label %6 unwind label %36
 
 5:                                                ; preds = %1
   invoke void @"_ZN4core3ptr50drop_in_place$LT$tokio..sync..notify..Notified$GT$17hcd3ae51fb2301cedE"(ptr noundef nonnull align 8 %0)
@@ -18881,7 +18881,7 @@ define internal fastcc void @"_ZN4core3ptr257drop_in_place$LT$$LP$tokio..sync..o
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   invoke void @"_ZN4core3ptr125drop_in_place$LT$tokio..task..coop..Coop$LT$tokio..sync..watch..changed_impl$LT$bool$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5027b2265a9824c2E"(ptr noundef nonnull align 8 %10)
-          to label %"_ZN4core3ptr99drop_in_place$LT$tokio..sync..watch..Receiver$LT$bool$GT$..changed..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9f30adddcc893a90E.exit" unwind label %34
+          to label %"_ZN4core3ptr99drop_in_place$LT$tokio..sync..watch..Receiver$LT$bool$GT$..changed..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9f30adddcc893a90E.exit" unwind label %36
 
 11:                                               ; preds = %5
   %12 = landingpad { ptr, i32 }
@@ -18903,7 +18903,7 @@ define internal fastcc void @"_ZN4core3ptr257drop_in_place$LT$$LP$tokio..sync..o
   %.pn2 = phi { ptr, i32 } [ %20, %19 ], [ %.pn, %9 ], [ %.pn, %6 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 192
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$pingora_timeout..fast_timeout..fast_sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbb1d0a3998f061adE"(ptr noundef nonnull align 8 %18) #18
-          to label %common.resume unwind label %34
+          to label %common.resume unwind label %36
 
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
@@ -18917,7 +18917,7 @@ define internal fastcc void @"_ZN4core3ptr257drop_in_place$LT$$LP$tokio..sync..o
   %cond.i7 = icmp eq i8 %23, 3
   br i1 %cond.i7, label %24, label %"_ZN4core3ptr91drop_in_place$LT$pingora_timeout..fast_timeout..fast_sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbb1d0a3998f061adE.exit"
 
-24:                                               ; preds = %"_ZN4core3ptr99drop_in_place$LT$tokio..sync..watch..Receiver$LT$bool$GT$..changed..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9f30adddcc893a90E.exit6"
+23:                                               ; preds = %"_ZN4core3ptr99drop_in_place$LT$tokio..sync..watch..Receiver$LT$bool$GT$..changed..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9f30adddcc893a90E.exit6"
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %26 = load i8, ptr %25, align 8, !range !3, !noundef !4
   switch i8 %26, label %"_ZN4core3ptr91drop_in_place$LT$pingora_timeout..fast_timeout..fast_sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbb1d0a3998f061adE.exit" [
@@ -18925,13 +18925,13 @@ define internal fastcc void @"_ZN4core3ptr257drop_in_place$LT$$LP$tokio..sync..o
     i8 3, label %27
   ]
 
-common.ret.sink.split.i.i:                        ; preds = %27, %24
-  %.pn.i = phi i64 [ 16, %24 ], [ 32, %27 ]
+common.ret.sink.split.i.i:                        ; preds = %27, %23
+  %.sink.i.i = phi i64 [ 16, %24 ], [ 32, %27 ]
   %.sink.i.i = getelementptr inbounds nuw i8, ptr %21, i64 %.pn.i
   tail call void @"_ZN4core3ptr54drop_in_place$LT$pingora_timeout..timer..TimerStub$GT$17hbbf2b24b29e18756E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sink.i.i)
   br label %"_ZN4core3ptr91drop_in_place$LT$pingora_timeout..fast_timeout..fast_sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbb1d0a3998f061adE.exit"
 
-27:                                               ; preds = %24
+27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 240
   invoke void @"_ZN4core3ptr50drop_in_place$LT$tokio..sync..notify..Notified$GT$17hcd3ae51fb2301cedE"(ptr noundef nonnull align 8 %28)
           to label %common.ret.sink.split.i.i unwind label %29
@@ -18945,19 +18945,19 @@ common.resume:                                    ; preds = %"_ZN4core3ptr99drop
           cleanup
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 224
   invoke void @"_ZN4core3ptr54drop_in_place$LT$pingora_timeout..timer..TimerStub$GT$17hbbf2b24b29e18756E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31) #18
-          to label %common.resume unwind label %32
+          to label %common.resume unwind label %34
 
-32:                                               ; preds = %29
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %29
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #20
   unreachable
 
-"_ZN4core3ptr91drop_in_place$LT$pingora_timeout..fast_timeout..fast_sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbb1d0a3998f061adE.exit": ; preds = %"_ZN4core3ptr99drop_in_place$LT$tokio..sync..watch..Receiver$LT$bool$GT$..changed..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9f30adddcc893a90E.exit6", %24, %common.ret.sink.split.i.i
+"_ZN4core3ptr91drop_in_place$LT$pingora_timeout..fast_timeout..fast_sleep..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbb1d0a3998f061adE.exit": ; preds = %"_ZN4core3ptr99drop_in_place$LT$tokio..sync..watch..Receiver$LT$bool$GT$..changed..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9f30adddcc893a90E.exit6", %23, %common.ret.sink.split.i.i
   ret void
 
-34:                                               ; preds = %9, %"_ZN4core3ptr99drop_in_place$LT$tokio..sync..watch..Receiver$LT$bool$GT$..changed..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9f30adddcc893a90E.exit", %3
-  %35 = landingpad { ptr, i32 }
+36:                                               ; preds = %9, %"_ZN4core3ptr99drop_in_place$LT$tokio..sync..watch..Receiver$LT$bool$GT$..changed..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9f30adddcc893a90E.exit", %3
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #20
   unreachable
@@ -19302,32 +19302,32 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %6 = load i8, ptr %5, align 8, !range !3, !noundef !4
   switch i8 %6, label %common.ret [
     i8 0, label %common.ret.sink.split.i
-    i8 3, label %7
+    i8 3, label %8
   ]
 
 common.ret.sink.split.i:                          ; preds = %7, %4
-  %.pn = phi i64 [ 16, %4 ], [ 32, %7 ]
+  %.sink.i = phi i64 [ 16, %4 ], [ 32, %7 ]
   %.sink.i = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   tail call void @"_ZN4core3ptr54drop_in_place$LT$pingora_timeout..timer..TimerStub$GT$17hbbf2b24b29e18756E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sink.i)
   br label %common.ret
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$tokio..sync..notify..Notified$GT$17hcd3ae51fb2301cedE"(ptr noundef nonnull align 8 %8)
-          to label %common.ret.sink.split.i unwind label %10
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$tokio..sync..notify..Notified$GT$17hcd3ae51fb2301cedE"(ptr noundef nonnull align 8 %9)
+          to label %common.ret.sink.split.i unwind label %11
 
-9:                                                ; preds = %10
-  resume { ptr, i32 } %11
+10:                                               ; preds = %11
+  resume { ptr, i32 } %12
 
-10:                                               ; preds = %7
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %8
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$pingora_timeout..timer..TimerStub$GT$17hbbf2b24b29e18756E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #18
-          to label %9 unwind label %13
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$pingora_timeout..timer..TimerStub$GT$17hbbf2b24b29e18756E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13) #18
+          to label %9 unwind label %16
 
-13:                                               ; preds = %10
-  %14 = landingpad { ptr, i32 }
+16:                                               ; preds = %11
+  %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #20
   unreachable

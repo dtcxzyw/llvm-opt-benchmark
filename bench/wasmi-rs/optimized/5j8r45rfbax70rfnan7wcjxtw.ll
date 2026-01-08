@@ -10376,7 +10376,7 @@ define void @_ZN5wasmi5error5Error14into_resumable17hfbbdda1bc07d7848E(ptr dead_
     i8 14, label %13
     i8 13, label %5
     i8 10, label %._crit_edge41
-    i8 11, label %.thread31
+    i8 11, label %19
   ], !prof !873
 
 5:                                                ; preds = %2
@@ -10401,7 +10401,7 @@ define void @_ZN5wasmi5error5Error14into_resumable17hfbbdda1bc07d7848E(ptr dead_
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %18, align 8
   store i64 1, ptr %0, align 8
-  br label %21
+  br label %23
 
 ._crit_edge41:                                    ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10410,44 +10410,44 @@ define void @_ZN5wasmi5error5Error14into_resumable17hfbbdda1bc07d7848E(ptr dead_
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   br label %.thread31
 
-.thread31:                                        ; preds = %2, %._crit_edge41
+19:                                               ; preds = %2, %._crit_edge41
   %.sroa.6.0.ph = phi i64 [ %.sroa.3.0.copyload, %._crit_edge41 ], [ undef, %2 ]
   %.pn = phi i64 [ 16, %._crit_edge41 ], [ 8, %2 ]
   %.sroa.02.0.ph = phi ptr [ %.sroa.08.0.copyload.pre, %._crit_edge41 ], [ null, %2 ]
   %.sroa.4.0.ph.in = getelementptr inbounds nuw i8, ptr %1, i64 %.pn
   %.sroa.4.0.ph = load i64, ptr %.sroa.4.0.ph.in, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.02.0.ph, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.02.0.ph, ptr %21, align 8
   %.sroa.4.0..sroa_idx435 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.4.0.ph, ptr %.sroa.4.0..sroa_idx435, align 8
   %.sroa.6.0..sroa_idx636 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx636, align 8
   store i64 0, ptr %0, align 8
-  br label %22
+  br label %24
 
 .thread39:                                        ; preds = %9, %13, %5
   %.sroa.01.0.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.01.0 = load i64, ptr %.sroa.01.0.in, align 8, !noundef !10
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %22, align 8
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.01.0, ptr %.sroa.4.0..sroa_idx4, align 8
   store i64 0, ptr %0, align 8
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$wasmi..error..ErrorKind$GT$17h50f8d00acadb0d1aE"(ptr noalias noundef align 8 dereferenceable(112) %1)
-          to label %22 unwind label %23
+          to label %22 unwind label %25
 
-21:                                               ; preds = %22, %17
+23:                                               ; preds = %24, %17
   ret void
 
-22:                                               ; preds = %.thread31, %.thread39
+24:                                               ; preds = %.thread31, %.thread39
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %1, i64 noundef 112, i64 noundef 8) #22
-  br label %21
+  br label %23
 
-23:                                               ; preds = %.thread39
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %.thread39
+  %26 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %1, i64 noundef 112, i64 noundef 8) #22
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11251,8 +11251,8 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5wasmi4func14HostFunc
 define noundef nonnull align 4 dereferenceable(8) ptr @_ZN5wasmi4func10FuncEntity8ty_dedup17h885795b2df40f2e9E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #10 {
   %2 = load i32, ptr %0, align 8, !range !509, !noundef !10
   %3 = trunc nuw i32 %2 to i1
-  %. = select i1 %3, i64 24, i64 4
-  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %.sroa.0.0.v = select i1 %3, i64 24, i64 4
+  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.0.v
   ret ptr %.sroa.0.0
 }
 

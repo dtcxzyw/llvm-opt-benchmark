@@ -62,19 +62,19 @@ _Z12writeuleb128Phm.exit:
   store i8 12, ptr %12, align 1, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 14
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 15
-  %storemerge = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br i1 %8, label %_ZL27defineSavedRegisterLocationPhij.exit, label %.lr.ph.preheader.i
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  br i1 %8, label %16, label %17
 
-_ZL27defineSavedRegisterLocationPhij.exit:        ; preds = %_Z12writeuleb128Phm.exit
+16:                                               ; preds = %_Z12writeuleb128Phm.exit
   store i8 31, ptr %13, align 1, !tbaa !18
   store i8 0, ptr %14, align 1, !tbaa !18
   br label %_ZL13alignPositionPhS_.exit
 
-.lr.ph.preheader.i:                               ; preds = %_Z12writeuleb128Phm.exit
+17:                                               ; preds = %_Z12writeuleb128Phm.exit
   store i8 7, ptr %13, align 1, !tbaa !18
   store i8 8, ptr %14, align 1, !tbaa !18
-  store i8 -112, ptr %storemerge, align 1, !tbaa !18
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  store i8 -112, ptr %15, align 1, !tbaa !18
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 17
   store i8 1, ptr %15, align 1, !tbaa !18
   %storemerge15 = getelementptr inbounds nuw i8, ptr %3, i64 18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %storemerge15, i8 0, i64 6, i1 false), !tbaa !18

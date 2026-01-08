@@ -324,22 +324,22 @@ define dso_local void @zend_weakrefs_hash_clean(ptr noundef %0) local_unnamed_ad
   br label %10
 
 10:                                               ; preds = %.lr.ph, %zend_weakrefs_hash_del.exit
-  %.02129 = phi i32 [ %4, %.lr.ph ], [ %29, %zend_weakrefs_hash_del.exit ]
+  %.02129 = phi i32 [ %4, %.lr.ph ], [ %31, %zend_weakrefs_hash_del.exit ]
   %.02228 = phi ptr [ %6, %.lr.ph ], [ %.1, %zend_weakrefs_hash_del.exit ]
   %.02327 = phi i32 [ 0, %.lr.ph ], [ %.124, %zend_weakrefs_hash_del.exit ]
   %11 = load i32, ptr %2, align 8, !tbaa !4
   %12 = and i32 %11, 4
   %.not25 = icmp eq i32 %12, 0
-  br i1 %.not25, label %16, label %13
+  br i1 %.not25, label %17, label %13
 
 13:                                               ; preds = %10
   %14 = zext i32 %.02327 to i64
   %15 = add i32 %.02327, 1
   br label %19
 
-16:                                               ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %.02228, i64 16
-  %18 = load i64, ptr %17, align 8, !tbaa !22
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %.02228, i64 16
+  %18 = load i64, ptr %18, align 8, !tbaa !22
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -352,21 +352,21 @@ define dso_local void @zend_weakrefs_hash_clean(ptr noundef %0) local_unnamed_ad
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %zend_weakrefs_hash_del.exit, label %23, !prof !26
 
-23:                                               ; preds = %19
+21:                                               ; preds = %19
   %24 = and i64 %.0, 2305843009213693951
   %25 = tail call ptr @zend_hash_index_find(ptr noundef nonnull %0, i64 noundef %24) #8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %zend_weakrefs_hash_del.exit, label %26
 
-26:                                               ; preds = %23
+26:; preds = %23
   %27 = shl i64 %.0, 3
   %28 = inttoptr i64 %27 to ptr
   tail call fastcc void @zend_weakref_unregister(ptr noundef %28, ptr noundef nonnull %9, i1 noundef zeroext true)
   br label %zend_weakrefs_hash_del.exit
 
 zend_weakrefs_hash_del.exit:                      ; preds = %26, %23, %19
-  %29 = add i32 %.02129, -1
-  %.not = icmp eq i32 %29, 0
+  %31 = add i32 %.02129, -1
+  %.not = icmp eq i32 %31, 0
   br i1 %.not, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %zend_weakrefs_hash_del.exit, %1

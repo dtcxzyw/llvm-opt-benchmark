@@ -3535,7 +3535,7 @@ define internal fastcc void @show_line(ptr noundef %0, ptr noundef %1, ptr nound
     i8 61, label %92
   ]
 
-90:                                               ; preds = %89
+87:                                               ; preds = %89
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %.split78
 

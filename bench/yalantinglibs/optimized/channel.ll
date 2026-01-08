@@ -65707,7 +65707,7 @@ if.then18.i.i:                                    ; preds = %if.end.i.i
   br label %if.end24.i.i
 
 if.end24.i.i:                                     ; preds = %if.then18.i.i, %if.end15.i.i, %if.end.i.i
-  %.pn.i.i = phi i64 [ 2, %if.end15.i.i ], [ 1, %if.then18.i.i ], [ 1, %if.end.i.i ]
+  %buf.addr.1.i.i = phi i64 [ 2, %if.end15.i.i ], [ 1, %if.then18.i.i ], [ 1, %if.end.i.i ]
   %ret_cnt.1.i.i = phi i32 [ %inc.i.i, %if.end15.i.i ], [ %inc20.i.i, %if.then18.i.i ], [ 0, %if.end.i.i ]
   %buf.addr.1.i.i = getelementptr inbounds nuw i8, ptr %buf.addr.0.i.i, i64 %.pn.i.i
   %cmp25.i.i = icmp eq i32 %ret_cnt.1.i.i, 2
@@ -66484,7 +66484,7 @@ if.else166:                                       ; preds = %FOUND_CTL
   br label %return
 
 if.end168:                                        ; preds = %FOUND_CTL, %if.end150
-  %.pn = phi i64 [ 2, %if.end150 ], [ 1, %FOUND_CTL ]
+  %buf.addr.4 = phi i64 [ 2, %if.end150 ], [ 1, %FOUND_CTL ]
   %sub.ptr.lhs.cast162.pn = ptrtoint ptr %buf.addr.2 to i64
   %storemerge = sub i64 %sub.ptr.lhs.cast162.pn, %sub.ptr.rhs.cast53
   store i64 %storemerge, ptr %token_len, align 8
@@ -66502,23 +66502,23 @@ define internal fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS
 entry:
   %value = alloca ptr, align 8
   %value_len = alloca i64, align 8
-  %cmp59 = icmp eq ptr %buf, %buf_end
-  br i1 %cmp59, label %if.then, label %if.end
+  %cmp58 = icmp eq ptr %buf, %buf_end
+  br i1 %cmp58, label %if.then, label %if.end
 
 if.then:                                          ; preds = %if.end64, %entry
   store i32 -2, ptr %ret, align 4
   br label %return
 
 if.end:                                           ; preds = %entry, %if.end64
-  %buf.addr.060 = phi ptr [ %call61, %if.end64 ], [ %buf, %entry ]
-  %0 = load i8, ptr %buf.addr.060, align 1
+  %buf.addr.059 = phi ptr [ %call61, %if.end64 ], [ %buf, %entry ]
+  %0 = load i8, ptr %buf.addr.059, align 1
   switch i8 %0, label %if.end16 [
     i8 13, label %if.then2
     i8 10, label %for.end69
   ]
 
 if.then2:                                         ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %buf.addr.060, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %buf.addr.059, i64 1
   %cmp3 = icmp eq ptr %incdec.ptr, %buf_end
   br i1 %cmp3, label %if.then4, label %if.end5
 
@@ -66529,7 +66529,7 @@ if.then4:                                         ; preds = %if.then2
 if.end5:                                          ; preds = %if.then2
   %1 = load i8, ptr %incdec.ptr, align 1
   %cmp8.not = icmp eq i8 %1, 10
-  br i1 %cmp8.not, label %for.end69, label %if.then9
+  br i1 %cmp8.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.end5
   store i32 -1, ptr %ret, align 4
@@ -66558,7 +66558,7 @@ while.body.preheader:                             ; preds = %land.lhs.true, %if.
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end38
-  %buf.addr.2 = phi ptr [ %incdec.ptr39, %if.end38 ], [ %buf.addr.060, %while.body.preheader ]
+  %buf.addr.2 = phi ptr [ %incdec.ptr39, %if.end38 ], [ %buf.addr.059, %while.body.preheader ]
   %3 = load i8, ptr %buf.addr.2, align 1
   %cmp32 = icmp eq i8 %3, 58
   br i1 %cmp32, label %while.end, label %if.else34
@@ -66585,15 +66585,15 @@ if.then41:                                        ; preds = %if.end38
 
 while.end:                                        ; preds = %while.body
   %sub.ptr.lhs.cast = ptrtoint ptr %buf.addr.2 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %buf.addr.060 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %buf.addr.059 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp43 = icmp eq i64 %sub.ptr.sub, 0
   br i1 %cmp43, label %if.then44, label %for.cond47.preheader
 
 for.cond47.preheader:                             ; preds = %while.end
-  %buf.addr.356 = getelementptr inbounds nuw i8, ptr %buf.addr.2, i64 1
-  %cmp4857 = icmp eq ptr %buf.addr.356, %buf_end
-  br i1 %cmp4857, label %if.then49, label %if.end50
+  %buf.addr.355 = getelementptr inbounds nuw i8, ptr %buf.addr.2, i64 1
+  %cmp4856 = icmp eq ptr %buf.addr.355, %buf_end
+  br i1 %cmp4856, label %if.then49, label %if.end50
 
 if.then44:                                        ; preds = %while.end
   store i32 -1, ptr %ret, align 4
@@ -66604,21 +66604,21 @@ if.then49:                                        ; preds = %for.cond47.preheade
   br label %return
 
 if.end50:                                         ; preds = %for.cond47.preheader, %for.inc
-  %buf.addr.358 = phi ptr [ %buf.addr.3, %for.inc ], [ %buf.addr.356, %for.cond47.preheader ]
-  %5 = load i8, ptr %buf.addr.358, align 1
+  %buf.addr.357 = phi ptr [ %buf.addr.3, %for.inc ], [ %buf.addr.355, %for.cond47.preheader ]
+  %5 = load i8, ptr %buf.addr.357, align 1
   switch i8 %5, label %if.end60 [
     i8 32, label %for.inc
     i8 9, label %for.inc
   ]
 
 for.inc:                                          ; preds = %if.end50, %if.end50
-  %buf.addr.3 = getelementptr inbounds nuw i8, ptr %buf.addr.358, i64 1
+  %buf.addr.3 = getelementptr inbounds nuw i8, ptr %buf.addr.357, i64 1
   %cmp48 = icmp eq ptr %buf.addr.3, %buf_end
   br i1 %cmp48, label %if.then49, label %if.end50, !llvm.loop !699
 
 if.end60:                                         ; preds = %if.end50, %land.lhs.true, %land.lhs.true
-  %buf.addr.4 = phi ptr [ %buf.addr.060, %land.lhs.true ], [ %buf.addr.060, %land.lhs.true ], [ %buf.addr.358, %if.end50 ]
-  %name.0 = phi ptr [ null, %land.lhs.true ], [ null, %land.lhs.true ], [ %buf.addr.060, %if.end50 ]
+  %buf.addr.4 = phi ptr [ %buf.addr.059, %land.lhs.true ], [ %buf.addr.059, %land.lhs.true ], [ %buf.addr.357, %if.end50 ]
+  %name.0 = phi ptr [ null, %land.lhs.true ], [ null, %land.lhs.true ], [ %buf.addr.059, %if.end50 ]
   %name_len.0 = phi i64 [ 0, %land.lhs.true ], [ 0, %land.lhs.true ], [ %sub.ptr.sub, %if.end50 ]
   %call61 = call fastcc noundef ptr @_ZN7cinatra6detailL16get_token_to_eolEPKcS2_PS2_PmPi(ptr noundef %buf.addr.4, ptr noundef %buf_end, ptr noundef nonnull %value, ptr noundef nonnull %value_len, ptr noundef %ret)
   %cmp62 = icmp eq ptr %call61, null
@@ -66642,8 +66642,8 @@ if.end64:                                         ; preds = %if.end60
   %cmp = icmp eq ptr %call61, %buf_end
   br i1 %cmp, label %if.then, label %if.end, !llvm.loop !700
 
-for.end69:                                        ; preds = %if.end, %if.end5
-  %.pn = phi i64 [ 2, %if.end5 ], [ 1, %if.end ]
+return:                                           ; preds = %if.end, %if.end5
+  %retval.0 = phi i64 [ 2, %if.end5 ], [ 1, %if.end ]
   %buf.addr.1 = getelementptr inbounds nuw i8, ptr %buf.addr.060, i64 %.pn
   br label %return
 

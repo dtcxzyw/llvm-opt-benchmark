@@ -1119,7 +1119,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %17
 
 32:                                               ; preds = %30, %28
   %.033 = phi ptr [ %.val40, %30 ], [ %.val39, %28 ]
-  %.pn = phi i64 [ 9768, %30 ], [ 112, %28 ]
+  %.032 = phi i64 [ 9768, %30 ], [ 112, %28 ]
   %33 = tail call i64 @duckdb_je_eset_npages_get(ptr noundef nonnull %23) #9
   %34 = tail call i64 @duckdb_je_eset_npages_get(ptr noundef nonnull %24) #9
   %35 = add i64 %34, %33

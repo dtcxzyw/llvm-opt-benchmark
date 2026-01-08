@@ -2462,8 +2462,8 @@ define internal float @_exposure_proxy_get_exposure(ptr noundef readonly capture
   %3 = load ptr, ptr %2, align 8, !tbaa !143
   %4 = load i32, ptr %3, align 4, !tbaa !48
   %5 = icmp eq i32 %4, 1
-  %. = select i1 %5, i64 16, i64 8
-  %.0.in = getelementptr inbounds nuw i8, ptr %3, i64 %.
+  %.0.in.v = select i1 %5, i64 16, i64 8
+  %.0.in = getelementptr inbounds nuw i8, ptr %3, i64 %.0.in.v
   %.0 = load float, ptr %.0.in, align 4, !tbaa !121
   ret float %.0
 }
@@ -2509,26 +2509,26 @@ thread-pre-split:                                 ; preds = %9
 12:                                               ; preds = %thread-pre-split, %11
   %13 = phi i32 [ %.pr, %thread-pre-split ], [ %1, %11 ]
   %.not23 = icmp eq i32 %13, 0
-  br i1 %.not23, label %18, label %14
+  br i1 %.not23, label %25, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load double, ptr %15, align 8, !tbaa !184
   %17 = fneg reassoc nsz arcp contract afn double %16
   store double %17, ptr %15, align 8, !tbaa !184
-  %.pre = load ptr, ptr %7, align 16, !tbaa !83
+  %18 = load ptr, ptr %7, align 16, !tbaa !83
   br label %23
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 680
+25:                                               ; preds = %12
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 680
   %20 = load ptr, ptr %19, align 8, !tbaa !143
   %21 = load i32, ptr %20, align 4, !tbaa !48
   %22 = icmp eq i32 %21, 1
   %. = select i1 %22, i64 40, i64 24
   br label %23
 
-23:                                               ; preds = %14, %18
-  %24 = phi ptr [ %.pre, %14 ], [ %8, %18 ]
+27:                                               ; preds = %14, %25
+  %24 = phi ptr [ %18, %14 ], [ %8, %18 ]
   %.pn = phi i64 [ 8, %14 ], [ %., %18 ]
   %.in = getelementptr inbounds nuw i8, ptr %24, i64 %.pn
   %25 = load ptr, ptr %.in, align 8, !tbaa !248

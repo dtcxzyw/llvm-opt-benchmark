@@ -245,7 +245,7 @@ define dso_local void @llvm_emit_return_abi(ptr noundef %0, ptr noundef %1, ptr 
 
 38:                                               ; preds = %30, %33, %13
   %.0131 = phi ptr [ %17, %13 ], [ %32, %33 ], [ %32, %30 ]
-  %.pn = phi ptr [ %1, %13 ], [ %4, %33 ], [ %2, %30 ]
+  %.0129.sroa.phi = phi ptr [ %1, %13 ], [ %4, %33 ], [ %2, %30 ]
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %40 = load i8, ptr %39, align 4
   %41 = and i8 %40, 63
@@ -281,8 +281,8 @@ define dso_local void @llvm_emit_return_abi(ptr noundef %0, ptr noundef %1, ptr 
   unreachable
 
 54:                                               ; preds = %38
-  %.pn.sroa.phi = getelementptr inbounds nuw i8, ptr %.pn, i64 4
-  %.pn.sroa.phi183 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
+  %.pn.sroa.phi = getelementptr inbounds nuw i8, ptr %.0129.sroa.phi, i64 4
+  %.pn.sroa.phi183 = getelementptr inbounds nuw i8, ptr %.0129.sroa.phi, i64 16
   call void @llvm_value_addr(ptr noundef nonnull %0, ptr noundef %.pn) #7
   %55 = load ptr, ptr %.pn.sroa.phi183, align 8
   store ptr %55, ptr %5, align 8

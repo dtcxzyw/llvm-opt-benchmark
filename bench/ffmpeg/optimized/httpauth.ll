@@ -199,35 +199,35 @@ define internal void @handle_digest_params(ptr noundef %0, ptr noundef readonly 
   %.not30 = icmp eq i32 %9, 0
   br i1 %.not30, label %.sink.split, label %10
 
-10:                                               ; preds = %8
+15:                                               ; preds = %8
   %11 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.10, i64 noundef %6) #9
   %.not31 = icmp eq i32 %11, 0
   br i1 %.not31, label %.sink.split, label %12
 
-12:                                               ; preds = %10
+12:; preds = %10
   %13 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.11, i64 noundef %6) #9
   %.not32 = icmp eq i32 %13, 0
   br i1 %.not32, label %.sink.split, label %14
 
-14:                                               ; preds = %12
+14: ; preds = %12
   %15 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.12, i64 noundef %6) #9
   %.not33 = icmp eq i32 %15, 0
   br i1 %.not33, label %.sink.split, label %16
 
-16:                                               ; preds = %14
+16:; preds = %14
   %17 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.13, i64 noundef %6) #9
   %.not34 = icmp eq i32 %17, 0
   br i1 %.not34, label %.sink.split, label %18
 
-.sink.split:                                      ; preds = %16, %14, %12, %10, %5, %8
+.sink.split:; preds = %16, %14, %12, %10, %5, %8
   %.pn = phi i64 [ 204, %8 ], [ 544, %10 ], [ 514, %14 ], [ 504, %12 ], [ 4, %5 ], [ 844, %16 ]
   %.sink = phi i32 [ 300, %8 ], [ 300, %10 ], [ 30, %14 ], [ 10, %12 ], [ 200, %5 ], [ 10, %16 ]
   %.sink35 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   store ptr %.sink35, ptr %3, align 8, !tbaa !12
   store i32 %.sink, ptr %4, align 4, !tbaa !15
-  br label %18
+  br label %29
 
-18:                                               ; preds = %.sink.split, %16
+29:                                               ; preds = %.sink.split, %16
   ret void
 }
 

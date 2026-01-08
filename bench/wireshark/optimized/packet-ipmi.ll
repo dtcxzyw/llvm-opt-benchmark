@@ -2035,8 +2035,8 @@ ipmi_getnetfnname.exit:                           ; preds = %359, %368, %371
   %.neg339 = sub i32 %455, %457
   %461 = add i32 %.neg339, %.neg346
   %462 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %457, i32 noundef %461)
-  %. = select i1 %.not335, i64 8, i64 16
-  %.in = getelementptr inbounds nuw i8, ptr %.0.i294, i64 %.
+  %.in.v = select i1 %.not335, i64 8, i64 16
+  %.in = getelementptr inbounds nuw i8, ptr %.0.i294, i64 %.in.v
   %463 = load ptr, ptr %.in, align 8
   %.not279 = icmp eq ptr %463, null
   br i1 %.not279, label %471, label %464
@@ -2676,30 +2676,30 @@ define internal void @parse_8bit_ascii(ptr noundef %0, ptr noundef %1, i32 nound
   %7 = icmp ult ptr %0, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4, %14
+.lr.ph:                                           ; preds = %4, %16
   %.017 = phi ptr [ %.1, %14 ], [ %0, %4 ]
   %.01516 = phi i32 [ %8, %14 ], [ %2, %4 ]
   %8 = add i32 %.01516, 1
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.01516)
   %or.cond = icmp sgt i8 %9, 31
-  br i1 %or.cond, label %10, label %11
+  br i1 %or.cond, label %10, label %12
 
 10:                                               ; preds = %.lr.ph
   store i8 %9, ptr %.017, align 1
+  br label %16
+
+12:                                               ; preds = %.lr.ph
+  %13 = zext i8 %9 to i32
+  %14 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.017, i64 noundef 5, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.144, i32 noundef %13)
   br label %14
 
-11:                                               ; preds = %.lr.ph
-  %12 = zext i8 %9 to i32
-  %13 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.017, i64 noundef 5, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.144, i32 noundef %12)
-  br label %14
-
-14:                                               ; preds = %11, %10
-  %.pn = phi i64 [ 1, %10 ], [ 4, %11 ]
-  %.1 = getelementptr i8, ptr %.017, i64 %.pn
+16:                                               ; preds = %12, %10
+  %.1 = phi i64 [ 1, %10 ], [ 4, %11 ]
+  %.1 = getelementptr i8, ptr %.017, i64 %.1
   %15 = icmp ult ptr %.1, %6
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %14, %4
+._crit_edge:                                      ; preds = %16, %4
   ret void
 }
 

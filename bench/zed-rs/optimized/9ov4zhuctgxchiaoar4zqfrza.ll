@@ -34920,11 +34920,11 @@ define internal { i32, i32 } @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder
   %.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %.sroa.0.0 = load i32, ptr %.sroa.0.0.in, align 4, !noundef !5
   %spec.select = select i1 %4, i64 48, i64 32
-  %.sroa.01.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select
-  %.sroa.01.0 = load i32, ptr %.sroa.01.0.in, align 8, !noundef !5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select
+  %.sroa.0.04 = load i32, ptr %6, align 8, !noundef !5
   %5 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
-  %6 = insertvalue { i32, i32 } %5, i32 %.sroa.01.0, 1
-  ret { i32, i32 } %6
+  %7 = insertvalue { i32, i32 } %5, i32 %.sroa.0.04, 1
+  ret { i32, i32 } %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

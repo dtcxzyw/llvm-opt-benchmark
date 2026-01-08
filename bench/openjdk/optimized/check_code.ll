@@ -2323,7 +2323,7 @@ check_and_push_string_utf.exit.i136.i:            ; preds = %981, %977
     i8 76, label %992
   ]
 
-992:                                              ; preds = %.lr.ph.i138.i, %.lr.ph.i138.i
+993:                                              ; preds = %.lr.ph.i138.i, %.lr.ph.i138.i
   %993 = getelementptr inbounds nuw i8, ptr %.149.i.i, i64 4
   store i32 %991, ptr %.149.i.i, align 4
   %994 = add i32 %991, 1
@@ -2334,8 +2334,8 @@ check_and_push_string_utf.exit.i136.i:            ; preds = %981, %977
   store i32 %991, ptr %.149.i.i, align 4
   br label %996
 
-996:                                              ; preds = %995, %992
-  %.pn.i.i = phi i64 [ 4, %995 ], [ 8, %992 ]
+996:                                              ; preds = %995, %993
+  %.2.i.i = phi i64 [ 4, %995 ], [ 8, %992 ]
   %.2.i.i = getelementptr inbounds nuw i8, ptr %.149.i.i, i64 %.pn.i.i
   %997 = load ptr, ptr %7, align 8
   %998 = load i8, ptr %997, align 1

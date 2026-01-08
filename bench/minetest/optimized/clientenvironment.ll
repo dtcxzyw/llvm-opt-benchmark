@@ -1138,8 +1138,8 @@ land.lhs.true87:                                  ; preds = %land.lhs.true85
   br i1 %tobool88.not, label %if.end94.sink.split, label %if.end94
 
 if.end94.sink.split:                              ; preds = %land.lhs.true87, %land.lhs.true
-  %.pn = phi i64 [ 132, %land.lhs.true ], [ 128, %land.lhs.true87 ]
-  %.pn22 = phi i64 [ 272, %land.lhs.true ], [ 296, %land.lhs.true87 ]
+  %.sink.in = phi i64 [ 132, %land.lhs.true ], [ 128, %land.lhs.true87 ]
+  %gravity77.sink = phi i64 [ 272, %land.lhs.true ], [ 296, %land.lhs.true87 ]
   %gravity77.sink = getelementptr inbounds nuw i8, ptr %7, i64 %.pn22
   %.sink.in = getelementptr inbounds nuw i8, ptr %7, i64 %.pn
   %.sink = load float, ptr %.sink.in, align 4, !tbaa !114
@@ -1224,11 +1224,11 @@ if.end.i:                                         ; preds = %invoke.cont152
   %50 = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> zeroinitializer
   %51 = fmul nsz <2 x double> %50, %48
   %52 = fptrunc <2 x double> %51 to <2 x float>
-  %.pre25 = extractelement <2 x float> %52, i64 1
+  %.pre24 = extractelement <2 x float> %52, i64 1
   br label %invoke.cont172
 
 invoke.cont172:                                   ; preds = %if.end.i, %invoke.cont152
-  %.pre-phi = phi float [ %.pre25, %if.end.i ], [ %43, %invoke.cont152 ]
+  %.pre-phi = phi float [ %.pre24, %if.end.i ], [ %43, %invoke.cont152 ]
   %d_wanted.sroa.0.4.vec.extract784.pre-phi = phi float [ %conv13.i, %if.end.i ], [ %div2.i.sink, %invoke.cont152 ]
   %53 = phi <2 x float> [ %52, %if.end.i ], [ %40, %invoke.cont152 ]
   %conv164 = uitofp i8 %25 to float

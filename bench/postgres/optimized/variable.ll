@@ -1095,12 +1095,12 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.not8493 = icmp eq ptr %.tr88, null
   br i1 %.not8493, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %9, %108
-  %.08194 = phi ptr [ %110, %108 ], [ %.tr88, %9 ]
+.lr.ph:                                           ; preds = %9, %114
+  %.08194 = phi ptr [ %116, %108 ], [ %.tr88, %9 ]
   %10 = load ptr, ptr %.08194, align 8
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %5) #8
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %108
+  br i1 %12, label %13, label %114
 
 13:                                               ; preds = %.lr.ph
   br i1 %.not, label %14, label %45
@@ -1190,7 +1190,7 @@ thread-pre-split:                                 ; preds = %53
   switch i8 %55, label %107 [
     i8 0, label %56
     i8 45, label %94
-    i8 46, label %102
+    i8 46, label %104
   ]
 
 56:                                               ; preds = %54
@@ -1255,56 +1255,56 @@ thread-pre-split:                                 ; preds = %53
   %97 = load i32, ptr %96, align 8
   %98 = icmp eq i32 %97, 21
   %99 = getelementptr inbounds nuw i8, ptr %.179, i64 1
-  br i1 %98, label %tailrecurse.backedge.sink.split, label %tailrecurse.backedge
+  br i1 %98, label %101, label %tailrecurse.backedge
 
-tailrecurse.backedge.sink.split:                  ; preds = %94, %102
+101:                                              ; preds = %94, %102
   %.sink119 = phi ptr [ %104, %102 ], [ %96, %94 ]
   %.tr87.be.ph = phi ptr [ %.179, %102 ], [ %99, %94 ]
   %100 = getelementptr inbounds nuw i8, ptr %.sink119, i64 32
   %101 = load ptr, ptr %100, align 8
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %tailrecurse.backedge.sink.split, %94, %102
+tailrecurse.backedge:                             ; preds = %101, %94, %102
   %.tr87.be = phi ptr [ %99, %94 ], [ %.179, %102 ], [ %.tr87.be.ph, %tailrecurse.backedge.sink.split ]
-  %.pn = phi ptr [ %96, %94 ], [ %104, %102 ], [ %101, %tailrecurse.backedge.sink.split ]
+  %.tr88.be.in = phi ptr [ %96, %94 ], [ %104, %102 ], [ %101, %tailrecurse.backedge.sink.split ]
   %.tr88.be.in = getelementptr inbounds nuw i8, ptr %.pn, i64 32
   %.tr88.be = load ptr, ptr %.tr88.be.in, align 8
   br label %tailrecurse
 
-102:                                              ; preds = %54
-  %103 = getelementptr inbounds nuw i8, ptr %.08194, i64 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = load i32, ptr %104, align 8
-  %106 = icmp eq i32 %105, 21
-  br i1 %106, label %tailrecurse.backedge.sink.split, label %tailrecurse.backedge
+104:                                              ; preds = %54
+  %105 = getelementptr inbounds nuw i8, ptr %.08194, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = load i32, ptr %106, align 8
+  %108 = icmp eq i32 %107, 21
+  br i1 %106, label %101, label %tailrecurse.backedge
 
-107:                                              ; preds = %54
+113:                                              ; preds = %54
   tail call void (i32, ptr, ...) @mmfatal(i32 noundef 3, ptr noundef nonnull @.str.19, ptr noundef %0) #9
   unreachable
 
-108:                                              ; preds = %.lr.ph
-  %109 = getelementptr inbounds nuw i8, ptr %.08194, i64 16
-  %110 = load ptr, ptr %109, align 8
-  %.not84 = icmp eq ptr %110, null
+114:                                              ; preds = %.lr.ph
+  %115 = getelementptr inbounds nuw i8, ptr %.08194, i64 16
+  %116 = load ptr, ptr %115, align 8
+  %.not84 = icmp eq ptr %116, null
   br i1 %.not84, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit.sink.split:                             ; preds = %18, %31, %39, %65, %80, %88
   %.sink114 = phi ptr [ %93, %88 ], [ %87, %80 ], [ %79, %65 ], [ %44, %39 ], [ %38, %31 ], [ %30, %18 ]
-  %111 = tail call ptr @mm_alloc(i64 noundef 32) #7
-  %112 = tail call ptr @mm_strdup(ptr noundef %0) #7
-  store ptr %112, ptr %111, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  store ptr %.sink114, ptr %113, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  store i32 %3, ptr %114, align 8
-  %115 = load ptr, ptr @allvariables, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  store ptr %115, ptr %116, align 8
-  store ptr %111, ptr @allvariables, align 8
+  %117 = tail call ptr @mm_alloc(i64 noundef 32) #7
+  %118 = tail call ptr @mm_strdup(ptr noundef %0) #7
+  store ptr %118, ptr %117, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store ptr %.sink114, ptr %119, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  store i32 %3, ptr %120, align 8
+  %121 = load ptr, ptr @allvariables, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  store ptr %121, ptr %122, align 8
+  store ptr %117, ptr @allvariables, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %9, %108, %.loopexit.sink.split
-  %.080 = phi ptr [ %111, %.loopexit.sink.split ], [ null, %108 ], [ null, %9 ]
+.loopexit:                                        ; preds = %9, %114, %.loopexit.sink.split
+  %.080 = phi ptr [ %117, %.loopexit.sink.split ], [ null, %108 ], [ null, %9 ]
   ret ptr %.080
 }
 

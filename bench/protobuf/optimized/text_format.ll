@@ -5890,7 +5890,7 @@ lpad156:                                          ; preds = %invoke.cont154
 if.else162.invoke:                                ; preds = %invoke.cont114, %invoke.cont85, %invoke.cont157, %invoke.cont135, %invoke.cont122
   %43 = phi ptr [ @.str.12, %invoke.cont122 ], [ %.str.32..str.33, %invoke.cont157 ], [ %spec.select, %invoke.cont85 ], [ %.str.19..str.20, %invoke.cont135 ], [ @.str.11, %invoke.cont114 ]
   %44 = phi i64 [ 2, %invoke.cont122 ], [ 2, %invoke.cont157 ], [ 1, %invoke.cont85 ], [ 1, %invoke.cont135 ], [ 2, %invoke.cont114 ]
-  %vtable.i125.pn = phi ptr [ %vtable.i127, %invoke.cont122 ], [ %vtable.i146, %invoke.cont157 ], [ %vtable.i112, %invoke.cont85 ], [ %vtable.i134, %invoke.cont135 ], [ %vtable.i125, %invoke.cont114 ]
+  %.in = phi ptr [ %vtable.i127, %invoke.cont122 ], [ %vtable.i146, %invoke.cont157 ], [ %vtable.i112, %invoke.cont85 ], [ %vtable.i134, %invoke.cont135 ], [ %vtable.i125, %invoke.cont114 ]
   %.in = getelementptr inbounds nuw i8, ptr %vtable.i125.pn, i64 40
   %45 = load ptr, ptr %.in, align 8
   invoke void %45(ptr noundef nonnull align 8 dereferenceable(8) %generator, ptr noundef nonnull %43, i64 noundef %44)

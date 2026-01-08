@@ -6377,7 +6377,7 @@ _ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv
   %.0810.i.i = phi ptr [ %.19.i.i, %.preheader.i ], [ %10, %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit ]
   %11 = getelementptr inbounds nuw i8, ptr %.0810.i.i, i64 24
   %12 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %1) #12
-  %..i.i = select i1 %12, i64 16, i64 8
+  %.19.in.v.i.i = select i1 %12, i64 16, i64 8
   %.0..08.i.i = select i1 %12, ptr %.011.i.i, ptr %.0810.i.i
   %.19.in.i.i = getelementptr inbounds nuw i8, ptr %.0810.i.i, i64 %..i.i
   %.19.i.i = load ptr, ptr %.19.in.i.i, align 8
@@ -6396,7 +6396,7 @@ _ZN8QMapNodeI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10low
 16:                                               ; preds = %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit, %_ZN8QMapNodeI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10lowerBoundERKS0_.exit.i, %13
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
   %17 = invoke ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6insertERKS0_RKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %18 unwind label %23
+          to label %18 unwind label %24
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %3, align 8
@@ -6407,8 +6407,8 @@ _ZN8QMapNodeI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10low
   ]
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i.i:          ; preds = %18
-  %21 = atomicrmw sub ptr %19, i32 1 seq_cst, align 4
-  %.not.i.i8 = icmp eq i32 %21, 1
+  %22 = atomicrmw sub ptr %19, i32 1 seq_cst, align 4
+  %.not.i.i8 = icmp eq i32 %22, 1
   br i1 %.not.i.i8, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i, label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitiveD2Ev.exit
 
 _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i.i
@@ -6416,18 +6416,18 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i, %18
-  %22 = phi ptr [ %.pre.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i ], [ %19, %18 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %22, i64 noundef 2, i64 noundef 8) #12
+  %23 = phi ptr [ %.pre.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i ], [ %19, %18 ]
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %23, i64 noundef 2, i64 noundef 8) #12
   br label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitiveD2Ev.exit
 
-23:                                               ; preds = %16
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %16
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14StructureSynth5Model9Rendering17TemplatePrimitiveD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %25
 
 _ZN14StructureSynth5Model9Rendering17TemplatePrimitiveD2Ev.exit: ; preds = %13, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %18
-  %.0..08.i.i.pn = phi ptr [ %17, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i ], [ %17, %18 ], [ %17, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i ], [ %.0..08.i.i, %13 ]
+  %.0 = phi ptr [ %17, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i ], [ %17, %18 ], [ %17, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i ], [ %.0..08.i.i, %13 ]
   %.0 = getelementptr inbounds nuw i8, ptr %.0..08.i.i.pn, i64 32
   ret ptr %.0
 }
@@ -6454,28 +6454,28 @@ _ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv
 
 .lr.ph:                                           ; preds = %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit, %.lr.ph
   %.027 = phi ptr [ %.0, %.lr.ph ], [ %.024, %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit ]
-  %.02026 = phi ptr [ %.020..0, %.lr.ph ], [ null, %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit ]
+  %.02026 = phi ptr [ %.121, %.lr.ph ], [ null, %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit ]
   %11 = getelementptr inbounds nuw i8, ptr %.027, i64 24
   %12 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %1) #12
-  %.020..0 = select i1 %12, ptr %.02026, ptr %.027
-  %. = select i1 %12, i64 16, i64 8
-  %.1.in = getelementptr inbounds nuw i8, ptr %.027, i64 %.
+  %.121 = select i1 %12, ptr %.02026, ptr %.027
+  %.1.in.v = select i1 %12, i64 16, i64 8
+  %.1.in = getelementptr inbounds nuw i8, ptr %.027, i64 %.1.in.v
   %.0 = load ptr, ptr %.1.in, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %13, label %.lr.ph, !llvm.loop !51
 
 13:                                               ; preds = %.lr.ph
   %.119.le = xor i1 %12, true
-  %.not23 = icmp eq ptr %.020..0, null
+  %.not23 = icmp eq ptr %.121, null
   br i1 %.not23, label %.thread, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds nuw i8, ptr %.020..0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.121, i64 24
   %16 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %15) #12
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %.020..0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.121, i64 32
   br label %27
 
 .thread:                                          ; preds = %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit, %14, %13
@@ -6502,7 +6502,7 @@ _ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10cre
 
 27:                                               ; preds = %_ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10createNodeERKS0_RKS4_P8QMapNodeIS0_S4_Eb.exit, %17
   %.sink = phi ptr [ %26, %_ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10createNodeERKS0_RKS4_P8QMapNodeIS0_S4_Eb.exit ], [ %18, %17 ]
-  %.sroa.0.0 = phi ptr [ %20, %_ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10createNodeERKS0_RKS4_P8QMapNodeIS0_S4_Eb.exit ], [ %.020..0, %17 ]
+  %.sroa.0.0 = phi ptr [ %20, %_ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10createNodeERKS0_RKS4_P8QMapNodeIS0_S4_Eb.exit ], [ %.121, %17 ]
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %.sink, ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   ret ptr %.sroa.0.0
 }

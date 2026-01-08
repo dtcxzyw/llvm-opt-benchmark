@@ -27510,8 +27510,8 @@ switch.lookup:
   %2 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 1)
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN81_$LT$tokenizers..models..ModelWrapper$u20$as$u20$tokenizers..tokenizer..Model$GT$14get_vocab_size17h73dc71a04e4f248fE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
-  %.0 = load i64, ptr %.0.in, align 8, !noundef !4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
+  %.0 = load i64, ptr %3, align 8, !noundef !4
   ret i64 %.0
 }
 
@@ -27628,8 +27628,8 @@ switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !722, !noundef !4
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN85_$LT$tokenizers..models..TrainerWrapper$u20$as$u20$tokenizers..tokenizer..Trainer$GT$20should_show_progress17hf85cfb3ec6959dddE", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %.0.in.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
-  %.0.in.in = load i8, ptr %.0.in.in.in, align 8, !range !42, !noundef !4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
+  %.0.in.in = load i8, ptr %2, align 8, !range !42, !noundef !4
   %.0.in = trunc nuw i8 %.0.in.in to i1
   ret i1 %.0.in
 }

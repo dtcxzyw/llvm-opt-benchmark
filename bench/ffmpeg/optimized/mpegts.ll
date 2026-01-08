@@ -2862,20 +2862,20 @@ define range(i32 -2147483271, -2147483648) i32 @avpriv_mpegts_parse_packet(ptr n
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %22, label %20
 
-20:                                               ; preds = %13, %11
+20:; preds = %13, %11
   %.pn = phi i64 [ 1, %11 ], [ 188, %13 ]
   %.1 = phi i32 [ %12, %11 ], [ %17, %13 ]
   %.119 = getelementptr inbounds nuw i8, ptr %.01820, i64 %.pn
   store i32 0, ptr %6, align 8, !tbaa !160
-  %21 = icmp slt i32 %.1, 188
-  br i1 %21, label %.loopexit, label %9
+  %23 = icmp slt i32 %.1, 188
+  br i1 %23, label %.loopexit, label %9
 
-22:                                               ; preds = %13
-  %23 = sub nsw i32 %3, %17
+24:                                               ; preds = %13
+  %25 = sub nsw i32 %3, %17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %20, %4, %22
-  %.0 = phi i32 [ %23, %22 ], [ -1094995529, %4 ], [ -1094995529, %20 ]
+.loopexit:                                        ; preds = %20, %4, %24
+  %.0 = phi i32 [ %25, %22 ], [ -1094995529, %4 ], [ -1094995529, %20 ]
   ret i32 %.0
 }
 

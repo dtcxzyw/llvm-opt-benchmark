@@ -194,30 +194,30 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   switch i128 %1, label %6 [
     i128 -116093544201264323790637861530113664806, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h5029f64cf176c679E.exit"
     i128 101752962273864888342152279422098982428, label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread.i"
-    i128 25032228107310441252990547129487709782, label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread.i"
+    i128 25032228107310441252990547129487709782, label %10
     i128 -79265415123258697033446525743837385944, label %5
     i128 -169452231571655792182492775664876784288, label %5
   ]
 
-5:                                                ; preds = %3, %3
-  br label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread.i"
+8:                                                ; preds = %6, %3
+  br label %10
 
-"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread.i": ; preds = %5, %3, %3
+10:                                               ; preds = %5, %6, %3
   %.pn13.i = phi i64 [ 544, %3 ], [ 544, %3 ], [ 556, %5 ]
   %.sroa.6.0.i.ph.i = getelementptr inbounds nuw i8, ptr %4, i64 %.pn13.i
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h5029f64cf176c679E.exit"
 
-6:                                                ; preds = %3
-  %7 = icmp eq i128 %1, 377731369611698580506231877142650986
-  %..i.i = zext i1 %7 to i64
+12:                                               ; preds = %6
+  %13 = icmp eq i128 %1, 377731369611698580506231877142650986
+  %..i.i = zext i1 %13 to i64
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h5029f64cf176c679E.exit"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h5029f64cf176c679E.exit": ; preds = %2, %3, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread.i", %6, %2
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h5029f64cf176c679E.exit": ; preds = %2, %3, %10, %6, %2
   %.sroa.0.0 = phi i64 [ 1, %2 ], [ 1, %2 ], [ 1, %3 ], [ %..i.i, %6 ], [ 1, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread.i" ]
   %.sroa.4.0 = phi ptr [ %0, %2 ], [ %0, %2 ], [ %4, %3 ], [ %4, %6 ], [ %.sroa.6.0.i.ph.i, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread.i" ]
-  %8 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %9 = insertvalue { i64, ptr } %8, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %9
+  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.4.0, 1
+  ret { i64, ptr } %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -226,24 +226,24 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
     i128 -116093544201264323790637861530113664806, label %6
     i128 101752962273864888342152279422098982428, label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread"
     i128 25032228107310441252990547129487709782, label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread"
-    i128 -79265415123258697033446525743837385944, label %3
+    i128 -79265415123258697033446525743837385944, label %6
     i128 -169452231571655792182492775664876784288, label %3
   ]
 
-3:                                                ; preds = %2, %2
+6:                                                ; preds = %2, %2
   br label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread"
 
-"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread": ; preds = %2, %2, %3
+10:                                               ; preds = %2, %2, %3
   %.pn13 = phi i64 [ 544, %2 ], [ 544, %2 ], [ 556, %3 ]
   %.sroa.6.0.i.ph = getelementptr inbounds nuw i8, ptr %0, i64 %.pn13
-  br label %6
+  br label %12
 
-4:                                                ; preds = %2
+"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread": ; preds = %2
   %5 = icmp eq i128 %1, 377731369611698580506231877142650986
   %..i = zext i1 %5 to i64
   br label %6
 
-6:                                                ; preds = %4, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread", %2
+6:; preds = %4, %10, %2
   %.sroa.0.0 = phi i64 [ 1, %2 ], [ %..i, %4 ], [ 1, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread" ]
   %.sroa.4.0 = phi ptr [ %0, %2 ], [ %0, %4 ], [ %.sroa.6.0.i.ph, %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread" ]
   %7 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0

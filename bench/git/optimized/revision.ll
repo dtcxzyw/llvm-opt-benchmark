@@ -4032,7 +4032,7 @@ skip_prefix.exit450:                              ; preds = %595, %600
   br i1 %604, label %skip_prefix.exit450, label %skip_prefix.exit454, !llvm.loop !212
 
 skip_prefix.exit450.thread:                       ; preds = %.preheader533, %skip_prefix.exit450
-  %.pn = phi i64 [ 8, %skip_prefix.exit450 ], [ 13, %.preheader533 ]
+  %storemerge493 = phi i64 [ 8, %skip_prefix.exit450 ], [ 13, %.preheader533 ]
   %storemerge493 = getelementptr i8, ptr %10, i64 %.pn
   store ptr %storemerge493, ptr %7, align 8, !tbaa !200
   %605 = call i32 @starts_with(ptr noundef nonnull %10, ptr noundef nonnull @.str.143) #27

@@ -3037,7 +3037,7 @@ _ZNK6icu_7713ResourceValue21getAliasUnicodeStringER10UErrorCode.exit: ; preds = 
 
 27:                                               ; preds = %_ZNK6icu_7713ResourceValue21getAliasUnicodeStringER10UErrorCode.exit
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #19
-  br label %54
+  br label %59
 
 28:                                               ; preds = %_ZNK6icu_7713ResourceValue21getAliasUnicodeStringER10UErrorCode.exit
   %29 = landingpad { ptr, i32 }
@@ -3061,50 +3061,50 @@ _ZNK6icu_7713ResourceValue21getAliasUnicodeStringER10UErrorCode.exit: ; preds = 
   %.not19 = icmp eq i8 %36, 0
   br i1 %.not19, label %.critedge, label %sub_0
 
-.critedge:                                        ; preds = %.lr.ph, %50, %30
+.critedge:                                        ; preds = %.lr.ph, %55, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %54
+  br label %59
 
 sub_0:                                            ; preds = %.lr.ph
-  %37 = load ptr, ptr %8, align 8, !tbaa !73
-  %38 = load i8, ptr %37, align 1
-  %.not = icmp eq i8 %38, 50
+  %42 = load ptr, ptr %8, align 8, !tbaa !73
+  %43 = load i8, ptr %42, align 1
+  %.not = icmp eq i8 %43, 50
   br i1 %.not, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  %40 = load i8, ptr %39, align 1
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %.sink.split, label %.tail.thread
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 1
+  %45 = load i8, ptr %44, align 1
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %.sink.split, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.20) #22
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.sink.split, label %44
+  %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(4) @.str.20) #22
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %.sink.split, label %49
 
-44:                                               ; preds = %.tail.thread
-  %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(7) @.str.21) #22
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.sink.split, label %47
+49:                                               ; preds = %.tail.thread
+  %50 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(7) @.str.21) #22
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %.sink.split, label %52
 
-47:                                               ; preds = %44
-  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.22) #22
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.sink.split, label %50
+52:                                               ; preds = %49
+  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(6) @.str.22) #22
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %.sink.split, label %55
 
-.sink.split:                                      ; preds = %47, %44, %.tail.thread, %.tail
-  %.pn = phi i64 [ 8, %.tail ], [ 200, %.tail.thread ], [ 136, %44 ], [ 72, %47 ]
+.sink.split:                                      ; preds = %52, %49, %.tail.thread, %.tail
+  %.sink = phi i64 [ 8, %.tail ], [ 200, %.tail.thread ], [ 136, %44 ], [ 72, %47 ]
   %.sink = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   call void @_ZN6icu_7713ListFormatter16ListPatternsSink21handleValueForPatternERNS_13ResourceValueERNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(289) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(64) %.sink, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  br label %50
+  br label %55
 
-50:                                               ; preds = %.sink.split, %47
-  %51 = add nuw nsw i32 %.020, 1
-  %52 = load i32, ptr %4, align 4, !tbaa !13
-  %53 = icmp sgt i32 %52, 0
-  br i1 %53, label %.critedge, label %.lr.ph, !llvm.loop !81
+55:                                               ; preds = %.sink.split, %52
+  %56 = add nuw nsw i32 %.020, 1
+  %57 = load i32, ptr %4, align 4, !tbaa !13
+  %58 = icmp sgt i32 %57, 0
+  br i1 %58, label %.critedge, label %.lr.ph, !llvm.loop !81
 
-54:                                               ; preds = %.critedge, %27
+59:                                               ; preds = %.critedge, %27
   ret void
 }
 

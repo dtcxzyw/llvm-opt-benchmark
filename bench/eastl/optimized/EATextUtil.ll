@@ -26,7 +26,7 @@ entry:
   br i1 %cmp54, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %if.end183
-  %pSource8.055 = phi ptr [ %pSource8.1, %if.end183 ], [ %pText, %entry ]
+  %pSource8.055 = phi ptr [ %add.ptr47, %if.end183 ], [ %pText, %entry ]
   %0 = load i8, ptr %pSource8.055, align 1
   %cmp1 = icmp sgt i8 %0, -1
   br i1 %cmp1, label %if.end183, label %if.else
@@ -198,13 +198,13 @@ land.lhs.true163:                                 ; preds = %land.lhs.true158
   br i1 %or.cond53, label %if.end183, label %while.end
 
 if.end183:                                        ; preds = %land.lhs.true163, %land.lhs.true116, %land.lhs.true74, %land.lhs.true38, %if.then12, %while.body
-  %.pn = phi i64 [ 5, %land.lhs.true116 ], [ 1, %while.body ], [ 2, %if.then12 ], [ 3, %land.lhs.true38 ], [ 4, %land.lhs.true74 ], [ 6, %land.lhs.true163 ]
-  %pSource8.1 = getelementptr inbounds nuw i8, ptr %pSource8.055, i64 %.pn
-  %cmp = icmp ult ptr %pSource8.1, %add.ptr
+  %.sink = phi i64 [ 5, %land.lhs.true116 ], [ 1, %while.body ], [ 2, %if.then12 ], [ 3, %land.lhs.true38 ], [ 4, %land.lhs.true74 ], [ 6, %land.lhs.true163 ]
+  %add.ptr47 = getelementptr inbounds nuw i8, ptr %pSource8.055, i64 %.sink
+  %cmp = icmp ult ptr %add.ptr47, %add.ptr
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %if.end183, %if.else, %if.then12, %if.then10, %land.lhs.true, %if.then29, %if.then24, %land.lhs.true69, %land.lhs.true64, %if.then59, %if.then54, %land.lhs.true111, %land.lhs.true106, %land.lhs.true101, %if.then96, %if.then91, %land.lhs.true158, %land.lhs.true153, %land.lhs.true148, %land.lhs.true143, %if.then138, %if.else129, %land.lhs.true38, %land.lhs.true74, %land.lhs.true116, %land.lhs.true163, %entry
-  %pSource8.0.lcssa = phi ptr [ %pText, %entry ], [ %pSource8.055, %land.lhs.true163 ], [ %pSource8.055, %land.lhs.true116 ], [ %pSource8.055, %land.lhs.true74 ], [ %pSource8.055, %land.lhs.true38 ], [ %pSource8.055, %if.else129 ], [ %pSource8.055, %if.then138 ], [ %pSource8.055, %land.lhs.true143 ], [ %pSource8.055, %land.lhs.true148 ], [ %pSource8.055, %land.lhs.true153 ], [ %pSource8.055, %land.lhs.true158 ], [ %pSource8.055, %if.then91 ], [ %pSource8.055, %if.then96 ], [ %pSource8.055, %land.lhs.true101 ], [ %pSource8.055, %land.lhs.true106 ], [ %pSource8.055, %land.lhs.true111 ], [ %pSource8.055, %if.then54 ], [ %pSource8.055, %if.then59 ], [ %pSource8.055, %land.lhs.true64 ], [ %pSource8.055, %land.lhs.true69 ], [ %pSource8.055, %if.then24 ], [ %pSource8.055, %if.then29 ], [ %pSource8.055, %land.lhs.true ], [ %pSource8.055, %if.then10 ], [ %pSource8.055, %if.then12 ], [ %pSource8.055, %if.else ], [ %pSource8.1, %if.end183 ]
+  %pSource8.0.lcssa = phi ptr [ %pText, %entry ], [ %pSource8.055, %land.lhs.true163 ], [ %pSource8.055, %land.lhs.true116 ], [ %pSource8.055, %land.lhs.true74 ], [ %pSource8.055, %land.lhs.true38 ], [ %pSource8.055, %if.else129 ], [ %pSource8.055, %if.then138 ], [ %pSource8.055, %land.lhs.true143 ], [ %pSource8.055, %land.lhs.true148 ], [ %pSource8.055, %land.lhs.true153 ], [ %pSource8.055, %land.lhs.true158 ], [ %pSource8.055, %if.then91 ], [ %pSource8.055, %if.then96 ], [ %pSource8.055, %land.lhs.true101 ], [ %pSource8.055, %land.lhs.true106 ], [ %pSource8.055, %land.lhs.true111 ], [ %pSource8.055, %if.then54 ], [ %pSource8.055, %if.then59 ], [ %pSource8.055, %land.lhs.true64 ], [ %pSource8.055, %land.lhs.true69 ], [ %pSource8.055, %if.then24 ], [ %pSource8.055, %if.then29 ], [ %pSource8.055, %land.lhs.true ], [ %pSource8.055, %if.then10 ], [ %pSource8.055, %if.then12 ], [ %pSource8.055, %if.else ], [ %add.ptr47, %if.end183 ]
   %cmp184 = icmp eq ptr %pSource8.0.lcssa, %add.ptr
   ret i1 %cmp184
 }
@@ -217,7 +217,7 @@ entry:
 
 while.body:                                       ; preds = %entry, %if.end26
   %dec17.in = phi i64 [ %dec17, %if.end26 ], [ %n, %entry ]
-  %p.addr.016 = phi ptr [ %p.addr.1, %if.end26 ], [ %p, %entry ]
+  %p.addr.016 = phi ptr [ %add.ptr3, %if.end26 ], [ %p, %entry ]
   %dec17 = add i64 %dec17.in, -1
   %0 = load i8, ptr %p.addr.016, align 1
   %cmp = icmp ult i8 %0, -62
@@ -245,13 +245,13 @@ if.else16:                                        ; preds = %if.else12
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else16, %if.else12, %if.else8, %if.else4, %if.else, %while.body
-  %.pn = phi i64 [ 5, %if.else12 ], [ 1, %while.body ], [ 2, %if.else ], [ 3, %if.else4 ], [ 4, %if.else8 ], [ %., %if.else16 ]
-  %p.addr.1 = getelementptr inbounds nuw i8, ptr %p.addr.016, i64 %.pn
+  %.sink = phi i64 [ 5, %if.else12 ], [ 1, %while.body ], [ 2, %if.else ], [ 3, %if.else4 ], [ 4, %if.else8 ], [ %., %if.else16 ]
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %p.addr.016, i64 %.sink
   %tobool.not = icmp eq i64 %dec17, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end26, %entry
-  %p.addr.0.lcssa = phi ptr [ %p, %entry ], [ %p.addr.1, %if.end26 ]
+  %p.addr.0.lcssa = phi ptr [ %p, %entry ], [ %add.ptr3, %if.end26 ]
   ret ptr %p.addr.0.lcssa
 }
 
@@ -518,14 +518,14 @@ if.else36:                                        ; preds = %if.else13
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then4, %if.else36, %if.then17, %if.then
-  %.pn = phi i64 [ 1, %if.then ], [ 2, %if.then4 ], [ 3, %if.then17 ], [ 4, %if.else36 ]
+  %.sink = phi i64 [ 1, %if.then ], [ 2, %if.then4 ], [ 3, %if.then17 ], [ 4, %if.else36 ]
   %c.0 = phi i16 [ %conv1, %if.then ], [ %or, %if.then4 ], [ %or33, %if.then17 ], [ %or61, %if.else36 ]
   %tobool.not = icmp eq ptr %ppEnd, null
   br i1 %tobool.not, label %if.end67, label %if.then66
 
 if.then66:                                        ; preds = %if.end65
-  %pCurrent.0 = getelementptr inbounds nuw i8, ptr %p, i64 %.pn
-  store ptr %pCurrent.0, ptr %ppEnd, align 8
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %p, i64 %.sink
+  store ptr %add.ptr12, ptr %ppEnd, align 8
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then66, %if.end65
@@ -577,7 +577,7 @@ if.else12:                                        ; preds = %if.else
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then4, %if.else12, %if.then
-  %.pn = phi i64 [ 1, %if.then ], [ 2, %if.then4 ], [ 3, %if.else12 ]
+  %p.addr.0 = phi i64 [ 1, %if.then ], [ 2, %if.then4 ], [ 3, %if.else12 ]
   %p.addr.0 = getelementptr inbounds nuw i8, ptr %p, i64 %.pn
   ret ptr %p.addr.0
 }
@@ -654,7 +654,7 @@ if.else24:                                        ; preds = %if.else8
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then2, %if.else24, %if.then10, %if.then
-  %.pn = phi i64 [ 1, %if.then ], [ 2, %if.then2 ], [ 3, %if.then10 ], [ 4, %if.else24 ]
+  %p.addr.0 = phi i64 [ 1, %if.then ], [ 2, %if.then2 ], [ 3, %if.then10 ], [ 4, %if.else24 ]
   %p.addr.0 = getelementptr inbounds nuw i8, ptr %p, i64 %.pn
   ret ptr %p.addr.0
 }

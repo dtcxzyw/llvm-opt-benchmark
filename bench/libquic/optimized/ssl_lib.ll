@@ -1702,10 +1702,10 @@ define hidden range(i32 0, 2) i32 @SSL_get_tls_unique(ptr noundef readonly captu
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 1
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %16, label %10
+  br i1 %.not, label %16, label %18
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
+18:                                               ; preds = %4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %12 = load ptr, ptr %11, align 8, !tbaa !122
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 376
   %14 = load i8, ptr %13, align 8
@@ -1719,29 +1719,29 @@ define hidden range(i32 0, 2) i32 @SSL_get_tls_unique(ptr noundef readonly captu
   %.0.in.in = getelementptr inbounds nuw i8, ptr %6, i64 %.pn24
   %.0.in = load i8, ptr %.0.in.in, align 1, !tbaa !157
   %.0 = zext i8 %.0.in to i64
-  %.020 = getelementptr inbounds nuw i8, ptr %6, i64 %.pn
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 %.pn
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 81
   %18 = load i8, ptr %17, align 1, !tbaa !158
   %.not25 = icmp eq i8 %18, 0
   br i1 %.not25, label %23, label %19
 
-19:                                               ; preds = %16
-  %20 = load i32, ptr %0, align 8, !tbaa !159
-  %21 = icmp slt i32 %20, 769
-  br i1 %21, label %23, label %22
+24:                                               ; preds = %16
+  %25 = load i32, ptr %0, align 8, !tbaa !159
+  %26 = icmp slt i32 %25, 769
+  br i1 %26, label %28, label %27
 
-22:                                               ; preds = %19
+27:                                               ; preds = %24
   %spec.select = tail call i64 @llvm.umin.i64(i64 %3, i64 %.0)
   store i64 %spec.select, ptr %2, align 8, !tbaa !160
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %.020, i64 %spec.select, i1 false)
-  br label %24
+  br label %29
 
-23:                                               ; preds = %16, %19, %10
+28:                                               ; preds = %16, %24, %10
   store i64 0, ptr %2, align 8, !tbaa !160
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %3, i1 false)
-  br label %24
+  br label %29
 
-24:                                               ; preds = %23, %22
+29:                                               ; preds = %28, %27
   %.021 = phi i32 [ 0, %23 ], [ 1, %22 ]
   ret i32 %.021
 }

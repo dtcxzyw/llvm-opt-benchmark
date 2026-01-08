@@ -316,35 +316,35 @@ define void @lv_file_explorer_set_quick_access_path(ptr noundef captures(address
 
 4:                                                ; preds = %3
   %5 = icmp eq ptr %2, null
-  br i1 %5, label %17, label %6
+  br i1 %5, label %18, label %6
 
 6:                                                ; preds = %4
   %7 = tail call i64 @lv_strlen(ptr noundef nonnull %2) #6
   %8 = icmp ne i64 %7, 0
   %9 = icmp ult i32 %1, 6
   %or.cond = and i1 %8, %9
-  br i1 %or.cond, label %switch.lookup, label %17
+  br i1 %or.cond, label %switch.lookup, label %18
 
 switch.lookup:                                    ; preds = %6
   %10 = shl nuw nsw i32 %1, 3
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
-  %.0 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  %13 = load ptr, ptr %.0, align 8, !tbaa !28
-  %.not18 = icmp eq ptr %13, null
-  br i1 %.not18, label %15, label %14
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  %14 = load ptr, ptr %13, align 8, !tbaa !28
+  %.not18 = icmp eq ptr %14, null
+  br i1 %.not18, label %16, label %15
 
-14:                                               ; preds = %switch.lookup
-  tail call void @lv_free(ptr noundef nonnull %13) #6
-  store ptr null, ptr %.0, align 8, !tbaa !28
-  br label %15
+15:                                               ; preds = %switch.lookup
+  tail call void @lv_free(ptr noundef nonnull %14) #6
+  store ptr null, ptr %13, align 8, !tbaa !28
+  br label %16
 
-15:                                               ; preds = %14, %switch.lookup
-  %16 = tail call ptr @lv_strdup(ptr noundef nonnull %2) #6
-  store ptr %16, ptr %.0, align 8, !tbaa !28
-  br label %17
+16:                                               ; preds = %15, %switch.lookup
+  %17 = tail call ptr @lv_strdup(ptr noundef nonnull %2) #6
+  store ptr %17, ptr %13, align 8, !tbaa !28
+  br label %18
 
-17:                                               ; preds = %15, %4, %6
+18:                                               ; preds = %16, %4, %6
   ret void
 }
 
@@ -945,41 +945,41 @@ define internal void @quick_access_event_handler(ptr noundef %0) #0 {
   %8 = tail call ptr @lv_label_get_text(ptr noundef %7) #6
   %9 = tail call i32 @lv_strcmp(ptr noundef %8, ptr noundef nonnull @.str.4) #6
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %select.unfold, label %11
+  br i1 %10, label %26, label %11
 
 11:                                               ; preds = %6
   %12 = tail call i32 @lv_strcmp(ptr noundef %8, ptr noundef nonnull @.str.5) #6
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %select.unfold, label %14
 
-14:                                               ; preds = %11
-  %15 = tail call i32 @lv_strcmp(ptr noundef %8, ptr noundef nonnull @.str.6) #6
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %select.unfold, label %17
+13:                                               ; preds = %11
+  %14 = tail call i32 @lv_strcmp(ptr noundef %8, ptr noundef nonnull @.str.6) #6
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %26, label %18
 
-17:                                               ; preds = %14
+16:                                               ; preds = %13
   %18 = tail call i32 @lv_strcmp(ptr noundef %8, ptr noundef nonnull @.str.7) #6
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %select.unfold, label %20
 
-20:                                               ; preds = %17
+21:                                               ; preds = %18
   %21 = tail call i32 @lv_strcmp(ptr noundef %8, ptr noundef nonnull @.str.8) #6
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %select.unfold, label %23
 
-23:                                               ; preds = %20
+23:                                               ; preds = %21
   %24 = tail call i32 @lv_strcmp(ptr noundef %8, ptr noundef nonnull @.str.2) #6
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %select.unfold, label %27
+  br i1 %25, label %26, label %27
 
-select.unfold:                                    ; preds = %20, %17, %14, %11, %6, %23
+26:                                               ; preds = %20, %17, %14, %11, %6, %23
   %.pn = phi i64 [ 168, %23 ], [ 136, %17 ], [ 144, %14 ], [ 152, %11 ], [ 128, %6 ], [ 160, %20 ]
   %.0.ph = getelementptr inbounds nuw i8, ptr %4, i64 %.pn
   %26 = load ptr, ptr %.0.ph, align 8, !tbaa !28
   tail call fastcc void @show_dir(ptr noundef %4, ptr noundef %26)
   br label %27
 
-27:                                               ; preds = %23, %select.unfold, %1
+27:; preds = %23, %26, %1
   ret void
 }
 

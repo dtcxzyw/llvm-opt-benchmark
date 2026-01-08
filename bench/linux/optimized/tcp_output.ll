@@ -6985,7 +6985,7 @@ define internal fastcc void @tcp_options_write(ptr noundef %0, ptr noundef captu
   %109 = icmp eq i8 %108, 0
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %111 = load i8, ptr %110, align 8
-  br i1 %109, label %118, label %112
+  br i1 %109, label %119, label %112
 
 112:                                              ; preds = %104
   %113 = sext i8 %111 to i32
@@ -6996,19 +6996,19 @@ define internal fastcc void @tcp_options_write(ptr noundef %0, ptr noundef captu
   store i32 %117, ptr %101, align 4
   br label %123
 
-118:                                              ; preds = %104
-  %119 = zext i8 %111 to i32
-  %120 = add nuw nsw i32 %119, 2
-  %121 = getelementptr i8, ptr %101, i64 1
+119:                                              ; preds = %104
+  %120 = zext i8 %111 to i32
+  %121 = add nuw nsw i32 %120, 2
+  %122 = getelementptr i8, ptr %101, i64 1
   store i8 34, ptr %101, align 1
-  %122 = trunc i32 %120 to i8
+  %123 = trunc i32 %121 to i8
   store i8 %122, ptr %121, align 1
   br label %123
 
-123:                                              ; preds = %118, %112
+132:                                              ; preds = %118, %112
   %.pn = phi i64 [ 4, %112 ], [ 2, %118 ]
   %124 = phi i32 [ %114, %112 ], [ %120, %118 ]
-  %125 = getelementptr i8, ptr %101, i64 %.pn
+  %135 = getelementptr i8, ptr %101, i64 %.pn
   %126 = load i8, ptr %110, align 8
   %127 = sext i8 %126 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %125, ptr align 8 %106, i64 %127, i1 false)

@@ -905,12 +905,12 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_setregid(ptr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_setgid(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq i32 %0, -1
-  br i1 %2, label %36, label %3
+  br i1 %2, label %41, label %3
 
 3:                                                ; preds = %1
   %4 = tail call ptr @prepare_creds() #13
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %36, label %6
+  br i1 %5, label %41, label %6
 
 6:                                                ; preds = %3
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !7
@@ -920,7 +920,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_setgid(i32 nounde
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @ns_capable_setid(ptr noundef %12, i32 noundef 6) #13
-  br i1 %13, label %14, label %17
+  br i1 %13, label %14, label %19
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -929,19 +929,19 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_setgid(i32 nounde
   store i32 %0, ptr %15, align 4
   br label %25
 
-17:                                               ; preds = %6
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp eq i32 %19, %0
-  br i1 %20, label %25, label %21
+19:                                               ; preds = %6
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp eq i32 %21, %0
+  br i1 %22, label %25, label %21
 
-21:                                               ; preds = %17
+30:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, %0
   br i1 %24, label %25, label %33
 
-25:                                               ; preds = %17, %21, %14
+25:; preds = %17, %30, %14
   %.pn = phi i64 [ 28, %14 ], [ 36, %21 ], [ 36, %17 ]
   %.pn3 = phi i64 [ 12, %14 ], [ 28, %21 ], [ 28, %17 ]
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 %.pn3
@@ -960,12 +960,12 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__sys_setgid(i32 nounde
 33:                                               ; preds = %25, %21
   %34 = phi i32 [ %28, %25 ], [ -1, %21 ]
   tail call void @abort_creds(ptr noundef nonnull %4) #13
-  %35 = sext i32 %34 to i64
-  br label %36
+  %40 = sext i32 %34 to i64
+  br label %41
 
-36:                                               ; preds = %33, %30, %3, %1
-  %37 = phi i64 [ %35, %33 ], [ %32, %30 ], [ -22, %1 ], [ -12, %3 ]
-  ret i64 %37
+41:                                               ; preds = %33, %30, %3, %1
+  %42 = phi i64 [ %40, %33 ], [ %32, %30 ], [ -22, %1 ], [ -12, %3 ]
+  ret i64 %42
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

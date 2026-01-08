@@ -3028,15 +3028,15 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 .lr.ph.preheader:                                 ; preds = %3
   %9 = icmp eq i64 %2, 0
-  br i1 %9, label %.split.i.i, label %.lr.ph30
+  br i1 %9, label %.split.i.i.i, label %.lr.ph30
 
 .lr.ph:                                           ; preds = %.lr.ph30
-  %10 = icmp eq i64 %26, 0
-  br i1 %10, label %.split.i.i, label %.lr.ph30, !llvm.loop !41
+  %10 = icmp eq i64 %24, 0
+  br i1 %10, label %.split.i.i.i, label %.lr.ph30, !llvm.loop !41
 
-.split.i.i:                                       ; preds = %.lr.ph, %.lr.ph.preheader
-  %.lcssa = phi i64 [ %7, %.lr.ph.preheader ], [ %30, %.lr.ph ]
-  %storemerge16.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %27, %.lr.ph ]
+.split.i.i.i:                                     ; preds = %.lr.ph, %.lr.ph.preheader
+  %.lcssa = phi i64 [ %7, %.lr.ph.preheader ], [ %28, %.lr.ph ]
+  %storemerge16.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %25, %.lr.ph ]
   %11 = add nsw i64 %.lcssa, -2
   %12 = lshr i64 %11, 1
   %13 = getelementptr inbounds nuw %"struct.std::pair.29", ptr %0, i64 %12
@@ -3061,14 +3061,14 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %18
 
-18:                                               ; preds = %18, %.lr.ph.i.i
-  %.sroa.0.05.i.i = phi ptr [ %storemerge16.lcssa, %.lr.ph.i.i ], [ %19, %18 ]
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -16
-  %.sroa.02.0.copyload.i.i.i = load i64, ptr %19, align 8
-  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
+.split10.i.i.i:                                   ; preds = %.split10.i.i.i, %.lr.ph.i.i
+  %.0.i.i.i = phi ptr [ %storemerge16.lcssa, %.lr.ph.i.i ], [ %19, %18 ]
+  %phi.call.i.i.i = getelementptr inbounds i8, ptr %.0.i.i.i, i64 -16
+  %.sroa.02.0.copyload.i.i.i = load i64, ptr %phi.call.i.i.i, align 8
+  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.0.i.i.i, i64 -8
   %.sroa.23.0.copyload.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8
   %20 = load i64, ptr %0, align 8
-  store i64 %20, ptr %19, align 8
+  store i64 %20, ptr %phi.call.i.i.i, align 8
   %21 = load i64, ptr %17, align 8
   store i64 %21, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8
   %22 = ptrtoint ptr %19 to i64
@@ -3076,19 +3076,19 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %24 = ashr exact i64 %23, 4
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %24, i64 %.sroa.02.0.copyload.i.i.i, i64 %.sroa.23.0.copyload.i.i.i)
   %25 = icmp sgt i64 %23, 16
-  br i1 %25, label %18, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !43
+  br i1 %25, label %.split10.i.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !43
 
 .lr.ph30:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %storemerge1629 = phi ptr [ %27, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.01728 = phi i64 [ %26, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %26 = add nsw i64 %.01728, -1
-  %27 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEET_SB_SB_T0_(ptr %0, ptr %storemerge1629)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_(ptr %27, ptr %storemerge1629, i64 noundef %26)
-  %28 = ptrtoint ptr %27 to i64
-  %29 = sub i64 %28, %4
-  %30 = ashr exact i64 %29, 4
-  %31 = icmp sgt i64 %30, 16
-  br i1 %31, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !41
+  %storemerge1629 = phi ptr [ %25, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.01728 = phi i64 [ %24, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %24 = add nsw i64 %.01728, -1
+  %25 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEET_SB_SB_T0_(ptr %0, ptr %storemerge1629)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_(ptr %25, ptr %storemerge1629, i64 noundef %24)
+  %26 = ptrtoint ptr %25 to i64
+  %27 = sub i64 %26, %4
+  %28 = ashr exact i64 %27, 4
+  %29 = icmp sgt i64 %28, 16
+  br i1 %29, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !41
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit: ; preds = %.lr.ph30, %18, %3
   ret void

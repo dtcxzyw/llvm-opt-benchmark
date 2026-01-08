@@ -8789,13 +8789,13 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i: ; preds = %_ZNK4llvm9String
 
 109:                                              ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i47.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i34.i, %_ZL16FindDriverSuffixN4llvm9StringRefERm.exit.i
   %110 = phi ptr [ %77, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i47.i ], [ %44, %_ZL16FindDriverSuffixN4llvm9StringRefERm.exit.i ], [ %59, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i34.i ], [ %93, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i ]
-  %.sink.i = phi i64 [ %85, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i47.i ], [ %52, %_ZL16FindDriverSuffixN4llvm9StringRefERm.exit.i ], [ %67, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i34.i ], [ %101, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i ]
-  %.011.idx28.i.pn.i = phi i64 [ %.011.idx28.i37.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i47.i ], [ %.011.idx28.i.i, %_ZL16FindDriverSuffixN4llvm9StringRefERm.exit.i ], [ %.011.idx28.i24.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i34.i ], [ %.011.idx28.i51.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i ]
+  %.0.ph = phi i64 [ %85, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i47.i ], [ %52, %_ZL16FindDriverSuffixN4llvm9StringRefERm.exit.i ], [ %67, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i34.i ], [ %101, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i ]
+  %.2.i.ph = phi i64 [ %.011.idx28.i37.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i47.i ], [ %.011.idx28.i.i, %_ZL16FindDriverSuffixN4llvm9StringRefERm.exit.i ], [ %.011.idx28.i24.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i34.i ], [ %.011.idx28.i51.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i ]
   %.2.ph.i = getelementptr inbounds nuw i8, ptr @_ZZL16FindDriverSuffixN4llvm9StringRefERmE14DriverSuffixes, i64 %.011.idx28.i.pn.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %111 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %110) #33
-  %112 = add i64 %111, %.sink.i
-  %113 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef signext 45, i64 noundef %.sink.i) #28
+  %112 = add i64 %111, %.0.ph
+  %113 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef signext 45, i64 noundef %.0.ph) #28
   %114 = icmp eq i64 %113, -1
   br i1 %114, label %115, label %157
 

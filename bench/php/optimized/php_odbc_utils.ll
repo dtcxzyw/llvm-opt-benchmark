@@ -75,8 +75,8 @@ define dso_local i64 @php_odbc_connstr_quote(ptr noundef writeonly captures(none
   %6 = icmp ugt i64 %5, 2
   br i1 %6, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %3, %14
-  %.024 = phi i64 [ %15, %14 ], [ %5, %3 ]
+.lr.ph:                                           ; preds = %3, %16
+  %.024 = phi i64 [ %17, %14 ], [ %5, %3 ]
   %.01723 = phi ptr [ %.118, %14 ], [ %1, %3 ]
   %.01922 = phi ptr [ %.120, %14 ], [ %4, %3 ]
   %7 = load i8, ptr %.01723, align 1, !tbaa !4
@@ -94,29 +94,29 @@ define dso_local i64 @php_odbc_connstr_quote(ptr noundef writeonly captures(none
   store i8 125, ptr %.01922, align 1, !tbaa !4
   %12 = load i8, ptr %.01723, align 1, !tbaa !4
   store i8 %12, ptr %11, align 1, !tbaa !4
-  br label %14
+  br label %16
 
-13:                                               ; preds = %.lr.ph
+14:                                               ; preds = %.lr.ph
   store i8 %7, ptr %.01922, align 1, !tbaa !4
-  br label %14
+  br label %16
 
-14:                                               ; preds = %10, %13
+16:                                               ; preds = %10, %14
   %.sink = phi i64 [ -2, %10 ], [ -1, %13 ]
-  %.pn = phi i64 [ 2, %10 ], [ 1, %13 ]
-  %15 = add i64 %.024, %.sink
+  %.120 = phi i64 [ 2, %10 ], [ 1, %13 ]
+  %17 = add i64 %.024, %.sink
   %.118 = getelementptr inbounds nuw i8, ptr %.01723, i64 1
-  %.120 = getelementptr inbounds nuw i8, ptr %.01922, i64 %.pn
+  %.120 = getelementptr inbounds nuw i8, ptr %.01922, i64 %.120
   %16 = icmp ugt i64 %15, 2
   br i1 %16, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %14, %.lr.ph, %8, %3
-  %.019.lcssa = phi ptr [ %4, %3 ], [ %.01922, %8 ], [ %.01922, %.lr.ph ], [ %.120, %14 ]
+.thread:; preds = %14, %.lr.ph, %8, %3
+  %.017.lcssa = phi ptr [ %4, %3 ], [ %.01922, %8 ], [ %.01922, %.lr.ph ], [ %.120, %14 ]
   %.017.lcssa = phi ptr [ %1, %3 ], [ %.01723, %8 ], [ %.01723, %.lr.ph ], [ %.118, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %.019.lcssa, i64 1
   store i8 125, ptr %.019.lcssa, align 1, !tbaa !4
   store i8 0, ptr %17, align 1, !tbaa !4
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.017.lcssa) #4
-  ret i64 %18
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.017.lcssa) #4
+  ret i64 %20
 }
 
 attributes #0 = { nofree norecurse nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

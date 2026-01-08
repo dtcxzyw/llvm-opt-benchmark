@@ -1518,7 +1518,7 @@ if.else13.i.i.i238:                               ; preds = %if.else.i.i.i220
   br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i227
 
 _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i227: ; preds = %if.then.i146, %if.then.i.i.i244, %if.then5.i.i.i236, %if.then10.i.i.i222, %if.else13.i.i.i238
-  %.pn = phi ptr [ %retval.0.i.sink.i.i162.ph, %if.else13.i.i.i238 ], [ %retval.0.i.sink.i.i162.ph, %if.then.i.i.i244 ], [ %retval.0.i.sink.i.i162.ph, %if.then5.i.i.i236 ], [ %retval.0.i.sink.i.i162.ph, %if.then10.i.i.i222 ], [ %7, %if.then.i146 ]
+  %add.ptr10.i.i165443 = phi ptr [ %retval.0.i.sink.i.i162.ph, %if.else13.i.i.i238 ], [ %retval.0.i.sink.i.i162.ph, %if.then.i.i.i244 ], [ %retval.0.i.sink.i.i162.ph, %if.then5.i.i.i236 ], [ %retval.0.i.sink.i.i162.ph, %if.then10.i.i.i222 ], [ %7, %if.then.i146 ]
   %retval.0.i.sink.i.i229 = phi ptr [ %call.i.i.i.i.i243, %if.else13.i.i.i238 ], [ %call.i.i.i.i246, %if.then.i.i.i244 ], [ %add.ptr.i.i.i.i.i.i237, %if.then5.i.i.i236 ], [ %add.ptr.i.i.i4.i.i.i223, %if.then10.i.i.i222 ], [ %7, %if.then.i146 ]
   %add.ptr10.i.i165443 = getelementptr inbounds nuw i8, ptr %.pn, i64 %bf.value.i.i
   %add.ptr10.i.i232 = getelementptr inbounds nuw i8, ptr %retval.0.i.sink.i.i229, i64 %bf.value.i.i

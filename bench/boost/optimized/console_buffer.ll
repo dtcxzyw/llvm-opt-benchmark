@@ -506,7 +506,7 @@ define noundef range(i64 -9223372036854775808, 9223372036854775744) i64 @_ZN5boo
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8289) %0, ptr noundef nonnull %6, i64 noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br i1 %11, label %12, label %92
+  br i1 %11, label %12, label %91
 
 12:                                               ; preds = %1
   %13 = load i64, ptr %2, align 8, !tbaa !17
@@ -515,15 +515,15 @@ define noundef range(i64 -9223372036854775808, 9223372036854775744) i64 @_ZN5boo
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.idx = shl nuw nsw i64 %15, 2
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.not42 = icmp eq i64 %15, 0
-  br i1 %.not42, label %.thread, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit
+  %.not49 = icmp eq i64 %15, 0
+  br i1 %.not49, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit
 
 _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12, %66
-  %.020.ptr45 = phi ptr [ %.020.ptr, %66 ], [ %.ptr, %12 ]
-  %.020.idx44 = phi i64 [ %.2.idx, %66 ], [ 64, %12 ]
-  %.03443 = phi ptr [ %17, %66 ], [ %3, %12 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.03443, i64 4
-  %18 = load i32, ptr %.03443, align 4, !tbaa !13
+  %.020.ptr52 = phi ptr [ %.020.ptr, %66 ], [ %.ptr, %12 ]
+  %.020.idx51 = phi i64 [ %.2.idx, %66 ], [ 64, %12 ]
+  %.03450 = phi ptr [ %17, %66 ], [ %3, %12 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.03450, i64 4
+  %18 = load i32, ptr %.03450, align 4, !tbaa !13
   %19 = icmp ugt i32 %18, 1114111
   %20 = and i32 %18, 2095104
   %or.cond.i.i = icmp eq i32 %20, 55296
@@ -549,8 +549,8 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12,
   %28 = lshr i32 %spec.store.select, 6
   %29 = trunc nuw nsw i32 %28 to i8
   %30 = or disjoint i8 %29, -64
-  %31 = getelementptr inbounds nuw i8, ptr %.020.ptr45, i64 1
-  store i8 %30, ptr %.020.ptr45, align 1, !tbaa !21
+  %31 = getelementptr inbounds nuw i8, ptr %.020.ptr52, i64 1
+  store i8 %30, ptr %.020.ptr52, align 1, !tbaa !21
   %32 = trunc i32 %spec.store.select to i8
   %33 = and i8 %32, 63
   %34 = or disjoint i8 %33, -128
@@ -559,15 +559,15 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12,
 
 35:                                               ; preds = %25
   %36 = icmp ult i32 %spec.store.select, 65536
-  %37 = getelementptr inbounds nuw i8, ptr %.020.ptr45, i64 1
-  %38 = getelementptr inbounds nuw i8, ptr %.020.ptr45, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.020.ptr52, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.020.ptr52, i64 2
   br i1 %36, label %39, label %50, !prof !20
 
 39:                                               ; preds = %35
   %40 = lshr i32 %spec.store.select, 12
   %41 = trunc nuw nsw i32 %40 to i8
   %42 = or disjoint i8 %41, -32
-  store i8 %42, ptr %.020.ptr45, align 1, !tbaa !21
+  store i8 %42, ptr %.020.ptr52, align 1, !tbaa !21
   %43 = lshr i32 %spec.store.select, 6
   %44 = trunc i32 %43 to i8
   %45 = and i8 %44, 63
@@ -583,7 +583,7 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12,
   %51 = lshr i32 %spec.store.select, 18
   %52 = trunc i32 %51 to i8
   %53 = or i8 %52, -16
-  store i8 %53, ptr %.020.ptr45, align 1, !tbaa !21
+  store i8 %53, ptr %.020.ptr52, align 1, !tbaa !21
   %54 = lshr i32 %spec.store.select, 12
   %55 = trunc i32 %54 to i8
   %56 = and i8 %55, 63
@@ -593,7 +593,7 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12,
   %59 = trunc i32 %58 to i8
   %60 = and i8 %59, 63
   %61 = or disjoint i8 %60, -128
-  %62 = getelementptr inbounds nuw i8, ptr %.020.ptr45, i64 3
+  %62 = getelementptr inbounds nuw i8, ptr %.020.ptr52, i64 3
   store i8 %61, ptr %38, align 1, !tbaa !21
   %63 = trunc i32 %spec.store.select to i8
   %64 = and i8 %63, 63
@@ -602,7 +602,7 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12,
   br label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit
 
 _ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit: ; preds = %23, %27, %39, %50
-  %.pn.i = phi i64 [ 1, %23 ], [ 2, %27 ], [ 3, %39 ], [ 4, %50 ]
+  %.2.idx = phi i64 [ 1, %23 ], [ 2, %27 ], [ 3, %39 ], [ 4, %50 ]
   %.020.add = add nuw nsw i64 %.pn.i, %.020.idx44
   br label %66
 
@@ -610,52 +610,52 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit: ; preds = %23, %
   %.2.idx = phi i64 [ %.020.idx44, %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit ], [ %.020.add, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit ]
   %.020.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.2.idx
   %.not = icmp eq ptr %17, %16
-  br i1 %.not, label %.thread, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit
+  br i1 %.not, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit
 
-.thread:                                          ; preds = %66, %12
+_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread: ; preds = %66, %12
   %.034.lcssa = phi ptr [ %3, %12 ], [ %16, %66 ]
   %.020.idx.lcssa = phi i64 [ 64, %12 ], [ %.2.idx, %66 ]
-  %67 = ptrtoint ptr %16 to i64
-  %68 = ptrtoint ptr %.034.lcssa to i64
-  %69 = sub i64 %67, %68
-  %70 = ashr exact i64 %69, 2
-  store i64 %70, ptr %4, align 8, !tbaa !25
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8288
-  %72 = load i8, ptr %71, align 8, !tbaa !32, !range !39, !noundef !40
-  %73 = trunc nuw i8 %72 to i1
-  %74 = icmp sgt i64 %.020.idx.lcssa, 64
-  %or.cond = select i1 %73, i1 %74, i1 false
-  %75 = load i8, ptr %.ptr, align 8
-  %76 = icmp eq i8 %75, 26
-  %or.cond30 = select i1 %or.cond, i1 %76, i1 false
-  br i1 %or.cond30, label %77, label %82
+  %66 = ptrtoint ptr %16 to i64
+  %67 = ptrtoint ptr %.034.lcssa to i64
+  %68 = sub i64 %66, %67
+  %69 = ashr exact i64 %68, 2
+  store i64 %69, ptr %4, align 8, !tbaa !25
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8288
+  %71 = load i8, ptr %70, align 8, !tbaa !32, !range !39, !noundef !40
+  %72 = trunc nuw i8 %71 to i1
+  %73 = icmp sgt i64 %.020.idx.lcssa, 64
+  %or.cond = select i1 %72, i1 %73, i1 false
+  %74 = load i8, ptr %.ptr, align 8
+  %75 = icmp eq i8 %74, 26
+  %or.cond30 = select i1 %or.cond, i1 %75, i1 false
+  br i1 %or.cond30, label %76, label %81
 
-77:                                               ; preds = %.thread
-  %78 = load ptr, ptr %0, align 8, !tbaa !3
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
-  %80 = load ptr, ptr %79, align 8
-  %81 = call noundef i32 %80(ptr noundef nonnull align 8 dereferenceable(8289) %0)
-  br label %92
+76:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread
+  %77 = load ptr, ptr %0, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
+  %79 = load ptr, ptr %78, align 8
+  %80 = call noundef i32 %80(ptr noundef nonnull align 8 dereferenceable(8289) %0)
+  br label %91
 
-82:                                               ; preds = %.thread
-  %83 = icmp samesign eq i64 %.020.idx.lcssa, 64
-  br i1 %83, label %90, label %84
+81:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread
+  %82 = icmp samesign eq i64 %.020.idx.lcssa, 64
+  br i1 %82, label %89, label %83
 
-84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 %.020.idx.lcssa
-  %86 = getelementptr inbounds i8, ptr %85, i64 -1
-  %87 = load i8, ptr %86, align 1, !tbaa !21
-  %88 = icmp eq i8 %87, 10
-  %89 = zext i1 %88 to i8
-  br label %90
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 %.020.idx.lcssa
+  %85 = getelementptr inbounds i8, ptr %84, i64 -1
+  %86 = load i8, ptr %85, align 1, !tbaa !21
+  %87 = icmp eq i8 %86, 10
+  %88 = zext i1 %87 to i8
+  br label %89
 
-90:                                               ; preds = %84, %82
-  %91 = phi i8 [ 1, %82 ], [ %89, %84 ]
-  store i8 %91, ptr %71, align 8, !tbaa !32
+89:                                               ; preds = %83, %81
+  %90 = phi i8 [ 1, %82 ], [ %88, %84 ]
+  store i8 %90, ptr %70, align 8, !tbaa !32
   %gepdiff = add nsw i64 %.020.idx.lcssa, -64
-  br label %92
+  br label %91
 
-92:                                               ; preds = %77, %90, %1
+91:                                               ; preds = %76, %89, %1
   %.0 = phi i64 [ 0, %1 ], [ 0, %77 ], [ %gepdiff, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0

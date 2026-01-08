@@ -347,12 +347,12 @@ define hidden ptr @SDL_UCS4ToUTF8_REAL(i32 noundef %0, ptr noundef writeonly cap
   store i8 %18, ptr %19, align 1
   br label %52
 
-20:                                               ; preds = %10
+20:; preds = %10
   %21 = icmp samesign ult i32 %.035, 65536
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br i1 %21, label %23, label %35
 
-23:                                               ; preds = %20
+23:; preds = %20
   %24 = lshr i32 %.035, 12
   %25 = trunc nuw nsw i32 %24 to i8
   %26 = or disjoint i8 %25, -32
@@ -369,7 +369,7 @@ define hidden ptr @SDL_UCS4ToUTF8_REAL(i32 noundef %0, ptr noundef writeonly cap
   store i8 %33, ptr %34, align 1
   br label %52
 
-35:                                               ; preds = %20
+35: ; preds = %20
   %36 = lshr i32 %.035, 18
   %37 = trunc nuw nsw i32 %36 to i8
   %38 = or disjoint i8 %37, -16
@@ -392,12 +392,12 @@ define hidden ptr @SDL_UCS4ToUTF8_REAL(i32 noundef %0, ptr noundef writeonly cap
   store i8 %50, ptr %51, align 1
   br label %52
 
-52:                                               ; preds = %12, %35, %23, %8
+52:; preds = %12, %35, %23, %8
   %.pn = phi i64 [ 1, %8 ], [ 2, %12 ], [ 3, %23 ], [ 4, %35 ]
   %.034 = getelementptr inbounds nuw i8, ptr %1, i64 %.pn
   br label %53
 
-53:                                               ; preds = %2, %52
+53:; preds = %2, %52
   %.0 = phi ptr [ %.034, %52 ], [ null, %2 ]
   ret ptr %.0
 }

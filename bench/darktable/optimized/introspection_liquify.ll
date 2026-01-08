@@ -4091,7 +4091,7 @@ define internal fastcc void @smooth_paths_linsys(ptr noundef captures(address) %
   %3 = getelementptr inbounds nuw %struct.dt_liquify_path_data_t, ptr %0, i64 %indvars.iv
   %4 = load i32, ptr %3, align 4, !tbaa !151
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %356, label %6
+  br i1 %5, label %352, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4689,21 +4689,21 @@ smooth_path_linsys.exit:                          ; preds = %333
   tail call void @free(ptr noundef %117) #30
   tail call void @free(ptr noundef %118) #30
   tail call void @free(ptr noundef %120) #30
-  br i1 %.not171189, label %select.unfold._crit_edge, label %.lr.ph.preheader
+  br i1 %.not171189, label %select.unfold._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %smooth_path_linsys.exit
+.lr.ph:                                           ; preds = %smooth_path_linsys.exit
   %334 = sext i8 %11 to i64
   %335 = getelementptr inbounds %struct.dt_liquify_path_data_t, ptr %0, i64 %334
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %select.unfold
+.lr.ph:; preds = %.lr.ph, %select.unfold
   %.1194 = phi ptr [ %355, %select.unfold ], [ %335, %.lr.ph.preheader ]
   %.1163193 = phi i64 [ %351, %select.unfold ], [ 0, %.lr.ph.preheader ]
   %336 = load i32, ptr %.1194, align 4, !tbaa !151
   %337 = icmp eq i32 %336, 3
   br i1 %337, label %338, label %select.unfold
 
-338:                                              ; preds = %.lr.ph
+338: ; preds = %.lr.ph
   %339 = getelementptr inbounds nuw { float, float }, ptr %20, i64 %.1163193
   %340 = load float, ptr %339, align 4
   %341 = getelementptr inbounds nuw i8, ptr %339, i64 4
@@ -4723,10 +4723,10 @@ smooth_path_linsys.exit:                          ; preds = %333
   br label %select.unfold
 
 select.unfold:                                    ; preds = %338, %.lr.ph
-  %351 = add i64 %.1163193, 1
-  %352 = getelementptr i8, ptr %.1194, i64 18
-  %.1.val = load i8, ptr %352, align 2, !tbaa !190
-  %353 = icmp eq i8 %.1.val, -1
+  %349 = add i64 %.1163193, 1
+  %350 = getelementptr i8, ptr %.1194, i64 18
+  %.1.val = load i8, ptr %350, align 2, !tbaa !190
+  %351 = icmp eq i8 %.1.val, -1
   %354 = sext i8 %.1.val to i64
   %355 = getelementptr inbounds %struct.dt_liquify_path_data_t, ptr %0, i64 %354
   br i1 %353, label %select.unfold._crit_edge, label %.lr.ph
@@ -4741,9 +4741,9 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %smo
 path_length.exit.thread:                          ; preds = %9, %select.unfold._crit_edge, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100
-  br i1 %exitcond.not, label %356, label %2
+  br i1 %exitcond.not, label %352, label %2
 
-356:                                              ; preds = %2, %path_length.exit.thread
+352:                                              ; preds = %2, %path_length.exit.thread
   ret void
 }
 

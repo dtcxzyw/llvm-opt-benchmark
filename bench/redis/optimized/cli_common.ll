@@ -594,12 +594,12 @@ define internal fastcc ptr @percentDecode(ptr noundef %0, i64 noundef %1) unname
   %6 = ptrtoint ptr %4 to i64
   br label %7
 
-7:                                                ; preds = %.lr.ph, %57
+7:                                                ; preds = %.lr.ph, %59
   %.048 = phi ptr [ %5, %.lr.ph ], [ %.1, %57 ]
   %.03547 = phi ptr [ %0, %.lr.ph ], [ %.136, %57 ]
   %8 = load i8, ptr %.03547, align 1, !tbaa !21
   %9 = icmp eq i8 %8, 37
-  br i1 %9, label %10, label %55
+  br i1 %9, label %10, label %56
 
 10:                                               ; preds = %7
   %11 = ptrtoint ptr %.03547 to i64
@@ -673,20 +673,20 @@ define internal fastcc ptr @percentDecode(ptr noundef %0, i64 noundef %1) unname
   store i8 %53, ptr %3, align 1, !tbaa !21
   %54 = call ptr @hi_sdscatlen(ptr noundef %.048, ptr noundef nonnull %3, i64 noundef 1) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %57
+  br label %59
 
-55:                                               ; preds = %7
+56:                                               ; preds = %7
   %56 = call ptr @hi_sdscatlen(ptr noundef %.048, ptr noundef nonnull %.03547, i64 noundef 1) #12
   br label %57
 
-57:                                               ; preds = %55, %48
-  %.pn = phi i64 [ 3, %48 ], [ 1, %55 ]
+59:                                               ; preds = %56, %48
+  %.136 = phi i64 [ 3, %48 ], [ 1, %55 ]
   %.1 = phi ptr [ %54, %48 ], [ %56, %55 ]
   %.136 = getelementptr inbounds nuw i8, ptr %.03547, i64 %.pn
   %58 = icmp ult ptr %.136, %4
   br i1 %58, label %7, label %._crit_edge, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %57, %2
+._crit_edge:                                      ; preds = %59, %2
   %.0.lcssa = phi ptr [ %5, %2 ], [ %.1, %57 ]
   ret ptr %.0.lcssa
 }

@@ -96,7 +96,7 @@ define internal range(i32 -401, 5) i32 @code_to_mbc(i32 noundef %0, ptr noundef 
 
 6:                                                ; preds = %2
   %7 = icmp ult i32 %0, 2048
-  br i1 %7, label %8, label %12
+  br i1 %7, label %8, label %13
 
 8:                                                ; preds = %6
   %9 = lshr i32 %0, 6
@@ -105,20 +105,20 @@ define internal range(i32 -401, 5) i32 @code_to_mbc(i32 noundef %0, ptr noundef 
   store i8 %11, ptr %1, align 1, !tbaa !4
   br label %39
 
-12:                                               ; preds = %6
-  %13 = icmp ult i32 %0, 65536
-  br i1 %13, label %14, label %23
+13:                                               ; preds = %6
+  %14 = icmp ult i32 %0, 65536
+  br i1 %14, label %15, label %23
 
-14:                                               ; preds = %12
-  %15 = lshr i32 %0, 12
-  %16 = trunc nuw nsw i32 %15 to i8
-  %17 = or disjoint i8 %16, -32
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %17, ptr %1, align 1, !tbaa !4
-  %19 = lshr i32 %0, 6
-  %20 = trunc i32 %19 to i8
-  %21 = and i8 %20, 63
-  %22 = or disjoint i8 %21, -128
+15:                                               ; preds = %13
+  %16 = lshr i32 %0, 12
+  %17 = trunc nuw nsw i32 %16 to i8
+  %18 = or disjoint i8 %17, -32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %18, ptr %1, align 1, !tbaa !4
+  %20 = lshr i32 %0, 6
+  %21 = trunc i32 %20 to i8
+  %22 = and i8 %21, 63
+  %23 = or disjoint i8 %22, -128
   store i8 %22, ptr %18, align 1, !tbaa !4
   br label %39
 
@@ -145,7 +145,7 @@ define internal range(i32 -401, 5) i32 @code_to_mbc(i32 noundef %0, ptr noundef 
   store i8 %38, ptr %34, align 1, !tbaa !4
   br label %39
 
-39:                                               ; preds = %14, %25, %8
+39:; preds = %14, %25, %8
   %.pn = phi i64 [ 1, %8 ], [ 2, %14 ], [ 3, %25 ]
   %.0 = getelementptr inbounds nuw i8, ptr %1, i64 %.pn
   %40 = trunc i32 %0 to i8
@@ -156,7 +156,7 @@ define internal range(i32 -401, 5) i32 @code_to_mbc(i32 noundef %0, ptr noundef 
   %44 = add nuw nsw i32 %43, 1
   br label %45
 
-45:                                               ; preds = %39, %23, %4
+45:; preds = %39, %23, %4
   %.023 = phi i32 [ 1, %4 ], [ %44, %39 ], [ -401, %23 ]
   ret i32 %.023
 }

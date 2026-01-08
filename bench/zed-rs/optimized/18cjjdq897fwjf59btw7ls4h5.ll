@@ -20720,54 +20720,54 @@ define hidden void @"_ZN4core3ptr297drop_in_place$LT$gpui..app..model_context..M
     i8 0, label %common.ret.sink.split.i.i.i
   ]
 
-common.ret.sink.split.i.i.i:                      ; preds = %4, %1
-  %.pn = phi i64 [ 40, %4 ], [ 32, %1 ]
+common.ret.sink.split.i.i.i:                      ; preds = %5, %1
+  %.sink.i.i.i = phi i64 [ 40, %4 ], [ 32, %1 ]
   %.sink.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   invoke void @"_ZN4core3ptr71drop_in_place$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$17h3331fdba0f6bef71E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sink.i.i.i)
-          to label %"_ZN4core3ptr80drop_in_place$LT$extension..ExtensionStore..new..$u7b$$u7b$closure$u7d$$u7d$$GT$17he76d5c4c901739abE.llvm.12726036149210647513.exit" unwind label %5
+          to label %"_ZN4core3ptr80drop_in_place$LT$extension..ExtensionStore..new..$u7b$$u7b$closure$u7d$$u7d$$GT$17he76d5c4c901739abE.llvm.12726036149210647513.exit" unwind label %7
 
-4:                                                ; preds = %1
+5:                                                ; preds = %1
   br label %common.ret.sink.split.i.i.i
 
-5:                                                ; preds = %common.ret.sink.split.i.i.i
-  %6 = landingpad { ptr, i32 }
+7:                                                ; preds = %common.ret.sink.split.i.i.i
+  %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr86drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$extension..ExtensionStore$GT$$GT$17he4b5218510f827efE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #72
-          to label %18 unwind label %16
+          to label %18 unwind label %18
 
 "_ZN4core3ptr80drop_in_place$LT$extension..ExtensionStore..new..$u7b$$u7b$closure$u7d$$u7d$$GT$17he76d5c4c901739abE.llvm.12726036149210647513.exit": ; preds = %1, %common.ret.sink.split.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5173)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5176)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5179)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5182)
-  %8 = load ptr, ptr %7, align 8, !alias.scope !5185, !nonnull !5, !noundef !5
-  %9 = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
-  br i1 %9, label %"_ZN4core3ptr86drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$extension..ExtensionStore$GT$$GT$17he4b5218510f827efE.exit", label %10
+  %10 = load ptr, ptr %9, align 8, !alias.scope !5185, !nonnull !5, !noundef !5
+  %11 = icmp eq ptr %10, inttoptr (i64 -1 to ptr)
+  br i1 %11, label %"_ZN4core3ptr86drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$extension..ExtensionStore$GT$$GT$17he4b5218510f827efE.exit", label %12
 
-10:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$extension..ExtensionStore..new..$u7b$$u7b$closure$u7d$$u7d$$GT$17he76d5c4c901739abE.llvm.12726036149210647513.exit"
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !5185
-  %13 = icmp eq i64 %12, 1
-  br i1 %13, label %14, label %"_ZN4core3ptr86drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$extension..ExtensionStore$GT$$GT$17he4b5218510f827efE.exit"
+12:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$extension..ExtensionStore..new..$u7b$$u7b$closure$u7d$$u7d$$GT$17he76d5c4c901739abE.llvm.12726036149210647513.exit"
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %14 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !5185
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %16, label %"_ZN4core3ptr86drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$extension..ExtensionStore$GT$$GT$17he4b5218510f827efE.exit"
 
-14:                                               ; preds = %10
+16:                                               ; preds = %12
   fence acquire
-  %15 = load ptr, ptr %7, align 8, !alias.scope !5185, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef 80, i64 noundef 8) #74, !noalias !5185
+  %17 = load ptr, ptr %9, align 8, !alias.scope !5185, !nonnull !5, !noundef !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef 80, i64 noundef 8) #74, !noalias !5185
   br label %"_ZN4core3ptr86drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$extension..ExtensionStore$GT$$GT$17he4b5218510f827efE.exit"
 
-"_ZN4core3ptr86drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$extension..ExtensionStore$GT$$GT$17he4b5218510f827efE.exit": ; preds = %"_ZN4core3ptr80drop_in_place$LT$extension..ExtensionStore..new..$u7b$$u7b$closure$u7d$$u7d$$GT$17he76d5c4c901739abE.llvm.12726036149210647513.exit", %10, %14
+"_ZN4core3ptr86drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$extension..ExtensionStore$GT$$GT$17he4b5218510f827efE.exit": ; preds = %"_ZN4core3ptr80drop_in_place$LT$extension..ExtensionStore..new..$u7b$$u7b$closure$u7d$$u7d$$GT$17he76d5c4c901739abE.llvm.12726036149210647513.exit", %12, %16
   ret void
 
-16:                                               ; preds = %5
-  %17 = landingpad { ptr, i32 }
+18:                                               ; preds = %7
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #73
   unreachable
 
-18:                                               ; preds = %5
-  resume { ptr, i32 } %6
+20:                                               ; preds = %7
+  resume { ptr, i32 } %8
 }
 
 ; Function Attrs: nonlazybind uwtable

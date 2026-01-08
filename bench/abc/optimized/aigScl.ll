@@ -696,7 +696,7 @@ define void @Aig_ManSeqCleanup_rec(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph:                                           ; preds = %3, %tailrecurse.backedge
   %.val2441 = phi i32 [ %.val24, %tailrecurse.backedge ], [ %.val2435, %3 ]
-  %6 = phi ptr [ %42, %tailrecurse.backedge ], [ %5, %3 ]
+  %6 = phi ptr [ %44, %tailrecurse.backedge ], [ %5, %3 ]
   %.tr3238 = phi ptr [ %.tr32.be, %tailrecurse.backedge ], [ %1, %3 ]
   store i32 %.val2441, ptr %6, align 8, !tbaa !52
   %7 = getelementptr i8, ptr %.tr3238, i64 24
@@ -704,8 +704,8 @@ define void @Aig_ManSeqCleanup_rec(ptr noundef readonly captures(none) %0, ptr n
   %8 = and i64 %.val27, 7
   switch i64 %8, label %43 [
     i64 2, label %9
-    i64 3, label %tailrecurse.backedge
-    i64 4, label %tailrecurse.backedge
+    i64 3, label %42
+    i64 4, label %42
   ]
 
 9:                                                ; preds = %.lr.ph
@@ -778,7 +778,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store ptr %10, ptr %41, align 8, !tbaa !38
   br label %.loopexit
 
-tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %43
+42:                                               ; preds = %.lr.ph, %.lr.ph, %43
   %.val24 = phi i32 [ %.val24.pre, %43 ], [ %.val2441, %.lr.ph ], [ %.val2441, %.lr.ph ]
   %.pn = phi i64 [ 16, %43 ], [ 8, %.lr.ph ], [ 8, %.lr.ph ]
   %.tr32.be.in.in.in.in = getelementptr i8, ptr %.tr3238, i64 %.pn
@@ -786,18 +786,18 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %4
   %.tr32.be.in.in = ptrtoint ptr %.tr32.be.in.in.in to i64
   %.tr32.be.in = and i64 %.tr32.be.in.in, -2
   %.tr32.be = inttoptr i64 %.tr32.be.in to ptr
-  %42 = getelementptr i8, ptr %.tr32.be, i64 32
-  %.val25 = load i32, ptr %42, align 8, !tbaa !52
+  %44 = getelementptr i8, ptr %.tr32.be, i64 32
+  %.val25 = load i32, ptr %44, align 8, !tbaa !52
   %.not = icmp eq i32 %.val25, %.val24
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-43:                                               ; preds = %.lr.ph
-  %44 = getelementptr i8, ptr %.tr3238, i64 8
-  %.val22 = load ptr, ptr %44, align 8, !tbaa !47
-  %45 = ptrtoint ptr %.val22 to i64
-  %46 = and i64 %45, -2
-  %47 = inttoptr i64 %46 to ptr
-  tail call void @Aig_ManSeqCleanup_rec(ptr noundef nonnull %0, ptr noundef %47, ptr noundef %2)
+45:                                               ; preds = %.lr.ph
+  %46 = getelementptr i8, ptr %.tr3238, i64 8
+  %.val22 = load ptr, ptr %46, align 8, !tbaa !47
+  %47 = ptrtoint ptr %.val22 to i64
+  %48 = and i64 %47, -2
+  %49 = inttoptr i64 %48 to ptr
+  tail call void @Aig_ManSeqCleanup_rec(ptr noundef nonnull %0, ptr noundef %49, ptr noundef %2)
   %.val24.pre = load i32, ptr %4, align 8, !tbaa !51
   br label %tailrecurse.backedge
 

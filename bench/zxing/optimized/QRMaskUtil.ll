@@ -400,7 +400,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6QRCode8MaskUtilL29ApplyMaskPenalty
   br i1 %9, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader
-  %13 = mul nsw i64 %indvars.iv48, %12
+  %12 = mul nsw i64 %indvars.iv48, %12
   %invariant.gep = getelementptr %"class.ZXing::Trit", ptr %11, i64 %indvars.iv48
   %invariant.gep59 = getelementptr %"class.ZXing::Trit", ptr %11, i64 %13
   br label %17
@@ -410,35 +410,35 @@ define internal fastcc noundef i32 @_ZN5ZXing6QRCode8MaskUtilL29ApplyMaskPenalty
   ret i32 %.0.lcssa
 
 ._crit_edge:                                      ; preds = %30
-  %14 = icmp sgt i32 %.135, 4
-  %15 = add nsw i32 %.135, -2
-  %spec.select = select i1 %14, i32 %15, i32 0
+  %13 = icmp sgt i32 %.135, 4
+  %14 = add nsw i32 %.135, -2
+  %spec.select = select i1 %13, i32 %14, i32 0
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %.preheader
-  %.1.lcssa58 = phi i32 [ %.044, %.preheader ], [ %.2, %._crit_edge ]
-  %16 = phi i32 [ 0, %.preheader ], [ %spec.select, %._crit_edge ]
-  %.4 = add nsw i32 %.1.lcssa58, %16
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %._crit_edge45, label %.preheader, !llvm.loop !33
+  %.1.lcssa55 = phi i32 [ %.044, %.preheader ], [ %.2, %._crit_edge ]
+  %15 = phi i32 [ 0, %.preheader ], [ %spec.select, %._crit_edge ]
+  %.4 = add nsw i32 %.1.lcssa55, %15
+  %16 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond47.not = icmp eq i64 %16, %wide.trip.count51
+  br i1 %exitcond47.not, label %._crit_edge45, label %.preheader, !llvm.loop !33
 
 17:                                               ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %.141 = phi i32 [ %.044, %.lr.ph ], [ %.2, %30 ]
+  %.141 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
+  %.03140 = phi i32 [ %.044, %.lr.ph ], [ %.2, %30 ]
   %.03239 = phi i32 [ -1, %.lr.ph ], [ %.133, %30 ]
   %.03438 = phi i32 [ 0, %.lr.ph ], [ %.135, %30 ]
-  %gep60 = getelementptr %"class.ZXing::Trit", ptr %invariant.gep59, i64 %indvars.iv
-  %18 = mul nsw i64 %indvars.iv, %12
-  %gep = getelementptr %"class.ZXing::Trit", ptr %invariant.gep, i64 %18
-  %19 = select i1 %1, ptr %gep60, ptr %gep
-  %20 = load i8, ptr %19, align 1, !tbaa !19
+  %gep60 = getelementptr %"class.ZXing::Trit", ptr %invariant.gep59, i64 %.03140
+  %19 = mul nsw i64 %.03140, %12
+  %gep = getelementptr %"class.ZXing::Trit", ptr %invariant.gep, i64 %19
+  %.pn.in = select i1 %1, ptr %gep60, ptr %gep
+  %20 = load i8, ptr %.pn.in, align 1, !tbaa !19
   %21 = icmp eq i8 %20, 1
   %22 = zext i1 %21 to i32
   %23 = icmp eq i32 %.03239, %22
   br i1 %23, label %24, label %26
 
-24:                                               ; preds = %17
+24:; preds = %17
   %25 = add i32 %.03438, 1
   br label %30
 
@@ -449,11 +449,11 @@ define internal fastcc noundef i32 @_ZN5ZXing6QRCode8MaskUtilL29ApplyMaskPenalty
   %.3 = add nsw i32 %.141, %29
   br label %30
 
-30:                                               ; preds = %26, %24
+30:; preds = %26, %24
   %.135 = phi i32 [ %25, %24 ], [ 1, %26 ]
   %.133 = phi i32 [ %.03239, %24 ], [ %22, %26 ]
   %.2 = phi i32 [ %.141, %24 ], [ %.3, %26 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %.141, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !34
 }

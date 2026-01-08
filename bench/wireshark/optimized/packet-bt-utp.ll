@@ -1340,7 +1340,7 @@ cmp_address.exit.thread:                          ; preds = %cmp_address.exit
   %86 = icmp sgt i32 %79, -1
   br i1 %86, label %.thread, label %.thread77
 
-.thread77:                                        ; preds = %62, %70, %cmp_address.exit.thread74, %cmp_address.exit.thread
+.thread:                                          ; preds = %62, %70, %cmp_address.exit.thread74, %cmp_address.exit.thread
   br label %.thread
 
 .thread:                                          ; preds = %cmp_address.exit.thread, %cmp_address.exit.thread74, %64, %56, %.thread77
@@ -1349,7 +1349,7 @@ cmp_address.exit.thread:                          ; preds = %cmp_address.exit
   %87 = getelementptr i8, ptr %.061, i64 %.sink95
   %88 = getelementptr inbounds nuw i8, ptr %.061, i64 24
   store ptr %87, ptr %88, align 8
-  %.sink = getelementptr i8, ptr %.061, i64 %.pn
+  %89 = getelementptr i8, ptr %.061, i64 %.pn
   %89 = getelementptr inbounds nuw i8, ptr %.061, i64 32
   store ptr %.sink, ptr %89, align 8
   ret ptr %.061

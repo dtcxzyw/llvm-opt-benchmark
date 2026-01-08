@@ -1840,7 +1840,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %_ZN5Eigen15PlainObj
   %.pre = load ptr, ptr %3, align 8, !tbaa !99
   br i1 %46, label %.sink.split, label %62
 
-.sink.split:                                      ; preds = %45, %43
+.sink.split:; preds = %45, %43
   %.pre.sink48 = phi ptr [ %44, %43 ], [ %.pre, %45 ]
   %.pn = phi i64 [ 24, %43 ], [ 32, %45 ]
   %.sink = phi double [ 0.000000e+00, %43 ], [ 1.000000e+00, %45 ]

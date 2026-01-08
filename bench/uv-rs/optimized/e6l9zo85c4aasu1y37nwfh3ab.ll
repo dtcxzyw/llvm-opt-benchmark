@@ -9698,7 +9698,7 @@ define hidden void @"_ZN74_$LT$uv_distribution_types..any..LocalDist$u20$as$u20$
   br label %"_ZN81_$LT$uv_distribution_types..any..CanonicalVersion$u20$as$u20$core..hash..Hash$GT$4hash17haf95a10c6d7a1d77E.llvm.7444897219625219906.exit"
 
 "_ZN81_$LT$uv_distribution_types..any..CanonicalVersion$u20$as$u20$core..hash..Hash$GT$4hash17haf95a10c6d7a1d77E.llvm.7444897219625219906.exit": ; preds = %2, %16
-  %.pn.i = phi i64 [ 88, %16 ], [ 8, %2 ]
+  %.sink.i = phi i64 [ 88, %16 ], [ 8, %2 ]
   %.sink.i = getelementptr inbounds nuw i8, ptr %11, i64 %.pn.i
   tail call void @"_ZN64_$LT$uv_pep440..version..Version$u20$as$u20$core..hash..Hash$GT$4hash17ha3f9ad571551e033E.llvm.7444897219625219906"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sink.i, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
   ret void
@@ -10906,10 +10906,10 @@ define hidden void @"_ZN81_$LT$uv_distribution_types..any..CanonicalVersion$u20$
   store i8 -1, ptr %3, align 1, !noalias !2076
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17ha124a96ef9ac8251E.llvm.7444897219625219906"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !2083
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2076
-  br label %14
+  br label %17
 
-14:                                               ; preds = %2, %9
-  %.pn = phi i64 [ 88, %9 ], [ 8, %2 ]
+17:                                               ; preds = %2, %9
+  %.sink = phi i64 [ 88, %9 ], [ 8, %2 ]
   %.sink = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   tail call void @"_ZN64_$LT$uv_pep440..version..Version$u20$as$u20$core..hash..Hash$GT$4hash17ha3f9ad571551e033E.llvm.7444897219625219906"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sink, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
   ret void

@@ -394,9 +394,9 @@ define internal fastcc i32 @led_trigger_format(ptr noundef %0, i64 noundef range
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 328
   br label %13
 
-13:                                               ; preds = %36, %11
-  %14 = phi ptr [ %9, %11 ], [ %38, %36 ]
-  %15 = phi i32 [ %8, %11 ], [ %37, %36 ]
+13:                                               ; preds = %39, %11
+  %14 = phi ptr [ %9, %11 ], [ %41, %36 ]
+  %15 = phi i32 [ %8, %11 ], [ %40, %36 ]
   %16 = getelementptr i8, ptr %14, i64 -56
   %17 = getelementptr i8, ptr %14, i64 -32
   %18 = load ptr, ptr %17, align 8
@@ -406,7 +406,7 @@ define internal fastcc i32 @led_trigger_format(ptr noundef %0, i64 noundef range
 20:                                               ; preds = %13
   %21 = load ptr, ptr %12, align 8
   %22 = icmp eq ptr %18, %21
-  br i1 %22, label %23, label %36
+  br i1 %22, label %23, label %39
 
 23:                                               ; preds = %20, %13
   %24 = load ptr, ptr %4, align 8
@@ -420,33 +420,33 @@ define internal fastcc i32 @led_trigger_format(ptr noundef %0, i64 noundef range
   %.fr = freeze i32 %28
   %29 = icmp eq i32 %.fr, 0
   %.str.10..str.11 = select i1 %29, ptr @.str.10, ptr @.str.11
-  %.str.12..str.11 = select i1 %29, ptr @.str.12, ptr @.str.11
+  %.str.10..str.11 = select i1 %29, ptr @.str.12, ptr @.str.11
   br label %.thread6
 
 .thread6:                                         ; preds = %26, %23
   %30 = phi ptr [ %.str.10..str.11, %26 ], [ @.str.11, %23 ]
-  %31 = phi ptr [ %.str.12..str.11, %26 ], [ @.str.11, %23 ]
+  %32 = phi ptr [ %.str.12..str.11, %26 ], [ @.str.11, %23 ]
   %.pn = sext i32 %15 to i64
   %32 = sub nsw i64 %1, %.pn
   %33 = getelementptr i8, ptr %0, i64 %.pn
-  %34 = tail call i32 (ptr, i64, ptr, ...) @led_trigger_snprintf(ptr noundef %33, i64 noundef %32, ptr noundef nonnull @.str.9, ptr noundef nonnull %30, ptr noundef %.pre, ptr noundef nonnull %31)
-  %35 = add i32 %34, %15
-  br label %36
+  %37 = tail call i32 (ptr, i64, ptr, ...) @led_trigger_snprintf(ptr noundef %33, i64 noundef %32, ptr noundef nonnull @.str.9, ptr noundef nonnull %30, ptr noundef %.pre, ptr noundef nonnull %31)
+  %38 = add i32 %37, %15
+  br label %39
 
-36:                                               ; preds = %.thread6, %20
-  %37 = phi i32 [ %35, %.thread6 ], [ %15, %20 ]
-  %38 = load ptr, ptr %14, align 8
-  %39 = icmp eq ptr %38, @trigger_list
-  br i1 %39, label %.loopexit, label %13, !llvm.loop !9
+39:                                               ; preds = %.thread6, %20
+  %40 = phi i32 [ %38, %.thread6 ], [ %15, %20 ]
+  %41 = load ptr, ptr %14, align 8
+  %42 = icmp eq ptr %41, @trigger_list
+  br i1 %42, label %.loopexit, label %13, !llvm.loop !9
 
-.loopexit:                                        ; preds = %36, %3
-  %40 = phi i32 [ %8, %3 ], [ %37, %36 ]
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr i8, ptr %0, i64 %41
-  %43 = sub nsw i64 %1, %41
-  %44 = tail call i32 (ptr, i64, ptr, ...) @led_trigger_snprintf(ptr noundef %42, i64 noundef %43, ptr noundef nonnull @.str.13)
-  %45 = add i32 %44, %40
-  ret i32 %45
+.loopexit:                                        ; preds = %39, %3
+  %43 = phi i32 [ %8, %3 ], [ %40, %36 ]
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr i8, ptr %0, i64 %44
+  %46 = sub nsw i64 %1, %44
+  %47 = tail call i32 (ptr, i64, ptr, ...) @led_trigger_snprintf(ptr noundef %45, i64 noundef %46, ptr noundef nonnull @.str.13)
+  %48 = add i32 %47, %43
+  ret i32 %48
 }
 
 ; Function Attrs: null_pointer_is_valid

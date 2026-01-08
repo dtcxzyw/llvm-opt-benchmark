@@ -4275,7 +4275,7 @@ _Z21b3UnSwapVector3EndianR9b3Vector3.exit159:     ; preds = %134
   br label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit
 
 _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit: ; preds = %.thread205, %.thread, %158, %162
-  %.pn = phi i64 [ %113, %.thread ], [ %161, %158 ], [ %161, %162 ], [ %115, %.thread205 ]
+  %.0135204 = phi i64 [ %113, %.thread ], [ %161, %158 ], [ %161, %162 ], [ %115, %.thread205 ]
   %163 = phi i32 [ %65, %.thread ], [ %.pre191.pre, %158 ], [ %.pre191.pre, %162 ], [ %65, %.thread205 ]
   %.0135204 = getelementptr inbounds nuw i8, ptr %74, i64 %.pn
   store i8 0, ptr %92, align 8, !tbaa !34

@@ -7018,75 +7018,75 @@ define linkonce_odr hidden noundef ptr @_ZN4utf86appendIPcEET_jS2_(i32 noundef %
 
 10:                                               ; preds = %2
   %11 = icmp samesign ult i32 %0, 128
-  br i1 %11, label %12, label %14
+  br i1 %11, label %12, label %15
 
 12:                                               ; preds = %10
   %13 = trunc nuw nsw i32 %0 to i8
   store i8 %13, ptr %1, align 1
   br label %_ZN4utf88internal6appendEjPc.exit
 
-14:                                               ; preds = %10
-  %15 = icmp samesign ult i32 %0, 2048
-  br i1 %15, label %16, label %24
+15:                                               ; preds = %10
+  %16 = icmp samesign ult i32 %0, 2048
+  br i1 %16, label %17, label %26
 
-16:                                               ; preds = %14
-  %17 = lshr i32 %0, 6
-  %18 = trunc nuw nsw i32 %17 to i8
-  %19 = or disjoint i8 %18, -64
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %19, ptr %1, align 1
-  %21 = trunc i32 %0 to i8
-  %22 = and i8 %21, 63
-  %23 = or disjoint i8 %22, -128
-  store i8 %23, ptr %20, align 1
+17:                                               ; preds = %15
+  %18 = lshr i32 %0, 6
+  %19 = trunc nuw nsw i32 %18 to i8
+  %20 = or disjoint i8 %19, -64
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %20, ptr %1, align 1
+  %22 = trunc i32 %0 to i8
+  %23 = and i8 %22, 63
+  %24 = or disjoint i8 %23, -128
+  store i8 %23, ptr %21, align 1
   br label %_ZN4utf88internal6appendEjPc.exit
 
-24:                                               ; preds = %14
-  %25 = icmp samesign ult i32 %0, 65536
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  br i1 %25, label %28, label %39
+26:                                               ; preds = %15
+  %27 = icmp samesign ult i32 %0, 65536
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  br i1 %27, label %30, label %42
 
-28:                                               ; preds = %24
-  %29 = lshr i32 %0, 12
-  %30 = trunc nuw nsw i32 %29 to i8
-  %31 = or disjoint i8 %30, -32
-  store i8 %31, ptr %1, align 1
-  %32 = lshr i32 %0, 6
-  %33 = trunc i32 %32 to i8
-  %34 = and i8 %33, 63
-  %35 = or disjoint i8 %34, -128
-  store i8 %35, ptr %26, align 1
-  %36 = trunc i32 %0 to i8
-  %37 = and i8 %36, 63
-  %38 = or disjoint i8 %37, -128
+30:                                               ; preds = %26
+  %31 = lshr i32 %0, 12
+  %32 = trunc nuw nsw i32 %31 to i8
+  %33 = or disjoint i8 %32, -32
+  store i8 %33, ptr %1, align 1
+  %34 = lshr i32 %0, 6
+  %35 = trunc i32 %34 to i8
+  %36 = and i8 %35, 63
+  %37 = or disjoint i8 %36, -128
+  store i8 %37, ptr %28, align 1
+  %38 = trunc i32 %0 to i8
+  %39 = and i8 %38, 63
+  %40 = or disjoint i8 %39, -128
   store i8 %38, ptr %27, align 1
   br label %_ZN4utf88internal6appendEjPc.exit
 
-39:                                               ; preds = %24
-  %40 = lshr i32 %0, 18
-  %41 = trunc nuw nsw i32 %40 to i8
-  %42 = or disjoint i8 %41, -16
-  store i8 %42, ptr %1, align 1
-  %43 = lshr i32 %0, 12
-  %44 = trunc i32 %43 to i8
-  %45 = and i8 %44, 63
-  %46 = or disjoint i8 %45, -128
-  store i8 %46, ptr %26, align 1
-  %47 = lshr i32 %0, 6
-  %48 = trunc i32 %47 to i8
-  %49 = and i8 %48, 63
-  %50 = or disjoint i8 %49, -128
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %50, ptr %27, align 1
-  %52 = trunc i32 %0 to i8
-  %53 = and i8 %52, 63
-  %54 = or disjoint i8 %53, -128
+42:                                               ; preds = %26
+  %43 = lshr i32 %0, 18
+  %44 = trunc nuw nsw i32 %43 to i8
+  %45 = or disjoint i8 %44, -16
+  store i8 %45, ptr %1, align 1
+  %46 = lshr i32 %0, 12
+  %47 = trunc i32 %46 to i8
+  %48 = and i8 %47, 63
+  %49 = or disjoint i8 %48, -128
+  store i8 %49, ptr %28, align 1
+  %50 = lshr i32 %0, 6
+  %51 = trunc i32 %50 to i8
+  %52 = and i8 %51, 63
+  %53 = or disjoint i8 %52, -128
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  store i8 %53, ptr %29, align 1
+  %55 = trunc i32 %0 to i8
+  %56 = and i8 %55, 63
+  %57 = or disjoint i8 %56, -128
   store i8 %54, ptr %51, align 1
   br label %_ZN4utf88internal6appendEjPc.exit
 
-_ZN4utf88internal6appendEjPc.exit:                ; preds = %12, %16, %28, %39
-  %.pn.i.i = phi i64 [ 1, %12 ], [ 2, %16 ], [ 3, %28 ], [ 4, %39 ]
+_ZN4utf88internal6appendEjPc.exit:                ; preds = %12, %17, %30, %42
+  %.0.i.i = phi i64 [ 1, %12 ], [ 2, %16 ], [ 3, %28 ], [ 4, %39 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.pn.i.i
   ret ptr %.0.i.i
 }

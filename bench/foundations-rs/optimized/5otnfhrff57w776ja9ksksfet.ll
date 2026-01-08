@@ -530,10 +530,10 @@ define internal fastcc void @"_ZN4core3ptr445drop_in_place$LT$tokio..runtime..ta
   %2 = load i32, ptr %0, align 8, !range !3, !noundef !4
   switch i32 %2, label %"_ZN4core3ptr404drop_in_place$LT$$LT$hyper..client..service..Connect$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2decee01842deefdE.exit" [
     i32 0, label %3
-    i32 1, label %7
+    i32 1, label %9
   ]
 
-"_ZN4core3ptr404drop_in_place$LT$$LT$hyper..client..service..Connect$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2decee01842deefdE.exit": ; preds = %11, %7, %common.ret.sink.split.i, %3, %1
+"_ZN4core3ptr404drop_in_place$LT$$LT$hyper..client..service..Connect$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2decee01842deefdE.exit": ; preds = %13, %9, %common.ret.sink.split.i, %3, %1
   ret void
 
 3:                                                ; preds = %1
@@ -541,26 +541,26 @@ define internal fastcc void @"_ZN4core3ptr445drop_in_place$LT$tokio..runtime..ta
   %5 = load i8, ptr %4, align 8, !range !32, !noundef !4
   switch i8 %5, label %"_ZN4core3ptr404drop_in_place$LT$$LT$hyper..client..service..Connect$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2decee01842deefdE.exit" [
     i8 0, label %common.ret.sink.split.i
-    i8 3, label %6
+    i8 3, label %7
   ]
 
-common.ret.sink.split.i:                          ; preds = %6, %3
-  %.pn = phi i64 [ 528, %6 ], [ 8, %3 ]
+common.ret.sink.split.i:                          ; preds = %7, %3
+  %.sink.i = phi i64 [ 528, %6 ], [ 8, %3 ]
   %.sink.i = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   tail call void @"_ZN4core3ptr199drop_in_place$LT$hyper..client..conn..Connection$LT$tonic..transport..service..io..BoxedIo$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$17h8634b1bd1ceb829eE"(ptr noalias noundef nonnull align 8 dereferenceable(520) %.sink.i)
   br label %"_ZN4core3ptr404drop_in_place$LT$$LT$hyper..client..service..Connect$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2decee01842deefdE.exit"
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   br label %common.ret.sink.split.i
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i64, ptr %8, align 8, !alias.scope !33, !noundef !4
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %"_ZN4core3ptr404drop_in_place$LT$$LT$hyper..client..service..Connect$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2decee01842deefdE.exit", label %11
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i64, ptr %10, align 8, !alias.scope !33, !noundef !4
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %"_ZN4core3ptr404drop_in_place$LT$$LT$hyper..client..service..Connect$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2decee01842deefdE.exit", label %13
 
-11:                                               ; preds = %7
-  tail call void @"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..task..error..JoinError$GT$17hfa57a6ced157b561E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+13:                                               ; preds = %9
+  tail call void @"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..task..error..JoinError$GT$17hfa57a6ced157b561E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
   br label %"_ZN4core3ptr404drop_in_place$LT$$LT$hyper..client..service..Connect$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2decee01842deefdE.exit"
 }
 
@@ -569,10 +569,10 @@ define internal fastcc void @"_ZN4core3ptr484drop_in_place$LT$tokio..runtime..ta
   %2 = load i32, ptr %0, align 8, !range !3, !noundef !4
   switch i32 %2, label %"_ZN4core3ptr443drop_in_place$LT$$LT$hyper..client..service..Connect$LT$hyper_timeout..TimeoutConnector$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a7ed1cc80c84380E.exit" [
     i32 0, label %3
-    i32 1, label %7
+    i32 1, label %9
   ]
 
-"_ZN4core3ptr443drop_in_place$LT$$LT$hyper..client..service..Connect$LT$hyper_timeout..TimeoutConnector$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a7ed1cc80c84380E.exit": ; preds = %11, %7, %common.ret.sink.split.i, %3, %1
+"_ZN4core3ptr443drop_in_place$LT$$LT$hyper..client..service..Connect$LT$hyper_timeout..TimeoutConnector$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a7ed1cc80c84380E.exit": ; preds = %13, %9, %common.ret.sink.split.i, %3, %1
   ret void
 
 3:                                                ; preds = %1
@@ -580,26 +580,26 @@ define internal fastcc void @"_ZN4core3ptr484drop_in_place$LT$tokio..runtime..ta
   %5 = load i8, ptr %4, align 8, !range !32, !noundef !4
   switch i8 %5, label %"_ZN4core3ptr443drop_in_place$LT$$LT$hyper..client..service..Connect$LT$hyper_timeout..TimeoutConnector$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a7ed1cc80c84380E.exit" [
     i8 0, label %common.ret.sink.split.i
-    i8 3, label %6
+    i8 3, label %7
   ]
 
-common.ret.sink.split.i:                          ; preds = %6, %3
-  %.pn = phi i64 [ 520, %6 ], [ 8, %3 ]
+common.ret.sink.split.i:                          ; preds = %7, %3
+  %.sink.i = phi i64 [ 520, %6 ], [ 8, %3 ]
   %.sink.i = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   tail call void @"_ZN4core3ptr299drop_in_place$LT$hyper..client..conn..Connection$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$hyper_timeout..stream..TimeoutConnectorStream$LT$tonic..transport..service..io..BoxedIo$GT$$GT$$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$17h9d7dd5c98dee4857E"(ptr noalias noundef nonnull align 8 dereferenceable(512) %.sink.i)
   br label %"_ZN4core3ptr443drop_in_place$LT$$LT$hyper..client..service..Connect$LT$hyper_timeout..TimeoutConnector$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a7ed1cc80c84380E.exit"
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   br label %common.ret.sink.split.i
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i64, ptr %8, align 8, !alias.scope !36, !noundef !4
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %"_ZN4core3ptr443drop_in_place$LT$$LT$hyper..client..service..Connect$LT$hyper_timeout..TimeoutConnector$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a7ed1cc80c84380E.exit", label %11
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i64, ptr %10, align 8, !alias.scope !36, !noundef !4
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %"_ZN4core3ptr443drop_in_place$LT$$LT$hyper..client..service..Connect$LT$hyper_timeout..TimeoutConnector$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a7ed1cc80c84380E.exit", label %13
 
-11:                                               ; preds = %7
-  tail call void @"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..task..error..JoinError$GT$17hfa57a6ced157b561E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+13:                                               ; preds = %9
+  tail call void @"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..task..error..JoinError$GT$17hfa57a6ced157b561E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
   br label %"_ZN4core3ptr443drop_in_place$LT$$LT$hyper..client..service..Connect$LT$hyper_timeout..TimeoutConnector$LT$tonic..transport..service..connector..Connector$LT$hyper..client..connect..http..HttpConnector$GT$$GT$$C$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$C$http..uri..Uri$GT$$u20$as$u20$tower_service..Service$LT$http..uri..Uri$GT$$GT$..call..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a7ed1cc80c84380E.exit"
 }
 

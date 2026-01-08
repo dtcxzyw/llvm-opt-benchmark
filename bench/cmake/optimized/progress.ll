@@ -594,12 +594,12 @@ define dso_local void @Curl_pgrsTimeWas(ptr noundef captures(none) %0, i32 nound
   %.not = icmp eq i8 %27, 0
   br i1 %.not, label %28, label %.thread
 
-28:                                               ; preds = %24
+28:; preds = %24
   %29 = or disjoint i8 %26, 2
   store i8 %29, ptr %25, align 4
   br label %38
 
-30:                                               ; preds = %4
+30:; preds = %4
   br label %38
 
 31:                                               ; preds = %4
@@ -614,7 +614,7 @@ define dso_local void @Curl_pgrsTimeWas(ptr noundef captures(none) %0, i32 nound
 
 38:                                               ; preds = %4, %21, %22, %23, %28, %30
   %.pn = phi i64 [ 2768, %30 ], [ 2744, %21 ], [ 2752, %22 ], [ 2760, %23 ], [ 2776, %28 ], [ 2736, %4 ]
-  %.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 2808
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 2816

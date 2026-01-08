@@ -601,8 +601,8 @@ define internal fastcc void @_ZN4mime4Mime5type_17h04ec0a316a56c45bE(ptr noalias
   %trunc.i = trunc nuw i8 %4 to i1
   %..i = select i1 %trunc.i, i64 24, i64 16
   %.5.i = select i1 %trunc.i, i64 16, i64 8
-  %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %3, i64 %.5.i
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !157, !nonnull !4, !noundef !4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.5.i
+  %.val.i = load ptr, ptr %7, align 8, !alias.scope !157, !nonnull !4, !noundef !4
   %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %3, i64 %..i
   %.sroa.3.0.i = load i64, ptr %.sroa.3.0.in.i, align 8, !alias.scope !157, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -610,30 +610,30 @@ define internal fastcc void @_ZN4mime4Mime5type_17h04ec0a316a56c45bE(ptr noalias
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %15, label %8
 
-8:                                                ; preds = %2
+8:; preds = %2
   %.not.i.i = icmp ult i64 %6, %.sroa.3.0.i
   br i1 %.not.i.i, label %9, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
 
-9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %6
+9:; preds = %8
+  %10 = getelementptr inbounds i8, ptr %.val.i, i64 %6
   %11 = load i8, ptr %10, align 1, !alias.scope !160, !noundef !4
   %12 = icmp sgt i8 %11, -65
   br i1 %12, label %15, label %14
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %8
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i":; preds = %8
   %13 = icmp eq i64 %6, %.sroa.3.0.i
   br i1 %13, label %15, label %14
 
-14:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %9
+14:; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %9
   tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i, i64 noundef 0, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5007fb1ca41d1123f19426ceed96f3e3.15) #16
   unreachable
 
-15:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %9, %2
+"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread2": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %9, %2
   store ptr %.sroa.0.0.i, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %6, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %6, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 1, ptr %19, align 8
   ret void
 }
 

@@ -232,12 +232,12 @@ define hidden void @_ZN17NativeMovConstReg6verifyEv(ptr noundef nonnull align 1 
 
 4:                                                ; preds = %.thread
   tail call void @_ZN17NativeMovConstReg5printEv(ptr noundef nonnull align 1 dereferenceable(1) %0)
-  %5 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %5, align 1
+  %7 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %7, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 171, ptr noundef nonnull @.str.13) #8
   unreachable
 
-6:                                                ; preds = %.thread
+8:                                                ; preds = %.thread
   ret void
 }
 

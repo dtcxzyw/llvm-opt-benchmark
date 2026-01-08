@@ -34844,8 +34844,8 @@ define { ptr, i64 } @_ZN2uv8commands14build_frontend6Source9directory17hf2e2e26f
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZN2uv8commands14build_frontend12BuildMessage19normalized_filename17hc120ae92db76b268E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(120) %0) unnamed_addr #12 {
   %2 = load i64, ptr %0, align 8, !range !100, !noundef !8
   %3 = icmp eq i64 %2, -9223372036854775808
-  %. = select i1 %3, i64 56, i64 72
-  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %.sroa.0.0.v = select i1 %3, i64 56, i64 72
+  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.0.v
   ret ptr %.sroa.0.0
 }
 
@@ -34855,11 +34855,11 @@ define { ptr, i64 } @_ZN2uv8commands14build_frontend12BuildMessage12raw_filename
   %3 = icmp eq i64 %2, -9223372036854775808
   %. = select i1 %3, i64 24, i64 16
   %.2 = select i1 %3, i64 16, i64 8
-  %.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.2
-  %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !nonnull !8, !noundef !8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.2
+  %.val = load ptr, ptr %6, align 8, !nonnull !8, !noundef !8
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !noundef !8
-  %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %4 = insertvalue { ptr, i64 } poison, ptr %.val, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %5
 }
