@@ -43,7 +43,6 @@ define dso_local void @_ZN4Luau7CodeGen19UnwindBuilderDwarf29startInfoENS0_13Unw
 _Z12writeuleb128Phm.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %3 = load ptr, ptr %2, align 8, !tbaa !17
-  store i32 0, ptr %3, align 1
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -63,48 +62,34 @@ _Z12writeuleb128Phm.exit:
   store i8 12, ptr %12, align 1, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 14
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 15
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br i1 %8, label %16, label %17
+  %storemerge = getelementptr inbounds nuw i8, ptr %3, i64 16
+  br i1 %8, label %_ZL27defineSavedRegisterLocationPhij.exit, label %.lr.ph.preheader.i
 
-16:                                               ; preds = %_Z12writeuleb128Phm.exit
+_ZL27defineSavedRegisterLocationPhij.exit:        ; preds = %_Z12writeuleb128Phm.exit
   store i8 31, ptr %13, align 1, !tbaa !18
   store i8 0, ptr %14, align 1, !tbaa !18
-  br label %_ZL27defineSavedRegisterLocationPhij.exit
+  br label %_ZL13alignPositionPhS_.exit
 
-17:                                               ; preds = %_Z12writeuleb128Phm.exit
+.lr.ph.preheader.i:                               ; preds = %_Z12writeuleb128Phm.exit
   store i8 7, ptr %13, align 1, !tbaa !18
   store i8 8, ptr %14, align 1, !tbaa !18
-  store i8 -112, ptr %15, align 1, !tbaa !18
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  store i8 1, ptr %18, align 1, !tbaa !18
-  br label %_ZL27defineSavedRegisterLocationPhij.exit, !llvm.loop !19
-
-_ZL27defineSavedRegisterLocationPhij.exit:        ; preds = %17, %16
-  %storemerge = phi ptr [ %15, %16 ], [ %19, %17 ]
-  %20 = ptrtoint ptr %storemerge to i64
-  %21 = ptrtoint ptr %3 to i64
-  %22 = sub i64 %20, %21
-  %23 = add i64 %22, 7
-  %24 = and i64 %23, -8
-  %.not.i13 = icmp eq i64 %24, %22
-  br i1 %.not.i13, label %_ZL13alignPositionPhS_.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %_ZL27defineSavedRegisterLocationPhij.exit
-  %25 = sub i64 %24, %22
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %storemerge, i8 0, i64 %25, i1 false), !tbaa !18
-  %scevgep.i = getelementptr i8, ptr %storemerge, i64 %25
-  %.pre = ptrtoint ptr %scevgep.i to i64
-  %.pre14 = sub i64 %.pre, %21
+  store i8 -112, ptr %storemerge, align 1, !tbaa !18
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  store i8 1, ptr %15, align 1, !tbaa !18
+  %storemerge15 = getelementptr inbounds nuw i8, ptr %3, i64 18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %storemerge15, i8 0, i64 6, i1 false), !tbaa !18
+  %scevgep.i = getelementptr i8, ptr %3, i64 24
   br label %_ZL13alignPositionPhS_.exit
 
 _ZL13alignPositionPhS_.exit:                      ; preds = %_ZL27defineSavedRegisterLocationPhij.exit, %.lr.ph.preheader.i
-  %.pre-phi15 = phi i64 [ %22, %_ZL27defineSavedRegisterLocationPhij.exit ], [ %.pre14, %.lr.ph.preheader.i ]
   %.08.lcssa.i = phi ptr [ %storemerge, %_ZL27defineSavedRegisterLocationPhij.exit ], [ %scevgep.i, %.lr.ph.preheader.i ]
+  %16 = ptrtoint ptr %3 to i64
   store ptr %.08.lcssa.i, ptr %2, align 8, !tbaa !17
-  %26 = trunc i64 %.pre-phi15 to i32
-  %27 = add i32 %26, -4
-  store i32 %27, ptr %3, align 1
+  %17 = ptrtoint ptr %.08.lcssa.i to i64
+  %18 = sub i64 %17, %16
+  %19 = trunc i64 %18 to i32
+  %20 = add i32 %19, -4
+  store i32 %20, ptr %3, align 1
   ret void
 }
 
@@ -119,24 +104,24 @@ define dso_local void @_ZN4Luau7CodeGen19UnwindBuilderDwarf213startFunctionEv(pt
   %8 = trunc i64 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !21
+  %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !22
+  %13 = load ptr, ptr %12, align 8, !tbaa !20
   %.not.i = icmp eq ptr %11, %13
   br i1 %.not.i, label %16, label %14
 
 14:                                               ; preds = %1
-  store i32 0, ptr %11, align 4, !tbaa !23
+  store i32 0, ptr %11, align 4, !tbaa !21
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 0, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !23
+  store i32 0, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !21
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 %8, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !23
+  store i32 %8, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store ptr %15, ptr %10, align 8, !tbaa !21
+  store ptr %15, ptr %10, align 8, !tbaa !19
   br label %_ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EE9push_backERKS2_.exit
 
 16:                                               ; preds = %1
-  %17 = load ptr, ptr %9, align 8, !tbaa !25
+  %17 = load ptr, ptr %9, align 8, !tbaa !23
   %18 = ptrtoint ptr %11 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
@@ -159,11 +144,11 @@ _ZNKSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EE12_M_check_lenEmPKc.e
   %28 = mul nuw nsw i64 %27, 12
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #14
   %30 = getelementptr inbounds i8, ptr %29, i64 %20
-  store i32 0, ptr %30, align 4, !tbaa !23
+  store i32 0, ptr %30, align 4, !tbaa !21
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store i32 0, ptr %.sroa.5.0..sroa_idx2, align 4, !tbaa !23
+  store i32 0, ptr %.sroa.5.0..sroa_idx2, align 4, !tbaa !21
   %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i32 %8, ptr %.sroa.6.0..sroa_idx4, align 4, !tbaa !23
+  store i32 %8, ptr %.sroa.6.0..sroa_idx4, align 4, !tbaa !21
   %31 = icmp sgt i64 %20, 0
   br i1 %31, label %32, label %_ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
@@ -183,16 +168,16 @@ _ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EE11_S_relocateEPS2_S5_S
 
 _ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   %.pre = phi ptr [ %.pre.pre, %34 ], [ %3, %_ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i ]
-  store ptr %29, ptr %9, align 8, !tbaa !25
-  store ptr %33, ptr %10, align 8, !tbaa !21
+  store ptr %29, ptr %9, align 8, !tbaa !23
+  store ptr %33, ptr %10, align 8, !tbaa !19
   %35 = getelementptr inbounds nuw %"struct.Luau::CodeGen::UnwindFunctionDwarf2", ptr %29, i64 %27
-  store ptr %35, ptr %12, align 8, !tbaa !22
+  store ptr %35, ptr %12, align 8, !tbaa !20
   br label %_ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EE9push_backERKS2_.exit: ; preds = %14, %_ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   %36 = phi ptr [ %3, %14 ], [ %.pre, %_ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  store ptr %36, ptr %37, align 8, !tbaa !26
+  store ptr %36, ptr %37, align 8, !tbaa !24
   store i32 0, ptr %36, align 1
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = ptrtoint ptr %38 to i64
@@ -211,13 +196,13 @@ _ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EE9push_backERKS2_.exit:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN4Luau7CodeGen19UnwindBuilderDwarf214finishFunctionEjj(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %4, align 8, !tbaa !25
   %6 = getelementptr inbounds i8, ptr %5, i64 -12
-  store i32 %1, ptr %6, align 4, !tbaa !28
+  store i32 %1, ptr %6, align 4, !tbaa !26
   %7 = getelementptr inbounds i8, ptr %5, i64 -8
-  store i32 %2, ptr %7, align 4, !tbaa !30
+  store i32 %2, ptr %7, align 4, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  %9 = load ptr, ptr %8, align 8, !tbaa !26
+  %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %12 = ptrtoint ptr %11 to i64
@@ -232,7 +217,7 @@ define dso_local void @_ZN4Luau7CodeGen19UnwindBuilderDwarf214finishFunctionEjj(
   %17 = sub i64 %16, %14
   tail call void @llvm.memset.p0.i64(ptr align 1 %11, i8 0, i64 %17, i1 false), !tbaa !18
   %scevgep.i = getelementptr i8, ptr %11, i64 %17
-  %.pre = load ptr, ptr %8, align 8, !tbaa !26
+  %.pre = load ptr, ptr %8, align 8, !tbaa !24
   %.pre2 = ptrtoint ptr %scevgep.i to i64
   %.pre3 = ptrtoint ptr %.pre to i64
   %.pre5 = sub i64 %.pre2, %.pre3
@@ -283,7 +268,7 @@ define dso_local void @_ZN4Luau7CodeGen19UnwindBuilderDwarf211prologueA64EjjSt16
   %.0.i.i = or disjoint i8 %masksel.i.i, %14
   %16 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 1
   store i8 %.0.i.i, ptr %.08.i.i, align 1, !tbaa !18
-  br i1 %.not.i.i, label %_ZL25defineCfaExpressionOffsetPhj.exit, label %12, !llvm.loop !19
+  br i1 %.not.i.i, label %_ZL25defineCfaExpressionOffsetPhj.exit, label %12, !llvm.loop !29
 
 _ZL25defineCfaExpressionOffsetPhj.exit:           ; preds = %12
   store i8 2, ptr %16, align 1, !tbaa !18
@@ -326,7 +311,7 @@ _ZL25defineCfaExpressionOffsetPhj.exit:           ; preds = %12
   %.0.i13.i = or disjoint i8 %masksel.i12.i, %33
   %35 = getelementptr inbounds nuw i8, ptr %.08.i9.i, i64 1
   store i8 %.0.i13.i, ptr %.08.i9.i, align 1, !tbaa !18
-  br i1 %.not.i11.i, label %_ZL27defineSavedRegisterLocationPhij.exit, label %31, !llvm.loop !19
+  br i1 %.not.i11.i, label %_ZL27defineSavedRegisterLocationPhij.exit, label %31, !llvm.loop !29
 
 _ZL27defineSavedRegisterLocationPhij.exit:        ; preds = %31
   store ptr %35, ptr %6, align 8, !tbaa !17
@@ -393,7 +378,7 @@ _ZL25defineCfaExpressionOffsetPhj.exit:           ; preds = %7
   %.0.i.i28 = or disjoint i8 %masksel.i.i27, %28
   %30 = getelementptr inbounds nuw i8, ptr %.08.i.i24, i64 1
   store i8 %.0.i.i28, ptr %.08.i.i24, align 1, !tbaa !18
-  br i1 %.not.i.i26, label %_ZL25defineCfaExpressionOffsetPhj.exit29, label %26, !llvm.loop !19
+  br i1 %.not.i.i26, label %_ZL25defineCfaExpressionOffsetPhj.exit29, label %26, !llvm.loop !29
 
 _ZL25defineCfaExpressionOffsetPhj.exit29:         ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1064
@@ -426,13 +411,13 @@ _ZL25defineCfaExpressionOffsetPhj.exit29:         ; preds = %26
   %.0.i.i34 = or disjoint i8 %masksel.i.i33, %40
   %42 = getelementptr inbounds nuw i8, ptr %.08.i.i30, i64 1
   store i8 %.0.i.i34, ptr %.08.i.i30, align 1, !tbaa !18
-  br i1 %.not.i.i32, label %_ZL25defineCfaExpressionOffsetPhj.exit35, label %38, !llvm.loop !19
+  br i1 %.not.i.i32, label %_ZL25defineCfaExpressionOffsetPhj.exit35, label %38, !llvm.loop !29
 
 _ZL25defineCfaExpressionOffsetPhj.exit35:         ; preds = %38
   %43 = lshr i8 %.sroa.0.0.copyload, 3
   %44 = zext nneg i8 %43 to i64
   %45 = getelementptr inbounds nuw i32, ptr @_ZL18regIndexToDwRegX64, i64 %44
-  %46 = load i32, ptr %45, align 4, !tbaa !23
+  %46 = load i32, ptr %45, align 4, !tbaa !21
   %47 = trunc i32 %46 to i8
   %48 = xor i8 %47, -128
   store i8 %48, ptr %42, align 1, !tbaa !18
@@ -452,7 +437,7 @@ _ZL25defineCfaExpressionOffsetPhj.exit35:         ; preds = %38
   %.0.i13.i45 = or disjoint i8 %masksel.i12.i44, %54
   %56 = getelementptr inbounds nuw i8, ptr %.08.i9.i41, i64 1
   store i8 %.0.i13.i45, ptr %.08.i9.i41, align 1, !tbaa !18
-  br i1 %.not.i11.i43, label %_ZL27defineSavedRegisterLocationPhij.exit46, label %52, !llvm.loop !19
+  br i1 %.not.i11.i43, label %_ZL27defineSavedRegisterLocationPhij.exit46, label %52, !llvm.loop !29
 
 _ZL27defineSavedRegisterLocationPhij.exit46:      ; preds = %52
   store ptr %56, ptr %.phi.trans.insert, align 8, !tbaa !17
@@ -484,9 +469,9 @@ define dso_local noundef range(i64 -768614336404564650, 768614336404564651) i64 
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(1080) %0, i64 noundef 0)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 8 %6, i64 %10, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !27
+  %12 = load ptr, ptr %11, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !27
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
   %.not19 = icmp eq ptr %12, %14
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
@@ -497,8 +482,8 @@ define dso_local noundef range(i64 -768614336404564650, 768614336404564651) i64 
   br label %24
 
 ._crit_edge.loopexit:                             ; preds = %40
-  %.pre = load ptr, ptr %13, align 8, !tbaa !21
-  %.pre21 = load ptr, ptr %11, align 8, !tbaa !25
+  %.pre = load ptr, ptr %13, align 8, !tbaa !19
+  %.pre21 = load ptr, ptr %11, align 8, !tbaa !23
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
@@ -517,17 +502,17 @@ define dso_local noundef range(i64 -768614336404564650, 768614336404564651) i64 
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i32, ptr %.sroa.016.020, align 4, !tbaa !28
+  %30 = load i32, ptr %.sroa.016.020, align 4, !tbaa !26
   %31 = zext i32 %30 to i64
   %32 = add i64 %16, %31
   store i64 %32, ptr %29, align 1
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.016.020, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !30
+  %34 = load i32, ptr %33, align 4, !tbaa !28
   %35 = icmp eq i32 %34, -1
   br i1 %35, label %40, label %36
 
 36:                                               ; preds = %24
-  %37 = load i32, ptr %.sroa.016.020, align 4, !tbaa !28
+  %37 = load i32, ptr %.sroa.016.020, align 4, !tbaa !26
   %38 = sub i32 %34, %37
   %39 = zext i32 %38 to i64
   br label %40
@@ -545,13 +530,13 @@ define dso_local noundef range(i64 -768614336404564650, 768614336404564651) i64 
 define linkonce_odr dso_local void @_ZN4Luau7CodeGen19UnwindBuilderDwarf2D2Ev(ptr noundef nonnull align 8 dereferenceable(1080) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %0, align 8, !tbaa !32
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !25
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !22
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -566,13 +551,13 @@ _ZNSt6vectorIN4Luau7CodeGen20UnwindFunctionDwarf2ESaIS2_EED2Ev.exit: ; preds = %
 define linkonce_odr dso_local void @_ZN4Luau7CodeGen19UnwindBuilderDwarf2D0Ev(ptr noundef nonnull align 8 dereferenceable(1080) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4Luau7CodeGen19UnwindBuilderDwarf2E, i64 16), ptr %0, align 8, !tbaa !32
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !25
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN4Luau7CodeGen19UnwindBuilderDwarf2D2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !22
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -648,19 +633,19 @@ attributes #15 = { builtin nounwind }
 !16 = !{!"p1 omnipotent char", !15, i64 0}
 !17 = !{!5, !16, i64 1064}
 !18 = !{!8, !8, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!13, !14, i64 8}
-!22 = !{!13, !14, i64 16}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"int", !8, i64 0}
-!25 = !{!13, !14, i64 0}
-!26 = !{!5, !16, i64 1072}
-!27 = !{!14, !14, i64 0}
-!28 = !{!29, !24, i64 0}
-!29 = !{!"_ZTSN4Luau7CodeGen20UnwindFunctionDwarf2E", !24, i64 0, !24, i64 4, !24, i64 8}
-!30 = !{!29, !24, i64 4}
-!31 = distinct !{!31, !20}
+!19 = !{!13, !14, i64 8}
+!20 = !{!13, !14, i64 16}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"int", !8, i64 0}
+!23 = !{!13, !14, i64 0}
+!24 = !{!5, !16, i64 1072}
+!25 = !{!14, !14, i64 0}
+!26 = !{!27, !22, i64 0}
+!27 = !{!"_ZTSN4Luau7CodeGen20UnwindFunctionDwarf2E", !22, i64 0, !22, i64 4, !22, i64 8}
+!28 = !{!27, !22, i64 4}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.mustprogress"}
+!31 = distinct !{!31, !30}
 !32 = !{!33, !33, i64 0}
 !33 = !{!"vtable pointer", !9, i64 0}
-!34 = !{!29, !24, i64 8}
+!34 = !{!27, !22, i64 8}

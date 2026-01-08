@@ -1348,18 +1348,9 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver7GetKeysERSt6vectorI11aiVectorKe
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, i8 0, i64 40, i1 false)
   %.not = icmp eq ptr %2, null
-  %.sroa.gep246 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sroa.gep247 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.gep250 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sroa.gep251 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.gep254 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.gep255 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %.not, label %31, label %27
 
 27:                                               ; preds = %6
-  %.sroa.gep256 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.gep252 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.gep248 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 7
@@ -1419,11 +1410,11 @@ _ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx1
   br label %290
 
 _ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE9push_backERKS2_.exit: ; preds = %27, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %42
-  %.sroa.phi245 = phi ptr [ %.sroa.gep246, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.gep247, %42 ], [ %.sroa.gep248, %27 ]
-  %.sroa.phi249 = phi ptr [ %.sroa.gep250, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.gep251, %42 ], [ %.sroa.gep252, %27 ]
-  %.sroa.phi253 = phi ptr [ %.sroa.gep254, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.gep255, %42 ], [ %.sroa.gep256, %27 ]
   %49 = phi ptr [ %7, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %2, %42 ], [ %2, %27 ]
   %.sroa.11.0183 = phi float [ %.sroa.11.0, %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.11.0, %42 ], [ 1.000000e+00, %27 ]
+  %.sroa.phi253 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %.sroa.phi249 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %.sroa.phi245 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %.not40 = icmp eq ptr %3, null
   br i1 %.not40, label %_ZNKSt6vectorIN6Assimp3LWO3KeyESaIS2_EE12_M_check_lenEmPKc.exit.i.i61, label %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE9push_backERKS2_.exit75
 

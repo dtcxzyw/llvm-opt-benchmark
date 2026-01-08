@@ -1864,8 +1864,8 @@ define hidden i32 @lj_opt_dse_ustore(ptr noundef %0) local_unnamed_addr #1 {
   br label %16
 
 16:                                               ; preds = %.lr.ph, %aa_uref.exit.thread
-  %.05381.in = phi i16 [ %11, %.lr.ph ], [ %97, %aa_uref.exit.thread ]
-  %.05580 = phi ptr [ %10, %.lr.ph ], [ %96, %aa_uref.exit.thread ]
+  %.05381.in = phi i16 [ %11, %.lr.ph ], [ %108, %aa_uref.exit.thread ]
+  %.05580 = phi ptr [ %10, %.lr.ph ], [ %107, %aa_uref.exit.thread ]
   %17 = load ptr, ptr %6, align 8, !tbaa !7
   %18 = zext i16 %.05381.in to i64
   %19 = getelementptr inbounds nuw %union.IRIns, ptr %17, i64 %18
@@ -1992,41 +1992,54 @@ aa_uref.exit:                                     ; preds = %34
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 580
   %87 = load ptr, ptr %6, align 8, !tbaa !7
-  br label %88
+  %88 = load i16, ptr %86, align 4, !tbaa !33
+  %89 = zext i16 %88 to i64
+  %90 = getelementptr inbounds nuw %union.IRIns, ptr %87, i64 %89
+  %91 = zext i16 %88 to i32
+  %92 = icmp samesign ult i32 %74, %91
+  br i1 %92, label %.lr.ph87, label %102
 
-88:                                               ; preds = %88, %85
-  %.048 = phi ptr [ %86, %85 ], [ %91, %88 ]
-  %.pn.in = load i16, ptr %.048, align 2, !tbaa !33
-  %.pn = zext i16 %.pn.in to i64
-  %.0 = getelementptr inbounds nuw %union.IRIns, ptr %87, i64 %.pn
-  %89 = zext i16 %.pn.in to i32
-  %90 = icmp samesign ult i32 %74, %89
-  %91 = getelementptr inbounds nuw i8, ptr %.0, i64 6
-  br i1 %90, label %88, label %92, !llvm.loop !44
+.lr.ph87:                                         ; preds = %85, %.lr.ph87
+  %93 = phi i64 [ %97, %.lr.ph87 ], [ %89, %85 ]
+  %94 = getelementptr inbounds nuw %union.IRIns, ptr %87, i64 %93
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 6
+  %96 = load i16, ptr %95, align 2, !tbaa !33
+  %97 = zext i16 %96 to i64
+  %98 = zext i16 %96 to i32
+  %99 = icmp samesign ult i32 %74, %98
+  br i1 %99, label %.lr.ph87, label %._crit_edge88, !llvm.loop !44
 
-92:                                               ; preds = %88
-  %93 = load i16, ptr %91, align 2, !tbaa !4
-  store i16 %93, ptr %.048, align 2, !tbaa !33
-  %94 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  store i16 3072, ptr %94, align 4, !tbaa !4
-  %95 = getelementptr inbounds nuw i8, ptr %.0, i64 2
-  store i16 0, ptr %95, align 2, !tbaa !4
-  store i16 0, ptr %.0, align 8, !tbaa !4
-  store i16 0, ptr %91, align 2, !tbaa !4
+._crit_edge88:                                    ; preds = %.lr.ph87
+  %100 = getelementptr inbounds nuw i8, ptr %94, i64 6
+  %101 = getelementptr inbounds nuw %union.IRIns, ptr %87, i64 %97
+  br label %102
+
+102:                                              ; preds = %._crit_edge88, %85
+  %.048.lcssa = phi ptr [ %100, %._crit_edge88 ], [ %86, %85 ]
+  %.0.lcssa = phi ptr [ %101, %._crit_edge88 ], [ %90, %85 ]
+  %103 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 6
+  %104 = load i16, ptr %103, align 2, !tbaa !4
+  store i16 %104, ptr %.048.lcssa, align 2, !tbaa !33
+  %105 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 4
+  store i16 3072, ptr %105, align 4, !tbaa !4
+  %106 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
+  store i16 0, ptr %106, align 2, !tbaa !4
+  store i16 0, ptr %.0.lcssa, align 8, !tbaa !4
+  store i16 0, ptr %103, align 2, !tbaa !4
   br label %.thread69
 
 aa_uref.exit.thread:                              ; preds = %49, %44, %31, %42, %29, %aa_uref.exit
-  %96 = getelementptr inbounds nuw i8, ptr %19, i64 6
-  %97 = load i16, ptr %96, align 2, !tbaa !33
-  %98 = icmp ugt i16 %97, %3
-  br i1 %98, label %16, label %.thread69
+  %107 = getelementptr inbounds nuw i8, ptr %19, i64 6
+  %108 = load i16, ptr %107, align 2, !tbaa !33
+  %109 = icmp ugt i16 %108, %3
+  br i1 %109, label %16, label %.thread69
 
-.thread69:                                        ; preds = %aa_uref.exit.thread, %aa_uref.exit, %.lr.ph84, %1, %92, %57, %._crit_edge, %77, %81
-  %99 = tail call i32 @lj_ir_emit(ptr noundef %0) #6
+.thread69:                                        ; preds = %aa_uref.exit.thread, %aa_uref.exit, %.lr.ph84, %1, %102, %57, %._crit_edge, %77, %81
+  %110 = tail call i32 @lj_ir_emit(ptr noundef %0) #6
   br label %.thread73
 
 .thread73:                                        ; preds = %53, %.thread69
-  %.2 = phi i32 [ %99, %.thread69 ], [ 4, %53 ]
+  %.2 = phi i32 [ %110, %.thread69 ], [ 4, %53 ]
   ret i32 %.2
 }
 

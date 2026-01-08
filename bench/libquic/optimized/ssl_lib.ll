@@ -1698,56 +1698,51 @@ define hidden ptr @SSL_get_peer_cert_chain(ptr noundef readonly captures(address
 define hidden range(i32 0, 2) i32 @SSL_get_tls_unique(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i64 noundef %3) local_unnamed_addr #11 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !136
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 592
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 656
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 385
-  %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %21, label %12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 385
+  %8 = load i8, ptr %7, align 1
+  %9 = and i8 %8, 1
+  %.not = icmp eq i8 %9, 0
+  br i1 %.not, label %16, label %10
 
-12:                                               ; preds = %4
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %14 = load ptr, ptr %13, align 8, !tbaa !122
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 376
-  %16 = load i8, ptr %15, align 8
-  %17 = and i8 %16, 1
-  %.not23 = icmp eq i8 %17, 0
-  br i1 %.not23, label %28, label %18
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %12 = load ptr, ptr %11, align 8, !tbaa !122
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 376
+  %14 = load i8, ptr %13, align 8
+  %15 = and i8 %14, 1
+  %.not23 = icmp eq i8 %15, 0
+  br i1 %.not23, label %23, label %16
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 657
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 721
-  br label %21
-
-21:                                               ; preds = %18, %4
-  %.020 = phi ptr [ %19, %18 ], [ %7, %4 ]
-  %.0.in.in = phi ptr [ %20, %18 ], [ %8, %4 ]
+16:                                               ; preds = %10, %4
+  %.pn = phi i64 [ 592, %4 ], [ 657, %10 ]
+  %.pn24 = phi i64 [ 656, %4 ], [ 721, %10 ]
+  %.0.in.in = getelementptr inbounds nuw i8, ptr %6, i64 %.pn24
   %.0.in = load i8, ptr %.0.in.in, align 1, !tbaa !157
   %.0 = zext i8 %.0.in to i64
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 81
-  %23 = load i8, ptr %22, align 1, !tbaa !158
-  %.not24 = icmp eq i8 %23, 0
-  br i1 %.not24, label %28, label %24
+  %.020 = getelementptr inbounds nuw i8, ptr %6, i64 %.pn
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 81
+  %18 = load i8, ptr %17, align 1, !tbaa !158
+  %.not25 = icmp eq i8 %18, 0
+  br i1 %.not25, label %23, label %19
 
-24:                                               ; preds = %21
-  %25 = load i32, ptr %0, align 8, !tbaa !159
-  %26 = icmp slt i32 %25, 769
-  br i1 %26, label %28, label %27
+19:                                               ; preds = %16
+  %20 = load i32, ptr %0, align 8, !tbaa !159
+  %21 = icmp slt i32 %20, 769
+  br i1 %21, label %23, label %22
 
-27:                                               ; preds = %24
+22:                                               ; preds = %19
   %spec.select = tail call i64 @llvm.umin.i64(i64 %3, i64 %.0)
   store i64 %spec.select, ptr %2, align 8, !tbaa !160
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %.020, i64 %spec.select, i1 false)
-  br label %29
+  br label %24
 
-28:                                               ; preds = %21, %24, %12
+23:                                               ; preds = %16, %19, %10
   store i64 0, ptr %2, align 8, !tbaa !160
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %3, i1 false)
-  br label %29
+  br label %24
 
-29:                                               ; preds = %28, %27
-  %.021 = phi i32 [ 0, %28 ], [ 1, %27 ]
+24:                                               ; preds = %23, %22
+  %.021 = phi i32 [ 0, %23 ], [ 1, %22 ]
   ret i32 %.021
 }
 

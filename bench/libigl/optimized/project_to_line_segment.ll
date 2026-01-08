@@ -1829,26 +1829,31 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %_ZN5Eigen15PlainObj
   %40 = getelementptr inbounds double, ptr %39, i64 %5
   %41 = load double, ptr %40, align 8, !tbaa !63
   %42 = fcmp olt double %41, 0.000000e+00
-  %43 = load ptr, ptr %3, align 8, !tbaa !99
-  br i1 %42, label %.sink.split, label %44
+  br i1 %42, label %43, label %45
 
-44:                                               ; preds = %.loopexit
-  %45 = fcmp ogt double %41, 1.000000e+00
-  br i1 %45, label %.sink.split, label %62
+43:                                               ; preds = %.loopexit
+  %44 = load ptr, ptr %3, align 8, !tbaa !99
+  br label %.sink.split
 
-.sink.split:                                      ; preds = %44, %.loopexit
-  %.sink49 = phi i64 [ 24, %.loopexit ], [ 32, %44 ]
-  %.sink = phi double [ 0.000000e+00, %.loopexit ], [ 1.000000e+00, %44 ]
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink49
-  %.sink47 = load ptr, ptr %46, align 8, !tbaa !16
-  %47 = load <2 x double>, ptr %43, align 1, !tbaa !60
+45:                                               ; preds = %.loopexit
+  %46 = fcmp ogt double %41, 1.000000e+00
+  %.pre = load ptr, ptr %3, align 8, !tbaa !99
+  br i1 %46, label %.sink.split, label %62
+
+.sink.split:                                      ; preds = %45, %43
+  %.pre.sink48 = phi ptr [ %44, %43 ], [ %.pre, %45 ]
+  %.pn = phi i64 [ 24, %43 ], [ 32, %45 ]
+  %.sink = phi double [ 0.000000e+00, %43 ], [ 1.000000e+00, %45 ]
+  %.sink47.in = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
+  %.sink47 = load ptr, ptr %.sink47.in, align 8, !tbaa !16
+  %47 = load <2 x double>, ptr %.pre.sink48, align 1, !tbaa !60
   %48 = load <2 x double>, ptr %.sink47, align 1, !tbaa !60
   %49 = fsub <2 x double> %47, %48
   %50 = fmul <2 x double> %49, %49
   %shift = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop = fadd <2 x double> %50, %shift
   %51 = extractelement <2 x double> %foldExtExtBinop, i64 0
-  %52 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.pre.sink48, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %.sink47, i64 16
   %54 = load double, ptr %52, align 8, !tbaa !63
   %55 = load double, ptr %53, align 8, !tbaa !63
@@ -1862,8 +1867,9 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %_ZN5Eigen15PlainObj
   store double %.sink, ptr %40, align 8, !tbaa !63
   br label %62
 
-62:                                               ; preds = %.sink.split, %44
-  call void @free(ptr noundef %43) #22
+62:                                               ; preds = %.sink.split, %45
+  %63 = phi ptr [ %.pre, %45 ], [ %.pre.sink48, %.sink.split ]
+  call void @free(ptr noundef %63) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

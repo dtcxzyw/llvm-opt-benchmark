@@ -573,20 +573,20 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std11collecti
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   %14 = load ptr, ptr %13, align 8, !alias.scope !93, !noundef !4
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %38, label %16
+  br i1 %15, label %37, label %16
 
 16:                                               ; preds = %11
   %17 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !94
   %18 = icmp eq i64 %17, 1
-  br i1 %18, label %19, label %38
+  br i1 %18, label %19, label %37
 
 19:                                               ; preds = %16
   invoke void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.17057414408856058071(i8 noundef 2)
-          to label %.noexc unwind label %47
+          to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %19
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h32d26f3582c0eff3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
-          to label %38 unwind label %47
+          to label %37 unwind label %45
 
 20:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -613,7 +613,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std11collecti
   %27 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$typst..visualize..image..Image$GT$17h944a6d6a1c2b7d19E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #31
-          to label %44 unwind label %28
+          to label %42 unwind label %28
 
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
@@ -637,50 +637,49 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std11collecti
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %36 = tail call noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17hc06e20b0bbd7ecaaE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4.0.copyload, i64 noundef %.sroa.5.0.copyload, ptr noundef nonnull %.sroa.010.0.copyload, i64 noundef %22)
-  %37 = getelementptr inbounds i8, ptr %36, i64 -8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN4core3ptr115drop_in_place$LT$typst_pdf..Remapper$LT$typst..visualize..image..Image$GT$..insert..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc489a47e9c2c658cE.exit"
 
-"_ZN4core3ptr115drop_in_place$LT$typst_pdf..Remapper$LT$typst..visualize..image..Image$GT$..insert..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc489a47e9c2c658cE.exit": ; preds = %43, %38, %.thread13
-  %.015 = phi ptr [ %37, %.thread13 ], [ %39, %38 ], [ %39, %43 ]
+"_ZN4core3ptr115drop_in_place$LT$typst_pdf..Remapper$LT$typst..visualize..image..Image$GT$..insert..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc489a47e9c2c658cE.exit": ; preds = %41, %37, %.thread13
+  %.pn = phi ptr [ %36, %.thread13 ], [ %12, %37 ], [ %12, %41 ]
+  %.015 = getelementptr inbounds i8, ptr %.pn, i64 -8
   ret ptr %.015
 
-38:                                               ; preds = %16, %11, %.noexc
-  %39 = getelementptr inbounds i8, ptr %12, i64 -8
+37:                                               ; preds = %16, %11, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
   call void @llvm.experimental.noalias.scope.decl(metadata !114)
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
-  %40 = load ptr, ptr %8, align 8, !alias.scope !120, !nonnull !4, !noundef !4
-  %41 = atomicrmw sub ptr %40, i64 1 release, align 8, !noalias !120
-  %42 = icmp eq i64 %41, 1
-  br i1 %42, label %43, label %"_ZN4core3ptr115drop_in_place$LT$typst_pdf..Remapper$LT$typst..visualize..image..Image$GT$..insert..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc489a47e9c2c658cE.exit"
+  %38 = load ptr, ptr %8, align 8, !alias.scope !120, !nonnull !4, !noundef !4
+  %39 = atomicrmw sub ptr %38, i64 1 release, align 8, !noalias !120
+  %40 = icmp eq i64 %39, 1
+  br i1 %40, label %41, label %"_ZN4core3ptr115drop_in_place$LT$typst_pdf..Remapper$LT$typst..visualize..image..Image$GT$..insert..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc489a47e9c2c658cE.exit"
 
-43:                                               ; preds = %38
+41:                                               ; preds = %37
   call void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.17057414408856058071(i8 noundef 2), !noalias !120
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h32d26f3582c0eff3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
   br label %"_ZN4core3ptr115drop_in_place$LT$typst_pdf..Remapper$LT$typst..visualize..image..Image$GT$..insert..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc489a47e9c2c658cE.exit"
 
-44:                                               ; preds = %26
+42:                                               ; preds = %26
   invoke void @"_ZN4core3ptr107drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$typst..visualize..image..Image$C$usize$GT$$GT$17h25adc289ed8b9670E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #31
-          to label %.thread unwind label %45
+          to label %.thread unwind label %43
 
-45:                                               ; preds = %47, %44
-  %46 = landingpad { ptr, i32 }
+43:                                               ; preds = %45, %42
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #32
   unreachable
 
-.thread:                                          ; preds = %44, %47
-  %.pn12 = phi { ptr, i32 } [ %48, %47 ], [ %27, %44 ]
+.thread:                                          ; preds = %42, %45
+  %.pn12 = phi { ptr, i32 } [ %46, %45 ], [ %27, %42 ]
   resume { ptr, i32 } %.pn12
 
-47:                                               ; preds = %.noexc, %19
-  %48 = landingpad { ptr, i32 }
+45:                                               ; preds = %.noexc, %19
+  %46 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$typst_pdf..Remapper$LT$typst..visualize..image..Image$GT$..insert..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc489a47e9c2c658cE"(ptr noalias noundef align 8 dereferenceable(16) %7) #31
-          to label %.thread unwind label %45
+          to label %.thread unwind label %43
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -796,20 +795,20 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std11collecti
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   %14 = load ptr, ptr %13, align 8, !alias.scope !147, !noundef !4
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %38, label %16
+  br i1 %15, label %37, label %16
 
 16:                                               ; preds = %11
   %17 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !148
   %18 = icmp eq i64 %17, 1
-  br i1 %18, label %19, label %38
+  br i1 %18, label %19, label %37
 
 19:                                               ; preds = %16
   invoke void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.17057414408856058071(i8 noundef 2)
-          to label %.noexc unwind label %47
+          to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %19
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9131726ceeec6b02E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
-          to label %38 unwind label %47
+          to label %37 unwind label %45
 
 20:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -836,7 +835,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std11collecti
   %27 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr44drop_in_place$LT$typst..text..font..Font$GT$17h614c82d817c09b99E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #31
-          to label %44 unwind label %28
+          to label %42 unwind label %28
 
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
@@ -860,50 +859,49 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std11collecti
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %36 = tail call noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17hcca7416e6e82c179E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4.0.copyload, i64 noundef %.sroa.5.0.copyload, ptr noundef nonnull %.sroa.010.0.copyload, i64 noundef %22)
-  %37 = getelementptr inbounds i8, ptr %36, i64 -8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN4core3ptr108drop_in_place$LT$typst_pdf..Remapper$LT$typst..text..font..Font$GT$..insert..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd5356f21835f01a4E.exit"
 
-"_ZN4core3ptr108drop_in_place$LT$typst_pdf..Remapper$LT$typst..text..font..Font$GT$..insert..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd5356f21835f01a4E.exit": ; preds = %43, %38, %.thread13
-  %.015 = phi ptr [ %37, %.thread13 ], [ %39, %38 ], [ %39, %43 ]
+"_ZN4core3ptr108drop_in_place$LT$typst_pdf..Remapper$LT$typst..text..font..Font$GT$..insert..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd5356f21835f01a4E.exit": ; preds = %41, %37, %.thread13
+  %.pn = phi ptr [ %36, %.thread13 ], [ %12, %37 ], [ %12, %41 ]
+  %.015 = getelementptr inbounds i8, ptr %.pn, i64 -8
   ret ptr %.015
 
-38:                                               ; preds = %16, %11, %.noexc
-  %39 = getelementptr inbounds i8, ptr %12, i64 -8
+37:                                               ; preds = %16, %11, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !162)
   call void @llvm.experimental.noalias.scope.decl(metadata !165)
   call void @llvm.experimental.noalias.scope.decl(metadata !168)
   call void @llvm.experimental.noalias.scope.decl(metadata !171)
-  %40 = load ptr, ptr %8, align 8, !alias.scope !174, !nonnull !4, !noundef !4
-  %41 = atomicrmw sub ptr %40, i64 1 release, align 8, !noalias !174
-  %42 = icmp eq i64 %41, 1
-  br i1 %42, label %43, label %"_ZN4core3ptr108drop_in_place$LT$typst_pdf..Remapper$LT$typst..text..font..Font$GT$..insert..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd5356f21835f01a4E.exit"
+  %38 = load ptr, ptr %8, align 8, !alias.scope !174, !nonnull !4, !noundef !4
+  %39 = atomicrmw sub ptr %38, i64 1 release, align 8, !noalias !174
+  %40 = icmp eq i64 %39, 1
+  br i1 %40, label %41, label %"_ZN4core3ptr108drop_in_place$LT$typst_pdf..Remapper$LT$typst..text..font..Font$GT$..insert..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd5356f21835f01a4E.exit"
 
-43:                                               ; preds = %38
+41:                                               ; preds = %37
   call void @_ZN4core4sync6atomic5fence17h683d388ef8afd54bE.llvm.17057414408856058071(i8 noundef 2), !noalias !174
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9131726ceeec6b02E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
   br label %"_ZN4core3ptr108drop_in_place$LT$typst_pdf..Remapper$LT$typst..text..font..Font$GT$..insert..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd5356f21835f01a4E.exit"
 
-44:                                               ; preds = %26
+42:                                               ; preds = %26
   invoke void @"_ZN4core3ptr100drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$typst..text..font..Font$C$usize$GT$$GT$17h515807edab7c65b6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #31
-          to label %.thread unwind label %45
+          to label %.thread unwind label %43
 
-45:                                               ; preds = %47, %44
-  %46 = landingpad { ptr, i32 }
+43:                                               ; preds = %45, %42
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #32
   unreachable
 
-.thread:                                          ; preds = %44, %47
-  %.pn12 = phi { ptr, i32 } [ %48, %47 ], [ %27, %44 ]
+.thread:                                          ; preds = %42, %45
+  %.pn12 = phi { ptr, i32 } [ %46, %45 ], [ %27, %42 ]
   resume { ptr, i32 } %.pn12
 
-47:                                               ; preds = %.noexc, %19
-  %48 = landingpad { ptr, i32 }
+45:                                               ; preds = %.noexc, %19
+  %46 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$typst_pdf..Remapper$LT$typst..text..font..Font$GT$..insert..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd5356f21835f01a4E"(ptr noalias noundef align 8 dereferenceable(16) %7) #31
-          to label %.thread unwind label %45
+          to label %.thread unwind label %43
 }
 
 ; Function Attrs: nonlazybind uwtable

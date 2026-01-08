@@ -2318,21 +2318,25 @@ check_and_push_string_utf.exit.i136.i:            ; preds = %981, %977
   %.149.i.i = phi ptr [ %.2.i.i, %996 ], [ %.0.i135.i, %check_and_push_string_utf.exit.i136.i ]
   %990 = call fastcc signext i8 @signature_to_fieldtype(ptr noundef nonnull %9, ptr noundef %7, ptr noundef %6)
   %991 = load i32, ptr %6, align 4
-  %992 = getelementptr inbounds nuw i8, ptr %.149.i.i, i64 4
-  store i32 %991, ptr %.149.i.i, align 4
-  switch i8 %990, label %996 [
-    i8 68, label %993
-    i8 76, label %993
+  switch i8 %990, label %995 [
+    i8 68, label %992
+    i8 76, label %992
   ]
 
-993:                                              ; preds = %.lr.ph.i138.i, %.lr.ph.i138.i
+992:                                              ; preds = %.lr.ph.i138.i, %.lr.ph.i138.i
+  %993 = getelementptr inbounds nuw i8, ptr %.149.i.i, i64 4
+  store i32 %991, ptr %.149.i.i, align 4
   %994 = add i32 %991, 1
-  %995 = getelementptr inbounds nuw i8, ptr %.149.i.i, i64 8
-  store i32 %994, ptr %992, align 4
+  store i32 %994, ptr %993, align 4
   br label %996
 
-996:                                              ; preds = %993, %.lr.ph.i138.i
-  %.2.i.i = phi ptr [ %995, %993 ], [ %992, %.lr.ph.i138.i ]
+995:                                              ; preds = %.lr.ph.i138.i
+  store i32 %991, ptr %.149.i.i, align 4
+  br label %996
+
+996:                                              ; preds = %995, %992
+  %.pn.i.i = phi i64 [ 4, %995 ], [ 8, %992 ]
+  %.2.i.i = getelementptr inbounds nuw i8, ptr %.149.i.i, i64 %.pn.i.i
   %997 = load ptr, ptr %7, align 8
   %998 = load i8, ptr %997, align 1
   %.not47.i.i = icmp eq i8 %998, 41

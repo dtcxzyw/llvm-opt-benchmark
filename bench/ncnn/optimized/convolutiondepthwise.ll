@@ -5830,7 +5830,7 @@ define internal void @_ZNK4ncnn20ConvolutionDepthWise12forward_int8ERKNS_3MatERS
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %16 = load i32, ptr %15, align 8, !tbaa !48
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %18, label %187
+  br i1 %17, label %18, label %185
 
 18:                                               ; preds = %10
   %19 = add nsw i32 %16, -1
@@ -5933,23 +5933,23 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %.preheader.lr.ph, %
   %.not.not = icmp slt i64 %indvars.iv117, %75
   br i1 %.not.not, label %.noexc70, label %._crit_edge113, !llvm.loop !121
 
-._crit_edge107.loopexit:                          ; preds = %183
+._crit_edge107.loopexit:                          ; preds = %181
   %.pre120 = load i32, ptr %6, align 4, !tbaa !88
   br label %._crit_edge107
 
 ._crit_edge107:                                   ; preds = %._crit_edge107.loopexit, %.preheader
   %76 = phi i32 [ %68, %.preheader ], [ %.pre120, %._crit_edge107.loopexit ]
-  %77 = phi i32 [ %69, %.preheader ], [ %184, %._crit_edge107.loopexit ]
-  %78 = phi i32 [ %70, %.preheader ], [ %184, %._crit_edge107.loopexit ]
+  %77 = phi i32 [ %69, %.preheader ], [ %182, %._crit_edge107.loopexit ]
+  %78 = phi i32 [ %70, %.preheader ], [ %182, %._crit_edge107.loopexit ]
   %.1.lcssa = phi ptr [ %.053110, %.preheader ], [ %.2, %._crit_edge107.loopexit ]
   %79 = add nuw nsw i32 %.056109, 1
   %80 = icmp slt i32 %79, %76
   br i1 %80, label %.preheader, label %_ZN4ncnn3MatD2Ev.exit.loopexit, !llvm.loop !123
 
-.lr.ph106:                                        ; preds = %.preheader, %183
-  %81 = phi i32 [ %184, %183 ], [ %69, %.preheader ]
-  %.1105 = phi ptr [ %.2, %183 ], [ %.053110, %.preheader ]
-  %.058104 = phi i32 [ %185, %183 ], [ 0, %.preheader ]
+.lr.ph106:                                        ; preds = %.preheader, %181
+  %81 = phi i32 [ %182, %181 ], [ %69, %.preheader ]
+  %.1105 = phi ptr [ %.2, %181 ], [ %.053110, %.preheader ]
+  %.058104 = phi i32 [ %183, %181 ], [ 0, %.preheader ]
   %82 = load i32, ptr %30, align 8, !tbaa !40
   %83 = mul nsw i32 %82, %.056109
   %84 = sext i32 %83 to i64
@@ -6101,7 +6101,7 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %167, %163, %149, %1
   %.1101 = phi nsz float [ %.054, %124 ], [ %127, %126 ], [ %133, %128 ], [ %138, %141 ], [ %.0100, %134 ], [ %148, %142 ], [ %154, %149 ], [ %170, %167 ], [ %.054, %163 ], [ 0.000000e+00, %155 ]
   %171 = load i8, ptr %9, align 1, !tbaa !87, !range !81, !noundef !82
   %172 = trunc nuw i8 %171 to i1
-  br i1 %172, label %173, label %181
+  br i1 %172, label %173, label %180
 
 173:                                              ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit
   %174 = load ptr, ptr %38, align 8, !tbaa !16
@@ -6114,21 +6114,20 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %167, %163, %149, %1
   %.06.i = call i32 @llvm.smin.i32(i32 %spec.select5.i, i32 127)
   %.0.i = trunc nsw i32 %.06.i to i8
   store i8 %.0.i, ptr %.1105, align 1, !tbaa !124
-  %180 = getelementptr inbounds nuw i8, ptr %.1105, i64 1
   %.pre = load i32, ptr %7, align 4, !tbaa !88
-  br label %183
+  br label %181
 
-181:                                              ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit
+180:                                              ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit
   store float %.1101, ptr %.1105, align 4, !tbaa !61
-  %182 = getelementptr inbounds nuw i8, ptr %.1105, i64 4
-  br label %183
+  br label %181
 
-183:                                              ; preds = %181, %173
-  %184 = phi i32 [ %.pre, %173 ], [ %81, %181 ]
-  %.2 = phi ptr [ %180, %173 ], [ %182, %181 ]
-  %185 = add nuw nsw i32 %.058104, 1
-  %186 = icmp slt i32 %185, %184
-  br i1 %186, label %.lr.ph106, label %._crit_edge107.loopexit, !llvm.loop !126
+181:                                              ; preds = %180, %173
+  %182 = phi i32 [ %.pre, %173 ], [ %81, %180 ]
+  %.pn = phi i64 [ 1, %173 ], [ 4, %180 ]
+  %.2 = getelementptr inbounds nuw i8, ptr %.1105, i64 %.pn
+  %183 = add nuw nsw i32 %.058104, 1
+  %184 = icmp slt i32 %183, %182
+  br i1 %184, label %.lr.ph106, label %._crit_edge107.loopexit, !llvm.loop !126
 
 ._crit_edge113:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit, %.noexc70.lr.ph, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
@@ -6136,9 +6135,9 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %167, %163, %149, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %187
+  br label %185
 
-187:                                              ; preds = %._crit_edge113, %10
+185:                                              ; preds = %._crit_edge113, %10
   ret void
 }
 
@@ -6155,7 +6154,7 @@ define internal void @_ZNK4ncnn20ConvolutionDepthWise12forward_int8ERKNS_3MatERS
   %21 = icmp sgt i32 %18, 0
   %22 = icmp sgt i32 %19, 0
   %or.cond = select i1 %21, i1 %22, i1 false
-  br i1 %or.cond, label %23, label %215
+  br i1 %or.cond, label %23, label %213
 
 23:                                               ; preds = %12
   %24 = zext nneg i32 %18 to i64
@@ -6260,23 +6259,23 @@ define internal void @_ZNK4ncnn20ConvolutionDepthWise12forward_int8ERKNS_3MatERS
   %.not.not = icmp slt i64 %.0140, %81
   br i1 %.not.not, label %.noexc92, label %._crit_edge141, !llvm.loop !130
 
-._crit_edge135.loopexit:                          ; preds = %211
+._crit_edge135.loopexit:                          ; preds = %209
   %.pre151 = load i32, ptr %7, align 4, !tbaa !88
   br label %._crit_edge135
 
 ._crit_edge135:                                   ; preds = %._crit_edge135.loopexit, %.preheader
   %85 = phi i32 [ %77, %.preheader ], [ %.pre151, %._crit_edge135.loopexit ]
-  %86 = phi i32 [ %78, %.preheader ], [ %212, %._crit_edge135.loopexit ]
-  %87 = phi i32 [ %79, %.preheader ], [ %212, %._crit_edge135.loopexit ]
+  %86 = phi i32 [ %78, %.preheader ], [ %210, %._crit_edge135.loopexit ]
+  %87 = phi i32 [ %79, %.preheader ], [ %210, %._crit_edge135.loopexit ]
   %.1.lcssa = phi ptr [ %.071137, %.preheader ], [ %.2, %._crit_edge135.loopexit ]
   %88 = add nuw nsw i32 %.074136, 1
   %89 = icmp slt i32 %88, %85
   br i1 %89, label %.preheader, label %._crit_edge138.loopexit, !llvm.loop !131
 
-.lr.ph:                                           ; preds = %.preheader, %211
-  %90 = phi i32 [ %212, %211 ], [ %78, %.preheader ]
-  %.1134 = phi ptr [ %.2, %211 ], [ %.071137, %.preheader ]
-  %.076133 = phi i32 [ %213, %211 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %209
+  %90 = phi i32 [ %210, %209 ], [ %78, %.preheader ]
+  %.1134 = phi ptr [ %.2, %209 ], [ %.071137, %.preheader ]
+  %.076133 = phi i32 [ %211, %209 ], [ 0, %.preheader ]
   %91 = load i32, ptr %6, align 4, !tbaa !88
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %.noexc91.lr.ph, label %._crit_edge
@@ -6467,7 +6466,7 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %195, %191, %177, %1
   %.1123 = phi nsz float [ %.072, %152 ], [ %155, %154 ], [ %161, %156 ], [ %166, %169 ], [ %.0122, %162 ], [ %176, %170 ], [ %182, %177 ], [ %198, %195 ], [ %.072, %191 ], [ 0.000000e+00, %183 ]
   %199 = load i8, ptr %11, align 1, !tbaa !87, !range !81, !noundef !82
   %200 = trunc nuw i8 %199 to i1
-  br i1 %200, label %201, label %209
+  br i1 %200, label %201, label %208
 
 201:                                              ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit
   %202 = load ptr, ptr %45, align 8, !tbaa !16
@@ -6480,21 +6479,20 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %195, %191, %177, %1
   %.06.i = call i32 @llvm.smin.i32(i32 %spec.select5.i, i32 127)
   %.0.i = trunc nsw i32 %.06.i to i8
   store i8 %.0.i, ptr %.1134, align 1, !tbaa !124
-  %208 = getelementptr inbounds nuw i8, ptr %.1134, i64 1
   %.pre = load i32, ptr %8, align 4, !tbaa !88
-  br label %211
+  br label %209
 
-209:                                              ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit
+208:                                              ; preds = %_ZL13activation_ssfiRKN4ncnn3MatE.exit
   store float %.1123, ptr %.1134, align 4, !tbaa !61
-  %210 = getelementptr inbounds nuw i8, ptr %.1134, i64 4
-  br label %211
+  br label %209
 
-211:                                              ; preds = %209, %201
-  %212 = phi i32 [ %.pre, %201 ], [ %90, %209 ]
-  %.2 = phi ptr [ %208, %201 ], [ %210, %209 ]
-  %213 = add nuw nsw i32 %.076133, 1
-  %214 = icmp slt i32 %213, %212
-  br i1 %214, label %.lr.ph, label %._crit_edge135.loopexit, !llvm.loop !137
+209:                                              ; preds = %208, %201
+  %210 = phi i32 [ %.pre, %201 ], [ %90, %208 ]
+  %.pn = phi i64 [ 1, %201 ], [ 4, %208 ]
+  %.2 = getelementptr inbounds nuw i8, ptr %.1134, i64 %.pn
+  %211 = add nuw nsw i32 %.076133, 1
+  %212 = icmp slt i32 %211, %210
+  br i1 %212, label %.lr.ph, label %._crit_edge135.loopexit, !llvm.loop !137
 
 ._crit_edge141:                                   ; preds = %._crit_edge138, %.noexc92.lr.ph, %23
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %27)
@@ -6502,9 +6500,9 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %195, %191, %177, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %215
+  br label %213
 
-215:                                              ; preds = %._crit_edge141, %12
+213:                                              ; preds = %._crit_edge141, %12
   ret void
 }
 

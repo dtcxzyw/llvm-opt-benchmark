@@ -270,7 +270,6 @@ if.then.i28.i:                                    ; preds = %if.end.i.i.i
   %and4.i.i = and i32 %conv382.i.i, 192
   %cmp5.not.i.i = icmp eq i32 %and4.i.i, 128
   call void @llvm.assume(i1 %cmp5.not.i.i)
-  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %begin8.addr.i.0.i, i64 2
   %and9.i.i = shl nsw i32 %conv.i.i, 6
   %shl.i.i = and i32 %and9.i.i, 1984
   %and10.i.i = and i32 %conv382.i.i, 63
@@ -293,7 +292,6 @@ if.then19.i.i:                                    ; preds = %if.else.i27.i
   %15 = load i8, ptr %arrayidx32.i.i, align 1
   %.not44.i.i = icmp slt i8 %15, -64
   call void @llvm.assume(i1 %.not44.i.i)
-  %add.ptr45.i.i = getelementptr inbounds nuw i8, ptr %begin8.addr.i.0.i, i64 3
   %and46.i.i = shl nsw i32 %conv.i.i, 12
   %shl47.i.i = and i32 %and46.i.i, 61440
   %16 = and i8 %14, 63
@@ -323,7 +321,6 @@ if.else68.i.i:                                    ; preds = %if.else.i27.i
   %20 = load i8, ptr %arrayidx100.i.i, align 1
   %.not42.i.i = icmp slt i8 %20, -64
   call void @llvm.assume(i1 %.not42.i.i)
-  %add.ptr113.i.i = getelementptr inbounds nuw i8, ptr %begin8.addr.i.0.i, i64 4
   %and114.i.i = shl nsw i32 %conv.i.i, 18
   %shl115.i.i = and i32 %and114.i.i, 1835008
   %21 = and i8 %18, 63
@@ -361,8 +358,9 @@ if.then131.i.i:                                   ; preds = %if.else68.i.i
   unreachable
 
 _ZN6hermes19_decodeUTF8SlowPathILb1EZNS_32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorISt6vectorIDsSaIDsEEEEET_S7_PKcS9_EUlRKN4llvh5TwineEE_EEjRS9_T0_.exit.i: ; preds = %if.else68.i.i, %if.then19.i.i, %if.then.i28.i
-  %begin8.addr.i.2.i = phi ptr [ %add.ptr8.i.i, %if.then.i28.i ], [ %add.ptr45.i.i, %if.then19.i.i ], [ %add.ptr113.i.i, %if.else68.i.i ]
+  %.pn.i = phi i64 [ 2, %if.then.i28.i ], [ 3, %if.then19.i.i ], [ 4, %if.else68.i.i ]
   %retval.0.i.i = phi i32 [ %or.i.i, %if.then.i28.i ], [ %or52.i.i, %if.then19.i.i ], [ %or123.i.i, %if.else68.i.i ]
+  %begin8.addr.i.2.i = getelementptr inbounds nuw i8, ptr %begin8.addr.i.0.i, i64 %.pn.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp132.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp133.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp134.i.i)
@@ -4364,7 +4362,6 @@ if.then.i28.i:                                    ; preds = %if.end.i.i.i
   %and4.i.i = and i32 %conv382.i.i, 192
   %cmp5.not.i.i = icmp eq i32 %and4.i.i, 128
   call void @llvm.assume(i1 %cmp5.not.i.i)
-  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %begin8.addr.i.0.i, i64 2
   %and9.i.i = shl nsw i32 %conv.i.i, 6
   %shl.i.i = and i32 %and9.i.i, 1984
   %and10.i.i = and i32 %conv382.i.i, 63
@@ -4387,7 +4384,6 @@ if.then19.i.i:                                    ; preds = %if.else.i27.i
   %15 = load i8, ptr %arrayidx32.i.i, align 1
   %.not44.i.i = icmp slt i8 %15, -64
   call void @llvm.assume(i1 %.not44.i.i)
-  %add.ptr45.i.i = getelementptr inbounds nuw i8, ptr %begin8.addr.i.0.i, i64 3
   %and46.i.i = shl nsw i32 %conv.i.i, 12
   %shl47.i.i = and i32 %and46.i.i, 61440
   %16 = and i8 %14, 63
@@ -4417,7 +4413,6 @@ if.else68.i.i:                                    ; preds = %if.else.i27.i
   %20 = load i8, ptr %arrayidx100.i.i, align 1
   %.not42.i.i = icmp slt i8 %20, -64
   call void @llvm.assume(i1 %.not42.i.i)
-  %add.ptr113.i.i = getelementptr inbounds nuw i8, ptr %begin8.addr.i.0.i, i64 4
   %and114.i.i = shl nsw i32 %conv.i.i, 18
   %shl115.i.i = and i32 %and114.i.i, 1835008
   %21 = and i8 %18, 63
@@ -4455,8 +4450,9 @@ if.then131.i.i:                                   ; preds = %if.else68.i.i
   unreachable
 
 _ZN6hermes19_decodeUTF8SlowPathILb1EZNS_32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorISt6vectorIDsSaIDsEEEEET_S7_PKcS9_EUlRKN4llvh5TwineEE_EEjRS9_T0_.exit.i: ; preds = %if.else68.i.i, %if.then19.i.i, %if.then.i28.i
-  %begin8.addr.i.2.i = phi ptr [ %add.ptr8.i.i, %if.then.i28.i ], [ %add.ptr45.i.i, %if.then19.i.i ], [ %add.ptr113.i.i, %if.else68.i.i ]
+  %.pn.i = phi i64 [ 2, %if.then.i28.i ], [ 3, %if.then19.i.i ], [ 4, %if.else68.i.i ]
   %retval.0.i.i = phi i32 [ %or.i.i, %if.then.i28.i ], [ %or52.i.i, %if.then19.i.i ], [ %or123.i.i, %if.else68.i.i ]
+  %begin8.addr.i.2.i = getelementptr inbounds nuw i8, ptr %begin8.addr.i.0.i, i64 %.pn.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp132.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp133.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp134.i.i)
@@ -4697,7 +4693,6 @@ if.then.i21.i:                                    ; preds = %if.end.i.i.i
   %and4.i.i = and i32 %conv382.i.i, 192
   %cmp5.not.i.i = icmp eq i32 %and4.i.i, 128
   call void @llvm.assume(i1 %cmp5.not.i.i)
-  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %begin8.addr.i.0.i, i64 2
   %and9.i.i = shl nsw i32 %conv.i.i, 6
   %shl.i.i = and i32 %and9.i.i, 1984
   %and10.i.i = and i32 %conv382.i.i, 63
@@ -4720,7 +4715,6 @@ if.then19.i.i:                                    ; preds = %if.else.i20.i
   %13 = load i8, ptr %arrayidx32.i.i, align 1
   %.not44.i.i = icmp slt i8 %13, -64
   call void @llvm.assume(i1 %.not44.i.i)
-  %add.ptr45.i.i = getelementptr inbounds nuw i8, ptr %begin8.addr.i.0.i, i64 3
   %and46.i.i = shl nsw i32 %conv.i.i, 12
   %shl47.i.i = and i32 %and46.i.i, 61440
   %14 = and i8 %12, 63
@@ -4750,7 +4744,6 @@ if.else68.i.i:                                    ; preds = %if.else.i20.i
   %18 = load i8, ptr %arrayidx100.i.i, align 1
   %.not42.i.i = icmp slt i8 %18, -64
   call void @llvm.assume(i1 %.not42.i.i)
-  %add.ptr113.i.i = getelementptr inbounds nuw i8, ptr %begin8.addr.i.0.i, i64 4
   %and114.i.i = shl nsw i32 %conv.i.i, 18
   %shl115.i.i = and i32 %and114.i.i, 1835008
   %19 = and i8 %16, 63
@@ -4788,8 +4781,9 @@ if.then131.i.i:                                   ; preds = %if.else68.i.i
   unreachable
 
 _ZN6hermes19_decodeUTF8SlowPathILb1EZNS_32convertUTF8WithSurrogatesToUTF16ISt20back_insert_iteratorISt6vectorIDsSaIDsEEEEET_S7_PKcS9_EUlRKN4llvh5TwineEE_EEjRS9_T0_.exit.i: ; preds = %if.else68.i.i, %if.then19.i.i, %if.then.i21.i
-  %begin8.addr.i.2.i = phi ptr [ %add.ptr8.i.i, %if.then.i21.i ], [ %add.ptr45.i.i, %if.then19.i.i ], [ %add.ptr113.i.i, %if.else68.i.i ]
+  %.pn.i = phi i64 [ 2, %if.then.i21.i ], [ 3, %if.then19.i.i ], [ 4, %if.else68.i.i ]
   %retval.0.i.i = phi i32 [ %or.i.i, %if.then.i21.i ], [ %or52.i.i, %if.then19.i.i ], [ %or123.i.i, %if.else68.i.i ]
+  %begin8.addr.i.2.i = getelementptr inbounds nuw i8, ptr %begin8.addr.i.0.i, i64 %.pn.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp132.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp133.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp134.i.i)

@@ -269,98 +269,93 @@ define internal range(i32 -401, 5) i32 @code_to_mbclen(i32 noundef %0, ptr readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #3 {
+define internal range(i32 -401, 5) i32 @code_to_mbc(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr readnone captures(none) %2) #3 {
   %4 = icmp ult i32 %0, 128
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
   %6 = trunc nuw nsw i32 %0 to i8
   store i8 %6, ptr %1, align 1, !tbaa !7
-  br label %55
+  br label %49
 
 7:                                                ; preds = %3
   %8 = icmp ult i32 %0, 2048
-  br i1 %8, label %9, label %14
+  br i1 %8, label %9, label %13
 
 9:                                                ; preds = %7
   %10 = lshr i32 %0, 6
   %11 = trunc nuw nsw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
-  %13 = getelementptr i8, ptr %1, i64 1
   store i8 %12, ptr %1, align 1, !tbaa !7
-  br label %46
+  br label %43
 
-14:                                               ; preds = %7
-  %15 = icmp ult i32 %0, 65536
-  br i1 %15, label %16, label %26
+13:                                               ; preds = %7
+  %14 = icmp ult i32 %0, 65536
+  br i1 %14, label %15, label %24
 
-16:                                               ; preds = %14
-  %17 = lshr i32 %0, 12
-  %18 = trunc nuw nsw i32 %17 to i8
-  %19 = or disjoint i8 %18, -32
-  %20 = getelementptr i8, ptr %1, i64 1
-  store i8 %19, ptr %1, align 1, !tbaa !7
-  %21 = lshr i32 %0, 6
-  %22 = trunc i32 %21 to i8
-  %23 = and i8 %22, 63
-  %24 = or disjoint i8 %23, -128
-  %25 = getelementptr i8, ptr %1, i64 2
-  store i8 %24, ptr %20, align 1, !tbaa !7
-  br label %46
+15:                                               ; preds = %13
+  %16 = lshr i32 %0, 12
+  %17 = trunc nuw nsw i32 %16 to i8
+  %18 = or disjoint i8 %17, -32
+  %19 = getelementptr i8, ptr %1, i64 1
+  store i8 %18, ptr %1, align 1, !tbaa !7
+  %20 = lshr i32 %0, 6
+  %21 = trunc i32 %20 to i8
+  %22 = and i8 %21, 63
+  %23 = or disjoint i8 %22, -128
+  store i8 %23, ptr %19, align 1, !tbaa !7
+  br label %43
 
-26:                                               ; preds = %14
-  %27 = icmp ult i32 %0, 1114112
-  br i1 %27, label %28, label %43
+24:                                               ; preds = %13
+  %25 = icmp ult i32 %0, 1114112
+  br i1 %25, label %26, label %40
 
-28:                                               ; preds = %26
-  %29 = lshr i32 %0, 18
-  %30 = trunc nuw nsw i32 %29 to i8
-  %31 = or disjoint i8 %30, -16
-  %32 = getelementptr i8, ptr %1, i64 1
-  store i8 %31, ptr %1, align 1, !tbaa !7
-  %33 = lshr i32 %0, 12
-  %34 = trunc i32 %33 to i8
-  %35 = and i8 %34, 63
-  %36 = or disjoint i8 %35, -128
-  %37 = getelementptr i8, ptr %1, i64 2
-  store i8 %36, ptr %32, align 1, !tbaa !7
-  %38 = lshr i32 %0, 6
-  %39 = trunc i32 %38 to i8
-  %40 = and i8 %39, 63
-  %41 = or disjoint i8 %40, -128
-  %42 = getelementptr i8, ptr %1, i64 3
-  store i8 %41, ptr %37, align 1, !tbaa !7
-  br label %46
+26:                                               ; preds = %24
+  %27 = lshr i32 %0, 18
+  %28 = trunc nuw nsw i32 %27 to i8
+  %29 = or disjoint i8 %28, -16
+  %30 = getelementptr i8, ptr %1, i64 1
+  store i8 %29, ptr %1, align 1, !tbaa !7
+  %31 = lshr i32 %0, 12
+  %32 = trunc i32 %31 to i8
+  %33 = and i8 %32, 63
+  %34 = or disjoint i8 %33, -128
+  %35 = getelementptr i8, ptr %1, i64 2
+  store i8 %34, ptr %30, align 1, !tbaa !7
+  %36 = lshr i32 %0, 6
+  %37 = trunc i32 %36 to i8
+  %38 = and i8 %37, 63
+  %39 = or disjoint i8 %38, -128
+  store i8 %39, ptr %35, align 1, !tbaa !7
+  br label %43
 
-43:                                               ; preds = %26
-  switch i32 %0, label %55 [
-    i32 -2, label %44
-    i32 -1, label %45
+40:                                               ; preds = %24
+  switch i32 %0, label %49 [
+    i32 -2, label %41
+    i32 -1, label %42
   ]
 
-44:                                               ; preds = %43
+41:                                               ; preds = %40
   store i8 -2, ptr %1, align 1, !tbaa !7
-  br label %55
+  br label %49
 
-45:                                               ; preds = %43
+42:                                               ; preds = %40
   store i8 -1, ptr %1, align 1, !tbaa !7
-  br label %55
+  br label %49
 
-46:                                               ; preds = %16, %28, %9
-  %.0 = phi ptr [ %13, %9 ], [ %25, %16 ], [ %42, %28 ]
-  %47 = trunc i32 %0 to i8
-  %48 = and i8 %47, 63
-  %49 = or disjoint i8 %48, -128
-  %50 = getelementptr i8, ptr %.0, i64 1
-  store i8 %49, ptr %.0, align 1, !tbaa !7
-  %51 = ptrtoint ptr %50 to i64
-  %52 = ptrtoint ptr %1 to i64
-  %53 = sub i64 %51, %52
-  %54 = trunc i64 %53 to i32
-  br label %55
+43:                                               ; preds = %15, %26, %9
+  %.pn = phi i64 [ 1, %9 ], [ 2, %15 ], [ 3, %26 ]
+  %.0 = getelementptr i8, ptr %1, i64 %.pn
+  %44 = trunc i32 %0 to i8
+  %45 = and i8 %44, 63
+  %46 = or disjoint i8 %45, -128
+  store i8 %46, ptr %.0, align 1, !tbaa !7
+  %47 = trunc nuw nsw i64 %.pn to i32
+  %48 = add nuw nsw i32 %47, 1
+  br label %49
 
-55:                                               ; preds = %44, %45, %46, %43, %5
-  %.027 = phi i32 [ 1, %5 ], [ %54, %46 ], [ 1, %44 ], [ 1, %45 ], [ -401, %43 ]
+49:                                               ; preds = %41, %42, %43, %40, %5
+  %.027 = phi i32 [ 1, %5 ], [ %48, %43 ], [ 1, %41 ], [ 1, %42 ], [ -401, %40 ]
   ret i32 %.027
 }
 

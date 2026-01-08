@@ -9683,27 +9683,23 @@ define hidden void @"_ZN74_$LT$uv_distribution_types..any..LocalDist$u20$as$u20$
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17ha124a96ef9ac8251E.llvm.7444897219625219906"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8), !noalias !1694
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1699
   %15 = icmp eq i64 %12, -9223372036854775808
-  br i1 %15, label %16, label %18
+  br i1 %15, label %"_ZN81_$LT$uv_distribution_types..any..CanonicalVersion$u20$as$u20$core..hash..Hash$GT$4hash17haf95a10c6d7a1d77E.llvm.7444897219625219906.exit", label %16
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  br label %"_ZN81_$LT$uv_distribution_types..any..CanonicalVersion$u20$as$u20$core..hash..Hash$GT$4hash17haf95a10c6d7a1d77E.llvm.7444897219625219906.exit"
-
-18:                                               ; preds = %2
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %21 = load ptr, ptr %20, align 8, !alias.scope !1694, !noalias !1697, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %23 = load i64, ptr %22, align 8, !alias.scope !1694, !noalias !1697, !noundef !4
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17ha124a96ef9ac8251E.llvm.7444897219625219906"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %23), !noalias !1694
+  %18 = load ptr, ptr %17, align 8, !alias.scope !1694, !noalias !1697, !nonnull !4, !noundef !4
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %20 = load i64, ptr %19, align 8, !alias.scope !1694, !noalias !1697, !noundef !4
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17ha124a96ef9ac8251E.llvm.7444897219625219906"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %20), !noalias !1694
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1704
   store i8 -1, ptr %3, align 1, !noalias !1704
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17ha124a96ef9ac8251E.llvm.7444897219625219906"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !1711
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1704
   br label %"_ZN81_$LT$uv_distribution_types..any..CanonicalVersion$u20$as$u20$core..hash..Hash$GT$4hash17haf95a10c6d7a1d77E.llvm.7444897219625219906.exit"
 
-"_ZN81_$LT$uv_distribution_types..any..CanonicalVersion$u20$as$u20$core..hash..Hash$GT$4hash17haf95a10c6d7a1d77E.llvm.7444897219625219906.exit": ; preds = %16, %18
-  %.sink.i = phi ptr [ %19, %18 ], [ %17, %16 ]
+"_ZN81_$LT$uv_distribution_types..any..CanonicalVersion$u20$as$u20$core..hash..Hash$GT$4hash17haf95a10c6d7a1d77E.llvm.7444897219625219906.exit": ; preds = %2, %16
+  %.pn.i = phi i64 [ 88, %16 ], [ 8, %2 ]
+  %.sink.i = getelementptr inbounds nuw i8, ptr %11, i64 %.pn.i
   tail call void @"_ZN64_$LT$uv_pep440..version..Version$u20$as$u20$core..hash..Hash$GT$4hash17ha3f9ad571551e033E.llvm.7444897219625219906"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sink.i, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
   ret void
 }
@@ -10898,27 +10894,23 @@ define hidden void @"_ZN81_$LT$uv_distribution_types..any..CanonicalVersion$u20$
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17ha124a96ef9ac8251E.llvm.7444897219625219906"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2071
   %8 = icmp eq i64 %5, -9223372036854775808
-  br i1 %8, label %9, label %11
+  br i1 %8, label %14, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %17
-
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i64, ptr %15, align 8, !noundef !4
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17ha124a96ef9ac8251E.llvm.7444897219625219906"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %16)
+  %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load i64, ptr %12, align 8, !noundef !4
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17ha124a96ef9ac8251E.llvm.7444897219625219906"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2076
   store i8 -1, ptr %3, align 1, !noalias !2076
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17ha124a96ef9ac8251E.llvm.7444897219625219906"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 1), !noalias !2083
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2076
-  br label %17
+  br label %14
 
-17:                                               ; preds = %11, %9
-  %.sink = phi ptr [ %12, %11 ], [ %10, %9 ]
+14:                                               ; preds = %2, %9
+  %.pn = phi i64 [ 88, %9 ], [ 8, %2 ]
+  %.sink = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   tail call void @"_ZN64_$LT$uv_pep440..version..Version$u20$as$u20$core..hash..Hash$GT$4hash17ha3f9ad571551e033E.llvm.7444897219625219906"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sink, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
   ret void
 }

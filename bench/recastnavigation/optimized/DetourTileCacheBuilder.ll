@@ -5002,8 +5002,8 @@ _ZN12dtFixedArrayI6rcEdgeEC2EP16dtTileCacheAlloci.exit: ; preds = %23
   %226 = icmp slt i64 %indvars.iv.next344, %225
   br i1 %226, label %126, label %.preheader, !llvm.loop !89
 
-.lr.ph312:                                        ; preds = %.lr.ph312.preheader, %258
-  %indvars.iv346 = phi i64 [ 0, %.lr.ph312.preheader ], [ %indvars.iv.next347, %258 ]
+.lr.ph312:                                        ; preds = %.lr.ph312.preheader, %256
+  %indvars.iv346 = phi i64 [ 0, %.lr.ph312.preheader ], [ %indvars.iv.next347, %256 ]
   %227 = getelementptr inbounds nuw %struct.rcEdge, ptr %31, i64 %indvars.iv346
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %229 = load i16, ptr %228, align 2
@@ -5011,7 +5011,7 @@ _ZN12dtFixedArrayI6rcEdgeEC2EP16dtTileCacheAlloci.exit: ; preds = %23
   %231 = getelementptr inbounds nuw i8, ptr %227, i64 10
   %232 = load i16, ptr %231, align 2
   %.not214 = icmp eq i16 %229, %232
-  br i1 %.not214, label %246, label %233
+  br i1 %.not214, label %245, label %233
 
 233:                                              ; preds = %.lr.ph312
   %234 = zext i16 %232 to i64
@@ -5027,66 +5027,65 @@ _ZN12dtFixedArrayI6rcEdgeEC2EP16dtTileCacheAlloci.exit: ; preds = %23
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 12
   store i16 %232, ptr %243, align 2
   %244 = load i16, ptr %228, align 2
-  %245 = getelementptr inbounds nuw i8, ptr %227, i64 6
   br label %.sink.split
 
-246:                                              ; preds = %.lr.ph312
-  %247 = getelementptr inbounds nuw i8, ptr %227, i64 6
-  %248 = load i16, ptr %247, align 2
-  %.not215 = icmp eq i16 %248, 255
-  br i1 %.not215, label %258, label %249
+245:                                              ; preds = %.lr.ph312
+  %246 = getelementptr inbounds nuw i8, ptr %227, i64 6
+  %247 = load i16, ptr %246, align 2
+  %.not215 = icmp eq i16 %247, 255
+  br i1 %.not215, label %256, label %248
 
-249:                                              ; preds = %246
-  %250 = getelementptr inbounds nuw i8, ptr %227, i64 4
-  %251 = mul nuw nsw i32 %230, 12
-  %252 = zext nneg i32 %251 to i64
-  %253 = getelementptr inbounds nuw i16, ptr %1, i64 %252
-  %254 = or i16 %248, -32768
+248:                                              ; preds = %245
+  %249 = mul nuw nsw i32 %230, 12
+  %250 = zext nneg i32 %249 to i64
+  %251 = getelementptr inbounds nuw i16, ptr %1, i64 %250
+  %252 = or i16 %247, -32768
   br label %.sink.split
 
-.sink.split:                                      ; preds = %249, %233
-  %.sink379.in = phi ptr [ %245, %233 ], [ %250, %249 ]
-  %.sink377 = phi ptr [ %238, %233 ], [ %253, %249 ]
-  %.sink = phi i16 [ %244, %233 ], [ %254, %249 ]
+.sink.split:                                      ; preds = %248, %233
+  %.pn = phi i64 [ 6, %233 ], [ 4, %248 ]
+  %.sink377 = phi ptr [ %238, %233 ], [ %251, %248 ]
+  %.sink = phi i16 [ %244, %233 ], [ %252, %248 ]
+  %.sink379.in = getelementptr inbounds nuw i8, ptr %227, i64 %.pn
   %.sink379 = load i16, ptr %.sink379.in, align 2
-  %255 = zext i16 %.sink379 to i64
-  %256 = getelementptr inbounds nuw i16, ptr %.sink377, i64 %255
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 12
-  store i16 %.sink, ptr %257, align 2
-  br label %258
+  %253 = zext i16 %.sink379 to i64
+  %254 = getelementptr inbounds nuw i16, ptr %.sink377, i64 %253
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 12
+  store i16 %.sink, ptr %255, align 2
+  br label %256
 
-258:                                              ; preds = %.sink.split, %246
+256:                                              ; preds = %.sink.split, %245
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond350.not = icmp eq i64 %indvars.iv.next347, %wide.trip.count349
   br i1 %exitcond350.not, label %.loopexit, label %.lr.ph312, !llvm.loop !90
 
-.loopexit:                                        ; preds = %258, %.preheader, %_ZN12dtFixedArrayI6rcEdgeEC2EP16dtTileCacheAlloci.exit
-  %259 = load ptr, ptr %0, align 8
-  %260 = getelementptr inbounds nuw i8, ptr %259, i64 32
-  %261 = load ptr, ptr %260, align 8
-  invoke void %261(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %31)
-          to label %_ZN12dtFixedArrayI6rcEdgeED2Ev.exit unwind label %262
+.loopexit:                                        ; preds = %256, %.preheader, %_ZN12dtFixedArrayI6rcEdgeEC2EP16dtTileCacheAlloci.exit
+  %257 = load ptr, ptr %0, align 8
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 32
+  %259 = load ptr, ptr %258, align 8
+  invoke void %259(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %31)
+          to label %_ZN12dtFixedArrayI6rcEdgeED2Ev.exit unwind label %260
 
-262:                                              ; preds = %.loopexit
-  %263 = landingpad { ptr, i32 }
+260:                                              ; preds = %.loopexit
+  %261 = landingpad { ptr, i32 }
           catch ptr null
-  %264 = extractvalue { ptr, i32 } %263, 0
-  tail call void @__clang_call_terminate(ptr %264) #22
+  %262 = extractvalue { ptr, i32 } %261, 0
+  tail call void @__clang_call_terminate(ptr %262) #22
   unreachable
 
 _ZN12dtFixedArrayI6rcEdgeED2Ev.exit:              ; preds = %6, %.loopexit
   %.0 = phi i1 [ false, %6 ], [ %.not213, %.loopexit ]
-  %265 = load ptr, ptr %0, align 8
-  %266 = getelementptr inbounds nuw i8, ptr %265, i64 32
-  %267 = load ptr, ptr %266, align 8
-  invoke void %267(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %14)
-          to label %_ZN12dtFixedArrayItED2Ev.exit226 unwind label %268
+  %263 = load ptr, ptr %0, align 8
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 32
+  %265 = load ptr, ptr %264, align 8
+  invoke void %265(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %14)
+          to label %_ZN12dtFixedArrayItED2Ev.exit226 unwind label %266
 
-268:                                              ; preds = %_ZN12dtFixedArrayI6rcEdgeED2Ev.exit
-  %269 = landingpad { ptr, i32 }
+266:                                              ; preds = %_ZN12dtFixedArrayI6rcEdgeED2Ev.exit
+  %267 = landingpad { ptr, i32 }
           catch ptr null
-  %270 = extractvalue { ptr, i32 } %269, 0
-  tail call void @__clang_call_terminate(ptr %270) #22
+  %268 = extractvalue { ptr, i32 } %267, 0
+  tail call void @__clang_call_terminate(ptr %268) #22
   unreachable
 
 _ZN12dtFixedArrayItED2Ev.exit226:                 ; preds = %_ZN12dtFixedArrayI6rcEdgeED2Ev.exit

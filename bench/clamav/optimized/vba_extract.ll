@@ -3633,14 +3633,14 @@ declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(address_is_null) %0, i32 noundef range(i32 0, 65536) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %76, label %5
+  br i1 %4, label %74, label %5
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %0, align 1, !tbaa !10
   %7 = icmp eq i8 %6, 0
   %8 = icmp eq i32 %1, 0
   %or.cond = or i1 %8, %7
-  br i1 %or.cond, label %76, label %9
+  br i1 %or.cond, label %74, label %9
 
 9:                                                ; preds = %5
   %10 = mul nuw nsw i32 %1, 7
@@ -3652,7 +3652,7 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(addre
 
 15:                                               ; preds = %9
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.169) #16
-  br label %76
+  br label %74
 
 16:                                               ; preds = %9
   %.not = icmp eq i32 %2, 0
@@ -3675,9 +3675,9 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(addre
   %22 = zext nneg i32 %.05991 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %69
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %69 ]
-  %.06279 = phi ptr [ %13, %.lr.ph.preheader ], [ %.4, %69 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %67
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %67 ]
+  %.06279 = phi ptr [ %13, %.lr.ph.preheader ], [ %.4, %67 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1, !tbaa !10
   %.not70 = icmp sgt i8 %24, -1
@@ -3700,7 +3700,7 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(addre
   %36 = load i32, ptr %35, align 4, !tbaa !11
   %37 = trunc i32 %36 to i8
   store i8 %37, ptr %.06279, align 1, !tbaa !10
-  br label %69
+  br label %67
 
 38:                                               ; preds = %25
   %39 = icmp samesign ult i8 %24, 10
@@ -3711,72 +3711,71 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(addre
   store i8 95, ptr %.06279, align 1, !tbaa !10
   %42 = load i8, ptr %23, align 1, !tbaa !10
   %43 = add i8 %42, 48
-  %44 = getelementptr inbounds nuw i8, ptr %.06279, i64 2
   store i8 %43, ptr %41, align 1, !tbaa !10
-  br label %68
+  br label %66
 
 .thread:                                          ; preds = %.lr.ph, %38
-  %45 = add nuw nsw i64 %indvars.iv, 1
-  %.not72 = icmp samesign ult i64 %45, %22
+  %44 = add nuw nsw i64 %indvars.iv, 1
+  %.not72 = icmp samesign ult i64 %44, %22
   br i1 %.not72, label %.thread76, label %.thread._crit_edge
 
 .thread76:                                        ; preds = %.thread
-  %46 = icmp slt i8 %24, 0
-  %47 = zext nneg i8 %24 to i16
-  %48 = shl nuw nsw i16 %47, 8
-  %49 = select i1 %46, i16 0, i16 %48
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 %45
-  %51 = load i8, ptr %50, align 1, !tbaa !10
-  %52 = sext i8 %51 to i16
-  %53 = or i16 %49, %52
-  %54 = getelementptr inbounds nuw i8, ptr %.06279, i64 1
+  %45 = icmp slt i8 %24, 0
+  %46 = zext nneg i8 %24 to i16
+  %47 = shl nuw nsw i16 %46, 8
+  %48 = select i1 %45, i16 0, i16 %47
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 %44
+  %50 = load i8, ptr %49, align 1, !tbaa !10
+  %51 = sext i8 %50 to i16
+  %52 = or i16 %48, %51
+  %53 = getelementptr inbounds nuw i8, ptr %.06279, i64 1
   store i8 95, ptr %.06279, align 1, !tbaa !10
-  %55 = and i8 %51, 15
-  %56 = add nuw nsw i8 %55, 97
-  %57 = getelementptr inbounds nuw i8, ptr %.06279, i64 2
-  store i8 %56, ptr %54, align 1, !tbaa !10
-  %58 = lshr i8 %51, 4
-  %59 = add nuw nsw i8 %58, 97
-  %60 = getelementptr inbounds nuw i8, ptr %.06279, i64 3
-  store i8 %59, ptr %57, align 1, !tbaa !10
-  %61 = lshr i16 %53, 8
-  %62 = trunc nuw i16 %61 to i8
-  %63 = and i8 %62, 15
-  %64 = add nuw nsw i8 %63, 97
-  %65 = getelementptr inbounds nuw i8, ptr %.06279, i64 4
-  store i8 %64, ptr %60, align 1, !tbaa !10
-  %66 = getelementptr inbounds nuw i8, ptr %.06279, i64 5
+  %54 = and i8 %50, 15
+  %55 = add nuw nsw i8 %54, 97
+  %56 = getelementptr inbounds nuw i8, ptr %.06279, i64 2
+  store i8 %55, ptr %53, align 1, !tbaa !10
+  %57 = lshr i8 %50, 4
+  %58 = add nuw nsw i8 %57, 97
+  %59 = getelementptr inbounds nuw i8, ptr %.06279, i64 3
+  store i8 %58, ptr %56, align 1, !tbaa !10
+  %60 = lshr i16 %52, 8
+  %61 = trunc nuw i16 %60 to i8
+  %62 = and i8 %61, 15
+  %63 = add nuw nsw i8 %62, 97
+  %64 = getelementptr inbounds nuw i8, ptr %.06279, i64 4
+  store i8 %63, ptr %59, align 1, !tbaa !10
+  %65 = getelementptr inbounds nuw i8, ptr %.06279, i64 5
+  store i8 97, ptr %64, align 1, !tbaa !10
   store i8 97, ptr %65, align 1, !tbaa !10
-  %67 = getelementptr inbounds nuw i8, ptr %.06279, i64 6
-  store i8 97, ptr %66, align 1, !tbaa !10
-  br label %68
+  br label %66
 
-68:                                               ; preds = %.thread76, %40
-  %.2 = phi ptr [ %44, %40 ], [ %67, %.thread76 ]
+66:                                               ; preds = %.thread76, %40
+  %.pn = phi i64 [ 2, %40 ], [ 6, %.thread76 ]
+  %.2 = getelementptr inbounds nuw i8, ptr %.06279, i64 %.pn
   store i8 95, ptr %.2, align 1, !tbaa !10
-  br label %69
+  br label %67
 
-69:                                               ; preds = %32, %68
-  %.2.pn = phi ptr [ %.2, %68 ], [ %.06279, %32 ]
+67:                                               ; preds = %32, %66
+  %.2.pn = phi ptr [ %.2, %66 ], [ %.06279, %32 ]
   %.4 = getelementptr inbounds nuw i8, ptr %.2.pn, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %21
-  %70 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %70, label %.lr.ph, label %.thread._crit_edge
+  %68 = icmp samesign ult i64 %indvars.iv.next, %22
+  br i1 %68, label %.lr.ph, label %.thread._crit_edge
 
-.thread._crit_edge:                               ; preds = %69, %.thread, %19
-  %.062.lcssa = phi ptr [ %13, %19 ], [ %.06279, %.thread ], [ %.4, %69 ]
+.thread._crit_edge:                               ; preds = %67, %.thread, %19
+  %.062.lcssa = phi ptr [ %13, %19 ], [ %.06279, %.thread ], [ %.4, %67 ]
   store i8 0, ptr %.062.lcssa, align 1, !tbaa !10
-  %71 = ptrtoint ptr %.062.lcssa to i64
-  %72 = ptrtoint ptr %13 to i64
-  %reass.sub = sub i64 %71, %72
-  %73 = add i64 %reass.sub, 1
-  %74 = tail call ptr @cli_max_realloc(ptr noundef nonnull %13, i64 noundef %73) #16
-  %.not73 = icmp eq ptr %74, null
-  %75 = select i1 %.not73, ptr %13, ptr %74
-  br label %76
+  %69 = ptrtoint ptr %.062.lcssa to i64
+  %70 = ptrtoint ptr %13 to i64
+  %reass.sub = sub i64 %69, %70
+  %71 = add i64 %reass.sub, 1
+  %72 = tail call ptr @cli_max_realloc(ptr noundef nonnull %13, i64 noundef %71) #16
+  %.not73 = icmp eq ptr %72, null
+  %73 = select i1 %.not73, ptr %13, ptr %72
+  br label %74
 
-76:                                               ; preds = %3, %5, %.thread._crit_edge, %15
-  %.0 = phi ptr [ %75, %.thread._crit_edge ], [ null, %15 ], [ null, %5 ], [ null, %3 ]
+74:                                               ; preds = %3, %5, %.thread._crit_edge, %15
+  %.0 = phi ptr [ %73, %.thread._crit_edge ], [ null, %15 ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 

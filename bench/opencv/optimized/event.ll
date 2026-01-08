@@ -14,53 +14,48 @@ define hidden range(i32 0, 2) i32 @opj_event_msg(ptr noundef readonly captures(a
 
 6:                                                ; preds = %3
   switch i32 %1, label %.thread [
-    i32 1, label %7
-    i32 2, label %9
-    i32 4, label %12
+    i32 1, label %11
+    i32 2, label %7
+    i32 4, label %9
   ]
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %15
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %11
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %15
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %11
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %15
-
-15:                                               ; preds = %12, %9, %7
-  %.015.in = phi ptr [ %13, %12 ], [ %8, %7 ], [ %10, %9 ]
-  %.0.in = phi ptr [ %14, %12 ], [ %0, %7 ], [ %11, %9 ]
+11:                                               ; preds = %6, %9, %7
+  %.pn = phi i64 [ 40, %9 ], [ 32, %7 ], [ 24, %6 ]
+  %.0.in = phi ptr [ %10, %9 ], [ %8, %7 ], [ %0, %6 ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !3
+  %.015.in = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   %.015 = load ptr, ptr %.015.in, align 8, !tbaa !3
-  %16 = icmp eq ptr %.015, null
-  br i1 %16, label %.thread, label %17
+  %12 = icmp eq ptr %.015, null
+  br i1 %12, label %.thread, label %13
 
-17:                                               ; preds = %15
+13:                                               ; preds = %11
   %.not19 = icmp eq ptr %2, null
-  br i1 %.not19, label %.thread, label %18
+  br i1 %.not19, label %.thread, label %14
 
-18:                                               ; preds = %17
+14:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %19 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 512, ptr noundef nonnull %2, ptr noundef nonnull %4) #7
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 511
-  store i8 0, ptr %20, align 1, !tbaa !7
+  %15 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 512, ptr noundef nonnull %2, ptr noundef nonnull %4) #7
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 511
+  store i8 0, ptr %16, align 1, !tbaa !7
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void %.015(ptr noundef nonnull %5, ptr noundef %.0) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
-.thread:                                          ; preds = %6, %17, %18, %3, %15
-  %.016 = phi i32 [ 0, %15 ], [ 0, %3 ], [ 1, %18 ], [ 1, %17 ], [ 0, %6 ]
+.thread:                                          ; preds = %6, %13, %14, %3, %11
+  %.016 = phi i32 [ 0, %11 ], [ 0, %3 ], [ 1, %14 ], [ 1, %13 ], [ 0, %6 ]
   ret i32 %.016
 }
 

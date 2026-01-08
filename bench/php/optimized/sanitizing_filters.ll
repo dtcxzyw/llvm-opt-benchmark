@@ -649,57 +649,52 @@ define hidden void @php_filter_encoded(ptr noundef %0, i64 noundef %1, ptr nound
   %.not4.i = icmp eq i64 %21, 0
   br i1 %.not4.i, label %php_filter_encode_url.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %10, %42
-  %.03.i = phi ptr [ %.1.i, %42 ], [ %17, %10 ]
-  %.1322.i = phi ptr [ %43, %42 ], [ %19, %10 ]
+.lr.ph.i:                                         ; preds = %10, %38
+  %.03.i = phi ptr [ %.1.i, %38 ], [ %17, %10 ]
+  %.1322.i = phi ptr [ %39, %38 ], [ %19, %10 ]
   %23 = load i8, ptr %.1322.i, align 1, !tbaa !4
   %24 = zext i8 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %.not.i = icmp eq i8 %26, 0
-  %27 = getelementptr inbounds nuw i8, ptr %.03.i, i64 1
-  br i1 %.not.i, label %41, label %28
+  br i1 %.not.i, label %38, label %27
 
-28:                                               ; preds = %.lr.ph.i
-  store i8 37, ptr %.03.i, align 1, !tbaa !4
-  %29 = load i8, ptr %.1322.i, align 1, !tbaa !4
-  %30 = lshr i8 %29, 4
-  %31 = zext nneg i8 %30 to i64
-  %32 = getelementptr inbounds nuw i8, ptr @hexchars, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !4
-  %34 = getelementptr inbounds nuw i8, ptr %.03.i, i64 2
-  store i8 %33, ptr %27, align 1, !tbaa !4
-  %35 = load i8, ptr %.1322.i, align 1, !tbaa !4
-  %36 = and i8 %35, 15
-  %37 = zext nneg i8 %36 to i64
-  %38 = getelementptr inbounds nuw i8, ptr @hexchars, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !4
-  %40 = getelementptr inbounds nuw i8, ptr %.03.i, i64 3
-  store i8 %39, ptr %34, align 1, !tbaa !4
-  br label %42
+27:                                               ; preds = %.lr.ph.i
+  %28 = getelementptr inbounds nuw i8, ptr %.03.i, i64 1
+  %29 = lshr i8 %23, 4
+  %30 = zext nneg i8 %29 to i64
+  %31 = getelementptr inbounds nuw i8, ptr @hexchars, i64 %30
+  %32 = load i8, ptr %31, align 1, !tbaa !4
+  %33 = getelementptr inbounds nuw i8, ptr %.03.i, i64 2
+  store i8 %32, ptr %28, align 1, !tbaa !4
+  %34 = and i8 %23, 15
+  %35 = zext nneg i8 %34 to i64
+  %36 = getelementptr inbounds nuw i8, ptr @hexchars, i64 %35
+  %37 = load i8, ptr %36, align 1, !tbaa !4
+  store i8 %37, ptr %33, align 1, !tbaa !4
+  br label %38
 
-41:                                               ; preds = %.lr.ph.i
-  store i8 %23, ptr %.03.i, align 1, !tbaa !4
-  br label %42
+38:                                               ; preds = %.lr.ph.i, %27
+  %.sink = phi i8 [ 37, %27 ], [ %23, %.lr.ph.i ]
+  %.pn.i = phi i64 [ 3, %27 ], [ 1, %.lr.ph.i ]
+  store i8 %.sink, ptr %.03.i, align 1, !tbaa !4
+  %.1.i = getelementptr inbounds nuw i8, ptr %.03.i, i64 %.pn.i
+  %39 = getelementptr inbounds nuw i8, ptr %.1322.i, i64 1
+  %40 = icmp ult ptr %39, %22
+  br i1 %40, label %.lr.ph.i, label %php_filter_encode_url.exit
 
-42:                                               ; preds = %41, %28
-  %.1.i = phi ptr [ %40, %28 ], [ %27, %41 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.1322.i, i64 1
-  %44 = icmp ult ptr %43, %22
-  br i1 %44, label %.lr.ph.i, label %php_filter_encode_url.exit
-
-php_filter_encode_url.exit:                       ; preds = %42, %10
-  %.0.lcssa.i = phi ptr [ %17, %10 ], [ %.1.i, %42 ]
-  %45 = getelementptr inbounds nuw i8, ptr %14, i64 16
+php_filter_encode_url.exit:                       ; preds = %38, %10
+  %.0.lcssa.i = phi ptr [ %17, %10 ], [ %.1.i, %38 ]
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i8 0, ptr %.0.lcssa.i, align 1, !tbaa !4
-  %46 = ptrtoint ptr %.0.lcssa.i to i64
-  %47 = ptrtoint ptr %17 to i64
-  %48 = sub i64 %46, %47
-  store i64 %48, ptr %45, align 8, !tbaa !7
+  %42 = ptrtoint ptr %.0.lcssa.i to i64
+  %43 = ptrtoint ptr %17 to i64
+  %44 = sub i64 %42, %43
+  store i64 %44, ptr %41, align 8, !tbaa !7
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #10
   store ptr %14, ptr %0, align 8, !tbaa !4
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 262, ptr %49, align 8, !tbaa !4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 262, ptr %45, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

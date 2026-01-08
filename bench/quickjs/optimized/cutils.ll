@@ -582,7 +582,7 @@ define dso_local i32 @unicode_to_utf8(ptr noundef %0, i32 noundef %1) local_unna
   %5 = trunc nuw nsw i32 %1 to i8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %5, ptr %0, align 1, !tbaa !7
-  br label %66
+  br label %64
 
 7:                                                ; preds = %2
   %8 = icmp ult i32 %1, 2048
@@ -593,7 +593,7 @@ define dso_local i32 @unicode_to_utf8(ptr noundef %0, i32 noundef %1) local_unna
   %11 = trunc nuw nsw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
   store i8 %12, ptr %0, align 1, !tbaa !7
-  br label %61
+  br label %59
 
 13:                                               ; preds = %7
   %14 = icmp ult i32 %1, 65536
@@ -605,7 +605,7 @@ define dso_local i32 @unicode_to_utf8(ptr noundef %0, i32 noundef %1) local_unna
   %18 = or disjoint i8 %17, -32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %18, ptr %0, align 1, !tbaa !7
-  br label %56
+  br label %54
 
 20:                                               ; preds = %13
   %21 = icmp ult i32 %1, 2097152
@@ -616,87 +616,86 @@ define dso_local i32 @unicode_to_utf8(ptr noundef %0, i32 noundef %1) local_unna
   %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -16
   store i8 %25, ptr %0, align 1, !tbaa !7
-  br label %50
+  br label %48
 
 26:                                               ; preds = %20
   %27 = icmp ult i32 %1, 67108864
-  br i1 %27, label %28, label %33
+  br i1 %27, label %28, label %32
 
 28:                                               ; preds = %26
   %29 = lshr i32 %1, 24
   %30 = trunc nuw nsw i32 %29 to i8
   %31 = or disjoint i8 %30, -8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %31, ptr %0, align 1, !tbaa !7
-  br label %45
+  br label %43
 
-33:                                               ; preds = %26
-  %34 = icmp sgt i32 %1, -1
-  br i1 %34, label %35, label %71
+32:                                               ; preds = %26
+  %33 = icmp sgt i32 %1, -1
+  br i1 %33, label %34, label %69
 
-35:                                               ; preds = %33
-  %36 = lshr i32 %1, 30
-  %37 = trunc nuw nsw i32 %36 to i8
-  %38 = or disjoint i8 %37, -4
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %38, ptr %0, align 1, !tbaa !7
-  %40 = lshr i32 %1, 24
-  %41 = trunc nuw nsw i32 %40 to i8
-  %42 = and i8 %41, 63
-  %43 = or disjoint i8 %42, -128
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %43, ptr %39, align 1, !tbaa !7
-  br label %45
+34:                                               ; preds = %32
+  %35 = lshr i32 %1, 30
+  %36 = trunc nuw nsw i32 %35 to i8
+  %37 = or disjoint i8 %36, -4
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %37, ptr %0, align 1, !tbaa !7
+  %39 = lshr i32 %1, 24
+  %40 = trunc nuw nsw i32 %39 to i8
+  %41 = and i8 %40, 63
+  %42 = or disjoint i8 %41, -128
+  store i8 %42, ptr %38, align 1, !tbaa !7
+  br label %43
 
-45:                                               ; preds = %35, %28
-  %.4 = phi ptr [ %32, %28 ], [ %44, %35 ]
-  %46 = lshr i32 %1, 18
-  %47 = trunc i32 %46 to i8
-  %48 = and i8 %47, 63
-  %49 = or disjoint i8 %48, -128
-  store i8 %49, ptr %.4, align 1, !tbaa !7
-  br label %50
+43:                                               ; preds = %34, %28
+  %.pn = phi i64 [ 1, %28 ], [ 2, %34 ]
+  %.4 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
+  %44 = lshr i32 %1, 18
+  %45 = trunc i32 %44 to i8
+  %46 = and i8 %45, 63
+  %47 = or disjoint i8 %46, -128
+  store i8 %47, ptr %.4, align 1, !tbaa !7
+  br label %48
 
-50:                                               ; preds = %45, %22
-  %.pn = phi ptr [ %0, %22 ], [ %.4, %45 ]
-  %.3 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
-  %51 = lshr i32 %1, 12
-  %52 = trunc i32 %51 to i8
-  %53 = and i8 %52, 63
-  %54 = or disjoint i8 %53, -128
-  %55 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
-  store i8 %54, ptr %.3, align 1, !tbaa !7
-  br label %56
+48:                                               ; preds = %43, %22
+  %.pn34 = phi ptr [ %0, %22 ], [ %.4, %43 ]
+  %.3 = getelementptr inbounds nuw i8, ptr %.pn34, i64 1
+  %49 = lshr i32 %1, 12
+  %50 = trunc i32 %49 to i8
+  %51 = and i8 %50, 63
+  %52 = or disjoint i8 %51, -128
+  %53 = getelementptr inbounds nuw i8, ptr %.pn34, i64 2
+  store i8 %52, ptr %.3, align 1, !tbaa !7
+  br label %54
 
-56:                                               ; preds = %50, %15
-  %.2 = phi ptr [ %19, %15 ], [ %55, %50 ]
-  %57 = lshr i32 %1, 6
-  %58 = trunc i32 %57 to i8
-  %59 = and i8 %58, 63
-  %60 = or disjoint i8 %59, -128
-  store i8 %60, ptr %.2, align 1, !tbaa !7
-  br label %61
+54:                                               ; preds = %48, %15
+  %.2 = phi ptr [ %19, %15 ], [ %53, %48 ]
+  %55 = lshr i32 %1, 6
+  %56 = trunc i32 %55 to i8
+  %57 = and i8 %56, 63
+  %58 = or disjoint i8 %57, -128
+  store i8 %58, ptr %.2, align 1, !tbaa !7
+  br label %59
 
-61:                                               ; preds = %56, %9
-  %.pn34 = phi ptr [ %0, %9 ], [ %.2, %56 ]
-  %.1 = getelementptr inbounds nuw i8, ptr %.pn34, i64 1
-  %62 = trunc i32 %1 to i8
-  %63 = and i8 %62, 63
-  %64 = or disjoint i8 %63, -128
-  %65 = getelementptr inbounds nuw i8, ptr %.pn34, i64 2
-  store i8 %64, ptr %.1, align 1, !tbaa !7
-  br label %66
+59:                                               ; preds = %54, %9
+  %.pn35 = phi ptr [ %0, %9 ], [ %.2, %54 ]
+  %.1 = getelementptr inbounds nuw i8, ptr %.pn35, i64 1
+  %60 = trunc i32 %1 to i8
+  %61 = and i8 %60, 63
+  %62 = or disjoint i8 %61, -128
+  %63 = getelementptr inbounds nuw i8, ptr %.pn35, i64 2
+  store i8 %62, ptr %.1, align 1, !tbaa !7
+  br label %64
 
-66:                                               ; preds = %61, %4
-  %.0 = phi ptr [ %6, %4 ], [ %65, %61 ]
-  %67 = ptrtoint ptr %.0 to i64
-  %68 = ptrtoint ptr %0 to i64
-  %69 = sub i64 %67, %68
-  %70 = trunc i64 %69 to i32
-  br label %71
+64:                                               ; preds = %59, %4
+  %.0 = phi ptr [ %6, %4 ], [ %63, %59 ]
+  %65 = ptrtoint ptr %.0 to i64
+  %66 = ptrtoint ptr %0 to i64
+  %67 = sub i64 %65, %66
+  %68 = trunc i64 %67 to i32
+  br label %69
 
-71:                                               ; preds = %33, %66
-  %.031 = phi i32 [ %70, %66 ], [ 0, %33 ]
+69:                                               ; preds = %32, %64
+  %.031 = phi i32 [ %68, %64 ], [ 0, %32 ]
   ret i32 %.031
 }
 

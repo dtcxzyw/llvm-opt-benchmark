@@ -3520,29 +3520,32 @@ define internal fastcc void @show_line(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not88, label %.thread128, label %.split78
 
 85:                                               ; preds = %80
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 527
+  %86 = icmp eq i8 %6, 58
+  %. = select i1 %86, i64 602, i64 527
+  %.173 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  br i1 %86, label %87, label %89
+
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 677
+  br label %.split78
+
+89:                                               ; preds = %85
   switch i8 %6, label %.split78 [
-    i8 58, label %87
     i8 45, label %90
     i8 61, label %92
   ]
 
-87:                                               ; preds = %85
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 602
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 677
-  br label %.split78
-
-90:                                               ; preds = %85
+90:                                               ; preds = %89
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %.split78
 
-92:                                               ; preds = %85
+92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 302
   br label %.split78
 
-.split78:                                         ; preds = %85, %83, %90, %92, %87
-  %.072 = phi ptr [ %88, %87 ], [ %86, %90 ], [ %86, %92 ], [ %86, %85 ], [ null, %83 ]
-  %.171 = phi ptr [ %89, %87 ], [ %91, %90 ], [ %93, %92 ], [ null, %85 ], [ null, %83 ]
+.split78:                                         ; preds = %83, %90, %92, %87, %89
+  %.072 = phi ptr [ %.173, %87 ], [ %.173, %90 ], [ %.173, %92 ], [ %.173, %89 ], [ null, %83 ]
+  %.171 = phi ptr [ %88, %87 ], [ %91, %90 ], [ %93, %92 ], [ null, %89 ], [ null, %83 ]
   %94 = icmp ult ptr %1, %2
   br i1 %94, label %95, label %._crit_edge
 

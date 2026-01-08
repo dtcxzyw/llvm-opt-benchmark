@@ -5778,7 +5778,6 @@ invoke.cont85:                                    ; preds = %invoke.cont84
   %26 = load i8, ptr %single_line_mode_185, align 4
   %tobool87 = trunc i8 %26 to i1
   %vtable.i112 = load ptr, ptr %generator, align 8
-  %vfn.i113 = getelementptr inbounds nuw i8, ptr %vtable.i112, i64 40
   %spec.select = select i1 %tobool87, ptr @.str.19, ptr @.str.20
   br label %if.else162.invoke
 
@@ -5818,11 +5817,7 @@ invoke.cont114:                                   ; preds = %if.end113
   %31 = load i8, ptr %single_line_mode_185, align 4
   %tobool116 = trunc i8 %31 to i1
   %vtable.i125 = load ptr, ptr %generator, align 8
-  br i1 %tobool116, label %if.then117, label %if.else119
-
-if.then117:                                       ; preds = %invoke.cont114
-  %vfn.i126 = getelementptr inbounds nuw i8, ptr %vtable.i125, i64 40
-  br label %if.else162.invoke
+  br i1 %tobool116, label %if.else162.invoke, label %if.else119
 
 if.else119:                                       ; preds = %invoke.cont114
   %vfn121 = getelementptr inbounds nuw i8, ptr %vtable.i125, i64 24
@@ -5832,7 +5827,6 @@ if.else119:                                       ; preds = %invoke.cont114
 
 invoke.cont122:                                   ; preds = %if.else119
   %vtable.i127 = load ptr, ptr %generator, align 8
-  %vfn.i128 = getelementptr inbounds nuw i8, ptr %vtable.i127, i64 40
   br label %if.else162.invoke
 
 if.else125:                                       ; preds = %invoke.cont73, %sw.bb62
@@ -5855,7 +5849,6 @@ invoke.cont135:                                   ; preds = %invoke.cont134
   %35 = load i8, ptr %single_line_mode_185, align 4
   %tobool137 = trunc i8 %35 to i1
   %vtable.i134 = load ptr, ptr %generator, align 8
-  %vfn.i135 = getelementptr inbounds nuw i8, ptr %vtable.i134, i64 40
   %.str.19..str.20 = select i1 %tobool137, ptr @.str.19, ptr @.str.20
   br label %if.else162.invoke
 
@@ -5885,7 +5878,6 @@ invoke.cont157:                                   ; preds = %invoke.cont154
   %41 = load i8, ptr %single_line_mode_185, align 4
   %tobool159 = trunc i8 %41 to i1
   %vtable.i146 = load ptr, ptr %generator, align 8
-  %vfn.i147 = getelementptr inbounds nuw i8, ptr %vtable.i146, i64 40
   %.str.32..str.33 = select i1 %tobool159, ptr @.str.32, ptr @.str.33
   br label %if.else162.invoke
 
@@ -5895,10 +5887,11 @@ lpad156:                                          ; preds = %invoke.cont154
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp151) #36
   br label %ehcleanup
 
-if.else162.invoke:                                ; preds = %invoke.cont85, %invoke.cont157, %invoke.cont135, %if.then117, %invoke.cont122
-  %43 = phi ptr [ @.str.11, %if.then117 ], [ %.str.32..str.33, %invoke.cont157 ], [ %spec.select, %invoke.cont85 ], [ %.str.19..str.20, %invoke.cont135 ], [ @.str.12, %invoke.cont122 ]
-  %44 = phi i64 [ 2, %if.then117 ], [ 2, %invoke.cont157 ], [ 1, %invoke.cont85 ], [ 1, %invoke.cont135 ], [ 2, %invoke.cont122 ]
-  %.in = phi ptr [ %vfn.i126, %if.then117 ], [ %vfn.i147, %invoke.cont157 ], [ %vfn.i113, %invoke.cont85 ], [ %vfn.i135, %invoke.cont135 ], [ %vfn.i128, %invoke.cont122 ]
+if.else162.invoke:                                ; preds = %invoke.cont114, %invoke.cont85, %invoke.cont157, %invoke.cont135, %invoke.cont122
+  %43 = phi ptr [ @.str.12, %invoke.cont122 ], [ %.str.32..str.33, %invoke.cont157 ], [ %spec.select, %invoke.cont85 ], [ %.str.19..str.20, %invoke.cont135 ], [ @.str.11, %invoke.cont114 ]
+  %44 = phi i64 [ 2, %invoke.cont122 ], [ 2, %invoke.cont157 ], [ 1, %invoke.cont85 ], [ 1, %invoke.cont135 ], [ 2, %invoke.cont114 ]
+  %vtable.i125.pn = phi ptr [ %vtable.i127, %invoke.cont122 ], [ %vtable.i146, %invoke.cont157 ], [ %vtable.i112, %invoke.cont85 ], [ %vtable.i134, %invoke.cont135 ], [ %vtable.i125, %invoke.cont114 ]
+  %.in = getelementptr inbounds nuw i8, ptr %vtable.i125.pn, i64 40
   %45 = load ptr, ptr %.in, align 8
   invoke void %45(ptr noundef nonnull align 8 dereferenceable(8) %generator, ptr noundef nonnull %43, i64 noundef %44)
           to label %cleanup unwind label %lpad72

@@ -4065,7 +4065,6 @@ define internal fastcc void @GetFileAndPassword(ptr noundef %0, ptr noundef capt
 22:                                               ; preds = %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %24 = load i8, ptr %23, align 1, !tbaa !19
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 1
   switch i8 %24, label %28 [
     i8 0, label %.thread.i
     i8 92, label %26
@@ -4073,6 +4072,7 @@ define internal fastcc void @GetFileAndPassword(ptr noundef %0, ptr noundef capt
   ]
 
 .thread.i:                                        ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store i8 92, ptr %20, align 1, !tbaa !19
   br label %.loopexit.i
 
@@ -4085,9 +4085,9 @@ define internal fastcc void @GetFileAndPassword(ptr noundef %0, ptr noundef capt
   br label %thread-pre-split.i
 
 28:                                               ; preds = %22
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store i8 92, ptr %20, align 1, !tbaa !19
-  %29 = getelementptr inbounds nuw i8, ptr %20, i64 2
-  store i8 %24, ptr %25, align 1, !tbaa !19
+  store i8 %24, ptr %29, align 1, !tbaa !19
   br label %thread-pre-split.i
 
 30:                                               ; preds = %.lr.ph.i
@@ -4101,7 +4101,8 @@ define internal fastcc void @GetFileAndPassword(ptr noundef %0, ptr noundef capt
   br label %.loopexit.i
 
 thread-pre-split.i:                               ; preds = %28, %27, %26
-  %.1.ph.i = phi ptr [ %25, %27 ], [ %25, %26 ], [ %29, %28 ]
+  %.pn.i = phi i64 [ 1, %27 ], [ 1, %26 ], [ 2, %28 ]
+  %.1.ph.i = getelementptr inbounds nuw i8, ptr %20, i64 %.pn.i
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 2
   %.pr.i = load i8, ptr %35, align 1, !tbaa !19
   br label %36

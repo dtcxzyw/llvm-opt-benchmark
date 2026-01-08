@@ -192,62 +192,42 @@ define internal void @handle_digest_params(ptr noundef %0, ptr noundef readonly 
   %6 = sext i32 %2 to i64
   %7 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.8, i64 noundef %6) #9
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %10
+  br i1 %.not, label %.sink.split, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  br label %.sink.split
+  %9 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.9, i64 noundef %6) #9
+  %.not30 = icmp eq i32 %9, 0
+  br i1 %.not30, label %.sink.split, label %10
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  %12 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.9, i64 noundef %6) #9
-  %.not30 = icmp eq i32 %12, 0
-  br i1 %.not30, label %.sink.split, label %13
+10:                                               ; preds = %8
+  %11 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.10, i64 noundef %6) #9
+  %.not31 = icmp eq i32 %11, 0
+  br i1 %.not31, label %.sink.split, label %12
 
-13:                                               ; preds = %10
-  %14 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.10, i64 noundef %6) #9
-  %.not31 = icmp eq i32 %14, 0
-  br i1 %.not31, label %15, label %17
+12:                                               ; preds = %10
+  %13 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.11, i64 noundef %6) #9
+  %.not32 = icmp eq i32 %13, 0
+  br i1 %.not32, label %.sink.split, label %14
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  br label %.sink.split
+14:                                               ; preds = %12
+  %15 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.12, i64 noundef %6) #9
+  %.not33 = icmp eq i32 %15, 0
+  br i1 %.not33, label %.sink.split, label %16
 
-17:                                               ; preds = %13
-  %18 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.11, i64 noundef %6) #9
-  %.not32 = icmp eq i32 %18, 0
-  br i1 %.not32, label %19, label %21
+16:                                               ; preds = %14
+  %17 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.13, i64 noundef %6) #9
+  %.not34 = icmp eq i32 %17, 0
+  br i1 %.not34, label %.sink.split, label %18
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  br label %.sink.split
-
-21:                                               ; preds = %17
-  %22 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.12, i64 noundef %6) #9
-  %.not33 = icmp eq i32 %22, 0
-  br i1 %.not33, label %23, label %25
-
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 514
-  br label %.sink.split
-
-25:                                               ; preds = %21
-  %26 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull @.str.13, i64 noundef %6) #9
-  %.not34 = icmp eq i32 %26, 0
-  br i1 %.not34, label %27, label %29
-
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 844
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %10, %8, %15, %23, %27, %19
-  %.sink35 = phi ptr [ %9, %8 ], [ %20, %19 ], [ %28, %27 ], [ %24, %23 ], [ %16, %15 ], [ %11, %10 ]
-  %.sink = phi i32 [ 200, %8 ], [ 10, %19 ], [ 10, %27 ], [ 30, %23 ], [ 300, %15 ], [ 300, %10 ]
+.sink.split:                                      ; preds = %16, %14, %12, %10, %5, %8
+  %.pn = phi i64 [ 204, %8 ], [ 544, %10 ], [ 514, %14 ], [ 504, %12 ], [ 4, %5 ], [ 844, %16 ]
+  %.sink = phi i32 [ 300, %8 ], [ 300, %10 ], [ 30, %14 ], [ 10, %12 ], [ 200, %5 ], [ 10, %16 ]
+  %.sink35 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   store ptr %.sink35, ptr %3, align 8, !tbaa !12
   store i32 %.sink, ptr %4, align 4, !tbaa !15
-  br label %29
+  br label %18
 
-29:                                               ; preds = %.sink.split, %25
+18:                                               ; preds = %.sink.split, %16
   ret void
 }
 

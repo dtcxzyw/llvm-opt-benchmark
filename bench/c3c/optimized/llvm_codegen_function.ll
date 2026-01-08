@@ -193,10 +193,6 @@ define dso_local void @llvm_emit_return_abi(ptr noundef %0, ptr noundef %1, ptr 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  %.0129.sroa.gep153 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.0129.sroa.gep154 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.0129.sroa.gep157 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.0129.sroa.gep158 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %3
@@ -206,8 +202,6 @@ define dso_local void @llvm_emit_return_abi(ptr noundef %0, ptr noundef %1, ptr 
   br label %.sink.split
 
 13:                                               ; preds = %3
-  %.0129.sroa.gep156 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.0129.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -251,9 +245,7 @@ define dso_local void @llvm_emit_return_abi(ptr noundef %0, ptr noundef %1, ptr 
 
 38:                                               ; preds = %30, %33, %13
   %.0131 = phi ptr [ %17, %13 ], [ %32, %33 ], [ %32, %30 ]
-  %.0129.sroa.phi = phi ptr [ %.0129.sroa.gep, %13 ], [ %.0129.sroa.gep154, %33 ], [ %.0129.sroa.gep153, %30 ]
-  %.0129.sroa.phi155 = phi ptr [ %.0129.sroa.gep156, %13 ], [ %.0129.sroa.gep158, %33 ], [ %.0129.sroa.gep157, %30 ]
-  %.0129 = phi ptr [ %1, %13 ], [ %4, %33 ], [ %2, %30 ]
+  %.pn = phi ptr [ %1, %13 ], [ %4, %33 ], [ %2, %30 ]
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %40 = load i8, ptr %39, align 4
   %41 = and i8 %40, 63
@@ -272,7 +264,7 @@ define dso_local void @llvm_emit_return_abi(ptr noundef %0, ptr noundef %1, ptr 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %44 = load i32, ptr %43, align 8
-  %45 = call ptr @llvm_store_to_ptr_aligned(ptr noundef nonnull %0, ptr noundef %.0131, ptr noundef %.0129, i32 noundef %44) #7
+  %45 = call ptr @llvm_store_to_ptr_aligned(ptr noundef nonnull %0, ptr noundef %.0131, ptr noundef %.pn, i32 noundef %44) #7
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %47 = load ptr, ptr %46, align 8
   %48 = call ptr @LLVMBuildRetVoid(ptr noundef %47) #7
@@ -289,10 +281,12 @@ define dso_local void @llvm_emit_return_abi(ptr noundef %0, ptr noundef %1, ptr 
   unreachable
 
 54:                                               ; preds = %38
-  call void @llvm_value_addr(ptr noundef nonnull %0, ptr noundef %.0129) #7
-  %55 = load ptr, ptr %.0129.sroa.phi, align 8
+  %.pn.sroa.phi = getelementptr inbounds nuw i8, ptr %.pn, i64 4
+  %.pn.sroa.phi183 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
+  call void @llvm_value_addr(ptr noundef nonnull %0, ptr noundef %.pn) #7
+  %55 = load ptr, ptr %.pn.sroa.phi183, align 8
   store ptr %55, ptr %5, align 8
-  %56 = load i32, ptr %.0129.sroa.phi155, align 4
+  %56 = load i32, ptr %.pn.sroa.phi, align 4
   store i32 %56, ptr %6, align 4
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %58 = load ptr, ptr %57, align 8
@@ -396,7 +390,7 @@ define dso_local void @llvm_emit_return_abi(ptr noundef %0, ptr noundef %1, ptr 
   br label %.sink.split
 
 127:                                              ; preds = %163, %147, %135, %38
-  %128 = call ptr @llvm_load_value_store(ptr noundef nonnull %0, ptr noundef %.0129) #7
+  %128 = call ptr @llvm_load_value_store(ptr noundef nonnull %0, ptr noundef %.pn) #7
   %.not.i145 = icmp eq ptr %128, null
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %130 = load ptr, ptr %129, align 8
@@ -417,7 +411,7 @@ define dso_local void @llvm_emit_return_abi(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %138, label %127, label %139
 
 139:                                              ; preds = %135
-  %140 = call ptr @llvm_emit_coerce(ptr noundef nonnull %0, ptr noundef %136, ptr noundef %.0129, ptr noundef %19) #7
+  %140 = call ptr @llvm_emit_coerce(ptr noundef nonnull %0, ptr noundef %136, ptr noundef %.pn, ptr noundef %19) #7
   %.not.i147 = icmp eq ptr %140, null
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %142 = load ptr, ptr %141, align 8
@@ -442,7 +436,7 @@ define dso_local void @llvm_emit_return_abi(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %154, label %127, label %155
 
 155:                                              ; preds = %147
-  %156 = call ptr @llvm_emit_coerce(ptr noundef nonnull %0, ptr noundef %152, ptr noundef %.0129, ptr noundef %19) #7
+  %156 = call ptr @llvm_emit_coerce(ptr noundef nonnull %0, ptr noundef %152, ptr noundef %.pn, ptr noundef %19) #7
   %.not.i149 = icmp eq ptr %156, null
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %158 = load ptr, ptr %157, align 8
@@ -465,7 +459,7 @@ define dso_local void @llvm_emit_return_abi(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %168, label %127, label %169
 
 169:                                              ; preds = %163
-  %170 = call ptr @llvm_emit_coerce(ptr noundef nonnull %0, ptr noundef %166, ptr noundef %.0129, ptr noundef %19) #7
+  %170 = call ptr @llvm_emit_coerce(ptr noundef nonnull %0, ptr noundef %166, ptr noundef %.pn, ptr noundef %19) #7
   %.not.i151 = icmp eq ptr %170, null
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %172 = load ptr, ptr %171, align 8

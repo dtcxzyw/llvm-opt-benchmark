@@ -1002,13 +1002,13 @@ define ptr @wolfSSL_get_session(ptr noundef captures(address_is_null) %0) local_
   %16 = load i8, ptr %15, align 8
   %17 = and i8 %16, 1
   %.not24 = icmp eq i8 %17, 0
-  %spec.select.v = select i1 %.not24, i64 116, i64 56
-  %spec.select = getelementptr inbounds nuw i8, ptr %12, i64 %spec.select.v
+  %spec.select = select i1 %.not24, i64 116, i64 56
   %spec.select25 = select i1 %.not24, i8 %14, i8 32
+  %.019 = getelementptr inbounds nuw i8, ptr %12, i64 %spec.select
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %19 = load i8, ptr %18, align 8, !tbaa !79
   %20 = zext i8 %19 to i32
-  %21 = tail call i32 @AddSessionToCache(ptr poison, ptr noundef %12, ptr noundef nonnull %spec.select, i8 noundef zeroext %spec.select25, ptr poison, i32 noundef %20, i16 noundef zeroext 0, ptr noundef nonnull %8)
+  %21 = tail call i32 @AddSessionToCache(ptr poison, ptr noundef %12, ptr noundef nonnull %.019, i8 noundef zeroext %spec.select25, ptr poison, i32 noundef %20, i16 noundef zeroext 0, ptr noundef nonnull %8)
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %.thread
 
@@ -2733,57 +2733,57 @@ define void @AddSession(ptr noundef captures(address_is_null) %0) local_unnamed_
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 1
   %.not28 = icmp eq i8 %9, 0
-  br i1 %.not28, label %11, label %.thread
+  br i1 %.not28, label %10, label %.thread
 
 .thread:                                          ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  br label %31
+  %.02333 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  br label %29
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 116
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 148
-  %14 = load i8, ptr %13, align 4, !tbaa !77
-  %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %31
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 148
+  %12 = load i8, ptr %11, align 4, !tbaa !77
+  %.023 = getelementptr inbounds nuw i8, ptr %3, i64 116
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %14, label %29
 
-16:                                               ; preds = %11
-  %17 = and i64 %.val, 48
-  %18 = icmp eq i64 %17, 16
-  br i1 %18, label %19, label %31
+14:                                               ; preds = %10
+  %15 = and i64 %.val, 48
+  %16 = icmp eq i64 %15, 16
+  br i1 %16, label %17, label %29
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %21 = load ptr, ptr %20, align 8, !tbaa !113
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %23 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %21, ptr noundef nonnull %22, i32 noundef 32) #22
-  %.not30 = icmp eq i32 %23, 0
-  br i1 %.not30, label %24, label %.critedge
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %19 = load ptr, ptr %18, align 8, !tbaa !113
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %21 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %19, ptr noundef nonnull %20, i32 noundef 32) #22
+  %.not30 = icmp eq i32 %21, 0
+  br i1 %.not30, label %22, label %.critedge
 
-24:                                               ; preds = %19
-  %25 = load ptr, ptr %2, align 16, !tbaa !76
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
-  %27 = load i8, ptr %26, align 8
-  %28 = or i8 %27, 1
-  store i8 %28, ptr %26, align 8
-  %29 = load ptr, ptr %2, align 16, !tbaa !76
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %2, align 16, !tbaa !76
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 88
+  %25 = load i8, ptr %24, align 8
+  %26 = or i8 %25, 1
+  store i8 %26, ptr %24, align 8
+  %27 = load ptr, ptr %2, align 16, !tbaa !76
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %.pre = load i64, ptr %4, align 16
-  br label %31
+  br label %29
 
-31:                                               ; preds = %.thread, %24, %16, %11
-  %32 = phi i64 [ %.pre, %24 ], [ %.val, %16 ], [ %.val, %11 ], [ %.val, %.thread ]
-  %.125 = phi i8 [ 32, %24 ], [ 0, %16 ], [ %14, %11 ], [ 32, %.thread ]
-  %.1 = phi ptr [ %30, %24 ], [ %12, %16 ], [ %12, %11 ], [ %10, %.thread ]
-  %33 = trunc i64 %32 to i32
-  %34 = lshr i32 %33, 4
-  %35 = and i32 %34, 3
-  %36 = icmp eq i32 %35, 1
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %38 = select i1 %36, ptr %37, ptr null
-  %39 = tail call i32 @AddSessionToCache(ptr poison, ptr noundef nonnull %3, ptr noundef nonnull %.1, i8 noundef zeroext %.125, ptr poison, i32 noundef %35, i16 noundef zeroext 0, ptr noundef %38)
+29:                                               ; preds = %.thread, %22, %14, %10
+  %30 = phi i64 [ %.pre, %22 ], [ %.val, %14 ], [ %.val, %10 ], [ %.val, %.thread ]
+  %.125 = phi i8 [ 32, %22 ], [ 0, %14 ], [ %12, %10 ], [ 32, %.thread ]
+  %.1 = phi ptr [ %28, %22 ], [ %.023, %14 ], [ %.023, %10 ], [ %.02333, %.thread ]
+  %31 = trunc i64 %30 to i32
+  %32 = lshr i32 %31, 4
+  %33 = and i32 %32, 3
+  %34 = icmp eq i32 %33, 1
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %36 = select i1 %34, ptr %35, ptr null
+  %37 = tail call i32 @AddSessionToCache(ptr poison, ptr noundef nonnull %3, ptr noundef nonnull %.1, i8 noundef zeroext %.125, ptr poison, i32 noundef %33, i16 noundef zeroext 0, ptr noundef %36)
   br label %.critedge
 
-.critedge:                                        ; preds = %19, %1, %31
+.critedge:                                        ; preds = %17, %1, %29
   ret void
 }
 
@@ -2793,38 +2793,34 @@ declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_u
 define range(i32 0, 2) i32 @wolfSSL_CTX_add_session(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @ClientSessionToSession(ptr noundef %1)
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %22, label %5
+  br i1 %4, label %19, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, 1
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %11, label %9
+  br i1 %.not, label %9, label %12
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  br label %15
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 148
+  %11 = load i8, ptr %10, align 4, !tbaa !77
+  br label %12
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 116
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 148
-  %14 = load i8, ptr %13, align 4, !tbaa !77
-  br label %15
+12:                                               ; preds = %5, %9
+  %.pn = phi i64 [ 116, %9 ], [ 56, %5 ]
+  %.0 = phi i8 [ %11, %9 ], [ 32, %5 ]
+  %.012 = getelementptr inbounds nuw i8, ptr %3, i64 %.pn
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %14 = load i8, ptr %13, align 8, !tbaa !79
+  %15 = zext i8 %14 to i32
+  %16 = tail call i32 @AddSessionToCache(ptr poison, ptr noundef nonnull %3, ptr noundef nonnull %.012, i8 noundef zeroext %.0, ptr poison, i32 noundef %15, i16 noundef zeroext 0, ptr noundef null)
+  %17 = icmp eq i32 %16, 0
+  %18 = zext i1 %17 to i32
+  br label %19
 
-15:                                               ; preds = %11, %9
-  %.012 = phi ptr [ %10, %9 ], [ %12, %11 ]
-  %.0 = phi i8 [ 32, %9 ], [ %14, %11 ]
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %17 = load i8, ptr %16, align 8, !tbaa !79
-  %18 = zext i8 %17 to i32
-  %19 = tail call i32 @AddSessionToCache(ptr poison, ptr noundef nonnull %3, ptr noundef nonnull %.012, i8 noundef zeroext %.0, ptr poison, i32 noundef %18, i16 noundef zeroext 0, ptr noundef null)
-  %20 = icmp eq i32 %19, 0
-  %21 = zext i1 %20 to i32
-  br label %22
-
-22:                                               ; preds = %2, %15
-  %.013 = phi i32 [ %21, %15 ], [ 0, %2 ]
+19:                                               ; preds = %2, %12
+  %.013 = phi i32 [ %18, %12 ], [ 0, %2 ]
   ret i32 %.013
 }
 

@@ -1608,10 +1608,10 @@ define void @_ZN3syn5token8printing5delim17hd3c311fe639540afE(i8 noundef %0, i32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZN3syn4attr9Attribute4path17h0ff6982c6043d592E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(256) %0) unnamed_addr #7 {
   %2 = load i64, ptr %0, align 8, !range !257, !alias.scope !258, !noundef !4
-  %3 = icmp samesign ugt i64 %2, 38
-  %4 = select i1 %3, i64 8, i64 176
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
-  ret ptr %5
+  %3 = icmp samesign ult i64 %2, 39
+  %..i = select i1 %3, i64 176, i64 8
+  %.0.i = getelementptr inbounds nuw i8, ptr %0, i64 %..i
+  ret ptr %.0.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1792,11 +1792,10 @@ define void @_ZN3syn4attr9Attribute11parse_inner17hcdf3cb012dc4af53E(ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZN3syn4attr4Meta4path17h577f10775b1e54efE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(232) %0) unnamed_addr #7 {
   %2 = load i64, ptr %0, align 8, !range !257, !noundef !4
-  %3 = add nsw i64 %2, -39
-  %switch.selectcmp = icmp ult i64 %3, 2
-  %4 = select i1 %switch.selectcmp, i64 8, i64 176
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
-  ret ptr %5
+  %3 = icmp samesign ult i64 %2, 39
+  %. = select i1 %3, i64 176, i64 8
+  %.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -70357,16 +70357,21 @@ land.rhs.lr.ph.split.us.split.us:                 ; preds = %land.rhs.lr.ph.spli
   %15 = load i8, ptr %arrayidx2.i.i6.us.us140, align 1
   %16 = and i8 %15, 1
   %cmp.i.i.i.i.us.us143 = icmp samesign ult i8 %14, %16
-  br i1 %cmp.i.i.i.i.us.us143, label %return, label %lor.rhs.i.i.i.us.us
+  br i1 %cmp.i.i.i.i.us.us143, label %return, label %lor.rhs.i.i.i.us.us.preheader
 
-lor.rhs.i.i.i.us.us:                              ; preds = %land.rhs.lr.ph.split.us.split.us, %for.inc.us.us
-  %17 = phi i8 [ %30, %for.inc.us.us ], [ %16, %land.rhs.lr.ph.split.us.split.us ]
-  %18 = phi i8 [ %28, %for.inc.us.us ], [ %14, %land.rhs.lr.ph.split.us.split.us ]
-  %inc.i375760.us.us145 = phi i64 [ %inc.i37.us.us, %for.inc.us.us ], [ %first2.promoted, %land.rhs.lr.ph.split.us.split.us ]
-  %inc.i5561.us.us144 = phi i64 [ %inc.i.us.us, %for.inc.us.us ], [ %first1.promoted, %land.rhs.lr.ph.split.us.split.us ]
-  %arrayidx6.i.i.us.us146 = getelementptr inbounds %struct.TestObject, ptr %7, i64 %inc.i5561.us.us144
+lor.rhs.i.i.i.us.us.preheader:                    ; preds = %land.rhs.lr.ph.split.us.split.us
+  %arrayidx6.i.i8.us.us141 = getelementptr inbounds %struct.TestObject, ptr %9, i64 %first2.promoted
+  %arrayidx6.i.i.us.us138 = getelementptr inbounds %struct.TestObject, ptr %7, i64 %first1.promoted
+  br label %lor.rhs.i.i.i.us.us
+
+lor.rhs.i.i.i.us.us:                              ; preds = %lor.rhs.i.i.i.us.us.preheader, %for.inc.us.us
+  %17 = phi i8 [ %30, %for.inc.us.us ], [ %16, %lor.rhs.i.i.i.us.us.preheader ]
+  %18 = phi i8 [ %28, %for.inc.us.us ], [ %14, %lor.rhs.i.i.i.us.us.preheader ]
+  %arrayidx6.i.i8.us.us148 = phi ptr [ %arrayidx6.i.i8.us.us, %for.inc.us.us ], [ %arrayidx6.i.i8.us.us141, %lor.rhs.i.i.i.us.us.preheader ]
+  %arrayidx6.i.i.us.us146 = phi ptr [ %arrayidx6.i.i.us.us, %for.inc.us.us ], [ %arrayidx6.i.i.us.us138, %lor.rhs.i.i.i.us.us.preheader ]
+  %inc.i375760.us.us145 = phi i64 [ %inc.i37.us.us, %for.inc.us.us ], [ %first2.promoted, %lor.rhs.i.i.i.us.us.preheader ]
+  %inc.i5561.us.us144 = phi i64 [ %inc.i.us.us, %for.inc.us.us ], [ %first1.promoted, %lor.rhs.i.i.i.us.us.preheader ]
   %arrayidx10.i.i.us.us147 = getelementptr inbounds float, ptr %8, i64 %inc.i5561.us.us144
-  %arrayidx6.i.i8.us.us148 = getelementptr inbounds %struct.TestObject, ptr %9, i64 %inc.i375760.us.us145
   %arrayidx10.i.i10.us.us149 = getelementptr inbounds float, ptr %10, i64 %inc.i375760.us.us145
   %cmp.i5.i.i.i.us.us = icmp samesign ult i8 %17, %18
   br i1 %cmp.i5.i.i.i.us.us, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us.us
@@ -70407,7 +70412,9 @@ for.inc.us.us:                                    ; preds = %_ZN5eastlltIJRKbRK1
   %inc.i.us.us = add i64 %inc.i5561.us.us144, 1
   %inc.i37.us.us = add i64 %inc.i375760.us.us145, 1
   %arrayidx2.i.i.us.us = getelementptr inbounds i8, ptr %.fr169, i64 %inc.i.us.us
+  %arrayidx6.i.i.us.us = getelementptr inbounds %struct.TestObject, ptr %7, i64 %inc.i.us.us
   %arrayidx2.i.i6.us.us = getelementptr inbounds i8, ptr %.fr, i64 %inc.i37.us.us
+  %arrayidx6.i.i8.us.us = getelementptr inbounds %struct.TestObject, ptr %9, i64 %inc.i37.us.us
   %27 = load i8, ptr %arrayidx2.i.i.us.us, align 1
   %28 = and i8 %27, 1
   %29 = load i8, ptr %arrayidx2.i.i6.us.us, align 1

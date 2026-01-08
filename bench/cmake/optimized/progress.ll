@@ -530,17 +530,17 @@ define dso_local void @Curl_pgrsSetUploadSize(ptr noundef captures(none) initial
 ; Function Attrs: nounwind uwtable
 define dso_local void @Curl_pgrsTimeWas(ptr noundef captures(none) %0, i32 noundef %1, i64 %2, i32 %3) local_unnamed_addr #0 {
   switch i32 %1, label %.thread [
-    i32 11, label %38
+    i32 11, label %31
     i32 1, label %5
     i32 2, label %7
     i32 3, label %12
     i32 10, label %19
-    i32 4, label %21
-    i32 5, label %23
-    i32 6, label %25
-    i32 7, label %27
-    i32 8, label %29
-    i32 9, label %36
+    i32 4, label %38
+    i32 5, label %21
+    i32 6, label %22
+    i32 7, label %23
+    i32 8, label %24
+    i32 9, label %30
   ]
 
 5:                                                ; preds = %4
@@ -579,62 +579,54 @@ define dso_local void @Curl_pgrsTimeWas(ptr noundef captures(none) %0, i32 nound
   br label %.thread
 
 21:                                               ; preds = %4
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2736
-  br label %45
+  br label %38
+
+22:                                               ; preds = %4
+  br label %38
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2744
-  br label %45
+  br label %38
 
-25:                                               ; preds = %4
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2752
-  br label %45
+24:                                               ; preds = %4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 3004
+  %26 = load i8, ptr %25, align 4
+  %27 = and i8 %26, 2
+  %.not = icmp eq i8 %27, 0
+  br i1 %.not, label %28, label %.thread
 
-27:                                               ; preds = %4
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2760
-  br label %45
+28:                                               ; preds = %24
+  %29 = or disjoint i8 %26, 2
+  store i8 %29, ptr %25, align 4
+  br label %38
 
-29:                                               ; preds = %4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 3004
-  %31 = load i8, ptr %30, align 4
-  %32 = and i8 %31, 2
-  %.not = icmp eq i8 %32, 0
-  br i1 %.not, label %33, label %.thread
+30:                                               ; preds = %4
+  br label %38
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2776
-  %35 = or disjoint i8 %31, 2
-  store i8 %35, ptr %30, align 4
-  br label %45
+31:                                               ; preds = %4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2792
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2800
+  %35 = load i32, ptr %34, align 8
+  %36 = tail call i64 @Curl_timediff_us(i64 %2, i32 %3, i64 %33, i32 %35) #8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2784
+  store i64 %36, ptr %37, align 8, !tbaa !101
+  br label %.thread
 
-36:                                               ; preds = %4
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2768
-  br label %45
-
-38:                                               ; preds = %4
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 2792
+38:                                               ; preds = %4, %21, %22, %23, %28, %30
+  %.pn = phi i64 [ 2768, %30 ], [ 2744, %21 ], [ 2752, %22 ], [ 2760, %23 ], [ 2776, %28 ], [ 2736, %4 ]
+  %.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 2808
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2800
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2816
   %42 = load i32, ptr %41, align 8
   %43 = tail call i64 @Curl_timediff_us(i64 %2, i32 %3, i64 %40, i32 %42) #8
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2784
-  store i64 %43, ptr %44, align 8, !tbaa !101
+  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %43, i64 1)
+  %44 = load i64, ptr %.0, align 8, !tbaa !93
+  %45 = add nsw i64 %44, %spec.store.select
+  store i64 %45, ptr %.0, align 8, !tbaa !93
   br label %.thread
 
-45:                                               ; preds = %21, %23, %25, %27, %33, %36
-  %.0 = phi ptr [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %37, %36 ]
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 2808
-  %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2816
-  %49 = load i32, ptr %48, align 8
-  %50 = tail call i64 @Curl_timediff_us(i64 %2, i32 %3, i64 %47, i32 %49) #8
-  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %50, i64 1)
-  %51 = load i64, ptr %.0, align 8, !tbaa !93
-  %52 = add nsw i64 %51, %spec.store.select
-  store i64 %52, ptr %.0, align 8, !tbaa !93
-  br label %.thread
-
-.thread:                                          ; preds = %19, %12, %7, %5, %38, %4, %45, %29
+.thread:                                          ; preds = %19, %12, %7, %5, %31, %4, %38, %24
   ret void
 }
 

@@ -4160,7 +4160,6 @@ _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE20initializeFromBufferEPvii.exit:
 .thread:                                          ; preds = %.lr.ph174, %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE20initializeFromBufferEPvii.exit
   %112 = sext i32 %64 to i64
   %113 = shl nsw i64 %112, 4
-  %.0135201 = getelementptr inbounds nuw i8, ptr %74, i64 %113
   br label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit
 
 _ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE20initializeFromBufferEPvii.exit: ; preds = %73
@@ -4173,7 +4172,6 @@ _ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE20initializeFromBufferEPvii.exit:
 .thread205:                                       ; preds = %_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE20initializeFromBufferEPvii.exit
   %114 = sext i32 %64 to i64
   %115 = shl nsw i64 %114, 6
-  %.0135209 = getelementptr inbounds nuw i8, ptr %74, i64 %115
   br label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit
 
 .lr.ph.preheader:                                 ; preds = %_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE20initializeFromBufferEPvii.exit
@@ -4268,7 +4266,6 @@ _Z21b3UnSwapVector3EndianR9b3Vector3.exit159:     ; preds = %134
   %159 = trunc nuw i8 %.pre193.pre to i1
   %160 = zext nneg i32 %64 to i64
   %161 = shl nuw nsw i64 %160, 6
-  %.0135 = getelementptr inbounds nuw i8, ptr %74, i64 %161
   %.not.i.i.i160 = icmp ne ptr %.pre192.pre, null
   %or.cond.i.i161 = select i1 %.not.i.i.i160, i1 %159, i1 false
   br i1 %or.cond.i.i161, label %162, label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit
@@ -4278,8 +4275,9 @@ _Z21b3UnSwapVector3EndianR9b3Vector3.exit159:     ; preds = %134
   br label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit
 
 _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit: ; preds = %.thread205, %.thread, %158, %162
-  %.0135204 = phi ptr [ %.0135201, %.thread ], [ %.0135, %158 ], [ %.0135, %162 ], [ %.0135209, %.thread205 ]
+  %.pn = phi i64 [ %113, %.thread ], [ %161, %158 ], [ %161, %162 ], [ %115, %.thread205 ]
   %163 = phi i32 [ %65, %.thread ], [ %.pre191.pre, %158 ], [ %.pre191.pre, %162 ], [ %65, %.thread205 ]
+  %.0135204 = getelementptr inbounds nuw i8, ptr %74, i64 %.pn
   store i8 0, ptr %92, align 8, !tbaa !34
   store ptr %.0135204, ptr %93, align 8, !tbaa !35
   store i32 %163, ptr %94, align 4, !tbaa !36

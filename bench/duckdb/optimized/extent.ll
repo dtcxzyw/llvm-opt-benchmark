@@ -1098,35 +1098,36 @@ define ptr @duckdb_je_ecache_evict(ptr noundef %0, ptr noundef readonly captures
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %11, %17
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 9744
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 9768
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 19400
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 9744
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 19400
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 9768
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 19432
   %26 = getelementptr i8, ptr %1, i64 58384
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 19424
   br label %28
 
 28:                                               ; preds = %48, %malloc_mutex_lock.exit
-  %.val39 = load ptr, ptr %22, align 8, !tbaa !56
+  %.val39 = load ptr, ptr %21, align 8, !tbaa !56
   %29 = icmp eq ptr %.val39, null
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
-  %.val40 = load ptr, ptr %24, align 8, !tbaa !56
+  %.val40 = load ptr, ptr %22, align 8, !tbaa !56
   %31 = icmp eq ptr %.val40, null
   br i1 %31, label %.thread46, label %32
 
 32:                                               ; preds = %30, %28
   %.033 = phi ptr [ %.val40, %30 ], [ %.val39, %28 ]
-  %.032 = phi ptr [ %23, %30 ], [ %21, %28 ]
-  %33 = tail call i64 @duckdb_je_eset_npages_get(ptr noundef nonnull %21) #9
-  %34 = tail call i64 @duckdb_je_eset_npages_get(ptr noundef nonnull %23) #9
+  %.pn = phi i64 [ 9768, %30 ], [ 112, %28 ]
+  %33 = tail call i64 @duckdb_je_eset_npages_get(ptr noundef nonnull %23) #9
+  %34 = tail call i64 @duckdb_je_eset_npages_get(ptr noundef nonnull %24) #9
   %35 = add i64 %34, %33
   %.not = icmp ugt i64 %35, %4
   br i1 %.not, label %36, label %.thread46
 
 36:                                               ; preds = %32
+  %.032 = getelementptr inbounds nuw i8, ptr %3, i64 %.pn
   tail call void @duckdb_je_eset_remove(ptr noundef nonnull %.032, ptr noundef nonnull %.033) #9
   %37 = load i8, ptr %25, align 8, !tbaa !36, !range !37, !noundef !38
   %38 = trunc nuw i8 %37 to i1
@@ -1155,7 +1156,7 @@ select.unfold:                                    ; preds = %41
   br label %.loopexit
 
 48:                                               ; preds = %41
-  tail call void @duckdb_je_eset_insert(ptr noundef nonnull %21, ptr noundef %43) #9
+  tail call void @duckdb_je_eset_insert(ptr noundef nonnull %23, ptr noundef %43) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %28
 

@@ -1182,23 +1182,11 @@ define noundef i32 @_ZNK6icu_7724FCDUTF8CollationIterator9getOffsetEv(ptr nounde
   %3 = load i32, ptr %2, align 8, !tbaa !55
   %.not = icmp eq i32 %3, 3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  br i1 %.not, label %5, label %12
-
-5:                                                ; preds = %1
-  %6 = load i32, ptr %4, align 8, !tbaa !15
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %10
-
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  br label %12
-
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  br label %12
-
-12:                                               ; preds = %1, %10, %8
-  %.0.in = phi ptr [ %11, %10 ], [ %9, %8 ], [ %4, %1 ]
+  %5 = load i32, ptr %4, align 8
+  %6 = icmp eq i32 %5, 0
+  %. = select i1 %6, i64 412, i64 416
+  %.pn = select i1 %.not, i64 %., i64 400
+  %.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   %.0 = load i32, ptr %.0.in, align 4, !tbaa !12
   ret i32 %.0
 }

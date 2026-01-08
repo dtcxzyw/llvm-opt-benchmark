@@ -2063,13 +2063,9 @@ for.body.lr.ph:                                   ; preds = %_ZNSt7__cxx1112basi
   %18 = getelementptr inbounds nuw i8, ptr %temp, i64 16
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %temp, i64 8
   %_M_string_length.i.i.i945 = getelementptr inbounds nuw i8, ptr %tree_definition, i64 216
-  %rules_d102 = getelementptr inbounds nuw i8, ptr %tree_definition, i64 208
   %_M_string_length.i.i.i929 = getelementptr inbounds nuw i8, ptr %tree_definition, i64 184
-  %rules_c92 = getelementptr inbounds nuw i8, ptr %tree_definition, i64 176
   %_M_string_length.i.i.i913 = getelementptr inbounds nuw i8, ptr %tree_definition, i64 152
-  %rules_b82 = getelementptr inbounds nuw i8, ptr %tree_definition, i64 144
   %_M_string_length.i.i.i897 = getelementptr inbounds nuw i8, ptr %tree_definition, i64 120
-  %rules_a72 = getelementptr inbounds nuw i8, ptr %tree_definition, i64 112
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
@@ -2156,8 +2152,9 @@ if.then.i.i.i.i861.cont:                          ; preds = %if.then.i.i.i.i861.
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i.invoke: ; preds = %if.then101, %if.then91, %if.then81, %if.then71, %sw.bb63, %sw.bb60, %sw.bb57, %sw.bb
-  %rules_d102.sink = phi ptr [ %rules_b82, %sw.bb57 ], [ %rules_c92, %sw.bb60 ], [ %rules_d102, %sw.bb63 ], [ %rules_a72, %if.then71 ], [ %rules_b82, %if.then81 ], [ %rules_c92, %if.then91 ], [ %rules_d102, %if.then101 ], [ %rules_a72, %sw.bb ]
+  %.pn = phi i64 [ 144, %sw.bb57 ], [ 176, %sw.bb60 ], [ 208, %sw.bb63 ], [ 112, %if.then71 ], [ 144, %if.then81 ], [ 176, %if.then91 ], [ 208, %if.then101 ], [ 112, %sw.bb ]
   %28 = phi i64 [ %31, %sw.bb57 ], [ %33, %sw.bb60 ], [ %35, %sw.bb63 ], [ %39, %if.then71 ], [ %43, %if.then81 ], [ %47, %if.then91 ], [ %51, %if.then101 ], [ %26, %sw.bb ]
+  %rules_d102.sink = getelementptr inbounds nuw i8, ptr %tree_definition, i64 %.pn
   %29 = load ptr, ptr %rules_d102.sink, align 8, !tbaa !13
   %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %temp, ptr noundef %29, i64 noundef %28)
           to label %sw.epilog unwind label %lpad51.loopexit

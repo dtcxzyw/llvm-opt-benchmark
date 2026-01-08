@@ -34915,17 +34915,16 @@ switch.lookup:
 define internal { i32, i32 } @"_ZN95_$LT$image..codecs..pnm..decoder..PnmDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h93a3957608a1f965E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !range !4675, !noundef !5
-  %switch.tableidx = add i64 %3, 9223372036854775801
-  %4 = icmp ult i64 %switch.tableidx, 3
-  %. = select i1 %4, i64 36, i64 52
-  %.15 = select i1 %4, i64 32, i64 48
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.15
-  %.sroa.0.04 = load i32, ptr %5, align 4, !noundef !5
-  %.sroa.01.0 = load i32, ptr %6, align 8, !noundef !5
-  %7 = insertvalue { i32, i32 } poison, i32 %.sroa.0.04, 0
-  %8 = insertvalue { i32, i32 } %7, i32 %.sroa.01.0, 1
-  ret { i32, i32 } %8
+  %4 = icmp ult i64 %3, -9223372036854775801
+  %. = select i1 %4, i64 52, i64 36
+  %.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %.sroa.0.0 = load i32, ptr %.sroa.0.0.in, align 4, !noundef !5
+  %spec.select = select i1 %4, i64 48, i64 32
+  %.sroa.01.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select
+  %.sroa.01.0 = load i32, ptr %.sroa.01.0.in, align 8, !noundef !5
+  %5 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
+  %6 = insertvalue { i32, i32 } %5, i32 %.sroa.01.0, 1
+  ret { i32, i32 } %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

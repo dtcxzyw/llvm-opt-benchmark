@@ -415,7 +415,8 @@ define ptr @arrow_strptime(ptr noalias noundef %0, ptr noalias noundef %1, ptr n
 178:                                              ; preds = %53, %53, %56
   %.0140 = phi i32 [ 131086, %56 ], [ 131072, %53 ], [ 131072, %53 ]
   %.0138 = phi i32 [ 12, %56 ], [ 7, %53 ], [ 7, %53 ]
-  %.0135 = phi ptr [ %12, %56 ], [ %9, %53 ], [ %9, %53 ]
+  %.pn = phi i64 [ 16, %56 ], [ 24, %53 ], [ 24, %53 ]
+  %.0135 = getelementptr inbounds nuw i8, ptr %2, i64 %.pn
   %179 = shl nuw nsw i32 %.0138, 1
   br label %180
 

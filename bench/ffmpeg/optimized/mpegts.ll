@@ -2842,41 +2842,40 @@ define range(i32 -2147483271, -2147483648) i32 @avpriv_mpegts_parse_packet(ptr n
   %8 = add nuw i32 %3, 188
   br label %9
 
-9:                                                ; preds = %.lr.ph, %22
-  %.01721 = phi i32 [ %3, %.lr.ph ], [ %.1, %22 ]
-  %.01820 = phi ptr [ %2, %.lr.ph ], [ %.119, %22 ]
+9:                                                ; preds = %.lr.ph, %20
+  %.01721 = phi i32 [ %3, %.lr.ph ], [ %.1, %20 ]
+  %.01820 = phi ptr [ %2, %.lr.ph ], [ %.119, %20 ]
   %10 = load i8, ptr %.01820, align 1, !tbaa !9
   %.not = icmp eq i8 %10, 71
-  br i1 %.not, label %14, label %11
+  br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %.01820, i64 1
-  %13 = add nsw i32 %.01721, -1
-  br label %22
+  %12 = add nsw i32 %.01721, -1
+  br label %20
 
-14:                                               ; preds = %9
-  %15 = sub i32 %8, %.01721
-  %16 = sext i32 %15 to i64
-  %17 = tail call fastcc i32 @handle_packet(ptr noundef nonnull %0, ptr noundef nonnull %.01820, i64 noundef %16)
-  %18 = getelementptr inbounds nuw i8, ptr %.01820, i64 188
-  %19 = add nsw i32 %.01721, -188
-  %20 = load i32, ptr %6, align 8, !tbaa !160
-  %21 = icmp eq i32 %20, 1
-  br i1 %21, label %24, label %22
+13:                                               ; preds = %9
+  %14 = sub i32 %8, %.01721
+  %15 = sext i32 %14 to i64
+  %16 = tail call fastcc i32 @handle_packet(ptr noundef nonnull %0, ptr noundef nonnull %.01820, i64 noundef %15)
+  %17 = add nsw i32 %.01721, -188
+  %18 = load i32, ptr %6, align 8, !tbaa !160
+  %19 = icmp eq i32 %18, 1
+  br i1 %19, label %22, label %20
 
-22:                                               ; preds = %14, %11
-  %.119 = phi ptr [ %12, %11 ], [ %18, %14 ]
-  %.1 = phi i32 [ %13, %11 ], [ %19, %14 ]
+20:                                               ; preds = %13, %11
+  %.pn = phi i64 [ 1, %11 ], [ 188, %13 ]
+  %.1 = phi i32 [ %12, %11 ], [ %17, %13 ]
+  %.119 = getelementptr inbounds nuw i8, ptr %.01820, i64 %.pn
   store i32 0, ptr %6, align 8, !tbaa !160
-  %23 = icmp slt i32 %.1, 188
-  br i1 %23, label %.loopexit, label %9
+  %21 = icmp slt i32 %.1, 188
+  br i1 %21, label %.loopexit, label %9
 
-24:                                               ; preds = %14
-  %25 = sub nsw i32 %3, %19
+22:                                               ; preds = %13
+  %23 = sub nsw i32 %3, %17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %4, %24
-  %.0 = phi i32 [ %25, %24 ], [ -1094995529, %4 ], [ -1094995529, %22 ]
+.loopexit:                                        ; preds = %20, %4, %22
+  %.0 = phi i32 [ %23, %22 ], [ -1094995529, %4 ], [ -1094995529, %20 ]
   ret i32 %.0
 }
 

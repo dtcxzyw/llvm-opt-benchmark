@@ -1029,7 +1029,6 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i190: ; preds = %if.then.i176, 
 if.end.i147:                                      ; preds = %_ZNK6hermes2vm10StringViewixEj.exit94.thread.thread
   %conv30 = zext i32 %k.0892 to i64
   %retval.sroa.3.0.i132 = getelementptr inbounds nuw i16, ptr %add.ptr10.i17.i, i64 %conv30
-  %retval.sroa.3.0.i140 = getelementptr inbounds nuw i8, ptr %retval.sroa.3.0.i132, i64 4
   br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i158
 
 if.end.i5.i149:                                   ; preds = %if.else13.i.i20.i, %if.then10.i.i12.i, %if.then5.i.i18.i, %if.then.i.i25.i
@@ -1037,7 +1036,6 @@ if.end.i5.i149:                                   ; preds = %if.else13.i.i20.i, 
   %add.ptr10.i17.i965 = getelementptr inbounds nuw i16, ptr %retval.0.i.sink.i14.i.ph, i64 %bf.clear8.i16.i
   %conv30966 = zext i32 %k.0892 to i64
   %retval.sroa.3.0.i132970 = getelementptr inbounds nuw i16, ptr %add.ptr10.i17.i965, i64 %conv30966
-  %retval.sroa.3.0.i140975 = getelementptr inbounds nuw i8, ptr %retval.sroa.3.0.i132970, i64 4
   %retval.sroa.0.0.copyload.i.i.i.i6.i150 = load i64, ptr %9, align 8
   %and.i.i.i.i.i.i7.i151 = and i64 %retval.sroa.0.0.copyload.i.i.i.i6.i150, 281474976710655
   %38 = inttoptr i64 %and.i.i.i.i.i.i7.i151 to ptr
@@ -1075,9 +1073,10 @@ if.else13.i.i20.i169:                             ; preds = %if.else.i.i10.i154
   br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i158
 
 _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i158: ; preds = %if.end.i147, %if.else13.i.i20.i169, %if.then10.i.i12.i156, %if.then5.i.i18.i167, %if.then.i.i25.i174
-  %retval.sroa.3.0.i140980 = phi ptr [ %retval.sroa.3.0.i140, %if.end.i147 ], [ %retval.sroa.3.0.i140975, %if.then.i.i25.i174 ], [ %retval.sroa.3.0.i140975, %if.then5.i.i18.i167 ], [ %retval.sroa.3.0.i140975, %if.then10.i.i12.i156 ], [ %retval.sroa.3.0.i140975, %if.else13.i.i20.i169 ]
+  %retval.sroa.3.0.i132.pn = phi ptr [ %retval.sroa.3.0.i132, %if.end.i147 ], [ %retval.sroa.3.0.i132970, %if.then.i.i25.i174 ], [ %retval.sroa.3.0.i132970, %if.then5.i.i18.i167 ], [ %retval.sroa.3.0.i132970, %if.then10.i.i12.i156 ], [ %retval.sroa.3.0.i132970, %if.else13.i.i20.i169 ]
   %conv30978 = phi i64 [ %conv30, %if.end.i147 ], [ %conv30966, %if.then.i.i25.i174 ], [ %conv30966, %if.then5.i.i18.i167 ], [ %conv30966, %if.then10.i.i12.i156 ], [ %conv30966, %if.else13.i.i20.i169 ]
   %retval.0.i.sink.i14.i159 = phi ptr [ %9, %if.end.i147 ], [ %39, %if.then.i.i25.i174 ], [ %add.ptr.i.i.i.i.i19.i168, %if.then5.i.i18.i167 ], [ %add.ptr.i.i.i4.i.i13.i157, %if.then10.i.i12.i156 ], [ %41, %if.else13.i.i20.i169 ]
+  %retval.sroa.3.0.i140980 = getelementptr inbounds nuw i8, ptr %retval.sroa.3.0.i132.pn, i64 4
   %add.ptr10.i17.i162 = getelementptr inbounds nuw i16, ptr %retval.0.i.sink.i14.i159, i64 %bf.clear8.i16.i
   br label %_ZNK6hermes2vm10StringView5beginEv.exit207
 

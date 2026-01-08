@@ -1139,13 +1139,14 @@ define hidden void @"_ZN10rayon_cond25CondIterator$LT$P$C$S$GT$9enumerate17h9a06
   %3 = load i64, ptr %1, align 8, !range !60, !noundef !4
   %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !nonnull !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
   %.sink2 = select i1 %trunc, ptr %5, ptr null
+  %.pn = select i1 %trunc, i64 16, i64 8
   %.sink = select i1 %trunc, i64 0, i64 %7
-  %.val.cast = inttoptr i64 %7 to ptr
-  %.sink1 = select i1 %trunc, ptr %.val.cast, ptr %5
+  %.sink1.in = getelementptr inbounds nuw i8, ptr %1, i64 %.pn
+  %.sink1 = load ptr, ptr %.sink1.in, align 8, !noundef !4
   store ptr %.sink2, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink1, ptr %8, align 8
@@ -27509,8 +27510,8 @@ switch.lookup:
   %2 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 1)
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN81_$LT$tokenizers..models..ModelWrapper$u20$as$u20$tokenizers..tokenizer..Model$GT$14get_vocab_size17h73dc71a04e4f248fE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
-  %.0 = load i64, ptr %3, align 8, !noundef !4
+  %.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
+  %.0 = load i64, ptr %.0.in, align 8, !noundef !4
   ret i64 %.0
 }
 
@@ -27627,8 +27628,8 @@ switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !722, !noundef !4
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN85_$LT$tokenizers..models..TrainerWrapper$u20$as$u20$tokenizers..tokenizer..Trainer$GT$20should_show_progress17hf85cfb3ec6959dddE", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
-  %.0.in.in = load i8, ptr %2, align 8, !range !42, !noundef !4
+  %.0.in.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
+  %.0.in.in = load i8, ptr %.0.in.in.in, align 8, !range !42, !noundef !4
   %.0.in = trunc nuw i8 %.0.in.in to i1
   ret i1 %.0.in
 }

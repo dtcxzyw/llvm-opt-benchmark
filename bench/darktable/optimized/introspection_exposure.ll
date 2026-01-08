@@ -2462,8 +2462,8 @@ define internal float @_exposure_proxy_get_exposure(ptr noundef readonly capture
   %3 = load ptr, ptr %2, align 8, !tbaa !143
   %4 = load i32, ptr %3, align 4, !tbaa !48
   %5 = icmp eq i32 %4, 1
-  %.0.in.v = select i1 %5, i64 16, i64 8
-  %.0.in = getelementptr inbounds nuw i8, ptr %3, i64 %.0.in.v
+  %. = select i1 %5, i64 16, i64 8
+  %.0.in = getelementptr inbounds nuw i8, ptr %3, i64 %.
   %.0 = load float, ptr %.0.in, align 4, !tbaa !121
   ret float %.0
 }
@@ -2483,13 +2483,13 @@ define internal void @_exposure_proxy_handle_event(ptr noundef %0, i32 noundef %
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2192
   %5 = load ptr, ptr %4, align 16, !tbaa !247
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %34, label %6
+  br i1 %.not, label %29, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 704
   %8 = load ptr, ptr %7, align 16, !tbaa !83
   %.not22 = icmp eq ptr %8, null
-  br i1 %.not22, label %34, label %9
+  br i1 %.not22, label %29, label %9
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %0, align 8, !tbaa !184
@@ -2509,44 +2509,38 @@ thread-pre-split:                                 ; preds = %9
 12:                                               ; preds = %thread-pre-split, %11
   %13 = phi i32 [ %.pr, %thread-pre-split ], [ %1, %11 ]
   %.not23 = icmp eq i32 %13, 0
-  br i1 %.not23, label %20, label %14
+  br i1 %.not23, label %18, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load double, ptr %15, align 8, !tbaa !184
   %17 = fneg reassoc nsz arcp contract afn double %16
   store double %17, ptr %15, align 8, !tbaa !184
-  %18 = load ptr, ptr %7, align 16, !tbaa !83
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.pre = load ptr, ptr %7, align 16, !tbaa !83
+  br label %23
+
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 680
+  %20 = load ptr, ptr %19, align 8, !tbaa !143
+  %21 = load i32, ptr %20, align 4, !tbaa !48
+  %22 = icmp eq i32 %21, 1
+  %. = select i1 %22, i64 40, i64 24
+  br label %23
+
+23:                                               ; preds = %14, %18
+  %24 = phi ptr [ %.pre, %14 ], [ %8, %18 ]
+  %.pn = phi i64 [ 8, %14 ], [ %., %18 ]
+  %.in = getelementptr inbounds nuw i8, ptr %24, i64 %.pn
+  %25 = load ptr, ptr %.in, align 8, !tbaa !248
+  tail call void @gtk_widget_realize(ptr noundef %25) #22
+  %26 = tail call i32 @gtk_widget_event(ptr noundef %25, ptr noundef nonnull %0) #22
+  %27 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %25) #22
+  %28 = tail call ptr @dt_bauhaus_slider_get_text(ptr noundef %25, float noundef %27) #22
+  tail call void (ptr, ptr, ptr, ...) @dt_action_widget_toast(ptr noundef nonnull %5, ptr noundef %25, ptr noundef nonnull @.str.54, ptr noundef %28) #22
+  tail call void @g_free(ptr noundef %28) #22
   br label %29
 
-20:                                               ; preds = %12
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 680
-  %22 = load ptr, ptr %21, align 8, !tbaa !143
-  %23 = load i32, ptr %22, align 4, !tbaa !48
-  %24 = icmp eq i32 %23, 1
-  br i1 %24, label %25, label %27
-
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  br label %29
-
-27:                                               ; preds = %20
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  br label %29
-
-29:                                               ; preds = %25, %27, %14
-  %.in = phi ptr [ %19, %14 ], [ %26, %25 ], [ %28, %27 ]
-  %30 = load ptr, ptr %.in, align 8, !tbaa !248
-  tail call void @gtk_widget_realize(ptr noundef %30) #22
-  %31 = tail call i32 @gtk_widget_event(ptr noundef %30, ptr noundef nonnull %0) #22
-  %32 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %30) #22
-  %33 = tail call ptr @dt_bauhaus_slider_get_text(ptr noundef %30, float noundef %32) #22
-  tail call void (ptr, ptr, ptr, ...) @dt_action_widget_toast(ptr noundef nonnull %5, ptr noundef %30, ptr noundef nonnull @.str.54, ptr noundef %33) #22
-  tail call void @g_free(ptr noundef %33) #22
-  br label %34
-
-34:                                               ; preds = %29, %6, %2
+29:                                               ; preds = %23, %6, %2
   ret void
 }
 

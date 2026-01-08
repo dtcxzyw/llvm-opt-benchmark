@@ -2702,21 +2702,22 @@ define linkonce_odr dso_local void @_ZNK22btGImpactMeshShapePart23TrimeshPrimiti
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %27 = load float, ptr %26, align 4, !tbaa !23
   %28 = fcmp ogt float %25, %27
-  br i1 %28, label %29, label %.thread83.i
+  br i1 %28, label %29, label %.thread87.i
 
 29:                                               ; preds = %20
   %30 = fcmp ogt float %23, %27
   br i1 %30, label %33, label %32
 
-.thread83.i:                                      ; preds = %20
+.thread87.i:                                      ; preds = %20
   %31 = fcmp ogt float %23, %25
   br i1 %31, label %33, label %32
 
-32:                                               ; preds = %.thread83.i, %29
+32:                                               ; preds = %.thread87.i, %29
   br label %33
 
-33:                                               ; preds = %32, %.thread83.i, %29
-  %.in69.i = phi ptr [ %22, %32 ], [ %26, %29 ], [ %24, %.thread83.i ]
+33:                                               ; preds = %32, %.thread87.i, %29
+  %.pn70.i = phi ptr [ %4, %32 ], [ %10, %29 ], [ %9, %.thread87.i ]
+  %.in69.i = getelementptr inbounds nuw i8, ptr %.pn70.i, i64 4
   %34 = load float, ptr %.in69.i, align 4, !tbaa !23
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load float, ptr %35, align 4, !tbaa !23
@@ -2725,79 +2726,82 @@ define linkonce_odr dso_local void @_ZNK22btGImpactMeshShapePart23TrimeshPrimiti
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %40 = load float, ptr %39, align 4, !tbaa !23
   %41 = fcmp ogt float %38, %40
-  br i1 %41, label %42, label %.thread87.i
+  br i1 %41, label %42, label %.thread91.i
 
 42:                                               ; preds = %33
   %43 = fcmp ogt float %36, %40
   br i1 %43, label %46, label %45
 
-.thread87.i:                                      ; preds = %33
+.thread91.i:                                      ; preds = %33
   %44 = fcmp ogt float %36, %38
   br i1 %44, label %46, label %45
 
-45:                                               ; preds = %.thread87.i, %42
+45:                                               ; preds = %.thread91.i, %42
   br label %46
 
-46:                                               ; preds = %45, %.thread87.i, %42
-  %.in72.i = phi ptr [ %35, %45 ], [ %39, %42 ], [ %37, %.thread87.i ]
-  %47 = load float, ptr %.in72.i, align 4, !tbaa !23
+46:                                               ; preds = %45, %.thread91.i, %42
+  %.pn74.i = phi ptr [ %4, %45 ], [ %10, %42 ], [ %9, %.thread91.i ]
+  %.in73.i = getelementptr inbounds nuw i8, ptr %.pn74.i, i64 8
+  %47 = load float, ptr %.in73.i, align 4, !tbaa !23
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store float 0.000000e+00, ptr %48, align 4, !tbaa !23
   %49 = fcmp olt float %13, %14
-  br i1 %49, label %50, label %.thread91.i
+  br i1 %49, label %50, label %.thread95.i
 
 50:                                               ; preds = %46
   %51 = fcmp olt float %12, %14
   br i1 %51, label %54, label %53
 
-.thread91.i:                                      ; preds = %46
+.thread95.i:                                      ; preds = %46
   %52 = fcmp olt float %12, %13
   br i1 %52, label %54, label %53
 
-53:                                               ; preds = %.thread91.i, %50
+53:                                               ; preds = %.thread95.i, %50
   br label %54
 
-54:                                               ; preds = %53, %.thread91.i, %50
-  %.in74.i = phi ptr [ %4, %53 ], [ %10, %50 ], [ %9, %.thread91.i ]
-  %55 = load float, ptr %.in74.i, align 4, !tbaa !23
+54:                                               ; preds = %53, %.thread95.i, %50
+  %.in76.i = phi ptr [ %4, %53 ], [ %10, %50 ], [ %9, %.thread95.i ]
+  %55 = load float, ptr %.in76.i, align 4, !tbaa !23
   %56 = fcmp olt float %25, %27
-  br i1 %56, label %57, label %.thread94.i
+  br i1 %56, label %57, label %.thread98.i
 
 57:                                               ; preds = %54
   %58 = fcmp olt float %23, %27
   br i1 %58, label %61, label %60
 
-.thread94.i:                                      ; preds = %54
+.thread98.i:                                      ; preds = %54
   %59 = fcmp olt float %23, %25
   br i1 %59, label %61, label %60
 
-60:                                               ; preds = %.thread94.i, %57
+60:                                               ; preds = %.thread98.i, %57
   br label %61
 
-61:                                               ; preds = %60, %.thread94.i, %57
-  %.in77.i = phi ptr [ %22, %60 ], [ %26, %57 ], [ %24, %.thread94.i ]
-  %62 = load float, ptr %.in77.i, align 4, !tbaa !23
+61:                                               ; preds = %60, %.thread98.i, %57
+  %.pn80.i = phi ptr [ %4, %60 ], [ %10, %57 ], [ %9, %.thread98.i ]
+  %.in79.i = getelementptr inbounds nuw i8, ptr %.pn80.i, i64 4
+  %62 = load float, ptr %.in79.i, align 4, !tbaa !23
   %63 = fcmp olt float %38, %40
-  br i1 %63, label %64, label %.thread98.i
+  br i1 %63, label %64, label %.thread102.i
 
 64:                                               ; preds = %61
   %65 = fcmp olt float %36, %40
   br i1 %65, label %_ZN6btAABB25calc_from_triangle_marginI9btVector3EEvRKT_S4_S4_f.exit, label %67
 
-.thread98.i:                                      ; preds = %61
+.thread102.i:                                     ; preds = %61
   %66 = fcmp olt float %36, %38
   br i1 %66, label %_ZN6btAABB25calc_from_triangle_marginI9btVector3EEvRKT_S4_S4_f.exit, label %67
 
-67:                                               ; preds = %.thread98.i, %64
+67:                                               ; preds = %.thread102.i, %64
   br label %_ZN6btAABB25calc_from_triangle_marginI9btVector3EEvRKT_S4_S4_f.exit
 
-_ZN6btAABB25calc_from_triangle_marginI9btVector3EEvRKT_S4_S4_f.exit: ; preds = %64, %.thread98.i, %67
-  %.in80.i = phi ptr [ %35, %67 ], [ %39, %64 ], [ %37, %.thread98.i ]
+_ZN6btAABB25calc_from_triangle_marginI9btVector3EEvRKT_S4_S4_f.exit: ; preds = %64, %.thread102.i, %67
+  %.pn84.i = phi ptr [ %4, %67 ], [ %10, %64 ], [ %9, %.thread102.i ]
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %72 = load float, ptr %.in80.i, align 4, !tbaa !23
+  %.in83.i = getelementptr inbounds nuw i8, ptr %.pn84.i, i64 8
+  %72 = load float, ptr %.in83.i, align 4, !tbaa !23
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store float 0.000000e+00, ptr %74, align 4, !tbaa !23

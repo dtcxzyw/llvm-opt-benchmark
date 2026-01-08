@@ -1340,24 +1340,18 @@ cmp_address.exit.thread:                          ; preds = %cmp_address.exit
   %86 = icmp sgt i32 %79, -1
   br i1 %86, label %.thread, label %.thread77
 
-.thread:                                          ; preds = %56, %64, %cmp_address.exit.thread74, %cmp_address.exit.thread
-  %87 = getelementptr inbounds nuw i8, ptr %.061, i64 8
+.thread77:                                        ; preds = %62, %70, %cmp_address.exit.thread74, %cmp_address.exit.thread
+  br label %.thread
+
+.thread:                                          ; preds = %cmp_address.exit.thread, %cmp_address.exit.thread74, %64, %56, %.thread77
+  %.sink95 = phi i64 [ 16, %.thread77 ], [ 8, %56 ], [ 8, %64 ], [ 8, %cmp_address.exit.thread74 ], [ 8, %cmp_address.exit.thread ]
+  %.pn = phi i64 [ 8, %.thread77 ], [ 16, %56 ], [ 16, %64 ], [ 16, %cmp_address.exit.thread74 ], [ 16, %cmp_address.exit.thread ]
+  %87 = getelementptr i8, ptr %.061, i64 %.sink95
   %88 = getelementptr inbounds nuw i8, ptr %.061, i64 24
   store ptr %87, ptr %88, align 8
-  %89 = getelementptr i8, ptr %.061, i64 16
-  br label %93
-
-.thread77:                                        ; preds = %62, %70, %cmp_address.exit.thread74, %cmp_address.exit.thread
-  %90 = getelementptr inbounds nuw i8, ptr %.061, i64 8
-  %91 = getelementptr i8, ptr %.061, i64 16
-  %92 = getelementptr inbounds nuw i8, ptr %.061, i64 24
-  store ptr %91, ptr %92, align 8
-  br label %93
-
-93:                                               ; preds = %.thread77, %.thread
-  %.sink = phi ptr [ %90, %.thread77 ], [ %89, %.thread ]
-  %94 = getelementptr inbounds nuw i8, ptr %.061, i64 32
-  store ptr %.sink, ptr %94, align 8
+  %.sink = getelementptr i8, ptr %.061, i64 %.pn
+  %89 = getelementptr inbounds nuw i8, ptr %.061, i64 32
+  store ptr %.sink, ptr %89, align 8
   ret ptr %.061
 }
 

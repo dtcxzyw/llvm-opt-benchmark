@@ -2020,7 +2020,7 @@ _ZNSt3__117__append_d_digitsB8ne210000EjjPc.exit365: ; preds = %571, %580
   store i8 101, ptr %.13, align 1, !tbaa !6
   %613 = getelementptr inbounds nuw i8, ptr %.13, i64 2
   store i8 %.0, ptr %612, align 1, !tbaa !6
-  br i1 %604, label %614, label %625
+  br i1 %604, label %614, label %624
 
 614:                                              ; preds = %610
   %615 = urem i32 %.12284, 10
@@ -2029,26 +2029,29 @@ _ZNSt3__117__append_d_digitsB8ne210000EjjPc.exit365: ; preds = %571, %580
   %618 = zext nneg i32 %617 to i64
   %619 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %618
   %620 = load i16, ptr %619, align 2
-  store i16 %620, ptr %613, align 1
   %621 = trunc nuw nsw i32 %615 to i8
   %622 = or disjoint i8 %621, 48
   %623 = getelementptr inbounds nuw i8, ptr %.13, i64 4
   store i8 %622, ptr %623, align 1, !tbaa !6
-  %624 = getelementptr inbounds nuw i8, ptr %.13, i64 5
+  br label %629
+
+624:                                              ; preds = %610
+  %625 = shl nuw nsw i32 %.12284, 1
+  %626 = zext nneg i32 %625 to i64
+  %627 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %626
+  %628 = load i16, ptr %627, align 2
+  br label %629
+
+629:                                              ; preds = %624, %614
+  %.sink = phi i16 [ %620, %614 ], [ %628, %624 ]
+  %.pn = phi i64 [ 5, %614 ], [ 4, %624 ]
+  store i16 %.sink, ptr %613, align 1
+  %.14 = getelementptr inbounds nuw i8, ptr %.13, i64 %.pn
   br label %.thread382
 
-625:                                              ; preds = %610
-  %626 = shl nuw nsw i32 %.12284, 1
-  %627 = zext nneg i32 %626 to i64
-  %628 = getelementptr inbounds nuw i8, ptr @_ZNSt3__16__itoa16__digits_base_10E, i64 %627
-  %629 = load i16, ptr %628, align 2
-  store i16 %629, ptr %613, align 1
-  %630 = getelementptr inbounds nuw i8, ptr %.13, i64 4
-  br label %.thread382
-
-.thread382:                                       ; preds = %172, %233, %119, %445, %384, %331, %.thread443, %625, %614, %585, %523, %487, %22, %7
-  %.sroa.0.1 = phi ptr [ %1, %7 ], [ %23, %22 ], [ %1, %445 ], [ %630, %625 ], [ %1, %523 ], [ %1, %585 ], [ %1, %487 ], [ %1, %.thread443 ], [ %624, %614 ], [ %1, %331 ], [ %1, %384 ], [ %1, %119 ], [ %1, %233 ], [ %1, %172 ]
-  %.sroa.14.1 = phi i32 [ 75, %7 ], [ 0, %22 ], [ 75, %445 ], [ 0, %625 ], [ 75, %523 ], [ 75, %585 ], [ 75, %487 ], [ 75, %.thread443 ], [ 0, %614 ], [ 75, %331 ], [ 75, %384 ], [ 75, %119 ], [ 75, %233 ], [ 75, %172 ]
+.thread382:                                       ; preds = %172, %233, %119, %445, %384, %331, %629, %.thread443, %585, %523, %487, %22, %7
+  %.sroa.0.1 = phi ptr [ %1, %7 ], [ %23, %22 ], [ %1, %445 ], [ %1, %.thread443 ], [ %1, %523 ], [ %1, %585 ], [ %1, %487 ], [ %.14, %629 ], [ %1, %331 ], [ %1, %384 ], [ %1, %119 ], [ %1, %233 ], [ %1, %172 ]
+  %.sroa.14.1 = phi i32 [ 75, %7 ], [ 0, %22 ], [ 75, %445 ], [ 75, %.thread443 ], [ 75, %523 ], [ 75, %585 ], [ 75, %487 ], [ 0, %629 ], [ 75, %331 ], [ 75, %384 ], [ 75, %119 ], [ 75, %233 ], [ 75, %172 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.14.1, 1
   ret { ptr, i32 } %.fca.1.insert

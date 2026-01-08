@@ -220,23 +220,24 @@ _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17NativeMovConstReg6verifyEv(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
-  %2 = load i8, ptr %0, align 1
-  %cond = icmp eq i8 %2, -43
-  %. = select i1 %cond, i64 2, i64 1
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, -8
-  %.not = icmp eq i8 %5, -72
-  br i1 %.not, label %8, label %6
+.thread:
+  %1 = load i8, ptr %0, align 1
+  %cond = icmp eq i8 %1, -43
+  %spec.select = select i1 %cond, i64 2, i64 1
+  %.in = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select
+  %2 = load i8, ptr %.in, align 1
+  %3 = and i8 %2, -8
+  %.not = icmp eq i8 %3, -72
+  br i1 %.not, label %6, label %4
 
-6:                                                ; preds = %1
+4:                                                ; preds = %.thread
   tail call void @_ZN17NativeMovConstReg5printEv(ptr noundef nonnull align 1 dereferenceable(1) %0)
-  %7 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %7, align 1
+  %5 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %5, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 171, ptr noundef nonnull @.str.13) #8
   unreachable
 
-8:                                                ; preds = %1
+6:                                                ; preds = %.thread
   ret void
 }
 

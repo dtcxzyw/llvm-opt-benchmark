@@ -900,7 +900,6 @@ define internal noundef i32 @get_name(ptr noundef %0, ptr readnone captures(none
   %6 = alloca %struct.hashmap_entry, align 8
   %7 = alloca %struct.object_id, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %scevgep = getelementptr i8, ptr %0, i64 10
   br label %8
 
 8:                                                ; preds = %9, %5
@@ -929,15 +928,11 @@ skip_prefix.exit:                                 ; preds = %9
   %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @patterns, i64 8), align 8
   %19 = icmp ne i64 %18, 0
   %or.cond = select i1 %17, i1 true, i1 %19
-  br i1 %or.cond, label %.preheader.preheader, label %.critedge4
+  br i1 %or.cond, label %.preheader, label %.critedge4
 
-.preheader.preheader:                             ; preds = %15
-  %scevgep97 = getelementptr i8, ptr %0, i64 11
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %20
-  %.07.i50 = phi ptr [ %22, %20 ], [ %0, %.preheader.preheader ]
-  %.06.i51.idx = phi i64 [ %.06.i51.add, %20 ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %15, %20
+  %.07.i50 = phi ptr [ %22, %20 ], [ %0, %15 ]
+  %.06.i51.idx = phi i64 [ %.06.i51.add, %20 ], [ 0, %15 ]
   %exitcond98 = icmp eq i64 %.06.i51.idx, 11
   br i1 %exitcond98, label %skip_prefix.exit.thread, label %20
 
@@ -948,15 +943,11 @@ skip_prefix.exit:                                 ; preds = %9
   %23 = load i8, ptr %.07.i50, align 1, !tbaa !57
   %.06.i51.add = add nuw nsw i64 %.06.i51.idx, 1
   %24 = icmp eq i8 %23, %21
-  br i1 %24, label %.preheader, label %skip_prefix.exit53.preheader, !llvm.loop !58
+  br i1 %24, label %.preheader, label %skip_prefix.exit53, !llvm.loop !58
 
-skip_prefix.exit53.preheader:                     ; preds = %20
-  %scevgep99 = getelementptr i8, ptr %0, i64 13
-  br label %skip_prefix.exit53
-
-skip_prefix.exit53:                               ; preds = %skip_prefix.exit53.preheader, %25
-  %.07.i54 = phi ptr [ %27, %25 ], [ %0, %skip_prefix.exit53.preheader ]
-  %.06.i55.idx = phi i64 [ %.06.i55.add, %25 ], [ 0, %skip_prefix.exit53.preheader ]
+skip_prefix.exit53:                               ; preds = %20, %25
+  %.07.i54 = phi ptr [ %27, %25 ], [ %0, %20 ]
+  %.06.i55.idx = phi i64 [ %.06.i55.add, %25 ], [ 0, %20 ]
   %exitcond100 = icmp eq i64 %.06.i55.idx, 13
   br i1 %exitcond100, label %skip_prefix.exit.thread, label %25
 
@@ -975,7 +966,8 @@ skip_prefix.exit.thread.loopexit91:               ; preds = %8
 
 skip_prefix.exit.thread:                          ; preds = %.preheader, %skip_prefix.exit53, %skip_prefix.exit.thread.loopexit91
   %.pr = phi i64 [ %.pr.pre, %skip_prefix.exit.thread.loopexit91 ], [ %16, %skip_prefix.exit53 ], [ %16, %.preheader ]
-  %.060.ph = phi ptr [ %scevgep, %skip_prefix.exit.thread.loopexit91 ], [ %scevgep99, %skip_prefix.exit53 ], [ %scevgep97, %.preheader ]
+  %.pn = phi i64 [ 10, %skip_prefix.exit.thread.loopexit91 ], [ 13, %skip_prefix.exit53 ], [ 11, %.preheader ]
+  %.060.ph = getelementptr i8, ptr %0, i64 %.pn
   %.not35 = icmp eq i64 %.pr, 0
   %30 = load ptr, ptr @exclude_patterns, align 8
   %.not3680 = icmp eq ptr %30, null

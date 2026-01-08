@@ -34844,8 +34844,8 @@ define { ptr, i64 } @_ZN2uv8commands14build_frontend6Source9directory17hf2e2e26f
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZN2uv8commands14build_frontend12BuildMessage19normalized_filename17hc120ae92db76b268E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(120) %0) unnamed_addr #12 {
   %2 = load i64, ptr %0, align 8, !range !100, !noundef !8
   %3 = icmp eq i64 %2, -9223372036854775808
-  %.sroa.0.0.v = select i1 %3, i64 56, i64 72
-  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.0.v
+  %. = select i1 %3, i64 56, i64 72
+  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   ret ptr %.sroa.0.0
 }
 
@@ -34853,18 +34853,15 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN2uv8commands14build_f
 define { ptr, i64 } @_ZN2uv8commands14build_frontend12BuildMessage12raw_filename17haa8e035ee2b5c14cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #12 {
   %2 = load i64, ptr %0, align 8, !range !100, !noundef !8
   %3 = icmp eq i64 %2, -9223372036854775808
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val = load ptr, ptr %4, align 8
-  %.val1 = load ptr, ptr %6, align 8, !nonnull !8
-  %.sroa.0.0 = select i1 %3, ptr %.val, ptr %.val1
-  %.val2 = load i64, ptr %5, align 8
-  %.val3.cast = ptrtoint ptr %.val to i64
-  %.sroa.3.0 = select i1 %3, i64 %.val2, i64 %.val3.cast
-  %7 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %8 = insertvalue { ptr, i64 } %7, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %8
+  %. = select i1 %3, i64 24, i64 16
+  %.2 = select i1 %3, i64 16, i64 8
+  %.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.2
+  %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !nonnull !8, !noundef !8
+  %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !noundef !8
+  %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %5
 }
 
 ; Function Attrs: nonlazybind uwtable

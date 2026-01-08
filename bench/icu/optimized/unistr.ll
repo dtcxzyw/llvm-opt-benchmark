@@ -6454,36 +6454,32 @@ _ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.thread: ; preds = %.sink.split
   %55 = getelementptr i8, ptr %54, i64 -2
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %68
-  %.140 = phi ptr [ %.2, %68 ], [ %53, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %65
+  %.140 = phi ptr [ %.2, %65 ], [ %53, %.lr.ph.preheader ]
   %56 = load i16, ptr %.140, align 2, !tbaa !10
   %57 = and i16 %56, -1024
   %58 = icmp eq i16 %57, -9216
-  br i1 %58, label %59, label %66
+  br i1 %58, label %59, label %65
 
 59:                                               ; preds = %.lr.ph
   %60 = getelementptr inbounds nuw i8, ptr %.140, i64 2
   %61 = load i16, ptr %60, align 2, !tbaa !10
   %62 = and i16 %61, -1024
   %63 = icmp eq i16 %62, -10240
-  br i1 %63, label %64, label %66
+  br i1 %63, label %64, label %65
 
 64:                                               ; preds = %59
   store i16 %61, ptr %.140, align 2, !tbaa !10
-  %65 = getelementptr inbounds nuw i8, ptr %.140, i64 4
   store i16 %56, ptr %60, align 2, !tbaa !10
-  br label %68
+  br label %65
 
-66:                                               ; preds = %59, %.lr.ph
-  %67 = getelementptr inbounds nuw i8, ptr %.140, i64 2
-  br label %68
+65:                                               ; preds = %.lr.ph, %59, %64
+  %.pn = phi i64 [ 4, %64 ], [ 2, %59 ], [ 2, %.lr.ph ]
+  %.2 = getelementptr inbounds nuw i8, ptr %.140, i64 %.pn
+  %66 = icmp ult ptr %.2, %55
+  br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !34
 
-68:                                               ; preds = %66, %64
-  %.2 = phi ptr [ %65, %64 ], [ %67, %66 ]
-  %69 = icmp ult ptr %.2, %55
-  br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !34
-
-.loopexit:                                        ; preds = %68, %43, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit, %3, %5
+.loopexit:                                        ; preds = %65, %43, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit, %3, %5
   ret ptr %0
 }
 

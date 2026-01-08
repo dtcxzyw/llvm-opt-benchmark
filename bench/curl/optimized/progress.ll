@@ -530,17 +530,17 @@ define hidden void @Curl_pgrsSetUploadSize(ptr noundef captures(none) initialize
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_pgrsTimeWas(ptr noundef captures(none) %0, i32 noundef %1, i64 %2, i32 %3) local_unnamed_addr #0 {
   switch i32 %1, label %.thread [
-    i32 11, label %42
+    i32 11, label %35
     i32 1, label %5
     i32 2, label %9
     i32 3, label %14
     i32 10, label %23
-    i32 4, label %25
-    i32 5, label %27
-    i32 6, label %29
-    i32 7, label %31
-    i32 8, label %33
-    i32 9, label %40
+    i32 4, label %43
+    i32 5, label %25
+    i32 6, label %26
+    i32 7, label %27
+    i32 8, label %28
+    i32 9, label %34
   ]
 
 5:                                                ; preds = %4
@@ -587,66 +587,58 @@ define hidden void @Curl_pgrsTimeWas(ptr noundef captures(none) %0, i32 noundef 
   br label %.thread
 
 25:                                               ; preds = %4
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2840
-  br label %50
+  br label %43
+
+26:                                               ; preds = %4
+  br label %43
 
 27:                                               ; preds = %4
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2848
-  br label %50
+  br label %43
 
-29:                                               ; preds = %4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2856
-  br label %50
+28:                                               ; preds = %4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 3124
+  %30 = load i8, ptr %29, align 4
+  %31 = and i8 %30, 2
+  %.not = icmp eq i8 %31, 0
+  br i1 %.not, label %32, label %.thread
 
-31:                                               ; preds = %4
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2864
-  br label %50
+32:                                               ; preds = %28
+  %33 = or disjoint i8 %30, 2
+  store i8 %33, ptr %29, align 4
+  br label %43
 
-33:                                               ; preds = %4
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 3124
-  %35 = load i8, ptr %34, align 4
-  %36 = and i8 %35, 2
-  %.not = icmp eq i8 %36, 0
-  br i1 %.not, label %37, label %.thread
+34:                                               ; preds = %4
+  br label %43
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2880
-  %39 = or disjoint i8 %35, 2
-  store i8 %39, ptr %34, align 4
-  br label %50
-
-40:                                               ; preds = %4
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2872
-  br label %50
-
-42:                                               ; preds = %4
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2896
-  %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2904
-  %46 = load i32, ptr %45, align 8
-  %47 = tail call i64 @Curl_timediff_us(i64 %2, i32 %3, i64 %44, i32 %46) #8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2888
-  store i64 %47, ptr %48, align 8, !tbaa !99
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 2944
-  store i64 %2, ptr %49, align 8, !tbaa !91
+35:                                               ; preds = %4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2896
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2904
+  %39 = load i32, ptr %38, align 8
+  %40 = tail call i64 @Curl_timediff_us(i64 %2, i32 %3, i64 %37, i32 %39) #8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2888
+  store i64 %40, ptr %41, align 8, !tbaa !99
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 2944
+  store i64 %2, ptr %42, align 8, !tbaa !91
   %.sroa.9.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %0, i64 2952
   store i32 %3, ptr %.sroa.9.0..sroa_idx36, align 8, !tbaa !97
   br label %.thread
 
-50:                                               ; preds = %25, %27, %29, %31, %37, %40
-  %.0 = phi ptr [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %38, %37 ], [ %41, %40 ]
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 2912
-  %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 2920
-  %54 = load i32, ptr %53, align 8
-  %55 = tail call i64 @Curl_timediff_us(i64 %2, i32 %3, i64 %52, i32 %54) #8
-  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %55, i64 1)
-  %56 = load i64, ptr %.0, align 8, !tbaa !91
-  %57 = add nsw i64 %56, %spec.store.select
-  store i64 %57, ptr %.0, align 8, !tbaa !91
+43:                                               ; preds = %4, %25, %26, %27, %32, %34
+  %.pn = phi i64 [ 2872, %34 ], [ 2848, %25 ], [ 2856, %26 ], [ 2864, %27 ], [ 2880, %32 ], [ 2840, %4 ]
+  %.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2912
+  %45 = load i64, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 2920
+  %47 = load i32, ptr %46, align 8
+  %48 = tail call i64 @Curl_timediff_us(i64 %2, i32 %3, i64 %45, i32 %47) #8
+  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %48, i64 1)
+  %49 = load i64, ptr %.0, align 8, !tbaa !91
+  %50 = add nsw i64 %49, %spec.store.select
+  store i64 %50, ptr %.0, align 8, !tbaa !91
   br label %.thread
 
-.thread:                                          ; preds = %23, %14, %9, %5, %42, %4, %50, %33
+.thread:                                          ; preds = %23, %14, %9, %5, %35, %4, %43, %28
   ret void
 }
 

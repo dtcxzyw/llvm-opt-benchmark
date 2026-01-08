@@ -8621,7 +8621,6 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread19.i.i: ; preds = %_ZNK4llvm9String
 
 _ZL16FindDriverSuffixN4llvm9StringRefERm.exit.i:  ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i, %46, %43
   %51 = phi i64 [ %45, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i ], [ 0, %46 ], [ 0, %43 ]
-  %.011.ptr29.i.i.le = getelementptr inbounds nuw i8, ptr @_ZZL16FindDriverSuffixN4llvm9StringRefERmE14DriverSuffixes, i64 %.011.idx28.i.i
   %52 = sub i64 %40, %51
   br label %109
 
@@ -8671,7 +8670,6 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread19.i31.i: ; preds = %_ZNK4llvm9Stri
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread.i34.i: ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i29.i, %61, %58
   %66 = phi i64 [ %60, %_ZNK4llvm9StringRef9ends_withES0_.exit.i29.i ], [ 0, %61 ], [ 0, %58 ]
-  %.011.ptr29.i25.i.le = getelementptr inbounds nuw i8, ptr @_ZZL16FindDriverSuffixN4llvm9StringRefERmE14DriverSuffixes, i64 %.011.idx28.i24.i
   %67 = sub i64 %56, %66
   br label %109
 
@@ -8718,7 +8716,6 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread19.i44.i: ; preds = %_ZNK4llvm9Stri
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread.i47.i: ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i42.i, %79, %76
   %84 = phi i64 [ %78, %_ZNK4llvm9StringRef9ends_withES0_.exit.i42.i ], [ 0, %79 ], [ 0, %76 ]
-  %.011.ptr29.i38.i.le = getelementptr inbounds nuw i8, ptr @_ZZL16FindDriverSuffixN4llvm9StringRefERmE14DriverSuffixes, i64 %.011.idx28.i37.i
   %85 = sub i64 %.sroa.speculated.i.i.i.i, %84
   br label %109
 
@@ -8771,7 +8768,6 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread19.i58.i: ; preds = %_ZNK4llvm9Stri
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i: ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i56.i, %95, %92
   %100 = phi i64 [ %94, %_ZNK4llvm9StringRef9ends_withES0_.exit.i56.i ], [ 0, %95 ], [ 0, %92 ]
-  %.011.ptr29.i52.i.le = getelementptr inbounds nuw i8, ptr @_ZZL16FindDriverSuffixN4llvm9StringRefERmE14DriverSuffixes, i64 %.011.idx28.i51.i
   %101 = sub i64 %.sroa.speculated.i.i, %100
   br label %109
 
@@ -8791,14 +8787,15 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i: ; preds = %_ZNK4llvm9String
   store i8 0, ptr %108, align 8, !tbaa !386
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-109:                                              ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i47.i, %_ZL16FindDriverSuffixN4llvm9StringRefERm.exit.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i34.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i
-  %110 = phi ptr [ %93, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i ], [ %59, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i34.i ], [ %44, %_ZL16FindDriverSuffixN4llvm9StringRefERm.exit.i ], [ %77, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i47.i ]
-  %.0.ph = phi i64 [ %101, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i ], [ %67, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i34.i ], [ %52, %_ZL16FindDriverSuffixN4llvm9StringRefERm.exit.i ], [ %85, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i47.i ]
-  %.2.i.ph = phi ptr [ %.011.ptr29.i52.i.le, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i ], [ %.011.ptr29.i25.i.le, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i34.i ], [ %.011.ptr29.i.i.le, %_ZL16FindDriverSuffixN4llvm9StringRefERm.exit.i ], [ %.011.ptr29.i38.i.le, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i47.i ]
+109:                                              ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i47.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i34.i, %_ZL16FindDriverSuffixN4llvm9StringRefERm.exit.i
+  %110 = phi ptr [ %77, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i47.i ], [ %44, %_ZL16FindDriverSuffixN4llvm9StringRefERm.exit.i ], [ %59, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i34.i ], [ %93, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i ]
+  %.sink.i = phi i64 [ %85, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i47.i ], [ %52, %_ZL16FindDriverSuffixN4llvm9StringRefERm.exit.i ], [ %67, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i34.i ], [ %101, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i ]
+  %.011.idx28.i.pn.i = phi i64 [ %.011.idx28.i37.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i47.i ], [ %.011.idx28.i.i, %_ZL16FindDriverSuffixN4llvm9StringRefERm.exit.i ], [ %.011.idx28.i24.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i34.i ], [ %.011.idx28.i51.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread.i61.i ]
+  %.2.ph.i = getelementptr inbounds nuw i8, ptr @_ZZL16FindDriverSuffixN4llvm9StringRefERmE14DriverSuffixes, i64 %.011.idx28.i.pn.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %111 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %110) #33
-  %112 = add i64 %111, %.0.ph
-  %113 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef signext 45, i64 noundef %.0.ph) #28
+  %112 = add i64 %111, %.sink.i
+  %113 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef signext 45, i64 noundef %.sink.i) #28
   %114 = icmp eq i64 %113, -1
   br i1 %114, label %115, label %157
 
@@ -8845,7 +8842,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit: ; preds =
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 %127
   store i8 0, ptr %130, align 1, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !387
-  %131 = getelementptr inbounds nuw i8, ptr %.2.i.ph, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %.2.ph.i, i64 8
   %132 = load ptr, ptr %131, align 8, !tbaa !390
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %133, ptr %0, align 8, !tbaa !10
@@ -9115,7 +9112,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 %231
   store i8 0, ptr %234, align 1, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %235 = getelementptr inbounds nuw i8, ptr %.2.i.ph, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %.2.ph.i, i64 8
   %236 = load ptr, ptr %235, align 8, !tbaa !390
   call void @_ZN5clang6driver15ParsedClangNameC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PKcb(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %236, i1 noundef zeroext %203)
   %237 = load ptr, ptr %18, align 8, !tbaa !13

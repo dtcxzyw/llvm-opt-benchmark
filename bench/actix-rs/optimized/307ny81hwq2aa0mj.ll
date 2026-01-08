@@ -212,17 +212,14 @@ define internal noundef zeroext i1 @"_ZN49_$LT$mime..Mime$u20$as$u20$core..fmt..
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i8, ptr %3, align 8, !range !50, !alias.scope !51, !noundef !4
   %trunc.i = trunc nuw i8 %4 to i1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.val.i = load ptr, ptr %6, align 8, !alias.scope !51
-  %.val4.i = load ptr, ptr %5, align 8, !alias.scope !51, !nonnull !4
-  %.sroa.0.0.i = select i1 %trunc.i, ptr %.val.i, ptr %.val4.i
-  %.val5.i = load i64, ptr %7, align 8, !alias.scope !51
-  %.val6.cast.i = ptrtoint ptr %.val.i to i64
-  %.sroa.3.0.i = select i1 %trunc.i, i64 %.val5.i, i64 %.val6.cast.i
-  %8 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfca0302627bbc104E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
-  ret i1 %8
+  %..i = select i1 %trunc.i, i64 24, i64 16
+  %.5.i = select i1 %trunc.i, i64 16, i64 8
+  %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %3, i64 %.5.i
+  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !alias.scope !51, !nonnull !4, !noundef !4
+  %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %3, i64 %..i
+  %.sroa.3.0.i = load i64, ptr %.sroa.3.0.in.i, align 8, !alias.scope !51, !noundef !4
+  %5 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfca0302627bbc104E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  ret i1 %5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

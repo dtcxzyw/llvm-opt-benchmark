@@ -16149,9 +16149,9 @@ while.body.i:                                     ; preds = %if.end3, %while.con
   %cmp2.not.i = icmp eq i8 %0, 92
   br i1 %cmp2.not.i, label %if.end.i, label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %_ZN4node9inspector8protocol12_GLOBAL__N_18hexToIntIhEEiT_.exit56.i, %sw.bb19.i, %sw.bb18.i, %sw.bb17.i, %sw.bb16.i, %sw.bb15.i, %sw.bb14.i, %if.end6.i, %if.end6.i, %if.end6.i, %while.body.i
-  %.sink.i = phi i8 [ %add29.i, %_ZN4node9inspector8protocol12_GLOBAL__N_18hexToIntIhEEiT_.exit56.i ], [ %1, %if.end6.i ], [ %1, %if.end6.i ], [ %1, %if.end6.i ], [ 8, %sw.bb14.i ], [ 12, %sw.bb15.i ], [ 10, %sw.bb16.i ], [ 13, %sw.bb17.i ], [ 9, %sw.bb18.i ], [ 11, %sw.bb19.i ], [ %0, %while.body.i ]
-  %start.addr.0.be.i = phi ptr [ %add.ptr31.i, %_ZN4node9inspector8protocol12_GLOBAL__N_18hexToIntIhEEiT_.exit56.i ], [ %incdec.ptr7.i, %if.end6.i ], [ %incdec.ptr7.i, %if.end6.i ], [ %incdec.ptr7.i, %if.end6.i ], [ %incdec.ptr7.i, %sw.bb14.i ], [ %incdec.ptr7.i, %sw.bb15.i ], [ %incdec.ptr7.i, %sw.bb16.i ], [ %incdec.ptr7.i, %sw.bb17.i ], [ %incdec.ptr7.i, %sw.bb18.i ], [ %incdec.ptr7.i, %sw.bb19.i ], [ %incdec.ptr.i, %while.body.i ]
+while.cond.backedge.i:                            ; preds = %sw.epilog.i, %while.body.i
+  %.sink.i = phi i8 [ %c.0.i, %sw.epilog.i ], [ %0, %while.body.i ]
+  %start.addr.0.be.i = phi ptr [ %start.addr.1.i, %sw.epilog.i ], [ %incdec.ptr.i, %while.body.i ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(112) %buffer, i8 noundef signext %.sink.i) #28
   %cmp.not.i = icmp ult ptr %start.addr.0.be.i, %end
   br i1 %cmp.not.i, label %while.body.i, label %if.end6, !llvm.loop !335
@@ -16161,13 +16161,12 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp4.i, label %cleanup, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  %incdec.ptr7.i = getelementptr inbounds nuw i8, ptr %start.addr.060.i, i64 2
   %1 = load i8, ptr %incdec.ptr.i, align 1
   switch i8 %1, label %cleanup [
     i8 117, label %sw.bb20.i
-    i8 34, label %while.cond.backedge.i
-    i8 47, label %while.cond.backedge.i
-    i8 92, label %while.cond.backedge.i
+    i8 34, label %sw.epilog.i
+    i8 47, label %sw.epilog.i
+    i8 92, label %sw.epilog.i
     i8 98, label %sw.bb14.i
     i8 102, label %sw.bb15.i
     i8 110, label %sw.bb16.i
@@ -16177,22 +16176,22 @@ if.end6.i:                                        ; preds = %if.end.i
   ]
 
 sw.bb14.i:                                        ; preds = %if.end6.i
-  br label %while.cond.backedge.i
+  br label %sw.epilog.i
 
 sw.bb15.i:                                        ; preds = %if.end6.i
-  br label %while.cond.backedge.i
+  br label %sw.epilog.i
 
 sw.bb16.i:                                        ; preds = %if.end6.i
-  br label %while.cond.backedge.i
+  br label %sw.epilog.i
 
 sw.bb17.i:                                        ; preds = %if.end6.i
-  br label %while.cond.backedge.i
+  br label %sw.epilog.i
 
 sw.bb18.i:                                        ; preds = %if.end6.i
-  br label %while.cond.backedge.i
+  br label %sw.epilog.i
 
 sw.bb19.i:                                        ; preds = %if.end6.i
-  br label %while.cond.backedge.i
+  br label %sw.epilog.i
 
 sw.bb20.i:                                        ; preds = %if.end6.i
   %add.ptr23.i = getelementptr inbounds nuw i8, ptr %start.addr.060.i, i64 4
@@ -16245,7 +16244,12 @@ if.end12.i47.i:                                   ; preds = %if.end.i45.i
 _ZN4node9inspector8protocol12_GLOBAL__N_18hexToIntIhEEiT_.exit56.i: ; preds = %if.end12.i47.i, %if.then9.i52.i, %_ZN4node9inspector8protocol12_GLOBAL__N_18hexToIntIhEEiT_.exit42.i
   %retval.0.i51.i = phi i8 [ %spec.select.i50.i, %if.end12.i47.i ], [ %add.i53.i, %if.then9.i52.i ], [ %7, %_ZN4node9inspector8protocol12_GLOBAL__N_18hexToIntIhEEiT_.exit42.i ]
   %add29.i = or i8 %retval.0.i51.i, %shl25.i
-  %add.ptr31.i = getelementptr inbounds nuw i8, ptr %start.addr.060.i, i64 6
+  br label %sw.epilog.i
+
+sw.epilog.i:                                      ; preds = %_ZN4node9inspector8protocol12_GLOBAL__N_18hexToIntIhEEiT_.exit56.i, %sw.bb19.i, %sw.bb18.i, %sw.bb17.i, %sw.bb16.i, %sw.bb15.i, %sw.bb14.i, %if.end6.i, %if.end6.i, %if.end6.i
+  %.pn.i = phi i64 [ 2, %if.end6.i ], [ 2, %if.end6.i ], [ 2, %if.end6.i ], [ 2, %sw.bb14.i ], [ 2, %sw.bb15.i ], [ 2, %sw.bb16.i ], [ 2, %sw.bb17.i ], [ 2, %sw.bb18.i ], [ 2, %sw.bb19.i ], [ 6, %_ZN4node9inspector8protocol12_GLOBAL__N_18hexToIntIhEEiT_.exit56.i ]
+  %c.0.i = phi i8 [ %1, %if.end6.i ], [ %1, %if.end6.i ], [ %1, %if.end6.i ], [ 8, %sw.bb14.i ], [ 12, %sw.bb15.i ], [ 10, %sw.bb16.i ], [ 13, %sw.bb17.i ], [ 9, %sw.bb18.i ], [ 11, %sw.bb19.i ], [ %add29.i, %_ZN4node9inspector8protocol12_GLOBAL__N_18hexToIntIhEEiT_.exit56.i ]
+  %start.addr.1.i = getelementptr inbounds nuw i8, ptr %start.addr.060.i, i64 %.pn.i
   br label %while.cond.backedge.i
 
 if.end6:                                          ; preds = %while.cond.backedge.i, %if.end3

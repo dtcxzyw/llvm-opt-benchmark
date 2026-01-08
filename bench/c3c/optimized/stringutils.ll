@@ -192,35 +192,31 @@ define dso_local noundef zeroext i1 @str_is_type(ptr noundef readonly captures(n
 scan_past_underscore.exit:                        ; preds = %2
   %6 = add i8 %3, -65
   %7 = icmp ult i8 %6, 26
-  br i1 %7, label %8, label %scan_past_underscore.exit.thread
+  br i1 %7, label %.outer, label %scan_past_underscore.exit.thread
 
-8:                                                ; preds = %scan_past_underscore.exit
-  %9 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %.outer
+.outer:                                           ; preds = %10, %scan_past_underscore.exit
+  %.pn.ph = phi ptr [ %.0.i, %scan_past_underscore.exit ], [ %.08, %10 ]
+  %.0.ph = phi i1 [ false, %scan_past_underscore.exit ], [ true, %10 ]
+  br label %8
 
-.outer:                                           ; preds = %13, %8
-  %.08.ph = phi ptr [ %9, %8 ], [ %11, %13 ]
-  %.0.ph = phi i1 [ false, %8 ], [ true, %13 ]
-  br label %10
+8:                                                ; preds = %.outer, %13
+  %.pn = phi ptr [ %.08, %13 ], [ %.pn.ph, %.outer ]
+  %.08 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
+  %9 = load i8, ptr %.08, align 1
+  %.not11 = icmp eq i8 %9, 0
+  br i1 %.not11, label %scan_past_underscore.exit.thread, label %10
 
-10:                                               ; preds = %.outer, %16
-  %.08 = phi ptr [ %11, %16 ], [ %.08.ph, %.outer ]
-  %11 = getelementptr inbounds nuw i8, ptr %.08, i64 1
-  %12 = load i8, ptr %.08, align 1
-  %.not11 = icmp eq i8 %12, 0
-  br i1 %.not11, label %scan_past_underscore.exit.thread, label %13
+10:                                               ; preds = %8
+  %11 = add i8 %9, -97
+  %12 = icmp ult i8 %11, 26
+  br i1 %12, label %.outer, label %13, !llvm.loop !13
 
 13:                                               ; preds = %10
-  %14 = add i8 %12, -97
-  %15 = icmp ult i8 %14, 26
-  br i1 %15, label %.outer, label %16, !llvm.loop !13
+  %14 = tail call fastcc zeroext i1 @char_is_alphanum_(i8 noundef signext %9)
+  br i1 %14, label %8, label %scan_past_underscore.exit.thread, !llvm.loop !13
 
-16:                                               ; preds = %13
-  %17 = tail call fastcc zeroext i1 @char_is_alphanum_(i8 noundef signext %12)
-  br i1 %17, label %10, label %scan_past_underscore.exit.thread, !llvm.loop !13
-
-scan_past_underscore.exit.thread:                 ; preds = %2, %10, %16, %scan_past_underscore.exit
-  %.09 = phi i1 [ false, %scan_past_underscore.exit ], [ false, %16 ], [ %.0.ph, %10 ], [ false, %2 ]
+scan_past_underscore.exit.thread:                 ; preds = %2, %8, %13, %scan_past_underscore.exit
+  %.09 = phi i1 [ false, %scan_past_underscore.exit ], [ false, %13 ], [ %.0.ph, %8 ], [ false, %2 ]
   ret i1 %.09
 }
 

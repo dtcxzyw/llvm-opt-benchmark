@@ -507,7 +507,6 @@ if.then55.i.i:                                    ; preds = %if.end44.i.i
   unreachable
 
 "_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit.thread147": ; preds = %if.end44.i.i
-  %add.ptr45.i.i = getelementptr inbounds nuw i8, ptr %begin8.0158, i64 3
   %8 = and i8 %6, 63
   %and51.i.i = zext nneg i8 %8 to i32
   %or52.i.i = or disjoint i32 %or50.i.i, %and51.i.i
@@ -570,7 +569,6 @@ if.end128.i.i:                                    ; preds = %if.end112.i.i
   %and122.i.i = zext nneg i8 %14 to i32
   %15 = or disjoint i32 %shl120.i.i, %and122.i.i
   %or123.i.i = or disjoint i32 %15, %or118.i.i
-  %add.ptr113.i.i = getelementptr inbounds nuw i8, ptr %begin8.0158, i64 4
   %cmp129.i.i = icmp samesign ugt i32 %or118.i.i, 1114111
   br i1 %cmp129.i.i, label %if.then131.i.i, label %if.then
 
@@ -600,12 +598,12 @@ _ZN4llvhplERKNS_5TwineES2_.exit.i.i:              ; preds = %if.else68.i.i
 "_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit": ; preds = %if.end.i.i
   %and10.i.i = and i32 %conv386.i.i, 63
   %or.i.i = or disjoint i32 %and10.i.i, %shl.i.i
-  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %begin8.0158, i64 2
   br label %if.then
 
 if.then:                                          ; preds = %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit.thread147", %if.end128.i.i, %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit"
+  %.sink = phi i64 [ 2, %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit" ], [ 3, %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit.thread147" ], [ 4, %if.end128.i.i ]
   %retval.0.i.i152 = phi i32 [ %or.i.i, %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit" ], [ %or52.i.i, %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit.thread147" ], [ %or123.i.i, %if.end128.i.i ]
-  %begin8.1151 = phi ptr [ %add.ptr8.i.i, %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit" ], [ %add.ptr45.i.i, %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit.thread147" ], [ %add.ptr113.i.i, %if.end128.i.i ]
+  %begin8.1 = getelementptr inbounds nuw i8, ptr %begin8.0158, i64 %.sink
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp132.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp133.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp134.i.i)
@@ -670,7 +668,7 @@ if.then.i.i21:                                    ; preds = %for.end
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit129, %if.then.i.i52, %if.then4.i.i49, %if.then.i.i67, %if.then4.i.i64, %if.then.i.i82, %if.then4.i.i79, %if.then.i.i97, %if.then4.i.i94, %if.then.i.i112, %if.then4.i.i109, %if.end.i37, %if.then.i34, %if.then.i.i21, %for.end
-  %begin8.0.be = phi ptr [ %incdec.ptr.i17, %if.end.i37 ], [ %begin8.1151, %if.then.i.i21 ], [ %begin8.1151, %for.end ], [ %incdec.ptr.i17, %if.then.i34 ], [ %incdec.ptr.i17, %if.then4.i.i109 ], [ %incdec.ptr.i17, %if.then.i.i112 ], [ %incdec.ptr.i17, %if.then4.i.i94 ], [ %incdec.ptr.i17, %if.then.i.i97 ], [ %incdec.ptr.i17, %if.then4.i.i79 ], [ %incdec.ptr.i17, %if.then.i.i82 ], [ %incdec.ptr.i17, %if.then4.i.i64 ], [ %incdec.ptr.i17, %if.then.i.i67 ], [ %incdec.ptr.i17, %if.then4.i.i49 ], [ %incdec.ptr.i17, %if.then.i.i52 ], [ %incdec.ptr.i17, %_ZN4llvh11raw_ostreamlsEPKc.exit129 ]
+  %begin8.0.be = phi ptr [ %incdec.ptr.i17, %if.end.i37 ], [ %begin8.1, %if.then.i.i21 ], [ %begin8.1, %for.end ], [ %incdec.ptr.i17, %if.then.i34 ], [ %incdec.ptr.i17, %if.then4.i.i109 ], [ %incdec.ptr.i17, %if.then.i.i112 ], [ %incdec.ptr.i17, %if.then4.i.i94 ], [ %incdec.ptr.i17, %if.then.i.i97 ], [ %incdec.ptr.i17, %if.then4.i.i79 ], [ %incdec.ptr.i17, %if.then.i.i82 ], [ %incdec.ptr.i17, %if.then4.i.i64 ], [ %incdec.ptr.i17, %if.then.i.i67 ], [ %incdec.ptr.i17, %if.then4.i.i49 ], [ %incdec.ptr.i17, %if.then.i.i52 ], [ %incdec.ptr.i17, %_ZN4llvh11raw_ostreamlsEPKc.exit129 ]
   %cmp.not = icmp eq ptr %begin8.0.be, %add.ptr.i13
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !9
 

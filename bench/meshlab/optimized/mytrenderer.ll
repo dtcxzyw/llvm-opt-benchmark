@@ -6373,43 +6373,42 @@ _ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv
   br i1 %.not.i, label %16, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit, %.preheader.i
-  %.011.i.i = phi ptr [ %.1.i.i, %.preheader.i ], [ null, %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit ]
+  %.011.i.i = phi ptr [ %.0..08.i.i, %.preheader.i ], [ null, %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit ]
   %.0810.i.i = phi ptr [ %.19.i.i, %.preheader.i ], [ %10, %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit ]
   %11 = getelementptr inbounds nuw i8, ptr %.0810.i.i, i64 24
   %12 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %1) #12
-  %.19.in.v.i.i = select i1 %12, i64 16, i64 8
-  %.19.in.i.i = getelementptr inbounds nuw i8, ptr %.0810.i.i, i64 %.19.in.v.i.i
-  %.1.i.i = select i1 %12, ptr %.011.i.i, ptr %.0810.i.i
+  %..i.i = select i1 %12, i64 16, i64 8
+  %.0..08.i.i = select i1 %12, ptr %.011.i.i, ptr %.0810.i.i
+  %.19.in.i.i = getelementptr inbounds nuw i8, ptr %.0810.i.i, i64 %..i.i
   %.19.i.i = load ptr, ptr %.19.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.19.i.i, null
   br i1 %.not.i.i, label %_ZN8QMapNodeI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10lowerBoundERKS0_.exit.i, label %.preheader.i, !llvm.loop !50
 
 _ZN8QMapNodeI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10lowerBoundERKS0_.exit.i: ; preds = %.preheader.i
-  %.not11.i = icmp eq ptr %.1.i.i, null
+  %.not11.i = icmp eq ptr %.0..08.i.i, null
   br i1 %.not11.i, label %16, label %13
 
 13:                                               ; preds = %_ZN8QMapNodeI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10lowerBoundERKS0_.exit.i
-  %14 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.0..08.i.i, i64 24
   %15 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %14) #12
-  br i1 %15, label %16, label %_ZNK8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE8findNodeERKS0_.exit
+  br i1 %15, label %16, label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitiveD2Ev.exit
 
 16:                                               ; preds = %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit, %_ZN8QMapNodeI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10lowerBoundERKS0_.exit.i, %13
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
   %17 = invoke ptr @_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6insertERKS0_RKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %18 unwind label %24
+          to label %18 unwind label %23
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %20 = load ptr, ptr %3, align 8
-  %21 = load atomic i32, ptr %20 monotonic, align 4
-  switch i32 %21, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i [
+  %19 = load ptr, ptr %3, align 8
+  %20 = load atomic i32, ptr %19 monotonic, align 4
+  switch i32 %20, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
     i32 -1, label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitiveD2Ev.exit
   ]
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i.i:          ; preds = %18
-  %22 = atomicrmw sub ptr %20, i32 1 seq_cst, align 4
-  %.not.i.i8 = icmp eq i32 %22, 1
+  %21 = atomicrmw sub ptr %19, i32 1 seq_cst, align 4
+  %.not.i.i8 = icmp eq i32 %21, 1
   br i1 %.not.i.i8, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i, label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitiveD2Ev.exit
 
 _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i.i
@@ -6417,22 +6416,19 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i, %18
-  %23 = phi ptr [ %.pre.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i ], [ %20, %18 ]
-  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %23, i64 noundef 2, i64 noundef 8) #12
+  %22 = phi ptr [ %.pre.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i ], [ %19, %18 ]
+  call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %22, i64 noundef 2, i64 noundef 8) #12
   br label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitiveD2Ev.exit
 
-24:                                               ; preds = %16
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %16
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14StructureSynth5Model9Rendering17TemplatePrimitiveD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  resume { ptr, i32 } %25
+  resume { ptr, i32 } %24
 
-_ZNK8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE8findNodeERKS0_.exit: ; preds = %13
-  %26 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
-  br label %_ZN14StructureSynth5Model9Rendering17TemplatePrimitiveD2Ev.exit
-
-_ZN14StructureSynth5Model9Rendering17TemplatePrimitiveD2Ev.exit: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %18, %_ZNK8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE8findNodeERKS0_.exit
-  %.0 = phi ptr [ %26, %_ZNK8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE8findNodeERKS0_.exit ], [ %19, %18 ], [ %19, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i ], [ %19, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i ]
+_ZN14StructureSynth5Model9Rendering17TemplatePrimitiveD2Ev.exit: ; preds = %13, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %18
+  %.0..08.i.i.pn = phi ptr [ %17, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i ], [ %17, %18 ], [ %17, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i ], [ %.0..08.i.i, %13 ]
+  %.0 = getelementptr inbounds nuw i8, ptr %.0..08.i.i.pn, i64 32
   ret ptr %.0
 }
 
@@ -6458,28 +6454,28 @@ _ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv
 
 .lr.ph:                                           ; preds = %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit, %.lr.ph
   %.027 = phi ptr [ %.0, %.lr.ph ], [ %.024, %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit ]
-  %.02026 = phi ptr [ %.121, %.lr.ph ], [ null, %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit ]
+  %.02026 = phi ptr [ %.020..0, %.lr.ph ], [ null, %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit ]
   %11 = getelementptr inbounds nuw i8, ptr %.027, i64 24
   %12 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %1) #12
-  %.121 = select i1 %12, ptr %.02026, ptr %.027
-  %.1.in.v = select i1 %12, i64 16, i64 8
-  %.1.in = getelementptr inbounds nuw i8, ptr %.027, i64 %.1.in.v
+  %.020..0 = select i1 %12, ptr %.02026, ptr %.027
+  %. = select i1 %12, i64 16, i64 8
+  %.1.in = getelementptr inbounds nuw i8, ptr %.027, i64 %.
   %.0 = load ptr, ptr %.1.in, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %13, label %.lr.ph, !llvm.loop !51
 
 13:                                               ; preds = %.lr.ph
   %.119.le = xor i1 %12, true
-  %.not23 = icmp eq ptr %.121, null
+  %.not23 = icmp eq ptr %.020..0, null
   br i1 %.not23, label %.thread, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds nuw i8, ptr %.121, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.020..0, i64 24
   %16 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %15) #12
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %.121, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.020..0, i64 32
   br label %27
 
 .thread:                                          ; preds = %_ZN4QMapI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE6detachEv.exit, %14, %13
@@ -6506,7 +6502,7 @@ _ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10cre
 
 27:                                               ; preds = %_ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10createNodeERKS0_RKS4_P8QMapNodeIS0_S4_Eb.exit, %17
   %.sink = phi ptr [ %26, %_ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10createNodeERKS0_RKS4_P8QMapNodeIS0_S4_Eb.exit ], [ %18, %17 ]
-  %.sroa.0.0 = phi ptr [ %20, %_ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10createNodeERKS0_RKS4_P8QMapNodeIS0_S4_Eb.exit ], [ %.121, %17 ]
+  %.sroa.0.0 = phi ptr [ %20, %_ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10createNodeERKS0_RKS4_P8QMapNodeIS0_S4_Eb.exit ], [ %.020..0, %17 ]
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %.sink, ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   ret ptr %.sroa.0.0
 }

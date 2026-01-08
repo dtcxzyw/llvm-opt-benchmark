@@ -1578,7 +1578,7 @@ define internal ptr @bytearray_repr(ptr noundef readonly captures(none) %0) #0 {
 9:                                                ; preds = %1
   %10 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !4
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.9) #16
-  br label %88
+  br label %82
 
 11:                                               ; preds = %1
   %12 = shl i64 %.val, 2
@@ -1590,7 +1590,7 @@ define internal ptr @bytearray_repr(ptr noundef readonly captures(none) %0) #0 {
 
 17:                                               ; preds = %11
   %18 = tail call ptr @PyErr_NoMemory() #16
-  br label %88
+  br label %82
 
 19:                                               ; preds = %11
   %.val.i = load i64, ptr %4, align 8, !tbaa !16
@@ -1675,111 +1675,106 @@ PyByteArray_AS_STRING.exit99:                     ; preds = %38, %40
   %43 = icmp sgt i64 %.val, 0
   br i1 %43, label %.lr.ph114, label %._crit_edge115
 
-.lr.ph114:                                        ; preds = %PyByteArray_AS_STRING.exit99, %82
-  %.282113 = phi ptr [ %.3, %82 ], [ %39, %PyByteArray_AS_STRING.exit99 ]
-  %.085112 = phi i64 [ %83, %82 ], [ 0, %PyByteArray_AS_STRING.exit99 ]
+.lr.ph114:                                        ; preds = %PyByteArray_AS_STRING.exit99, %76
+  %.282113 = phi ptr [ %.3, %76 ], [ %39, %PyByteArray_AS_STRING.exit99 ]
+  %.085112 = phi i64 [ %77, %76 ], [ 0, %PyByteArray_AS_STRING.exit99 ]
   %44 = getelementptr i8, ptr %.0.i98, i64 %.085112
   %45 = load i8, ptr %44, align 1, !tbaa !17
   %46 = zext i8 %45 to i32
-  switch i8 %45, label %64 [
+  switch i8 %45, label %59 [
     i8 92, label %47
     i8 39, label %47
-    i8 9, label %50
-    i8 10, label %53
-    i8 13, label %56
-    i8 0, label %59
+    i8 9, label %49
+    i8 10, label %51
+    i8 13, label %53
+    i8 0, label %55
   ]
 
 47:                                               ; preds = %.lr.ph114, %.lr.ph114
   %48 = getelementptr i8, ptr %.282113, i64 1
   store i8 92, ptr %.282113, align 1, !tbaa !17
-  %49 = getelementptr i8, ptr %.282113, i64 2
   store i8 %45, ptr %48, align 1, !tbaa !17
-  br label %82
+  br label %76
 
-50:                                               ; preds = %.lr.ph114
-  %51 = getelementptr i8, ptr %.282113, i64 1
+49:                                               ; preds = %.lr.ph114
+  %50 = getelementptr i8, ptr %.282113, i64 1
   store i8 92, ptr %.282113, align 1, !tbaa !17
-  %52 = getelementptr i8, ptr %.282113, i64 2
-  store i8 116, ptr %51, align 1, !tbaa !17
-  br label %82
+  store i8 116, ptr %50, align 1, !tbaa !17
+  br label %76
+
+51:                                               ; preds = %.lr.ph114
+  %52 = getelementptr i8, ptr %.282113, i64 1
+  store i8 92, ptr %.282113, align 1, !tbaa !17
+  store i8 110, ptr %52, align 1, !tbaa !17
+  br label %76
 
 53:                                               ; preds = %.lr.ph114
   %54 = getelementptr i8, ptr %.282113, i64 1
   store i8 92, ptr %.282113, align 1, !tbaa !17
-  %55 = getelementptr i8, ptr %.282113, i64 2
-  store i8 110, ptr %54, align 1, !tbaa !17
-  br label %82
+  store i8 114, ptr %54, align 1, !tbaa !17
+  br label %76
 
-56:                                               ; preds = %.lr.ph114
-  %57 = getelementptr i8, ptr %.282113, i64 1
+55:                                               ; preds = %.lr.ph114
+  %56 = getelementptr i8, ptr %.282113, i64 1
   store i8 92, ptr %.282113, align 1, !tbaa !17
-  %58 = getelementptr i8, ptr %.282113, i64 2
-  store i8 114, ptr %57, align 1, !tbaa !17
-  br label %82
+  %57 = getelementptr i8, ptr %.282113, i64 2
+  store i8 120, ptr %56, align 1, !tbaa !17
+  %58 = getelementptr i8, ptr %.282113, i64 3
+  store i8 48, ptr %57, align 1, !tbaa !17
+  store i8 48, ptr %58, align 1, !tbaa !17
+  br label %76
 
 59:                                               ; preds = %.lr.ph114
-  %60 = getelementptr i8, ptr %.282113, i64 1
+  %60 = add i8 %45, -127
+  %or.cond5 = icmp ult i8 %60, -95
+  br i1 %or.cond5, label %61, label %75
+
+61:                                               ; preds = %59
+  %62 = getelementptr i8, ptr %.282113, i64 1
   store i8 92, ptr %.282113, align 1, !tbaa !17
-  %61 = getelementptr i8, ptr %.282113, i64 2
-  store i8 120, ptr %60, align 1, !tbaa !17
-  %62 = getelementptr i8, ptr %.282113, i64 3
-  store i8 48, ptr %61, align 1, !tbaa !17
-  %63 = getelementptr i8, ptr %.282113, i64 4
-  store i8 48, ptr %62, align 1, !tbaa !17
-  br label %82
+  %63 = getelementptr i8, ptr %.282113, i64 2
+  store i8 120, ptr %62, align 1, !tbaa !17
+  %64 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !38
+  %65 = lshr i32 %46, 4
+  %66 = zext nneg i32 %65 to i64
+  %67 = getelementptr i8, ptr %64, i64 %66
+  %68 = load i8, ptr %67, align 1, !tbaa !17
+  %69 = getelementptr i8, ptr %.282113, i64 3
+  store i8 %68, ptr %63, align 1, !tbaa !17
+  %70 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !38
+  %71 = and i32 %46, 15
+  %72 = zext nneg i32 %71 to i64
+  %73 = getelementptr i8, ptr %70, i64 %72
+  %74 = load i8, ptr %73, align 1, !tbaa !17
+  store i8 %74, ptr %69, align 1, !tbaa !17
+  br label %76
 
-64:                                               ; preds = %.lr.ph114
-  %65 = add i8 %45, -127
-  %or.cond5 = icmp ult i8 %65, -95
-  %66 = getelementptr i8, ptr %.282113, i64 1
-  br i1 %or.cond5, label %67, label %81
-
-67:                                               ; preds = %64
-  store i8 92, ptr %.282113, align 1, !tbaa !17
-  %68 = getelementptr i8, ptr %.282113, i64 2
-  store i8 120, ptr %66, align 1, !tbaa !17
-  %69 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !38
-  %70 = lshr i32 %46, 4
-  %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr i8, ptr %69, i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !17
-  %74 = getelementptr i8, ptr %.282113, i64 3
-  store i8 %73, ptr %68, align 1, !tbaa !17
-  %75 = load ptr, ptr @Py_hexdigits, align 8, !tbaa !38
-  %76 = and i32 %46, 15
-  %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr i8, ptr %75, i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !17
-  %80 = getelementptr i8, ptr %.282113, i64 4
-  store i8 %79, ptr %74, align 1, !tbaa !17
-  br label %82
-
-81:                                               ; preds = %64
+75:                                               ; preds = %59
   store i8 %45, ptr %.282113, align 1, !tbaa !17
-  br label %82
+  br label %76
 
-82:                                               ; preds = %47, %53, %59, %81, %67, %56, %50
-  %.3 = phi ptr [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %63, %59 ], [ %80, %67 ], [ %66, %81 ]
-  %83 = add nuw nsw i64 %.085112, 1
-  %exitcond122.not = icmp eq i64 %83, %.val
+76:                                               ; preds = %47, %51, %55, %75, %61, %53, %49
+  %.pn = phi i64 [ 2, %47 ], [ 2, %49 ], [ 2, %51 ], [ 2, %53 ], [ 4, %55 ], [ 4, %61 ], [ 1, %75 ]
+  %.3 = getelementptr i8, ptr %.282113, i64 %.pn
+  %77 = add nuw nsw i64 %.085112, 1
+  %exitcond122.not = icmp eq i64 %77, %.val
   br i1 %exitcond122.not, label %._crit_edge115, label %.lr.ph114, !llvm.loop !39
 
-._crit_edge115:                                   ; preds = %82, %PyByteArray_AS_STRING.exit99
-  %.282.lcssa = phi ptr [ %39, %PyByteArray_AS_STRING.exit99 ], [ %.3, %82 ]
+._crit_edge115:                                   ; preds = %76, %PyByteArray_AS_STRING.exit99
+  %.282.lcssa = phi ptr [ %39, %PyByteArray_AS_STRING.exit99 ], [ %.3, %76 ]
   store i8 %.1, ptr %.282.lcssa, align 1, !tbaa !17
   %.4117 = getelementptr i8, ptr %.282.lcssa, i64 1
   %.4 = getelementptr i8, ptr %.282.lcssa, i64 2
   store i8 41, ptr %.4117, align 1, !tbaa !17
-  %84 = ptrtoint ptr %.4 to i64
-  %85 = ptrtoint ptr %15 to i64
-  %86 = sub i64 %84, %85
-  %87 = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %15, i64 noundef %86) #16
+  %78 = ptrtoint ptr %.4 to i64
+  %79 = ptrtoint ptr %15 to i64
+  %80 = sub i64 %78, %79
+  %81 = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %15, i64 noundef %80) #16
   tail call void @PyMem_Free(ptr noundef nonnull %15) #16
-  br label %88
+  br label %82
 
-88:                                               ; preds = %._crit_edge115, %17, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %17 ], [ %87, %._crit_edge115 ]
+82:                                               ; preds = %._crit_edge115, %17, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %17 ], [ %81, %._crit_edge115 ]
   ret ptr %.0
 }
 

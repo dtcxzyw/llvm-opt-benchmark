@@ -3778,7 +3778,7 @@ _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %5, %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
   %18 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv()
-          to label %.noexc unwind label %69
+          to label %.noexc unwind label %67
 
 .noexc:                                           ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
   %19 = load ptr, ptr %18, align 8, !tbaa !203, !noalias !200
@@ -3812,17 +3812,17 @@ _ZN5folly14RequestContext11saveContextEv.exit:    ; preds = %29, %26, %.noexc
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 %4, ptr %32, align 16, !tbaa !209
   %33 = invoke noundef i64 @_ZN5folly20processLocalUniqueIdEv()
-          to label %34 unwind label %71
+          to label %34 unwind label %69
 
 34:                                               ; preds = %_ZN5folly14RequestContext11saveContextEv.exit
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %33, ptr %35, align 8, !tbaa !218
   %36 = icmp sgt i64 %2, 0
-  br i1 %36, label %37, label %75
+  br i1 %36, label %37, label %73
 
 37:                                               ; preds = %34
   %38 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #38
-          to label %39 unwind label %73
+          to label %39 unwind label %71
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 64
@@ -3833,109 +3833,107 @@ _ZN5folly14RequestContext11saveContextEv.exit:    ; preds = %29, %26, %.noexc
   %42 = load ptr, ptr %31, align 8, !tbaa !222
   store ptr %38, ptr %31, align 8, !tbaa !222
   %.not.i.i.i.i10 = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i10, label %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.thread, label %45
+  br i1 %.not.i.i.i.i10, label %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.thread, label %44
 
 _ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.thread: ; preds = %39
   store i64 %2, ptr %38, align 16, !tbaa !52
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %44 = getelementptr inbounds nuw i8, ptr %38, i64 72
   br label %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit.i
 
-45:                                               ; preds = %39
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 72
-  %47 = load ptr, ptr %46, align 8, !tbaa !199
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit, label %48
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 72
+  %46 = load ptr, ptr %45, align 8, !tbaa !199
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %46, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit, label %47
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %50 = tail call noundef i64 %47(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %49, ptr noundef null) #12
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %49 = tail call noundef i64 %46(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %48, ptr noundef null) #12
   br label %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit
 
-_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit: ; preds = %45, %48
+_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit: ; preds = %44, %47
   tail call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef 80) #35
   %.pre = load ptr, ptr %31, align 8, !tbaa !222
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 72
   %.pre20 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !199
   store i64 %2, ptr %.pre, align 16, !tbaa !52
-  %51 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %52 = getelementptr inbounds nuw i8, ptr %.pre, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.not.i.i12 = icmp eq ptr %.pre20, null
-  br i1 %.not.i.i12, label %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit.i, label %53
+  br i1 %.not.i.i12, label %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit.i, label %51
 
-53:                                               ; preds = %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit
-  %54 = tail call noundef i64 %.pre20(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %51, ptr noundef null) #12
+51:                                               ; preds = %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit
+  %52 = tail call noundef i64 %.pre20(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %50, ptr noundef null) #12
   br label %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit.i
 
-_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit.i: ; preds = %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.thread, %53, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit
-  %55 = phi ptr [ %44, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.thread ], [ %52, %53 ], [ %52, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit ]
-  %56 = phi ptr [ %43, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.thread ], [ %51, %53 ], [ %51, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit ]
-  %57 = phi ptr [ %38, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.thread ], [ %.pre, %53 ], [ %.pre, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit ]
-  %.not.i13 = icmp eq ptr %56, %3
-  br i1 %.not.i13, label %_ZN5folly8FunctionIFvvEEaSEOS2_.exit, label %58, !prof !31
+_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit.i: ; preds = %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.thread, %51, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit
+  %53 = phi ptr [ %43, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.thread ], [ %50, %51 ], [ %50, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit ]
+  %54 = phi ptr [ %38, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit.thread ], [ %.pre, %51 ], [ %.pre, %_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev.exit ]
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 72
+  %.not.i13 = icmp eq ptr %53, %3
+  br i1 %.not.i13, label %_ZN5folly8FunctionIFvvEEaSEOS2_.exit, label %56, !prof !31
 
-58:                                               ; preds = %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit.i
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %60 = load ptr, ptr %59, align 8, !tbaa !199
-  %.not.i9.i = icmp eq ptr %60, null
-  br i1 %.not.i9.i, label %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit11.i, label %61
+56:                                               ; preds = %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit.i
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %58 = load ptr, ptr %57, align 8, !tbaa !199
+  %.not.i9.i = icmp eq ptr %58, null
+  br i1 %.not.i9.i, label %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit11.i, label %59
 
-61:                                               ; preds = %58
-  %62 = tail call noundef i64 %60(i32 noundef 0, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) %56) #12
-  %.pre.i = load ptr, ptr %59, align 8, !tbaa !199
+59:                                               ; preds = %56
+  %60 = tail call noundef i64 %58(i32 noundef 0, ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) %53) #12
+  %.pre.i = load ptr, ptr %57, align 8, !tbaa !199
   br label %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit11.i
 
-_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit11.i: ; preds = %61, %58
-  %63 = phi ptr [ null, %58 ], [ %.pre.i, %61 ]
-  store ptr %63, ptr %55, align 8, !tbaa !199
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %65 = load ptr, ptr %64, align 16, !tbaa !197
-  %66 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  store ptr %65, ptr %66, align 16, !tbaa !197
+_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit11.i: ; preds = %59, %56
+  %61 = phi ptr [ null, %56 ], [ %.pre.i, %59 ]
+  store ptr %61, ptr %55, align 8, !tbaa !199
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %63 = load ptr, ptr %62, align 16, !tbaa !197
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 64
+  store ptr %63, ptr %64, align 16, !tbaa !197
   br label %_ZN5folly8FunctionIFvvEEaSEOS2_.exit
 
 _ZN5folly8FunctionIFvvEEaSEOS2_.exit:             ; preds = %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit.i, %_ZNK5folly8FunctionIFvvEE4execENS_6detail8function2OpEPNS4_4DataES7_.exit11.i
-  %67 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr null, ptr %67, align 8, !tbaa !199
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %68, align 16, !tbaa !197
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store ptr null, ptr %65, align 8, !tbaa !199
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %66, align 16, !tbaa !197
+  br label %73
+
+67:                                               ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
+  %68 = landingpad { ptr, i32 }
+          cleanup
   br label %75
 
-69:                                               ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
+69:                                               ; preds = %_ZN5folly14RequestContext11saveContextEv.exit
   %70 = landingpad { ptr, i32 }
           cleanup
-  br label %77
+  br label %74
 
-71:                                               ; preds = %_ZN5folly14RequestContext11saveContextEv.exit
+71:                                               ; preds = %37
   %72 = landingpad { ptr, i32 }
           cleanup
-  br label %76
+  br label %74
 
-73:                                               ; preds = %37
-  %74 = landingpad { ptr, i32 }
-          cleanup
-  br label %76
-
-75:                                               ; preds = %_ZN5folly8FunctionIFvvEEaSEOS2_.exit, %34
+73:                                               ; preds = %_ZN5folly8FunctionIFvvEEaSEOS2_.exit, %34
   ret void
 
-76:                                               ; preds = %73, %71
-  %.pn = phi { ptr, i32 } [ %74, %73 ], [ %72, %71 ]
+74:                                               ; preds = %71, %69
+  %.pn = phi { ptr, i32 } [ %72, %71 ], [ %70, %69 ]
   tail call void @_ZNSt10unique_ptrIN5folly18ThreadPoolExecutor4Task10ExpirationESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #12
   tail call void @_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #12
-  br label %77
+  br label %75
 
-77:                                               ; preds = %76, %69
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %76 ], [ %70, %69 ]
-  %78 = load ptr, ptr %9, align 8, !tbaa !199
-  %.not.i.i14 = icmp eq ptr %78, null
-  br i1 %.not.i.i14, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %79
+75:                                               ; preds = %74, %67
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %74 ], [ %68, %67 ]
+  %76 = load ptr, ptr %9, align 8, !tbaa !199
+  %.not.i.i14 = icmp eq ptr %76, null
+  br i1 %.not.i.i14, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %77
 
-79:                                               ; preds = %77
-  %80 = tail call noundef i64 %78(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef null) #12
+77:                                               ; preds = %75
+  %78 = tail call noundef i64 %76(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef null) #12
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit
 
-_ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %77, %79
+_ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %75, %77
   resume { ptr, i32 } %.pn.pn
 }
 

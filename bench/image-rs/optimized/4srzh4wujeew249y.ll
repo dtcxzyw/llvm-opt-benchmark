@@ -28552,11 +28552,10 @@ define { i8, i8 } @_ZN5image6codecs3pnm6header9PnmHeader7subtype17h693f980300e07
 define noundef i32 @_ZN5image6codecs3pnm6header9PnmHeader5width17h5911adb374d31d35E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !range !3509, !noundef !14
-  %switch.tableidx = add i64 %3, 9223372036854775801
-  %4 = icmp ult i64 %switch.tableidx, 3
-  %. = select i1 %4, i64 36, i64 52
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %.0 = load i32, ptr %5, align 4, !noundef !14
+  %4 = icmp ult i64 %3, -9223372036854775801
+  %. = select i1 %4, i64 52, i64 36
+  %.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %.0 = load i32, ptr %.0.in, align 4, !noundef !14
   ret i32 %.0
 }
 
@@ -28564,11 +28563,10 @@ define noundef i32 @_ZN5image6codecs3pnm6header9PnmHeader5width17h5911adb374d31d
 define noundef i32 @_ZN5image6codecs3pnm6header9PnmHeader6height17h6c98b24a251085e2E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !range !3509, !noundef !14
-  %switch.tableidx = add i64 %3, 9223372036854775801
-  %4 = icmp ult i64 %switch.tableidx, 3
-  %. = select i1 %4, i64 32, i64 48
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %.0 = load i32, ptr %5, align 8, !noundef !14
+  %4 = icmp ult i64 %3, -9223372036854775801
+  %. = select i1 %4, i64 48, i64 32
+  %.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %.0 = load i32, ptr %.0.in, align 8, !noundef !14
   ret i32 %.0
 }
 

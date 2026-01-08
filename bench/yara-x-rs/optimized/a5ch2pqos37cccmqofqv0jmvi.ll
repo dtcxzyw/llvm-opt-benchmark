@@ -90744,15 +90744,15 @@ define internal fastcc void @_ZN6yara_x7modules6dotnet6parser6Dotnet15parse_type
   %.sroa.0622.0.copyload = load ptr, ptr %253, align 8
   %.sroa.4623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.sroa.4623.0.copyload = load i64, ptr %.sroa.4623.0..sroa_idx, align 8
-  br i1 %.not686, label %544, label %543
+  br i1 %.not686, label %546, label %545
 
 254:                                              ; preds = %98
   store i64 8, ptr %0, align 8
   br label %260
 
-255:                                              ; preds = %519, %239, %._crit_edge, %225, %219, %213, %._crit_edge514, %282, %176, %170, %164, %158, %152, %146, %140, %134, %128, %122, %116, %110, %104, %98, %551, %541, %379, %312, %297
-  %.sroa.0647.0 = phi ptr [ %547, %551 ], [ %.sroa.0391.0.copyload, %98 ], [ %.sroa.0391.0.copyload, %104 ], [ %.sroa.0391.0.copyload, %110 ], [ %.sroa.0391.0.copyload, %116 ], [ %.sroa.0391.0.copyload, %122 ], [ %.sroa.0391.0.copyload, %128 ], [ %.sroa.0391.0.copyload, %134 ], [ %.sroa.0391.0.copyload, %140 ], [ %.sroa.0391.0.copyload, %146 ], [ %.sroa.0391.0.copyload, %152 ], [ %.sroa.0391.0.copyload, %158 ], [ %.sroa.0391.0.copyload, %164 ], [ %.sroa.0391.0.copyload, %170 ], [ %.sroa.0391.0.copyload, %176 ], [ %293, %297 ], [ %.sroa.0439.0.copyload, %312 ], [ %.sroa.082.0.copyload.i, %379 ], [ %278, %282 ], [ %.sroa.0647.1.lcssa, %._crit_edge514 ], [ %.sroa.0391.0.copyload, %213 ], [ %.sroa.0391.0.copyload, %219 ], [ %.sroa.0391.0.copyload, %225 ], [ %.sroa.0647.2.lcssa, %._crit_edge ], [ %.sroa.0391.0.copyload, %239 ], [ %.sroa.0454.0.copyload, %541 ], [ %248, %519 ]
-  %.sroa.32.0 = phi i64 [ %549, %551 ], [ %.sroa.4392.0.copyload, %98 ], [ %.sroa.4392.0.copyload, %104 ], [ %.sroa.4392.0.copyload, %110 ], [ %.sroa.4392.0.copyload, %116 ], [ %.sroa.4392.0.copyload, %122 ], [ %.sroa.4392.0.copyload, %128 ], [ %.sroa.4392.0.copyload, %134 ], [ %.sroa.4392.0.copyload, %140 ], [ %.sroa.4392.0.copyload, %146 ], [ %.sroa.4392.0.copyload, %152 ], [ %.sroa.4392.0.copyload, %158 ], [ %.sroa.4392.0.copyload, %164 ], [ %.sroa.4392.0.copyload, %170 ], [ %.sroa.4392.0.copyload, %176 ], [ %295, %297 ], [ %.sroa.4440.0.copyload, %312 ], [ %.sroa.583.0.copyload.i, %379 ], [ %280, %282 ], [ %.sroa.32.1.lcssa, %._crit_edge514 ], [ %.sroa.4392.0.copyload, %213 ], [ %.sroa.4392.0.copyload, %219 ], [ %.sroa.4392.0.copyload, %225 ], [ %.sroa.32.2.lcssa, %._crit_edge ], [ %.sroa.4392.0.copyload, %239 ], [ %.sroa.4455.0.copyload, %541 ], [ %250, %519 ]
+255:                                              ; preds = %519, %239, %._crit_edge, %225, %219, %213, %._crit_edge514, %282, %176, %170, %164, %158, %152, %146, %140, %134, %128, %122, %116, %110, %104, %98, %553, %543, %379, %312, %297
+  %.sroa.0647.0 = phi ptr [ %549, %553 ], [ %.sroa.0391.0.copyload, %98 ], [ %.sroa.0391.0.copyload, %104 ], [ %.sroa.0391.0.copyload, %110 ], [ %.sroa.0391.0.copyload, %116 ], [ %.sroa.0391.0.copyload, %122 ], [ %.sroa.0391.0.copyload, %128 ], [ %.sroa.0391.0.copyload, %134 ], [ %.sroa.0391.0.copyload, %140 ], [ %.sroa.0391.0.copyload, %146 ], [ %.sroa.0391.0.copyload, %152 ], [ %.sroa.0391.0.copyload, %158 ], [ %.sroa.0391.0.copyload, %164 ], [ %.sroa.0391.0.copyload, %170 ], [ %.sroa.0391.0.copyload, %176 ], [ %293, %297 ], [ %.sroa.0439.0.copyload, %312 ], [ %.sroa.082.0.copyload.i, %379 ], [ %278, %282 ], [ %.sroa.0647.1.lcssa, %._crit_edge514 ], [ %.sroa.0391.0.copyload, %213 ], [ %.sroa.0391.0.copyload, %219 ], [ %.sroa.0391.0.copyload, %225 ], [ %.sroa.0647.2.lcssa, %._crit_edge ], [ %.sroa.0391.0.copyload, %239 ], [ %.sroa.0454.0.copyload, %543 ], [ %248, %519 ]
+  %.sroa.32.0 = phi i64 [ %551, %553 ], [ %.sroa.4392.0.copyload, %98 ], [ %.sroa.4392.0.copyload, %104 ], [ %.sroa.4392.0.copyload, %110 ], [ %.sroa.4392.0.copyload, %116 ], [ %.sroa.4392.0.copyload, %122 ], [ %.sroa.4392.0.copyload, %128 ], [ %.sroa.4392.0.copyload, %134 ], [ %.sroa.4392.0.copyload, %140 ], [ %.sroa.4392.0.copyload, %146 ], [ %.sroa.4392.0.copyload, %152 ], [ %.sroa.4392.0.copyload, %158 ], [ %.sroa.4392.0.copyload, %164 ], [ %.sroa.4392.0.copyload, %170 ], [ %.sroa.4392.0.copyload, %176 ], [ %295, %297 ], [ %.sroa.4440.0.copyload, %312 ], [ %.sroa.583.0.copyload.i, %379 ], [ %280, %282 ], [ %.sroa.32.1.lcssa, %._crit_edge514 ], [ %.sroa.4392.0.copyload, %213 ], [ %.sroa.4392.0.copyload, %219 ], [ %.sroa.4392.0.copyload, %225 ], [ %.sroa.32.2.lcssa, %._crit_edge ], [ %.sroa.4392.0.copyload, %239 ], [ %.sroa.4455.0.copyload, %543 ], [ %250, %519 ]
   %256 = load i64, ptr %5, align 8, !noundef !3
   %257 = add i64 %256, -1
   store i64 %257, ptr %5, align 8
@@ -90763,7 +90763,7 @@ define internal fastcc void @_ZN6yara_x7modules6dotnet6parser6Dotnet15parse_type
   store i64 9, ptr %0, align 8
   br label %260
 
-260:                                              ; preds = %510, %516, %460, %466, %550, %543, %542, %526, %525, %518, %517, %509, %497, %484, %477, %470, %469, %468, %467, %459, %447, %434, %430, %427, %317, %296, %289, %288, %281, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %255, %254, %97, %93, %92
+260:                                              ; preds = %510, %516, %460, %466, %552, %545, %544, %526, %525, %518, %517, %509, %497, %484, %477, %470, %469, %468, %467, %459, %447, %434, %430, %427, %317, %296, %289, %288, %281, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %255, %254, %97, %93, %92
   ret void
 
 261:                                              ; preds = %104
@@ -91864,25 +91864,26 @@ define internal fastcc void @_ZN6yara_x7modules6dotnet6parser6Dotnet15parse_type
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %528 = icmp eq i8 %.sroa.5393.0.copyload, 19
   %529 = zext i32 %.sroa.5456.0.copyload to i64
-  br i1 %528, label %530, label %531
+  br i1 %528, label %530, label %532
 
 530:                                              ; preds = %527
   %.not489 = icmp ugt i64 %7, %529
-  br i1 %.not489, label %533, label %532
+  %531 = getelementptr inbounds nuw { ptr, i64 }, ptr %6, i64 %529
+  br i1 %.not489, label %535, label %534
 
-531:                                              ; preds = %527
+532:                                              ; preds = %527
   %.not487 = icmp ugt i64 %9, %529
-  br i1 %.not487, label %533, label %539
+  %533 = getelementptr inbounds nuw { ptr, i64 }, ptr %8, i64 %529
+  br i1 %.not487, label %535, label %541
 
-532:                                              ; preds = %530
+534:                                              ; preds = %530
   store i64 5, ptr %0, align 8
   %.sroa.2475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %.sroa.2475.0..sroa_idx, align 8
-  br label %542
+  br label %544
 
-533:                                              ; preds = %531, %530
-  %.pn570 = phi ptr [ %6, %530 ], [ %8, %531 ]
-  %storemerge = getelementptr inbounds nuw { ptr, i64 }, ptr %.pn570, i64 %529
+535:                                              ; preds = %532, %530
+  %storemerge = phi ptr [ %531, %530 ], [ %533, %532 ]
   store ptr %storemerge, ptr %55, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
@@ -91890,39 +91891,39 @@ define internal fastcc void @_ZN6yara_x7modules6dotnet6parser6Dotnet15parse_type
   %.sroa.4489.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hbfb86f4036d17248E", ptr %.sroa.4489.0..sroa_idx, align 8
   store ptr @anon.215f301ce771400005d504a43175a162.379, ptr %54, align 8
-  %534 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i64 1, ptr %534, align 8
-  %535 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  store ptr null, ptr %535, align 8
-  %536 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store ptr %53, ptr %536, align 8
-  %537 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store i64 1, ptr %537, align 8
-  %538 = call noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h514c956dc8ba6d84E(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %54)
+  %536 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store i64 1, ptr %536, align 8
+  %537 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  store ptr null, ptr %537, align 8
+  %538 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  store ptr %53, ptr %538, align 8
+  %539 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  store i64 1, ptr %539, align 8
+  %540 = call noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h514c956dc8ba6d84E(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  br i1 %538, label %540, label %541
+  br i1 %540, label %542, label %543
 
-539:                                              ; preds = %531
+541:                                              ; preds = %532
   store i64 5, ptr %0, align 8
   %.sroa.2484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %.sroa.2484.0..sroa_idx, align 8
-  br label %542
+  br label %544
 
-540:                                              ; preds = %533
+542:                                              ; preds = %535
   store i64 8, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
-  br label %542
+  br label %544
 
-541:                                              ; preds = %533
+543:                                              ; preds = %535
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %255
 
-542:                                              ; preds = %532, %539, %540
+544:                                              ; preds = %534, %541, %542
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %260
 
-543:                                              ; preds = %251
+545:                                              ; preds = %251
   %.sroa.6632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
   %.sroa.6632.0.copyload = load i64, ptr %.sroa.6632.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -91935,32 +91936,32 @@ define internal fastcc void @_ZN6yara_x7modules6dotnet6parser6Dotnet15parse_type
   store i64 %.sroa.6632.0.copyload, ptr %.sroa.6193.0..sroa_idx, align 8
   br label %260
 
-544:                                              ; preds = %251
+546:                                              ; preds = %251
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call fastcc void @_ZN6yara_x7modules6dotnet6parser6Dotnet15parse_type_spec17h56f5eeb38b30ea74E(ptr noalias noundef align 8 captures(none) dereferenceable(32) %18, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0622.0.copyload, i64 noundef %.sroa.4623.0.copyload, ptr noundef nonnull align 1 %4, ptr noalias noundef align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 %6, i64 noundef %7, ptr noalias noundef nonnull readonly align 8 %8, i64 noundef %9)
-  %545 = load i64, ptr %18, align 8, !range !4087, !noundef !3
-  %.not688 = icmp eq i64 %545, 9
-  %546 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %547 = load ptr, ptr %546, align 8
-  %548 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %549 = load i64, ptr %548, align 8
-  br i1 %.not688, label %551, label %550
+  %547 = load i64, ptr %18, align 8, !range !4087, !noundef !3
+  %.not688 = icmp eq i64 %547, 9
+  %548 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %549 = load ptr, ptr %548, align 8
+  %550 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %551 = load i64, ptr %550, align 8
+  br i1 %.not688, label %553, label %552
 
-550:                                              ; preds = %544
+552:                                              ; preds = %546
   %.sroa.6640.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 24
   %.sroa.6640.0.copyload = load i64, ptr %.sroa.6640.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  store i64 %545, ptr %0, align 8
+  store i64 %547, ptr %0, align 8
   %.sroa.2642.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %547, ptr %.sroa.2642.0..sroa_idx, align 8
+  store ptr %549, ptr %.sroa.2642.0..sroa_idx, align 8
   %.sroa.3643.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %549, ptr %.sroa.3643.0..sroa_idx, align 8
+  store i64 %551, ptr %.sroa.3643.0..sroa_idx, align 8
   %.sroa.4644.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.6640.0.copyload, ptr %.sroa.4644.0..sroa_idx, align 8
   br label %260
 
-551:                                              ; preds = %544
+553:                                              ; preds = %546
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %255
 }

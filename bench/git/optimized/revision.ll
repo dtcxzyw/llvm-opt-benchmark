@@ -3992,11 +3992,7 @@ skip_prefix.exit442:                              ; preds = %538
 skip_prefix.exit446:                              ; preds = %579
   %590 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(24) @.str.142) #28
   %.not359 = icmp eq i32 %590, 0
-  br i1 %.not359, label %591, label %.preheader533.preheader
-
-.preheader533.preheader:                          ; preds = %skip_prefix.exit446
-  %scevgep609 = getelementptr i8, ptr %10, i64 13
-  br label %.preheader533
+  br i1 %.not359, label %591, label %.preheader533
 
 591:                                              ; preds = %skip_prefix.exit446
   %592 = getelementptr inbounds nuw i8, ptr %0, i64 300
@@ -4005,9 +4001,9 @@ skip_prefix.exit446:                              ; preds = %579
   store i32 %594, ptr %592, align 4
   br label %879
 
-.preheader533:                                    ; preds = %.preheader533.preheader, %595
-  %.07.i447 = phi ptr [ %597, %595 ], [ %10, %.preheader533.preheader ]
-  %.06.i448.idx = phi i64 [ %.06.i448.add, %595 ], [ 0, %.preheader533.preheader ]
+.preheader533:                                    ; preds = %skip_prefix.exit446, %595
+  %.07.i447 = phi ptr [ %597, %595 ], [ %10, %skip_prefix.exit446 ]
+  %.06.i448.idx = phi i64 [ %.06.i448.add, %595 ], [ 0, %skip_prefix.exit446 ]
   %exitcond610 = icmp eq i64 %.06.i448.idx, 13
   br i1 %exitcond610, label %skip_prefix.exit450.thread, label %595
 
@@ -4018,15 +4014,11 @@ skip_prefix.exit446:                              ; preds = %579
   %598 = load i8, ptr %.07.i447, align 1, !tbaa !28
   %.06.i448.add = add nuw nsw i64 %.06.i448.idx, 1
   %599 = icmp eq i8 %598, %596
-  br i1 %599, label %.preheader533, label %skip_prefix.exit450.preheader, !llvm.loop !212
+  br i1 %599, label %.preheader533, label %skip_prefix.exit450, !llvm.loop !212
 
-skip_prefix.exit450.preheader:                    ; preds = %595
-  %scevgep611 = getelementptr i8, ptr %10, i64 8
-  br label %skip_prefix.exit450
-
-skip_prefix.exit450:                              ; preds = %skip_prefix.exit450.preheader, %600
-  %.07.i451 = phi ptr [ %602, %600 ], [ %10, %skip_prefix.exit450.preheader ]
-  %.06.i452.idx = phi i64 [ %.06.i452.add, %600 ], [ 0, %skip_prefix.exit450.preheader ]
+skip_prefix.exit450:                              ; preds = %595, %600
+  %.07.i451 = phi ptr [ %602, %600 ], [ %10, %595 ]
+  %.06.i452.idx = phi i64 [ %.06.i452.add, %600 ], [ 0, %595 ]
   %exitcond612 = icmp eq i64 %.06.i452.idx, 8
   br i1 %exitcond612, label %skip_prefix.exit450.thread, label %600
 
@@ -4040,7 +4032,8 @@ skip_prefix.exit450:                              ; preds = %skip_prefix.exit450
   br i1 %604, label %skip_prefix.exit450, label %skip_prefix.exit454, !llvm.loop !212
 
 skip_prefix.exit450.thread:                       ; preds = %.preheader533, %skip_prefix.exit450
-  %storemerge493 = phi ptr [ %scevgep611, %skip_prefix.exit450 ], [ %scevgep609, %.preheader533 ]
+  %.pn = phi i64 [ 8, %skip_prefix.exit450 ], [ 13, %.preheader533 ]
+  %storemerge493 = getelementptr i8, ptr %10, i64 %.pn
   store ptr %storemerge493, ptr %7, align 8, !tbaa !200
   %605 = call i32 @starts_with(ptr noundef nonnull %10, ptr noundef nonnull @.str.143) #27
   %.not406 = icmp eq i32 %605, 0

@@ -948,11 +948,10 @@ define hidden { ptr, i64 } @"_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops.
 define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12regex_syntax3ast5parse9Primitive4span17he0719f1f0f0c5c27E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(112) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !range !106, !noundef !4
-  %4 = add i64 %3, 9223372036854775806
-  %switch.selectcmp = icmp ult i64 %4, 4
-  %5 = select i1 %switch.selectcmp, i64 32, i64 56
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
-  ret ptr %6
+  %4 = icmp ult i64 %3, -9223372036854775806
+  %. = select i1 %4, i64 56, i64 32
+  %.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

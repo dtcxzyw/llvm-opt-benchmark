@@ -65683,23 +65683,22 @@ while.body.i.i:                                   ; preds = %if.end24.i.i, %land
 
 if.end.i.i:                                       ; preds = %while.body.i.i
   %0 = load i8, ptr %buf.addr.0.i.i, align 1
-  %incdec.ptr22.i.i = getelementptr inbounds nuw i8, ptr %buf.addr.0.i.i, i64 1
   switch i8 %0, label %if.end24.i.i [
     i8 13, label %if.then4.i.i
     i8 10, label %if.then18.i.i
   ]
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp eq ptr %incdec.ptr22.i.i, %add.ptr.i
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %buf.addr.0.i.i, i64 1
+  %cmp5.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp5.i.i, label %_ZN7cinatra6detail18phr_parse_responseEPKcmPiS3_PS2_PmPNS_11http_headerES5_m.exit, label %if.end10.i.i
 
 if.end10.i.i:                                     ; preds = %if.then4.i.i
-  %1 = load i8, ptr %incdec.ptr22.i.i, align 1
+  %1 = load i8, ptr %incdec.ptr.i.i, align 1
   %cmp13.not.i.i = icmp eq i8 %1, 10
   br i1 %cmp13.not.i.i, label %if.end15.i.i, label %_ZN7cinatra6detail18phr_parse_responseEPKcmPiS3_PS2_PmPNS_11http_headerES5_m.exit
 
 if.end15.i.i:                                     ; preds = %if.end10.i.i
-  %incdec.ptr11.i.i = getelementptr inbounds nuw i8, ptr %buf.addr.0.i.i, i64 2
   %inc.i.i = add nuw nsw i32 %ret_cnt.0.i.i, 1
   br label %if.end24.i.i
 
@@ -65708,8 +65707,9 @@ if.then18.i.i:                                    ; preds = %if.end.i.i
   br label %if.end24.i.i
 
 if.end24.i.i:                                     ; preds = %if.then18.i.i, %if.end15.i.i, %if.end.i.i
-  %buf.addr.1.i.i = phi ptr [ %incdec.ptr11.i.i, %if.end15.i.i ], [ %incdec.ptr22.i.i, %if.then18.i.i ], [ %incdec.ptr22.i.i, %if.end.i.i ]
+  %.pn.i.i = phi i64 [ 2, %if.end15.i.i ], [ 1, %if.then18.i.i ], [ 1, %if.end.i.i ]
   %ret_cnt.1.i.i = phi i32 [ %inc.i.i, %if.end15.i.i ], [ %inc20.i.i, %if.then18.i.i ], [ 0, %if.end.i.i ]
+  %buf.addr.1.i.i = getelementptr inbounds nuw i8, ptr %buf.addr.0.i.i, i64 %.pn.i.i
   %cmp25.i.i = icmp eq i32 %ret_cnt.1.i.i, 2
   br i1 %cmp25.i.i, label %if.end.i, label %while.body.i.i, !llvm.loop !689
 
@@ -66458,7 +66458,7 @@ FOUND_CTL:                                        ; preds = %NonPrintable, %if.t
   %buf.addr.2 = phi ptr [ %buf.addr.358, %if.then119 ], [ %buf.addr.1, %NonPrintable ]
   switch i8 %19, label %if.else166 [
     i8 13, label %if.then146
-    i8 10, label %if.then161
+    i8 10, label %if.end168
   ]
 
 if.then146:                                       ; preds = %FOUND_CTL
@@ -66473,32 +66473,22 @@ if.then149:                                       ; preds = %if.then146
 if.end150:                                        ; preds = %if.then146
   %20 = load i8, ptr %incdec.ptr147, align 1
   %cmp153.not = icmp eq i8 %20, 10
-  br i1 %cmp153.not, label %if.end155, label %if.then154
+  br i1 %cmp153.not, label %if.end168, label %if.then154
 
 if.then154:                                       ; preds = %if.end150
   store i32 -1, ptr %ret, align 4
   br label %return
 
-if.end155:                                        ; preds = %if.end150
-  %incdec.ptr151 = getelementptr inbounds nuw i8, ptr %buf.addr.2, i64 2
-  %sub.ptr.lhs.cast156 = ptrtoint ptr %buf.addr.2 to i64
-  %sub.ptr.sub158 = sub i64 %sub.ptr.lhs.cast156, %sub.ptr.rhs.cast53
-  store i64 %sub.ptr.sub158, ptr %token_len, align 8
-  br label %if.end168
-
-if.then161:                                       ; preds = %FOUND_CTL
-  %sub.ptr.lhs.cast162 = ptrtoint ptr %buf.addr.2 to i64
-  %sub.ptr.sub164 = sub i64 %sub.ptr.lhs.cast162, %sub.ptr.rhs.cast53
-  store i64 %sub.ptr.sub164, ptr %token_len, align 8
-  %incdec.ptr165 = getelementptr inbounds nuw i8, ptr %buf.addr.2, i64 1
-  br label %if.end168
-
 if.else166:                                       ; preds = %FOUND_CTL
   store i32 -1, ptr %ret, align 4
   br label %return
 
-if.end168:                                        ; preds = %if.then161, %if.end155
-  %buf.addr.4 = phi ptr [ %incdec.ptr151, %if.end155 ], [ %incdec.ptr165, %if.then161 ]
+if.end168:                                        ; preds = %FOUND_CTL, %if.end150
+  %.pn = phi i64 [ 2, %if.end150 ], [ 1, %FOUND_CTL ]
+  %sub.ptr.lhs.cast162.pn = ptrtoint ptr %buf.addr.2 to i64
+  %storemerge = sub i64 %sub.ptr.lhs.cast162.pn, %sub.ptr.rhs.cast53
+  store i64 %storemerge, ptr %token_len, align 8
+  %buf.addr.4 = getelementptr inbounds nuw i8, ptr %buf.addr.2, i64 %.pn
   store ptr %buf, ptr %token, align 8
   br label %return
 
@@ -66512,23 +66502,23 @@ define internal fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS
 entry:
   %value = alloca ptr, align 8
   %value_len = alloca i64, align 8
-  %cmp58 = icmp eq ptr %buf, %buf_end
-  br i1 %cmp58, label %if.then, label %if.end
+  %cmp59 = icmp eq ptr %buf, %buf_end
+  br i1 %cmp59, label %if.then, label %if.end
 
 if.then:                                          ; preds = %if.end64, %entry
   store i32 -2, ptr %ret, align 4
   br label %return
 
 if.end:                                           ; preds = %entry, %if.end64
-  %buf.addr.059 = phi ptr [ %call61, %if.end64 ], [ %buf, %entry ]
-  %0 = load i8, ptr %buf.addr.059, align 1
+  %buf.addr.060 = phi ptr [ %call61, %if.end64 ], [ %buf, %entry ]
+  %0 = load i8, ptr %buf.addr.060, align 1
   switch i8 %0, label %if.end16 [
     i8 13, label %if.then2
-    i8 10, label %if.then13
+    i8 10, label %for.end69
   ]
 
 if.then2:                                         ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %buf.addr.059, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %buf.addr.060, i64 1
   %cmp3 = icmp eq ptr %incdec.ptr, %buf_end
   br i1 %cmp3, label %if.then4, label %if.end5
 
@@ -66537,17 +66527,12 @@ if.then4:                                         ; preds = %if.then2
   br label %return
 
 if.end5:                                          ; preds = %if.then2
-  %incdec.ptr6 = getelementptr inbounds nuw i8, ptr %buf.addr.059, i64 2
   %1 = load i8, ptr %incdec.ptr, align 1
   %cmp8.not = icmp eq i8 %1, 10
-  br i1 %cmp8.not, label %return, label %if.then9
+  br i1 %cmp8.not, label %for.end69, label %if.then9
 
 if.then9:                                         ; preds = %if.end5
   store i32 -1, ptr %ret, align 4
-  br label %return
-
-if.then13:                                        ; preds = %if.end
-  %incdec.ptr14 = getelementptr inbounds nuw i8, ptr %buf.addr.059, i64 1
   br label %return
 
 if.end16:                                         ; preds = %if.end
@@ -66573,7 +66558,7 @@ while.body.preheader:                             ; preds = %land.lhs.true, %if.
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end38
-  %buf.addr.2 = phi ptr [ %incdec.ptr39, %if.end38 ], [ %buf.addr.059, %while.body.preheader ]
+  %buf.addr.2 = phi ptr [ %incdec.ptr39, %if.end38 ], [ %buf.addr.060, %while.body.preheader ]
   %3 = load i8, ptr %buf.addr.2, align 1
   %cmp32 = icmp eq i8 %3, 58
   br i1 %cmp32, label %while.end, label %if.else34
@@ -66600,15 +66585,15 @@ if.then41:                                        ; preds = %if.end38
 
 while.end:                                        ; preds = %while.body
   %sub.ptr.lhs.cast = ptrtoint ptr %buf.addr.2 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %buf.addr.059 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %buf.addr.060 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp43 = icmp eq i64 %sub.ptr.sub, 0
   br i1 %cmp43, label %if.then44, label %for.cond47.preheader
 
 for.cond47.preheader:                             ; preds = %while.end
-  %buf.addr.355 = getelementptr inbounds nuw i8, ptr %buf.addr.2, i64 1
-  %cmp4856 = icmp eq ptr %buf.addr.355, %buf_end
-  br i1 %cmp4856, label %if.then49, label %if.end50
+  %buf.addr.356 = getelementptr inbounds nuw i8, ptr %buf.addr.2, i64 1
+  %cmp4857 = icmp eq ptr %buf.addr.356, %buf_end
+  br i1 %cmp4857, label %if.then49, label %if.end50
 
 if.then44:                                        ; preds = %while.end
   store i32 -1, ptr %ret, align 4
@@ -66619,21 +66604,21 @@ if.then49:                                        ; preds = %for.cond47.preheade
   br label %return
 
 if.end50:                                         ; preds = %for.cond47.preheader, %for.inc
-  %buf.addr.357 = phi ptr [ %buf.addr.3, %for.inc ], [ %buf.addr.355, %for.cond47.preheader ]
-  %5 = load i8, ptr %buf.addr.357, align 1
+  %buf.addr.358 = phi ptr [ %buf.addr.3, %for.inc ], [ %buf.addr.356, %for.cond47.preheader ]
+  %5 = load i8, ptr %buf.addr.358, align 1
   switch i8 %5, label %if.end60 [
     i8 32, label %for.inc
     i8 9, label %for.inc
   ]
 
 for.inc:                                          ; preds = %if.end50, %if.end50
-  %buf.addr.3 = getelementptr inbounds nuw i8, ptr %buf.addr.357, i64 1
+  %buf.addr.3 = getelementptr inbounds nuw i8, ptr %buf.addr.358, i64 1
   %cmp48 = icmp eq ptr %buf.addr.3, %buf_end
   br i1 %cmp48, label %if.then49, label %if.end50, !llvm.loop !699
 
 if.end60:                                         ; preds = %if.end50, %land.lhs.true, %land.lhs.true
-  %buf.addr.4 = phi ptr [ %buf.addr.059, %land.lhs.true ], [ %buf.addr.059, %land.lhs.true ], [ %buf.addr.357, %if.end50 ]
-  %name.0 = phi ptr [ null, %land.lhs.true ], [ null, %land.lhs.true ], [ %buf.addr.059, %if.end50 ]
+  %buf.addr.4 = phi ptr [ %buf.addr.060, %land.lhs.true ], [ %buf.addr.060, %land.lhs.true ], [ %buf.addr.358, %if.end50 ]
+  %name.0 = phi ptr [ null, %land.lhs.true ], [ null, %land.lhs.true ], [ %buf.addr.060, %if.end50 ]
   %name_len.0 = phi i64 [ 0, %land.lhs.true ], [ 0, %land.lhs.true ], [ %sub.ptr.sub, %if.end50 ]
   %call61 = call fastcc noundef ptr @_ZN7cinatra6detailL16get_token_to_eolEPKcS2_PS2_PmPi(ptr noundef %buf.addr.4, ptr noundef %buf_end, ptr noundef nonnull %value, ptr noundef nonnull %value_len, ptr noundef %ret)
   %cmp62 = icmp eq ptr %call61, null
@@ -66657,8 +66642,13 @@ if.end64:                                         ; preds = %if.end60
   %cmp = icmp eq ptr %call61, %buf_end
   br i1 %cmp, label %if.then, label %if.end, !llvm.loop !700
 
-return:                                           ; preds = %if.end60, %if.then13, %if.end5, %if.then49, %if.then44, %if.then41, %if.then36, %if.then18, %if.then9, %if.then4, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then9 ], [ %incdec.ptr6, %if.end5 ], [ null, %if.then18 ], [ %incdec.ptr14, %if.then13 ], [ null, %if.then44 ], [ null, %if.then49 ], [ null, %if.then41 ], [ null, %if.then36 ], [ null, %if.end60 ]
+for.end69:                                        ; preds = %if.end, %if.end5
+  %.pn = phi i64 [ 2, %if.end5 ], [ 1, %if.end ]
+  %buf.addr.1 = getelementptr inbounds nuw i8, ptr %buf.addr.060, i64 %.pn
+  br label %return
+
+return:                                           ; preds = %if.end60, %for.end69, %if.then49, %if.then44, %if.then41, %if.then36, %if.then18, %if.then9, %if.then4, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then9 ], [ %buf.addr.1, %for.end69 ], [ null, %if.then18 ], [ null, %if.then36 ], [ null, %if.then44 ], [ null, %if.then49 ], [ null, %if.then41 ], [ null, %if.end60 ]
   ret ptr %retval.0
 }
 

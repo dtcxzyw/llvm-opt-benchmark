@@ -6975,7 +6975,7 @@ define internal fastcc void @tcp_options_write(ptr noundef %0, ptr noundef captu
   %101 = phi ptr [ %97, %.loopexit ], [ %65, %64 ]
   %102 = and i16 %47, 256
   %103 = icmp eq i16 %102, 0
-  br i1 %103, label %140, label %104, !prof !27
+  br i1 %103, label %138, label %104, !prof !27
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -6985,7 +6985,7 @@ define internal fastcc void @tcp_options_write(ptr noundef %0, ptr noundef captu
   %109 = icmp eq i8 %108, 0
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %111 = load i8, ptr %110, align 8
-  br i1 %109, label %119, label %112
+  br i1 %109, label %118, label %112
 
 112:                                              ; preds = %104
   %113 = sext i8 %111 to i32
@@ -6994,42 +6994,41 @@ define internal fastcc void @tcp_options_write(ptr noundef %0, ptr noundef captu
   %116 = or i32 %115, -33490551
   %117 = tail call i32 @llvm.bswap.i32(i32 %116)
   store i32 %117, ptr %101, align 4
-  %118 = getelementptr i8, ptr %101, i64 4
-  br label %125
+  br label %123
 
-119:                                              ; preds = %104
-  %120 = zext i8 %111 to i32
-  %121 = add nuw nsw i32 %120, 2
-  %122 = getelementptr i8, ptr %101, i64 1
+118:                                              ; preds = %104
+  %119 = zext i8 %111 to i32
+  %120 = add nuw nsw i32 %119, 2
+  %121 = getelementptr i8, ptr %101, i64 1
   store i8 34, ptr %101, align 1
-  %123 = trunc i32 %121 to i8
-  %124 = getelementptr i8, ptr %101, i64 2
-  store i8 %123, ptr %122, align 1
-  br label %125
+  %122 = trunc i32 %120 to i8
+  store i8 %122, ptr %121, align 1
+  br label %123
 
-125:                                              ; preds = %119, %112
-  %126 = phi ptr [ %118, %112 ], [ %124, %119 ]
-  %127 = phi i32 [ %114, %112 ], [ %121, %119 ]
-  %128 = load i8, ptr %110, align 8
-  %129 = sext i8 %128 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %126, ptr align 8 %106, i64 %129, i1 false)
-  %130 = and i32 %127, 3
-  %131 = icmp eq i32 %130, 2
-  br i1 %131, label %132, label %140
+123:                                              ; preds = %118, %112
+  %.pn = phi i64 [ 4, %112 ], [ 2, %118 ]
+  %124 = phi i32 [ %114, %112 ], [ %120, %118 ]
+  %125 = getelementptr i8, ptr %101, i64 %.pn
+  %126 = load i8, ptr %110, align 8
+  %127 = sext i8 %126 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %125, ptr align 8 %106, i64 %127, i1 false)
+  %128 = and i32 %124, 3
+  %129 = icmp eq i32 %128, 2
+  br i1 %129, label %130, label %138
 
-132:                                              ; preds = %125
-  %133 = load i8, ptr %110, align 8
-  %134 = sext i8 %133 to i64
-  %135 = getelementptr i8, ptr %126, i64 %134
-  store i8 1, ptr %135, align 1
-  %136 = load i8, ptr %110, align 8
-  %137 = sext i8 %136 to i64
-  %138 = getelementptr i8, ptr %126, i64 %137
-  %139 = getelementptr i8, ptr %138, i64 1
-  store i8 1, ptr %139, align 1
-  br label %140
+130:                                              ; preds = %123
+  %131 = load i8, ptr %110, align 8
+  %132 = sext i8 %131 to i64
+  %133 = getelementptr i8, ptr %125, i64 %132
+  store i8 1, ptr %133, align 1
+  %134 = load i8, ptr %110, align 8
+  %135 = sext i8 %134 to i64
+  %136 = getelementptr i8, ptr %125, i64 %135
+  %137 = getelementptr i8, ptr %136, i64 1
+  store i8 1, ptr %137, align 1
+  br label %138
 
-140:                                              ; preds = %132, %125, %100
+138:                                              ; preds = %130, %123, %100
   ret void
 }
 
