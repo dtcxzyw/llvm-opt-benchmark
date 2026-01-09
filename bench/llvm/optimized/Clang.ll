@@ -35504,8 +35504,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit3965:        ; preds = %_ZNSt7__cxx1112basi
 
 6303:                                             ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit3965, %6233
   %6304 = add i32 %spec.select14080, -12
-  %6305 = select i1 %6230, i32 -12, i32 %6304
-  %6306 = call i32 @llvm.fshl.i32(i32 %6305, i32 %6305, i32 30)
+  %6305 = call i32 @llvm.fshl.i32(i32 %6304, i32 %6304, i32 30)
+  %6306 = select i1 %6230, i32 1073741821, i32 %6305
   switch i32 %6306, label %6307 [
     i32 9, label %6371
     i32 5, label %6371

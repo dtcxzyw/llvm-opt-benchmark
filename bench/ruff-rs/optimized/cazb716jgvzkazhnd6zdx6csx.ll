@@ -24799,9 +24799,9 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hf28f07208f4d09c
   %4 = zext i32 %.val.i to i64
   %5 = add nuw nsw i64 %3, %4
   %6 = mul i64 %5, -1065810590584100411
-  %storemerge.i.i = select i1 %.not, i64 0, i64 %6
-  %7 = tail call noundef i64 @llvm.fshl.i64(i64 %storemerge.i.i, i64 %storemerge.i.i, i64 26)
-  ret i64 %7
+  %7 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %6, i64 26)
+  %8 = select i1 %.not, i64 0, i64 %7
+  ret i64 %8
 }
 
 ; Function Attrs: nonlazybind uwtable

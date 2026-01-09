@@ -22156,12 +22156,11 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h0ca095566e0eed5
 define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h29b74dc2f6760a9fE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #15 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !range !649, !alias.scope !5976, !noalias !5979, !noundef !7
   %.not = icmp eq i8 %3, 2
-  %4 = select i1 %.not, i64 0, i64 5871781006564002453
-  %5 = zext nneg i8 %3 to i64
-  %6 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 5)
-  %7 = xor i64 %6, %5
-  %8 = mul i64 %7, 5871781006564002453
-  %storemerge.i.i = select i1 %.not, i64 0, i64 %8
+  %4 = zext nneg i8 %3 to i64
+  %5 = select i1 %.not, i64 0, i64 3429551472952562346
+  %6 = xor i64 %5, %4
+  %7 = mul i64 %6, 5871781006564002453
+  %storemerge.i.i = select i1 %.not, i64 0, i64 %7
   ret i64 %storemerge.i.i
 }
 
