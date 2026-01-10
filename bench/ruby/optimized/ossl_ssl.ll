@@ -5422,7 +5422,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %39
   br i1 %47, label %no_exception_p.exit, label %.split84.us
 
 no_exception_p.exit:                              ; preds = %44
-  %.pre140 = load i64, ptr @sym_wait_writable, align 8, !tbaa !10
+  %.pre139 = load i64, ptr @sym_wait_writable, align 8, !tbaa !10
   br label %.loopexit
 
 .split84.us:                                      ; preds = %29, %rbimpl_RB_TYPE_P_fastpath.exit.i, %44
@@ -5431,8 +5431,8 @@ no_exception_p.exit:                              ; preds = %44
   unreachable
 
 .split86.us:                                      ; preds = %write_would_block.exit.us
-  %.pre141 = load i64, ptr @rb_eIOTimeoutError, align 8, !tbaa !10
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %.pre141, ptr noundef nonnull @.str.275) #10
+  %.pre140 = load i64, ptr @rb_eIOTimeoutError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %.pre140, ptr noundef nonnull @.str.275) #10
   unreachable
 
 rbimpl_RB_TYPE_P_fastpath.exit.i45:               ; preds = %39
@@ -5457,8 +5457,8 @@ no_exception_p.exit48:                            ; preds = %52
   unreachable
 
 .split82.us:                                      ; preds = %read_would_block.exit.us
-  %.pre139 = load i64, ptr @rb_eIOTimeoutError, align 8, !tbaa !10
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %.pre139, ptr noundef nonnull @.str.277) #10
+  %.pre138 = load i64, ptr @rb_eIOTimeoutError, align 8, !tbaa !10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %.pre138, ptr noundef nonnull @.str.277) #10
   unreachable
 
 .split.us:                                        ; preds = %23, %39
@@ -5503,7 +5503,7 @@ no_exception_p.exit48:                            ; preds = %52
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split.split.split, %no_exception_p.exit48, %no_exception_p.exit
-  %.0 = phi i64 [ %.pre, %no_exception_p.exit48 ], [ %.pre140, %no_exception_p.exit ], [ %0, %.lr.ph.split.split.split ], [ %0, %.lr.ph.split.us ]
+  %.0 = phi i64 [ %.pre, %no_exception_p.exit48 ], [ %.pre139, %no_exception_p.exit ], [ %0, %.lr.ph.split.split.split ], [ %0, %.lr.ph.split.us ]
   ret i64 %.0
 }
 

@@ -312,10 +312,10 @@ define internal range(i32 0, 2) i32 @test_obj_create() #0 {
   %7 = trunc i64 %5 to i32
   %.0.v.i.i = select i1 %.not.i.i, i32 8388607, i32 2147483647
   %.0.i13.i = and i32 %.0.v.i.i, %7
-  %8 = and i64 %5, 4286578688
-  %9 = icmp eq i64 %8, 67108864
-  %10 = icmp eq i32 %.0.i13.i, 102
-  %or.cond.not.i = and i1 %9, %10
+  %.mask.i = and i64 %5, 4286578688
+  %8 = icmp eq i64 %.mask.i, 67108864
+  %9 = icmp eq i32 %.0.i13.i, 102
+  %10 = and i1 %8, %9
   br i1 %or.cond.not.i, label %.critedge.i, label %11
 
 11:                                               ; preds = %4
@@ -351,27 +351,27 @@ test_obj_create_once.exit:                        ; preds = %11, %.critedge.i
   %25 = trunc i64 %23 to i32
   %.0.v.i.i20 = select i1 %.not.i.i19, i32 8388607, i32 2147483647
   %.0.i13.i21 = and i32 %.0.v.i.i20, %25
-  %26 = and i64 %23, 4286578688
-  %27 = icmp eq i64 %26, 67108864
-  %28 = icmp eq i32 %.0.i13.i21, 102
-  %or.cond.not.i22 = and i1 %27, %28
+  %.mask.i22 = and i64 %23, 4286578688
+  %26 = icmp eq i64 %.mask.i22, 67108864
+  %27 = icmp eq i32 %.0.i13.i21, 102
+  %28 = and i1 %26, %27
   br i1 %or.cond.not.i22, label %.critedge.i17, label %29
 
 29:                                               ; preds = %22
   %30 = tail call i32 @ERR_clear_last_mark() #4
-  br label %test_obj_create_once.exit23
+  br label %test_obj_create_once.exit24
 
 .critedge.i17:                                    ; preds = %22, %18
   %31 = tail call i32 @ERR_pop_to_mark() #4
-  br label %test_obj_create_once.exit23
+  br label %test_obj_create_once.exit24
 
-test_obj_create_once.exit23:                      ; preds = %29, %.critedge.i17
+test_obj_create_once.exit24:                      ; preds = %29, %.critedge.i17
   %.1.i18 = phi i32 [ 1, %.critedge.i17 ], [ 0, %29 ]
   %32 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 233, ptr noundef nonnull @.str.29, i32 noundef %.1.i18) #4
   %.not2 = icmp eq i32 %32, 0
   br i1 %.not2, label %111, label %33
 
-33:                                               ; preds = %test_obj_create_once.exit23
+33:                                               ; preds = %test_obj_create_once.exit24
   %34 = tail call i32 @OBJ_ln2nid(ptr noundef nonnull @.str.30) #4
   %35 = tail call i32 @test_int_ne(ptr noundef nonnull @.str.6, i32 noundef 234, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.28, i32 noundef %34, i32 noundef 0) #4
   %.not3 = icmp eq i32 %35, 0
@@ -381,36 +381,36 @@ test_obj_create_once.exit23:                      ; preds = %29, %.critedge.i17
   %37 = tail call i32 @ERR_set_mark() #4
   %38 = tail call i32 @OBJ_create(ptr noundef null, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.33) #4
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %.critedge.i24
+  br i1 %39, label %40, label %.critedge.i25
 
 40:                                               ; preds = %36
   %41 = tail call i64 @ERR_peek_last_error() #4
   %42 = and i64 %41, 2147483648
-  %.not.i.i26 = icmp eq i64 %42, 0
+  %.not.i.i27 = icmp eq i64 %42, 0
   %43 = trunc i64 %41 to i32
-  %.0.v.i.i27 = select i1 %.not.i.i26, i32 8388607, i32 2147483647
-  %.0.i13.i28 = and i32 %.0.v.i.i27, %43
-  %44 = and i64 %41, 4286578688
-  %45 = icmp eq i64 %44, 67108864
-  %46 = icmp eq i32 %.0.i13.i28, 102
-  %or.cond.not.i29 = and i1 %45, %46
+  %.0.v.i.i28 = select i1 %.not.i.i27, i32 8388607, i32 2147483647
+  %.0.i13.i29 = and i32 %.0.v.i.i28, %43
+  %.mask.i30 = and i64 %41, 4286578688
+  %44 = icmp eq i64 %.mask.i30, 67108864
+  %45 = icmp eq i32 %.0.i13.i29, 102
+  %46 = and i1 %44, %45
   br i1 %or.cond.not.i29, label %.critedge.i24, label %47
 
 47:                                               ; preds = %40
   %48 = tail call i32 @ERR_clear_last_mark() #4
-  br label %test_obj_create_once.exit30
+  br label %test_obj_create_once.exit32
 
-.critedge.i24:                                    ; preds = %40, %36
+.critedge.i25:                                    ; preds = %40, %36
   %49 = tail call i32 @ERR_pop_to_mark() #4
-  br label %test_obj_create_once.exit30
+  br label %test_obj_create_once.exit32
 
-test_obj_create_once.exit30:                      ; preds = %47, %.critedge.i24
-  %.1.i25 = phi i32 [ 1, %.critedge.i24 ], [ 0, %47 ]
-  %50 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 235, ptr noundef nonnull @.str.32, i32 noundef %.1.i25) #4
+test_obj_create_once.exit32:                      ; preds = %47, %.critedge.i25
+  %.1.i26 = phi i32 [ 1, %.critedge.i24 ], [ 0, %47 ]
+  %50 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 235, ptr noundef nonnull @.str.32, i32 noundef %.1.i26) #4
   %.not4 = icmp eq i32 %50, 0
   br i1 %.not4, label %111, label %51
 
-51:                                               ; preds = %test_obj_create_once.exit30
+51:                                               ; preds = %test_obj_create_once.exit32
   %52 = tail call i32 @OBJ_sn2nid(ptr noundef nonnull @.str.33) #4
   %53 = tail call i32 @test_int_ne(ptr noundef nonnull @.str.6, i32 noundef 236, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.28, i32 noundef %52, i32 noundef 0) #4
   %.not5 = icmp eq i32 %53, 0
@@ -426,69 +426,69 @@ test_obj_create_once.exit30:                      ; preds = %47, %.critedge.i24
   %58 = tail call i32 @ERR_set_mark() #4
   %59 = tail call i32 @OBJ_create(ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef null) #4
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %.critedge.i31
+  br i1 %60, label %61, label %.critedge.i33
 
 61:                                               ; preds = %57
   %62 = tail call i64 @ERR_peek_last_error() #4
   %63 = and i64 %62, 2147483648
-  %.not.i.i33 = icmp eq i64 %63, 0
+  %.not.i.i35 = icmp eq i64 %63, 0
   %64 = trunc i64 %62 to i32
-  %.0.v.i.i34 = select i1 %.not.i.i33, i32 8388607, i32 2147483647
-  %.0.i13.i35 = and i32 %.0.v.i.i34, %64
-  %65 = and i64 %62, 4286578688
-  %66 = icmp eq i64 %65, 67108864
-  %67 = icmp eq i32 %.0.i13.i35, 102
-  %or.cond.not.i36 = and i1 %66, %67
+  %.0.v.i.i36 = select i1 %.not.i.i35, i32 8388607, i32 2147483647
+  %.0.i13.i37 = and i32 %.0.v.i.i36, %64
+  %.mask.i38 = and i64 %62, 4286578688
+  %65 = icmp eq i64 %.mask.i38, 67108864
+  %66 = icmp eq i32 %.0.i13.i37, 102
+  %67 = and i1 %65, %66
   br i1 %or.cond.not.i36, label %.critedge.i31, label %68
 
 68:                                               ; preds = %61
   %69 = tail call i32 @ERR_clear_last_mark() #4
-  br label %test_obj_create_once.exit37
+  br label %test_obj_create_once.exit40
 
-.critedge.i31:                                    ; preds = %61, %57
+.critedge.i33:                                    ; preds = %61, %57
   %70 = tail call i32 @ERR_pop_to_mark() #4
-  br label %test_obj_create_once.exit37
+  br label %test_obj_create_once.exit40
 
-test_obj_create_once.exit37:                      ; preds = %68, %.critedge.i31
-  %.1.i32 = phi i32 [ 1, %.critedge.i31 ], [ 0, %68 ]
-  %71 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 238, ptr noundef nonnull @.str.36, i32 noundef %.1.i32) #4
+test_obj_create_once.exit40:                      ; preds = %68, %.critedge.i33
+  %.1.i34 = phi i32 [ 1, %.critedge.i31 ], [ 0, %68 ]
+  %71 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 238, ptr noundef nonnull @.str.36, i32 noundef %.1.i34) #4
   %.not7 = icmp eq i32 %71, 0
   br i1 %.not7, label %111, label %72
 
-72:                                               ; preds = %test_obj_create_once.exit37
+72:                                               ; preds = %test_obj_create_once.exit40
   %73 = tail call i32 @ERR_set_mark() #4
   %74 = tail call i32 @OBJ_create(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef null) #4
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %.critedge.i38
+  br i1 %75, label %76, label %.critedge.i41
 
 76:                                               ; preds = %72
   %77 = tail call i64 @ERR_peek_last_error() #4
   %78 = and i64 %77, 2147483648
-  %.not.i.i40 = icmp eq i64 %78, 0
+  %.not.i.i43 = icmp eq i64 %78, 0
   %79 = trunc i64 %77 to i32
-  %.0.v.i.i41 = select i1 %.not.i.i40, i32 8388607, i32 2147483647
-  %.0.i13.i42 = and i32 %.0.v.i.i41, %79
-  %80 = and i64 %77, 4286578688
-  %81 = icmp eq i64 %80, 67108864
-  %82 = icmp eq i32 %.0.i13.i42, 102
-  %or.cond.not.i43 = and i1 %81, %82
+  %.0.v.i.i44 = select i1 %.not.i.i43, i32 8388607, i32 2147483647
+  %.0.i13.i45 = and i32 %.0.v.i.i44, %79
+  %.mask.i46 = and i64 %77, 4286578688
+  %80 = icmp eq i64 %.mask.i46, 67108864
+  %81 = icmp eq i32 %.0.i13.i45, 102
+  %82 = and i1 %80, %81
   br i1 %or.cond.not.i43, label %.critedge.i38, label %83
 
 83:                                               ; preds = %76
   %84 = tail call i32 @ERR_clear_last_mark() #4
-  br label %test_obj_create_once.exit44
+  br label %test_obj_create_once.exit48
 
-.critedge.i38:                                    ; preds = %76, %72
+.critedge.i41:                                    ; preds = %76, %72
   %85 = tail call i32 @ERR_pop_to_mark() #4
-  br label %test_obj_create_once.exit44
+  br label %test_obj_create_once.exit48
 
-test_obj_create_once.exit44:                      ; preds = %83, %.critedge.i38
-  %.1.i39 = phi i32 [ 1, %.critedge.i38 ], [ 0, %83 ]
-  %86 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 239, ptr noundef nonnull @.str.38, i32 noundef %.1.i39) #4
+test_obj_create_once.exit48:                      ; preds = %83, %.critedge.i41
+  %.1.i42 = phi i32 [ 1, %.critedge.i38 ], [ 0, %83 ]
+  %86 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 239, ptr noundef nonnull @.str.38, i32 noundef %.1.i42) #4
   %.not8 = icmp eq i32 %86, 0
   br i1 %.not8, label %111, label %87
 
-87:                                               ; preds = %test_obj_create_once.exit44
+87:                                               ; preds = %test_obj_create_once.exit48
   %88 = tail call i32 @OBJ_sn2nid(ptr noundef nonnull @.str.40) #4
   %89 = tail call i32 @test_int_ne(ptr noundef nonnull @.str.6, i32 noundef 240, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.28, i32 noundef %88, i32 noundef 0) #4
   %.not9 = icmp eq i32 %89, 0
@@ -537,7 +537,7 @@ test_obj_create_once.exit44:                      ; preds = %83, %.critedge.i38
   %spec.select = zext i1 %.not16 to i32
   br label %111
 
-111:                                              ; preds = %108, %105, %test_obj_create_once.exit, %15, %test_obj_create_once.exit23, %33, %test_obj_create_once.exit30, %51, %54, %test_obj_create_once.exit37, %test_obj_create_once.exit44, %87, %90, %93, %96, %99, %102
+111:                                              ; preds = %108, %105, %test_obj_create_once.exit, %15, %test_obj_create_once.exit24, %33, %test_obj_create_once.exit32, %51, %54, %test_obj_create_once.exit40, %test_obj_create_once.exit48, %87, %90, %93, %96, %99, %102
   %.0 = phi i32 [ 0, %105 ], [ 0, %test_obj_create_once.exit ], [ 0, %102 ], [ 0, %99 ], [ 0, %96 ], [ 0, %93 ], [ 0, %90 ], [ 0, %87 ], [ 0, %test_obj_create_once.exit44 ], [ 0, %test_obj_create_once.exit37 ], [ 0, %54 ], [ 0, %51 ], [ 0, %test_obj_create_once.exit30 ], [ 0, %33 ], [ 0, %test_obj_create_once.exit23 ], [ 0, %15 ], [ %spec.select, %108 ]
   ret i32 %.0
 }
@@ -616,10 +616,10 @@ define internal fastcc range(i32 0, 2) i32 @test_obj_create_once(ptr noundef %0,
   %10 = trunc i64 %8 to i32
   %.0.v.i = select i1 %.not.i, i32 8388607, i32 2147483647
   %.0.i13 = and i32 %.0.v.i, %10
-  %11 = and i64 %8, 4286578688
-  %12 = icmp eq i64 %11, 67108864
-  %13 = icmp eq i32 %.0.i13, 102
-  %or.cond.not = and i1 %12, %13
+  %.mask = and i64 %8, 4286578688
+  %11 = icmp eq i64 %.mask, 67108864
+  %12 = icmp eq i32 %.0.i13, 102
+  %13 = and i1 %11, %12
   br i1 %or.cond.not, label %.critedge, label %14
 
 14:                                               ; preds = %7

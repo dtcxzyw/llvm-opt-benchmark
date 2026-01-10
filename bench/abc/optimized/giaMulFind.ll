@@ -33,7 +33,7 @@ define void @Gia_ManMulFindXors2_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   %7 = and i64 %.val, 536870911
   %8 = icmp eq i64 %7, 536870911
   %narrow.i.not = or i1 %.not.i, %8
-  br i1 %narrow.i.not, label %69, label %9
+  br i1 %narrow.i.not, label %70, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 616
@@ -51,22 +51,22 @@ define void @Gia_ManMulFindXors2_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %21 = load i32, ptr %20, align 8, !tbaa !30
   %.not = icmp eq i32 %19, %21
-  br i1 %.not, label %69, label %22
+  br i1 %.not, label %70, label %22
 
 22:                                               ; preds = %9
   store i32 %21, ptr %18, align 4, !tbaa !29
   %23 = load i64, ptr %1, align 4
   %24 = and i64 %23, 1073741824
   %.not23 = icmp eq i64 %24, 0
-  br i1 %.not23, label %25, label %59
+  br i1 %.not23, label %25, label %60
 
 25:                                               ; preds = %22
   %26 = trunc i64 %23 to i32
   %27 = and i64 %23, 2305843009750564864
-  %or.cond = icmp eq i64 %27, 0
-  br i1 %or.cond, label %28, label %69
+  %.not24 = icmp eq i64 %27, 0
+  br i1 %.not24, label %28, label %69
 
-28:                                               ; preds = %25
+28:; preds = %25
   %29 = and i64 %23, 536870911
   %30 = sub nsw i64 0, %29
   %31 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %30
@@ -80,16 +80,16 @@ define void @Gia_ManMulFindXors2_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   %37 = getelementptr inbounds i8, ptr %.val29, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !29
   %39 = icmp sgt i32 %38, 3
-  br i1 %39, label %40, label %69
+  br i1 %39, label %40, label %70
 
-40:                                               ; preds = %28
+40:; preds = %28
   %41 = lshr i64 %23, 32
   %42 = and i64 %41, 536870911
   %43 = sub nsw i64 0, %42
   %44 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %43
   %45 = ptrtoint ptr %44 to i64
-  %46 = sub i64 %45, %14
-  %47 = sdiv exact i64 %46, 12
+  %44 = sub i64 %45, %14
+  %47 = sdiv exact i64 %44, 12
   %sext.i37 = shl i64 %47, 32
   %48 = ashr exact i64 %sext.i37, 30
   %49 = getelementptr inbounds i8, ptr %.val29, i64 %48
@@ -97,35 +97,35 @@ define void @Gia_ManMulFindXors2_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   %51 = icmp sgt i32 %50, 3
   br i1 %51, label %52, label %69
 
-52:                                               ; preds = %40
+52:; preds = %40
   %53 = trunc i64 %16 to i32
   %54 = and i32 %26, 536870911
   %55 = sub nsw i32 %53, %54
-  %56 = trunc nuw i64 %41 to i32
-  %57 = and i32 %56, 536870911
-  %58 = sub nsw i32 %53, %57
+  %54 = trunc nuw i64 %41 to i32
+  %55 = and i32 %56, 536870911
+  %56 = sub nsw i32 %53, %55
   tail call fastcc void @Vec_IntPushTwo(ptr noundef %2, i32 noundef %55, i32 noundef %58)
   br label %69
 
-59:                                               ; preds = %22
+60:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %60 = call i32 @Gia_ObjRecognizeExor(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #21
-  %61 = load ptr, ptr %4, align 8, !tbaa !32
-  %62 = ptrtoint ptr %61 to i64
-  %63 = and i64 %62, -2
-  %64 = inttoptr i64 %63 to ptr
-  call void @Gia_ManMulFindXors2_rec(ptr noundef nonnull %0, ptr noundef %64, ptr noundef %2)
-  %65 = load ptr, ptr %5, align 8, !tbaa !32
-  %66 = ptrtoint ptr %65 to i64
-  %67 = and i64 %66, -2
-  %68 = inttoptr i64 %67 to ptr
-  call void @Gia_ManMulFindXors2_rec(ptr noundef nonnull %0, ptr noundef %68, ptr noundef %2)
+  %61 = call i32 @Gia_ObjRecognizeExor(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #21
+  %62 = load ptr, ptr %4, align 8, !tbaa !32
+  %63 = ptrtoint ptr %62 to i64
+  %64 = and i64 %63, -2
+  %65 = inttoptr i64 %64 to ptr
+  call void @Gia_ManMulFindXors2_rec(ptr noundef nonnull %0, ptr noundef %65, ptr noundef %2)
+  %66 = load ptr, ptr %5, align 8, !tbaa !32
+  %67 = ptrtoint ptr %66 to i64
+  %68 = and i64 %67, -2
+  %69 = inttoptr i64 %68 to ptr
+  call void @Gia_ManMulFindXors2_rec(ptr noundef nonnull %0, ptr noundef %69, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %69
+  br label %70
 
-69:                                               ; preds = %25, %28, %40, %52, %9, %3, %59
+70:                                               ; preds = %25, %28, %40, %52, %9, %3, %60
   ret void
 }
 

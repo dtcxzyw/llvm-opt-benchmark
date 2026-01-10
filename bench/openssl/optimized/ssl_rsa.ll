@@ -1155,7 +1155,7 @@ define internal fastcc range(i32 0, 2) i32 @use_certificate_chain_file(ptr nound
 
 61:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %29, label %62, label %.thread100
+  br i1 %29, label %62, label %.thread99
 
 62:                                               ; preds = %61
   %63 = call i64 @SSL_ctrl(ptr noundef %1, i32 noundef 88, i64 noundef 0, ptr noundef null) #6
@@ -1163,7 +1163,7 @@ define internal fastcc range(i32 0, 2) i32 @use_certificate_chain_file(ptr nound
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %94, label %.preheader.split.us
 
-.thread100:                                       ; preds = %61
+.thread99:                                        ; preds = %61
   %66 = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %0, i32 noundef 88, i64 noundef 0, ptr noundef null) #6
   %67 = and i64 %66, 4294967295
   %68 = icmp eq i64 %67, 0
@@ -1189,7 +1189,7 @@ define internal fastcc range(i32 0, 2) i32 @use_certificate_chain_file(ptr nound
   %.not75.us = icmp eq i64 %78, 0
   br i1 %.not75.us, label %.split89.us, label %.preheader.split.us
 
-.preheader.split:                                 ; preds = %.thread100, %85
+.preheader.split:                                 ; preds = %.thread99, %85
   %79 = load ptr, ptr %28, align 8, !tbaa !82
   %80 = load ptr, ptr %44, align 8, !tbaa !96
   %81 = call ptr @X509_new_ex(ptr noundef %79, ptr noundef %80) #6
@@ -1232,7 +1232,7 @@ define internal fastcc range(i32 0, 2) i32 @use_certificate_chain_file(ptr nound
   call void @ERR_clear_error() #6
   br label %94
 
-94:                                               ; preds = %.thread100, %93, %.split87.us, %62, %.split89.us, %.split.us
+94:                                               ; preds = %.thread99, %93, %.split87.us, %62, %.split89.us, %.split.us
   %.3 = phi i32 [ 0, %62 ], [ 1, %.split.us ], [ 0, %.split89.us ], [ 1, %93 ], [ 0, %.thread100 ], [ 0, %.split87.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %95

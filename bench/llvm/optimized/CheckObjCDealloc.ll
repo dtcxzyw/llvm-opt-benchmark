@@ -1668,71 +1668,71 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_118ObjCDeal
   br i1 %.not3.i, label %_ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit, label %_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread
 
 select.unfold:                                    ; preds = %11
-  %19 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_118ObjCDeallocChecker27isReleasedByCIFilterDeallocEPKN5clang20ObjCPropertyImplDeclE(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull %1)
-  br i1 %19, label %_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread, label %20
+  %20 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_118ObjCDeallocChecker27isReleasedByCIFilterDeallocEPKN5clang20ObjCPropertyImplDeclE(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull %1)
+  br i1 %20, label %_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread, label %21
 
-20:                                               ; preds = %select.unfold
-  %21 = load ptr, ptr %3, align 8, !tbaa !98
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 28
-  %23 = load i32, ptr %22, align 4
-  %24 = and i32 %23, 256
-  %.not.i.i = icmp eq i32 %24, 0
-  br i1 %.not.i.i, label %_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread, label %25
+21:                                               ; preds = %select.unfold
+  %22 = load ptr, ptr %3, align 8, !tbaa !98
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 28
+  %24 = load i32, ptr %23, align 4
+  %25 = and i32 %24, 256
+  %.not.i.i = icmp eq i32 %25, 0
+  br i1 %.not.i.i, label %_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread, label %26
 
-25:                                               ; preds = %20
-  %26 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %21) #20
-  %27 = load ptr, ptr %26, align 8, !tbaa !481
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = load i32, ptr %28, align 8, !tbaa !482
-  %30 = zext i32 %29 to i64
-  %.idx.i.i.i = shl nuw nsw i64 %30, 3
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i
-  %.not.i.i.i = icmp eq i32 %29, 0
+26:                                               ; preds = %21
+  %27 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %22) #20
+  %28 = load ptr, ptr %27, align 8, !tbaa !481
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %30 = load i32, ptr %29, align 8, !tbaa !482
+  %31 = zext i32 %30 to i64
+  %.idx.i.i.i = shl nuw nsw i64 %31, 3
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i.i
+  %.not.i.i.i = icmp eq i32 %30, 0
   br i1 %.not.i.i.i, label %_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %25, %36
-  %.sroa.07.1.i.i.i.i.i = phi ptr [ %37, %36 ], [ %27, %25 ]
-  %32 = load ptr, ptr %.sroa.07.1.i.i.i.i.i, align 8, !tbaa !483
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %34 = load i16, ptr %33, align 8
-  %35 = icmp eq i16 %34, 227
-  br i1 %35, label %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.i, label %36
+.lr.ph.i.i.i.i.i.i:                               ; preds = %26, %37
+  %.sroa.07.1.i.i.i.i.i = phi ptr [ %38, %36 ], [ %28, %25 ]
+  %33 = load ptr, ptr %.sroa.07.1.i.i.i.i.i, align 8, !tbaa !483
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %35 = load i16, ptr %34, align 8
+  %36 = icmp eq i16 %35, 227
+  br i1 %36, label %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.i, label %37
 
-36:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %37, %31
+37:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %38, %32
   br i1 %.not.i.i.i.i.i.i, label %_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !485
 
 _ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not3.i9 = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %31
-  br i1 %.not3.i9, label %_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread, label %38
+  %.not3.i9 = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %32
+  br i1 %.not3.i9, label %_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread, label %39
 
-38:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.i
-  %39 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %21) #23
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 17288
-  %41 = load ptr, ptr %40, align 8, !tbaa !486
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 260
-  %43 = load i32, ptr %42, align 4, !tbaa !487
-  %44 = and i32 %43, -9
-  %spec.select.i.i = icmp eq i32 %44, 1
+39:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.i
+  %40 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %22) #23
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 17288
+  %42 = load ptr, ptr %41, align 8, !tbaa !486
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 260
+  %44 = load i32, ptr %43, align 4, !tbaa !487
+  %45 = and i32 %44, -9
+  %spec.select.i.i = icmp eq i32 %45, 1
   br i1 %spec.select.i.i, label %_ZNK12_GLOBAL__N_118ObjCDeallocChecker28isNibLoadedIvarWithoutRetainEPKN5clang20ObjCPropertyImplDeclE.exit, label %_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread
 
-_ZNK12_GLOBAL__N_118ObjCDeallocChecker28isNibLoadedIvarWithoutRetainEPKN5clang20ObjCPropertyImplDeclE.exit: ; preds = %38
-  %45 = load ptr, ptr %12, align 8, !tbaa !480
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 112
-  %47 = load ptr, ptr %46, align 8, !tbaa !495
-  %.fr = freeze ptr %47
+_ZNK12_GLOBAL__N_118ObjCDeallocChecker28isNibLoadedIvarWithoutRetainEPKN5clang20ObjCPropertyImplDeclE.exit: ; preds = %39
+  %46 = load ptr, ptr %12, align 8, !tbaa !480
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 112
+  %48 = load ptr, ptr %47, align 8, !tbaa !495
+  %.fr = freeze ptr %48
   %.not.i10 = icmp eq ptr %.fr, null
   %spec.select = select i1 %.not.i10, i32 2, i32 0
   br label %_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread
 
 _ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit: ; preds = %17
-  %48 = and i64 %15, 1
-  %.not = icmp eq i64 %48, 0
+  %49 = and i64 %15, 1
+  %.not = icmp eq i64 %49, 0
   %.5 = select i1 %.not, i32 1, i32 2
   br label %_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread
 
-_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread: ; preds = %36, %_ZNK12_GLOBAL__N_118ObjCDeallocChecker28isNibLoadedIvarWithoutRetainEPKN5clang20ObjCPropertyImplDeclE.exit, %20, %25, %38, %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.i, %17, %5, %2, %select.unfold, %_ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit
+_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread: ; preds = %37, %_ZNK12_GLOBAL__N_118ObjCDeallocChecker28isNibLoadedIvarWithoutRetainEPKN5clang20ObjCPropertyImplDeclE.exit, %21, %26, %39, %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.i, %17, %5, %2, %select.unfold, %_ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit
   %.0 = phi i32 [ 1, %17 ], [ 2, %5 ], [ %.5, %_ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit ], [ 1, %select.unfold ], [ 0, %20 ], [ %spec.select, %_ZNK12_GLOBAL__N_118ObjCDeallocChecker28isNibLoadedIvarWithoutRetainEPKN5clang20ObjCPropertyImplDeclE.exit ], [ 2, %2 ], [ 0, %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.i ], [ 0, %38 ], [ 0, %25 ], [ 0, %36 ]
   ret i32 %.0
 }

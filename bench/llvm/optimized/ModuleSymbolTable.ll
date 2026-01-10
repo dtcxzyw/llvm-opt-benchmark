@@ -537,14 +537,14 @@ define dso_local void @_ZN4llvm17ModuleSymbolTable17CollectAsmSymbolsERKNS_6Modu
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %14 = load i32, ptr %13, align 4, !tbaa !61
   %15 = icmp eq i32 %14, 3
-  br i1 %15, label %16, label %29
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %18 = load i32, ptr %17, align 8, !tbaa !71
   %19 = add i32 %18, -37
   %spec.select.i = icmp ult i32 %19, 2
-  br i1 %spec.select.i, label %20, label %29
+  br i1 %spec.select.i, label %20, label %31
 
 20:                                               ; preds = %16
   %21 = call i64 @_ZNK4llvm6Module12getCodeModelEv(ptr noundef nonnull align 8 dereferenceable(841) %0) #17
@@ -555,28 +555,28 @@ define dso_local void @_ZN4llvm17ModuleSymbolTable17CollectAsmSymbolsERKNS_6Modu
 24:                                               ; preds = %20
   %25 = and i64 %21, 8589934591
   %26 = add nsw i64 %25, -4294967299
-  %or.cond = icmp ult i64 %26, 2
-  br i1 %or.cond, label %.critedge, label %29
+  %26 = icmp ult i64 %26, 2
+  br i1 %26, label %.critedge, label %31
 
 .critedge:                                        ; preds = %24, %20
-  %27 = load ptr, ptr %4, align 8, !tbaa !72
-  %28 = load i64, ptr %8, align 8, !tbaa !74
-  call void %27(i64 noundef %28, ptr nonnull @.str, i64 21, i32 noundef 3) #17
-  br label %29
+  %29 = load ptr, ptr %4, align 8, !tbaa !72
+  %30 = load i64, ptr %8, align 8, !tbaa !74
+  call void %27(i64 noundef %30, ptr nonnull @.str, i64 21, i32 noundef 3) #17
+  br label %31
 
-29:                                               ; preds = %24, %.critedge, %3, %16
-  %30 = load ptr, ptr %6, align 8, !tbaa !75
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %32 = icmp eq ptr %30, %31
-  br i1 %32, label %_ZN4llvm6TripleD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+31:                                               ; preds = %24, %.critedge, %3, %16
+  %32 = load ptr, ptr %6, align 8, !tbaa !75
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %34 = icmp eq ptr %32, %33
+  br i1 %34, label %_ZN4llvm6TripleD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %29
-  %33 = load i64, ptr %31, align 8, !tbaa !41
-  %34 = add i64 %33, 1
-  call void @_ZdlPvm(ptr noundef %30, i64 noundef %34) #20
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %31
+  %35 = load i64, ptr %33, align 8, !tbaa !41
+  %36 = add i64 %35, 1
+  call void @_ZdlPvm(ptr noundef %32, i64 noundef %36) #20
   br label %_ZN4llvm6TripleD2Ev.exit
 
-_ZN4llvm6TripleD2Ev.exit:                         ; preds = %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN4llvm6TripleD2Ev.exit:                         ; preds = %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

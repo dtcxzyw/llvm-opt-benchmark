@@ -135916,29 +135916,29 @@ _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thre
   %or.cond11.not14.i = or i1 %59, %or.cond.not17.i
   %60 = and i64 %53, -4294966848
   %61 = icmp eq i64 %60, 0
-  %or.cond.i = and i1 %61, %or.cond11.not14.i
-  br i1 %or.cond.i, label %62, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
+  %or.cond12.i = and i1 %61, %or.cond11.not14.i
+  br i1 %or.cond.i, label %64, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
 
-62:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i
-  %63 = xor i64 %46, -1
-  %64 = and i64 %.sroa.012.0, 7
-  %65 = and i64 %64, %63
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %67, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
+64:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i
+  %65 = xor i64 %46, -1
+  %66 = and i64 %.sroa.012.0, 7
+  %67 = and i64 %66, %65
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %69, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
 
-67:                                               ; preds = %62
-  %68 = and i64 %.sroa.012.0, 8
-  %.not.i9 = icmp eq i64 %68, 0
-  br i1 %.not.i9, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit, label %69
+69:                                               ; preds = %64
+  %70 = and i64 %.sroa.012.0, 8
+  %.not.i9 = icmp eq i64 %70, 0
+  br i1 %.not.i9, label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit, label %71
 
-69:                                               ; preds = %67
-  %70 = and i64 %.sroa.0.0.i.i7, 8
-  %71 = icmp ne i64 %70, 0
+71:                                               ; preds = %69
+  %72 = and i64 %.sroa.0.0.i.i7, 8
+  %73 = icmp ne i64 %72, 0
   br label %_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit
 
-_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit: ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i, %62, %67, %69
-  %72 = phi i1 [ false, %62 ], [ true, %67 ], [ %71, %69 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i ]
-  ret i1 %72
+_ZNK5clang10Qualifiers18compatiblyIncludesES0_RKNS_10ASTContextE.exit: ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i, %64, %69, %71
+  %74 = phi i1 [ false, %62 ], [ true, %67 ], [ %73, %69 ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i ], [ false, %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.i ]
+  ret i1 %74
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

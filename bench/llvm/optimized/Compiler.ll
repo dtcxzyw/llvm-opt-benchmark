@@ -6668,7 +6668,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
 40:                                               ; preds = %32, %30, %28, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %73
+  br label %75
 
 41:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -6713,7 +6713,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
 58:                                               ; preds = %50, %48, %46, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %73
+  br label %75
 
 59:                                               ; preds = %.critedge20, %.critedge
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -6728,24 +6728,24 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
   store i64 %65, ptr %9, align 8, !tbaa !77
   %66 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter11emitPopBoolERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(8) %9) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %73
+  br label %75
 
 67:                                               ; preds = %59
   %68 = and i64 %19, 8589934591
   %.not = icmp eq i64 %68, 4294967306
-  br i1 %.not, label %73, label %69
+  br i1 %.not, label %73, label %71
 
-69:                                               ; preds = %67
+71:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %70 = ptrtoint ptr %1 to i64
-  %71 = or i64 %70, 4
-  store i64 %71, ptr %10, align 8, !tbaa !77
-  %72 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8emitCastENS0_8PrimTypeES2_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 10, i32 noundef %.sroa.0.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(8) %10) #16
+  %72 = ptrtoint ptr %1 to i64
+  %73 = or i64 %72, 4
+  store i64 %73, ptr %10, align 8, !tbaa !77
+  %74 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8emitCastENS0_8PrimTypeES2_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef 10, i32 noundef %.sroa.0.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(8) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %73
+  br label %75
 
-73:                                               ; preds = %67, %58, %40, %69, %63
-  %.118 = phi i1 [ %66, %63 ], [ %72, %69 ], [ false, %58 ], [ false, %40 ], [ true, %67 ]
+75:                                               ; preds = %67, %58, %40, %71, %63
+  %.118 = phi i1 [ %66, %63 ], [ %74, %71 ], [ false, %58 ], [ false, %40 ], [ true, %67 ]
   ret i1 %.118
 }
 
@@ -39376,7 +39376,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
 38:                                               ; preds = %30, %28, %26, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %70
+  br label %72
 
 39:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -39419,7 +39419,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
 55:                                               ; preds = %47, %45, %43, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %70
+  br label %72
 
 56:                                               ; preds = %.critedge20, %.critedge
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1144
@@ -39434,24 +39434,24 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
   store i64 %62, ptr %9, align 8, !tbaa !77
   %63 = call noundef zeroext i1 @_ZN5clang6interp11EvalEmitter11emitPopBoolERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(1044) %0, ptr noundef nonnull align 8 dereferenceable(8) %9) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %70
+  br label %72
 
 64:                                               ; preds = %56
   %65 = and i64 %19, 8589934591
   %.not = icmp eq i64 %65, 4294967306
   br i1 %.not, label %70, label %66
 
-66:                                               ; preds = %64
+68:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %67 = ptrtoint ptr %1 to i64
-  %68 = or i64 %67, 4
-  store i64 %68, ptr %10, align 8, !tbaa !77
-  %69 = call noundef zeroext i1 @_ZN5clang6interp11EvalEmitter8emitCastENS0_8PrimTypeES2_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(1044) %0, i32 noundef 10, i32 noundef %.sroa.0.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(8) %10) #16
+  %69 = ptrtoint ptr %1 to i64
+  %70 = or i64 %69, 4
+  store i64 %70, ptr %10, align 8, !tbaa !77
+  %71 = call noundef zeroext i1 @_ZN5clang6interp11EvalEmitter8emitCastENS0_8PrimTypeES2_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(1044) %0, i32 noundef 10, i32 noundef %.sroa.0.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(8) %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %70
+  br label %72
 
-70:                                               ; preds = %64, %55, %38, %66, %60
-  %.118 = phi i1 [ %63, %60 ], [ %69, %66 ], [ false, %55 ], [ false, %38 ], [ true, %64 ]
+72:                                               ; preds = %64, %55, %38, %68, %60
+  %.118 = phi i1 [ %63, %60 ], [ %71, %66 ], [ false, %55 ], [ false, %38 ], [ true, %64 ]
   ret i1 %.118
 }
 

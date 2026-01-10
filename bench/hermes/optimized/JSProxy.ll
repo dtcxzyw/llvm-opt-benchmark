@@ -4719,7 +4719,7 @@ entry:
 if.then:                                          ; preds = %entry
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %keys.coerce, align 8
   %and.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
-  %2 = inttoptr i64 %and.i.i.i.i.i to ptr
+  %3 = inttoptr i64 %and.i.i.i.i.i to ptr
   br label %return
 
 if.end:                                           ; preds = %entry

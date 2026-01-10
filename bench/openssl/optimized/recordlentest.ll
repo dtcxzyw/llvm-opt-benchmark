@@ -266,8 +266,8 @@ write_record.exit49:                              ; preds = %.preheader.i41, %63
 fail_due_to_record_overflow.exit:                 ; preds = %71
   %75 = call i64 @ERR_peek_error() #6
   %76 = and i64 %75, 4294967295
-  %or.cond64 = icmp eq i64 %76, 167772306
-  %.05.i = zext i1 %or.cond64 to i32
+  %or.cond65 = icmp eq i64 %76, 167772306
+  %.05.i = zext i1 %or.cond65 to i32
   %77 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 143, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %.05.i, i32 noundef %0) #6
   %.not39 = icmp eq i32 %77, 0
   br i1 %.not39, label %116, label %115
@@ -349,21 +349,21 @@ write_record.exit59:                              ; preds = %.preheader.i51, %10
   %110 = zext i1 %109 to i32
   %111 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 167, ptr noundef nonnull @.str.28, i32 noundef %110) #6
   %.not35 = icmp eq i32 %111, 0
-  br i1 %.not35, label %116, label %fail_due_to_record_overflow.exit62
+  br i1 %.not35, label %116, label %fail_due_to_record_overflow.exit64
 
-fail_due_to_record_overflow.exit62:               ; preds = %106
+fail_due_to_record_overflow.exit64:               ; preds = %106
   %112 = call i64 @ERR_peek_error() #6
   %113 = and i64 %112, 4294967295
   %or.cond66 = icmp eq i64 %113, 167772310
-  %.05.i60 = zext i1 %or.cond66 to i32
-  %114 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 170, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.25, i32 noundef %.05.i60, i32 noundef %.028) #6
+  %.05.i62 = zext i1 %or.cond66 to i32
+  %114 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 170, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.25, i32 noundef %.05.i62, i32 noundef %.028) #6
   %.not36 = icmp eq i32 %114, 0
   br i1 %.not36, label %116, label %115
 
-115:                                              ; preds = %fail_due_to_record_overflow.exit62, %fail_due_to_record_overflow.exit
+115:                                              ; preds = %fail_due_to_record_overflow.exit64, %fail_due_to_record_overflow.exit
   br label %116
 
-116:                                              ; preds = %fail_due_to_record_overflow.exit62, %106, %write_record.exit59, %78, %fail_due_to_record_overflow.exit, %71, %67, %31, %1, %115
+116:                                              ; preds = %fail_due_to_record_overflow.exit64, %106, %write_record.exit59, %78, %fail_due_to_record_overflow.exit, %71, %67, %31, %1, %115
   %.0 = phi i32 [ 1, %115 ], [ 0, %fail_due_to_record_overflow.exit ], [ 0, %71 ], [ 0, %67 ], [ 0, %fail_due_to_record_overflow.exit62 ], [ 0, %106 ], [ 0, %write_record.exit59 ], [ 0, %78 ], [ 0, %31 ], [ 0, %1 ]
   %117 = load ptr, ptr %14, align 8, !tbaa !11
   call void @SSL_free(ptr noundef %117) #6

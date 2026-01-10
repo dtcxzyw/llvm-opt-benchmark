@@ -1094,15 +1094,15 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br i1 %340, label %.lr.ph, label %.thread471
 
 .lr.ph:                                           ; preds = %.preheader, %344
-  %.0233703 = phi i32 [ %345, %344 ], [ 0, %.preheader ]
+  %.0233704 = phi i32 [ %345, %344 ], [ 0, %.preheader ]
   %341 = load ptr, ptr %10, align 8, !tbaa !17
-  %342 = call ptr @OPENSSL_sk_value(ptr noundef %341, i32 noundef %.0233703) #6
+  %342 = call ptr @OPENSSL_sk_value(ptr noundef %341, i32 noundef %.0233704) #6
   %343 = call i32 @cert_matches_key(ptr noundef %342, ptr noundef nonnull %.1239) #6
   %.not408 = icmp eq i32 %343, 0
   br i1 %.not408, label %344, label %349
 
 344:                                              ; preds = %.lr.ph
-  %345 = add nuw nsw i32 %.0233703, 1
+  %345 = add nuw nsw i32 %.0233704, 1
   %346 = load ptr, ptr %10, align 8, !tbaa !17
   %347 = call i32 @OPENSSL_sk_num(ptr noundef %346) #6
   %348 = icmp slt i32 %345, %347
@@ -1112,7 +1112,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   %350 = call i32 @X509_keyid_set1(ptr noundef %342, ptr noundef null, i32 noundef 0) #6
   %351 = call i32 @X509_alias_set1(ptr noundef %342, ptr noundef null, i32 noundef 0) #6
   %352 = load ptr, ptr %10, align 8, !tbaa !17
-  %353 = call ptr @OPENSSL_sk_delete(ptr noundef %352, i32 noundef %.0233703) #6
+  %353 = call ptr @OPENSSL_sk_delete(ptr noundef %352, i32 noundef %.0233704) #6
   %354 = icmp eq ptr %342, null
   br i1 %354, label %.thread471, label %357
 
@@ -1210,20 +1210,20 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
 394:                                              ; preds = %391, %390
   %395 = call i32 @OPENSSL_sk_num(ptr noundef %.0244) #6
   %396 = icmp sgt i32 %395, 0
-  br i1 %396, label %.lr.ph705, label %._crit_edge
+  br i1 %396, label %.lr.ph706, label %._crit_edge
 
-.lr.ph705:                                        ; preds = %394, %.lr.ph705
-  %.1234704 = phi i32 [ %401, %.lr.ph705 ], [ 0, %394 ]
-  %397 = call ptr @OPENSSL_sk_value(ptr noundef %.0244, i32 noundef %.1234704) #6
+.lr.ph706:                                        ; preds = %394, %.lr.ph706
+  %.1234705 = phi i32 [ %401, %.lr.ph705 ], [ 0, %394 ]
+  %397 = call ptr @OPENSSL_sk_value(ptr noundef %.0244, i32 noundef %.1234705) #6
   %398 = load ptr, ptr %10, align 8, !tbaa !17
-  %399 = call ptr @OPENSSL_sk_value(ptr noundef %398, i32 noundef %.1234704) #6
+  %399 = call ptr @OPENSSL_sk_value(ptr noundef %398, i32 noundef %.1234705) #6
   %400 = call i32 @X509_alias_set1(ptr noundef %399, ptr noundef %397, i32 noundef -1) #6
-  %401 = add nuw nsw i32 %.1234704, 1
+  %401 = add nuw nsw i32 %.1234705, 1
   %402 = call i32 @OPENSSL_sk_num(ptr noundef %.0244) #6
   %403 = icmp slt i32 %401, %402
-  br i1 %403, label %.lr.ph705, label %._crit_edge, !llvm.loop !22
+  br i1 %403, label %.lr.ph706, label %._crit_edge, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %.lr.ph705, %394
+._crit_edge:                                      ; preds = %.lr.ph706, %394
   %404 = icmp ne ptr %.0326, null
   %405 = icmp ne ptr %.1239, null
   %or.cond9 = and i1 %404, %405
@@ -1569,7 +1569,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
 569:                                              ; preds = %565
   %570 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %571 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %570, ptr noundef nonnull @.str.157) #6
-  br label %.sink.split1128
+  br label %.sink.split1127
 
 572:                                              ; preds = %565
   call void @X509_ALGOR_get0(ptr noundef nonnull %21, ptr noundef null, ptr noundef null, ptr noundef nonnull %567) #6
@@ -1611,20 +1611,20 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
 
 589:                                              ; preds = %586
   %spec.select = select i1 %.not386470, ptr null, ptr %.1276468
-  br label %.sink.split1128
+  br label %.sink.split1127
 
 590:                                              ; preds = %586, %584
   %591 = load ptr, ptr %8, align 8, !tbaa !9
   %592 = call i32 @PKCS12_verify_mac(ptr noundef %591, ptr noundef nonnull %.0274469, i32 noundef -1) #6
   %.not400 = icmp eq i32 %592, 0
-  br i1 %.not400, label %593, label %.sink.split1128
+  br i1 %.not400, label %593, label %.sink.split1127
 
 593:                                              ; preds = %590
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %594 = call i64 @ERR_peek_error() #6
   %595 = and i64 %594, 4294967295
-  %or.cond1127 = icmp eq i64 %595, 293601388
-  br i1 %or.cond1127, label %610, label %596
+  %or.cond505 = icmp eq i64 %595, 293601388
+  br i1 %or.cond505, label %610, label %596
 
 596:                                              ; preds = %593
   %597 = call ptr @OPENSSL_asc2uni(ptr noundef nonnull %.0274469, i32 noundef -1, ptr noundef null, ptr noundef nonnull %22) #6
@@ -1651,7 +1651,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   %609 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %604, ptr noundef nonnull @.str.163) #6
   %spec.select431 = select i1 %.not386470, ptr %601, ptr %.1276468
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.sink.split1128
+  br label %.sink.split1127
 
 .thread500:                                       ; preds = %596, %605
   %.3272.ph.ph = phi ptr [ %601, %605 ], [ null, %596 ]
@@ -1664,16 +1664,16 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   %611 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %612 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %611, ptr noundef nonnull @.str.157) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.sink.split1128
+  br label %.sink.split1127
 
-.sink.split1128:                                  ; preds = %608, %589, %590, %569, %610
+.sink.split1127:                                  ; preds = %608, %589, %590, %569, %610
   %.6.ph = phi ptr [ %.1276468, %610 ], [ %spec.select431, %608 ], [ %.1276468, %590 ], [ %spec.select, %589 ], [ %.1276468, %569 ]
   %.4273.ph = phi ptr [ null, %610 ], [ %601, %608 ], [ null, %590 ], [ null, %589 ], [ null, %569 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %613
 
-613:                                              ; preds = %.sink.split1128, %564
+613:                                              ; preds = %.sink.split1127, %564
   %.6 = phi ptr [ %.1276468, %564 ], [ %.6.ph, %.sink.split1128 ]
   %.4273 = phi ptr [ null, %564 ], [ %.4273.ph, %.sink.split1128 ]
   %614 = call ptr @bio_open_owner(ptr noundef %.0217, i32 noundef 32773, i32 noundef 1) #6

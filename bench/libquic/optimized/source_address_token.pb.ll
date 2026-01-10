@@ -1885,7 +1885,7 @@ define noundef zeroext i1 @_ZN3net19SourceAddressTokens27MergePartialFromCodedSt
   call void @_ZN6google8protobuf2io22LazyStringOutputStreamC1EPNS0_14ResultCallbackIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN6google8protobuf2io17CodedOutputStreamC1EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(26) %4, ptr noundef nonnull %3, i1 noundef zeroext false)
-          to label %.preheader49 unwind label %32
+          to label %.preheader49 unwind label %34
 
 .preheader49:                                     ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1940,170 +1940,170 @@ _ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit.thread: ; preds = %
   %or.cond = icmp eq i64 %.sroa.0.0.in.i, 4294967330
   br i1 %or.cond, label %35, label %90
 
-32:                                               ; preds = %2
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %2
+  %35 = landingpad { ptr, i32 }
           cleanup
-  br label %97
+  br label %99
 
-.loopexit:                                        ; preds = %.thread.i.i.i, %55, %_ZN3net19SourceAddressTokens10add_tokensEv.exit, %.noexc33, %69
+.loopexit:                                        ; preds = %.thread.i.i.i, %57, %_ZN3net19SourceAddressTokens10add_tokensEv.exit, %.noexc33, %71
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %34
+  br label %36
 
-.loopexit.split-lp:                               ; preds = %94, %27
+.loopexit.split-lp:                               ; preds = %96, %27
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %34
+  br label %36
 
-34:                                               ; preds = %.loopexit.split-lp, %.loopexit
+36:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %4) #22
-  br label %97
+  br label %99
 
-35:                                               ; preds = %31
-  %36 = load i32, ptr %11, align 8, !tbaa !79
-  %37 = add nsw i32 %36, -1
-  store i32 %37, ptr %11, align 8, !tbaa !79
-  %38 = icmp sgt i32 %36, 0
-  br i1 %38, label %.preheader, label %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread, !prof !46
+37:                                               ; preds = %31
+  %38 = load i32, ptr %11, align 8, !tbaa !79
+  %39 = add nsw i32 %38, -1
+  store i32 %39, ptr %11, align 8, !tbaa !79
+  %40 = icmp sgt i32 %38, 0
+  br i1 %40, label %.preheader, label %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread, !prof !46
 
-.preheader:                                       ; preds = %35, %_ZN6google8protobuf2io16CodedInputStream9ExpectTagEj.exit
-  %39 = load ptr, ptr %13, align 8, !tbaa !64
-  %.not.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i, label %..thread_crit_edge.i.i.i, label %40
+.preheader:                                       ; preds = %37, %_ZN6google8protobuf2io16CodedInputStream9ExpectTagEj.exit
+  %41 = load ptr, ptr %13, align 8, !tbaa !64
+  %.not.i.i.i = icmp eq ptr %41, null
+  br i1 %.not.i.i.i, label %..thread_crit_edge.i.i.i, label %42
 
 ..thread_crit_edge.i.i.i:                         ; preds = %.preheader
   %.pre.i.i.i = load i32, ptr %15, align 4, !tbaa !80
   br label %.thread.i.i.i
 
-40:                                               ; preds = %.preheader
-  %41 = load i32, ptr %14, align 8, !tbaa !71
-  %42 = load i32, ptr %39, align 8, !tbaa !65
-  %43 = icmp slt i32 %41, %42
-  br i1 %43, label %44, label %50
+42:                                               ; preds = %.preheader
+  %43 = load i32, ptr %14, align 8, !tbaa !71
+  %44 = load i32, ptr %41, align 8, !tbaa !65
+  %45 = icmp slt i32 %43, %44
+  br i1 %45, label %46, label %52
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %46 = add nsw i32 %41, 1
-  store i32 %46, ptr %14, align 8, !tbaa !71
-  %47 = sext i32 %41 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
-  %49 = load ptr, ptr %48, align 8, !tbaa !68
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %48 = add nsw i32 %43, 1
+  store i32 %48, ptr %14, align 8, !tbaa !71
+  %49 = sext i32 %43 to i64
+  %50 = getelementptr inbounds ptr, ptr %47, i64 %49
+  %51 = load ptr, ptr %50, align 8, !tbaa !68
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit
 
-50:                                               ; preds = %40
-  %51 = load i32, ptr %15, align 4, !tbaa !80
-  %52 = icmp eq i32 %42, %51
-  br i1 %52, label %.thread.i.i.i, label %55
+52:                                               ; preds = %42
+  %53 = load i32, ptr %15, align 4, !tbaa !80
+  %54 = icmp eq i32 %44, %53
+  br i1 %54, label %.thread.i.i.i, label %57
 
-.thread.i.i.i:                                    ; preds = %50, %..thread_crit_edge.i.i.i
-  %53 = phi i32 [ %.pre.i.i.i, %..thread_crit_edge.i.i.i ], [ %42, %50 ]
-  %54 = add nsw i32 %53, 1
-  invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi(ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %54)
+.thread.i.i.i:                                    ; preds = %52, %..thread_crit_edge.i.i.i
+  %55 = phi i32 [ %.pre.i.i.i, %..thread_crit_edge.i.i.i ], [ %44, %50 ]
+  %56 = add nsw i32 %55, 1
+  invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi(ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %56)
           to label %.noexc30 unwind label %.loopexit
 
 .noexc30:                                         ; preds = %.thread.i.i.i
   %.pre9.i.i.i = load ptr, ptr %13, align 8, !tbaa !64
   %.pre10.i.i.i = load i32, ptr %.pre9.i.i.i, align 8, !tbaa !65
-  br label %55
+  br label %57
 
-55:                                               ; preds = %.noexc30, %50
-  %56 = phi i32 [ %.pre10.i.i.i, %.noexc30 ], [ %42, %50 ]
-  %57 = phi ptr [ %.pre9.i.i.i, %.noexc30 ], [ %39, %50 ]
-  %58 = add nsw i32 %56, 1
-  store i32 %58, ptr %57, align 8, !tbaa !65
-  %59 = load ptr, ptr %12, align 8, !tbaa !67
-  %60 = invoke noundef ptr @_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE16NewFromPrototypeEPKS4_PNS0_5ArenaE(ptr noundef null, ptr noundef %59)
+57:                                               ; preds = %.noexc30, %52
+  %58 = phi i32 [ %.pre10.i.i.i, %.noexc30 ], [ %44, %50 ]
+  %59 = phi ptr [ %.pre9.i.i.i, %.noexc30 ], [ %41, %50 ]
+  %60 = add nsw i32 %58, 1
+  store i32 %60, ptr %59, align 8, !tbaa !65
+  %61 = load ptr, ptr %12, align 8, !tbaa !67
+  %62 = invoke noundef ptr @_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE16NewFromPrototypeEPKS4_PNS0_5ArenaE(ptr noundef null, ptr noundef %61)
           to label %.noexc31 unwind label %.loopexit
 
-.noexc31:                                         ; preds = %55
-  %61 = load ptr, ptr %13, align 8, !tbaa !64
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load i32, ptr %14, align 8, !tbaa !71
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %14, align 8, !tbaa !71
-  %65 = sext i32 %63 to i64
-  %66 = getelementptr inbounds ptr, ptr %62, i64 %65
-  store ptr %60, ptr %66, align 8, !tbaa !68
+.noexc31:                                         ; preds = %57
+  %63 = load ptr, ptr %13, align 8, !tbaa !64
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load i32, ptr %14, align 8, !tbaa !71
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %14, align 8, !tbaa !71
+  %67 = sext i32 %65 to i64
+  %68 = getelementptr inbounds ptr, ptr %64, i64 %67
+  store ptr %62, ptr %68, align 8, !tbaa !68
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit
 
-_ZN3net19SourceAddressTokens10add_tokensEv.exit:  ; preds = %.noexc31, %44
-  %.0.i.i.i = phi ptr [ %49, %44 ], [ %60, %.noexc31 ]
-  %67 = invoke noundef i32 @_ZN6google8protobuf2io16CodedInputStream22ReadLengthAndPushLimitEv(ptr noundef nonnull align 8 dereferenceable(80) %1)
+_ZN3net19SourceAddressTokens10add_tokensEv.exit:  ; preds = %.noexc31, %46
+  %.0.i.i.i = phi ptr [ %51, %44 ], [ %62, %.noexc31 ]
+  %69 = invoke noundef i32 @_ZN6google8protobuf2io16CodedInputStream22ReadLengthAndPushLimitEv(ptr noundef nonnull align 8 dereferenceable(80) %1)
           to label %.noexc33 unwind label %.loopexit
 
 .noexc33:                                         ; preds = %_ZN3net19SourceAddressTokens10add_tokensEv.exit
-  %68 = invoke noundef zeroext i1 @_ZN3net18SourceAddressToken27MergePartialFromCodedStreamEPN6google8protobuf2io16CodedInputStreamE(ptr noundef nonnull align 8 dereferenceable(56) %.0.i.i.i, ptr noundef nonnull %1)
+  %70 = invoke noundef zeroext i1 @_ZN3net18SourceAddressToken27MergePartialFromCodedStreamEPN6google8protobuf2io16CodedInputStreamE(ptr noundef nonnull align 8 dereferenceable(56) %.0.i.i.i, ptr noundef nonnull %1)
           to label %.noexc34 unwind label %.loopexit
 
 .noexc34:                                         ; preds = %.noexc33
-  br i1 %68, label %69, label %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread, !prof !49
+  br i1 %70, label %71, label %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread, !prof !49
 
-69:                                               ; preds = %.noexc34
-  %70 = invoke noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream37CheckEntireMessageConsumedAndPopLimitEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %67)
+71:                                               ; preds = %.noexc34
+  %72 = invoke noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream37CheckEntireMessageConsumedAndPopLimitEi(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %69)
           to label %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit unwind label %.loopexit
 
-_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit: ; preds = %69
-  br i1 %70, label %71, label %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread, !prof !51
+_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit: ; preds = %71
+  br i1 %72, label %73, label %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread, !prof !51
 
-71:                                               ; preds = %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit
-  %72 = load ptr, ptr %1, align 8, !tbaa !40
-  %73 = load ptr, ptr %9, align 8, !tbaa !45
-  %74 = icmp ult ptr %72, %73
-  br i1 %74, label %75, label %79, !prof !46
+73:                                               ; preds = %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit
+  %74 = load ptr, ptr %1, align 8, !tbaa !40
+  %75 = load ptr, ptr %9, align 8, !tbaa !45
+  %76 = icmp ult ptr %74, %75
+  br i1 %76, label %77, label %81, !prof !46
 
-75:                                               ; preds = %71
-  %76 = load i8, ptr %72, align 1, !tbaa !33
-  %77 = icmp eq i8 %76, 34
-  br i1 %77, label %_ZN6google8protobuf2io16CodedInputStream9ExpectTagEj.exit, label %79
+77:                                               ; preds = %73
+  %78 = load i8, ptr %74, align 1, !tbaa !33
+  %79 = icmp eq i8 %78, 34
+  br i1 %79, label %_ZN6google8protobuf2io16CodedInputStream9ExpectTagEj.exit, label %81
 
-_ZN6google8protobuf2io16CodedInputStream9ExpectTagEj.exit: ; preds = %75
-  %78 = getelementptr inbounds nuw i8, ptr %72, i64 1
-  store ptr %78, ptr %1, align 8, !tbaa !40
+_ZN6google8protobuf2io16CodedInputStream9ExpectTagEj.exit: ; preds = %77
+  %80 = getelementptr inbounds nuw i8, ptr %74, i64 1
+  store ptr %80, ptr %1, align 8, !tbaa !40
   br label %.preheader
 
-79:                                               ; preds = %71, %75
-  %80 = load i32, ptr %11, align 8, !tbaa !79
-  %81 = add nsw i32 %80, 1
-  store i32 %81, ptr %11, align 8, !tbaa !79
-  %82 = icmp eq ptr %72, %73
-  br i1 %82, label %83, label %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit.thread.backedge
+81:                                               ; preds = %73, %77
+  %82 = load i32, ptr %11, align 8, !tbaa !79
+  %83 = add nsw i32 %82, 1
+  store i32 %83, ptr %11, align 8, !tbaa !79
+  %84 = icmp eq ptr %74, %75
+  br i1 %84, label %85, label %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit.thread.backedge
 
-_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit.thread.backedge: ; preds = %79, %85, %96
+_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit.thread.backedge: ; preds = %81, %87, %98
   br label %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit.thread
 
-83:                                               ; preds = %79
-  %84 = load i32, ptr %16, align 4, !tbaa !52
-  %.not.i = icmp eq i32 %84, 0
-  br i1 %.not.i, label %85, label %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit
+85:                                               ; preds = %81
+  %86 = load i32, ptr %16, align 4, !tbaa !52
+  %.not.i = icmp eq i32 %86, 0
+  br i1 %.not.i, label %87, label %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit
 
-85:                                               ; preds = %83
-  %86 = load i32, ptr %17, align 8, !tbaa !53
-  %87 = load i32, ptr %18, align 8, !tbaa !54
-  %88 = icmp eq i32 %86, %87
-  br i1 %88, label %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit, label %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit.thread.backedge
+87:                                               ; preds = %85
+  %88 = load i32, ptr %17, align 8, !tbaa !53
+  %89 = load i32, ptr %18, align 8, !tbaa !54
+  %90 = icmp eq i32 %88, %89
+  br i1 %90, label %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit, label %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit.thread.backedge
 
-_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit: ; preds = %83, %85
+_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit: ; preds = %85, %87
   store i32 0, ptr %10, align 8, !tbaa !47
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i8 1, ptr %89, align 4, !tbaa !55
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  store i8 1, ptr %91, align 4, !tbaa !55
   br label %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread
 
-90:                                               ; preds = %31
-  %91 = icmp eq i32 %.sroa.0.0.extract.trunc, 0
-  %92 = and i32 %.sroa.0.0.extract.trunc, 7
-  %93 = icmp eq i32 %92, 4
-  %or.cond48 = or i1 %91, %93
-  br i1 %or.cond48, label %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread, label %94
+92:                                               ; preds = %31
+  %93 = icmp eq i32 %.sroa.0.0.extract.trunc, 0
+  %94 = and i32 %.sroa.0.0.extract.trunc, 7
+  %95 = icmp eq i32 %94, 4
+  %or.cond48 = or i1 %93, %95
+  br i1 %or.cond48, label %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread, label %96
 
-94:                                               ; preds = %90
-  %95 = invoke noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9SkipFieldEPNS0_2io16CodedInputStreamEjPNS3_17CodedOutputStreamE(ptr noundef nonnull %1, i32 noundef %.sroa.0.0.extract.trunc, ptr noundef nonnull %4)
+96:                                               ; preds = %92
+  %97 = invoke noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9SkipFieldEPNS0_2io16CodedInputStreamEjPNS3_17CodedOutputStreamE(ptr noundef nonnull %1, i32 noundef %.sroa.0.0.extract.trunc, ptr noundef nonnull %4)
           to label %96 unwind label %.loopexit.split-lp
 
-96:                                               ; preds = %94
-  br i1 %95, label %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit.thread.backedge, label %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread, !prof !46
+98:                                               ; preds = %96
+  br i1 %97, label %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit.thread.backedge, label %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread, !prof !46
 
-_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread: ; preds = %90, %96, %35, %.noexc34, %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit
+_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit.thread: ; preds = %92, %98, %37, %.noexc34, %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit
   %.017 = phi i1 [ true, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit ], [ false, %.noexc34 ], [ false, %_ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDepthIN3net18SourceAddressTokenEEEbPNS0_2io16CodedInputStreamEPT_.exit ], [ false, %96 ], [ false, %35 ], [ true, %90 ]
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2111,8 +2111,8 @@ _ZN6google8protobuf8internal14WireFormatLite36ReadMessageNoVirtualNoRecursionDep
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.017
 
-97:                                               ; preds = %34, %32
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %34 ], [ %33, %32 ]
+99:                                               ; preds = %36, %34
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %34 ], [ %35, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

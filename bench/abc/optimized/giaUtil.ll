@@ -5758,8 +5758,8 @@ define range(i32 0, 2) i32 @Gia_ObjIsMuxType(ptr noundef readonly captures(none)
   %.not.i45 = icmp ne i32 %7, 536870911
   %or.cond.not.i = and i1 %.not.i45, %11
   %12 = and i64 %.val33, 2305843009750564864
-  %13 = icmp ne i64 %12, 2305843009750564864
-  %or.cond56 = or i1 %13, %or.cond.not.i
+  %.not25 = icmp ne i64 %12, 2305843009750564864
+  %or.cond = or i1 %.not25, %or.cond.not.i
   br i1 %or.cond56, label %59, label %14
 
 14:                                               ; preds = %5

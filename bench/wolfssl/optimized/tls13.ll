@@ -2619,8 +2619,8 @@ define i32 @DoTls13ClientHello(ptr noundef initializes((1050, 1051)) %0, ptr nou
 
 20:                                               ; preds = %16
   %21 = and i16 %12, -769
-  %or.cond257.not = icmp eq i16 %21, 3
-  br i1 %or.cond257.not, label %24, label %22
+  %21 = icmp eq i16 %21, 3
+  br i1 %21, label %24, label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 711

@@ -2344,22 +2344,22 @@ _ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thre
   %or.cond11.not14.i.i = or i1 %55, %or.cond.not17.i.i
   %56 = and i64 %49, -4294966848
   %57 = icmp eq i64 %56, 0
-  %or.cond.i.i = and i1 %57, %or.cond11.not14.i.i
-  br i1 %or.cond.i.i, label %58, label %"_ZZN5clang12_GLOBAL__N_121HeuristicResolverImpl22resolveDependentMemberENS_8QualTypeENS_15DeclarationNameEN4llvm12function_refIFbPKNS_9NamedDeclEEEEENK3$_0clES8_.exit"
+  %or.cond12.i.i = and i1 %57, %or.cond11.not14.i.i
+  br i1 %or.cond12.i.i, label %58, label %"_ZZN5clang12_GLOBAL__N_121HeuristicResolverImpl22resolveDependentMemberENS_8QualTypeENS_15DeclarationNameEN4llvm12function_refIFbPKNS_9NamedDeclEEEEENK3$_0clES8_.exit"
 
-58:                                               ; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i.i
+58:; preds = %_ZNK5clang10Qualifiers24isAddressSpaceSupersetOfES0_RKNS_10ASTContextE.exit.thread.i.i
   %59 = and i64 %28, 7
   %60 = xor i64 %59, 7
   %61 = and i64 %41, %60
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %63, label %"_ZZN5clang12_GLOBAL__N_121HeuristicResolverImpl22resolveDependentMemberENS_8QualTypeENS_15DeclarationNameEN4llvm12function_refIFbPKNS_9NamedDeclEEEEENK3$_0clES8_.exit"
 
-63:                                               ; preds = %58
+63:; preds = %58
   %64 = and i64 %.sroa.0.0.i.i.i, 8
   %.not.i.i = icmp eq i64 %64, 0
   br i1 %.not.i.i, label %"_ZZN5clang12_GLOBAL__N_121HeuristicResolverImpl22resolveDependentMemberENS_8QualTypeENS_15DeclarationNameEN4llvm12function_refIFbPKNS_9NamedDeclEEEEENK3$_0clES8_.exit", label %65
 
-65:                                               ; preds = %63
+65:; preds = %63
   %66 = and i64 %28, 8
   %67 = icmp ne i64 %66, 0
   br label %"_ZZN5clang12_GLOBAL__N_121HeuristicResolverImpl22resolveDependentMemberENS_8QualTypeENS_15DeclarationNameEN4llvm12function_refIFbPKNS_9NamedDeclEEEEENK3$_0clES8_.exit"

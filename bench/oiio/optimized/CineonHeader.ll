@@ -11949,7 +11949,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail14snprintf_floatIeEEiT_
   store i8 37, ptr %5, align 1, !tbaa !43
   %13 = icmp eq i8 %8, 3
   %14 = and i64 %2, 4504694844030976
-  %or.cond = icmp eq i64 %14, 4503612512272384
+  %14 = icmp eq i64 %14, 4503612512272384
   br i1 %or.cond, label %15, label %17
 
 15:                                               ; preds = %4
@@ -12018,8 +12018,8 @@ _ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit:  ; preds = %_ZN3fmt2v86detail6b
 
 47:                                               ; preds = %44
   %48 = load i64, ptr %6, align 8, !tbaa !69
-  %.not = icmp eq i64 %48, -1
-  br i1 %.not, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.backedge, label %49
+  %.not136 = icmp eq i64 %48, -1
+  br i1 %.not136, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.backedge, label %49
 
 49:                                               ; preds = %47
   %50 = add nuw i64 %48, 1
@@ -12123,15 +12123,15 @@ _ZN3fmt2v86detail6bufferIcE10try_resizeEm.exit129: ; preds = %90, %94
   store i64 %..i127, ptr %7, align 8, !tbaa !73
   br label %135
 
-.preheader164:                                    ; preds = %57, %.preheader164
+.preheader165:                                    ; preds = %57, %.preheader165
   %.0100.idx = phi i64 [ %.0100.add, %.preheader164 ], [ %52, %57 ]
   %.0100.add = add nsw i64 %.0100.idx, -1
   %.ptr = getelementptr inbounds i8, ptr %37, i64 %.0100.add
   %98 = load i8, ptr %.ptr, align 1, !tbaa !43
   %.not119 = icmp eq i8 %98, 101
-  br i1 %.not119, label %99, label %.preheader164, !llvm.loop !265
+  br i1 %.not119, label %99, label %.preheader165, !llvm.loop !265
 
-99:                                               ; preds = %.preheader164
+99:                                               ; preds = %.preheader165
   %.ptr.le = getelementptr inbounds i8, ptr %37, i64 %.0100.add
   %.ptr122 = getelementptr inbounds nuw i8, ptr %37, i64 %52
   %.0100.ptr = getelementptr inbounds i8, ptr %37, i64 %.0100.idx
@@ -24644,7 +24644,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt2v86detail14snprintf_floatIdEEiT_
   store i8 37, ptr %5, align 1, !tbaa !43
   %13 = icmp eq i8 %8, 3
   %14 = and i64 %2, 4504694844030976
-  %or.cond = icmp eq i64 %14, 4503612512272384
+  %14 = icmp eq i64 %14, 4503612512272384
   br i1 %or.cond, label %15, label %17
 
 15:                                               ; preds = %4
@@ -24711,8 +24711,8 @@ _ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit:  ; preds = %_ZN3fmt2v86detail6b
 
 46:                                               ; preds = %43
   %47 = load i64, ptr %6, align 8, !tbaa !69
-  %.not = icmp eq i64 %47, -1
-  br i1 %.not, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.backedge, label %48
+  %.not135 = icmp eq i64 %47, -1
+  br i1 %.not135, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.backedge, label %48
 
 48:                                               ; preds = %46
   %49 = add nuw i64 %47, 1
@@ -24816,15 +24816,15 @@ _ZN3fmt2v86detail6bufferIcE10try_resizeEm.exit128: ; preds = %89, %93
   store i64 %..i126, ptr %7, align 8, !tbaa !73
   br label %134
 
-.preheader163:                                    ; preds = %56, %.preheader163
+.preheader164:                                    ; preds = %56, %.preheader164
   %.099.idx = phi i64 [ %.099.add, %.preheader163 ], [ %51, %56 ]
   %.099.add = add nsw i64 %.099.idx, -1
   %.ptr = getelementptr inbounds i8, ptr %36, i64 %.099.add
   %97 = load i8, ptr %.ptr, align 1, !tbaa !43
   %.not118 = icmp eq i8 %97, 101
-  br i1 %.not118, label %98, label %.preheader163, !llvm.loop !498
+  br i1 %.not118, label %98, label %.preheader164, !llvm.loop !498
 
-98:                                               ; preds = %.preheader163
+98:                                               ; preds = %.preheader164
   %.ptr.le = getelementptr inbounds i8, ptr %36, i64 %.099.add
   %.ptr121 = getelementptr inbounds nuw i8, ptr %36, i64 %51
   %.099.ptr = getelementptr inbounds i8, ptr %36, i64 %.099.idx

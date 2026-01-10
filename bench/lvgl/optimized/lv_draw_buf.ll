@@ -1533,7 +1533,7 @@ define range(i32 0, 2) i32 @lv_draw_buf_premultiply(ptr noundef captures(address
   %or.cond99.not = icmp eq i64 %4, 2097152
   br i1 %or.cond99.not, label %5, label %80
 
-5:                                                ; preds = %2
+6:                                                ; preds = %2
   %6 = trunc i64 %3 to i32
   %7 = lshr i32 %6, 8
   %8 = and i32 %7, 255
@@ -1541,7 +1541,7 @@ define range(i32 0, 2) i32 @lv_draw_buf_premultiply(ptr noundef captures(address
   %or.cond = icmp ult i32 %9, 4
   br i1 %or.cond, label %10, label %18
 
-10:                                               ; preds = %5
+10:                                               ; preds = %6
   %switch.tableidx = add nsw i32 %8, -7
   %11 = icmp ult i32 %switch.tableidx, 3
   br i1 %11, label %switch.lookup, label %12
@@ -1571,7 +1571,7 @@ switch.lookup:                                    ; preds = %10
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
   br i1 %exitcond144.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
-18:                                               ; preds = %5
+18:                                               ; preds = %6
   %trunc = trunc i32 %7 to i8
   switch i8 %trunc, label %.loopexit [
     i8 16, label %19
