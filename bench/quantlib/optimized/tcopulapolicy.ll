@@ -10881,46 +10881,27 @@ if.else114:                                       ; preds = %if.else103
   %div117 = fdiv x86_fp80 %10, 0xKBFFEA76C8B0000000000
   %13 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %div117)
   %14 = fcmp ueq x86_fp80 %13, 0xK7FFF8000000000000000
-  br i1 %14, label %if.then.i.i.i57, label %if.end.i.i.i49
-
-if.then.i.i.i57:                                  ; preds = %if.else114
-  %cmp.i.i.i.i.i = fcmp ogt x86_fp80 %div117, 0xK00000000000000000000
-  %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, x86_fp80 0xK7FFEFFFFFFFFFFFFFFFF, x86_fp80 0xKFFFEFFFFFFFFFFFFFFFF
-  br label %_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_14default_policyES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_EEEEiRKT_RKT0_.exit
+  br i1 %14, label %_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_14default_policyES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_EEEEiRKT_RKT0_.exit, label %if.end.i.i.i49
 
 if.end.i.i.i49:                                   ; preds = %if.else114
   %or.cond.i.i.i = fcmp olt x86_fp80 %13, 0xK3FFE8000000000000000
-  br i1 %or.cond.i.i.i, label %_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_14default_policyES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_EEEEiRKT_RKT0_.exit, label %if.else.i.i.i
+  br i1 %or.cond.i.i.i, label %_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_14default_policyES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_EEEEiRKT_RKT0_.exit, label %if.else10.i.i.i
 
-if.else.i.i.i:                                    ; preds = %if.end.i.i.i49
-  %cmp5.i.i.i = fcmp ogt x86_fp80 %div117, 0xK00000000000000000000
-  br i1 %cmp5.i.i.i, label %if.then6.i.i.i, label %if.else10.i.i.i
-
-if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
-  %15 = call noundef x86_fp80 @llvm.ceil.f80(x86_fp80 %div117)
-  %sub.i.i.i = fsub x86_fp80 %15, %div117
-  %cmp8.i.i.i = fcmp ogt x86_fp80 %sub.i.i.i, 0xK3FFE8000000000000000
-  %sub9.i.i.i = fadd x86_fp80 %15, 0xKBFFF8000000000000000
-  %cond.i.i.i = select i1 %cmp8.i.i.i, x86_fp80 %sub9.i.i.i, x86_fp80 %15
-  br label %_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_14default_policyES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_EEEEiRKT_RKT0_.exit
-
-if.else10.i.i.i:                                  ; preds = %if.else.i.i.i
-  %16 = call noundef x86_fp80 @llvm.floor.f80(x86_fp80 %div117)
-  %sub12.i.i.i = fsub x86_fp80 %div117, %16
+if.else10.i.i.i:                                  ; preds = %if.end.i.i.i49
+  %15 = call noundef x86_fp80 @llvm.floor.f80(x86_fp80 %div117)
+  %sub12.i.i.i = fsub x86_fp80 %div117, %15
   %cmp13.i.i.i = fcmp ogt x86_fp80 %sub12.i.i.i, 0xK3FFE8000000000000000
-  %add.i.i.i = fadd x86_fp80 %16, 0xK3FFF8000000000000000
-  %cond17.i.i.i = select i1 %cmp13.i.i.i, x86_fp80 %add.i.i.i, x86_fp80 %16
+  %add.i.i.i = fadd x86_fp80 %15, 0xK3FFF8000000000000000
+  %cond17.i.i.i = select i1 %cmp13.i.i.i, x86_fp80 %add.i.i.i, x86_fp80 %15
   br label %_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_14default_policyES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_EEEEiRKT_RKT0_.exit
 
-_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_14default_policyES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_EEEEiRKT_RKT0_.exit: ; preds = %if.then.i.i.i57, %if.end.i.i.i49, %if.then6.i.i.i, %if.else10.i.i.i
-  %retval.0.i.i.i50 = phi x86_fp80 [ %cond.i.i.i.i.i, %if.then.i.i.i57 ], [ %cond.i.i.i, %if.then6.i.i.i ], [ %cond17.i.i.i, %if.else10.i.i.i ], [ 0xK00000000000000000000, %if.end.i.i.i49 ]
+_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_14default_policyES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_EEEEiRKT_RKT0_.exit: ; preds = %if.else114, %if.end.i.i.i49, %if.else10.i.i.i
+  %retval.0.i.i.i50 = phi x86_fp80 [ %cond17.i.i.i, %if.else10.i.i.i ], [ 0xK00000000000000000000, %if.end.i.i.i49 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %if.else114 ]
   %cmp.i51 = fcmp ult x86_fp80 %retval.0.i.i.i50, 0xK401E8000000000000000
   %cmp1.i52 = fcmp uge x86_fp80 %retval.0.i.i.i50, 0xKC01E8000000000000000
   %or.cond.not.i53 = and i1 %cmp.i51, %cmp1.i52
-  %cmp.i.i.i54 = fcmp ogt x86_fp80 %div117, 0xK00000000000000000000
-  %cond.i.i5.i = select i1 %cmp.i.i.i54, i32 2147483647, i32 -2147483648
   %conv.i55 = fptosi x86_fp80 %retval.0.i.i.i50 to i32
-  %spec.select.i56 = select i1 %or.cond.not.i53, i32 %conv.i55, i32 %cond.i.i5.i
+  %spec.select.i56 = select i1 %or.cond.not.i53, i32 %conv.i55, i32 -2147483648
   %call.i58 = call noundef float @ldexpf(float noundef 1.000000e+00, i32 noundef %spec.select.i56) #31, !tbaa !7
   %conv121 = fpext float %call.i58 to x86_fp80
   %cmp122 = fcmp ogt x86_fp80 %u.addr.0, %conv121
@@ -10936,8 +10917,8 @@ if.else125:                                       ; preds = %_ZN5boost4math6irou
 
 cleanup137:                                       ; preds = %if.then92, %if.then101, %if.else111, %if.then109, %if.else125, %if.then123, %sw.bb31, %if.then45, %sw.bb22, %if.then29, %if.end18, %if.then20, %do.end, %cleanup
   %call52.sink86 = phi x86_fp80 [ %call52, %cleanup ], [ %call126, %if.else125 ], [ %mul97, %if.then101 ], [ %mul97, %if.then92 ], [ %call112, %if.else111 ], [ %call110, %if.then109 ], [ %call124, %if.then123 ], [ %cond, %sw.bb31 ], [ %cond, %if.then45 ], [ %cond89, %do.end ], [ %div27, %sw.bb22 ], [ %div27, %if.then29 ], [ %result.0, %if.end18 ], [ %result.0, %if.then20 ]
-  %17 = fneg x86_fp80 %call52.sink86
-  %mul53 = select i1 %cmp, x86_fp80 %17, x86_fp80 %call52.sink86
+  %16 = fneg x86_fp80 %call52.sink86
+  %mul53 = select i1 %cmp, x86_fp80 %16, x86_fp80 %call52.sink86
   ret x86_fp80 %mul53
 }
 
@@ -13690,46 +13671,27 @@ if.else114:                                       ; preds = %if.else103
   %div117 = fdiv x86_fp80 %10, 0xKBFFEA76C8B0000000000
   %13 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %div117)
   %14 = fcmp ueq x86_fp80 %13, 0xK7FFF8000000000000000
-  br i1 %14, label %if.then.i.i.i57, label %if.end.i.i.i49
-
-if.then.i.i.i57:                                  ; preds = %if.else114
-  %cmp.i.i.i.i.i = fcmp ogt x86_fp80 %div117, 0xK00000000000000000000
-  %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, x86_fp80 0xK7FFEFFFFFFFFFFFFFFFF, x86_fp80 0xKFFFEFFFFFFFFFFFFFFFF
-  br label %_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyESB_SB_SB_SB_SB_SB_SB_SB_SB_EEEEiRKT_RKT0_.exit
+  br i1 %14, label %_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyESB_SB_SB_SB_SB_SB_SB_SB_SB_EEEEiRKT_RKT0_.exit, label %if.end.i.i.i49
 
 if.end.i.i.i49:                                   ; preds = %if.else114
   %or.cond.i.i.i = fcmp olt x86_fp80 %13, 0xK3FFE8000000000000000
-  br i1 %or.cond.i.i.i, label %_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyESB_SB_SB_SB_SB_SB_SB_SB_SB_EEEEiRKT_RKT0_.exit, label %if.else.i.i.i
+  br i1 %or.cond.i.i.i, label %_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyESB_SB_SB_SB_SB_SB_SB_SB_SB_EEEEiRKT_RKT0_.exit, label %if.else10.i.i.i
 
-if.else.i.i.i:                                    ; preds = %if.end.i.i.i49
-  %cmp5.i.i.i = fcmp ogt x86_fp80 %div117, 0xK00000000000000000000
-  br i1 %cmp5.i.i.i, label %if.then6.i.i.i, label %if.else10.i.i.i
-
-if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
-  %15 = call noundef x86_fp80 @llvm.ceil.f80(x86_fp80 %div117)
-  %sub.i.i.i = fsub x86_fp80 %15, %div117
-  %cmp8.i.i.i = fcmp ogt x86_fp80 %sub.i.i.i, 0xK3FFE8000000000000000
-  %sub9.i.i.i = fadd x86_fp80 %15, 0xKBFFF8000000000000000
-  %cond.i.i.i = select i1 %cmp8.i.i.i, x86_fp80 %sub9.i.i.i, x86_fp80 %15
-  br label %_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyESB_SB_SB_SB_SB_SB_SB_SB_SB_EEEEiRKT_RKT0_.exit
-
-if.else10.i.i.i:                                  ; preds = %if.else.i.i.i
-  %16 = call noundef x86_fp80 @llvm.floor.f80(x86_fp80 %div117)
-  %sub12.i.i.i = fsub x86_fp80 %div117, %16
+if.else10.i.i.i:                                  ; preds = %if.end.i.i.i49
+  %15 = call noundef x86_fp80 @llvm.floor.f80(x86_fp80 %div117)
+  %sub12.i.i.i = fsub x86_fp80 %div117, %15
   %cmp13.i.i.i = fcmp ogt x86_fp80 %sub12.i.i.i, 0xK3FFE8000000000000000
-  %add.i.i.i = fadd x86_fp80 %16, 0xK3FFF8000000000000000
-  %cond17.i.i.i = select i1 %cmp13.i.i.i, x86_fp80 %add.i.i.i, x86_fp80 %16
+  %add.i.i.i = fadd x86_fp80 %15, 0xK3FFF8000000000000000
+  %cond17.i.i.i = select i1 %cmp13.i.i.i, x86_fp80 %add.i.i.i, x86_fp80 %15
   br label %_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyESB_SB_SB_SB_SB_SB_SB_SB_SB_EEEEiRKT_RKT0_.exit
 
-_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyESB_SB_SB_SB_SB_SB_SB_SB_SB_EEEEiRKT_RKT0_.exit: ; preds = %if.then.i.i.i57, %if.end.i.i.i49, %if.then6.i.i.i, %if.else10.i.i.i
-  %retval.0.i.i.i50 = phi x86_fp80 [ %cond.i.i.i.i.i, %if.then.i.i.i57 ], [ %cond.i.i.i, %if.then6.i.i.i ], [ %cond17.i.i.i, %if.else10.i.i.i ], [ 0xK00000000000000000000, %if.end.i.i.i49 ]
+_ZN5boost4math6iroundIeNS0_8policies6policyINS2_14rounding_errorILNS2_17error_policy_typeE2EEENS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyESB_SB_SB_SB_SB_SB_SB_SB_SB_EEEEiRKT_RKT0_.exit: ; preds = %if.else114, %if.end.i.i.i49, %if.else10.i.i.i
+  %retval.0.i.i.i50 = phi x86_fp80 [ %cond17.i.i.i, %if.else10.i.i.i ], [ 0xK00000000000000000000, %if.end.i.i.i49 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %if.else114 ]
   %cmp.i51 = fcmp ult x86_fp80 %retval.0.i.i.i50, 0xK401E8000000000000000
   %cmp1.i52 = fcmp uge x86_fp80 %retval.0.i.i.i50, 0xKC01E8000000000000000
   %or.cond.not.i53 = and i1 %cmp.i51, %cmp1.i52
-  %cmp.i.i.i54 = fcmp ogt x86_fp80 %div117, 0xK00000000000000000000
-  %cond.i.i5.i = select i1 %cmp.i.i.i54, i32 2147483647, i32 -2147483648
   %conv.i55 = fptosi x86_fp80 %retval.0.i.i.i50 to i32
-  %spec.select.i56 = select i1 %or.cond.not.i53, i32 %conv.i55, i32 %cond.i.i5.i
+  %spec.select.i56 = select i1 %or.cond.not.i53, i32 %conv.i55, i32 -2147483648
   %call.i58 = call noundef float @ldexpf(float noundef 1.000000e+00, i32 noundef %spec.select.i56) #31, !tbaa !7
   %conv121 = fpext float %call.i58 to x86_fp80
   %cmp122 = fcmp ogt x86_fp80 %u.addr.0, %conv121
@@ -13745,8 +13707,8 @@ if.else125:                                       ; preds = %_ZN5boost4math6irou
 
 cleanup137:                                       ; preds = %if.then92, %if.then101, %if.else111, %if.then109, %if.else125, %if.then123, %sw.bb31, %if.then45, %sw.bb22, %if.then29, %if.end18, %if.then20, %do.end, %cleanup
   %call52.sink86 = phi x86_fp80 [ %call52, %cleanup ], [ %call126, %if.else125 ], [ %mul97, %if.then101 ], [ %mul97, %if.then92 ], [ %call112, %if.else111 ], [ %call110, %if.then109 ], [ %call124, %if.then123 ], [ %cond, %sw.bb31 ], [ %cond, %if.then45 ], [ %cond89, %do.end ], [ %div27, %sw.bb22 ], [ %div27, %if.then29 ], [ %result.0, %if.end18 ], [ %result.0, %if.then20 ]
-  %17 = fneg x86_fp80 %call52.sink86
-  %mul53 = select i1 %cmp, x86_fp80 %17, x86_fp80 %call52.sink86
+  %16 = fneg x86_fp80 %call52.sink86
+  %mul53 = select i1 %cmp, x86_fp80 %16, x86_fp80 %call52.sink86
   ret x86_fp80 %mul53
 }
 
