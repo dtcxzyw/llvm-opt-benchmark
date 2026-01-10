@@ -5757,12 +5757,9 @@ define range(i32 0, 2) i32 @Gia_ObjIsMuxType(ptr noundef readonly captures(none)
   %11 = icmp eq i32 %7, %10
   %.not.i45 = icmp ne i32 %7, 536870911
   %or.cond.not.i = and i1 %.not.i45, %11
-  %12 = and i32 %6, 536870912
-  %.not25 = icmp eq i32 %12, 0
-  %or.cond = or i1 %.not25, %or.cond.not.i
-  %13 = and i64 %.val33, 2305843009213693952
-  %.not26 = icmp eq i64 %13, 0
-  %or.cond56 = or i1 %.not26, %or.cond
+  %12 = and i64 %.val33, 2305843009750564864
+  %13 = icmp ne i64 %12, 2305843009750564864
+  %or.cond56 = or i1 %13, %or.cond.not.i
   br i1 %or.cond56, label %59, label %14
 
 14:                                               ; preds = %5

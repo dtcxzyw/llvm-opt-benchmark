@@ -357,16 +357,13 @@ if.then:                                          ; preds = %do.body
 
 if.end4:                                          ; preds = %if.then, %do.body
   %call5 = tail call i64 @ERR_peek_last_error() #25
-  %and.i = and i64 %call5, 2147483648
-  %cmp.not.i = icmp eq i64 %and.i, 0
-  %0 = trunc i64 %call5 to i32
-  %.mask = and i32 %0, -8388608
-  %cmp78 = icmp eq i32 %.mask, 301989888
-  %cmp7 = and i1 %cmp.not.i, %cmp78
+  %0 = and i64 %call5, 4286578688
+  %cmp7 = icmp eq i64 %0, 301989888
   br i1 %cmp7, label %if.then8, label %do.cond
 
 if.then8:                                         ; preds = %if.end4
-  %retval.0.i7 = and i32 %0, 8388607
+  %1 = trunc i64 %call5 to i32
+  %retval.0.i7 = and i32 %1, 8388607
   switch i32 %retval.0.i7, label %do.cond [
     i32 144, label %return
     i32 143, label %return

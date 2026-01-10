@@ -1580,9 +1580,9 @@ define dso_local range(i32 0, 2) i32 @jv_equal(i64 %0, ptr %1, i64 %2, ptr %3) l
   br i1 %.not, label %7, label %jvp_array_equal.exit
 
 7:                                                ; preds = %4
-  %8 = and i32 %.sroa.0.0.extract.trunc.i, 128
-  %9 = and i32 %8, %.sroa.0.0.extract.trunc
-  %or.cond.not.not = icmp eq i32 %9, 0
+  %8 = and i64 %0, 128
+  %9 = and i64 %8, %2
+  %or.cond.not.not = icmp eq i64 %9, 0
   br i1 %or.cond.not.not, label %16, label %10
 
 10:                                               ; preds = %7

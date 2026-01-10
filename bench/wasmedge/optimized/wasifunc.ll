@@ -4977,34 +4977,33 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %_ZNK8WasmEd
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8WasmEdge4Host22WasiFdFilestatSetTimes4bodyERKNS_7Runtime12CallingFrameEimmj(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) initializes((0, 1), (4, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %8 = and i32 %6, 65520
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit.thread
+  %8 = zext i32 %6 to i64
+  %9 = and i64 %8, 65520
+  %10 = icmp ne i64 %9, 0
+  %11 = and i64 %8, 3
+  %or.cond.not.i = icmp eq i64 %11, 3
+  %or.cond.i = or i1 %10, %or.cond.not.i
+  br i1 %or.cond.i, label %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit.thread, label %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit
 
-10:                                               ; preds = %7
-  %11 = trunc i32 %6 to i16
-  %12 = and i16 %11, 3
-  %or.cond.not.i = icmp eq i16 %12, 3
-  br i1 %or.cond.not.i, label %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit.thread, label %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit
-
-_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit: ; preds = %10
-  %13 = and i16 %11, 4
+_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit: ; preds = %7
+  %12 = trunc i32 %6 to i16
+  %13 = and i16 %12, 4
   %.not3.i = icmp ne i16 %13, 0
-  %.not4.i = icmp ugt i16 %11, 7
+  %.not4.i = icmp ugt i16 %12, 7
   %or.cond12.i.not = and i1 %.not4.i, %.not3.i
   br i1 %or.cond12.i.not, label %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit.thread, label %14
 
 14:                                               ; preds = %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @_ZNK8WasmEdge4Host4WASI7Environ18fdFilestatSetTimesEimm17__wasi_fstflags_t(ptr noundef nonnull align 8 dereferenceable(344) %16, i32 noundef %3, i64 noundef %4, i64 noundef %5, i16 noundef zeroext %11) #19
+  %17 = tail call i32 @_ZNK8WasmEdge4Host4WASI7Environ18fdFilestatSetTimesEimm17__wasi_fstflags_t(ptr noundef nonnull align 8 dereferenceable(344) %16, i32 noundef %3, i64 noundef %4, i64 noundef %5, i16 noundef zeroext %12) #19
   %18 = trunc i32 %17 to i1
   %.sroa.28.0.extract.shift = lshr i32 %17, 16
   %spec.select = select i1 %18, i32 0, i32 %.sroa.28.0.extract.shift
   br label %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit.thread
 
-_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit.thread: ; preds = %14, %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit, %7, %10
-  %.sink = phi i32 [ 28, %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit ], [ %spec.select, %14 ], [ 28, %10 ], [ 28, %7 ]
+_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit.thread: ; preds = %14, %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit, %7
+  %.sink = phi i32 [ 28, %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit ], [ %spec.select, %14 ], [ 28, %7 ]
   store i8 1, ptr %0, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %19, align 4
@@ -8355,56 +8354,57 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br i1 %29, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %30
 
 30:                                               ; preds = %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
-  %31 = icmp ult i32 %4, 2
-  %32 = and i32 %9, 65520
-  %33 = icmp eq i32 %32, 0
-  %or.cond = and i1 %31, %33
-  br i1 %or.cond, label %34, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
+  %31 = icmp ugt i32 %4, 1
+  br i1 %31, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %32
 
-34:                                               ; preds = %30
-  %35 = trunc i32 %9 to i16
-  %36 = and i16 %35, 3
-  %or.cond.not.i = icmp eq i16 %36, 3
-  br i1 %or.cond.not.i, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit
+32:                                               ; preds = %30
+  %33 = zext i32 %9 to i64
+  %34 = and i64 %33, 65520
+  %35 = icmp ne i64 %34, 0
+  %36 = and i64 %33, 3
+  %or.cond.not.i = icmp eq i64 %36, 3
+  %or.cond.i = or i1 %35, %or.cond.not.i
+  br i1 %or.cond.i, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit
 
-_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit: ; preds = %34
-  %37 = and i16 %35, 4
-  %.not3.i = icmp ne i16 %37, 0
-  %.not4.i = icmp ugt i16 %35, 7
+_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit: ; preds = %32
+  %37 = trunc i32 %9 to i16
+  %38 = and i16 %37, 4
+  %.not3.i = icmp ne i16 %38, 0
+  %.not4.i = icmp ugt i16 %37, 7
   %or.cond12.i.not = and i1 %.not4.i, %.not3.i
-  br i1 %or.cond12.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %38
+  br i1 %or.cond12.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %39
 
-38:                                               ; preds = %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit
-  %39 = zext i32 %5 to i64
-  %40 = zext i32 %6 to i64
-  %41 = add nuw nsw i64 %40, %39
-  %42 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %43 = load i32, ptr %42, align 4
-  %44 = zext i32 %43 to i64
-  %45 = shl nuw nsw i64 %44, 16
-  %.not.i = icmp samesign ule i64 %41, %45
+39:                                               ; preds = %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit
+  %40 = zext i32 %5 to i64
+  %41 = zext i32 %6 to i64
+  %42 = add nuw nsw i64 %41, %40
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %44 = load i32, ptr %43, align 4
+  %45 = zext i32 %44 to i64
+  %46 = shl nuw nsw i64 %45, 16
+  %.not.i = icmp samesign ule i64 %42, %46
   %.not42 = icmp eq i32 %6, 0
   %.not = or i1 %.not.i, %.not42
-  br i1 %.not, label %46, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
+  br i1 %.not, label %47, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-46:                                               ; preds = %38
-  %47 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %39
-  %.sroa.3.0.i = select i1 %.not.i, ptr %49, ptr null
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call i32 @_ZN8WasmEdge4Host4WASI7Environ20pathFilestatSetTimesEiSt17basic_string_viewIcSt11char_traitsIcEE20__wasi_lookupflags_tmm17__wasi_fstflags_t(ptr noundef nonnull align 8 dereferenceable(344) %51, i32 noundef %3, i64 %40, ptr %.sroa.3.0.i, i32 noundef %4, i64 noundef %7, i64 noundef %8, i16 noundef zeroext %35)
-  %53 = trunc i32 %52 to i1
-  %.sroa.217.0.extract.shift = lshr i32 %52, 16
-  %spec.select = select i1 %53, i32 0, i32 %.sroa.217.0.extract.shift
+47:                                               ; preds = %39
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %40
+  %.sroa.3.0.i = select i1 %.not.i, ptr %50, ptr null
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %52 = load ptr, ptr %51, align 8
+  %53 = tail call i32 @_ZN8WasmEdge4Host4WASI7Environ20pathFilestatSetTimesEiSt17basic_string_viewIcSt11char_traitsIcEE20__wasi_lookupflags_tmm17__wasi_fstflags_t(ptr noundef nonnull align 8 dereferenceable(344) %52, i32 noundef %3, i64 %41, ptr %.sroa.3.0.i, i32 noundef %4, i64 noundef %7, i64 noundef %8, i16 noundef zeroext %37)
+  %54 = trunc i32 %53 to i1
+  %.sroa.217.0.extract.shift = lshr i32 %53, 16
+  %spec.select = select i1 %54, i32 0, i32 %.sroa.217.0.extract.shift
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %46, %38, %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit, %34, %30, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31, %10
-  %.sink = phi i32 [ 21, %38 ], [ %spec.select, %46 ], [ 28, %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit ], [ 28, %30 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %10 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31 ], [ 28, %34 ]
+_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %47, %39, %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit, %32, %30, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31, %10
+  %.sink = phi i32 [ 21, %39 ], [ %spec.select, %47 ], [ 28, %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit ], [ 28, %30 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %10 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31 ], [ 28, %32 ]
   store i8 1, ptr %0, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink, ptr %54, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sink, ptr %55, align 4
   ret void
 }
 

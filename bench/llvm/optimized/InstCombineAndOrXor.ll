@@ -21236,7 +21236,7 @@ define internal fastcc noundef ptr @_ZL26foldPowerOf2AndShiftedMaskPN4llvm8ICmpI
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  br i1 %2, label %12, label %40
+  br i1 %2, label %12, label %37
 
 12:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -21254,52 +21254,46 @@ define internal fastcc noundef ptr @_ZL26foldPowerOf2AndShiftedMaskPN4llvm8ICmpI
   %13 = call fastcc { i64, i8 } @_ZL24getMaskedTypeForICmpPairRPN4llvm5ValueES2_S2_S2_S2_S1_S1_RNS_7CmpInst9PredicateES5_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
   %.fca.1.extract = extractvalue { i64, i8 } %13, 1
   %14 = trunc nuw i8 %.fca.1.extract to i1
-  br i1 %14, label %15, label %39
+  br i1 %14, label %15, label %36
 
 15:                                               ; preds = %12
   %.fca.0.extract = extractvalue { i64, i8 } %13, 0
-  %.sroa.0.0.extract.trunc = trunc i64 %.fca.0.extract to i32
-  %16 = and i32 %.sroa.0.0.extract.trunc, 16
-  %17 = icmp ne i32 %16, 0
-  %.sroa.0.4.extract.shift.mask = and i64 %.fca.0.extract, -4294967296
-  %18 = icmp eq i64 %.sroa.0.4.extract.shift.mask, 2233382993920
-  %or.cond = and i1 %18, %17
-  br i1 %or.cond, label %19, label %27
+  %16 = and i64 %.fca.0.extract, -4294967280
+  %or.cond = icmp eq i64 %16, 2233382993936
+  br i1 %or.cond, label %17, label %25
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %5, align 8, !tbaa !128
-  %21 = load ptr, ptr %6, align 8, !tbaa !128
-  %22 = load ptr, ptr %8, align 8, !tbaa !128
-  %23 = load ptr, ptr %9, align 8, !tbaa !128
-  %24 = load i32, ptr %10, align 4, !tbaa !119
-  %25 = load i32, ptr %11, align 4, !tbaa !119
-  %26 = tail call fastcc noundef ptr @_ZL32foldNegativePower2AndShiftedMaskPN4llvm5ValueES1_S1_S1_NS_7CmpInst9PredicateES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef nonnull align 8 dereferenceable(184) %3)
-  %.not20 = icmp eq ptr %26, null
-  br i1 %.not20, label %38, label %39
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %5, align 8, !tbaa !128
+  %19 = load ptr, ptr %6, align 8, !tbaa !128
+  %20 = load ptr, ptr %8, align 8, !tbaa !128
+  %21 = load ptr, ptr %9, align 8, !tbaa !128
+  %22 = load i32, ptr %10, align 4, !tbaa !119
+  %23 = load i32, ptr %11, align 4, !tbaa !119
+  %24 = tail call fastcc noundef ptr @_ZL32foldNegativePower2AndShiftedMaskPN4llvm5ValueES1_S1_S1_NS_7CmpInst9PredicateES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef nonnull align 8 dereferenceable(184) %3)
+  %.not20 = icmp eq ptr %24, null
+  br i1 %.not20, label %35, label %36
 
-27:                                               ; preds = %15
-  %28 = icmp ne i32 %.sroa.0.0.extract.trunc, 520
-  %29 = and i64 %.fca.0.extract, 68719476736
-  %.not = icmp eq i64 %29, 0
-  %or.cond21 = or i1 %28, %.not
-  br i1 %or.cond21, label %38, label %30
+25:                                               ; preds = %15
+  %26 = and i64 %.fca.0.extract, 73014444031
+  %or.cond21.not = icmp eq i64 %26, 68719477256
+  br i1 %or.cond21.not, label %27, label %35
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %5, align 8, !tbaa !128
-  %32 = load ptr, ptr %8, align 8, !tbaa !128
-  %33 = load ptr, ptr %6, align 8, !tbaa !128
-  %34 = load ptr, ptr %7, align 8, !tbaa !128
-  %35 = load i32, ptr %11, align 4, !tbaa !119
-  %36 = load i32, ptr %10, align 4, !tbaa !119
-  %37 = tail call fastcc noundef ptr @_ZL32foldNegativePower2AndShiftedMaskPN4llvm5ValueES1_S1_S1_NS_7CmpInst9PredicateES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(184) %3)
-  %.not19 = icmp eq ptr %37, null
-  br i1 %.not19, label %38, label %39
+27:                                               ; preds = %25
+  %28 = load ptr, ptr %5, align 8, !tbaa !128
+  %29 = load ptr, ptr %8, align 8, !tbaa !128
+  %30 = load ptr, ptr %6, align 8, !tbaa !128
+  %31 = load ptr, ptr %7, align 8, !tbaa !128
+  %32 = load i32, ptr %11, align 4, !tbaa !119
+  %33 = load i32, ptr %10, align 4, !tbaa !119
+  %34 = tail call fastcc noundef ptr @_ZL32foldNegativePower2AndShiftedMaskPN4llvm5ValueES1_S1_S1_NS_7CmpInst9PredicateES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(184) %3)
+  %.not19 = icmp eq ptr %34, null
+  br i1 %.not19, label %35, label %36
 
-38:                                               ; preds = %27, %30, %19
-  br label %39
+35:                                               ; preds = %25, %27, %17
+  br label %36
 
-39:                                               ; preds = %38, %30, %19, %12
-  %.1 = phi ptr [ null, %12 ], [ null, %38 ], [ %26, %19 ], [ %37, %30 ]
+36:                                               ; preds = %35, %27, %17, %12
+  %.1 = phi ptr [ null, %12 ], [ null, %35 ], [ %24, %17 ], [ %34, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -21307,10 +21301,10 @@ define internal fastcc noundef ptr @_ZL26foldPowerOf2AndShiftedMaskPN4llvm8ICmpI
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %40
+  br label %37
 
-40:                                               ; preds = %4, %39
-  %.0 = phi ptr [ %.1, %39 ], [ null, %4 ]
+37:                                               ; preds = %4, %36
+  %.0 = phi ptr [ %.1, %36 ], [ null, %4 ]
   ret ptr %.0
 }
 

@@ -2796,12 +2796,12 @@ define dso_local range(i32 0, 2) i32 @_Py_Uid_Converter(ptr noundef %0, ptr noun
 16:                                               ; preds = %14
   %17 = call ptr @PyErr_Occurred() #20
   %.not24 = icmp eq ptr %17, null
-  br i1 %.not24, label %31, label %38
+  br i1 %.not24, label %30, label %37
 
 18:                                               ; preds = %14
   %19 = trunc nuw i64 %12 to i32
   %.not23 = icmp ult i64 %12, 4294967296
-  br i1 %.not23, label %31, label %.sink.split
+  br i1 %.not23, label %30, label %.sink.split
 
 20:                                               ; preds = %11
   %21 = icmp slt i32 %13, 0
@@ -2817,58 +2817,56 @@ define dso_local range(i32 0, 2) i32 @_Py_Uid_Converter(ptr noundef %0, ptr noun
   %26 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !97
   %27 = call i32 @PyErr_ExceptionMatches(ptr noundef %26) #20
   %.not27 = icmp eq i32 %27, 0
-  br i1 %.not27, label %38, label %.sink.split
+  br i1 %.not27, label %37, label %.sink.split
 
 28:                                               ; preds = %22
-  %29 = trunc i64 %23 to i32
-  %30 = icmp ne i32 %29, -1
-  %.not26 = icmp ult i64 %23, 4294967296
-  %or.cond28 = and i1 %.not26, %30
-  br i1 %or.cond28, label %31, label %.sink.split
+  %29 = trunc nuw i64 %23 to i32
+  %or.cond28 = icmp ult i64 %23, 4294967295
+  br i1 %or.cond28, label %30, label %.sink.split
 
-31:                                               ; preds = %28, %18, %16
+30:                                               ; preds = %28, %18, %16
   %.018 = phi i32 [ %29, %28 ], [ -1, %16 ], [ %19, %18 ]
-  %32 = load i32, ptr %4, align 8, !tbaa !106
-  %.not.i = icmp sgt i32 %32, -1
-  br i1 %.not.i, label %33, label %Py_DECREF.exit
+  %31 = load i32, ptr %4, align 8, !tbaa !106
+  %.not.i = icmp sgt i32 %31, -1
+  br i1 %.not.i, label %32, label %Py_DECREF.exit
 
-33:                                               ; preds = %31
-  %34 = add nsw i32 %32, -1
-  store i32 %34, ptr %4, align 8, !tbaa !106
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %Py_DECREF.exit
+32:                                               ; preds = %30
+  %33 = add nsw i32 %31, -1
+  store i32 %33, ptr %4, align 8, !tbaa !106
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %Py_DECREF.exit
 
-36:                                               ; preds = %33
+35:                                               ; preds = %32
   call void @_Py_Dealloc(ptr noundef nonnull %4) #20
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %31, %33, %36
+Py_DECREF.exit:                                   ; preds = %30, %32, %35
   store i32 %.018, ptr %1, align 4, !tbaa !114
   br label %Py_DECREF.exit30
 
 .sink.split:                                      ; preds = %25, %28, %18, %20
   %.str.2.sink = phi ptr [ @.str.1, %18 ], [ @.str.1, %20 ], [ @.str.2, %28 ], [ @.str.2, %25 ]
-  %37 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !97
-  call void @PyErr_SetString(ptr noundef %37, ptr noundef nonnull %.str.2.sink) #20
-  br label %38
+  %36 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !97
+  call void @PyErr_SetString(ptr noundef %36, ptr noundef nonnull %.str.2.sink) #20
+  br label %37
 
-38:                                               ; preds = %.sink.split, %25, %16
-  %39 = load i32, ptr %4, align 8, !tbaa !106
-  %.not.i29 = icmp sgt i32 %39, -1
-  br i1 %.not.i29, label %40, label %Py_DECREF.exit30
+37:                                               ; preds = %.sink.split, %25, %16
+  %38 = load i32, ptr %4, align 8, !tbaa !106
+  %.not.i29 = icmp sgt i32 %38, -1
+  br i1 %.not.i29, label %39, label %Py_DECREF.exit30
 
-40:                                               ; preds = %38
-  %41 = add nsw i32 %39, -1
-  store i32 %41, ptr %4, align 8, !tbaa !106
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %Py_DECREF.exit30
+39:                                               ; preds = %37
+  %40 = add nsw i32 %38, -1
+  store i32 %40, ptr %4, align 8, !tbaa !106
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %Py_DECREF.exit30
 
-43:                                               ; preds = %40
+42:                                               ; preds = %39
   call void @_Py_Dealloc(ptr noundef nonnull %4) #20
   br label %Py_DECREF.exit30
 
-Py_DECREF.exit30:                                 ; preds = %43, %40, %38, %Py_DECREF.exit, %6
-  %.0 = phi i32 [ 0, %6 ], [ 1, %Py_DECREF.exit ], [ 0, %38 ], [ 0, %40 ], [ 0, %43 ]
+Py_DECREF.exit30:                                 ; preds = %42, %39, %37, %Py_DECREF.exit, %6
+  %.0 = phi i32 [ 0, %6 ], [ 1, %Py_DECREF.exit ], [ 0, %37 ], [ 0, %39 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2918,12 +2916,12 @@ define dso_local range(i32 0, 2) i32 @_Py_Gid_Converter(ptr noundef %0, ptr noun
 16:                                               ; preds = %14
   %17 = call ptr @PyErr_Occurred() #20
   %.not24 = icmp eq ptr %17, null
-  br i1 %.not24, label %31, label %38
+  br i1 %.not24, label %30, label %37
 
 18:                                               ; preds = %14
   %19 = trunc nuw i64 %12 to i32
   %.not23 = icmp ult i64 %12, 4294967296
-  br i1 %.not23, label %31, label %.sink.split
+  br i1 %.not23, label %30, label %.sink.split
 
 20:                                               ; preds = %11
   %21 = icmp slt i32 %13, 0
@@ -2939,58 +2937,56 @@ define dso_local range(i32 0, 2) i32 @_Py_Gid_Converter(ptr noundef %0, ptr noun
   %26 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !97
   %27 = call i32 @PyErr_ExceptionMatches(ptr noundef %26) #20
   %.not27 = icmp eq i32 %27, 0
-  br i1 %.not27, label %38, label %.sink.split
+  br i1 %.not27, label %37, label %.sink.split
 
 28:                                               ; preds = %22
-  %29 = trunc i64 %23 to i32
-  %30 = icmp ne i32 %29, -1
-  %.not26 = icmp ult i64 %23, 4294967296
-  %or.cond28 = and i1 %.not26, %30
-  br i1 %or.cond28, label %31, label %.sink.split
+  %29 = trunc nuw i64 %23 to i32
+  %or.cond28 = icmp ult i64 %23, 4294967295
+  br i1 %or.cond28, label %30, label %.sink.split
 
-31:                                               ; preds = %28, %18, %16
+30:                                               ; preds = %28, %18, %16
   %.018 = phi i32 [ %29, %28 ], [ -1, %16 ], [ %19, %18 ]
-  %32 = load i32, ptr %4, align 8, !tbaa !106
-  %.not.i29 = icmp sgt i32 %32, -1
-  br i1 %.not.i29, label %33, label %Py_DECREF.exit30
+  %31 = load i32, ptr %4, align 8, !tbaa !106
+  %.not.i29 = icmp sgt i32 %31, -1
+  br i1 %.not.i29, label %32, label %Py_DECREF.exit30
 
-33:                                               ; preds = %31
-  %34 = add nsw i32 %32, -1
-  store i32 %34, ptr %4, align 8, !tbaa !106
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %Py_DECREF.exit30
+32:                                               ; preds = %30
+  %33 = add nsw i32 %31, -1
+  store i32 %33, ptr %4, align 8, !tbaa !106
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %Py_DECREF.exit30
 
-36:                                               ; preds = %33
+35:                                               ; preds = %32
   call void @_Py_Dealloc(ptr noundef nonnull %4) #20
   br label %Py_DECREF.exit30
 
-Py_DECREF.exit30:                                 ; preds = %31, %33, %36
+Py_DECREF.exit30:                                 ; preds = %30, %32, %35
   store i32 %.018, ptr %1, align 4, !tbaa !114
   br label %Py_DECREF.exit
 
 .sink.split:                                      ; preds = %25, %28, %18, %20
   %.str.5.sink = phi ptr [ @.str.4, %18 ], [ @.str.4, %20 ], [ @.str.5, %28 ], [ @.str.5, %25 ]
-  %37 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !97
-  call void @PyErr_SetString(ptr noundef %37, ptr noundef nonnull %.str.5.sink) #20
-  br label %38
+  %36 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !97
+  call void @PyErr_SetString(ptr noundef %36, ptr noundef nonnull %.str.5.sink) #20
+  br label %37
 
-38:                                               ; preds = %.sink.split, %25, %16
-  %39 = load i32, ptr %4, align 8, !tbaa !106
-  %.not.i = icmp sgt i32 %39, -1
-  br i1 %.not.i, label %40, label %Py_DECREF.exit
+37:                                               ; preds = %.sink.split, %25, %16
+  %38 = load i32, ptr %4, align 8, !tbaa !106
+  %.not.i = icmp sgt i32 %38, -1
+  br i1 %.not.i, label %39, label %Py_DECREF.exit
 
-40:                                               ; preds = %38
-  %41 = add nsw i32 %39, -1
-  store i32 %41, ptr %4, align 8, !tbaa !106
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %Py_DECREF.exit
+39:                                               ; preds = %37
+  %40 = add nsw i32 %38, -1
+  store i32 %40, ptr %4, align 8, !tbaa !106
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %Py_DECREF.exit
 
-43:                                               ; preds = %40
+42:                                               ; preds = %39
   call void @_Py_Dealloc(ptr noundef nonnull %4) #20
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %43, %40, %38, %Py_DECREF.exit30, %6
-  %.0 = phi i32 [ 0, %6 ], [ 1, %Py_DECREF.exit30 ], [ 0, %38 ], [ 0, %40 ], [ 0, %43 ]
+Py_DECREF.exit:                                   ; preds = %42, %39, %37, %Py_DECREF.exit30, %6
+  %.0 = phi i32 [ 0, %6 ], [ 1, %Py_DECREF.exit30 ], [ 0, %37 ], [ 0, %39 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

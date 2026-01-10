@@ -1753,94 +1753,95 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN4llvm29hasUnrollAndJamTransform
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef range(i32 0, 7) i32 @_ZN4llvm26hasVectorizeTransformationEPKNS_4LoopE(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i16 @_ZN4llvm28getOptionalBoolLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef %0, ptr nonnull @.str.9, i64 26) #21
-  %.sroa.038.0.extract.trunc = trunc i16 %2 to i8
-  %3 = and i16 %2, 256
-  %4 = icmp ne i16 %3, 0
-  %5 = icmp eq i8 %.sroa.038.0.extract.trunc, 0
-  %6 = and i1 %4, %5
-  br i1 %6, label %.critedge4, label %7
+  %3 = and i16 %2, 511
+  %4 = icmp eq i16 %3, 256
+  br i1 %4, label %.critedge4, label %5
 
-7:                                                ; preds = %1
-  %8 = tail call i64 @_ZN4llvm27getOptionalIntLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef %0, ptr nonnull @.str, i64 25) #21
-  %9 = and i64 %8, 4294967296
-  %.not.i = icmp ne i64 %9, 0
-  br i1 %.not.i, label %10, label %_ZN4llvm36getOptionalElementCountLoopAttributeEPKNS_4LoopE.exit
+5:                                                ; preds = %1
+  %6 = tail call i64 @_ZN4llvm27getOptionalIntLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef %0, ptr nonnull @.str, i64 25) #21
+  %7 = and i64 %6, 4294967296
+  %.not.i = icmp ne i64 %7, 0
+  br i1 %.not.i, label %8, label %_ZN4llvm36getOptionalElementCountLoopAttributeEPKNS_4LoopE.exit
 
-10:                                               ; preds = %7
-  %11 = tail call i64 @_ZN4llvm27getOptionalIntLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef %0, ptr nonnull @.str.1, i64 35) #21
-  %12 = and i64 %11, 4294967296
-  %.not13.i = icmp eq i64 %12, 0
-  %13 = and i64 %11, 4294967295
-  %.not1415.i = icmp eq i64 %13, 0
+8:                                                ; preds = %5
+  %9 = tail call i64 @_ZN4llvm27getOptionalIntLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef %0, ptr nonnull @.str.1, i64 35) #21
+  %10 = and i64 %9, 4294967296
+  %.not13.i = icmp eq i64 %10, 0
+  %11 = and i64 %9, 4294967295
+  %.not1415.i = icmp eq i64 %11, 0
   %.not14.i = or i1 %.not13.i, %.not1415.i
   %.sroa.2.0.insert.shift.i.i = select i1 %.not14.i, i64 0, i64 4294967296
-  %.sroa.0.0.insert.ext.i.i = and i64 %8, 4294967295
+  %.sroa.0.0.insert.ext.i.i = and i64 %6, 4294967295
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
   br label %_ZN4llvm36getOptionalElementCountLoopAttributeEPKNS_4LoopE.exit
 
-_ZN4llvm36getOptionalElementCountLoopAttributeEPKNS_4LoopE.exit: ; preds = %7, %10
-  %.sroa.011.0.i = phi i64 [ %.sroa.0.0.insert.insert.i.i, %10 ], [ undef, %7 ]
-  %14 = tail call i64 @_ZN4llvm27getOptionalIntLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef %0, ptr nonnull @.str.10, i64 26) #21
-  %.sroa.017.0.extract.trunc = trunc i64 %14 to i32
-  %.sroa.6.0.extract.shift = lshr i64 %14, 32
-  %15 = icmp eq i8 %.sroa.038.0.extract.trunc, 1
-  %16 = and i1 %4, %15
-  %or.cond = and i1 %16, %.not.i
-  br i1 %or.cond, label %17, label %.critedge
+_ZN4llvm36getOptionalElementCountLoopAttributeEPKNS_4LoopE.exit: ; preds = %5, %8
+  %.sroa.011.0.i = phi i64 [ %.sroa.0.0.insert.insert.i.i, %8 ], [ undef, %5 ]
+  %12 = tail call i64 @_ZN4llvm27getOptionalIntLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef %0, ptr nonnull @.str.10, i64 26) #21
+  %.sroa.017.0.extract.trunc = trunc i64 %12 to i32
+  %.sroa.6.0.extract.shift = lshr i64 %12, 32
+  %13 = icmp eq i16 %3, 257
+  %or.cond = and i1 %13, %.not.i
+  br i1 %or.cond, label %14, label %.critedge
 
-17:                                               ; preds = %_ZN4llvm36getOptionalElementCountLoopAttributeEPKNS_4LoopE.exit
-  %18 = and i64 %.sroa.011.0.i, 8589934591
-  %19 = icmp eq i64 %18, 1
-  %20 = trunc i64 %.sroa.6.0.extract.shift to i1
-  %21 = icmp eq i32 %.sroa.017.0.extract.trunc, 1
-  %22 = and i1 %21, %20
-  %or.cond46 = select i1 %19, i1 %22, i1 false
-  br i1 %or.cond46, label %.critedge4, label %.critedge
+14:                                               ; preds = %_ZN4llvm36getOptionalElementCountLoopAttributeEPKNS_4LoopE.exit
+  %15 = and i64 %.sroa.011.0.i, 8589934591
+  %16 = icmp eq i64 %15, 1
+  %17 = trunc i64 %.sroa.6.0.extract.shift to i1
+  %18 = icmp eq i32 %.sroa.017.0.extract.trunc, 1
+  %19 = and i1 %18, %17
+  %or.cond46 = select i1 %16, i1 %19, i1 false
+  br i1 %or.cond46, label %.critedge4, label %.critedge.thread
 
-.critedge:                                        ; preds = %17, %_ZN4llvm36getOptionalElementCountLoopAttributeEPKNS_4LoopE.exit
-  %23 = tail call noundef zeroext i1 @_ZN4llvm23getBooleanLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef %0, ptr nonnull @.str.11, i64 22) #21
-  %brmerge = or i1 %16, %23
-  %.mux = select i1 %23, i32 2, i32 5
-  br i1 %brmerge, label %.critedge4, label %24
+.critedge.thread:                                 ; preds = %14
+  %20 = tail call noundef zeroext i1 @_ZN4llvm23getBooleanLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef %0, ptr nonnull @.str.11, i64 22) #21
+  %.mux55 = select i1 %20, i32 2, i32 5
+  br label %.critedge4
 
-24:                                               ; preds = %.critedge
-  br i1 %.not.i, label %25, label %.critedge2
+.critedge:                                        ; preds = %_ZN4llvm36getOptionalElementCountLoopAttributeEPKNS_4LoopE.exit
+  %21 = tail call noundef zeroext i1 @_ZN4llvm23getBooleanLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef %0, ptr nonnull @.str.11, i64 22) #21
+  %brmerge = or i1 %13, %21
+  %.mux = select i1 %21, i32 2, i32 5
+  br i1 %brmerge, label %.critedge4, label %22
 
-25:                                               ; preds = %24
-  %26 = and i64 %.sroa.011.0.i, 8589934591
-  %27 = icmp eq i64 %26, 1
-  %28 = trunc i64 %.sroa.6.0.extract.shift to i1
-  %29 = icmp eq i32 %.sroa.017.0.extract.trunc, 1
-  %30 = and i1 %29, %28
-  %or.cond49 = select i1 %27, i1 %30, i1 false
-  br i1 %or.cond49, label %.critedge4, label %31
+22:                                               ; preds = %.critedge
+  br i1 %.not.i, label %23, label %.critedge2
 
-31:                                               ; preds = %25
-  %32 = and i64 %.sroa.011.0.i, 4294967296
-  %33 = icmp ne i64 %32, 0
+23:                                               ; preds = %22
+  %24 = and i64 %.sroa.011.0.i, 8589934591
+  %25 = icmp eq i64 %24, 1
+  %26 = trunc i64 %.sroa.6.0.extract.shift to i1
+  %27 = icmp eq i32 %.sroa.017.0.extract.trunc, 1
+  %28 = and i1 %27, %26
+  %or.cond49 = select i1 %25, i1 %28, i1 false
+  br i1 %or.cond49, label %.critedge4, label %29
+
+29:                                               ; preds = %23
+  %30 = and i64 %.sroa.011.0.i, 4294967296
+  %31 = icmp ne i64 %30, 0
   %.sroa.022.0.extract.trunc26 = trunc i64 %.sroa.011.0.i to i32
   %.not.i10 = icmp ne i32 %.sroa.022.0.extract.trunc26, 0
-  %or.cond.not.i = and i1 %33, %.not.i10
-  %34 = icmp ugt i32 %.sroa.022.0.extract.trunc26, 1
-  %spec.select.i = or i1 %34, %or.cond.not.i
-  %35 = icmp sgt i32 %.sroa.017.0.extract.trunc, 1
-  %36 = and i1 %35, %28
-  %or.cond52 = select i1 %spec.select.i, i1 true, i1 %36
-  br i1 %or.cond52, label %.critedge4, label %37
+  %or.cond.not.i = and i1 %31, %.not.i10
+  %32 = icmp ugt i32 %.sroa.022.0.extract.trunc26, 1
+  %spec.select.i = or i1 %32, %or.cond.not.i
+  %33 = icmp sgt i32 %.sroa.017.0.extract.trunc, 1
+  %34 = and i1 %33, %26
+  %or.cond52 = select i1 %spec.select.i, i1 true, i1 %34
+  br i1 %or.cond52, label %.critedge4, label %35
 
-.critedge2:                                       ; preds = %24
+.critedge2:                                       ; preds = %22
   %.old = trunc i64 %.sroa.6.0.extract.shift to i1
   %.old50 = icmp sgt i32 %.sroa.017.0.extract.trunc, 1
   %.old51 = and i1 %.old50, %.old
-  br i1 %.old51, label %.critedge4, label %37
+  br i1 %.old51, label %.critedge4, label %35
 
-37:                                               ; preds = %31, %.critedge2
-  %38 = tail call noundef zeroext i1 @_ZN4llvm23getBooleanLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef %0, ptr nonnull @.str.29, i64 27) #21
-  %. = select i1 %38, i32 2, i32 0
+35:                                               ; preds = %29, %.critedge2
+  %36 = tail call noundef zeroext i1 @_ZN4llvm23getBooleanLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef %0, ptr nonnull @.str.29, i64 27) #21
+  %. = select i1 %36, i32 2, i32 0
   br label %.critedge4
 
-.critedge4:                                       ; preds = %25, %.critedge, %17, %.critedge2, %37, %31, %1
-  %.0 = phi i32 [ 6, %1 ], [ 1, %.critedge2 ], [ 6, %17 ], [ %.mux, %.critedge ], [ 1, %31 ], [ 2, %25 ], [ %., %37 ]
+.critedge4:                                       ; preds = %.critedge.thread, %23, %.critedge, %14, %.critedge2, %35, %29, %1
+  %.0 = phi i32 [ 6, %1 ], [ 1, %.critedge2 ], [ 6, %14 ], [ %.mux, %.critedge ], [ 1, %29 ], [ 2, %23 ], [ %., %35 ], [ %.mux55, %.critedge.thread ]
   ret i32 %.0
 }
 

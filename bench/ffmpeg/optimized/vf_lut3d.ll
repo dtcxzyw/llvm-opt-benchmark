@@ -2214,8 +2214,8 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   ]
 
 25:                                               ; preds = %1
-  %26 = and i32 %14, 528
-  %or.cond.not = icmp eq i32 %26, 16
+  %26 = and i64 %13, 528
+  %or.cond.not = icmp eq i64 %26, 16
   br i1 %or.cond.not, label %27, label %40
 
 27:                                               ; preds = %25
@@ -2279,8 +2279,8 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   br label %131
 
 46:                                               ; preds = %1
-  %47 = and i32 %14, 528
-  %or.cond3.not = icmp eq i32 %47, 16
+  %47 = and i64 %13, 528
+  %or.cond3.not = icmp eq i64 %47, 16
   br i1 %or.cond3.not, label %48, label %61
 
 48:                                               ; preds = %46
@@ -2344,8 +2344,8 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   br label %131
 
 67:                                               ; preds = %1
-  %68 = and i32 %14, 528
-  %or.cond5.not = icmp eq i32 %68, 16
+  %68 = and i64 %13, 528
+  %or.cond5.not = icmp eq i64 %68, 16
   br i1 %or.cond5.not, label %69, label %82
 
 69:                                               ; preds = %67
@@ -2409,8 +2409,8 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   br label %131
 
 88:                                               ; preds = %1
-  %89 = and i32 %14, 528
-  %or.cond7.not = icmp eq i32 %89, 16
+  %89 = and i64 %13, 528
+  %or.cond7.not = icmp eq i64 %89, 16
   br i1 %or.cond7.not, label %90, label %103
 
 90:                                               ; preds = %88
@@ -2474,8 +2474,8 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   br label %131
 
 109:                                              ; preds = %1
-  %110 = and i32 %14, 528
-  %or.cond9.not = icmp eq i32 %110, 16
+  %110 = and i64 %13, 528
+  %or.cond9.not = icmp eq i64 %110, 16
   br i1 %or.cond9.not, label %111, label %124
 
 111:                                              ; preds = %109
@@ -20549,8 +20549,8 @@ define internal noundef i32 @config_input_1d(ptr noundef readonly captures(none)
   ]
 
 25:                                               ; preds = %1
-  %26 = and i32 %14, 528
-  %or.cond.not = icmp eq i32 %26, 16
+  %26 = and i64 %13, 528
+  %or.cond.not = icmp eq i64 %26, 16
   br i1 %or.cond.not, label %27, label %40
 
 27:                                               ; preds = %25
@@ -20614,8 +20614,8 @@ define internal noundef i32 @config_input_1d(ptr noundef readonly captures(none)
   br label %131
 
 46:                                               ; preds = %1
-  %47 = and i32 %14, 528
-  %or.cond3.not = icmp eq i32 %47, 16
+  %47 = and i64 %13, 528
+  %or.cond3.not = icmp eq i64 %47, 16
   br i1 %or.cond3.not, label %48, label %61
 
 48:                                               ; preds = %46
@@ -20679,8 +20679,8 @@ define internal noundef i32 @config_input_1d(ptr noundef readonly captures(none)
   br label %131
 
 67:                                               ; preds = %1
-  %68 = and i32 %14, 528
-  %or.cond5.not = icmp eq i32 %68, 16
+  %68 = and i64 %13, 528
+  %or.cond5.not = icmp eq i64 %68, 16
   br i1 %or.cond5.not, label %69, label %82
 
 69:                                               ; preds = %67
@@ -20744,8 +20744,8 @@ define internal noundef i32 @config_input_1d(ptr noundef readonly captures(none)
   br label %131
 
 88:                                               ; preds = %1
-  %89 = and i32 %14, 528
-  %or.cond7.not = icmp eq i32 %89, 16
+  %89 = and i64 %13, 528
+  %or.cond7.not = icmp eq i64 %89, 16
   br i1 %or.cond7.not, label %90, label %103
 
 90:                                               ; preds = %88
@@ -20809,8 +20809,8 @@ define internal noundef i32 @config_input_1d(ptr noundef readonly captures(none)
   br label %131
 
 109:                                              ; preds = %1
-  %110 = and i32 %14, 528
-  %or.cond9.not = icmp eq i32 %110, 16
+  %110 = and i64 %13, 528
+  %or.cond9.not = icmp eq i64 %110, 16
   br i1 %or.cond9.not, label %111, label %124
 
 111:                                              ; preds = %109
