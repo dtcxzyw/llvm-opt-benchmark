@@ -196911,7 +196911,7 @@ define noundef double @_ZNK14QCPItemEllipse10selectTestERK7QPointFbP8QVariant(pt
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i8, ptr %6, align 8, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %82
+  br i1 %8, label %9, label %83
 
 9:                                                ; preds = %5, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -196956,50 +196956,50 @@ define noundef double @_ZNK14QCPItemEllipse10selectTestERK7QPointFbP8QVariant(pt
   %49 = fmul double %39, %39
   %50 = fdiv double %48, %49
   %51 = fadd double %47, %50
-  %sqrt = tail call double @llvm.sqrt.f64(double %51)
-  %52 = fdiv double 1.000000e+00, %sqrt
-  %53 = fadd double %52, -1.000000e+00
-  %54 = fcmp ult double %53, 0.000000e+00
-  %55 = fneg double %53
-  %56 = select i1 %54, double %55, double %53
-  %57 = tail call double @llvm.fmuladd.f64(double %41, double %41, double %48)
-  %58 = tail call noundef double @sqrt(double noundef %57) #55
-  %59 = fmul double %58, %56
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 228
-  %63 = load i32, ptr %62, align 4
-  %64 = sitofp i32 %63 to double
-  %65 = fmul double %64, 0x3FEFAE147AE147AE
-  %66 = fcmp ogt double %59, %65
-  br i1 %66, label %67, label %82
+  %52 = tail call noundef double @sqrt(double noundef %51) #55
+  %53 = fdiv double 1.000000e+00, %52
+  %54 = fadd double %53, -1.000000e+00
+  %55 = fcmp ult double %54, 0.000000e+00
+  %56 = fneg double %54
+  %57 = select i1 %55, double %56, double %54
+  %58 = tail call double @llvm.fmuladd.f64(double %41, double %41, double %48)
+  %59 = tail call noundef double @sqrt(double noundef %58) #55
+  %60 = fmul double %59, %57
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 228
+  %64 = load i32, ptr %63, align 4
+  %65 = sitofp i32 %64 to double
+  %66 = fmul double %65, 0x3FEFAE147AE147AE
+  %67 = fcmp ogt double %60, %66
+  br i1 %67, label %68, label %83
 
-67:                                               ; preds = %9
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %71 = load i32, ptr %70, align 4
-  %.not = icmp eq i32 %71, 0
-  br i1 %.not, label %82, label %72
+68:                                               ; preds = %9
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %72 = load i32, ptr %71, align 4
+  %.not = icmp eq i32 %72, 0
+  br i1 %.not, label %83, label %73
 
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %74 = tail call noundef i32 @_ZNK6QColor5alphaEv(ptr noundef nonnull align 4 dereferenceable_or_null(14) %73) #55
-  %.not29 = icmp eq i32 %74, 0
-  %75 = fcmp ugt double %51, 1.000000e+00
-  %or.cond = or i1 %75, %.not29
-  br i1 %or.cond, label %82, label %76
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %75 = tail call noundef i32 @_ZNK6QColor5alphaEv(ptr noundef nonnull align 4 dereferenceable_or_null(14) %74) #55
+  %.not29 = icmp eq i32 %75, 0
+  %76 = fcmp ugt double %51, 1.000000e+00
+  %or.cond = or i1 %76, %.not29
+  br i1 %or.cond, label %83, label %77
 
-76:                                               ; preds = %72
-  %77 = load ptr, ptr %60, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 228
-  %79 = load i32, ptr %78, align 4
-  %80 = sitofp i32 %79 to double
-  %81 = fmul double %80, 0x3FEFAE147AE147AE
-  br label %82
+77:                                               ; preds = %73
+  %78 = load ptr, ptr %61, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 228
+  %80 = load i32, ptr %79, align 4
+  %81 = sitofp i32 %80 to double
+  %82 = fmul double %81, 0x3FEFAE147AE147AE
+  br label %83
 
-82:                                               ; preds = %9, %67, %72, %76, %5
-  %.027 = phi double [ -1.000000e+00, %5 ], [ %81, %76 ], [ %59, %9 ], [ %59, %72 ], [ %59, %67 ]
+83:                                               ; preds = %9, %68, %73, %77, %5
+  %.027 = phi double [ -1.000000e+00, %5 ], [ %82, %77 ], [ %60, %9 ], [ %60, %73 ], [ %60, %68 ]
   ret double %.027
 }
 
@@ -302959,9 +302959,6 @@ declare double @llvm.log.f64(double) #52
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #52
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #52
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

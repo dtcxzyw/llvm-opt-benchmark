@@ -49484,80 +49484,82 @@ define zeroext i1 @CheckCollisionBoxSphere(ptr noundef readonly byval(%struct.Bo
   %.sroa.09.0.vec.extract = extractelement <2 x float> %1, i64 0
   %5 = load float, ptr %0, align 8
   %6 = fcmp olt float %.sroa.09.0.vec.extract, %5
-  br i1 %6, label %7, label %9
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4
   %8 = fsub float %.sroa.09.0.vec.extract, %5
   %square34 = fmul float %8, %8
-  br label %15
+  %9 = fadd float %square34, 0.000000e+00
+  br label %17
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %11 = load float, ptr %10, align 4
-  %12 = fcmp ogt float %.sroa.09.0.vec.extract, %11
-  br i1 %12, label %13, label %15
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %12 = load float, ptr %11, align 4
+  %13 = fcmp ogt float %.sroa.09.0.vec.extract, %12
+  br i1 %13, label %14, label %17
 
-13:                                               ; preds = %9
-  %14 = fsub float %.sroa.09.0.vec.extract, %11
-  %square = fmul float %14, %14
-  br label %15
+14:                                               ; preds = %10
+  %15 = fsub float %.sroa.09.0.vec.extract, %12
+  %square = fmul float %15, %15
+  %16 = fadd float %square, 0.000000e+00
+  br label %17
 
-15:                                               ; preds = %9, %13, %7
-  %.0 = phi float [ %square34, %7 ], [ %square, %13 ], [ 0.000000e+00, %9 ]
+17:                                               ; preds = %10, %14, %7
+  %.0 = phi float [ %9, %7 ], [ %16, %14 ], [ 0.000000e+00, %10 ]
   %.sroa.09.4.vec.extract = extractelement <2 x float> %1, i64 1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %17 = load float, ptr %16, align 4
-  %18 = fcmp olt float %.sroa.09.4.vec.extract, %17
-  br i1 %18, label %19, label %22
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %19 = load float, ptr %18, align 4
+  %20 = fcmp olt float %.sroa.09.4.vec.extract, %19
+  br i1 %20, label %21, label %24
 
-19:                                               ; preds = %15
-  %20 = fsub float %.sroa.09.4.vec.extract, %17
-  %square36 = fmul float %20, %20
-  %21 = fadd float %.0, %square36
-  br label %29
+21:                                               ; preds = %17
+  %22 = fsub float %.sroa.09.4.vec.extract, %19
+  %square36 = fmul float %22, %22
+  %23 = fadd float %.0, %square36
+  br label %31
 
-22:                                               ; preds = %15
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load float, ptr %23, align 8
-  %25 = fcmp ogt float %.sroa.09.4.vec.extract, %24
-  br i1 %25, label %26, label %29
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = load float, ptr %25, align 8
+  %27 = fcmp ogt float %.sroa.09.4.vec.extract, %26
+  br i1 %27, label %28, label %31
 
-26:                                               ; preds = %22
-  %27 = fsub float %.sroa.09.4.vec.extract, %24
-  %square35 = fmul float %27, %27
-  %28 = fadd float %.0, %square35
-  br label %29
+28:                                               ; preds = %24
+  %29 = fsub float %.sroa.09.4.vec.extract, %26
+  %square35 = fmul float %29, %29
+  %30 = fadd float %.0, %square35
+  br label %31
 
-29:                                               ; preds = %22, %26, %19
-  %.1 = phi float [ %21, %19 ], [ %28, %26 ], [ %.0, %22 ]
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load float, ptr %30, align 8
-  %32 = fcmp olt float %2, %31
-  br i1 %32, label %33, label %36
+31:                                               ; preds = %24, %28, %21
+  %.1 = phi float [ %23, %21 ], [ %30, %28 ], [ %.0, %24 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = load float, ptr %32, align 8
+  %34 = fcmp olt float %2, %33
+  br i1 %34, label %35, label %38
 
-33:                                               ; preds = %29
-  %34 = fsub float %2, %31
-  %square38 = fmul float %34, %34
-  %35 = fadd float %.1, %square38
-  br label %43
+35:                                               ; preds = %31
+  %36 = fsub float %2, %33
+  %square38 = fmul float %36, %36
+  %37 = fadd float %.1, %square38
+  br label %45
 
-36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %38 = load float, ptr %37, align 4
-  %39 = fcmp ogt float %2, %38
-  br i1 %39, label %40, label %43
+38:                                               ; preds = %31
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %40 = load float, ptr %39, align 4
+  %41 = fcmp ogt float %2, %40
+  br i1 %41, label %42, label %45
 
-40:                                               ; preds = %36
-  %41 = fsub float %2, %38
-  %square37 = fmul float %41, %41
-  %42 = fadd float %.1, %square37
-  br label %43
+42:                                               ; preds = %38
+  %43 = fsub float %2, %40
+  %square37 = fmul float %43, %43
+  %44 = fadd float %.1, %square37
+  br label %45
 
-43:                                               ; preds = %36, %40, %33
-  %.2 = phi float [ %35, %33 ], [ %42, %40 ], [ %.1, %36 ]
-  %44 = fmul float %3, %3
-  %45 = fcmp ole float %.2, %44
-  ret i1 %45
+45:                                               ; preds = %38, %42, %35
+  %.2 = phi float [ %37, %35 ], [ %44, %42 ], [ %.1, %38 ]
+  %46 = fmul float %3, %3
+  %47 = fcmp ole float %.2, %46
+  ret i1 %47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable

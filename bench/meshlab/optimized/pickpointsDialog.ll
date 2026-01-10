@@ -6123,13 +6123,13 @@ define void @_ZN16PickPointsDialog21selectOrMoveThisPointEN3vcg6Point3IfEE(ptr n
   store ptr @.str.97, ptr %7, align 8
   call void @_ZNK14QMessageLogger5debugEv(ptr dead_on_unwind nonnull writable sret(%class.QDebug) align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.95)
-          to label %9 unwind label %59
+          to label %9 unwind label %60
 
 9:                                                ; preds = %3
   %.sroa.026.0.vec.extract = extractelement <2 x float> %1, i64 0
   %10 = load ptr, ptr %8, align 8
   %11 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEf(ptr noundef nonnull align 8 dereferenceable(16) %10, float noundef %.sroa.026.0.vec.extract)
-          to label %.noexc unwind label %59
+          to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %9
   %12 = load ptr, ptr %8, align 8
@@ -6140,17 +6140,17 @@ define void @_ZN16PickPointsDialog21selectOrMoveThisPointEN3vcg6Point3IfEE(ptr n
 
 16:                                               ; preds = %.noexc
   %17 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 noundef signext 32)
-          to label %_ZN6QDebuglsEf.exit unwind label %59
+          to label %_ZN6QDebuglsEf.exit unwind label %60
 
 _ZN6QDebuglsEf.exit:                              ; preds = %.noexc, %16
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.96)
-          to label %19 unwind label %59
+          to label %19 unwind label %60
 
 19:                                               ; preds = %_ZN6QDebuglsEf.exit
   %.sroa.026.4.vec.extract = extractelement <2 x float> %1, i64 1
   %20 = load ptr, ptr %18, align 8
   %21 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEf(ptr noundef nonnull align 8 dereferenceable(16) %20, float noundef %.sroa.026.4.vec.extract)
-          to label %.noexc20 unwind label %59
+          to label %.noexc20 unwind label %60
 
 .noexc20:                                         ; preds = %19
   %22 = load ptr, ptr %18, align 8
@@ -6161,16 +6161,16 @@ _ZN6QDebuglsEf.exit:                              ; preds = %.noexc, %16
 
 26:                                               ; preds = %.noexc20
   %27 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 noundef signext 32)
-          to label %_ZN6QDebuglsEf.exit22 unwind label %59
+          to label %_ZN6QDebuglsEf.exit22 unwind label %60
 
 _ZN6QDebuglsEf.exit22:                            ; preds = %.noexc20, %26
   %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.96)
-          to label %29 unwind label %59
+          to label %29 unwind label %60
 
 29:                                               ; preds = %_ZN6QDebuglsEf.exit22
   %30 = load ptr, ptr %28, align 8
   %31 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEf(ptr noundef nonnull align 8 dereferenceable(16) %30, float noundef %2)
-          to label %.noexc23 unwind label %59
+          to label %.noexc23 unwind label %60
 
 .noexc23:                                         ; preds = %29
   %32 = load ptr, ptr %28, align 8
@@ -6181,7 +6181,7 @@ _ZN6QDebuglsEf.exit22:                            ; preds = %.noexc20, %26
 
 36:                                               ; preds = %.noexc23
   %37 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 noundef signext 32)
-          to label %_ZN6QDebuglsEf.exit25 unwind label %59
+          to label %_ZN6QDebuglsEf.exit25 unwind label %60
 
 _ZN6QDebuglsEf.exit25:                            ; preds = %.noexc23, %36
   call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #30
@@ -6222,31 +6222,31 @@ _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit: ; preds = %_ZNSt6ve
   %55 = fpext float %54 to double
   %square33 = fmul double %55, %55
   %56 = fadd double %square33, %53
-  %sqrt = call double @llvm.sqrt.f64(double %56)
-  %57 = fptrunc double %sqrt to float
-  %58 = fcmp ogt float %.01435, %57
-  %.115 = select i1 %58, float %57, float %.01435
-  %.1 = select i1 %58, ptr %47, ptr %.036
+  %57 = call double @sqrt(double noundef %56) #30
+  %58 = fptrunc double %57 to float
+  %59 = fcmp ogt float %.01435, %58
+  %.115 = select i1 %59, float %58, float %.01435
+  %.1 = select i1 %59, ptr %47, ptr %.036
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %45
   br i1 %exitcond.not, label %._crit_edge, label %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit, !llvm.loop !15
 
-59:                                               ; preds = %36, %29, %26, %19, %16, %9, %_ZN6QDebuglsEf.exit22, %_ZN6QDebuglsEf.exit, %3
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %36, %29, %26, %19, %16, %9, %_ZN6QDebuglsEf.exit22, %_ZN6QDebuglsEf.exit, %3
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #30
-  resume { ptr, i32 } %60
+  resume { ptr, i32 } %61
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge.thread, label %61
+  br i1 %.not, label %._crit_edge.thread, label %62
 
-61:                                               ; preds = %._crit_edge
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store ptr %.1, ptr %62, align 8
+62:                                               ; preds = %._crit_edge
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  store ptr %.1, ptr %63, align 8
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %_ZN6QDebuglsEf.exit25, %61, %._crit_edge
+._crit_edge.thread:                               ; preds = %_ZN6QDebuglsEf.exit25, %62, %._crit_edge
   ret void
 }
 
@@ -6315,6 +6315,9 @@ _ZN6QDebug10maybeSpaceEv.exit:                    ; preds = %_ZN7QStringD2Ev.exi
 
 ; Function Attrs: nounwind
 declare void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @sqrt(double noundef) local_unnamed_addr #18
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsERK7QString(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
@@ -16241,9 +16244,6 @@ declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #25

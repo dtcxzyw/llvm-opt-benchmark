@@ -11968,7 +11968,7 @@ declare noundef zeroext i1 @_ZN7nanogui6Widget18mouse_motion_eventERKNS_5ArrayIi
 define linkonce_odr hidden noundef zeroext i1 @_ZN7Arcball6motionEN4nori7TVectorIiLi2EEE(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i8, ptr %0, align 4
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %5, label %121
+  br i1 %4, label %5, label %125
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -12022,7 +12022,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7Arcball6motionEN4nori7TVector
   %54 = fadd float %53, 1.000000e+00
   %55 = fadd float %52, %54
   %56 = fcmp ogt float %55, 0x3F1A36E2E0000000
-  br i1 %56, label %57, label %121
+  br i1 %56, label %57, label %125
 
 57:                                               ; preds = %5
   %58 = fmul float %50, %50
@@ -12030,7 +12030,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7Arcball6motionEN4nori7TVector
   %60 = fadd float %59, 1.000000e+00
   %61 = fadd float %58, %60
   %62 = fcmp ogt float %61, 0x3F1A36E2E0000000
-  br i1 %62, label %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37, label %121
+  br i1 %62, label %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37, label %125
 
 _ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37: ; preds = %57
   %63 = tail call float @llvm.sqrt.f32(float %55)
@@ -12055,64 +12055,71 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37: ; 
   %82 = fmul float %79, %79
   %83 = fadd float %81, %82
   %84 = fadd float %80, %83
-  %sqrt = tail call float @llvm.sqrt.f32(float %84)
-  %85 = fmul float %64, %68
-  %86 = fmul float %65, %69
-  %87 = fmul float %66, %70
-  %88 = fadd float %86, %87
-  %89 = fadd float %85, %88
-  %90 = tail call noundef float @atan2f(float noundef %sqrt, float noundef %89) #32
-  %91 = tail call float @llvm.fmuladd.f32(float %50, float %50, float %59)
-  %92 = fcmp ogt float %91, 1.000000e+00
-  br i1 %92, label %93, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
+  %85 = tail call noundef float @sqrtf(float noundef %84) #32
+  %86 = fmul float %64, %68
+  %87 = fmul float %65, %69
+  %88 = fmul float %66, %70
+  %89 = fadd float %87, %88
+  %90 = fadd float %86, %89
+  %91 = tail call noundef float @atan2f(float noundef %85, float noundef %90) #32
+  %92 = tail call float @llvm.fmuladd.f32(float %50, float %50, float %59)
+  %93 = fcmp ogt float %92, 1.000000e+00
+  br i1 %93, label %94, label %99
 
-93:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37
-  %94 = tail call noundef float @sqrtf(float noundef %91) #32
-  %95 = fadd float %94, -1.000000e+00
-  %96 = tail call float @llvm.fmuladd.f32(float %95, float 0x3FC99999A0000000, float 1.000000e+00)
-  %97 = fmul float %90, %96
+94:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37
+  %95 = tail call noundef float @sqrtf(float noundef %92) #32
+  %96 = fadd float %95, -1.000000e+00
+  %97 = tail call float @llvm.fmuladd.f32(float %96, float 0x3FC99999A0000000, float 1.000000e+00)
+  %98 = fmul float %91, %97
+  br label %99
+
+99:                                               ; preds = %94, %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37
+  %.0 = phi float [ %98, %94 ], [ %91, %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37 ]
+  %100 = fcmp ogt float %84, 0.000000e+00
+  br i1 %100, label %101, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
+
+101:                                              ; preds = %99
+  %102 = tail call float @llvm.sqrt.f32(float %84)
+  %103 = fdiv float %73, %102
+  %104 = fdiv float %76, %102
+  %105 = fdiv float %79, %102
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
 
-_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit: ; preds = %93, %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37
-  %.0 = phi float [ %97, %93 ], [ %90, %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37 ]
-  %98 = fcmp ogt float %84, 0.000000e+00
-  %99 = fdiv float %73, %sqrt
-  %100 = fdiv float %76, %sqrt
-  %101 = fdiv float %79, %sqrt
-  %.sroa.5.0 = select i1 %98, float %101, float %79
-  %.sroa.3.0 = select i1 %98, float %100, float %76
-  %.sroa.039.0 = select i1 %98, float %99, float %73
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %103 = fmul float %.0, 5.000000e-01
-  %104 = tail call noundef float @cosf(float noundef %103) #32
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %104, ptr %105, align 4
-  %106 = tail call noundef float @sinf(float noundef %103) #32
-  %107 = fmul float %.sroa.039.0, %106
-  store float %107, ptr %102, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %109 = fmul float %.sroa.3.0, %106
-  store float %109, ptr %108, align 4
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %111 = fmul float %.sroa.5.0, %106
-  store float %111, ptr %110, align 4
-  %112 = load <4 x float>, ptr %102, align 4
-  %113 = fmul <4 x float> %112, %112
-  %114 = shufflevector <4 x float> %113, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
-  %115 = fadd <4 x float> %113, %114
-  %shift = shufflevector <4 x float> %115, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop = fadd <4 x float> %115, %shift
-  %116 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %117 = tail call noundef float @llvm.sqrt.f32(float %116)
-  %118 = tail call float @llvm.fabs.f32(float %117)
-  %119 = fcmp ueq float %118, 0x7FF0000000000000
-  br i1 %119, label %120, label %121
+_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit: ; preds = %99, %101
+  %.sroa.5.0 = phi float [ %105, %101 ], [ %79, %99 ]
+  %.sroa.3.0 = phi float [ %104, %101 ], [ %76, %99 ]
+  %.sroa.039.0 = phi float [ %103, %101 ], [ %73, %99 ]
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %107 = fmul float %.0, 5.000000e-01
+  %108 = tail call noundef float @cosf(float noundef %107) #32
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store float %108, ptr %109, align 4
+  %110 = tail call noundef float @sinf(float noundef %107) #32
+  %111 = fmul float %.sroa.039.0, %110
+  store float %111, ptr %106, align 4
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %113 = fmul float %.sroa.3.0, %110
+  store float %113, ptr %112, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %115 = fmul float %.sroa.5.0, %110
+  store float %115, ptr %114, align 4
+  %116 = load <4 x float>, ptr %106, align 4
+  %117 = fmul <4 x float> %116, %116
+  %118 = shufflevector <4 x float> %117, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
+  %119 = fadd <4 x float> %117, %118
+  %shift = shufflevector <4 x float> %119, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop = fadd <4 x float> %119, %shift
+  %120 = extractelement <4 x float> %foldExtExtBinop, i64 0
+  %121 = tail call noundef float @llvm.sqrt.f32(float %120)
+  %122 = tail call float @llvm.fabs.f32(float %121)
+  %123 = fcmp ueq float %122, 0x7FF0000000000000
+  br i1 %123, label %124, label %125
 
-120:                                              ; preds = %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
-  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %102, align 4
-  br label %121
+124:                                              ; preds = %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
+  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %106, align 4
+  br label %125
 
-121:                                              ; preds = %5, %57, %120, %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit, %2
+125:                                              ; preds = %5, %57, %124, %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit, %2
   ret i1 %4
 }
 

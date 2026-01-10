@@ -1254,9 +1254,9 @@ if.end7.i:                                        ; preds = %if.end.i
   br i1 %cmp35.i, label %if.then36.i, label %if.end43.i
 
 if.then36.i:                                      ; preds = %if.end7.i
-  %sqrt.i = call double @llvm.sqrt.f64(double %add.i363)
-  %mul.i48.i = fmul double %74, %sqrt.i
-  %mul2.i.i = fmul double %75, %sqrt.i
+  %call37.i = call double @sqrt(double noundef %add.i363) #17
+  %mul.i48.i = fmul double %74, %call37.i
+  %mul2.i.i = fmul double %75, %call37.i
   %mul.i49.i = fmul double %mul.i48.i, %mul.i48.i
   %mul3.i50.i = fmul double %mul2.i.i, %mul2.i.i
   br label %if.end43.i
@@ -1274,9 +1274,9 @@ if.end43.i:                                       ; preds = %if.then36.i, %if.en
   %79 = xor i1 %cmp1.i, %cmp1.i334
   %cmp.i53.i = fcmp olt double %sub.i364, 0.000000e+00
   %cond.i.i = select i1 %cmp.i53.i, double 0.000000e+00, double %sub.i364
-  %sqrt160.i = call double @llvm.sqrt.f64(double %cond.i.i)
-  %80 = fneg double %sqrt160.i
-  %mul58.i = select i1 %79, double %sqrt160.i, double %80
+  %sqrt.i = call double @llvm.sqrt.f64(double %cond.i.i)
+  %80 = fneg double %sqrt.i
+  %mul58.i = select i1 %79, double %sqrt.i, double %80
   %mul60.i = fmul double %radius.sroa.0.0.i, %mul58.i
   %mul62.i = fmul double %77, %mul60.i
   %div64.i = fdiv double %mul62.i, %radius.sroa.14.0.i
@@ -1372,8 +1372,8 @@ if.end119.i:                                      ; preds = %if.then116.i, %if.e
   %call128.i = call double @cos(double noundef %mul124.i) #17
   %add129.i = fadd double %call128.i, 1.000000e+00
   %div130.i = fdiv double %mul126.i, %add129.i
-  %cmp131161.i = icmp sgt i32 %conv121.i, 0
-  br i1 %cmp131161.i, label %arrayctor.loop.preheader.lr.ph.i, label %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit
+  %cmp131160.i = icmp sgt i32 %conv121.i, 0
+  br i1 %cmp131160.i, label %arrayctor.loop.preheader.lr.ph.i, label %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit
 
 arrayctor.loop.preheader.lr.ph.i:                 ; preds = %if.end119.i
   %neg.i = fneg double %div130.i
@@ -1381,12 +1381,12 @@ arrayctor.loop.preheader.lr.ph.i:                 ; preds = %if.end119.i
   br label %arrayctor.loop.preheader.i
 
 arrayctor.loop.preheader.i:                       ; preds = %invoke.cont190.i, %arrayctor.loop.preheader.lr.ph.i
-  %prevNode.sroa.3.0165.i = phi double [ %prevNode.sroa.25.1820, %arrayctor.loop.preheader.lr.ph.i ], [ %node.sroa.4.0.i, %invoke.cont190.i ]
-  %prevNode.sroa.0.0164.i = phi double [ %prevNode.sroa.0.1821, %arrayctor.loop.preheader.lr.ph.i ], [ %node.sroa.0.0.i, %invoke.cont190.i ]
-  %angle.0163.i = phi double [ %mul10.i.i, %arrayctor.loop.preheader.lr.ph.i ], [ %add150.i, %invoke.cont190.i ]
-  %i.0162.i = phi i32 [ 0, %arrayctor.loop.preheader.lr.ph.i ], [ %inc.i, %invoke.cont190.i ]
-  %call132.i = call double @cos(double noundef %angle.0163.i) #17
-  %call133.i = call double @sin(double noundef %angle.0163.i) #17
+  %prevNode.sroa.3.0164.i = phi double [ %prevNode.sroa.25.1820, %arrayctor.loop.preheader.lr.ph.i ], [ %node.sroa.4.0.i, %invoke.cont190.i ]
+  %prevNode.sroa.0.0163.i = phi double [ %prevNode.sroa.0.1821, %arrayctor.loop.preheader.lr.ph.i ], [ %node.sroa.0.0.i, %invoke.cont190.i ]
+  %angle.0162.i = phi double [ %mul10.i.i, %arrayctor.loop.preheader.lr.ph.i ], [ %add150.i, %invoke.cont190.i ]
+  %i.0161.i = phi i32 [ 0, %arrayctor.loop.preheader.lr.ph.i ], [ %inc.i, %invoke.cont190.i ]
+  %call132.i = call double @cos(double noundef %angle.0162.i) #17
+  %call133.i = call double @sin(double noundef %angle.0162.i) #17
   %96 = call double @llvm.fmuladd.f64(double %neg.i, double %call133.i, double %call132.i)
   %97 = call double @llvm.fmuladd.f64(double %div130.i, double %call132.i, double %call133.i)
   %mul.i114.i = fmul double %radius.sroa.0.0.i, %96
@@ -1398,7 +1398,7 @@ arrayctor.loop.preheader.i:                       ; preds = %invoke.cont190.i, %
   %100 = call double @llvm.fmuladd.f64(double %call13.i, double %mul.i114.i, double %mul8.i119.i)
   %add.i122.i = fadd double %add.i65.i, %99
   %add3.i123.i = fadd double %add3.i66.i, %100
-  %add150.i = fadd double %div123.i, %angle.0163.i
+  %add150.i = fadd double %div123.i, %angle.0162.i
   %call151.i = call double @cos(double noundef %add150.i) #17
   %call152.i = call double @sin(double noundef %add150.i) #17
   %101 = call double @llvm.fmuladd.f64(double %div130.i, double %call152.i, double %call151.i)
@@ -1412,7 +1412,7 @@ arrayctor.loop.preheader.i:                       ; preds = %invoke.cont190.i, %
   %105 = call double @llvm.fmuladd.f64(double %call13.i, double %mul.i128.i, double %mul8.i133.i)
   %add.i136.i = fadd double %add.i65.i, %104
   %add3.i137.i = fadd double %add3.i66.i, %105
-  %cmp172.i = icmp eq i32 %i.0162.i, %sub171.i
+  %cmp172.i = icmp eq i32 %i.0161.i, %sub171.i
   br i1 %cmp172.i, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %arrayctor.loop.preheader.i
@@ -1430,14 +1430,14 @@ cond.false.i:                                     ; preds = %arrayctor.loop.preh
 cond.end.i:                                       ; preds = %cond.false.i, %arrayctor.loop.preheader.i
   %node.sroa.0.0.i = phi double [ %add.i148.i, %cond.false.i ], [ %node.sroa.0.9, %arrayctor.loop.preheader.i ]
   %node.sroa.4.0.i = phi double [ %add3.i149.i, %cond.false.i ], [ %node.sroa.39.9, %arrayctor.loop.preheader.i ]
-  %call.i152.i = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.0164.i, double %prevNode.sroa.3.0165.i, double %add.i122.i, double %add3.i123.i, double %add.i136.i, double %add3.i137.i, double %node.sroa.0.0.i, double %node.sroa.4.0.i, i32 noundef 7)
+  %call.i152.i = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %prevNode.sroa.0.0163.i, double %prevNode.sroa.3.0164.i, double %add.i122.i, double %add3.i123.i, double %add.i136.i, double %add3.i137.i, double %node.sroa.0.0.i, double %node.sroa.4.0.i, i32 noundef 7)
   store ptr %call.i152.i, ptr %ref.tmp182.i, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp182.i)
           to label %invoke.cont190.i unwind label %lpad189.i
 
 invoke.cont190.i:                                 ; preds = %cond.end.i
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp182.i) #17
-  %inc.i = add nuw nsw i32 %i.0162.i, 1
+  %inc.i = add nuw nsw i32 %i.0161.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %conv121.i
   br i1 %exitcond.not.i, label %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit, label %arrayctor.loop.preheader.i, !llvm.loop !7
 

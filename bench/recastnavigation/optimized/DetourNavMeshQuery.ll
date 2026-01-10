@@ -6716,14 +6716,17 @@ define linkonce_odr void @_Z12dtVnormalizePf(ptr noundef %0) local_unnamed_addr 
   %9 = load float, ptr %8, align 4
   %10 = fmul float %9, %9
   %11 = fadd float %7, %10
-  %sqrt = tail call float @llvm.sqrt.f32(float %11)
-  %12 = fdiv float 1.000000e+00, %sqrt
-  %13 = fmul float %2, %12
-  store float %13, ptr %0, align 4
-  %14 = fmul float %5, %12
-  store float %14, ptr %4, align 4
-  %15 = fmul float %12, %9
-  store float %15, ptr %8, align 4
+  %12 = tail call noundef float @sqrtf(float noundef %11) #21
+  %13 = fdiv float 1.000000e+00, %12
+  %14 = load float, ptr %0, align 4
+  %15 = fmul float %14, %13
+  store float %15, ptr %0, align 4
+  %16 = load float, ptr %4, align 4
+  %17 = fmul float %13, %16
+  store float %17, ptr %4, align 4
+  %18 = load float, ptr %8, align 4
+  %19 = fmul float %13, %18
+  store float %19, ptr %8, align 4
   ret void
 }
 
@@ -8726,7 +8729,7 @@ _ZL14insertIntervalP13dtSegIntervalRiissj.exit173: ; preds = %._crit_edge, %_ZL1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery18findDistanceToWallEjPKffPK13dtQueryFilterPfS5_S5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery18findDistanceToWallEjPKffPK13dtQueryFilterPfS5_S5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #1 align 2 {
   %9 = alloca [3 x float], align 4
   %10 = alloca [3 x float], align 4
   %11 = alloca ptr, align 8
@@ -9346,21 +9349,25 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %355, %353, %343, %3
   %380 = load float, ptr %379, align 4
   %381 = fsub float %378, %380
   %382 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store float %381, ptr %382, align 4
   %383 = fmul float %372, %372
   %384 = fmul float %376, %376
   %385 = fadd float %383, %384
   %386 = fmul float %381, %381
   %387 = fadd float %385, %386
-  %sqrt.i = call float @llvm.sqrt.f32(float %387)
-  %388 = fdiv float 1.000000e+00, %sqrt.i
-  %389 = fmul float %372, %388
-  store float %389, ptr %7, align 4
-  %390 = fmul float %376, %388
-  store float %390, ptr %377, align 4
-  %391 = fmul float %381, %388
-  store float %391, ptr %382, align 4
-  %392 = call noundef float @sqrtf(float noundef %.0135.lcssa) #21
-  store float %392, ptr %5, align 4
+  %388 = call noundef float @sqrtf(float noundef %387) #21
+  %389 = fdiv float 1.000000e+00, %388
+  %390 = load float, ptr %7, align 4
+  %391 = fmul float %390, %389
+  store float %391, ptr %7, align 4
+  %392 = load float, ptr %377, align 4
+  %393 = fmul float %389, %392
+  store float %393, ptr %377, align 4
+  %394 = load float, ptr %382, align 4
+  %395 = fmul float %389, %394
+  store float %395, ptr %382, align 4
+  %396 = call noundef float @sqrtf(float noundef %.0135.lcssa) #21
+  store float %396, ptr %5, align 4
   br label %_Z11dtVisfinitePKf.exit.thread
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %41, %45, %37, %_Z11dtVisfinitePKf.exit, %55, %._crit_edge
@@ -9631,9 +9638,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19

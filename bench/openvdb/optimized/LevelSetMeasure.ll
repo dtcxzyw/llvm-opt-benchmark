@@ -5267,12 +5267,12 @@ if.then.i16:                                      ; preds = %_ZN7openvdb5v11_04m
   %82 = call double @llvm.fmuladd.f64(double %mul.i94.i, double %mul.i104.i, double %neg50.i)
   %83 = call double @llvm.fmuladd.f64(double %mul47.i, double %82, double %80)
   %84 = call double @llvm.fmuladd.f64(double %83, double 2.000000e+00, double %75)
-  %sqrt.i = call double @llvm.sqrt.f64(double %add6.i)
+  %call53.i = call double @sqrt(double noundef %add6.i) #19
   %85 = load float, ptr %mInv2Dx.i, align 4
   %conv.i = fpext float %85 to double
   %mul.i18 = fmul double %67, %conv.i
-  %mul.i.i = fmul double %sqrt.i, %sqrt.i
-  %mul1.i.i = fmul double %sqrt.i, %mul.i.i
+  %mul.i.i = fmul double %call53.i, %call53.i
+  %mul1.i.i = fmul double %call53.i, %mul.i.i
   %div.i = fdiv double %mul.i18, %mul1.i.i
   %conv3.i = fptrunc double %div.i to float
   %86 = load float, ptr %mInvDx2.i, align 8
@@ -9147,10 +9147,10 @@ if.then.i17:                                      ; preds = %_ZN7openvdb5v11_04m
   %76 = call double @llvm.fmuladd.f64(double %mul.i87.i, double %mul.i96.i, double %neg50.i)
   %77 = call double @llvm.fmuladd.f64(double %mul47.i, double %76, double %74)
   %78 = call double @llvm.fmuladd.f64(double %77, double 2.000000e+00, double %69)
-  %sqrt.i = call double @llvm.sqrt.f64(double %add6.i)
+  %call53.i = call double @sqrt(double noundef %add6.i) #19
   %mul.i19 = fmul double %38, %61
-  %mul.i.i = fmul double %sqrt.i, %sqrt.i
-  %mul1.i.i = fmul double %sqrt.i, %mul.i.i
+  %mul.i.i = fmul double %call53.i, %call53.i
+  %mul1.i.i = fmul double %call53.i, %mul.i.i
   %div.i = fdiv double %mul.i19, %mul1.i.i
   %79 = load double, ptr %mInvDx2.i, align 8
   %mul3.i20 = fmul double %79, %78
@@ -30388,9 +30388,6 @@ declare i64 @llvm.umax.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #26
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #26
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

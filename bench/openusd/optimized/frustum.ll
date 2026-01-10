@@ -554,7 +554,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum11FitToSphereERKNS_7
   store double %2, ptr %.sroa.335.0..sroa_idx, align 8
   %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double %2, ptr %.sroa.436.0..sroa_idx, align 8
-  br label %56
+  br label %57
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -615,52 +615,52 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum11FitToSphereERKNS_7
   %51 = load double, ptr %50, align 8
   %52 = fmul double %51, %51
   %53 = fadd double %49, %52
-  %sqrt = tail call double @llvm.sqrt.f64(double %53)
-  %54 = fmul double %48, %sqrt
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store double %54, ptr %55, align 8
+  %54 = tail call double @sqrt(double noundef %53) #26
+  %55 = fmul double %48, %54
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store double %55, ptr %56, align 8
   %.pre = fadd double %2, %3
-  br label %56
+  br label %57
 
-56:                                               ; preds = %46, %10
+57:                                               ; preds = %46, %10
   %.pre-phi = phi double [ %.pre, %46 ], [ %11, %10 ]
-  %57 = phi double [ %54, %46 ], [ %11, %10 ]
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %59 = fsub double %57, %.pre-phi
-  store double %59, ptr %58, align 8
-  %60 = tail call double @llvm.fmuladd.f64(double %.pre-phi, double 2.000000e+00, double %59)
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store double %60, ptr %61, align 8
+  %58 = phi double [ %55, %46 ], [ %11, %10 ]
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %60 = fsub double %58, %.pre-phi
+  store double %60, ptr %59, align 8
+  %61 = tail call double @llvm.fmuladd.f64(double %.pre-phi, double 2.000000e+00, double %60)
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store double %61, ptr %62, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double -0.000000e+00, ptr %5, align 8, !alias.scope !8, !noalias !11
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store double -0.000000e+00, ptr %63, align 8, !alias.scope !8, !noalias !11
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store double -1.000000e+00, ptr %64, align 8, !alias.scope !8, !noalias !11
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation12TransformDirERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store double -0.000000e+00, ptr %64, align 8, !alias.scope !8, !noalias !11
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store double -1.000000e+00, ptr %65, align 8, !alias.scope !8, !noalias !11
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation12TransformDirERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.copyload.i.i = load double, ptr %6, align 8, !noalias !14
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !14
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.6.0.copyload.i.i = load double, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !14
-  %65 = fmul double %57, %.sroa.0.0.copyload.i.i
-  %66 = fmul double %57, %.sroa.4.0.copyload.i.i
-  %67 = fmul double %57, %.sroa.6.0.copyload.i.i
+  %66 = fmul double %58, %.sroa.0.0.copyload.i.i
+  %67 = fmul double %58, %.sroa.4.0.copyload.i.i
+  %68 = fmul double %58, %.sroa.6.0.copyload.i.i
   %.sroa.0.0.copyload.i = load double, ptr %1, align 8, !noalias !19
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !19
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !19
-  %68 = fsub double %.sroa.0.0.copyload.i, %65
-  %69 = fsub double %.sroa.4.0.copyload.i, %66
-  %70 = fsub double %.sroa.6.0.copyload.i, %67
-  store double %68, ptr %0, align 8
+  %69 = fsub double %.sroa.0.0.copyload.i, %66
+  %70 = fsub double %.sroa.4.0.copyload.i, %67
+  %71 = fsub double %.sroa.6.0.copyload.i, %68
+  store double %69, ptr %0, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %69, ptr %.sroa.225.0..sroa_idx, align 8
+  store double %70, ptr %.sroa.225.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %70, ptr %.sroa.3.0..sroa_idx, align 8
+  store double %71, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
 }
 
@@ -5542,9 +5542,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #24
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24

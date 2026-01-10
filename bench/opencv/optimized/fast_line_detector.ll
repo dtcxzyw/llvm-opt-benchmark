@@ -2176,134 +2176,134 @@ define hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl10mergeLinesERK7SEGMENT
   %20 = fsub float %11, %7
   %21 = fsub float %16, %12
   %22 = fsub float %18, %14
-  %23 = fcmp oeq float %19, 0.000000e+00
-  br i1 %23, label %28, label %24
-
-24:                                               ; preds = %4
-  %25 = fdiv float %20, %19
+  %23 = fmul float %19, %19
+  %24 = fpext float %23 to double
+  %25 = fmul float %20, %20
   %26 = fpext float %25 to double
-  %27 = tail call double @atan(double noundef %26) #29, !tbaa !109
-  br label %28
-
-28:                                               ; preds = %4, %24
-  %.0109 = phi double [ %27, %24 ], [ 0x3FF921FB54442D18, %4 ]
-  %29 = fcmp oeq float %21, 0.000000e+00
-  br i1 %29, label %34, label %30
-
-30:                                               ; preds = %28
-  %31 = fdiv float %22, %21
+  %27 = fadd double %24, %26
+  %28 = tail call double @sqrt(double noundef %27) #29, !tbaa !109
+  %29 = fmul float %21, %21
+  %30 = fpext float %29 to double
+  %31 = fmul float %22, %22
   %32 = fpext float %31 to double
-  %33 = tail call double @atan(double noundef %32) #29, !tbaa !109
-  br label %34
+  %33 = fadd double %30, %32
+  %34 = tail call double @sqrt(double noundef %33) #29, !tbaa !109
+  %35 = fcmp oeq float %19, 0.000000e+00
+  br i1 %35, label %40, label %36
 
-34:                                               ; preds = %28, %30
-  %.0108 = phi double [ %33, %30 ], [ 0x3FF921FB54442D18, %28 ]
-  %35 = fsub double %.0109, %.0108
-  %36 = tail call double @llvm.fabs.f64(double %35)
-  %37 = fcmp ugt double %36, 0x3FF921FB54442D18
-  br i1 %37, label %38, label %42
+36:                                               ; preds = %4
+  %37 = fdiv float %20, %19
+  %38 = fpext float %37 to double
+  %39 = tail call double @atan(double noundef %38) #29, !tbaa !109
+  br label %40
 
-38:                                               ; preds = %34
-  %39 = tail call double @llvm.fabs.f64(double %.0108)
-  %40 = fdiv double %.0108, %39
-  %41 = tail call double @llvm.fmuladd.f64(double %40, double 0xC00921FB54442D18, double %.0108)
-  br label %42
+40:                                               ; preds = %4, %36
+  %.0109 = phi double [ %39, %36 ], [ 0x3FF921FB54442D18, %4 ]
+  %41 = fcmp oeq float %21, 0.000000e+00
+  br i1 %41, label %46, label %42
 
-42:                                               ; preds = %34, %38
-  %.sink135 = phi double [ %41, %38 ], [ %.0108, %34 ]
-  %43 = fmul float %21, %21
+42:                                               ; preds = %40
+  %43 = fdiv float %22, %21
   %44 = fpext float %43 to double
-  %45 = fmul float %22, %22
-  %46 = fpext float %45 to double
-  %47 = fadd double %44, %46
-  %sqrt = tail call double @llvm.sqrt.f64(double %47)
-  %48 = fmul float %19, %19
-  %49 = fpext float %48 to double
-  %50 = fmul float %20, %20
-  %51 = fpext float %50 to double
-  %52 = fadd double %49, %51
-  %sqrt132 = tail call double @llvm.sqrt.f64(double %52)
-  %53 = fmul double %sqrt, %.sink135
-  %54 = tail call double @llvm.fmuladd.f64(double %sqrt132, double %.0109, double %53)
-  %55 = fadd double %sqrt132, %sqrt
-  %.0 = fdiv double %54, %55
-  %56 = fadd float %7, %11
-  %57 = fpext float %56 to double
-  %58 = fadd float %14, %18
+  %45 = tail call double @atan(double noundef %44) #29, !tbaa !109
+  br label %46
+
+46:                                               ; preds = %40, %42
+  %.0108 = phi double [ %45, %42 ], [ 0x3FF921FB54442D18, %40 ]
+  %47 = fsub double %.0109, %.0108
+  %48 = tail call double @llvm.fabs.f64(double %47)
+  %49 = fcmp ugt double %48, 0x3FF921FB54442D18
+  br i1 %49, label %50, label %54
+
+50:                                               ; preds = %46
+  %51 = tail call double @llvm.fabs.f64(double %.0108)
+  %52 = fdiv double %.0108, %51
+  %53 = tail call double @llvm.fmuladd.f64(double %52, double 0xC00921FB54442D18, double %.0108)
+  br label %54
+
+54:                                               ; preds = %46, %50
+  %.sink134 = phi double [ %53, %50 ], [ %.0108, %46 ]
+  %55 = fmul double %34, %.sink134
+  %56 = tail call double @llvm.fmuladd.f64(double %28, double %.0109, double %55)
+  %57 = fadd double %28, %34
+  %.0 = fdiv double %56, %57
+  %58 = fadd float %7, %11
   %59 = fpext float %58 to double
-  %60 = fmul double %sqrt, %59
-  %61 = tail call double @llvm.fmuladd.f64(double %sqrt132, double %57, double %60)
-  %62 = fmul double %55, 2.000000e+00
-  %63 = fdiv double %61, %62
-  %64 = fadd float %5, %9
-  %65 = fpext float %64 to double
-  %66 = fadd float %12, %16
+  %60 = fadd float %14, %18
+  %61 = fpext float %60 to double
+  %62 = fmul double %34, %61
+  %63 = tail call double @llvm.fmuladd.f64(double %28, double %59, double %62)
+  %64 = fmul double %57, 2.000000e+00
+  %65 = fdiv double %63, %64
+  %66 = fadd float %5, %9
   %67 = fpext float %66 to double
-  %68 = fmul double %sqrt, %67
-  %69 = tail call double @llvm.fmuladd.f64(double %sqrt132, double %65, double %68)
-  %70 = fdiv double %69, %62
-  %71 = fpext float %7 to double
-  %72 = fsub double %71, %63
-  %73 = tail call double @sin(double noundef %.0) #29, !tbaa !109
-  %74 = fpext float %5 to double
-  %75 = fsub double %74, %70
-  %76 = tail call double @cos(double noundef %.0) #29, !tbaa !109
-  %77 = fmul double %75, %76
-  %78 = tail call double @llvm.fmuladd.f64(double %72, double %73, double %77)
-  %79 = fpext float %11 to double
-  %80 = fsub double %79, %63
-  %81 = tail call double @sin(double noundef %.0) #29, !tbaa !109
-  %82 = fpext float %9 to double
-  %83 = fsub double %82, %70
-  %84 = tail call double @cos(double noundef %.0) #29, !tbaa !109
-  %85 = fmul double %83, %84
-  %86 = tail call double @llvm.fmuladd.f64(double %80, double %81, double %85)
-  %87 = fpext float %14 to double
-  %88 = fsub double %87, %63
-  %89 = tail call double @sin(double noundef %.0) #29, !tbaa !109
-  %90 = fpext float %12 to double
-  %91 = fsub double %90, %70
-  %92 = tail call double @cos(double noundef %.0) #29, !tbaa !109
-  %93 = fmul double %91, %92
-  %94 = tail call double @llvm.fmuladd.f64(double %88, double %89, double %93)
-  %95 = fpext float %18 to double
-  %96 = fsub double %95, %63
-  %97 = tail call double @sin(double noundef %.0) #29, !tbaa !109
-  %98 = fpext float %16 to double
-  %99 = fsub double %98, %70
-  %100 = tail call double @cos(double noundef %.0) #29, !tbaa !109
-  %101 = fmul double %99, %100
-  %102 = tail call double @llvm.fmuladd.f64(double %96, double %97, double %101)
-  %103 = fcmp olt double %102, %94
-  %104 = select i1 %103, double %102, double %94
-  %105 = fcmp olt double %104, %86
-  %106 = select i1 %105, double %104, double %86
-  %107 = fcmp olt double %106, %78
-  %.sroa.speculated126 = select i1 %107, double %106, double %78
-  %108 = fcmp olt double %94, %102
-  %109 = select i1 %108, double %102, double %94
-  %110 = fcmp olt double %86, %109
-  %111 = select i1 %110, double %109, double %86
-  %112 = fcmp olt double %78, %111
-  %.sroa.speculated = select i1 %112, double %111, double %78
-  %113 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated126, double %100, double %70)
-  %114 = tail call double @sin(double noundef %.0) #29, !tbaa !109
-  %115 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated126, double %114, double %63)
-  %116 = tail call double @cos(double noundef %.0) #29, !tbaa !109
-  %117 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated, double %116, double %70)
-  %118 = tail call double @sin(double noundef %.0) #29, !tbaa !109
-  %119 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated, double %118, double %63)
-  %120 = fptrunc double %113 to float
-  store float %120, ptr %3, align 4, !tbaa !118
-  %121 = fptrunc double %115 to float
-  %122 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float %121, ptr %122, align 4, !tbaa !121
+  %68 = fadd float %12, %16
+  %69 = fpext float %68 to double
+  %70 = fmul double %34, %69
+  %71 = tail call double @llvm.fmuladd.f64(double %28, double %67, double %70)
+  %72 = fdiv double %71, %64
+  %73 = fpext float %7 to double
+  %74 = fsub double %73, %65
+  %75 = tail call double @sin(double noundef %.0) #29, !tbaa !109
+  %76 = fpext float %5 to double
+  %77 = fsub double %76, %72
+  %78 = tail call double @cos(double noundef %.0) #29, !tbaa !109
+  %79 = fmul double %77, %78
+  %80 = tail call double @llvm.fmuladd.f64(double %74, double %75, double %79)
+  %81 = fpext float %11 to double
+  %82 = fsub double %81, %65
+  %83 = tail call double @sin(double noundef %.0) #29, !tbaa !109
+  %84 = fpext float %9 to double
+  %85 = fsub double %84, %72
+  %86 = tail call double @cos(double noundef %.0) #29, !tbaa !109
+  %87 = fmul double %85, %86
+  %88 = tail call double @llvm.fmuladd.f64(double %82, double %83, double %87)
+  %89 = fpext float %14 to double
+  %90 = fsub double %89, %65
+  %91 = tail call double @sin(double noundef %.0) #29, !tbaa !109
+  %92 = fpext float %12 to double
+  %93 = fsub double %92, %72
+  %94 = tail call double @cos(double noundef %.0) #29, !tbaa !109
+  %95 = fmul double %93, %94
+  %96 = tail call double @llvm.fmuladd.f64(double %90, double %91, double %95)
+  %97 = fpext float %18 to double
+  %98 = fsub double %97, %65
+  %99 = tail call double @sin(double noundef %.0) #29, !tbaa !109
+  %100 = fpext float %16 to double
+  %101 = fsub double %100, %72
+  %102 = tail call double @cos(double noundef %.0) #29, !tbaa !109
+  %103 = fmul double %101, %102
+  %104 = tail call double @llvm.fmuladd.f64(double %98, double %99, double %103)
+  %105 = fcmp olt double %104, %96
+  %106 = select i1 %105, double %104, double %96
+  %107 = fcmp olt double %106, %88
+  %108 = select i1 %107, double %106, double %88
+  %109 = fcmp olt double %108, %80
+  %.sroa.speculated126 = select i1 %109, double %108, double %80
+  %110 = fcmp olt double %96, %104
+  %111 = select i1 %110, double %104, double %96
+  %112 = fcmp olt double %88, %111
+  %113 = select i1 %112, double %111, double %88
+  %114 = fcmp olt double %80, %113
+  %.sroa.speculated = select i1 %114, double %113, double %80
+  %115 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated126, double %102, double %72)
+  %116 = tail call double @sin(double noundef %.0) #29, !tbaa !109
+  %117 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated126, double %116, double %65)
+  %118 = tail call double @cos(double noundef %.0) #29, !tbaa !109
+  %119 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated, double %118, double %72)
+  %120 = tail call double @sin(double noundef %.0) #29, !tbaa !109
+  %121 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated, double %120, double %65)
+  %122 = fptrunc double %115 to float
+  store float %122, ptr %3, align 4, !tbaa !118
   %123 = fptrunc double %117 to float
-  %124 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store float %123, ptr %124, align 4, !tbaa !120
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store float %123, ptr %124, align 4, !tbaa !121
   %125 = fptrunc double %119 to float
-  %126 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store float %125, ptr %126, align 4, !tbaa !122
+  %126 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store float %125, ptr %126, align 4, !tbaa !120
+  %127 = fptrunc double %121 to float
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store float %127, ptr %128, align 4, !tbaa !122
   ret void
 }
 
@@ -5613,9 +5613,6 @@ declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #23
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

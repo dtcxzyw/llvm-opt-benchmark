@@ -33,11 +33,11 @@ define void @fdp_initParams(ptr noundef %0) local_unnamed_addr #0 {
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load double, ptr %12, align 8, !tbaa !24
   store double %13, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 40), align 8, !tbaa !25
-  %14 = tail call ptr @agattr(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef null) #7
-  %15 = tail call i32 @late_int(ptr noundef %0, ptr noundef %14, i32 noundef 600, i32 noundef 0) #7
+  %14 = tail call ptr @agattr(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef null) #6
+  %15 = tail call i32 @late_int(ptr noundef %0, ptr noundef %14, i32 noundef 600, i32 noundef 0) #6
   store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 20), align 4, !tbaa !26
-  %16 = tail call ptr @agattr(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef null) #7
-  %17 = tail call double @late_double(ptr noundef %0, ptr noundef %16, double noundef 3.000000e-01, double noundef 0.000000e+00) #7
+  %16 = tail call ptr @agattr(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef null) #6
+  %17 = tail call double @late_double(ptr noundef %0, ptr noundef %16, double noundef 3.000000e-01, double noundef 0.000000e+00) #6
   store double %17, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 48), align 8, !tbaa !27
   %18 = load ptr, ptr @fdp_parms, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -48,21 +48,21 @@ define void @fdp_initParams(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %1
-  %24 = tail call ptr @agattr(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef null) #7
-  %25 = tail call double @late_double(ptr noundef %0, ptr noundef %24, double noundef -1.000000e+00, double noundef 0.000000e+00) #7
+  %24 = tail call ptr @agattr(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef null) #6
+  %25 = tail call double @late_double(ptr noundef %0, ptr noundef %24, double noundef -1.000000e+00, double noundef 0.000000e+00) #6
   br label %26
 
 26:                                               ; preds = %1, %23
   %storemerge = phi double [ %25, %23 ], [ %21, %1 ]
   store double %storemerge, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 56), align 8, !tbaa !30
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 8), align 8, !tbaa !31
-  %27 = tail call i32 @setSeed(ptr noundef %0, i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parms, i64 8)) #7
+  %27 = tail call i32 @setSeed(ptr noundef %0, i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parms, i64 8)) #6
   store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 64), align 8, !tbaa !32
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %26
-  tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.3) #7
+  tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.3) #6
   store i64 2, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 8), align 8, !tbaa !31
   br label %30
 
@@ -115,12 +115,12 @@ define void @fdp_tLayout(ptr noundef %0, ptr noundef writeonly captures(none) in
   br label %19
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @agnnodes(ptr noundef nonnull %0) #7
+  %11 = tail call i32 @agnnodes(ptr noundef nonnull %0) #6
   %12 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 40), align 8, !tbaa !25
   %13 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 48), align 8, !tbaa !27
   %14 = fmul double %12, %13
   %15 = sitofp i32 %11 to double
-  %16 = tail call double @sqrt(double noundef %15) #7, !tbaa !60
+  %16 = tail call double @sqrt(double noundef %15) #6, !tbaa !60
   %17 = fmul double %14, %16
   %18 = fdiv double %17, 5.000000e+00
   store double %18, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 56), align 8, !tbaa !30
@@ -176,14 +176,14 @@ define void @fdp_tLayout(ptr noundef %0, ptr noundef writeonly captures(none) in
   br label %init_params.exit
 
 init_params.exit:                                 ; preds = %37, %.sink.split.i
-  %42 = tail call i32 @agnnodes(ptr noundef nonnull %0) #7
+  %42 = tail call i32 @agnnodes(ptr noundef nonnull %0) #6
   %43 = load ptr, ptr %3, align 8, !tbaa !34
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 160
   %45 = load ptr, ptr %44, align 8, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !68
   %48 = sub nsw i32 %42, %47
-  %49 = tail call ptr @agfstnode(ptr noundef nonnull %0) #7
+  %49 = tail call ptr @agfstnode(ptr noundef nonnull %0) #6
   %.not190.i = icmp eq ptr %49, null
   br i1 %.not190.i, label %._crit_edge.i37, label %.lr.ph.i
 
@@ -240,7 +240,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   %.sroa.23.2.i = phi double [ %.sroa.23.1.i, %71 ], [ %.sroa.23.0193.i, %.lr.ph.i ]
   %.sroa.063.2.i = phi double [ %.sroa.063.1.i, %71 ], [ %.sroa.063.0194.i, %.lr.ph.i ]
   %.1160.i = phi i32 [ %72, %71 ], [ %.0159195.i, %.lr.ph.i ]
-  %74 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0157196.i) #7
+  %74 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0157196.i) #6
   %.not.i36 = icmp eq ptr %74, null
   br i1 %.not.i36, label %._crit_edge.i37, label %.lr.ph.i, !llvm.loop !78
 
@@ -252,7 +252,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   %.0159.lcssa.i = phi i32 [ 0, %init_params.exit ], [ %.1160.i, %73 ]
   %75 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 48), align 8, !tbaa !27
   %76 = sitofp i32 %48 to double
-  %77 = tail call double @sqrt(double noundef %76) #7, !tbaa !60
+  %77 = tail call double @sqrt(double noundef %76) #6, !tbaa !60
   %78 = fadd double %77, 1.000000e+00
   %79 = fmul double %75, %78
   %80 = fmul double %79, 5.000000e-01
@@ -292,7 +292,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   br i1 %103, label %104, label %109
 
 104:                                              ; preds = %102
-  %105 = tail call double @sqrt(double noundef %97) #7, !tbaa !60
+  %105 = tail call double @sqrt(double noundef %97) #6, !tbaa !60
   %106 = fmul double %105, 2.000000e+00
   %107 = fdiv double %91, %106
   %108 = fdiv double %93, %106
@@ -321,11 +321,11 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
 121:                                              ; preds = %117, %115, %111, %104, %99
   %122 = phi double [ %107, %104 ], [ %81, %115 ], [ %119, %117 ], [ %113, %111 ], [ %100, %99 ]
   %123 = phi double [ %108, %104 ], [ %81, %115 ], [ %120, %117 ], [ %114, %111 ], [ %101, %99 ]
-  %124 = tail call double @atan2(double noundef %123, double noundef %122) #7, !tbaa !60
-  %125 = tail call double @cos(double noundef %124) #7, !tbaa !60
+  %124 = tail call double @atan2(double noundef %123, double noundef %122) #6, !tbaa !60
+  %125 = tail call double @cos(double noundef %124) #6, !tbaa !60
   %126 = fdiv double %122, %125
   store double %126, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 80), align 8, !tbaa !81
-  %127 = tail call double @sin(double noundef %124) #7, !tbaa !60
+  %127 = tail call double @sin(double noundef %124) #6, !tbaa !60
   %128 = fdiv double %123, %127
   store double %128, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 88), align 8, !tbaa !80
   br label %129
@@ -342,15 +342,15 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   br label %139
 
 134:                                              ; preds = %129
-  %135 = tail call i32 @getpid() #7
+  %135 = tail call i32 @getpid() #6
   %136 = sext i32 %135 to i64
-  %137 = tail call i64 @time(ptr noundef null) #7
+  %137 = tail call i64 @time(ptr noundef null) #6
   %138 = xor i64 %137, %136
   br label %139
 
 139:                                              ; preds = %134, %132
   %.0161.i = phi i64 [ %133, %132 ], [ %138, %134 ]
-  tail call void @srand48(i64 noundef %.0161.i) #7
+  tail call void @srand48(i64 noundef %.0161.i) #6
   %.not172.i = icmp eq ptr %7, null
   br i1 %.not172.i, label %258, label %.preheader.i
 
@@ -366,7 +366,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   %143 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 80), align 8, !tbaa !81
   %144 = getelementptr inbounds nuw i8, ptr %.0155202.i, i64 16
   %145 = load double, ptr %144, align 8, !tbaa !85
-  %146 = tail call double @cos(double noundef %145) #7, !tbaa !60
+  %146 = tail call double @cos(double noundef %145) #6, !tbaa !60
   %147 = tail call double @llvm.fmuladd.f64(double %143, double %146, double %.sroa.0147.0.i)
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %149 = load ptr, ptr %148, align 8, !tbaa !34
@@ -375,7 +375,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   store double %147, ptr %151, align 8, !tbaa !77
   %152 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 88), align 8, !tbaa !80
   %153 = load double, ptr %144, align 8, !tbaa !85
-  %154 = tail call double @sin(double noundef %153) #7, !tbaa !60
+  %154 = tail call double @sin(double noundef %153) #6, !tbaa !60
   %155 = tail call double @llvm.fmuladd.f64(double %152, double %154, double %.sroa.8151.0.i)
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store double %155, ptr %156, align 8, !tbaa !77
@@ -387,7 +387,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   br i1 %.not177.i, label %._crit_edge204.i, label %.lr.ph203.i, !llvm.loop !86
 
 ._crit_edge204.i:                                 ; preds = %.lr.ph203.i, %.preheader.i
-  %160 = tail call ptr @agfstnode(ptr noundef %0) #7
+  %160 = tail call ptr @agfstnode(ptr noundef %0) #6
   %.not178216.i = icmp eq ptr %160, null
   br i1 %.not178216.i, label %initPositions.exit, label %.lr.ph220.i
 
@@ -432,7 +432,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   br label %256
 
 184:                                              ; preds = %173
-  %185 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %.1158217.i) #7
+  %185 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %.1158217.i) #6
   %.not182205.i = icmp eq ptr %185, null
   br i1 %.not182205.i, label %.thread.i, label %.lr.ph211.i
 
@@ -489,7 +489,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   %.sroa.0.3.i = phi double [ %.sroa.0.2206.i, %.lr.ph211.i ], [ %.sroa.0.2206.i, %197 ], [ %212, %204 ]
   %.sroa.8.3.i = phi double [ %.sroa.8.2207.i, %.lr.ph211.i ], [ %.sroa.8.2207.i, %197 ], [ %216, %204 ]
   %.1.i = phi i32 [ %.0156208.i, %.lr.ph211.i ], [ %.0156208.i, %197 ], [ %210, %204 ]
-  %218 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.0209.i, ptr noundef nonnull %.1158217.i) #7
+  %218 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.0209.i, ptr noundef nonnull %.1158217.i) #6
   %.not182.i = icmp eq ptr %218, null
   br i1 %.not182.i, label %._crit_edge212.i, label %.lr.ph211.i.backedge
 
@@ -506,7 +506,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   %221 = load double, ptr %220, align 8, !tbaa !77
   %222 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %223 = load double, ptr %222, align 8, !tbaa !77
-  %224 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.0209.i, ptr noundef nonnull %.1158217.i) #7
+  %224 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.0209.i, ptr noundef nonnull %.1158217.i) #6
   %.not182.i61 = icmp eq ptr %224, null
   br i1 %.not182.i61, label %.thread71, label %.lr.ph211.i.backedge
 
@@ -537,13 +537,13 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   br label %252
 
 .thread.i:                                        ; preds = %230, %184
-  %237 = tail call double @drand48() #7
+  %237 = tail call double @drand48() #6
   %238 = fmul double %237, 0x401921FB54442D18
-  %239 = tail call double @drand48() #7
+  %239 = tail call double @drand48() #6
   %240 = fmul double %239, 9.000000e-01
   %241 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 80), align 8, !tbaa !81
   %242 = fmul double %240, %241
-  %243 = tail call double @cos(double noundef %238) #7, !tbaa !60
+  %243 = tail call double @cos(double noundef %238) #6, !tbaa !60
   %244 = fmul double %242, %243
   %245 = load ptr, ptr %164, align 8, !tbaa !34
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 176
@@ -551,7 +551,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   store double %244, ptr %247, align 8, !tbaa !77
   %248 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 88), align 8, !tbaa !80
   %249 = fmul double %240, %248
-  %250 = tail call double @sin(double noundef %238) #7, !tbaa !60
+  %250 = tail call double @sin(double noundef %238) #6, !tbaa !60
   %251 = fmul double %249, %250
   br label %252
 
@@ -566,13 +566,13 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   br label %256
 
 256:                                              ; preds = %252, %176, %170
-  %257 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.1158217.i) #7
+  %257 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.1158217.i) #6
   %.not178.i = icmp eq ptr %257, null
   br i1 %.not178.i, label %initPositions.exit, label %163, !llvm.loop !96
 
 258:                                              ; preds = %139
   %.not173.i = icmp eq i32 %.0159.lcssa.i, 0
-  %259 = tail call ptr @agfstnode(ptr noundef %0) #7
+  %259 = tail call ptr @agfstnode(ptr noundef %0) #6
   %.not174225.i = icmp eq ptr %259, null
   br i1 %.not173.i, label %291, label %260
 
@@ -602,7 +602,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
 
 273:                                              ; preds = %.lr.ph224.i
   %274 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 80), align 8, !tbaa !81
-  %275 = tail call double @drand48() #7
+  %275 = tail call double @drand48() #6
   %276 = tail call double @llvm.fmuladd.f64(double %275, double 2.000000e+00, double -1.000000e+00)
   %277 = fmul double %274, %276
   %278 = load ptr, ptr %261, align 8, !tbaa !34
@@ -610,7 +610,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   %280 = load ptr, ptr %279, align 8, !tbaa !76
   store double %277, ptr %280, align 8, !tbaa !77
   %281 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 88), align 8, !tbaa !80
-  %282 = tail call double @drand48() #7
+  %282 = tail call double @drand48() #6
   %283 = tail call double @llvm.fmuladd.f64(double %282, double 2.000000e+00, double -1.000000e+00)
   %284 = fmul double %281, %283
   %285 = load ptr, ptr %261, align 8, !tbaa !34
@@ -621,7 +621,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   br label %289
 
 289:                                              ; preds = %273, %265
-  %290 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.2222.i) #7
+  %290 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.2222.i) #6
   %.not175.i = icmp eq ptr %290, null
   br i1 %.not175.i, label %initPositions.exit, label %.lr.ph224.i, !llvm.loop !97
 
@@ -631,7 +631,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
 .lr.ph228.i:                                      ; preds = %291, %.lr.ph228.i
   %.3226.i = phi ptr [ %308, %.lr.ph228.i ], [ %259, %291 ]
   %292 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 80), align 8, !tbaa !81
-  %293 = tail call double @drand48() #7
+  %293 = tail call double @drand48() #6
   %294 = tail call double @llvm.fmuladd.f64(double %293, double 2.000000e+00, double -1.000000e+00)
   %295 = fmul double %292, %294
   %296 = getelementptr inbounds nuw i8, ptr %.3226.i, i64 16
@@ -640,7 +640,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   %299 = load ptr, ptr %298, align 8, !tbaa !76
   store double %295, ptr %299, align 8, !tbaa !77
   %300 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 88), align 8, !tbaa !80
-  %301 = tail call double @drand48() #7
+  %301 = tail call double @drand48() #6
   %302 = tail call double @llvm.fmuladd.f64(double %301, double 2.000000e+00, double -1.000000e+00)
   %303 = fmul double %300, %302
   %304 = load ptr, ptr %296, align 8, !tbaa !34
@@ -648,7 +648,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   %306 = load ptr, ptr %305, align 8, !tbaa !76
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
   store double %303, ptr %307, align 8, !tbaa !77
-  %308 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.3226.i) #7
+  %308 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.3226.i) #6
   %.not174.i = icmp eq ptr %308, null
   br i1 %.not174.i, label %initPositions.exit, label %.lr.ph228.i, !llvm.loop !98
 
@@ -668,10 +668,10 @@ initPositions.exit:                               ; preds = %256, %289, %.lr.ph2
   br label %.lr.ph92
 
 312:                                              ; preds = %initPositions.exit
-  %313 = tail call i32 @agnnodes(ptr noundef %0) #7
-  %314 = tail call ptr @mkGrid(i32 noundef %313) #7
-  %315 = tail call i32 @agnnodes(ptr noundef %0) #7
-  tail call void @adjustGrid(ptr noundef %314, i32 noundef %315) #7
+  %313 = tail call i32 @agnnodes(ptr noundef %0) #6
+  %314 = tail call ptr @mkGrid(i32 noundef %313) #6
+  %315 = tail call i32 @agnnodes(ptr noundef %0) #6
+  tail call void @adjustGrid(ptr noundef %314, i32 noundef %315) #6
   %316 = load i32, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 100), align 4, !tbaa !66
   %317 = icmp sgt i32 %316, 0
   br i1 %317, label %.lr.ph.preheader, label %._crit_edge
@@ -695,8 +695,8 @@ initPositions.exit:                               ; preds = %256, %289, %.lr.ph2
   br i1 %326, label %327, label %gAdjust.exit
 
 327:                                              ; preds = %.lr.ph
-  tail call void @clearGrid(ptr noundef %314) #7
-  %328 = tail call ptr @agfstnode(ptr noundef %0) #7
+  tail call void @clearGrid(ptr noundef %314) #6
+  %328 = tail call ptr @agfstnode(ptr noundef %0) #6
   %.not42.i = icmp eq ptr %328, null
   br i1 %.not42.i, label %._crit_edge.i41, label %.lr.ph.i39
 
@@ -720,19 +720,19 @@ initPositions.exit:                               ; preds = %256, %289, %.lr.ph2
   %343 = fdiv double %342, %337
   %344 = tail call double @llvm.floor.f64(double %343)
   %345 = fptosi double %344 to i32
-  tail call void @addGrid(ptr noundef %314, i32 noundef %340, i32 noundef %345, ptr noundef nonnull %.03443.i) #7
-  %346 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.03443.i) #7
+  tail call void @addGrid(ptr noundef %314, i32 noundef %340, i32 noundef %345, ptr noundef nonnull %.03443.i) #6
+  %346 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.03443.i) #6
   %.not.i40 = icmp eq ptr %346, null
   br i1 %.not.i40, label %._crit_edge.i41, label %.lr.ph.i39, !llvm.loop !99
 
 ._crit_edge.i41:                                  ; preds = %.lr.ph.i39, %327
-  %347 = tail call ptr @agfstnode(ptr noundef %0) #7
+  %347 = tail call ptr @agfstnode(ptr noundef %0) #6
   %.not3749.i = icmp eq ptr %347, null
   br i1 %.not3749.i, label %._crit_edge53.i, label %.lr.ph52.i
 
 .lr.ph52.i:                                       ; preds = %._crit_edge.i41, %._crit_edge48.i
   %.150.i = phi ptr [ %426, %._crit_edge48.i ], [ %347, %._crit_edge.i41 ]
-  %348 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.150.i) #7
+  %348 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.150.i) #6
   %.not3844.i = icmp eq ptr %348, null
   br i1 %.not3844.i, label %._crit_edge48.i, label %.lr.ph47.i
 
@@ -774,11 +774,11 @@ initPositions.exit:                               ; preds = %256, %289, %.lr.ph2
   br i1 %375, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %357, %.lr.ph.i.i
-  %376 = tail call i32 @rand() #7
+  %376 = tail call i32 @rand() #6
   %377 = srem i32 %376, 10
   %378 = sub nsw i32 5, %377
   %379 = sitofp i32 %378 to double
-  %380 = tail call i32 @rand() #7
+  %380 = tail call i32 @rand() #6
   %381 = srem i32 %380, 10
   %382 = sub nsw i32 5, %381
   %383 = sitofp i32 %382 to double
@@ -791,7 +791,7 @@ initPositions.exit:                               ; preds = %256, %289, %.lr.ph2
   %.035.lcssa.i.i = phi double [ %372, %357 ], [ %383, %.lr.ph.i.i ]
   %.033.lcssa.i.i = phi double [ %367, %357 ], [ %379, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi double [ %374, %357 ], [ %385, %.lr.ph.i.i ]
-  %387 = tail call double @sqrt(double noundef %.0.lcssa.i.i) #7, !tbaa !60
+  %387 = tail call double @sqrt(double noundef %.0.lcssa.i.i) #6, !tbaa !60
   %388 = load i32, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 4), align 4, !tbaa !16
   %.not.i.i = icmp eq i32 %388, 0
   %389 = getelementptr inbounds nuw i8, ptr %.045.i, i64 16
@@ -844,17 +844,17 @@ applyAttr.exit.i:                                 ; preds = %399, %393
   br label %424
 
 424:                                              ; preds = %applyAttr.exit.i, %350
-  %425 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.045.i) #7
+  %425 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.045.i) #6
   %.not38.i = icmp eq ptr %425, null
   br i1 %.not38.i, label %._crit_edge48.i, label %350, !llvm.loop !108
 
 ._crit_edge48.i:                                  ; preds = %424, %.lr.ph52.i
-  %426 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.150.i) #7
+  %426 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.150.i) #6
   %.not37.i = icmp eq ptr %426, null
   br i1 %.not37.i, label %._crit_edge53.i, label %.lr.ph52.i, !llvm.loop !109
 
 ._crit_edge53.i:                                  ; preds = %._crit_edge48.i, %._crit_edge.i41
-  tail call void @walkGrid(ptr noundef %314, ptr noundef nonnull @gridRepulse) #7
+  tail call void @walkGrid(ptr noundef %314, ptr noundef nonnull @gridRepulse) #6
   tail call fastcc void @updatePos(ptr noundef %0, double noundef %325, ptr noundef readnone %7)
   %.pre = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 56), align 8, !tbaa !30
   %.pre110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 20), align 4, !tbaa !26
@@ -870,7 +870,7 @@ gAdjust.exit:                                     ; preds = %.lr.ph, %._crit_edg
   br i1 %431, label %.lr.ph, label %._crit_edge, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %gAdjust.exit, %312
-  tail call void @delGrid(ptr noundef %314) #7
+  tail call void @delGrid(ptr noundef %314) #6
   br label %.loopexit77
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %adjust.exit
@@ -887,7 +887,7 @@ gAdjust.exit:                                     ; preds = %.lr.ph, %._crit_edg
   br i1 %440, label %441, label %adjust.exit
 
 441:                                              ; preds = %.lr.ph92
-  %442 = tail call ptr @agfstnode(ptr noundef %0) #7
+  %442 = tail call ptr @agfstnode(ptr noundef %0) #6
   %.not52.i = icmp eq ptr %442, null
   br i1 %.not52.i, label %._crit_edge.i45, label %.lr.ph.i43
 
@@ -899,18 +899,18 @@ gAdjust.exit:                                     ; preds = %.lr.ph, %._crit_edg
   %446 = load ptr, ptr %445, align 8, !tbaa !87
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %447, i8 0, i64 16, i1 false)
-  %448 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.03653.i) #7
+  %448 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.03653.i) #6
   %.not.i44 = icmp eq ptr %448, null
   br i1 %.not.i44, label %._crit_edge.i45, label %.lr.ph.i43, !llvm.loop !111
 
 ._crit_edge.i45:                                  ; preds = %.lr.ph.i43, %441
-  %449 = tail call ptr @agfstnode(ptr noundef %0) #7
+  %449 = tail call ptr @agfstnode(ptr noundef %0) #6
   %.not3964.i = icmp eq ptr %449, null
   br i1 %.not3964.i, label %._crit_edge68.i, label %.lr.ph67.i
 
 .lr.ph67.i:                                       ; preds = %._crit_edge.i45, %._crit_edge63.i
   %.165.i = phi ptr [ %608, %._crit_edge63.i ], [ %449, %._crit_edge.i45 ]
-  %450 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.165.i) #7
+  %450 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.165.i) #6
   %.not4054.i = icmp eq ptr %450, null
   br i1 %.not4054.i, label %._crit_edge58.i, label %.lr.ph57.i
 
@@ -941,11 +941,11 @@ gAdjust.exit:                                     ; preds = %.lr.ph, %._crit_edg
   br i1 %470, label %.lr.ph.i46.i, label %._crit_edge.i43.i
 
 .lr.ph.i46.i:                                     ; preds = %452, %.lr.ph.i46.i
-  %471 = tail call i32 @rand() #7
+  %471 = tail call i32 @rand() #6
   %472 = srem i32 %471, 10
   %473 = sub nsw i32 5, %472
   %474 = sitofp i32 %473 to double
-  %475 = tail call i32 @rand() #7
+  %475 = tail call i32 @rand() #6
   %476 = srem i32 %475, 10
   %477 = sub nsw i32 5, %476
   %478 = sitofp i32 %477 to double
@@ -963,7 +963,7 @@ gAdjust.exit:                                     ; preds = %.lr.ph, %._crit_edg
   br i1 %.not.i45.i, label %489, label %483
 
 483:                                              ; preds = %._crit_edge.i43.i
-  %484 = tail call double @sqrt(double noundef %.027.lcssa.i.i) #7, !tbaa !60
+  %484 = tail call double @sqrt(double noundef %.027.lcssa.i.i) #6, !tbaa !60
   %485 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 48), align 8, !tbaa !27
   %486 = fmul double %485, %485
   %487 = fmul double %.027.lcssa.i.i, %484
@@ -1038,12 +1038,12 @@ doRep.exit.i:                                     ; preds = %510, %507, %502, %4
   %527 = fneg double %.028.lcssa.i.i
   %528 = tail call double @llvm.fmuladd.f64(double %527, double %.1.i.i, double %526)
   store double %528, ptr %525, align 8, !tbaa !77
-  %529 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.03555.i) #7
+  %529 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.03555.i) #6
   %.not40.i = icmp eq ptr %529, null
   br i1 %.not40.i, label %._crit_edge58.i, label %452, !llvm.loop !113
 
 ._crit_edge58.i:                                  ; preds = %doRep.exit.i, %.lr.ph67.i
-  %530 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.165.i) #7
+  %530 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.165.i) #6
   %.not4159.i = icmp eq ptr %530, null
   br i1 %.not4159.i, label %._crit_edge63.i, label %.lr.ph62.i
 
@@ -1085,11 +1085,11 @@ doRep.exit.i:                                     ; preds = %510, %507, %502, %4
   br i1 %557, label %.lr.ph.i.i57, label %._crit_edge.i.i49
 
 .lr.ph.i.i57:                                     ; preds = %539, %.lr.ph.i.i57
-  %558 = tail call i32 @rand() #7
+  %558 = tail call i32 @rand() #6
   %559 = srem i32 %558, 10
   %560 = sub nsw i32 5, %559
   %561 = sitofp i32 %560 to double
-  %562 = tail call i32 @rand() #7
+  %562 = tail call i32 @rand() #6
   %563 = srem i32 %562, 10
   %564 = sub nsw i32 5, %563
   %565 = sitofp i32 %564 to double
@@ -1102,7 +1102,7 @@ doRep.exit.i:                                     ; preds = %510, %507, %502, %4
   %.035.lcssa.i.i50 = phi double [ %554, %539 ], [ %565, %.lr.ph.i.i57 ]
   %.033.lcssa.i.i51 = phi double [ %549, %539 ], [ %561, %.lr.ph.i.i57 ]
   %.0.lcssa.i.i52 = phi double [ %556, %539 ], [ %567, %.lr.ph.i.i57 ]
-  %569 = tail call double @sqrt(double noundef %.0.lcssa.i.i52) #7, !tbaa !60
+  %569 = tail call double @sqrt(double noundef %.0.lcssa.i.i52) #6, !tbaa !60
   %570 = load i32, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 4), align 4, !tbaa !16
   %.not.i.i53 = icmp eq i32 %570, 0
   %571 = getelementptr inbounds nuw i8, ptr %.060.i, i64 16
@@ -1155,12 +1155,12 @@ applyAttr.exit.i54:                               ; preds = %581, %575
   br label %606
 
 606:                                              ; preds = %applyAttr.exit.i54, %532
-  %607 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.060.i) #7
+  %607 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.060.i) #6
   %.not41.i = icmp eq ptr %607, null
   br i1 %.not41.i, label %._crit_edge63.i, label %532, !llvm.loop !114
 
 ._crit_edge63.i:                                  ; preds = %606, %._crit_edge58.i
-  %608 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.165.i) #7
+  %608 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.165.i) #6
   %.not39.i56 = icmp eq ptr %608, null
   br i1 %.not39.i56, label %._crit_edge68.i, label %.lr.ph67.i, !llvm.loop !115
 
@@ -1186,7 +1186,7 @@ adjust.exit:                                      ; preds = %.lr.ph92, %._crit_e
   br i1 %or.cond, label %616, label %.loopexit
 
 616:                                              ; preds = %.loopexit77
-  %617 = tail call ptr @agfstnode(ptr noundef %0) #7
+  %617 = tail call ptr @agfstnode(ptr noundef %0) #6
   %.not3493 = icmp eq ptr %617, null
   br i1 %.not3493, label %.loopexit, label %.lr.ph96
 
@@ -1203,7 +1203,7 @@ adjust.exit:                                      ; preds = %.lr.ph92, %._crit_e
   %625 = load double, ptr %624, align 8, !tbaa !77
   %626 = fadd double %.sroa.8151.0.i, %625
   store double %626, ptr %624, align 8, !tbaa !77
-  %627 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.03394) #7
+  %627 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.03394) #6
   %.not34 = icmp eq ptr %627, null
   br i1 %.not34, label %.loopexit, label %.lr.ph96, !llvm.loop !117
 
@@ -1318,11 +1318,11 @@ define internal noundef i32 @gridRepulse(ptr noundef readonly captures(none) %0,
   br i1 %30, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
-  %31 = tail call i32 @rand() #7
+  %31 = tail call i32 @rand() #6
   %32 = srem i32 %31, 10
   %33 = sub nsw i32 5, %32
   %34 = sitofp i32 %33 to double
-  %35 = tail call i32 @rand() #7
+  %35 = tail call i32 @rand() #6
   %36 = srem i32 %35, 10
   %37 = sub nsw i32 5, %36
   %38 = sitofp i32 %37 to double
@@ -1340,7 +1340,7 @@ define internal noundef i32 @gridRepulse(ptr noundef readonly captures(none) %0,
   br i1 %.not.i, label %49, label %43
 
 43:                                               ; preds = %._crit_edge.i
-  %44 = tail call double @sqrt(double noundef %.027.lcssa.i) #7, !tbaa !60
+  %44 = tail call double @sqrt(double noundef %.027.lcssa.i) #6, !tbaa !60
   %45 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 48), align 8, !tbaa !27
   %46 = fmul double %45, %45
   %47 = fmul double %.027.lcssa.i, %44
@@ -1448,7 +1448,7 @@ doRep.exit:                                       ; preds = %.doRep.exit_crit_ed
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @updatePos(ptr noundef %0, double noundef %1, ptr noundef readnone captures(address_is_null) %2) unnamed_addr #0 {
   %4 = fmul double %1, %1
-  %5 = tail call ptr @agfstnode(ptr noundef %0) #7
+  %5 = tail call ptr @agfstnode(ptr noundef %0) #6
   %.not63 = icmp eq ptr %5, null
   br i1 %.not63, label %._crit_edge, label %.lr.ph
 
@@ -1479,7 +1479,7 @@ define internal fastcc void @updatePos(ptr noundef %0, double noundef %1, ptr no
   br i1 %20, label %31, label %21
 
 21:                                               ; preds = %11
-  %22 = tail call double @sqrt(double noundef %19) #7, !tbaa !60
+  %22 = tail call double @sqrt(double noundef %19) #6, !tbaa !60
   %23 = fdiv double %1, %22
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %25 = load ptr, ptr %24, align 8, !tbaa !76
@@ -1510,19 +1510,19 @@ define internal fastcc void @updatePos(ptr noundef %0, double noundef %1, ptr no
   br label %42
 
 42:                                               ; preds = %39, %.lr.ph.split.us
-  %43 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.064.us) #7
+  %43 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.064.us) #6
   %.not.us = icmp eq ptr %43, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !129
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %105
-  %.064 = phi ptr [ %106, %105 ], [ %5, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %106
+  %.064 = phi ptr [ %107, %106 ], [ %5, %.lr.ph ]
   %44 = getelementptr inbounds nuw i8, ptr %.064, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !34
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 163
   %47 = load i8, ptr %46, align 1, !tbaa !69
   %48 = and i8 %47, 2
   %.not59 = icmp eq i8 %48, 0
-  br i1 %.not59, label %49, label %105
+  br i1 %.not59, label %49, label %106
 
 49:                                               ; preds = %.lr.ph.split
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 152
@@ -1547,7 +1547,7 @@ define internal fastcc void @updatePos(ptr noundef %0, double noundef %1, ptr no
   br label %77
 
 67:                                               ; preds = %49
-  %68 = tail call double @sqrt(double noundef %57) #7, !tbaa !60
+  %68 = tail call double @sqrt(double noundef %57) #6, !tbaa !60
   %69 = fdiv double %1, %68
   %70 = getelementptr inbounds nuw i8, ptr %45, i64 176
   %71 = load ptr, ptr %70, align 8, !tbaa !76
@@ -1571,52 +1571,52 @@ define internal fastcc void @updatePos(ptr noundef %0, double noundef %1, ptr no
   %85 = fmul double %84, %84
   %86 = fdiv double %83, %85
   %87 = fadd double %82, %86
-  %sqrt = tail call double @llvm.sqrt.f64(double %87)
-  %88 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !88
-  %.not61 = icmp eq ptr %89, null
-  br i1 %.not61, label %90, label %96
+  %88 = tail call double @sqrt(double noundef %87) #6, !tbaa !60
+  %89 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %90 = load ptr, ptr %89, align 8, !tbaa !88
+  %.not61 = icmp eq ptr %90, null
+  br i1 %.not61, label %91, label %97
 
-90:                                               ; preds = %77
-  %91 = getelementptr inbounds nuw i8, ptr %45, i64 336
-  %92 = load ptr, ptr %91, align 8, !tbaa !90
-  %.not62 = icmp eq ptr %92, null
-  br i1 %.not62, label %93, label %96
+91:                                               ; preds = %77
+  %92 = getelementptr inbounds nuw i8, ptr %45, i64 336
+  %93 = load ptr, ptr %92, align 8, !tbaa !90
+  %.not62 = icmp eq ptr %93, null
+  br i1 %.not62, label %94, label %97
 
-93:                                               ; preds = %90
-  %94 = fdiv double %.055, %sqrt
-  store double %94, ptr %78, align 8, !tbaa !77
-  %95 = fdiv double %.056, %sqrt
+94:                                               ; preds = %91
+  %95 = fdiv double %.055, %88
+  store double %95, ptr %78, align 8, !tbaa !77
+  %96 = fdiv double %.056, %88
   br label %.sink.split
 
-96:                                               ; preds = %90, %77
-  %97 = fcmp ult double %sqrt, 1.000000e+00
-  br i1 %97, label %103, label %98
+97:                                               ; preds = %91, %77
+  %98 = fcmp ult double %88, 1.000000e+00
+  br i1 %98, label %104, label %99
 
-98:                                               ; preds = %96
-  %99 = fmul double %.055, 0x3FEE666666666666
-  %100 = fdiv double %99, %sqrt
-  store double %100, ptr %78, align 8, !tbaa !77
-  %101 = fmul double %.056, 0x3FEE666666666666
-  %102 = fdiv double %101, %sqrt
+99:                                               ; preds = %97
+  %100 = fmul double %.055, 0x3FEE666666666666
+  %101 = fdiv double %100, %88
+  store double %101, ptr %78, align 8, !tbaa !77
+  %102 = fmul double %.056, 0x3FEE666666666666
+  %103 = fdiv double %102, %88
   br label %.sink.split
 
-103:                                              ; preds = %96
+104:                                              ; preds = %97
   store double %.055, ptr %78, align 8, !tbaa !77
   br label %.sink.split
 
-.sink.split:                                      ; preds = %93, %103, %98
-  %.sink = phi double [ %102, %98 ], [ %.056, %103 ], [ %95, %93 ]
-  %104 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store double %.sink, ptr %104, align 8, !tbaa !77
-  br label %105
+.sink.split:                                      ; preds = %94, %104, %99
+  %.sink = phi double [ %103, %99 ], [ %.056, %104 ], [ %96, %94 ]
+  %105 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  store double %.sink, ptr %105, align 8, !tbaa !77
+  br label %106
 
-105:                                              ; preds = %.sink.split, %.lr.ph.split
-  %106 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.064) #7
-  %.not = icmp eq ptr %106, null
+106:                                              ; preds = %.sink.split, %.lr.ph.split
+  %107 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.064) #6
+  %.not = icmp eq ptr %107, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !129
 
-._crit_edge:                                      ; preds = %105, %42, %3
+._crit_edge:                                      ; preds = %106, %42, %3
   ret void
 }
 
@@ -1625,7 +1625,7 @@ declare i32 @rand() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @doNeighbor(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
-  %5 = tail call ptr @findGrid(ptr noundef %0, i32 noundef %1, i32 noundef %2) #7
+  %5 = tail call ptr @findGrid(ptr noundef %0, i32 noundef %1, i32 noundef %2) #6
   %6 = icmp ne ptr %5, null
   %7 = icmp ne ptr %3, null
   %or.cond = and i1 %7, %6
@@ -1691,11 +1691,11 @@ define internal fastcc void @doNeighbor(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %37, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %36, %.lr.ph.i
-  %38 = tail call i32 @rand() #7
+  %38 = tail call i32 @rand() #6
   %39 = srem i32 %38, 10
   %40 = sub nsw i32 5, %39
   %41 = sitofp i32 %40 to double
-  %42 = tail call i32 @rand() #7
+  %42 = tail call i32 @rand() #6
   %43 = srem i32 %42, 10
   %44 = sub nsw i32 5, %43
   %45 = sitofp i32 %44 to double
@@ -1713,7 +1713,7 @@ define internal fastcc void @doNeighbor(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %.not.i, label %56, label %50
 
 50:                                               ; preds = %._crit_edge.i
-  %51 = tail call double @sqrt(double noundef %.027.lcssa.i) #7, !tbaa !60
+  %51 = tail call double @sqrt(double noundef %.027.lcssa.i) #6, !tbaa !60
   %52 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 48), align 8, !tbaa !27
   %53 = fmul double %52, %52
   %54 = fmul double %.027.lcssa.i, %51
@@ -1811,20 +1811,16 @@ doRep.exit:                                       ; preds = %.doRep.exit_crit_ed
 
 declare ptr @findGrid(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #5
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -7907,7 +7907,7 @@ _Z24rtcInitPointQueryContextP20RTCPointQueryContext.exit: ; preds = %.lr.ph, %_Z
 
 declare zeroext i1 @rtcPointQuery(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind ssp willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEENS1_14AlignedVector3IfEENS2_IfLi2ELi1ELi2ELi2ELi1EEEEEbP30RTCPointQueryFunctionArguments(ptr noundef readonly captures(none) %0) #21 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i = alloca <4 x float>, align 16
   %2 = alloca %"class.Eigen::AlignedVector3", align 16
@@ -8008,9 +8008,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6
   %89 = fmul <4 x float> %84, %83
   %90 = shufflevector <4 x float> %89, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %91 = fadd <4 x float> %89, %90
-  %shift95 = shufflevector <4 x float> %91, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop96 = fadd <4 x float> %91, %shift95
-  %92 = extractelement <4 x float> %foldExtExtBinop96, i64 0
+  %shift96 = shufflevector <4 x float> %91, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop97 = fadd <4 x float> %91, %shift96
+  %92 = extractelement <4 x float> %foldExtExtBinop97, i64 0
   %93 = fcmp ole float %88, 0.000000e+00
   %94 = fcmp ole float %92, 0.000000e+00
   %or.cond.i = and i1 %93, %94
@@ -8021,15 +8021,15 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6
   %97 = fmul <4 x float> %96, %82
   %98 = shufflevector <4 x float> %97, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %99 = fadd <4 x float> %97, %98
-  %shift98 = shufflevector <4 x float> %99, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop99 = fadd <4 x float> %99, %shift98
-  %100 = extractelement <4 x float> %foldExtExtBinop99, i64 0
+  %shift99 = shufflevector <4 x float> %99, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop100 = fadd <4 x float> %99, %shift99
+  %100 = extractelement <4 x float> %foldExtExtBinop100, i64 0
   %101 = fmul <4 x float> %96, %83
   %102 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %103 = fadd <4 x float> %101, %102
-  %shift101 = shufflevector <4 x float> %103, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop102 = fadd <4 x float> %103, %shift101
-  %104 = extractelement <4 x float> %foldExtExtBinop102, i64 0
+  %shift102 = shufflevector <4 x float> %103, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop103 = fadd <4 x float> %103, %shift102
+  %104 = extractelement <4 x float> %foldExtExtBinop103, i64 0
   %105 = fcmp ult float %100, 0.000000e+00
   %106 = fcmp ugt float %104, %100
   %or.cond98.i = or i1 %105, %106
@@ -8040,15 +8040,15 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6
   %109 = fmul <4 x float> %82, %108
   %110 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %111 = fadd <4 x float> %109, %110
-  %shift104 = shufflevector <4 x float> %111, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop105 = fadd <4 x float> %111, %shift104
-  %112 = extractelement <4 x float> %foldExtExtBinop105, i64 0
+  %shift105 = shufflevector <4 x float> %111, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop106 = fadd <4 x float> %111, %shift105
+  %112 = extractelement <4 x float> %foldExtExtBinop106, i64 0
   %113 = fmul <4 x float> %83, %108
   %114 = shufflevector <4 x float> %113, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %115 = fadd <4 x float> %113, %114
-  %shift107 = shufflevector <4 x float> %115, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop108 = fadd <4 x float> %115, %shift107
-  %116 = extractelement <4 x float> %foldExtExtBinop108, i64 0
+  %shift108 = shufflevector <4 x float> %115, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop109 = fadd <4 x float> %115, %shift108
+  %116 = extractelement <4 x float> %foldExtExtBinop109, i64 0
   %117 = fcmp ult float %116, 0.000000e+00
   %118 = fcmp ugt float %112, %116
   %or.cond99.i = or i1 %117, %118
@@ -8066,11 +8066,11 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6
   br i1 %or.cond5.i, label %126, label %132
 
 126:                                              ; preds = %119
-  %foldExtExtBinop110 = fsub <4 x float> %foldExtExtBinop, %foldExtExtBinop99
-  %127 = extractelement <4 x float> %foldExtExtBinop110, i64 0
+  %foldExtExtBinop111 = fsub <4 x float> %foldExtExtBinop, %foldExtExtBinop100
+  %127 = extractelement <4 x float> %foldExtExtBinop111, i64 0
   %128 = fdiv float %88, %127
-  %.cast129 = bitcast float %128 to <1 x float>
-  %129 = shufflevector <1 x float> %.cast129, <1 x float> poison, <4 x i32> zeroinitializer
+  %.cast130 = bitcast float %128 to <1 x float>
+  %129 = shufflevector <1 x float> %.cast130, <1 x float> poison, <4 x i32> zeroinitializer
   %130 = fmul <4 x float> %82, %129
   %131 = fadd <4 x float> %.sroa.076.12.vec.insert, %130
   br label %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit
@@ -8087,11 +8087,11 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6
   br i1 %or.cond9.i, label %139, label %145
 
 139:                                              ; preds = %132
-  %foldExtExtBinop112 = fsub <4 x float> %foldExtExtBinop96, %foldExtExtBinop108
-  %140 = extractelement <4 x float> %foldExtExtBinop112, i64 0
+  %foldExtExtBinop113 = fsub <4 x float> %foldExtExtBinop97, %foldExtExtBinop109
+  %140 = extractelement <4 x float> %foldExtExtBinop113, i64 0
   %141 = fdiv float %92, %140
-  %.cast128 = bitcast float %141 to <1 x float>
-  %142 = shufflevector <1 x float> %.cast128, <1 x float> poison, <4 x i32> zeroinitializer
+  %.cast129 = bitcast float %141 to <1 x float>
+  %142 = shufflevector <1 x float> %.cast129, <1 x float> poison, <4 x i32> zeroinitializer
   %143 = fmul <4 x float> %83, %142
   %144 = fadd <4 x float> %.sroa.076.12.vec.insert, %143
   br label %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit
@@ -8104,20 +8104,20 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6
   br i1 %149, label %164, label %150
 
 150:                                              ; preds = %145
-  %foldExtExtBinop114 = fsub <4 x float> %foldExtExtBinop102, %foldExtExtBinop99
-  %151 = extractelement <4 x float> %foldExtExtBinop114, i64 0
+  %foldExtExtBinop115 = fsub <4 x float> %foldExtExtBinop103, %foldExtExtBinop100
+  %151 = extractelement <4 x float> %foldExtExtBinop115, i64 0
   %152 = fcmp ult float %151, 0.000000e+00
   br i1 %152, label %164, label %153
 
 153:                                              ; preds = %150
-  %foldExtExtBinop116 = fsub <4 x float> %foldExtExtBinop105, %foldExtExtBinop108
-  %154 = extractelement <4 x float> %foldExtExtBinop116, i64 0
+  %foldExtExtBinop117 = fsub <4 x float> %foldExtExtBinop106, %foldExtExtBinop109
+  %154 = extractelement <4 x float> %foldExtExtBinop117, i64 0
   %155 = fcmp ult float %154, 0.000000e+00
   br i1 %155, label %164, label %156
 
 156:                                              ; preds = %153
-  %foldExtExtBinop118 = fadd <4 x float> %foldExtExtBinop114, %foldExtExtBinop116
-  %157 = extractelement <4 x float> %foldExtExtBinop118, i64 0
+  %foldExtExtBinop119 = fadd <4 x float> %foldExtExtBinop115, %foldExtExtBinop117
+  %157 = extractelement <4 x float> %foldExtExtBinop119, i64 0
   %158 = fdiv float %151, %157
   %159 = fsub float 1.000000e+00, %158
   %160 = fsub <4 x float> %.sroa.066.12.vec.insert, %.sroa.071.12.vec.insert
@@ -8133,12 +8133,12 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116ClosestPointFuncIN5Eigen6
   %167 = fdiv float 1.000000e+00, %166
   %168 = fmul float %135, %167
   %169 = fmul float %122, %167
-  %.cast126 = bitcast float %168 to <1 x float>
-  %170 = shufflevector <1 x float> %.cast126, <1 x float> poison, <4 x i32> zeroinitializer
+  %.cast127 = bitcast float %168 to <1 x float>
+  %170 = shufflevector <1 x float> %.cast127, <1 x float> poison, <4 x i32> zeroinitializer
   %171 = fmul <4 x float> %82, %170
   %172 = fadd <4 x float> %.sroa.076.12.vec.insert, %171
-  %.cast127 = bitcast float %169 to <1 x float>
-  %173 = shufflevector <1 x float> %.cast127, <1 x float> poison, <4 x i32> zeroinitializer
+  %.cast128 = bitcast float %169 to <1 x float>
+  %173 = shufflevector <1 x float> %.cast128, <1 x float> poison, <4 x i32> zeroinitializer
   %174 = fmul <4 x float> %83, %173
   %175 = fadd <4 x float> %172, %174
   br label %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit
@@ -8151,31 +8151,31 @@ _ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S
   %177 = fmul <4 x float> %176, %176
   %178 = shufflevector <4 x float> %177, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %179 = fadd <4 x float> %177, %178
-  %shift120 = shufflevector <4 x float> %179, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop121 = fadd <4 x float> %179, %shift120
-  %180 = extractelement <4 x float> %foldExtExtBinop121, i64 0
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %180)
-  %181 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %182 = load float, ptr %181, align 16, !tbaa !362
-  %183 = fcmp uge float %sqrt.i, %182
-  br i1 %183, label %.critedge, label %184
+  %shift121 = shufflevector <4 x float> %179, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop122 = fadd <4 x float> %179, %shift121
+  %180 = extractelement <4 x float> %foldExtExtBinop122, i64 0
+  %181 = tail call noundef float @sqrtf(float noundef %180) #16, !tbaa !28
+  %182 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %183 = load float, ptr %182, align 16, !tbaa !362
+  %184 = fcmp uge float %181, %183
+  br i1 %184, label %.critedge, label %185
 
-184:                                              ; preds = %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit
-  store float %sqrt.i, ptr %181, align 16, !tbaa !362
+185:                                              ; preds = %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit
+  store float %181, ptr %182, align 16, !tbaa !362
   %.sroa.061.0.vec.extract = extractelement <4 x float> %.sroa.061.0, i64 0
   store float %.sroa.061.0.vec.extract, ptr %16, align 4, !tbaa !53
-  %185 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %.sroa.061.4.vec.extract = extractelement <4 x float> %.sroa.061.0, i64 1
-  store float %.sroa.061.4.vec.extract, ptr %185, align 4, !tbaa !53
-  %186 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store float %.sroa.061.4.vec.extract, ptr %186, align 4, !tbaa !53
+  %187 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.061.8.vec.extract = extractelement <4 x float> %.sroa.061.0, i64 2
-  store float %.sroa.061.8.vec.extract, ptr %186, align 4, !tbaa !53
-  %187 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i32 %6, ptr %187, align 4, !tbaa !364
-  %188 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 %4, ptr %188, align 8, !tbaa !374
-  %189 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  store float %.0, ptr %189, align 4, !tbaa !113
+  store float %.sroa.061.8.vec.extract, ptr %187, align 4, !tbaa !53
+  %188 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  store i32 %6, ptr %188, align 4, !tbaa !364
+  %189 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i32 %4, ptr %189, align 8, !tbaa !374
+  %190 = getelementptr inbounds nuw i8, ptr %16, i64 20
+  store float %.0, ptr %190, align 4, !tbaa !113
   %.sroa_idx56 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store float %.087, ptr %.sroa_idx56, align 8, !tbaa !113
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -8183,49 +8183,49 @@ _ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S
   %.sroa.058.8.vec.extract = extractelement <4 x float> %83, i64 2
   %.sroa.059.8.vec.extract = extractelement <4 x float> %82, i64 2
   %.sroa.058.4.vec.extract = extractelement <4 x float> %83, i64 1
-  %190 = fneg float %.sroa.058.4.vec.extract
-  %191 = fmul float %.sroa.059.8.vec.extract, %190
-  %192 = tail call float @llvm.fmuladd.f32(float %.sroa.059.4.vec.extract, float %.sroa.058.8.vec.extract, float %191)
+  %191 = fneg float %.sroa.058.4.vec.extract
+  %192 = fmul float %.sroa.059.8.vec.extract, %191
+  %193 = tail call float @llvm.fmuladd.f32(float %.sroa.059.4.vec.extract, float %.sroa.058.8.vec.extract, float %192)
   %.sroa.058.0.vec.extract = extractelement <4 x float> %83, i64 0
   %.sroa.059.0.vec.extract = extractelement <4 x float> %82, i64 0
-  %193 = fneg float %.sroa.058.8.vec.extract
-  %194 = fmul float %.sroa.059.0.vec.extract, %193
-  %195 = tail call float @llvm.fmuladd.f32(float %.sroa.059.8.vec.extract, float %.sroa.058.0.vec.extract, float %194)
-  %196 = fneg float %.sroa.058.0.vec.extract
-  %197 = fmul float %.sroa.059.4.vec.extract, %196
-  %198 = tail call float @llvm.fmuladd.f32(float %.sroa.059.0.vec.extract, float %.sroa.058.4.vec.extract, float %197)
-  %199 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %192, i64 0
-  %200 = insertelement <4 x float> %199, float %195, i64 1
-  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %200, float %198, i64 2
+  %194 = fneg float %.sroa.058.8.vec.extract
+  %195 = fmul float %.sroa.059.0.vec.extract, %194
+  %196 = tail call float @llvm.fmuladd.f32(float %.sroa.059.8.vec.extract, float %.sroa.058.0.vec.extract, float %195)
+  %197 = fneg float %.sroa.058.0.vec.extract
+  %198 = fmul float %.sroa.059.4.vec.extract, %197
+  %199 = tail call float @llvm.fmuladd.f32(float %.sroa.059.0.vec.extract, float %.sroa.058.4.vec.extract, float %198)
+  %200 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %193, i64 0
+  %201 = insertelement <4 x float> %200, float %196, i64 1
+  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %201, float %199, i64 2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  %201 = fmul <4 x float> %.sroa.0.12.vec.insert.i, %.sroa.0.12.vec.insert.i
-  %202 = shufflevector <4 x float> %201, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
-  %203 = fadd <4 x float> %201, %202
-  %shift123 = shufflevector <4 x float> %203, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop124 = fadd <4 x float> %203, %shift123
-  %204 = extractelement <4 x float> %foldExtExtBinop124, i64 0
-  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %204)
-  store ptr %2, ptr %.sroa.0.i, align 16, !tbaa !397, !alias.scope !399, !noalias !402
+  %202 = fmul <4 x float> %.sroa.0.12.vec.insert.i, %.sroa.0.12.vec.insert.i
+  %203 = shufflevector <4 x float> %202, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
+  %204 = fadd <4 x float> %202, %203
+  %shift124 = shufflevector <4 x float> %204, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop125 = fadd <4 x float> %204, %shift124
+  %205 = extractelement <4 x float> %foldExtExtBinop125, i64 0
+  %206 = tail call noundef float @sqrtf(float noundef %205) #16, !tbaa !28, !noalias !397
+  store ptr %2, ptr %.sroa.0.i, align 16, !tbaa !400, !alias.scope !402, !noalias !397
   %.sroa.0.i.12.i.12.i.12..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 12
-  store float %sqrt.i.i, ptr %.sroa.0.i.12.i.12.i.12..sroa_idx, align 4, !tbaa !405, !alias.scope !399, !noalias !402
-  %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i = load <4 x float>, ptr %.sroa.0.i, align 16, !noalias !402
-  %205 = shufflevector <4 x float> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 poison>
-  %206 = fdiv <4 x float> %.sroa.0.12.vec.insert.i, %205
+  store float %206, ptr %.sroa.0.i.12.i.12.i.12..sroa_idx, align 4, !tbaa !405, !alias.scope !402, !noalias !397
+  %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i = load <4 x float>, ptr %.sroa.0.i, align 16, !noalias !397
+  %207 = shufflevector <4 x float> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 poison>
+  %208 = fdiv <4 x float> %.sroa.0.12.vec.insert.i, %207
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
-  %207 = getelementptr inbounds nuw i8, ptr %16, i64 28
-  %.sroa.0.0.vec.extract = extractelement <4 x float> %206, i64 0
-  store float %.sroa.0.0.vec.extract, ptr %207, align 4, !tbaa !53
-  %208 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sroa.0.4.vec.extract = extractelement <4 x float> %206, i64 1
-  store float %.sroa.0.4.vec.extract, ptr %208, align 8, !tbaa !53
-  %209 = getelementptr inbounds nuw i8, ptr %16, i64 36
-  %.sroa.0.8.vec.extract = extractelement <4 x float> %206, i64 2
-  store float %.sroa.0.8.vec.extract, ptr %209, align 4, !tbaa !53
+  %209 = getelementptr inbounds nuw i8, ptr %16, i64 28
+  %.sroa.0.0.vec.extract = extractelement <4 x float> %208, i64 0
+  store float %.sroa.0.0.vec.extract, ptr %209, align 4, !tbaa !53
+  %210 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sroa.0.4.vec.extract = extractelement <4 x float> %208, i64 1
+  store float %.sroa.0.4.vec.extract, ptr %210, align 8, !tbaa !53
+  %211 = getelementptr inbounds nuw i8, ptr %16, i64 36
+  %.sroa.0.8.vec.extract = extractelement <4 x float> %208, i64 2
+  store float %.sroa.0.8.vec.extract, ptr %211, align 4, !tbaa !53
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit, %1, %184
-  %.1 = phi i1 [ true, %184 ], [ false, %1 ], [ false, %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit ]
+.critedge:                                        ; preds = %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit, %1, %185
+  %.1 = phi i1 [ true, %185 ], [ false, %1 ], [ false, %_ZN12_GLOBAL__N_120closestPointTriangleIN5Eigen14AlignedVector3IfEEEET_RKS4_S6_S6_S6_RfS7_.exit ]
   ret i1 %.1
 }
 
@@ -59449,7 +59449,7 @@ attributes #17 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #18 = { inlinehint mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nounwind ssp willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #24 = { inlinehint mustprogress noreturn ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -59880,14 +59880,14 @@ attributes #51 = { nounwind memory(none) }
 !394 = !{!"_ZTS15RTCGeometryType", !9, i64 0}
 !395 = !{!393, !8, i64 16}
 !396 = !{!393, !8, i64 8}
-!397 = !{!398, !398, i64 0}
-!398 = !{!"p1 _ZTSN5Eigen6MatrixIfLi4ELi1ELi0ELi4ELi1EEE", !8, i64 0}
-!399 = !{!400}
-!400 = distinct !{!400, !401, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEEdvIfEEKNS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIfNS6_18promote_scalar_argIfT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIfS9_NS7_IfS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_: argument 0"}
-!401 = distinct !{!401, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEEdvIfEEKNS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIfNS6_18promote_scalar_argIfT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIfS9_NS7_IfS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_"}
+!397 = !{!398}
+!398 = distinct !{!398, !399, !"_ZNK5Eigen14AlignedVector3IfE10normalizedEv: argument 0"}
+!399 = distinct !{!399, !"_ZNK5Eigen14AlignedVector3IfE10normalizedEv"}
+!400 = !{!401, !401, i64 0}
+!401 = !{!"p1 _ZTSN5Eigen6MatrixIfLi4ELi1ELi0ELi4ELi1EEE", !8, i64 0}
 !402 = !{!403}
-!403 = distinct !{!403, !404, !"_ZNK5Eigen14AlignedVector3IfE10normalizedEv: argument 0"}
-!404 = distinct !{!404, !"_ZNK5Eigen14AlignedVector3IfE10normalizedEv"}
+!403 = distinct !{!403, !404, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEEdvIfEEKNS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIfNS6_18promote_scalar_argIfT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIfS9_NS7_IfS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_: argument 0"}
+!404 = distinct !{!404, !"_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi4ELi1ELi0ELi4ELi1EEEEdvIfEEKNS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIfNS6_18promote_scalar_argIfT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIfS9_NS7_IfS9_EEEEEE5valueEE4typeEEEKS2_KNS6_19plain_constant_typeIS2_SE_E4typeEEERKS9_"}
 !405 = !{!406, !15, i64 0}
 !406 = !{!"_ZTSN5Eigen8internal18scalar_constant_opIfEE", !15, i64 0}
 !407 = !{!408}

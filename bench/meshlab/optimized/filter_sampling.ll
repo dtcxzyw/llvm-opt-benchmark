@@ -81240,7 +81240,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit96:             ; preds = %_ZN3vcg6Point3IfE9N
 
 145:                                              ; preds = %_ZN3vcg6Point3IfE9NormalizeEv.exit96
   %146 = fadd float %27, %144
-  br label %183
+  br label %184
 
 147:                                              ; preds = %_ZN3vcg6Point3IfE9NormalizeEv.exit96
   %148 = tail call float @llvm.fmuladd.f32(float %134, float %144, float %133)
@@ -81268,7 +81268,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit96:             ; preds = %_ZN3vcg6Point3IfE9N
 167:                                              ; preds = %147
   %168 = load float, ptr %4, align 4
   %169 = fadd float %44, %168
-  br label %183
+  br label %184
 
 170:                                              ; preds = %147
   %171 = fsub float 0x400921FB60000000, %126
@@ -81284,12 +81284,12 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit96:             ; preds = %_ZN3vcg6Point3IfE9N
   %180 = fpext float %179 to double
   %square162 = fmul double %180, %180
   %181 = fadd double %square, %square162
-  %sqrt = tail call double @llvm.sqrt.f64(double %181)
-  %182 = fptrunc double %sqrt to float
-  br label %183
+  %182 = tail call double @sqrt(double noundef %181) #23
+  %183 = fptrunc double %182 to float
+  br label %184
 
-183:                                              ; preds = %167, %170, %145
-  %.0 = phi float [ %146, %145 ], [ %169, %167 ], [ %182, %170 ]
+184:                                              ; preds = %167, %170, %145
+  %.0 = phi float [ %146, %145 ], [ %169, %167 ], [ %183, %170 ]
   ret float %.0
 }
 

@@ -830,11 +830,11 @@ _ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit: ; preds = %23
 31:                                               ; preds = %23
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %102
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %71
-  %33 = phi ptr [ %89, %71 ], [ %.ph, %.lr.ph.preheader ]
-  %.02128 = phi i64 [ %87, %71 ], [ 0, %.lr.ph.preheader ]
+  %33 = phi ptr [ %90, %71 ], [ %.ph, %.lr.ph.preheader ]
+  %.02128 = phi i64 [ %88, %71 ], [ 0, %.lr.ph.preheader ]
   %34 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %33, i64 %.02128
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load float, ptr %35, align 4, !tbaa !64
@@ -876,7 +876,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %44, %
   %.pn = phi { ptr, i32 } [ %43, %42 ], [ %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %45, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %101
+  br label %102
 
 49:                                               ; preds = %.lr.ph
   %50 = fmul float %37, %37
@@ -920,59 +920,59 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %44, %
   %76 = fdiv double 1.000000e+00, %75
   %77 = fptrunc double %76 to float
   %78 = fdiv double %52, %54
-  %sqrt = call double @llvm.sqrt.f64(double %78)
-  %79 = fptrunc double %sqrt to float
-  %80 = load ptr, ptr %1, align 8, !tbaa !60
-  %81 = getelementptr inbounds nuw %class.EllipticKeyPoint, ptr %80, i64 %.02128
-  store i64 %53, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store double %52, ptr %82, align 8, !tbaa !3
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  store double 0.000000e+00, ptr %83, align 8, !tbaa !3
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store double %52, ptr %84, align 8, !tbaa !3
-  %85 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  store double 0.000000e+00, ptr %85, align 8, !tbaa !3
-  %86 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  store float %74, ptr %86, align 8
-  %.sroa.16.40..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 44
+  %79 = call double @sqrt(double noundef %78) #26, !tbaa !7
+  %80 = fptrunc double %79 to float
+  %81 = load ptr, ptr %1, align 8, !tbaa !60
+  %82 = getelementptr inbounds nuw %class.EllipticKeyPoint, ptr %81, i64 %.02128
+  store i64 %53, ptr %82, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  store double %52, ptr %83, align 8, !tbaa !3
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  store double 0.000000e+00, ptr %84, align 8, !tbaa !3
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  store double %52, ptr %85, align 8, !tbaa !3
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 32
+  store double 0.000000e+00, ptr %86, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 40
+  store float %74, ptr %87, align 8
+  %.sroa.16.40..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 44
   store float %77, ptr %.sroa.16.40..sroa_idx, align 4
-  %.sroa.17.40..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 48
-  store float %79, ptr %.sroa.17.40..sroa_idx, align 8
-  %.sroa.18.40..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 52
-  store float %79, ptr %.sroa.18.40..sroa_idx, align 4
-  %87 = add nuw i64 %.02128, 1
-  %88 = load ptr, ptr %7, align 8, !tbaa !61
-  %89 = load ptr, ptr %0, align 8, !tbaa !63
-  %90 = ptrtoint ptr %88 to i64
+  %.sroa.17.40..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 48
+  store float %80, ptr %.sroa.17.40..sroa_idx, align 8
+  %.sroa.18.40..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 52
+  store float %80, ptr %.sroa.18.40..sroa_idx, align 4
+  %88 = add nuw i64 %.02128, 1
+  %89 = load ptr, ptr %7, align 8, !tbaa !61
+  %90 = load ptr, ptr %0, align 8, !tbaa !63
   %91 = ptrtoint ptr %89 to i64
-  %92 = sub i64 %90, %91
-  %93 = sdiv exact i64 %92, 28
-  %94 = icmp ult i64 %87, %93
-  br i1 %94, label %.lr.ph, label %.loopexit, !llvm.loop !69
+  %92 = ptrtoint ptr %90 to i64
+  %93 = sub i64 %91, %92
+  %94 = sdiv exact i64 %93, 28
+  %95 = icmp ult i64 %88, %94
+  br i1 %95, label %.lr.ph, label %.loopexit, !llvm.loop !69
 
 .loopexit:                                        ; preds = %71, %_ZNSt6vectorI16EllipticKeyPointSaIS0_EE6resizeEm.exit, %2
-  %95 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %96 = load i32, ptr %95, align 8, !tbaa !71
-  %.not.i = icmp eq i32 %96, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %97
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %97 = load i32, ptr %96, align 8, !tbaa !71
+  %.not.i = icmp eq i32 %97, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %98
 
-97:                                               ; preds = %.loopexit
+98:                                               ; preds = %.loopexit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %3)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %98
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %99
 
-98:                                               ; preds = %97
-  %99 = landingpad { ptr, i32 }
+99:                                               ; preds = %98
+  %100 = landingpad { ptr, i32 }
           catch ptr null
-  %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #29
+  %101 = extractvalue { ptr, i32 } %100, 0
+  call void @__clang_call_terminate(ptr %101) #29
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %97
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %98
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-101:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %31
+102:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %31
   %.pn24.pn = phi { ptr, i32 } [ %32, %31 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -5740,9 +5740,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #23
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #23

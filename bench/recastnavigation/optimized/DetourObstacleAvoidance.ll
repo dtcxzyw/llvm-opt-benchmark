@@ -857,7 +857,7 @@ define void @_ZN24dtObstacleAvoidanceQuery7prepareEPKfS1_(ptr noundef nonnull re
 
 .lr.ph34:                                         ; preds = %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br label %61
+  br label %65
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
@@ -879,62 +879,66 @@ define void @_ZN24dtObstacleAvoidanceQuery7prepareEPKfS1_(ptr noundef nonnull re
   %30 = load float, ptr %10, align 4
   %31 = fsub float %29, %30
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  store float %31, ptr %32, align 4
   %33 = fmul float %22, %22
   %34 = fmul float %26, %26
   %35 = fadd float %33, %34
   %36 = fmul float %31, %31
   %37 = fadd float %35, %36
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %37)
-  %38 = fdiv float 1.000000e+00, %sqrt.i
-  %39 = fmul float %22, %38
-  store float %39, ptr %19, align 4
-  %40 = fmul float %26, %38
-  store float %40, ptr %27, align 4
-  %41 = fmul float %31, %38
-  store float %41, ptr %32, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %43 = load float, ptr %42, align 4
-  %44 = load float, ptr %2, align 4
-  %45 = fsub float %43, %44
-  %46 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %38 = tail call noundef float @sqrtf(float noundef %37) #13
+  %39 = fdiv float 1.000000e+00, %38
+  %40 = load float, ptr %19, align 4
+  %41 = fmul float %40, %39
+  store float %41, ptr %19, align 4
+  %42 = load float, ptr %27, align 4
+  %43 = fmul float %39, %42
+  store float %43, ptr %27, align 4
+  %44 = load float, ptr %32, align 4
+  %45 = fmul float %39, %44
+  store float %45, ptr %32, align 4
+  %46 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %47 = load float, ptr %46, align 4
-  %48 = load float, ptr %11, align 4
+  %48 = load float, ptr %2, align 4
   %49 = fsub float %47, %48
-  %50 = fneg float %49
-  %51 = fmul float %39, %50
-  %52 = tail call noundef float @llvm.fmuladd.f32(float %45, float %41, float %51)
-  %53 = fcmp olt float %52, 0x3F847AE140000000
-  %54 = fneg float %41
-  %55 = fneg float %39
-  %.sink39 = select i1 %53, float %54, float %41
-  %.sink = select i1 %53, float %39, float %55
-  %56 = getelementptr inbounds nuw i8, ptr %18, i64 52
-  store float %.sink39, ptr %56, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %18, i64 60
-  store float %.sink, ptr %57, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %51 = load float, ptr %50, align 4
+  %52 = load float, ptr %11, align 4
+  %53 = fsub float %51, %52
+  %54 = fneg float %53
+  %55 = fmul float %41, %54
+  %56 = tail call noundef float @llvm.fmuladd.f32(float %49, float %45, float %55)
+  %57 = fcmp olt float %56, 0x3F847AE140000000
+  %58 = fneg float %45
+  %59 = fneg float %41
+  %.sink39 = select i1 %57, float %58, float %45
+  %.sink = select i1 %57, float %41, float %59
+  %60 = getelementptr inbounds nuw i8, ptr %18, i64 52
+  store float %.sink39, ptr %60, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %18, i64 60
+  store float %.sink, ptr %61, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = load i32, ptr %5, align 8
-  %59 = sext i32 %58 to i64
-  %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %16, label %.preheader, !llvm.loop !7
+  %62 = load i32, ptr %5, align 8
+  %63 = sext i32 %62 to i64
+  %64 = icmp slt i64 %indvars.iv.next, %63
+  br i1 %64, label %16, label %.preheader, !llvm.loop !7
 
-61:                                               ; preds = %.lr.ph34, %61
-  %indvars.iv36 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next37, %61 ]
-  %62 = load ptr, ptr %15, align 8
-  %63 = getelementptr inbounds nuw %struct.dtObstacleSegment, ptr %62, i64 %indvars.iv36
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
-  %65 = call noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef %1, ptr noundef %63, ptr noundef nonnull %64, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %66 = fcmp olt float %65, 0x3F1A36E2E0000000
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %68 = zext i1 %66 to i8
-  store i8 %68, ptr %67, align 4
+65:                                               ; preds = %.lr.ph34, %65
+  %indvars.iv36 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next37, %65 ]
+  %66 = load ptr, ptr %15, align 8
+  %67 = getelementptr inbounds nuw %struct.dtObstacleSegment, ptr %66, i64 %indvars.iv36
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 12
+  %69 = call noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef %1, ptr noundef %67, ptr noundef nonnull %68, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %70 = fcmp olt float %69, 0x3F1A36E2E0000000
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %72 = zext i1 %70 to i8
+  store i8 %72, ptr %71, align 4
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %69 = load i32, ptr %12, align 8
-  %70 = sext i32 %69 to i64
-  %71 = icmp slt i64 %indvars.iv.next37, %70
-  br i1 %71, label %61, label %._crit_edge, !llvm.loop !8
+  %73 = load i32, ptr %12, align 8
+  %74 = sext i32 %73 to i64
+  %75 = icmp slt i64 %indvars.iv.next37, %74
+  br i1 %75, label %65, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %61, %.preheader
+._crit_edge:                                      ; preds = %65, %.preheader
   ret void
 }
 
@@ -1686,9 +1690,6 @@ declare float @sqrtf(float noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #9
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #12
