@@ -17,7 +17,8 @@ message(STATUS "Using LLVMConfig.cmake in: ${LLVM_DIR}")
 include(AddLLVM)
 
 include_directories(${LLVM_INCLUDE_DIRS})
-set(LLVM_LINK_COMPONENTS core support irreader irprinter analysis)
+add_compile_options(-fno-rtti) # Workaround for 174084
+set(LLVM_LINK_COMPONENTS core support irreader irprinter analysis passes ipo scalaropts)
 add_llvm_executable(daggrep PARTIAL_SOURCES_INTENDED daggrep.cpp)
 add_llvm_executable(comdat PARTIAL_SOURCES_INTENDED scripts/upgrade/comdat.cpp)
 add_llvm_pass_plugin(preprocess PARTIAL_SOURCES_INTENDED preprocess.cpp)
