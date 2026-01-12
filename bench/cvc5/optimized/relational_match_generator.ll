@@ -243,7 +243,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %65, %61, %55
   %74 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
-  br label %320
+  br label %346
 
 75:                                               ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit, %293
   %76 = phi i1 [ true, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit ], [ false, %293 ]
@@ -745,20 +745,66 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit242: ; preds = %_ZSt
 
 .body234:                                         ; preds = %303, %279, %285, %286, %292, %316
   %.pn42 = phi { ptr, i32 } [ %317, %316 ], [ %304, %303 ], [ %.pn35, %285 ], [ %280, %279 ], [ %.pn37, %292 ], [ %287, %286 ]
-  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %58) #20
-  br label %.body49
+  %320 = load ptr, ptr %58, align 8, !tbaa !6
+  %321 = load i64, ptr %320, align 8
+  %322 = and i64 %321, 1152920405095219200
+  %.not.i.i329 = icmp eq i64 %322, 1152920405095219200
+  br i1 %.not.i.i329, label %.body49, label %323, !prof !13
 
-.body49:                                          ; preds = %67, %.body234
-  %.pn42.pn = phi { ptr, i32 } [ %.pn42, %.body234 ], [ %68, %67 ]
-  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #20
-  br label %.body
+323:                                              ; preds = %.body234
+  %324 = add i64 %321, 1152920405095219200
+  %325 = and i64 %324, 1152920405095219200
+  %326 = and i64 %321, -1152920405095219201
+  %327 = or disjoint i64 %325, %326
+  store i64 %327, ptr %320, align 8
+  %328 = icmp eq i64 %325, 0
+  br i1 %328, label %329, label %.body49, !prof !13
 
-.body:                                            ; preds = %53, %.body49
-  %.pn42.pn.pn = phi { ptr, i32 } [ %.pn42.pn, %.body49 ], [ %54, %53 ]
+329:                                              ; preds = %323
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %320)
+          to label %.body49 unwind label %330
+
+330:                                              ; preds = %329
+  %331 = landingpad { ptr, i32 }
+          catch ptr null
+  %332 = extractvalue { ptr, i32 } %331, 0
+  call void @__clang_call_terminate(ptr %332) #19
+  unreachable
+
+.body49:                                          ; preds = %329, %323, %.body234, %67
+  %.pn42.pn = phi { ptr, i32 } [ %68, %67 ], [ %.pn42, %.body234 ], [ %.pn42, %323 ], [ %.pn42, %329 ]
+  %333 = load ptr, ptr %44, align 8, !tbaa !6
+  %334 = load i64, ptr %333, align 8
+  %335 = and i64 %334, 1152920405095219200
+  %.not.i.i332 = icmp eq i64 %335, 1152920405095219200
+  br i1 %.not.i.i332, label %.body, label %336, !prof !13
+
+336:                                              ; preds = %.body49
+  %337 = add i64 %334, 1152920405095219200
+  %338 = and i64 %337, 1152920405095219200
+  %339 = and i64 %334, -1152920405095219201
+  %340 = or disjoint i64 %338, %339
+  store i64 %340, ptr %333, align 8
+  %341 = icmp eq i64 %338, 0
+  br i1 %341, label %342, label %.body, !prof !13
+
+342:                                              ; preds = %336
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %333)
+          to label %.body unwind label %343
+
+343:                                              ; preds = %342
+  %344 = landingpad { ptr, i32 }
+          catch ptr null
+  %345 = extractvalue { ptr, i32 } %344, 0
+  call void @__clang_call_terminate(ptr %345) #19
+  unreachable
+
+.body:                                            ; preds = %342, %336, %.body49, %53
+  %.pn42.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn42.pn, %.body49 ], [ %.pn42.pn, %336 ], [ %.pn42.pn, %342 ]
   call void @_ZN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) #20
-  br label %320
+  br label %346
 
-320:                                              ; preds = %.body, %73
+346:                                              ; preds = %.body, %73
   %.pn42.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn, %.body ], [ %74, %73 ]
   resume { ptr, i32 } %.pn42.pn.pn.pn
 }
