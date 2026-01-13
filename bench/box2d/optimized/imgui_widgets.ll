@@ -38138,7 +38138,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui11BeginMenuExEPKcS1_b(ptr noundef 
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 207
   %17 = load i8, ptr %16, align 1, !tbaa !151, !range !152, !noundef !153
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %398, label %19
+  br i1 %18, label %397, label %19
 
 19:                                               ; preds = %3
   %20 = tail call noundef i32 @_ZN11ImGuiWindow5GetIDEPKcS1_(ptr noundef nonnull align 8 dereferenceable(1029) %14, ptr noundef %0, ptr noundef null)
@@ -38172,12 +38172,12 @@ define dso_local noundef zeroext i1 @_ZN5ImGui11BeginMenuExEPKcS1_b(ptr noundef 
 
 38:                                               ; preds = %37
   %39 = tail call noundef zeroext i1 @_ZN5ImGui12BeginPopupExEji(i32 noundef %20, i32 noundef %spec.select)
-  br label %398
+  br label %397
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 7512
   store i32 0, ptr %41, align 8, !tbaa !302
-  br label %398
+  br label %397
 
 _ZNK8ImVectorIjE8containsERKj.exit:               ; preds = %31
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 9388
@@ -38514,7 +38514,7 @@ _ZN16ImGuiMenuColumns11DeclColumnsEffff.exit._crit_edge: ; preds = %_ZN16ImGuiMe
 227:                                              ; preds = %226, %224
   %228 = load i32, ptr %104, align 4, !tbaa !278
   %229 = icmp eq i32 %228, 1
-  br i1 %229, label %230, label %346
+  br i1 %229, label %230, label %345
 
 230:                                              ; preds = %227
   %231 = getelementptr inbounds nuw i8, ptr %12, i64 7744
@@ -38540,7 +38540,7 @@ _ZN16ImGuiMenuColumns11DeclColumnsEffff.exit._crit_edge: ; preds = %_ZN16ImGuiMe
 
 .thread273:                                       ; preds = %236, %239, %230
   %244 = getelementptr inbounds nuw i8, ptr %12, i64 4936
-  br label %313
+  br label %312
 
 245:                                              ; preds = %239
   %246 = getelementptr inbounds nuw i8, ptr %243, i64 896
@@ -38550,7 +38550,7 @@ _ZN16ImGuiMenuColumns11DeclColumnsEffff.exit._crit_edge: ; preds = %_ZN16ImGuiMe
   %250 = load ptr, ptr %249, align 8, !tbaa !177
   %251 = icmp eq ptr %250, %14
   %or.cond3 = and i1 %248, %251
-  br i1 %or.cond3, label %252, label %313
+  br i1 %or.cond3, label %252, label %312
 
 252:                                              ; preds = %245
   %253 = getelementptr inbounds nuw i8, ptr %12, i64 4184
@@ -38592,282 +38592,280 @@ _ZN16ImGuiMenuColumns11DeclColumnsEffff.exit._crit_edge: ; preds = %_ZN16ImGuiMe
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.sroa.0.0.vec.insert.i237 = shufflevector <4 x float> %275, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %.sroa.0.4.vec.insert.i238 = insertelement <2 x float> %.sroa.0.0.vec.insert.i237, float %267, i64 1
-  br label %279
+  br label %278
 
 276:                                              ; preds = %252
   %277 = fadd float %258, %264
-  %278 = insertelement <4 x float> poison, float %277, i64 2
-  %.sroa.0.8.vec.expand = insertelement <4 x float> %278, float %267, i64 3
-  %.sroa.0.0.vec.insert.i235 = shufflevector <4 x float> %278, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
-  %.sroa.0.4.vec.insert.i236 = insertelement <2 x float> %.sroa.0.0.vec.insert.i235, float %262, i64 1
+  %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %277, i64 0
+  %.sroa.3.12.vec.insert.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %267, i64 1
+  %.sroa.0.4.vec.insert.i236 = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %262, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %.sroa.0.8.vec.extract = shufflevector <4 x float> %.sroa.0.8.vec.expand, <4 x float> poison, <2 x i32> <i32 2, i32 3>
-  br label %279
+  br label %278
 
-279:                                              ; preds = %276, %274
+278:                                              ; preds = %276, %274
   %.sroa.0.4.vec.insert.i236.sink = phi <2 x float> [ %.sroa.0.0.vec.extract, %274 ], [ %.sroa.0.4.vec.insert.i236, %276 ]
-  %storemerge213 = phi <2 x float> [ %.sroa.0.4.vec.insert.i238, %274 ], [ %.sroa.0.8.vec.extract, %276 ]
-  %280 = extractelement <2 x float> %.sroa.0.4.vec.insert.i236.sink, i64 0
-  %281 = fsub float %272, %280
-  %282 = tail call float @llvm.fabs.f32(float %281)
-  %283 = fmul float %282, 0x3FD3333340000000
-  %284 = fmul float %254, 5.000000e-01
-  %285 = fmul float %254, 2.500000e+00
-  %286 = fcmp olt float %283, %284
-  %287 = fcmp ogt float %283, %285
-  %288 = select i1 %287, float %285, float %283
-  %289 = select i1 %286, float %284, float %288
-  %290 = fmul float %260, 5.000000e-01
-  %291 = fsub float %272, %290
-  store float %291, ptr %7, align 8, !tbaa !158
-  %292 = fmul float %254, %260
-  %293 = fadd float %292, %280
-  store float %293, ptr %8, align 4, !tbaa !158
-  %294 = extractelement <2 x float> %storemerge213, i64 0
-  %295 = fadd float %292, %294
-  store float %295, ptr %9, align 4, !tbaa !158
-  %296 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %297 = extractelement <2 x float> %.sroa.0.4.vec.insert.i236.sink, i64 1
-  %298 = fsub float %297, %289
-  %299 = fsub float %298, %273
-  %300 = fmul float %254, -8.000000e+00
-  %301 = fcmp oge float %299, %300
-  %302 = select i1 %301, float %299, float %300
-  %303 = fadd float %273, %302
-  store float %303, ptr %296, align 4, !tbaa !159
-  %304 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %305 = extractelement <2 x float> %storemerge213, i64 1
-  %306 = fadd float %289, %305
-  %307 = fsub float %306, %273
-  %308 = fmul float %254, 8.000000e+00
-  %309 = fcmp olt float %307, %308
-  %310 = select i1 %309, float %307, float %308
-  %311 = fadd float %273, %310
-  store float %311, ptr %304, align 4, !tbaa !159
-  %312 = call noundef zeroext i1 @_Z23ImTriangleContainsPointRK6ImVec2S1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %268)
+  %storemerge213 = phi <2 x float> [ %.sroa.0.4.vec.insert.i238, %274 ], [ %.sroa.3.12.vec.insert.i, %276 ]
+  %279 = extractelement <2 x float> %.sroa.0.4.vec.insert.i236.sink, i64 0
+  %280 = fsub float %272, %279
+  %281 = tail call float @llvm.fabs.f32(float %280)
+  %282 = fmul float %281, 0x3FD3333340000000
+  %283 = fmul float %254, 5.000000e-01
+  %284 = fmul float %254, 2.500000e+00
+  %285 = fcmp olt float %282, %283
+  %286 = fcmp ogt float %282, %284
+  %287 = select i1 %286, float %284, float %282
+  %288 = select i1 %285, float %283, float %287
+  %289 = fmul float %260, 5.000000e-01
+  %290 = fsub float %272, %289
+  store float %290, ptr %7, align 8, !tbaa !158
+  %291 = fmul float %254, %260
+  %292 = fadd float %291, %279
+  store float %292, ptr %8, align 4, !tbaa !158
+  %293 = extractelement <2 x float> %storemerge213, i64 0
+  %294 = fadd float %291, %293
+  store float %294, ptr %9, align 4, !tbaa !158
+  %295 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %296 = extractelement <2 x float> %.sroa.0.4.vec.insert.i236.sink, i64 1
+  %297 = fsub float %296, %288
+  %298 = fsub float %297, %273
+  %299 = fmul float %254, -8.000000e+00
+  %300 = fcmp oge float %298, %299
+  %301 = select i1 %300, float %298, float %299
+  %302 = fadd float %273, %301
+  store float %302, ptr %295, align 4, !tbaa !159
+  %303 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %304 = extractelement <2 x float> %storemerge213, i64 1
+  %305 = fadd float %288, %304
+  %306 = fsub float %305, %273
+  %307 = fmul float %254, 8.000000e+00
+  %308 = fcmp olt float %306, %307
+  %309 = select i1 %308, float %306, float %307
+  %310 = fadd float %273, %309
+  store float %310, ptr %303, align 4, !tbaa !159
+  %311 = call noundef zeroext i1 @_Z23ImTriangleContainsPointRK6ImVec2S1_S1_S1_(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %268)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %313
+  br label %312
 
-313:                                              ; preds = %.thread273, %279, %245
-  %314 = phi ptr [ %249, %279 ], [ %249, %245 ], [ %244, %.thread273 ]
-  %.0193 = phi i1 [ %312, %279 ], [ false, %245 ], [ false, %.thread273 ]
+312:                                              ; preds = %.thread273, %278, %245
+  %313 = phi ptr [ %249, %278 ], [ %249, %245 ], [ %244, %.thread273 ]
+  %.0193 = phi i1 [ %311, %278 ], [ false, %245 ], [ false, %.thread273 ]
   %.not = xor i1 %21, true
   %or.cond5 = select i1 %.not, i1 true, i1 %225
-  br i1 %or.cond5, label %326, label %315
+  br i1 %or.cond5, label %325, label %314
 
-315:                                              ; preds = %313
-  %316 = load ptr, ptr %314, align 8, !tbaa !177
-  %317 = icmp ne ptr %316, %14
-  %or.cond7 = or i1 %.0193, %317
-  br i1 %or.cond7, label %326, label %318
+314:                                              ; preds = %312
+  %315 = load ptr, ptr %313, align 8, !tbaa !177
+  %316 = icmp ne ptr %315, %14
+  %or.cond7 = or i1 %.0193, %316
+  br i1 %or.cond7, label %325, label %317
 
-318:                                              ; preds = %315
-  %319 = getelementptr inbounds nuw i8, ptr %12, i64 7883
-  %320 = load i8, ptr %319, align 1, !tbaa !194, !range !152, !noundef !153
-  %321 = trunc nuw i8 %320 to i1
-  br i1 %321, label %326, label %322
+317:                                              ; preds = %314
+  %318 = getelementptr inbounds nuw i8, ptr %12, i64 7883
+  %319 = load i8, ptr %318, align 1, !tbaa !194, !range !152, !noundef !153
+  %320 = trunc nuw i8 %319 to i1
+  br i1 %320, label %325, label %321
 
-322:                                              ; preds = %318
-  %323 = getelementptr inbounds nuw i8, ptr %12, i64 5044
-  %324 = load i32, ptr %323, align 4, !tbaa !188
-  %325 = icmp eq i32 %324, 0
-  br label %326
+321:                                              ; preds = %317
+  %322 = getelementptr inbounds nuw i8, ptr %12, i64 5044
+  %323 = load i32, ptr %322, align 4, !tbaa !188
+  %324 = icmp eq i32 %323, 0
+  br label %325
 
-326:                                              ; preds = %322, %318, %315, %313
-  %.0194 = phi i1 [ false, %313 ], [ false, %315 ], [ false, %318 ], [ %325, %322 ]
+325:                                              ; preds = %321, %317, %314, %312
+  %.0194 = phi i1 [ false, %312 ], [ false, %314 ], [ false, %317 ], [ %324, %321 ]
   %or.cond10 = and i1 %.0192.in, %.not
-  br i1 %or.cond10, label %337, label %327
+  br i1 %or.cond10, label %336, label %326
 
-327:                                              ; preds = %326
+326:                                              ; preds = %325
   %.not281 = xor i1 %225, true
   %or.cond13.not = select i1 %21, i1 true, i1 %.not281
   %or.cond15 = or i1 %or.cond13.not, %.0193
   %or.cond15.not = xor i1 %or.cond15, true
   %brmerge = or i1 %or.cond13.not, %or.cond15.not
-  br i1 %brmerge, label %337, label %328
+  br i1 %brmerge, label %336, label %327
 
-328:                                              ; preds = %327
-  %329 = getelementptr inbounds nuw i8, ptr %12, i64 5032
-  %330 = load float, ptr %329, align 8, !tbaa !181
-  %331 = fcmp ult float %330, 0x3FD3333340000000
-  br i1 %331, label %337, label %332
+327:                                              ; preds = %326
+  %328 = getelementptr inbounds nuw i8, ptr %12, i64 5032
+  %329 = load float, ptr %328, align 8, !tbaa !181
+  %330 = fcmp ult float %329, 0x3FD3333340000000
+  br i1 %330, label %336, label %331
 
-332:                                              ; preds = %328
-  %333 = getelementptr inbounds nuw i8, ptr %12, i64 8924
-  %334 = load float, ptr %333, align 4, !tbaa !704
-  %335 = fcmp ult float %334, 0x3FD3333340000000
-  br i1 %335, label %337, label %336
+331:                                              ; preds = %327
+  %332 = getelementptr inbounds nuw i8, ptr %12, i64 8924
+  %333 = load float, ptr %332, align 4, !tbaa !704
+  %334 = fcmp ult float %333, 0x3FD3333340000000
+  br i1 %334, label %336, label %335
 
-336:                                              ; preds = %332
-  br label %337
+335:                                              ; preds = %331
+  br label %336
 
-337:                                              ; preds = %327, %326, %336, %332, %328
-  %.0199 = phi i1 [ true, %326 ], [ true, %336 ], [ false, %332 ], [ false, %328 ], [ %or.cond15.not, %327 ]
-  %338 = getelementptr inbounds nuw i8, ptr %12, i64 7800
-  %339 = load i32, ptr %338, align 8, !tbaa !193
-  %340 = icmp eq i32 %339, %20
-  br i1 %340, label %341, label %358
+336:                                              ; preds = %326, %325, %335, %331, %327
+  %.0199 = phi i1 [ true, %325 ], [ true, %335 ], [ false, %331 ], [ false, %327 ], [ %or.cond15.not, %326 ]
+  %337 = getelementptr inbounds nuw i8, ptr %12, i64 7800
+  %338 = load i32, ptr %337, align 8, !tbaa !193
+  %339 = icmp eq i32 %338, %20
+  br i1 %339, label %340, label %357
 
-341:                                              ; preds = %337
-  %342 = getelementptr inbounds nuw i8, ptr %12, i64 7960
-  %343 = load i32, ptr %342, align 8, !tbaa !538
-  %344 = icmp eq i32 %343, 1
-  br i1 %344, label %345, label %358
+340:                                              ; preds = %336
+  %341 = getelementptr inbounds nuw i8, ptr %12, i64 7960
+  %342 = load i32, ptr %341, align 8, !tbaa !538
+  %343 = icmp eq i32 %342, 1
+  br i1 %343, label %344, label %357
 
-345:                                              ; preds = %341
+344:                                              ; preds = %340
   call void @_ZN5ImGui20NavMoveRequestCancelEv()
   call void @_ZN5ImGui28NavRestoreHighlightAfterMoveEv()
-  br label %358
+  br label %357
 
-346:                                              ; preds = %227
+345:                                              ; preds = %227
   %or.cond20 = and i1 %21, %.0192.in
   %or.cond22 = and i1 %.0.i269, %or.cond20
-  br i1 %or.cond22, label %.thread303, label %347
+  br i1 %or.cond22, label %.thread303, label %346
+
+346:                                              ; preds = %345
+  br i1 %.0192.in, label %357, label %347
 
 347:                                              ; preds = %346
-  br i1 %.0192.in, label %358, label %348
-
-348:                                              ; preds = %347
   %or.cond24 = and i1 %.0.i269, %225
   %or.cond24.not = xor i1 %or.cond24, true
   %or.cond26 = or i1 %21, %or.cond24.not
-  br i1 %or.cond26, label %349, label %358
+  br i1 %or.cond26, label %348, label %357
 
-349:                                              ; preds = %348
-  %350 = getelementptr inbounds nuw i8, ptr %12, i64 7800
-  %351 = load i32, ptr %350, align 8, !tbaa !193
-  %352 = icmp eq i32 %351, %20
-  br i1 %352, label %353, label %358
+348:                                              ; preds = %347
+  %349 = getelementptr inbounds nuw i8, ptr %12, i64 7800
+  %350 = load i32, ptr %349, align 8, !tbaa !193
+  %351 = icmp eq i32 %350, %20
+  br i1 %351, label %352, label %357
 
-353:                                              ; preds = %349
-  %354 = getelementptr inbounds nuw i8, ptr %12, i64 7960
-  %355 = load i32, ptr %354, align 8, !tbaa !538
-  %356 = icmp eq i32 %355, 3
-  br i1 %356, label %357, label %358
+352:                                              ; preds = %348
+  %353 = getelementptr inbounds nuw i8, ptr %12, i64 7960
+  %354 = load i32, ptr %353, align 8, !tbaa !538
+  %355 = icmp eq i32 %354, 3
+  br i1 %355, label %356, label %357
 
-357:                                              ; preds = %353
+356:                                              ; preds = %352
   tail call void @_ZN5ImGui20NavMoveRequestCancelEv()
-  br label %358
+  br label %357
 
-358:                                              ; preds = %347, %348, %337, %341, %345, %349, %353, %357
-  %.2201 = phi i1 [ false, %349 ], [ %.0199, %337 ], [ true, %347 ], [ true, %357 ], [ false, %353 ], [ true, %345 ], [ %.0199, %341 ], [ true, %348 ]
-  %.1198 = phi i1 [ false, %349 ], [ false, %337 ], [ false, %347 ], [ false, %357 ], [ false, %353 ], [ true, %345 ], [ false, %341 ], [ false, %348 ]
-  %.1195 = phi i1 [ false, %349 ], [ %.0194, %337 ], [ false, %347 ], [ false, %357 ], [ false, %353 ], [ %.0194, %345 ], [ %.0194, %341 ], [ false, %348 ]
-  %.1190.shrunk = phi i1 [ %21, %349 ], [ %21, %337 ], [ %21, %347 ], [ %21, %357 ], [ %21, %353 ], [ %21, %345 ], [ %21, %341 ], [ false, %348 ]
+357:                                              ; preds = %346, %347, %336, %340, %344, %348, %352, %356
+  %.2201 = phi i1 [ false, %348 ], [ %.0199, %336 ], [ true, %346 ], [ true, %356 ], [ false, %352 ], [ true, %344 ], [ %.0199, %340 ], [ true, %347 ]
+  %.1198 = phi i1 [ false, %348 ], [ false, %336 ], [ false, %346 ], [ false, %356 ], [ false, %352 ], [ true, %344 ], [ false, %340 ], [ false, %347 ]
+  %.1195 = phi i1 [ false, %348 ], [ %.0194, %336 ], [ false, %346 ], [ false, %356 ], [ false, %352 ], [ %.0194, %344 ], [ %.0194, %340 ], [ false, %347 ]
+  %.1190.shrunk = phi i1 [ %21, %348 ], [ %21, %336 ], [ %21, %346 ], [ %21, %356 ], [ %21, %352 ], [ %21, %344 ], [ %21, %340 ], [ false, %347 ]
   %not. = xor i1 %2, true
   %spec.select217 = select i1 %not., i1 true, i1 %.1195
-  br i1 %spec.select217, label %.thread303, label %363
+  br i1 %spec.select217, label %.thread303, label %362
 
-.thread303:                                       ; preds = %346, %358
-  %.1190.shrunk315 = phi i1 [ %.1190.shrunk, %358 ], [ false, %346 ]
-  %.1198313 = phi i1 [ %.1198, %358 ], [ false, %346 ]
-  %.2201311 = phi i1 [ %.2201, %358 ], [ false, %346 ]
-  %359 = call noundef zeroext i1 @_ZN5ImGui11IsPopupOpenEji(i32 noundef %20, i32 noundef 0)
-  br i1 %359, label %360, label %363
+.thread303:                                       ; preds = %345, %357
+  %.1190.shrunk315 = phi i1 [ %.1190.shrunk, %357 ], [ false, %345 ]
+  %.1198313 = phi i1 [ %.1198, %357 ], [ false, %345 ]
+  %.2201311 = phi i1 [ %.2201, %357 ], [ false, %345 ]
+  %358 = call noundef zeroext i1 @_ZN5ImGui11IsPopupOpenEji(i32 noundef %20, i32 noundef 0)
+  br i1 %358, label %359, label %362
 
-360:                                              ; preds = %.thread303
-  %361 = getelementptr inbounds nuw i8, ptr %12, i64 7744
-  %362 = load i32, ptr %361, align 8, !tbaa !697
-  call void @_ZN5ImGui17ClosePopupToLevelEib(i32 noundef %362, i1 noundef zeroext true)
-  br label %363
+359:                                              ; preds = %.thread303
+  %360 = getelementptr inbounds nuw i8, ptr %12, i64 7744
+  %361 = load i32, ptr %360, align 8, !tbaa !697
+  call void @_ZN5ImGui17ClosePopupToLevelEib(i32 noundef %361, i1 noundef zeroext true)
+  br label %362
 
-363:                                              ; preds = %360, %.thread303, %358
-  %.1190.shrunk314 = phi i1 [ %.1190.shrunk315, %360 ], [ %.1190.shrunk315, %.thread303 ], [ %.1190.shrunk, %358 ]
-  %.1198312 = phi i1 [ %.1198313, %360 ], [ %.1198313, %.thread303 ], [ %.1198, %358 ]
-  %.2201310 = phi i1 [ %.2201311, %360 ], [ %.2201311, %.thread303 ], [ %.2201, %358 ]
+362:                                              ; preds = %359, %.thread303, %357
+  %.1190.shrunk314 = phi i1 [ %.1190.shrunk315, %359 ], [ %.1190.shrunk315, %.thread303 ], [ %.1190.shrunk, %357 ]
+  %.1198312 = phi i1 [ %.1198313, %359 ], [ %.1198313, %.thread303 ], [ %.1198, %357 ]
+  %.2201310 = phi i1 [ %.2201311, %359 ], [ %.2201311, %.thread303 ], [ %.2201, %357 ]
   call void @_ZN5ImGui5PopIDEv()
   %.not27 = xor i1 %.2201310, true
   %or.cond29 = or i1 %.1190.shrunk314, %.not27
-  br i1 %or.cond29, label %370, label %364
+  br i1 %or.cond29, label %369, label %363
 
-364:                                              ; preds = %363
-  %365 = getelementptr inbounds nuw i8, ptr %12, i64 7728
-  %366 = load i32, ptr %365, align 8, !tbaa !696
-  %367 = getelementptr inbounds nuw i8, ptr %12, i64 7744
-  %368 = load i32, ptr %367, align 8, !tbaa !697
-  %369 = icmp sgt i32 %366, %368
-  br i1 %369, label %.thread279, label %370
+363:                                              ; preds = %362
+  %364 = getelementptr inbounds nuw i8, ptr %12, i64 7728
+  %365 = load i32, ptr %364, align 8, !tbaa !696
+  %366 = getelementptr inbounds nuw i8, ptr %12, i64 7744
+  %367 = load i32, ptr %366, align 8, !tbaa !697
+  %368 = icmp sgt i32 %365, %367
+  br i1 %368, label %.thread279, label %369
 
-.thread279:                                       ; preds = %364
+.thread279:                                       ; preds = %363
   call void @_ZN5ImGui9OpenPopupEPKci(ptr noundef %0, i32 noundef 0)
-  br label %395
-
-370:                                              ; preds = %364, %363
-  br i1 %.2201310, label %.thread277, label %371
-
-.thread277:                                       ; preds = %370
-  call void @_ZN5ImGui9OpenPopupEPKci(ptr noundef %0, i32 noundef 32)
-  br label %372
-
-371:                                              ; preds = %370
-  br i1 %.1190.shrunk314, label %372, label %395
-
-372:                                              ; preds = %.thread277, %371
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %373 = getelementptr inbounds nuw i8, ptr %12, i64 7432
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %10, ptr noundef nonnull align 8 dereferenceable(80) %373, i64 80, i1 false), !tbaa.struct !556
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store float 0.000000e+00, ptr %11, align 4, !tbaa !158
-  %374 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store float 0.000000e+00, ptr %374, align 4, !tbaa !159
-  call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %375 = getelementptr inbounds nuw i8, ptr %12, i64 3068
-  %376 = load float, ptr %375, align 4, !tbaa !705
-  call void @_ZN5ImGui12PushStyleVarEif(i32 noundef 7, float noundef %376)
-  %377 = call noundef zeroext i1 @_ZN5ImGui12BeginPopupExEji(i32 noundef %20, i32 noundef %spec.select)
-  call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 1)
-  br i1 %377, label %378, label %394
-
-378:                                              ; preds = %372
-  %or.cond31 = and i1 %.2201310, %.1198312
-  br i1 %or.cond31, label %379, label %386
-
-379:                                              ; preds = %378
-  %380 = getelementptr inbounds nuw i8, ptr %12, i64 7885
-  %381 = load i8, ptr %380, align 1, !tbaa !706, !range !152, !noundef !153
-  %382 = trunc nuw i8 %381 to i1
-  br i1 %382, label %386, label %383
-
-383:                                              ; preds = %379
-  %384 = load ptr, ptr %13, align 8, !tbaa !9
-  call void @_ZN5ImGui11FocusWindowEP11ImGuiWindowi(ptr noundef %384, i32 noundef 2)
-  %385 = load ptr, ptr %13, align 8, !tbaa !9
-  call void @_ZN5ImGui13NavInitWindowEP11ImGuiWindowb(ptr noundef %385, i1 noundef zeroext false)
-  br label %386
-
-386:                                              ; preds = %383, %379, %378
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %373, ptr noundef nonnull align 4 dereferenceable(80) %10, i64 80, i1 false), !tbaa.struct !556
-  %387 = getelementptr inbounds nuw i8, ptr %12, i64 4936
-  %388 = load ptr, ptr %387, align 8, !tbaa !177
-  %389 = icmp eq ptr %388, %14
-  br i1 %389, label %390, label %394
-
-390:                                              ; preds = %386
-  %391 = getelementptr inbounds nuw i8, ptr %12, i64 7440
-  %392 = load i32, ptr %391, align 8, !tbaa !252
-  %393 = or i32 %392, 128
-  store i32 %393, ptr %391, align 8, !tbaa !252
   br label %394
 
-394:                                              ; preds = %386, %390, %372
+369:                                              ; preds = %363, %362
+  br i1 %.2201310, label %.thread277, label %370
+
+.thread277:                                       ; preds = %369
+  call void @_ZN5ImGui9OpenPopupEPKci(ptr noundef %0, i32 noundef 32)
+  br label %371
+
+370:                                              ; preds = %369
+  br i1 %.1190.shrunk314, label %371, label %394
+
+371:                                              ; preds = %.thread277, %370
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  %372 = getelementptr inbounds nuw i8, ptr %12, i64 7432
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %10, ptr noundef nonnull align 8 dereferenceable(80) %372, i64 80, i1 false), !tbaa.struct !556
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  store float 0.000000e+00, ptr %11, align 4, !tbaa !158
+  %373 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store float 0.000000e+00, ptr %373, align 4, !tbaa !159
+  call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  %374 = getelementptr inbounds nuw i8, ptr %12, i64 3068
+  %375 = load float, ptr %374, align 4, !tbaa !705
+  call void @_ZN5ImGui12PushStyleVarEif(i32 noundef 7, float noundef %375)
+  %376 = call noundef zeroext i1 @_ZN5ImGui12BeginPopupExEji(i32 noundef %20, i32 noundef %spec.select)
+  call void @_ZN5ImGui11PopStyleVarEi(i32 noundef 1)
+  br i1 %376, label %377, label %393
+
+377:                                              ; preds = %371
+  %or.cond31 = and i1 %.2201310, %.1198312
+  br i1 %or.cond31, label %378, label %385
+
+378:                                              ; preds = %377
+  %379 = getelementptr inbounds nuw i8, ptr %12, i64 7885
+  %380 = load i8, ptr %379, align 1, !tbaa !706, !range !152, !noundef !153
+  %381 = trunc nuw i8 %380 to i1
+  br i1 %381, label %385, label %382
+
+382:                                              ; preds = %378
+  %383 = load ptr, ptr %13, align 8, !tbaa !9
+  call void @_ZN5ImGui11FocusWindowEP11ImGuiWindowi(ptr noundef %383, i32 noundef 2)
+  %384 = load ptr, ptr %13, align 8, !tbaa !9
+  call void @_ZN5ImGui13NavInitWindowEP11ImGuiWindowb(ptr noundef %384, i1 noundef zeroext false)
+  br label %385
+
+385:                                              ; preds = %382, %378, %377
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %372, ptr noundef nonnull align 4 dereferenceable(80) %10, i64 80, i1 false), !tbaa.struct !556
+  %386 = getelementptr inbounds nuw i8, ptr %12, i64 4936
+  %387 = load ptr, ptr %386, align 8, !tbaa !177
+  %388 = icmp eq ptr %387, %14
+  br i1 %388, label %389, label %393
+
+389:                                              ; preds = %385
+  %390 = getelementptr inbounds nuw i8, ptr %12, i64 7440
+  %391 = load i32, ptr %390, align 8, !tbaa !252
+  %392 = or i32 %391, 128
+  store i32 %392, ptr %390, align 8, !tbaa !252
+  br label %393
+
+393:                                              ; preds = %385, %389, %371
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %397
+  br label %396
 
-395:                                              ; preds = %.thread279, %371
-  %396 = getelementptr inbounds nuw i8, ptr %12, i64 7512
-  store i32 0, ptr %396, align 8, !tbaa !302
-  br label %397
+394:                                              ; preds = %.thread279, %370
+  %395 = getelementptr inbounds nuw i8, ptr %12, i64 7512
+  store i32 0, ptr %395, align 8, !tbaa !302
+  br label %396
 
-397:                                              ; preds = %395, %394
-  %.3 = phi i1 [ %377, %394 ], [ false, %395 ]
+396:                                              ; preds = %394, %393
+  %.3 = phi i1 [ %376, %393 ], [ false, %394 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %398
+  br label %397
 
-398:                                              ; preds = %397, %40, %38, %3
-  %.0 = phi i1 [ false, %3 ], [ %.3, %397 ], [ %39, %38 ], [ false, %40 ]
+397:                                              ; preds = %396, %40, %38, %3
+  %.0 = phi i1 [ false, %3 ], [ %.3, %396 ], [ %39, %38 ], [ false, %40 ]
   ret i1 %.0
 }
 
