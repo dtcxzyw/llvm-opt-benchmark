@@ -91010,9 +91010,11 @@ _ZN5typst4math8fragment19script_alternatives17h3f13278ce2573cd8E.llvm.5857379167
   %.0.i.inv.i.i.i.i157 = fcmp ord double %299, 0.000000e+00
   %.0.i.i.i1.i = select i1 %.0.i.inv.i.i.i.i157, double %299, double 0.000000e+00
   %300 = fadd double %.0.i.i.i1.i, %.0.i.i.i.i156
+  %.0.i.inv.i.i.i2.i = fcmp ord double %300, 0.000000e+00
+  %.0.i.i.i3.i = select i1 %.0.i.inv.i.i.i2.i, double %300, double 0.000000e+00
   store i64 1, ptr %56, align 8, !alias.scope !24185, !noalias !24154
   %301 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store double %300, ptr %301, align 8, !alias.scope !24185, !noalias !24154
+  store double %.0.i.i.i3.i, ptr %301, align 8, !alias.scope !24185, !noalias !24154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %59, ptr noundef nonnull align 8 dereferenceable(96) %56, i64 96, i1 false)
   %302 = getelementptr inbounds nuw i8, ptr %59, i64 136
   store i32 3, ptr %302, align 8, !alias.scope !24188, !noalias !24191
@@ -91809,9 +91811,11 @@ _ZN5typst4math8fragment19script_alternatives17h3f13278ce2573cd8E.llvm.5857379167
   %.0.i.inv.i.i.i = fcmp ord double %623, 0.000000e+00
   %.0.i.i.i212 = select i1 %.0.i.inv.i.i.i, double %623, double 0.000000e+00
   %624 = fadd double %.0.i.i.i212, %.0.i.i.i211
+  %.0.i.inv.i.i.i213 = fcmp ord double %624, 0.000000e+00
+  %.0.i.i.i214 = select i1 %.0.i.inv.i.i.i213, double %624, double 0.000000e+00
   store i64 1, ptr %31, align 8, !alias.scope !24379
   %625 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store double %624, ptr %625, align 8, !alias.scope !24379
+  store double %.0.i.i.i214, ptr %625, align 8, !alias.scope !24379
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr %41, ptr %25, align 8

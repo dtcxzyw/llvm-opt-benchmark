@@ -946,221 +946,221 @@ define dso_local double @arhosekskymodel_solar_radiance_internal2(ptr noundef re
   %14 = tail call double @llvm.fmuladd.f64(double %13, double %11, double 1.000000e+00)
   %15 = fcmp olt double %14, 0.000000e+00
   %.061 = select i1 %15, double 0.000000e+00, double %14
-  %sqrt = tail call double @llvm.sqrt.f64(double %.061)
-  %16 = fcmp oeq double %.061, 0.000000e+00
-  br i1 %16, label %162, label %17
+  %16 = tail call double @sqrt(double noundef %.061) #12, !tbaa !4
+  %17 = fcmp oeq double %16, 0.000000e+00
+  br i1 %17, label %163, label %18
 
-17:                                               ; preds = %4
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %19 = load double, ptr %18, align 8, !tbaa !17
-  %20 = fptosi double %19 to i32
-  %21 = add nsw i32 %20, -1
-  %22 = icmp eq i32 %21, 9
-  %23 = fadd double %1, -3.200000e+02
-  %24 = fdiv double %23, 4.000000e+01
-  %25 = fptosi double %24 to i32
-  %26 = tail call double @fmod(double noundef %1, double noundef 4.000000e+01) #12, !tbaa !4
-  %27 = icmp eq i32 %25, 10
-  %.058 = select i1 %27, i32 9, i32 %25
-  %28 = fmul double %2, 2.000000e+00
-  %29 = fdiv double %28, 0x400921FB54442D18
-  %30 = tail call double @pow(double noundef %29, double noundef 0x3FD5555555555555) #12, !tbaa !4
-  %31 = fmul double %30, 4.500000e+01
-  %32 = fptosi double %31 to i32
-  %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %32, i32 44)
-  %33 = sitofp i32 %spec.store.select.i to double
-  %34 = fdiv double %33, 4.500000e+01
-  %35 = tail call double @pow(double noundef %34, double noundef 3.000000e+00) #12, !tbaa !4
-  %36 = fmul double %35, 0x3FF921FB54442D18
-  %37 = sext i32 %.058 to i64
-  %38 = getelementptr inbounds ptr, ptr @solarDatasets, i64 %37
-  %39 = load ptr, ptr %38, align 8, !tbaa !20
-  %40 = mul i32 %21, 180
-  %41 = select i1 %22, i32 1440, i32 %40
-  %42 = shl i32 %spec.store.select.i, 2
-  %43 = add i32 %41, 4
-  %44 = add i32 %43, %42
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr double, ptr %39, i64 %45
-  %47 = fsub double %2, %36
-  br label %48
+18:                                               ; preds = %4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %20 = load double, ptr %19, align 8, !tbaa !17
+  %21 = fptosi double %20 to i32
+  %22 = add nsw i32 %21, -1
+  %23 = icmp eq i32 %22, 9
+  %24 = fadd double %1, -3.200000e+02
+  %25 = fdiv double %24, 4.000000e+01
+  %26 = fptosi double %25 to i32
+  %27 = tail call double @fmod(double noundef %1, double noundef 4.000000e+01) #12, !tbaa !4
+  %28 = icmp eq i32 %26, 10
+  %.058 = select i1 %28, i32 9, i32 %26
+  %29 = fmul double %2, 2.000000e+00
+  %30 = fdiv double %29, 0x400921FB54442D18
+  %31 = tail call double @pow(double noundef %30, double noundef 0x3FD5555555555555) #12, !tbaa !4
+  %32 = fmul double %31, 4.500000e+01
+  %33 = fptosi double %32 to i32
+  %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %33, i32 44)
+  %34 = sitofp i32 %spec.store.select.i to double
+  %35 = fdiv double %34, 4.500000e+01
+  %36 = tail call double @pow(double noundef %35, double noundef 3.000000e+00) #12, !tbaa !4
+  %37 = fmul double %36, 0x3FF921FB54442D18
+  %38 = sext i32 %.058 to i64
+  %39 = getelementptr inbounds ptr, ptr @solarDatasets, i64 %38
+  %40 = load ptr, ptr %39, align 8, !tbaa !20
+  %41 = mul i32 %22, 180
+  %42 = select i1 %23, i32 1440, i32 %41
+  %43 = shl i32 %spec.store.select.i, 2
+  %44 = add i32 %42, 4
+  %45 = add i32 %44, %43
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr double, ptr %40, i64 %46
+  %48 = fsub double %2, %37
+  br label %49
 
-48:                                               ; preds = %48, %17
-  %.023.i = phi i32 [ 0, %17 ], [ %52, %48 ]
-  %.01722.i = phi double [ 1.000000e+00, %17 ], [ %51, %48 ]
-  %.pn21.i = phi ptr [ %46, %17 ], [ %.018.i, %48 ]
-  %.01920.i = phi double [ 0.000000e+00, %17 ], [ %50, %48 ]
+49:                                               ; preds = %49, %18
+  %.023.i = phi i32 [ 0, %18 ], [ %53, %49 ]
+  %.01722.i = phi double [ 1.000000e+00, %18 ], [ %52, %49 ]
+  %.pn21.i = phi ptr [ %47, %18 ], [ %.018.i, %49 ]
+  %.01920.i = phi double [ 0.000000e+00, %18 ], [ %51, %49 ]
   %.018.i = getelementptr i8, ptr %.pn21.i, i64 -8
-  %49 = load double, ptr %.018.i, align 8, !tbaa !8
-  %50 = tail call double @llvm.fmuladd.f64(double %.01722.i, double %49, double %.01920.i)
-  %51 = fmul double %47, %.01722.i
-  %52 = add nuw nsw i32 %.023.i, 1
-  %exitcond.not.i = icmp eq i32 %52, 4
-  br i1 %exitcond.not.i, label %arhosekskymodel_sr_internal.exit, label %48, !llvm.loop !29
+  %50 = load double, ptr %.018.i, align 8, !tbaa !8
+  %51 = tail call double @llvm.fmuladd.f64(double %.01722.i, double %50, double %.01920.i)
+  %52 = fmul double %48, %.01722.i
+  %53 = add nuw nsw i32 %.023.i, 1
+  %exitcond.not.i = icmp eq i32 %53, 4
+  br i1 %exitcond.not.i, label %arhosekskymodel_sr_internal.exit, label %49, !llvm.loop !29
 
-arhosekskymodel_sr_internal.exit:                 ; preds = %48
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %54 = getelementptr inbounds double, ptr %53, i64 %37
-  %55 = load double, ptr %54, align 8, !tbaa !8
-  %56 = add nsw i32 %.058, 1
-  %57 = tail call double @pow(double noundef %29, double noundef 0x3FD5555555555555) #12, !tbaa !4
-  %58 = fmul double %57, 4.500000e+01
-  %59 = fptosi double %58 to i32
-  %spec.store.select.i66 = tail call i32 @llvm.smin.i32(i32 %59, i32 44)
-  %60 = sitofp i32 %spec.store.select.i66 to double
-  %61 = fdiv double %60, 4.500000e+01
-  %62 = tail call double @pow(double noundef %61, double noundef 3.000000e+00) #12, !tbaa !4
-  %63 = fmul double %62, 0x3FF921FB54442D18
-  %64 = sext i32 %56 to i64
-  %65 = getelementptr inbounds ptr, ptr @solarDatasets, i64 %64
-  %66 = load ptr, ptr %65, align 8, !tbaa !20
-  %67 = shl i32 %spec.store.select.i66, 2
-  %68 = add i32 %67, %43
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr double, ptr %66, i64 %69
-  %71 = fsub double %2, %63
-  br label %72
+arhosekskymodel_sr_internal.exit:                 ; preds = %49
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 984
+  %55 = getelementptr inbounds double, ptr %54, i64 %38
+  %56 = load double, ptr %55, align 8, !tbaa !8
+  %57 = add nsw i32 %.058, 1
+  %58 = tail call double @pow(double noundef %30, double noundef 0x3FD5555555555555) #12, !tbaa !4
+  %59 = fmul double %58, 4.500000e+01
+  %60 = fptosi double %59 to i32
+  %spec.store.select.i66 = tail call i32 @llvm.smin.i32(i32 %60, i32 44)
+  %61 = sitofp i32 %spec.store.select.i66 to double
+  %62 = fdiv double %61, 4.500000e+01
+  %63 = tail call double @pow(double noundef %62, double noundef 3.000000e+00) #12, !tbaa !4
+  %64 = fmul double %63, 0x3FF921FB54442D18
+  %65 = sext i32 %57 to i64
+  %66 = getelementptr inbounds ptr, ptr @solarDatasets, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !20
+  %68 = shl i32 %spec.store.select.i66, 2
+  %69 = add i32 %68, %44
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr double, ptr %67, i64 %70
+  %72 = fsub double %2, %64
+  br label %73
 
-72:                                               ; preds = %72, %arhosekskymodel_sr_internal.exit
-  %.023.i67 = phi i32 [ 0, %arhosekskymodel_sr_internal.exit ], [ %76, %72 ]
-  %.01722.i68 = phi double [ 1.000000e+00, %arhosekskymodel_sr_internal.exit ], [ %75, %72 ]
-  %.pn21.i69 = phi ptr [ %70, %arhosekskymodel_sr_internal.exit ], [ %.018.i71, %72 ]
-  %.01920.i70 = phi double [ 0.000000e+00, %arhosekskymodel_sr_internal.exit ], [ %74, %72 ]
+73:                                               ; preds = %73, %arhosekskymodel_sr_internal.exit
+  %.023.i67 = phi i32 [ 0, %arhosekskymodel_sr_internal.exit ], [ %77, %73 ]
+  %.01722.i68 = phi double [ 1.000000e+00, %arhosekskymodel_sr_internal.exit ], [ %76, %73 ]
+  %.pn21.i69 = phi ptr [ %71, %arhosekskymodel_sr_internal.exit ], [ %.018.i71, %73 ]
+  %.01920.i70 = phi double [ 0.000000e+00, %arhosekskymodel_sr_internal.exit ], [ %75, %73 ]
   %.018.i71 = getelementptr i8, ptr %.pn21.i69, i64 -8
-  %73 = load double, ptr %.018.i71, align 8, !tbaa !8
-  %74 = tail call double @llvm.fmuladd.f64(double %.01722.i68, double %73, double %.01920.i70)
-  %75 = fmul double %71, %.01722.i68
-  %76 = add nuw nsw i32 %.023.i67, 1
-  %exitcond.not.i72 = icmp eq i32 %76, 4
-  br i1 %exitcond.not.i72, label %arhosekskymodel_sr_internal.exit73, label %72, !llvm.loop !29
+  %74 = load double, ptr %.018.i71, align 8, !tbaa !8
+  %75 = tail call double @llvm.fmuladd.f64(double %.01722.i68, double %74, double %.01920.i70)
+  %76 = fmul double %72, %.01722.i68
+  %77 = add nuw nsw i32 %.023.i67, 1
+  %exitcond.not.i72 = icmp eq i32 %77, 4
+  br i1 %exitcond.not.i72, label %arhosekskymodel_sr_internal.exit73, label %73, !llvm.loop !29
 
-arhosekskymodel_sr_internal.exit73:               ; preds = %72
-  %77 = getelementptr inbounds double, ptr %53, i64 %64
-  %78 = load double, ptr %77, align 8, !tbaa !8
-  %79 = tail call double @pow(double noundef %29, double noundef 0x3FD5555555555555) #12, !tbaa !4
-  %80 = fmul double %79, 4.500000e+01
-  %81 = fptosi double %80 to i32
-  %spec.store.select.i74 = tail call i32 @llvm.smin.i32(i32 %81, i32 44)
-  %82 = sitofp i32 %spec.store.select.i74 to double
-  %83 = fdiv double %82, 4.500000e+01
-  %84 = tail call double @pow(double noundef %83, double noundef 3.000000e+00) #12, !tbaa !4
-  %85 = fmul double %84, 0x3FF921FB54442D18
-  %86 = shl i32 %spec.store.select.i74, 2
-  %87 = add i32 %41, 184
-  %88 = add i32 %86, %87
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr double, ptr %39, i64 %89
-  %91 = fsub double %2, %85
-  br label %92
+arhosekskymodel_sr_internal.exit73:               ; preds = %73
+  %78 = getelementptr inbounds double, ptr %54, i64 %65
+  %79 = load double, ptr %78, align 8, !tbaa !8
+  %80 = tail call double @pow(double noundef %30, double noundef 0x3FD5555555555555) #12, !tbaa !4
+  %81 = fmul double %80, 4.500000e+01
+  %82 = fptosi double %81 to i32
+  %spec.store.select.i74 = tail call i32 @llvm.smin.i32(i32 %82, i32 44)
+  %83 = sitofp i32 %spec.store.select.i74 to double
+  %84 = fdiv double %83, 4.500000e+01
+  %85 = tail call double @pow(double noundef %84, double noundef 3.000000e+00) #12, !tbaa !4
+  %86 = fmul double %85, 0x3FF921FB54442D18
+  %87 = shl i32 %spec.store.select.i74, 2
+  %88 = add i32 %42, 184
+  %89 = add i32 %87, %88
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr double, ptr %40, i64 %90
+  %92 = fsub double %2, %86
+  br label %93
 
-92:                                               ; preds = %92, %arhosekskymodel_sr_internal.exit73
-  %.023.i75 = phi i32 [ 0, %arhosekskymodel_sr_internal.exit73 ], [ %96, %92 ]
-  %.01722.i76 = phi double [ 1.000000e+00, %arhosekskymodel_sr_internal.exit73 ], [ %95, %92 ]
-  %.pn21.i77 = phi ptr [ %90, %arhosekskymodel_sr_internal.exit73 ], [ %.018.i79, %92 ]
-  %.01920.i78 = phi double [ 0.000000e+00, %arhosekskymodel_sr_internal.exit73 ], [ %94, %92 ]
+93:                                               ; preds = %93, %arhosekskymodel_sr_internal.exit73
+  %.023.i75 = phi i32 [ 0, %arhosekskymodel_sr_internal.exit73 ], [ %97, %93 ]
+  %.01722.i76 = phi double [ 1.000000e+00, %arhosekskymodel_sr_internal.exit73 ], [ %96, %93 ]
+  %.pn21.i77 = phi ptr [ %91, %arhosekskymodel_sr_internal.exit73 ], [ %.018.i79, %93 ]
+  %.01920.i78 = phi double [ 0.000000e+00, %arhosekskymodel_sr_internal.exit73 ], [ %95, %93 ]
   %.018.i79 = getelementptr i8, ptr %.pn21.i77, i64 -8
-  %93 = load double, ptr %.018.i79, align 8, !tbaa !8
-  %94 = tail call double @llvm.fmuladd.f64(double %.01722.i76, double %93, double %.01920.i78)
-  %95 = fmul double %91, %.01722.i76
-  %96 = add nuw nsw i32 %.023.i75, 1
-  %exitcond.not.i80 = icmp eq i32 %96, 4
-  br i1 %exitcond.not.i80, label %arhosekskymodel_sr_internal.exit81, label %92, !llvm.loop !29
+  %94 = load double, ptr %.018.i79, align 8, !tbaa !8
+  %95 = tail call double @llvm.fmuladd.f64(double %.01722.i76, double %94, double %.01920.i78)
+  %96 = fmul double %92, %.01722.i76
+  %97 = add nuw nsw i32 %.023.i75, 1
+  %exitcond.not.i80 = icmp eq i32 %97, 4
+  br i1 %exitcond.not.i80, label %arhosekskymodel_sr_internal.exit81, label %93, !llvm.loop !29
 
-arhosekskymodel_sr_internal.exit81:               ; preds = %92
-  %97 = tail call double @pow(double noundef %29, double noundef 0x3FD5555555555555) #12, !tbaa !4
-  %98 = fmul double %97, 4.500000e+01
-  %99 = fptosi double %98 to i32
-  %spec.store.select.i82 = tail call i32 @llvm.smin.i32(i32 %99, i32 44)
-  %100 = sitofp i32 %spec.store.select.i82 to double
-  %101 = fdiv double %100, 4.500000e+01
-  %102 = tail call double @pow(double noundef %101, double noundef 3.000000e+00) #12, !tbaa !4
-  %103 = fmul double %102, 0x3FF921FB54442D18
-  %104 = shl i32 %spec.store.select.i82, 2
-  %105 = add i32 %104, %87
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr double, ptr %66, i64 %106
-  %108 = fsub double %2, %103
-  br label %109
+arhosekskymodel_sr_internal.exit81:               ; preds = %93
+  %98 = tail call double @pow(double noundef %30, double noundef 0x3FD5555555555555) #12, !tbaa !4
+  %99 = fmul double %98, 4.500000e+01
+  %100 = fptosi double %99 to i32
+  %spec.store.select.i82 = tail call i32 @llvm.smin.i32(i32 %100, i32 44)
+  %101 = sitofp i32 %spec.store.select.i82 to double
+  %102 = fdiv double %101, 4.500000e+01
+  %103 = tail call double @pow(double noundef %102, double noundef 3.000000e+00) #12, !tbaa !4
+  %104 = fmul double %103, 0x3FF921FB54442D18
+  %105 = shl i32 %spec.store.select.i82, 2
+  %106 = add i32 %105, %88
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr double, ptr %67, i64 %107
+  %109 = fsub double %2, %104
+  br label %110
 
-109:                                              ; preds = %109, %arhosekskymodel_sr_internal.exit81
-  %.023.i83 = phi i32 [ 0, %arhosekskymodel_sr_internal.exit81 ], [ %113, %109 ]
-  %.01722.i84 = phi double [ 1.000000e+00, %arhosekskymodel_sr_internal.exit81 ], [ %112, %109 ]
-  %.pn21.i85 = phi ptr [ %107, %arhosekskymodel_sr_internal.exit81 ], [ %.018.i87, %109 ]
-  %.01920.i86 = phi double [ 0.000000e+00, %arhosekskymodel_sr_internal.exit81 ], [ %111, %109 ]
+110:                                              ; preds = %110, %arhosekskymodel_sr_internal.exit81
+  %.023.i83 = phi i32 [ 0, %arhosekskymodel_sr_internal.exit81 ], [ %114, %110 ]
+  %.01722.i84 = phi double [ 1.000000e+00, %arhosekskymodel_sr_internal.exit81 ], [ %113, %110 ]
+  %.pn21.i85 = phi ptr [ %108, %arhosekskymodel_sr_internal.exit81 ], [ %.018.i87, %110 ]
+  %.01920.i86 = phi double [ 0.000000e+00, %arhosekskymodel_sr_internal.exit81 ], [ %112, %110 ]
   %.018.i87 = getelementptr i8, ptr %.pn21.i85, i64 -8
-  %110 = load double, ptr %.018.i87, align 8, !tbaa !8
-  %111 = tail call double @llvm.fmuladd.f64(double %.01722.i84, double %110, double %.01920.i86)
-  %112 = fmul double %108, %.01722.i84
-  %113 = add nuw nsw i32 %.023.i83, 1
-  %exitcond.not.i88 = icmp eq i32 %113, 4
-  br i1 %exitcond.not.i88, label %arhosekskymodel_sr_internal.exit89, label %109, !llvm.loop !29
+  %111 = load double, ptr %.018.i87, align 8, !tbaa !8
+  %112 = tail call double @llvm.fmuladd.f64(double %.01722.i84, double %111, double %.01920.i86)
+  %113 = fmul double %109, %.01722.i84
+  %114 = add nuw nsw i32 %.023.i83, 1
+  %exitcond.not.i88 = icmp eq i32 %114, 4
+  br i1 %exitcond.not.i88, label %arhosekskymodel_sr_internal.exit89, label %110, !llvm.loop !29
 
-arhosekskymodel_sr_internal.exit89:               ; preds = %109
-  %114 = fdiv double %26, 4.000000e+01
-  %.057 = select i1 %27, double 1.000000e+00, double %114
-  %115 = fsub double 1.000000e+00, %.057
+arhosekskymodel_sr_internal.exit89:               ; preds = %110
+  %115 = fdiv double %27, 4.000000e+01
+  %.057 = select i1 %28, double 1.000000e+00, double %115
+  %116 = fsub double 1.000000e+00, %.057
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %116 = getelementptr inbounds ptr, ptr @limbDarkeningDatasets, i64 %37
-  %117 = load ptr, ptr %116, align 8, !tbaa !20
-  %118 = getelementptr inbounds ptr, ptr @limbDarkeningDatasets, i64 %64
-  %119 = load ptr, ptr %118, align 8, !tbaa !20
-  br label %120
+  %117 = getelementptr inbounds ptr, ptr @limbDarkeningDatasets, i64 %38
+  %118 = load ptr, ptr %117, align 8, !tbaa !20
+  %119 = getelementptr inbounds ptr, ptr @limbDarkeningDatasets, i64 %65
+  %120 = load ptr, ptr %119, align 8, !tbaa !20
+  br label %121
 
-120:                                              ; preds = %arhosekskymodel_sr_internal.exit89, %120
-  %indvars.iv = phi i64 [ 0, %arhosekskymodel_sr_internal.exit89 ], [ %indvars.iv.next, %120 ]
-  %121 = getelementptr inbounds nuw double, ptr %117, i64 %indvars.iv
-  %122 = load double, ptr %121, align 8, !tbaa !8
-  %123 = getelementptr inbounds nuw double, ptr %119, i64 %indvars.iv
-  %124 = load double, ptr %123, align 8, !tbaa !8
-  %125 = fmul double %.057, %124
-  %126 = tail call double @llvm.fmuladd.f64(double %115, double %122, double %125)
-  %127 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
-  store double %126, ptr %127, align 8, !tbaa !8
+121:                                              ; preds = %arhosekskymodel_sr_internal.exit89, %121
+  %indvars.iv = phi i64 [ 0, %arhosekskymodel_sr_internal.exit89 ], [ %indvars.iv.next, %121 ]
+  %122 = getelementptr inbounds nuw double, ptr %118, i64 %indvars.iv
+  %123 = load double, ptr %122, align 8, !tbaa !8
+  %124 = getelementptr inbounds nuw double, ptr %120, i64 %indvars.iv
+  %125 = load double, ptr %124, align 8, !tbaa !8
+  %126 = fmul double %.057, %125
+  %127 = tail call double @llvm.fmuladd.f64(double %116, double %123, double %126)
+  %128 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  store double %127, ptr %128, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %128, label %120, !llvm.loop !30
+  br i1 %exitcond.not, label %129, label %121, !llvm.loop !30
 
-128:                                              ; preds = %120
-  %129 = sitofp i32 %20 to double
-  %130 = fsub double %19, %129
-  %.059 = select i1 %22, double 1.000000e+00, double %130
-  %131 = fsub double 1.000000e+00, %.059
-  %132 = fmul double %50, %55
-  %133 = fmul double %74, %78
-  %134 = fmul double %.057, %133
-  %135 = tail call double @llvm.fmuladd.f64(double %115, double %132, double %134)
-  %136 = fmul double %55, %94
-  %137 = fmul double %78, %111
-  %138 = fmul double %.057, %137
-  %139 = tail call double @llvm.fmuladd.f64(double %115, double %136, double %138)
-  %140 = fmul double %.059, %139
-  %141 = tail call double @llvm.fmuladd.f64(double %131, double %135, double %140)
-  %142 = load double, ptr %5, align 16, !tbaa !8
-  %143 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %144 = load double, ptr %143, align 8, !tbaa !8
-  %145 = tail call double @llvm.fmuladd.f64(double %144, double %sqrt, double %142)
-  %146 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %147 = load double, ptr %146, align 16, !tbaa !8
-  %square = fmul double %sqrt, %sqrt
-  %148 = tail call double @llvm.fmuladd.f64(double %147, double %square, double %145)
-  %149 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %150 = load double, ptr %149, align 8, !tbaa !8
-  %151 = tail call double @pow(double noundef %sqrt, double noundef 3.000000e+00) #12, !tbaa !4
-  %152 = tail call double @llvm.fmuladd.f64(double %150, double %151, double %148)
-  %153 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %154 = load double, ptr %153, align 16, !tbaa !8
-  %155 = tail call double @pow(double noundef %sqrt, double noundef 4.000000e+00) #12, !tbaa !4
-  %156 = tail call double @llvm.fmuladd.f64(double %154, double %155, double %152)
-  %157 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %158 = load double, ptr %157, align 8, !tbaa !8
-  %159 = tail call double @pow(double noundef %sqrt, double noundef 5.000000e+00) #12, !tbaa !4
-  %160 = tail call double @llvm.fmuladd.f64(double %158, double %159, double %156)
-  %161 = fmul double %141, %160
+129:                                              ; preds = %121
+  %130 = sitofp i32 %21 to double
+  %131 = fsub double %20, %130
+  %.059 = select i1 %23, double 1.000000e+00, double %131
+  %132 = fsub double 1.000000e+00, %.059
+  %133 = fmul double %51, %56
+  %134 = fmul double %75, %79
+  %135 = fmul double %.057, %134
+  %136 = tail call double @llvm.fmuladd.f64(double %116, double %133, double %135)
+  %137 = fmul double %56, %95
+  %138 = fmul double %79, %112
+  %139 = fmul double %.057, %138
+  %140 = tail call double @llvm.fmuladd.f64(double %116, double %137, double %139)
+  %141 = fmul double %.059, %140
+  %142 = tail call double @llvm.fmuladd.f64(double %132, double %136, double %141)
+  %143 = load double, ptr %5, align 16, !tbaa !8
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %145 = load double, ptr %144, align 8, !tbaa !8
+  %146 = tail call double @llvm.fmuladd.f64(double %145, double %16, double %143)
+  %147 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %148 = load double, ptr %147, align 16, !tbaa !8
+  %square = fmul double %16, %16
+  %149 = tail call double @llvm.fmuladd.f64(double %148, double %square, double %146)
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %151 = load double, ptr %150, align 8, !tbaa !8
+  %152 = tail call double @pow(double noundef %16, double noundef 3.000000e+00) #12, !tbaa !4
+  %153 = tail call double @llvm.fmuladd.f64(double %151, double %152, double %149)
+  %154 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %155 = load double, ptr %154, align 16, !tbaa !8
+  %156 = tail call double @pow(double noundef %16, double noundef 4.000000e+00) #12, !tbaa !4
+  %157 = tail call double @llvm.fmuladd.f64(double %155, double %156, double %153)
+  %158 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %159 = load double, ptr %158, align 8, !tbaa !8
+  %160 = tail call double @pow(double noundef %16, double noundef 5.000000e+00) #12, !tbaa !4
+  %161 = tail call double @llvm.fmuladd.f64(double %159, double %160, double %157)
+  %162 = fmul double %142, %161
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %162
+  br label %163
 
-162:                                              ; preds = %4, %128
-  %.0 = phi double [ %161, %128 ], [ 0.000000e+00, %4 ]
+163:                                              ; preds = %4, %129
+  %.0 = phi double [ %162, %129 ], [ 0.000000e+00, %4 ]
   ret double %.0
 }
 
@@ -1184,9 +1184,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #11
 
 attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

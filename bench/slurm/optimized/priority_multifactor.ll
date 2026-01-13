@@ -106,6 +106,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.36 = private unnamed_addr constant [32 x i8] c"%s: cannot set my name to %s %m\00", align 1
 @__func__._decay_thread = private unnamed_addr constant [14 x i8] c"_decay_thread\00", align 1
 @.str.37 = private unnamed_addr constant [68 x i8] c"%s: %s: PRIO: Decay factor over %g seconds goes from %.15f -> %.15f\00", align 1
+@.str.38 = private unnamed_addr constant [45 x i8] c"priority/multifactor: problem applying decay\00", align 1
 @.str.39 = private unnamed_addr constant [39 x i8] c"%s:%d %s: pthread_cond_timedwait(): %m\00", align 1
 @assoc_mgr_assoc_list = external local_unnamed_addr global ptr, align 8
 @assoc_mgr_qos_list = external local_unnamed_addr global ptr, align 8
@@ -763,12 +764,12 @@ define internal noalias noundef ptr @_decay_thread(ptr readnone captures(none) %
   tail call fastcc void @_init_grp_used_tres_run_secs(i64 noundef %25)
   br label %26
 
-26:                                               ; preds = %189, %24
-  %.025 = phi i16 [ %8, %24 ], [ %.227, %189 ]
-  %.0 = phi i64 [ 0, %24 ], [ %.2, %189 ]
+26:                                               ; preds = %196, %24
+  %.025 = phi i16 [ %8, %24 ], [ %.227, %196 ]
+  %.0 = phi i64 [ 0, %24 ], [ %.2, %196 ]
   %27 = load i64, ptr @plugin_shutdown, align 8
   %.not = icmp eq i64 %27, 0
-  br i1 %.not, label %28, label %193
+  br i1 %.not, label %28, label %.loopexit
 
 28:                                               ; preds = %26
   %29 = load i64, ptr %3, align 8
@@ -858,13 +859,13 @@ define internal noalias noundef ptr @_decay_thread(ptr readnone captures(none) %
 59:                                               ; preds = %53, %50
   %60 = load i64, ptr @g_last_ran, align 8
   %.not41 = icmp eq i64 %60, 0
-  %.pre54.pre55 = load i64, ptr %3, align 8
-  br i1 %.not41, label %156, label %61
+  %.pre58.pre59 = load i64, ptr %3, align 8
+  br i1 %.not41, label %163, label %61
 
 61:                                               ; preds = %59
-  %62 = call double @difftime(i64 noundef %.pre54.pre55, i64 noundef %60) #16
+  %62 = call double @difftime(i64 noundef %.pre58.pre59, i64 noundef %60) #16
   %63 = fcmp ugt double %62, 0.000000e+00
-  br i1 %63, label %64, label %156
+  br i1 %63, label %64, label %163
 
 64:                                               ; preds = %61
   %65 = load double, ptr @decay_factor, align 8
@@ -889,279 +890,297 @@ define internal noalias noundef ptr @_decay_thread(ptr readnone captures(none) %
 75:                                               ; preds = %70, %73, %64
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(28) @__const._apply_decay.locks, i64 28, i1 false)
-  %.b.i = load i1, ptr @calc_fairshare, align 1
-  %76 = fcmp oeq double %.028, 1.000000e+00
-  %or.cond.i = or i1 %76, %.b.i
-  br i1 %or.cond.i, label %149, label %77
+  %76 = fcmp une double %.028, 0.000000e+00
+  br i1 %76, label %77, label %151
 
 77:                                               ; preds = %75
+  %.b.i = load i1, ptr @calc_fairshare, align 1
+  %78 = fcmp oeq double %.028, 1.000000e+00
+  %or.cond.i = or i1 %78, %.b.i
+  br i1 %or.cond.i, label %156, label %79
+
+79:                                               ; preds = %77
   call void @assoc_mgr_lock(ptr noundef nonnull %2) #14
-  %78 = load ptr, ptr @assoc_mgr_assoc_list, align 8
-  %79 = call ptr @list_iterator_create(ptr noundef %78) #14
-  %80 = call ptr @list_next(ptr noundef %79) #14
-  %.not52.i = icmp eq ptr %80, null
+  %80 = load ptr, ptr @assoc_mgr_assoc_list, align 8
+  %81 = call ptr @list_iterator_create(ptr noundef %80) #14
+  %82 = call ptr @list_next(ptr noundef %81) #14
+  %.not52.i = icmp eq ptr %82, null
   br i1 %.not52.i, label %._crit_edge55.i, label %.lr.ph54.i
 
-.lr.ph54.i:                                       ; preds = %77
-  %81 = fpext double %.028 to x86_fp80
-  br label %82
+.lr.ph54.i:                                       ; preds = %79
+  %83 = fpext double %.028 to x86_fp80
+  br label %84
 
-82:                                               ; preds = %119, %.lr.ph54.i
-  %83 = phi ptr [ %80, %.lr.ph54.i ], [ %120, %119 ]
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 296
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 144
-  %87 = load x86_fp80, ptr %86, align 16
-  %88 = fmul x86_fp80 %87, %81
-  store x86_fp80 %88, ptr %86, align 16
-  %89 = load i32, ptr @slurmctld_tres_cnt, align 4
-  %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %.lr.ph.preheader.i, label %._crit_edge.i
+84:                                               ; preds = %121, %.lr.ph54.i
+  %85 = phi ptr [ %82, %.lr.ph54.i ], [ %122, %121 ]
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 296
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 144
+  %89 = load x86_fp80, ptr %88, align 16
+  %90 = fmul x86_fp80 %89, %83
+  store x86_fp80 %90, ptr %88, align 16
+  %91 = load i32, ptr @slurmctld_tres_cnt, align 4
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %82
-  %wide.trip.count.i = zext nneg i32 %89 to i64
+.lr.ph.preheader.i:                               ; preds = %84
+  %wide.trip.count.i = zext nneg i32 %91 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %91 = load ptr, ptr %84, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 160
-  %93 = load ptr, ptr %92, align 16
-  %94 = getelementptr inbounds nuw x86_fp80, ptr %93, i64 %indvars.iv.i
-  %95 = load x86_fp80, ptr %94, align 16
-  %96 = fmul x86_fp80 %95, %81
-  store x86_fp80 %96, ptr %94, align 16
+  %93 = load ptr, ptr %86, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 160
+  %95 = load ptr, ptr %94, align 16
+  %96 = getelementptr inbounds nuw x86_fp80, ptr %95, i64 %indvars.iv.i
+  %97 = load x86_fp80, ptr %96, align 16
+  %98 = fmul x86_fp80 %97, %83
+  store x86_fp80 %98, ptr %96, align 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %82
-  %97 = load ptr, ptr %84, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 48
-  %99 = load double, ptr %98, align 16
-  %100 = fmul double %.028, %99
-  store double %100, ptr %98, align 16
-  %101 = getelementptr inbounds nuw i8, ptr %83, i64 144
-  %102 = load ptr, ptr %101, align 8
-  %.not45.i = icmp eq ptr %102, null
-  br i1 %.not45.i, label %119, label %103
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %84
+  %99 = load ptr, ptr %86, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 48
+  %101 = load double, ptr %100, align 16
+  %102 = fmul double %.028, %101
+  store double %102, ptr %100, align 16
+  %103 = getelementptr inbounds nuw i8, ptr %85, i64 144
+  %104 = load ptr, ptr %103, align 8
+  %.not45.i = icmp eq ptr %104, null
+  br i1 %.not45.i, label %121, label %105
 
-103:                                              ; preds = %._crit_edge.i
-  %104 = load ptr, ptr %84, align 8
-  %.not46.i = icmp eq ptr %102, %104
-  br i1 %.not46.i, label %119, label %105
+105:                                              ; preds = %._crit_edge.i
+  %106 = load ptr, ptr %86, align 8
+  %.not46.i = icmp eq ptr %104, %106
+  br i1 %.not46.i, label %121, label %107
 
-105:                                              ; preds = %103
-  %106 = getelementptr inbounds nuw i8, ptr %102, i64 144
-  %107 = load x86_fp80, ptr %106, align 16
-  %108 = fmul x86_fp80 %107, %81
-  store x86_fp80 %108, ptr %106, align 16
-  br i1 %90, label %.lr.ph50.preheader.i, label %._crit_edge51.i
+107:                                              ; preds = %105
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 144
+  %109 = load x86_fp80, ptr %108, align 16
+  %110 = fmul x86_fp80 %109, %83
+  store x86_fp80 %110, ptr %108, align 16
+  br i1 %92, label %.lr.ph50.preheader.i, label %._crit_edge51.i
 
-.lr.ph50.preheader.i:                             ; preds = %105
-  %wide.trip.count68.i = zext nneg i32 %89 to i64
+.lr.ph50.preheader.i:                             ; preds = %107
+  %wide.trip.count68.i = zext nneg i32 %91 to i64
   br label %.lr.ph50.i
 
 .lr.ph50.i:                                       ; preds = %.lr.ph50.i, %.lr.ph50.preheader.i
   %indvars.iv65.i = phi i64 [ 0, %.lr.ph50.preheader.i ], [ %indvars.iv.next66.i, %.lr.ph50.i ]
-  %109 = load ptr, ptr %101, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 160
-  %111 = load ptr, ptr %110, align 16
-  %112 = getelementptr inbounds nuw x86_fp80, ptr %111, i64 %indvars.iv65.i
-  %113 = load x86_fp80, ptr %112, align 16
-  %114 = fmul x86_fp80 %113, %81
-  store x86_fp80 %114, ptr %112, align 16
+  %111 = load ptr, ptr %103, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 160
+  %113 = load ptr, ptr %112, align 16
+  %114 = getelementptr inbounds nuw x86_fp80, ptr %113, i64 %indvars.iv65.i
+  %115 = load x86_fp80, ptr %114, align 16
+  %116 = fmul x86_fp80 %115, %83
+  store x86_fp80 %116, ptr %114, align 16
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count68.i
   br i1 %exitcond69.not.i, label %._crit_edge51.i, label %.lr.ph50.i, !llvm.loop !13
 
-._crit_edge51.i:                                  ; preds = %.lr.ph50.i, %105
-  %115 = load ptr, ptr %101, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 48
-  %117 = load double, ptr %116, align 16
-  %118 = fmul double %.028, %117
-  store double %118, ptr %116, align 16
-  br label %119
+._crit_edge51.i:                                  ; preds = %.lr.ph50.i, %107
+  %117 = load ptr, ptr %103, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 48
+  %119 = load double, ptr %118, align 16
+  %120 = fmul double %.028, %119
+  store double %120, ptr %118, align 16
+  br label %121
 
-119:                                              ; preds = %._crit_edge51.i, %103, %._crit_edge.i
-  %120 = call ptr @list_next(ptr noundef %79) #14
-  %.not.i = icmp eq ptr %120, null
-  br i1 %.not.i, label %._crit_edge55.i, label %82, !llvm.loop !14
+121:                                              ; preds = %._crit_edge51.i, %105, %._crit_edge.i
+  %122 = call ptr @list_next(ptr noundef %81) #14
+  %.not.i = icmp eq ptr %122, null
+  br i1 %.not.i, label %._crit_edge55.i, label %84, !llvm.loop !14
 
-._crit_edge55.i:                                  ; preds = %119, %77
-  call void @list_iterator_destroy(ptr noundef %79) #14
-  %121 = load ptr, ptr @assoc_mgr_qos_list, align 8
-  %122 = call ptr @list_iterator_create(ptr noundef %121) #14
-  %123 = call ptr @list_next(ptr noundef %122) #14
-  %.not4360.i = icmp eq ptr %123, null
+._crit_edge55.i:                                  ; preds = %121, %79
+  call void @list_iterator_destroy(ptr noundef %81) #14
+  %123 = load ptr, ptr @assoc_mgr_qos_list, align 8
+  %124 = call ptr @list_iterator_create(ptr noundef %123) #14
+  %125 = call ptr @list_next(ptr noundef %124) #14
+  %.not4360.i = icmp eq ptr %125, null
   br i1 %.not4360.i, label %._crit_edge63.i, label %.lr.ph62.i
 
 .lr.ph62.i:                                       ; preds = %._crit_edge55.i
-  %124 = fpext double %.028 to x86_fp80
-  br label %125
+  %126 = fpext double %.028 to x86_fp80
+  br label %127
 
-125:                                              ; preds = %.backedge.i, %.lr.ph62.i
-  %126 = phi ptr [ %123, %.lr.ph62.i ], [ %148, %.backedge.i ]
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 20
-  %128 = load i32, ptr %127, align 4
-  %129 = and i32 %128, 256
-  %.not44.i = icmp eq i32 %129, 0
-  br i1 %.not44.i, label %130, label %.backedge.i
+127:                                              ; preds = %.backedge.i, %.lr.ph62.i
+  %128 = phi ptr [ %125, %.lr.ph62.i ], [ %150, %.backedge.i ]
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 20
+  %130 = load i32, ptr %129, align 4
+  %131 = and i32 %130, 256
+  %.not44.i = icmp eq i32 %131, 0
+  br i1 %.not44.i, label %132, label %.backedge.i
 
-130:                                              ; preds = %125
-  %131 = getelementptr inbounds nuw i8, ptr %126, i64 312
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 96
-  %134 = load x86_fp80, ptr %133, align 16
-  %135 = fmul x86_fp80 %134, %124
-  store x86_fp80 %135, ptr %133, align 16
-  %136 = load i32, ptr @slurmctld_tres_cnt, align 4
-  %137 = icmp sgt i32 %136, 0
-  br i1 %137, label %.lr.ph58.preheader.i, label %._crit_edge59.i
+132:                                              ; preds = %127
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 312
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 96
+  %136 = load x86_fp80, ptr %135, align 16
+  %137 = fmul x86_fp80 %136, %126
+  store x86_fp80 %137, ptr %135, align 16
+  %138 = load i32, ptr @slurmctld_tres_cnt, align 4
+  %139 = icmp sgt i32 %138, 0
+  br i1 %139, label %.lr.ph58.preheader.i, label %._crit_edge59.i
 
-.lr.ph58.preheader.i:                             ; preds = %130
-  %wide.trip.count73.i = zext nneg i32 %136 to i64
+.lr.ph58.preheader.i:                             ; preds = %132
+  %wide.trip.count73.i = zext nneg i32 %138 to i64
   br label %.lr.ph58.i
 
 .lr.ph58.i:                                       ; preds = %.lr.ph58.i, %.lr.ph58.preheader.i
   %indvars.iv70.i = phi i64 [ 0, %.lr.ph58.preheader.i ], [ %indvars.iv.next71.i, %.lr.ph58.i ]
-  %138 = load ptr, ptr %131, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 112
-  %140 = load ptr, ptr %139, align 16
-  %141 = getelementptr inbounds nuw x86_fp80, ptr %140, i64 %indvars.iv70.i
-  %142 = load x86_fp80, ptr %141, align 16
-  %143 = fmul x86_fp80 %142, %124
-  store x86_fp80 %143, ptr %141, align 16
+  %140 = load ptr, ptr %133, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 112
+  %142 = load ptr, ptr %141, align 16
+  %143 = getelementptr inbounds nuw x86_fp80, ptr %142, i64 %indvars.iv70.i
+  %144 = load x86_fp80, ptr %143, align 16
+  %145 = fmul x86_fp80 %144, %126
+  store x86_fp80 %145, ptr %143, align 16
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count73.i
   br i1 %exitcond74.not.i, label %._crit_edge59.i, label %.lr.ph58.i, !llvm.loop !15
 
-._crit_edge59.i:                                  ; preds = %.lr.ph58.i, %130
-  %144 = load ptr, ptr %131, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 64
-  %146 = load double, ptr %145, align 16
-  %147 = fmul double %.028, %146
-  store double %147, ptr %145, align 16
+._crit_edge59.i:                                  ; preds = %.lr.ph58.i, %132
+  %146 = load ptr, ptr %133, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 64
+  %148 = load double, ptr %147, align 16
+  %149 = fmul double %.028, %148
+  store double %149, ptr %147, align 16
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %._crit_edge59.i, %125
-  %148 = call ptr @list_next(ptr noundef %122) #14
-  %.not43.i = icmp eq ptr %148, null
-  br i1 %.not43.i, label %._crit_edge63.i, label %125, !llvm.loop !16
+.backedge.i:                                      ; preds = %._crit_edge59.i, %127
+  %150 = call ptr @list_next(ptr noundef %124) #14
+  %.not43.i = icmp eq ptr %150, null
+  br i1 %.not43.i, label %._crit_edge63.i, label %127, !llvm.loop !16
 
 ._crit_edge63.i:                                  ; preds = %.backedge.i, %._crit_edge55.i
-  call void @list_iterator_destroy(ptr noundef %122) #14
+  call void @list_iterator_destroy(ptr noundef %124) #14
   call void @assoc_mgr_unlock(ptr noundef nonnull %2) #14
-  br label %149
-
-149:                                              ; preds = %._crit_edge63.i, %75
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._decay_thread.job_write_lock) #14
-  call void @site_factor_g_update() #14
-  %150 = load i32, ptr @flags, align 4
-  %151 = and i32 %150, 32
-  %.not44 = icmp eq i32 %151, 0
-  br i1 %.not44, label %152, label %155
-
-152:                                              ; preds = %149
-  %153 = load ptr, ptr @job_list, align 8
-  %154 = call i32 @list_for_each(ptr noundef %153, ptr noundef nonnull @_decay_apply_new_usage_and_weighted_factors, ptr noundef nonnull %3) #14
-  br label %155
-
-155:                                              ; preds = %152, %149
-  call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._decay_thread.job_write_lock) #14
-  %.pre54.pre = load i64, ptr %3, align 8
   br label %156
 
-156:                                              ; preds = %61, %59, %155
-  %.pre54 = phi i64 [ %.pre54.pre55, %61 ], [ %.pre54.pre55, %59 ], [ %.pre54.pre, %155 ]
-  %157 = load i32, ptr @flags, align 4
-  %158 = and i32 %157, 32
-  %.not46 = icmp eq i32 %158, 0
-  br i1 %.not46, label %161, label %159
-
-159:                                              ; preds = %156
-  %160 = load ptr, ptr @job_list, align 8
-  call void @fair_tree_decay(ptr noundef %160, i64 noundef %.pre54) #14
-  %.pre = load i64, ptr %3, align 8
-  br label %161
-
-161:                                              ; preds = %159, %156
-  %162 = phi i64 [ %.pre, %159 ], [ %.pre54, %156 ]
-  store i64 %162, ptr @g_last_ran, align 8
-  %163 = load i64, ptr @g_last_reset, align 8
-  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
-  %165 = call i32 @xstrcmp(ptr noundef %164, ptr noundef nonnull @.str.40) #14
-  %.not.i49 = icmp eq i32 %165, 0
-  br i1 %.not.i49, label %166, label %168
-
-166:                                              ; preds = %161
-  %167 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.41) #14
-  br label %_write_last_decay_ran.exit
-
-168:                                              ; preds = %161
-  %169 = load i32, ptr @_write_last_decay_ran.high_buffer_size, align 4
-  %170 = call ptr @init_buf(i32 noundef %169) #14
-  call void @pack_time(i64 noundef %162, ptr noundef %170) #14
-  call void @pack_time(i64 noundef %163, ptr noundef %170) #14
-  %171 = call i32 @save_buf_to_state(ptr noundef nonnull @.str.30, ptr noundef %170, ptr noundef nonnull @_write_last_decay_ran.high_buffer_size) #14
-  %172 = call i32 @get_log_level() #14
-  %173 = icmp sgt i32 %172, 7
-  br i1 %173, label %174, label %175
-
-174:                                              ; preds = %168
-  call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.42, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._write_last_decay_ran, i64 noundef %162) #14
-  br label %175
-
-175:                                              ; preds = %174, %168
-  %.not11.i = icmp eq ptr %170, null
-  br i1 %.not11.i, label %_write_last_decay_ran.exit, label %176
-
-176:                                              ; preds = %175
-  call void @free_buf(ptr noundef nonnull %170) #14
-  br label %_write_last_decay_ran.exit
-
-_write_last_decay_ran.exit:                       ; preds = %166, %175, %176
+151:                                              ; preds = %75
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  %152 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38) #14
   store i1 false, ptr @running_decay, align 1
-  %177 = load i64, ptr @plugin_shutdown, align 8
-  %.not47 = icmp eq i64 %177, 0
-  br i1 %.not47, label %178, label %189
+  %153 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @decay_lock) #14
+  %.not45 = icmp eq i32 %153, 0
+  br i1 %.not45, label %.loopexit, label %154
 
-178:                                              ; preds = %_write_last_decay_ran.exit
-  %179 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 836), align 4
-  %180 = zext i32 %179 to i64
-  %181 = load i64, ptr %5, align 8
-  %182 = add nsw i64 %181, %180
-  store i64 %182, ptr %5, align 8
-  %183 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @decay_cond, ptr noundef nonnull @decay_lock, ptr noundef nonnull %5) #14
-  switch i32 %183, label %184 [
-    i32 110, label %187
-    i32 0, label %187
-  ]
-
-184:                                              ; preds = %178
-  %185 = tail call ptr @__errno_location() #16
-  store i32 %183, ptr %185, align 4
-  %186 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.8, i32 noundef 1466, ptr noundef nonnull @__func__._decay_thread) #14
-  br label %187
-
-187:                                              ; preds = %178, %178, %184
-  %188 = call i64 @time(ptr noundef null) #14
-  store i64 %188, ptr %3, align 8
-  br label %189
-
-189:                                              ; preds = %_write_last_decay_ran.exit, %187
-  %190 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @decay_lock) #14
-  %.not48 = icmp eq i32 %190, 0
-  br i1 %.not48, label %26, label %191, !llvm.loop !17
-
-191:                                              ; preds = %189
-  %192 = tail call ptr @__errno_location() #16
-  store i32 %190, ptr %192, align 4
+154:                                              ; preds = %151
+  %155 = tail call ptr @__errno_location() #16
+  store i32 %153, ptr %155, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__._decay_thread) #15
   unreachable
 
-193:                                              ; preds = %26
+156:                                              ; preds = %._crit_edge63.i, %77
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._decay_thread.job_write_lock) #14
+  call void @site_factor_g_update() #14
+  %157 = load i32, ptr @flags, align 4
+  %158 = and i32 %157, 32
+  %.not44 = icmp eq i32 %158, 0
+  br i1 %.not44, label %159, label %162
+
+159:                                              ; preds = %156
+  %160 = load ptr, ptr @job_list, align 8
+  %161 = call i32 @list_for_each(ptr noundef %160, ptr noundef nonnull @_decay_apply_new_usage_and_weighted_factors, ptr noundef nonnull %3) #14
+  br label %162
+
+162:                                              ; preds = %159, %156
+  call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._decay_thread.job_write_lock) #14
+  %.pre58.pre = load i64, ptr %3, align 8
+  br label %163
+
+163:                                              ; preds = %61, %59, %162
+  %.pre58 = phi i64 [ %.pre58.pre59, %61 ], [ %.pre58.pre59, %59 ], [ %.pre58.pre, %162 ]
+  %164 = load i32, ptr @flags, align 4
+  %165 = and i32 %164, 32
+  %.not46 = icmp eq i32 %165, 0
+  br i1 %.not46, label %168, label %166
+
+166:                                              ; preds = %163
+  %167 = load ptr, ptr @job_list, align 8
+  call void @fair_tree_decay(ptr noundef %167, i64 noundef %.pre58) #14
+  %.pre = load i64, ptr %3, align 8
+  br label %168
+
+168:                                              ; preds = %166, %163
+  %169 = phi i64 [ %.pre, %166 ], [ %.pre58, %163 ]
+  store i64 %169, ptr @g_last_ran, align 8
+  %170 = load i64, ptr @g_last_reset, align 8
+  %171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
+  %172 = call i32 @xstrcmp(ptr noundef %171, ptr noundef nonnull @.str.40) #14
+  %.not.i49 = icmp eq i32 %172, 0
+  br i1 %.not.i49, label %173, label %175
+
+173:                                              ; preds = %168
+  %174 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.41) #14
+  br label %_write_last_decay_ran.exit
+
+175:                                              ; preds = %168
+  %176 = load i32, ptr @_write_last_decay_ran.high_buffer_size, align 4
+  %177 = call ptr @init_buf(i32 noundef %176) #14
+  call void @pack_time(i64 noundef %169, ptr noundef %177) #14
+  call void @pack_time(i64 noundef %170, ptr noundef %177) #14
+  %178 = call i32 @save_buf_to_state(ptr noundef nonnull @.str.30, ptr noundef %177, ptr noundef nonnull @_write_last_decay_ran.high_buffer_size) #14
+  %179 = call i32 @get_log_level() #14
+  %180 = icmp sgt i32 %179, 7
+  br i1 %180, label %181, label %182
+
+181:                                              ; preds = %175
+  call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.42, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._write_last_decay_ran, i64 noundef %169) #14
+  br label %182
+
+182:                                              ; preds = %181, %175
+  %.not11.i = icmp eq ptr %177, null
+  br i1 %.not11.i, label %_write_last_decay_ran.exit, label %183
+
+183:                                              ; preds = %182
+  call void @free_buf(ptr noundef nonnull %177) #14
+  br label %_write_last_decay_ran.exit
+
+_write_last_decay_ran.exit:                       ; preds = %173, %182, %183
+  store i1 false, ptr @running_decay, align 1
+  %184 = load i64, ptr @plugin_shutdown, align 8
+  %.not47 = icmp eq i64 %184, 0
+  br i1 %.not47, label %185, label %196
+
+185:                                              ; preds = %_write_last_decay_ran.exit
+  %186 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 836), align 4
+  %187 = zext i32 %186 to i64
+  %188 = load i64, ptr %5, align 8
+  %189 = add nsw i64 %188, %187
+  store i64 %189, ptr %5, align 8
+  %190 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @decay_cond, ptr noundef nonnull @decay_lock, ptr noundef nonnull %5) #14
+  switch i32 %190, label %191 [
+    i32 110, label %194
+    i32 0, label %194
+  ]
+
+191:                                              ; preds = %185
+  %192 = tail call ptr @__errno_location() #16
+  store i32 %190, ptr %192, align 4
+  %193 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.8, i32 noundef 1466, ptr noundef nonnull @__func__._decay_thread) #14
+  br label %194
+
+194:                                              ; preds = %185, %185, %191
+  %195 = call i64 @time(ptr noundef null) #14
+  store i64 %195, ptr %3, align 8
+  br label %196
+
+196:                                              ; preds = %_write_last_decay_ran.exit, %194
+  %197 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @decay_lock) #14
+  %.not48 = icmp eq i32 %197, 0
+  br i1 %.not48, label %26, label %198, !llvm.loop !17
+
+198:                                              ; preds = %196
+  %199 = tail call ptr @__errno_location() #16
+  store i32 %197, ptr %199, align 4
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__._decay_thread) #15
+  unreachable
+
+.loopexit:                                        ; preds = %26, %151
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

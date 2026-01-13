@@ -13047,7 +13047,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %22 = load i64, ptr %2, align 8, !tbaa !16
   %23 = icmp sgt i64 %22, 0
   %.pre = load i32, ptr %0, align 4, !tbaa !18
-  br i1 %23, label %24, label %238
+  br i1 %23, label %24, label %239
 
 24:                                               ; preds = %16
   %25 = add nsw i64 %22, -1
@@ -13076,8 +13076,8 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %34 = load ptr, ptr %15, align 8, !tbaa !26
   br label %35
 
-35:                                               ; preds = %.lr.ph235, %223
-  %.0141233 = phi i64 [ %28, %.lr.ph235 ], [ %237, %223 ]
+35:                                               ; preds = %.lr.ph235, %224
+  %.0141233 = phi i64 [ %28, %.lr.ph235 ], [ %238, %224 ]
   %36 = load i32, ptr %3, align 4, !tbaa !18
   %37 = sext i32 %36 to i64
   %38 = mul nsw i64 %29, %37
@@ -13237,9 +13237,9 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %105, %..loopexit_crit_edge
-  %.lcssa320.sink = phi i64 [ %79, %..loopexit_crit_edge ], [ %107, %105 ]
+  %.lcssa318.sink = phi i64 [ %79, %..loopexit_crit_edge ], [ %107, %105 ]
   %.3140.ph = phi i32 [ %108, %..loopexit_crit_edge ], [ %95, %105 ]
-  store i64 %.lcssa320.sink, ptr %59, align 8, !tbaa !16
+  store i64 %.lcssa318.sink, ptr %59, align 8, !tbaa !16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %.preheader171, %58, %93
@@ -13256,11 +13256,11 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %.0136.lcssa185 = phi i64 [ 0, %.preheader183.thread ], [ %109, %.critedge.loopexit ]
   %110 = getelementptr inbounds nuw double, ptr %32, i64 %.0136.lcssa185
   %111 = load double, ptr %110, align 8, !tbaa !4
-  br label %223
+  br label %224
 
 .critedge.thread:                                 ; preds = %57, %.preheader183.thread, %.preheader183
   %112 = load i32, ptr %11, align 4, !tbaa !18
-  switch i32 %112, label %223 [
+  switch i32 %112, label %224 [
     i32 3, label %.preheader173
     i32 2, label %.preheader173
     i32 1, label %.preheader173
@@ -13286,14 +13286,14 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br label %.lr.ph208
 
 .preheader179:                                    ; preds = %.critedge.thread
-  br i1 %41, label %.lr.ph212.preheader, label %.loopexit178.thread
+  br i1 %41, label %.lr.ph212.preheader, label %.loopexit178
 
 .lr.ph212.preheader:                              ; preds = %.preheader179
   %114 = zext nneg i32 %40 to i64
   br label %.lr.ph212
 
 .preheader177:                                    ; preds = %.critedge.thread
-  br i1 %41, label %.lr.ph216.preheader, label %.loopexit178.thread
+  br i1 %41, label %.lr.ph216.preheader, label %.loopexit178
 
 .lr.ph216.preheader:                              ; preds = %.preheader177
   %115 = zext nneg i32 %40 to i64
@@ -13345,7 +13345,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %129 = call double @sqrt(double noundef %.1146) #3, !tbaa !18
   %130 = load i32, ptr %11, align 4, !tbaa !18
   switch i32 %130, label %.fold.split [
-    i32 0, label %223
+    i32 0, label %224
     i32 2, label %131
     i32 1, label %137
     i32 3, label %140
@@ -13358,16 +13358,16 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 
 133:                                              ; preds = %131
   %134 = load double, ptr %30, align 8, !tbaa !4
-  br label %223
+  br label %224
 
 135:                                              ; preds = %131
   %136 = fdiv double 1.000000e+00, %129
-  br label %223
+  br label %224
 
 137:                                              ; preds = %.loopexit174
   %138 = load double, ptr %30, align 8, !tbaa !4
   %139 = fmul double %129, %138
-  br label %223
+  br label %224
 
 140:                                              ; preds = %.loopexit174, %.loopexit174
   %141 = fcmp ugt double %129, 1.000000e-13
@@ -13375,12 +13375,12 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 
 142:                                              ; preds = %140
   %143 = load double, ptr %31, align 8, !tbaa !4
-  br label %223
+  br label %224
 
 144:                                              ; preds = %140
   %145 = load double, ptr %30, align 8, !tbaa !4
   %146 = fdiv double %145, %129
-  br label %223
+  br label %224
 
 147:                                              ; preds = %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread
   br i1 %41, label %.lr.ph221.preheader, label %._crit_edge222
@@ -13403,7 +13403,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 ._crit_edge222:                                   ; preds = %.lr.ph221, %147
   %.0148.lcssa = phi double [ 1.000000e+00, %147 ], [ %151, %.lr.ph221 ]
   switch i32 %112, label %default.unreachable [
-    i32 5, label %223
+    i32 5, label %224
     i32 7, label %152
     i32 6, label %158
     i32 8, label %161
@@ -13415,16 +13415,16 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 
 154:                                              ; preds = %152
   %155 = load double, ptr %30, align 8, !tbaa !4
-  br label %223
+  br label %224
 
 156:                                              ; preds = %152
   %157 = fdiv double 1.000000e+00, %.0148.lcssa
-  br label %223
+  br label %224
 
 158:                                              ; preds = %._crit_edge222
   %159 = load double, ptr %30, align 8, !tbaa !4
   %160 = fmul double %.0148.lcssa, %159
-  br label %223
+  br label %224
 
 161:                                              ; preds = %._crit_edge222
   %162 = fcmp oeq double %.0148.lcssa, 0.000000e+00
@@ -13432,12 +13432,12 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 
 163:                                              ; preds = %161
   %164 = load double, ptr %31, align 8, !tbaa !4
-  br label %223
+  br label %224
 
 165:                                              ; preds = %161
   %166 = load double, ptr %30, align 8, !tbaa !4
   %167 = fdiv double %166, %.0148.lcssa
-  br label %223
+  br label %224
 
 .lr.ph216:                                        ; preds = %.lr.ph216.preheader, %.lr.ph216
   %indvars.iv285 = phi i64 [ 0, %.lr.ph216.preheader ], [ %indvars.iv.next286, %.lr.ph216 ]
@@ -13456,7 +13456,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %179 = call double @llvm.fmuladd.f64(double %178, double %178, double %.0149214)
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 2
   %180 = icmp samesign ult i64 %indvars.iv.next286, %115
-  br i1 %180, label %.lr.ph216, label %.loopexit178.thread
+  br i1 %180, label %.lr.ph216, label %.loopexit178
 
 .lr.ph212:                                        ; preds = %.lr.ph212.preheader, %.lr.ph212
   %indvars.iv282 = phi i64 [ 0, %.lr.ph212.preheader ], [ %indvars.iv.next283, %.lr.ph212 ]
@@ -13477,7 +13477,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %193 = fmul double %182, %192
   %194 = call double @llvm.fmuladd.f64(double %193, double %192, double %.2151210)
   %195 = icmp samesign ult i64 %indvars.iv.next283, %114
-  br i1 %195, label %.lr.ph212, label %.loopexit178.thread
+  br i1 %195, label %.lr.ph212, label %.loopexit178
 
 .lr.ph208:                                        ; preds = %.lr.ph208.preheader, %.lr.ph208
   %indvars.iv279 = phi i64 [ 0, %.lr.ph208.preheader ], [ %indvars.iv.next280, %.lr.ph208 ]
@@ -13494,97 +13494,92 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %204 = icmp samesign ult i64 %indvars.iv.next280, %113
   br i1 %204, label %.lr.ph208, label %.loopexit178
 
-.loopexit178.thread:                              ; preds = %.lr.ph212, %.lr.ph216, %.preheader179, %.preheader177
-  %.1150.ph = phi double [ 0.000000e+00, %.preheader179 ], [ 0.000000e+00, %.preheader177 ], [ %179, %.lr.ph216 ], [ %194, %.lr.ph212 ]
-  %205 = fcmp olt double %.1150.ph, 0.000000e+00
-  %.4153314 = select i1 %205, double 0.000000e+00, double %.1150.ph
-  %sqrt315 = call double @llvm.sqrt.f64(double %.4153314)
-  br label %216
-
-.loopexit178:                                     ; preds = %.lr.ph208, %.preheader181
-  %.1150 = phi double [ 0.000000e+00, %.preheader181 ], [ %203, %.lr.ph208 ]
-  %206 = fcmp olt double %.1150, 0.000000e+00
-  %.4153 = select i1 %206, double 0.000000e+00, double %.1150
-  %sqrt = call double @llvm.sqrt.f64(double %.4153)
-  switch i32 %112, label %default.unreachable317 [
-    i32 9, label %223
-    i32 11, label %207
-    i32 10, label %213
-    i32 12, label %216
+.loopexit178:                                     ; preds = %.lr.ph208, %.lr.ph212, %.lr.ph216, %.preheader181, %.preheader179, %.preheader177
+  %.1150 = phi double [ %179, %.lr.ph216 ], [ %194, %.lr.ph212 ], [ 0.000000e+00, %.preheader177 ], [ 0.000000e+00, %.preheader179 ], [ 0.000000e+00, %.preheader181 ], [ %203, %.lr.ph208 ]
+  %205 = fcmp olt double %.1150, 0.000000e+00
+  %.4153 = select i1 %205, double 0.000000e+00, double %.1150
+  %206 = call double @sqrt(double noundef %.4153) #3, !tbaa !18
+  %207 = load i32, ptr %11, align 4, !tbaa !18
+  switch i32 %207, label %.fold.split169 [
+    i32 9, label %224
+    i32 11, label %208
+    i32 10, label %214
+    i32 12, label %217
+    i32 13, label %217
+    i32 14, label %217
   ]
 
-207:                                              ; preds = %.loopexit178
-  %208 = fcmp oeq double %.4153, 0.000000e+00
-  br i1 %208, label %209, label %211
+208:                                              ; preds = %.loopexit178
+  %209 = fcmp oeq double %206, 0.000000e+00
+  br i1 %209, label %210, label %212
 
-209:                                              ; preds = %207
-  %210 = load double, ptr %30, align 8, !tbaa !4
-  br label %223
+210:                                              ; preds = %208
+  %211 = load double, ptr %30, align 8, !tbaa !4
+  br label %224
 
-211:                                              ; preds = %207
-  %212 = fdiv double 1.000000e+00, %sqrt
-  br label %223
+212:                                              ; preds = %208
+  %213 = fdiv double 1.000000e+00, %206
+  br label %224
 
-213:                                              ; preds = %.loopexit178
-  %214 = load double, ptr %30, align 8, !tbaa !4
-  %215 = fmul double %sqrt, %214
-  br label %223
+214:                                              ; preds = %.loopexit178
+  %215 = load double, ptr %30, align 8, !tbaa !4
+  %216 = fmul double %206, %215
+  br label %224
 
-216:                                              ; preds = %.loopexit178.thread, %.loopexit178
-  %sqrt316 = phi double [ %sqrt315, %.loopexit178.thread ], [ %sqrt, %.loopexit178 ]
-  %217 = fcmp ugt double %sqrt316, 1.000000e-13
-  br i1 %217, label %220, label %218
+217:                                              ; preds = %.loopexit178, %.loopexit178, %.loopexit178
+  %218 = fcmp ugt double %206, 1.000000e-13
+  br i1 %218, label %221, label %219
 
-218:                                              ; preds = %216
-  %219 = load double, ptr %31, align 8, !tbaa !4
-  br label %223
+219:                                              ; preds = %217
+  %220 = load double, ptr %31, align 8, !tbaa !4
+  br label %224
 
-220:                                              ; preds = %216
-  %221 = load double, ptr %30, align 8, !tbaa !4
-  %222 = fdiv double %221, %sqrt316
-  br label %223
+221:                                              ; preds = %217
+  %222 = load double, ptr %30, align 8, !tbaa !4
+  %223 = fdiv double %222, %206
+  br label %224
 
 .fold.split:                                      ; preds = %.loopexit174
-  br label %223
+  br label %224
 
 default.unreachable:                              ; preds = %._crit_edge222
   unreachable
 
-default.unreachable317:                           ; preds = %.loopexit178
-  unreachable
+.fold.split169:                                   ; preds = %.loopexit178
+  br label %224
 
-223:                                              ; preds = %.critedge.thread, %218, %220, %.loopexit178, %209, %211, %163, %165, %._crit_edge222, %154, %156, %142, %144, %.loopexit174, %.fold.split, %133, %135, %137, %213, %158, %.critedge
-  %.0143 = phi double [ %111, %.critedge ], [ 0.000000e+00, %.critedge.thread ], [ %129, %.loopexit174 ], [ %139, %137 ], [ 0.000000e+00, %.fold.split ], [ %136, %135 ], [ %146, %144 ], [ %.0148.lcssa, %._crit_edge222 ], [ %160, %158 ], [ %219, %218 ], [ %157, %156 ], [ %167, %165 ], [ %sqrt, %.loopexit178 ], [ %215, %213 ], [ %222, %220 ], [ %212, %211 ], [ %134, %133 ], [ %143, %142 ], [ %155, %154 ], [ %164, %163 ], [ %210, %209 ]
-  %224 = load i32, ptr %13, align 4, !tbaa !18
-  %.not167 = icmp eq i32 %224, 0
-  %225 = fneg double %.0143
-  %spec.select = select i1 %.not167, double %.0143, double %225
-  %226 = call double @cos(double noundef %spec.select) #3, !tbaa !18
-  %227 = call double @sin(double noundef %spec.select) #3, !tbaa !18
-  %228 = getelementptr inbounds double, ptr %33, i64 %.0141233
-  %229 = load double, ptr %228, align 8, !tbaa !4
-  %230 = getelementptr inbounds double, ptr %34, i64 %.0141233
-  %231 = load double, ptr %230, align 8, !tbaa !4
-  %232 = fneg double %227
-  %233 = fmul double %231, %232
-  %234 = call double @llvm.fmuladd.f64(double %229, double %226, double %233)
-  store double %234, ptr %228, align 8, !tbaa !4
-  %235 = fmul double %226, %231
-  %236 = call double @llvm.fmuladd.f64(double %229, double %227, double %235)
-  store double %236, ptr %230, align 8, !tbaa !4
-  %237 = add i64 %.0141233, 1
+224:                                              ; preds = %.critedge.thread, %219, %221, %.loopexit178, %.fold.split169, %210, %212, %163, %165, %._crit_edge222, %154, %156, %142, %144, %.loopexit174, %.fold.split, %133, %135, %137, %214, %158, %.critedge
+  %.0143 = phi double [ %111, %.critedge ], [ 0.000000e+00, %.critedge.thread ], [ %129, %.loopexit174 ], [ %139, %137 ], [ 0.000000e+00, %.fold.split ], [ %136, %135 ], [ %146, %144 ], [ %.0148.lcssa, %._crit_edge222 ], [ %160, %158 ], [ %223, %221 ], [ %157, %156 ], [ %167, %165 ], [ %206, %.loopexit178 ], [ %216, %214 ], [ 0.000000e+00, %.fold.split169 ], [ %213, %212 ], [ %134, %133 ], [ %143, %142 ], [ %155, %154 ], [ %164, %163 ], [ %211, %210 ], [ %220, %219 ]
+  %225 = load i32, ptr %13, align 4, !tbaa !18
+  %.not167 = icmp eq i32 %225, 0
+  %226 = fneg double %.0143
+  %spec.select = select i1 %.not167, double %.0143, double %226
+  %227 = call double @cos(double noundef %spec.select) #3, !tbaa !18
+  %228 = call double @sin(double noundef %spec.select) #3, !tbaa !18
+  %229 = getelementptr inbounds double, ptr %33, i64 %.0141233
+  %230 = load double, ptr %229, align 8, !tbaa !4
+  %231 = getelementptr inbounds double, ptr %34, i64 %.0141233
+  %232 = load double, ptr %231, align 8, !tbaa !4
+  %233 = fneg double %228
+  %234 = fmul double %232, %233
+  %235 = call double @llvm.fmuladd.f64(double %230, double %227, double %234)
+  store double %235, ptr %229, align 8, !tbaa !4
+  %236 = fmul double %227, %232
+  %237 = call double @llvm.fmuladd.f64(double %230, double %228, double %236)
+  store double %237, ptr %231, align 8, !tbaa !4
+  %238 = add i64 %.0141233, 1
   %exitcond303.not = icmp eq i64 %.0141233, %27
   br i1 %exitcond303.not, label %._crit_edge236, label %35
 
-._crit_edge236:                                   ; preds = %223, %24
+._crit_edge236:                                   ; preds = %224, %24
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %238
+  br label %239
 
-238:                                              ; preds = %._crit_edge236, %16
+239:                                              ; preds = %._crit_edge236, %16
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret void
@@ -13858,9 +13853,6 @@ declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #22
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

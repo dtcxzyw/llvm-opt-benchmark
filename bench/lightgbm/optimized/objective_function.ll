@@ -25107,7 +25107,7 @@ define linkonce_odr noundef double @_ZNK8LightGBM17MulticlassSoftmax14BoostFromS
   %7 = load double, ptr %6, align 8, !tbaa !153
   %8 = fcmp ogt double %7, 0x3CD203AFA0000000
   %.sroa.speculated = select i1 %8, double %7, double 0x3CD203AFA0000000
-  %9 = tail call double @llvm.log.f64(double %.sroa.speculated), !tbaa !127
+  %9 = tail call double @log(double noundef %.sroa.speculated) #14, !tbaa !127
   ret double %9
 }
 

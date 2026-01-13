@@ -2721,8 +2721,8 @@ _create_profile.exit262:                          ; preds = %_colorspaces_create
   %246 = call noalias dereferenceable_or_null(16384) ptr @g_malloc(i64 noundef 16384) #26
   br label %247
 
-247:                                              ; preds = %269, %_create_profile.exit262
-  %indvars.iv.i.i263 = phi i64 [ 0, %_create_profile.exit262 ], [ %indvars.iv.next.i.i264, %269 ]
+247:                                              ; preds = %270, %_create_profile.exit262
+  %indvars.iv.i.i263 = phi i64 [ 0, %_create_profile.exit262 ], [ %indvars.iv.next.i.i264, %270 ]
   %248 = trunc nuw nsw i64 %indvars.iv.i.i263 to i32
   %249 = uitofp nneg i32 %248 to float
   %250 = fmul reassoc nsz arcp contract afn float %249, 0x3F30010020000000
@@ -2744,729 +2744,731 @@ _HLG_fct.exit4.i:                                 ; preds = %257
   %261 = call reassoc nsz arcp contract afn double @llvm.exp.f64(double %260)
   %262 = fmul reassoc nsz arcp contract afn double %261, 0x3FB5555555555555
   %263 = fadd reassoc nsz arcp contract afn double %262, 0x3F984AAFFC877A88
-  %264 = fcmp reassoc nsz arcp contract afn olt double %263, 1.000000e+00
-  br i1 %264, label %_HLG_fct.exit.i, label %269
+  %264 = call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %263)
+  %265 = fcmp reassoc nsz arcp contract afn olt double %264, 1.000000e+00
+  br i1 %265, label %_HLG_fct.exit.i, label %270
 
 _HLG_fct.exit4.thread.i:                          ; preds = %257
-  %265 = fmul reassoc nsz arcp contract afn double %255, %255
-  %266 = fmul reassoc nsz arcp contract afn double %265, 0x3FD5555555555555
-  %267 = fcmp reassoc nsz arcp contract afn olt double %266, 1.000000e+00
-  br i1 %267, label %_HLG_fct.exit.i, label %269
+  %266 = fmul reassoc nsz arcp contract afn double %255, %255
+  %267 = fmul reassoc nsz arcp contract afn double %266, 0x3FD5555555555555
+  %268 = fcmp reassoc nsz arcp contract afn olt double %267, 1.000000e+00
+  br i1 %268, label %_HLG_fct.exit.i, label %270
 
 _HLG_fct.exit.i:                                  ; preds = %_HLG_fct.exit4.i, %_HLG_fct.exit4.thread.i, %247
-  %.012.i.i = phi nsz double [ %266, %_HLG_fct.exit4.thread.i ], [ 0.000000e+00, %247 ], [ %263, %_HLG_fct.exit4.i ]
-  %268 = fptrunc reassoc nsz arcp contract afn double %.012.i.i to float
-  br label %269
+  %.012.i.i = phi nsz double [ %267, %_HLG_fct.exit4.thread.i ], [ 0.000000e+00, %247 ], [ %264, %_HLG_fct.exit4.i ]
+  %269 = fptrunc reassoc nsz arcp contract afn double %.012.i.i to float
+  br label %270
 
-269:                                              ; preds = %_HLG_fct.exit.i, %_HLG_fct.exit4.thread.i, %_HLG_fct.exit4.i
-  %270 = phi float [ %268, %_HLG_fct.exit.i ], [ 1.000000e+00, %_HLG_fct.exit4.i ], [ 1.000000e+00, %_HLG_fct.exit4.thread.i ]
-  %271 = getelementptr inbounds nuw float, ptr %246, i64 %indvars.iv.i.i263
-  store float %270, ptr %271, align 4, !tbaa !11
+270:                                              ; preds = %_HLG_fct.exit.i, %_HLG_fct.exit4.thread.i, %_HLG_fct.exit4.i
+  %271 = phi float [ %269, %_HLG_fct.exit.i ], [ 1.000000e+00, %_HLG_fct.exit4.i ], [ 1.000000e+00, %_HLG_fct.exit4.thread.i ]
+  %272 = getelementptr inbounds nuw float, ptr %246, i64 %indvars.iv.i.i263
+  store float %271, ptr %272, align 4, !tbaa !11
   %indvars.iv.next.i.i264 = add nuw nsw i64 %indvars.iv.i.i263, 1
   %exitcond.not.i.i265 = icmp eq i64 %indvars.iv.next.i.i264, 4096
   br i1 %exitcond.not.i.i265, label %_colorspaces_create_hlg_rec2020_rgb_profile.exit, label %247
 
-_colorspaces_create_hlg_rec2020_rgb_profile.exit: ; preds = %269
-  %272 = call ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef null, i32 noundef 4096, ptr noundef nonnull %246) #23
+_colorspaces_create_hlg_rec2020_rgb_profile.exit: ; preds = %270
+  %273 = call ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef null, i32 noundef 4096, ptr noundef nonnull %246) #23
   call void @g_free(ptr noundef nonnull %246) #23
-  %273 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.31, ptr noundef nonnull @D65xyY, ptr noundef nonnull @Rec2020_Primaries, ptr noundef %272, i32 noundef 1)
-  call void @cmsFreeToneCurve(ptr noundef %272) #23
-  %274 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.31, i32 noundef 5) #23
-  %275 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
-  %.not.i266 = icmp eq ptr %275, null
-  br i1 %.not.i266, label %_create_profile.exit267, label %276
+  %274 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.31, ptr noundef nonnull @D65xyY, ptr noundef nonnull @Rec2020_Primaries, ptr noundef %273, i32 noundef 1)
+  call void @cmsFreeToneCurve(ptr noundef %273) #23
+  %275 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.31, i32 noundef 5) #23
+  %276 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
+  %.not.i266 = icmp eq ptr %276, null
+  br i1 %.not.i266, label %_create_profile.exit267, label %277
 
-276:                                              ; preds = %_colorspaces_create_hlg_rec2020_rgb_profile.exit
-  store i32 23, ptr %275, align 8, !tbaa !77
-  %277 = getelementptr inbounds nuw i8, ptr %275, i64 516
-  %278 = call i64 @g_strlcpy(ptr noundef nonnull %277, ptr noundef %274, i64 noundef 512) #23
-  %279 = getelementptr inbounds nuw i8, ptr %275, i64 1032
-  store ptr %273, ptr %279, align 8, !tbaa !85
-  %280 = getelementptr inbounds nuw i8, ptr %275, i64 1040
-  store i32 6, ptr %280, align 8, !tbaa !104
-  %281 = getelementptr inbounds nuw i8, ptr %275, i64 1044
-  store i32 6, ptr %281, align 4, !tbaa !78
-  %282 = getelementptr inbounds nuw i8, ptr %275, i64 1048
-  store i32 6, ptr %282, align 8, !tbaa !79
-  %283 = getelementptr inbounds nuw i8, ptr %275, i64 1056
-  store i32 10, ptr %283, align 8, !tbaa !105
-  %284 = getelementptr inbounds nuw i8, ptr %275, i64 1060
-  store i32 6, ptr %284, align 4, !tbaa !75
-  %285 = getelementptr inbounds nuw i8, ptr %275, i64 1052
-  store i32 6, ptr %285, align 4, !tbaa !91
+277:                                              ; preds = %_colorspaces_create_hlg_rec2020_rgb_profile.exit
+  store i32 23, ptr %276, align 8, !tbaa !77
+  %278 = getelementptr inbounds nuw i8, ptr %276, i64 516
+  %279 = call i64 @g_strlcpy(ptr noundef nonnull %278, ptr noundef %275, i64 noundef 512) #23
+  %280 = getelementptr inbounds nuw i8, ptr %276, i64 1032
+  store ptr %274, ptr %280, align 8, !tbaa !85
+  %281 = getelementptr inbounds nuw i8, ptr %276, i64 1040
+  store i32 6, ptr %281, align 8, !tbaa !104
+  %282 = getelementptr inbounds nuw i8, ptr %276, i64 1044
+  store i32 6, ptr %282, align 4, !tbaa !78
+  %283 = getelementptr inbounds nuw i8, ptr %276, i64 1048
+  store i32 6, ptr %283, align 8, !tbaa !79
+  %284 = getelementptr inbounds nuw i8, ptr %276, i64 1056
+  store i32 10, ptr %284, align 8, !tbaa !105
+  %285 = getelementptr inbounds nuw i8, ptr %276, i64 1060
+  store i32 6, ptr %285, align 4, !tbaa !75
+  %286 = getelementptr inbounds nuw i8, ptr %276, i64 1052
+  store i32 6, ptr %286, align 4, !tbaa !91
   br label %_create_profile.exit267
 
-_create_profile.exit267:                          ; preds = %_colorspaces_create_hlg_rec2020_rgb_profile.exit, %276
-  %286 = call ptr @g_list_append(ptr noundef %245, ptr noundef %275) #23
-  store ptr %286, ptr %10, align 8, !tbaa !103
-  %287 = call noalias dereferenceable_or_null(16384) ptr @g_malloc(i64 noundef 16384) #26
-  br label %288
+_create_profile.exit267:                          ; preds = %_colorspaces_create_hlg_rec2020_rgb_profile.exit, %277
+  %287 = call ptr @g_list_append(ptr noundef %245, ptr noundef %276) #23
+  store ptr %287, ptr %10, align 8, !tbaa !103
+  %288 = call noalias dereferenceable_or_null(16384) ptr @g_malloc(i64 noundef 16384) #26
+  br label %289
 
-288:                                              ; preds = %_PQ_fct.exit.i270, %_create_profile.exit267
+289:                                              ; preds = %_PQ_fct.exit.i270, %_create_profile.exit267
   %indvars.iv.i.i268 = phi i64 [ 0, %_create_profile.exit267 ], [ %indvars.iv.next.i.i271, %_PQ_fct.exit.i270 ]
-  %289 = trunc nuw nsw i64 %indvars.iv.i.i268 to i32
-  %290 = uitofp nneg i32 %289 to float
-  %291 = fmul reassoc nsz arcp contract afn float %290, 0x3F30010020000000
-  %292 = fcmp reassoc nsz arcp contract afn oeq float %291, 0.000000e+00
-  br i1 %292, label %_PQ_fct.exit.i270, label %_PQ_fct.exit4.i269
+  %290 = trunc nuw nsw i64 %indvars.iv.i.i268 to i32
+  %291 = uitofp nneg i32 %290 to float
+  %292 = fmul reassoc nsz arcp contract afn float %291, 0x3F30010020000000
+  %293 = fcmp reassoc nsz arcp contract afn oeq float %292, 0.000000e+00
+  br i1 %293, label %_PQ_fct.exit.i270, label %_PQ_fct.exit4.i269
 
-_PQ_fct.exit4.i269:                               ; preds = %288
-  %293 = fpext reassoc nsz arcp contract afn float %291 to double
-  %294 = call reassoc nsz arcp contract afn double @llvm.pow.f64(double %293, double 0x3F89F9B5860989B1)
-  %295 = fadd reassoc nsz arcp contract afn double %294, 0xBFEAC00000000000
-  %296 = fcmp reassoc nsz arcp contract afn ogt double %295, 0.000000e+00
-  %297 = select reassoc nsz arcp contract afn i1 %296, double %295, double 0.000000e+00
-  %298 = fmul reassoc nsz arcp contract afn double %294, 1.868750e+01
-  %299 = fsub reassoc nsz arcp contract afn double 0x4032DA0000000000, %298
-  %300 = fdiv reassoc nsz arcp contract afn double %297, %299
-  %301 = call reassoc nsz arcp contract afn double @llvm.pow.f64(double %300, double 0x40191C0D56E7162B)
-  %302 = call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %301)
-  %303 = fcmp reassoc nsz arcp contract afn olt double %302, 1.000000e+00
-  br i1 %303, label %304, label %_PQ_fct.exit.i270
+_PQ_fct.exit4.i269:                               ; preds = %289
+  %294 = fpext reassoc nsz arcp contract afn float %292 to double
+  %295 = call reassoc nsz arcp contract afn double @llvm.pow.f64(double %294, double 0x3F89F9B5860989B1)
+  %296 = fadd reassoc nsz arcp contract afn double %295, 0xBFEAC00000000000
+  %297 = fcmp reassoc nsz arcp contract afn ogt double %296, 0.000000e+00
+  %298 = select reassoc nsz arcp contract afn i1 %297, double %296, double 0.000000e+00
+  %299 = fmul reassoc nsz arcp contract afn double %295, 1.868750e+01
+  %300 = fsub reassoc nsz arcp contract afn double 0x4032DA0000000000, %299
+  %301 = fdiv reassoc nsz arcp contract afn double %298, %300
+  %302 = call reassoc nsz arcp contract afn double @llvm.pow.f64(double %301, double 0x40191C0D56E7162B)
+  %303 = call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %302)
+  %304 = fcmp reassoc nsz arcp contract afn olt double %303, 1.000000e+00
+  br i1 %304, label %305, label %_PQ_fct.exit.i270
 
-304:                                              ; preds = %_PQ_fct.exit4.i269
-  %305 = fptrunc double %301 to float
-  %306 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %305)
+305:                                              ; preds = %_PQ_fct.exit4.i269
+  %306 = fptrunc double %302 to float
+  %307 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %306)
   br label %_PQ_fct.exit.i270
 
-_PQ_fct.exit.i270:                                ; preds = %304, %_PQ_fct.exit4.i269, %288
-  %307 = phi float [ 1.000000e+00, %_PQ_fct.exit4.i269 ], [ %306, %304 ], [ 0.000000e+00, %288 ]
-  %308 = getelementptr inbounds nuw float, ptr %287, i64 %indvars.iv.i.i268
-  store float %307, ptr %308, align 4, !tbaa !11
+_PQ_fct.exit.i270:                                ; preds = %305, %_PQ_fct.exit4.i269, %289
+  %308 = phi float [ 1.000000e+00, %_PQ_fct.exit4.i269 ], [ %307, %305 ], [ 0.000000e+00, %289 ]
+  %309 = getelementptr inbounds nuw float, ptr %288, i64 %indvars.iv.i.i268
+  store float %308, ptr %309, align 4, !tbaa !11
   %indvars.iv.next.i.i271 = add nuw nsw i64 %indvars.iv.i.i268, 1
   %exitcond.not.i.i272 = icmp eq i64 %indvars.iv.next.i.i271, 4096
-  br i1 %exitcond.not.i.i272, label %_colorspaces_create_pq_p3_rgb_profile.exit, label %288
+  br i1 %exitcond.not.i.i272, label %_colorspaces_create_pq_p3_rgb_profile.exit, label %289
 
 _colorspaces_create_pq_p3_rgb_profile.exit:       ; preds = %_PQ_fct.exit.i270
-  %309 = call ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef null, i32 noundef 4096, ptr noundef nonnull %287) #23
-  call void @g_free(ptr noundef nonnull %287) #23
-  %310 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.32, ptr noundef nonnull @D65xyY, ptr noundef nonnull @P3_Primaries, ptr noundef %309, i32 noundef 1)
-  call void @cmsFreeToneCurve(ptr noundef %309) #23
-  %311 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.32, i32 noundef 5) #23
-  %312 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
-  %.not.i273 = icmp eq ptr %312, null
-  br i1 %.not.i273, label %_create_profile.exit274, label %313
+  %310 = call ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef null, i32 noundef 4096, ptr noundef nonnull %288) #23
+  call void @g_free(ptr noundef nonnull %288) #23
+  %311 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.32, ptr noundef nonnull @D65xyY, ptr noundef nonnull @P3_Primaries, ptr noundef %310, i32 noundef 1)
+  call void @cmsFreeToneCurve(ptr noundef %310) #23
+  %312 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.32, i32 noundef 5) #23
+  %313 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
+  %.not.i273 = icmp eq ptr %313, null
+  br i1 %.not.i273, label %_create_profile.exit274, label %314
 
-313:                                              ; preds = %_colorspaces_create_pq_p3_rgb_profile.exit
-  store i32 24, ptr %312, align 8, !tbaa !77
-  %314 = getelementptr inbounds nuw i8, ptr %312, i64 516
-  %315 = call i64 @g_strlcpy(ptr noundef nonnull %314, ptr noundef %311, i64 noundef 512) #23
-  %316 = getelementptr inbounds nuw i8, ptr %312, i64 1032
-  store ptr %310, ptr %316, align 8, !tbaa !85
-  %317 = getelementptr inbounds nuw i8, ptr %312, i64 1040
-  store i32 7, ptr %317, align 8, !tbaa !104
-  %318 = getelementptr inbounds nuw i8, ptr %312, i64 1044
-  store i32 7, ptr %318, align 4, !tbaa !78
-  %319 = getelementptr inbounds nuw i8, ptr %312, i64 1048
-  store i32 7, ptr %319, align 8, !tbaa !79
-  %320 = getelementptr inbounds nuw i8, ptr %312, i64 1056
-  store i32 11, ptr %320, align 8, !tbaa !105
-  %321 = getelementptr inbounds nuw i8, ptr %312, i64 1060
-  store i32 7, ptr %321, align 4, !tbaa !75
-  %322 = getelementptr inbounds nuw i8, ptr %312, i64 1052
-  store i32 7, ptr %322, align 4, !tbaa !91
+314:                                              ; preds = %_colorspaces_create_pq_p3_rgb_profile.exit
+  store i32 24, ptr %313, align 8, !tbaa !77
+  %315 = getelementptr inbounds nuw i8, ptr %313, i64 516
+  %316 = call i64 @g_strlcpy(ptr noundef nonnull %315, ptr noundef %312, i64 noundef 512) #23
+  %317 = getelementptr inbounds nuw i8, ptr %313, i64 1032
+  store ptr %311, ptr %317, align 8, !tbaa !85
+  %318 = getelementptr inbounds nuw i8, ptr %313, i64 1040
+  store i32 7, ptr %318, align 8, !tbaa !104
+  %319 = getelementptr inbounds nuw i8, ptr %313, i64 1044
+  store i32 7, ptr %319, align 4, !tbaa !78
+  %320 = getelementptr inbounds nuw i8, ptr %313, i64 1048
+  store i32 7, ptr %320, align 8, !tbaa !79
+  %321 = getelementptr inbounds nuw i8, ptr %313, i64 1056
+  store i32 11, ptr %321, align 8, !tbaa !105
+  %322 = getelementptr inbounds nuw i8, ptr %313, i64 1060
+  store i32 7, ptr %322, align 4, !tbaa !75
+  %323 = getelementptr inbounds nuw i8, ptr %313, i64 1052
+  store i32 7, ptr %323, align 4, !tbaa !91
   br label %_create_profile.exit274
 
-_create_profile.exit274:                          ; preds = %_colorspaces_create_pq_p3_rgb_profile.exit, %313
-  %323 = call ptr @g_list_append(ptr noundef %286, ptr noundef %312) #23
-  store ptr %323, ptr %10, align 8, !tbaa !103
-  %324 = call noalias dereferenceable_or_null(16384) ptr @g_malloc(i64 noundef 16384) #26
-  br label %325
+_create_profile.exit274:                          ; preds = %_colorspaces_create_pq_p3_rgb_profile.exit, %314
+  %324 = call ptr @g_list_append(ptr noundef %287, ptr noundef %313) #23
+  store ptr %324, ptr %10, align 8, !tbaa !103
+  %325 = call noalias dereferenceable_or_null(16384) ptr @g_malloc(i64 noundef 16384) #26
+  br label %326
 
-325:                                              ; preds = %347, %_create_profile.exit274
-  %indvars.iv.i.i275 = phi i64 [ 0, %_create_profile.exit274 ], [ %indvars.iv.next.i.i277, %347 ]
-  %326 = trunc nuw nsw i64 %indvars.iv.i.i275 to i32
-  %327 = uitofp nneg i32 %326 to float
-  %328 = fmul reassoc nsz arcp contract afn float %327, 0x3F30010020000000
-  %329 = fpext reassoc nsz arcp contract afn float %328 to double
-  %330 = fmul reassoc nsz arcp contract afn double %329, 0x3FEEB851EB851EB8
-  %331 = fadd reassoc nsz arcp contract afn double %330, 4.000000e-02
-  %332 = fcmp reassoc nsz arcp contract afn ogt double %331, 0.000000e+00
-  %333 = select reassoc nsz arcp contract afn i1 %332, double %331, double 0.000000e+00
-  %334 = fcmp reassoc nsz arcp contract afn oeq double %333, 0.000000e+00
-  br i1 %334, label %_HLG_fct.exit.i280, label %335
+326:                                              ; preds = %349, %_create_profile.exit274
+  %indvars.iv.i.i275 = phi i64 [ 0, %_create_profile.exit274 ], [ %indvars.iv.next.i.i277, %349 ]
+  %327 = trunc nuw nsw i64 %indvars.iv.i.i275 to i32
+  %328 = uitofp nneg i32 %327 to float
+  %329 = fmul reassoc nsz arcp contract afn float %328, 0x3F30010020000000
+  %330 = fpext reassoc nsz arcp contract afn float %329 to double
+  %331 = fmul reassoc nsz arcp contract afn double %330, 0x3FEEB851EB851EB8
+  %332 = fadd reassoc nsz arcp contract afn double %331, 4.000000e-02
+  %333 = fcmp reassoc nsz arcp contract afn ogt double %332, 0.000000e+00
+  %334 = select reassoc nsz arcp contract afn i1 %333, double %332, double 0.000000e+00
+  %335 = fcmp reassoc nsz arcp contract afn oeq double %334, 0.000000e+00
+  br i1 %335, label %_HLG_fct.exit.i280, label %336
 
-335:                                              ; preds = %325
-  %336 = fcmp reassoc nsz arcp contract afn ugt double %333, 5.000000e-01
-  br i1 %336, label %_HLG_fct.exit4.i282, label %_HLG_fct.exit4.thread.i276
+336:                                              ; preds = %326
+  %337 = fcmp reassoc nsz arcp contract afn ugt double %334, 5.000000e-01
+  br i1 %337, label %_HLG_fct.exit4.i282, label %_HLG_fct.exit4.thread.i276
 
-_HLG_fct.exit4.i282:                              ; preds = %335
-  %337 = fmul reassoc nsz arcp contract afn double %333, 0x40165E05183E19B4
-  %338 = fadd reassoc nsz arcp contract afn double %337, 0xC0090C1EB5B28AA2
-  %339 = call reassoc nsz arcp contract afn double @llvm.exp.f64(double %338)
-  %340 = fmul reassoc nsz arcp contract afn double %339, 0x3FB5555555555555
-  %341 = fadd reassoc nsz arcp contract afn double %340, 0x3F984AAFFC877A88
-  %342 = fcmp reassoc nsz arcp contract afn olt double %341, 1.000000e+00
-  br i1 %342, label %_HLG_fct.exit.i280, label %347
+_HLG_fct.exit4.i282:                              ; preds = %336
+  %338 = fmul reassoc nsz arcp contract afn double %334, 0x40165E05183E19B4
+  %339 = fadd reassoc nsz arcp contract afn double %338, 0xC0090C1EB5B28AA2
+  %340 = call reassoc nsz arcp contract afn double @llvm.exp.f64(double %339)
+  %341 = fmul reassoc nsz arcp contract afn double %340, 0x3FB5555555555555
+  %342 = fadd reassoc nsz arcp contract afn double %341, 0x3F984AAFFC877A88
+  %343 = call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %342)
+  %344 = fcmp reassoc nsz arcp contract afn olt double %343, 1.000000e+00
+  br i1 %344, label %_HLG_fct.exit.i280, label %349
 
-_HLG_fct.exit4.thread.i276:                       ; preds = %335
-  %343 = fmul reassoc nsz arcp contract afn double %333, %333
-  %344 = fmul reassoc nsz arcp contract afn double %343, 0x3FD5555555555555
-  %345 = fcmp reassoc nsz arcp contract afn olt double %344, 1.000000e+00
-  br i1 %345, label %_HLG_fct.exit.i280, label %347
+_HLG_fct.exit4.thread.i276:                       ; preds = %336
+  %345 = fmul reassoc nsz arcp contract afn double %334, %334
+  %346 = fmul reassoc nsz arcp contract afn double %345, 0x3FD5555555555555
+  %347 = fcmp reassoc nsz arcp contract afn olt double %346, 1.000000e+00
+  br i1 %347, label %_HLG_fct.exit.i280, label %349
 
-_HLG_fct.exit.i280:                               ; preds = %_HLG_fct.exit4.i282, %_HLG_fct.exit4.thread.i276, %325
-  %.012.i.i281 = phi nsz double [ %344, %_HLG_fct.exit4.thread.i276 ], [ 0.000000e+00, %325 ], [ %341, %_HLG_fct.exit4.i282 ]
-  %346 = fptrunc reassoc nsz arcp contract afn double %.012.i.i281 to float
-  br label %347
+_HLG_fct.exit.i280:                               ; preds = %_HLG_fct.exit4.i282, %_HLG_fct.exit4.thread.i276, %326
+  %.012.i.i281 = phi nsz double [ %346, %_HLG_fct.exit4.thread.i276 ], [ 0.000000e+00, %326 ], [ %343, %_HLG_fct.exit4.i282 ]
+  %348 = fptrunc reassoc nsz arcp contract afn double %.012.i.i281 to float
+  br label %349
 
-347:                                              ; preds = %_HLG_fct.exit.i280, %_HLG_fct.exit4.thread.i276, %_HLG_fct.exit4.i282
-  %348 = phi float [ %346, %_HLG_fct.exit.i280 ], [ 1.000000e+00, %_HLG_fct.exit4.i282 ], [ 1.000000e+00, %_HLG_fct.exit4.thread.i276 ]
-  %349 = getelementptr inbounds nuw float, ptr %324, i64 %indvars.iv.i.i275
-  store float %348, ptr %349, align 4, !tbaa !11
+349:                                              ; preds = %_HLG_fct.exit.i280, %_HLG_fct.exit4.thread.i276, %_HLG_fct.exit4.i282
+  %350 = phi float [ %348, %_HLG_fct.exit.i280 ], [ 1.000000e+00, %_HLG_fct.exit4.i282 ], [ 1.000000e+00, %_HLG_fct.exit4.thread.i276 ]
+  %351 = getelementptr inbounds nuw float, ptr %325, i64 %indvars.iv.i.i275
+  store float %350, ptr %351, align 4, !tbaa !11
   %indvars.iv.next.i.i277 = add nuw nsw i64 %indvars.iv.i.i275, 1
   %exitcond.not.i.i278 = icmp eq i64 %indvars.iv.next.i.i277, 4096
-  br i1 %exitcond.not.i.i278, label %_colorspaces_create_hlg_p3_rgb_profile.exit, label %325
+  br i1 %exitcond.not.i.i278, label %_colorspaces_create_hlg_p3_rgb_profile.exit, label %326
 
-_colorspaces_create_hlg_p3_rgb_profile.exit:      ; preds = %347
-  %350 = call ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef null, i32 noundef 4096, ptr noundef nonnull %324) #23
-  call void @g_free(ptr noundef nonnull %324) #23
-  %351 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.33, ptr noundef nonnull @D65xyY, ptr noundef nonnull @P3_Primaries, ptr noundef %350, i32 noundef 1)
-  call void @cmsFreeToneCurve(ptr noundef %350) #23
-  %352 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.33, i32 noundef 5) #23
-  %353 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
-  %.not.i283 = icmp eq ptr %353, null
-  br i1 %.not.i283, label %_create_profile.exit284, label %354
+_colorspaces_create_hlg_p3_rgb_profile.exit:      ; preds = %349
+  %352 = call ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef null, i32 noundef 4096, ptr noundef nonnull %325) #23
+  call void @g_free(ptr noundef nonnull %325) #23
+  %353 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.33, ptr noundef nonnull @D65xyY, ptr noundef nonnull @P3_Primaries, ptr noundef %352, i32 noundef 1)
+  call void @cmsFreeToneCurve(ptr noundef %352) #23
+  %354 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.33, i32 noundef 5) #23
+  %355 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
+  %.not.i283 = icmp eq ptr %355, null
+  br i1 %.not.i283, label %_create_profile.exit284, label %356
 
-354:                                              ; preds = %_colorspaces_create_hlg_p3_rgb_profile.exit
-  store i32 25, ptr %353, align 8, !tbaa !77
-  %355 = getelementptr inbounds nuw i8, ptr %353, i64 516
-  %356 = call i64 @g_strlcpy(ptr noundef nonnull %355, ptr noundef %352, i64 noundef 512) #23
-  %357 = getelementptr inbounds nuw i8, ptr %353, i64 1032
-  store ptr %351, ptr %357, align 8, !tbaa !85
-  %358 = getelementptr inbounds nuw i8, ptr %353, i64 1040
-  store i32 8, ptr %358, align 8, !tbaa !104
-  %359 = getelementptr inbounds nuw i8, ptr %353, i64 1044
-  store i32 8, ptr %359, align 4, !tbaa !78
-  %360 = getelementptr inbounds nuw i8, ptr %353, i64 1048
-  store i32 8, ptr %360, align 8, !tbaa !79
-  %361 = getelementptr inbounds nuw i8, ptr %353, i64 1056
-  store i32 12, ptr %361, align 8, !tbaa !105
-  %362 = getelementptr inbounds nuw i8, ptr %353, i64 1060
-  store i32 8, ptr %362, align 4, !tbaa !75
-  %363 = getelementptr inbounds nuw i8, ptr %353, i64 1052
-  store i32 8, ptr %363, align 4, !tbaa !91
+356:                                              ; preds = %_colorspaces_create_hlg_p3_rgb_profile.exit
+  store i32 25, ptr %355, align 8, !tbaa !77
+  %357 = getelementptr inbounds nuw i8, ptr %355, i64 516
+  %358 = call i64 @g_strlcpy(ptr noundef nonnull %357, ptr noundef %354, i64 noundef 512) #23
+  %359 = getelementptr inbounds nuw i8, ptr %355, i64 1032
+  store ptr %353, ptr %359, align 8, !tbaa !85
+  %360 = getelementptr inbounds nuw i8, ptr %355, i64 1040
+  store i32 8, ptr %360, align 8, !tbaa !104
+  %361 = getelementptr inbounds nuw i8, ptr %355, i64 1044
+  store i32 8, ptr %361, align 4, !tbaa !78
+  %362 = getelementptr inbounds nuw i8, ptr %355, i64 1048
+  store i32 8, ptr %362, align 8, !tbaa !79
+  %363 = getelementptr inbounds nuw i8, ptr %355, i64 1056
+  store i32 12, ptr %363, align 8, !tbaa !105
+  %364 = getelementptr inbounds nuw i8, ptr %355, i64 1060
+  store i32 8, ptr %364, align 4, !tbaa !75
+  %365 = getelementptr inbounds nuw i8, ptr %355, i64 1052
+  store i32 8, ptr %365, align 4, !tbaa !91
   br label %_create_profile.exit284
 
-_create_profile.exit284:                          ; preds = %_colorspaces_create_hlg_p3_rgb_profile.exit, %354
-  %364 = call ptr @g_list_append(ptr noundef %323, ptr noundef %353) #23
-  store ptr %364, ptr %10, align 8, !tbaa !103
+_create_profile.exit284:                          ; preds = %_colorspaces_create_hlg_p3_rgb_profile.exit, %356
+  %366 = call ptr @g_list_append(ptr noundef %324, ptr noundef %355) #23
+  store ptr %366, ptr %10, align 8, !tbaa !103
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double 2.400000e+00, ptr %4, align 16
-  %365 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store double 0x3FEE54EDCD0AEB60, ptr %365, align 8
-  %366 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store double 0x3FAAB1232F514A03, ptr %366, align 16
-  %367 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store double 0x3FB3D0722149B580, ptr %367, align 8
-  %368 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store double 4.045000e-02, ptr %368, align 16
-  %369 = call ptr @cmsBuildParametricToneCurve(ptr noundef null, i32 noundef 4, ptr noundef nonnull %4) #23
-  %370 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.34, ptr noundef nonnull @D65xyY, ptr noundef nonnull @P3_Primaries, ptr noundef %369, i32 noundef 1)
-  call void @cmsFreeToneCurve(ptr noundef %369) #23
+  %367 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store double 0x3FEE54EDCD0AEB60, ptr %367, align 8
+  %368 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store double 0x3FAAB1232F514A03, ptr %368, align 16
+  %369 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store double 0x3FB3D0722149B580, ptr %369, align 8
+  %370 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store double 4.045000e-02, ptr %370, align 16
+  %371 = call ptr @cmsBuildParametricToneCurve(ptr noundef null, i32 noundef 4, ptr noundef nonnull %4) #23
+  %372 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.34, ptr noundef nonnull @D65xyY, ptr noundef nonnull @P3_Primaries, ptr noundef %371, i32 noundef 1)
+  call void @cmsFreeToneCurve(ptr noundef %371) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %371 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.34, i32 noundef 5) #23
-  %372 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
-  %.not.i285 = icmp eq ptr %372, null
-  br i1 %.not.i285, label %_create_profile.exit286, label %373
+  %373 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.34, i32 noundef 5) #23
+  %374 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
+  %.not.i285 = icmp eq ptr %374, null
+  br i1 %.not.i285, label %_create_profile.exit286, label %375
 
-373:                                              ; preds = %_create_profile.exit284
-  store i32 26, ptr %372, align 8, !tbaa !77
-  %374 = getelementptr inbounds nuw i8, ptr %372, i64 516
-  %375 = call i64 @g_strlcpy(ptr noundef nonnull %374, ptr noundef %371, i64 noundef 512) #23
-  %376 = getelementptr inbounds nuw i8, ptr %372, i64 1032
-  store ptr %370, ptr %376, align 8, !tbaa !85
-  %377 = getelementptr inbounds nuw i8, ptr %372, i64 1040
-  store i32 9, ptr %377, align 8, !tbaa !104
-  %378 = getelementptr inbounds nuw i8, ptr %372, i64 1044
-  store i32 9, ptr %378, align 4, !tbaa !78
-  %379 = getelementptr inbounds nuw i8, ptr %372, i64 1048
-  store i32 9, ptr %379, align 8, !tbaa !79
-  %380 = getelementptr inbounds nuw i8, ptr %372, i64 1056
-  store i32 13, ptr %380, align 8, !tbaa !105
-  %381 = getelementptr inbounds nuw i8, ptr %372, i64 1060
-  store i32 9, ptr %381, align 4, !tbaa !75
-  %382 = getelementptr inbounds nuw i8, ptr %372, i64 1052
-  store i32 9, ptr %382, align 4, !tbaa !91
+375:                                              ; preds = %_create_profile.exit284
+  store i32 26, ptr %374, align 8, !tbaa !77
+  %376 = getelementptr inbounds nuw i8, ptr %374, i64 516
+  %377 = call i64 @g_strlcpy(ptr noundef nonnull %376, ptr noundef %373, i64 noundef 512) #23
+  %378 = getelementptr inbounds nuw i8, ptr %374, i64 1032
+  store ptr %372, ptr %378, align 8, !tbaa !85
+  %379 = getelementptr inbounds nuw i8, ptr %374, i64 1040
+  store i32 9, ptr %379, align 8, !tbaa !104
+  %380 = getelementptr inbounds nuw i8, ptr %374, i64 1044
+  store i32 9, ptr %380, align 4, !tbaa !78
+  %381 = getelementptr inbounds nuw i8, ptr %374, i64 1048
+  store i32 9, ptr %381, align 8, !tbaa !79
+  %382 = getelementptr inbounds nuw i8, ptr %374, i64 1056
+  store i32 13, ptr %382, align 8, !tbaa !105
+  %383 = getelementptr inbounds nuw i8, ptr %374, i64 1060
+  store i32 9, ptr %383, align 4, !tbaa !75
+  %384 = getelementptr inbounds nuw i8, ptr %374, i64 1052
+  store i32 9, ptr %384, align 4, !tbaa !91
   br label %_create_profile.exit286
 
-_create_profile.exit286:                          ; preds = %_create_profile.exit284, %373
-  %383 = call ptr @g_list_append(ptr noundef %364, ptr noundef %372) #23
-  store ptr %383, ptr %10, align 8, !tbaa !103
-  %384 = call ptr @cmsBuildGamma(ptr noundef null, double noundef 1.000000e+00) #23
-  %385 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.179, ptr noundef nonnull @D50xyY, ptr noundef nonnull @ProPhoto_Primaries, ptr noundef %384, i32 noundef 1)
-  call void @cmsFreeToneCurve(ptr noundef %384) #23
-  %386 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.35, i32 noundef 5) #23
-  %387 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
-  %.not.i287 = icmp eq ptr %387, null
-  br i1 %.not.i287, label %_create_profile.exit288, label %388
+_create_profile.exit286:                          ; preds = %_create_profile.exit284, %375
+  %385 = call ptr @g_list_append(ptr noundef %366, ptr noundef %374) #23
+  store ptr %385, ptr %10, align 8, !tbaa !103
+  %386 = call ptr @cmsBuildGamma(ptr noundef null, double noundef 1.000000e+00) #23
+  %387 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.179, ptr noundef nonnull @D50xyY, ptr noundef nonnull @ProPhoto_Primaries, ptr noundef %386, i32 noundef 1)
+  call void @cmsFreeToneCurve(ptr noundef %386) #23
+  %388 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.35, i32 noundef 5) #23
+  %389 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
+  %.not.i287 = icmp eq ptr %389, null
+  br i1 %.not.i287, label %_create_profile.exit288, label %390
 
-388:                                              ; preds = %_create_profile.exit286
-  store i32 21, ptr %387, align 8, !tbaa !77
-  %389 = getelementptr inbounds nuw i8, ptr %387, i64 516
-  %390 = call i64 @g_strlcpy(ptr noundef nonnull %389, ptr noundef %386, i64 noundef 512) #23
-  %391 = getelementptr inbounds nuw i8, ptr %387, i64 1032
-  store ptr %385, ptr %391, align 8, !tbaa !85
-  %392 = getelementptr inbounds nuw i8, ptr %387, i64 1040
-  store i32 10, ptr %392, align 8, !tbaa !104
-  %393 = getelementptr inbounds nuw i8, ptr %387, i64 1044
-  store i32 10, ptr %393, align 4, !tbaa !78
-  %394 = getelementptr inbounds nuw i8, ptr %387, i64 1048
-  store i32 10, ptr %394, align 8, !tbaa !79
-  %395 = getelementptr inbounds nuw i8, ptr %387, i64 1056
-  store i32 14, ptr %395, align 8, !tbaa !105
-  %396 = getelementptr inbounds nuw i8, ptr %387, i64 1060
-  store i32 10, ptr %396, align 4, !tbaa !75
-  %397 = getelementptr inbounds nuw i8, ptr %387, i64 1052
-  store i32 10, ptr %397, align 4, !tbaa !91
+390:                                              ; preds = %_create_profile.exit286
+  store i32 21, ptr %389, align 8, !tbaa !77
+  %391 = getelementptr inbounds nuw i8, ptr %389, i64 516
+  %392 = call i64 @g_strlcpy(ptr noundef nonnull %391, ptr noundef %388, i64 noundef 512) #23
+  %393 = getelementptr inbounds nuw i8, ptr %389, i64 1032
+  store ptr %387, ptr %393, align 8, !tbaa !85
+  %394 = getelementptr inbounds nuw i8, ptr %389, i64 1040
+  store i32 10, ptr %394, align 8, !tbaa !104
+  %395 = getelementptr inbounds nuw i8, ptr %389, i64 1044
+  store i32 10, ptr %395, align 4, !tbaa !78
+  %396 = getelementptr inbounds nuw i8, ptr %389, i64 1048
+  store i32 10, ptr %396, align 8, !tbaa !79
+  %397 = getelementptr inbounds nuw i8, ptr %389, i64 1056
+  store i32 14, ptr %397, align 8, !tbaa !105
+  %398 = getelementptr inbounds nuw i8, ptr %389, i64 1060
+  store i32 10, ptr %398, align 4, !tbaa !75
+  %399 = getelementptr inbounds nuw i8, ptr %389, i64 1052
+  store i32 10, ptr %399, align 4, !tbaa !91
   br label %_create_profile.exit288
 
-_create_profile.exit288:                          ; preds = %_create_profile.exit286, %388
-  %398 = call ptr @g_list_append(ptr noundef %383, ptr noundef %387) #23
-  store ptr %398, ptr %10, align 8, !tbaa !103
-  %399 = call ptr @cmsCreateXYZProfile() #23
-  call void @cmsSetPCS(ptr noundef %399, i32 noundef 1482250784) #23
-  call void @cmsSetHeaderRenderingIntent(ptr noundef %399, i32 noundef 0) #23
-  %400 = icmp eq ptr %399, null
-  br i1 %400, label %_colorspaces_create_xyz_profile.exit, label %401
+_create_profile.exit288:                          ; preds = %_create_profile.exit286, %390
+  %400 = call ptr @g_list_append(ptr noundef %385, ptr noundef %389) #23
+  store ptr %400, ptr %10, align 8, !tbaa !103
+  %401 = call ptr @cmsCreateXYZProfile() #23
+  call void @cmsSetPCS(ptr noundef %401, i32 noundef 1482250784) #23
+  call void @cmsSetHeaderRenderingIntent(ptr noundef %401, i32 noundef 0) #23
+  %402 = icmp eq ptr %401, null
+  br i1 %402, label %_colorspaces_create_xyz_profile.exit, label %403
 
-401:                                              ; preds = %_create_profile.exit288
-  call void @cmsSetProfileVersion(ptr noundef nonnull %399, double noundef 2.100000e+00) #23
-  %402 = call ptr @cmsMLUalloc(ptr noundef null, i32 noundef 1) #23
-  %403 = call i32 @cmsMLUsetASCII(ptr noundef %402, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #23
+403:                                              ; preds = %_create_profile.exit288
+  call void @cmsSetProfileVersion(ptr noundef nonnull %401, double noundef 2.100000e+00) #23
   %404 = call ptr @cmsMLUalloc(ptr noundef null, i32 noundef 1) #23
-  %405 = call i32 @cmsMLUsetASCII(ptr noundef %404, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.36) #23
+  %405 = call i32 @cmsMLUsetASCII(ptr noundef %404, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #23
   %406 = call ptr @cmsMLUalloc(ptr noundef null, i32 noundef 1) #23
-  %407 = call i32 @cmsMLUsetASCII(ptr noundef %406, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.180) #23
-  %408 = call i32 @cmsWriteTag(ptr noundef nonnull %399, i32 noundef 1684893284, ptr noundef %402) #23
-  %409 = call i32 @cmsWriteTag(ptr noundef nonnull %399, i32 noundef 1684890724, ptr noundef %404) #23
-  %410 = call i32 @cmsWriteTag(ptr noundef nonnull %399, i32 noundef 1684370275, ptr noundef %406) #23
-  call void @cmsMLUfree(ptr noundef %402) #23
+  %407 = call i32 @cmsMLUsetASCII(ptr noundef %406, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.36) #23
+  %408 = call ptr @cmsMLUalloc(ptr noundef null, i32 noundef 1) #23
+  %409 = call i32 @cmsMLUsetASCII(ptr noundef %408, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.180) #23
+  %410 = call i32 @cmsWriteTag(ptr noundef nonnull %401, i32 noundef 1684893284, ptr noundef %404) #23
+  %411 = call i32 @cmsWriteTag(ptr noundef nonnull %401, i32 noundef 1684890724, ptr noundef %406) #23
+  %412 = call i32 @cmsWriteTag(ptr noundef nonnull %401, i32 noundef 1684370275, ptr noundef %408) #23
   call void @cmsMLUfree(ptr noundef %404) #23
   call void @cmsMLUfree(ptr noundef %406) #23
+  call void @cmsMLUfree(ptr noundef %408) #23
   br label %_colorspaces_create_xyz_profile.exit
 
-_colorspaces_create_xyz_profile.exit:             ; preds = %_create_profile.exit288, %401
-  %411 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.36, i32 noundef 5) #23
-  %412 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.37) #23
-  %.not = icmp eq i32 %412, 0
-  %413 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
-  %.not.i289 = icmp eq ptr %413, null
+_colorspaces_create_xyz_profile.exit:             ; preds = %_create_profile.exit288, %403
+  %413 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.36, i32 noundef 5) #23
+  %414 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.37) #23
+  %.not = icmp eq i32 %414, 0
+  %415 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
+  %.not.i289 = icmp eq ptr %415, null
   br i1 %.not, label %.split, label %.split220
 
 .split:                                           ; preds = %_colorspaces_create_xyz_profile.exit
-  br i1 %.not.i289, label %_create_profile.exit290, label %414
+  br i1 %.not.i289, label %_create_profile.exit290, label %416
 
-414:                                              ; preds = %.split
-  store i32 5, ptr %413, align 8, !tbaa !77
-  %415 = getelementptr inbounds nuw i8, ptr %413, i64 516
-  %416 = call i64 @g_strlcpy(ptr noundef nonnull %415, ptr noundef %411, i64 noundef 512) #23
-  %417 = getelementptr inbounds nuw i8, ptr %413, i64 1032
-  store ptr %399, ptr %417, align 8, !tbaa !85
-  %418 = getelementptr inbounds nuw i8, ptr %413, i64 1040
-  store i32 11, ptr %418, align 8, !tbaa !104
-  %419 = getelementptr inbounds nuw i8, ptr %413, i64 1044
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %419, i8 -1, i64 20, i1 false)
+416:                                              ; preds = %.split
+  store i32 5, ptr %415, align 8, !tbaa !77
+  %417 = getelementptr inbounds nuw i8, ptr %415, i64 516
+  %418 = call i64 @g_strlcpy(ptr noundef nonnull %417, ptr noundef %413, i64 noundef 512) #23
+  %419 = getelementptr inbounds nuw i8, ptr %415, i64 1032
+  store ptr %401, ptr %419, align 8, !tbaa !85
+  %420 = getelementptr inbounds nuw i8, ptr %415, i64 1040
+  store i32 11, ptr %420, align 8, !tbaa !104
+  %421 = getelementptr inbounds nuw i8, ptr %415, i64 1044
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %421, i8 -1, i64 20, i1 false)
   br label %_create_profile.exit290
 
 .split220:                                        ; preds = %_colorspaces_create_xyz_profile.exit
-  br i1 %.not.i289, label %_create_profile.exit290, label %420
+  br i1 %.not.i289, label %_create_profile.exit290, label %422
 
-420:                                              ; preds = %.split220
-  store i32 5, ptr %413, align 8, !tbaa !77
-  %421 = getelementptr inbounds nuw i8, ptr %413, i64 516
-  %422 = call i64 @g_strlcpy(ptr noundef nonnull %421, ptr noundef %411, i64 noundef 512) #23
-  %423 = getelementptr inbounds nuw i8, ptr %413, i64 1032
-  store ptr %399, ptr %423, align 8, !tbaa !85
-  %424 = getelementptr inbounds nuw i8, ptr %413, i64 1040
-  store i32 11, ptr %424, align 8, !tbaa !104
-  %425 = getelementptr inbounds nuw i8, ptr %413, i64 1044
-  store i32 11, ptr %425, align 4, !tbaa !78
-  %426 = getelementptr inbounds nuw i8, ptr %413, i64 1048
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %426, i8 -1, i64 16, i1 false)
+422:                                              ; preds = %.split220
+  store i32 5, ptr %415, align 8, !tbaa !77
+  %423 = getelementptr inbounds nuw i8, ptr %415, i64 516
+  %424 = call i64 @g_strlcpy(ptr noundef nonnull %423, ptr noundef %413, i64 noundef 512) #23
+  %425 = getelementptr inbounds nuw i8, ptr %415, i64 1032
+  store ptr %401, ptr %425, align 8, !tbaa !85
+  %426 = getelementptr inbounds nuw i8, ptr %415, i64 1040
+  store i32 11, ptr %426, align 8, !tbaa !104
+  %427 = getelementptr inbounds nuw i8, ptr %415, i64 1044
+  store i32 11, ptr %427, align 4, !tbaa !78
+  %428 = getelementptr inbounds nuw i8, ptr %415, i64 1048
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %428, i8 -1, i64 16, i1 false)
   br label %_create_profile.exit290
 
-_create_profile.exit290:                          ; preds = %420, %.split220, %414, %.split
-  %phi.call = phi ptr [ %413, %414 ], [ null, %.split ], [ null, %.split220 ], [ %413, %420 ]
-  %.0210 = phi i32 [ 10, %414 ], [ 10, %.split ], [ 11, %.split220 ], [ 11, %420 ]
-  %427 = call ptr @g_list_append(ptr noundef %398, ptr noundef %phi.call) #23
-  store ptr %427, ptr %10, align 8, !tbaa !103
-  %428 = call ptr @cmsD50_xyY() #23
-  %429 = call ptr @cmsCreateLab4Profile(ptr noundef %428) #23
-  %430 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.38, i32 noundef 5) #23
-  %431 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.37) #23
-  %.not226 = icmp eq i32 %431, 0
-  %432 = add nuw nsw i32 %.0210, 1
-  %spec.select = select i1 %.not226, i32 %.0210, i32 %432
-  %433 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
-  %.not.i293 = icmp eq ptr %433, null
-  br i1 %.not.i293, label %_create_profile.exit294, label %434
+_create_profile.exit290:                          ; preds = %422, %.split220, %416, %.split
+  %phi.call = phi ptr [ %415, %416 ], [ null, %.split ], [ null, %.split220 ], [ %415, %422 ]
+  %.0210 = phi i32 [ 10, %416 ], [ 10, %.split ], [ 11, %.split220 ], [ 11, %422 ]
+  %429 = call ptr @g_list_append(ptr noundef %400, ptr noundef %phi.call) #23
+  store ptr %429, ptr %10, align 8, !tbaa !103
+  %430 = call ptr @cmsD50_xyY() #23
+  %431 = call ptr @cmsCreateLab4Profile(ptr noundef %430) #23
+  %432 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.38, i32 noundef 5) #23
+  %433 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.37) #23
+  %.not226 = icmp eq i32 %433, 0
+  %434 = add nuw nsw i32 %.0210, 1
+  %spec.select = select i1 %.not226, i32 %.0210, i32 %434
+  %435 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
+  %.not.i293 = icmp eq ptr %435, null
+  br i1 %.not.i293, label %_create_profile.exit294, label %436
 
-434:                                              ; preds = %_create_profile.exit290
-  %spec.select240 = select i1 %.not226, i32 -1, i32 %432
-  store i32 6, ptr %433, align 8, !tbaa !77
-  %435 = getelementptr inbounds nuw i8, ptr %433, i64 516
-  %436 = call i64 @g_strlcpy(ptr noundef nonnull %435, ptr noundef %430, i64 noundef 512) #23
-  %437 = getelementptr inbounds nuw i8, ptr %433, i64 1032
-  store ptr %429, ptr %437, align 8, !tbaa !85
-  %438 = getelementptr inbounds nuw i8, ptr %433, i64 1040
-  store i32 12, ptr %438, align 8, !tbaa !104
-  %439 = getelementptr inbounds nuw i8, ptr %433, i64 1044
-  store i32 %spec.select240, ptr %439, align 4, !tbaa !78
-  %440 = getelementptr inbounds nuw i8, ptr %433, i64 1048
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %440, i8 -1, i64 16, i1 false)
+436:                                              ; preds = %_create_profile.exit290
+  %spec.select240 = select i1 %.not226, i32 -1, i32 %434
+  store i32 6, ptr %435, align 8, !tbaa !77
+  %437 = getelementptr inbounds nuw i8, ptr %435, i64 516
+  %438 = call i64 @g_strlcpy(ptr noundef nonnull %437, ptr noundef %432, i64 noundef 512) #23
+  %439 = getelementptr inbounds nuw i8, ptr %435, i64 1032
+  store ptr %431, ptr %439, align 8, !tbaa !85
+  %440 = getelementptr inbounds nuw i8, ptr %435, i64 1040
+  store i32 12, ptr %440, align 8, !tbaa !104
+  %441 = getelementptr inbounds nuw i8, ptr %435, i64 1044
+  store i32 %spec.select240, ptr %441, align 4, !tbaa !78
+  %442 = getelementptr inbounds nuw i8, ptr %435, i64 1048
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %442, i8 -1, i64 16, i1 false)
   br label %_create_profile.exit294
 
-_create_profile.exit294:                          ; preds = %_create_profile.exit290, %434
-  %441 = call ptr @g_list_append(ptr noundef %427, ptr noundef %433) #23
-  store ptr %441, ptr %10, align 8, !tbaa !103
-  %442 = call ptr @cmsBuildGamma(ptr noundef null, double noundef 1.000000e+00) #23
+_create_profile.exit294:                          ; preds = %_create_profile.exit290, %436
+  %443 = call ptr @g_list_append(ptr noundef %429, ptr noundef %435) #23
+  store ptr %443, ptr %10, align 8, !tbaa !103
+  %444 = call ptr @cmsBuildGamma(ptr noundef null, double noundef 1.000000e+00) #23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) @__const._colorspaces_create_linear_infrared_profile.BGR_Primaries, i64 72, i1 false)
-  %443 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.181, ptr noundef nonnull @.str.182, ptr noundef nonnull @D65xyY, ptr noundef nonnull %3, ptr noundef %442, i32 noundef 0)
-  call void @cmsFreeToneCurve(ptr noundef %442) #23
+  %445 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.181, ptr noundef nonnull @.str.182, ptr noundef nonnull @D65xyY, ptr noundef nonnull %3, ptr noundef %444, i32 noundef 0)
+  call void @cmsFreeToneCurve(ptr noundef %444) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %444 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.39, i32 noundef 5) #23
-  %445 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
-  %.not.i295 = icmp eq ptr %445, null
-  br i1 %.not.i295, label %_create_profile.exit296, label %446
+  %446 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.39, i32 noundef 5) #23
+  %447 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
+  %.not.i295 = icmp eq ptr %447, null
+  br i1 %.not.i295, label %_create_profile.exit296, label %448
 
-446:                                              ; preds = %_create_profile.exit294
-  store i32 7, ptr %445, align 8, !tbaa !77
-  %447 = getelementptr inbounds nuw i8, ptr %445, i64 516
-  %448 = call i64 @g_strlcpy(ptr noundef nonnull %447, ptr noundef %444, i64 noundef 512) #23
-  %449 = getelementptr inbounds nuw i8, ptr %445, i64 1032
-  store ptr %443, ptr %449, align 8, !tbaa !85
-  %450 = getelementptr inbounds nuw i8, ptr %445, i64 1040
-  store i32 13, ptr %450, align 8, !tbaa !104
-  %451 = getelementptr inbounds nuw i8, ptr %445, i64 1044
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %451, i8 -1, i64 20, i1 false)
+448:                                              ; preds = %_create_profile.exit294
+  store i32 7, ptr %447, align 8, !tbaa !77
+  %449 = getelementptr inbounds nuw i8, ptr %447, i64 516
+  %450 = call i64 @g_strlcpy(ptr noundef nonnull %449, ptr noundef %446, i64 noundef 512) #23
+  %451 = getelementptr inbounds nuw i8, ptr %447, i64 1032
+  store ptr %445, ptr %451, align 8, !tbaa !85
+  %452 = getelementptr inbounds nuw i8, ptr %447, i64 1040
+  store i32 13, ptr %452, align 8, !tbaa !104
+  %453 = getelementptr inbounds nuw i8, ptr %447, i64 1044
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %453, i8 -1, i64 20, i1 false)
   br label %_create_profile.exit296
 
-_create_profile.exit296:                          ; preds = %_create_profile.exit294, %446
-  %452 = call ptr @g_list_append(ptr noundef %441, ptr noundef %445) #23
-  store ptr %452, ptr %10, align 8, !tbaa !103
+_create_profile.exit296:                          ; preds = %_create_profile.exit294, %448
+  %454 = call ptr @g_list_append(ptr noundef %443, ptr noundef %447) #23
+  store ptr %454, ptr %10, align 8, !tbaa !103
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store double 2.400000e+00, ptr %1, align 16
-  %453 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double 0x3FEE54EDCD0AEB60, ptr %453, align 8
-  %454 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store double 0x3FAAB1232F514A03, ptr %454, align 16
-  %455 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store double 0x3FB3D0722149B580, ptr %455, align 8
-  %456 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store double 4.045000e-02, ptr %456, align 16
-  %457 = call ptr @cmsBuildParametricToneCurve(ptr noundef null, i32 noundef 4, ptr noundef nonnull %1) #23
+  %455 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store double 0x3FEE54EDCD0AEB60, ptr %455, align 8
+  %456 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store double 0x3FAAB1232F514A03, ptr %456, align 16
+  %457 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store double 0x3FB3D0722149B580, ptr %457, align 8
+  %458 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store double 4.045000e-02, ptr %458, align 16
+  %459 = call ptr @cmsBuildParametricToneCurve(ptr noundef null, i32 noundef 4, ptr noundef nonnull %1) #23
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) @__const._colorspaces_create_brg_profile.BRG_Primaries, i64 72, i1 false)
-  %458 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.183, ptr noundef nonnull @D65xyY, ptr noundef nonnull %2, ptr noundef %457, i32 noundef 1)
-  call void @cmsFreeToneCurve(ptr noundef %457) #23
+  %460 = call fastcc ptr @_create_lcms_profile(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.183, ptr noundef nonnull @D65xyY, ptr noundef nonnull %2, ptr noundef %459, i32 noundef 1)
+  call void @cmsFreeToneCurve(ptr noundef %459) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %459 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 5) #23
-  %460 = add nuw nsw i32 %spec.select, 1
-  %461 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
-  %.not.i297 = icmp eq ptr %461, null
-  br i1 %.not.i297, label %_create_profile.exit298, label %462
+  %461 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 5) #23
+  %462 = add nuw nsw i32 %spec.select, 1
+  %463 = call noalias dereferenceable_or_null(1064) ptr @calloc(i64 noundef 1, i64 noundef 1064) #27
+  %.not.i297 = icmp eq ptr %463, null
+  br i1 %.not.i297, label %_create_profile.exit298, label %464
 
-462:                                              ; preds = %_create_profile.exit296
-  store i32 15, ptr %461, align 8, !tbaa !77
-  %463 = getelementptr inbounds nuw i8, ptr %461, i64 516
-  %464 = call i64 @g_strlcpy(ptr noundef nonnull %463, ptr noundef %459, i64 noundef 512) #23
-  %465 = getelementptr inbounds nuw i8, ptr %461, i64 1032
-  store ptr %458, ptr %465, align 8, !tbaa !85
-  %466 = getelementptr inbounds nuw i8, ptr %461, i64 1040
-  store i32 14, ptr %466, align 8, !tbaa !104
-  %467 = getelementptr inbounds nuw i8, ptr %461, i64 1044
-  store i32 %460, ptr %467, align 4, !tbaa !78
-  %468 = getelementptr inbounds nuw i8, ptr %461, i64 1048
-  store i32 11, ptr %468, align 8, !tbaa !79
-  %469 = getelementptr inbounds nuw i8, ptr %461, i64 1056
-  store i32 -1, ptr %469, align 8, !tbaa !105
-  %470 = getelementptr inbounds nuw i8, ptr %461, i64 1060
-  store i32 -1, ptr %470, align 4, !tbaa !75
-  %471 = getelementptr inbounds nuw i8, ptr %461, i64 1052
-  store i32 11, ptr %471, align 4, !tbaa !91
+464:                                              ; preds = %_create_profile.exit296
+  store i32 15, ptr %463, align 8, !tbaa !77
+  %465 = getelementptr inbounds nuw i8, ptr %463, i64 516
+  %466 = call i64 @g_strlcpy(ptr noundef nonnull %465, ptr noundef %461, i64 noundef 512) #23
+  %467 = getelementptr inbounds nuw i8, ptr %463, i64 1032
+  store ptr %460, ptr %467, align 8, !tbaa !85
+  %468 = getelementptr inbounds nuw i8, ptr %463, i64 1040
+  store i32 14, ptr %468, align 8, !tbaa !104
+  %469 = getelementptr inbounds nuw i8, ptr %463, i64 1044
+  store i32 %462, ptr %469, align 4, !tbaa !78
+  %470 = getelementptr inbounds nuw i8, ptr %463, i64 1048
+  store i32 11, ptr %470, align 8, !tbaa !79
+  %471 = getelementptr inbounds nuw i8, ptr %463, i64 1056
+  store i32 -1, ptr %471, align 8, !tbaa !105
+  %472 = getelementptr inbounds nuw i8, ptr %463, i64 1060
+  store i32 -1, ptr %472, align 4, !tbaa !75
+  %473 = getelementptr inbounds nuw i8, ptr %463, i64 1052
+  store i32 11, ptr %473, align 4, !tbaa !91
   br label %_create_profile.exit298
 
-_create_profile.exit298:                          ; preds = %_create_profile.exit296, %462
-  %472 = call ptr @g_list_append(ptr noundef %452, ptr noundef %461) #23
-  store ptr %472, ptr %10, align 8, !tbaa !103
-  %473 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.41) #23
-  %474 = getelementptr inbounds nuw i8, ptr %10, i64 108
-  store i32 %473, ptr %474, align 4, !tbaa !84
-  %475 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.42) #23
-  %476 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  store i32 %475, ptr %476, align 8, !tbaa !90
-  %477 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.43) #23
-  %478 = getelementptr inbounds nuw i8, ptr %10, i64 116
-  store i32 %477, ptr %478, align 4, !tbaa !106
-  %479 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.44) #23
-  %480 = getelementptr inbounds nuw i8, ptr %10, i64 120
-  store i32 %479, ptr %480, align 8, !tbaa !107
-  %481 = call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.45) #23
-  %482 = getelementptr inbounds nuw i8, ptr %10, i64 124
-  %483 = call i64 @g_strlcpy(ptr noundef nonnull %482, ptr noundef %481, i64 noundef 512) #23
-  %484 = call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.46) #23
-  %485 = getelementptr inbounds nuw i8, ptr %10, i64 636
-  %486 = call i64 @g_strlcpy(ptr noundef nonnull %485, ptr noundef %484, i64 noundef 512) #23
-  %487 = call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.47) #23
-  %488 = getelementptr inbounds nuw i8, ptr %10, i64 1148
-  %489 = call i64 @g_strlcpy(ptr noundef nonnull %488, ptr noundef %487, i64 noundef 512) #23
-  %490 = call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.48) #23
-  %491 = getelementptr inbounds nuw i8, ptr %10, i64 1660
-  %492 = call i64 @g_strlcpy(ptr noundef nonnull %491, ptr noundef %490, i64 noundef 512) #23
-  %493 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.49) #23
-  %494 = getelementptr inbounds nuw i8, ptr %10, i64 2172
-  store i32 %493, ptr %494, align 4, !tbaa !87
-  %495 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.50) #23
-  %496 = getelementptr inbounds nuw i8, ptr %10, i64 2176
-  store i32 %495, ptr %496, align 8, !tbaa !92
-  %497 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.51) #23
-  %498 = getelementptr inbounds nuw i8, ptr %10, i64 2180
-  store i32 %497, ptr %498, align 4, !tbaa !108
-  %499 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.52) #23
-  %500 = getelementptr inbounds nuw i8, ptr %10, i64 2184
-  store i32 %499, ptr %500, align 8, !tbaa !109
-  %501 = load i32, ptr %474, align 4, !tbaa !84
-  %502 = icmp ugt i32 %501, 26
-  br i1 %502, label %509, label %503
+_create_profile.exit298:                          ; preds = %_create_profile.exit296, %464
+  %474 = call ptr @g_list_append(ptr noundef %454, ptr noundef %463) #23
+  store ptr %474, ptr %10, align 8, !tbaa !103
+  %475 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.41) #23
+  %476 = getelementptr inbounds nuw i8, ptr %10, i64 108
+  store i32 %475, ptr %476, align 4, !tbaa !84
+  %477 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.42) #23
+  %478 = getelementptr inbounds nuw i8, ptr %10, i64 112
+  store i32 %477, ptr %478, align 8, !tbaa !90
+  %479 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.43) #23
+  %480 = getelementptr inbounds nuw i8, ptr %10, i64 116
+  store i32 %479, ptr %480, align 4, !tbaa !106
+  %481 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.44) #23
+  %482 = getelementptr inbounds nuw i8, ptr %10, i64 120
+  store i32 %481, ptr %482, align 8, !tbaa !107
+  %483 = call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.45) #23
+  %484 = getelementptr inbounds nuw i8, ptr %10, i64 124
+  %485 = call i64 @g_strlcpy(ptr noundef nonnull %484, ptr noundef %483, i64 noundef 512) #23
+  %486 = call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.46) #23
+  %487 = getelementptr inbounds nuw i8, ptr %10, i64 636
+  %488 = call i64 @g_strlcpy(ptr noundef nonnull %487, ptr noundef %486, i64 noundef 512) #23
+  %489 = call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.47) #23
+  %490 = getelementptr inbounds nuw i8, ptr %10, i64 1148
+  %491 = call i64 @g_strlcpy(ptr noundef nonnull %490, ptr noundef %489, i64 noundef 512) #23
+  %492 = call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.48) #23
+  %493 = getelementptr inbounds nuw i8, ptr %10, i64 1660
+  %494 = call i64 @g_strlcpy(ptr noundef nonnull %493, ptr noundef %492, i64 noundef 512) #23
+  %495 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.49) #23
+  %496 = getelementptr inbounds nuw i8, ptr %10, i64 2172
+  store i32 %495, ptr %496, align 4, !tbaa !87
+  %497 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.50) #23
+  %498 = getelementptr inbounds nuw i8, ptr %10, i64 2176
+  store i32 %497, ptr %498, align 8, !tbaa !92
+  %499 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.51) #23
+  %500 = getelementptr inbounds nuw i8, ptr %10, i64 2180
+  store i32 %499, ptr %500, align 4, !tbaa !108
+  %501 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.52) #23
+  %502 = getelementptr inbounds nuw i8, ptr %10, i64 2184
+  store i32 %501, ptr %502, align 8, !tbaa !109
+  %503 = load i32, ptr %476, align 4, !tbaa !84
+  %504 = icmp ugt i32 %503, 26
+  br i1 %504, label %511, label %505
 
-503:                                              ; preds = %_create_profile.exit298
-  %504 = icmp eq i32 %501, 0
-  br i1 %504, label %505, label %510
-
-505:                                              ; preds = %503
-  %506 = load i8, ptr %482, align 4, !tbaa !80
-  %.not227 = icmp eq i8 %506, 0
-  br i1 %.not227, label %509, label %507
+505:                                              ; preds = %_create_profile.exit298
+  %506 = icmp eq i32 %503, 0
+  br i1 %506, label %507, label %512
 
 507:                                              ; preds = %505
-  %508 = call i32 @g_file_test(ptr noundef nonnull %482, i32 noundef 1) #23
-  %.not228 = icmp eq i32 %508, 0
-  br i1 %.not228, label %509, label %510
+  %508 = load i8, ptr %484, align 4, !tbaa !80
+  %.not227 = icmp eq i8 %508, 0
+  br i1 %.not227, label %511, label %509
 
-509:                                              ; preds = %507, %505, %_create_profile.exit298
-  store i32 8, ptr %474, align 4, !tbaa !84
-  br label %510
+509:                                              ; preds = %507
+  %510 = call i32 @g_file_test(ptr noundef nonnull %484, i32 noundef 1) #23
+  %.not228 = icmp eq i32 %510, 0
+  br i1 %.not228, label %511, label %512
 
-510:                                              ; preds = %509, %507, %503
-  %511 = load i32, ptr %476, align 8, !tbaa !90
-  %512 = icmp ugt i32 %511, 26
-  br i1 %512, label %519, label %513
+511:                                              ; preds = %509, %507, %_create_profile.exit298
+  store i32 8, ptr %476, align 4, !tbaa !84
+  br label %512
 
-513:                                              ; preds = %510
-  %514 = icmp eq i32 %511, 0
-  br i1 %514, label %515, label %520
+512:                                              ; preds = %511, %509, %505
+  %513 = load i32, ptr %478, align 8, !tbaa !90
+  %514 = icmp ugt i32 %513, 26
+  br i1 %514, label %521, label %515
 
-515:                                              ; preds = %513
-  %516 = load i8, ptr %485, align 4, !tbaa !80
-  %.not229 = icmp eq i8 %516, 0
-  br i1 %.not229, label %519, label %517
+515:                                              ; preds = %512
+  %516 = icmp eq i32 %513, 0
+  br i1 %516, label %517, label %522
 
 517:                                              ; preds = %515
-  %518 = call i32 @g_file_test(ptr noundef nonnull %485, i32 noundef 1) #23
-  %.not230 = icmp eq i32 %518, 0
-  br i1 %.not230, label %519, label %520
+  %518 = load i8, ptr %487, align 4, !tbaa !80
+  %.not229 = icmp eq i8 %518, 0
+  br i1 %.not229, label %521, label %519
 
-519:                                              ; preds = %517, %515, %510
-  store i32 19, ptr %476, align 8, !tbaa !90
-  br label %520
+519:                                              ; preds = %517
+  %520 = call i32 @g_file_test(ptr noundef nonnull %487, i32 noundef 1) #23
+  %.not230 = icmp eq i32 %520, 0
+  br i1 %.not230, label %521, label %522
 
-520:                                              ; preds = %519, %517, %513
-  %521 = load i32, ptr %478, align 4, !tbaa !106
-  %522 = icmp ugt i32 %521, 26
-  br i1 %522, label %529, label %523
+521:                                              ; preds = %519, %517, %512
+  store i32 19, ptr %478, align 8, !tbaa !90
+  br label %522
 
-523:                                              ; preds = %520
-  %524 = icmp eq i32 %521, 0
-  br i1 %524, label %525, label %530
+522:                                              ; preds = %521, %519, %515
+  %523 = load i32, ptr %480, align 4, !tbaa !106
+  %524 = icmp ugt i32 %523, 26
+  br i1 %524, label %531, label %525
 
-525:                                              ; preds = %523
-  %526 = load i8, ptr %488, align 4, !tbaa !80
-  %.not231 = icmp eq i8 %526, 0
-  br i1 %.not231, label %529, label %527
+525:                                              ; preds = %522
+  %526 = icmp eq i32 %523, 0
+  br i1 %526, label %527, label %532
 
 527:                                              ; preds = %525
-  %528 = call i32 @g_file_test(ptr noundef nonnull %488, i32 noundef 1) #23
-  %.not232 = icmp eq i32 %528, 0
-  br i1 %.not232, label %529, label %530
+  %528 = load i8, ptr %490, align 4, !tbaa !80
+  %.not231 = icmp eq i8 %528, 0
+  br i1 %.not231, label %531, label %529
 
-529:                                              ; preds = %527, %525, %520
-  store i32 1, ptr %478, align 4, !tbaa !106
-  br label %530
+529:                                              ; preds = %527
+  %530 = call i32 @g_file_test(ptr noundef nonnull %490, i32 noundef 1) #23
+  %.not232 = icmp eq i32 %530, 0
+  br i1 %.not232, label %531, label %532
 
-530:                                              ; preds = %529, %527, %523
-  %531 = load i32, ptr %480, align 8, !tbaa !107
-  %532 = icmp ugt i32 %531, 26
-  br i1 %532, label %539, label %533
+531:                                              ; preds = %529, %527, %522
+  store i32 1, ptr %480, align 4, !tbaa !106
+  br label %532
 
-533:                                              ; preds = %530
-  %534 = icmp eq i32 %531, 0
-  br i1 %534, label %535, label %540
+532:                                              ; preds = %531, %529, %525
+  %533 = load i32, ptr %482, align 8, !tbaa !107
+  %534 = icmp ugt i32 %533, 26
+  br i1 %534, label %541, label %535
 
-535:                                              ; preds = %533
-  %536 = load i8, ptr %491, align 4, !tbaa !80
-  %.not233 = icmp eq i8 %536, 0
-  br i1 %.not233, label %539, label %537
+535:                                              ; preds = %532
+  %536 = icmp eq i32 %533, 0
+  br i1 %536, label %537, label %542
 
 537:                                              ; preds = %535
-  %538 = call i32 @g_file_test(ptr noundef nonnull %491, i32 noundef 1) #23
-  %.not234 = icmp eq i32 %538, 0
-  br i1 %.not234, label %539, label %540
+  %538 = load i8, ptr %493, align 4, !tbaa !80
+  %.not233 = icmp eq i8 %538, 0
+  br i1 %.not233, label %541, label %539
 
-539:                                              ; preds = %537, %535, %530
-  store i32 1, ptr %480, align 8, !tbaa !107
-  br label %540
+539:                                              ; preds = %537
+  %540 = call i32 @g_file_test(ptr noundef nonnull %493, i32 noundef 1) #23
+  %.not234 = icmp eq i32 %540, 0
+  br i1 %.not234, label %541, label %542
 
-540:                                              ; preds = %539, %537, %533
-  %541 = call fastcc ptr @load_profile_from_dir(ptr noundef nonnull @.str.53)
-  %.not235299 = icmp eq ptr %541, null
+541:                                              ; preds = %539, %537, %532
+  store i32 1, ptr %482, align 8, !tbaa !107
+  br label %542
+
+542:                                              ; preds = %541, %539, %535
+  %543 = call fastcc ptr @load_profile_from_dir(ptr noundef nonnull @.str.53)
+  %.not235299 = icmp eq ptr %543, null
   br i1 %.not235299, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %540
-  %542 = load ptr, ptr %10, align 8, !tbaa !103
-  %543 = call ptr @g_list_concat(ptr noundef %542, ptr noundef %541) #23
-  store ptr %543, ptr %10, align 8, !tbaa !103
-  %544 = call fastcc ptr @load_profile_from_dir(ptr noundef nonnull @.str.54)
-  %.not236302 = icmp eq ptr %544, null
+._crit_edge:                                      ; preds = %.lr.ph, %542
+  %544 = load ptr, ptr %10, align 8, !tbaa !103
+  %545 = call ptr @g_list_concat(ptr noundef %544, ptr noundef %543) #23
+  store ptr %545, ptr %10, align 8, !tbaa !103
+  %546 = call fastcc ptr @load_profile_from_dir(ptr noundef nonnull @.str.54)
+  %.not236302 = icmp eq ptr %546, null
   br i1 %.not236302, label %._crit_edge311, label %.lr.ph310
 
-.lr.ph:                                           ; preds = %540, %.lr.ph
-  %.0301 = phi i32 [ %546, %.lr.ph ], [ 14, %540 ]
-  %.0216300 = phi ptr [ %549, %.lr.ph ], [ %541, %540 ]
-  %545 = load ptr, ptr %.0216300, align 8, !tbaa !27
-  %546 = add nuw nsw i32 %.0301, 1
-  %547 = getelementptr inbounds nuw i8, ptr %545, i64 1040
-  store i32 %546, ptr %547, align 8, !tbaa !104
-  %548 = getelementptr inbounds nuw i8, ptr %.0216300, i64 8
-  %549 = load ptr, ptr %548, align 8, !tbaa !110
-  %.not235 = icmp eq ptr %549, null
+.lr.ph:                                           ; preds = %542, %.lr.ph
+  %.0301 = phi i32 [ %548, %.lr.ph ], [ 14, %542 ]
+  %.0216300 = phi ptr [ %551, %.lr.ph ], [ %543, %542 ]
+  %547 = load ptr, ptr %.0216300, align 8, !tbaa !27
+  %548 = add nuw nsw i32 %.0301, 1
+  %549 = getelementptr inbounds nuw i8, ptr %547, i64 1040
+  store i32 %548, ptr %549, align 8, !tbaa !104
+  %550 = getelementptr inbounds nuw i8, ptr %.0216300, i64 8
+  %551 = load ptr, ptr %550, align 8, !tbaa !110
+  %.not235 = icmp eq ptr %551, null
   br i1 %.not235, label %._crit_edge, label %.lr.ph
 
-._crit_edge311:                                   ; preds = %608, %._crit_edge
-  %550 = load ptr, ptr %10, align 8, !tbaa !103
-  %551 = call ptr @g_list_concat(ptr noundef %550, ptr noundef %544) #23
-  store ptr %551, ptr %10, align 8, !tbaa !103
-  %552 = load i32, ptr %500, align 8, !tbaa !109
-  %553 = icmp ugt i32 %552, 2
-  br i1 %553, label %614, label %615
+._crit_edge311:                                   ; preds = %610, %._crit_edge
+  %552 = load ptr, ptr %10, align 8, !tbaa !103
+  %553 = call ptr @g_list_concat(ptr noundef %552, ptr noundef %546) #23
+  store ptr %553, ptr %10, align 8, !tbaa !103
+  %554 = load i32, ptr %502, align 8, !tbaa !109
+  %555 = icmp ugt i32 %554, 2
+  br i1 %555, label %616, label %617
 
-.lr.ph310:                                        ; preds = %._crit_edge, %608
-  %.2308 = phi i32 [ %611, %608 ], [ %460, %._crit_edge ]
-  %.0211307 = phi i32 [ %610, %608 ], [ 11, %._crit_edge ]
-  %.0212306 = phi i32 [ %609, %608 ], [ 11, %._crit_edge ]
-  %.0213305 = phi ptr [ %613, %608 ], [ %544, %._crit_edge ]
-  %.0214304 = phi i32 [ %.1215, %608 ], [ 14, %._crit_edge ]
-  %.0217303 = phi i32 [ %.1218, %608 ], [ 10, %._crit_edge ]
-  %554 = load ptr, ptr %.0213305, align 8, !tbaa !27
-  %555 = getelementptr inbounds nuw i8, ptr %554, i64 1032
-  %556 = load ptr, ptr %555, align 8, !tbaa !85
-  %557 = call i32 @cmsGetColorSpace(ptr noundef %556) #23
-  %558 = load ptr, ptr %555, align 8, !tbaa !85
-  %559 = call fastcc range(i32 0, 5) i32 @_colorspaces_get_matrix_from_profile(ptr noundef %558, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  %560 = icmp eq i32 %559, 0
-  br i1 %560, label %567, label %.thread
+.lr.ph310:                                        ; preds = %._crit_edge, %610
+  %.2308 = phi i32 [ %613, %610 ], [ %462, %._crit_edge ]
+  %.0211307 = phi i32 [ %612, %610 ], [ 11, %._crit_edge ]
+  %.0212306 = phi i32 [ %611, %610 ], [ 11, %._crit_edge ]
+  %.0213305 = phi ptr [ %615, %610 ], [ %546, %._crit_edge ]
+  %.0214304 = phi i32 [ %.1215, %610 ], [ 14, %._crit_edge ]
+  %.0217303 = phi i32 [ %.1218, %610 ], [ 10, %._crit_edge ]
+  %556 = load ptr, ptr %.0213305, align 8, !tbaa !27
+  %557 = getelementptr inbounds nuw i8, ptr %556, i64 1032
+  %558 = load ptr, ptr %557, align 8, !tbaa !85
+  %559 = call i32 @cmsGetColorSpace(ptr noundef %558) #23
+  %560 = load ptr, ptr %557, align 8, !tbaa !85
+  %561 = call fastcc range(i32 0, 5) i32 @_colorspaces_get_matrix_from_profile(ptr noundef %560, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  %562 = icmp eq i32 %561, 0
+  br i1 %562, label %569, label %.thread
 
 .thread:                                          ; preds = %.lr.ph310
-  %561 = add nsw i32 %.2308, 1
-  %562 = getelementptr inbounds nuw i8, ptr %554, i64 1044
-  store i32 %561, ptr %562, align 4, !tbaa !78
-  %563 = add nuw nsw i32 %.0211307, 1
-  %564 = getelementptr inbounds nuw i8, ptr %554, i64 1048
-  store i32 %563, ptr %564, align 8, !tbaa !79
-  %565 = add nuw nsw i32 %.0212306, 1
-  %566 = getelementptr inbounds nuw i8, ptr %554, i64 1052
-  store i32 %565, ptr %566, align 4, !tbaa !91
-  br label %582
+  %563 = add nsw i32 %.2308, 1
+  %564 = getelementptr inbounds nuw i8, ptr %556, i64 1044
+  store i32 %563, ptr %564, align 4, !tbaa !78
+  %565 = add nuw nsw i32 %.0211307, 1
+  %566 = getelementptr inbounds nuw i8, ptr %556, i64 1048
+  store i32 %565, ptr %566, align 8, !tbaa !79
+  %567 = add nuw nsw i32 %.0212306, 1
+  %568 = getelementptr inbounds nuw i8, ptr %556, i64 1052
+  store i32 %567, ptr %568, align 4, !tbaa !91
+  br label %584
 
-567:                                              ; preds = %.lr.ph310
-  %568 = load ptr, ptr %555, align 8, !tbaa !85
-  %569 = call fastcc range(i32 0, 5) i32 @_colorspaces_get_matrix_from_profile(ptr noundef %568, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1)
-  %570 = icmp eq i32 %569, 0
-  %571 = add nsw i32 %.2308, 1
-  %572 = getelementptr inbounds nuw i8, ptr %554, i64 1044
-  store i32 %571, ptr %572, align 4, !tbaa !78
-  %573 = add nuw nsw i32 %.0211307, 1
-  %574 = getelementptr inbounds nuw i8, ptr %554, i64 1048
-  store i32 %573, ptr %574, align 8, !tbaa !79
-  %575 = add nuw nsw i32 %.0212306, 1
-  %576 = getelementptr inbounds nuw i8, ptr %554, i64 1052
-  store i32 %575, ptr %576, align 4, !tbaa !91
-  br i1 %570, label %577, label %582
+569:                                              ; preds = %.lr.ph310
+  %570 = load ptr, ptr %557, align 8, !tbaa !85
+  %571 = call fastcc range(i32 0, 5) i32 @_colorspaces_get_matrix_from_profile(ptr noundef %570, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1)
+  %572 = icmp eq i32 %571, 0
+  %573 = add nsw i32 %.2308, 1
+  %574 = getelementptr inbounds nuw i8, ptr %556, i64 1044
+  store i32 %573, ptr %574, align 4, !tbaa !78
+  %575 = add nuw nsw i32 %.0211307, 1
+  %576 = getelementptr inbounds nuw i8, ptr %556, i64 1048
+  store i32 %575, ptr %576, align 8, !tbaa !79
+  %577 = add nuw nsw i32 %.0212306, 1
+  %578 = getelementptr inbounds nuw i8, ptr %556, i64 1052
+  store i32 %577, ptr %578, align 4, !tbaa !91
+  br i1 %572, label %579, label %584
 
-577:                                              ; preds = %567
-  %578 = add nsw i32 %.0214304, 1
-  %579 = getelementptr inbounds nuw i8, ptr %554, i64 1056
-  store i32 %578, ptr %579, align 8, !tbaa !105
-  %580 = add nsw i32 %.0217303, 1
-  %581 = getelementptr inbounds nuw i8, ptr %554, i64 1060
-  store i32 %580, ptr %581, align 4, !tbaa !75
-  br label %608
+579:                                              ; preds = %569
+  %580 = add nsw i32 %.0214304, 1
+  %581 = getelementptr inbounds nuw i8, ptr %556, i64 1056
+  store i32 %580, ptr %581, align 8, !tbaa !105
+  %582 = add nsw i32 %.0217303, 1
+  %583 = getelementptr inbounds nuw i8, ptr %556, i64 1060
+  store i32 %582, ptr %583, align 4, !tbaa !75
+  br label %610
 
-582:                                              ; preds = %.thread, %567
-  %583 = phi i32 [ %565, %.thread ], [ %575, %567 ]
-  %584 = phi i32 [ %563, %.thread ], [ %573, %567 ]
-  %585 = phi i32 [ %561, %.thread ], [ %571, %567 ]
-  %586 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !34
-  %587 = and i32 %586, 4
-  %.not237 = icmp eq i32 %587, 0
-  br i1 %.not237, label %596, label %588
+584:                                              ; preds = %.thread, %569
+  %585 = phi i32 [ %567, %.thread ], [ %577, %569 ]
+  %586 = phi i32 [ %565, %.thread ], [ %575, %569 ]
+  %587 = phi i32 [ %563, %.thread ], [ %573, %569 ]
+  %588 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !34
+  %589 = and i32 %588, 4
+  %.not237 = icmp eq i32 %589, 0
+  br i1 %.not237, label %598, label %590
 
-588:                                              ; preds = %582
-  %589 = getelementptr inbounds nuw i8, ptr %554, i64 516
-  %590 = ashr i32 %557, 24
-  %591 = shl i32 %557, 8
-  %592 = ashr i32 %591, 24
-  %593 = shl i32 %557, 16
+590:                                              ; preds = %584
+  %591 = getelementptr inbounds nuw i8, ptr %556, i64 516
+  %592 = ashr i32 %559, 24
+  %593 = shl i32 %559, 8
   %594 = ashr i32 %593, 24
-  %sext = shl i32 %557, 24
-  %595 = ashr exact i32 %sext, 24
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.55, ptr noundef nonnull %589, i32 noundef %590, i32 noundef %592, i32 noundef %594, i32 noundef %595) #23
-  br label %596
+  %595 = shl i32 %559, 16
+  %596 = ashr i32 %595, 24
+  %sext = shl i32 %559, 24
+  %597 = ashr exact i32 %sext, 24
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.55, ptr noundef nonnull %591, i32 noundef %592, i32 noundef %594, i32 noundef %596, i32 noundef %597) #23
+  br label %598
 
-596:                                              ; preds = %588, %582
-  %597 = load i32, ptr %480, align 8, !tbaa !107
-  %598 = load i32, ptr %554, align 8, !tbaa !77
-  %599 = icmp eq i32 %597, %598
-  br i1 %599, label %600, label %608
+598:                                              ; preds = %590, %584
+  %599 = load i32, ptr %482, align 8, !tbaa !107
+  %600 = load i32, ptr %556, align 8, !tbaa !77
+  %601 = icmp eq i32 %599, %600
+  br i1 %601, label %602, label %610
 
-600:                                              ; preds = %596
-  %.not238 = icmp eq i32 %597, 0
-  br i1 %.not238, label %601, label %604
+602:                                              ; preds = %598
+  %.not238 = icmp eq i32 %599, 0
+  br i1 %.not238, label %603, label %606
 
-601:                                              ; preds = %600
-  %602 = getelementptr inbounds nuw i8, ptr %554, i64 4
-  %603 = call i32 @dt_colorspaces_is_profile_equal(ptr noundef nonnull %602, ptr noundef nonnull %491)
-  %.not239 = icmp eq i32 %603, 0
-  br i1 %.not239, label %608, label %604
+603:                                              ; preds = %602
+  %604 = getelementptr inbounds nuw i8, ptr %556, i64 4
+  %605 = call i32 @dt_colorspaces_is_profile_equal(ptr noundef nonnull %604, ptr noundef nonnull %493)
+  %.not239 = icmp eq i32 %605, 0
+  br i1 %.not239, label %610, label %606
 
-604:                                              ; preds = %601, %600
-  %605 = getelementptr inbounds nuw i8, ptr %554, i64 4
-  %606 = call ptr @dt_colorspaces_get_name(i32 noundef %597, ptr noundef nonnull %605)
-  %607 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #23
-  call void (ptr, ...) @dt_control_log(ptr noundef %607, ptr noundef %606) #23
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.57, ptr noundef %606) #23
-  store i32 1, ptr %480, align 8, !tbaa !107
-  store i8 0, ptr %491, align 4, !tbaa !80
-  br label %608
+606:                                              ; preds = %603, %602
+  %607 = getelementptr inbounds nuw i8, ptr %556, i64 4
+  %608 = call ptr @dt_colorspaces_get_name(i32 noundef %599, ptr noundef nonnull %607)
+  %609 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #23
+  call void (ptr, ...) @dt_control_log(ptr noundef %609, ptr noundef %608) #23
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.57, ptr noundef %608) #23
+  store i32 1, ptr %482, align 8, !tbaa !107
+  store i8 0, ptr %493, align 4, !tbaa !80
+  br label %610
 
-608:                                              ; preds = %596, %601, %604, %577
-  %609 = phi i32 [ %575, %577 ], [ %583, %604 ], [ %583, %601 ], [ %583, %596 ]
-  %610 = phi i32 [ %573, %577 ], [ %584, %604 ], [ %584, %601 ], [ %584, %596 ]
-  %611 = phi i32 [ %571, %577 ], [ %585, %604 ], [ %585, %601 ], [ %585, %596 ]
-  %.1218 = phi i32 [ %580, %577 ], [ %.0217303, %604 ], [ %.0217303, %601 ], [ %.0217303, %596 ]
-  %.1215 = phi i32 [ %578, %577 ], [ %.0214304, %604 ], [ %.0214304, %601 ], [ %.0214304, %596 ]
-  %612 = getelementptr inbounds nuw i8, ptr %.0213305, i64 8
-  %613 = load ptr, ptr %612, align 8, !tbaa !110
-  %.not236 = icmp eq ptr %613, null
+610:                                              ; preds = %598, %603, %606, %579
+  %611 = phi i32 [ %577, %579 ], [ %585, %606 ], [ %585, %603 ], [ %585, %598 ]
+  %612 = phi i32 [ %575, %579 ], [ %586, %606 ], [ %586, %603 ], [ %586, %598 ]
+  %613 = phi i32 [ %573, %579 ], [ %587, %606 ], [ %587, %603 ], [ %587, %598 ]
+  %.1218 = phi i32 [ %582, %579 ], [ %.0217303, %606 ], [ %.0217303, %603 ], [ %.0217303, %598 ]
+  %.1215 = phi i32 [ %580, %579 ], [ %.0214304, %606 ], [ %.0214304, %603 ], [ %.0214304, %598 ]
+  %614 = getelementptr inbounds nuw i8, ptr %.0213305, i64 8
+  %615 = load ptr, ptr %614, align 8, !tbaa !110
+  %.not236 = icmp eq ptr %615, null
   br i1 %.not236, label %._crit_edge311, label %.lr.ph310
 
-614:                                              ; preds = %._crit_edge311
-  store i32 0, ptr %500, align 8, !tbaa !109
-  br label %615
+616:                                              ; preds = %._crit_edge311
+  store i32 0, ptr %502, align 8, !tbaa !109
+  br label %617
 
-615:                                              ; preds = %614, %._crit_edge311
+617:                                              ; preds = %616, %._crit_edge311
   call fastcc void @_update_display_transforms(ptr noundef nonnull %10)
   call fastcc void @_update_display2_transforms(ptr noundef nonnull %10)
   ret ptr %10

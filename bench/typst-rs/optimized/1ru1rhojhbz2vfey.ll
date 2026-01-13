@@ -110156,6 +110156,8 @@ define hidden void @_ZN5typst4math6cancel16draw_cancel_line17h5e2a8bc925af4686E(
   %.0.i.inv.i.i.i.i34 = fcmp ord double %167, 0.000000e+00
   %.0.i.i.i.i35 = select i1 %.0.i.inv.i.i.i.i34, double %167, double 0.000000e+00
   %168 = fmul double %.0.i.i.i.i35, 5.000000e-01
+  %.0.i.inv.i.i.i36 = fcmp ord double %168, 0.000000e+00
+  %.0.i.i.i37 = select i1 %.0.i.inv.i.i.i36, double %168, double 0.000000e+00
   %169 = fneg double %.0.i.i.i.i35
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.experimental.noalias.scope.decl(metadata !22057)
@@ -110232,7 +110234,7 @@ define hidden void @_ZN5typst4math6cancel16draw_cancel_line17h5e2a8bc925af4686E(
   %191 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %10, ptr %191, align 8
   store i64 2, ptr %24, align 16
-  invoke void @_ZN5typst6layout5frame5Frame4push17h4a47e336c2f2b894E(ptr noalias noundef nonnull align 8 dereferenceable(48) %25, double noundef 0.000000e+00, double noundef %168, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(176) %24)
+  invoke void @_ZN5typst6layout5frame5Frame4push17h4a47e336c2f2b894E(ptr noalias noundef nonnull align 8 dereferenceable(48) %25, double noundef 0.000000e+00, double noundef %.0.i.i.i37, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(176) %24)
           to label %192 unwind label %183
 
 192:                                              ; preds = %185

@@ -358,7 +358,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev14GetLogRendererERSt10shared_ptrIKNS
   ]
 
 9:                                                ; preds = %8
-  %10 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !39
+  %10 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22, !noalias !39
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1, ptr %11, align 8, !tbaa !40, !noalias !39
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
@@ -386,7 +386,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11LogRendererELN9__gnu_cxx12_Lock_poli
   br label %103
 
 17:                                               ; preds = %8
-  %18 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !39
+  %18 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22, !noalias !39
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 1, ptr %19, align 8, !tbaa !40, !noalias !39
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
@@ -425,7 +425,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15AntiLogRendererELN9__gnu_cxx12_Lock_
   ]
 
 29:                                               ; preds = %28
-  %30 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !39
+  %30 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22, !noalias !39
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 1, ptr %31, align 8, !tbaa !40, !noalias !39
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 12
@@ -453,7 +453,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11LogRendererELN9__gnu_cxx12_Lock_poli
   br label %103
 
 37:                                               ; preds = %28
-  %38 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !39
+  %38 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22, !noalias !39
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 1, ptr %39, align 8, !tbaa !40, !noalias !39
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 12
@@ -492,7 +492,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15AntiLogRendererELN9__gnu_cxx12_Lock_
   ]
 
 49:                                               ; preds = %48
-  %50 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #24, !noalias !39
+  %50 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #22, !noalias !39
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 1, ptr %51, align 8, !tbaa !40, !noalias !39
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 12
@@ -512,7 +512,7 @@ common.resume:                                    ; preds = %101, %.body.i.i.i.i
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i: ; preds = %54
   %55 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef 208) #25, !noalias !81
+  tail call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef 208) #23, !noalias !81
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %54
@@ -530,7 +530,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSEELN9__gnu_cx
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i: ; preds = %57
   %58 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef 208) #25, !noalias !84
+  tail call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef 208) #23, !noalias !84
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21CameraLin2LogRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %57
@@ -540,7 +540,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21CameraLin2LogRendererELN9__gnu_cxx12
   br label %103
 
 60:                                               ; preds = %48
-  %61 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #24, !noalias !39
+  %61 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #22, !noalias !39
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 1, ptr %62, align 8, !tbaa !40, !noalias !39
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 12
@@ -556,7 +556,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21CameraLin2LogRendererELN9__gnu_cxx12
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i: ; preds = %65
   %66 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef 216) #25, !noalias !87
+  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef 216) #23, !noalias !87
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24CameraLog2LinRendererSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %65
@@ -574,7 +574,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24CameraLog2LinRendererSSEELN9__gnu_cx
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLog2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i: ; preds = %68
   %69 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef 216) #25, !noalias !90
+  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef 216) #23, !noalias !90
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21CameraLog2LinRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %68
@@ -590,7 +590,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21CameraLog2LinRendererELN9__gnu_cxx12
   ]
 
 72:                                               ; preds = %71
-  %73 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24, !noalias !39
+  %73 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #22, !noalias !39
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 1, ptr %74, align 8, !tbaa !40, !noalias !39
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 12
@@ -611,8 +611,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21CameraLog2LinRendererELN9__gnu_cxx12
 .body.i.i.i.i.i:                                  ; preds = %79
   %80 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %76) #26, !noalias !93
-  tail call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef 152) #25, !noalias !93
+  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %76) #24, !noalias !93
+  tail call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef 152) #23, !noalias !93
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18Lin2LogRendererSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %79
@@ -633,8 +633,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18Lin2LogRendererSSEELN9__gnu_cxx12_Lo
 .body.i.i.i.i.i85:                                ; preds = %82
   %83 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %76) #26, !noalias !98
-  tail call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef 152) #25, !noalias !98
+  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %76) #24, !noalias !98
+  tail call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef 152) #23, !noalias !98
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15Lin2LogRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %82
@@ -644,7 +644,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15Lin2LogRendererELN9__gnu_cxx12_Lock_
   br label %103
 
 85:                                               ; preds = %71
-  %86 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #24, !noalias !39
+  %86 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #22, !noalias !39
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i32 1, ptr %87, align 8, !tbaa !40, !noalias !39
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 12
@@ -665,8 +665,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15Lin2LogRendererELN9__gnu_cxx12_Lock_
 .body.i.i.i.i.i90:                                ; preds = %92
   %93 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %89) #26, !noalias !101
-  tail call void @_ZdlPvm(ptr noundef nonnull %86, i64 noundef 152) #25, !noalias !101
+  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %89) #24, !noalias !101
+  tail call void @_ZdlPvm(ptr noundef nonnull %86, i64 noundef 152) #23, !noalias !101
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18Log2LinRendererSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %92
@@ -687,8 +687,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18Log2LinRendererSSEELN9__gnu_cxx12_Lo
 .body.i.i.i.i.i95:                                ; preds = %95
   %96 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %89) #26, !noalias !104
-  tail call void @_ZdlPvm(ptr noundef nonnull %86, i64 noundef 152) #25, !noalias !104
+  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %89) #24, !noalias !104
+  tail call void @_ZdlPvm(ptr noundef nonnull %86, i64 noundef 152) #23, !noalias !104
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15Log2LinRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %95
@@ -698,18 +698,18 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15Log2LinRendererELN9__gnu_cxx12_Lock_
   br label %103
 
 98:                                               ; preds = %28, %71, %48, %8
-  %99 = tail call ptr @__cxa_allocate_exception(i64 16) #26
+  %99 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull @.str)
           to label %100 unwind label %101
 
 100:                                              ; preds = %98
-  tail call void @__cxa_throw(ptr nonnull %99, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #27
+  tail call void @__cxa_throw(ptr nonnull %99, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #25
   unreachable
 
 101:                                              ; preds = %98
   %102 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %99) #26
+  tail call void @__cxa_free_exception(ptr nonnull %99) #24
   br label %common.resume
 
 103:                                              ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15Log2LinRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18Log2LinRendererSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15Lin2LogRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18Lin2LogRendererSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21CameraLog2LinRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24CameraLog2LinRendererSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21CameraLin2LogRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15AntiLogRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit64, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18AntiLogRendererSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit59, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11LogRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit54, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev14LogRendererSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit49, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15AntiLogRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18AntiLogRendererSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11LogRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev14LogRendererSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -763,7 +763,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererC2ERSt10shared_ptrI
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev15L2LBaseRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(88) initializes((8, 12)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !3
-  %4 = tail call noundef double @_ZNK19OpenColorIO_v2_5dev9LogOpData7getBaseEv(ptr noundef nonnull align 8 dereferenceable(252) %3) #26
+  %4 = tail call noundef double @_ZNK19OpenColorIO_v2_5dev9LogOpData7getBaseEv(ptr noundef nonnull align 8 dereferenceable(252) %3) #24
   %5 = fptrunc double %4 to float
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %5, ptr %6, align 8, !tbaa !96
@@ -811,11 +811,11 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   br i1 %18, label %19, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i, !prof !110
 
 19:                                               ; preds = %17
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #25
   unreachable
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i: ; preds = %17
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #24
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #22
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEPdmT_S9_.exit, label %21
 
@@ -828,7 +828,7 @@ _ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_
   br i1 %.not.i, label %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit, label %22
 
 22:                                               ; preds = %_ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEPdmT_S9_.exit
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #23
   br label %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEPdmT_S9_.exit, %22
@@ -903,7 +903,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11LogRendererC2ERSt10shared_ptrIKNS_
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev11LogRenderer5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3) unnamed_addr #8 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -933,11 +933,11 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev11LogRenderer5applyEPKvPvl(ptr noun
   %16 = load float, ptr %15, align 4, !tbaa !111
   %17 = fcmp ogt float %16, 0x3810000000000000
   %.sroa.speculated.i = select i1 %17, float %16, float 0x3810000000000000
-  %18 = tail call float @llvm.log2.f32(float %.sroa.speculated15.i), !tbaa !112
+  %18 = tail call noundef float @log2f(float noundef %.sroa.speculated15.i) #24, !tbaa !112
   store float %18, ptr %.01617, align 4, !tbaa !111
-  %19 = tail call float @llvm.log2.f32(float %.sroa.speculated12.i), !tbaa !112
+  %19 = tail call noundef float @log2f(float noundef %.sroa.speculated12.i) #24, !tbaa !112
   store float %19, ptr %12, align 4, !tbaa !111
-  %20 = tail call float @llvm.log2.f32(float %.sroa.speculated.i), !tbaa !112
+  %20 = tail call noundef float @log2f(float noundef %.sroa.speculated.i) #24, !tbaa !112
   store float %20, ptr %15, align 4, !tbaa !111
   %21 = load float, ptr %6, align 8, !tbaa !49
   %22 = fmul float %18, %21
@@ -1032,7 +1032,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15AntiLogRendererC2ERSt10shared_ptrI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_5dev15AntiLogRenderer5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3) unnamed_addr #11 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_5dev15AntiLogRenderer5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3) unnamed_addr #8 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -1059,11 +1059,11 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev15AntiLogRenderer5applyEPKvPvl(ptr 
   %16 = getelementptr inbounds nuw i8, ptr %.01516, i64 8
   %17 = load float, ptr %16, align 4, !tbaa !111
   %18 = fmul float %10, %17
-  %19 = tail call noundef float @exp2f(float noundef %12) #26, !tbaa !112
+  %19 = tail call noundef float @exp2f(float noundef %12) #24, !tbaa !112
   store float %19, ptr %.01516, align 4, !tbaa !111
-  %20 = tail call noundef float @exp2f(float noundef %15) #26, !tbaa !112
+  %20 = tail call noundef float @exp2f(float noundef %15) #24, !tbaa !112
   store float %20, ptr %13, align 4, !tbaa !111
-  %21 = tail call noundef float @exp2f(float noundef %18) #26, !tbaa !112
+  %21 = tail call noundef float @exp2f(float noundef %18) #24, !tbaa !112
   store float %21, ptr %16, align 4, !tbaa !111
   %22 = getelementptr inbounds nuw i8, ptr %.01516, i64 12
   store float %9, ptr %22, align 4, !tbaa !111
@@ -1157,14 +1157,14 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15Log2LinRendererC2ERSt10shared_ptrI
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #26
+  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #24
   resume { ptr, i32 } %7
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev15Log2LinRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) initializes((8, 12)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !3
-  %4 = tail call noundef double @_ZNK19OpenColorIO_v2_5dev9LogOpData7getBaseEv(ptr noundef nonnull align 8 dereferenceable(252) %3) #26
+  %4 = tail call noundef double @_ZNK19OpenColorIO_v2_5dev9LogOpData7getBaseEv(ptr noundef nonnull align 8 dereferenceable(252) %3) #24
   %5 = fptrunc double %4 to float
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %5, ptr %6, align 8, !tbaa !96
@@ -1181,7 +1181,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15Log2LinRenderer10updateDataERSt10s
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %16)
   %19 = load float, ptr %6, align 8, !tbaa !96
-  %20 = tail call float @log2f(float noundef %19) #26, !tbaa !112
+  %20 = tail call float @log2f(float noundef %19) #24, !tbaa !112
   %21 = load ptr, ptr %9, align 8, !tbaa !108
   %22 = load double, ptr %21, align 8, !tbaa !119
   %23 = fptrunc double %22 to float
@@ -1258,10 +1258,10 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15Log2LinRenderer10updateDataERSt10s
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @log2f(float noundef) local_unnamed_addr #12
+declare float @log2f(float noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_5dev15Log2LinRenderer5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3) unnamed_addr #11 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_5dev15Log2LinRenderer5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3) unnamed_addr #8 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -1312,11 +1312,11 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev15Log2LinRenderer5applyEPKvPvl(ptr 
   store float %35, ptr %24, align 4, !tbaa !111
   %36 = load float, ptr %11, align 8, !tbaa !111
   %37 = fmul float %31, %36
-  %38 = tail call noundef float @exp2f(float noundef %33) #26, !tbaa !112
+  %38 = tail call noundef float @exp2f(float noundef %33) #24, !tbaa !112
   store float %38, ptr %.01819, align 4, !tbaa !111
-  %39 = tail call noundef float @exp2f(float noundef %35) #26, !tbaa !112
+  %39 = tail call noundef float @exp2f(float noundef %35) #24, !tbaa !112
   store float %39, ptr %24, align 4, !tbaa !111
-  %40 = tail call noundef float @exp2f(float noundef %37) #26, !tbaa !112
+  %40 = tail call noundef float @exp2f(float noundef %37) #24, !tbaa !112
   store float %40, ptr %28, align 4, !tbaa !111
   %41 = load float, ptr %12, align 8, !tbaa !111
   %42 = fadd float %38, %41
@@ -1358,7 +1358,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev18Log2LinRendererSSEC2ERSt10shared_p
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #26
+  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #24
   resume { ptr, i32 } %6
 
 _ZN19OpenColorIO_v2_5dev15Log2LinRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE.exit: ; preds = %2
@@ -1476,14 +1476,14 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15Lin2LogRendererC2ERSt10shared_ptrI
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #26
+  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #24
   resume { ptr, i32 } %7
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev15Lin2LogRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(136) initializes((8, 12)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !3
-  %4 = tail call noundef double @_ZNK19OpenColorIO_v2_5dev9LogOpData7getBaseEv(ptr noundef nonnull align 8 dereferenceable(252) %3) #26
+  %4 = tail call noundef double @_ZNK19OpenColorIO_v2_5dev9LogOpData7getBaseEv(ptr noundef nonnull align 8 dereferenceable(252) %3) #24
   %5 = fptrunc double %4 to float
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %5, ptr %6, align 8, !tbaa !96
@@ -1534,7 +1534,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15Lin2LogRenderer10updateDataERSt10s
   store float %44, ptr %45, align 4, !tbaa !111
   %46 = load double, ptr %19, align 8, !tbaa !119
   %47 = load float, ptr %6, align 8, !tbaa !96
-  %48 = tail call noundef float @log2f(float noundef %47) #26, !tbaa !112
+  %48 = tail call noundef float @log2f(float noundef %47) #24, !tbaa !112
   %49 = fpext float %48 to double
   %50 = fdiv double %46, %49
   %51 = fptrunc double %50 to float
@@ -1568,7 +1568,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15Lin2LogRenderer10updateDataERSt10s
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev15Lin2LogRenderer5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3) unnamed_addr #8 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -1626,11 +1626,11 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev15Lin2LogRenderer5applyEPKvPvl(ptr 
   %.sroa.speculated12.i = select i1 %39, float %35, float 0x3810000000000000
   %40 = fcmp ogt float %37, 0x3810000000000000
   %.sroa.speculated.i = select i1 %40, float %37, float 0x3810000000000000
-  %41 = tail call float @llvm.log2.f32(float %.sroa.speculated15.i), !tbaa !112
+  %41 = tail call noundef float @log2f(float noundef %.sroa.speculated15.i) #24, !tbaa !112
   store float %41, ptr %.01920, align 4, !tbaa !111
-  %42 = tail call float @llvm.log2.f32(float %.sroa.speculated12.i), !tbaa !112
+  %42 = tail call noundef float @log2f(float noundef %.sroa.speculated12.i) #24, !tbaa !112
   store float %42, ptr %24, align 4, !tbaa !111
-  %43 = tail call float @llvm.log2.f32(float %.sroa.speculated.i), !tbaa !112
+  %43 = tail call noundef float @log2f(float noundef %.sroa.speculated.i) #24, !tbaa !112
   store float %43, ptr %28, align 4, !tbaa !111
   %44 = load float, ptr %12, align 8, !tbaa !111
   %45 = fmul float %41, %44
@@ -1672,7 +1672,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev18Lin2LogRendererSSEC2ERSt10shared_p
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #26
+  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #24
   resume { ptr, i32 } %6
 
 _ZN19OpenColorIO_v2_5dev15Lin2LogRendererC2ERSt10shared_ptrIKNS_9LogOpDataEE.exit: ; preds = %2
@@ -1785,7 +1785,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CameraL2LBaseRendererC2ERSt10share
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev21CameraL2LBaseRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((8, 12)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !3
-  %4 = tail call noundef double @_ZNK19OpenColorIO_v2_5dev9LogOpData7getBaseEv(ptr noundef nonnull align 8 dereferenceable(252) %3) #26
+  %4 = tail call noundef double @_ZNK19OpenColorIO_v2_5dev9LogOpData7getBaseEv(ptr noundef nonnull align 8 dereferenceable(252) %3) #24
   %5 = fptrunc double %4 to float
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %5, ptr %6, align 8, !tbaa !96
@@ -1847,7 +1847,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CameraL2LBaseRenderer10updateDataE
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store float %53, ptr %54, align 8, !tbaa !111
   %55 = load float, ptr %6, align 8, !tbaa !96
-  %56 = tail call noundef float @log2f(float noundef %55) #26, !tbaa !112
+  %56 = tail call noundef float @log2f(float noundef %55) #24, !tbaa !112
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store float %56, ptr %57, align 4, !tbaa !124
   ret void
@@ -1981,7 +1981,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CameraLog2LinRendererC2ERSt10share
 94:                                               ; preds = %2
   %95 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #26
+  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #24
   resume { ptr, i32 } %95
 }
 
@@ -2099,7 +2099,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CameraLog2LinRenderer10updateDataE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_5dev21CameraLog2LinRenderer5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #11 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_5dev21CameraLog2LinRenderer5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #8 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -2159,7 +2159,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev21CameraLog2LinRenderer5applyEPKvPv
   %39 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   %40 = load float, ptr %39, align 4, !tbaa !111
   %41 = fmul float %38, %40
-  %42 = tail call noundef float @exp2f(float noundef %41) #26, !tbaa !112
+  %42 = tail call noundef float @exp2f(float noundef %41) #24, !tbaa !112
   store float %42, ptr %27, align 4, !tbaa !111
   %43 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
   %44 = load float, ptr %43, align 4, !tbaa !111
@@ -2408,7 +2408,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CameraLin2LogRendererC2ERSt10share
 74:                                               ; preds = %2
   %75 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #26
+  tail call void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #24
   resume { ptr, i32 } %75
 }
 
@@ -2502,7 +2502,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CameraLin2LogRenderer10updateDataE
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev21CameraLin2LogRenderer5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #8 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -2563,7 +2563,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev21CameraLin2LogRenderer5applyEPKvPv
   %39 = tail call float @llvm.fmuladd.f32(float %23, float %36, float %38)
   %40 = fcmp ogt float %39, 0x3810000000000000
   %41 = select i1 %40, float %39, float 0x3810000000000000
-  %42 = tail call float @llvm.log2.f32(float %41), !tbaa !112
+  %42 = tail call noundef float @log2f(float noundef %41) #24, !tbaa !112
   store float %42, ptr %27, align 4, !tbaa !111
   %43 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
   %44 = load float, ptr %43, align 4, !tbaa !111
@@ -2581,7 +2581,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev21CameraLin2LogRenderer5applyEPKvPv
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #13
+declare float @llvm.fmuladd.f32(float, float, float) #12
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSEC2ERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(188) initializes((0, 12), (16, 88)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #3 align 2 {
@@ -2714,8 +2714,8 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev24CameraLin2LogRendererSSE5applyEPK
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev8LogOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #14 comdat align 2 {
-  tail call void @llvm.trap() #28
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev8LogOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #13 comdat align 2 {
+  tail call void @llvm.trap() #26
   unreachable
 }
 
@@ -2728,42 +2728,42 @@ declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev5OpCPU18hasDynamicPropertyE
 declare void @_ZNK19OpenColorIO_v2_5dev5OpCPU18getDynamicPropertyENS_19DynamicPropertyTypeE() unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #14 comdat align 2 {
-  tail call void @llvm.trap() #28
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #13 comdat align 2 {
+  tail call void @llvm.trap() #26
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev11LogRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #14 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #25
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev11LogRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #13 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #23
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev14LogRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #14 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #25
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev14LogRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #13 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #23
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15AntiLogRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #14 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #25
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15AntiLogRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #13 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev5OpCPUD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev5OpCPUD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #14 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev18AntiLogRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #14 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #25
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev18AntiLogRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #13 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #23
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15Log2LinRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15Log2LinRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev15L2LBaseRendererE, i64 16), ptr %0, align 8, !tbaa !44
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !108
@@ -2776,7 +2776,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15Log2LinRendererD0Ev(p
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
@@ -2791,7 +2791,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit2.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorIdSaIdEED2Ev.exit.i
@@ -2806,16 +2806,16 @@ _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorId
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #23
   br label %_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit
 
 _ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit2.i, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #23
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev18Log2LinRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev18Log2LinRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev15L2LBaseRendererE, i64 16), ptr %0, align 8, !tbaa !44
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !108
@@ -2828,7 +2828,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev18Log2LinRendererSSED0E
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
@@ -2843,7 +2843,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit2.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorIdSaIdEED2Ev.exit.i
@@ -2858,16 +2858,16 @@ _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorId
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #23
   br label %_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit
 
 _ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit2.i, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #23
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15Lin2LogRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15Lin2LogRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev15L2LBaseRendererE, i64 16), ptr %0, align 8, !tbaa !44
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !108
@@ -2880,7 +2880,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15Lin2LogRendererD0Ev(p
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
@@ -2895,7 +2895,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit2.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorIdSaIdEED2Ev.exit.i
@@ -2910,16 +2910,16 @@ _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorId
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #23
   br label %_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit
 
 _ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit2.i, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #23
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev18Lin2LogRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev18Lin2LogRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev15L2LBaseRendererE, i64 16), ptr %0, align 8, !tbaa !44
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !108
@@ -2932,7 +2932,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev18Lin2LogRendererSSED0E
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
@@ -2947,7 +2947,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit2.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorIdSaIdEED2Ev.exit.i
@@ -2962,22 +2962,22 @@ _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorId
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #23
   br label %_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit
 
 _ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit2.i, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #23
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev21CameraL2LBaseRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #14 comdat align 2 {
-  tail call void @llvm.trap() #28
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev21CameraL2LBaseRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #13 comdat align 2 {
+  tail call void @llvm.trap() #26
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev21CameraLog2LinRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev21CameraLog2LinRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev15L2LBaseRendererE, i64 16), ptr %0, align 8, !tbaa !44
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !108
@@ -2990,7 +2990,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev21CameraLog2LinRenderer
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
@@ -3005,7 +3005,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit2.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorIdSaIdEED2Ev.exit.i
@@ -3020,16 +3020,16 @@ _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorId
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #23
   br label %_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit
 
 _ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit2.i, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 200) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 200) #23
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev24CameraLog2LinRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev24CameraLog2LinRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev15L2LBaseRendererE, i64 16), ptr %0, align 8, !tbaa !44
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !108
@@ -3042,7 +3042,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev24CameraLog2LinRenderer
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
@@ -3057,7 +3057,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit2.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorIdSaIdEED2Ev.exit.i
@@ -3072,16 +3072,16 @@ _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorId
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #23
   br label %_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit
 
 _ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit2.i, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 200) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 200) #23
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev21CameraLin2LogRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(188) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev21CameraLin2LogRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(188) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev15L2LBaseRendererE, i64 16), ptr %0, align 8, !tbaa !44
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !108
@@ -3094,7 +3094,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev21CameraLin2LogRenderer
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
@@ -3109,7 +3109,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit2.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorIdSaIdEED2Ev.exit.i
@@ -3124,16 +3124,16 @@ _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorId
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #23
   br label %_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit
 
 _ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit2.i, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 192) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 192) #23
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev15L2LBaseRendererE, i64 16), ptr %0, align 8, !tbaa !44
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !108
@@ -3146,7 +3146,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev(p
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %1, %4
@@ -3161,7 +3161,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %1, %4
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit2
 
 _ZNSt6vectorIdSaIdEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %12
@@ -3176,7 +3176,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIdSaIdE
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit4
 
 _ZNSt6vectorIdSaIdEED2Ev.exit4:                   ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit2, %20
@@ -3184,7 +3184,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit4:                   ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(188) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSED0Ev(ptr noundef nonnull align 8 dereferenceable(188) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev15L2LBaseRendererE, i64 16), ptr %0, align 8, !tbaa !44
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !108
@@ -3197,7 +3197,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev24CameraLin2LogRenderer
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
@@ -3212,7 +3212,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit2.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorIdSaIdEED2Ev.exit.i
@@ -3227,62 +3227,62 @@ _ZNSt6vectorIdSaIdEED2Ev.exit2.i:                 ; preds = %12, %_ZNSt6vectorId
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #23
   br label %_ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit
 
 _ZN19OpenColorIO_v2_5dev15L2LBaseRendererD2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit2.i, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 192) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 192) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #16
+declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float>) #16
+declare <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float>) #15
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #17
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @exp2f(float noundef) local_unnamed_addr #12
+declare float @exp2f(float noundef) local_unnamed_addr #11
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #18
+declare void @llvm.trap() #17
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #19
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #18
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #20
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev14LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #15 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #25
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev14LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #14 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev14LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev14LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %2) #26
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %2) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev14LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev14LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev14LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev14LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev14LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #14 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -3299,7 +3299,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -3313,32 +3313,32 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #15 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #25
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #14 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %2) #26
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %2) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #14 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -3355,7 +3355,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -3369,29 +3369,29 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18AntiLogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #15 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #25
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18AntiLogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #14 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18AntiLogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18AntiLogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %2) #26
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %2) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18AntiLogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18AntiLogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18AntiLogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18AntiLogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18AntiLogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #14 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -3408,7 +3408,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -3422,29 +3422,29 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15AntiLogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #15 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #25
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15AntiLogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #14 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15AntiLogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15AntiLogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %2) #26
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %2) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15AntiLogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15AntiLogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15AntiLogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15AntiLogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15AntiLogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #14 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -3461,7 +3461,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -3475,29 +3475,29 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #15 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #25
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #14 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(188) %2) #26
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(188) %2) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #14 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -3514,7 +3514,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -3528,29 +3528,29 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #15 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #25
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #14 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(188) %2) #26
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(188) %2) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #14 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -3567,7 +3567,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -3581,29 +3581,29 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #15 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #25
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #14 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(200) %2) #26
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(200) %2) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev24CameraLog2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #14 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -3620,7 +3620,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -3634,29 +3634,29 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLog2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #15 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #25
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLog2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #14 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLog2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLog2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(200) %2) #26
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(200) %2) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLog2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLog2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLog2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLog2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev21CameraLog2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #14 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -3673,7 +3673,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -3687,29 +3687,29 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Lin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #15 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #25
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Lin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #14 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Lin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Lin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(136) %2) #26
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(136) %2) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Lin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Lin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Lin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Lin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Lin2LogRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #14 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -3726,7 +3726,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -3740,29 +3740,29 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Lin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #15 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #25
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Lin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #14 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Lin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Lin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(136) %2) #26
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(136) %2) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Lin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Lin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Lin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Lin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Lin2LogRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #14 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -3779,7 +3779,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -3793,29 +3793,29 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Log2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #15 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #25
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Log2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #14 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Log2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Log2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(136) %2) #26
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(136) %2) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Log2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Log2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Log2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Log2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev18Log2LinRendererSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #14 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -3832,7 +3832,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -3846,34 +3846,34 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #14 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Log2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #15 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #25
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Log2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #14 comdat align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Log2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Log2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(136) %2) #26
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(136) %2) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Log2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Log2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Log2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 152) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Log2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #15 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev15Log2LinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #14 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -3890,7 +3890,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #26
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(24) @_ZTSSt19_Sp_make_shared_tag) #24
   %.fr = freeze i32 %11
   %12 = icmp eq i32 %.fr, 0
   br i1 %12, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread8
@@ -3904,14 +3904,11 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_LogOpCPU.cpp() #22 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_LogOpCPU.cpp() #21 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #26
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
   ret void
 }
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.log2.f32(float) #23
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3921,27 +3918,25 @@ attributes #4 = { cold noreturn }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #17 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #19 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #24 = { builtin allocsize(0) }
-attributes #25 = { builtin nounwind }
-attributes #26 = { nounwind }
-attributes #27 = { noreturn }
-attributes #28 = { noreturn nounwind }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #16 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #18 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { builtin allocsize(0) }
+attributes #23 = { builtin nounwind }
+attributes #24 = { nounwind }
+attributes #25 = { noreturn }
+attributes #26 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

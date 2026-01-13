@@ -292,14 +292,14 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %invariant.gep = getelementptr double, ptr %21, i64 %196
   br label %.lr.ph238
 
-.lr.ph238:                                        ; preds = %.lr.ph238.preheader, %223
-  %indvars.iv = phi i64 [ %195, %.lr.ph238.preheader ], [ %indvars.iv.next, %223 ]
-  %.2235 = phi i32 [ 0, %.lr.ph238.preheader ], [ %.3, %223 ]
+.lr.ph238:                                        ; preds = %.lr.ph238.preheader, %224
+  %indvars.iv = phi i64 [ %195, %.lr.ph238.preheader ], [ %indvars.iv.next, %224 ]
+  %.2235 = phi i32 [ 0, %.lr.ph238.preheader ], [ %.3, %224 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %197 = getelementptr double, ptr %9, i64 %indvars.iv
   %198 = load double, ptr %197, align 8, !tbaa !7
   %199 = fcmp une double %198, 0.000000e+00
-  br i1 %199, label %200, label %223
+  br i1 %199, label %200, label %224
 
 200:                                              ; preds = %.lr.ph238
   %201 = mul nsw i64 %indvars.iv.next, %39
@@ -327,111 +327,111 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %219 = sitofp i32 %.2235 to double
   store double %219, ptr %212, align 8, !tbaa !7
   %220 = trunc nsw i64 %indvars.iv.next to i32
-  br label %223
+  br label %224
 
 221:                                              ; preds = %200
-  %sqrt = call double @llvm.sqrt.f64(double %211)
-  %222 = fmul double %198, %sqrt
-  store double %222, ptr %197, align 8, !tbaa !7
-  br label %223
+  %222 = call double @sqrt(double noundef %211) #7, !tbaa !3
+  %223 = fmul double %198, %222
+  store double %223, ptr %197, align 8, !tbaa !7
+  br label %224
 
-223:                                              ; preds = %.lr.ph238, %221, %218
+224:                                              ; preds = %.lr.ph238, %221, %218
   %.3 = phi i32 [ %220, %218 ], [ %.2235, %221 ], [ %.2235, %.lr.ph238 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph238, !llvm.loop !9
 
-.loopexit:                                        ; preds = %223, %193, %191
-  %.1 = phi i32 [ 0, %191 ], [ 0, %193 ], [ %.3, %223 ]
-  %224 = mul nsw i32 %.pre256, %19
-  %225 = add nsw i32 %224, %43
-  %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds double, ptr %21, i64 %226
-  store double %128, ptr %227, align 8, !tbaa !7
-  %228 = load i32, ptr %3, align 4, !tbaa !3
-  %229 = icmp slt i32 %.pre256, %228
-  %230 = icmp eq i32 %.1, 0
-  %or.cond = select i1 %229, i1 %230, i1 false
+.loopexit:                                        ; preds = %224, %193, %191
+  %.1 = phi i32 [ 0, %191 ], [ 0, %193 ], [ %.3, %224 ]
+  %225 = mul nsw i32 %.pre256, %19
+  %226 = add nsw i32 %225, %43
+  %227 = sext i32 %226 to i64
+  %228 = getelementptr inbounds double, ptr %21, i64 %227
+  store double %128, ptr %228, align 8, !tbaa !7
+  %229 = load i32, ptr %3, align 4, !tbaa !3
+  %230 = icmp slt i32 %.pre256, %229
+  %231 = icmp eq i32 %.1, 0
+  %or.cond = select i1 %230, i1 %231, i1 false
   br i1 %or.cond, label %.lr.ph240, label %._crit_edge241
 
 ._crit_edge241:                                   ; preds = %.loopexit, %14
   %.0.lcssa = phi i32 [ 0, %14 ], [ %.1, %.loopexit ]
   %.lcssa = phi i32 [ 0, %14 ], [ %.pre256, %.loopexit ]
   store i32 %.lcssa, ptr %4, align 4, !tbaa !3
-  %231 = load i32, ptr %2, align 4, !tbaa !3
-  %232 = add nsw i32 %231, %.lcssa
-  %233 = load i32, ptr %1, align 4, !tbaa !3
-  %234 = load i32, ptr %0, align 4, !tbaa !3
-  %235 = sub nsw i32 %234, %231
-  store i32 %235, ptr %16, align 4, !tbaa !3
-  %236 = call i32 @llvm.smin.i32(i32 %233, i32 %235)
-  %237 = icmp slt i32 %.lcssa, %236
-  br i1 %237, label %238, label %253
+  %232 = load i32, ptr %2, align 4, !tbaa !3
+  %233 = add nsw i32 %232, %.lcssa
+  %234 = load i32, ptr %1, align 4, !tbaa !3
+  %235 = load i32, ptr %0, align 4, !tbaa !3
+  %236 = sub nsw i32 %235, %232
+  store i32 %236, ptr %16, align 4, !tbaa !3
+  %237 = call i32 @llvm.smin.i32(i32 %234, i32 %236)
+  %238 = icmp slt i32 %.lcssa, %237
+  br i1 %238, label %239, label %254
 
-238:                                              ; preds = %._crit_edge241
-  %239 = sub nsw i32 %234, %232
-  store i32 %239, ptr %15, align 4, !tbaa !3
-  %240 = sub nsw i32 %233, %.lcssa
-  store i32 %240, ptr %16, align 4, !tbaa !3
-  %241 = add nsw i32 %232, 1
-  %242 = add nsw i32 %241, %19
-  %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds double, ptr %21, i64 %243
-  %245 = add nsw i32 %.lcssa, 1
-  %246 = add nsw i32 %245, %26
-  %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds double, ptr %28, i64 %247
-  %249 = mul nsw i32 %245, %19
-  %250 = add nsw i32 %241, %249
-  %251 = sext i32 %250 to i64
-  %252 = getelementptr inbounds double, ptr %21, i64 %251
-  call void @dgemm_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull @c_b8, ptr noundef %244, ptr noundef nonnull %6, ptr noundef %248, ptr noundef nonnull %13, ptr noundef nonnull @c_b9, ptr noundef %252, ptr noundef nonnull %6) #7
-  br label %253
+239:                                              ; preds = %._crit_edge241
+  %240 = sub nsw i32 %235, %233
+  store i32 %240, ptr %15, align 4, !tbaa !3
+  %241 = sub nsw i32 %234, %.lcssa
+  store i32 %241, ptr %16, align 4, !tbaa !3
+  %242 = add nsw i32 %233, 1
+  %243 = add nsw i32 %242, %19
+  %244 = sext i32 %243 to i64
+  %245 = getelementptr inbounds double, ptr %21, i64 %244
+  %246 = add nsw i32 %.lcssa, 1
+  %247 = add nsw i32 %246, %26
+  %248 = sext i32 %247 to i64
+  %249 = getelementptr inbounds double, ptr %28, i64 %248
+  %250 = mul nsw i32 %246, %19
+  %251 = add nsw i32 %242, %250
+  %252 = sext i32 %251 to i64
+  %253 = getelementptr inbounds double, ptr %21, i64 %252
+  call void @dgemm_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull @c_b8, ptr noundef %245, ptr noundef nonnull %6, ptr noundef %249, ptr noundef nonnull %13, ptr noundef nonnull @c_b9, ptr noundef %253, ptr noundef nonnull %6) #7
+  br label %254
 
-253:                                              ; preds = %238, %._crit_edge241
-  %254 = icmp sgt i32 %.0.lcssa, 0
-  br i1 %254, label %.lr.ph246, label %._crit_edge247
+254:                                              ; preds = %239, %._crit_edge241
+  %255 = icmp sgt i32 %.0.lcssa, 0
+  br i1 %255, label %.lr.ph246, label %._crit_edge247
 
-.lr.ph246:                                        ; preds = %253
-  %255 = add nsw i32 %232, 1
-  br label %256
+.lr.ph246:                                        ; preds = %254
+  %256 = add nsw i32 %233, 1
+  br label %257
 
-256:                                              ; preds = %.lr.ph246, %268
-  %.4244 = phi i32 [ %.0.lcssa, %.lr.ph246 ], [ %270, %268 ]
-  %257 = zext nneg i32 %.4244 to i64
-  %258 = getelementptr inbounds nuw double, ptr %25, i64 %257
-  %259 = load double, ptr %258, align 8, !tbaa !7
-  %260 = fcmp ult double %259, 0.000000e+00
-  br i1 %260, label %264, label %261
+257:                                              ; preds = %.lr.ph246, %269
+  %.4244 = phi i32 [ %.0.lcssa, %.lr.ph246 ], [ %271, %269 ]
+  %258 = zext nneg i32 %.4244 to i64
+  %259 = getelementptr inbounds nuw double, ptr %25, i64 %258
+  %260 = load double, ptr %259, align 8, !tbaa !7
+  %261 = fcmp ult double %260, 0.000000e+00
+  br i1 %261, label %265, label %262
 
-261:                                              ; preds = %256
-  %262 = fadd double %259, 5.000000e-01
-  %263 = call double @llvm.floor.f64(double %262)
-  br label %268
+262:                                              ; preds = %257
+  %263 = fadd double %260, 5.000000e-01
+  %264 = call double @llvm.floor.f64(double %263)
+  br label %269
 
-264:                                              ; preds = %256
-  %265 = fsub double 5.000000e-01, %259
-  %266 = call double @llvm.floor.f64(double %265)
-  %267 = fneg double %266
-  br label %268
+265:                                              ; preds = %257
+  %266 = fsub double 5.000000e-01, %260
+  %267 = call double @llvm.floor.f64(double %266)
+  %268 = fneg double %267
+  br label %269
 
-268:                                              ; preds = %264, %261
-  %269 = phi double [ %263, %261 ], [ %267, %264 ]
-  %270 = fptosi double %269 to i32
-  %271 = load i32, ptr %0, align 4, !tbaa !3
-  %272 = sub nsw i32 %271, %232
-  store i32 %272, ptr %15, align 4, !tbaa !3
-  %273 = mul nsw i32 %.4244, %19
-  %274 = add nsw i32 %255, %273
-  %275 = sext i32 %274 to i64
-  %276 = getelementptr inbounds double, ptr %21, i64 %275
-  %277 = call double @dnrm2_(ptr noundef nonnull %15, ptr noundef %276, ptr noundef nonnull @c__1) #7
-  %278 = getelementptr inbounds nuw double, ptr %24, i64 %257
-  store double %277, ptr %278, align 8, !tbaa !7
-  store double %277, ptr %258, align 8, !tbaa !7
-  %279 = icmp sgt i32 %270, 0
-  br i1 %279, label %256, label %._crit_edge247
+269:                                              ; preds = %265, %262
+  %270 = phi double [ %264, %262 ], [ %268, %265 ]
+  %271 = fptosi double %270 to i32
+  %272 = load i32, ptr %0, align 4, !tbaa !3
+  %273 = sub nsw i32 %272, %233
+  store i32 %273, ptr %15, align 4, !tbaa !3
+  %274 = mul nsw i32 %.4244, %19
+  %275 = add nsw i32 %256, %274
+  %276 = sext i32 %275 to i64
+  %277 = getelementptr inbounds double, ptr %21, i64 %276
+  %278 = call double @dnrm2_(ptr noundef nonnull %15, ptr noundef %277, ptr noundef nonnull @c__1) #7
+  %279 = getelementptr inbounds nuw double, ptr %24, i64 %258
+  store double %278, ptr %279, align 8, !tbaa !7
+  store double %278, ptr %259, align 8, !tbaa !7
+  %280 = icmp sgt i32 %271, 0
+  br i1 %280, label %257, label %._crit_edge247
 
-._crit_edge247:                                   ; preds = %268, %253
+._crit_edge247:                                   ; preds = %269, %254
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -467,9 +467,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6

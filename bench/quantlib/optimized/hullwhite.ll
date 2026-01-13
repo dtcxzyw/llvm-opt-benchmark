@@ -5459,8 +5459,8 @@ _ZNK8QuantLib7Vasicek5sigmaEv.exit37:             ; preds = %if.else, %cond.fals
   %div = fdiv double %call2.i.i34, %mul36
   %cmp.i = fcmp olt double %sub32, 0.000000e+00
   %.sroa.speculated = select i1 %cmp.i, double 0.000000e+00, double %sub32
-  %sqrt = tail call double @llvm.sqrt.f64(double %.sroa.speculated)
-  %mul39 = fmul double %sqrt, %div
+  %call38 = tail call double @sqrt(double noundef %.sroa.speculated) #29, !tbaa !150
+  %mul39 = fmul double %call38, %div
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK8QuantLib7Vasicek5sigmaEv.exit37, %_ZNK8QuantLib7Vasicek5sigmaEv.exit
@@ -10807,9 +10807,6 @@ declare i64 @llvm.umin.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #26
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #26

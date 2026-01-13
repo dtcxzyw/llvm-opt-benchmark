@@ -7027,1250 +7027,1290 @@ equiv.exit1191:                                   ; preds = %equiv.exit1187, %eq
   %594 = fcmp oeq double %.11952, 0.000000e+00
   br i1 %594, label %equiv.exit1197, label %equiv.exit1197.thread
 
-equiv.exit1197.thread:                            ; preds = %equiv.exit1191
+equiv.exit1197:                                   ; preds = %equiv.exit1191
+  %.not650 = tail call i1 @llvm.is.fpclass.f64(double %.11952, i32 32)
+  br i1 %.not650, label %597, label %equiv.exit1197.thread
+
+equiv.exit1197.thread:                            ; preds = %equiv.exit1191, %equiv.exit1197
   %595 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 142, double noundef -7.200000e+02, double noundef -0.000000e+00, double noundef %.11952)
   %596 = add nuw nsw i32 %.45, 1
-  br label %equiv.exit1197
+  br label %597
 
-equiv.exit1197:                                   ; preds = %equiv.exit1191, %equiv.exit1197.thread
-  %.46 = phi i32 [ %596, %equiv.exit1197.thread ], [ %.45, %equiv.exit1191 ]
-  %597 = fcmp oeq double %589, 1.000000e+00
-  br i1 %597, label %equiv.exit1201, label %equiv.exit1201.thread
+597:                                              ; preds = %equiv.exit1197.thread, %equiv.exit1197
+  %.46 = phi i32 [ %596, %equiv.exit1197.thread ], [ %.45, %equiv.exit1197 ]
+  %598 = fcmp oeq double %589, 1.000000e+00
+  br i1 %598, label %equiv.exit1201, label %equiv.exit1201.thread
 
-equiv.exit1201.thread:                            ; preds = %equiv.exit1197
-  %598 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 142, double noundef -7.200000e+02, double noundef 1.000000e+00, double noundef %590)
-  %599 = add nuw nsw i32 %.46, 1
+equiv.exit1201.thread:                            ; preds = %597
+  %599 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 142, double noundef -7.200000e+02, double noundef 1.000000e+00, double noundef %590)
+  %600 = add nuw nsw i32 %.46, 1
   br label %equiv.exit1201
 
-equiv.exit1201:                                   ; preds = %equiv.exit1197, %equiv.exit1201.thread
-  %.47 = phi i32 [ %599, %equiv.exit1201.thread ], [ %.46, %equiv.exit1197 ]
-  %600 = load double, ptr @degree, align 8, !tbaa !4
-  %601 = fmul double %600, -0.000000e+00
-  %602 = tail call double @sin(double noundef %601) #17, !tbaa !16
-  %603 = tail call double @cos(double noundef %601) #17, !tbaa !16
-  %604 = fsub double 0.000000e+00, %602
-  %605 = fcmp oeq double %603, 0.000000e+00
-  %606 = tail call double @llvm.fabs.f64(double %603)
-  %607 = fneg double %606
-  %.11956 = select i1 %605, double %607, double %603
-  %608 = fcmp oeq double %.11956, 1.000000e+00
-  br i1 %608, label %equiv.exit1207, label %equiv.exit1207.thread
+equiv.exit1201:                                   ; preds = %597, %equiv.exit1201.thread
+  %.47 = phi i32 [ %600, %equiv.exit1201.thread ], [ %.46, %597 ]
+  %601 = load double, ptr @degree, align 8, !tbaa !4
+  %602 = fmul double %601, -0.000000e+00
+  %603 = tail call double @sin(double noundef %602) #17, !tbaa !16
+  %604 = tail call double @cos(double noundef %602) #17, !tbaa !16
+  %605 = fsub double 0.000000e+00, %603
+  %606 = fcmp oeq double %604, 0.000000e+00
+  %607 = tail call double @llvm.fabs.f64(double %604)
+  %608 = fneg double %607
+  %.11956 = select i1 %606, double %608, double %604
+  %609 = fcmp oeq double %.11956, 1.000000e+00
+  br i1 %609, label %equiv.exit1207, label %equiv.exit1207.thread
 
 equiv.exit1207.thread:                            ; preds = %equiv.exit1201
-  %609 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 143, double noundef -6.300000e+02, double noundef 1.000000e+00, double noundef %.11956)
-  %610 = add nuw nsw i32 %.47, 1
+  %610 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 143, double noundef -6.300000e+02, double noundef 1.000000e+00, double noundef %.11956)
+  %611 = add nuw nsw i32 %.47, 1
   br label %equiv.exit1207
 
 equiv.exit1207:                                   ; preds = %equiv.exit1201, %equiv.exit1207.thread
-  %.48 = phi i32 [ %610, %equiv.exit1207.thread ], [ %.47, %equiv.exit1201 ]
-  %611 = fcmp oeq double %604, 0.000000e+00
-  br i1 %611, label %equiv.exit1211, label %equiv.exit1211.thread
+  %.48 = phi i32 [ %611, %equiv.exit1207.thread ], [ %.47, %equiv.exit1201 ]
+  %612 = fcmp oeq double %605, 0.000000e+00
+  br i1 %612, label %equiv.exit1211, label %equiv.exit1211.thread
 
 equiv.exit1211.thread:                            ; preds = %equiv.exit1207
-  %612 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 143, double noundef -6.300000e+02, double noundef 0.000000e+00, double noundef %604)
-  %613 = add nuw nsw i32 %.48, 1
+  %613 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 143, double noundef -6.300000e+02, double noundef 0.000000e+00, double noundef %605)
+  %614 = add nuw nsw i32 %.48, 1
   br label %equiv.exit1211
 
 equiv.exit1211:                                   ; preds = %equiv.exit1207, %equiv.exit1211.thread
-  %.49 = phi i32 [ %613, %equiv.exit1211.thread ], [ %.48, %equiv.exit1207 ]
-  %614 = load double, ptr @degree, align 8, !tbaa !4
-  %615 = fmul double %614, -0.000000e+00
-  %616 = tail call double @sin(double noundef %615) #17, !tbaa !16
-  %617 = tail call double @cos(double noundef %615) #17, !tbaa !16
-  %618 = fsub double 0.000000e+00, %617
-  %619 = fcmp oeq double %616, 0.000000e+00
-  %620 = tail call double @llvm.fabs.f64(double %616)
-  %.11960.v = select i1 %619, double %620, double %616
-  %621 = fcmp oeq double %.11960.v, 0.000000e+00
-  br i1 %621, label %equiv.exit1217, label %equiv.exit1217.thread
-
-equiv.exit1217.thread:                            ; preds = %equiv.exit1211
+  %.49 = phi i32 [ %614, %equiv.exit1211.thread ], [ %.48, %equiv.exit1207 ]
+  %615 = load double, ptr @degree, align 8, !tbaa !4
+  %616 = fmul double %615, -0.000000e+00
+  %617 = tail call double @sin(double noundef %616) #17, !tbaa !16
+  %618 = tail call double @cos(double noundef %616) #17, !tbaa !16
+  %619 = fsub double 0.000000e+00, %618
+  %620 = fcmp oeq double %617, 0.000000e+00
+  %621 = tail call double @llvm.fabs.f64(double %617)
+  %.11960.v = select i1 %620, double %621, double %617
   %.11960 = fneg double %.11960.v
-  %622 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 144, double noundef -5.400000e+02, double noundef -0.000000e+00, double noundef %.11960)
-  %623 = add nuw nsw i32 %.49, 1
-  br label %equiv.exit1217
+  %622 = fcmp oeq double %.11960.v, 0.000000e+00
+  br i1 %622, label %equiv.exit1217, label %equiv.exit1217.thread
 
-equiv.exit1217:                                   ; preds = %equiv.exit1211, %equiv.exit1217.thread
-  %.50 = phi i32 [ %623, %equiv.exit1217.thread ], [ %.49, %equiv.exit1211 ]
-  %624 = fcmp oeq double %618, -1.000000e+00
-  br i1 %624, label %equiv.exit1221, label %equiv.exit1221.thread
+equiv.exit1217:                                   ; preds = %equiv.exit1211
+  %.not654 = tail call i1 @llvm.is.fpclass.f64(double %.11960.v, i32 64)
+  br i1 %.not654, label %625, label %equiv.exit1217.thread
 
-equiv.exit1221.thread:                            ; preds = %equiv.exit1217
-  %625 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 144, double noundef -5.400000e+02, double noundef -1.000000e+00, double noundef %618)
-  %626 = add nuw nsw i32 %.50, 1
+equiv.exit1217.thread:                            ; preds = %equiv.exit1211, %equiv.exit1217
+  %623 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 144, double noundef -5.400000e+02, double noundef -0.000000e+00, double noundef %.11960)
+  %624 = add nuw nsw i32 %.49, 1
+  br label %625
+
+625:                                              ; preds = %equiv.exit1217.thread, %equiv.exit1217
+  %.50 = phi i32 [ %624, %equiv.exit1217.thread ], [ %.49, %equiv.exit1217 ]
+  %626 = fcmp oeq double %619, -1.000000e+00
+  br i1 %626, label %equiv.exit1221, label %equiv.exit1221.thread
+
+equiv.exit1221.thread:                            ; preds = %625
+  %627 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 144, double noundef -5.400000e+02, double noundef -1.000000e+00, double noundef %619)
+  %628 = add nuw nsw i32 %.50, 1
   br label %equiv.exit1221
 
-equiv.exit1221:                                   ; preds = %equiv.exit1217, %equiv.exit1221.thread
-  %.51 = phi i32 [ %626, %equiv.exit1221.thread ], [ %.50, %equiv.exit1217 ]
-  %627 = load double, ptr @degree, align 8, !tbaa !4
-  %628 = fmul double %627, -0.000000e+00
-  %629 = tail call double @sin(double noundef %628) #17, !tbaa !16
-  %630 = tail call double @cos(double noundef %628) #17, !tbaa !16
-  %631 = fadd double %629, 0.000000e+00
-  %632 = fcmp oeq double %630, 0.000000e+00
-  %633 = tail call double @llvm.fabs.f64(double %630)
-  %.11964.v = select i1 %632, double %633, double %630
-  %634 = fcmp oeq double %.11964.v, 1.000000e+00
-  br i1 %634, label %equiv.exit1227, label %equiv.exit1227.thread
+equiv.exit1221:                                   ; preds = %625, %equiv.exit1221.thread
+  %.51 = phi i32 [ %628, %equiv.exit1221.thread ], [ %.50, %625 ]
+  %629 = load double, ptr @degree, align 8, !tbaa !4
+  %630 = fmul double %629, -0.000000e+00
+  %631 = tail call double @sin(double noundef %630) #17, !tbaa !16
+  %632 = tail call double @cos(double noundef %630) #17, !tbaa !16
+  %633 = fadd double %631, 0.000000e+00
+  %634 = fcmp oeq double %632, 0.000000e+00
+  %635 = tail call double @llvm.fabs.f64(double %632)
+  %.11964.v = select i1 %634, double %635, double %632
+  %636 = fcmp oeq double %.11964.v, 1.000000e+00
+  br i1 %636, label %equiv.exit1227, label %equiv.exit1227.thread
 
 equiv.exit1227.thread:                            ; preds = %equiv.exit1221
   %.11964 = fneg double %.11964.v
-  %635 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 145, double noundef -4.500000e+02, double noundef -1.000000e+00, double noundef %.11964)
-  %636 = add nuw nsw i32 %.51, 1
+  %637 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 145, double noundef -4.500000e+02, double noundef -1.000000e+00, double noundef %.11964)
+  %638 = add nuw nsw i32 %.51, 1
   br label %equiv.exit1227
 
 equiv.exit1227:                                   ; preds = %equiv.exit1221, %equiv.exit1227.thread
-  %.52 = phi i32 [ %636, %equiv.exit1227.thread ], [ %.51, %equiv.exit1221 ]
-  %637 = fcmp oeq double %629, 0.000000e+00
-  br i1 %637, label %equiv.exit1231, label %equiv.exit1231.thread
+  %.52 = phi i32 [ %638, %equiv.exit1227.thread ], [ %.51, %equiv.exit1221 ]
+  %639 = fcmp oeq double %631, 0.000000e+00
+  br i1 %639, label %equiv.exit1231, label %equiv.exit1231.thread
 
 equiv.exit1231.thread:                            ; preds = %equiv.exit1227
-  %638 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 145, double noundef -4.500000e+02, double noundef 0.000000e+00, double noundef %631)
-  %639 = add nuw nsw i32 %.52, 1
+  %640 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 145, double noundef -4.500000e+02, double noundef 0.000000e+00, double noundef %633)
+  %641 = add nuw nsw i32 %.52, 1
   br label %equiv.exit1231
 
 equiv.exit1231:                                   ; preds = %equiv.exit1227, %equiv.exit1231.thread
-  %.53 = phi i32 [ %639, %equiv.exit1231.thread ], [ %.52, %equiv.exit1227 ]
-  %640 = load double, ptr @degree, align 8, !tbaa !4
-  %641 = fmul double %640, -0.000000e+00
-  %642 = tail call double @sin(double noundef %641) #17, !tbaa !16
-  %643 = tail call double @cos(double noundef %641) #17, !tbaa !16
-  %644 = fadd double %643, 0.000000e+00
-  %645 = fcmp oeq double %642, 0.000000e+00
-  %646 = tail call double @llvm.fabs.f64(double %642)
-  %647 = fneg double %646
-  %.11968 = select i1 %645, double %647, double %642
-  %648 = fcmp oeq double %.11968, 0.000000e+00
-  br i1 %648, label %equiv.exit1237, label %equiv.exit1237.thread
+  %.53 = phi i32 [ %641, %equiv.exit1231.thread ], [ %.52, %equiv.exit1227 ]
+  %642 = load double, ptr @degree, align 8, !tbaa !4
+  %643 = fmul double %642, -0.000000e+00
+  %644 = tail call double @sin(double noundef %643) #17, !tbaa !16
+  %645 = tail call double @cos(double noundef %643) #17, !tbaa !16
+  %646 = fadd double %645, 0.000000e+00
+  %647 = fcmp oeq double %644, 0.000000e+00
+  %648 = tail call double @llvm.fabs.f64(double %644)
+  %649 = fneg double %648
+  %.11968 = select i1 %647, double %649, double %644
+  %650 = fcmp oeq double %.11968, 0.000000e+00
+  br i1 %650, label %equiv.exit1237, label %equiv.exit1237.thread
 
-equiv.exit1237.thread:                            ; preds = %equiv.exit1231
-  %649 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 146, double noundef -3.600000e+02, double noundef -0.000000e+00, double noundef %.11968)
-  %650 = add nuw nsw i32 %.53, 1
-  br label %equiv.exit1237
+equiv.exit1237:                                   ; preds = %equiv.exit1231
+  %.not658 = tail call i1 @llvm.is.fpclass.f64(double %.11968, i32 32)
+  br i1 %.not658, label %653, label %equiv.exit1237.thread
 
-equiv.exit1237:                                   ; preds = %equiv.exit1231, %equiv.exit1237.thread
-  %.54 = phi i32 [ %650, %equiv.exit1237.thread ], [ %.53, %equiv.exit1231 ]
-  %651 = fcmp oeq double %643, 1.000000e+00
-  br i1 %651, label %equiv.exit1241, label %equiv.exit1241.thread
+equiv.exit1237.thread:                            ; preds = %equiv.exit1231, %equiv.exit1237
+  %651 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 146, double noundef -3.600000e+02, double noundef -0.000000e+00, double noundef %.11968)
+  %652 = add nuw nsw i32 %.53, 1
+  br label %653
 
-equiv.exit1241.thread:                            ; preds = %equiv.exit1237
-  %652 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 146, double noundef -3.600000e+02, double noundef 1.000000e+00, double noundef %644)
-  %653 = add nuw nsw i32 %.54, 1
+653:                                              ; preds = %equiv.exit1237.thread, %equiv.exit1237
+  %.54 = phi i32 [ %652, %equiv.exit1237.thread ], [ %.53, %equiv.exit1237 ]
+  %654 = fcmp oeq double %645, 1.000000e+00
+  br i1 %654, label %equiv.exit1241, label %equiv.exit1241.thread
+
+equiv.exit1241.thread:                            ; preds = %653
+  %655 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 146, double noundef -3.600000e+02, double noundef 1.000000e+00, double noundef %646)
+  %656 = add nuw nsw i32 %.54, 1
   br label %equiv.exit1241
 
-equiv.exit1241:                                   ; preds = %equiv.exit1237, %equiv.exit1241.thread
-  %.55 = phi i32 [ %653, %equiv.exit1241.thread ], [ %.54, %equiv.exit1237 ]
-  %654 = load double, ptr @degree, align 8, !tbaa !4
-  %655 = fmul double %654, -0.000000e+00
-  %656 = tail call double @sin(double noundef %655) #17, !tbaa !16
-  %657 = tail call double @cos(double noundef %655) #17, !tbaa !16
-  %658 = fsub double 0.000000e+00, %656
-  %659 = fcmp oeq double %657, 0.000000e+00
-  %660 = tail call double @llvm.fabs.f64(double %657)
-  %661 = fneg double %660
-  %.11972 = select i1 %659, double %661, double %657
-  %662 = fcmp oeq double %.11972, 1.000000e+00
-  br i1 %662, label %equiv.exit1247, label %equiv.exit1247.thread
+equiv.exit1241:                                   ; preds = %653, %equiv.exit1241.thread
+  %.55 = phi i32 [ %656, %equiv.exit1241.thread ], [ %.54, %653 ]
+  %657 = load double, ptr @degree, align 8, !tbaa !4
+  %658 = fmul double %657, -0.000000e+00
+  %659 = tail call double @sin(double noundef %658) #17, !tbaa !16
+  %660 = tail call double @cos(double noundef %658) #17, !tbaa !16
+  %661 = fsub double 0.000000e+00, %659
+  %662 = fcmp oeq double %660, 0.000000e+00
+  %663 = tail call double @llvm.fabs.f64(double %660)
+  %664 = fneg double %663
+  %.11972 = select i1 %662, double %664, double %660
+  %665 = fcmp oeq double %.11972, 1.000000e+00
+  br i1 %665, label %equiv.exit1247, label %equiv.exit1247.thread
 
 equiv.exit1247.thread:                            ; preds = %equiv.exit1241
-  %663 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 147, double noundef -2.700000e+02, double noundef 1.000000e+00, double noundef %.11972)
-  %664 = add nuw nsw i32 %.55, 1
+  %666 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 147, double noundef -2.700000e+02, double noundef 1.000000e+00, double noundef %.11972)
+  %667 = add nuw nsw i32 %.55, 1
   br label %equiv.exit1247
 
 equiv.exit1247:                                   ; preds = %equiv.exit1241, %equiv.exit1247.thread
-  %.56 = phi i32 [ %664, %equiv.exit1247.thread ], [ %.55, %equiv.exit1241 ]
-  %665 = fcmp oeq double %658, 0.000000e+00
-  br i1 %665, label %equiv.exit1251, label %equiv.exit1251.thread
+  %.56 = phi i32 [ %667, %equiv.exit1247.thread ], [ %.55, %equiv.exit1241 ]
+  %668 = fcmp oeq double %661, 0.000000e+00
+  br i1 %668, label %equiv.exit1251, label %equiv.exit1251.thread
 
 equiv.exit1251.thread:                            ; preds = %equiv.exit1247
-  %666 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 147, double noundef -2.700000e+02, double noundef 0.000000e+00, double noundef %658)
-  %667 = add nuw nsw i32 %.56, 1
+  %669 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 147, double noundef -2.700000e+02, double noundef 0.000000e+00, double noundef %661)
+  %670 = add nuw nsw i32 %.56, 1
   br label %equiv.exit1251
 
 equiv.exit1251:                                   ; preds = %equiv.exit1247, %equiv.exit1251.thread
-  %.57 = phi i32 [ %667, %equiv.exit1251.thread ], [ %.56, %equiv.exit1247 ]
-  %668 = load double, ptr @degree, align 8, !tbaa !4
-  %669 = fmul double %668, -0.000000e+00
-  %670 = tail call double @sin(double noundef %669) #17, !tbaa !16
-  %671 = tail call double @cos(double noundef %669) #17, !tbaa !16
-  %672 = fsub double 0.000000e+00, %671
-  %673 = fcmp oeq double %670, 0.000000e+00
-  %674 = tail call double @llvm.fabs.f64(double %670)
-  %.11976.v = select i1 %673, double %674, double %670
-  %675 = fcmp oeq double %.11976.v, 0.000000e+00
-  br i1 %675, label %equiv.exit1257, label %equiv.exit1257.thread
-
-equiv.exit1257.thread:                            ; preds = %equiv.exit1251
+  %.57 = phi i32 [ %670, %equiv.exit1251.thread ], [ %.56, %equiv.exit1247 ]
+  %671 = load double, ptr @degree, align 8, !tbaa !4
+  %672 = fmul double %671, -0.000000e+00
+  %673 = tail call double @sin(double noundef %672) #17, !tbaa !16
+  %674 = tail call double @cos(double noundef %672) #17, !tbaa !16
+  %675 = fsub double 0.000000e+00, %674
+  %676 = fcmp oeq double %673, 0.000000e+00
+  %677 = tail call double @llvm.fabs.f64(double %673)
+  %.11976.v = select i1 %676, double %677, double %673
   %.11976 = fneg double %.11976.v
-  %676 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 148, double noundef -1.800000e+02, double noundef -0.000000e+00, double noundef %.11976)
-  %677 = add nuw nsw i32 %.57, 1
-  br label %equiv.exit1257
+  %678 = fcmp oeq double %.11976.v, 0.000000e+00
+  br i1 %678, label %equiv.exit1257, label %equiv.exit1257.thread
 
-equiv.exit1257:                                   ; preds = %equiv.exit1251, %equiv.exit1257.thread
-  %.58 = phi i32 [ %677, %equiv.exit1257.thread ], [ %.57, %equiv.exit1251 ]
-  %678 = fcmp oeq double %672, -1.000000e+00
-  br i1 %678, label %equiv.exit1261, label %equiv.exit1261.thread
+equiv.exit1257:                                   ; preds = %equiv.exit1251
+  %.not662 = tail call i1 @llvm.is.fpclass.f64(double %.11976.v, i32 64)
+  br i1 %.not662, label %681, label %equiv.exit1257.thread
 
-equiv.exit1261.thread:                            ; preds = %equiv.exit1257
-  %679 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 148, double noundef -1.800000e+02, double noundef -1.000000e+00, double noundef %672)
-  %680 = add nuw nsw i32 %.58, 1
+equiv.exit1257.thread:                            ; preds = %equiv.exit1251, %equiv.exit1257
+  %679 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 148, double noundef -1.800000e+02, double noundef -0.000000e+00, double noundef %.11976)
+  %680 = add nuw nsw i32 %.57, 1
+  br label %681
+
+681:                                              ; preds = %equiv.exit1257.thread, %equiv.exit1257
+  %.58 = phi i32 [ %680, %equiv.exit1257.thread ], [ %.57, %equiv.exit1257 ]
+  %682 = fcmp oeq double %675, -1.000000e+00
+  br i1 %682, label %equiv.exit1261, label %equiv.exit1261.thread
+
+equiv.exit1261.thread:                            ; preds = %681
+  %683 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 148, double noundef -1.800000e+02, double noundef -1.000000e+00, double noundef %675)
+  %684 = add nuw nsw i32 %.58, 1
   br label %equiv.exit1261
 
-equiv.exit1261:                                   ; preds = %equiv.exit1257, %equiv.exit1261.thread
-  %.59 = phi i32 [ %680, %equiv.exit1261.thread ], [ %.58, %equiv.exit1257 ]
-  %681 = load double, ptr @degree, align 8, !tbaa !4
-  %682 = fmul double %681, -0.000000e+00
-  %683 = tail call double @sin(double noundef %682) #17, !tbaa !16
-  %684 = tail call double @cos(double noundef %682) #17, !tbaa !16
-  %685 = fadd double %683, 0.000000e+00
-  %686 = fcmp oeq double %684, 0.000000e+00
-  %687 = tail call double @llvm.fabs.f64(double %684)
-  %.11980.v = select i1 %686, double %687, double %684
-  %688 = fcmp oeq double %.11980.v, 1.000000e+00
-  br i1 %688, label %equiv.exit1267, label %equiv.exit1267.thread
+equiv.exit1261:                                   ; preds = %681, %equiv.exit1261.thread
+  %.59 = phi i32 [ %684, %equiv.exit1261.thread ], [ %.58, %681 ]
+  %685 = load double, ptr @degree, align 8, !tbaa !4
+  %686 = fmul double %685, -0.000000e+00
+  %687 = tail call double @sin(double noundef %686) #17, !tbaa !16
+  %688 = tail call double @cos(double noundef %686) #17, !tbaa !16
+  %689 = fadd double %687, 0.000000e+00
+  %690 = fcmp oeq double %688, 0.000000e+00
+  %691 = tail call double @llvm.fabs.f64(double %688)
+  %.11980.v = select i1 %690, double %691, double %688
+  %692 = fcmp oeq double %.11980.v, 1.000000e+00
+  br i1 %692, label %equiv.exit1267, label %equiv.exit1267.thread
 
 equiv.exit1267.thread:                            ; preds = %equiv.exit1261
   %.11980 = fneg double %.11980.v
-  %689 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 149, double noundef -9.000000e+01, double noundef -1.000000e+00, double noundef %.11980)
-  %690 = add nuw nsw i32 %.59, 1
+  %693 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 149, double noundef -9.000000e+01, double noundef -1.000000e+00, double noundef %.11980)
+  %694 = add nuw nsw i32 %.59, 1
   br label %equiv.exit1267
 
 equiv.exit1267:                                   ; preds = %equiv.exit1261, %equiv.exit1267.thread
-  %.60 = phi i32 [ %690, %equiv.exit1267.thread ], [ %.59, %equiv.exit1261 ]
-  %691 = fcmp oeq double %683, 0.000000e+00
-  br i1 %691, label %equiv.exit1271, label %equiv.exit1271.thread
+  %.60 = phi i32 [ %694, %equiv.exit1267.thread ], [ %.59, %equiv.exit1261 ]
+  %695 = fcmp oeq double %687, 0.000000e+00
+  br i1 %695, label %equiv.exit1271, label %equiv.exit1271.thread
 
 equiv.exit1271.thread:                            ; preds = %equiv.exit1267
-  %692 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 149, double noundef -9.000000e+01, double noundef 0.000000e+00, double noundef %685)
-  %693 = add nuw nsw i32 %.60, 1
+  %696 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 149, double noundef -9.000000e+01, double noundef 0.000000e+00, double noundef %689)
+  %697 = add nuw nsw i32 %.60, 1
   br label %equiv.exit1271
 
 equiv.exit1271:                                   ; preds = %equiv.exit1267, %equiv.exit1271.thread
-  %.61 = phi i32 [ %693, %equiv.exit1271.thread ], [ %.60, %equiv.exit1267 ]
-  %694 = load double, ptr @degree, align 8, !tbaa !4
-  %695 = fmul double %694, -0.000000e+00
-  %696 = tail call double @sin(double noundef %695) #17, !tbaa !16
-  %697 = tail call double @cos(double noundef %695) #17, !tbaa !16
-  %698 = fadd double %697, 0.000000e+00
-  %699 = fcmp oeq double %696, 0.000000e+00
-  %700 = tail call double @llvm.fabs.f64(double %696)
-  %701 = fneg double %700
-  %.11984 = select i1 %699, double %701, double %696
-  %702 = fcmp oeq double %.11984, 0.000000e+00
-  br i1 %702, label %equiv.exit1277, label %equiv.exit1277.thread
+  %.61 = phi i32 [ %697, %equiv.exit1271.thread ], [ %.60, %equiv.exit1267 ]
+  %698 = load double, ptr @degree, align 8, !tbaa !4
+  %699 = fmul double %698, -0.000000e+00
+  %700 = tail call double @sin(double noundef %699) #17, !tbaa !16
+  %701 = tail call double @cos(double noundef %699) #17, !tbaa !16
+  %702 = fadd double %701, 0.000000e+00
+  %703 = fcmp oeq double %700, 0.000000e+00
+  %704 = tail call double @llvm.fabs.f64(double %700)
+  %705 = fneg double %704
+  %.11984 = select i1 %703, double %705, double %700
+  %706 = fcmp oeq double %.11984, 0.000000e+00
+  br i1 %706, label %equiv.exit1277, label %equiv.exit1277.thread
 
-equiv.exit1277.thread:                            ; preds = %equiv.exit1271
-  %703 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 150, double noundef -0.000000e+00, double noundef -0.000000e+00, double noundef %.11984)
-  %704 = add nuw nsw i32 %.61, 1
-  br label %equiv.exit1277
+equiv.exit1277:                                   ; preds = %equiv.exit1271
+  %.not666 = tail call i1 @llvm.is.fpclass.f64(double %.11984, i32 32)
+  br i1 %.not666, label %709, label %equiv.exit1277.thread
 
-equiv.exit1277:                                   ; preds = %equiv.exit1271, %equiv.exit1277.thread
-  %.62 = phi i32 [ %704, %equiv.exit1277.thread ], [ %.61, %equiv.exit1271 ]
-  %705 = fcmp oeq double %697, 1.000000e+00
-  br i1 %705, label %equiv.exit1281, label %equiv.exit1281.thread
+equiv.exit1277.thread:                            ; preds = %equiv.exit1271, %equiv.exit1277
+  %707 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 150, double noundef -0.000000e+00, double noundef -0.000000e+00, double noundef %.11984)
+  %708 = add nuw nsw i32 %.61, 1
+  br label %709
 
-equiv.exit1281.thread:                            ; preds = %equiv.exit1277
-  %706 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 150, double noundef -0.000000e+00, double noundef 1.000000e+00, double noundef %698)
-  %707 = add nuw nsw i32 %.62, 1
+709:                                              ; preds = %equiv.exit1277.thread, %equiv.exit1277
+  %.62 = phi i32 [ %708, %equiv.exit1277.thread ], [ %.61, %equiv.exit1277 ]
+  %710 = fcmp oeq double %701, 1.000000e+00
+  br i1 %710, label %equiv.exit1281, label %equiv.exit1281.thread
+
+equiv.exit1281.thread:                            ; preds = %709
+  %711 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 150, double noundef -0.000000e+00, double noundef 1.000000e+00, double noundef %702)
+  %712 = add nuw nsw i32 %.62, 1
   br label %equiv.exit1281
 
-equiv.exit1281:                                   ; preds = %equiv.exit1277, %equiv.exit1281.thread
-  %.63 = phi i32 [ %707, %equiv.exit1281.thread ], [ %.62, %equiv.exit1277 ]
-  %708 = load double, ptr @degree, align 8, !tbaa !4
-  %709 = fmul double %708, 0.000000e+00
-  %710 = tail call double @sin(double noundef %709) #17, !tbaa !16
-  %711 = tail call double @cos(double noundef %709) #17, !tbaa !16
-  %712 = fadd double %711, 0.000000e+00
-  %713 = fcmp oeq double %710, 0.000000e+00
-  %714 = tail call double @llvm.fabs.f64(double %710)
-  %.11988 = select i1 %713, double %714, double %710
-  %715 = fcmp oeq double %.11988, 0.000000e+00
-  br i1 %715, label %equiv.exit1287, label %equiv.exit1287.thread
+equiv.exit1281:                                   ; preds = %709, %equiv.exit1281.thread
+  %.63 = phi i32 [ %712, %equiv.exit1281.thread ], [ %.62, %709 ]
+  %713 = load double, ptr @degree, align 8, !tbaa !4
+  %714 = fmul double %713, 0.000000e+00
+  %715 = tail call double @sin(double noundef %714) #17, !tbaa !16
+  %716 = tail call double @cos(double noundef %714) #17, !tbaa !16
+  %717 = fadd double %716, 0.000000e+00
+  %718 = fcmp oeq double %715, 0.000000e+00
+  %719 = tail call double @llvm.fabs.f64(double %715)
+  %.11988 = select i1 %718, double %719, double %715
+  %720 = fcmp oeq double %.11988, 0.000000e+00
+  br i1 %720, label %equiv.exit1287, label %equiv.exit1287.thread
 
-equiv.exit1287.thread:                            ; preds = %equiv.exit1281
-  %716 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 151, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %.11988)
-  %717 = add nuw nsw i32 %.63, 1
-  br label %equiv.exit1287
+equiv.exit1287:                                   ; preds = %equiv.exit1281
+  %.not668 = tail call i1 @llvm.is.fpclass.f64(double %.11988, i32 64)
+  br i1 %.not668, label %723, label %equiv.exit1287.thread
 
-equiv.exit1287:                                   ; preds = %equiv.exit1281, %equiv.exit1287.thread
-  %.64 = phi i32 [ %717, %equiv.exit1287.thread ], [ %.63, %equiv.exit1281 ]
-  %718 = fcmp oeq double %711, 1.000000e+00
-  br i1 %718, label %equiv.exit1291, label %equiv.exit1291.thread
+equiv.exit1287.thread:                            ; preds = %equiv.exit1281, %equiv.exit1287
+  %721 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 151, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %.11988)
+  %722 = add nuw nsw i32 %.63, 1
+  br label %723
 
-equiv.exit1291.thread:                            ; preds = %equiv.exit1287
-  %719 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 151, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef %712)
-  %720 = add nuw nsw i32 %.64, 1
+723:                                              ; preds = %equiv.exit1287.thread, %equiv.exit1287
+  %.64 = phi i32 [ %722, %equiv.exit1287.thread ], [ %.63, %equiv.exit1287 ]
+  %724 = fcmp oeq double %716, 1.000000e+00
+  br i1 %724, label %equiv.exit1291, label %equiv.exit1291.thread
+
+equiv.exit1291.thread:                            ; preds = %723
+  %725 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 151, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef %717)
+  %726 = add nuw nsw i32 %.64, 1
   br label %equiv.exit1291
 
-equiv.exit1291:                                   ; preds = %equiv.exit1287, %equiv.exit1291.thread
-  %.65 = phi i32 [ %720, %equiv.exit1291.thread ], [ %.64, %equiv.exit1287 ]
-  %721 = load double, ptr @degree, align 8, !tbaa !4
-  %722 = fmul double %721, 0.000000e+00
-  %723 = tail call double @sin(double noundef %722) #17, !tbaa !16
-  %724 = tail call double @cos(double noundef %722) #17, !tbaa !16
-  %725 = fsub double 0.000000e+00, %723
-  %726 = fcmp oeq double %724, 0.000000e+00
-  %727 = tail call double @llvm.fabs.f64(double %724)
-  %.11992 = select i1 %726, double %727, double %724
-  %728 = fcmp oeq double %.11992, 1.000000e+00
-  br i1 %728, label %equiv.exit1297, label %equiv.exit1297.thread
+equiv.exit1291:                                   ; preds = %723, %equiv.exit1291.thread
+  %.65 = phi i32 [ %726, %equiv.exit1291.thread ], [ %.64, %723 ]
+  %727 = load double, ptr @degree, align 8, !tbaa !4
+  %728 = fmul double %727, 0.000000e+00
+  %729 = tail call double @sin(double noundef %728) #17, !tbaa !16
+  %730 = tail call double @cos(double noundef %728) #17, !tbaa !16
+  %731 = fsub double 0.000000e+00, %729
+  %732 = fcmp oeq double %730, 0.000000e+00
+  %733 = tail call double @llvm.fabs.f64(double %730)
+  %.11992 = select i1 %732, double %733, double %730
+  %734 = fcmp oeq double %.11992, 1.000000e+00
+  br i1 %734, label %equiv.exit1297, label %equiv.exit1297.thread
 
 equiv.exit1297.thread:                            ; preds = %equiv.exit1291
-  %729 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 152, double noundef 9.000000e+01, double noundef 1.000000e+00, double noundef %.11992)
-  %730 = add nuw nsw i32 %.65, 1
+  %735 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 152, double noundef 9.000000e+01, double noundef 1.000000e+00, double noundef %.11992)
+  %736 = add nuw nsw i32 %.65, 1
   br label %equiv.exit1297
 
 equiv.exit1297:                                   ; preds = %equiv.exit1291, %equiv.exit1297.thread
-  %.66 = phi i32 [ %730, %equiv.exit1297.thread ], [ %.65, %equiv.exit1291 ]
-  %731 = fcmp oeq double %725, 0.000000e+00
-  br i1 %731, label %equiv.exit1301, label %equiv.exit1301.thread
+  %.66 = phi i32 [ %736, %equiv.exit1297.thread ], [ %.65, %equiv.exit1291 ]
+  %737 = fcmp oeq double %731, 0.000000e+00
+  br i1 %737, label %equiv.exit1301, label %equiv.exit1301.thread
 
 equiv.exit1301.thread:                            ; preds = %equiv.exit1297
-  %732 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 152, double noundef 9.000000e+01, double noundef 0.000000e+00, double noundef %725)
-  %733 = add nuw nsw i32 %.66, 1
+  %738 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 152, double noundef 9.000000e+01, double noundef 0.000000e+00, double noundef %731)
+  %739 = add nuw nsw i32 %.66, 1
   br label %equiv.exit1301
 
 equiv.exit1301:                                   ; preds = %equiv.exit1297, %equiv.exit1301.thread
-  %.67 = phi i32 [ %733, %equiv.exit1301.thread ], [ %.66, %equiv.exit1297 ]
-  %734 = load double, ptr @degree, align 8, !tbaa !4
-  %735 = fmul double %734, 0.000000e+00
-  %736 = tail call double @sin(double noundef %735) #17, !tbaa !16
-  %737 = tail call double @cos(double noundef %735) #17, !tbaa !16
-  %738 = fneg double %736
-  %739 = fsub double 0.000000e+00, %737
-  %740 = fcmp oeq double %736, 0.000000e+00
-  %741 = tail call double @llvm.fabs.f64(double %736)
-  %.11994 = select i1 %740, double %741, double %738
-  %742 = fcmp oeq double %.11994, 0.000000e+00
-  br i1 %742, label %equiv.exit1307, label %equiv.exit1307.thread
+  %.67 = phi i32 [ %739, %equiv.exit1301.thread ], [ %.66, %equiv.exit1297 ]
+  %740 = load double, ptr @degree, align 8, !tbaa !4
+  %741 = fmul double %740, 0.000000e+00
+  %742 = tail call double @sin(double noundef %741) #17, !tbaa !16
+  %743 = tail call double @cos(double noundef %741) #17, !tbaa !16
+  %744 = fneg double %742
+  %745 = fsub double 0.000000e+00, %743
+  %746 = fcmp oeq double %742, 0.000000e+00
+  %747 = tail call double @llvm.fabs.f64(double %742)
+  %.11994 = select i1 %746, double %747, double %744
+  %748 = fcmp oeq double %.11994, 0.000000e+00
+  br i1 %748, label %equiv.exit1307, label %equiv.exit1307.thread
 
-equiv.exit1307.thread:                            ; preds = %equiv.exit1301
-  %743 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 153, double noundef 1.800000e+02, double noundef 0.000000e+00, double noundef %.11994)
-  %744 = add nuw nsw i32 %.67, 1
-  br label %equiv.exit1307
+equiv.exit1307:                                   ; preds = %equiv.exit1301
+  %.not672 = tail call i1 @llvm.is.fpclass.f64(double %.11994, i32 64)
+  br i1 %.not672, label %751, label %equiv.exit1307.thread
 
-equiv.exit1307:                                   ; preds = %equiv.exit1301, %equiv.exit1307.thread
-  %.68 = phi i32 [ %744, %equiv.exit1307.thread ], [ %.67, %equiv.exit1301 ]
-  %745 = fcmp oeq double %739, -1.000000e+00
-  br i1 %745, label %equiv.exit1311, label %equiv.exit1311.thread
+equiv.exit1307.thread:                            ; preds = %equiv.exit1301, %equiv.exit1307
+  %749 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 153, double noundef 1.800000e+02, double noundef 0.000000e+00, double noundef %.11994)
+  %750 = add nuw nsw i32 %.67, 1
+  br label %751
 
-equiv.exit1311.thread:                            ; preds = %equiv.exit1307
-  %746 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 153, double noundef 1.800000e+02, double noundef -1.000000e+00, double noundef %739)
-  %747 = add nuw nsw i32 %.68, 1
+751:                                              ; preds = %equiv.exit1307.thread, %equiv.exit1307
+  %.68 = phi i32 [ %750, %equiv.exit1307.thread ], [ %.67, %equiv.exit1307 ]
+  %752 = fcmp oeq double %745, -1.000000e+00
+  br i1 %752, label %equiv.exit1311, label %equiv.exit1311.thread
+
+equiv.exit1311.thread:                            ; preds = %751
+  %753 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 153, double noundef 1.800000e+02, double noundef -1.000000e+00, double noundef %745)
+  %754 = add nuw nsw i32 %.68, 1
   br label %equiv.exit1311
 
-equiv.exit1311:                                   ; preds = %equiv.exit1307, %equiv.exit1311.thread
-  %.69 = phi i32 [ %747, %equiv.exit1311.thread ], [ %.68, %equiv.exit1307 ]
-  %748 = load double, ptr @degree, align 8, !tbaa !4
-  %749 = fmul double %748, 0.000000e+00
-  %750 = tail call double @sin(double noundef %749) #17, !tbaa !16
-  %751 = tail call double @cos(double noundef %749) #17, !tbaa !16
-  %752 = fadd double %750, 0.000000e+00
-  %753 = fcmp oeq double %751, 0.000000e+00
-  br i1 %753, label %sincosdx.exit1313.thread, label %sincosdx.exit1313
+equiv.exit1311:                                   ; preds = %751, %equiv.exit1311.thread
+  %.69 = phi i32 [ %754, %equiv.exit1311.thread ], [ %.68, %751 ]
+  %755 = load double, ptr @degree, align 8, !tbaa !4
+  %756 = fmul double %755, 0.000000e+00
+  %757 = tail call double @sin(double noundef %756) #17, !tbaa !16
+  %758 = tail call double @cos(double noundef %756) #17, !tbaa !16
+  %759 = fadd double %757, 0.000000e+00
+  %760 = fcmp oeq double %758, 0.000000e+00
+  br i1 %760, label %sincosdx.exit1313.thread, label %sincosdx.exit1313
 
 sincosdx.exit1313.thread:                         ; preds = %equiv.exit1311
-  %754 = tail call double @llvm.fabs.f64(double %751)
+  %761 = tail call double @llvm.fabs.f64(double %758)
   br label %equiv.exit1317.thread
 
 sincosdx.exit1313:                                ; preds = %equiv.exit1311
-  %755 = fneg double %751
-  %756 = fcmp oeq double %751, 1.000000e+00
-  br i1 %756, label %equiv.exit1317, label %equiv.exit1317.thread
+  %762 = fneg double %758
+  %763 = fcmp oeq double %758, 1.000000e+00
+  br i1 %763, label %equiv.exit1317, label %equiv.exit1317.thread
 
 equiv.exit1317.thread:                            ; preds = %sincosdx.exit1313.thread, %sincosdx.exit1313
-  %.1199021362140 = phi double [ %755, %sincosdx.exit1313 ], [ %754, %sincosdx.exit1313.thread ]
-  %757 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 154, double noundef 2.700000e+02, double noundef -1.000000e+00, double noundef %.1199021362140)
-  %758 = add nuw nsw i32 %.69, 1
+  %.1199021362140 = phi double [ %762, %sincosdx.exit1313 ], [ %761, %sincosdx.exit1313.thread ]
+  %764 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 154, double noundef 2.700000e+02, double noundef -1.000000e+00, double noundef %.1199021362140)
+  %765 = add nuw nsw i32 %.69, 1
   br label %equiv.exit1317
 
 equiv.exit1317:                                   ; preds = %sincosdx.exit1313, %equiv.exit1317.thread
-  %.70 = phi i32 [ %758, %equiv.exit1317.thread ], [ %.69, %sincosdx.exit1313 ]
-  %759 = fcmp oeq double %750, 0.000000e+00
-  br i1 %759, label %equiv.exit1321, label %equiv.exit1321.thread
+  %.70 = phi i32 [ %765, %equiv.exit1317.thread ], [ %.69, %sincosdx.exit1313 ]
+  %766 = fcmp oeq double %757, 0.000000e+00
+  br i1 %766, label %equiv.exit1321, label %equiv.exit1321.thread
 
 equiv.exit1321.thread:                            ; preds = %equiv.exit1317
-  %760 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 154, double noundef 2.700000e+02, double noundef 0.000000e+00, double noundef %752)
-  %761 = add nuw nsw i32 %.70, 1
+  %767 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 154, double noundef 2.700000e+02, double noundef 0.000000e+00, double noundef %759)
+  %768 = add nuw nsw i32 %.70, 1
   br label %equiv.exit1321
 
 equiv.exit1321:                                   ; preds = %equiv.exit1317, %equiv.exit1321.thread
-  %.71 = phi i32 [ %761, %equiv.exit1321.thread ], [ %.70, %equiv.exit1317 ]
-  %762 = load double, ptr @degree, align 8, !tbaa !4
-  %763 = fmul double %762, 0.000000e+00
-  %764 = tail call double @sin(double noundef %763) #17, !tbaa !16
-  %765 = tail call double @cos(double noundef %763) #17, !tbaa !16
-  %766 = fadd double %765, 0.000000e+00
-  %767 = fcmp oeq double %764, 0.000000e+00
-  %768 = tail call double @llvm.fabs.f64(double %764)
-  %.11986 = select i1 %767, double %768, double %764
-  %769 = fcmp oeq double %.11986, 0.000000e+00
-  br i1 %769, label %equiv.exit1327, label %equiv.exit1327.thread
+  %.71 = phi i32 [ %768, %equiv.exit1321.thread ], [ %.70, %equiv.exit1317 ]
+  %769 = load double, ptr @degree, align 8, !tbaa !4
+  %770 = fmul double %769, 0.000000e+00
+  %771 = tail call double @sin(double noundef %770) #17, !tbaa !16
+  %772 = tail call double @cos(double noundef %770) #17, !tbaa !16
+  %773 = fadd double %772, 0.000000e+00
+  %774 = fcmp oeq double %771, 0.000000e+00
+  %775 = tail call double @llvm.fabs.f64(double %771)
+  %.11986 = select i1 %774, double %775, double %771
+  %776 = fcmp oeq double %.11986, 0.000000e+00
+  br i1 %776, label %equiv.exit1327, label %equiv.exit1327.thread
 
-equiv.exit1327.thread:                            ; preds = %equiv.exit1321
-  %770 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 155, double noundef 3.600000e+02, double noundef 0.000000e+00, double noundef %.11986)
-  %771 = add nuw nsw i32 %.71, 1
-  br label %equiv.exit1327
+equiv.exit1327:                                   ; preds = %equiv.exit1321
+  %.not676 = tail call i1 @llvm.is.fpclass.f64(double %.11986, i32 64)
+  br i1 %.not676, label %779, label %equiv.exit1327.thread
 
-equiv.exit1327:                                   ; preds = %equiv.exit1321, %equiv.exit1327.thread
-  %.72 = phi i32 [ %771, %equiv.exit1327.thread ], [ %.71, %equiv.exit1321 ]
-  %772 = fcmp oeq double %765, 1.000000e+00
-  br i1 %772, label %equiv.exit1331, label %equiv.exit1331.thread
+equiv.exit1327.thread:                            ; preds = %equiv.exit1321, %equiv.exit1327
+  %777 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 155, double noundef 3.600000e+02, double noundef 0.000000e+00, double noundef %.11986)
+  %778 = add nuw nsw i32 %.71, 1
+  br label %779
 
-equiv.exit1331.thread:                            ; preds = %equiv.exit1327
-  %773 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 155, double noundef 3.600000e+02, double noundef 1.000000e+00, double noundef %766)
-  %774 = add nuw nsw i32 %.72, 1
+779:                                              ; preds = %equiv.exit1327.thread, %equiv.exit1327
+  %.72 = phi i32 [ %778, %equiv.exit1327.thread ], [ %.71, %equiv.exit1327 ]
+  %780 = fcmp oeq double %772, 1.000000e+00
+  br i1 %780, label %equiv.exit1331, label %equiv.exit1331.thread
+
+equiv.exit1331.thread:                            ; preds = %779
+  %781 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 155, double noundef 3.600000e+02, double noundef 1.000000e+00, double noundef %773)
+  %782 = add nuw nsw i32 %.72, 1
   br label %equiv.exit1331
 
-equiv.exit1331:                                   ; preds = %equiv.exit1327, %equiv.exit1331.thread
-  %.73 = phi i32 [ %774, %equiv.exit1331.thread ], [ %.72, %equiv.exit1327 ]
-  %775 = load double, ptr @degree, align 8, !tbaa !4
-  %776 = fmul double %775, 0.000000e+00
-  %777 = tail call double @sin(double noundef %776) #17, !tbaa !16
-  %778 = tail call double @cos(double noundef %776) #17, !tbaa !16
-  %779 = fsub double 0.000000e+00, %777
-  %780 = fcmp oeq double %778, 0.000000e+00
-  %781 = tail call double @llvm.fabs.f64(double %778)
-  %.11982 = select i1 %780, double %781, double %778
-  %782 = fcmp oeq double %.11982, 1.000000e+00
-  br i1 %782, label %equiv.exit1337, label %equiv.exit1337.thread
+equiv.exit1331:                                   ; preds = %779, %equiv.exit1331.thread
+  %.73 = phi i32 [ %782, %equiv.exit1331.thread ], [ %.72, %779 ]
+  %783 = load double, ptr @degree, align 8, !tbaa !4
+  %784 = fmul double %783, 0.000000e+00
+  %785 = tail call double @sin(double noundef %784) #17, !tbaa !16
+  %786 = tail call double @cos(double noundef %784) #17, !tbaa !16
+  %787 = fsub double 0.000000e+00, %785
+  %788 = fcmp oeq double %786, 0.000000e+00
+  %789 = tail call double @llvm.fabs.f64(double %786)
+  %.11982 = select i1 %788, double %789, double %786
+  %790 = fcmp oeq double %.11982, 1.000000e+00
+  br i1 %790, label %equiv.exit1337, label %equiv.exit1337.thread
 
 equiv.exit1337.thread:                            ; preds = %equiv.exit1331
-  %783 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 156, double noundef 4.500000e+02, double noundef 1.000000e+00, double noundef %.11982)
-  %784 = add nuw nsw i32 %.73, 1
+  %791 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 156, double noundef 4.500000e+02, double noundef 1.000000e+00, double noundef %.11982)
+  %792 = add nuw nsw i32 %.73, 1
   br label %equiv.exit1337
 
 equiv.exit1337:                                   ; preds = %equiv.exit1331, %equiv.exit1337.thread
-  %.74 = phi i32 [ %784, %equiv.exit1337.thread ], [ %.73, %equiv.exit1331 ]
-  %785 = fcmp oeq double %779, 0.000000e+00
-  br i1 %785, label %equiv.exit1341, label %equiv.exit1341.thread
+  %.74 = phi i32 [ %792, %equiv.exit1337.thread ], [ %.73, %equiv.exit1331 ]
+  %793 = fcmp oeq double %787, 0.000000e+00
+  br i1 %793, label %equiv.exit1341, label %equiv.exit1341.thread
 
 equiv.exit1341.thread:                            ; preds = %equiv.exit1337
-  %786 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 156, double noundef 4.500000e+02, double noundef 0.000000e+00, double noundef %779)
-  %787 = add nuw nsw i32 %.74, 1
+  %794 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 156, double noundef 4.500000e+02, double noundef 0.000000e+00, double noundef %787)
+  %795 = add nuw nsw i32 %.74, 1
   br label %equiv.exit1341
 
 equiv.exit1341:                                   ; preds = %equiv.exit1337, %equiv.exit1341.thread
-  %.75 = phi i32 [ %787, %equiv.exit1341.thread ], [ %.74, %equiv.exit1337 ]
-  %788 = load double, ptr @degree, align 8, !tbaa !4
-  %789 = fmul double %788, 0.000000e+00
-  %790 = tail call double @sin(double noundef %789) #17, !tbaa !16
-  %791 = tail call double @cos(double noundef %789) #17, !tbaa !16
-  %792 = fneg double %790
-  %793 = fsub double 0.000000e+00, %791
-  %794 = fcmp oeq double %790, 0.000000e+00
-  %795 = tail call double @llvm.fabs.f64(double %790)
-  %.11978 = select i1 %794, double %795, double %792
-  %796 = fcmp oeq double %.11978, 0.000000e+00
-  br i1 %796, label %equiv.exit1347, label %equiv.exit1347.thread
+  %.75 = phi i32 [ %795, %equiv.exit1341.thread ], [ %.74, %equiv.exit1337 ]
+  %796 = load double, ptr @degree, align 8, !tbaa !4
+  %797 = fmul double %796, 0.000000e+00
+  %798 = tail call double @sin(double noundef %797) #17, !tbaa !16
+  %799 = tail call double @cos(double noundef %797) #17, !tbaa !16
+  %800 = fneg double %798
+  %801 = fsub double 0.000000e+00, %799
+  %802 = fcmp oeq double %798, 0.000000e+00
+  %803 = tail call double @llvm.fabs.f64(double %798)
+  %.11978 = select i1 %802, double %803, double %800
+  %804 = fcmp oeq double %.11978, 0.000000e+00
+  br i1 %804, label %equiv.exit1347, label %equiv.exit1347.thread
 
-equiv.exit1347.thread:                            ; preds = %equiv.exit1341
-  %797 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 157, double noundef 5.400000e+02, double noundef 0.000000e+00, double noundef %.11978)
-  %798 = add nuw nsw i32 %.75, 1
-  br label %equiv.exit1347
+equiv.exit1347:                                   ; preds = %equiv.exit1341
+  %.not680 = tail call i1 @llvm.is.fpclass.f64(double %.11978, i32 64)
+  br i1 %.not680, label %807, label %equiv.exit1347.thread
 
-equiv.exit1347:                                   ; preds = %equiv.exit1341, %equiv.exit1347.thread
-  %.76 = phi i32 [ %798, %equiv.exit1347.thread ], [ %.75, %equiv.exit1341 ]
-  %799 = fcmp oeq double %793, -1.000000e+00
-  br i1 %799, label %equiv.exit1351, label %equiv.exit1351.thread
+equiv.exit1347.thread:                            ; preds = %equiv.exit1341, %equiv.exit1347
+  %805 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 157, double noundef 5.400000e+02, double noundef 0.000000e+00, double noundef %.11978)
+  %806 = add nuw nsw i32 %.75, 1
+  br label %807
 
-equiv.exit1351.thread:                            ; preds = %equiv.exit1347
-  %800 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 157, double noundef 5.400000e+02, double noundef -1.000000e+00, double noundef %793)
-  %801 = add nuw nsw i32 %.76, 1
+807:                                              ; preds = %equiv.exit1347.thread, %equiv.exit1347
+  %.76 = phi i32 [ %806, %equiv.exit1347.thread ], [ %.75, %equiv.exit1347 ]
+  %808 = fcmp oeq double %801, -1.000000e+00
+  br i1 %808, label %equiv.exit1351, label %equiv.exit1351.thread
+
+equiv.exit1351.thread:                            ; preds = %807
+  %809 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 157, double noundef 5.400000e+02, double noundef -1.000000e+00, double noundef %801)
+  %810 = add nuw nsw i32 %.76, 1
   br label %equiv.exit1351
 
-equiv.exit1351:                                   ; preds = %equiv.exit1347, %equiv.exit1351.thread
-  %.77 = phi i32 [ %801, %equiv.exit1351.thread ], [ %.76, %equiv.exit1347 ]
-  %802 = load double, ptr @degree, align 8, !tbaa !4
-  %803 = fmul double %802, 0.000000e+00
-  %804 = tail call double @sin(double noundef %803) #17, !tbaa !16
-  %805 = tail call double @cos(double noundef %803) #17, !tbaa !16
-  %806 = fadd double %804, 0.000000e+00
-  %807 = fcmp oeq double %805, 0.000000e+00
-  br i1 %807, label %sincosdx.exit1353.thread, label %sincosdx.exit1353
+equiv.exit1351:                                   ; preds = %807, %equiv.exit1351.thread
+  %.77 = phi i32 [ %810, %equiv.exit1351.thread ], [ %.76, %807 ]
+  %811 = load double, ptr @degree, align 8, !tbaa !4
+  %812 = fmul double %811, 0.000000e+00
+  %813 = tail call double @sin(double noundef %812) #17, !tbaa !16
+  %814 = tail call double @cos(double noundef %812) #17, !tbaa !16
+  %815 = fadd double %813, 0.000000e+00
+  %816 = fcmp oeq double %814, 0.000000e+00
+  br i1 %816, label %sincosdx.exit1353.thread, label %sincosdx.exit1353
 
 sincosdx.exit1353.thread:                         ; preds = %equiv.exit1351
-  %808 = tail call double @llvm.fabs.f64(double %805)
+  %817 = tail call double @llvm.fabs.f64(double %814)
   br label %equiv.exit1357.thread
 
 sincosdx.exit1353:                                ; preds = %equiv.exit1351
-  %809 = fneg double %805
-  %810 = fcmp oeq double %805, 1.000000e+00
-  br i1 %810, label %equiv.exit1357, label %equiv.exit1357.thread
+  %818 = fneg double %814
+  %819 = fcmp oeq double %814, 1.000000e+00
+  br i1 %819, label %equiv.exit1357, label %equiv.exit1357.thread
 
 equiv.exit1357.thread:                            ; preds = %sincosdx.exit1353.thread, %sincosdx.exit1353
-  %.1197421562160 = phi double [ %809, %sincosdx.exit1353 ], [ %808, %sincosdx.exit1353.thread ]
-  %811 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 158, double noundef 6.300000e+02, double noundef -1.000000e+00, double noundef %.1197421562160)
-  %812 = add nuw nsw i32 %.77, 1
+  %.1197421562160 = phi double [ %818, %sincosdx.exit1353 ], [ %817, %sincosdx.exit1353.thread ]
+  %820 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 158, double noundef 6.300000e+02, double noundef -1.000000e+00, double noundef %.1197421562160)
+  %821 = add nuw nsw i32 %.77, 1
   br label %equiv.exit1357
 
 equiv.exit1357:                                   ; preds = %sincosdx.exit1353, %equiv.exit1357.thread
-  %.78 = phi i32 [ %812, %equiv.exit1357.thread ], [ %.77, %sincosdx.exit1353 ]
-  %813 = fcmp oeq double %804, 0.000000e+00
-  br i1 %813, label %equiv.exit1361, label %equiv.exit1361.thread
+  %.78 = phi i32 [ %821, %equiv.exit1357.thread ], [ %.77, %sincosdx.exit1353 ]
+  %822 = fcmp oeq double %813, 0.000000e+00
+  br i1 %822, label %equiv.exit1361, label %equiv.exit1361.thread
 
 equiv.exit1361.thread:                            ; preds = %equiv.exit1357
-  %814 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 158, double noundef 6.300000e+02, double noundef 0.000000e+00, double noundef %806)
-  %815 = add nuw nsw i32 %.78, 1
+  %823 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 158, double noundef 6.300000e+02, double noundef 0.000000e+00, double noundef %815)
+  %824 = add nuw nsw i32 %.78, 1
   br label %equiv.exit1361
 
 equiv.exit1361:                                   ; preds = %equiv.exit1357, %equiv.exit1361.thread
-  %.79 = phi i32 [ %815, %equiv.exit1361.thread ], [ %.78, %equiv.exit1357 ]
-  %816 = load double, ptr @degree, align 8, !tbaa !4
-  %817 = fmul double %816, 0.000000e+00
-  %818 = tail call double @sin(double noundef %817) #17, !tbaa !16
-  %819 = tail call double @cos(double noundef %817) #17, !tbaa !16
-  %820 = fadd double %819, 0.000000e+00
-  %821 = fcmp oeq double %818, 0.000000e+00
-  %822 = tail call double @llvm.fabs.f64(double %818)
-  %.11970 = select i1 %821, double %822, double %818
-  %823 = fcmp oeq double %.11970, 0.000000e+00
-  br i1 %823, label %equiv.exit1367, label %equiv.exit1367.thread
+  %.79 = phi i32 [ %824, %equiv.exit1361.thread ], [ %.78, %equiv.exit1357 ]
+  %825 = load double, ptr @degree, align 8, !tbaa !4
+  %826 = fmul double %825, 0.000000e+00
+  %827 = tail call double @sin(double noundef %826) #17, !tbaa !16
+  %828 = tail call double @cos(double noundef %826) #17, !tbaa !16
+  %829 = fadd double %828, 0.000000e+00
+  %830 = fcmp oeq double %827, 0.000000e+00
+  %831 = tail call double @llvm.fabs.f64(double %827)
+  %.11970 = select i1 %830, double %831, double %827
+  %832 = fcmp oeq double %.11970, 0.000000e+00
+  br i1 %832, label %equiv.exit1367, label %equiv.exit1367.thread
 
-equiv.exit1367.thread:                            ; preds = %equiv.exit1361
-  %824 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 159, double noundef 7.200000e+02, double noundef 0.000000e+00, double noundef %.11970)
-  %825 = add nuw nsw i32 %.79, 1
-  br label %equiv.exit1367
+equiv.exit1367:                                   ; preds = %equiv.exit1361
+  %.not684 = tail call i1 @llvm.is.fpclass.f64(double %.11970, i32 64)
+  br i1 %.not684, label %835, label %equiv.exit1367.thread
 
-equiv.exit1367:                                   ; preds = %equiv.exit1361, %equiv.exit1367.thread
-  %.80 = phi i32 [ %825, %equiv.exit1367.thread ], [ %.79, %equiv.exit1361 ]
-  %826 = fcmp oeq double %819, 1.000000e+00
-  br i1 %826, label %equiv.exit1371, label %equiv.exit1371.thread
+equiv.exit1367.thread:                            ; preds = %equiv.exit1361, %equiv.exit1367
+  %833 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 159, double noundef 7.200000e+02, double noundef 0.000000e+00, double noundef %.11970)
+  %834 = add nuw nsw i32 %.79, 1
+  br label %835
 
-equiv.exit1371.thread:                            ; preds = %equiv.exit1367
-  %827 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 159, double noundef 7.200000e+02, double noundef 1.000000e+00, double noundef %820)
-  %828 = add nuw nsw i32 %.80, 1
+835:                                              ; preds = %equiv.exit1367.thread, %equiv.exit1367
+  %.80 = phi i32 [ %834, %equiv.exit1367.thread ], [ %.79, %equiv.exit1367 ]
+  %836 = fcmp oeq double %828, 1.000000e+00
+  br i1 %836, label %equiv.exit1371, label %equiv.exit1371.thread
+
+equiv.exit1371.thread:                            ; preds = %835
+  %837 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 159, double noundef 7.200000e+02, double noundef 1.000000e+00, double noundef %829)
+  %838 = add nuw nsw i32 %.80, 1
   br label %equiv.exit1371
 
-equiv.exit1371:                                   ; preds = %equiv.exit1367, %equiv.exit1371.thread
-  %.81 = phi i32 [ %828, %equiv.exit1371.thread ], [ %.80, %equiv.exit1367 ]
-  %829 = load double, ptr @degree, align 8, !tbaa !4
-  %830 = fmul double %829, 0.000000e+00
-  %831 = tail call double @sin(double noundef %830) #17, !tbaa !16
-  %832 = tail call double @cos(double noundef %830) #17, !tbaa !16
-  %833 = fsub double 0.000000e+00, %831
-  %834 = fcmp oeq double %832, 0.000000e+00
-  %835 = tail call double @llvm.fabs.f64(double %832)
-  %.11966 = select i1 %834, double %835, double %832
-  %836 = fcmp oeq double %.11966, 1.000000e+00
-  br i1 %836, label %equiv.exit1377, label %equiv.exit1377.thread
+equiv.exit1371:                                   ; preds = %835, %equiv.exit1371.thread
+  %.81 = phi i32 [ %838, %equiv.exit1371.thread ], [ %.80, %835 ]
+  %839 = load double, ptr @degree, align 8, !tbaa !4
+  %840 = fmul double %839, 0.000000e+00
+  %841 = tail call double @sin(double noundef %840) #17, !tbaa !16
+  %842 = tail call double @cos(double noundef %840) #17, !tbaa !16
+  %843 = fsub double 0.000000e+00, %841
+  %844 = fcmp oeq double %842, 0.000000e+00
+  %845 = tail call double @llvm.fabs.f64(double %842)
+  %.11966 = select i1 %844, double %845, double %842
+  %846 = fcmp oeq double %.11966, 1.000000e+00
+  br i1 %846, label %equiv.exit1377, label %equiv.exit1377.thread
 
 equiv.exit1377.thread:                            ; preds = %equiv.exit1371
-  %837 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 161, double noundef 8.100000e+02, double noundef 1.000000e+00, double noundef %.11966)
-  %838 = add nuw nsw i32 %.81, 1
+  %847 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 161, double noundef 8.100000e+02, double noundef 1.000000e+00, double noundef %.11966)
+  %848 = add nuw nsw i32 %.81, 1
   br label %equiv.exit1377
 
 equiv.exit1377:                                   ; preds = %equiv.exit1371, %equiv.exit1377.thread
-  %.82 = phi i32 [ %838, %equiv.exit1377.thread ], [ %.81, %equiv.exit1371 ]
-  %839 = fcmp oeq double %833, 0.000000e+00
-  br i1 %839, label %equiv.exit1381, label %equiv.exit1381.thread
+  %.82 = phi i32 [ %848, %equiv.exit1377.thread ], [ %.81, %equiv.exit1371 ]
+  %849 = fcmp oeq double %843, 0.000000e+00
+  br i1 %849, label %equiv.exit1381, label %equiv.exit1381.thread
 
 equiv.exit1381.thread:                            ; preds = %equiv.exit1377
-  %840 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 161, double noundef 8.100000e+02, double noundef 0.000000e+00, double noundef %833)
-  %841 = add nuw nsw i32 %.82, 1
+  %850 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 161, double noundef 8.100000e+02, double noundef 0.000000e+00, double noundef %843)
+  %851 = add nuw nsw i32 %.82, 1
   br label %equiv.exit1381
 
 equiv.exit1381:                                   ; preds = %equiv.exit1377, %equiv.exit1381.thread
-  %.83 = phi i32 [ %841, %equiv.exit1381.thread ], [ %.82, %equiv.exit1377 ]
+  %.83 = phi i32 [ %851, %equiv.exit1381.thread ], [ %.82, %equiv.exit1377 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 0, ptr %21, align 4, !tbaa !16
-  %842 = call double @remquo(double noundef 0x7FF0000000000000, double noundef 9.000000e+01, ptr noundef nonnull %21) #17
-  %843 = load double, ptr @degree, align 8, !tbaa !4
-  %844 = fmul double %842, %843
-  %845 = tail call double @sin(double noundef %844) #17, !tbaa !16
-  %846 = tail call double @cos(double noundef %844) #17, !tbaa !16
-  %847 = load i32, ptr %21, align 4, !tbaa !16
-  %848 = and i32 %847, 3
-  switch i32 %848, label %default.unreachable [
+  %852 = call double @remquo(double noundef 0x7FF0000000000000, double noundef 9.000000e+01, ptr noundef nonnull %21) #17
+  %853 = load double, ptr @degree, align 8, !tbaa !4
+  %854 = fmul double %852, %853
+  %855 = tail call double @sin(double noundef %854) #17, !tbaa !16
+  %856 = tail call double @cos(double noundef %854) #17, !tbaa !16
+  %857 = load i32, ptr %21, align 4, !tbaa !16
+  %858 = and i32 %857, 3
+  switch i32 %858, label %default.unreachable [
     i32 0, label %sincosdx.exit1383
-    i32 1, label %849
-    i32 2, label %851
-    i32 3, label %854
+    i32 1, label %859
+    i32 2, label %861
+    i32 3, label %864
   ]
 
-849:                                              ; preds = %equiv.exit1381
-  %850 = fneg double %845
+859:                                              ; preds = %equiv.exit1381
+  %860 = fneg double %855
   br label %sincosdx.exit1383
 
-851:                                              ; preds = %equiv.exit1381
-  %852 = fneg double %845
-  %853 = fneg double %846
+861:                                              ; preds = %equiv.exit1381
+  %862 = fneg double %855
+  %863 = fneg double %856
   br label %sincosdx.exit1383
 
-854:                                              ; preds = %equiv.exit1381
-  %855 = fneg double %846
+864:                                              ; preds = %equiv.exit1381
+  %865 = fneg double %856
   br label %sincosdx.exit1383
 
-sincosdx.exit1383:                                ; preds = %equiv.exit1381, %854, %851, %849
-  %.01961 = phi double [ %855, %854 ], [ %846, %849 ], [ %852, %851 ], [ %845, %equiv.exit1381 ]
-  %856 = phi double [ %845, %854 ], [ %850, %849 ], [ %853, %851 ], [ %846, %equiv.exit1381 ]
-  %857 = fadd double %856, 0.000000e+00
-  %858 = fcmp oeq double %.01961, 0.000000e+00
-  %859 = tail call double @llvm.fabs.f64(double %.01961)
-  %.11962 = select i1 %858, double %859, double %.01961
+sincosdx.exit1383:                                ; preds = %equiv.exit1381, %864, %861, %859
+  %.01961 = phi double [ %865, %864 ], [ %856, %859 ], [ %862, %861 ], [ %855, %equiv.exit1381 ]
+  %866 = phi double [ %855, %864 ], [ %860, %859 ], [ %863, %861 ], [ %856, %equiv.exit1381 ]
+  %867 = fadd double %866, 0.000000e+00
+  %868 = fcmp oeq double %.01961, 0.000000e+00
+  %869 = tail call double @llvm.fabs.f64(double %.01961)
+  %.11962 = select i1 %868, double %869, double %.01961
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %860 = fcmp uno double %.11962, 0.000000e+00
-  br i1 %860, label %equiv.exit1387.thread, label %equiv.exit1387
+  %870 = fcmp uno double %.11962, 0.000000e+00
+  br i1 %870, label %equiv.exit1387.thread, label %equiv.exit1387
 
 equiv.exit1387:                                   ; preds = %sincosdx.exit1383
-  %861 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 163, double noundef 0x7FF0000000000000, double noundef 0x7FF8000000000000, double noundef %.11962)
-  %862 = add nuw nsw i32 %.83, 1
+  %871 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 163, double noundef 0x7FF0000000000000, double noundef 0x7FF8000000000000, double noundef %.11962)
+  %872 = add nuw nsw i32 %.83, 1
   br label %equiv.exit1387.thread
 
 equiv.exit1387.thread:                            ; preds = %sincosdx.exit1383, %equiv.exit1387
-  %.84 = phi i32 [ %862, %equiv.exit1387 ], [ %.83, %sincosdx.exit1383 ]
-  %863 = fcmp uno double %856, 0.000000e+00
-  br i1 %863, label %equiv.exit1391.thread, label %equiv.exit1391
+  %.84 = phi i32 [ %872, %equiv.exit1387 ], [ %.83, %sincosdx.exit1383 ]
+  %873 = fcmp uno double %866, 0.000000e+00
+  br i1 %873, label %equiv.exit1391.thread, label %equiv.exit1391
 
 equiv.exit1391:                                   ; preds = %equiv.exit1387.thread
-  %864 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 163, double noundef 0x7FF0000000000000, double noundef 0x7FF8000000000000, double noundef %857)
-  %865 = add nuw nsw i32 %.84, 1
+  %874 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 163, double noundef 0x7FF0000000000000, double noundef 0x7FF8000000000000, double noundef %867)
+  %875 = add nuw nsw i32 %.84, 1
   br label %equiv.exit1391.thread
 
 equiv.exit1391.thread:                            ; preds = %equiv.exit1387.thread, %equiv.exit1391
-  %.85 = phi i32 [ %865, %equiv.exit1391 ], [ %.84, %equiv.exit1387.thread ]
+  %.85 = phi i32 [ %875, %equiv.exit1391 ], [ %.84, %equiv.exit1387.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4, !tbaa !16
-  %866 = call double @remquo(double noundef 0x7FF8000000000000, double noundef 9.000000e+01, ptr noundef nonnull %20) #17
-  %867 = load double, ptr @degree, align 8, !tbaa !4
-  %868 = fmul double %866, %867
-  %869 = tail call double @sin(double noundef %868) #17, !tbaa !16
-  %870 = tail call double @cos(double noundef %868) #17, !tbaa !16
-  %871 = load i32, ptr %20, align 4, !tbaa !16
-  %872 = and i32 %871, 3
-  switch i32 %872, label %default.unreachable [
+  %876 = call double @remquo(double noundef 0x7FF8000000000000, double noundef 9.000000e+01, ptr noundef nonnull %20) #17
+  %877 = load double, ptr @degree, align 8, !tbaa !4
+  %878 = fmul double %876, %877
+  %879 = tail call double @sin(double noundef %878) #17, !tbaa !16
+  %880 = tail call double @cos(double noundef %878) #17, !tbaa !16
+  %881 = load i32, ptr %20, align 4, !tbaa !16
+  %882 = and i32 %881, 3
+  switch i32 %882, label %default.unreachable [
     i32 0, label %sincosdx.exit1393
-    i32 1, label %873
-    i32 2, label %875
-    i32 3, label %878
+    i32 1, label %883
+    i32 2, label %885
+    i32 3, label %888
   ]
 
-873:                                              ; preds = %equiv.exit1391.thread
-  %874 = fneg double %869
+883:                                              ; preds = %equiv.exit1391.thread
+  %884 = fneg double %879
   br label %sincosdx.exit1393
 
-875:                                              ; preds = %equiv.exit1391.thread
-  %876 = fneg double %869
-  %877 = fneg double %870
+885:                                              ; preds = %equiv.exit1391.thread
+  %886 = fneg double %879
+  %887 = fneg double %880
   br label %sincosdx.exit1393
 
-878:                                              ; preds = %equiv.exit1391.thread
-  %879 = fneg double %870
+888:                                              ; preds = %equiv.exit1391.thread
+  %889 = fneg double %880
   br label %sincosdx.exit1393
 
-sincosdx.exit1393:                                ; preds = %equiv.exit1391.thread, %878, %875, %873
-  %.01957 = phi double [ %879, %878 ], [ %870, %873 ], [ %876, %875 ], [ %869, %equiv.exit1391.thread ]
-  %880 = phi double [ %869, %878 ], [ %874, %873 ], [ %877, %875 ], [ %870, %equiv.exit1391.thread ]
-  %881 = fadd double %880, 0.000000e+00
-  %882 = fcmp oeq double %.01957, 0.000000e+00
-  %883 = tail call double @llvm.fabs.f64(double %.01957)
-  %.11958 = select i1 %882, double %883, double %.01957
+sincosdx.exit1393:                                ; preds = %equiv.exit1391.thread, %888, %885, %883
+  %.01957 = phi double [ %889, %888 ], [ %880, %883 ], [ %886, %885 ], [ %879, %equiv.exit1391.thread ]
+  %890 = phi double [ %879, %888 ], [ %884, %883 ], [ %887, %885 ], [ %880, %equiv.exit1391.thread ]
+  %891 = fadd double %890, 0.000000e+00
+  %892 = fcmp oeq double %.01957, 0.000000e+00
+  %893 = tail call double @llvm.fabs.f64(double %.01957)
+  %.11958 = select i1 %892, double %893, double %.01957
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %884 = fcmp uno double %.11958, 0.000000e+00
-  br i1 %884, label %equiv.exit1397.thread, label %equiv.exit1397
+  %894 = fcmp uno double %.11958, 0.000000e+00
+  br i1 %894, label %equiv.exit1397.thread, label %equiv.exit1397
 
 equiv.exit1397:                                   ; preds = %sincosdx.exit1393
-  %885 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 164, double noundef 0x7FF8000000000000, double noundef 0x7FF8000000000000, double noundef %.11958)
-  %886 = add nuw nsw i32 %.85, 1
+  %895 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef 164, double noundef 0x7FF8000000000000, double noundef 0x7FF8000000000000, double noundef %.11958)
+  %896 = add nuw nsw i32 %.85, 1
   br label %equiv.exit1397.thread
 
 equiv.exit1397.thread:                            ; preds = %sincosdx.exit1393, %equiv.exit1397
-  %.86 = phi i32 [ %886, %equiv.exit1397 ], [ %.85, %sincosdx.exit1393 ]
-  %887 = fcmp uno double %880, 0.000000e+00
-  br i1 %887, label %equiv.exit1401.thread, label %equiv.exit1401
+  %.86 = phi i32 [ %896, %equiv.exit1397 ], [ %.85, %sincosdx.exit1393 ]
+  %897 = fcmp uno double %890, 0.000000e+00
+  br i1 %897, label %equiv.exit1401.thread, label %equiv.exit1401
 
 equiv.exit1401:                                   ; preds = %equiv.exit1397.thread
-  %888 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 164, double noundef 0x7FF8000000000000, double noundef 0x7FF8000000000000, double noundef %881)
-  %889 = add nuw nsw i32 %.86, 1
+  %898 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef 164, double noundef 0x7FF8000000000000, double noundef 0x7FF8000000000000, double noundef %891)
+  %899 = add nuw nsw i32 %.86, 1
   br label %equiv.exit1401.thread
 
 equiv.exit1401.thread:                            ; preds = %equiv.exit1397.thread, %equiv.exit1401
-  %.87 = phi i32 [ %889, %equiv.exit1401 ], [ %.86, %equiv.exit1397.thread ]
-  %890 = load double, ptr @degree, align 8, !tbaa !4
-  %891 = fmul double %890, 9.000000e+00
-  %892 = tail call double @sin(double noundef %891) #17, !tbaa !16
-  %893 = tail call double @cos(double noundef %891) #17, !tbaa !16
-  %894 = fadd double %893, 0.000000e+00
-  %895 = fcmp oeq double %892, 0.000000e+00
-  %896 = tail call double @llvm.fabs.f64(double %892)
-  %.11954 = select i1 %895, double %896, double %892
-  %897 = fmul double %890, -9.000000e+00
-  %898 = tail call double @sin(double noundef %897) #17, !tbaa !16
-  %899 = tail call double @cos(double noundef %897) #17, !tbaa !16
-  %900 = fsub double 0.000000e+00, %898
-  %901 = fcmp oeq double %899, 0.000000e+00
-  %902 = tail call double @llvm.fabs.f64(double %899)
-  %.11950 = select i1 %901, double %902, double %899
-  %903 = tail call double @sin(double noundef %897) #17, !tbaa !16
-  %904 = tail call double @cos(double noundef %897) #17, !tbaa !16
-  %905 = fsub double 0.000000e+00, %904
-  %906 = fcmp oeq double %903, 0.000000e+00
-  %907 = tail call double @llvm.fabs.f64(double %903)
-  %.11946.v = select i1 %906, double %907, double %903
+  %.87 = phi i32 [ %899, %equiv.exit1401 ], [ %.86, %equiv.exit1397.thread ]
+  %900 = load double, ptr @degree, align 8, !tbaa !4
+  %901 = fmul double %900, 9.000000e+00
+  %902 = tail call double @sin(double noundef %901) #17, !tbaa !16
+  %903 = tail call double @cos(double noundef %901) #17, !tbaa !16
+  %904 = fadd double %903, 0.000000e+00
+  %905 = fcmp oeq double %902, 0.000000e+00
+  %906 = tail call double @llvm.fabs.f64(double %902)
+  %.11954 = select i1 %905, double %906, double %902
+  %907 = fmul double %900, -9.000000e+00
+  %908 = tail call double @sin(double noundef %907) #17, !tbaa !16
+  %909 = tail call double @cos(double noundef %907) #17, !tbaa !16
+  %910 = fsub double 0.000000e+00, %908
+  %911 = fcmp oeq double %909, 0.000000e+00
+  %912 = tail call double @llvm.fabs.f64(double %909)
+  %.11950 = select i1 %911, double %912, double %909
+  %913 = tail call double @sin(double noundef %907) #17, !tbaa !16
+  %914 = tail call double @cos(double noundef %907) #17, !tbaa !16
+  %915 = fsub double 0.000000e+00, %914
+  %916 = fcmp oeq double %913, 0.000000e+00
+  %917 = tail call double @llvm.fabs.f64(double %913)
+  %.11946.v = select i1 %916, double %917, double %913
   %.11946 = fneg double %.11946.v
-  %908 = fcmp uno double %.11954, 0.000000e+00
-  %909 = fcmp uno double %900, 0.000000e+00
-  %or.cond.i = and i1 %908, %909
-  br i1 %or.cond.i, label %equiv.exit1411, label %910
+  %918 = fcmp uno double %.11954, 0.000000e+00
+  %919 = fcmp uno double %910, 0.000000e+00
+  %or.cond.i = and i1 %918, %919
+  br i1 %or.cond.i, label %equiv.exit1411, label %920
 
-910:                                              ; preds = %equiv.exit1401.thread
-  %911 = fcmp oeq double %.11954, %900
-  br i1 %911, label %912, label %equiv.exit1411
+920:                                              ; preds = %equiv.exit1401.thread
+  %921 = fcmp oeq double %.11954, %910
+  br i1 %921, label %922, label %equiv.exit1411
 
-912:                                              ; preds = %910
-  %913 = bitcast double %.11954 to i64
-  %914 = bitcast double %900 to i64
-  %.unshifted.i1409 = xor i64 %914, %913
+922:                                              ; preds = %920
+  %923 = bitcast double %.11954 to i64
+  %924 = bitcast double %910 to i64
+  %.unshifted.i1409 = xor i64 %924, %923
   %.unshifted.lobit.i1410 = lshr i64 %.unshifted.i1409, 63
-  %915 = trunc nuw nsw i64 %.unshifted.lobit.i1410 to i32
+  %925 = trunc nuw nsw i64 %.unshifted.lobit.i1410 to i32
   br label %equiv.exit1411
 
-equiv.exit1411:                                   ; preds = %equiv.exit1401.thread, %910, %912
-  %not..i1408 = phi i32 [ 0, %equiv.exit1401.thread ], [ 1, %910 ], [ %915, %912 ]
-  %916 = fcmp uno double %.11946.v, 0.000000e+00
-  %or.cond.i1412 = and i1 %908, %916
-  br i1 %or.cond.i1412, label %equiv.exit1416, label %917
+equiv.exit1411:                                   ; preds = %equiv.exit1401.thread, %920, %922
+  %not..i1408 = phi i32 [ 0, %equiv.exit1401.thread ], [ 1, %920 ], [ %925, %922 ]
+  %926 = fcmp uno double %.11946.v, 0.000000e+00
+  %or.cond.i1412 = and i1 %918, %926
+  br i1 %or.cond.i1412, label %equiv.exit1416, label %927
 
-917:                                              ; preds = %equiv.exit1411
-  %918 = fcmp oeq double %.11954, %.11946
-  br i1 %918, label %919, label %equiv.exit1416
+927:                                              ; preds = %equiv.exit1411
+  %928 = fcmp oeq double %.11954, %.11946
+  br i1 %928, label %929, label %equiv.exit1416
 
-919:                                              ; preds = %917
-  %920 = bitcast double %.11954 to i64
-  %921 = bitcast double %.11946 to i64
-  %.unshifted.i1414 = xor i64 %921, %920
+929:                                              ; preds = %927
+  %930 = bitcast double %.11954 to i64
+  %931 = bitcast double %.11946 to i64
+  %.unshifted.i1414 = xor i64 %931, %930
   %.unshifted.lobit.i1415 = lshr i64 %.unshifted.i1414, 63
-  %922 = trunc nuw nsw i64 %.unshifted.lobit.i1415 to i32
+  %932 = trunc nuw nsw i64 %.unshifted.lobit.i1415 to i32
   br label %equiv.exit1416
 
-equiv.exit1416:                                   ; preds = %equiv.exit1411, %917, %919
-  %not..i1413 = phi i32 [ 0, %equiv.exit1411 ], [ 1, %917 ], [ %922, %919 ]
-  %923 = add nuw nsw i32 %not..i1413, %not..i1408
-  %924 = fcmp uno double %893, 0.000000e+00
-  %925 = fcmp uno double %.11950, 0.000000e+00
-  %or.cond.i1417 = and i1 %924, %925
-  br i1 %or.cond.i1417, label %equiv.exit1421, label %926
+equiv.exit1416:                                   ; preds = %equiv.exit1411, %927, %929
+  %not..i1413 = phi i32 [ 0, %equiv.exit1411 ], [ 1, %927 ], [ %932, %929 ]
+  %933 = add nuw nsw i32 %not..i1413, %not..i1408
+  %934 = fcmp uno double %903, 0.000000e+00
+  %935 = fcmp uno double %.11950, 0.000000e+00
+  %or.cond.i1417 = and i1 %934, %935
+  br i1 %or.cond.i1417, label %equiv.exit1421, label %936
 
-926:                                              ; preds = %equiv.exit1416
-  %927 = fcmp oeq double %893, %.11950
-  br i1 %927, label %928, label %equiv.exit1421
+936:                                              ; preds = %equiv.exit1416
+  %937 = fcmp oeq double %903, %.11950
+  br i1 %937, label %938, label %equiv.exit1421
 
-928:                                              ; preds = %926
-  %929 = bitcast double %894 to i64
-  %930 = bitcast double %.11950 to i64
-  %.unshifted.i1419 = xor i64 %930, %929
+938:                                              ; preds = %936
+  %939 = bitcast double %904 to i64
+  %940 = bitcast double %.11950 to i64
+  %.unshifted.i1419 = xor i64 %940, %939
   %.unshifted.lobit.i1420 = lshr i64 %.unshifted.i1419, 63
-  %931 = trunc nuw nsw i64 %.unshifted.lobit.i1420 to i32
+  %941 = trunc nuw nsw i64 %.unshifted.lobit.i1420 to i32
   br label %equiv.exit1421
 
-equiv.exit1421:                                   ; preds = %equiv.exit1416, %926, %928
-  %not..i1418 = phi i32 [ 0, %equiv.exit1416 ], [ 1, %926 ], [ %931, %928 ]
-  %932 = add nuw nsw i32 %923, %not..i1418
-  %933 = fneg double %905
-  %934 = fcmp uno double %905, 0.000000e+00
-  %or.cond.i1422 = and i1 %924, %934
-  br i1 %or.cond.i1422, label %equiv.exit1426, label %935
+equiv.exit1421:                                   ; preds = %equiv.exit1416, %936, %938
+  %not..i1418 = phi i32 [ 0, %equiv.exit1416 ], [ 1, %936 ], [ %941, %938 ]
+  %942 = add nuw nsw i32 %933, %not..i1418
+  %943 = fneg double %915
+  %944 = fcmp uno double %915, 0.000000e+00
+  %or.cond.i1422 = and i1 %934, %944
+  br i1 %or.cond.i1422, label %equiv.exit1426, label %945
 
-935:                                              ; preds = %equiv.exit1421
-  %936 = fcmp oeq double %893, %933
-  br i1 %936, label %937, label %equiv.exit1426
+945:                                              ; preds = %equiv.exit1421
+  %946 = fcmp oeq double %903, %943
+  br i1 %946, label %947, label %equiv.exit1426
 
-937:                                              ; preds = %935
-  %938 = bitcast double %894 to i64
-  %939 = bitcast double %933 to i64
-  %.unshifted.i1424 = xor i64 %939, %938
+947:                                              ; preds = %945
+  %948 = bitcast double %904 to i64
+  %949 = bitcast double %943 to i64
+  %.unshifted.i1424 = xor i64 %949, %948
   %.unshifted.lobit.i1425 = lshr i64 %.unshifted.i1424, 63
-  %940 = trunc nuw nsw i64 %.unshifted.lobit.i1425 to i32
+  %950 = trunc nuw nsw i64 %.unshifted.lobit.i1425 to i32
   br label %equiv.exit1426
 
-equiv.exit1426:                                   ; preds = %equiv.exit1421, %935, %937
-  %not..i1423 = phi i32 [ 0, %equiv.exit1421 ], [ 1, %935 ], [ %940, %937 ]
-  %941 = or i32 %not..i1423, %932
-  %.not692 = icmp eq i32 %941, 0
-  br i1 %.not692, label %945, label %942
+equiv.exit1426:                                   ; preds = %equiv.exit1421, %945, %947
+  %not..i1423 = phi i32 [ 0, %equiv.exit1421 ], [ 1, %945 ], [ %950, %947 ]
+  %951 = or i32 %not..i1423, %942
+  %.not692 = icmp eq i32 %951, 0
+  br i1 %.not692, label %955, label %952
 
-942:                                              ; preds = %equiv.exit1426
-  %943 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.69, i32 noundef 173)
-  %944 = add nuw nsw i32 %.87, 1
+952:                                              ; preds = %equiv.exit1426
+  %953 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.69, i32 noundef 173)
+  %954 = add nuw nsw i32 %.87, 1
   %.pre = load double, ptr @degree, align 8, !tbaa !4
-  br label %945
+  br label %955
 
-945:                                              ; preds = %942, %equiv.exit1426
-  %946 = phi double [ %.pre, %942 ], [ %890, %equiv.exit1426 ]
-  %.88 = phi i32 [ %944, %942 ], [ %.87, %equiv.exit1426 ]
-  %947 = tail call double @atan2(double noundef 0.000000e+00, double noundef 0.000000e+00) #17, !tbaa !16
-  %948 = fdiv double %947, %946
-  %949 = fsub double 1.800000e+02, %948
-  %950 = fcmp oeq double %949, 1.800000e+02
-  br i1 %950, label %equiv.exit1431, label %equiv.exit1431.thread
+955:                                              ; preds = %952, %equiv.exit1426
+  %956 = phi double [ %.pre, %952 ], [ %900, %equiv.exit1426 ]
+  %.88 = phi i32 [ %954, %952 ], [ %.87, %equiv.exit1426 ]
+  %957 = tail call double @atan2(double noundef 0.000000e+00, double noundef 0.000000e+00) #17, !tbaa !16
+  %958 = fdiv double %957, %956
+  %959 = fsub double 1.800000e+02, %958
+  %960 = fcmp oeq double %959, 1.800000e+02
+  br i1 %960, label %equiv.exit1431, label %equiv.exit1431.thread
 
-equiv.exit1431.thread:                            ; preds = %945
-  %951 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 179, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, double noundef %949)
-  %952 = add nuw nsw i32 %.88, 1
+equiv.exit1431.thread:                            ; preds = %955
+  %961 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 179, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, double noundef %959)
+  %962 = add nuw nsw i32 %.88, 1
   %.pre2291 = load double, ptr @degree, align 8, !tbaa !4
   br label %equiv.exit1431
 
-equiv.exit1431:                                   ; preds = %945, %equiv.exit1431.thread
-  %953 = phi double [ %.pre2291, %equiv.exit1431.thread ], [ %946, %945 ]
-  %.89 = phi i32 [ %952, %equiv.exit1431.thread ], [ %.88, %945 ]
-  %954 = tail call double @atan2(double noundef -0.000000e+00, double noundef 0.000000e+00) #17, !tbaa !16
-  %955 = fdiv double %954, %953
-  %956 = fsub double -1.800000e+02, %955
-  %957 = fcmp oeq double %956, -1.800000e+02
-  br i1 %957, label %equiv.exit1436, label %equiv.exit1436.thread
+equiv.exit1431:                                   ; preds = %955, %equiv.exit1431.thread
+  %963 = phi double [ %.pre2291, %equiv.exit1431.thread ], [ %956, %955 ]
+  %.89 = phi i32 [ %962, %equiv.exit1431.thread ], [ %.88, %955 ]
+  %964 = tail call double @atan2(double noundef -0.000000e+00, double noundef 0.000000e+00) #17, !tbaa !16
+  %965 = fdiv double %964, %963
+  %966 = fsub double -1.800000e+02, %965
+  %967 = fcmp oeq double %966, -1.800000e+02
+  br i1 %967, label %equiv.exit1436, label %equiv.exit1436.thread
 
 equiv.exit1436.thread:                            ; preds = %equiv.exit1431
-  %958 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 180, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, double noundef %956)
-  %959 = add nuw nsw i32 %.89, 1
+  %968 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 180, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, double noundef %966)
+  %969 = add nuw nsw i32 %.89, 1
   %.pre2292 = load double, ptr @degree, align 8, !tbaa !4
   br label %equiv.exit1436
 
 equiv.exit1436:                                   ; preds = %equiv.exit1431, %equiv.exit1436.thread
-  %960 = phi double [ %.pre2292, %equiv.exit1436.thread ], [ %953, %equiv.exit1431 ]
-  %.90 = phi i32 [ %959, %equiv.exit1436.thread ], [ %.89, %equiv.exit1431 ]
-  %961 = tail call double @atan2(double noundef 0.000000e+00, double noundef 0.000000e+00) #17, !tbaa !16
-  %962 = fdiv double %961, %960
-  %963 = fcmp oeq double %962, 0.000000e+00
-  br i1 %963, label %equiv.exit1441, label %equiv.exit1441.thread
+  %970 = phi double [ %.pre2292, %equiv.exit1436.thread ], [ %963, %equiv.exit1431 ]
+  %.90 = phi i32 [ %969, %equiv.exit1436.thread ], [ %.89, %equiv.exit1431 ]
+  %971 = tail call double @atan2(double noundef 0.000000e+00, double noundef 0.000000e+00) #17, !tbaa !16
+  %972 = fdiv double %971, %970
+  %973 = fcmp oeq double %972, 0.000000e+00
+  br i1 %973, label %equiv.exit1441, label %equiv.exit1441.thread
 
 equiv.exit1441:                                   ; preds = %equiv.exit1436
-  %.not695 = tail call i1 @llvm.is.fpclass.f64(double %962, i32 64)
-  br i1 %.not695, label %966, label %equiv.exit1441.thread
+  %.not695 = tail call i1 @llvm.is.fpclass.f64(double %972, i32 64)
+  br i1 %.not695, label %976, label %equiv.exit1441.thread
 
 equiv.exit1441.thread:                            ; preds = %equiv.exit1436, %equiv.exit1441
-  %964 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 181, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.7, double noundef %962)
-  %965 = add nuw nsw i32 %.90, 1
+  %974 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 181, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.7, double noundef %972)
+  %975 = add nuw nsw i32 %.90, 1
   %.pre2293 = load double, ptr @degree, align 8, !tbaa !4
-  br label %966
+  br label %976
 
-966:                                              ; preds = %equiv.exit1441.thread, %equiv.exit1441
-  %967 = phi double [ %.pre2293, %equiv.exit1441.thread ], [ %960, %equiv.exit1441 ]
-  %.91 = phi i32 [ %965, %equiv.exit1441.thread ], [ %.90, %equiv.exit1441 ]
-  %968 = tail call double @atan2(double noundef -0.000000e+00, double noundef 0.000000e+00) #17, !tbaa !16
-  %969 = fdiv double %968, %967
-  %970 = fcmp oeq double %969, 0.000000e+00
-  br i1 %970, label %equiv.exit1446, label %equiv.exit1446.thread
+976:                                              ; preds = %equiv.exit1441.thread, %equiv.exit1441
+  %977 = phi double [ %.pre2293, %equiv.exit1441.thread ], [ %970, %equiv.exit1441 ]
+  %.91 = phi i32 [ %975, %equiv.exit1441.thread ], [ %.90, %equiv.exit1441 ]
+  %978 = tail call double @atan2(double noundef -0.000000e+00, double noundef 0.000000e+00) #17, !tbaa !16
+  %979 = fdiv double %978, %977
+  %980 = fcmp oeq double %979, 0.000000e+00
+  br i1 %980, label %equiv.exit1446, label %equiv.exit1446.thread
 
-equiv.exit1446:                                   ; preds = %966
-  %.not696 = tail call i1 @llvm.is.fpclass.f64(double %969, i32 32)
-  br i1 %.not696, label %973, label %equiv.exit1446.thread
+equiv.exit1446:                                   ; preds = %976
+  %.not696 = tail call i1 @llvm.is.fpclass.f64(double %979, i32 32)
+  br i1 %.not696, label %983, label %equiv.exit1446.thread
 
-equiv.exit1446.thread:                            ; preds = %966, %equiv.exit1446
-  %971 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 182, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.4, double noundef %969)
-  %972 = add nuw nsw i32 %.91, 1
+equiv.exit1446.thread:                            ; preds = %976, %equiv.exit1446
+  %981 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 182, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.4, double noundef %979)
+  %982 = add nuw nsw i32 %.91, 1
   %.pre2294 = load double, ptr @degree, align 8, !tbaa !4
-  br label %973
+  br label %983
 
-973:                                              ; preds = %equiv.exit1446.thread, %equiv.exit1446
-  %974 = phi double [ %.pre2294, %equiv.exit1446.thread ], [ %967, %equiv.exit1446 ]
-  %.92 = phi i32 [ %972, %equiv.exit1446.thread ], [ %.91, %equiv.exit1446 ]
-  %975 = fdiv double 0.000000e+00, %974
-  %976 = fsub double 1.800000e+02, %975
-  %977 = fcmp oeq double %976, 1.800000e+02
-  br i1 %977, label %equiv.exit1451, label %equiv.exit1451.thread
+983:                                              ; preds = %equiv.exit1446.thread, %equiv.exit1446
+  %984 = phi double [ %.pre2294, %equiv.exit1446.thread ], [ %977, %equiv.exit1446 ]
+  %.92 = phi i32 [ %982, %equiv.exit1446.thread ], [ %.91, %equiv.exit1446 ]
+  %985 = fdiv double 0.000000e+00, %984
+  %986 = fsub double 1.800000e+02, %985
+  %987 = fcmp oeq double %986, 1.800000e+02
+  br i1 %987, label %equiv.exit1451, label %equiv.exit1451.thread
 
-equiv.exit1451.thread:                            ; preds = %973
-  %978 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 183, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.71, double noundef %976)
-  %979 = add nuw nsw i32 %.92, 1
+equiv.exit1451.thread:                            ; preds = %983
+  %988 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 183, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.71, double noundef %986)
+  %989 = add nuw nsw i32 %.92, 1
   %.pre2295 = load double, ptr @degree, align 8, !tbaa !4
   %.pre2314 = fdiv double 0.000000e+00, %.pre2295
   br label %equiv.exit1451
 
-equiv.exit1451:                                   ; preds = %973, %equiv.exit1451.thread
-  %.pre-phi = phi double [ %975, %973 ], [ %.pre2314, %equiv.exit1451.thread ]
-  %980 = phi double [ %974, %973 ], [ %.pre2295, %equiv.exit1451.thread ]
-  %.93 = phi i32 [ %.92, %973 ], [ %979, %equiv.exit1451.thread ]
-  %981 = fadd double %.pre-phi, -1.800000e+02
-  %982 = fcmp oeq double %981, -1.800000e+02
-  br i1 %982, label %equiv.exit1456, label %equiv.exit1456.thread
+equiv.exit1451:                                   ; preds = %983, %equiv.exit1451.thread
+  %.pre-phi = phi double [ %985, %983 ], [ %.pre2314, %equiv.exit1451.thread ]
+  %990 = phi double [ %984, %983 ], [ %.pre2295, %equiv.exit1451.thread ]
+  %.93 = phi i32 [ %.92, %983 ], [ %989, %equiv.exit1451.thread ]
+  %991 = fadd double %.pre-phi, -1.800000e+02
+  %992 = fcmp oeq double %991, -1.800000e+02
+  br i1 %992, label %equiv.exit1456, label %equiv.exit1456.thread
 
 equiv.exit1456.thread:                            ; preds = %equiv.exit1451
-  %983 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 184, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.73, double noundef %981)
-  %984 = add nuw nsw i32 %.93, 1
+  %993 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 184, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.73, double noundef %991)
+  %994 = add nuw nsw i32 %.93, 1
   %.pre2296 = load double, ptr @degree, align 8, !tbaa !4
   %.pre2315 = fdiv double 0.000000e+00, %.pre2296
   br label %equiv.exit1456
 
 equiv.exit1456:                                   ; preds = %equiv.exit1451, %equiv.exit1456.thread
   %.pre-phi2316 = phi double [ %.pre-phi, %equiv.exit1451 ], [ %.pre2315, %equiv.exit1456.thread ]
-  %985 = phi double [ %980, %equiv.exit1451 ], [ %.pre2296, %equiv.exit1456.thread ]
-  %.94 = phi i32 [ %.93, %equiv.exit1451 ], [ %984, %equiv.exit1456.thread ]
-  %986 = fcmp oeq double %.pre-phi2316, 0.000000e+00
-  br i1 %986, label %equiv.exit1461, label %equiv.exit1461.thread
+  %995 = phi double [ %990, %equiv.exit1451 ], [ %.pre2296, %equiv.exit1456.thread ]
+  %.94 = phi i32 [ %.93, %equiv.exit1451 ], [ %994, %equiv.exit1456.thread ]
+  %996 = fcmp oeq double %.pre-phi2316, 0.000000e+00
+  br i1 %996, label %equiv.exit1461, label %equiv.exit1461.thread
 
 equiv.exit1461:                                   ; preds = %equiv.exit1456
   %.not699 = tail call i1 @llvm.is.fpclass.f64(double %.pre-phi2316, i32 64)
-  br i1 %.not699, label %989, label %equiv.exit1461.thread
+  br i1 %.not699, label %999, label %equiv.exit1461.thread
 
 equiv.exit1461.thread:                            ; preds = %equiv.exit1456, %equiv.exit1461
-  %987 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 185, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.7, double noundef %.pre-phi2316)
-  %988 = add nuw nsw i32 %.94, 1
+  %997 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 185, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.7, double noundef %.pre-phi2316)
+  %998 = add nuw nsw i32 %.94, 1
   %.pre2297 = load double, ptr @degree, align 8, !tbaa !4
-  br label %989
+  br label %999
 
-989:                                              ; preds = %equiv.exit1461.thread, %equiv.exit1461
-  %990 = phi double [ %.pre2297, %equiv.exit1461.thread ], [ %985, %equiv.exit1461 ]
-  %.95 = phi i32 [ %988, %equiv.exit1461.thread ], [ %.94, %equiv.exit1461 ]
-  %991 = fdiv double -0.000000e+00, %990
-  %992 = fcmp oeq double %991, 0.000000e+00
-  br i1 %992, label %equiv.exit1466, label %equiv.exit1466.thread
+999:                                              ; preds = %equiv.exit1461.thread, %equiv.exit1461
+  %1000 = phi double [ %.pre2297, %equiv.exit1461.thread ], [ %995, %equiv.exit1461 ]
+  %.95 = phi i32 [ %998, %equiv.exit1461.thread ], [ %.94, %equiv.exit1461 ]
+  %1001 = fdiv double -0.000000e+00, %1000
+  %1002 = fcmp oeq double %1001, 0.000000e+00
+  br i1 %1002, label %equiv.exit1466, label %equiv.exit1466.thread
 
-equiv.exit1466:                                   ; preds = %989
-  %.not700 = tail call i1 @llvm.is.fpclass.f64(double %991, i32 32)
-  br i1 %.not700, label %995, label %equiv.exit1466.thread
+equiv.exit1466:                                   ; preds = %999
+  %.not700 = tail call i1 @llvm.is.fpclass.f64(double %1001, i32 32)
+  br i1 %.not700, label %1005, label %equiv.exit1466.thread
 
-equiv.exit1466.thread:                            ; preds = %989, %equiv.exit1466
-  %993 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 186, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.4, double noundef %991)
-  %994 = add nuw nsw i32 %.95, 1
+equiv.exit1466.thread:                            ; preds = %999, %equiv.exit1466
+  %1003 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 186, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.4, double noundef %1001)
+  %1004 = add nuw nsw i32 %.95, 1
   %.pre2298 = load double, ptr @degree, align 8, !tbaa !4
-  br label %995
+  br label %1005
 
-995:                                              ; preds = %equiv.exit1466.thread, %equiv.exit1466
-  %996 = phi double [ %.pre2298, %equiv.exit1466.thread ], [ %990, %equiv.exit1466 ]
-  %.96 = phi i32 [ %994, %equiv.exit1466.thread ], [ %.95, %equiv.exit1466 ]
-  %997 = fdiv double 0.000000e+00, %996
-  %998 = fadd double %997, -9.000000e+01
-  %999 = fcmp oeq double %998, -9.000000e+01
-  br i1 %999, label %equiv.exit1471, label %equiv.exit1471.thread
+1005:                                             ; preds = %equiv.exit1466.thread, %equiv.exit1466
+  %1006 = phi double [ %.pre2298, %equiv.exit1466.thread ], [ %1000, %equiv.exit1466 ]
+  %.96 = phi i32 [ %1004, %equiv.exit1466.thread ], [ %.95, %equiv.exit1466 ]
+  %1007 = fdiv double 0.000000e+00, %1006
+  %1008 = fadd double %1007, -9.000000e+01
+  %1009 = fcmp oeq double %1008, -9.000000e+01
+  br i1 %1009, label %equiv.exit1471, label %equiv.exit1471.thread
 
-equiv.exit1471.thread:                            ; preds = %995
-  %1000 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 187, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, double noundef %998)
-  %1001 = add nuw nsw i32 %.96, 1
+equiv.exit1471.thread:                            ; preds = %1005
+  %1010 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 187, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, double noundef %1008)
+  %1011 = add nuw nsw i32 %.96, 1
   %.pre2299 = load double, ptr @degree, align 8, !tbaa !4
   %.pre2317 = fdiv double 0.000000e+00, %.pre2299
   br label %equiv.exit1471
 
-equiv.exit1471:                                   ; preds = %995, %equiv.exit1471.thread
-  %.pre-phi2318 = phi double [ %997, %995 ], [ %.pre2317, %equiv.exit1471.thread ]
-  %1002 = phi double [ %996, %995 ], [ %.pre2299, %equiv.exit1471.thread ]
-  %.97 = phi i32 [ %.96, %995 ], [ %1001, %equiv.exit1471.thread ]
-  %1003 = fsub double -9.000000e+01, %.pre-phi2318
-  %1004 = fcmp oeq double %1003, -9.000000e+01
-  br i1 %1004, label %equiv.exit1476, label %equiv.exit1476.thread
+equiv.exit1471:                                   ; preds = %1005, %equiv.exit1471.thread
+  %.pre-phi2318 = phi double [ %1007, %1005 ], [ %.pre2317, %equiv.exit1471.thread ]
+  %1012 = phi double [ %1006, %1005 ], [ %.pre2299, %equiv.exit1471.thread ]
+  %.97 = phi i32 [ %.96, %1005 ], [ %1011, %equiv.exit1471.thread ]
+  %1013 = fsub double -9.000000e+01, %.pre-phi2318
+  %1014 = fcmp oeq double %1013, -9.000000e+01
+  br i1 %1014, label %equiv.exit1476, label %equiv.exit1476.thread
 
 equiv.exit1476.thread:                            ; preds = %equiv.exit1471
-  %1005 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 188, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.81, double noundef %1003)
-  %1006 = add nuw nsw i32 %.97, 1
+  %1015 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 188, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.81, double noundef %1013)
+  %1016 = add nuw nsw i32 %.97, 1
   %.pre2300 = load double, ptr @degree, align 8, !tbaa !4
   %.pre2319 = fdiv double 0.000000e+00, %.pre2300
   br label %equiv.exit1476
 
 equiv.exit1476:                                   ; preds = %equiv.exit1471, %equiv.exit1476.thread
   %.pre-phi2320 = phi double [ %.pre-phi2318, %equiv.exit1471 ], [ %.pre2319, %equiv.exit1476.thread ]
-  %1007 = phi double [ %1002, %equiv.exit1471 ], [ %.pre2300, %equiv.exit1476.thread ]
-  %.98 = phi i32 [ %.97, %equiv.exit1471 ], [ %1006, %equiv.exit1476.thread ]
-  %1008 = fsub double 9.000000e+01, %.pre-phi2320
-  %1009 = fcmp oeq double %1008, 9.000000e+01
-  br i1 %1009, label %equiv.exit1481, label %equiv.exit1481.thread
+  %1017 = phi double [ %1012, %equiv.exit1471 ], [ %.pre2300, %equiv.exit1476.thread ]
+  %.98 = phi i32 [ %.97, %equiv.exit1471 ], [ %1016, %equiv.exit1476.thread ]
+  %1018 = fsub double 9.000000e+01, %.pre-phi2320
+  %1019 = fcmp oeq double %1018, 9.000000e+01
+  br i1 %1019, label %equiv.exit1481, label %equiv.exit1481.thread
 
 equiv.exit1481.thread:                            ; preds = %equiv.exit1476
-  %1010 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 189, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, double noundef %1008)
-  %1011 = add nuw nsw i32 %.98, 1
+  %1020 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 189, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, double noundef %1018)
+  %1021 = add nuw nsw i32 %.98, 1
   %.pre2301 = load double, ptr @degree, align 8, !tbaa !4
   %.pre2321 = fdiv double 0.000000e+00, %.pre2301
   br label %equiv.exit1481
 
 equiv.exit1481:                                   ; preds = %equiv.exit1476, %equiv.exit1481.thread
   %.pre-phi2322 = phi double [ %.pre-phi2320, %equiv.exit1476 ], [ %.pre2321, %equiv.exit1481.thread ]
-  %1012 = phi double [ %1007, %equiv.exit1476 ], [ %.pre2301, %equiv.exit1481.thread ]
-  %.99 = phi i32 [ %.98, %equiv.exit1476 ], [ %1011, %equiv.exit1481.thread ]
-  %1013 = fadd double %.pre-phi2322, 9.000000e+01
-  %1014 = fcmp oeq double %1013, 9.000000e+01
-  br i1 %1014, label %equiv.exit1486, label %equiv.exit1486.thread
+  %1022 = phi double [ %1017, %equiv.exit1476 ], [ %.pre2301, %equiv.exit1481.thread ]
+  %.99 = phi i32 [ %.98, %equiv.exit1476 ], [ %1021, %equiv.exit1481.thread ]
+  %1023 = fadd double %.pre-phi2322, 9.000000e+01
+  %1024 = fcmp oeq double %1023, 9.000000e+01
+  br i1 %1024, label %equiv.exit1486, label %equiv.exit1486.thread
 
 equiv.exit1486.thread:                            ; preds = %equiv.exit1481
-  %1015 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 190, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.84, double noundef %1013)
-  %1016 = add nuw nsw i32 %.99, 1
+  %1025 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 190, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.84, double noundef %1023)
+  %1026 = add nuw nsw i32 %.99, 1
   %.pre2302 = load double, ptr @degree, align 8, !tbaa !4
   %.pre2323 = fdiv double 0.000000e+00, %.pre2302
   br label %equiv.exit1486
 
 equiv.exit1486:                                   ; preds = %equiv.exit1481, %equiv.exit1486.thread
   %.pre-phi2324 = phi double [ %.pre-phi2322, %equiv.exit1481 ], [ %.pre2323, %equiv.exit1486.thread ]
-  %1017 = phi double [ %1012, %equiv.exit1481 ], [ %.pre2302, %equiv.exit1486.thread ]
-  %.100 = phi i32 [ %.99, %equiv.exit1481 ], [ %1016, %equiv.exit1486.thread ]
-  %1018 = fsub double 1.800000e+02, %.pre-phi2324
-  %1019 = fcmp oeq double %1018, 1.800000e+02
-  br i1 %1019, label %equiv.exit1491, label %equiv.exit1491.thread
+  %1027 = phi double [ %1022, %equiv.exit1481 ], [ %.pre2302, %equiv.exit1486.thread ]
+  %.100 = phi i32 [ %.99, %equiv.exit1481 ], [ %1026, %equiv.exit1486.thread ]
+  %1028 = fsub double 1.800000e+02, %.pre-phi2324
+  %1029 = fcmp oeq double %1028, 1.800000e+02
+  br i1 %1029, label %equiv.exit1491, label %equiv.exit1491.thread
 
 equiv.exit1491.thread:                            ; preds = %equiv.exit1486
-  %1020 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 191, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.71, double noundef %1018)
-  %1021 = add nuw nsw i32 %.100, 1
+  %1030 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 191, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.71, double noundef %1028)
+  %1031 = add nuw nsw i32 %.100, 1
   %.pre2303 = load double, ptr @degree, align 8, !tbaa !4
   %.pre2325 = fdiv double 0.000000e+00, %.pre2303
   br label %equiv.exit1491
 
 equiv.exit1491:                                   ; preds = %equiv.exit1486, %equiv.exit1491.thread
   %.pre-phi2326 = phi double [ %.pre-phi2324, %equiv.exit1486 ], [ %.pre2325, %equiv.exit1491.thread ]
-  %1022 = phi double [ %1017, %equiv.exit1486 ], [ %.pre2303, %equiv.exit1491.thread ]
-  %.101 = phi i32 [ %.100, %equiv.exit1486 ], [ %1021, %equiv.exit1491.thread ]
-  %1023 = fadd double %.pre-phi2326, -1.800000e+02
-  %1024 = fcmp oeq double %1023, -1.800000e+02
-  br i1 %1024, label %equiv.exit1496, label %equiv.exit1496.thread
+  %1032 = phi double [ %1027, %equiv.exit1486 ], [ %.pre2303, %equiv.exit1491.thread ]
+  %.101 = phi i32 [ %.100, %equiv.exit1486 ], [ %1031, %equiv.exit1491.thread ]
+  %1033 = fadd double %.pre-phi2326, -1.800000e+02
+  %1034 = fcmp oeq double %1033, -1.800000e+02
+  br i1 %1034, label %equiv.exit1496, label %equiv.exit1496.thread
 
 equiv.exit1496.thread:                            ; preds = %equiv.exit1491
-  %1025 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 192, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.73, double noundef %1023)
-  %1026 = add nuw nsw i32 %.101, 1
+  %1035 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 192, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.73, double noundef %1033)
+  %1036 = add nuw nsw i32 %.101, 1
   %.pre2304 = load double, ptr @degree, align 8, !tbaa !4
   %.pre2327 = fdiv double 0.000000e+00, %.pre2304
   br label %equiv.exit1496
 
 equiv.exit1496:                                   ; preds = %equiv.exit1491, %equiv.exit1496.thread
   %.pre-phi2328 = phi double [ %.pre-phi2326, %equiv.exit1491 ], [ %.pre2327, %equiv.exit1496.thread ]
-  %1027 = phi double [ %1022, %equiv.exit1491 ], [ %.pre2304, %equiv.exit1496.thread ]
-  %.102 = phi i32 [ %.101, %equiv.exit1491 ], [ %1026, %equiv.exit1496.thread ]
-  %1028 = fcmp oeq double %.pre-phi2328, 0.000000e+00
-  br i1 %1028, label %equiv.exit1501, label %equiv.exit1501.thread
+  %1037 = phi double [ %1032, %equiv.exit1491 ], [ %.pre2304, %equiv.exit1496.thread ]
+  %.102 = phi i32 [ %.101, %equiv.exit1491 ], [ %1036, %equiv.exit1496.thread ]
+  %1038 = fcmp oeq double %.pre-phi2328, 0.000000e+00
+  br i1 %1038, label %equiv.exit1501, label %equiv.exit1501.thread
 
 equiv.exit1501:                                   ; preds = %equiv.exit1496
   %.not707 = tail call i1 @llvm.is.fpclass.f64(double %.pre-phi2328, i32 64)
-  br i1 %.not707, label %1031, label %equiv.exit1501.thread
+  br i1 %.not707, label %1041, label %equiv.exit1501.thread
 
 equiv.exit1501.thread:                            ; preds = %equiv.exit1496, %equiv.exit1501
-  %1029 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 193, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.7, double noundef %.pre-phi2328)
-  %1030 = add nuw nsw i32 %.102, 1
+  %1039 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 193, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.7, double noundef %.pre-phi2328)
+  %1040 = add nuw nsw i32 %.102, 1
   %.pre2305 = load double, ptr @degree, align 8, !tbaa !4
-  br label %1031
+  br label %1041
 
-1031:                                             ; preds = %equiv.exit1501.thread, %equiv.exit1501
-  %1032 = phi double [ %.pre2305, %equiv.exit1501.thread ], [ %1027, %equiv.exit1501 ]
-  %.103 = phi i32 [ %1030, %equiv.exit1501.thread ], [ %.102, %equiv.exit1501 ]
-  %1033 = fdiv double -0.000000e+00, %1032
-  %1034 = fcmp oeq double %1033, 0.000000e+00
-  br i1 %1034, label %equiv.exit1506, label %equiv.exit1506.thread
+1041:                                             ; preds = %equiv.exit1501.thread, %equiv.exit1501
+  %1042 = phi double [ %.pre2305, %equiv.exit1501.thread ], [ %1037, %equiv.exit1501 ]
+  %.103 = phi i32 [ %1040, %equiv.exit1501.thread ], [ %.102, %equiv.exit1501 ]
+  %1043 = fdiv double -0.000000e+00, %1042
+  %1044 = fcmp oeq double %1043, 0.000000e+00
+  br i1 %1044, label %equiv.exit1506, label %equiv.exit1506.thread
 
-equiv.exit1506:                                   ; preds = %1031
-  %.not708 = tail call i1 @llvm.is.fpclass.f64(double %1033, i32 32)
-  br i1 %.not708, label %1037, label %equiv.exit1506.thread
+equiv.exit1506:                                   ; preds = %1041
+  %.not708 = tail call i1 @llvm.is.fpclass.f64(double %1043, i32 32)
+  br i1 %.not708, label %1047, label %equiv.exit1506.thread
 
-equiv.exit1506.thread:                            ; preds = %1031, %equiv.exit1506
-  %1035 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 194, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.4, double noundef %1033)
-  %1036 = add nuw nsw i32 %.103, 1
+equiv.exit1506.thread:                            ; preds = %1041, %equiv.exit1506
+  %1045 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 194, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.4, double noundef %1043)
+  %1046 = add nuw nsw i32 %.103, 1
   %.pre2306 = load double, ptr @degree, align 8, !tbaa !4
-  br label %1037
+  br label %1047
 
-1037:                                             ; preds = %equiv.exit1506.thread, %equiv.exit1506
-  %1038 = phi double [ %.pre2306, %equiv.exit1506.thread ], [ %1032, %equiv.exit1506 ]
-  %.104 = phi i32 [ %1036, %equiv.exit1506.thread ], [ %.103, %equiv.exit1506 ]
-  %1039 = fdiv double 0.000000e+00, %1038
-  %1040 = fsub double 9.000000e+01, %1039
-  %1041 = fcmp oeq double %1040, 9.000000e+01
-  br i1 %1041, label %equiv.exit1511, label %equiv.exit1511.thread
+1047:                                             ; preds = %equiv.exit1506.thread, %equiv.exit1506
+  %1048 = phi double [ %.pre2306, %equiv.exit1506.thread ], [ %1042, %equiv.exit1506 ]
+  %.104 = phi i32 [ %1046, %equiv.exit1506.thread ], [ %.103, %equiv.exit1506 ]
+  %1049 = fdiv double 0.000000e+00, %1048
+  %1050 = fsub double 9.000000e+01, %1049
+  %1051 = fcmp oeq double %1050, 9.000000e+01
+  br i1 %1051, label %equiv.exit1511, label %equiv.exit1511.thread
 
-equiv.exit1511.thread:                            ; preds = %1037
-  %1042 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 195, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.84, double noundef %1040)
-  %1043 = add nuw nsw i32 %.104, 1
+equiv.exit1511.thread:                            ; preds = %1047
+  %1052 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 195, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.84, double noundef %1050)
+  %1053 = add nuw nsw i32 %.104, 1
   %.pre2307 = load double, ptr @degree, align 8, !tbaa !4
   %.pre2329 = fdiv double 0.000000e+00, %.pre2307
   br label %equiv.exit1511
 
-equiv.exit1511:                                   ; preds = %1037, %equiv.exit1511.thread
-  %.pre-phi2330 = phi double [ %1039, %1037 ], [ %.pre2329, %equiv.exit1511.thread ]
-  %1044 = phi double [ %1038, %1037 ], [ %.pre2307, %equiv.exit1511.thread ]
-  %.105 = phi i32 [ %.104, %1037 ], [ %1043, %equiv.exit1511.thread ]
-  %1045 = fadd double %.pre-phi2330, 9.000000e+01
-  %1046 = fcmp oeq double %1045, 9.000000e+01
-  br i1 %1046, label %equiv.exit1516, label %equiv.exit1516.thread
+equiv.exit1511:                                   ; preds = %1047, %equiv.exit1511.thread
+  %.pre-phi2330 = phi double [ %1049, %1047 ], [ %.pre2329, %equiv.exit1511.thread ]
+  %1054 = phi double [ %1048, %1047 ], [ %.pre2307, %equiv.exit1511.thread ]
+  %.105 = phi i32 [ %.104, %1047 ], [ %1053, %equiv.exit1511.thread ]
+  %1055 = fadd double %.pre-phi2330, 9.000000e+01
+  %1056 = fcmp oeq double %1055, 9.000000e+01
+  br i1 %1056, label %equiv.exit1516, label %equiv.exit1516.thread
 
 equiv.exit1516.thread:                            ; preds = %equiv.exit1511
-  %1047 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 196, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.84, double noundef %1045)
-  %1048 = add nuw nsw i32 %.105, 1
+  %1057 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 196, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.84, double noundef %1055)
+  %1058 = add nuw nsw i32 %.105, 1
   %.pre2308 = load double, ptr @degree, align 8, !tbaa !4
   %.pre2331 = fdiv double 0.000000e+00, %.pre2308
   br label %equiv.exit1516
 
 equiv.exit1516:                                   ; preds = %equiv.exit1511, %equiv.exit1516.thread
   %.pre-phi2332 = phi double [ %.pre-phi2330, %equiv.exit1511 ], [ %.pre2331, %equiv.exit1516.thread ]
-  %1049 = phi double [ %1044, %equiv.exit1511 ], [ %.pre2308, %equiv.exit1516.thread ]
-  %.106 = phi i32 [ %.105, %equiv.exit1511 ], [ %1048, %equiv.exit1516.thread ]
-  %1050 = fadd double %.pre-phi2332, -9.000000e+01
-  %1051 = fcmp oeq double %1050, -9.000000e+01
-  br i1 %1051, label %equiv.exit1521, label %equiv.exit1521.thread
+  %1059 = phi double [ %1054, %equiv.exit1511 ], [ %.pre2308, %equiv.exit1516.thread ]
+  %.106 = phi i32 [ %.105, %equiv.exit1511 ], [ %1058, %equiv.exit1516.thread ]
+  %1060 = fadd double %.pre-phi2332, -9.000000e+01
+  %1061 = fcmp oeq double %1060, -9.000000e+01
+  br i1 %1061, label %equiv.exit1521, label %equiv.exit1521.thread
 
 equiv.exit1521.thread:                            ; preds = %equiv.exit1516
-  %1052 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 197, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.81, double noundef %1050)
-  %1053 = add nuw nsw i32 %.106, 1
+  %1062 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 197, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.81, double noundef %1060)
+  %1063 = add nuw nsw i32 %.106, 1
   %.pre2309 = load double, ptr @degree, align 8, !tbaa !4
   %.pre2333 = fdiv double 0.000000e+00, %.pre2309
   br label %equiv.exit1521
 
 equiv.exit1521:                                   ; preds = %equiv.exit1516, %equiv.exit1521.thread
   %.pre-phi2334 = phi double [ %.pre-phi2332, %equiv.exit1516 ], [ %.pre2333, %equiv.exit1521.thread ]
-  %1054 = phi double [ %1049, %equiv.exit1516 ], [ %.pre2309, %equiv.exit1521.thread ]
-  %.107 = phi i32 [ %.106, %equiv.exit1516 ], [ %1053, %equiv.exit1521.thread ]
-  %1055 = fsub double -9.000000e+01, %.pre-phi2334
-  %1056 = fcmp oeq double %1055, -9.000000e+01
-  br i1 %1056, label %equiv.exit1526, label %equiv.exit1526.thread
+  %1064 = phi double [ %1059, %equiv.exit1516 ], [ %.pre2309, %equiv.exit1521.thread ]
+  %.107 = phi i32 [ %.106, %equiv.exit1516 ], [ %1063, %equiv.exit1521.thread ]
+  %1065 = fsub double -9.000000e+01, %.pre-phi2334
+  %1066 = fcmp oeq double %1065, -9.000000e+01
+  br i1 %1066, label %equiv.exit1526, label %equiv.exit1526.thread
 
 equiv.exit1526.thread:                            ; preds = %equiv.exit1521
-  %1057 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 198, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.81, double noundef %1055)
-  %1058 = add nuw nsw i32 %.107, 1
+  %1067 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 198, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.81, double noundef %1065)
+  %1068 = add nuw nsw i32 %.107, 1
   %.pre2310 = load double, ptr @degree, align 8, !tbaa !4
   br label %equiv.exit1526
 
 equiv.exit1526:                                   ; preds = %equiv.exit1521, %equiv.exit1526.thread
-  %1059 = phi double [ %.pre2310, %equiv.exit1526.thread ], [ %1054, %equiv.exit1521 ]
-  %.108 = phi i32 [ %1058, %equiv.exit1526.thread ], [ %.107, %equiv.exit1521 ]
-  %1060 = fdiv double 0x3FE921FB54442D18, %1059
-  %1061 = fsub double 1.800000e+02, %1060
-  %1062 = fcmp oeq double %1061, 1.350000e+02
-  br i1 %1062, label %equiv.exit1531, label %equiv.exit1531.thread
+  %1069 = phi double [ %.pre2310, %equiv.exit1526.thread ], [ %1064, %equiv.exit1521 ]
+  %.108 = phi i32 [ %1068, %equiv.exit1526.thread ], [ %.107, %equiv.exit1521 ]
+  %1070 = fdiv double 0x3FE921FB54442D18, %1069
+  %1071 = fsub double 1.800000e+02, %1070
+  %1072 = fcmp oeq double %1071, 1.350000e+02
+  br i1 %1072, label %equiv.exit1531, label %equiv.exit1531.thread
 
 equiv.exit1531.thread:                            ; preds = %equiv.exit1526
-  %1063 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 199, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, double noundef %1061)
-  %1064 = add nuw nsw i32 %.108, 1
+  %1073 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 199, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, double noundef %1071)
+  %1074 = add nuw nsw i32 %.108, 1
   %.pre2311 = load double, ptr @degree, align 8, !tbaa !4
   %.pre2335 = fdiv double 0x3FE921FB54442D18, %.pre2311
   br label %equiv.exit1531
 
 equiv.exit1531:                                   ; preds = %equiv.exit1526, %equiv.exit1531.thread
-  %.pre-phi2336 = phi double [ %1060, %equiv.exit1526 ], [ %.pre2335, %equiv.exit1531.thread ]
-  %1065 = phi double [ %1059, %equiv.exit1526 ], [ %.pre2311, %equiv.exit1531.thread ]
-  %.109 = phi i32 [ %.108, %equiv.exit1526 ], [ %1064, %equiv.exit1531.thread ]
-  %1066 = fadd double %.pre-phi2336, -1.800000e+02
-  %1067 = fcmp oeq double %1066, -1.350000e+02
-  br i1 %1067, label %equiv.exit1536, label %equiv.exit1536.thread
+  %.pre-phi2336 = phi double [ %1070, %equiv.exit1526 ], [ %.pre2335, %equiv.exit1531.thread ]
+  %1075 = phi double [ %1069, %equiv.exit1526 ], [ %.pre2311, %equiv.exit1531.thread ]
+  %.109 = phi i32 [ %.108, %equiv.exit1526 ], [ %1074, %equiv.exit1531.thread ]
+  %1076 = fadd double %.pre-phi2336, -1.800000e+02
+  %1077 = fcmp oeq double %1076, -1.350000e+02
+  br i1 %1077, label %equiv.exit1536, label %equiv.exit1536.thread
 
 equiv.exit1536.thread:                            ; preds = %equiv.exit1531
-  %1068 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 200, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, double noundef %1066)
-  %1069 = add nuw nsw i32 %.109, 1
+  %1078 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 200, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, double noundef %1076)
+  %1079 = add nuw nsw i32 %.109, 1
   %.pre2312 = load double, ptr @degree, align 8, !tbaa !4
   %.pre2337 = fdiv double 0x3FE921FB54442D18, %.pre2312
   br label %equiv.exit1536
 
 equiv.exit1536:                                   ; preds = %equiv.exit1531, %equiv.exit1536.thread
   %.pre-phi2338 = phi double [ %.pre-phi2336, %equiv.exit1531 ], [ %.pre2337, %equiv.exit1536.thread ]
-  %1070 = phi double [ %1065, %equiv.exit1531 ], [ %.pre2312, %equiv.exit1536.thread ]
-  %.110 = phi i32 [ %.109, %equiv.exit1531 ], [ %1069, %equiv.exit1536.thread ]
-  %1071 = fcmp oeq double %.pre-phi2338, 4.500000e+01
-  br i1 %1071, label %equiv.exit1541, label %equiv.exit1541.thread
+  %1080 = phi double [ %1075, %equiv.exit1531 ], [ %.pre2312, %equiv.exit1536.thread ]
+  %.110 = phi i32 [ %.109, %equiv.exit1531 ], [ %1079, %equiv.exit1536.thread ]
+  %1081 = fcmp oeq double %.pre-phi2338, 4.500000e+01
+  br i1 %1081, label %equiv.exit1541, label %equiv.exit1541.thread
 
 equiv.exit1541.thread:                            ; preds = %equiv.exit1536
-  %1072 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 201, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, double noundef %.pre-phi2338)
-  %1073 = add nuw nsw i32 %.110, 1
+  %1082 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 201, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, double noundef %.pre-phi2338)
+  %1083 = add nuw nsw i32 %.110, 1
   %.pre2313 = load double, ptr @degree, align 8, !tbaa !4
   br label %equiv.exit1541
 
 equiv.exit1541:                                   ; preds = %equiv.exit1536, %equiv.exit1541.thread
-  %1074 = phi double [ %.pre2313, %equiv.exit1541.thread ], [ %1070, %equiv.exit1536 ]
-  %.111 = phi i32 [ %1073, %equiv.exit1541.thread ], [ %.110, %equiv.exit1536 ]
-  %1075 = fdiv double 0xBFE921FB54442D18, %1074
-  %1076 = fcmp oeq double %1075, -4.500000e+01
-  br i1 %1076, label %equiv.exit1546, label %equiv.exit1546.thread
+  %1084 = phi double [ %.pre2313, %equiv.exit1541.thread ], [ %1080, %equiv.exit1536 ]
+  %.111 = phi i32 [ %1083, %equiv.exit1541.thread ], [ %.110, %equiv.exit1536 ]
+  %1085 = fdiv double 0xBFE921FB54442D18, %1084
+  %1086 = fcmp oeq double %1085, -4.500000e+01
+  br i1 %1086, label %equiv.exit1546, label %equiv.exit1546.thread
 
 equiv.exit1546.thread:                            ; preds = %equiv.exit1541
-  %1077 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 202, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.101, double noundef %1075)
-  %1078 = add nuw nsw i32 %.111, 1
+  %1087 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 202, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.101, double noundef %1085)
+  %1088 = add nuw nsw i32 %.111, 1
   br label %equiv.exit1546
 
 equiv.exit1546:                                   ; preds = %equiv.exit1541, %equiv.exit1546.thread
-  %.112 = phi i32 [ %1078, %equiv.exit1546.thread ], [ %.111, %equiv.exit1541 ]
+  %.112 = phi i32 [ %1088, %equiv.exit1546.thread ], [ %.111, %equiv.exit1541 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store volatile double 0.000000e+00, ptr %17, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.0..0..0..0..0..0.5.i = load volatile double, ptr %17, align 8, !tbaa !4
-  %1079 = fadd double %.0..0..0..0..0..0.5.i, 9.000000e+00
-  store volatile double %1079, ptr %18, align 8, !tbaa !4
+  %1089 = fadd double %.0..0..0..0..0..0.5.i, 9.000000e+00
+  store volatile double %1089, ptr %18, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %.0..0..0..0..0..0.6.i = load volatile double, ptr %17, align 8, !tbaa !4
   %.0..0..0..0..0..0.2.i1562 = load volatile double, ptr %18, align 8, !tbaa !4
-  %1080 = fsub double %.0..0..0..0..0..0.6.i, %.0..0..0..0..0..0.2.i1562
-  store volatile double %1080, ptr %19, align 8, !tbaa !4
+  %1090 = fsub double %.0..0..0..0..0..0.6.i, %.0..0..0..0..0..0.2.i1562
+  store volatile double %1090, ptr %19, align 8, !tbaa !4
   %.0..0..0..0..0..0.3.i1563 = load volatile double, ptr %18, align 8, !tbaa !4
-  %1081 = fadd double %.0..0..0..0..0..0.3.i1563, -9.000000e+00
-  store volatile double %1081, ptr %18, align 8, !tbaa !4
+  %1091 = fadd double %.0..0..0..0..0..0.3.i1563, -9.000000e+00
+  store volatile double %1091, ptr %18, align 8, !tbaa !4
   %.0..0..0..0..0..0..i1564 = load volatile double, ptr %19, align 8, !tbaa !4
-  %1082 = fadd double %.0..0..0..0..0..0..i1564, 9.000000e+00
-  store volatile double %1082, ptr %19, align 8, !tbaa !4
+  %1092 = fadd double %.0..0..0..0..0..0..i1564, 9.000000e+00
+  store volatile double %1092, ptr %19, align 8, !tbaa !4
   %.0..0..0..0..0..0.7.i = load volatile double, ptr %17, align 8, !tbaa !4
-  %1083 = fcmp une double %.0..0..0..0..0..0.7.i, 0.000000e+00
-  br i1 %1083, label %1084, label %1087
+  %1093 = fcmp une double %.0..0..0..0..0..0.7.i, 0.000000e+00
+  br i1 %1093, label %1094, label %1097
 
-1084:                                             ; preds = %equiv.exit1546
+1094:                                             ; preds = %equiv.exit1546
   %.0..0..0..0..0..0.4.i1565 = load volatile double, ptr %18, align 8, !tbaa !4
   %.0..0..0..0..0..0.1.i1566 = load volatile double, ptr %19, align 8, !tbaa !4
-  %1085 = fadd double %.0..0..0..0..0..0.4.i1565, %.0..0..0..0..0..0.1.i1566
-  %1086 = fsub double 0.000000e+00, %1085
+  %1095 = fadd double %.0..0..0..0..0..0.4.i1565, %.0..0..0..0..0..0.1.i1566
+  %1096 = fsub double 0.000000e+00, %1095
   br label %sumx.exit
 
-1087:                                             ; preds = %equiv.exit1546
+1097:                                             ; preds = %equiv.exit1546
   %.0..0..0..0..0..0.8.i = load volatile double, ptr %17, align 8, !tbaa !4
   br label %sumx.exit
 
-sumx.exit:                                        ; preds = %1084, %1087
-  %1088 = phi double [ %1086, %1084 ], [ %.0..0..0..0..0..0.8.i, %1087 ]
-  store double %1088, ptr %107, align 8, !tbaa !4
+sumx.exit:                                        ; preds = %1094, %1097
+  %1098 = phi double [ %1096, %1094 ], [ %.0..0..0..0..0..0.8.i, %1097 ]
+  store double %1098, ptr %107, align 8, !tbaa !4
   %.0..0..0..0..0..0.9.i = load volatile double, ptr %17, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %1089 = fcmp oeq double %.0..0..0..0..0..0.9.i, 0.000000e+00
-  br i1 %1089, label %equiv.exit1571, label %equiv.exit1571.thread
+  %1099 = fcmp oeq double %.0..0..0..0..0..0.9.i, 0.000000e+00
+  br i1 %1099, label %equiv.exit1571, label %equiv.exit1571.thread
 
 equiv.exit1571:                                   ; preds = %sumx.exit
   %.not720 = tail call i1 @llvm.is.fpclass.f64(double %.0..0..0..0..0..0.9.i, i32 64)
-  br i1 %.not720, label %1092, label %equiv.exit1571.thread
+  br i1 %.not720, label %1102, label %equiv.exit1571.thread
 
 equiv.exit1571.thread:                            ; preds = %sumx.exit, %equiv.exit1571
-  %1090 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 214, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.7, double noundef %.0..0..0..0..0..0.9.i)
-  %1091 = add nuw nsw i32 %.112, 1
-  br label %1092
+  %1100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 214, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.7, double noundef %.0..0..0..0..0..0.9.i)
+  %1101 = add nuw nsw i32 %.112, 1
+  br label %1102
 
-1092:                                             ; preds = %equiv.exit1571.thread, %equiv.exit1571
-  %.116 = phi i32 [ %1091, %equiv.exit1571.thread ], [ %.112, %equiv.exit1571 ]
+1102:                                             ; preds = %equiv.exit1571.thread, %equiv.exit1571
+  %.116 = phi i32 [ %1101, %equiv.exit1571.thread ], [ %.112, %equiv.exit1571 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store volatile double 0.000000e+00, ptr %14, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.0..0..0..0..0..0.5.i1572 = load volatile double, ptr %14, align 8, !tbaa !4
-  %1093 = fadd double %.0..0..0..0..0..0.5.i1572, -9.000000e+00
-  store volatile double %1093, ptr %15, align 8, !tbaa !4
+  %1103 = fadd double %.0..0..0..0..0..0.5.i1572, -9.000000e+00
+  store volatile double %1103, ptr %15, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.0..0..0..0..0..0.6.i1573 = load volatile double, ptr %14, align 8, !tbaa !4
   %.0..0..0..0..0..0.2.i1574 = load volatile double, ptr %15, align 8, !tbaa !4
-  %1094 = fsub double %.0..0..0..0..0..0.6.i1573, %.0..0..0..0..0..0.2.i1574
-  store volatile double %1094, ptr %16, align 8, !tbaa !4
+  %1104 = fsub double %.0..0..0..0..0..0.6.i1573, %.0..0..0..0..0..0.2.i1574
+  store volatile double %1104, ptr %16, align 8, !tbaa !4
   %.0..0..0..0..0..0.3.i1575 = load volatile double, ptr %15, align 8, !tbaa !4
-  %1095 = fadd double %.0..0..0..0..0..0.3.i1575, 9.000000e+00
-  store volatile double %1095, ptr %15, align 8, !tbaa !4
+  %1105 = fadd double %.0..0..0..0..0..0.3.i1575, 9.000000e+00
+  store volatile double %1105, ptr %15, align 8, !tbaa !4
   %.0..0..0..0..0..0..i1576 = load volatile double, ptr %16, align 8, !tbaa !4
-  %1096 = fadd double %.0..0..0..0..0..0..i1576, -9.000000e+00
-  store volatile double %1096, ptr %16, align 8, !tbaa !4
+  %1106 = fadd double %.0..0..0..0..0..0..i1576, -9.000000e+00
+  store volatile double %1106, ptr %16, align 8, !tbaa !4
   %.0..0..0..0..0..0.7.i1577 = load volatile double, ptr %14, align 8, !tbaa !4
-  %1097 = fcmp une double %.0..0..0..0..0..0.7.i1577, 0.000000e+00
-  br i1 %1097, label %1098, label %1101
+  %1107 = fcmp une double %.0..0..0..0..0..0.7.i1577, 0.000000e+00
+  br i1 %1107, label %1108, label %1111
 
-1098:                                             ; preds = %1092
+1108:                                             ; preds = %1102
   %.0..0..0..0..0..0.4.i1580 = load volatile double, ptr %15, align 8, !tbaa !4
   %.0..0..0..0..0..0.1.i1581 = load volatile double, ptr %16, align 8, !tbaa !4
-  %1099 = fadd double %.0..0..0..0..0..0.4.i1580, %.0..0..0..0..0..0.1.i1581
-  %1100 = fsub double 0.000000e+00, %1099
+  %1109 = fadd double %.0..0..0..0..0..0.4.i1580, %.0..0..0..0..0..0.1.i1581
+  %1110 = fsub double 0.000000e+00, %1109
   br label %sumx.exit1582
 
-1101:                                             ; preds = %1092
+1111:                                             ; preds = %1102
   %.0..0..0..0..0..0.8.i1578 = load volatile double, ptr %14, align 8, !tbaa !4
   br label %sumx.exit1582
 
-sumx.exit1582:                                    ; preds = %1098, %1101
-  %1102 = phi double [ %1100, %1098 ], [ %.0..0..0..0..0..0.8.i1578, %1101 ]
-  store double %1102, ptr %107, align 8, !tbaa !4
+sumx.exit1582:                                    ; preds = %1108, %1111
+  %1112 = phi double [ %1110, %1108 ], [ %.0..0..0..0..0..0.8.i1578, %1111 ]
+  store double %1112, ptr %107, align 8, !tbaa !4
   %.0..0..0..0..0..0.9.i1579 = load volatile double, ptr %14, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %1103 = fcmp oeq double %.0..0..0..0..0..0.9.i1579, 0.000000e+00
-  br i1 %1103, label %equiv.exit1587, label %equiv.exit1587.thread
+  %1113 = fcmp oeq double %.0..0..0..0..0..0.9.i1579, 0.000000e+00
+  br i1 %1113, label %equiv.exit1587, label %equiv.exit1587.thread
 
 equiv.exit1587:                                   ; preds = %sumx.exit1582
   %.not721 = tail call i1 @llvm.is.fpclass.f64(double %.0..0..0..0..0..0.9.i1579, i32 64)
-  br i1 %.not721, label %1106, label %equiv.exit1587.thread
+  br i1 %.not721, label %1116, label %equiv.exit1587.thread
 
 equiv.exit1587.thread:                            ; preds = %sumx.exit1582, %equiv.exit1587
-  %1104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 215, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.7, double noundef %.0..0..0..0..0..0.9.i1579)
-  %1105 = add nuw nsw i32 %.116, 1
-  br label %1106
+  %1114 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 215, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.7, double noundef %.0..0..0..0..0..0.9.i1579)
+  %1115 = add nuw nsw i32 %.116, 1
+  br label %1116
 
-1106:                                             ; preds = %equiv.exit1587.thread, %equiv.exit1587
-  %.117 = phi i32 [ %1105, %equiv.exit1587.thread ], [ %.116, %equiv.exit1587 ]
+1116:                                             ; preds = %equiv.exit1587.thread, %equiv.exit1587
+  %.117 = phi i32 [ %1115, %equiv.exit1587.thread ], [ %.116, %equiv.exit1587 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store volatile double 0.000000e+00, ptr %11, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -8279,154 +8319,154 @@ equiv.exit1587.thread:                            ; preds = %sumx.exit1582, %equ
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.0..0..0..0..0..0.6.i1589 = load volatile double, ptr %11, align 8, !tbaa !4
   %.0..0..0..0..0..0.2.i1590 = load volatile double, ptr %12, align 8, !tbaa !4
-  %1107 = fsub double %.0..0..0..0..0..0.6.i1589, %.0..0..0..0..0..0.2.i1590
-  store volatile double %1107, ptr %13, align 8, !tbaa !4
+  %1117 = fsub double %.0..0..0..0..0..0.6.i1589, %.0..0..0..0..0..0.2.i1590
+  store volatile double %1117, ptr %13, align 8, !tbaa !4
   %.0..0..0..0..0..0.3.i1591 = load volatile double, ptr %12, align 8, !tbaa !4
-  %1108 = fadd double %.0..0..0..0..0..0.3.i1591, 0.000000e+00
-  store volatile double %1108, ptr %12, align 8, !tbaa !4
+  %1118 = fadd double %.0..0..0..0..0..0.3.i1591, 0.000000e+00
+  store volatile double %1118, ptr %12, align 8, !tbaa !4
   %.0..0..0..0..0..0..i1592 = load volatile double, ptr %13, align 8, !tbaa !4
   store volatile double %.0..0..0..0..0..0..i1592, ptr %13, align 8, !tbaa !4
   %.0..0..0..0..0..0.7.i1593 = load volatile double, ptr %11, align 8, !tbaa !4
-  %1109 = fcmp une double %.0..0..0..0..0..0.7.i1593, 0.000000e+00
-  br i1 %1109, label %1110, label %1113
+  %1119 = fcmp une double %.0..0..0..0..0..0.7.i1593, 0.000000e+00
+  br i1 %1119, label %1120, label %1123
 
-1110:                                             ; preds = %1106
+1120:                                             ; preds = %1116
   %.0..0..0..0..0..0.4.i1596 = load volatile double, ptr %12, align 8, !tbaa !4
   %.0..0..0..0..0..0.1.i1597 = load volatile double, ptr %13, align 8, !tbaa !4
-  %1111 = fadd double %.0..0..0..0..0..0.4.i1596, %.0..0..0..0..0..0.1.i1597
-  %1112 = fsub double 0.000000e+00, %1111
+  %1121 = fadd double %.0..0..0..0..0..0.4.i1596, %.0..0..0..0..0..0.1.i1597
+  %1122 = fsub double 0.000000e+00, %1121
   br label %sumx.exit1598
 
-1113:                                             ; preds = %1106
+1123:                                             ; preds = %1116
   %.0..0..0..0..0..0.8.i1594 = load volatile double, ptr %11, align 8, !tbaa !4
   br label %sumx.exit1598
 
-sumx.exit1598:                                    ; preds = %1110, %1113
-  %1114 = phi double [ %1112, %1110 ], [ %.0..0..0..0..0..0.8.i1594, %1113 ]
-  store double %1114, ptr %107, align 8, !tbaa !4
+sumx.exit1598:                                    ; preds = %1120, %1123
+  %1124 = phi double [ %1122, %1120 ], [ %.0..0..0..0..0..0.8.i1594, %1123 ]
+  store double %1124, ptr %107, align 8, !tbaa !4
   %.0..0..0..0..0..0.9.i1595 = load volatile double, ptr %11, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %1115 = fcmp oeq double %.0..0..0..0..0..0.9.i1595, 0.000000e+00
-  br i1 %1115, label %equiv.exit1603, label %equiv.exit1603.thread
+  %1125 = fcmp oeq double %.0..0..0..0..0..0.9.i1595, 0.000000e+00
+  br i1 %1125, label %equiv.exit1603, label %equiv.exit1603.thread
 
 equiv.exit1603:                                   ; preds = %sumx.exit1598
   %.not722 = tail call i1 @llvm.is.fpclass.f64(double %.0..0..0..0..0..0.9.i1595, i32 64)
-  br i1 %.not722, label %1118, label %equiv.exit1603.thread
+  br i1 %.not722, label %1128, label %equiv.exit1603.thread
 
 equiv.exit1603.thread:                            ; preds = %sumx.exit1598, %equiv.exit1603
-  %1116 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 216, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.7, double noundef %.0..0..0..0..0..0.9.i1595)
-  %1117 = add nuw nsw i32 %.117, 1
-  br label %1118
+  %1126 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 216, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.7, double noundef %.0..0..0..0..0..0.9.i1595)
+  %1127 = add nuw nsw i32 %.117, 1
+  br label %1128
 
-1118:                                             ; preds = %equiv.exit1603.thread, %equiv.exit1603
-  %.118 = phi i32 [ %1117, %equiv.exit1603.thread ], [ %.117, %equiv.exit1603 ]
+1128:                                             ; preds = %equiv.exit1603.thread, %equiv.exit1603
+  %.118 = phi i32 [ %1127, %equiv.exit1603.thread ], [ %.117, %equiv.exit1603 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store volatile double 0.000000e+00, ptr %8, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.0..0..0..0..0..0.5.i1604 = load volatile double, ptr %8, align 8, !tbaa !4
-  %1119 = fadd double %.0..0..0..0..0..0.5.i1604, 0.000000e+00
-  store volatile double %1119, ptr %9, align 8, !tbaa !4
+  %1129 = fadd double %.0..0..0..0..0..0.5.i1604, 0.000000e+00
+  store volatile double %1129, ptr %9, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.0..0..0..0..0..0.6.i1605 = load volatile double, ptr %8, align 8, !tbaa !4
   %.0..0..0..0..0..0.2.i1606 = load volatile double, ptr %9, align 8, !tbaa !4
-  %1120 = fsub double %.0..0..0..0..0..0.6.i1605, %.0..0..0..0..0..0.2.i1606
-  store volatile double %1120, ptr %10, align 8, !tbaa !4
+  %1130 = fsub double %.0..0..0..0..0..0.6.i1605, %.0..0..0..0..0..0.2.i1606
+  store volatile double %1130, ptr %10, align 8, !tbaa !4
   %.0..0..0..0..0..0.3.i1607 = load volatile double, ptr %9, align 8, !tbaa !4
   store volatile double %.0..0..0..0..0..0.3.i1607, ptr %9, align 8, !tbaa !4
   %.0..0..0..0..0..0..i1608 = load volatile double, ptr %10, align 8, !tbaa !4
-  %1121 = fadd double %.0..0..0..0..0..0..i1608, 0.000000e+00
-  store volatile double %1121, ptr %10, align 8, !tbaa !4
+  %1131 = fadd double %.0..0..0..0..0..0..i1608, 0.000000e+00
+  store volatile double %1131, ptr %10, align 8, !tbaa !4
   %.0..0..0..0..0..0.7.i1609 = load volatile double, ptr %8, align 8, !tbaa !4
-  %1122 = fcmp une double %.0..0..0..0..0..0.7.i1609, 0.000000e+00
-  br i1 %1122, label %1123, label %1126
+  %1132 = fcmp une double %.0..0..0..0..0..0.7.i1609, 0.000000e+00
+  br i1 %1132, label %1133, label %1136
 
-1123:                                             ; preds = %1118
+1133:                                             ; preds = %1128
   %.0..0..0..0..0..0.4.i1612 = load volatile double, ptr %9, align 8, !tbaa !4
   %.0..0..0..0..0..0.1.i1613 = load volatile double, ptr %10, align 8, !tbaa !4
-  %1124 = fadd double %.0..0..0..0..0..0.4.i1612, %.0..0..0..0..0..0.1.i1613
-  %1125 = fsub double 0.000000e+00, %1124
+  %1134 = fadd double %.0..0..0..0..0..0.4.i1612, %.0..0..0..0..0..0.1.i1613
+  %1135 = fsub double 0.000000e+00, %1134
   br label %sumx.exit1614
 
-1126:                                             ; preds = %1118
+1136:                                             ; preds = %1128
   %.0..0..0..0..0..0.8.i1610 = load volatile double, ptr %8, align 8, !tbaa !4
   br label %sumx.exit1614
 
-sumx.exit1614:                                    ; preds = %1123, %1126
-  %1127 = phi double [ %1125, %1123 ], [ %.0..0..0..0..0..0.8.i1610, %1126 ]
-  store double %1127, ptr %107, align 8, !tbaa !4
+sumx.exit1614:                                    ; preds = %1133, %1136
+  %1137 = phi double [ %1135, %1133 ], [ %.0..0..0..0..0..0.8.i1610, %1136 ]
+  store double %1137, ptr %107, align 8, !tbaa !4
   %.0..0..0..0..0..0.9.i1611 = load volatile double, ptr %8, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %1128 = fcmp oeq double %.0..0..0..0..0..0.9.i1611, 0.000000e+00
-  br i1 %1128, label %equiv.exit1619, label %equiv.exit1619.thread
+  %1138 = fcmp oeq double %.0..0..0..0..0..0.9.i1611, 0.000000e+00
+  br i1 %1138, label %equiv.exit1619, label %equiv.exit1619.thread
 
 equiv.exit1619:                                   ; preds = %sumx.exit1614
   %.not723 = tail call i1 @llvm.is.fpclass.f64(double %.0..0..0..0..0..0.9.i1611, i32 64)
-  br i1 %.not723, label %1131, label %equiv.exit1619.thread
+  br i1 %.not723, label %1141, label %equiv.exit1619.thread
 
 equiv.exit1619.thread:                            ; preds = %sumx.exit1614, %equiv.exit1619
-  %1129 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 217, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.7, double noundef %.0..0..0..0..0..0.9.i1611)
-  %1130 = add nuw nsw i32 %.118, 1
-  br label %1131
+  %1139 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 217, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.7, double noundef %.0..0..0..0..0..0.9.i1611)
+  %1140 = add nuw nsw i32 %.118, 1
+  br label %1141
 
-1131:                                             ; preds = %equiv.exit1619.thread, %equiv.exit1619
-  %.119 = phi i32 [ %1130, %equiv.exit1619.thread ], [ %.118, %equiv.exit1619 ]
+1141:                                             ; preds = %equiv.exit1619.thread, %equiv.exit1619
+  %.119 = phi i32 [ %1140, %equiv.exit1619.thread ], [ %.118, %equiv.exit1619 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store volatile double -0.000000e+00, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.0..0..0..0..0..0.5.i1620 = load volatile double, ptr %5, align 8, !tbaa !4
-  %1132 = fadd double %.0..0..0..0..0..0.5.i1620, 0.000000e+00
-  store volatile double %1132, ptr %6, align 8, !tbaa !4
+  %1142 = fadd double %.0..0..0..0..0..0.5.i1620, 0.000000e+00
+  store volatile double %1142, ptr %6, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.0..0..0..0..0..0.6.i1621 = load volatile double, ptr %5, align 8, !tbaa !4
   %.0..0..0..0..0..0.2.i1622 = load volatile double, ptr %6, align 8, !tbaa !4
-  %1133 = fsub double %.0..0..0..0..0..0.6.i1621, %.0..0..0..0..0..0.2.i1622
-  store volatile double %1133, ptr %7, align 8, !tbaa !4
+  %1143 = fsub double %.0..0..0..0..0..0.6.i1621, %.0..0..0..0..0..0.2.i1622
+  store volatile double %1143, ptr %7, align 8, !tbaa !4
   %.0..0..0..0..0..0.3.i1623 = load volatile double, ptr %6, align 8, !tbaa !4
-  %1134 = fadd double %.0..0..0..0..0..0.3.i1623, 0.000000e+00
-  store volatile double %1134, ptr %6, align 8, !tbaa !4
+  %1144 = fadd double %.0..0..0..0..0..0.3.i1623, 0.000000e+00
+  store volatile double %1144, ptr %6, align 8, !tbaa !4
   %.0..0..0..0..0..0..i1624 = load volatile double, ptr %7, align 8, !tbaa !4
-  %1135 = fadd double %.0..0..0..0..0..0..i1624, 0.000000e+00
-  store volatile double %1135, ptr %7, align 8, !tbaa !4
+  %1145 = fadd double %.0..0..0..0..0..0..i1624, 0.000000e+00
+  store volatile double %1145, ptr %7, align 8, !tbaa !4
   %.0..0..0..0..0..0.7.i1625 = load volatile double, ptr %5, align 8, !tbaa !4
-  %1136 = fcmp une double %.0..0..0..0..0..0.7.i1625, 0.000000e+00
-  br i1 %1136, label %1137, label %1140
+  %1146 = fcmp une double %.0..0..0..0..0..0.7.i1625, 0.000000e+00
+  br i1 %1146, label %1147, label %1150
 
-1137:                                             ; preds = %1131
+1147:                                             ; preds = %1141
   %.0..0..0..0..0..0.4.i1628 = load volatile double, ptr %6, align 8, !tbaa !4
   %.0..0..0..0..0..0.1.i1629 = load volatile double, ptr %7, align 8, !tbaa !4
-  %1138 = fadd double %.0..0..0..0..0..0.4.i1628, %.0..0..0..0..0..0.1.i1629
-  %1139 = fsub double 0.000000e+00, %1138
+  %1148 = fadd double %.0..0..0..0..0..0.4.i1628, %.0..0..0..0..0..0.1.i1629
+  %1149 = fsub double 0.000000e+00, %1148
   br label %sumx.exit1630
 
-1140:                                             ; preds = %1131
+1150:                                             ; preds = %1141
   %.0..0..0..0..0..0.8.i1626 = load volatile double, ptr %5, align 8, !tbaa !4
   br label %sumx.exit1630
 
-sumx.exit1630:                                    ; preds = %1137, %1140
-  %1141 = phi double [ %1139, %1137 ], [ %.0..0..0..0..0..0.8.i1626, %1140 ]
-  store double %1141, ptr %107, align 8, !tbaa !4
+sumx.exit1630:                                    ; preds = %1147, %1150
+  %1151 = phi double [ %1149, %1147 ], [ %.0..0..0..0..0..0.8.i1626, %1150 ]
+  store double %1151, ptr %107, align 8, !tbaa !4
   %.0..0..0..0..0..0.9.i1627 = load volatile double, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %1142 = fcmp oeq double %.0..0..0..0..0..0.9.i1627, 0.000000e+00
-  br i1 %1142, label %equiv.exit1635, label %equiv.exit1635.thread
+  %1152 = fcmp oeq double %.0..0..0..0..0..0.9.i1627, 0.000000e+00
+  br i1 %1152, label %equiv.exit1635, label %equiv.exit1635.thread
 
 equiv.exit1635:                                   ; preds = %sumx.exit1630
   %.not724 = tail call i1 @llvm.is.fpclass.f64(double %.0..0..0..0..0..0.9.i1627, i32 32)
-  br i1 %.not724, label %1145, label %equiv.exit1635.thread
+  br i1 %.not724, label %1155, label %equiv.exit1635.thread
 
 equiv.exit1635.thread:                            ; preds = %sumx.exit1630, %equiv.exit1635
-  %1143 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 218, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.4, double noundef %.0..0..0..0..0..0.9.i1627)
-  %1144 = add nuw nsw i32 %.119, 1
-  br label %1145
+  %1153 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 218, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.4, double noundef %.0..0..0..0..0..0.9.i1627)
+  %1154 = add nuw nsw i32 %.119, 1
+  br label %1155
 
-1145:                                             ; preds = %equiv.exit1635.thread, %equiv.exit1635
-  %.120 = phi i32 [ %1144, %equiv.exit1635.thread ], [ %.119, %equiv.exit1635 ]
+1155:                                             ; preds = %equiv.exit1635.thread, %equiv.exit1635
+  %.120 = phi i32 [ %1154, %equiv.exit1635.thread ], [ %.119, %equiv.exit1635 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store volatile double 0.000000e+00, ptr %2, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -8435,363 +8475,363 @@ equiv.exit1635.thread:                            ; preds = %sumx.exit1630, %equ
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.0..0..0..0..0..0.6.i1637 = load volatile double, ptr %2, align 8, !tbaa !4
   %.0..0..0..0..0..0.2.i1638 = load volatile double, ptr %3, align 8, !tbaa !4
-  %1146 = fsub double %.0..0..0..0..0..0.6.i1637, %.0..0..0..0..0..0.2.i1638
-  store volatile double %1146, ptr %4, align 8, !tbaa !4
+  %1156 = fsub double %.0..0..0..0..0..0.6.i1637, %.0..0..0..0..0..0.2.i1638
+  store volatile double %1156, ptr %4, align 8, !tbaa !4
   %.0..0..0..0..0..0.3.i1639 = load volatile double, ptr %3, align 8, !tbaa !4
   store volatile double %.0..0..0..0..0..0.3.i1639, ptr %3, align 8, !tbaa !4
   %.0..0..0..0..0..0..i1640 = load volatile double, ptr %4, align 8, !tbaa !4
   store volatile double %.0..0..0..0..0..0..i1640, ptr %4, align 8, !tbaa !4
   %.0..0..0..0..0..0.7.i1641 = load volatile double, ptr %2, align 8, !tbaa !4
-  %1147 = fcmp une double %.0..0..0..0..0..0.7.i1641, 0.000000e+00
-  br i1 %1147, label %1148, label %sumx.exit1646
+  %1157 = fcmp une double %.0..0..0..0..0..0.7.i1641, 0.000000e+00
+  br i1 %1157, label %1158, label %sumx.exit1646
 
-1148:                                             ; preds = %1145
+1158:                                             ; preds = %1155
   %.0..0..0..0..0..0.4.i1644 = load volatile double, ptr %3, align 8, !tbaa !4
   br label %sumx.exit1646
 
-sumx.exit1646:                                    ; preds = %1145, %1148
-  %.sink = phi ptr [ %4, %1148 ], [ %2, %1145 ]
+sumx.exit1646:                                    ; preds = %1155, %1158
+  %.sink = phi ptr [ %4, %1158 ], [ %2, %1155 ]
   %.0..0..0..0..0.1.i1645 = load volatile double, ptr %.sink, align 8, !tbaa !4
   %.0..0..0..0..0..0.9.i1643 = load volatile double, ptr %2, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %1149 = fcmp oeq double %.0..0..0..0..0..0.9.i1643, 0.000000e+00
-  br i1 %1149, label %equiv.exit1651, label %equiv.exit1651.thread
+  %1159 = fcmp oeq double %.0..0..0..0..0..0.9.i1643, 0.000000e+00
+  br i1 %1159, label %equiv.exit1651, label %equiv.exit1651.thread
 
 equiv.exit1651:                                   ; preds = %sumx.exit1646
   %.not725 = tail call i1 @llvm.is.fpclass.f64(double %.0..0..0..0..0..0.9.i1643, i32 64)
-  br i1 %.not725, label %1152, label %equiv.exit1651.thread
+  br i1 %.not725, label %1162, label %equiv.exit1651.thread
 
 equiv.exit1651.thread:                            ; preds = %sumx.exit1646, %equiv.exit1651
-  %1150 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 219, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.7, double noundef %.0..0..0..0..0..0.9.i1643)
-  %1151 = add nuw nsw i32 %.120, 1
-  br label %1152
-
-1152:                                             ; preds = %equiv.exit1651.thread, %equiv.exit1651
-  %.121 = phi i32 [ %1151, %equiv.exit1651.thread ], [ %.120, %equiv.exit1651 ]
-  %1153 = call fastcc double @AngDiff(double noundef 0.000000e+00, double noundef 0.000000e+00, ptr noundef nonnull %107)
-  %1154 = fcmp oeq double %1153, 0.000000e+00
-  br i1 %1154, label %equiv.exit1716, label %equiv.exit1716.thread
-
-equiv.exit1716:                                   ; preds = %1152
-  %.not738 = call i1 @llvm.is.fpclass.f64(double %1153, i32 64)
-  br i1 %.not738, label %1157, label %equiv.exit1716.thread
-
-equiv.exit1716.thread:                            ; preds = %1152, %equiv.exit1716
-  %1155 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 234, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.7, double noundef %1153)
-  %1156 = add nuw nsw i32 %.121, 1
-  br label %1157
-
-1157:                                             ; preds = %equiv.exit1716.thread, %equiv.exit1716
-  %.134 = phi i32 [ %1156, %equiv.exit1716.thread ], [ %.121, %equiv.exit1716 ]
-  %1158 = call fastcc double @AngDiff(double noundef 0.000000e+00, double noundef -0.000000e+00, ptr noundef nonnull %107)
-  %1159 = fcmp oeq double %1158, 0.000000e+00
-  br i1 %1159, label %equiv.exit1721, label %equiv.exit1721.thread
-
-equiv.exit1721:                                   ; preds = %1157
-  %.not739 = call i1 @llvm.is.fpclass.f64(double %1158, i32 32)
-  br i1 %.not739, label %1162, label %equiv.exit1721.thread
-
-equiv.exit1721.thread:                            ; preds = %1157, %equiv.exit1721
-  %1160 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 235, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.4, double noundef %1158)
-  %1161 = add nuw nsw i32 %.134, 1
+  %1160 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 219, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.7, double noundef %.0..0..0..0..0..0.9.i1643)
+  %1161 = add nuw nsw i32 %.120, 1
   br label %1162
 
-1162:                                             ; preds = %equiv.exit1721.thread, %equiv.exit1721
-  %.135 = phi i32 [ %1161, %equiv.exit1721.thread ], [ %.134, %equiv.exit1721 ]
-  %1163 = call fastcc double @AngDiff(double noundef -0.000000e+00, double noundef 0.000000e+00, ptr noundef nonnull %107)
+1162:                                             ; preds = %equiv.exit1651.thread, %equiv.exit1651
+  %.121 = phi i32 [ %1161, %equiv.exit1651.thread ], [ %.120, %equiv.exit1651 ]
+  %1163 = call fastcc double @AngDiff(double noundef 0.000000e+00, double noundef 0.000000e+00, ptr noundef nonnull %107)
   %1164 = fcmp oeq double %1163, 0.000000e+00
-  br i1 %1164, label %equiv.exit1726, label %equiv.exit1726.thread
+  br i1 %1164, label %equiv.exit1716, label %equiv.exit1716.thread
 
-equiv.exit1726:                                   ; preds = %1162
-  %.not740 = call i1 @llvm.is.fpclass.f64(double %1163, i32 64)
-  br i1 %.not740, label %1167, label %equiv.exit1726.thread
+equiv.exit1716:                                   ; preds = %1162
+  %.not738 = call i1 @llvm.is.fpclass.f64(double %1163, i32 64)
+  br i1 %.not738, label %1167, label %equiv.exit1716.thread
 
-equiv.exit1726.thread:                            ; preds = %1162, %equiv.exit1726
-  %1165 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 236, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.7, double noundef %1163)
-  %1166 = add nuw nsw i32 %.135, 1
+equiv.exit1716.thread:                            ; preds = %1162, %equiv.exit1716
+  %1165 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 234, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.7, double noundef %1163)
+  %1166 = add nuw nsw i32 %.121, 1
   br label %1167
 
-1167:                                             ; preds = %equiv.exit1726.thread, %equiv.exit1726
-  %.136 = phi i32 [ %1166, %equiv.exit1726.thread ], [ %.135, %equiv.exit1726 ]
-  %1168 = call fastcc double @AngDiff(double noundef -0.000000e+00, double noundef -0.000000e+00, ptr noundef nonnull %107)
+1167:                                             ; preds = %equiv.exit1716.thread, %equiv.exit1716
+  %.134 = phi i32 [ %1166, %equiv.exit1716.thread ], [ %.121, %equiv.exit1716 ]
+  %1168 = call fastcc double @AngDiff(double noundef 0.000000e+00, double noundef -0.000000e+00, ptr noundef nonnull %107)
   %1169 = fcmp oeq double %1168, 0.000000e+00
-  br i1 %1169, label %equiv.exit1731, label %equiv.exit1731.thread
+  br i1 %1169, label %equiv.exit1721, label %equiv.exit1721.thread
 
-equiv.exit1731:                                   ; preds = %1167
-  %.not741 = call i1 @llvm.is.fpclass.f64(double %1168, i32 64)
-  br i1 %.not741, label %1172, label %equiv.exit1731.thread
+equiv.exit1721:                                   ; preds = %1167
+  %.not739 = call i1 @llvm.is.fpclass.f64(double %1168, i32 32)
+  br i1 %.not739, label %1172, label %equiv.exit1721.thread
 
-equiv.exit1731.thread:                            ; preds = %1167, %equiv.exit1731
-  %1170 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 237, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.7, double noundef %1168)
-  %1171 = add nuw nsw i32 %.136, 1
+equiv.exit1721.thread:                            ; preds = %1167, %equiv.exit1721
+  %1170 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 235, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.4, double noundef %1168)
+  %1171 = add nuw nsw i32 %.134, 1
   br label %1172
 
-1172:                                             ; preds = %equiv.exit1731.thread, %equiv.exit1731
-  %.137 = phi i32 [ %1171, %equiv.exit1731.thread ], [ %.136, %equiv.exit1731 ]
-  %1173 = call fastcc double @AngDiff(double noundef 5.000000e+00, double noundef 3.650000e+02, ptr noundef nonnull %107)
+1172:                                             ; preds = %equiv.exit1721.thread, %equiv.exit1721
+  %.135 = phi i32 [ %1171, %equiv.exit1721.thread ], [ %.134, %equiv.exit1721 ]
+  %1173 = call fastcc double @AngDiff(double noundef -0.000000e+00, double noundef 0.000000e+00, ptr noundef nonnull %107)
   %1174 = fcmp oeq double %1173, 0.000000e+00
-  br i1 %1174, label %equiv.exit1736, label %equiv.exit1736.thread
+  br i1 %1174, label %equiv.exit1726, label %equiv.exit1726.thread
 
-equiv.exit1736:                                   ; preds = %1172
-  %.not742 = call i1 @llvm.is.fpclass.f64(double %1173, i32 64)
-  br i1 %.not742, label %1177, label %equiv.exit1736.thread
+equiv.exit1726:                                   ; preds = %1172
+  %.not740 = call i1 @llvm.is.fpclass.f64(double %1173, i32 64)
+  br i1 %.not740, label %1177, label %equiv.exit1726.thread
 
-equiv.exit1736.thread:                            ; preds = %1172, %equiv.exit1736
-  %1175 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 238, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.7, double noundef %1173)
-  %1176 = add nuw nsw i32 %.137, 1
+equiv.exit1726.thread:                            ; preds = %1172, %equiv.exit1726
+  %1175 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 236, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.7, double noundef %1173)
+  %1176 = add nuw nsw i32 %.135, 1
   br label %1177
 
-1177:                                             ; preds = %equiv.exit1736.thread, %equiv.exit1736
-  %.138 = phi i32 [ %1176, %equiv.exit1736.thread ], [ %.137, %equiv.exit1736 ]
-  %1178 = call fastcc double @AngDiff(double noundef 3.650000e+02, double noundef 5.000000e+00, ptr noundef nonnull %107)
+1177:                                             ; preds = %equiv.exit1726.thread, %equiv.exit1726
+  %.136 = phi i32 [ %1176, %equiv.exit1726.thread ], [ %.135, %equiv.exit1726 ]
+  %1178 = call fastcc double @AngDiff(double noundef -0.000000e+00, double noundef -0.000000e+00, ptr noundef nonnull %107)
   %1179 = fcmp oeq double %1178, 0.000000e+00
-  br i1 %1179, label %equiv.exit1741, label %equiv.exit1741.thread
+  br i1 %1179, label %equiv.exit1731, label %equiv.exit1731.thread
 
-equiv.exit1741:                                   ; preds = %1177
-  %.not743 = call i1 @llvm.is.fpclass.f64(double %1178, i32 32)
-  br i1 %.not743, label %1182, label %equiv.exit1741.thread
+equiv.exit1731:                                   ; preds = %1177
+  %.not741 = call i1 @llvm.is.fpclass.f64(double %1178, i32 64)
+  br i1 %.not741, label %1182, label %equiv.exit1731.thread
 
-equiv.exit1741.thread:                            ; preds = %1177, %equiv.exit1741
-  %1180 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 239, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.4, double noundef %1178)
-  %1181 = add nuw nsw i32 %.138, 1
+equiv.exit1731.thread:                            ; preds = %1177, %equiv.exit1731
+  %1180 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 237, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.7, double noundef %1178)
+  %1181 = add nuw nsw i32 %.136, 1
   br label %1182
 
-1182:                                             ; preds = %equiv.exit1741.thread, %equiv.exit1741
-  %.139 = phi i32 [ %1181, %equiv.exit1741.thread ], [ %.138, %equiv.exit1741 ]
-  %1183 = call fastcc double @AngDiff(double noundef 5.000000e+00, double noundef 1.850000e+02, ptr noundef nonnull %107)
-  %1184 = fcmp oeq double %1183, 1.800000e+02
-  br i1 %1184, label %equiv.exit1746, label %equiv.exit1746.thread
+1182:                                             ; preds = %equiv.exit1731.thread, %equiv.exit1731
+  %.137 = phi i32 [ %1181, %equiv.exit1731.thread ], [ %.136, %equiv.exit1731 ]
+  %1183 = call fastcc double @AngDiff(double noundef 5.000000e+00, double noundef 3.650000e+02, ptr noundef nonnull %107)
+  %1184 = fcmp oeq double %1183, 0.000000e+00
+  br i1 %1184, label %equiv.exit1736, label %equiv.exit1736.thread
 
-equiv.exit1746.thread:                            ; preds = %1182
-  %1185 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 240, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.131, double noundef %1183)
-  %1186 = add nuw nsw i32 %.139, 1
+equiv.exit1736:                                   ; preds = %1182
+  %.not742 = call i1 @llvm.is.fpclass.f64(double %1183, i32 64)
+  br i1 %.not742, label %1187, label %equiv.exit1736.thread
+
+equiv.exit1736.thread:                            ; preds = %1182, %equiv.exit1736
+  %1185 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 238, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.7, double noundef %1183)
+  %1186 = add nuw nsw i32 %.137, 1
+  br label %1187
+
+1187:                                             ; preds = %equiv.exit1736.thread, %equiv.exit1736
+  %.138 = phi i32 [ %1186, %equiv.exit1736.thread ], [ %.137, %equiv.exit1736 ]
+  %1188 = call fastcc double @AngDiff(double noundef 3.650000e+02, double noundef 5.000000e+00, ptr noundef nonnull %107)
+  %1189 = fcmp oeq double %1188, 0.000000e+00
+  br i1 %1189, label %equiv.exit1741, label %equiv.exit1741.thread
+
+equiv.exit1741:                                   ; preds = %1187
+  %.not743 = call i1 @llvm.is.fpclass.f64(double %1188, i32 32)
+  br i1 %.not743, label %1192, label %equiv.exit1741.thread
+
+equiv.exit1741.thread:                            ; preds = %1187, %equiv.exit1741
+  %1190 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 239, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.4, double noundef %1188)
+  %1191 = add nuw nsw i32 %.138, 1
+  br label %1192
+
+1192:                                             ; preds = %equiv.exit1741.thread, %equiv.exit1741
+  %.139 = phi i32 [ %1191, %equiv.exit1741.thread ], [ %.138, %equiv.exit1741 ]
+  %1193 = call fastcc double @AngDiff(double noundef 5.000000e+00, double noundef 1.850000e+02, ptr noundef nonnull %107)
+  %1194 = fcmp oeq double %1193, 1.800000e+02
+  br i1 %1194, label %equiv.exit1746, label %equiv.exit1746.thread
+
+equiv.exit1746.thread:                            ; preds = %1192
+  %1195 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 240, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.131, double noundef %1193)
+  %1196 = add nuw nsw i32 %.139, 1
   br label %equiv.exit1746
 
-equiv.exit1746:                                   ; preds = %1182, %equiv.exit1746.thread
-  %.140 = phi i32 [ %1186, %equiv.exit1746.thread ], [ %.139, %1182 ]
-  %1187 = call fastcc double @AngDiff(double noundef 1.850000e+02, double noundef 5.000000e+00, ptr noundef nonnull %107)
-  %1188 = fcmp oeq double %1187, -1.800000e+02
-  br i1 %1188, label %equiv.exit1751, label %equiv.exit1751.thread
+equiv.exit1746:                                   ; preds = %1192, %equiv.exit1746.thread
+  %.140 = phi i32 [ %1196, %equiv.exit1746.thread ], [ %.139, %1192 ]
+  %1197 = call fastcc double @AngDiff(double noundef 1.850000e+02, double noundef 5.000000e+00, ptr noundef nonnull %107)
+  %1198 = fcmp oeq double %1197, -1.800000e+02
+  br i1 %1198, label %equiv.exit1751, label %equiv.exit1751.thread
 
 equiv.exit1751.thread:                            ; preds = %equiv.exit1746
-  %1189 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 241, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133, double noundef %1187)
-  %1190 = add nuw nsw i32 %.140, 1
+  %1199 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 241, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133, double noundef %1197)
+  %1200 = add nuw nsw i32 %.140, 1
   br label %equiv.exit1751
 
 equiv.exit1751:                                   ; preds = %equiv.exit1746, %equiv.exit1751.thread
-  %.141 = phi i32 [ %1190, %equiv.exit1751.thread ], [ %.140, %equiv.exit1746 ]
-  %1191 = call fastcc double @AngDiff(double noundef 0x3CB0000000000000, double noundef 1.800000e+02, ptr noundef nonnull %107)
-  %1192 = fcmp oeq double %1191, 1.800000e+02
-  br i1 %1192, label %equiv.exit1756, label %equiv.exit1756.thread
+  %.141 = phi i32 [ %1200, %equiv.exit1751.thread ], [ %.140, %equiv.exit1746 ]
+  %1201 = call fastcc double @AngDiff(double noundef 0x3CB0000000000000, double noundef 1.800000e+02, ptr noundef nonnull %107)
+  %1202 = fcmp oeq double %1201, 1.800000e+02
+  br i1 %1202, label %equiv.exit1756, label %equiv.exit1756.thread
 
 equiv.exit1756.thread:                            ; preds = %equiv.exit1751
-  %1193 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 242, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.131, double noundef %1191)
-  %1194 = add nuw nsw i32 %.141, 1
+  %1203 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 242, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.131, double noundef %1201)
+  %1204 = add nuw nsw i32 %.141, 1
   br label %equiv.exit1756
 
 equiv.exit1756:                                   ; preds = %equiv.exit1751, %equiv.exit1756.thread
-  %.142 = phi i32 [ %1194, %equiv.exit1756.thread ], [ %.141, %equiv.exit1751 ]
-  %1195 = call fastcc double @AngDiff(double noundef 0xBCB0000000000000, double noundef 1.800000e+02, ptr noundef nonnull %107)
-  %1196 = fcmp oeq double %1195, -1.800000e+02
-  br i1 %1196, label %equiv.exit1761, label %equiv.exit1761.thread
+  %.142 = phi i32 [ %1204, %equiv.exit1756.thread ], [ %.141, %equiv.exit1751 ]
+  %1205 = call fastcc double @AngDiff(double noundef 0xBCB0000000000000, double noundef 1.800000e+02, ptr noundef nonnull %107)
+  %1206 = fcmp oeq double %1205, -1.800000e+02
+  br i1 %1206, label %equiv.exit1761, label %equiv.exit1761.thread
 
 equiv.exit1761.thread:                            ; preds = %equiv.exit1756
-  %1197 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 243, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.133, double noundef %1195)
-  %1198 = add nuw nsw i32 %.142, 1
+  %1207 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 243, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.133, double noundef %1205)
+  %1208 = add nuw nsw i32 %.142, 1
   br label %equiv.exit1761
 
 equiv.exit1761:                                   ; preds = %equiv.exit1756, %equiv.exit1761.thread
-  %.143 = phi i32 [ %1198, %equiv.exit1761.thread ], [ %.142, %equiv.exit1756 ]
-  %1199 = call fastcc double @AngDiff(double noundef 0x3CB0000000000000, double noundef -1.800000e+02, ptr noundef nonnull %107)
-  %1200 = fcmp oeq double %1199, 1.800000e+02
-  br i1 %1200, label %equiv.exit1766, label %equiv.exit1766.thread
+  %.143 = phi i32 [ %1208, %equiv.exit1761.thread ], [ %.142, %equiv.exit1756 ]
+  %1209 = call fastcc double @AngDiff(double noundef 0x3CB0000000000000, double noundef -1.800000e+02, ptr noundef nonnull %107)
+  %1210 = fcmp oeq double %1209, 1.800000e+02
+  br i1 %1210, label %equiv.exit1766, label %equiv.exit1766.thread
 
 equiv.exit1766.thread:                            ; preds = %equiv.exit1761
-  %1201 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 244, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.131, double noundef %1199)
-  %1202 = add nuw nsw i32 %.143, 1
+  %1211 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 244, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.131, double noundef %1209)
+  %1212 = add nuw nsw i32 %.143, 1
   br label %equiv.exit1766
 
 equiv.exit1766:                                   ; preds = %equiv.exit1761, %equiv.exit1766.thread
-  %.144 = phi i32 [ %1202, %equiv.exit1766.thread ], [ %.143, %equiv.exit1761 ]
-  %1203 = call fastcc double @AngDiff(double noundef 0xBCB0000000000000, double noundef -1.800000e+02, ptr noundef nonnull %107)
-  %1204 = fcmp oeq double %1203, -1.800000e+02
-  br i1 %1204, label %equiv.exit1771, label %equiv.exit1771.thread
+  %.144 = phi i32 [ %1212, %equiv.exit1766.thread ], [ %.143, %equiv.exit1761 ]
+  %1213 = call fastcc double @AngDiff(double noundef 0xBCB0000000000000, double noundef -1.800000e+02, ptr noundef nonnull %107)
+  %1214 = fcmp oeq double %1213, -1.800000e+02
+  br i1 %1214, label %equiv.exit1771, label %equiv.exit1771.thread
 
 equiv.exit1771.thread:                            ; preds = %equiv.exit1766
-  %1205 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 245, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, double noundef %1203)
-  %1206 = add nuw nsw i32 %.144, 1
+  %1215 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 245, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, double noundef %1213)
+  %1216 = add nuw nsw i32 %.144, 1
   br label %equiv.exit1771
 
 equiv.exit1771:                                   ; preds = %equiv.exit1766, %equiv.exit1771.thread
-  %.145 = phi i32 [ %1206, %equiv.exit1771.thread ], [ %.144, %equiv.exit1766 ]
-  %1207 = call fastcc double @AngDiff(double noundef 0x4061400000000001, double noundef -1.640000e+02, ptr noundef nonnull %107)
-  %1208 = fcmp oeq double %1207, 0x404CFFFFFFFFFFFC
-  br i1 %1208, label %equiv.exit1776, label %equiv.exit1776.thread
+  %.145 = phi i32 [ %1216, %equiv.exit1771.thread ], [ %.144, %equiv.exit1766 ]
+  %1217 = call fastcc double @AngDiff(double noundef 0x4061400000000001, double noundef -1.640000e+02, ptr noundef nonnull %107)
+  %1218 = fcmp oeq double %1217, 0x404CFFFFFFFFFFFC
+  br i1 %1218, label %equiv.exit1776, label %equiv.exit1776.thread
 
 equiv.exit1776.thread:                            ; preds = %equiv.exit1771
-  %1209 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.138, i32 noundef 250)
-  %1210 = add nuw nsw i32 %.145, 1
+  %1219 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.138, i32 noundef 250)
+  %1220 = add nuw nsw i32 %.145, 1
   br label %equiv.exit1776
 
 equiv.exit1776:                                   ; preds = %equiv.exit1771, %equiv.exit1776.thread
-  %.146 = phi i32 [ %1210, %equiv.exit1776.thread ], [ %.145, %equiv.exit1771 ]
+  %.146 = phi i32 [ %1220, %equiv.exit1776.thread ], [ %.145, %equiv.exit1771 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %108, i8 0, i64 48, i1 false)
-  %1211 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  store double -0.000000e+00, ptr %1211, align 8
-  %1212 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  store double 1.800000e+02, ptr %1212, align 16
-  %1213 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  store double -0.000000e+00, ptr %1213, align 8
+  %1221 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  store double -0.000000e+00, ptr %1221, align 8
+  %1222 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  store double 1.800000e+02, ptr %1222, align 16
+  %1223 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  store double -0.000000e+00, ptr %1223, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %109)
   call void @geod_init(ptr noundef nonnull %109, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128)
   call void @llvm.lifetime.start.p0(ptr nonnull %110)
   call void @llvm.lifetime.start.p0(ptr nonnull %111)
-  br label %1215
+  br label %1225
 
-1214:                                             ; preds = %equiv.exit1786
+1224:                                             ; preds = %equiv.exit1786
   %.not751 = icmp eq i32 %spec.select, 0
-  br i1 %.not751, label %1245, label %1242
+  br i1 %.not751, label %1255, label %1252
 
-1215:                                             ; preds = %equiv.exit1776, %equiv.exit1786
-  %1216 = phi i1 [ true, %equiv.exit1776 ], [ false, %equiv.exit1786 ]
+1225:                                             ; preds = %equiv.exit1776, %equiv.exit1786
+  %1226 = phi i1 [ true, %equiv.exit1776 ], [ false, %equiv.exit1786 ]
   %indvars.iv.sroa.phi = phi ptr [ %108, %equiv.exit1776 ], [ %indvars.iv.sroa.gep2432, %equiv.exit1786 ]
   %.06002267 = phi i32 [ 0, %equiv.exit1776 ], [ %spec.select, %equiv.exit1786 ]
-  %1217 = load double, ptr %indvars.iv.sroa.phi, align 8, !tbaa !4
-  %1218 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
-  %1219 = load double, ptr %1218, align 8, !tbaa !4
-  %1220 = call double @geod_geninverse(ptr noundef nonnull readonly %109, double noundef %1217, double noundef 0.000000e+00, double noundef %1219, double noundef 0.000000e+00, ptr noundef null, ptr noundef nonnull %110, ptr noundef nonnull %111, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  %1221 = load double, ptr %110, align 8, !tbaa !4
-  %1222 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 16
-  %1223 = load double, ptr %1222, align 8, !tbaa !4
-  %1224 = fcmp uno double %1221, 0.000000e+00
-  %1225 = fcmp uno double %1223, 0.000000e+00
-  %or.cond.i1777 = and i1 %1224, %1225
-  br i1 %or.cond.i1777, label %equiv.exit1781, label %1226
+  %1227 = load double, ptr %indvars.iv.sroa.phi, align 8, !tbaa !4
+  %1228 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
+  %1229 = load double, ptr %1228, align 8, !tbaa !4
+  %1230 = call double @geod_geninverse(ptr noundef nonnull readonly %109, double noundef %1227, double noundef 0.000000e+00, double noundef %1229, double noundef 0.000000e+00, ptr noundef null, ptr noundef nonnull %110, ptr noundef nonnull %111, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  %1231 = load double, ptr %110, align 8, !tbaa !4
+  %1232 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 16
+  %1233 = load double, ptr %1232, align 8, !tbaa !4
+  %1234 = fcmp uno double %1231, 0.000000e+00
+  %1235 = fcmp uno double %1233, 0.000000e+00
+  %or.cond.i1777 = and i1 %1234, %1235
+  br i1 %or.cond.i1777, label %equiv.exit1781, label %1236
 
-1226:                                             ; preds = %1215
-  %1227 = fcmp oeq double %1221, %1223
-  br i1 %1227, label %1228, label %equiv.exit1781
+1236:                                             ; preds = %1225
+  %1237 = fcmp oeq double %1231, %1233
+  br i1 %1237, label %1238, label %equiv.exit1781
 
-1228:                                             ; preds = %1226
-  %1229 = bitcast double %1221 to i64
-  %1230 = bitcast double %1223 to i64
-  %.unshifted.i1779 = xor i64 %1230, %1229
+1238:                                             ; preds = %1236
+  %1239 = bitcast double %1231 to i64
+  %1240 = bitcast double %1233 to i64
+  %.unshifted.i1779 = xor i64 %1240, %1239
   %.unshifted.lobit.i1780 = lshr i64 %.unshifted.i1779, 63
-  %1231 = trunc nuw nsw i64 %.unshifted.lobit.i1780 to i32
+  %1241 = trunc nuw nsw i64 %.unshifted.lobit.i1780 to i32
   br label %equiv.exit1781
 
-equiv.exit1781:                                   ; preds = %1215, %1226, %1228
-  %not..i1778 = phi i32 [ 0, %1215 ], [ 1, %1226 ], [ %1231, %1228 ]
-  %1232 = load double, ptr %111, align 8, !tbaa !4
-  %1233 = fcmp uno double %1232, 0.000000e+00
-  %or.cond.i1782 = and i1 %1225, %1233
-  br i1 %or.cond.i1782, label %equiv.exit1786, label %1234
+equiv.exit1781:                                   ; preds = %1225, %1236, %1238
+  %not..i1778 = phi i32 [ 0, %1225 ], [ 1, %1236 ], [ %1241, %1238 ]
+  %1242 = load double, ptr %111, align 8, !tbaa !4
+  %1243 = fcmp uno double %1242, 0.000000e+00
+  %or.cond.i1782 = and i1 %1235, %1243
+  br i1 %or.cond.i1782, label %equiv.exit1786, label %1244
 
-1234:                                             ; preds = %equiv.exit1781
-  %1235 = fcmp oeq double %1232, %1223
-  br i1 %1235, label %1236, label %equiv.exit1786
+1244:                                             ; preds = %equiv.exit1781
+  %1245 = fcmp oeq double %1242, %1233
+  br i1 %1245, label %1246, label %equiv.exit1786
 
-1236:                                             ; preds = %1234
-  %1237 = bitcast double %1232 to i64
-  %1238 = bitcast double %1223 to i64
-  %.unshifted.i1784 = xor i64 %1237, %1238
+1246:                                             ; preds = %1244
+  %1247 = bitcast double %1242 to i64
+  %1248 = bitcast double %1233 to i64
+  %.unshifted.i1784 = xor i64 %1247, %1248
   %.unshifted.lobit.i1785 = lshr i64 %.unshifted.i1784, 63
-  %1239 = trunc nuw nsw i64 %.unshifted.lobit.i1785 to i32
+  %1249 = trunc nuw nsw i64 %.unshifted.lobit.i1785 to i32
   br label %equiv.exit1786
 
-equiv.exit1786:                                   ; preds = %equiv.exit1781, %1234, %1236
-  %not..i1783 = phi i32 [ 0, %equiv.exit1781 ], [ 1, %1234 ], [ %1239, %1236 ]
-  %1240 = or i32 %not..i1783, %not..i1778
-  %.not760 = icmp ne i32 %1240, 0
-  %1241 = zext i1 %.not760 to i32
-  %spec.select = add nuw nsw i32 %.06002267, %1241
-  br i1 %1216, label %1215, label %1214
+equiv.exit1786:                                   ; preds = %equiv.exit1781, %1244, %1246
+  %not..i1783 = phi i32 [ 0, %equiv.exit1781 ], [ 1, %1244 ], [ %1249, %1246 ]
+  %1250 = or i32 %not..i1783, %not..i1778
+  %.not760 = icmp ne i32 %1250, 0
+  %1251 = zext i1 %.not760 to i32
+  %spec.select = add nuw nsw i32 %.06002267, %1251
+  br i1 %1226, label %1225, label %1224
 
-1242:                                             ; preds = %1214
-  %1243 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.139, i32 noundef 272)
-  %1244 = add nuw nsw i32 %.146, 1
-  br label %1245
+1252:                                             ; preds = %1224
+  %1253 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.139, i32 noundef 272)
+  %1254 = add nuw nsw i32 %.146, 1
+  br label %1255
 
-1245:                                             ; preds = %1242, %1214
-  %.147 = phi i32 [ %1244, %1242 ], [ %.146, %1214 ]
+1255:                                             ; preds = %1252, %1224
+  %.147 = phi i32 [ %1254, %1252 ], [ %.146, %1224 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %111)
   call void @llvm.lifetime.end.p0(ptr nonnull %110)
   call void @llvm.lifetime.end.p0(ptr nonnull %109)
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   call void @llvm.lifetime.start.p0(ptr nonnull %112)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %112, i8 0, i64 16, i1 false)
-  %1246 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  store double 5.600000e+01, ptr %1246, align 16
-  %1247 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  store double 1.240000e+02, ptr %1247, align 8
-  %1248 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  store double -0.000000e+00, ptr %1248, align 16
-  %1249 = getelementptr inbounds nuw i8, ptr %112, i64 40
-  store double -0.000000e+00, ptr %1249, align 8
-  %1250 = getelementptr inbounds nuw i8, ptr %112, i64 48
-  store double 1.240000e+02, ptr %1250, align 16
-  %1251 = getelementptr inbounds nuw i8, ptr %112, i64 56
-  store double 5.600000e+01, ptr %1251, align 8
+  %1256 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  store double 5.600000e+01, ptr %1256, align 16
+  %1257 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  store double 1.240000e+02, ptr %1257, align 8
+  %1258 = getelementptr inbounds nuw i8, ptr %112, i64 32
+  store double -0.000000e+00, ptr %1258, align 16
+  %1259 = getelementptr inbounds nuw i8, ptr %112, i64 40
+  store double -0.000000e+00, ptr %1259, align 8
+  %1260 = getelementptr inbounds nuw i8, ptr %112, i64 48
+  store double 1.240000e+02, ptr %1260, align 16
+  %1261 = getelementptr inbounds nuw i8, ptr %112, i64 56
+  store double 5.600000e+01, ptr %1261, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %113)
   call void @geod_init(ptr noundef nonnull %113, double noundef 0x415854A640000000, double noundef 0x3F6B775A84F3E128)
   call void @llvm.lifetime.start.p0(ptr nonnull %114)
   call void @llvm.lifetime.start.p0(ptr nonnull %115)
-  br label %1253
+  br label %1263
 
-1252:                                             ; preds = %checkEquals.exit1788
-  %.not752 = icmp eq i32 %1276, 0
-  br i1 %.not752, label %1280, label %1277
+1262:                                             ; preds = %checkEquals.exit1788
+  %.not752 = icmp eq i32 %1286, 0
+  br i1 %.not752, label %1290, label %1287
 
-1253:                                             ; preds = %1245, %checkEquals.exit1788
-  %1254 = phi i1 [ true, %1245 ], [ false, %checkEquals.exit1788 ]
-  %indvars.iv2278.sroa.phi = phi ptr [ %112, %1245 ], [ %indvars.iv2278.sroa.gep2431, %checkEquals.exit1788 ]
-  %.05982269 = phi i32 [ 0, %1245 ], [ %1276, %checkEquals.exit1788 ]
-  %1255 = load double, ptr %indvars.iv2278.sroa.phi, align 16, !tbaa !4
-  %1256 = getelementptr inbounds nuw i8, ptr %indvars.iv2278.sroa.phi, i64 8
-  %1257 = load double, ptr %1256, align 8, !tbaa !4
-  %1258 = call double @geod_geninverse(ptr noundef nonnull readonly %113, double noundef %1255, double noundef 0.000000e+00, double noundef %1257, double noundef 1.795000e+02, ptr noundef null, ptr noundef nonnull %114, ptr noundef nonnull %115, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  %1259 = load double, ptr %114, align 8, !tbaa !4
-  %1260 = getelementptr inbounds nuw i8, ptr %indvars.iv2278.sroa.phi, i64 16
-  %1261 = load double, ptr %1260, align 16, !tbaa !4
-  %1262 = fsub double %1259, %1261
-  %1263 = call double @llvm.fabs.f64(double %1262)
-  %1264 = fcmp ugt double %1263, 1.000000e+00
-  br i1 %1264, label %1265, label %checkEquals.exit
+1263:                                             ; preds = %1255, %checkEquals.exit1788
+  %1264 = phi i1 [ true, %1255 ], [ false, %checkEquals.exit1788 ]
+  %indvars.iv2278.sroa.phi = phi ptr [ %112, %1255 ], [ %indvars.iv2278.sroa.gep2431, %checkEquals.exit1788 ]
+  %.05982269 = phi i32 [ 0, %1255 ], [ %1286, %checkEquals.exit1788 ]
+  %1265 = load double, ptr %indvars.iv2278.sroa.phi, align 16, !tbaa !4
+  %1266 = getelementptr inbounds nuw i8, ptr %indvars.iv2278.sroa.phi, i64 8
+  %1267 = load double, ptr %1266, align 8, !tbaa !4
+  %1268 = call double @geod_geninverse(ptr noundef nonnull readonly %113, double noundef %1265, double noundef 0.000000e+00, double noundef %1267, double noundef 1.795000e+02, ptr noundef null, ptr noundef nonnull %114, ptr noundef nonnull %115, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  %1269 = load double, ptr %114, align 8, !tbaa !4
+  %1270 = getelementptr inbounds nuw i8, ptr %indvars.iv2278.sroa.phi, i64 16
+  %1271 = load double, ptr %1270, align 16, !tbaa !4
+  %1272 = fsub double %1269, %1271
+  %1273 = call double @llvm.fabs.f64(double %1272)
+  %1274 = fcmp ugt double %1273, 1.000000e+00
+  br i1 %1274, label %1275, label %checkEquals.exit
 
-1265:                                             ; preds = %1253
-  %1266 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.151, double noundef %1259, double noundef %1261, double noundef 1.000000e+00)
+1275:                                             ; preds = %1263
+  %1276 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.151, double noundef %1269, double noundef %1271, double noundef 1.000000e+00)
   br label %checkEquals.exit
 
-checkEquals.exit:                                 ; preds = %1253, %1265
-  %.0.i = phi i32 [ 1, %1265 ], [ 0, %1253 ]
-  %1267 = load double, ptr %115, align 8, !tbaa !4
-  %1268 = getelementptr inbounds nuw i8, ptr %indvars.iv2278.sroa.phi, i64 24
-  %1269 = load double, ptr %1268, align 8, !tbaa !4
-  %1270 = fsub double %1267, %1269
-  %1271 = call double @llvm.fabs.f64(double %1270)
-  %1272 = fcmp ugt double %1271, 1.000000e+00
-  br i1 %1272, label %1273, label %checkEquals.exit1788
+checkEquals.exit:                                 ; preds = %1263, %1275
+  %.0.i = phi i32 [ 1, %1275 ], [ 0, %1263 ]
+  %1277 = load double, ptr %115, align 8, !tbaa !4
+  %1278 = getelementptr inbounds nuw i8, ptr %indvars.iv2278.sroa.phi, i64 24
+  %1279 = load double, ptr %1278, align 8, !tbaa !4
+  %1280 = fsub double %1277, %1279
+  %1281 = call double @llvm.fabs.f64(double %1280)
+  %1282 = fcmp ugt double %1281, 1.000000e+00
+  br i1 %1282, label %1283, label %checkEquals.exit1788
 
-1273:                                             ; preds = %checkEquals.exit
-  %1274 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.151, double noundef %1267, double noundef %1269, double noundef 1.000000e+00)
+1283:                                             ; preds = %checkEquals.exit
+  %1284 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.151, double noundef %1277, double noundef %1279, double noundef 1.000000e+00)
   br label %checkEquals.exit1788
 
-checkEquals.exit1788:                             ; preds = %checkEquals.exit, %1273
-  %.0.i1787 = phi i32 [ 1, %1273 ], [ 0, %checkEquals.exit ]
-  %1275 = add nuw nsw i32 %.0.i, %.05982269
-  %1276 = add nuw nsw i32 %1275, %.0.i1787
-  br i1 %1254, label %1253, label %1252
+checkEquals.exit1788:                             ; preds = %checkEquals.exit, %1283
+  %.0.i1787 = phi i32 [ 1, %1283 ], [ 0, %checkEquals.exit ]
+  %1285 = add nuw nsw i32 %.0.i, %.05982269
+  %1286 = add nuw nsw i32 %1285, %.0.i1787
+  br i1 %1264, label %1263, label %1262
 
-1277:                                             ; preds = %1252
-  %1278 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.140, i32 noundef 294)
-  %1279 = add nuw nsw i32 %.147, 1
-  br label %1280
+1287:                                             ; preds = %1262
+  %1288 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.140, i32 noundef 294)
+  %1289 = add nuw nsw i32 %.147, 1
+  br label %1290
 
-1280:                                             ; preds = %1277, %1252
-  %.148 = phi i32 [ %1279, %1277 ], [ %.147, %1252 ]
+1290:                                             ; preds = %1287, %1262
+  %.148 = phi i32 [ %1289, %1287 ], [ %.147, %1262 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %115)
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
   call void @llvm.lifetime.end.p0(ptr nonnull %113)
@@ -8802,53 +8842,53 @@ checkEquals.exit1788:                             ; preds = %checkEquals.exit, %
   call void @llvm.lifetime.start.p0(ptr nonnull %118)
   br label %equiv.exit1793
 
-1281:                                             ; preds = %equiv.exit1793
+1291:                                             ; preds = %equiv.exit1793
   %.not753 = icmp eq i32 %spec.select761, 0
-  br i1 %.not753, label %1307, label %1304
+  br i1 %.not753, label %1317, label %1314
 
-equiv.exit1793:                                   ; preds = %1280, %equiv.exit1793
-  %indvars.iv2281 = phi i64 [ 0, %1280 ], [ %indvars.iv.next2282, %equiv.exit1793 ]
-  %.05952271 = phi i32 [ 0, %1280 ], [ %spec.select761, %equiv.exit1793 ]
-  %1282 = getelementptr inbounds nuw [5 x double], ptr @__const.main.C, i64 %indvars.iv2281
-  %1283 = load double, ptr %1282, align 8, !tbaa !4
-  %1284 = getelementptr inbounds nuw i8, ptr %1282, i64 8
-  %1285 = load double, ptr %1284, align 8, !tbaa !4
-  %1286 = getelementptr inbounds nuw i8, ptr %1282, i64 16
-  %1287 = load double, ptr %1286, align 8, !tbaa !4
-  %1288 = call double @geod_geninverse(ptr noundef nonnull readonly %116, double noundef %1283, double noundef 0.000000e+00, double noundef %1285, double noundef %1287, ptr noundef null, ptr noundef nonnull %117, ptr noundef nonnull %118, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  %1289 = load double, ptr %117, align 8, !tbaa !4
-  %1290 = getelementptr inbounds nuw i8, ptr %1282, i64 24
-  %1291 = load double, ptr %1290, align 8, !tbaa !4
-  %1292 = fcmp oeq double %1289, %1291
-  %1293 = bitcast double %1289 to i64
-  %1294 = bitcast double %1291 to i64
-  %.unshifted.i1791 = xor i64 %1294, %1293
+equiv.exit1793:                                   ; preds = %1290, %equiv.exit1793
+  %indvars.iv2281 = phi i64 [ 0, %1290 ], [ %indvars.iv.next2282, %equiv.exit1793 ]
+  %.05952271 = phi i32 [ 0, %1290 ], [ %spec.select761, %equiv.exit1793 ]
+  %1292 = getelementptr inbounds nuw [5 x double], ptr @__const.main.C, i64 %indvars.iv2281
+  %1293 = load double, ptr %1292, align 8, !tbaa !4
+  %1294 = getelementptr inbounds nuw i8, ptr %1292, i64 8
+  %1295 = load double, ptr %1294, align 8, !tbaa !4
+  %1296 = getelementptr inbounds nuw i8, ptr %1292, i64 16
+  %1297 = load double, ptr %1296, align 8, !tbaa !4
+  %1298 = call double @geod_geninverse(ptr noundef nonnull readonly %116, double noundef %1293, double noundef 0.000000e+00, double noundef %1295, double noundef %1297, ptr noundef null, ptr noundef nonnull %117, ptr noundef nonnull %118, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  %1299 = load double, ptr %117, align 8, !tbaa !4
+  %1300 = getelementptr inbounds nuw i8, ptr %1292, i64 24
+  %1301 = load double, ptr %1300, align 8, !tbaa !4
+  %1302 = fcmp oeq double %1299, %1301
+  %1303 = bitcast double %1299 to i64
+  %1304 = bitcast double %1301 to i64
+  %.unshifted.i1791 = xor i64 %1304, %1303
   %.unshifted.lobit.i1792 = lshr i64 %.unshifted.i1791, 63
-  %1295 = trunc nuw nsw i64 %.unshifted.lobit.i1792 to i32
-  %not..i1790 = select i1 %1292, i32 %1295, i32 1
-  %1296 = load double, ptr %118, align 8, !tbaa !4
-  %1297 = getelementptr inbounds nuw i8, ptr %1282, i64 32
-  %1298 = load double, ptr %1297, align 8, !tbaa !4
-  %1299 = fcmp oeq double %1296, %1298
-  %1300 = bitcast double %1296 to i64
-  %1301 = bitcast double %1298 to i64
-  %.unshifted.i1796 = xor i64 %1301, %1300
+  %1305 = trunc nuw nsw i64 %.unshifted.lobit.i1792 to i32
+  %not..i1790 = select i1 %1302, i32 %1305, i32 1
+  %1306 = load double, ptr %118, align 8, !tbaa !4
+  %1307 = getelementptr inbounds nuw i8, ptr %1292, i64 32
+  %1308 = load double, ptr %1307, align 8, !tbaa !4
+  %1309 = fcmp oeq double %1306, %1308
+  %1310 = bitcast double %1306 to i64
+  %1311 = bitcast double %1308 to i64
+  %.unshifted.i1796 = xor i64 %1311, %1310
   %.unshifted.lobit.i1797 = lshr i64 %.unshifted.i1796, 63
-  %1302 = trunc nuw nsw i64 %.unshifted.lobit.i1797 to i32
-  %not..i1795 = select i1 %1299, i32 %1302, i32 1
-  %1303 = or i32 %not..i1795, %not..i1790
-  %spec.select761 = add nuw nsw i32 %1303, %.05952271
+  %1312 = trunc nuw nsw i64 %.unshifted.lobit.i1797 to i32
+  %not..i1795 = select i1 %1309, i32 %1312, i32 1
+  %1313 = or i32 %not..i1795, %not..i1790
+  %spec.select761 = add nuw nsw i32 %1313, %.05952271
   %indvars.iv.next2282 = add nuw nsw i64 %indvars.iv2281, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next2282, 4
-  br i1 %exitcond.not, label %1281, label %equiv.exit1793
+  br i1 %exitcond.not, label %1291, label %equiv.exit1793
 
-1304:                                             ; preds = %1281
-  %1305 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.141, i32 noundef 318)
-  %1306 = add nuw nsw i32 %.148, 1
-  br label %1307
+1314:                                             ; preds = %1291
+  %1315 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.141, i32 noundef 318)
+  %1316 = add nuw nsw i32 %.148, 1
+  br label %1317
 
-1307:                                             ; preds = %1304, %1281
-  %.149 = phi i32 [ %1306, %1304 ], [ %.148, %1281 ]
+1317:                                             ; preds = %1314, %1291
+  %.149 = phi i32 [ %1316, %1314 ], [ %.148, %1291 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %118)
   call void @llvm.lifetime.end.p0(ptr nonnull %117)
   call void @llvm.lifetime.end.p0(ptr nonnull %116)
@@ -8858,45 +8898,45 @@ equiv.exit1793:                                   ; preds = %1280, %equiv.exit17
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
   br label %equiv.exit1803
 
-1308:                                             ; preds = %equiv.exit1803
+1318:                                             ; preds = %equiv.exit1803
   %.not754 = icmp eq i32 %spec.select762, 0
-  br i1 %.not754, label %1328, label %1325
+  br i1 %.not754, label %1338, label %1335
 
-equiv.exit1803:                                   ; preds = %1307, %equiv.exit1803
-  %1309 = phi i1 [ true, %1307 ], [ false, %equiv.exit1803 ]
-  %indvars.iv2284 = phi i64 [ 0, %1307 ], [ 1, %equiv.exit1803 ]
-  %.05922273 = phi i32 [ 0, %1307 ], [ %spec.select762, %equiv.exit1803 ]
-  %1310 = getelementptr inbounds nuw [2 x double], ptr @__const.main.C.142, i64 %indvars.iv2284
-  %1311 = load double, ptr %1310, align 16, !tbaa !4
-  %1312 = call double @geod_geninverse(ptr noundef nonnull readonly %119, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %1311, ptr noundef null, ptr noundef nonnull %120, ptr noundef nonnull %121, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  %1313 = load double, ptr %120, align 8, !tbaa !4
-  %1314 = getelementptr inbounds nuw i8, ptr %1310, i64 8
-  %1315 = load double, ptr %1314, align 8, !tbaa !4
-  %1316 = fcmp oeq double %1313, %1315
-  %1317 = bitcast double %1313 to i64
-  %1318 = bitcast double %1315 to i64
-  %.unshifted.i1801 = xor i64 %1318, %1317
+equiv.exit1803:                                   ; preds = %1317, %equiv.exit1803
+  %1319 = phi i1 [ true, %1317 ], [ false, %equiv.exit1803 ]
+  %indvars.iv2284 = phi i64 [ 0, %1317 ], [ 1, %equiv.exit1803 ]
+  %.05922273 = phi i32 [ 0, %1317 ], [ %spec.select762, %equiv.exit1803 ]
+  %1320 = getelementptr inbounds nuw [2 x double], ptr @__const.main.C.142, i64 %indvars.iv2284
+  %1321 = load double, ptr %1320, align 16, !tbaa !4
+  %1322 = call double @geod_geninverse(ptr noundef nonnull readonly %119, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %1321, ptr noundef null, ptr noundef nonnull %120, ptr noundef nonnull %121, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  %1323 = load double, ptr %120, align 8, !tbaa !4
+  %1324 = getelementptr inbounds nuw i8, ptr %1320, i64 8
+  %1325 = load double, ptr %1324, align 8, !tbaa !4
+  %1326 = fcmp oeq double %1323, %1325
+  %1327 = bitcast double %1323 to i64
+  %1328 = bitcast double %1325 to i64
+  %.unshifted.i1801 = xor i64 %1328, %1327
   %.unshifted.lobit.i1802 = lshr i64 %.unshifted.i1801, 63
-  %1319 = trunc nuw nsw i64 %.unshifted.lobit.i1802 to i32
-  %not..i1800 = select i1 %1316, i32 %1319, i32 1
-  %1320 = load double, ptr %121, align 8, !tbaa !4
-  %1321 = fcmp oeq double %1320, %1315
-  %1322 = bitcast double %1320 to i64
-  %.unshifted.i1806 = xor i64 %1322, %1318
+  %1329 = trunc nuw nsw i64 %.unshifted.lobit.i1802 to i32
+  %not..i1800 = select i1 %1326, i32 %1329, i32 1
+  %1330 = load double, ptr %121, align 8, !tbaa !4
+  %1331 = fcmp oeq double %1330, %1325
+  %1332 = bitcast double %1330 to i64
+  %.unshifted.i1806 = xor i64 %1332, %1328
   %.unshifted.lobit.i1807 = lshr i64 %.unshifted.i1806, 63
-  %1323 = trunc nuw nsw i64 %.unshifted.lobit.i1807 to i32
-  %not..i1805 = select i1 %1321, i32 %1323, i32 1
-  %1324 = or i32 %not..i1805, %not..i1800
-  %spec.select762 = add nuw nsw i32 %1324, %.05922273
-  br i1 %1309, label %equiv.exit1803, label %1308
+  %1333 = trunc nuw nsw i64 %.unshifted.lobit.i1807 to i32
+  %not..i1805 = select i1 %1331, i32 %1333, i32 1
+  %1334 = or i32 %not..i1805, %not..i1800
+  %spec.select762 = add nuw nsw i32 %1334, %.05922273
+  br i1 %1319, label %equiv.exit1803, label %1318
 
-1325:                                             ; preds = %1308
-  %1326 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.143, i32 noundef 340)
-  %1327 = add nuw nsw i32 %.149, 1
-  br label %1328
+1335:                                             ; preds = %1318
+  %1336 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.143, i32 noundef 340)
+  %1337 = add nuw nsw i32 %.149, 1
+  br label %1338
 
-1328:                                             ; preds = %1325, %1308
-  %.150 = phi i32 [ %1327, %1325 ], [ %.149, %1308 ]
+1338:                                             ; preds = %1335, %1318
+  %.150 = phi i32 [ %1337, %1335 ], [ %.149, %1318 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
   call void @llvm.lifetime.end.p0(ptr nonnull %120)
   call void @llvm.lifetime.end.p0(ptr nonnull %119)
@@ -8906,69 +8946,69 @@ equiv.exit1803:                                   ; preds = %1307, %equiv.exit18
   call void @llvm.lifetime.start.p0(ptr nonnull %124)
   br label %equiv.exit1813
 
-1329:                                             ; preds = %equiv.exit1813
+1339:                                             ; preds = %equiv.exit1813
   %.not755 = icmp eq i32 %spec.select763, 0
-  br i1 %.not755, label %1350, label %.thread
+  br i1 %.not755, label %1360, label %.thread
 
-equiv.exit1813:                                   ; preds = %1328, %equiv.exit1813
-  %indvars.iv2287 = phi i64 [ 0, %1328 ], [ %indvars.iv.next2288, %equiv.exit1813 ]
-  %.05902275 = phi i32 [ 0, %1328 ], [ %spec.select763, %equiv.exit1813 ]
-  %1330 = getelementptr inbounds nuw [3 x double], ptr @__const.main.C.144, i64 %indvars.iv2287
-  %1331 = load double, ptr %1330, align 8, !tbaa !4
+equiv.exit1813:                                   ; preds = %1338, %equiv.exit1813
+  %indvars.iv2287 = phi i64 [ 0, %1338 ], [ %indvars.iv.next2288, %equiv.exit1813 ]
+  %.05902275 = phi i32 [ 0, %1338 ], [ %spec.select763, %equiv.exit1813 ]
+  %1340 = getelementptr inbounds nuw [3 x double], ptr @__const.main.C.144, i64 %indvars.iv2287
+  %1341 = load double, ptr %1340, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  call void @geod_lineinit(ptr noundef nonnull %1, ptr noundef nonnull readonly %122, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %1331, i32 noundef 2827)
-  %1332 = call double @geod_genposition(ptr noundef nonnull %1, i32 noundef 32768, double noundef 1.500000e+07, ptr noundef null, ptr noundef nonnull %123, ptr noundef nonnull %124, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  call void @geod_lineinit(ptr noundef nonnull %1, ptr noundef nonnull readonly %122, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %1341, i32 noundef 2827)
+  %1342 = call double @geod_genposition(ptr noundef nonnull %1, i32 noundef 32768, double noundef 1.500000e+07, ptr noundef null, ptr noundef nonnull %123, ptr noundef nonnull %124, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %1333 = load double, ptr %123, align 8, !tbaa !4
-  %1334 = getelementptr inbounds nuw i8, ptr %1330, i64 8
-  %1335 = load double, ptr %1334, align 8, !tbaa !4
-  %1336 = fcmp oeq double %1333, %1335
-  %1337 = bitcast double %1333 to i64
-  %1338 = bitcast double %1335 to i64
-  %.unshifted.i1811 = xor i64 %1338, %1337
+  %1343 = load double, ptr %123, align 8, !tbaa !4
+  %1344 = getelementptr inbounds nuw i8, ptr %1340, i64 8
+  %1345 = load double, ptr %1344, align 8, !tbaa !4
+  %1346 = fcmp oeq double %1343, %1345
+  %1347 = bitcast double %1343 to i64
+  %1348 = bitcast double %1345 to i64
+  %.unshifted.i1811 = xor i64 %1348, %1347
   %.unshifted.lobit.i1812 = lshr i64 %.unshifted.i1811, 63
-  %1339 = trunc nuw nsw i64 %.unshifted.lobit.i1812 to i32
-  %not..i1810 = select i1 %1336, i32 %1339, i32 1
-  %1340 = load double, ptr %124, align 8, !tbaa !4
-  %1341 = getelementptr inbounds nuw i8, ptr %1330, i64 16
-  %1342 = load double, ptr %1341, align 8, !tbaa !4
-  %1343 = fcmp oeq double %1340, %1342
-  %1344 = bitcast double %1340 to i64
-  %1345 = bitcast double %1342 to i64
-  %.unshifted.i1816 = xor i64 %1345, %1344
+  %1349 = trunc nuw nsw i64 %.unshifted.lobit.i1812 to i32
+  %not..i1810 = select i1 %1346, i32 %1349, i32 1
+  %1350 = load double, ptr %124, align 8, !tbaa !4
+  %1351 = getelementptr inbounds nuw i8, ptr %1340, i64 16
+  %1352 = load double, ptr %1351, align 8, !tbaa !4
+  %1353 = fcmp oeq double %1350, %1352
+  %1354 = bitcast double %1350 to i64
+  %1355 = bitcast double %1352 to i64
+  %.unshifted.i1816 = xor i64 %1355, %1354
   %.unshifted.lobit.i1817 = lshr i64 %.unshifted.i1816, 63
-  %1346 = trunc nuw nsw i64 %.unshifted.lobit.i1817 to i32
-  %not..i1815 = select i1 %1343, i32 %1346, i32 1
-  %1347 = or i32 %not..i1815, %not..i1810
-  %spec.select763 = add nuw nsw i32 %1347, %.05902275
+  %1356 = trunc nuw nsw i64 %.unshifted.lobit.i1817 to i32
+  %not..i1815 = select i1 %1353, i32 %1356, i32 1
+  %1357 = or i32 %not..i1815, %not..i1810
+  %spec.select763 = add nuw nsw i32 %1357, %.05902275
   %indvars.iv.next2288 = add nuw nsw i64 %indvars.iv2287, 1
   %exitcond2290.not = icmp eq i64 %indvars.iv.next2288, 4
-  br i1 %exitcond2290.not, label %1329, label %equiv.exit1813
+  br i1 %exitcond2290.not, label %1339, label %equiv.exit1813
 
-.thread:                                          ; preds = %1329
-  %1348 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.145, i32 noundef 365)
-  %1349 = add nuw nsw i32 %.150, 1
+.thread:                                          ; preds = %1339
+  %1358 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.145, i32 noundef 365)
+  %1359 = add nuw nsw i32 %.150, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %124)
   call void @llvm.lifetime.end.p0(ptr nonnull %123)
   call void @llvm.lifetime.end.p0(ptr nonnull %122)
-  br label %1351
+  br label %1361
 
-1350:                                             ; preds = %1329
+1360:                                             ; preds = %1339
   call void @llvm.lifetime.end.p0(ptr nonnull %124)
   call void @llvm.lifetime.end.p0(ptr nonnull %123)
   call void @llvm.lifetime.end.p0(ptr nonnull %122)
   %.not756 = icmp eq i32 %.150, 0
-  br i1 %.not756, label %1355, label %1351
+  br i1 %.not756, label %1365, label %1361
 
-1351:                                             ; preds = %.thread, %1350
-  %.1512430 = phi i32 [ %1349, %.thread ], [ %.150, %1350 ]
-  %1352 = icmp sgt i32 %.1512430, 1
-  %1353 = select i1 %1352, ptr @.str.148, ptr @.str.149
-  %1354 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.146, i32 noundef %.1512430, ptr noundef nonnull @.str.147, ptr noundef nonnull %1353)
-  br label %1355
+1361:                                             ; preds = %.thread, %1360
+  %.1512430 = phi i32 [ %1359, %.thread ], [ %.150, %1360 ]
+  %1362 = icmp sgt i32 %.1512430, 1
+  %1363 = select i1 %1362, ptr @.str.148, ptr @.str.149
+  %1364 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.146, i32 noundef %.1512430, ptr noundef nonnull @.str.147, ptr noundef nonnull %1363)
+  br label %1365
 
-1355:                                             ; preds = %1350, %1351
-  %.0602 = phi i32 [ 1, %1351 ], [ 0, %1350 ]
+1365:                                             ; preds = %1360, %1361
+  %.0602 = phi i32 [ 1, %1361 ], [ 0, %1360 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
   ret i32 %.0602
 }

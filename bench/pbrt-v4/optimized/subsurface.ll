@@ -7170,7 +7170,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt4BSDF8Sample_fINS_21NormalizedFresn
 
 23:                                               ; preds = %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
-  br label %78
+  br label %79
 
 24:                                               ; preds = %8
   %25 = load i64, ptr %1, align 8, !tbaa !379
@@ -7182,7 +7182,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt4BSDF8Sample_fINS_21NormalizedFresn
 
 29:                                               ; preds = %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
-  br label %78
+  br label %79
 
 30:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -7194,7 +7194,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt4BSDF8Sample_fINS_21NormalizedFresn
 
 32:                                               ; preds = %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.13, i8 0, i64 3, i1 false), !alias.scope !480
-  br label %69
+  br label %70
 
 33:                                               ; preds = %30
   %.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %5, i64 0
@@ -7255,11 +7255,12 @@ _ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i: ; preds = %51, %33
   %65 = extractvalue { <2 x float>, <2 x float> } %63, 1
   %66 = fmul float %21, %.sroa.6.0.i
   %67 = fcmp ogt float %66, 0.000000e+00
-  %68 = fmul float %sqrt.i.i.i, 0x3FD45F3060000000
-  %.0.i.i = select i1 %67, float %68, float 0.000000e+00
-  br label %69
+  %68 = tail call float @llvm.fabs.f32(float %sqrt.i.i.i)
+  %69 = fmul float %68, 0x3FD45F3060000000
+  %.0.i.i = select i1 %67, float %69, float 0.000000e+00
+  br label %70
 
-69:                                               ; preds = %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i, %32
+70:                                               ; preds = %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i, %32
   %.sroa.7.0 = phi float [ 0.000000e+00, %32 ], [ %.sroa.6.0.i, %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i ]
   %.sroa.8.0 = phi float [ 0.000000e+00, %32 ], [ %.0.i.i, %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i ]
   %.sroa.9.0 = phi i32 [ 0, %32 ], [ 5, %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i ]
@@ -7284,34 +7285,34 @@ _ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i: ; preds = %51, %33
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.13.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.13, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
-  br label %70
+  br label %71
 
-70:                                               ; preds = %70, %69
-  %indvars.iv.i = phi i64 [ 0, %69 ], [ %indvars.iv.next.i, %70 ]
-  %71 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
-  %72 = load float, ptr %71, align 4, !tbaa !119
-  %73 = fcmp une float %72, 0.000000e+00
+71:                                               ; preds = %71, %70
+  %indvars.iv.i = phi i64 [ 0, %70 ], [ %indvars.iv.next.i, %71 ]
+  %72 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
+  %73 = load float, ptr %72, align 4, !tbaa !119
+  %74 = fcmp une float %73, 0.000000e+00
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  %or.cond.i = select i1 %73, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit, label %70, !llvm.loop !381
+  %or.cond.i = select i1 %74, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit, label %71, !llvm.loop !381
 
-_ZNK4pbrt15SampledSpectrumcvbEv.exit:             ; preds = %70
-  %.not47 = xor i1 %73, true
-  %74 = fcmp oeq float %.sroa.8.0, 0.000000e+00
-  %or.cond = or i1 %74, %.not47
-  %75 = fcmp oeq float %.sroa.7.0, 0.000000e+00
-  %or.cond48 = or i1 %75, %or.cond
+_ZNK4pbrt15SampledSpectrumcvbEv.exit:             ; preds = %71
+  %.not47 = xor i1 %74, true
+  %75 = fcmp oeq float %.sroa.8.0, 0.000000e+00
+  %or.cond = or i1 %75, %.not47
+  %76 = fcmp oeq float %.sroa.7.0, 0.000000e+00
+  %or.cond48 = or i1 %76, %or.cond
   br i1 %or.cond48, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i.i43, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit40
 
 _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit40: ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit
-  %76 = tail call { <2 x float>, float } @_ZNK4pbrt4BSDF13LocalToRenderENS_7Vector3IfEE(ptr noundef nonnull align 8 dereferenceable(44) %1, <2 x float> %.sroa.6.0, float %.sroa.7.0)
-  %.fca.1.extract = extractvalue { <2 x float>, float } %76, 1
-  %.fca.0.extract = extractvalue { <2 x float>, float } %76, 0
+  %77 = tail call { <2 x float>, float } @_ZNK4pbrt4BSDF13LocalToRenderENS_7Vector3IfEE(ptr noundef nonnull align 8 dereferenceable(44) %1, <2 x float> %.sroa.6.0, float %.sroa.7.0)
+  %.fca.1.extract = extractvalue { <2 x float>, float } %77, 1
+  %.fca.0.extract = extractvalue { <2 x float>, float } %77, 0
   store <2 x float> %.fca.0.extract, ptr %.sroa.6.0..sroa_idx, align 8
   store float %.fca.1.extract, ptr %.sroa.7.0..sroa_idx, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i8 1, ptr %77, align 4, !tbaa !392
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i8 1, ptr %78, align 4, !tbaa !392
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %0, ptr noundef nonnull align 8 dereferenceable(45) %9, i64 44, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit
 
@@ -7321,9 +7322,9 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i.i43: ; preds = %_ZNK4pbrt1
 
 _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit:  ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit40, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i.i43
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %78
+  br label %79
 
-78:                                               ; preds = %29, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit, %23
+79:                                               ; preds = %29, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit, %23
   ret void
 }
 

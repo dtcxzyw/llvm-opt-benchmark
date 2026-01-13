@@ -807,8 +807,8 @@ if.then145:                                       ; preds = %land.lhs.true
   %56 = tail call double @llvm.fmuladd.f64(double %neg154, double %div152, double 1.000000e+00)
   %cmp.inv.i = fcmp ole double %56, 0.000000e+00
   %b.a.i234 = select i1 %cmp.inv.i, double 0.000000e+00, double %56
-  %sqrt = tail call double @llvm.sqrt.f64(double %b.a.i234)
-  %mul159 = fmul double %54, %sqrt
+  %call156 = tail call double @sqrt(double noundef %b.a.i234) #11, !tbaa !9
+  %mul159 = fmul double %54, %call156
   store double %mul159, ptr %arrayidx143, align 8, !tbaa !3
   %arrayidx163 = getelementptr inbounds nuw double, ptr %wa, i64 %indvars.iv405
   %57 = load double, ptr %arrayidx163, align 8, !tbaa !3
@@ -3677,9 +3677,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10

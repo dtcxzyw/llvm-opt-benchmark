@@ -48622,13 +48622,13 @@ _ZN5o3dgc12SphereToCubeIlEEvT_S1_S1_RS1_S2_Rc.exit: ; preds = %114, %115, %109, 
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5o3dgc12CubeToSphereEffcRfS0_S0_(float noundef %0, float noundef %1, i8 noundef signext %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #4 comdat {
-  switch i8 %2, label %76 [
+  switch i8 %2, label %82 [
     i8 0, label %7
-    i8 1, label %17
-    i8 2, label %30
-    i8 3, label %40
-    i8 4, label %53
-    i8 5, label %63
+    i8 1, label %18
+    i8 2, label %32
+    i8 3, label %43
+    i8 4, label %57
+    i8 5, label %68
   ]
 
 7:                                                ; preds = %6
@@ -48643,106 +48643,106 @@ define linkonce_odr hidden void @_ZN5o3dgc12CubeToSphereEffcRfS0_S0_(float nound
   %14 = fsub double %11, %13
   %15 = fcmp ogt double %14, 0.000000e+00
   %..i = select i1 %15, double %14, double 0.000000e+00
-  %sqrt = tail call double @llvm.sqrt.f64(double %..i)
-  %16 = fptrunc double %sqrt to float
-  store float %16, ptr %5, align 4
-  br label %76
+  %16 = tail call double @sqrt(double noundef %..i) #34
+  %17 = fptrunc double %16 to float
+  store float %17, ptr %5, align 4
+  br label %82
 
-17:                                               ; preds = %6
-  %18 = fneg float %0
-  store float %18, ptr %3, align 4
-  %19 = fneg float %1
-  store float %19, ptr %4, align 4
-  %20 = load float, ptr %3, align 4
-  %21 = fmul float %20, %20
-  %22 = fpext float %21 to double
-  %23 = fsub double 1.000000e+00, %22
-  %24 = fmul float %1, %1
-  %25 = fpext float %24 to double
-  %26 = fsub double %23, %25
-  %27 = fcmp ogt double %26, 0.000000e+00
-  %..i54 = select i1 %27, double %26, double 0.000000e+00
-  %sqrt70 = tail call double @llvm.sqrt.f64(double %..i54)
-  %28 = fptrunc double %sqrt70 to float
-  %29 = fneg float %28
-  store float %29, ptr %5, align 4
-  br label %76
+18:                                               ; preds = %6
+  %19 = fneg float %0
+  store float %19, ptr %3, align 4
+  %20 = fneg float %1
+  store float %20, ptr %4, align 4
+  %21 = load float, ptr %3, align 4
+  %22 = fmul float %21, %21
+  %23 = fpext float %22 to double
+  %24 = fsub double 1.000000e+00, %23
+  %25 = fmul float %1, %1
+  %26 = fpext float %25 to double
+  %27 = fsub double %24, %26
+  %28 = fcmp ogt double %27, 0.000000e+00
+  %..i54 = select i1 %28, double %27, double 0.000000e+00
+  %29 = tail call double @sqrt(double noundef %..i54) #34
+  %30 = fptrunc double %29 to float
+  %31 = fneg float %30
+  store float %31, ptr %5, align 4
+  br label %82
 
-30:                                               ; preds = %6
+32:                                               ; preds = %6
   store float %0, ptr %5, align 4
   store float %1, ptr %3, align 4
-  %31 = fmul float %1, %1
-  %32 = fpext float %31 to double
-  %33 = fsub double 1.000000e+00, %32
-  %34 = load float, ptr %5, align 4
-  %35 = fmul float %34, %34
-  %36 = fpext float %35 to double
-  %37 = fsub double %33, %36
-  %38 = fcmp ogt double %37, 0.000000e+00
-  %..i55 = select i1 %38, double %37, double 0.000000e+00
-  %sqrt71 = tail call double @llvm.sqrt.f64(double %..i55)
-  %39 = fptrunc double %sqrt71 to float
-  store float %39, ptr %4, align 4
-  br label %76
+  %33 = fmul float %1, %1
+  %34 = fpext float %33 to double
+  %35 = fsub double 1.000000e+00, %34
+  %36 = load float, ptr %5, align 4
+  %37 = fmul float %36, %36
+  %38 = fpext float %37 to double
+  %39 = fsub double %35, %38
+  %40 = fcmp ogt double %39, 0.000000e+00
+  %..i55 = select i1 %40, double %39, double 0.000000e+00
+  %41 = tail call double @sqrt(double noundef %..i55) #34
+  %42 = fptrunc double %41 to float
+  store float %42, ptr %4, align 4
+  br label %82
 
-40:                                               ; preds = %6
-  %41 = fneg float %0
-  store float %41, ptr %5, align 4
-  %42 = fneg float %1
-  store float %42, ptr %3, align 4
-  %43 = fmul float %1, %1
-  %44 = fpext float %43 to double
-  %45 = fsub double 1.000000e+00, %44
-  %46 = load float, ptr %5, align 4
-  %47 = fmul float %46, %46
-  %48 = fpext float %47 to double
-  %49 = fsub double %45, %48
-  %50 = fcmp ogt double %49, 0.000000e+00
-  %..i56 = select i1 %50, double %49, double 0.000000e+00
-  %sqrt72 = tail call double @llvm.sqrt.f64(double %..i56)
-  %51 = fptrunc double %sqrt72 to float
-  %52 = fneg float %51
-  store float %52, ptr %4, align 4
-  br label %76
+43:                                               ; preds = %6
+  %44 = fneg float %0
+  store float %44, ptr %5, align 4
+  %45 = fneg float %1
+  store float %45, ptr %3, align 4
+  %46 = fmul float %1, %1
+  %47 = fpext float %46 to double
+  %48 = fsub double 1.000000e+00, %47
+  %49 = load float, ptr %5, align 4
+  %50 = fmul float %49, %49
+  %51 = fpext float %50 to double
+  %52 = fsub double %48, %51
+  %53 = fcmp ogt double %52, 0.000000e+00
+  %..i56 = select i1 %53, double %52, double 0.000000e+00
+  %54 = tail call double @sqrt(double noundef %..i56) #34
+  %55 = fptrunc double %54 to float
+  %56 = fneg float %55
+  store float %56, ptr %4, align 4
+  br label %82
 
-53:                                               ; preds = %6
+57:                                               ; preds = %6
   store float %0, ptr %4, align 4
   store float %1, ptr %5, align 4
-  %54 = load float, ptr %4, align 4
-  %55 = fmul float %54, %54
-  %56 = fpext float %55 to double
-  %57 = fsub double 1.000000e+00, %56
-  %58 = fmul float %1, %1
-  %59 = fpext float %58 to double
-  %60 = fsub double %57, %59
-  %61 = fcmp ogt double %60, 0.000000e+00
-  %..i57 = select i1 %61, double %60, double 0.000000e+00
-  %sqrt73 = tail call double @llvm.sqrt.f64(double %..i57)
-  %62 = fptrunc double %sqrt73 to float
-  store float %62, ptr %3, align 4
-  br label %76
+  %58 = load float, ptr %4, align 4
+  %59 = fmul float %58, %58
+  %60 = fpext float %59 to double
+  %61 = fsub double 1.000000e+00, %60
+  %62 = fmul float %1, %1
+  %63 = fpext float %62 to double
+  %64 = fsub double %61, %63
+  %65 = fcmp ogt double %64, 0.000000e+00
+  %..i57 = select i1 %65, double %64, double 0.000000e+00
+  %66 = tail call double @sqrt(double noundef %..i57) #34
+  %67 = fptrunc double %66 to float
+  store float %67, ptr %3, align 4
+  br label %82
 
-63:                                               ; preds = %6
-  %64 = fneg float %0
-  store float %64, ptr %4, align 4
-  %65 = fneg float %1
-  store float %65, ptr %5, align 4
-  %66 = load float, ptr %4, align 4
-  %67 = fmul float %66, %66
-  %68 = fpext float %67 to double
-  %69 = fsub double 1.000000e+00, %68
-  %70 = fmul float %1, %1
-  %71 = fpext float %70 to double
-  %72 = fsub double %69, %71
-  %73 = fcmp ogt double %72, 0.000000e+00
-  %..i58 = select i1 %73, double %72, double 0.000000e+00
-  %sqrt74 = tail call double @llvm.sqrt.f64(double %..i58)
-  %74 = fptrunc double %sqrt74 to float
-  %75 = fneg float %74
-  store float %75, ptr %3, align 4
-  br label %76
+68:                                               ; preds = %6
+  %69 = fneg float %0
+  store float %69, ptr %4, align 4
+  %70 = fneg float %1
+  store float %70, ptr %5, align 4
+  %71 = load float, ptr %4, align 4
+  %72 = fmul float %71, %71
+  %73 = fpext float %72 to double
+  %74 = fsub double 1.000000e+00, %73
+  %75 = fmul float %1, %1
+  %76 = fpext float %75 to double
+  %77 = fsub double %74, %76
+  %78 = fcmp ogt double %77, 0.000000e+00
+  %..i58 = select i1 %78, double %77, double 0.000000e+00
+  %79 = tail call double @sqrt(double noundef %..i58) #34
+  %80 = fptrunc double %79 to float
+  %81 = fneg float %80
+  store float %81, ptr %3, align 4
+  br label %82
 
-76:                                               ; preds = %63, %53, %40, %30, %17, %7, %6
+82:                                               ; preds = %68, %57, %43, %32, %18, %7, %6
   ret void
 }
 
@@ -93017,9 +93017,6 @@ declare i32 @llvm.umin.i32(i32, i32) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #31
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #32
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #32

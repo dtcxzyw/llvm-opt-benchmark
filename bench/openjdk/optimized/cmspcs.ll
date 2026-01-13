@@ -513,72 +513,74 @@ define hidden void @cmsFloat2XYZEncoded(ptr noundef writeonly captures(none) ini
   %.sroa.0.2 = select i1 %10, double 0.000000e+00, double %.sroa.0.1
   %11 = fcmp ogt double %.sroa.7.0, 0x3FFFFFE000000000
   %.sroa.7.1 = select i1 %11, double 0x3FFFFFE000000000, double %.sroa.7.0
-  %12 = fcmp ogt double %.sroa.15.0, 0x3FFFFFE000000000
-  %.sroa.15.1 = select i1 %12, double 0x3FFFFFE000000000, double %.sroa.15.0
-  %13 = fcmp olt double %.sroa.15.1, 0.000000e+00
-  %.sroa.15.2 = select i1 %13, double 0.000000e+00, double %.sroa.15.1
-  %14 = fmul double %.sroa.0.2, 3.276800e+04
-  %15 = fadd double %14, 5.000000e-01
-  %16 = fcmp ugt double %15, 0.000000e+00
-  br i1 %16, label %17, label %XYZ2Fix.exit
+  %12 = fcmp olt double %.sroa.7.1, 0.000000e+00
+  %.sroa.7.2 = select i1 %12, double 0.000000e+00, double %.sroa.7.1
+  %13 = fcmp ogt double %.sroa.15.0, 0x3FFFFFE000000000
+  %.sroa.15.1 = select i1 %13, double 0x3FFFFFE000000000, double %.sroa.15.0
+  %14 = fcmp olt double %.sroa.15.1, 0.000000e+00
+  %.sroa.15.2 = select i1 %14, double 0.000000e+00, double %.sroa.15.1
+  %15 = fmul double %.sroa.0.2, 3.276800e+04
+  %16 = fadd double %15, 5.000000e-01
+  %17 = fcmp ugt double %16, 0.000000e+00
+  br i1 %17, label %18, label %XYZ2Fix.exit
 
-17:                                               ; preds = %2
-  %18 = fcmp ult double %15, 6.553500e+04
-  br i1 %18, label %19, label %XYZ2Fix.exit
+18:                                               ; preds = %2
+  %19 = fcmp ult double %16, 6.553500e+04
+  br i1 %19, label %20, label %XYZ2Fix.exit
 
-19:                                               ; preds = %17
-  %20 = fadd double %15, -3.276700e+04
-  %21 = tail call double @llvm.floor.f64(double %20)
-  %22 = fptosi double %21 to i32
-  %23 = trunc i32 %22 to i16
-  %24 = add i16 %23, 32767
+20:                                               ; preds = %18
+  %21 = fadd double %16, -3.276700e+04
+  %22 = tail call double @llvm.floor.f64(double %21)
+  %23 = fptosi double %22 to i32
+  %24 = trunc i32 %23 to i16
+  %25 = add i16 %24, 32767
   br label %XYZ2Fix.exit
 
-XYZ2Fix.exit:                                     ; preds = %2, %17, %19
-  %.0.i.i = phi i16 [ %24, %19 ], [ 0, %2 ], [ -1, %17 ]
+XYZ2Fix.exit:                                     ; preds = %2, %18, %20
+  %.0.i.i = phi i16 [ %25, %20 ], [ 0, %2 ], [ -1, %18 ]
   store i16 %.0.i.i, ptr %0, align 2
-  %25 = fmul double %.sroa.7.1, 3.276800e+04
-  %26 = fadd double %25, 5.000000e-01
-  %27 = fcmp ugt double %26, 0.000000e+00
-  br i1 %27, label %28, label %XYZ2Fix.exit14
+  %26 = fmul double %.sroa.7.2, 3.276800e+04
+  %27 = fadd double %26, 5.000000e-01
+  %28 = fcmp ugt double %27, 0.000000e+00
+  br i1 %28, label %29, label %XYZ2Fix.exit14
 
-28:                                               ; preds = %XYZ2Fix.exit
-  %29 = fcmp ult double %26, 6.553500e+04
-  br i1 %29, label %30, label %XYZ2Fix.exit14
+29:                                               ; preds = %XYZ2Fix.exit
+  %30 = fcmp ult double %27, 6.553500e+04
+  br i1 %30, label %31, label %XYZ2Fix.exit14
 
-30:                                               ; preds = %28
-  %31 = fadd double %26, -3.276700e+04
-  %32 = tail call double @llvm.floor.f64(double %31)
-  %33 = fptosi double %32 to i32
-  %34 = trunc i32 %33 to i16
-  %35 = add i16 %34, 32767
+31:                                               ; preds = %29
+  %32 = fadd double %27, -3.276700e+04
+  %33 = tail call double @llvm.floor.f64(double %32)
+  %34 = fptosi double %33 to i32
+  %35 = trunc i32 %34 to i16
+  %36 = add i16 %35, 32767
   br label %XYZ2Fix.exit14
 
-XYZ2Fix.exit14:                                   ; preds = %XYZ2Fix.exit, %28, %30
-  %.0.i.i13 = phi i16 [ %35, %30 ], [ 0, %XYZ2Fix.exit ], [ -1, %28 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 %.0.i.i13, ptr %36, align 2
-  %37 = fmul double %.sroa.15.2, 3.276800e+04
-  %38 = fadd double %37, 5.000000e-01
-  %39 = fcmp ugt double %38, 0.000000e+00
-  br i1 %39, label %40, label %XYZ2Fix.exit16
+XYZ2Fix.exit14:                                   ; preds = %XYZ2Fix.exit, %29, %31
+  %.0.i.i13 = phi i16 [ %36, %31 ], [ 0, %XYZ2Fix.exit ], [ -1, %29 ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i16 %.0.i.i13, ptr %37, align 2
+  %38 = fmul double %.sroa.15.2, 3.276800e+04
+  %39 = fadd double %38, 5.000000e-01
+  %40 = fcmp ugt double %39, 0.000000e+00
+  br i1 %40, label %41, label %XYZ2Fix.exit16
 
-40:                                               ; preds = %XYZ2Fix.exit14
-  %41 = fcmp ult double %38, 6.553500e+04
-  br i1 %41, label %42, label %XYZ2Fix.exit16
+41:                                               ; preds = %XYZ2Fix.exit14
+  %42 = fcmp ult double %39, 6.553500e+04
+  br i1 %42, label %43, label %XYZ2Fix.exit16
 
-42:                                               ; preds = %40
-  %43 = fadd double %38, -3.276700e+04
-  %44 = tail call double @llvm.floor.f64(double %43)
-  %45 = fptosi double %44 to i32
-  %46 = trunc i32 %45 to i16
-  %47 = add i16 %46, 32767
+43:                                               ; preds = %41
+  %44 = fadd double %39, -3.276700e+04
+  %45 = tail call double @llvm.floor.f64(double %44)
+  %46 = fptosi double %45 to i32
+  %47 = trunc i32 %46 to i16
+  %48 = add i16 %47, 32767
   br label %XYZ2Fix.exit16
 
-XYZ2Fix.exit16:                                   ; preds = %XYZ2Fix.exit14, %40, %42
-  %.0.i.i15 = phi i16 [ %47, %42 ], [ 0, %XYZ2Fix.exit14 ], [ -1, %40 ]
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 %.0.i.i15, ptr %48, align 2
+XYZ2Fix.exit16:                                   ; preds = %XYZ2Fix.exit14, %41, %43
+  %.0.i.i15 = phi i16 [ %48, %43 ], [ 0, %XYZ2Fix.exit14 ], [ -1, %41 ]
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 %.0.i.i15, ptr %49, align 2
   ret void
 }
 

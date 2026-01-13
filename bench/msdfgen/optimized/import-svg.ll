@@ -1274,9 +1274,9 @@ if.end43.i:                                       ; preds = %if.then36.i, %if.en
   %79 = xor i1 %cmp1.i, %cmp1.i334
   %cmp.i53.i = fcmp olt double %sub.i364, 0.000000e+00
   %cond.i.i = select i1 %cmp.i53.i, double 0.000000e+00, double %sub.i364
-  %sqrt.i = call double @llvm.sqrt.f64(double %cond.i.i)
-  %80 = fneg double %sqrt.i
-  %mul58.i = select i1 %79, double %sqrt.i, double %80
+  %call57.i = call double @sqrt(double noundef %cond.i.i) #17
+  %80 = fneg double %call57.i
+  %mul58.i = select i1 %79, double %call57.i, double %80
   %mul60.i = fmul double %radius.sroa.0.0.i, %mul58.i
   %mul62.i = fmul double %77, %mul60.i
   %div64.i = fdiv double %mul62.i, %radius.sroa.14.0.i
@@ -3600,9 +3600,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15

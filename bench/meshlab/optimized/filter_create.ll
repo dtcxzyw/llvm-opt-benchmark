@@ -15537,17 +15537,17 @@ define linkonce_odr void @_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3I
   %.sroa.speculated15.i = select i1 %24, float %23, float 0.000000e+00
   %25 = fcmp olt float %.sroa.speculated15.i, 1.000000e+00
   %.sroa.speculated.i = select i1 %25, float %.sroa.speculated15.i, float 1.000000e+00
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %.sroa.speculated.i)
-  %26 = tail call noundef float @cosf(float noundef %15) #29
-  %27 = fmul float %sqrt.i, %26
-  %28 = tail call noundef float @sinf(float noundef %15) #29
-  %29 = fmul float %sqrt.i, %28
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %27, i64 0
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %29, i64 1
-  %30 = load ptr, ptr %1, align 8
-  %31 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %30, i64 %indvars.iv
-  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %31, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %26 = tail call noundef float @sqrtf(float noundef %.sroa.speculated.i) #29
+  %27 = tail call noundef float @cosf(float noundef %15) #29
+  %28 = fmul float %26, %27
+  %29 = tail call noundef float @sinf(float noundef %15) #29
+  %30 = fmul float %26, %29
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %28, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %30, i64 1
+  %31 = load ptr, ptr %1, align 8
+  %32 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %31, i64 %indvars.iv
+  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %32, align 4
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   store float %21, ptr %.sroa.22.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

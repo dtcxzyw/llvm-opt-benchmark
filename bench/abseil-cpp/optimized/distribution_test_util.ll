@@ -572,15 +572,15 @@ define internal fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_121
   %5 = fcmp olt double %3, 5.000000e-01
   br i1 %5, label %6, label %10
 
-common.ret193:                                    ; preds = %82, %112, %.loopexit, %90, %94, %6
-  %common.ret193.op = phi double [ %9, %6 ], [ %.1145162, %112 ], [ 0x7FF0000000000000, %82 ], [ %91, %90 ], [ %.1145162, %94 ], [ 0x7FF0000000000000, %.loopexit ]
-  ret double %common.ret193.op
+common.ret194:                                    ; preds = %82, %114, %.loopexit, %92, %96, %6
+  %common.ret194.op = phi double [ %9, %6 ], [ %.1145163, %114 ], [ 0x7FF0000000000000, %82 ], [ %93, %92 ], [ %.1145163, %96 ], [ 0x7FF0000000000000, %.loopexit ]
+  ret double %common.ret194.op
 
 6:                                                ; preds = %4
   %7 = fsub double 1.000000e+00, %3
   %8 = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_121BetaIncompleteInvImplEdddd(double noundef %1, double noundef %0, double noundef %2, double noundef %7)
   %9 = fsub double 1.000000e+00, %8
-  br label %common.ret193
+  br label %common.ret194
 
 10:                                               ; preds = %4
   %11 = fmul double %3, %3
@@ -677,66 +677,70 @@ common.ret193:                                    ; preds = %82, %112, %.loopexi
   %.sroa.speculated132 = select i1 %84, double 0x3FEFFFFFFFFFFFA6, double %.sroa.speculated141
   %85 = fsub double 1.000000e+00, %0
   %86 = fsub double 1.000000e+00, %1
-  %87 = fcmp ogt double %.sroa.speculated132, 1.000000e+00
-  br i1 %87, label %common.ret193, label %.lr.ph
+  %87 = fcmp olt double %.sroa.speculated132, 0.000000e+00
+  %88 = fcmp ogt double %.sroa.speculated132, 1.000000e+00
+  %or.cond3162 = or i1 %87, %88
+  br i1 %or.cond3162, label %common.ret194, label %.lr.ph
 
-.loopexit:                                        ; preds = %114
-  %88 = fcmp ogt double %109, 1.000000e+00
-  br i1 %88, label %common.ret193, label %.lr.ph
+.loopexit:                                        ; preds = %116
+  %89 = fcmp ogt double %111, 1.000000e+00
+  br i1 %89, label %common.ret194, label %.lr.ph
 
 .lr.ph:                                           ; preds = %82, %.loopexit
-  %.1145162 = phi double [ %109, %.loopexit ], [ %.sroa.speculated132, %82 ]
-  %89 = fcmp oeq double %.1145162, 1.000000e+00
-  br i1 %89, label %94, label %90
+  %.1145163 = phi double [ %111, %.loopexit ], [ %.sroa.speculated132, %82 ]
+  %90 = fcmp oeq double %.1145163, 0.000000e+00
+  %91 = fcmp oeq double %.1145163, 1.000000e+00
+  %or.cond5 = or i1 %90, %91
+  br i1 %or.cond5, label %96, label %92
 
-90:                                               ; preds = %.lr.ph
-  %91 = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_118BetaIncompleteImplEdddd(double noundef %.1145162, double noundef %0, double noundef %1, double noundef %2)
-  %92 = tail call double @llvm.fabs.f64(double %91)
-  %93 = fcmp ueq double %92, 0x7FF0000000000000
-  br i1 %93, label %common.ret193, label %94
+92:                                               ; preds = %.lr.ph
+  %93 = tail call fastcc noundef double @_ZN4absl15random_internal12_GLOBAL__N_118BetaIncompleteImplEdddd(double noundef %.1145163, double noundef %0, double noundef %1, double noundef %2)
+  %94 = tail call double @llvm.fabs.f64(double %93)
+  %95 = fcmp ueq double %94, 0x7FF0000000000000
+  br i1 %95, label %common.ret194, label %96
 
-94:                                               ; preds = %.lr.ph, %90
-  %.0116 = phi double [ %91, %90 ], [ %.1145162, %.lr.ph ]
+96:                                               ; preds = %.lr.ph, %92
+  %.0116 = phi double [ %93, %92 ], [ %.1145163, %.lr.ph ]
   %.0116.fr = freeze double %.0116
-  %95 = fsub double %.0116.fr, %3
-  %96 = tail call double @log(double noundef %.1145162) #14, !tbaa !12
-  %97 = tail call double @llvm.fmuladd.f64(double %85, double %96, double %2)
-  %98 = fsub double 1.000000e+00, %.1145162
-  %99 = tail call double @log(double noundef %98) #14, !tbaa !12
-  %100 = tail call double @llvm.fmuladd.f64(double %86, double %99, double %97)
-  %101 = tail call double @exp(double noundef %100) #14, !tbaa !12
-  %.fr = freeze double %101
-  %102 = fmul double %95, %.fr
-  %103 = fmul double %102, %102
-  %104 = fcmp olt double %103, 0x3D06849B86A12B9B
-  br i1 %104, label %common.ret193, label %.split
+  %97 = fsub double %.0116.fr, %3
+  %98 = tail call double @log(double noundef %.1145163) #14, !tbaa !12
+  %99 = tail call double @llvm.fmuladd.f64(double %85, double %98, double %2)
+  %100 = fsub double 1.000000e+00, %.1145163
+  %101 = tail call double @log(double noundef %100) #14, !tbaa !12
+  %102 = tail call double @llvm.fmuladd.f64(double %86, double %101, double %99)
+  %103 = tail call double @exp(double noundef %102) #14, !tbaa !12
+  %.fr = freeze double %103
+  %104 = fmul double %97, %.fr
+  %105 = fmul double %104, %104
+  %106 = fcmp olt double %105, 0x3D06849B86A12B9B
+  br i1 %106, label %common.ret194, label %.split
 
-.split:                                           ; preds = %94, %117
-  %.0104 = phi double [ %118, %117 ], [ 1.000000e+00, %94 ]
-  %105 = fmul double %102, %.0104
-  %106 = fmul double %105, %105
-  %107 = fcmp ult double %106, 1.000000e+00
-  br i1 %107, label %108, label %117, !llvm.loop !38
+.split:                                           ; preds = %96, %119
+  %.0104 = phi double [ %120, %119 ], [ 1.000000e+00, %96 ]
+  %107 = fmul double %104, %.0104
+  %108 = fmul double %107, %107
+  %109 = fcmp ult double %108, 1.000000e+00
+  br i1 %109, label %110, label %119, !llvm.loop !38
 
-108:                                              ; preds = %.split
-  %109 = fsub double %.1145162, %105
-  %110 = fcmp olt double %109, 0.000000e+00
-  %111 = fcmp ogt double %109, 1.000000e+00
-  %or.cond7 = or i1 %110, %111
-  br i1 %or.cond7, label %117, label %112, !llvm.loop !38
+110:                                              ; preds = %.split
+  %111 = fsub double %.1145163, %107
+  %112 = fcmp olt double %111, 0.000000e+00
+  %113 = fcmp ogt double %111, 1.000000e+00
+  %or.cond7 = or i1 %112, %113
+  br i1 %or.cond7, label %119, label %114, !llvm.loop !38
 
-112:                                              ; preds = %108
-  %113 = fcmp oeq double %109, %.1145162
-  br i1 %113, label %common.ret193, label %114
+114:                                              ; preds = %110
+  %115 = fcmp oeq double %111, %.1145163
+  br i1 %115, label %common.ret194, label %116
 
-114:                                              ; preds = %112
-  %115 = fcmp oeq double %109, 0.000000e+00
-  %116 = fcmp oeq double %109, 1.000000e+00
-  %or.cond9 = or i1 %115, %116
-  br i1 %or.cond9, label %117, label %.loopexit, !llvm.loop !38
+116:                                              ; preds = %114
+  %117 = fcmp oeq double %111, 0.000000e+00
+  %118 = fcmp oeq double %111, 1.000000e+00
+  %or.cond9 = or i1 %117, %118
+  br i1 %or.cond9, label %119, label %.loopexit, !llvm.loop !38
 
-117:                                              ; preds = %114, %108, %.split
-  %118 = fdiv double %.0104, 3.000000e+00
+119:                                              ; preds = %116, %110, %.split
+  %120 = fdiv double %.0104, 3.000000e+00
   br label %.split
 }
 

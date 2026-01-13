@@ -7462,7 +7462,7 @@ _ZNKRSt8optionalIiE5valueEv.exit43:               ; preds = %75
   %96 = load double, ptr %95, align 8, !tbaa !40
   %97 = fcmp olt double %96, 0x10000000000000
   %.sroa.speculated = select i1 %97, double 0x10000000000000, double %96
-  %98 = call double @llvm.log.f64(double %.sroa.speculated), !tbaa !30
+  %98 = call double @log(double noundef %.sroa.speculated) #33, !tbaa !30
   %99 = fsub double %.036, %98
   br i1 %81, label %100, label %107
 
